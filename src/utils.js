@@ -10,7 +10,7 @@ export function weeks(m) {
   var weeksInMonth = [];
 
   while (currentDay < lastOfMonth) {
-    currentWeek.push(currentDay.format());
+    currentWeek.push(currentDay.clone());
     currentDay.add(1, 'd');
     if (currentDay.weekday() === 0 || currentDay > lastOfMonth) {
       weeksInMonth.push(currentWeek);
