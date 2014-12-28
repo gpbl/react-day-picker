@@ -4,7 +4,8 @@
   "description": "A date picker react component.",
   "main": "index.js",
   "scripts": {
-    "example": "cd example && webpack-dev-server --colors --progress --display-error-details"    
+    "test": "jest",
+    "example": "cd example && webpack-dev-server --colors --progress --display-error-details"
   },
   "repository": {
     "type": "git",
@@ -26,9 +27,23 @@
   "homepage": "https://github.com/gpbl/react-day-picker",
   "devDependencies": {
     "6to5": "^2.1.0",
+    "6to5-jest": "^1.0.0",
     "6to5-loader": "^1.0.0",
+    "jest-cli": "^0.2.1",
     "react": "^0.12.2",
     "webpack": "^1.4.15",
     "webpack-dev-server": "^1.7.0"
+  },
+  "jest": {
+    "scriptPreprocessor": "./node_modules/6to5-jest",
+    "testFileExtensions": [
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ]
+  },
+  "dependencies": {
+    "moment": "^2.8.4"
   }
 }
