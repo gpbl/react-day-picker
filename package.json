@@ -4,7 +4,7 @@
   "description": "A date picker react component.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "example": "cd example && webpack-dev-server --colors --progress --display-error-details"    
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,12 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
-  "homepage": "https://github.com/gpbl/react-day-picker"
+  "homepage": "https://github.com/gpbl/react-day-picker",
+  "devDependencies": {
+    "6to5": "^2.1.0",
+    "6to5-loader": "^1.0.0",
+    "react": "^0.12.2",
+    "webpack": "^1.4.15",
+    "webpack-dev-server": "^1.7.0"
+  }
 }
