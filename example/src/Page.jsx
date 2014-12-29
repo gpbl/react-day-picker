@@ -31,11 +31,7 @@ const Page = React.createClass({
 
   handleDayTouchTap(day, modifiers, e) {
     if (modifiers.indexOf('disabled') === -1)
-      this.setState({ value: dateToValue(day) }, () => {this.focusInput()})
-  },
-
-  focusInput() {
-    this.refs.input.getDOMNode().focus();
+      this.setState({ value: dateToValue(day) })
   },
 
   render() {
