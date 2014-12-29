@@ -1,4 +1,7 @@
-const React = require('react');
-import DayPicker from '../../src/DayPicker.jsx';
+import React from 'react';
+import reactTapEvent from 'react-tap-event-plugin';
+import Page from './Page.jsx';
 
-React.render(<DayPicker/>, document.body);
+reactTapEvent();
+
+React.render(<Page />, document.body);
