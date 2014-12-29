@@ -82,8 +82,8 @@ A `moment()` date object with the month to display in the calendar.
 
 #### modifiers `Object`
 
-* The keys of this object are used as modifier for each day, using class names folowing a BEM-like syntax: `daypicker__day--<modifier>`
-* The key's values are functions being evaluated for each day in the calendar, when they returns `true`, the modifier is added and passed to the `onDayTouchTap` payload.
+* The object's keys are the modifier's name – applied to each day following a BEM-like syntax: `daypicker__day--<modifier>`
+* The key's values are functions evaluated for each day. When they returns `true`, the modifier is added and eventually passed to the `onDayTouchTap` payload.
 
 For example, the following modifiers will add the CSS class `daypicker__day--disabled` to the days of the past:
 
