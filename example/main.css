@@ -26,6 +26,8 @@ input {
   text-align: center;
 }
 
+/* Daypicker styles */
+
 .daypicker {
   border-collapse: collapse;
   border-spacing: 0;
@@ -36,11 +38,12 @@ input {
   -ms-user-select: none;
 }
 
-.daypicker__header--day {
+.daypicker__weekday {
   width: 36px;
   line-height: 36px;
   font-size: 0.875em;
   color: #82888a;
+  font-weight: normal;
 }
 
 .daypicker__day {
@@ -50,14 +53,41 @@ input {
   cursor: pointer;
 }
 
+/* Caption & navigation buttons */
+
+.daypicker__caption {
+  line-height: 36px;
+}
+
+.daypicker__nav {
+  display: block;
+  border: 0;
+  background-color: transparent;
+  position: relative;
+  height: 36px;
+  width: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+  cursor: pointer;
+}
+
+.daypicker__nav--right {
+  background-image: url("images/right.svg");
+}
+.daypicker__nav--left {
+  background-image: url("images/left.svg");
+}
+
+/* Modifiers */
+.daypicker__day--other-month {
+  color: #dce0e0 !important;
+}
+
 .daypicker__day--disabled {
   cursor: default;
   color: #dce0e0;
   background-color: #F1F1F1;
-}
-
-.daypicker__day--other-month {
-  color: #dce0e0 !important;
 }
 
 .daypicker__day--today {
@@ -68,28 +98,4 @@ input {
   color: white;
   background-color: #FF0000;
 }
-
-.daypicker__toolbar {
-  line-height: 36px;
-}
-
-.daypicker__toolbar-button {
-  display: block;
-  border: 0;
-  background-color: transparent;
-  position: relative;
-  height: 36px;
-  width: 36px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 25%;
-}
-
-.daypicker__toolbar-button--right {
-  background-image: url("images/right.svg");
-}
-.daypicker__toolbar-button--left {
-  background-image: url("images/left.svg");
-}
-
   
