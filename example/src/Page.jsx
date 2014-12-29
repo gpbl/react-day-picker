@@ -29,9 +29,13 @@ const Page = React.createClass({
     this.setState({ value: e.target.value });
   },
 
-  handleDayTouchTap(day, modifiers) {
+  handleDayTouchTap(day, modifiers, e) {
     if (modifiers.indexOf('disabled') === -1)
-      this.setState({ value: dateToValue(day) })
+      this.setState({ value: dateToValue(day) }, () => {this.focusInput()})
+  },
+
+  focusInput() {
+    this.refs.input.getDOMNode().focus();
   },
 
   render() {
@@ -45,17 +49,18 @@ const Page = React.createClass({
         return day.diff(moment(), 'day') < 0;
       },
       selected: function (day) {
-        if (modifiers.disabled(day) || !this.state.value) 
+        const value = valueToDate(this.state.value);
+        if (modifiers.disabled(day) || !value) 
           return false;
         else 
-          return isSameDay(valueToDate(this.state.value), day);
+          return isSameDay(value, day);
       }.bind(this)
     };
 
     return (
       <div>
        
-        <input type="text" 
+        <input type="text" autoFocus={true} ref="input"
           placeholder="YYYY-MM-DD" 
           value={this.state.value} 
           onChange={this.handleInputChange} 
