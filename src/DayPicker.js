@@ -24,12 +24,11 @@ const DayPicker = React.createClass({
   },
 
   componentWillReceiveProps(nextProps) {
-    this.setState({month: nextProps.initialMonth});
+    this.setState({ month: nextProps.initialMonth });
   },
   
   componentDidUpdate(prevProps, prevState) {
-    if(this.state.focus)
-      this.refs['d'+this.state.focus].getDOMNode().focus();  
+    if (this.state.focus) this.refs['d'+this.state.focus].getDOMNode().focus();  
   },
 
   getInitialState() {
@@ -54,32 +53,29 @@ const DayPicker = React.createClass({
   },
 
   handleDayFocus(day, modifiers, e){
-    this.setState({focus: day.dayOfYear()}, () => {
-      this.props.onDayFocus && this.props.onDayFocus(e);
-    });
+    this.setState({ focus: day.dayOfYear() });
   },
   
   handleDayBlur(day, modifiers, e){
-    this.setState({focus: null});
+    this.setState({ focus: null });
   },
 
   handleNextTouchTap(e) {
-    const nextMonth = this.state.month.add(1, 'month');
-    this.setState({month: nextMonth});
+    this.setState({ month: this.state.month.add(1, 'month') });
   },
 
   handlePrevTouchTap(e) {
-    const prevMonth = this.state.month.subtract(1, 'month');
-    this.setState({month: prevMonth});
+    this.setState({ month: this.state.month.subtract(1, 'month') });
   },
 
-  getDayModifiers(day) {
+  getModifiersForDay(day) {
     var dayModifiers = [];
-    if (!this.props.modifiers) return dayModifiers;
-    const modifiers = this.props.modifiers;
-    for (let modifier in modifiers) {
-      var func = modifiers[modifier];
-      if (func(day)) dayModifiers.push(modifier);
+    if (this.props.modifiers) {
+      const modifiers = this.props.modifiers;
+      for (let modifier in modifiers) {
+        var func = modifiers[modifier];
+        if (func(day)) dayModifiers.push(modifier);
+      }
     }
     return dayModifiers;
   },
@@ -155,7 +151,7 @@ const DayPicker = React.createClass({
   },
 
   renderDay(day, otherMonth) {
-    const modifiers = this.getDayModifiers(day);
+    const modifiers = this.getModifiersForDay(day);
     
     var className = 'daypicker__day';
     if (otherMonth) className += ' daypicker__day--other-month';
