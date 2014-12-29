@@ -8,7 +8,7 @@ Supports CSS modifiers and touch events.
 npm install 'react-day-picker' --save
 ```
 
-#### Usage example
+### Usage example
 
 ```js
 
@@ -44,6 +44,17 @@ React.render(<MyDatePicker/>, document.body);
 
 ```
 
+### Run the example app
+
+```bash
+git clone https://github.com/gpbl/react-day-picker.git
+cd react-day-picker
+npm install
+npm run example
+```
+
+...then open [http://localhost:8080](http://localhost:8080).
+
 ## API
 
 #### initialMonth `moment object`
@@ -70,4 +81,4 @@ will add the CSS class `daypicker__day--disabled` to the days of the past, and t
 
 #### onDayTouchTap `function(day, modifiers, event)`
 
-Use this attribute to add an handler when the user touch a day.
+Use this attribute to add an handler when the user touches a day.
