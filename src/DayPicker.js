@@ -2,11 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import { weeks } from './utils';
 
-const tableStyle = {display: 'table'};
-const captionStyle = {display: 'table-caption', textAlign: 'center'};
-const rowStyle = {display: 'table-row'};
-const cellStyle = {display: 'table-cell', textAlign: 'center'};
-
 const DayPicker = React.createClass({
 
   propTypes: {
@@ -17,6 +12,7 @@ const DayPicker = React.createClass({
     onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin enabled
     onDayMouseEnter: React.PropTypes.func, 
     onDayMouseLeave: React.PropTypes.func
+  
   },
 
   getDefaultProps() {
@@ -27,21 +23,12 @@ const DayPicker = React.createClass({
     this.setState({ month: nextProps.initialMonth });
   },
   
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.focus) this.refs['d'+this.state.focus].getDOMNode().focus();  
-  },
-
   getInitialState() {
-    return { month: this.props.initialMonth.clone(), focus: null };
+    return { month: this.props.initialMonth.clone() };
   },
 
   handleDayTouchTap(day, modifiers, e) {
     this.props.onDayTouchTap && this.props.onDayTouchTap(day, modifiers, e);
-  },
-
-  handleDayKeyUp(day, modifiers, e) {
-    if (e.keyCode === 13 || e.keyCode === 32)
-      this.props.onDayTouchTap && this.props.onDayTouchTap(day, modifiers, e);
   },
 
   handleDayMouseEnter(day, modifiers, e) {
@@ -50,14 +37,6 @@ const DayPicker = React.createClass({
 
   handleDayMouseLeave(day, modifiers, e) {
     this.props.onDayMouseLeave && this.props.onDayMouseLeave(day, modifiers, e);
-  },
-
-  handleDayFocus(day, modifiers, e){
-    this.setState({ focus: day.dayOfYear() });
-  },
-  
-  handleDayBlur(day, modifiers, e){
-    this.setState({ focus: null });
   },
 
   handleNextTouchTap(e) {
@@ -82,37 +61,35 @@ const DayPicker = React.createClass({
 
   render() {
     return (
-      <div className="daypicker" style={tableStyle}>
-        { this.renderToolbar() }
-        { this.renderWeekHeader() }
-        { this.renderWeeks() }
-      </div>
+      <table className="daypicker">
+        <caption className="daypicker__caption">
+          { this.renderNavButton('left') }
+          { this.state.month.format('MMMM YYYY') }
+          { this.renderNavButton('right') }
+        </caption>
+        <thead>
+          { this.renderWeekHeader() }
+        </thead>
+        <tbody>
+          { this.renderWeeks() }
+        </tbody>
+      </table>
     );
   },
 
-  renderToolbar() {
-    return (
-      <div className="daypicker__toolbar" style={captionStyle}>
-        { this.renderToolbarButton('left') }
-        { this.state.month.format('MMMM YYYY') }
-        { this.renderToolbarButton('right') }
-      </div>
-    );
-  },
-
-  renderToolbarButton(position) {
-    const className = `daypicker__toolbar-button daypicker__toolbar-button--${position}`;
+  renderNavButton(position) {
+    const className = `daypicker__nav daypicker__nav--${position}`;
     const handler = position === 'left' ?  this.handlePrevTouchTap :  this.handleNextTouchTap;
 
-    return <button ref={"btn-"+position} className={className} style={{float: position}} onTouchTap={handler} />;
+    return <span ref={"btn-"+position} className={className} style={{float: position}} onTouchTap={handler} />;
   },
 
   renderWeeks() {
     return weeks(this.state.month).map((week, i) => {
       return (
-        <div key={"w" + i} className="daypicker__week" style={rowStyle}>
+        <tr key={"w" + i} className="daypicker__week">
           { this.renderDays(week) }
-        </div>
+        </tr>
       );
     });
   },
@@ -121,12 +98,12 @@ const DayPicker = React.createClass({
     var header = [];
     for (let i = 0; i < 7; i++) {
       header.push(
-        <div key={"wh_" + i} className="daypicker__header--day" style={cellStyle}>
+        <th key={"wh_" + i} className="daypicker__weekday">
           { moment().weekday(i).format('dd') }
-        </div>
+        </th>
       )
     }
-    return <div className="daypicker__header" style={rowStyle}>{ header }</div>;
+    return header;
   },
 
   renderDays(week) {
@@ -158,19 +135,13 @@ const DayPicker = React.createClass({
     className += modifiers.map((mod) => { return ' daypicker__day--' + mod }).join('');
 
     return (
-      <div tabIndex="0" 
-        ref={"d" + day.dayOfYear()} 
-        key={"d" + day.dayOfYear()} 
+      <td ref={"d" + day.dayOfYear()} key={"d" + day.dayOfYear()} 
         className={className} 
-        style={cellStyle}
         onMouseEnter={this.handleDayMouseEnter.bind(this, day, modifiers)}
         onMouseLeave={this.handleDayMouseLeave.bind(this, day, modifiers)}
-        onKeyUp={this.handleDayKeyUp.bind(this, day, modifiers)}
-        onTouchTap={this.handleDayTouchTap.bind(this, day, modifiers)}
-        onBlur={this.handleDayBlur.bind(this, day, modifiers)}
-        onFocus={this.handleDayFocus.bind(this, day, modifiers)}>
+        onTouchTap={this.handleDayTouchTap.bind(this, day, modifiers)}>
         { day.format('D') }
-      </div>
+      </td>
     );
   }
 
