@@ -2,7 +2,7 @@
 
 A minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). Supports CSS modifiers, touch and keyboard events.
 
-See [demo](http://www.gpbl.org/react-day-picker/).
+See a [live version](http://www.gpbl.org/react-day-picker/) of the [example app](example), which makes the component working together with a `<input>` field.
 
 ```bash
 npm install 'react-day-picker' --save
@@ -54,6 +54,12 @@ npm run example
 ```
 
 ...then open [http://localhost:8080](http://localhost:8080).
+
+## Styling
+
+A basic inline style is included in the component to create the calendar layout, but you likely need to setup your own CSS. 
+
+See [this css example](example/main.css): the daypicker selectors begins with `.daypicker`.
 
 ## API
 
