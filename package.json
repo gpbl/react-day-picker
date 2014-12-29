@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A minimalistic date picker component using moment.js.",
   "main": "react-date-picker.js",
   "scripts": {
@@ -33,7 +33,6 @@
     "6to5-jest": "^1.0.0",
     "6to5-loader": "^1.0.0",
     "jest-cli": "^0.2.1",
-    "react": "^0.12.2",
     "react-tap-event-plugin": "^0.1.3",
     "webpack": "^1.4.15",
     "webpack-dev-server": "^1.7.0"
@@ -48,6 +47,7 @@
     ]
   },
   "dependencies": {
-    "moment": "^2.8.4"
+    "moment": "^2.8.4",
+    "react": "^0.12.2"
   }
 }
