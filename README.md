@@ -1,14 +1,25 @@
 # react-day-picker
 
-A minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). Supports CSS modifiers, touch and keyboard events.
+A minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). 
 
-See a [live version](http://www.gpbl.org/react-day-picker/) of the [example app](example), which makes the component working together with a `<input>` field.
+See [demo](http://www.gpbl.org/react-day-picker/).
 
 ```bash
 npm install 'react-day-picker' --save
 ```
 
-### Usage example
+### Modifiers instead of selected days
+
+This date picker does not have the concept of a *selected date*: instead, you specify *day modifiers*, i.e. strings that classify the aspect and the behaviour for each day in the calendar. 
+
+A modifier is appended to the day cell's CSS class – for example, a `disabled` modifier could make it appearing as disabled, or a `selected` modifier could highlight a range of selected days.
+
+See a [live version](http://www.gpbl.org/react-day-picker/) of the [example app](example), where the the component works together with an `<input>` field. There, the past days are marked as disabled and are not selectable, and the current day is made red.
+
+## Usage example
+
+The following component saves the selected day in its state. It also adds the `daypicker__day--today` CSS modifier to the day cell corresponding to the current day, and the 
+`daypicker__day--selected` CSS modifier to the cell corresponding to the selected day.
 
 ```js
 
@@ -20,22 +31,26 @@ function isSameDay(a, b) {
 }
 
 var MyDatePicker = React.createClass({
+  
   handleDayTouchTap(day, modifiers, event) {
-    if (modifiers.indexOf('disabled') === -1)
-      alert('You tapped ' + day.format());
+    this.setState({ selectedDay: day });
   },
+
   render() {
     var modifiers = {
       today: function (day) {
-        // Add --today CSS modifier for the current day
+        // add the `today` modifier for the current day
         return isSameDay(moment(), day);
+      },
+      selected: function (day) {
+        // add the `selected` modifier for the selected day
+        return this.state.selectedDay 
+          && isSameDay(this.state.selectedDay, day);
       }
     };
     return (
-        <DayPicker 
-          initialMonth={ moment() } 
-          modifiers={ modifiers } 
-          onDayTouchTap={this.handleDayTouchTap} />
+      <DayPicker modifiers={ modifiers } 
+        onDayTouchTap={this.handleDayTouchTap} />
     );
   }
 });
@@ -57,9 +72,7 @@ npm run example
 
 ## Styling
 
-A basic inline style is included in the component to create the calendar layout, but you likely need to setup your own CSS. 
-
-See [this css example](example/main.css): the daypicker selectors begins with `.daypicker`.
+You need to setup your own CSS. See [this css](example/main.css) as example: the daypicker selectors begins with `.daypicker`.
 
 ## API
 
@@ -69,29 +82,29 @@ A `moment()` date object with the month to display in the calendar.
 
 #### modifiers `Object`
 
-CSS modifiers are useful to customize the aspect of a day element. You pass an object whose keys are used as CSS class for each day. The key's values are functions being evaluated when rendering a day element: if the function returns `true` (or a truthy value), the modifier is added to the day cell as `daypicker__day--<modifier>` className.
+* The keys of this object are used as modifier for each day, using class names folowing a BEM-like syntax: `daypicker__day--<modifier>`
+* The key's values are functions being evaluated for each day in the calendar, when they returns `true`, the modifier is added and passed to the `onDayTouchTap` payload.
 
-For example, the following modifiers:
+For example, the following modifiers will add the CSS class `daypicker__day--disabled` to the days of the past:
 
 ```js
 modifiers = {
   disabled: function (day) {
     return day.diff(moment(), 'day') < 0;
-  },
-  all: function (day) {
-    return true;
   }
 }
 ```
 
-will add the CSS class `daypicker__day--disabled` to the days of the past, and the `daypicker__day--all` CSS class to all the days (since it returns always `true`).
-
+#### onDayClick `function(day, modifiers, event)`
 #### onDayTouchTap `function(day, modifiers, event)`
 
-Use this attribute to add an handler when the user touches a day. 
+Use one of these attributes to add an event handler when the user touches/clicks a day. 
 
-> To make the touch tap events working, you **must** inject [react-tap-event-plugin](https://github.com/zilverline/react-tap-event-plugin) client side.
+* `day <Object>` the touched day (a moment object)
+* `modifiers <Array>` array of modifiers for the touched day, e.g. `['disabled', 'today']`
+* `event <SyntheticEvent>` the original touch event
 
+> To make the touch tap events working, you **must** inject [react-tap-event-plugin](https://github.com/zilverline/react-tap-event-plugin) client side. It works better then the click event on mobile.
 
 #### onDayMouseEnter `function(day, modifiers, event)`
 
