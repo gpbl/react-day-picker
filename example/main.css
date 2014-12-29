@@ -7,6 +7,14 @@ body {
   box-sizing: border-box;
 }
 
+h1 {
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+}
+
 input {
   line-height: 36px;
   font-family: "Avenir Next";
