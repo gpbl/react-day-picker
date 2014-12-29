@@ -9,6 +9,7 @@ const DayPicker = React.createClass({
     initialMonth: React.PropTypes.object, // default is current month
     modifiers: React.PropTypes.object,
 
+    onDayClick: React.PropTypes.func,
     onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin enabled
     onDayMouseEnter: React.PropTypes.func, 
     onDayMouseLeave: React.PropTypes.func
@@ -29,6 +30,10 @@ const DayPicker = React.createClass({
 
   handleDayTouchTap(day, modifiers, e) {
     this.props.onDayTouchTap && this.props.onDayTouchTap(day, modifiers, e);
+  },
+
+  handleDayClick(day, modifiers, e) {
+    this.props.onDayClick && this.props.onDayClick(day, modifiers, e);
   },
 
   handleDayMouseEnter(day, modifiers, e) {
@@ -140,6 +145,7 @@ const DayPicker = React.createClass({
         onMouseEnter={this.handleDayMouseEnter.bind(this, day, modifiers)}
         onMouseLeave={this.handleDayMouseLeave.bind(this, day, modifiers)}
         onTouchTap={this.handleDayTouchTap.bind(this, day, modifiers)}>
+        onClick={this.handleDayClick.bind(this, day, modifiers)}>
         { day.format('D') }
       </td>
     );
