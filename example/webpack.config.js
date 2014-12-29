@@ -2,7 +2,7 @@ module.exports = {
   entry: './src/main.jsx',
 
   output: {
-    path: './build',
+    path: './js',
     publicPath: '/js/',
     filename: 'main.js'
   },
