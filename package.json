@@ -2,9 +2,10 @@
   "name": "react-day-picker",
   "version": "0.1.0",
   "description": "A date picker react component.",
-  "main": "index.js",
+  "main": "react-date-picker.js",
   "scripts": {
     "test": "jest",
+    "prepublish": "6to5 ./src/DayPicker.jsx -o react-day-picker.js",
     "example": "cd example && webpack-dev-server --colors --progress --display-error-details"
   },
   "repository": {
