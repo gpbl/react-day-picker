@@ -17,7 +17,9 @@
     "calendar",
     "date-picker",
     "date",
-    "picker"
+    "picker",
+    "moment",
+    "momentjs"
   ],
   "author": "Giampaolo Bellavite <io@gpbl.org>",
   "license": "MIT",
