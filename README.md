@@ -1,6 +1,6 @@
 # react-day-picker
 
-A minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). Supports CSS modifiers and touch and keyboard events.
+A minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). Supports CSS modifiers, touch and keyboard events.
 
 See [demo](http://www.gpbl.org/react-day-picker/).
 
@@ -63,9 +63,9 @@ A `moment()` date object with the month to display in the calendar.
 
 #### modifiers `Object`
 
-An object whose keys will be used as CSS modifiers for the day cells. The key's values are functions being evaluated when printing each day cell: if the function returns `true` (or a truthy value), the modifier is added to the day cell as `daypicker__day--<modifier>` className.
+CSS modifiers are useful to customize the aspect of a day element. You pass an object whose keys are used as CSS class for each day. The key's values are functions being evaluated when rendering a day element: if the function returns `true` (or a truthy value), the modifier is added to the day cell as `daypicker__day--<modifier>` className.
 
-For example, the following modifier:
+For example, the following modifiers:
 
 ```js
 modifiers = {
@@ -77,8 +77,20 @@ modifiers = {
   }
 }
 ```
+
 will add the CSS class `daypicker__day--disabled` to the days of the past, and the `daypicker__day--all` CSS class to all the days (since it returns always `true`).
 
 #### onDayTouchTap `function(day, modifiers, event)`
 
-Use this attribute to add an handler when the user touches a day.
+Use this attribute to add an handler when the user touches a day. 
+
+> To make the touch tap events working, you **must** inject [react-tap-event-plugin](https://github.com/zilverline/react-tap-event-plugin) client side.
+
+
+#### onDayMouseEnter `function(day, modifiers, event)`
+
+Use this attribute to add an handler when the mouse enters a day element. 
+
+#### onDayMouseLeave `function(day, modifiers, event)`
+
+Use this attribute to add an handler when the mouse leaves a day element. 
