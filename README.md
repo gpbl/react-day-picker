@@ -104,7 +104,7 @@ Use one of these attributes to add an event handler when the user touches/clicks
 * `modifiers <Array>` array of modifiers for the touched day, e.g. `['disabled', 'today']`
 * `event <SyntheticEvent>` the original touch event
 
-> To make the touch tap events working, you **must** inject [react-tap-event-plugin](https://github.com/zilverline/react-tap-event-plugin) client side. It works better then the click event on mobile.
+> To make the touch tap events working, you **must** inject [react-tap-event-plugin](https://github.com/zilverline/react-tap-event-plugin) client side.
 
 #### onDayMouseEnter `function(day, modifiers, event)`
 
