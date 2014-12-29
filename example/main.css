@@ -35,18 +35,21 @@ input {
   cursor: pointer;
 }
 
-.daypicker__day--disabled,
-.daypicker__day--empty {
+.daypicker__day--disabled {
   cursor: default;
   color: #dce0e0;
   background-color: #F1F1F1;
+}
+
+.daypicker__day--other-month {
+  color: #dce0e0 !important;
 }
 
 .daypicker__day--today {
   color: red;
 }
 
-.daypicker__day--selected {
+.daypicker__day--selected:not(.daypicker__day--other-month) {
   color: white;
   background-color: #FF0000;
 }
