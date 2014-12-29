@@ -144,7 +144,7 @@ const DayPicker = React.createClass({
         className={className} 
         onMouseEnter={this.handleDayMouseEnter.bind(this, day, modifiers)}
         onMouseLeave={this.handleDayMouseLeave.bind(this, day, modifiers)}
-        onTouchTap={this.handleDayTouchTap.bind(this, day, modifiers)}>
+        onTouchTap={this.handleDayTouchTap.bind(this, day, modifiers)}
         onClick={this.handleDayClick.bind(this, day, modifiers)}>
         { day.format('D') }
       </td>
