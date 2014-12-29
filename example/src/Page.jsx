@@ -1,5 +1,5 @@
 import React from 'react';
-import DayPicker from '../../src/DayPicker.jsx';
+import DayPicker from '../../src/DayPicker.js';
 import moment from 'moment';
 
 function valueToDate(s) {
