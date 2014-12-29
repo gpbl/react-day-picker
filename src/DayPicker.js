@@ -74,9 +74,9 @@ const DayPicker = React.createClass({
   },
 
   getDayModifiers(day) {
-    if (!this.props.modifiers) return '';
-    const modifiers = this.props.modifiers;
     var dayModifiers = [];
+    if (!this.props.modifiers) return dayModifiers;
+    const modifiers = this.props.modifiers;
     for (let modifier in modifiers) {
       var func = modifiers[modifier];
       if (func(day)) dayModifiers.push(modifier);
