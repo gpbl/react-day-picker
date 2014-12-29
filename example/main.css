@@ -1,6 +1,8 @@
 body {
   font-family: "Avenir Next";
   color: #565a5c;
+  text-align: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 * {
@@ -21,12 +23,17 @@ input {
   color: #565a5c;
   font-size: 16px;
   padding: 0 12px;
+  text-align: center;
 }
 
 .daypicker {
-  margin-top: 24px;
   border-collapse: collapse;
   border-spacing: 0;
+  margin: 24px auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .daypicker__header--day {
@@ -73,24 +80,16 @@ input {
   position: relative;
   height: 36px;
   width: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
 }
 
-.daypicker__toolbar-button:after {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  line-height: 36px;
-  font-size: 20px;
-  color: #565a5c;
+.daypicker__toolbar-button--right {
+  background-image: url("images/right.svg");
 }
-
-.daypicker__toolbar-button--right:after {
-  content: "⟩";
-}
-.daypicker__toolbar-button--left:after {
-  content: "⟨";
+.daypicker__toolbar-button--left {
+  background-image: url("images/left.svg");
 }
 
   
