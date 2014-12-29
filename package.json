@@ -2,10 +2,10 @@
   "name": "react-day-picker",
   "version": "0.1.5",
   "description": "A minimalistic date picker component using moment.js.",
-  "main": "react-date-picker.js",
+  "main": "./dist/DayPicker.js",
   "scripts": {
     "test": "jest",
-    "prepublish": "6to5 ./src/DayPicker.jsx -o react-day-picker.js",
+    "prepublish": "6to5 ./src -d ./dist",
     "example": "cd example && webpack-dev-server --colors --progress --display-error-details"
   },
   "repository": {
