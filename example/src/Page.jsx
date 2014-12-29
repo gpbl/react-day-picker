@@ -57,7 +57,7 @@ const Page = React.createClass({
       <div>
         <h1>react-day-picker</h1>
         <p>
-          See docs on <a href="https://github.com/gpbl/react-day-picker">github</a>.
+          See project and docs on <a href="https://github.com/gpbl/react-day-picker">github</a>.
         </p>
 
         <input type="text" autoFocus={true} ref="input"
