@@ -1,8 +1,8 @@
 # react-day-picker
 
-A minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com), inspired by that of airbnb. 
+A minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). Supports CSS modifiers and touch and keyboard events.
 
-Supports CSS modifiers and touch events.
+See [demo](http://www.gpbl.org/react-day-picker/).
 
 ```bash
 npm install 'react-day-picker' --save
