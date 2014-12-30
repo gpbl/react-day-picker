@@ -10,7 +10,7 @@ const DayPicker = React.createClass({
     modifiers: React.PropTypes.object,
 
     onDayClick: React.PropTypes.func,
-    onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin enabled
+    onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin 
     onDayMouseEnter: React.PropTypes.func, 
     onDayMouseLeave: React.PropTypes.func
   
@@ -84,9 +84,12 @@ const DayPicker = React.createClass({
 
   renderNavButton(position) {
     const className = `daypicker__nav daypicker__nav--${position}`;
-    const handler = position === 'left' ?  this.handlePrevTouchTap :  this.handleNextTouchTap;
+    const handler = position === 'left' 
+      ?  this.handlePrevTouchTap 
+      :  this.handleNextTouchTap;
 
-    return <span ref={"btn-"+position} className={className} style={{float: position}} onTouchTap={handler} />;
+    return <span ref={"btn-"+position} className={className} 
+      style={{float: position}} onTouchTap={handler} />;
   },
 
   renderWeeks() {
@@ -137,7 +140,9 @@ const DayPicker = React.createClass({
     
     var className = 'daypicker__day';
     if (otherMonth) className += ' daypicker__day--other-month';
-    className += modifiers.map((mod) => { return ' daypicker__day--' + mod }).join('');
+    className += modifiers.map((mod) => { 
+      return ' daypicker__day--' + mod 
+    }).join('');
 
     return (
       <td ref={"d" + day.dayOfYear()} key={"d" + day.dayOfYear()} 
