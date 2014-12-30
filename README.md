@@ -117,3 +117,8 @@ Use this attribute to add an handler when the mouse enters a day element.
 #### onDayMouseLeave `function(day, modifiers, event)`
 
 Use this attribute to add an handler when the mouse leaves a day element. 
+
+#### onPrevMonthTouchTap `function(month)`
+#### onNextMonthTouchTap `function(month)`
+
+Use this attribute to add an handler when the user switch to the previous/next month.
