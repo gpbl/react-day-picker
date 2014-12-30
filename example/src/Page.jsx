@@ -67,6 +67,7 @@ const Page = React.createClass({
           onFocus={this.handleInputFocus} />
        
         <DayPicker 
+          enableOutsideDays={true}
           initialMonth={ valueToDate(this.state.value) || moment() } 
           modifiers={modifiers} 
           onDayTouchTap={this.handleDayTouchTap} />
