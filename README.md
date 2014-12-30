@@ -80,6 +80,10 @@ You need to setup your own CSS. See [this css](example/main.css) as example: the
 
 A `moment()` date object with the month to display in the calendar.
 
+#### enableOutsideDay `bool`
+
+Show the days outside the shown month.
+
 #### modifiers `Object`
 
 * The object's keys are the modifier's name – applied to each day following a BEM-like syntax: `daypicker__day--<modifier>`
