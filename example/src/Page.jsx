@@ -34,6 +34,10 @@ const Page = React.createClass({
       this.setState({ value: dateToValue(day) })
   },
 
+  handleMonthChange(month) {
+    console.log('Switched to ' + month.format('MMMM YYYY'));
+  },
+
   render() {
 
     var modifiers = {
@@ -70,6 +74,8 @@ const Page = React.createClass({
           enableOutsideDays={true}
           initialMonth={ valueToDate(this.state.value) || moment() } 
           modifiers={modifiers} 
+          onNextMonthTouchTap={this.handleMonthChange}
+          onPrevMonthTouchTap={this.handleMonthChange}
           onDayTouchTap={this.handleDayTouchTap} />
      
       </div>
