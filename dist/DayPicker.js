@@ -17,18 +17,20 @@ var DayPicker = React.createClass({
 
   propTypes: {
 
+    enableOutsideDays: React.PropTypes.bool,
+
     initialMonth: React.PropTypes.object, // default is current month
     modifiers: React.PropTypes.object,
 
     onDayClick: React.PropTypes.func,
-    onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin enabled
+    onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin
     onDayMouseEnter: React.PropTypes.func,
     onDayMouseLeave: React.PropTypes.func
 
   },
 
   getDefaultProps: function () {
-    return { initialMonth: moment() };
+    return { initialMonth: moment(), enableOutsideDays: false };
   },
 
   componentWillReceiveProps: function (nextProps) {
@@ -140,18 +142,23 @@ var DayPicker = React.createClass({
     return days;
   },
 
-  renderDay: function (day, otherMonth) {
+  renderDay: function (day, outside) {
     var modifiers = this.getModifiersForDay(day);
-
+    var doy = day.dayOfYear();
+    var key = "d" + doy;
     var className = "daypicker__day";
-    if (otherMonth) className += " daypicker__day--other-month";
+    if (outside) className += " daypicker__day--outside";
     className += modifiers.map(function (mod) {
       return " daypicker__day--" + mod;
     }).join("");
 
-    return React.createElement("td", {
-      ref: "d" + day.dayOfYear(),
-      key: "d" + day.dayOfYear(),
+    if (outside && !this.props.enableOutsideDays) return React.createElement("td", {
+      className: className,
+      ref: key,
+      key: key
+    });else return React.createElement("td", {
+      ref: key,
+      key: key,
       className: className,
       onMouseEnter: this.handleDayMouseEnter.bind(this, day, modifiers),
       onMouseLeave: this.handleDayMouseLeave.bind(this, day, modifiers),
