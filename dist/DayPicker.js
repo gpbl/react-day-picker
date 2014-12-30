@@ -143,28 +143,30 @@ var DayPicker = React.createClass({
   },
 
   renderDay: function (day, outside) {
-    var modifiers = this.getModifiersForDay(day);
     var doy = day.dayOfYear();
     var key = "d" + doy;
     var className = "daypicker__day";
     if (outside) className += " daypicker__day--outside";
-    className += modifiers.map(function (mod) {
-      return " daypicker__day--" + mod;
-    }).join("");
 
     if (outside && !this.props.enableOutsideDays) return React.createElement("td", {
       className: className,
       ref: key,
       key: key
-    });else return React.createElement("td", {
-      ref: key,
-      key: key,
-      className: className,
-      onMouseEnter: this.handleDayMouseEnter.bind(this, day, modifiers),
-      onMouseLeave: this.handleDayMouseLeave.bind(this, day, modifiers),
-      onTouchTap: this.handleDayTouchTap.bind(this, day, modifiers),
-      onClick: this.handleDayClick.bind(this, day, modifiers)
-    }, day.format("D"));
+    });else {
+      var modifiers = this.getModifiersForDay(day);
+      className += modifiers.map(function (mod) {
+        return " daypicker__day--" + mod;
+      }).join("");
+      return React.createElement("td", {
+        ref: key,
+        key: key,
+        className: className,
+        onMouseEnter: this.handleDayMouseEnter.bind(this, day, modifiers),
+        onMouseLeave: this.handleDayMouseLeave.bind(this, day, modifiers),
+        onTouchTap: this.handleDayTouchTap.bind(this, day, modifiers),
+        onClick: this.handleDayClick.bind(this, day, modifiers)
+      }, day.format("D"));
+    }
   }
 
 });
