@@ -80,7 +80,7 @@ input {
 }
 
 /* Modifiers */
-.daypicker__day--other-month {
+.daypicker__day--outside {
   color: #dce0e0 !important;
 }
 
