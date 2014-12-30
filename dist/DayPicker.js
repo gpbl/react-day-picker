@@ -25,7 +25,10 @@ var DayPicker = React.createClass({
     onDayClick: React.PropTypes.func,
     onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin
     onDayMouseEnter: React.PropTypes.func,
-    onDayMouseLeave: React.PropTypes.func
+    onDayMouseLeave: React.PropTypes.func,
+
+    onNextMonthTouchTap: React.PropTypes.func,
+    onPrevMonthTouchTap: React.PropTypes.func
 
   },
 
@@ -58,11 +61,17 @@ var DayPicker = React.createClass({
   },
 
   handleNextTouchTap: function (e) {
-    this.setState({ month: this.state.month.add(1, "month") });
+    var _this = this;
+    this.setState({ month: this.state.month.add(1, "month") }, function () {
+      _this.props.onNextMonthTouchTap && _this.props.onNextMonthTouchTap(_this.state.month);
+    });
   },
 
   handlePrevTouchTap: function (e) {
-    this.setState({ month: this.state.month.subtract(1, "month") });
+    var _this2 = this;
+    this.setState({ month: this.state.month.subtract(1, "month") }, function () {
+      _this2.props.onPrevMonthTouchTap && _this2.props.onPrevMonthTouchTap(_this2.state.month);
+    });
   },
 
   getModifiersForDay: function (day) {
@@ -98,12 +107,12 @@ var DayPicker = React.createClass({
   },
 
   renderWeeks: function () {
-    var _this = this;
+    var _this3 = this;
     return weeks(this.state.month).map(function (week, i) {
       return React.createElement("tr", {
         key: "w" + i,
         className: "daypicker__week"
-      }, _this.renderDays(week));
+      }, _this3.renderDays(week));
     });
   },
 
@@ -119,12 +128,12 @@ var DayPicker = React.createClass({
   },
 
   renderDays: function (week) {
-    var _this2 = this;
+    var _this4 = this;
     var firstDay = week[0];
     var lastDay = week[week.length - 1];
 
     var days = week.map(function (day) {
-      return _this2.renderDay(day);
+      return _this4.renderDay(day);
     });
 
     // days belonging to the previous month
