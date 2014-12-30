@@ -138,18 +138,18 @@ const DayPicker = React.createClass({
   },
 
   renderDay(day, outside) {
-    const modifiers = this.getModifiersForDay(day);
     const doy = day.dayOfYear();
     const key = `d${doy}`;
     var className = 'daypicker__day';
     if (outside) className += ' daypicker__day--outside';
-    className += modifiers.map((mod) => { 
-      return ' daypicker__day--' + mod 
-    }).join('');
 
     if (outside && !this.props.enableOutsideDays)
       return <td className={className} ref={key} key={key} />;
-    else 
+    else {
+      const modifiers = this.getModifiersForDay(day);
+      className += modifiers.map((mod) => { 
+        return ' daypicker__day--' + mod 
+      }).join('');
       return (
         <td ref={key} key={key} 
           className={className} 
@@ -160,6 +160,7 @@ const DayPicker = React.createClass({
           { day.format('D') }
         </td>
       );
+    }
   }
 
 });
