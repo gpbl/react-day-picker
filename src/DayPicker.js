@@ -5,6 +5,8 @@ import { weeks } from './utils';
 const DayPicker = React.createClass({
 
   propTypes: {
+
+    enableOutsideDays: React.PropTypes.bool,
     
     initialMonth: React.PropTypes.object, // default is current month
     modifiers: React.PropTypes.object,
@@ -17,7 +19,7 @@ const DayPicker = React.createClass({
   },
 
   getDefaultProps() {
-    return { initialMonth: moment() };
+    return { initialMonth: moment(), enableOutsideDays: false };
   },
 
   componentWillReceiveProps(nextProps) {
@@ -135,25 +137,29 @@ const DayPicker = React.createClass({
     return days;
   },
 
-  renderDay(day, otherMonth) {
+  renderDay(day, outside) {
     const modifiers = this.getModifiersForDay(day);
-    
+    const doy = day.dayOfYear();
+    const key = `d${doy}`;
     var className = 'daypicker__day';
-    if (otherMonth) className += ' daypicker__day--other-month';
+    if (outside) className += ' daypicker__day--outside';
     className += modifiers.map((mod) => { 
       return ' daypicker__day--' + mod 
     }).join('');
 
-    return (
-      <td ref={"d" + day.dayOfYear()} key={"d" + day.dayOfYear()} 
-        className={className} 
-        onMouseEnter={this.handleDayMouseEnter.bind(this, day, modifiers)}
-        onMouseLeave={this.handleDayMouseLeave.bind(this, day, modifiers)}
-        onTouchTap={this.handleDayTouchTap.bind(this, day, modifiers)}
-        onClick={this.handleDayClick.bind(this, day, modifiers)}>
-        { day.format('D') }
-      </td>
-    );
+    if (outside && !this.props.enableOutsideDays)
+      return <td className={className} ref={key} key={key} />;
+    else 
+      return (
+        <td ref={key} key={key} 
+          className={className} 
+          onMouseEnter={this.handleDayMouseEnter.bind(this, day, modifiers)}
+          onMouseLeave={this.handleDayMouseLeave.bind(this, day, modifiers)}
+          onTouchTap={this.handleDayTouchTap.bind(this, day, modifiers)}
+          onClick={this.handleDayClick.bind(this, day, modifiers)}>
+          { day.format('D') }
+        </td>
+      );
   }
 
 });
