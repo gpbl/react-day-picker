@@ -62,14 +62,14 @@ var DayPicker = React.createClass({
 
   handleNextTouchTap: function (e) {
     var _this = this;
-    this.setState({ month: this.state.month.add(1, "month") }, function () {
+    this.setState({ month: this.state.month.clone().add(1, "month") }, function () {
       _this.props.onNextMonthTouchTap && _this.props.onNextMonthTouchTap(_this.state.month);
     });
   },
 
   handlePrevTouchTap: function (e) {
     var _this2 = this;
-    this.setState({ month: this.state.month.subtract(1, "month") }, function () {
+    this.setState({ month: this.state.month.clone().subtract(1, "month") }, function () {
       _this2.props.onPrevMonthTouchTap && _this2.props.onPrevMonthTouchTap(_this2.state.month);
     });
   },
