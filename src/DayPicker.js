@@ -15,7 +15,7 @@ const DayPicker = React.createClass({
     onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin 
     onDayMouseEnter: React.PropTypes.func, 
     onDayMouseLeave: React.PropTypes.func, 
-    
+
     onNextMonthTouchTap: React.PropTypes.func, 
     onPrevMonthTouchTap: React.PropTypes.func
   
@@ -50,14 +50,14 @@ const DayPicker = React.createClass({
   },
 
   handleNextTouchTap(e) {
-    this.setState({ month: this.state.month.add(1, 'month') }, () => {
+    this.setState({ month: this.state.month.clone().add(1, 'month') }, () => {
       this.props.onNextMonthTouchTap 
       && this.props.onNextMonthTouchTap(this.state.month);
     });
   },
 
   handlePrevTouchTap(e) {
-    this.setState({ month: this.state.month.subtract(1, 'month') }, () => {
+    this.setState({ month: this.state.month.clone().subtract(1, 'month') }, () => {
       this.props.onPrevMonthTouchTap 
       && this.props.onPrevMonthTouchTap(this.state.month);
     });
