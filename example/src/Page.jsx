@@ -34,8 +34,16 @@ const Page = React.createClass({
       this.setState({ value: dateToValue(day) })
   },
 
+  handleDayMouseEnter(day, modifiers, nativeEvent) {
+    console.log(`onMouseEnter: ${day.format('L')}`, nativeEvent.target);
+  },
+  
+  handleDayMouseLeave(day, modifiers, nativeEvent) {
+    console.log(`onMouseLeave: ${day.format('L')}`, nativeEvent.target);
+  },
+
   handleMonthChange(month) {
-    console.log('Switched to ' + month.format('MMMM YYYY'));
+    console.log(`onMonthChange: ${month.format('MMMM YYYY')}`);
   },
 
   render() {
@@ -74,6 +82,7 @@ const Page = React.createClass({
           enableOutsideDays={true}
           initialMonth={ valueToDate(this.state.value) || moment() } 
           modifiers={modifiers} 
+          onDayMouseEnter={this.handleDayMouseEnter}
           onNextMonthTouchTap={this.handleMonthChange}
           onPrevMonthTouchTap={this.handleMonthChange}
           onDayTouchTap={this.handleDayTouchTap} />
