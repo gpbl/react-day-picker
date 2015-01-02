@@ -26,6 +26,7 @@ const Page = React.createClass({
   },
 
   handleInputFocus(e) {
+    // bring back the calendar to the current input value
     this.setState({ value: e.target.value });
   },
 
@@ -35,11 +36,11 @@ const Page = React.createClass({
   },
 
   handleDayMouseEnter(day, modifiers, nativeEvent) {
-    console.log(`onMouseEnter: ${day.format('L')}`, nativeEvent.target);
+    console.log(`onMouseEnter: ${day.format('L')}`);
   },
   
   handleDayMouseLeave(day, modifiers, nativeEvent) {
-    console.log(`onMouseLeave: ${day.format('L')}`, nativeEvent.target);
+    console.log(`onMouseLeave: ${day.format('L')}`);
   },
 
   handleMonthChange(month) {
@@ -59,6 +60,7 @@ const Page = React.createClass({
       selected: function (day) {
         const value = valueToDate(this.state.value);
         if (modifiers.disabled(day) || !value) 
+          // value may be null if not a valid date 
           return false;
         else 
           return isSameDay(value, day);
@@ -67,9 +69,11 @@ const Page = React.createClass({
 
     return (
       <div>
+        
         <h1>react-day-picker</h1>
+
         <p>
-          See project and docs on <a href="https://github.com/gpbl/react-day-picker">github</a>.
+          See project on <a href="https://github.com/gpbl/react-day-picker">github</a>.
         </p>
 
         <input type="text" ref="input"
