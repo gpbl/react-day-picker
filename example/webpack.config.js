@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/main.jsx',
+  entry: './src/jsx/main.jsx',
 
   output: {
     path: './js',
@@ -12,6 +12,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['6to5-loader'] },
+      { test: /\.scss?$/, loaders: ['style', 'css', 'sass-loader'] },
+      { test: /\.svg$/, loader: "url-loader?limit=100000&mimetype=image/svg+xml" }
     ]
   },
   devtool: 'source-map'
