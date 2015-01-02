@@ -50,7 +50,7 @@
   border: 1px solid #dce0e0;
   cursor: pointer;
 
-  &:hover:not(.daypicker__day--other-month):not(.daypicker__day--disabled) {
+  &:hover:not(.daypicker__day--outside):not(.daypicker__day--disabled) {
     background-color: #FF0000;
     color: white;
   }
@@ -72,7 +72,7 @@
   color: #FF0000;
 }
 
-.daypicker__day--selected:not(.daypicker__day--other-month) {
+.daypicker__day--selected:not(.daypicker__day--outside) {
   color: white;
   background-color: #FF0000;
 }
