@@ -1,30 +1,3 @@
-body {
-  font-family: "Avenir Next";
-  color: #565a5c;
-  text-align: center;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1 {
-  font-weight: 400;
-}
-
-a {
-  color: inherit;
-}
-
-input {
-  line-height: 36px;
-  font-family: "Avenir Next";
-  color: #565a5c;
-  font-size: 16px;
-  padding: 0 12px;
-  text-align: center;
-}
 
 /* Daypicker styles */
 
@@ -33,9 +6,12 @@ input {
   border-spacing: 0;
   margin: 24px auto;
   user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+}
+
+/* Caption & navigation buttons */
+
+.daypicker__caption {
+  line-height: 36px;
 }
 
 .daypicker__weekday {
@@ -44,19 +20,6 @@ input {
   font-size: 0.875em;
   color: #82888a;
   font-weight: normal;
-}
-
-.daypicker__day {
-  width: 36px;
-  line-height: 36px;
-  border: 1px solid #dce0e0;
-  cursor: pointer;
-}
-
-/* Caption & navigation buttons */
-
-.daypicker__caption {
-  line-height: 36px;
 }
 
 .daypicker__nav {
@@ -79,7 +42,22 @@ input {
   background-image: url("../svg/left.svg");
 }
 
+/* Days */
+
+.daypicker__day {
+  width: 36px;
+  line-height: 36px;
+  border: 1px solid #dce0e0;
+  cursor: pointer;
+
+  &:hover:not(.daypicker__day--other-month):not(.daypicker__day--disabled) {
+    background-color: #FF0000;
+    color: white;
+  }
+}
+
 /* Modifiers */
+
 .daypicker__day--outside {
   color: #dce0e0 !important;
 }
@@ -91,11 +69,10 @@ input {
 }
 
 .daypicker__day--today {
-  color: red;
+  color: #FF0000;
 }
 
 .daypicker__day--selected:not(.daypicker__day--other-month) {
   color: white;
   background-color: #FF0000;
 }
-  

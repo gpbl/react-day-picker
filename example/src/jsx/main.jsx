@@ -6,6 +6,7 @@ import Page from './Page.jsx';
 reactTapEvent();
 
 // inject css
-require("../scss/main.scss");
+require("../scss/page.scss");
+require("../scss/daypicker.scss");
 
 React.render(<Page />, document.body);
