@@ -34,6 +34,7 @@
     "6to5": "^2.1.0",
     "6to5-jest": "^1.0.0",
     "6to5-loader": "^1.0.0",
+    "autoprefixer-loader": "^1.0.0",
     "css-loader": "^0.9.0",
     "jest-cli": "^0.2.1",
     "react-tap-event-plugin": "^0.1.3",
