@@ -86,7 +86,7 @@ npm run example
 
 A `moment()` date object with the month to display in the calendar.
 
-#### enableOutsideDay `bool`
+#### enableOutsideDays `bool`
 
 Show the days outside the shown month.
 
