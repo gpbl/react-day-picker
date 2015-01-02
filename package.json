@@ -5,6 +5,7 @@
   "main": "./dist/DayPicker.js",
   "scripts": {
     "test": "jest",
+    "build": "cd example && webpack --hot=false --devtool=false --optimize-minimize",
     "prepublish": "6to5 ./src -d ./dist",
     "example": "cd example && webpack-dev-server --colors --progress --display-error-details"
   },
