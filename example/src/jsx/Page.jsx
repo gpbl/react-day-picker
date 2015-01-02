@@ -35,20 +35,7 @@ const Page = React.createClass({
       this.setState({ value: dateToValue(day) })
   },
 
-  handleDayMouseEnter(day, modifiers, nativeEvent) {
-    console.log(`onMouseEnter: ${day.format('L')}`);
-  },
-  
-  handleDayMouseLeave(day, modifiers, nativeEvent) {
-    console.log(`onMouseLeave: ${day.format('L')}`);
-  },
-
-  handleMonthChange(month) {
-    console.log(`onMonthChange: ${month.format('MMMM YYYY')}`);
-  },
-
-  render() {
-
+  getModifiers() {
     var modifiers = {
       today: function (day) {
         return isSameDay(moment(), day);
@@ -66,6 +53,10 @@ const Page = React.createClass({
           return isSameDay(value, day);
       }.bind(this)
     };
+    return modifiers;
+  },
+
+  render() {
 
     return (
       <div>
@@ -85,10 +76,7 @@ const Page = React.createClass({
         <DayPicker 
           enableOutsideDays={true}
           initialMonth={ valueToDate(this.state.value) || moment() } 
-          modifiers={modifiers} 
-          onDayMouseEnter={this.handleDayMouseEnter}
-          onNextMonthTouchTap={this.handleMonthChange}
-          onPrevMonthTouchTap={this.handleMonthChange}
+          modifiers={ this.getModifiers() } 
           onDayTouchTap={this.handleDayTouchTap} />
      
       </div>
