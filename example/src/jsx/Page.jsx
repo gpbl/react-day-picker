@@ -72,7 +72,7 @@ const Page = React.createClass({
           See project and docs on <a href="https://github.com/gpbl/react-day-picker">github</a>.
         </p>
 
-        <input type="text" autoFocus={true} ref="input"
+        <input type="text" ref="input"
           placeholder="YYYY-MM-DD" 
           value={this.state.value} 
           onChange={this.handleInputChange} 
