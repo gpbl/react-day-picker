@@ -58,9 +58,13 @@
 
 /* Modifiers */
 
+// reserved for days outside the current months
+
 .daypicker__day--outside {
   color: #dce0e0 !important;
 }
+
+// custom modifiers
 
 .daypicker__day--disabled {
   cursor: default;
