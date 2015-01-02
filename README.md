@@ -1,25 +1,35 @@
 # react-day-picker
 
-A minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). 
+Minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). 
 
-See [demo](http://www.gpbl.org/react-day-picker/).
 
 ```bash
-npm install 'react-day-picker' --save
+npm install react-day-picker --save
 ```
 
-### Modifiers instead of selected days
+See a [live version](http://www.gpbl.org/react-day-picker/) of the [example app](example), where the the component works together with an `<input>` field. There, the past days are shown as "disabled" and cannot be selected.
 
-This date picker does not have the concept of a *selected date*: instead, you specify *day modifiers*, i.e. strings that classify the aspect and the behaviour for each day in the calendar. 
+## Modifiers instead of selected days
 
-A modifier is appended to the day cell's CSS class – for example, a `disabled` modifier could make it appearing as disabled, or a `selected` modifier could highlight a range of selected days.
+This date picker does not have the concept of a *selected date*: instead, you specify custom *day modifiers*. A modifier is a string that classify the aspect (and eventually the behaviour) for each day appearing in the calendar. 
 
-See a [live version](http://www.gpbl.org/react-day-picker/) of the [example app](example), where the the component works together with an `<input>` field. There, the past days are marked as disabled and are not selectable, and the current day is made red.
+By evaluating a `function(day)` you provide, a modifier is appended for each day to the `daypicker__day` class, using a [BEM-like syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/). 
+
+For example, a `disabled` modifier (`daypicker__day--disabled`) may make it appearing as grayed-out, or a `selected` (`daypicker__day--selected`) modifier could highlight a range of selected days. 
+
+### Selecting a day 
+
+You are expected to use the `state` of your component: set its state listening to the `onTouchTap/onClick` DayPicker events (see API and example below).
+
+## Styling
+
+You need to setup your own CSS. You can start from [this css](example/src/scss/daypicker.scss) as example.
 
 ## Usage example
 
-The following component saves the selected day in its state. It also adds the `daypicker__day--today` CSS modifier to the day cell corresponding to the current day, and the 
-`daypicker__day--selected` CSS modifier to the cell corresponding to the selected day.
+The following component implements the DayPicker and saves the selected day in its own `state`. 
+
+It also adds the `daypicker__day--today` CSS modifier for today, and a `daypicker__day--selected` CSS modifier to the cell corresponding to the selected day.
 
 ```js
 
@@ -70,10 +80,6 @@ npm run example
 
 ...then open [http://localhost:8080](http://localhost:8080).
 
-## Styling
-
-You need to setup your own CSS. See [this css](example/main.css) as example: the daypicker selectors begins with `.daypicker`.
-
 ## API
 
 #### initialMonth `moment object`
@@ -86,17 +92,20 @@ Show the days outside the shown month.
 
 #### modifiers `Object`
 
-* The object's keys are the modifier's name – applied to each day following a BEM-like syntax: `daypicker__day--<modifier>`
-* The key's values are functions evaluated for each day. When they returns `true`, the modifier is added and eventually passed to the `onDayTouchTap` payload.
+* The object's keys are the modifier's name – applied to each day, following a BEM-like syntax: `daypicker__day--<modifier>`
+* The key's values are functions evaluated for each day. When they returns `true`, the modifier is applied, and eventually passed to the `onDayTouchTap` payload.
 
 For example, the following modifiers will add the CSS class `daypicker__day--disabled` to the days of the past:
 
 ```js
+
 modifiers = {
   disabled: function (day) {
     return day.diff(moment(), 'day') < 0;
   }
 }
+<DayPicker modifiers={modifiers} />
+
 ```
 
 #### onDayClick `function(day, modifiers, event)`
@@ -111,12 +120,9 @@ Use one of these attributes to add an event handler when the user touches/clicks
 > To make the touch tap events working, you **must** inject [react-tap-event-plugin](https://github.com/zilverline/react-tap-event-plugin) client side.
 
 #### onDayMouseEnter `function(day, modifiers, event)`
-
-Use this attribute to add an handler when the mouse enters a day element. 
-
 #### onDayMouseLeave `function(day, modifiers, event)`
 
-Use this attribute to add an handler when the mouse leaves a day element. 
+Use this attribute to add an handler when the mouse enters/leaves a day element. 
 
 #### onPrevMonthTouchTap `function(month)`
 #### onNextMonthTouchTap `function(month)`
