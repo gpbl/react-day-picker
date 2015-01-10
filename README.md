@@ -1,35 +1,29 @@
 # react-day-picker
 
-Minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). 
+<p align="center">
+<a href="http://www.gpbl.org/react-day-picker/"><img src="https://cloud.githubusercontent.com/assets/120693/5693331/3aba1d2e-9918-11e4-933e-bf296484017a.png" width="254" /></a>
+</p>
 
+Minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). See a [demo](http://www.gpbl.org/react-day-picker/).
 
 ```bash
 npm install react-day-picker --save
 ```
 
-See a [live version](http://www.gpbl.org/react-day-picker/) of the [example app](example), where the the component works together with an `<input>` field. There, the past days are shown as "disabled" and cannot be selected.
+### Use of modifiers
 
-## Modifiers instead of selected days
+This date picker works with modifiers, as in [BEM-like syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/). You set the modifiers as functions returning `true` or `false`. 
 
-This date picker does not have the concept of a *selected date*: instead, you specify custom *day modifiers*. A modifier is a string that classify the aspect (and eventually the behaviour) for each day appearing in the calendar. 
+Modifiers give you a lot of freedom: for example, a `selected` modifier could highlight *a range* of selected days, or a `weekend` modifiers could format the weekend days.
 
-By evaluating a `function(day)` you provide, a modifier is appended for each day to the `daypicker__day` class, using a [BEM-like syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/). 
-
-For example, a `disabled` modifier (`daypicker__day--disabled`) may make it appearing as grayed-out, or a `selected` (`daypicker__day--selected`) modifier could highlight a range of selected days. 
-
-### Selecting a day 
-
-You are expected to use the `state` of your component: set its state listening to the `onTouchTap/onClick` DayPicker events (see API and example below).
-
-## Styling
+### Styling
 
 You need to setup your own CSS. You can start from [this css](example/src/scss/daypicker.scss) as example.
 
-## Usage example
+## Usage examples
 
 The following component implements the DayPicker and saves the selected day in its own `state`. 
-
-It also adds the `daypicker__day--today` CSS modifier for today, and a `daypicker__day--selected` CSS modifier to the cell corresponding to the selected day.
+It also adds the `daypicker__day--today` CSS modifier for today, and a `daypicker__day--selected` CSS modifier to the cell corresponding to the clicked/touched day.
 
 ```js
 
@@ -84,11 +78,7 @@ npm run example
 
 #### initialMonth `moment object`
 
-A `moment()` date object with the month to display in the calendar.
-
-#### enableOutsideDays `bool`
-
-Show the days outside the shown month.
+A `moment()` object with the month to display in the calendar.
 
 #### modifiers `Object`
 
@@ -107,6 +97,12 @@ modifiers = {
 <DayPicker modifiers={modifiers} />
 
 ```
+
+#### enableOutsideDays `bool`
+
+Show the days outside the shown month.
+
+### Events handlers 
 
 #### onDayClick `function(day, modifiers, event)`
 #### onDayTouchTap `function(day, modifiers, event)`
