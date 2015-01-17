@@ -50,37 +50,41 @@ const DayPicker = React.createClass({
   },
 
   handleNextTouchTap(e) {
-    this.setState({ month: this.state.month.clone().add(1, 'month') }, () => {
+    const { month } = this.state;
+    const nextMonth = month.clone().add(1, 'month');
+    this.setState({ month: nextMonth }, () => {
       this.props.onNextMonthTouchTap 
       && this.props.onNextMonthTouchTap(this.state.month);
     });
   },
 
   handlePrevTouchTap(e) {
-    this.setState({ month: this.state.month.clone().subtract(1, 'month') }, () => {
+    const { month } = this.state;
+    const prevMonth = month.clone().subtract(1, 'month');
+    this.setState({ month: prevMonth }, () => {
       this.props.onPrevMonthTouchTap 
       && this.props.onPrevMonthTouchTap(this.state.month);
     });
   },
 
   getModifiersForDay(day) {
+    const { modifiers } = this.props;
     var dayModifiers = [];
-    if (this.props.modifiers) {
-      const modifiers = this.props.modifiers;
+    if (modifiers)
       for (let modifier in modifiers) {
-        var func = modifiers[modifier];
+        let func = modifiers[modifier];
         if (func(day)) dayModifiers.push(modifier);
       }
-    }
     return dayModifiers;
   },
 
   render() {
+    const { month } = this.state;
     return (
       <table className="daypicker">
         <caption className="daypicker__caption">
           { this.renderNavButton('left') }
-          { this.state.month.format('MMMM YYYY') }
+          { month.format('MMMM YYYY') }
           { this.renderNavButton('right') }
         </caption>
         <thead>
@@ -106,7 +110,7 @@ const DayPicker = React.createClass({
   renderWeeks() {
     return weeks(this.state.month).map((week, i) => {
       return (
-        <tr key={"w" + i} className="daypicker__week">
+        <tr key={i} className="daypicker__week">
           { this.renderDays(week) }
         </tr>
       );
@@ -117,7 +121,7 @@ const DayPicker = React.createClass({
     var header = [];
     for (let i = 0; i < 7; i++) {
       header.push(
-        <th key={"wh_" + i} className="daypicker__weekday">
+        <th key={i} className="daypicker__weekday">
           { moment().weekday(i).format('dd') }
         </th>
       )
@@ -147,13 +151,13 @@ const DayPicker = React.createClass({
   },
 
   renderDay(day, outside) {
-    const doy = day.dayOfYear();
-    const key = `d${doy}`;
+    const key = `${day.dayOfYear()}`;
     var className = 'daypicker__day';
     if (outside) className += ' daypicker__day--outside';
 
-    if (outside && !this.props.enableOutsideDays)
+    if (outside && !this.props.enableOutsideDays) {
       return <td className={className} ref={key} key={key} />;
+    }
     else {
       const modifiers = this.getModifiersForDay(day);
       className += modifiers.map((mod) => { 
