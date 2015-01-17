@@ -6,9 +6,12 @@
 
 Minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). See a [demo](http://www.gpbl.org/react-day-picker/).
 
+
 ```bash
 npm install react-day-picker --save
 ```
+
+[![npm version](https://badge.fury.io/js/react-day-picker.svg)](http://badge.fury.io/js/react-day-picker)
 
 ### Use of modifiers
 
