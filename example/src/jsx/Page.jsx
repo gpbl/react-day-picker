@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react/addons';
 import DayPicker from '../../../src/DayPicker.js';
 import moment from 'moment';
 
@@ -17,12 +17,10 @@ function isSameDay(a, b) {
 
 const Page = React.createClass({
 
+  mixins: [React.addons.LinkedStateMixin],
+  
   getInitialState() {
     return { value: dateToValue(moment()) };
-  },
-
-  handleInputChange(e) {
-    this.setState({ value: e.target.value });
   },
 
   handleInputFocus(e) {
@@ -69,8 +67,7 @@ const Page = React.createClass({
 
         <input type="text" ref="input"
           placeholder="YYYY-MM-DD" 
-          value={this.state.value} 
-          onChange={this.handleInputChange} 
+          valueLink={this.linkState('value')}
           onFocus={this.handleInputFocus} />
        
         <DayPicker 
