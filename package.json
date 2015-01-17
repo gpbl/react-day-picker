@@ -4,10 +4,9 @@
   "description": "Minimalistic date picker component for React and momentjs.",
   "main": "./dist/DayPicker.js",
   "scripts": {
-    "test": "jest",
+    "start": "cd example && webpack-dev-server --colors --progress --display-error-details",
     "build": "cd example && webpack --hot=false --devtool=false --optimize-minimize",
-    "prepublish": "6to5 ./src -d ./dist",
-    "example": "cd example && webpack-dev-server --colors --progress --display-error-details"
+    "prepublish": "6to5 ./src -d ./dist"
   },
   "repository": {
     "type": "git",

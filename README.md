@@ -69,7 +69,7 @@ React.render(<MyDatePicker/>, document.body);
 git clone https://github.com/gpbl/react-day-picker.git
 cd react-day-picker
 npm install
-npm run example
+npm start
 ```
 
 ...then open [http://localhost:8080](http://localhost:8080).
