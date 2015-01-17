@@ -16,8 +16,8 @@ const DayPicker = React.createClass({
     onDayMouseEnter: React.PropTypes.func, 
     onDayMouseLeave: React.PropTypes.func, 
 
-    onNextMonthTouchTap: React.PropTypes.func, 
-    onPrevMonthTouchTap: React.PropTypes.func
+    onNextMonthClick: React.PropTypes.func, 
+    onPrevMonthClick: React.PropTypes.func
   
   },
 
@@ -49,21 +49,21 @@ const DayPicker = React.createClass({
     this.props.onDayMouseLeave && this.props.onDayMouseLeave(day, modifiers, e);
   },
 
-  handleNextTouchTap(e) {
+  handleNextMonthClick(e) {
     const { month } = this.state;
     const nextMonth = month.clone().add(1, 'month');
     this.setState({ month: nextMonth }, () => {
-      this.props.onNextMonthTouchTap 
-      && this.props.onNextMonthTouchTap(this.state.month);
+      this.props.onNextMonthClick 
+      && this.props.onNextMonthClick(this.state.month);
     });
   },
 
-  handlePrevTouchTap(e) {
+  handlePrevMonthClick(e) {
     const { month } = this.state;
     const prevMonth = month.clone().subtract(1, 'month');
     this.setState({ month: prevMonth }, () => {
-      this.props.onPrevMonthTouchTap 
-      && this.props.onPrevMonthTouchTap(this.state.month);
+      this.props.onPrevMonthClick 
+      && this.props.onPrevMonthClick(this.state.month);
     });
   },
 
@@ -100,11 +100,11 @@ const DayPicker = React.createClass({
   renderNavButton(position) {
     const className = `daypicker__nav daypicker__nav--${position}`;
     const handler = position === 'left' 
-      ?  this.handlePrevTouchTap 
-      :  this.handleNextTouchTap;
+      ?  this.handlePrevMonthClick 
+      :  this.handleNextMonthClick;
 
     return <span ref={"btn-"+position} className={className} 
-      style={{float: position}} onTouchTap={handler} />;
+      style={{float: position}} onClick={handler} />;
   },
 
   renderWeeks() {
