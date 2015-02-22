@@ -1,8 +1,6 @@
 "use strict";
 
-var _interopRequire = function (obj) {
-  return obj && (obj["default"] || obj);
-};
+var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 
 var React = _interopRequire(require("react"));
 
@@ -10,10 +8,8 @@ var moment = _interopRequire(require("moment"));
 
 var weeks = require("./utils").weeks;
 
-
 var DayPicker = React.createClass({
   displayName: "DayPicker",
-
 
   propTypes: {
 
@@ -37,11 +33,14 @@ var DayPicker = React.createClass({
   },
 
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-    this.setState({ month: nextProps.initialMonth });
+    if (!this.state.monthDidChange) this.setState({ month: nextProps.initialMonth });
   },
 
   getInitialState: function getInitialState() {
-    return { month: this.props.initialMonth.clone() };
+    return {
+      month: this.props.initialMonth.clone(),
+      monthDidChange: false
+    };
   },
 
   handleDayTouchTap: function handleDayTouchTap(day, modifiers, e) {
@@ -62,24 +61,29 @@ var DayPicker = React.createClass({
 
   handleNextMonthClick: function handleNextMonthClick(e) {
     var _this = this;
+
     var month = this.state.month;
+
     var nextMonth = month.clone().add(1, "month");
-    this.setState({ month: nextMonth }, function () {
+    this.setState({ month: nextMonth, monthDidChange: true }, function () {
       _this.props.onNextMonthClick && _this.props.onNextMonthClick(_this.state.month);
     });
   },
 
   handlePrevMonthClick: function handlePrevMonthClick(e) {
-    var _this2 = this;
+    var _this = this;
+
     var month = this.state.month;
+
     var prevMonth = month.clone().subtract(1, "month");
-    this.setState({ month: prevMonth }, function () {
-      _this2.props.onPrevMonthClick && _this2.props.onPrevMonthClick(_this2.state.month);
+    this.setState({ month: prevMonth, monthDidChange: true }, function () {
+      _this.props.onPrevMonthClick && _this.props.onPrevMonthClick(_this.state.month);
     });
   },
 
   getModifiersForDay: function getModifiersForDay(day) {
     var modifiers = this.props.modifiers;
+
     var dayModifiers = [];
     if (modifiers) for (var modifier in modifiers) {
       var func = modifiers[modifier];
@@ -90,6 +94,7 @@ var DayPicker = React.createClass({
 
   render: function render() {
     var month = this.state.month;
+
     return React.createElement(
       "table",
       { className: "daypicker" },
@@ -122,12 +127,13 @@ var DayPicker = React.createClass({
   },
 
   renderWeeks: function renderWeeks() {
-    var _this3 = this;
+    var _this = this;
+
     return weeks(this.state.month).map(function (week, i) {
       return React.createElement(
         "tr",
         { key: i, className: "daypicker__week" },
-        _this3.renderDays(week)
+        _this.renderDays(week)
       );
     });
   },
@@ -145,12 +151,13 @@ var DayPicker = React.createClass({
   },
 
   renderDays: function renderDays(week) {
-    var _this4 = this;
+    var _this = this;
+
     var firstDay = week[0];
     var lastDay = week[week.length - 1];
 
     var days = week.map(function (day) {
-      return _this4.renderDay(day);
+      return _this.renderDay(day);
     });
 
     // days belonging to the previous month
@@ -160,8 +167,7 @@ var DayPicker = React.createClass({
     }
 
     // days belonging to the next month
-    for (var j = lastDay.weekday() + 1,
-        count = 1; j < 7; j++, count++) {
+    for (var j = lastDay.weekday() + 1, count = 1; j < 7; j++, count++) {
       var nextDay = lastDay.clone().add(count, "day");
       days.push(this.renderDay(nextDay, true));
     }

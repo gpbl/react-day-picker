@@ -1,8 +1,9 @@
 "use strict";
 
-exports.weeks = weeks;
 // return an array of the weeks (array of days) in a month
+exports.weeks = weeks;
 function weeks(m) {
+
   var firstOfMonth = m.clone().startOf("month");
   var lastOfMonth = m.clone().endOf("month");
 
@@ -20,3 +21,6 @@ function weeks(m) {
   }
   return weeksInMonth;
 }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
