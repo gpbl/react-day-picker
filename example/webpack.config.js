@@ -11,7 +11,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['6to5-loader'] },
+      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel-loader'] },
       { test: /\.scss?$/, loaders: ['style', 'css', 'autoprefixer-loader?browsers=last 2 version', 'sass-loader'] },
       { test: /\.svg$/, loader: "url-loader?limit=100000&mimetype=image/svg+xml" }
     ]
