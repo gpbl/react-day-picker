@@ -1,4 +1,4 @@
-import React from 'react/addons';
+import React from 'react';
 import DayPicker from '../../../src/DayPicker.js';
 import moment from 'moment';
 
@@ -16,21 +16,30 @@ function isSameDay(a, b) {
 }
 
 const Page = React.createClass({
-
-  mixins: [React.addons.LinkedStateMixin],
   
   getInitialState() {
     return { value: dateToValue(moment()) };
   },
 
   handleInputFocus(e) {
-    // bring back the calendar to the current input value
-    this.setState({ value: e.target.value });
+    this.showMonthForCurrentValue();
+  },
+
+  handleInputChange(e) {
+    const value = e.target.value;
+    this.setState({value: value}, this.showMonthForCurrentValue);
   },
 
   handleDayTouchTap(day, modifiers, e) {
     if (modifiers.indexOf('disabled') === -1)
       this.setState({ value: dateToValue(day) })
+  },
+
+  showMonthForCurrentValue() {
+    const day = valueToDate(this.state.value);
+    if (!day) return;
+    // if the current state is a valid day, show its month on the calendar
+    this.refs.daypicker.showMonth(day.startOf('month'));
   },
 
   getModifiers() {
@@ -55,7 +64,7 @@ const Page = React.createClass({
   },
 
   render() {
-
+    const { value } = this.state;
     return (
       <div>
         
@@ -65,14 +74,17 @@ const Page = React.createClass({
           See project on <a href="https://github.com/gpbl/react-day-picker">github</a>.
         </p>
 
-        <input type="text" ref="input"
+        <input 
+          type="text"
+          value={value}
           placeholder="YYYY-MM-DD" 
-          valueLink={this.linkState('value')}
+          onChange={this.handleInputChange}
           onFocus={this.handleInputFocus} />
        
         <DayPicker 
+          ref="daypicker"
           enableOutsideDays={true}
-          initialMonth={ valueToDate(this.state.value) || moment() } 
+          initialMonth={ valueToDate(value) || moment() } 
           modifiers={ this.getModifiers() } 
           onDayTouchTap={this.handleDayTouchTap} />
      
