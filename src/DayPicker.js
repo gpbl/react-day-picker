@@ -25,16 +25,8 @@ const DayPicker = React.createClass({
     return { initialMonth: moment(), enableOutsideDays: false };
   },
 
-  componentWillReceiveProps(nextProps) {
-    if (!this.state.monthDidChange)
-      this.setState({ month: nextProps.initialMonth });
-  },
-  
   getInitialState() {
-    return {
-      month: this.props.initialMonth.clone(),
-      monthDidChange: false
-    };
+    return { month: this.props.initialMonth.clone() };
   },
 
   handleDayTouchTap(day, modifiers, e) {
@@ -56,7 +48,7 @@ const DayPicker = React.createClass({
   handleNextMonthClick(e) {
     const { month } = this.state;
     const nextMonth = month.clone().add(1, 'month');
-    this.setState({ month: nextMonth, monthDidChange: true }, () => {
+    this.setState({ month: nextMonth }, () => {
       this.props.onNextMonthClick 
       && this.props.onNextMonthClick(this.state.month);
     });
@@ -65,7 +57,7 @@ const DayPicker = React.createClass({
   handlePrevMonthClick(e) {
     const { month } = this.state;
     const prevMonth = month.clone().subtract(1, 'month');
-    this.setState({ month: prevMonth, monthDidChange: true }, () => {
+    this.setState({ month: prevMonth }, () => {
       this.props.onPrevMonthClick 
       && this.props.onPrevMonthClick(this.state.month);
     });
@@ -80,6 +72,10 @@ const DayPicker = React.createClass({
         if (func(day)) dayModifiers.push(modifier);
       }
     return dayModifiers;
+  },
+
+  showMonth(month) {
+    this.setState({month: month});
   },
 
   render() {
