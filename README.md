@@ -4,7 +4,7 @@
 <a href="http://www.gpbl.org/react-day-picker/"><img src="https://cloud.githubusercontent.com/assets/120693/5693331/3aba1d2e-9918-11e4-933e-bf296484017a.png" width="254" /></a>
 </p>
 
-Minimalistic date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). See a [demo](http://www.gpbl.org/react-day-picker/).
+Simple date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). See a [demo](http://www.gpbl.org/react-day-picker/).
 
 
 ```bash
@@ -79,6 +79,23 @@ npm start
 
 ## API
 
+
+### Props 
+
+```js
+<DayPicker 
+  initialMonth={Object}
+  enableOutsideDays={Boolean}
+  modifiers={Object}
+  onDayClick={Function}
+  onDayTouchTap={Function}
+  onMouseEnter={Function}
+  onDayMouseLeave={Function}
+  onPrevMonthClick={Function}
+  onNextMonthClick={Function}
+/>
+```
+
 #### initialMonth `moment object`
 
 A `moment()` object with the month to display in the calendar.
@@ -105,8 +122,6 @@ modifiers = {
 
 Show the days outside the shown month.
 
-### Events handlers 
-
 #### onDayClick `function(day, modifiers, event)`
 #### onDayTouchTap `function(day, modifiers, event)`
 
@@ -127,3 +142,10 @@ Use this attribute to add an handler when the mouse enters/leaves a day element.
 #### onNextMonthClick `function(month)`
 
 Use this attribute to add an handler when the user switch to the previous/next month.
+
+
+### Methods
+
+#### `showMonth(month)`
+
+Show `month` (Moment object).
