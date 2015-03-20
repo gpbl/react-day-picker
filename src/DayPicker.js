@@ -66,11 +66,14 @@ const DayPicker = React.createClass({
   getModifiersForDay(day) {
     const { modifiers } = this.props;
     var dayModifiers = [];
-    if (modifiers)
+    if (modifiers) {
       for (let modifier in modifiers) {
         let func = modifiers[modifier];
-        if (func(day)) dayModifiers.push(modifier);
+        if (func(day)) {
+          dayModifiers.push(modifier);
+        }
       }
+    }
     return dayModifiers;
   },
 
@@ -100,8 +103,8 @@ const DayPicker = React.createClass({
   renderNavButton(position) {
     const className = `DayPicker-nav DayPicker-nav--${position}`;
     const handler = position === 'left'
-      ?  this.handlePrevMonthClick
-      :  this.handleNextMonthClick;
+      ? this.handlePrevMonthClick
+      : this.handleNextMonthClick;
 
     return <span ref={"btn-"+position} className={className}
       style={{float: position}} onClick={handler} />;
@@ -124,7 +127,7 @@ const DayPicker = React.createClass({
         <th key={i} className="DayPicker-weekday">
           { moment().weekday(i).format('dd') }
         </th>
-      )
+      );
     }
     return header;
   },
@@ -153,15 +156,16 @@ const DayPicker = React.createClass({
   renderDay(day, outside) {
     const key = `${day.dayOfYear()}`;
     var className = 'DayPicker-day';
-    if (outside) className += ' DayPicker-day--outside';
-
+    if (outside) {
+      className += ' DayPicker-day--outside';
+    }
     if (outside && !this.props.enableOutsideDays) {
       return <td className={className} ref={key} key={key} />;
     }
     else {
       const modifiers = this.getModifiersForDay(day);
       className += modifiers.map((mod) => {
-        return ' DayPicker-day--' + mod
+        return ' DayPicker-day--' + mod;
       }).join('');
       return (
         <td ref={key} key={key}
