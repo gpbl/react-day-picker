@@ -1,7 +1,7 @@
 
-/* Daypicker styles */
+/* DayPicker styles */
 
-.daypicker {
+.DayPicker {
   border-collapse: collapse;
   border-spacing: 0;
   margin: 24px auto;
@@ -10,11 +10,11 @@
 
 /* Caption & navigation buttons */
 
-.daypicker__caption {
+.DayPicker-caption {
   line-height: 36px;
 }
 
-.daypicker__weekday {
+.DayPicker-weekday {
   width: 36px;
   line-height: 36px;
   font-size: 0.875em;
@@ -22,7 +22,7 @@
   font-weight: normal;
 }
 
-.daypicker__nav {
+.DayPicker-nav {
   display: block;
   border: 0;
   background-color: transparent;
@@ -35,22 +35,22 @@
   cursor: pointer;
 }
 
-.daypicker__nav--right {
+.DayPicker-nav--right {
   background-image: url("../svg/right.svg");
 }
-.daypicker__nav--left {
+.DayPicker-nav--left {
   background-image: url("../svg/left.svg");
 }
 
 /* Days */
 
-.daypicker__day {
+.DayPicker-day {
   width: 36px;
   line-height: 36px;
   border: 1px solid #dce0e0;
   cursor: pointer;
 
-  &:hover:not(.daypicker__day--outside):not(.daypicker__day--disabled) {
+  &:hover:not(.DayPicker-day--outside):not(.DayPicker-day--disabled) {
     background-color: #FF0000;
     color: white;
   }
@@ -60,23 +60,23 @@
 
 // reserved for days outside the current months
 
-.daypicker__day--outside {
+.DayPicker-day--outside {
   color: #dce0e0 !important;
 }
 
 // custom modifiers
 
-.daypicker__day--disabled {
+.DayPicker-day--disabled {
   cursor: default;
   color: #dce0e0;
   background-color: #F1F1F1;
 }
 
-.daypicker__day--today {
+.DayPicker-day--today {
   color: #FF0000;
 }
 
-.daypicker__day--selected:not(.daypicker__day--outside) {
+.DayPicker-day--selected:not(.DayPicker-day--outside) {
   color: white;
   background-color: #FF0000;
 }

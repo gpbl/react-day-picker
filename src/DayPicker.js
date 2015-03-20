@@ -7,18 +7,18 @@ const DayPicker = React.createClass({
   propTypes: {
 
     enableOutsideDays: React.PropTypes.bool,
-    
+
     initialMonth: React.PropTypes.object, // default is current month
     modifiers: React.PropTypes.object,
 
     onDayClick: React.PropTypes.func,
-    onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin 
-    onDayMouseEnter: React.PropTypes.func, 
-    onDayMouseLeave: React.PropTypes.func, 
+    onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin
+    onDayMouseEnter: React.PropTypes.func,
+    onDayMouseLeave: React.PropTypes.func,
 
-    onNextMonthClick: React.PropTypes.func, 
+    onNextMonthClick: React.PropTypes.func,
     onPrevMonthClick: React.PropTypes.func
-  
+
   },
 
   getDefaultProps() {
@@ -49,7 +49,7 @@ const DayPicker = React.createClass({
     const { month } = this.state;
     const nextMonth = month.clone().add(1, 'month');
     this.setState({ month: nextMonth }, () => {
-      this.props.onNextMonthClick 
+      this.props.onNextMonthClick
       && this.props.onNextMonthClick(this.state.month);
     });
   },
@@ -58,7 +58,7 @@ const DayPicker = React.createClass({
     const { month } = this.state;
     const prevMonth = month.clone().subtract(1, 'month');
     this.setState({ month: prevMonth }, () => {
-      this.props.onPrevMonthClick 
+      this.props.onPrevMonthClick
       && this.props.onPrevMonthClick(this.state.month);
     });
   },
@@ -81,8 +81,8 @@ const DayPicker = React.createClass({
   render() {
     const { month } = this.state;
     return (
-      <table className="daypicker">
-        <caption className="daypicker__caption">
+      <table className="DayPicker">
+        <caption className="DayPicker-caption">
           { this.renderNavButton('left') }
           { month.format('MMMM YYYY') }
           { this.renderNavButton('right') }
@@ -98,19 +98,19 @@ const DayPicker = React.createClass({
   },
 
   renderNavButton(position) {
-    const className = `daypicker__nav daypicker__nav--${position}`;
-    const handler = position === 'left' 
-      ?  this.handlePrevMonthClick 
+    const className = `DayPicker-nav DayPicker-nav--${position}`;
+    const handler = position === 'left'
+      ?  this.handlePrevMonthClick
       :  this.handleNextMonthClick;
 
-    return <span ref={"btn-"+position} className={className} 
+    return <span ref={"btn-"+position} className={className}
       style={{float: position}} onClick={handler} />;
   },
 
   renderWeeks() {
     return weeks(this.state.month).map((week, i) => {
       return (
-        <tr key={i} className="daypicker__week">
+        <tr key={i} className="DayPicker-week">
           { this.renderDays(week) }
         </tr>
       );
@@ -121,7 +121,7 @@ const DayPicker = React.createClass({
     var header = [];
     for (let i = 0; i < 7; i++) {
       header.push(
-        <th key={i} className="daypicker__weekday">
+        <th key={i} className="DayPicker-weekday">
           { moment().weekday(i).format('dd') }
         </th>
       )
@@ -132,7 +132,7 @@ const DayPicker = React.createClass({
   renderDays(week) {
     const firstDay = week[0];
     const lastDay = week[week.length-1];
-   
+
     var days = week.map(day => this.renderDay(day));
 
     // days belonging to the previous month
@@ -152,20 +152,20 @@ const DayPicker = React.createClass({
 
   renderDay(day, outside) {
     const key = `${day.dayOfYear()}`;
-    var className = 'daypicker__day';
-    if (outside) className += ' daypicker__day--outside';
+    var className = 'DayPicker-day';
+    if (outside) className += ' DayPicker-day--outside';
 
     if (outside && !this.props.enableOutsideDays) {
       return <td className={className} ref={key} key={key} />;
     }
     else {
       const modifiers = this.getModifiersForDay(day);
-      className += modifiers.map((mod) => { 
-        return ' daypicker__day--' + mod 
+      className += modifiers.map((mod) => {
+        return ' DayPicker-day--' + mod
       }).join('');
       return (
-        <td ref={key} key={key} 
-          className={className} 
+        <td ref={key} key={key}
+          className={className}
           onMouseEnter={this.handleDayMouseEnter.bind(this, day, modifiers)}
           onMouseLeave={this.handleDayMouseLeave.bind(this, day, modifiers)}
           onTouchTap={this.handleDayTouchTap.bind(this, day, modifiers)}
