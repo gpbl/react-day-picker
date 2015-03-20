@@ -46,6 +46,8 @@ const DayPicker = React.createClass({
   },
 
   handleNextMonthClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
     const { month } = this.state;
     const nextMonth = month.clone().add(1, 'month');
     this.setState({ month: nextMonth }, () => {
@@ -55,6 +57,8 @@ const DayPicker = React.createClass({
   },
 
   handlePrevMonthClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
     const { month } = this.state;
     const prevMonth = month.clone().subtract(1, 'month');
     this.setState({ month: prevMonth }, () => {
