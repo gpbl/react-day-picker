@@ -1,7 +1,12 @@
-"use strict";
 
 // return an array of the weeks (array of days) in a month
+"use strict";
+
 exports.weeks = weeks;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 function weeks(m) {
 
   var firstOfMonth = m.clone().startOf("month");
@@ -21,6 +26,3 @@ function weeks(m) {
   }
   return weeksInMonth;
 }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
