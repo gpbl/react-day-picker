@@ -30,19 +30,27 @@ const DayPicker = React.createClass({
   },
 
   handleDayTouchTap(day, modifiers, e) {
-    this.props.onDayTouchTap && this.props.onDayTouchTap(day, modifiers, e);
+    if (this.props.onDayTouchTap) {
+      this.props.onDayTouchTap(day, modifiers, e);
+    }
   },
 
   handleDayClick(day, modifiers, e) {
-    this.props.onDayClick && this.props.onDayClick(day, modifiers, e);
+    if (this.props.onDayClick) {
+      this.props.onDayClick(day, modifiers, e);
+    }
   },
 
   handleDayMouseEnter(day, modifiers, e) {
-    this.props.onDayMouseEnter && this.props.onDayMouseEnter(day, modifiers, e);
+    if (this.props.onDayMouseEnter) {
+      this.props.onDayMouseEnter(day, modifiers, e);
+    }
   },
 
   handleDayMouseLeave(day, modifiers, e) {
-    this.props.onDayMouseLeave && this.props.onDayMouseLeave(day, modifiers, e);
+    if (this.props.onDayMouseLeave) {
+      this.props.onDayMouseLeave(day, modifiers, e);
+    }
   },
 
   handleNextMonthClick(e) {
@@ -51,8 +59,9 @@ const DayPicker = React.createClass({
     const { month } = this.state;
     const nextMonth = month.clone().add(1, 'month');
     this.setState({ month: nextMonth }, () => {
-      this.props.onNextMonthClick
-      && this.props.onNextMonthClick(this.state.month);
+      if (this.props.onNextMonthClick) {
+        this.props.onNextMonthClick(this.state.month);
+      }
     });
   },
 
@@ -62,14 +71,15 @@ const DayPicker = React.createClass({
     const { month } = this.state;
     const prevMonth = month.clone().subtract(1, 'month');
     this.setState({ month: prevMonth }, () => {
-      this.props.onPrevMonthClick
-      && this.props.onPrevMonthClick(this.state.month);
+      if (this.props.onPrevMonthClick) {
+        this.props.onPrevMonthClick(this.state.month);
+      }
     });
   },
 
   getModifiersForDay(day) {
     const { modifiers } = this.props;
-    var dayModifiers = [];
+    let dayModifiers = [];
     if (modifiers) {
       for (let modifier in modifiers) {
         let func = modifiers[modifier];
@@ -115,17 +125,15 @@ const DayPicker = React.createClass({
   },
 
   renderWeeks() {
-    return weeks(this.state.month).map((week, i) => {
-      return (
-        <tr key={i} className="DayPicker-week">
-          { this.renderDays(week) }
-        </tr>
-      );
-    });
+    return weeks(this.state.month).map((week, i) =>
+      <tr key={i} className="DayPicker-week">
+        { this.renderDays(week) }
+      </tr>
+    );
   },
 
   renderWeekHeader() {
-    var header = [];
+    let header = [];
     for (let i = 0; i < 7; i++) {
       header.push(
         <th key={i} className="DayPicker-weekday">
@@ -140,17 +148,17 @@ const DayPicker = React.createClass({
     const firstDay = week[0];
     const lastDay = week[week.length-1];
 
-    var days = week.map(day => this.renderDay(day));
+    let days = week.map(day => this.renderDay(day));
 
     // days belonging to the previous month
     for (let i = 0; i < firstDay.weekday(); i++) {
-      var prevDay = firstDay.clone().subtract(i+1, 'day');
+      const prevDay = firstDay.clone().subtract(i+1, 'day');
       days.unshift(this.renderDay(prevDay, true));
     }
 
     // days belonging to the next month
     for (let j = lastDay.weekday() + 1, count = 1; j < 7; j++, count++) {
-      var nextDay = lastDay.clone().add(count, 'day');
+      const nextDay = lastDay.clone().add(count, 'day');
       days.push(this.renderDay(nextDay, true));
     }
 
@@ -159,7 +167,7 @@ const DayPicker = React.createClass({
 
   renderDay(day, outside) {
     const key = `${day.dayOfYear()}`;
-    var className = 'DayPicker-day';
+    let className = 'DayPicker-day';
     if (outside) {
       className += ' DayPicker-day--outside';
     }
@@ -168,9 +176,7 @@ const DayPicker = React.createClass({
     }
     else {
       const modifiers = this.getModifiersForDay(day);
-      className += modifiers.map((mod) => {
-        return ' DayPicker-day--' + mod;
-      }).join('');
+      className += modifiers.map(mod => ` DayPicker-day--${mod}`).join('');
       return (
         <td ref={key} key={key}
           className={className}
