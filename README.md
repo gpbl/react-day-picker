@@ -1,5 +1,7 @@
 # react-day-picker
 
+[![Join the chat at https://gitter.im/gpbl/react-day-picker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gpbl/react-day-picker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 <p align="center">
 <a href="http://www.gpbl.org/react-day-picker/"><img src="https://cloud.githubusercontent.com/assets/120693/5693331/3aba1d2e-9918-11e4-933e-bf296484017a.png" width="254" /></a>
 </p>
