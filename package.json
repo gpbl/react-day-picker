@@ -42,7 +42,7 @@
     "css-loader": "^0.9.1",
     "jest-cli": "^0.4.0",
     "react-tap-event-plugin": "git+https://github.com/gpbl/react-tap-event-plugin.git",
-    "sass-loader": "^1.0.0",
+    "sass-loader": "0.4.2",
     "style-loader": "^0.9.0",
     "url-loader": "^0.5.5",
     "webpack": "^1.7.3",
