@@ -63,14 +63,12 @@ var DayPicker = React.createClass({
   handleNextMonthClick: function handleNextMonthClick(e) {
     var _this = this;
 
-    e.preventDefault();
-    e.stopPropagation();
     var month = this.state.month;
 
     var nextMonth = month.clone().add(1, "month");
     this.setState({ month: nextMonth }, function () {
       if (_this.props.onNextMonthClick) {
-        _this.props.onNextMonthClick(_this.state.month);
+        _this.props.onNextMonthClick(_this.state.month, e);
       }
     });
   },
@@ -78,14 +76,12 @@ var DayPicker = React.createClass({
   handlePrevMonthClick: function handlePrevMonthClick(e) {
     var _this = this;
 
-    e.preventDefault();
-    e.stopPropagation();
     var month = this.state.month;
 
     var prevMonth = month.clone().subtract(1, "month");
     this.setState({ month: prevMonth }, function () {
       if (_this.props.onPrevMonthClick) {
-        _this.props.onPrevMonthClick(_this.state.month);
+        _this.props.onPrevMonthClick(_this.state.month, e);
       }
     });
   },
