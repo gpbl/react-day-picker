@@ -54,25 +54,21 @@ const DayPicker = React.createClass({
   },
 
   handleNextMonthClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
     const { month } = this.state;
     const nextMonth = month.clone().add(1, 'month');
     this.setState({ month: nextMonth }, () => {
       if (this.props.onNextMonthClick) {
-        this.props.onNextMonthClick(this.state.month);
+        this.props.onNextMonthClick(this.state.month, e);
       }
     });
   },
 
   handlePrevMonthClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
     const { month } = this.state;
     const prevMonth = month.clone().subtract(1, 'month');
     this.setState({ month: prevMonth }, () => {
       if (this.props.onPrevMonthClick) {
-        this.props.onPrevMonthClick(this.state.month);
+        this.props.onPrevMonthClick(this.state.month, e);
       }
     });
   },

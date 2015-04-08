@@ -16,7 +16,7 @@ npm install react-day-picker --save
 
 ### Use of modifiers
 
-This date picker works with modifiers, as in [BEM-like syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/). You set the modifiers as functions returning `true` or `false`. 
+This date picker works with modifiers, as in [BEM-like syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/). You set the modifiers as functions returning `true` or `false`.
 
 Modifiers give you a lot of freedom: for example, a `selected` modifier could highlight *a range* of selected days, or a `weekend` modifiers could format the weekend days.
 
@@ -26,7 +26,7 @@ You need to setup your own CSS. You can start from [this css](example/src/scss/d
 
 ## Usage examples
 
-The following component implements the DayPicker and saves the selected day in its own `state`. 
+The following component implements the DayPicker and saves the selected day in its own `state`.
 It also adds the `daypicker__day--today` CSS modifier for today, and a `daypicker__day--selected` CSS modifier to the cell corresponding to the clicked/touched day.
 
 ```js
@@ -39,7 +39,7 @@ function isSameDay(a, b) {
 }
 
 var MyDatePicker = React.createClass({
-  
+
   handleDayTouchTap(day, modifiers, event) {
     this.setState({ selectedDay: day });
   },
@@ -52,12 +52,12 @@ var MyDatePicker = React.createClass({
       },
       selected: function (day) {
         // add the `selected` modifier for the selected day
-        return this.state.selectedDay 
+        return this.state.selectedDay
           && isSameDay(this.state.selectedDay, day);
       }
     };
     return (
-      <DayPicker modifiers={ modifiers } 
+      <DayPicker modifiers={ modifiers }
         onDayTouchTap={this.handleDayTouchTap} />
     );
   }
@@ -81,10 +81,10 @@ npm start
 ## API
 
 
-### Props 
+### Props
 
 ```js
-<DayPicker 
+<DayPicker
   initialMonth={Object}
   enableOutsideDays={Boolean}
   modifiers={Object}
@@ -126,7 +126,7 @@ Show the days outside the shown month.
 #### onDayClick `function(day, modifiers, event)`
 #### onDayTouchTap `function(day, modifiers, event)`
 
-Use one of these attributes to add an event handler when the user touches/clicks a day. 
+Use one of these attributes to add an event handler when the user touches/clicks a day.
 
 * `day <Object>` the touched day (a moment object)
 * `modifiers <Array>` array of modifiers for the touched day, e.g. `['disabled', 'today']`
@@ -137,10 +137,13 @@ Use one of these attributes to add an event handler when the user touches/clicks
 #### onDayMouseEnter `function(day, modifiers, event)`
 #### onDayMouseLeave `function(day, modifiers, event)`
 
-Use this attribute to add an handler when the mouse enters/leaves a day element. 
+Use this attribute to add an handler when the mouse enters/leaves a day element.
 
-#### onPrevMonthClick `function(month)`
-#### onNextMonthClick `function(month)`
+#### onPrevMonthClick `function(month, event)`
+#### onNextMonthClick `function(month, event)`
+
+* `month <Object>` the current month (a moment object)
+* `event <SyntheticEvent>` the click event
 
 Use this attribute to add an handler when the user switch to the previous/next month.
 
