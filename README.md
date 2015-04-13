@@ -86,6 +86,7 @@ npm start
 ```js
 <DayPicker
   initialMonth={Object}
+  numberOfMonths={Number}
   enableOutsideDays={Boolean}
   modifiers={Object}
   onDayClick={Function}
@@ -99,7 +100,11 @@ npm start
 
 #### initialMonth `moment object`
 
-A `moment()` object with the month to display in the calendar.
+A `moment()` object with the first month to display in the calendar.
+
+#### numberOfMonths `int`
+
+An integer value indicating the number of months to display in the calendar
 
 #### modifiers `Object`
 
