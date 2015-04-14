@@ -36,17 +36,18 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.2.0",
-    "babel": "^4.7.16",
-    "babel-jest": "^4.0.0",
-    "babel-loader": "^4.2.0",
+    "babel": "^5.1.9",
+    "babel-core": "^5.1.9",
+    "babel-jest": "^5.0.1",
+    "babel-loader": "^5.0.0",
     "css-loader": "^0.9.1",
     "jest-cli": "^0.4.0",
     "react-tap-event-plugin": "git+https://github.com/gpbl/react-tap-event-plugin.git",
     "sass-loader": "0.4.2",
     "style-loader": "^0.9.0",
     "url-loader": "^0.5.5",
-    "webpack": "^1.7.3",
-    "webpack-dev-server": "^1.7.0"
+    "webpack": "^1.8.4",
+    "webpack-dev-server": "^1.8.0"
   },
   "jest": {
     "scriptPreprocessor": "./node_modules/babel-jest",
