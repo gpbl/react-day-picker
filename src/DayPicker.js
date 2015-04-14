@@ -113,7 +113,7 @@ const DayPicker = React.createClass({
     const isFirstMonth = (month === this.state.month);
     const isLastMonth = (monthIndex === this.props.numberOfMonths - 1);
     return (
-      <table className="DayPicker">
+      <table key={monthIndex} className="DayPicker">
         <caption className="DayPicker-caption">
           { isFirstMonth && this.renderNavButton('left') }
           { month.format('MMMM YYYY') }
