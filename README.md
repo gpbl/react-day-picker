@@ -27,7 +27,7 @@ You need to setup your own CSS. You can start from [this css](example/src/scss/d
 ## Usage examples
 
 The following component implements the DayPicker and saves the selected day in its own `state`.
-It also adds the `daypicker__day--today` CSS modifier for today, and a `daypicker__day--selected` CSS modifier to the cell corresponding to the clicked/touched day.
+It also adds the `DayPicker-day--today` CSS modifier for today, and a `DayPicker-day--selected` CSS modifier to the cell corresponding to the clicked/touched day.
 
 ```js
 
@@ -41,7 +41,9 @@ function isSameDay(a, b) {
 var MyDatePicker = React.createClass({
 
   handleDayTouchTap(day, modifiers, event) {
-    this.setState({ selectedDay: day });
+    this.setState({
+      selectedDay: day
+    });
   },
 
   render() {
@@ -108,10 +110,10 @@ An integer value indicating the number of months to display in the calendar
 
 #### modifiers `Object`
 
-* The object's keys are the modifier's name – applied to each day, following a BEM-like syntax: `daypicker__day--<modifier>`
+* The object's keys are the modifier's name – applied to each day, following a BEM-like syntax: `DayPicker-day--<modifier>`
 * The key's values are functions evaluated for each day. When they returns `true`, the modifier is applied, and eventually passed to the `onDayTouchTap` payload.
 
-For example, the following modifiers will add the CSS class `daypicker__day--disabled` to the days of the past:
+For example, the following modifiers will add the CSS class `DayPicker-day--disabled` to the days of the past:
 
 ```js
 
