@@ -16,7 +16,7 @@ function isSameDay(a, b) {
 }
 
 const Page = React.createClass({
-  
+
   getInitialState() {
     return { value: dateToValue(moment()) };
   },
@@ -27,37 +27,49 @@ const Page = React.createClass({
 
   handleInputChange(e) {
     const value = e.target.value;
-    this.setState({value: value}, this.showMonthForCurrentValue);
+    this.setState({
+      value: value
+    }, this.showMonthForCurrentValue);
   },
 
   handleDayTouchTap(day, modifiers, e) {
-    if (modifiers.indexOf('disabled') === -1)
-      this.setState({ value: dateToValue(day) })
+    if (modifiers.indexOf('disabled') === -1) {
+      this.setState({
+        value: dateToValue(day)
+      });
+    }
   },
 
   showMonthForCurrentValue() {
     const day = valueToDate(this.state.value);
-    if (!day) return;
+
+    if (!day) {
+      return;
+    }
+
     // if the current state is a valid day, show its month on the calendar
     this.refs.daypicker.showMonth(day.startOf('month'));
   },
 
   getModifiers() {
     var modifiers = {
-      today: function (day) {
+      today: function(day) {
         return isSameDay(moment(), day);
       },
-      disabled: function (day) {
+      disabled: function(day) {
         // disable past days
         return day.diff(moment(), 'day') < 0;
       },
-      selected: function (day) {
+      selected: function(day) {
         const value = valueToDate(this.state.value);
-        if (modifiers.disabled(day) || !value) 
-          // value may be null if not a valid date 
+
+        if (modifiers.disabled(day) || !value) {
+          // value may be null if not a valid date
           return false;
-        else 
+        }
+        else {
           return isSameDay(value, day);
+        }
       }.bind(this)
     };
     return modifiers;
@@ -67,27 +79,28 @@ const Page = React.createClass({
     const { value } = this.state;
     return (
       <div>
-        
+
         <h1>react-day-picker</h1>
 
         <p>
-          See project on <a href="https://github.com/gpbl/react-day-picker">github</a>.
+          See this project on <a href="https://github.com/gpbl/react-day-picker">github</a>.
         </p>
 
-        <input 
+        <input
           type="text"
           value={value}
-          placeholder="YYYY-MM-DD" 
+          placeholder="YYYY-MM-DD"
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus} />
-       
-        <DayPicker 
+
+        <DayPicker
           ref="daypicker"
           enableOutsideDays={true}
-          initialMonth={ valueToDate(value) || moment() } 
-          modifiers={ this.getModifiers() } 
+          initialMonth={ valueToDate(value) || moment() }
+          numberOfMonths={2}
+          modifiers={ this.getModifiers() }
           onDayTouchTap={this.handleDayTouchTap} />
-     
+
       </div>
     );
   }
