@@ -1,13 +1,13 @@
 /* global jest, describe, it, expect */
 
-jest.dontMock('../src/utils');
+jest.dontMock('../src/CalendarUtils');
 jest.dontMock('moment');
 
+import { weeks } from '../src/CalendarUtils';
+import moment from 'moment';
+
 describe('weeks', function() {
-  
-  import { weeks } from '../src/utils';
-  import moment from 'moment';
-  
+
   it('counts the right days for jan 2015', function() {
     const day = moment('2015-01-01', 'YYYY-MM-DD');
     var weeksInJan = weeks(day);
