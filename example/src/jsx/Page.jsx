@@ -97,7 +97,7 @@ const Page = React.createClass({
           ref="daypicker"
           enableOutsideDays={true}
           initialMonth={ valueToDate(value) || moment() }
-          numberOfMonths={2}
+          numberOfMonths={1}
           modifiers={ this.getModifiers() }
           onDayTouchTap={this.handleDayTouchTap} />
 
