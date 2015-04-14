@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import moment from 'moment';
-import { weeks } from './utils';
+import { weeks } from './CalendarUtils';
 
 class DayPicker extends Component {
 
