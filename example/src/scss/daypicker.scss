@@ -4,8 +4,10 @@
 .DayPicker {
   border-collapse: collapse;
   border-spacing: 0;
-  margin: 24px auto;
+  display: inline-block;
+  margin: 24px 10px;
   user-select: none;
+  vertical-align: top;
 }
 
 /* Caption & navigation buttons */

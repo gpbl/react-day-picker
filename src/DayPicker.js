@@ -9,6 +9,8 @@ const DayPicker = React.createClass({
     enableOutsideDays: React.PropTypes.bool,
 
     initialMonth: React.PropTypes.object, // default is current month
+    numberOfMonths: React.PropTypes.number, // default is 1
+
     modifiers: React.PropTypes.object,
 
     onDayClick: React.PropTypes.func,
@@ -22,7 +24,7 @@ const DayPicker = React.createClass({
   },
 
   getDefaultProps() {
-    return { initialMonth: moment(), enableOutsideDays: false };
+    return { initialMonth: moment(), numberOfMonths: 1, enableOutsideDays: false };
   },
 
   getInitialState() {
@@ -92,19 +94,36 @@ const DayPicker = React.createClass({
   },
 
   render() {
-    const { month } = this.state;
+    let { month } = this.state;
+
+    let months = [];
+    for (let i = 0; i < this.props.numberOfMonths; i++) {
+      months.push(this.renderMonth(month, i));
+      month = month.clone().add(1, 'month');
+    }
+
+    return (
+      <div>
+        {months}
+      </div>
+    );
+  },
+
+  renderMonth(month, monthIndex) {
+    const isFirstMonth = (month === this.state.month);
+    const isLastMonth = (monthIndex === this.props.numberOfMonths - 1);
     return (
       <table className="DayPicker">
         <caption className="DayPicker-caption">
-          { this.renderNavButton('left') }
+          { isFirstMonth && this.renderNavButton('left') }
           { month.format('MMMM YYYY') }
-          { this.renderNavButton('right') }
+          { isLastMonth && this.renderNavButton('right') }
         </caption>
         <thead>
           { this.renderWeekHeader() }
         </thead>
         <tbody>
-          { this.renderWeeks() }
+          { this.renderWeeks(month) }
         </tbody>
       </table>
     );
@@ -120,8 +139,8 @@ const DayPicker = React.createClass({
       style={{float: position}} onClick={handler} />;
   },
 
-  renderWeeks() {
-    return weeks(this.state.month).map((week, i) =>
+  renderWeeks(month) {
+    return weeks(month).map((week, i) =>
       <tr key={i} className="DayPicker-week">
         { this.renderDays(week) }
       </tr>
