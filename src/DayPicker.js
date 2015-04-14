@@ -8,13 +8,19 @@ const DayPicker = React.createClass({
 
     enableOutsideDays: React.PropTypes.bool,
 
-    initialMonth: React.PropTypes.object, // default is current month
-    numberOfMonths: React.PropTypes.number, // default is 1
+    // default is current month
+    initialMonth: React.PropTypes.object,
+
+    // default is 1
+    numberOfMonths: React.PropTypes.number,
 
     modifiers: React.PropTypes.object,
 
     onDayClick: React.PropTypes.func,
-    onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin
+
+    // requires react-tap-event-plugin
+    onDayTouchTap: React.PropTypes.func,
+
     onDayMouseEnter: React.PropTypes.func,
     onDayMouseLeave: React.PropTypes.func,
 
@@ -78,14 +84,17 @@ const DayPicker = React.createClass({
   getModifiersForDay(day) {
     const { modifiers } = this.props;
     let dayModifiers = [];
+
     if (modifiers) {
       for (let modifier in modifiers) {
         let func = modifiers[modifier];
+
         if (func(day)) {
           dayModifiers.push(modifier);
         }
       }
     }
+
     return dayModifiers;
   },
 
@@ -135,7 +144,7 @@ const DayPicker = React.createClass({
       ? this.handlePrevMonthClick
       : this.handleNextMonthClick;
 
-    return <span ref={"btn-"+position} className={className}
+    return <span ref={"btn-" + position} className={className}
       style={{float: position}} onClick={handler} />;
   },
 
@@ -156,18 +165,19 @@ const DayPicker = React.createClass({
         </th>
       );
     }
+
     return header;
   },
 
   renderDays(week) {
     const firstDay = week[0];
-    const lastDay = week[week.length-1];
+    const lastDay = week[week.length - 1];
 
     let days = week.map(day => this.renderDay(day));
 
     // days belonging to the previous month
     for (let i = 0; i < firstDay.weekday(); i++) {
-      const prevDay = firstDay.clone().subtract(i+1, 'day');
+      const prevDay = firstDay.clone().subtract(i + 1, 'day');
       days.unshift(this.renderDay(prevDay, true));
     }
 
@@ -183,9 +193,11 @@ const DayPicker = React.createClass({
   renderDay(day, outside) {
     const key = `${day.dayOfYear()}`;
     let className = 'DayPicker-day';
+
     if (outside) {
       className += ' DayPicker-day--outside';
     }
+
     if (outside && !this.props.enableOutsideDays) {
       return <td className={className} ref={key} key={key} />;
     }
