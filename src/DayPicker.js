@@ -67,6 +67,7 @@ class DayPicker extends Component {
   }
 
   handleNextMonthClick(e) {
+    e.persist();
     const { month } = this.state;
     const nextMonth = month.clone().add(1, 'month');
     this.setState({ month: nextMonth }, () => {
@@ -77,6 +78,7 @@ class DayPicker extends Component {
   }
 
   handlePrevMonthClick(e) {
+    e.persist();
     const { month } = this.state;
     const prevMonth = month.clone().subtract(1, 'month');
     this.setState({ month: prevMonth }, () => {
