@@ -22,7 +22,7 @@ Modifiers give you a lot of freedom: for example, a `selected` modifier could hi
 
 ### Styling
 
-You need to setup your own CSS. You can start from [this css](example/src/scss/daypicker.scss) as example.
+You need to setup your own CSS. You can start from [this css](example/src/style/DayPicker.scss) as example.
 
 ## Usage examples
 
