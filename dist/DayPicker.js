@@ -69,6 +69,7 @@ var DayPicker = (function (_Component) {
     value: function handleNextMonthClick(e) {
       var _this = this;
 
+      e.persist();
       var month = this.state.month;
 
       var nextMonth = month.clone().add(1, 'month');
@@ -83,6 +84,7 @@ var DayPicker = (function (_Component) {
     value: function handlePrevMonthClick(e) {
       var _this2 = this;
 
+      e.persist();
       var month = this.state.month;
 
       var prevMonth = month.clone().subtract(1, 'month');
@@ -236,6 +238,9 @@ var DayPicker = (function (_Component) {
         return _React$Component$PropTypes2['default'].createElement('td', { className: className, ref: key, key: key });
       } else {
         var modifiers = this.getModifiersForDay(day);
+        if (outside) {
+          modifiers.push('outside');
+        }
         className += modifiers.map(function (mod) {
           return ' DayPicker-day--' + mod;
         }).join('');
