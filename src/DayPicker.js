@@ -209,7 +209,10 @@ class DayPicker extends Component {
       return <td className={className} ref={key} key={key} />;
     }
     else {
-      const modifiers = this.getModifiersForDay(day);
+      let modifiers = this.getModifiersForDay(day);
+      if (outside) {
+        modifiers.push('outside');
+      }
       className += modifiers.map(mod => ` DayPicker-day--${mod}`).join('');
       return (
         <td ref={key} key={key}
