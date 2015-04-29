@@ -8,7 +8,7 @@ const CalendarUtils = {
     const firstOfMonth = m.clone().startOf('month');
     const lastOfMonth = m.clone().endOf('month');
 
-    var currentDay = firstOfMonth.clone();
+    var currentDay = firstOfMonth.clone().utc();
     var currentWeek = [];
     var weeksInMonth = [];
 
