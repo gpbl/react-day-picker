@@ -93,7 +93,7 @@ npm start
   modifiers={Object}
   onDayClick={Function}
   onDayTouchTap={Function}
-  onMouseEnter={Function}
+  onDayMouseEnter={Function}
   onDayMouseLeave={Function}
   onPrevMonthClick={Function}
   onNextMonthClick={Function}
