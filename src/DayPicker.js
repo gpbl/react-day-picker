@@ -119,7 +119,7 @@ class DayPicker extends Component {
     }
 
     return (
-      <div>
+      <div className={this.props.className}>
         {months}
       </div>
     );

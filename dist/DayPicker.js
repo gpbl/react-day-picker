@@ -1,28 +1,30 @@
 'use strict';
 
-var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-
-var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _React$Component$PropTypes = require('react');
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _React$Component$PropTypes2 = _interopRequireWildcard(_React$Component$PropTypes);
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
+    property = _x2,
+    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
 
 var _moment = require('moment');
 
-var _moment2 = _interopRequireWildcard(_moment);
+var _moment2 = _interopRequireDefault(_moment);
 
-var _weeks = require('./CalendarUtils');
+var _CalendarUtils = require('./CalendarUtils');
 
 var DayPicker = (function (_Component) {
   function DayPicker(props) {
@@ -67,30 +69,30 @@ var DayPicker = (function (_Component) {
   }, {
     key: 'handleNextMonthClick',
     value: function handleNextMonthClick(e) {
-      var _this = this;
+      var _this2 = this;
 
       e.persist();
       var month = this.state.month;
 
       var nextMonth = month.clone().add(1, 'month');
       this.setState({ month: nextMonth }, function () {
-        if (_this.props.onNextMonthClick) {
-          _this.props.onNextMonthClick(_this.state.month, e);
+        if (_this2.props.onNextMonthClick) {
+          _this2.props.onNextMonthClick(_this2.state.month, e);
         }
       });
     }
   }, {
     key: 'handlePrevMonthClick',
     value: function handlePrevMonthClick(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       e.persist();
       var month = this.state.month;
 
       var prevMonth = month.clone().subtract(1, 'month');
       this.setState({ month: prevMonth }, function () {
-        if (_this2.props.onPrevMonthClick) {
-          _this2.props.onPrevMonthClick(_this2.state.month, e);
+        if (_this3.props.onPrevMonthClick) {
+          _this3.props.onPrevMonthClick(_this3.state.month, e);
         }
       });
     }
@@ -129,7 +131,7 @@ var DayPicker = (function (_Component) {
         month = month.clone().add(1, 'month');
       }
 
-      return _React$Component$PropTypes2['default'].createElement(
+      return _react2['default'].createElement(
         'div',
         null,
         months
@@ -140,22 +142,22 @@ var DayPicker = (function (_Component) {
     value: function renderMonth(month, monthIndex) {
       var isFirstMonth = month === this.state.month;
       var isLastMonth = monthIndex === this.props.numberOfMonths - 1;
-      return _React$Component$PropTypes2['default'].createElement(
+      return _react2['default'].createElement(
         'table',
         { key: monthIndex, className: 'DayPicker' },
-        _React$Component$PropTypes2['default'].createElement(
+        _react2['default'].createElement(
           'caption',
           { className: 'DayPicker-caption' },
           isFirstMonth && this.renderNavButton('left'),
           month.format('MMMM YYYY'),
           isLastMonth && this.renderNavButton('right')
         ),
-        _React$Component$PropTypes2['default'].createElement(
+        _react2['default'].createElement(
           'thead',
           null,
           this.renderWeekHeader()
         ),
-        _React$Component$PropTypes2['default'].createElement(
+        _react2['default'].createElement(
           'tbody',
           null,
           this.renderWeeks(month)
@@ -168,19 +170,19 @@ var DayPicker = (function (_Component) {
       var className = 'DayPicker-nav DayPicker-nav--' + position;
       var handler = position === 'left' ? this.handlePrevMonthClick : this.handleNextMonthClick;
 
-      return _React$Component$PropTypes2['default'].createElement('span', { ref: 'btn-' + position, className: className,
+      return _react2['default'].createElement('span', { ref: 'btn-' + position, className: className,
         style: { float: position }, onClick: handler.bind(this) });
     }
   }, {
     key: 'renderWeeks',
     value: function renderWeeks(month) {
-      var _this3 = this;
+      var _this4 = this;
 
-      return _weeks.weeks(month).map(function (week, i) {
-        return _React$Component$PropTypes2['default'].createElement(
+      return _CalendarUtils.weeks(month).map(function (week, i) {
+        return _react2['default'].createElement(
           'tr',
           { key: i, className: 'DayPicker-week' },
-          _this3.renderDays(week)
+          _this4.renderDays(week)
         );
       });
     }
@@ -189,7 +191,7 @@ var DayPicker = (function (_Component) {
     value: function renderWeekHeader() {
       var header = [];
       for (var i = 0; i < 7; i++) {
-        header.push(_React$Component$PropTypes2['default'].createElement(
+        header.push(_react2['default'].createElement(
           'th',
           { key: i, className: 'DayPicker-weekday' },
           _moment2['default']().weekday(i).format('dd')
@@ -201,13 +203,13 @@ var DayPicker = (function (_Component) {
   }, {
     key: 'renderDays',
     value: function renderDays(week) {
-      var _this4 = this;
+      var _this5 = this;
 
       var firstDay = week[0];
       var lastDay = week[week.length - 1];
 
       var days = week.map(function (day) {
-        return _this4.renderDay(day);
+        return _this5.renderDay(day);
       });
 
       // days belonging to the previous month
@@ -235,7 +237,7 @@ var DayPicker = (function (_Component) {
       }
 
       if (outside && !this.props.enableOutsideDays) {
-        return _React$Component$PropTypes2['default'].createElement('td', { className: className, ref: key, key: key });
+        return _react2['default'].createElement('td', { className: className, ref: key, key: key });
       } else {
         var modifiers = this.getModifiersForDay(day);
         if (outside) {
@@ -244,7 +246,7 @@ var DayPicker = (function (_Component) {
         className += modifiers.map(function (mod) {
           return ' DayPicker-day--' + mod;
         }).join('');
-        return _React$Component$PropTypes2['default'].createElement(
+        return _react2['default'].createElement(
           'td',
           { ref: key, key: key,
             className: className,
@@ -260,26 +262,26 @@ var DayPicker = (function (_Component) {
     key: 'propTypes',
     value: {
 
-      enableOutsideDays: _React$Component$PropTypes.PropTypes.bool,
+      enableOutsideDays: _react.PropTypes.bool,
 
       // default is current month
-      initialMonth: _React$Component$PropTypes.PropTypes.object,
+      initialMonth: _react.PropTypes.object,
 
       // default is 1
-      numberOfMonths: _React$Component$PropTypes.PropTypes.number,
+      numberOfMonths: _react.PropTypes.number,
 
-      modifiers: _React$Component$PropTypes.PropTypes.object,
+      modifiers: _react.PropTypes.object,
 
-      onDayClick: _React$Component$PropTypes.PropTypes.func,
+      onDayClick: _react.PropTypes.func,
 
       // requires react-tap-event-plugin
-      onDayTouchTap: _React$Component$PropTypes.PropTypes.func,
+      onDayTouchTap: _react.PropTypes.func,
 
-      onDayMouseEnter: _React$Component$PropTypes.PropTypes.func,
-      onDayMouseLeave: _React$Component$PropTypes.PropTypes.func,
+      onDayMouseEnter: _react.PropTypes.func,
+      onDayMouseLeave: _react.PropTypes.func,
 
-      onNextMonthClick: _React$Component$PropTypes.PropTypes.func,
-      onPrevMonthClick: _React$Component$PropTypes.PropTypes.func
+      onNextMonthClick: _react.PropTypes.func,
+      onPrevMonthClick: _react.PropTypes.func
 
     },
     enumerable: true
@@ -294,7 +296,7 @@ var DayPicker = (function (_Component) {
   }]);
 
   return DayPicker;
-})(_React$Component$PropTypes.Component);
+})(_react.Component);
 
 exports['default'] = DayPicker;
 module.exports = exports['default'];
