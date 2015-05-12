@@ -37,8 +37,8 @@ class Example extends Component {
           initialMonth={ Utils.valueToDate(value) || Utils.today() }
           numberOfMonths={1}
           modifiers={ this.getModifiers() }
-          onDayTouchTap={this.handleDayTouchTap.bind(this)} />
-
+          onDayTouchTap={this.handleDayTouchTap.bind(this)} 
+          className="my-date-picker"/>
       </div>
     );
   }
