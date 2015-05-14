@@ -6,9 +6,7 @@ Object.defineProperty(exports, '__esModule', {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
-    property = _x2,
-    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -69,30 +67,30 @@ var DayPicker = (function (_Component) {
   }, {
     key: 'handleNextMonthClick',
     value: function handleNextMonthClick(e) {
-      var _this2 = this;
+      var _this = this;
 
       e.persist();
       var month = this.state.month;
 
       var nextMonth = month.clone().add(1, 'month');
       this.setState({ month: nextMonth }, function () {
-        if (_this2.props.onNextMonthClick) {
-          _this2.props.onNextMonthClick(_this2.state.month, e);
+        if (_this.props.onNextMonthClick) {
+          _this.props.onNextMonthClick(_this.state.month, e);
         }
       });
     }
   }, {
     key: 'handlePrevMonthClick',
     value: function handlePrevMonthClick(e) {
-      var _this3 = this;
+      var _this2 = this;
 
       e.persist();
       var month = this.state.month;
 
       var prevMonth = month.clone().subtract(1, 'month');
       this.setState({ month: prevMonth }, function () {
-        if (_this3.props.onPrevMonthClick) {
-          _this3.props.onPrevMonthClick(_this3.state.month, e);
+        if (_this2.props.onPrevMonthClick) {
+          _this2.props.onPrevMonthClick(_this2.state.month, e);
         }
       });
     }
@@ -133,7 +131,7 @@ var DayPicker = (function (_Component) {
 
       return _react2['default'].createElement(
         'div',
-        null,
+        { className: this.props.className, style: this.props.style },
         months
       );
     }
@@ -176,13 +174,13 @@ var DayPicker = (function (_Component) {
   }, {
     key: 'renderWeeks',
     value: function renderWeeks(month) {
-      var _this4 = this;
+      var _this3 = this;
 
-      return _CalendarUtils.weeks(month).map(function (week, i) {
+      return (0, _CalendarUtils.weeks)(month).map(function (week, i) {
         return _react2['default'].createElement(
           'tr',
           { key: i, className: 'DayPicker-week' },
-          _this4.renderDays(week)
+          _this3.renderDays(week)
         );
       });
     }
@@ -194,7 +192,7 @@ var DayPicker = (function (_Component) {
         header.push(_react2['default'].createElement(
           'th',
           { key: i, className: 'DayPicker-weekday' },
-          _moment2['default']().weekday(i).format('dd')
+          (0, _moment2['default'])().weekday(i).format('dd')
         ));
       }
 
@@ -203,13 +201,13 @@ var DayPicker = (function (_Component) {
   }, {
     key: 'renderDays',
     value: function renderDays(week) {
-      var _this5 = this;
+      var _this4 = this;
 
       var firstDay = week[0];
       var lastDay = week[week.length - 1];
 
       var days = week.map(function (day) {
-        return _this5.renderDay(day);
+        return _this4.renderDay(day);
       });
 
       // days belonging to the previous month
@@ -288,7 +286,7 @@ var DayPicker = (function (_Component) {
   }, {
     key: 'defaultProps',
     value: {
-      initialMonth: _moment2['default'](),
+      initialMonth: (0, _moment2['default'])(),
       numberOfMonths: 1,
       enableOutsideDays: false
     },
