@@ -1,3 +1,5 @@
+var webpack = require("webpack");
+
 module.exports = {
   entry: './src/client',
 
@@ -16,5 +18,12 @@ module.exports = {
       { test: /\.svg$/, loader: "url-loader?limit=100000&mimetype=image/svg+xml" }
     ]
   },
-  devtool: 'source-map'
+
+  plugins: [
+
+    // ignore moment locales
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+
+  ]
+
 };
