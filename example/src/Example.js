@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import Utils from "./Utils";
-
+import Utils from './Utils';
 import DayPicker from '../../src/DayPicker.js';
 
 class Example extends Component {
@@ -37,13 +36,13 @@ class Example extends Component {
           initialMonth={ Utils.valueToDate(value) || Utils.today() }
           numberOfMonths={1}
           modifiers={ this.getModifiers() }
-          onDayTouchTap={this.handleDayTouchTap.bind(this)} 
+          onDayTouchTap={this.handleDayTouchTap.bind(this)}
           className="my-date-picker"/>
       </div>
     );
   }
 
-  handleInputFocus(e) {
+  handleInputFocus() {
     this.showMonthForCurrentValue();
   }
 
@@ -54,7 +53,7 @@ class Example extends Component {
     }, this.showMonthForCurrentValue);
   }
 
-  handleDayTouchTap(day, modifiers, e) {
+  handleDayTouchTap(day, modifiers) {
 
     if (modifiers.indexOf('disabled') === -1 &&
         modifiers.indexOf('outside') === -1) {
