@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Utils from './Utils';
-import DayPicker from '../../src/DayPicker.js';
+import DayPicker from '../../dist/DayPicker.js';
 
 class Example extends Component {
 

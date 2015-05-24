@@ -1,6 +1,6 @@
-import React from 'react';
-import reactTapEvent from 'react-tap-event-plugin';
-import Example from './Example';
+import React from "react";
+import reactTapEvent from "react-tap-event-plugin";
+import Example from "./Example";
 
 // enable touch-tap events
 reactTapEvent();
