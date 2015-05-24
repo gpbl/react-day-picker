@@ -1,11 +1,11 @@
 {
   "name": "react-day-picker",
-  "version": "0.7.1",
+  "version": "0.8.3",
   "description": "Minimalistic date picker component for React and momentjs.",
   "main": "./dist/DayPicker.js",
   "scripts": {
-    "start": "cd example && webpack-dev-server --colors --progress --display-error-details",
-    "build": "cd example && webpack --hot=false --devtool=false --optimize-minimize",
+    "start": "cd example && webpack-dev-server --devtool=cheap-module-eval-source-map --colors --progress --display-error-details",
+    "build": "cd example && webpack --hot=false --devtool=source-map --colors --progress --optimize-minimize --output-path=../example-built/js && cp index.html ../example-built",
     "prepublish": "babel ./src -d ./dist"
   },
   "repository": {
@@ -36,17 +36,18 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.2.0",
-    "babel": "^4.7.16",
-    "babel-jest": "^4.0.0",
-    "babel-loader": "^4.2.0",
-    "css-loader": "^0.9.1",
-    "jest-cli": "^0.4.0",
-    "react-tap-event-plugin": "git+https://github.com/gpbl/react-tap-event-plugin.git",
-    "sass-loader": "0.4.2",
-    "style-loader": "^0.9.0",
+    "babel": "^5.4.7",
+    "babel-core": "^5.4.7",
+    "babel-jest": "^5.2.0",
+    "babel-loader": "^5.1.3",
+    "css-loader": "^0.14.0",
+    "jest-cli": "^0.4.5",
+    "react-tap-event-plugin": "^0.1.7",
+    "sass-loader": "1.0.2",
+    "style-loader": "^0.12.2",
     "url-loader": "^0.5.5",
-    "webpack": "^1.7.3",
-    "webpack-dev-server": "^1.7.0"
+    "webpack": "^1.9.8",
+    "webpack-dev-server": "^1.9.0"
   },
   "jest": {
     "scriptPreprocessor": "./node_modules/babel-jest",

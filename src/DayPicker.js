@@ -1,118 +1,149 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import moment from 'moment';
-import { weeks } from './utils';
+import { weeks } from './CalendarUtils';
 
-const DayPicker = React.createClass({
+class DayPicker extends Component {
 
-  propTypes: {
+  static propTypes = {
 
-    enableOutsideDays: React.PropTypes.bool,
+    enableOutsideDays: PropTypes.bool,
 
-    initialMonth: React.PropTypes.object, // default is current month
-    modifiers: React.PropTypes.object,
+    // default is current month
+    initialMonth: PropTypes.object,
 
-    onDayClick: React.PropTypes.func,
-    onDayTouchTap: React.PropTypes.func, // requires react-tap-event-plugin
-    onDayMouseEnter: React.PropTypes.func,
-    onDayMouseLeave: React.PropTypes.func,
+    // default is 1
+    numberOfMonths: PropTypes.number,
 
-    onNextMonthClick: React.PropTypes.func,
-    onPrevMonthClick: React.PropTypes.func
+    modifiers: PropTypes.object,
 
-  },
+    onDayClick: PropTypes.func,
 
-  getDefaultProps() {
-    return { initialMonth: moment(), enableOutsideDays: false };
-  },
+    // requires react-tap-event-plugin
+    onDayTouchTap: PropTypes.func,
 
-  getInitialState() {
-    return { month: this.props.initialMonth.clone() };
-  },
+    onDayMouseEnter: PropTypes.func,
+    onDayMouseLeave: PropTypes.func,
+
+    onNextMonthClick: PropTypes.func,
+    onPrevMonthClick: PropTypes.func
+
+  }
+
+  static defaultProps = {
+    initialMonth: moment(),
+    numberOfMonths: 1,
+    enableOutsideDays: false
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      month: this.props.initialMonth.clone()
+    };
+  }
 
   handleDayTouchTap(day, modifiers, e) {
     if (this.props.onDayTouchTap) {
       this.props.onDayTouchTap(day, modifiers, e);
     }
-  },
+  }
 
   handleDayClick(day, modifiers, e) {
     if (this.props.onDayClick) {
       this.props.onDayClick(day, modifiers, e);
     }
-  },
+  }
 
   handleDayMouseEnter(day, modifiers, e) {
     if (this.props.onDayMouseEnter) {
       this.props.onDayMouseEnter(day, modifiers, e);
     }
-  },
+  }
 
   handleDayMouseLeave(day, modifiers, e) {
     if (this.props.onDayMouseLeave) {
       this.props.onDayMouseLeave(day, modifiers, e);
     }
-  },
+  }
 
   handleNextMonthClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
+    e.persist();
     const { month } = this.state;
     const nextMonth = month.clone().add(1, 'month');
     this.setState({ month: nextMonth }, () => {
       if (this.props.onNextMonthClick) {
-        this.props.onNextMonthClick(this.state.month);
+        this.props.onNextMonthClick(this.state.month, e);
       }
     });
-  },
+  }
 
   handlePrevMonthClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
+    e.persist();
     const { month } = this.state;
     const prevMonth = month.clone().subtract(1, 'month');
     this.setState({ month: prevMonth }, () => {
       if (this.props.onPrevMonthClick) {
-        this.props.onPrevMonthClick(this.state.month);
+        this.props.onPrevMonthClick(this.state.month, e);
       }
     });
-  },
+  }
 
   getModifiersForDay(day) {
     const { modifiers } = this.props;
     let dayModifiers = [];
+
     if (modifiers) {
       for (let modifier in modifiers) {
         let func = modifiers[modifier];
+
         if (func(day)) {
           dayModifiers.push(modifier);
         }
       }
     }
+
     return dayModifiers;
-  },
+  }
 
   showMonth(month) {
     this.setState({month: month});
-  },
+  }
 
   render() {
-    const { month } = this.state;
+    let { month } = this.state;
+
+    let months = [];
+    for (let i = 0; i < this.props.numberOfMonths; i++) {
+      months.push(this.renderMonth(month, i));
+      month = month.clone().add(1, 'month');
+    }
+
     return (
-      <table className="DayPicker">
+      <div className={this.props.className} style={this.props.style}>
+        {months}
+      </div>
+    );
+  }
+
+  renderMonth(month, monthIndex) {
+    const isFirstMonth = (month === this.state.month);
+    const isLastMonth = (monthIndex === this.props.numberOfMonths - 1);
+    return (
+      <table key={monthIndex} className="DayPicker">
         <caption className="DayPicker-caption">
-          { this.renderNavButton('left') }
+          { isFirstMonth && this.renderNavButton('left') }
           { month.format('MMMM YYYY') }
-          { this.renderNavButton('right') }
+          { isLastMonth && this.renderNavButton('right') }
         </caption>
         <thead>
           { this.renderWeekHeader() }
         </thead>
         <tbody>
-          { this.renderWeeks() }
+          { this.renderWeeks(month) }
         </tbody>
       </table>
     );
-  },
+  }
 
   renderNavButton(position) {
     const className = `DayPicker-nav DayPicker-nav--${position}`;
@@ -120,17 +151,17 @@ const DayPicker = React.createClass({
       ? this.handlePrevMonthClick
       : this.handleNextMonthClick;
 
-    return <span ref={"btn-"+position} className={className}
-      style={{float: position}} onClick={handler} />;
-  },
+    return <span ref={"btn-" + position} className={className}
+      style={{float: position}} onClick={handler.bind(this)} />;
+  }
 
-  renderWeeks() {
-    return weeks(this.state.month).map((week, i) =>
+  renderWeeks(month) {
+    return weeks(month).map((week, i) =>
       <tr key={i} className="DayPicker-week">
         { this.renderDays(week) }
       </tr>
     );
-  },
+  }
 
   renderWeekHeader() {
     let header = [];
@@ -141,18 +172,19 @@ const DayPicker = React.createClass({
         </th>
       );
     }
+
     return header;
-  },
+  }
 
   renderDays(week) {
     const firstDay = week[0];
-    const lastDay = week[week.length-1];
+    const lastDay = week[week.length - 1];
 
     let days = week.map(day => this.renderDay(day));
 
     // days belonging to the previous month
     for (let i = 0; i < firstDay.weekday(); i++) {
-      const prevDay = firstDay.clone().subtract(i+1, 'day');
+      const prevDay = firstDay.clone().subtract(i + 1, 'day');
       days.unshift(this.renderDay(prevDay, true));
     }
 
@@ -163,19 +195,24 @@ const DayPicker = React.createClass({
     }
 
     return days;
-  },
+  }
 
   renderDay(day, outside) {
     const key = `${day.dayOfYear()}`;
     let className = 'DayPicker-day';
+
     if (outside) {
       className += ' DayPicker-day--outside';
     }
+
     if (outside && !this.props.enableOutsideDays) {
       return <td className={className} ref={key} key={key} />;
     }
     else {
-      const modifiers = this.getModifiersForDay(day);
+      let modifiers = this.getModifiersForDay(day);
+      if (outside) {
+        modifiers.push('outside');
+      }
       className += modifiers.map(mod => ` DayPicker-day--${mod}`).join('');
       return (
         <td ref={key} key={key}
@@ -190,6 +227,6 @@ const DayPicker = React.createClass({
     }
   }
 
-});
+}
 
 export default DayPicker;

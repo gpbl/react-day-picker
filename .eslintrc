@@ -1,20 +1,31 @@
 {
+
   "parser": "babel-eslint",
+
   "rules": {
     "quotes": 0,
-    "strict": 0,
-    "curly": 1,
-    "no-undef": 1,
-    "no-unused-expressions": 0,
+    "no-unused-expressions": 1,
     "no-unused-vars": 1,
-    "no-underscore-dangle": 0,
-    "camelcase": 0
+    "strict": 0,
+    "new-cap": 0,
+    "camelcase": 0,
+    "react/jsx-uses-react": 1
   },
+
+  "ecmaFeatures": {
+    "jsx": true
+  },
+
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "es6": true
   },
+
   "globals": {
     "BROWSER": true
-  }
+  },
+
+  "plugins": ["react"]
+
 }
