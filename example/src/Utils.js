@@ -3,7 +3,7 @@ import moment from 'moment';
 const Utils = {
 
   valueToDate(s) {
-    var date = moment(s, "YYYY-MM-DD", true);
+    var date = moment.utc(s, "YYYY-MM-DD", true);
     return date.isValid() ? date : null;
   },
 
