@@ -1,0 +1,38 @@
+{
+  "name": "react-day-picker-example",
+  "version": "0.1.0",
+  "description": "Example app for react-day-picker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gpbl/react-day-picker.git"
+  },
+  "author": "Giampaolo Bellavite <io@gpbl.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gpbl/react-day-picker/issues"
+  },
+  "homepage": "http://www.gpbl.org/react-day-picker/",
+  "dependencies": {
+    "autoprefixer-loader": "^1.2.0",
+    "babel": "^5.4.7",
+    "babel-core": "^5.4.7",
+    "babel-loader": "^5.1.3",
+    "css-loader": "^0.14.0",
+    "file-loader": "^0.8.3",
+    "node-sass": "^3.1.2",
+    "react": "^0.13.3",
+    "react-tap-event-plugin": "^0.1.7",
+    "sass-loader": "1.0.2",
+    "style-loader": "^0.12.2",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.9.8"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.9.0",
+    "react-hot-loader": "^1.2.7"
+  }
+}
