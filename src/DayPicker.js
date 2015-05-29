@@ -151,7 +151,7 @@ class DayPicker extends Component {
       ? this.handlePrevMonthClick
       : this.handleNextMonthClick;
 
-    return <span ref={"btn-" + position} className={className}
+    return <span key={"btn-" + position} className={className}
       style={{float: position}} onClick={handler.bind(this)} />;
   }
 
@@ -206,7 +206,7 @@ class DayPicker extends Component {
     }
 
     if (outside && !this.props.enableOutsideDays) {
-      return <td className={className} ref={key} key={key} />;
+      return <td className={className} key={key} />;
     }
     else {
       let modifiers = this.getModifiersForDay(day);
@@ -215,7 +215,7 @@ class DayPicker extends Component {
       }
       className += modifiers.map(mod => ` DayPicker-day--${mod}`).join('');
       return (
-        <td ref={key} key={key}
+        <td key={key}
           className={className}
           onMouseEnter={this.handleDayMouseEnter.bind(this, day, modifiers)}
           onMouseLeave={this.handleDayMouseLeave.bind(this, day, modifiers)}
