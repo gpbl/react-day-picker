@@ -14,7 +14,7 @@ let TestUtils;
 describe("DayPicker", () => {
 
   beforeEach(() => {
-
+    // See http://stackoverflow.com/questions/30039655 for using jsdom with mocha and React 0.13+
     for (let key in require.cache) {
       if (key.match(/\/node_modules\/react\//)) {
         delete require.cache[key];
@@ -31,7 +31,7 @@ describe("DayPicker", () => {
     TestUtils = React.addons.TestUtils;
   });
 
-  it("should have default props properly set", () => {
+  it("should have the default props properly set", () => {
     const dayPicker = <DayPicker />;
     const now = new Date();
     expect(dayPicker.props.initialMonth.getMonth()).to.equal(now.getMonth());
@@ -41,7 +41,7 @@ describe("DayPicker", () => {
     expect(dayPicker.props.enableOutsideDays).to.equal(false);
   });
 
-  it("should have a DayPicker class", () => {
+  it("should have a `DayPicker` class", () => {
     const shallowRenderer = TestUtils.createRenderer();
     shallowRenderer.render(<DayPicker />);
 
@@ -49,7 +49,7 @@ describe("DayPicker", () => {
     expect(dayPicker.props.className).to.equal("DayPicker");
   });
 
-  it("should render the number of months as specified by initialMonth", () => {
+  it("should render the number of months as specified by `initialMonth`", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-12-06")} numberOfMonths={3} />
     );
@@ -84,7 +84,7 @@ describe("DayPicker", () => {
 
   });
 
-  it("should update its state when moving to the next month", () => {
+  it("should update its state when clicking the next button", () => {
 
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-12-05")} />
@@ -101,7 +101,7 @@ describe("DayPicker", () => {
   });
 
 
-  it("should call onPrevMonthClick", () => {
+  it("should call `onPrevMonthClick` when clicking the previous month button", () => {
     const SyntheticEvent = require("react/lib/SyntheticEvent");
     const handlePrevMonthClick = sinon.spy();
     const dayPickerEl = TestUtils.renderIntoDocument(
@@ -128,7 +128,7 @@ describe("DayPicker", () => {
   });
 
 
-  it("should call onNextMonthClick", () => {
+  it("should call `onNextMonthClick` when clicking the next month button", () => {
     const SyntheticEvent = require("react/lib/SyntheticEvent");
     const handleNextMonthClick = sinon.spy();
     const dayPickerEl = TestUtils.renderIntoDocument(
@@ -170,7 +170,7 @@ describe("DayPicker", () => {
   });
 
 
-  it("should render the weeks elements in a month", () => {
+  it("should render the week elements for a month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-07-01")} />
     );
@@ -180,7 +180,7 @@ describe("DayPicker", () => {
     expect(weeksEl).to.have.length(5);
   });
 
-  it("should render the days element in a month", () => {
+  it("should render the day elements for a month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-07-01")} />
     );
@@ -191,7 +191,7 @@ describe("DayPicker", () => {
 
   });
 
-  it("should not print outside days", () => {
+  it("should not print outside days as required", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-07-01")} enableOutsideDays={false} />
     );
@@ -203,7 +203,7 @@ describe("DayPicker", () => {
     expect(React.findDOMNode(days[2]).innerHTML).to.equal("");
   });
 
-  it("should print outside days when required", () => {
+  it("should print outside days as required", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-07-01")} enableOutsideDays={true} />
     );
@@ -225,7 +225,7 @@ describe("DayPicker", () => {
     expect(React.findDOMNode(days[0]).innerHTML).to.equal("28");
   });
 
-  it("should add a `today` modifier to today date", () => {
+  it("should add a `today` modifier to the today's element", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker />
     );
@@ -267,7 +267,7 @@ describe("DayPicker", () => {
 
   });
 
-  it("should call the right mouse event handlers on a day element", () => {
+  it("should call the mouse event handlers for a day element", () => {
 
     React.initializeTouchEvents(true);
     require("react-tap-event-plugin")();
@@ -363,7 +363,5 @@ describe("DayPicker", () => {
     expect(handleTouchTap).to.not.have.been.called;
 
   });
-
-
 
 });
