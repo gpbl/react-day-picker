@@ -5,6 +5,9 @@
   "main": "./lib/DayPicker.js",
   "scripts": {
     "prepublish": "babel ./src -d ./lib",
+    "coverage": "istanbul cover --report html --report text -- _mocha tests/* --compilers js:babel/register --recursive --reporter xunit",
+    "test": "mocha tests/* --compilers js:babel/register --recursive --reporter spec"
+    "test:watch": "mocha tests/* -w --compilers js:babel/register --recursive --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -34,15 +37,13 @@
   },
   "devDependencies": {
     "babel": "^5.4.7",
-    "babel-core": "^5.4.7"
-  },
-  "jest": {
-    "scriptPreprocessor": "./node_modules/babel-jest",
-    "testFileExtensions": [
-      "js"
-    ],
-    "moduleFileExtensions": [
-      "js"
-    ]
+    "babel-core": "^5.4.7",
+    "istanbul": "^0.3.14",
+    "jsdom": "^3.1.2",
+    "moment": "^2.10.3",
+    "react": "^0.13.3",
+    "react-tap-event-plugin": "^0.1.7",
+    "sinon": "^1.14.1",
+    "sinon-chai": "^2.7.0"
   }
 }
