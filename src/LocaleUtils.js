@@ -1,0 +1,20 @@
+import moment from "moment";
+
+const LocaleUtils = {
+
+  formatMonthTitle(date, locale="en") {
+    return moment(date).locale(locale).format("MMMM YYYY");
+  },
+
+  formatWeekday(day, locale="en") {
+    return moment().locale(locale).weekday(day).format("dd");
+  },
+
+  getFirstDayOfWeek(locale="en") {
+    const localeData = moment.localeData(locale);
+    return localeData.firstDayOfWeek();
+  }
+
+};
+
+export default LocaleUtils;
