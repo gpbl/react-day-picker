@@ -5,6 +5,7 @@ import LocaleUtils from "./LocaleUtils";
 class DayPicker extends Component {
 
   static propTypes = {
+    
     initialMonth: PropTypes.instanceOf(Date), // default is current month
     modifiers: PropTypes.object,
 
@@ -12,7 +13,6 @@ class DayPicker extends Component {
     numberOfMonths: PropTypes.number, // default is 1
 
     enableOutsideDays: PropTypes.bool, // default is false
-
 
     onDayClick: PropTypes.func,
     onDayTouchTap: PropTypes.func,  // requires react-tap-event-plugin
@@ -34,7 +34,7 @@ class DayPicker extends Component {
 
   constructor(props) {
     super(props);
-    let { initialMonth } = this.props;
+    const { initialMonth } = this.props;
     this.state = {
       currentMonth: Utils.startOfMonth(initialMonth)
     };
