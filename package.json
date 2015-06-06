@@ -2,9 +2,9 @@
   "name": "react-day-picker",
   "version": "0.8.3",
   "description": "Minimalistic date picker component for React and momentjs.",
-  "main": "./dist/DayPicker.js",
+  "main": "./lib/DayPicker.js",
   "scripts": {
-    "prepublish": "babel ./src -d ./dist"
+    "prepublish": "babel ./src -d ./lib",
   },
   "repository": {
     "type": "git",
