@@ -5,14 +5,13 @@ import LocaleUtils from "./LocaleUtils";
 class DayPicker extends Component {
 
   static propTypes = {
-    initialMonth: PropTypes.instanceOf(Date), // default is current month
+    initialMonth: PropTypes.instanceOf(Date).isRequired, // default is current month
     modifiers: PropTypes.object,
 
     locale: PropTypes.string, // default is `en`
     numberOfMonths: PropTypes.number, // default is 1
 
     enableOutsideDays: PropTypes.bool, // default is false
-
 
     onDayClick: PropTypes.func,
     onDayTouchTap: PropTypes.func,  // requires react-tap-event-plugin
@@ -63,17 +62,21 @@ class DayPicker extends Component {
     const isLastMonth = i === numberOfMonths - 1;
 
     return (
-      <div className="DayPicker-Month" key={d.getMonth()}>
-        <div className="DayPicker-NavBar">
+      <table className="DayPicker-Month" key={d.getMonth()}>
+        <caption className="DayPicker-NavBar">
           { isFirstMonth && this.renderNavButton("prev") }
           <span className="DayPicker-Caption">
             { LocaleUtils.formatMonthTitle(d, locale) }
           </span>
           { isLastMonth && this.renderNavButton("next") }
-        </div>
-        { this.renderWeekDays() }
-        { this.renderWeeksInMonth(d) }
-      </div>
+        </caption>
+        <thead className="DayPicker-Weekdays">
+          { this.renderWeekDays() }
+        </thead>
+        <tbody>
+          { this.renderWeeksInMonth(d) }
+        </tbody>
+      </table>
     );
   }
 
@@ -94,23 +97,23 @@ class DayPicker extends Component {
     let days = [];
     for (let i = 0; i < 7; i++) {
       days.push(
-        <span key={i} className="DayPicker-Weekday">
+        <th key={i} className="DayPicker-Weekday">
           { LocaleUtils.formatWeekday(i, locale) }
-        </span>
+        </th>
       );
     }
     return (
-      <div className="DayPicker-Weekdays">
+      <tr>
         { days }
-      </div>
+      </tr>
     );
   }
 
   renderWeeksInMonth(month) {
     return Utils.getWeekArray(month).map((week, i) =>
-      <div key={i} className="DayPicker-Week">
+      <tr key={i} className="DayPicker-Week">
         { week.map(::this.renderDay) }
-      </div>
+      </tr>
     );
   }
 
@@ -142,7 +145,7 @@ class DayPicker extends Component {
     className += modifiers.map(modifier => ` ${className}--${modifier}`).join("");
 
     if (isOutside && !enableOutsideDays) {
-      return <span key={i} className={className} />;
+      return <td key={i} className={className} />;
     }
 
     const eventsHandlers = {
@@ -153,9 +156,9 @@ class DayPicker extends Component {
     };
 
     return (
-      <span key={i} className={className} {...eventsHandlers}>
+      <td key={i} className={className} {...eventsHandlers}>
         { d.getDate() }
-      </span>
+      </td>
     );
   }
 
