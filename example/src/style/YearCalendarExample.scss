@@ -1,0 +1,27 @@
+@import "constants";
+
+.YearCalendarExample {
+  h1 {
+    user-select: none;
+    margin-top: 0;
+    text-align: center;
+    font-weight: 300;
+    font-size: 3rem;
+     color: darken($grey, 50);
+     a {
+      cursor: pointer;
+      font-size: .5em;
+      color: darken($grey, 30);
+      display: inline-block;
+      margin: 0 1rem;
+     }
+  }
+  .DayPicker-Month {
+    margin-bottom: 2rem;
+  }
+  .DayPicker-MonthName {
+    font-family: $font-head;
+    font-weight: 400;
+    color: darken($grey, 20);
+  }
+}

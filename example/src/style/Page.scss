@@ -1,0 +1,84 @@
+@import "constants.scss";
+
+.Page-Header {
+  background-color: $blue;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  h1 {
+    margin: 0;
+    margin-top: .2rem;
+  }
+  h3 {
+    font-size: 1rem;
+    margin: .2rem;
+    font-weight: 300;
+  }
+}
+
+.Page-Content {
+  margin: 1rem auto;
+  max-width: 800px;
+}
+
+.Page-Content--max {
+  max-width: 100%;
+}
+
+.Menu {
+  text-align: center;
+  white-space: nowrap;
+  overflow: auto;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 1rem 0;
+  a {
+    display: inline-block;
+    margin: 0 1rem;
+    text-decoration: none;
+    color: $blue;
+    font-weight: normal;
+    padding-bottom: .25rem;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &.selected {
+      border-bottom: 2px solid $blue;
+    }
+  }
+}
+
+.Examples {
+  display: flex;
+  transition: transform .4s;
+  .Example {
+    flex: 1 0 100%;
+  }
+}
+
+.Example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > div {
+    box-sizing: border-box;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .Example-Code {
+    margin-top: 2rem;
+    width: 100%;
+    overflow-x: auto;
+  }
+}

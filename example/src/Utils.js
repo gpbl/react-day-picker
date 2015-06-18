@@ -1,32 +1,18 @@
-import moment from 'moment';
+export function isPastDay(d) {
+  let today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return d < today;
+}
 
-const Utils = {
+export function isSameDay(d1, d2) {
+  d1.setHours(0, 0, 0, 0);
+  d2.setHours(0, 0, 0, 0);
+  return d1.getTime() === d2.getTime();
+}
 
-  valueToDate(s) {
-    var date = moment.utc(s, "YYYY-MM-DD", true);
-    return date.isValid() ? date : null;
-  },
-
-  dateToValue(d) {
-    return d.format("YYYY-MM-DD");
-  },
-
-  isSameDay(a, b) {
-    return a.startOf('day').isSame(b.startOf('day'));
-  },
-
-  isPastDay(day) {
-    return day.diff(moment(), 'day') < 0;
-  },
-
-  isToday(day) {
-    return Utils.isSameDay(moment(), day);
-  },
-
-  today() {
-    return moment();
-  }
-
-};
-
-export default Utils;
+export function isBetween(d, d1, d2) {
+  d.setHours(0, 0, 0, 0);
+  d1.setHours(0, 0, 0, 0);
+  d2.setHours(0, 0, 0, 0);
+  return d1 < d && d < d2;
+}

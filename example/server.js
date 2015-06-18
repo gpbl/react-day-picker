@@ -11,7 +11,6 @@ new WebpackDevServer(webpack(config), {
     colors: true
   }
 }).listen(3000, "0.0.0.0", (err) => {
-
   if (err) {
     console.error(err);
     return;
