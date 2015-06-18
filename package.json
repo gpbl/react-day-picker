@@ -1,13 +1,14 @@
 {
   "name": "react-day-picker",
-  "version": "0.8.3",
+  "version": "1.0.0",
   "description": "Minimalistic date picker component for React and momentjs.",
   "main": "./lib/DayPicker.js",
   "scripts": {
-    "prepublish": "babel ./src -d ./lib",
+    "prepublish": "babel ./src -d ./lib --source-maps",
     "coverage": "istanbul cover --report html --report text -- _mocha tests/* --compilers js:babel/register --recursive --reporter xunit",
-    "test": "mocha tests/* --compilers js:babel/register --recursive --reporter spec"
-    "test:watch": "mocha tests/* -w --compilers js:babel/register --recursive --reporter spec"
+    "test": "mocha tests/* --compilers js:babel/register --recursive --reporter spec",
+    "test:watch": "mocha tests/* -w --compilers js:babel/register --recursive --reporter spec",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -32,18 +33,22 @@
   },
   "homepage": "https://github.com/gpbl/react-day-picker",
   "peerDependencies": {
-    "moment": "^2.9.0",
+    "moment": "^2.8.0",
     "react": "~0.13.x"
   },
   "devDependencies": {
-    "babel": "^5.4.7",
-    "babel-core": "^5.4.7",
-    "istanbul": "^0.3.14",
+    "babel": "^5.5.8",
+    "babel-core": "^5.5.8",
+    "babel-eslint": "^3.1.15",
+    "eslint": "^0.23.0",
+    "eslint-plugin-react": "^2.5.2",
+    "istanbul": "^0.3.15",
     "jsdom": "^3.1.2",
     "moment": "^2.10.3",
     "react": "^0.13.3",
+    "react-a11y": "^0.2.6",
     "react-tap-event-plugin": "^0.1.7",
-    "sinon": "^1.14.1",
-    "sinon-chai": "^2.7.0"
+    "sinon": "^1.15.3",
+    "sinon-chai": "^2.8.0"
   }
 }

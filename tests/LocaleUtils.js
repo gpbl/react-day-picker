@@ -17,10 +17,17 @@ describe("LocaleUtils", () => {
     });
   });
 
-  describe("formatWeekday", () => {
-    it("should return the day name as string", () => {
-      expect(LocaleUtils.formatWeekday(0)).to.equal("Su"); // first day is sunday
-      expect(LocaleUtils.formatWeekday(0, "it")).to.equal("L"); // first day is monday
+  describe("formatWeekdayShort", () => {
+    it("should return the short day name as string", () => {
+      expect(LocaleUtils.formatWeekdayShort(0)).to.equal("Su");
+      expect(LocaleUtils.formatWeekdayShort(0, "it")).to.equal("L");
+    });
+  });
+
+  describe("formatWeekdayLong", () => {
+    it("should return the long day name as string", () => {
+      expect(LocaleUtils.formatWeekdayLong(0)).to.equal("Sunday");
+      expect(LocaleUtils.formatWeekdayLong(0, "it")).to.equal("Lunedì");
     });
   });
 

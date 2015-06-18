@@ -110,6 +110,31 @@ describe("Utils", () => {
       expect(lastDay.getMonth()).to.equal(9);
       expect(lastDay.getFullYear()).to.equal(2015);
     });
+
+    it("should return 7 days per week when starting day is sunday", () => {
+      const weeks = Utils.getWeekArray(new Date("2015-07-01"), "en");
+      expect(weeks).to.have.length(5);
+      weeks.forEach((week) => {
+        expect(week).to.have.length(7);
+      });
+    });
+
+    it("should return 7 days per week when starting day is monday", () => {
+      const weeks = Utils.getWeekArray(new Date("2015-07-01"), "it");
+      expect(weeks).to.have.length(5);
+      weeks.forEach((week) => {
+        expect(week).to.have.length(7);
+      });
+    });
+
+    it("should return 7 days per week when starting day is saturday", () => {
+      const weeks = Utils.getWeekArray(new Date("2015-07-01"), "ar");
+      weeks.forEach((week) => {
+        expect(week).to.have.length(7);
+      });
+    });
+
+
   });
 
   describe("getModifiersForDay", () => {

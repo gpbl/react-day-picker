@@ -6,8 +6,12 @@ const LocaleUtils = {
     return moment(date).locale(locale).format("MMMM YYYY");
   },
 
-  formatWeekday(day, locale="en") {
+  formatWeekdayShort(day, locale="en") {
     return moment().locale(locale).weekday(day).format("dd");
+  },
+
+  formatWeekdayLong(day, locale="en") {
+    return moment().locale(locale).weekday(day).format("dddd");
   },
 
   getFirstDayOfWeek(locale="en") {

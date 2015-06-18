@@ -39,40 +39,44 @@ const Utils = {
     const daysInMonth = this.getDaysInMonth(d);
 
     let dayArray = [];
-    let daysInWeek;
-    let firstDayOfWeek;
-    let week;
+    let week = [];
     let weekArray = [];
+
+    const firstDayOfWeekForLocale = getFirstDayOfWeek(locale);
 
     for (let i = 1; i <= daysInMonth; i++) {
       dayArray.push(new Date(d.getFullYear(), d.getMonth(), i));
     }
 
-    while (dayArray.length) {
-      firstDayOfWeek = dayArray[0].getDay();
-      daysInWeek = 7 - firstDayOfWeek + getFirstDayOfWeek(locale);
+    dayArray.forEach((day) => {
+        if(week.length > 0 && day.getDay() === firstDayOfWeekForLocale) {
+          weekArray.push(week);
+          week = [];
+        }
+        week.push(day);
+        if (dayArray.indexOf(day) === dayArray.length - 1) {
+          weekArray.push(week);
+        }
+    });
 
-      week = dayArray.splice(0, daysInWeek);
+    // unshift days to start the first week
+    const firstWeek = weekArray[0];
+    for (let i = 7 - firstWeek.length; i > 0; i--) {
+      let outsideDate = this.clone(firstWeek[0]);
+      outsideDate.setDate(firstWeek[0].getDate() - 1);
+      firstWeek.unshift(outsideDate);
+    }
 
-      // unshift days to start the first week
-      for (let i = 0; i < 7 - daysInWeek; i++) {
-        let outsideDate = this.clone(week[0]);
-        outsideDate.setDate(week[0].getDate() - 1);
-        week.unshift(outsideDate);
-      }
-
-      // push days to close the last week
-      for (let i = week.length; i < 7; i++) {
-        const lastDay = week[week.length - 1];
-        let outsideDate = this.clone(lastDay);
-        outsideDate.setDate(lastDay.getDate() + 1);
-        week.push(outsideDate);
-
-      }
-      weekArray.push(week);
+    // push days until the end of the last week
+    const lastWeek = weekArray[weekArray.length - 1];
+    for (let i = lastWeek.length; i < 7; i++) {
+      let outsideDate = this.clone(lastWeek[lastWeek.length - 1]);
+      outsideDate.setDate(lastWeek[lastWeek.length - 1].getDate() + 1);
+      lastWeek.push(outsideDate);
     }
 
     return weekArray;
+
   },
 
   getModifiersForDay(d, modifierFunctions) {

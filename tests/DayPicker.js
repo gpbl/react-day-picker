@@ -31,7 +31,7 @@ describe("DayPicker", () => {
     TestUtils = React.addons.TestUtils;
   });
 
-  it("should have default props properly set", () => {
+  it("has the default props properly set", () => {
     const dayPicker = <DayPicker />;
     const now = new Date();
     expect(dayPicker.props.initialMonth.getMonth()).to.equal(now.getMonth());
@@ -39,17 +39,66 @@ describe("DayPicker", () => {
     expect(dayPicker.props.numberOfMonths).to.equal(1);
     expect(dayPicker.props.locale).to.equal("en");
     expect(dayPicker.props.enableOutsideDays).to.equal(false);
+    expect(dayPicker.props.canChangeMonth).to.equal(true);
+    expect(dayPicker.props.tabIndex).to.equal(0);
+    expect(dayPicker.props.style).to.be.undefined;
+    expect(dayPicker.props.className).to.be.undefined;
   });
 
-  it("should have a DayPicker class", () => {
+  it("has a DayPicker class (with locale)", () => {
     const shallowRenderer = TestUtils.createRenderer();
     shallowRenderer.render(<DayPicker />);
 
     const dayPicker = shallowRenderer.getRenderOutput();
-    expect(dayPicker.props.className).to.equal("DayPicker");
+    expect(dayPicker.props.className).to.contain("DayPicker");
+    expect(dayPicker.props.className).to.contain("DayPicker--en");
+    expect(dayPicker.props.className).to.contain("DayPicker--interactionDisabled");
   });
 
-  it("should render the number of months as specified by initialMonth", () => {
+  it("has a role attribute", () => {
+    const shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(<DayPicker />);
+
+    const dayPicker = shallowRenderer.getRenderOutput();
+    expect(dayPicker.props.role).to.equal("widget");
+  });
+
+  it("has a tabIndex attribute", () => {
+    const shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(<DayPicker tabIndex={10} />);
+
+    const dayPicker = shallowRenderer.getRenderOutput();
+    expect(dayPicker.props.tabIndex).to.equal(10);
+  });
+
+  it("does not contain a interactionEnabled modifier", () => {
+    const shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(<DayPicker interactionEnabled={false} />);
+
+    const dayPicker = shallowRenderer.getRenderOutput();
+    expect(dayPicker.props.className).to.not.contain("DayPicker--interactionEnabled");
+  });
+
+
+  it("uses the `className` prop", () => {
+    const shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(<DayPicker className="custom-class" />);
+
+    const dayPicker = shallowRenderer.getRenderOutput();
+    expect(dayPicker.props.className).to.contain("custom-class");
+  });
+
+  it("uses the `style` prop", () => {
+    const style = { fontSize: 12 };
+    const shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(<DayPicker style={ style } />);
+
+    const dayPicker = shallowRenderer.getRenderOutput();
+    expect(dayPicker.props.style.fontSize).to.equal(12);
+  });
+
+
+  it("renders the number of months as specified by initialMonth", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-12-06")} numberOfMonths={3} />
     );
@@ -58,9 +107,9 @@ describe("DayPicker", () => {
     expect(months).to.have.length(3);
   });
 
-  it("should render a navigation bar for each month", () => {
+  it("renders a navigation bar for each month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-12-05")} numberOfMonths={4} />
+      <DayPicker initialMonth={new Date(2015, 11, 5)} numberOfMonths={4} />
     );
 
     const navBar = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -69,9 +118,9 @@ describe("DayPicker", () => {
 
   });
 
-  it("should render the navigation buttons", () => {
+  it("renders the navigation buttons", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-12-05")} />
+      <DayPicker initialMonth={new Date(2015, 11, 5)} tabIndex={5} />
     );
 
     const prevButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
@@ -79,15 +128,30 @@ describe("DayPicker", () => {
     expect(prevButton).to.not.be.undefined;
 
     const nextButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
-      "DayPicker-NavButton DayPicker-NavButton--prev");
+      "DayPicker-NavButton DayPicker-NavButton--next");
     expect(nextButton).to.not.be.undefined;
 
   });
 
-  it("should update its state when moving to the next month", () => {
+  it("does not render the navigation buttons", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker canChangeMonth={false} initialMonth={new Date(2015, 11, 5)} />
+    );
+
+    const prevButton = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-NavButton DayPicker-NavButton--prev");
+    expect(prevButton).to.have.length(0);
+
+    const nextButton = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-NavButton DayPicker-NavButton--prev");
+    expect(nextButton).to.have.length(0);
+
+  });
+
+  it("updates its state when clicking to the next month button", () => {
 
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-12-05")} />
+      <DayPicker initialMonth={new Date(2015, 11, 5)} />
     );
     const nextButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
       "DayPicker-NavButton DayPicker-NavButton--next");
@@ -100,63 +164,110 @@ describe("DayPicker", () => {
 
   });
 
+  it("updates its state when pressing Enter over the next month button", () => {
 
-  it("should call onPrevMonthClick", () => {
-    const SyntheticEvent = require("react/lib/SyntheticEvent");
-    const handlePrevMonthClick = sinon.spy();
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-12-05")} onPrevMonthClick={handlePrevMonthClick} />
+      <DayPicker initialMonth={new Date(2015, 11, 5)} />
     );
-    const prevButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
-      "DayPicker-NavButton DayPicker-NavButton--prev");
-    TestUtils.Simulate.click(prevButton);
+    const nextButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
+      "DayPicker-NavButton DayPicker-NavButton--next");
 
-    expect(handlePrevMonthClick).to.have.been.calledWith(
+    TestUtils.Simulate.keyDown(nextButton, {keyCode: 13});
 
-        sinon.match((prevMonth) => {
-          return prevMonth.getFullYear() === 2015 &&
-            prevMonth.getMonth() === 10 &&
-            prevMonth.getDate() === 1;
-        }, "prevMonth"),
-
-        sinon.match((e) => {
-          return e instanceof SyntheticEvent && e.target !== null;
-        }, "e")
-
-    );
+    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2016);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(0);
+    expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
 
   });
 
+  it("does not its state when pressing Enter over the next month button", () => {
 
-  it("should call onNextMonthClick", () => {
-    const SyntheticEvent = require("react/lib/SyntheticEvent");
-    const handleNextMonthClick = sinon.spy();
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-12-05")} onNextMonthClick={handleNextMonthClick} />
+      <DayPicker initialMonth={new Date(2015, 11, 5)} />
+    );
+    const nextButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
+      "DayPicker-NavButton DayPicker-NavButton--next");
+
+    TestUtils.Simulate.keyDown(nextButton, {keyCode: 8});
+
+    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(11);
+    expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+
+  });
+
+  it("updates its state when pressing Enter over the prev month button", () => {
+
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 11, 5)} />
+    );
+    const prevButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
+      "DayPicker-NavButton DayPicker-NavButton--prev");
+
+    TestUtils.Simulate.keyDown(prevButton, {keyCode: 13});
+
+    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(10);
+    expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+
+  });
+
+  it("does not its state when pressing Enter over the prev month button", () => {
+
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 11, 5)} />
+    );
+    const prevButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
+      "DayPicker-NavButton DayPicker-NavButton--prev");
+
+    TestUtils.Simulate.keyDown(prevButton, {keyCode: 8});
+
+    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(11);
+    expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+
+  });
+
+  it("updates its state when clicking to the previous month button", () => {
+
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 11, 5)} />
+    );
+    const prevButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
+      "DayPicker-NavButton DayPicker-NavButton--prev");
+
+    TestUtils.Simulate.click(prevButton);
+
+    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(10);
+    expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+
+  });
+
+  it("calls onMonthChange", () => {
+    const SyntheticEvent = require("react/lib/SyntheticEvent");
+    const handleMonthChange = sinon.spy();
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 11, 5)} onMonthChange={handleMonthChange} />
     );
     const nextButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
       "DayPicker-NavButton DayPicker-NavButton--next");
     TestUtils.Simulate.click(nextButton);
 
-    expect(handleNextMonthClick).to.have.been.calledWith(
-
+    expect(handleMonthChange).to.have.been.calledWith(
         sinon.match((nextMonth) => {
           return nextMonth.getFullYear() === 2016 &&
             nextMonth.getMonth() === 0 &&
             nextMonth.getDate() === 1;
         }, "nextMonth"),
 
-        sinon.match((e) => {
-          return e instanceof SyntheticEvent && e.target !== null;
-        }, "e")
-
     );
 
   });
 
-  it("should render the weekday names", () => {
+  it("renders the weekday names", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-12-05")} />
+      <DayPicker initialMonth={new Date(2015, 11, 5)} />
     );
 
     const weekdaysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -170,7 +281,7 @@ describe("DayPicker", () => {
   });
 
 
-  it("should render the weeks elements in a month", () => {
+  it("renders the weeks elements in a month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-07-01")} />
     );
@@ -180,7 +291,7 @@ describe("DayPicker", () => {
     expect(weeksEl).to.have.length(5);
   });
 
-  it("should render the days element in a month", () => {
+  it("renders the days element in a month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-07-01")} />
     );
@@ -191,7 +302,7 @@ describe("DayPicker", () => {
 
   });
 
-  it("should not print outside days", () => {
+  it("does not render outside days", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-07-01")} enableOutsideDays={false} />
     );
@@ -203,7 +314,7 @@ describe("DayPicker", () => {
     expect(React.findDOMNode(days[2]).innerHTML).to.equal("");
   });
 
-  it("should print outside days when required", () => {
+  it("renders outside days when required", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-07-01")} enableOutsideDays={true} />
     );
@@ -215,7 +326,7 @@ describe("DayPicker", () => {
     expect(React.findDOMNode(days[2]).innerHTML).to.equal("30");
   });
 
-  it("should add an `outside` modifier to outside days", () => {
+  it("adds an `outside` modifier to outside days", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date("2015-07-01")} enableOutsideDays={true} />
     );
@@ -225,7 +336,7 @@ describe("DayPicker", () => {
     expect(React.findDOMNode(days[0]).innerHTML).to.equal("28");
   });
 
-  it("should add a `today` modifier to today date", () => {
+  it("adds a `today` modifier to today date", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker />
     );
@@ -235,7 +346,7 @@ describe("DayPicker", () => {
     expect(React.findDOMNode(todayEl).innerHTML).to.equal(`${today.getDate()}`);
   });
 
-  it("should properly add custom modifiers", () => {
+  it("adds custom modifiers", () => {
     const modifiers = {
       firstDayOfMonth(day) {
         return day.getDate() === 1;
@@ -267,7 +378,7 @@ describe("DayPicker", () => {
 
   });
 
-  it("should call the right mouse event handlers on a day element", () => {
+  it("calls event handlers on a day cell", () => {
 
     React.initializeTouchEvents(true);
     require("react-tap-event-plugin")();
@@ -289,7 +400,7 @@ describe("DayPicker", () => {
     const handleTouchTap = sinon.spy();
 
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-12-05")}
+      <DayPicker initialMonth={new Date(2015, 11, 5)}
         modifiers={modifiers}
         onDayClick={handleClick}
         onDayMouseEnter={handleMouseEnter}
@@ -302,13 +413,13 @@ describe("DayPicker", () => {
     const dayEl = daysEl[2];
 
     const handlerCallback = [
+        sinon.match((e) => {
+          return e instanceof SyntheticEvent && e.target !== null;
+        }, "e"),
         sinon.match(isFirstDay, "d"),
         sinon.match((mods) => {
           return mods instanceof Array && mods[0] === "firstDay";
-        }, "modifiers"),
-        sinon.match((e) => {
-          return e instanceof SyntheticEvent && e.target !== null;
-        }, "e")
+        }, "modifiers")
     ];
 
     TestUtils.Simulate.click(dayEl);
@@ -323,11 +434,50 @@ describe("DayPicker", () => {
     expect(handleMouseLeave).to.have.been.calledWith(...handlerCallback);
 
     TestUtils.Simulate.touchTap(dayEl);
-    expect(handleTouchTap).to.have.been.calledWith(...handlerCallback);
+    expect(handleTouchTap).to.not.have.been.called;
 
   });
 
-  it("should *not* call mouse events on outside days", () => {
+  it("calls touch-tap event handler on a day cell", () => {
+
+    React.initializeTouchEvents(true);
+    require("react-tap-event-plugin")();
+
+    const handleTouchTap = sinon.spy();
+
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 11, 5)}
+        onDayTouchTap={handleTouchTap} />
+    );
+
+    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Day");
+    const dayEl = daysEl[2];
+
+    TestUtils.Simulate.touchTap(dayEl);
+    expect(handleTouchTap).to.have.been.called;
+
+  });
+
+
+  it("does not call event handlers on a day cell without event prop", () => {
+
+    const handleClick = sinon.spy();
+
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 11, 5)} />
+    );
+
+    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Day");
+    const dayEl = daysEl[2];
+
+    TestUtils.Simulate.click(dayEl);
+    expect(handleClick).to.not.have.been.called;
+
+  });
+
+  it("does not call mouse events on outside days", () => {
 
     React.initializeTouchEvents(true);
     require("react-tap-event-plugin")();
@@ -338,7 +488,7 @@ describe("DayPicker", () => {
     const handleTouchTap = sinon.spy();
 
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-12-05")}
+      <DayPicker initialMonth={new Date(2015, 11, 5)}
         enableOutsideDays={false}
         onDayClick={handleClick}
         onDayMouseEnter={handleMouseEnter}
@@ -364,6 +514,43 @@ describe("DayPicker", () => {
 
   });
 
+  it("does change the month", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date("2015-07-01")} enableOutsideDays={false} />
+    );
+    dayPickerEl.showMonth(new Date("2016-09-01"));
 
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(8);
+    expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2016);
+  });
+
+  it("displays a modified state upon changing props", () => {
+    // http://jaketrent.com/post/test-react-componentwillreceiveprops/
+    var TestParent = React.createFactory(React.createClass({
+      getInitialState() {
+        return {
+          month: 11
+        };
+      },
+      render() {
+        const { month } = this.state;
+        return (
+          <DayPicker ref="daypicker"
+            initialMonth={ new Date(2015, month, 10) } />
+        );
+      }
+    }));
+
+    let parent = TestUtils.renderIntoDocument(TestParent());
+    const daypicker = parent.refs.daypicker;
+
+    expect(daypicker.props.initialMonth.getMonth()).to.equal(11);
+
+    parent.setState({
+      month: 8
+    });
+    expect(daypicker.state.currentMonth.getMonth()).to.equal(8);
+  });
 
 });
