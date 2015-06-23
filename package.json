@@ -1,7 +1,7 @@
 {
   "name": "react-day-picker",
   "version": "1.0.1",
-  "description": "Minimalistic date picker component for React and momentjs.",
+  "description": "Customizable date picker and calendar component for React.js",
   "main": "./lib/DayPicker.js",
   "scripts": {
     "prepublish": "babel ./src -d ./lib --source-maps",
