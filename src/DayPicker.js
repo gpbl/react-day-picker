@@ -63,7 +63,6 @@ class DayPicker extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("componentWillReceiveProps", this.props.initialMonth, nextProps.initialMonth)
     if (this.props.initialMonth !== nextProps.initialMonth) {
       this.setState({
         currentMonth: nextProps.initialMonth
