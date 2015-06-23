@@ -1,4 +1,11 @@
-import { getFirstDayOfWeek } from "./LocaleUtils";
+const WEEKDAYS_LONG = ["Sunday", "Monday", "Tuesday",
+  "Wednesday", "Thursday", "Friday", "Saturday"];
+
+const WEEKDAYS_SHORT = ["Su", "Mo", "Tu",
+  "We", "Th", "Fr", "Sa"];
+
+const MONTHS = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
 
 const Utils = {
 
@@ -35,21 +42,21 @@ const Utils = {
     return resultDate.getDate();
   },
 
-  getWeekArray(d, locale="en") {
+  getWeekArray(d, firstDayOfWeek) {
     const daysInMonth = this.getDaysInMonth(d);
-
+    if (arguments.length === 1) {
+      firstDayOfWeek = this.getFirstDayOfWeek();
+    }
     let dayArray = [];
     let week = [];
     let weekArray = [];
-
-    const firstDayOfWeekForLocale = getFirstDayOfWeek(locale);
 
     for (let i = 1; i <= daysInMonth; i++) {
       dayArray.push(new Date(d.getFullYear(), d.getMonth(), i));
     }
 
     dayArray.forEach((day) => {
-        if(week.length > 0 && day.getDay() === firstDayOfWeekForLocale) {
+        if(week.length > 0 && day.getDay() === firstDayOfWeek) {
           weekArray.push(week);
           week = [];
         }
@@ -100,6 +107,22 @@ const Utils = {
     return d1.getDate() === d2.getDate() &&
       d1.getMonth() === d2.getMonth() &&
       d1.getFullYear() === d2.getFullYear();
+  },
+
+  formatMonthTitle(d) {
+    return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+  },
+
+  formatWeekdayShort(i) {
+    return WEEKDAYS_SHORT[i];
+  },
+
+  formatWeekdayLong(i) {
+    return WEEKDAYS_LONG[i];
+  },
+
+  getFirstDayOfWeek() {
+    return 0;
   }
 
 };
