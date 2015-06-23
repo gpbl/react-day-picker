@@ -1,6 +1,6 @@
 # react-day-picker
 
-Customizable date picker and calendar component for React.js. See [docs and examples](http://www.gpbl.org/react-day-picker/)
+Customizable date picker and calendar component for React.js. See [docs and examples](http://www.gpbl.org/react-day-picker/).
 
 <p align="center">
 <a href="http://www.gpbl.org/react-day-picker/"><img src="https://cloud.githubusercontent.com/assets/120693/8303891/9f85e42c-19a1-11e5-9905-ee31f4e3f5aa.png" width="300" /></a>
