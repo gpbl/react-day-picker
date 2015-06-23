@@ -13,7 +13,7 @@ describe("Utils", () => {
   });
 
   describe("addMonths", () => {
-    it("should add a month", () => {
+    it("adds a month", () => {
       const date = new Date();
       const newDate = Utils.addMonths(date, 1);
       expect(newDate.getMonth()).to.equal(date.getMonth() + 1);
@@ -42,7 +42,7 @@ describe("Utils", () => {
   });
 
   describe("getFirstDayOfMonth", () => {
-    it("should get the first day of the month", () => {
+    it("get the first day of the month", () => {
       const date1 = new Date("1979-09-19");
       expect(Utils.getFirstDayOfMonth(date1).getDate()).to.equal(1);
       const date2 = new Date("1979-09-01");
@@ -51,7 +51,7 @@ describe("Utils", () => {
   });
 
   describe("getDaysInMonth", () => {
-    it("should get the correct number of days", () => {
+    it("get the correct number of days", () => {
       const date = new Date("2015-02-10");
       expect(Utils.getDaysInMonth(date)).to.equal(28);
       const date1 = new Date("2016-03-10");
@@ -59,7 +59,7 @@ describe("Utils", () => {
       const date2 = new Date("2016-04-10");
       expect(Utils.getDaysInMonth(date2)).to.equal(30);
     });
-    it("should get the correct number of days in a leap month", () => {
+    it("get the correct number of days in a leap month", () => {
       const date = new Date("2016-02-10");
       expect(Utils.getDaysInMonth(date)).to.equal(29);
     });
@@ -67,7 +67,7 @@ describe("Utils", () => {
 
   describe("getWeekArray", () => {
 
-    it("should work with a month starting on sunday (en)", () => {
+    it("works with a month starting on sunday (en)", () => {
       const weeks = Utils.getWeekArray(new Date("2015-11-01"));
       expect(weeks).to.have.length(5);
       expect(weeks[0][0].getDay()).to.equal(0);
@@ -76,8 +76,8 @@ describe("Utils", () => {
       expect(weeks[0][0].getFullYear()).to.equal(2015);
     });
 
-    it("should add days from the previous month to the first week (en)", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-05-10"));
+    it("adds days from the previous month to the first week (en)", () => {
+      const weeks = Utils.getWeekArray(new Date(2015, 4, 10));
 
       expect(weeks).to.have.length(6);
 
@@ -89,7 +89,7 @@ describe("Utils", () => {
       expect(firstDay.getFullYear()).to.equal(2015);
     });
 
-    it("should add days from the next month to the last week (en)", () => {
+    it("adds days from the next month to the last week (en)", () => {
       const weeks = Utils.getWeekArray(new Date("2015-09-19"));
 
       expect(weeks).to.have.length(5);
@@ -100,8 +100,8 @@ describe("Utils", () => {
       expect(lastDay.getFullYear()).to.equal(2015);
     });
 
-    it("should add days from the next month to the last week (it)", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-09-19"), "it");
+    it("adds days from the next month to the last week (it)", () => {
+      const weeks = Utils.getWeekArray(new Date("2015-09-19"), 1);
 
       expect(weeks).to.have.length(5);
 
@@ -111,24 +111,24 @@ describe("Utils", () => {
       expect(lastDay.getFullYear()).to.equal(2015);
     });
 
-    it("should return 7 days per week when starting day is sunday", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-07-01"), "en");
+    it("returns 7 days per week when starting day is sunday", () => {
+      const weeks = Utils.getWeekArray(new Date("2015-07-01"));
       expect(weeks).to.have.length(5);
       weeks.forEach((week) => {
         expect(week).to.have.length(7);
       });
     });
 
-    it("should return 7 days per week when starting day is monday", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-07-01"), "it");
+    it("returns 7 days per week when starting day is monday", () => {
+      const weeks = Utils.getWeekArray(new Date("2015-07-01"), 1);
       expect(weeks).to.have.length(5);
       weeks.forEach((week) => {
         expect(week).to.have.length(7);
       });
     });
 
-    it("should return 7 days per week when starting day is saturday", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-07-01"), "ar");
+    it("returns 7 days per week when starting day is saturday", () => {
+      const weeks = Utils.getWeekArray(new Date("2015-07-01"), 6);
       weeks.forEach((week) => {
         expect(week).to.have.length(7);
       });
@@ -138,7 +138,7 @@ describe("Utils", () => {
   });
 
   describe("getModifiersForDay", () => {
-    it("should return an array of modifiers", () => {
+    it("returns an array of modifiers", () => {
 
       const modifierFunctions = {
         yes() { return true; },
@@ -157,27 +157,31 @@ describe("Utils", () => {
       expect(modifiers.indexOf("maybe")).to.equal(-1);
       expect(modifiers.indexOf("no")).to.equal(-1);
     });
+    it("works without passing modifiers", () => {
+      let modifiers = Utils.getModifiersForDay(new Date("2015-09-19"));
+      expect(modifiers).to.have.length(0);
+    });
   });
 
   describe("isDayOutsideMonth", () => {
-    it("should consider the day as outside of the month", () => {
+    it("detects days outside a month", () => {
       const isOutside = Utils.isDayOutsideMonth(new Date("2015-11-30"), new Date("2015-12-01"));
       expect(isOutside).to.be.true;
     });
-    it("should not consider the day as outside of the month", () => {
+    it("does detect days inside a month", () => {
       const isOutside = Utils.isDayOutsideMonth(new Date("2015-12-30"), new Date("2015-12-01"));
       expect(isOutside).to.be.false;
     });
   });
 
   describe("isSameDay", () => {
-    it("should return true if two days differ only by time", () => {
+    it("returns true if two days differ only by time", () => {
       let day1 = new Date(2015, 10, 11, 5, 25);
       let day2 = new Date(2015, 10, 11, 7, 40);
       const isSameDay = Utils.isSameDay(day1, day2);
       expect(isSameDay).to.be.true;
     });
-    it("should return false for different days", () => {
+    it("returns false for different days", () => {
       let day1 = new Date(2015, 8, 12);
       let day2 = new Date(2015, 5, 11);
       const isSameDay = Utils.isSameDay(day1, day2);
@@ -185,5 +189,31 @@ describe("Utils", () => {
     });
   });
 
+
+  describe("formatMonthTitle", () => {
+    it("returns month and day as string", () => {
+      const date = new Date("2015-12-20");
+      const formattedDate = Utils.formatMonthTitle(date);
+      expect(formattedDate).to.equal("December 2015");
+    });
+  });
+
+  describe("formatWeekdayShort", () => {
+    it("returns the short day name as string", () => {
+      expect(Utils.formatWeekdayShort(0)).to.equal("Su");
+    });
+  });
+
+  describe("formatWeekdayLong", () => {
+    it("returns the long day name as string", () => {
+      expect(Utils.formatWeekdayLong(0)).to.equal("Sunday");
+    });
+  });
+
+  describe("getFirstDayOfWeek", () => {
+    it("returns sunday", () => {
+      expect(Utils.getFirstDayOfWeek()).to.equal(0);
+    });
+  });
 
 });

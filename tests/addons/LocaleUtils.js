@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import LocaleUtils from "../src/LocaleUtils";
+import LocaleUtils from "../../src/addons/LocaleUtils";
 
 describe("LocaleUtils", () => {
 
