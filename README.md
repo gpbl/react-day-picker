@@ -1,6 +1,6 @@
 # react-day-picker
 
-Customizable date picker and calendar component for React.js
+Customizable date picker and calendar component for React.js. See [docs and examples](http://www.gpbl.org/react-day-picker/)
 
 <p align="center">
 <a href="http://www.gpbl.org/react-day-picker/"><img src="https://cloud.githubusercontent.com/assets/120693/8303891/9f85e42c-19a1-11e5-9905-ee31f4e3f5aa.png" width="300" /></a>
@@ -14,7 +14,7 @@ Customizable date picker and calendar component for React.js
 * ARIA support
 
 [![Build Status](https://travis-ci.org/gpbl/react-day-picker.svg)](https://travis-ci.org/gpbl/react-day-picker)
-[![Coverage Status](https://coveralls.io/repos/gpbl/react-day-picker/badge.svg)](https://coveralls.io/r/gpbl/react-day-picker)
+[![Coverage Status](https://coveralls.io/repos/gpbl/react-day-picker/badge.svg?branch=master)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
 [![npm version](https://badge.fury.io/js/react-day-picker.svg)](http://badge.fury.io/js/react-day-picker)
 
 ### Documentation
