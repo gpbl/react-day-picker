@@ -13,7 +13,7 @@ var CalendarUtils = {
     var firstOfMonth = m.clone().startOf('month');
     var lastOfMonth = m.clone().endOf('month');
 
-    var currentDay = firstOfMonth.clone().utc();
+    var currentDay = firstOfMonth.clone();
     var currentWeek = [];
     var weeksInMonth = [];
 
