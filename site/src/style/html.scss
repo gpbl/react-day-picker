@@ -14,26 +14,43 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 h2 {
   margin-top: 2rem;
   margin-bottom: 0;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
 }
 
 h3 {
-  font-weight: 400;
+  font-weight: 500;
+}
+
+h4 {
+  font-weight: 500;
 }
 
 p, ul {
   line-height: 1.4em;
+  code {
+    display: inline-block;
+    padding: 0 .5rem;
+    word-break: nowrap;
+    color: $blue;
+  }
 }
 
+abbr {
+  border-bottom: 1px dotted;
+}
 a {
   color: inherit;
+}
+
+b {
+  font-weight: 500;
 }
 
 pre[class*="language-"] {
@@ -73,4 +90,7 @@ select {
   min-width: 70%;
   margin: 0 auto;
   display: block;
+  background-image: url("../assets/select-handler.svg");
+  background-position: 94% center;
+  background-repeat: no-repeat;
 }

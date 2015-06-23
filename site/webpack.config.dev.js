@@ -1,7 +1,7 @@
-import webpack from "webpack";
-import path from "path";
+var webpack = require("webpack");
+var path = require("path");
 
-export default {
+module.exports = {
   devtool: "cheap-module-eval-source-map",
 
   entry: {
@@ -37,7 +37,6 @@ export default {
 
   module: {
     loaders: [
-
     {
       test: /\.js(x)?$/,
       include: [path.join(__dirname, "./src"), path.join(__dirname, "../dist")],

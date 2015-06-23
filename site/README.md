@@ -1,4 +1,4 @@
-# react-day-picker example app
+# react-day-picker website
 
 ```bash
 npm install # install dependencies

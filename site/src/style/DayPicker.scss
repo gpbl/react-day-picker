@@ -6,10 +6,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
+  padding: 1rem 0;
 }
 
 .DayPicker-Month {
-  display: inline-block;
+  display: table;
   border-collapse: collapse;
   border-spacing: 0;
   user-select: none;
@@ -17,13 +19,14 @@
 }
 
   .DayPicker-NavBar {
-    display: flex;
-    align-items: center;
-    padding: .5rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0 .5rem;
   }
 
   .DayPicker-NavButton {
-    display: inline-block;
+    position: absolute;
     width: 1.5rem;
     height: 1.5rem;
     background-repeat: no-repeat;
@@ -33,32 +36,52 @@
   }
 
     .DayPicker-NavButton--prev {
+      left: 1rem;
       background-image: url("../assets/prev.svg");
     }
 
     .DayPicker-NavButton--next {
+      right: 1rem;
       background-image: url("../assets/next.svg");
     }
 
 
-  .DayPicker-MonthName {
-    flex: 1;
+  .DayPicker-Caption {
+    display: table-caption;
+    height: 1.5rem;
     text-align: center;
   }
 
-
-  .DayPicker-Weekday {
-    padding: .5rem;
-    font-size: .875em;
-    text-align: center;
+  .DayPicker-Weekdays {
+    display: table-header-group;
+    > div {
+      display: table-row;
+    }
   }
 
-  .DayPicker-Day {
-    padding: .5rem;
-    border: 1px solid lighten($grey, 5);
-    text-align: center;
-    cursor: pointer;
+    .DayPicker-Weekday {
+      display: table-cell;
+      padding: .5rem;
+      font-size: .875em;
+      text-align: center;
+    }
+
+  .DayPicker-Body {
+    display: table-row-group;
   }
+
+    .DayPicker-Week {
+      display: table-row;
+    }
+
+      .DayPicker-Day {
+        display: table-cell;
+        padding: .5rem;
+        border: 1px solid lighten($grey, 5);
+        text-align: center;
+        cursor: pointer;
+        vertical-align: middle;
+      }
 
   .DayPicker--interactionDisabled .DayPicker-Day {
     cursor: default;
@@ -69,6 +92,7 @@
 
 .DayPicker-Day--today {
   color: $red;
+  font-weight: 500;
 }
 
 .DayPicker-Day--disabled {
@@ -97,11 +121,11 @@
 .DayPicker--ar {
   direction: rtl;
 
-  .DayPicker-NavButton--prev {
-    background-image: url("../assets/next.svg");
-  }
+  // .DayPicker-NavButton--prev {
+  //   background-image: url("../assets/next.svg");
+  // }
 
-  .DayPicker-NavButton--next {
-    background-image: url("../assets/prev.svg");
-  }
+  // .DayPicker-NavButton--next {
+  //   background-image: url("../assets/prev.svg");
+  // }
 }

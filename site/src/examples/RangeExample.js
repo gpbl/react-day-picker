@@ -2,9 +2,9 @@ import React from "react";
 import moment from "moment";
 import DayPicker from "react-day-picker";
 
-import { isBetween, isSameDay } from "./Utils";
+import { isBetween, isSameDay } from "../utils/DateUtils";
 
-import "./style/DayPicker.scss";
+import "../style/DayPicker.scss";
 
 class RangeExample extends React.Component {
 
@@ -22,7 +22,7 @@ class RangeExample extends React.Component {
     const { from, to } = this.state;
 
     const modifiers = {
-      selected(day) {
+      "selected": (day) => {
         return (from && isSameDay(day, from)) ||
           (to && isSameDay(day, to)) ||
           (from && to && isBetween(day, from, to));

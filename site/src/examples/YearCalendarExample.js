@@ -1,8 +1,8 @@
 import React from "react";
 import DayPicker from "react-day-picker";
 
-import "./style/DayPicker.scss";
-import "./style/YearCalendarExample.scss";
+import "../style/DayPicker.scss";
+import "../style/YearCalendarExample.scss";
 
 class YearCalendarExample extends React.Component {
 
@@ -25,7 +25,7 @@ class YearCalendarExample extends React.Component {
           <a onClick={ ::this.showNext }>{ year + 1 }</a>
         </h1>
         <DayPicker
-          canChangeMonth={false}
+          canChangeMonth={ false }
           initialMonth={ new Date(year, 0, 1) }
           numberOfMonths={ 12 }
         />
