@@ -3,10 +3,6 @@ import LocaleUtils from "../../src/addons/LocaleUtils";
 
 describe("LocaleUtils", () => {
 
-  if (!global.Intl) {
-    global.Intl = require("intl");
-  }
-
   describe("formatMonthTitle", () => {
     it("should return month and day as string", () => {
       const date = new Date("2015-12-20");
