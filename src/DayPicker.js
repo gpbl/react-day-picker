@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from "react";
 import Utils from "./Utils";
-import LocaleUtils from "./LocaleUtils";
 
 const keys = {
   LEFT: 37,
@@ -17,12 +16,18 @@ class DayPicker extends Component {
     style: PropTypes.object,
     tabIndex: PropTypes.number,
 
-    initialMonth: PropTypes.instanceOf(Date).isRequired,
+    initialMonth: PropTypes.instanceOf(Date),
     numberOfMonths: PropTypes.number,
 
     modifiers: PropTypes.object,
 
     locale: PropTypes.string,
+    localeUtils: PropTypes.shape({
+      formatMonthTitle: PropTypes.func.isRequired,
+      formatWeekdayShort: PropTypes.func.isRequired,
+      formatWeekdayLong: PropTypes.func.isRequired,
+      getFirstDayOfWeek: PropTypes.func.isRequired
+    }),
 
     enableOutsideDays: PropTypes.bool,
     canChangeMonth: PropTypes.bool,
@@ -31,7 +36,9 @@ class DayPicker extends Component {
     onDayTouchTap: PropTypes.func,
     onDayMouseEnter: PropTypes.func,
     onDayMouseLeave: PropTypes.func,
-    onMonthChange: PropTypes.func
+    onMonthChange: PropTypes.func,
+
+    renderDay: PropTypes.func
 
   }
 
@@ -40,8 +47,10 @@ class DayPicker extends Component {
     initialMonth: new Date(),
     numberOfMonths: 1,
     locale: "en",
+    localeUtils: Utils,
     enableOutsideDays: false,
-    canChangeMonth: true
+    canChangeMonth: true,
+    renderDay: (day) => day.getDate()
   }
 
   constructor(props) {
@@ -54,6 +63,7 @@ class DayPicker extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log("componentWillReceiveProps", this.props.initialMonth, nextProps.initialMonth)
     if (this.props.initialMonth !== nextProps.initialMonth) {
       this.setState({
         currentMonth: nextProps.initialMonth
@@ -72,96 +82,93 @@ class DayPicker extends Component {
     if (this.props.className) {
       className = `${className} ${this.props.className}`;
     }
-    let months = [];
+
+    let months = [], month;
     for (let i = 0; i < numberOfMonths; i++) {
-      months.push(this.renderMonth(Utils.addMonths(currentMonth, i), i));
+      month = Utils.addMonths(currentMonth, i);
+      months.push(this.renderMonth(month, i));
     }
+
     return (
       <div className={className}
         style={style}
         role="widget"
-        tabIndex={ canChangeMonth ? tabIndex : null }
-        onKeyDown={ canChangeMonth ? ::this.handleKeyDown : null}>
+        tabIndex={ canChangeMonth && tabIndex }
+        onKeyDown={ canChangeMonth && ::this.handleKeyDown }
+      >
+        { canChangeMonth && this.renderNavBar() }
         { months }
       </div>
     );
   }
 
-  renderMonth(d, i) {
-    const { locale, numberOfMonths, canChangeMonth } = this.props;
-
-    const isFirstMonth = i === 0;
-    const isLastMonth = i === numberOfMonths - 1;
-
+  renderNavBar() {
+    const baseClass = "DayPicker-NavButton DayPicker-NavButton";
     return (
-      <table
-        className="DayPicker-Month"
-        key={i}>
-        <caption className="DayPicker-NavBar">
-          { isFirstMonth && canChangeMonth && this.renderNavButton("prev") }
-          <span className="DayPicker-MonthName">
-            { LocaleUtils.formatMonthTitle(d, locale) }
-          </span>
-          { isLastMonth && canChangeMonth && this.renderNavButton("next") }
-        </caption>
-        <thead className="DayPicker-Weekdays">
-          { this.renderWeekDays() }
-        </thead>
-        <tbody>
-          { this.renderWeeksInMonth(d) }
-        </tbody>
-      </table>
+      <div className="DayPicker-NavBar">
+        <span
+          key="prev"
+          className={ `${baseClass}--prev` }
+          onClick={ ::this.handlePrevMonthClick } />
+        <span
+          key="next"
+          className={ `${baseClass}--next` }
+          onClick={ ::this.handleNextMonthClick } />
+      </div>
     );
   }
 
-  renderNavButton(position) {
-    let handler;
-    if (position === "prev") {
-      handler = ::this.handlePrevMonthClick;
-    }
-    else {
-      handler = ::this.handleNextMonthClick;
-    }
-
+  renderMonth(d, i) {
+    const { locale, numberOfMonths, canChangeMonth, localeUtils } = this.props;
     return (
-      <span
-        key={position}
-        className={ `DayPicker-NavButton DayPicker-NavButton--${position}` }
-        onKeyDown={ handler }
-        onClick={ handler } />
+      <div
+        className="DayPicker-Month"
+        key={i}>
+        <div className="DayPicker-Caption">
+          { localeUtils.formatMonthTitle(d, locale) }
+        </div>
+        <div className="DayPicker-Weekdays">
+          { this.renderWeekDays() }
+        </div>
+        <div className="DayPicker-Body">
+          { this.renderWeeksInMonth(d) }
+        </div>
+      </div>
     );
   }
 
   renderWeekDays() {
-    const { locale } = this.props;
+    const { locale, localeUtils } = this.props;
     let days = [];
     for (let i = 0; i < 7; i++) {
       days.push(
-        <td key={i} className="DayPicker-Weekday">
-          <attr title={LocaleUtils.formatWeekdayLong(i, locale)}>
-            { LocaleUtils.formatWeekdayShort(i, locale) }
+        <div key={i} className="DayPicker-Weekday">
+          <attr title={localeUtils.formatWeekdayLong(i, locale)}>
+            { localeUtils.formatWeekdayShort(i, locale) }
           </attr>
-        </td>
+        </div>
       );
     }
     return (
-      <tr>
+      <div>
         { days }
-      </tr>
+      </div>
     );
   }
 
   renderWeeksInMonth(month) {
-    const { locale } = this.props;
-    return Utils.getWeekArray(month, locale).map((week, i) =>
-      <tr key={i} className="DayPicker-Week" role="row">
+    const { locale, localeUtils } = this.props;
+    const firstDayOfWeek = localeUtils.getFirstDayOfWeek(locale);
+    return Utils.getWeekArray(month, firstDayOfWeek).map((week, i) =>
+      <div key={i} className="DayPicker-Week" role="row">
         { week.map((day, j) => this.renderDay(month, day, j)) }
-      </tr>
+      </div>
     );
   }
 
   renderDay(month, day, i) {
     const { currentMonth } = this.state;
+    const { renderDay } = this.props;
 
     const { enableOutsideDays, modifiers: modifierFunctions } = this.props;
 
@@ -186,45 +193,36 @@ class DayPicker extends Component {
     className += modifiers.map(modifier => ` ${className}--${modifier}`).join("");
 
     if (isOutside && !enableOutsideDays) {
-      return <td key={`outside${i}`} className={className} />;
+      return <div key={`outside${i}`} className={className} />;
     }
 
     const { onDayMouseEnter, onDayMouseLeave, onDayTouchTap, onDayClick }
       = this.props;
-
     let tabIndex = null;
-    if (onDayTouchTap || onDayClick) {
+    if ((onDayTouchTap || onDayClick) && !isOutside) {
+      tabIndex = -1;
       // Focus on the first day of the month
-      if (day.getDate() === 1 && !isOutside) {
+      if (day.getDate() === 1) {
         tabIndex = this.props.tabIndex;
       }
-      else {
-        tabIndex = -1;
-      }
     }
-
-    let handlers = {};
-    if (onDayMouseEnter) {
-      handlers.onMouseEnter = (e) => this.handleDayMouseEnter(e, day, modifiers);
-    }
-    if (onDayMouseLeave) {
-      handlers.onMouseLeave = (e) => this.handleDayMouseLeave(e, day, modifiers);
-    }
-    if (onDayClick) {
-      handlers.onClick = (e) => this.handleDayClick(e, day, modifiers);
-    }
-    else if (onDayTouchTap) {
-      handlers.onTouchTap = (e) => this.handleDayTouchTap(e, day, modifiers);
-    }
-
     return (
-      <td key={ i } className={ className }
+      <div key={ i } className={ className }
         tabIndex={ tabIndex }
         role="gridcell"
-        onKeyDown={ (e) => this.handleDayKeyDown(e, day, modifiers) }
-         {...handlers}>
-        { day.getDate() }
-      </td>
+        onKeyDown={
+          (e) => this.handleDayKeyDown(e, day, modifiers) }
+        onMouseEnter= { onDayMouseEnter ?
+          (e) => this.handleDayMouseEnter(e, day, modifiers) : null }
+        onMouseLeave= { onDayMouseLeave ?
+          (e) => this.handleDayMouseLeave(e, day, modifiers) : null }
+        onClick= { onDayClick ?
+          (e) => this.handleDayClick(e, day, modifiers) : null }
+        onTouchTap= { onDayTouchTap ?
+          (e) => this.handleDayTouchTap(e, day, modifiers) : null }
+        >
+        { renderDay(day) }
+      </div>
     );
   }
 
@@ -250,7 +248,7 @@ class DayPicker extends Component {
     });
   }
 
-  showPrevMonth(callback) {
+  showPreviousMonth(callback) {
     const { numberOfMonths } = this.props;
     const { currentMonth } = this.state;
     const prevMonth = Utils.addMonths(currentMonth, -numberOfMonths);
@@ -266,72 +264,76 @@ class DayPicker extends Component {
     });
   }
 
-  focusPreviousDayNode(node) {
-    const prevCell = node.previousSibling;
-    if (prevCell && !prevCell.classList.contains("DayPicker-Day--outside")) {
-      prevCell.focus();
-      return;
+  focusPreviousDay(dayNode) {
+    const body = dayNode.parentNode.parentNode.parentNode.parentNode;
+    let dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
+    let nodeIndex;
+    for (let i = 0; i < dayNodes.length; i++) {
+      if (dayNodes[i] === dayNode) {
+        nodeIndex = i;
+        break;
+      }
     }
-    const prevRow = node.parentNode.previousSibling;
-    if (prevRow &&
-      !prevRow.lastChild.classList.contains("DayPicker-Day--outside")) {
-      prevRow.lastChild.focus();
-      return;
+    if (nodeIndex === 0) {
+      this.showPreviousMonth(() => {
+        dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
+        dayNodes[dayNodes.length - 1].focus();
+      });
     }
-    const tbody = node.parentNode.parentNode;
-    this.showPrevMonth(() => {
-      const lastWeek = tbody.lastChild;
-      const lastDays = lastWeek.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-      lastDays[lastDays.length - 1].focus();
-    });
+    else {
+      dayNodes[nodeIndex - 1].focus();
+    }
   }
 
-  focusNextDayNode(node) {
-    const nextCell = node.nextSibling;
-    if (nextCell && !nextCell.classList.contains("DayPicker-Day--outside")) {
-      nextCell.focus();
-      return;
-    }
-    const nextRow = node.parentNode.nextSibling;
-    if (nextRow) {
-      nextRow.firstChild.focus();
-      return;
-    }
-    const tbody = node.parentNode.parentNode;
-    this.showNextMonth(() => {
-      const firstWeek = tbody.firstChild;
-      const firstDays = firstWeek.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-      firstDays[0].focus();
-    });
-  }
+  focusNextDay(dayNode) {
+    const body = dayNode.parentNode.parentNode.parentNode.parentNode;
+    let dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
 
+    let nodeIndex;
+    for (let i = 0; i < dayNodes.length; i++) {
+      if (dayNodes[i] === dayNode) {
+        nodeIndex = i;
+        break;
+      }
+    }
+
+    if (nodeIndex === dayNodes.length - 1) {
+      this.showNextMonth(() => {
+        dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
+        dayNodes[0].focus();
+      });
+    }
+    else {
+      dayNodes[nodeIndex + 1].focus();
+    }
+  }
 
   // Event handlers
 
   handleKeyDown(e) {
-    if (e.keyCode === keys.LEFT) {
-      this.showPrevMonth();
-    }
-    else if (e.keyCode === keys.RIGHT) {
-      this.showNextMonth();
+    switch (e.keyCode) {
+      case keys.LEFT:
+        this.showPreviousMonth();
+      break;
+      case keys.RIGHT:
+        this.showNextMonth();
+      break;
     }
   }
 
   handleDayKeyDown(e, day, modifiers) {
+    e.persist();
     switch (e.keyCode) {
-
       case keys.LEFT:
         e.preventDefault();
         e.stopPropagation();
-        this.focusPreviousDayNode(e.target);
-        break;
-
+        this.focusPreviousDay(e.target);
+      break;
       case keys.RIGHT:
         e.preventDefault();
         e.stopPropagation();
-        this.focusNextDayNode(e.target);
-        break;
-
+        this.focusNextDay(e.target);
+      break;
       case keys.ENTER:
       case keys.SPACE:
         e.preventDefault();
@@ -339,58 +341,41 @@ class DayPicker extends Component {
         if (this.props.onDayClick) {
           this.handleDayClick(e, day, modifiers);
         }
-        else if (this.props.onDayTouchTap) {
+        if (this.props.onDayTouchTap) {
           this.handleDayTouchTap(e, day, modifiers);
         }
-        break;
-
-      default:
       break;
     }
   }
 
   handleNextMonthClick(e) {
     e.stopPropagation();
-    if (e.keyCode && e.keyCode !== keys.ENTER) {
-      return;
-    }
     this.showNextMonth();
   }
 
   handlePrevMonthClick(e) {
     e.stopPropagation();
-    if (e.keyCode && e.keyCode !== keys.ENTER) {
-      return;
-    }
-    this.showPrevMonth();
+    this.showPreviousMonth();
   }
 
   handleDayTouchTap(e, day, modifiers) {
     e.persist();
-    if (this.props.onDayTouchTap) {
-      this.props.onDayTouchTap(e, day, modifiers);
-    }
+    this.props.onDayTouchTap(e, day, modifiers);
   }
 
   handleDayClick(e, day, modifiers) {
     e.persist();
-    if (this.props.onDayClick) {
-      this.props.onDayClick(e, day, modifiers);
-    }
+    this.props.onDayClick(e, day, modifiers);
   }
 
   handleDayMouseEnter(e, day, modifiers) {
     e.persist();
-    if (this.props.onDayMouseEnter) {
-      this.props.onDayMouseEnter(e, day, modifiers);
-    }
+    this.props.onDayMouseEnter(e, day, modifiers);
   }
 
   handleDayMouseLeave(e, day, modifiers) {
     e.persist();
-    if (this.props.onDayMouseLeave) {
-      this.props.onDayMouseLeave(e, day, modifiers);
-    }
+    this.props.onDayMouseLeave(e, day, modifiers);
   }
 
 }
