@@ -29,6 +29,7 @@
     "highlight.js": "^8.6.0",
     "node-sass": "^3.2.0",
     "prism": "0.0.1",
+    "raw-loader": "^0.5.1",
     "react": "^0.13.3",
     "react-tap-event-plugin": "^0.1.7",
     "sass-loader": "1.0.2",
