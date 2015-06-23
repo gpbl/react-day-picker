@@ -1,0 +1,96 @@
+@import "constants";
+
+body {
+  font-family: $font;
+  color: $dark-grey;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: $font-head;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+h4 {
+  font-weight: 500;
+}
+
+p, ul {
+  line-height: 1.4em;
+  code {
+    display: inline-block;
+    padding: 0 .5rem;
+    word-break: nowrap;
+    color: $blue;
+  }
+}
+
+abbr {
+  border-bottom: 1px dotted;
+}
+a {
+  color: inherit;
+}
+
+b {
+  font-weight: 500;
+}
+
+pre[class*="language-"] {
+  margin: 0;
+  padding: 1rem;
+
+}
+
+code, code[class*="language-"], pre[class*="language-"] {
+  font-family: $monospace;
+  font-size: .875rem !important;
+  background: lighten($grey, 10) !important;
+}
+
+input {
+  -webkit-appearance: none;
+  padding: .5rem 1rem;
+  border: 1px solid $grey;
+  color: $dark-grey;
+  font-size: 16px;
+  font-family: $font;
+  text-align: center;
+  font-weight: 300;
+}
+
+select {
+  appearance: none;
+  padding: .5rem 1rem;
+  border: 1px solid $grey;
+  color: $dark-grey;
+  font-size: 16px;
+  font-family: $font;
+  text-align: center;
+  font-weight: 300;
+  border-radius: 0;
+  background-color: $white;
+  min-width: 70%;
+  margin: 0 auto;
+  display: block;
+  background-image: url("../assets/select-handler.svg");
+  background-position: 94% center;
+  background-repeat: no-repeat;
+}

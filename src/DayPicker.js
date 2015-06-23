@@ -1,230 +1,381 @@
-import React, { Component, PropTypes } from 'react';
-import moment from 'moment';
-import { weeks } from './CalendarUtils';
+import React, { Component, PropTypes } from "react";
+import Utils from "./Utils";
+
+const keys = {
+  LEFT: 37,
+  RIGHT: 39,
+  ENTER: 13,
+  SPACE: 32
+};
 
 class DayPicker extends Component {
 
   static propTypes = {
 
-    enableOutsideDays: PropTypes.bool,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    tabIndex: PropTypes.number,
 
-    // default is current month
-    initialMonth: PropTypes.object,
-
-    // default is 1
+    initialMonth: PropTypes.instanceOf(Date),
     numberOfMonths: PropTypes.number,
 
     modifiers: PropTypes.object,
 
+    locale: PropTypes.string,
+    localeUtils: PropTypes.shape({
+      formatMonthTitle: PropTypes.func.isRequired,
+      formatWeekdayShort: PropTypes.func.isRequired,
+      formatWeekdayLong: PropTypes.func.isRequired,
+      getFirstDayOfWeek: PropTypes.func.isRequired
+    }),
+
+    enableOutsideDays: PropTypes.bool,
+    canChangeMonth: PropTypes.bool,
+
     onDayClick: PropTypes.func,
-
-    // requires react-tap-event-plugin
     onDayTouchTap: PropTypes.func,
-
     onDayMouseEnter: PropTypes.func,
     onDayMouseLeave: PropTypes.func,
+    onMonthChange: PropTypes.func,
 
-    onNextMonthClick: PropTypes.func,
-    onPrevMonthClick: PropTypes.func
+    renderDay: PropTypes.func
 
   }
 
   static defaultProps = {
-    initialMonth: moment(),
+    tabIndex: 0,
+    initialMonth: new Date(),
     numberOfMonths: 1,
-    enableOutsideDays: false
+    locale: "en",
+    localeUtils: Utils,
+    enableOutsideDays: false,
+    canChangeMonth: true,
+    renderDay: (day) => day.getDate()
   }
 
   constructor(props) {
     super(props);
+    let { initialMonth, tabIndex } = this.props;
+
     this.state = {
-      month: this.props.initialMonth.clone()
+      currentMonth: Utils.startOfMonth(initialMonth)
     };
   }
 
-  handleDayTouchTap(day, modifiers, e) {
-    if (this.props.onDayTouchTap) {
-      this.props.onDayTouchTap(day, modifiers, e);
+  componentWillReceiveProps(nextProps) {
+    console.log("componentWillReceiveProps", this.props.initialMonth, nextProps.initialMonth)
+    if (this.props.initialMonth !== nextProps.initialMonth) {
+      this.setState({
+        currentMonth: nextProps.initialMonth
+      });
     }
-  }
-
-  handleDayClick(day, modifiers, e) {
-    if (this.props.onDayClick) {
-      this.props.onDayClick(day, modifiers, e);
-    }
-  }
-
-  handleDayMouseEnter(day, modifiers, e) {
-    if (this.props.onDayMouseEnter) {
-      this.props.onDayMouseEnter(day, modifiers, e);
-    }
-  }
-
-  handleDayMouseLeave(day, modifiers, e) {
-    if (this.props.onDayMouseLeave) {
-      this.props.onDayMouseLeave(day, modifiers, e);
-    }
-  }
-
-  handleNextMonthClick(e) {
-    e.persist();
-    const { month } = this.state;
-    const nextMonth = month.clone().add(1, 'month');
-    this.setState({ month: nextMonth }, () => {
-      if (this.props.onNextMonthClick) {
-        this.props.onNextMonthClick(this.state.month, e);
-      }
-    });
-  }
-
-  handlePrevMonthClick(e) {
-    e.persist();
-    const { month } = this.state;
-    const prevMonth = month.clone().subtract(1, 'month');
-    this.setState({ month: prevMonth }, () => {
-      if (this.props.onPrevMonthClick) {
-        this.props.onPrevMonthClick(this.state.month, e);
-      }
-    });
-  }
-
-  getModifiersForDay(day) {
-    const { modifiers } = this.props;
-    let dayModifiers = [];
-
-    if (modifiers) {
-      for (let modifier in modifiers) {
-        let func = modifiers[modifier];
-
-        if (func(day)) {
-          dayModifiers.push(modifier);
-        }
-      }
-    }
-
-    return dayModifiers;
-  }
-
-  showMonth(month) {
-    this.setState({month: month});
   }
 
   render() {
-    let { month } = this.state;
+    const { numberOfMonths, locale, style, tabIndex, canChangeMonth } = this.props;
+    const { currentMonth } = this.state;
+    let className = `DayPicker DayPicker--${locale}`;
 
-    let months = [];
-    for (let i = 0; i < this.props.numberOfMonths; i++) {
+    if (!this.props.onDayClick && !this.props.onDayTouchTap) {
+      className = `${className} DayPicker--interactionDisabled`;
+    }
+    if (this.props.className) {
+      className = `${className} ${this.props.className}`;
+    }
+
+    let months = [], month;
+    for (let i = 0; i < numberOfMonths; i++) {
+      month = Utils.addMonths(currentMonth, i);
       months.push(this.renderMonth(month, i));
-      month = month.clone().add(1, 'month');
     }
 
     return (
-      <div className={this.props.className} style={this.props.style}>
-        {months}
+      <div className={className}
+        style={style}
+        role="widget"
+        tabIndex={ canChangeMonth && tabIndex }
+        onKeyDown={ canChangeMonth && ::this.handleKeyDown }
+      >
+        { canChangeMonth && this.renderNavBar() }
+        { months }
       </div>
     );
   }
 
-  renderMonth(month, monthIndex) {
-    const isFirstMonth = (month === this.state.month);
-    const isLastMonth = (monthIndex === this.props.numberOfMonths - 1);
+  renderNavBar() {
+    const baseClass = "DayPicker-NavButton DayPicker-NavButton";
     return (
-      <table key={monthIndex} className="DayPicker">
-        <caption className="DayPicker-caption">
-          { isFirstMonth && this.renderNavButton('left') }
-          { month.format('MMMM YYYY') }
-          { isLastMonth && this.renderNavButton('right') }
-        </caption>
-        <thead>
-          { this.renderWeekHeader() }
-        </thead>
-        <tbody>
-          { this.renderWeeks(month) }
-        </tbody>
-      </table>
+      <div className="DayPicker-NavBar">
+        <span
+          key="prev"
+          className={ `${baseClass}--prev` }
+          onClick={ ::this.handlePrevMonthClick } />
+        <span
+          key="next"
+          className={ `${baseClass}--next` }
+          onClick={ ::this.handleNextMonthClick } />
+      </div>
     );
   }
 
-  renderNavButton(position) {
-    const className = `DayPicker-nav DayPicker-nav--${position}`;
-    const handler = position === 'left'
-      ? this.handlePrevMonthClick
-      : this.handleNextMonthClick;
-
-    return <span key={"btn-" + position} className={className}
-      style={{float: position}} onClick={handler.bind(this)} />;
-  }
-
-  renderWeeks(month) {
-    return weeks(month).map((week, i) =>
-      <tr key={i} className="DayPicker-week">
-        { this.renderDays(week) }
-      </tr>
+  renderMonth(d, i) {
+    const { locale, numberOfMonths, canChangeMonth, localeUtils } = this.props;
+    return (
+      <div
+        className="DayPicker-Month"
+        key={i}>
+        <div className="DayPicker-Caption">
+          { localeUtils.formatMonthTitle(d, locale) }
+        </div>
+        <div className="DayPicker-Weekdays">
+          { this.renderWeekDays() }
+        </div>
+        <div className="DayPicker-Body">
+          { this.renderWeeksInMonth(d) }
+        </div>
+      </div>
     );
   }
 
-  renderWeekHeader() {
-    let header = [];
+  renderWeekDays() {
+    const { locale, localeUtils } = this.props;
+    let days = [];
     for (let i = 0; i < 7; i++) {
-      header.push(
-        <th key={i} className="DayPicker-weekday">
-          { moment().weekday(i).format('dd') }
-        </th>
+      days.push(
+        <div key={i} className="DayPicker-Weekday">
+          <attr title={localeUtils.formatWeekdayLong(i, locale)}>
+            { localeUtils.formatWeekdayShort(i, locale) }
+          </attr>
+        </div>
       );
     }
-
-    return header;
+    return (
+      <div>
+        { days }
+      </div>
+    );
   }
 
-  renderDays(week) {
-    const firstDay = week[0];
-    const lastDay = week[week.length - 1];
-
-    let days = week.map(day => this.renderDay(day));
-
-    // days belonging to the previous month
-    for (let i = 0; i < firstDay.weekday(); i++) {
-      const prevDay = firstDay.clone().subtract(i + 1, 'day');
-      days.unshift(this.renderDay(prevDay, true));
-    }
-
-    // days belonging to the next month
-    for (let j = lastDay.weekday() + 1, count = 1; j < 7; j++, count++) {
-      const nextDay = lastDay.clone().add(count, 'day');
-      days.push(this.renderDay(nextDay, true));
-    }
-
-    return days;
+  renderWeeksInMonth(month) {
+    const { locale, localeUtils } = this.props;
+    const firstDayOfWeek = localeUtils.getFirstDayOfWeek(locale);
+    return Utils.getWeekArray(month, firstDayOfWeek).map((week, i) =>
+      <div key={i} className="DayPicker-Week" role="row">
+        { week.map((day, j) => this.renderDay(month, day, j)) }
+      </div>
+    );
   }
 
-  renderDay(day, outside) {
-    const key = `${day.dayOfYear()}`;
-    let className = 'DayPicker-day';
+  renderDay(month, day, i) {
+    const { currentMonth } = this.state;
+    const { renderDay } = this.props;
 
-    if (outside) {
-      className += ' DayPicker-day--outside';
+    const { enableOutsideDays, modifiers: modifierFunctions } = this.props;
+
+    let className = "DayPicker-Day";
+    let modifiers = [];
+
+    const isToday = Utils.isSameDay(day, new Date());
+    if (isToday) {
+      modifiers.push("today");
     }
 
-    if (outside && !this.props.enableOutsideDays) {
-      return <td className={className} key={key} />;
+    const isOutside = Utils.isDayOutsideMonth(day, month);
+    if (isOutside) {
+      modifiers.push("outside");
+    }
+
+    if (modifierFunctions) {
+      const customModifiers = Utils.getModifiersForDay(day, modifierFunctions);
+      modifiers = [...modifiers, ...customModifiers];
+    }
+
+    className += modifiers.map(modifier => ` ${className}--${modifier}`).join("");
+
+    if (isOutside && !enableOutsideDays) {
+      return <div key={`outside${i}`} className={className} />;
+    }
+
+    const { onDayMouseEnter, onDayMouseLeave, onDayTouchTap, onDayClick }
+      = this.props;
+    let tabIndex = null;
+    if ((onDayTouchTap || onDayClick) && !isOutside) {
+      tabIndex = -1;
+      // Focus on the first day of the month
+      if (day.getDate() === 1) {
+        tabIndex = this.props.tabIndex;
+      }
+    }
+    return (
+      <div key={ i } className={ className }
+        tabIndex={ tabIndex }
+        role="gridcell"
+        onKeyDown={
+          (e) => this.handleDayKeyDown(e, day, modifiers) }
+        onMouseEnter= { onDayMouseEnter ?
+          (e) => this.handleDayMouseEnter(e, day, modifiers) : null }
+        onMouseLeave= { onDayMouseLeave ?
+          (e) => this.handleDayMouseLeave(e, day, modifiers) : null }
+        onClick= { onDayClick ?
+          (e) => this.handleDayClick(e, day, modifiers) : null }
+        onTouchTap= { onDayTouchTap ?
+          (e) => this.handleDayTouchTap(e, day, modifiers) : null }
+        >
+        { renderDay(day) }
+      </div>
+    );
+  }
+
+  showMonth(d) {
+    this.setState({
+      currentMonth: Utils.startOfMonth(d)
+    });
+  }
+
+  showNextMonth(callback) {
+    const { numberOfMonths } = this.props;
+    const { currentMonth } = this.state;
+    const nextMonth = Utils.addMonths(currentMonth, numberOfMonths);
+    this.setState({
+      currentMonth: nextMonth
+    }, () => {
+      if (callback) {
+        callback();
+      }
+      if (this.props.onMonthChange) {
+        this.props.onMonthChange(this.state.currentMonth);
+      }
+    });
+  }
+
+  showPreviousMonth(callback) {
+    const { numberOfMonths } = this.props;
+    const { currentMonth } = this.state;
+    const prevMonth = Utils.addMonths(currentMonth, -numberOfMonths);
+    this.setState({
+      currentMonth: prevMonth
+    }, () => {
+      if (callback) {
+        callback();
+      }
+      if (this.props.onMonthChange) {
+        this.props.onMonthChange(this.state.currentMonth);
+      }
+    });
+  }
+
+  focusPreviousDay(dayNode) {
+    const body = dayNode.parentNode.parentNode.parentNode.parentNode;
+    let dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
+    let nodeIndex;
+    for (let i = 0; i < dayNodes.length; i++) {
+      if (dayNodes[i] === dayNode) {
+        nodeIndex = i;
+        break;
+      }
+    }
+    if (nodeIndex === 0) {
+      this.showPreviousMonth(() => {
+        dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
+        dayNodes[dayNodes.length - 1].focus();
+      });
     }
     else {
-      let modifiers = this.getModifiersForDay(day);
-      if (outside) {
-        modifiers.push('outside');
-      }
-      className += modifiers.map(mod => ` DayPicker-day--${mod}`).join('');
-      return (
-        <td key={key}
-          className={className}
-          onMouseEnter={this.handleDayMouseEnter.bind(this, day, modifiers)}
-          onMouseLeave={this.handleDayMouseLeave.bind(this, day, modifiers)}
-          onTouchTap={this.handleDayTouchTap.bind(this, day, modifiers)}
-          onClick={this.handleDayClick.bind(this, day, modifiers)}>
-          { day.format('D') }
-        </td>
-      );
+      dayNodes[nodeIndex - 1].focus();
     }
+  }
+
+  focusNextDay(dayNode) {
+    const body = dayNode.parentNode.parentNode.parentNode.parentNode;
+    let dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
+
+    let nodeIndex;
+    for (let i = 0; i < dayNodes.length; i++) {
+      if (dayNodes[i] === dayNode) {
+        nodeIndex = i;
+        break;
+      }
+    }
+
+    if (nodeIndex === dayNodes.length - 1) {
+      this.showNextMonth(() => {
+        dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
+        dayNodes[0].focus();
+      });
+    }
+    else {
+      dayNodes[nodeIndex + 1].focus();
+    }
+  }
+
+  // Event handlers
+
+  handleKeyDown(e) {
+    switch (e.keyCode) {
+      case keys.LEFT:
+        this.showPreviousMonth();
+      break;
+      case keys.RIGHT:
+        this.showNextMonth();
+      break;
+    }
+  }
+
+  handleDayKeyDown(e, day, modifiers) {
+    e.persist();
+    switch (e.keyCode) {
+      case keys.LEFT:
+        e.preventDefault();
+        e.stopPropagation();
+        this.focusPreviousDay(e.target);
+      break;
+      case keys.RIGHT:
+        e.preventDefault();
+        e.stopPropagation();
+        this.focusNextDay(e.target);
+      break;
+      case keys.ENTER:
+      case keys.SPACE:
+        e.preventDefault();
+        e.stopPropagation();
+        if (this.props.onDayClick) {
+          this.handleDayClick(e, day, modifiers);
+        }
+        if (this.props.onDayTouchTap) {
+          this.handleDayTouchTap(e, day, modifiers);
+        }
+      break;
+    }
+  }
+
+  handleNextMonthClick(e) {
+    e.stopPropagation();
+    this.showNextMonth();
+  }
+
+  handlePrevMonthClick(e) {
+    e.stopPropagation();
+    this.showPreviousMonth();
+  }
+
+  handleDayTouchTap(e, day, modifiers) {
+    e.persist();
+    this.props.onDayTouchTap(e, day, modifiers);
+  }
+
+  handleDayClick(e, day, modifiers) {
+    e.persist();
+    this.props.onDayClick(e, day, modifiers);
+  }
+
+  handleDayMouseEnter(e, day, modifiers) {
+    e.persist();
+    this.props.onDayMouseEnter(e, day, modifiers);
+  }
+
+  handleDayMouseLeave(e, day, modifiers) {
+    e.persist();
+    this.props.onDayMouseLeave(e, day, modifiers);
   }
 
 }

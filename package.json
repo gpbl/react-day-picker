@@ -1,12 +1,14 @@
 {
   "name": "react-day-picker",
-  "version": "0.8.4",
+  "version": "1.0.0",
   "description": "Minimalistic date picker component for React and momentjs.",
-  "main": "./dist/DayPicker.js",
+  "main": "./lib/DayPicker.js",
   "scripts": {
-    "start": "cd example && webpack-dev-server --devtool=cheap-module-eval-source-map --colors --progress --display-error-details",
-    "build": "cd example && webpack --hot=false --devtool=source-map --colors --progress --optimize-minimize --output-path=../example-built/js && cp index.html ../example-built",
-    "prepublish": "babel ./src -d ./dist"
+    "prepublish": "babel ./src -d ./lib --source-maps",
+    "coverage": "istanbul cover --report html --report text -- _mocha tests/* --compilers js:babel/register --recursive --reporter xunit",
+    "test": "mocha tests/* --compilers js:babel/register --recursive --reporter spec",
+    "test:watch": "mocha tests/* -w --compilers js:babel/register --recursive --reporter spec",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -31,33 +33,21 @@
   },
   "homepage": "https://github.com/gpbl/react-day-picker",
   "peerDependencies": {
-    "moment": "^2.9.0",
     "react": "~0.13.x"
   },
   "devDependencies": {
-    "autoprefixer-loader": "^2.0.0",
-    "babel": "^5.4.7",
-    "babel-core": "^5.4.7",
-    "babel-jest": "^5.2.0",
-    "babel-loader": "^5.1.3",
-    "css-loader": "^0.14.4",
-    "jest-cli": "^0.4.5",
+    "babel": "^5.5.8",
+    "babel-core": "^5.5.8",
+    "babel-eslint": "^3.1.17",
+    "classlist-polyfill": "^1.0.1",
+    "eslint": "^0.23.0",
+    "eslint-plugin-react": "^2.5.2",
+    "istanbul": "^0.3.15",
+    "jsdom": "^3.1.2",
     "moment": "^2.10.3",
     "react": "^0.13.3",
     "react-tap-event-plugin": "^0.1.7",
-    "sass-loader": "1.0.2",
-    "style-loader": "^0.12.3",
-    "url-loader": "^0.5.6",
-    "webpack": "^1.9.10",
-    "webpack-dev-server": "^1.9.0"
-  },
-  "jest": {
-    "scriptPreprocessor": "./node_modules/babel-jest",
-    "testFileExtensions": [
-      "js"
-    ],
-    "moduleFileExtensions": [
-      "js"
-    ]
+    "sinon": "^1.15.3",
+    "sinon-chai": "^2.8.0"
   }
 }

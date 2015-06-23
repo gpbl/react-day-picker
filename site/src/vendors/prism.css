@@ -1,0 +1,153 @@
+@charset "UTF-8";
+/*
+
+Name:       Base16 Brewer Light
+Author:     Timothée Poisot (http://github.com/tpoisot)
+
+Prism template by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/prism/)
+Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  background: #fcfdfe;
+  color: #515253;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #dadbdc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #dadbdc;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #959697;
+}
+
+.token.punctuation {
+  color: #515253;
+}
+
+.token.namespace {
+  opacity: .7;
+}
+
+.token.operator,
+.token.boolean,
+.token.number {
+  color: #e6550d;
+}
+
+.token.property {
+  color: #dca060;
+}
+
+.token.tag {
+  color: #3182bd;
+}
+
+.token.string {
+  color: #80b1d3;
+}
+
+.token.selector {
+  color: #756bb1;
+}
+
+.token.attr-name {
+  color: #e6550d;
+}
+
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #80b1d3;
+}
+
+.token.attr-value,
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+  color: #31a354;
+}
+
+.token.statement,
+.token.regex,
+.token.atrule {
+  color: #80b1d3;
+}
+
+.token.placeholder,
+.token.variable {
+  color: #3182bd;
+}
+
+.token.deleted {
+  text-decoration: line-through;
+}
+
+.token.inserted {
+  border-bottom: 1px dotted #0c0d0e;
+  text-decoration: none;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.important {
+  color: #e31a1c;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+pre > code.highlight {
+  outline: 0.4em solid #e31a1c;
+  outline-offset: .4em;
+}

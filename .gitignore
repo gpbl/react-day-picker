@@ -1,2 +1,5 @@
 node_modules
-example-built
+npm-debug.log
+lib
+coverage
+site/built/

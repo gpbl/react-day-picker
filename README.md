@@ -1,162 +1,43 @@
 # react-day-picker
 
+Customizable date picker and calendar component for React.js
+
+
 <p align="center">
-<a href="http://www.gpbl.org/react-day-picker/"><img src="https://cloud.githubusercontent.com/assets/120693/5693331/3aba1d2e-9918-11e4-933e-bf296484017a.png" width="254" /></a>
+<a href="http://www.gpbl.org/react-day-picker/"><img src="https://cloud.githubusercontent.com/assets/120693/8303891/9f85e42c-19a1-11e5-9905-ee31f4e3f5aa.png" width="300" /></a>
 </p>
 
-Simple date picker built for [React](facebook.github.io/react/) and [moment.js](http://www.momentjs.com). See a [demo](http://www.gpbl.org/react-day-picker/).
+
+* use CSS modifiers to change the day’s style
+* easily add content to days cells
+* display multiple months
+* ready for i18n, with [moment.js](http://momentjs.com) or any library you use
+* navigable via keyboard
+* ARIA support
+
+### Documentation
+
+[See the website](http://www.gpbl.org/react-day-picker/) for examples with code, API and tips.
+
+
+[![npm version](https://badge.fury.io/js/react-day-picker.svg)](http://badge.fury.io/js/react-day-picker)
+ [![Join the chat at https://gitter.im/gpbl/react-day-picker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gpbl/react-day-picker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+### Usage
 
 ```bash
 npm install react-day-picker --save
 ```
 
-[![Join the chat at https://gitter.im/gpbl/react-day-picker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gpbl/react-day-picker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![npm version](https://badge.fury.io/js/react-day-picker.svg)](http://badge.fury.io/js/react-day-picker)
+```js 
+import React from "react";
+import DayPicker from "react-day-picker";
 
-
-### Use of modifiers
-
-This date picker works with modifiers, as in [BEM-like syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/). You set the modifiers as functions returning `true` or `false`.
-
-Modifiers give you a lot of freedom: for example, a `selected` modifier could highlight *a range* of selected days, or a `weekend` modifiers could format the weekend days.
-
-### Styling
-
-You need to setup your own CSS. You can start from [this css](example/src/style/DayPicker.scss) as example.
-
-## Usage examples
-
-The following component implements the DayPicker and saves the selected day in its own `state`.
-It also adds the `DayPicker-day--today` CSS modifier for today, and a `DayPicker-day--selected` CSS modifier to the cell corresponding to the clicked/touched day.
-
-```js
-
-var DayPicker = require('react-day-picker');
-var moment = require('moment');
-
-function isSameDay(a, b) {
-  return a.startOf('day').isSame(b.startOf('day'));
-}
-
-var MyDatePicker = React.createClass({
-
-  handleDayTouchTap(day, modifiers, event) {
-    this.setState({
-      selectedDay: day
-    });
-  },
+class MyComponent extends React.Component {
 
   render() {
-    var modifiers = {
-      today: function (day) {
-        // add the `today` modifier for the current day
-        return isSameDay(moment(), day);
-      },
-      selected: function (day) {
-        // add the `selected` modifier for the selected day
-        return this.state.selectedDay
-          && isSameDay(this.state.selectedDay, day);
-      }
-    };
-    return (
-      <DayPicker modifiers={ modifiers }
-        onDayTouchTap={this.handleDayTouchTap} />
-    );
-  }
-});
-
-React.render(<MyDatePicker/>, document.body);
-
-```
-
-### Run the example app
-
-```bash
-git clone https://github.com/gpbl/react-day-picker.git
-cd react-day-picker
-npm install
-npm start
-```
-
-...then open [http://localhost:8080](http://localhost:8080).
-
-## API
-
-
-### Props
-
-```js
-<DayPicker
-  initialMonth={Object}
-  numberOfMonths={Number}
-  enableOutsideDays={Boolean}
-  modifiers={Object}
-  onDayClick={Function}
-  onDayTouchTap={Function}
-  onDayMouseEnter={Function}
-  onDayMouseLeave={Function}
-  onPrevMonthClick={Function}
-  onNextMonthClick={Function}
-/>
-```
-
-#### initialMonth `moment object`
-
-A `moment()` object with the first month to display in the calendar.
-
-#### numberOfMonths `int`
-
-An integer value indicating the number of months to display in the calendar
-
-#### modifiers `Object`
-
-* The object's keys are the modifier's name – applied to each day, following a BEM-like syntax: `DayPicker-day--<modifier>`
-* The key's values are functions evaluated for each day. When they returns `true`, the modifier is applied, and eventually passed to the `onDayTouchTap` payload.
-
-For example, the following modifiers will add the CSS class `DayPicker-day--disabled` to the days of the past:
-
-```js
-
-modifiers = {
-  disabled: function (day) {
-    return day.diff(moment(), 'day') < 0;
+    return <DayPicker initialMonth={new Date()} />
   }
 }
-<DayPicker modifiers={modifiers} />
-
 ```
 
-#### enableOutsideDays `bool`
-
-Show the days outside the shown month.
-
-#### onDayClick `function(day, modifiers, event)`
-#### onDayTouchTap `function(day, modifiers, event)`
-
-Use one of these attributes to add an event handler when the user touches/clicks a day.
-
-* `day <Object>` the touched day (a moment object)
-* `modifiers <Array>` array of modifiers for the touched day, e.g. `['disabled', 'today']`
-* `event <SyntheticEvent>` the original touch event
-
-> To make the touch tap events working, you **must** inject [react-tap-event-plugin](https://github.com/zilverline/react-tap-event-plugin) client side.
-
-#### onDayMouseEnter `function(day, modifiers, event)`
-#### onDayMouseLeave `function(day, modifiers, event)`
-
-Use this attribute to add an handler when the mouse enters/leaves a day element.
-
-#### onPrevMonthClick `function(month, event)`
-#### onNextMonthClick `function(month, event)`
-
-* `month <Object>` the current month (a moment object)
-* `event <SyntheticEvent>` the click event
-
-Use this attribute to add an handler when the user switch to the previous/next month.
-
-
-### Methods
-
-#### `showMonth(month)`
-
-Show `month` (Moment object).
