@@ -1,0 +1,13 @@
+sudo: false
+language: node_js
+matrix:
+  allow_failures:
+    - node_js: "0.13"
+node_js:
+  - "iojs"
+  - "0.13"
+  - "0.12"
+  - "0.10"
+after_success:
+  - "npm run cover"
+  - "cat artifacts/lcov.info | ./node_modules/coveralls/bin/coveralls.js"

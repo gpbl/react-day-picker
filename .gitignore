@@ -1,5 +1,5 @@
 node_modules
 npm-debug.log
 lib
-coverage
-site/built/
+/site/built
+/artifacts
