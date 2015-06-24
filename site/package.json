@@ -7,7 +7,7 @@
     "preinstall": "npm uninstall react-day-picker",
     "start": "node index",
     "build": "webpack && cp index.html built/index.html",
-    "gh-pages": "cp -a built/. ../../react-day-picker-gh-pages && git add -A && git commit -m \"Update site\" && git push"
+    "gh-pages": "cp -a built/. ../../react-day-picker-gh-pages && cd ../../react-day-picker-gh-pages && git add -A && git commit -m \"Update site\" && git push"
   },
   "repository": {
     "type": "git",
