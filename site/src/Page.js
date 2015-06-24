@@ -39,8 +39,8 @@ class Page extends Component {
         </div>
         <div className='Page-Content'>
           <ul>
-            <li>use CSS modifiers to change the day’s style</li>
-            <li>easily add content to days cells</li>
+            <li>select days, ranges, whatever with CSS modifiers</li>
+            <li>easily change style and add content to days cells</li>
             <li>display multiple months</li>
             <li>ready for <abbr title="Internationalization">i18n</abbr>, with moment.js or the library you choose</li>
             <li>navigable via keyboard</li>
