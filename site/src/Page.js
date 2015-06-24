@@ -46,20 +46,25 @@ class Page extends Component {
             <li>navigable via keyboard</li>
             <li><abbr title="Accessible Rich Internet Applications">ARIA</abbr> support</li>
           </ul>
-
-          <p>
-            <a href="http://badge.fury.io/js/react-day-picker">
-              <img src="https://badge.fury.io/js/react-day-picker.svg" />
-            </a>
-            { " " }
-            <iframe src="https://ghbtns.com/github-btn.html?user=gpbl&amp;repo=react-day-picker&amp;type=star&amp;count=true"
-              frameBorder={0} scrolling={0} width="170px" height="20px"></iframe>
-          </p>
-
           <p>
             For bug reports and to contribute, please visit the <a href="https://github.com/gpbl/react-day-picker">github project</a> or
             join the <a href="https://gitter.im/gpbl/react-day-picker">gitter chat</a>.
           </p>
+          <p>
+            <a href="http://badge.fury.io/js/react-day-picker">
+              <img src="https://badge.fury.io/js/react-day-picker.svg" />
+            </a> { " " }
+            <a href="https://travis-ci.org/gpbl/react-day-picker">
+              <img src="https://travis-ci.org/gpbl/react-day-picker.svg" />
+            </a> { " " }
+            <a href="https://coveralls.io/r/gpbl/react-day-picker?branch=master">
+              <img src="https://coveralls.io/repos/gpbl/react-day-picker/badge.svg?branch=master" />
+            </a> { " " }
+            <iframe src="https://ghbtns.com/github-btn.html?user=gpbl&amp;repo=react-day-picker&amp;type=star&amp;count=true"
+              frameBorder={0} scrolling={0} width="170px" height="20px"></iframe>
+          </p>
+
+
         </div>
         <a name="examples" />
         <a name="api" />
@@ -71,7 +76,7 @@ class Page extends Component {
           </a>
           <a href="#api" data-page="api"
             className={currentPage === "api" && "SegmentedControl--selected"}>
-            API
+            Usage &amp; API
           </a>
           <a href="#tips" data-page="tips"
             className={currentPage === "tips" && "SegmentedControl--selected"}>

@@ -9,10 +9,39 @@ class APIPage extends Component {
         <pre className="language-js">
           <code>npm install react-day-picker --save</code>
         </pre>
+
+        <h4>Use as React component</h4>
+<pre>
+  <code className="language-jsx">
+{`import React from "react";
+import DayPicker from "react-day-picker";
+
+const modifiers = {
+  "firstOfMonth": (day) => day.getDate() === 1,
+  "disabled": (day) => day.getDay() === 0
+}
+
+class MyComponent extends React.Component {
+  render() {
+    return <DayPicker modifiers={modifiers} />;
+  }
+}
+`}
+
+
+  </code>
+</pre>
+
+        <p>
+          See <a href="#examples">all the examples</a>.
+        </p>
+
+
         <h4>Styling</h4>
         <p>
-          You need to provide your won CSS to style the component.
-          You can start with this file.
+          You need to provide your own CSS to style the component. You can
+          use <a href="https://github.com/gpbl/react-day-picker/blob/master/site/src/style/DayPicker.scss">this
+          file</a> as starting point.
         </p>
 
         <h4>Props</h4>
