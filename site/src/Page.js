@@ -42,9 +42,8 @@ class Page extends Component {
             <li>select days, ranges, whatever with CSS modifiers</li>
             <li>easily change style and add content to days cells</li>
             <li>display multiple months</li>
-            <li>ready for <abbr title="Internationalization">i18n</abbr>, with moment.js or the library you choose</li>
-            <li>navigable via keyboard</li>
-            <li><abbr title="Accessible Rich Internet Applications">ARIA</abbr> support</li>
+            <li>ready for <abbr title="Internationalization">i18n</abbr>, with moment.js or any other library</li>
+            <li>navigable via keyboard, <abbr title="Accessible Rich Internet Applications">ARIA</abbr> support</li>
           </ul>
           <p>
             For bug reports and to contribute, please visit the <a href="https://github.com/gpbl/react-day-picker">github project</a> or
