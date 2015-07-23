@@ -26,7 +26,7 @@ class SelectableDayExample extends React.Component {
 
     return (
       <div>
-        <DayPicker modifiers={ modifiers } onDayClick={ ::this.handleDayClick } />
+        <DayPicker enableOutsideDays={true} modifiers={ modifiers } onDayClick={ ::this.handleDayClick } />
         <p>
           Selected: { selectedDay.toLocaleDateString() }
         </p>
