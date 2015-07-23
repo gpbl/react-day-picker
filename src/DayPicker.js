@@ -160,12 +160,12 @@ class DayPicker extends Component {
     const firstDayOfWeek = localeUtils.getFirstDayOfWeek(locale);
     return Utils.getWeekArray(month, firstDayOfWeek).map((week, i) =>
       <div key={i} className="DayPicker-Week" role="row">
-        { week.map((day, j) => this.renderDay(month, day, j)) }
+        { week.map(day => this.renderDay(month, day)) }
       </div>
     );
   }
 
-  renderDay(month, day, i) {
+  renderDay(month, day) {
     const { currentMonth } = this.state;
     const { renderDay } = this.props;
 
@@ -173,6 +173,7 @@ class DayPicker extends Component {
 
     let className = "DayPicker-Day";
     let modifiers = [];
+    let key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
 
     const isToday = Utils.isSameDay(day, new Date());
     if (isToday) {
@@ -192,7 +193,7 @@ class DayPicker extends Component {
     className += modifiers.map(modifier => ` ${className}--${modifier}`).join("");
 
     if (isOutside && !enableOutsideDays) {
-      return <div key={`outside${i}`} className={className} />;
+      return <div key={`outside-${key}`} className={className} />;
     }
 
     const { onDayMouseEnter, onDayMouseLeave, onDayTouchTap, onDayClick }
@@ -206,7 +207,7 @@ class DayPicker extends Component {
       }
     }
     return (
-      <div key={ i } className={ className }
+      <div key={ key } className={ className }
         tabIndex={ tabIndex }
         role="gridcell"
         onKeyDown={
