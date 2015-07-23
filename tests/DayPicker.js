@@ -539,7 +539,7 @@ describe("DayPicker", () => {
 
   });
 
-  it("does not call mouse events on outside days", () => {
+  it("does not call mouse events on disabled outside days", () => {
 
     React.initializeTouchEvents(true);
     require("react-tap-event-plugin")();
@@ -573,6 +573,55 @@ describe("DayPicker", () => {
 
     TestUtils.Simulate.touchTap(dayEl);
     expect(handleTouchTap).to.not.have.been.called;
+
+  });
+
+  it("changes the month when tapping on enabled outside days", () => {
+
+    React.initializeTouchEvents(true);
+    require("react-tap-event-plugin")();
+
+    const handleTouchTap = sinon.spy();
+
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker
+        initialMonth={new Date(2015, 6, 5)}
+        enableOutsideDays={true}
+        onDayTouchTap={handleTouchTap}
+      />
+    );
+
+    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Day");
+    const dayEl = daysEl[0];
+
+    TestUtils.Simulate.touchTap(dayEl);
+    expect(handleTouchTap).to.have.been.called;
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
+  });
+
+  it("changes the month when clicking on enabled outside days", () => {
+
+    React.initializeTouchEvents(true);
+    require("react-tap-event-plugin")();
+
+    const handleClick = sinon.spy();
+
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker
+        initialMonth={new Date(2015, 6, 5)}
+        enableOutsideDays={true}
+        onDayClick={handleClick}
+      />
+    );
+
+    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Day");
+    const dayEl = daysEl[0];
+
+    TestUtils.Simulate.click(dayEl);
+    expect(handleClick).to.have.been.called;
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
 
   });
 

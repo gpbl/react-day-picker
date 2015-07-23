@@ -360,11 +360,17 @@ class DayPicker extends Component {
 
   handleDayTouchTap(e, day, modifiers) {
     e.persist();
+    if (day.getMonth() !== this.state.currentMonth.getMonth()) {
+      this.showMonth(day);
+    }
     this.props.onDayTouchTap(e, day, modifiers);
   }
 
   handleDayClick(e, day, modifiers) {
     e.persist();
+    if (day.getMonth() !== this.state.currentMonth.getMonth()) {
+      this.showMonth(day);
+    }
     this.props.onDayClick(e, day, modifiers);
   }
 
