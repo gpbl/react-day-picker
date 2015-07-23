@@ -79,8 +79,7 @@ class InputFieldExample extends React.Component {
   }
 
   handleDayTouchTap(e, day, modifiers) {
-    if (modifiers.indexOf("disabled") > -1 ||
-        modifiers.indexOf("outside") > -1) {
+    if (modifiers.indexOf("disabled") > -1) {
       return;
     }
     this.setState({
