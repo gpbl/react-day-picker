@@ -37,4 +37,11 @@ class MyComponent extends React.Component {
   }
 }
 ```
+---
+### Contribute
 
+* Use `npm run test` or `npm run test:watch` to run the unit tests. 
+* Run `npm run cover` for a test coverage report.
+* To make sure files are linted: `npm run lint`
+* To run the website with examples use `cd site && npm install && npm start`, then visit `localhost:3000`
+  * If you want to see your changes applied, remember to run `npm install` before running it!
