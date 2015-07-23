@@ -123,7 +123,7 @@ class DayPicker extends Component {
       <div
         className="DayPicker-Month"
         key={i}>
-        <div className="DayPicker-Caption">
+        <div className="DayPicker-Caption" onClick={ ::this.handleCaptionClick }>
           { localeUtils.formatMonthTitle(d, locale) }
         </div>
         <div className="DayPicker-Weekdays">
@@ -230,6 +230,14 @@ class DayPicker extends Component {
     this.setState({
       currentMonth: Utils.startOfMonth(d)
     });
+  }
+
+  showThisMonth() {
+    const today = new Date();
+
+    if (today.getMonth() !== this.state.currentMonth.getMonth()) {
+      this.showMonth(today);
+    }
   }
 
   showNextMonth(callback) {
@@ -346,6 +354,11 @@ class DayPicker extends Component {
         }
       break;
     }
+  }
+
+  handleCaptionClick(e) {
+    e.stopPropagation();
+    this.showThisMonth();
   }
 
   handleNextMonthClick(e) {
