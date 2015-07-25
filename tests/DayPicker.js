@@ -111,7 +111,7 @@ describe("DayPicker", () => {
 
   it("renders the number of months as specified by initialMonth", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-12-06")} numberOfMonths={3} />
+      <DayPicker initialMonth={new Date(2015, 11, 6)} numberOfMonths={3} />
     );
     const months = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-Month");
@@ -180,7 +180,7 @@ describe("DayPicker", () => {
 
   it("renders the weeks elements in a month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-07-01")} />
+      <DayPicker initialMonth={new Date(2015, 6, 1)} />
     );
 
     const weeksEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -190,7 +190,7 @@ describe("DayPicker", () => {
 
   it("renders the days element in a month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-07-01")} />
+      <DayPicker initialMonth={new Date(2015, 6, 1)} />
     );
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -201,7 +201,7 @@ describe("DayPicker", () => {
 
   it("does not render outside days", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-07-01")} enableOutsideDays={false} />
+      <DayPicker initialMonth={new Date(2015, 6, 1)} enableOutsideDays={false} />
     );
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -213,7 +213,7 @@ describe("DayPicker", () => {
 
   it("renders outside days when required", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-07-01")} enableOutsideDays={true} />
+      <DayPicker initialMonth={new Date(2015, 6, 1)} enableOutsideDays={true} />
     );
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -225,7 +225,7 @@ describe("DayPicker", () => {
 
   it("adds an `outside` modifier to outside days", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-07-01")} enableOutsideDays={true} />
+      <DayPicker initialMonth={new Date(2015, 6, 1)} enableOutsideDays={true} />
     );
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -256,7 +256,7 @@ describe("DayPicker", () => {
       }
     };
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-07-01")}
+      <DayPicker initialMonth={new Date(2015, 6, 1)}
         modifiers={modifiers}
         enableOutsideDays={true} />
     );
@@ -318,9 +318,9 @@ describe("DayPicker", () => {
 
   it("changes the month when calling showMonth", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date("2015-07-01")} enableOutsideDays={false} />
+      <DayPicker initialMonth={new Date(2015, 6, 1)} enableOutsideDays={false} />
     );
-    dayPickerEl.showMonth(new Date("2016-09-01"));
+    dayPickerEl.showMonth(new Date(2016, 8, 1));
 
     expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(8);
     expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);

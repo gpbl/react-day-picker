@@ -27,7 +27,7 @@ describe("Utils", () => {
 
   describe("startOfMonth", () => {
     it("should set a date as start of its month", () => {
-      const date = new Date("1979-09-19");
+      const date = new Date(1979, 8, 19);
       const newDate = Utils.startOfMonth(date);
 
       expect(newDate.getFullYear()).to.equal(1979);
@@ -43,24 +43,24 @@ describe("Utils", () => {
 
   describe("getFirstDayOfMonth", () => {
     it("get the first day of the month", () => {
-      const date1 = new Date("1979-09-19");
+      const date1 = new Date(1979, 8, 19);
       expect(Utils.getFirstDayOfMonth(date1).getDate()).to.equal(1);
-      const date2 = new Date("1979-09-01");
+      const date2 = new Date(1979, 8, 1);
       expect(Utils.getFirstDayOfMonth(date2).getDate()).to.equal(1);
     });
   });
 
   describe("getDaysInMonth", () => {
     it("get the correct number of days", () => {
-      const date = new Date("2015-02-10");
+      const date = new Date(2015, 1, 10);
       expect(Utils.getDaysInMonth(date)).to.equal(28);
-      const date1 = new Date("2016-03-10");
+      const date1 = new Date(2016, 2, 10);
       expect(Utils.getDaysInMonth(date1)).to.equal(31);
-      const date2 = new Date("2016-04-10");
+      const date2 = new Date(2016, 3, 10);
       expect(Utils.getDaysInMonth(date2)).to.equal(30);
     });
     it("get the correct number of days in a leap month", () => {
-      const date = new Date("2016-02-10");
+      const date = new Date(2016, 1, 10);
       expect(Utils.getDaysInMonth(date)).to.equal(29);
     });
   });
@@ -68,7 +68,7 @@ describe("Utils", () => {
   describe("getWeekArray", () => {
 
     it("works with a month starting on sunday (en)", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-11-01"));
+      const weeks = Utils.getWeekArray(new Date(2015, 10, 1));
       expect(weeks).to.have.length(5);
       expect(weeks[0][0].getDay()).to.equal(0);
       expect(weeks[0][0].getDate()).to.equal(1);
@@ -90,7 +90,7 @@ describe("Utils", () => {
     });
 
     it("adds days from the next month to the last week (en)", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-09-19"));
+      const weeks = Utils.getWeekArray(new Date(2015, 8, 19));
 
       expect(weeks).to.have.length(5);
        // go to october
@@ -101,7 +101,7 @@ describe("Utils", () => {
     });
 
     it("adds days from the next month to the last week (it)", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-09-19"), 1);
+      const weeks = Utils.getWeekArray(new Date(2015, 8, 19), 1);
 
       expect(weeks).to.have.length(5);
 
@@ -145,31 +145,31 @@ describe("Utils", () => {
         no() { return false; },
         maybe(d) { return d.getMonth() === 8; }
       };
-      let modifiers = Utils.getModifiersForDay(new Date("2015-09-19"), modifierFunctions);
+      let modifiers = Utils.getModifiersForDay(new Date(2015, 8, 19), modifierFunctions);
       expect(modifiers).to.have.length(2);
       expect(modifiers.indexOf("yes")).to.be.above(-1);
       expect(modifiers.indexOf("maybe")).to.be.above(-1);
       expect(modifiers.indexOf("no")).to.equal(-1);
 
-      modifiers = Utils.getModifiersForDay(new Date("2015-10-19"), modifierFunctions);
+      modifiers = Utils.getModifiersForDay(new Date(2015, 9, 19), modifierFunctions);
       expect(modifiers).to.have.length(1);
       expect(modifiers.indexOf("yes")).to.be.above(-1);
       expect(modifiers.indexOf("maybe")).to.equal(-1);
       expect(modifiers.indexOf("no")).to.equal(-1);
     });
     it("works without passing modifiers", () => {
-      let modifiers = Utils.getModifiersForDay(new Date("2015-09-19"));
+      let modifiers = Utils.getModifiersForDay(new Date(2015, 8, 19));
       expect(modifiers).to.have.length(0);
     });
   });
 
   describe("isDayOutsideMonth", () => {
     it("detects days outside a month", () => {
-      const isOutside = Utils.isDayOutsideMonth(new Date("2015-11-30"), new Date("2015-12-01"));
+      const isOutside = Utils.isDayOutsideMonth(new Date(2015, 10, 30), new Date(2015, 11, 1));
       expect(isOutside).to.be.true;
     });
     it("does detect days inside a month", () => {
-      const isOutside = Utils.isDayOutsideMonth(new Date("2015-12-30"), new Date("2015-12-01"));
+      const isOutside = Utils.isDayOutsideMonth(new Date(2015, 11, 30), new Date(2015, 11, 1));
       expect(isOutside).to.be.false;
     });
   });
