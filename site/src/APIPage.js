@@ -258,7 +258,7 @@ class MyComponent extends React.Component {
                 </p>
                 <pre>
                   <code className="language-jsx">
-{`function onCaptionClick(e, month) {
+{`function onCaptionClick(e, currentMonth) {
   // Set daypicker to initial month
   const daypicker = this.refs.daypicker;
   daypicker.showMonth(daypicker.props.initialMonth);

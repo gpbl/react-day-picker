@@ -362,9 +362,9 @@ class DayPicker extends Component {
     this.showPreviousMonth();
   }
 
-  handleCaptionClick(e, month) {
+  handleCaptionClick(e, currentMonth) {
     e.persist();
-    this.props.onCaptionClick(e, month);
+    this.props.onCaptionClick(e, currentMonth);
   }
 
   handleDayTouchTap(e, day, modifiers) {

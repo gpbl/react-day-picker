@@ -440,6 +440,30 @@ describe("DayPicker", () => {
 
   });
 
+  it("calls event handlers on caption", () => {
+    const SyntheticEvent = require("react/lib/SyntheticEvent");
+    const handleCaptionClick = sinon.spy();
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker onCaptionClick={handleCaptionClick} />
+    );
+    const caption = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
+      "DayPicker-Caption");
+
+    TestUtils.Simulate.click(caption);
+
+    expect(handleCaptionClick).to.have.been.calledWith(
+      sinon.match((e) => {
+        return e instanceof SyntheticEvent && e.target !== null;
+      }, "e"),
+      sinon.match((currentMonth) => {
+        let today = new Date();
+        return currentMonth.getFullYear() === today.getFullYear() &&
+          currentMonth.getMonth() === today.getMonth();
+      }, "currentMonth")
+    );
+
+  });
+
   it("calls event handlers on a day cell", () => {
 
     React.initializeTouchEvents(true);
