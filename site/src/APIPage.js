@@ -246,6 +246,30 @@ class MyComponent extends React.Component {
             <tr>
               <th>
                 <pre className="language-js">
+                  <code>onCaptionClick</code>
+                </pre>
+              </th>
+              <td>
+                <p>Function</p>
+              </td>
+              <td>
+                <p>
+                  Event handler when the user clicks on the caption in the header displaying the month. Example:
+                </p>
+                <pre>
+                  <code className="language-jsx">
+{`function onCaptionClick(e, currentMonth) {
+  // Set daypicker to initial month
+  const daypicker = this.refs.daypicker;
+  daypicker.showMonth(daypicker.props.initialMonth);
+}`}
+                  </code>
+                </pre>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <pre className="language-js">
                   <code>onDayClick</code>
                 </pre>
               </th>

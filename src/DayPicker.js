@@ -37,6 +37,7 @@ class DayPicker extends Component {
     onDayMouseEnter: PropTypes.func,
     onDayMouseLeave: PropTypes.func,
     onMonthChange: PropTypes.func,
+    onCaptionClick: PropTypes.func,
 
     renderDay: PropTypes.func
 
@@ -118,12 +119,15 @@ class DayPicker extends Component {
   }
 
   renderMonth(d, i) {
-    const { locale, numberOfMonths, canChangeMonth, localeUtils } = this.props;
+    const { locale, numberOfMonths, canChangeMonth, localeUtils, onCaptionClick } = this.props;
+    const { currentMonth } = this.state;
+
     return (
       <div
         className="DayPicker-Month"
         key={i}>
-        <div className="DayPicker-Caption">
+        <div className="DayPicker-Caption" onClick={ onCaptionClick ?
+          (e) => this.handleCaptionClick(e, currentMonth) : null }>
           { localeUtils.formatMonthTitle(d, locale) }
         </div>
         <div className="DayPicker-Weekdays">
@@ -356,6 +360,11 @@ class DayPicker extends Component {
   handlePrevMonthClick(e) {
     e.stopPropagation();
     this.showPreviousMonth();
+  }
+
+  handleCaptionClick(e, currentMonth) {
+    e.persist();
+    this.props.onCaptionClick(e, currentMonth);
   }
 
   handleDayTouchTap(e, day, modifiers) {
