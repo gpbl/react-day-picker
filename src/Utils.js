@@ -123,6 +123,10 @@ const Utils = {
 
   getFirstDayOfWeek() {
     return 0;
+  },
+
+  getMonthsDiff(d1, d2) {
+    return d2.getMonth() - d1.getMonth() + (12 * (d2.getFullYear() - d1.getFullYear()));
   }
 
 };

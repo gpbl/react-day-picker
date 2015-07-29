@@ -216,4 +216,32 @@ describe("Utils", () => {
     });
   });
 
+  describe("getMonthsDiff", () => {
+    it("returns a positive difference between two days in the same year", () => {
+      let d1 = new Date(2015, 10, 6);
+      let d2 = new Date(2015, 11, 6);
+      expect(Utils.getMonthsDiff(d1, d2)).to.equal(1);
+    });
+    it("returns a positive difference between two days in different years", () => {
+      let d1 = new Date(2015, 11, 6);
+      let d2 = new Date(2016, 0, 6);
+      expect(Utils.getMonthsDiff(d1, d2)).to.equal(1);
+    });
+    it("returns a negative difference between two days in the same year", () => {
+      let d1 = new Date(2015, 3, 6);
+      let d2 = new Date(2015, 2, 6);
+      expect(Utils.getMonthsDiff(d1, d2)).to.equal(-1);
+    });
+    it("returns a negative difference between two days in different years", () => {
+      let d1 = new Date(2017, 3, 6);
+      let d2 = new Date(2015, 2, 6);
+      expect(Utils.getMonthsDiff(d1, d2)).to.equal(-25);
+    });
+    it("returns no difference between two days in the same month", () => {
+      let d1 = new Date(2015, 3, 6);
+      let d2 = new Date(2015, 3, 12);
+      expect(Utils.getMonthsDiff(d1, d2)).to.equal(0);
+    });
+  });
+
 });
