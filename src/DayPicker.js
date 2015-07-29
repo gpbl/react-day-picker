@@ -56,10 +56,8 @@ class DayPicker extends Component {
 
   constructor(props) {
     super(props);
-    let { initialMonth, tabIndex } = this.props;
-
     this.state = {
-      currentMonth: Utils.startOfMonth(initialMonth)
+      currentMonth: Utils.startOfMonth(props.initialMonth)
     };
   }
 
@@ -119,7 +117,7 @@ class DayPicker extends Component {
   }
 
   renderMonth(d, i) {
-    const { locale, numberOfMonths, canChangeMonth, localeUtils, onCaptionClick } = this.props;
+    const { locale, localeUtils, onCaptionClick } = this.props;
     const { currentMonth } = this.state;
 
     return (
@@ -170,7 +168,6 @@ class DayPicker extends Component {
   }
 
   renderDay(month, day) {
-    const { currentMonth } = this.state;
     const { renderDay } = this.props;
 
     const { enableOutsideDays, modifiers: modifierFunctions } = this.props;
