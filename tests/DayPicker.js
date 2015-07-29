@@ -287,7 +287,7 @@ describe("DayPicker", () => {
     );
     dayPickerEl.showNextMonth(callback);
 
-    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(9);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(8);
     expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
     expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
     expect(callback).to.have.been.called;
@@ -307,7 +307,7 @@ describe("DayPicker", () => {
     );
     dayPickerEl.showPreviousMonth(callback);
 
-    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
     expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
     expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
     expect(callback).to.have.been.called;
