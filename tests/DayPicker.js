@@ -90,7 +90,6 @@ describe("DayPicker", () => {
     expect(dayPicker.props.className).to.not.contain("DayPicker--interactionEnabled");
   });
 
-
   it("uses the `className` prop", () => {
     const shallowRenderer = TestUtils.createRenderer();
     shallowRenderer.render(<DayPicker className="custom-class" />);
@@ -275,7 +274,6 @@ describe("DayPicker", () => {
 
   });
 
-
   it("changes the month when calling showNextMonth", () => {
     const callback = sinon.spy();
     const handleMonthChange = sinon.spy();
@@ -402,7 +400,6 @@ describe("DayPicker", () => {
     expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
 
   });
-
 
   it("updates its state when clicking to the previous month button", () => {
 
@@ -545,7 +542,6 @@ describe("DayPicker", () => {
 
   });
 
-
   it("does not call event handlers on a day cell without event prop", () => {
 
     const handleClick = sinon.spy();
@@ -624,7 +620,50 @@ describe("DayPicker", () => {
     expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
   });
 
-  it("changes the month when clicking on enabled outside days", () => {
+  it("shows the previous month when clicking on (enabled) outside days", () => {
+    React.initializeTouchEvents(true);
+    require("react-tap-event-plugin")();
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker
+        numberOfMonths={1}
+        initialMonth={new Date(2015, 6, 5)}
+        enableOutsideDays={true}
+        onDayClick={Function()}
+      />
+    );
+
+    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Day");
+    const dayEl = daysEl[0]; // get the first outside day from the previous month
+
+    TestUtils.Simulate.click(dayEl);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
+
+  });
+
+  it("shows the previous month (of 2 months) when clicking on (enabled) outside days", () => {
+    React.initializeTouchEvents(true);
+    require("react-tap-event-plugin")();
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker
+        numberOfMonths={2}
+        initialMonth={new Date(2015, 6, 5)}
+        enableOutsideDays={true}
+        onDayClick={Function()}
+      />
+    );
+
+    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Day");
+    const dayEl = daysEl[0]; // get the first outside day from the previous month
+
+    TestUtils.Simulate.click(dayEl);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(4);
+
+  });
+
+
+  it("shows the next month when clicking on (enabled) outside days", () => {
 
     React.initializeTouchEvents(true);
     require("react-tap-event-plugin")();
@@ -641,11 +680,58 @@ describe("DayPicker", () => {
 
     const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-Day");
-    const dayEl = daysEl[0];
-
+    const dayEl = daysEl[daysEl.length - 1]; // get last outside day
     TestUtils.Simulate.click(dayEl);
-    expect(handleClick).to.have.been.called;
-    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(7);
+
+  });
+
+  it("shows the next 2nd month when clicking on (enabled) outside days", () => {
+
+    React.initializeTouchEvents(true);
+    require("react-tap-event-plugin")();
+
+    const handleClick = sinon.spy();
+
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker
+        numberOfMonths={2}
+        initialMonth={new Date(2015, 10, 5)}
+        enableOutsideDays={true}
+        onDayClick={handleClick}
+      />
+    );
+
+    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Day");
+    const dayEl = daysEl[daysEl.length - 1];
+    TestUtils.Simulate.click(dayEl);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(0);
+    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2016);
+
+  });
+
+  it("does not show the next month when clicking on an outside days of the first of 2 months", () => {
+
+    React.initializeTouchEvents(true);
+    require("react-tap-event-plugin")();
+
+    const handleClick = sinon.spy();
+
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker
+        numberOfMonths={2}
+        initialMonth={new Date(2015, 6, 5)} // july 2015
+        enableOutsideDays={true}
+        onDayClick={handleClick}
+      />
+    );
+
+    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Day");
+    const dayEl = daysEl[34]; // last day cell on the first month
+    TestUtils.Simulate.click(dayEl);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
 
   });
 
@@ -731,7 +817,6 @@ describe("DayPicker", () => {
     });
     expect(showNextMonth).to.not.be.called;
   });
-
 
   it("calls focusPreviousDay when left key is pressed", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
