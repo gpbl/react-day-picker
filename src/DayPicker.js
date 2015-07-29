@@ -234,7 +234,6 @@ class DayPicker extends Component {
   }
 
   showNextMonth(callback) {
-    // const { numberOfMonths } = this.props;
     const { currentMonth } = this.state;
     const nextMonth = Utils.addMonths(currentMonth, 1);
     this.setState({
@@ -250,7 +249,6 @@ class DayPicker extends Component {
   }
 
   showPreviousMonth(callback) {
-    // const { numberOfMonths } = this.props;
     const { currentMonth } = this.state;
     const prevMonth = Utils.addMonths(currentMonth, -1);
     this.setState({
