@@ -234,9 +234,8 @@ class DayPicker extends Component {
   }
 
   showNextMonth(callback) {
-    const { numberOfMonths } = this.props;
     const { currentMonth } = this.state;
-    const nextMonth = Utils.addMonths(currentMonth, numberOfMonths);
+    const nextMonth = Utils.addMonths(currentMonth, 1);
     this.setState({
       currentMonth: nextMonth
     }, () => {
@@ -250,9 +249,8 @@ class DayPicker extends Component {
   }
 
   showPreviousMonth(callback) {
-    const { numberOfMonths } = this.props;
     const { currentMonth } = this.state;
-    const prevMonth = Utils.addMonths(currentMonth, -numberOfMonths);
+    const prevMonth = Utils.addMonths(currentMonth, -1);
     this.setState({
       currentMonth: prevMonth
     }, () => {
@@ -272,10 +270,16 @@ class DayPicker extends Component {
     let { numberOfMonths } = this.props;
     let diffInMonths = Utils.getMonthsDiff(currentMonth, day);
     if (diffInMonths > 0 && diffInMonths >= numberOfMonths) {
-      this.showNextMonth();
+      let nextMonth = Utils.addMonths(currentMonth, numberOfMonths);
+      this.setState({
+        currentMonth: nextMonth
+      });
     }
     else if (diffInMonths < 0) {
-      this.showPreviousMonth();
+      let prevMonth = Utils.addMonths(currentMonth, -numberOfMonths);
+      this.setState({
+        currentMonth: prevMonth
+      });
     }
   }
 
@@ -290,7 +294,12 @@ class DayPicker extends Component {
       }
     }
     if (nodeIndex === 0) {
-      this.showPreviousMonth(() => {
+      let { currentMonth } = this.state;
+      let { numberOfMonths } = this.props;
+      let prevMonth = Utils.addMonths(currentMonth, -numberOfMonths);
+      this.setState({
+        currentMonth: prevMonth
+      }, () => {
         dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
         dayNodes[dayNodes.length - 1].focus();
       });
@@ -303,7 +312,6 @@ class DayPicker extends Component {
   focusNextDay(dayNode) {
     const body = dayNode.parentNode.parentNode.parentNode.parentNode;
     let dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-
     let nodeIndex;
     for (let i = 0; i < dayNodes.length; i++) {
       if (dayNodes[i] === dayNode) {
@@ -313,7 +321,12 @@ class DayPicker extends Component {
     }
 
     if (nodeIndex === dayNodes.length - 1) {
-      this.showNextMonth(() => {
+      let { currentMonth } = this.state;
+      let { numberOfMonths } = this.props;
+      let nextMonth = Utils.addMonths(currentMonth, numberOfMonths);
+      this.setState({
+        currentMonth: nextMonth
+      }, () => {
         dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
         dayNodes[0].focus();
       });
