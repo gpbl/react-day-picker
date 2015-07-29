@@ -7,6 +7,12 @@ const WEEKDAYS_SHORT = ["Su", "Mo", "Tu",
 const MONTHS = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 
+const LABELS = {
+  NEXT: "Next",
+  PREV: "Previous"
+};
+
+
 const Utils = {
 
   addMonths(d, months) {
@@ -127,6 +133,14 @@ const Utils = {
 
   getMonthsDiff(d1, d2) {
     return d2.getMonth() - d1.getMonth() + (12 * (d2.getFullYear() - d1.getFullYear()));
+  },
+
+  getNextLabel() {
+    return LABELS.NEXT;
+  },
+
+  getPreviousLabel() {
+    return LABELS.PREV;
   }
 
 };

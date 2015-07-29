@@ -262,16 +262,23 @@ class DayPicker extends Component {
 
   renderNavBar() {
     const baseClass = "DayPicker-NavButton DayPicker-NavButton";
+    const { localeUtils, locale } = this.props;
     return (
       <div className="DayPicker-NavBar">
-        <span
+        <button
           key="prev"
           className={ `${baseClass}--prev` }
-          onClick={ ::this.handlePrevMonthClick } />
-        <span
+          onClick={ ::this.handlePrevMonthClick }
+          tabIndex="-1"
+          type="button"
+          aria-label={ localeUtils.getPreviousLabel(locale) } />
+        <button
           key="next"
           className={ `${baseClass}--next` }
-          onClick={ ::this.handleNextMonthClick } />
+          onClick={ ::this.handleNextMonthClick }
+          tabIndex="-1"
+          type="button"
+          aria-label={ localeUtils.getNextLabel(locale) } />
       </div>
     );
   }

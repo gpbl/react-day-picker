@@ -244,4 +244,15 @@ describe("Utils", () => {
     });
   });
 
+  describe("getNextLabel", () => {
+    it("returns Next", () => {
+      expect(Utils.getNextLabel()).to.equal("Next");
+    });
+  });
+
+  describe("getPreviousLabel", () => {
+    it("returns Previous", () => {
+      expect(Utils.getPreviousLabel()).to.equal("Previous");
+    });
+  });
 });
