@@ -3,6 +3,7 @@
   "parser": "babel-eslint",
 
   "rules": {
+    "comma-style": [2, "last"],
     "no-unused-expressions": 1,
     "no-unused-vars": 1,
     "strict": 0,
