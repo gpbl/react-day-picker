@@ -154,7 +154,7 @@ class DayPicker extends Component {
       <div>
         { days }
       </div>
-    );
+    )
   }
 
   renderWeeksInMonth(month) {
