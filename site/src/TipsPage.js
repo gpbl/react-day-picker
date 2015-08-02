@@ -16,15 +16,15 @@ class TipsPage extends Component {
 
 <pre>
     <code className="language-jsx">
-{`import React from "react";
-import { LocaleUtils } from "react-day-picker/lib/addons";
+{`var React = require("react");
+var { LocaleUtils } = require("react-day-picker/lib/addons");
 
-class MyLocalizedCalendar extends React.Component {
+var MyLocalizedCalendar = React.createClass({
   render() {
     // render the day picker using Italian as locale
     return <DayPicker locale="it" localeUtils={ LocaleUtils } />
   }
-}
+});
 `}
 </code>
 </pre>
@@ -61,22 +61,22 @@ class MyLocalizedCalendar extends React.Component {
 
           <pre>
             <code className="language-jsx">
-{`import React from "react";
-import { memoize } from "lodash";
+{`var React = require("react");
+var { memoize } = require("lodash");
 
 function doHeavyThingWithDay (day) {
   // do complex things...
   return true;
 }
-const modifiers = {
+var modifiers = {
   aModifier: memoize(doHeavyThingWithDay)
 };
 
-class MyComponent extend React.Component {
+var MyComponent = React.createClass({
   render() {
     return <DayPicker modifiers={modifiers} />;
   }
-}`}
+});`}
             </code>
           </pre>
       </div>

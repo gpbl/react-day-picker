@@ -61,7 +61,6 @@
   }
 }
 
-
 .Menu {
   text-align: center;
   white-space: nowrap;
@@ -69,6 +68,7 @@
   position: sticky;
   top: 0;
   background-color: white;
+  z-index: 10000;
   a {
     display: inline-block;
     margin: .5rem;

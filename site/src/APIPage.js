@@ -13,19 +13,19 @@ class APIPage extends Component {
         <h4>Use as React component</h4>
 <pre>
   <code className="language-jsx">
-{`import React from "react";
-import DayPicker from "react-day-picker";
+{`var React = require("react");
+var DayPicker = require("react-day-picker");
 
-const modifiers = {
+var modifiers = {
   "firstOfMonth": (day) => day.getDate() === 1,
   "disabled": (day) => day.getDay() === 0
 }
 
-class MyComponent extends React.Component {
+var MyComponent = React.createComponent({
   render() {
     return <DayPicker modifiers={modifiers} />;
   }
-}
+})
 `}
 
 
@@ -111,7 +111,7 @@ class MyComponent extends React.Component {
                 </p>
                 <pre>
                   <code className="language-jsx">
-{`const modifiers = {
+{`var modifiers = {
   "firstOfMonth": (day) => day.getDate() === 1,
   "disabled": (day) => day.getDay() === 0
 }`}
@@ -142,7 +142,7 @@ class MyComponent extends React.Component {
                   <code className="language-jsx">
 {`render() {
   function renderDay(day) {
-    const birthdays = getBirthdaysForDay(day)
+    var birthdays = getBirthdaysForDay(day)
     return (
       <div>
         <div className="day">
@@ -282,7 +282,7 @@ class MyComponent extends React.Component {
                 <pre>
                   <code className="language-jsx">
 {`
-import reactTapEvent from "react-tap-event-plugin";
+var reactTapEvent = require("react-tap-event-plugin");
 reactTapEvent()
 
 function onDayTouchTap(e, day, modifiers) {
@@ -376,7 +376,7 @@ function onDayTouchTap(e, day, modifiers) {
                   <code className="language-jsx">
 {`function onCaptionClick(e, currentMonth) {
   // Set daypicker to initial month
-  const daypicker = this.refs.daypicker;
+  var daypicker = this.refs.daypicker;
   daypicker.showMonth(daypicker.props.initialMonth);
 }`}
                   </code>
