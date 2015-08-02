@@ -27,15 +27,16 @@ npm install react-day-picker --save
 ```
 
 ```js 
-import React from "react";
-import DayPicker from "react-day-picker";
+var React = require("react");
+var DayPicker = require("react-day-picker");
 
-class MyComponent extends React.Component {
+var MyComponent = React.createComponent({
 
   render() {
     return <DayPicker initialMonth={new Date()} />
   }
-}
+
+});
 ```
 ---
 ### Contribute
