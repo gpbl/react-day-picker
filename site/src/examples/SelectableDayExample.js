@@ -1,26 +1,25 @@
-import React from "react";
-import DayPicker from "react-day-picker";
-import { isSameDay } from "../utils/DateUtils";
+var React = require("react");
+var DayPicker = require("react-day-picker");
+var { isSameDay } = require("../utils/DateUtils");
 
-import "../style/DayPicker.scss";
+require("../style/DayPicker.scss");
 
-class SelectableDayExample extends React.Component {
+module.exports = React.createClass({
 
-  static displayName = "SelectableDayExample"
+  displayName: "SelectableDayExample",
 
-  constructor() {
-    super();
-    this.state = {
+  getInitialState() {
+    return {
       selectedDay: new Date()
     };
-  }
+  },
 
   render() {
-    const { selectedDay } = this.state;
+    var { selectedDay } = this.state;
 
     // Add the `selected` modifier to the cell corresponding to the day that
     // has been clicked. The cell will have a `DayPicker-Day--selected` CSS class.
-    const modifiers = {
+    var modifiers = {
       "selected": (day) => isSameDay(selectedDay, day)
     };
 
@@ -37,7 +36,7 @@ class SelectableDayExample extends React.Component {
         </p>
       </div>
     );
-  }
+  },
 
   handleDayClick(e, day) {
     this.setState({
@@ -45,6 +44,4 @@ class SelectableDayExample extends React.Component {
     });
   }
 
-}
-
-export default SelectableDayExample;
+});

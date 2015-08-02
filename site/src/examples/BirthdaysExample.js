@@ -1,10 +1,10 @@
-import React from "react";
-import DayPicker from "react-day-picker";
+var React = require("react");
+var DayPicker = require("react-day-picker");
 
-import "../style/DayPicker.scss";
-import "../style/BirthdaysExample.scss";
+require("../style/DayPicker.scss");
+require("../style/BirthdaysExample.scss");
 
-const birthdays = {
+var birthdays = {
   3: [{ name: "Mirko", age: 35 }, {name: "Gianluca", age: 29 }],
   8: [{ name: "Elenca", age: 21 }],
   9: [{ name: "Irene", age: 43 }],
@@ -15,19 +15,19 @@ const birthdays = {
   26: [{ name: "Marta", age: 46 }]
 };
 
-class BirthdaysExample extends React.Component {
+module.exports = React.createClass({
 
-  static displayName = "BirthdaysExample"
+  displayName: "BirthdaysExample",
 
   render() {
     return <DayPicker canChangeMonth={false}
       className="Birthdays"
       renderDay={ this.renderDay }
     />;
-  }
+  },
 
   renderDay(day) {
-    const date = day.getDate();
+    var date = day.getDate();
     return (
       <div>
         { day.getDate() }
@@ -42,8 +42,6 @@ class BirthdaysExample extends React.Component {
         </div>
       </div>
     );
-
   }
-}
 
-export default BirthdaysExample;
+});

@@ -1,27 +1,26 @@
-import React from "react";
-import moment from "moment";
-import DayPicker from "react-day-picker";
+var React = require("react");
+var moment = require("moment");
+var DayPicker = require("react-day-picker");
 
-import { isBetween, isSameDay } from "../utils/DateUtils";
+var { isBetween, isSameDay } = require("../utils/DateUtils");
 
-import "../style/DayPicker.scss";
+require("../style/DayPicker.scss");
 
-class RangeExample extends React.Component {
+module.exports = React.createClass({
 
-  static displayName = "RangeExample"
+  displayName: "RangeExample",
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  getInitialState() {
+    return {
       from: null,
       to: null
     };
-  }
+  },
 
   render() {
-    const { from, to } = this.state;
+    var { from, to } = this.state;
 
-    const modifiers = {
+    var modifiers = {
       "selected": (day) => {
         return (from && isSameDay(day, from)) ||
           (to && isSameDay(day, to)) ||
@@ -37,7 +36,7 @@ class RangeExample extends React.Component {
           <p>You chose from {
               moment(from).format("L") } to {
               moment(to).format("L") }. <a
-              href="#" onTouchTap={ ::this.handleResetTouchTap }>Reset</a>
+              href="#" onTouchTap={ this.handleResetTouchTap }>Reset</a>
           </p>
         }
 
@@ -45,13 +44,13 @@ class RangeExample extends React.Component {
           ref="daypicker"
           numberOfMonths={ 2 }
           modifiers={ modifiers }
-          onDayTouchTap={ ::this.handleDayTouchTap }
+          onDayTouchTap={ this.handleDayTouchTap }
         />
       </div>
     );
-  }
+  },
 
-  handleDayTouchTap(e, day, modifiers) {
+  handleDayTouchTap(e, day) {
     let { from, to } = this.state;
 
     if (!from) {
@@ -81,7 +80,7 @@ class RangeExample extends React.Component {
       from: from,
       to: to
     });
-  }
+  },
 
   handleResetTouchTap(e) {
     e.preventDefault();
@@ -91,6 +90,4 @@ class RangeExample extends React.Component {
     });
   }
 
-}
-
-export default RangeExample;
+});

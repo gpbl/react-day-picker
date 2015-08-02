@@ -1,28 +1,27 @@
-import React from "react";
-import DayPicker from "react-day-picker";
+var React = require("react");
+var DayPicker = require("react-day-picker");
 
-import "../style/DayPicker.scss";
-import "../style/YearCalendarExample.scss";
+require("../style/DayPicker.scss");
+require("../style/YearCalendarExample.scss");
 
-class YearCalendarExample extends React.Component {
+module.exports = React.createClass({
 
-  static displayName = "YearCalendarExample"
+  displayName: "YearCalendarExample",
 
-  constructor() {
-    super();
-    this.state = {
+  getInitialState() {
+    return {
       year: (new Date()).getFullYear()
     };
-  }
+  },
 
   render() {
-    const { year } = this.state;
+    var { year } = this.state;
     return (
       <div className="YearCalendarExample">
         <h1>
-          <a onClick={ ::this.showPrevious }>{ year - 1 }</a>
+          <a onClick={ this.showPrevious }>{ year - 1 }</a>
           { year }
-          <a onClick={ ::this.showNext }>{ year + 1 }</a>
+          <a onClick={ this.showNext }>{ year + 1 }</a>
         </h1>
         <DayPicker
           canChangeMonth={ false }
@@ -31,13 +30,13 @@ class YearCalendarExample extends React.Component {
         />
       </div>
     );
-  }
+  },
 
   showPrevious() {
     this.setState({
       year: this.state.year - 1
     });
-  }
+  },
 
   showNext() {
     this.setState({
@@ -45,6 +44,4 @@ class YearCalendarExample extends React.Component {
     });
   }
 
-}
-
-export default YearCalendarExample;
+});
