@@ -3,6 +3,7 @@ var DayPicker = require("react-day-picker");
 var { isSameDay } = require("../utils/DateUtils");
 
 require("../style/DayPicker.scss");
+require("../style/SelectableDayExample.scss");
 
 module.exports = React.createClass({
 
@@ -24,12 +25,12 @@ module.exports = React.createClass({
     };
 
     return (
-      <div>
+      <div className="SelectableDayExample">
         <DayPicker
           numberOfMonths={2}
           enableOutsideDays={true}
           modifiers={ modifiers }
-          onDayClick={ ::this.handleDayClick }
+          onDayClick={ this.handleDayClick }
         />
         <p>
           Selected: { selectedDay.toLocaleDateString() }

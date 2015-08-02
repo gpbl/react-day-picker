@@ -5,6 +5,7 @@ var DayPicker = require("react-day-picker");
 var { isBetween, isSameDay } = require("../utils/DateUtils");
 
 require("../style/DayPicker.scss");
+require("../style/RangeExample.scss");
 
 module.exports = React.createClass({
 
@@ -29,7 +30,7 @@ module.exports = React.createClass({
     };
 
     return (
-      <div>
+      <div className="RangeExample">
         { !from && !to && <p>Please select the first day.</p> }
         { from && !to && <p>Please select the last day.</p> }
         { from && to &&
