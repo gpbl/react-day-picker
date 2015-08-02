@@ -9,19 +9,40 @@ import BirthdaysExample from "./examples/BirthdaysExample";
 import YearCalendarExample from "./examples/YearCalendarExample";
 
 const EXAMPLES = {
-  "Basic calendar": SimpleCalendarExample,
-  "Selectable day": SelectableDayExample,
-  "Input field": InputFieldExample,
-  "Range of days": RangeExample,
-  "Localized calendar": LocalizedExample,
-  "Birthdays": BirthdaysExample,
-  "Year calendar": YearCalendarExample
+  simple: {
+    title: "Simple Calendar",
+    Component: SimpleCalendarExample
+  },
+  selectable: {
+    title: "Selectable Day",
+    Component: SelectableDayExample
+  },
+  input: {
+    title: "Input Field",
+    Component: InputFieldExample
+  },
+  range: {
+    title: "Range of Days",
+    Component: RangeExample
+  },
+  localized: {
+    title: "Localized Calendar",
+    Component: LocalizedExample
+  },
+  birthdays: {
+    title: "Birthdays",
+    Component: BirthdaysExample
+  },
+  year: {
+    title: "Year Calendar",
+    Component: YearCalendarExample
+  }
 };
 
 class ExamplesPage extends Component {
 
   static defaultProps = {
-    showExample: "Basic calendar"
+    showExample: "simple"
   }
 
   componentDidUpdate() {
@@ -32,17 +53,17 @@ class ExamplesPage extends Component {
     const { showExample } = this.props;
     const exampleMenu = [];
 
-    for (let example in EXAMPLES) {
+    for (let exampleName in EXAMPLES) {
       exampleMenu.push(
-        <a href={`#examples/${example}`}
-          key={ example }
-          className={showExample === example ? "selected" : ""}>
-          { example }
+        <a href={`#examples/${exampleName}`}
+          key={ exampleName }
+          className={showExample === exampleName ? "selected" : ""}>
+          { EXAMPLES[exampleName].title }
         </a>
       );
     }
 
-    const ExampleComponent = EXAMPLES[showExample];
+    const ExampleComponent = EXAMPLES[showExample].Component;
 
     return (
       <div className="Page-Content Page-Content--max">
