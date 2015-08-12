@@ -277,7 +277,7 @@ var MyComponent = React.createComponent({
               <td>
                 <p>
                   Event handler when the user taps (or click) on a day cell. Requires <a
-                  href="x">react-tap-event-plugin</a>. Example:
+                  href="https://github.com/zilverline/react-tap-event-plugin">react-tap-event-plugin</a>. Example:
                 </p>
                 <pre>
                   <code className="language-jsx">
