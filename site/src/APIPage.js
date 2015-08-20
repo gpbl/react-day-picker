@@ -352,7 +352,7 @@ function onDayTouchTap(e, day, modifiers) {
                 </p>
                 <pre>
                   <code className="language-jsx">
-{`function onMonthChange(e, day, modifiers) {
+{`function onMonthChange(month) {
    // do magic, e.g. request a server for days availability
 }`}
                   </code>
