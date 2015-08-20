@@ -1,31 +1,29 @@
 {
-
   "parser": "babel-eslint",
-
+  "plugins": ["react"],
+  "extends": "eslint:recommended",
   "rules": {
-    "comma-style": [2, "last"],
-    "no-unused-expressions": 1,
+    "arrow-spacing": 1,
+    "curly": 1,
+    "eol-last": 1,
+    "indent": [1, 2],
+    "no-lonely-if": 1,
+    "no-spaced-func": 1,
     "no-unused-vars": 1,
-    "strict": 0,
-    "new-cap": 0,
-    "camelcase": 0,
-    "react/jsx-uses-react": 1
-  },
+    "no-var": 1,
+    "prefer-const": 1,
+    "quotes": [1, "double"],
+    "space-before-blocks": 1,
 
-  "ecmaFeatures": {
-    "jsx": true
-  },
+    "react/jsx-curly-spacing": [1, "always"],
+    "react/jsx-no-duplicate-props": 1,
+    "react/jsx-no-undef": 1,
+    "react/jsx-quotes": [1, "double"],
+    "react/jsx-uses-react": 1,
+    "react/no-danger": 1,
+    "react/no-unknown-property": 1,
+    "react/self-closing-comp": 1,
+    "react/sort-comp": 1
 
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
-
-  "globals": {
-    "BROWSER": true
-  },
-
-  "plugins": ["react"]
-
+  }
 }
