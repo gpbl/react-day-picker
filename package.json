@@ -4,7 +4,7 @@
   "description": "Customizable date picker and calendar component for React.js",
   "main": "./lib/DayPicker.js",
   "scripts": {
-    "prepublish": "babel ./src -d ./lib --source-maps",
+    "prepublish": "npm run lint && babel ./src -d ./lib --source-maps",
     "cover": "istanbul cover --dir artifacts -- _mocha tests/* --recursive --compilers js:babel/register --reporter spec",
     "test": "mocha tests/* --compilers js:babel/register --recursive --reporter spec",
     "test:watch": "mocha tests/* -w --compilers js:babel/register --recursive --reporter spec",
