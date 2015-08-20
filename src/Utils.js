@@ -34,7 +34,7 @@ const Utils = {
   },
 
   getDaysInMonth(d) {
-    let resultDate = this.getFirstDayOfMonth(d);
+    const resultDate = this.getFirstDayOfMonth(d);
 
     resultDate.setMonth(resultDate.getMonth() + 1);
     resultDate.setDate(resultDate.getDate() - 1);
@@ -47,29 +47,29 @@ const Utils = {
     if (arguments.length === 1) {
       firstDayOfWeek = this.getFirstDayOfWeek();
     }
-    let dayArray = [];
+    const dayArray = [];
     let week = [];
-    let weekArray = [];
+    const weekArray = [];
 
     for (let i = 1; i <= daysInMonth; i++) {
       dayArray.push(new Date(d.getFullYear(), d.getMonth(), i));
     }
 
     dayArray.forEach((day) => {
-        if(week.length > 0 && day.getDay() === firstDayOfWeek) {
-          weekArray.push(week);
-          week = [];
-        }
-        week.push(day);
-        if (dayArray.indexOf(day) === dayArray.length - 1) {
-          weekArray.push(week);
-        }
+      if(week.length > 0 && day.getDay() === firstDayOfWeek) {
+        weekArray.push(week);
+        week = [];
+      }
+      week.push(day);
+      if (dayArray.indexOf(day) === dayArray.length - 1) {
+        weekArray.push(week);
+      }
     });
 
     // unshift days to start the first week
     const firstWeek = weekArray[0];
     for (let i = 7 - firstWeek.length; i > 0; i--) {
-      let outsideDate = this.clone(firstWeek[0]);
+      const outsideDate = this.clone(firstWeek[0]);
       outsideDate.setDate(firstWeek[0].getDate() - 1);
       firstWeek.unshift(outsideDate);
     }
@@ -77,7 +77,7 @@ const Utils = {
     // push days until the end of the last week
     const lastWeek = weekArray[weekArray.length - 1];
     for (let i = lastWeek.length; i < 7; i++) {
-      let outsideDate = this.clone(lastWeek[lastWeek.length - 1]);
+      const outsideDate = this.clone(lastWeek[lastWeek.length - 1]);
       outsideDate.setDate(lastWeek[lastWeek.length - 1].getDate() + 1);
       lastWeek.push(outsideDate);
     }
@@ -87,10 +87,10 @@ const Utils = {
   },
 
   getModifiersForDay(d, modifierFunctions) {
-    let modifiers = [];
+    const modifiers = [];
     if (modifierFunctions) {
-      for (let modifier in modifierFunctions) {
-        let func = modifierFunctions[modifier];
+      for (const modifier in modifierFunctions) {
+        const func = modifierFunctions[modifier];
         if (func(d)) {
           modifiers.push(modifier);
         }
