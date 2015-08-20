@@ -36,13 +36,13 @@
     "react": "~0.13.x"
   },
   "devDependencies": {
-    "babel": "^5.6.4",
-    "babel-core": "^5.6.4",
-    "babel-eslint": "^3.1.17",
+    "babel": "^5.8.21",
+    "babel-core": "^5.8.22",
+    "babel-eslint": "^4.0.10",
     "classlist-polyfill": "^1.0.1",
     "coveralls": "^2.11.2",
-    "eslint": "^0.23.0",
-    "eslint-plugin-react": "^2.5.2",
+    "eslint": "1.1.0",
+    "eslint-plugin-react": "^3.2.3",
     "istanbul": "^0.3.15",
     "jsdom": "^3.1.2",
     "mocha": "^2.2.5",
