@@ -6,4 +6,4 @@ before_script:
   - "npm run lint"
 after_success:
   - "npm run cover"
-  - "cat artifacts/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  - "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
