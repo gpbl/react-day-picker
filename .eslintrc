@@ -15,7 +15,6 @@
     "quotes": [2, "double"],
     "space-before-blocks": 2,
 
-    "react/jsx-curly-spacing": [2, "always"],
     "react/jsx-no-duplicate-props": 2,
     "react/jsx-no-undef": 2,
     "react/jsx-quotes": [2, "double"],

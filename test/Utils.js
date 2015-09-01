@@ -158,7 +158,7 @@ describe("Utils", () => {
       expect(modifiers.indexOf("no")).to.equal(-1);
     });
     it("works without passing modifiers", () => {
-      let modifiers = Utils.getModifiersForDay(new Date(2015, 8, 19));
+      const modifiers = Utils.getModifiersForDay(new Date(2015, 8, 19));
       expect(modifiers).to.have.length(0);
     });
   });
@@ -176,14 +176,14 @@ describe("Utils", () => {
 
   describe("isSameDay", () => {
     it("returns true if two days differ only by time", () => {
-      let day1 = new Date(2015, 10, 11, 5, 25);
-      let day2 = new Date(2015, 10, 11, 7, 40);
+      const day1 = new Date(2015, 10, 11, 5, 25);
+      const day2 = new Date(2015, 10, 11, 7, 40);
       const isSameDay = Utils.isSameDay(day1, day2);
       expect(isSameDay).to.be.true;
     });
     it("returns false for different days", () => {
-      let day1 = new Date(2015, 8, 12);
-      let day2 = new Date(2015, 5, 11);
+      const day1 = new Date(2015, 8, 12);
+      const day2 = new Date(2015, 5, 11);
       const isSameDay = Utils.isSameDay(day1, day2);
       expect(isSameDay).to.be.false;
     });
@@ -218,28 +218,28 @@ describe("Utils", () => {
 
   describe("getMonthsDiff", () => {
     it("returns a positive difference between two days in the same year", () => {
-      let d1 = new Date(2015, 10, 6);
-      let d2 = new Date(2015, 11, 6);
+      const d1 = new Date(2015, 10, 6);
+      const d2 = new Date(2015, 11, 6);
       expect(Utils.getMonthsDiff(d1, d2)).to.equal(1);
     });
     it("returns a positive difference between two days in different years", () => {
-      let d1 = new Date(2015, 11, 6);
-      let d2 = new Date(2016, 0, 6);
+      const d1 = new Date(2015, 11, 6);
+      const d2 = new Date(2016, 0, 6);
       expect(Utils.getMonthsDiff(d1, d2)).to.equal(1);
     });
     it("returns a negative difference between two days in the same year", () => {
-      let d1 = new Date(2015, 3, 6);
-      let d2 = new Date(2015, 2, 6);
+      const d1 = new Date(2015, 3, 6);
+      const d2 = new Date(2015, 2, 6);
       expect(Utils.getMonthsDiff(d1, d2)).to.equal(-1);
     });
     it("returns a negative difference between two days in different years", () => {
-      let d1 = new Date(2017, 3, 6);
-      let d2 = new Date(2015, 2, 6);
+      const d1 = new Date(2017, 3, 6);
+      const d2 = new Date(2015, 2, 6);
       expect(Utils.getMonthsDiff(d1, d2)).to.equal(-25);
     });
     it("returns no difference between two days in the same month", () => {
-      let d1 = new Date(2015, 3, 6);
-      let d2 = new Date(2015, 3, 12);
+      const d1 = new Date(2015, 3, 6);
+      const d2 = new Date(2015, 3, 12);
       expect(Utils.getMonthsDiff(d1, d2)).to.equal(0);
     });
   });

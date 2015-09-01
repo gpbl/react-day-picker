@@ -8,7 +8,7 @@
     "cover": "istanbul cover -- _mocha --recursive --compilers js:babel/register --reporter spec",
     "test": "mocha --compilers js:babel/register --recursive --reporter spec",
     "test:watch": "mocha -w --compilers js:babel/register --recursive --reporter spec",
-    "lint": "eslint src"
+    "lint": "eslint src test"
   },
   "repository": {
     "type": "git",
