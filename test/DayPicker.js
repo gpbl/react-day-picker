@@ -350,6 +350,7 @@ describe("DayPicker", () => {
     parent.setState({
       month: 8
     }, () => {
+      expect(daypicker.state.currentMonth.getDate()).to.equal(1);
       expect(daypicker.state.currentMonth.getMonth()).to.equal(8);
       done();
     });
