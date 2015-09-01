@@ -5,9 +5,9 @@
   "main": "./lib/DayPicker.js",
   "scripts": {
     "prepublish": "babel ./src -d ./lib --source-maps",
-    "cover": "istanbul cover -- _mocha tests/* --recursive --compilers js:babel/register --reporter spec",
-    "test": "mocha tests/* --compilers js:babel/register --recursive --reporter spec",
-    "test:watch": "mocha tests/* -w --compilers js:babel/register --recursive --reporter spec",
+    "cover": "istanbul cover -- _mocha --recursive --compilers js:babel/register --reporter spec",
+    "test": "mocha --compilers js:babel/register --recursive --reporter spec",
+    "test:watch": "mocha -w --compilers js:babel/register --recursive --reporter spec",
     "lint": "eslint src"
   },
   "repository": {
