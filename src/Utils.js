@@ -11,7 +11,7 @@ const Utils = {
 
   addMonths(d, months) {
     const newDate = this.clone(d);
-    newDate.setMonth(d.getMonth() + months);
+    newDate.setMonth(d.getMonth() + months, 1);
     return newDate;
   },
 
