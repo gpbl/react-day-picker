@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
  * Source: https://github.com/remy/polyfills
  *

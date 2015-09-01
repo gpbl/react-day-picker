@@ -22,7 +22,7 @@ describe("DayPicker", () => {
 
   beforeEach(() => {
 
-    for (let key in require.cache) {
+    for (const key in require.cache) {
       if (key.match(/\/node_modules\/react\//)) {
         delete require.cache[key];
       }
@@ -327,7 +327,7 @@ describe("DayPicker", () => {
 
   it("displays a modified state upon changing initialMonth prop", (done) => {
     // http://jaketrent.com/post/test-react-componentwillreceiveprops/
-    var TestParent = React.createFactory(React.createClass({
+    const TestParent = React.createFactory(React.createClass({
       getInitialState() {
         return {
           month: 11
@@ -342,7 +342,7 @@ describe("DayPicker", () => {
       }
     }));
 
-    let parent = TestUtils.renderIntoDocument(TestParent());
+    const parent = TestUtils.renderIntoDocument(TestParent());
     const daypicker = parent.refs.daypicker;
 
     expect(daypicker.props.initialMonth.getMonth()).to.equal(11);
@@ -356,7 +356,7 @@ describe("DayPicker", () => {
   });
 
   it("displays the same state when changing another prop", (done) => {
-    var TestParent = React.createFactory(React.createClass({
+    const TestParent = React.createFactory(React.createClass({
       getInitialState() {
         return {
           className: "customClass"
@@ -370,7 +370,7 @@ describe("DayPicker", () => {
       }
     }));
 
-    let parent = TestUtils.renderIntoDocument(TestParent());
+    const parent = TestUtils.renderIntoDocument(TestParent());
     const daypicker = parent.refs.daypicker;
 
     expect(daypicker.props.initialMonth.getMonth()).to.equal((new Date()).getMonth());
@@ -453,7 +453,7 @@ describe("DayPicker", () => {
         return e instanceof SyntheticEvent && e.target !== null;
       }, "e"),
       sinon.match((currentMonth) => {
-        let today = new Date();
+        const today = new Date();
         return currentMonth.getFullYear() === today.getFullYear() &&
           currentMonth.getMonth() === today.getMonth();
       }, "currentMonth")
@@ -496,13 +496,13 @@ describe("DayPicker", () => {
     const dayEl = daysEl[2];
 
     const handlerCallback = [
-        sinon.match((e) => {
-          return e instanceof SyntheticEvent && e.target !== null;
-        }, "e"),
-        sinon.match(isFirstDay, "d"),
-        sinon.match((mods) => {
-          return mods instanceof Array && mods[0] === "firstDay";
-        }, "modifiers")
+      sinon.match((e) => {
+        return e instanceof SyntheticEvent && e.target !== null;
+      }, "e"),
+      sinon.match(isFirstDay, "d"),
+      sinon.match((mods) => {
+        return mods instanceof Array && mods[0] === "firstDay";
+      }, "modifiers")
     ];
 
     TestUtils.Simulate.click(dayEl);
@@ -831,7 +831,7 @@ describe("DayPicker", () => {
     expect(focusPreviousDay).to.be.called;
   });
 
-   it("calls focusNextDay when right key is pressed", () => {
+  it("calls focusNextDay when right key is pressed", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 5, 1)} />
     );
