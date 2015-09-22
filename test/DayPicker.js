@@ -1,15 +1,15 @@
-import { jsdom } from "jsdom";
+import React from "react";
+
 import chai, { expect } from "chai";
+import jsdom from "mocha-jsdom";
 
 import sinon from "sinon";
 import sinonChai from "sinon-chai";
-import classListPolyfill from "./polyfills/classlist";
 import DayPicker from "../src/DayPicker";
+import TestUtils from "react-addons-test-utils";
+import ReactDOM from "react-dom";
 
 chai.use(sinonChai);
-
-let React;
-let TestUtils;
 
 const keys = {
   LEFT: 37,
@@ -19,28 +19,7 @@ const keys = {
 };
 
 describe("DayPicker", () => {
-
-  beforeEach(() => {
-
-    for (const key in require.cache) {
-      if (key.match(/\/node_modules\/react\//)) {
-        delete require.cache[key];
-      }
-    }
-
-    global.document = jsdom("<html><head><script></script></head><body></body></html>");
-    global.window = document.parentWindow;
-    global.navigator = {
-      userAgent: "node.js"
-    };
-
-    // jsdom doesn't support classlist
-    // https://github.com/tmpvar/jsdom/issues/510
-    classListPolyfill(global.window);
-
-    React = require("react/addons");
-    TestUtils = React.addons.TestUtils;
-  });
+  jsdom();
 
   it("has the default props properly set", () => {
     const dayPicker = <DayPicker />;
@@ -125,15 +104,15 @@ describe("DayPicker", () => {
     const captionEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-Caption");
     expect(captionEl).to.have.length(4);
-    expect(React.findDOMNode(captionEl[0]).innerHTML).to.equal("December 2015");
-    expect(React.findDOMNode(captionEl[1]).innerHTML).to.equal("January 2016");
+    expect(ReactDOM.findDOMNode(captionEl[0]).innerHTML).to.equal("December 2015");
+    expect(ReactDOM.findDOMNode(captionEl[1]).innerHTML).to.equal("January 2016");
   });
 
   it("renders the navigation buttons", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 11, 5)} tabIndex={5} />
     );
-
+    // console.log(ReactDOM.findDOMNode(dayPickerEl).innerHTML);
     const prevButton = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
       "DayPicker-NavButton DayPicker-NavButton--prev");
     expect(prevButton).to.not.be.undefined;
@@ -205,9 +184,9 @@ describe("DayPicker", () => {
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-Day");
-    expect(React.findDOMNode(days[0]).innerHTML).to.equal("");
-    expect(React.findDOMNode(days[1]).innerHTML).to.equal("");
-    expect(React.findDOMNode(days[2]).innerHTML).to.equal("");
+    expect(ReactDOM.findDOMNode(days[0]).innerHTML).to.equal("");
+    expect(ReactDOM.findDOMNode(days[1]).innerHTML).to.equal("");
+    expect(ReactDOM.findDOMNode(days[2]).innerHTML).to.equal("");
   });
 
   it("renders outside days when required", () => {
@@ -217,9 +196,9 @@ describe("DayPicker", () => {
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-Day");
-    expect(React.findDOMNode(days[0]).innerHTML).to.equal("28");
-    expect(React.findDOMNode(days[1]).innerHTML).to.equal("29");
-    expect(React.findDOMNode(days[2]).innerHTML).to.equal("30");
+    expect(ReactDOM.findDOMNode(days[0]).innerHTML).to.equal("28");
+    expect(ReactDOM.findDOMNode(days[1]).innerHTML).to.equal("29");
+    expect(ReactDOM.findDOMNode(days[2]).innerHTML).to.equal("30");
   });
 
   it("adds an `outside` modifier to outside days", () => {
@@ -229,7 +208,7 @@ describe("DayPicker", () => {
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-Day");
-    expect(React.findDOMNode(days[0]).innerHTML).to.equal("28");
+    expect(ReactDOM.findDOMNode(days[0]).innerHTML).to.equal("28");
   });
 
   it("adds a `today` modifier to today date", () => {
@@ -239,7 +218,7 @@ describe("DayPicker", () => {
     const today = new Date();
     const todayEl = TestUtils.findRenderedDOMComponentWithClass(dayPickerEl,
       "DayPicker-Day--today");
-    expect(React.findDOMNode(todayEl).innerHTML).to.equal(`${today.getDate()}`);
+    expect(ReactDOM.findDOMNode(todayEl).innerHTML).to.equal(`${today.getDate()}`);
   });
 
   it("adds custom modifiers", () => {
@@ -261,8 +240,8 @@ describe("DayPicker", () => {
     );
     const firstDaysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-Day--firstDayOfMonth");
-    expect(React.findDOMNode(firstDaysEl[0]).innerHTML).to.equal("1");
-    expect(React.findDOMNode(firstDaysEl[1]).innerHTML).to.equal("1");
+    expect(ReactDOM.findDOMNode(firstDaysEl[0]).innerHTML).to.equal("1");
+    expect(ReactDOM.findDOMNode(firstDaysEl[1]).innerHTML).to.equal("1");
 
     const allEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-Day--all");
@@ -741,7 +720,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker onDayClick={handleDayClick} />
     );
-    const node = React.findDOMNode(dayPickerEl);
+    const node = ReactDOM.findDOMNode(dayPickerEl);
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.ENTER
@@ -754,7 +733,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker onDayClick={handleDayClick} />
     );
-    const node = React.findDOMNode(dayPickerEl);
+    const node = ReactDOM.findDOMNode(dayPickerEl);
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.SPACE
@@ -767,7 +746,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker onDayTouchTap={handleDayTouchTap} />
     );
-    const node = React.findDOMNode(dayPickerEl);
+    const node = ReactDOM.findDOMNode(dayPickerEl);
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.ENTER
@@ -780,7 +759,7 @@ describe("DayPicker", () => {
       <DayPicker initialMonth={new Date(2015, 5, 1)} />
     );
     const showPreviousMonth = sinon.spy(dayPickerEl, "showPreviousMonth");
-    TestUtils.Simulate.keyDown(React.findDOMNode(dayPickerEl), {
+    TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
       keyCode: keys.LEFT
     });
     expect(showPreviousMonth).to.be.called;
@@ -791,7 +770,7 @@ describe("DayPicker", () => {
       <DayPicker initialMonth={new Date(2015, 5, 1)} />
     );
     const showPreviousMonth = sinon.spy(dayPickerEl, "showPreviousMonth");
-    TestUtils.Simulate.keyDown(React.findDOMNode(dayPickerEl), {
+    TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
       keyCode: keys.ENTER
     });
     expect(showPreviousMonth).to.not.be.called;
@@ -802,7 +781,7 @@ describe("DayPicker", () => {
       <DayPicker initialMonth={new Date(2015, 5, 1)}/>
     );
     const showNextMonth = sinon.spy(dayPickerEl, "showNextMonth");
-    TestUtils.Simulate.keyDown(React.findDOMNode(dayPickerEl), {
+    TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
       keyCode: keys.RIGHT
     });
     expect(showNextMonth).to.be.called;
@@ -813,7 +792,7 @@ describe("DayPicker", () => {
       <DayPicker initialMonth={new Date(2015, 5, 1)}/>
     );
     const showNextMonth = sinon.spy(dayPickerEl, "showNextMonth");
-    TestUtils.Simulate.keyDown(React.findDOMNode(dayPickerEl), {
+    TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
       keyCode: keys.ENTER
     });
     expect(showNextMonth).to.not.be.called;
@@ -823,7 +802,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 5, 1)} />
     );
-    const node = React.findDOMNode(dayPickerEl);
+    const node = ReactDOM.findDOMNode(dayPickerEl);
     const dayNode = node.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)")[0];
     const focusPreviousDay = sinon.spy(dayPickerEl, "focusPreviousDay");
     TestUtils.Simulate.keyDown(dayNode, {
@@ -836,7 +815,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 5, 1)} />
     );
-    const node = React.findDOMNode(dayPickerEl);
+    const node = ReactDOM.findDOMNode(dayPickerEl);
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     const focusNextDay = sinon.spy(dayPickerEl, "focusNextDay");
     TestUtils.Simulate.keyDown(dayNode, {
@@ -857,7 +836,7 @@ describe("DayPicker", () => {
       dayPickerEl = TestUtils.renderIntoDocument(
         <DayPicker initialMonth={new Date(2015, 5, 1)} />
       );
-      body = React.findDOMNode(TestUtils.findRenderedDOMComponentWithClass(dayPickerEl, "DayPicker-Body"));
+      body = ReactDOM.findDOMNode(TestUtils.findRenderedDOMComponentWithClass(dayPickerEl, "DayPicker-Body"));
     });
 
     it("focuses the previous day of the same month", () => {
