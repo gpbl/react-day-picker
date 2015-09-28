@@ -1,4 +1,5 @@
 import React from "react";
+import { render } from "react-dom";
 import reactTapEvent from "react-tap-event-plugin";
 import Page from "./Page";
 
@@ -8,4 +9,4 @@ reactTapEvent();
 // inject css
 require("./style/html.scss");
 
-React.render(<Page />, document.getElementById("root"));
+render(<Page />, document.getElementById("root"));

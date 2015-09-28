@@ -36,21 +36,17 @@ export default {
   ],
 
   module: {
-    loaders: [
-    {
+    loaders: [{
       test: /\.js(x)?$/,
       include: [path.join(__dirname, "./src"), path.join(__dirname, "../dist")],
       loaders: ["react-hot", "babel?cacheDirectory"]
-    },
-    {
+    }, {
       test: /\.scss?$/,
       loaders: ["style", "css", "autoprefixer-loader?browsers=last 2 version", "sass-loader"]
-    },
-    {
+    }, {
       test: /\.css$/,
       loaders: ["style", "css"]
-    },
-    {
+    }, {
       test: /\.svg$/,
       loader: "url-loader?limit=100000&mimetype=image/svg+xml"
     }]

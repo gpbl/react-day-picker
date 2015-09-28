@@ -1,5 +1,5 @@
 {
-  "globals": {
+  "env": {
     "BROWSER": true
   }
 }

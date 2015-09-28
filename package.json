@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Customizable date picker and calendar component for React.js",
   "main": "./lib/DayPicker.js",
   "scripts": {
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/gpbl/react-day-picker",
   "peerDependencies": {
-    "react": "~0.13.x"
+    "react": "^0.13.3 || ^0.14.0-rc1"
   },
   "devDependencies": {
     "babel": "^5.8.21",
@@ -41,15 +41,18 @@
     "babel-eslint": "^4.0.10",
     "classlist-polyfill": "^1.0.1",
     "coveralls": "^2.11.2",
-    "eslint": "1.1.0",
+    "eslint": "^1.5.0",
     "eslint-plugin-react": "^3.2.3",
     "istanbul": "^0.3.15",
-    "jsdom": "^3.1.2",
+    "jsdom": "^6.5.1",
     "mocha": "^2.2.5",
+    "mocha-jsdom": "^1.0.0",
     "moment": "^2.10.3",
-    "react": "^0.13.3",
-    "react-tap-event-plugin": "^0.1.7",
+    "react": "^0.14.0-rc1",
+    "react-addons-test-utils": "^0.14.0-rc1",
+    "react-dom": "^0.14.0-rc1",
     "sinon": "^1.15.3",
     "sinon-chai": "^2.8.0"
-  }
+  },
+  "dependencies": {}
 }
