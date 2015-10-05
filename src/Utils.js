@@ -1,11 +1,4 @@
-const WEEKDAYS_LONG = ["Sunday", "Monday", "Tuesday",
-  "Wednesday", "Thursday", "Friday", "Saturday"];
-
-const WEEKDAYS_SHORT = ["Su", "Mo", "Tu",
-  "We", "Th", "Fr", "Sa"];
-
-const MONTHS = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"];
+import moment from "moment";
 
 const Utils = {
 
@@ -109,16 +102,22 @@ const Utils = {
       d1.getFullYear() === d2.getFullYear();
   },
 
-  formatMonthTitle(d) {
-    return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+  formatMonthTitle(d, locale) {
+    const localeData = moment.localeData(locale);
+
+    return `${localeData._months[d.getMonth()]} ${d.getFullYear()}`;
   },
 
-  formatWeekdayShort(i) {
-    return WEEKDAYS_SHORT[i];
+  formatWeekdayShort(i, locale) {
+    const localeData = moment.localeData(locale);
+
+    return localeData._weekdaysMin[i];
   },
 
-  formatWeekdayLong(i) {
-    return WEEKDAYS_LONG[i];
+  formatWeekdayLong(i, locale) {
+    const localeData = moment.localeData(locale);
+
+    return localeData._weekdays[i];
   },
 
   getFirstDayOfWeek() {
