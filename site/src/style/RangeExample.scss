@@ -5,6 +5,10 @@
       z-index: 1;
       position: relative;
     }
+    .DayPicker-Month {
+      z-index: 2;
+    }
+
     .DayPicker-Month + .DayPicker-Month {
       margin-top: 1rem;
     }
