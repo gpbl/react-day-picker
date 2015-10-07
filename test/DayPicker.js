@@ -1,15 +1,18 @@
-import { jsdom } from "jsdom";
-import chai, { expect } from "chai";
 
+import testDom from "testdom";
+import chai, { expect } from "chai";
 import sinon from "sinon";
 import sinonChai from "sinon-chai";
-import classListPolyfill from "./polyfills/classlist";
-import DayPicker from "../src/DayPicker";
 
 chai.use(sinonChai);
 
-let React;
-let TestUtils;
+testDom("<html><body></body></html>");
+const React = require("react/addons");
+const DayPicker = require("../src/DayPicker");
+const ExecutionEnvironment = require("react/lib/ExecutionEnvironment");
+ExecutionEnvironment.canUseDOM = true;
+
+const TestUtils = React.addons.TestUtils;
 
 const keys = {
   LEFT: 37,
@@ -19,28 +22,6 @@ const keys = {
 };
 
 describe("DayPicker", () => {
-
-  beforeEach(() => {
-
-    for (const key in require.cache) {
-      if (key.match(/\/node_modules\/react\//)) {
-        delete require.cache[key];
-      }
-    }
-
-    global.document = jsdom("<html><head><script></script></head><body></body></html>");
-    global.window = document.parentWindow;
-    global.navigator = {
-      userAgent: "node.js"
-    };
-
-    // jsdom doesn't support classlist
-    // https://github.com/tmpvar/jsdom/issues/510
-    classListPolyfill(global.window);
-
-    React = require("react/addons");
-    TestUtils = React.addons.TestUtils;
-  });
 
   it("has the default props properly set", () => {
     const dayPicker = <DayPicker />;

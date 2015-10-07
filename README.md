@@ -38,9 +38,11 @@ var MyComponent = React.createComponent({
 
 });
 ```
+
 ---
 ### Contribute
 
+* Use node ^4.0.
 * Use `npm run test` or `npm run test:watch` to run the unit tests. 
 * Run `npm run cover` for a test coverage report.
 * To make sure files are linted: `npm run lint`
