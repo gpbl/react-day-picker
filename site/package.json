@@ -32,7 +32,7 @@
     "prism": "0.0.1",
     "raw-loader": "^0.5.1",
     "react": "^0.13.3",
-    "react-tap-event-plugin": "^0.1.7",
+    "react-tap-event-plugin": "0.1.7",
     "sass-loader": "3.0.0",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
