@@ -2,6 +2,10 @@ var React = require("react");
 var moment = require("moment");
 var DayPicker = require("react-day-picker");
 
+// enable touch-tap events
+var reactTapEvent = require("react-tap-event-plugin");
+reactTapEvent();
+
 var { isPastDay, isSameDay } = require("../utils/DateUtils");
 
 require("../style/DayPicker.scss");
