@@ -278,14 +278,12 @@ class DayPicker extends Component {
 
   renderMonth(d, i) {
     const { locale, localeUtils, onCaptionClick } = this.props;
-    const { currentMonth } = this.state;
-
     return (
       <div
         className="DayPicker-Month"
         key={ i }>
         <div className="DayPicker-Caption" onClick={ onCaptionClick ?
-          (e) => this.handleCaptionClick(e, currentMonth) : null }>
+          (e) => this.handleCaptionClick(e, d) : null }>
           { localeUtils.formatMonthTitle(d, locale) }
         </div>
         <div className="DayPicker-Weekdays">
