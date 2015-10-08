@@ -27,19 +27,19 @@
     "babel-runtime": "^5.5.8",
     "css-loader": "^0.19.0",
     "file-loader": "^0.8.4",
-    "highlight.js": "^8.6.0",
     "node-sass": "^3.2.0",
     "prism": "0.0.1",
     "raw-loader": "^0.5.1",
-    "react": "^0.13.3",
-    "react-tap-event-plugin": "0.1.7",
+    "react": "^0.14",
+    "react-day-picker": "file:..",
+    "react-dom": "^0.14",
+    "react-tap-event-plugin": "^0.2.0",
     "sass-loader": "3.0.0",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
     "webpack": "^1.9.11"
   },
   "devDependencies": {
-    "react-day-picker": "file:..",
     "react-hot-loader": "^1.2.7",
     "webpack-dev-server": "^1.9.0"
   }

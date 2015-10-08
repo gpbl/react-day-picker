@@ -10,7 +10,7 @@ Customizable date picker and calendar component for React.js. See [docs and exam
 * easily change style and add content to days cells
 * display multiple months
 * ready for i18n, with [moment.js](http://momentjs.com) or any other library
-* navigable via keyboard and 
+* navigable via keyboard, ARIA support is [getting better](https://github.com/gpbl/react-day-picker/issues?q=is%3Aopen+is%3Aissue+label%3Aaria)
 
 [![Build Status](https://travis-ci.org/gpbl/react-day-picker.svg)](https://travis-ci.org/gpbl/react-day-picker)
 [![Coverage Status](https://coveralls.io/repos/gpbl/react-day-picker/badge.svg?branch=master)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
@@ -18,7 +18,9 @@ Customizable date picker and calendar component for React.js. See [docs and exam
 
 ### Documentation
 
-[See the website](http://www.gpbl.org/react-day-picker/) for examples with code, API and tips. Release notes are [here](https://github.com/gpbl/react-day-picker/releases).
+📖 [Go to the website for examples with code, API and tips](http://www.gpbl.org/react-day-picker/)
+
+If you need support, drop a line in the [gitter room](https://gitter.im/gpbl/react-day-picker) or check the [issues](https://github.com/gpbl/react-day-picker/issues). Release notes are [here](https://github.com/gpbl/react-day-picker/releases).
 
 ### Usage
 
