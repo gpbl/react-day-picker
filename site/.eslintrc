@@ -1,5 +1,8 @@
 {
   "globals": {
     "BROWSER": true
+  },
+  "env": {
+    "browser": true
   }
 }
