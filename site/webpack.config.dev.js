@@ -2,7 +2,7 @@ import webpack from "webpack";
 import path from "path";
 
 export default {
-  devtool: "cheap-module-eval-source-map",
+  devtool: "source-map",
 
   entry: {
     "main": [
