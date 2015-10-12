@@ -39,6 +39,7 @@
     "babel": "^5.8.21",
     "babel-core": "^5.8.22",
     "babel-eslint": "^4.0.10",
+    "chai": "^3.3.0",
     "classlist-polyfill": "^1.0.1",
     "coveralls": "^2.11.2",
     "eslint": "^1.5.0",
