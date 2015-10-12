@@ -33,7 +33,7 @@ describe("Utils", () => {
       expect(newDate.getFullYear()).to.equal(1979);
       expect(newDate.getMonth()).to.equal(8);
       expect(newDate.getDate()).to.equal(1);
-      expect(newDate.getHours()).to.equal(0);
+      expect(newDate.getHours()).to.equal(12);
       expect(newDate.getMinutes()).to.equal(0);
       expect(newDate.getSeconds()).to.equal(0);
       expect(newDate.getMilliseconds()).to.equal(0);

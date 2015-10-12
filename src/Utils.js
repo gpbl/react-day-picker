@@ -22,7 +22,7 @@ const Utils = {
   startOfMonth(d) {
     const newDate = this.clone(d);
     newDate.setDate(1);
-    newDate.setHours(0);
+    newDate.setHours(12); // always set noon to avoid time zone issues
     newDate.setMinutes(0);
     newDate.setSeconds(0);
     newDate.setMilliseconds(0);
@@ -30,7 +30,7 @@ const Utils = {
   },
 
   getFirstDayOfMonth(d) {
-    return new Date(d.getFullYear(), d.getMonth(), 1);
+    return new Date(d.getFullYear(), d.getMonth(), 1, 12);
   },
 
   getDaysInMonth(d) {
@@ -52,7 +52,7 @@ const Utils = {
     const weekArray = [];
 
     for (let i = 1; i <= daysInMonth; i++) {
-      dayArray.push(new Date(d.getFullYear(), d.getMonth(), i));
+      dayArray.push(new Date(d.getFullYear(), d.getMonth(), i, 12));
     }
 
     dayArray.forEach((day) => {
