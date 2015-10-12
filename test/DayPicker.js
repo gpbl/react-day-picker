@@ -211,7 +211,7 @@ describe("DayPicker", () => {
     );
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
-      "DayPicker-Day");
+      "DayPicker-Day DayPicker-Day--outside");
     expect(ReactDOM.findDOMNode(days[0]).innerHTML).to.equal("28");
   });
 
