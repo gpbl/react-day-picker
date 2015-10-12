@@ -112,7 +112,7 @@ describe("Utils", () => {
     });
 
     it("returns 7 days per week when starting day is sunday", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-07-01"));
+      const weeks = Utils.getWeekArray(new Date(2015, 6, 1));
       expect(weeks).to.have.length(5);
       weeks.forEach((week) => {
         expect(week).to.have.length(7);
@@ -120,7 +120,7 @@ describe("Utils", () => {
     });
 
     it("returns 7 days per week when starting day is monday", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-07-01"), 1);
+      const weeks = Utils.getWeekArray(new Date(2015, 6, 1), 1);
       expect(weeks).to.have.length(5);
       weeks.forEach((week) => {
         expect(week).to.have.length(7);
@@ -128,7 +128,7 @@ describe("Utils", () => {
     });
 
     it("returns 7 days per week when starting day is saturday", () => {
-      const weeks = Utils.getWeekArray(new Date("2015-07-01"), 6);
+      const weeks = Utils.getWeekArray(new Date(2015, 6, 1), 6);
       weeks.forEach((week) => {
         expect(week).to.have.length(7);
       });
@@ -192,7 +192,7 @@ describe("Utils", () => {
 
   describe("formatMonthTitle", () => {
     it("returns month and day as string", () => {
-      const date = new Date("2015-12-20");
+      const date = new Date(2015, 11, 20);
       const formattedDate = Utils.formatMonthTitle(date);
       expect(formattedDate).to.equal("December 2015");
     });
