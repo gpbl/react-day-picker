@@ -7,14 +7,14 @@ import sinonChai from "sinon-chai";
 chai.use(sinonChai);
 
 testDom("<html><body></body></html>");
-const React = require("react/addons");
+const React = require("react");
 const ReactDOM = require("react-dom");
 const ExecutionEnvironment = require("exenv");
 ExecutionEnvironment.canUseDOM = true;
 
-const DayPicker = require("../src/DayPicker");
+const TestUtils = require("react-addons-test-utils");
 
-const TestUtils = React.addons.TestUtils;
+const DayPicker = require("../src/DayPicker");
 
 const keys = {
   LEFT: 37,

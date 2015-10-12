@@ -50,6 +50,7 @@
     "mocha": "^2.2.5",
     "moment": "^2.10.3",
     "react": "^0.14.0",
+    "react-addons-test-utils": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-tap-event-plugin": "^0.2.0",
     "sinon": "^1.15.3",
