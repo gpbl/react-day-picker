@@ -7,6 +7,7 @@
     "curly": 2,
     "eol-last": 2,
     "indent": [2, 2],
+    "jsx-quotes": 2,
     "no-lonely-if": 2,
     "no-spaced-func": 2,
     "no-unused-vars": 2,
@@ -17,7 +18,6 @@
 
     "react/jsx-no-duplicate-props": 2,
     "react/jsx-no-undef": 2,
-    "react/jsx-quotes": [2, "double"],
     "react/jsx-uses-react": 2,
     "react/no-danger": 2,
     "react/no-unknown-property": 2,
