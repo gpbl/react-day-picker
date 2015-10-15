@@ -218,13 +218,11 @@ class DayPicker extends Component {
     }
   }
 
-  handleNextMonthClick(e) {
-    e.stopPropagation();
+  handleNextMonthClick() {
     this.showNextMonth();
   }
 
-  handlePrevMonthClick(e) {
-    e.stopPropagation();
+  handlePrevMonthClick() {
     this.showPreviousMonth();
   }
 
