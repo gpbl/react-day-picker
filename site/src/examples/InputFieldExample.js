@@ -24,6 +24,37 @@ module.exports = React.createClass({
     };
   },
 
+  handleInputChange(e) {
+
+    var { value } = e.target;
+    let { month } = this.state;
+
+    // Change the current month only if the value entered by the user is a valid
+    // date according to the `L` format
+    if (moment(value, "L", true).isValid()) {
+      month = moment(value, "L").toDate();
+    }
+
+    this.setState({
+      value: value,
+      month: month
+    }, this.showCurrentDate);
+  },
+
+  handleDayTouchTap(e, day, modifiers) {
+    if (modifiers.indexOf("disabled") > -1) {
+      return;
+    }
+    this.setState({
+      value: moment(day).format("L"),
+      month: day
+    });
+  },
+
+  showCurrentDate() {
+    this.refs.daypicker.showMonth(this.state.month);
+  },
+
   render() {
     var { value, month } = this.state;
     var selectedDay = moment(value, "L", true).toDate();
@@ -61,37 +92,7 @@ module.exports = React.createClass({
 
       </div>
     );
-  },
-
-  handleInputChange(e) {
-
-    var { value } = e.target;
-    let { month } = this.state;
-
-    // Change the current month only if the value entered by the user is a valid
-    // date according to the `L` format
-    if (moment(value, "L", true).isValid()) {
-      month = moment(value, "L").toDate();
-    }
-
-    this.setState({
-      value: value,
-      month: month
-    }, this.showCurrentDate);
-  },
-
-  handleDayTouchTap(e, day, modifiers) {
-    if (modifiers.indexOf("disabled") > -1) {
-      return;
-    }
-    this.setState({
-      value: moment(day).format("L"),
-      month: day
-    });
-  },
-
-  showCurrentDate() {
-    this.refs.daypicker.showMonth(this.state.month);
   }
+
 
 });

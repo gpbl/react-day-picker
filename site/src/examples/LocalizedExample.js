@@ -22,6 +22,13 @@ module.exports = React.createClass({
     };
   },
 
+  switchLocale(e) {
+    var locale = e.target.value || "en";
+    this.setState({
+      locale: locale
+    });
+  },
+
   render() {
     var { locale } = this.state;
 
@@ -42,13 +49,6 @@ module.exports = React.createClass({
         <DayPicker locale={ locale } localeUtils={ LocaleUtils } modifiers={ modifiers } />
       </div>
     );
-  },
-
-  switchLocale(e) {
-    var locale = e.target.value || "en";
-    this.setState({
-      locale: locale
-    });
   }
 
 });

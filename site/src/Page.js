@@ -17,12 +17,19 @@ class Page extends Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener("popstate", ::this.handlePopstate);
+  }
+
   componentDidUpdate() {
     Prism.highlightAll();
   }
 
-  componentDidMount() {
-    window.addEventListener("popstate", ::this.handlePopstate);
+  handlePopstate() {
+    const page = window.location.hash.replace("#", "").split("/")[0];
+    this.setState({
+      currentPage: page || "examples"
+    });
   }
 
   render() {
@@ -80,12 +87,6 @@ class Page extends Component {
     );
   }
 
-  handlePopstate() {
-    const page = window.location.hash.replace("#", "").split("/")[0];
-    this.setState({
-      currentPage: page || "examples"
-    });
-  }
 
 }
 

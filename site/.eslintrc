@@ -1,8 +1,13 @@
 {
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "extends": "eslint:recommended",
   "globals": {
     "BROWSER": true
   },
   "env": {
+    "es6": true,
+    "node": true,
     "browser": true
   }
 }

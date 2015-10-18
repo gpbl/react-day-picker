@@ -22,39 +22,6 @@ module.exports = React.createClass({
     };
   },
 
-  render() {
-    var { from, to } = this.state;
-
-    var modifiers = {
-      "selected": (day) => {
-        return (from && isSameDay(day, from)) ||
-          (to && isSameDay(day, to)) ||
-          (from && to && isBetween(day, from, to));
-      }
-    };
-
-    return (
-      <div className="RangeExample">
-        { !from && !to && <p>Please select the first day.</p> }
-        { from && !to && <p>Please select the last day.</p> }
-        { from && to &&
-          <p>You chose from {
-              moment(from).format("L") } to {
-              moment(to).format("L") }. <a
-              href="#" onTouchTap={ this.handleResetTouchTap }>Reset</a>
-          </p>
-        }
-
-        <DayPicker
-          ref="daypicker"
-          numberOfMonths={ 2 }
-          modifiers={ modifiers }
-          onDayTouchTap={ this.handleDayTouchTap }
-        />
-      </div>
-    );
-  },
-
   handleDayTouchTap(e, day) {
     let { from, to } = this.state;
 
@@ -93,6 +60,39 @@ module.exports = React.createClass({
       from: null,
       to: null
     });
+  },
+
+  render() {
+    var { from, to } = this.state;
+
+    var modifiers = {
+      "selected": (day) => {
+        return (from && isSameDay(day, from)) ||
+          (to && isSameDay(day, to)) ||
+          (from && to && isBetween(day, from, to));
+      }
+    };
+
+    return (
+      <div className="RangeExample">
+        { !from && !to && <p>Please select the first day.</p> }
+        { from && !to && <p>Please select the last day.</p> }
+        { from && to &&
+          <p>You chose from {
+              moment(from).format("L") } to {
+              moment(to).format("L") }. <a
+              href="#" onTouchTap={ this.handleResetTouchTap }>Reset</a>
+          </p>
+        }
+
+        <DayPicker
+          ref="daypicker"
+          numberOfMonths={ 2 }
+          modifiers={ modifiers }
+          onDayTouchTap={ this.handleDayTouchTap }
+        />
+      </div>
+    );
   }
 
 });

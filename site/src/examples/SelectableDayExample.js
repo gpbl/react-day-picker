@@ -15,6 +15,12 @@ module.exports = React.createClass({
     };
   },
 
+  handleDayClick(e, day) {
+    this.setState({
+      selectedDay: day
+    });
+  },
+
   render() {
     var { selectedDay } = this.state;
 
@@ -37,12 +43,7 @@ module.exports = React.createClass({
         </p>
       </div>
     );
-  },
-
-  handleDayClick(e, day) {
-    this.setState({
-      selectedDay: day
-    });
   }
+
 
 });

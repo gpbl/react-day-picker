@@ -14,6 +14,18 @@ module.exports = React.createClass({
     };
   },
 
+  showPrevious() {
+    this.setState({
+      year: this.state.year - 1
+    });
+  },
+
+  showNext() {
+    this.setState({
+      year: this.state.year + 1
+    });
+  },
+
   render() {
     var { year } = this.state;
     return (
@@ -30,18 +42,6 @@ module.exports = React.createClass({
         />
       </div>
     );
-  },
-
-  showPrevious() {
-    this.setState({
-      year: this.state.year - 1
-    });
-  },
-
-  showNext() {
-    this.setState({
-      year: this.state.year + 1
-    });
   }
 
 });

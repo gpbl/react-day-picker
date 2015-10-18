@@ -6,7 +6,7 @@ require("../style/BirthdaysExample.scss");
 
 var birthdays = {
   3: [{ name: "Mirko", age: 35 }, {name: "Gianluca", age: 29 }],
-  8: [{ name: "Elenca", age: 21 }],
+  8: [{ name: "Elena", age: 21 }],
   9: [{ name: "Irene", age: 43 }],
   12: [{ name: "Paolo", age: 78 }, {name: "Giorgia", age: 18 }],
   18: [{ name: "Claudia", age: 54 }],
@@ -18,13 +18,6 @@ var birthdays = {
 module.exports = React.createClass({
 
   displayName: "BirthdaysExample",
-
-  render() {
-    return <DayPicker canChangeMonth={false}
-      className="Birthdays"
-      renderDay={ this.renderDay }
-    />;
-  },
 
   renderDay(day) {
     var date = day.getDate();
@@ -42,6 +35,13 @@ module.exports = React.createClass({
         </div>
       </div>
     );
+  },
+
+  render() {
+    return <DayPicker canChangeMonth={false}
+      className="Birthdays"
+      renderDay={ this.renderDay }
+    />;
   }
 
 });
