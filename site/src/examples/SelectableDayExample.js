@@ -1,33 +1,31 @@
-var React = require("react");
-var DayPicker = require("react-day-picker");
-var { isSameDay } = require("../utils/DateUtils");
+import React from "react";
+import DayPicker from "react-day-picker";
+import DateUtils from "react-day-picker/DateUtils";
 
-require("react-day-picker/lib/style.css");
-require("../style/SelectableDayExample.scss");
+import "react-day-picker/lib/style.css";
+import "../style/SelectableDayExample.scss";
 
-module.exports = React.createClass({
+export default class Example extends React.Component {
 
-  displayName: "SelectableDayExample",
+  static displayName = "SelectableDayExample"
 
-  getInitialState() {
-    return {
-      selectedDay: new Date()
-    };
-  },
+  state = {
+    selectedDay: new Date()
+  }
 
   handleDayClick(e, day) {
     this.setState({
       selectedDay: day
     });
-  },
+  }
 
   render() {
-    var { selectedDay } = this.state;
+    const { selectedDay } = this.state;
 
     // Add the `selected` modifier to the cell corresponding to the day that
     // has been clicked. The cell will have a `DayPicker-Day--selected` CSS class.
-    var modifiers = {
-      "selected": (day) => isSameDay(selectedDay, day)
+    const modifiers = {
+      "selected": day => DateUtils.isSameDay(selectedDay, day)
     };
 
     return (
@@ -36,7 +34,7 @@ module.exports = React.createClass({
           numberOfMonths={2}
           enableOutsideDays={true}
           modifiers={ modifiers }
-          onDayClick={ this.handleDayClick }
+          onDayClick={ this.handleDayClick.bind(this) }
         />
         <p>
           Selected: { selectedDay.toLocaleDateString() }
@@ -44,6 +42,4 @@ module.exports = React.createClass({
       </div>
     );
   }
-
-
-});
+}

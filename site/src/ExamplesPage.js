@@ -55,7 +55,9 @@ class ExamplesPage extends Component {
 
     for (let exampleName in EXAMPLES) {
       exampleMenu.push(
-        <a href={`#examples/${exampleName}`}
+        <a
+          name={`examples/${showExample}`}
+          href={`#examples/${exampleName}`}
           key={ exampleName }
           className={showExample === exampleName ? "selected" : ""}>
           { EXAMPLES[exampleName].title }
@@ -72,7 +74,6 @@ class ExamplesPage extends Component {
         </p>
         <div className="Examples" ref="examples">
           <div className="Example">
-            <a name={`examples/${showExample}`} />
             <div className="Example-Result">
               <ExampleComponent />
             </div>

@@ -1,54 +1,50 @@
-var React = require("react");
-var DayPicker = require("react-day-picker");
+import React from "react";
+import DayPicker from "react-day-picker";
 
 // Use a custom util to format the calendar values according to the
 // selected locale. This one is based on moment.js
-var { LocaleUtils } = require("react-day-picker/lib/addons");
+import MomentUtils from "react-day-picker/MomentUtils";
 
 // Make sure moment.js has the required locale data
-require("moment/locale/ja");
-require("moment/locale/ar");
-require("moment/locale/it");
+import "moment/locale/ja";
+import "moment/locale/ar";
+import "moment/locale/it";
 
-require("react-day-picker/lib/style.css");
+import "react-day-picker/lib/style.css";
 
-module.exports = React.createClass({
+export default class Example extends React.Component {
 
-  displayName: "LocalizedExample",
+  static displayName = "LocalizedExample"
 
-  getInitialState() {
-    return {
-      locale: "en"
-    };
-  },
+  state = {
+    locale: "en"
+  }
 
   switchLocale(e) {
-    var locale = e.target.value || "en";
-    this.setState({
-      locale: locale
-    });
-  },
+    const locale = e.target.value || "en";
+    this.setState({ locale });
+  }
 
   render() {
-    var { locale } = this.state;
+    const { locale } = this.state;
 
-    var modifiers = {
-      "sunday": (day) => day.getDay() === 0
+    const modifiers = {
+      sunday: day => day.getDay() === 0
     };
 
     return (
       <div>
         <p>
-          <select onChange={ this.switchLocale }>
+          <select onChange={ this.switchLocale.bind(this) }>
             <option value="en">English</option>
             <option value="it">Italian</option>
             <option value="ja">Japanese</option>
             <option value="ar">Arabic</option>
           </select>
         </p>
-        <DayPicker locale={ locale } localeUtils={ LocaleUtils } modifiers={ modifiers } />
+        <DayPicker locale={ locale } localeUtils={ MomentUtils } modifiers={ modifiers } />
       </div>
     );
   }
 
-});
+}

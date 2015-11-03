@@ -5,32 +5,38 @@ class TipsPage extends Component {
   render() {
     return (
       <div className="Page-Content">
-        <h4>
+        <h3>
           Localization with moment.js
-        </h4>
+        </h3>
         <p>
-          The package includes an addon to localize the calendar with <a href="http://momentjs.com">moment.js</a>. Import it from
-          <code>react-day-picker/lib/addons</code> and use the <code>localeUtils</code> and <code>locale</code> props.
-          Moment.js must be included in your project's dependencies.
+          The package includes an addon to localize the calendar using <a href="http://momentjs.com">moment.js</a>
         </p>
+        <ul>
+          <li>Import it from
+            <code>react-day-picker/MomentUtils</code>, then use the <code>localeUtils</code> and <code>locale</code> props.
+          </li>
+          <li>
+            Moment.js must be included in your project's dependencies.
+          </li>
+        </ul>
 
 <pre>
     <code className="language-jsx">
-{`var React = require("react");
-var { LocaleUtils } = require("react-day-picker/lib/addons");
+{`import React from "react";
 
-var MyLocalizedCalendar = React.createClass({
-  render() {
-    // render the day picker using Italian as locale
-    return <DayPicker locale="it" localeUtils={ LocaleUtils } />
-  }
-});
+import DayPicker from "react-day-picker";
+import MomentUtils from "react-day-picker/MomentUtils";
+
+var MyLocalizedComponent = function() {
+  // render the day picker using Italian as locale
+  return <DayPicker locale="it" localeUtils={ MomentUtils } />
+}
 `}
 </code>
 </pre>
-        <h4>
+        <h3>
           Localization with another library
-        </h4>
+        </h3>
         <p>
           To localize the date picker with your favorite i18n library, pass to
            the <code>localeUtils</code> prop an object of functions telling the component
@@ -47,9 +53,9 @@ var MyLocalizedCalendar = React.createClass({
 `}
           </code>
         </pre>
-        <h4>
+        <h3>
           Memoize the modifiers functions for better performance
-        </h4>
+        </h3>
         <p>
           Functions passed to <code>modifiers</code> prop are called for each day cell when rendering
           the component.  If you are doing heavy calculations in those functions, you may want
@@ -61,22 +67,21 @@ var MyLocalizedCalendar = React.createClass({
 
           <pre>
             <code className="language-jsx">
-{`var React = require("react");
-var { memoize } = require("lodash");
+{`import React from "react";
+import { memoize } from "lodash";
 
 function doHeavyThingWithDay (day) {
   // do complex things...
   return true;
 }
-var modifiers = {
+const modifiers = {
   aModifier: memoize(doHeavyThingWithDay)
 };
 
-var MyComponent = React.createClass({
-  render() {
-    return <DayPicker modifiers={modifiers} />;
-  }
-});`}
+function myComponent() {
+  return <DayPicker modifiers={modifiers} />;
+}
+`}
             </code>
           </pre>
       </div>

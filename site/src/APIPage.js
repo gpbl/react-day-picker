@@ -13,19 +13,21 @@ class APIPage extends Component {
         <h3>Use as React component</h3>
 <pre>
   <code className="language-jsx">
-{`var React = require("react");
-var DayPicker = require("react-day-picker");
+{`import React from "react";
+import DayPicker from "react-day-picker";
 
-var modifiers = {
-  "firstOfMonth": (day) => day.getDate() === 1,
-  "disabled": (day) => day.getDay() === 0
+const modifiers = {
+  isFirstOfMonth(day) {
+    return day.getDate() === 1
+  },
+  isDisabled(day) {
+    return day.getDay() === 0
+  }
 }
 
-var MyComponent = React.createComponent({
-  render() {
-    return <DayPicker modifiers={modifiers} />;
-  }
-})
+function MyComponent() {
+  return <DayPicker modifiers={modifiers} />;
+}
 `}
 
 
@@ -38,9 +40,9 @@ var MyComponent = React.createComponent({
 
         <h3>Styling</h3>
         <p>
-          You should provide your own CSS to style the component.
-          Use <a href="https://github.com/gpbl/react-day-picker/blob/master/src/style.css">this CSS file</a> as
-          starting point (is the same style used in these pages). You can also import it as <code>react-day-picker/lib/style.css</code>.
+          You should provide your own CSS to style the component. It is very simple:
+          use <a href="https://github.com/gpbl/react-day-picker/blob/master/src/style.css"><strong>this CSS file</strong></a> as
+          starting point. You can also import it from <code>react-day-picker/lib/style.css</code>.
         </p>
 
         <h3>Props</h3>
@@ -58,6 +60,59 @@ var MyComponent = React.createComponent({
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <th>
+                <pre className="language-js">
+                  <code>modifiers</code>
+                </pre>
+              </th>
+              <td>
+                <p>Object</p>
+              </td>
+              <td>
+                <p>
+                  An object of functions returning a boolean.
+                </p>
+                <p>
+                  When a function of this object evaluates <code>true</code>, its name will be used as CSS modifier in the day's cell.
+                  Each function takes a day (type <code>Date</code>) as first argument.
+                </p>
+                <p>
+                  For example, the following modifiers...
+                </p>
+                <pre>
+                  <code className="language-jsx">
+{`var modifiers = {
+  "isFirstOfMonth": day => day.getDate() === 1,
+  "isDisabled": day => day.getDay() === 0
+}
+<DayPicker modifiers={ modifiers } />
+`}
+                  </code>
+                </pre>
+                <p>...will add <code>DayPicker-Day--isFirstOfMonth</code> class
+                  to the cells corresponding to the first day of the month,
+                  and <code>DayPicker-Day--isDisabled</code> to each sunday.</p>
+                <p>You can also use named functions to obtain the same result:</p>
+                <pre>
+                  <code className="language-jsx">
+{`
+function isFirstOfMonth(day) {
+  return day.getDate() === 1;
+}
+function isDisabled(day) {
+  return day.getDay() === 0;
+}
+<DayPicker modifiers={ { isDisabled, isFirstOfMonth } } />
+`}
+                  </code>
+                </pre>
+                <p>
+                  By default, the calendar will use <code>today</code> and <code>outside</code> modifiers.
+                </p>
+
+              </td>
+            </tr>
             <tr>
               <th>
                 <pre className="language-js">
@@ -81,42 +136,8 @@ var MyComponent = React.createComponent({
                 <p>Number</p>
               </td>
               <td>
-                <p>The number of months, starting from <code>initialMonth</code>.
+                <p>The number of months to render, where <code>initialMonth</code> is the first month.
                 Default is <code>1</code>.</p>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <pre className="language-js">
-                  <code>modifiers</code>
-                </pre>
-              </th>
-              <td>
-                <p>Object</p>
-              </td>
-              <td>
-                <p>
-                  An object of functions returning a boolean.<br/>The key of the object is
-                  the CSS modifier that will be added to the CSS class of the day's cell if the function returns <code>true</code>.
-                  The first argument of the function is the day (type <code>Date</code>) represented in the cell.
-                </p>
-                <p>
-                  By default, the calendar will use <code>today</code> and <code>outside</code> modifiers.
-                </p>
-                <p>
-                  For example, the following object will add <code>DayPicker-Day--firstOfMonth</code> class
-                  to the cells corresponding to the first day of the month,
-                  and <code>DayPicker-Day--disabled</code> to each sunday.
-                </p>
-                <pre>
-                  <code className="language-jsx">
-{`var modifiers = {
-  "firstOfMonth": (day) => day.getDate() === 1,
-  "disabled": (day) => day.getDay() === 0
-}`}
-                  </code>
-                </pre>
-
               </td>
             </tr>
             <tr>
@@ -281,7 +302,7 @@ var MyComponent = React.createComponent({
                 <pre>
                   <code className="language-jsx">
 {`
-var reactTapEvent = require("react-tap-event-plugin");
+import reactTapEvent from "react-tap-event-plugin";
 reactTapEvent()
 
 function onDayTouchTap(e, day, modifiers) {

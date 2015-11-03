@@ -1,14 +1,14 @@
-var React = require("react");
-var DayPicker = require("react-day-picker");
+import React from "react";
+import DayPicker from "react-day-picker";
 
-require("react-day-picker/lib/style.css");
+import "react-day-picker/lib/style.css";
 
-module.exports = React.createClass({
+export default class Example extends React.Component {
 
-  displayName: "SimpleCalendarExample",
+  static displayName = "SimpleCalendarExample"
 
   render() {
     return <DayPicker />;
   }
 
-});
+}

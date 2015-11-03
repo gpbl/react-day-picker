@@ -1,87 +1,52 @@
-var React = require("react");
-var moment = require("moment");
-var DayPicker = require("react-day-picker");
+import React from "react";
+import moment from "moment";
+import DayPicker from "react-day-picker";
+import DateUtils from "react-day-picker/DateUtils";
 
 // enable touch-tap events
-var reactTapEvent = require("react-tap-event-plugin");
+import reactTapEvent from "react-tap-event-plugin";
 reactTapEvent();
 
-var { isBetween, isSameDay } = require("../utils/DateUtils");
+import "react-day-picker/lib/style.css";
+import "../style/RangeExample.scss";
 
-require("react-day-picker/lib/style.css");
-require("../style/RangeExample.scss");
+export default class Example extends React.Component {
 
-module.exports = React.createClass({
+  static displayName = "RangeExample"
 
-  displayName: "RangeExample",
-
-  getInitialState() {
-    return {
-      from: null,
-      to: null
-    };
-  },
+  state = {
+    from: null,
+    to: null
+  }
 
   handleDayTouchTap(e, day) {
-    let { from, to } = this.state;
-
-    if (!from) {
-      from = day;
-    }
-    else if (from && to && isSameDay(from, to) && isSameDay(day, from)) {
-      // reset when selecting again the first day
-      from = null;
-      to = null;
-    }
-    else if (to && day < from) {
-      from = day;
-    }
-    else if (to && isSameDay(day, to)) {
-      from = day;
-      to = day;
-    }
-    else {
-      to = day;
-      if (to < from) {
-        to = from;
-        from = day;
-      }
-    }
-
-    this.setState({
-      from: from,
-      to: to
-    });
-  },
+    const range = DateUtils.addDayToRange(day, this.state);
+    this.setState(range);
+  }
 
   handleResetTouchTap(e) {
     e.preventDefault();
-    this.setState({
-      from: null,
-      to: null
-    });
-  },
+    this.setState({ from: null, to: null });
+  }
 
   render() {
-    var { from, to } = this.state;
+    const { from, to } = this.state;
 
-    var modifiers = {
-      "selected": (day) => {
-        return (from && isSameDay(day, from)) ||
-          (to && isSameDay(day, to)) ||
-          (from && to && isBetween(day, from, to));
-      }
+    const modifiers = {
+      selected: day => DateUtils.isDayInRange(day, this.state)
     };
+
 
     return (
       <div className="RangeExample">
-        { !from && !to && <p>Please select the first day.</p> }
-        { from && !to && <p>Please select the last day.</p> }
+
+        { !from && !to && <p>Please select the <strong>first day</strong>.</p> }
+        { from && !to && <p>Please select the <strong>last day</strong>.</p> }
         { from && to &&
           <p>You chose from {
               moment(from).format("L") } to {
               moment(to).format("L") }. <a
-              href="#" onTouchTap={ this.handleResetTouchTap }>Reset</a>
+              href="#" onTouchTap={ this.handleResetTouchTap.bind(this) }>Reset</a>
           </p>
         }
 
@@ -89,10 +54,10 @@ module.exports = React.createClass({
           ref="daypicker"
           numberOfMonths={ 2 }
           modifiers={ modifiers }
-          onDayTouchTap={ this.handleDayTouchTap }
+          onDayTouchTap={ this.handleDayTouchTap.bind(this) }
         />
       </div>
     );
   }
 
-});
+}

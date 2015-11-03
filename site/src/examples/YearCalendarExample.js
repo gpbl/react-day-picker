@@ -1,33 +1,31 @@
-var React = require("react");
-var DayPicker = require("react-day-picker");
+import React from "react";
+import DayPicker from "react-day-picker";
 
-require("react-day-picker/lib/style.css");
-require("../style/YearCalendarExample.scss");
+import "react-day-picker/lib/style.css";
+import "../style/YearCalendarExample.scss";
 
-module.exports = React.createClass({
+export default class Example extends React.Component {
 
-  displayName: "YearCalendarExample",
+  static displayName = "YearCalendarExample";
 
-  getInitialState() {
-    return {
-      year: (new Date()).getFullYear()
-    };
-  },
+  state = {
+    year: (new Date()).getFullYear()
+  }
 
   showPrevious() {
     this.setState({
       year: this.state.year - 1
     });
-  },
+  }
 
   showNext() {
     this.setState({
       year: this.state.year + 1
     });
-  },
+  }
 
   render() {
-    var { year } = this.state;
+    const { year } = this.state;
     return (
       <div className="YearCalendarExample">
         <h1>
@@ -44,4 +42,4 @@ module.exports = React.createClass({
     );
   }
 
-});
+}
