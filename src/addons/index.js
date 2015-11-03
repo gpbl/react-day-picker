@@ -1,3 +1,2 @@
-import LocaleUtils from "./LocaleUtils";
-
-export default { LocaleUtils };
+// Deprecated: remove from the next major version!
+export LocaleUtils from "./LocaleUtils";
