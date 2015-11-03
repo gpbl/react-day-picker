@@ -8,7 +8,7 @@ reactTapEvent();
 
 var { isBetween, isSameDay } = require("../utils/DateUtils");
 
-require("../style/DayPicker.scss");
+require("react-day-picker/lib/style.css");
 require("../style/RangeExample.scss");
 
 module.exports = React.createClass({

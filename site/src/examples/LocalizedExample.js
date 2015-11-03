@@ -10,7 +10,7 @@ require("moment/locale/ja");
 require("moment/locale/ar");
 require("moment/locale/it");
 
-require("../style/DayPicker.scss");
+require("react-day-picker/lib/style.css");
 
 module.exports = React.createClass({
 
