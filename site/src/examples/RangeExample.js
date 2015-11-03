@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import DayPicker from "react-day-picker";
-import DateUtils from "react-day-picker/DateUtils";
+import { dateUtils } from "react-day-picker/utils";
 
 // enable touch-tap events
 import reactTapEvent from "react-tap-event-plugin";
@@ -20,7 +20,7 @@ export default class Example extends React.Component {
   }
 
   handleDayTouchTap(e, day) {
-    const range = DateUtils.addDayToRange(day, this.state);
+    const range = dateUtils.addDayToRange(day, this.state);
     this.setState(range);
   }
 
@@ -33,7 +33,7 @@ export default class Example extends React.Component {
     const { from, to } = this.state;
 
     const modifiers = {
-      selected: day => DateUtils.isDayInRange(day, this.state)
+      selected: day => dateUtils.isDayInRange(day, this.state)
     };
 
 

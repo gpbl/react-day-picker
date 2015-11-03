@@ -71,29 +71,15 @@ function MyComponent() {
               </td>
               <td>
                 <p>
-                  An object of functions returning a boolean.
+                  An object of named functions returning a boolean.
                 </p>
                 <p>
-                  When a function of this object evaluates <code>true</code>, its name will be used as CSS modifier in the day's cell.
+                  When a function of this object evaluates <code>true</code>, the function's name is used as CSS modifier in the day's cell.
                   Each function takes a day (type <code>Date</code>) as first argument.
                 </p>
                 <p>
-                  For example, the following modifiers...
+                  For example, the following modifiers:
                 </p>
-                <pre>
-                  <code className="language-jsx">
-{`var modifiers = {
-  "isFirstOfMonth": day => day.getDate() === 1,
-  "isDisabled": day => day.getDay() === 0
-}
-<DayPicker modifiers={ modifiers } />
-`}
-                  </code>
-                </pre>
-                <p>...will add <code>DayPicker-Day--isFirstOfMonth</code> class
-                  to the cells corresponding to the first day of the month,
-                  and <code>DayPicker-Day--isDisabled</code> to each sunday.</p>
-                <p>You can also use named functions to obtain the same result:</p>
                 <pre>
                   <code className="language-jsx">
 {`
@@ -105,10 +91,15 @@ function isDisabled(day) {
 }
 <DayPicker modifiers={ { isDisabled, isFirstOfMonth } } />
 `}
+
                   </code>
                 </pre>
+                <p>will add a <code>DayPicker-Day--isFirstOfMonth</code> CSS class
+                  to the cells corresponding to the first day of the month,
+                  and <code>DayPicker-Day--isDisabled</code> to each sunday.</p>
+
                 <p>
-                  By default, the calendar will use <code>today</code> and <code>outside</code> modifiers.
+                  By default, the calendar will use <code>--today</code> and <code>--outside</code> modifiers.
                 </p>
 
               </td>
@@ -258,7 +249,7 @@ function isDisabled(day) {
               </td>
               <td>
                 <p>
-                  The locale passed to <code>localeUtils</code> functions.
+                  The locale used by the <code>localeUtils</code> functions.
                   Default is <code>en</code>.
                 </p>
               </td>

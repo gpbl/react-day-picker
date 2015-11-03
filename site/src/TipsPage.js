@@ -9,11 +9,11 @@ class TipsPage extends Component {
           Localization with moment.js
         </h3>
         <p>
-          The package includes an addon to localize the calendar using <a href="http://momentjs.com">moment.js</a>
+          The package includes a <code>localeUtils</code> library for localizing the calendar using <a href="http://momentjs.com">moment.js</a>
         </p>
         <ul>
           <li>Import it from
-            <code>react-day-picker/MomentUtils</code>, then use the <code>localeUtils</code> and <code>locale</code> props.
+            <code>react-day-picker/moment</code>, then use the <code>localeUtils</code> and <code>locale</code> props (see below).
           </li>
           <li>
             Moment.js must be included in your project's dependencies.
@@ -25,11 +25,11 @@ class TipsPage extends Component {
 {`import React from "react";
 
 import DayPicker from "react-day-picker";
-import MomentUtils from "react-day-picker/MomentUtils";
+import { localeUtils } from "react-day-picker/moment";
 
 var MyLocalizedComponent = function() {
   // render the day picker using Italian as locale
-  return <DayPicker locale="it" localeUtils={ MomentUtils } />
+  return <DayPicker locale="it" localeUtils={ localeUtils } />
 }
 `}
 </code>
@@ -38,8 +38,8 @@ var MyLocalizedComponent = function() {
           Localization with another library
         </h3>
         <p>
-          To localize the date picker with your favorite i18n library, pass to
-           the <code>localeUtils</code> prop an object of functions telling the component
+          To localize the day picker with your favorite i18n library, pass to
+          the <code>localeUtils</code> prop an object of functions telling the component
           how to localize the content. The object should conform to this protocol:
         </p>
         <pre>

@@ -38,10 +38,13 @@ export default class Example extends React.Component {
   static displayName = "BirthdaysExample"
 
   render() {
-    return <DayPicker canChangeMonth={false}
-      className="Birthdays"
-      renderDay={ renderDay }
-    />;
+    return (
+      <DayPicker
+        canChangeMonth={ false }
+        className="Birthdays"
+        renderDay={ renderDay }
+      />
+    );
   }
 
 }

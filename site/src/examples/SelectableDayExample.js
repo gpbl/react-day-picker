@@ -1,6 +1,6 @@
 import React from "react";
 import DayPicker from "react-day-picker";
-import DateUtils from "react-day-picker/DateUtils";
+import { dateUtils } from "react-day-picker/utils";
 
 import "react-day-picker/lib/style.css";
 import "../style/SelectableDayExample.scss";
@@ -25,7 +25,7 @@ export default class Example extends React.Component {
     // Add the `selected` modifier to the cell corresponding to the day that
     // has been clicked. The cell will have a `DayPicker-Day--selected` CSS class.
     const modifiers = {
-      "selected": day => DateUtils.isSameDay(selectedDay, day)
+      selected: day => dateUtils.isSameDay(selectedDay, day)
     };
 
     return (

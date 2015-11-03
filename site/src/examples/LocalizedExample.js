@@ -3,7 +3,7 @@ import DayPicker from "react-day-picker";
 
 // Use a custom util to format the calendar values according to the
 // selected locale. This one is based on moment.js
-import MomentUtils from "react-day-picker/MomentUtils";
+import { localeUtils } from "react-day-picker/moment";
 
 // Make sure moment.js has the required locale data
 import "moment/locale/ja";
@@ -29,7 +29,9 @@ export default class Example extends React.Component {
     const { locale } = this.state;
 
     const modifiers = {
-      sunday: day => day.getDay() === 0
+      sunday(day) {
+        return day.getDay() === 0
+      }
     };
 
     return (
@@ -42,7 +44,7 @@ export default class Example extends React.Component {
             <option value="ar">Arabic</option>
           </select>
         </p>
-        <DayPicker locale={ locale } localeUtils={ MomentUtils } modifiers={ modifiers } />
+        <DayPicker locale={ locale } localeUtils={ localeUtils } modifiers={ modifiers } />
       </div>
     );
   }

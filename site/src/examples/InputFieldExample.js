@@ -3,7 +3,7 @@ import moment from "moment";
 import reactTapEvent from "react-tap-event-plugin";
 
 import DayPicker from "react-day-picker";
-import DateUtils from "react-day-picker/DateUtils";
+import { dateUtils } from "react-day-picker/utils";
 import "react-day-picker/lib/style.css";
 
 // enable touch-tap events
@@ -51,8 +51,8 @@ export default class InputFieldExample extends React.Component {
     const selectedDay = moment(this.state.value, "L", true).toDate();
 
     const modifiers = {
-      disabled: DateUtils.isPastDay,
-      selected: day => DateUtils.isSameDay(selectedDay, day)
+      disabled: dateUtils.isPastDay,
+      selected: day => dateUtils.isSameDay(selectedDay, day)
     };
 
     return (
