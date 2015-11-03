@@ -1,8 +1,8 @@
-
 import testDom from "testdom";
 import chai, { expect } from "chai";
 import sinon from "sinon";
 import sinonChai from "sinon-chai";
+import a11y from "react-a11y";
 
 chai.use(sinonChai);
 
@@ -22,6 +22,24 @@ const keys = {
   ENTER: 13,
   SPACE: 32
 };
+
+describe("DayPicker a11y", () => {
+  let createElement;
+
+  before(() => {
+    createElement = React.createElement;
+    a11y(React, {throw: true});
+  });
+
+  after(() => {
+    React.createElement = createElement;
+  });
+
+  it("passes a11y", () => {
+    const shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(<DayPicker />);
+  });
+});
 
 describe("DayPicker", () => {
 
