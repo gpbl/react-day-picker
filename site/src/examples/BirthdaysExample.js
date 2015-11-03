@@ -4,7 +4,7 @@ import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import "../style/BirthdaysExample.scss";
 
-var birthdays = {
+const birthdays = {
   3: [{ name: "Mirko", age: 35 }, {name: "Gianluca", age: 29 }],
   8: [{ name: "Elena", age: 21 }],
   9: [{ name: "Irene", age: 43 }],
@@ -16,7 +16,7 @@ var birthdays = {
 };
 
 function renderDay(day) {
-  var date = day.getDate();
+  const date = day.getDate();
   return (
     <div>
       { day.getDate() }
