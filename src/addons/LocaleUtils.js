@@ -1,2 +1,2 @@
 // Deprecated: remove from the next major version
-export LocaleUtils from "./MomentUtils";
+export default from "./MomentLocaleUtils";
