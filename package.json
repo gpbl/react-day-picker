@@ -4,7 +4,7 @@
   "description": "Customizable date picker and calendar component for React.js",
   "main": "./lib/DayPicker.js",
   "scripts": {
-    "prepublish": "babel ./src -d ./lib --source-maps",
+    "build": "babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/",
     "cover": "istanbul cover -- _mocha --recursive --compilers js:babel/register --reporter spec",
     "test": "mocha --compilers js:babel/register --recursive --reporter spec",
     "test:watch": "mocha -w --compilers js:babel/register --recursive --reporter spec",
@@ -36,6 +36,7 @@
     "react": "~0.13.x || ~0.14.x"
   },
   "devDependencies": {
+    "autoprefixer": "^6.0.3",
     "babel": "^5.8.21",
     "babel-core": "^5.8.22",
     "babel-eslint": "^4.0.10",
@@ -49,6 +50,7 @@
     "jsdom": "^6.5.1",
     "mocha": "^2.2.5",
     "moment": "^2.10.3",
+    "postcss-cli": "^2.3.2",
     "react": "^0.14.0",
     "react-addons-test-utils": "^0.14.0",
     "react-dom": "^0.14.0",

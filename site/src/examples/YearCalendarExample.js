@@ -1,7 +1,7 @@
 var React = require("react");
 var DayPicker = require("react-day-picker");
 
-require("../style/DayPicker.scss");
+require("react-day-picker/lib/style.css");
 require("../style/YearCalendarExample.scss");
 
 module.exports = React.createClass({
