@@ -2,7 +2,7 @@
   "name": "react-day-picker",
   "version": "1.0.10",
   "description": "Customizable date picker and calendar component for React.js",
-  "main": "./lib/DayPicker.js",
+  "main": "DayPicker.js",
   "scripts": {
     "build": "babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/",
     "cover": "istanbul cover -- _mocha --recursive --compilers js:babel/register --reporter spec",
