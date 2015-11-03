@@ -5,12 +5,12 @@ class APIPage extends Component {
   render() {
     return (
       <div className="Page-Content">
-        <h4>Install via npm</h4>
+        <h3>Install via npm</h3>
         <pre className="language-js">
           <code>npm install react-day-picker --save</code>
         </pre>
 
-        <h4>Use as React component</h4>
+        <h3>Use as React component</h3>
 <pre>
   <code className="language-jsx">
 {`var React = require("react");
@@ -36,15 +36,14 @@ var MyComponent = React.createComponent({
           See <a href="#examples">all the examples</a>.
         </p>
 
-
-        <h4>Styling</h4>
+        <h3>Styling</h3>
         <p>
-          You need to provide your own CSS to style the component. You can
-          use <a href="https://github.com/gpbl/react-day-picker/blob/master/site/src/style/DayPicker.scss">this
-          file</a> as starting point.
+          You should provide your own CSS to style the component.
+          Use <a href="https://github.com/gpbl/react-day-picker/blob/master/src/style.css">this CSS file</a> as
+          starting point (is the same style used in these pages). You can also import it as <code>react-day-picker/lib/style.css</code>.
         </p>
 
-        <h4>Props</h4>
+        <h3>Props</h3>
 
         <table className="Api">
           <thead>
@@ -431,7 +430,7 @@ function onDayTouchTap(e, day, modifiers) {
           </tbody>
         </table>
 
-        <h4>Methods</h4>
+        <h3>Methods</h3>
         <table className="Api">
           <thead>
             <tr>

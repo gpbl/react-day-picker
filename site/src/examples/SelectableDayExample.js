@@ -2,7 +2,7 @@ var React = require("react");
 var DayPicker = require("react-day-picker");
 var { isSameDay } = require("../utils/DateUtils");
 
-require("../style/DayPicker.scss");
+require("react-day-picker/lib/style.css");
 require("../style/SelectableDayExample.scss");
 
 module.exports = React.createClass({

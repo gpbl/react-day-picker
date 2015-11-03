@@ -8,7 +8,7 @@ reactTapEvent();
 
 var { isPastDay, isSameDay } = require("../utils/DateUtils");
 
-require("../style/DayPicker.scss");
+require("react-day-picker/lib/style.css");
 
 module.exports = React.createClass({
 
