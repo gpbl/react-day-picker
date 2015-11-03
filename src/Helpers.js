@@ -1,13 +1,6 @@
-const WEEKDAYS_LONG = ["Sunday", "Monday", "Tuesday",
-  "Wednesday", "Thursday", "Friday", "Saturday"];
-
-const WEEKDAYS_SHORT = ["Su", "Mo", "Tu",
-  "We", "Th", "Fr", "Sa"];
-
-const MONTHS = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"];
 
 import DateUtils from "./DateUtils";
+import LocaleUtils from "./LocaleUtils";
 
 export default {
 
@@ -37,12 +30,10 @@ export default {
     return resultDate.getDate();
   },
 
-  getWeekArray(d, firstDayOfWeek) {
+  getWeekArray(d, firstDayOfWeek=LocaleUtils.getFirstDayOfWeek()) {
     const daysInMonth = this.getDaysInMonth(d);
-    if (arguments.length === 1) {
-      firstDayOfWeek = this.getFirstDayOfWeek();
-    }
     const dayArray = [];
+
     let week = [];
     const weekArray = [];
 
@@ -94,24 +85,9 @@ export default {
     return modifiers;
   },
 
-  formatMonthTitle(d) {
-    return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
-  },
-
-  formatWeekdayShort(i) {
-    return WEEKDAYS_SHORT[i];
-  },
-
-  formatWeekdayLong(i) {
-    return WEEKDAYS_LONG[i];
-  },
-
-  getFirstDayOfWeek() {
-    return 0;
-  },
-
   getMonthsDiff(d1, d2) {
-    return d2.getMonth() - d1.getMonth() + (12 * (d2.getFullYear() - d1.getFullYear()));
+    return d2.getMonth() - d1.getMonth() +
+      (12 * (d2.getFullYear() - d1.getFullYear()));
   }
 
 };

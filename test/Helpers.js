@@ -155,32 +155,6 @@ describe("Helpers", () => {
     });
   });
 
-  describe("formatMonthTitle", () => {
-    it("returns month and day as string", () => {
-      const date = new Date(2015, 11, 20);
-      const formattedDate = Helpers.formatMonthTitle(date);
-      expect(formattedDate).to.equal("December 2015");
-    });
-  });
-
-  describe("formatWeekdayShort", () => {
-    it("returns the short day name as string", () => {
-      expect(Helpers.formatWeekdayShort(0)).to.equal("Su");
-    });
-  });
-
-  describe("formatWeekdayLong", () => {
-    it("returns the long day name as string", () => {
-      expect(Helpers.formatWeekdayLong(0)).to.equal("Sunday");
-    });
-  });
-
-  describe("getFirstDayOfWeek", () => {
-    it("returns sunday", () => {
-      expect(Helpers.getFirstDayOfWeek()).to.equal(0);
-    });
-  });
-
   describe("getMonthsDiff", () => {
     it("returns a positive difference between two days in the same year", () => {
       const d1 = new Date(2015, 10, 6);

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import Helpers from "./Helpers";
 import DateUtils from "./DateUtils";
+import LocaleUtils from "./LocaleUtils";
 
 const keys = {
   LEFT: 37,
@@ -24,10 +25,10 @@ export default class DayPicker extends Component {
 
     locale: PropTypes.string,
     localeUtils: PropTypes.shape({
-      formatMonthTitle: PropTypes.func.isRequired,
-      formatWeekdayShort: PropTypes.func.isRequired,
-      formatWeekdayLong: PropTypes.func.isRequired,
-      getFirstDayOfWeek: PropTypes.func.isRequired
+      formatMonthTitle: PropTypes.func,
+      formatWeekdayShort: PropTypes.func,
+      formatWeekdayLong: PropTypes.func,
+      getFirstDayOfWeek: PropTypes.func
     }),
 
     enableOutsideDays: PropTypes.bool,
@@ -49,7 +50,7 @@ export default class DayPicker extends Component {
     initialMonth: new Date(),
     numberOfMonths: 1,
     locale: "en",
-    localeUtils: Helpers,
+    localeUtils: LocaleUtils,
     enableOutsideDays: false,
     canChangeMonth: true,
     renderDay: (day) => day.getDate()
