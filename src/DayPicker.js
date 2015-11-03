@@ -306,11 +306,7 @@ class DayPicker extends Component {
         </div>
       );
     }
-    return (
-      <div>
-        { days }
-      </div>
-    );
+    return days;
   }
 
   renderWeeksInMonth(month) {
