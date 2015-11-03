@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react";
-import Utils from "./Utils";
+import Helpers from "./Helpers";
+import DateUtils from "./DateUtils";
 
 const keys = {
   LEFT: 37,
@@ -8,7 +9,7 @@ const keys = {
   SPACE: 32
 };
 
-class DayPicker extends Component {
+export default class DayPicker extends Component {
 
   static propTypes = {
 
@@ -48,7 +49,7 @@ class DayPicker extends Component {
     initialMonth: new Date(),
     numberOfMonths: 1,
     locale: "en",
-    localeUtils: Utils,
+    localeUtils: Helpers,
     enableOutsideDays: false,
     canChangeMonth: true,
     renderDay: (day) => day.getDate()
@@ -57,27 +58,27 @@ class DayPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentMonth: Utils.startOfMonth(props.initialMonth)
+      currentMonth: Helpers.startOfMonth(props.initialMonth)
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.initialMonth !== nextProps.initialMonth) {
       this.setState({
-        currentMonth: Utils.startOfMonth(nextProps.initialMonth)
+        currentMonth: Helpers.startOfMonth(nextProps.initialMonth)
       });
     }
   }
 
   showMonth(d) {
     this.setState({
-      currentMonth: Utils.startOfMonth(d)
+      currentMonth: Helpers.startOfMonth(d)
     });
   }
 
   showNextMonth(callback) {
     const { currentMonth } = this.state;
-    const nextMonth = Utils.addMonths(currentMonth, 1);
+    const nextMonth = Helpers.addMonths(currentMonth, 1);
     this.setState({
       currentMonth: nextMonth
     }, () => {
@@ -92,7 +93,7 @@ class DayPicker extends Component {
 
   showPreviousMonth(callback) {
     const { currentMonth } = this.state;
-    const prevMonth = Utils.addMonths(currentMonth, -1);
+    const prevMonth = Helpers.addMonths(currentMonth, -1);
     this.setState({
       currentMonth: prevMonth
     }, () => {
@@ -110,15 +111,15 @@ class DayPicker extends Component {
   showMonthsForOutsideDay(day) {
     const { currentMonth } = this.state;
     const { numberOfMonths } = this.props;
-    const diffInMonths = Utils.getMonthsDiff(currentMonth, day);
+    const diffInMonths = Helpers.getMonthsDiff(currentMonth, day);
     if (diffInMonths > 0 && diffInMonths >= numberOfMonths) {
-      const nextMonth = Utils.addMonths(currentMonth, numberOfMonths);
+      const nextMonth = Helpers.addMonths(currentMonth, numberOfMonths);
       this.setState({
         currentMonth: nextMonth
       });
     }
     else if (diffInMonths < 0) {
-      const prevMonth = Utils.addMonths(currentMonth, -numberOfMonths);
+      const prevMonth = Helpers.addMonths(currentMonth, -numberOfMonths);
       this.setState({
         currentMonth: prevMonth
       });
@@ -138,7 +139,7 @@ class DayPicker extends Component {
     if (nodeIndex === 0) {
       const { currentMonth } = this.state;
       const { numberOfMonths } = this.props;
-      const prevMonth = Utils.addMonths(currentMonth, -numberOfMonths);
+      const prevMonth = Helpers.addMonths(currentMonth, -numberOfMonths);
       this.setState({
         currentMonth: prevMonth
       }, () => {
@@ -165,7 +166,7 @@ class DayPicker extends Component {
     if (nodeIndex === dayNodes.length - 1) {
       const { currentMonth } = this.state;
       const { numberOfMonths } = this.props;
-      const nextMonth = Utils.addMonths(currentMonth, numberOfMonths);
+      const nextMonth = Helpers.addMonths(currentMonth, numberOfMonths);
       this.setState({
         currentMonth: nextMonth
       }, () => {
@@ -312,7 +313,7 @@ class DayPicker extends Component {
   renderWeeksInMonth(month) {
     const { locale, localeUtils } = this.props;
     const firstDayOfWeek = localeUtils.getFirstDayOfWeek(locale);
-    return Utils.getWeekArray(month, firstDayOfWeek).map((week, i) =>
+    return Helpers.getWeekArray(month, firstDayOfWeek).map((week, i) =>
       <div key={ i } className="DayPicker-Week" role="row">
         { week.map(day => this.renderDay(month, day)) }
       </div>
@@ -328,18 +329,18 @@ class DayPicker extends Component {
     let modifiers = [];
     const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
 
-    const isToday = Utils.isSameDay(day, new Date());
+    const isToday = DateUtils.isSameDay(day, new Date());
     if (isToday) {
       modifiers.push("today");
     }
 
-    const isOutside = Utils.isDayOutsideMonth(day, month);
+    const isOutside = DateUtils.isDayOutsideMonth(day, month);
     if (isOutside) {
       modifiers.push("outside");
     }
 
     if (modifierFunctions) {
-      const customModifiers = Utils.getModifiersForDay(day, modifierFunctions);
+      const customModifiers = Helpers.getModifiersForDay(day, modifierFunctions);
       modifiers = [...modifiers, ...customModifiers];
     }
 
@@ -394,7 +395,7 @@ class DayPicker extends Component {
     const months = [];
     let month;
     for (let i = 0; i < numberOfMonths; i++) {
-      month = Utils.addMonths(currentMonth, i);
+      month = Helpers.addMonths(currentMonth, i);
       months.push(this.renderMonth(month, i));
     }
 
@@ -413,4 +414,3 @@ class DayPicker extends Component {
 
 }
 
-export default DayPicker;
