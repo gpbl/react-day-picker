@@ -1,7 +1,8 @@
 const DateUtils = {
 
   /**
-   * Clone a date returning a new date with the same time
+   * Clone a date returning a new date with the same time.
+   * 
    * @param  {Date} d The date to clone
    * @return {Date} The cloned date
    */
@@ -10,7 +11,8 @@ const DateUtils = {
   },
 
   /**
-   * Return `true` if two dates are the same day, ignoring the time.
+   * Return `true` if two dates are the same day, ignoring the time..
+   * 
    * @param  {Date}  d1
    * @param  {Date}  d2
    * @return {Boolean}
@@ -22,7 +24,7 @@ const DateUtils = {
   },
 
   /**
-   * Returns true if a day is in the past, e.g. is yesterday or any day
+   * Return `true` if a day is in the past, e.g. is yesterday or any day
    * before yesterday.
    *
    * @param  {Date}  d
@@ -35,8 +37,8 @@ const DateUtils = {
   },
 
   /**
-   * Returns true if the day `d` is between the days d1 and d2, not including those
-   * days.
+   * Return `true` if the day `d` is between the days `d1` and `d2`, 
+   * without including them.
    *
    * @param  {Date}  d
    * @param  {Date}  d1
@@ -56,7 +58,7 @@ const DateUtils = {
 
   /**
    * Add a day to a range, returning a new range. A range is an object with
-   * `from` and `to` keys.
+   * `from` and `to` days.
    *
    * @param {Date} day
    * @param {Object} range
@@ -91,8 +93,7 @@ const DateUtils = {
   },
 
   /**
-   * Returns true if a day is included in a range of days. A range is an
-   * object with a `from` and `to` dates.
+   * Return `true` if a day is included in a range of days.
    *
    * @param  {Date}  day
    * @param  {Object}  range
