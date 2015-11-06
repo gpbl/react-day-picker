@@ -29,9 +29,9 @@ export default class Example extends React.Component {
     return (
       <div className="YearCalendarExample">
         <h1>
-          <a onClick={ this.showPrevious }>{ year - 1 }</a>
+          <a onClick={ this.showPrevious.bind(this) }>{ year - 1 }</a>
           { year }
-          <a onClick={ this.showNext }>{ year + 1 }</a>
+          <a onClick={ this.showNext.bind(this) }>{ year + 1 }</a>
         </h1>
         <DayPicker
           canChangeMonth={ false }
