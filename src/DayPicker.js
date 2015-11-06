@@ -33,6 +33,8 @@ export default class DayPicker extends Component {
 
     enableOutsideDays: PropTypes.bool,
     canChangeMonth: PropTypes.bool,
+    fromMonth: PropTypes.instanceOf(Date),
+    toMonth: PropTypes.instanceOf(Date),
 
     onDayClick: PropTypes.func,
     onDayTouchTap: PropTypes.func,
@@ -71,13 +73,46 @@ export default class DayPicker extends Component {
     }
   }
 
+  allowPreviousMonth() {
+    const { fromMonth, numberOfMonths }  = this.props;
+    if (!fromMonth) {
+      return true;
+    }
+    const { currentMonth } = this.state;
+    return Helpers.getMonthsDiff(fromMonth, currentMonth) > numberOfMonths - 1;
+  }
+
+  allowNextMonth() {
+    const { toMonth, numberOfMonths }  = this.props;
+    if (!toMonth) {
+      return true;
+    }
+    const { currentMonth } = this.state;
+    return Helpers.getMonthsDiff(currentMonth, toMonth) > numberOfMonths - 1;
+  }
+
+  allowMonth(d) {
+    const { fromMonth, toMonth }  = this.props;
+    if ((fromMonth && Helpers.getMonthsDiff(fromMonth, d) <= 0) ||
+      (toMonth && Helpers.getMonthsDiff(toMonth, d) >= 0)) {
+      return false;
+    }
+    return true;
+  }
+
   showMonth(d) {
+    if (!this.allowMonth(d)) {
+      return;
+    }
     this.setState({
       currentMonth: Helpers.startOfMonth(d)
     });
   }
 
   showNextMonth(callback) {
+    if (!this.allowNextMonth()) {
+      return;
+    }
     const { currentMonth } = this.state;
     const nextMonth = Helpers.addMonths(currentMonth, 1);
     this.setState({
@@ -93,6 +128,9 @@ export default class DayPicker extends Component {
   }
 
   showPreviousMonth(callback) {
+    if (!this.allowPreviousMonth()) {
+      return;
+    }
     const { currentMonth } = this.state;
     const prevMonth = Helpers.addMonths(currentMonth, -1);
     this.setState({
@@ -264,14 +302,16 @@ export default class DayPicker extends Component {
     const baseClass = "DayPicker-NavButton DayPicker-NavButton";
     return (
       <div className="DayPicker-NavBar">
-        <span
+        { this.allowPreviousMonth() && <span
           key="prev"
           className={ `${baseClass}--prev` }
           onClick={ ::this.handlePrevMonthClick } />
-        <span
+        }
+        { this.allowNextMonth() && <span
           key="next"
           className={ `${baseClass}--next` }
           onClick={ ::this.handleNextMonthClick } />
+        }
       </div>
     );
   }

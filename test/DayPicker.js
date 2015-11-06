@@ -90,6 +90,7 @@ describe("DayPicker", () => {
     expect(dayPicker.props.style.fontSize).to.equal(12);
   });
 
+  // RENDERING
 
   it("renders the number of months as specified by initialMonth", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
@@ -127,7 +128,7 @@ describe("DayPicker", () => {
 
   });
 
-  it("does not render the navigation buttons", () => {
+  it("does not render the navigation buttons when canChangeMonth is false", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker canChangeMonth={false} initialMonth={new Date(2015, 11, 5)} />
     );
@@ -162,7 +163,7 @@ describe("DayPicker", () => {
 
   it("renders the weeks elements in a month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 6, 1)} />
+      <DayPicker initialMonth={new Date(2015, 6)} />
     );
 
     const weeksEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -172,7 +173,7 @@ describe("DayPicker", () => {
 
   it("renders the days element in a month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 6, 1)} />
+      <DayPicker initialMonth={new Date(2015, 6)} />
     );
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -183,7 +184,7 @@ describe("DayPicker", () => {
 
   it("does not render outside days", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 6, 1)} enableOutsideDays={false} />
+      <DayPicker initialMonth={new Date(2015, 6)} enableOutsideDays={false} />
     );
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -195,7 +196,7 @@ describe("DayPicker", () => {
 
   it("renders outside days when required", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 6, 1)} enableOutsideDays={true} />
+      <DayPicker initialMonth={new Date(2015, 6)} enableOutsideDays={true} />
     );
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -205,9 +206,47 @@ describe("DayPicker", () => {
     expect(ReactDOM.findDOMNode(days[2]).innerHTML).to.equal("30");
   });
 
+  it("does not render the prev navigation button when the current month is the first allowed month", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 9)} fromMonth={new Date(2015, 9)} />
+    );
+    const prev = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-NavButton--prev");
+    expect(prev).to.have.length(0);
+  })
+
+  it("does not render the prev navigation button when the first displayed month is the first allowed month", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 7)} fromMonth={new Date(2015, 5)} numberOfMonths={3} />
+    );
+    const prev = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-NavButton--prev");
+    expect(prev).to.have.length(0);
+  })
+
+  it("does not render the next navigation button when the current month is the last allowed month", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 9)} toMonth={new Date(2015, 9)} />
+    );
+    const next = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-NavButton--next");
+    expect(next).to.have.length(0);
+  })
+
+  it("does not render the next navigation button when the last displayed month is the last allowed month", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 7)} toMonth={new Date(2015, 9)} numberOfMonths={3} />
+    );
+    const next = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-NavButton--next");
+    expect(next).to.have.length(0);
+  })
+
+  // MODIFIERS
+
   it("adds an `outside` modifier to outside days", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 6, 1)} enableOutsideDays={true} />
+      <DayPicker initialMonth={new Date(2015, 6)} enableOutsideDays={true} />
     );
 
     const days = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -238,7 +277,7 @@ describe("DayPicker", () => {
       }
     };
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 6, 1)}
+      <DayPicker initialMonth={new Date(2015, 6)}
         modifiers={modifiers}
         enableOutsideDays={true} />
     );
@@ -257,55 +296,144 @@ describe("DayPicker", () => {
 
   });
 
-  it("changes the month when calling showNextMonth", () => {
-    const callback = sinon.spy();
-    const handleMonthChange = sinon.spy();
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker
-        initialMonth={new Date(2015, 7, 1)}
-        enableOutsideDays={false}
-        onMonthChange={handleMonthChange}
-        numberOfMonths={2}
-      />
-    );
-    dayPickerEl.showNextMonth(callback);
+  describe("showNextMonth", () => {
+    it("shows the next month", () => {
+      const callback = sinon.spy();
+      const handleMonthChange = sinon.spy();
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker
+          initialMonth={new Date(2015, 7, 1)}
+          enableOutsideDays={false}
+          onMonthChange={handleMonthChange}
+          numberOfMonths={2}
+        />
+      );
+      dayPickerEl.showNextMonth(callback);
 
-    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(8);
-    expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
-    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
-    expect(callback).to.have.been.called;
-    expect(handleMonthChange).to.have.been.called;
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(8);
+      expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+      expect(callback).to.have.been.called;
+      expect(handleMonthChange).to.have.been.called;
+    });
+
+    it("does not show a month after `toMonth`", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 10)} toMonth={new Date(2015, 10)} />
+      );
+      dayPickerEl.showNextMonth();
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(10);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    });
+
+    it("is called when right key is pressed", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 5)}/>
+      );
+      const showNextMonth = sinon.spy(dayPickerEl, "showNextMonth");
+      TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
+        keyCode: keys.RIGHT
+      });
+      expect(showNextMonth).to.be.called;
+    });
+
+    it("is not called if another key is pressed", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 5)}/>
+      );
+      const showNextMonth = sinon.spy(dayPickerEl, "showNextMonth");
+      TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
+        keyCode: keys.ENTER
+      });
+      expect(showNextMonth).to.not.be.called;
+    });
   });
 
-  it("changes the month when calling showPreviousMonth", () => {
-    const callback = sinon.spy();
-    const handleMonthChange = sinon.spy();
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker
-        initialMonth={new Date(2015, 7, 1)}
-        enableOutsideDays={false}
-        onMonthChange={handleMonthChange}
-        numberOfMonths={2}
-      />
-    );
-    dayPickerEl.showPreviousMonth(callback);
+  describe("showPreviousMonth", () => {
+    it("shows the previous month", () => {
+      const callback = sinon.spy();
+      const handleMonthChange = sinon.spy();
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker
+          initialMonth={new Date(2015, 7, 1)}
+          enableOutsideDays={false}
+          onMonthChange={handleMonthChange}
+          numberOfMonths={2}
+        />
+      );
+      dayPickerEl.showPreviousMonth(callback);
 
-    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
-    expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
-    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
-    expect(callback).to.have.been.called;
-    expect(handleMonthChange).to.have.been.called;
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
+      expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+      expect(callback).to.have.been.called;
+      expect(handleMonthChange).to.have.been.called;
+    });
+
+    it("does not show a month before `fromMonth`", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 10)} fromMonth={new Date(2015, 10)} />
+      );
+      dayPickerEl.showPreviousMonth();
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(10);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    });
+
+    it("is called when left key is pressed over the root node", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 5)} />
+      );
+      const showPreviousMonth = sinon.spy(dayPickerEl, "showPreviousMonth");
+      TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
+        keyCode: keys.LEFT
+      });
+      expect(showPreviousMonth).to.be.called;
+    });
+
+    it("is not called if another key is pressed", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 5)} />
+      );
+      const showPreviousMonth = sinon.spy(dayPickerEl, "showPreviousMonth");
+      TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
+        keyCode: keys.ENTER
+      });
+      expect(showPreviousMonth).to.not.be.called;
+    });
   });
 
-  it("changes the month when calling showMonth", () => {
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 6, 1)} enableOutsideDays={false} />
-    );
-    dayPickerEl.showMonth(new Date(2016, 8, 1));
+  describe("showMonth", () => {
+    it("shows the specified month", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 6)} enableOutsideDays={false} />
+      );
+      dayPickerEl.showMonth(new Date(2016, 8));
 
-    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(8);
-    expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
-    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2016);
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(8);
+      expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2016);
+    });
+
+    it("does not show the month if after `toMonth`", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 6)} toMonth={new Date(2015, 6)} />
+      );
+      dayPickerEl.showMonth(new Date(2016, 8));
+
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    });
+
+    it("does not show the month if before `fromMonth`", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 6)} fromMonth={new Date(2015, 6)} />
+      );
+      dayPickerEl.showMonth(new Date(2013, 1));
+
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    });
+
   });
 
   it("displays a modified state upon changing initialMonth prop", (done) => {
@@ -367,7 +495,7 @@ describe("DayPicker", () => {
     });
   });
 
-  // Events
+  // EVENTS
 
   it("updates its state when clicking to the next month button", () => {
 
@@ -749,53 +877,10 @@ describe("DayPicker", () => {
     expect(handleDayTouchTap).to.be.called;
   });
 
-  it("calls showPreviousMonth when left key is pressed over the root node", () => {
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 5, 1)} />
-    );
-    const showPreviousMonth = sinon.spy(dayPickerEl, "showPreviousMonth");
-    TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
-      keyCode: keys.LEFT
-    });
-    expect(showPreviousMonth).to.be.called;
-  });
-
-  it("does not call showPreviousMonth when another key is pressed", () => {
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 5, 1)} />
-    );
-    const showPreviousMonth = sinon.spy(dayPickerEl, "showPreviousMonth");
-    TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
-      keyCode: keys.ENTER
-    });
-    expect(showPreviousMonth).to.not.be.called;
-  });
-
-  it("calls showNextMonth when right key is pressed", () => {
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 5, 1)}/>
-    );
-    const showNextMonth = sinon.spy(dayPickerEl, "showNextMonth");
-    TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
-      keyCode: keys.RIGHT
-    });
-    expect(showNextMonth).to.be.called;
-  });
-
-  it("does not call showNextMonth if another key is pressed", () => {
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 5, 1)}/>
-    );
-    const showNextMonth = sinon.spy(dayPickerEl, "showNextMonth");
-    TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
-      keyCode: keys.ENTER
-    });
-    expect(showNextMonth).to.not.be.called;
-  });
 
   it("calls focusPreviousDay when left key is pressed", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 5, 1)} />
+      <DayPicker initialMonth={new Date(2015, 5)} />
     );
     const node = ReactDOM.findDOMNode(dayPickerEl);
     const dayNode = node.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)")[0];
@@ -808,7 +893,7 @@ describe("DayPicker", () => {
 
   it("calls focusNextDay when right key is pressed", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 5, 1)} />
+      <DayPicker initialMonth={new Date(2015, 5)} />
     );
     const node = ReactDOM.findDOMNode(dayPickerEl);
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
@@ -829,7 +914,7 @@ describe("DayPicker", () => {
 
     beforeEach(() => {
       dayPickerEl = TestUtils.renderIntoDocument(
-        <DayPicker initialMonth={new Date(2015, 5, 1)} />
+        <DayPicker initialMonth={new Date(2015, 5)} />
       );
       body = ReactDOM.findDOMNode(TestUtils.findRenderedDOMComponentWithClass(dayPickerEl, "DayPicker-Body"));
     });

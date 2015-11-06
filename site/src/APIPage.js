@@ -208,6 +208,36 @@ function isDisabled(day) {
             <tr>
               <th>
                 <pre className="language-js">
+                  <code>fromMonth</code>
+                </pre>
+              </th>
+              <td>
+                <p>Date</p>
+              </td>
+              <td>
+                <p>
+                  The first allowed month. Users won't be able to navigate or interact with the days before it.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <pre className="language-js">
+                  <code>toMonth</code>
+                </pre>
+              </th>
+              <td>
+                <p>Date</p>
+              </td>
+              <td>
+                <p>
+                  The last allowed month. Users won't be able to navigate or interact with the days after it.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <pre className="language-js">
                   <code>localeUtils</code>
                 </pre>
               </th>
