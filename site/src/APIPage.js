@@ -40,9 +40,12 @@ function MyComponent() {
 
         <h3>Styling</h3>
         <p>
-          You should provide your own CSS to style the component. It is very simple:
-          use <a href="https://github.com/gpbl/react-day-picker/blob/master/src/style.css"><strong>this CSS file</strong></a> as
-          starting point. You can also import it from <code>react-day-picker/lib/style.css</code>.
+          You should provide your own CSS to style the component. Styling the component is very simple since it follows a BEM-like syntax:
+          use <a href="https://github.com/gpbl/react-day-picker/blob/master/src/style.css">this CSS file</a> as
+          starting point.
+        </p>
+        <p>
+          You can also import it from <code>react-day-picker/lib/style.css</code>, but keep in mind the style may change within minor releases.
         </p>
 
         <h3>Props</h3>
@@ -71,14 +74,15 @@ function MyComponent() {
               </td>
               <td>
                 <p>
-                  An object of named functions returning a boolean.
+                  An object of named functions returning a boolean: <code>modifier(day: Date) -> Bool</code>
                 </p>
                 <p>
-                  When a function of this object evaluates <code>true</code>, the function's name is used as CSS modifier in the day's cell.
-                  Each function takes a day (type <code>Date</code>) as first argument.
+                  When a function of this object evaluates <code>true</code>, its name is used as CSS modifier for the day's cell.
+                  In your CSS, you define how the cell should looks like with that modifier.
                 </p>
                 <p>
-                  For example, the following modifiers:
+                  For example, the following modifiers will add a <code>DayPicker-Day--isFirstOfMonth</code> CSS class
+                  to the cells of the months' first days, and <code>DayPicker-Day--isDisabled</code> to each Sunday.
                 </p>
                 <pre>
                   <code className="language-jsx">
@@ -94,9 +98,7 @@ function isDisabled(day) {
 
                   </code>
                 </pre>
-                <p>will add a <code>DayPicker-Day--isFirstOfMonth</code> CSS class
-                  to the cells corresponding to the first day of the month,
-                  and <code>DayPicker-Day--isDisabled</code> to each sunday.</p>
+                <p></p>
 
                 <p>
                   By default, the calendar will use <code>--today</code> and <code>--outside</code> modifiers.

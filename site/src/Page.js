@@ -44,7 +44,7 @@ class Page extends Component {
             Customizable date picker and calendar component for React
           </h3>
         </div>
-        <div className='Page-Content'>
+        <div className="Page-Content">
           <ul>
             <li>select days, ranges, whatever with CSS modifiers</li>
             <li>easily change style and add content to days cells</li>

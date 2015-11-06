@@ -16,30 +16,35 @@ Customizable date picker and calendar component for React.js. See [docs and exam
 [![Coverage Status](https://coveralls.io/repos/gpbl/react-day-picker/badge.svg?branch=master)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
 [![npm version](https://badge.fury.io/js/react-day-picker.svg)](http://badge.fury.io/js/react-day-picker)
 
-### Documentation
+## Documentation
 
 📖 [Go to the website for examples with code, API and tips](http://www.gpbl.org/react-day-picker/)
 
 If you need support, drop a line in the [gitter room](https://gitter.im/gpbl/react-day-picker) or check the [issues](https://github.com/gpbl/react-day-picker/issues). Release notes are [here](https://github.com/gpbl/react-day-picker/releases).
 
-### Usage
+## Usage
 
 ```bash
 npm install react-day-picker --save
 ```
 
 ```js 
-var React = require("react");
-var DayPicker = require("react-day-picker");
+import React from "react";
+import DayPicker from "react-day-picker";
 
-var MyComponent = React.createComponent({
+function myComponent() {
+  return (
+    <div>
+      <DayPicker initialMonth={ new Date(2015, 10) } />
+    </div>
+  )
+}
 
-  render() {
-    return <DayPicker initialMonth={new Date()} />
-  }
-
-});
 ```
+
+### Styling
+
+Create your own CSS starting from [style.css](https://github.com/gpbl/react-day-picker/blob/master/src/style.css). For testing, you can also import it from `react-day-picker/lib/style.css`.
 
 ---
 ### Contribute
