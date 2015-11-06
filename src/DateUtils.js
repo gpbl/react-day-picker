@@ -4,10 +4,6 @@ const DateUtils = {
     return new Date(d.getTime());
   },
 
-  isDayOutsideMonth(d1, d2) {
-    return d1.getMonth() !== d2.getMonth();
-  },
-
   isSameDay(d1, d2) {
     return d1.getDate() === d2.getDate() &&
       d1.getMonth() === d2.getMonth() &&

@@ -12,23 +12,6 @@ describe("DateUtils", () => {
     });
   });
 
-  describe("isDayOutsideMonth", () => {
-    it("detects days outside a month", () => {
-      const isOutside = DateUtils.isDayOutsideMonth(
-        new Date(2015, 10, 30),
-        new Date(2015, 11, 1)
-      );
-      expect(isOutside).to.be.true;
-    });
-    it("does detect days inside a month", () => {
-      const isOutside = DateUtils.isDayOutsideMonth(
-        new Date(2015, 11, 30),
-        new Date(2015, 11, 1)
-      );
-      expect(isOutside).to.be.false;
-    });
-  });
-
   describe("isSameDay", () => {
     it("returns true if two days differ only by time", () => {
       const day1 = new Date(2015, 10, 11, 5, 25);

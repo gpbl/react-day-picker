@@ -375,7 +375,7 @@ export default class DayPicker extends Component {
       modifiers.push("today");
     }
 
-    const isOutside = DateUtils.isDayOutsideMonth(day, month);
+    const isOutside = day.getMonth() !== month.getMonth();
     if (isOutside) {
       modifiers.push("outside");
     }
