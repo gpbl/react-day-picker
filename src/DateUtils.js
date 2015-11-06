@@ -31,7 +31,7 @@ const DateUtils = {
     return (d1 < d && d < d2) || (d2 < d && d < d1);
   },
 
-  addDayToRange(day, range) {
+  addDayToRange(day, range={from: null, to: null}) {
     let { from, to } = range;
     if (!from) {
       from = day;

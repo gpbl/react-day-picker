@@ -79,11 +79,16 @@ describe("DateUtils", () => {
   });
 
   describe("addDayToRange", () => {
-    it("set the day as starting day, if missing", () => {
+    it("set the day as `from` day, if range is missing", () => {
       const day = new Date();
-      let range = { from: null, to: null };
-      range = DateUtils.addDayToRange(day, range);
+      const range = DateUtils.addDayToRange(day);
       expect(range).to.deep.equal({ from: day, to: null});
+    });
+    it("set the day as `to` day, if `from` is set", () => {
+      const from = new Date(2015, 1, 10);
+      const day = new Date();
+      const range = DateUtils.addDayToRange(day, { from });
+      expect(range).to.deep.equal({ from: from, to: day});
     });
     it("resets when selecting again the same from day", () => {
       const day = new Date();
