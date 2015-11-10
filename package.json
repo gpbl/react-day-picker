@@ -7,7 +7,7 @@
     "build": "babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/",
     "cover": "istanbul cover -- _mocha --recursive --compilers js:babel/register --reporter spec",
     "test": "mocha --compilers js:babel/register --recursive --reporter spec",
-    "test:watch": "mocha -w --compilers js:babel/register --recursive --reporter spec",
+    "test:watch": "npm test -- --watch",
     "lint": "eslint src test"
   },
   "repository": {
