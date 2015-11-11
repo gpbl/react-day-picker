@@ -21,3 +21,7 @@ pre {
 section ul, section ol {
     margin-bottom: 1em !important;
 }
+
+section h1, section h2, section h3 {
+  border-bottom: 1px solid #EAEAEA;
+}

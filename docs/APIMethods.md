@@ -1,7 +1,5 @@
 # Component methods
 
---- 
-
 #### showMonth(d: Date)
 
 Set the day picker to display the given month.

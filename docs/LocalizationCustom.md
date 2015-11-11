@@ -3,7 +3,11 @@
 You can define your custom utility to localize the day picker – for example to reduce the size of your javascript bundle.
 
 The `DayPicker` component uses [localeUtils](LocaleUtils.md), a small set of functions defining how to display the day picker for the given locale.
-You can overwrite its behavior passing a custom set of functions to the `localeUtils` props. For example, the following utility can be used to localize the calendar in English or in Italian, without moment.js or any other library:
+You can overwrite its behavior passing a custom set of functions to the `localeUtils` props.
+
+## Example
+
+The following `localeCustomUtils` object is used to localize the calendar in English or in Italian.
 
 ```jsx
 
