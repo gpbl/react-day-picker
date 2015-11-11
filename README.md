@@ -6,7 +6,7 @@ react-day-picker
 [![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
 [![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
 
-[react-day-picker](https://www.npmjs.com/package/react-day-picker) is a flexible date picker component for [React](https://facebook.github.io/react/).
+react-day-picker is a flexible date picker component for [React](https://facebook.github.io/react/).
 
 * select days, ranges, whatever using CSS modifiers
 * easily change style and add content to days cells
