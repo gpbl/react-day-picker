@@ -4,6 +4,7 @@
   "description": "Example app for react-day-picker",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npm uninstall react-day-picker",
     "start": "node index",
     "lint": "eslint src",
     "build": "webpack && cp index.html built/index.html"
