@@ -1,7 +1,7 @@
 react-day-picker
 =======
 
-[react-day-picker](https://www.npmjs.com/package/react-day-picker) is a date picker and calendar component for [React](https://facebook.github.io/react/). Using *modifiers* to define its appearance and behavior, it is flexible and highly customizable.
+[react-day-picker](https://www.npmjs.com/package/react-day-picker) is a flexible date picker component for [React](https://facebook.github.io/react/).
 
 <p align="center">
 <img width="291" style="margin: 0 auto" alt="screen shot 2015-11-11 at 15 51 07" src="https://cloud.githubusercontent.com/assets/120693/11093859/d52e0c26-888c-11e5-917e-aaa9686dcb84.png">
@@ -10,7 +10,7 @@ react-day-picker
 ### Main features
 
 * no external dependencies
-* select days, ranges, whatever with CSS modifiers
+* select days, ranges, whatever using CSS modifiers
 * easily change style and add content to days cells
 * display multiple months
 * ready for i18n, with moment.js or any other library
