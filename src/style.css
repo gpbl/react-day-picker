@@ -54,18 +54,19 @@
 
   .DayPicker-Weekdays {
     display: table-header-group;
-    > div {
-      display: table-row;
-    }
   }
 
-    .DayPicker-Weekday {
-      display: table-cell;
-      padding: .5rem;
-      font-size: .875em;
-      text-align: center;
-      color: #8b9898;
+    .DayPicker-WeekdaysRow {
+      display: table-row;
     }
+
+      .DayPicker-Weekday {
+        display: table-cell;
+        padding: .5rem;
+        font-size: .875em;
+        text-align: center;
+        color: #8b9898;
+      }
 
   .DayPicker-Body {
     display: table-row-group;

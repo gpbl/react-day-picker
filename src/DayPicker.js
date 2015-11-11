@@ -327,7 +327,9 @@ export default class DayPicker extends Component {
           { localeUtils.formatMonthTitle(d, locale) }
         </div>
         <div className="DayPicker-Weekdays">
-          { this.renderWeekDays() }
+          <div className="DayPicker-WeekdaysRow">
+            { this.renderWeekDays() }
+          </div>
         </div>
         <div className="DayPicker-Body">
           { this.renderWeeksInMonth(d) }
