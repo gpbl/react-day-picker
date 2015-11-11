@@ -19,11 +19,14 @@ react-day-picker
 <img width="291" style="margin: 0 auto" alt="screen shot 2015-11-11 at 15 51 07" src="https://cloud.githubusercontent.com/assets/120693/11093859/d52e0c26-888c-11e5-917e-aaa9686dcb84.png">
 </p>
 
-## Docs and help
+## Documentation and help
 
 * [Guides and API](http://gpbl.org/react-day-picker)
 * [Examples with code](http://gpbl.org/react-day-picker/examples)
+
+* [Sources on Github](https://github.com/gpbl/react-day-picker)
 * [Changelog](https://github.com/gpbl/react-day-picker/releases)
+* [Issues](https://github.com/gpbl/react-day-picker/issues)
 * [Gitter room](https://gitter.im/gpbl/react-day-picker)
 
 ## Start now
