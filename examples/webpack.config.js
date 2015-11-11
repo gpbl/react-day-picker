@@ -14,21 +14,14 @@ module.exports = {
   resolve: { extensions: ["", ".js"] },
 
   module: {
-    loaders: [
-    {
+    loaders: [{
       test: /\.js?$/,
       exclude: /(node_modules)/,
-      loaders: ["react-hot", "babel"]
-    },
-    {
+      loaders: ["babel"]
+    }, {
       test: /\.css$/,
       loaders: ["style", "css", "autoprefixer-loader?browsers=last 2 version"]
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=100000&mimetype=image/svg+xml"
     }]
-
   },
 
   plugins: [
@@ -42,15 +35,11 @@ module.exports = {
       }
     }),
 
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-
     new webpack.optimize.UglifyJsPlugin({
-      compress: {
-          warnings: false
-        }
+      mangle: {
+        except: ["Birthdays", "InputField", "Localized", "Range", "SelectableDay", "SimpleCalendar", "YearCalendar"]
+      }
     })
-
 
   ]
 
