@@ -6,7 +6,7 @@ body {
 }
 
 h1 {
-  font-weight: 500;
+  font-weight: 300;
 }
 
 h2 {
@@ -90,19 +90,34 @@ select {
   background-repeat: no-repeat;
 }
 
+.Header {
+  border-bottom: 1px solid #EAEAEA;
+  padding: 1em;
+}
+
+.Header h1 {
+  margin: 0;
+}
+
+.Header h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .Content {
   display: flex;
   flex-direction: row;
 }
 
 .NavBar {
+  padding-top: 1.5em;
   border-right: 1px solid #F1F1F1;
 }
 
 .NavBar a {
   font-size: 0.875em;
   margin-bottom: 1em 0;
-  padding: 0.5em;
+  padding: 0.5em 1em;
   display: block;
   color: #4A90E2;
   text-decoration: none;
@@ -120,7 +135,7 @@ select {
 
 .Examples {
   flex: 1;
-  padding: 0 1em 1em 1em;
+  padding: 1em;
 }
 
 .Example {

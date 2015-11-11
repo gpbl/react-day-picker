@@ -97,7 +97,9 @@ export default class Examples extends Component {
     return (
       <div>
         <div className="Header">
-          <h1>react-day-picker examples</h1>
+          <iframe src="https://ghbtns.com/github-btn.html?user=gpbl&amp;repo=react-day-picker&amp;type=star&amp;count=true"
+              frameBorder={0} scrolling={0} width="170px" height="20px"></iframe>
+          <h1><a href="http://www.gpbl.org/react-day-picker/">react-day-picker</a></h1>
         </div>
         <div className="Content">
 
