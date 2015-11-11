@@ -1,57 +1,44 @@
-# react-day-picker
+react-day-picker
+=======
 
-Customizable date picker and calendar component for React.js. See [docs and examples](http://www.gpbl.org/react-day-picker/).
+[react-day-picker](https://www.npmjs.com/package/react-day-picker) is a date picker and calendar component for [React](https://facebook.github.io/react/). Using *modifiers* to define its appearance and behavior, it is flexible and highly customizable.
 
-<p align="center">
-<a href="http://www.gpbl.org/react-day-picker/"><img src="https://cloud.githubusercontent.com/assets/120693/8303891/9f85e42c-19a1-11e5-9905-ee31f4e3f5aa.png" width="300" /></a>
-</p>
+[![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
+[![build status](https://img.shields.io/travis/gpbl/react-day-picker/master.svg?style=flat-square)](https://travis-ci.org/gpbl/react-day-picker)
+[![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
+[![coveralls](https://img.shields.io/coveralls/gpbl/react-day-picker.svg?style=flat-square)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
 
+### Main features
+
+* no external dependencies
 * select days, ranges, whatever with CSS modifiers
 * easily change style and add content to days cells
 * display multiple months
-* ready for i18n, with [moment.js](http://momentjs.com) or any other library
-* navigable via keyboard, ARIA support is [getting better](https://github.com/gpbl/react-day-picker/issues?q=is%3Aopen+is%3Aissue+label%3Aaria)
+* ready for i18n, with moment.js or any other library
+* navigable via keyboard, ARIA support
 
-[![Build Status](https://travis-ci.org/gpbl/react-day-picker.svg)](https://travis-ci.org/gpbl/react-day-picker)
-[![Coverage Status](https://coveralls.io/repos/gpbl/react-day-picker/badge.svg?branch=master)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
-[![npm version](https://badge.fury.io/js/react-day-picker.svg)](http://badge.fury.io/js/react-day-picker)
+### Usage
 
-## Documentation
+Install via npm
 
-📖 [Go to the website for examples with code, API and tips](http://www.gpbl.org/react-day-picker/)
-
-If you need support, drop a line in the [gitter room](https://gitter.im/gpbl/react-day-picker) or check the [issues](https://github.com/gpbl/react-day-picker/issues). Release notes are [here](https://github.com/gpbl/react-day-picker/releases).
-
-## Usage
-
-```bash
+```
 npm install react-day-picker --save
 ```
 
-```js 
-import React from "react";
+and use it in your React components:
+
+```jsx
 import DayPicker from "react-day-picker";
 
-function myComponent() {
-  return (
-    <div>
-      <DayPicker initialMonth={ new Date(2015, 10) } />
-    </div>
-  )
+function isSunday(day) {
+  return day.getDay() === 0;
 }
 
+function MyComponent() {
+  return <DayPicker initialMonth={ new Date(2016, 1) } modifiers={{ isSunday }} />
+}
 ```
 
-### Styling
+### Examples 
 
-Create your own CSS starting from [style.css](https://github.com/gpbl/react-day-picker/blob/master/src/style.css). For testing, you can also import it from `react-day-picker/lib/style.css`.
-
----
-### Contribute
-
-* Use node ^4.0.
-* Use `npm run test` or `npm run test:watch` to run the unit tests. 
-* Run `npm run cover` for a test coverage report.
-* To make sure files are linted: `npm run lint`
-* To run the website with examples use `cd site && npm install && npm start`, then visit `localhost:3000`
-  * If you want to see your changes applied, remember to run `npm install` before running it!
+Look at [some examples](http://www.gpbl.org/react-day-picker/examples) to see react-day-picker in action.
