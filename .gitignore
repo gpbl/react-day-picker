@@ -2,4 +2,5 @@ node_modules
 npm-debug.log
 /site/built
 /coverage
+_book
 lib

@@ -9,6 +9,11 @@
     "test": "mocha --compilers js:babel/register --recursive --reporter spec",
     "test:watch": "npm test -- --watch",
     "lint": "eslint src test"
+    "docs:clean": "rimraf _book",
+    "docs:prepare": "gitbook install",
+    "docs:build": "npm run docs:prepare && gitbook build . _site",
+    "docs:watch": "npm run docs:prepare && gitbook serve",
+    "docs:publish": "npm run docs:clean && npm run docs:build && cp CNAME _book && cd _book && git init && git commit --allow-empty -m 'update book' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'update book' && git push git@github.com:gpbl/react-day-picker gh-pages --force"
   },
   "repository": {
     "type": "git",
@@ -46,6 +51,7 @@
     "eslint-plugin-react": "^3.6.3",
     "exenv": "^1.2.0",
     "fbjs": "^0.4.0",
+    "gitbook-cli": "^1.0.0",
     "istanbul": "^0.4.0",
     "jsdom": "^7.0.2",
     "mocha": "^2.2.5",
@@ -55,6 +61,7 @@
     "react-addons-test-utils": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-tap-event-plugin": "^0.2.0",
+    "rimraf": "^2.4.3",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
     "testdom": "^2.0.0"
