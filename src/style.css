@@ -1,5 +1,4 @@
-
-/* DayPicker  styles */
+/* DayPicker styles */
 
 .DayPicker {
   display: flex;
@@ -89,8 +88,7 @@
     cursor: default;
   }
 
-
-/* Modifiers */
+/* Default modifiers */
 
 .DayPicker-Day--today {
   color: #d0021b;
@@ -103,17 +101,19 @@
   background-color: #eff1f1;
 }
 
-.DayPicker-Day--sunday {
-  color: #dce0e0;
-  background-color: #f7f8f8;
-}
-
 .DayPicker-Day--outside {
   cursor: default;
   color: #dce0e0;
 }
 
-.DayPicker-Day--isSelected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+/* Example modifiers */
+
+.DayPicker-Day--sunday {
+  color: #dce0e0;
+  background-color: #f7f8f8;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
   color: #FFF;
   background-color: #4A90E2;
 }
