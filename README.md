@@ -23,13 +23,12 @@ react-day-picker
 
 * [Guides and API](http://gpbl.org/react-day-picker)
 * [Examples with code](http://gpbl.org/react-day-picker/examples)
-
 * [Sources on Github](https://github.com/gpbl/react-day-picker)
 * [Changelog](https://github.com/gpbl/react-day-picker/releases)
 * [Issues](https://github.com/gpbl/react-day-picker/issues)
 * [Gitter room](https://gitter.im/gpbl/react-day-picker)
 
-## Start now
+## Quick start
 
 Install via npm
 
