@@ -7,11 +7,6 @@ react-day-picker
 <img width="291" style="margin: 0 auto" alt="screen shot 2015-11-11 at 15 51 07" src="https://cloud.githubusercontent.com/assets/120693/11093859/d52e0c26-888c-11e5-917e-aaa9686dcb84.png">
 </p>
 
-[![build status](https://img.shields.io/travis/gpbl/react-day-picker/master.svg?style=flat-square)](https://travis-ci.org/gpbl/react-day-picker)
-[![coveralls](https://img.shields.io/coveralls/gpbl/react-day-picker.svg?style=flat-square)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
-[![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
-[![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
-
 ### Main features
 
 * no external dependencies
@@ -20,6 +15,11 @@ react-day-picker
 * display multiple months
 * ready for i18n, with moment.js or any other library
 * navigable via keyboard, ARIA support
+
+[![build status](https://img.shields.io/travis/gpbl/react-day-picker/master.svg?style=flat-square)](https://travis-ci.org/gpbl/react-day-picker)
+[![coveralls](https://img.shields.io/coveralls/gpbl/react-day-picker.svg?style=flat-square)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
+[![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
+[![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
 
 ### Usage
 
