@@ -1,0 +1,15 @@
+# react-day-picker
+
+* [Introduction](/README.md)
+* [Getting started](/docs/GettingStarted.md)
+* [Component API](/docs/API.md)
+    * [Component props](/docs/APIProps.md)
+    * [Component methods](/docs/APIMethods.md)
+* [Styling](/docs/Styling.md)
+* [Localization](/docs/Localization.md)
+    * [Localization with moment.js](/docs/LocalizationMoment.md)
+    * [Custom localization](/docs/LocalizationCustom.md)
+* [Tips](/docs/Tips.md)
+* [Utilities](/docs/Utilities.md)
+  * [dateUtils](/docs/DateUtils.md)
+  * [localeUtils](/docs/LocaleUtils.md)

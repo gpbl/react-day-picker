@@ -1,0 +1,25 @@
+.YearCalendar  h1 {
+  user-select: none;
+  margin-top: 0;
+  text-align: center;
+  font-weight: 100;
+  font-size: 3rem;
+  color: #596464;
+}
+
+.YearCalendar  h1 a {
+  cursor: pointer;
+  font-size: .5em;
+  color: #8b9898;
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.YearCalendar .DayPicker-Month {
+  margin-bottom: 2rem;
+}
+
+.YearCalendar .DayPicker-Caption {
+  font-weight: 400;
+  color: #a6b0b0;
+}

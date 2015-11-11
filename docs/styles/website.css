@@ -1,0 +1,27 @@
+/* CSS for website */
+
+body {
+    letter-spacing: 0;
+}
+p code {
+    color: #DD4A68;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal code,
+.book .book-body .page-wrapper .page-inner section.normal pre,
+code, pre {
+    font-family: Inconsolata, Menlo, Consolas, "Liberation Mono", Courier, monospace;
+}
+
+
+pre {
+    line-height: 1.3em;
+}
+
+section ul, section ol {
+    margin-bottom: 1em !important;
+}
+
+section h1, section h2, section h3 {
+  border-bottom: 1px solid #EAEAEA;
+}

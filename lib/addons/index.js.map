@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/addons/index.js"],"names":[],"mappings":";;;;;;;;;4BACwB,eAAe;;;;QAAhC,WAAW","file":"index.js","sourcesContent":["// Deprecated: remove from the next major version!\nexport LocaleUtils from \"./LocaleUtils\";\n"]}

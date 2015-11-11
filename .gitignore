@@ -1,4 +1,7 @@
 node_modules
 npm-debug.log
-/site/built
+/examples/built
 /coverage
+_book
+lib
+_site

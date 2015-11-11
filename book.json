@@ -1,0 +1,14 @@
+{
+  "plugins": ["prism", "-highlight", "github"],
+  "structure": {
+    "summary": "docs/README.md"
+  },
+  "styles": {
+    "website": "docs/styles/website.css"
+  },
+  "pluginsConfig": {
+    "github": {
+      "url": "https://github.com/gpbl/react-day-picker/"
+    }
+  }
+}
