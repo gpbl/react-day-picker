@@ -1,8 +1,8 @@
 # Getting started
 
-To better understand how react-day-picker works, we are going to create a simple React component where the user can select a day.
+To understand how react-day-picker works, we will create a simple React component to select a day from the day picker.
 
-First, create a new `SelectDay` component:
+First, write a new `SelectDay` component:
 
 ```jsx
 import React from "react";
@@ -25,7 +25,7 @@ class SelectDay extends React.Component {
 
 ### Use `onDayClick` to make a day clickable
 
-The code above displays a day picker, yet nothing happens when the user clicks on a day. Use the `onDayClick` prop to handle the clicks and store the selected day in the component's state:
+The code above displays a day picker, yet nothing happens when a day is clicked. Use the `onDayClick` prop to store the clicked day in the component's state:
 
 ```jsx
 class SelectDay extends React.Component {
@@ -54,13 +54,13 @@ class SelectDay extends React.Component {
 
 ### Use modifiers to change the days appearance
 
-The selected day is indistinguishable from the other days until we don't style it. We want, for example, have the selected day appear on a blue background. 
+The selected day is indistinguishable from the other days until we don't style it. For example, we want the selected day appear on a blue background.
 
-For changing the day appearance, add one or more **modifiers**, strings used as CSS modifier for the day's cell element.
+To change the day appearance, we add a **modifier**, i.e. a string used as CSS modifier for the day's element.
 
 #### Create a CSS style with a BEM modifier
 
-First, create a CSS class in an external CSS file, where the day cell has a `selected` modifier:
+First, create a CSS class in an external CSS file, where the day element has a `selected` modifier:
 
 ```css
 /* modifiers.css */
@@ -70,7 +70,7 @@ First, create a CSS class in an external CSS file, where the day cell has a `sel
 }
 ```
 
-> We are using a [BEM-like syntax](https://css-tricks.com/bem-101/). In the rendered HTML, the `DayPicker-Day` class represents the day cell, and `--selected` is the modifier we want to use to mark a day as "selected". 
+> We are using a [BEM-like syntax](https://css-tricks.com/bem-101/). In the rendered HTML, the `DayPicker-Day` class represents the day element, and `--selected` is the modifier we want to use to mark a day as "selected". 
 
 Make sure you include the CSS in the component:
 
@@ -85,9 +85,9 @@ import "../modifiers.css";
 
 #### To add modifiers, pass named functions to the `modifiers` prop 
 
-To add modifiers, use the `modifiers` prop. This prop takes an **object of named functions**. Those functions are called when rendering the day cells, and take the day as argument. As they returns `true`, the function’s name is added as modifier.
+To add modifiers, use the `modifiers` prop. This prop takes an **object of named functions**. Those functions are called when rendering the day elements, and take the day as argument. As they returns `true`, the function’s name is added as modifier.
 
-Create an object containing a function named `selected`. This function must return `true` when the selected day is the same day shown in the cell:
+Create an object containing a function named `selected`. This function must return `true` when the selected day is the same day shown in the element:
 
 ```jsx
 // snip
@@ -112,11 +112,11 @@ render() {
 // snip
 ```
 
-Now, when the day is selected, it appears with a red background because its cell has the `DayPicker-Day--selected` class.
+Now, when the day is selected, it appears with a red background because its element has the `DayPicker-Day--selected` class.
 
 ### Access modifiers from the event handlers
 
-Modifiers are passed to event handlers. For example, if the user clicks on a day already having the `selected` modifier, we can deselect it:
+Modifiers are passed to event handlers. For example, if the selected day is clicked again, we un-select it:
 
 ```javascript
 
@@ -134,7 +134,7 @@ handleDayClick(e, day, modifiers) {
 
 ```
 
-Modifiers can prevent the user to select specific days. For example, the following modifier marks any Sunday as disabled:
+Modifiers can prevent the selection of specific days. For example, the following modifier marks any Sunday as disabled:
 
 ```javascript
 const modifiers = {
