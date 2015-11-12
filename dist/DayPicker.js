@@ -780,7 +780,7 @@ var DayPicker =
 	
 	  /**
 	   * Clone a date object.
-	   * 
+	   *
 	   * @param  {Date} d The date to clone
 	   * @return {Date} The cloned date
 	   */
@@ -790,12 +790,15 @@ var DayPicker =
 	
 	  /**
 	   * Return `true` if two dates are the same day, ignoring the time.
-	   * 
+	   *
 	   * @param  {Date}  d1
 	   * @param  {Date}  d2
 	   * @return {Boolean}
 	   */
 	  isSameDay: function isSameDay(d1, d2) {
+	    if (!d1 || !d2) {
+	      return false;
+	    }
 	    return d1.getDate() === d2.getDate() && d1.getMonth() === d2.getMonth() && d1.getFullYear() === d2.getFullYear();
 	  },
 	
@@ -813,7 +816,7 @@ var DayPicker =
 	  },
 	
 	  /**
-	   * Return `true` if day `d` is between days `d1` and `d2`, 
+	   * Return `true` if day `d` is between days `d1` and `d2`,
 	   * without including them.
 	   *
 	   * @param  {Date}  d
