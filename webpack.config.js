@@ -2,7 +2,7 @@ module.exports = {
     entry: "./DayPicker.js",
     output: {
         path: __dirname + "/dist",
-        filename: "DayPickerGlobal.js",
+        filename: "DayPicker.js",
         library: 'DayPicker',
         libraryTarget: "var"
     },
