@@ -34,7 +34,7 @@ export default class SelectableDay extends React.Component {
     return (
       <div className="SelectableDayExample">
         <DayPicker
-          modifiers={ selectedDay && modifiers }
+          modifiers={ modifiers }
           onDayClick={ this.handleDayClick.bind(this) }
         />
         <p>
