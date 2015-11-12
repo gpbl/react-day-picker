@@ -5,7 +5,7 @@ react-day-picker
 [![coveralls](https://img.shields.io/coveralls/gpbl/react-day-picker.svg?style=flat-square)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
 [![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
 [![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
-[![Bower](https://img.shields.io/bower/v/react-day-picker.svg)]()
+[![Bower](https://img.shields.io/bower/v/react-day-picker.svg)](http://bower.io/search/?q=react-day-picker)
 
 react-day-picker is a flexible date picker component for [React](https://facebook.github.io/react/).
 
