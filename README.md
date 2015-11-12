@@ -49,3 +49,21 @@ function MyComponent() {
   return <DayPicker initialMonth={ new Date(2016, 1) } modifiers={{ isSunday }} />
 }
 ```
+
+Or install via bower
+
+```
+bower install react-day-picker --save
+```
+
+The bower package exposes a global `DayPicker` variable:
+
+```jsx
+function isSunday(day) {
+  return day.getDay() === 0;
+}
+
+function MyComponent() {
+  return <DayPicker initialMonth={ new Date(2016, 1) } modifiers={{ isSunday }} />
+}
+```
