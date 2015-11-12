@@ -1,10 +1,10 @@
 {
   "name": "react-day-picker",
   "version": "1.1.1",
-  "description": "Customizable date picker and calendar component for React.js",
+  "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "scripts": {
-    "clean": "rimraf lib coverage",
+    "clean": "rimraf lib coverage dist",
     "lint": "eslint src test",
 
     "test": "mocha --compilers js:babel/register --recursive --reporter spec",
@@ -12,8 +12,7 @@
     "cover": "istanbul cover -- _mocha --recursive --compilers js:babel/register --reporter spec",
     "check": "npm run lint && npm run test",
 
-    "build": "babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/ && webpack",
-    "prepublish": "npm run clean && npm run build",
+    "prerelease": "npm run clean && npm run check && babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/ && webpack",
 
     "docs:clean": "rimraf _book",
     "docs:prepare": "gitbook install",

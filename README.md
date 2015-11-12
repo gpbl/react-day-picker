@@ -3,8 +3,9 @@ react-day-picker
 
 [![build status](https://img.shields.io/travis/gpbl/react-day-picker/master.svg?style=flat-square)](https://travis-ci.org/gpbl/react-day-picker)
 [![coveralls](https://img.shields.io/coveralls/gpbl/react-day-picker.svg?style=flat-square)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
-[![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
 [![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
+[![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
+[![Bower](https://img.shields.io/bower/v/react-day-picker.svg)]()
 
 react-day-picker is a flexible date picker component for [React](https://facebook.github.io/react/).
 
@@ -50,20 +51,10 @@ function MyComponent() {
 }
 ```
 
-Or install via bower
+**Install via Bower**
 
 ```
 bower install react-day-picker --save
 ```
 
-The bower package exposes a global `DayPicker` variable:
-
-```jsx
-function isSunday(day) {
-  return day.getDay() === 0;
-}
-
-function MyComponent() {
-  return <DayPicker initialMonth={ new Date(2016, 1) } modifiers={{ isSunday }} />
-}
-```
+The bower package exposes a global `DayPicker` variable.
