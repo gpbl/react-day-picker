@@ -14,7 +14,7 @@ console.log(dateUtils.isPastDay(new Date())); // false
 
 Clone the date `d` returning a new date with the same time.
 
-### `isSameDay(d1: date, d2: date) -> bool`
+### `isSameDay(d1: ?date, d2: ?date) -> bool`
 
 Return `true` if the two dates `d1` and `d2` are the same day, e.g. ignoring their time.
 

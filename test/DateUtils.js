@@ -25,6 +25,11 @@ describe("DateUtils", () => {
       const isSameDay = DateUtils.isSameDay(day1, day2);
       expect(isSameDay).to.be.false;
     });
+    it("returns false if one of the days is not specified", () => {
+      const day1 = new Date(2015, 8, 12);
+      const isSameDay = DateUtils.isSameDay(day1, null);
+      expect(isSameDay).to.be.false;
+    });
   });
 
   describe("isPastDay", () => {
