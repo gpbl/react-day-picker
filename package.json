@@ -12,7 +12,8 @@
     "cover": "istanbul cover -- _mocha --recursive --compilers js:babel/register --reporter spec",
     "check": "npm run lint && npm run test",
 
-    "prerelease": "npm run clean && npm run check && babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/ && webpack",
+    "prerelease": "npm run check && webpack",
+    "prepublish": "babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/",
 
     "docs:clean": "rimraf _book",
     "docs:prepare": "gitbook install",
