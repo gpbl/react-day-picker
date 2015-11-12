@@ -4,7 +4,7 @@
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "scripts": {
-    "clean": "rimraf lib coverage",
+    "clean": "rimraf lib coverage dist",
     "lint": "eslint src test",
 
     "test": "mocha --compilers js:babel/register --recursive --reporter spec",
