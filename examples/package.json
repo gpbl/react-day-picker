@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "npm uninstall react-day-picker",
+    "postinstall": "npm install ../",
     "start": "node index",
     "lint": "eslint src",
     "build": "webpack && cp index.html built/index.html"
@@ -30,7 +31,7 @@
     "history": "^1.13.0",
     "raw-loader": "^0.5.1",
     "react": "^0.14",
-    "react-day-picker": "file:../",
+    "react-day-picker": "../",
     "react-dom": "^0.14",
     "react-tap-event-plugin": "^0.2.0",
     "style-loader": "^0.12.3",
