@@ -31,9 +31,6 @@ Set the day picker to display the previous month.
 
 ---
 
-#### showMonth(d: Date)
+#### showNextMonth()
 
 Set the day picker to display the next month.
-
-
----
