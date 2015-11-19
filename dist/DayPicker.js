@@ -51,6 +51,7 @@ var DayPicker =
 	module.exports.DateUtils = __webpack_require__(4);
 	module.exports.LocaleUtils  = __webpack_require__(5);
 
+
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
