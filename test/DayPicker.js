@@ -14,7 +14,7 @@ ExecutionEnvironment.canUseDOM = true;
 
 const TestUtils = require("react-addons-test-utils");
 
-const DayPicker = require("../DayPicker");
+const DayPicker = require("../src/DayPicker");
 
 const keys = {
   LEFT: 37,
@@ -24,14 +24,6 @@ const keys = {
 };
 
 describe("DayPicker", () => {
-
-  it("exports DateUtils", () => {
-    expect(DayPicker.DateUtils).to.exist;
-  });
-
-  it("exports LocaleUtils", () => {
-    expect(DayPicker.LocaleUtils).to.exist;
-  });
 
   it("has the default props properly set", () => {
     const dayPicker = <DayPicker />;
