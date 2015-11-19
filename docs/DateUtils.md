@@ -1,11 +1,11 @@
-# dateUtils
+# DateUtils
 
-`dateUtils` is a set of functions useful to work with dates and modifiers.
+`DateUtils` is a set of functions useful to work with dates and modifiers.
 
 ```js
-import { dateUtils } from "react-day-picker/utils";
+import { DateUtils } from "react-day-picker";
 
-console.log(dateUtils.isPastDay(new Date())); // false
+console.log(DateUtils.isPastDay(new Date())); // false
 ```
 
 ## Functions
@@ -33,13 +33,13 @@ Add `day` to a range of days, returning a new range including that dy. A range i
 See the [range examples](http://www.gpbl.org/react-day-picker/#examples/range) for an example using this function.
 
 ```js
-import { dateUtils } from "react-day-picker/utils";
+import { DateUtils } from "react-day-picker";
 
 const range = {
   from: new Date(2015, 5, 14),
   to: new Date(2015, 5, 18)
 }
-const newRange = dateUtils.addDayToRange(new Date(2015, 5, 24), range);
+const newRange = DateUtils.addDayToRange(new Date(2015, 5, 24), range);
 
 console.log(newRange.from) // 2015-05-24
 ```

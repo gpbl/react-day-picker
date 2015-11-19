@@ -4,7 +4,7 @@ To localize the calendar with [moment.js](http://www.momentjs.com):
 
 1. make sure [moment](https://www.npmjs.com/package/moment) is included in your dependencies 
 2. make sure the required moment's locale data is loaded
-3. import `localeUtils` from `react-day-picker/moment` and pass it to the `localeUtils` props
+3. import `LocaleUtils` from `react-day-picker/moment` and pass it to the `localeUtils` props
 4. use the `locale` prop to pass the current locale
 
 ### Example
@@ -18,7 +18,7 @@ import DayPicker from "react-day-picker";
 
 // Use this util to format the calendar values according to the
 // selected locale with moment.js
-import { localeUtils } from "react-day-picker/moment";
+import LocaleUtils from "react-day-picker/moment";
 
 // Make sure moment.js has the required locale data
 import "moment/locale/ja";
@@ -30,16 +30,16 @@ function LocalizedExample() {
     <div>
 
       <p>English</p>
-      <DayPicker localeUtils={ localeUtils } locale="en" />
+      <DayPicker localeUtils={ LocaleUtils } locale="en" />
 
       <p>Japanese</p>
-      <DayPicker localeUtils={ localeUtils } locale="jp" />
+      <DayPicker localeUtils={ LocaleUtils } locale="jp" />
 
       <p>Arabic</p>
-      <DayPicker localeUtils={ localeUtils } locale="ar" />
+      <DayPicker localeUtils={ LocaleUtils } locale="ar" />
 
       <p>Italian</p>
-      <DayPicker localeUtils={ localeUtils } locale="it" />
+      <DayPicker localeUtils={ LocaleUtils } locale="it" />
 
     </div>
   );

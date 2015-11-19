@@ -1,4 +1,4 @@
 # Utilities
 
-* [dateUtils](DateUtils.md)
-* [localeUtils](LocaleUtils.md)
+* [DateUtils](DateUtils.md)
+* [LocaleUtils](LocaleUtils.md)

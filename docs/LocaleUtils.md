@@ -1,12 +1,11 @@
-# localeUtils
+# LocaleUtils
 
-`localeUtils` is a set of functions used to work with localization. See also [Custom localization](LocalizationCustom.md).
+`LocaleUtils` is a set of functions used to localize the component (see: [Custom localization](LocalizationCustom.md)). You may want to implement your own `LocaleUtils`, or override some of its functions. 
 
-Usually, you want to implement your own `localeUtils`, or override the behavior of some of its functions. For example, the following code will render the month title as `M/YYYY` instead of the default:
+For example, this code renders the month's title as `M/YYYY` instead of the default:
 
 ```jsx
-import DayPicker from "react-day-picker";
-import { localeUtils } from "react-day-picker/utils"
+import DayPicker, { LocaleUtils } from "react-day-picker";
 
 function formatMonthTitle(d, locale) {
  return `${d.getMonth() + 1}/${d.getFullYear}` 
