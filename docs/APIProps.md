@@ -99,7 +99,7 @@ The last allowed month. Users won't be able to navigate or interact with the day
 #### localeUtils (Object)
 
 Object of functions to format dates and to get the first day of the week. Pass your own utils to support localization.
-By default the used locale is English (US). See also [Localization](Localization.md).
+By default the used locale is English (US). See also [Localization](Localization.md) and [LocaleUtils](LocaleUtils.md).
 
 --- 
 

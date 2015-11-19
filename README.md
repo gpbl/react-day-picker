@@ -31,7 +31,7 @@ react-day-picker is a flexible date picker component for [React](https://faceboo
 
 ## Quick start
 
-Install via npm
+**Install via npm**
 
 ```
 npm install react-day-picker --save

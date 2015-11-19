@@ -11,5 +11,5 @@
     * [Custom localization](/docs/LocalizationCustom.md)
 * [Tips](/docs/Tips.md)
 * [Utilities](/docs/Utilities.md)
-  * [dateUtils](/docs/DateUtils.md)
-  * [localeUtils](/docs/LocaleUtils.md)
+  * [DateUtils](/docs/DateUtils.md)
+  * [LocaleUtils](/docs/LocaleUtils.md)

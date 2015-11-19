@@ -146,7 +146,7 @@ then, the click handler stops the interaction when the day contains the `isSunda
 
 ```javascript
 handleDayClick(e, day, modifiers) {
-  if (modifiers.indefOf("isDisabled") > -1) {
+  if (modifiers.indexOf("isDisabled") > -1) {
     return; 
   }
   // etc.
@@ -154,12 +154,12 @@ handleDayClick(e, day, modifiers) {
 
 ```
 
-### Use the included utilities to simplify the code
+### Use DateUtils to simplify the code
 
-react-day-picker comes with some utilities to simplify the creation of modifiers. For example, [dateUtils](DateUtils.md) contains a function called `isSameDay`  useful to detect if two days are the same. We can use it for the `selected` modifier:
+react-day-picker includes [DateUtils](DateUtils.md), a function library to simplify the creation of modifiers. For example, we can use `isSameDay()` to detect if two days are the same. We can use it for the `selected` modifier:
 
 ```jsx
-import { dateUtils } from "react-day-picker/utils";
+import DayPicker, { DateUtils } from "react-day-picker/utils";
 
 // snip
 
