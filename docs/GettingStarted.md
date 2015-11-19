@@ -146,7 +146,7 @@ then, the click handler stops the interaction when the day contains the `isSunda
 
 ```javascript
 handleDayClick(e, day, modifiers) {
-  if (modifiers.indefOf("isDisabled") > -1) {
+  if (modifiers.indexOf("isDisabled") > -1) {
     return; 
   }
   // etc.
