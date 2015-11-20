@@ -207,7 +207,7 @@ var DayPicker =
 	      var fromMonth = _props3.fromMonth;
 	      var toMonth = _props3.toMonth;
 	
-	      if (fromMonth && _Helpers2["default"].getMonthsDiff(fromMonth, d) <= 0 || toMonth && _Helpers2["default"].getMonthsDiff(toMonth, d) >= 0) {
+	      if (fromMonth && _Helpers2["default"].getMonthsDiff(fromMonth, d) < 0 || toMonth && _Helpers2["default"].getMonthsDiff(toMonth, d) > 0) {
 	        return false;
 	      }
 	      return true;
