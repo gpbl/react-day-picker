@@ -434,6 +434,25 @@ describe("DayPicker", () => {
       expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
     });
 
+    it("can show the first allowed month, `fromMonth`", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 6)} fromMonth={new Date(2015, 4)} />
+      );
+      dayPickerEl.showMonth(new Date(2015, 4));
+
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(4);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    });
+
+    it("can show the last allowed month, `toMonth`", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 6)} toMonth={new Date(2015, 8)} />
+      );
+      dayPickerEl.showMonth(new Date(2015, 8));
+
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(8);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    });
   });
 
   it("displays a modified state upon changing initialMonth prop", (done) => {
