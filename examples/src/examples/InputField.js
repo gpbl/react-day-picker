@@ -1,13 +1,9 @@
 import React from "react";
 import moment from "moment";
-import reactTapEvent from "react-tap-event-plugin";
 
 import DayPicker, { DateUtils } from "react-day-picker";
 
 import "react-day-picker/lib/style.css";
-
-// enable touch-tap events
-reactTapEvent();
 
 export default class InputField extends React.Component {
 
@@ -31,7 +27,7 @@ export default class InputField extends React.Component {
 
   }
 
-  handleDayTouchTap(e, day, modifiers) {
+  handleDayClick(e, day, modifiers) {
     if (modifiers.indexOf("disabled") > -1) {
       return;
     }
@@ -48,11 +44,6 @@ export default class InputField extends React.Component {
   render() {
     const selectedDay = moment(this.state.value, "L", true).toDate();
 
-    const modifiers = {
-      disabled: DateUtils.isPastDay,
-      selected: day => DateUtils.isSameDay(selectedDay, day)
-    };
-
     return (
       <div>
 
@@ -68,11 +59,14 @@ export default class InputField extends React.Component {
 
         <DayPicker
           ref="daypicker"
-          enableOutsideDays={ true }
+          enableOutsideDays
           initialMonth={ this.state.month }
-          numberOfMonths={ 1 }
-          modifiers={ modifiers }
-          onDayTouchTap={ this.handleDayTouchTap.bind(this) } />
+          modifiers={{
+            disabled: DateUtils.isPastDay,
+            selected: day => DateUtils.isSameDay(selectedDay, day)
+          }}
+          onDayClick={ this.handleDayClick.bind(this) }
+        />
 
       </div>
     );

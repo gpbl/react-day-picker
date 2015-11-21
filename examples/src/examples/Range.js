@@ -2,10 +2,6 @@ import React from "react";
 import moment from "moment";
 import DayPicker, { DateUtils } from "react-day-picker";
 
-// enable touch-tap events
-import reactTapEvent from "react-tap-event-plugin";
-reactTapEvent();
-
 import "react-day-picker/lib/style.css";
 
 export default class Range extends React.Component {
@@ -15,12 +11,12 @@ export default class Range extends React.Component {
     to: null
   }
 
-  handleDayTouchTap(e, day) {
+  handleDayClick(e, day) {
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
   }
 
-  handleResetTouchTap(e) {
+  handleResetClick(e) {
     e.preventDefault();
     this.setState({
       from: null,
@@ -44,7 +40,7 @@ export default class Range extends React.Component {
           <p>You chose from {
               moment(from).format("L") } to {
               moment(to).format("L") }. <a
-              href="#" onTouchTap={ this.handleResetTouchTap.bind(this) }>Reset</a>
+              href="#" onClick={ this.handleResetClick.bind(this) }>Reset</a>
           </p>
         }
 
@@ -52,7 +48,7 @@ export default class Range extends React.Component {
           ref="daypicker"
           numberOfMonths={ 2 }
           modifiers={ modifiers }
-          onDayTouchTap={ this.handleDayTouchTap.bind(this) }
+          onDayClick={ this.handleDayClick.bind(this) }
         />
       </div>
     );
