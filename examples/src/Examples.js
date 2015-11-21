@@ -82,7 +82,7 @@ export default class Examples extends Component {
   handleHistoryChange({ hash }) {
     const currentExample = hash.replace("#", "");
     if (currentExample in EXAMPLES) {
-      this.setState({ currentExample });
+      this.setState({ currentExample, showNavBar: false });
     }
   }
 
@@ -104,19 +104,20 @@ export default class Examples extends Component {
   }
 
   render() {
-    const { currentExample } = this.state;
+    const { currentExample, showNavBar } = this.state;
 
     const ExampleComponent = EXAMPLES[currentExample].Component;
 
     return (
       <div>
+        <div className="NavBar-toggle" onTouchTap={ () => { this.setState({ showNavBar: !showNavBar })}} />
         <div className="Header">
           <h1><a href="http://www.gpbl.org/react-day-picker/">react-day-picker</a></h1>
         </div>
-        <div className="Content">
+        <div className={ `Content${showNavBar ? " navbar-is-visible" : ""}` }>
 
           <div className="NavBar">
-            <div className="NavBar-sticky">
+            <div className="NavBar-wrapper">
               <h3>Examples</h3>
               { this.renderNavBarExamples() }
 
