@@ -364,7 +364,6 @@ export default class DayPicker extends Component {
   }
 
   renderDay(month, day) {
-    const { renderDay } = this.props;
 
     const { enableOutsideDays, modifiers: modifierFunctions } = this.props;
 
@@ -418,7 +417,7 @@ export default class DayPicker extends Component {
         onTouchTap= { onDayTouchTap ?
           (e) => this.handleDayTouchTap(e, day, modifiers) : null }
         >
-        { renderDay(day) }
+        { this.props.renderDay(day) }
       </div>
     );
   }
