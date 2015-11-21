@@ -9,20 +9,16 @@
   "scripts": {
     "clean": "rimraf lib coverage dist",
     "lint": "eslint src test",
-
-    "test": "mocha --compilers js:babel/register --recursive --reporter spec",
+    "test": "mocha --compilers js:babel-core/register --recursive --reporter spec",
     "test:watch": "npm test -- --watch",
     "cover": "istanbul cover -- _mocha --recursive --compilers js:babel/register --reporter spec",
     "check": "npm run lint && npm run test",
-
     "prerelease": "npm run check && webpack",
     "prepublish": "babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/",
-
     "docs:clean": "rimraf _book",
     "docs:prepare": "gitbook install",
     "docs:build": "npm run docs:prepare && gitbook build",
     "docs:watch": "npm run docs:prepare && gitbook serve",
-
     "docs:publish": "npm run docs:clean && npm run docs:build && cd examples && npm run build && cd .. && rimraf _book/examples && mv examples/built _book/examples && cd _book && git init && git commit --allow-empty -m 'Update docs and examples' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'Update docs and examples' && git push git@github.com:gpbl/react-day-picker gh-pages --force"
   },
   "repository": {
@@ -52,9 +48,11 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
-    "babel": "^5.8.21",
-    "babel-core": "^5.8.22",
+    "babel-core": "^6.2.1",
     "babel-eslint": "^4.0.10",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18",
     "classlist-polyfill": "^1.0.1",
     "coveralls": "^2.11.2",
     "eslint": "^1.8.0",
