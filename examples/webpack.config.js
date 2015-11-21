@@ -6,7 +6,7 @@ module.exports = {
   entry: path.join(__dirname, "src/main.js"),
 
   output: {
-    path: "./built/js",
+    path: path.join(__dirname, "build"),
     publicPath: "/js/",
     filename: "main.js"
   },
@@ -37,7 +37,10 @@ module.exports = {
 
     new webpack.optimize.UglifyJsPlugin({
       mangle: {
-        except: ["Birthdays", "InputField", "Localized", "Range", "SelectableDay", "SimpleCalendar", "YearCalendar"]
+        except: ["Birthdays", "InputField", "Localized", "Range", "SelectableDay", "SimpleCalendar", "YearCalendar", "TouchEvents"]
+      },
+      compress: {
+        warnings: false
       }
     })
 
