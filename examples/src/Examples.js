@@ -10,6 +10,7 @@ import SelectableDay from "./examples/SelectableDay";
 import InputField from "./examples/InputField";
 import Range from "./examples/Range";
 import Localized from "./examples/Localized";
+import TouchEvents from "./examples/TouchEvents";
 import Birthdays from "./examples/Birthdays";
 import YearCalendar from "./examples/YearCalendar";
 
@@ -41,9 +42,14 @@ const EXAMPLES = {
     description: "This calendar is localized using moment.js. <a href='http://www.gpbl.org/react-day-picker/docs/LocalizationMoment.html'>Read more</a>",
     Component: Localized
   },
+  touch: {
+    title: "Touch Events",
+    description: "Make a better interaction on touch devices with the included touch event handlers (as <code>onDayTouchTap</code>) and enabling <a href='https://github.com/zilverline/react-tap-event-plugin'>react-touch-tap-event-plugin</a>.",
+    Component: TouchEvents
+  },
   birthdays: {
     title: "Birthdays",
-    description: "Add custom content to days cells using the <code>renderDay</code> prop",
+    description: "Add custom content to days cells using the <code>renderDay</code> prop.",
     Component: Birthdays
   },
   year: {
@@ -57,7 +63,8 @@ const EXAMPLES = {
 export default class Examples extends Component {
 
   state = {
-    currentExample: "simple"
+    currentExample: "simple",
+    showNavBar: false
   }
 
   componentDidMount() {
