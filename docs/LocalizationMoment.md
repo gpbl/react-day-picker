@@ -3,11 +3,13 @@
 To localize the calendar with [moment.js](http://www.momentjs.com):
 
 1. make sure [moment](https://www.npmjs.com/package/moment) is included in your dependencies 
-2. make sure the required moment's locale data is loaded
+2. make sure the required moment's locale data is available when rendering the day picker
 3. import `LocaleUtils` from `react-day-picker/moment` and pass it to the `localeUtils` props
 4. use the `locale` prop to pass the current locale
 
-### Example
+[See an example](http://www.gpbl.org/react-day-picker/examples/#localized).
+
+### Code
 
 The following component shows four day pickers: english, japanese, arabic and italian.
 
