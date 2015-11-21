@@ -414,26 +414,6 @@ describe("DayPicker", () => {
       expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2016);
     });
 
-    it("shows the month specified in toMonth", () => {
-      const dayPickerEl = TestUtils.renderIntoDocument(
-        <DayPicker initialMonth={new Date(2015, 6)} toMonth={new Date(2015, 11)} />
-      );
-      dayPickerEl.showMonth(new Date(2015, 11));
-
-      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(11);
-      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
-    });
-
-    it("shows the month specified in fromMonth", () => {
-      const dayPickerEl = TestUtils.renderIntoDocument(
-        <DayPicker fromMonth={new Date(2015, 5)} />
-      );
-      dayPickerEl.showMonth(new Date(2015, 5));
-
-      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
-      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
-    });
-
     it("does not show the month if after `toMonth`", () => {
       const dayPickerEl = TestUtils.renderIntoDocument(
         <DayPicker initialMonth={new Date(2015, 6)} toMonth={new Date(2015, 6)} />
