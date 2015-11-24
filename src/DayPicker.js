@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from "react";
 import Helpers from "./Helpers";
 import DateUtils from "./DateUtils";
 import LocaleUtils from "./LocaleUtils";
+// import Caption from "./Caption";
 
 const keys = {
   LEFT: 37,
@@ -9,6 +10,14 @@ const keys = {
   ENTER: 13,
   SPACE: 32
 };
+
+function Caption({ date, locale, localeUtils, onClick }) {
+  return (
+    <div className="DayPicker-Caption" onClick={ onClick }>
+      { localeUtils.formatMonthTitle(date, locale) }
+    </div>
+  );
+}
 
 export default class DayPicker extends Component {
 
@@ -43,7 +52,9 @@ export default class DayPicker extends Component {
     onMonthChange: PropTypes.func,
     onCaptionClick: PropTypes.func,
 
-    renderDay: PropTypes.func
+    renderDay: PropTypes.func,
+
+    captionElement: PropTypes.element
 
   }
 
@@ -55,7 +66,8 @@ export default class DayPicker extends Component {
     localeUtils: LocaleUtils,
     enableOutsideDays: false,
     canChangeMonth: true,
-    renderDay: (day) => day.getDate()
+    renderDay: day => day.getDate(),
+    captionElement: <Caption />
   }
 
   constructor(props) {
@@ -316,23 +328,28 @@ export default class DayPicker extends Component {
     );
   }
 
-  renderMonth(d, i) {
-    const { locale, localeUtils, onCaptionClick } = this.props;
+  renderMonth(date, i) {
+    const { locale, localeUtils, onCaptionClick, captionElement } = this.props;
+
+    const caption = React.cloneElement(captionElement, {
+      date, localeUtils, locale,
+      onClick: onCaptionClick ? e => this.handleCaptionClick(e, date) : null
+    });
+
     return (
       <div
         className="DayPicker-Month"
         key={ i }>
-        <div className="DayPicker-Caption" onClick={ onCaptionClick ?
-          (e) => this.handleCaptionClick(e, d) : null }>
-          { localeUtils.formatMonthTitle(d, locale) }
-        </div>
+
+        { caption }
+
         <div className="DayPicker-Weekdays">
           <div className="DayPicker-WeekdaysRow">
             { this.renderWeekDays() }
           </div>
         </div>
         <div className="DayPicker-Body">
-          { this.renderWeeksInMonth(d) }
+          { this.renderWeeksInMonth(date) }
         </div>
       </div>
     );

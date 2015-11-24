@@ -113,6 +113,18 @@ describe("DayPicker", () => {
     expect(ReactDOM.findDOMNode(captionEl[1]).innerHTML).to.equal("January 2016");
   });
 
+  it("renders a custom caption", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker captionElement={ <div className="greeting">Ciao</div> } />
+    );
+    const captionEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "greeting");
+    const oldCaptionEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Caption");
+    expect(captionEl).to.have.length(1);
+    expect(oldCaptionEl).to.have.length(0);
+  });
+
   it("renders the navigation buttons", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 11, 5)} tabIndex={5} />
