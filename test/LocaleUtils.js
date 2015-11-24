@@ -30,4 +30,10 @@ describe("LocaleUtils", () => {
     });
   });
 
+  describe("getMonths", () => {
+    it("return twelve months", () => {
+      expect(LocaleUtils.getMonths()).to.have.length(12);
+    });
+  });
+
 });

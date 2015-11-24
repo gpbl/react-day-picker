@@ -36,4 +36,16 @@ describe("MomentLocaleUtils", () => {
     });
   });
 
+  describe("getMonths", () => {
+    it("return twelve months for it locale", () => {
+      const months = MomentLocaleUtils.getMonths("it");
+      expect(months).to.have.length(12);
+      expect(months[0]).to.equal("gennaio");
+    });
+    it("return twelve months for default locale", () => {
+      expect(MomentLocaleUtils.getMonths()).to.have.length(12);
+    });
+
+  });
+
 });
