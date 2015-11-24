@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from "react";
 import Helpers from "./Helpers";
 import DateUtils from "./DateUtils";
 import LocaleUtils from "./LocaleUtils";
-// import Caption from "./Caption";
 
 const keys = {
   LEFT: 37,
