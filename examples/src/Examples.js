@@ -5,13 +5,14 @@ import { createHistory } from "history";
 import Prism from "./vendors/prism";
 import "./vendors/prism.css";
 
-import SimpleCalendar from "./examples/SimpleCalendar";
-import SelectableDay from "./examples/SelectableDay";
-import InputField from "./examples/InputField";
-import Range from "./examples/Range";
-import Localized from "./examples/Localized";
-import TouchEvents from "./examples/TouchEvents";
 import Birthdays from "./examples/Birthdays";
+import DisabledDays from "./examples/DisabledDays";
+import InputField from "./examples/InputField";
+import Localized from "./examples/Localized";
+import Range from "./examples/Range";
+import SelectableDay from "./examples/SelectableDay";
+import SimpleCalendar from "./examples/SimpleCalendar";
+import TouchEvents from "./examples/TouchEvents";
 import YearCalendar from "./examples/YearCalendar";
 import YearNavigation from "./examples/YearNavigation";
 
@@ -28,9 +29,14 @@ const EXAMPLES = {
     description: "This example uses the <code>modifiers</code> prop and <a href='http://www.gpbl.org/react-day-picker/docs/DateUtils.html'>DateUtils</a> to select a day. Note how the selected day is stored in the parent component's state.",
     Component: SelectableDay
   },
+  disabled: {
+    title: "Disabled Days",
+    description: "This example extends the <a href='#selectable'>previous one</a> with a <code>disabled</code> modifier which avoid the user selecting a day in the past. Note that the <code>handleDayClick</code> method does not set the component’s state when a day has been marked as disabled.<br>It also uses the <code>enableOutsideDays</code> prop to display the days outside the current month.",
+    Component: DisabledDays
+  },
   input: {
     title: "Input Field",
-    description: "Binding the calendar with an input field: users can change the field’s value or interact with the calendar, while both stay in sync.<br>In this example, past days are disabled with a <code>disabled</code> modifier. Setting <code>showOutsideDays</code>, it displays days not belonging to the month.",
+    description: "Binding the calendar with an input field: the user can both change the field’s value or interact with the calendar.",
     Component: InputField
   },
   range: {
@@ -40,18 +46,18 @@ const EXAMPLES = {
   },
   localized: {
     title: "Localized Calendar",
-    description: "This calendar is localized using moment.js. <a href='http://www.gpbl.org/react-day-picker/docs/LocalizationMoment.html'>Read more</a>",
+    description: "This calendar is localized using moment.js. <a href='http://www.gpbl.org/react-day-picker/docs/LocalizationMoment.html'>Read more about localization</a>.",
     Component: Localized
-  },
-  touch: {
-    title: "Touch Events",
-    description: "Make a better interaction on touch devices with the included touch event handlers (as <code>onDayTouchTap</code>) and enabling <a href='https://github.com/zilverline/react-tap-event-plugin'>react-touch-tap-event-plugin</a>.",
-    Component: TouchEvents
   },
   yearNavigation: {
     title: "Year Navigation",
     description: "With the <code>captionElement</code> prop, you can use your own element as month caption. In this example, the caption element is a form to navigate between years and months.",
     Component: YearNavigation
+  },
+  touch: {
+    title: "Touch Events",
+    description: "Make a better interaction on touch devices with the included touch event handlers (as <code>onDayTouchTap</code>) and enabling <a href='https://github.com/zilverline/react-tap-event-plugin'>react-touch-tap-event-plugin</a>.",
+    Component: TouchEvents
   },
   birthdays: {
     title: "Birthdays",

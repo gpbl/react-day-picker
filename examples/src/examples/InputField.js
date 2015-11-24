@@ -13,24 +13,22 @@ export default class InputField extends React.Component {
   }
 
   handleInputChange(e) {
-
     const { value } = e.target;
-    let { month } = this.state;
 
     // Change the current month only if the value entered by the user is a valid
     // date, according to the `L` format
     if (moment(value, "L", true).isValid()) {
-      month = moment(value, "L").toDate();
+      this.setState({
+        month: moment(value, "L").toDate(),
+        value
+      }, this.showCurrentDate);
     }
-
-    this.setState({ value, month }, this.showCurrentDate);
-
+    else {
+      this.setState({ value }, this.showCurrentDate);
+    }
   }
 
-  handleDayClick(e, day, modifiers) {
-    if (modifiers.indexOf("disabled") > -1) {
-      return;
-    }
+  handleDayClick(e, day) {
     this.setState({
       value: moment(day).format("L"),
       month: day
@@ -59,10 +57,8 @@ export default class InputField extends React.Component {
 
         <DayPicker
           ref="daypicker"
-          enableOutsideDays
           initialMonth={ this.state.month }
           modifiers={{
-            disabled: DateUtils.isPastDay,
             selected: day => DateUtils.isSameDay(selectedDay, day)
           }}
           onDayClick={ this.handleDayClick.bind(this) }

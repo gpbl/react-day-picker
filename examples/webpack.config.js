@@ -37,7 +37,18 @@ module.exports = {
 
     new webpack.optimize.UglifyJsPlugin({
       mangle: {
-        except: ["Birthdays", "InputField", "Localized", "Range", "SelectableDay", "SimpleCalendar", "YearCalendar", "TouchEvents"]
+        except: [
+          "Birthdays",
+          "DisabledDays",
+          "InputField",
+          "Localized",
+          "Range",
+          "SelectableDay",
+          "SimpleCalendar",
+          "TouchEvents",
+          "YearCalendar",
+          "YearNavigation"
+        ]
       },
       compress: {
         warnings: false
