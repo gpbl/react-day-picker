@@ -1,11 +1,11 @@
 import React from "react";
-import DayPicker, { LocaleUtils } from "react-day-picker";
+import DayPicker from "react-day-picker";
 
 import "react-day-picker/lib/style.css";
 
-function YearMonthForm({ date, onChange }) {
+function YearMonthForm({ date, localeUtils, onChange }) {
 
-  const months = LocaleUtils.getMonths();
+  const months = localeUtils.getMonths();
 
   const currentYear = (new Date()).getFullYear();
   const years = [];

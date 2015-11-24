@@ -8,6 +8,7 @@
 | Prop | Type |
 | --- | --- |
 | [canChangeMonth](APIProps.md#canchangemonth-boolean) | Boolean |
+| [captionElement](APIProps.md#captionelement-element) | Element |
 | [className](APIProps.md#classname-string) | String |
 | [enableOutsideDays](APIProps.md#enableoutsidedays-boolean) | Boolean |
 | [fromMonth](APIProps.md#frommonth-date) | Date |

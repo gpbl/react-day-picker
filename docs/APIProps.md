@@ -39,39 +39,6 @@ The number of months to render, where `initialMonth` is the first month. Default
 
 ---
 
-#### renderDay (Function)
-
-Returns the content of a day cell. By default, it renders the day's date: `(day) => day.getDate()`.
-
-It can return React elements. For example, the following code will display the day and the name of the people celebrating a birthday that day.
-
-```jsx
-function renderDay(day) {
-  const birthdays = getBirthdaysForDay(day)
-  return (
-    <div>
-      <div className="day">
-        { day.getDate() }
-      </div>
-      {
-        birthdays.map((birthday) =>
-          <div className="birthday">
-            { birthday.name }
-          </div>
-        )
-      }
-    </div>
-  )
-}
-
-function BirthdaysCalendar() {
-  return <DayPicker renderDay={renderDay} numberOfMonths={ 12 } />
-}
-```
-
-
----
-
 #### enableOutsideDays (Boolean)
 
 Display the days outside the current month. Default is `false`.
@@ -106,6 +73,63 @@ By default the used locale is English (US). See also [Localization](Localization
 #### locale (String)
 
 The locale used by the `localeUtils` functions. Default is `en`.  See also [Localization](Localization.md) and [LocaleUtils](LocaleUtils.md).
+
+---
+
+#### captionElement (Element)
+
+A React element to use as caption. This element is cloned with the following props:
+
+* `date: Date` The currently displayed month.
+* `localeUtils: Object` The [localeUtils](#localeutils-object) object passed to the component.
+* `locale: String` The current [locale](#locale-string) passed to the component.
+* `onClick` The [onCaptionClick](#oncaptionclick-function) function, if specified.
+
+The default caption is a `div` with class `DayPicker-Caption`, showing a "month year" text. 
+
+```js
+function MyCaption({ date, localeUtils, locale, onClick }) {
+  return <div>{ date.getMonth() + 1 } / { date.getFullYear() }</div>;
+}
+
+function MyComponent() {
+  return <DayPicker captionElement={ <MyCaption /> } />
+}
+```
+
+See also [this advanced example](examples/#yearNavigation), showing a year navigation element using this prop.
+
+--- 
+
+#### renderDay (Function)
+
+Returns the content of a day cell. By default, it renders the day's date: `(day) => day.getDate()`.
+
+It can return React elements. For example, the following code will display the day and the name of the people celebrating a birthday that day.
+
+```jsx
+function renderDay(day) {
+  const birthdays = getBirthdaysForDay(day)
+  return (
+    <div>
+      <div className="day">
+        { day.getDate() }
+      </div>
+      {
+        birthdays.map((birthday) =>
+          <div className="birthday">
+            { birthday.name }
+          </div>
+        )
+      }
+    </div>
+  )
+}
+
+function BirthdaysCalendar() {
+  return <DayPicker renderDay={renderDay} numberOfMonths={ 12 } />
+}
+```
 
 --- 
 
