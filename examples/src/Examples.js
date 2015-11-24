@@ -13,6 +13,7 @@ import Localized from "./examples/Localized";
 import TouchEvents from "./examples/TouchEvents";
 import Birthdays from "./examples/Birthdays";
 import YearCalendar from "./examples/YearCalendar";
+import YearNavigation from "./examples/YearNavigation";
 
 const history = createHistory();
 
@@ -46,6 +47,11 @@ const EXAMPLES = {
     title: "Touch Events",
     description: "Make a better interaction on touch devices with the included touch event handlers (as <code>onDayTouchTap</code>) and enabling <a href='https://github.com/zilverline/react-tap-event-plugin'>react-touch-tap-event-plugin</a>.",
     Component: TouchEvents
+  },
+  yearNavigation: {
+    title: "Year Navigation",
+    description: "With the <code>captionElement</code> prop, you can use your own element as month caption. In this example, the caption element is a form to navigate between years and months.",
+    Component: YearNavigation
   },
   birthdays: {
     title: "Birthdays",
