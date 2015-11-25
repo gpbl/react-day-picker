@@ -356,9 +356,9 @@ export default class DayPicker extends Component {
     for (let i = 0; i < 7; i++) {
       days.push(
         <div key={ i } className="DayPicker-Weekday">
-          <attr title={ localeUtils.formatWeekdayLong(i, locale) }>
+          <abbr title={ localeUtils.formatWeekdayLong(i, locale) }>
             { localeUtils.formatWeekdayShort(i, locale) }
-          </attr>
+          </abbr>
         </div>
       );
     }
