@@ -98,16 +98,16 @@ export default class DayPicker extends Component {
   }
 
   allowNextMonth() {
-    const { toMonth, numberOfMonths }  = this.props;
+    const { toMonth, numberOfMonths } = this.props;
     if (!toMonth) {
       return true;
     }
     const { currentMonth } = this.state;
-    return Helpers.getMonthsDiff(currentMonth, toMonth) > numberOfMonths - 1;
+    return Helpers.getMonthsDiff(currentMonth, toMonth) >= numberOfMonths;
   }
 
   allowMonth(d) {
-    const { fromMonth, toMonth }  = this.props;
+    const { fromMonth, toMonth } = this.props;
     if ((fromMonth && Helpers.getMonthsDiff(fromMonth, d) < 0) ||
       (toMonth && Helpers.getMonthsDiff(toMonth, d) > 0)) {
       return false;
