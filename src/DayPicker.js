@@ -160,20 +160,6 @@ export default class DayPicker extends Component {
     });
   }
 
-  // Show the month(s) belonging to an outside day, counting the
-  // number of months actually shown in the calendar.
-  showMonthsForOutsideDay(day) {
-    const { currentMonth } = this.state;
-    const { numberOfMonths } = this.props;
-    const diffInMonths = Helpers.getMonthsDiff(currentMonth, day);
-    if (diffInMonths > 0 && diffInMonths >= numberOfMonths) {
-      this.showNextMonth();
-    }
-    else if (diffInMonths < 0) {
-      this.showPreviousMonth();
-    }
-  }
-
   focusPreviousDay(dayNode) {
     const body = dayNode.parentNode.parentNode.parentNode.parentNode;
     let dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
@@ -283,7 +269,7 @@ export default class DayPicker extends Component {
   handleDayTouchTap(e, day, modifiers) {
     e.persist();
     if (modifiers.indexOf("outside") > -1) {
-      this.showMonthsForOutsideDay(day);
+      this.handleOutsideDayPress(day);
     }
     this.props.onDayTouchTap(e, day, modifiers);
   }
@@ -291,7 +277,7 @@ export default class DayPicker extends Component {
   handleDayClick(e, day, modifiers) {
     e.persist();
     if (modifiers.indexOf("outside") > -1) {
-      this.showMonthsForOutsideDay(day);
+      this.handleOutsideDayPress(day);
     }
 
     this.props.onDayClick(e, day, modifiers);
@@ -306,6 +292,19 @@ export default class DayPicker extends Component {
     e.persist();
     this.props.onDayMouseLeave(e, day, modifiers);
   }
+
+  handleOutsideDayPress(day) {
+    const { currentMonth } = this.state;
+    const { numberOfMonths } = this.props;
+    const diffInMonths = Helpers.getMonthsDiff(currentMonth, day);
+    if (diffInMonths > 0 && diffInMonths >= numberOfMonths) {
+      this.showNextMonth();
+    }
+    else if (diffInMonths < 0) {
+      this.showPreviousMonth();
+    }
+  }
+
 
   renderNavBar() {
     const baseClass = "DayPicker-NavButton DayPicker-NavButton";
