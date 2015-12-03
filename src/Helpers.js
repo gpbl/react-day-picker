@@ -4,12 +4,6 @@ import LocaleUtils from "./LocaleUtils";
 
 export default {
 
-  addMonths(d, months) {
-    const newDate = DateUtils.clone(d);
-    newDate.setMonth(d.getMonth() + months);
-    return newDate;
-  },
-
   startOfMonth(d) {
     const newDate = DateUtils.clone(d);
     newDate.setDate(1);
