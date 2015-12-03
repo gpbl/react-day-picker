@@ -167,12 +167,10 @@ export default class DayPicker extends Component {
     const { numberOfMonths } = this.props;
     const diffInMonths = Helpers.getMonthsDiff(currentMonth, day);
     if (diffInMonths > 0 && diffInMonths >= numberOfMonths) {
-      const nextMonth = Helpers.addMonths(currentMonth, numberOfMonths);
-      this.showMonth(nextMonth);
+      this.showNextMonth();
     }
     else if (diffInMonths < 0) {
-      const prevMonth = Helpers.addMonths(currentMonth, -numberOfMonths);
-      this.showMonth(prevMonth);
+      this.showPreviousMonth();
     }
   }
 
