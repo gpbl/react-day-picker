@@ -229,7 +229,7 @@ describe("DayPicker", () => {
 
   it("does not render the prev navigation button when the first displayed month is the first allowed month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 7)} fromMonth={new Date(2015, 5)} numberOfMonths={3} />
+      <DayPicker initialMonth={new Date(2015, 5)} fromMonth={new Date(2015, 5)} numberOfMonths={3} />
     );
     const prev = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-NavButton--prev");
