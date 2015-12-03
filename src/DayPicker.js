@@ -129,7 +129,7 @@ export default class DayPicker extends Component {
       return;
     }
     const { currentMonth } = this.state;
-    const nextMonth = Helpers.addMonths(currentMonth, 1);
+    const nextMonth = DateUtils.addMonths(currentMonth, 1);
     this.setState({
       currentMonth: nextMonth
     }, () => {
@@ -147,7 +147,7 @@ export default class DayPicker extends Component {
       return;
     }
     const { currentMonth } = this.state;
-    const prevMonth = Helpers.addMonths(currentMonth, -1);
+    const prevMonth = DateUtils.addMonths(currentMonth, -1);
     this.setState({
       currentMonth: prevMonth
     }, () => {
@@ -173,7 +173,7 @@ export default class DayPicker extends Component {
     if (nodeIndex === 0) {
       const { currentMonth } = this.state;
       const { numberOfMonths } = this.props;
-      const prevMonth = Helpers.addMonths(currentMonth, -numberOfMonths);
+      const prevMonth = DateUtils.addMonths(currentMonth, -numberOfMonths);
       this.setState({
         currentMonth: prevMonth
       }, () => {
@@ -200,7 +200,7 @@ export default class DayPicker extends Component {
     if (nodeIndex === dayNodes.length - 1) {
       const { currentMonth } = this.state;
       const { numberOfMonths } = this.props;
-      const nextMonth = Helpers.addMonths(currentMonth, numberOfMonths);
+      const nextMonth = DateUtils.addMonths(currentMonth, numberOfMonths);
       this.setState({
         currentMonth: nextMonth
       }, () => {
@@ -451,7 +451,7 @@ export default class DayPicker extends Component {
     const months = [];
     let month;
     for (let i = 0; i < numberOfMonths; i++) {
-      month = Helpers.addMonths(currentMonth, i);
+      month = DateUtils.addMonths(currentMonth, i);
       months.push(this.renderMonth(month, i));
     }
 

@@ -9,6 +9,10 @@ console.log(DateUtils.isPastDay(new Date())); // false
 
 ## Functions
 
+### `addMonths(d: date, n: number) -> date`
+
+Return `d` as a new date with `n` months added. Missing days will be added to the final date, e.g. 2016-03-31 + 1 month = 2016-05-01 (the 31th of April is missing).
+
 ### `clone(d: date) -> date`
 
 Clone the date `d` returning a new date with the same time.
