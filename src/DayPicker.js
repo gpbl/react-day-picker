@@ -10,12 +10,16 @@ const keys = {
   SPACE: 32
 };
 
-function Caption({ date, locale, localeUtils, onClick }) {
-  return (
-    <div className="DayPicker-Caption" onClick={ onClick }>
-      { localeUtils.formatMonthTitle(date, locale) }
-    </div>
-  );
+class Caption extends Component {
+
+  render() {
+    const { date, locale, localeUtils, onClick } = this.props;
+    return (
+      <div className="DayPicker-Caption" onClick={ onClick }>
+        { localeUtils.formatMonthTitle(date, locale) }
+      </div>
+    );
+  }
 }
 
 export default class DayPicker extends Component {
