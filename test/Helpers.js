@@ -6,7 +6,7 @@ describe("Helpers", () => {
 
   describe("addMonths", () => {
     it("adds a month", () => {
-      const date = new Date();
+      const date = new Date(2015, 10);
       const newDate = Helpers.addMonths(date, 1);
       expect(newDate.getMonth()).to.equal(date.getMonth() + 1);
     });
