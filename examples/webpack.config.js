@@ -43,6 +43,7 @@ module.exports = {
           "InputField",
           "Localized",
           "Range",
+          "Restricted",
           "SelectableDay",
           "SimpleCalendar",
           "TouchEvents",
