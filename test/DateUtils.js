@@ -11,9 +11,9 @@ describe("DateUtils", () => {
       expect(newDate.getMonth()).to.equal(date.getMonth() + 1);
     });
     it("should remove two months", () => {
-      const date = new Date();
+      const date = new Date(2015, 10);
       const newDate = DateUtils.addMonths(date, -2);
-      expect(newDate.getMonth()).to.equal(date.getMonth() - 2);
+      expect(newDate.getMonth()).to.equal(8);
     });
     it("should add missing days to the next month", () => {
       const date = new Date(2016, 0, 31);
