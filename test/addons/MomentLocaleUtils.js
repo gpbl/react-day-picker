@@ -16,7 +16,7 @@ describe("MomentLocaleUtils", () => {
   describe("formatWeekdayShort", () => {
     it("should return the short day name as string", () => {
       expect(MomentLocaleUtils.formatWeekdayShort(0)).to.equal("Su");
-      expect(MomentLocaleUtils.formatWeekdayShort(0, "it")).to.equal("L");
+      expect(MomentLocaleUtils.formatWeekdayShort(0, "it")).to.equal("Lu");
     });
   });
 
