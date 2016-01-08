@@ -20,14 +20,23 @@ react-day-picker is a flexible date picker component for [React](https://faceboo
 <img width="291" style="margin: 0 auto" alt="screen shot 2015-11-11 at 15 51 07" src="https://cloud.githubusercontent.com/assets/120693/11093859/d52e0c26-888c-11e5-917e-aaa9686dcb84.png">
 </p>
 
-## Documentation and help
+### Documentation
 
-* [Guides and API](http://gpbl.org/react-day-picker)
 * [Examples with code](http://gpbl.org/react-day-picker/examples)
-* [Github](https://github.com/gpbl/react-day-picker)
+* [Documentation](http://gpbl.org/react-day-picker)
+    * [Getting started](http://gpbl.org/react-day-picker/docs/GettingStarted.html)
+    * [API](http://www.gpbl.org/react-day-picker/docs/API.html)
+    * [Styling](http://www.gpbl.org/react-day-picker/docs/Styling.html)
+    * [Localization](http://www.gpbl.org/react-day-picker/docs/Localization.html)
+    * [Tips](http://www.gpbl.org/react-day-picker/docs/Tips.html)
+    * [Utilities](http://www.gpbl.org/react-day-picker/docs/Utilities.html)
 * [Changelog](https://github.com/gpbl/react-day-picker/releases)
-* [Issues](https://github.com/gpbl/react-day-picker/issues)
-* [Gitter room](https://gitter.im/gpbl/react-day-picker)
+
+### Contribute 
+
+* [Github](https://github.com/gpbl/react-day-picker) – pull requests are welcome!
+* [Issues](https://github.com/gpbl/react-day-picker/issues) – file bugs and suggestions
+* [Gitter room](https://gitter.im/gpbl/react-day-picker) – ask questions and chat with other developers
 
 ## Quick start
 
