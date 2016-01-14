@@ -7,12 +7,14 @@
 
 react-day-picker is a flexible date picker component for [React](https://facebook.github.io/react/).
 
-* select days, ranges, whatever using CSS modifiers
-* easily change style and add content to days cells
-* display multiple months
-* ready for i18n, with moment.js or any other library
-* navigable via keyboard, ARIA support
 * no external dependencies
+* select days, ranges, whatever using CSS modifiers
+* ready for i18n, with [moment.js](momentjs.com) or any other library
+* customizable [style](https://github.com/gpbl/react-day-picker/blob/master/src/style.css)
+* navigable via keyboard, ARIA support
+
+Look at [some examples](http://gpbl.org/react-day-picker/examples) showing all its features!
+
 
 [![build status](https://img.shields.io/travis/gpbl/react-day-picker/master.svg?style=flat-square)](https://travis-ci.org/gpbl/react-day-picker)
 [![coveralls](https://img.shields.io/coveralls/gpbl/react-day-picker.svg?style=flat-square)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
@@ -33,7 +35,7 @@ react-day-picker is a flexible date picker component for [React](https://faceboo
     * [Utilities](http://www.gpbl.org/react-day-picker/docs/Utilities.html)
 * [Changelog](https://github.com/gpbl/react-day-picker/releases)
 
-### Contribute 
+### Contribute
 
 * [Github](https://github.com/gpbl/react-day-picker) – pull requests are welcome!
 * [Issues](https://github.com/gpbl/react-day-picker/issues) – file bugs and suggestions
