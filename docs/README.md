@@ -1,6 +1,7 @@
 # react-day-picker
 
 * [Introduction](/README.md)
+
 * [Getting started](/docs/GettingStarted.md)
 * [Component API](/docs/API.md)
     * [Component props](/docs/APIProps.md)
@@ -13,3 +14,5 @@
 * [Utilities](/docs/Utilities.md)
   * [DateUtils](/docs/DateUtils.md)
   * [LocaleUtils](/docs/LocaleUtils.md)
+* [Examples with code](http://www.gpbl.org/react-day-picker/examples)
+* [Github](https://github.com/gpbl/react-day-picker/)
