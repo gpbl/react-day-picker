@@ -43,32 +43,32 @@ The number of months to render, where `initialMonth` is the first month. Default
 
 Display the days outside the current month. Default is `false`.
 
---- 
+---
 
 #### canChangeMonth (Boolean)
 
 Enable the navigation between months. Default is `true`.
 
---- 
+---
 
 #### fromMonth (Date)
 
 The first allowed month. Users won't be able to navigate or interact with the days before it.
 
---- 
+---
 
 #### toMonth (Date)
 
 The last allowed month. Users won't be able to navigate or interact with the days after it.
 
---- 
+---
 
 #### localeUtils (Object)
 
 Object of functions to format dates and to get the first day of the week. Pass your own utils to support localization.
 By default the used locale is English (US). See also [Localization](Localization.md) and [LocaleUtils](LocaleUtils.md).
 
---- 
+---
 
 #### locale (String)
 
@@ -85,7 +85,7 @@ A React element to use as caption. This element is cloned with the following pro
 * `locale: String` The current [locale](#locale-string) passed to the component.
 * `onClick` The [onCaptionClick](#oncaptionclick-function) function, if specified.
 
-The default caption is a `div` with class `DayPicker-Caption`, showing a "month year" text. 
+The default caption is a `div` with class `DayPicker-Caption`, showing a "month year" text.
 
 ```js
 function MyCaption({ date, localeUtils, locale, onClick }) {
@@ -97,9 +97,9 @@ function MyComponent() {
 }
 ```
 
-See also [this advanced example](examples/#yearNavigation), showing a year navigation element using this prop.
+See also [this advanced example](../examples/#yearNavigation), showing a year navigation element using this prop.
 
---- 
+---
 
 #### renderDay (Function)
 
@@ -131,7 +131,7 @@ function BirthdaysCalendar() {
 }
 ```
 
---- 
+---
 
 #### onDayClick (Function)
 
@@ -142,12 +142,12 @@ function onDayClick(e, day, modifiers) {
   console.log("Day %s has been clicked", day.toString());
 }
 ```
-  
---- 
+
+---
 
 #### onDayTouchTap (Function)
 
-Event handler when the user taps (or click) on a day cell. 
+Event handler when the user taps (or click) on a day cell.
 Requires [react-tap-event-plugin](https://github.com/zilverline/react-tap-event-plugin). Example:
 
 ```
@@ -159,7 +159,7 @@ function onDayTouchTap(e, day, modifiers) {
 }
 ```
 
---- 
+---
 
 #### onDayMouseEnter (Function)
 
@@ -171,7 +171,7 @@ function onDayMouseEnter(e, day, modifiers) {
 }
 ```
 
---- 
+---
 
 #### onDayMouseLeave (Function)
 
@@ -183,24 +183,24 @@ function onDayMouseLeave(e, day, modifiers) {
 }
 ```
 
---- 
+---
 
 #### onMonthChange (Function)
 
 Event handler when the month is changed, i.e. clicking the navigation buttons or using the keyboard. Example:
-                
+
 ```jsx
 function onMonthChange(month) {
    // do magic, e.g. request a server for days availability
 }
 ```
 
---- 
+---
 
 #### onCaptionClick (Function)
 
 Event handler when the user clicks on the caption in the header displaying the month. Example:
-               
+
 ```jsx
 function onCaptionClick(e, currentMonth) {
   // Set daypicker to initial month
@@ -209,24 +209,23 @@ function onCaptionClick(e, currentMonth) {
 }
 ```
 
---- 
+---
 
 
 #### className (String)
 
 Class names to add to the root node.
 
---- 
+---
 
 #### style (Object)
 
 A custom style object to add to the root node.
 
---- 
+---
 
 #### tabIndex (Number)
 
 The tab index for keyboard navigation. Default is `0`.
 
---- 
-
+---
