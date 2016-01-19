@@ -8,8 +8,8 @@
 react-day-picker is a flexible date picker component for [React](https://facebook.github.io/react/).
 
 * no external dependencies
-* select days, ranges, whatever using CSS modifiers
-* ready for i18n, with [moment.js](momentjs.com) or any other library
+* select [days](http://www.gpbl.org/react-day-picker/examples/#selectable), [ranges](http://www.gpbl.org/react-day-picker/examples/#range), whatever using CSS modifiers
+* ready for i18n, with [moment.js](http://www.gpbl.org/react-day-picker/examples/#localized) or [any other library](http://www.gpbl.org/react-day-picker/examples/#localizedCustom)
 * customizable [style](https://github.com/gpbl/react-day-picker/blob/master/src/style.css)
 * navigable via keyboard, ARIA support
 
