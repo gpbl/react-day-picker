@@ -42,6 +42,7 @@ module.exports = {
           "DisabledDays",
           "InputField",
           "Localized",
+          "LocalizedCustom",
           "Range",
           "Restricted",
           "SelectableDay",

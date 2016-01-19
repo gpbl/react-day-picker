@@ -9,6 +9,7 @@ import Birthdays from "./examples/Birthdays";
 import DisabledDays from "./examples/DisabledDays";
 import InputField from "./examples/InputField";
 import Localized from "./examples/Localized";
+import LocalizedCustom from "./examples/LocalizedCustom";
 import Range from "./examples/Range";
 import Restricted from "./examples/Restricted";
 import SelectableDay from "./examples/SelectableDay";
@@ -51,9 +52,14 @@ const EXAMPLES = {
     Component: Restricted
   },
   localized: {
-    title: "Localized Calendar",
+    title: "Localization (moment.js)",
     description: "This calendar is localized using moment.js. <a href='http://www.gpbl.org/react-day-picker/docs/LocalizationMoment.html'>Read more about localization</a>.",
     Component: Localized
+  },
+  localizedCustom: {
+    title: "Localization (custom)",
+    description: "If you prefer to not include external libraries to localize the calendar, you can provide your own <code>localeUtils</code> which is basically a rewrite of the <a href='https://github.com/gpbl/react-day-picker/blob/master/src/LocaleUtils.js'>original one</a>. The following example provides Russian and English localizations.",
+    Component: LocalizedCustom
   },
   yearNavigation: {
     title: "Year Navigation",
@@ -100,7 +106,8 @@ export default class Examples extends Component {
   handleHistoryChange({ hash }) {
     const currentExample = hash.replace("#", "");
     if (currentExample in EXAMPLES) {
-      this.setState({ currentExample, showNavBar: false });
+
+      this.setState({ currentExample, showNavBar: false }, () => window.scrollTo(0, 0));
     }
   }
 
