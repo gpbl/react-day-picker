@@ -437,7 +437,7 @@ export default class DayPicker extends Component {
   }
 
   render() {
-    const { numberOfMonths, locale, style, tabIndex, canChangeMonth } = this.props;
+    const { numberOfMonths, locale, style, tabIndex, canChangeMonth, ...attributes } = this.props;
     const { currentMonth } = this.state;
     let className = `DayPicker DayPicker--${locale}`;
 
@@ -460,7 +460,8 @@ export default class DayPicker extends Component {
         style={ style }
         role="widget"
         tabIndex={ canChangeMonth && tabIndex }
-        onKeyDown={ canChangeMonth && ::this.handleKeyDown }>
+        onKeyDown={ canChangeMonth && ::this.handleKeyDown }
+        {...attributes}>
         { canChangeMonth && this.renderNavBar() }
         { months }
       </div>

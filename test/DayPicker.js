@@ -65,6 +65,24 @@ describe("DayPicker", () => {
     expect(dayPicker.props.tabIndex).to.equal(10);
   });
 
+  it("should spread the rest of the props to the container", () => {
+    const focus = sinon.spy();
+    const blur = sinon.spy();
+    const dayPicker = TestUtils.renderIntoDocument(<DayPicker
+      style={{ color: 'red' }}
+      onFocus={focus}
+      onBlur={blur} />);
+    const node = ReactDOM.findDOMNode(dayPicker);
+
+    TestUtils.Simulate.focus(node);
+    expect(focus.calledOnce).to.be.true;
+
+    TestUtils.Simulate.blur(node);
+    expect(blur.calledOnce).to.be.true;
+
+    expect(node.style.color).to.equal("red");
+  });
+
   it("does not contain a interactionEnabled modifier", () => {
     const shallowRenderer = TestUtils.createRenderer();
     shallowRenderer.render(<DayPicker interactionEnabled={false} />);
