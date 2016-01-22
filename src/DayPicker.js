@@ -469,7 +469,7 @@ export default class DayPicker extends Component {
       <div className={ dayPickerClassName }
         role="widget"
         tabIndex={ canChangeMonth && tabIndex }
-        onKeyDown={ canChangeMonth && ::this.handleKeyDown }
+        onKeyDown={ ::this.handleKeyDown }
         {...attributes}>
         { canChangeMonth && this.renderNavBar() }
         { months }
