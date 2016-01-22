@@ -100,15 +100,6 @@ describe("DayPicker", () => {
     expect(dayPicker.props.className).to.contain("custom-class");
   });
 
-  it("uses the `style` prop", () => {
-    const style = { fontSize: 12 };
-    const shallowRenderer = TestUtils.createRenderer();
-    shallowRenderer.render(<DayPicker style={ style } />);
-
-    const dayPicker = shallowRenderer.getRenderOutput();
-    expect(dayPicker.props.style.fontSize).to.equal(12);
-  });
-
   // RENDERING
 
   it("renders the number of months as specified by initialMonth", () => {
