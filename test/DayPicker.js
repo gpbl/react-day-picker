@@ -1007,7 +1007,7 @@ describe("DayPicker", () => {
       const dayPicker = TestUtils.renderIntoDocument(<DayPicker onKeyDown={spy} />);
       const node = ReactDOM.findDOMNode(dayPicker);
       TestUtils.Simulate.keyDown(node);
-      expect(spy.calledOnce).to.equal(true);
+      expect(spy.calledOnce).to.be.true;
     });
   });
 });
