@@ -1001,8 +1001,8 @@ describe("DayPicker", () => {
 
   });
 
-  describe('handleKeyDown', () => {
-    it('should call props.onKeyDown', () => {
+  describe("handleKeyDown", () => {
+    it("should call props.onKeyDown", () => {
       const spy = sinon.spy();
       const dayPicker = TestUtils.renderIntoDocument(<DayPicker onKeyDown={spy} />);
       const node = ReactDOM.findDOMNode(dayPicker);
