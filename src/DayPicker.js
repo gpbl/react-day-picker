@@ -215,13 +215,24 @@ export default class DayPicker extends Component {
   // Event handlers
 
   handleKeyDown(e) {
-    switch (e.keyCode) {
-    case keys.LEFT:
-      this.showPreviousMonth();
-      break;
-    case keys.RIGHT:
-      this.showNextMonth();
-      break;
+    const { canChangeMonth, onKeyDown }  = this.props;
+
+    if ( !canChangeMonth && onKeyDown ) {
+      onKeyDown(e);
+      return;
+    }
+
+    if ( canChangeMonth ) {
+      const callback = onKeyDown ? () => onKeyDown(e) : null;
+
+      switch (e.keyCode) {
+      case keys.LEFT:
+        this.showPreviousMonth(callback);
+        break;
+      case keys.RIGHT:
+        this.showNextMonth(callback);
+        break;
+      }
     }
   }
 
