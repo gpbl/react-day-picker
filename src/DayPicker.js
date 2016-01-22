@@ -436,14 +436,14 @@ export default class DayPicker extends Component {
   }
 
   render() {
-    const { numberOfMonths, locale, tabIndex, canChangeMonth, ...attributes } = this.props;
+    const { numberOfMonths, locale, tabIndex, canChangeMonth, className,  ...attributes } = this.props;
     const { currentMonth } = this.state;
     let className = `DayPicker DayPicker--${locale}`;
 
     if (!this.props.onDayClick && !this.props.onDayTouchTap) {
       className = `${className} DayPicker--interactionDisabled`;
     }
-    if (this.props.className) {
+    if (className) {
       className = `${className} ${this.props.className}`;
     }
 
