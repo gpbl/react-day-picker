@@ -44,6 +44,7 @@ describe("DayPicker", () => {
     shallowRenderer.render(<DayPicker />);
 
     const dayPicker = shallowRenderer.getRenderOutput();
+    console.log(dayPicker);
     expect(dayPicker.props.className).to.contain("DayPicker");
     expect(dayPicker.props.className).to.contain("DayPicker--en");
     expect(dayPicker.props.className).to.contain("DayPicker--interactionDisabled");
