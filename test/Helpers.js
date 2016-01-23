@@ -1,6 +1,6 @@
 
 import { expect } from "chai";
-import Helpers from "../src/Helpers";
+import * as Helpers from "../src/Helpers";
 
 describe("Helpers", () => {
 

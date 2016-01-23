@@ -1,6 +1,6 @@
 
 import { expect } from "chai";
-import DateUtils from "../src/DateUtils";
+import * as DateUtils from "../src/DateUtils";
 
 describe("DateUtils", () => {
 
