@@ -26,3 +26,11 @@ export function getFirstDayOfWeek() {
 export function getMonths() {
   return MONTHS;
 }
+
+export default {
+  formatMonthTitle,
+  formatWeekdayShort,
+  formatWeekdayLong,
+  getFirstDayOfWeek,
+  getMonths
+}

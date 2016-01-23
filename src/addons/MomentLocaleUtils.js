@@ -25,3 +25,11 @@ export function getMonths(locale="en") {
   }
   return months;
 }
+
+export default {
+  formatMonthTitle,
+  formatWeekdayShort,
+  formatWeekdayLong,
+  getFirstDayOfWeek,
+  getMonths
+}
