@@ -7,26 +7,22 @@ const WEEKDAYS_SHORT = ["Su", "Mo", "Tu",
 const MONTHS = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 
-export default {
+export function formatMonthTitle(d) {
+  return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+}
 
-  formatMonthTitle(d) {
-    return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
-  },
+export function formatWeekdayShort(i) {
+  return WEEKDAYS_SHORT[i];
+}
 
-  formatWeekdayShort(i) {
-    return WEEKDAYS_SHORT[i];
-  },
+export function formatWeekdayLong(i) {
+  return WEEKDAYS_LONG[i];
+}
 
-  formatWeekdayLong(i) {
-    return WEEKDAYS_LONG[i];
-  },
+export function getFirstDayOfWeek() {
+  return 0;
+}
 
-  getFirstDayOfWeek() {
-    return 0;
-  },
-
-  getMonths() {
-    return MONTHS;
-  }
-
+export function getMonths() {
+  return MONTHS;
 }

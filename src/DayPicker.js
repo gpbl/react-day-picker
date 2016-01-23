@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
-import Helpers from "./Helpers";
-import DateUtils from "./DateUtils";
-import LocaleUtils from "./LocaleUtils";
+import * as Helpers from "./Helpers";
+import * as DateUtils from "./DateUtils";
+import * as LocaleUtils from "./LocaleUtils";
 
 const keys = {
   LEFT: 37,
@@ -59,7 +59,7 @@ export default class DayPicker extends Component {
 
     captionElement: PropTypes.element
 
-  }
+  };
 
   static defaultProps = {
     tabIndex: 0,
@@ -71,7 +71,7 @@ export default class DayPicker extends Component {
     canChangeMonth: true,
     renderDay: day => day.getDate(),
     captionElement: <Caption />
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -377,7 +377,6 @@ export default class DayPicker extends Component {
   }
 
   renderDay(month, day) {
-    const { renderDay } = this.props;
 
     const { enableOutsideDays, modifiers: modifierFunctions } = this.props;
 
@@ -431,7 +430,7 @@ export default class DayPicker extends Component {
         onTouchTap= { onDayTouchTap ?
           (e) => this.handleDayTouchTap(e, day, modifiers) : null }
         >
-        { renderDay(day) }
+        { this.props.renderDay(day) }
       </div>
     );
   }
@@ -469,4 +468,3 @@ export default class DayPicker extends Component {
 
 
 }
-

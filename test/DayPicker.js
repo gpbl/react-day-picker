@@ -14,7 +14,7 @@ ExecutionEnvironment.canUseDOM = true;
 
 const TestUtils = require("react-addons-test-utils");
 
-const DayPicker = require("../src/DayPicker");
+const DayPicker = require("../src/DayPicker").default;
 
 const keys = {
   LEFT: 37,

@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import MomentLocaleUtils from "../../src/addons/MomentLocaleUtils";
+import * as MomentLocaleUtils from "../../src/addons/MomentLocaleUtils";
 
 describe("MomentLocaleUtils", () => {
 
