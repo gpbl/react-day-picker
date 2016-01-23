@@ -137,7 +137,9 @@ export default class Examples extends Component {
       <div>
         <div className="NavBar-toggle" onTouchTap={ () => { this.setState({ showNavBar: !showNavBar })}} />
         <div className="Header">
-          <h1><a href="http://www.gpbl.org/react-day-picker/">react-day-picker</a></h1>
+          <a href="http://www.gpbl.org/react-day-picker/">
+            <img src="https://cloud.githubusercontent.com/assets/120693/12529597/79225e4a-c1bd-11e5-9001-cc27c6b9bb1b.png" style={{maxWidth: "230px"}} />
+          </a>
         </div>
         <div className={ `Content${showNavBar ? " navbar-is-visible" : ""}` }>
 
