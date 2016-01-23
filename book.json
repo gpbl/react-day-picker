@@ -1,5 +1,6 @@
 {
-  "plugins": ["prism", "-highlight", "github", "ga"],
+  "gitbook": "2.4.3",
+  "plugins": ["edit-link", "prism", "-highlight", "github", "ga"],
   "structure": {
     "summary": "docs/README.md"
   },
@@ -12,6 +13,10 @@
     },
     "ga": {
       "token": "UA-68185118-1"
+    },
+    "edit-link": {
+      "base": "https://github.com/gpbl/react-day-picker/tree/master",
+      "label": "Edit This Page"
     }
   }
 }
