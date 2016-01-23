@@ -8,7 +8,7 @@ export default class YearCalendar extends React.Component {
 
   state = {
     year: (new Date()).getFullYear()
-  }
+  };
 
   showPrevious() {
     this.setState({

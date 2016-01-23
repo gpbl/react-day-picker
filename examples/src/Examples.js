@@ -1,3 +1,4 @@
+/* eslint react/no-danger: 0 */
 import React, { Component } from "react";
 
 import { createHistory } from "history";
@@ -89,7 +90,7 @@ export default class Examples extends Component {
   state = {
     currentExample: "simple",
     showNavBar: false
-  }
+  };
 
   componentDidMount() {
     this.unlistenHistory = history.listen(::this.handleHistoryChange);

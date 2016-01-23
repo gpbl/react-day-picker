@@ -42,7 +42,7 @@ export default class YearNavigation extends React.Component {
 
   state = {
     initialMonth: new Date()
-  }
+  };
 
   render() {
     return (

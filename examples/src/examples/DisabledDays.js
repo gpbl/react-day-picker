@@ -7,7 +7,7 @@ export default class DisabledDays extends React.Component {
 
   state = {
     selectedDay: null
-  }
+  };
 
   handleDayClick(e, day, modifiers) {
     if (modifiers.indexOf("disabled") > -1) {

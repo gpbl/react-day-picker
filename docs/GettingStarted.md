@@ -32,7 +32,7 @@ class SelectDay extends React.Component {
 
   state = {
     selectedDay: null
-  }
+  };
 
   handleDayClick(e, day, modifiers) {
     this.setState({ selectedDay: day });

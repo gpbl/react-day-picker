@@ -16,7 +16,7 @@ export default class Localized extends React.Component {
 
   state = {
     locale: "en"
-  }
+  };
 
   switchLocale(e) {
     const locale = e.target.value || "en";

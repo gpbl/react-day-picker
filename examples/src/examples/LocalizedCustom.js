@@ -32,7 +32,7 @@ export default class LocalizedCustom extends React.Component {
 
   state = {
     locale: "ru"
-  }
+  };
 
   switchLocale(e) {
     const locale = e.target.value || "en";

@@ -10,7 +10,7 @@ export default class InputField extends React.Component {
   state = {
     value: moment().format("L"), // The value of the input field
     month: new Date() // The month to display in the calendar
-  }
+  };
 
   handleInputChange(e) {
     const { value } = e.target;

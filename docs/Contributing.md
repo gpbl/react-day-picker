@@ -11,8 +11,8 @@ git clone https://github.com/gpbl/react-day-picker.git
 cd react-day-picker && npm install
 ```
 
-Use:
+Some useful npm scripts:
 
-* use `npm test` to test the code
-* use `npm cover` to run a test coverage report
-* use `npm lint` to make sure the code is linted correctly
+* `npm test`: test the code
+* `npm cover`: run a test coverage report
+* `npm lint`: make sure the code is linted correctly

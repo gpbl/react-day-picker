@@ -9,7 +9,7 @@ export default class Range extends React.Component {
   state = {
     from: null,
     to: null
-  }
+  };
 
   handleDayClick(e, day) {
     const range = DateUtils.addDayToRange(day, this.state);
