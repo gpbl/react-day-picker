@@ -116,3 +116,13 @@ export function isDayInRange(day, range) {
     (to && isSameDay(day, to)) ||
     (from && to && isDayBetween(day, from, to));
 }
+
+export default {
+  addDayToRange,
+  addMonths,
+  clone,
+  isSameDay,
+  isDayInRange,
+  isDayBetween,
+  isPastDay
+}
