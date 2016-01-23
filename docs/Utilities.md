@@ -1,4 +1,4 @@
 # Utilities
 
-* [DateUtils](DateUtils.md) – contain some functions useful to setup modifiers.
-* [LocaleUtils](LocaleUtils.md) - set of function to localize the component, usually overridden by implementers.
+* [DateUtils](DateUtils.md) – contain some date functions useful to setup modifiers.
+* [LocaleUtils](LocaleUtils.md) - set of functions used to localize the component, usually [overridden](LocalizationCustom.md) by implementers.
