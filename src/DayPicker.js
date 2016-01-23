@@ -10,6 +10,18 @@ const keys = {
   SPACE: 32
 };
 
+class Caption extends Component {
+
+  render() {
+    const { date, locale, localeUtils, onClick } = this.props;
+    return (
+      <div className="DayPicker-Caption" onClick={ onClick }>
+        { localeUtils.formatMonthTitle(date, locale) }
+      </div>
+    );
+  }
+}
+
 export default class DayPicker extends Component {
 
   static propTypes = {
@@ -43,7 +55,9 @@ export default class DayPicker extends Component {
     onMonthChange: PropTypes.func,
     onCaptionClick: PropTypes.func,
 
-    renderDay: PropTypes.func
+    renderDay: PropTypes.func,
+
+    captionElement: PropTypes.element
 
   }
 
@@ -55,7 +69,8 @@ export default class DayPicker extends Component {
     localeUtils: LocaleUtils,
     enableOutsideDays: false,
     canChangeMonth: true,
-    renderDay: (day) => day.getDate()
+    renderDay: day => day.getDate(),
+    captionElement: <Caption />
   }
 
   constructor(props) {
@@ -74,25 +89,25 @@ export default class DayPicker extends Component {
   }
 
   allowPreviousMonth() {
-    const { fromMonth, numberOfMonths }  = this.props;
+    const { fromMonth } = this.props;
     if (!fromMonth) {
       return true;
     }
     const { currentMonth } = this.state;
-    return Helpers.getMonthsDiff(fromMonth, currentMonth) > numberOfMonths - 1;
+    return Helpers.getMonthsDiff(currentMonth, fromMonth) < 0;
   }
 
   allowNextMonth() {
-    const { toMonth, numberOfMonths }  = this.props;
+    const { toMonth, numberOfMonths } = this.props;
     if (!toMonth) {
       return true;
     }
     const { currentMonth } = this.state;
-    return Helpers.getMonthsDiff(currentMonth, toMonth) > numberOfMonths - 1;
+    return Helpers.getMonthsDiff(currentMonth, toMonth) >= numberOfMonths;
   }
 
   allowMonth(d) {
-    const { fromMonth, toMonth }  = this.props;
+    const { fromMonth, toMonth } = this.props;
     if ((fromMonth && Helpers.getMonthsDiff(fromMonth, d) < 0) ||
       (toMonth && Helpers.getMonthsDiff(toMonth, d) > 0)) {
       return false;
@@ -114,7 +129,7 @@ export default class DayPicker extends Component {
       return;
     }
     const { currentMonth } = this.state;
-    const nextMonth = Helpers.addMonths(currentMonth, 1);
+    const nextMonth = DateUtils.addMonths(currentMonth, 1);
     this.setState({
       currentMonth: nextMonth
     }, () => {
@@ -132,7 +147,7 @@ export default class DayPicker extends Component {
       return;
     }
     const { currentMonth } = this.state;
-    const prevMonth = Helpers.addMonths(currentMonth, -1);
+    const prevMonth = DateUtils.addMonths(currentMonth, -1);
     this.setState({
       currentMonth: prevMonth
     }, () => {
@@ -143,26 +158,6 @@ export default class DayPicker extends Component {
         this.props.onMonthChange(this.state.currentMonth);
       }
     });
-  }
-
-  // Show the month(s) belonging to an outside day, counting the
-  // number of months actually shown in the calendar.
-  showMonthsForOutsideDay(day) {
-    const { currentMonth } = this.state;
-    const { numberOfMonths } = this.props;
-    const diffInMonths = Helpers.getMonthsDiff(currentMonth, day);
-    if (diffInMonths > 0 && diffInMonths >= numberOfMonths) {
-      const nextMonth = Helpers.addMonths(currentMonth, numberOfMonths);
-      this.setState({
-        currentMonth: nextMonth
-      });
-    }
-    else if (diffInMonths < 0) {
-      const prevMonth = Helpers.addMonths(currentMonth, -numberOfMonths);
-      this.setState({
-        currentMonth: prevMonth
-      });
-    }
   }
 
   focusPreviousDay(dayNode) {
@@ -178,7 +173,7 @@ export default class DayPicker extends Component {
     if (nodeIndex === 0) {
       const { currentMonth } = this.state;
       const { numberOfMonths } = this.props;
-      const prevMonth = Helpers.addMonths(currentMonth, -numberOfMonths);
+      const prevMonth = DateUtils.addMonths(currentMonth, -numberOfMonths);
       this.setState({
         currentMonth: prevMonth
       }, () => {
@@ -205,7 +200,7 @@ export default class DayPicker extends Component {
     if (nodeIndex === dayNodes.length - 1) {
       const { currentMonth } = this.state;
       const { numberOfMonths } = this.props;
-      const nextMonth = Helpers.addMonths(currentMonth, numberOfMonths);
+      const nextMonth = DateUtils.addMonths(currentMonth, numberOfMonths);
       this.setState({
         currentMonth: nextMonth
       }, () => {
@@ -274,7 +269,7 @@ export default class DayPicker extends Component {
   handleDayTouchTap(e, day, modifiers) {
     e.persist();
     if (modifiers.indexOf("outside") > -1) {
-      this.showMonthsForOutsideDay(day);
+      this.handleOutsideDayPress(day);
     }
     this.props.onDayTouchTap(e, day, modifiers);
   }
@@ -282,7 +277,7 @@ export default class DayPicker extends Component {
   handleDayClick(e, day, modifiers) {
     e.persist();
     if (modifiers.indexOf("outside") > -1) {
-      this.showMonthsForOutsideDay(day);
+      this.handleOutsideDayPress(day);
     }
 
     this.props.onDayClick(e, day, modifiers);
@@ -297,6 +292,19 @@ export default class DayPicker extends Component {
     e.persist();
     this.props.onDayMouseLeave(e, day, modifiers);
   }
+
+  handleOutsideDayPress(day) {
+    const { currentMonth } = this.state;
+    const { numberOfMonths } = this.props;
+    const diffInMonths = Helpers.getMonthsDiff(currentMonth, day);
+    if (diffInMonths > 0 && diffInMonths >= numberOfMonths) {
+      this.showNextMonth();
+    }
+    else if (diffInMonths < 0) {
+      this.showPreviousMonth();
+    }
+  }
+
 
   renderNavBar() {
     const baseClass = "DayPicker-NavButton DayPicker-NavButton";
@@ -316,23 +324,28 @@ export default class DayPicker extends Component {
     );
   }
 
-  renderMonth(d, i) {
-    const { locale, localeUtils, onCaptionClick } = this.props;
+  renderMonth(date, i) {
+    const { locale, localeUtils, onCaptionClick, captionElement } = this.props;
+
+    const caption = React.cloneElement(captionElement, {
+      date, localeUtils, locale,
+      onClick: onCaptionClick ? e => this.handleCaptionClick(e, date) : null
+    });
+
     return (
       <div
         className="DayPicker-Month"
         key={ i }>
-        <div className="DayPicker-Caption" onClick={ onCaptionClick ?
-          (e) => this.handleCaptionClick(e, d) : null }>
-          { localeUtils.formatMonthTitle(d, locale) }
-        </div>
+
+        { caption }
+
         <div className="DayPicker-Weekdays">
           <div className="DayPicker-WeekdaysRow">
             { this.renderWeekDays() }
           </div>
         </div>
         <div className="DayPicker-Body">
-          { this.renderWeeksInMonth(d) }
+          { this.renderWeeksInMonth(date) }
         </div>
       </div>
     );
@@ -344,9 +357,9 @@ export default class DayPicker extends Component {
     for (let i = 0; i < 7; i++) {
       days.push(
         <div key={ i } className="DayPicker-Weekday">
-          <attr title={ localeUtils.formatWeekdayLong(i, locale) }>
+          <abbr title={ localeUtils.formatWeekdayLong(i, locale) }>
             { localeUtils.formatWeekdayShort(i, locale) }
-          </attr>
+          </abbr>
         </div>
       );
     }
@@ -437,7 +450,7 @@ export default class DayPicker extends Component {
     const months = [];
     let month;
     for (let i = 0; i < numberOfMonths; i++) {
-      month = Helpers.addMonths(currentMonth, i);
+      month = DateUtils.addMonths(currentMonth, i);
       months.push(this.renderMonth(month, i));
     }
 

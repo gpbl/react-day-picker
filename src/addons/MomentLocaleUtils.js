@@ -17,6 +17,15 @@ export default {
   getFirstDayOfWeek(locale="en") {
     const localeData = moment.localeData(locale);
     return localeData.firstDayOfWeek();
+  },
+
+  getMonths(locale="en") {
+    const months = [];
+    let i = 0;
+    while (i < 12) {
+      months.push(moment().locale(locale).month(i++).format("MMMM"));
+    }
+    return months;
   }
 
 };

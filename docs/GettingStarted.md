@@ -1,8 +1,8 @@
-# Getting started
+# Getting started using react-day-picker
 
-To understand how react-day-picker works, we will create a simple React component to select a day from the day picker.
+To understand better how react-day-picker works, we will create a simple React component to select a day from the date picker.
 
-First, write a new `SelectDay` component:
+First, write a new stateful `SelectDay` component:
 
 ```jsx
 import React from "react";
@@ -25,7 +25,7 @@ class SelectDay extends React.Component {
 
 ### Use `onDayClick` to make a day clickable
 
-The code above displays a day picker, yet nothing happens when a day is clicked. Use the `onDayClick` prop to store the clicked day in the component's state:
+The code above displays the day picker, yet nothing happens when a day is clicked. Use the `onDayClick` prop to store the clicked day in the component's state:
 
 ```jsx
 class SelectDay extends React.Component {
@@ -54,7 +54,7 @@ class SelectDay extends React.Component {
 
 ### Use modifiers to change the days appearance
 
-The selected day is indistinguishable from the other days until we don't style it. For example, we want the selected day appear on a blue background.
+The selected day is indistinguishable from the others until we don't style it. For example, we want the selected day appear on a blue background.
 
 To change the day appearance, we add a **modifier**, i.e. a string used as CSS modifier for the day's element.
 
@@ -70,7 +70,7 @@ First, create a CSS class in an external CSS file, where the day element has a `
 }
 ```
 
-> We are using a [BEM-like syntax](https://css-tricks.com/bem-101/). In the rendered HTML, the `DayPicker-Day` class represents the day element, and `--selected` is the modifier we want to use to mark a day as "selected". 
+> We are using a [BEM-like syntax](https://css-tricks.com/bem-101/). In the rendered HTML, the `DayPicker-Day` class represents the day element, and `--selected` is the modifier we want to use to mark a day as "selected".
 
 Make sure you include the CSS in the component:
 
@@ -83,7 +83,7 @@ import "../modifiers.css";
 // ..snip...
 ```
 
-#### To add modifiers, pass named functions to the `modifiers` prop 
+#### To add modifiers, pass named functions to the `modifiers` prop
 
 To add modifiers, use the `modifiers` prop. This prop takes an **object of named functions**. Those functions are called when rendering the day elements, and take the day as argument. As they returns `true`, the function’s name is added as modifier.
 
@@ -112,7 +112,7 @@ render() {
 // snip
 ```
 
-Now, when the day is selected, it appears with a red background because its element has the `DayPicker-Day--selected` class.
+Now, when the day is selected, it appears with a blue background because its element has the `DayPicker-Day--selected` class.
 
 ### Access modifiers from the event handlers
 
@@ -134,11 +134,11 @@ handleDayClick(e, day, modifiers) {
 
 ```
 
-Modifiers can prevent the selection of specific days. For example, the following modifier marks any Sunday as disabled:
+We can use the `modifiers` argument to prevent the selection of a specific day. For example, we want the following modifier disable the interaction with any Sunday:
 
 ```javascript
 const modifiers = {
-  isDisabled: day => day.getDay() === 0
+  isSunday: day => day.getDay() === 0
 }
 ```
 
@@ -146,8 +146,8 @@ then, the click handler stops the interaction when the day contains the `isSunda
 
 ```javascript
 handleDayClick(e, day, modifiers) {
-  if (modifiers.indexOf("isDisabled") > -1) {
-    return; 
+  if (modifiers.indexOf("isSunday") > -1) {
+    return;
   }
   // etc.
 }
@@ -189,6 +189,6 @@ After reading this guide you should know how react-day-picker works:
 * use modifiers to change the appearance of the days in the calendar
 * use modifiers to prevent user interaction with some days
 
-See the whole example [here](http://www.gpbl.org/react-day-picker/examples/#selectable). 
+See the whole example [here](http://www.gpbl.org/react-day-picker/examples/#selectable).
 
 Next, explore the [Component API](API.md) to see what else you can do.

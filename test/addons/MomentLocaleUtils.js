@@ -16,7 +16,7 @@ describe("MomentLocaleUtils", () => {
   describe("formatWeekdayShort", () => {
     it("should return the short day name as string", () => {
       expect(MomentLocaleUtils.formatWeekdayShort(0)).to.equal("Su");
-      expect(MomentLocaleUtils.formatWeekdayShort(0, "it")).to.equal("L");
+      expect(MomentLocaleUtils.formatWeekdayShort(0, "it")).to.equal("Lu");
     });
   });
 
@@ -34,6 +34,18 @@ describe("MomentLocaleUtils", () => {
     it("should return sunday for en locale", () => {
       expect(MomentLocaleUtils.getFirstDayOfWeek()).to.equal(0);
     });
+  });
+
+  describe("getMonths", () => {
+    it("return twelve months for it locale", () => {
+      const months = MomentLocaleUtils.getMonths("it");
+      expect(months).to.have.length(12);
+      expect(months[0]).to.equal("gennaio");
+    });
+    it("return twelve months for default locale", () => {
+      expect(MomentLocaleUtils.getMonths()).to.have.length(12);
+    });
+
   });
 
 });

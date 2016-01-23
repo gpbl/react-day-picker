@@ -1,6 +1,17 @@
 const DateUtils = {
 
   /**
+   * Return `d` as a new date with `n` months added.
+   * @param {[type]} d
+   * @param {[type]} n
+   */
+  addMonths(d, n) {
+    const newDate = DateUtils.clone(d);
+    newDate.setMonth(d.getMonth() + n);
+    return newDate;
+  },
+
+  /**
    * Clone a date object.
    *
    * @param  {Date} d The date to clone

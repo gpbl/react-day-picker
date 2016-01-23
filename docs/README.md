@@ -1,6 +1,7 @@
 # react-day-picker
 
 * [Introduction](/README.md)
+* [Examples with code](/docs/Examples.md)
 * [Getting started](/docs/GettingStarted.md)
 * [Component API](/docs/API.md)
     * [Component props](/docs/APIProps.md)
@@ -13,3 +14,4 @@
 * [Utilities](/docs/Utilities.md)
   * [DateUtils](/docs/DateUtils.md)
   * [LocaleUtils](/docs/LocaleUtils.md)
+* [Contributing](/docs/Contributing.md)

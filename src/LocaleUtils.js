@@ -23,6 +23,10 @@ export default {
 
   getFirstDayOfWeek() {
     return 0;
+  },
+
+  getMonths() {
+    return MONTHS;
   }
 
 }

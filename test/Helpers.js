@@ -4,19 +4,6 @@ import Helpers from "../src/Helpers";
 
 describe("Helpers", () => {
 
-  describe("addMonths", () => {
-    it("adds a month", () => {
-      const date = new Date();
-      const newDate = Helpers.addMonths(date, 1);
-      expect(newDate.getMonth()).to.equal(date.getMonth() + 1);
-    });
-    it("should remove two months", () => {
-      const date = new Date();
-      const newDate = Helpers.addMonths(date, -2);
-      expect(newDate.getMonth()).to.equal(date.getMonth() - 2);
-    });
-  });
-
   describe("startOfMonth", () => {
     it("should set a date as start of its month", () => {
       const date = new Date(1979, 8, 19);

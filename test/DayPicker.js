@@ -113,6 +113,18 @@ describe("DayPicker", () => {
     expect(ReactDOM.findDOMNode(captionEl[1]).innerHTML).to.equal("January 2016");
   });
 
+  it("renders a custom caption", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker captionElement={ <div className="greeting">Ciao</div> } />
+    );
+    const captionEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "greeting");
+    const oldCaptionEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Caption");
+    expect(captionEl).to.have.length(1);
+    expect(oldCaptionEl).to.have.length(0);
+  });
+
   it("renders the navigation buttons", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 11, 5)} tabIndex={5} />
@@ -217,7 +229,7 @@ describe("DayPicker", () => {
 
   it("does not render the prev navigation button when the first displayed month is the first allowed month", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 7)} fromMonth={new Date(2015, 5)} numberOfMonths={3} />
+      <DayPicker initialMonth={new Date(2015, 5)} fromMonth={new Date(2015, 5)} numberOfMonths={3} />
     );
     const prev = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-NavButton--prev");
@@ -767,30 +779,8 @@ describe("DayPicker", () => {
 
   });
 
-  it("shows the previous month (of 2 months) when clicking on (enabled) outside days", () => {
-    require("react-tap-event-plugin")();
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker
-        numberOfMonths={2}
-        initialMonth={new Date(2015, 6, 5)}
-        enableOutsideDays={true}
-        onDayClick={Function()}
-      />
-    );
-
-    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
-      "DayPicker-Day");
-    const dayEl = daysEl[0]; // get the first outside day from the previous month
-
-    TestUtils.Simulate.click(dayEl);
-    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(4);
-
-  });
-
 
   it("shows the next month when clicking on (enabled) outside days", () => {
-
-    require("react-tap-event-plugin")();
 
     const handleClick = sinon.spy();
 
@@ -810,27 +800,21 @@ describe("DayPicker", () => {
 
   });
 
-  it("shows the next 2nd month when clicking on (enabled) outside days", () => {
-
-    require("react-tap-event-plugin")();
-
-    const handleClick = sinon.spy();
+  it("does not show the next month when clicking on outside days after the `toMonth` month", () => {
 
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker
-        numberOfMonths={2}
-        initialMonth={new Date(2015, 10, 5)}
+        initialMonth={new Date(2015, 6)}
+        toMonth={new Date(2015, 6)}
         enableOutsideDays={true}
-        onDayClick={handleClick}
+        onDayClick={ () => {} }
       />
     );
 
-    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
-      "DayPicker-Day");
-    const dayEl = daysEl[daysEl.length - 1];
+    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl, "DayPicker-Day");
+    const dayEl = daysEl[daysEl.length - 1]; // get last outside day
     TestUtils.Simulate.click(dayEl);
-    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(0);
-    expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2016);
+    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
 
   });
 

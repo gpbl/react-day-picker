@@ -1,8 +1,9 @@
 {
   "name": "react-day-picker",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
+  "style": "lib/style.css",
   "directories": {
     "doc": "docs"
   },
@@ -15,11 +16,15 @@
     "check": "npm run lint && npm run test",
     "prerelease": "npm run check && webpack",
     "prepublish": "babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/",
+
+    "examples:clean": "rimraf examples/built",
+    "examples:build": "npm run examples:clean && cd examples && npm run build && cd ..",
+
     "docs:clean": "rimraf _book",
     "docs:prepare": "gitbook install",
     "docs:build": "npm run docs:prepare && gitbook build",
     "docs:watch": "npm run docs:prepare && gitbook serve",
-    "docs:publish": "npm run docs:clean && npm run docs:build && cd examples && npm run build && cd .. && rimraf _book/examples && mv examples/built _book/examples && cd _book && git init && git commit --allow-empty -m 'Update docs and examples' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'Update docs and examples' && git push git@github.com:gpbl/react-day-picker gh-pages --force"
+    "docs:publish": "npm run docs:clean && npm run docs:build && npm run examples:build && rimraf _book/examples && mv examples/built _book/examples && cd _book && git init && git commit --allow-empty -m 'Update docs and examples' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'Update docs and examples' && git push git@github.com:gpbl/react-day-picker gh-pages --force"
   },
   "repository": {
     "type": "git",
@@ -57,8 +62,8 @@
     "chai": "^3.4.1",
     "classlist-polyfill": "^1.0.1",
     "coveralls": "^2.11.2",
-    "eslint": "^1.8.0",
-    "eslint-plugin-react": "^3.6.3",
+    "eslint": "^1.10.1",
+    "eslint-plugin-react": "^3.10.0",
     "exenv": "^1.2.0",
     "fbjs": "^0.4.0",
     "gitbook-cli": "^1.0.0",
