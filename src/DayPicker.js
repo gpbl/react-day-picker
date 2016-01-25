@@ -27,7 +27,6 @@ export default class DayPicker extends Component {
   static propTypes = {
 
     className: PropTypes.string,
-    style: PropTypes.object,
     tabIndex: PropTypes.number,
 
     initialMonth: PropTypes.instanceOf(Date),
@@ -216,13 +215,24 @@ export default class DayPicker extends Component {
   // Event handlers
 
   handleKeyDown(e) {
-    switch (e.keyCode) {
-    case keys.LEFT:
-      this.showPreviousMonth();
-      break;
-    case keys.RIGHT:
-      this.showNextMonth();
-      break;
+    const { canChangeMonth, onKeyDown }  = this.props;
+
+    if ( !canChangeMonth && onKeyDown ) {
+      onKeyDown(e);
+      return;
+    }
+
+    if ( canChangeMonth ) {
+      const callback = onKeyDown ? () => onKeyDown(e) : null;
+
+      switch (e.keyCode) {
+      case keys.LEFT:
+        this.showPreviousMonth(callback);
+        break;
+      case keys.RIGHT:
+        this.showNextMonth(callback);
+        break;
+      }
     }
   }
 
@@ -436,15 +446,15 @@ export default class DayPicker extends Component {
   }
 
   render() {
-    const { numberOfMonths, locale, style, tabIndex, canChangeMonth } = this.props;
+    const { numberOfMonths, locale, tabIndex, canChangeMonth, className, ...attributes } = this.props;
     const { currentMonth } = this.state;
-    let className = `DayPicker DayPicker--${locale}`;
+    let dayPickerClassName = `DayPicker DayPicker--${locale}`;
 
     if (!this.props.onDayClick && !this.props.onDayTouchTap) {
-      className = `${className} DayPicker--interactionDisabled`;
+      dayPickerClassName = `${dayPickerClassName} DayPicker--interactionDisabled`;
     }
-    if (this.props.className) {
-      className = `${className} ${this.props.className}`;
+    if (className) {
+      dayPickerClassName = `${dayPickerClassName} ${className}`;
     }
 
     const months = [];
@@ -455,11 +465,11 @@ export default class DayPicker extends Component {
     }
 
     return (
-      <div className={ className }
-        style={ style }
+      <div className={ dayPickerClassName }
         role="widget"
         tabIndex={ canChangeMonth && tabIndex }
-        onKeyDown={ canChangeMonth && ::this.handleKeyDown }>
+        onKeyDown={ ::this.handleKeyDown }
+        {...attributes}>
         { canChangeMonth && this.renderNavBar() }
         { months }
       </div>
