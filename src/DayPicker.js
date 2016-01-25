@@ -26,9 +26,6 @@ export default class DayPicker extends Component {
 
   static propTypes = {
 
-    className: PropTypes.string,
-    tabIndex: PropTypes.number,
-
     initialMonth: PropTypes.instanceOf(Date),
     numberOfMonths: PropTypes.number,
 
@@ -446,15 +443,15 @@ export default class DayPicker extends Component {
   }
 
   render() {
-    const { numberOfMonths, locale, tabIndex, canChangeMonth, className, ...attributes } = this.props;
+    const { numberOfMonths, locale, canChangeMonth, ...attributes } = this.props;
     const { currentMonth } = this.state;
-    let dayPickerClassName = `DayPicker DayPicker--${locale}`;
+    let className = `DayPicker DayPicker--${locale}`;
 
     if (!this.props.onDayClick && !this.props.onDayTouchTap) {
-      dayPickerClassName = `${dayPickerClassName} DayPicker--interactionDisabled`;
+      className = `${className} DayPicker--interactionDisabled`;
     }
-    if (className) {
-      dayPickerClassName = `${dayPickerClassName} ${className}`;
+    if (attributes.className) {
+      className = `${className} ${attributes.className}`;
     }
 
     const months = [];
@@ -465,9 +462,9 @@ export default class DayPicker extends Component {
     }
 
     return (
-      <div className={ dayPickerClassName }
+      <div className={ className }
         role="widget"
-        tabIndex={ canChangeMonth && tabIndex }
+        tabIndex={ canChangeMonth && attributes.tabIndex }
         onKeyDown={ ::this.handleKeyDown }
         {...attributes}>
         { canChangeMonth && this.renderNavBar() }
