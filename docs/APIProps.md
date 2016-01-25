@@ -1,5 +1,7 @@
 # Component props
 
+> HTML props (such as `className`, `tabIndex`, `style` etc.) are spread to the root's `div` element.
+
 #### modifiers (Object)
 
 An object of named functions returning a boolean: `modifier(day: Date) -> Bool`.

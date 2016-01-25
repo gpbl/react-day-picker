@@ -9,7 +9,6 @@
 | --- | --- |
 | [canChangeMonth](APIProps.md#canchangemonth-boolean) | Boolean |
 | [captionElement](APIProps.md#captionelement-element) | Element |
-| [className](APIProps.md#classname-string) | String |
 | [enableOutsideDays](APIProps.md#enableoutsidedays-boolean) | Boolean |
 | [fromMonth](APIProps.md#frommonth-date) | Date |
 | [initialMonth](APIProps.md#initialmonth-date) | Date |
@@ -24,6 +23,5 @@
 | [onDayTouchTap](APIProps.md#ondaytouchtap-function) | Function |
 | [onMonthChange](APIProps.md#onmonthchange-function) | Function |
 | [renderDay](APIProps.md#renderday-function) | Function |
-| [style](APIProps.md#style-object) | Object |
 | [tabIndex](APIProps.md#tabindex-number) | Number |
 | [toMonth](APIProps.md#tomonth-date) | Date |

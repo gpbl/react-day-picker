@@ -16,3 +16,6 @@ Some useful npm scripts:
 * `npm test`: test the code
 * `npm cover`: run a test coverage report
 * `npm lint`: make sure the code is linted correctly
+
+You can even run and modify the [Examples](Examples.md)! Just remember to run `npm install`
+to use the last version.
