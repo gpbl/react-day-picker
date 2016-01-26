@@ -315,17 +315,25 @@ export default class DayPicker extends Component {
 
   renderNavBar() {
     const baseClass = "DayPicker-NavButton DayPicker-NavButton";
+    const isRTL = this.props.dir === "rtl";
+
+    const leftButton = isRTL ? this.allowNextMonth() : this.allowPreviousMonth();
+    const rightButton = isRTL ? this.allowPreviousMonth() : this.allowNextMonth();
     return (
       <div className="DayPicker-NavBar">
-        { this.allowPreviousMonth() && <span
-          key="prev"
-          className={ `${baseClass}--prev` }
-          onClick={ ::this.handlePrevMonthClick } />
+        { leftButton &&
+          <span
+            key="left"
+            className={ `${baseClass}--prev` }
+            onClick={ isRTL ? ::this.handleNextMonthClick : ::this.handlePrevMonthClick }
+          />
         }
-        { this.allowNextMonth() && <span
-          key="next"
-          className={ `${baseClass}--next` }
-          onClick={ ::this.handleNextMonthClick } />
+        { rightButton &&
+          <span
+            key="right"
+            className={ `${baseClass}--next` }
+            onClick={  isRTL ? ::this.handlePrevMonthClick : ::this.handleNextMonthClick }
+          />
         }
       </div>
     );
