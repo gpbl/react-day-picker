@@ -18,7 +18,7 @@ function YearMonthForm({ date, localeUtils, onChange }) {
 
   const handleChange = function(e) {
     const { year, month } = e.target.form;
-    onChange(new Date(year.value, month.value, 1, 12, 0));
+    onChange(new Date(year.value, month.value));
   }
 
   return (
