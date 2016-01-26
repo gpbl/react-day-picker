@@ -12,7 +12,7 @@ export default function Restricted() {
   return (
     <DayPicker
       enableOutsideDays
-      numberOfMonths={ 3 }
+      numberOfMonths={ 2 }
       initialMonth={ fromMonth }
       fromMonth={ fromMonth }
       toMonth={ toMonth }

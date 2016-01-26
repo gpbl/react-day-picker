@@ -54,17 +54,17 @@ const EXAMPLES = {
   },
   localized: {
     title: "Localization (moment.js)",
-    description: "This calendar is localized using moment.js. <a href='http://www.gpbl.org/react-day-picker/docs/LocalizationMoment.html'>Read more about localization</a>.",
+    description: "This calendar is localized using moment.js. <a href='http://www.gpbl.org/react-day-picker/docs/Localization.html'>Read more about localization</a>.<br>Note the use of the <a href='https://www.w3.org/TR/html/dom.html#the-dir-attribute'>dir attribute</a> to support <abbr title='Right to left'>RTL</abbr> languages.",
     Component: Localized
   },
   localizedCustom: {
     title: "Localization (custom)",
-    description: "If you prefer to not include external libraries to localize the calendar, you can provide your own <code>localeUtils</code> which is basically a rewrite of the <a href='https://github.com/gpbl/react-day-picker/blob/master/src/LocaleUtils.js'>original one</a>. The following example provides Russian and English localizations.",
+    description: "If you prefer to not include external libraries to localize the calendar, you can provide your own <code>localeUtils</code> which is basically a rewrite of the <a href='https://github.com/gpbl/react-day-picker/blob/master/src/LocaleUtils.js'>original one</a>. The following example provides Russian and English localizations.  <a href='http://www.gpbl.org/react-day-picker/docs/Localization.html'>Read more about localization</a>.",
     Component: LocalizedCustom
   },
   yearNavigation: {
     title: "Year Navigation",
-    description: "With the <code>captionElement</code> prop, you can use your own element as month caption. In this example, the caption element is a form to navigate between years and months.",
+    description: "With the <code>captionElement</code> prop, you can use your own element as month caption. In this example, the caption element is a form to navigate up to the next 10 years.",
     Component: YearNavigation
   },
   touch: {
