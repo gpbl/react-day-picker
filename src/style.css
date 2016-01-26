@@ -117,9 +117,3 @@
   color: #FFF;
   background-color: #4A90E2;
 }
-
-/* Locales */
-
-.DayPicker--ar {
-  direction: rtl;
-}

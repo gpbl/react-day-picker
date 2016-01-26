@@ -37,6 +37,7 @@ export default class Localized extends React.Component {
           </select>
         </p>
         <DayPicker
+          dir={ locale === "ar" ? "rtl" : "ltr" }
           locale={ locale }
           localeUtils={ MomentLocaleUtils }
           modifiers={{ sunday: day => day.getDay() === 0 }} />
