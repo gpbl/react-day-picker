@@ -3,19 +3,22 @@ import DayPicker from "react-day-picker";
 
 import "react-day-picker/lib/style.css";
 
+const currentYear = (new Date()).getFullYear();
+const fromMonth = new Date(currentYear, 0, 1, 0, 0);
+const toMonth = new Date(currentYear + 10, 11, 31, 23, 59);
+
 function YearMonthForm({ date, localeUtils, onChange }) {
 
   const months = localeUtils.getMonths();
 
-  const currentYear = (new Date()).getFullYear();
   const years = [];
-  for (let i = currentYear; i < currentYear + 10; i++) {
+  for (let i = fromMonth.getFullYear(); i <= toMonth.getFullYear(); i++) {
     years.push(i);
   }
 
   const handleChange = function(e) {
     const { year, month } = e.target.form;
-    onChange(new Date(year.value, month.value));
+    onChange(new Date(year.value, month.value, 1, 12, 0));
   }
 
   return (
@@ -41,7 +44,7 @@ function YearMonthForm({ date, localeUtils, onChange }) {
 export default class YearNavigation extends React.Component {
 
   state = {
-    initialMonth: new Date()
+    initialMonth: fromMonth
   };
 
   render() {
@@ -49,6 +52,8 @@ export default class YearNavigation extends React.Component {
       <div className="YearNavigation">
         <DayPicker
           initialMonth={ this.state.initialMonth }
+          fromMonth={ fromMonth }
+          toMonth={ toMonth }
           captionElement={
             <YearMonthForm onChange={ initialMonth => this.setState({ initialMonth }) } />
           }
