@@ -24,7 +24,7 @@ const keys = {
 };
 
 describe("DayPicker", () => {
-
+  
   it("has the default props properly set", () => {
     const dayPicker = <DayPicker />;
     const now = new Date();
@@ -916,6 +916,28 @@ describe("DayPicker", () => {
     expect(focusNextDay).to.be.called;
   });
 
+  describe("handleKeyDown", () => {
+
+    it("should handle keydown event", () => {
+      const spy = sinon.spy();
+      const dayPicker = TestUtils.renderIntoDocument(<DayPicker onKeyDown={spy} />);
+      const node = ReactDOM.findDOMNode(dayPicker);
+      TestUtils.Simulate.keyDown(node);
+      expect(spy.calledOnce).to.be.true;
+    });
+
+    it("should handle keydown event when cannot change month", () => {
+      const spy = sinon.spy();
+      const dayPicker = TestUtils.renderIntoDocument(
+        <DayPicker canChangeMonth={false} onKeyDown={ spy } />
+      );
+      const node = ReactDOM.findDOMNode(dayPicker);
+      TestUtils.Simulate.keyDown(node);
+      expect(spy.calledOnce).to.be.true;
+    });
+
+  });
+
   describe("Keyboard navigation", () => {
 
     let dayPickerEl, body;
@@ -1001,13 +1023,4 @@ describe("DayPicker", () => {
 
   });
 
-  describe("handleKeyDown", () => {
-    it("should call props.onKeyDown", () => {
-      const spy = sinon.spy();
-      const dayPicker = TestUtils.renderIntoDocument(<DayPicker onKeyDown={spy} />);
-      const node = ReactDOM.findDOMNode(dayPicker);
-      TestUtils.Simulate.keyDown(node);
-      expect(spy.calledOnce).to.be.true;
-    });
-  });
 });

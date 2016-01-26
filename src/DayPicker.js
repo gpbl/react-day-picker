@@ -212,15 +212,15 @@ export default class DayPicker extends Component {
   // Event handlers
 
   handleKeyDown(e) {
-    const { canChangeMonth, onKeyDown }  = this.props;
+    e.persist();
 
-    if ( !canChangeMonth && onKeyDown ) {
-      onKeyDown(e);
+    if (!this.props.canChangeMonth && this.props.onKeyDown) {
+      this.props.onKeyDown(e);
       return;
     }
 
-    if ( canChangeMonth ) {
-      const callback = onKeyDown ? () => onKeyDown(e) : null;
+    if (this.props.canChangeMonth) {
+      const callback = this.props.onKeyDown ? () => this.props.onKeyDown(e) : null;
 
       switch (e.keyCode) {
       case keys.LEFT:
@@ -311,7 +311,6 @@ export default class DayPicker extends Component {
       this.showPreviousMonth();
     }
   }
-
 
   renderNavBar() {
     const baseClass = "DayPicker-NavButton DayPicker-NavButton";
@@ -473,7 +472,7 @@ export default class DayPicker extends Component {
       <div className={ className }
         role="widget"
         tabIndex={ canChangeMonth && attributes.tabIndex }
-        onKeyDown={ ::this.handleKeyDown }
+        onKeyDown={ e => this.handleKeyDown(e) }
         {...attributes}>
         { canChangeMonth && this.renderNavBar() }
         { months }
