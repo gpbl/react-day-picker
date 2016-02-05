@@ -29,7 +29,7 @@ Return the string used to render the weekday's short name, e.g. `Mo` for Monday.
 
 Return the string used to render the weekday's long name, e.g. `Monday`. It is used mainly for ARIA.
 
-### `getFirstDayOfWeek(locale: string) -> bool`
+### `getFirstDayOfWeek(locale: string) -> number`
 
 Return the first day of the week for the given locale, e.g. `0` (Sunday) when `locale` is `en`.
 
