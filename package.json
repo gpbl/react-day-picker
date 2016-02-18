@@ -63,7 +63,7 @@
     "eslint": "^1.10.1",
     "eslint-plugin-react": "^3.10.0",
     "exenv": "^1.2.0",
-    "fbjs": "^0.6.1",
+    "fbjs": "0.7.2",
     "gitbook-cli": "^1.0.0",
     "istanbul": "^1.0.0-alpha",
     "jsdom": "^7.0.2",
