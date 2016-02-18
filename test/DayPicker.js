@@ -5,6 +5,7 @@ import sinon from "sinon";
 import sinonChai from "sinon-chai";
 
 chai.use(sinonChai);
+require("react-tap-event-plugin")();
 
 testDom("<html><body></body></html>");
 const React = require("react");
@@ -615,7 +616,7 @@ describe("DayPicker", () => {
 
   it("calls event handlers on a day cell", () => {
 
-    require("react-tap-event-plugin")();
+
 
     function isFirstDay(d) {
       return d.getFullYear() === 2015 &&
@@ -674,7 +675,7 @@ describe("DayPicker", () => {
 
   it("calls touch-tap event handler on a day cell", () => {
 
-    require("react-tap-event-plugin")();
+
 
     const handleTouchTap = sinon.spy();
 
@@ -711,7 +712,7 @@ describe("DayPicker", () => {
 
   it("does not call mouse events on disabled outside days", () => {
 
-    require("react-tap-event-plugin")();
+
 
     const handleClick = sinon.spy();
     const handleMouseEnter = sinon.spy();
@@ -747,7 +748,7 @@ describe("DayPicker", () => {
 
   it("changes the month when tapping on enabled outside days", () => {
 
-    require("react-tap-event-plugin")();
+
 
     const handleTouchTap = sinon.spy();
 
@@ -769,7 +770,7 @@ describe("DayPicker", () => {
   });
 
   it("shows the previous month when clicking on (enabled) outside days", () => {
-    require("react-tap-event-plugin")();
+
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker
         numberOfMonths={1}
@@ -829,7 +830,7 @@ describe("DayPicker", () => {
 
   it("does not show the next month when clicking on an outside days of the first of 2 months", () => {
 
-    require("react-tap-event-plugin")();
+
 
     const handleClick = sinon.spy();
 
