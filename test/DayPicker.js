@@ -426,6 +426,90 @@ describe("DayPicker", () => {
     });
   });
 
+  describe("showPreviousYear", () => {
+    it("shows the previous year", () => {
+      const callback = sinon.spy();
+      const handleMonthChange = sinon.spy();
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker
+          initialMonth={new Date(2015, 7, 1)}
+          enableOutsideDays={false}
+          onMonthChange={handleMonthChange}
+          numberOfMonths={2}
+        />
+      );
+      dayPickerEl.showPreviousYear(callback);
+
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(7);
+      expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2014);
+      expect(callback).to.have.been.called;
+      expect(handleMonthChange).to.have.been.called;
+    });
+
+    it("does not show a month before `fromMonth`", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 10)} fromMonth={new Date(2015, 10)} />
+      );
+      dayPickerEl.showPreviousYear();
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(10);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    });
+
+    it("is called when up key is pressed over the root node", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 5)} />
+      );
+      const showPreviousYear = sinon.spy(dayPickerEl, "showPreviousYear");
+      TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
+        keyCode: keys.UP
+      });
+      expect(showPreviousYear).to.be.called;
+    });
+  });
+
+  describe("showNextYear", () => {
+    it("shows the next year", () => {
+      const callback = sinon.spy();
+      const handleMonthChange = sinon.spy();
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker
+          initialMonth={new Date(2015, 7, 1)}
+          enableOutsideDays={false}
+          onMonthChange={handleMonthChange}
+          numberOfMonths={2}
+        />
+      );
+      dayPickerEl.showNextYear(callback);
+
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(7);
+      expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2016);
+      expect(callback).to.have.been.called;
+      expect(handleMonthChange).to.have.been.called;
+    });
+
+    it("does not show a month after `toMonth`", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 10)} toMonth={new Date(2015, 10)} />
+      );
+      dayPickerEl.showNextYear();
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(10);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    });
+
+    it("is called when down key is pressed over the root node", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 5)} />
+      );
+      const showNextYear = sinon.spy(dayPickerEl, "showNextYear");
+      TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
+        keyCode: keys.DOWN
+      });
+      expect(showNextYear).to.be.called;
+    });
+  });
+
   describe("showMonth", () => {
     it("shows the specified month", () => {
       const dayPickerEl = TestUtils.renderIntoDocument(
