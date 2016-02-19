@@ -84,21 +84,13 @@ export default class DayPicker extends Component {
   }
 
   allowPreviousMonth() {
-    const { fromMonth } = this.props;
-    if (!fromMonth) {
-      return true;
-    }
-    const { currentMonth } = this.state;
-    return Helpers.getMonthsDiff(currentMonth, fromMonth) < 0;
+    const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1)
+    return this.allowMonth(previousMonth);
   }
 
   allowNextMonth() {
-    const { toMonth, numberOfMonths } = this.props;
-    if (!toMonth) {
-      return true;
-    }
-    const { currentMonth } = this.state;
-    return Helpers.getMonthsDiff(currentMonth, toMonth) >= numberOfMonths;
+    const nextMonth = DateUtils.addMonths(this.state.currentMonth, this.props.numberOfMonths);
+    return this.allowMonth(nextMonth);
   }
 
   allowMonth(d) {
@@ -110,49 +102,39 @@ export default class DayPicker extends Component {
     return true;
   }
 
-  showMonth(d) {
+  showMonth(d, callback) {
     if (!this.allowMonth(d)) {
       return;
     }
+
     this.setState({
       currentMonth: Helpers.startOfMonth(d)
+    }, callback);
+  }
+
+  showMonthAndCallHandler(d, callback) {
+    this.showMonth(d, () => {
+      if (callback) {
+        callback();
+      }
+      if (this.props.onMonthChange) {
+        this.props.onMonthChange(this.state.currentMonth);
+      }
     });
   }
 
   showNextMonth(callback) {
-    if (!this.allowNextMonth()) {
-      return;
+    if (this.allowNextMonth()) {
+      const nextMonth = DateUtils.addMonths(this.state.currentMonth, 1);
+      this.showMonthAndCallHandler(nextMonth, callback);
     }
-    const { currentMonth } = this.state;
-    const nextMonth = DateUtils.addMonths(currentMonth, 1);
-    this.setState({
-      currentMonth: nextMonth
-    }, () => {
-      if (callback) {
-        callback();
-      }
-      if (this.props.onMonthChange) {
-        this.props.onMonthChange(this.state.currentMonth);
-      }
-    });
   }
 
   showPreviousMonth(callback) {
-    if (!this.allowPreviousMonth()) {
-      return;
+    if (this.allowPreviousMonth()) {
+      const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
+      this.showMonthAndCallHandler(previousMonth, callback);
     }
-    const { currentMonth } = this.state;
-    const prevMonth = DateUtils.addMonths(currentMonth, -1);
-    this.setState({
-      currentMonth: prevMonth
-    }, () => {
-      if (callback) {
-        callback();
-      }
-      if (this.props.onMonthChange) {
-        this.props.onMonthChange(this.state.currentMonth);
-      }
-    });
   }
 
   getDayNodes() {
