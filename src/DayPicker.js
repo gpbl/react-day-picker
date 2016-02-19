@@ -356,6 +356,7 @@ export default class DayPicker extends Component {
 
     const leftButton = isRTL ? this.allowNextMonth() : this.allowPreviousMonth();
     const rightButton = isRTL ? this.allowPreviousMonth() : this.allowNextMonth();
+
     return (
       <div className="DayPicker-NavBar">
         { leftButton &&
@@ -391,12 +392,12 @@ export default class DayPicker extends Component {
 
         { caption }
 
-        <div className="DayPicker-Weekdays">
-          <div className="DayPicker-WeekdaysRow">
+        <div className="DayPicker-Weekdays" role="rowgroup">
+          <div className="DayPicker-WeekdaysRow" role="columnheader">
             { this.renderWeekDays() }
           </div>
         </div>
-        <div className="DayPicker-Body">
+        <div className="DayPicker-Body" role="rowgroup">
           { this.renderWeeksInMonth(date) }
         </div>
       </div>
@@ -467,10 +468,17 @@ export default class DayPicker extends Component {
         tabIndex = this.props.tabIndex;
       }
     }
+
+    const ariaLabel = this.props.localeUtils.formatDate ?
+      this.props.localeUtils.formatDate(day) : day.toDateString();
+    const ariaDisabled = isOutside ? "true" : "false";
+
     return (
       <div key={ key } className={ className }
         tabIndex={ tabIndex }
         role="gridcell"
+        aria-label={ ariaLabel }
+        aria-disabled={ ariaDisabled }
         onKeyDown={
           (e) => this.handleDayKeyDown(e, day, modifiers) }
         onMouseEnter= { onDayMouseEnter ?
