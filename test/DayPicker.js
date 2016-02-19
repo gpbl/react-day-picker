@@ -20,6 +20,8 @@ const DayPicker = require("../src/DayPicker").default;
 const keys = {
   LEFT: 37,
   RIGHT: 39,
+  UP: 38,
+  DOWN: 40,
   ENTER: 13,
   SPACE: 32
 };
@@ -917,6 +919,32 @@ describe("DayPicker", () => {
     expect(focusNextDay).to.be.called;
   });
 
+  it("calls focusNextWeek when down key is pressed", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 5)} />
+    );
+    const node = dayPickerEl.refs.dayPicker;
+    const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
+    const focusNextWeek = sinon.spy(dayPickerEl, "focusNextWeek");
+    TestUtils.Simulate.keyDown(dayNode, {
+      keyCode: keys.DOWN
+    });
+    expect(focusNextWeek).to.be.called;
+  });
+
+  it("calls focusPreviousWeek when up key is pressed", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 5)} />
+    );
+    const node = dayPickerEl.refs.dayPicker;
+    const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
+    const focusPreviousWeek = sinon.spy(dayPickerEl, "focusPreviousWeek");
+    TestUtils.Simulate.keyDown(dayNode, {
+      keyCode: keys.UP
+    });
+    expect(focusPreviousWeek).to.be.called;
+  });
+
   describe("handleKeyDown", () => {
 
     it("should handle keydown event", () => {
@@ -1019,9 +1047,72 @@ describe("DayPicker", () => {
       expect(document.activeElement.innerHTML).to.equal("1");
 
       expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
-
     });
 
+    describe("change week", () => {
+      it("focuses the same day of the next week", () => {
+        const focusedNode = getDayNode(body, 2, 1);
+        expect(focusedNode.innerHTML).to.equal("15");
+
+        dayPickerEl.focusNextWeek(focusedNode);
+        expect(document.activeElement.innerHTML).to.equal("22");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
+      });
+
+      it("focuses the same day of the next week in the next month", () => {
+        const juneThirtieth = getDayNode(body, 4, 2);
+        expect(juneThirtieth.innerHTML).to.equal("30");
+
+        dayPickerEl.focusNextWeek(juneThirtieth);
+        expect(document.activeElement.innerHTML).to.equal("7");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
+
+        const julyThirtyFirst = getDayNode(body, 4, 5);
+        expect(julyThirtyFirst.innerHTML).to.equal("31");
+
+        dayPickerEl.focusNextWeek(julyThirtyFirst);
+        expect(document.activeElement.innerHTML).to.equal("7");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(7);
+      });
+
+      it("focuses the first day of the next month after leapday", () => {
+        dayPickerEl = TestUtils.renderIntoDocument(
+          <DayPicker initialMonth={new Date(2016, 1)} />
+        );
+        body = ReactDOM.findDOMNode(TestUtils.findRenderedDOMComponentWithClass(dayPickerEl, "DayPicker-Body"));
+        const focusedNode = getDayNode(body, 4, 1);
+        expect(focusedNode.innerHTML).to.equal("29");
+
+        dayPickerEl.focusNextDay(focusedNode);
+        expect(document.activeElement.innerHTML).to.equal("1");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(2);
+      });
+
+      it("focuses the same day of the previous week", () => {
+        const focusedNode = getDayNode(body, 2, 1);
+        expect(focusedNode.innerHTML).to.equal("15");
+
+        dayPickerEl.focusPreviousWeek(focusedNode);
+        expect(document.activeElement.innerHTML).to.equal("8");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
+      });
+
+      it("focuses the same day of the previous week in the previous month", () => {
+        const juneFirst = getDayNode(body, 0, 1);
+        expect(juneFirst.innerHTML).to.equal("1");
+
+        dayPickerEl.focusPreviousWeek(juneFirst);
+        expect(document.activeElement.innerHTML).to.equal("25");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(4);
+
+        const maySecond = getDayNode(body, 1, 0);
+        expect(maySecond.innerHTML).to.equal("3");
+
+        dayPickerEl.focusPreviousWeek(maySecond);
+        expect(document.activeElement.innerHTML).to.equal("26");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(3);
+      });
+    });
   });
 
 });
