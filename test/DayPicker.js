@@ -856,7 +856,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker onDayClick={handleDayClick} />
     );
-    const node = ReactDOM.findDOMNode(dayPickerEl);
+    const node = dayPickerEl.refs.dayPicker;
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.ENTER
@@ -869,7 +869,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker onDayClick={handleDayClick} />
     );
-    const node = ReactDOM.findDOMNode(dayPickerEl);
+    const node = dayPickerEl.refs.dayPicker;
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.SPACE
@@ -882,7 +882,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker onDayTouchTap={handleDayTouchTap} />
     );
-    const node = ReactDOM.findDOMNode(dayPickerEl);
+    const node = dayPickerEl.refs.dayPicker;
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.ENTER
@@ -895,8 +895,8 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 5)} />
     );
-    const node = ReactDOM.findDOMNode(dayPickerEl);
-    const dayNode = node.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)")[0];
+    const node = dayPickerEl.refs.dayPicker;
+    const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     const focusPreviousDay = sinon.spy(dayPickerEl, "focusPreviousDay");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.LEFT
@@ -908,7 +908,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 5)} />
     );
-    const node = ReactDOM.findDOMNode(dayPickerEl);
+    const node = dayPickerEl.refs.dayPicker;
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     const focusNextDay = sinon.spy(dayPickerEl, "focusNextDay");
     TestUtils.Simulate.keyDown(dayNode, {

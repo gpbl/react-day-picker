@@ -25,7 +25,7 @@ class Caption extends Component {
 export default class DayPicker extends Component {
 
   static propTypes = {
-
+    tabIndex: PropTypes.number,
     initialMonth: PropTypes.instanceOf(Date),
     numberOfMonths: PropTypes.number,
 
@@ -54,7 +54,6 @@ export default class DayPicker extends Component {
     renderDay: PropTypes.func,
 
     captionElement: PropTypes.element
-
   };
 
   static defaultProps = {
@@ -156,26 +155,35 @@ export default class DayPicker extends Component {
     });
   }
 
-  focusPreviousDay(dayNode) {
-    const body = dayNode.parentNode.parentNode.parentNode.parentNode;
-    let dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-    let nodeIndex;
+  getDayNodes() {
+    return this.refs.dayPicker.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
+  }
+
+  getDayNodeIndex(dayNode, dayNodes) {
     for (let i = 0; i < dayNodes.length; i++) {
       if (dayNodes[i] === dayNode) {
-        nodeIndex = i;
-        break;
+        return i;
       }
     }
+
+    return -1;
+  }
+
+  focusFirstDayOfMonth() {
+    this.getDayNodes()[0].focus();
+  }
+
+  focusLastDayOfMonth() {
+    const dayNodes = this.getDayNodes();
+    dayNodes[dayNodes.length - 1].focus();
+  }
+
+  focusPreviousDay(dayNode) {
+    const dayNodes = this.getDayNodes();
+    const nodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+
     if (nodeIndex === 0) {
-      const { currentMonth } = this.state;
-      const { numberOfMonths } = this.props;
-      const prevMonth = DateUtils.addMonths(currentMonth, -numberOfMonths);
-      this.setState({
-        currentMonth: prevMonth
-      }, () => {
-        dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-        dayNodes[dayNodes.length - 1].focus();
-      });
+      this.showPreviousMonth(() => { this.focusLastDayOfMonth() })
     }
     else {
       dayNodes[nodeIndex - 1].focus();
@@ -183,26 +191,11 @@ export default class DayPicker extends Component {
   }
 
   focusNextDay(dayNode) {
-    const body = dayNode.parentNode.parentNode.parentNode.parentNode;
-    let dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-    let nodeIndex;
-    for (let i = 0; i < dayNodes.length; i++) {
-      if (dayNodes[i] === dayNode) {
-        nodeIndex = i;
-        break;
-      }
-    }
+    const dayNodes = this.getDayNodes();
+    const nodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
 
     if (nodeIndex === dayNodes.length - 1) {
-      const { currentMonth } = this.state;
-      const { numberOfMonths } = this.props;
-      const nextMonth = DateUtils.addMonths(currentMonth, numberOfMonths);
-      this.setState({
-        currentMonth: nextMonth
-      }, () => {
-        dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-        dayNodes[0].focus();
-      });
+      this.showNextMonth(() => { this.focusFirstDayOfMonth() });
     }
     else {
       dayNodes[nodeIndex + 1].focus();
@@ -470,6 +463,7 @@ export default class DayPicker extends Component {
 
     return (
       <div className={ className }
+        ref="dayPicker"
         role="widget"
         tabIndex={ canChangeMonth && attributes.tabIndex }
         onKeyDown={ e => this.handleKeyDown(e) }
