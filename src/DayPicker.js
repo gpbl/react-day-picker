@@ -139,6 +139,16 @@ export default class DayPicker extends Component {
     }
   }
 
+  showNextYear(callback) {
+    const nextMonth = DateUtils.addMonths(this.state.currentMonth, 12);
+    this.showMonthAndCallHandler(nextMonth, callback);
+  }
+
+  showPreviousYear(callback) {
+    const nextMonth = DateUtils.addMonths(this.state.currentMonth, -12);
+    this.showMonthAndCallHandler(nextMonth, callback);
+  }
+
   getDayNodes() {
     return this.refs.dayPicker.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
   }
@@ -245,6 +255,12 @@ export default class DayPicker extends Component {
         break;
       case keys.RIGHT:
         this.showNextMonth(callback);
+        break;
+      case keys.UP:
+        this.showPreviousYear(callback);
+        break;
+      case keys.DOWN:
+        this.showNextYear(callback);
         break;
       }
     }
