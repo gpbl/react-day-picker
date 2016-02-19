@@ -5,7 +5,9 @@ import * as LocaleUtils from "./LocaleUtils";
 
 const keys = {
   LEFT: 37,
+  UP: 38,
   RIGHT: 39,
+  DOWN: 40,
   ENTER: 13,
   SPACE: 32
 };
@@ -162,29 +164,69 @@ export default class DayPicker extends Component {
 
   focusPreviousDay(dayNode) {
     const dayNodes = this.getDayNodes();
-    const nodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
 
-    if (nodeIndex === 0) {
+    if (dayNodeIndex === 0) {
       this.showPreviousMonth(() => { this.focusLastDayOfMonth() })
     }
     else {
-      dayNodes[nodeIndex - 1].focus();
+      dayNodes[dayNodeIndex - 1].focus();
     }
   }
 
   focusNextDay(dayNode) {
     const dayNodes = this.getDayNodes();
-    const nodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
 
-    if (nodeIndex === dayNodes.length - 1) {
+    if (dayNodeIndex === dayNodes.length - 1) {
       this.showNextMonth(() => { this.focusFirstDayOfMonth() });
     }
     else {
-      dayNodes[nodeIndex + 1].focus();
+      dayNodes[dayNodeIndex + 1].focus();
+    }
+  }
+
+  focusNextWeek(dayNode) {
+    const dayNodes = this.getDayNodes();
+    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+    const isInLastWeekOfMonth = dayNodeIndex > dayNodes.length - 8;
+
+    if (isInLastWeekOfMonth) {
+      this.showNextMonth(() => {
+        const daysAfterIndex = dayNodes.length - dayNodeIndex;
+        const nextMonthDayNodeIndex = 7 - daysAfterIndex;
+        this.getDayNodes()[nextMonthDayNodeIndex].focus();
+      });
+    }
+    else {
+      dayNodes[dayNodeIndex + 7].focus();
+    }
+  }
+
+  focusPreviousWeek(dayNode) {
+    const dayNodes = this.getDayNodes();
+    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+    const isInFirstWeekOfMonth = dayNodeIndex <= 6;
+
+    if (isInFirstWeekOfMonth) {
+      this.showPreviousMonth(() => {
+        const previousMonthDayNodes = this.getDayNodes();
+        const startOfLastWeekOfMonth = previousMonthDayNodes.length - 7;
+        const previousMonthDayNodeIndex = startOfLastWeekOfMonth + dayNodeIndex;
+        previousMonthDayNodes[previousMonthDayNodeIndex].focus();
+      });
+    }
+    else {
+      dayNodes[dayNodeIndex - 7].focus();
     }
   }
 
   // Event handlers
+
+  cancelEvent(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
 
   handleKeyDown(e) {
     e.persist();
@@ -212,19 +254,24 @@ export default class DayPicker extends Component {
     e.persist();
     switch (e.keyCode) {
     case keys.LEFT:
-      e.preventDefault();
-      e.stopPropagation();
+      this.cancelEvent(e);
       this.focusPreviousDay(e.target);
       break;
     case keys.RIGHT:
-      e.preventDefault();
-      e.stopPropagation();
+      this.cancelEvent(e);
       this.focusNextDay(e.target);
+      break;
+    case keys.UP:
+      this.cancelEvent(e);
+      this.focusPreviousWeek(e.target);
+      break;
+    case keys.DOWN:
+      this.cancelEvent(e);
+      this.focusNextWeek(e.target);
       break;
     case keys.ENTER:
     case keys.SPACE:
-      e.preventDefault();
-      e.stopPropagation();
+      this.cancelEvent(e);
       if (this.props.onDayClick) {
         this.handleDayClick(e, day, modifiers);
       }
