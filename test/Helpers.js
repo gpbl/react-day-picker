@@ -1,6 +1,7 @@
 
 import { expect } from "chai";
 import * as Helpers from "../src/Helpers";
+import { getFirstDayOfWeek } from "../src/LocaleUtils";
 
 describe("Helpers", () => {
 
@@ -113,6 +114,20 @@ describe("Helpers", () => {
       });
     });
 
+    it("returns 6 weeks in a 4 week month using minWeeks", () => {
+      // February 2015 has exactly 4 weeks
+      const startDate = new Date(2015, 1, 1);
+      const firstDayOfWeek = getFirstDayOfWeek();
+      
+      // First test the assumption that February 2015 has 4 weeks
+      let weeks = Helpers.getWeekArray(startDate, firstDayOfWeek);
+      expect(weeks).to.have.length(4);
+
+      // Now test using minWeeks
+      const minWeeks = 6;
+      weeks = Helpers.getWeekArray(startDate, firstDayOfWeek, minWeeks);
+      expect(weeks).to.have.length(minWeeks);
+    });
 
   });
 

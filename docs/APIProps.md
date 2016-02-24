@@ -41,6 +41,12 @@ The number of months to render, where `initialMonth` is the first month. Default
 
 ---
 
+#### numberOfWeeks (Number)
+
+The minium number of weeks to render.  This is helpful for making months look consistent (in height). By default, the number of weeks rendered will be just enough to show all days in the month. Default is `0`.
+
+---
+
 #### enableOutsideDays (Boolean)
 
 Display the days outside the current month. Default is `false`.
