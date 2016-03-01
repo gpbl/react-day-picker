@@ -28,6 +28,7 @@ export default class DayPicker extends Component {
 
     initialMonth: PropTypes.instanceOf(Date),
     numberOfMonths: PropTypes.number,
+    numberOfWeeks: PropTypes.number,
 
     modifiers: PropTypes.object,
 
@@ -381,13 +382,14 @@ export default class DayPicker extends Component {
   }
 
   renderWeeksInMonth(month) {
-    const { locale, localeUtils } = this.props;
+    const { locale, localeUtils, numberOfWeeks } = this.props;
     const firstDayOfWeek = localeUtils.getFirstDayOfWeek(locale);
-    return Helpers.getWeekArray(month, firstDayOfWeek).map((week, i) =>
-      <div key={ i } className="DayPicker-Week" role="row">
-        { week.map(day => this.renderDay(month, day)) }
-      </div>
-    );
+    return Helpers.getWeekArray(month, firstDayOfWeek, numberOfWeeks || 0)
+      .map((week, i) =>
+        <div key={ i } className="DayPicker-Week" role="row">
+          { week.map(day => this.renderDay(month, day)) }
+        </div>
+      );
   }
 
   renderDay(month, day) {
