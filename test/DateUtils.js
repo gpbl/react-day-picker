@@ -4,6 +4,11 @@ import * as DateUtils from "../src/DateUtils";
 
 describe("DateUtils", () => {
 
+  it("should work with commonjs require", () => {
+    const { DateUtils } = require("../DayPicker");
+    expect(DateUtils.addDayToRange).to.be.a("function");
+  });
+
   describe("addMonths", () => {
     it("adds a month", () => {
       const date = new Date(2015, 10);
