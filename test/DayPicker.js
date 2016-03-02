@@ -98,6 +98,7 @@ describe("DayPicker", () => {
 
     const dayPicker = shallowRenderer.getRenderOutput();
     expect(dayPicker.props.className).to.contain("custom-class");
+    expect(dayPicker.props.className).to.contain("DayPicker");
   });
 
   // RENDERING
