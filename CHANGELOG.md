@@ -12,6 +12,8 @@ Fixes an issue causing className being overwritten by `className` prop [\#137](h
 * HTML props are spread to container tag, so to support `onBlur`, `onFocus`, etc. ([#122](https://github.com/gpbl/react-day-picker/issues/122), [#123](https://github.com/gpbl/react-day-picker/issues/123))
 * Better RTL support for month navigation ([#125](https://github.com/gpbl/react-day-picker/issues/125))
 
+---
+
 ## [v1.2.0](https://github.com/gpbl/react-day-picker/tree/v1.2.0) (2015-12-04)
 
 **New features**
@@ -29,6 +31,8 @@ Fixes an issue causing className being overwritten by `className` prop [\#137](h
 * Make the component working again with React ~0.13 ([#108](https://github.com/gpbl/react-day-picker/issues/108))
 * Fix a bug when clicking on outside days when `fromMonth` or `toMonth` were set ([#97](https://github.com/gpbl/react-day-picker/issues/97))
 * Replace a wrong `attr` tag with the right `abbr` in the weekdays row – https://github.com/gpbl/react-day-picker/issues/33#issuecomment-159751186. ⚠️ Please note that the component may now use the CSS defined for `abbr` tags.
+
+---
 
 ### [v1.1.5](https://github.com/gpbl/react-day-picker/tree/v1.1.5) (2015-11-20)
 
@@ -56,6 +60,8 @@ Minor changes when importing utilities
 * New `fromMonth` and `toMonth` props. Use the [`fromMonth`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#frommonth-date) and [`toMonth`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#tomonth-date) props to restrict the months within which the calendar can work. See [this example](http://www.gpbl.org/react-day-picker/examples/#restricted).
 * `dateUtils` includes some useful function to set custom modifiers
 * `localeUtils ` are the default functions used to localize the day picker in english. See https://github.com/gpbl/react-day-picker/issues/46#issuecomment-153498039 for a sample usage of this library.
+
+---
 
 ### [v1.0.10](https://github.com/gpbl/react-day-picker/tree/v1.0.10) (2015-10-15)
 
