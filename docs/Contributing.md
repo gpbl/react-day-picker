@@ -2,6 +2,8 @@
 
 Bug reports, suggestions and pull requests are welcome on the repo on GitHub: [https://github.com/gpbl/react-day-picker](https://github.com/gpbl/react-day-picker)
 
+> If you are planning a pull request with lot of changes, please add an issue to discuss your idea first!
+
 ## Running the project locally
 
 The development environment is Node 4+. To setup the repository

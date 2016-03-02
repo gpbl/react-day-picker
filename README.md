@@ -15,7 +15,6 @@ react-day-picker is a flexible date picker component for [React](https://faceboo
 
 Look at [some examples](http://gpbl.org/react-day-picker/examples) showing all its features!
 
-
 [![build status](https://img.shields.io/travis/gpbl/react-day-picker/master.svg?style=flat-square)](https://travis-ci.org/gpbl/react-day-picker)
 [![coveralls](https://img.shields.io/coveralls/gpbl/react-day-picker.svg?style=flat-square)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
 [![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
@@ -35,11 +34,13 @@ Look at [some examples](http://gpbl.org/react-day-picker/examples) showing all i
     * [Utilities](http://www.gpbl.org/react-day-picker/docs/Utilities.html)
 * [Changelog](https://github.com/gpbl/react-day-picker/releases)
 
-### Contribute
+### Partecipate
 
-* [Github](https://github.com/gpbl/react-day-picker) – pull requests are welcome!
-* [Issues](https://github.com/gpbl/react-day-picker/issues) – file bugs and suggestions
 * [Gitter room](https://gitter.im/gpbl/react-day-picker) – ask questions and chat with other developers
+* [Issues](https://github.com/gpbl/react-day-picker/issues) – file bugs and suggestions
+* Check out the source code on [Github](https://github.com/gpbl/react-day-picker)
+* Pull requests are welcome! If you are planning a pull request with lot of changes, please add an issue to discuss your idea first
+  * See how to start the project locally [here](http://www.gpbl.org/react-day-picker/docs/Contributing.html)
 
 ## Quick start
 
@@ -61,6 +62,13 @@ function isSunday(day) {
 function MyComponent() {
   return <DayPicker initialMonth={ new Date(2016, 1) } modifiers={{ isSunday }} />
 }
+```
+
+If you are not using ES2015, until [this is not fixed](https://github.com/gpbl/react-day-picker/issues/136)
+you should require the module as:
+
+```js
+var DayPicker = require("react-day-picker").default
 ```
 
 **Install via Bower**
