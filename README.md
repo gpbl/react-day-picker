@@ -22,7 +22,7 @@ Look at [some examples](http://gpbl.org/react-day-picker/examples) showing all i
 [![Bower](https://img.shields.io/bower/v/react-day-picker.svg)](http://bower.io/search/?q=react-day-picker)
 
 
-### Documentation
+### How to use
 
 * [Examples with code](http://gpbl.org/react-day-picker/examples)
 * [Documentation](http://gpbl.org/react-day-picker)
@@ -32,7 +32,7 @@ Look at [some examples](http://gpbl.org/react-day-picker/examples) showing all i
     * [Localization](http://www.gpbl.org/react-day-picker/docs/Localization.html)
     * [Tips](http://www.gpbl.org/react-day-picker/docs/Tips.html)
     * [Utilities](http://www.gpbl.org/react-day-picker/docs/Utilities.html)
-* [Changelog](https://github.com/gpbl/react-day-picker/releases)
+* [Changelog](CHANGELOG.md)
 
 ### Partecipate
 
