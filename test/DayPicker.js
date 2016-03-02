@@ -98,6 +98,7 @@ describe("DayPicker", () => {
 
     const dayPicker = shallowRenderer.getRenderOutput();
     expect(dayPicker.props.className).to.contain("custom-class");
+    expect(dayPicker.props.className).to.contain("DayPicker");
   });
 
   // RENDERING
@@ -924,7 +925,7 @@ describe("DayPicker", () => {
       const dayPicker = TestUtils.renderIntoDocument(<DayPicker onKeyDown={spy} />);
       const node = ReactDOM.findDOMNode(dayPicker);
       TestUtils.Simulate.keyDown(node);
-      expect(spy.calledOnce).to.be.true;
+      expect(spy).to.be.calledOnce;
     });
 
     it("should handle keydown event when cannot change month", () => {
@@ -934,7 +935,7 @@ describe("DayPicker", () => {
       );
       const node = ReactDOM.findDOMNode(dayPicker);
       TestUtils.Simulate.keyDown(node);
-      expect(spy.calledOnce).to.be.true;
+      expect(spy).to.be.calledOnce;
     });
 
   });
