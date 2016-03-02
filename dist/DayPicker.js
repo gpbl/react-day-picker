@@ -62,17 +62,9 @@ var DayPicker =
 	  value: true
 	});
 	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(2);
 	
@@ -80,15 +72,29 @@ var DayPicker =
 	
 	var _Helpers = __webpack_require__(3);
 	
-	var _Helpers2 = _interopRequireDefault(_Helpers);
+	var Helpers = _interopRequireWildcard(_Helpers);
 	
 	var _DateUtils = __webpack_require__(4);
 	
-	var _DateUtils2 = _interopRequireDefault(_DateUtils);
+	var DateUtils = _interopRequireWildcard(_DateUtils);
 	
 	var _LocaleUtils = __webpack_require__(5);
 	
-	var _LocaleUtils2 = _interopRequireDefault(_LocaleUtils);
+	var LocaleUtils = _interopRequireWildcard(_LocaleUtils);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var keys = {
 	  LEFT: 37,
@@ -97,13 +103,13 @@ var DayPicker =
 	  SPACE: 32
 	};
 	
-	var Caption = (function (_Component) {
+	var Caption = function (_Component) {
 	  _inherits(Caption, _Component);
 	
 	  function Caption() {
 	    _classCallCheck(this, Caption);
 	
-	    _get(Object.getPrototypeOf(Caption.prototype), "constructor", this).apply(this, arguments);
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Caption).apply(this, arguments));
 	  }
 	
 	  _createClass(Caption, [{
@@ -115,7 +121,7 @@ var DayPicker =
 	      var localeUtils = _props.localeUtils;
 	      var onClick = _props.onClick;
 	
-	      return _react2["default"].createElement(
+	      return _react2.default.createElement(
 	        "div",
 	        { className: "DayPicker-Caption", onClick: onClick },
 	        localeUtils.formatMonthTitle(date, locale)
@@ -124,75 +130,20 @@ var DayPicker =
 	  }]);
 	
 	  return Caption;
-	})(_react.Component);
+	}(_react.Component);
 	
-	var DayPicker = (function (_Component2) {
+	var DayPicker = function (_Component2) {
 	  _inherits(DayPicker, _Component2);
-	
-	  _createClass(DayPicker, null, [{
-	    key: "propTypes",
-	    value: {
-	
-	      className: _react.PropTypes.string,
-	      style: _react.PropTypes.object,
-	      tabIndex: _react.PropTypes.number,
-	
-	      initialMonth: _react.PropTypes.instanceOf(Date),
-	      numberOfMonths: _react.PropTypes.number,
-	
-	      modifiers: _react.PropTypes.object,
-	
-	      locale: _react.PropTypes.string,
-	      localeUtils: _react.PropTypes.shape({
-	        formatMonthTitle: _react.PropTypes.func,
-	        formatWeekdayShort: _react.PropTypes.func,
-	        formatWeekdayLong: _react.PropTypes.func,
-	        getFirstDayOfWeek: _react.PropTypes.func
-	      }),
-	
-	      enableOutsideDays: _react.PropTypes.bool,
-	      canChangeMonth: _react.PropTypes.bool,
-	      fromMonth: _react.PropTypes.instanceOf(Date),
-	      toMonth: _react.PropTypes.instanceOf(Date),
-	
-	      onDayClick: _react.PropTypes.func,
-	      onDayTouchTap: _react.PropTypes.func,
-	      onDayMouseEnter: _react.PropTypes.func,
-	      onDayMouseLeave: _react.PropTypes.func,
-	      onMonthChange: _react.PropTypes.func,
-	      onCaptionClick: _react.PropTypes.func,
-	
-	      renderDay: _react.PropTypes.func,
-	
-	      captionElement: _react.PropTypes.element
-	
-	    },
-	    enumerable: true
-	  }, {
-	    key: "defaultProps",
-	    value: {
-	      tabIndex: 0,
-	      initialMonth: new Date(),
-	      numberOfMonths: 1,
-	      locale: "en",
-	      localeUtils: _LocaleUtils2["default"],
-	      enableOutsideDays: false,
-	      canChangeMonth: true,
-	      renderDay: function renderDay(day) {
-	        return day.getDate();
-	      },
-	      captionElement: _react2["default"].createElement(Caption, null)
-	    },
-	    enumerable: true
-	  }]);
 	
 	  function DayPicker(props) {
 	    _classCallCheck(this, DayPicker);
 	
-	    _get(Object.getPrototypeOf(DayPicker.prototype), "constructor", this).call(this, props);
-	    this.state = {
-	      currentMonth: _Helpers2["default"].startOfMonth(props.initialMonth)
+	    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(DayPicker).call(this, props));
+	
+	    _this2.state = {
+	      currentMonth: Helpers.startOfMonth(props.initialMonth)
 	    };
+	    return _this2;
 	  }
 	
 	  _createClass(DayPicker, [{
@@ -200,7 +151,7 @@ var DayPicker =
 	    value: function componentWillReceiveProps(nextProps) {
 	      if (this.props.initialMonth !== nextProps.initialMonth) {
 	        this.setState({
-	          currentMonth: _Helpers2["default"].startOfMonth(nextProps.initialMonth)
+	          currentMonth: Helpers.startOfMonth(nextProps.initialMonth)
 	        });
 	      }
 	    }
@@ -214,7 +165,7 @@ var DayPicker =
 	      }
 	      var currentMonth = this.state.currentMonth;
 	
-	      return _Helpers2["default"].getMonthsDiff(currentMonth, fromMonth) < 0;
+	      return Helpers.getMonthsDiff(currentMonth, fromMonth) < 0;
 	    }
 	  }, {
 	    key: "allowNextMonth",
@@ -228,7 +179,7 @@ var DayPicker =
 	      }
 	      var currentMonth = this.state.currentMonth;
 	
-	      return _Helpers2["default"].getMonthsDiff(currentMonth, toMonth) >= numberOfMonths;
+	      return Helpers.getMonthsDiff(currentMonth, toMonth) >= numberOfMonths;
 	    }
 	  }, {
 	    key: "allowMonth",
@@ -237,7 +188,7 @@ var DayPicker =
 	      var fromMonth = _props3.fromMonth;
 	      var toMonth = _props3.toMonth;
 	
-	      if (fromMonth && _Helpers2["default"].getMonthsDiff(fromMonth, d) < 0 || toMonth && _Helpers2["default"].getMonthsDiff(toMonth, d) > 0) {
+	      if (fromMonth && Helpers.getMonthsDiff(fromMonth, d) < 0 || toMonth && Helpers.getMonthsDiff(toMonth, d) > 0) {
 	        return false;
 	      }
 	      return true;
@@ -249,50 +200,50 @@ var DayPicker =
 	        return;
 	      }
 	      this.setState({
-	        currentMonth: _Helpers2["default"].startOfMonth(d)
+	        currentMonth: Helpers.startOfMonth(d)
 	      });
 	    }
 	  }, {
 	    key: "showNextMonth",
 	    value: function showNextMonth(callback) {
-	      var _this = this;
+	      var _this3 = this;
 	
 	      if (!this.allowNextMonth()) {
 	        return;
 	      }
 	      var currentMonth = this.state.currentMonth;
 	
-	      var nextMonth = _DateUtils2["default"].addMonths(currentMonth, 1);
+	      var nextMonth = DateUtils.addMonths(currentMonth, 1);
 	      this.setState({
 	        currentMonth: nextMonth
 	      }, function () {
 	        if (callback) {
 	          callback();
 	        }
-	        if (_this.props.onMonthChange) {
-	          _this.props.onMonthChange(_this.state.currentMonth);
+	        if (_this3.props.onMonthChange) {
+	          _this3.props.onMonthChange(_this3.state.currentMonth);
 	        }
 	      });
 	    }
 	  }, {
 	    key: "showPreviousMonth",
 	    value: function showPreviousMonth(callback) {
-	      var _this2 = this;
+	      var _this4 = this;
 	
 	      if (!this.allowPreviousMonth()) {
 	        return;
 	      }
 	      var currentMonth = this.state.currentMonth;
 	
-	      var prevMonth = _DateUtils2["default"].addMonths(currentMonth, -1);
+	      var prevMonth = DateUtils.addMonths(currentMonth, -1);
 	      this.setState({
 	        currentMonth: prevMonth
 	      }, function () {
 	        if (callback) {
 	          callback();
 	        }
-	        if (_this2.props.onMonthChange) {
-	          _this2.props.onMonthChange(_this2.state.currentMonth);
+	        if (_this4.props.onMonthChange) {
+	          _this4.props.onMonthChange(_this4.state.currentMonth);
 	        }
 	      });
 	    }
@@ -312,7 +263,7 @@ var DayPicker =
 	        var currentMonth = this.state.currentMonth;
 	        var numberOfMonths = this.props.numberOfMonths;
 	
-	        var prevMonth = _DateUtils2["default"].addMonths(currentMonth, -numberOfMonths);
+	        var prevMonth = DateUtils.addMonths(currentMonth, -numberOfMonths);
 	        this.setState({
 	          currentMonth: prevMonth
 	        }, function () {
@@ -340,7 +291,7 @@ var DayPicker =
 	        var currentMonth = this.state.currentMonth;
 	        var numberOfMonths = this.props.numberOfMonths;
 	
-	        var nextMonth = _DateUtils2["default"].addMonths(currentMonth, numberOfMonths);
+	        var nextMonth = DateUtils.addMonths(currentMonth, numberOfMonths);
 	        this.setState({
 	          currentMonth: nextMonth
 	        }, function () {
@@ -357,13 +308,28 @@ var DayPicker =
 	  }, {
 	    key: "handleKeyDown",
 	    value: function handleKeyDown(e) {
-	      switch (e.keyCode) {
-	        case keys.LEFT:
-	          this.showPreviousMonth();
-	          break;
-	        case keys.RIGHT:
-	          this.showNextMonth();
-	          break;
+	      var _this5 = this;
+	
+	      e.persist();
+	
+	      if (!this.props.canChangeMonth && this.props.onKeyDown) {
+	        this.props.onKeyDown(e);
+	        return;
+	      }
+	
+	      if (this.props.canChangeMonth) {
+	        var callback = this.props.onKeyDown ? function () {
+	          return _this5.props.onKeyDown(e);
+	        } : null;
+	
+	        switch (e.keyCode) {
+	          case keys.LEFT:
+	            this.showPreviousMonth(callback);
+	            break;
+	          case keys.RIGHT:
+	            this.showNextMonth(callback);
+	            break;
+	        }
 	      }
 	    }
 	  }, {
@@ -447,7 +413,7 @@ var DayPicker =
 	      var currentMonth = this.state.currentMonth;
 	      var numberOfMonths = this.props.numberOfMonths;
 	
-	      var diffInMonths = _Helpers2["default"].getMonthsDiff(currentMonth, day);
+	      var diffInMonths = Helpers.getMonthsDiff(currentMonth, day);
 	      if (diffInMonths > 0 && diffInMonths >= numberOfMonths) {
 	        this.showNextMonth();
 	      } else if (diffInMonths < 0) {
@@ -458,23 +424,29 @@ var DayPicker =
 	    key: "renderNavBar",
 	    value: function renderNavBar() {
 	      var baseClass = "DayPicker-NavButton DayPicker-NavButton";
-	      return _react2["default"].createElement(
+	      var isRTL = this.props.dir === "rtl";
+	
+	      var leftButton = isRTL ? this.allowNextMonth() : this.allowPreviousMonth();
+	      var rightButton = isRTL ? this.allowPreviousMonth() : this.allowNextMonth();
+	      return _react2.default.createElement(
 	        "div",
 	        { className: "DayPicker-NavBar" },
-	        this.allowPreviousMonth() && _react2["default"].createElement("span", {
-	          key: "prev",
+	        leftButton && _react2.default.createElement("span", {
+	          key: "left",
 	          className: baseClass + "--prev",
-	          onClick: this.handlePrevMonthClick.bind(this) }),
-	        this.allowNextMonth() && _react2["default"].createElement("span", {
-	          key: "next",
+	          onClick: isRTL ? this.handleNextMonthClick.bind(this) : this.handlePrevMonthClick.bind(this)
+	        }),
+	        rightButton && _react2.default.createElement("span", {
+	          key: "right",
 	          className: baseClass + "--next",
-	          onClick: this.handleNextMonthClick.bind(this) })
+	          onClick: isRTL ? this.handlePrevMonthClick.bind(this) : this.handleNextMonthClick.bind(this)
+	        })
 	      );
 	    }
 	  }, {
 	    key: "renderMonth",
 	    value: function renderMonth(date, i) {
-	      var _this3 = this;
+	      var _this6 = this;
 	
 	      var _props4 = this.props;
 	      var locale = _props4.locale;
@@ -482,29 +454,30 @@ var DayPicker =
 	      var onCaptionClick = _props4.onCaptionClick;
 	      var captionElement = _props4.captionElement;
 	
-	      var caption = _react2["default"].cloneElement(captionElement, {
+	
+	      var caption = _react2.default.cloneElement(captionElement, {
 	        date: date, localeUtils: localeUtils, locale: locale,
 	        onClick: onCaptionClick ? function (e) {
-	          return _this3.handleCaptionClick(e, date);
+	          return _this6.handleCaptionClick(e, date);
 	        } : null
 	      });
 	
-	      return _react2["default"].createElement(
+	      return _react2.default.createElement(
 	        "div",
 	        {
 	          className: "DayPicker-Month",
 	          key: i },
 	        caption,
-	        _react2["default"].createElement(
+	        _react2.default.createElement(
 	          "div",
 	          { className: "DayPicker-Weekdays" },
-	          _react2["default"].createElement(
+	          _react2.default.createElement(
 	            "div",
 	            { className: "DayPicker-WeekdaysRow" },
 	            this.renderWeekDays()
 	          )
 	        ),
-	        _react2["default"].createElement(
+	        _react2.default.createElement(
 	          "div",
 	          { className: "DayPicker-Body" },
 	          this.renderWeeksInMonth(date)
@@ -520,10 +493,10 @@ var DayPicker =
 	
 	      var days = [];
 	      for (var i = 0; i < 7; i++) {
-	        days.push(_react2["default"].createElement(
+	        days.push(_react2.default.createElement(
 	          "div",
 	          { key: i, className: "DayPicker-Weekday" },
-	          _react2["default"].createElement(
+	          _react2.default.createElement(
 	            "abbr",
 	            { title: localeUtils.formatWeekdayLong(i, locale) },
 	            localeUtils.formatWeekdayShort(i, locale)
@@ -535,19 +508,19 @@ var DayPicker =
 	  }, {
 	    key: "renderWeeksInMonth",
 	    value: function renderWeeksInMonth(month) {
-	      var _this4 = this;
+	      var _this7 = this;
 	
 	      var _props6 = this.props;
 	      var locale = _props6.locale;
 	      var localeUtils = _props6.localeUtils;
 	
 	      var firstDayOfWeek = localeUtils.getFirstDayOfWeek(locale);
-	      return _Helpers2["default"].getWeekArray(month, firstDayOfWeek).map(function (week, i) {
-	        return _react2["default"].createElement(
+	      return Helpers.getWeekArray(month, firstDayOfWeek).map(function (week, i) {
+	        return _react2.default.createElement(
 	          "div",
 	          { key: i, className: "DayPicker-Week", role: "row" },
 	          week.map(function (day) {
-	            return _this4.renderDay(month, day);
+	            return _this7.renderDay(month, day);
 	          })
 	        );
 	      });
@@ -555,18 +528,18 @@ var DayPicker =
 	  }, {
 	    key: "renderDay",
 	    value: function renderDay(month, day) {
-	      var _this5 = this;
+	      var _this8 = this;
 	
-	      var renderDay = this.props.renderDay;
 	      var _props7 = this.props;
 	      var enableOutsideDays = _props7.enableOutsideDays;
 	      var modifierFunctions = _props7.modifiers;
+	
 	
 	      var className = "DayPicker-Day";
 	      var modifiers = [];
 	      var key = "" + day.getFullYear() + day.getMonth() + day.getDate();
 	
-	      var isToday = _DateUtils2["default"].isSameDay(day, new Date());
+	      var isToday = DateUtils.isSameDay(day, new Date());
 	      if (isToday) {
 	        modifiers.push("today");
 	      }
@@ -577,7 +550,7 @@ var DayPicker =
 	      }
 	
 	      if (modifierFunctions) {
-	        var customModifiers = _Helpers2["default"].getModifiersForDay(day, modifierFunctions);
+	        var customModifiers = Helpers.getModifiersForDay(day, modifierFunctions);
 	        modifiers = [].concat(_toConsumableArray(modifiers), _toConsumableArray(customModifiers));
 	      }
 	
@@ -586,7 +559,7 @@ var DayPicker =
 	      }).join("");
 	
 	      if (isOutside && !enableOutsideDays) {
-	        return _react2["default"].createElement("div", { key: "outside-" + key, className: className });
+	        return _react2.default.createElement("div", { key: "outside-" + key, className: className });
 	      }
 	
 	      var _props8 = this.props;
@@ -603,39 +576,42 @@ var DayPicker =
 	          tabIndex = this.props.tabIndex;
 	        }
 	      }
-	      return _react2["default"].createElement(
+	      return _react2.default.createElement(
 	        "div",
 	        { key: key, className: className,
 	          tabIndex: tabIndex,
 	          role: "gridcell",
-	          onKeyDown: function (e) {
-	            return _this5.handleDayKeyDown(e, day, modifiers);
+	          onKeyDown: function onKeyDown(e) {
+	            return _this8.handleDayKeyDown(e, day, modifiers);
 	          },
 	          onMouseEnter: onDayMouseEnter ? function (e) {
-	            return _this5.handleDayMouseEnter(e, day, modifiers);
+	            return _this8.handleDayMouseEnter(e, day, modifiers);
 	          } : null,
 	          onMouseLeave: onDayMouseLeave ? function (e) {
-	            return _this5.handleDayMouseLeave(e, day, modifiers);
+	            return _this8.handleDayMouseLeave(e, day, modifiers);
 	          } : null,
 	          onClick: onDayClick ? function (e) {
-	            return _this5.handleDayClick(e, day, modifiers);
+	            return _this8.handleDayClick(e, day, modifiers);
 	          } : null,
 	          onTouchTap: onDayTouchTap ? function (e) {
-	            return _this5.handleDayTouchTap(e, day, modifiers);
+	            return _this8.handleDayTouchTap(e, day, modifiers);
 	          } : null
 	        },
-	        renderDay(day)
+	        this.props.renderDay(day)
 	      );
 	    }
 	  }, {
 	    key: "render",
 	    value: function render() {
+	      var _this9 = this;
+	
 	      var _props9 = this.props;
 	      var numberOfMonths = _props9.numberOfMonths;
 	      var locale = _props9.locale;
-	      var style = _props9.style;
-	      var tabIndex = _props9.tabIndex;
 	      var canChangeMonth = _props9.canChangeMonth;
+	
+	      var attributes = _objectWithoutProperties(_props9, ["numberOfMonths", "locale", "canChangeMonth"]);
+	
 	      var currentMonth = this.state.currentMonth;
 	
 	      var className = "DayPicker DayPicker--" + locale;
@@ -643,24 +619,26 @@ var DayPicker =
 	      if (!this.props.onDayClick && !this.props.onDayTouchTap) {
 	        className = className + " DayPicker--interactionDisabled";
 	      }
-	      if (this.props.className) {
-	        className = className + " " + this.props.className;
+	      if (attributes.className) {
+	        className = className + " " + attributes.className;
 	      }
 	
 	      var months = [];
 	      var month = undefined;
 	      for (var i = 0; i < numberOfMonths; i++) {
-	        month = _DateUtils2["default"].addMonths(currentMonth, i);
+	        month = DateUtils.addMonths(currentMonth, i);
 	        months.push(this.renderMonth(month, i));
 	      }
 	
-	      return _react2["default"].createElement(
+	      return _react2.default.createElement(
 	        "div",
-	        { className: className,
-	          style: style,
+	        _extends({ className: className,
 	          role: "widget",
-	          tabIndex: canChangeMonth && tabIndex,
-	          onKeyDown: canChangeMonth && this.handleKeyDown.bind(this) },
+	          tabIndex: canChangeMonth && attributes.tabIndex,
+	          onKeyDown: function onKeyDown(e) {
+	            return _this9.handleKeyDown(e);
+	          }
+	        }, attributes),
 	        canChangeMonth && this.renderNavBar(),
 	        months
 	      );
@@ -668,10 +646,54 @@ var DayPicker =
 	  }]);
 	
 	  return DayPicker;
-	})(_react.Component);
+	}(_react.Component);
 	
-	exports["default"] = DayPicker;
-	module.exports = exports["default"];
+	DayPicker.propTypes = {
+	
+	  initialMonth: _react.PropTypes.instanceOf(Date),
+	  numberOfMonths: _react.PropTypes.number,
+	
+	  modifiers: _react.PropTypes.object,
+	
+	  locale: _react.PropTypes.string,
+	  localeUtils: _react.PropTypes.shape({
+	    formatMonthTitle: _react.PropTypes.func,
+	    formatWeekdayShort: _react.PropTypes.func,
+	    formatWeekdayLong: _react.PropTypes.func,
+	    getFirstDayOfWeek: _react.PropTypes.func
+	  }),
+	
+	  enableOutsideDays: _react.PropTypes.bool,
+	  canChangeMonth: _react.PropTypes.bool,
+	  fromMonth: _react.PropTypes.instanceOf(Date),
+	  toMonth: _react.PropTypes.instanceOf(Date),
+	
+	  onDayClick: _react.PropTypes.func,
+	  onDayTouchTap: _react.PropTypes.func,
+	  onDayMouseEnter: _react.PropTypes.func,
+	  onDayMouseLeave: _react.PropTypes.func,
+	  onMonthChange: _react.PropTypes.func,
+	  onCaptionClick: _react.PropTypes.func,
+	
+	  renderDay: _react.PropTypes.func,
+	
+	  captionElement: _react.PropTypes.element
+	
+	};
+	DayPicker.defaultProps = {
+	  tabIndex: 0,
+	  initialMonth: new Date(),
+	  numberOfMonths: 1,
+	  locale: "en",
+	  localeUtils: LocaleUtils,
+	  enableOutsideDays: false,
+	  canChangeMonth: true,
+	  renderDay: function renderDay(day) {
+	    return day.getDate();
+	  },
+	  captionElement: _react2.default.createElement(Caption, null)
+	};
+	exports.default = DayPicker;
 	//# sourceMappingURL=DayPicker.js.map
 
 /***/ },
@@ -689,101 +711,96 @@ var DayPicker =
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	exports.startOfMonth = startOfMonth;
+	exports.getFirstDayOfMonth = getFirstDayOfMonth;
+	exports.getDaysInMonth = getDaysInMonth;
+	exports.getWeekArray = getWeekArray;
+	exports.getModifiersForDay = getModifiersForDay;
+	exports.getMonthsDiff = getMonthsDiff;
 	
 	var _DateUtils = __webpack_require__(4);
 	
-	var _DateUtils2 = _interopRequireDefault(_DateUtils);
-	
 	var _LocaleUtils = __webpack_require__(5);
 	
-	var _LocaleUtils2 = _interopRequireDefault(_LocaleUtils);
+	function startOfMonth(d) {
+	  var newDate = (0, _DateUtils.clone)(d);
+	  newDate.setDate(1);
+	  newDate.setHours(12, 0, 0, 0); // always set noon to avoid time zone issues
+	  return newDate;
+	}
 	
-	exports["default"] = {
+	function getFirstDayOfMonth(d) {
+	  return new Date(d.getFullYear(), d.getMonth(), 1, 12);
+	}
 	
-	  startOfMonth: function startOfMonth(d) {
-	    var newDate = _DateUtils2["default"].clone(d);
-	    newDate.setDate(1);
-	    newDate.setHours(12, 0, 0, 0); // always set noon to avoid time zone issues
-	    return newDate;
-	  },
+	function getDaysInMonth(d) {
+	  var resultDate = getFirstDayOfMonth(d);
 	
-	  getFirstDayOfMonth: function getFirstDayOfMonth(d) {
-	    return new Date(d.getFullYear(), d.getMonth(), 1, 12);
-	  },
+	  resultDate.setMonth(resultDate.getMonth() + 1);
+	  resultDate.setDate(resultDate.getDate() - 1);
 	
-	  getDaysInMonth: function getDaysInMonth(d) {
-	    var resultDate = this.getFirstDayOfMonth(d);
+	  return resultDate.getDate();
+	}
 	
-	    resultDate.setMonth(resultDate.getMonth() + 1);
-	    resultDate.setDate(resultDate.getDate() - 1);
+	function getWeekArray(d) {
+	  var firstDayOfWeek = arguments.length <= 1 || arguments[1] === undefined ? (0, _LocaleUtils.getFirstDayOfWeek)() : arguments[1];
 	
-	    return resultDate.getDate();
-	  },
+	  var daysInMonth = getDaysInMonth(d);
+	  var dayArray = [];
 	
-	  getWeekArray: function getWeekArray(d) {
-	    var firstDayOfWeek = arguments.length <= 1 || arguments[1] === undefined ? _LocaleUtils2["default"].getFirstDayOfWeek() : arguments[1];
+	  var week = [];
+	  var weekArray = [];
 	
-	    var daysInMonth = this.getDaysInMonth(d);
-	    var dayArray = [];
-	
-	    var week = [];
-	    var weekArray = [];
-	
-	    for (var i = 1; i <= daysInMonth; i++) {
-	      dayArray.push(new Date(d.getFullYear(), d.getMonth(), i, 12));
-	    }
-	
-	    dayArray.forEach(function (day) {
-	      if (week.length > 0 && day.getDay() === firstDayOfWeek) {
-	        weekArray.push(week);
-	        week = [];
-	      }
-	      week.push(day);
-	      if (dayArray.indexOf(day) === dayArray.length - 1) {
-	        weekArray.push(week);
-	      }
-	    });
-	
-	    // unshift days to start the first week
-	    var firstWeek = weekArray[0];
-	    for (var i = 7 - firstWeek.length; i > 0; i--) {
-	      var outsideDate = _DateUtils2["default"].clone(firstWeek[0]);
-	      outsideDate.setDate(firstWeek[0].getDate() - 1);
-	      firstWeek.unshift(outsideDate);
-	    }
-	
-	    // push days until the end of the last week
-	    var lastWeek = weekArray[weekArray.length - 1];
-	    for (var i = lastWeek.length; i < 7; i++) {
-	      var outsideDate = _DateUtils2["default"].clone(lastWeek[lastWeek.length - 1]);
-	      outsideDate.setDate(lastWeek[lastWeek.length - 1].getDate() + 1);
-	      lastWeek.push(outsideDate);
-	    }
-	
-	    return weekArray;
-	  },
-	
-	  getModifiersForDay: function getModifiersForDay(d, modifierFunctions) {
-	    var modifiers = [];
-	    if (modifierFunctions) {
-	      for (var modifier in modifierFunctions) {
-	        var func = modifierFunctions[modifier];
-	        if (func(d)) {
-	          modifiers.push(modifier);
-	        }
-	      }
-	    }
-	    return modifiers;
-	  },
-	
-	  getMonthsDiff: function getMonthsDiff(d1, d2) {
-	    return d2.getMonth() - d1.getMonth() + 12 * (d2.getFullYear() - d1.getFullYear());
+	  for (var i = 1; i <= daysInMonth; i++) {
+	    dayArray.push(new Date(d.getFullYear(), d.getMonth(), i, 12));
 	  }
 	
-	};
-	module.exports = exports["default"];
+	  dayArray.forEach(function (day) {
+	    if (week.length > 0 && day.getDay() === firstDayOfWeek) {
+	      weekArray.push(week);
+	      week = [];
+	    }
+	    week.push(day);
+	    if (dayArray.indexOf(day) === dayArray.length - 1) {
+	      weekArray.push(week);
+	    }
+	  });
+	
+	  // unshift days to start the first week
+	  var firstWeek = weekArray[0];
+	  for (var i = 7 - firstWeek.length; i > 0; i--) {
+	    var outsideDate = (0, _DateUtils.clone)(firstWeek[0]);
+	    outsideDate.setDate(firstWeek[0].getDate() - 1);
+	    firstWeek.unshift(outsideDate);
+	  }
+	
+	  // push days until the end of the last week
+	  var lastWeek = weekArray[weekArray.length - 1];
+	  for (var i = lastWeek.length; i < 7; i++) {
+	    var outsideDate = (0, _DateUtils.clone)(lastWeek[lastWeek.length - 1]);
+	    outsideDate.setDate(lastWeek[lastWeek.length - 1].getDate() + 1);
+	    lastWeek.push(outsideDate);
+	  }
+	
+	  return weekArray;
+	}
+	
+	function getModifiersForDay(d, modifierFunctions) {
+	  var modifiers = [];
+	  if (modifierFunctions) {
+	    for (var modifier in modifierFunctions) {
+	      var func = modifierFunctions[modifier];
+	      if (func(d)) {
+	        modifiers.push(modifier);
+	      }
+	    }
+	  }
+	  return modifiers;
+	}
+	
+	function getMonthsDiff(d1, d2) {
+	  return d2.getMonth() - d1.getMonth() + 12 * (d2.getFullYear() - d1.getFullYear());
+	}
 	//# sourceMappingURL=Helpers.js.map
 
 /***/ },
@@ -795,128 +812,138 @@ var DayPicker =
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var DateUtils = {
+	exports.addMonths = addMonths;
+	exports.clone = clone;
+	exports.isSameDay = isSameDay;
+	exports.isPastDay = isPastDay;
+	exports.isDayBetween = isDayBetween;
+	exports.addDayToRange = addDayToRange;
+	exports.isDayInRange = isDayInRange;
+	/**
+	 * Return `d` as a new date with `n` months added.
+	 * @param {[type]} d
+	 * @param {[type]} n
+	 */
+	function addMonths(d, n) {
+	  var newDate = clone(d);
+	  newDate.setMonth(d.getMonth() + n);
+	  return newDate;
+	}
 	
-	  /**
-	   * Return `d` as a new date with `n` months added.
-	   * @param {[type]} d
-	   * @param {[type]} n
-	   */
-	  addMonths: function addMonths(d, n) {
-	    var newDate = DateUtils.clone(d);
-	    newDate.setMonth(d.getMonth() + n);
-	    return newDate;
-	  },
+	/**
+	 * Clone a date object.
+	 *
+	 * @param  {Date} d The date to clone
+	 * @return {Date} The cloned date
+	 */
+	function clone(d) {
+	  return new Date(d.getTime());
+	}
 	
-	  /**
-	   * Clone a date object.
-	   *
-	   * @param  {Date} d The date to clone
-	   * @return {Date} The cloned date
-	   */
-	  clone: function clone(d) {
-	    return new Date(d.getTime());
-	  },
+	/**
+	 * Return `true` if two dates are the same day, ignoring the time.
+	 *
+	 * @param  {Date}  d1
+	 * @param  {Date}  d2
+	 * @return {Boolean}
+	 */
+	function isSameDay(d1, d2) {
+	  if (!d1 || !d2) {
+	    return false;
+	  }
+	  return d1.getDate() === d2.getDate() && d1.getMonth() === d2.getMonth() && d1.getFullYear() === d2.getFullYear();
+	}
 	
-	  /**
-	   * Return `true` if two dates are the same day, ignoring the time.
-	   *
-	   * @param  {Date}  d1
-	   * @param  {Date}  d2
-	   * @return {Boolean}
-	   */
-	  isSameDay: function isSameDay(d1, d2) {
-	    if (!d1 || !d2) {
-	      return false;
+	/**
+	 * Return `true` if a day is in the past, e.g. yesterday or any day
+	 * before yesterday.
+	 *
+	 * @param  {Date}  d
+	 * @return {Boolean}
+	 */
+	function isPastDay(d) {
+	  var today = new Date();
+	  today.setHours(0, 0, 0, 0);
+	  return d < today;
+	}
+	
+	/**
+	 * Return `true` if day `d` is between days `d1` and `d2`,
+	 * without including them.
+	 *
+	 * @param  {Date}  d
+	 * @param  {Date}  d1
+	 * @param  {Date}  d2
+	 * @return {Boolean}
+	 */
+	function isDayBetween(d, d1, d2) {
+	  d = clone(d);
+	  d1 = clone(d1);
+	  d2 = clone(d2);
+	
+	  d.setHours(0, 0, 0, 0);
+	  d1.setHours(0, 0, 0, 0);
+	  d2.setHours(0, 0, 0, 0);
+	  return d1 < d && d < d2 || d2 < d && d < d1;
+	}
+	
+	/**
+	 * Add a day to a range and return a new range. A range is an object with
+	 * `from` and `to` days.
+	 *
+	 * @param {Date} day
+	 * @param {Object} range
+	 * @return {Object} Returns a new range object
+	 */
+	function addDayToRange(day) {
+	  var range = arguments.length <= 1 || arguments[1] === undefined ? { from: null, to: null } : arguments[1];
+	  var from = range.from;
+	  var to = range.to;
+	
+	  if (!from) {
+	    from = day;
+	  } else if (from && to && isSameDay(from, to) && isSameDay(day, from)) {
+	    from = null;
+	    to = null;
+	  } else if (to && day < from) {
+	    from = day;
+	  } else if (to && isSameDay(day, to)) {
+	    from = day;
+	    to = day;
+	  } else {
+	    to = day;
+	    if (to < from) {
+	      to = from;
+	      from = day;
 	    }
-	    return d1.getDate() === d2.getDate() && d1.getMonth() === d2.getMonth() && d1.getFullYear() === d2.getFullYear();
-	  },
-	
-	  /**
-	   * Return `true` if a day is in the past, e.g. yesterday or any day
-	   * before yesterday.
-	   *
-	   * @param  {Date}  d
-	   * @return {Boolean}
-	   */
-	  isPastDay: function isPastDay(d) {
-	    var today = new Date();
-	    today.setHours(0, 0, 0, 0);
-	    return d < today;
-	  },
-	
-	  /**
-	   * Return `true` if day `d` is between days `d1` and `d2`,
-	   * without including them.
-	   *
-	   * @param  {Date}  d
-	   * @param  {Date}  d1
-	   * @param  {Date}  d2
-	   * @return {Boolean}
-	   */
-	  isDayBetween: function isDayBetween(d, d1, d2) {
-	    d = DateUtils.clone(d);
-	    d1 = DateUtils.clone(d1);
-	    d2 = DateUtils.clone(d2);
-	
-	    d.setHours(0, 0, 0, 0);
-	    d1.setHours(0, 0, 0, 0);
-	    d2.setHours(0, 0, 0, 0);
-	    return d1 < d && d < d2 || d2 < d && d < d1;
-	  },
-	
-	  /**
-	   * Add a day to a range and return a new range. A range is an object with
-	   * `from` and `to` days.
-	   *
-	   * @param {Date} day
-	   * @param {Object} range
-	   * @return {Object} Returns a new range object
-	   */
-	  addDayToRange: function addDayToRange(day) {
-	    var range = arguments.length <= 1 || arguments[1] === undefined ? { from: null, to: null } : arguments[1];
-	    var from = range.from;
-	    var to = range.to;
-	
-	    if (!from) {
-	      from = day;
-	    } else if (from && to && DateUtils.isSameDay(from, to) && DateUtils.isSameDay(day, from)) {
-	      from = null;
-	      to = null;
-	    } else if (to && day < from) {
-	      from = day;
-	    } else if (to && DateUtils.isSameDay(day, to)) {
-	      from = day;
-	      to = day;
-	    } else {
-	      to = day;
-	      if (to < from) {
-	        to = from;
-	        from = day;
-	      }
-	    }
-	
-	    return { from: from, to: to };
-	  },
-	
-	  /**
-	   * Return `true` if a day is included in a range of days.
-	   *
-	   * @param  {Date}  day
-	   * @param  {Object}  range
-	   * @return {Boolean}
-	   */
-	  isDayInRange: function isDayInRange(day, range) {
-	    var from = range.from;
-	    var to = range.to;
-	
-	    return from && DateUtils.isSameDay(day, from) || to && DateUtils.isSameDay(day, to) || from && to && DateUtils.isDayBetween(day, from, to);
 	  }
 	
-	};
+	  return { from: from, to: to };
+	}
 	
-	exports["default"] = DateUtils;
-	module.exports = exports["default"];
+	/**
+	 * Return `true` if a day is included in a range of days.
+	 *
+	 * @param  {Date}  day
+	 * @param  {Object}  range
+	 * @return {Boolean}
+	 */
+	function isDayInRange(day, range) {
+	  var from = range.from;
+	  var to = range.to;
+	
+	  return from && isSameDay(day, from) || to && isSameDay(day, to) || from && to && isDayBetween(day, from, to);
+	}
+	
+	exports.default = {
+	  addDayToRange: addDayToRange,
+	  addMonths: addMonths,
+	  clone: clone,
+	  isSameDay: isSameDay,
+	  isDayInRange: isDayInRange,
+	  isDayBetween: isDayBetween,
+	  isPastDay: isPastDay
+	};
 	//# sourceMappingURL=DateUtils.js.map
 
 /***/ },
@@ -928,36 +955,44 @@ var DayPicker =
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.formatMonthTitle = formatMonthTitle;
+	exports.formatWeekdayShort = formatWeekdayShort;
+	exports.formatWeekdayLong = formatWeekdayLong;
+	exports.getFirstDayOfWeek = getFirstDayOfWeek;
+	exports.getMonths = getMonths;
 	var WEEKDAYS_LONG = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	
 	var WEEKDAYS_SHORT = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 	
 	var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	
-	exports["default"] = {
+	function formatMonthTitle(d) {
+	  return MONTHS[d.getMonth()] + " " + d.getFullYear();
+	}
 	
-	  formatMonthTitle: function formatMonthTitle(d) {
-	    return MONTHS[d.getMonth()] + " " + d.getFullYear();
-	  },
+	function formatWeekdayShort(i) {
+	  return WEEKDAYS_SHORT[i];
+	}
 	
-	  formatWeekdayShort: function formatWeekdayShort(i) {
-	    return WEEKDAYS_SHORT[i];
-	  },
+	function formatWeekdayLong(i) {
+	  return WEEKDAYS_LONG[i];
+	}
 	
-	  formatWeekdayLong: function formatWeekdayLong(i) {
-	    return WEEKDAYS_LONG[i];
-	  },
+	function getFirstDayOfWeek() {
+	  return 0;
+	}
 	
-	  getFirstDayOfWeek: function getFirstDayOfWeek() {
-	    return 0;
-	  },
+	function getMonths() {
+	  return MONTHS;
+	}
 	
-	  getMonths: function getMonths() {
-	    return MONTHS;
-	  }
-	
+	exports.default = {
+	  formatMonthTitle: formatMonthTitle,
+	  formatWeekdayShort: formatWeekdayShort,
+	  formatWeekdayLong: formatWeekdayLong,
+	  getFirstDayOfWeek: getFirstDayOfWeek,
+	  getMonths: getMonths
 	};
-	module.exports = exports["default"];
 	//# sourceMappingURL=LocaleUtils.js.map
 
 /***/ }
