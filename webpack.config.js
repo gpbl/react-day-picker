@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 module.exports = {
   entry: "./DayPicker.js",
   devtool: "source-map",
