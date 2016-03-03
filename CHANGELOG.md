@@ -1,5 +1,3 @@
-# Change Log
-
 ### [v1.3.1](https://github.com/gpbl/react-day-picker/tree/v1.3.1) (2016-03-02)
 
 Fixes an issue causing className being overwritten by `className` prop [\#137](https://github.com/gpbl/react-day-picker/issues/137)
