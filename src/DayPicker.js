@@ -233,11 +233,6 @@ export default class DayPicker extends Component {
 
   // Event handlers
 
-  cancelEvent(e) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-
   handleKeyDown(e) {
     e.persist();
     const { canChangeMonth, onKeyDown } = this.props;
@@ -273,24 +268,24 @@ export default class DayPicker extends Component {
     e.persist();
     switch (e.keyCode) {
     case keys.LEFT:
-      this.cancelEvent(e);
+      Helpers.cancelEvent(e);
       this.focusPreviousDay(e.target);
       break;
     case keys.RIGHT:
-      this.cancelEvent(e);
+      Helpers.cancelEvent(e);
       this.focusNextDay(e.target);
       break;
     case keys.UP:
-      this.cancelEvent(e);
+      Helpers.cancelEvent(e);
       this.focusPreviousWeek(e.target);
       break;
     case keys.DOWN:
-      this.cancelEvent(e);
+      Helpers.cancelEvent(e);
       this.focusNextWeek(e.target);
       break;
     case keys.ENTER:
     case keys.SPACE:
-      this.cancelEvent(e);
+      Helpers.cancelEvent(e);
       if (this.props.onDayClick) {
         this.handleDayClick(e, day, modifiers);
       }
