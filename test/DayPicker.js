@@ -799,8 +799,6 @@ describe("DayPicker", () => {
 
   it("does not call mouse events on disabled outside days", () => {
 
-
-
     const handleClick = sinon.spy();
     const handleMouseEnter = sinon.spy();
     const handleMouseLeave = sinon.spy();
@@ -834,8 +832,6 @@ describe("DayPicker", () => {
   });
 
   it("changes the month when tapping on enabled outside days", () => {
-
-
 
     const handleTouchTap = sinon.spy();
 
@@ -916,9 +912,6 @@ describe("DayPicker", () => {
   });
 
   it("does not show the next month when clicking on an outside days of the first of 2 months", () => {
-
-
-
     const handleClick = sinon.spy();
 
     const dayPickerEl = TestUtils.renderIntoDocument(
