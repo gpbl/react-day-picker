@@ -2,17 +2,6 @@
 import { clone } from "./DateUtils";
 import { getFirstDayOfWeek } from "./LocaleUtils";
 
-export function startOfMonth(d) {
-  const newDate = clone(d);
-  newDate.setDate(1);
-  newDate.setHours(12, 0, 0, 0); // always set noon to avoid time zone issues
-  return newDate;
-}
-
-export function getFirstDayOfMonth(d) {
-  return new Date(d.getFullYear(), d.getMonth(), 1, 12);
-}
-
 export function getDaysInMonth(d) {
   const resultDate = getFirstDayOfMonth(d);
 
@@ -20,6 +9,28 @@ export function getDaysInMonth(d) {
   resultDate.setDate(resultDate.getDate() - 1);
 
   return resultDate.getDate();
+}
+
+export function getFirstDayOfMonth(d) {
+  return new Date(d.getFullYear(), d.getMonth(), 1, 12);
+}
+
+export function getModifiersForDay(d, modifierFunctions) {
+  const modifiers = [];
+  if (modifierFunctions) {
+    for (const modifier in modifierFunctions) {
+      const func = modifierFunctions[modifier];
+      if (func(d)) {
+        modifiers.push(modifier);
+      }
+    }
+  }
+  return modifiers;
+}
+
+export function getMonthsDiff(d1, d2) {
+  return d2.getMonth() - d1.getMonth() +
+    (12 * (d2.getFullYear() - d1.getFullYear()));
 }
 
 export function getWeekArray(d, firstDayOfWeek=getFirstDayOfWeek()) {
@@ -64,20 +75,9 @@ export function getWeekArray(d, firstDayOfWeek=getFirstDayOfWeek()) {
 
 }
 
-export function getModifiersForDay(d, modifierFunctions) {
-  const modifiers = [];
-  if (modifierFunctions) {
-    for (const modifier in modifierFunctions) {
-      const func = modifierFunctions[modifier];
-      if (func(d)) {
-        modifiers.push(modifier);
-      }
-    }
-  }
-  return modifiers;
-}
-
-export function getMonthsDiff(d1, d2) {
-  return d2.getMonth() - d1.getMonth() +
-    (12 * (d2.getFullYear() - d1.getFullYear()));
+export function startOfMonth(d) {
+  const newDate = clone(d);
+  newDate.setDate(1);
+  newDate.setHours(12, 0, 0, 0); // always set noon to avoid time zone issues
+  return newDate;
 }
