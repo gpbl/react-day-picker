@@ -95,6 +95,7 @@ render() {
   const { selectedDay } = this.state;
   const modifiers = {
     selected(day) {
+      if (selectedDay == null) return false;
       return day.getDate() === selectedDay.getDate() &&
         day.getMonth() === selectedDay.getMonth() &&
         day.getFullYear() === selectedDay.getFullYear();
