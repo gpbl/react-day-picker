@@ -47,6 +47,7 @@ export default class DayPicker extends Component {
     toMonth: PropTypes.instanceOf(Date),
 
     onDayClick: PropTypes.func,
+    onDayKeyDown: PropTypes.func,
     onDayTouchTap: PropTypes.func,
     onDayMouseEnter: PropTypes.func,
     onDayMouseLeave: PropTypes.func,
@@ -271,6 +272,8 @@ export default class DayPicker extends Component {
 
   handleDayKeyDown(e, day, modifiers) {
     e.persist();
+     const { onDayKeyDown } = this.props;
+
     switch (e.keyCode) {
     case keys.LEFT:
       this.cancelEvent(e);
@@ -298,6 +301,11 @@ export default class DayPicker extends Component {
         this.handleDayTouchTap(e, day, modifiers);
       }
       break;
+    default:
+        if (onDayKeyDown) {
+          onDayKeyDown(e);
+        }
+      }
     }
   }
 
