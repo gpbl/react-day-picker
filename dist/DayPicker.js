@@ -609,6 +609,7 @@ var DayPicker =
 	      var numberOfMonths = _props9.numberOfMonths;
 	      var locale = _props9.locale;
 	      var canChangeMonth = _props9.canChangeMonth;
+	      var renderMonthsBackwards = _props9.renderMonthsBackwards;
 	
 	      var attributes = _objectWithoutProperties(_props9, ["numberOfMonths", "locale", "canChangeMonth"]);
 	
@@ -625,9 +626,16 @@ var DayPicker =
 	
 	      var months = [];
 	      var month = undefined;
-	      for (var i = 0; i < numberOfMonths; i++) {
-	        month = DateUtils.addMonths(currentMonth, i);
-	        months.push(this.renderMonth(month, i));
+	      if (renderMonthsBackwards) {
+	        for (var i = numberOfMonths; i > 0; i--) {
+	          month = DateUtils.addMonths(currentMonth, i);
+	          months.push(this.renderMonth(month, i));
+	        }
+	      } else {
+	        for (var i = 0; i < numberOfMonths; i++) {
+	          month = DateUtils.addMonths(currentMonth, i);
+	          months.push(this.renderMonth(month, i));
+	        }
 	      }
 	
 	      return _react2.default.createElement(
@@ -676,6 +684,8 @@ var DayPicker =
 	  onCaptionClick: _react.PropTypes.func,
 	
 	  renderDay: _react.PropTypes.func,
+
+	  renderMonthsBackwards: _react.PropTypes.bool,
 	
 	  captionElement: _react.PropTypes.element
 	
@@ -688,6 +698,7 @@ var DayPicker =
 	  localeUtils: LocaleUtils,
 	  enableOutsideDays: false,
 	  canChangeMonth: true,
+	  renderMonthsBackwards: false,
 	  renderDay: function renderDay(day) {
 	    return day.getDate();
 	  },
