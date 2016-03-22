@@ -302,9 +302,8 @@ export default class DayPicker extends Component {
       }
       break;
     default:
-        if (onDayKeyDown) {
-          onDayKeyDown(e);
-        }
+      if (onDayKeyDown) {
+        onDayKeyDown(e);
       }
     }
   }
