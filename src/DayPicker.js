@@ -303,7 +303,7 @@ export default class DayPicker extends Component {
       break;
     default:
       if (this.props.onDayKeyDown) {
-        this.props.onDayKeyDown(e.target);
+        this.props.onDayKeyDown(e);
       }
     }
   }
