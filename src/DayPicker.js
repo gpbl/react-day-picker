@@ -272,7 +272,7 @@ export default class DayPicker extends Component {
 
   handleDayKeyDown(e, day, modifiers) {
     e.persist();
-     const { onDayKeyDown } = this.props;
+    const { onDayKeyDown } = this.props;
 
     switch (e.keyCode) {
     case keys.LEFT:
