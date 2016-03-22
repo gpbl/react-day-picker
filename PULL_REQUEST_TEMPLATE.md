@@ -1,0 +1,1 @@
+Thanks for this pull request! _Please explain the intent of your changes. If they involve a lot of code, you may want to discuss this first on our [Gitter room](https://gitter.im/gpbl/react-day-picker)._
