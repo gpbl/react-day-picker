@@ -23,7 +23,8 @@ const keys = {
   UP: 38,
   DOWN: 40,
   ENTER: 13,
-  SPACE: 32
+  SPACE: 32,
+  TAB: 9
 };
 
 describe("DayPicker", () => {
@@ -962,6 +963,19 @@ describe("DayPicker", () => {
       keyCode: keys.SPACE
     });
     expect(handleDayClick).to.be.called;
+  });
+
+  it("calls onDayKeyDown when tab key is pressed on a day cell", () => {
+    const handleDayKeyDown = sinon.spy();
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker onDayKeyDown={handleDayKeyDown} />
+    );
+    const node = dayPickerEl.refs.dayPicker;
+    const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
+    TestUtils.Simulate.keyDown(dayNode, {
+      keyCode: keys.TAB
+    });
+    expect(handleDayKeyDown).to.be.called;
   });
 
   it("calls onDayTouchTap when enter key is pressed on a day cell", () => {

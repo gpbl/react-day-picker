@@ -9,7 +9,8 @@ const keys = {
   RIGHT: 39,
   DOWN: 40,
   ENTER: 13,
-  SPACE: 32
+  SPACE: 32,
+  TAB: 9
 };
 
 class Caption extends Component {
@@ -272,7 +273,6 @@ export default class DayPicker extends Component {
 
   handleDayKeyDown(e, day, modifiers) {
     e.persist();
-    const { onDayKeyDown } = this.props;
 
     switch (e.keyCode) {
     case keys.LEFT:
@@ -302,8 +302,8 @@ export default class DayPicker extends Component {
       }
       break;
     default:
-      if (onDayKeyDown) {
-        onDayKeyDown(e);
+      if (this.props.onDayKeyDown) {
+        this.props.onDayKeyDown(e.target);
       }
     }
   }
