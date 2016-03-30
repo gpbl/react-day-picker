@@ -37,6 +37,7 @@ describe("DayPicker", () => {
     expect(dayPicker.props.locale).to.equal("en");
     expect(dayPicker.props.enableOutsideDays).to.equal(false);
     expect(dayPicker.props.canChangeMonth).to.equal(true);
+    expect(dayPicker.props.reverseMonthsRender).to.equal(false);
     expect(dayPicker.props.tabIndex).to.equal(0);
     expect(dayPicker.props.style).to.be.undefined;
     expect(dayPicker.props.className).to.be.undefined;
@@ -112,6 +113,16 @@ describe("DayPicker", () => {
     const months = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-Month");
     expect(months).to.have.length(3);
+  });
+
+  it("renders the months on a reverse order as specified by reverseMonthsRender", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 11, 6)} numberOfMonths={4} reverseMonthsRender={true} />
+    );
+    const captionEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Caption");
+    expect(ReactDOM.findDOMNode(captionEl[0]).innerHTML).to.equal("March 2016");
+    expect(ReactDOM.findDOMNode(captionEl[1]).innerHTML).to.equal("February 2016");
   });
 
   it("renders a caption for each month", () => {
