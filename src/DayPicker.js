@@ -43,7 +43,7 @@ export default class DayPicker extends Component {
 
     enableOutsideDays: PropTypes.bool,
     canChangeMonth: PropTypes.bool,
-    reverseMonthsRender: PropTypes.bool,
+    reverseMonths: PropTypes.bool,
     fromMonth: PropTypes.instanceOf(Date),
     toMonth: PropTypes.instanceOf(Date),
 
@@ -67,7 +67,7 @@ export default class DayPicker extends Component {
     localeUtils: LocaleUtils,
     enableOutsideDays: false,
     canChangeMonth: true,
-    reverseMonthsRender: false,
+    reverseMonths: false,
     renderDay: day => day.getDate(),
     captionElement: <Caption />
   };
@@ -501,7 +501,7 @@ export default class DayPicker extends Component {
   }
 
   render() {
-    const { numberOfMonths, locale, canChangeMonth, reverseMonthsRender, ...attributes } = this.props;
+    const { numberOfMonths, locale, canChangeMonth, reverseMonths, ...attributes } = this.props;
     const { currentMonth } = this.state;
     let className = `DayPicker DayPicker--${locale}`;
 
@@ -519,7 +519,7 @@ export default class DayPicker extends Component {
       months.push(this.renderMonth(month, i));
     }
 
-    if (reverseMonthsRender) {
+    if (reverseMonths) {
       months.reverse();
     }
 
