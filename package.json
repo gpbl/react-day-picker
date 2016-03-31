@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "1.3.1",
+  "version": "2.0.0-beta",
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "style": "lib/style.css",
@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/gpbl/react-day-picker",
   "peerDependencies": {
-    "react": "~0.13.x || ~0.14.x || ^15.0.0-rc || ^15.0.0" 
+    "react": "~0.13.x || ~0.14.x || ^15.0.0-rc || ^15.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
