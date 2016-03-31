@@ -9,7 +9,8 @@ const keys = {
   RIGHT: 39,
   DOWN: 40,
   ENTER: 13,
-  SPACE: 32
+  SPACE: 32,
+  TAB: 9
 };
 
 class Caption extends Component {
@@ -48,6 +49,7 @@ export default class DayPicker extends Component {
     toMonth: PropTypes.instanceOf(Date),
 
     onDayClick: PropTypes.func,
+    onDayKeyDown: PropTypes.func,
     onDayTouchTap: PropTypes.func,
     onDayMouseEnter: PropTypes.func,
     onDayMouseLeave: PropTypes.func,
@@ -268,6 +270,7 @@ export default class DayPicker extends Component {
 
   handleDayKeyDown(e, day, modifiers) {
     e.persist();
+
     switch (e.keyCode) {
     case keys.LEFT:
       Helpers.cancelEvent(e);
@@ -295,6 +298,10 @@ export default class DayPicker extends Component {
         this.handleDayTouchTap(e, day, modifiers);
       }
       break;
+    default:
+      if (this.props.onDayKeyDown) {
+        this.props.onDayKeyDown(e);
+      }
     }
   }
 
