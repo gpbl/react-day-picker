@@ -1,5 +1,9 @@
 import moment from "moment";
 
+export function formatDay(day, locale="en") {
+  return moment(day).locale(locale).format("ddd ll");
+}
+
 export function formatMonthTitle(date, locale="en") {
   return moment(date).locale(locale).format("MMMM YYYY");
 }
@@ -27,6 +31,7 @@ export function getMonths(locale="en") {
 }
 
 export default {
+  formatDay,
   formatMonthTitle,
   formatWeekdayShort,
   formatWeekdayLong,

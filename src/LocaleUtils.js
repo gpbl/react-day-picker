@@ -7,6 +7,10 @@ const WEEKDAYS_SHORT = ["Su", "Mo", "Tu",
 const MONTHS = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 
+export function formatDay(day) {
+  return day.toDateString();
+}
+
 export function formatMonthTitle(d) {
   return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
 }
@@ -28,6 +32,7 @@ export function getMonths() {
 }
 
 export default {
+  formatDay,
   formatMonthTitle,
   formatWeekdayShort,
   formatWeekdayLong,

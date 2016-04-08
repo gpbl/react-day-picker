@@ -30,6 +30,7 @@ const FIRST_DAY = {
 }
 
 const localeUtils = {
+  formatDay: (d, locale="en") => `${weekdaysLong[locale][d.getDay()]}, ${d.getDate()} ${months[locale][d.getMonth()]} ${d.getFullYear()}`,
   formatMonthTitle: (d, locale) => `${MONTHS[locale][d.getMonth()]} ${d.getFullYear()}`,
   formatWeekdayShort: (i, locale) => WEEKDAYS_SHORT[locale][i],
   formatWeekdayLong: (i, locale) => WEEKDAYS_LONG[locale][i],

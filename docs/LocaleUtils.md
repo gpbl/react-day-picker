@@ -1,6 +1,6 @@
 # LocaleUtils
 
-`LocaleUtils` is a set of functions used to localize the component (see: [Custom localization](LocalizationCustom.md)). You may want to implement your own `LocaleUtils`, or override some of its functions. 
+`LocaleUtils` is a set of functions used to localize the component (see: [Custom localization](LocalizationCustom.md)). You may want to implement your own `LocaleUtils`, or override some of its functions.
 
 For example, this code renders the month's title as `M/YYYY` instead of the default:
 
@@ -8,7 +8,7 @@ For example, this code renders the month's title as `M/YYYY` instead of the defa
 import DayPicker, { LocaleUtils } from "react-day-picker";
 
 function formatMonthTitle(d, locale) {
- return `${d.getMonth() + 1}/${d.getFullYear}` 
+ return `${d.getMonth() + 1}/${d.getFullYear}`
 }
 
 <DayPicker localeUtils={{ ...LocaleUtils, formatMonthTitle }} />
@@ -16,6 +16,10 @@ function formatMonthTitle(d, locale) {
 ```
 
 ## Functions
+
+### `formatDay(d: date, locale: string) -> string`
+
+Format the string used as `aria-label` for the given day.
 
 ### `formatMonthTitle(d: date, locale: string) -> string`
 

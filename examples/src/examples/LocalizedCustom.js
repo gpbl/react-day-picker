@@ -21,6 +21,8 @@ const firstDayOfWeek = {
 };
 
 const localeUtils = {
+  formatDay: (d, locale="en") =>
+    `${weekdaysLong[locale][d.getDay()]}, ${d.getDate()} ${months[locale][d.getMonth()]} ${d.getFullYear()}`,
   formatWeekdayShort: (index, locale="en") => weekdaysShort[locale][index],
   formatWeekdayLong: (index, locale="en") => weekdaysLong[locale][index],
   getFirstDayOfWeek: (locale) => firstDayOfWeek[locale],
