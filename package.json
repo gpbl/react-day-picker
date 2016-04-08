@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/gpbl/react-day-picker",
   "peerDependencies": {
-    "react": "~0.13.x || ~0.14.x || ~15.x.x"
+    "react": "~0.13.x || ~0.14.x || ^15.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
@@ -70,9 +70,9 @@
     "mocha": "^2.2.5",
     "moment": "^2.10.3",
     "postcss-cli": "^2.3.2",
-    "react": "^0.14.2",
-    "react-addons-test-utils": "^0.14.2",
-    "react-dom": "^0.14.2",
+    "react": "^15.0.0",
+    "react-addons-test-utils": "^15.0.0",
+    "react-dom": "^15.0.0",
     "react-tap-event-plugin": "^0.2.0",
     "rimraf": "^2.4.3",
     "sinon": "^1.17.2",
