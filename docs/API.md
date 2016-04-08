@@ -23,5 +23,6 @@
 | [onDayTouchTap](APIProps.md#ondaytouchtap-function) | Function |
 | [onMonthChange](APIProps.md#onmonthchange-function) | Function |
 | [renderDay](APIProps.md#renderday-function) | Function |
+| [reverseMonths](APIProps.md#reversemonths-boolean) | Boolean |
 | [tabIndex](APIProps.md#tabindex-number) | Number |
 | [toMonth](APIProps.md#tomonth-date) | Date |

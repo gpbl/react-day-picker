@@ -41,6 +41,12 @@ The number of months to render, where `initialMonth` is the first month. Default
 
 ---
 
+#### reverseMonths (Boolean)
+
+Render the months in reversed order. Useful when `numberOfMonths` is greater than 1 to display the most recent month first. Default is `false`.
+
+---
+
 #### enableOutsideDays (Boolean)
 
 Display the days outside the current month. Default is `false`.
