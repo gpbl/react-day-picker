@@ -4,6 +4,11 @@ import * as LocaleUtils from "../src/LocaleUtils";
 
 describe("LocaleUtils", () => {
 
+  it("should work with commonjs require", () => {
+    const { LocaleUtils } = require("../DayPicker");
+    expect(LocaleUtils.formatMonthTitle).to.be.a("function");
+  });
+
   describe("formatMonthTitle", () => {
     it("returns month and day as string", () => {
       const date = new Date(2015, 11, 20);

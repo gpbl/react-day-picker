@@ -28,6 +28,11 @@ const keys = {
 
 describe("DayPicker", () => {
 
+  it("should work with commonjs require", () => {
+    const DayPicker = require("../DayPicker");
+    expect(DayPicker).to.be.a("function");
+  });
+
   it("has the default props properly set", () => {
     const dayPicker = <DayPicker />;
     const now = new Date();

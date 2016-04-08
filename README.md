@@ -65,11 +65,10 @@ function MyComponent() {
 }
 ```
 
-If you are not using ES2015, until [this is not fixed](https://github.com/gpbl/react-day-picker/issues/136)
-you should require the module as:
+If you are not using ES2015, use `require`:
 
 ```js
-var DayPicker = require("react-day-picker").default
+var DayPicker = require("react-day-picker");
 ```
 
 **Install via Bower**
