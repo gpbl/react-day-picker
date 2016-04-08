@@ -1,24 +1,3 @@
-## [v2.0.0](https://github.com/gpbl/react-day-picker/tree/v2.0.0) (2016-04-108)
-
-**Improvements**
-
-* Navigate between weeks using up/down arrow keys ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
-* New [reverseMonths](http://www.gpbl.org/react-day-picker/docs/APIProps.html#reversemonths-prop) prop to render the most recent month first. ([#147](https://github.com/gpbl/react-day-picker/pull/141) by [sonrtomas](sonrtomas))
-* Add `aria-label` attribute to day's cells ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
-* Support for React 0.15 ([#141](https://github.com/gpbl/react-day-picker/pull/141) by [GertjanReynaert](https://github.com/GertjanReynaert))
-
-**Breaking changes**
-
-* Fix import with CommonJS modules ([#136](https://github.com/gpbl/react-day-picker/issues/136)).
-
- This affects code using `require('react-day-picker').default` or similar syntax, which was required for v1.3.0. Now you can `require('react-day-picker')` as usual, i.e. without specifying `default`. If you are using ES2015 modules `import DayPicker from 'react-day-picker'`, this change shouldn't affect you.
-
-* New `formatDay` function in [LocaleUtils](http://www.gpbl.org/react-day-picker/docs/LocaleUtils.html).
-
- If you are using your [custom LocaleUtils](http://www.gpbl.org/react-day-picker/docs/LocalizationCustom.html) to localize the calendar, you need to implement this function as well, which is required to format the newly added [aria-label attribute](https://github.com/gpbl/react-day-picker/pull/132) (see the [documentation](http://localhost:4000/docs/LocalizationCustom.html) for an example). If you are localizing [using moment](http://www.gpbl.org/react-day-picker/docs/LocalizationMoment.html), this change shouldn't affect you.
-
----
-
 ### [v1.3.1](https://github.com/gpbl/react-day-picker/tree/v1.3.1) (2016-03-02)
 
 Fixes an issue causing className being overwritten by `className` prop [\#137](https://github.com/gpbl/react-day-picker/issues/137)
