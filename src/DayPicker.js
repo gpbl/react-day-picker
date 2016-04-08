@@ -48,7 +48,6 @@ export default class DayPicker extends Component {
     toMonth: PropTypes.instanceOf(Date),
 
     onDayClick: PropTypes.func,
-    onDayTouchTap: PropTypes.func,
     onDayMouseEnter: PropTypes.func,
     onDayMouseLeave: PropTypes.func,
     onMonthChange: PropTypes.func,
@@ -277,9 +276,6 @@ export default class DayPicker extends Component {
       if (this.props.onDayClick) {
         this.handleDayClick(e, day, modifiers);
       }
-      if (this.props.onDayTouchTap) {
-        this.handleDayTouchTap(e, day, modifiers);
-      }
       break;
     }
   }
@@ -287,14 +283,6 @@ export default class DayPicker extends Component {
   handleCaptionClick(e, currentMonth) {
     e.persist();
     this.props.onCaptionClick(e, currentMonth);
-  }
-
-  handleDayTouchTap(e, day, modifiers) {
-    e.persist();
-    if (modifiers.indexOf("outside") > -1) {
-      this.handleOutsideDayPress(day);
-    }
-    this.props.onDayTouchTap(e, day, modifiers);
   }
 
   handleDayClick(e, day, modifiers) {
@@ -340,14 +328,14 @@ export default class DayPicker extends Component {
           <span
             key="left"
             className={ `${baseClass}--prev` }
-            onClick={ isRTL ? ::this.showNextMonth : ::this.showPreviousMonth }
+            onClick={ () => isRTL ? this.showNextMonth() : this.showPreviousMonth() }
           />
         }
         { rightButton &&
           <span
             key="right"
             className={ `${baseClass}--next` }
-            onClick={  isRTL ? ::this.showPreviousMonth : ::this.showNextMonth }
+            onClick={ () => isRTL ? this.showPreviousMonth() : this.showNextMonth() }
           />
         }
       </div>
@@ -435,10 +423,10 @@ export default class DayPicker extends Component {
       return <div key={ `outside-${key}` } className={ className } />;
     }
 
-    const { onDayMouseEnter, onDayMouseLeave, onDayTouchTap, onDayClick }
+    const { onDayMouseEnter, onDayMouseLeave, onDayClick }
       = this.props;
     let tabIndex = null;
-    if ((onDayTouchTap || onDayClick) && !isOutside) {
+    if (onDayClick && !isOutside) {
       tabIndex = -1;
       // Focus on the first day of the month
       if (day.getDate() === 1) {
@@ -464,8 +452,6 @@ export default class DayPicker extends Component {
           (e) => this.handleDayMouseLeave(e, day, modifiers) : null }
         onClick= { onDayClick ?
           (e) => this.handleDayClick(e, day, modifiers) : null }
-        onTouchTap= { onDayTouchTap ?
-          (e) => this.handleDayTouchTap(e, day, modifiers) : null }
         >
         { this.props.renderDay(day) }
       </div>
@@ -477,7 +463,7 @@ export default class DayPicker extends Component {
     const { currentMonth } = this.state;
     let className = `DayPicker DayPicker--${locale}`;
 
-    if (!this.props.onDayClick && !this.props.onDayTouchTap) {
+    if (!this.props.onDayClick) {
       className = `${className} DayPicker--interactionDisabled`;
     }
     if (attributes.className) {

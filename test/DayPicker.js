@@ -5,7 +5,6 @@ import sinon from "sinon";
 import sinonChai from "sinon-chai";
 
 chai.use(sinonChai);
-require("react-tap-event-plugin")();
 
 testDom("<html><body></body></html>");
 const React = require("react");
@@ -719,8 +718,6 @@ describe("DayPicker", () => {
 
   it("calls event handlers on a day cell", () => {
 
-
-
     function isFirstDay(d) {
       return d.getFullYear() === 2015 &&
         d.getMonth() === 11 &&
@@ -735,15 +732,13 @@ describe("DayPicker", () => {
     const handleClick = sinon.spy();
     const handleMouseEnter = sinon.spy();
     const handleMouseLeave = sinon.spy();
-    const handleTouchTap = sinon.spy();
 
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 11, 5)}
         modifiers={modifiers}
         onDayClick={handleClick}
         onDayMouseEnter={handleMouseEnter}
-        onDayMouseLeave={handleMouseLeave}
-        onDayTouchTap={handleTouchTap} />
+        onDayMouseLeave={handleMouseLeave} />
     );
 
     const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -771,29 +766,6 @@ describe("DayPicker", () => {
     TestUtils.SimulateNative.mouseOut(dayEl);
     expect(handleMouseLeave).to.have.been.calledWith(...handlerCallback);
 
-    TestUtils.Simulate.touchTap(dayEl);
-    expect(handleTouchTap).to.have.been.called;
-
-  });
-
-  it("calls touch-tap event handler on a day cell", () => {
-
-
-
-    const handleTouchTap = sinon.spy();
-
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker initialMonth={new Date(2015, 11, 5)}
-        onDayTouchTap={handleTouchTap} />
-    );
-
-    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
-      "DayPicker-Day");
-    const dayEl = daysEl[2];
-
-    TestUtils.Simulate.touchTap(dayEl);
-    expect(handleTouchTap).to.have.been.called;
-
   });
 
   it("does not call event handlers on a day cell without event prop", () => {
@@ -818,15 +790,13 @@ describe("DayPicker", () => {
     const handleClick = sinon.spy();
     const handleMouseEnter = sinon.spy();
     const handleMouseLeave = sinon.spy();
-    const handleTouchTap = sinon.spy();
 
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 11, 5)}
         enableOutsideDays={false}
         onDayClick={handleClick}
         onDayMouseEnter={handleMouseEnter}
-        onDayMouseLeave={handleMouseLeave}
-        onDayTouchTap={handleTouchTap} />
+        onDayMouseLeave={handleMouseLeave} />
     );
 
     const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
@@ -842,30 +812,6 @@ describe("DayPicker", () => {
     TestUtils.SimulateNative.mouseOut(dayEl);
     expect(handleMouseLeave).to.not.have.been.called;
 
-    TestUtils.Simulate.touchTap(dayEl);
-    expect(handleTouchTap).to.not.have.been.called;
-
-  });
-
-  it("changes the month when tapping on enabled outside days", () => {
-
-    const handleTouchTap = sinon.spy();
-
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker
-        initialMonth={new Date(2015, 6, 5)}
-        enableOutsideDays={true}
-        onDayTouchTap={handleTouchTap}
-      />
-    );
-
-    const daysEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
-      "DayPicker-Day");
-    const dayEl = daysEl[0];
-
-    TestUtils.Simulate.touchTap(dayEl);
-    expect(handleTouchTap).to.have.been.called;
-    expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
   });
 
   it("shows the previous month when clicking on (enabled) outside days", () => {
@@ -972,20 +918,6 @@ describe("DayPicker", () => {
     });
     expect(handleDayClick).to.be.called;
   });
-
-  it("calls onDayTouchTap when enter key is pressed on a day cell", () => {
-    const handleDayTouchTap = sinon.spy();
-    const dayPickerEl = TestUtils.renderIntoDocument(
-      <DayPicker onDayTouchTap={handleDayTouchTap} />
-    );
-    const node = dayPickerEl.refs.dayPicker;
-    const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
-    TestUtils.Simulate.keyDown(dayNode, {
-      keyCode: keys.ENTER
-    });
-    expect(handleDayTouchTap).to.be.called;
-  });
-
 
   it("calls focusPreviousDay when left key is pressed", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(

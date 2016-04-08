@@ -15,7 +15,6 @@ import Range from "./examples/Range";
 import Restricted from "./examples/Restricted";
 import SelectableDay from "./examples/SelectableDay";
 import SimpleCalendar from "./examples/SimpleCalendar";
-import TouchEvents from "./examples/TouchEvents";
 import YearCalendar from "./examples/YearCalendar";
 import YearNavigation from "./examples/YearNavigation";
 
@@ -66,11 +65,6 @@ const EXAMPLES = {
     title: "Year Navigation",
     description: "With the <code>captionElement</code> prop, you can use your own element as month caption. In this example, the caption element is a form to navigate up to the next 10 years.",
     Component: YearNavigation
-  },
-  touch: {
-    title: "Touch Events",
-    description: "Make a better interaction on touch devices with the included touch event handlers (as <code>onDayTouchTap</code>) and enabling <a href='https://github.com/zilverline/react-tap-event-plugin'>react-touch-tap-event-plugin</a>.",
-    Component: TouchEvents
   },
   birthdays: {
     title: "Birthdays",
@@ -136,7 +130,7 @@ export default class Examples extends Component {
 
     return (
       <div>
-        <div className="NavBar-toggle" onTouchTap={ () => { this.setState({ showNavBar: !showNavBar })}} />
+        <div className="NavBar-toggle" onClick={ () => { this.setState({ showNavBar: !showNavBar })}} />
         <div className="Header">
           <a href="http://www.gpbl.org/react-day-picker/">
             <img src="https://cloud.githubusercontent.com/assets/120693/12529597/79225e4a-c1bd-11e5-9001-cc27c6b9bb1b.png" style={{maxWidth: "230px"}} />

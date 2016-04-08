@@ -153,22 +153,6 @@ function onDayClick(e, day, modifiers) {
 
 ---
 
-#### onDayTouchTap (Function)
-
-Event handler when the user taps (or click) on a day cell.
-Requires [react-tap-event-plugin](https://github.com/zilverline/react-tap-event-plugin). Example:
-
-```
-import reactTapEvent from "react-tap-event-plugin";
-reactTapEvent()
-
-function onDayTouchTap(e, day, modifiers) {
-  console.log("Day %s has been tapped", day.toString());
-}
-```
-
----
-
 #### onDayMouseEnter (Function)
 
 Event handler when the mouse enters a day cell. Example:

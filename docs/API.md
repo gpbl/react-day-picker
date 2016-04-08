@@ -20,7 +20,6 @@
 | [onDayClick](APIProps.md#ondayclick-function) | Function |
 | [onDayMouseEnter](APIProps.md#ondaymouseenter-function) | Function |
 | [onDayMouseLeave](APIProps.md#ondaymouseleave-function) | Function |
-| [onDayTouchTap](APIProps.md#ondaytouchtap-function) | Function |
 | [onMonthChange](APIProps.md#onmonthchange-function) | Function |
 | [renderDay](APIProps.md#renderday-function) | Function |
 | [reverseMonths](APIProps.md#reversemonths-boolean) | Boolean |

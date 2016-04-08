@@ -33,7 +33,6 @@
     "react": "^0.14",
     "react-day-picker": "../",
     "react-dom": "^0.14",
-    "react-tap-event-plugin": "^0.2.0",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
     "webpack": "^1.9.11"
