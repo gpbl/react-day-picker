@@ -5,7 +5,9 @@ import * as LocaleUtils from "./LocaleUtils";
 
 const keys = {
   LEFT: 37,
+  UP: 38,
   RIGHT: 39,
+  DOWN: 40,
   ENTER: 13,
   SPACE: 32
 };
@@ -25,7 +27,7 @@ class Caption extends Component {
 export default class DayPicker extends Component {
 
   static propTypes = {
-
+    tabIndex: PropTypes.number,
     initialMonth: PropTypes.instanceOf(Date),
     numberOfMonths: PropTypes.number,
 
@@ -41,6 +43,7 @@ export default class DayPicker extends Component {
 
     enableOutsideDays: PropTypes.bool,
     canChangeMonth: PropTypes.bool,
+    reverseMonths: PropTypes.bool,
     fromMonth: PropTypes.instanceOf(Date),
     toMonth: PropTypes.instanceOf(Date),
 
@@ -54,7 +57,6 @@ export default class DayPicker extends Component {
     renderDay: PropTypes.func,
 
     captionElement: PropTypes.element
-
   };
 
   static defaultProps = {
@@ -65,6 +67,7 @@ export default class DayPicker extends Component {
     localeUtils: LocaleUtils,
     enableOutsideDays: false,
     canChangeMonth: true,
+    reverseMonths: false,
     renderDay: day => day.getDate(),
     captionElement: <Caption />
   };
@@ -85,21 +88,13 @@ export default class DayPicker extends Component {
   }
 
   allowPreviousMonth() {
-    const { fromMonth } = this.props;
-    if (!fromMonth) {
-      return true;
-    }
-    const { currentMonth } = this.state;
-    return Helpers.getMonthsDiff(currentMonth, fromMonth) < 0;
+    const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1)
+    return this.allowMonth(previousMonth);
   }
 
   allowNextMonth() {
-    const { toMonth, numberOfMonths } = this.props;
-    if (!toMonth) {
-      return true;
-    }
-    const { currentMonth } = this.state;
-    return Helpers.getMonthsDiff(currentMonth, toMonth) >= numberOfMonths;
+    const nextMonth = DateUtils.addMonths(this.state.currentMonth, this.props.numberOfMonths);
+    return this.allowMonth(nextMonth);
   }
 
   allowMonth(d) {
@@ -111,101 +106,130 @@ export default class DayPicker extends Component {
     return true;
   }
 
-  showMonth(d) {
+  showMonth(d, callback) {
     if (!this.allowMonth(d)) {
       return;
     }
+
     this.setState({
       currentMonth: Helpers.startOfMonth(d)
+    }, callback);
+  }
+
+  showMonthAndCallHandler(d, callback) {
+    this.showMonth(d, () => {
+      if (callback) {
+        callback();
+      }
+      if (this.props.onMonthChange) {
+        this.props.onMonthChange(this.state.currentMonth);
+      }
     });
   }
 
   showNextMonth(callback) {
-    if (!this.allowNextMonth()) {
-      return;
+    if (this.allowNextMonth()) {
+      const nextMonth = DateUtils.addMonths(this.state.currentMonth, 1);
+      this.showMonthAndCallHandler(nextMonth, callback);
     }
-    const { currentMonth } = this.state;
-    const nextMonth = DateUtils.addMonths(currentMonth, 1);
-    this.setState({
-      currentMonth: nextMonth
-    }, () => {
-      if (callback) {
-        callback();
-      }
-      if (this.props.onMonthChange) {
-        this.props.onMonthChange(this.state.currentMonth);
-      }
-    });
   }
 
   showPreviousMonth(callback) {
-    if (!this.allowPreviousMonth()) {
-      return;
+    if (this.allowPreviousMonth()) {
+      const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
+      this.showMonthAndCallHandler(previousMonth, callback);
     }
-    const { currentMonth } = this.state;
-    const prevMonth = DateUtils.addMonths(currentMonth, -1);
-    this.setState({
-      currentMonth: prevMonth
-    }, () => {
-      if (callback) {
-        callback();
+  }
+
+  showNextYear(callback) {
+    const nextMonth = DateUtils.addMonths(this.state.currentMonth, 12);
+    this.showMonthAndCallHandler(nextMonth, callback);
+  }
+
+  showPreviousYear(callback) {
+    const nextMonth = DateUtils.addMonths(this.state.currentMonth, -12);
+    this.showMonthAndCallHandler(nextMonth, callback);
+  }
+
+  getDayNodes() {
+    return this.refs.dayPicker.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
+  }
+
+  getDayNodeIndex(dayNode, dayNodes) {
+    for (let i = 0; i < dayNodes.length; i++) {
+      if (dayNodes[i] === dayNode) {
+        return i;
       }
-      if (this.props.onMonthChange) {
-        this.props.onMonthChange(this.state.currentMonth);
-      }
-    });
+    }
+
+    return -1;
+  }
+
+  focusFirstDayOfMonth() {
+    this.getDayNodes()[0].focus();
+  }
+
+  focusLastDayOfMonth() {
+    const dayNodes = this.getDayNodes();
+    dayNodes[dayNodes.length - 1].focus();
   }
 
   focusPreviousDay(dayNode) {
-    const body = dayNode.parentNode.parentNode.parentNode.parentNode;
-    let dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-    let nodeIndex;
-    for (let i = 0; i < dayNodes.length; i++) {
-      if (dayNodes[i] === dayNode) {
-        nodeIndex = i;
-        break;
-      }
-    }
-    if (nodeIndex === 0) {
-      const { currentMonth } = this.state;
-      const { numberOfMonths } = this.props;
-      const prevMonth = DateUtils.addMonths(currentMonth, -numberOfMonths);
-      this.setState({
-        currentMonth: prevMonth
-      }, () => {
-        dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-        dayNodes[dayNodes.length - 1].focus();
-      });
+    const dayNodes = this.getDayNodes();
+    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+
+    if (dayNodeIndex === 0) {
+      this.showPreviousMonth(() => { this.focusLastDayOfMonth() })
     }
     else {
-      dayNodes[nodeIndex - 1].focus();
+      dayNodes[dayNodeIndex - 1].focus();
     }
   }
 
   focusNextDay(dayNode) {
-    const body = dayNode.parentNode.parentNode.parentNode.parentNode;
-    let dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-    let nodeIndex;
-    for (let i = 0; i < dayNodes.length; i++) {
-      if (dayNodes[i] === dayNode) {
-        nodeIndex = i;
-        break;
-      }
-    }
+    const dayNodes = this.getDayNodes();
+    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
 
-    if (nodeIndex === dayNodes.length - 1) {
-      const { currentMonth } = this.state;
-      const { numberOfMonths } = this.props;
-      const nextMonth = DateUtils.addMonths(currentMonth, numberOfMonths);
-      this.setState({
-        currentMonth: nextMonth
-      }, () => {
-        dayNodes = body.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
-        dayNodes[0].focus();
+    if (dayNodeIndex === dayNodes.length - 1) {
+      this.showNextMonth(() => { this.focusFirstDayOfMonth() });
+    }
+    else {
+      dayNodes[dayNodeIndex + 1].focus();
+    }
+  }
+
+  focusNextWeek(dayNode) {
+    const dayNodes = this.getDayNodes();
+    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+    const isInLastWeekOfMonth = dayNodeIndex > dayNodes.length - 8;
+
+    if (isInLastWeekOfMonth) {
+      this.showNextMonth(() => {
+        const daysAfterIndex = dayNodes.length - dayNodeIndex;
+        const nextMonthDayNodeIndex = 7 - daysAfterIndex;
+        this.getDayNodes()[nextMonthDayNodeIndex].focus();
       });
     }
     else {
-      dayNodes[nodeIndex + 1].focus();
+      dayNodes[dayNodeIndex + 7].focus();
+    }
+  }
+
+  focusPreviousWeek(dayNode) {
+    const dayNodes = this.getDayNodes();
+    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+    const isInFirstWeekOfMonth = dayNodeIndex <= 6;
+
+    if (isInFirstWeekOfMonth) {
+      this.showPreviousMonth(() => {
+        const previousMonthDayNodes = this.getDayNodes();
+        const startOfLastWeekOfMonth = previousMonthDayNodes.length - 7;
+        const previousMonthDayNodeIndex = startOfLastWeekOfMonth + dayNodeIndex;
+        previousMonthDayNodes[previousMonthDayNodeIndex].focus();
+      });
+    }
+    else {
+      dayNodes[dayNodeIndex - 7].focus();
     }
   }
 
@@ -213,22 +237,31 @@ export default class DayPicker extends Component {
 
   handleKeyDown(e) {
     e.persist();
+    const { canChangeMonth, onKeyDown } = this.props;
 
-    if (!this.props.canChangeMonth && this.props.onKeyDown) {
-      this.props.onKeyDown(e);
+    if (!canChangeMonth && onKeyDown) {
+      onKeyDown(e);
       return;
     }
 
-    if (this.props.canChangeMonth) {
-      const callback = this.props.onKeyDown ? () => this.props.onKeyDown(e) : null;
-
+    if (canChangeMonth) {
       switch (e.keyCode) {
       case keys.LEFT:
-        this.showPreviousMonth(callback);
+        this.showPreviousMonth(onKeyDown);
         break;
       case keys.RIGHT:
-        this.showNextMonth(callback);
+        this.showNextMonth(onKeyDown);
         break;
+      case keys.UP:
+        this.showPreviousYear(onKeyDown);
+        break;
+      case keys.DOWN:
+        this.showNextYear(onKeyDown);
+        break;
+      default:
+        if (onKeyDown) {
+          onKeyDown(e);
+        }
       }
     }
   }
@@ -237,19 +270,24 @@ export default class DayPicker extends Component {
     e.persist();
     switch (e.keyCode) {
     case keys.LEFT:
-      e.preventDefault();
-      e.stopPropagation();
+      Helpers.cancelEvent(e);
       this.focusPreviousDay(e.target);
       break;
     case keys.RIGHT:
-      e.preventDefault();
-      e.stopPropagation();
+      Helpers.cancelEvent(e);
       this.focusNextDay(e.target);
+      break;
+    case keys.UP:
+      Helpers.cancelEvent(e);
+      this.focusPreviousWeek(e.target);
+      break;
+    case keys.DOWN:
+      Helpers.cancelEvent(e);
+      this.focusNextWeek(e.target);
       break;
     case keys.ENTER:
     case keys.SPACE:
-      e.preventDefault();
-      e.stopPropagation();
+      Helpers.cancelEvent(e);
       if (this.props.onDayClick) {
         this.handleDayClick(e, day, modifiers);
       }
@@ -318,6 +356,7 @@ export default class DayPicker extends Component {
 
     const leftButton = isRTL ? this.allowNextMonth() : this.allowPreviousMonth();
     const rightButton = isRTL ? this.allowPreviousMonth() : this.allowNextMonth();
+
     return (
       <div className="DayPicker-NavBar">
         { leftButton &&
@@ -353,12 +392,12 @@ export default class DayPicker extends Component {
 
         { caption }
 
-        <div className="DayPicker-Weekdays">
-          <div className="DayPicker-WeekdaysRow">
+        <div className="DayPicker-Weekdays" role="rowgroup">
+          <div className="DayPicker-WeekdaysRow" role="columnheader">
             { this.renderWeekDays() }
           </div>
         </div>
-        <div className="DayPicker-Body">
+        <div className="DayPicker-Body" role="rowgroup">
           { this.renderWeeksInMonth(date) }
         </div>
       </div>
@@ -429,10 +468,17 @@ export default class DayPicker extends Component {
         tabIndex = this.props.tabIndex;
       }
     }
+
+    const ariaLabel = this.props.localeUtils.formatDate ?
+      this.props.localeUtils.formatDate(day) : day.toDateString();
+    const ariaDisabled = isOutside ? "true" : "false";
+
     return (
       <div key={ key } className={ className }
         tabIndex={ tabIndex }
         role="gridcell"
+        aria-label={ ariaLabel }
+        aria-disabled={ ariaDisabled }
         onKeyDown={
           (e) => this.handleDayKeyDown(e, day, modifiers) }
         onMouseEnter= { onDayMouseEnter ?
@@ -450,7 +496,7 @@ export default class DayPicker extends Component {
   }
 
   render() {
-    const { numberOfMonths, locale, canChangeMonth, ...attributes } = this.props;
+    const { numberOfMonths, locale, canChangeMonth, reverseMonths, ...attributes } = this.props;
     const { currentMonth } = this.state;
     let className = `DayPicker DayPicker--${locale}`;
 
@@ -468,12 +514,18 @@ export default class DayPicker extends Component {
       months.push(this.renderMonth(month, i));
     }
 
+    if (reverseMonths) {
+      months.reverse();
+    }
+
     return (
-      <div className={ className }
+      <div
+        {...attributes}
+        className={ className }
+        ref="dayPicker"
         role="widget"
         tabIndex={ canChangeMonth && attributes.tabIndex }
-        onKeyDown={ e => this.handleKeyDown(e) }
-        {...attributes}>
+        onKeyDown={ e => this.handleKeyDown(e) }>
         { canChangeMonth && this.renderNavBar() }
         { months }
       </div>

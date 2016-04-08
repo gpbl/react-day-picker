@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 "use strict";
 
 var DayPicker = require("./lib/DayPicker");

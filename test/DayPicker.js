@@ -20,6 +20,8 @@ const DayPicker = require("../src/DayPicker").default;
 const keys = {
   LEFT: 37,
   RIGHT: 39,
+  UP: 38,
+  DOWN: 40,
   ENTER: 13,
   SPACE: 32
 };
@@ -40,6 +42,7 @@ describe("DayPicker", () => {
     expect(dayPicker.props.locale).to.equal("en");
     expect(dayPicker.props.enableOutsideDays).to.equal(false);
     expect(dayPicker.props.canChangeMonth).to.equal(true);
+    expect(dayPicker.props.reverseMonths).to.equal(false);
     expect(dayPicker.props.tabIndex).to.equal(0);
     expect(dayPicker.props.style).to.be.undefined;
     expect(dayPicker.props.className).to.be.undefined;
@@ -103,6 +106,7 @@ describe("DayPicker", () => {
 
     const dayPicker = shallowRenderer.getRenderOutput();
     expect(dayPicker.props.className).to.contain("custom-class");
+    expect(dayPicker.props.className).to.contain("DayPicker");
   });
 
   // RENDERING
@@ -114,6 +118,16 @@ describe("DayPicker", () => {
     const months = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
       "DayPicker-Month");
     expect(months).to.have.length(3);
+  });
+
+  it("renders the months on a reverse order as specified by reverseMonths", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 11, 6)} numberOfMonths={4} reverseMonths={true} />
+    );
+    const captionEl = TestUtils.scryRenderedDOMComponentsWithClass(dayPickerEl,
+      "DayPicker-Caption");
+    expect(ReactDOM.findDOMNode(captionEl[0]).innerHTML).to.equal("March 2016");
+    expect(ReactDOM.findDOMNode(captionEl[1]).innerHTML).to.equal("February 2016");
   });
 
   it("renders a caption for each month", () => {
@@ -429,6 +443,90 @@ describe("DayPicker", () => {
     });
   });
 
+  describe("showPreviousYear", () => {
+    it("shows the previous year", () => {
+      const callback = sinon.spy();
+      const handleMonthChange = sinon.spy();
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker
+          initialMonth={new Date(2015, 7, 1)}
+          enableOutsideDays={false}
+          onMonthChange={handleMonthChange}
+          numberOfMonths={2}
+        />
+      );
+      dayPickerEl.showPreviousYear(callback);
+
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(7);
+      expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2014);
+      expect(callback).to.have.been.called;
+      expect(handleMonthChange).to.have.been.called;
+    });
+
+    it("does not show a month before `fromMonth`", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 10)} fromMonth={new Date(2015, 10)} />
+      );
+      dayPickerEl.showPreviousYear();
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(10);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    });
+
+    it("is called when up key is pressed over the root node", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 5)} />
+      );
+      const showPreviousYear = sinon.spy(dayPickerEl, "showPreviousYear");
+      TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
+        keyCode: keys.UP
+      });
+      expect(showPreviousYear).to.be.called;
+    });
+  });
+
+  describe("showNextYear", () => {
+    it("shows the next year", () => {
+      const callback = sinon.spy();
+      const handleMonthChange = sinon.spy();
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker
+          initialMonth={new Date(2015, 7, 1)}
+          enableOutsideDays={false}
+          onMonthChange={handleMonthChange}
+          numberOfMonths={2}
+        />
+      );
+      dayPickerEl.showNextYear(callback);
+
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(7);
+      expect(dayPickerEl.state.currentMonth.getDate()).to.equal(1);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2016);
+      expect(callback).to.have.been.called;
+      expect(handleMonthChange).to.have.been.called;
+    });
+
+    it("does not show a month after `toMonth`", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 10)} toMonth={new Date(2015, 10)} />
+      );
+      dayPickerEl.showNextYear();
+      expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(10);
+      expect(dayPickerEl.state.currentMonth.getFullYear()).to.equal(2015);
+    });
+
+    it("is called when down key is pressed over the root node", () => {
+      const dayPickerEl = TestUtils.renderIntoDocument(
+        <DayPicker initialMonth={new Date(2015, 5)} />
+      );
+      const showNextYear = sinon.spy(dayPickerEl, "showNextYear");
+      TestUtils.Simulate.keyDown(ReactDOM.findDOMNode(dayPickerEl), {
+        keyCode: keys.DOWN
+      });
+      expect(showNextYear).to.be.called;
+    });
+  });
+
   describe("showMonth", () => {
     it("shows the specified month", () => {
       const dayPickerEl = TestUtils.renderIntoDocument(
@@ -717,8 +815,6 @@ describe("DayPicker", () => {
 
   it("does not call mouse events on disabled outside days", () => {
 
-
-
     const handleClick = sinon.spy();
     const handleMouseEnter = sinon.spy();
     const handleMouseLeave = sinon.spy();
@@ -752,8 +848,6 @@ describe("DayPicker", () => {
   });
 
   it("changes the month when tapping on enabled outside days", () => {
-
-
 
     const handleTouchTap = sinon.spy();
 
@@ -834,9 +928,6 @@ describe("DayPicker", () => {
   });
 
   it("does not show the next month when clicking on an outside days of the first of 2 months", () => {
-
-
-
     const handleClick = sinon.spy();
 
     const dayPickerEl = TestUtils.renderIntoDocument(
@@ -861,7 +952,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker onDayClick={handleDayClick} />
     );
-    const node = ReactDOM.findDOMNode(dayPickerEl);
+    const node = dayPickerEl.refs.dayPicker;
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.ENTER
@@ -874,7 +965,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker onDayClick={handleDayClick} />
     );
-    const node = ReactDOM.findDOMNode(dayPickerEl);
+    const node = dayPickerEl.refs.dayPicker;
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.SPACE
@@ -887,7 +978,7 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker onDayTouchTap={handleDayTouchTap} />
     );
-    const node = ReactDOM.findDOMNode(dayPickerEl);
+    const node = dayPickerEl.refs.dayPicker;
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.ENTER
@@ -900,8 +991,8 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 5)} />
     );
-    const node = ReactDOM.findDOMNode(dayPickerEl);
-    const dayNode = node.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)")[0];
+    const node = dayPickerEl.refs.dayPicker;
+    const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     const focusPreviousDay = sinon.spy(dayPickerEl, "focusPreviousDay");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.LEFT
@@ -913,13 +1004,39 @@ describe("DayPicker", () => {
     const dayPickerEl = TestUtils.renderIntoDocument(
       <DayPicker initialMonth={new Date(2015, 5)} />
     );
-    const node = ReactDOM.findDOMNode(dayPickerEl);
+    const node = dayPickerEl.refs.dayPicker;
     const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
     const focusNextDay = sinon.spy(dayPickerEl, "focusNextDay");
     TestUtils.Simulate.keyDown(dayNode, {
       keyCode: keys.RIGHT
     });
     expect(focusNextDay).to.be.called;
+  });
+
+  it("calls focusNextWeek when down key is pressed", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 5)} />
+    );
+    const node = dayPickerEl.refs.dayPicker;
+    const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
+    const focusNextWeek = sinon.spy(dayPickerEl, "focusNextWeek");
+    TestUtils.Simulate.keyDown(dayNode, {
+      keyCode: keys.DOWN
+    });
+    expect(focusNextWeek).to.be.called;
+  });
+
+  it("calls focusPreviousWeek when up key is pressed", () => {
+    const dayPickerEl = TestUtils.renderIntoDocument(
+      <DayPicker initialMonth={new Date(2015, 5)} />
+    );
+    const node = dayPickerEl.refs.dayPicker;
+    const dayNode = node.querySelector(".DayPicker-Day:not(.DayPicker-Day--outside)");
+    const focusPreviousWeek = sinon.spy(dayPickerEl, "focusPreviousWeek");
+    TestUtils.Simulate.keyDown(dayNode, {
+      keyCode: keys.UP
+    });
+    expect(focusPreviousWeek).to.be.called;
   });
 
   describe("handleKeyDown", () => {
@@ -929,7 +1046,7 @@ describe("DayPicker", () => {
       const dayPicker = TestUtils.renderIntoDocument(<DayPicker onKeyDown={spy} />);
       const node = ReactDOM.findDOMNode(dayPicker);
       TestUtils.Simulate.keyDown(node);
-      expect(spy.calledOnce).to.be.true;
+      expect(spy).to.be.calledOnce;
     });
 
     it("should handle keydown event when cannot change month", () => {
@@ -939,7 +1056,7 @@ describe("DayPicker", () => {
       );
       const node = ReactDOM.findDOMNode(dayPicker);
       TestUtils.Simulate.keyDown(node);
-      expect(spy.calledOnce).to.be.true;
+      expect(spy).to.be.calledOnce;
     });
 
   });
@@ -1024,9 +1141,72 @@ describe("DayPicker", () => {
       expect(document.activeElement.innerHTML).to.equal("1");
 
       expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
-
     });
 
+    describe("change week", () => {
+      it("focuses the same day of the next week", () => {
+        const focusedNode = getDayNode(body, 2, 1);
+        expect(focusedNode.innerHTML).to.equal("15");
+
+        dayPickerEl.focusNextWeek(focusedNode);
+        expect(document.activeElement.innerHTML).to.equal("22");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
+      });
+
+      it("focuses the same day of the next week in the next month", () => {
+        const juneThirtieth = getDayNode(body, 4, 2);
+        expect(juneThirtieth.innerHTML).to.equal("30");
+
+        dayPickerEl.focusNextWeek(juneThirtieth);
+        expect(document.activeElement.innerHTML).to.equal("7");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(6);
+
+        const julyThirtyFirst = getDayNode(body, 4, 5);
+        expect(julyThirtyFirst.innerHTML).to.equal("31");
+
+        dayPickerEl.focusNextWeek(julyThirtyFirst);
+        expect(document.activeElement.innerHTML).to.equal("7");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(7);
+      });
+
+      it("focuses the first day of the next month after leapday", () => {
+        dayPickerEl = TestUtils.renderIntoDocument(
+          <DayPicker initialMonth={new Date(2016, 1)} />
+        );
+        body = ReactDOM.findDOMNode(TestUtils.findRenderedDOMComponentWithClass(dayPickerEl, "DayPicker-Body"));
+        const focusedNode = getDayNode(body, 4, 1);
+        expect(focusedNode.innerHTML).to.equal("29");
+
+        dayPickerEl.focusNextDay(focusedNode);
+        expect(document.activeElement.innerHTML).to.equal("1");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(2);
+      });
+
+      it("focuses the same day of the previous week", () => {
+        const focusedNode = getDayNode(body, 2, 1);
+        expect(focusedNode.innerHTML).to.equal("15");
+
+        dayPickerEl.focusPreviousWeek(focusedNode);
+        expect(document.activeElement.innerHTML).to.equal("8");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(5);
+      });
+
+      it("focuses the same day of the previous week in the previous month", () => {
+        const juneFirst = getDayNode(body, 0, 1);
+        expect(juneFirst.innerHTML).to.equal("1");
+
+        dayPickerEl.focusPreviousWeek(juneFirst);
+        expect(document.activeElement.innerHTML).to.equal("25");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(4);
+
+        const maySecond = getDayNode(body, 1, 0);
+        expect(maySecond.innerHTML).to.equal("3");
+
+        dayPickerEl.focusPreviousWeek(maySecond);
+        expect(document.activeElement.innerHTML).to.equal("26");
+        expect(dayPickerEl.state.currentMonth.getMonth()).to.equal(3);
+      });
+    });
   });
 
 });
