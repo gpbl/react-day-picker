@@ -155,16 +155,6 @@ export default class DayPicker extends Component {
     return this.refs.dayPicker.querySelectorAll(".DayPicker-Day:not(.DayPicker-Day--outside)");
   }
 
-  getDayNodeIndex(dayNode, dayNodes) {
-    for (let i = 0; i < dayNodes.length; i++) {
-      if (dayNodes[i] === dayNode) {
-        return i;
-      }
-    }
-
-    return -1;
-  }
-
   focusFirstDayOfMonth() {
     this.getDayNodes()[0].focus();
   }
@@ -176,31 +166,29 @@ export default class DayPicker extends Component {
 
   focusPreviousDay(dayNode) {
     const dayNodes = this.getDayNodes();
-    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+    const dayNodeIndex = [...dayNodes].indexOf(dayNode);
 
     if (dayNodeIndex === 0) {
       this.showPreviousMonth(() => { this.focusLastDayOfMonth() })
-    }
-    else {
+    } else {
       dayNodes[dayNodeIndex - 1].focus();
     }
   }
 
   focusNextDay(dayNode) {
     const dayNodes = this.getDayNodes();
-    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+    const dayNodeIndex = [...dayNodes].indexOf(dayNode);
 
     if (dayNodeIndex === dayNodes.length - 1) {
       this.showNextMonth(() => { this.focusFirstDayOfMonth() });
-    }
-    else {
+    } else {
       dayNodes[dayNodeIndex + 1].focus();
     }
   }
 
   focusNextWeek(dayNode) {
     const dayNodes = this.getDayNodes();
-    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+    const dayNodeIndex = [...dayNodes].indexOf(dayNode);
     const isInLastWeekOfMonth = dayNodeIndex > dayNodes.length - 8;
 
     if (isInLastWeekOfMonth) {
@@ -209,15 +197,14 @@ export default class DayPicker extends Component {
         const nextMonthDayNodeIndex = 7 - daysAfterIndex;
         this.getDayNodes()[nextMonthDayNodeIndex].focus();
       });
-    }
-    else {
+    } else {
       dayNodes[dayNodeIndex + 7].focus();
     }
   }
 
   focusPreviousWeek(dayNode) {
     const dayNodes = this.getDayNodes();
-    const dayNodeIndex = this.getDayNodeIndex(dayNode, dayNodes);
+    const dayNodeIndex = [...dayNodes].indexOf(dayNode);
     const isInFirstWeekOfMonth = dayNodeIndex <= 6;
 
     if (isInFirstWeekOfMonth) {
@@ -227,8 +214,7 @@ export default class DayPicker extends Component {
         const previousMonthDayNodeIndex = startOfLastWeekOfMonth + dayNodeIndex;
         previousMonthDayNodes[previousMonthDayNodeIndex].focus();
       });
-    }
-    else {
+    } else {
       dayNodes[dayNodeIndex - 7].focus();
     }
   }
@@ -298,14 +284,6 @@ export default class DayPicker extends Component {
     }
   }
 
-  handleNextMonthClick() {
-    this.showNextMonth();
-  }
-
-  handlePrevMonthClick() {
-    this.showPreviousMonth();
-  }
-
   handleCaptionClick(e, currentMonth) {
     e.persist();
     this.props.onCaptionClick(e, currentMonth);
@@ -344,8 +322,7 @@ export default class DayPicker extends Component {
     const diffInMonths = Helpers.getMonthsDiff(currentMonth, day);
     if (diffInMonths > 0 && diffInMonths >= numberOfMonths) {
       this.showNextMonth();
-    }
-    else if (diffInMonths < 0) {
+    } else if (diffInMonths < 0) {
       this.showPreviousMonth();
     }
   }
@@ -363,14 +340,14 @@ export default class DayPicker extends Component {
           <span
             key="left"
             className={ `${baseClass}--prev` }
-            onClick={ isRTL ? ::this.handleNextMonthClick : ::this.handlePrevMonthClick }
+            onClick={ isRTL ? ::this.showNextMonth : ::this.showPreviousMonth }
           />
         }
         { rightButton &&
           <span
             key="right"
             className={ `${baseClass}--next` }
-            onClick={  isRTL ? ::this.handlePrevMonthClick : ::this.handleNextMonthClick }
+            onClick={  isRTL ? ::this.showPreviousMonth : ::this.showNextMonth }
           />
         }
       </div>
@@ -469,8 +446,8 @@ export default class DayPicker extends Component {
       }
     }
 
-    const ariaLabel = this.props.localeUtils.formatDate ?
-      this.props.localeUtils.formatDate(day) : day.toDateString();
+    const { localeUtils, locale } = this.props;
+    const ariaLabel = localeUtils.formatDay(day, locale);
     const ariaDisabled = isOutside ? "true" : "false";
 
     return (
