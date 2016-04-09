@@ -3,6 +3,16 @@ import * as MomentLocaleUtils from "../../src/addons/MomentLocaleUtils";
 
 describe("MomentLocaleUtils", () => {
 
+  describe("formatDay", () => {
+    it("should return day as string", () => {
+      const date = new Date("2015-12-20");
+      const formattedDate = MomentLocaleUtils.formatDay(date);
+      expect(formattedDate).to.equal("Sun Dec 20, 2015");
+      const formattedDate_IT = MomentLocaleUtils.formatDay(date, "it");
+      expect(formattedDate_IT).to.equal("Dom 20 dic 2015");
+    });
+  });
+
   describe("formatMonthTitle", () => {
     it("should return month and day as string", () => {
       const date = new Date("2015-12-20");
