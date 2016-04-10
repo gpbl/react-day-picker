@@ -1,4 +1,4 @@
-### [v1.3.1](https://github.com/gpbl/react-day-picker/tree/v1.3.12) (2016-04-10)
+### [v1.3.2](https://github.com/gpbl/react-day-picker/tree/v1.3.12) (2016-04-10)
 
 Adds React 15 to the peer dependencies
 
