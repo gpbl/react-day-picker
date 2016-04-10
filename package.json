@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/gpbl/react-day-picker",
   "peerDependencies": {
-    "react": "~0.13.x || ~0.14.x"
+    "react": "~0.13.x || ~0.14.x || ^15.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
