@@ -11,6 +11,7 @@ Fixes an issue causing className being overwritten by `className` prop [\#137](h
 **Improvements**
 
 * Support for Babel 6 ([#90](https://github.com/gpbl/react-day-picker/issues/90))
+    * See this [known issue](https://github.com/gpbl/react-day-picker/issues/136)
 * HTML props are spread to container tag, so to support `onBlur`, `onFocus`, etc. ([#122](https://github.com/gpbl/react-day-picker/issues/122), [#123](https://github.com/gpbl/react-day-picker/issues/123))
 * Better RTL support for month navigation ([#125](https://github.com/gpbl/react-day-picker/issues/125))
 
