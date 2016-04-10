@@ -14,7 +14,7 @@
     "test:watch": "npm test -- --watch",
     "cover": "babel-node ./node_modules/istanbul/lib/cli cover -- _mocha --recursive --reporter spec",
     "check": "npm run lint && npm run test",
-    "prerelease": "npm run check && webpack",
+    "prerelease": "npm run check && webpack -p",
     "prepublish": "babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/",
     "examples:clean": "rimraf examples/built",
     "examples:build": "npm run examples:clean && cd examples && npm run build && cd ..",
