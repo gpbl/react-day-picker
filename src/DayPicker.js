@@ -12,7 +12,7 @@ const keys = {
   SPACE: 32
 };
 
-class Caption extends Component {
+class Caption extends Component { // eslint-disable-line
 
   render() {
     const { date, locale, localeUtils, onClick } = this.props;
