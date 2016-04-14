@@ -1,4 +1,4 @@
-## [v2.0.0-beta](https://github.com/gpbl/react-day-picker/tree/v2.0.0) (2016-04-14)
+## [v2.0.0-beta.1](https://github.com/gpbl/react-day-picker/tree/v2.0.0) (2016-04-14)
 
 **Improvements**
 
