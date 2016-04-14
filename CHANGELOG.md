@@ -1,4 +1,4 @@
-## [v2.0.0-beta](https://github.com/gpbl/react-day-picker/tree/v2.0.0) (2016-04-108)
+## [v2.0.0-beta](https://github.com/gpbl/react-day-picker/tree/v2.0.0) (2016-04-14)
 
 **Improvements**
 
@@ -20,19 +20,20 @@
  If you are using your [custom LocaleUtils](http://www.gpbl.org/react-day-picker/docs/LocalizationCustom.html) to localize the calendar, you need to implement this function as well, which is required to format the newly added [aria-label attribute](https://github.com/gpbl/react-day-picker/pull/132) (see the [documentation](http://localhost:4000/docs/LocalizationCustom.html) for an example). If you are localizing [using moment](http://www.gpbl.org/react-day-picker/docs/LocalizationMoment.html), this change shouldn't affect you.
 
 ---
-### [v1.3.1](https://github.com/gpbl/react-day-picker/tree/v1.3.12) (2016-04-10)
+### [v1.3.2](https://github.com/gpbl/react-day-picker/tree/v1.3.12) (2016-04-10)
 
-Adds React 15 to the peer dependencies
+Adds React 15 to the peer dependencies.
 
 ### [v1.3.1](https://github.com/gpbl/react-day-picker/tree/v1.3.1) (2016-03-02)
 
-Fixes an issue causing className being overwritten by `className` prop [\#137](https://github.com/gpbl/react-day-picker/issues/137)
+Fixes an issue causing className being overwritten by `className` prop ([\#137](https://github.com/gpbl/react-day-picker/issues/137)).
 
 ## [v1.3.0](https://github.com/gpbl/react-day-picker/tree/v1.3.0) (2016-02-18)
 
 **Improvements**
 
 * Support for Babel 6 ([#90](https://github.com/gpbl/react-day-picker/issues/90))
+    * See this [known issue](https://github.com/gpbl/react-day-picker/issues/136)
 * HTML props are spread to container tag, so to support `onBlur`, `onFocus`, etc. ([#122](https://github.com/gpbl/react-day-picker/issues/122), [#123](https://github.com/gpbl/react-day-picker/issues/123))
 * Better RTL support for month navigation ([#125](https://github.com/gpbl/react-day-picker/issues/125))
 
