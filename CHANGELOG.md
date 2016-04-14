@@ -1,4 +1,10 @@
-## [v2.0.0-beta.1](https://github.com/gpbl/react-day-picker/tree/v2.0.0) (2016-04-14)
+## [@next](https://github.com/gpbl/react-day-picker/tree/v2.0.0) (2016-04-14)
+
+Upcoming `2.0.0` release. You can test it installing:
+
+```
+npm install react-day-picker@next
+```
 
 **Improvements**
 
