@@ -39,6 +39,6 @@
     "tests"
   ],
   "dependencies": {
-    "react": "~0.13.x || ~0.14.x"
+    "react": "~0.13.x || ~0.14.x || ~15.x"
   }
 }
