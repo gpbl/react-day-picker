@@ -33,7 +33,7 @@ Look at [some examples](http://gpbl.org/react-day-picker/examples) showing all i
     * [Localization](http://www.gpbl.org/react-day-picker/docs/Localization.html)
     * [Tips](http://www.gpbl.org/react-day-picker/docs/Tips.html)
     * [Utilities](http://www.gpbl.org/react-day-picker/docs/Utilities.html)
-* [Changelog](CHANGELOG.md)
+* [Changelog](https://github.com/gpbl/react-day-picker/blob/master/CHANGELOG.md)
 
 ### Partecipate
 
