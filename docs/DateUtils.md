@@ -31,9 +31,9 @@ Returns `true` if `day` is between the days `d1` and `d2`, without including tho
 
 ### `addDayToRange(day: date, range: ?object<from: ?date, to: ?date>) -> object<from: ?date, to: ?date>`
 
-Add `day` to a range of days, returning a new range including that day. A range is an object with `from` and `to` keys. 
+Add `day` to a range of days, returning a new range including that day. A range is an object with `from` and `to` keys.
 
-See the [range example](http://www.gpbl.org/react-day-picker/#examples/range) for an example using this function.
+See the [range example](http://www.gpbl.org/react-day-picker/examples/#range) for an example using this function.
 
 ```js
 import { DateUtils } from "react-day-picker";
@@ -49,4 +49,4 @@ console.log(newRange.from) // 2015-05-24
 
 ### `isDayInRange(day: date, range: object<from: ?date, to: ?date>) -> bool`
 
-Returns `true` if `day` is included in the specified range of days.  See the [range example](http://www.gpbl.org/react-day-picker/#examples/range) for an example using this function.
+Returns `true` if `day` is included in the specified range of days.  See the [range example](http://www.gpbl.org/react-day-picker/examples/#range) for an example using this function.
