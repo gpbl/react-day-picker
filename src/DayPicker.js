@@ -25,6 +25,7 @@ class Caption extends Component { // eslint-disable-line
 }
 
 export default class DayPicker extends Component {
+  static VERSION = "2.0.0";
 
   static propTypes = {
     tabIndex: PropTypes.number,
