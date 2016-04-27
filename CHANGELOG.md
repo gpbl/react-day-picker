@@ -6,6 +6,12 @@ Upcoming `2.0.0` release. You can test it installing:
 npm install react-day-picker@next
 ```
 
+or, if you are using bower:
+
+```
+bower install react-day-picker#v2.0.0-beta.1
+```
+
 **Improvements**
 
 * Navigate between weeks using up/down arrow keys ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
