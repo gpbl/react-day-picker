@@ -1,7 +1,7 @@
-import React from "react";
-import DayPicker from "react-day-picker";
+import React from 'react';
+import DayPicker from 'react-day-picker';
 
-import "react-day-picker/lib/style.css";
+import 'react-day-picker/lib/style.css';
 
 const currentYear = (new Date()).getFullYear();
 const fromMonth = new Date(currentYear, 0, 1, 0, 0);
@@ -16,46 +16,46 @@ function YearMonthForm({ date, localeUtils, onChange }) {
     years.push(i);
   }
 
-  const handleChange = function(e) {
+  const handleChange = function (e) {
     const { year, month } = e.target.form;
     onChange(new Date(year.value, month.value));
-  }
+  };
 
   return (
     <form className="DayPicker-Caption">
-      <select name="month" onChange={ handleChange } value={ date.getMonth() }>
-        { months.map((month, i) =>
-          <option key={ i } value={ i }>
-            { month }
+      <select name="month" onChange={handleChange} value={date.getMonth()}>
+        {months.map((month, i) =>
+          <option key={i} value={i}>
+            {month}
           </option>)
         }
       </select>
-      <select name="year" onChange={ handleChange } value={ date.getFullYear() }>
-        { years.map((year, i) =>
-          <option key={ i } value={ year }>
-            { year }
+      <select name="year" onChange={handleChange} value={date.getFullYear()}>
+        {years.map((year, i) =>
+          <option key={i} value={year}>
+            {year}
           </option>)
         }
       </select>
     </form>
-  )
+  );
 }
 
 export default class YearNavigation extends React.Component {
 
   state = {
-    initialMonth: fromMonth
+    initialMonth: fromMonth,
   };
 
   render() {
     return (
       <div className="YearNavigation">
         <DayPicker
-          initialMonth={ this.state.initialMonth }
-          fromMonth={ fromMonth }
-          toMonth={ toMonth }
+          initialMonth={this.state.initialMonth}
+          fromMonth={fromMonth}
+          toMonth={toMonth}
           captionElement={
-            <YearMonthForm onChange={ initialMonth => this.setState({ initialMonth }) } />
+            <YearMonthForm onChange={initialMonth => this.setState({ initialMonth })} />
           }
         />
       </div>

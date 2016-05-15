@@ -1,27 +1,25 @@
-import React from "react";
-import DayPicker from "react-day-picker";
+import React from 'react';
+import DayPicker from 'react-day-picker';
 
-import "react-day-picker/lib/style.css";
+import 'react-day-picker/lib/style.css';
 
 const fromMonth = new Date(2015, 3, 1, 0, 0);
 const toMonth = new Date(2015, 10, 30, 23, 59);
-
-const disabled = day => fromMonth > day || day > toMonth;
 
 export default function Restricted() {
   return (
     <DayPicker
       enableOutsideDays
-      numberOfMonths={ 2 }
-      initialMonth={ fromMonth }
-      fromMonth={ fromMonth }
-      toMonth={ toMonth }
-      modifiers={{ disabled }}
-      onDayClick={ (e, day) => {
-        if (!disabled(day)) {
+      numberOfMonths={2}
+      initialMonth={fromMonth}
+      fromMonth={fromMonth}
+      toMonth={toMonth}
+      disabledDays={day => fromMonth > day || day > toMonth}
+      onDayClick={(e, day, { disabled }) => {
+        if (!disabled) {
           console.log(day.toLocaleDateString());
         }
       }}
     />
-  )
+  );
 }

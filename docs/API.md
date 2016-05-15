@@ -5,25 +5,27 @@
 
 ## Props quick reference
 
-| Prop | Type |
-| --- | --- |
-| [canChangeMonth](APIProps.md#canchangemonth-boolean) | Boolean |
-| [captionElement](APIProps.md#captionelement-element) | Element |
-| [enableOutsideDays](APIProps.md#enableoutsidedays-boolean) | Boolean |
-| [fromMonth](APIProps.md#frommonth-date) | Date |
-| [initialMonth](APIProps.md#initialmonth-date) | Date |
-| [locale](APIProps.md#locale-string) | String |
-| [localeUtils](APIProps.md#localeutils-object) | Object |
-| [modifiers](APIProps.md#modifiers-object) | Object |
-| [numberOfMonths](APIProps.md#numberofmonths-number) | Number |
-| [onCaptionClick](APIProps.md#oncaptionclick-function) | Function |
-| [onDayClick](APIProps.md#ondayclick-function) | Function |
-| [onDayMouseEnter](APIProps.md#ondaymouseenter-function) | Function |
-| [onDayMouseLeave](APIProps.md#ondaymouseleave-function) | Function |
-| [onDayTouchStart](APIProps.md#ondaytouchstart-function) | Function |
-| [onDayTouchEnd](APIProps.md#ondaytouchend-function) | Function |
-| [onMonthChange](APIProps.md#onmonthchange-function) | Function |
-| [renderDay](APIProps.md#renderday-function) | Function |
-| [reverseMonths](APIProps.md#reversemonths-boolean) | Boolean |
-| [tabIndex](APIProps.md#tabindex-number) | Number |
-| [toMonth](APIProps.md#tomonth-date) | Date |
+| Prop | Default | Type |
+| --- | --- | --- |
+| [canChangeMonth](APIProps.md#canchangemonth) | true | `Bool` |
+| [captionElement](APIProps.md#captionelement) | | `Element` |
+| [disabledDays](APIProps.md#disableddays) | | `Bool` |
+| [enableOutsideDays](APIProps.md#enableoutsidedays) | false | `Bool` |
+| [fromMonth](APIProps.md#frommonth) | | `Date` |
+| [initialMonth](APIProps.md#initialmonth) | Current month | `Date` |
+| [locale](APIProps.md#locale) | en | `String` |
+| [localeUtils](APIProps.md#localeutils) | | `Object` |
+| [modifiers](APIProps.md#modifiers) | | `Object` |
+| [numberOfMonths](APIProps.md#numberofmonths) | 1 | `Number` |
+| [onCaptionClick](APIProps.md#oncaptionclick) | | `(e: SyntethicEvent, currentMonth: Date) ⇒ void` |
+| [onDayClick](APIProps.md#ondayclick) | | `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void` |
+| [onDayMouseEnter](APIProps.md#ondaymouseenter) | | `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void` |
+| [onDayMouseLeave](APIProps.md#ondaymouseleave) | | `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void` |
+| [onDayTouchStart](APIProps.md#ondaytouchstart) | | `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void` |
+| [onDayTouchEnd](APIProps.md#ondaytouchend) | | `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void` |
+| [onMonthChange](APIProps.md#onmonthchange) | | `(month: Date) ⇒ void` |
+| [renderDay](APIProps.md#renderday) | day ⇒ day.getDate() | `(day: Date) ⇒ Element` |
+| [reverseMonths](APIProps.md#reversemonths) | false | `Bool` |
+| [selectedDays](APIProps.md#selecteddays) | | `Bool` |
+| [tabIndex](APIProps.md#tabindex) | | `Number` |
+| [toMonth](APIProps.md#tomonth) | | `Date` |

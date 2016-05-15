@@ -27,6 +27,12 @@ describe('<DayPicker />', () => {
       expect(dayPicker.props.renderDay).to.be.a('Function');
       expect(dayPicker.props.tabIndex).to.equal(0);
     });
+    it('should have the DayPicker classes', () => {
+      const wrapper = shallow(<DayPicker />);
+      expect(wrapper).to.have.className('DayPicker');
+      expect(wrapper).to.have.className('DayPicker--en');
+      expect(wrapper).to.have.className('DayPicker--interactionDisabled');
+    });
     it('should use initialMonth as the current month', () => {
       const wrapper = shallow(<DayPicker />);
       const instance = wrapper.instance();
@@ -50,12 +56,6 @@ describe('<DayPicker />', () => {
       expect(instance.state.currentMonth.getFullYear()).to.equal(2016);
       expect(instance.state.currentMonth.getMonth()).to.equal(1);
       expect(instance.state.currentMonth.getDate()).to.equal(1);
-    });
-    it('should have the DayPicker classes', () => {
-      const wrapper = shallow(<DayPicker />);
-      expect(wrapper).to.have.className('DayPicker');
-      expect(wrapper).to.have.className('DayPicker--en');
-      expect(wrapper).to.have.className('DayPicker--interactionDisabled');
     });
     it('should not include the interactionDisabled CSS modifier', () => {
       const wrapper = shallow(<DayPicker onDayClick={() => {}} />);
@@ -122,6 +122,24 @@ describe('<DayPicker />', () => {
   });
 
   describe('day modifiers', () => {
+    it('should use `selectedDays` prop as `selected` modifier', () => {
+      const wrapper = mount(<DayPicker selectedDays={() => true} modifiers={{ foo: () => true }} />);
+      expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(35);
+      expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
+    });
+    it('should add the `aria-selected` attribute for `selected` days', () => {
+      const wrapper = mount(<DayPicker selectedDays={() => true} />);
+      expect(wrapper.find('.DayPicker-Day--selected').first()).to.have.attr('aria-selected', 'true');
+    });
+    it('should use `disabledDays` prop as `selected` modifier', () => {
+      const wrapper = mount(<DayPicker disabledDays={() => true} modifiers={{ foo: () => true }} />);
+      expect(wrapper.find('.DayPicker-Day--disabled')).to.have.length(35);
+      expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
+    });
+    it('should add the `aria-disabled` attribute for `disabled` days', () => {
+      const wrapper = mount(<DayPicker disabledDays={() => true} />);
+      expect(wrapper.find('.DayPicker-Day--disabled').first()).to.have.attr('aria-disabled', 'true');
+    });
     it('should include "outside" for outside days', () => {
       const wrapper = mount(
         <DayPicker initialMonth={new Date(2015, 6)} enableOutsideDays />
@@ -464,7 +482,7 @@ describe('<DayPicker />', () => {
       const eventArgs = [
         sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
         sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
-        sinon.match(mods => mods.indexOf('foo') > -1, 'modifiers'),
+        sinon.match(mods => mods.foo, 'modifiers'),
       ];
 
       wrapper.find('.DayPicker-Day--foo').simulate('click');
@@ -509,7 +527,7 @@ describe('<DayPicker />', () => {
     });
     it('should call `onDayClick` event handler when pressing the ENTER key', () => {
       const handleDayClick = spy();
-      const modifiers = { foo: d => d.getDate() === 15 };
+      const modifiers = { foo: d => d.getDate() === 15, bar: () => false };
       const wrapper = mount(
         <DayPicker
           modifiers={modifiers}
@@ -519,7 +537,7 @@ describe('<DayPicker />', () => {
       const eventArgs = [
         sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
         sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
-        sinon.match(mods => mods.indexOf('foo') > -1, 'modifiers'),
+        sinon.match(mods => mods.foo && !mods.bar, 'modifiers'),
       ];
       wrapper.find('.DayPicker-Day--foo').simulate('keyDown', { keyCode: keys.ENTER });
       expect(handleDayClick).to.have.been.calledWith(...eventArgs);
@@ -536,7 +554,7 @@ describe('<DayPicker />', () => {
       const eventArgs = [
         sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
         sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
-        sinon.match(mods => mods.indexOf('foo') > -1, 'modifiers'),
+        sinon.match(mods => mods.foo, 'modifiers'),
       ];
       wrapper.find('.DayPicker-Day--foo').simulate('keyDown', { keyCode: keys.SPACE });
       expect(handleDayClick).to.have.been.calledWith(...eventArgs);

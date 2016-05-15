@@ -1,69 +1,70 @@
-import React from "react";
-import moment from "moment";
+import React from 'react';
+import moment from 'moment';
 
-import DayPicker, { DateUtils } from "react-day-picker";
+import DayPicker, { DateUtils } from 'react-day-picker';
 
-import "react-day-picker/lib/style.css";
+import 'react-day-picker/lib/style.css';
 
 export default class InputField extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.showCurrentDate = this.showCurrentDate.bind(this);
+  }
+
   state = {
-    value: moment().format("L"), // The value of the input field
-    month: new Date() // The month to display in the calendar
+    value: moment().format('L'), // The value of the input field
+    month: new Date(), // The month to display in the calendar
   };
+
+  showCurrentDate() {
+    this.refs.daypicker.showMonth(this.state.month);
+  }
 
   handleInputChange(e) {
     const { value } = e.target;
 
-    // Change the current month only if the value entered by the user is a valid
-    // date, according to the `L` format
-    if (moment(value, "L", true).isValid()) {
+    // Change the current month only if the value entered by the user is a valid date, according to the `L` format
+    if (moment(value, 'L', true).isValid()) {
       this.setState({
-        month: moment(value, "L").toDate(),
-        value
+        month: moment(value, 'L').toDate(),
+        value,
       }, this.showCurrentDate);
-    }
-    else {
+    } else {
       this.setState({ value }, this.showCurrentDate);
     }
   }
 
   handleDayClick(e, day) {
     this.setState({
-      value: moment(day).format("L"),
-      month: day
+      value: moment(day).format('L'),
+      month: day,
     });
   }
 
-  showCurrentDate() {
-    this.refs.daypicker.showMonth(this.state.month);
-  }
-
   render() {
-    const selectedDay = moment(this.state.value, "L", true).toDate();
+    const selectedDay = moment(this.state.value, 'L', true).toDate();
 
     return (
       <div>
-
         <p>
           <input
             ref="input"
             type="text"
-            value={ this.state.value }
+            value={this.state.value}
             placeholder="YYYY-MM-DD"
-            onChange={ this.handleInputChange.bind(this) }
-            onFocus={ this.showCurrentDate.bind(this) } />
+            onChange={this.handleInputChange}
+            onFocus={this.showCurrentDate}
+          />
         </p>
-
         <DayPicker
           ref="daypicker"
-          initialMonth={ this.state.month }
-          modifiers={{
-            selected: day => DateUtils.isSameDay(selectedDay, day)
-          }}
-          onDayClick={ this.handleDayClick.bind(this) }
+          initialMonth={this.state.month}
+          selectedDays={day => DateUtils.isSameDay(selectedDay, day)}
+          onDayClick={this.handleDayClick}
         />
-
       </div>
     );
   }

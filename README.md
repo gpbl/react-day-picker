@@ -27,7 +27,8 @@ Look at [some examples](http://gpbl.org/react-day-picker/examples) showing all i
 
 * [Examples with code](http://gpbl.org/react-day-picker/examples)
 * [Documentation](http://gpbl.org/react-day-picker)
-    * [Getting started](http://gpbl.org/react-day-picker/docs/GettingStarted.html)
+    * [Basic usage](http://gpbl.org/react-day-picker/docs/Basic.html)
+    * [Use of modifiers](http://gpbl.org/react-day-picker/docs/Modifiers.html)
     * [API](http://www.gpbl.org/react-day-picker/docs/API.html)
     * [Styling](http://www.gpbl.org/react-day-picker/docs/Styling.html)
     * [Localization](http://www.gpbl.org/react-day-picker/docs/Localization.html)
@@ -37,7 +38,7 @@ Look at [some examples](http://gpbl.org/react-day-picker/examples) showing all i
 
 ### Partecipate
 
-* [Gitter room](https://gitter.im/gpbl/react-day-picker) – ask questions and chat with other developers
+* [Gitter room](https://gitter.im/gpbl/react-day-picker) – get support and chat with other developers
 * [Issues](https://github.com/gpbl/react-day-picker/issues) – file bugs and suggestions
 * Check out the source code on [Github](https://github.com/gpbl/react-day-picker)
 * Pull requests are welcome! If you are planning a pull request with lot of changes, please add an issue to discuss your idea first
@@ -61,7 +62,7 @@ function isSunday(day) {
 }
 
 function MyComponent() {
-  return <DayPicker initialMonth={ new Date(2016, 1) } modifiers={{ isSunday }} />
+  return <DayPicker initialMonth={ new Date(2016, 1) } disabledDays={ isSunday } />
 }
 ```
 

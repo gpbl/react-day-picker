@@ -11,13 +11,14 @@ import * as LocaleUtils from './LocaleUtils';
 
 import keys from './keys';
 import DayPickerPropTypes from './PropTypes';
-
 export default class DayPicker extends Component {
   static VERSION = '2.0.0-beta';
 
   static propTypes = {
     initialMonth: PropTypes.instanceOf(Date),
     numberOfMonths: PropTypes.number,
+    selectedDays: PropTypes.func,
+    disabledDays: PropTypes.func,
 
     modifiers: PropTypes.object,
 
@@ -85,6 +86,17 @@ export default class DayPicker extends Component {
   getStateFromProps = props => ({
     currentMonth: Helpers.startOfMonth(props.initialMonth),
   })
+
+  getModifiersFromProps(props) {
+    const modifiers = { ...props.modifiers };
+    if (props.selectedDays) {
+      modifiers.selected = props.selectedDays;
+    }
+    if (props.disabledDays) {
+      modifiers.disabled = props.disabledDays;
+    }
+    return modifiers;
+  }
 
   getDayNodes() {
     return this.refs.dayPicker.querySelectorAll('.DayPicker-Day:not(.DayPicker-Day--outside)');
@@ -284,7 +296,7 @@ export default class DayPicker extends Component {
 
   handleDayClick(e, day, modifiers) {
     e.persist();
-    if (modifiers.indexOf('outside') > -1) {
+    if (modifiers.outside) {
       this.handleOutsideDayClick(day);
     }
     this.props.onDayClick(e, day, modifiers);
@@ -309,11 +321,10 @@ export default class DayPicker extends Component {
     if (day.getMonth() !== month.getMonth()) {
       dayModifiers.push('outside');
     }
-    if (this.props.modifiers) {
-      dayModifiers = dayModifiers.concat(
-        Helpers.getModifiersForDay(day, this.props.modifiers)
-      );
-    }
+    dayModifiers = [
+      ...dayModifiers,
+      ...Helpers.getModifiersForDay(day, this.getModifiersFromProps(this.props)),
+    ];
 
     const isOutside = day.getMonth() !== month.getMonth();
     let tabIndex = null;
@@ -324,7 +335,6 @@ export default class DayPicker extends Component {
         tabIndex = this.props.tabIndex;
       }
     }
-
     const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
     return (
       <Day
@@ -334,7 +344,8 @@ export default class DayPicker extends Component {
         empty={isOutside && !this.props.enableOutsideDays}
         tabIndex={tabIndex}
         ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
-        ariaDisabled={isOutside}
+        ariaDisabled={isOutside || dayModifiers.indexOf('disabled') > -1}
+        ariaSelected={dayModifiers.indexOf('selected') > -1}
         onMouseEnter={this.props.onDayMouseEnter}
         onMouseLeave={this.props.onDayMouseLeave}
         onKeyDown={this.handleDayKeyDown}

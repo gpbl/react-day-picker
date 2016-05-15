@@ -1,40 +1,92 @@
-## [@next](https://github.com/gpbl/react-day-picker/tree/v2.0.0) (2016-04-14)
+## [v2.0.0](https://github.com/gpbl/react-day-picker/tree/v2.0.0) (2016-05-15)
 
-Upcoming `2.0.0` release. You can test it installing:
+This release mainly improves the component’s API (thus some breaking changes) and add some new props.
 
-```
-npm install react-day-picker@next
-```
+Code has been split in multiple components and tests have been rewritten with [enzyme](https://github.com/airbnb/enzyme). It should be easier to add and test the upcoming new features!
 
-or, if you are using bower:
-
-```
-bower install react-day-picker#v2.0.0-beta.1
-```
-
-**Improvements**
-
-* Navigate between weeks or years using left/right or up/down arrow keys ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
-* New [reverseMonths](http://www.gpbl.org/react-day-picker/docs/APIProps.html#reversemonths-prop) prop to render the most recent month first. ([#147](https://github.com/gpbl/react-day-picker/pull/141) by [sonrtomas](sonrtomas))
-* New [onDayKeyDown](http://www.gpbl.org/react-day-picker/docs/APIProps.html#ondaykeydown-prop), [onDayTouchStart](http://www.gpbl.org/react-day-picker/docs/APIProps.html#ondaytouchstart-prop) prop, , [onDayTouchEnd](http://www.gpbl.org/react-day-picker/docs/APIProps.html#ondaytouchend-prop) prop.
-* Added various `aria-label` attributes ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
-* Support for React 0.15 ([#141](https://github.com/gpbl/react-day-picker/pull/141) by [GertjanReynaert](https://github.com/GertjanReynaert))
-
-**Bug fixes**
-
-* Navigation with keyboard when using `fromMonth` or `endMonth`
+Thanks everyone for the support and for the help on making this component better 🤗
+If you have issues or suggestions, don't forget the [Gitter room](https://gitter.im/gpbl/react-day-picker)!
 
 **Breaking changes**
 
-* Removed `onDayTouchTap`. Use `onDayClick` instead ([#153](https://github.com/gpbl/react-day-picker/issues/153)). If you need more granularity over touch events, you can use the new `onDayTouchStart` and `onDayTouchEnd` props.
+* The `onDay*` event handlers receive as third argument an object of modifiers instead of an array.
 
-* Fix import with CommonJS modules ([#136](https://github.com/gpbl/react-day-picker/issues/136)).
+ This mean that if you where writing:
+
+ ```js
+ onDayClick(e, day, modifiers) {
+   if (modifiers.indexOf('selected') > -1) {
+     console.log('This day is selected')
+   }
+ }
+ ```
+
+ you must now write:
+
+ ```js
+ onDayClick(e, day, modifiers) {
+   if (modifiers.selected === true) {
+     console.log('This day is selected')
+   }
+ }
+ ```
+
+ or better:
+
+ ```js
+ onDayClick(e, day, { selected }) {
+   if (selected) {
+     console.log('This day is selected')
+   }
+ }
+ ```
+
+* Removed `onDayTouchTap`. Use `onDayClick` instead. If you need more granularity over touch events, you can use the new `onDayTouchStart` and `onDayTouchEnd` props. See [#153](https://github.com/gpbl/react-day-picker/issues/153) for more details.
+
+* Fixed import with CommonJS modules ([#136](https://github.com/gpbl/react-day-picker/issues/136)).
 
  This affects code using `require('react-day-picker').default` or similar syntax, which was required for v1.3.0. Now you can `require('react-day-picker')` as usual, i.e. without specifying `default`. If you are using ES2015 modules `import DayPicker from 'react-day-picker'`, this change shouldn't affect you.
 
 * New `formatDay` function in [LocaleUtils](http://www.gpbl.org/react-day-picker/docs/LocaleUtils.html).
 
  If you are using your [custom LocaleUtils](http://www.gpbl.org/react-day-picker/docs/LocalizationCustom.html) to localize the calendar, you need to implement this function as well, which is required to format the newly added [aria-label attribute](https://github.com/gpbl/react-day-picker/pull/132) (see the [documentation](http://localhost:4000/docs/LocalizationCustom.html) for an example). If you are localizing [using moment](http://www.gpbl.org/react-day-picker/docs/LocalizationMoment.html), this change shouldn't affect you.
+
+
+**New props**
+
+* New [`disabledDays`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#disabledays-prop) and [`selectedDays`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#disabledays-prop) props. They receive a function `(day) => Bool` as value to easily define which day should have the `selected` or `disabled` modifiers. See [#34](https://github.com/gpbl/react-day-picker/issues/34) for more details.
+
+  So if you were writing something like:
+
+  ```js
+  <DayPicker
+    modifiers={
+      { selected: day => isDaySelected(day) },
+      { disabled: day => isDayDisabled(day) }
+    }
+  />
+  ```
+
+  now you can write:
+
+  ```js
+  <DayPicker
+    selectedDays={ day => isDaySelected(day) }
+    disabledDays={ day => isDayDisabled(day) }
+  />
+  ```
+
+* Added [`reverseMonths`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#reversemonths-prop) prop to render the most recent month first. ([#147](https://github.com/gpbl/react-day-picker/pull/141) by [sonrtomas](sonrtomas))
+* Added [`onDayKeyDown`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#ondaykeydown-prop), [`onDayTouchStart`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#ondaytouchstart-prop), [`onDayTouchEnd`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#ondaytouchend-prop) props.
+
+**Improvements**
+
+* Navigate between weeks or years using left/right or up/down arrow keys ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
+* Added various `aria-*` attributes ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
+
+**Bug fixes**
+
+* Navigation with keyboard when using `fromMonth` or `endMonth`
 
 ---
 ### [v1.3.2](https://github.com/gpbl/react-day-picker/tree/v1.3.12) (2016-04-10)

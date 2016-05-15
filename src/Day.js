@@ -1,13 +1,14 @@
 import React, { PropTypes } from 'react';
-import { isSameDay } from './DateUtils';
 
 function handleEvent(handler, day, modifiers) {
   if (!handler) {
     return undefined;
   }
+  const dayState = {};
+  modifiers.forEach(modifier => { dayState[modifier] = true; });
   return e => {
     e.persist();
-    handler(e, day, modifiers);
+    handler(e, day, dayState);
   };
 }
 export default function Day({
@@ -23,19 +24,14 @@ export default function Day({
   onTouchEnd,
   ariaLabel,
   ariaDisabled,
+  ariaSelected,
   children,
 }) {
   let className = 'DayPicker-Day';
-  const cssModifiers = [...modifiers];
-  if (isSameDay(day, new Date())) {
-    cssModifiers.push('today');
-  }
-  className += cssModifiers.map(modifier => ` ${className}--${modifier}`).join('');
-
+  className += modifiers.map(modifier => ` ${className}--${modifier}`).join('');
   if (empty) {
     return <div role="gridcell" aria-disabled className={className} />;
   }
-
   return (
     <div
       className={className}
@@ -43,6 +39,7 @@ export default function Day({
       role="gridcell"
       aria-label={ariaLabel}
       aria-disabled={ariaDisabled.toString()}
+      aria-selected={ariaSelected.toString()}
       onClick={handleEvent(onClick, day, modifiers)}
       onKeyDown={handleEvent(onKeyDown, day, modifiers)}
       onMouseEnter={handleEvent(onMouseEnter, day, modifiers)}
@@ -61,6 +58,7 @@ Day.propTypes = {
 
   ariaDisabled: PropTypes.bool,
   ariaLabel: PropTypes.string,
+  ariaSelected: PropTypes.bool,
   empty: PropTypes.bool,
   modifiers: PropTypes.array,
   onClick: PropTypes.func,

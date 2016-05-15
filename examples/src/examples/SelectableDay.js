@@ -1,33 +1,29 @@
-import React from "react";
-import DayPicker, { DateUtils } from "react-day-picker";
-
-import "react-day-picker/lib/style.css";
-
+import React from 'react';
+import DayPicker, { DateUtils } from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
 export default class SelectableDay extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.handleDayClick = this.handleDayClick.bind(this);
+  }
   state = {
-    selectedDay: null
+    selectedDay: null,
   };
-
-  handleDayClick(e, day, modifiers) {
+  handleDayClick(e, day, { selected }) {
     this.setState({
-      selectedDay: modifiers.indexOf("selected") > -1 ? null : day
+      selectedDay: selected ? null : day,
     });
   }
-
   render() {
     const { selectedDay } = this.state;
-
     return (
       <div>
         <DayPicker
-          modifiers={{
-            selected: day => DateUtils.isSameDay(selectedDay, day)
-          }}
-          onDayClick={ this.handleDayClick.bind(this) }
+          selectedDays={day => DateUtils.isSameDay(selectedDay, day)}
+          onDayClick={this.handleDayClick}
         />
         <p>
-          Selected: { selectedDay && selectedDay.toLocaleDateString() }
+          {selectedDay ? selectedDay.toLocaleDateString() : 'Please select a day 👻'}
         </p>
       </div>
     );
