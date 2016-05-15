@@ -19,6 +19,10 @@ bower install react-day-picker#v2.0.0-beta.1
 * Add `aria-label` attribute to day's cells ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
 * Support for React 0.15 ([#141](https://github.com/gpbl/react-day-picker/pull/141) by [GertjanReynaert](https://github.com/GertjanReynaert))
 
+**Bug fixes**
+
+* Navigation with keyboard when using `fromMonth` or `endMonth`
+
 **Breaking changes**
 
 * Removed `onDayTouchTap`. Use `onDayClick` instead ([#153](https://github.com/gpbl/react-day-picker/issues/153)).
