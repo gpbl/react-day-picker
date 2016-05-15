@@ -1,13 +1,3 @@
-/**
- * Return `d` as a new date with `n` months added.
- * @param {[type]} d
- * @param {[type]} n
- */
-export function addMonths(d, n) {
-  const newDate = clone(d);
-  newDate.setMonth(d.getMonth() + n);
-  return newDate;
-}
 
 /**
  * Clone a date object.
@@ -17,6 +7,17 @@ export function addMonths(d, n) {
  */
 export function clone(d) {
   return new Date(d.getTime());
+}
+
+/**
+ * Return `d` as a new date with `n` months added.
+ * @param {[type]} d
+ * @param {[type]} n
+ */
+export function addMonths(d, n) {
+  const newDate = clone(d);
+  newDate.setMonth(d.getMonth() + n);
+  return newDate;
 }
 
 /**
@@ -58,14 +59,14 @@ export function isPastDay(d) {
  * @return {Boolean}
  */
 export function isDayBetween(d, d1, d2) {
-  d = clone(d);
-  d1 = clone(d1);
-  d2 = clone(d2);
+  const date = clone(d);
+  const date1 = clone(d1);
+  const date2 = clone(d2);
 
-  d.setHours(0, 0, 0, 0);
-  d1.setHours(0, 0, 0, 0);
-  d2.setHours(0, 0, 0, 0);
-  return (d1 < d && d < d2) || (d2 < d && d < d1);
+  date.setHours(0, 0, 0, 0);
+  date1.setHours(0, 0, 0, 0);
+  date2.setHours(0, 0, 0, 0);
+  return (date1 < date && date < date2) || (date2 < date && date < date1);
 }
 
 /**
@@ -76,23 +77,19 @@ export function isDayBetween(d, d1, d2) {
  * @param {Object} range
  * @return {Object} Returns a new range object
  */
-export function addDayToRange(day, range={from: null, to: null}) {
+export function addDayToRange(day, range = { from: null, to: null }) {
   let { from, to } = range;
   if (!from) {
     from = day;
-  }
-  else if (from && to && isSameDay(from, to) && isSameDay(day, from)) {
+  } else if (from && to && isSameDay(from, to) && isSameDay(day, from)) {
     from = null;
     to = null;
-  }
-  else if (to && day < from) {
+  } else if (to && day < from) {
     from = day;
-  }
-  else if (to && isSameDay(day, to)) {
+  } else if (to && isSameDay(day, to)) {
     from = day;
     to = day;
-  }
-  else {
+  } else {
     to = day;
     if (to < from) {
       to = from;
@@ -124,5 +121,5 @@ export default {
   isSameDay,
   isDayInRange,
   isDayBetween,
-  isPastDay
-}
+  isPastDay,
+};
