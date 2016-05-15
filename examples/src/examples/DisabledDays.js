@@ -1,32 +1,38 @@
-import React from "react";
-import DayPicker, { DateUtils } from "react-day-picker";
+import React from 'react';
+import DayPicker, { DateUtils } from 'react-day-picker';
 
-import "react-day-picker/lib/style.css";
+import 'react-day-picker/lib/style.css';
 
 export default class DisabledDays extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.handleDayClick = this.handleDayClick.bind(this);
+  }
   state = {
-    selectedDay: null
+    selectedDay: null,
   };
-
-  handleDayClick(e, day, modifiers) {
-    if (modifiers.indexOf("disabled") > -1) {
-      console.log("User clicked a disabled day.");
+  handleDayClick(e, day, { disabled, selected }) {
+    if (disabled) {
       return;
     }
     this.setState({
-      selectedDay: day
+      selectedDay: selected ? null : day,
     });
   }
-
   render() {
-
-    // Add the `selected` modifier to the cell of the clicked day
-    const modifiers = {
-      disabled: DateUtils.isPastDay,
-      selected: day => DateUtils.isSameDay(this.state.selectedDay, day)
-    };
-
-    return <DayPicker enableOutsideDays modifiers={ modifiers } onDayClick={ this.handleDayClick.bind(this) } />;
+    const { selectedDay } = this.state;
+    return (
+      <div>
+        <DayPicker
+          selectedDays={day => DateUtils.isSameDay(selectedDay, day)}
+          disabledDays={DateUtils.isPastDay}
+          enableOutsideDays
+          onDayClick={this.handleDayClick}
+        />
+        <p>
+          {selectedDay ? selectedDay.toLocaleDateString() : 'Please select a day 👻'}
+        </p>
+      </div>
+    );
   }
 }

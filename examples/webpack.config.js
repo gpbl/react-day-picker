@@ -1,27 +1,27 @@
-var webpack = require("webpack");
-var path = require("path");
+var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
-  devtool: "source-map",
-  entry: path.join(__dirname, "src/main.js"),
+  devtool: 'source-map',
+  entry: path.join(__dirname, 'src/main.js'),
 
   output: {
-    path: "./built/js",
-    publicPath: "/js/",
-    filename: "main.js"
+    path: './built/js',
+    publicPath: '/js/',
+    filename: 'main.js',
   },
 
-  resolve: { extensions: ["", ".js"] },
+  resolve: { extensions: ['', '.js'] },
 
   module: {
     loaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loaders: ["babel"]
+      loaders: ['babel'],
     }, {
       test: /\.css$/,
-      loaders: ["style", "css", "autoprefixer-loader?browsers=last 2 version"]
-    }]
+      loaders: ['style', 'css', 'autoprefixer-loader?browsers=last 2 version'],
+    }],
   },
 
   plugins: [
@@ -30,33 +30,34 @@ module.exports = {
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production")
-      }
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
 
     new webpack.optimize.UglifyJsPlugin({
       mangle: {
         except: [
-          "Birthdays",
-          "DisabledDays",
-          "InputField",
-          "Localized",
-          "LocalizedCustom",
-          "Range",
-          "Restricted",
-          "SelectableDay",
-          "SimpleCalendar",
-          "TouchEvents",
-          "YearCalendar",
-          "YearNavigation"
-        ]
+          'Birthdays',
+          'DisabledDays',
+          'InputField',
+          'Localized',
+          'LocalizedCustom',
+          'Modifiers',
+          'Range',
+          'Restricted',
+          'SelectableDay',
+          'SimpleCalendar',
+          'TouchEvents',
+          'YearCalendar',
+          'YearNavigation',
+        ],
       },
       compress: {
-        warnings: false
-      }
-    })
+        warnings: false,
+      },
+    }),
 
-  ]
+  ],
 
 };

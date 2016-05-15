@@ -1,35 +1,35 @@
-import React from "react";
-import DayPicker from "react-day-picker";
+import React from 'react';
+import DayPicker from 'react-day-picker';
 
 // Use a custom util to format the calendar values according to the
 // selected locale. This one is based on moment.js
-import MomentLocaleUtils from "react-day-picker/moment";
+import MomentLocaleUtils from 'react-day-picker/moment';
 
 // Make sure moment.js has the required locale data
-import "moment/locale/ja";
-import "moment/locale/ar";
-import "moment/locale/it";
+import 'moment/locale/ja';
+import 'moment/locale/ar';
+import 'moment/locale/it';
 
-import "react-day-picker/lib/style.css";
+import 'react-day-picker/lib/style.css';
 
 export default class Localized extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.switchLocale = this.switchLocale.bind(this);
+  }
   state = {
-    locale: "en"
+    locale: 'en',
   };
-
   switchLocale(e) {
-    const locale = e.target.value || "en";
+    const locale = e.target.value || 'en';
     this.setState({ locale });
   }
-
   render() {
     const { locale } = this.state;
-
     return (
       <div>
         <p>
-          <select onChange={ this.switchLocale.bind(this) }>
+          <select onChange={this.switchLocale}>
             <option value="en">English</option>
             <option value="it">Italian</option>
             <option value="ja">Japanese</option>
@@ -37,12 +37,12 @@ export default class Localized extends React.Component {
           </select>
         </p>
         <DayPicker
-          dir={ locale === "ar" ? "rtl" : "ltr" }
-          locale={ locale }
-          localeUtils={ MomentLocaleUtils }
-          modifiers={{ sunday: day => day.getDay() === 0 }} />
+          dir={locale === 'ar' ? 'rtl' : 'ltr'}
+          locale={locale}
+          localeUtils={MomentLocaleUtils}
+          modifiers={{ sunday: day => day.getDay() === 0 }}
+        />
       </div>
     );
   }
-
 }

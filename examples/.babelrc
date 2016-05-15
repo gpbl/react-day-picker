@@ -1,4 +1,3 @@
 {
-  "stage": 0,
-  "breakConfig": true
+  "presets": ["react", "es2015", "stage-0"]
 }
