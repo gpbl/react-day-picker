@@ -9,15 +9,15 @@ export default function Navbar({
   onNextClick,
   dir,
 }) {
-  let previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
-  let nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
+  const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
+  const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
 
   const previousButton = showPreviousButton &&
     <span
       role="button"
       key="previous"
       className={`${buttonBaseClass}--prev`}
-      onClick={previousClickHandler}
+      onClick={() => previousClickHandler()}
     />;
 
   const nextButton = showNextButton &&
@@ -25,7 +25,7 @@ export default function Navbar({
       role="button"
       key="right"
       className={`${buttonBaseClass}--next`}
-      onClick={nextClickHandler}
+      onClick={() => nextClickHandler()}
     />;
 
   return (
