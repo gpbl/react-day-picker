@@ -29,16 +29,10 @@ export default function Day({
   children,
 }) {
   let className = 'DayPicker-Day';
-  const cssModifiers = [...modifiers];
-  if (isSameDay(day, new Date())) {
-    cssModifiers.push('today');
-  }
-  className += cssModifiers.map(modifier => ` ${className}--${modifier}`).join('');
-
+  className += modifiers.map(modifier => ` ${className}--${modifier}`).join('');
   if (empty) {
     return <div role="gridcell" aria-disabled className={className} />;
   }
-
   return (
     <div
       className={className}
