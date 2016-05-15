@@ -1,10 +1,14 @@
 
-import { clone } from "./DateUtils";
-import { getFirstDayOfWeek } from "./LocaleUtils";
+import { clone } from './DateUtils';
+import { getFirstDayOfWeek } from './LocaleUtils';
 
 export function cancelEvent(e) {
   e.preventDefault();
   e.stopPropagation();
+}
+
+export function getFirstDayOfMonth(d) {
+  return new Date(d.getFullYear(), d.getMonth(), 1, 12);
 }
 
 export function getDaysInMonth(d) {
@@ -16,14 +20,10 @@ export function getDaysInMonth(d) {
   return resultDate.getDate();
 }
 
-export function getFirstDayOfMonth(d) {
-  return new Date(d.getFullYear(), d.getMonth(), 1, 12);
-}
-
 export function getModifiersForDay(d, modifierFunctions) {
   const modifiers = [];
   if (modifierFunctions) {
-    for (const modifier in modifierFunctions) {
+    for (const modifier of Object.keys(modifierFunctions)) {
       const func = modifierFunctions[modifier];
       if (func(d)) {
         modifiers.push(modifier);
@@ -38,7 +38,7 @@ export function getMonthsDiff(d1, d2) {
     (12 * (d2.getFullYear() - d1.getFullYear()));
 }
 
-export function getWeekArray(d, firstDayOfWeek=getFirstDayOfWeek()) {
+export function getWeekArray(d, firstDayOfWeek = getFirstDayOfWeek()) {
   const daysInMonth = getDaysInMonth(d);
   const dayArray = [];
 
@@ -50,7 +50,7 @@ export function getWeekArray(d, firstDayOfWeek=getFirstDayOfWeek()) {
   }
 
   dayArray.forEach((day) => {
-    if(week.length > 0 && day.getDay() === firstDayOfWeek) {
+    if (week.length > 0 && day.getDay() === firstDayOfWeek) {
       weekArray.push(week);
       week = [];
     }
@@ -77,7 +77,6 @@ export function getWeekArray(d, firstDayOfWeek=getFirstDayOfWeek()) {
   }
 
   return weekArray;
-
 }
 
 export function startOfMonth(d) {

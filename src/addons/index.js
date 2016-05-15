@@ -1,2 +1,2 @@
 // Deprecated: remove from the next major version!
-export LocaleUtils from "./LocaleUtils";
+export LocaleUtils from './LocaleUtils';

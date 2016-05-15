@@ -7,7 +7,7 @@ Set the day picker to display the given month.
 ```jsx
 
 class MyComponent extends React {
-  
+
   handleButtonClick() {
     this.refs.daypicker.showMonth(new Date(2014, 10));
   }
@@ -34,3 +34,15 @@ Set the day picker to display the previous month.
 #### showNextMonth()
 
 Set the day picker to display the next month.
+
+---
+
+#### showPreviousYear()
+
+Set the day picker to display the previous year.
+
+---
+
+#### showNextYear()
+
+Set the day picker to display the next year.
