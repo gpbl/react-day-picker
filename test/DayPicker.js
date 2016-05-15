@@ -34,6 +34,15 @@ describe('<DayPicker />', () => {
       expect(instance.props.initialMonth.getMonth()).to.equal(instance.state.currentMonth.getMonth());
       expect(instance.state.currentMonth.getDate()).to.equal(1);
     });
+    it('should render multiple months', () => {
+      const wrapper = shallow(<DayPicker numberOfMonths={12} />);
+      expect(wrapper.find('.DayPicker-Month')).to.have.length(12);
+    });
+    it('should render multiple months, reversed', () => {
+      const wrapper = mount(<DayPicker initialMonth={new Date(2015, 0)} numberOfMonths={2} reverseMonths />);
+      expect(wrapper.find('.DayPicker-Caption').at(0)).to.have.text('February 2015');
+      expect(wrapper.find('.DayPicker-Caption').at(1)).to.have.text('January 2015');
+    });
     it('should update the current month when `initialMonth` is updated', () => {
       const wrapper = mount(<DayPicker />);
       wrapper.setProps({ initialMonth: new Date(2016, 1, 15) });
