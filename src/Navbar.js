@@ -3,18 +3,21 @@ import React, { PropTypes } from 'react';
 const buttonBaseClass = 'DayPicker-NavButton DayPicker-NavButton';
 
 export default function Navbar({
-  showPreviousButton = true,
-  showNextButton = true,
+  showPreviousButton,
+  showNextButton,
   onPreviousClick,
   onNextClick,
-  dir = 'ltr',
+  dir,
 }) {
+  let previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
+  let nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
+
   const previousButton = showPreviousButton &&
     <span
       role="button"
       key="previous"
       className={`${buttonBaseClass}--prev`}
-      onClick={() => onPreviousClick()}
+      onClick={previousClickHandler}
     />;
 
   const nextButton = showNextButton &&
@@ -22,7 +25,7 @@ export default function Navbar({
       role="button"
       key="right"
       className={`${buttonBaseClass}--next`}
-      onClick={dir === 'rtl' ? () => onPreviousClick() : () => onNextClick()}
+      onClick={nextClickHandler}
     />;
 
   return (
@@ -35,7 +38,13 @@ export default function Navbar({
 Navbar.propTypes = {
   showPreviousButton: PropTypes.bool,
   showNextButton: PropTypes.bool,
-  onPreviousClick: PropTypes.func.isRequired,
-  onNextClick: PropTypes.func.isRequired,
+  onPreviousClick: PropTypes.func,
+  onNextClick: PropTypes.func,
   dir: PropTypes.string,
+};
+
+Navbar.defaultProps = {
+  dir: 'ltr',
+  showPreviousButton: true,
+  showNextButton: true,
 };
