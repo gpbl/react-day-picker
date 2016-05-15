@@ -109,8 +109,11 @@
 /* Example modifiers */
 
 .DayPicker-Day--sunday {
-  color: #dce0e0;
   background-color: #f7f8f8;
+}
+
+.DayPicker-Day--sunday:not(.DayPicker-Day--today) {
+  color: #dce0e0;
 }
 
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
