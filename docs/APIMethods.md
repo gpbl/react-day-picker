@@ -1,6 +1,6 @@
 # Component methods
 
-#### showMonth(d: Date)
+#### showMonth `(d: Date) ⇒ void`
 
 Set the day picker to display the given month.
 
@@ -25,24 +25,24 @@ class MyComponent extends React {
 
 ---
 
-#### showPreviousMonth()
+#### showPreviousMonth `() ⇒ void`
 
 Set the day picker to display the previous month.
 
 ---
 
-#### showNextMonth()
+#### showNextMonth `() ⇒ void`
 
 Set the day picker to display the next month.
 
 ---
 
-#### showPreviousYear()
+#### showPreviousYear `() ⇒ void`
 
 Set the day picker to display the previous year.
 
 ---
 
-#### showNextYear()
+#### showNextYear `() ⇒ void`
 
 Set the day picker to display the next year.

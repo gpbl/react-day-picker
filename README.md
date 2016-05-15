@@ -27,7 +27,8 @@ Look at [some examples](http://gpbl.org/react-day-picker/examples) showing all i
 
 * [Examples with code](http://gpbl.org/react-day-picker/examples)
 * [Documentation](http://gpbl.org/react-day-picker)
-    * [Getting started](http://gpbl.org/react-day-picker/docs/GettingStarted.html)
+    * [Basic usage](http://gpbl.org/react-day-picker/docs/Basic.html)
+    * [Use of modifiers](http://gpbl.org/react-day-picker/docs/Modifiers.html)
     * [API](http://www.gpbl.org/react-day-picker/docs/API.html)
     * [Styling](http://www.gpbl.org/react-day-picker/docs/Styling.html)
     * [Localization](http://www.gpbl.org/react-day-picker/docs/Localization.html)
@@ -61,7 +62,7 @@ function isSunday(day) {
 }
 
 function MyComponent() {
-  return <DayPicker initialMonth={ new Date(2016, 1) } disabledDays={{ isSunday }} />
+  return <DayPicker initialMonth={ new Date(2016, 1) } disabledDays={ isSunday } />
 }
 ```
 
