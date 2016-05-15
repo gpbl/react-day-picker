@@ -5,9 +5,11 @@ function handleEvent(handler, day, modifiers) {
   if (!handler) {
     return undefined;
   }
+  const dayState = {};
+  modifiers.forEach(modifier => { dayState[modifier] = true; });
   return e => {
     e.persist();
-    handler(e, day, modifiers);
+    handler(e, day, dayState);
   };
 }
 export default function Day({
