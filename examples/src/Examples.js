@@ -24,7 +24,7 @@ const history = createHistory();
 const EXAMPLES = {
   simple: {
     title: 'Simple Calendar',
-    description: 'This calendar shows the clicked day in an alert dialog.',
+    description: 'Show the clicked day in an alert dialog.',
     Component: SimpleCalendar,
   },
   selectable: {
@@ -39,12 +39,12 @@ const EXAMPLES = {
   },
   input: {
     title: 'Input Field',
-    description: 'Binding the calendar with an input field: the user can both change the field’s value or interact with the calendar.',
+    description: 'Connect the day picker with an input field.',
     Component: InputField,
   },
   range: {
     title: 'Range of Days',
-    description: "Allow the user to select a range of days. This example uses the range functions available in <a href='http://www.gpbl.org/react-day-picker/docs/DateUtils.html'>DateUtils</a>.",
+    description: "Select a range of days using the range functions available in <a href='http://www.gpbl.org/react-day-picker/docs/DateUtils.html'>DateUtils</a>.",
     Component: Range,
   },
   modifiers: {
