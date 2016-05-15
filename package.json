@@ -12,6 +12,7 @@
     "lint": "eslint src test",
     "test": "mocha --compilers js:babel-core/register --recursive --reporter spec",
     "test:watch": "npm test -- --watch",
+    "test:single": "mocha --compilers js:babel-core/register --reporter spec --bail --watch",
     "cover": "babel-node ./node_modules/istanbul/lib/cli cover -- _mocha --recursive --reporter spec",
     "check": "npm run lint && npm run test",
     "prerelease": "npm run check && webpack -p",
