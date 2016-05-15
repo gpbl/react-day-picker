@@ -189,6 +189,30 @@ function onDayKeyDown(e, day, modifiers) {
 
 ---
 
+#### onDayTouchStart (Function)
+
+Event handler when the day cell gets the `touchStart` event. Example:
+
+```jsx
+function onDayTouchStart(e, day, modifiers) {
+  console.log("Day %s onDayTouchStart", day.toString());
+}
+```
+
+---
+
+#### onDayTouchEnd (Function)
+
+Event handler when the day cell gets the `touchEnd` event. Example:
+
+```jsx
+function onDayTouchEnd(e, day, modifiers) {
+  console.log("Day %s onDayTouchEnd", day.toString());
+}
+```
+
+---
+
 #### onMonthChange (Function)
 
 Event handler when the month is changed, i.e. clicking the navigation buttons or using the keyboard. Example:

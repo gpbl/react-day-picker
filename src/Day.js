@@ -13,12 +13,14 @@ function handleEvent(handler, day, modifiers) {
 export default function Day({
   day,
   tabIndex,
-  empty = false,
-  modifiers = [],
+  empty,
+  modifiers,
   onMouseEnter,
   onMouseLeave,
   onClick,
   onKeyDown,
+  onTouchStart,
+  onTouchEnd,
   ariaLabel,
   ariaDisabled,
   children,
@@ -41,10 +43,12 @@ export default function Day({
       role="gridcell"
       aria-label={ariaLabel}
       aria-disabled={ariaDisabled.toString()}
+      onClick={handleEvent(onClick, day, modifiers)}
       onKeyDown={handleEvent(onKeyDown, day, modifiers)}
       onMouseEnter={handleEvent(onMouseEnter, day, modifiers)}
       onMouseLeave={handleEvent(onMouseLeave, day, modifiers)}
-      onClick={handleEvent(onClick, day, modifiers)}
+      onTouchEnd={handleEvent(onTouchEnd, day, modifiers)}
+      onTouchStart={handleEvent(onTouchStart, day, modifiers)}
     >
       {children}
     </div>
@@ -54,13 +58,21 @@ export default function Day({
 Day.propTypes = {
   day: PropTypes.instanceOf(Date).isRequired,
   children: PropTypes.node.isRequired,
-  tabIndex: PropTypes.number,
+
+  ariaDisabled: PropTypes.bool,
+  ariaLabel: PropTypes.string,
   empty: PropTypes.bool,
   modifiers: PropTypes.array,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
   onClick: PropTypes.func,
   onKeyDown: PropTypes.func,
-  ariaLabel: PropTypes.string,
-  ariaDisabled: PropTypes.bool,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+  onTouchEnd: PropTypes.func,
+  onTouchStart: PropTypes.func,
+  tabIndex: PropTypes.number,
+};
+
+Day.defaultProps = {
+  modifiers: [],
+  empty: false,
 };

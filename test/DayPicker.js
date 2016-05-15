@@ -445,6 +445,8 @@ describe('<DayPicker />', () => {
       const handleDayMouseEnter = spy();
       const handleDayKeyDown = spy();
       const handleDayMouseLeave = spy();
+      const handleDayTouchStart = spy();
+      const handleDayTouchEnd = spy();
 
       const modifiers = { foo: d => d.getDate() === 15 };
       const wrapper = mount(
@@ -454,6 +456,8 @@ describe('<DayPicker />', () => {
           onDayMouseEnter={handleDayMouseEnter}
           onDayMouseLeave={handleDayMouseLeave}
           onDayKeyDown={handleDayKeyDown}
+          onDayTouchStart={handleDayTouchStart}
+          onDayTouchEnd={handleDayTouchEnd}
         />
       );
 
@@ -474,6 +478,12 @@ describe('<DayPicker />', () => {
 
       wrapper.find('.DayPicker-Day--foo').simulate('keyDown');
       expect(handleDayKeyDown).to.have.been.calledWith(...eventArgs);
+
+      wrapper.find('.DayPicker-Day--foo').simulate('touchStart');
+      expect(handleDayTouchStart).to.have.been.calledWith(...eventArgs);
+
+      wrapper.find('.DayPicker-Day--foo').simulate('touchEnd');
+      expect(handleDayTouchEnd).to.have.been.calledWith(...eventArgs);
     });
     it('should not call the day\'s cell event handlers for outside days', () => {
       const handleDayClick = spy();
