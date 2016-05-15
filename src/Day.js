@@ -23,6 +23,7 @@ export default function Day({
   onTouchEnd,
   ariaLabel,
   ariaDisabled,
+  ariaSelected,
   children,
 }) {
   let className = 'DayPicker-Day';
@@ -43,6 +44,7 @@ export default function Day({
       role="gridcell"
       aria-label={ariaLabel}
       aria-disabled={ariaDisabled.toString()}
+      aria-selected={ariaSelected.toString()}
       onClick={handleEvent(onClick, day, modifiers)}
       onKeyDown={handleEvent(onKeyDown, day, modifiers)}
       onMouseEnter={handleEvent(onMouseEnter, day, modifiers)}
@@ -61,6 +63,7 @@ Day.propTypes = {
 
   ariaDisabled: PropTypes.bool,
   ariaLabel: PropTypes.string,
+  ariaSelected: PropTypes.bool,
   empty: PropTypes.bool,
   modifiers: PropTypes.array,
   onClick: PropTypes.func,
