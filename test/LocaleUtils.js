@@ -4,7 +4,7 @@ import * as LocaleUtils from '../src/LocaleUtils';
 
 describe('LocaleUtils', () => {
   it('should work with commonjs require', () => {
-    const { LU } = require('../DayPicker');
+    const { LocaleUtils: LU } = require('../DayPicker');
     expect(LU.formatMonthTitle).to.be.a('function');
   });
 
