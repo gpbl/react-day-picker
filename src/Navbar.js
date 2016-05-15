@@ -11,16 +11,18 @@ export default function Navbar({
 }) {
   const previousButton = showPreviousButton &&
     <span
+      role="button"
       key="previous"
       className={`${buttonBaseClass}--prev`}
-      onClick={onPreviousClick}
+      onClick={() => onPreviousClick()}
     />;
 
   const nextButton = showNextButton &&
     <span
+      role="button"
       key="right"
       className={`${buttonBaseClass}--next`}
-      onClick={dir === 'rtl' ? onPreviousClick : onNextClick}
+      onClick={dir === 'rtl' ? () => onPreviousClick() : () => onNextClick()}
     />;
 
   return (
@@ -33,7 +35,7 @@ export default function Navbar({
 Navbar.propTypes = {
   showPreviousButton: PropTypes.bool,
   showNextButton: PropTypes.bool,
-  onPreviousClick: PropTypes.func,
-  onNextClick: PropTypes.func,
+  onPreviousClick: PropTypes.func.isRequired,
+  onNextClick: PropTypes.func.isRequired,
   dir: PropTypes.string,
 };

@@ -2,10 +2,13 @@ import React, { Component, PropTypes } from 'react';
 
 import Caption from './Caption';
 import Navbar from './Navbar';
+import Month from './Month';
+import Day from './Day';
 
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
 import * as LocaleUtils from './LocaleUtils';
+
 import keys from './keys';
 import DayPickerPropTypes from './PropTypes';
 
@@ -58,18 +61,27 @@ export default class DayPicker extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      currentMonth: Helpers.startOfMonth(props.initialMonth),
-    };
+
+    this.renderDayInMonth = this.renderDayInMonth.bind(this);
+    this.showNextMonth = this.showNextMonth.bind(this);
+    this.showPreviousMonth = this.showPreviousMonth.bind(this);
+
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleDayKeyDown = this.handleDayKeyDown.bind(this);
+
+    this.state = this.getStateFromProps(props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.initialMonth !== nextProps.initialMonth) {
-      this.setState({
-        currentMonth: Helpers.startOfMonth(nextProps.initialMonth),
-      });
+      this.setState(this.getStateFromProps(nextProps));
     }
   }
+
+  getStateFromProps = props => ({
+    currentMonth: Helpers.startOfMonth(props.initialMonth),
+  })
 
   getDayNodes() {
     return this.refs.dayPicker.querySelectorAll('.DayPicker-Day:not(.DayPicker-Day--outside)');
@@ -98,10 +110,7 @@ export default class DayPicker extends Component {
     if (!this.allowMonth(d)) {
       return;
     }
-
-    this.setState({
-      currentMonth: Helpers.startOfMonth(d),
-    }, callback);
+    this.setState({ currentMonth: Helpers.startOfMonth(d) }, callback);
   }
 
   showMonthAndCallHandler(d, callback) {
@@ -153,7 +162,7 @@ export default class DayPicker extends Component {
     const dayNodeIndex = [...dayNodes].indexOf(dayNode);
 
     if (dayNodeIndex === 0) {
-      this.showPreviousMonth(() => { this.focusLastDayOfMonth(); });
+      this.showPreviousMonth(() => this.focusLastDayOfMonth());
     } else {
       dayNodes[dayNodeIndex - 1].focus();
     }
@@ -164,7 +173,7 @@ export default class DayPicker extends Component {
     const dayNodeIndex = [...dayNodes].indexOf(dayNode);
 
     if (dayNodeIndex === dayNodes.length - 1) {
-      this.showNextMonth(() => { this.focusFirstDayOfMonth(); });
+      this.showNextMonth(() => this.focusFirstDayOfMonth());
     } else {
       dayNodes[dayNodeIndex + 1].focus();
     }
@@ -275,23 +284,12 @@ export default class DayPicker extends Component {
   handleDayClick(e, day, modifiers) {
     e.persist();
     if (modifiers.indexOf('outside') > -1) {
-      this.handleOutsideDayPress(day);
+      this.handleOutsideDayClick(day);
     }
-
     this.props.onDayClick(e, day, modifiers);
   }
 
-  handleDayMouseEnter(e, day, modifiers) {
-    e.persist();
-    this.props.onDayMouseEnter(e, day, modifiers);
-  }
-
-  handleDayMouseLeave(e, day, modifiers) {
-    e.persist();
-    this.props.onDayMouseLeave(e, day, modifiers);
-  }
-
-  handleOutsideDayPress(day) {
+  handleOutsideDayClick(day) {
     const { currentMonth } = this.state;
     const { numberOfMonths } = this.props;
     const diffInMonths = Helpers.getMonthsDiff(currentMonth, day);
@@ -302,91 +300,23 @@ export default class DayPicker extends Component {
     }
   }
 
-  renderMonth(date, i) {
-    const { locale, localeUtils, onCaptionClick, captionElement } = this.props;
-
-    const caption = React.cloneElement(captionElement, {
-      date, localeUtils, locale,
-      onClick: onCaptionClick ? e => this.handleCaptionClick(e, date) : null,
-    });
-
-    return (
-      <div
-        className="DayPicker-Month"
-        key={i}
-      >
-
-        {caption}
-
-        <div className="DayPicker-Weekdays" role="rowgroup">
-          <div className="DayPicker-WeekdaysRow" role="columnheader">
-            {this.renderWeekDays()}
-          </div>
-        </div>
-        <div className="DayPicker-Body" role="rowgroup">
-          {this.renderWeeksInMonth(date)}
-        </div>
-      </div>
-    );
-  }
-
-  renderWeekDays() {
-    const { locale, localeUtils } = this.props;
-    const days = [];
-    for (let i = 0; i < 7; i++) {
-      days.push(
-        <div key={i} className="DayPicker-Weekday">
-          <abbr title={localeUtils.formatWeekdayLong(i, locale)}>
-            {localeUtils.formatWeekdayShort(i, locale)}
-          </abbr>
-        </div>
-      );
+  renderDayInMonth(day, month) {
+    let dayModifiers = [];
+    if (DateUtils.isSameDay(day, new Date())) {
+      dayModifiers.push('today');
     }
-    return days;
-  }
-
-  renderWeeksInMonth(month) {
-    const { locale, localeUtils } = this.props;
-    const firstDayOfWeek = localeUtils.getFirstDayOfWeek(locale);
-    return Helpers.getWeekArray(month, firstDayOfWeek).map((week, i) =>
-      <div key={i} className="DayPicker-Week" role="row">
-        {week.map(day => this.renderDay(month, day))}
-      </div>
-    );
-  }
-
-  renderDay(month, day) {
-    const { enableOutsideDays, modifiers: modifierFunctions } = this.props;
-
-    let className = 'DayPicker-Day';
-    let modifiers = [];
-    const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
-
-    const isToday = DateUtils.isSameDay(day, new Date());
-    if (isToday) {
-      modifiers.push('today');
+    if (day.getMonth() !== month.getMonth()) {
+      dayModifiers.push('outside');
+    }
+    if (this.props.modifiers) {
+      dayModifiers = dayModifiers.concat(
+        Helpers.getModifiersForDay(day, this.props.modifiers)
+      );
     }
 
     const isOutside = day.getMonth() !== month.getMonth();
-    if (isOutside) {
-      modifiers.push('outside');
-    }
-
-    if (modifierFunctions) {
-      const customModifiers = Helpers.getModifiersForDay(day, modifierFunctions);
-      modifiers = [...modifiers, ...customModifiers];
-    }
-
-    className += modifiers.map(modifier => ` ${className}--${modifier}`).join('');
-
-    if (isOutside && !enableOutsideDays) {
-      return <div key={`outside-${key}`} className={className} />;
-    }
-
-    const { onDayMouseEnter, onDayMouseLeave, onDayClick }
-      = this.props;
     let tabIndex = null;
-    if (onDayClick && !isOutside) {
+    if (this.props.onDayClick && !isOutside) {
       tabIndex = -1;
       // Focus on the first day of the month
       if (day.getDate() === 1) {
@@ -394,53 +324,69 @@ export default class DayPicker extends Component {
       }
     }
 
-    const { localeUtils, locale } = this.props;
-    const ariaLabel = localeUtils.formatDay(day, locale);
-    const ariaDisabled = isOutside ? 'true' : 'false';
-
+    const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
     return (
-      <div
-        key={key}
-        className={className}
+      <Day
+        key={`${isOutside ? 'outside-' : ''}${key}`}
+        day={day}
+        modifiers={dayModifiers}
+        empty={isOutside && !this.props.enableOutsideDays}
         tabIndex={tabIndex}
-        role="gridcell"
-        aria-label={ariaLabel}
-        aria-disabled={ariaDisabled}
-        onKeyDown={
-          (e) => this.handleDayKeyDown(e, day, modifiers)}
-        onMouseEnter={onDayMouseEnter ?
-          (e) => this.handleDayMouseEnter(e, day, modifiers) : null}
-        onMouseLeave={onDayMouseLeave ?
-          (e) => this.handleDayMouseLeave(e, day, modifiers) : null}
-        onClick={onDayClick ?
-          (e) => this.handleDayClick(e, day, modifiers) : null}
+        ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
+        ariaDisabled={isOutside}
+        onMouseEnter={this.props.onDayMouseEnter}
+        onMouseLeave={this.props.onDayMouseLeave}
+        onKeyDown={this.handleDayKeyDown}
+        onClick={this.props.onDayClick ? this.handleDayClick : undefined}
       >
         {this.props.renderDay(day)}
-      </div>
+      </Day>
     );
   }
 
+  renderMonths() {
+    const months = [];
+    const firstDayOfWeek = this.props.localeUtils.getFirstDayOfWeek(this.props.locale);
+
+    for (let i = 0; i < this.props.numberOfMonths; i++) {
+      const month = DateUtils.addMonths(this.state.currentMonth, i);
+
+      months.push(
+        <Month
+          className="DayPicker-Month"
+          wrapperClassName="DayPicker-Body"
+          weekClassName="DayPicker-Week"
+          locale={this.props.locale}
+          localeUtils={this.props.localeUtils}
+          key={i}
+          month={month}
+          firstDayOfWeek={firstDayOfWeek}
+          captionElement={this.props.captionElement}
+          onCaptionClick={this.props.onCaptionClick}
+        >
+          {this.renderDayInMonth}
+        </Month>);
+    }
+
+    if (this.props.reverseMonths) {
+      months.reverse();
+    }
+    return months;
+  }
+
   render() {
-    const { numberOfMonths, locale, canChangeMonth, reverseMonths, ...attributes } = this.props;
-    const { currentMonth } = this.state;
+    const {
+      locale,
+      canChangeMonth,
+      onDayClick,
+    ...attributes } = this.props;
     let className = `DayPicker DayPicker--${locale}`;
 
-    if (!this.props.onDayClick) {
+    if (!onDayClick) {
       className = `${className} DayPicker--interactionDisabled`;
     }
     if (attributes.className) {
       className = `${className} ${attributes.className}`;
-    }
-
-    const months = [];
-    let month;
-    for (let i = 0; i < numberOfMonths; i++) {
-      month = DateUtils.addMonths(currentMonth, i);
-      months.push(this.renderMonth(month, i));
-    }
-
-    if (reverseMonths) {
-      months.reverse();
     }
 
     return (
@@ -448,9 +394,9 @@ export default class DayPicker extends Component {
         {...attributes}
         className={className}
         ref="dayPicker"
-        role="grid"
+        role="application"
         tabIndex={canChangeMonth && attributes.tabIndex}
-        onKeyDown={e => this.handleKeyDown(e)}
+        onKeyDown={this.handleKeyDown}
       >
         {canChangeMonth &&
           <Navbar
@@ -461,10 +407,8 @@ export default class DayPicker extends Component {
             dir={attributes.dir}
           />
         }
-        {months}
+        {this.renderMonths()}
       </div>
     );
   }
-
-
 }

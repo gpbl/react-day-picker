@@ -61,7 +61,7 @@ describe('DayPicker', () => {
     shallowRenderer.render(<DayPicker />);
 
     const dayPicker = shallowRenderer.getRenderOutput();
-    expect(dayPicker.props.role).to.equal('widget');
+    expect(dayPicker.props.role).to.equal('application');
   });
 
   it('has a tabIndex attribute', () => {
