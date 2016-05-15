@@ -14,11 +14,10 @@ bower install react-day-picker#v2.0.0-beta.1
 
 **Improvements**
 
-* Navigate between weeks using left/right arrow keys ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
-* Navigate between years using top/down arrow keys ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
+* Navigate between weeks or years using left/right or up/down arrow keys ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
 * New [reverseMonths](http://www.gpbl.org/react-day-picker/docs/APIProps.html#reversemonths-prop) prop to render the most recent month first. ([#147](https://github.com/gpbl/react-day-picker/pull/141) by [sonrtomas](sonrtomas))
-* New [onDayKeyDown](http://www.gpbl.org/react-day-picker/docs/APIProps.html#ondaykeydown-prop) prop.
-* Add `aria-label` attributes ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
+* New [onDayKeyDown](http://www.gpbl.org/react-day-picker/docs/APIProps.html#ondaykeydown-prop), [onDayTouchStart](http://www.gpbl.org/react-day-picker/docs/APIProps.html#ondaytouchstart-prop) prop, , [onDayTouchEnd](http://www.gpbl.org/react-day-picker/docs/APIProps.html#ondaytouchend-prop) prop.
+* Added various `aria-label` attributes ([#132](https://github.com/gpbl/react-day-picker/pull/132) by [limscoder](https://github.com/limscoder))
 * Support for React 0.15 ([#141](https://github.com/gpbl/react-day-picker/pull/141) by [GertjanReynaert](https://github.com/GertjanReynaert))
 
 **Bug fixes**
@@ -27,7 +26,7 @@ bower install react-day-picker#v2.0.0-beta.1
 
 **Breaking changes**
 
-* Removed `onDayTouchTap`. Use `onDayClick` instead ([#153](https://github.com/gpbl/react-day-picker/issues/153)).
+* Removed `onDayTouchTap`. Use `onDayClick` instead ([#153](https://github.com/gpbl/react-day-picker/issues/153)). If you need more granularity over touch events, you can use the new `onDayTouchStart` and `onDayTouchEnd` props.
 
 * Fix import with CommonJS modules ([#136](https://github.com/gpbl/react-day-picker/issues/136)).
 
