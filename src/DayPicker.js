@@ -32,6 +32,7 @@ export default class DayPicker extends Component {
 
     onKeyDown: PropTypes.func,
     onDayClick: PropTypes.func,
+    onDayKeyDown: PropTypes.func,
     onDayMouseEnter: PropTypes.func,
     onDayMouseLeave: PropTypes.func,
     onMonthChange: PropTypes.func,
@@ -274,11 +275,9 @@ export default class DayPicker extends Component {
       default:
         break;
     }
-  }
-
-  handleCaptionClick(e, currentMonth) {
-    e.persist();
-    this.props.onCaptionClick(e, currentMonth);
+    if (this.props.onDayKeyDown) {
+      this.props.onDayKeyDown(e, day, modifiers);
+    }
   }
 
   handleDayClick(e, day, modifiers) {

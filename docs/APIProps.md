@@ -177,6 +177,18 @@ function onDayMouseLeave(e, day, modifiers) {
 
 ---
 
+#### onDayKeyDown (Function)
+
+Event handler when the day cell gets the key down event. Example:
+
+```jsx
+function onDayKeyDown(e, day, modifiers) {
+  console.log("Day %s onKeyDown", day.toString());
+}
+```
+
+---
+
 #### onMonthChange (Function)
 
 Event handler when the month is changed, i.e. clicking the navigation buttons or using the keyboard. Example:
