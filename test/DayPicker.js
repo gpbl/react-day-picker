@@ -1,29 +1,11 @@
 /* eslint-disable max-len, react/prefer-es6-class, react/no-multi-comp, new-cap, global-require */
-import testDom from 'testdom';
-import chai, { expect } from 'chai';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+import { expect } from 'chai';
 import sinon from 'sinon';
-import sinonChai from 'sinon-chai';
-
-chai.use(sinonChai);
-
-testDom('<html><body></body></html>');
-const React = require('react');
-const ReactDOM = require('react-dom');
-const ExecutionEnvironment = require('exenv');
-ExecutionEnvironment.canUseDOM = true;
-
-const TestUtils = require('react-addons-test-utils');
-
-const DayPicker = require("../src/DayPicker").default; // eslint-disable-line
-
-const keys = {
-  LEFT: 37,
-  RIGHT: 39,
-  UP: 38,
-  DOWN: 40,
-  ENTER: 13,
-  SPACE: 32,
-};
+import DayPicker from '../src/DayPicker';
+import keys from '../src/keys';
 
 describe('DayPicker', () => {
   it('should work with commonjs require', () => {

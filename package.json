@@ -10,9 +10,9 @@
   "scripts": {
     "clean": "rimraf lib coverage dist",
     "lint": "eslint src test",
-    "test": "mocha --compilers js:babel-core/register --recursive --reporter spec",
+    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive --reporter spec",
     "test:watch": "npm test -- --watch",
-    "test:single": "mocha --compilers js:babel-core/register --reporter spec --bail --watch",
+    "test:single": "mocha --compilers js:babel-core/register --require ./test/setup.js --reporter spec --bail --watch",
     "cover": "babel-node ./node_modules/istanbul/lib/cli cover -- _mocha --recursive --reporter spec",
     "check": "npm run lint && npm run test",
     "prerelease": "npm run check && webpack -p",
@@ -80,7 +80,6 @@
     "rimraf": "2.5.2",
     "sinon": "1.17.4",
     "sinon-chai": "2.8.0",
-    "testdom": "2.0.0",
     "webpack": "1.13.0"
   }
 }
