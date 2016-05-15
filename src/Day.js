@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { isSameDay } from './DateUtils';
 
 function handleEvent(handler, day, modifiers) {
   if (!handler) {
