@@ -7,8 +7,8 @@ const currentYear = (new Date()).getFullYear();
 const fromMonth = new Date(currentYear, 0, 1, 0, 0);
 const toMonth = new Date(currentYear + 10, 11, 31, 23, 59);
 
+// Component will receive date, locale and localeUtils props
 function YearMonthForm({ date, localeUtils, onChange }) {
-
   const months = localeUtils.getMonths();
 
   const years = [];
