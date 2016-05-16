@@ -1,6 +1,6 @@
 # Getting started using react-day-picker
 
-To understand better how react-day-picker works, we will create a simple React component to select a day from the date picker.
+To understand better how react-day-picker works, we will create a simple React component to select a day from the day picker.
 
 First, write a new stateful `SelectDay` component:
 

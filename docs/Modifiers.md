@@ -1,8 +1,8 @@
 # Use of modifiers
 
-Modifiers give you the full control over the appearance and the behavior of the day picker. Modifiers are _named functions_ called when rendering the day cells, and they take the day as first argument. They return `true` or `false`.
+Modifiers give you the full control over the appearance and the behavior of the day picker. You use modifiers to implement the day picker logic according to your data.
 
-For example, those functions are valid modifiers:
+Modifiers are _named functions_ called when rendering a day cell. They take the day as first argument and return a boolean value. For example, those functions are valid modifiers:
 
 ```js
 function isSunday(day) {
@@ -19,7 +19,14 @@ You pass modifiers to the day picker using the `modifiers` prop:
 <DayPicker modifiers={{ isSunday, isFirstDayOfMonth }} />
 ```
 
-> Under the hood, the `selectedDays` and `disabledDays` props set a `selected` and a `disabled` modifier.
+#### `selected` and `disabled` modifiers
+
+Under the hood, the `selectedDays` and `disabledDays` props set a `selected` and a `disabled` modifier. This code is the same:
+
+```jsx
+<DayPicker disabledDays={ isSunday } selectedDays={ isFirstDayOfMonth } />
+<DayPicker modifiers={ { disabled: isSunday, selected: isFirstDayOfMonth }} />
+```
 
 ### Use modifiers to style the day cells
 
