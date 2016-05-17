@@ -1,6 +1,6 @@
 {
   "gitbook": "2.x.x",
-  "plugins": ["edit-link", "prism", "-highlight", "github", "ga"],
+  "plugins": ["edit-link", "prism", "-highlight", "-sharing", "ga"],
   "structure": {
     "summary": "docs/README.md"
   },
@@ -8,15 +8,12 @@
     "website": "docs/styles/website.css"
   },
   "pluginsConfig": {
-    "github": {
-      "url": "https://github.com/gpbl/react-day-picker/"
-    },
     "ga": {
       "token": "UA-68185118-1"
     },
     "edit-link": {
       "base": "https://github.com/gpbl/react-day-picker/tree/master",
-      "label": "Edit This Page"
+      "label": "<span>Edit This Page</span>"
     }
   }
 }

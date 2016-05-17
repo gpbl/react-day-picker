@@ -13,7 +13,13 @@ code, pre {
     font-family: Inconsolata, Menlo, Consolas, "Liberation Mono", Courier, monospace;
 }
 
+.sharing-link {
+  display: none !important;
+}
 
+#edit-link span {
+  font-family: sans-serif !important;
+}
 pre {
     line-height: 1.3em;
 }
