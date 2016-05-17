@@ -2,7 +2,7 @@
 
 Modifiers give you the full control over the appearance and the behavior of the date picker. You use modifiers to implement the different logic according to your data.
 
-Modifiers are _named functions_ called when rendering a day cell. They take the day as first argument and return a boolean value. For example, those functions are valid modifiers:
+Modifiers are _named functions_ called when rendering a day cell. They take the day as first argument and return a boolean value. For example, these functions are valid modifiers:
 
 ```js
 function isSunday(day) {
