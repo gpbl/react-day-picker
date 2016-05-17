@@ -46,7 +46,7 @@ export default class Modifiers extends React.Component {
           />
         </span>
         <p>
-          {this.state.info}
+          {this.state.text}
         </p>
       </div>
     );
