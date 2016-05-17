@@ -1,6 +1,6 @@
 # Use of modifiers
 
-Modifiers give you the full control over the appearance and the behavior of the day picker. You use modifiers to implement the day picker logic according to your data.
+Modifiers give you the full control over the appearance and the behavior of the date picker. You use modifiers to implement the different logic according to your data.
 
 Modifiers are _named functions_ called when rendering a day cell. They take the day as first argument and return a boolean value. For example, those functions are valid modifiers:
 
@@ -32,7 +32,7 @@ Under the hood, the `selectedDays` and `disabledDays` props set a `selected` and
 
 The CSS class for a day cell will get the modifier (as in [BEM-like syntax](https://css-tricks.com/bem-101/)) when the corresponding function returns `true` for the given day.
 
-For example, using the modifiers above, any cell representing a Sunday will have the `.DayPicker-Day--isSunday` class name, and the first day of the month will have a `.DayPicker-Day--isFirstDayOfMonth` class name.
+For example, using the modifiers above, any cell representing a Sunday will have the `DayPicker-Day--isSunday` class name, and the first day of the month will have a `DayPicker-Day--isFirstDayOfMonth` class name.
 
 ### Access modifiers from the event handlers
 
@@ -45,8 +45,8 @@ function handleDayClick(e, day, modifiers) {
   }
 }
 
-function handleDayMouseEnter(e, day, modifiers) {
-  if (modifiers.isFirstDayOfMonth) {
+function handleDayMouseEnter(e, day, { isFirstDayOfMonth }) {
+  if (isFirstDayOfMonth) {
     console.log('The first day of month received mouse enter')
   }
 }
