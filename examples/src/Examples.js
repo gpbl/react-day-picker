@@ -8,6 +8,7 @@ import './vendors/prism.css';
 
 import Birthdays from './examples/Birthdays';
 import DisabledDays from './examples/DisabledDays';
+import BlockedNavigation from './examples/BlockedNavigation';
 import InputField from './examples/InputField';
 import Localized from './examples/Localized';
 import LocalizedCustom from './examples/LocalizedCustom';
@@ -51,6 +52,11 @@ const EXAMPLES = {
     title: 'Advanced Modifiers',
     description: 'Using the <code>modifiers</code> prop you can customize the aspect and the behaviour for each day. Note how the <code>onDay*</code> props receive the modifiers as third argument.',
     Component: Modifiers,
+  },
+  blocked: {
+    title: 'Block Navigation',
+    description: 'Set <code>canChangeMonth</code> to <code>false</code> to block the navigation between months and years.',
+    Component: BlockedNavigation,
   },
   restricted: {
     title: 'Restrict Months',
