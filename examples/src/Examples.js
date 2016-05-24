@@ -30,17 +30,17 @@ const EXAMPLES = {
   },
   selectable: {
     title: 'Selectable Day',
-    description: "This example uses the <code>selectedDays</code> prop and <a href='http://www.gpbl.org/react-day-picker/docs/DateUtils.html'>DateUtils</a> to select a day. Note how the selected day is stored in the parent component's state.",
+    description: "Use the <code>selectedDays</code> prop and <a href='http://www.gpbl.org/react-day-picker/docs/DateUtils.html'>DateUtils</a> to select a day. Note how the selected day is stored in the parent component’s state.",
     Component: SelectableDay,
   },
   disabled: {
     title: 'Disabled Days',
-    description: 'Using the <code>disabledDays</code> prop, you can prevent the user to select a day in the past: the <code>handleDayClick</code> handler doesn\'t update the state if the day has been marked as <code>disabled</code>.',
+    description: 'Use the <code>disabledDays</code> prop to prevent the selection of days: the <code>handleDayClick</code> handler doesn\'t update the state if the day has been marked as <code>disabled</code>.',
     Component: DisabledDays,
   },
   input: {
     title: 'Input Field',
-    description: 'Connect the day picker with an input field.',
+    description: 'How to connect the day picker with an input field.',
     Component: InputField,
   },
   range: {
@@ -50,7 +50,7 @@ const EXAMPLES = {
   },
   modifiers: {
     title: 'Advanced Modifiers',
-    description: 'Using the <code>modifiers</code> prop you can customize the aspect and the behaviour for each day. Note how the <code>onDay*</code> props receive the modifiers as third argument.',
+    description: 'Use the <code>modifiers</code> prop to customize the aspect and the behaviour for each day. Note how the <code>onDay*</code> props receive the modifiers as third argument.',
     Component: Modifiers,
   },
   blocked: {
@@ -60,12 +60,12 @@ const EXAMPLES = {
   },
   restricted: {
     title: 'Restrict Months',
-    description: 'The <code>fromMonth</code> and <code>toMonth</code> props allow to restrict the navigation between months. The following day picker is enabled from April to November 2015. A <code>disabled</code> modifier displays the other days as grayed out.',
+    description: 'Use the <code>fromMonth</code> and <code>toMonth</code> props to restrict the navigation between months.',
     Component: Restricted,
   },
   localized: {
     title: 'Localization (moment.js)',
-    description: "This calendar is localized using moment.js. <a href='http://www.gpbl.org/react-day-picker/docs/Localization.html'>Read more about localization</a>.<br>Note the use of the <a href='https://www.w3.org/TR/html/dom.html#the-dir-attribute'>dir attribute</a> to support <abbr title='Right to left'>RTL</abbr> languages.",
+    description: "This day picker is localized using moment.js. Note the use of the <a href='https://www.w3.org/TR/html/dom.html#the-dir-attribute'>dir attribute</a> to support <abbr title='Right to left'>RTL</abbr> languages. <a href='http://www.gpbl.org/react-day-picker/docs/Localization.html'>Read more about localization</a>.",
     Component: Localized,
   },
   localizedCustom: {
@@ -75,12 +75,12 @@ const EXAMPLES = {
   },
   yearNavigation: {
     title: 'Year Navigation',
-    description: 'With the <code>captionElement</code> prop, you can use your own element as month caption. In this example, the caption element is a form to navigate up to the next 10 years.',
+    description: 'Use the <code>captionElement</code> prop to render your custom element as caption. This example is showing a form to navigate up to the next 10 years.',
     Component: YearNavigation,
   },
   birthdays: {
     title: 'Birthdays',
-    description: 'Add custom content to days cells using the <code>renderDay</code> prop.',
+    description: 'Use the <code>renderDay</code> prop to add custom content to day cells.',
     Component: Birthdays,
   },
   year: {
