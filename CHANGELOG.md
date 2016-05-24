@@ -1,3 +1,11 @@
+### [v2.0.2](https://github.com/gpbl/react-day-picker/tree/v2.0.2) (2016-05-24)
+
+Fixed a bug when `canChangeMonth` is set to `true` ([\#168](https://github.com/gpbl/react-day-picker/pull/168)).
+
+### [v2.0.1](https://github.com/gpbl/react-day-picker/tree/v2.0.1) (2016-05-15)
+
+Fix npm release.
+
 ## [v2.0.0](https://github.com/gpbl/react-day-picker/tree/v2.0.0) (2016-05-15)
 
 This release mainly improves the component’s API (thus some breaking changes) and add some new props.
