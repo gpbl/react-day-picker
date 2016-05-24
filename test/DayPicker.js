@@ -584,9 +584,21 @@ describe('<DayPicker />', () => {
         );
       expect(wrapper.instance().allowPreviousMonth()).to.be.false;
     });
+    it('should not allow the previous month when cannot change months', () => {
+      const wrapper = shallow(
+        <DayPicker canChangeMonth={false} />
+      );
+      expect(wrapper.instance().allowPreviousMonth()).to.be.false;
+    });
     it('should not allow the next month when the last month is the last allowed one', () => {
       const wrapper = shallow(
         <DayPicker initialMonth={new Date(2015, 7)} toMonth={new Date(2015, 9)} numberOfMonths={3} />
+      );
+      expect(wrapper.instance().allowNextMonth()).to.be.false;
+    });
+    it('should not allow the next month when cannot change months', () => {
+      const wrapper = shallow(
+        <DayPicker canChangeMonth={false} />
       );
       expect(wrapper.instance().allowNextMonth()).to.be.false;
     });
