@@ -103,11 +103,17 @@ export default class DayPicker extends Component {
   }
 
   allowPreviousMonth() {
+    if (!this.props.canChangeMonth) {
+      return false;
+    }
     const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
     return this.allowMonth(previousMonth);
   }
 
   allowNextMonth() {
+    if (!this.props.canChangeMonth) {
+      return false;
+    }
     const nextMonth = DateUtils.addMonths(this.state.currentMonth, this.props.numberOfMonths);
     return this.allowMonth(nextMonth);
   }
