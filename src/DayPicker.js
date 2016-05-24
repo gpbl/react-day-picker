@@ -140,17 +140,19 @@ export default class DayPicker extends Component {
   }
 
   showNextMonth(callback) {
-    if (this.allowNextMonth()) {
-      const nextMonth = DateUtils.addMonths(this.state.currentMonth, 1);
-      this.showMonthAndCallHandler(nextMonth, callback);
+    if (!this.allowNextMonth()) {
+      return;
     }
+    const nextMonth = DateUtils.addMonths(this.state.currentMonth, 1);
+    this.showMonthAndCallHandler(nextMonth, callback);
   }
 
   showPreviousMonth(callback) {
-    if (this.allowPreviousMonth()) {
-      const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
-      this.showMonthAndCallHandler(previousMonth, callback);
+    if (!this.allowPreviousMonth()) {
+      return;
     }
+    const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
+    this.showMonthAndCallHandler(previousMonth, callback);
   }
 
   showNextYear(callback) {
