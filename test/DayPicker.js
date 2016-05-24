@@ -631,6 +631,12 @@ describe('<DayPicker />', () => {
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
       expect(instance.state.currentMonth.getMonth()).to.equal(6);
     });
+    it('should not allow changing to the year when cannot change months', () => {
+      const wrapper = shallow(
+        <DayPicker canChangeMonth={false} />
+      );
+      expect(wrapper.instance().allowYearChange()).to.be.false;
+    });
     it('should call `showNextMonth()` when the RIGHT key is pressed', () => {
       const wrapper = mount(<DayPicker />);
       const showNextMonth = spy(wrapper.instance(), 'showNextMonth');

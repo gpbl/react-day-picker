@@ -122,6 +122,10 @@ export default class DayPicker extends Component {
     return true;
   }
 
+  allowYearChange() {
+    return this.props.canChangeMonth;
+  }
+
   showMonth(d, callback) {
     if (!this.allowMonth(d)) {
       return;
@@ -157,11 +161,17 @@ export default class DayPicker extends Component {
   }
 
   showNextYear(callback) {
+    if (!this.allowYearChange()) {
+      return;
+    }
     const nextMonth = DateUtils.addMonths(this.state.currentMonth, 12);
     this.showMonthAndCallHandler(nextMonth, callback);
   }
 
   showPreviousYear(callback) {
+    if (!this.allowYearChange()) {
+      return;
+    }
     const nextMonth = DateUtils.addMonths(this.state.currentMonth, -12);
     this.showMonthAndCallHandler(nextMonth, callback);
   }
