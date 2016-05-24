@@ -113,23 +113,24 @@ export default class DayPicker extends Component {
   }
 
   allowMonth(d) {
-    const { fromMonth, toMonth } = this.props;
-    if ((fromMonth && Helpers.getMonthsDiff(fromMonth, d) < 0) ||
+    const { fromMonth, toMonth, canChangeMonth } = this.props;
+    if (!canChangeMonth ||
+      (fromMonth && Helpers.getMonthsDiff(fromMonth, d) < 0) ||
       (toMonth && Helpers.getMonthsDiff(toMonth, d) > 0)) {
       return false;
     }
     return true;
   }
 
+  allowYearChange() {
+    return this.props.canChangeMonth;
+  }
+
   showMonth(d, callback) {
     if (!this.allowMonth(d)) {
       return;
     }
-    this.setState({ currentMonth: Helpers.startOfMonth(d) }, callback);
-  }
-
-  showMonthAndCallHandler(d, callback) {
-    this.showMonth(d, () => {
+    this.setState({ currentMonth: Helpers.startOfMonth(d) }, () => {
       if (callback) {
         callback();
       }
@@ -140,27 +141,35 @@ export default class DayPicker extends Component {
   }
 
   showNextMonth(callback) {
-    if (this.allowNextMonth()) {
-      const nextMonth = DateUtils.addMonths(this.state.currentMonth, 1);
-      this.showMonthAndCallHandler(nextMonth, callback);
+    if (!this.allowNextMonth()) {
+      return;
     }
+    const nextMonth = DateUtils.addMonths(this.state.currentMonth, 1);
+    this.showMonth(nextMonth, callback);
   }
 
   showPreviousMonth(callback) {
-    if (this.allowPreviousMonth()) {
-      const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
-      this.showMonthAndCallHandler(previousMonth, callback);
+    if (!this.allowPreviousMonth()) {
+      return;
     }
+    const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
+    this.showMonth(previousMonth, callback);
   }
 
-  showNextYear(callback) {
+  showNextYear() {
+    if (!this.allowYearChange()) {
+      return;
+    }
     const nextMonth = DateUtils.addMonths(this.state.currentMonth, 12);
-    this.showMonthAndCallHandler(nextMonth, callback);
+    this.showMonth(nextMonth);
   }
 
-  showPreviousYear(callback) {
+  showPreviousYear() {
+    if (!this.allowYearChange()) {
+      return;
+    }
     const nextMonth = DateUtils.addMonths(this.state.currentMonth, -12);
-    this.showMonthAndCallHandler(nextMonth, callback);
+    this.showMonth(nextMonth);
   }
 
   focusFirstDayOfMonth() {
@@ -231,32 +240,26 @@ export default class DayPicker extends Component {
 
   handleKeyDown(e) {
     e.persist();
-    const { canChangeMonth, onKeyDown } = this.props;
 
-    if (!canChangeMonth && onKeyDown) {
-      onKeyDown(e);
-      return;
+    switch (e.keyCode) {
+      case keys.LEFT:
+        this.showPreviousMonth();
+        break;
+      case keys.RIGHT:
+        this.showNextMonth();
+        break;
+      case keys.UP:
+        this.showPreviousYear();
+        break;
+      case keys.DOWN:
+        this.showNextYear();
+        break;
+      default:
+        break;
     }
 
-    if (canChangeMonth) {
-      switch (e.keyCode) {
-        case keys.LEFT:
-          this.showPreviousMonth(onKeyDown);
-          break;
-        case keys.RIGHT:
-          this.showNextMonth(onKeyDown);
-          break;
-        case keys.UP:
-          this.showPreviousYear(onKeyDown);
-          break;
-        case keys.DOWN:
-          this.showNextYear(onKeyDown);
-          break;
-        default:
-          if (onKeyDown) {
-            onKeyDown(e);
-          }
-      }
+    if (this.props.onKeyDown) {
+      this.props.onKeyDown(e);
     }
   }
 

@@ -40,6 +40,7 @@ module.exports = {
         except: [
           'Birthdays',
           'DisabledDays',
+          'BlockedNavigation',
           'InputField',
           'Localized',
           'LocalizedCustom',
