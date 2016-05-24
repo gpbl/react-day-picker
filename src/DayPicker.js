@@ -130,11 +130,7 @@ export default class DayPicker extends Component {
     if (!this.allowMonth(d)) {
       return;
     }
-    this.setState({ currentMonth: Helpers.startOfMonth(d) }, callback);
-  }
-
-  showMonthAndCallHandler(d, callback) {
-    this.showMonth(d, () => {
+    this.setState({ currentMonth: Helpers.startOfMonth(d) }, () => {
       if (callback) {
         callback();
       }
@@ -149,7 +145,7 @@ export default class DayPicker extends Component {
       return;
     }
     const nextMonth = DateUtils.addMonths(this.state.currentMonth, 1);
-    this.showMonthAndCallHandler(nextMonth, callback);
+    this.showMonth(nextMonth, callback);
   }
 
   showPreviousMonth(callback) {
@@ -157,23 +153,23 @@ export default class DayPicker extends Component {
       return;
     }
     const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
-    this.showMonthAndCallHandler(previousMonth, callback);
+    this.showMonth(previousMonth, callback);
   }
 
-  showNextYear(callback) {
+  showNextYear() {
     if (!this.allowYearChange()) {
       return;
     }
     const nextMonth = DateUtils.addMonths(this.state.currentMonth, 12);
-    this.showMonthAndCallHandler(nextMonth, callback);
+    this.showMonth(nextMonth);
   }
 
-  showPreviousYear(callback) {
+  showPreviousYear() {
     if (!this.allowYearChange()) {
       return;
     }
     const nextMonth = DateUtils.addMonths(this.state.currentMonth, -12);
-    this.showMonthAndCallHandler(nextMonth, callback);
+    this.showMonth(nextMonth);
   }
 
   focusFirstDayOfMonth() {
@@ -244,32 +240,26 @@ export default class DayPicker extends Component {
 
   handleKeyDown(e) {
     e.persist();
-    const { canChangeMonth, onKeyDown } = this.props;
 
-    if (!canChangeMonth && onKeyDown) {
-      onKeyDown(e);
-      return;
+    switch (e.keyCode) {
+      case keys.LEFT:
+        this.showPreviousMonth();
+        break;
+      case keys.RIGHT:
+        this.showNextMonth();
+        break;
+      case keys.UP:
+        this.showPreviousYear();
+        break;
+      case keys.DOWN:
+        this.showNextYear();
+        break;
+      default:
+        break;
     }
 
-    if (canChangeMonth) {
-      switch (e.keyCode) {
-        case keys.LEFT:
-          this.showPreviousMonth(onKeyDown);
-          break;
-        case keys.RIGHT:
-          this.showNextMonth(onKeyDown);
-          break;
-        case keys.UP:
-          this.showPreviousYear(onKeyDown);
-          break;
-        case keys.DOWN:
-          this.showNextYear(onKeyDown);
-          break;
-        default:
-          if (onKeyDown) {
-            onKeyDown(e);
-          }
-      }
+    if (this.props.onKeyDown) {
+      this.props.onKeyDown(e);
     }
   }
 
