@@ -251,6 +251,13 @@ describe('<DayPicker />', () => {
       instance.showNextYear();
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
     });
+    it('should not change the year if cannot change month', () => {
+      const instance = shallow(
+        <DayPicker initialMonth={new Date(2015, 7)} canChangeMonth={false} />
+      ).instance();
+      instance.showNextYear();
+      expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
+    });
   });
 
   describe('showPreviousYear()', () => {
@@ -272,6 +279,13 @@ describe('<DayPicker />', () => {
     it('should not show the previous year if before `fromMonth`', () => {
       const instance = shallow(
         <DayPicker initialMonth={new Date(2015, 7)} fromMonth={new Date(2015, 7)} />
+      ).instance();
+      instance.showPreviousYear();
+      expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
+    });
+    it('should not change the year if cannot change month', () => {
+      const instance = shallow(
+        <DayPicker initialMonth={new Date(2015, 7)} canChangeMonth={false} />
       ).instance();
       instance.showPreviousYear();
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
