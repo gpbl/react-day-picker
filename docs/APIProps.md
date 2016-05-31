@@ -97,6 +97,14 @@ See also [this advanced example](../examples/#yearNavigation), showing a year na
 
 Returns the content of a day cell. By default, it renders the day's date: `(day) ⇒ day.getDate()`
 
+#### weekdayComponent `Component`
+
+Custom component to render weekday header. Passed props are:
+* `weekday: number` Weekday number 
+* `className: string` Wrapper class name
+* `localeUtils: Object` The [localeUtils](#localeutils-object) object passed to the component.
+* `locale: String` The current [locale](#locale-string) passed to the component.
+
 ---
 
 #### onDayClick  `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void`
