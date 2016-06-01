@@ -42,6 +42,7 @@ export default class DayPicker extends Component {
     onCaptionClick: PropTypes.func,
 
     renderDay: PropTypes.func,
+    navbarComponent: PropTypes.func,
 
     captionElement: PropTypes.element,
 
@@ -60,6 +61,7 @@ export default class DayPicker extends Component {
     canChangeMonth: true,
     reverseMonths: false,
     renderDay: day => day.getDate(),
+    navbarComponent: Navbar,
     captionElement: <Caption />,
   };
 
@@ -100,6 +102,19 @@ export default class DayPicker extends Component {
 
   getDayNodes() {
     return this.refs.dayPicker.querySelectorAll('.DayPicker-Day:not(.DayPicker-Day--outside)');
+  }
+
+  getNextNavMonth() {
+    const { currentMonth } = this.state;
+    const { numberOfMonths } = this.props;
+
+    return DateUtils.addMonths(currentMonth, numberOfMonths);
+  }
+
+  getPreviousNavMonth() {
+    const { currentMonth } = this.state;
+
+    return DateUtils.addMonths(currentMonth, -1);
   }
 
   allowPreviousMonth() {
@@ -394,8 +409,10 @@ export default class DayPicker extends Component {
   render() {
     const {
       locale,
+      localeUtils,
       canChangeMonth,
       onDayClick,
+      navbarComponent,
     ...attributes } = this.props;
     let className = `DayPicker DayPicker--${locale}`;
 
@@ -416,13 +433,18 @@ export default class DayPicker extends Component {
         onKeyDown={this.handleKeyDown}
       >
         {canChangeMonth &&
-          <Navbar
-            showPreviousButton={this.allowPreviousMonth()}
-            showNextButton={this.allowNextMonth()}
-            onNextClick={this.showNextMonth}
-            onPreviousClick={this.showPreviousMonth}
-            dir={attributes.dir}
-          />
+          React.createElement(navbarComponent, {
+            className: 'DayPicker-NavBar',
+            nextMonth: this.getNextNavMonth(),
+            previousMonth: this.getPreviousNavMonth(),
+            showPreviousButton: this.allowPreviousMonth(),
+            showNextButton: this.allowNextMonth(),
+            onNextClick: this.showNextMonth,
+            onPreviousClick: this.showPreviousMonth,
+            dir: attributes.dir,
+            locale,
+            localeUtils,
+          })
         }
         {this.renderMonths()}
       </div>
