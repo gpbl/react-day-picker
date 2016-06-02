@@ -1,6 +1,6 @@
 {
   "gitbook": "2.x.x",
-  "plugins": ["edit-link", "prism", "-highlight", "-sharing", "ga"],
+  "plugins": ["edit-link", "prism", "-highlight", "-sharing", "ga", "anchors"],
   "structure": {
     "summary": "docs/README.md"
   },
