@@ -26,6 +26,7 @@ describe('<DayPicker />', () => {
       expect(dayPicker.props.reverseMonths).to.equal(false);
       expect(dayPicker.props.renderDay).to.be.a('Function');
       expect(dayPicker.props.weekdayComponent).to.be.a('Function');
+      expect(dayPicker.props.navbarComponent).to.be.a('Function');
       expect(dayPicker.props.tabIndex).to.equal(0);
     });
     it('should have the DayPicker classes', () => {

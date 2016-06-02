@@ -13,7 +13,7 @@ describe('<Navbar />', () => {
     expect(navbar.props.showNextButton).to.be.true;
   });
   it('should have the DayPicker classes', () => {
-    const wrapper = shallow(<Navbar />);
+    const wrapper = shallow(<Navbar className="DayPicker-NavBar" />);
     expect(wrapper).to.have.className('DayPicker-NavBar');
   });
   it('should have the navigation buttons classes', () => {
