@@ -99,28 +99,33 @@ Returns the content of a day cell. By default, it renders the day's date: `(day)
 
 #### weekdayComponent `Component`
 
-Custom component to render weekday header. Passed props are:
-* `weekday: number` Weekday number 
-* `className: string` Wrapper class name
-* `localeUtils: Object` The [localeUtils](#localeutils-object) object passed to the component.
-* `locale: String` The current [locale](#locale-string) passed to the component.
+Custom component to render the weekday cells in the header. It will receive the following props:
+
+* weekday `Number`
+* className `String`
+* localeUtils `Object`
+* locale `String`
+
+See [this example](http://www.gpbl.org/react-day-picker/examples/#customComponents) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Weekday.js) source code.
 
 ---
 
 #### navbarComponent `Component`
 
-Custom component to render navbar. Passed props are:
+Custom component to render the navigation bar. It will receive the following props:
 
-* `className: string` Wrapper class name.
-* `previousMonth: Date` Previous month.
-* `nextMonth: Date` Next month.
-* `showPreviousButton: bool` Indicates if previous button should be shown.
-* `showNextButton: bool` Indicates if next button should be shown.
-* `onPreviousClick: ()=> void` Previous button click handler.
-* `onNextClick: ()=> void` Next button click handler.
-* `dir: string` Direction 'ltr' or 'rtl'
-* `localeUtils: Object` The [localeUtils](#localeutils-object) object passed to the component.
-* `locale: String` The current [locale](#locale-string) passed to the component.
+* className `String`
+* previousMonth `Date`
+* nextMonth `Date`
+* showPreviousButton `Bool`
+* showNextButton `Bool`
+* onPreviousClick `() => void`
+* onNextClick `() => void`
+* dir `String`
+* localeUtils `Object`
+* locale `String`
+
+See [this example](http://www.gpbl.org/react-day-picker/examples/#customComponents) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Navbar.js) source code.
 
 ---
 

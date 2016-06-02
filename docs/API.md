@@ -16,6 +16,7 @@
 | [locale](APIProps.md#locale) | en | `String` |
 | [localeUtils](APIProps.md#localeutils) | | `Object` |
 | [modifiers](APIProps.md#modifiers) | | `Object` |
+| [navbarComponent](APIProps.md#navbarcomponent) | | `Component` |
 | [numberOfMonths](APIProps.md#numberofmonths) | 1 | `Number` |
 | [onCaptionClick](APIProps.md#oncaptionclick) | | `(e: SyntethicEvent, currentMonth: Date) ⇒ void` |
 | [onDayClick](APIProps.md#ondayclick) | | `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void` |
@@ -29,3 +30,4 @@
 | [selectedDays](APIProps.md#selecteddays) | | `Bool` |
 | [tabIndex](APIProps.md#tabindex) | | `Number` |
 | [toMonth](APIProps.md#tomonth) | | `Date` |
+| [weekdayComponent](APIProps.md#weekdaycomponent) | | `Component` |
