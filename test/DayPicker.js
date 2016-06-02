@@ -22,6 +22,7 @@ describe('<DayPicker />', () => {
       expect(dayPicker.props.numberOfMonths).to.equal(1);
       expect(dayPicker.props.locale).to.equal('en');
       expect(dayPicker.props.enableOutsideDays).to.equal(false);
+      expect(dayPicker.props.fixedWeeks).to.equal(false);
       expect(dayPicker.props.canChangeMonth).to.equal(true);
       expect(dayPicker.props.reverseMonths).to.equal(false);
       expect(dayPicker.props.renderDay).to.be.a('Function');
@@ -120,6 +121,10 @@ describe('<DayPicker />', () => {
       expect(wrapper.find('.DayPicker-Day').at(0)).to.have.text('28');
       expect(wrapper.find('.DayPicker-Day').at(1)).to.have.text('29');
       expect(wrapper.find('.DayPicker-Day').at(2)).to.have.text('30');
+    });
+    it('should render the fixed amount of weeks', () => {
+      const wrapper = mount(<DayPicker enableOutsideDays fixedWeeks initialMonth={new Date(2015, 1)} />);
+      expect(wrapper.find('.DayPicker-Day')).to.have.length(42);
     });
   });
 
