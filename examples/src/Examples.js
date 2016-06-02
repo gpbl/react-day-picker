@@ -1,4 +1,4 @@
-/* eslint react/no-danger: 0 */
+/* eslint-disable react/no-danger, max-len, global-require */
 import React, { Component } from 'react';
 
 import { createHistory } from 'history';
@@ -9,6 +9,7 @@ import './vendors/prism.css';
 import Birthdays from './examples/Birthdays';
 import DisabledDays from './examples/DisabledDays';
 import BlockedNavigation from './examples/BlockedNavigation';
+import CustomComponents from './examples/CustomComponents';
 import InputField from './examples/InputField';
 import Localized from './examples/Localized';
 import LocalizedCustom from './examples/LocalizedCustom';
@@ -83,6 +84,11 @@ const EXAMPLES = {
     description: 'Use the <code>renderDay</code> prop to add custom content to day cells.',
     Component: Birthdays,
   },
+  customComponents: {
+    title: 'Custom Components',
+    description: 'With the <code>weekdayComponent</code> prop is possible to further customize the day picker.',
+    Component: CustomComponents,
+  },
   year: {
     title: 'Year Calendar',
     description: 'Use <code>numberOfMonths</code> to display a custom number of calendars.',
@@ -113,25 +119,18 @@ export default class Examples extends Component {
   handleHistoryChange({ hash }) {
     const currentExample = hash.replace('#', '');
     if (currentExample in EXAMPLES) {
-
       this.setState({ currentExample, showNavBar: false }, () => window.scrollTo(0, 0));
     }
   }
 
   renderNavBarExamples() {
-    const links = [];
-    const { currentExample } = this.state;
-    for (const exampleName in EXAMPLES) {
-      links.push(
-        <a
-          href={`#${exampleName}`}
-          key={exampleName}
-          className={currentExample === exampleName ? 'selected' : ''}
-        >
-          {EXAMPLES[exampleName].title}
-        </a>
-      );
-    }
+    const links = Object.keys(EXAMPLES).map(name => <a
+      href={`#${name}`}
+      key={name}
+      className={this.state.currentExample === name ? 'selected' : ''}
+    >
+      {EXAMPLES[name].title}
+    </a>);
 
     return <div className="NavBar-links">{links}</div>;
   }
@@ -146,7 +145,7 @@ export default class Examples extends Component {
         <div className="NavBar-toggle" onClick={() => { this.setState({ showNavBar: !showNavBar }); }} />
         <div className="Header">
           <a href="http://www.gpbl.org/react-day-picker/">
-            <img src="https://cloud.githubusercontent.com/assets/120693/12529597/79225e4a-c1bd-11e5-9001-cc27c6b9bb1b.png" style={{ maxWidth: '230px' }} />
+            <img src="https://cloud.githubusercontent.com/assets/120693/12529597/79225e4a-c1bd-11e5-9001-cc27c6b9bb1b.png" style={{ maxWidth: '230px' }} alt="react-day-picker" />
           </a>
         </div>
         <div className={`Content${showNavBar ? ' navbar-is-visible' : ''}`}>
@@ -163,7 +162,9 @@ export default class Examples extends Component {
               <a href="https://github.com/gpbl/react-day-picker">
                 Github
               </a>
-              <iframe style={{ marginLeft: '1rem', marginTop: '0.5rem' }} src="https://ghbtns.com/github-btn.html?user=gpbl&amp;repo=react-day-picker&amp;type=star&amp;count=true"
+              <iframe
+                style={{ marginLeft: '1rem', marginTop: '0.5rem' }}
+                src="https://ghbtns.com/github-btn.html?user=gpbl&amp;repo=react-day-picker&amp;type=star&amp;count=true"
                 frameBorder={0} scrolling={0} width="110px" height="20px"
               ></iframe>
             </div>
@@ -182,7 +183,7 @@ export default class Examples extends Component {
               <div className="Example-Code">
                 <pre>
                   <code className="language-jsx">
-                    {require('!raw!./examples/' + ExampleComponent.name + '.js')}
+                    {require(`!raw!./examples/${ExampleComponent.name}.js`)}
                   </code>
                 </pre>
               </div>

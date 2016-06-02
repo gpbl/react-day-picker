@@ -41,6 +41,7 @@ module.exports = {
           'Birthdays',
           'DisabledDays',
           'BlockedNavigation',
+          'CustomComponents',
           'InputField',
           'Localized',
           'LocalizedCustom',
