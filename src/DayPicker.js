@@ -107,17 +107,12 @@ export default class DayPicker extends Component {
     return this.refs.dayPicker.querySelectorAll('.DayPicker-Day:not(.DayPicker-Day--outside)');
   }
 
-  getNextNavMonth() {
-    const { currentMonth } = this.state;
-    const { numberOfMonths } = this.props;
-
-    return DateUtils.addMonths(currentMonth, numberOfMonths);
+  getNextNavigableMonth() {
+    return DateUtils.addMonths(this.state.currentMonth, this.props.numberOfMonths);
   }
 
-  getPreviousNavMonth() {
-    const { currentMonth } = this.state;
-
-    return DateUtils.addMonths(currentMonth, -1);
+  getPreviousNavigableMonth() {
+    return DateUtils.addMonths(this.state.currentMonth, -1);
   }
 
   allowPreviousMonth() {
@@ -439,8 +434,8 @@ export default class DayPicker extends Component {
         {canChangeMonth &&
           React.createElement(navbarComponent, {
             className: 'DayPicker-NavBar',
-            nextMonth: this.getNextNavMonth(),
-            previousMonth: this.getPreviousNavMonth(),
+            nextMonth: this.getNextNavigableMonth(),
+            previousMonth: this.getPreviousNavigableMonth(),
             showPreviousButton: this.allowPreviousMonth(),
             showNextButton: this.allowNextMonth(),
             onNextClick: this.showNextMonth,
