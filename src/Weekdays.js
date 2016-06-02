@@ -4,15 +4,18 @@ import DayPickerPropTypes from './PropTypes';
 export default function Weekdays({
   locale,
   localeUtils,
+  weekdayComponent,
 }) {
   const days = [];
   for (let i = 0; i < 7; i++) {
     days.push(
-      <div key={i} className="DayPicker-Weekday">
-        <abbr title={localeUtils.formatWeekdayLong(i, locale)}>
-          {localeUtils.formatWeekdayShort(i, locale)}
-        </abbr>
-      </div>
+      React.createElement(weekdayComponent, {
+        key: i,
+        className: 'DayPicker-Weekday',
+        weekday: i,
+        localeUtils,
+        locale,
+      })
     );
   }
 
@@ -28,4 +31,5 @@ export default function Weekdays({
 Weekdays.propTypes = {
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
+  weekdayComponent: PropTypes.func.isRequired,
 };
