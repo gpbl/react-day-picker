@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
+import DayPickerPropTypes from './PropTypes';
 
 const buttonBaseClass = 'DayPicker-NavButton DayPicker-NavButton';
 
 export default function Navbar({
+  className,
   showPreviousButton,
   showNextButton,
   onPreviousClick,
@@ -29,21 +31,29 @@ export default function Navbar({
     />;
 
   return (
-    <div className="DayPicker-NavBar">
+    <div className={className}>
       {dir === 'rtl' ? [nextButton, previousButton] : [previousButton, nextButton]}
     </div>
   );
 }
 
-Navbar.propTypes = {
+export const NavbarPropTypes = {
+  className: PropTypes.string,
+  nextMonth: PropTypes.instanceOf(Date),
+  previousMonth: PropTypes.instanceOf(Date),
   showPreviousButton: PropTypes.bool,
   showNextButton: PropTypes.bool,
   onPreviousClick: PropTypes.func,
   onNextClick: PropTypes.func,
   dir: PropTypes.string,
+  locale: PropTypes.string,
+  localeUtils: DayPickerPropTypes.localeUtils,
 };
 
+Navbar.propTypes = NavbarPropTypes;
+
 Navbar.defaultProps = {
+  className: 'DayPicker-NavBar',
   dir: 'ltr',
   showPreviousButton: true,
   showNextButton: true,

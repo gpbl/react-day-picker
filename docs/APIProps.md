@@ -107,6 +107,23 @@ Custom component to render weekday header. Passed props are:
 
 ---
 
+#### navbarComponent `Component`
+
+Custom component to render navbar. Passed props are:
+
+* `className: string` Wrapper class name.
+* `previousMonth: Date` Previous month.
+* `nextMonth: Date` Next month.
+* `showPreviousButton: bool` Indicates if previous button should be shown.
+* `showNextButton: bool` Indicates if next button should be shown.
+* `onPreviousClick: ()=> void` Previous button click handler.
+* `onNextClick: ()=> void` Next button click handler.
+* `dir: string` Direction 'ltr' or 'rtl'
+* `localeUtils: Object` The [localeUtils](#localeutils-object) object passed to the component.
+* `locale: String` The current [locale](#locale-string) passed to the component.
+
+---
+
 #### onDayClick  `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void`
 
 Event handler when the user clicks on a day cell.
