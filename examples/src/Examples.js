@@ -86,7 +86,7 @@ const EXAMPLES = {
   },
   customComponents: {
     title: 'Custom Components',
-    description: 'With the <code>weekdayComponent</code> prop is possible to further customize the day picker.',
+    description: 'Use <code>weekdayComponent</code> or <code>navbarComponent</code> to customize with your own component the weekday or the navigation bar.',
     Component: CustomComponents,
   },
   year: {
