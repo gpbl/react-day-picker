@@ -1,3 +1,11 @@
+## [v2.1.0](https://github.com/gpbl/react-day-picker/tree/v2.1.0) (2016-05-24)
+
+* Added [weekdayComponent](http://localhost:4000/docs/APIProps.html#weekdaycomponent-component) prop ([#172](https://github.com/gpbl/react-day-picker/pull/172) by [(https://github.com/stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)).
+ Use this prop to use a custom component for rendering the weekday cells in the header.
+* Added [navbarComponent](http://localhost:4000/docs/APIProps.html#navbarcomponent-component) prop ([#173](https://github.com/gpbl/react-day-picker/pull/173) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)).
+ Use this prop to use a custom component for rendering the navigation bar.
+
+
 ### [v2.0.3](https://github.com/gpbl/react-day-picker/tree/v2.0.3) (2016-05-24)
 
 Included the dist version in the npm package.
