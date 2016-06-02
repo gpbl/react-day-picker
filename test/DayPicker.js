@@ -129,7 +129,7 @@ describe('<DayPicker />', () => {
     });
     it('should add the `aria-selected` attribute for `selected` days', () => {
       const wrapper = mount(<DayPicker selectedDays={() => true} />);
-      expect(wrapper.find('.DayPicker-Day--selected').first()).to.have.attr('aria-selected', 'true');
+      expect(wrapper.find('.DayPicker-Day--selected').at(15)).to.have.attr('aria-selected', 'true');
     });
     it('should use `disabledDays` prop as `selected` modifier', () => {
       const wrapper = mount(<DayPicker disabledDays={() => true} modifiers={{ foo: () => true }} />);
