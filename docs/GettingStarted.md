@@ -190,6 +190,6 @@ After reading this guide you should know how react-day-picker works:
 * use modifiers to change the appearance of the days in the calendar
 * use modifiers to prevent user interaction with some days
 
-See the whole example [here](http://www.gpbl.org/react-day-picker/examples/#selectable).
+See the whole example [here](http://www.gpbl.org/react-day-picker/examples?selectable).
 
 Next, explore the [Component API](API.md) to see what else you can do.

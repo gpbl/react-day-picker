@@ -89,7 +89,7 @@ A React element to use as caption. This element is cloned with the following pro
 
 The default caption is a `div` with class `DayPicker-Caption`, showing a "month year" text.
 
-See also [this advanced example](../examples/#yearNavigation), showing a year navigation element using this prop.
+See also [this advanced example](../examples?yearNavigation), showing a year navigation element using this prop.
 
 ---
 
@@ -106,7 +106,7 @@ Custom component to render the weekday cells in the header. It will receive the 
 * localeUtils `Object`
 * locale `String`
 
-See [this example](http://www.gpbl.org/react-day-picker/examples/#customComponents) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Weekday.js) source code.
+See [this example](http://www.gpbl.org/react-day-picker/examples?customComponents) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Weekday.js) source code.
 
 ---
 
@@ -125,7 +125,7 @@ Custom component to render the navigation bar. It will receive the following pro
 * localeUtils `Object`
 * locale `String`
 
-See [this example](http://www.gpbl.org/react-day-picker/examples/#customComponents) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Navbar.js) source code.
+See [this example](http://www.gpbl.org/react-day-picker/examples?customComponents) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Navbar.js) source code.
 
 ---
 

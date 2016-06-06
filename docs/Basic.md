@@ -94,7 +94,7 @@ handleDayClick(e, day, modifiers) {
 }
 ```
 
-That's all! [See this example](http://www.gpbl.org/react-day-picker/examples/#selectable) using the code above.
+That's all! [See this example](http://www.gpbl.org/react-day-picker/examples?selectable) using the code above.
 
 ## Marking days as disabled
 
@@ -171,10 +171,10 @@ handleDayClick(e, day, modifiers) {
 }
 ```
 
-Check out [this example](http://www.gpbl.org/react-day-picker/examples/#disabled) shows a similar implementation.
+Check out [this example](http://www.gpbl.org/react-day-picker/examples?disabled) shows a similar implementation.
 
 ## Next steps
 
-The `selectedDays` function and the `onDayClick` event handler can implement a more complex logic to make the date picker more powerful. For example, you can make the date picker to [select a range of days](http://www.gpbl.org/react-day-picker/examples/#range).
+The `selectedDays` function and the `onDayClick` event handler can implement a more complex logic to make the date picker more powerful. For example, you can make the date picker to [select a range of days](http://www.gpbl.org/react-day-picker/examples?range).
 
 You can go deeper with your customization using **modifiers**. Modifiers are a powerful concept behind react-day-picker. Read more about them in the [next chapter](Modifiers.md).
