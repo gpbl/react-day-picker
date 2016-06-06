@@ -1,10 +1,13 @@
+## [v2.1.1](https://github.com/gpbl/react-day-picker/tree/v2.1.1) (2016-06-06)
+
+* Fixed compatibility with IE11 ([#175](https://github.com/gpbl/react-day-picker/pull/175) by [davidspiess](https://github.com/davidspiess)).
+
 ## [v2.1.0](https://github.com/gpbl/react-day-picker/tree/v2.1.0) (2016-05-24)
 
-* Added [weekdayComponent](http://localhost:4000/docs/APIProps.html#weekdaycomponent-component) prop ([#172](https://github.com/gpbl/react-day-picker/pull/172) by [(https://github.com/stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)).
+* Added [weekdayComponent](http://www.gpbl.org/react-day-picker/docs/APIProps.html#weekdaycomponent-component) prop ([#172](https://github.com/gpbl/react-day-picker/pull/172) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)).
  Use this prop to use a custom component for rendering the weekday cells in the header.
-* Added [navbarComponent](http://localhost:4000/docs/APIProps.html#navbarcomponent-component) prop ([#173](https://github.com/gpbl/react-day-picker/pull/173) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)).
+* Added [navbarComponent](http://www.gpbl.org/react-day-picker/docs/APIProps.html#navbarcomponent-component) prop ([#173](https://github.com/gpbl/react-day-picker/pull/173) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)).
  Use this prop to use a custom component for rendering the navigation bar.
-
 
 ### [v2.0.3](https://github.com/gpbl/react-day-picker/tree/v2.0.3) (2016-05-24)
 
@@ -69,7 +72,7 @@ If you have issues or suggestions, don't forget the [Gitter room](https://gitter
 
 * New `formatDay` function in [LocaleUtils](http://www.gpbl.org/react-day-picker/docs/LocaleUtils.html).
 
- If you are using your [custom LocaleUtils](http://www.gpbl.org/react-day-picker/docs/LocalizationCustom.html) to localize the calendar, you need to implement this function as well, which is required to format the newly added [aria-label attribute](https://github.com/gpbl/react-day-picker/pull/132) (see the [documentation](http://localhost:4000/docs/LocalizationCustom.html) for an example). If you are localizing [using moment](http://www.gpbl.org/react-day-picker/docs/LocalizationMoment.html), this change shouldn't affect you.
+ If you are using your [custom LocaleUtils](http://www.gpbl.org/react-day-picker/docs/LocalizationCustom.html) to localize the calendar, you need to implement this function as well, which is required to format the newly added [aria-label attribute](https://github.com/gpbl/react-day-picker/pull/132) (see the [documentation](http://www.gpbl.org/react-day-picker/docs/LocalizationCustom.html) for an example). If you are localizing [using moment](http://www.gpbl.org/react-day-picker/docs/LocalizationMoment.html), this change shouldn't affect you.
 
 
 **New props**
@@ -132,11 +135,11 @@ Fixes an issue causing className being overwritten by `className` prop ([\#137](
 
 **New features**
 
-* Use a custom caption element with the new [`captionElement`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#captionelement-element) prop. A custom caption element is useful, for example, to create a year/month navigation as shown in [this example](http://www.gpbl.org/react-day-picker/examples/#yearNavigation). Read [#52](https://github.com/gpbl/react-day-picker/issues/52) for a discussion about this feature.
+* Use a custom caption element with the new [`captionElement`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#captionelement-element) prop. A custom caption element is useful, for example, to create a year/month navigation as shown in [this example](http://www.gpbl.org/react-day-picker/examples?yearNavigation). Read [#52](https://github.com/gpbl/react-day-picker/issues/52) for a discussion about this feature.
 
 **Improvements**
 
-* Improved navigation when clicking on outside days ([#112](https://github.com/gpbl/react-day-picker/issues/112), see also [this example](http://www.gpbl.org/react-day-picker/examples/#restricted))
+* Improved navigation when clicking on outside days ([#112](https://github.com/gpbl/react-day-picker/issues/112), see also [this example](http://www.gpbl.org/react-day-picker/examples?restricted))
 * New `addMonths` function in [DateUtils](http://www.gpbl.org/react-day-picker/docs/DateUtils.html)
 * Added a style definition to package.json ([#105](https://github.com/gpbl/react-day-picker/issues/105), thanks @webbushka)
 
@@ -171,7 +174,7 @@ Minor changes when importing utilities
 
 **New features**
 
-* New `fromMonth` and `toMonth` props. Use the [`fromMonth`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#frommonth-date) and [`toMonth`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#tomonth-date) props to restrict the months within which the calendar can work. See [this example](http://www.gpbl.org/react-day-picker/examples/#restricted).
+* New `fromMonth` and `toMonth` props. Use the [`fromMonth`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#frommonth-date) and [`toMonth`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#tomonth-date) props to restrict the months within which the calendar can work. See [this example](http://www.gpbl.org/react-day-picker/examples?restricted).
 * `dateUtils` includes some useful function to set custom modifiers
 * `localeUtils ` are the default functions used to localize the day picker in english. See https://github.com/gpbl/react-day-picker/issues/46#issuecomment-153498039 for a sample usage of this library.
 
