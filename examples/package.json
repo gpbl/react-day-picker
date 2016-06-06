@@ -32,7 +32,7 @@
     "babel-runtime": "6.6.1",
     "css-loader": "0.23.1",
     "file-loader": "^0.8.4",
-    "history": "^1.13.0",
+    "history": "3.0.0",
     "raw-loader": "^0.5.1",
     "react": "15.0.2",
     "react-day-picker": "../",

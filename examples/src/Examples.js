@@ -23,6 +23,14 @@ import YearNavigation from './examples/YearNavigation';
 
 const history = createHistory();
 
+function getFunctionName(fun) {
+  return (fun.toString().match(/function (.+?)\(/) || [''])[1];
+}
+
+function getExampleName(location) {
+  return location.search.split('?').slice(-1)[0] || 'simple';
+}
+
 const EXAMPLES = {
   simple: {
     title: 'Simple Calendar',
@@ -96,11 +104,10 @@ const EXAMPLES = {
   },
 };
 
-
 export default class Examples extends Component {
 
   state = {
-    currentExample: 'simple',
+    currentExample: getExampleName(history.getCurrentLocation()),
     showNavBar: false,
   };
 
@@ -116,8 +123,8 @@ export default class Examples extends Component {
     this.unlistenHistory();
   }
 
-  handleHistoryChange({ hash }) {
-    const currentExample = hash.replace('#', '');
+  handleHistoryChange(location) {
+    const currentExample = getExampleName(location);
     if (currentExample in EXAMPLES) {
       this.setState({ currentExample, showNavBar: false }, () => window.scrollTo(0, 0));
     }
@@ -125,13 +132,13 @@ export default class Examples extends Component {
 
   renderNavBarExamples() {
     const links = Object.keys(EXAMPLES).map(name => <a
-      href={`#${name}`}
+      href={`./${name}`}
+      onClick={e => { e.preventDefault(); history.push({ search: `?${name}` }); }}
       key={name}
       className={this.state.currentExample === name ? 'selected' : ''}
     >
       {EXAMPLES[name].title}
     </a>);
-
     return <div className="NavBar-links">{links}</div>;
   }
 
@@ -183,7 +190,7 @@ export default class Examples extends Component {
               <div className="Example-Code">
                 <pre>
                   <code className="language-jsx">
-                    {require(`!raw!./examples/${ExampleComponent.name}.js`)}
+                    {require(`!raw!./examples/${ExampleComponent.name || getFunctionName(ExampleComponent)}.js`)}
                   </code>
                 </pre>
               </div>
