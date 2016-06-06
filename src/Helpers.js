@@ -20,17 +20,14 @@ export function getDaysInMonth(d) {
   return resultDate.getDate();
 }
 
-export function getModifiersForDay(d, modifierFunctions) {
-  const modifiers = [];
-  if (modifierFunctions) {
-    for (const modifier of Object.keys(modifierFunctions)) {
-      const func = modifierFunctions[modifier];
-      if (func(d)) {
-        modifiers.push(modifier);
-      }
+export function getModifiersForDay(d, modifierFunctions = {}) {
+  return Object.keys(modifierFunctions).reduce((modifiers, modifier) => {
+    const func = modifierFunctions[modifier];
+    if (func(d)) {
+      modifiers.push(modifier);
     }
-  }
-  return modifiers;
+    return modifiers;
+  }, []);
 }
 
 export function getMonthsDiff(d1, d2) {
