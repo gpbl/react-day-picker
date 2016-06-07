@@ -1,29 +1,29 @@
-import webpack from "webpack";
-import path from "path";
+import webpack from 'webpack';
+import path from 'path';
 
 export default {
-  devtool: "source-map",
+  devtool: 'source-map',
 
   entry: {
-    "main": [
-      "webpack-dev-server/client?http://0.0.0.0:3000",
-      "webpack/hot/only-dev-server",
-      path.join(__dirname, "src/main.js")
-    ]
+    'main': [
+      'webpack-dev-server/client?http://0.0.0.0:3000',
+      'webpack/hot/only-dev-server',
+      path.join(__dirname, 'src/main.js'),
+    ],
   },
 
   output: {
-    path: path.join(__dirname, "build"),
-    publicPath: "/js/",
-    filename: "[name].js"
+    path: path.join(__dirname, 'build'),
+    publicPath: '/js/',
+    filename: '[name].js',
   },
 
   plugins: [
 
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("development")
-      }
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+      },
     }),
 
     // hot loader
@@ -31,29 +31,39 @@ export default {
     new webpack.NoErrorsPlugin(),
 
     // ignore moment locales
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 
   ],
 
   module: {
     loaders: [{
-      test: /\.js(x)?$/,
-      include: [path.join(__dirname, "./src"), path.join(__dirname, "../dist")],
-      loaders: ["react-hot", "babel?cacheDirectory"]
+      test: /\.js$/,
+      include: [
+        path.join(__dirname, '../src'),
+        path.join(__dirname, './src'),
+        path.join(__dirname, '../dist'),
+      ],
+      loaders: ['react-hot', 'babel?cacheDirectory'],
     }, {
       test: /\.css$/,
-      loaders: ["style", "css", "autoprefixer-loader?browsers=last 2 version"]
+      loaders: ['style', 'css', 'autoprefixer-loader?browsers=last 2 version'],
     }, {
       test: /\.svg$/,
-      loader: "url-loader?limit=100000&mimetype=image/svg+xml"
-    }]
+      loader: 'url-loader?limit=100000&mimetype=image/svg+xml',
+    }],
+  },
+
+  resolve: {
+    alias: {
+      react: path.resolve(__dirname, '../node_modules/react'),
+    },
   },
 
   devServer: {
-    publicPath: "/js/",
+    publicPath: '/js/',
     hot: true,
     historyApiFallback: true,
-    quiet: true //  --no-info option
-  }
+    quiet: true, //  --no-info option
+  },
 
 };

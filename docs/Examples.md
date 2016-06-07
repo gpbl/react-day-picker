@@ -19,4 +19,5 @@ npm start
 ```
 
 then open [http://localhost:3000](http://localhost:3000).
+
 You can change the examples [source code](https://github.com/gpbl/react-day-picker/tree/master/examples/src/examples) and see the browser live-update them 😍

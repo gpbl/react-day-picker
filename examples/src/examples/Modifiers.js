@@ -1,7 +1,7 @@
 import React from 'react';
-import DayPicker from 'react-day-picker';
+import DayPicker from '../../../src/DayPicker';
 
-import 'react-day-picker/lib/style.css';
+import '../../../src/style.css';;
 import '../styles/odd-even.css';
 
 export default class Modifiers extends React.Component {

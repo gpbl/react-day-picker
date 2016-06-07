@@ -1,9 +1,9 @@
 import React from 'react';
 import moment from 'moment';
 
-import DayPicker, { DateUtils } from 'react-day-picker';
+import DayPicker, { DateUtils } from '../../../src/DayPicker';
 
-import 'react-day-picker/lib/style.css';
+import '../../../src/style.css';
 
 export default class InputField extends React.Component {
 
@@ -26,7 +26,8 @@ export default class InputField extends React.Component {
   handleInputChange(e) {
     const { value } = e.target;
 
-    // Change the current month only if the value entered by the user is a valid date, according to the `L` format
+    // Change the current month only if the value entered by the user
+    // is a valid date, according to the `L` format
     if (moment(value, 'L', true).isValid()) {
       this.setState({
         month: moment(value, 'L').toDate(),

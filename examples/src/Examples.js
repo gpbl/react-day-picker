@@ -146,7 +146,10 @@ export default class Examples extends Component {
     const { currentExample, showNavBar } = this.state;
 
     const ExampleComponent = EXAMPLES[currentExample].Component;
-
+    const componentName = ExampleComponent.name || getFunctionName(ExampleComponent);
+    let source = require(`!raw!./examples/${componentName}.js`);
+    source = source.replace('../../../src/DayPicker', 'react-day-picker');
+    source = source.replace('../../../src/style.css', 'react-day-picker/lib/style.css');
     return (
       <div>
         <div className="NavBar-toggle" onClick={() => { this.setState({ showNavBar: !showNavBar }); }} />
@@ -190,7 +193,7 @@ export default class Examples extends Component {
               <div className="Example-Code">
                 <pre>
                   <code className="language-jsx">
-                    {require(`!raw!./examples/${ExampleComponent.name || getFunctionName(ExampleComponent)}.js`)}
+                    {source}
                   </code>
                 </pre>
               </div>

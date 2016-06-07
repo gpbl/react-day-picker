@@ -1,7 +1,7 @@
 import React from 'react';
-import DayPicker, { WeekdayPropTypes, NavbarPropTypes } from 'react-day-picker';
+import DayPicker, { WeekdayPropTypes, NavbarPropTypes } from '../../../src/DayPicker';
 
-import 'react-day-picker/lib/style.css';
+import '../../../src/style.css';
 
 function Weekday({ weekday, className, localeUtils, locale }) {
   const weekdayName = localeUtils.formatWeekdayLong(weekday, locale);
