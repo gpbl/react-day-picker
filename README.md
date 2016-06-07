@@ -42,7 +42,7 @@ The bower package exposes a global `DayPicker` variable.
 
 ### Example
 
-```jsx
+```js
 import React from 'react';
 import DayPicker, { DateUtils } from "react-day-picker";
 
