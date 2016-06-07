@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-import DayPicker, { DateUtils } from '../../../src/DayPicker';
+import DayPicker, { DateUtils } from '../../../src';
 
 import '../../../src/style.css';
 

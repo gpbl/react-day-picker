@@ -1,5 +1,5 @@
 import React from 'react';
-import DayPicker, { WeekdayPropTypes, NavbarPropTypes } from '../../../src/DayPicker';
+import DayPicker, { WeekdayPropTypes, NavbarPropTypes } from '../../../src';
 
 import '../../../src/style.css';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import DayPicker from '../../../src/DayPicker';
+import DayPicker from '../../../src';
 
 import '../../../src/style.css';;
 import '../styles/year.css';

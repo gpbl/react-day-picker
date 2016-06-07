@@ -1,5 +1,5 @@
 import React from 'react';
-import DayPicker from '../../../src/DayPicker';
+import DayPicker from '../../../src';
 
 const weekdaysLong = {
   // Make sure you start with the right day of the week!
