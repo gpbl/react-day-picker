@@ -35,7 +35,7 @@ export function getMonthsDiff(d1, d2) {
     (12 * (d2.getFullYear() - d1.getFullYear()));
 }
 
-export function getWeekArray(d, firstDayOfWeek = getFirstDayOfWeek()) {
+export function getWeekArray(d, firstDayOfWeek = getFirstDayOfWeek(), fixedWeeks) {
   const daysInMonth = getDaysInMonth(d);
   const dayArray = [];
 
@@ -71,6 +71,25 @@ export function getWeekArray(d, firstDayOfWeek = getFirstDayOfWeek()) {
     const outsideDate = clone(lastWeek[lastWeek.length - 1]);
     outsideDate.setDate(lastWeek[lastWeek.length - 1].getDate() + 1);
     lastWeek.push(outsideDate);
+  }
+
+  // add extra weeks to reach 6 weeks
+  if (fixedWeeks && weekArray.length < 6) {
+    let lastExtraWeek;
+
+    for (let i = weekArray.length; i < 6; i++) {
+      lastExtraWeek = weekArray[weekArray.length - 1];
+      const lastDay = lastExtraWeek[lastExtraWeek.length - 1];
+      const extraWeek = [];
+
+      for (let j = 0; j < 7; j++) {
+        const outsideDate = clone(lastDay);
+        outsideDate.setDate(lastDay.getDate() + j + 1);
+        extraWeek.push(outsideDate);
+      }
+
+      weekArray.push(extraWeek);
+    }
   }
 
   return weekArray;

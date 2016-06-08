@@ -47,6 +47,12 @@ Display the days outside the current month. Default is `false`.
 
 ---
 
+#### enableFixedAmountOfWeeks `Bool`
+
+Display a fixed number of weeks. All months have a number of weeks between 4 and 6. With this flag, the calendar will show exactly 6 weeks (Examples for 4 and 6 weeks: Febrary 2015, July 2016). Default is `false`.
+
+---
+
 #### canChangeMonth `Bool`
 
 Enable the navigation between months. Default is `true`.

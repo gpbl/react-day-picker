@@ -15,6 +15,7 @@ export default function Month({
   wrapperClassName,
   weekClassName,
   weekdayComponent,
+  fixedWeeks,
 }) {
   const captionProps = {
     date: month,
@@ -22,7 +23,7 @@ export default function Month({
     locale,
     onClick: onCaptionClick ? e => onCaptionClick(e, month) : undefined,
   };
-  const weeks = getWeekArray(month, firstDayOfWeek);
+  const weeks = getWeekArray(month, firstDayOfWeek, fixedWeeks);
   return (
     <div className={className}>
       {React.cloneElement(captionElement, captionProps)}
@@ -51,4 +52,5 @@ Month.propTypes = {
   wrapperClassName: PropTypes.string,
   weekClassName: PropTypes.string,
   weekdayComponent: PropTypes.func.isRequired,
+  fixedWeeks: PropTypes.bool,
 };

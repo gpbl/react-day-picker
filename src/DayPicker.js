@@ -27,6 +27,7 @@ export default class DayPicker extends Component {
     localeUtils: DayPickerPropTypes.localeUtils,
 
     enableOutsideDays: PropTypes.bool,
+    fixedWeeks: PropTypes.bool,
     canChangeMonth: PropTypes.bool,
     reverseMonths: PropTypes.bool,
     fromMonth: PropTypes.instanceOf(Date),
@@ -60,6 +61,7 @@ export default class DayPicker extends Component {
     locale: 'en',
     localeUtils: LocaleUtils,
     enableOutsideDays: false,
+    fixedWeeks: false,
     canChangeMonth: true,
     reverseMonths: false,
     renderDay: day => day.getDate(),
@@ -392,6 +394,7 @@ export default class DayPicker extends Component {
           key={i}
           month={month}
           firstDayOfWeek={firstDayOfWeek}
+          fixedWeeks={this.props.fixedWeeks}
           captionElement={this.props.captionElement}
           onCaptionClick={this.props.onCaptionClick}
         >
