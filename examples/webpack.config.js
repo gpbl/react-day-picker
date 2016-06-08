@@ -11,17 +11,26 @@ module.exports = {
     filename: 'main.js',
   },
 
-  resolve: { extensions: ['', '.js'] },
-
   module: {
     loaders: [{
       test: /\.js$/,
-      exclude: /node_modules/,
+      include: [
+        path.join(__dirname, '../src'),
+        path.join(__dirname, './src'),
+        path.join(__dirname, '../dist'),
+      ],
       loaders: ['babel'],
     }, {
       test: /\.css$/,
       loaders: ['style', 'css', 'autoprefixer-loader?browsers=last 2 version'],
     }],
+  },
+
+  resolve: {
+    extensions: ['', '.js'],
+    alias: {
+      react: path.resolve(__dirname, '../node_modules/react'),
+    },
   },
 
   plugins: [

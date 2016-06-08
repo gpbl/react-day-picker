@@ -131,14 +131,19 @@ export default class Examples extends Component {
   }
 
   renderNavBarExamples() {
-    const links = Object.keys(EXAMPLES).map(name => <a
-      href={`.?${name}`}
-      onClick={e => { e.preventDefault(); history.push({ pathname: '.', search: `?${name}` }); }}
-      key={name}
-      className={this.state.currentExample === name ? 'selected' : ''}
-    >
-      {EXAMPLES[name].title}
-    </a>);
+    const links = Object.keys(EXAMPLES).map(name =>
+      <a
+        href={`.?${name}`}
+        onClick={e => {
+          e.preventDefault();
+          history.push({ pathname: history.getCurrentLocation().pathname, search: `?${name}` });
+        }}
+        key={name}
+        className={this.state.currentExample === name ? 'selected' : ''}
+      >
+        {EXAMPLES[name].title}
+      </a>
+    );
     return <div className="NavBar-links">{links}</div>;
   }
 
