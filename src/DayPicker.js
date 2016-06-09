@@ -359,7 +359,7 @@ export default class DayPicker extends Component {
         key={`${isOutside ? 'outside-' : ''}${key}`}
         day={day}
         modifiers={dayModifiers}
-        empty={isOutside && !this.props.enableOutsideDays}
+        empty={isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks}
         tabIndex={tabIndex}
         ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
         ariaDisabled={isOutside || dayModifiers.indexOf('disabled') > -1}

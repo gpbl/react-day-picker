@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import DayPicker, { DateUtils } from '../../../src';
 
-import '../../../src/style.css';;
+import '../../../src/style.css';
 
 export default class Range extends React.Component {
   constructor(props) {

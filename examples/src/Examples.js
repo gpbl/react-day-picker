@@ -10,6 +10,7 @@ import Birthdays from './examples/Birthdays';
 import DisabledDays from './examples/DisabledDays';
 import BlockedNavigation from './examples/BlockedNavigation';
 import CustomComponents from './examples/CustomComponents';
+import FixedWeeks from './examples/FixedWeeks';
 import InputField from './examples/InputField';
 import Localized from './examples/Localized';
 import LocalizedCustom from './examples/LocalizedCustom';
@@ -51,6 +52,11 @@ const EXAMPLES = {
     title: 'Input Field',
     description: 'How to connect the day picker with an input field.',
     Component: InputField,
+  },
+  fixedWeeks: {
+    title: 'Fixed number of weeks',
+    description: 'Use <code>fixedWeeks</code> to always display 6 weeks per month.',
+    Component: FixedWeeks,
   },
   range: {
     title: 'Range of Days',

@@ -11,7 +11,7 @@
 | [captionElement](APIProps.md#captionelement) | | `Element` |
 | [disabledDays](APIProps.md#disableddays) | | `Bool` |
 | [enableOutsideDays](APIProps.md#enableoutsidedays) | false | `Bool` |
-| [enableFixedAmountOfWeeks](APIProps.md#enableFixedAmountOfWeeks) | false | `Bool` |
+| [fixedWeeks](APIProps.md#fixedWeeks) | false | `Bool` |
 | [fromMonth](APIProps.md#frommonth) | | `Date` |
 | [initialMonth](APIProps.md#initialmonth) | Current month | `Date` |
 | [locale](APIProps.md#locale) | en | `String` |
