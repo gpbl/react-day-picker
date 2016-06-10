@@ -1,4 +1,4 @@
-## [v2.2.0](https://github.com/gpbl/react-day-picker/tree/v2.1.1) (2016-06-06)
+## [v2.2.0](https://github.com/gpbl/react-day-picker/tree/v2.1.1) (2016-06-09)
 
 * Added `fixedWeeks` prop ([#176](https://github.com/gpbl/react-day-picker/pull/176) by [fcsonline](https://github.com/fcsonline)).
  Use this prop to always display 6 weeks per month: [example](http://www.gpbl.org/react-day-picker/examples/?fixedWeeks).
