@@ -15,6 +15,7 @@ export default function Month({
   wrapperClassName,
   weekClassName,
   weekdayComponent,
+  weekdayElement,
   fixedWeeks,
 }) {
   const captionProps = {
@@ -27,7 +28,12 @@ export default function Month({
   return (
     <div className={className}>
       {React.cloneElement(captionElement, captionProps)}
-      <Weekdays locale={locale} localeUtils={localeUtils} weekdayComponent={weekdayComponent} />
+      <Weekdays
+        locale={locale}
+        localeUtils={localeUtils}
+        weekdayComponent={weekdayComponent}
+        weekdayElement={weekdayElement}
+      />
       <div className={wrapperClassName} role="grid">
         {
           weeks.map((week, j) =>
@@ -52,5 +58,6 @@ Month.propTypes = {
   wrapperClassName: PropTypes.string,
   weekClassName: PropTypes.string,
   weekdayComponent: PropTypes.func.isRequired,
+  weekdayElement: PropTypes.element,
   fixedWeeks: PropTypes.bool,
 };

@@ -45,6 +45,7 @@ export default class DayPicker extends Component {
 
     renderDay: PropTypes.func,
     weekdayComponent: PropTypes.func,
+    weekdayElement: PropTypes.element,
     navbarComponent: PropTypes.func,
     navbarElement: PropTypes.element,
 
@@ -336,12 +337,11 @@ export default class DayPicker extends Component {
       locale,
       localeUtils,
       canChangeMonth,
-      onDayClick,
       navbarComponent,
       navbarElement,
     ...attributes } = this.props;
 
-    if (!canChangeMonth) return null
+    if (!canChangeMonth) return null;
     const props = {
       className: 'DayPicker-NavBar',
       nextMonth: this.getNextNavigableMonth(),
@@ -353,11 +353,11 @@ export default class DayPicker extends Component {
       dir: attributes.dir,
       locale,
       localeUtils,
-    }
+    };
     if (navbarElement) {
-      return React.cloneElement(navbarElement, props)
+      return React.cloneElement(navbarElement, props);
     }
-    return React.createElement(navbarComponent, props)
+    return React.createElement(navbarComponent, props);
   }
   renderDayInMonth(day, month) {
     let dayModifiers = [];
@@ -417,6 +417,7 @@ export default class DayPicker extends Component {
           wrapperClassName="DayPicker-Body"
           weekClassName="DayPicker-Week"
           weekdayComponent={this.props.weekdayComponent}
+          weekdayElement={this.props.weekdayElement}
           locale={this.props.locale}
           localeUtils={this.props.localeUtils}
           key={i}
@@ -439,7 +440,6 @@ export default class DayPicker extends Component {
   render() {
     const {
       locale,
-      localeUtils,
       canChangeMonth,
       onDayClick,
     ...attributes } = this.props;
