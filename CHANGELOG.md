@@ -7,7 +7,7 @@
 
 * Fixed compatibility with IE11 ([#175](https://github.com/gpbl/react-day-picker/pull/175) by [davidspiess](https://github.com/davidspiess)).
 
-## [v2.1.0](https://github.com/gpbl/react-day-picker/tree/v2.1.0) (2016-05-24)
+## [v2.1.0](https://github.com/gpbl/react-day-picker/tree/v2.1.0) (2016-06-02)
 
 * Added [`weekdayComponent`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#weekdaycomponent-component) prop ([#172](https://github.com/gpbl/react-day-picker/pull/172) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)).
  Use this prop to use a custom component for rendering the weekday cells in the header.
