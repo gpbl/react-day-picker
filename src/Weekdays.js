@@ -5,18 +5,21 @@ export default function Weekdays({
   locale,
   localeUtils,
   weekdayComponent,
+  weekdayElement,
 }) {
   const days = [];
   for (let i = 0; i < 7; i++) {
-    days.push(
-      React.createElement(weekdayComponent, {
-        key: i,
-        className: 'DayPicker-Weekday',
-        weekday: i,
-        localeUtils,
-        locale,
-      })
-    );
+    const elemProps = {
+      key: i,
+      className: 'DayPicker-Weekday',
+      weekday: i,
+      localeUtils,
+      locale,
+    };
+    const elem = weekdayElement ?
+      React.cloneElement(weekdayElement, elemProps) :
+      React.createElement(weekdayComponent, elemProps);
+    days.push(elem);
   }
 
   return (
@@ -32,4 +35,5 @@ Weekdays.propTypes = {
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
   weekdayComponent: PropTypes.func.isRequired,
+  weekdayElement: PropTypes.element,
 };

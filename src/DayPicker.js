@@ -45,7 +45,9 @@ export default class DayPicker extends Component {
 
     renderDay: PropTypes.func,
     weekdayComponent: PropTypes.func,
+    weekdayElement: PropTypes.element,
     navbarComponent: PropTypes.func,
+    navbarElement: PropTypes.element,
 
     captionElement: PropTypes.element,
 
@@ -330,7 +332,33 @@ export default class DayPicker extends Component {
       this.showPreviousMonth();
     }
   }
+  renderNavbar() {
+    const {
+      locale,
+      localeUtils,
+      canChangeMonth,
+      navbarComponent,
+      navbarElement,
+    ...attributes } = this.props;
 
+    if (!canChangeMonth) return null;
+    const props = {
+      className: 'DayPicker-NavBar',
+      nextMonth: this.getNextNavigableMonth(),
+      previousMonth: this.getPreviousNavigableMonth(),
+      showPreviousButton: this.allowPreviousMonth(),
+      showNextButton: this.allowNextMonth(),
+      onNextClick: this.showNextMonth,
+      onPreviousClick: this.showPreviousMonth,
+      dir: attributes.dir,
+      locale,
+      localeUtils,
+    };
+    if (navbarElement) {
+      return React.cloneElement(navbarElement, props);
+    }
+    return React.createElement(navbarComponent, props);
+  }
   renderDayInMonth(day, month) {
     let dayModifiers = [];
     if (DateUtils.isSameDay(day, new Date())) {
@@ -389,6 +417,7 @@ export default class DayPicker extends Component {
           wrapperClassName="DayPicker-Body"
           weekClassName="DayPicker-Week"
           weekdayComponent={this.props.weekdayComponent}
+          weekdayElement={this.props.weekdayElement}
           locale={this.props.locale}
           localeUtils={this.props.localeUtils}
           key={i}
@@ -411,10 +440,8 @@ export default class DayPicker extends Component {
   render() {
     const {
       locale,
-      localeUtils,
       canChangeMonth,
       onDayClick,
-      navbarComponent,
     ...attributes } = this.props;
     let className = `DayPicker DayPicker--${locale}`;
 
@@ -434,20 +461,7 @@ export default class DayPicker extends Component {
         tabIndex={canChangeMonth && attributes.tabIndex}
         onKeyDown={this.handleKeyDown}
       >
-        {canChangeMonth &&
-          React.createElement(navbarComponent, {
-            className: 'DayPicker-NavBar',
-            nextMonth: this.getNextNavigableMonth(),
-            previousMonth: this.getPreviousNavigableMonth(),
-            showPreviousButton: this.allowPreviousMonth(),
-            showNextButton: this.allowNextMonth(),
-            onNextClick: this.showNextMonth,
-            onPreviousClick: this.showPreviousMonth,
-            dir: attributes.dir,
-            locale,
-            localeUtils,
-          })
-        }
+        {this.renderNavbar()}
         {this.renderMonths()}
       </div>
     );

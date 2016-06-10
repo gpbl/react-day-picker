@@ -1,6 +1,7 @@
 /* eslint-disable global-require, max-len */
-import React from 'react';
+import React, { PropTypes } from 'react';
 import SyntheticEvent from 'react/lib/SyntheticEvent';
+import { isElement } from 'react-addons-test-utils';
 import { shallow, mount, render } from 'enzyme';
 import { expect } from 'chai';
 import sinon, { spy } from 'sinon';
@@ -109,6 +110,33 @@ describe('<DayPicker />', () => {
       const caption = <p>boo</p>;
       const wrapper = mount(<DayPicker captionElement={caption} />);
       expect(wrapper.containsMatchingElement(caption)).to.be.true;
+    });
+    it('should render a custom navbar element', () => {
+      const CustomNavbar = ({ className }) => <div className={className}>Navbar</div>;
+      CustomNavbar.propTypes = { className: PropTypes.string };
+      const navbar = <CustomNavbar />;
+      const dayPicker = <DayPicker navbarElement={navbar} />;
+      const wrapper = mount(dayPicker);
+
+      expect(isElement(dayPicker.props.navbarElement)).to.be.true;
+      expect(wrapper.containsMatchingElement(navbar)).to.be.true;
+      expect(wrapper.find('.DayPicker-NavBar')).to.exist;
+      expect(wrapper.find('.DayPicker-NavBar').at(0)).to.have.text('Navbar');
+    });
+    it('should render a custom weekday element', () => {
+      const CustomWeekday = ({ className, weekday }) => <div className={className}>{weekday}</div>;
+      CustomWeekday.propTypes = { className: PropTypes.string, weekday: PropTypes.number };
+      const weekday = <CustomWeekday />;
+      const dayPicker = <DayPicker weekdayElement={weekday} />;
+      const wrapper = mount(dayPicker);
+
+      expect(isElement(dayPicker.props.weekdayElement)).to.be.true;
+      expect(wrapper.containsMatchingElement(weekday)).to.be.true;
+      expect(wrapper.find('.DayPicker-Weekday')).to.have.length(7);
+      const weekdayDoms = wrapper.find('.DayPicker-Weekday');
+      weekdayDoms.forEach((_, i) => {
+        expect(weekdayDoms.at(i)).to.have.text(i);
+      });
     });
     it('should not render the outside days', () => {
       const wrapper = mount(<DayPicker initialMonth={new Date(2015, 6)} />);
