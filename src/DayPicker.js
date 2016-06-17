@@ -397,6 +397,7 @@ export default class DayPicker extends Component {
         onKeyDown={this.handleDayKeyDown}
         onTouchStart={this.props.onDayTouchStart}
         onTouchEnd={this.props.onDayTouchEnd}
+        onFocus={this.props.onDayFocus}
         onClick={this.props.onDayClick ? this.handleDayClick : undefined}
       >
         {this.props.renderDay(day)}

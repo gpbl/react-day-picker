@@ -22,6 +22,7 @@ export default function Day({
   onKeyDown,
   onTouchStart,
   onTouchEnd,
+  onFocus,
   ariaLabel,
   ariaDisabled,
   ariaSelected,
@@ -46,6 +47,7 @@ export default function Day({
       onMouseLeave={handleEvent(onMouseLeave, day, modifiers)}
       onTouchEnd={handleEvent(onTouchEnd, day, modifiers)}
       onTouchStart={handleEvent(onTouchStart, day, modifiers)}
+      onFocus={handleEvent(onFocus, day, modifiers)}
     >
       {children}
     </div>
@@ -67,6 +69,7 @@ Day.propTypes = {
   onMouseLeave: PropTypes.func,
   onTouchEnd: PropTypes.func,
   onTouchStart: PropTypes.func,
+  onFocus: PropTypes.func,
   tabIndex: PropTypes.number,
 };
 
