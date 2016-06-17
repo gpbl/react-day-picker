@@ -40,6 +40,7 @@ export default class DayPicker extends Component {
     onDayMouseLeave: PropTypes.func,
     onDayTouchStart: PropTypes.func,
     onDayTouchEnd: PropTypes.func,
+    onDayFocus: PropTypes.func,
     onMonthChange: PropTypes.func,
     onCaptionClick: PropTypes.func,
 
@@ -397,6 +398,7 @@ export default class DayPicker extends Component {
         onKeyDown={this.handleDayKeyDown}
         onTouchStart={this.props.onDayTouchStart}
         onTouchEnd={this.props.onDayTouchEnd}
+        onFocus={this.props.onDayFocus}
         onClick={this.props.onDayClick ? this.handleDayClick : undefined}
       >
         {this.props.renderDay(day)}
