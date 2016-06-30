@@ -5,7 +5,7 @@
 
 **Deprecation notice**
 
-`navbarComponent` and `weekdayComponent` props are deprecated. Please Use `navbarElement` and `weekdayElement` instead:
+`navbarComponent` and `weekdayComponent` props are deprecated. Please use `navbarElement` and `weekdayElement`:
 
 ```diff
 - <DayPicker navbarComponent={ MyCustomNavbar } weekdayComponent={ MyCustomWeekday } />
