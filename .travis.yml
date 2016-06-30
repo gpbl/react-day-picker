@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "5.1"
+  - "5.3"
 env:
   - CXX=g++-4.8
 before_script:
