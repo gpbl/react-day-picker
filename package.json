@@ -85,5 +85,8 @@
     "sinon": "1.17.4",
     "sinon-chai": "2.8.0",
     "webpack": "1.13.1"
+  },
+  "dependencies": {
+    "react-is-deprecated": "0.1.2"
   }
 }

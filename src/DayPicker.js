@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-
+import { deprecate } from 'react-is-deprecated';
 import Caption from './Caption';
 import Navbar from './Navbar';
 import Month from './Month';
@@ -45,9 +45,9 @@ export default class DayPicker extends Component {
     onCaptionClick: PropTypes.func,
 
     renderDay: PropTypes.func,
-    weekdayComponent: PropTypes.func,
+    weekdayComponent: deprecate(PropTypes.func, 'react-day-picker: the `weekdayComponent` prop is deprecated from v2.3. Please pass a React element to the `weekdayElement` prop instead.'),
     weekdayElement: PropTypes.element,
-    navbarComponent: PropTypes.func,
+    navbarComponent: deprecate(PropTypes.func, 'react-day-picker: the `navbarComponent` prop is deprecated from v2.3. Please pass a React element to the `navbarElement` prop instead.'),
     navbarElement: PropTypes.element,
 
     captionElement: PropTypes.element,
