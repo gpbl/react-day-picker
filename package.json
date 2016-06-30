@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "style": "lib/style.css",
@@ -16,7 +16,7 @@
     "cover": "babel-node ./node_modules/istanbul/lib/cli cover -- _mocha --recursive --reporter spec",
     "check": "npm run lint && npm run test",
     "prerelease": "npm run check && npm run dist",
-    "prepublish": "npm run build",
+    "prepublish": " npm run prerelease && npm run build",
     "dist": "webpack -p",
     "build": "babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/",
     "examples:clean": "rimraf examples/built",
