@@ -9,17 +9,17 @@ export default function Weekdays({
 }) {
   const days = [];
   for (let i = 0; i < 7; i++) {
-    const elemProps = {
+    const elementProps = {
       key: i,
       className: 'DayPicker-Weekday',
       weekday: i,
       localeUtils,
       locale,
     };
-    const elem = weekdayElement ?
-      React.cloneElement(weekdayElement, elemProps) :
-      React.createElement(weekdayComponent, elemProps);
-    days.push(elem);
+    const element = weekdayElement ?
+      React.cloneElement(weekdayElement, elementProps) :
+      React.createElement(weekdayComponent, elementProps);
+    days.push(element);
   }
 
   return (
