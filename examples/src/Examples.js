@@ -35,7 +35,7 @@ function getExampleName(location) {
 const EXAMPLES = {
   simple: {
     title: 'Simple Calendar',
-    description: 'Show the clicked day in an alert dialog.',
+    description: 'Log the clicked day in the JavaScript Console.',
     Component: SimpleCalendar,
   },
   selectable: {

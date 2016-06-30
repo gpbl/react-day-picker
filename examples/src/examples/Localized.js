@@ -10,7 +10,7 @@ import 'moment/locale/ja';
 import 'moment/locale/ar';
 import 'moment/locale/it';
 
-import '../../../src/style.css';;
+import '../../../src/style.css';
 
 export default class Localized extends React.Component {
   constructor(props) {

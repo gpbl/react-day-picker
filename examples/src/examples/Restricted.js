@@ -1,7 +1,7 @@
 import React from 'react';
 import DayPicker from '../../../src';
 
-import '../../../src/style.css';;
+import '../../../src/style.css';
 
 const fromMonth = new Date(2015, 3, 1, 0, 0);
 const toMonth = new Date(2015, 10, 30, 23, 59);

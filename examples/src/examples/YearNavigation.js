@@ -1,7 +1,7 @@
 import React from 'react';
 import DayPicker from '../../../src';
 
-import '../../../src/style.css';;
+import '../../../src/style.css';
 
 const currentYear = (new Date()).getFullYear();
 const fromMonth = new Date(currentYear, 0, 1, 0, 0);
@@ -16,7 +16,7 @@ function YearMonthForm({ date, localeUtils, onChange }) {
     years.push(i);
   }
 
-  const handleChange = function (e) {
+  const handleChange = function handleChange(e) {
     const { year, month } = e.target.form;
     onChange(new Date(year.value, month.value));
   };
