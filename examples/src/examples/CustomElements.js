@@ -33,7 +33,7 @@ Navbar.propTypes = NavbarPropTypes;
 export default function CustomElements() {
   return (
     <div>
-      <DayPicker weekdayElement={<Weekday />} navbarElement={<Navbar />} />
+      <DayPicker weekdayElement={ <Weekday/> } navbarElement={ <Navbar /> } />
     </div>
   );
 }
