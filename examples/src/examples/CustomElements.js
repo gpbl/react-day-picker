@@ -30,10 +30,10 @@ function Navbar({ nextMonth, previousMonth, onPreviousClick, onNextClick, classN
 }
 Navbar.propTypes = NavbarPropTypes;
 
-export default function CustomComponents() {
+export default function CustomElements() {
   return (
     <div>
-      <DayPicker weekdayComponent={Weekday} navbarComponent={Navbar} />
+      <DayPicker weekdayElement={<Weekday />} navbarElement={<Navbar />} />
     </div>
   );
 }

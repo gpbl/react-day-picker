@@ -9,7 +9,7 @@ import './vendors/prism.css';
 import Birthdays from './examples/Birthdays';
 import DisabledDays from './examples/DisabledDays';
 import BlockedNavigation from './examples/BlockedNavigation';
-import CustomComponents from './examples/CustomComponents';
+import CustomElements from './examples/CustomElements';
 import FixedWeeks from './examples/FixedWeeks';
 import InputField from './examples/InputField';
 import Localized from './examples/Localized';
@@ -98,10 +98,10 @@ const EXAMPLES = {
     description: 'Use the <code>renderDay</code> prop to add custom content to day cells.',
     Component: Birthdays,
   },
-  customComponents: {
-    title: 'Custom Components',
-    description: 'Use <code>weekdayComponent</code> or <code>navbarComponent</code> to customize with your own component the weekday or the navigation bar.',
-    Component: CustomComponents,
+  customElements: {
+    title: 'Custom Elements',
+    description: 'Use <code>weekdayElement</code> or <code>navbarElement</code> to customize with your own React element the weekday or the navigation bar.',
+    Component: CustomElements,
   },
   year: {
     title: 'Year Calendar',

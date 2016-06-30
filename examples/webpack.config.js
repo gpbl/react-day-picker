@@ -50,7 +50,7 @@ module.exports = {
           'Birthdays',
           'DisabledDays',
           'BlockedNavigation',
-          'CustomComponents',
+          'CustomElements',
           'FixedWeeks',
           'InputField',
           'Localized',
