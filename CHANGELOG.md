@@ -1,4 +1,18 @@
-## [v2.2.0](https://github.com/gpbl/react-day-picker/tree/v2.1.1) (2016-06-09)
+## [v2.3.0](https://github.com/gpbl/react-day-picker/tree/v2.3.0) (2016-06-30)
+
+* Added `navbarElement` and `weekdayElement` prop ([#179](https://github.com/gpbl/react-day-picker/pull/179) by [boatkorachal](https://github.com/boatkorachal)).
+* Added `onDayFocus` prop ([#185](https://github.com/gpbl/react-day-picker/pull/185) by [johannesd](https://github.com/johannesd)).
+
+**Deprecation notice**
+
+`navbarComponent` and `weekdayComponent` props are deprecated. Please Use `navbarElement` and `weekdayElement` instead:
+
+```diff
+- <DayPicker navbarComponent={ MyCustomNavbar } weekdayComponent={ MyCustomWeekday } />
++ <DayPicker navbarElement={ <MyCustomNavbar/> } weekdayElement={ <MyCustomWeekday /> } />
+```
+
+## [v2.2.0](https://github.com/gpbl/react-day-picker/tree/v2.2.0) (2016-06-09)
 
 * Added `fixedWeeks` prop ([#176](https://github.com/gpbl/react-day-picker/pull/176) by [fcsonline](https://github.com/fcsonline)).
  Use this prop to always display 6 weeks per month: [example](http://www.gpbl.org/react-day-picker/examples/?fixedWeeks).
