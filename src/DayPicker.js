@@ -45,9 +45,9 @@ export default class DayPicker extends Component {
     onCaptionClick: PropTypes.func,
 
     renderDay: PropTypes.func,
-    weekdayComponent: deprecate(PropTypes.func, 'react-day-picker: the `weekdayComponent` prop is deprecated from v2.3. Please pass a React element to the `weekdayElement` prop instead.'),
+    weekdayComponent: deprecate(PropTypes.func, 'react-day-picker: the `weekdayComponent` prop is deprecated from v2.3. Please pass a React element to the `weekdayElement` prop instead.'), // eslint-disable-line max-len
     weekdayElement: PropTypes.element,
-    navbarComponent: deprecate(PropTypes.func, 'react-day-picker: the `navbarComponent` prop is deprecated from v2.3. Please pass a React element to the `navbarElement` prop instead.'),
+    navbarComponent: deprecate(PropTypes.func, 'react-day-picker: the `navbarComponent` prop is deprecated from v2.3. Please pass a React element to the `navbarElement` prop instead.'), // eslint-disable-line max-len
     navbarElement: PropTypes.element,
 
     captionElement: PropTypes.element,
