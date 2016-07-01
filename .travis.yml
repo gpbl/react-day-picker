@@ -1,9 +1,9 @@
 language: node_js
 node_js:
   - "5.3"
-env:
-  - CXX=g++-4.8
 before_script:
+  - "rm rf node_modules"
+  - "npm install"
   - "npm run lint"
 after_success:
   - "npm run cover"
