@@ -57,7 +57,7 @@ Month.propTypes = {
   className: PropTypes.string,
   wrapperClassName: PropTypes.string,
   weekClassName: PropTypes.string,
-  weekdayComponent: PropTypes.func.isRequired,
+  weekdayComponent: PropTypes.func,
   weekdayElement: PropTypes.element,
   fixedWeeks: PropTypes.bool,
 };

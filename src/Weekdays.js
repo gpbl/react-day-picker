@@ -34,6 +34,6 @@ export default function Weekdays({
 Weekdays.propTypes = {
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
-  weekdayComponent: PropTypes.func.isRequired,
+  weekdayComponent: PropTypes.func,
   weekdayElement: PropTypes.element,
 };

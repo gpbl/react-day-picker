@@ -13,7 +13,7 @@ import * as LocaleUtils from './LocaleUtils';
 import keys from './keys';
 import DayPickerPropTypes from './PropTypes';
 export default class DayPicker extends Component {
-  static VERSION = '2.3.1';
+  static VERSION = '2.3.2';
 
   static propTypes = {
     initialMonth: PropTypes.instanceOf(Date),
@@ -68,8 +68,8 @@ export default class DayPicker extends Component {
     canChangeMonth: true,
     reverseMonths: false,
     renderDay: day => day.getDate(),
-    weekdayComponent: Weekday,
-    navbarComponent: Navbar,
+    weekdayElement: <Weekday />,
+    navbarElement: <Navbar />,
     captionElement: <Caption />,
   };
 
@@ -389,10 +389,13 @@ export default class DayPicker extends Component {
         day={day}
         modifiers={dayModifiers}
         empty={isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks}
+
         tabIndex={tabIndex}
+
         ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
         ariaDisabled={isOutside || dayModifiers.indexOf('disabled') > -1}
         ariaSelected={dayModifiers.indexOf('selected') > -1}
+
         onMouseEnter={this.props.onDayMouseEnter}
         onMouseLeave={this.props.onDayMouseLeave}
         onKeyDown={this.handleDayKeyDown}
@@ -415,18 +418,21 @@ export default class DayPicker extends Component {
 
       months.push(
         <Month
+          key={i}
+          month={month}
+          locale={this.props.locale}
+          localeUtils={this.props.localeUtils}
+          firstDayOfWeek={firstDayOfWeek}
+          fixedWeeks={this.props.fixedWeeks}
+
           className="DayPicker-Month"
           wrapperClassName="DayPicker-Body"
           weekClassName="DayPicker-Week"
+
           weekdayComponent={this.props.weekdayComponent}
           weekdayElement={this.props.weekdayElement}
-          locale={this.props.locale}
-          localeUtils={this.props.localeUtils}
-          key={i}
-          month={month}
-          firstDayOfWeek={firstDayOfWeek}
-          fixedWeeks={this.props.fixedWeeks}
           captionElement={this.props.captionElement}
+
           onCaptionClick={this.props.onCaptionClick}
         >
           {this.renderDayInMonth}

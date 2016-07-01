@@ -9,11 +9,6 @@ import DayPicker from '../src/DayPicker';
 import keys from '../src/keys';
 
 describe('<DayPicker />', () => {
-  it('should work with commonjs require', () => {
-    const commonJsDayPicker = require('../DayPicker');
-    expect(commonJsDayPicker).to.have.property('name', 'DayPicker');
-  });
-
   describe('rendering', () => {
     it('should have default props', () => {
       const dayPicker = <DayPicker />;
@@ -27,8 +22,8 @@ describe('<DayPicker />', () => {
       expect(dayPicker.props.canChangeMonth).to.equal(true);
       expect(dayPicker.props.reverseMonths).to.equal(false);
       expect(dayPicker.props.renderDay).to.be.a('Function');
-      expect(dayPicker.props.weekdayComponent).to.be.a('Function');
-      expect(dayPicker.props.navbarComponent).to.be.a('Function');
+      expect(dayPicker.props.weekdayElement).to.be.a('object');
+      expect(dayPicker.props.navbarElement).to.be.a('object');
       expect(dayPicker.props.tabIndex).to.equal(0);
     });
     it('should have the DayPicker classes', () => {
@@ -158,21 +153,21 @@ describe('<DayPicker />', () => {
 
   describe('day modifiers', () => {
     it('should use `selectedDays` prop as `selected` modifier', () => {
-      const wrapper = mount(<DayPicker selectedDays={() => true} modifiers={{ foo: () => true }} />);
+      const wrapper = mount(<DayPicker initialMonth={new Date(2015, 6)} selectedDays={() => true} modifiers={{ foo: () => true }} />);
       expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(35);
       expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
     });
     it('should add the `aria-selected` attribute for `selected` days', () => {
-      const wrapper = mount(<DayPicker selectedDays={() => true} />);
+      const wrapper = mount(<DayPicker initialMonth={new Date(2015, 6)} selectedDays={() => true} />);
       expect(wrapper.find('.DayPicker-Day--selected').at(15)).to.have.attr('aria-selected', 'true');
     });
     it('should use `disabledDays` prop as `selected` modifier', () => {
-      const wrapper = mount(<DayPicker disabledDays={() => true} modifiers={{ foo: () => true }} />);
+      const wrapper = mount(<DayPicker initialMonth={new Date(2015, 6)} disabledDays={() => true} modifiers={{ foo: () => true }} />);
       expect(wrapper.find('.DayPicker-Day--disabled')).to.have.length(35);
       expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
     });
     it('should add the `aria-disabled` attribute for `disabled` days', () => {
-      const wrapper = mount(<DayPicker disabledDays={() => true} />);
+      const wrapper = mount(<DayPicker initialMonth={new Date(2015, 6)} disabledDays={() => true} />);
       expect(wrapper.find('.DayPicker-Day--disabled').first()).to.have.attr('aria-disabled', 'true');
     });
     it('should include "outside" for outside days', () => {
