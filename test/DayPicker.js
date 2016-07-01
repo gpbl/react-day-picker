@@ -9,11 +9,6 @@ import DayPicker from '../src/DayPicker';
 import keys from '../src/keys';
 
 describe('<DayPicker />', () => {
-  it('should work with commonjs require', () => {
-    const commonJsDayPicker = require('../DayPicker');
-    expect(commonJsDayPicker).to.have.property('name', 'DayPicker');
-  });
-
   describe('rendering', () => {
     it('should have default props', () => {
       const dayPicker = <DayPicker />;
