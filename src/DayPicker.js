@@ -68,8 +68,8 @@ export default class DayPicker extends Component {
     canChangeMonth: true,
     reverseMonths: false,
     renderDay: day => day.getDate(),
-    weekdayComponent: Weekday,
-    navbarComponent: Navbar,
+    weekdayElement: <Weekday />,
+    navbarElement: <Navbar />,
     captionElement: <Caption />,
   };
 
