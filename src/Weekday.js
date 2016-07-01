@@ -12,10 +12,10 @@ export default function Weekday({ weekday, className, localeUtils, locale }) {
 }
 
 export const WeekdayPropTypes = {
-  weekday: PropTypes.number.isRequired,
+  weekday: PropTypes.number,
   className: PropTypes.string,
-  locale: PropTypes.string.isRequired,
-  localeUtils: DayPickerPropTypes.localeUtils.isRequired,
+  locale: PropTypes.string,
+  localeUtils: DayPickerPropTypes.localeUtils,
 };
 
 Weekday.propTypes = WeekdayPropTypes;
