@@ -1,3 +1,7 @@
+### [v2.3.2](https://github.com/gpbl/react-day-picker/tree/v2.3.2) (2016-07-01)
+
+Removed superfluous deprecation warnings.
+
 ## [v2.3.0](https://github.com/gpbl/react-day-picker/tree/v2.3.0) (2016-06-30)
 
 * Added `navbarElement` and `weekdayElement` prop ([#179](https://github.com/gpbl/react-day-picker/pull/179) by [boatkorachal](https://github.com/boatkorachal)).
@@ -12,12 +16,17 @@
 + <DayPicker navbarElement={ <MyCustomNavbar/> } weekdayElement={ <MyCustomWeekday /> } />
 ```
 
+---
+
+
 ## [v2.2.0](https://github.com/gpbl/react-day-picker/tree/v2.2.0) (2016-06-09)
 
 * Added `fixedWeeks` prop ([#176](https://github.com/gpbl/react-day-picker/pull/176) by [fcsonline](https://github.com/fcsonline)).
  Use this prop to always display 6 weeks per month: [example](http://www.gpbl.org/react-day-picker/examples/?fixedWeeks).
 
-## [v2.1.1](https://github.com/gpbl/react-day-picker/tree/v2.1.1) (2016-06-06)
+---
+
+### [v2.1.1](https://github.com/gpbl/react-day-picker/tree/v2.1.1) (2016-06-06)
 
 * Fixed compatibility with IE11 ([#175](https://github.com/gpbl/react-day-picker/pull/175) by [davidspiess](https://github.com/davidspiess)).
 
@@ -27,6 +36,8 @@
  Use this prop to use a custom component for rendering the weekday cells in the header.
 * Added [`navbarComponent`](http://www.gpbl.org/react-day-picker/docs/APIProps.html#navbarcomponent-component) prop ([#173](https://github.com/gpbl/react-day-picker/pull/173) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)).
  Use this prop to use a custom component for rendering the navigation bar.
+
+---
 
 ### [v2.0.3](https://github.com/gpbl/react-day-picker/tree/v2.0.3) (2016-05-24)
 
