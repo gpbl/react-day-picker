@@ -1,3 +1,7 @@
+### [v2.3.3](https://github.com/gpbl/react-day-picker/tree/v2.3.3) (2016-07-04)
+
+Fixed props warnings in React 15.2.0 ([#191](https://github.com/gpbl/react-day-picker/pull/191)).
+
 ### [v2.3.2](https://github.com/gpbl/react-day-picker/tree/v2.3.2) (2016-07-01)
 
 Removed superfluous deprecation warnings.
@@ -21,14 +25,14 @@ Removed superfluous deprecation warnings.
 
 ## [v2.2.0](https://github.com/gpbl/react-day-picker/tree/v2.2.0) (2016-06-09)
 
-* Added `fixedWeeks` prop ([#176](https://github.com/gpbl/react-day-picker/pull/176) by [fcsonline](https://github.com/fcsonline)).
+Added `fixedWeeks` prop ([#176](https://github.com/gpbl/react-day-picker/pull/176) by [fcsonline](https://github.com/fcsonline)).
  Use this prop to always display 6 weeks per month: [example](http://www.gpbl.org/react-day-picker/examples/?fixedWeeks).
 
 ---
 
 ### [v2.1.1](https://github.com/gpbl/react-day-picker/tree/v2.1.1) (2016-06-06)
 
-* Fixed compatibility with IE11 ([#175](https://github.com/gpbl/react-day-picker/pull/175) by [davidspiess](https://github.com/davidspiess)).
+Fixed compatibility with IE11 ([#175](https://github.com/gpbl/react-day-picker/pull/175) by [davidspiess](https://github.com/davidspiess)).
 
 ## [v2.1.0](https://github.com/gpbl/react-day-picker/tree/v2.1.0) (2016-06-02)
 
