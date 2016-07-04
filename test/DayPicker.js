@@ -102,9 +102,9 @@ describe('<DayPicker />', () => {
       expect(wrapper.find('.DayPicker-Month')).to.have.length(3);
     });
     it('should render a custom caption element', () => {
-      const caption = <p>boo</p>;
-      const wrapper = mount(<DayPicker captionElement={caption} />);
-      expect(wrapper.containsMatchingElement(caption)).to.be.true;
+      const Caption = () => <p>boo</p>;
+      const wrapper = mount(<DayPicker captionElement={<Caption />} />);
+      expect(wrapper.containsMatchingElement(<Caption />)).to.be.true;
     });
     it('should render a custom navbar element', () => {
       const CustomNavbar = ({ className }) => <div className={className}>Navbar</div>;

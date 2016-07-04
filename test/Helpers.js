@@ -3,6 +3,19 @@ import { expect } from 'chai';
 import * as Helpers from '../src/Helpers';
 
 describe('Helpers', () => {
+  describe('getCustomProps', () => {
+    it('should filter props existing in the given propTypes', () => {
+      const props = {
+        foo: 1,
+        bar: 2,
+      };
+      const propTypes = {
+        bar: 'thing',
+      };
+      expect(Helpers.getCustomProps(props, propTypes)).to.eql({ foo: 1 });
+    });
+  });
+
   describe('getDaysInMonth', () => {
     it('get the correct number of days', () => {
       const date = new Date(2015, 1, 10);
