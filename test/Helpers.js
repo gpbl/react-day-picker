@@ -1,8 +1,21 @@
 
 import { expect } from 'chai';
+import sinon from 'sinon';
+
 import * as Helpers from '../src/Helpers';
 
 describe('Helpers', () => {
+  describe('cancelEvent', () => {
+    it('should prevent default and stop propagation', () => {
+      const e = { preventDefault: () => {}, stopPropagation: () => {} };
+      const preventDefault = sinon.spy(e, 'preventDefault');
+      const stopPropagation = sinon.spy(e, 'stopPropagation');
+      Helpers.cancelEvent(e);
+      expect(preventDefault).to.have.been.calledOnce;
+      expect(stopPropagation).to.have.been.calledOnce;
+    });
+  });
+
   describe('getCustomProps', () => {
     it('should filter props existing in the given propTypes', () => {
       const props = {
