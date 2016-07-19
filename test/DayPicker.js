@@ -21,6 +21,7 @@ describe('<DayPicker />', () => {
       expect(dayPicker.props.fixedWeeks).to.equal(false);
       expect(dayPicker.props.canChangeMonth).to.equal(true);
       expect(dayPicker.props.reverseMonths).to.equal(false);
+      expect(dayPicker.props.pagedNavigation).to.equal(false);
       expect(dayPicker.props.renderDay).to.be.a('Function');
       expect(dayPicker.props.weekdayElement).to.be.a('object');
       expect(dayPicker.props.navbarElement).to.be.a('object');
@@ -227,6 +228,20 @@ describe('<DayPicker />', () => {
       instance.showNextMonth();
       expect(instance.state.currentMonth.getMonth()).to.equal(7);
     });
+    it('should skip `numberOfMonths` months when `pagedNavigation`', () => {
+      const instance = shallow(
+        <DayPicker
+          initialMonth={new Date(2015, 7)}
+          enableOutsideDays={false}
+          numberOfMonths={2}
+          pagedNavigation
+        />
+      ).instance();
+      instance.showNextMonth();
+      expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
+      expect(instance.state.currentMonth.getMonth()).to.equal(9);
+      expect(instance.state.currentMonth.getDate()).to.equal(1);
+    });
   });
 
   describe('showPreviousMonth()', () => {
@@ -253,6 +268,20 @@ describe('<DayPicker />', () => {
       ).instance();
       instance.showPreviousMonth();
       expect(instance.state.currentMonth.getMonth()).to.equal(7);
+    });
+    it('should skip `numberOfMonths` months when `pagedNavigation`', () => {
+      const instance = shallow(
+        <DayPicker
+          initialMonth={new Date(2015, 7)}
+          enableOutsideDays={false}
+          numberOfMonths={2}
+          pagedNavigation
+        />
+      ).instance();
+      instance.showPreviousMonth();
+      expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
+      expect(instance.state.currentMonth.getMonth()).to.equal(5);
+      expect(instance.state.currentMonth.getDate()).to.equal(1);
     });
   });
 
