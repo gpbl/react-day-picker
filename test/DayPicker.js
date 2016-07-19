@@ -783,4 +783,20 @@ describe('<DayPicker />', () => {
       focusPreviousWeek.restore();
     });
   });
+
+  describe('paged navigation', () => {
+    it('should set the current month to the first month in its page if fromMonth is set', () => {
+      const instance = shallow(
+        <DayPicker
+          initialMonth={new Date(2015, 7)}
+          fromMonth={new Date(2015, 1)}
+          numberOfMonths={4}
+          pagedNavigation
+        />
+      ).instance();
+      expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
+      expect(instance.state.currentMonth.getMonth()).to.equal(5);
+      expect(instance.state.currentMonth.getDate()).to.equal(1);
+    });
+  });
 });
