@@ -13,4 +13,5 @@
 * [Utilities](Utilities.md)
   * [DateUtils](DateUtils.md)
   * [LocaleUtils](LocaleUtils.md)
+* [Changelog](Changelog.md)
 * [Contributing](Contributing.md)
