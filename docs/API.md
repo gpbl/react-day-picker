@@ -26,6 +26,7 @@
 | [onDayTouchStart](APIProps.md#ondaytouchstart) | | `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void` |
 | [onDayTouchEnd](APIProps.md#ondaytouchend) | | `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void` |
 | [onMonthChange](APIProps.md#onmonthchange) | | `(month: Date) ⇒ void` |
+| [pagedNavigation](APIProps.md#pagednavigation) |false | `Bool` |
 | [renderDay](APIProps.md#renderday) | day ⇒ day.getDate() | `(day: Date) ⇒ Element` |
 | [reverseMonths](APIProps.md#reversemonths) | false | `Bool` |
 | [selectedDays](APIProps.md#selecteddays) | | `Bool` |

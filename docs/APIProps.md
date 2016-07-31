@@ -125,6 +125,12 @@ The number of months to render, where `initialMonth` is the first month. Default
 
 ---
 
+#### pagedNavigation `Bool`
+
+When displaying multiple months, navigation will be paginated displaying the `numberOfMonths` at time. Default is `false`.
+
+---
+
 #### renderDay `(day: Date) ⇒ Element`
 
 Returns the content of a day cell. By default, it renders the day's date: `(day) ⇒ day.getDate()`
@@ -175,7 +181,7 @@ Custom component to render the weekday cells in the header. It will receive the 
 See [this example](http://www.gpbl.org/react-day-picker/examples?customElements) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Weekday.js) source code.
 
 ---
-
+<a name="weeekdayelement"></a>
 #### weekdayElement `Element`
 
 Custom React element to render the weekday cells in the header. It will receive the following props:
