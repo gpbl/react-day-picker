@@ -40,13 +40,13 @@ export default class Modifiers extends React.Component {
       <div>
         <span>
           <DayPicker
-            onDayMouseEnter={this.handleDayMouseEnter}
-            modifiers={modifiers}
-            onDayClick={this.handleDayClick}
+            onDayMouseEnter={ this.handleDayMouseEnter }
+            modifiers={ modifiers }
+            onDayClick={ this.handleDayClick }
           />
         </span>
         <p>
-          {this.state.text}
+          { this.state.text }
         </p>
       </div>
     );

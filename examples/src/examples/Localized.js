@@ -29,7 +29,7 @@ export default class Localized extends React.Component {
     return (
       <div>
         <p>
-          <select onChange={this.switchLocale}>
+          <select onChange={ this.switchLocale }>
             <option value="en">English</option>
             <option value="it">Italian</option>
             <option value="ja">Japanese</option>
@@ -37,10 +37,10 @@ export default class Localized extends React.Component {
           </select>
         </p>
         <DayPicker
-          dir={locale === 'ar' ? 'rtl' : 'ltr'}
-          locale={locale}
-          localeUtils={MomentLocaleUtils}
-          modifiers={{ sunday: day => day.getDay() === 0 }}
+          dir={ locale === 'ar' ? 'rtl' : 'ltr' }
+          locale={ locale }
+          localeUtils={ MomentLocaleUtils }
+          modifiers={ { sunday: day => day.getDay() === 0 } }
         />
       </div>
     );

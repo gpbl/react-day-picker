@@ -23,17 +23,17 @@ function YearMonthForm({ date, localeUtils, onChange }) {
 
   return (
     <form className="DayPicker-Caption">
-      <select name="month" onChange={handleChange} value={date.getMonth()}>
-        {months.map((month, i) =>
-          <option key={i} value={i}>
-            {month}
+      <select name="month" onChange={ handleChange } value={ date.getMonth() }>
+        { months.map((month, i) =>
+          <option key={ i } value={ i }>
+            { month }
           </option>)
         }
       </select>
-      <select name="year" onChange={handleChange} value={date.getFullYear()}>
-        {years.map((year, i) =>
-          <option key={i} value={year}>
-            {year}
+      <select name="year" onChange={ handleChange } value={ date.getFullYear() }>
+        { years.map((year, i) =>
+          <option key={ i } value={ year }>
+            { year }
           </option>)
         }
       </select>
@@ -51,11 +51,11 @@ export default class YearNavigation extends React.Component {
     return (
       <div className="YearNavigation">
         <DayPicker
-          initialMonth={this.state.initialMonth}
-          fromMonth={fromMonth}
-          toMonth={toMonth}
+          initialMonth={ this.state.initialMonth }
+          fromMonth={ fromMonth }
+          toMonth={ toMonth }
           captionElement={
-            <YearMonthForm onChange={initialMonth => this.setState({ initialMonth })} />
+            <YearMonthForm onChange={ initialMonth => this.setState({ initialMonth }) } />
           }
         />
       </div>

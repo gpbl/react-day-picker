@@ -4,5 +4,5 @@ import DayPicker from '../../../src';
 import '../../../src/style.css';
 
 export default function SimpleCalendar() {
-  return <DayPicker onDayClick={(e, day) => console.log(day)} />;
+  return <DayPicker onDayClick={ (e, day) => console.log(day) } />;
 }

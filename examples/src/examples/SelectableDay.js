@@ -19,11 +19,11 @@ export default class SelectableDay extends React.Component {
     return (
       <div>
         <DayPicker
-          selectedDays={day => DateUtils.isSameDay(selectedDay, day)}
-          onDayClick={this.handleDayClick}
+          selectedDays={ day => DateUtils.isSameDay(selectedDay, day) }
+          onDayClick={ this.handleDayClick }
         />
         <p>
-          {selectedDay ? selectedDay.toLocaleDateString() : 'Please select a day 👻'}
+          { selectedDay ? selectedDay.toLocaleDateString() : 'Please select a day 👻' }
         </p>
       </div>
     );

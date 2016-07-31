@@ -52,15 +52,15 @@ export default class LocalizedCustom extends React.Component {
     return (
       <div>
         <p>
-          <select onChange={this.switchLocale}>
+          <select onChange={ this.switchLocale }>
             <option value="ru">Русский (Russian)</option>
             <option value="en">English</option>
           </select>
         </p>
         <DayPicker
-          locale={locale}
-          localeUtils={localeUtils}
-          modifiers={{ sunday: day => day.getDay() === 0 }}
+          locale={ locale }
+          localeUtils={ localeUtils }
+          modifiers={ { sunday: day => day.getDay() === 0 } }
         />
       </div>
     );

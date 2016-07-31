@@ -54,17 +54,17 @@ export default class InputField extends React.Component {
           <input
             ref="input"
             type="text"
-            value={this.state.value}
+            value={ this.state.value }
             placeholder="YYYY-MM-DD"
-            onChange={this.handleInputChange}
-            onFocus={this.showCurrentDate}
+            onChange={ this.handleInputChange }
+            onFocus={ this.showCurrentDate }
           />
         </p>
         <DayPicker
           ref="daypicker"
-          initialMonth={this.state.month}
-          selectedDays={day => DateUtils.isSameDay(selectedDay, day)}
-          onDayClick={this.handleDayClick}
+          initialMonth={ this.state.month }
+          selectedDays={ day => DateUtils.isSameDay(selectedDay, day) }
+          onDayClick={ this.handleDayClick }
         />
       </div>
     );

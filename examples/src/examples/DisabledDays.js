@@ -24,13 +24,13 @@ export default class DisabledDays extends React.Component {
     return (
       <div>
         <DayPicker
-          selectedDays={day => DateUtils.isSameDay(selectedDay, day)}
-          disabledDays={DateUtils.isPastDay}
+          selectedDays={ day => DateUtils.isSameDay(selectedDay, day) }
+          disabledDays={ DateUtils.isPastDay }
           enableOutsideDays
-          onDayClick={this.handleDayClick}
+          onDayClick={ this.handleDayClick }
         />
         <p>
-          {selectedDay ? selectedDay.toLocaleDateString() : 'Please select a day 👻'}
+          { selectedDay ? selectedDay.toLocaleDateString() : 'Please select a day 👻' }
         </p>
       </div>
     );

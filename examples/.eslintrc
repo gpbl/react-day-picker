@@ -1,12 +1,22 @@
 {
-  "env": {
-    "node": true,
-    "browser": true
-  },
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "extends": ["airbnb", "plugin:import/errors", "plugin:import/warnings"],
   "rules": {
     "max-len": 0,
     "no-console": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/jsx-curly-spacing": [2, "always"]
   },
-  "extends": "airbnb"
+  "settings": {
+    "import/ignore": [
+      "node_modules",
+      "\\.(scss|less|css|json)$"
+    ]
+  },
+  "env": {
+    "es6": true,
+    "mocha": true,
+    "browser": false
+  }
 }

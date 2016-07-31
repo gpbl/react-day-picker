@@ -29,14 +29,14 @@ export default class YearCalendar extends React.Component {
     return (
       <div className="YearCalendar">
         <h1>
-          <a onClick={this.showPrevious}>{year - 1}</a>
-          {year}
-          <a onClick={this.showNext}>{year + 1}</a>
+          <a onClick={ this.showPrevious }>{ year - 1 }</a>
+          { year }
+          <a onClick={ this.showNext }>{ year + 1 }</a>
         </h1>
         <DayPicker
-          canChangeMonth={false}
-          initialMonth={new Date(year, 0, 1)}
-          numberOfMonths={12}
+          canChangeMonth={ false }
+          initialMonth={ new Date(year, 0, 1) }
+          numberOfMonths={ 12 }
         />
       </div>
     );

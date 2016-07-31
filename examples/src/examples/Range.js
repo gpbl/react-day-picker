@@ -29,19 +29,19 @@ export default class Range extends React.Component {
     const { from, to } = this.state;
     return (
       <div className="RangeExample">
-        {!from && !to && <p>Please select the <strong>first day</strong>.</p>}
-        {from && !to && <p>Please select the <strong>last day</strong>.</p>}
-        {from && to &&
+        { !from && !to && <p>Please select the <strong>first day</strong>.</p> }
+        { from && !to && <p>Please select the <strong>last day</strong>.</p> }
+        { from && to &&
           <p>
-            You chose from {moment(from).format('L')} to {moment(to).format('L')}.
-            {' '}<a href="#" onClick={this.handleResetClick}>Reset</a>
+            You chose from { moment(from).format('L') } to { moment(to).format('L') }.
+            { ' ' }<a href="#" onClick={ this.handleResetClick }>Reset</a>
           </p>
         }
         <DayPicker
           ref="daypicker"
-          numberOfMonths={2}
-          selectedDays={day => DateUtils.isDayInRange(day, { from, to })}
-          onDayClick={this.handleDayClick}
+          numberOfMonths={ 2 }
+          selectedDays={ day => DateUtils.isDayInRange(day, { from, to }) }
+          onDayClick={ this.handleDayClick }
         />
       </div>
     );

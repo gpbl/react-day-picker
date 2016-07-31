@@ -10,16 +10,16 @@ export default function Restricted() {
   return (
     <DayPicker
       enableOutsideDays
-      numberOfMonths={2}
-      initialMonth={fromMonth}
-      fromMonth={fromMonth}
-      toMonth={toMonth}
-      disabledDays={day => fromMonth > day || day > toMonth}
-      onDayClick={(e, day, { disabled }) => {
+      numberOfMonths={ 2 }
+      initialMonth={ fromMonth }
+      fromMonth={ fromMonth }
+      toMonth={ toMonth }
+      disabledDays={ day => fromMonth > day || day > toMonth }
+      onDayClick={ (e, day, { disabled }) => {
         if (!disabled) {
           console.log(day.toLocaleDateString());
         }
-      }}
+      } }
     />
   );
 }

@@ -1,9 +1,9 @@
 /* eslint-disable react/no-danger, max-len, global-require */
+/* eslint-env browser */
 import React, { Component } from 'react';
 
 import { createHistory } from 'history';
 
-import Prism from './vendors/prism';
 import './vendors/prism.css';
 
 import Birthdays from './examples/Birthdays';
@@ -21,6 +21,8 @@ import SelectableDay from './examples/SelectableDay';
 import SimpleCalendar from './examples/SimpleCalendar';
 import YearCalendar from './examples/YearCalendar';
 import YearNavigation from './examples/YearNavigation';
+
+const Prism = require('./vendors/prism');
 
 const history = createHistory();
 
@@ -139,18 +141,18 @@ export default class Examples extends Component {
   renderNavBarExamples() {
     const links = Object.keys(EXAMPLES).map(name =>
       <a
-        href={`.?${name}`}
-        onClick={e => {
+        href={ `.?${name}` }
+        onClick={ e => {
           e.preventDefault();
           history.push({ pathname: history.getCurrentLocation().pathname, search: `?${name}` });
-        }}
-        key={name}
-        className={this.state.currentExample === name ? 'selected' : ''}
+        } }
+        key={ name }
+        className={ this.state.currentExample === name ? 'selected' : '' }
       >
-        {EXAMPLES[name].title}
+        { EXAMPLES[name].title }
       </a>
     );
-    return <div className="NavBar-links">{links}</div>;
+    return <div className="NavBar-links">{ links }</div>;
   }
 
   render() {
@@ -163,20 +165,20 @@ export default class Examples extends Component {
     source = source.replace('../../../src/style.css', 'react-day-picker/lib/style.css');
     return (
       <div>
-        <div className="NavBar-toggle" onClick={() => { this.setState({ showNavBar: !showNavBar }); }} />
+        <div className="NavBar-toggle" onClick={ () => { this.setState({ showNavBar: !showNavBar }); } } />
         <div className="Header">
           <a href="http://www.gpbl.org/react-day-picker/">
-            <img src="https://cloud.githubusercontent.com/assets/120693/12529597/79225e4a-c1bd-11e5-9001-cc27c6b9bb1b.png" style={{ maxWidth: '230px' }} alt="react-day-picker" />
+            <img src="https://cloud.githubusercontent.com/assets/120693/17276843/94ad5b62-5734-11e6-9f25-454f50f81122.png" style={ { maxWidth: '230px' } } alt="react-day-picker" />
           </a>
         </div>
-        <div className={`Content${showNavBar ? ' navbar-is-visible' : ''}`}>
+        <div className={ `Content${showNavBar ? ' navbar-is-visible' : ''}` }>
 
           <div className="NavBar">
             <div className="NavBar-wrapper">
               <h3>Examples</h3>
-              {this.renderNavBarExamples()}
+              { this.renderNavBarExamples() }
 
-              <h3 style={{ paddingTop: '1rem' }}>About</h3>
+              <h3 style={ { paddingTop: '1rem' } }>About</h3>
               <a href="http://www.gpbl.org/react-day-picker">
                 Documentation
               </a>
@@ -184,18 +186,18 @@ export default class Examples extends Component {
                 Github
               </a>
               <iframe
-                style={{ marginLeft: '1rem', marginTop: '0.5rem' }}
+                style={ { marginLeft: '1rem', marginTop: '0.5rem' } }
                 src="https://ghbtns.com/github-btn.html?user=gpbl&amp;repo=react-day-picker&amp;type=star&amp;count=true"
-                frameBorder={0} scrolling={0} width="110px" height="20px"
+                frameBorder={ 0 } scrolling={ 0 } width="110px" height="20px"
               ></iframe>
             </div>
           </div>
 
           <div className="Examples">
             <h2>
-                {EXAMPLES[currentExample].title}
+                { EXAMPLES[currentExample].title }
             </h2>
-            <p dangerouslySetInnerHTML={{ __html: EXAMPLES[currentExample].description }} />
+            <p dangerouslySetInnerHTML={ { __html: EXAMPLES[currentExample].description } } />
             <div className="Example">
 
               <div className="Example-Result">
@@ -204,14 +206,14 @@ export default class Examples extends Component {
               <div className="Example-Code">
                 <pre>
                   <code className="language-jsx">
-                    {source}
+                    { source }
                   </code>
                 </pre>
               </div>
             </div>
 
-            <p style={{ fontSize: '0.75em' }}>
-              <a href={`https://github.com/gpbl/react-day-picker/blob/master/examples/src/examples/${ExampleComponent.name}.js`}>See source on Github</a>
+            <p style={ { fontSize: '0.75em' } }>
+              <a href={ `https://github.com/gpbl/react-day-picker/blob/master/examples/src/examples/${ExampleComponent.name}.js` }>See source on Github</a>
             </p>
           </div>
         </div>

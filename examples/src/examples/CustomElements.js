@@ -6,8 +6,8 @@ import '../../../src/style.css';
 function Weekday({ weekday, className, localeUtils, locale }) {
   const weekdayName = localeUtils.formatWeekdayLong(weekday, locale);
   return (
-    <div className={className} title={weekdayName}>
-      {weekdayName.slice(0, 1)}
+    <div className={ className } title={ weekdayName }>
+      { weekdayName.slice(0, 1) }
     </div>
   );
 }
@@ -18,12 +18,12 @@ function Navbar({ nextMonth, previousMonth, onPreviousClick, onNextClick, classN
   const prev = months[previousMonth.getMonth()];
   const next = months[nextMonth.getMonth()];
   return (
-    <div className={className} style={{ fontSize: '.75em' }}>
-      <span style={{ float: 'left', cursor: 'pointer' }} onClick={() => onPreviousClick()}>
-        ← {prev.slice(0, 3)}
+    <div className={ className } style={ { fontSize: '.75em' } }>
+      <span style={ { float: 'left', cursor: 'pointer' } } onClick={ () => onPreviousClick() }>
+        ← { prev.slice(0, 3) }
       </span>
-      <span style={{ float: 'right', cursor: 'pointer' }} onClick={() => onNextClick()}>
-        {next.slice(0, 3)} →
+      <span style={ { float: 'right', cursor: 'pointer' } } onClick={ () => onNextClick() }>
+        { next.slice(0, 3) } →
       </span>
     </div>
   );
@@ -33,7 +33,7 @@ Navbar.propTypes = NavbarPropTypes;
 export default function CustomElements() {
   return (
     <div>
-      <DayPicker weekdayElement={ <Weekday/> } navbarElement={ <Navbar /> } />
+      <DayPicker weekdayElement={ <Weekday /> } navbarElement={ <Navbar /> } />
     </div>
   );
 }

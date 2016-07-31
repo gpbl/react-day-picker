@@ -19,12 +19,12 @@ function renderDay(day) {
   const date = day.getDate();
   return (
     <div>
-      {date}
+      { date }
       <div className="Birthdays-List">
-        {birthdays[date] &&
+        { birthdays[date] &&
           birthdays[date].map((birthday, i) =>
-            <div key={i}>
-              🎁 {birthday.name} ({birthday.age})
+            <div key={ i }>
+              🎁 { birthday.name } ({ birthday.age })
             </div>
           )
         }
@@ -34,5 +34,5 @@ function renderDay(day) {
 }
 
 export default function Birthdays() {
-  return <DayPicker canChangeMonth={false} className="Birthdays" renderDay={renderDay} />;
+  return <DayPicker canChangeMonth={ false } className="Birthdays" renderDay={ renderDay } />;
 }
