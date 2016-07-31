@@ -1,10 +1,12 @@
 {
-  "plugins": ["edit-link", "prism", "-highlight", "-sharing", "ga", "anchors"],
+  "gitbook": "3.2.x",
+  "plugins": ["edit-link", "prism", "-highlight", "-sharing", "ga", "include"],
+  "root": "./docs",
   "structure": {
-    "summary": "docs/README.md"
+    "summary": "SUMMARY.md"
   },
   "styles": {
-    "website": "docs/styles/website.css"
+    "website": "styles/website.css"
   },
   "pluginsConfig": {
     "ga": {
@@ -12,7 +14,7 @@
     },
     "edit-link": {
       "base": "https://github.com/gpbl/react-day-picker/tree/master",
-      "label": "<span>Edit This Page</span>"
+      "label": "Edit This Page"
     }
   }
 }

@@ -1,6 +1,7 @@
 /* CSS for website */
 
 body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     letter-spacing: 0;
 }
 p code {
@@ -30,4 +31,9 @@ section ul, section ol {
 
 section h1, section h2, section h3 {
   border-bottom: 1px solid #EAEAEA;
+}
+
+.book.font-family-1,
+.book .book-summary {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
