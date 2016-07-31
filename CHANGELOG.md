@@ -1,3 +1,10 @@
+## [v2.4.0](https://github.com/gpbl/react-day-picker/tree/v2.4.0) (2016-07-31)
+
+* Added `pageNavigation` prop ([#196](https://github.com/gpbl/react-day-picker/pull/196) by [zaygraveyard](https://github.com/zaygraveyard)).
+* Improved behavior of `initialMonth` ([#198](https://github.com/gpbl/react-day-picker/pull/198) by [zaygraveyard](https://github.com/zaygraveyard)).
+
+---
+
 ### [v2.3.3](https://github.com/gpbl/react-day-picker/tree/v2.3.3) (2016-07-04)
 
 Fixed props warnings in React 15.2.0 ([#191](https://github.com/gpbl/react-day-picker/pull/191)).
@@ -21,7 +28,6 @@ Removed superfluous deprecation warnings.
 ```
 
 ---
-
 
 ## [v2.2.0](https://github.com/gpbl/react-day-picker/tree/v2.2.0) (2016-06-09)
 
