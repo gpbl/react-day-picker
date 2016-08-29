@@ -16,6 +16,7 @@ import Localized from './examples/Localized';
 import LocalizedCustom from './examples/LocalizedCustom';
 import Modifiers from './examples/Modifiers';
 import Range from './examples/Range';
+import RangeAdvanced from './examples/RangeAdvanced';
 import Restricted from './examples/Restricted';
 import SelectableDay from './examples/SelectableDay';
 import SimpleCalendar from './examples/SimpleCalendar';
@@ -61,9 +62,14 @@ const EXAMPLES = {
     Component: FixedWeeks,
   },
   range: {
-    title: 'Range of Days',
+    title: 'Range of Days - click',
     description: "Select a range of days using the range functions available in <a href='http://www.gpbl.org/react-day-picker/docs/DateUtils.html'>DateUtils</a>.",
     Component: Range,
+  },
+  rangeAdvanced: {
+    title: 'Range of Days – mouse enter',
+    description: 'Select a range of days when the mouse enters in a day cell.',
+    Component: RangeAdvanced,
   },
   modifiers: {
     title: 'Advanced Modifiers',

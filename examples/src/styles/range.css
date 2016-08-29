@@ -1,0 +1,42 @@
+.Range .DayPicker-Day {
+  outline: none;
+}
+
+.Range .DayPicker-Day--disabled {
+  background-color: white;
+  color: lightgray;
+}
+
+.Range .DayPicker-Day:not(.DayPicker-Day--outside):not(.DayPicker-Day--selected):hover {
+  background-color: #EAEAEA;
+  color: #555;
+}
+
+.DayPicker-Day--from,
+.DayPicker-Day--to {
+  position: relative;
+}
+
+.DayPicker-Day--from:not(.DayPicker-Day--outside):before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -5px;
+  width: 5px;
+  content: '';
+  background-color: yellowgreen;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.DayPicker-Day--to:not(.DayPicker-Day--outside):after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -5px;
+  width: 5px;
+  content: '';
+  background-color: yellowgreen;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

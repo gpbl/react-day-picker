@@ -57,6 +57,7 @@ module.exports = {
           'LocalizedCustom',
           'Modifiers',
           'Range',
+          'RangeAdvanced',
           'Restricted',
           'SelectableDay',
           'SimpleCalendar',
