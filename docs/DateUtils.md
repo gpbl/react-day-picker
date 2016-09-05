@@ -25,6 +25,10 @@ Return `true` if the two dates `d1` and `d2` are the same day, e.g. ignoring the
 
 Returns `true` if `d` is in the past, e.g. is yesterday or any day before yesterday.
 
+### isFutureDay `(d: Date) ⇒ Bool`
+
+Returns `true` if `d` is in the future, e.g. is tomorrow or any day after tomorrow.
+
 ### isDayBetween `(day: Date, d1: Date, d2: Date) ⇒ Bool`
 
 Returns `true` if `day` is between the days `d1` and `d2`, without including those days.

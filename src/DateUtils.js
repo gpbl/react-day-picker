@@ -50,6 +50,19 @@ export function isPastDay(d) {
 }
 
 /**
+ * Return `true` if a day is in the future, e.g. tomorrow or any day
+ * after tomorrow.
+ *
+ * @param  {Date}  d
+ * @return {Boolean}
+ */
+export function isFutureDay(d) {
+  const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+  tomorrow.setHours(0, 0, 0, 0);
+  return d >= tomorrow;
+}
+
+/**
  * Return `true` if day `d` is between days `d1` and `d2`,
  * without including them.
  *
@@ -122,4 +135,5 @@ export default {
   isDayInRange,
   isDayBetween,
   isPastDay,
+  isFutureDay,
 };
