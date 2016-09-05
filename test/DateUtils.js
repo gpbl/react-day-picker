@@ -65,6 +65,21 @@ describe('DateUtils', () => {
     });
   });
 
+  describe('isFutureDay', () => {
+    it('detects a day is in the future', () => {
+      const isFutureDay = DateUtils.isFutureDay(new Date(2017, 5, 11));
+      expect(isFutureDay).to.be.true;
+    });
+    it('detects a day in the past', () => {
+      const isFutureDay = DateUtils.isFutureDay(new Date(2001, 1, 11));
+      expect(isFutureDay).to.be.false;
+    });
+    it('says today is not a future day', () => {
+      const isFutureDay = DateUtils.isFutureDay(new Date());
+      expect(isFutureDay).to.be.false;
+    });
+  });
+
   describe('isDayBetween', () => {
     it('detects a day between two days', () => {
       const d = new Date(2015, 10, 12);
