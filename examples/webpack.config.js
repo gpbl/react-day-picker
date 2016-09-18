@@ -53,6 +53,7 @@ module.exports = {
           'CustomElements',
           'FixedWeeks',
           'InputField',
+          'InputFieldOverlay',
           'Localized',
           'LocalizedCustom',
           'Modifiers',
