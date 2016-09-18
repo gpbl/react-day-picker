@@ -27,15 +27,20 @@ export default class CalendarOverlay extends Component {
     selectedDay: null,
   };
 
+  componentWillUnmount() {
+    clearTimeout(this.clickTimeout);
+  }
+
   input = null;
   daypicker = null;
   clickedInside = false;
+  clickTimeout = null;
 
   handleContainerMouseDown() {
     this.clickedInside = true;
     // The input's onBlur method is called from a queue right after onMouseDown event.
     // setTimeout adds another callback in the queue, but is called later than onBlur event
-    setTimeout(() => {
+    this.clickTimeout = setTimeout(() => {
       this.clickedInside = false;
     }, 0);
   }
