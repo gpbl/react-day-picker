@@ -10,7 +10,7 @@ const overlayStyle = {
   boxShadow: '0 2px 5px rgba(0, 0, 0, .15)',
 };
 
-export default class CalendarOverlay extends Component {
+export default class InputFieldOverlay extends Component {
 
   constructor(props) {
     super(props);
