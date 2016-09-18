@@ -12,6 +12,7 @@ import BlockedNavigation from './examples/BlockedNavigation';
 import CustomElements from './examples/CustomElements';
 import FixedWeeks from './examples/FixedWeeks';
 import InputField from './examples/InputField';
+import InputFieldOverlay from './examples/InputFieldOverlay';
 import Localized from './examples/Localized';
 import LocalizedCustom from './examples/LocalizedCustom';
 import Modifiers from './examples/Modifiers';
@@ -22,7 +23,6 @@ import SelectableDay from './examples/SelectableDay';
 import SimpleCalendar from './examples/SimpleCalendar';
 import YearCalendar from './examples/YearCalendar';
 import YearNavigation from './examples/YearNavigation';
-import CalendarOverlay from './examples/CalendarOverlay';
 
 const Prism = require('./vendors/prism');
 
@@ -112,15 +112,15 @@ const EXAMPLES = {
     description: 'Use <code>weekdayElement</code> or <code>navbarElement</code> to customize with your own React element the weekday or the navigation bar.',
     Component: CustomElements,
   },
+  overlay: {
+    title: 'Input Field with Overlay',
+    description: 'A more complex example showing the day picker on input\'s focus and hiding it on input\'s blur.',
+    Component: InputFieldOverlay,
+  },
   year: {
     title: 'Year Calendar',
     description: 'Use <code>numberOfMonths</code> to display a custom number of calendars.',
     Component: YearCalendar,
-  },
-  overlay: {
-    title: 'Calendar Overlay',
-    description: 'Show calendar on input\'s focus and hide it on input\'s blur.',
-    Component: CalendarOverlay,
   },
 };
 
