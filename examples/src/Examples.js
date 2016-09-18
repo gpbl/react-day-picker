@@ -22,6 +22,7 @@ import SelectableDay from './examples/SelectableDay';
 import SimpleCalendar from './examples/SimpleCalendar';
 import YearCalendar from './examples/YearCalendar';
 import YearNavigation from './examples/YearNavigation';
+import CalendarOverlay from './examples/CalendarOverlay';
 
 const Prism = require('./vendors/prism');
 
@@ -115,6 +116,11 @@ const EXAMPLES = {
     title: 'Year Calendar',
     description: 'Use <code>numberOfMonths</code> to display a custom number of calendars.',
     Component: YearCalendar,
+  },
+  overlay: {
+    title: 'Calendar Overlay',
+    description: 'Show calendar on input\'s focus and hide it on input\'s blur.',
+    Component: CalendarOverlay,
   },
 };
 
