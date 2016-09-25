@@ -6,12 +6,17 @@ The easiest way to see how react-day-picker works is to check the [examples with
 
 If you want to play with the examples, setup the repo and the app:
 
-1. Setup the repo and the app:
+1. Setup the repo and the app (remember to run `npm install` from the root:
 
 ```
 git clone https://github.com/gpbl/react-day-picker.git
-cd react-day-picker && npm install && npm run build
-cd examples && npm install
+
+cd react-day-picker
+npm install
+npm run build
+
+cd examples
+npm install
 ```
 
 2. Run the example app from the `examples` dir:
