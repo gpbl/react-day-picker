@@ -7,7 +7,7 @@ To localize the calendar with [moment.js](http://www.momentjs.com):
 3. import `LocaleUtils` from `react-day-picker/moment` and pass it to the `localeUtils` props
 4. use the `locale` prop to pass the current locale
 
-[See an example](http://www.gpbl.org/react-day-picker/examples?localized).
+[See an example](http://react-day-picker.js.org/examples?localized).
 
 ### Code
 

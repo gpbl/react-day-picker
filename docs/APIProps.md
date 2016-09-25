@@ -93,7 +93,7 @@ Custom component to render the navigation bar. It will receive the following pro
 * localeUtils `Object`
 * locale `String`
 
-See [this example](http://www.gpbl.org/react-day-picker/examples?customElements) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Navbar.js) source code.
+See [this example](http://react-day-picker.js.org/examples?customElements) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Navbar.js) source code.
 
 ### navbarElement
 
@@ -161,7 +161,7 @@ Custom component to render the weekday cells in the header. It will receive the 
 * localeUtils `Object`
 * locale `String`
 
-See [this example](http://www.gpbl.org/react-day-picker/examples?customElements) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Weekday.js) source code.
+See [this example](http://react-day-picker.js.org/examples?customElements) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Weekday.js) source code.
 
 ### weekdayElement
 

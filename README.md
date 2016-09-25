@@ -8,8 +8,8 @@
 react-day-picker is a flexible date picker component for [React](https://facebook.github.io/react/).
 
 * no external dependencies
-* select [days](http://www.gpbl.org/react-day-picker/examples?selectable), [ranges](http://www.gpbl.org/react-day-picker/examples?range), whatever using CSS modifiers
-* ready for i18n, with [moment.js](http://www.gpbl.org/react-day-picker/examples?localized) or [any other library](http://www.gpbl.org/react-day-picker/examples?localizedCustom)
+* select [days](http://react-day-picker.js.org/examples?selectable), [ranges](http://react-day-picker.js.org/examples?range), whatever using CSS modifiers
+* ready for i18n, with [moment.js](http://react-day-picker.js.org/examples?localized) or [any other library](http://react-day-picker.js.org/examples?localizedCustom)
 * customizable [style](https://github.com/gpbl/react-day-picker/blob/master/src/style.css)
 * navigable via keyboard, ARIA support
 
@@ -76,7 +76,7 @@ class MyComponent extends React.Component {
 }
 ```
 
-See [Basic usage](http://www.gpbl.org/react-day-picker/Basic.html) for a deeper explanation of the example above.
+See [Basic usage](http://react-day-picker.js.org/Basic.html) for a deeper explanation of the example above.
 
 ### Docs and examples
 
@@ -84,11 +84,11 @@ See [Basic usage](http://www.gpbl.org/react-day-picker/Basic.html) for a deeper 
 * [Documentation](http://gpbl.org/react-day-picker)
     * [Basic usage](http://gpbl.org/react-day-picker/Basic.html)
     * [Use of modifiers](http://gpbl.org/react-day-picker/Modifiers.html)
-    * [API](http://www.gpbl.org/react-day-picker/API.html)
-    * [Styling](http://www.gpbl.org/react-day-picker/Styling.html)
-    * [Localization](http://www.gpbl.org/react-day-picker/Localization.html)
-    * [Tips](http://www.gpbl.org/react-day-picker/Tips.html)
-    * [Utilities](http://www.gpbl.org/react-day-picker/Utilities.html)
+    * [API](http://react-day-picker.js.org/API.html)
+    * [Styling](http://react-day-picker.js.org/Styling.html)
+    * [Localization](http://react-day-picker.js.org/Localization.html)
+    * [Tips](http://react-day-picker.js.org/Tips.html)
+    * [Utilities](http://react-day-picker.js.org/Utilities.html)
 * [Changelog](https://github.com/gpbl/react-day-picker/blob/master/CHANGELOG.md)
 
 ### Get support
@@ -101,4 +101,4 @@ See [Basic usage](http://www.gpbl.org/react-day-picker/Basic.html) for a deeper 
 * File bugs and feature requests in the [issues page](https://github.com/gpbl/react-day-picker/issues)
 * Check out the source code on [Github](https://github.com/gpbl/react-day-picker)
 * Pull requests are welcome! If you are planning a pull request with lot of changes, please add an issue to discuss your idea first
-  * See how to start the project locally [here](http://www.gpbl.org/react-day-picker/Contributing.html)
+  * See how to start the project locally [here](http://react-day-picker.js.org/Contributing.html)
