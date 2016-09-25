@@ -1,6 +1,6 @@
 # Examples with code
 
-The easiest way to see how react-day-picker works is to check the [examples with code](http://gpbl.org/react-day-picker/examples).
+The easiest way to see how react-day-picker works is to check the [examples with code](http://react-day-picker.js.org/examples).
 
 ## Running the examples locally
 

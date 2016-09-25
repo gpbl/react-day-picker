@@ -13,7 +13,7 @@ react-day-picker is a flexible date picker component for [React](https://faceboo
 * customizable [style](https://github.com/gpbl/react-day-picker/blob/master/src/style.css)
 * navigable via keyboard, ARIA support
 
-Check out the [examples](http://gpbl.org/react-day-picker/examples) to see its features.
+Check out the [examples](http://react-day-picker.js.org/examples) to see its features.
 
 [![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
 [![Bower](https://img.shields.io/bower/v/react-day-picker.svg?style=flat-square)](http://bower.io/search/?q=react-day-picker)
@@ -80,10 +80,10 @@ See [Basic usage](http://react-day-picker.js.org/Basic.html) for a deeper explan
 
 ### Docs and examples
 
-* [Examples with code](http://gpbl.org/react-day-picker/examples)
-* [Documentation](http://gpbl.org/react-day-picker)
-    * [Basic usage](http://gpbl.org/react-day-picker/Basic.html)
-    * [Use of modifiers](http://gpbl.org/react-day-picker/Modifiers.html)
+* [Examples with code](http://react-day-picker.js.org/examples)
+* [Documentation](http://react-day-picker.js.org)
+    * [Basic usage](http://react-day-picker.js.org/Basic.html)
+    * [Use of modifiers](http://react-day-picker.js.org/Modifiers.html)
     * [API](http://react-day-picker.js.org/API.html)
     * [Styling](http://react-day-picker.js.org/Styling.html)
     * [Localization](http://react-day-picker.js.org/Localization.html)
