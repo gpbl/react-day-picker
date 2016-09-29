@@ -7,9 +7,14 @@ module.exports = {
     path: __dirname + '/dist',
     filename: 'DayPicker.js',
     library: 'DayPicker',
-    libraryTarget: 'var',
+    libraryTarget: 'umd'
   },
   externals: {
-    react: 'React',
+    'react': {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    }
   },
 };
