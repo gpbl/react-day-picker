@@ -3,6 +3,7 @@
   "version": "2.5.0",
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
+  "browser": "./dist/DayPicker.js",
   "style": "lib/style.css",
   "files": [
     "DayPicker.js",
