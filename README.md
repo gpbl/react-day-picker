@@ -26,13 +26,19 @@ Check out the [examples](http://react-day-picker.js.org/examples) to see its fea
 
 ## Quick start
 
-**Install via npm**
+**Installing via npm**
 
 ```
 npm install react-day-picker --save
 ```
 
-**Install via Bower**
+**Using unpkg CDN**
+
+```html
+<script src="https://unpkg.com/react-day-picker"></script>
+```
+
+**Installing via Bower**
 
 ```
 bower install react-day-picker --save
