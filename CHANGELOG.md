@@ -1,3 +1,9 @@
+## [v2.5.0](https://github.com/gpbl/react-day-picker/tree/v2.5.0) (2016-10-06)
+
+* Build dist files as UMD module ([#216](https://github.com/gpbl/react-day-picker/pull/216) by [pguimera](https://github.com/pguimera)).
+
+---
+
 ## [v2.4.0](https://github.com/gpbl/react-day-picker/tree/v2.4.0) (2016-07-31)
 
 * Added `pageNavigation` prop ([#196](https://github.com/gpbl/react-day-picker/pull/196) by [zaygraveyard](https://github.com/zaygraveyard)).
