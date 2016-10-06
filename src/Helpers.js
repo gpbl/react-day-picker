@@ -10,7 +10,7 @@ export function cancelEvent(e) {
 export function getCustomProps(props, propTypes) {
   const customProps = {};
   Object.keys(props)
-      .filter(propName => !propTypes.hasOwnProperty(propName))
+      .filter(propName => !{}.hasOwnProperty.call(propTypes, propName))
       .forEach((propName) => {
         customProps[propName] = props[propName];
       });

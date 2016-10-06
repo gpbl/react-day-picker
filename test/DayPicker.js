@@ -126,7 +126,8 @@ describe('<DayPicker />', () => {
       expect(wrapper.find('.DayPicker-NavBar').at(0)).to.have.text('Navbar');
     });
     it('should render a custom weekday element', () => {
-      const CustomWeekday = ({ className, weekday }) => <div className={ className }>{weekday}</div>;
+      const CustomWeekday = ({ className, weekday }) =>
+        <div className={ className }>{weekday}</div>;
       CustomWeekday.propTypes = { className: PropTypes.string, weekday: PropTypes.number };
       const weekday = <CustomWeekday />;
       const dayPicker = <DayPicker weekdayElement={ weekday } />;
