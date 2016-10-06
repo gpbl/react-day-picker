@@ -57,7 +57,7 @@ export function isPastDay(d) {
  * @return {Boolean}
  */
 export function isFutureDay(d) {
-  const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+  const tomorrow = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
   tomorrow.setHours(0, 0, 0, 0);
   return d >= tomorrow;
 }

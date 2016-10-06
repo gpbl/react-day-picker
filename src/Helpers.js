@@ -10,8 +10,8 @@ export function cancelEvent(e) {
 export function getCustomProps(props, propTypes) {
   const customProps = {};
   Object.keys(props)
-      .filter(propName => !propTypes.hasOwnProperty(propName))
-      .forEach(propName => {
+      .filter(propName => !{}.hasOwnProperty.call(propTypes, propName))
+      .forEach((propName) => {
         customProps[propName] = props[propName];
       });
   return customProps;
@@ -30,6 +30,17 @@ export function getDaysInMonth(d) {
   return resultDate.getDate();
 }
 
+export function getModifiersFromProps(props) {
+  const modifiers = { ...props.modifiers };
+  if (props.selectedDays) {
+    modifiers.selected = props.selectedDays;
+  }
+  if (props.disabledDays) {
+    modifiers.disabled = props.disabledDays;
+  }
+  return modifiers;
+}
+
 export function getModifiersForDay(d, modifierFunctions = {}) {
   return Object.keys(modifierFunctions).reduce((modifiers, modifier) => {
     const func = modifierFunctions[modifier];
@@ -41,7 +52,7 @@ export function getModifiersForDay(d, modifierFunctions = {}) {
 }
 
 export function getMonthsDiff(d1, d2) {
-  return d2.getMonth() - d1.getMonth() +
+  return (d2.getMonth() - d1.getMonth()) +
     (12 * (d2.getFullYear() - d1.getFullYear()));
 }
 
@@ -52,7 +63,7 @@ export function getWeekArray(d, firstDayOfWeek = getFirstDayOfWeek(), fixedWeeks
   let week = [];
   const weekArray = [];
 
-  for (let i = 1; i <= daysInMonth; i++) {
+  for (let i = 1; i <= daysInMonth; i += 1) {
     dayArray.push(new Date(d.getFullYear(), d.getMonth(), i, 12));
   }
 
@@ -69,7 +80,7 @@ export function getWeekArray(d, firstDayOfWeek = getFirstDayOfWeek(), fixedWeeks
 
   // unshift days to start the first week
   const firstWeek = weekArray[0];
-  for (let i = 7 - firstWeek.length; i > 0; i--) {
+  for (let i = 7 - firstWeek.length; i > 0; i -= 1) {
     const outsideDate = clone(firstWeek[0]);
     outsideDate.setDate(firstWeek[0].getDate() - 1);
     firstWeek.unshift(outsideDate);
@@ -77,7 +88,7 @@ export function getWeekArray(d, firstDayOfWeek = getFirstDayOfWeek(), fixedWeeks
 
   // push days until the end of the last week
   const lastWeek = weekArray[weekArray.length - 1];
-  for (let i = lastWeek.length; i < 7; i++) {
+  for (let i = lastWeek.length; i < 7; i += 1) {
     const outsideDate = clone(lastWeek[lastWeek.length - 1]);
     outsideDate.setDate(lastWeek[lastWeek.length - 1].getDate() + 1);
     lastWeek.push(outsideDate);
@@ -87,12 +98,12 @@ export function getWeekArray(d, firstDayOfWeek = getFirstDayOfWeek(), fixedWeeks
   if (fixedWeeks && weekArray.length < 6) {
     let lastExtraWeek;
 
-    for (let i = weekArray.length; i < 6; i++) {
+    for (let i = weekArray.length; i < 6; i += 1) {
       lastExtraWeek = weekArray[weekArray.length - 1];
       const lastDay = lastExtraWeek[lastExtraWeek.length - 1];
       const extraWeek = [];
 
-      for (let j = 0; j < 7; j++) {
+      for (let j = 0; j < 7; j += 1) {
         const outsideDate = clone(lastDay);
         outsideDate.setDate(lastDay.getDate() + j + 1);
         extraWeek.push(outsideDate);

@@ -1,4 +1,5 @@
-/* eslint-disable newline-per-chained-call */
+/* eslint-disable import/no-extraneous-dependencies */
+
 import moment from 'moment';
 
 export function formatDay(day, locale = 'en') {
@@ -26,7 +27,8 @@ export function getMonths(locale = 'en') {
   const months = [];
   let i = 0;
   while (i < 12) {
-    months.push(moment().locale(locale).month(i++).format('MMMM'));
+    months.push(moment().locale(locale).month(i).format('MMMM'));
+    i += 1;
   }
   return months;
 }

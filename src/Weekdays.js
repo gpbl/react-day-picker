@@ -8,7 +8,7 @@ export default function Weekdays({
   weekdayElement,
 }) {
   const days = [];
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 7; i += 1) {
     const elementProps = {
       key: i,
       className: 'DayPicker-Weekday',

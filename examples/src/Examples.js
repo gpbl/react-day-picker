@@ -131,8 +131,13 @@ export default class Examples extends Component {
     showNavBar: false,
   };
 
+  constructor(props) {
+    super(props);
+    this.handleHistoryChange = this.handleHistoryChange.bind(this);
+  }
+
   componentDidMount() {
-    this.unlistenHistory = history.listen(::this.handleHistoryChange);
+    this.unlistenHistory = history.listen(this.handleHistoryChange);
   }
 
   componentDidUpdate() {
