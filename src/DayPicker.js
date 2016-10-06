@@ -111,17 +111,6 @@ export default class DayPicker extends Component {
     return { currentMonth };
   }
 
-  getModifiersFromProps(props) {
-    const modifiers = { ...props.modifiers };
-    if (props.selectedDays) {
-      modifiers.selected = props.selectedDays;
-    }
-    if (props.disabledDays) {
-      modifiers.disabled = props.disabledDays;
-    }
-    return modifiers;
-  }
-
   getDayNodes() {
     return this.dayPicker.querySelectorAll('.DayPicker-Day:not(.DayPicker-Day--outside)');
   }
@@ -388,7 +377,7 @@ export default class DayPicker extends Component {
     }
     dayModifiers = [
       ...dayModifiers,
-      ...Helpers.getModifiersForDay(day, this.getModifiersFromProps(this.props)),
+      ...Helpers.getModifiersForDay(day, Helpers.getModifiersFromProps(this.props)),
     ];
 
     const isOutside = day.getMonth() !== month.getMonth();
