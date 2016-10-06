@@ -38,6 +38,7 @@
     "eslint-plugin-react": "5.2.2",
     "file-loader": "0.9.0",
     "history": "3.0.0",
+    "moment": "2.15.1",
     "raw-loader": "^0.5.1",
     "react": "15.3.0",
     "react-day-picker": "../",
