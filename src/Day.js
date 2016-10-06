@@ -5,8 +5,8 @@ function handleEvent(handler, day, modifiers) {
     return undefined;
   }
   const dayState = {};
-  modifiers.forEach(modifier => { dayState[modifier] = true; });
-  return e => {
+  modifiers.forEach((modifier) => { dayState[modifier] = true; });
+  return (e) => {
     e.persist();
     handler(e, day, dayState);
   };

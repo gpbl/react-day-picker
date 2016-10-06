@@ -11,7 +11,7 @@ export function getCustomProps(props, propTypes) {
   const customProps = {};
   Object.keys(props)
       .filter(propName => !propTypes.hasOwnProperty(propName))
-      .forEach(propName => {
+      .forEach((propName) => {
         customProps[propName] = props[propName];
       });
   return customProps;
