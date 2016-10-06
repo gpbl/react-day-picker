@@ -12,6 +12,7 @@ import * as LocaleUtils from './LocaleUtils';
 
 import keys from './keys';
 import DayPickerPropTypes from './PropTypes';
+
 export default class DayPicker extends Component {
   static VERSION = '2.4.1';
 
@@ -122,7 +123,7 @@ export default class DayPicker extends Component {
   }
 
   getDayNodes() {
-    return this.refs.dayPicker.querySelectorAll('.DayPicker-Day:not(.DayPicker-Day--outside)');
+    return this.dayPicker.querySelectorAll('.DayPicker-Day:not(.DayPicker-Day--outside)');
   }
 
   getNextNavigableMonth() {
@@ -132,6 +133,8 @@ export default class DayPicker extends Component {
   getPreviousNavigableMonth() {
     return DateUtils.addMonths(this.state.currentMonth, -1);
   }
+
+  dayPicker = null
 
   allowPreviousMonth() {
     const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
@@ -400,24 +403,24 @@ export default class DayPicker extends Component {
     const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
     return (
       <Day
-        key={`${isOutside ? 'outside-' : ''}${key}`}
-        day={day}
-        modifiers={dayModifiers}
-        empty={isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks}
+        key={ `${isOutside ? 'outside-' : ''}${key}` }
+        day={ day }
+        modifiers={ dayModifiers }
+        empty={ isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks }
 
-        tabIndex={tabIndex}
+        tabIndex={ tabIndex }
 
-        ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
-        ariaDisabled={isOutside || dayModifiers.indexOf('disabled') > -1}
-        ariaSelected={dayModifiers.indexOf('selected') > -1}
+        ariaLabel={ this.props.localeUtils.formatDay(day, this.props.locale) }
+        ariaDisabled={ isOutside || dayModifiers.indexOf('disabled') > -1 }
+        ariaSelected={ dayModifiers.indexOf('selected') > -1 }
 
-        onMouseEnter={this.props.onDayMouseEnter}
-        onMouseLeave={this.props.onDayMouseLeave}
-        onKeyDown={this.handleDayKeyDown}
-        onTouchStart={this.props.onDayTouchStart}
-        onTouchEnd={this.props.onDayTouchEnd}
-        onFocus={this.props.onDayFocus}
-        onClick={this.props.onDayClick ? this.handleDayClick : undefined}
+        onMouseEnter={ this.props.onDayMouseEnter }
+        onMouseLeave={ this.props.onDayMouseLeave }
+        onKeyDown={ this.handleDayKeyDown }
+        onTouchStart={ this.props.onDayTouchStart }
+        onTouchEnd={ this.props.onDayTouchEnd }
+        onFocus={ this.props.onDayFocus }
+        onClick={ this.props.onDayClick ? this.handleDayClick : undefined }
       >
         {this.props.renderDay(day)}
       </Day>
@@ -428,27 +431,27 @@ export default class DayPicker extends Component {
     const months = [];
     const firstDayOfWeek = this.props.localeUtils.getFirstDayOfWeek(this.props.locale);
 
-    for (let i = 0; i < this.props.numberOfMonths; i++) {
+    for (let i = 0; i < this.props.numberOfMonths; i += 1) {
       const month = DateUtils.addMonths(this.state.currentMonth, i);
 
       months.push(
         <Month
-          key={i}
-          month={month}
-          locale={this.props.locale}
-          localeUtils={this.props.localeUtils}
-          firstDayOfWeek={firstDayOfWeek}
-          fixedWeeks={this.props.fixedWeeks}
+          key={ i }
+          month={ month }
+          locale={ this.props.locale }
+          localeUtils={ this.props.localeUtils }
+          firstDayOfWeek={ firstDayOfWeek }
+          fixedWeeks={ this.props.fixedWeeks }
 
           className="DayPicker-Month"
           wrapperClassName="DayPicker-Body"
           weekClassName="DayPicker-Week"
 
-          weekdayComponent={this.props.weekdayComponent}
-          weekdayElement={this.props.weekdayElement}
-          captionElement={this.props.captionElement}
+          weekdayComponent={ this.props.weekdayComponent }
+          weekdayElement={ this.props.weekdayElement }
+          captionElement={ this.props.captionElement }
 
-          onCaptionClick={this.props.onCaptionClick}
+          onCaptionClick={ this.props.onCaptionClick }
         >
           {this.renderDayInMonth}
         </Month>);
@@ -473,12 +476,12 @@ export default class DayPicker extends Component {
 
     return (
       <div
-        {...customProps}
-        className={className}
-        ref="dayPicker"
+        { ...customProps }
+        className={ className }
+        ref={ (el) => { this.dayPicker = el; } }
         role="application"
-        tabIndex={this.props.canChangeMonth && this.props.tabIndex}
-        onKeyDown={this.handleKeyDown}
+        tabIndex={ this.props.canChangeMonth && this.props.tabIndex }
+        onKeyDown={ this.handleKeyDown }
       >
         {this.renderNavbar()}
         {this.renderMonths()}
