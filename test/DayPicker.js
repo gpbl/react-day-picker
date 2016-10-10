@@ -161,8 +161,8 @@ describe('<DayPicker />', () => {
       expect(wrapper.find('.DayPicker-Day')).to.have.length(42);
     });
     it('should render weekday labels accounting for locale settings', () => {
-      const localeUtils = Object.assign({}, LocaleUtils, {getFirstDayOfWeek: (locale) => 1})
-      const wrapper = mount(<DayPicker localeUtils={localeUtils} />);
+      const localeUtils = Object.assign({}, LocaleUtils, { getFirstDayOfWeek: () => 1 });
+      const wrapper = mount(<DayPicker localeUtils={ localeUtils } />);
       expect(wrapper.find('.DayPicker-Weekday').at(0)).to.have.text('Mo');
     });
   });
