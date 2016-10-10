@@ -10,7 +10,7 @@ export default function Weekdays({
 }) {
   const days = [];
   for (let i = 0; i < 7; i += 1) {
-    const weekday = (i + firstDayOfWeek) % 7
+    const weekday = (i + firstDayOfWeek) % 7;
     const elementProps = {
       key: i,
       className: 'DayPicker-Weekday',
