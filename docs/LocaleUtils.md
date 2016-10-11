@@ -31,11 +31,11 @@ Return the string used to render the weekday's short name, e.g. `Mo` for Monday.
 
 ### formatWeekdayLong `(i: number, locale: String) ⇒ String`
 
-Return the string used to render the weekday's long name, e.g. `Monday`. It is used mainly for ARIA.
+Return the string used to render the weekday's long name (starting from `0` as Sunday).
 
 ### getFirstDayOfWeek `(locale: String) ⇒ Number`
 
-Return the first day of the week for the given locale, e.g. `0` (Sunday) when `locale` is `en`.
+Return the first day of the week for the given locale (starting from `0` as Sunday).
 
 ### getMonths `(locale: String) ⇒ Array`
 
