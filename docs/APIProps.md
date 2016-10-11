@@ -74,27 +74,6 @@ By default the used locale is English (US). See also [Localization](Localization
 An object of named functions returning a boolean: `modifier(day: Date) -> Bool`. When a function of this object evaluates `true`, its name is used as CSS modifier for the day's cell.
 As default, the calendar includes `today` and `outside` modifiers. (_Outside_ are the days that appear on the calendar but don't belong to the current month).
 
-### <strike>navbarComponent</strike> <span style="color: red">deprecated</span>
-
-**Type**: `Component`
-
-> This prop has been deprecated in v2.3 and will be removed from v3.0. Please use `navbarElement` instead.
-
-Custom component to render the navigation bar. It will receive the following props:
-
-* className `String`
-* previousMonth `Date`
-* nextMonth `Date`
-* showPreviousButton `Bool`
-* showNextButton `Bool`
-* onPreviousClick `() => void`
-* onNextClick `() => void`
-* dir `String`
-* localeUtils `Object`
-* locale `String`
-
-See [this example](http://react-day-picker.js.org/examples?customElements) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Navbar.js) source code.
-
 ### navbarElement
 
 **Type**: `Element`
@@ -147,21 +126,6 @@ A function returning a boolean indicating if a day is selected. Set a `selected`
 **Type**: `Date`
 
 The last allowed month. Users won't be able to navigate or interact with the days after it.
-
-### <strike>weekdayComponent</strike> <span style="color: red">deprecated</span>
-
-**Type**: `Component`
-
-> This prop has been deprecated in v2.3 and will be removed from v3.0. Please use `navbarElement` instead.
-
-Custom component to render the weekday cells in the header. It will receive the following props:
-
-* weekday `Number`
-* className `String`
-* localeUtils `Object`
-* locale `String`
-
-See [this example](http://react-day-picker.js.org/examples?customElements) or the [default](https://github.com/gpbl/react-day-picker/blob/master/src/Weekday.js) source code.
 
 ### weekdayElement
 
