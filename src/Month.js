@@ -29,6 +29,7 @@ export default function Month({
     <div className={ className }>
       {React.cloneElement(captionElement, captionProps)}
       <Weekdays
+        firstDayOfWeek={ firstDayOfWeek }
         locale={ locale }
         localeUtils={ localeUtils }
         weekdayComponent={ weekdayComponent }

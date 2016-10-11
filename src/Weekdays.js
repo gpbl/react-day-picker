@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import DayPickerPropTypes from './PropTypes';
 
 export default function Weekdays({
+  firstDayOfWeek,
   locale,
   localeUtils,
   weekdayComponent,
@@ -9,10 +10,11 @@ export default function Weekdays({
 }) {
   const days = [];
   for (let i = 0; i < 7; i += 1) {
+    const weekday = (i + firstDayOfWeek) % 7;
     const elementProps = {
       key: i,
       className: 'DayPicker-Weekday',
-      weekday: i,
+      weekday,
       localeUtils,
       locale,
     };
@@ -32,6 +34,7 @@ export default function Weekdays({
 }
 
 Weekdays.propTypes = {
+  firstDayOfWeek: PropTypes.number.isRequired,
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
   weekdayComponent: PropTypes.func,

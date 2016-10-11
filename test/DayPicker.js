@@ -7,6 +7,7 @@ import { shallow, mount, render } from 'enzyme';
 import { expect } from 'chai';
 import sinon, { spy } from 'sinon';
 import DayPicker from '../src/DayPicker';
+import * as LocaleUtils from '../src/LocaleUtils';
 import keys from '../src/keys';
 
 describe('<DayPicker />', () => {
@@ -158,6 +159,11 @@ describe('<DayPicker />', () => {
         <DayPicker enableOutsideDays fixedWeeks initialMonth={ new Date(2015, 1) } />
       );
       expect(wrapper.find('.DayPicker-Day')).to.have.length(42);
+    });
+    it('should render weekday labels accounting for locale settings', () => {
+      const localeUtils = Object.assign({}, LocaleUtils, { getFirstDayOfWeek: () => 1 });
+      const wrapper = mount(<DayPicker localeUtils={ localeUtils } />);
+      expect(wrapper.find('.DayPicker-Weekday').at(0)).to.have.text('Mo');
     });
   });
 
