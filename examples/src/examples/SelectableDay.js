@@ -1,6 +1,7 @@
 import React from 'react';
 import DayPicker, { DateUtils } from '../../../src';
 import '../../../src/style.css';
+
 export default class SelectableDay extends React.Component {
   constructor(props) {
     super(props);
