@@ -1,3 +1,14 @@
+# [v3.0.0](https://github.com/gpbl/react-day-picker/tree/v3.0.0) (2016-10-06)
+
+**Breaking changes**
+
+* Fixed [an issue](https://github.com/gpbl/react-day-picker/issues/207) with weekdays labels ([#220](https://github.com/gpbl/react-day-picker/pull/220) by [makenosound](https://github.com/makenosound)). 
+  For any language, weekday names must begin from Sunday.
+* Removed `weekdayComponent` and `navbarComponent` props (deprecated from [v2.3.0](#v230-2016-06-30)) 
+
+---
+
+
 ## [v2.5.0](https://github.com/gpbl/react-day-picker/tree/v2.5.0) (2016-10-06)
 
 * Build dist files as UMD module ([#216](https://github.com/gpbl/react-day-picker/pull/216) by [pguimera](https://github.com/pguimera)).
@@ -158,6 +169,7 @@ If you have issues or suggestions, don't forget the [Gitter room](https://gitter
 * Navigation with keyboard when using `fromMonth` or `endMonth`
 
 ---
+
 ### [v1.3.2](https://github.com/gpbl/react-day-picker/tree/v1.3.12) (2016-04-10)
 
 Adds React 15 to the peer dependencies.
