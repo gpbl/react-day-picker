@@ -3,7 +3,7 @@
 **Breaking changes**
 
 * Fixed [an issue](https://github.com/gpbl/react-day-picker/issues/207) with weekdays labels ([#220](https://github.com/gpbl/react-day-picker/pull/220) by [makenosound](https://github.com/makenosound)). 
-  For any language, weekday names must begin from Sunday.
+  For any language, weekday names must begin from Sunday. See this [diff](https://github.com/gpbl/react-day-picker/commit/e1462b3818e0a56c24cbcdeb9dba52da8cd8ff72?diff=unified) as example.
 * Removed `weekdayComponent` and `navbarComponent` props (deprecated from [v2.3.0](#v230-2016-06-30)) 
 
 ---
