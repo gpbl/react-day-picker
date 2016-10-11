@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { deprecate } from 'react-is-deprecated';
 import Caption from './Caption';
 import Navbar from './Navbar';
 import Month from './Month';
@@ -47,9 +46,7 @@ export default class DayPicker extends Component {
     onCaptionClick: PropTypes.func,
 
     renderDay: PropTypes.func,
-    weekdayComponent: deprecate(PropTypes.func, 'react-day-picker: the `weekdayComponent` prop is deprecated from v2.3. Please pass a React element to the `weekdayElement` prop instead.'), // eslint-disable-line max-len
     weekdayElement: PropTypes.element,
-    navbarComponent: deprecate(PropTypes.func, 'react-day-picker: the `navbarComponent` prop is deprecated from v2.3. Please pass a React element to the `navbarElement` prop instead.'), // eslint-disable-line max-len
     navbarElement: PropTypes.element,
 
     captionElement: PropTypes.element,
@@ -345,7 +342,6 @@ export default class DayPicker extends Component {
       locale,
       localeUtils,
       canChangeMonth,
-      navbarComponent,
       navbarElement,
     ...attributes } = this.props;
 
@@ -362,10 +358,7 @@ export default class DayPicker extends Component {
       locale,
       localeUtils,
     };
-    if (navbarElement) {
-      return React.cloneElement(navbarElement, props);
-    }
-    return React.createElement(navbarComponent, props);
+    return React.cloneElement(navbarElement, props);
   }
   renderDayInMonth(day, month) {
     let dayModifiers = [];
