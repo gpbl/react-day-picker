@@ -1,4 +1,4 @@
-# [v3.0.0](https://github.com/gpbl/react-day-picker/tree/v3.0.0) (2016-10-06)
+# [v3.0.0](https://github.com/gpbl/react-day-picker/tree/v3.0.0) (2016-10-11)
 
 **Breaking changes**
 
