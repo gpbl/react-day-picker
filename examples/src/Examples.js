@@ -14,6 +14,7 @@ import FixedWeeks from './examples/FixedWeeks';
 import InputField from './examples/InputField';
 import InputFieldOverlay from './examples/InputFieldOverlay';
 import Localized from './examples/Localized';
+import LocalizedMoment from './examples/LocalizedMoment';
 import LocalizedCustom from './examples/LocalizedCustom';
 import Modifiers from './examples/Modifiers';
 import Range from './examples/Range';
@@ -44,7 +45,7 @@ const EXAMPLES = {
   },
   selectable: {
     title: 'Selectable Day',
-    description: "Use the <code>selectedDays</code> prop and <a href='http://react-day-picker.js.org/docs/DateUtils.html'>DateUtils</a> to select a day. Note how the selected day is stored in the parent component’s state.",
+    description: "Use the <code>selectedDays</code> prop and <a href='http://react-day-picker.js.org/DateUtils.html'>DateUtils</a> to select a day. Note how the selected day is stored in the parent component’s state.",
     Component: SelectableDay,
   },
   disabled: {
@@ -64,7 +65,7 @@ const EXAMPLES = {
   },
   range: {
     title: 'Range of Days - click',
-    description: "Select a range of days using the range functions available in <a href='http://react-day-picker.js.org/docs/DateUtils.html'>DateUtils</a>.",
+    description: "Select a range of days using the range functions available in <a href='http://react-day-picker.js.org/DateUtils.html'>DateUtils</a>.",
     Component: Range,
   },
   rangeAdvanced: {
@@ -88,13 +89,18 @@ const EXAMPLES = {
     Component: Restricted,
   },
   localized: {
-    title: 'Localization (moment.js)',
-    description: "This day picker is localized using moment.js. Note the use of the <a href='https://www.w3.org/TR/html/dom.html#the-dir-attribute'>dir attribute</a> to support <abbr title='Right to left'>RTL</abbr> languages. <a href='http://react-day-picker.js.org/docs/Localization.html'>Read more about localization</a>.",
+    title: 'Localization',
+    description: 'This example shows how to localize the calendar in Italian. Note the use of <code>firstDayOfWeek</code> to set Monday as first day of the week.',
     Component: Localized,
   },
+  localizedMoment: {
+    title: 'Localization with moment.js',
+    description: "This day picker is localized using moment.js. Note the use of the <a href='https://www.w3.org/TR/html/dom.html#the-dir-attribute'>dir attribute</a> to support <abbr title='Right to left'>RTL</abbr> languages. <a href='http://react-day-picker.js.org/Localization.html'>Read more about localization</a>.",
+    Component: LocalizedMoment,
+  },
   localizedCustom: {
-    title: 'Localization (custom)',
-    description: "If you prefer to not include external libraries to localize the calendar, you can provide your own <code>localeUtils</code> which is basically a rewrite of the <a href='https://github.com/gpbl/react-day-picker/blob/master/src/LocaleUtils.js'>original one</a>. The following example provides Russian and English localizations.  <a href='http://react-day-picker.js.org/docs/Localization.html'>Read more about localization</a>.",
+    title: 'Localization (advanced)',
+    description: "You can provide your own <code>localeUtils</code>. The following example provides Russian and English localizations.  <a href='http://react-day-picker.js.org/Localization.html'>Read more about localization</a>.",
     Component: LocalizedCustom,
   },
   yearNavigation: {
@@ -159,7 +165,7 @@ export default class Examples extends Component {
     const links = Object.keys(EXAMPLES).map(name =>
       <a
         href={ `.?${name}` }
-        onClick={ e => {
+        onClick={ (e) => {
           e.preventDefault();
           history.push({ pathname: history.getCurrentLocation().pathname, search: `?${name}` });
         } }
@@ -206,13 +212,13 @@ export default class Examples extends Component {
                 style={ { marginLeft: '1rem', marginTop: '0.5rem' } }
                 src="https://ghbtns.com/github-btn.html?user=gpbl&amp;repo=react-day-picker&amp;type=star&amp;count=true"
                 frameBorder={ 0 } scrolling={ 0 } width="110px" height="20px"
-              ></iframe>
+              />
             </div>
           </div>
 
           <div className="Examples">
             <h2>
-                { EXAMPLES[currentExample].title }
+              { EXAMPLES[currentExample].title }
             </h2>
             <p dangerouslySetInnerHTML={ { __html: EXAMPLES[currentExample].description } } />
             <div className="Example">

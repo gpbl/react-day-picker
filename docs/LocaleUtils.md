@@ -1,6 +1,8 @@
 # LocaleUtils
 
-`LocaleUtils` is a set of functions used to localize the component (see: [Custom localization](LocalizationCustom.md)). You may want to implement your own `LocaleUtils`, or override some of its functions.
+`LocaleUtils` is a set of functions used to localize the component (see: [Advanced localization](LocalizationAdvanced.md)). You may want to implement your own `LocaleUtils`, or override some of its functions.
+
+> Usually you won't need to use these functions. The component can be localized using `months`, `weekdaysLong`, `weekdaysShort` and `firstDayOfWeek` props.
 
 For example, this code renders the month's title as `M/YYYY` instead of the default:
 

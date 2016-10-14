@@ -34,6 +34,11 @@ export default class DayPicker extends Component {
     fromMonth: PropTypes.instanceOf(Date),
     toMonth: PropTypes.instanceOf(Date),
 
+    firstDayOfWeek: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+    months: PropTypes.arrayOf(PropTypes.string),
+    weekdaysLong: PropTypes.arrayOf(PropTypes.string),
+    weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+
     onKeyDown: PropTypes.func,
     onDayClick: PropTypes.func,
     onDayKeyDown: PropTypes.func,
@@ -46,9 +51,9 @@ export default class DayPicker extends Component {
     onCaptionClick: PropTypes.func,
 
     renderDay: PropTypes.func,
+
     weekdayElement: PropTypes.element,
     navbarElement: PropTypes.element,
-
     captionElement: PropTypes.element,
 
     dir: PropTypes.string,
@@ -411,7 +416,7 @@ export default class DayPicker extends Component {
 
   renderMonths() {
     const months = [];
-    const firstDayOfWeek = this.props.localeUtils.getFirstDayOfWeek(this.props.locale);
+    const firstDayOfWeek = Helpers.getFirstDayOfWeekFromProps(this.props);
 
     for (let i = 0; i < this.props.numberOfMonths; i += 1) {
       const month = DateUtils.addMonths(this.state.currentMonth, i);
@@ -420,6 +425,9 @@ export default class DayPicker extends Component {
         <Month
           key={ i }
           month={ month }
+          months={ this.props.months }
+          weekdaysShort={ this.props.weekdaysShort }
+          weekdaysLong={ this.props.weekdaysLong }
           locale={ this.props.locale }
           localeUtils={ this.props.localeUtils }
           firstDayOfWeek={ firstDayOfWeek }
