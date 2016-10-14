@@ -25,14 +25,14 @@ describe('MomentLocaleUtils', () => {
   describe('formatWeekdayShort', () => {
     it('should return the short day name as string', () => {
       expect(MomentLocaleUtils.formatWeekdayShort(0)).to.equal('Su');
-      expect(MomentLocaleUtils.formatWeekdayShort(0, 'it')).to.equal('Lu');
+      expect(MomentLocaleUtils.formatWeekdayShort(0, 'it')).to.equal('Do');
     });
   });
 
   describe('formatWeekdayLong', () => {
     it('should return the long day name as string', () => {
       expect(MomentLocaleUtils.formatWeekdayLong(0)).to.equal('Sunday');
-      expect(MomentLocaleUtils.formatWeekdayLong(0, 'it')).to.equal('Lunedì');
+      expect(MomentLocaleUtils.formatWeekdayLong(0, 'it')).to.equal('Domenica');
     });
   });
 
