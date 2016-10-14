@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, no-underscore-dangle */
 
 import moment from 'moment';
 
@@ -11,11 +11,11 @@ export function formatMonthTitle(date, locale = 'en') {
 }
 
 export function formatWeekdayShort(day, locale = 'en') {
-  return moment().locale(locale).weekday(day).format('dd');
+  return moment().locale(locale)._locale.weekdaysMin()[day];
 }
 
 export function formatWeekdayLong(day, locale = 'en') {
-  return moment().locale(locale).weekday(day).format('dddd');
+  return moment().locale(locale)._locale.weekdays()[day];
 }
 
 export function getFirstDayOfWeek(locale = 'en') {
