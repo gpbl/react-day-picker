@@ -34,6 +34,11 @@ export default class DayPicker extends Component {
     fromMonth: PropTypes.instanceOf(Date),
     toMonth: PropTypes.instanceOf(Date),
 
+    firstDayOfWeek: PropTypes.oneOfType(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+      PropTypes.object,
+    ),
+
     onKeyDown: PropTypes.func,
     onDayClick: PropTypes.func,
     onDayKeyDown: PropTypes.func,
@@ -46,9 +51,9 @@ export default class DayPicker extends Component {
     onCaptionClick: PropTypes.func,
 
     renderDay: PropTypes.func,
+
     weekdayElement: PropTypes.element,
     navbarElement: PropTypes.element,
-
     captionElement: PropTypes.element,
 
     dir: PropTypes.string,
@@ -65,6 +70,7 @@ export default class DayPicker extends Component {
     localeUtils: LocaleUtils,
     enableOutsideDays: false,
     fixedWeeks: false,
+    firstDayOfWeek: 0,
     canChangeMonth: true,
     reverseMonths: false,
     pagedNavigation: false,
@@ -411,7 +417,7 @@ export default class DayPicker extends Component {
 
   renderMonths() {
     const months = [];
-    const firstDayOfWeek = this.props.localeUtils.getFirstDayOfWeek(this.props.locale);
+    const firstDayOfWeek = Helpers.getFirstDayOfWeekFromProps(this.props);
 
     for (let i = 0; i < this.props.numberOfMonths; i += 1) {
       const month = DateUtils.addMonths(this.state.currentMonth, i);

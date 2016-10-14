@@ -41,6 +41,17 @@ export function getModifiersFromProps(props) {
   return modifiers;
 }
 
+export function getFirstDayOfWeekFromProps(props) {
+  const { firstDayOfWeek = 0, locale = 'en', localeUtils = {} } = props;
+  if (localeUtils.getFirstDayOfWeek) {
+    return localeUtils.getFirstDayOfWeek(locale);
+  }
+  if (typeof firstDayOfWeek === 'object') {
+    return firstDayOfWeek[locale];
+  }
+  return firstDayOfWeek;
+}
+
 export function getModifiersForDay(d, modifierFunctions = {}) {
   return Object.keys(modifierFunctions).reduce((modifiers, modifier) => {
     const func = modifierFunctions[modifier];

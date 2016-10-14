@@ -29,6 +29,26 @@ describe('Helpers', () => {
     });
   });
 
+  describe('getFirstDayOfWeekFromProps', () => {
+    it('should return the day from localeUtils first', () => {
+      const localeUtils = {
+        getFirstDayOfWeek: () => 3,
+      };
+      expect(Helpers.getFirstDayOfWeekFromProps({ localeUtils })).to.equal(3);
+    });
+    it('should return the day from an object', () => {
+      const firstDayOfWeek = {
+        it: 2,
+        'en-gb': 1,
+      };
+      expect(Helpers.getFirstDayOfWeekFromProps({ firstDayOfWeek, locale: 'it' })).to.equal(2);
+      expect(Helpers.getFirstDayOfWeekFromProps({ firstDayOfWeek, locale: 'en-gb' })).to.equal(1);
+    });
+    it('should return the day from a number', () => {
+      expect(Helpers.getFirstDayOfWeekFromProps({ firstDayOfWeek: 5 })).to.equal(5);
+    });
+  });
+
   describe('getDaysInMonth', () => {
     it('get the correct number of days', () => {
       const date = new Date(2015, 1, 10);
