@@ -6,6 +6,8 @@ import { getWeekArray } from './Helpers';
 export default function Month({
   month,
   months,
+  weekdaysLong,
+  weekdaysShort,
   locale,
   localeUtils,
   captionElement,
@@ -30,6 +32,8 @@ export default function Month({
     <div className={ className }>
       {React.cloneElement(captionElement, captionProps)}
       <Weekdays
+        weekdaysShort={ weekdaysShort }
+        weekdaysLong={ weekdaysLong }
         firstDayOfWeek={ firstDayOfWeek }
         locale={ locale }
         localeUtils={ localeUtils }
@@ -52,6 +56,8 @@ Month.propTypes = {
   months: React.PropTypes.arrayOf(React.PropTypes.string),
   captionElement: PropTypes.node.isRequired,
   firstDayOfWeek: PropTypes.number.isRequired,
+  weekdaysLong: PropTypes.arrayOf(PropTypes.string),
+  weekdaysShort: PropTypes.arrayOf(PropTypes.string),
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
   onCaptionClick: PropTypes.func,

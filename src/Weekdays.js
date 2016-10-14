@@ -3,6 +3,8 @@ import DayPickerPropTypes from './PropTypes';
 
 export default function Weekdays({
   firstDayOfWeek,
+  weekdaysLong,
+  weekdaysShort,
   locale,
   localeUtils,
   weekdayElement,
@@ -14,6 +16,8 @@ export default function Weekdays({
       key: i,
       className: 'DayPicker-Weekday',
       weekday,
+      weekdaysLong,
+      weekdaysShort,
       localeUtils,
       locale,
     };
@@ -32,6 +36,8 @@ export default function Weekdays({
 
 Weekdays.propTypes = {
   firstDayOfWeek: PropTypes.number.isRequired,
+  weekdaysLong: PropTypes.arrayOf(PropTypes.string),
+  weekdaysShort: PropTypes.arrayOf(PropTypes.string),
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
   weekdayElement: PropTypes.element,
