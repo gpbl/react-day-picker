@@ -42,14 +42,14 @@ export function getModifiersFromProps(props) {
 }
 
 export function getFirstDayOfWeekFromProps(props) {
-  const { firstDayOfWeek = 0, locale = 'en', localeUtils = {} } = props;
+  const { firstDayOfWeek, locale = 'en', localeUtils = {} } = props;
+  if (Number.isInteger(firstDayOfWeek)) {
+    return firstDayOfWeek;
+  }
   if (localeUtils.getFirstDayOfWeek) {
     return localeUtils.getFirstDayOfWeek(locale);
   }
-  if (typeof firstDayOfWeek === 'object') {
-    return firstDayOfWeek[locale];
-  }
-  return firstDayOfWeek;
+  return 0;
 }
 
 export function getModifiersForDay(d, modifierFunctions = {}) {

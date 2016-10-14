@@ -34,10 +34,7 @@ export default class DayPicker extends Component {
     fromMonth: PropTypes.instanceOf(Date),
     toMonth: PropTypes.instanceOf(Date),
 
-    firstDayOfWeek: PropTypes.oneOfType(
-      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
-      PropTypes.object,
-    ),
+    firstDayOfWeek: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
 
     onKeyDown: PropTypes.func,
     onDayClick: PropTypes.func,
@@ -70,7 +67,6 @@ export default class DayPicker extends Component {
     localeUtils: LocaleUtils,
     enableOutsideDays: false,
     fixedWeeks: false,
-    firstDayOfWeek: 0,
     canChangeMonth: true,
     reverseMonths: false,
     pagedNavigation: false,
