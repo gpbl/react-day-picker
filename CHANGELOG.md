@@ -1,3 +1,7 @@
+### [v3.0.1](https://github.com/gpbl/react-day-picker/tree/v3.0.1) (2016-07-01)
+
+* Fixed [a bug](https://github.com/gpbl/react-day-picker/issues/224) with MomentLocaleUtils. 
+
 # [v3.0.0](https://github.com/gpbl/react-day-picker/tree/v3.0.0) (2016-10-11)
 
 * Fixed [an issue](https://github.com/gpbl/react-day-picker/issues/207) with weekdays labels ([#220](https://github.com/gpbl/react-day-picker/pull/220) by [makenosound](https://github.com/makenosound)).
