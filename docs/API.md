@@ -11,12 +11,14 @@
 | [captionElement](APIProps.md#captionelement) | | `Element` |
 | [disabledDays](APIProps.md#disableddays) | | `Bool` |
 | [enableOutsideDays](APIProps.md#enableoutsidedays) | false | `Bool` |
+| [firstDayOfWeek](APIProps.md#firstdayofweek) | 0 | `Number` |
 | [fixedWeeks](APIProps.md#fixedWeeks) | false | `Bool` |
 | [fromMonth](APIProps.md#frommonth) | | `Date` |
 | [initialMonth](APIProps.md#initialmonth) | Current month | `Date` |
 | [locale](APIProps.md#locale) | en | `String` |
 | [localeUtils](APIProps.md#localeutils) | | `Object` |
 | [modifiers](APIProps.md#modifiers) | | `Object` |
+| [months](APIProps.md#months) | | `Array<String>` |
 | [navbarElement](APIProps.md#navbarelement) | | `Element` |
 | [numberOfMonths](APIProps.md#numberofmonths) | 1 | `Number` |
 | [onCaptionClick](APIProps.md#oncaptionclick) | | `(e: SyntethicEvent, currentMonth: Date) ⇒ void` |
@@ -33,3 +35,5 @@
 | [tabIndex](APIProps.md#tabindex) | | `Number` |
 | [toMonth](APIProps.md#tomonth) | | `Date` |
 | [weekdayElement](APIProps.md#weekdayelement) | | `Element` |
+| [weekdaysShort](APIProps.md#weekdaysshort) | | `Array<String>` |
+| [weekdaysLong](APIProps.md#weekdayslong) | | `Array<String>` |

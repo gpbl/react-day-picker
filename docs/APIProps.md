@@ -35,6 +35,12 @@ A function returning a boolean indicating if a day is disabled. Set a `disabled`
 
 Display the days outside the current month.
 
+### firstDayOfWeek
+
+**Type**: `Number` **Default**: `0` (Sunday)
+
+The day to use as first day of the week, starting from `0` (Sunday) to `6` (Saturday).
+
 ### fixedWeeks
 
 **Type**: `Bool` **Default**: `false`
@@ -73,6 +79,12 @@ By default the used locale is English (US). See also [Localization](Localization
 
 An object of named functions returning a boolean: `modifier(day: Date) -> Bool`. When a function of this object evaluates `true`, its name is used as CSS modifier for the day's cell.
 As default, the calendar includes `today` and `outside` modifiers. (_Outside_ are the days that appear on the calendar but don't belong to the current month).
+
+### months
+
+**Type**: `Array<String>` **Default**: `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']`
+
+An array containing the long weekdays names to use in the month's header.
 
 ### navbarElement
 
@@ -137,6 +149,18 @@ Custom React element to render the weekday cells in the header. It will receive 
 * className `String`
 * localeUtils `Object`
 * locale `String`
+
+### weekdaysLong
+
+**Type**: `Array<String>` **Default**: `['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']`
+
+An array containing the long weekdays names to use in the month's header. Must start from Sunday.
+
+### weekdaysShort
+
+**Type**: `Array<String>` **Default**: `['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']`
+
+An array containing the short weekdays names to use in the month's header. Must start from Sunday.
 
 ## Event handlers
 

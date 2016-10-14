@@ -45,7 +45,7 @@ const EXAMPLES = {
   },
   selectable: {
     title: 'Selectable Day',
-    description: "Use the <code>selectedDays</code> prop and <a href='http://react-day-picker.js.org/docs/DateUtils.html'>DateUtils</a> to select a day. Note how the selected day is stored in the parent component’s state.",
+    description: "Use the <code>selectedDays</code> prop and <a href='http://react-day-picker.js.org/DateUtils.html'>DateUtils</a> to select a day. Note how the selected day is stored in the parent component’s state.",
     Component: SelectableDay,
   },
   disabled: {
@@ -65,7 +65,7 @@ const EXAMPLES = {
   },
   range: {
     title: 'Range of Days - click',
-    description: "Select a range of days using the range functions available in <a href='http://react-day-picker.js.org/docs/DateUtils.html'>DateUtils</a>.",
+    description: "Select a range of days using the range functions available in <a href='http://react-day-picker.js.org/DateUtils.html'>DateUtils</a>.",
     Component: Range,
   },
   rangeAdvanced: {
@@ -94,13 +94,13 @@ const EXAMPLES = {
     Component: Localized,
   },
   localizedMoment: {
-    title: 'Localization (moment.js)',
-    description: "This day picker is localized using moment.js. Note the use of the <a href='https://www.w3.org/TR/html/dom.html#the-dir-attribute'>dir attribute</a> to support <abbr title='Right to left'>RTL</abbr> languages. <a href='http://react-day-picker.js.org/docs/Localization.html'>Read more about localization</a>.",
+    title: 'Localization with moment.js',
+    description: "This day picker is localized using moment.js. Note the use of the <a href='https://www.w3.org/TR/html/dom.html#the-dir-attribute'>dir attribute</a> to support <abbr title='Right to left'>RTL</abbr> languages. <a href='http://react-day-picker.js.org/Localization.html'>Read more about localization</a>.",
     Component: LocalizedMoment,
   },
   localizedCustom: {
     title: 'Localization (advanced)',
-    description: "If you prefer to not include external libraries to localize the calendar, you can provide your own <code>localeUtils</code> which is basically a rewrite of the <a href='https://github.com/gpbl/react-day-picker/blob/master/src/LocaleUtils.js'>original one</a>. The following example provides Russian and English localizations.  <a href='http://react-day-picker.js.org/docs/Localization.html'>Read more about localization</a>.",
+    description: "You can provide your own <code>localeUtils</code>. The following example provides Russian and English localizations.  <a href='http://react-day-picker.js.org/Localization.html'>Read more about localization</a>.",
     Component: LocalizedCustom,
   },
   yearNavigation: {
