@@ -206,3 +206,8 @@ select {
   margin-bottom: 2em;
   display: inline-block;
 }
+
+.Example-Code {
+  max-width: 800px;
+  margin: 0 auto;
+}
