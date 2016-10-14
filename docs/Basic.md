@@ -33,7 +33,7 @@ class SelectDay extends React.Component {
 }
 ```
 
-Somewhere your CSS must set the appearance for the selected day, but first you need to tell the day picker which days have been selected.
+Somewhere your CSS must set the appearance for the selected day, but first you need to tell the Day Picker which days have been selected.
 
 The `selectedDays` prop is a function that checks whether a day should get the `selected` CSS modifier:
 

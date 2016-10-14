@@ -25,7 +25,7 @@ Format the string used as `aria-label` for the given day.
 
 ### formatMonthTitle `(d: Date, locale: String) ⇒ String`
 
-Return the string used to format the month's title in the day picker for the given date `d`.
+Return the string used to format the month's title in the Day Picker for the given date `d`.
 
 ### formatWeekdayShort `(i: number, locale: String) ⇒ String`
 

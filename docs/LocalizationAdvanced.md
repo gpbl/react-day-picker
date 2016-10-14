@@ -1,8 +1,8 @@
 # Custom localization
 
-You can define your custom utility to localize the day picker.
+You can define your custom utility to localize the Day Picker.
 
-The `DayPicker` component internally uses [localeUtils](LocaleUtils.md), a small set of functions defining how to display the day picker for the given locale. You can overwrite its behavior by passing your own custom set of functions to the `localeUtils` props.
+The `DayPicker` component internally uses [localeUtils](LocaleUtils.md), a small set of functions defining how to display the Day Picker for the given locale. You can overwrite its behavior by passing your own custom set of functions to the `localeUtils` props.
 
 [See an example](http://react-day-picker.js.org/examples?localizedCustom).
 

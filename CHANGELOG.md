@@ -249,7 +249,7 @@ Minor changes when importing utilities
 
 * New `fromMonth` and `toMonth` props. Use the [`fromMonth`](http://react-day-picker.js.org/APIProps.html#frommonth-date) and [`toMonth`](http://react-day-picker.js.org/APIProps.html#tomonth-date) props to restrict the months within which the calendar can work. See [this example](http://react-day-picker.js.org/examples?restricted).
 * `dateUtils` includes some useful function to set custom modifiers
-* `localeUtils ` are the default functions used to localize the day picker in english. See https://github.com/gpbl/react-day-picker/issues/46#issuecomment-153498039 for a sample usage of this library.
+* `localeUtils ` are the default functions used to localize the Day Picker in english. See https://github.com/gpbl/react-day-picker/issues/46#issuecomment-153498039 for a sample usage of this library.
 
 ---
 
@@ -298,7 +298,7 @@ Fixes a bug when passing a new `initialMonth` prop to the component that may cau
 
 First major release. Please see [the updated website](http://react-day-picker.js.org) for more info.
 
-* [#27] Removed the dependency from moment.js. Events and props work **only** with native `Date` object. To localize the day picker with moment.js (or another library), follow [this page](http://react-day-picker.js.org/#tips)
+* [#27] Removed the dependency from moment.js. Events and props work **only** with native `Date` object. To localize the Day Picker with moment.js (or another library), follow [this page](http://react-day-picker.js.org/#tips)
 * Class names have been updated (objects are now CamelCase). As example, please see [the updated CSS file](https://github.com/gpbl/react-day-picker/blob/master/site/src/style/DayPicker.scss).
 *  [#27] All rendered tags are now `div` or `span`. Use CSS to style the daypicker as table.
 * A `today` modifier is added automatically

@@ -2,7 +2,7 @@
 
 #### showMonth `(d: Date) ⇒ void`
 
-Set the day picker to display the given month.
+Set the Day Picker to display the given month.
 
 ```jsx
 
@@ -27,22 +27,22 @@ class MyComponent extends React {
 
 #### showPreviousMonth `() ⇒ void`
 
-Set the day picker to display the previous month.
+Set the Day Picker to display the previous month.
 
 ---
 
 #### showNextMonth `() ⇒ void`
 
-Set the day picker to display the next month.
+Set the Day Picker to display the next month.
 
 ---
 
 #### showPreviousYear `() ⇒ void`
 
-Set the day picker to display the previous year.
+Set the Day Picker to display the previous year.
 
 ---
 
 #### showNextYear `() ⇒ void`
 
-Set the day picker to display the next year.
+Set the Day Picker to display the next year.

@@ -6,7 +6,7 @@ You must style the component with your own CSS: start with [src/style.css](https
 
 ### Modifiers
 
-Modifiers added to the day picker through the `modifiers` prop becomes CSS modifiers for the `DayPicker-day` class. For example, if you use a `isFirstDayOfMonth` modifier, the CSS class to style the corrispondent day cells is `DayPicker-day--isFirstDayOfMonth`.
+Modifiers added to the Day Picker through the `modifiers` prop becomes CSS modifiers for the `DayPicker-day` class. For example, if you use a `isFirstDayOfMonth` modifier, the CSS class to style the corrispondent day cells is `DayPicker-day--isFirstDayOfMonth`.
 
 ### Importing the style template
 

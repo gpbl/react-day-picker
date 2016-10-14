@@ -13,7 +13,7 @@ function isFirstDayOfMonth(day) {
 }
 ```
 
-You pass modifiers to the day picker using the `modifiers` prop:
+You pass modifiers to the Day Picker using the `modifiers` prop:
 
 ```jsx
 <DayPicker modifiers={{ isSunday, isFirstDayOfMonth }} />
