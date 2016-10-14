@@ -1,48 +1,26 @@
 import React from 'react';
 import DayPicker from '../../../src';
 
-// Use a custom util to format the calendar values according to the
-// selected locale. This one is based on moment.js
-import MomentLocaleUtils from 'react-day-picker/moment';
+const MONTHS = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio',
+  'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre',
+  'Dicembre'];
 
-// Make sure moment.js has the required locale data
-import 'moment/locale/ja';
-import 'moment/locale/ar';
-import 'moment/locale/it';
+const WEEKDAYS_LONG = ['Domenica', 'Lunedì', 'Martedì',
+  'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
 
-import '../../../src/style.css';
+const WEEKDAYS_SHORT = ['Do', 'Lu', 'Ma', 'Me', 'Gi', 'Ve', 'Sa'];
 
-export default class Localized extends React.Component {
-  constructor(props) {
-    super(props);
-    this.switchLocale = this.switchLocale.bind(this);
-  }
-  state = {
-    locale: 'en',
-  };
-  switchLocale(e) {
-    const locale = e.target.value || 'en';
-    this.setState({ locale });
-  }
-  render() {
-    const { locale } = this.state;
-    return (
-      <div>
-        <p>
-          <select onChange={ this.switchLocale }>
-            <option value="en">English</option>
-            <option value="it">Italian</option>
-            <option value="ja">Japanese</option>
-            <option value="ar">Arabic</option>
-          </select>
-        </p>
-        <DayPicker
-          dir={ locale === 'ar' ? 'rtl' : 'ltr' }
-          locale={ locale }
-          localeUtils={ MomentLocaleUtils }
-          modifiers={ { sunday: day => day.getDay() === 0 } }
-        />
-      </div>
-    );
-  }
+export default function Localized() {
+  return (
+    <div>
+      <DayPicker
+        locale="it"
+        months={ MONTHS }
+        weekdaysLong={ WEEKDAYS_LONG }
+        weekdaysShort={ WEEKDAYS_SHORT }
+        firstDayOfWeek={ 1 }
+        modifiers={ { sunday: day => day.getDay() === 0 } }
+      />
+    </div>
+  );
 }
