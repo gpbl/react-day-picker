@@ -14,7 +14,6 @@ export default function Month({
   className,
   wrapperClassName,
   weekClassName,
-  weekdayComponent,
   weekdayElement,
   fixedWeeks,
 }) {
@@ -32,7 +31,6 @@ export default function Month({
         firstDayOfWeek={ firstDayOfWeek }
         locale={ locale }
         localeUtils={ localeUtils }
-        weekdayComponent={ weekdayComponent }
         weekdayElement={ weekdayElement }
       />
       <div className={ wrapperClassName } role="grid">
@@ -58,7 +56,6 @@ Month.propTypes = {
   className: PropTypes.string,
   wrapperClassName: PropTypes.string,
   weekClassName: PropTypes.string,
-  weekdayComponent: PropTypes.func,
   weekdayElement: PropTypes.element,
   fixedWeeks: PropTypes.bool,
 };

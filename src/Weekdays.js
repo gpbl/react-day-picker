@@ -5,7 +5,6 @@ export default function Weekdays({
   firstDayOfWeek,
   locale,
   localeUtils,
-  weekdayComponent,
   weekdayElement,
 }) {
   const days = [];
@@ -18,9 +17,7 @@ export default function Weekdays({
       localeUtils,
       locale,
     };
-    const element = weekdayElement ?
-      React.cloneElement(weekdayElement, elementProps) :
-      React.createElement(weekdayComponent, elementProps);
+    const element = React.cloneElement(weekdayElement, elementProps);
     days.push(element);
   }
 
@@ -37,6 +34,5 @@ Weekdays.propTypes = {
   firstDayOfWeek: PropTypes.number.isRequired,
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
-  weekdayComponent: PropTypes.func,
   weekdayElement: PropTypes.element,
 };
