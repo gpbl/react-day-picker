@@ -5,6 +5,7 @@ import { getWeekArray } from './Helpers';
 
 export default function Month({
   month,
+  months,
   locale,
   localeUtils,
   captionElement,
@@ -19,6 +20,7 @@ export default function Month({
 }) {
   const captionProps = {
     date: month,
+    months,
     localeUtils,
     locale,
     onClick: onCaptionClick ? e => onCaptionClick(e, month) : undefined,
@@ -47,6 +49,7 @@ export default function Month({
 
 Month.propTypes = {
   month: PropTypes.instanceOf(Date).isRequired,
+  months: React.PropTypes.arrayOf(React.PropTypes.string),
   captionElement: PropTypes.node.isRequired,
   firstDayOfWeek: PropTypes.number.isRequired,
   locale: PropTypes.string.isRequired,

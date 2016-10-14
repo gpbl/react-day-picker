@@ -35,6 +35,7 @@ export default class DayPicker extends Component {
     toMonth: PropTypes.instanceOf(Date),
 
     firstDayOfWeek: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+    months: PropTypes.arrayOf(PropTypes.string),
 
     onKeyDown: PropTypes.func,
     onDayClick: PropTypes.func,
@@ -422,6 +423,7 @@ export default class DayPicker extends Component {
         <Month
           key={ i }
           month={ month }
+          months={ this.props.months }
           locale={ this.props.locale }
           localeUtils={ this.props.localeUtils }
           firstDayOfWeek={ firstDayOfWeek }
