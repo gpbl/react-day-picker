@@ -1,4 +1,4 @@
-### [v3.0.1](https://github.com/gpbl/react-day-picker/tree/v3.0.1) (2016-07-01)
+### [v3.0.1](https://github.com/gpbl/react-day-picker/tree/v3.0.1) (2016-10-14)
 
 * Fixed [a bug](https://github.com/gpbl/react-day-picker/issues/224) with MomentLocaleUtils. 
 
