@@ -14,11 +14,11 @@ The following `localeUtils` object is used to localize the calendar in English o
 
 const WEEKDAYS_LONG = {
   "en": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-  "it": ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"]
+  "it": ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"]
 }
 const WEEKDAYS_SHORT = {
   "en": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-  "it": ["L", "M", "M", "G", "V", "S", "D"]
+  "it": ["D", "L", "M", "M", "G", "V", "S"]
 
 const MONTHS = {
   "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -26,7 +26,7 @@ const MONTHS = {
 
 const FIRST_DAY = {
   "en": 0,
-  "it": 1
+  "it": 1 // Use Monday as first day of the week
 }
 
 const localeUtils = {
