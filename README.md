@@ -9,7 +9,7 @@ react-day-picker is a flexible date picker component for [React](https://faceboo
 
 * no external dependencies
 * select [days](http://react-day-picker.js.org/examples?selectable), [ranges](http://react-day-picker.js.org/examples?range), whatever using CSS modifiers
-* ready for i18n, with [moment.js](http://react-day-picker.js.org/examples?localized) or [any other library](http://react-day-picker.js.org/examples?localizedCustom)
+* ready for [localization](http://react-day-picker.js.org/examples?localized), even with [moment.js](http://react-day-picker.js.org/examples?localized)
 * customizable [style](https://github.com/gpbl/react-day-picker/blob/master/src/style.css)
 * navigable via keyboard, ARIA support
 
