@@ -1,3 +1,7 @@
+### [v3.1.1](https://github.com/gpbl/react-day-picker/tree/v3.1.1) (2016-10-14)
+
+* Fixed [an issue](https://github.com/gpbl/react-day-picker/issues/227) with IE and older Safari.
+
 ## [v3.1.0](https://github.com/gpbl/react-day-picker/tree/v3.1.0) (2016-10-14)
 
 * New `months`, `weekdaysLong`, `weekdaysShort`, `firstDayOfWeek` props to localize the component.
