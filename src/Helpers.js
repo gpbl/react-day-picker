@@ -43,7 +43,7 @@ export function getModifiersFromProps(props) {
 
 export function getFirstDayOfWeekFromProps(props) {
   const { firstDayOfWeek, locale = 'en', localeUtils = {} } = props;
-  if (Number.isInteger(firstDayOfWeek)) {
+  if (!isNaN(firstDayOfWeek)) {
     return firstDayOfWeek;
   }
   if (localeUtils.getFirstDayOfWeek) {
