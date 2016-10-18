@@ -1,4 +1,4 @@
-### [v3.1.1](https://github.com/gpbl/react-day-picker/tree/v3.1.1) (2016-10-14)
+### [v3.1.1](https://github.com/gpbl/react-day-picker/tree/v3.1.1) (2016-10-18)
 
 * Fixed [an issue](https://github.com/gpbl/react-day-picker/issues/227) with IE and older Safari.
 
