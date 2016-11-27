@@ -44,7 +44,7 @@ export default function Month({
           weeks.map((week, j) =>
             <div key={ j } className={ weekClassName } role="gridcell">
               {week.map(day => children(day, month))}
-            </div>
+            </div>,
         )}
       </div>
     </div>
