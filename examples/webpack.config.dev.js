@@ -43,7 +43,7 @@ export default {
         path.join(__dirname, './src'),
         path.join(__dirname, '../dist'),
       ],
-      loaders: ['react-hot', 'babel?cacheDirectory'],
+      loader: 'babel?cacheDirectory&plugins=react-hot-loader/babel',
     }, {
       test: /\.css$/,
       loaders: ['style', 'css', 'autoprefixer-loader?browsers=last 2 version'],

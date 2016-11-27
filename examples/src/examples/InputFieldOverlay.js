@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DayPicker, { DateUtils } from '../../../src';
 import moment from 'moment';
+import DayPicker, { DateUtils } from '../../../src';
 
 import '../../../src/style.css';
 
@@ -94,7 +94,7 @@ export default class InputFieldOverlay extends Component {
       <div onMouseDown={ this.handleContainerMouseDown }>
         <input
           type="text"
-          ref={ el => { this.input = el; } }
+          ref={ (el) => { this.input = el; } }
           placeholder="DD/MM/YYYY"
           value={ this.state.value }
           onChange={ this.handleInputChange }
@@ -105,7 +105,7 @@ export default class InputFieldOverlay extends Component {
           <div style={ { position: 'relative' } }>
             <div style={ overlayStyle }>
               <DayPicker
-                ref={ el => { this.daypicker = el; } }
+                ref={ (el) => { this.daypicker = el; } }
                 onDayClick={ this.handleDayClick }
                 selectedDays={ day => DateUtils.isSameDay(this.state.selectedDay, day) }
               />

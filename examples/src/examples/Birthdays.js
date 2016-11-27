@@ -25,7 +25,7 @@ function renderDay(day) {
           birthdays[date].map((birthday, i) =>
             <div key={ i }>
               🎁 { birthday.name } ({ birthday.age })
-            </div>
+            </div>,
           )
         }
       </div>

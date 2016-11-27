@@ -1,14 +1,14 @@
 import React from 'react';
-import DayPicker from '../../../src';
-
-// Use a custom util to format the calendar values according to the
-// selected locale. This one is based on moment.js
-import MomentLocaleUtils from 'react-day-picker/moment';
-
 // Make sure moment.js has the required locale data
 import 'moment/locale/ja';
 import 'moment/locale/ar';
 import 'moment/locale/it';
+
+// Use a custom util to format the calendar values according to the
+// selected locale. This one is based on moment.js
+import MomentLocaleUtils from 'react-day-picker/moment';
+import DayPicker from '../../../src';
+
 
 import '../../../src/style.css';
 

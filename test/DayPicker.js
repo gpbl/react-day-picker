@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/tabindex-no-positive */
 
 import React, { PropTypes } from 'react';
-import SyntheticEvent from 'react/lib/SyntheticEvent';
+import SyntheticEvent from 'react-dom/lib/SyntheticEvent';
 import { isElement } from 'react-addons-test-utils';
 import { shallow, mount, render } from 'enzyme';
 import { expect } from 'chai';
@@ -51,7 +51,7 @@ describe('<DayPicker />', () => {
     });
     it('should render multiple months, reversed', () => {
       const wrapper = mount(
-        <DayPicker initialMonth={ new Date(2015, 0) } numberOfMonths={ 2 } reverseMonths />
+        <DayPicker initialMonth={ new Date(2015, 0) } numberOfMonths={ 2 } reverseMonths />,
       );
       expect(wrapper.find('.DayPicker-Caption').at(0)).to.have.text('February 2015');
       expect(wrapper.find('.DayPicker-Caption').at(1)).to.have.text('January 2015');
@@ -156,7 +156,7 @@ describe('<DayPicker />', () => {
     });
     it('should render the fixed amount of weeks', () => {
       const wrapper = mount(
-        <DayPicker enableOutsideDays fixedWeeks initialMonth={ new Date(2015, 1) } />
+        <DayPicker enableOutsideDays fixedWeeks initialMonth={ new Date(2015, 1) } />,
       );
       expect(wrapper.find('.DayPicker-Day')).to.have.length(42);
     });
@@ -169,14 +169,14 @@ describe('<DayPicker />', () => {
           initialMonth={ new Date(2015, 6) }
           selectedDays={ () => true }
           modifiers={ { foo: () => true } }
-        />
+        />,
       );
       expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(35);
       expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
     });
     it('should add the `aria-selected` attribute for `selected` days', () => {
       const wrapper = mount(
-        <DayPicker initialMonth={ new Date(2015, 6) } selectedDays={ () => true } />
+        <DayPicker initialMonth={ new Date(2015, 6) } selectedDays={ () => true } />,
       );
       expect(wrapper.find('.DayPicker-Day--selected').at(15)).to.have.attr('aria-selected', 'true');
     });
@@ -186,7 +186,7 @@ describe('<DayPicker />', () => {
           initialMonth={ new Date(2015, 6) }
           disabledDays={ () => true }
           modifiers={ { foo: () => true } }
-        />
+        />,
       );
       expect(wrapper.find('.DayPicker-Day--disabled')).to.have.length(35);
       expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
@@ -198,7 +198,7 @@ describe('<DayPicker />', () => {
     });
     it('should include "outside" for outside days', () => {
       const wrapper = mount(
-        <DayPicker initialMonth={ new Date(2015, 6) } enableOutsideDays />
+        <DayPicker initialMonth={ new Date(2015, 6) } enableOutsideDays />,
       );
       expect(wrapper.find('.DayPicker-Day').at(0)).to.have.className('DayPicker-Day--outside');
     });
@@ -216,7 +216,7 @@ describe('<DayPicker />', () => {
         <DayPicker
           initialMonth={ new Date(2015, 6) }
           modifiers={ modifiers }
-        />
+        />,
       );
       expect(wrapper.find('.DayPicker-Day--firstDayOfMonth')).to.have.length(2);
       expect(wrapper.find('.DayPicker-Day--none')).to.have.length(0);
@@ -231,7 +231,7 @@ describe('<DayPicker />', () => {
           initialMonth={ new Date(2015, 7) }
           enableOutsideDays={ false }
           numberOfMonths={ 2 }
-        />
+        />,
       ).instance();
       instance.showNextMonth();
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
@@ -241,14 +241,14 @@ describe('<DayPicker />', () => {
     it('should call the `onMonthChange` handler', () => {
       const handleMonthChange = spy();
       const instance = mount(
-        <DayPicker onMonthChange={ handleMonthChange } />
+        <DayPicker onMonthChange={ handleMonthChange } />,
       ).instance();
       instance.showNextMonth();
       expect(handleMonthChange).to.have.been.calledWith(instance.state.currentMonth);
     });
     it('should not show the next month if after `toMonth`', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 7) } toMonth={ new Date(2015, 7) } />
+        <DayPicker initialMonth={ new Date(2015, 7) } toMonth={ new Date(2015, 7) } />,
       ).instance();
       instance.showNextMonth();
       expect(instance.state.currentMonth.getMonth()).to.equal(7);
@@ -260,7 +260,7 @@ describe('<DayPicker />', () => {
           enableOutsideDays={ false }
           numberOfMonths={ 2 }
           pagedNavigation
-        />
+        />,
       ).instance();
       instance.showNextMonth();
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
@@ -272,7 +272,7 @@ describe('<DayPicker />', () => {
   describe('showPreviousMonth()', () => {
     it('should show the previous month', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 7) } enableOutsideDays={ false } />
+        <DayPicker initialMonth={ new Date(2015, 7) } enableOutsideDays={ false } />,
       ).instance();
       instance.showPreviousMonth();
       expect(instance.state.currentMonth.getMonth()).to.equal(6);
@@ -282,14 +282,14 @@ describe('<DayPicker />', () => {
     it('should call the `onMonthChange` handler', () => {
       const handleMonthChange = spy();
       const instance = mount(
-        <DayPicker onMonthChange={ handleMonthChange } />
+        <DayPicker onMonthChange={ handleMonthChange } />,
       ).instance();
       instance.showPreviousMonth();
       expect(handleMonthChange).to.have.been.calledWith(instance.state.currentMonth);
     });
     it('should not show the previous month if before `fromMonth`', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 7) } fromMonth={ new Date(2015, 7) } />
+        <DayPicker initialMonth={ new Date(2015, 7) } fromMonth={ new Date(2015, 7) } />,
       ).instance();
       instance.showPreviousMonth();
       expect(instance.state.currentMonth.getMonth()).to.equal(7);
@@ -301,7 +301,7 @@ describe('<DayPicker />', () => {
           enableOutsideDays={ false }
           numberOfMonths={ 2 }
           pagedNavigation
-        />
+        />,
       ).instance();
       instance.showPreviousMonth();
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
@@ -313,7 +313,7 @@ describe('<DayPicker />', () => {
   describe('showNextYear()', () => {
     it('should show the next year', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 7, 1) } />
+        <DayPicker initialMonth={ new Date(2015, 7, 1) } />,
       ).instance();
       instance.showNextYear();
       expect(instance.state.currentMonth.getMonth()).to.equal(7);
@@ -323,21 +323,21 @@ describe('<DayPicker />', () => {
     it('should call the `onMonthChange` handler', () => {
       const handleMonthChange = spy();
       const instance = mount(
-        <DayPicker onMonthChange={ handleMonthChange } />
+        <DayPicker onMonthChange={ handleMonthChange } />,
       ).instance();
       instance.showNextYear();
       expect(handleMonthChange).to.have.been.calledWith(instance.state.currentMonth);
     });
     it('should not show the next year if after `toMonth`', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 7) } toMonth={ new Date(2015, 7) } />
+        <DayPicker initialMonth={ new Date(2015, 7) } toMonth={ new Date(2015, 7) } />,
       ).instance();
       instance.showNextYear();
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
     });
     it('should not change the year if cannot change month', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 7) } canChangeMonth={ false } />
+        <DayPicker initialMonth={ new Date(2015, 7) } canChangeMonth={ false } />,
       ).instance();
       instance.showNextYear();
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
@@ -347,7 +347,7 @@ describe('<DayPicker />', () => {
   describe('showPreviousYear()', () => {
     it('should show the previous year', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 7, 1) } />
+        <DayPicker initialMonth={ new Date(2015, 7, 1) } />,
       ).instance();
       instance.showPreviousYear();
       expect(instance.state.currentMonth.getMonth()).to.equal(7);
@@ -362,14 +362,14 @@ describe('<DayPicker />', () => {
     });
     it('should not show the previous year if before `fromMonth`', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 7) } fromMonth={ new Date(2015, 7) } />
+        <DayPicker initialMonth={ new Date(2015, 7) } fromMonth={ new Date(2015, 7) } />,
       ).instance();
       instance.showPreviousYear();
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
     });
     it('should not change the year if cannot change month', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 7) } canChangeMonth={ false } />
+        <DayPicker initialMonth={ new Date(2015, 7) } canChangeMonth={ false } />,
       ).instance();
       instance.showPreviousYear();
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
@@ -386,7 +386,7 @@ describe('<DayPicker />', () => {
     });
     it('should not change month if after `toMonth`', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 5) } toMonth={ new Date(2015, 5) } />
+        <DayPicker initialMonth={ new Date(2015, 5) } toMonth={ new Date(2015, 5) } />,
       ).instance();
       instance.showMonth(new Date(2016, 1, 15));
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
@@ -395,7 +395,7 @@ describe('<DayPicker />', () => {
     });
     it('should not change month if before `fromMonth`', () => {
       const instance = shallow(
-        <DayPicker initialMonth={ new Date(2015, 5) } fromMonth={ new Date(2015, 5) } />
+        <DayPicker initialMonth={ new Date(2015, 5) } fromMonth={ new Date(2015, 5) } />,
       ).instance();
       instance.showMonth(new Date(2015, 1));
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
@@ -553,7 +553,7 @@ describe('<DayPicker />', () => {
       wrapper.find('.DayPicker-Caption').simulate('click');
       expect(handleCaptionClick).to.have.been.calledWith(
         sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
-        sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth')
+        sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
       );
     });
     it('should call the day\'s cell event handlers', () => {
@@ -574,7 +574,7 @@ describe('<DayPicker />', () => {
           onDayKeyDown={ handleDayKeyDown }
           onDayTouchStart={ handleDayTouchStart }
           onDayTouchEnd={ handleDayTouchEnd }
-        />
+        />,
       );
 
       const eventArgs = [
@@ -611,7 +611,7 @@ describe('<DayPicker />', () => {
           onDayClick={ handleDayClick }
           onDayMouseEnter={ handleDayMouseEnter }
           onDayMouseLeave={ handleDayMouseLeave }
-        />
+        />,
       );
 
       wrapper.find('.DayPicker-Day--outside').at(0).simulate('click');
@@ -630,7 +630,7 @@ describe('<DayPicker />', () => {
         <DayPicker
           modifiers={ modifiers }
           onDayClick={ handleDayClick }
-        />
+        />,
       );
       const eventArgs = [
         sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
@@ -647,7 +647,7 @@ describe('<DayPicker />', () => {
         <DayPicker
           modifiers={ modifiers }
           onDayClick={ handleDayClick }
-        />
+        />,
       );
       const eventArgs = [
         sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
@@ -662,7 +662,7 @@ describe('<DayPicker />', () => {
       const wrapper = mount(<DayPicker onKeyDown={ handleKeyDown } />);
       wrapper.simulate('keyDown');
       expect(handleKeyDown).to.have.been.calledWith(
-        sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e')
+        sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
       );
     });
     it('should call `onKeyDown` also when changing month is disabled', () => {
@@ -670,7 +670,7 @@ describe('<DayPicker />', () => {
       const wrapper = mount(<DayPicker onKeyDown={ handleKeyDown } canChangeMonth={ false } />);
       wrapper.simulate('keyDown');
       expect(handleKeyDown).to.have.been.calledWith(
-        sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e')
+        sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
       );
     });
   });
@@ -682,13 +682,13 @@ describe('<DayPicker />', () => {
           initialMonth={ new Date(2015, 9) }
           fromMonth={ new Date(2015, 9) }
           numberOfMonths={ 3 }
-        />
+        />,
       );
       expect(wrapper.instance().allowPreviousMonth()).to.be.false;
     });
     it('should not allow the previous month when cannot change months', () => {
       const wrapper = shallow(
-        <DayPicker canChangeMonth={ false } />
+        <DayPicker canChangeMonth={ false } />,
       );
       expect(wrapper.instance().allowPreviousMonth()).to.be.false;
     });
@@ -698,13 +698,13 @@ describe('<DayPicker />', () => {
           initialMonth={ new Date(2015, 7) }
           toMonth={ new Date(2015, 9) }
           numberOfMonths={ 3 }
-        />
+        />,
       );
       expect(wrapper.instance().allowNextMonth()).to.be.false;
     });
     it('should not allow the next month when cannot change months', () => {
       const wrapper = shallow(
-        <DayPicker canChangeMonth={ false } />
+        <DayPicker canChangeMonth={ false } />,
       );
       expect(wrapper.instance().allowNextMonth()).to.be.false;
     });
@@ -718,7 +718,7 @@ describe('<DayPicker />', () => {
     });
     it('should show the next month when clicking outside days', () => {
       const wrapper = mount(
-        <DayPicker initialMonth={ new Date(2015, 7) } enableOutsideDays onDayClick={ () => {} } />
+        <DayPicker initialMonth={ new Date(2015, 7) } enableOutsideDays onDayClick={ () => {} } />,
       );
       wrapper.find('.DayPicker-Day--outside').last().simulate('click');
       const instance = wrapper.instance();
@@ -734,7 +734,7 @@ describe('<DayPicker />', () => {
     });
     it('should show the previous month when clicking outside days', () => {
       const wrapper = mount(
-        <DayPicker initialMonth={ new Date(2015, 7) } enableOutsideDays onDayClick={ () => {} } />
+        <DayPicker initialMonth={ new Date(2015, 7) } enableOutsideDays onDayClick={ () => {} } />,
       );
       wrapper.find('.DayPicker-Day--outside').first().simulate('click');
       const instance = wrapper.instance();
@@ -743,7 +743,7 @@ describe('<DayPicker />', () => {
     });
     it('should not allow changing to the year when cannot change months', () => {
       const wrapper = shallow(
-        <DayPicker canChangeMonth={ false } />
+        <DayPicker canChangeMonth={ false } />,
       );
       expect(wrapper.instance().allowYearChange()).to.be.false;
     });
@@ -829,7 +829,7 @@ describe('<DayPicker />', () => {
           fromMonth={ new Date(2015, 1) }
           numberOfMonths={ 4 }
           pagedNavigation
-        />
+        />,
       ).instance();
       expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
       expect(instance.state.currentMonth.getMonth()).to.equal(5);

@@ -12,7 +12,7 @@ function YearMonthForm({ date, localeUtils, onChange }) {
   const months = localeUtils.getMonths();
 
   const years = [];
-  for (let i = fromMonth.getFullYear(); i <= toMonth.getFullYear(); i++) {
+  for (let i = fromMonth.getFullYear(); i <= toMonth.getFullYear(); i += 1) {
     years.push(i);
   }
 
