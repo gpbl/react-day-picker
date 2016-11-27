@@ -17,6 +17,7 @@ import Localized from './examples/Localized';
 import LocalizedMoment from './examples/LocalizedMoment';
 import LocalizedCustom from './examples/LocalizedCustom';
 import Modifiers from './examples/Modifiers';
+import MultipleDays from './examples/MultipleDays';
 import Range from './examples/Range';
 import RangeAdvanced from './examples/RangeAdvanced';
 import Restricted from './examples/Restricted';
@@ -47,6 +48,11 @@ const EXAMPLES = {
     title: 'Selectable Day',
     description: "Use the <code>selectedDays</code> prop and <a href='http://react-day-picker.js.org/DateUtils.html'>DateUtils</a> to select a day. Note how the selected day is stored in the parent component’s state.",
     Component: SelectableDay,
+  },
+  multipleselect: {
+    title: 'Selecting Multiple Days',
+    description: 'A more advanced version showing how to select/unselect multiple days.',
+    Component: MultipleDays,
   },
   disabled: {
     title: 'Disabled Days',

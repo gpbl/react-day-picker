@@ -58,6 +58,7 @@ module.exports = {
           'LocalizedMoment',
           'LocalizedCustom',
           'Modifiers',
+          'MultipleDays',
           'Range',
           'RangeAdvanced',
           'Restricted',
