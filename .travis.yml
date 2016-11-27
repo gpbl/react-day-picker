@@ -1,8 +1,13 @@
 language: node_js
 node_js:
   - "6"
+cache: yarn
 before_script:
   - "npm run lint"
 after_success:
   - "npm run cover"
   - "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+cache:
+  yarn: true
+  directories:
+    - node_modules
