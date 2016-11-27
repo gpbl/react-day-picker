@@ -1,8 +1,8 @@
-/* eslint-disable react/no-danger, max-len, global-require */
+/* eslint-disable react/no-danger, max-len, global-require, import/no-dynamic-require */
 /* eslint-env browser */
 import React, { Component } from 'react';
 
-import { createHistory } from 'history';
+import createHistory from 'history/createBrowserHistory';
 
 import './vendors/prism.css';
 
@@ -132,14 +132,14 @@ const EXAMPLES = {
 
 export default class Examples extends Component {
 
-  state = {
-    currentExample: getExampleName(history.getCurrentLocation()),
-    showNavBar: false,
-  };
-
   constructor(props) {
     super(props);
     this.handleHistoryChange = this.handleHistoryChange.bind(this);
+  }
+
+  state = {
+    currentExample: getExampleName(history.location),
+    showNavBar: false,
   }
 
   componentDidMount() {
@@ -167,13 +167,13 @@ export default class Examples extends Component {
         href={ `.?${name}` }
         onClick={ (e) => {
           e.preventDefault();
-          history.push({ pathname: history.getCurrentLocation().pathname, search: `?${name}` });
+          history.push({ pathname: history.location.pathname, search: `?${name}` });
         } }
         key={ name }
         className={ this.state.currentExample === name ? 'selected' : '' }
       >
         { EXAMPLES[name].title }
-      </a>
+      </a>,
     );
     return <div className="NavBar-links">{ links }</div>;
   }

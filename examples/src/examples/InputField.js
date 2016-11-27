@@ -20,7 +20,7 @@ export default class InputField extends React.Component {
   };
 
   showCurrentDate() {
-    this.refs.daypicker.showMonth(this.state.month);
+    this.daypicker.showMonth(this.state.month);
   }
 
   handleInputChange(e) {
@@ -52,7 +52,6 @@ export default class InputField extends React.Component {
       <div>
         <p>
           <input
-            ref="input"
             type="text"
             value={ this.state.value }
             placeholder="YYYY-MM-DD"
@@ -61,7 +60,7 @@ export default class InputField extends React.Component {
           />
         </p>
         <DayPicker
-          ref="daypicker"
+          ref={ (el) => { this.daypicker = el; } }
           initialMonth={ this.state.month }
           selectedDays={ day => DateUtils.isSameDay(selectedDay, day) }
           onDayClick={ this.handleDayClick }

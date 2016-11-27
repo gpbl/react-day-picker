@@ -79,7 +79,6 @@ export default class RangeAdvanced extends React.Component {
         }
         <DayPicker
           className="Range"
-          ref="daypicker"
           numberOfMonths={ 2 }
           fromMonth={ from }
           selectedDays={ day => DateUtils.isDayInRange(day, { from, to }) }
