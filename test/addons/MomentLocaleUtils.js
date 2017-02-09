@@ -4,7 +4,7 @@ import * as MomentLocaleUtils from '../../src/addons/MomentLocaleUtils';
 describe('MomentLocaleUtils', () => {
   describe('formatDay', () => {
     it('should return day as string', () => {
-      const date = new Date('2015-12-20');
+      const date = new Date(2015, 11, 20);
       const formattedDate = MomentLocaleUtils.formatDay(date);
       expect(formattedDate).to.equal('Sun Dec 20, 2015');
       const formattedDateIT = MomentLocaleUtils.formatDay(date, 'it');
