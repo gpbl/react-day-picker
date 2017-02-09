@@ -35,8 +35,8 @@ module.exports = {
 
   plugins: [
 
-    // ignore moment locales
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    // add moment locales
+    new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(ja|ar|it)$/),
 
     new webpack.DefinePlugin({
       'process.env': {

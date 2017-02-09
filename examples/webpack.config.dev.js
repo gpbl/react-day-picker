@@ -30,8 +30,8 @@ export default {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
 
-    // ignore moment locales
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    // add moment locales
+    new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(ja|ar|it)$/),
 
   ],
 
