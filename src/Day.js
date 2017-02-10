@@ -6,11 +6,9 @@ function handleEvent(handler, day, modifiers) {
   if (!handler) {
     return undefined;
   }
-  const dayState = {};
-  modifiers.forEach((modifier) => { dayState[modifier] = true; });
   return (e) => {
     e.persist();
-    handler(e, day, dayState);
+    handler(e, day, modifiers);
   };
 }
 export default function Day({
@@ -31,7 +29,7 @@ export default function Day({
   children,
 }) {
   let className = 'DayPicker-Day';
-  className += modifiers.map(modifier => ` ${className}--${modifier}`).join('');
+  className += Object.keys(modifiers).map(modifier => ` ${className}--${modifier}`).join('');
   if (empty) {
     return <div role="gridcell" aria-disabled className={ className } />;
   }
@@ -64,7 +62,7 @@ Day.propTypes = {
   ariaLabel: PropTypes.string,
   ariaSelected: PropTypes.bool,
   empty: PropTypes.bool,
-  modifiers: PropTypes.array,
+  modifiers: PropTypes.object,
   onClick: PropTypes.func,
   onKeyDown: PropTypes.func,
   onMouseEnter: PropTypes.func,
@@ -76,6 +74,6 @@ Day.propTypes = {
 };
 
 Day.defaultProps = {
-  modifiers: [],
+  modifiers: {},
   empty: false,
 };

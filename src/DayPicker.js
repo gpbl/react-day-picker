@@ -382,11 +382,14 @@ export default class DayPicker extends Component {
       }
     }
     const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
+    const modifiers = {};
+    dayModifiers.forEach((modifier) => { modifiers[modifier] = true; });
+
     return (
       <Day
         key={ `${isOutside ? 'outside-' : ''}${key}` }
         day={ day }
-        modifiers={ dayModifiers }
+        modifiers={ modifiers }
         empty={ isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks }
 
         tabIndex={ tabIndex }
@@ -403,7 +406,7 @@ export default class DayPicker extends Component {
         onFocus={ this.props.onDayFocus }
         onClick={ this.props.onDayClick ? this.handleDayClick : undefined }
       >
-        {this.props.renderDay(day)}
+        {this.props.renderDay(day, modifiers)}
       </Day>
     );
   }

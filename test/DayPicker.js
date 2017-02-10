@@ -97,6 +97,21 @@ describe('<DayPicker />', () => {
       const wrapper = render(<DayPicker canChangeMonth={ false } />);
       expect(wrapper.find('.DayPicker-NavBar')).to.not.exist;
     });
+    it('should render a custom content for the cell', () => {
+      const renderDay = (day, modifiers) => {
+        if (modifiers.foo) {
+          return 'bar';
+        }
+        return 'foo';
+      };
+      const wrapper = render(
+        <DayPicker
+          enableOutsideDays
+          modifiers={ { foo: () => true } }
+          renderDay={ renderDay }
+        />);
+      expect(wrapper.find('.DayPicker-Day').first()).to.have.text('bar');
+    });
     it('should render a custom number of months', () => {
       const wrapper = render(<DayPicker numberOfMonths={ 3 } />);
       expect(wrapper.find('.DayPicker-Month')).to.have.length(3);
