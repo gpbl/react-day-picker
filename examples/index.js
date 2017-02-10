@@ -1,5 +1,5 @@
 // enable babeljs
-require("babel-register");
+require('babel-register');
 
 // start express server
-require("./server.js");
+require('./server.js');

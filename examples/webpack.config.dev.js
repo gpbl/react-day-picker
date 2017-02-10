@@ -28,7 +28,6 @@ export default {
 
     // hot loader
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
 
     // add moment locales
     new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(ja|ar|it)$/),
@@ -36,17 +35,17 @@ export default {
   ],
 
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       include: [
         path.join(__dirname, '../src'),
         path.join(__dirname, './src'),
         path.join(__dirname, '../dist'),
       ],
-      loader: 'babel?cacheDirectory&plugins=react-hot-loader/babel',
+      loader: 'babel-loader?cacheDirectory&plugins=react-hot-loader/babel',
     }, {
       test: /\.css$/,
-      loaders: ['style', 'css', 'autoprefixer-loader?browsers=last 2 version'],
+      loaders: ['style-loader', 'css-loader', 'autoprefixer-loader?browsers=last 2 version'],
     }, {
       test: /\.svg$/,
       loader: 'url-loader?limit=100000&mimetype=image/svg+xml',
