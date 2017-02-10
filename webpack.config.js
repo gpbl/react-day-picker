@@ -4,17 +4,17 @@ module.exports = {
   entry: './DayPicker.js',
   devtool: 'source-map',
   output: {
-    path: __dirname + '/dist',
+    path: `${__dirname}/dist`,
     filename: 'DayPicker.js',
     library: 'DayPicker',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   externals: {
-    'react': {
+    react: {
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
-      amd: 'react'
-    }
+      amd: 'react',
+    },
   },
 };
