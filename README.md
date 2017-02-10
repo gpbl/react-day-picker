@@ -26,25 +26,24 @@ Check out the [examples](http://react-day-picker.js.org/examples) to see its fea
 
 ## Quick start
 
-**Installing via npm**
+**Add the dependency to your project**
 
-```
+```bash
 npm install react-day-picker --save
+
+# or with yarn:
+yarn add react-day-picker
 ```
 
-**Using unpkg CDN**
+**Using unpkg**
+
+Include the component without installing:
 
 ```html
 <script src="https://unpkg.com/react-day-picker"></script>
 ```
 
-**Installing via Bower**
-
-```
-bower install react-day-picker --save
-```
-
-The bower package exposes a global `DayPicker` variable.
+See this [jsfiddle](https://jsfiddle.net/gpbl/gh072eqt/) as example.
 
 ### Example
 
