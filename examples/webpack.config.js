@@ -12,25 +12,18 @@ module.exports = {
   },
 
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       include: [
         path.join(__dirname, '../src'),
         path.join(__dirname, './src'),
         path.join(__dirname, '../dist'),
       ],
-      loaders: ['babel'],
+      loaders: ['babel-loader'],
     }, {
       test: /\.css$/,
-      loaders: ['style', 'css', 'autoprefixer-loader?browsers=last 2 version'],
+      loaders: ['style-loader', 'css-loader', 'autoprefixer-loader?browsers=last 2 version'],
     }],
-  },
-
-  resolve: {
-    extensions: ['', '.js'],
-    alias: {
-      react: path.resolve(__dirname, '../node_modules/react'),
-    },
   },
 
   plugins: [
