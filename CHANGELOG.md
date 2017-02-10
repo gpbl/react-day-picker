@@ -19,6 +19,7 @@
   + .DayPicker[lang="de"] {
     background: yellow;
   }
+  ```
 
 ---
 
