@@ -29,10 +29,10 @@ describe('<DayPicker />', () => {
       expect(dayPicker.props.navbarElement).to.be.a('object');
       expect(dayPicker.props.tabIndex).to.equal(0);
     });
-    it('should have the DayPicker classes', () => {
+    it('should have the right CSS classes and attributes', () => {
       const wrapper = shallow(<DayPicker />);
       expect(wrapper).to.have.className('DayPicker');
-      expect(wrapper).to.have.className('DayPicker--en');
+      expect(wrapper).to.have.attr('lang', 'en');
       expect(wrapper).to.have.className('DayPicker--interactionDisabled');
     });
     it('should use initialMonth as the current month', () => {
@@ -55,14 +55,6 @@ describe('<DayPicker />', () => {
       );
       expect(wrapper.find('.DayPicker-Caption').at(0)).to.have.text('February 2015');
       expect(wrapper.find('.DayPicker-Caption').at(1)).to.have.text('January 2015');
-    });
-    it('should update the current month when `initialMonth` is updated', () => {
-      const wrapper = mount(<DayPicker />);
-      wrapper.setProps({ initialMonth: new Date(2016, 1, 15) });
-      const instance = wrapper.instance();
-      expect(instance.state.currentMonth.getFullYear()).to.equal(2016);
-      expect(instance.state.currentMonth.getMonth()).to.equal(1);
-      expect(instance.state.currentMonth.getDate()).to.equal(1);
     });
     it('should not include the interactionDisabled CSS modifier', () => {
       const wrapper = shallow(<DayPicker onDayClick={ () => {} } />);
@@ -104,6 +96,21 @@ describe('<DayPicker />', () => {
     it('should skip the navigation bar if can\'t change month', () => {
       const wrapper = render(<DayPicker canChangeMonth={ false } />);
       expect(wrapper.find('.DayPicker-NavBar')).to.not.exist;
+    });
+    it('should render a custom content for the cell', () => {
+      const renderDay = (day, modifiers) => {
+        if (modifiers.foo) {
+          return 'bar';
+        }
+        return 'foo';
+      };
+      const wrapper = render(
+        <DayPicker
+          enableOutsideDays
+          modifiers={ { foo: () => true } }
+          renderDay={ renderDay }
+        />);
+      expect(wrapper.find('.DayPicker-Day').first()).to.have.text('bar');
     });
     it('should render a custom number of months', () => {
       const wrapper = render(<DayPicker numberOfMonths={ 3 } />);

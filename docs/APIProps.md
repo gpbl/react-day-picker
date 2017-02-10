@@ -117,9 +117,9 @@ When displaying multiple months, navigation will be paginated displaying the `nu
 
 ### renderDay
 
-**Type**: `(day: Date) ⇒ Element` **Default**: `(day) ⇒ day.getDate()`
+**Type**: `(day: Date, modifiers: Object) ⇒ Element` **Default**: `(day) ⇒ day.getDate()`
 
-Returns the content of a day cell. 
+Returns the content of a day cell.
 
 ### reverseMonths
 

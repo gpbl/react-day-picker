@@ -12,7 +12,7 @@ describe('<Navbar />', () => {
     expect(navbar.props.showPreviousButton).to.be.true;
     expect(navbar.props.showNextButton).to.be.true;
   });
-  it('should have the DayPicker classes', () => {
+  it('should have the right class name', () => {
     const wrapper = shallow(<Navbar className="DayPicker-NavBar" />);
     expect(wrapper).to.have.className('DayPicker-NavBar');
   });

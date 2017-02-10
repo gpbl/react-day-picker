@@ -13,7 +13,7 @@ import keys from './keys';
 import DayPickerPropTypes from './PropTypes';
 
 export default class DayPicker extends Component {
-  static VERSION = '3.1.1';
+  static VERSION = '4.0.0';
 
   static propTypes = {
     initialMonth: PropTypes.instanceOf(Date),
@@ -91,12 +91,6 @@ export default class DayPicker extends Component {
     this.handleDayKeyDown = this.handleDayKeyDown.bind(this);
 
     this.state = this.getStateFromProps(props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.initialMonth !== nextProps.initialMonth) {
-      this.setState(this.getStateFromProps(nextProps));
-    }
   }
 
   getStateFromProps = (props) => {
@@ -388,11 +382,14 @@ export default class DayPicker extends Component {
       }
     }
     const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
+    const modifiers = {};
+    dayModifiers.forEach((modifier) => { modifiers[modifier] = true; });
+
     return (
       <Day
         key={ `${isOutside ? 'outside-' : ''}${key}` }
         day={ day }
-        modifiers={ dayModifiers }
+        modifiers={ modifiers }
         empty={ isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks }
 
         tabIndex={ tabIndex }
@@ -409,7 +406,7 @@ export default class DayPicker extends Component {
         onFocus={ this.props.onDayFocus }
         onClick={ this.props.onDayClick ? this.handleDayClick : undefined }
       >
-        {this.props.renderDay(day)}
+        {this.props.renderDay(day, modifiers)}
       </Day>
     );
   }
@@ -455,7 +452,7 @@ export default class DayPicker extends Component {
 
   render() {
     const customProps = Helpers.getCustomProps(this.props, DayPicker.propTypes);
-    let className = `DayPicker DayPicker--${this.props.locale}`;
+    let className = 'DayPicker';
 
     if (!this.props.onDayClick) {
       className = `${className} DayPicker--interactionDisabled`;
@@ -470,6 +467,7 @@ export default class DayPicker extends Component {
         className={ className }
         ref={ (el) => { this.dayPicker = el; } }
         role="application"
+        lang={ this.props.locale }
         tabIndex={ this.props.canChangeMonth && this.props.tabIndex }
         onKeyDown={ this.handleKeyDown }
       >
