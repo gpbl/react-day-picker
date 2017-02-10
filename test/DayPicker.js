@@ -56,14 +56,6 @@ describe('<DayPicker />', () => {
       expect(wrapper.find('.DayPicker-Caption').at(0)).to.have.text('February 2015');
       expect(wrapper.find('.DayPicker-Caption').at(1)).to.have.text('January 2015');
     });
-    it('should update the current month when `initialMonth` is updated', () => {
-      const wrapper = mount(<DayPicker />);
-      wrapper.setProps({ initialMonth: new Date(2016, 1, 15) });
-      const instance = wrapper.instance();
-      expect(instance.state.currentMonth.getFullYear()).to.equal(2016);
-      expect(instance.state.currentMonth.getMonth()).to.equal(1);
-      expect(instance.state.currentMonth.getDate()).to.equal(1);
-    });
     it('should not include the interactionDisabled CSS modifier', () => {
       const wrapper = shallow(<DayPicker onDayClick={ () => {} } />);
       expect(wrapper).to.not.have.className('DayPicker--interactionDisabled');

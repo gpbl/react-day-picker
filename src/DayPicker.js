@@ -93,12 +93,6 @@ export default class DayPicker extends Component {
     this.state = this.getStateFromProps(props);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.initialMonth !== nextProps.initialMonth) {
-      this.setState(this.getStateFromProps(nextProps));
-    }
-  }
-
   getStateFromProps = (props) => {
     const initialMonth = Helpers.startOfMonth(props.initialMonth);
     let currentMonth = initialMonth;
