@@ -23,7 +23,7 @@
     "test:files": "mocha --compilers js:babel-core/register --require ./test/setup.js --reporter spec --bail --watch",
     "cover": "babel-node ./node_modules/istanbul/lib/cli cover -- _mocha --recursive --reporter spec",
     "check": "npm run lint && npm run test",
-    "prerelease": "npm run check && npm run dist && npm run build",
+    "prerelease": "npm run check && npm run dist && npm run build && cp src/style.css dist",
     "dist": "webpack -p",
     "build": "babel ./src -d ./lib --source-maps && postcss --use autoprefixer src/style.css -d lib/",
     "examples:clean": "rimraf examples/built",
