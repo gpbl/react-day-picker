@@ -449,7 +449,7 @@ export default class DayPicker extends Component {
 
   render() {
     const customProps = Helpers.getCustomProps(this.props, DayPicker.propTypes);
-    let className = `DayPicker DayPicker--${this.props.locale}`;
+    let className = 'DayPicker';
 
     if (!this.props.onDayClick) {
       className = `${className} DayPicker--interactionDisabled`;
@@ -464,6 +464,7 @@ export default class DayPicker extends Component {
         className={ className }
         ref={ (el) => { this.dayPicker = el; } }
         role="application"
+        lang={ this.props.locale }
         tabIndex={ this.props.canChangeMonth && this.props.tabIndex }
         onKeyDown={ this.handleKeyDown }
       >

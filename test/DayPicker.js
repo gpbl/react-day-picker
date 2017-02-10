@@ -29,10 +29,10 @@ describe('<DayPicker />', () => {
       expect(dayPicker.props.navbarElement).to.be.a('object');
       expect(dayPicker.props.tabIndex).to.equal(0);
     });
-    it('should have the DayPicker classes', () => {
+    it('should have the right CSS classes and attributes', () => {
       const wrapper = shallow(<DayPicker />);
       expect(wrapper).to.have.className('DayPicker');
-      expect(wrapper).to.have.className('DayPicker--en');
+      expect(wrapper).to.have.attr('lang', 'en');
       expect(wrapper).to.have.className('DayPicker--interactionDisabled');
     });
     it('should use initialMonth as the current month', () => {
