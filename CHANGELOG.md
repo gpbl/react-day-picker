@@ -1,3 +1,27 @@
+# [v4.0.0](https://github.com/gpbl/react-day-picker/tree/v4.0.0) (2017-02-10)
+
+* Pass the day's modifiers to the `renderDay` prop function ([#237](https://github.com/gpbl/react-day-picker/issues/237))
+
+**Breaking changes**
+
+* Updating `initialMonth` will not show anymore a different month after the first mount ([#169](https://github.com/gpbl/react-day-picker/issues/169))
+
+  This is a potentially breaking change if you were relying on `initialMonth` to display another month once the component was mounted. If you need the calendar to display a different month, always use the [`showMonth`](http://react-day-picker.js.org/APIMethods.html) method. See [this discussion](https://github.com/gpbl/react-day-picker/issues/169) for more info.
+
+* Use `lang` HTML attribute instead of a specific CSS class name.
+
+  This change may break your style or layout if you are styling the component according to the current locale. 
+  If this is the case, change your CSS to use the `lang` attribute selector. For examples,
+  if you are styling the calendar for the `de` locale:
+
+  ```diff
+  - .DayPicker--de {
+  + .DayPicker[lang="de"] {
+    background: yellow;
+  }
+
+---
+
 ### [v3.1.1](https://github.com/gpbl/react-day-picker/tree/v3.1.1) (2016-10-18)
 
 * Fixed [an issue](https://github.com/gpbl/react-day-picker/issues/227) with IE and older Safari.
@@ -26,7 +50,6 @@ With these new props you can localize the Day Picker in a more declarative way. 
 For any locale, weekday names must now begin from Sunday, and the first day of week should reflect this change (hence to start from Monday, the first day of week is `1`). See this [diff](https://github.com/gpbl/react-day-picker/commit/e1462b3818e0a56c24cbcdeb9dba52da8cd8ff72?diff=unified) as example.
   
 ---
-
 
 ## [v2.5.0](https://github.com/gpbl/react-day-picker/tree/v2.5.0) (2016-10-06)
 

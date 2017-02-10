@@ -1,23 +1,30 @@
 # Component methods
 
-#### showMonth `(d: Date) ⇒ void`
+#### showMonth `(month: Date) ⇒ void`
 
-Set the Day Picker to display the given month.
+Show the given `month` in the calendar.
 
+Example: 
 ```jsx
-
 class MyComponent extends React {
 
-  handleButtonClick() {
-    this.refs.daypicker.showMonth(new Date(2014, 10));
+  daypicker = null
+
+  handleClick() {
+    this.daypicker.showMonth(new Date(2014, 10));
   }
 
   render() {
     return (
-    <div>
-      <DayPicker initialMonth={ new Date(2015, 10) } ref="daypicker" />
-      <button onClick={ this.handleButtonClick }>Change month</button>
-    </div>
+      <div>
+        <DayPicker 
+          ref={ el => this.daypicker = el } 
+          initialMonth={ new Date(2015, 10) } 
+        />
+        <button onClick={ this.handleClick }>
+          Change month
+        </button>
+      </div>
     )
   }
 }
@@ -27,22 +34,22 @@ class MyComponent extends React {
 
 #### showPreviousMonth `() ⇒ void`
 
-Set the Day Picker to display the previous month.
+Show the previous month in the calendar.
 
 ---
 
 #### showNextMonth `() ⇒ void`
 
-Set the Day Picker to display the next month.
+Show the next month in the calendar.
 
 ---
 
 #### showPreviousYear `() ⇒ void`
 
-Set the Day Picker to display the previous year.
+Show the previous year in the calendar.
 
 ---
 
 #### showNextYear `() ⇒ void`
 
-Set the Day Picker to display the next year.
+Show the next year in the calendar.
