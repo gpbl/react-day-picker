@@ -2,7 +2,7 @@
 <img width="359"  style="margin: 0 auto" alt="title" src="https://cloud.githubusercontent.com/assets/120693/17276843/94ad5b62-5734-11e6-9f25-454f50f81122.png">
 </p>
 <p align="center">
-<img width="297" style="margin: 0 auto"  alt="screen shot" src="https://cloud.githubusercontent.com/assets/120693/12312069/74c136d6-ba5c-11e5-8eae-680ecd200f95.png">
+<img width="297" style="margin: 0 auto"  alt="screen shot" src="https://cloud.githubusercontent.com/assets/120693/22856445/3a6b008e-f070-11e6-8ef6-59bbab1c218b.png">
 </p>
 
 react-day-picker is a flexible date picker component for [React](https://facebook.github.io/react/).
