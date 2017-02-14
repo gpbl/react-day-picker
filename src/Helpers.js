@@ -1,5 +1,5 @@
 
-import { clone } from './DateUtils';
+import { clone, isSameDay, isDayInRange } from './DateUtils';
 import { getFirstDayOfWeek } from './LocaleUtils';
 
 export function cancelEvent(e) {
@@ -52,10 +52,55 @@ export function getFirstDayOfWeekFromProps(props) {
   return 0;
 }
 
-export function getModifiersForDay(d, modifierFunctions = {}) {
-  return Object.keys(modifierFunctions).reduce((modifiers, modifier) => {
-    const func = modifierFunctions[modifier];
-    if (func(d)) {
+export function isRangeOfDates(value) {
+  return value && typeof value === 'object' && value.from && value.to;
+}
+
+export function getModifiersForDay(d, modifiersObj = {}) {
+  return Object.keys(modifiersObj).reduce((modifiers, modifier) => {
+    const value = modifiersObj[modifier];
+    if (!value) {
+      return modifiers;
+    }
+    if (value instanceof Date && isSameDay(d, value)) {
+      // modifier's value is a date
+      modifiers.push(modifier);
+    } else if (value instanceof Array) {
+      // modifier's value is an array
+      if (value.some((day) => {
+        if (!day) {
+          return false;
+        }
+        if (day instanceof Date) {
+          // this value of the array is a date
+          return isSameDay(d, day);
+        }
+        if (isRangeOfDates(day)) {
+          // this value of the array is a range
+          const range = day;
+          return isDayInRange(d, range);
+        }
+        if (typeof day === 'object' && day.after) {
+          return d > day.after;
+        }
+        if (typeof day === 'object' && day.before) {
+          return d < day.before;
+        }
+        return false;
+      })) {
+        modifiers.push(modifier);
+      }
+    } else if (isRangeOfDates(value) && isDayInRange(d, value)) {
+      // modifier's value is a range
+      modifiers.push(modifier);
+    } else if (typeof value === 'object' && value.after && d > value.after) {
+      // modifier's value has an after date
+      modifiers.push(modifier);
+    } else if (typeof value === 'object' && value.before && d < value.before) {
+      // modifier's value has an after date
+      modifiers.push(modifier);
+    } else if (typeof value === 'function' && value(d)) {
+      // modifier's value is a function
       modifiers.push(modifier);
     }
     return modifiers;
