@@ -559,8 +559,11 @@ describe('<DayPicker />', () => {
       const wrapper = mount(<DayPicker onCaptionClick={ handleCaptionClick } />);
       wrapper.find('.DayPicker-Caption').simulate('click');
       expect(handleCaptionClick).to.have.been.calledWith(
+        sinon.match(date =>
+          date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(),
+          'currentMonth',
+        ),
         sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
-        sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
       );
     });
     it('should call the day\'s cell event handlers', () => {
@@ -585,9 +588,9 @@ describe('<DayPicker />', () => {
       );
 
       const eventArgs = [
-        sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
         sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
         sinon.match(mods => mods.foo, 'modifiers'),
+        sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
       ];
 
       wrapper.find('.DayPicker-Day--foo').simulate('click');
@@ -640,9 +643,9 @@ describe('<DayPicker />', () => {
         />,
       );
       const eventArgs = [
-        sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
         sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
         sinon.match(mods => mods.foo && !mods.bar, 'modifiers'),
+        sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
       ];
       wrapper.find('.DayPicker-Day--foo').simulate('keyDown', { keyCode: keys.ENTER });
       expect(handleDayClick).to.have.been.calledWith(...eventArgs);
@@ -657,9 +660,9 @@ describe('<DayPicker />', () => {
         />,
       );
       const eventArgs = [
-        sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
         sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
         sinon.match(mods => mods.foo, 'modifiers'),
+        sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
       ];
       wrapper.find('.DayPicker-Day--foo').simulate('keyDown', { keyCode: keys.SPACE });
       expect(handleDayClick).to.have.been.calledWith(...eventArgs);

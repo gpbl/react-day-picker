@@ -25,7 +25,7 @@ export default function Month({
     months,
     localeUtils,
     locale,
-    onClick: onCaptionClick ? e => onCaptionClick(e, month) : undefined,
+    onClick: onCaptionClick ? e => onCaptionClick(month, e) : undefined,
   };
   const weeks = getWeekArray(month, firstDayOfWeek, fixedWeeks);
   return (

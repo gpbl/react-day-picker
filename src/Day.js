@@ -8,7 +8,7 @@ function handleEvent(handler, day, modifiers) {
   }
   return (e) => {
     e.persist();
-    handler(e, day, modifiers);
+    handler(day, modifiers, e);
   };
 }
 export default function Day({
