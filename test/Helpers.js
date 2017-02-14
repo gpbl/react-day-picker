@@ -96,6 +96,14 @@ describe('Helpers', () => {
       expect(modifiers).to.have.length(1);
       expect(modifiers.indexOf('foo')).to.equal(0);
     });
+    it('ignore falsy values', () => {
+      const modifiers = Helpers.getModifiersForDay(
+        new Date(2015, 8, 19),
+        { foo: null, bar: false },
+      );
+      expect(modifiers).to.have.length(0);
+      expect(modifiers.indexOf('foo')).to.equal(-1);
+    });
     it('accepts an array of days', () => {
       const modifiersObj = {
         foo: [
@@ -122,6 +130,18 @@ describe('Helpers', () => {
       expect(modifiers3).to.have.length(1);
       expect(modifiers3.indexOf('foo')).to.equal(0);
       expect(modifiers3.indexOf('bar')).to.equal(-1);
+    });
+    it('accepts an array of days ignoring falsy values', () => {
+      const values = {
+        foo: [
+          null,
+          'test',
+          new Date(2015, 8, 21),
+        ],
+      };
+      const modifiers = Helpers.getModifiersForDay(new Date(2015, 8, 21), values);
+      expect(modifiers).to.have.length(1);
+      expect(modifiers.indexOf('foo')).to.be.above(-1);
     });
     it('accepts a single range of days', () => {
       const range = {
