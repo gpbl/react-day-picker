@@ -5,17 +5,11 @@ import '../../../src/style.css';
 export default class MultipleDays extends React.Component {
   constructor(props) {
     super(props);
-    this.isDaySelected = this.isDaySelected.bind(this);
     this.handleDayClick = this.handleDayClick.bind(this);
   }
   state = {
     selectedDays: [],
   };
-  isDaySelected(day) {
-    return this.state.selectedDays.some(selectedDay =>
-      DateUtils.isSameDay(selectedDay, day),
-    );
-  }
   handleDayClick(e, day, { selected }) {
     const { selectedDays } = this.state;
     if (selected) {
@@ -32,7 +26,7 @@ export default class MultipleDays extends React.Component {
     return (
       <div>
         <DayPicker
-          selectedDays={ this.isDaySelected }
+          selectedDays={ this.state.selectedDays }
           onDayClick={ this.handleDayClick }
         />
       </div>

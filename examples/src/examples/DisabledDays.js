@@ -24,9 +24,9 @@ export default class DisabledDays extends React.Component {
     return (
       <div>
         <DayPicker
-          selectedDays={ day => DateUtils.isSameDay(selectedDay, day) }
-          disabledDays={ DateUtils.isPastDay }
           enableOutsideDays
+          selectedDays={ selectedDay }
+          disabledDays={ day => day.getDay() === 0 || day.getDay() === 6 }
           onDayClick={ this.handleDayClick }
         />
         <p>

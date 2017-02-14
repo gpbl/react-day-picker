@@ -10,7 +10,7 @@ import * as DateUtils from './DateUtils';
 import * as LocaleUtils from './LocaleUtils';
 
 import keys from './keys';
-import DayPickerPropTypes from './PropTypes';
+import DayPickerPropTypes, { ModifierPropType } from './PropTypes';
 
 export default class DayPicker extends Component {
   static VERSION = '4.0.0';
@@ -18,8 +18,16 @@ export default class DayPicker extends Component {
   static propTypes = {
     initialMonth: PropTypes.instanceOf(Date),
     numberOfMonths: PropTypes.number,
-    selectedDays: PropTypes.func,
-    disabledDays: PropTypes.func,
+
+    selectedDays: PropTypes.oneOfType([
+      ModifierPropType,
+      PropTypes.arrayOf(ModifierPropType),
+    ]),
+
+    disabledDays: PropTypes.oneOfType([
+      ModifierPropType,
+      PropTypes.arrayOf(ModifierPropType),
+    ]),
 
     modifiers: PropTypes.object,
 

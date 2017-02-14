@@ -60,9 +60,9 @@ export default class InputField extends React.Component {
           />
         </p>
         <DayPicker
-          ref={ (el) => { this.daypicker = el; } }
+          ref={ el => this.daypicker = el }
           initialMonth={ this.state.month }
-          selectedDays={ day => DateUtils.isSameDay(selectedDay, day) }
+          selectedDays={ selectedDay }
           onDayClick={ this.handleDayClick }
         />
       </div>

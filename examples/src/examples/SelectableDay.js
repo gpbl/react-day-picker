@@ -1,5 +1,5 @@
 import React from 'react';
-import DayPicker, { DateUtils } from '../../../src';
+import DayPicker from '../../../src';
 import '../../../src/style.css';
 
 export default class SelectableDay extends React.Component {
@@ -12,7 +12,7 @@ export default class SelectableDay extends React.Component {
   };
   handleDayClick(e, day, { selected }) {
     this.setState({
-      selectedDay: selected ? null : day,
+      selectedDay: selected ? undefined : day,
     });
   }
   render() {
@@ -20,7 +20,7 @@ export default class SelectableDay extends React.Component {
     return (
       <div>
         <DayPicker
-          selectedDays={ day => DateUtils.isSameDay(selectedDay, day) }
+          selectedDays={ selectedDay }
           onDayClick={ this.handleDayClick }
         />
         <p>

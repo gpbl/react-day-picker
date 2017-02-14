@@ -39,7 +39,7 @@ export default class Range extends React.Component {
         }
         <DayPicker
           numberOfMonths={ 2 }
-          selectedDays={ day => DateUtils.isDayInRange(day, { from, to }) }
+          selectedDays={ [from, { from, to }] }
           onDayClick={ this.handleDayClick }
         />
       </div>

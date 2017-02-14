@@ -88,7 +88,130 @@ describe('Helpers', () => {
       expect(modifiers.indexOf('maybe')).to.equal(-1);
       expect(modifiers.indexOf('no')).to.equal(-1);
     });
-    it('works without passing modifiers', () => {
+    it('accepts a single day', () => {
+      const modifiers = Helpers.getModifiersForDay(
+        new Date(2015, 8, 19),
+        { foo: new Date(2015, 8, 19) },
+      );
+      expect(modifiers).to.have.length(1);
+      expect(modifiers.indexOf('foo')).to.equal(0);
+    });
+    it('ignore falsy values', () => {
+      const modifiers = Helpers.getModifiersForDay(
+        new Date(2015, 8, 19),
+        { foo: null, bar: false },
+      );
+      expect(modifiers).to.have.length(0);
+      expect(modifiers.indexOf('foo')).to.equal(-1);
+    });
+    it('accepts an array of days', () => {
+      const modifiersObj = {
+        foo: [
+          new Date(2015, 8, 19),
+          new Date(2015, 8, 20),
+          new Date(2015, 8, 21),
+        ],
+        bar: [
+          new Date(2015, 8, 19),
+          new Date(2015, 8, 20),
+        ],
+      };
+      const modifiers1 = Helpers.getModifiersForDay(new Date(2015, 8, 19), modifiersObj);
+      expect(modifiers1).to.have.length(2);
+      expect(modifiers1.indexOf('foo')).to.be.above(-1);
+      expect(modifiers1.indexOf('bar')).to.be.above(-1);
+
+      const modifiers2 = Helpers.getModifiersForDay(new Date(2015, 8, 20), modifiersObj);
+      expect(modifiers2).to.have.length(2);
+      expect(modifiers2.indexOf('foo')).to.be.above(-1);
+      expect(modifiers2.indexOf('bar')).to.be.above(-1);
+
+      const modifiers3 = Helpers.getModifiersForDay(new Date(2015, 8, 21), modifiersObj);
+      expect(modifiers3).to.have.length(1);
+      expect(modifiers3.indexOf('foo')).to.equal(0);
+      expect(modifiers3.indexOf('bar')).to.equal(-1);
+    });
+    it('accepts an array of days ignoring falsy values', () => {
+      const values = {
+        foo: [
+          null,
+          'test',
+          new Date(2015, 8, 21),
+        ],
+      };
+      const modifiers = Helpers.getModifiersForDay(new Date(2015, 8, 21), values);
+      expect(modifiers).to.have.length(1);
+      expect(modifiers.indexOf('foo')).to.be.above(-1);
+    });
+    it('accepts a single range of days', () => {
+      const range = {
+        foo: {
+          from: new Date(2015, 8, 18),
+          to: new Date(2015, 8, 20),
+        },
+      };
+      const modifiers1 = Helpers.getModifiersForDay(new Date(2015, 8, 19), range);
+      expect(modifiers1).to.have.length(1);
+      expect(modifiers1.indexOf('foo')).to.equal(0);
+      const modifiers2 = Helpers.getModifiersForDay(new Date(2015, 8, 17), range);
+      expect(modifiers2).to.have.length(0);
+    });
+    it('accepts multiple ranges of days', () => {
+      const ranges = {
+        foo: [{
+          from: new Date(2015, 8, 18),
+          to: new Date(2015, 8, 20),
+        }, {
+          from: new Date(2015, 9, 18),
+          to: new Date(2015, 9, 20),
+        }],
+      };
+      const modifiers1 = Helpers.getModifiersForDay(new Date(2015, 8, 19), ranges);
+      expect(modifiers1.indexOf('foo')).to.equal(0);
+      const modifiers2 = Helpers.getModifiersForDay(new Date(2015, 9, 18), ranges);
+      expect(modifiers2.indexOf('foo')).to.equal(0);
+    });
+    it('accepts an "after" modifier', () => {
+      const afterModifier = {
+        foo: {
+          after: new Date(2015, 8, 18),
+        },
+      };
+      const modifiers = Helpers.getModifiersForDay(new Date(2015, 8, 19), afterModifier);
+      expect(modifiers).to.have.length(1);
+      expect(modifiers.indexOf('foo')).to.equal(0);
+    });
+    it('accepts an "after" modifier in an array of days', () => {
+      const afterModifier = {
+        foo: [
+          { after: new Date(2015, 8, 18) },
+        ],
+      };
+      const modifiers = Helpers.getModifiersForDay(new Date(2015, 8, 19), afterModifier);
+      expect(modifiers).to.have.length(1);
+      expect(modifiers.indexOf('foo')).to.equal(0);
+    });
+    it('accepts a "before" modifier', () => {
+      const afterModifier = {
+        foo: {
+          before: new Date(2015, 8, 15),
+        },
+      };
+      const modifiers = Helpers.getModifiersForDay(new Date(2015, 8, 10), afterModifier);
+      expect(modifiers).to.have.length(1);
+      expect(modifiers.indexOf('foo')).to.equal(0);
+    });
+    it('accepts a "before" modifier in an array of days', () => {
+      const afterModifier = {
+        foo: [
+          { before: new Date(2015, 8, 15) },
+        ],
+      };
+      const modifiers = Helpers.getModifiersForDay(new Date(2015, 8, 10), afterModifier);
+      expect(modifiers).to.have.length(1);
+      expect(modifiers.indexOf('foo')).to.equal(0);
+    });
+    it('works even without modifiers', () => {
       const modifiers = Helpers.getModifiersForDay(new Date(2015, 8, 19));
       expect(modifiers).to.have.length(0);
     });
