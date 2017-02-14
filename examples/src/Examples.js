@@ -6,6 +6,7 @@ import createHistory from 'history/createBrowserHistory';
 
 import './vendors/prism.css';
 
+import AdvancedModifiers from './examples/AdvancedModifiers';
 import Birthdays from './examples/Birthdays';
 import DisabledDays from './examples/DisabledDays';
 import BlockedNavigation from './examples/BlockedNavigation';
@@ -44,24 +45,29 @@ const EXAMPLES = {
     description: 'Show the clicked day in an alert window.',
     Component: SimpleCalendar,
   },
+  modifiers: {
+    title: 'Simple modifiers',
+    description: 'Use the <code>selectedDays</code> and <code>disabledDays</code> props to style a day as selected or disabled.',
+    Component: Modifiers,
+  },
   selectable: {
     title: 'Selectable Day',
-    description: "Use the <code>selectedDays</code> prop and <a href='http://react-day-picker.js.org/DateUtils.html'>DateUtils</a> to select a day. Note how the selected day is stored in the parent component’s state.",
+    description: 'Use the <code>onDayClick</code> event to mark or unmark a day as selected when the user clicks a day cell. Note how the selected day is stored in the parent component’s state, not in the react-day-picker.',
     Component: SelectableDay,
   },
   multipleselect: {
     title: 'Selecting Multiple Days',
-    description: 'A more advanced version showing how to select/unselect multiple days.',
+    description: 'Pass an array of days to <code>selectDays</code> to select multiple days.',
     Component: MultipleDays,
   },
   disabled: {
     title: 'Disabled Days',
-    description: 'Use the <code>disabledDays</code> prop to prevent the selection of days: the <code>handleDayClick</code> handler doesn\'t update the state if the day has been marked as <code>disabled</code>.',
+    description: 'Use the <code>disabledDays</code> prop to prevent the selection of a day. Here we are passing a function to disable all the weekend days. <ul><li>Note how the <code>handleDayClick</code> handler is set to not select days marked as <code>disabled</code>.</li></ul>',
     Component: DisabledDays,
   },
   input: {
     title: 'Input Field',
-    description: 'How to connect the day picker with an input field.',
+    description: 'Connect the day picker with an input field. Libraries like moment.js can help to parse/validate the input date.',
     Component: InputField,
   },
   fixedWeeks: {
@@ -71,18 +77,13 @@ const EXAMPLES = {
   },
   range: {
     title: 'Range of Days - click',
-    description: "Select a range of days using the range functions available in <a href='http://react-day-picker.js.org/DateUtils.html'>DateUtils</a>.",
+    description: 'To select a range of days, pass to <code>selectedDays</code> an object with the following shape <code>{ from: &lt;Date&gt;, to: &lt;Date&gt; }</code>.',
     Component: Range,
   },
   rangeAdvanced: {
     title: 'Range of Days – mouse enter',
-    description: 'Select a range of days when the mouse enters in a day cell.',
+    description: 'Select a range of days when the mouse enters in a day cell. Some things to note: <ul><li><code>disabledDays</code> can accept an object with a <code>before</code> key to match days before the given one</li><li>the <code>modifiers</code> prop can be used to set custom CSS modifiers, such as <code>--start</code> or <code>--end</code>.</li></ul>',
     Component: RangeAdvanced,
-  },
-  modifiers: {
-    title: 'Advanced Modifiers',
-    description: 'Use the <code>modifiers</code> prop to customize the aspect and the behaviour for each day. Note how the <code>onDay*</code> props receive the modifiers as third argument.',
-    Component: Modifiers,
   },
   blocked: {
     title: 'Block Navigation',
@@ -108,6 +109,11 @@ const EXAMPLES = {
     title: 'Localization (advanced)',
     description: "You can provide your own <code>localeUtils</code>. The following example provides Russian and English localizations.  <a href='http://react-day-picker.js.org/Localization.html'>Read more about localization</a>.",
     Component: LocalizedCustom,
+  },
+  advancedModifiers: {
+    title: 'Advanced Modifiers',
+    description: 'Use the <code>modifiers</code> prop to fully customize the aspect and have full control of the calendar behavior. <ul><li>Note how the <code>onDay*</code> props receive the modifiers as third argument.</li></ul>',
+    Component: AdvancedModifiers,
   },
   yearNavigation: {
     title: 'Year Navigation',

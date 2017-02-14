@@ -40,6 +40,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       mangle: {
         except: [
+          'AdvancedModifiers',
           'Birthdays',
           'DisabledDays',
           'BlockedNavigation',

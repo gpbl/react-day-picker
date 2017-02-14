@@ -8,7 +8,7 @@
   color: white;
 }
 
-.DayPicker-Day--blahblah:not(.DayPicker-Day--outside) {
+.DayPicker-Day--first:not(.DayPicker-Day--outside) {
   background-color: black;
   color: white;
 }

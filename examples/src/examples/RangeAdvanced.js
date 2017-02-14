@@ -81,11 +81,11 @@ export default class RangeAdvanced extends React.Component {
           className="Range"
           numberOfMonths={ 2 }
           fromMonth={ from }
-          selectedDays={ day => DateUtils.isDayInRange(day, { from, to }) }
-          disabledDays={ day => this.state.from && day < this.state.from }
+          selectedDays={ [from, { from, to }] }
+          disabledDays={ { before: this.state.from } }
           modifiers={ {
-            from: day => DateUtils.isSameDay(day, from),
-            to: day => DateUtils.isSameDay(day, to),
+            start: from,
+            end: to,
           } }
           onDayClick={ this.handleDayClick }
           onDayMouseEnter={ this.handleDayMouseEnter }

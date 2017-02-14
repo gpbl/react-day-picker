@@ -49,9 +49,9 @@ See this [jsfiddle](https://jsfiddle.net/gpbl/gh072eqt/) as example.
 
 ```js
 import React from 'react';
-import DayPicker, { DateUtils } from "react-day-picker";
+import DayPicker from "react-day-picker";
 
-function sunday(day) {
+function sundays(day) {
   return day.getDay() === 0;
 }
 
@@ -59,22 +59,18 @@ class MyComponent extends React.Component {
   state = {
     selectedDay: new Date(),
   }
-  handleDayClick(e, day, { selected, disabled }) {
+  handleDayClick(e, day, { disabled, selected }) {
     if (disabled) {
       return;
     }
-    if (selected) {
-      this.setState({ selectedDay: null })
-    } else {
-      this.setState({ selectedDay: day });
-    }
+    this.setState({ selectedDay: selected ? null : day })
   },
   render() {
     return (
       <DayPicker
         initialMonth={ new Date(2016, 1) }
-        disabledDays={ sunday }
-        selectedDays={ day => DateUtils.isSameDay(this.state.selectedDay, day) }
+        disabledDays={ sundays }
+        selectedDays={ this.state.selectedDay }
         onDayClick={ this.handleDayClick.bind(this) }
     />);
   }
