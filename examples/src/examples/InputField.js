@@ -38,7 +38,7 @@ export default class InputField extends React.Component {
     }
   }
 
-  handleDayClick(e, day) {
+  handleDayClick(day) {
     this.setState({
       value: moment(day).format('L'),
       month: day,

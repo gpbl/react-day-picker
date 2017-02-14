@@ -80,7 +80,7 @@ export default class InputFieldOverlay extends Component {
   }
 
 
-  handleDayClick(e, day) {
+  handleDayClick(day) {
     this.setState({
       value: moment(day).format('L'),
       selectedDay: day,

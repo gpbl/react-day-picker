@@ -18,7 +18,7 @@ export default function Restricted() {
         { before: start },
         { after: end },
       ] }
-      onDayClick={ (e, day, { disabled }) => {
+      onDayClick={ (day, { disabled }) => {
         if (!disabled) {
           console.log(day.toLocaleDateString());
         }

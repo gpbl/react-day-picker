@@ -18,7 +18,7 @@ export default class RangeAdvanced extends React.Component {
     to: null,
   };
 
-  handleDayClick(e, day) {
+  handleDayClick(day) {
     const { from, isSelectingLastDay } = this.state;
     // Enable day selection on mouse enter
     if (!isSelectingLastDay) {
@@ -47,7 +47,7 @@ export default class RangeAdvanced extends React.Component {
     }
   }
 
-  handleDayMouseEnter(e, day) {
+  handleDayMouseEnter(day) {
     const { isSelectingLastDay, from } = this.state;
     if (!isSelectingLastDay || (from && day < from) || DateUtils.isSameDay(day, from)) {
       return;

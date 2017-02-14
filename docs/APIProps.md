@@ -190,7 +190,7 @@ An array containing the short weekdays names to use in the month's header. Must 
 
 ### onCaptionClick
 
-**Type**: `(e: SyntethicEvent, currentMonth: Date) ⇒ void`
+**Type**: `(currentMonth: Date, e: SyntethicEvent) ⇒ void`
 
 Event handler when the user clicks on the caption in the header displaying the month.
 
@@ -198,7 +198,7 @@ Event handler when the user clicks on the caption in the header displaying the m
 
 ### onDayClick
 
-**Type**: `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void`
+**Type**: `(day: Date, modifiers: Object, e: SyntethicEvent) ⇒ void`
 
 Event handler when the user clicks on a day cell.
 
@@ -212,31 +212,31 @@ Event handler when the calendar get the `blur` event.
 
 ### onDayKeyDown
 
-**Type**: `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void`
+**Type**: `(day: Date, modifiers: Object, e: SyntethicEvent) ⇒ void`
 
 Event handler when the day cell gets the `keydown` event.
 
 ### onDayMouseEnter
 
-**Type**: `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void`
+**Type**: `(day: Date, modifiers: Object, e: SyntethicEvent) ⇒ void`
 
 Event handler when the mouse enters a day cell.
 
 ### onDayMouseLeave
 
-**Type**: `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void`
+**Type**: `(day: Date, modifiers: Object, e: SyntethicEvent) ⇒ void`
 
 Event handler when the mouse leave a day cell.
 
 ### onDayTouchStart
 
-**Type**: `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void`
+**Type**: `(day: Date, modifiers: Object, e: SyntethicEvent) ⇒ void`
 
 Event handler when the day cell gets the `touchStart` event.
 
 ### onDayTouchEnd
 
-**Type**: `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void`
+**Type**: `(day: Date, modifiers: Object, e: SyntethicEvent) ⇒ void`
 
 Event handler when the day cell gets the `touchEnd` event.
 

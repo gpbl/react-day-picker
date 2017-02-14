@@ -59,7 +59,7 @@ class MyComponent extends React.Component {
   state = {
     selectedDay: new Date(),
   }
-  handleDayClick(e, day, { disabled, selected }) {
+  handleDayClick(day, { disabled, selected }) {
     if (disabled) {
       return;
     }

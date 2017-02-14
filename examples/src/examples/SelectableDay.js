@@ -10,7 +10,7 @@ export default class SelectableDay extends React.Component {
   state = {
     selectedDay: null,
   };
-  handleDayClick(e, day, { selected }) {
+  handleDayClick(day, { selected }) {
     this.setState({
       selectedDay: selected ? undefined : day,
     });

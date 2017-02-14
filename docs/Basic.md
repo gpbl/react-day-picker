@@ -20,7 +20,7 @@ class SelectDay extends React.Component {
   state = {
     selectedDay: new Date(), // We set the selected default as today
   };
-  handleDayClick(e, day) {
+  handleDayClick(day) {
     this.setState({ selectedDay: day });
   }
   render() {
@@ -56,7 +56,7 @@ class SelectDay extends React.Component {
   isDaySelected(day) {
     return DateUtils.isSameDay(day, this.state.selectedDay);
   }
-  handleDayClick(e, day) {
+  handleDayClick(day) {
     this.setState({ selectedDay: day });
   }
   render() {
@@ -94,7 +94,7 @@ The `onDayClick` handler receives as third argument an object that can be inspec
 
 ```jsx
 // snip
-handleDayClick(e, day, { selected }) {
+handleDayClick(day, { selected }) {
   if (selected) {
     // Unselect the day if already selected
     this.state({ selectedDay: undefined });
@@ -155,7 +155,7 @@ class SelectDay extends React.Component {
   state = {
     selectedDay: new Date(),
   };
-  handleDayClick(e, day) {
+  handleDayClick(day) {
     this.setState({ selectedDay: day });
   }
   render() {
@@ -180,7 +180,7 @@ This, however, will make selectable _the disabled days too_. We need instead our
 In the click handler we can use the day's modifiers to check if the day was disabled, and prevent its selection:
 
 ```jsx
-handleDayClick(e, day, { disabled }) {
+handleDayClick(day, { disabled }) {
   if (disabled) {
     // Do not update the state if the day is disabled
     return;

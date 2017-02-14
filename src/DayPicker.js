@@ -296,7 +296,7 @@ export default class DayPicker extends Component {
     }
   }
 
-  handleDayKeyDown(e, day, modifiers) {
+  handleDayKeyDown(day, modifiers, e) {
     e.persist();
     switch (e.keyCode) {
       case keys.LEFT:
@@ -319,23 +319,23 @@ export default class DayPicker extends Component {
       case keys.SPACE:
         Helpers.cancelEvent(e);
         if (this.props.onDayClick) {
-          this.handleDayClick(e, day, modifiers);
+          this.handleDayClick(day, modifiers, e);
         }
         break;
       default:
         break;
     }
     if (this.props.onDayKeyDown) {
-      this.props.onDayKeyDown(e, day, modifiers);
+      this.props.onDayKeyDown(day, modifiers, e);
     }
   }
 
-  handleDayClick(e, day, modifiers) {
+  handleDayClick(day, modifiers, e) {
     e.persist();
     if (modifiers.outside) {
       this.handleOutsideDayClick(day);
     }
-    this.props.onDayClick(e, day, modifiers);
+    this.props.onDayClick(day, modifiers, e);
   }
 
   handleOutsideDayClick(day) {

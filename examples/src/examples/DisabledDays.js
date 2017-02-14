@@ -11,7 +11,7 @@ export default class DisabledDays extends React.Component {
   state = {
     selectedDay: null,
   };
-  handleDayClick(e, day, { disabled, selected }) {
+  handleDayClick(day, { disabled, selected }) {
     if (disabled) {
       return;
     }
