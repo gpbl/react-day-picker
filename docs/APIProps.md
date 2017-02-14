@@ -1,7 +1,5 @@
 # Component props
 
-Please note that HTML props (such as `className`, `tabIndex`, `style` etc.) are spread to the root's `div` element.
-
 ### canChangeMonth
 
 **Type**: `Bool` | **Default**: `true`
