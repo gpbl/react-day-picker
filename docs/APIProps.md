@@ -25,9 +25,11 @@ See also [this advanced example](../examples?yearNavigation), showing a year nav
 
 ### disabledDays
 
-**Type**: `(day: Date) ⇒ Bool`
+**Type**: `Date` || `Object` || `(day: Date) ⇒ Bool` || `Array<Date|Object|Function>`
 
-A function returning a boolean indicating if a day is disabled. Set a `disabled` modifier.
+Indicate which day should appear as disabled. Set a `selected` modifier. 
+
+See [Modifiers](Modifiers.md) for a reference of the accepted values.
 
 ### enableOutsideDays
 
@@ -77,7 +79,8 @@ By default the used locale is English (US). See also [Localization](Localization
 
 **Type**: `Object`
 
-An object of named functions returning a boolean: `modifier(day: Date) -> Bool`. When a function of this object evaluates `true`, its name is used as CSS modifier for the day's cell.
+An object of [modifiers values](Modifiers.md), whose keys will be used as CSS modifiers.
+
 As default, the calendar includes `today` and `outside` modifiers. (_Outside_ are the days that appear on the calendar but don't belong to the current month).
 
 ### months
@@ -129,9 +132,11 @@ Render the months in reversed order. Useful when `numberOfMonths` is greater tha
 
 ### selectedDays 
 
-**Type**: `(day: Date) ⇒ Bool`
+**Type**: `Date` || `Object` || `(day: Date) ⇒ Bool` || `Array<Date|Object|Function>`
 
-A function returning a boolean indicating if a day is selected. Set a `selected` modifier.
+Indicate which day should appear as selected. Set a `selected` modifier.
+
+See [Modifiers](Modifiers.md) for a reference of the accepted values.
 
 ### toMonth
 

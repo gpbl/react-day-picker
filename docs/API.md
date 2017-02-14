@@ -9,7 +9,7 @@
 | --- | --- | --- |
 | [canChangeMonth](APIProps.md#canchangemonth) | true | `Bool` |
 | [captionElement](APIProps.md#captionelement) | | `Element` |
-| [disabledDays](APIProps.md#disableddays) | | `Bool` |
+| [disabledDays](APIProps.md#disableddays) | | `Date || Object || (day: Date) ⇒ Bool || Array<Date|Object|Function>` |
 | [enableOutsideDays](APIProps.md#enableoutsidedays) | false | `Bool` |
 | [firstDayOfWeek](APIProps.md#firstdayofweek) | 0 | `Number` |
 | [fixedWeeks](APIProps.md#fixedWeeks) | false | `Bool` |
@@ -31,7 +31,7 @@
 | [pagedNavigation](APIProps.md#pagednavigation) |false | `Bool` |
 | [renderDay](APIProps.md#renderday) | day ⇒ day.getDate() | `(day: Date) ⇒ Element` |
 | [reverseMonths](APIProps.md#reversemonths) | false | `Bool` |
-| [selectedDays](APIProps.md#selecteddays) | | `Bool` |
+| [selectedDays](APIProps.md#selecteddays) | | `Date || Object || (day: Date) ⇒ Bool || Array<Date|Object|Function>` |
 | [tabIndex](APIProps.md#tabindex) | | `Number` |
 | [toMonth](APIProps.md#tomonth) | | `Date` |
 | [weekdayElement](APIProps.md#weekdayelement) | | `Element` |
