@@ -560,7 +560,8 @@ describe('<DayPicker />', () => {
       wrapper.find('.DayPicker-Caption').simulate('click');
       expect(handleCaptionClick).to.have.been.calledWith(
         sinon.match(date =>
-          date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(),
+          date.getFullYear() === (new Date()).getFullYear() &&
+          date.getMonth() === (new Date()).getMonth(),
           'currentMonth',
         ),
         sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
