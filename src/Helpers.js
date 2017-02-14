@@ -7,16 +7,6 @@ export function cancelEvent(e) {
   e.stopPropagation();
 }
 
-export function getCustomProps(props, propTypes) {
-  const customProps = {};
-  Object.keys(props)
-      .filter(propName => !{}.hasOwnProperty.call(propTypes, propName))
-      .forEach((propName) => {
-        customProps[propName] = props[propName];
-      });
-  return customProps;
-}
-
 export function getFirstDayOfMonth(d) {
   return new Date(d.getFullYear(), d.getMonth(), 1, 12);
 }

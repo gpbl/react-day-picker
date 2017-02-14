@@ -72,8 +72,8 @@ describe('<DayPicker />', () => {
       const wrapper = shallow(<DayPicker tabIndex={ 10 } />);
       expect(wrapper).to.have.attr('tabindex', '10');
     });
-    it('should spread the rest of the props to the container', () => {
-      const wrapper = shallow(<DayPicker data-foo="bar" />);
+    it('should spread props to the container', () => {
+      const wrapper = shallow(<DayPicker containerProps={ { 'data-foo': 'bar' } } />);
       expect(wrapper).to.have.attr('data-foo', 'bar');
     });
     it('should handle focus and blur events', () => {

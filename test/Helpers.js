@@ -16,19 +16,6 @@ describe('Helpers', () => {
     });
   });
 
-  describe('getCustomProps', () => {
-    it('should filter props existing in the given propTypes', () => {
-      const props = {
-        foo: 1,
-        bar: 2,
-      };
-      const propTypes = {
-        bar: 'thing',
-      };
-      expect(Helpers.getCustomProps(props, propTypes)).to.eql({ foo: 1 });
-    });
-  });
-
   describe('getFirstDayOfWeekFromProps', () => {
     it('should return Sunday as default', () => {
       expect(Helpers.getFirstDayOfWeekFromProps({ })).to.equal(0);
