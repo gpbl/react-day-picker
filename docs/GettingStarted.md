@@ -34,7 +34,7 @@ class SelectDay extends React.Component {
     selectedDay: null
   };
 
-  handleDayClick(e, day, modifiers) {
+  handleDayClick(day) {
     this.setState({ selectedDay: day });
   }
 
@@ -121,7 +121,7 @@ Modifiers are passed to event handlers. For example, if the selected day is clic
 
 ```javascript
 
-handleDayClick(e, day, modifiers) {
+handleDayClick(day, modifiers) {
   if (modifiers.indexOf("selected") > -1) {
     this.setState({
       selectedDay: null
@@ -146,7 +146,7 @@ const modifiers = {
 then, the click handler stops the interaction when the day contains the `isSunday` modifier:
 
 ```javascript
-handleDayClick(e, day, modifiers) {
+handleDayClick(day, modifiers) {
   if (modifiers.indexOf("isSunday") > -1) {
     return;
   }

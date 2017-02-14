@@ -10,7 +10,7 @@ export default class MultipleDays extends React.Component {
   state = {
     selectedDays: [],
   };
-  handleDayClick(e, day, { selected }) {
+  handleDayClick(day, { selected }) {
     const { selectedDays } = this.state;
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>

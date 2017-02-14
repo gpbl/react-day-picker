@@ -8,7 +8,7 @@ export default class Modifiers extends React.Component {
     super(props);
     this.handleDayClick = this.handleDayClick.bind(this);
   }
-  handleDayClick(e, day, modifiers) {
+  handleDayClick(day, modifiers) {
     console.log('Day\'s CSS classes', e.target.classList.toString());
     console.log('Day\'s modifiers', modifiers);
   }

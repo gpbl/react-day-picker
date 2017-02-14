@@ -98,13 +98,13 @@ For example, using the modifiers above, any cell representing a Sunday will have
 Modifiers are passed as argument to the event handlers:
 
 ```jsx
-function handleDayClick(e, day, modifiers) {
+function handleDayClick(day, modifiers) {
   if (modifiers.sundays) {
     console.log('Sunday has been clicked')
   }
 }
 
-function handleDayMouseEnter(e, day, { isFirstOfMonth }) {
+function handleDayMouseEnter(day, { isFirstOfMonth }) {
   if (isFirstOfMonth) {
     console.log('The first day of month received mouse enter')
   }

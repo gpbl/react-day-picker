@@ -13,7 +13,7 @@ export default class AdvancedModifiers extends React.Component {
   state = {
     text: 'Please select a day 👻',
   };
-  handleDayClick(e, day, { even, odd, blahblah }) {
+  handleDayClick(day, { even, odd, blahblah }) {
     let text;
     if (even) {
       text = 'Just an even day';
@@ -26,7 +26,7 @@ export default class AdvancedModifiers extends React.Component {
     }
     this.setState({ text });
   }
-  handleDayMouseEnter(e, day, modifiers) {
+  handleDayMouseEnter(day, modifiers) {
     console.log('Day\'s CSS classes', e.target.classList.toString());
     console.log('Day\'s modifiers', modifiers);
   }
