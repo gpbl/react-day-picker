@@ -47,6 +47,8 @@ export default class DayPicker extends Component {
     weekdaysLong: PropTypes.arrayOf(PropTypes.string),
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),
 
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
     onKeyDown: PropTypes.func,
     onDayClick: PropTypes.func,
     onDayKeyDown: PropTypes.func,
@@ -67,6 +69,8 @@ export default class DayPicker extends Component {
     dir: PropTypes.string,
     className: PropTypes.string,
     tabIndex: PropTypes.number,
+
+    containerProps: PropTypes.object,
 
   };
 
@@ -442,7 +446,6 @@ export default class DayPicker extends Component {
           wrapperClassName="DayPicker-Body"
           weekClassName="DayPicker-Week"
 
-          weekdayComponent={ this.props.weekdayComponent }
           weekdayElement={ this.props.weekdayElement }
           captionElement={ this.props.captionElement }
 
@@ -459,7 +462,6 @@ export default class DayPicker extends Component {
   }
 
   render() {
-    const customProps = Helpers.getCustomProps(this.props, DayPicker.propTypes);
     let className = 'DayPicker';
 
     if (!this.props.onDayClick) {
@@ -471,13 +473,15 @@ export default class DayPicker extends Component {
 
     return (
       <div
-        { ...customProps }
+        { ...this.props.containerProps }
         className={ className }
         ref={ (el) => { this.dayPicker = el; } }
         role="application"
         lang={ this.props.locale }
         tabIndex={ this.props.canChangeMonth && this.props.tabIndex }
         onKeyDown={ this.handleKeyDown }
+        onFocus={ this.props.onFocus }
+        onBlur={ this.props.onBlur }
       >
         {this.renderNavbar()}
         {this.renderMonths()}

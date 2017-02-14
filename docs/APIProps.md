@@ -1,7 +1,5 @@
 # Component props
 
-Please note that HTML props (such as `className`, `tabIndex`, `style` etc.) are spread to the root's `div` element.
-
 ### canChangeMonth
 
 **Type**: `Bool` | **Default**: `true`
@@ -22,6 +20,27 @@ A React element to use as caption. This element is cloned with the following pro
 The default caption is a `div` with class `DayPicker-Caption`, showing a "month year" text.
 
 See also [this advanced example](../examples?yearNavigation), showing a year navigation element using this prop.
+
+### className
+
+**Type**: `String`
+
+Additional CSS class names to add to the defaults.
+
+### containerProps
+
+**Type**: `Object`
+
+Props to pass to the container `div` HTML element. Only props by a `div` are valid.
+
+`className`, `role`, `tabIndex`, `onKeyDown`, `onFocus` and `onBlur` must be passed directly to the component. E.g.:
+
+```jsx
+<DayPicker
+  containerProps={{ className: 'will_be_ignored' }}
+  className="will_work"
+/> 
+```
 
 ### disabledDays
 
@@ -185,11 +204,17 @@ Event handler when the user clicks on a day cell.
 
 ---
 
+### onBlur
+
+**Type**: `(e: SyntethicEvent) ⇒ void`
+
+Event handler when the calendar get the `blur` event.
+
 ### onDayKeyDown
 
 **Type**: `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void`
 
-Event handler when the day cell gets the key down event.
+Event handler when the day cell gets the `keydown` event.
 
 ### onDayMouseEnter
 
@@ -214,6 +239,18 @@ Event handler when the day cell gets the `touchStart` event.
 **Type**: `(e: SyntethicEvent, day: Date, modifiers: Object) ⇒ void`
 
 Event handler when the day cell gets the `touchEnd` event.
+
+### onFocus
+
+**Type**: `(e: SyntethicEvent) ⇒ void`
+
+Event handler when the calendar get the `focus` event
+
+### onKeyDown
+
+**Type**: `(e: SyntethicEvent) ⇒ void`
+
+Event handler when the calendar get the `keydown` event
 
 ### onMonthChange
 
