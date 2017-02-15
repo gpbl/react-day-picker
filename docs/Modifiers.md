@@ -65,7 +65,7 @@ A CSS modifier (as in [BEM-like syntax](https://css-tricks.com/bem-101/)) is add
 <DayPicker disabledDays={ [new Date(2017, 2, 4), new Date(2017, 2, 7)] } />
 ```
 
-* To set `.DayPicker-Day--past` to the past days`
+* To set `.DayPicker-Day--past` to the past days:
 
 ```jsx
 <DayPicker 
@@ -75,7 +75,7 @@ A CSS modifier (as in [BEM-like syntax](https://css-tricks.com/bem-101/)) is add
 />
 ```
 
-You can pass more day modifiers using the `modifiers` prop. Some other examples:
+You can pass more day modifiers using the `modifiers` prop:
 
 ```jsx
 <DayPicker 
