@@ -195,4 +195,4 @@ Check out [this example](http://react-day-picker.js.org/examples?disabled) shows
 
 The `selectedDays` prop and the `onDayClick` event handler can implement a more complex logic to make the date picker more powerful. For example, you can make the date picker to [select a range of days](http://react-day-picker.js.org/examples?range).
 
-You can go deeper with the customization using **modifiers**. Modifiers are a powerful concept behind react-day-picker. Read more about them in the [next chapter](Modifiers.md).
+You can go deeper with the customization using **day modifiers**. Read more about them in the [next chapter](Modifiers.md).

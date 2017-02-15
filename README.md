@@ -22,8 +22,6 @@ Check out the [examples](http://react-day-picker.js.org/examples) to see its fea
 [![Code Climate](https://img.shields.io/codeclimate/github/kabisaict/flow.svg?style=flat-square)](https://codeclimate.com/github/gpbl/react-day-picker)
 [![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](http://npm-stat.com/charts.html?package=react-day-picker)
 
-
-
 ## Quick start
 
 **Add the dependency to your project**
@@ -81,16 +79,16 @@ See [Basic usage](http://react-day-picker.js.org/Basic.html) for a deeper explan
 
 ### Docs and examples
 
-* [Examples with code](http://react-day-picker.js.org/examples)
+* [Examples With Code](http://react-day-picker.js.org/examples)
 * [Documentation](http://react-day-picker.js.org)
-    * [Basic usage](http://react-day-picker.js.org/Basic.html)
-    * [Use of modifiers](http://react-day-picker.js.org/Modifiers.html)
+    * [Basic Usage](http://react-day-picker.js.org/Basic.html)
+    * [Use of Day Modifiers](http://react-day-picker.js.org/Modifiers.html)
     * [API](http://react-day-picker.js.org/API.html)
     * [Styling](http://react-day-picker.js.org/Styling.html)
     * [Localization](http://react-day-picker.js.org/Localization.html)
     * [Tips](http://react-day-picker.js.org/Tips.html)
     * [Utilities](http://react-day-picker.js.org/Utilities.html)
-* [Changelog](https://github.com/gpbl/react-day-picker/blob/master/CHANGELOG.md)
+* [CHANGELOG](https://github.com/gpbl/react-day-picker/blob/master/CHANGELOG.md)
 
 ### Get support
 

@@ -98,9 +98,9 @@ By default the used locale is English (US). See also [Localization](Localization
 
 **Type**: `Object`
 
-An object of [modifiers values](Modifiers.md), whose keys will be used as CSS modifiers.
+An object of [day modifiers](Modifiers.md).
 
-As default, the calendar includes `today` and `outside` modifiers. (_Outside_ are the days that appear on the calendar but don't belong to the current month).
+As default, the calendar adds `today` and `outside` modifiers. (_Outside days_ are the days appearing on the calendar but don't belonging to the current month).
 
 ### months
 

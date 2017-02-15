@@ -1,13 +1,13 @@
-# Use of Modifiers
+# Use of Day Modifiers
 
-Modifiers give you the full control over the appearance and the behavior of the date picker. You use modifiers to implement the different logic according to your data.
+_Day modifiers_ change the aspect of the day cells and/or customize the interaction with of the calendar.
 
-Modifier values are passed to the component via the `selectedDays`, `disabledDays` and `modifier` props. 
+## Type of modifier values
 
 The value of a modifier can be either:
 
 - **a `Date` object**, to match a specific day
-- **a `range` object** with `from` and `to` keys, to match a range of days. For example 
+- **a `range` object** with `from` and `to` keys, to match a range of days:
 
   ```js
   const range = { 
@@ -17,7 +17,7 @@ The value of a modifier can be either:
   ```
   will match the days between the 12th and the 16th of January.
 
-- **an object with a `before` key**, to match the days before the given date. For example 
+- **an object with a `before` key**, to match the days before the given date:
   ```js
   const range = { 
     before: new Date(), 
@@ -25,11 +25,11 @@ The value of a modifier can be either:
   ```
   will match all the past the days (i.e. the days before today).
 
-- **an object with a `after` key**, to match the days after the given date. For example 
+- **an object with a `after` key**, to match the days after the given date:
 
   ```js
   const range = { 
-    before: new Date(2018, 0, 1), 
+    after: new Date(2018, 0, 1), 
   }
   ```
 
@@ -46,27 +46,63 @@ The value of a modifier can be either:
   }
   ```
   are all valid modifiers.
+
 - **an array of the above** 
 
-You pass modifiers to the day-picker using the `modifiers` prop. Here some example of modifiers:
+## Examples
+
+A CSS modifier (as in [BEM-like syntax](https://css-tricks.com/bem-101/)) is added to each day cell when a day matches a modifier. You set the day modifiers with the `selectedDay`, `disabledDays` or `modifiers` props. Examples:
+
+* To add a `.DayPicker-Day--selected` CSS class to the February, 12th 2017 cell:
+
+```jsx
+<DayPicker selectedDays={ new Date(2017, 1, 12) } />
+```
+
+* To add a `.DayPicker-Day--disabled` to the 4th and 7th of February 2017
+
+```jsx
+<DayPicker disabledDays={ [new Date(2017, 2, 4), new Date(2017, 2, 7)] } />
+```
+
+* To set `.DayPicker-Day--past` to the past days`
+
+```jsx
+<DayPicker 
+  modifiers={ { 
+    past: { before: new Date() } 
+  } }
+/>
+```
+
+You can pass more day modifiers using the `modifiers` prop. Some other examples:
 
 ```jsx
 <DayPicker 
   modifiers={{ 
     special: new Date(2018, 11, 11),
-    booked: { from: new Date(2017, 1, 11), to: new Date(2017, 2, 23) },
-    holiday: [new Date(2018, 11, 25), new Date(2018, 10, 31)],
+    
+    booked: { 
+      from: new Date(2017, 1, 11), 
+      to: new Date(2017, 2, 23) 
+    },
+    
+    holiday: [
+      new Date(2018, 11, 25), 
+      new Date(2018, 10, 31),
+      { from: new Date(2018, 06, 10), to: new Date(2018, 06, 20) }
+    ],
+
     sunday: day => day.getDay() === 0, 
+    
     firstOfMonth: day => day.getDate() === 1,
   }}
 />
 ```
 
-#### `selected` and `disabled` modifiers
+### `selected` and `disabled` modifiers
 
-Under the hood, the `selectedDays` and `disabledDays` props act as shortcut for the `selected` and a `disabled` modifiers. 
-
-Hence, the following two day-picker render the same:
+Under the hood, the `selectedDays` and `disabledDays` props act as shortcut for the `selected` and a `disabled` modifiers. The following renders the same calendar:
 
 ```jsx
 
@@ -87,13 +123,7 @@ function isFirstOfMonth(day) {
 />
 ```
 
-### Use modifiers to style the day cells
-
-The CSS class for a day cell will get the modifier (as in [BEM-like syntax](https://css-tricks.com/bem-101/)) when the corresponding function returns `true` for the given day.
-
-For example, using the modifiers above, any cell representing a Sunday will have the `DayPicker-Day--sundays` class name, and the first day of the month will have a `DayPicker-Day--isFirstOfMonth` class name.
-
-### Access modifiers from the event handlers
+## Accessing modifiers from event handlers
 
 Modifiers are passed as argument to the event handlers:
 
@@ -104,13 +134,17 @@ function handleDayClick(day, modifiers) {
   }
 }
 
-function handleDayMouseEnter(day, { isFirstOfMonth }) {
+function handleDayMouseEnter(day, { isFirstOfMonth, disabled }) {
   if (isFirstOfMonth) {
     console.log('The first day of month received mouse enter')
+  }
+  if (disabled) {
+    console.log('This day is disabled')
   }
 }
 
 <DayPicker
+  disabledDays={ new Date(2015, 0, 12) }
   modifiers={{ sundays, isFirstOfMonth }}
   onDayClick={ handleDayClick }
   onDayMouseEnter={ handleDayMouseEnter }
