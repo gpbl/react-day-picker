@@ -1,4 +1,4 @@
-* [react-day-picker](README.md)
+* [README](README.md)
 * [Examples with Code](Examples.md)
 * [Basic Usage](Basic.md)
 * [Use of Day Modifiers](Modifiers.md)
