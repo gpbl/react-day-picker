@@ -40,7 +40,7 @@ yarn add react-day-picker
 Include the component without installing:
 
 ```html
-<script src="https://unpkg.com/react-day-picker"></script>
+<script src="https://unpkg.com/react-day-picker/daypicker.min.js"></script>
 ```
 
 See this [jsfiddle](https://jsfiddle.net/gpbl/gh072eqt/) as example.

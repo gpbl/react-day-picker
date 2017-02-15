@@ -1,6 +1,6 @@
 /* eslint-env node */
 
-"use strict";
+'use strict';
 
-module.exports.localeUtils = require("./lib/LocaleUtils");
-module.exports.dateUtils = require("./lib/DateUtils");
+module.exports.localeUtils = require('./lib/src/LocaleUtils');
+module.exports.dateUtils = require('./lib/src/DateUtils');

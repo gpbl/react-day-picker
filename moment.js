@@ -1,6 +1,6 @@
 /* eslint-env node */
 
-"use strict";
 
-module.exports = require("./lib/addons/MomentLocaleUtils");
-module.exports.localeUtils = require("./lib/addons/MomentLocaleUtils");
+
+module.exports = require('./lib/src/addons/MomentLocaleUtils');
+module.exports.localeUtils = require('./lib/src/addons/MomentLocaleUtils');

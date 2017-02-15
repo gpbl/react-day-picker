@@ -1,3 +1,47 @@
+# [v5.0.0](https://github.com/gpbl/react-day-picker/tree/v5.0.0) (2017-02-14)
+
+This release focuses on improving perfomance and the component's API.
+
+* **New modifiers value types** ([#254](https://github.com/gpbl/react-day-picker/issues/254))
+
+  Use dates, arrays, or ranges as modifier types, not just functions:
+
+  ```diff
+  <DayPicker 
+  -     selectedDays={ day => DateUtils.isSameDay(day, this.state.selectedDay)}
+  +     selectedDays={ this.state.selectedDay }
+  />
+  ```
+
+  Read more in the [modifiers documentation](http://react-day-picker.js.org/Modifiers.html).
+
+* **Breaking change** Event handlers signature has changed ([#256](https://github.com/gpbl/react-day-picker/issues/256))
+
+  All events handlers like `onDayClick`, `onCaptionClick`, etc. now receive the Syntethic Event as last argument. Thus you must change your event handlers as follow:
+
+  ```diff
+  onDayClick={
+  - (e, day, modifiers) => {
+  + (day, modifiers, e)
+      e.preventDefault();
+      console.log(day);
+      console.log(modifiers);
+    }
+  }
+
+  ```
+
+* **Breaking change** Use [`containerProps`](http://react-day-picker.js.org/APIProps.html#containerprops) to pass props to the container `div` element. Before, any prop was passed to the container element degrading performance ([#255](https://github.com/gpbl/react-day-picker/issues/255)):
+
+  ```diff
+  <DayPicker 
+  -    data-thing="foo" 
+  +    containerProps={ 'data-thing': 'foo' }
+  />
+  ```
+
+---
+
 # [v4.0.0](https://github.com/gpbl/react-day-picker/tree/v4.0.0) (2017-02-10)
 
 * Pass the day's modifiers to the `renderDay` prop function ([#237](https://github.com/gpbl/react-day-picker/issues/237))

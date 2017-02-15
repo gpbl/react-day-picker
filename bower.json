@@ -1,7 +1,7 @@
 {
   "name": "react-day-picker",
   "description": "Flexible date picker component for React",
-  "main": "dist/DayPicker.js",
+  "main": "lib/daypicker.js",
   "authors": [
     "Giampaolo Bellavite <io@gpbl.org>"
   ],

@@ -40,7 +40,7 @@ export default {
       include: [
         path.join(__dirname, '../src'),
         path.join(__dirname, './src'),
-        path.join(__dirname, '../dist'),
+        path.join(__dirname, '../lib'),
       ],
       loader: 'babel-loader?cacheDirectory&plugins=react-hot-loader/babel',
     }, {
