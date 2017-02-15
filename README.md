@@ -96,6 +96,7 @@ See [Basic usage](http://react-day-picker.js.org/Basic.html) for a deeper explan
 
 * Tag with `react-day-picker` your questions on [Stackoverflow](http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest)
 * Join the [Gitter room](https://gitter.im/gpbl/react-day-picker) for immediate help
+* **Tip** Fork https://jsfiddle.net/fordjxht/ to help us reproducing your problem
 
 ### Contribute
 
