@@ -43,7 +43,7 @@ Include the component without installing:
 <script src="https://unpkg.com/react-day-picker/daypicker.min.js"></script>
 ```
 
-See this [jsfiddle](https://jsfiddle.net/gpbl/gh072eqt/) as example.
+See this [jsfiddle](https://jsfiddle.net/fordjxht/) as example.
 
 ### Example
 
