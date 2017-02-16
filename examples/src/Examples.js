@@ -42,7 +42,7 @@ function getExampleName(location) {
 const EXAMPLES = {
   simple: {
     title: 'Simple Calendar',
-    description: 'Show the clicked day in an alert window.',
+    description: 'Display the clicked day in the console.',
     Component: SimpleCalendar,
   },
   modifiers: {
