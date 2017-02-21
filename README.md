@@ -57,19 +57,25 @@ class MyComponent extends React.Component {
   state = {
     selectedDay: new Date(),
   }
+  costructor(props) {
+    super(props);
+    this.handleDayClick = this.handleDayClick.bind(this);
+  }
   handleDayClick(day, { disabled, selected }) {
     if (disabled) {
       return;
     }
-    this.setState({ selectedDay: selected ? null : day })
+    this.setState({ 
+      selectedDay: selected ? null : day 
+    })
   },
   render() {
     return (
       <DayPicker
-        initialMonth={ new Date(2016, 1) }
+        initialMonth={ new Date(2017, 1) }
         disabledDays={ sundays }
         selectedDays={ this.state.selectedDay }
-        onDayClick={ this.handleDayClick.bind(this) }
+        onDayClick={ this.handleDayClick }
     />);
   }
 }
