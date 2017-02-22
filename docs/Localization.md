@@ -2,7 +2,7 @@
 
 react-day-picker can be localized into any language (English being the default). 
 
-You can either set the localization props (`months`, `weekdaysLong`, `weekdaysShort` and `firstDayOfWeek` as shown in this [example](http://react-day-picker.js.org/Localization.html)) or use [moment.js](http://momentjs.com/) by importing the [provided utility](LocalizationMoment.md).
+You can either set the localization props (`months`, `weekdaysLong`, `weekdaysShort` and `firstDayOfWeek` as shown in [this example](Localization.html)) or [use moment.js](LocalizationMoment.html) if you are already including it in your project.
 
 ## Example
 
