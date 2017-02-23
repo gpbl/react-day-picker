@@ -65,8 +65,8 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper).to.have.attr('role', 'application');
   });
   it('should use the given tabIndex', () => {
-    const wrapper = shallow(<DayPicker tabIndex={ 10 } />);
-    expect(wrapper).to.have.attr('tabindex', '10');
+    const wrapper = shallow(<DayPicker tabIndex={ -1 } />);
+    expect(wrapper).to.have.attr('tabindex', '-1');
   });
   it('should spread props to the container', () => {
     const wrapper = shallow(<DayPicker containerProps={ { 'data-foo': 'bar' } } />);
