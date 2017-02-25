@@ -26,7 +26,7 @@ export default class AdvancedModifiers extends React.Component {
     }
     this.setState({ text });
   }
-  handleDayMouseEnter(day, modifiers) {
+  handleDayMouseEnter(day, modifiers, e) {
     console.log('Day\'s CSS classes', e.target.classList.toString());
     console.log('Day\'s modifiers', modifiers);
   }

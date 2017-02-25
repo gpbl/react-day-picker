@@ -20,10 +20,21 @@ module.exports = {
         path.join(__dirname, '../lib'),
       ],
       loaders: ['babel-loader'],
-    }, {
+    },
+    {
+      include: [
+        path.join(__dirname, './src/styles/cssmodules.css'),
+      ],
+      loaders: ['style-loader', 'css-loader?modules=true&localIdentName=[hash:base64:5]', 'autoprefixer-loader?browsers=last 2 version'],
+    },
+    {
       test: /\.css$/,
+      exclude: [
+        path.join(__dirname, './src/styles/cssmodules.css'),
+      ],
       loaders: ['style-loader', 'css-loader', 'autoprefixer-loader?browsers=last 2 version'],
-    }],
+    },
+    ],
   },
 
   plugins: [
