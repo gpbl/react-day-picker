@@ -96,6 +96,11 @@ const EXAMPLES = {
     description: 'Use the <code>fromMonth</code> and <code>toMonth</code> props to restrict the navigation between months.',
     Component: Restricted,
   },
+  cssModules: {
+    title: 'Styling with CSS Modules',
+    description: 'Use the <code>classNames</code> prop to pass to the component the styles imported with <a href="https://github.com/css-modules/css-modules">CSS Modules</a>. <ul><li>The imported CSS (to use as template) can be <a href="https://github.com/gpbl/react-day-picker/blob/master/examples/src/styles/cssmodules.css">seen here</a>.</li></ul>',
+    Component: CSSModules,
+  },
   localized: {
     title: 'Localization',
     description: 'This example shows how to localize the calendar in Italian. Note the use of <code>firstDayOfWeek</code> to set Monday as first day of the week.',
