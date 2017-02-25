@@ -8,6 +8,7 @@ import Weekday from './Weekday';
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
 import * as LocaleUtils from './LocaleUtils';
+import classNames from './classNames';
 
 import keys from './keys';
 import DayPickerPropTypes, { ModifierPropType } from './PropTypes';
@@ -16,6 +17,20 @@ export default class DayPicker extends Component {
   static VERSION = '5.0.0';
 
   static propTypes = {
+
+    classNames: PropTypes.shape({
+      body: PropTypes.string,
+      container: PropTypes.string,
+      interactionDisabled: PropTypes.string,
+      month: PropTypes.string,
+      navBar: PropTypes.string,
+      week: PropTypes.string,
+      outside: PropTypes.string.isRequired,
+      today: PropTypes.string.isRequired,
+      selected: PropTypes.string.isRequired,
+      disabled: PropTypes.string.isRequired,
+    }),
+
     initialMonth: PropTypes.instanceOf(Date),
     numberOfMonths: PropTypes.number,
 
@@ -75,6 +90,7 @@ export default class DayPicker extends Component {
   };
 
   static defaultProps = {
+    classNames,
     tabIndex: 0,
     initialMonth: new Date(),
     numberOfMonths: 1,
@@ -87,8 +103,8 @@ export default class DayPicker extends Component {
     pagedNavigation: false,
     renderDay: day => day.getDate(),
     weekdayElement: <Weekday />,
-    navbarElement: <Navbar />,
-    captionElement: <Caption />,
+    navbarElement: <Navbar classNames={ classNames } />,
+    captionElement: <Caption classNames={ classNames } />,
   };
 
   constructor(props) {
@@ -357,8 +373,10 @@ export default class DayPicker extends Component {
     ...attributes } = this.props;
 
     if (!canChangeMonth) return null;
+
     const props = {
-      className: 'DayPicker-NavBar',
+      classNames: this.props.classNames,
+      className: this.props.classNames.navBar,
       nextMonth: this.getNextNavigableMonth(),
       previousMonth: this.getPreviousNavigableMonth(),
       showPreviousButton: this.allowPreviousMonth(),
@@ -374,10 +392,10 @@ export default class DayPicker extends Component {
   renderDayInMonth(day, month) {
     let dayModifiers = [];
     if (DateUtils.isSameDay(day, new Date())) {
-      dayModifiers.push('today');
+      dayModifiers.push(this.props.classNames.today);
     }
     if (day.getMonth() !== month.getMonth()) {
-      dayModifiers.push('outside');
+      dayModifiers.push(this.props.classNames.outside);
     }
     dayModifiers = [
       ...dayModifiers,
@@ -400,6 +418,7 @@ export default class DayPicker extends Component {
     return (
       <Day
         key={ `${isOutside ? 'outside-' : ''}${key}` }
+        classNames={ this.props.classNames }
         day={ day }
         modifiers={ modifiers }
         empty={ isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks }
@@ -433,21 +452,24 @@ export default class DayPicker extends Component {
       months.push(
         <Month
           key={ i }
+          classNames={ this.props.classNames }
+
           month={ month }
           months={ this.props.months }
+
+          weekdayElement={ this.props.weekdayElement }
+          captionElement={
+            React.cloneElement(this.props.captionElement, {
+              classNames: this.props.classNames,
+            })
+          }
+          fixedWeeks={ this.props.fixedWeeks }
+
           weekdaysShort={ this.props.weekdaysShort }
           weekdaysLong={ this.props.weekdaysLong }
           locale={ this.props.locale }
           localeUtils={ this.props.localeUtils }
           firstDayOfWeek={ firstDayOfWeek }
-          fixedWeeks={ this.props.fixedWeeks }
-
-          className="DayPicker-Month"
-          wrapperClassName="DayPicker-Body"
-          weekClassName="DayPicker-Week"
-
-          weekdayElement={ this.props.weekdayElement }
-          captionElement={ this.props.captionElement }
 
           onCaptionClick={ this.props.onCaptionClick }
         >
@@ -462,10 +484,10 @@ export default class DayPicker extends Component {
   }
 
   render() {
-    let className = 'DayPicker';
+    let className = this.props.classNames.container;
 
     if (!this.props.onDayClick) {
-      className = `${className} DayPicker--interactionDisabled`;
+      className = `${className} ${this.props.classNames.interactionDisabled}`;
     }
     if (this.props.className) {
       className = `${className} ${this.props.className}`;

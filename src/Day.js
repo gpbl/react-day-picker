@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions, react/forbid-prop-types */
 
 import React, { PropTypes } from 'react';
+import defaultClassNames from './classNames';
 
 function handleEvent(handler, day, modifiers) {
   if (!handler) {
@@ -12,6 +13,7 @@ function handleEvent(handler, day, modifiers) {
   };
 }
 export default function Day({
+  classNames,
   day,
   tabIndex,
   empty,
@@ -28,8 +30,13 @@ export default function Day({
   ariaSelected,
   children,
 }) {
-  let className = 'DayPicker-Day';
-  className += Object.keys(modifiers).map(modifier => ` ${className}--${modifier}`).join('');
+  let className = classNames.day;
+  if (classNames !== defaultClassNames) {
+    // When using CSS modules prefix the modifier as required by the BEM syntax
+    className += ` ${Object.keys(modifiers).join(' ')}`;
+  } else {
+    className += Object.keys(modifiers).map(modifier => ` ${className}--${modifier}`).join('');
+  }
   if (empty) {
     return <div role="gridcell" aria-disabled className={ className } />;
   }
@@ -55,6 +62,11 @@ export default function Day({
 }
 
 Day.propTypes = {
+
+  classNames: PropTypes.shape({
+    day: PropTypes.string.isRequired,
+  }).isRequired,
+
   day: PropTypes.instanceOf(Date).isRequired,
   children: PropTypes.node.isRequired,
 
