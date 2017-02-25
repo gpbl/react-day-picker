@@ -4,21 +4,23 @@ import Weekdays from './Weekdays';
 import { getWeekArray } from './Helpers';
 
 export default function Month({
+  classNames,
+
   month,
   months,
-  weekdaysLong,
-  weekdaysShort,
+
+  fixedWeeks,
+  captionElement,
+  weekdayElement,
+
   locale,
   localeUtils,
-  captionElement,
+  weekdaysLong,
+  weekdaysShort,
+  firstDayOfWeek,
+
   onCaptionClick,
   children,
-  firstDayOfWeek,
-  className,
-  wrapperClassName,
-  weekClassName,
-  weekdayElement,
-  fixedWeeks,
 }) {
   const captionProps = {
     date: month,
@@ -29,9 +31,10 @@ export default function Month({
   };
   const weeks = getWeekArray(month, firstDayOfWeek, fixedWeeks);
   return (
-    <div className={ className }>
+    <div className={ classNames.month }>
       {React.cloneElement(captionElement, captionProps)}
       <Weekdays
+        classNames={ classNames }
         weekdaysShort={ weekdaysShort }
         weekdaysLong={ weekdaysLong }
         firstDayOfWeek={ firstDayOfWeek }
@@ -39,10 +42,10 @@ export default function Month({
         localeUtils={ localeUtils }
         weekdayElement={ weekdayElement }
       />
-      <div className={ wrapperClassName } role="grid">
+      <div className={ classNames.body } role="grid">
         {
           weeks.map((week, j) =>
-            <div key={ j } className={ weekClassName } role="gridcell">
+            <div key={ j } className={ classNames.week } role="gridcell">
               {week.map(day => children(day, month))}
             </div>,
         )}
@@ -52,19 +55,26 @@ export default function Month({
 }
 
 Month.propTypes = {
+  classNames: PropTypes.shape({
+    month: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    week: PropTypes.string.isRequired,
+  }).isRequired,
+
   month: PropTypes.instanceOf(Date).isRequired,
   months: React.PropTypes.arrayOf(React.PropTypes.string),
+
+  fixedWeeks: PropTypes.bool,
   captionElement: PropTypes.node.isRequired,
-  firstDayOfWeek: PropTypes.number.isRequired,
-  weekdaysLong: PropTypes.arrayOf(PropTypes.string),
-  weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+  weekdayElement: PropTypes.element,
+
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
+  weekdaysLong: PropTypes.arrayOf(PropTypes.string),
+  weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+  firstDayOfWeek: PropTypes.number.isRequired,
+
   onCaptionClick: PropTypes.func,
+
   children: PropTypes.func.isRequired,
-  className: PropTypes.string,
-  wrapperClassName: PropTypes.string,
-  weekClassName: PropTypes.string,
-  weekdayElement: PropTypes.element,
-  fixedWeeks: PropTypes.bool,
 };

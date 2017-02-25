@@ -6,6 +6,8 @@ import { shallow, mount, render } from 'enzyme';
 import { spy } from 'sinon';
 
 import DayPicker from '../../src/DayPicker';
+import classNames from '../../src/classNames';
+
 
 describe('DayPicker’s rendering', () => {
   it('should have default props', () => {
@@ -42,7 +44,7 @@ describe('DayPicker’s rendering', () => {
       .to.equal(1);
   });
   it('should render multiple months', () => {
-    const wrapper = shallow(<DayPicker numberOfMonths={ 12 } />);
+    const wrapper = mount(<DayPicker numberOfMonths={ 12 } />);
     expect(wrapper.find('.DayPicker-Month')).to.have.length(12);
   });
   it('should render multiple months, reversed', () => {
@@ -162,5 +164,21 @@ describe('DayPicker’s rendering', () => {
       <DayPicker enableOutsideDays fixedWeeks initialMonth={ new Date(2015, 1) } />,
     );
     expect(wrapper.find('.DayPicker-Day')).to.have.length(42);
+  });
+  it('should use the specified class names', () => {
+    const wrapper = mount(
+      <DayPicker
+        enableOutsideDays
+        initialMonth={ new Date(2015, 1) }
+        classNames={ {
+          ...classNames,
+          day: 'foo',
+        } }
+        modifiers={ {
+          bar: new Date(2015, 1, 10),
+        } }
+      />);
+    expect(wrapper.find('.foo')).to.have.length(28);
+    expect(wrapper.find('.bar')).to.have.length(1);
   });
 });

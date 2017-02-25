@@ -11,6 +11,7 @@ import Birthdays from './examples/Birthdays';
 import DisabledDays from './examples/DisabledDays';
 import BlockedNavigation from './examples/BlockedNavigation';
 import CustomElements from './examples/CustomElements';
+import CSSModules from './examples/CSSModules';
 import FixedWeeks from './examples/FixedWeeks';
 import InputField from './examples/InputField';
 import InputFieldOverlay from './examples/InputFieldOverlay';
@@ -139,6 +140,11 @@ const EXAMPLES = {
     title: 'Year Calendar',
     description: 'Use <code>numberOfMonths</code> to display a custom number of calendars.',
     Component: YearCalendar,
+  },
+  cssModules: {
+    title: 'CSS Modules',
+    description: 'Use the <code>classNames</code> prop to pass to the component the styles imported with <a href="https://github.com/css-modules/css-modules">CSS Modules</a>.',
+    Component: CSSModules,
   },
 };
 

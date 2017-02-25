@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import DayPickerPropTypes from './PropTypes';
 
 export default function Weekdays({
+  classNames,
   firstDayOfWeek,
   weekdaysLong,
   weekdaysShort,
@@ -14,7 +15,7 @@ export default function Weekdays({
     const weekday = (i + firstDayOfWeek) % 7;
     const elementProps = {
       key: i,
-      className: 'DayPicker-Weekday',
+      className: classNames.weekday,
       weekday,
       weekdaysLong,
       weekdaysShort,
@@ -26,15 +27,22 @@ export default function Weekdays({
   }
 
   return (
-    <div className="DayPicker-Weekdays" role="rowgroup">
-      <div className="DayPicker-WeekdaysRow" role="columnheader">
-        {days}
+    <div className={ classNames.weekdays } role="rowgroup">
+      <div className={ classNames.weekdaysRow } role="columnheader">
+        { days }
       </div>
     </div>
   );
 }
 
 Weekdays.propTypes = {
+
+  classNames: PropTypes.shape({
+    weekday: PropTypes.string.isRequired,
+    weekdays: PropTypes.string.isRequired,
+    weekdaysRow: PropTypes.string.isRequired,
+  }).isRequired,
+
   firstDayOfWeek: PropTypes.number.isRequired,
   weekdaysLong: PropTypes.arrayOf(PropTypes.string),
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),
