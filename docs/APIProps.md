@@ -25,7 +25,43 @@ See also [this advanced example](../examples?yearNavigation), showing a year nav
 
 **Type**: `String`
 
-Additional CSS class names to add to the defaults.
+Additional CSS class names to add to the default.
+
+### classNames
+
+**Type**: `Object`
+
+Customize the CSS class names used when rendering the component. 
+
+* Use this prop to use your custom styles imported via CSS Modules ([see example](react-day-picker.js.org/examples/?cssModules)).
+* Skipping this prop will make the calendar use the default BEM conventions (e.g. `DayPicker-Day DayPicker-Day--modifier`)
+
+The object expects the following keys:
+
+```js
+  container,            // The container element
+  interactionDisabled,  // Added to the container when there's no interaction with the calendar
+
+  navBar,         // The navigation bar with the arrows to switch between months
+  navButtonPrev,  // Button to switch to the previous month
+  navButtonNext,  // Button to switch to the next month
+
+  month,          // The month's main tables
+  caption,        // The caption element, containing the current month's name and year
+  weekdays,       // Table header displaying the weekdays names
+  weekdaysRow,    // Table row displaying the weekdays names
+  weekday,        // Cell displaying the weekday name
+  body,           // Table's body with the weeks
+  week,           // Table's row for each week
+  day,            // The single day cell
+
+  // default modifiers
+  today,          // Added to the day's cell for the current day
+  selected,       // Added to the day's cell specified in the `selectedDays` prop
+  disabled,       // Added to the day's cell specified in the `disabledDays` prop
+  outside,        // Added to the day's cell outside the current month
+}
+```
 
 ### containerProps
 

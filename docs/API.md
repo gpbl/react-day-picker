@@ -10,6 +10,7 @@
 | [canChangeMonth](APIProps.md#canchangemonth) | true | `Bool` |
 | [captionElement](APIProps.md#captionelement) | | `Element` |
 | [className](APIProps.md#className) | | `String` |
+| [classNames](APIProps.md#classNames) | | `Object` |
 | [containerProps](APIProps.md#containerprops) | | `Object` |
 | [disabledDays](APIProps.md#disableddays) | | See [modifiers](Modifiers.md) |
 | [enableOutsideDays](APIProps.md#enableoutsidedays) | false | `Bool` |
