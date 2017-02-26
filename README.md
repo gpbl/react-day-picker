@@ -10,7 +10,7 @@ react-day-picker is a flexible date picker component for [React](https://faceboo
 * no external dependencies
 * select [days](http://react-day-picker.js.org/examples?selectable), [ranges](http://react-day-picker.js.org/examples?range), whatever using CSS modifiers
 * simple [localization](http://react-day-picker.js.org/examples?localized), even with [moment.js](http://react-day-picker.js.org/examples/?localizedMoment)
-* customizable [style](https://github.com/gpbl/react-day-picker/blob/master/src/style.css)
+* customizable [style](https://github.com/gpbl/react-day-picker/blob/master/src/style.css) and [CSS Modules](http://react-day-picker.js.org/CSSModules.html) support
 * navigable via keyboard, ARIA support
 
 Check out the [examples](http://react-day-picker.js.org/examples) to see its features.
@@ -91,6 +91,7 @@ See [Basic usage](http://react-day-picker.js.org/Basic.html) for a deeper explan
     * [Use of Day Modifiers](http://react-day-picker.js.org/Modifiers.html)
     * [API](http://react-day-picker.js.org/API.html)
     * [Styling](http://react-day-picker.js.org/Styling.html)
+    * [Use with CSS Modules](http://react-day-picker.js.org/CSSModules.html)
     * [Localization](http://react-day-picker.js.org/Localization.html)
     * [Utilities](http://react-day-picker.js.org/Utilities.html)
 * [CHANGELOG](https://github.com/gpbl/react-day-picker/blob/master/CHANGELOG.md)

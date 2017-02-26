@@ -3,6 +3,7 @@
 * [Basic Usage](Basic.md)
 * [Use of Day Modifiers](Modifiers.md)
 * [Styling](Styling.md)
+    * [With CSS Modules](CSSModules.md)
 * [Component API](API.md)
     * [Component Props](APIProps.md)
     * [Component Methods](APIMethods.md)
