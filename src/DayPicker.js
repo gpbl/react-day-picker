@@ -14,7 +14,7 @@ import keys from './keys';
 import DayPickerPropTypes, { ModifierPropType } from './PropTypes';
 
 export default class DayPicker extends Component {
-  static VERSION = '5.0.0';
+  static VERSION = '5.1.0';
 
   static propTypes = {
 
