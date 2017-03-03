@@ -171,7 +171,7 @@ As default, the calendar adds `today` and `outside` modifiers. (_Outside days_ a
 
 ### month
 
-**Type**: `Date` **Default**: The current month
+**Type**: `Date`
 
 The month to display in the calendar. This differs from the [`initialMonth`](#initialmonth) prop, as it causes the calendar to re-render when its value changes.
 
