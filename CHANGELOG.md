@@ -8,6 +8,9 @@
   
   This differs from the `initialMonth` props as it causes the calendar to re-render when its value changes. 
 
+* Add `aria-label` attributes to the navigation bar with the new [`labels`](http://react-day-picker.js.org/APIProps.html#labels) prop ([#258](https://github.com/gpbl/react-day-picker/issues/258)).
+
+
 # [v5.0.0](https://github.com/gpbl/react-day-picker/tree/v5.0.0) (2017-02-14)
 
 This release focuses on improving perfomance and the component's API.
