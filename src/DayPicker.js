@@ -18,6 +18,41 @@ export default class DayPicker extends Component {
 
   static propTypes = {
 
+    // Rendering months
+    initialMonth: PropTypes.instanceOf(Date),
+    month: PropTypes.instanceOf(Date),
+    numberOfMonths: PropTypes.number,
+    fromMonth: PropTypes.instanceOf(Date),
+    toMonth: PropTypes.instanceOf(Date),
+    canChangeMonth: PropTypes.bool,
+    reverseMonths: PropTypes.bool,
+    pagedNavigation: PropTypes.bool,
+
+    // Modifiers
+    selectedDays: PropTypes.oneOfType([
+      ModifierPropType,
+      PropTypes.arrayOf(ModifierPropType),
+    ]),
+    disabledDays: PropTypes.oneOfType([
+      ModifierPropType,
+      PropTypes.arrayOf(ModifierPropType),
+    ]),
+    modifiers: PropTypes.object,
+
+    // Localization
+    dir: PropTypes.string,
+    firstDayOfWeek: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+    locale: PropTypes.string,
+    localeUtils: DayPickerPropTypes.localeUtils,
+    months: PropTypes.arrayOf(PropTypes.string),
+    weekdaysLong: PropTypes.arrayOf(PropTypes.string),
+    weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+
+    // Customization
+    enableOutsideDays: PropTypes.bool,
+    fixedWeeks: PropTypes.bool,
+
+    // CSS and HTML
     classNames: PropTypes.shape({
       body: PropTypes.string,
       container: PropTypes.string,
@@ -30,38 +65,17 @@ export default class DayPicker extends Component {
       selected: PropTypes.string.isRequired,
       disabled: PropTypes.string.isRequired,
     }),
+    className: PropTypes.string,
+    containerProps: PropTypes.object,
+    tabIndex: PropTypes.number,
 
-    initialMonth: PropTypes.instanceOf(Date),
-    numberOfMonths: PropTypes.number,
+    // Custom elements
+    renderDay: PropTypes.func,
+    weekdayElement: PropTypes.element,
+    navbarElement: PropTypes.element,
+    captionElement: PropTypes.element,
 
-    selectedDays: PropTypes.oneOfType([
-      ModifierPropType,
-      PropTypes.arrayOf(ModifierPropType),
-    ]),
-
-    disabledDays: PropTypes.oneOfType([
-      ModifierPropType,
-      PropTypes.arrayOf(ModifierPropType),
-    ]),
-
-    modifiers: PropTypes.object,
-
-    locale: PropTypes.string,
-    localeUtils: DayPickerPropTypes.localeUtils,
-
-    enableOutsideDays: PropTypes.bool,
-    fixedWeeks: PropTypes.bool,
-    canChangeMonth: PropTypes.bool,
-    reverseMonths: PropTypes.bool,
-    pagedNavigation: PropTypes.bool,
-    fromMonth: PropTypes.instanceOf(Date),
-    toMonth: PropTypes.instanceOf(Date),
-
-    firstDayOfWeek: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
-    months: PropTypes.arrayOf(PropTypes.string),
-    weekdaysLong: PropTypes.arrayOf(PropTypes.string),
-    weekdaysShort: PropTypes.arrayOf(PropTypes.string),
-
+    // Events
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
     onKeyDown: PropTypes.func,
@@ -74,18 +88,6 @@ export default class DayPicker extends Component {
     onDayFocus: PropTypes.func,
     onMonthChange: PropTypes.func,
     onCaptionClick: PropTypes.func,
-
-    renderDay: PropTypes.func,
-
-    weekdayElement: PropTypes.element,
-    navbarElement: PropTypes.element,
-    captionElement: PropTypes.element,
-
-    dir: PropTypes.string,
-    className: PropTypes.string,
-    tabIndex: PropTypes.number,
-
-    containerProps: PropTypes.object,
 
   };
 
@@ -121,8 +123,14 @@ export default class DayPicker extends Component {
     this.state = this.getStateFromProps(props);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.month !== nextProps.month) {
+      this.setState(this.getStateFromProps(nextProps));
+    }
+  }
+
   getStateFromProps = (props) => {
-    const initialMonth = Helpers.startOfMonth(props.initialMonth);
+    const initialMonth = Helpers.startOfMonth(props.month || props.initialMonth);
     let currentMonth = initialMonth;
 
     if (props.pagedNavigation && props.numberOfMonths > 1 && props.fromMonth) {

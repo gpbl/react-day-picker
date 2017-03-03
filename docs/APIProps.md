@@ -1,5 +1,23 @@
 # Component props
 
+**Rendering months**: [initialMonth](#initialmonth), [month](#month), [fromMonth](#frommonth), [toMonth](#tomonth), [numberOfMonths](#numberofmonths), [pagedNavigation](#pagednavigation), [canChangeMonth](#canchangemonth), [reverseMonths](#reversemonths)
+
+**Day Modifiers**: [selectedDays](#selecteddays), [disabledDays](#diableddays), [modifiers](#modifiers)
+
+**Customization**: [enableOutsideDays](#enableoutsidedays), [fixedWeeks](#fixedweeks)
+
+**Localization**: [dir](#dir), [firstDayOfWeek](#firstdayofweek), [locale](#locale), [localeUtils](#localeUtils), [months](#months), [weekdaysLong](#weekdayslong), [weekdaysShort](#weekdaysshort)
+
+**CSS and HTML**: [className](#classname), [classNames](#classnames), [containerProps](#containerprops), [tabIndex](#tabindex)
+
+**Elements**: [renderDay](#renderday), [weekdayElement](#weekdayelement), [navbarElement](#navbarelement), [captionElement](#captionelement)
+
+**Events**: [onBlur](#onblur), [onCaptionClick](#oncaptionclick), [onDayClick](#ondayclick), [onDayFocus](#ondayfocus), [onDayKeyDown](#ondaykeydown), [onDayMouseEnter](#ondaymouseenter), [onDayMouseLeave](#ondaymouseleave), [onDayTouchEnd](#ondaytouchend), [onDayTouchStart](#ondaytouchstart), [onFocus](#onfocus), [onKeyDown](#onkeydown), [onMonthChange](#onmonthchange)
+
+---
+
+## Prop Reference
+
 ### canChangeMonth
 
 **Type**: `Bool` | **Default**: `true`
@@ -115,7 +133,7 @@ The first allowed month. Users won't be able to navigate or interact with the da
 
 **Type**: `Date` **Default**: The current month
 
-The month to display in the calendar. Default is the current month.
+The month to display in the calendar at first render. See also [`month`](#month) prop. Default is the current month. 
 
 ### locale
 
@@ -137,6 +155,12 @@ By default the used locale is English (US). See also [Localization](Localization
 An object of [day modifiers](Modifiers.md).
 
 As default, the calendar adds `today` and `outside` modifiers. (_Outside days_ are the days appearing on the calendar but don't belonging to the current month).
+
+### month
+
+**Type**: `Date` **Default**: The current month
+
+The month to display in the calendar.
 
 ### months
 

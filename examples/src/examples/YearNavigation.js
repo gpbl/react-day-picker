@@ -41,25 +41,23 @@ function YearMonthForm({ date, localeUtils, onChange }) {
 
 export default class YearNavigation extends React.Component {
 
-  state = {
-    initialMonth: fromMonth,
-  };
-
   constructor(props) {
     super(props);
     this.handleYearMonthChange = this.handleYearMonthChange.bind(this);
   }
 
+  state = {
+    month: fromMonth,
+  };
   handleYearMonthChange(month) {
-    this.daypicker.showMonth(month);
+    this.setState({ month });
   }
 
   render() {
     return (
       <div className="YearNavigation">
         <DayPicker
-          ref={ (el) => { this.daypicker = el; } }
-          initialMonth={ this.state.initialMonth }
+          month={ this.state.month }
           fromMonth={ fromMonth }
           toMonth={ toMonth }
           captionElement={

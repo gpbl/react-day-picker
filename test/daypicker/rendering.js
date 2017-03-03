@@ -33,7 +33,7 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper).to.have.attr('lang', 'en');
     expect(wrapper).to.have.className('DayPicker--interactionDisabled');
   });
-  it('should use initialMonth as the current month', () => {
+  it('should use `initialMonth` as the current month', () => {
     const wrapper = shallow(<DayPicker />);
     const instance = wrapper.instance();
     expect(instance.props.initialMonth.getFullYear())
@@ -42,6 +42,28 @@ describe('DayPicker’s rendering', () => {
       .to.equal(instance.state.currentMonth.getMonth());
     expect(instance.state.currentMonth.getDate())
       .to.equal(1);
+  });
+  it('should use `month` as the current month instead of `initialMonth`', () => {
+    const wrapper = shallow(
+      <DayPicker
+        month={ new Date(2018, 10, 11) }
+        initialMonth={ new Date(2018, 1, 11) }
+      />);
+    const instance = wrapper.instance();
+    expect(instance.props.month.getFullYear())
+      .to.equal(instance.state.currentMonth.getFullYear());
+    expect(instance.props.month.getMonth())
+      .to.equal(instance.state.currentMonth.getMonth());
+    expect(instance.state.currentMonth.getDate())
+      .to.equal(1);
+  });
+  it('should update the current month when `month` is updated', () => {
+    const wrapper = mount(<DayPicker month={ new Date(2018, 10, 11) } />);
+    wrapper.setProps({ month: new Date(2016, 1, 15) });
+    const instance = wrapper.instance();
+    expect(instance.state.currentMonth.getFullYear()).to.equal(2016);
+    expect(instance.state.currentMonth.getMonth()).to.equal(1);
+    expect(instance.state.currentMonth.getDate()).to.equal(1);
   });
   it('should render multiple months', () => {
     const wrapper = mount(<DayPicker numberOfMonths={ 12 } />);
