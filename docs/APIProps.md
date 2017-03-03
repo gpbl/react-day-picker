@@ -115,7 +115,7 @@ The first allowed month. Users won't be able to navigate or interact with the da
 
 **Type**: `Date` **Default**: The current month
 
-The month to display in the calendar. Default is the current month.
+The month to display in the calendar at first render. See also [`month`](#month) prop. Default is the current month. 
 
 ### locale
 
@@ -137,6 +137,12 @@ By default the used locale is English (US). See also [Localization](Localization
 An object of [day modifiers](Modifiers.md).
 
 As default, the calendar adds `today` and `outside` modifiers. (_Outside days_ are the days appearing on the calendar but don't belonging to the current month).
+
+### month
+
+**Type**: `Date` **Default**: The current month
+
+The month to display in the calendar.
 
 ### months
 

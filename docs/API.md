@@ -21,6 +21,7 @@
 | [locale](APIProps.md#locale) | en | `String` |
 | [localeUtils](APIProps.md#localeutils) | | `Object` |
 | [modifiers](APIProps.md#modifiers) | | `Object` of [modifiers](Modifiers.md) |
+| [month](APIProps.md#month) | | `Date` |
 | [months](APIProps.md#months) | | `Array<String>` |
 | [navbarElement](APIProps.md#navbarelement) | | `Element` |
 | [numberOfMonths](APIProps.md#numberofmonths) | 1 | `Number` |
