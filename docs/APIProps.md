@@ -1,5 +1,23 @@
 # Component props
 
+**Rendering months**: [initialMonth](#initialmonth), [month](#month), [fromMonth](#frommonth), [toMonth](#tomonth), [numberOfMonths](#numberofmonths), [pagedNavigation](#pagednavigation), [canChangeMonth](#canchangemonth), [reverseMonths](#reversemonths)
+
+**Day Modifiers**: [selectedDays](#selecteddays), [disabledDays](#diableddays), [modifiers](#modifiers)
+
+**Customization**: [enableOutsideDays](#enableoutsidedays), [fixedWeeks](#fixedweeks)
+
+**Localization**: [dir](#dir), [firstDayOfWeek](#firstdayofweek), [locale](#locale), [localeUtils](#localeUtils), [months](#months), [weekdaysLong](#weekdayslong), [weekdaysShort](#weekdaysshort)
+
+**CSS and HTML**: [className](#classname), [classNames](#classnames), [containerProps](#containerprops), [tabIndex](#tabindex)
+
+**Elements**: [renderDay](#renderday), [weekdayElement](#weekdayelement), [navbarElement](#navbarelement), [captionElement](#captionelement)
+
+**Events**: [onBlur](#onblur), [onCaptionClick](#oncaptionclick), [onDayClick](#ondayclick), [onDayFocus](#ondayfocus), [onDayKeyDown](#ondaykeydown), [onDayMouseEnter](#ondaymouseenter), [onDayMouseLeave](#ondaymouseleave), [onDayTouchEnd](#ondaytouchend), [onDayTouchStart](#ondaytouchstart), [onFocus](#onfocus), [onKeyDown](#onkeydown), [onMonthChange](#onmonthchange)
+
+---
+
+## Prop Reference
+
 ### canChangeMonth
 
 **Type**: `Bool` | **Default**: `true`
