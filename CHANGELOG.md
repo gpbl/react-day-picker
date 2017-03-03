@@ -1,3 +1,13 @@
+## [v5.1.0](https://github.com/gpbl/react-day-picker/tree/v5.1.0) (2016-03-03)
+
+* New [`classNames`](http://react-day-picker.js.org/APIProps.html#classnames) prop ([#264](https://github.com/gpbl/react-day-picker/issues/264)). 
+  
+  Use this prop to change the CSS class names or add support for CSS modules ([#73](https://github.com/gpbl/react-day-picker/issues/73), see [this example](http://react-day-picker.js.org/examples?cssModules)). 
+
+* New [`month`](http://react-day-picker.js.org/APIProps.html#month) prop ([#263](https://github.com/gpbl/react-day-picker/issues/263)).
+  
+  This differs from the `initialMonth` props as it causes the calendar to re-render when its value changes. 
+
 # [v5.0.0](https://github.com/gpbl/react-day-picker/tree/v5.0.0) (2017-02-14)
 
 This release focuses on improving perfomance and the component's API.

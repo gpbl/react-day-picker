@@ -109,6 +109,11 @@ describe('DayPicker’s rendering', () => {
     const wrapper = render(<DayPicker />);
     expect(wrapper.find('.DayPicker-NavBar')).to.exist;
   });
+  it('should render the aria labels', () => {
+    const wrapper = render(<DayPicker />);
+    expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.attr('aria-label', 'Previous Month');
+    expect(wrapper.find('.DayPicker-NavButton--next')).to.have.attr('aria-label', 'Next Month');
+  });
   it('should render the day cells', () => {
     const wrapper = render(<DayPicker initialMonth={ new Date(2015, 6) } />);
     expect(wrapper.find('.DayPicker-Day')).to.have.length(35);

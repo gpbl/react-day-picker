@@ -18,6 +18,7 @@
 | [fixedWeeks](APIProps.md#fixedWeeks) | false | `Bool` |
 | [fromMonth](APIProps.md#frommonth) | | `Date` |
 | [initialMonth](APIProps.md#initialmonth) | Current month | `Date` |
+| [labels](APIProps.md#labels) | `{ nextMonth: "Next Month", previousMonth: "Previous Month" }` | `Object` |
 | [locale](APIProps.md#locale) | en | `String` |
 | [localeUtils](APIProps.md#localeutils) | | `Object` |
 | [modifiers](APIProps.md#modifiers) | | `Object` of [modifiers](Modifiers.md) |

@@ -42,6 +42,10 @@ export default class DayPicker extends Component {
     // Localization
     dir: PropTypes.string,
     firstDayOfWeek: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+    labels: PropTypes.shape({
+      nextMonth: PropTypes.string.isRequired,
+      previousMonth: PropTypes.string.isRequired,
+    }).isRequired,
     locale: PropTypes.string,
     localeUtils: DayPickerPropTypes.localeUtils,
     months: PropTypes.arrayOf(PropTypes.string),
@@ -96,6 +100,10 @@ export default class DayPicker extends Component {
     tabIndex: 0,
     initialMonth: new Date(),
     numberOfMonths: 1,
+    labels: {
+      previousMonth: 'Previous Month',
+      nextMonth: 'Next Month',
+    },
     locale: 'en',
     localeUtils: LocaleUtils,
     enableOutsideDays: false,
@@ -374,6 +382,7 @@ export default class DayPicker extends Component {
   }
   renderNavbar() {
     const {
+      labels,
       locale,
       localeUtils,
       canChangeMonth,
@@ -392,6 +401,7 @@ export default class DayPicker extends Component {
       onNextClick: this.showNextMonth,
       onPreviousClick: this.showPreviousMonth,
       dir: attributes.dir,
+      labels,
       locale,
       localeUtils,
     };

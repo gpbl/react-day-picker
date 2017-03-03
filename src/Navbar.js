@@ -9,6 +9,7 @@ export default function Navbar({
   showNextButton,
   onPreviousClick,
   onNextClick,
+  labels,
   dir = 'ltr',
 }) {
   const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
@@ -17,6 +18,7 @@ export default function Navbar({
   const previousButton = showPreviousButton &&
     <span
       role="button"
+      aria-label={ labels.previousMonth }
       key="previous"
       className={ classNames.navButtonPrev }
       onClick={ () => previousClickHandler() }
@@ -25,6 +27,7 @@ export default function Navbar({
   const nextButton = showNextButton &&
     <span
       role="button"
+      aria-label={ labels.nextMonth }
       key="right"
       className={ classNames.navButtonNext }
       onClick={ () => nextClickHandler() }
@@ -49,6 +52,10 @@ export const NavbarPropTypes = {
   onPreviousClick: PropTypes.func,
   onNextClick: PropTypes.func,
   dir: PropTypes.string,
+  labels: PropTypes.shape({
+    previousMonth: PropTypes.string.isRequired,
+    nextMonth: PropTypes.string.isRequired,
+  }),
 };
 
 Navbar.propTypes = NavbarPropTypes;
@@ -56,6 +63,10 @@ Navbar.propTypes = NavbarPropTypes;
 Navbar.defaultProps = {
   classNames: defaultClassNames,
   dir: 'ltr',
+  labels: {
+    previousMonth: 'Previous Month',
+    nextMonth: 'Next Month',
+  },
   showPreviousButton: true,
   showNextButton: true,
 };

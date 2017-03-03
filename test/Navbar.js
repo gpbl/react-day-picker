@@ -16,6 +16,22 @@ describe('<Navbar />', () => {
     const wrapper = shallow(<Navbar className="DayPicker-NavBar" />);
     expect(wrapper).to.have.className('DayPicker-NavBar');
   });
+  it('should render the aria labels for buttons', () => {
+    const wrapper = shallow(<Navbar />);
+    expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.attr('aria-label', 'Previous Month');
+    expect(wrapper.find('.DayPicker-NavButton--next')).to.have.attr('aria-label', 'Next Month');
+  });
+  it('should render custom aria labels', () => {
+    const wrapper = shallow(
+      <Navbar
+        labels={ {
+          nextMonth: 'Successivo',
+          previousMonth: 'Precedente',
+        } }
+      />);
+    expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.attr('aria-label', 'Precedente');
+    expect(wrapper.find('.DayPicker-NavButton--next')).to.have.attr('aria-label', 'Successivo');
+  });
   it('should have the navigation buttons classes', () => {
     const wrapper = shallow(<Navbar />);
     expect(wrapper.find('.DayPicker-NavButton').at(0))

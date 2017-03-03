@@ -6,7 +6,7 @@
 
 **Customization**: [enableOutsideDays](#enableoutsidedays), [fixedWeeks](#fixedweeks)
 
-**Localization**: [dir](#dir), [firstDayOfWeek](#firstdayofweek), [locale](#locale), [localeUtils](#localeUtils), [months](#months), [weekdaysLong](#weekdayslong), [weekdaysShort](#weekdaysshort)
+**Localization**: [dir](#dir), [firstDayOfWeek](#firstdayofweek), [labels](#labels), [locale](#locale), [localeUtils](#localeUtils), [months](#months), [weekdaysLong](#weekdayslong), [weekdaysShort](#weekdaysshort)
 
 **CSS and HTML**: [className](#classname), [classNames](#classnames), [containerProps](#containerprops), [tabIndex](#tabindex)
 
@@ -14,9 +14,7 @@
 
 **Events**: [onBlur](#onblur), [onCaptionClick](#oncaptionclick), [onDayClick](#ondayclick), [onDayFocus](#ondayfocus), [onDayKeyDown](#ondaykeydown), [onDayMouseEnter](#ondaymouseenter), [onDayMouseLeave](#ondaymouseleave), [onDayTouchEnd](#ondaytouchend), [onDayTouchStart](#ondaytouchstart), [onFocus](#onfocus), [onKeyDown](#onkeydown), [onMonthChange](#onmonthchange)
 
----
-
-## Prop Reference
+## Reference
 
 ### canChangeMonth
 
@@ -47,7 +45,7 @@ Additional CSS class names to add to the default.
 
 ### classNames
 
-**Type**: `Object`
+**Type**: `Object<String>`
 
 Customize the CSS class names used when rendering the component. 
 
@@ -83,7 +81,7 @@ The object expects the following keys:
 
 ### containerProps
 
-**Type**: `Object`
+**Type**: `Object<Any>`
 
 Props to pass to the container `div` HTML element. Only props by a `div` are valid.
 
@@ -98,7 +96,7 @@ Props to pass to the container `div` HTML element. Only props by a `div` are val
 
 ### disabledDays
 
-**Type**: `Date` || `Object` || `(day: Date) ⇒ Bool` || `Array<Date|Object|Function>`
+**Type**: `Date` || `Object<Any>` || `(day: Date) ⇒ Bool` || `Array<Date|Object|Function>`
 
 Indicate which day should appear as disabled. Set a `selected` modifier. 
 
@@ -135,6 +133,21 @@ The first allowed month. Users won't be able to navigate or interact with the da
 
 The month to display in the calendar at first render. See also [`month`](#month) prop. Default is the current month. 
 
+### labels
+
+**Type**: `Object<String>` **Default**: `{ nextMonth: "Next Month", previousMonth: "Previous Month" }`
+
+Labels to use as `aria-label` HTML attributes.
+
+The object expects the following keys (as strings):
+
+```js
+{
+  previousMonth,  // Used for the button to navigate the previous month
+  nextMonth,      // Used for the button to navigate the next month
+}
+```
+
 ### locale
 
 **Type**: `String` **Default**: `en`
@@ -143,14 +156,14 @@ The locale used by the `localeUtils` functions. Default is `en`.  See also [Loca
 
 ### localeUtils
 
-**Type**: `Object`
+**Type**: `Object<Function>`
 
 Object of functions to format dates and to get the first day of the week. Pass your own utils to support localization.
 By default the used locale is English (US). See also [Localization](Localization.md) and [LocaleUtils](LocaleUtils.md).
 
 ### modifiers
 
-**Type**: `Object`
+**Type**: `Object<Any>`
 
 An object of [day modifiers](Modifiers.md).
 
@@ -160,7 +173,7 @@ As default, the calendar adds `today` and `outside` modifiers. (_Outside days_ a
 
 **Type**: `Date` **Default**: The current month
 
-The month to display in the calendar.
+The month to display in the calendar. This differs from the [`initialMonth`](#initialmonth) prop, as it causes the calendar to re-render when its value changes.
 
 ### months
 
@@ -211,7 +224,7 @@ Render the months in reversed order. Useful when `numberOfMonths` is greater tha
 
 ### selectedDays 
 
-**Type**: `Date` || `Object` || `(day: Date) ⇒ Bool` || `Array<Date|Object|Function>`
+**Type**: `Date` || `Object<Any>` || `(day: Date) ⇒ Bool` || `Array<Date|Object|Function>`
 
 Indicate which day should appear as selected. Set a `selected` modifier.
 

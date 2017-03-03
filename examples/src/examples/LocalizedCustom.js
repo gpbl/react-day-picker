@@ -19,6 +19,11 @@ const firstDayOfWeek = {
   en: 0,
 };
 
+// Translate aria-labels
+const LABELS = {
+  ru: { nextMonth: 'следующий месяц', previousMonth: 'предыдущий месяц' },
+};
+
 const localeUtils = {
   formatDay: (d, locale = 'en') =>
     `${weekdaysLong[locale][d.getDay()]}, ${d.getDate()} ${months[locale][d.getMonth()]} ${d.getFullYear()}`,
@@ -28,6 +33,7 @@ const localeUtils = {
   getMonths: locale => months[locale],
   formatMonthTitle: (d, locale) => `${months[locale][d.getMonth()]} ${d.getFullYear()}`,
 };
+
 
 export default class LocalizedCustom extends React.Component {
 
@@ -57,6 +63,7 @@ export default class LocalizedCustom extends React.Component {
           </select>
         </p>
         <DayPicker
+          labels={ LABELS[locale] }
           locale={ locale }
           localeUtils={ localeUtils }
           modifiers={ { sunday: day => day.getDay() === 0 } }
