@@ -55,6 +55,7 @@ module.exports = {
           'Birthdays',
           'DisabledDays',
           'BlockedNavigation',
+          'CSSModules',
           'CustomElements',
           'FixedWeeks',
           'InputField',
