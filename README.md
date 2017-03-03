@@ -49,6 +49,8 @@ See this [jsfiddle](https://jsfiddle.net/fordjxht/) as example.
 import React from 'react';
 import DayPicker from "react-day-picker";
 
+import "react-day-picker/lib/style.css"
+
 function sundays(day) {
   return day.getDay() === 0;
 }
