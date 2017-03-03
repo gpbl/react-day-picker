@@ -1,4 +1,4 @@
-## [v5.1.0](https://github.com/gpbl/react-day-picker/tree/v5.1.0) (2016-03-03)
+## [v5.1.1](https://github.com/gpbl/react-day-picker/tree/v5.1.1) (2016-03-03)
 
 * New [`classNames`](http://react-day-picker.js.org/APIProps.html#classnames) prop ([#264](https://github.com/gpbl/react-day-picker/issues/264)). 
   
