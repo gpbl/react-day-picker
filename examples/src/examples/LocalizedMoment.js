@@ -9,8 +9,14 @@ import 'moment/locale/it';
 import MomentLocaleUtils from 'react-day-picker/moment';
 import DayPicker from '../../../src';
 
-
 import '../../../src/style.css';
+
+// Translate aria-labels
+const LABELS = {
+  it: { nextMonth: 'Prossimo mese', previousMonth: 'Mese precedente' },
+  ja: { nextMonth: '来月', previousMonth: '前月' },
+  ar: { nextMonth: 'الشهر المقبل', previousMonth: 'الشهر السابق' },
+};
 
 export default class LocalizedMoment extends React.Component {
   constructor(props) {
@@ -38,6 +44,7 @@ export default class LocalizedMoment extends React.Component {
         </p>
         <DayPicker
           dir={ locale === 'ar' ? 'rtl' : 'ltr' }
+          labels={ LABELS[locale] }
           locale={ locale }
           localeUtils={ MomentLocaleUtils }
           modifiers={ { sunday: day => day.getDay() === 0 } }
