@@ -59,7 +59,7 @@ class MyComponent extends React.Component {
   state = {
     selectedDay: new Date(),
   }
-  costructor(props) {
+  constructor(props) {
     super(props);
     this.handleDayClick = this.handleDayClick.bind(this);
   }
