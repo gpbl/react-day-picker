@@ -18,25 +18,17 @@ describe('DayPicker’s navigation', () => {
     expect(wrapper.instance().allowPreviousMonth()).to.be.false;
   });
   it('should not allow the previous month when cannot change months', () => {
-    const wrapper = shallow(
-      <DayPicker canChangeMonth={ false } />,
-    );
+    const wrapper = shallow(<DayPicker canChangeMonth={ false } />);
     expect(wrapper.instance().allowPreviousMonth()).to.be.false;
   });
   it('should not allow the next month when the last month is the last allowed one', () => {
     const wrapper = shallow(
-      <DayPicker
-        initialMonth={ new Date(2015, 7) }
-        toMonth={ new Date(2015, 9) }
-        numberOfMonths={ 3 }
-      />,
+      <DayPicker initialMonth={ new Date(2015, 7) } toMonth={ new Date(2015, 9) } numberOfMonths={ 3 } />, // eslint-disable-line max-len
     );
     expect(wrapper.instance().allowNextMonth()).to.be.false;
   });
   it('should not allow the next month when cannot change months', () => {
-    const wrapper = shallow(
-      <DayPicker canChangeMonth={ false } />,
-    );
+    const wrapper = shallow(<DayPicker canChangeMonth={ false } />);
     expect(wrapper.instance().allowNextMonth()).to.be.false;
   });
   it('should show the next month when clicking the next button', () => {
@@ -73,9 +65,7 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getMonth()).to.equal(6);
   });
   it('should not allow changing to the year when cannot change months', () => {
-    const wrapper = shallow(
-      <DayPicker canChangeMonth={ false } />,
-    );
+    const wrapper = shallow(<DayPicker canChangeMonth={ false } />);
     expect(wrapper.instance().allowYearChange()).to.be.false;
   });
   it('should call `showNextMonth()` when the RIGHT key is pressed', () => {
@@ -162,5 +152,62 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
     expect(instance.state.currentMonth.getMonth()).to.equal(5);
     expect(instance.state.currentMonth.getDate()).to.equal(1);
+  });
+
+  describe('with custom classNames', () => {
+    const getDaysInMonth = wrapper =>
+      wrapper
+        .find('.day.another-day-class')
+        .filterWhere(
+          node => !node.hasClass('othermonth') && !node.hasClass('another-othermonth-class'),
+        );
+    const classes = {
+      container: 'datepicker',
+      interactionDisabled: 'interaction-disabled',
+      navBar: 'navbar',
+      navButtonPrev: 'prev',
+      navButtonNext: 'next',
+      month: 'month',
+      caption: 'caption',
+      weekdays: 'weekdays',
+      weekdaysRow: 'weekdaysRow',
+      weekday: 'weekday',
+      body: 'body',
+      week: 'week',
+      day: 'day another-day-class',
+      today: 'today',
+      selected: 'selected',
+      outside: 'othermonth another-othermonth-class',
+      disabled: 'disabled',
+    };
+
+    it('should call `focusNextDay()` when the RIGHT key is pressed on a day', () => {
+      const wrapper = mount(<DayPicker classNames={ classes } />);
+      const focusNextDay = spy(wrapper.instance(), 'focusNextDay');
+      getDaysInMonth(wrapper).first().simulate('keyDown', { keyCode: keys.RIGHT });
+      expect(focusNextDay).to.have.been.calledOnce;
+      focusNextDay.restore();
+    });
+    it('should call `focusPreviousDay()` when the LEFT key is pressed on a day', () => {
+      const wrapper = mount(<DayPicker classNames={ classes } />);
+      const focusPreviousDay = spy(wrapper.instance(), 'focusPreviousDay');
+      getDaysInMonth(wrapper).first().simulate('keyDown', { keyCode: keys.LEFT });
+      expect(focusPreviousDay).to.have.been.calledOnce;
+      focusPreviousDay.restore();
+    });
+    it('should call `focusNextWeek()` when the DOWN key is pressed on a day', () => {
+      const wrapper = mount(<DayPicker classNames={ classes } />);
+      const focusNextWeek = spy(wrapper.instance(), 'focusNextWeek');
+      getDaysInMonth(wrapper).first().simulate('keyDown', { keyCode: keys.DOWN });
+      expect(focusNextWeek).to.have.been.calledOnce;
+      focusNextWeek.restore();
+    });
+    it('should call `focusPreviousWeek()` when the UP key is pressed on a day', () => {
+      const wrapper = mount(<DayPicker classNames={ classes } />);
+      const focusPreviousWeek = spy(wrapper.instance(), 'focusPreviousWeek');
+      getDaysInMonth(wrapper).last().simulate('keyDown', { keyCode: keys.UP });
+      expect(focusPreviousWeek).to.have.been.calledOnce;
+      focusPreviousWeek.restore();
+    });
   });
 });
