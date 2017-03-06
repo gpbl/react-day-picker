@@ -1,3 +1,8 @@
+## [v5.1.2](https://github.com/gpbl/react-day-picker/tree/v5.1.2) (2016-03-03)
+
+* Fix an issue with keyboard navigation when using `classNames` prop ([#269](https://github.com/gpbl/react-day-picker/pull/269) by [oigewan](https://github.com/oigewan), [#275](https://github.com/gpbl/react-day-picker/pull/275))
+* Fix installation issue with bower 
+
 ## [v5.1.1](https://github.com/gpbl/react-day-picker/tree/v5.1.1) (2016-03-03)
 
 * New [`classNames`](http://react-day-picker.js.org/APIProps.html#classnames) prop ([#264](https://github.com/gpbl/react-day-picker/issues/264)). 
