@@ -43,6 +43,12 @@ Include the component without installing:
 
 See this [jsfiddle](https://jsfiddle.net/fordjxht/) as example.
 
+**Using bower**
+
+```html
+bower install react-day-picker
+```
+
 ### Example
 
 ```js
