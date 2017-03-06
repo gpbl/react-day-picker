@@ -59,11 +59,9 @@ This release focuses on improving perfomance and the component's API.
 
 * Pass the day's modifiers to the `renderDay` prop function ([#237](https://github.com/gpbl/react-day-picker/issues/237))
 
-**Breaking changes**
+* **Breaking changes** Updating `initialMonth` will not show anymore a different month after the first mount ([#169](https://github.com/gpbl/react-day-picker/issues/169))
 
-* Updating `initialMonth` will not show anymore a different month after the first mount ([#169](https://github.com/gpbl/react-day-picker/issues/169))
-
-  This is a potentially breaking change if you were relying on `initialMonth` to display another month once the component was mounted. If you need the calendar to display a different month, always use the [`showMonth`](http://react-day-picker.js.org/APIMethods.html) method. See [this discussion](https://github.com/gpbl/react-day-picker/issues/169) for more info.
+  If you need the calendar to display a different month, use the [`month`](http://react-day-picker.js.org/APIProps.html#month) prop.
 
 * Use `lang` HTML attribute instead of a specific CSS class name.
 
