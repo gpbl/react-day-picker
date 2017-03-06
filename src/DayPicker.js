@@ -68,6 +68,7 @@ export default class DayPicker extends Component {
       today: PropTypes.string.isRequired,
       selected: PropTypes.string.isRequired,
       disabled: PropTypes.string.isRequired,
+      day: PropTypes.string.isRequired,
     }),
     className: PropTypes.string,
     containerProps: PropTypes.object,
@@ -152,7 +153,17 @@ export default class DayPicker extends Component {
   }
 
   getDayNodes() {
-    return this.dayPicker.querySelectorAll('.DayPicker-Day:not(.DayPicker-Day--outside)');
+    const createQuery = classes => `.${classes.replace(/ /g, '.')}`;
+    const hasDefaultClassNames = () => this.props.classNames === classNames;
+    const getOutsideClassNames = (classes) => {
+      if (hasDefaultClassNames()) {
+        return `${classes.day}--${classes.outside}`;
+      }
+      return classes.outside;
+    };
+    const dayQuery = createQuery(this.props.classNames.day);
+    const outsideDayQuery = createQuery(getOutsideClassNames(this.props.classNames));
+    return this.dayPicker.querySelectorAll(`${dayQuery}:not(${outsideDayQuery})`);
   }
 
   getNextNavigableMonth() {
