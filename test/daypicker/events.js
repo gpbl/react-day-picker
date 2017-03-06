@@ -106,6 +106,15 @@ describe('DayPicker’s events handlers', () => {
     wrapper.find('.DayPicker-Day--foo').simulate('keyDown', { keyCode: keys.ENTER });
     expect(handleDayClick).to.have.been.calledWith(...eventArgs);
   });
+  it('should not call an undefined `onDayClick` event handler when pressing the ENTER key', () => {
+    const handleDayClick = spy();
+    const modifiers = { foo: d => d.getDate() === 15, bar: () => false };
+    const wrapper = mount(
+      <DayPicker modifiers={ modifiers } />,
+    );
+    wrapper.find('.DayPicker-Day--foo').simulate('keyDown', { keyCode: keys.ENTER });
+    expect(handleDayClick).to.not.have.been.called;
+  });
   it('should call `onDayClick` event handler when pressing the SPACE key', () => {
     const handleDayClick = spy();
     const modifiers = { foo: d => d.getDate() === 15 };
