@@ -9,7 +9,7 @@ import DayPicker from '../../../src';
 
 // Use a custom util to format the calendar values according to the
 // selected locale. This one is based on moment.js
-import MomentLocaleUtils from '../../../moment';
+import MomentLocaleUtils from '../../../src/addons/MomentLocaleUtils';
 
 import '../../../src/style.css';
 
