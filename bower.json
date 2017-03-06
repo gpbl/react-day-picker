@@ -25,12 +25,10 @@
   "private": false,
   "ignore": [
     "**/.*",
-    "*.js",
     "book.json",
     "package.json",
     "docs",
     "examples",
-    "lib",
     "src",
     "test",
     "node_modules",
