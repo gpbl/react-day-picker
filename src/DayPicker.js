@@ -155,17 +155,17 @@ export default class DayPicker extends Component {
   }
 
   getDayNodes() {
-    const createQuery = classes => `.${classes.replace(/ /g, '.')}`;
-    const hasDefaultClassNames = () => this.props.classNames === classNames;
-    const getOutsideClassNames = (classes) => {
-      if (hasDefaultClassNames()) {
-        return `${classes.day}--${classes.outside}`;
-      }
-      return classes.outside;
-    };
-    const dayQuery = createQuery(this.props.classNames.day);
-    const outsideDayQuery = createQuery(getOutsideClassNames(this.props.classNames));
-    return this.dayPicker.querySelectorAll(`${dayQuery}:not(${outsideDayQuery})`);
+    let outsideClassName;
+    if (this.props.classNames === classNames) {
+      // When using CSS modules prefix the modifier as required by the BEM syntax
+      outsideClassName = `${this.props.classNames.day}--${this.props.classNames.outside}`;
+    } else {
+      outsideClassName = `${this.props.classNames.outside}`;
+    }
+    const dayQuery = this.props.classNames.day.replace(/ /g, '.');
+    const outsideDayQuery = outsideClassName.replace(/ /g, '.');
+    const selector = `.${dayQuery}:not(.${outsideDayQuery})`;
+    return this.dayPicker.querySelectorAll(selector);
   }
 
   getNextNavigableMonth() {
