@@ -146,11 +146,6 @@ const EXAMPLES = {
     description: 'Use <code>numberOfMonths</code> to display a custom number of calendars.',
     Component: YearCalendar,
   },
-  cssModules: {
-    title: 'CSS Modules',
-    description: 'Use the <code>classNames</code> prop to pass to the component the styles imported with <a href="https://github.com/css-modules/css-modules">CSS Modules</a>.',
-    Component: CSSModules,
-  },
 };
 
 export default class Examples extends Component {
@@ -208,6 +203,7 @@ export default class Examples extends Component {
     const componentName = ExampleComponent.name || getFunctionName(ExampleComponent);
     let source = require(`!raw-loader!./examples/${componentName}.js`);
     source = source.replace('../../../src', 'react-day-picker');
+    source = source.replace('../../../moment', 'react-day-picker/moment');
     source = source.replace('../../../src/style.css', 'react-day-picker/lib/style.css');
     return (
       <div>
