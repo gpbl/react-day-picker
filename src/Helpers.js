@@ -43,7 +43,7 @@ export function getFirstDayOfWeekFromProps(props) {
 }
 
 export function isRangeOfDates(value) {
-  return value && typeof value === 'object' && value.from && value.to;
+  return !!(value && value.from && value.to);
 }
 
 export function getModifiersForDay(d, modifiersObj = {}) {
@@ -70,10 +70,10 @@ export function getModifiersForDay(d, modifiersObj = {}) {
           const range = day;
           return isDayInRange(d, range);
         }
-        if (typeof day === 'object' && day.after) {
+        if (day.after) {
           return d > day.after;
         }
-        if (typeof day === 'object' && day.before) {
+        if (day.before) {
           return d < day.before;
         }
         return false;
@@ -83,10 +83,10 @@ export function getModifiersForDay(d, modifiersObj = {}) {
     } else if (isRangeOfDates(value) && isDayInRange(d, value)) {
       // modifier's value is a range
       modifiers.push(modifier);
-    } else if (typeof value === 'object' && value.after && d > value.after) {
+    } else if (value.after && d > value.after) {
       // modifier's value has an after date
       modifiers.push(modifier);
-    } else if (typeof value === 'object' && value.before && d < value.before) {
+    } else if (value.before && d < value.before) {
       // modifier's value has an after date
       modifiers.push(modifier);
     } else if (typeof value === 'function' && value(d)) {

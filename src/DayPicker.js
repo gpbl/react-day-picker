@@ -120,6 +120,8 @@ export default class DayPicker extends Component {
 
   constructor(props) {
     super(props);
+    /* istanbul ignore next */
+    // for the ignore above see: https://github.com/gotwarlost/istanbul/issues/690
 
     this.renderDayInMonth = this.renderDayInMonth.bind(this);
     this.showNextMonth = this.showNextMonth.bind(this);
