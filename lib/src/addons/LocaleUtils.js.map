@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/addons/LocaleUtils.js"],"names":["default"],"mappings":";;;;;;;;;;;;;QACOA,O,gCADP","file":"LocaleUtils.js","sourcesContent":["// Deprecated: remove from the next major version\nexport default from './MomentLocaleUtils';\n"]}

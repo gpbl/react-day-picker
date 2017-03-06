@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/keys.js"],"names":["LEFT","UP","RIGHT","DOWN","ENTER","SPACE"],"mappings":";;;;;kBAAe;AACbA,QAAM,EADO;AAEbC,MAAI,EAFS;AAGbC,SAAO,EAHM;AAIbC,QAAM,EAJO;AAKbC,SAAO,EALM;AAMbC,SAAO;AANM,C","file":"keys.js","sourcesContent":["export default {\n  LEFT: 37,\n  UP: 38,\n  RIGHT: 39,\n  DOWN: 40,\n  ENTER: 13,\n  SPACE: 32,\n};\n"]}
