@@ -10,7 +10,7 @@ export default function Navbar({
   onPreviousClick,
   onNextClick,
   labels,
-  dir = 'ltr',
+  dir,
 }) {
   const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
   const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;

@@ -301,6 +301,25 @@ describe('Helpers', () => {
     });
   });
 
+  describe('isRangeOfDates', () => {
+    it('should detect a properly shaped object', () => {
+      expect(Helpers.isRangeOfDates(
+        { from: new Date(), to: new Date() },
+      )).to.be.true;
+    });
+    it('should detect not properly shaped objects', () => {
+      expect(Helpers.isRangeOfDates(
+        { from: null, to: new Date() },
+      )).to.be.false;
+      expect(Helpers.isRangeOfDates(
+        { to: new Date() },
+      )).to.be.false;
+      expect(Helpers.isRangeOfDates(
+        { from: new Date() },
+      )).to.be.false;
+    });
+  });
+
   describe('startOfMonth', () => {
     it('should set a date as start of its month', () => {
       const date = new Date(1979, 8, 19);

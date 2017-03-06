@@ -65,6 +65,14 @@ describe('DayPicker’s rendering', () => {
     expect(instance.state.currentMonth.getMonth()).to.equal(1);
     expect(instance.state.currentMonth.getDate()).to.equal(1);
   });
+  it('should not do anything when other props are updated', () => {
+    const wrapper = mount(<DayPicker month={ new Date(2018, 10, 11) } />);
+    wrapper.setProps({ initialMonth: new Date(2014, 10, 11) });
+    const instance = wrapper.instance();
+    expect(instance.state.currentMonth.getFullYear()).to.equal(2018);
+    expect(instance.state.currentMonth.getMonth()).to.equal(10);
+    expect(instance.state.currentMonth.getDate()).to.equal(1);
+  });
   it('should render multiple months', () => {
     const wrapper = mount(<DayPicker numberOfMonths={ 12 } />);
     expect(wrapper.find('.DayPicker-Month')).to.have.length(12);
