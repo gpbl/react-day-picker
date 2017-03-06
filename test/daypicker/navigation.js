@@ -66,7 +66,12 @@ describe('DayPicker’s navigation', () => {
   });
   it('should not show the previous month when clicking outside days from the first month out of 2', () => {
     const wrapper = mount(
-      <DayPicker initialMonth={ new Date(2015, 3) } numberOfMonths={ 2 } enableOutsideDays onDayClick={ () => {} } />,
+      <DayPicker
+        initialMonth={ new Date(2015, 3) }
+        numberOfMonths={ 2 }
+        enableOutsideDays
+        onDayClick={ () => {} }
+      />,
     );
     wrapper.find('.DayPicker-Day--outside').at(6).simulate('click');
     const instance = wrapper.instance();
