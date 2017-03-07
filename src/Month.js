@@ -31,7 +31,7 @@ export default function Month({
   };
   const weeks = getWeekArray(month, firstDayOfWeek, fixedWeeks);
   return (
-    <div className={ classNames.month }>
+    <div className={ classNames.month } role="grid">
       {React.cloneElement(captionElement, captionProps)}
       <Weekdays
         classNames={ classNames }
@@ -42,7 +42,7 @@ export default function Month({
         localeUtils={ localeUtils }
         weekdayElement={ weekdayElement }
       />
-      <div className={ classNames.body } role="grid">
+      <div className={ classNames.body } role="rowgroup">
         {
           weeks.map((week, j) =>
             <div key={ j } className={ classNames.week } role="gridcell">
