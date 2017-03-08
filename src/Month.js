@@ -73,9 +73,13 @@ Month.propTypes = {
   captionElement: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.func,
-    PropTypes.instanceOf(React.Component)
+    PropTypes.instanceOf(React.Component),
   ]).isRequired,
-  weekdayElement: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.instanceOf(React.Component)]),
+  weekdayElement: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+    PropTypes.instanceOf(React.Component),
+  ]),
 
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,

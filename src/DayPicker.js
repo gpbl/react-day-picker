@@ -76,9 +76,21 @@ export default class DayPicker extends Component {
 
     // Custom elements
     renderDay: PropTypes.func,
-    weekdayElement: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.instanceOf(Component)]),
-    navbarElement: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.instanceOf(Component)]),
-    captionElement: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.instanceOf(Component)]),
+    weekdayElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(Component),
+    ]),
+    navbarElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(Component),
+    ]),
+    captionElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(Component),
+    ]),
 
     // Events
     onBlur: PropTypes.func,

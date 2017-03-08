@@ -160,13 +160,17 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.containsMatchingElement(<Caption />)).to.be.true;
   });
   it('should render a custom caption element as a class', () => {
+    /* eslint-disable react/prefer-stateless-function */
+    /* eslint-disable react/no-multi-comp */
     class Caption extends React.Component {
       render() {
-        return <p>boo</p>
+        return <p>boo</p>;
       }
     }
     const wrapper = mount(<DayPicker captionElement={ Caption } />);
     expect(wrapper.containsMatchingElement(<Caption />)).to.be.true;
+    /* eslint-enable react/no-multi-comp */
+    /* eslint-enable react/prefer-stateless-function */
   });
   it('should render a custom navbar element', () => {
     const CustomNavbar = ({ className }) => <div className={ className }>Navbar</div>;
@@ -190,6 +194,8 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-NavBar').at(0)).to.have.text('Navbar');
   });
   it('should render a custom navbar element as a class', () => {
+    /* eslint-disable react/prefer-stateless-function */
+    /* eslint-disable react/no-multi-comp */
     class CustomNavbar extends React.Component {
       static propTypes = { className: PropTypes.string };
       render() {
@@ -201,6 +207,8 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.containsMatchingElement(<CustomNavbar />)).to.be.true;
     expect(wrapper.find('.DayPicker-NavBar')).to.exist;
     expect(wrapper.find('.DayPicker-NavBar').at(0)).to.have.text('Navbar');
+    /* eslint-enable react/prefer-stateless-function */
+    /* eslint-enable react/no-multi-comp */
   });
   it('should render a custom weekday element', () => {
     const CustomWeekday = ({ className, weekday }) =>
@@ -220,7 +228,7 @@ describe('DayPicker’s rendering', () => {
   });
   it('should render a custom weekday element as a function', () => {
     const CustomWeekday = ({ className, weekday }) =>
-        <div className={ className }>{weekday}</div>;
+      <div className={ className }>{weekday}</div>;
     CustomWeekday.propTypes = { className: PropTypes.string, weekday: PropTypes.number };
     const dayPicker = <DayPicker weekdayElement={ CustomWeekday } />;
     const wrapper = mount(dayPicker);
@@ -229,14 +237,16 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-Weekday')).to.have.length(7);
     const weekdayDoms = wrapper.find('.DayPicker-Weekday');
     weekdayDoms.forEach((_, i) => {
-        expect(weekdayDoms.at(i)).to.have.text(i);
+      expect(weekdayDoms.at(i)).to.have.text(i);
     });
   });
   it('should render a custom weekday element as a class', () => {
+    /* eslint-disable react/prefer-stateless-function */
+    /* eslint-disable react/no-multi-comp */
     class CustomWeekday extends React.Component {
       static propTypes = { className: PropTypes.string, weekday: PropTypes.number };
       render() {
-        return <div className={ this.props.className }>{this.props.weekday}</div>
+        return <div className={ this.props.className }>{this.props.weekday}</div>;
       }
     }
     const dayPicker = <DayPicker weekdayElement={ CustomWeekday } />;
@@ -246,8 +256,10 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-Weekday')).to.have.length(7);
     const weekdayDoms = wrapper.find('.DayPicker-Weekday');
     weekdayDoms.forEach((_, i) => {
-        expect(weekdayDoms.at(i)).to.have.text(i);
+      expect(weekdayDoms.at(i)).to.have.text(i);
     });
+    /* eslint-enable react/prefer-stateless-function */
+    /* eslint-enable react/no-multi-comp */
   });
   it('should not render the outside days', () => {
     const wrapper = mount(<DayPicker initialMonth={ new Date(2015, 6) } />);
