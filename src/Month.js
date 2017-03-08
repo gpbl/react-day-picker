@@ -24,15 +24,20 @@ export default function Month({
 }) {
   const captionProps = {
     date: month,
+    classNames,
     months,
     localeUtils,
     locale,
     onClick: onCaptionClick ? e => onCaptionClick(month, e) : undefined,
   };
+  const caption = React.isValidElement(captionElement) ?
+    React.cloneElement(captionElement, captionProps) :
+    React.createElement(captionElement, captionProps);
+
   const weeks = getWeekArray(month, firstDayOfWeek, fixedWeeks);
   return (
     <div className={ classNames.month } role="grid">
-      {React.cloneElement(captionElement, captionProps)}
+      {caption}
       <Weekdays
         classNames={ classNames }
         weekdaysShort={ weekdaysShort }
@@ -65,8 +70,16 @@ Month.propTypes = {
   months: React.PropTypes.arrayOf(React.PropTypes.string),
 
   fixedWeeks: PropTypes.bool,
-  captionElement: PropTypes.node.isRequired,
-  weekdayElement: PropTypes.element,
+  captionElement: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+    PropTypes.instanceOf(React.Component),
+  ]).isRequired,
+  weekdayElement: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+    PropTypes.instanceOf(React.Component),
+  ]),
 
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,

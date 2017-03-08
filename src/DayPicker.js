@@ -76,9 +76,21 @@ export default class DayPicker extends Component {
 
     // Custom elements
     renderDay: PropTypes.func,
-    weekdayElement: PropTypes.element,
-    navbarElement: PropTypes.element,
-    captionElement: PropTypes.element,
+    weekdayElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(Component),
+    ]),
+    navbarElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(Component),
+    ]),
+    captionElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(Component),
+    ]),
 
     // Events
     onBlur: PropTypes.func,
@@ -418,7 +430,9 @@ export default class DayPicker extends Component {
       locale,
       localeUtils,
     };
-    return React.cloneElement(navbarElement, props);
+    return React.isValidElement(navbarElement) ?
+        React.cloneElement(navbarElement, props) :
+        React.createElement(navbarElement, props);
   }
   renderDayInMonth(day, month) {
     let dayModifiers = [];
@@ -489,11 +503,7 @@ export default class DayPicker extends Component {
           months={ this.props.months }
 
           weekdayElement={ this.props.weekdayElement }
-          captionElement={
-            React.cloneElement(this.props.captionElement, {
-              classNames: this.props.classNames,
-            })
-          }
+          captionElement={ this.props.captionElement }
           fixedWeeks={ this.props.fixedWeeks }
 
           weekdaysShort={ this.props.weekdaysShort }

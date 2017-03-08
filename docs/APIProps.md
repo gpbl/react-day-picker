@@ -24,9 +24,9 @@ Enable the navigation between months.
 
 ### captionElement
 
-**Type**: `Element`
+**Type**: `Element` || `React.Component` || `(props) => Element`
 
-A React element to use as caption. This element is cloned with the following props:
+A React element or constructor to use as caption. This element will receive the following props:
 
 * `date: Date` The currently displayed month.
 * `localeUtils: Object` The [localeUtils](#localeutils-object) object passed to the component.
@@ -183,9 +183,9 @@ An array containing the long weekdays names to use in the month's header.
 
 ### navbarElement
 
-**Type**: `Element`
+**Type**: `Element` || `React.Component` || `(props) => Element`
 
-Custom React element to render the navigation bar. It will receive the following props:
+Custom React element or constructor to render the navigation bar. It will receive the following props:
 
 * className `String`
 * previousMonth `Date`
@@ -238,9 +238,9 @@ The last allowed month. Users won't be able to navigate or interact with the day
 
 ### weekdayElement
 
-**Type**: `Element`
+**Type**: `Element` || `React.Component` || `(props) => Element`
 
-Custom React element to render the weekday cells in the header. It will receive the following props:
+Custom React element or constructor to render the weekday cells in the header. It will receive the following props:
 
 * weekday `Number`
 * className `String`
