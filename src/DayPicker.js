@@ -435,17 +435,15 @@ export default class DayPicker extends Component {
         React.createElement(navbarElement, props);
   }
   renderDayInMonth(day, month) {
-    let dayModifiers = [];
-    if (DateUtils.isSameDay(day, new Date())) {
+    const propModifiers = Helpers.getModifiersFromProps(this.props);
+    const dayModifiers = Helpers.getModifiersForDay(day, propModifiers);
+    if (DateUtils.isSameDay(day, new Date()) &&
+        !Object.prototype.hasOwnProperty.call(propModifiers, this.props.classNames.today)) {
       dayModifiers.push(this.props.classNames.today);
     }
     if (day.getMonth() !== month.getMonth()) {
       dayModifiers.push(this.props.classNames.outside);
     }
-    dayModifiers = [
-      ...dayModifiers,
-      ...Helpers.getModifiersForDay(day, Helpers.getModifiersFromProps(this.props)),
-    ];
 
     const isOutside = day.getMonth() !== month.getMonth();
     let tabIndex = null;
