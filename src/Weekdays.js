@@ -30,7 +30,7 @@ export default function Weekdays({
 
   return (
     <div className={ classNames.weekdays } role="rowgroup">
-      <div className={ classNames.weekdaysRow } role="columnheader">
+      <div className={ classNames.weekdaysRow } role="row">
         { days }
       </div>
     </div>

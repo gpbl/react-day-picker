@@ -23,7 +23,7 @@ export default function Weekday({
   }
 
   return (
-    <div className={ className }>
+    <div className={ className } role="columnheader">
       <abbr title={ title }>
         {content}
       </abbr>
