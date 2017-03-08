@@ -22,7 +22,9 @@ export default function Weekdays({
       localeUtils,
       locale,
     };
-    const element = React.cloneElement(weekdayElement, elementProps);
+    const element = React.isValidElement(weekdayElement) ?
+        React.cloneElement(weekdayElement, elementProps) :
+        React.createElement(weekdayElement, elementProps);
     days.push(element);
   }
 
@@ -48,5 +50,5 @@ Weekdays.propTypes = {
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
-  weekdayElement: PropTypes.element,
+  weekdayElement: PropTypes.oneOf([PropTypes.element, PropTypes.func, PropTypes.instanceOf(React.Component)])
 };
