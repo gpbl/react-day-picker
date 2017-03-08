@@ -65,4 +65,20 @@ describe('DayPicker’s day modifiers', () => {
     expect(wrapper.find('.DayPicker-Day--none')).to.have.length(0);
     expect(wrapper.find('.DayPicker-Day--all')).to.have.length(35);
   });
+  it('should show "today" as something other than the current day', () => {
+    const newToday = new Date();
+    newToday.setDate((new Date()).getDate() + 1);
+    newToday.setMonth((new Date()).getMonth());
+
+    const modifiers = {
+      today: newToday,
+    };
+    const wrapper = mount(
+      <DayPicker
+        initialMonth={ new Date() }
+        modifiers={ modifiers }
+      />,
+    );
+    expect(wrapper.find('.DayPicker-Day--today')).to.have.text(newToday.getDate());
+  });
 });
