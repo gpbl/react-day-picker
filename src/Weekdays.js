@@ -50,7 +50,7 @@ Weekdays.propTypes = {
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),
   locale: PropTypes.string.isRequired,
   localeUtils: DayPickerPropTypes.localeUtils.isRequired,
-  weekdayElement: PropTypes.oneOf([
+  weekdayElement: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.func,
     PropTypes.instanceOf(React.Component),
