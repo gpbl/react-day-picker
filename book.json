@@ -1,7 +1,7 @@
 {
   "title": "react-day-picker: flexible date picker for React",
   "gitbook": "3.2.x",
-  "plugins": ["edit-link", "prism", "-highlight", "-sharing", "ga", "include"],
+  "plugins": ["edit-link", "prism", "-highlight", "-sharing", "ga", "include", "anchors", "github-buttons", "githubcontributors"],
   "root": "./docs",
   "structure": {
     "summary": "SUMMARY.md"
@@ -14,8 +14,19 @@
       "token": "UA-68185118-1"
     },
     "edit-link": {
-      "base": "https://github.com/gpbl/react-day-picker/tree/master",
+      "base": "https://github.com/gpbl/react-day-picker/tree/master/docs",
       "label": "Edit This Page"
+    },
+    "github-buttons": {
+      "repo": "gpbl/react-day-picker",
+      "types": [
+        "star"
+      ],
+      "size": "small"
+    },
+    "githubcontributors": {
+      "githubOwner": "gpbl",
+      "githubRepository": "react-day-picker"
     }
   }
 }

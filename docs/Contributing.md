@@ -21,3 +21,8 @@ Some useful npm scripts:
 
 You can even run and modify the [Examples](Examples.md)! Just remember to run `npm install`
 to use the last version.
+
+## Contributors ❤️
+
+{% GitHubContributors %}
+{% endGitHubContributors %}
