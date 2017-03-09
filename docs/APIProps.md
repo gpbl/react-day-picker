@@ -185,7 +185,7 @@ An array containing the long weekdays names to use in the month's header.
 
 **Type**: `Element` || `React.Component` || `(props) => Element`
 
-Custom React element or constructor to render the navigation bar. It will receive the following props:
+A React Element or React Component to render the navigation bar. It will receive the following props:
 
 * className `String`
 * previousMonth `Date`
@@ -240,7 +240,7 @@ The last allowed month. Users won't be able to navigate or interact with the day
 
 **Type**: `Element` || `React.Component` || `(props) => Element`
 
-Custom React element or constructor to render the weekday cells in the header. It will receive the following props:
+A React Element or React Component to render the weekday cells in the header. It will receive the following props:
 
 * weekday `Number`
 * className `String`
