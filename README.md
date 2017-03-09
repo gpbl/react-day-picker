@@ -41,7 +41,7 @@ Include the component without installing:
 <script src="https://unpkg.com/react-day-picker/daypicker.min.js"></script>
 ```
 
-See this [jsfiddle](https://jsfiddle.net/fordjxht/) as example.
+See this [jsfiddle](https://jsfiddle.net/gpbl/fordjxht/6) as example.
 
 **Using bower**
 
@@ -108,7 +108,7 @@ See [Basic usage](http://react-day-picker.js.org/Basic.html) for a deeper explan
 
 * Tag with `react-day-picker` your questions on [Stack Overflow](http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest)
 * Join the [Gitter room](https://gitter.im/gpbl/react-day-picker) for immediate help
-* **Tip** Fork https://jsfiddle.net/fordjxht/ to help us reproducing your problem
+* **Tip:** Fork https://jsfiddle.net/gpbl/fordjxht/6 to help us reproducing your problem
 
 ### Contribute
 
