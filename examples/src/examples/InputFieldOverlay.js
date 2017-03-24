@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import DayPicker, { DateUtils } from '../../../src';
+import DayPicker from '../../../src';
 
 import '../../../src/style.css';
 
@@ -108,7 +108,7 @@ export default class InputFieldOverlay extends Component {
                 ref={ (el) => { this.daypicker = el; } }
                 initialMonth={ this.state.selectedDay || undefined }
                 onDayClick={ this.handleDayClick }
-                selectedDays={ day => DateUtils.isSameDay(this.state.selectedDay, day) }
+                selectedDays={ this.state.selectedDay }
               />
             </div>
           </div>
