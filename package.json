@@ -82,7 +82,7 @@
     "istanbul": "1.1.0-alpha.1",
     "jsdom": "9.0.0",
     "mocha": "^3.2.0",
-    "moment": "^2.17.1",
+    "moment": "^2.18.1",
     "postcss-cli": "2.6.0",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
