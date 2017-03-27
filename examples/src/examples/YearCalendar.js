@@ -35,7 +35,7 @@ export default class YearCalendar extends React.Component {
         </h1>
         <DayPicker
           canChangeMonth={ false }
-          initialMonth={ new Date(year, 0, 1) }
+          month={ new Date(year, 0, 1) }
           numberOfMonths={ 12 }
         />
       </div>
