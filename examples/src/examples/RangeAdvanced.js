@@ -5,93 +5,77 @@ import DayPicker, { DateUtils } from '../../../src';
 import '../../../src/style.css';
 import '../styles/range.css';
 
+const initialState = {
+  from: null,
+  to: null,
+  tempTo: null, // Keep track of the last day for mouseenter.
+};
+
+function isSelectingFirstDay(from, to, day) {
+  const firstDayIsNotSelected = !from;
+  const selectedDayIsBeforeFirstDay = day < from;
+  const rangeIsSelected = from && to;
+  return firstDayIsNotSelected || selectedDayIsBeforeFirstDay || rangeIsSelected;
+}
+
 export default class RangeAdvanced extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-    this.handleDayMouseEnter = this.handleDayMouseEnter.bind(this);
-    this.reset = this.reset.bind(this);
+    this.state = initialState;
   }
-  state = {
-    isSelectingLastDay: false,
-    from: null,
-    to: null,
-  };
 
   handleDayClick(day) {
-    const { from, isSelectingLastDay } = this.state;
-    // Enable day selection on mouse enter
-    if (!isSelectingLastDay) {
-      this.setState({
-        isSelectingLastDay: true,
-        from: day,
-        to: null,
-      });
-    }
-    if (isSelectingLastDay && from && day < from) {
-      // Reset the from-day if the clicked day is before the current from-day
-      this.setState({
-        from: day,
-        to: null,
-      });
-    }
-    if (isSelectingLastDay && DateUtils.isSameDay(day, from)) {
-      // Reset everything if the clicked day is the same as the current from-day
+    const { from, to } = this.state;
+
+    if (DateUtils.isSameDay(day, from)) {
+      // Reset everything if the clicked day is the same as the current from-day.
+      // Remove it if you want to allow the first and last day to be the same.
       this.reset();
+      return;
     }
-    if (isSelectingLastDay) {
-      // Unset the day selection on mouse enter
-      this.setState({
-        isSelectingLastDay: false,
-      });
-    }
+
+    const newState = isSelectingFirstDay(from, to, day)
+      ? { from: day, to: null, tempTo: null }
+      : { to: day, tempTo: day };
+
+    this.setState(() => newState);
   }
 
   handleDayMouseEnter(day) {
-    const { isSelectingLastDay, from } = this.state;
-    if (!isSelectingLastDay || (from && day < from) || DateUtils.isSameDay(day, from)) {
-      return;
+    const { from, to } = this.state;
+
+    if (!isSelectingFirstDay(from, to, day)) {
+      this.setState(() => ({ tempTo: day }));
     }
-    this.setState({
-      to: day,
-    });
   }
 
   reset() {
-    this.setState({
-      from: null,
-      to: null,
-      isSelectingLastDay: false,
-    });
+    this.setState(() => initialState);
   }
 
   render() {
-    const { from, to } = this.state;
+    const { from, to, tempTo } = this.state;
     return (
       <div>
-        { !from && !to && <p>Please select the <strong>first day</strong>.</p> }
-        { from && !to && <p>Please select the <strong>last day</strong>.</p> }
-        { from && to &&
+        { !from && !tempTo && <p>Please select the <strong>first day</strong>.</p> }
+        { from && !tempTo && <p>Please select the <strong>last day</strong>.</p> }
+        { from && tempTo &&
           <p>
-            You chose from { moment(from).format('L') } to { moment(to).format('L') }.
-            { ' ' }<a onClick={ this.reset }>Reset</a>
+            You chose from { moment(from).format('L') } to { moment(tempTo).format('L') }.
+            { ' ' }<a onClick={ this.reset.bind(this) }>Reset</a>
           </p>
         }
         <DayPicker
           className="Range"
           numberOfMonths={ 2 }
           fromMonth={ from }
-          selectedDays={ [from, { from, to }] }
+          selectedDays={ [from, { from, to: tempTo }] }
           disabledDays={ { before: this.state.from } }
-          modifiers={ {
-            start: from,
-            end: to,
-          } }
-          onDayClick={ this.handleDayClick }
-          onDayMouseEnter={ this.handleDayMouseEnter }
+          modifiers={ { start: from, end: tempTo } }
+          onDayClick={ this.handleDayClick.bind(this) }
+          onDayMouseEnter={ this.handleDayMouseEnter.bind(this) }
         />
       </div>
     );
   }
-
 }
