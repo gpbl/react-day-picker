@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-
+import React from 'react';
+import PropTypes from './PropTypes';
 import defaultClassNames from './classNames';
 
 export default function Navbar({

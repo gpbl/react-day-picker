@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Caption from './Caption';
 import Navbar from './Navbar';
 import Month from './Month';
@@ -11,7 +11,7 @@ import * as LocaleUtils from './LocaleUtils';
 import classNames from './classNames';
 
 import keys from './keys';
-import DayPickerPropTypes, { ModifierPropType } from './PropTypes';
+import PropTypes, { ModifierPropType } from './PropTypes';
 
 export default class DayPicker extends Component {
   static VERSION = '5.2.0';
@@ -47,7 +47,7 @@ export default class DayPicker extends Component {
       previousMonth: PropTypes.string.isRequired,
     }).isRequired,
     locale: PropTypes.string,
-    localeUtils: DayPickerPropTypes.localeUtils,
+    localeUtils: PropTypes.localeUtils,
     months: PropTypes.arrayOf(PropTypes.string),
     weekdaysLong: PropTypes.arrayOf(PropTypes.string),
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),

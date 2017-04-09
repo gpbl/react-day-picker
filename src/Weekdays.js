@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import DayPickerPropTypes from './PropTypes';
+import React from 'react';
+import PropTypes from './PropTypes';
 
 export default function Weekdays({
   classNames,
@@ -49,7 +49,7 @@ Weekdays.propTypes = {
   weekdaysLong: PropTypes.arrayOf(PropTypes.string),
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),
   locale: PropTypes.string.isRequired,
-  localeUtils: DayPickerPropTypes.localeUtils.isRequired,
+  localeUtils: PropTypes.localeUtils.isRequired,
   weekdayElement: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.func,
