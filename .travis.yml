@@ -4,10 +4,10 @@ node_js:
 cache: yarn
 before_script:
   - "npm run lint"
+  - "cd examples && npm run lint"
 after_success:
   - "npm run cover"
   - "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
-  - "cd examples && npm run lint"
 cache:
   yarn: true
   directories:
