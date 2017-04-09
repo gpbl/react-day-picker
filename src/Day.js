@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions, react/forbid-prop-types */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 import defaultClassNames from './classNames';
+import PropTypes from './PropTypes';
 
 function handleEvent(handler, day, modifiers) {
   if (!handler) {

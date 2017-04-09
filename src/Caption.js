@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import DayPickerPropTypes from './PropTypes';
+import React from 'react';
+import PropTypes from './PropTypes';
 
 export default function Caption({ classNames, date, months, locale, localeUtils, onClick }) {
   return (
@@ -14,9 +14,9 @@ export default function Caption({ classNames, date, months, locale, localeUtils,
 
 Caption.propTypes = {
   date: PropTypes.instanceOf(Date),
-  months: React.PropTypes.arrayOf(React.PropTypes.string),
+  months: PropTypes.arrayOf(PropTypes.string),
   locale: PropTypes.string,
-  localeUtils: DayPickerPropTypes.localeUtils,
+  localeUtils: PropTypes.localeUtils,
   onClick: PropTypes.func,
   classNames: PropTypes.shape({
     caption: PropTypes.string.isRequired,

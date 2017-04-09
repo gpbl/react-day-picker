@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import DayPickerPropTypes from './PropTypes';
+import React from 'react';
+import PropTypes from './PropTypes';
 import Weekdays from './Weekdays';
 import { getWeekArray } from './Helpers';
 
@@ -67,7 +67,7 @@ Month.propTypes = {
   }).isRequired,
 
   month: PropTypes.instanceOf(Date).isRequired,
-  months: React.PropTypes.arrayOf(React.PropTypes.string),
+  months: PropTypes.arrayOf(PropTypes.string),
 
   fixedWeeks: PropTypes.bool,
   captionElement: PropTypes.oneOfType([
@@ -82,7 +82,7 @@ Month.propTypes = {
   ]),
 
   locale: PropTypes.string.isRequired,
-  localeUtils: DayPickerPropTypes.localeUtils.isRequired,
+  localeUtils: PropTypes.localeUtils.isRequired,
   weekdaysLong: PropTypes.arrayOf(PropTypes.string),
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),
   firstDayOfWeek: PropTypes.number.isRequired,

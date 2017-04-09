@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
 const PrimitiveTypes = {
   localeUtils: PropTypes.shape({
@@ -17,6 +17,7 @@ const PrimitiveTypes = {
   before: PropTypes.shape({
     before: PropTypes.instanceOf(Date),
   }),
+  ...PropTypes,
 };
 
 export const ModifierPropType = PropTypes.oneOfType([
