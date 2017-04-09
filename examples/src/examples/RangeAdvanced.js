@@ -8,7 +8,7 @@ import '../styles/range.css';
 const initialState = {
   from: null,
   to: null,
-  tempTo: null, // Keep track of the last day for mouseenter.
+  enteredTo: null, // Keep track of the last day for mouseEnter.
 };
 
 function isSelectingFirstDay(from, to, day) {
@@ -22,58 +22,74 @@ export default class RangeAdvanced extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
+    this.reset = this.reset.bind(this);
+    this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleDayMouseEnter = this.handleDayMouseEnter.bind(this);
   }
 
   handleDayClick(day) {
     const { from, to } = this.state;
 
     if (DateUtils.isSameDay(day, from)) {
-      // Reset everything if the clicked day is the same as the current from-day.
-      // Remove it if you want to allow the first and last day to be the same.
       this.reset();
       return;
     }
 
-    const newState = isSelectingFirstDay(from, to, day)
-      ? { from: day, to: null, tempTo: null }
-      : { to: day, tempTo: day };
-
-    this.setState(() => newState);
+    if (isSelectingFirstDay(from, to, day)) {
+      this.setState({
+        from: day,
+        to: null,
+        enteredTo: null,
+      });
+    } else {
+      this.setState({
+        to: day,
+        enteredTo: day,
+      });
+    }
   }
 
   handleDayMouseEnter(day) {
     const { from, to } = this.state;
 
     if (!isSelectingFirstDay(from, to, day)) {
-      this.setState(() => ({ tempTo: day }));
+      this.setState({
+        enteredTo: day,
+      });
     }
   }
 
   reset() {
-    this.setState(() => initialState);
+    this.setState(initialState);
   }
 
   render() {
-    const { from, to, tempTo } = this.state;
+    const { from, to, enteredTo } = this.state;
+
     return (
       <div>
-        { !from && !tempTo && <p>Please select the <strong>first day</strong>.</p> }
-        { from && !tempTo && <p>Please select the <strong>last day</strong>.</p> }
-        { from && tempTo &&
+        { !from && !to &&
+          <p>Please select the <strong>first day</strong>.</p>
+        }
+        { from && !to &&
+          <p>Please select the <strong>last day</strong>.</p>
+        }
+        { from && to &&
           <p>
-            You chose from { moment(from).format('L') } to { moment(tempTo).format('L') }.
-            { ' ' }<a onClick={ this.reset.bind(this) }>Reset</a>
+            You chose from { moment(from).format('L') } to { moment(enteredTo).format('L') }.
+            { ' ' }
+            <a onClick={ this.reset }>Reset</a>
           </p>
         }
         <DayPicker
           className="Range"
           numberOfMonths={ 2 }
           fromMonth={ from }
-          selectedDays={ [from, { from, to: tempTo }] }
+          selectedDays={ [from, { from, to: enteredTo }] }
           disabledDays={ { before: this.state.from } }
-          modifiers={ { start: from, end: tempTo } }
-          onDayClick={ this.handleDayClick.bind(this) }
-          onDayMouseEnter={ this.handleDayMouseEnter.bind(this) }
+          modifiers={ { start: from, end: enteredTo } }
+          onDayClick={ this.handleDayClick }
+          onDayMouseEnter={ this.handleDayMouseEnter }
         />
       </div>
     );
