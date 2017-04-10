@@ -214,36 +214,33 @@ export default class DayPicker extends Component {
     return this.props.canChangeMonth;
   }
 
-  showMonth(d, callback) {
+  showMonth(d) {
     if (!this.allowMonth(d)) {
       return;
     }
     this.setState({ currentMonth: Helpers.startOfMonth(d) }, () => {
-      if (callback) {
-        callback();
-      }
       if (this.props.onMonthChange) {
         this.props.onMonthChange(this.state.currentMonth);
       }
     });
   }
 
-  showNextMonth(callback) {
+  showNextMonth() {
     if (!this.allowNextMonth()) {
       return;
     }
     const deltaMonths = this.props.pagedNavigation ? this.props.numberOfMonths : 1;
     const nextMonth = DateUtils.addMonths(this.state.currentMonth, deltaMonths);
-    this.showMonth(nextMonth, callback);
+    this.showMonth(nextMonth);
   }
 
-  showPreviousMonth(callback) {
+  showPreviousMonth() {
     if (!this.allowPreviousMonth()) {
       return;
     }
     const deltaMonths = this.props.pagedNavigation ? this.props.numberOfMonths : 1;
     const previousMonth = DateUtils.addMonths(this.state.currentMonth, -deltaMonths);
-    this.showMonth(previousMonth, callback);
+    this.showMonth(previousMonth);
   }
 
   showNextYear() {
