@@ -13,7 +13,7 @@ export default class AdvancedModifiers extends React.Component {
   state = {
     text: 'Please select a day 👻',
   };
-  handleDayClick(day, { even, odd, blahblah }) {
+  handleDayClick(day, { even, odd, first }) {
     let text;
     if (even) {
       text = 'Just an even day';
@@ -21,7 +21,7 @@ export default class AdvancedModifiers extends React.Component {
     if (odd) {
       text = 'An odd day';
     }
-    if (blahblah) {
+    if (first) {
       text += ': the first of the month 😱';
     }
     this.setState({ text });
