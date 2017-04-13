@@ -49,8 +49,8 @@ export default function Month({
       />
       <div className={classNames.body} role="rowgroup">
         {
-          weeks.map((week, j) =>
-            <div key={j} className={classNames.week} role="gridcell">
+          weeks.map(week =>
+            <div key={week[0].getTime()} className={classNames.week} role="gridcell">
               {week.map(day => children(day, month))}
             </div>,
         )}
