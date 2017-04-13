@@ -12,35 +12,60 @@ module.exports = {
   },
 
   module: {
-    rules: [{
-      test: /\.js$/,
-      include: [
-        path.join(__dirname, '../src'),
-        path.join(__dirname, './src'),
-        path.join(__dirname, '../lib'),
-      ],
-      loaders: ['babel-loader'],
-    },
-    {
-      include: [
-        path.join(__dirname, './src/styles/cssmodules.css'),
-      ],
-      loaders: ['style-loader', 'css-loader?modules=true&localIdentName=[hash:base64:5]', 'autoprefixer-loader?browsers=last 2 version'],
-    },
-    {
-      test: /\.css$/,
-      exclude: [
-        path.join(__dirname, './src/styles/cssmodules.css'),
-      ],
-      loaders: ['style-loader', 'css-loader', 'autoprefixer-loader?browsers=last 2 version'],
-    },
+    rules: [
+      {
+        test: /\.js$/,
+        include: [
+          path.join(__dirname, '../src'),
+          path.join(__dirname, './src'),
+          path.join(__dirname, '../lib'),
+        ],
+        loader: 'babel-loader',
+      },
+      {
+        include: [path.join(__dirname, './src/styles/cssmodules.css')],
+        loaders: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'autoprefixer-loader',
+            options: { browsers: 'last 2 version' },
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        exclude: [path.join(__dirname, './src/styles/cssmodules.css')],
+        loaders: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'autoprefixer-loader',
+            options: { browsers: 'last 2 version' },
+          },
+        ],
+      },
     ],
   },
 
   plugins: [
-
     // add moment locales
-    new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(ja|ar|it)$/),
+    new webpack.ContextReplacementPlugin(
+      /moment[\\/]locale$/,
+      /^\.\/(ja|ar|it)$/
+    ),
 
     new webpack.DefinePlugin({
       'process.env': {
@@ -79,7 +104,5 @@ module.exports = {
         warnings: false,
       },
     }),
-
   ],
-
 };
