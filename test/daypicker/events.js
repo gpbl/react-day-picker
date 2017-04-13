@@ -11,7 +11,7 @@ import keys from '../../src/keys';
 describe('DayPicker’s events handlers', () => {
   it('should call the `onCaptionClick` handler', () => {
     const handleCaptionClick = spy();
-    const wrapper = mount(<DayPicker onCaptionClick={ handleCaptionClick } />);
+    const wrapper = mount(<DayPicker onCaptionClick={handleCaptionClick} />);
     wrapper.find('.DayPicker-Caption').simulate('click');
     expect(handleCaptionClick).to.have.been.calledWith(
       sinon.match(date =>
@@ -33,13 +33,13 @@ describe('DayPicker’s events handlers', () => {
     const modifiers = { foo: d => d.getDate() === 15 };
     const wrapper = mount(
       <DayPicker
-        modifiers={ modifiers }
-        onDayClick={ handleDayClick }
-        onDayMouseEnter={ handleDayMouseEnter }
-        onDayMouseLeave={ handleDayMouseLeave }
-        onDayKeyDown={ handleDayKeyDown }
-        onDayTouchStart={ handleDayTouchStart }
-        onDayTouchEnd={ handleDayTouchEnd }
+        modifiers={modifiers}
+        onDayClick={handleDayClick}
+        onDayMouseEnter={handleDayMouseEnter}
+        onDayMouseLeave={handleDayMouseLeave}
+        onDayKeyDown={handleDayKeyDown}
+        onDayTouchStart={handleDayTouchStart}
+        onDayTouchEnd={handleDayTouchEnd}
       />,
     );
 
@@ -73,10 +73,10 @@ describe('DayPicker’s events handlers', () => {
     const handleDayMouseLeave = spy();
     const wrapper = mount(
       <DayPicker
-        initialMonth={ new Date(2015, 11, 5) }
-        onDayClick={ handleDayClick }
-        onDayMouseEnter={ handleDayMouseEnter }
-        onDayMouseLeave={ handleDayMouseLeave }
+        initialMonth={new Date(2015, 11, 5)}
+        onDayClick={handleDayClick}
+        onDayMouseEnter={handleDayMouseEnter}
+        onDayMouseLeave={handleDayMouseLeave}
       />,
     );
 
@@ -94,8 +94,8 @@ describe('DayPicker’s events handlers', () => {
     const modifiers = { foo: d => d.getDate() === 15, bar: () => false };
     const wrapper = mount(
       <DayPicker
-        modifiers={ modifiers }
-        onDayClick={ handleDayClick }
+        modifiers={modifiers}
+        onDayClick={handleDayClick}
       />,
     );
     const eventArgs = [
@@ -110,7 +110,7 @@ describe('DayPicker’s events handlers', () => {
     const handleDayClick = spy();
     const modifiers = { foo: d => d.getDate() === 15, bar: () => false };
     const wrapper = mount(
-      <DayPicker modifiers={ modifiers } />,
+      <DayPicker modifiers={modifiers} />,
     );
     wrapper.find('.DayPicker-Day--foo').simulate('keyDown', { keyCode: keys.ENTER });
     expect(handleDayClick).to.not.have.been.called;
@@ -120,8 +120,8 @@ describe('DayPicker’s events handlers', () => {
     const modifiers = { foo: d => d.getDate() === 15 };
     const wrapper = mount(
       <DayPicker
-        modifiers={ modifiers }
-        onDayClick={ handleDayClick }
+        modifiers={modifiers}
+        onDayClick={handleDayClick}
       />,
     );
     const eventArgs = [
@@ -134,7 +134,7 @@ describe('DayPicker’s events handlers', () => {
   });
   it('should call `onKeyDown` event handler', () => {
     const handleKeyDown = spy();
-    const wrapper = mount(<DayPicker onKeyDown={ handleKeyDown } />);
+    const wrapper = mount(<DayPicker onKeyDown={handleKeyDown} />);
     wrapper.simulate('keyDown');
     expect(handleKeyDown).to.have.been.calledWith(
       sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
@@ -142,7 +142,7 @@ describe('DayPicker’s events handlers', () => {
   });
   it('should call `onKeyDown` also when changing month is disabled', () => {
     const handleKeyDown = spy();
-    const wrapper = mount(<DayPicker onKeyDown={ handleKeyDown } canChangeMonth={ false } />);
+    const wrapper = mount(<DayPicker onKeyDown={handleKeyDown} canChangeMonth={false} />);
     wrapper.simulate('keyDown');
     expect(handleKeyDown).to.have.been.calledWith(
       sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),

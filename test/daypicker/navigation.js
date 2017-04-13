@@ -10,33 +10,33 @@ describe('DayPicker’s navigation', () => {
   it('should not allow the previous month when the first month is the first allowed one', () => {
     const wrapper = shallow(
       <DayPicker
-        initialMonth={ new Date(2015, 9) }
-        fromMonth={ new Date(2015, 9) }
-        numberOfMonths={ 3 }
+        initialMonth={new Date(2015, 9)}
+        fromMonth={new Date(2015, 9)}
+        numberOfMonths={3}
       />,
     );
     expect(wrapper.instance().allowPreviousMonth()).to.be.false;
   });
   it('should not allow the previous month when cannot change months', () => {
-    const wrapper = shallow(<DayPicker canChangeMonth={ false } />);
+    const wrapper = shallow(<DayPicker canChangeMonth={false} />);
     expect(wrapper.instance().allowPreviousMonth()).to.be.false;
   });
   it('should not allow the next month when the last month is the last allowed one', () => {
     const wrapper = shallow(
       <DayPicker
-        initialMonth={ new Date(2015, 7) }
-        toMonth={ new Date(2015, 9) }
-        numberOfMonths={ 3 }
+        initialMonth={new Date(2015, 7)}
+        toMonth={new Date(2015, 9)}
+        numberOfMonths={3}
       />,
     );
     expect(wrapper.instance().allowNextMonth()).to.be.false;
   });
   it('should not allow the next month when cannot change months', () => {
-    const wrapper = shallow(<DayPicker canChangeMonth={ false } />);
+    const wrapper = shallow(<DayPicker canChangeMonth={false} />);
     expect(wrapper.instance().allowNextMonth()).to.be.false;
   });
   it('should show the next month when clicking the next button', () => {
-    const wrapper = mount(<DayPicker initialMonth={ new Date(2015, 7) } />);
+    const wrapper = mount(<DayPicker initialMonth={new Date(2015, 7)} />);
     wrapper.find('.DayPicker-NavButton--next').simulate('click');
     const instance = wrapper.instance();
     expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
@@ -45,7 +45,7 @@ describe('DayPicker’s navigation', () => {
   });
   it('should show the next month when clicking outside days', () => {
     const wrapper = mount(
-      <DayPicker initialMonth={ new Date(2015, 7) } enableOutsideDays onDayClick={ () => {} } />,
+      <DayPicker initialMonth={new Date(2015, 7)} enableOutsideDays onDayClick={() => {}} />,
     );
     wrapper.find('.DayPicker-Day--outside').last().simulate('click');
     const instance = wrapper.instance();
@@ -53,7 +53,7 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getMonth()).to.equal(8);
   });
   it('should show the previous month when clicking the previous button', () => {
-    const wrapper = mount(<DayPicker initialMonth={ new Date(2015, 7) } />);
+    const wrapper = mount(<DayPicker initialMonth={new Date(2015, 7)} />);
     wrapper.find('.DayPicker-NavButton--prev').simulate('click');
     const instance = wrapper.instance();
     expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
@@ -61,7 +61,7 @@ describe('DayPicker’s navigation', () => {
   });
   it('should show the previous month when clicking outside days', () => {
     const wrapper = mount(
-      <DayPicker initialMonth={ new Date(2015, 7) } enableOutsideDays onDayClick={ () => {} } />,
+      <DayPicker initialMonth={new Date(2015, 7)} enableOutsideDays onDayClick={() => {}} />,
     );
     wrapper.find('.DayPicker-Day--outside').first().simulate('click');
     const instance = wrapper.instance();
@@ -71,10 +71,10 @@ describe('DayPicker’s navigation', () => {
   it('should not show the previous month when clicking outside days from the first month out of 2', () => {
     const wrapper = mount(
       <DayPicker
-        initialMonth={ new Date(2015, 3) }
-        numberOfMonths={ 2 }
+        initialMonth={new Date(2015, 3)}
+        numberOfMonths={2}
         enableOutsideDays
-        onDayClick={ () => {} }
+        onDayClick={() => {}}
       />,
     );
     wrapper.find('.DayPicker-Day--outside').at(6).simulate('click');
@@ -83,7 +83,7 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getMonth()).to.equal(3);
   });
   it('should not allow changing to the year when cannot change months', () => {
-    const wrapper = shallow(<DayPicker canChangeMonth={ false } />);
+    const wrapper = shallow(<DayPicker canChangeMonth={false} />);
     expect(wrapper.instance().allowYearChange()).to.be.false;
   });
   it('should call `showNextMonth()` when the RIGHT key is pressed', () => {
@@ -161,9 +161,9 @@ describe('DayPicker’s navigation', () => {
   it('should set the current month to the first month in its page if fromMonth is set', () => {
     const instance = shallow(
       <DayPicker
-        initialMonth={ new Date(2015, 7) }
-        fromMonth={ new Date(2015, 1) }
-        numberOfMonths={ 4 }
+        initialMonth={new Date(2015, 7)}
+        fromMonth={new Date(2015, 1)}
+        numberOfMonths={4}
         pagedNavigation
       />,
     ).instance();
@@ -200,28 +200,28 @@ describe('DayPicker’s navigation', () => {
     };
 
     it('should call `focusNextDay()` when the RIGHT key is pressed on a day', () => {
-      const wrapper = mount(<DayPicker classNames={ classes } />);
+      const wrapper = mount(<DayPicker classNames={classes} />);
       const focusNextDay = spy(wrapper.instance(), 'focusNextDay');
       getDaysInMonth(wrapper).first().simulate('keyDown', { keyCode: keys.RIGHT });
       expect(focusNextDay).to.have.been.calledOnce;
       focusNextDay.restore();
     });
     it('should call `focusPreviousDay()` when the LEFT key is pressed on a day', () => {
-      const wrapper = mount(<DayPicker classNames={ classes } />);
+      const wrapper = mount(<DayPicker classNames={classes} />);
       const focusPreviousDay = spy(wrapper.instance(), 'focusPreviousDay');
       getDaysInMonth(wrapper).first().simulate('keyDown', { keyCode: keys.LEFT });
       expect(focusPreviousDay).to.have.been.calledOnce;
       focusPreviousDay.restore();
     });
     it('should call `focusNextWeek()` when the DOWN key is pressed on a day', () => {
-      const wrapper = mount(<DayPicker classNames={ classes } />);
+      const wrapper = mount(<DayPicker classNames={classes} />);
       const focusNextWeek = spy(wrapper.instance(), 'focusNextWeek');
       getDaysInMonth(wrapper).first().simulate('keyDown', { keyCode: keys.DOWN });
       expect(focusNextWeek).to.have.been.calledOnce;
       focusNextWeek.restore();
     });
     it('should call `focusPreviousWeek()` when the UP key is pressed on a day', () => {
-      const wrapper = mount(<DayPicker classNames={ classes } />);
+      const wrapper = mount(<DayPicker classNames={classes} />);
       const focusPreviousWeek = spy(wrapper.instance(), 'focusPreviousWeek');
       getDaysInMonth(wrapper).last().simulate('keyDown', { keyCode: keys.UP });
       expect(focusPreviousWeek).to.have.been.calledOnce;

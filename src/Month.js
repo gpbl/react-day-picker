@@ -36,21 +36,21 @@ export default function Month({
 
   const weeks = getWeekArray(month, firstDayOfWeek, fixedWeeks);
   return (
-    <div className={ classNames.month } role="grid">
+    <div className={classNames.month} role="grid">
       {caption}
       <Weekdays
-        classNames={ classNames }
-        weekdaysShort={ weekdaysShort }
-        weekdaysLong={ weekdaysLong }
-        firstDayOfWeek={ firstDayOfWeek }
-        locale={ locale }
-        localeUtils={ localeUtils }
-        weekdayElement={ weekdayElement }
+        classNames={classNames}
+        weekdaysShort={weekdaysShort}
+        weekdaysLong={weekdaysLong}
+        firstDayOfWeek={firstDayOfWeek}
+        locale={locale}
+        localeUtils={localeUtils}
+        weekdayElement={weekdayElement}
       />
-      <div className={ classNames.body } role="rowgroup">
+      <div className={classNames.body} role="rowgroup">
         {
           weeks.map((week, j) =>
-            <div key={ j } className={ classNames.week } role="gridcell">
+            <div key={j} className={classNames.week} role="gridcell">
               {week.map(day => children(day, month))}
             </div>,
         )}

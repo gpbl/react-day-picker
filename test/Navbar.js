@@ -24,10 +24,10 @@ describe('<Navbar />', () => {
   it('should render custom aria labels', () => {
     const wrapper = shallow(
       <Navbar
-        labels={ {
+        labels={{
           nextMonth: 'Successivo',
           previousMonth: 'Precedente',
-        } }
+        }}
       />);
     expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.attr('aria-label', 'Precedente');
     expect(wrapper.find('.DayPicker-NavButton--next')).to.have.attr('aria-label', 'Successivo');
@@ -47,34 +47,34 @@ describe('<Navbar />', () => {
         .to.have.className('DayPicker-NavButton--prev');
   });
   it('should not render the previous button', () => {
-    const wrapper = shallow(<Navbar showPreviousButton={ false } />);
+    const wrapper = shallow(<Navbar showPreviousButton={false} />);
     expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.length(0);
   });
   it('should not render the next button', () => {
-    const wrapper = shallow(<Navbar showNextButton={ false } />);
+    const wrapper = shallow(<Navbar showNextButton={false} />);
     expect(wrapper.find('.DayPicker-NavButton--next')).to.have.length(0);
   });
   it('should call `onNextClick` when clicking the next button', () => {
     const handleNextClick = spy();
-    const wrapper = shallow(<Navbar onNextClick={ handleNextClick } />);
+    const wrapper = shallow(<Navbar onNextClick={handleNextClick} />);
     wrapper.find('.DayPicker-NavButton--next').simulate('click');
     expect(handleNextClick).to.have.been.calledOnce;
   });
   it('should call `onPreviousClick` when clicking the prev button', () => {
     const handlePreviousClick = spy();
-    const wrapper = shallow(<Navbar onPreviousClick={ handlePreviousClick } />);
+    const wrapper = shallow(<Navbar onPreviousClick={handlePreviousClick} />);
     wrapper.find('.DayPicker-NavButton--prev').simulate('click');
     expect(handlePreviousClick).to.have.been.calledOnce;
   });
   it('should call `onNextClick` when clicking the prev button for RTL', () => {
     const handleNextClick = spy();
-    const wrapper = shallow(<Navbar dir="rtl" onNextClick={ handleNextClick } />);
+    const wrapper = shallow(<Navbar dir="rtl" onNextClick={handleNextClick} />);
     wrapper.find('.DayPicker-NavButton--prev').simulate('click');
     expect(handleNextClick).to.have.been.calledOnce;
   });
   it('should call `onPreviousClick` when clicking the next button for RTL', () => {
     const handlePreviousClick = spy();
-    const wrapper = shallow(<Navbar dir="rtl" onPreviousClick={ handlePreviousClick } />);
+    const wrapper = shallow(<Navbar dir="rtl" onPreviousClick={handlePreviousClick} />);
     wrapper.find('.DayPicker-NavButton--next').simulate('click');
     expect(handlePreviousClick).to.have.been.calledOnce;
   });

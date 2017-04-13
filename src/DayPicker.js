@@ -126,8 +126,8 @@ export default class DayPicker extends Component {
     pagedNavigation: false,
     renderDay: day => day.getDate(),
     weekdayElement: <Weekday />,
-    navbarElement: <Navbar classNames={ classNames } />,
-    captionElement: <Caption classNames={ classNames } />,
+    navbarElement: <Navbar classNames={classNames} />,
+    captionElement: <Caption classNames={classNames} />,
   };
 
   constructor(props) {
@@ -460,25 +460,25 @@ export default class DayPicker extends Component {
 
     return (
       <Day
-        key={ `${isOutside ? 'outside-' : ''}${key}` }
-        classNames={ this.props.classNames }
-        day={ day }
-        modifiers={ modifiers }
-        empty={ isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks }
+        key={`${isOutside ? 'outside-' : ''}${key}`}
+        classNames={this.props.classNames}
+        day={day}
+        modifiers={modifiers}
+        empty={isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks}
 
-        tabIndex={ tabIndex }
+        tabIndex={tabIndex}
 
-        ariaLabel={ this.props.localeUtils.formatDay(day, this.props.locale) }
-        ariaDisabled={ isOutside || dayModifiers.indexOf('disabled') > -1 }
-        ariaSelected={ dayModifiers.indexOf('selected') > -1 }
+        ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
+        ariaDisabled={isOutside || dayModifiers.indexOf('disabled') > -1}
+        ariaSelected={dayModifiers.indexOf('selected') > -1}
 
-        onMouseEnter={ this.props.onDayMouseEnter }
-        onMouseLeave={ this.props.onDayMouseLeave }
-        onKeyDown={ this.handleDayKeyDown }
-        onTouchStart={ this.props.onDayTouchStart }
-        onTouchEnd={ this.props.onDayTouchEnd }
-        onFocus={ this.props.onDayFocus }
-        onClick={ this.props.onDayClick ? this.handleDayClick : undefined }
+        onMouseEnter={this.props.onDayMouseEnter}
+        onMouseLeave={this.props.onDayMouseLeave}
+        onKeyDown={this.handleDayKeyDown}
+        onTouchStart={this.props.onDayTouchStart}
+        onTouchEnd={this.props.onDayTouchEnd}
+        onFocus={this.props.onDayFocus}
+        onClick={this.props.onDayClick ? this.handleDayClick : undefined}
       >
         {this.props.renderDay(day, modifiers)}
       </Day>
@@ -494,23 +494,23 @@ export default class DayPicker extends Component {
 
       months.push(
         <Month
-          key={ i }
-          classNames={ this.props.classNames }
+          key={i}
+          classNames={this.props.classNames}
 
-          month={ month }
-          months={ this.props.months }
+          month={month}
+          months={this.props.months}
 
-          weekdayElement={ this.props.weekdayElement }
-          captionElement={ this.props.captionElement }
-          fixedWeeks={ this.props.fixedWeeks }
+          weekdayElement={this.props.weekdayElement}
+          captionElement={this.props.captionElement}
+          fixedWeeks={this.props.fixedWeeks}
 
-          weekdaysShort={ this.props.weekdaysShort }
-          weekdaysLong={ this.props.weekdaysLong }
-          locale={ this.props.locale }
-          localeUtils={ this.props.localeUtils }
-          firstDayOfWeek={ firstDayOfWeek }
+          weekdaysShort={this.props.weekdaysShort}
+          weekdaysLong={this.props.weekdaysLong}
+          locale={this.props.locale}
+          localeUtils={this.props.localeUtils}
+          firstDayOfWeek={firstDayOfWeek}
 
-          onCaptionClick={ this.props.onCaptionClick }
+          onCaptionClick={this.props.onCaptionClick}
         >
           {this.renderDayInMonth}
         </Month>);
@@ -534,15 +534,15 @@ export default class DayPicker extends Component {
 
     return (
       <div
-        { ...this.props.containerProps }
-        className={ className }
-        ref={ (el) => { this.dayPicker = el; } }
+        {...this.props.containerProps}
+        className={className}
+        ref={(el) => { this.dayPicker = el; }}
         role="application"
-        lang={ this.props.locale }
-        tabIndex={ this.props.canChangeMonth && this.props.tabIndex }
-        onKeyDown={ this.handleKeyDown }
-        onFocus={ this.props.onFocus }
-        onBlur={ this.props.onBlur }
+        lang={this.props.locale}
+        tabIndex={this.props.canChangeMonth && this.props.tabIndex}
+        onKeyDown={this.handleKeyDown}
+        onFocus={this.props.onFocus}
+        onBlur={this.props.onBlur}
       >
         {this.renderNavbar()}
         {this.renderMonths()}
