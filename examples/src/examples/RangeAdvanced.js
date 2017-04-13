@@ -19,15 +19,9 @@ function isSelectingFirstDay(from, to, day) {
 }
 
 export default class RangeAdvanced extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = initialState;
-    this.reset = this.reset.bind(this);
-    this.handleDayClick = this.handleDayClick.bind(this);
-    this.handleDayMouseEnter = this.handleDayMouseEnter.bind(this);
-  }
+  state = initialState;
 
-  handleDayClick(day) {
+  handleDayClick = (day) => {
     const { from, to } = this.state;
 
     if (DateUtils.isSameDay(day, from)) {
@@ -49,7 +43,7 @@ export default class RangeAdvanced extends React.Component {
     }
   }
 
-  handleDayMouseEnter(day) {
+  handleDayMouseEnter = (day) => {
     const { from, to } = this.state;
 
     if (!isSelectingFirstDay(from, to, day)) {
@@ -59,7 +53,7 @@ export default class RangeAdvanced extends React.Component {
     }
   }
 
-  reset() {
+  reset = () => {
     this.setState(initialState);
   }
 

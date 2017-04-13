@@ -3,14 +3,10 @@ import DayPicker from '../../../src';
 import '../../../src/style.css';
 
 export default class SelectableDay extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-  }
   state = {
     selectedDay: null,
   };
-  handleDayClick(day, { selected }) {
+  handleDayClick = (day, { selected }) => {
     this.setState({
       selectedDay: selected ? undefined : day,
     });

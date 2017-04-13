@@ -7,23 +7,16 @@ import '../../../src/style.css';
 
 export default class InputField extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.showCurrentDate = this.showCurrentDate.bind(this);
-  }
-
   state = {
     value: moment().format('L'), // The value of the input field
     month: new Date(), // The month to display in the calendar
   };
 
-  showCurrentDate() {
+  showCurrentDate = () => {
     this.daypicker.showMonth(this.state.month);
   }
 
-  handleInputChange(e) {
+  handleInputChange = (e) => {
     const { value } = e.target;
 
     // Change the current month only if the value entered by the user
@@ -38,7 +31,7 @@ export default class InputField extends React.Component {
     }
   }
 
-  handleDayClick(day) {
+  handleDayClick = (day) => {
     this.setState({
       value: moment(day).format('L'),
       month: day,

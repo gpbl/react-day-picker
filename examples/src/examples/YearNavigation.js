@@ -40,19 +40,12 @@ function YearMonthForm({ date, localeUtils, onChange }) {
 }
 
 export default class YearNavigation extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.handleYearMonthChange = this.handleYearMonthChange.bind(this);
-  }
-
   state = {
     month: fromMonth,
   };
-  handleYearMonthChange(month) {
+  handleYearMonthChange = (month) => {
     this.setState({ month });
   }
-
   render() {
     return (
       <div className="YearNavigation">

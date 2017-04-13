@@ -21,14 +21,10 @@ const LABELS = {
 };
 
 export default class LocalizedMoment extends React.Component {
-  constructor(props) {
-    super(props);
-    this.switchLocale = this.switchLocale.bind(this);
-  }
   state = {
     locale: 'en',
   };
-  switchLocale(e) {
+  switchLocale = (e) => {
     const locale = e.target.value || 'en';
     this.setState({ locale });
   }

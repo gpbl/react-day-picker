@@ -37,16 +37,11 @@ const localeUtils = {
 
 export default class LocalizedCustom extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.switchLocale = this.switchLocale.bind(this);
-  }
-
   state = {
     locale: 'ru',
   };
 
-  switchLocale(e) {
+  switchLocale = (e) => {
     const locale = e.target.value || 'en';
     this.setState({ locale });
   }

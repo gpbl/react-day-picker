@@ -4,14 +4,10 @@ import DayPicker from '../../../src';
 import '../../../src/style.css';
 
 export default class DisabledDays extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-  }
   state = {
     selectedDay: null,
   };
-  handleDayClick(day, { disabled, selected }) {
+  handleDayClick = (day, { disabled, selected }) => {
     if (disabled) {
       return;
     }

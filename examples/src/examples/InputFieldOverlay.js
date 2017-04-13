@@ -12,15 +12,6 @@ const overlayStyle = {
 
 export default class InputFieldOverlay extends Component {
 
-  constructor(props) {
-    super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleInputFocus = this.handleInputFocus.bind(this);
-    this.handleInputBlur = this.handleInputBlur.bind(this);
-    this.handleContainerMouseDown = this.handleContainerMouseDown.bind(this);
-  }
-
   state = {
     showOverlay: false,
     value: '',
@@ -36,7 +27,7 @@ export default class InputFieldOverlay extends Component {
   clickedInside = false;
   clickTimeout = null;
 
-  handleContainerMouseDown() {
+  handleContainerMouseDown = () => {
     this.clickedInside = true;
     // The input's onBlur method is called from a queue right after onMouseDown event.
     // setTimeout adds another callback in the queue, but is called later than onBlur event
@@ -45,13 +36,13 @@ export default class InputFieldOverlay extends Component {
     }, 0);
   }
 
-  handleInputFocus() {
+  handleInputFocus = () => {
     this.setState({
       showOverlay: true,
     });
   }
 
-  handleInputBlur() {
+  handleInputBlur = () => {
     const showOverlay = this.clickedInside;
 
     this.setState({
@@ -64,7 +55,7 @@ export default class InputFieldOverlay extends Component {
     }
   }
 
-  handleInputChange(e) {
+  handleInputChange = (e) => {
     const { value } = e.target;
     const momentDay = moment(value, 'L', true);
     if (momentDay.isValid()) {
@@ -80,7 +71,7 @@ export default class InputFieldOverlay extends Component {
   }
 
 
-  handleDayClick(day) {
+  handleDayClick = (day) => {
     this.setState({
       value: moment(day).format('L'),
       selectedDay: day,

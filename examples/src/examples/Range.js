@@ -5,20 +5,15 @@ import DayPicker, { DateUtils } from '../../../src';
 import '../../../src/style.css';
 
 export default class Range extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-    this.handleResetClick = this.handleResetClick.bind(this);
-  }
   state = {
     from: null,
     to: null,
   };
-  handleDayClick(day) {
+  handleDayClick = (day) => {
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
   }
-  handleResetClick(e) {
+  handleResetClick = (e) => {
     e.preventDefault();
     this.setState({
       from: null,

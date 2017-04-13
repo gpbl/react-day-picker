@@ -6,20 +6,15 @@ import '../styles/year.css';
 
 export default class YearCalendar extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.showPrevious = this.showPrevious.bind(this);
-    this.showNext = this.showNext.bind(this);
-  }
   state = {
     year: (new Date()).getFullYear(),
   };
-  showPrevious() {
+  showPrevious = () => {
     this.setState({
       year: this.state.year - 1,
     });
   }
-  showNext() {
+  showNext = () => {
     this.setState({
       year: this.state.year + 1,
     });

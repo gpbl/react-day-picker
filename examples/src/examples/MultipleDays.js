@@ -3,14 +3,10 @@ import DayPicker, { DateUtils } from '../../../src';
 import '../../../src/style.css';
 
 export default class MultipleDays extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-  }
   state = {
     selectedDays: [],
   };
-  handleDayClick(day, { selected }) {
+  handleDayClick = (day, { selected }) => {
     const { selectedDays } = this.state;
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
