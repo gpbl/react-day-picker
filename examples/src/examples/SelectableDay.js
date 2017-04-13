@@ -10,17 +10,19 @@ export default class SelectableDay extends React.Component {
     this.setState({
       selectedDay: selected ? undefined : day,
     });
-  }
+  };
   render() {
     const { selectedDay } = this.state;
     return (
       <div>
         <DayPicker
-          selectedDays={ selectedDay }
-          onDayClick={ this.handleDayClick }
+          selectedDays={selectedDay}
+          onDayClick={this.handleDayClick}
         />
         <p>
-          { selectedDay ? selectedDay.toLocaleDateString() : 'Please select a day 👻' }
+          {selectedDay
+            ? selectedDay.toLocaleDateString()
+            : 'Please select a day 👻'}
         </p>
       </div>
     );

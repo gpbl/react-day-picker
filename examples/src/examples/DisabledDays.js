@@ -14,19 +14,21 @@ export default class DisabledDays extends React.Component {
     this.setState({
       selectedDay: selected ? null : day,
     });
-  }
+  };
   render() {
     const { selectedDay } = this.state;
     return (
       <div>
         <DayPicker
           enableOutsideDays
-          selectedDays={ selectedDay }
-          disabledDays={ day => day.getDay() === 0 || day.getDay() === 6 }
-          onDayClick={ this.handleDayClick }
+          selectedDays={selectedDay}
+          disabledDays={day => day.getDay() === 0 || day.getDay() === 6}
+          onDayClick={this.handleDayClick}
         />
         <p>
-          { selectedDay ? selectedDay.toLocaleDateString() : 'Please select a day 👻' }
+          {selectedDay
+            ? selectedDay.toLocaleDateString()
+            : 'Please select a day 👻'}
         </p>
       </div>
     );

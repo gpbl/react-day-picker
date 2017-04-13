@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from './PropTypes';
 
-export default function Caption({ classNames, date, months, locale, localeUtils, onClick }) {
+export default function Caption({
+  classNames,
+  date,
+  months,
+  locale,
+  localeUtils,
+  onClick,
+}) {
   return (
-    <div className={ classNames.caption } onClick={ onClick } role="heading">
-      { months ?
-        `${months[date.getMonth()]} ${date.getFullYear()}` :
-        localeUtils.formatMonthTitle(date, locale)
-      }
+    <div className={classNames.caption} onClick={onClick} role="heading">
+      {months
+        ? `${months[date.getMonth()]} ${date.getFullYear()}`
+        : localeUtils.formatMonthTitle(date, locale)}
     </div>
   );
 }

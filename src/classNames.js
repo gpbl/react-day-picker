@@ -20,5 +20,4 @@ export default {
   selected: 'selected',
   disabled: 'disabled',
   outside: 'outside',
-
 };

@@ -2,8 +2,24 @@ import React from 'react';
 import DayPicker from '../../../src';
 
 const weekdaysLong = {
-  ru: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-  en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+  ru: [
+    'Воскресенье',
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота',
+  ],
+  en: [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ],
 };
 const weekdaysShort = {
   // Idem
@@ -11,8 +27,34 @@ const weekdaysShort = {
   en: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
 };
 const months = {
-  ru: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'ноябрь', 'Декабрь'],
-  en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  ru: [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'ноябрь',
+    'Декабрь',
+  ],
+  en: [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ],
 };
 const firstDayOfWeek = {
   ru: 1,
@@ -31,20 +73,19 @@ const localeUtils = {
   formatWeekdayLong: (index, locale = 'en') => weekdaysLong[locale][index],
   getFirstDayOfWeek: locale => firstDayOfWeek[locale],
   getMonths: locale => months[locale],
-  formatMonthTitle: (d, locale) => `${months[locale][d.getMonth()]} ${d.getFullYear()}`,
+  formatMonthTitle: (d, locale) =>
+    `${months[locale][d.getMonth()]} ${d.getFullYear()}`,
 };
 
-
 export default class LocalizedCustom extends React.Component {
-
   state = {
     locale: 'ru',
   };
 
-  switchLocale = (e) => {
+  switchLocale = e => {
     const locale = e.target.value || 'en';
     this.setState({ locale });
-  }
+  };
 
   render() {
     const { locale } = this.state;
@@ -52,19 +93,18 @@ export default class LocalizedCustom extends React.Component {
     return (
       <div>
         <p>
-          <select onChange={ this.switchLocale }>
+          <select onChange={this.switchLocale}>
             <option value="ru">Русский (Russian)</option>
             <option value="en">English</option>
           </select>
         </p>
         <DayPicker
-          labels={ LABELS[locale] }
-          locale={ locale }
-          localeUtils={ localeUtils }
-          modifiers={ { sunday: day => day.getDay() === 0 } }
+          labels={LABELS[locale]}
+          locale={locale}
+          localeUtils={localeUtils}
+          modifiers={{ sunday: day => day.getDay() === 0 }}
         />
       </div>
     );
   }
-
 }

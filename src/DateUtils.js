@@ -1,4 +1,3 @@
-
 /**
  * Clone a date object.
  *
@@ -31,9 +30,11 @@ export function isSameDay(d1, d2) {
   if (!d1 || !d2) {
     return false;
   }
-  return d1.getDate() === d2.getDate() &&
+  return (
+    d1.getDate() === d2.getDate() &&
     d1.getMonth() === d2.getMonth() &&
-    d1.getFullYear() === d2.getFullYear();
+    d1.getFullYear() === d2.getFullYear()
+  );
 }
 
 /**
@@ -57,7 +58,7 @@ export function isPastDay(d) {
  * @return {Boolean}
  */
 export function isFutureDay(d) {
-  const tomorrow = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
+  const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
   tomorrow.setHours(0, 0, 0, 0);
   return d >= tomorrow;
 }
@@ -122,9 +123,11 @@ export function addDayToRange(day, range = { from: null, to: null }) {
  */
 export function isDayInRange(day, range) {
   const { from, to } = range;
-  return (from && isSameDay(day, from)) ||
+  return (
+    (from && isSameDay(day, from)) ||
     (to && isSameDay(day, to)) ||
-    (from && to && isDayBetween(day, from, to));
+    (from && to && isDayBetween(day, from, to))
+  );
 }
 
 export default {

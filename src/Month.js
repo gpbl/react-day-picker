@@ -30,30 +30,33 @@ export default function Month({
     locale,
     onClick: onCaptionClick ? e => onCaptionClick(month, e) : undefined,
   };
-  const caption = React.isValidElement(captionElement) ?
-    React.cloneElement(captionElement, captionProps) :
-    React.createElement(captionElement, captionProps);
+  const caption = React.isValidElement(captionElement)
+    ? React.cloneElement(captionElement, captionProps)
+    : React.createElement(captionElement, captionProps);
 
   const weeks = getWeekArray(month, firstDayOfWeek, fixedWeeks);
   return (
-    <div className={ classNames.month } role="grid">
+    <div className={classNames.month} role="grid">
       {caption}
       <Weekdays
-        classNames={ classNames }
-        weekdaysShort={ weekdaysShort }
-        weekdaysLong={ weekdaysLong }
-        firstDayOfWeek={ firstDayOfWeek }
-        locale={ locale }
-        localeUtils={ localeUtils }
-        weekdayElement={ weekdayElement }
+        classNames={classNames}
+        weekdaysShort={weekdaysShort}
+        weekdaysLong={weekdaysLong}
+        firstDayOfWeek={firstDayOfWeek}
+        locale={locale}
+        localeUtils={localeUtils}
+        weekdayElement={weekdayElement}
       />
-      <div className={ classNames.body } role="rowgroup">
-        {
-          weeks.map((week, j) =>
-            <div key={ j } className={ classNames.week } role="gridcell">
-              {week.map(day => children(day, month))}
-            </div>,
-        )}
+      <div className={classNames.body} role="rowgroup">
+        {weeks.map(week => (
+          <div
+            key={week[0].getTime()}
+            className={classNames.week}
+            role="gridcell"
+          >
+            {week.map(day => children(day, month))}
+          </div>
+        ))}
       </div>
     </div>
   );

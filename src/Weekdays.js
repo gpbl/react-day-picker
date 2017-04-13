@@ -22,23 +22,22 @@ export default function Weekdays({
       localeUtils,
       locale,
     };
-    const element = React.isValidElement(weekdayElement) ?
-      React.cloneElement(weekdayElement, elementProps) :
-      React.createElement(weekdayElement, elementProps);
+    const element = React.isValidElement(weekdayElement)
+      ? React.cloneElement(weekdayElement, elementProps)
+      : React.createElement(weekdayElement, elementProps);
     days.push(element);
   }
 
   return (
-    <div className={ classNames.weekdays } role="rowgroup">
-      <div className={ classNames.weekdaysRow } role="row">
-        { days }
+    <div className={classNames.weekdays} role="rowgroup">
+      <div className={classNames.weekdaysRow} role="row">
+        {days}
       </div>
     </div>
   );
 }
 
 Weekdays.propTypes = {
-
   classNames: PropTypes.shape({
     weekday: PropTypes.string.isRequired,
     weekdays: PropTypes.string.isRequired,
