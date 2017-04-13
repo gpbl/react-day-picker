@@ -21,12 +21,12 @@ export default class AdvancedModifiers extends React.Component {
       text += ': the first of the month 😱';
     }
     this.setState({ text });
-  }
+  };
 
   handleDayMouseEnter = (day, modifiers, e) => {
-    console.log('Day\'s CSS classes', e.target.classList.toString());
-    console.log('Day\'s modifiers', modifiers);
-  }
+    console.log("Day's CSS classes", e.target.classList.toString());
+    console.log("Day's modifiers", modifiers);
+  };
 
   render() {
     const modifiers = {
@@ -38,13 +38,13 @@ export default class AdvancedModifiers extends React.Component {
       <div>
         <span>
           <DayPicker
-            modifiers={ modifiers }
-            onDayMouseEnter={ this.handleDayMouseEnter }
-            onDayClick={ this.handleDayClick }
+            modifiers={modifiers}
+            onDayMouseEnter={this.handleDayMouseEnter}
+            onDayClick={this.handleDayClick}
           />
         </span>
         <p>
-          { this.state.text }
+          {this.state.text}
         </p>
       </div>
     );

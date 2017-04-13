@@ -11,7 +11,6 @@ const overlayStyle = {
 };
 
 export default class InputFieldOverlay extends Component {
-
   state = {
     showOverlay: false,
     value: '',
@@ -34,13 +33,13 @@ export default class InputFieldOverlay extends Component {
     this.clickTimeout = setTimeout(() => {
       this.clickedInside = false;
     }, 0);
-  }
+  };
 
   handleInputFocus = () => {
     this.setState({
       showOverlay: true,
     });
-  }
+  };
 
   handleInputBlur = () => {
     const showOverlay = this.clickedInside;
@@ -53,57 +52,62 @@ export default class InputFieldOverlay extends Component {
     if (showOverlay) {
       this.input.focus();
     }
-  }
+  };
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     const { value } = e.target;
     const momentDay = moment(value, 'L', true);
     if (momentDay.isValid()) {
-      this.setState({
-        selectedDay: momentDay.toDate(),
-        value,
-      }, () => {
-        this.daypicker.showMonth(this.state.selectedDay);
-      });
+      this.setState(
+        {
+          selectedDay: momentDay.toDate(),
+          value,
+        },
+        () => {
+          this.daypicker.showMonth(this.state.selectedDay);
+        }
+      );
     } else {
       this.setState({ value, selectedDay: null });
     }
-  }
+  };
 
-
-  handleDayClick = (day) => {
+  handleDayClick = day => {
     this.setState({
       value: moment(day).format('L'),
       selectedDay: day,
       showOverlay: false,
     });
     this.input.blur();
-  }
+  };
 
   render() {
     return (
-      <div onMouseDown={ this.handleContainerMouseDown }>
+      <div onMouseDown={this.handleContainerMouseDown}>
         <input
           type="text"
-          ref={ (el) => { this.input = el; } }
+          ref={el => {
+            this.input = el;
+          }}
           placeholder="DD/MM/YYYY"
-          value={ this.state.value }
-          onChange={ this.handleInputChange }
-          onFocus={ this.handleInputFocus }
-          onBlur={ this.handleInputBlur }
+          value={this.state.value}
+          onChange={this.handleInputChange}
+          onFocus={this.handleInputFocus}
+          onBlur={this.handleInputBlur}
         />
-        { this.state.showOverlay &&
-          <div style={ { position: 'relative' } }>
-            <div style={ overlayStyle }>
+        {this.state.showOverlay &&
+          <div style={{ position: 'relative' }}>
+            <div style={overlayStyle}>
               <DayPicker
-                ref={ (el) => { this.daypicker = el; } }
-                initialMonth={ this.state.selectedDay || undefined }
-                onDayClick={ this.handleDayClick }
-                selectedDays={ this.state.selectedDay }
+                ref={el => {
+                  this.daypicker = el;
+                }}
+                initialMonth={this.state.selectedDay || undefined}
+                onDayClick={this.handleDayClick}
+                selectedDays={this.state.selectedDay}
               />
             </div>
-          </div>
-        }
+          </div>}
       </div>
     );
   }

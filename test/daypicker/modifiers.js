@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
@@ -12,16 +11,19 @@ describe('DayPicker’s day modifiers', () => {
         initialMonth={new Date(2015, 6)}
         selectedDays={() => true}
         modifiers={{ foo: () => true }}
-      />,
+      />
     );
     expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(35);
     expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
   });
   it('should add the `aria-selected` attribute for `selected` days', () => {
     const wrapper = mount(
-      <DayPicker initialMonth={new Date(2015, 6)} selectedDays={() => true} />,
+      <DayPicker initialMonth={new Date(2015, 6)} selectedDays={() => true} />
     );
-    expect(wrapper.find('.DayPicker-Day--selected').at(15)).to.have.attr('aria-selected', 'true');
+    expect(wrapper.find('.DayPicker-Day--selected').at(15)).to.have.attr(
+      'aria-selected',
+      'true'
+    );
   });
   it('should use `disabledDays` prop as `selected` modifier', () => {
     const wrapper = mount(
@@ -29,25 +31,33 @@ describe('DayPicker’s day modifiers', () => {
         initialMonth={new Date(2015, 6)}
         disabledDays={() => true}
         modifiers={{ foo: () => true }}
-      />,
+      />
     );
     expect(wrapper.find('.DayPicker-Day--disabled')).to.have.length(35);
     expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
   });
   it('should add the `aria-disabled` attribute for `disabled` days', () => {
     const wrapper = mount(
-      <DayPicker initialMonth={new Date(2015, 6)} disabledDays={() => true} />);
-    expect(wrapper.find('.DayPicker-Day--disabled').first()).to.have.attr('aria-disabled', 'true');
+      <DayPicker initialMonth={new Date(2015, 6)} disabledDays={() => true} />
+    );
+    expect(wrapper.find('.DayPicker-Day--disabled').first()).to.have.attr(
+      'aria-disabled',
+      'true'
+    );
   });
   it('should include "outside" for outside days', () => {
     const wrapper = mount(
-      <DayPicker initialMonth={new Date(2015, 6)} enableOutsideDays />,
+      <DayPicker initialMonth={new Date(2015, 6)} enableOutsideDays />
     );
-    expect(wrapper.find('.DayPicker-Day').at(0)).to.have.className('DayPicker-Day--outside');
+    expect(wrapper.find('.DayPicker-Day').at(0)).to.have.className(
+      'DayPicker-Day--outside'
+    );
   });
   it('should include "today"', () => {
     const wrapper = mount(<DayPicker />);
-    expect(wrapper.find('.DayPicker-Day--today')).to.have.text((new Date()).getDate());
+    expect(wrapper.find('.DayPicker-Day--today')).to.have.text(
+      new Date().getDate()
+    );
   });
   it('should add custom modifiers', () => {
     const modifiers = {
@@ -56,10 +66,7 @@ describe('DayPicker’s day modifiers', () => {
       none: () => false,
     };
     const wrapper = mount(
-      <DayPicker
-        initialMonth={new Date(2015, 6)}
-        modifiers={modifiers}
-      />,
+      <DayPicker initialMonth={new Date(2015, 6)} modifiers={modifiers} />
     );
     expect(wrapper.find('.DayPicker-Day--firstDayOfMonth')).to.have.length(2);
     expect(wrapper.find('.DayPicker-Day--none')).to.have.length(0);
@@ -67,18 +74,17 @@ describe('DayPicker’s day modifiers', () => {
   });
   it('should show "today" as something other than the current day', () => {
     const newToday = new Date();
-    newToday.setDate((new Date()).getDate() + 1);
-    newToday.setMonth((new Date()).getMonth());
+    newToday.setDate(new Date().getDate() + 1);
+    newToday.setMonth(new Date().getMonth());
 
     const modifiers = {
       today: newToday,
     };
     const wrapper = mount(
-      <DayPicker
-        initialMonth={new Date()}
-        modifiers={modifiers}
-      />,
+      <DayPicker initialMonth={new Date()} modifiers={modifiers} />
     );
-    expect(wrapper.find('.DayPicker-Day--today')).to.have.text(newToday.getDate());
+    expect(wrapper.find('.DayPicker-Day--today')).to.have.text(
+      newToday.getDate()
+    );
   });
 });

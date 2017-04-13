@@ -8,7 +8,7 @@ function handleEvent(handler, day, modifiers) {
   if (!handler) {
     return undefined;
   }
-  return (e) => {
+  return e => {
     e.persist();
     handler(day, modifiers, e);
   };
@@ -36,7 +36,9 @@ export default function Day({
     // When using CSS modules prefix the modifier as required by the BEM syntax
     className += ` ${Object.keys(modifiers).join(' ')}`;
   } else {
-    className += Object.keys(modifiers).map(modifier => ` ${className}--${modifier}`).join('');
+    className += Object.keys(modifiers)
+      .map(modifier => ` ${className}--${modifier}`)
+      .join('');
   }
   if (empty) {
     return <div role="gridcell" aria-disabled className={className} />;
@@ -63,7 +65,6 @@ export default function Day({
 }
 
 Day.propTypes = {
-
   classNames: PropTypes.shape({
     day: PropTypes.string.isRequired,
   }).isRequired,

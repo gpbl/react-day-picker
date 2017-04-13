@@ -15,7 +15,8 @@ export default function Navbar({
   const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
   const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
 
-  const previousButton = showPreviousButton &&
+  const previousButton =
+    showPreviousButton &&
     <span
       role="button"
       aria-label={labels.previousMonth}
@@ -24,7 +25,8 @@ export default function Navbar({
       onClick={() => previousClickHandler()}
     />;
 
-  const nextButton = showNextButton &&
+  const nextButton =
+    showNextButton &&
     <span
       role="button"
       aria-label={labels.nextMonth}
@@ -35,7 +37,9 @@ export default function Navbar({
 
   return (
     <div className={className || classNames.navBar}>
-      {dir === 'rtl' ? [nextButton, previousButton] : [previousButton, nextButton]}
+      {dir === 'rtl'
+        ? [nextButton, previousButton]
+        : [previousButton, nextButton]}
     </div>
   );
 }

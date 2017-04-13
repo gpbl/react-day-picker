@@ -8,7 +8,6 @@ import { spy } from 'sinon';
 import DayPicker from '../../src/DayPicker';
 import classNames from '../../src/classNames';
 
-
 describe('DayPicker’s rendering', () => {
   it('should have default props', () => {
     const dayPicker = <DayPicker />;
@@ -36,26 +35,29 @@ describe('DayPicker’s rendering', () => {
   it('should use `initialMonth` as the current month', () => {
     const wrapper = shallow(<DayPicker />);
     const instance = wrapper.instance();
-    expect(instance.props.initialMonth.getFullYear())
-      .to.equal(instance.state.currentMonth.getFullYear());
-    expect(instance.props.initialMonth.getMonth())
-      .to.equal(instance.state.currentMonth.getMonth());
-    expect(instance.state.currentMonth.getDate())
-      .to.equal(1);
+    expect(instance.props.initialMonth.getFullYear()).to.equal(
+      instance.state.currentMonth.getFullYear()
+    );
+    expect(instance.props.initialMonth.getMonth()).to.equal(
+      instance.state.currentMonth.getMonth()
+    );
+    expect(instance.state.currentMonth.getDate()).to.equal(1);
   });
   it('should use `month` as the current month instead of `initialMonth`', () => {
     const wrapper = shallow(
       <DayPicker
         month={new Date(2018, 10, 11)}
         initialMonth={new Date(2018, 1, 11)}
-      />);
+      />
+    );
     const instance = wrapper.instance();
-    expect(instance.props.month.getFullYear())
-      .to.equal(instance.state.currentMonth.getFullYear());
-    expect(instance.props.month.getMonth())
-      .to.equal(instance.state.currentMonth.getMonth());
-    expect(instance.state.currentMonth.getDate())
-      .to.equal(1);
+    expect(instance.props.month.getFullYear()).to.equal(
+      instance.state.currentMonth.getFullYear()
+    );
+    expect(instance.props.month.getMonth()).to.equal(
+      instance.state.currentMonth.getMonth()
+    );
+    expect(instance.state.currentMonth.getDate()).to.equal(1);
   });
   it('should update the current month when `month` is updated', () => {
     const wrapper = mount(<DayPicker month={new Date(2018, 10, 11)} />);
@@ -79,10 +81,18 @@ describe('DayPicker’s rendering', () => {
   });
   it('should render multiple months, reversed', () => {
     const wrapper = mount(
-      <DayPicker initialMonth={new Date(2015, 0)} numberOfMonths={2} reverseMonths />,
+      <DayPicker
+        initialMonth={new Date(2015, 0)}
+        numberOfMonths={2}
+        reverseMonths
+      />
     );
-    expect(wrapper.find('.DayPicker-Caption').at(0)).to.have.text('February 2015');
-    expect(wrapper.find('.DayPicker-Caption').at(1)).to.have.text('January 2015');
+    expect(wrapper.find('.DayPicker-Caption').at(0)).to.have.text(
+      'February 2015'
+    );
+    expect(wrapper.find('.DayPicker-Caption').at(1)).to.have.text(
+      'January 2015'
+    );
   });
   it('should not include the interactionDisabled CSS modifier', () => {
     const wrapper = shallow(<DayPicker onDayClick={() => {}} />);
@@ -101,13 +111,17 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper).to.have.attr('tabindex', '-1');
   });
   it('should spread props to the container', () => {
-    const wrapper = shallow(<DayPicker containerProps={{ 'data-foo': 'bar' }} />);
+    const wrapper = shallow(
+      <DayPicker containerProps={{ 'data-foo': 'bar' }} />
+    );
     expect(wrapper).to.have.attr('data-foo', 'bar');
   });
   it('should handle focus and blur events', () => {
     const handleBlur = spy();
     const handleFocus = spy();
-    const wrapper = mount(<DayPicker onFocus={handleFocus} onBlur={handleBlur} />);
+    const wrapper = mount(
+      <DayPicker onFocus={handleFocus} onBlur={handleBlur} />
+    );
     wrapper.simulate('focus');
     wrapper.simulate('blur');
     expect(handleBlur).to.have.been.calledOnce;
@@ -119,14 +133,20 @@ describe('DayPicker’s rendering', () => {
   });
   it('should render the aria labels', () => {
     const wrapper = render(<DayPicker />);
-    expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.attr('aria-label', 'Previous Month');
-    expect(wrapper.find('.DayPicker-NavButton--next')).to.have.attr('aria-label', 'Next Month');
+    expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.attr(
+      'aria-label',
+      'Previous Month'
+    );
+    expect(wrapper.find('.DayPicker-NavButton--next')).to.have.attr(
+      'aria-label',
+      'Next Month'
+    );
   });
   it('should render the day cells', () => {
     const wrapper = render(<DayPicker initialMonth={new Date(2015, 6)} />);
     expect(wrapper.find('.DayPicker-Day')).to.have.length(35);
   });
-  it('should skip the navigation bar if can\'t change month', () => {
+  it("should skip the navigation bar if can't change month", () => {
     const wrapper = render(<DayPicker canChangeMonth={false} />);
     expect(wrapper.find('.DayPicker-NavBar')).to.not.exist;
   });
@@ -142,7 +162,8 @@ describe('DayPicker’s rendering', () => {
         enableOutsideDays
         modifiers={{ foo: () => true }}
         renderDay={renderDay}
-      />);
+      />
+    );
     expect(wrapper.find('.DayPicker-Day').first()).to.have.text('bar');
   });
   it('should render a custom number of months', () => {
@@ -173,7 +194,9 @@ describe('DayPicker’s rendering', () => {
     /* eslint-enable react/prefer-stateless-function */
   });
   it('should render a custom navbar element', () => {
-    const CustomNavbar = ({ className }) => <div className={className}>Navbar</div>;
+    const CustomNavbar = ({ className }) => (
+      <div className={className}>Navbar</div>
+    );
     CustomNavbar.propTypes = { className: PropTypes.string };
     const navbar = <CustomNavbar />;
     const dayPicker = <DayPicker navbarElement={navbar} />;
@@ -185,7 +208,9 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-NavBar').at(0)).to.have.text('Navbar');
   });
   it('should render a custom navbar element as a function', () => {
-    const CustomNavbar = ({ className }) => <div className={className}>Navbar</div>;
+    const CustomNavbar = ({ className }) => (
+      <div className={className}>Navbar</div>
+    );
     CustomNavbar.propTypes = { className: PropTypes.string };
     const wrapper = mount(<DayPicker navbarElement={CustomNavbar} />);
 
@@ -211,9 +236,13 @@ describe('DayPicker’s rendering', () => {
     /* eslint-enable react/no-multi-comp */
   });
   it('should render a custom weekday element', () => {
-    const CustomWeekday = ({ className, weekday }) =>
-      <div className={className}>{weekday}</div>;
-    CustomWeekday.propTypes = { className: PropTypes.string, weekday: PropTypes.number };
+    const CustomWeekday = ({ className, weekday }) => (
+      <div className={className}>{weekday}</div>
+    );
+    CustomWeekday.propTypes = {
+      className: PropTypes.string,
+      weekday: PropTypes.number,
+    };
     const weekday = <CustomWeekday />;
     const dayPicker = <DayPicker weekdayElement={weekday} />;
     const wrapper = mount(dayPicker);
@@ -227,9 +256,13 @@ describe('DayPicker’s rendering', () => {
     });
   });
   it('should render a custom weekday element as a function', () => {
-    const CustomWeekday = ({ className, weekday }) =>
-      <div className={className}>{weekday}</div>;
-    CustomWeekday.propTypes = { className: PropTypes.string, weekday: PropTypes.number };
+    const CustomWeekday = ({ className, weekday }) => (
+      <div className={className}>{weekday}</div>
+    );
+    CustomWeekday.propTypes = {
+      className: PropTypes.string,
+      weekday: PropTypes.number,
+    };
     const dayPicker = <DayPicker weekdayElement={CustomWeekday} />;
     const wrapper = mount(dayPicker);
 
@@ -244,7 +277,10 @@ describe('DayPicker’s rendering', () => {
     /* eslint-disable react/prefer-stateless-function */
     /* eslint-disable react/no-multi-comp */
     class CustomWeekday extends React.Component {
-      static propTypes = { className: PropTypes.string, weekday: PropTypes.number };
+      static propTypes = {
+        className: PropTypes.string,
+        weekday: PropTypes.number,
+      };
       render() {
         return <div className={this.props.className}>{this.props.weekday}</div>;
       }
@@ -268,14 +304,20 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-Day').at(2)).to.have.text('');
   });
   it('should render the outside days', () => {
-    const wrapper = mount(<DayPicker enableOutsideDays initialMonth={new Date(2015, 6)} />);
+    const wrapper = mount(
+      <DayPicker enableOutsideDays initialMonth={new Date(2015, 6)} />
+    );
     expect(wrapper.find('.DayPicker-Day').at(0)).to.have.text('28');
     expect(wrapper.find('.DayPicker-Day').at(1)).to.have.text('29');
     expect(wrapper.find('.DayPicker-Day').at(2)).to.have.text('30');
   });
   it('should render the fixed amount of weeks', () => {
     const wrapper = mount(
-      <DayPicker enableOutsideDays fixedWeeks initialMonth={new Date(2015, 1)} />,
+      <DayPicker
+        enableOutsideDays
+        fixedWeeks
+        initialMonth={new Date(2015, 1)}
+      />
     );
     expect(wrapper.find('.DayPicker-Day')).to.have.length(42);
   });
@@ -291,7 +333,8 @@ describe('DayPicker’s rendering', () => {
         modifiers={{
           bar: new Date(2015, 1, 10),
         }}
-      />);
+      />
+    );
     expect(wrapper.find('.foo')).to.have.length(28);
     expect(wrapper.find('.bar')).to.have.length(1);
   });

@@ -30,9 +30,9 @@ export default function Month({
     locale,
     onClick: onCaptionClick ? e => onCaptionClick(month, e) : undefined,
   };
-  const caption = React.isValidElement(captionElement) ?
-    React.cloneElement(captionElement, captionProps) :
-    React.createElement(captionElement, captionProps);
+  const caption = React.isValidElement(captionElement)
+    ? React.cloneElement(captionElement, captionProps)
+    : React.createElement(captionElement, captionProps);
 
   const weeks = getWeekArray(month, firstDayOfWeek, fixedWeeks);
   return (
@@ -48,12 +48,15 @@ export default function Month({
         weekdayElement={weekdayElement}
       />
       <div className={classNames.body} role="rowgroup">
-        {
-          weeks.map(week =>
-            <div key={week[0].getTime()} className={classNames.week} role="gridcell">
-              {week.map(day => children(day, month))}
-            </div>,
-        )}
+        {weeks.map(week => (
+          <div
+            key={week[0].getTime()}
+            className={classNames.week}
+            role="gridcell"
+          >
+            {week.map(day => children(day, month))}
+          </div>
+        ))}
       </div>
     </div>
   );

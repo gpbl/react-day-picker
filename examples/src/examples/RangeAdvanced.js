@@ -15,13 +15,15 @@ function isSelectingFirstDay(from, to, day) {
   const firstDayIsNotSelected = !from;
   const selectedDayIsBeforeFirstDay = day < from;
   const rangeIsSelected = from && to;
-  return firstDayIsNotSelected || selectedDayIsBeforeFirstDay || rangeIsSelected;
+  return (
+    firstDayIsNotSelected || selectedDayIsBeforeFirstDay || rangeIsSelected
+  );
 }
 
 export default class RangeAdvanced extends React.Component {
   state = initialState;
 
-  handleDayClick = (day) => {
+  handleDayClick = day => {
     const { from, to } = this.state;
 
     if (DateUtils.isSameDay(day, from)) {
@@ -41,9 +43,9 @@ export default class RangeAdvanced extends React.Component {
         enteredTo: day,
       });
     }
-  }
+  };
 
-  handleDayMouseEnter = (day) => {
+  handleDayMouseEnter = day => {
     const { from, to } = this.state;
 
     if (!isSelectingFirstDay(from, to, day)) {
@@ -51,39 +53,42 @@ export default class RangeAdvanced extends React.Component {
         enteredTo: day,
       });
     }
-  }
+  };
 
   reset = () => {
     this.setState(initialState);
-  }
+  };
 
   render() {
     const { from, to, enteredTo } = this.state;
 
     return (
       <div>
-        { !from && !to &&
-          <p>Please select the <strong>first day</strong>.</p>
-        }
-        { from && !to &&
-          <p>Please select the <strong>last day</strong>.</p>
-        }
-        { from && to &&
+        {!from && !to && <p>Please select the <strong>first day</strong>.</p>}
+        {from && !to && <p>Please select the <strong>last day</strong>.</p>}
+        {from &&
+          to &&
           <p>
-            You chose from { moment(from).format('L') } to { moment(enteredTo).format('L') }.
-            { ' ' }
-            <a onClick={ this.reset }>Reset</a>
-          </p>
-        }
+            You chose from
+            {' '}
+            {moment(from).format('L')}
+            {' '}
+            to
+            {' '}
+            {moment(enteredTo).format('L')}
+            .
+            {' '}
+            <a onClick={this.reset}>Reset</a>
+          </p>}
         <DayPicker
           className="Range"
-          numberOfMonths={ 2 }
-          fromMonth={ from }
-          selectedDays={ [from, { from, to: enteredTo }] }
-          disabledDays={ { before: this.state.from } }
-          modifiers={ { start: from, end: enteredTo } }
-          onDayClick={ this.handleDayClick }
-          onDayMouseEnter={ this.handleDayMouseEnter }
+          numberOfMonths={2}
+          fromMonth={from}
+          selectedDays={[from, { from, to: enteredTo }]}
+          disabledDays={{ before: this.state.from }}
+          modifiers={{ start: from, end: enteredTo }}
+          onDayClick={this.handleDayClick}
+          onDayMouseEnter={this.handleDayMouseEnter}
         />
       </div>
     );

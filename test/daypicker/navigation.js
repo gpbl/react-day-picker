@@ -13,7 +13,7 @@ describe('DayPicker’s navigation', () => {
         initialMonth={new Date(2015, 9)}
         fromMonth={new Date(2015, 9)}
         numberOfMonths={3}
-      />,
+      />
     );
     expect(wrapper.instance().allowPreviousMonth()).to.be.false;
   });
@@ -27,7 +27,7 @@ describe('DayPicker’s navigation', () => {
         initialMonth={new Date(2015, 7)}
         toMonth={new Date(2015, 9)}
         numberOfMonths={3}
-      />,
+      />
     );
     expect(wrapper.instance().allowNextMonth()).to.be.false;
   });
@@ -45,7 +45,11 @@ describe('DayPicker’s navigation', () => {
   });
   it('should show the next month when clicking outside days', () => {
     const wrapper = mount(
-      <DayPicker initialMonth={new Date(2015, 7)} enableOutsideDays onDayClick={() => {}} />,
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        enableOutsideDays
+        onDayClick={() => {}}
+      />
     );
     wrapper.find('.DayPicker-Day--outside').last().simulate('click');
     const instance = wrapper.instance();
@@ -61,7 +65,11 @@ describe('DayPicker’s navigation', () => {
   });
   it('should show the previous month when clicking outside days', () => {
     const wrapper = mount(
-      <DayPicker initialMonth={new Date(2015, 7)} enableOutsideDays onDayClick={() => {}} />,
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        enableOutsideDays
+        onDayClick={() => {}}
+      />
     );
     wrapper.find('.DayPicker-Day--outside').first().simulate('click');
     const instance = wrapper.instance();
@@ -75,7 +83,7 @@ describe('DayPicker’s navigation', () => {
         numberOfMonths={2}
         enableOutsideDays
         onDayClick={() => {}}
-      />,
+      />
     );
     wrapper.find('.DayPicker-Day--outside').at(6).simulate('click');
     const instance = wrapper.instance();
@@ -165,7 +173,7 @@ describe('DayPicker’s navigation', () => {
         fromMonth={new Date(2015, 1)}
         numberOfMonths={4}
         pagedNavigation
-      />,
+      />
     ).instance();
     expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
     expect(instance.state.currentMonth.getMonth()).to.equal(5);
@@ -177,7 +185,9 @@ describe('DayPicker’s navigation', () => {
       wrapper
         .find('.day.another-day-class')
         .filterWhere(
-          node => !node.hasClass('othermonth') && !node.hasClass('another-othermonth-class'),
+          node =>
+            !node.hasClass('othermonth') &&
+            !node.hasClass('another-othermonth-class')
         );
     const classes = {
       container: 'datepicker',
@@ -202,21 +212,27 @@ describe('DayPicker’s navigation', () => {
     it('should call `focusNextDay()` when the RIGHT key is pressed on a day', () => {
       const wrapper = mount(<DayPicker classNames={classes} />);
       const focusNextDay = spy(wrapper.instance(), 'focusNextDay');
-      getDaysInMonth(wrapper).first().simulate('keyDown', { keyCode: keys.RIGHT });
+      getDaysInMonth(wrapper)
+        .first()
+        .simulate('keyDown', { keyCode: keys.RIGHT });
       expect(focusNextDay).to.have.been.calledOnce;
       focusNextDay.restore();
     });
     it('should call `focusPreviousDay()` when the LEFT key is pressed on a day', () => {
       const wrapper = mount(<DayPicker classNames={classes} />);
       const focusPreviousDay = spy(wrapper.instance(), 'focusPreviousDay');
-      getDaysInMonth(wrapper).first().simulate('keyDown', { keyCode: keys.LEFT });
+      getDaysInMonth(wrapper)
+        .first()
+        .simulate('keyDown', { keyCode: keys.LEFT });
       expect(focusPreviousDay).to.have.been.calledOnce;
       focusPreviousDay.restore();
     });
     it('should call `focusNextWeek()` when the DOWN key is pressed on a day', () => {
       const wrapper = mount(<DayPicker classNames={classes} />);
       const focusNextWeek = spy(wrapper.instance(), 'focusNextWeek');
-      getDaysInMonth(wrapper).first().simulate('keyDown', { keyCode: keys.DOWN });
+      getDaysInMonth(wrapper)
+        .first()
+        .simulate('keyDown', { keyCode: keys.DOWN });
       expect(focusNextWeek).to.have.been.calledOnce;
       focusNextWeek.restore();
     });

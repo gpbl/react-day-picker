@@ -1,4 +1,3 @@
-
 import { clone, isSameDay, isDayInRange } from './DateUtils';
 import { getFirstDayOfWeek } from './LocaleUtils';
 
@@ -57,27 +56,29 @@ export function getModifiersForDay(d, modifiersObj = {}) {
       modifiers.push(modifier);
     } else if (value instanceof Array) {
       // modifier's value is an array
-      if (value.some((day) => {
-        if (!day) {
+      if (
+        value.some(day => {
+          if (!day) {
+            return false;
+          }
+          if (day instanceof Date) {
+            // this value of the array is a date
+            return isSameDay(d, day);
+          }
+          if (isRangeOfDates(day)) {
+            // this value of the array is a range
+            const range = day;
+            return isDayInRange(d, range);
+          }
+          if (day.after) {
+            return d > day.after;
+          }
+          if (day.before) {
+            return d < day.before;
+          }
           return false;
-        }
-        if (day instanceof Date) {
-          // this value of the array is a date
-          return isSameDay(d, day);
-        }
-        if (isRangeOfDates(day)) {
-          // this value of the array is a range
-          const range = day;
-          return isDayInRange(d, range);
-        }
-        if (day.after) {
-          return d > day.after;
-        }
-        if (day.before) {
-          return d < day.before;
-        }
-        return false;
-      })) {
+        })
+      ) {
         modifiers.push(modifier);
       }
     } else if (isRangeOfDates(value) && isDayInRange(d, value)) {
@@ -98,11 +99,16 @@ export function getModifiersForDay(d, modifiersObj = {}) {
 }
 
 export function getMonthsDiff(d1, d2) {
-  return (d2.getMonth() - d1.getMonth()) +
-    (12 * (d2.getFullYear() - d1.getFullYear()));
+  return (
+    d2.getMonth() - d1.getMonth() + 12 * (d2.getFullYear() - d1.getFullYear())
+  );
 }
 
-export function getWeekArray(d, firstDayOfWeek = getFirstDayOfWeek(), fixedWeeks) {
+export function getWeekArray(
+  d,
+  firstDayOfWeek = getFirstDayOfWeek(),
+  fixedWeeks
+) {
   const daysInMonth = getDaysInMonth(d);
   const dayArray = [];
 
@@ -113,7 +119,7 @@ export function getWeekArray(d, firstDayOfWeek = getFirstDayOfWeek(), fixedWeeks
     dayArray.push(new Date(d.getFullYear(), d.getMonth(), i, 12));
   }
 
-  dayArray.forEach((day) => {
+  dayArray.forEach(day => {
     if (week.length > 0 && day.getDay() === firstDayOfWeek) {
       weekArray.push(week);
       week = [];

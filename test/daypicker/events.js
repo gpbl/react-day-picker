@@ -14,15 +14,16 @@ describe('DayPicker’s events handlers', () => {
     const wrapper = mount(<DayPicker onCaptionClick={handleCaptionClick} />);
     wrapper.find('.DayPicker-Caption').simulate('click');
     expect(handleCaptionClick).to.have.been.calledWith(
-      sinon.match(date =>
-        date.getFullYear() === (new Date()).getFullYear() &&
-        date.getMonth() === (new Date()).getMonth(),
-        'currentMonth',
+      sinon.match(
+        date =>
+          date.getFullYear() === new Date().getFullYear() &&
+          date.getMonth() === new Date().getMonth(),
+        'currentMonth'
       ),
-      sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
+      sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e')
     );
   });
-  it('should call the day\'s cell event handlers', () => {
+  it("should call the day's cell event handlers", () => {
     const handleDayClick = spy();
     const handleDayMouseEnter = spy();
     const handleDayKeyDown = spy();
@@ -40,11 +41,16 @@ describe('DayPicker’s events handlers', () => {
         onDayKeyDown={handleDayKeyDown}
         onDayTouchStart={handleDayTouchStart}
         onDayTouchEnd={handleDayTouchEnd}
-      />,
+      />
     );
 
     const eventArgs = [
-      sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
+      sinon.match(
+        date =>
+          date.getFullYear() === new Date().getFullYear() &&
+          date.getMonth() === new Date().getMonth(),
+        'currentMonth'
+      ),
       sinon.match(mods => mods.foo, 'modifiers'),
       sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
     ];
@@ -67,7 +73,7 @@ describe('DayPicker’s events handlers', () => {
     wrapper.find('.DayPicker-Day--foo').simulate('touchEnd');
     expect(handleDayTouchEnd).to.have.been.calledWith(...eventArgs);
   });
-  it('should not call the day\'s cell event handlers for outside days', () => {
+  it("should not call the day's cell event handlers for outside days", () => {
     const handleDayClick = spy();
     const handleDayMouseEnter = spy();
     const handleDayMouseLeave = spy();
@@ -77,7 +83,7 @@ describe('DayPicker’s events handlers', () => {
         onDayClick={handleDayClick}
         onDayMouseEnter={handleDayMouseEnter}
         onDayMouseLeave={handleDayMouseLeave}
-      />,
+      />
     );
 
     wrapper.find('.DayPicker-Day--outside').at(0).simulate('click');
@@ -93,43 +99,51 @@ describe('DayPicker’s events handlers', () => {
     const handleDayClick = spy();
     const modifiers = { foo: d => d.getDate() === 15, bar: () => false };
     const wrapper = mount(
-      <DayPicker
-        modifiers={modifiers}
-        onDayClick={handleDayClick}
-      />,
+      <DayPicker modifiers={modifiers} onDayClick={handleDayClick} />
     );
     const eventArgs = [
-      sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
+      sinon.match(
+        date =>
+          date.getFullYear() === new Date().getFullYear() &&
+          date.getMonth() === new Date().getMonth(),
+        'currentMonth'
+      ),
       sinon.match(mods => mods.foo && !mods.bar, 'modifiers'),
       sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
     ];
-    wrapper.find('.DayPicker-Day--foo').simulate('keyDown', { keyCode: keys.ENTER });
+    wrapper
+      .find('.DayPicker-Day--foo')
+      .simulate('keyDown', { keyCode: keys.ENTER });
     expect(handleDayClick).to.have.been.calledWith(...eventArgs);
   });
   it('should not call an undefined `onDayClick` event handler when pressing the ENTER key', () => {
     const handleDayClick = spy();
     const modifiers = { foo: d => d.getDate() === 15, bar: () => false };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} />,
-    );
-    wrapper.find('.DayPicker-Day--foo').simulate('keyDown', { keyCode: keys.ENTER });
+    const wrapper = mount(<DayPicker modifiers={modifiers} />);
+    wrapper
+      .find('.DayPicker-Day--foo')
+      .simulate('keyDown', { keyCode: keys.ENTER });
     expect(handleDayClick).to.not.have.been.called;
   });
   it('should call `onDayClick` event handler when pressing the SPACE key', () => {
     const handleDayClick = spy();
     const modifiers = { foo: d => d.getDate() === 15 };
     const wrapper = mount(
-      <DayPicker
-        modifiers={modifiers}
-        onDayClick={handleDayClick}
-      />,
+      <DayPicker modifiers={modifiers} onDayClick={handleDayClick} />
     );
     const eventArgs = [
-      sinon.match(date => date.getFullYear() === (new Date()).getFullYear() && date.getMonth() === (new Date()).getMonth(), 'currentMonth'),
+      sinon.match(
+        date =>
+          date.getFullYear() === new Date().getFullYear() &&
+          date.getMonth() === new Date().getMonth(),
+        'currentMonth'
+      ),
       sinon.match(mods => mods.foo, 'modifiers'),
       sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
     ];
-    wrapper.find('.DayPicker-Day--foo').simulate('keyDown', { keyCode: keys.SPACE });
+    wrapper
+      .find('.DayPicker-Day--foo')
+      .simulate('keyDown', { keyCode: keys.SPACE });
     expect(handleDayClick).to.have.been.calledWith(...eventArgs);
   });
   it('should call `onKeyDown` event handler', () => {
@@ -137,15 +151,17 @@ describe('DayPicker’s events handlers', () => {
     const wrapper = mount(<DayPicker onKeyDown={handleKeyDown} />);
     wrapper.simulate('keyDown');
     expect(handleKeyDown).to.have.been.calledWith(
-      sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
+      sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e')
     );
   });
   it('should call `onKeyDown` also when changing month is disabled', () => {
     const handleKeyDown = spy();
-    const wrapper = mount(<DayPicker onKeyDown={handleKeyDown} canChangeMonth={false} />);
+    const wrapper = mount(
+      <DayPicker onKeyDown={handleKeyDown} canChangeMonth={false} />
+    );
     wrapper.simulate('keyDown');
     expect(handleKeyDown).to.have.been.calledWith(
-      sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e'),
+      sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e')
     );
   });
 });
