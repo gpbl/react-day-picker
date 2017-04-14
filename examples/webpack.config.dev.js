@@ -1,6 +1,8 @@
 import webpack from 'webpack';
 import path from 'path';
 
+const rules = require('./webpack.config.rules');
+
 export default {
   devtool: 'source-map',
 
@@ -19,7 +21,6 @@ export default {
   },
 
   plugins: [
-
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
@@ -30,36 +31,14 @@ export default {
     new webpack.HotModuleReplacementPlugin(),
 
     // add moment locales
-    new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(ja|ar|it)$/),
-
+    new webpack.ContextReplacementPlugin(
+      /moment[\\/]locale$/,
+      /^\.\/(ja|ar|it)$/
+    ),
   ],
 
   module: {
-    rules: [{
-      test: /\.js$/,
-      include: [
-        path.join(__dirname, '../src'),
-        path.join(__dirname, './src'),
-        path.join(__dirname, '../lib'),
-      ],
-      loader: 'babel-loader?cacheDirectory&plugins=react-hot-loader/babel',
-    }, {
-      include: [
-        path.join(__dirname, './src/styles/cssmodules.css'),
-      ],
-      loaders: ['style-loader', 'css-loader?modules=true&localIdentName=[hash:base64:5]', 'autoprefixer-loader?browsers=last 2 version'],
-    },
-    {
-      test: /\.css$/,
-      exclude: [
-        path.join(__dirname, './src/styles/cssmodules.css'),
-      ],
-      loaders: ['style-loader', 'css-loader', 'autoprefixer-loader?browsers=last 2 version'],
-    },
-    {
-      test: /\.svg$/,
-      loader: 'url-loader?limit=100000&mimetype=image/svg+xml',
-    }],
+    rules,
   },
 
   resolve: {
@@ -74,5 +53,4 @@ export default {
     historyApiFallback: true,
     quiet: true, //  --no-info option
   },
-
 };
