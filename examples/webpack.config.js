@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const rules = require('./webpack.config.rules');
 
 module.exports = {
   devtool: 'source-map',
@@ -12,52 +13,7 @@ module.exports = {
   },
 
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        include: [
-          path.join(__dirname, '../src'),
-          path.join(__dirname, './src'),
-          path.join(__dirname, '../lib'),
-        ],
-        loader: 'babel-loader',
-      },
-      {
-        include: [path.join(__dirname, './src/styles/cssmodules.css')],
-        loaders: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[hash:base64:5]',
-            },
-          },
-          {
-            loader: 'autoprefixer-loader',
-            options: { browsers: 'last 2 version' },
-          },
-        ],
-      },
-      {
-        test: /\.css$/,
-        exclude: [path.join(__dirname, './src/styles/cssmodules.css')],
-        loaders: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[hash:base64:5]',
-            },
-          },
-          {
-            loader: 'autoprefixer-loader',
-            options: { browsers: 'last 2 version' },
-          },
-        ],
-      },
-    ],
+    rules,
   },
 
   plugins: [
