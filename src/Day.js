@@ -30,6 +30,7 @@ export default function Day({
   ariaDisabled,
   ariaSelected,
   children,
+  modifiersStyles,
 }) {
   let className = classNames.day;
   if (classNames !== defaultClassNames) {
@@ -43,10 +44,17 @@ export default function Day({
   if (empty) {
     return <div role="gridcell" aria-disabled className={className} />;
   }
+
+  const styles = Object.assign(
+    {},
+    ...Object.keys(modifiers).map(modifier => modifiersStyles[modifier])
+  );
+
   return (
     <div
       className={className}
       tabIndex={tabIndex}
+      style={styles}
       role="gridcell"
       aria-label={ariaLabel}
       aria-disabled={ariaDisabled.toString()}
@@ -77,6 +85,7 @@ Day.propTypes = {
   ariaSelected: PropTypes.bool,
   empty: PropTypes.bool,
   modifiers: PropTypes.object,
+  modifiersStyles: PropTypes.object,
   onClick: PropTypes.func,
   onKeyDown: PropTypes.func,
   onMouseEnter: PropTypes.func,
