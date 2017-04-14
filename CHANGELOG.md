@@ -1,8 +1,4 @@
-### [v5.2.2](https://github.com/gpbl/react-day-picker/tree/v5.2.2) (2016-04-13)
-
-* Further `PropTypes` fixes.
-
-### [v5.2.1](https://github.com/gpbl/react-day-picker/tree/v5.2.1) (2016-04-09)
+### [v5.2.3](https://github.com/gpbl/react-day-picker/tree/v5.2.3) (2016-04-14)
 
 * Fixed `PropTypes` warnings in React 15.5.
 
