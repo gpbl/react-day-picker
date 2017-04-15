@@ -37,7 +37,7 @@ export default class DayPicker extends Component {
       PropTypes.arrayOf(ModifierPropType),
     ]),
     modifiers: PropTypes.object,
-
+    modifiersStyles: PropTypes.object,
     // Localization
     dir: PropTypes.string,
     firstDayOfWeek: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
@@ -487,6 +487,7 @@ export default class DayPicker extends Component {
         classNames={this.props.classNames}
         day={day}
         modifiers={modifiers}
+        modifiersStyles={this.props.modifiersStyles}
         empty={
           isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks
         }
