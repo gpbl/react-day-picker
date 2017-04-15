@@ -42,12 +42,14 @@ export default function Day({
       .join('');
   }
 
-  const style =
-    modifiersStyles &&
-    Object.assign(
-      {},
-      ...Object.keys(modifiers).map(modifier => modifiersStyles[modifier])
-    );
+  let style;
+  if (modifiersStyles) {
+    Object.keys(modifiers)
+      .filter(modifier => !!modifiersStyles[modifier])
+      .forEach(modifier => {
+        style = Object.assign({}, style, modifiersStyles[modifier]);
+      });
+  }
 
   if (empty) {
     return (
