@@ -122,7 +122,6 @@ export default class DayPicker extends Component {
     canChangeMonth: true,
     reverseMonths: false,
     pagedNavigation: false,
-    modifiersStyles: {},
     renderDay: day => day.getDate(),
     weekdayElement: <Weekday />,
     navbarElement: <Navbar classNames={classNames} />,

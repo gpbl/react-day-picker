@@ -15,6 +15,7 @@ function handleEvent(handler, day, modifiers) {
 }
 export default function Day({
   classNames,
+  modifiersStyles,
   day,
   tabIndex,
   empty,
@@ -30,7 +31,6 @@ export default function Day({
   ariaDisabled,
   ariaSelected,
   children,
-  modifiersStyles,
 }) {
   let className = classNames.day;
   if (classNames !== defaultClassNames) {
@@ -41,20 +41,25 @@ export default function Day({
       .map(modifier => ` ${className}--${modifier}`)
       .join('');
   }
-  if (empty) {
-    return <div role="gridcell" aria-disabled className={className} />;
-  }
 
-  const styles = Object.assign(
-    {},
-    ...Object.keys(modifiers).map(modifier => modifiersStyles[modifier])
-  );
+  const style =
+    modifiersStyles &&
+    Object.assign(
+      {},
+      ...Object.keys(modifiers).map(modifier => modifiersStyles[modifier])
+    );
+
+  if (empty) {
+    return (
+      <div role="gridcell" aria-disabled className={className} style={style} />
+    );
+  }
 
   return (
     <div
       className={className}
       tabIndex={tabIndex}
-      style={styles}
+      style={style}
       role="gridcell"
       aria-label={ariaLabel}
       aria-disabled={ariaDisabled.toString()}
