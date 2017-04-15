@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import { expect } from 'chai';
 
 import DayPicker from '../../src/DayPicker';
@@ -15,6 +15,19 @@ describe('DayPicker’s day modifiers', () => {
     );
     expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(35);
     expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
+  });
+  it('should have `red` background style on `foo` modified days', () => {
+    const wrapper = render(
+      <DayPicker
+        initialMonth={new Date(2015, 6)}
+        modifiers={{ foo: () => true }}
+        modifiersStyles={{ foo: { background: 'red' } }}
+      />
+    );
+    expect(wrapper.find('.DayPicker-Day--foo')).to.have.style(
+      'background',
+      'red'
+    );
   });
   it('should add the `aria-selected` attribute for `selected` days', () => {
     const wrapper = mount(
