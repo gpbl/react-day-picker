@@ -26,10 +26,10 @@ Check out the [examples](http://react-day-picker.js.org/examples) to see its fea
 **Add the dependency to your project**
 
 ```bash
-npm install react-day-picker --save
-
-# or with yarn:
 yarn add react-day-picker
+
+# or with npm
+npm install react-day-picker --save
 ```
 
 **Using unpkg**
