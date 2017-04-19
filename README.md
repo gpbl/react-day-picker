@@ -61,19 +61,11 @@ function sundays(day) {
   return day.getDay() === 0;
 }
 
-function today() {
-  return new Date();
-}
-
 class MyComponent extends React.Component {
   state = {
-    selectedDay: today(),
+    selectedDay: new Date(),
   }
-  constructor(props) {
-    super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-  }
-  handleDayClick(day, { disabled, selected }) {
+  handleDayClick = (day, { disabled, selected }) => {
     if (disabled) {
       return;
     }
