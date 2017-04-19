@@ -2,7 +2,7 @@
 
 **Rendering months**: [initialMonth](#initialmonth), [month](#month), [fromMonth](#frommonth), [toMonth](#tomonth), [numberOfMonths](#numberofmonths), [pagedNavigation](#pagednavigation), [canChangeMonth](#canchangemonth), [reverseMonths](#reversemonths)
 
-**Day Modifiers**: [selectedDays](#selecteddays), [disabledDays](#diableddays), [modifiers](#modifiers)
+**Day Modifiers**: [selectedDays](#selecteddays), [disabledDays](#disableddays), [modifiers](#modifiers)
 
 **Customization**: [enableOutsideDays](#enableoutsidedays), [fixedWeeks](#fixedweeks)
 
