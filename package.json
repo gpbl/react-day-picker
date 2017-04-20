@@ -15,7 +15,7 @@
   },
   "scripts": {
     "clean": "rimraf coverage lib",
-    "lint": "eslint src test examples/src",
+    "lint": "eslint src test",
     "prettify": "prettier --write --single-quote --trailing-comma=\"es5\" \"{src,test,examples/src}/**/*.js\"",
     "precommit": "lint-staged",
     "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive --reporter spec",
