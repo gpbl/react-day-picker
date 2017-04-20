@@ -3,6 +3,15 @@ import DayPicker from '../../../src';
 
 import styles from '../styles/cssmodules.css';
 
+function handleDayClick(day, modifiers) {
+  if (modifiers[styles.green]) {
+    console.log('This is a green day');
+  }
+  if (modifiers[styles.sunday]) {
+    console.log('This is Sunday');
+  }
+}
+
 export default function CSSModules() {
   return (
     <DayPicker
@@ -15,6 +24,7 @@ export default function CSSModules() {
         [styles.sunday]: day => day.getDay() === 0,
         [styles.green]: new Date(2017, 1, 10),
       }}
+      onDayClick={handleDayClick}
     />
   );
 }
