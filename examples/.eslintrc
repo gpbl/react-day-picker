@@ -1,15 +1,16 @@
 {
   "rules": {
     "import/imports-first": 0,
+    "import/named": 2,
     "jsx-a11y/no-static-element-interactions": 0,
     "max-len": 0,
     "no-console": 0,
     "no-return-assign": 0,
-    "react/jsx-curly-spacing": [2, "always"],
     "react/jsx-filename-extension": 0,
     "react/no-array-index-key": 0, 
     "react/prop-types": 0
   },
+  "extends": ["airbnb", "prettier"],
   "env": {
     "es6": true,
     "mocha": true,
