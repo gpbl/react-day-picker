@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /* http://prismjs.com/download.html?themes=prism&languages=markup+clike+javascript+jsx */
 let _self = typeof window !== 'undefined'
   ? window // if in browser
@@ -148,12 +150,14 @@ let Prism = (function() {
             callback.call(o, i, o[i], type || i);
 
             if (
-              _.util.type(o[i]) === 'Object' && !visited[_.util.objId(o[i])]
+              _.util.type(o[i]) === 'Object' &&
+              !visited[_.util.objId(o[i])]
             ) {
               visited[_.util.objId(o[i])] = true;
               _.languages.DFS(o[i], callback, null, visited);
             } else if (
-              _.util.type(o[i]) === 'Array' && !visited[_.util.objId(o[i])]
+              _.util.type(o[i]) === 'Array' &&
+              !visited[_.util.objId(o[i])]
             ) {
               visited[_.util.objId(o[i])] = true;
               _.languages.DFS(o[i], callback, i, visited);
