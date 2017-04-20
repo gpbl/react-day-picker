@@ -238,6 +238,27 @@ describe('Helpers', () => {
       expect(modifiers).to.have.length(1);
       expect(modifiers.indexOf('foo')).to.equal(0);
     });
+    it('work with a mix of functions and days', () => {
+      const mixedModifiers = {
+        foo: [
+          { before: new Date(2015, 8, 15) },
+          day => day.getTime() === new Date(2015, 8, 17).getTime(),
+        ],
+      };
+      const modifiers = Helpers.getModifiersForDay(
+        new Date(2015, 8, 10),
+        mixedModifiers
+      );
+      expect(modifiers).to.have.length(1);
+      expect(modifiers.indexOf('foo')).to.equal(0);
+
+      const modifiers2 = Helpers.getModifiersForDay(
+        new Date(2015, 8, 17),
+        mixedModifiers
+      );
+      expect(modifiers2).to.have.length(1);
+      expect(modifiers2.indexOf('foo')).to.equal(0);
+    });
     it('works even without modifiers', () => {
       const modifiers = Helpers.getModifiersForDay(new Date(2015, 8, 19));
       expect(modifiers).to.have.length(0);
