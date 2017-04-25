@@ -15,13 +15,13 @@ declare namespace DayPicker {
         addDayToRange(day: Date, range: RangeModifier): RangeModifier;
         addMonths(d: Date, n: number): Date;
         clone(d: Date): Date;
-        isDayAfter(d1: Date, d2: Date): boolean;
-        isDayBefore(d1: Date, d2: Date): boolean;
+        isDayAfter(day1: Date, day2: Date): boolean;
+        isDayBefore(day1: Date, day2: Date): boolean;
         isDayBetween(day: Date, begin: Date, end: Date): boolean;
         isDayInRange(day: Date, range: RangeModifier): boolean;
-        isFutureDay(d: Date): boolean;
-        isPastDay(d: Date): boolean;
-        isSameDay(d1: Date, d2: Date): boolean;
+        isFutureDay(day: Date): boolean;
+        isPastDay(day: Date): boolean;
+        isSameDay(day1: Date, day2: Date): boolean;
     }
 
     interface CaptionElementProps {

@@ -17,29 +17,29 @@ Return `d` as a new date with `n` months added. Missing days will be added to th
 
 Clone the date `d` returning a new date with the same time.
 
-### isDayAfter `(d1: ?Date, d2: ?Date) ⇒ Bool`
+### isDayAfter `(day1: ?Date, day2: ?Date) ⇒ Bool`
 
 Return `true` if the first day is after the second day.
 
-### isDayBefore `(d1: ?Date, d2: ?Date) ⇒ Bool`
+### isDayBefore `(day1: ?Date, day2: ?Date) ⇒ Bool`
 
 Return `true` if the first day is before the second day.
 
-### isSameDay `(d1: ?Date, d2: ?Date) ⇒ Bool`
+### isSameDay `(day1: ?Date, day2: ?Date) ⇒ Bool`
 
-Return `true` if the two dates `d1` and `d2` are the same day, e.g. ignoring their time.
+Return `true` if `day1` and `day2` are the same day.
 
-### isPastDay `(d: Date) ⇒ Bool`
+### isPastDay `(day: Date) ⇒ Bool`
 
-Returns `true` if `d` is in the past, e.g. is yesterday or any day before yesterday.
+Returns `true` if `day` is in the past, e.g. is yesterday or any day before yesterday.
 
-### isFutureDay `(d: Date) ⇒ Bool`
+### isFutureDay `(day: Date) ⇒ Bool`
 
-Returns `true` if `d` is in the future, e.g. is tomorrow or any day after tomorrow.
+Returns `true` if `day` is in the future, e.g. is tomorrow or any day after tomorrow.
 
-### isDayBetween `(day: Date, d1: Date, d2: Date) ⇒ Bool`
+### isDayBetween `(day: Date, day1: Date, day2: Date) ⇒ Bool`
 
-Returns `true` if `day` is between the days `d1` and `d2`, without including those days.
+Returns `true` if `day` is between the days `day1` and `day2`, without including those days.
 
 ### addDayToRange `(day: Date, range: ?object<from: ?Date, to: ?Date>) ⇒ Object<from: ?Date, to: ?Date>`
 
