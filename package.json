@@ -4,11 +4,13 @@
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "style": "lib/style.css",
+  "types": "./types/index.d.ts",
   "files": [
     "DayPicker.js",
     "lib",
     "moment.js",
-    "utils.js"
+    "utils.js",
+    "types/index.d.ts"
   ],
   "directories": {
     "doc": "docs"
@@ -16,6 +18,7 @@
   "scripts": {
     "clean": "rimraf coverage lib",
     "lint": "eslint src test",
+    "dtslint": "dtslint types",
     "prettify": "prettier --write --single-quote --trailing-comma=\"es5\" \"{src,test,examples/src}/**/*.js\"",
     "precommit": "lint-staged",
     "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive --reporter spec",
@@ -63,6 +66,7 @@
     "react": "~0.13.x || ~0.14.x || ^15.0.0"
   },
   "devDependencies": {
+    "@types/react": "^15.0.23",
     "autoprefixer": "6.7.7",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
@@ -75,6 +79,7 @@
     "chai-enzyme": "0.6.1",
     "cheerio": "0.22.0",
     "coveralls": "2.13.0",
+    "dtslint": "^0.1.2",
     "enzyme": "2.8.2",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
@@ -99,6 +104,7 @@
     "rimraf": "2.6.1",
     "sinon": "2.1.0",
     "sinon-chai": "2.9.0",
+    "typescript": "^2.2.2",
     "webpack": "2.4.1"
   },
   "dependencies": {
