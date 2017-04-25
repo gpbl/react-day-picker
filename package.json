@@ -10,7 +10,7 @@
     "lib",
     "moment.js",
     "utils.js",
-    "./types/index.d.ts"
+    "types/index.d.ts"
   ],
   "directories": {
     "doc": "docs"
