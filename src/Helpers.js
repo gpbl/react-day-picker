@@ -76,6 +76,9 @@ export function getModifiersForDay(d, modifiersObj = {}) {
           if (day.before) {
             return d < day.before;
           }
+          if (typeof day === 'function' && day(d)) {
+            return true;
+          }
           return false;
         })
       ) {

@@ -3,6 +3,14 @@ import DayPicker from '../../../src';
 
 import '../../../src/style.css';
 
+function sundays(day) {
+  return day.getDay() === 0;
+}
+
+function saturdays(day) {
+  return day.getDay() === 6;
+}
+
 export default class DisabledDays extends React.Component {
   state = {
     selectedDay: null,
@@ -16,18 +24,17 @@ export default class DisabledDays extends React.Component {
     });
   };
   render() {
-    const { selectedDay } = this.state;
     return (
       <div>
         <DayPicker
           enableOutsideDays
-          selectedDays={selectedDay}
-          disabledDays={day => day.getDay() === 0 || day.getDay() === 6}
+          selectedDays={this.state.selectedDay}
+          disabledDays={[sundays, saturdays]}
           onDayClick={this.handleDayClick}
         />
         <p>
-          {selectedDay
-            ? selectedDay.toLocaleDateString()
+          {this.state.selectedDay
+            ? this.state.selectedDay.toLocaleDateString()
             : 'Please select a day 👻'}
         </p>
       </div>
