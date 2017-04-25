@@ -8,8 +8,8 @@ Setup the repo and the app:
 
 ```
 git clone https://github.com/gpbl/react-day-picker.git
-cd react-day-picker && npm install
-cd examples && npm install
+cd react-day-picker && yarn
+cd examples && yarn
 ```
 
 then run the example app from the `examples` dir:

@@ -12,11 +12,11 @@ If you want to play with the examples, setup the repo and the app:
 git clone https://github.com/gpbl/react-day-picker.git
 
 cd react-day-picker
-npm install
+yarn
 npm run build
 
 cd examples
-npm install
+yarn
 ```
 
 2. Run the example app from the `examples` dir:

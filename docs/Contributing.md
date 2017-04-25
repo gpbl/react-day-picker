@@ -10,7 +10,7 @@ The development environment is Node 7+. To setup the repository
 
 ```
 git clone https://github.com/gpbl/react-day-picker.git
-cd react-day-picker && npm install
+cd react-day-picker && yarn
 ```
 
 Some useful npm scripts:
@@ -20,8 +20,7 @@ Some useful npm scripts:
 * `npm lint`: make sure the code is linted correctly
 * `npm dtslint`: lint Typescript declaration
 
-You can even run and modify the [Examples](Examples.md)! Just remember to run `npm install`
-to use the last version.
+You can even run and modify the [Examples](Examples.md)! Just remember to run `yarn` to use the last version.
 
 ## Contributors ❤️
 

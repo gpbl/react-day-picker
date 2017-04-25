@@ -4,8 +4,8 @@ To run the examples with hot-reload, you must install the npm dependencies from 
 
 ```
 git clone https://github.com/gpbl/react-day-picker.git
-cd react-day-picker && npm install
-cd examples && npm install
+cd react-day-picker && yarn
+cd examples && yarn
 npm start
 ```
 
