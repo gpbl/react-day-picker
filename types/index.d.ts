@@ -1,9 +1,3 @@
-// Type definitions for react-day-picker 5.2
-// Project: https://github.com/gpbl/react-day-picker
-// Definitions by: Giampaolo Bellavite <https://github.com/gpbl>, Jason Killian <https://github.com/jkillian>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 2.1
-
 import * as React from 'react';
 
 declare namespace DayPicker {

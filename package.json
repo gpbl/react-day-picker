@@ -4,6 +4,7 @@
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "style": "lib/style.css",
+  "types": "./types/index.d.ts",
   "files": [
     "DayPicker.js",
     "lib",
@@ -62,7 +63,6 @@
   "peerDependencies": {
     "react": "~0.13.x || ~0.14.x || ^15.0.0"
   },
-  "types": "./react-day-picker.d.ts",
   "devDependencies": {
     "autoprefixer": "6.7.7",
     "babel-cli": "6.24.1",
