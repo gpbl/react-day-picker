@@ -63,7 +63,7 @@ const EXAMPLES = {
   },
   disabled: {
     title: 'Disabled Days',
-    description: 'Use the <code>disabledDays</code> prop to prevent the selection of a day. Here we are passing a function to disable all the weekend days. <ul><li>Note how the <code>handleDayClick</code> handler is set to not select days marked as <code>disabled</code>.</li></ul>',
+    description: 'Use the <code>disabledDays</code> prop to prevent the selection of a day. Here we are passing two functions to disable Saturdays and Sundays. <ul><li>Note how the <code>handleDayClick</code> handler is set to <i>not select</i> days marked as <code>disabled</code>.</li></ul>',
     Component: DisabledDays,
   },
   input: {
