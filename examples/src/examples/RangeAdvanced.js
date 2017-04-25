@@ -13,7 +13,7 @@ const initialState = {
 
 function isSelectingFirstDay(from, to, day) {
   const firstDayIsNotSelected = !from;
-  const selectedDayIsBeforeFirstDay = day < from;
+  const selectedDayIsBeforeFirstDay = DateUtils.isDayBefore(day, from);
   const rangeIsSelected = from && to;
   return (
     firstDayIsNotSelected || selectedDayIsBeforeFirstDay || rangeIsSelected

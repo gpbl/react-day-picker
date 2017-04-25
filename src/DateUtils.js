@@ -38,6 +38,34 @@ export function isSameDay(d1, d2) {
 }
 
 /**
+ * Returns `true` if the first day is before the second day.
+ * 
+ * @export
+ * @param {Date} d1 
+ * @param {Date} d2 
+ * @returns {Boolean}
+ */
+export function isDayBefore(d1, d2) {
+  const day1 = clone(d1).setHours(0, 0, 0, 0);
+  const day2 = clone(d2).setHours(0, 0, 0, 0);
+  return day1 < day2;
+}
+
+/**
+ * Returns `true` if the first day is after the second day.
+ * 
+ * @export
+ * @param {Date} d1 
+ * @param {Date} d2 
+ * @returns {Boolean}
+ */
+export function isDayAfter(d1, d2) {
+  const day1 = clone(d1).setHours(0, 0, 0, 0);
+  const day2 = clone(d2).setHours(0, 0, 0, 0);
+  return day1 > day2;
+}
+
+/**
  * Return `true` if a day is in the past, e.g. yesterday or any day
  * before yesterday.
  *
@@ -47,7 +75,7 @@ export function isSameDay(d1, d2) {
 export function isPastDay(d) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  return d < today;
+  return isDayBefore(d, today);
 }
 
 /**
@@ -74,13 +102,11 @@ export function isFutureDay(d) {
  */
 export function isDayBetween(d, d1, d2) {
   const date = clone(d);
-  const date1 = clone(d1);
-  const date2 = clone(d2);
-
   date.setHours(0, 0, 0, 0);
-  date1.setHours(0, 0, 0, 0);
-  date2.setHours(0, 0, 0, 0);
-  return (date1 < date && date < date2) || (date2 < date && date < date1);
+  return (
+    (isDayAfter(date, d1) && isDayBefore(date, d2)) ||
+    (isDayAfter(date, d2) && isDayBefore(date, d1))
+  );
 }
 
 /**
@@ -98,14 +124,14 @@ export function addDayToRange(day, range = { from: null, to: null }) {
   } else if (from && to && isSameDay(from, to) && isSameDay(day, from)) {
     from = null;
     to = null;
-  } else if (to && day < from) {
+  } else if (to && isDayBefore(day, from)) {
     from = day;
   } else if (to && isSameDay(day, to)) {
     from = day;
     to = day;
   } else {
     to = day;
-    if (to < from) {
+    if (isDayBefore(to, from)) {
       to = from;
       from = day;
     }

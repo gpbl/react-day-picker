@@ -29,6 +29,48 @@ describe('DateUtils', () => {
     });
   });
 
+  describe('isDayBefore', () => {
+    it('returns true when the day is before the other day', () => {
+      const day1 = new Date(2015, 10, 11, 5, 25);
+      const day2 = new Date(2015, 10, 12, 3, 40);
+      const isDayBefore = DateUtils.isDayBefore(day1, day2);
+      expect(isDayBefore).to.be.true;
+    });
+    it('returns false for the same day with different times', () => {
+      const day1 = new Date(2015, 10, 11, 5, 25);
+      const day2 = new Date(2015, 10, 11, 6, 40);
+      const isDayBefore = DateUtils.isDayBefore(day1, day2);
+      expect(isDayBefore).to.be.false;
+    });
+    it('returns false if the second day is after', () => {
+      const day1 = new Date(2015, 10, 13, 5, 25);
+      const day2 = new Date(2015, 10, 12, 1, 40);
+      const isDayBefore = DateUtils.isDayBefore(day1, day2);
+      expect(isDayBefore).to.be.false;
+    });
+  });
+
+  describe('isDayAfter', () => {
+    it('returns true when the day is after the other day', () => {
+      const day1 = new Date(2015, 10, 13, 5, 25);
+      const day2 = new Date(2015, 10, 12, 3, 40);
+      const isDayAfter = DateUtils.isDayAfter(day1, day2);
+      expect(isDayAfter).to.be.true;
+    });
+    it('returns false for the same day with different times', () => {
+      const day1 = new Date(2015, 10, 11, 5, 25);
+      const day2 = new Date(2015, 10, 11, 6, 40);
+      const isDayAfter = DateUtils.isDayAfter(day1, day2);
+      expect(isDayAfter).to.be.false;
+    });
+    it('returns false if the second day is after', () => {
+      const day1 = new Date(2015, 10, 12, 5, 25);
+      const day2 = new Date(2015, 10, 13, 1, 40);
+      const isDayAfter = DateUtils.isDayAfter(day1, day2);
+      expect(isDayAfter).to.be.false;
+    });
+  });
+
   describe('isSameDay', () => {
     it('returns true if two days differ only by time', () => {
       const day1 = new Date(2015, 10, 11, 5, 25);
