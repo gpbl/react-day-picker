@@ -1,3 +1,4 @@
+// TypeScript Version: 2.2
 import * as React from 'react';
 
 declare namespace DayPicker {
