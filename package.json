@@ -9,7 +9,8 @@
     "DayPicker.js",
     "lib",
     "moment.js",
-    "utils.js"
+    "utils.js",
+    "./types/index.d.ts"
   ],
   "directories": {
     "doc": "docs"
