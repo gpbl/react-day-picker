@@ -1,3 +1,14 @@
+## [v5.3.0](https://github.com/gpbl/react-day-picker/tree/v5.3.0) (2016-04-25)
+
+* Include Typescript Type Definitions ([#303](https://github.com/gpbl/react-day-picker/pull/303))
+* Add a new [`modifiersStyles`](http://react-day-picker.js.org/APIProps.html#modifiersstyles) prop to add inline style to the days matching the given modifiers (see [`example`](http://react-day-picker.js.org/APIProps.html#modifiersstyles)).
+* Add `isDayBefore`, `isDayAfter` functions to [DateUtils](http://react-day-picker.js.org/DateUtils.html).
+
+**Bug fixes**
+
+* Functions were not considered in arrays of modifiers ([#301](https://github.com/gpbl/react-day-picker/pull/301))
+* Fixes possible issues when comparing days with different timezones ([#307](https://github.com/gpbl/react-day-picker/pull/307))
+
 ### [v5.2.3](https://github.com/gpbl/react-day-picker/tree/v5.2.3) (2016-04-14)
 
 * Fixed `PropTypes` warnings in React 15.5.
@@ -25,7 +36,6 @@
   This differs from the `initialMonth` props as it causes the calendar to re-render when its value changes. 
 
 * Add `aria-label` attributes to the navigation bar with the new [`labels`](http://react-day-picker.js.org/APIProps.html#labels) prop ([#258](https://github.com/gpbl/react-day-picker/issues/258)).
-
 
 # [v5.0.0](https://github.com/gpbl/react-day-picker/tree/v5.0.0) (2017-02-14)
 
