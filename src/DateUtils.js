@@ -38,6 +38,34 @@ export function isSameDay(d1, d2) {
 }
 
 /**
+ * Returns `true` if the first day is before the second day.
+ * 
+ * @export
+ * @param {Date} d1 
+ * @param {Date} d2 
+ * @returns {Boolean}
+ */
+export function isDayBefore(d1, d2) {
+  const day1 = clone(d1).setHours(0, 0, 0, 0);
+  const day2 = clone(d2).setHours(0, 0, 0, 0);
+  return day1 < day2;
+}
+
+/**
+ * Returns `true` if the first day is after the second day.
+ * 
+ * @export
+ * @param {Date} d1 
+ * @param {Date} d2 
+ * @returns {Boolean}
+ */
+export function isDayAfter(d1, d2) {
+  const day1 = clone(d1).setHours(0, 0, 0, 0);
+  const day2 = clone(d2).setHours(0, 0, 0, 0);
+  return day1 > day2;
+}
+
+/**
  * Return `true` if a day is in the past, e.g. yesterday or any day
  * before yesterday.
  *
@@ -47,7 +75,7 @@ export function isSameDay(d1, d2) {
 export function isPastDay(d) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  return d < today;
+  return isDayBefore(d, today);
 }
 
 /**

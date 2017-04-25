@@ -15,6 +15,8 @@ declare namespace DayPicker {
         addMonths(d: Date, n: number): Date;
         clone(d: Date): Date;
         isSameDay(d1: Date, d2: Date): Date;
+        isDayBefore(d1: Date, d2: Date): boolean;
+        isDayAfter(d1: Date, d2: Date): boolean;
         isPastDay(d: Date): boolean;
         isFutureDay(d: Date): boolean;
         isDayBetween(day: Date, begin: Date, end: Date): boolean;

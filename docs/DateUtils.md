@@ -17,6 +17,14 @@ Return `d` as a new date with `n` months added. Missing days will be added to th
 
 Clone the date `d` returning a new date with the same time.
 
+### isDayAfter `(d1: ?Date, d2: ?Date) ⇒ Bool`
+
+Return `true` if the first day is after the second day.
+
+### isDayBefore `(d1: ?Date, d2: ?Date) ⇒ Bool`
+
+Return `true` if the first day is before the second day.
+
 ### isSameDay `(d1: ?Date, d2: ?Date) ⇒ Bool`
 
 Return `true` if the two dates `d1` and `d2` are the same day, e.g. ignoring their time.
