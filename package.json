@@ -25,7 +25,7 @@
     "test:watch": "npm test -- --watch",
     "test:files": "mocha --compilers js:babel-core/register --require ./test/setup.js --reporter spec --bail --watch",
     "cover": "babel-node ./node_modules/istanbul/lib/cli cover -- _mocha --recursive --reporter spec",
-    "check": "npm run lint && npm run test",
+    "check": "npm run lint && npm run dtslint && npm run test",
     "prerelease": "npm run check && npm run build",
     "build": "npm run build:node && npm run build:production && npm run build:development",
     "build:node": "babel ./src -d ./lib/src --source-maps && npm run build:css",
