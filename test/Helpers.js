@@ -215,14 +215,14 @@ describe('Helpers', () => {
       expect(modifiers.indexOf('foo')).to.equal(0);
     });
     it('returns a "before" modifier', () => {
-      const afterModifier = {
+      const beforeModifier = {
         foo: {
           before: new Date(2015, 8, 15),
         },
       };
       const modifiers = Helpers.getModifiersForDay(
         new Date(2015, 8, 10),
-        afterModifier
+        beforeModifier
       );
       expect(modifiers).to.have.length(1);
       expect(modifiers.indexOf('foo')).to.equal(0);
