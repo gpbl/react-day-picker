@@ -6,7 +6,7 @@ Bug reports, suggestions and pull requests are welcome on the repo on GitHub: [h
 
 ## Running the project locally
 
-The development environment is Node 4+. To setup the repository
+The development environment is Node 7+. To setup the repository
 
 ```
 git clone https://github.com/gpbl/react-day-picker.git
@@ -18,6 +18,7 @@ Some useful npm scripts:
 * `npm test`: test the code
 * `npm cover`: run a test coverage report
 * `npm lint`: make sure the code is linted correctly
+* `npm dtslint`: lint Typescript declaration
 
 You can even run and modify the [Examples](Examples.md)! Just remember to run `npm install`
 to use the last version.
