@@ -2,7 +2,7 @@
 
 **Rendering months**: [initialMonth](#initialmonth), [month](#month), [fromMonth](#frommonth), [toMonth](#tomonth), [numberOfMonths](#numberofmonths), [pagedNavigation](#pagednavigation), [canChangeMonth](#canchangemonth), [reverseMonths](#reversemonths)
 
-**Day Modifiers**: [selectedDays](#selecteddays), [disabledDays](#disableddays), [modifiers](#modifiers)
+**Day Modifiers**: [selectedDays](#selecteddays), [disabledDays](#disableddays), [modifiers](#modifiers), [modifiersStyles](#modifiersstyles)
 
 **Customization**: [enableOutsideDays](#enableoutsidedays), [fixedWeeks](#fixedweeks)
 
@@ -168,6 +168,37 @@ By default the used locale is English (US). See also [Localization](Localization
 An object of [day modifiers](Modifiers.md).
 
 As default, the calendar adds `today` and `outside` modifiers. (_Outside days_ are the days appearing on the calendar but don't belonging to the current month).
+
+### modifiersStyles
+
+**Type**: `Object<Any>`
+
+An object of inline styles added to the day cells when a [modifier](#modifiers) is met. Use this prop to style day cells inline instead of using CSS classes. Example:
+
+```jsx
+const modifiers = {
+  even: day => day.getDate() % 2 === 0,
+  odd: day => day.getDate() % 2 !== 0,
+  first: day => day.getDate() === 1,
+};
+
+<DayPicker
+  modifiers={modifiers}
+  modifiersStyles={{
+    even: {
+      background: "green",
+      fontWeight: "bold",
+    },
+    odd: {
+      background: "purple",
+    },
+    first: {
+      background: "green",
+    },
+  }}
+/>
+
+```
 
 ### month
 
