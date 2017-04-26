@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 export default from './DayPicker';
 export DateUtils from './DateUtils';
 export LocaleUtils from './LocaleUtils';
+export ModifierUtils from './ModifierUtils';
 
 export const WeekdayPropTypes = Weekday.PropTypes;
 

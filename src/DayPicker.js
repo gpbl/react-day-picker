@@ -8,6 +8,7 @@ import Weekday from './Weekday';
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
 import * as LocaleUtils from './LocaleUtils';
+import * as ModifierUtils from './ModifierUtils';
 import classNames from './classNames';
 
 import keys from './keys';
@@ -454,7 +455,7 @@ export default class DayPicker extends Component {
   }
   renderDayInMonth(day, month) {
     const propModifiers = Helpers.getModifiersFromProps(this.props);
-    const dayModifiers = Helpers.getModifiersForDay(day, propModifiers);
+    const dayModifiers = ModifierUtils.getModifiersForDay(day, propModifiers);
     if (
       DateUtils.isSameDay(day, new Date()) &&
       !Object.prototype.hasOwnProperty.call(

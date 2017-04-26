@@ -1,9 +1,5 @@
 import {
-  clone,
-  isSameDay,
-  isDayInRange,
-  isDayAfter,
-  isDayBefore,
+  clone
 } from './DateUtils';
 import { getFirstDayOfWeek } from './LocaleUtils';
 
@@ -49,62 +45,6 @@ export function getFirstDayOfWeekFromProps(props) {
 
 export function isRangeOfDates(value) {
   return !!(value && value.from && value.to);
-}
-
-export function getModifiersForDay(d, modifiersObj = {}) {
-  return Object.keys(modifiersObj).reduce((modifiers, modifier) => {
-    const value = modifiersObj[modifier];
-    if (!value) {
-      return modifiers;
-    }
-    if (value instanceof Date && isSameDay(d, value)) {
-      // modifier's value is a date
-      modifiers.push(modifier);
-    } else if (value instanceof Array) {
-      // modifier's value is an array
-      if (
-        value.some(day => {
-          if (!day) {
-            return false;
-          }
-          if (day instanceof Date) {
-            // this value of the array is a date
-            return isSameDay(d, day);
-          }
-          if (isRangeOfDates(day)) {
-            // this value of the array is a range
-            const range = day;
-            return isDayInRange(d, range);
-          }
-          if (day.after) {
-            return isDayAfter(d, day.after);
-          }
-          if (day.before) {
-            return isDayBefore(d, day.before);
-          }
-          if (typeof day === 'function' && day(d)) {
-            return true;
-          }
-          return false;
-        })
-      ) {
-        modifiers.push(modifier);
-      }
-    } else if (isRangeOfDates(value) && isDayInRange(d, value)) {
-      // modifier's value is a range
-      modifiers.push(modifier);
-    } else if (value.after && isDayAfter(d, value.after)) {
-      // modifier's value has an after date
-      modifiers.push(modifier);
-    } else if (value.before && isDayBefore(d, value.before)) {
-      // modifier's value has an after date
-      modifiers.push(modifier);
-    } else if (typeof value === 'function' && value(d)) {
-      // modifier's value is a function
-      modifiers.push(modifier);
-    }
-    return modifiers;
-  }, []);
 }
 
 export function getMonthsDiff(d1, d2) {
