@@ -24,6 +24,11 @@ declare namespace DayPicker {
         isSameDay(day1: Date, day2: Date): boolean;
     }
 
+    interface ModifierUtils {
+        dayMatchesModifier(day: Date, modifier: Modifier | Modifier[]): boolean;
+        getModifiersForDay(day: Date, modifiers: Record<string, Modifier | Modifier[]>): string[];
+    }
+
     interface CaptionElementProps {
         date: Date;
         classNames: ClassNames;
@@ -152,6 +157,7 @@ declare namespace DayPicker {
     const VERSION: string;
     const LocaleUtils: DayPicker.LocaleUtils;
     const DateUtils: DayPicker.DateUtils;
+    const ModifierUtils: DayPicker.ModifierUtils;
 }
 
 declare class DayPicker extends React.Component<DayPicker.Props, never> {
