@@ -25,7 +25,7 @@ declare namespace DayPicker {
     }
 
     interface ModifierUtils {
-        dayMatchesModifier(day: Date, modifier: Modifier | Modifier[]): boolean;
+        dayMatchesModifier(day: Date, modifier?: Modifier | Modifier[]): boolean;
         getModifiersForDay(day: Date, modifiers: Record<string, Modifier | Modifier[]>): string[];
     }
 
