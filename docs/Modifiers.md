@@ -35,7 +35,7 @@ The value of a modifier can be either:
 
   will match all the days after the January, 1st 2018.
 
-- **a function** that take the day as first argument and return a boolean value. For example:
+- **a function** taking the day as first argument and return a boolean value. For example:
   
   ```js
   function sundays(day) {
