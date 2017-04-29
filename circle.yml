@@ -1,0 +1,39 @@
+machine:
+  node:
+    version: 7.9.0
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+    MOCHA_FILE: "$CIRCLE_TEST_REPORTS/test-results.xml"
+
+general:
+  artifacts:
+    - ./coverage
+
+dependencies:
+  override:
+    - yarn
+  cache_directories:
+    - ~/.cache/yarn
+
+test:
+  pre:
+    - mkdir -p $CIRCLE_TEST_REPORTS/reports
+  override:
+    - yarn run lint -- --format junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint.xml
+    - yarn run dtslint
+    - yarn run cover -- --reporter mocha-circleci-reporter
+  post:
+    - cp -R ./coverage $CIRCLE_ARTIFACTS
+    - ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info
+    - ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info
+
+deployment:
+  hub-master:
+    branch: master
+    commands:
+      - yarn run build
+  release:
+    tag: /v.*/
+    commands:
+      - yarn run build
+      - yarn run docs:publish
