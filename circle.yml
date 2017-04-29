@@ -21,9 +21,9 @@ test:
   pre:
     - mkdir -p $CIRCLE_TEST_REPORTS/reports
   override:
-    - npm run lint -- --format junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint.xml
-    - npm run dtslint
-    - npm run cover -- --reporter mocha-junit-reporter
+    - yarn run lint -- --format junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint.xml
+    - yarn run dtslint
+    - yarn run cover -- --reporter mocha-junit-reporter
   post:
     - cp -R ./coverage $CIRCLE_ARTIFACTS
     - >
