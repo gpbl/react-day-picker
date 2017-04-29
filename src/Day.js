@@ -60,7 +60,7 @@ export default function Day({
   return (
     <div
       className={className}
-      tabIndex={tabIndex}
+      tabIndex={tabIndex || 0}
       style={style}
       role="gridcell"
       aria-label={ariaLabel}
