@@ -1,0 +1,30 @@
+machine:
+  node:
+    version: 7.9.0
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+general:
+  artifacts:
+    - ./coverage
+
+dependencies:
+  override:
+    - yarn
+    - yarn global add codeclimate-test-reporter
+  cache_directories:
+    - ~/.cache/yarn
+
+test:
+  pre:
+    - yarn run lint
+    - yarn run dtslint
+  override:
+    - >
+      MOCHA_FILE=$CIRCLE_TEST_REPORTS/test-results.xml
+      yarn run cover
+  post:
+    - cp -R ./coverage $CIRCLE_ARTIFACTS
+    - >
+      CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN
+      codeclimate-test-reporter < ./coverage/lcov.info
