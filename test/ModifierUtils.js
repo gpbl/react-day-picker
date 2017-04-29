@@ -1,24 +1,24 @@
 import { expect } from 'chai';
 
-import * as ModifierUtils from '../src/ModifierUtils';
+import * as ModifiersUtils from '../src/ModifiersUtils';
 
-describe('ModifierUtils', () => {
+describe('ModifiersUtils', () => {
   describe('dayMatchesModifier', () => {
     it('returns a boolean for a single day', () => {
-      const match = ModifierUtils.dayMatchesModifier(
+      const match = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 19),
         new Date(2015, 8, 19)
       );
       expect(match).to.be.true;
 
-      const fail = ModifierUtils.dayMatchesModifier(
+      const fail = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 19),
         new Date(2014, 1, 1)
       );
       expect(fail).to.be.false;
     });
     it('ignores falsy values', () => {
-      const match = ModifierUtils.dayMatchesModifier(
+      const match = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 19),
         null
       );
@@ -30,22 +30,23 @@ describe('ModifierUtils', () => {
         new Date(2015, 8, 20),
         new Date(2015, 8, 21),
       ];
-      const match1 = ModifierUtils.dayMatchesModifier(
+      const match1 = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 19),
         modifiers
       );
       expect(match1).to.be.true;
 
       modifiers.forEach(day => {
-        expect(ModifierUtils.dayMatchesModifier(day, modifiers)).to.be.true;
+        expect(ModifiersUtils.dayMatchesModifier(day, modifiers)).to.be.true;
       });
-      expect(ModifierUtils.dayMatchesModifier(new Date(2015, 8, 22), modifiers))
-        .to.be.false;
+      expect(
+        ModifiersUtils.dayMatchesModifier(new Date(2015, 8, 22), modifiers)
+      ).to.be.false;
     });
     it('accepts an array of days ignoring falsy values', () => {
       const values = [null, 'test', new Date(2015, 8, 21)];
 
-      const match = ModifierUtils.dayMatchesModifier(
+      const match = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 21),
         values
       );
@@ -56,13 +57,13 @@ describe('ModifierUtils', () => {
         from: new Date(2015, 8, 18),
         to: new Date(2015, 8, 20),
       };
-      const match = ModifierUtils.dayMatchesModifier(
+      const match = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 19),
         range
       );
       expect(match).to.be.true;
 
-      const fail = ModifierUtils.dayMatchesModifier(
+      const fail = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 17),
         range
       );
@@ -80,12 +81,12 @@ describe('ModifierUtils', () => {
         },
       ];
 
-      const match1 = ModifierUtils.dayMatchesModifier(
+      const match1 = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 19),
         ranges
       );
       expect(match1).to.be.true;
-      const match2 = ModifierUtils.dayMatchesModifier(
+      const match2 = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 9, 18),
         ranges
       );
@@ -95,13 +96,13 @@ describe('ModifierUtils', () => {
       const afterModifier = {
         after: new Date(2015, 8, 18),
       };
-      const match = ModifierUtils.dayMatchesModifier(
+      const match = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 19),
         afterModifier
       );
       expect(match).to.be.true;
 
-      const fail = ModifierUtils.dayMatchesModifier(
+      const fail = ModifiersUtils.dayMatchesModifier(
         new Date(2014, 8, 18),
         afterModifier
       );
@@ -110,13 +111,13 @@ describe('ModifierUtils', () => {
     it('returns a boolean for an "after" modifier in array', () => {
       const afterModifier = [{ after: new Date(2015, 8, 18) }];
 
-      const match = ModifierUtils.dayMatchesModifier(
+      const match = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 19),
         afterModifier
       );
       expect(match).to.be.true;
 
-      const fail = ModifierUtils.dayMatchesModifier(
+      const fail = ModifiersUtils.dayMatchesModifier(
         new Date(2014, 8, 19),
         afterModifier
       );
@@ -126,13 +127,13 @@ describe('ModifierUtils', () => {
       const beforeModifier = {
         before: new Date(2015, 8, 15),
       };
-      const match = ModifierUtils.dayMatchesModifier(
+      const match = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 10),
         beforeModifier
       );
       expect(match).to.be.true;
 
-      const fail = ModifierUtils.dayMatchesModifier(
+      const fail = ModifiersUtils.dayMatchesModifier(
         new Date(2016, 8, 10),
         beforeModifier
       );
@@ -141,13 +142,13 @@ describe('ModifierUtils', () => {
     it('returns a boolean "before" modifier in an array of days', () => {
       const afterModifier = [{ before: new Date(2015, 8, 15) }];
 
-      const match = ModifierUtils.dayMatchesModifier(
+      const match = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 10),
         afterModifier
       );
       expect(match).to.be.true;
 
-      const fail = ModifierUtils.dayMatchesModifier(
+      const fail = ModifiersUtils.dayMatchesModifier(
         new Date(2016, 8, 15),
         afterModifier
       );
@@ -158,26 +159,26 @@ describe('ModifierUtils', () => {
         { before: new Date(2015, 8, 15) },
         day => day.getTime() === new Date(2015, 8, 17).getTime(),
       ];
-      const match1 = ModifierUtils.dayMatchesModifier(
+      const match1 = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 10),
         mixedModifiers
       );
       expect(match1).to.be.true;
 
-      const match2 = ModifierUtils.dayMatchesModifier(
+      const match2 = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 17),
         mixedModifiers
       );
       expect(match2).to.be.true;
 
-      const fail = ModifierUtils.dayMatchesModifier(
+      const fail = ModifiersUtils.dayMatchesModifier(
         new Date(2016, 8, 15),
         mixedModifiers
       );
       expect(fail).to.be.false;
     });
     it('works even without modifiers', () => {
-      const match = ModifierUtils.dayMatchesModifier(new Date(2015, 8, 19));
+      const match = ModifiersUtils.dayMatchesModifier(new Date(2015, 8, 19));
       expect(match).to.be.false;
     });
   });
@@ -195,7 +196,7 @@ describe('ModifierUtils', () => {
           return d.getMonth() === 8;
         },
       };
-      let modifiers = ModifierUtils.getModifiersForDay(
+      let modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 19),
         modifierFunctions
       );
@@ -204,7 +205,7 @@ describe('ModifierUtils', () => {
       expect(modifiers.indexOf('maybe')).to.be.above(-1);
       expect(modifiers.indexOf('no')).to.equal(-1);
 
-      modifiers = ModifierUtils.getModifiersForDay(
+      modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 9, 19),
         modifierFunctions
       );
@@ -214,7 +215,7 @@ describe('ModifierUtils', () => {
       expect(modifiers.indexOf('no')).to.equal(-1);
     });
     it('returns the modifier for a single day', () => {
-      const modifiers = ModifierUtils.getModifiersForDay(
+      const modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 19),
         {
           foo: new Date(2015, 8, 19),
@@ -224,7 +225,7 @@ describe('ModifierUtils', () => {
       expect(modifiers.indexOf('foo')).to.equal(0);
     });
     it('ignores falsy values', () => {
-      const modifiers = ModifierUtils.getModifiersForDay(
+      const modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 19),
         {
           foo: null,
@@ -243,7 +244,7 @@ describe('ModifierUtils', () => {
         ],
         bar: [new Date(2015, 8, 19), new Date(2015, 8, 20)],
       };
-      const modifiers1 = ModifierUtils.getModifiersForDay(
+      const modifiers1 = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 19),
         modifiersObj
       );
@@ -251,7 +252,7 @@ describe('ModifierUtils', () => {
       expect(modifiers1.indexOf('foo')).to.be.above(-1);
       expect(modifiers1.indexOf('bar')).to.be.above(-1);
 
-      const modifiers2 = ModifierUtils.getModifiersForDay(
+      const modifiers2 = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 20),
         modifiersObj
       );
@@ -259,7 +260,7 @@ describe('ModifierUtils', () => {
       expect(modifiers2.indexOf('foo')).to.be.above(-1);
       expect(modifiers2.indexOf('bar')).to.be.above(-1);
 
-      const modifiers3 = ModifierUtils.getModifiersForDay(
+      const modifiers3 = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 21),
         modifiersObj
       );
@@ -271,7 +272,7 @@ describe('ModifierUtils', () => {
       const values = {
         foo: [null, 'test', new Date(2015, 8, 21)],
       };
-      const modifiers = ModifierUtils.getModifiersForDay(
+      const modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 21),
         values
       );
@@ -285,13 +286,13 @@ describe('ModifierUtils', () => {
           to: new Date(2015, 8, 20),
         },
       };
-      const modifiers1 = ModifierUtils.getModifiersForDay(
+      const modifiers1 = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 19),
         range
       );
       expect(modifiers1).to.have.length(1);
       expect(modifiers1.indexOf('foo')).to.equal(0);
-      const modifiers2 = ModifierUtils.getModifiersForDay(
+      const modifiers2 = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 17),
         range
       );
@@ -310,12 +311,12 @@ describe('ModifierUtils', () => {
           },
         ],
       };
-      const modifiers1 = ModifierUtils.getModifiersForDay(
+      const modifiers1 = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 19),
         ranges
       );
       expect(modifiers1.indexOf('foo')).to.equal(0);
-      const modifiers2 = ModifierUtils.getModifiersForDay(
+      const modifiers2 = ModifiersUtils.getModifiersForDay(
         new Date(2015, 9, 18),
         ranges
       );
@@ -327,7 +328,7 @@ describe('ModifierUtils', () => {
           after: new Date(2015, 8, 18),
         },
       };
-      const modifiers = ModifierUtils.getModifiersForDay(
+      const modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 19),
         afterModifier
       );
@@ -338,7 +339,7 @@ describe('ModifierUtils', () => {
       const afterModifier = {
         foo: [{ after: new Date(2015, 8, 18) }],
       };
-      const modifiers = ModifierUtils.getModifiersForDay(
+      const modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 19),
         afterModifier
       );
@@ -351,7 +352,7 @@ describe('ModifierUtils', () => {
           before: new Date(2015, 8, 15),
         },
       };
-      const modifiers = ModifierUtils.getModifiersForDay(
+      const modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 10),
         beforeModifier
       );
@@ -362,7 +363,7 @@ describe('ModifierUtils', () => {
       const afterModifier = {
         foo: [{ before: new Date(2015, 8, 15) }],
       };
-      const modifiers = ModifierUtils.getModifiersForDay(
+      const modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 10),
         afterModifier
       );
@@ -376,14 +377,14 @@ describe('ModifierUtils', () => {
           day => day.getTime() === new Date(2015, 8, 17).getTime(),
         ],
       };
-      const modifiers = ModifierUtils.getModifiersForDay(
+      const modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 10),
         mixedModifiers
       );
       expect(modifiers).to.have.length(1);
       expect(modifiers.indexOf('foo')).to.equal(0);
 
-      const modifiers2 = ModifierUtils.getModifiersForDay(
+      const modifiers2 = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 17),
         mixedModifiers
       );
@@ -391,7 +392,9 @@ describe('ModifierUtils', () => {
       expect(modifiers2.indexOf('foo')).to.equal(0);
     });
     it('works even without modifiers', () => {
-      const modifiers = ModifierUtils.getModifiersForDay(new Date(2015, 8, 19));
+      const modifiers = ModifiersUtils.getModifiersForDay(
+        new Date(2015, 8, 19)
+      );
       expect(modifiers).to.have.length(0);
     });
   });
