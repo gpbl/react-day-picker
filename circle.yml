@@ -29,3 +29,14 @@ test:
     - >
       CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN
       codeclimate-test-reporter < ./coverage/lcov.info
+
+deployment:
+  hub-master:
+    branch: master
+    commands:
+      - yarn run build
+  release:
+    tag: /v.*/
+    commands:
+      - yarn run build
+      - yarn run docs:publish
