@@ -16,14 +16,12 @@ dependencies:
     - ~/.cache/yarn
 
 test:
-  environment:
-    MOCHA_FILE: $CIRCLE_TEST_REPORTS/junit/test-results.xml
   pre:
     - mkdir -p $CIRCLE_TEST_REPORTS/reports
   override:
     - yarn run lint -- --format junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint.xml
     - yarn run dtslint
-    - yarn run cover -- --reporter mocha-junit-reporter
+    - yarn run cover
   post:
     - cp -R ./coverage $CIRCLE_ARTIFACTS
     - >
