@@ -59,7 +59,7 @@ describe('dayMatchesModifier', () => {
     expect(match).to.be.true;
 
     const fail = ModifierUtils.dayMatchesModifier(new Date(2015, 8, 17), range);
-    expect(fail).to.be.true;
+    expect(fail).to.be.false;
   });
   it('returns a boolean for multiple ranges of days', () => {
     const ranges = [
@@ -167,7 +167,7 @@ describe('dayMatchesModifier', () => {
       new Date(2016, 8, 15),
       mixedModifiers
     );
-    expect(fail).to.be.true;
+    expect(fail).to.be.false;
   });
   it('works even without modifiers', () => {
     const match = ModifierUtils.dayMatchesModifier(new Date(2015, 8, 19));
