@@ -3616,7 +3616,14 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-mocha-junit-reporter@^1.13.0:
+mocha-circleci-reporter@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/mocha-circleci-reporter/-/mocha-circleci-reporter-0.0.2.tgz#6cbb3f1a1911ce2365e79461a156370b63790c7e"
+  dependencies:
+    mocha "^3.0.0"
+    mocha-junit-reporter "^1.12.0"
+
+mocha-junit-reporter@^1.12.0, mocha-junit-reporter@^1.13.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/mocha-junit-reporter/-/mocha-junit-reporter-1.13.0.tgz#030db8c530b244667253b03861d4cd336f7e56c8"
   dependencies:
@@ -3625,7 +3632,7 @@ mocha-junit-reporter@^1.13.0:
     mkdirp "~0.5.1"
     xml "^1.0.0"
 
-mocha@3.2.0:
+mocha@3.2.0, mocha@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-3.2.0.tgz#7dc4f45e5088075171a68896814e6ae9eb7a85e3"
   dependencies:

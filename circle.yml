@@ -3,6 +3,7 @@ machine:
     version: 7.9.0
   environment:
     PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+    MOCHA_FILE: "$CIRCLE_TEST_REPORTS/test-results.xml"
 
 general:
   artifacts:
@@ -21,7 +22,7 @@ test:
   override:
     - yarn run lint -- --format junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint.xml
     - yarn run dtslint
-    - yarn run cover
+    - yarn run cover -- --reporter mocha-circleci-reporter
   post:
     - cp -R ./coverage $CIRCLE_ARTIFACTS
     - >
