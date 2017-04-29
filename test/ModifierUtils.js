@@ -167,7 +167,7 @@ describe('dayMatchesModifier', () => {
       new Date(2016, 8, 15),
       mixedModifiers
     );
-    expect(fail).to.be.false;
+    expect(fail).to.be.true;
   });
   it('works even without modifiers', () => {
     const match = ModifierUtils.dayMatchesModifier(new Date(2015, 8, 19));
