@@ -126,7 +126,7 @@ declare namespace DayPicker {
         localeUtils?: LocaleUtils;
         modifiers?: Partial<Modifiers>;
         modifiersStyles?: object;
-        month?: date;
+        month?: Date;
         months?: [string, string, string, string, string, string, string, string, string, string, string, string];
         navbarElement?: React.ReactElement<Partial<NavbarElementProps>> |
             React.ComponentClass<NavbarElementProps> |
