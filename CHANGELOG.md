@@ -1,3 +1,9 @@
+## [v5.4.0](https://github.com/gpbl/react-day-picker/tree/v5.4.0) (2016-04-29)
+
+* Expose [ModifiersUtils](http://react-day-picker.js.org/ModifiersUtils.html) functions ([#309](https://github.com/gpbl/react-day-picker/pull/309) by [cwmoo740](https://github.com/cwmoo740))
+
+  Use this set of functions if you need to validate or test your modifiers.
+
 ## [v5.3.0](https://github.com/gpbl/react-day-picker/tree/v5.3.0) (2016-04-25)
 
 * Include Typescript Type Definitions ([#303](https://github.com/gpbl/react-day-picker/pull/303))
