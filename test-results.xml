@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="1.8220000000000005" tests="211" failures="0">
+  <testsuite name="Root Suite" timestamp="2017-04-29T14:01:07" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="DateUtils" timestamp="2017-04-29T14:01:07" tests="0" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="addMonths" timestamp="2017-04-29T14:01:07" tests="3" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0.001">
+    <testcase name="DateUtils addMonths adds a month" time="0.001" classname="adds a month">
+    </testcase>
+    <testcase name="DateUtils addMonths should remove two months" time="0" classname="should remove two months">
+    </testcase>
+    <testcase name="DateUtils addMonths should add missing days to the next month" time="0" classname="should add missing days to the next month">
+    </testcase>
+  </testsuite>
+  <testsuite name="clone" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0">
+    <testcase name="DateUtils clone should clone a date" time="0" classname="should clone a date">
+    </testcase>
+  </testsuite>
+  <testsuite name="isDayBefore" timestamp="2017-04-29T14:01:07" tests="3" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0">
+    <testcase name="DateUtils isDayBefore returns true when the day is before the other day" time="0" classname="returns true when the day is before the other day">
+    </testcase>
+    <testcase name="DateUtils isDayBefore returns false for the same day with different times" time="0" classname="returns false for the same day with different times">
+    </testcase>
+    <testcase name="DateUtils isDayBefore returns false if the second day is after" time="0" classname="returns false if the second day is after">
+    </testcase>
+  </testsuite>
+  <testsuite name="isDayAfter" timestamp="2017-04-29T14:01:07" tests="3" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0">
+    <testcase name="DateUtils isDayAfter returns true when the day is after the other day" time="0" classname="returns true when the day is after the other day">
+    </testcase>
+    <testcase name="DateUtils isDayAfter returns false for the same day with different times" time="0" classname="returns false for the same day with different times">
+    </testcase>
+    <testcase name="DateUtils isDayAfter returns false if the second day is after" time="0" classname="returns false if the second day is after">
+    </testcase>
+  </testsuite>
+  <testsuite name="isSameDay" timestamp="2017-04-29T14:01:07" tests="3" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0">
+    <testcase name="DateUtils isSameDay returns true if two days differ only by time" time="0" classname="returns true if two days differ only by time">
+    </testcase>
+    <testcase name="DateUtils isSameDay returns false for different days" time="0" classname="returns false for different days">
+    </testcase>
+    <testcase name="DateUtils isSameDay returns false if one of the days is not specified" time="0" classname="returns false if one of the days is not specified">
+    </testcase>
+  </testsuite>
+  <testsuite name="isPastDay" timestamp="2017-04-29T14:01:07" tests="3" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0">
+    <testcase name="DateUtils isPastDay detects a day is in the past" time="0" classname="detects a day is in the past">
+    </testcase>
+    <testcase name="DateUtils isPastDay detects a day in the future" time="0" classname="detects a day in the future">
+    </testcase>
+    <testcase name="DateUtils isPastDay says today is not a past day" time="0" classname="says today is not a past day">
+    </testcase>
+  </testsuite>
+  <testsuite name="isFutureDay" timestamp="2017-04-29T14:01:07" tests="3" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0">
+    <testcase name="DateUtils isFutureDay detects a day is in the future" time="0" classname="detects a day is in the future">
+    </testcase>
+    <testcase name="DateUtils isFutureDay detects a day in the past" time="0" classname="detects a day in the past">
+    </testcase>
+    <testcase name="DateUtils isFutureDay says today is not a future day" time="0" classname="says today is not a future day">
+    </testcase>
+  </testsuite>
+  <testsuite name="isDayBetween" timestamp="2017-04-29T14:01:07" tests="2" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0">
+    <testcase name="DateUtils isDayBetween detects a day between two days" time="0" classname="detects a day between two days">
+    </testcase>
+    <testcase name="DateUtils isDayBetween strictly excludes the given days" time="0" classname="strictly excludes the given days">
+    </testcase>
+  </testsuite>
+  <testsuite name="addDayToRange" timestamp="2017-04-29T14:01:07" tests="7" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0.002">
+    <testcase name="DateUtils addDayToRange set the day as `from` day, if range is missing" time="0.001" classname="set the day as `from` day, if range is missing">
+    </testcase>
+    <testcase name="DateUtils addDayToRange set the day as `to` day, if `from` is set" time="0" classname="set the day as `to` day, if `from` is set">
+    </testcase>
+    <testcase name="DateUtils addDayToRange resets when selecting again the same from day" time="0" classname="resets when selecting again the same from day">
+    </testcase>
+    <testcase name="DateUtils addDayToRange replaces the first day if given day comes before it " time="0.001" classname="replaces the first day if given day comes before it ">
+    </testcase>
+    <testcase name="DateUtils addDayToRange set the range to the same day if last day is same as first" time="0" classname="set the range to the same day if last day is same as first">
+    </testcase>
+    <testcase name="DateUtils addDayToRange adds the day to the end of the range" time="0" classname="adds the day to the end of the range">
+    </testcase>
+    <testcase name="DateUtils addDayToRange works when last day comes before the first day" time="0" classname="works when last day comes before the first day">
+    </testcase>
+  </testsuite>
+  <testsuite name="isDayInRange" timestamp="2017-04-29T14:01:07" tests="3" file="/Users/giampaolo/Development/react-day-picker/test/DateUtils.js" failures="0" time="0">
+    <testcase name="DateUtils isDayInRange detects a day in a range" time="0" classname="detects a day in a range">
+    </testcase>
+    <testcase name="DateUtils isDayInRange detects a day in a range (inclusive)" time="0" classname="detects a day in a range (inclusive)">
+    </testcase>
+    <testcase name="DateUtils isDayInRange detects a day outside a range" time="0" classname="detects a day outside a range">
+    </testcase>
+  </testsuite>
+  <testsuite name="Helpers" timestamp="2017-04-29T14:01:07" tests="0" file="/Users/giampaolo/Development/react-day-picker/test/Helpers.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="cancelEvent" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/Helpers.js" failures="0" time="0.012">
+    <testcase name="Helpers cancelEvent should prevent default and stop propagation" time="0.012" classname="should prevent default and stop propagation">
+    </testcase>
+  </testsuite>
+  <testsuite name="getFirstDayOfWeekFromProps" timestamp="2017-04-29T14:01:07" tests="3" file="/Users/giampaolo/Development/react-day-picker/test/Helpers.js" failures="0" time="0.001">
+    <testcase name="Helpers getFirstDayOfWeekFromProps should return Sunday as default" time="0.001" classname="should return Sunday as default">
+    </testcase>
+    <testcase name="Helpers getFirstDayOfWeekFromProps should return the day from localeUtils first" time="0" classname="should return the day from localeUtils first">
+    </testcase>
+    <testcase name="Helpers getFirstDayOfWeekFromProps should return the day from a number" time="0" classname="should return the day from a number">
+    </testcase>
+  </testsuite>
+  <testsuite name="getDaysInMonth" timestamp="2017-04-29T14:01:07" tests="2" file="/Users/giampaolo/Development/react-day-picker/test/Helpers.js" failures="0" time="0">
+    <testcase name="Helpers getDaysInMonth get the correct number of days" time="0" classname="get the correct number of days">
+    </testcase>
+    <testcase name="Helpers getDaysInMonth get the correct number of days in a leap month" time="0" classname="get the correct number of days in a leap month">
+    </testcase>
+  </testsuite>
+  <testsuite name="getFirstDayOfMonth" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/Helpers.js" failures="0" time="0">
+    <testcase name="Helpers getFirstDayOfMonth get the first day of the month" time="0" classname="get the first day of the month">
+    </testcase>
+  </testsuite>
+  <testsuite name="getMonthsDiff" timestamp="2017-04-29T14:01:07" tests="5" file="/Users/giampaolo/Development/react-day-picker/test/Helpers.js" failures="0" time="0">
+    <testcase name="Helpers getMonthsDiff returns a positive difference between two days in the same year" time="0" classname="returns a positive difference between two days in the same year">
+    </testcase>
+    <testcase name="Helpers getMonthsDiff returns a positive difference between two days in different years" time="0" classname="returns a positive difference between two days in different years">
+    </testcase>
+    <testcase name="Helpers getMonthsDiff returns a negative difference between two days in the same year" time="0" classname="returns a negative difference between two days in the same year">
+    </testcase>
+    <testcase name="Helpers getMonthsDiff returns a negative difference between two days in different years" time="0" classname="returns a negative difference between two days in different years">
+    </testcase>
+    <testcase name="Helpers getMonthsDiff returns no difference between two days in the same month" time="0" classname="returns no difference between two days in the same month">
+    </testcase>
+  </testsuite>
+  <testsuite name="getWeekArray" timestamp="2017-04-29T14:01:07" tests="7" file="/Users/giampaolo/Development/react-day-picker/test/Helpers.js" failures="0" time="0.001">
+    <testcase name="Helpers getWeekArray works with a month starting on sunday (en)" time="0.001" classname="works with a month starting on sunday (en)">
+    </testcase>
+    <testcase name="Helpers getWeekArray adds days from the previous month to the first week (en)" time="0" classname="adds days from the previous month to the first week (en)">
+    </testcase>
+    <testcase name="Helpers getWeekArray adds days from the next month to the last week (en)" time="0" classname="adds days from the next month to the last week (en)">
+    </testcase>
+    <testcase name="Helpers getWeekArray adds days from the next month to the last week (it)" time="0" classname="adds days from the next month to the last week (it)">
+    </testcase>
+    <testcase name="Helpers getWeekArray returns 7 days per week when starting day is sunday" time="0" classname="returns 7 days per week when starting day is sunday">
+    </testcase>
+    <testcase name="Helpers getWeekArray returns 7 days per week when starting day is monday" time="0" classname="returns 7 days per week when starting day is monday">
+    </testcase>
+    <testcase name="Helpers getWeekArray returns 7 days per week when starting day is saturday" time="0" classname="returns 7 days per week when starting day is saturday">
+    </testcase>
+  </testsuite>
+  <testsuite name="isRangeOfDates" timestamp="2017-04-29T14:01:07" tests="2" file="/Users/giampaolo/Development/react-day-picker/test/Helpers.js" failures="0" time="0">
+    <testcase name="Helpers isRangeOfDates should detect a properly shaped object" time="0" classname="should detect a properly shaped object">
+    </testcase>
+    <testcase name="Helpers isRangeOfDates should detect not properly shaped objects" time="0" classname="should detect not properly shaped objects">
+    </testcase>
+  </testsuite>
+  <testsuite name="startOfMonth" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/Helpers.js" failures="0" time="0">
+    <testcase name="Helpers startOfMonth should set a date as start of its month" time="0" classname="should set a date as start of its month">
+    </testcase>
+  </testsuite>
+  <testsuite name="LocaleUtils" timestamp="2017-04-29T14:01:07" tests="0" file="/Users/giampaolo/Development/react-day-picker/test/LocaleUtils.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="formatMonthTitle" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/LocaleUtils.js" failures="0" time="0">
+    <testcase name="LocaleUtils formatMonthTitle returns month and day as string" time="0" classname="returns month and day as string">
+    </testcase>
+  </testsuite>
+  <testsuite name="formatWeekdayShort" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/LocaleUtils.js" failures="0" time="0">
+    <testcase name="LocaleUtils formatWeekdayShort returns the short day name as string" time="0" classname="returns the short day name as string">
+    </testcase>
+  </testsuite>
+  <testsuite name="formatWeekdayLong" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/LocaleUtils.js" failures="0" time="0">
+    <testcase name="LocaleUtils formatWeekdayLong returns the long day name as string" time="0" classname="returns the long day name as string">
+    </testcase>
+  </testsuite>
+  <testsuite name="getFirstDayOfWeek" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/LocaleUtils.js" failures="0" time="0">
+    <testcase name="LocaleUtils getFirstDayOfWeek returns sunday" time="0" classname="returns sunday">
+    </testcase>
+  </testsuite>
+  <testsuite name="getMonths" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/LocaleUtils.js" failures="0" time="0">
+    <testcase name="LocaleUtils getMonths return twelve months" time="0" classname="return twelve months">
+    </testcase>
+  </testsuite>
+  <testsuite name="dayMatchesModifier" timestamp="2017-04-29T14:01:07" tests="12" file="/Users/giampaolo/Development/react-day-picker/test/ModifierUtils.js" failures="0" time="0.001">
+    <testcase name="dayMatchesModifier returns a boolean for a single day" time="0" classname="returns a boolean for a single day">
+    </testcase>
+    <testcase name="dayMatchesModifier ignores falsy values" time="0" classname="ignores falsy values">
+    </testcase>
+    <testcase name="dayMatchesModifier returns a boolean for an array of days" time="0" classname="returns a boolean for an array of days">
+    </testcase>
+    <testcase name="dayMatchesModifier accepts an array of days ignoring falsy values" time="0" classname="accepts an array of days ignoring falsy values">
+    </testcase>
+    <testcase name="dayMatchesModifier returns a boolean for a range of days" time="0.001" classname="returns a boolean for a range of days">
+    </testcase>
+    <testcase name="dayMatchesModifier returns a boolean for multiple ranges of days" time="0" classname="returns a boolean for multiple ranges of days">
+    </testcase>
+    <testcase name="dayMatchesModifier returns a boolean for an &quot;after&quot; modifier" time="0" classname="returns a boolean for an &quot;after&quot; modifier">
+    </testcase>
+    <testcase name="dayMatchesModifier returns a boolean for an &quot;after&quot; modifier in array" time="0" classname="returns a boolean for an &quot;after&quot; modifier in array">
+    </testcase>
+    <testcase name="dayMatchesModifier returns a boolean for a &quot;before&quot; modifier" time="0" classname="returns a boolean for a &quot;before&quot; modifier">
+    </testcase>
+    <testcase name="dayMatchesModifier returns a boolean &quot;before&quot; modifier in an array of days" time="0" classname="returns a boolean &quot;before&quot; modifier in an array of days">
+    </testcase>
+    <testcase name="dayMatchesModifier works with mixing functions and other objects" time="0" classname="works with mixing functions and other objects">
+    </testcase>
+    <testcase name="dayMatchesModifier works even without modifiers" time="0" classname="works even without modifiers">
+    </testcase>
+  </testsuite>
+  <testsuite name="getModifiersForDay" timestamp="2017-04-29T14:01:07" tests="13" file="/Users/giampaolo/Development/react-day-picker/test/ModifierUtils.js" failures="0" time="0.002">
+    <testcase name="getModifiersForDay returns an array of modifiers" time="0.001" classname="returns an array of modifiers">
+    </testcase>
+    <testcase name="getModifiersForDay returns the modifier for a single day" time="0" classname="returns the modifier for a single day">
+    </testcase>
+    <testcase name="getModifiersForDay ignores falsy values" time="0" classname="ignores falsy values">
+    </testcase>
+    <testcase name="getModifiersForDay returns the modifier for an array of days" time="0" classname="returns the modifier for an array of days">
+    </testcase>
+    <testcase name="getModifiersForDay accepts an array of days ignoring falsy values" time="0" classname="accepts an array of days ignoring falsy values">
+    </testcase>
+    <testcase name="getModifiersForDay returns the modifier for a range of days" time="0" classname="returns the modifier for a range of days">
+    </testcase>
+    <testcase name="getModifiersForDay returns the modifier for multiple ranges of days" time="0" classname="returns the modifier for multiple ranges of days">
+    </testcase>
+    <testcase name="getModifiersForDay returns an &quot;after&quot; modifier" time="0" classname="returns an &quot;after&quot; modifier">
+    </testcase>
+    <testcase name="getModifiersForDay returns an &quot;after&quot; modifier in an array of days" time="0.001" classname="returns an &quot;after&quot; modifier in an array of days">
+    </testcase>
+    <testcase name="getModifiersForDay returns a &quot;before&quot; modifier" time="0" classname="returns a &quot;before&quot; modifier">
+    </testcase>
+    <testcase name="getModifiersForDay returns a &quot;before&quot; modifier in an array of days" time="0" classname="returns a &quot;before&quot; modifier in an array of days">
+    </testcase>
+    <testcase name="getModifiersForDay works with mixing functions and other objects" time="0" classname="works with mixing functions and other objects">
+    </testcase>
+    <testcase name="getModifiersForDay works even without modifiers" time="0" classname="works even without modifiers">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Navbar /&gt;" timestamp="2017-04-29T14:01:07" tests="12" file="/Users/giampaolo/Development/react-day-picker/test/Navbar.js" failures="0" time="0.024000000000000007">
+    <testcase name="&lt;Navbar /&gt; should have default props" time="0" classname="should have default props">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should have the right class name" time="0.006" classname="should have the right class name">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should render the aria labels for buttons" time="0.011" classname="should render the aria labels for buttons">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should render custom aria labels" time="0.002" classname="should render custom aria labels">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should have the navigation buttons classes" time="0.001" classname="should have the navigation buttons classes">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should invert buttons position for RTL" time="0" classname="should invert buttons position for RTL">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should not render the previous button" time="0.001" classname="should not render the previous button">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should not render the next button" time="0" classname="should not render the next button">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should call `onNextClick` when clicking the next button" time="0.001" classname="should call `onNextClick` when clicking the next button">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should call `onPreviousClick` when clicking the prev button" time="0.001" classname="should call `onPreviousClick` when clicking the prev button">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should call `onNextClick` when clicking the prev button for RTL" time="0" classname="should call `onNextClick` when clicking the prev button for RTL">
+    </testcase>
+    <testcase name="&lt;Navbar /&gt; should call `onPreviousClick` when clicking the next button for RTL" time="0.001" classname="should call `onPreviousClick` when clicking the next button for RTL">
+    </testcase>
+  </testsuite>
+  <testsuite name="MomentLocaleUtils" timestamp="2017-04-29T14:01:07" tests="0" file="/Users/giampaolo/Development/react-day-picker/test/addons/MomentLocaleUtils.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="formatDay" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/addons/MomentLocaleUtils.js" failures="0" time="0.003">
+    <testcase name="MomentLocaleUtils formatDay should return day as string" time="0.003" classname="should return day as string">
+    </testcase>
+  </testsuite>
+  <testsuite name="formatMonthTitle" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/addons/MomentLocaleUtils.js" failures="0" time="0">
+    <testcase name="MomentLocaleUtils formatMonthTitle should return month and day as string" time="0" classname="should return month and day as string">
+    </testcase>
+  </testsuite>
+  <testsuite name="formatWeekdayShort" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/addons/MomentLocaleUtils.js" failures="0" time="0.001">
+    <testcase name="MomentLocaleUtils formatWeekdayShort should return the short day name as string" time="0.001" classname="should return the short day name as string">
+    </testcase>
+  </testsuite>
+  <testsuite name="formatWeekdayLong" timestamp="2017-04-29T14:01:07" tests="1" file="/Users/giampaolo/Development/react-day-picker/test/addons/MomentLocaleUtils.js" failures="0" time="0">
+    <testcase name="MomentLocaleUtils formatWeekdayLong should return the long day name as string" time="0" classname="should return the long day name as string">
+    </testcase>
+  </testsuite>
+  <testsuite name="getFirstDayOfWeek" timestamp="2017-04-29T14:01:07" tests="2" file="/Users/giampaolo/Development/react-day-picker/test/addons/MomentLocaleUtils.js" failures="0" time="0">
+    <testcase name="MomentLocaleUtils getFirstDayOfWeek should return monday for it locale" time="0" classname="should return monday for it locale">
+    </testcase>
+    <testcase name="MomentLocaleUtils getFirstDayOfWeek should return sunday for en locale" time="0" classname="should return sunday for en locale">
+    </testcase>
+  </testsuite>
+  <testsuite name="getMonths" timestamp="2017-04-29T14:01:07" tests="2" file="/Users/giampaolo/Development/react-day-picker/test/addons/MomentLocaleUtils.js" failures="0" time="0.002">
+    <testcase name="MomentLocaleUtils getMonths return twelve months for it locale" time="0.001" classname="return twelve months for it locale">
+    </testcase>
+    <testcase name="MomentLocaleUtils getMonths return twelve months for default locale" time="0.001" classname="return twelve months for default locale">
+    </testcase>
+  </testsuite>
+  <testsuite name="DayPicker’s events handlers" timestamp="2017-04-29T14:01:07" tests="8" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/events.js" failures="0" time="0.252">
+    <testcase name="DayPicker’s events handlers should call the `onCaptionClick` handler" time="0.064" classname="should call the `onCaptionClick` handler">
+    </testcase>
+    <testcase name="DayPicker’s events handlers should call the day&apos;s cell event handlers" time="0.042" classname="should call the day&apos;s cell event handlers">
+    </testcase>
+    <testcase name="DayPicker’s events handlers should not call the day&apos;s cell event handlers for outside days" time="0.022" classname="should not call the day&apos;s cell event handlers for outside days">
+    </testcase>
+    <testcase name="DayPicker’s events handlers should call `onDayClick` event handler when pressing the ENTER key" time="0.03" classname="should call `onDayClick` event handler when pressing the ENTER key">
+    </testcase>
+    <testcase name="DayPicker’s events handlers should not call an undefined `onDayClick` event handler when pressing the ENTER key" time="0.027" classname="should not call an undefined `onDayClick` event handler when pressing the ENTER key">
+    </testcase>
+    <testcase name="DayPicker’s events handlers should call `onDayClick` event handler when pressing the SPACE key" time="0.027" classname="should call `onDayClick` event handler when pressing the SPACE key">
+    </testcase>
+    <testcase name="DayPicker’s events handlers should call `onKeyDown` event handler" time="0.017" classname="should call `onKeyDown` event handler">
+    </testcase>
+    <testcase name="DayPicker’s events handlers should call `onKeyDown` also when changing month is disabled" time="0.023" classname="should call `onKeyDown` also when changing month is disabled">
+    </testcase>
+  </testsuite>
+  <testsuite name="DayPicker’s localization" timestamp="2017-04-29T14:01:08" tests="5" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/localization.js" failures="0" time="0.08600000000000001">
+    <testcase name="DayPicker’s localization should use the months prop to localize the month names" time="0.016" classname="should use the months prop to localize the month names">
+    </testcase>
+    <testcase name="DayPicker’s localization should use the firstDayOfWeek prop to set the first day of the week" time="0.016" classname="should use the firstDayOfWeek prop to set the first day of the week">
+    </testcase>
+    <testcase name="DayPicker’s localization should use the weekdaysShort prop to localize the weekday names" time="0.024" classname="should use the weekdaysShort prop to localize the weekday names">
+    </testcase>
+    <testcase name="DayPicker’s localization should use the weekdaysLong prop to localize the weekday names" time="0.014" classname="should use the weekdaysLong prop to localize the weekday names">
+    </testcase>
+    <testcase name="DayPicker’s localization should render weekday labels accounting for locale settings" time="0.016" classname="should render weekday labels accounting for locale settings">
+    </testcase>
+  </testsuite>
+  <testsuite name="DayPicker’s methods" timestamp="2017-04-29T14:01:08" tests="0" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="showNextMonth()" timestamp="2017-04-29T14:01:08" tests="4" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0.04100000000000001">
+    <testcase name="DayPicker’s methods showNextMonth() should show the next month" time="0.004" classname="should show the next month">
+    </testcase>
+    <testcase name="DayPicker’s methods showNextMonth() should call the `onMonthChange` handler" time="0.035" classname="should call the `onMonthChange` handler">
+    </testcase>
+    <testcase name="DayPicker’s methods showNextMonth() should not show the next month if after `toMonth`" time="0.001" classname="should not show the next month if after `toMonth`">
+    </testcase>
+    <testcase name="DayPicker’s methods showNextMonth() should skip `numberOfMonths` months when `pagedNavigation`" time="0.001" classname="should skip `numberOfMonths` months when `pagedNavigation`">
+    </testcase>
+  </testsuite>
+  <testsuite name="showPreviousMonth()" timestamp="2017-04-29T14:01:08" tests="4" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0.034">
+    <testcase name="DayPicker’s methods showPreviousMonth() should show the previous month" time="0" classname="should show the previous month">
+    </testcase>
+    <testcase name="DayPicker’s methods showPreviousMonth() should call the `onMonthChange` handler" time="0.033" classname="should call the `onMonthChange` handler">
+    </testcase>
+    <testcase name="DayPicker’s methods showPreviousMonth() should not show the previous month if before `fromMonth`" time="0" classname="should not show the previous month if before `fromMonth`">
+    </testcase>
+    <testcase name="DayPicker’s methods showPreviousMonth() should skip `numberOfMonths` months when `pagedNavigation`" time="0.001" classname="should skip `numberOfMonths` months when `pagedNavigation`">
+    </testcase>
+  </testsuite>
+  <testsuite name="showNextYear()" timestamp="2017-04-29T14:01:08" tests="4" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0.04">
+    <testcase name="DayPicker’s methods showNextYear() should show the next year" time="0.001" classname="should show the next year">
+    </testcase>
+    <testcase name="DayPicker’s methods showNextYear() should call the `onMonthChange` handler" time="0.038" classname="should call the `onMonthChange` handler">
+    </testcase>
+    <testcase name="DayPicker’s methods showNextYear() should not show the next year if after `toMonth`" time="0" classname="should not show the next year if after `toMonth`">
+    </testcase>
+    <testcase name="DayPicker’s methods showNextYear() should not change the year if cannot change month" time="0.001" classname="should not change the year if cannot change month">
+    </testcase>
+  </testsuite>
+  <testsuite name="showPreviousYear()" timestamp="2017-04-29T14:01:08" tests="4" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0.038000000000000006">
+    <testcase name="DayPicker’s methods showPreviousYear() should show the previous year" time="0.002" classname="should show the previous year">
+    </testcase>
+    <testcase name="DayPicker’s methods showPreviousYear() should call the `onMonthChange` handler" time="0.034" classname="should call the `onMonthChange` handler">
+    </testcase>
+    <testcase name="DayPicker’s methods showPreviousYear() should not show the previous year if before `fromMonth`" time="0.001" classname="should not show the previous year if before `fromMonth`">
+    </testcase>
+    <testcase name="DayPicker’s methods showPreviousYear() should not change the year if cannot change month" time="0.001" classname="should not change the year if cannot change month">
+    </testcase>
+  </testsuite>
+  <testsuite name="showMonth()" timestamp="2017-04-29T14:01:08" tests="3" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0.002">
+    <testcase name="DayPicker’s methods showMonth() should show the specified month" time="0.001" classname="should show the specified month">
+    </testcase>
+    <testcase name="DayPicker’s methods showMonth() should not change month if after `toMonth`" time="0" classname="should not change month if after `toMonth`">
+    </testcase>
+    <testcase name="DayPicker’s methods showMonth() should not change month if before `fromMonth`" time="0.001" classname="should not change month if before `fromMonth`">
+    </testcase>
+  </testsuite>
+  <testsuite name="focus methods" timestamp="2017-04-29T14:01:08" tests="0" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="focusPreviousDay()" timestamp="2017-04-29T14:01:08" tests="3" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0.037">
+    <testcase name="DayPicker’s methods focus methods focusPreviousDay() should focus on the previous day of the current month" time="0.009" classname="should focus on the previous day of the current month">
+    </testcase>
+    <testcase name="DayPicker’s methods focus methods focusPreviousDay() should focus on the last day of the previous week" time="0.002" classname="should focus on the last day of the previous week">
+    </testcase>
+    <testcase name="DayPicker’s methods focus methods focusPreviousDay() should focus on the last day of the previous month" time="0.026" classname="should focus on the last day of the previous month">
+    </testcase>
+  </testsuite>
+  <testsuite name="focusNextDay()" timestamp="2017-04-29T14:01:08" tests="4" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0.04">
+    <testcase name="DayPicker’s methods focus methods focusNextDay() should focus on the next day of the current month" time="0.001" classname="should focus on the next day of the current month">
+    </testcase>
+    <testcase name="DayPicker’s methods focus methods focusNextDay() should focus on the first day of the next week" time="0" classname="should focus on the first day of the next week">
+    </testcase>
+    <testcase name="DayPicker’s methods focus methods focusNextDay() should focus on the first day of the next month" time="0.014" classname="should focus on the first day of the next month">
+    </testcase>
+    <testcase name="DayPicker’s methods focus methods focusNextDay() should focus the first day of the next month after leapday" time="0.025" classname="should focus the first day of the next month after leapday">
+    </testcase>
+  </testsuite>
+  <testsuite name="focusNextWeek()" timestamp="2017-04-29T14:01:08" tests="2" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0.032">
+    <testcase name="DayPicker’s methods focus methods focusNextWeek() should focus on the same day of the next week" time="0.001" classname="should focus on the same day of the next week">
+    </testcase>
+    <testcase name="DayPicker’s methods focus methods focusNextWeek() should focus on the same day of the next week in the next month" time="0.031" classname="should focus on the same day of the next week in the next month">
+    </testcase>
+  </testsuite>
+  <testsuite name="focusPreviousWeek()" timestamp="2017-04-29T14:01:08" tests="2" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/methods.js" failures="0" time="0.026">
+    <testcase name="DayPicker’s methods focus methods focusPreviousWeek() should focus on the same day of the previous week" time="0" classname="should focus on the same day of the previous week">
+    </testcase>
+    <testcase name="DayPicker’s methods focus methods focusPreviousWeek() should focus on the same day of the previous week in the previous month" time="0.026" classname="should focus on the same day of the previous week in the previous month">
+    </testcase>
+  </testsuite>
+  <testsuite name="DayPicker’s day modifiers" timestamp="2017-04-29T14:01:08" tests="9" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/modifiers.js" failures="0" time="0.144">
+    <testcase name="DayPicker’s day modifiers should use `selectedDays` prop as `selected` modifier" time="0.013" classname="should use `selectedDays` prop as `selected` modifier">
+    </testcase>
+    <testcase name="DayPicker’s day modifiers should have `red` background style on `foo` modified days" time="0.02" classname="should have `red` background style on `foo` modified days">
+    </testcase>
+    <testcase name="DayPicker’s day modifiers should add the `aria-selected` attribute for `selected` days" time="0.014" classname="should add the `aria-selected` attribute for `selected` days">
+    </testcase>
+    <testcase name="DayPicker’s day modifiers should use `disabledDays` prop as `selected` modifier" time="0.014" classname="should use `disabledDays` prop as `selected` modifier">
+    </testcase>
+    <testcase name="DayPicker’s day modifiers should add the `aria-disabled` attribute for `disabled` days" time="0.014" classname="should add the `aria-disabled` attribute for `disabled` days">
+    </testcase>
+    <testcase name="DayPicker’s day modifiers should include &quot;outside&quot; for outside days" time="0.014" classname="should include &quot;outside&quot; for outside days">
+    </testcase>
+    <testcase name="DayPicker’s day modifiers should include &quot;today&quot;" time="0.02" classname="should include &quot;today&quot;">
+    </testcase>
+    <testcase name="DayPicker’s day modifiers should add custom modifiers" time="0.017" classname="should add custom modifiers">
+    </testcase>
+    <testcase name="DayPicker’s day modifiers should show &quot;today&quot; as something other than the current day" time="0.018" classname="should show &quot;today&quot; as something other than the current day">
+    </testcase>
+  </testsuite>
+  <testsuite name="DayPicker’s navigation" timestamp="2017-04-29T14:01:08" tests="19" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/navigation.js" failures="0" time="0.3620000000000001">
+    <testcase name="DayPicker’s navigation should not allow the previous month when the first month is the first allowed one" time="0.001" classname="should not allow the previous month when the first month is the first allowed one">
+    </testcase>
+    <testcase name="DayPicker’s navigation should not allow the previous month when cannot change months" time="0.001" classname="should not allow the previous month when cannot change months">
+    </testcase>
+    <testcase name="DayPicker’s navigation should not allow the next month when the last month is the last allowed one" time="0" classname="should not allow the next month when the last month is the last allowed one">
+    </testcase>
+    <testcase name="DayPicker’s navigation should not allow the next month when cannot change months" time="0.001" classname="should not allow the next month when cannot change months">
+    </testcase>
+    <testcase name="DayPicker’s navigation should show the next month when clicking the next button" time="0.031" classname="should show the next month when clicking the next button">
+    </testcase>
+    <testcase name="DayPicker’s navigation should show the next month when clicking outside days" time="0.035" classname="should show the next month when clicking outside days">
+    </testcase>
+    <testcase name="DayPicker’s navigation should show the previous month when clicking the previous button" time="0.037" classname="should show the previous month when clicking the previous button">
+    </testcase>
+    <testcase name="DayPicker’s navigation should show the previous month when clicking outside days" time="0.027" classname="should show the previous month when clicking outside days">
+    </testcase>
+    <testcase name="DayPicker’s navigation should not show the previous month when clicking outside days from the first month out of 2" time="0.027" classname="should not show the previous month when clicking outside days from the first month out of 2">
+    </testcase>
+    <testcase name="DayPicker’s navigation should not allow changing to the year when cannot change months" time="0.001" classname="should not allow changing to the year when cannot change months">
+    </testcase>
+    <testcase name="DayPicker’s navigation should call `showNextMonth()` when the RIGHT key is pressed" time="0.04" classname="should call `showNextMonth()` when the RIGHT key is pressed">
+    </testcase>
+    <testcase name="DayPicker’s navigation should call `showPreviousMonth()` when the LEFT key is pressed" time="0.025" classname="should call `showPreviousMonth()` when the LEFT key is pressed">
+    </testcase>
+    <testcase name="DayPicker’s navigation should call `showPreviousYear()` when the UP key is pressed" time="0.029" classname="should call `showPreviousYear()` when the UP key is pressed">
+    </testcase>
+    <testcase name="DayPicker’s navigation should call `showNextYear()` when the DOWN key is pressed" time="0.023" classname="should call `showNextYear()` when the DOWN key is pressed">
+    </testcase>
+    <testcase name="DayPicker’s navigation should call `focusNextDay()` when the RIGHT key is pressed on a day" time="0.026" classname="should call `focusNextDay()` when the RIGHT key is pressed on a day">
+    </testcase>
+    <testcase name="DayPicker’s navigation should call `focusPreviousDay()` when the LEFT key is pressed on a day" time="0.027" classname="should call `focusPreviousDay()` when the LEFT key is pressed on a day">
+    </testcase>
+    <testcase name="DayPicker’s navigation should call `focusNextWeek()` when the DOWN key is pressed on a day" time="0.015" classname="should call `focusNextWeek()` when the DOWN key is pressed on a day">
+    </testcase>
+    <testcase name="DayPicker’s navigation should call `focusPreviousWeek()` when the UP key is pressed on a day" time="0.015" classname="should call `focusPreviousWeek()` when the UP key is pressed on a day">
+    </testcase>
+    <testcase name="DayPicker’s navigation should set the current month to the first month in its page if fromMonth is set" time="0.001" classname="should set the current month to the first month in its page if fromMonth is set">
+    </testcase>
+  </testsuite>
+  <testsuite name="with custom classNames" timestamp="2017-04-29T14:01:09" tests="4" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/navigation.js" failures="0" time="0.085">
+    <testcase name="DayPicker’s navigation with custom classNames should call `focusNextDay()` when the RIGHT key is pressed on a day" time="0.018" classname="should call `focusNextDay()` when the RIGHT key is pressed on a day">
+    </testcase>
+    <testcase name="DayPicker’s navigation with custom classNames should call `focusPreviousDay()` when the LEFT key is pressed on a day" time="0.035" classname="should call `focusPreviousDay()` when the LEFT key is pressed on a day">
+    </testcase>
+    <testcase name="DayPicker’s navigation with custom classNames should call `focusNextWeek()` when the DOWN key is pressed on a day" time="0.015" classname="should call `focusNextWeek()` when the DOWN key is pressed on a day">
+    </testcase>
+    <testcase name="DayPicker’s navigation with custom classNames should call `focusPreviousWeek()` when the UP key is pressed on a day" time="0.017" classname="should call `focusPreviousWeek()` when the UP key is pressed on a day">
+    </testcase>
+  </testsuite>
+  <testsuite name="DayPicker’s rendering" timestamp="2017-04-29T14:01:09" tests="33" file="/Users/giampaolo/Development/react-day-picker/test/daypicker/rendering.js" failures="0" time="0.5530000000000003">
+    <testcase name="DayPicker’s rendering should have default props" time="0" classname="should have default props">
+    </testcase>
+    <testcase name="DayPicker’s rendering should have the right CSS classes and attributes" time="0.011" classname="should have the right CSS classes and attributes">
+    </testcase>
+    <testcase name="DayPicker’s rendering should use `initialMonth` as the current month" time="0" classname="should use `initialMonth` as the current month">
+    </testcase>
+    <testcase name="DayPicker’s rendering should use `month` as the current month instead of `initialMonth`" time="0.001" classname="should use `month` as the current month instead of `initialMonth`">
+    </testcase>
+    <testcase name="DayPicker’s rendering should update the current month when `month` is updated" time="0.024" classname="should update the current month when `month` is updated">
+    </testcase>
+    <testcase name="DayPicker’s rendering should not do anything when other props are updated" time="0.018" classname="should not do anything when other props are updated">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render multiple months" time="0.153" classname="should render multiple months">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render multiple months, reversed" time="0.022" classname="should render multiple months, reversed">
+    </testcase>
+    <testcase name="DayPicker’s rendering should not include the interactionDisabled CSS modifier" time="0" classname="should not include the interactionDisabled CSS modifier">
+    </testcase>
+    <testcase name="DayPicker’s rendering should include the given className" time="0.001" classname="should include the given className">
+    </testcase>
+    <testcase name="DayPicker’s rendering should have the application role" time="0.008" classname="should have the application role">
+    </testcase>
+    <testcase name="DayPicker’s rendering should use the given tabIndex" time="0.008" classname="should use the given tabIndex">
+    </testcase>
+    <testcase name="DayPicker’s rendering should spread props to the container" time="0.01" classname="should spread props to the container">
+    </testcase>
+    <testcase name="DayPicker’s rendering should handle focus and blur events" time="0.02" classname="should handle focus and blur events">
+    </testcase>
+    <testcase name="DayPicker’s rendering should include the navigation bar" time="0.01" classname="should include the navigation bar">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render the aria labels" time="0.009" classname="should render the aria labels">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render the day cells" time="0.007" classname="should render the day cells">
+    </testcase>
+    <testcase name="DayPicker’s rendering should skip the navigation bar if can&apos;t change month" time="0.007" classname="should skip the navigation bar if can&apos;t change month">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom content for the cell" time="0.009" classname="should render a custom content for the cell">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom number of months" time="0.019" classname="should render a custom number of months">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom caption element" time="0.028" classname="should render a custom caption element">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom caption element as a function" time="0.016" classname="should render a custom caption element as a function">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom caption element as a class" time="0.015" classname="should render a custom caption element as a class">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom navbar element" time="0.018" classname="should render a custom navbar element">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom navbar element as a function" time="0.014" classname="should render a custom navbar element as a function">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom navbar element as a class" time="0.018" classname="should render a custom navbar element as a class">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom weekday element" time="0.016" classname="should render a custom weekday element">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom weekday element as a function" time="0.021" classname="should render a custom weekday element as a function">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render a custom weekday element as a class" time="0.014" classname="should render a custom weekday element as a class">
+    </testcase>
+    <testcase name="DayPicker’s rendering should not render the outside days" time="0.013" classname="should not render the outside days">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render the outside days" time="0.014" classname="should render the outside days">
+    </testcase>
+    <testcase name="DayPicker’s rendering should render the fixed amount of weeks" time="0.017" classname="should render the fixed amount of weeks">
+    </testcase>
+    <testcase name="DayPicker’s rendering should use the specified class names" time="0.012" classname="should use the specified class names">
+    </testcase>
+  </testsuite>
+</testsuites>
