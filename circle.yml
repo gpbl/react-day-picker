@@ -10,6 +10,8 @@ general:
     - ./coverage
 
 dependencies:
+  pre:
+    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
   override:
     - yarn
   cache_directories:
