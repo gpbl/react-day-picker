@@ -4,6 +4,8 @@ machine:
   environment:
     PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
     MOCHA_FILE: "$CIRCLE_TEST_REPORTS/test-results.xml"
+    COVERALLS_REPO_TOKEN: "$COVERALLS_REPO_TOKEN"
+    COVERALLS_PARALLEL: true
 
 general:
   artifacts:
@@ -38,3 +40,7 @@ deployment:
     commands:
       - yarn run build
       - yarn run docs:publish
+
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook?repo_token=$COVERALLS_REPO_TOKEN
