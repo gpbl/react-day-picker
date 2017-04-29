@@ -12,7 +12,6 @@ general:
 dependencies:
   override:
     - yarn
-    - yarn global add codeclimate-test-reporter
   cache_directories:
     - ~/.cache/yarn
 
@@ -27,7 +26,7 @@ test:
     - cp -R ./coverage $CIRCLE_ARTIFACTS
     - >
       CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN
-      codeclimate-test-reporter < ./coverage/lcov.info
+      ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info
 
 deployment:
   hub-master:

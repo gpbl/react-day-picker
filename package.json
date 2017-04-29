@@ -78,6 +78,7 @@
     "chai": "3.5.0",
     "chai-enzyme": "0.6.1",
     "cheerio": "0.22.0",
+    "codeclimate-test-reporter": "^0.4.1",
     "coveralls": "2.13.0",
     "dtslint": "^0.1.2",
     "enzyme": "2.8.2",
