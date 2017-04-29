@@ -11,7 +11,7 @@ general:
 dependencies:
   override:
     - yarn
-    - yarn global install codeclimate-test-reporter
+    - yarn global add codeclimate-test-reporter
   cache_directories:
     - ~/.cache/yarn
 
