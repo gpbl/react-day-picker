@@ -28,12 +28,14 @@ test:
     - ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info
 
 deployment:
-  hub-master:
+  master:
     branch: master
     commands:
       - yarn run build
-  release:
-    tag: /v.*/
+      - yarn run docs:publish
+  npm:
+    tag: /v[0-9]+(\.[0-9]+)*/
     commands:
       - yarn run build
       - yarn run docs:publish
+      - npm publish
