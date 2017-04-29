@@ -35,7 +35,9 @@ deployment:
     commands:
       - yarn run build
       - >
-        cd examples && yarn && cd ..
+        cd examples
+        yarn
+        cd ..
         yarn run docs:publish
   npm:
     tag: /v[0-9]+(\.[0-9]+)*/
@@ -43,6 +45,8 @@ deployment:
       - yarn run build
       - npm publish
       - >
-        cd examples && yarn && cd ..
+        cd examples
+        yarn
+        cd ..
         yarn run docs:publish
       
