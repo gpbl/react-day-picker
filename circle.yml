@@ -34,7 +34,6 @@ deployment:
     branch: master
     commands:
       - yarn run build # make sure build works
-      - cd examples && yarn && cd .. && yarn run docs:publish
   npm:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:
