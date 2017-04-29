@@ -17,7 +17,8 @@ dependencies:
 
 test:
   pre:
-    - yarn run lint
+    - mkdir -p $CIRCLE_TEST_REPORTS/reports
+    - yarn run lint --format junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint.xml
     - yarn run dtslint
   override:
     - >
