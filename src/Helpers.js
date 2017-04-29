@@ -1,6 +1,4 @@
-import {
-  clone
-} from './DateUtils';
+import { clone } from './DateUtils';
 import { getFirstDayOfWeek } from './LocaleUtils';
 
 export function cancelEvent(e) {

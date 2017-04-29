@@ -3,6 +3,7 @@
   "plugins": ["react"],
   "extends": ["airbnb", "prettier"],
   "rules": {
+    "no-console": ["error", { "allow": ["warn", "error"] }],
     "import/named": 2,
     "react/jsx-filename-extension": 0,
     "react/require-default-props": 0
