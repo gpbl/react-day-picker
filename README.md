@@ -23,8 +23,6 @@ Check out the [examples](http://react-day-picker.js.org/examples) to see its fea
 
 ## Quick start
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/gpbl/react-day-picker.svg)](https://greenkeeper.io/)
-
 **Add the dependency to your project**
 
 ```bash
