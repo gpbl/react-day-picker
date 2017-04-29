@@ -2,14 +2,14 @@ import { isDayAfter, isDayBefore, isDayInRange, isSameDay } from './DateUtils';
 import { isRangeOfDates } from './Helpers';
 
 /**
- * Return true if a date matches the specified modifier.
+ * Return `true` if a date matches the specified modifier.
  * 
  * @export
- * @param {Date} d 
+ * @param {Date} day
  * @param {Any} modifier 
  * @return {Boolean}
  */
-export function dayMatchesModifier(d, modifier) {
+export function dayMatchesModifier(day, modifier) {
   if (!modifier) {
     return false;
   }
@@ -19,19 +19,19 @@ export function dayMatchesModifier(d, modifier) {
       return false;
     }
     if (mod instanceof Date) {
-      return isSameDay(d, mod);
+      return isSameDay(day, mod);
     }
     if (isRangeOfDates(mod)) {
-      return isDayInRange(d, mod);
+      return isDayInRange(day, mod);
     }
     if (mod.after) {
-      return isDayAfter(d, mod.after);
+      return isDayAfter(day, mod.after);
     }
     if (mod.before) {
-      return isDayBefore(d, mod.before);
+      return isDayBefore(day, mod.before);
     }
     if (typeof mod === 'function') {
-      return mod(d);
+      return mod(day);
     }
     return false;
   });
