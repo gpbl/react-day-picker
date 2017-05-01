@@ -18,11 +18,13 @@ jobs:
             - "/usr/local/share/.cache/yarn"
             - "./node_modules"
       - run: mkdir -p reports
-      - run: yarn run lint -- --format junit --output-file reports/eslint.xml
-      - run: yarn run dtslint
-      - run: yarn run cover -- --reporter mocha-circleci-reporter
-      - run: yarn run codeclimate < ./coverage/lcov.info
-      - run: yarn run coveralls < ./coverage/lcov.info
+      - run: |
+          yarn run lint -- --format junit --output-file reports/eslint.xml
+          yarn run dtslint
+          yarn run cover -- --reporter mocha-circleci-reporter
+      - run: |
+          yarn run codeclimate < ./coverage/lcov.info
+          yarn run coveralls < ./coverage/lcov.info
       - store_test_results:
           path: reports/
 deployment:
