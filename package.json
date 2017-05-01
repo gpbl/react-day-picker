@@ -93,7 +93,7 @@
     "gitbook-cli": "2.3.0",
     "husky": "0.13.3",
     "istanbul": "1.1.0-alpha.1",
-    "jsdom": "10.0.0",
+    "jsdom": "10.1.0",
     "lint-staged": "3.4.1",
     "mocha": "3.3.0",
     "mocha-circleci-reporter": "^0.0.2",
