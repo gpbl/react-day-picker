@@ -22,7 +22,7 @@ jobs:
       - run: yarn run dtslint
       - run: yarn run cover -- --reporter mocha-circleci-reporter
       - run: yarn run codeclimate < ./coverage/lcov.info
-      - run: yarn run circleci < ./coverage/lcov.info
+      - run: yarn run coveralls < ./coverage/lcov.info
       - store_test_results:
           path: reports/
 deployment:
