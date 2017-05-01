@@ -1,34 +1,30 @@
-machine:
-  node:
-    version: 7.9.0
-  environment:
-    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
-    MOCHA_FILE: "$CIRCLE_TEST_REPORTS/test-results.xml"
-
-general:
-  artifacts:
-    - ./coverage
-
-dependencies:
-  pre:
-    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-  override:
-    - yarn
-  cache_directories:
-    - ~/.cache/yarn
-
-test:
-  pre:
-    - mkdir -p $CIRCLE_TEST_REPORTS/reports
-  override:
-    - yarn run lint -- --format junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint.xml
-    - yarn run dtslint
-    - yarn run cover -- --reporter mocha-circleci-reporter
-  post:
-    - cp -R ./coverage $CIRCLE_ARTIFACTS
-    - ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info
-    - ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info
-
+version: 2
+jobs:
+  build:
+    working_directory: /react-day-picker
+    docker:
+      - image: node:7.9.0
+        environment:
+          MOCHA_FILE: "reports/test-results.xml"
+  
+    steps:
+      - checkout
+      - restore_cache:
+          key: yarn-{{ checksum "yarn.lock" }}
+      - run: yarn --pure-lockfile
+      - save_cache:
+          key: yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - "/usr/local/share/.cache/yarn"
+            - "./node_modules"
+      - run: mkdir -p reports
+      - run: yarn run lint -- --format junit --output-file reports/eslint.xml
+      - run: yarn run dtslint
+      - run: yarn run cover -- --reporter mocha-circleci-reporter
+      - run: yarn run codeclimate < ./coverage/lcov.info
+      - run: yarn run circleci < ./coverage/lcov.info
+      - store_test_results:
+          path: reports/
 deployment:
   master:
     branch: master
@@ -39,4 +35,3 @@ deployment:
     commands:
       - yarn run build
       - npm publish
-      
