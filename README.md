@@ -40,7 +40,7 @@ Include the component without installing:
 <script src="https://unpkg.com/react-day-picker/daypicker.min.js"></script>
 ```
 
-See this [jsfiddle](https://jsfiddle.net/gpbl/fordjxht/6) as example.
+See this [jsfiddle](https://jsfiddle.net/gpbl/cggxvq6t/) as example.
 
 **Using bower**
 
@@ -62,29 +62,26 @@ function sundays(day) {
 
 class MyComponent extends React.Component {
   state = {
-    selectedDay: new Date(),
-  }
-  handleDayClick = (day, { disabled, selected }) => {
-    if (disabled) {
-      return;
-    }
-    this.setState({ 
-      selectedDay: selected ? null : day 
-    })
-  },
+    selectedDay: undefined,
+  };
+  handleDayClick = (day, { selected }) => {
+    this.setState({
+      selectedDay: selected ? undefined : day,
+    });
+  };
   render() {
     return (
       <DayPicker
-        initialMonth={ new Date(2017, 1) }
-        disabledDays={ sundays }
-        selectedDays={ this.state.selectedDay }
-        onDayClick={ this.handleDayClick }
-    />);
+        disabledDays={sundays}
+        selectedDays={this.state.selectedDay}
+        onDayClick={this.handleDayClick}
+      />
+    );
   }
 }
 ```
 
-See [Basic usage](http://react-day-picker.js.org/Basic.html) for a deeper explanation of the example above.
+See [this running example](http://react-day-picker.js.org/examples/?disabled) and read [basic usage](http://react-day-picker.js.org/Basic.html) for a deeper explanation of the example above.
 
 ### Docs and examples
 
@@ -101,9 +98,10 @@ See [Basic usage](http://react-day-picker.js.org/Basic.html) for a deeper explan
 
 ### Get support
 
-* Tag with `react-day-picker` your questions on [Stack Overflow](http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest)
+Fork [https://jsfiddle.net/gpbl/cggxvq6t](https://jsfiddle.net/gpbl/cggxvq6t) to reproduce your problem.
+
+* Ask on on [Stack Overflow](http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest)  (tag your question with `react-day-picker`)
 * Join the [Gitter room](https://gitter.im/gpbl/react-day-picker) for immediate help
-* **Tip:** Fork https://jsfiddle.net/gpbl/fordjxht/6 to help us reproducing your problem
 
 ### Contribute
 
