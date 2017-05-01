@@ -1,4 +1,4 @@
-## [v5.4.0](https://github.com/gpbl/react-day-picker/tree/v5.4.0) (2016-04-29)
+## [v5.4.1](https://github.com/gpbl/react-day-picker/tree/v5.4.1) (2016-04-29)
 
 * Expose [ModifiersUtils](http://react-day-picker.js.org/ModifiersUtils.html) functions ([#309](https://github.com/gpbl/react-day-picker/pull/309) by [cwmoo740](https://github.com/cwmoo740))
 
