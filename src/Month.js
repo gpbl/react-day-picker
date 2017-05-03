@@ -49,11 +49,7 @@ export default function Month({
       />
       <div className={classNames.body} role="rowgroup">
         {weeks.map(week => (
-          <div
-            key={week[0].getTime()}
-            className={classNames.week}
-            role="row"
-          >
+          <div key={week[0].getTime()} className={classNames.week} role="row">
             {week.map(day => children(day, month))}
           </div>
         ))}
