@@ -1,10 +1,14 @@
-## [v5.4.1](https://github.com/gpbl/react-day-picker/tree/v5.4.1) (2016-04-29)
+### [v5.4.2](https://github.com/gpbl/react-day-picker/tree/v5.4.2) (2017-05-03)
+
+* Bugfix: `aria` role in Week element ([#322](https://github.com/gpbl/react-day-picker/pull/322) by [emily-plummer](https://github.com/emily-plummer))
+
+## [v5.4.1](https://github.com/gpbl/react-day-picker/tree/v5.4.1) (2017-04-29)
 
 * Expose [ModifiersUtils](http://react-day-picker.js.org/ModifiersUtils.html) functions ([#309](https://github.com/gpbl/react-day-picker/pull/309) by [cwmoo740](https://github.com/cwmoo740))
 
   Use this set of functions if you need to validate or test your modifiers.
 
-## [v5.3.0](https://github.com/gpbl/react-day-picker/tree/v5.3.0) (2016-04-25)
+## [v5.3.0](https://github.com/gpbl/react-day-picker/tree/v5.3.0) (2017-04-25)
 
 * Include Typescript Type Definitions ([#303](https://github.com/gpbl/react-day-picker/pull/303))
 * Add a new [`modifiersStyles`](http://react-day-picker.js.org/APIProps.html#modifiersstyles) prop to add inline style to the days matching the given modifiers (see [`example`](http://react-day-picker.js.org/APIProps.html#modifiersstyles)).
@@ -15,23 +19,23 @@
 * Functions were not considered in arrays of modifiers ([#301](https://github.com/gpbl/react-day-picker/pull/301))
 * Fixes possible issues when comparing days with different timezones ([#307](https://github.com/gpbl/react-day-picker/pull/307))
 
-### [v5.2.3](https://github.com/gpbl/react-day-picker/tree/v5.2.3) (2016-04-14)
+### [v5.2.3](https://github.com/gpbl/react-day-picker/tree/v5.2.3) (2017-04-14)
 
 * Fixed `PropTypes` warnings in React 15.5.
 
-## [v5.2.0](https://github.com/gpbl/react-day-picker/tree/v5.2.0) (2016-03-09)
+## [v5.2.0](https://github.com/gpbl/react-day-picker/tree/v5.2.0) (2017-03-09)
 
 * Allow overriding `today` modifier ([#279](https://github.com/gpbl/react-day-picker/pull/279) by [maxdubrinsky](https://github.com/maxdubrinsky))
 * Pass React Components to [`navBarElement`](http://react-day-picker.js.org/APIProps.html#navBarElement), [`captionElement`](http://react-day-picker.js.org/APIProps.html#captionElement), [`weekdayElement`](http://react-day-picker.js.org/APIProps.html#weekdayElement) ([#280](https://github.com/gpbl/react-day-picker/pull/280) by [cwmoo740](https://github.com/cwmoo740))
 
 * Fixed `aria` roles for weekdays and months HTML elements ([#276](https://github.com/gpbl/react-day-picker/pull/276) by [oigewan](https://github.com/oigewan))
 
-### [v5.1.2](https://github.com/gpbl/react-day-picker/tree/v5.1.2) (2016-03-03)
+### [v5.1.2](https://github.com/gpbl/react-day-picker/tree/v5.1.2) (2017-03-03)
 
 * Fix an issue with keyboard navigation when using `classNames` prop ([#269](https://github.com/gpbl/react-day-picker/pull/269) by [oigewan](https://github.com/oigewan), [#275](https://github.com/gpbl/react-day-picker/pull/275))
 * Fix installation issue with bower 
 
-## [v5.1.1](https://github.com/gpbl/react-day-picker/tree/v5.1.1) (2016-03-03)
+## [v5.1.1](https://github.com/gpbl/react-day-picker/tree/v5.1.1) (2017-03-03)
 
 * New [`classNames`](http://react-day-picker.js.org/APIProps.html#classnames) prop ([#264](https://github.com/gpbl/react-day-picker/issues/264)). 
   
