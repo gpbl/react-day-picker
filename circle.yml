@@ -1,4 +1,8 @@
 version: 2
+branches:
+  ignore:
+    - gh-pages
+    
 jobs:
   build:
     working_directory: /react-day-picker
