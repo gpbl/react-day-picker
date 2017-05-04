@@ -110,7 +110,7 @@
     "sinon": "2.2.0",
     "sinon-chai": "2.10.0",
     "typescript": "^2.2.2",
-    "webpack": "2.4.1"
+    "webpack": "2.5.0"
   },
   "dependencies": {
     "prop-types": "^15.5.8"
