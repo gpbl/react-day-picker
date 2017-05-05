@@ -161,6 +161,7 @@ export default class Examples extends Component {
 
   componentDidMount() {
     this.unlistenHistory = history.listen(this.handleHistoryChange);
+    Prism.highlightAll();
   }
 
   componentDidUpdate() {
