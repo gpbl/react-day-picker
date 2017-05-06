@@ -1,3 +1,7 @@
+### [v5.4.3](https://github.com/gpbl/react-day-picker/tree/v5.4.3) (2017-05-06)
+
+* Bugfix: `isBeforeDay`/`isAfterDay` functions where not exported correctly ([#327](https://github.com/gpbl/react-day-picker/pull/327))
+
 ### [v5.4.2](https://github.com/gpbl/react-day-picker/tree/v5.4.2) (2017-05-03)
 
 * Bugfix: `aria` role in Week element ([#322](https://github.com/gpbl/react-day-picker/pull/322) by [emily-plummer](https://github.com/emily-plummer))
