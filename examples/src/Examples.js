@@ -14,7 +14,6 @@ import CustomElements from './examples/CustomElements';
 import CSSModules from './examples/CSSModules';
 import FixedWeeks from './examples/FixedWeeks';
 import InputField from './examples/InputField';
-import InputFieldOverlay from './examples/InputFieldOverlay';
 import Localized from './examples/Localized';
 import LocalizedMoment from './examples/LocalizedMoment';
 import LocalizedCustom from './examples/LocalizedCustom';
@@ -67,8 +66,8 @@ const EXAMPLES = {
     Component: DisabledDays,
   },
   input: {
-    title: 'Input Field',
-    description: 'Connect the day picker with an input field. Libraries like moment.js can help to parse/validate the input date.',
+    title: 'Input Field with Date Picker',
+    description: 'Use the <a href="http://react-day-picker.js.org/InputField.html"><code>DayInput</code></a> component to render an input field bound with the day picker.',
     Component: InputField,
   },
   fixedWeeks: {
@@ -135,11 +134,6 @@ const EXAMPLES = {
     title: 'Custom Elements',
     description: 'Use <code>weekdayElement</code> or <code>navbarElement</code> to customize with your own React element the weekday or the navigation bar.',
     Component: CustomElements,
-  },
-  overlay: {
-    title: 'Input Field with Overlay',
-    description: "A more complex example showing the day picker on input's focus and hiding it on input's blur.",
-    Component: InputFieldOverlay,
   },
   year: {
     title: 'Year Calendar',
