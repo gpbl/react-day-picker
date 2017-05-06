@@ -3,6 +3,13 @@ import { expect } from 'chai';
 import * as LocaleUtils from '../src/LocaleUtils';
 
 describe('LocaleUtils', () => {
+  it('should export all the functions', () => {
+    const imported = require('../src/LocaleUtils').default; // eslint-disable-line global-require
+    expect(Object.keys(LocaleUtils).length - 1).to.eql(
+      Object.keys(imported).length
+    );
+  });
+
   describe('formatMonthTitle', () => {
     it('returns month and day as string', () => {
       const date = new Date(2015, 11, 20);
