@@ -3,6 +3,12 @@ import { expect } from 'chai';
 import * as ModifiersUtils from '../src/ModifiersUtils';
 
 describe('ModifiersUtils', () => {
+  it('should export all the functions', () => {
+    const imported = require('../src/ModifiersUtils').default; // eslint-disable-line global-require
+    expect(Object.keys(ModifiersUtils).length - 1).to.eql(
+      Object.keys(imported).length
+    );
+  });
   describe('dayMatchesModifier', () => {
     it('returns a boolean for a single day', () => {
       const match = ModifiersUtils.dayMatchesModifier(
