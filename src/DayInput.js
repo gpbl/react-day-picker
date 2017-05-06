@@ -56,14 +56,11 @@ export default class DayInput extends React.Component {
 
   constructor(props) {
     super(props);
+    /* istanbul ignore next */
+    // for the ignore above see: https://github.com/gotwarlost/istanbul/issues/690
+
     this.state = getStateFromProps(props);
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.value !== this.props.value) {
-  //     this.setState(getStateFromProps(nextProps));
-  //   }
-  // }
 
   componentWillUnmount() {
     clearTimeout(this.clickTimeout);
@@ -265,6 +262,7 @@ export default class DayInput extends React.Component {
                 month={this.state.month}
                 selectedDays={selectedDay}
                 onDayClick={this.handleDayClick}
+                numberOfMonths={1}
               />
 
             </div>
