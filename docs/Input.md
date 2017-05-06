@@ -12,6 +12,7 @@ react-day-picker comes with an handy input component to display the day picker t
   npm install moment --save
   ```
 
+
 * In your code, import the component from `react-day-picker/DayInput`
   
   ```js

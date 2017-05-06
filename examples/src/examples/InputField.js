@@ -42,7 +42,7 @@ export default class InputField extends React.Component {
           value={formattedDay}
           onDayChange={this.handleDayChange}
           format={DAY_FORMAT}
-          placeholder={`E.g. ${moment().lang('en').format(DAY_FORMAT)}`}
+          placeholder={`E.g. ${moment().locale('en').format(DAY_FORMAT)}`}
           dayPickerProps={{
             disabledDays: weekends,
             enableOutsideDays: true,

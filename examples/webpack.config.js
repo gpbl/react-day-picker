@@ -43,7 +43,6 @@ module.exports = {
           'InputFieldOverlay',
           'Localized',
           'LocalizedMoment',
-          'LocalizedCustom',
           'Modifiers',
           'MultipleDays',
           'Range',
