@@ -57,9 +57,9 @@ The format string used to format the date. User is expected to type the day in t
 
 **Type**: `Object` | **Default**: {}
 
-The [DayPicker props](APIProps.md) to pass to the DayPicker.
+The [DayPicker props](APIProps.md) to pass to the DayPicker for further customization.
 
-Note that the `selectedDays` prop (as the `selected` modifier) is handled by this component, so it will be ignored.
+Note that the `selectedDays` and `numberOfMonths` props, and a `selected` modifier, are handled by this component and they will be ignored.
 
 ### onDayChange
 
@@ -79,4 +79,6 @@ Hides the day picker when the user clicks on a day cell.
 
 **Type**: `String|Function|React.Component` | **Default**: `input`
 
-The component to render the input field. You can use your custom component here to render the input field, but it must support the `onChange`, `onClick`, `onFocus`, `onBlur` and `onKeyUp` props.
+The component to render the input field. 
+
+You can pass your custom component to render the input field, but it must support the `onChange`, `onClick`, `onFocus`, `onBlur` and `onKeyUp` props and the `focus` and `blur` methods.
