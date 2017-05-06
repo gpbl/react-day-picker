@@ -38,6 +38,12 @@ export default class DayInput extends React.Component {
     hideOnDayClick: PropTypes.bool,
     component: PropTypes.any,
 
+    classNames: PropTypes.shape({
+      container: PropTypes.string,
+      overlayWrapper: PropTypes.string,
+      overlay: PropTypes.string.isRequired,
+    }),
+
     onDayChange: PropTypes.func,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
@@ -52,6 +58,11 @@ export default class DayInput extends React.Component {
     format: 'L',
     hideOnDayClick: true,
     component: 'input',
+    classNames: {
+      container: 'DayPickerInput',
+      overlayWrapper: 'DayPickerInput-OverlayWrapper',
+      overlay: 'DayPickerInput-Overlay',
+    },
   };
 
   constructor(props) {
@@ -236,10 +247,11 @@ export default class DayInput extends React.Component {
     delete inputProps.format;
     delete inputProps.hideOnDayClick;
     delete inputProps.onDayChange;
+    delete inputProps.classNames;
 
     return (
       <div
-        className="DayPickerInput"
+        className={this.props.classNames.container}
         onMouseDown={this.handleContainerMouseDown}
       >
         {React.createElement(this.props.component, {
@@ -253,8 +265,8 @@ export default class DayInput extends React.Component {
           onClick: this.handleClick,
         })}
         {this.state.showOverlay &&
-          <div className="DayPickerInput-Container">
-            <div className="DayPickerInput-Overlay">
+          <div className={this.props.classNames.overlayWrapper}>
+            <div className={this.props.classNames.overlay}>
               <DayPicker
                 ref={el => (this.daypicker = el)}
                 fixedWeeks

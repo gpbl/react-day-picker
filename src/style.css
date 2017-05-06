@@ -127,7 +127,7 @@
   display: inline-block;
 }
 
-.DayPickerInput-Container {
+.DayPickerInput-OverlayWrapper {
   position: relative;
 }
 
