@@ -1,6 +1,7 @@
 * [react-day-picker](README.md)
 * [Examples with Code](Examples.md)
 * [Basic Usage](Basic.md)
+* [DayInput Component](Input.md)
 * [Use of Day Modifiers](Modifiers.md)
 * [Styling](Styling.md)
     * [With CSS Modules](CSSModules.md)
