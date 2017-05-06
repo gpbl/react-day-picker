@@ -8,7 +8,7 @@ import keys from './keys';
 
 function getStateFromProps(props) {
   return {
-    showOverlay: true,
+    showOverlay: false,
     value: props.value,
     month: props.value
       ? moment(props.value, props.format).toDate()
@@ -158,7 +158,7 @@ export default class DayInput extends React.Component {
     if (!m.isValid()) {
       this.setState({ value });
       if (onDayChange) {
-        onDayChange();
+        onDayChange(undefined, {});
       }
       return;
     }
@@ -181,9 +181,7 @@ export default class DayInput extends React.Component {
         return newObj;
       }, {});
 
-      if (!modifiers.disabled) {
-        this.props.onDayChange(m, modifiers);
-      }
+      this.props.onDayChange(m, modifiers);
     }
   };
 
