@@ -86,6 +86,9 @@ The object expects the following keys:
   week,           // Table's row for each week
   day,            // The single day cell
 
+  footer,         // The calendar footer (only with todayButton prop)
+  todayButton,    // The today button (only with todayButton prop)
+
   // default modifiers
   today,          // Added to the day's cell for the current day
   selected,       // Added to the day's cell specified in the `selectedDays` prop
