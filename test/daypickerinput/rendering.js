@@ -44,6 +44,21 @@ describe('DayPickerInput', () => {
       expect(wrapper.find('.DayPickerInput-Overlay')).to.exist;
       expect(wrapper.find(DayPicker)).to.exist;
     });
+    it('should work with custom class names', () => {
+      const wrapper = shallow(
+        <DayPickerInput
+          classNames={{
+            container: 'foo-container',
+            overlayWrapper: 'foo-overlay-wrapper',
+            overlay: 'foo-overlay',
+          }}
+        />
+      );
+      wrapper.instance().showDayPicker();
+      expect(wrapper.find('.foo-container')).to.exist;
+      expect(wrapper.find('.foo-overlay-wrapper')).to.exist;
+      expect(wrapper.find('.foo-overlay')).to.exist;
+    });
     it('should hide the DayPicker', () => {
       const wrapper = shallow(<DayPickerInput />);
       wrapper.instance().showDayPicker();
