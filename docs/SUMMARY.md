@@ -2,7 +2,7 @@
 * [Examples with code](Examples.md)
 * [Basic usage](Basic.md)
 * [Using the input field](Input.md)
-* [Use of day modifiers](Modifiers.md)
+* [Matching days with modifiers](Modifiers.md)
 * [Styling](Styling.md)
     * [With CSS Modules](CSSModules.md)
 * [DayPicker API](DayPickerAPI.md)

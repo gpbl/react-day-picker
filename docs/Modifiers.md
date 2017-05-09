@@ -1,4 +1,4 @@
-# Use of Day Modifiers
+# Matching days using modifiers
 
 _Day modifiers_ change the aspect of the day cells and/or customize the interaction with of the calendar.
 
