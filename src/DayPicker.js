@@ -27,6 +27,7 @@ export default class DayPicker extends Component {
     canChangeMonth: PropTypes.bool,
     reverseMonths: PropTypes.bool,
     pagedNavigation: PropTypes.bool,
+    todayButton: PropTypes.string,
 
     // Modifiers
     selectedDays: PropTypes.oneOfType([
@@ -423,6 +424,12 @@ export default class DayPicker extends Component {
       this.showPreviousMonth();
     }
   }
+
+  handleTodayButtonClick = e => {
+    this.showMonth(new Date());
+    e.target.blur();
+  };
+
   renderNavbar() {
     const {
       labels,
@@ -571,6 +578,17 @@ export default class DayPicker extends Component {
       >
         {this.renderNavbar()}
         {this.renderMonths()}
+        {this.props.todayButton &&
+          <div className="DayPicker-Footer">
+            <button
+              tabIndex={0}
+              className="DayPicker-TodayButton"
+              aria-label={this.props.todayButton}
+              onClick={this.handleTodayButtonClick}
+            >
+              {this.props.todayButton}
+            </button>
+          </div>}
       </div>
     );
   }

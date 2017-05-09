@@ -7,6 +7,7 @@
   position: relative;
   padding: 1rem 0;
   user-select: none;
+  flex-direction: column;
 }
 
 .DayPicker-Month {
@@ -22,6 +23,7 @@
     left: 0;
     right: 0;
     padding: 0 .5rem;
+    top: 1rem;
   }
 
   .DayPicker-NavButton {
@@ -86,6 +88,20 @@
 
   .DayPicker--interactionDisabled .DayPicker-Day {
     cursor: default;
+  }
+
+  .DayPicker-Footer {
+    margin-top: .5rem;
+  }
+  
+  .DayPicker-TodayButton {
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    box-shadow: none;
+    cursor: pointer;
+    color: #4A90E2;
+    font-size: 0.875em;
   }
 
 /* Default modifiers */
