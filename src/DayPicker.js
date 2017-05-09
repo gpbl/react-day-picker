@@ -27,6 +27,7 @@ export default class DayPicker extends Component {
     canChangeMonth: PropTypes.bool,
     reverseMonths: PropTypes.bool,
     pagedNavigation: PropTypes.bool,
+    todayButton: PropTypes.string,
 
     // Modifiers
     selectedDays: PropTypes.oneOfType([
@@ -64,12 +65,14 @@ export default class DayPicker extends Component {
       container: PropTypes.string,
       day: PropTypes.string.isRequired,
       disabled: PropTypes.string.isRequired,
+      footer: PropTypes.string,
       interactionDisabled: PropTypes.string,
       month: PropTypes.string,
       navBar: PropTypes.string,
       outside: PropTypes.string.isRequired,
       selected: PropTypes.string.isRequired,
       today: PropTypes.string.isRequired,
+      todayButton: PropTypes.string,
       week: PropTypes.string,
     }),
     className: PropTypes.string,
@@ -423,6 +426,12 @@ export default class DayPicker extends Component {
       this.showPreviousMonth();
     }
   }
+
+  handleTodayButtonClick = e => {
+    this.showMonth(new Date());
+    e.target.blur();
+  };
+
   renderNavbar() {
     const {
       labels,
@@ -545,6 +554,21 @@ export default class DayPicker extends Component {
     return months;
   }
 
+  renderFooter() {
+    return (
+      <div className={this.props.classNames.footer}>
+        <button
+          tabIndex={0}
+          className={this.props.classNames.todayButton}
+          aria-label={this.props.todayButton}
+          onClick={this.handleTodayButtonClick}
+        >
+          {this.props.todayButton}
+        </button>
+      </div>
+    );
+  }
+
   render() {
     let className = this.props.classNames.container;
 
@@ -571,6 +595,7 @@ export default class DayPicker extends Component {
       >
         {this.renderNavbar()}
         {this.renderMonths()}
+        {this.props.todayButton && this.renderFooter()}
       </div>
     );
   }

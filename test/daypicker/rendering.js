@@ -322,6 +322,13 @@ describe('DayPicker’s rendering', () => {
     );
     expect(wrapper.find('.DayPicker-Day')).to.have.length(42);
   });
+  it('should render the today button', () => {
+    const wrapper = mount(
+      <DayPicker todayButton="foo" initialMonth={new Date(2015, 1)} />
+    );
+    expect(wrapper.find('.DayPicker-Footer')).to.exists;
+    expect(wrapper.find('button.DayPicker-TodayButton')).to.have.text('foo');
+  });
   it('should use the specified class names', () => {
     const wrapper = mount(
       <DayPicker

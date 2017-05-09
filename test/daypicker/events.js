@@ -7,6 +7,7 @@ import sinon, { spy } from 'sinon';
 
 import DayPicker from '../../src/DayPicker';
 import keys from '../../src/keys';
+import { formatMonthTitle } from '../../src/LocaleUtils';
 
 describe('DayPicker’s events handlers', () => {
   it('should call the `onCaptionClick` handler', () => {
@@ -162,6 +163,16 @@ describe('DayPicker’s events handlers', () => {
     wrapper.simulate('keyDown');
     expect(handleKeyDown).to.have.been.calledWith(
       sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e')
+    );
+  });
+  it('should display the current month when clicking the today button', () => {
+    const wrapper = mount(
+      <DayPicker todayButton="foo" initialMonth={new Date(2015, 1)} />
+    );
+    wrapper.find('button.DayPicker-TodayButton').simulate('click');
+    expect(wrapper.find('.DayPicker-Footer')).to.exists;
+    expect(wrapper.find('.DayPicker-Caption')).to.have.text(
+      formatMonthTitle(new Date())
     );
   });
 });

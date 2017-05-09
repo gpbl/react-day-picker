@@ -14,6 +14,8 @@ export default {
   body: 'DayPicker-Body',
   week: 'DayPicker-Week',
   day: 'DayPicker-Day',
+  footer: 'DayPicker-Footer',
+  todayButton: 'DayPicker-TodayButton',
 
   // default modifiers
   today: 'today',

@@ -10,7 +10,7 @@ import DayPicker from 'react-day-picker';
 
 **Day Modifiers**: [selectedDays](#selecteddays), [disabledDays](#disableddays), [modifiers](#modifiers), [modifiersStyles](#modifiersstyles)
 
-**Customization**: [enableOutsideDays](#enableoutsidedays), [fixedWeeks](#fixedweeks)
+**Customization**: [enableOutsideDays](#enableoutsidedays), [fixedWeeks](#fixedweeks), [todayButton](#todaybutton)
 
 **Localization**: [dir](#dir), [firstDayOfWeek](#firstdayofweek), [labels](#labels), [locale](#locale), [localeUtils](#localeUtils), [months](#months), [weekdaysLong](#weekdayslong), [weekdaysShort](#weekdaysshort)
 
@@ -23,6 +23,10 @@ import DayPicker from 'react-day-picker';
 #### Methods summary
 
 [showMonth](#showmonth), [showPreviousMonth](#showpreviousmonth), [showNextMonth](#shownextmonth), [showPreviousYear](#showpreviousyear), [showNextYear](#shownextyear)
+
+#### Typescript Type Definitions
+
+Typescript Type Definitions are available in the main repo: see [types/index.d.ts](https://github.com/gpbl/react-day-picker/tree/master/types/index.d.ts).
 
 
 ## Reference
@@ -81,6 +85,9 @@ The object expects the following keys:
   body,           // Table's body with the weeks
   week,           // Table's row for each week
   day,            // The single day cell
+
+  footer,         // The calendar footer (only with todayButton prop)
+  todayButton,    // The today button (only with todayButton prop)
 
   // default modifiers
   today,          // Added to the day's cell for the current day
@@ -271,6 +278,12 @@ Render the months in reversed order. Useful when `numberOfMonths` is greater tha
 Indicate which day should appear as selected. Set a `selected` modifier.
 
 See [Modifiers](Modifiers.md) for a reference of the accepted values.
+
+### todayButton
+
+**Type**: `String`
+
+Display a button to switch to the current month using the provided string as label.
 
 ### toMonth
 
