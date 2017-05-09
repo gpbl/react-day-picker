@@ -104,7 +104,7 @@ export default class DayPickerInput extends React.Component {
       return;
     }
     this.hideTimeout = setTimeout(
-      () => this.setState({ showOverlay: false }),
+      () => this.hideDayPicker(),
       HIDE_TIMEOUT // give a timeout to show the clicked day
     );
   };
@@ -119,9 +119,7 @@ export default class DayPickerInput extends React.Component {
   };
 
   handleClick = e => {
-    this.setState({
-      showOverlay: true,
-    });
+    this.showDayPicker();
     if (this.props.onClick) {
       e.persist();
       this.props.onClick(e);
@@ -129,9 +127,7 @@ export default class DayPickerInput extends React.Component {
   };
 
   handleFocus = e => {
-    this.setState({
-      showOverlay: true,
-    });
+    this.showDayPicker();
     if (this.props.onFocus) {
       e.persist();
       this.props.onFocus(e);
