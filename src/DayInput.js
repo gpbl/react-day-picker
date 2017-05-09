@@ -32,6 +32,7 @@ function getStateFromProps(props) {
 export default class DayInput extends React.Component {
   static propTypes = {
     value: (props, propName, componentName) => {
+      // eslint-disable-line react/no-unused-prop-types
       if (!props.format || !props.value) {
         return undefined;
       }
