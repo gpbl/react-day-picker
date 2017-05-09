@@ -83,14 +83,7 @@ See [this running example](http://react-day-picker.js.org/examples/?disabled) an
 ### Docs and examples
 
 * [Examples With Code](http://react-day-picker.js.org/examples)
-* [Documentation](http://react-day-picker.js.org)
-    * [Basic Usage](http://react-day-picker.js.org/Basic.html)
-    * [Use of Day Modifiers](http://react-day-picker.js.org/Modifiers.html)
-    * [API](http://react-day-picker.js.org/API.html)
-    * [Styling](http://react-day-picker.js.org/Styling.html)
-    * [Use with CSS Modules](http://react-day-picker.js.org/CSSModules.html)
-    * [Localization](http://react-day-picker.js.org/Localization.html)
-    * [Utilities](http://react-day-picker.js.org/Utilities.html)
+* [Documentation and API reference](http://react-day-picker.js.org)
 * [CHANGELOG](https://github.com/gpbl/react-day-picker/blob/master/CHANGELOG.md)
 
 ### Get support
