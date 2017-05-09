@@ -6,8 +6,8 @@ import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 import { spy } from 'sinon';
 
-import DayInput from '../src/DayInput';
-import DayPicker from '../src/DayPicker';
+import DayInput from '../../src/DayInput';
+import DayPicker from '../../src/DayPicker';
 
 describe('DayInput', () => {
   describe('rendering', () => {
@@ -24,10 +24,12 @@ describe('DayInput', () => {
       expect(wrapper).to.have.className('DayPickerInput');
     });
     it('should render an input field with the passed attributes', () => {
-      const wrapper = shallow(<DayInput value="foo" placeholder="bar" />);
+      const wrapper = shallow(
+        <DayInput value="12/14/2017" placeholder="bar" />
+      );
       const input = wrapper.find('input');
       expect(input).to.exist;
-      expect(input).to.have.attr('value', 'foo');
+      expect(input).to.have.attr('value', '12/14/2017');
       expect(input).to.have.attr('placeholder', 'bar');
     });
     it('should show the DayPicker', () => {
@@ -62,6 +64,21 @@ describe('DayInput', () => {
       expect(instance.daypicker.props.enableOutsideDays).to.be.true;
       // number of months should be overridden by implementation
       expect(instance.daypicker.props.numberOfMonths).to.equal(1);
+    });
+    it('should open the daypicker to the month of the selected day', () => {
+      const wrapper = mount(<DayInput value="12/15/2017" />);
+      wrapper.instance().showDayPicker();
+      expect(wrapper.find('.DayPicker-Caption').first()).to.have.text(
+        'December 2017'
+      );
+    });
+    it('should display the current value as a selected day', () => {
+      const wrapper = mount(<DayInput value="12/15/2017" />);
+      wrapper.instance().showDayPicker();
+      expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(1);
+      expect(wrapper.find('.DayPicker-Day--selected').first()).to.have.text(
+        '15'
+      );
     });
   });
 });

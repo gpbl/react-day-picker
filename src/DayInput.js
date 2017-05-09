@@ -136,14 +136,13 @@ export default class DayInput extends React.Component {
   };
 
   handleBlur = e => {
-    const showOverlay = this.clickedInside;
-
     this.setState({
-      showOverlay,
+      showOverlay: this.clickedInside,
     });
 
-    // Force input's focus if blur event was caused by clicking on the calendar
-    if (showOverlay) {
+    // Force input's focus if blur event was caused
+    // by clicking inside the overlay
+    if (this.clickedInside) {
       this.input.focus();
     }
 
@@ -232,7 +231,7 @@ export default class DayInput extends React.Component {
     this.input.blur();
   };
 
-  render() {
+  renderOverlay() {
     let selectedDay;
     if (this.state.value) {
       const m = moment(this.state.value, this.props.format, true);
@@ -241,6 +240,24 @@ export default class DayInput extends React.Component {
       }
     }
 
+    return (
+      <div className={this.props.classNames.overlayWrapper}>
+        <div className={this.props.classNames.overlay}>
+          <DayPicker
+            ref={el => (this.daypicker = el)}
+            fixedWeeks
+            {...this.props.dayPickerProps}
+            month={this.state.month}
+            selectedDays={selectedDay}
+            onDayClick={this.handleDayClick}
+            numberOfMonths={1}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  render() {
     const inputProps = { ...this.props };
     delete inputProps.component;
     delete inputProps.dayPickerProps;
@@ -264,21 +281,7 @@ export default class DayInput extends React.Component {
           onKeyUp: this.handleOnKeyUp,
           onClick: this.handleClick,
         })}
-        {this.state.showOverlay &&
-          <div className={this.props.classNames.overlayWrapper}>
-            <div className={this.props.classNames.overlay}>
-              <DayPicker
-                ref={el => (this.daypicker = el)}
-                fixedWeeks
-                {...this.props.dayPickerProps}
-                month={this.state.month}
-                selectedDays={selectedDay}
-                onDayClick={this.handleDayClick}
-                numberOfMonths={1}
-              />
-
-            </div>
-          </div>}
+        {this.state.showOverlay && this.renderOverlay()}
       </div>
     );
   }
