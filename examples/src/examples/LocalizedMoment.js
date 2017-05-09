@@ -45,7 +45,7 @@ export default class LocalizedMoment extends React.Component {
           labels={LABELS[locale]}
           locale={locale}
           localeUtils={MomentLocaleUtils}
-          modifiers={{ sunday: day => day.getDay() === 0 }}
+          disabledDays={{ daysOfWeek: [0] }}
           renderDay={day => day.getDate().toLocaleString(locale)}
         />
       </div>

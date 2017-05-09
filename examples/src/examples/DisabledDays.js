@@ -3,14 +3,6 @@ import DayPicker from '../../../src';
 
 import '../../../src/style.css';
 
-function sundays(day) {
-  return day.getDay() === 0;
-}
-
-function saturdays(day) {
-  return day.getDay() === 6;
-}
-
 export default class DisabledDays extends React.Component {
   state = {
     selectedDay: null,
@@ -29,7 +21,7 @@ export default class DisabledDays extends React.Component {
         <DayPicker
           enableOutsideDays
           selectedDays={this.state.selectedDay}
-          disabledDays={[sundays, saturdays]}
+          disabledDays={{ daysOfWeek: [0, 6] }}
           onDayClick={this.handleDayClick}
         />
         <p>

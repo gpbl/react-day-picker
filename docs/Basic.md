@@ -86,7 +86,7 @@ Disabled days should not respond to the user's interaction and should appear as 
 ```diff
 <DayPicker
   selectedDays={ this.state.selectedDay }
-+  disabledDays={ day => day.getDay() === 0 }
++  disabledDays={ { daysOfTheWeek: [0] } }
   onDayClick={ this.handleDayClick }
 />
 ```
@@ -148,7 +148,7 @@ class SelectDay extends React.Component {
       <div>
         <DayPicker 
           selectedDays={ this.state.selectedDay }
-          disabledDays={ day => day.getDay() === 0 }
+          disabledDays={ { daysOfTheWeek: [0] } }
           onDayClick={ this.handleDayClick } 
         />
         <p>

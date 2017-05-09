@@ -92,8 +92,11 @@ declare namespace DayPicker {
     interface AfterModifier {
         after: Date;
     }
+    interface DaysOfWeekModifier {
+        daysOfWeek: number[];
+    }
     type FunctionModifier = (date: Date) => boolean;
-    type Modifier = Date | RangeModifier | BeforeModifier | AfterModifier | FunctionModifier;
+    type Modifier = Date | RangeModifier | BeforeModifier | AfterModifier | DaysOfWeekModifier | FunctionModifier;
 
     interface Modifiers {
         today: Modifier | Modifier[];

@@ -66,8 +66,6 @@ const LABELS = {
   it: { nextMonth: 'Prossimo mese', previousMonth: 'Mese precedente' },
 };
 
-const sundays = day => day.getDay() === 0;
-
 export default class Localized extends React.Component {
   state = {
     locale: 'en',
@@ -97,7 +95,7 @@ export default class Localized extends React.Component {
           weekdaysShort={WEEKDAYS_SHORT[locale]}
           firstDayOfWeek={FIRST_DAY_OF_WEEK[locale]}
           labels={LABELS[locale]}
-          disabledDays={sundays}
+          disabledDays={{ daysOfWeek: [0] }}
         />
       </div>
     );
