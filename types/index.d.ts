@@ -150,6 +150,7 @@ declare namespace DayPicker {
         renderDay?(date: Date, modifiers: Modifiers): React.ReactNode;
         reverseMonths?: boolean;
         selectedDays?: Modifier | Modifier[];
+        todayButton?: string;
         toMonth?: Date;
         weekdayElement?: React.ReactElement<Partial<WeekdayElementProps>> |
             React.ComponentClass<WeekdayElementProps> |
