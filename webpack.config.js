@@ -3,10 +3,13 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  entry: './DayPicker.js',
+  entry: {
+    daypicker: './DayPicker.js',
+    daypickerinput: './DayPickerInput.js',
+  },
   output: {
     path: `${__dirname}/lib`,
-    filename: `daypicker${isProduction ? '.min' : ''}.js`,
+    filename: `[name]${isProduction ? '.min' : ''}.js`,
     library: 'DayPicker',
     libraryTarget: 'umd',
   },
