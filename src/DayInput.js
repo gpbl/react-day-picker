@@ -6,15 +6,26 @@ import DayPicker from './DayPicker';
 import { getModifiersForDay } from './ModifiersUtils';
 import keys from './keys';
 
+export const HIDE_TIMEOUT = 100;
+
 function getStateFromProps(props) {
+  let month;
+  if (props.value) {
+    const m = moment(props.value, props.format, true);
+    if (m.isValid()) {
+      month = m.toDate();
+    }
+  } else {
+    month =
+      props.dayPickerProps.initialMonth ||
+      props.dayPickerProps.month ||
+      new Date();
+  }
+
   return {
     showOverlay: false,
     value: props.value,
-    month: props.value
-      ? moment(props.value, props.format).toDate()
-      : props.dayPickerProps.initialMonth ||
-          props.dayPickerProps.month ||
-          new Date(),
+    month,
   };
 }
 
@@ -74,7 +85,9 @@ export default class DayInput extends React.Component {
   }
 
   componentWillUnmount() {
+    /* istanbul ignore next */
     clearTimeout(this.clickTimeout);
+    /* istanbul ignore next */
     clearTimeout(this.hideTimeout);
   }
 
@@ -102,7 +115,7 @@ export default class DayInput extends React.Component {
     }
     this.hideTimeout = setTimeout(
       () => this.setState({ showOverlay: false }),
-      100
+      HIDE_TIMEOUT // give a timeout to show the clicked day
     );
   };
 
@@ -187,7 +200,6 @@ export default class DayInput extends React.Component {
         newObj[modifier] = true;
         return newObj;
       }, {});
-
       this.props.onDayChange(m, modifiers);
     }
   };
@@ -228,7 +240,6 @@ export default class DayInput extends React.Component {
     if (this.props.onDayChange) {
       this.props.onDayChange(m, modifiers);
     }
-    this.input.blur();
   };
 
   renderOverlay() {
