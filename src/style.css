@@ -7,7 +7,7 @@
   position: relative;
   padding: 1rem 0;
   user-select: none;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .DayPicker-Month {
@@ -91,7 +91,9 @@
   }
 
   .DayPicker-Footer {
-    margin-top: .5rem;
+    display: table-caption;
+    caption-side: bottom;
+    padding-top: .5rem;
   }
   
   .DayPicker-TodayButton {

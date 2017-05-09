@@ -542,6 +542,7 @@ export default class DayPicker extends Component {
           localeUtils={this.props.localeUtils}
           firstDayOfWeek={firstDayOfWeek}
           onCaptionClick={this.props.onCaptionClick}
+          footer={this.props.todayButton && this.renderTodayButton()}
         >
           {this.renderDayInMonth}
         </Month>
@@ -554,18 +555,16 @@ export default class DayPicker extends Component {
     return months;
   }
 
-  renderFooter() {
+  renderTodayButton() {
     return (
-      <div className={this.props.classNames.footer}>
-        <button
-          tabIndex={0}
-          className={this.props.classNames.todayButton}
-          aria-label={this.props.todayButton}
-          onClick={this.handleTodayButtonClick}
-        >
-          {this.props.todayButton}
-        </button>
-      </div>
+      <button
+        tabIndex={0}
+        className={this.props.classNames.todayButton}
+        aria-label={this.props.todayButton}
+        onClick={this.handleTodayButtonClick}
+      >
+        {this.props.todayButton}
+      </button>
     );
   }
 
@@ -595,7 +594,6 @@ export default class DayPicker extends Component {
       >
         {this.renderNavbar()}
         {this.renderMonths()}
-        {this.props.todayButton && this.renderFooter()}
       </div>
     );
   }

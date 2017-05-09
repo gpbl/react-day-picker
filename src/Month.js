@@ -21,6 +21,8 @@ export default function Month({
 
   onCaptionClick,
   children,
+
+  footer,
 }) {
   const captionProps = {
     date: month,
@@ -54,6 +56,10 @@ export default function Month({
           </div>
         ))}
       </div>
+      {footer &&
+        <div className={classNames.footer}>
+          {footer}
+        </div>}
     </div>
   );
 }
@@ -89,4 +95,5 @@ Month.propTypes = {
   onCaptionClick: PropTypes.func,
 
   children: PropTypes.func.isRequired,
+  footer: PropTypes.node,
 };
