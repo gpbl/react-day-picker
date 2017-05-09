@@ -1,6 +1,6 @@
 # Matching days using modifiers
 
-_Day modifiers_ change the aspect of the day cells and/or customize the interaction with of the calendar.
+_Day modifiers_ change the aspect of the day cells and allow you to customize the interaction with the calendar. When a modifier matches a specific day, its day cells receive a modifier CSS class, and its name is passed down to the event handlers.
 
 ## Type of modifier matchers
 
@@ -75,7 +75,7 @@ A CSS modifier (as in [BEM-like syntax](https://css-tricks.com/bem-101/)) is add
 <DayPicker disabledDays={ [new Date(2017, 2, 4), new Date(2017, 2, 7)] } />
 ```
 
-* To set `.DayPicker-Day--past` to the past days:
+* Beside `disabled` or `selected`, you can pass any modifier you prefer. For example, to set `.DayPicker-Day--past` to the days in the past:
 
 ```jsx
 <DayPicker 
@@ -85,7 +85,7 @@ A CSS modifier (as in [BEM-like syntax](https://css-tricks.com/bem-101/)) is add
 />
 ```
 
-You can pass more day modifiers using the `modifiers` prop:
+You pass more day modifiers using the `modifiers` prop:
 
 ```jsx
 <DayPicker 

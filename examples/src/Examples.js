@@ -67,7 +67,7 @@ const EXAMPLES = {
   },
   disabled: {
     title: 'Interaction with disabled days',
-    description: 'Use the <code>disabledDays</code> prop to prevent the selection of a day. Here we are passing two functions to disable Saturdays and Sundays. <ul><li>Note how the <code>handleDayClick</code> handler is set to <i>not select</i> days marked as <code>disabled</code>.</li></ul>',
+    description: 'Use the <code>disabledDays</code> prop to prevent the selection of a day. Here we are using the <code>daysOfWeek</code> modifier to disable Saturdays and Sundays. <ul><li>Note how the <code>handleDayClick</code> handler is set to <i>not select</i> days marked as <code>disabled</code>.</li><li>You can pass <a href="http://react-day-picker.js.org/Modifiers.html">different modifier types</a> to match days in the calendar.</li></ul>',
     Component: DisabledDays,
   },
   input: {
