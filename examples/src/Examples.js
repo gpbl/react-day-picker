@@ -23,6 +23,7 @@ import RangeAdvanced from './examples/RangeAdvanced';
 import Restricted from './examples/Restricted';
 import SelectableDay from './examples/SelectableDay';
 import SimpleCalendar from './examples/SimpleCalendar';
+import SimpleInput from './examples/SimpleInput';
 import YearCalendar from './examples/YearCalendar';
 import YearNavigation from './examples/YearNavigation';
 
@@ -43,6 +44,11 @@ const EXAMPLES = {
     title: 'Render a simple calendar',
     description: 'Display the clicked day in the console.',
     Component: SimpleCalendar,
+  },
+  simpleInput: {
+    title: 'Render as input field',
+    description: 'Import the <a href="http://react-day-picker.js.org/DayPickerInputAPI.html"><code>DayPickerInput</code></a> component to display the day picker in an overlay (requires moment.js).<br/>See also: <a href="?input">advanced interaction with the input field</a>.',
+    Component: SimpleInput,
   },
   modifiers: {
     title: 'Render a day as selected or disabled',
@@ -65,8 +71,8 @@ const EXAMPLES = {
     Component: DisabledDays,
   },
   input: {
-    title: 'Create an input with day picker',
-    description: 'Use the <a href="http://react-day-picker.js.org/InputField.html"><code>DayPickerInput</code></a> component to render an input field bound with the day picker.',
+    title: 'Interaction with the input field',
+    description: 'The <a href="http://react-day-picker.js.org/DayPickerInputAPI.html"><code>DayPickerInput</code></a> component can be further extended to render a more complex date picker.',
     Component: InputField,
   },
   range: {

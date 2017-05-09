@@ -1,6 +1,6 @@
-# DayPickerInput component
+# Using the input field
 
-react-day-picker comes with an handy input component to display the day picker together with an input field. [See this example](http://react-day-picker.js.org/examples/?input).
+react-day-picker comes with `<DayPickerInput />`, a component rendering an input field rendering the DayPicker in an overlay. [See this example](http://react-day-picker.js.org/examples/?input) and read [its API reference](DayPickerInputAPI.md).
 
 ### Setup
 
@@ -11,7 +11,7 @@ react-day-picker comes with an handy input component to display the day picker t
   # or if you use npm
   npm install moment --save
   ```
-
+  
 
 * In your code, import the component from `react-day-picker/DayPickerInput`
   
@@ -27,58 +27,28 @@ import moment from 'moment';
 
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
-function MyForm() {
-  return (
-    <form>
-      <DayPickerInput
-        name="birthday"
-        placeholder="DD/MM/YYYY"
-        format="DD/MM/YYYY"
-        dayPickerProps={{
-          enableOutsideDays: true,
-        }}
-      />
-    </form>
-  )
+export class MyForm extends React.Component {
+
+  handleBirthdayChange = day => {
+    this.setState({
+      birthday: day
+    })
+  }
+
+  render() {
+    return (
+      <form>
+        <DayPickerInput
+          name="birthday"
+          placeholder="DD/MM/YYYY"
+          format="DD/MM/YYYY"
+          onDayChange={ this.handleBirthdayChange }
+          dayPickerProps={{
+            enableOutsideDays: true,
+          }}
+        />
+      </form>
+    )
+  }
 }
 ```
-
-## <DayPickerInput />  Reference
-
-`<DayPickerInput />` accept all the props valid for a standard `<input/>` React component plus the following ones:
-
-### format
-
-**Type**: `String` | **Default**: `L`
-
-The format string used to format the date. User is expected to type the day in this format. Accept all the [format strings](https://momentjs.com/docs/#/displaying/format/) accepted by momentjs.
-
-### dayPickerProps
-
-**Type**: `Object` | **Default**: {}
-
-The [DayPicker props](APIProps.md) to pass to the DayPicker for further customization.
-
-Note that the `selectedDays` and `numberOfMonths` props, and a `selected` modifier, are handled by this component and they will be ignored.
-
-### onDayChange
-
-**Type**: `(day: Date, modifiers: Object) => void`
-
-Handler function when the user types a valid day (according to the `format` prop) or clicks on a day on the calendar. 
-
-If the typed day is not valid, `day` and `modifiers` will be `undefined` (useful to display validation warnings).
-
-### hideOnDayClick
-
-**Type**: `Boolean` | **Default**: `true`
-
-Hides the day picker when the user clicks on a day cell.
-
-### component
-
-**Type**: `String|Function|React.Component` | **Default**: `input`
-
-The component to render the input field. 
-
-You can pass your custom component to render the input field, but it must support the `onChange`, `onClick`, `onFocus`, `onBlur` and `onKeyUp` props and the `focus` and `blur` methods.

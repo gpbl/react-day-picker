@@ -1,6 +1,13 @@
 # Basic usage
 
-react-day-picker is designed to cover the most common needs for a date picker in web applications. This guide illustrates the component's basic concepts by implementing a date picker to select, clear and disable days from the calendar.
+react-day-picker is designed to cover the most common needs for a date picker in web applications.
+
+The package includes:
+
+* the **DayPicker** component, to render the date picker (the "calendar")
+* the **DayPickerInput** component – to render an input field opening the DayPicker in an overlay.
+
+This guide illustrates the DayPicker basic concepts by implementing a date picker to select, clear and disable days from the calendar.
 
 ## Selecting a day
 

@@ -50,6 +50,7 @@ module.exports = {
           'Restricted',
           'SelectableDay',
           'SimpleCalendar',
+          'SimpleInput',
           'TouchEvents',
           'YearCalendar',
           'YearNavigation',
