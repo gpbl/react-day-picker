@@ -2,7 +2,7 @@
 
 _Day modifiers_ change the aspect of the day cells and/or customize the interaction with of the calendar.
 
-## Type of modifier values
+## Type of modifier matchers
 
 The value of a modifier can be either:
 
@@ -34,6 +34,16 @@ The value of a modifier can be either:
   ```
 
   will match all the days after the January, 1st 2018.
+
+- **an object with a `daysOfWeek` array**, to match specific days of week:
+
+  ```js
+  const weekends = { 
+    daysOfWeek: [0, 6],
+  }
+  ```
+
+  will match all the Sundays (`0`) and Saturdays (`6`)
 
 - **a function** taking the day as first argument and return a boolean value. For example:
   
@@ -93,7 +103,7 @@ You can pass more day modifiers using the `modifiers` prop:
       { from: new Date(2018, 06, 10), to: new Date(2018, 06, 20) }
     ],
 
-    sunday: day => day.getDay() === 0, 
+    sunday: { daysOfWeek: [0] }, 
     
     firstOfMonth: day => day.getDate() === 1,
   }}
@@ -106,19 +116,16 @@ Under the hood, the `selectedDays` and `disabledDays` props act as shortcut for 
 
 ```jsx
 
-function sundays(day) {
-    return day.getDay() === 0;
-  }
 function isFirstOfMonth(day) {
   return day.getDate() === 1;
 }
 
-<DayPicker disabledDays={ sundays } selectedDays={ firstOfMonth } />
+<DayPicker disabledDays={ sundays } selectedDays={ isFirstOfMonth } />
 
 <DayPicker 
   modifiers={ { 
-    disabled: sundays, 
-    selected: firstOfMonth 
+    disabled: { daysOfWeek: [0] }, 
+    selected: isFirstOfMonth 
   }} 
 />
 ```

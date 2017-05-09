@@ -5,9 +5,6 @@ import DayPickerInput from '../../../src/DayPickerInput';
 
 import '../../../src/style.css';
 
-const weekends = day => day.getDay() === 0 || day.getDay() === 6;
-const monday = day => day.getDay() === 1;
-
 const DAY_FORMAT = 'LL';
 
 export default class InputField extends React.Component {
@@ -44,9 +41,13 @@ export default class InputField extends React.Component {
           format={DAY_FORMAT}
           placeholder={`E.g. ${moment().locale('en').format(DAY_FORMAT)}`}
           dayPickerProps={{
-            disabledDays: weekends,
+            disabledDays: {
+              daysOfWeek: [0, 6],
+            },
             enableOutsideDays: true,
-            modifiers: { monday },
+            modifiers: {
+              monday: { daysOfWeek: [1] },
+            },
           }}
         />
       </div>

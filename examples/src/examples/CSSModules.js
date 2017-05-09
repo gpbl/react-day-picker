@@ -21,7 +21,7 @@ export default function CSSModules() {
       selectedDays={new Date(2017, 1, 23)}
       disabledDays={[new Date(2017, 1, 20), new Date(2018, 1, 28)]}
       modifiers={{
-        [styles.sunday]: day => day.getDay() === 0,
+        [styles.sunday]: { daysOfWeek: [0] },
         [styles.green]: new Date(2017, 1, 10),
       }}
       onDayClick={handleDayClick}
