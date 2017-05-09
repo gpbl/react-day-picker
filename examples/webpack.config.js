@@ -49,7 +49,7 @@ module.exports = {
           'RangeAdvanced',
           'Restricted',
           'SelectableDay',
-          'ShowToday',
+          'TodayButton',
           'SimpleCalendar',
           'SimpleInput',
           'TouchEvents',
