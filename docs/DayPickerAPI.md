@@ -1,4 +1,10 @@
-# Component props
+# DayPicker API
+
+```js
+import DayPicker from 'react-day-picker';
+```
+
+#### Props summary
 
 **Rendering months**: [initialMonth](#initialmonth), [month](#month), [fromMonth](#frommonth), [toMonth](#tomonth), [numberOfMonths](#numberofmonths), [pagedNavigation](#pagednavigation), [canChangeMonth](#canchangemonth), [reverseMonths](#reversemonths)
 
@@ -13,6 +19,11 @@
 **Elements**: [renderDay](#renderday), [weekdayElement](#weekdayelement), [navbarElement](#navbarelement), [captionElement](#captionelement)
 
 **Events**: [onBlur](#onblur), [onCaptionClick](#oncaptionclick), [onDayClick](#ondayclick), [onDayFocus](#ondayfocus), [onDayKeyDown](#ondaykeydown), [onDayMouseEnter](#ondaymouseenter), [onDayMouseLeave](#ondaymouseleave), [onDayTouchEnd](#ondaytouchend), [onDayTouchStart](#ondaytouchstart), [onFocus](#onfocus), [onKeyDown](#onkeydown), [onMonthChange](#onmonthchange)
+
+#### Methods summary
+
+[showMonth](#showmonth), [showPreviousMonth](#showpreviousmonth), [showNextMonth](#shownextmonth), [showPreviousYear](#showpreviousyear), [showNextYear](#shownextyear)
+
 
 ## Reference
 
@@ -361,3 +372,64 @@ Event handler when the calendar get the `keydown` event
 **Type** `(month: Date) ⇒ void`
 
 Event handler when the month is changed, i.e. clicking the navigation buttons or using the keyboard.
+
+## Component methods
+
+### showMonth 
+
+**Signature** `(month: Date) ⇒ void`
+
+Show the given `month` in the calendar.
+
+Example: 
+```jsx
+class MyComponent extends React {
+
+  daypicker = null
+
+  handleClick() {
+    this.daypicker.showMonth(new Date(2014, 10));
+  }
+
+  render() {
+    return (
+      <div>
+        <DayPicker 
+          ref={ el => this.daypicker = el } 
+          initialMonth={ new Date(2015, 10) } 
+        />
+        <button onClick={ this.handleClick }>
+          Change month
+        </button>
+      </div>
+    )
+  }
+}
+```
+
+---
+
+### showPreviousMonth
+
+**Signature** `() ⇒ void`
+
+Show the previous month in the calendar.
+
+### showNextMonth
+
+**Signature** `() ⇒ void`
+
+Show the next month in the calendar.
+
+### showPreviousYear
+
+**Signature** `() ⇒ void`
+
+Show the previous year in the calendar.
+
+### showNextYear
+
+**Signature** `() ⇒ void`
+
+Show the next year in the calendar.
+

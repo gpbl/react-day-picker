@@ -25,6 +25,10 @@ pre {
     line-height: 1.3em;
 }
 
+code[class*="language-"], pre[class*="language-"] {
+    line-height: 1.1em;
+}
+
 section ul, section ol {
     margin-bottom: 1em !important;
 }

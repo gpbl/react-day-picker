@@ -29,6 +29,9 @@ jobs:
             yarn run coveralls < ./coverage/lcov.info
       - store_test_results:
           path: reports/
+      - run: 
+          name: Build lib
+          command: yarn run build
 
 deployment:
   master:

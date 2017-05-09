@@ -14,10 +14,8 @@ import CustomElements from './examples/CustomElements';
 import CSSModules from './examples/CSSModules';
 import FixedWeeks from './examples/FixedWeeks';
 import InputField from './examples/InputField';
-import InputFieldOverlay from './examples/InputFieldOverlay';
 import Localized from './examples/Localized';
 import LocalizedMoment from './examples/LocalizedMoment';
-import LocalizedCustom from './examples/LocalizedCustom';
 import Modifiers from './examples/Modifiers';
 import MultipleDays from './examples/MultipleDays';
 import Range from './examples/Range';
@@ -25,6 +23,7 @@ import RangeAdvanced from './examples/RangeAdvanced';
 import Restricted from './examples/Restricted';
 import SelectableDay from './examples/SelectableDay';
 import SimpleCalendar from './examples/SimpleCalendar';
+import SimpleInput from './examples/SimpleInput';
 import YearCalendar from './examples/YearCalendar';
 import YearNavigation from './examples/YearNavigation';
 
@@ -42,107 +41,109 @@ function getExampleName(location) {
 
 const EXAMPLES = {
   simple: {
-    title: 'Simple Calendar',
+    title: 'Render a simple calendar',
     description: 'Display the clicked day in the console.',
     Component: SimpleCalendar,
   },
+  simpleInput: {
+    title: 'Render as input field',
+    description: 'Import the <a href="http://react-day-picker.js.org/DayPickerInputAPI.html"><code>DayPickerInput</code></a> component to display the day picker in an overlay (requires moment.js).<br/>See also: <a href="?input">advanced interaction with the input field</a>.',
+    Component: SimpleInput,
+  },
   modifiers: {
-    title: 'Simple modifiers',
+    title: 'Render a day as selected or disabled',
     description: 'Use the <code>selectedDays</code> and <code>disabledDays</code> props to style a day as selected or disabled.',
     Component: Modifiers,
   },
   selectable: {
-    title: 'Selectable Day',
+    title: 'Save the clicked day in state',
     description: 'Use the <code>onDayClick</code> event to mark or unmark a day as selected when the user clicks a day cell. Note how the selected day is stored in the parent component’s state, not in the react-day-picker.',
     Component: SelectableDay,
   },
   multipleselect: {
-    title: 'Selecting Multiple Days',
+    title: 'Select multiple days',
     description: 'Pass an array of days to <code>selectDays</code> to select multiple days.',
     Component: MultipleDays,
   },
   disabled: {
-    title: 'Disabled Days',
+    title: 'Interaction with disabled days',
     description: 'Use the <code>disabledDays</code> prop to prevent the selection of a day. Here we are passing two functions to disable Saturdays and Sundays. <ul><li>Note how the <code>handleDayClick</code> handler is set to <i>not select</i> days marked as <code>disabled</code>.</li></ul>',
     Component: DisabledDays,
   },
   input: {
-    title: 'Input Field',
-    description: 'Connect the day picker with an input field. Libraries like moment.js can help to parse/validate the input date.',
+    title: 'Interaction with the input field',
+    description: 'The <a href="http://react-day-picker.js.org/DayPickerInputAPI.html"><code>DayPickerInput</code></a> component can be further extended to render a more complex date picker.',
     Component: InputField,
   },
-  fixedWeeks: {
-    title: 'Fixed number of weeks',
-    description: 'Use <code>fixedWeeks</code> to always display 6 weeks per month.',
-    Component: FixedWeeks,
-  },
   range: {
-    title: 'Range of Days - click',
+    title: 'Selecting a range on click',
     description: 'To select a range of days, pass to <code>selectedDays</code> an object with the following shape <code>{ from: &lt;Date&gt;, to: &lt;Date&gt; }</code>.',
     Component: Range,
   },
   rangeAdvanced: {
-    title: 'Range of Days – mouse enter',
+    title: 'Selecting a range on mouse enter',
     description: 'Select a range of days when the mouse enters in a day cell. Some things to note: <ul><li><code>disabledDays</code> can accept an object with a <code>before</code> key to match days before the given one</li><li>the <code>modifiers</code> prop can be used to set custom CSS modifiers, such as <code>--start</code> or <code>--end</code>.</li></ul>',
     Component: RangeAdvanced,
   },
+  fixedWeeks: {
+    title: 'Display a fixed number of weeks',
+    description: 'Use <code>fixedWeeks</code> to always display 6 weeks per month.',
+    Component: FixedWeeks,
+  },
   blocked: {
-    title: 'Block Navigation',
-    description: 'Set <code>canChangeMonth</code> to <code>false</code> to block the navigation between months and years.',
+    title: 'Prevent navigation between months',
+    description: 'Set <code>canChangeMonth</code> to <code>false</code> to prevent the navigation between months and years.',
     Component: BlockedNavigation,
   },
   restricted: {
-    title: 'Restrict Months',
+    title: 'Restrict navigation between months',
     description: 'Use the <code>fromMonth</code> and <code>toMonth</code> props to restrict the navigation between months.',
     Component: Restricted,
   },
   cssModules: {
-    title: 'Styling with CSS Modules',
+    title: 'Style with CSS Modules',
     description: 'Use the <code>classNames</code> prop to pass to the component the styles imported with <a href="https://github.com/css-modules/css-modules">CSS Modules</a>. <ul><li>The imported CSS (to use as template) can be <a href="https://github.com/gpbl/react-day-picker/blob/master/examples/src/styles/cssmodules.css">seen here</a>.</li></ul>',
     Component: CSSModules,
   },
   localized: {
-    title: 'Localization',
-    description: 'This example shows how to localize the calendar in Italian. Note the use of <code>firstDayOfWeek</code> to set Monday as first day of the week.',
+    title: 'Localize the component',
+    description: 'This example shows how to localize the calendar in Italian and Russian. Note the use of <code>firstDayOfWeek</code> to set Monday as first day of the week.',
     Component: Localized,
   },
   localizedMoment: {
-    title: 'Localization with moment.js',
-    description: "This day picker is localized using moment.js. Note the use of the <a href='https://www.w3.org/TR/html/dom.html#the-dir-attribute'>dir attribute</a> to support <abbr title='Right to left'>RTL</abbr> languages. <a href='http://react-day-picker.js.org/Localization.html'>Read more about localization</a>.",
+    title: 'Localize using momentjs',
+    description: `If you already use moment.js in your app, you can use its translations strings. 
+<a href='http://react-day-picker.js.org/Localization.html'>Read more about localization</a>.
+<ul>
+  <li>
+    Note the use of the <a href='https://www.w3.org/TR/html/dom.html#the-dir-attribute'>dir attribute</a> to support <abbr title='Right to left'>RTL</abbr> languages. 
+  </li>
+</ul>
+`,
     Component: LocalizedMoment,
   },
-  localizedCustom: {
-    title: 'Localization (advanced)',
-    description: "You can provide your own <code>localeUtils</code>. The following example provides Russian and English localizations.  <a href='http://react-day-picker.js.org/Localization.html'>Read more about localization</a>.",
-    Component: LocalizedCustom,
-  },
   advancedModifiers: {
-    title: 'Advanced Modifiers',
+    title: 'Change the style for day cells',
     description: 'Use the <code>modifiers</code> prop to fully customize the aspect and have full control of the calendar behavior. <ul><li>Note how the <code>onDay*</code> props receive the modifiers as third argument.</li></ul>',
     Component: AdvancedModifiers,
   },
   yearNavigation: {
-    title: 'Year Navigation',
+    title: 'Add navigation between years',
     description: 'Use the <code>captionElement</code> prop to render your custom element as caption. This example is showing a form to navigate up to the next 10 years.',
     Component: YearNavigation,
   },
   birthdays: {
-    title: 'Birthdays',
+    title: 'Add custom content in a day cell',
     description: 'Use the <code>renderDay</code> prop to add custom content to day cells.',
     Component: Birthdays,
   },
   customElements: {
-    title: 'Custom Elements',
+    title: 'Using custom elements',
     description: 'Use <code>weekdayElement</code> or <code>navbarElement</code> to customize with your own React element the weekday or the navigation bar.',
     Component: CustomElements,
   },
-  overlay: {
-    title: 'Input Field with Overlay',
-    description: "A more complex example showing the day picker on input's focus and hiding it on input's blur.",
-    Component: InputFieldOverlay,
-  },
   year: {
-    title: 'Year Calendar',
+    title: 'Create a year calendar',
     description: 'Use <code>numberOfMonths</code> to display a custom number of calendars.',
     Component: YearCalendar,
   },

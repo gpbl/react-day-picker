@@ -33,7 +33,7 @@ export default class LocalizedMoment extends React.Component {
     return (
       <div>
         <p>
-          <select onChange={this.switchLocale}>
+          <select value={locale} onChange={this.switchLocale}>
             <option value="en">English</option>
             <option value="it">Italian</option>
             <option value="ja">Japanese</option>
@@ -46,6 +46,7 @@ export default class LocalizedMoment extends React.Component {
           locale={locale}
           localeUtils={MomentLocaleUtils}
           modifiers={{ sunday: day => day.getDay() === 0 }}
+          renderDay={day => day.getDate().toLocaleString(locale)}
         />
       </div>
     );

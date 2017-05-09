@@ -5,4 +5,5 @@ export default {
   DOWN: 40,
   ENTER: 13,
   SPACE: 32,
+  ESC: 27,
 };
