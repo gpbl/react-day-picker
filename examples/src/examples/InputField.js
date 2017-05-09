@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-import DayInput from '../../../src/DayInput';
+import DayPickerInput from '../../../src/DayPickerInput';
 
 import '../../../src/style.css';
 
@@ -38,7 +38,7 @@ export default class InputField extends React.Component {
             ? '🤔 Type or pick a valid day'
             : `😄 You chose ${formattedDay}${isMonday ? ' (a Monday)' : ''}`}
         </p>
-        <DayInput
+        <DayPickerInput
           value={formattedDay}
           onDayChange={this.handleDayChange}
           format={DAY_FORMAT}

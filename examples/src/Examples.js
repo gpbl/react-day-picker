@@ -66,7 +66,7 @@ const EXAMPLES = {
   },
   input: {
     title: 'Create an input with day picker',
-    description: 'Use the <a href="http://react-day-picker.js.org/InputField.html"><code>DayInput</code></a> component to render an input field bound with the day picker.',
+    description: 'Use the <a href="http://react-day-picker.js.org/InputField.html"><code>DayPickerInput</code></a> component to render an input field bound with the day picker.',
     Component: InputField,
   },
   range: {

@@ -6,20 +6,20 @@ import { spy } from 'sinon';
 
 import keys from '../../src/keys';
 
-import DayInput, { HIDE_TIMEOUT } from '../../src/DayInput';
+import DayPickerInput, { HIDE_TIMEOUT } from '../../src/DayPickerInput';
 import DayPicker from '../../src/DayPicker';
 
-describe('DayInput', () => {
+describe('DayPickerInput', () => {
   describe('events', () => {
     describe('click', () => {
       it('should show the overlay when the input is clicked', () => {
-        const wrapper = mount(<DayInput />);
+        const wrapper = mount(<DayPickerInput />);
         wrapper.find('input').simulate('click');
         expect(wrapper.find('.DayPicker')).to.exist;
       });
       it('should call `onClick` event handler', () => {
         const onClick = spy();
-        const wrapper = mount(<DayInput onClick={onClick} />);
+        const wrapper = mount(<DayPickerInput onClick={onClick} />);
         wrapper.find('input').simulate('click');
         expect(onClick).to.have.been.calledOnce;
       });
@@ -27,13 +27,13 @@ describe('DayInput', () => {
 
     describe('focus', () => {
       it('should show the overlay when the input is focused', () => {
-        const wrapper = mount(<DayInput />);
+        const wrapper = mount(<DayPickerInput />);
         wrapper.find('input').simulate('focus');
         expect(wrapper.find('.DayPicker')).to.exist;
       });
       it('should call `onFocus` event handler', () => {
         const onFocus = spy();
-        const wrapper = mount(<DayInput onFocus={onFocus} />);
+        const wrapper = mount(<DayPickerInput onFocus={onFocus} />);
         wrapper.find('input').simulate('focus');
         expect(onFocus).to.have.been.calledOnce;
       });
@@ -41,19 +41,19 @@ describe('DayInput', () => {
 
     describe('blur', () => {
       it('should hide the overlay when the input is blurred', () => {
-        const wrapper = mount(<DayInput value="12/15/2017" />);
+        const wrapper = mount(<DayPickerInput value="12/15/2017" />);
         wrapper.find('input').simulate('focus');
         wrapper.find('input').simulate('blur');
         expect(wrapper.find('.DayPicker')).to.not.exist;
       });
       it('should call `onBlur` event handler', () => {
         const onBlur = spy();
-        const wrapper = mount(<DayInput onBlur={onBlur} />);
+        const wrapper = mount(<DayPickerInput onBlur={onBlur} />);
         wrapper.find('input').simulate('blur');
         expect(onBlur).to.have.been.calledOnce;
       });
       it('should focus the input if blur after clicking the overlay', () => {
-        const wrapper = mount(<DayInput />);
+        const wrapper = mount(<DayPickerInput />);
         wrapper.find('.DayPickerInput').simulate('mousedown');
         const instance = wrapper.instance();
         expect(instance.clickedInside).to.be.true;
@@ -66,25 +66,25 @@ describe('DayInput', () => {
     describe('change', () => {
       it('should call `onChange` event handler', () => {
         const onChange = spy();
-        const wrapper = mount(<DayInput onChange={onChange} />);
+        const wrapper = mount(<DayPickerInput onChange={onChange} />);
         wrapper.find('input').simulate('change');
         expect(onChange).to.have.been.calledOnce;
       });
       it("should update the input's value if the value is not a valid date", () => {
-        const wrapper = mount(<DayInput />);
+        const wrapper = mount(<DayPickerInput />);
         const input = wrapper.find('input');
         input.simulate('change', { target: { value: 'foo' } });
         expect(wrapper.find('input')).to.have.attr('value', 'foo');
       });
       it('should call `onDayChange` with empty values if the value is not a valid date', () => {
         const onDayChange = spy();
-        const wrapper = mount(<DayInput onDayChange={onDayChange} />);
+        const wrapper = mount(<DayPickerInput onDayChange={onDayChange} />);
         const input = wrapper.find('input');
         input.simulate('change', { target: { value: 'foo' } });
         expect(onDayChange).to.have.been.calledWith(undefined, {});
       });
       it("should update the input's value and the displayed month", () => {
-        const wrapper = mount(<DayInput />);
+        const wrapper = mount(<DayPickerInput />);
         const input = wrapper.find('input');
         wrapper.instance().showDayPicker();
         input.simulate('change', { target: { value: '12/16/2013' } });
@@ -100,7 +100,7 @@ describe('DayInput', () => {
         const onDayChange = spy();
         const testDay = new Date(2015, 11, 20);
         const wrapper = mount(
-          <DayInput
+          <DayPickerInput
             dayPickerProps={{
               modifiers: { foo: testDay },
               selectedDays: testDay,
@@ -125,14 +125,14 @@ describe('DayInput', () => {
     });
     describe('keyup', () => {
       it('should hide the overlay on ESC', () => {
-        const wrapper = mount(<DayInput />);
+        const wrapper = mount(<DayPickerInput />);
         wrapper.instance().showDayPicker();
         wrapper.find('input').simulate('keyup', { keyCode: keys.ESC });
         expect(wrapper.state('showOverlay')).to.be.false;
       });
       it('should call `onKeyUp` event handler', () => {
         const onKeyUp = spy();
-        const wrapper = mount(<DayInput onKeyUp={onKeyUp} />);
+        const wrapper = mount(<DayPickerInput onKeyUp={onKeyUp} />);
         wrapper.find('input').simulate('keyup');
         expect(onKeyUp).to.have.been.calledOnce;
       });
@@ -141,7 +141,7 @@ describe('DayInput', () => {
       it('should call `onDayClick` event handler', () => {
         const onDayClick = spy();
         const wrapper = mount(
-          <DayInput
+          <DayPickerInput
             dayPickerProps={{
               onDayClick,
             }}
@@ -153,7 +153,7 @@ describe('DayInput', () => {
       });
       it('should select and display the clicked day', () => {
         const wrapper = mount(
-          <DayInput
+          <DayPickerInput
             dayPickerProps={{
               month: new Date(2017, 1),
             }}
@@ -170,7 +170,7 @@ describe('DayInput', () => {
       it('should call `onDayChange` when clicking on a day', () => {
         const onDayChange = spy();
         const wrapper = mount(
-          <DayInput
+          <DayPickerInput
             onDayChange={onDayChange}
             dayPickerProps={{
               month: new Date(2017, 1),
@@ -190,7 +190,7 @@ describe('DayInput', () => {
         });
       });
       it('should hide the day picker when clicking on a day', done => {
-        const wrapper = mount(<DayInput />);
+        const wrapper = mount(<DayPickerInput />);
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
         expect(wrapper.instance().hideTimeout).to.not.be.null;
@@ -200,7 +200,7 @@ describe('DayInput', () => {
         }, HIDE_TIMEOUT + 10);
       });
       it('should not hide the day picker if `hideOnDayClick` is false', () => {
-        const wrapper = mount(<DayInput hideOnDayClick={false} />);
+        const wrapper = mount(<DayPickerInput hideOnDayClick={false} />);
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
         expect(wrapper.instance().hideTimeout).to.be.null;
@@ -208,7 +208,7 @@ describe('DayInput', () => {
       });
       it('should unselect the clicked day if already selected', () => {
         const wrapper = mount(
-          <DayInput
+          <DayPickerInput
             value="02/08/2017"
             dayPickerProps={{
               month: new Date(2017, 1),
@@ -224,7 +224,7 @@ describe('DayInput', () => {
       it('should call `onDayChange` when clicking a selected day', () => {
         const onDayChange = spy();
         const wrapper = mount(
-          <DayInput
+          <DayPickerInput
             value="02/08/2017"
             onDayChange={onDayChange}
             dayPickerProps={{
@@ -246,7 +246,7 @@ describe('DayInput', () => {
       it('should not call `onDayChange` if the day is disabled', () => {
         const onDayChange = spy();
         const wrapper = mount(
-          <DayInput
+          <DayPickerInput
             value="02/08/2017"
             onDayChange={onDayChange}
             dayPickerProps={{

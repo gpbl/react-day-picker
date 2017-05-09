@@ -1,4 +1,4 @@
-# DayInput component
+# DayPickerInput component
 
 react-day-picker comes with an handy input component to display the day picker together with an input field. [See this example](http://react-day-picker.js.org/examples/?input).
 
@@ -13,10 +13,10 @@ react-day-picker comes with an handy input component to display the day picker t
   ```
 
 
-* In your code, import the component from `react-day-picker/DayInput`
+* In your code, import the component from `react-day-picker/DayPickerInput`
   
   ```js
-  import DayInput from 'react-day-picker/DayInput';
+  import DayPickerInput from 'react-day-picker/DayPickerInput';
   ```
 
 ## Example
@@ -25,12 +25,12 @@ react-day-picker comes with an handy input component to display the day picker t
 import React from 'react';
 import moment from 'moment';
 
-import DayInput from 'react-day-picker/DayInput';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
 
 function MyForm() {
   return (
     <form>
-      <DayInput
+      <DayPickerInput
         name="birthday"
         placeholder="DD/MM/YYYY"
         format="DD/MM/YYYY"
@@ -43,9 +43,9 @@ function MyForm() {
 }
 ```
 
-## <DayInput />  Reference
+## <DayPickerInput />  Reference
 
-`<DayInput />` accept all the props valid for a standard `<input/>` React component plus the following ones:
+`<DayPickerInput />` accept all the props valid for a standard `<input/>` React component plus the following ones:
 
 ### format
 

@@ -2,13 +2,13 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 
-import DayInput from '../../src/DayInput';
+import DayPickerInput from '../../src/DayPickerInput';
 import DayPicker from '../../src/DayPicker';
 
-describe('DayInput', () => {
+describe('DayPickerInput', () => {
   describe('rendering', () => {
     it('should have default props', () => {
-      const dayPicker = <DayInput />;
+      const dayPicker = <DayPickerInput />;
       expect(dayPicker.props.dayPickerProps).to.eql({});
       expect(dayPicker.props.value).to.equal('');
       expect(dayPicker.props.format).to.equal('L');
@@ -16,12 +16,12 @@ describe('DayInput', () => {
       expect(dayPicker.props.component).to.equal('input');
     });
     it('should have the right CSS classes', () => {
-      const wrapper = shallow(<DayInput />);
+      const wrapper = shallow(<DayPickerInput />);
       expect(wrapper).to.have.className('DayPickerInput');
     });
     it('should render an input field with the passed attributes', () => {
       const wrapper = shallow(
-        <DayInput value="12/14/2017" placeholder="bar" />
+        <DayPickerInput value="12/14/2017" placeholder="bar" />
       );
       const input = wrapper.find('input');
       expect(input).to.exist;
@@ -30,7 +30,7 @@ describe('DayInput', () => {
     });
     it('should work with not value dates', () => {
       const wrapper = shallow(
-        <DayInput value="very wrong" placeholder="bar" />
+        <DayPickerInput value="very wrong" placeholder="bar" />
       );
       const input = wrapper.find('input');
       expect(input).to.have.attr('value', 'very wrong');
@@ -38,14 +38,14 @@ describe('DayInput', () => {
       expect(wrapper.find(DayPicker)).to.exist;
     });
     it('should show the DayPicker', () => {
-      const wrapper = shallow(<DayInput />);
+      const wrapper = shallow(<DayPickerInput />);
       wrapper.instance().showDayPicker();
       expect(wrapper.find('.DayPickerInput-OverlayWrapper')).to.exist;
       expect(wrapper.find('.DayPickerInput-Overlay')).to.exist;
       expect(wrapper.find(DayPicker)).to.exist;
     });
     it('should hide the DayPicker', () => {
-      const wrapper = shallow(<DayInput />);
+      const wrapper = shallow(<DayPickerInput />);
       wrapper.instance().showDayPicker();
       wrapper.instance().hideDayPicker();
 
@@ -54,7 +54,7 @@ describe('DayInput', () => {
     });
     it('should pass props to the DayPicker', () => {
       const instance = mount(
-        <DayInput
+        <DayPickerInput
           dayPickerProps={{
             enableOutsideDays: true,
             numberOfMonths: 12,
@@ -69,14 +69,14 @@ describe('DayInput', () => {
       expect(instance.daypicker.props.numberOfMonths).to.equal(1);
     });
     it('should open the daypicker to the month of the selected day', () => {
-      const wrapper = mount(<DayInput value="12/15/2017" />);
+      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
       wrapper.instance().showDayPicker();
       expect(wrapper.find('.DayPicker-Caption').first()).to.have.text(
         'December 2017'
       );
     });
     it('should display the current value as a selected day', () => {
-      const wrapper = mount(<DayInput value="12/15/2017" />);
+      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
       wrapper.instance().showDayPicker();
       expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(1);
       expect(wrapper.find('.DayPicker-Day--selected').first()).to.have.text(
