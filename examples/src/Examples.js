@@ -22,6 +22,7 @@ import Range from './examples/Range';
 import RangeAdvanced from './examples/RangeAdvanced';
 import Restricted from './examples/Restricted';
 import SelectableDay from './examples/SelectableDay';
+import TodayButton from './examples/TodayButton';
 import SimpleCalendar from './examples/SimpleCalendar';
 import SimpleInput from './examples/SimpleInput';
 import YearCalendar from './examples/YearCalendar';
@@ -89,6 +90,11 @@ const EXAMPLES = {
     title: 'Display a fixed number of weeks',
     description: 'Use <code>fixedWeeks</code> to always display 6 weeks per month.',
     Component: FixedWeeks,
+  },
+  todayButton: {
+    title: 'Display a today button',
+    description: 'Use <code>todayButton</code> to display a today button.',
+    Component: TodayButton,
   },
   blocked: {
     title: 'Prevent navigation between months',

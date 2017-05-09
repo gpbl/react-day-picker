@@ -41,6 +41,7 @@ export default class InputField extends React.Component {
           format={DAY_FORMAT}
           placeholder={`E.g. ${moment().locale('en').format(DAY_FORMAT)}`}
           dayPickerProps={{
+            todayButton: 'Go to Today',
             disabledDays: {
               daysOfWeek: [0, 6],
             },
