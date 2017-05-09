@@ -57,10 +57,6 @@ import DayPicker from "react-day-picker";
 
 import "react-day-picker/lib/style.css"
 
-function sundays(day) {
-  return day.getDay() === 0;
-}
-
 class MyComponent extends React.Component {
   state = {
     selectedDay: undefined,
@@ -73,7 +69,7 @@ class MyComponent extends React.Component {
   render() {
     return (
       <DayPicker
-        disabledDays={sundays}
+        disabledDays={{ daysOfTheWeek: [0] }}
         selectedDays={this.state.selectedDay}
         onDayClick={this.handleDayClick}
       />
