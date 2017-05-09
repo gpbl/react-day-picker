@@ -1,10 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import { isElement } from 'react-addons-test-utils';
 import { expect } from 'chai';
-import { shallow, mount, render } from 'enzyme';
-import { spy } from 'sinon';
+import { shallow, mount } from 'enzyme';
 
 import DayInput from '../../src/DayInput';
 import DayPicker from '../../src/DayPicker';
@@ -32,14 +28,21 @@ describe('DayInput', () => {
       expect(input).to.have.attr('value', '12/14/2017');
       expect(input).to.have.attr('placeholder', 'bar');
     });
+    it('should work with not value dates', () => {
+      const wrapper = shallow(
+        <DayInput value="very wrong" placeholder="bar" />
+      );
+      const input = wrapper.find('input');
+      expect(input).to.have.attr('value', 'very wrong');
+      wrapper.instance().showDayPicker();
+      expect(wrapper.find(DayPicker)).to.exist;
+    });
     it('should show the DayPicker', () => {
       const wrapper = shallow(<DayInput />);
       wrapper.instance().showDayPicker();
       expect(wrapper.find('.DayPickerInput-OverlayWrapper')).to.exist;
       expect(wrapper.find('.DayPickerInput-Overlay')).to.exist;
-
-      const dayPicker = wrapper.find(DayPicker);
-      expect(dayPicker).to.exist;
+      expect(wrapper.find(DayPicker)).to.exist;
     });
     it('should hide the DayPicker', () => {
       const wrapper = shallow(<DayInput />);
