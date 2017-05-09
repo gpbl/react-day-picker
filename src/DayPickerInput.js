@@ -32,18 +32,7 @@ function getStateFromProps(props) {
 export default class DayPickerInput extends React.Component {
   static propTypes = {
     // eslint-disable-next-line react/no-unused-prop-types
-    value: (props, propName, componentName) => {
-      if (!props.format || !props.value) {
-        return undefined;
-      }
-      const m = moment(props.value, props.format, true);
-      if (!m.isValid()) {
-        return new Error(
-          `Invalid prop \`${propName}="${props.value}"\` supplied to \`${componentName}\`. Make sure \`value\` is formatted as ${props.format}`
-        );
-      }
-      return undefined;
-    },
+    value: PropTypes.string,
 
     format: PropTypes.string.isRequired,
     dayPickerProps: PropTypes.object,
