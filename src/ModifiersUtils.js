@@ -30,6 +30,9 @@ export function dayMatchesModifier(day, modifier) {
     if (mod.before) {
       return isDayBefore(day, mod.before);
     }
+    if (mod.daysOfWeek) {
+      return mod.daysOfWeek.some(dayOfWeek => day.getDay() === dayOfWeek);
+    }
     if (typeof mod === 'function') {
       return mod(day);
     }
