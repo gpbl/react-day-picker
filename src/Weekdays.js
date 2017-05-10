@@ -4,6 +4,7 @@ import PropTypes from './PropTypes';
 export default function Weekdays({
   classNames,
   firstDayOfWeek,
+  showWeekNumbers,
   weekdaysLong,
   weekdaysShort,
   locale,
@@ -31,6 +32,7 @@ export default function Weekdays({
   return (
     <div className={classNames.weekdays} role="rowgroup">
       <div className={classNames.weekdaysRow} role="row">
+        {showWeekNumbers && <div className={classNames.weekday} />}
         {days}
       </div>
     </div>
@@ -47,6 +49,7 @@ Weekdays.propTypes = {
   firstDayOfWeek: PropTypes.number.isRequired,
   weekdaysLong: PropTypes.arrayOf(PropTypes.string),
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+  showWeekNumbers: PropTypes.bool,
   locale: PropTypes.string.isRequired,
   localeUtils: PropTypes.localeUtils.isRequired,
   weekdayElement: PropTypes.oneOfType([

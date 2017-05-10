@@ -86,6 +86,17 @@
         vertical-align: middle;
       }
 
+      .DayPicker-WeekNumber {
+        display: table-cell;
+        padding: .5rem;
+        text-align: right;
+        vertical-align: middle;
+        min-width: 1rem;
+        font-size: 0.75em;
+        cursor: pointer;
+        color: #8b9898;
+      }
+
   .DayPicker--interactionDisabled .DayPicker-Day {
     cursor: default;
   }

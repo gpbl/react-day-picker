@@ -13,6 +13,7 @@ export default {
   weekday: 'DayPicker-Weekday',
   body: 'DayPicker-Body',
   week: 'DayPicker-Week',
+  weekNumber: 'DayPicker-WeekNumber',
   day: 'DayPicker-Day',
   footer: 'DayPicker-Footer',
   todayButton: 'DayPicker-TodayButton',
