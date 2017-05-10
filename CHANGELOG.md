@@ -1,3 +1,34 @@
+## [v5.5.0](https://github.com/gpbl/react-day-picker/tree/v5.5.0) (2017-05-09)
+
+**New DayPickerInput component**
+
+Use the `DayPickerInput` component to render an input field interacting with the day picker ([#213](https://github.com/gpbl/react-day-picker/issues/213)).
+
+See [example](http://react-day-picker.js.org/examples/?input), [docs](http://react-day-picker.js.org/Input.html) and [API reference](http://react-day-picker.js.org/DayPickerInputAPI.html).
+
+**New features**
+
+* New [`todayButton`](http://react-day-picker.js.org/DayPickerAPI.html#todaybutton) prop ([#329](https://github.com/gpbl/react-day-picker/issues/329)).
+
+  Use this prop to display a button on the calendar's footer to switch to the current month ([example](http://react-day-picker.js.org/examples/?todayButton)).
+
+* New [`showWeekDays`](http://react-day-picker.js.org/DayPickerAPI.html#showweekdays) and [`onWeekClick`](http://react-day-picker.js.org/DayPickerAPI.html#onweekclick) props  ([#304](https://github.com/gpbl/react-day-picker/issues/304)).
+
+  Use this props to display and interact with the year's week numbers ([example](http://react-day-picker.js.org/examples/?weekNumbers)).
+
+* New `daysOfWeek` [modifiers type](http://react-day-picker.js.org/Modifiers.html) to match days of the weeks ([#330](https://github.com/gpbl/react-day-picker/issues/330)).
+
+  For example, to match Sundays and Mondays:
+
+  ```diff
+  <DayPicker 
+    disabledDays={
+  -    day => day.getDate() === 0 || day.getDate() === 1
+  +    daysOfWeek: [0, 1]
+    }
+  />
+  ```
+
 ### [v5.4.3](https://github.com/gpbl/react-day-picker/tree/v5.4.3) (2017-05-06)
 
 * Bugfix: `isBeforeDay`/`isAfterDay` functions where not exported correctly ([#327](https://github.com/gpbl/react-day-picker/pull/327))
