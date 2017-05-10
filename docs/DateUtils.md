@@ -62,3 +62,7 @@ console.log(newRange.from) // 2015-05-24
 ### isDayInRange `(day: Date, range: object<from: ?Date, to: ?Date>) ⇒ Bool`
 
 Returns `true` if `day` is included in the specified range of days.  See the [range example](http://react-day-picker.js.org/examples?range) for an example using this function.
+
+### getWeekNumber `(day: Date) ⇒ Number`
+
+Returns the year's week number (as per ISO, i.e. with the week starting from Monday) for the given day.
