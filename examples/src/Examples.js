@@ -25,6 +25,7 @@ import SelectableDay from './examples/SelectableDay';
 import TodayButton from './examples/TodayButton';
 import SimpleCalendar from './examples/SimpleCalendar';
 import SimpleInput from './examples/SimpleInput';
+import WeekNumbers from './examples/WeekNumbers';
 import YearCalendar from './examples/YearCalendar';
 import YearNavigation from './examples/YearNavigation';
 
@@ -95,6 +96,11 @@ const EXAMPLES = {
     title: 'Display a today button',
     description: 'Use <code>todayButton</code> to display a today button.',
     Component: TodayButton,
+  },
+  weekNumbers: {
+    title: 'Selecting an entire week',
+    description: 'Use the <code>weekNumbers</code> prop to display the number of each week.',
+    Component: WeekNumbers,
   },
   blocked: {
     title: 'Prevent navigation between months',

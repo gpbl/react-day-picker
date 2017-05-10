@@ -53,6 +53,7 @@ module.exports = {
           'SimpleCalendar',
           'SimpleInput',
           'TouchEvents',
+          'WeekNumbers',
           'YearCalendar',
           'YearNavigation',
         ],
