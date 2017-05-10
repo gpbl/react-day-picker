@@ -7,6 +7,7 @@
   "types": "./types/index.d.ts",
   "files": [
     "DayPicker.js",
+    "DayPickerInput.js",
     "lib",
     "moment.js",
     "utils.js",
