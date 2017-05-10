@@ -329,6 +329,13 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-Footer')).to.exists;
     expect(wrapper.find('button.DayPicker-TodayButton')).to.have.text('foo');
   });
+  it('should render the week numbers', () => {
+    const wrapper = mount(
+      <DayPicker showWeekNumbers initialMonth={new Date(2015, 1)} />
+    );
+    expect(wrapper.find('.DayPicker-WeekNumber')).to.have.length(4);
+    expect(wrapper.find('.DayPicker-WeekNumber').at(1)).to.have.text('6');
+  });
   it('should use the specified class names', () => {
     const wrapper = mount(
       <DayPicker

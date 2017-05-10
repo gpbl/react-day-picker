@@ -175,4 +175,17 @@ describe('DayPicker’s events handlers', () => {
       formatMonthTitle(new Date())
     );
   });
+  it('should call `onWeekClick` when clicking on a week number', () => {
+    const onWeekClick = spy();
+    const wrapper = mount(
+      <DayPicker
+        showWeekNumbers
+        onWeekClick={onWeekClick}
+        initialMonth={new Date(2015, 1)}
+      />
+    );
+    wrapper.find('.DayPicker-WeekNumber').at(1).simulate('click');
+    expect(onWeekClick.getCall(0).args[0]).to.equal(6);
+    expect(onWeekClick.getCall(0).args[1]).to.have.length(7);
+  });
 });

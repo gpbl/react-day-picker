@@ -10,7 +10,7 @@ import DayPicker from 'react-day-picker';
 
 **Day Modifiers**: [selectedDays](#selecteddays), [disabledDays](#disableddays), [modifiers](#modifiers), [modifiersStyles](#modifiersstyles)
 
-**Customization**: [enableOutsideDays](#enableoutsidedays), [fixedWeeks](#fixedweeks), [todayButton](#todaybutton)
+**Customization**: [enableOutsideDays](#enableoutsidedays), [fixedWeeks](#fixedweeks), [showWeekNumbers](#showweeknumbers), [todayButton](#todaybutton)
 
 **Localization**: [dir](#dir), [firstDayOfWeek](#firstdayofweek), [labels](#labels), [locale](#locale), [localeUtils](#localeUtils), [months](#months), [weekdaysLong](#weekdayslong), [weekdaysShort](#weekdaysshort)
 
@@ -279,6 +279,12 @@ Indicate which day should appear as selected. Set a `selected` modifier.
 
 See [Modifiers](Modifiers.md) for a reference of the accepted values.
 
+### showWeekNumbers
+
+**Type**: `Boolean`
+
+Display the year's week number next to each week ([example](../examples/?weekNumbers)).
+
 ### todayButton
 
 **Type**: `String`
@@ -385,6 +391,12 @@ Event handler when the calendar get the `keydown` event
 **Type** `(month: Date) ⇒ void`
 
 Event handler when the month is changed, i.e. clicking the navigation buttons or using the keyboard.
+
+### onWeekClick
+
+**Type**: `(weekNumber: Number, days: Date[], e: SynteticEvent) ⇒ void`
+
+Event hander when the user clicks on a week number (when [showWeekNumbers](#showweeknumbers) is set to `true`).
 
 ## Component methods
 

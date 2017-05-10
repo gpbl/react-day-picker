@@ -1,6 +1,7 @@
 /**
  * Clone a date object.
  *
+ * @export
  * @param  {Date} d The date to clone
  * @return {Date} The cloned date
  */
@@ -10,6 +11,8 @@ export function clone(d) {
 
 /**
  * Return `d` as a new date with `n` months added.
+ * 
+ * @export
  * @param {[type]} d
  * @param {[type]} n
  */
@@ -22,6 +25,7 @@ export function addMonths(d, n) {
 /**
  * Return `true` if two dates are the same day, ignoring the time.
  *
+ * @export
  * @param  {Date}  d1
  * @param  {Date}  d2
  * @return {Boolean}
@@ -69,6 +73,7 @@ export function isDayAfter(d1, d2) {
  * Return `true` if a day is in the past, e.g. yesterday or any day
  * before yesterday.
  *
+ * @export
  * @param  {Date}  d
  * @return {Boolean}
  */
@@ -82,6 +87,7 @@ export function isPastDay(d) {
  * Return `true` if a day is in the future, e.g. tomorrow or any day
  * after tomorrow.
  *
+ * @export
  * @param  {Date}  d
  * @return {Boolean}
  */
@@ -95,6 +101,7 @@ export function isFutureDay(d) {
  * Return `true` if day `d` is between days `d1` and `d2`,
  * without including them.
  *
+ * @export
  * @param  {Date}  d
  * @param  {Date}  d1
  * @param  {Date}  d2
@@ -113,6 +120,7 @@ export function isDayBetween(d, d1, d2) {
  * Add a day to a range and return a new range. A range is an object with
  * `from` and `to` days.
  *
+ * @export
  * @param {Date} day
  * @param {Object} range
  * @return {Object} Returns a new range object
@@ -143,6 +151,7 @@ export function addDayToRange(day, range = { from: null, to: null }) {
 /**
  * Return `true` if a day is included in a range of days.
  *
+ * @export
  * @param  {Date}  day
  * @param  {Object}  range
  * @return {Boolean}
@@ -156,10 +165,28 @@ export function isDayInRange(day, range) {
   );
 }
 
+/**
+ * Return the year's week number (as per ISO, i.e. with the week starting from monday)
+ * for the given day.
+ * 
+ * @export
+ * @param {Date} day 
+ * @returns {Number}
+ */
+export function getWeekNumber(day) {
+  const date = clone(day);
+  date.setHours(0, 0, 0);
+  date.setDate(date.getDate() + 4 - (date.getDay() || 7));
+  return Math.ceil(
+    ((date - new Date(date.getFullYear(), 0, 1)) / 8.64e7 + 1) / 7
+  );
+}
+
 export default {
   addDayToRange,
   addMonths,
   clone,
+  getWeekNumber,
   isDayAfter,
   isDayBefore,
   isDayBetween,
