@@ -4,7 +4,7 @@ You must style the component with your own CSS: start with [src/style.css](https
 
 > The CSS classes follow a [BEM-like syntax](https://css-tricks.com/bem-101/).
 
-* If you need to customize the CSS class names, use the [`classNames`](APIProps.md#classnames) prop.
+* If you need to customize the CSS class names, use the [`classNames`](DayPickerAPI.md#classnames) prop.
 * You can also use [CSS Modules](CSSModules.md).
 
 ### Modifiers

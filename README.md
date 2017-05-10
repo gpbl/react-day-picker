@@ -69,7 +69,7 @@ class MyComponent extends React.Component {
   render() {
     return (
       <DayPicker
-        disabledDays={{ daysOfTheWeek: [0] }}
+        disabledDays={{ daysOfWeek: [0] }}
         selectedDays={this.state.selectedDay}
         onDayClick={this.handleDayClick}
       />
