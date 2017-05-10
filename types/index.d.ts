@@ -146,10 +146,12 @@ declare namespace DayPicker {
         onFocus?(e: React.FocusEvent<HTMLDivElement>): void;
         onKeyDown?(e: React.KeyboardEvent<HTMLDivElement>): void;
         onMonthChange?(month: Date): void;
+        onWeekClick?(weekNumber: number, days: Date[], e: React.MouseEvent<HTMLDivElement>): void;
         pagedNavigation?: boolean;
         renderDay?(date: Date, modifiers: Modifiers): React.ReactNode;
         reverseMonths?: boolean;
         selectedDays?: Modifier | Modifier[];
+        showWeekNumbers?: boolean;
         todayButton?: string;
         toMonth?: Date;
         weekdayElement?: React.ReactElement<Partial<WeekdayElementProps>> |
