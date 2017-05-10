@@ -7,7 +7,7 @@ The package includes:
 * the **DayPicker** component, to render the date picker (the "calendar")
 * the **DayPickerInput** component – to render an input field opening the DayPicker in an overlay.
 
-This guide illustrates the DayPicker basic concepts by implementing a date picker to select, clear and disable days from the calendar.
+This guide illustrates the DayPicker basic concepts by implementing a date picker to select, clear and disable days from the calendar. For using the input field, read [this chapter](Input.md).
 
 ## Selecting a day
 
@@ -159,7 +159,6 @@ class SelectDay extends React.Component {
   }
 }
 ```
-
 
 Check out [this example](http://react-day-picker.js.org/examples?disabled) running a similar implementation.
 
