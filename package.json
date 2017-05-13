@@ -90,7 +90,7 @@
     "eslint-config-prettier": "2.1.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "4.0.0",
-    "eslint-plugin-react": "7.0.0",
+    "eslint-plugin-react": "7.0.1",
     "gitbook-cli": "2.3.0",
     "husky": "0.13.3",
     "istanbul": "1.1.0-alpha.1",
