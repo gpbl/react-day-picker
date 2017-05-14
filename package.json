@@ -70,7 +70,7 @@
   },
   "devDependencies": {
     "@types/react": "^15.0.23",
-    "autoprefixer": "7.0.0",
+    "autoprefixer": "7.1.0",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
