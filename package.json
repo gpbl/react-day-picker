@@ -87,7 +87,7 @@
     "dtslint": "^0.1.2",
     "enzyme": "2.8.2",
     "eslint": "3.19.0",
-    "eslint-config-airbnb": "14.1.0",
+    "eslint-config-airbnb": "15.0.1",
     "eslint-config-prettier": "2.1.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "4.0.0",
