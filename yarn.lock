@@ -248,15 +248,15 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
-autoprefixer@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.0.0.tgz#734cc4f56ec964fcd4b6048e028b60c4226e7fdd"
+autoprefixer@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.1.0.tgz#ae4913adc221fa6ca5ad3a6f8039f6a5c06b3877"
   dependencies:
     browserslist "^2.1.2"
-    caniuse-lite "^1.0.30000665"
+    caniuse-lite "^1.0.30000669"
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
-    postcss "^6.0.0"
+    postcss "^6.0.1"
     postcss-value-parser "^3.2.3"
 
 aws-sign2@~0.6.0:
@@ -804,6 +804,12 @@ babel-plugin-transform-react-jsx@^6.24.1:
     babel-plugin-syntax-jsx "^6.8.0"
     babel-runtime "^6.22.0"
 
+babel-plugin-transform-react-remove-prop-types@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.5.tgz#79d1958437ae23d4fbc0b11d1a041498ddb23877"
+  dependencies:
+    babel-traverse "^6.24.1"
+
 babel-plugin-transform-regenerator@^6.24.1:
   version "6.24.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-regenerator/-/babel-plugin-transform-regenerator-6.24.1.tgz#b8da305ad43c3c99b4848e4fe4037b770d23c418"
@@ -1154,6 +1160,10 @@ camelcase@^4.1.0:
 caniuse-lite@^1.0.30000665:
   version "1.0.30000666"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000666.tgz#831b63247e24fa408e20c6c546c4173d27c5a1a5"
+
+caniuse-lite@^1.0.30000669:
+  version "1.0.30000670"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000670.tgz#c94f7dbf0b68eaadc46d3d203f46e82e7801135e"
 
 caseless@~0.11.0:
   version "0.11.0"
@@ -1932,9 +1942,9 @@ eslint-config-airbnb@14.1.0:
   dependencies:
     eslint-config-airbnb-base "^11.1.0"
 
-eslint-config-prettier@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.0.0.tgz#073cdb2760c0ba817c9b3fbf2300110a77a35626"
+eslint-config-prettier@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.1.0.tgz#cf78bc7864f98b0f87bcadf702459e933dfa659c"
   dependencies:
     get-stdin "^5.0.1"
 
@@ -1979,9 +1989,9 @@ eslint-plugin-jsx-a11y@4.0.0:
     jsx-ast-utils "^1.0.0"
     object-assign "^4.0.1"
 
-eslint-plugin-react@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.0.0.tgz#084cfe772d229ec5ae7e525dfc6d299cc21ddd77"
+eslint-plugin-react@7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.0.1.tgz#e78107e1e559c6e2b17786bb67c2e2a010ad0d2f"
   dependencies:
     doctrine "^2.0.0"
     has "^1.0.1"
@@ -3717,7 +3727,23 @@ mocha-junit-reporter@^1.12.0, mocha-junit-reporter@^1.13.0:
     mkdirp "~0.5.1"
     xml "^1.0.0"
 
-mocha@3.3.0, mocha@^3.0.0:
+mocha@3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/mocha/-/mocha-3.4.1.tgz#a3802b4aa381934cacb38de70cf771621da8f9af"
+  dependencies:
+    browser-stdout "1.3.0"
+    commander "2.9.0"
+    debug "2.6.0"
+    diff "3.2.0"
+    escape-string-regexp "1.0.5"
+    glob "7.1.1"
+    growl "1.9.2"
+    json3 "3.3.2"
+    lodash.create "3.1.1"
+    mkdirp "0.5.1"
+    supports-color "3.1.2"
+
+mocha@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-3.3.0.tgz#d29b7428d3f52c82e2e65df1ecb7064e1aabbfb5"
   dependencies:
@@ -4533,7 +4559,7 @@ postcss@^5.0.0:
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^6.0.0, postcss@^6.0.1:
+postcss@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.1.tgz#000dbd1f8eef217aa368b9a212c5fc40b2a8f3f2"
   dependencies:
@@ -5414,7 +5440,7 @@ strip-json-comments@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-1.0.4.tgz#1e15fbcac97d3ee99bf2d73b4c656b082bbafb91"
 
-supports-color@3.1.2, supports-color@^3.1.2:
+supports-color@3.1.2, supports-color@^3.1.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.1.2.tgz#72a262894d9d408b956ca05ff37b2ed8a6e2a2d5"
   dependencies:
@@ -5424,7 +5450,7 @@ supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
 
-supports-color@^3.1.0, supports-color@^3.2.3:
+supports-color@^3.1.2, supports-color@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:
