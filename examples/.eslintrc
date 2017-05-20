@@ -3,6 +3,7 @@
     "import/imports-first": 0,
     "import/named": 2,
     "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/accessible-emoji": 0,
     "max-len": 0,
     "no-console": 0,
     "no-return-assign": 0,
