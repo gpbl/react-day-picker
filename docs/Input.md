@@ -1,6 +1,6 @@
 # Using the input field
 
-react-day-picker comes with `<DayPickerInput />`, a component rendering an input field rendering the DayPicker in an overlay. [See this example](http://react-day-picker.js.org/examples/?input) and read [its API reference](DayPickerInputAPI.md).
+react-day-picker comes with `<DayPickerInput />`, a component rendering an input field and displaying Day Picker in an overlay. [See this example](http://react-day-picker.js.org/examples/?input) and read [its API reference](DayPickerInputAPI.md).
 
 ### Setup
 
