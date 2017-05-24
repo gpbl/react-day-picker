@@ -80,7 +80,7 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-1": "6.24.1",
     "chai": "3.5.0",
-    "chai-enzyme": "0.7.0",
+    "chai-enzyme": "0.7.1",
     "cheerio": "0.22.0",
     "codeclimate-test-reporter": "^0.4.1",
     "coveralls": "2.13.1",
