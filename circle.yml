@@ -25,7 +25,6 @@ jobs:
       - run: 
           name: Upload coverage info
           command: |
-            yarn run codeclimate < ./coverage/lcov.info
             yarn run coveralls < ./coverage/lcov.info
       - store_test_results:
           path: reports/
