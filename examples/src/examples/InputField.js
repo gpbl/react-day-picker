@@ -5,35 +5,32 @@ import DayPickerInput from '../../../src/DayPickerInput';
 
 import '../../../src/style.css';
 
-const DAY_FORMAT = 'LL';
+const DAY_FORMAT = 'DD/MM/YYYY';
 
 export default class InputField extends React.Component {
   state = {
     selectedDay: undefined,
-    isMonday: false,
+    isDisabled: false,
   };
 
   handleDayChange = (selectedDay, modifiers) => {
-    if (modifiers.disabled) {
-      this.setState({
-        selectedDay: undefined,
-      });
-      return;
-    }
-    this.setState({ selectedDay, isMonday: modifiers.monday });
+    this.setState({
+      selectedDay,
+      isDisabled: modifiers.disabled,
+    });
   };
 
   render() {
-    const { selectedDay, isMonday } = this.state;
+    const { selectedDay, isDisabled } = this.state;
     const formattedDay = selectedDay
       ? moment(selectedDay).format(DAY_FORMAT)
       : '';
     return (
       <div>
         <p>
-          {!selectedDay
-            ? '🤔 Type or pick a valid day'
-            : `😄 You chose ${formattedDay}${isMonday ? ' (a Monday)' : ''}`}
+          {!selectedDay && '🤔 Type or pick a valid day'}
+          {selectedDay && isDisabled && '😡 This day is disabled'}
+          {selectedDay && !isDisabled && `😄 You chose ${formattedDay}`}
         </p>
         <DayPickerInput
           value={formattedDay}
