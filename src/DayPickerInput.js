@@ -23,7 +23,6 @@ function getStateFromProps(props) {
   }
 
   return {
-    showOverlay: false,
     value: props.value,
     month,
   };
@@ -72,10 +71,16 @@ export default class DayPickerInput extends React.Component {
     // for the ignore above see: https://github.com/gotwarlost/istanbul/issues/690
 
     this.state = getStateFromProps(props);
+    this.state.showOverlay = false;
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.value !== this.state.value && !this.state.showOverlay) {
+    if (nextProps.value !== this.state.value) {
+      console.log(
+        'next value: %s, current value: %s',
+        nextProps.value,
+        this.state.value
+      );
       this.setState(getStateFromProps(nextProps));
     }
   }
@@ -169,16 +174,14 @@ export default class DayPickerInput extends React.Component {
 
     if (!m.isValid()) {
       this.setState({ value });
-      if (onDayChange) {
-        onDayChange(undefined, {});
-      }
       return;
     }
 
     const day = m.toDate();
-    this.setState({ month: day, value });
-
-    if (onDayChange) {
+    this.setState({ month: day, value }, () => {
+      if (!onDayChange) {
+        return;
+      }
       const modifiersObj = {
         disabled: dayPickerProps.disabledDays,
         selected: dayPickerProps.selectedDays,
@@ -193,7 +196,7 @@ export default class DayPickerInput extends React.Component {
         return newObj;
       }, {});
       this.props.onDayChange(m, modifiers);
-    }
+    });
   };
 
   handleOnKeyUp = e => {
@@ -225,13 +228,12 @@ export default class DayPickerInput extends React.Component {
     }
 
     const m = moment(day);
-    this.setState(
-      { value: m.format(this.props.format), month: day },
-      this.hideAfterDayClick
-    );
-    if (this.props.onDayChange) {
-      this.props.onDayChange(m, modifiers);
-    }
+    this.setState({ value: m.format(this.props.format), month: day }, () => {
+      if (this.props.onDayChange) {
+        this.props.onDayChange(m, modifiers);
+      }
+      this.hideAfterDayClick();
+    });
   };
 
   renderOverlay() {
@@ -268,7 +270,6 @@ export default class DayPickerInput extends React.Component {
     delete inputProps.hideOnDayClick;
     delete inputProps.onDayChange;
     delete inputProps.classNames;
-
     return (
       <div
         className={this.props.classNames.container}
