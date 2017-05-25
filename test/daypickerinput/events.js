@@ -76,12 +76,12 @@ describe('DayPickerInput', () => {
         input.simulate('change', { target: { value: 'foo' } });
         expect(wrapper.find('input')).to.have.attr('value', 'foo');
       });
-      it('should call `onDayChange` with empty values if the value is not a valid date', () => {
+      it('should not call `onDayChange` if the value is not a valid date', () => {
         const onDayChange = spy();
         const wrapper = mount(<DayPickerInput onDayChange={onDayChange} />);
         const input = wrapper.find('input');
         input.simulate('change', { target: { value: 'foo' } });
-        expect(onDayChange).to.have.been.calledWith(undefined, {});
+        expect(onDayChange).to.not.have.been.called;
       });
       it("should update the input's value and the displayed month", () => {
         const wrapper = mount(<DayPickerInput />);
