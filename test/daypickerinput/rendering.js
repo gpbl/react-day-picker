@@ -98,5 +98,15 @@ describe('DayPickerInput', () => {
         '15'
       );
     });
+    it('should update the current value when `value` prop is updated', () => {
+      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
+      wrapper.setProps({ value: '01/10/2018' });
+      expect(wrapper.instance().state.value).to.equal('01/10/2018');
+    });
+    it('should not update the current value when other props are updated', () => {
+      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
+      wrapper.setProps({ dayPickerProps: {} });
+      expect(wrapper.instance().state.value).to.equal('12/15/2017');
+    });
   });
 });
