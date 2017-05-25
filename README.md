@@ -19,7 +19,6 @@ Check out the [examples](http://react-day-picker.js.org/examples) to see its fea
 [![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
 [![CircleCI](https://img.shields.io/circleci/project/github/gpbl/react-day-picker/master.svg?style=flat-square)](https://circleci.com/gh/gpbl/react-day-picker)
 [![coveralls](https://img.shields.io/coveralls/gpbl/react-day-picker.svg?style=flat-square)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
-[![Code Climate](https://img.shields.io/codeclimate/github/gpbl/react-day-picker.svg?style=flat-square)](https://codeclimate.com/github/gpbl/react-day-picker)
 [![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](http://npm-stat.com/charts.html?package=react-day-picker)
 
 ## Quick start
