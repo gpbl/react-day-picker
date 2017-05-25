@@ -1,13 +1,21 @@
 {
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "prettier"
   ],
   "extends": [
     "airbnb",
-    "prettier"
+    "prettier",
+    "prettier/react"
   ],
   "rules": {
+    "prettier/prettier": [
+      "warn",
+      {
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ],
     "no-console": [
       "error",
       {
