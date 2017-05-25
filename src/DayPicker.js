@@ -29,6 +29,7 @@ export default class DayPicker extends Component {
     pagedNavigation: PropTypes.bool,
     todayButton: PropTypes.string,
     showWeekNumbers: PropTypes.bool,
+    showDisabledNavButton: PropTypes.bool,
 
     // Modifiers
     selectedDays: PropTypes.oneOfType([
@@ -123,6 +124,7 @@ export default class DayPicker extends Component {
       previousMonth: 'Previous Month',
       nextMonth: 'Next Month',
     },
+    showDisabledNavButton: false,
     locale: 'en',
     localeUtils: LocaleUtils,
     enableOutsideDays: false,
@@ -448,6 +450,7 @@ export default class DayPicker extends Component {
     if (!canChangeMonth) return null;
 
     const props = {
+      showDisabledNavButton: this.props.showDisabledNavButton,
       classNames: this.props.classNames,
       className: this.props.classNames.navBar,
       nextMonth: this.getNextNavigableMonth(),
