@@ -1,4 +1,4 @@
-### [v5.5.2](https://github.com/gpbl/react-day-picker/tree/v5.5.2) (2017-05-25)
+### [v5.5.3](https://github.com/gpbl/react-day-picker/tree/v5.5.3) (2017-05-25)
 
 * Bugfix for `DayPickerInput`: updated `value` prop now will be reflected in the component's state ([#363](https://github.com/gpbl/react-day-picker/issuses/363))
 
