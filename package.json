@@ -79,7 +79,7 @@
     "babel-preset-stage-1": "6.24.1",
     "chai": "3.5.0",
     "chai-enzyme": "0.7.1",
-    "cheerio": "0.22.0",
+    "cheerio": "1.0.0-rc.1",
     "coveralls": "2.13.1",
     "dtslint": "^0.1.2",
     "enzyme": "2.8.2",
