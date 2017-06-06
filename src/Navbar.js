@@ -11,29 +11,42 @@ export default function Navbar({
   onNextClick,
   labels,
   dir,
+  showDisabledNavButton,
 }) {
   const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
   const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
 
-  const previousButton =
-    showPreviousButton &&
-    <span
-      role="button"
-      aria-label={labels.previousMonth}
-      key="previous"
-      className={classNames.navButtonPrev}
-      onClick={() => previousClickHandler()}
-    />;
+  const previousButton = !showPreviousButton && showDisabledNavButton
+    ? <span
+        role="button"
+        aria-label={labels.previousMonth}
+        key="previous"
+        className={`${classNames.navButtonPrev} DayPicker-NavButton-disabled`}
+      />
+    : showPreviousButton &&
+        <span
+          role="button"
+          aria-label={labels.previousMonth}
+          key="previous"
+          className={classNames.navButtonPrev}
+          onClick={() => previousClickHandler()}
+        />;
 
-  const nextButton =
-    showNextButton &&
-    <span
-      role="button"
-      aria-label={labels.nextMonth}
-      key="right"
-      className={classNames.navButtonNext}
-      onClick={() => nextClickHandler()}
-    />;
+  const nextButton = !showNextButton && showDisabledNavButton
+    ? <span
+        role="button"
+        aria-label={labels.nextMonth}
+        key="right"
+        className={`${classNames.navButtonNext} DayPicker-NavButton-disabled`}
+      />
+    : showNextButton &&
+        <span
+          role="button"
+          aria-label={labels.nextMonth}
+          key="right"
+          className={classNames.navButtonNext}
+          onClick={() => nextClickHandler()}
+        />;
 
   return (
     <div className={className || classNames.navBar}>
