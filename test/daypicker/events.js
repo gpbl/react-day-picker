@@ -170,7 +170,7 @@ describe('DayPicker’s events handlers', () => {
       <DayPicker todayButton="foo" initialMonth={new Date(2015, 1)} />
     );
     wrapper.find('button.DayPicker-TodayButton').simulate('click');
-    expect(wrapper.find('.DayPicker-Footer')).to.exists;
+    expect(wrapper.find('.DayPicker-Footer')).to.exist;
     expect(wrapper.find('.DayPicker-Caption')).to.have.text(
       formatMonthTitle(new Date())
     );

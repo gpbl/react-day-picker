@@ -195,9 +195,8 @@ describe('DayPicker’s rendering', () => {
     /* eslint-enable react/prefer-stateless-function */
   });
   it('should render a custom navbar element', () => {
-    const CustomNavbar = ({ className }) => (
-      <div className={className}>Navbar</div>
-    );
+    const CustomNavbar = ({ className }) =>
+      <div className={className}>Navbar</div>;
     CustomNavbar.propTypes = { className: PropTypes.string };
     const navbar = <CustomNavbar />;
     const dayPicker = <DayPicker navbarElement={navbar} />;
@@ -209,9 +208,8 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-NavBar').at(0)).to.have.text('Navbar');
   });
   it('should render a custom navbar element as a function', () => {
-    const CustomNavbar = ({ className }) => (
-      <div className={className}>Navbar</div>
-    );
+    const CustomNavbar = ({ className }) =>
+      <div className={className}>Navbar</div>;
     CustomNavbar.propTypes = { className: PropTypes.string };
     const wrapper = mount(<DayPicker navbarElement={CustomNavbar} />);
 
@@ -237,9 +235,8 @@ describe('DayPicker’s rendering', () => {
     /* eslint-enable react/no-multi-comp */
   });
   it('should render a custom weekday element', () => {
-    const CustomWeekday = ({ className, weekday }) => (
-      <div className={className}>{weekday}</div>
-    );
+    const CustomWeekday = ({ className, weekday }) =>
+      <div className={className}>{weekday}</div>;
     CustomWeekday.propTypes = {
       className: PropTypes.string,
       weekday: PropTypes.number,
@@ -257,9 +254,8 @@ describe('DayPicker’s rendering', () => {
     });
   });
   it('should render a custom weekday element as a function', () => {
-    const CustomWeekday = ({ className, weekday }) => (
-      <div className={className}>{weekday}</div>
-    );
+    const CustomWeekday = ({ className, weekday }) =>
+      <div className={className}>{weekday}</div>;
     CustomWeekday.propTypes = {
       className: PropTypes.string,
       weekday: PropTypes.number,
@@ -326,7 +322,7 @@ describe('DayPicker’s rendering', () => {
     const wrapper = mount(
       <DayPicker todayButton="foo" initialMonth={new Date(2015, 1)} />
     );
-    expect(wrapper.find('.DayPicker-Footer')).to.exists;
+    expect(wrapper.find('.DayPicker-Footer')).to.exist;
     expect(wrapper.find('button.DayPicker-TodayButton')).to.have.text('foo');
   });
   it('should render the week numbers', () => {
