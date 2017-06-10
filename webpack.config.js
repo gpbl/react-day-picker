@@ -4,8 +4,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: {
-    daypicker: './DayPicker.js',
-    daypickerinput: './DayPickerInput.js',
+    daypicker: './DayPicker.dist.js',
   },
   output: {
     path: `${__dirname}/lib`,

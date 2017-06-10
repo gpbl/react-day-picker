@@ -7,9 +7,9 @@
 
 react-day-picker is a flexible date picker component for [React](https://facebook.github.io/react/).
 
-* no external dependencies
+* no external dependencies, 9KB minified and gzipped
 * select [days](http://react-day-picker.js.org/examples?selectable), [ranges](http://react-day-picker.js.org/examples?range), whatever using CSS modifiers
-* simple [localization](http://react-day-picker.js.org/examples?localized), even with [moment.js](http://react-day-picker.js.org/examples/?localizedMoment)
+* simple [localization](http://react-day-picker.js.org/examples?localized)
 * customizable [style](https://github.com/gpbl/react-day-picker/blob/master/src/style.css) and [CSS Modules](http://react-day-picker.js.org/CSSModules.html) support
 * navigable via keyboard, ARIA support
 * integrates with `<input />` fields (requires moment.js – [example](http://react-day-picker.js.org/examples?input))
@@ -40,13 +40,7 @@ Include the component without installing:
 <script src="https://unpkg.com/react-day-picker/daypicker.min.js"></script>
 ```
 
-See this [jsfiddle](https://jsfiddle.net/gpbl/cggxvq6t/) as example.
-
-**Using bower**
-
-```html
-bower install react-day-picker
-```
+> The main component is globally exported as `DayPicker`, the input component as `DayPicker.Input`. See this [jsfiddle](https://jsfiddle.net/gpbl/cggxvq6t/) as example.
 
 ### Example
 
@@ -81,13 +75,13 @@ See [this running example](http://react-day-picker.js.org/examples/?disabled) an
 
 ### Docs and examples
 
-* [Examples With Code](http://react-day-picker.js.org/examples)
+* [Examples with code](http://react-day-picker.js.org/examples)
 * [Documentation and API reference](http://react-day-picker.js.org)
 * [CHANGELOG](https://github.com/gpbl/react-day-picker/blob/master/CHANGELOG.md)
 
 ### Get support
 
-Fork [https://jsfiddle.net/gpbl/cggxvq6t](https://jsfiddle.net/gpbl/cggxvq6t) to reproduce your problem.
+Please fork and use [https://jsfiddle.net/gpbl/cggxvq6t](https://jsfiddle.net/gpbl/cggxvq6t) to reproduce your problem.
 
 * Ask on on [Stack Overflow](http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest)  (tag your question with `react-day-picker`)
 * Join the [Gitter room](https://gitter.im/gpbl/react-day-picker) for immediate help
