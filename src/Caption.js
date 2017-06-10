@@ -10,10 +10,12 @@ export default function Caption({
   onClick,
 }) {
   return (
-    <div className={classNames.caption} onClick={onClick} role="heading">
-      {months
-        ? `${months[date.getMonth()]} ${date.getFullYear()}`
-        : localeUtils.formatMonthTitle(date, locale)}
+    <div className={classNames.caption} role="heading">
+      <div onClick={onClick}>
+        {months
+          ? `${months[date.getMonth()]} ${date.getFullYear()}`
+          : localeUtils.formatMonthTitle(date, locale)}
+      </div>
     </div>
   );
 }
