@@ -179,7 +179,8 @@ export default class DayPicker extends Component {
     let outsideClassName;
     if (this.props.classNames === classNames) {
       // When using CSS modules prefix the modifier as required by the BEM syntax
-      outsideClassName = `${this.props.classNames.day}--${this.props.classNames.outside}`;
+      outsideClassName = `${this.props.classNames.day}--${this.props.classNames
+        .outside}`;
     } else {
       outsideClassName = `${this.props.classNames.outside}`;
     }
