@@ -75,7 +75,10 @@ export default class DayPickerInput extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.value !== this.state.value || nextProps.dayPickerProps.month !== this.state.month) {
+    if (
+      nextProps.value !== this.state.value ||
+      nextProps.dayPickerProps.month !== this.state.month
+    ) {
       this.setState(getStateFromProps(nextProps));
     }
   }
