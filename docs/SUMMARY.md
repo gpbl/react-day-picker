@@ -1,5 +1,5 @@
 * [react-day-picker](README.md)
-* [Examples with code](Examples.md)
+* [Getting started](Examples.md)
 * [Basic usage](Basic.md)
 * [Using the input field](Input.md)
 * [Matching days with modifiers](Modifiers.md)
