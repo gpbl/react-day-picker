@@ -18,6 +18,7 @@ export default function Navbar({
   const previousButton =
     showPreviousButton &&
     <span
+      tabIndex="0"
       role="button"
       aria-label={labels.previousMonth}
       key="previous"
@@ -28,6 +29,7 @@ export default function Navbar({
   const nextButton =
     showNextButton &&
     <span
+      tabIndex="0"
       role="button"
       aria-label={labels.nextMonth}
       key="right"
