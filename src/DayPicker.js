@@ -593,13 +593,16 @@ export default class DayPicker extends Component {
         }}
         role="application"
         lang={this.props.locale}
-        tabIndex={this.props.canChangeMonth && this.props.tabIndex}
-        onKeyDown={this.handleKeyDown}
-        onFocus={this.props.onFocus}
-        onBlur={this.props.onBlur}
       >
-        {this.renderNavbar()}
-        {this.renderMonths()}
+        <div
+          tabIndex={this.props.canChangeMonth && this.props.tabIndex}
+          onKeyDown={this.handleKeyDown}
+          onFocus={this.props.onFocus}
+          onBlur={this.props.onBlur}
+        >
+          {this.renderNavbar()}
+          {this.renderMonths()}
+        </div>
       </div>
     );
   }
