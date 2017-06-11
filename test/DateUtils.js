@@ -115,7 +115,7 @@ describe('DateUtils', () => {
 
   describe('isFutureDay', () => {
     it('detects a day is in the future', () => {
-      const isFutureDay = DateUtils.isFutureDay(new Date(2017, 5, 11));
+      const isFutureDay = DateUtils.isFutureDay(new Date(2040, 5, 11));
       expect(isFutureDay).to.be.true;
     });
     it('detects a day in the past', () => {
