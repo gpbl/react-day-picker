@@ -13,7 +13,7 @@ describe('DayPicker’s events handlers', () => {
   it('should call the `onCaptionClick` handler', () => {
     const handleCaptionClick = spy();
     const wrapper = mount(<DayPicker onCaptionClick={handleCaptionClick} />);
-    wrapper.find('.DayPicker-Caption').childAt(0).simulate('click');
+    wrapper.find('.DayPicker-Caption').simulate('click');
     expect(handleCaptionClick).to.have.been.calledWith(
       sinon.match(
         date =>
@@ -150,7 +150,7 @@ describe('DayPicker’s events handlers', () => {
   it('should call `onKeyDown` event handler', () => {
     const handleKeyDown = spy();
     const wrapper = mount(<DayPicker onKeyDown={handleKeyDown} />);
-    wrapper.childAt(0).simulate('keyDown');
+    wrapper.simulate('keyDown');
     expect(handleKeyDown).to.have.been.calledWith(
       sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e')
     );
@@ -160,7 +160,7 @@ describe('DayPicker’s events handlers', () => {
     const wrapper = mount(
       <DayPicker onKeyDown={handleKeyDown} canChangeMonth={false} />
     );
-    wrapper.childAt(0).simulate('keyDown');
+    wrapper.simulate('keyDown');
     expect(handleKeyDown).to.have.been.calledWith(
       sinon.match(e => e instanceof SyntheticEvent && e.target !== null, 'e')
     );

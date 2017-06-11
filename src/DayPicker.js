@@ -585,22 +585,22 @@ export default class DayPicker extends Component {
     }
 
     return (
+      // To make this eslint rule work again we need to cut a major release as it would
+      // result a breaking change: https://github.com/gpbl/react-day-picker/issues/392
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <div
         {...this.props.containerProps}
         ref={el => (this.dayPicker = el)}
         role="application"
         lang={this.props.locale}
+        className={className}
+        tabIndex={this.props.canChangeMonth && this.props.tabIndex}
+        onKeyDown={this.handleKeyDown}
+        onFocus={this.props.onFocus}
+        onBlur={this.props.onBlur}
       >
-        <div
-          className={className}
-          tabIndex={this.props.canChangeMonth && this.props.tabIndex}
-          onKeyDown={this.handleKeyDown}
-          onFocus={this.props.onFocus}
-          onBlur={this.props.onBlur}
-        >
-          {this.renderNavbar()}
-          {this.renderMonths()}
-        </div>
+        {this.renderNavbar()}
+        {this.renderMonths()}
       </div>
     );
   }

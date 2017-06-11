@@ -97,28 +97,28 @@ describe('DayPicker’s navigation', () => {
   it('should call `showNextMonth()` when the RIGHT key is pressed', () => {
     const wrapper = mount(<DayPicker />);
     const showNextMonth = spy(wrapper.instance(), 'showNextMonth');
-    wrapper.childAt(0).simulate('keyDown', { keyCode: keys.RIGHT });
+    wrapper.simulate('keyDown', { keyCode: keys.RIGHT });
     expect(showNextMonth).to.have.been.calledOnce;
     showNextMonth.restore();
   });
   it('should call `showPreviousMonth()` when the LEFT key is pressed', () => {
     const wrapper = mount(<DayPicker />);
     const showPreviousMonth = spy(wrapper.instance(), 'showPreviousMonth');
-    wrapper.childAt(0).simulate('keyDown', { keyCode: keys.LEFT });
+    wrapper.simulate('keyDown', { keyCode: keys.LEFT });
     expect(showPreviousMonth).to.have.been.calledOnce;
     showPreviousMonth.restore();
   });
   it('should call `showPreviousYear()` when the UP key is pressed', () => {
     const wrapper = mount(<DayPicker />);
     const showPreviousYear = spy(wrapper.instance(), 'showPreviousYear');
-    wrapper.childAt(0).simulate('keyDown', { keyCode: keys.UP });
+    wrapper.simulate('keyDown', { keyCode: keys.UP });
     expect(showPreviousYear).to.have.been.calledOnce;
     showPreviousYear.restore();
   });
   it('should call `showNextYear()` when the DOWN key is pressed', () => {
     const wrapper = mount(<DayPicker />);
     const showNextYear = spy(wrapper.instance(), 'showNextYear');
-    wrapper.childAt(0).simulate('keyDown', { keyCode: keys.DOWN });
+    wrapper.simulate('keyDown', { keyCode: keys.DOWN });
     expect(showNextYear).to.have.been.calledOnce;
     showNextYear.restore();
   });
