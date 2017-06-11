@@ -1,49 +1,70 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from './PropTypes';
 import defaultClassNames from './classNames';
 
-export default function Navbar({
-  classNames,
-  className,
-  showPreviousButton,
-  showNextButton,
-  onPreviousClick,
-  onNextClick,
-  labels,
-  dir,
-}) {
-  const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
-  const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
+export default class Navbar extends Component {
+  static defaultProps = {
+    classNames: defaultClassNames,
+    dir: 'ltr',
+    labels: {
+      previousMonth: 'Previous Month',
+      nextMonth: 'Next Month',
+    },
+    showPreviousButton: true,
+    showNextButton: true,
+  };
+  shouldComponentUpdate(nextProps) {
+    return (
+      nextProps.labels !== this.props.labels ||
+      this.props.showPreviousButton !== nextProps.showPreviousButton ||
+      this.props.showNextButton !== nextProps.showNextButton
+    );
+  }
 
-  const previousButton =
-    showPreviousButton &&
-    <span
-      tabIndex="0"
-      role="button"
-      aria-label={labels.previousMonth}
-      key="previous"
-      className={classNames.navButtonPrev}
-      onClick={() => previousClickHandler()}
-    />;
+  render() {
+    const {
+      classNames,
+      className,
+      showPreviousButton,
+      showNextButton,
+      onPreviousClick,
+      onNextClick,
+      labels,
+      dir,
+    } = this.props;
+    const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
+    const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
 
-  const nextButton =
-    showNextButton &&
-    <span
-      tabIndex="0"
-      role="button"
-      aria-label={labels.nextMonth}
-      key="right"
-      className={classNames.navButtonNext}
-      onClick={() => nextClickHandler()}
-    />;
+    const previousButton =
+      showPreviousButton &&
+      <span
+        tabIndex="0"
+        role="button"
+        aria-label={labels.previousMonth}
+        key="previous"
+        className={classNames.navButtonPrev}
+        onClick={() => previousClickHandler()}
+      />;
 
-  return (
-    <div className={className || classNames.navBar}>
-      {dir === 'rtl'
-        ? [nextButton, previousButton]
-        : [previousButton, nextButton]}
-    </div>
-  );
+    const nextButton =
+      showNextButton &&
+      <span
+        tabIndex="0"
+        role="button"
+        aria-label={labels.nextMonth}
+        key="right"
+        className={classNames.navButtonNext}
+        onClick={() => nextClickHandler()}
+      />;
+
+    return (
+      <div className={className || classNames.navBar}>
+        {dir === 'rtl'
+          ? [nextButton, previousButton]
+          : [previousButton, nextButton]}
+      </div>
+    );
+  }
 }
 
 export const NavbarPropTypes = {
@@ -65,14 +86,3 @@ export const NavbarPropTypes = {
 };
 
 Navbar.propTypes = NavbarPropTypes;
-
-Navbar.defaultProps = {
-  classNames: defaultClassNames,
-  dir: 'ltr',
-  labels: {
-    previousMonth: 'Previous Month',
-    nextMonth: 'Next Month',
-  },
-  showPreviousButton: true,
-  showNextButton: true,
-};
