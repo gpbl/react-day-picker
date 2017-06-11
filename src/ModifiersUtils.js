@@ -24,6 +24,9 @@ export function dayMatchesModifier(day, modifier) {
     if (isRangeOfDates(mod)) {
       return isDayInRange(day, mod);
     }
+    if (mod.after && mod.before) {
+      return isDayAfter(day, mod.after) && isDayBefore(day, mod.before);
+    }
     if (mod.after) {
       return isDayAfter(day, mod.after);
     }

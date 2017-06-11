@@ -98,6 +98,23 @@ describe('ModifiersUtils', () => {
       );
       expect(match2).to.be.true;
     });
+    it('matches "after" and "before" modifiers', () => {
+      const afterModifier = {
+        after: new Date(2015, 8, 10),
+        before: new Date(2015, 8, 18),
+      };
+      const match = ModifiersUtils.dayMatchesModifier(
+        new Date(2015, 8, 15),
+        afterModifier
+      );
+      expect(match).to.be.true;
+
+      const fail = ModifiersUtils.dayMatchesModifier(
+        new Date(2014, 8, 9),
+        afterModifier
+      );
+      expect(fail).to.be.false;
+    });
     it('matches "after" modifiers', () => {
       const afterModifier = {
         after: new Date(2015, 8, 18),
@@ -212,15 +229,9 @@ describe('ModifiersUtils', () => {
   describe('getModifiersForDay', () => {
     it('returns an array of modifiers', () => {
       const modifierFunctions = {
-        yes() {
-          return true;
-        },
-        no() {
-          return false;
-        },
-        maybe(d) {
-          return d.getMonth() === 8;
-        },
+        yes: () => true,
+        no: () => false,
+        maybe: d => d.getMonth() === 8,
       };
       let modifiers = ModifiersUtils.getModifiersForDay(
         new Date(2015, 8, 19),
@@ -347,6 +358,20 @@ describe('ModifiersUtils', () => {
         ranges
       );
       expect(modifiers2.indexOf('foo')).to.equal(0);
+    });
+    it('returns an "after/before" modifier', () => {
+      const afterModifier = {
+        foo: {
+          after: new Date(2015, 8, 10),
+          before: new Date(2015, 8, 18),
+        },
+      };
+      const modifiers = ModifiersUtils.getModifiersForDay(
+        new Date(2015, 8, 15),
+        afterModifier
+      );
+      expect(modifiers).to.have.length(1);
+      expect(modifiers.indexOf('foo')).to.equal(0);
     });
     it('returns an "after" modifier', () => {
       const afterModifier = {
