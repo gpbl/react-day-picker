@@ -110,6 +110,10 @@ declare namespace DayPicker {
   interface AfterModifier {
     after: Date;
   }
+  interface BeforeAfterModifier {
+    after: Date;
+    before: Date;
+  }
   interface DaysOfWeekModifier {
     daysOfWeek: number[];
   }
@@ -119,6 +123,7 @@ declare namespace DayPicker {
     | RangeModifier
     | BeforeModifier
     | AfterModifier
+    | BeforeAfterModifier
     | DaysOfWeekModifier
     | FunctionModifier;
 
