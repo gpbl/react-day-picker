@@ -587,14 +587,12 @@ export default class DayPicker extends Component {
     return (
       <div
         {...this.props.containerProps}
-        className={className}
-        ref={el => {
-          this.dayPicker = el;
-        }}
+        ref={el => (this.dayPicker = el)}
         role="application"
         lang={this.props.locale}
       >
         <div
+          className={className}
           tabIndex={this.props.canChangeMonth && this.props.tabIndex}
           onKeyDown={this.handleKeyDown}
           onFocus={this.props.onFocus}
