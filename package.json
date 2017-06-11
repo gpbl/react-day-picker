@@ -108,7 +108,7 @@
     "react-test-renderer": "15.5.4",
     "rimraf": "2.6.1",
     "sinon": "^2.3.2",
-    "sinon-chai": "2.10.0",
+    "sinon-chai": "2.11.0",
     "typescript": "^2.3.4",
     "webpack": "^2.6.1"
   },
