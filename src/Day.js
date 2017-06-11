@@ -100,7 +100,6 @@ export default class Day extends Component {
         />
       );
     }
-
     return (
       <div
         className={className}
