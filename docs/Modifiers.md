@@ -17,15 +17,13 @@ The value of a modifier can be either:
   ```
   will match the days between the 12th and the 16th of January.
 
-- **an object with a `before` key**, to match the days before the given date:
+- **an object with a `before` and/or `after` key**, to match the days before and/or after the given date:
   ```js
   const range = { 
-    before: new Date(), 
+    before: new Date(),
   }
   ```
-  will match all the past the days (i.e. the days before today).
-
-- **an object with a `after` key**, to match the days after the given date:
+  The code above will match all the past the days (i.e. the days before today).
 
   ```js
   const range = { 
@@ -33,7 +31,16 @@ The value of a modifier can be either:
   }
   ```
 
-  will match all the days after the January, 1st 2018.
+  The code above will match all the days after the January, 1st 2018.
+
+  ```js
+  const range = { 
+    after: new Date(2020, 5, 20), 
+    before: new Date(2020, 5, 30), 
+  }
+  ```
+
+  The code above will match all the days between the 30th and the 20th of April 2018.
 
 - **an object with a `daysOfWeek` array**, to match specific days of week:
 
