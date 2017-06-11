@@ -13,7 +13,7 @@ describe('DayPicker’s events handlers', () => {
   it('should call the `onCaptionClick` handler', () => {
     const handleCaptionClick = spy();
     const wrapper = mount(<DayPicker onCaptionClick={handleCaptionClick} />);
-    wrapper.find('.DayPicker-Caption').simulate('click');
+    wrapper.find('.DayPicker-Caption').childAt(0).simulate('click');
     expect(handleCaptionClick).to.have.been.calledWith(
       sinon.match(
         date =>
