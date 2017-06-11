@@ -1,34 +1,37 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from './PropTypes';
 
-export default function Weekday({
-  weekday,
-  className,
-  weekdaysLong,
-  weekdaysShort,
-  localeUtils,
-  locale,
-}) {
-  let title;
-  if (weekdaysLong) {
-    title = weekdaysLong[weekday];
-  } else {
-    title = localeUtils.formatWeekdayLong(weekday, locale);
-  }
-  let content;
-  if (weekdaysShort) {
-    content = weekdaysShort[weekday];
-  } else {
-    content = localeUtils.formatWeekdayShort(weekday, locale);
-  }
+export default class Weekday extends PureComponent {
+  render() {
+    const {
+      weekday,
+      className,
+      weekdaysLong,
+      weekdaysShort,
+      localeUtils,
+      locale,
+    } = this.props;
+    let title;
+    if (weekdaysLong) {
+      title = weekdaysLong[weekday];
+    } else {
+      title = localeUtils.formatWeekdayLong(weekday, locale);
+    }
+    let content;
+    if (weekdaysShort) {
+      content = weekdaysShort[weekday];
+    } else {
+      content = localeUtils.formatWeekdayShort(weekday, locale);
+    }
 
-  return (
-    <div className={className} role="columnheader">
-      <abbr title={title}>
-        {content}
-      </abbr>
-    </div>
-  );
+    return (
+      <div className={className} role="columnheader">
+        <abbr title={title}>
+          {content}
+        </abbr>
+      </div>
+    );
+  }
 }
 
 export const WeekdayPropTypes = {
