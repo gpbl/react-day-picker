@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from './PropTypes';
 import defaultClassNames from './classNames';
 
-export default class Navbar extends PureComponent {
+export default class Navbar extends Component {
   static defaultProps = {
     classNames: defaultClassNames,
     dir: 'ltr',
@@ -13,6 +13,14 @@ export default class Navbar extends PureComponent {
     showPreviousButton: true,
     showNextButton: true,
   };
+  shouldComponentUpdate(nextProps) {
+    return (
+      nextProps.labels !== this.props.labels ||
+      this.props.showPreviousButton !== nextProps.showPreviousButton ||
+      this.props.showNextButton !== nextProps.showNextButton
+    );
+  }
+
   render() {
     const {
       classNames,
