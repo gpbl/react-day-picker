@@ -15,27 +15,35 @@ export default function Navbar({
   const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
   const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
 
-  const previousButton =
-    showPreviousButton &&
+  const previousButton = (
     <span
       tabIndex="0"
       role="button"
       aria-label={labels.previousMonth}
       key="previous"
-      className={classNames.navButtonPrev}
-      onClick={() => previousClickHandler()}
-    />;
+      className={
+        showPreviousButton
+          ? classNames.navButtonPrev
+          : `${classNames.navButtonPrev} DayPicker-NavButton-disabled`
+      }
+      onClick={showPreviousButton ? () => previousClickHandler() : null}
+    />
+  );
 
-  const nextButton =
-    showNextButton &&
+  const nextButton = (
     <span
       tabIndex="0"
       role="button"
       aria-label={labels.nextMonth}
       key="right"
-      className={classNames.navButtonNext}
-      onClick={() => nextClickHandler()}
-    />;
+      className={
+        showNextButton
+          ? classNames.navButtonNext
+          : `${classNames.navButtonNext} DayPicker-NavButton-disabled`
+      }
+      onClick={showNextButton ? () => nextClickHandler() : null}
+    />
+  );
 
   return (
     <div className={className || classNames.navBar}>
