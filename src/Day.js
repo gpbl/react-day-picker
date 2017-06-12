@@ -91,14 +91,7 @@ export default class Day extends Component {
     }
 
     if (empty) {
-      return (
-        <div
-          role="gridcell"
-          aria-disabled
-          className={className}
-          style={style}
-        />
-      );
+      return <div aria-disabled className={className} style={style} />;
     }
     return (
       <div
