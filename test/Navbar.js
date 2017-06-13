@@ -63,13 +63,17 @@ describe('<Navbar />', () => {
       'DayPicker-NavButton--prev'
     );
   });
-  it('should not render the previous button', () => {
+  it('should disable interaction with the previous button', () => {
     const wrapper = shallow(<Navbar showPreviousButton={false} />);
-    expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.length(0);
+    expect(
+      wrapper.find('.DayPicker-NavButton--interactionDisabled')
+    ).to.have.length(1);
   });
-  it('should not render the next button', () => {
+  it('should disable interaction with the next button', () => {
     const wrapper = shallow(<Navbar showNextButton={false} />);
-    expect(wrapper.find('.DayPicker-NavButton--next')).to.have.length(0);
+    expect(
+      wrapper.find('.DayPicker-NavButton--interactionDisabled')
+    ).to.have.length(1);
   });
   it('should call `onNextClick` when clicking the next button', () => {
     const handleNextClick = spy();
