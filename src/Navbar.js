@@ -35,27 +35,35 @@ export default class Navbar extends Component {
     const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
     const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
 
-    const previousButton =
-      showPreviousButton &&
+    const previousButton = (
       <span
         tabIndex="0"
         role="button"
         aria-label={labels.previousMonth}
         key="previous"
-        className={classNames.navButtonPrev}
-        onClick={() => previousClickHandler()}
-      />;
+        className={
+          showPreviousButton
+            ? classNames.navButtonPrev
+            : `${classNames.navButtonPrev} ${classNames.navButtonInteractionDisabled}`
+        }
+        onClick={showPreviousButton ? () => previousClickHandler() : undefined}
+      />
+    );
 
-    const nextButton =
-      showNextButton &&
+    const nextButton = (
       <span
         tabIndex="0"
         role="button"
         aria-label={labels.nextMonth}
         key="right"
-        className={classNames.navButtonNext}
-        onClick={() => nextClickHandler()}
-      />;
+        className={
+          showNextButton
+            ? classNames.navButtonNext
+            : `${classNames.navButtonNext} ${classNames.navButtonInteractionDisabled}`
+        }
+        onClick={showNextButton ? () => nextClickHandler() : undefined}
+      />
+    );
 
     return (
       <div className={className || classNames.navBar}>

@@ -17,6 +17,7 @@ export default {
   day: 'DayPicker-Day',
   footer: 'DayPicker-Footer',
   todayButton: 'DayPicker-TodayButton',
+  navButtonInteractionDisabled: 'DayPicker-NavButton--interactionDisabled',
 
   // default modifiers
   today: 'today',
