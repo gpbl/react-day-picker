@@ -40,6 +40,10 @@ export default class Day extends Component {
   };
 
   static defaultProps = {
+    tabIndex: -1,
+  };
+
+  static defaultProps = {
     modifiers: {},
     empty: false,
   };
@@ -96,7 +100,7 @@ export default class Day extends Component {
     return (
       <div
         className={className}
-        tabIndex={tabIndex || 0}
+        tabIndex={tabIndex}
         style={style}
         role="gridcell"
         aria-label={ariaLabel}

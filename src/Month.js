@@ -77,13 +77,10 @@ export default class Month extends Component {
     }
 
     const isOutside = day.getMonth() !== monthNumber;
-    let tabIndex = null;
-    if (this.props.onDayClick && !isOutside) {
-      tabIndex = -1;
-      // Focus on the first day of the month
-      if (day.getDate() === 1) {
-        tabIndex = this.props.tabIndex;
-      }
+    let tabIndex = -1;
+    // Focus on the first day of the month
+    if (this.props.onDayClick && !isOutside && day.getDate() === 1) {
+      tabIndex = this.props.tabIndex;
     }
     const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
     const modifiers = {};
