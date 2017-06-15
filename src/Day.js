@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions, react/forbid-prop-types */
 
 import React, { Component } from 'react';
+import assign from 'object-assign';
 import defaultClassNames from './classNames';
 import PropTypes from './PropTypes';
 
@@ -90,7 +91,7 @@ export default class Day extends Component {
       Object.keys(modifiers)
         .filter(modifier => !!modifiersStyles[modifier])
         .forEach(modifier => {
-          style = Object.assign({}, style, modifiersStyles[modifier]);
+          style = assign({}, style, modifiersStyles[modifier]);
         });
     }
 

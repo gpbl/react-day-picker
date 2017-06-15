@@ -272,7 +272,7 @@ export default class DayPicker extends Component {
 
   focusPreviousDay(dayNode) {
     const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
-    const dayNodeIndex = [...dayNodes].indexOf(dayNode);
+    const dayNodeIndex = Helpers.nodeListToArray(dayNodes).indexOf(dayNode);
 
     if (dayNodeIndex === 0) {
       this.showPreviousMonth(() => this.focusLastDayOfMonth());
@@ -283,7 +283,7 @@ export default class DayPicker extends Component {
 
   focusNextDay(dayNode) {
     const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
-    const dayNodeIndex = [...dayNodes].indexOf(dayNode);
+    const dayNodeIndex = Helpers.nodeListToArray(dayNodes).indexOf(dayNode);
 
     if (dayNodeIndex === dayNodes.length - 1) {
       this.showNextMonth(() => this.focusFirstDayOfMonth());
@@ -294,7 +294,7 @@ export default class DayPicker extends Component {
 
   focusNextWeek(dayNode) {
     const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
-    const dayNodeIndex = [...dayNodes].indexOf(dayNode);
+    const dayNodeIndex = Helpers.nodeListToArray(dayNodes).indexOf(dayNode);
     const isInLastWeekOfMonth = dayNodeIndex > dayNodes.length - 8;
 
     if (isInLastWeekOfMonth) {
@@ -312,7 +312,7 @@ export default class DayPicker extends Component {
 
   focusPreviousWeek(dayNode) {
     const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
-    const dayNodeIndex = [...dayNodes].indexOf(dayNode);
+    const dayNodeIndex = Helpers.nodeListToArray(dayNodes).indexOf(dayNode);
     const isInFirstWeekOfMonth = dayNodeIndex <= 6;
 
     if (isInFirstWeekOfMonth) {
