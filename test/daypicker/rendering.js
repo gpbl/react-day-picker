@@ -308,6 +308,14 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-Day').at(1)).to.have.text('29');
     expect(wrapper.find('.DayPicker-Day').at(2)).to.have.text('30');
   });
+  it('should not allow tabbing to outside days', () => {
+    const wrapper = mount(
+      <DayPicker enableOutsideDays initialMonth={new Date(2015, 6)} />
+    );
+    expect(wrapper.find('.DayPicker-Day').at(0).prop('tabIndex')).to.equal(-1);
+    expect(wrapper.find('.DayPicker-Day').at(1).prop('tabIndex')).to.equal(-1);
+    expect(wrapper.find('.DayPicker-Day').at(2).prop('tabIndex')).to.equal(-1);
+  });
   it('should render the fixed amount of weeks', () => {
     const wrapper = mount(
       <DayPicker
