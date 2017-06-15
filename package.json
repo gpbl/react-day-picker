@@ -101,7 +101,7 @@
     "moment": "2.18.1",
     "postcss-cli": "4.1.0",
     "prettier": "^1.4.4",
-    "react": "15.5.4",
+    "react": "15.6.1",
     "react-addons-test-utils": "15.5.1",
     "react-dom": "15.5.4",
     "react-hot-loader": "3.0.0-beta.6",
