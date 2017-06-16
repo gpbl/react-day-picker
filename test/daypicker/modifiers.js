@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { expect } from 'chai';
 
 import DayPicker from '../../src/DayPicker';
 
@@ -13,8 +12,8 @@ describe('DayPicker’s day modifiers', () => {
         modifiers={{ foo: () => true }}
       />
     );
-    expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(35);
-    expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
+    expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(35);
+    expect(wrapper.find('.DayPicker-Day--foo')).toHaveLength(35);
   });
   it('should have `red` background style on `foo` modified days', () => {
     const wrapper = render(
@@ -46,8 +45,8 @@ describe('DayPicker’s day modifiers', () => {
         modifiers={{ foo: () => true }}
       />
     );
-    expect(wrapper.find('.DayPicker-Day--disabled')).to.have.length(35);
-    expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
+    expect(wrapper.find('.DayPicker-Day--disabled')).toHaveLength(35);
+    expect(wrapper.find('.DayPicker-Day--foo')).toHaveLength(35);
   });
   it('should add the `aria-disabled` attribute for `disabled` days', () => {
     const wrapper = mount(
@@ -81,9 +80,9 @@ describe('DayPicker’s day modifiers', () => {
     const wrapper = mount(
       <DayPicker initialMonth={new Date(2015, 6)} modifiers={modifiers} />
     );
-    expect(wrapper.find('.DayPicker-Day--firstDayOfMonth')).to.have.length(2);
-    expect(wrapper.find('.DayPicker-Day--none')).to.have.length(0);
-    expect(wrapper.find('.DayPicker-Day--all')).to.have.length(35);
+    expect(wrapper.find('.DayPicker-Day--firstDayOfMonth')).toHaveLength(2);
+    expect(wrapper.find('.DayPicker-Day--none')).toHaveLength(0);
+    expect(wrapper.find('.DayPicker-Day--all')).toHaveLength(35);
   });
   it('should show "today" as something other than the current day', () => {
     const newToday = new Date();

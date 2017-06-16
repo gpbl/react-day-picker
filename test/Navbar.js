@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { spy } from 'sinon';
 import { shallow } from 'enzyme';
 
@@ -8,9 +7,9 @@ import Navbar from '../src/Navbar';
 describe('<Navbar />', () => {
   it('should have default props', () => {
     const navbar = <Navbar />;
-    expect(navbar.props.dir).to.equal('ltr');
-    expect(navbar.props.showPreviousButton).to.be.true;
-    expect(navbar.props.showNextButton).to.be.true;
+    expect(navbar.props.dir).toBe('ltr');
+    expect(navbar.props.showPreviousButton).toBe(true);
+    expect(navbar.props.showNextButton).toBe(true);
   });
   it('should have the right class name', () => {
     const wrapper = shallow(<Navbar className="DayPicker-NavBar" />);
@@ -65,11 +64,11 @@ describe('<Navbar />', () => {
   });
   it('should not render the previous button', () => {
     const wrapper = shallow(<Navbar showPreviousButton={false} />);
-    expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.length(0);
+    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveLength(0);
   });
   it('should not render the next button', () => {
     const wrapper = shallow(<Navbar showNextButton={false} />);
-    expect(wrapper.find('.DayPicker-NavButton--next')).to.have.length(0);
+    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveLength(0);
   });
   it('should call `onNextClick` when clicking the next button', () => {
     const handleNextClick = spy();

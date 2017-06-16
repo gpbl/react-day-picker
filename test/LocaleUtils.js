@@ -1,44 +1,41 @@
 /* eslint-disable global-require */
-import { expect } from 'chai';
 import * as LocaleUtils from '../src/LocaleUtils';
 
 describe('LocaleUtils', () => {
   it('should export all the functions', () => {
     const imported = require('../src/LocaleUtils').default; // eslint-disable-line global-require
-    expect(Object.keys(LocaleUtils).length - 1).to.eql(
-      Object.keys(imported).length
-    );
+    expect(Object.keys(LocaleUtils).length - 1).toEqual(Object.keys(imported).length);
   });
 
   describe('formatMonthTitle', () => {
     it('returns month and day as string', () => {
       const date = new Date(2015, 11, 20);
       const formattedDate = LocaleUtils.formatMonthTitle(date);
-      expect(formattedDate).to.equal('December 2015');
+      expect(formattedDate).toBe('December 2015');
     });
   });
 
   describe('formatWeekdayShort', () => {
     it('returns the short day name as string', () => {
-      expect(LocaleUtils.formatWeekdayShort(0)).to.equal('Su');
+      expect(LocaleUtils.formatWeekdayShort(0)).toBe('Su');
     });
   });
 
   describe('formatWeekdayLong', () => {
     it('returns the long day name as string', () => {
-      expect(LocaleUtils.formatWeekdayLong(0)).to.equal('Sunday');
+      expect(LocaleUtils.formatWeekdayLong(0)).toBe('Sunday');
     });
   });
 
   describe('getFirstDayOfWeek', () => {
     it('returns sunday', () => {
-      expect(LocaleUtils.getFirstDayOfWeek()).to.equal(0);
+      expect(LocaleUtils.getFirstDayOfWeek()).toBe(0);
     });
   });
 
   describe('getMonths', () => {
     it('return twelve months', () => {
-      expect(LocaleUtils.getMonths()).to.have.length(12);
+      expect(LocaleUtils.getMonths()).toHaveLength(12);
     });
   });
 });

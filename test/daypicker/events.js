@@ -1,7 +1,6 @@
 import React from 'react';
 import SyntheticEvent from 'react-dom/lib/SyntheticEvent';
 
-import { expect } from 'chai';
 import { mount } from 'enzyme';
 import sinon, { spy } from 'sinon';
 
@@ -170,7 +169,7 @@ describe('DayPicker’s events handlers', () => {
       <DayPicker todayButton="foo" initialMonth={new Date(2015, 1)} />
     );
     wrapper.find('button.DayPicker-TodayButton').simulate('click');
-    expect(wrapper.find('.DayPicker-Footer')).to.exist;
+    expect(wrapper.find('.DayPicker-Footer')).toBeDefined();
     expect(wrapper.find('.DayPicker-Caption')).to.have.text(
       formatMonthTitle(new Date())
     );
@@ -185,7 +184,7 @@ describe('DayPicker’s events handlers', () => {
       />
     );
     wrapper.find('.DayPicker-WeekNumber').at(1).simulate('click');
-    expect(onWeekClick.getCall(0).args[0]).to.equal(6);
-    expect(onWeekClick.getCall(0).args[1]).to.have.length(7);
+    expect(onWeekClick.getCall(0).args[0]).toBe(6);
+    expect(onWeekClick.getCall(0).args[1]).toHaveLength(7);
   });
 });

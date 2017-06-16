@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { expect } from 'chai';
 import { spy } from 'sinon';
 
 import DayPicker from '../../src/DayPicker';
@@ -15,11 +14,11 @@ describe('DayPicker’s navigation', () => {
         numberOfMonths={3}
       />
     );
-    expect(wrapper.instance().allowPreviousMonth()).to.be.false;
+    expect(wrapper.instance().allowPreviousMonth()).toBe(false);
   });
   it('should not allow the previous month when cannot change months', () => {
     const wrapper = shallow(<DayPicker canChangeMonth={false} />);
-    expect(wrapper.instance().allowPreviousMonth()).to.be.false;
+    expect(wrapper.instance().allowPreviousMonth()).toBe(false);
   });
   it('should not allow the next month when the last month is the last allowed one', () => {
     const wrapper = shallow(
@@ -29,19 +28,19 @@ describe('DayPicker’s navigation', () => {
         numberOfMonths={3}
       />
     );
-    expect(wrapper.instance().allowNextMonth()).to.be.false;
+    expect(wrapper.instance().allowNextMonth()).toBe(false);
   });
   it('should not allow the next month when cannot change months', () => {
     const wrapper = shallow(<DayPicker canChangeMonth={false} />);
-    expect(wrapper.instance().allowNextMonth()).to.be.false;
+    expect(wrapper.instance().allowNextMonth()).toBe(false);
   });
   it('should show the next month when clicking the next button', () => {
     const wrapper = mount(<DayPicker initialMonth={new Date(2015, 7)} />);
     wrapper.find('.DayPicker-NavButton--next').simulate('click');
     const instance = wrapper.instance();
-    expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
-    expect(instance.state.currentMonth.getMonth()).to.equal(8);
-    expect(instance.state.currentMonth.getDate()).to.equal(1);
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(8);
+    expect(instance.state.currentMonth.getDate()).toBe(1);
   });
   it('should show the next month when clicking outside days', () => {
     const wrapper = mount(
@@ -53,15 +52,15 @@ describe('DayPicker’s navigation', () => {
     );
     wrapper.find('.DayPicker-Day--outside').last().simulate('click');
     const instance = wrapper.instance();
-    expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
-    expect(instance.state.currentMonth.getMonth()).to.equal(8);
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(8);
   });
   it('should show the previous month when clicking the previous button', () => {
     const wrapper = mount(<DayPicker initialMonth={new Date(2015, 7)} />);
     wrapper.find('.DayPicker-NavButton--prev').simulate('click');
     const instance = wrapper.instance();
-    expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
-    expect(instance.state.currentMonth.getMonth()).to.equal(6);
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(6);
   });
   it('should show the previous month when clicking outside days', () => {
     const wrapper = mount(
@@ -73,8 +72,8 @@ describe('DayPicker’s navigation', () => {
     );
     wrapper.find('.DayPicker-Day--outside').first().simulate('click');
     const instance = wrapper.instance();
-    expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
-    expect(instance.state.currentMonth.getMonth()).to.equal(6);
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(6);
   });
   it('should not show the previous month when clicking outside days from the first month out of 2', () => {
     const wrapper = mount(
@@ -87,12 +86,12 @@ describe('DayPicker’s navigation', () => {
     );
     wrapper.find('.DayPicker-Day--outside').at(6).simulate('click');
     const instance = wrapper.instance();
-    expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
-    expect(instance.state.currentMonth.getMonth()).to.equal(3);
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(3);
   });
   it('should not allow changing to the year when cannot change months', () => {
     const wrapper = shallow(<DayPicker canChangeMonth={false} />);
-    expect(wrapper.instance().allowYearChange()).to.be.false;
+    expect(wrapper.instance().allowYearChange()).toBe(false);
   });
   it('should call `showNextMonth()` when the RIGHT key is pressed', () => {
     const wrapper = mount(<DayPicker />);
@@ -175,9 +174,9 @@ describe('DayPicker’s navigation', () => {
         pagedNavigation
       />
     ).instance();
-    expect(instance.state.currentMonth.getFullYear()).to.equal(2015);
-    expect(instance.state.currentMonth.getMonth()).to.equal(5);
-    expect(instance.state.currentMonth.getDate()).to.equal(1);
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(5);
+    expect(instance.state.currentMonth.getDate()).toBe(1);
   });
 
   describe('with custom classNames', () => {

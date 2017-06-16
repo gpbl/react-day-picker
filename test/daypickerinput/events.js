@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { spy } from 'sinon';
 
@@ -15,7 +14,7 @@ describe('DayPickerInput', () => {
       it('should show the overlay when the input is clicked', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.find('input').simulate('click');
-        expect(wrapper.find('.DayPicker')).to.exist;
+        expect(wrapper.find('.DayPicker')).toBeDefined();
       });
       it('should call `onClick` event handler', () => {
         const onClick = spy();
@@ -29,7 +28,7 @@ describe('DayPickerInput', () => {
       it('should show the overlay when the input is focused', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.find('input').simulate('focus');
-        expect(wrapper.find('.DayPicker')).to.exist;
+        expect(wrapper.find('.DayPicker')).toBeDefined();
       });
       it('should call `onFocus` event handler', () => {
         const onFocus = spy();
@@ -44,7 +43,7 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput value="12/15/2017" />);
         wrapper.find('input').simulate('focus');
         wrapper.find('input').simulate('blur');
-        expect(wrapper.find('.DayPicker')).to.not.exist;
+        expect(wrapper.find('.DayPicker')).toBeFalsy();
       });
       it('should call `onBlur` event handler', () => {
         const onBlur = spy();
@@ -56,10 +55,10 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.find('.DayPickerInput').simulate('mousedown');
         const instance = wrapper.instance();
-        expect(instance.clickedInside).to.be.true;
-        expect(instance.clickTimeout).to.not.be.null;
+        expect(instance.clickedInside).toBe(true);
+        expect(instance.clickTimeout).not.toBeNull();
         wrapper.find('input').simulate('blur');
-        expect(document.activeElement).to.eql(instance.input);
+        expect(document.activeElement).toEqual(instance.input);
       });
     });
 
@@ -113,10 +112,8 @@ describe('DayPickerInput', () => {
         wrapper.instance().showDayPicker();
         input.simulate('change', { target: { value: '12/20/2015' } });
         expect(onDayChange).to.have.been.calledOnce;
-        expect(onDayChange.getCall(0).args[0].format('L')).to.equal(
-          '12/20/2015'
-        );
-        expect(onDayChange.getCall(0).args[1]).to.eql({
+        expect(onDayChange.getCall(0).args[0].format('L')).toBe('12/20/2015');
+        expect(onDayChange.getCall(0).args[1]).toEqual({
           foo: true,
           selected: true,
           disabled: true,
@@ -128,7 +125,7 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.instance().showDayPicker();
         wrapper.find('input').simulate('keyup', { keyCode: keys.ESC });
-        expect(wrapper.state('showOverlay')).to.be.false;
+        expect(wrapper.state('showOverlay')).toBe(false);
       });
       it('should call `onKeyUp` event handler', () => {
         const onKeyUp = spy();
@@ -182,10 +179,8 @@ describe('DayPickerInput', () => {
         );
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
-        expect(onDayChange.getCall(0).args[0].format('L')).to.equal(
-          '02/08/2017'
-        );
-        expect(onDayChange.getCall(0).args[1]).to.eql({
+        expect(onDayChange.getCall(0).args[0].format('L')).toBe('02/08/2017');
+        expect(onDayChange.getCall(0).args[1]).toEqual({
           foo: true,
         });
       });
@@ -193,9 +188,9 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
-        expect(wrapper.instance().hideTimeout).to.not.be.null;
+        expect(wrapper.instance().hideTimeout).not.toBeNull();
         setTimeout(() => {
-          expect(wrapper.find(DayPicker)).to.not.exist;
+          expect(wrapper.find(DayPicker)).toBeFalsy();
           done();
         }, HIDE_TIMEOUT + 10);
       });
@@ -203,8 +198,8 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput hideOnDayClick={false} />);
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
-        expect(wrapper.instance().hideTimeout).to.be.null;
-        expect(wrapper.find('.DayPicker')).to.exist;
+        expect(wrapper.instance().hideTimeout).toBeNull();
+        expect(wrapper.find('.DayPicker')).toBeDefined();
       });
       it('should unselect the clicked day if already selected', () => {
         const wrapper = mount(
@@ -219,7 +214,7 @@ describe('DayPickerInput', () => {
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
         expect(wrapper.find('input')).to.have.attr('value', '');
-        expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(0);
+        expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(0);
       });
       it('should call `onDayChange` when clicking a selected day', () => {
         const onDayChange = spy();
