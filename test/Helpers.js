@@ -1,16 +1,14 @@
-import sinon from 'sinon';
-
 import * as Helpers from '../src/Helpers';
 
 describe('Helpers', () => {
   describe('cancelEvent', () => {
     it('should prevent default and stop propagation', () => {
       const e = { preventDefault: () => {}, stopPropagation: () => {} };
-      const preventDefault = sinon.spy(e, 'preventDefault');
-      const stopPropagation = sinon.spy(e, 'stopPropagation');
+      const preventDefault = jest.spyOn(e, 'preventDefault');
+      const stopPropagation = jest.spyOn(e, 'stopPropagation');
       Helpers.cancelEvent(e);
-      expect(preventDefault).to.have.been.calledOnce;
-      expect(stopPropagation).to.have.been.calledOnce;
+      expect(preventDefault).toHaveBeenCalledTimes(1);
+      expect(stopPropagation).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -26,9 +24,7 @@ describe('Helpers', () => {
       expect(Helpers.getFirstDayOfWeekFromProps({ localeUtils })).toBe(3);
     });
     it('should return the day from a number', () => {
-      expect(
-        Helpers.getFirstDayOfWeekFromProps({ firstDayOfWeek: 5 })
-      ).toBe(5);
+      expect(Helpers.getFirstDayOfWeekFromProps({ firstDayOfWeek: 5 })).toBe(5);
     });
   });
 
@@ -155,10 +151,14 @@ describe('Helpers', () => {
 
   describe('isRangeOfDates', () => {
     it('should detect a properly shaped object', () => {
-      expect(Helpers.isRangeOfDates({ from: new Date(), to: new Date() })).toBe(true);
+      expect(Helpers.isRangeOfDates({ from: new Date(), to: new Date() })).toBe(
+        true
+      );
     });
     it('should detect not properly shaped objects', () => {
-      expect(Helpers.isRangeOfDates({ from: null, to: new Date() })).toBe(false);
+      expect(Helpers.isRangeOfDates({ from: null, to: new Date() })).toBe(
+        false
+      );
       expect(Helpers.isRangeOfDates({ to: new Date() })).toBe(false);
       expect(Helpers.isRangeOfDates({ from: new Date() })).toBe(false);
     });

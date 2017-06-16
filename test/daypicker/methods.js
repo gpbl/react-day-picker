@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { spy } from 'sinon';
 
 import DayPicker from '../../src/DayPicker';
 
@@ -20,12 +19,12 @@ describe('DayPicker’s methods', () => {
       expect(instance.state.currentMonth.getDate()).toBe(1);
     });
     it('should call the `onMonthChange` handler', () => {
-      const handleMonthChange = spy();
+      const handleMonthChange = jest.fn();
       const instance = mount(
         <DayPicker onMonthChange={handleMonthChange} />
       ).instance();
       instance.showNextMonth();
-      expect(handleMonthChange).to.have.been.calledWith(
+      expect(handleMonthChange).toHaveBeenCalledWith(
         instance.state.currentMonth
       );
     });
@@ -66,12 +65,12 @@ describe('DayPicker’s methods', () => {
       expect(instance.state.currentMonth.getFullYear()).toBe(2015);
     });
     it('should call the `onMonthChange` handler', () => {
-      const handleMonthChange = spy();
+      const handleMonthChange = jest.fn();
       const instance = mount(
         <DayPicker onMonthChange={handleMonthChange} />
       ).instance();
       instance.showPreviousMonth();
-      expect(handleMonthChange).to.have.been.calledWith(
+      expect(handleMonthChange).toHaveBeenCalledWith(
         instance.state.currentMonth
       );
     });
@@ -112,12 +111,12 @@ describe('DayPicker’s methods', () => {
       expect(instance.state.currentMonth.getFullYear()).toBe(2016);
     });
     it('should call the `onMonthChange` handler', () => {
-      const handleMonthChange = spy();
+      const handleMonthChange = jest.fn();
       const instance = mount(
         <DayPicker onMonthChange={handleMonthChange} />
       ).instance();
       instance.showNextYear();
-      expect(handleMonthChange).to.have.been.calledWith(
+      expect(handleMonthChange).toHaveBeenCalledWith(
         instance.state.currentMonth
       );
     });
@@ -151,12 +150,12 @@ describe('DayPicker’s methods', () => {
       expect(instance.state.currentMonth.getFullYear()).toBe(2014);
     });
     it('should call the `onMonthChange` handler', () => {
-      const handleMonthChange = spy();
+      const handleMonthChange = jest.fn();
       const instance = mount(
         <DayPicker onMonthChange={handleMonthChange} />
       ).instance();
       instance.showPreviousYear();
-      expect(handleMonthChange).to.have.been.calledWith(
+      expect(handleMonthChange).toHaveBeenCalledWith(
         instance.state.currentMonth
       );
     });

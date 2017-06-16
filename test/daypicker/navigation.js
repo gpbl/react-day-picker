@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { spy } from 'sinon';
 
 import DayPicker from '../../src/DayPicker';
 import keys from '../../src/keys';
@@ -95,75 +94,81 @@ describe('DayPicker’s navigation', () => {
   });
   it('should call `showNextMonth()` when the RIGHT key is pressed', () => {
     const wrapper = mount(<DayPicker />);
-    const showNextMonth = spy(wrapper.instance(), 'showNextMonth');
+    const showNextMonth = jest.spyOn(wrapper.instance(), 'showNextMonth');
     wrapper.simulate('keyDown', { keyCode: keys.RIGHT });
-    expect(showNextMonth).to.have.been.calledOnce;
-    showNextMonth.restore();
+    expect(showNextMonth).toHaveBeenCalledTimes(1);
+    showNextMonth.mockReset();
   });
   it('should call `showPreviousMonth()` when the LEFT key is pressed', () => {
     const wrapper = mount(<DayPicker />);
-    const showPreviousMonth = spy(wrapper.instance(), 'showPreviousMonth');
+    const showPreviousMonth = jest.spyOn(
+      wrapper.instance(),
+      'showPreviousMonth'
+    );
     wrapper.simulate('keyDown', { keyCode: keys.LEFT });
-    expect(showPreviousMonth).to.have.been.calledOnce;
-    showPreviousMonth.restore();
+    expect(showPreviousMonth).toHaveBeenCalledTimes(1);
+    showPreviousMonth.mockReset();
   });
   it('should call `showPreviousYear()` when the UP key is pressed', () => {
     const wrapper = mount(<DayPicker />);
-    const showPreviousYear = spy(wrapper.instance(), 'showPreviousYear');
+    const showPreviousYear = jest.spyOn(wrapper.instance(), 'showPreviousYear');
     wrapper.simulate('keyDown', { keyCode: keys.UP });
-    expect(showPreviousYear).to.have.been.calledOnce;
-    showPreviousYear.restore();
+    expect(showPreviousYear).toHaveBeenCalledTimes(1);
+    showPreviousYear.mockReset();
   });
   it('should call `showNextYear()` when the DOWN key is pressed', () => {
     const wrapper = mount(<DayPicker />);
-    const showNextYear = spy(wrapper.instance(), 'showNextYear');
+    const showNextYear = jest.spyOn(wrapper.instance(), 'showNextYear');
     wrapper.simulate('keyDown', { keyCode: keys.DOWN });
-    expect(showNextYear).to.have.been.calledOnce;
-    showNextYear.restore();
+    expect(showNextYear).toHaveBeenCalledTimes(1);
+    showNextYear.mockReset();
   });
   it('should call `focusNextDay()` when the RIGHT key is pressed on a day', () => {
     const wrapper = mount(<DayPicker />);
-    const focusNextDay = spy(wrapper.instance(), 'focusNextDay');
+    const focusNextDay = jest.spyOn(wrapper.instance(), 'focusNextDay');
     wrapper
       .find('.DayPicker-Day')
       .filterWhere(node => !node.hasClass('DayPicker-Day--outside'))
       .first()
       .simulate('keyDown', { keyCode: keys.RIGHT });
-    expect(focusNextDay).to.have.been.calledOnce;
-    focusNextDay.restore();
+    expect(focusNextDay).toHaveBeenCalledTimes(1);
+    focusNextDay.mockReset();
   });
   it('should call `focusPreviousDay()` when the LEFT key is pressed on a day', () => {
     const wrapper = mount(<DayPicker />);
-    const focusPreviousDay = spy(wrapper.instance(), 'focusPreviousDay');
+    const focusPreviousDay = jest.spyOn(wrapper.instance(), 'focusPreviousDay');
     wrapper
       .find('.DayPicker-Day')
       .filterWhere(node => !node.hasClass('DayPicker-Day--outside'))
       .first()
       .simulate('keyDown', { keyCode: keys.LEFT });
-    expect(focusPreviousDay).to.have.been.calledOnce;
-    focusPreviousDay.restore();
+    expect(focusPreviousDay).toHaveBeenCalledTimes(1);
+    focusPreviousDay.mockReset();
   });
   it('should call `focusNextWeek()` when the DOWN key is pressed on a day', () => {
     const wrapper = mount(<DayPicker />);
-    const focusNextWeek = spy(wrapper.instance(), 'focusNextWeek');
+    const focusNextWeek = jest.spyOn(wrapper.instance(), 'focusNextWeek');
     wrapper
       .find('.DayPicker-Day')
       .filterWhere(node => !node.hasClass('DayPicker-Day--outside'))
       .first()
       .simulate('keyDown', { keyCode: keys.DOWN });
-    expect(focusNextWeek).to.have.been.calledOnce;
-    focusNextWeek.restore();
+    expect(focusNextWeek).toHaveBeenCalledTimes(1);
+    focusNextWeek.mockReset();
   });
   it('should call `focusPreviousWeek()` when the UP key is pressed on a day', () => {
     const wrapper = mount(<DayPicker />);
-    const focusPreviousWeek = spy(wrapper.instance(), 'focusPreviousWeek');
+    const focusPreviousWeek = jest.spyOn(
+      wrapper.instance(),
+      'focusPreviousWeek'
+    );
     wrapper
       .find('.DayPicker-Day')
       .filterWhere(node => !node.hasClass('DayPicker-Day--outside'))
       .last()
       .simulate('keyDown', { keyCode: keys.UP });
-    expect(focusPreviousWeek).to.have.been.calledOnce;
-    focusPreviousWeek.restore();
+    expect(focusPreviousWeek).toHaveBeenCalledTimes(1);
+    focusPreviousWeek.mockReset();
   });
   it('should set the current month to the first month in its page if fromMonth is set', () => {
     const instance = shallow(
@@ -210,37 +215,43 @@ describe('DayPicker’s navigation', () => {
 
     it('should call `focusNextDay()` when the RIGHT key is pressed on a day', () => {
       const wrapper = mount(<DayPicker classNames={classes} />);
-      const focusNextDay = spy(wrapper.instance(), 'focusNextDay');
+      const focusNextDay = jest.spyOn(wrapper.instance(), 'focusNextDay');
       getDaysInMonth(wrapper)
         .first()
         .simulate('keyDown', { keyCode: keys.RIGHT });
-      expect(focusNextDay).to.have.been.calledOnce;
-      focusNextDay.restore();
+      expect(focusNextDay).toHaveBeenCalledTimes(1);
+      focusNextDay.mockReset();
     });
     it('should call `focusPreviousDay()` when the LEFT key is pressed on a day', () => {
       const wrapper = mount(<DayPicker classNames={classes} />);
-      const focusPreviousDay = spy(wrapper.instance(), 'focusPreviousDay');
+      const focusPreviousDay = jest.spyOn(
+        wrapper.instance(),
+        'focusPreviousDay'
+      );
       getDaysInMonth(wrapper)
         .first()
         .simulate('keyDown', { keyCode: keys.LEFT });
-      expect(focusPreviousDay).to.have.been.calledOnce;
-      focusPreviousDay.restore();
+      expect(focusPreviousDay).toHaveBeenCalledTimes(1);
+      focusPreviousDay.mockReset();
     });
     it('should call `focusNextWeek()` when the DOWN key is pressed on a day', () => {
       const wrapper = mount(<DayPicker classNames={classes} />);
-      const focusNextWeek = spy(wrapper.instance(), 'focusNextWeek');
+      const focusNextWeek = jest.spyOn(wrapper.instance(), 'focusNextWeek');
       getDaysInMonth(wrapper)
         .first()
         .simulate('keyDown', { keyCode: keys.DOWN });
-      expect(focusNextWeek).to.have.been.calledOnce;
-      focusNextWeek.restore();
+      expect(focusNextWeek).toHaveBeenCalledTimes(1);
+      focusNextWeek.mockReset();
     });
     it('should call `focusPreviousWeek()` when the UP key is pressed on a day', () => {
       const wrapper = mount(<DayPicker classNames={classes} />);
-      const focusPreviousWeek = spy(wrapper.instance(), 'focusPreviousWeek');
+      const focusPreviousWeek = jest.spyOn(
+        wrapper.instance(),
+        'focusPreviousWeek'
+      );
       getDaysInMonth(wrapper).last().simulate('keyDown', { keyCode: keys.UP });
-      expect(focusPreviousWeek).to.have.been.calledOnce;
-      focusPreviousWeek.restore();
+      expect(focusPreviousWeek).toHaveBeenCalledTimes(1);
+      focusPreviousWeek.mockReset();
     });
   });
 });

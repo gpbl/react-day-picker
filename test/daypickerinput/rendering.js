@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
 
 import DayPickerInput from '../../src/DayPickerInput';
 import DayPicker from '../../src/DayPicker';
@@ -16,7 +16,7 @@ describe('DayPickerInput', () => {
     });
     it('should have the right CSS classes', () => {
       const wrapper = shallow(<DayPickerInput />);
-      expect(wrapper).to.have.className('DayPickerInput');
+      expect(wrapper).toHaveClassName('DayPickerInput');
     });
     it('should render an input field with the passed attributes', () => {
       const wrapper = shallow(
@@ -24,15 +24,15 @@ describe('DayPickerInput', () => {
       );
       const input = wrapper.find('input');
       expect(input).toBeDefined();
-      expect(input).to.have.attr('value', '12/14/2017');
-      expect(input).to.have.attr('placeholder', 'bar');
+      expect(input).toHaveProp('value', '12/14/2017');
+      expect(input).toHaveProp('placeholder', 'bar');
     });
     it('should work with not value dates', () => {
       const wrapper = shallow(
         <DayPickerInput value="very wrong" placeholder="bar" />
       );
       const input = wrapper.find('input');
-      expect(input).to.have.attr('value', 'very wrong');
+      expect(input).toHaveProp('value', 'very wrong');
       wrapper.instance().showDayPicker();
       expect(wrapper.find(DayPicker)).toBeDefined();
     });
@@ -62,9 +62,7 @@ describe('DayPickerInput', () => {
       const wrapper = shallow(<DayPickerInput />);
       wrapper.instance().showDayPicker();
       wrapper.instance().hideDayPicker();
-
-      const dayPicker = wrapper.find(DayPicker);
-      expect(dayPicker).toBeFalsy();
+      expect(wrapper.find(DayPicker)).toHaveLength(0);
     });
     it('should pass props to the DayPicker', () => {
       const instance = mount(
@@ -85,7 +83,7 @@ describe('DayPickerInput', () => {
     it('should open the daypicker to the month of the selected day', () => {
       const wrapper = mount(<DayPickerInput value="12/15/2017" />);
       wrapper.instance().showDayPicker();
-      expect(wrapper.find('.DayPicker-Caption').first()).to.have.text(
+      expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
         'December 2017'
       );
     });
@@ -93,9 +91,7 @@ describe('DayPickerInput', () => {
       const wrapper = mount(<DayPickerInput value="12/15/2017" />);
       wrapper.instance().showDayPicker();
       expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(1);
-      expect(wrapper.find('.DayPicker-Day--selected').first()).to.have.text(
-        '15'
-      );
+      expect(wrapper.find('.DayPicker-Day--selected').first()).toHaveText('15');
     });
     it('should update the current value when `value` prop is updated', () => {
       const wrapper = mount(<DayPickerInput value="12/15/2017" />);

@@ -1,5 +1,4 @@
 import React from 'react';
-import { spy } from 'sinon';
 import { shallow } from 'enzyme';
 
 import Navbar from '../src/Navbar';
@@ -13,15 +12,15 @@ describe('<Navbar />', () => {
   });
   it('should have the right class name', () => {
     const wrapper = shallow(<Navbar className="DayPicker-NavBar" />);
-    expect(wrapper).to.have.className('DayPicker-NavBar');
+    expect(wrapper).toHaveClassName('DayPicker-NavBar');
   });
   it('should render the aria labels for buttons', () => {
     const wrapper = shallow(<Navbar />);
-    expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.attr(
+    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveProp(
       'aria-label',
       'Previous Month'
     );
-    expect(wrapper.find('.DayPicker-NavButton--next')).to.have.attr(
+    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveProp(
       'aria-label',
       'Next Month'
     );
@@ -35,30 +34,30 @@ describe('<Navbar />', () => {
         }}
       />
     );
-    expect(wrapper.find('.DayPicker-NavButton--prev')).to.have.attr(
+    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveProp(
       'aria-label',
       'Precedente'
     );
-    expect(wrapper.find('.DayPicker-NavButton--next')).to.have.attr(
+    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveProp(
       'aria-label',
       'Successivo'
     );
   });
   it('should have the navigation buttons classes', () => {
     const wrapper = shallow(<Navbar />);
-    expect(wrapper.find('.DayPicker-NavButton').at(0)).to.have.className(
+    expect(wrapper.find('.DayPicker-NavButton').at(0)).toHaveClassName(
       'DayPicker-NavButton--prev'
     );
-    expect(wrapper.find('.DayPicker-NavButton').at(1)).to.have.className(
+    expect(wrapper.find('.DayPicker-NavButton').at(1)).toHaveClassName(
       'DayPicker-NavButton--next'
     );
   });
   it('should invert buttons position for RTL', () => {
     const wrapper = shallow(<Navbar dir="rtl" />);
-    expect(wrapper.find('.DayPicker-NavButton').at(0)).to.have.className(
+    expect(wrapper.find('.DayPicker-NavButton').at(0)).toHaveClassName(
       'DayPicker-NavButton--next'
     );
-    expect(wrapper.find('.DayPicker-NavButton').at(1)).to.have.className(
+    expect(wrapper.find('.DayPicker-NavButton').at(1)).toHaveClassName(
       'DayPicker-NavButton--prev'
     );
   });
@@ -71,29 +70,29 @@ describe('<Navbar />', () => {
     expect(wrapper.find('.DayPicker-NavButton--next')).toHaveLength(0);
   });
   it('should call `onNextClick` when clicking the next button', () => {
-    const handleNextClick = spy();
+    const handleNextClick = jest.fn();
     const wrapper = shallow(<Navbar onNextClick={handleNextClick} />);
     wrapper.find('.DayPicker-NavButton--next').simulate('click');
-    expect(handleNextClick).to.have.been.calledOnce;
+    expect(handleNextClick).toHaveBeenCalledTimes(1);
   });
   it('should call `onPreviousClick` when clicking the prev button', () => {
-    const handlePreviousClick = spy();
+    const handlePreviousClick = jest.fn();
     const wrapper = shallow(<Navbar onPreviousClick={handlePreviousClick} />);
     wrapper.find('.DayPicker-NavButton--prev').simulate('click');
-    expect(handlePreviousClick).to.have.been.calledOnce;
+    expect(handlePreviousClick).toHaveBeenCalledTimes(1);
   });
   it('should call `onNextClick` when clicking the prev button for RTL', () => {
-    const handleNextClick = spy();
+    const handleNextClick = jest.fn();
     const wrapper = shallow(<Navbar dir="rtl" onNextClick={handleNextClick} />);
     wrapper.find('.DayPicker-NavButton--prev').simulate('click');
-    expect(handleNextClick).to.have.been.calledOnce;
+    expect(handleNextClick).toHaveBeenCalledTimes(1);
   });
   it('should call `onPreviousClick` when clicking the next button for RTL', () => {
-    const handlePreviousClick = spy();
+    const handlePreviousClick = jest.fn();
     const wrapper = shallow(
       <Navbar dir="rtl" onPreviousClick={handlePreviousClick} />
     );
     wrapper.find('.DayPicker-NavButton--next').simulate('click');
-    expect(handlePreviousClick).to.have.been.calledOnce;
+    expect(handlePreviousClick).toHaveBeenCalledTimes(1);
   });
 });
