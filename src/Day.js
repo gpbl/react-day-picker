@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions, react/forbid-prop-types */
 
 import React, { Component } from 'react';
+import assign from 'object-assign';
 import defaultClassNames from './classNames';
 import PropTypes from './PropTypes';
 
@@ -37,6 +38,10 @@ export default class Day extends Component {
     onTouchStart: PropTypes.func,
     onFocus: PropTypes.func,
     tabIndex: PropTypes.number,
+  };
+
+  static defaultProps = {
+    tabIndex: -1,
   };
 
   static defaultProps = {
@@ -86,7 +91,7 @@ export default class Day extends Component {
       Object.keys(modifiers)
         .filter(modifier => !!modifiersStyles[modifier])
         .forEach(modifier => {
-          style = Object.assign({}, style, modifiersStyles[modifier]);
+          style = assign({}, style, modifiersStyles[modifier]);
         });
     }
 
@@ -96,12 +101,12 @@ export default class Day extends Component {
     return (
       <div
         className={className}
-        tabIndex={tabIndex || 0}
+        tabIndex={tabIndex}
         style={style}
         role="gridcell"
         aria-label={ariaLabel}
-        aria-disabled={ariaDisabled.toString()}
-        aria-selected={ariaSelected.toString()}
+        aria-disabled={ariaDisabled}
+        aria-selected={ariaSelected}
         onClick={handleEvent(onClick, day, modifiers)}
         onKeyDown={handleEvent(onKeyDown, day, modifiers)}
         onMouseEnter={handleEvent(onMouseEnter, day, modifiers)}

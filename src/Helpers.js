@@ -136,3 +136,7 @@ export function getDayNodes(node, classNames) {
   const selector = `.${dayQuery}:not(.${outsideDayQuery})`;
   return node.querySelectorAll(selector);
 }
+
+export function nodeListToArray(nodeList) {
+  return Array.prototype.slice.call(nodeList, 0);
+}

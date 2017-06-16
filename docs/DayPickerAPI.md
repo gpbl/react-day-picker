@@ -228,7 +228,7 @@ The month to display in the calendar. This differs from the [`initialMonth`](#in
 
 **Type**: `Array<String>` **Default**: `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']`
 
-An array containing the long weekdays names to use in the month's header.
+An array containing the long month names to use in the month's header.
 
 ### navbarElement
 

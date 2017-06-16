@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { spy } from 'sinon';
 
 import keys from '../../src/keys';
 
@@ -15,13 +13,13 @@ describe('DayPickerInput', () => {
       it('should show the overlay when the input is clicked', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.find('input').simulate('click');
-        expect(wrapper.find('.DayPicker')).to.exist;
+        expect(wrapper.find('.DayPicker')).toBeDefined();
       });
       it('should call `onClick` event handler', () => {
-        const onClick = spy();
+        const onClick = jest.fn();
         const wrapper = mount(<DayPickerInput onClick={onClick} />);
         wrapper.find('input').simulate('click');
-        expect(onClick).to.have.been.calledOnce;
+        expect(onClick).toHaveBeenCalledTimes(1);
       });
     });
 
@@ -29,13 +27,13 @@ describe('DayPickerInput', () => {
       it('should show the overlay when the input is focused', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.find('input').simulate('focus');
-        expect(wrapper.find('.DayPicker')).to.exist;
+        expect(wrapper.find('.DayPicker')).toBeDefined();
       });
       it('should call `onFocus` event handler', () => {
-        const onFocus = spy();
+        const onFocus = jest.fn();
         const wrapper = mount(<DayPickerInput onFocus={onFocus} />);
         wrapper.find('input').simulate('focus');
-        expect(onFocus).to.have.been.calledOnce;
+        expect(onFocus).toHaveBeenCalledTimes(1);
       });
     });
 
@@ -44,60 +42,60 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput value="12/15/2017" />);
         wrapper.find('input').simulate('focus');
         wrapper.find('input').simulate('blur');
-        expect(wrapper.find('.DayPicker')).to.not.exist;
+        expect(wrapper.find('.DayPicker')).toHaveLength(0);
       });
       it('should call `onBlur` event handler', () => {
-        const onBlur = spy();
+        const onBlur = jest.fn();
         const wrapper = mount(<DayPickerInput onBlur={onBlur} />);
         wrapper.find('input').simulate('blur');
-        expect(onBlur).to.have.been.calledOnce;
+        expect(onBlur).toHaveBeenCalledTimes(1);
       });
       it('should focus the input if blur after clicking the overlay', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.find('.DayPickerInput').simulate('mousedown');
         const instance = wrapper.instance();
-        expect(instance.clickedInside).to.be.true;
-        expect(instance.clickTimeout).to.not.be.null;
+        expect(instance.clickedInside).toBe(true);
+        expect(instance.clickTimeout).not.toBeNull();
         wrapper.find('input').simulate('blur');
-        expect(document.activeElement).to.eql(instance.input);
+        expect(document.activeElement).toEqual(instance.input);
       });
     });
 
     describe('change', () => {
       it('should call `onChange` event handler', () => {
-        const onChange = spy();
+        const onChange = jest.fn();
         const wrapper = mount(<DayPickerInput onChange={onChange} />);
         wrapper.find('input').simulate('change');
-        expect(onChange).to.have.been.calledOnce;
+        expect(onChange).toHaveBeenCalledTimes(1);
       });
       it("should update the input's value if the value is not a valid date", () => {
         const wrapper = mount(<DayPickerInput />);
         const input = wrapper.find('input');
         input.simulate('change', { target: { value: 'foo' } });
-        expect(wrapper.find('input')).to.have.attr('value', 'foo');
+        expect(wrapper.find('input')).toHaveProp('value', 'foo');
       });
       it('should not call `onDayChange` if the value is not a valid date', () => {
-        const onDayChange = spy();
+        const onDayChange = jest.fn();
         const wrapper = mount(<DayPickerInput onDayChange={onDayChange} />);
         const input = wrapper.find('input');
         input.simulate('change', { target: { value: 'foo' } });
-        expect(onDayChange).to.not.have.been.called;
+        expect(onDayChange).not.toHaveBeenCalled();
       });
       it("should update the input's value and the displayed month", () => {
         const wrapper = mount(<DayPickerInput />);
         const input = wrapper.find('input');
         wrapper.instance().showDayPicker();
         input.simulate('change', { target: { value: '12/16/2013' } });
-        expect(wrapper.find('.DayPicker-Caption').first()).to.have.text(
+        expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
           'December 2013'
         );
         input.simulate('change', { target: { value: '11/10/2015' } });
-        expect(wrapper.find('.DayPicker-Caption').first()).to.have.text(
+        expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
           'November 2015'
         );
       });
       it('should call `onDayChange` with modifiers', () => {
-        const onDayChange = spy();
+        const onDayChange = jest.fn();
         const testDay = new Date(2015, 11, 20);
         const wrapper = mount(
           <DayPickerInput
@@ -112,11 +110,9 @@ describe('DayPickerInput', () => {
         const input = wrapper.find('input');
         wrapper.instance().showDayPicker();
         input.simulate('change', { target: { value: '12/20/2015' } });
-        expect(onDayChange).to.have.been.calledOnce;
-        expect(onDayChange.getCall(0).args[0].format('L')).to.equal(
-          '12/20/2015'
-        );
-        expect(onDayChange.getCall(0).args[1]).to.eql({
+        expect(onDayChange).toHaveBeenCalledTimes(1);
+        expect(onDayChange.mock.calls[0][0].format('L')).toBe('12/20/2015');
+        expect(onDayChange.mock.calls[0][1]).toEqual({
           foo: true,
           selected: true,
           disabled: true,
@@ -128,18 +124,18 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.instance().showDayPicker();
         wrapper.find('input').simulate('keyup', { keyCode: keys.ESC });
-        expect(wrapper.state('showOverlay')).to.be.false;
+        expect(wrapper.state('showOverlay')).toBe(false);
       });
       it('should call `onKeyUp` event handler', () => {
-        const onKeyUp = spy();
+        const onKeyUp = jest.fn();
         const wrapper = mount(<DayPickerInput onKeyUp={onKeyUp} />);
         wrapper.find('input').simulate('keyup');
-        expect(onKeyUp).to.have.been.calledOnce;
+        expect(onKeyUp).toHaveBeenCalledTimes(1);
       });
     });
     describe('dayclick', () => {
       it('should call `onDayClick` event handler', () => {
-        const onDayClick = spy();
+        const onDayClick = jest.fn();
         const wrapper = mount(
           <DayPickerInput
             dayPickerProps={{
@@ -149,7 +145,7 @@ describe('DayPickerInput', () => {
         );
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(6).simulate('click');
-        expect(onDayClick).to.have.been.calledOnce;
+        expect(onDayClick).toHaveBeenCalledTimes(1);
       });
       it('should select and display the clicked day', () => {
         const wrapper = mount(
@@ -161,14 +157,12 @@ describe('DayPickerInput', () => {
         );
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
-        expect(wrapper.find('input')).to.have.attr('value', '02/08/2017');
-        expect(wrapper.find('.DayPicker-Caption')).to.have.text(
-          'February 2017'
-        );
-        expect(wrapper.find('.DayPicker-Day--selected')).to.have.text('8');
+        expect(wrapper.find('input')).toHaveProp('value', '02/08/2017');
+        expect(wrapper.find('.DayPicker-Caption')).toHaveText('February 2017');
+        expect(wrapper.find('.DayPicker-Day--selected')).toHaveText('8');
       });
       it('should call `onDayChange` when clicking on a day', () => {
-        const onDayChange = spy();
+        const onDayChange = jest.fn();
         const wrapper = mount(
           <DayPickerInput
             onDayChange={onDayChange}
@@ -182,10 +176,8 @@ describe('DayPickerInput', () => {
         );
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
-        expect(onDayChange.getCall(0).args[0].format('L')).to.equal(
-          '02/08/2017'
-        );
-        expect(onDayChange.getCall(0).args[1]).to.eql({
+        expect(onDayChange.mock.calls[0][0].format('L')).toBe('02/08/2017');
+        expect(onDayChange.mock.calls[0][1]).toEqual({
           foo: true,
         });
       });
@@ -193,9 +185,9 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
-        expect(wrapper.instance().hideTimeout).to.not.be.null;
+        expect(wrapper.instance().hideTimeout).not.toBeNull();
         setTimeout(() => {
-          expect(wrapper.find(DayPicker)).to.not.exist;
+          expect(wrapper.find(DayPicker)).toHaveLength(0);
           done();
         }, HIDE_TIMEOUT + 10);
       });
@@ -203,13 +195,14 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput hideOnDayClick={false} />);
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
-        expect(wrapper.instance().hideTimeout).to.be.null;
-        expect(wrapper.find('.DayPicker')).to.exist;
+        expect(wrapper.instance().hideTimeout).toBeNull();
+        expect(wrapper.find('.DayPicker')).toBeDefined();
       });
       it('should unselect the clicked day if already selected', () => {
         const wrapper = mount(
           <DayPickerInput
             value="02/08/2017"
+            clickUnselectDay
             dayPickerProps={{
               month: new Date(2017, 1),
               selectedDays: new Date(2017, 1, 8),
@@ -218,15 +211,16 @@ describe('DayPickerInput', () => {
         );
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
-        expect(wrapper.find('input')).to.have.attr('value', '');
-        expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(0);
+        expect(wrapper.find('input')).toHaveProp('value', '');
+        expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(0);
       });
       it('should call `onDayChange` when clicking a selected day', () => {
-        const onDayChange = spy();
+        const onDayChange = jest.fn();
         const wrapper = mount(
           <DayPickerInput
             value="02/08/2017"
             onDayChange={onDayChange}
+            clickUnselectDay
             dayPickerProps={{
               month: new Date(2017, 1),
               selectedDays: new Date(2017, 1, 8),
@@ -238,13 +232,13 @@ describe('DayPickerInput', () => {
         );
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
-        expect(onDayChange).to.have.been.calledWith(undefined, {
+        expect(onDayChange).toHaveBeenCalledWith(undefined, {
           selected: true,
           foo: true,
         });
       });
       it('should not call `onDayChange` if the day is disabled', () => {
-        const onDayChange = spy();
+        const onDayChange = jest.fn();
         const wrapper = mount(
           <DayPickerInput
             value="02/08/2017"
@@ -257,7 +251,7 @@ describe('DayPickerInput', () => {
         );
         wrapper.instance().showDayPicker();
         wrapper.find('.DayPicker-Day').at(10).simulate('click');
-        expect(onDayChange).to.not.have.been.called;
+        expect(onDayChange).not.toHaveBeenCalled();
       });
     });
   });

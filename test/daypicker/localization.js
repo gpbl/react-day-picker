@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { expect } from 'chai';
 
 import DayPicker from '../../src/DayPicker';
 import * as LocaleUtils from '../../src/LocaleUtils';
@@ -26,14 +25,14 @@ describe('DayPicker’s localization', () => {
         ]}
       />
     );
-    expect(wrapper.find('.DayPicker-Caption')).to.have.text('Gennaio 2015');
+    expect(wrapper.find('.DayPicker-Caption')).toHaveText('Gennaio 2015');
   });
   it('should use the firstDayOfWeek prop to set the first day of the week', () => {
     const wrapper = mount(
       <DayPicker initialMonth={new Date(2015, 0)} firstDayOfWeek={1} />
     );
-    expect(wrapper.find('.DayPicker-Weekday').first()).to.have.text('Mo');
-    expect(wrapper.find('.DayPicker-Day').at(3)).to.have.text('1');
+    expect(wrapper.find('.DayPicker-Weekday').first()).toHaveText('Mo');
+    expect(wrapper.find('.DayPicker-Day').at(3)).toHaveText('1');
   });
   it('should use the weekdaysShort prop to localize the weekday names', () => {
     const wrapper = mount(
@@ -42,7 +41,7 @@ describe('DayPicker’s localization', () => {
         weekdaysShort={['Do', 'Lu', 'Ma', 'Me', 'Gi', 'Ve', 'Sa']}
       />
     );
-    expect(wrapper.find('.DayPicker-Weekday').first()).to.have.text('Do');
+    expect(wrapper.find('.DayPicker-Weekday').first()).toHaveText('Do');
   });
   it('should use the weekdaysLong prop to localize the weekday names', () => {
     const wrapper = mount(
@@ -59,7 +58,7 @@ describe('DayPicker’s localization', () => {
         ]}
       />
     );
-    expect(wrapper.find('.DayPicker-Weekday > abbr').first()).to.have.attr(
+    expect(wrapper.find('.DayPicker-Weekday > abbr').first()).toHaveProp(
       'title',
       'Domenica'
     );
@@ -69,6 +68,6 @@ describe('DayPicker’s localization', () => {
       getFirstDayOfWeek: () => 1,
     });
     const wrapper = mount(<DayPicker localeUtils={localeUtils} />);
-    expect(wrapper.find('.DayPicker-Weekday').first()).to.have.text('Mo');
+    expect(wrapper.find('.DayPicker-Weekday').first()).toHaveText('Mo');
   });
 });
