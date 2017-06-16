@@ -105,8 +105,8 @@ export default class Day extends Component {
         style={style}
         role="gridcell"
         aria-label={ariaLabel}
-        aria-disabled={ariaDisabled.toString()}
-        aria-selected={ariaSelected.toString()}
+        aria-disabled={ariaDisabled}
+        aria-selected={ariaSelected}
         onClick={handleEvent(onClick, day, modifiers)}
         onKeyDown={handleEvent(onKeyDown, day, modifiers)}
         onMouseEnter={handleEvent(onMouseEnter, day, modifiers)}

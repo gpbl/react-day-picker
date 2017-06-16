@@ -20,10 +20,8 @@
     "clean": "rimraf coverage lib",
     "lint": "eslint src test",
     "dtslint": "dtslint types",
-    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive",
-    "test:watch": "npm test -- --watch",
-    "test:files": "mocha --compilers js:babel-core/register --require ./test/setup.js --reporter spec --bail --watch",
-    "cover": "babel-node ./node_modules/istanbul/lib/cli cover -- _mocha --recursive",
+    "test": "jest",
+    "cover": "jest --coverage",
     "check": "npm run lint && npm run dtslint && npm run test",
     "prerelease": "npm run check && npm run build",
     "build": "npm run build:node && npm run build:production && npm run build:development",
@@ -39,6 +37,15 @@
     "docs:serve": "gitbook serve",
     "docs:publish": "npm run docs:clean && npm run docs:build && npm run examples:build && rimraf _book/examples && mv examples/built _book/examples && cd _book && ECHO react-day-picker.js.org > CNAME && git init && git commit --allow-empty -m 'Update docs and examples' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'Update docs and examples' && git push git@github.com:gpbl/react-day-picker gh-pages --force",
     "coveralls": "coveralls < ./coverage/lcov.info"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "setupFiles": [
+      "./test/setup.js"
+    ],
+    "testMatch": [
+      "<rootDir>/test/**/!(setup).js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -76,8 +83,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
-    "chai": "^4.0.2",
-    "chai-enzyme": "^0.7.1",
     "cheerio": "^1.0.0-rc.1",
     "coveralls": "^2.13.1",
     "dtslint": "^0.1.2",
@@ -91,22 +96,18 @@
     "eslint-plugin-react": "^7.1.0",
     "gitbook-cli": "^2.3.0",
     "husky": "^0.13.4",
-    "istanbul": "^1.1.0-alpha.1",
+    "jest": "^20.0.4",
+    "jest-enzyme": "^3.2.0",
+    "jest-junit-reporter": "^1.1.0",
     "jsdom": "^11.0.0",
-    "mocha": "^3.4.2",
-    "mocha-circleci-reporter": "^0.0.2",
-    "mocha-junit-reporter": "^1.13.0",
     "moment": "^2.18.1",
     "postcss-cli": "^4.1.0",
     "prettier": "^1.4.4",
     "react": "^15.6.1",
-    "react-addons-test-utils": "^15.6.0",
     "react-dom": "^15.6.1",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-test-renderer": "^15.6.1",
     "rimraf": "^2.6.1",
-    "sinon": "^2.3.4",
-    "sinon-chai": "^2.11.0",
     "typescript": "^2.3.4",
     "webpack": "^2.6.1"
   },

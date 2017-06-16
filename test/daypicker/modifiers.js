@@ -1,6 +1,5 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
-import { expect } from 'chai';
+import { mount } from 'enzyme';
 
 import DayPicker from '../../src/DayPicker';
 
@@ -13,18 +12,18 @@ describe('DayPicker’s day modifiers', () => {
         modifiers={{ foo: () => true }}
       />
     );
-    expect(wrapper.find('.DayPicker-Day--selected')).to.have.length(35);
-    expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
+    expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(35);
+    expect(wrapper.find('.DayPicker-Day--foo')).toHaveLength(35);
   });
   it('should have `red` background style on `foo` modified days', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <DayPicker
         initialMonth={new Date(2015, 6)}
         modifiers={{ foo: () => true }}
         modifiersStyles={{ foo: { background: 'red' } }}
       />
     );
-    expect(wrapper.find('.DayPicker-Day--foo')).to.have.style(
+    expect(wrapper.find('.DayPicker-Day--foo').at(0)).toHaveStyle(
       'background',
       'red'
     );
@@ -33,9 +32,9 @@ describe('DayPicker’s day modifiers', () => {
     const wrapper = mount(
       <DayPicker initialMonth={new Date(2015, 6)} selectedDays={() => true} />
     );
-    expect(wrapper.find('.DayPicker-Day--selected').at(15)).to.have.attr(
+    expect(wrapper.find('.DayPicker-Day--selected').at(15)).toHaveProp(
       'aria-selected',
-      'true'
+      true
     );
   });
   it('should use `disabledDays` prop as `selected` modifier', () => {
@@ -46,30 +45,30 @@ describe('DayPicker’s day modifiers', () => {
         modifiers={{ foo: () => true }}
       />
     );
-    expect(wrapper.find('.DayPicker-Day--disabled')).to.have.length(35);
-    expect(wrapper.find('.DayPicker-Day--foo')).to.have.length(35);
+    expect(wrapper.find('.DayPicker-Day--disabled')).toHaveLength(35);
+    expect(wrapper.find('.DayPicker-Day--foo')).toHaveLength(35);
   });
   it('should add the `aria-disabled` attribute for `disabled` days', () => {
     const wrapper = mount(
       <DayPicker initialMonth={new Date(2015, 6)} disabledDays={() => true} />
     );
-    expect(wrapper.find('.DayPicker-Day--disabled').first()).to.have.attr(
+    expect(wrapper.find('.DayPicker-Day--disabled').first()).toHaveProp(
       'aria-disabled',
-      'true'
+      true
     );
   });
   it('should include "outside" for outside days', () => {
     const wrapper = mount(
       <DayPicker initialMonth={new Date(2015, 6)} enableOutsideDays />
     );
-    expect(wrapper.find('.DayPicker-Day').at(0)).to.have.className(
+    expect(wrapper.find('.DayPicker-Day').at(0)).toHaveClassName(
       'DayPicker-Day--outside'
     );
   });
   it('should include "today"', () => {
     const wrapper = mount(<DayPicker />);
-    expect(wrapper.find('.DayPicker-Day--today')).to.have.text(
-      new Date().getDate()
+    expect(wrapper.find('.DayPicker-Day--today')).toHaveText(
+      new Date().getDate().toString()
     );
   });
   it('should add custom modifiers', () => {
@@ -81,9 +80,9 @@ describe('DayPicker’s day modifiers', () => {
     const wrapper = mount(
       <DayPicker initialMonth={new Date(2015, 6)} modifiers={modifiers} />
     );
-    expect(wrapper.find('.DayPicker-Day--firstDayOfMonth')).to.have.length(2);
-    expect(wrapper.find('.DayPicker-Day--none')).to.have.length(0);
-    expect(wrapper.find('.DayPicker-Day--all')).to.have.length(35);
+    expect(wrapper.find('.DayPicker-Day--firstDayOfMonth')).toHaveLength(2);
+    expect(wrapper.find('.DayPicker-Day--none')).toHaveLength(0);
+    expect(wrapper.find('.DayPicker-Day--all')).toHaveLength(35);
   });
   it('should show "today" as something other than the current day', () => {
     const newToday = new Date();
@@ -96,8 +95,8 @@ describe('DayPicker’s day modifiers', () => {
     const wrapper = mount(
       <DayPicker initialMonth={new Date()} modifiers={modifiers} />
     );
-    expect(wrapper.find('.DayPicker-Day--today')).to.have.text(
-      newToday.getDate()
+    expect(wrapper.find('.DayPicker-Day--today')).toHaveText(
+      newToday.getDate().toString()
     );
   });
 });
