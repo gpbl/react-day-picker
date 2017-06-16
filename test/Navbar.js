@@ -63,11 +63,15 @@ describe('<Navbar />', () => {
   });
   it('should disable interaction with the previous button', () => {
     const wrapper = shallow(<Navbar showPreviousButton={false} />);
-    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveLength(1);
+    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveClassName(
+      '.DayPicker-NavButton--interactionDisabled'
+    );
   });
   it('should disable interaction with the next button', () => {
     const wrapper = shallow(<Navbar showNextButton={false} />);
-    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveLength(1);
+    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveClassName(
+      '.DayPicker-NavButton--interactionDisabled'
+    );
   });
   it('should call `onNextClick` when clicking the next button', () => {
     const handleNextClick = jest.fn();
