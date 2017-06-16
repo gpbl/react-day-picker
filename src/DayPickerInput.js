@@ -36,6 +36,7 @@ export default class DayPickerInput extends React.Component {
     format: PropTypes.string.isRequired,
     dayPickerProps: PropTypes.object,
     hideOnDayClick: PropTypes.bool,
+    clickUnselectDay: PropTypes.bool,
     component: PropTypes.any,
 
     classNames: PropTypes.shape({
@@ -57,6 +58,7 @@ export default class DayPickerInput extends React.Component {
     value: '',
     format: 'L',
     hideOnDayClick: true,
+    clickUnselectDay: false,
     component: 'input',
     classNames: {
       container: 'DayPickerInput',
@@ -216,7 +218,7 @@ export default class DayPickerInput extends React.Component {
       // Do nothing if the day is disabled
       return;
     }
-    if (modifiers.selected) {
+    if (modifiers.selected && this.props.clickUnselectDay) {
       // Unselect the day
       this.setState({ value: '' }, this.hideAfterDayClick);
       if (this.props.onDayChange) {
@@ -265,6 +267,7 @@ export default class DayPickerInput extends React.Component {
     delete inputProps.component;
     delete inputProps.dayPickerProps;
     delete inputProps.format;
+    delete inputProps.clickUnselectDay;
     delete inputProps.hideOnDayClick;
     delete inputProps.onDayChange;
     delete inputProps.classNames;
