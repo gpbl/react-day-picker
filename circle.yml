@@ -6,7 +6,7 @@ jobs:
     docker:
       - image: node:7.9.0
         environment:
-          MOCHA_FILE: "reports/test-results.xml"
+          TEST_REPORT_PATH: "reports"
   
     steps:
       - checkout
