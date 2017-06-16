@@ -20,7 +20,7 @@
     "clean": "rimraf coverage lib",
     "lint": "eslint src test",
     "dtslint": "dtslint types",
-    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive",
+    "test": "jest test/**/*.js",
     "test:watch": "npm test -- --watch",
     "test:files": "mocha --compilers js:babel-core/register --require ./test/setup.js --reporter spec --bail --watch",
     "cover": "babel-node ./node_modules/istanbul/lib/cli cover -- _mocha --recursive",
@@ -39,6 +39,14 @@
     "docs:serve": "gitbook serve",
     "docs:publish": "npm run docs:clean && npm run docs:build && npm run examples:build && rimraf _book/examples && mv examples/built _book/examples && cd _book && ECHO react-day-picker.js.org > CNAME && git init && git commit --allow-empty -m 'Update docs and examples' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'Update docs and examples' && git push git@github.com:gpbl/react-day-picker gh-pages --force",
     "coveralls": "coveralls < ./coverage/lcov.info"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/**/*.js"
+    ],
+    "setupFiles": [
+      "./test/setup.js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -92,6 +100,7 @@
     "gitbook-cli": "^2.3.0",
     "husky": "^0.13.4",
     "istanbul": "^1.1.0-alpha.1",
+    "jest": "^20.0.4",
     "jsdom": "^11.0.0",
     "mocha": "^3.4.2",
     "mocha-circleci-reporter": "^0.0.2",
