@@ -21,7 +21,7 @@ jobs:
       - run: mkdir -p reports
       - run: yarn run lint -- --format junit --output-file reports/eslint.xml
       - run: yarn run dtslint
-      - run: yarn run cover -- --reporter mocha-circleci-reporter
+      - run: yarn run cover -- --testResultsProcessor jest-junit-reporter
       - run: 
           name: Upload coverage info
           command: |
