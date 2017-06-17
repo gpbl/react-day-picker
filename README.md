@@ -17,9 +17,9 @@ react-day-picker is a flexible date picker component for [React](https://faceboo
 Check out the [examples](http://react-day-picker.js.org/examples) to see its features.
 
 [![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
-[![CircleCI](https://img.shields.io/circleci/project/github/gpbl/react-day-picker/master.svg?style=flat-square)](https://circleci.com/gh/gpbl/react-day-picker)
-[![coveralls](https://img.shields.io/coveralls/gpbl/react-day-picker.svg?style=flat-square)](https://coveralls.io/r/gpbl/react-day-picker?branch=master)
 [![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](http://npm-stat.com/charts.html?package=react-day-picker)
+[![CircleCI](https://img.shields.io/circleci/project/github/gpbl/react-day-picker/master.svg?style=flat-square)](https://circleci.com/gh/gpbl/react-day-picker)
+[![Codecov](https://img.shields.io/codecov/c/github/gpbl/react-day-picker/master.svg?style=flat-square)](https://codecov.io/gh/gpbl/react-day-picker)
 
 ## Quick start
 
