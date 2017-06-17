@@ -7,7 +7,7 @@
 
 react-day-picker is a flexible date picker component for [React](https://facebook.github.io/react/).
 
-* no external dependencies, 9KB minified and gzipped
+* no external dependencies, 10KB minified and gzipped
 * select [days](http://react-day-picker.js.org/examples?selectable), [ranges](http://react-day-picker.js.org/examples?range), whatever using CSS modifiers
 * simple [localization](http://react-day-picker.js.org/examples?localized)
 * customizable [style](https://github.com/gpbl/react-day-picker/blob/master/src/style.css) and [CSS Modules](http://react-day-picker.js.org/CSSModules.html) support
