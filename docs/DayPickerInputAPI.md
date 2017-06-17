@@ -58,7 +58,7 @@ The object expects the following keys:
 
 ### component
 
-**Type**: `String|React.Component` | **Default**: `input`
+**Type**: `String|React.Component|React.PureComponent` | **Default**: `input`
 
 The component to render the input field. 
 
