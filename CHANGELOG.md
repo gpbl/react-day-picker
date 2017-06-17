@@ -4,7 +4,7 @@ This major release focuses on performance, improves accessibility and fixes some
 
 **Breaking changes**
 
-* The container's HTML structure has changed: the interactive element used to focus the calendar has been moved into a wrapper to improve accessibility ([#392](https://github.com/gpbl/react-day-picker/issue/392)):
+* The container's HTML structure has changed: the interactive element used to focus the calendar has been moved into a wrapper to improve accessibility ([#392](https://github.com/gpbl/react-day-picker/issues/392)):
   
   ```diff
   <div className="DayPicker">
@@ -25,7 +25,7 @@ This major release focuses on performance, improves accessibility and fixes some
   
   * If you are using `classNames` with the `container` prop, rename the `container` className to `wrapper`.
 
-* When using `fromMonth`/`toMonth` props, navigation buttons now are rendered and hidden via CSS. Before, the buttons were not rendered at all, and it was impossible to style them ([#366](https://github.com/gpbl/react-day-picker/issue/366))
+* When using `fromMonth`/`toMonth` props, navigation buttons now are rendered and hidden via CSS. Before, the buttons were not rendered at all, and it was impossible to style them ([#366](https://github.com/gpbl/react-day-picker/issues/366))
 
   This is a **breaking change** if you are using those props and styling the component using your own CSS or with the `classNames` prop. 
   
@@ -34,21 +34,21 @@ This major release focuses on performance, improves accessibility and fixes some
   * If you are styling with your own stylesheet, add a `.DayPickerNavBar--interactionDisabled` selector to your style with `display: hidden`.
   * If you are using `classNames`, add a `navButtonInteractionDisabled` to your `classNames` with `display: hidden` to hide the buttons.
 
-* Improved rendering performance using `shouldComponentUpdate` and `PureComponent` ([#389](https://github.com/gpbl/react-day-picker/issue/389))
+* Improved rendering performance using `shouldComponentUpdate` and `PureComponent` ([#389](https://github.com/gpbl/react-day-picker/issues/389))
 
   It should not be a breaking change, but if something is not working for you when updating some props please file an issue 🙃
 
 **Improvements**
 
-* Allow `{after, before}` modifiers in the same object ([#354](https://github.com/gpbl/react-day-picker/issue/354)). You can now write before/after modifiers such as `disabledDays={ { before: aDate, after: aDate }}`.
-* **DayPickerInput**: added [`clickUnselectsDay`](http://react-day-picker.js.org/DayPickerInputAPI.html#clickunselectsday) prop to unselect and clear the input when clicking on a previously selected day ([#399](https://github.com/gpbl/react-day-picker/issue/399))
+* Allow `{after, before}` modifiers in the same object ([#354](https://github.com/gpbl/react-day-picker/issues/354)). You can now write before/after modifiers such as `disabledDays={ { before: aDate, after: aDate }}`.
+* **DayPickerInput**: added [`clickUnselectsDay`](http://react-day-picker.js.org/DayPickerInputAPI.html#clickunselectsday) prop to unselect and clear the input when clicking on a previously selected day ([#399](https://github.com/gpbl/react-day-picker/issues/399))
 
 **Bug fixes**
 
-* Fixed an issue where users were able to focus outside days ([#400](https://github.com/gpbl/react-day-picker/issue/400) by [oigewan](https://github.com/oigewan))
-* Fixed an issue with Internet Explorer 11 ([#403](https://github.com/gpbl/react-day-picker/issue/403) by [oigewan](https://github.com/oigewan))
-* **a11y**: fixed a warning  `You have an unlabeled element or control.` shown with react-a11y ([#386](https://github.com/gpbl/react-day-picker/issue/386))
-* **DayPickerInput**: fixed an issue when updating the `month`'s `dayPickerProps` value ([#380](https://github.com/gpbl/react-day-picker/issue/380) by [Yustynn](https://github.com/Yustynn))
+* Fixed an issue where users were able to focus outside days ([#400](https://github.com/gpbl/react-day-picker/issues/400) by [oigewan](https://github.com/oigewan))
+* Fixed an issue with Internet Explorer 11 ([#403](https://github.com/gpbl/react-day-picker/issues/403) by [oigewan](https://github.com/oigewan))
+* **a11y**: fixed a warning  `You have an unlabeled element or control.` shown with react-a11y ([#386](https://github.com/gpbl/react-day-picker/issues/386))
+* **DayPickerInput**: fixed an issue when updating the `month`'s `dayPickerProps` value ([#380](https://github.com/gpbl/react-day-picker/issues/380) by [Yustynn](https://github.com/Yustynn))
 
 **Improvements in the built version**
 
