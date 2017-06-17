@@ -40,7 +40,7 @@ This major release focuses on performance, improves accessibility and fixes some
 
 **Improvements**
 
-* Allow `{after, before}` modifiers in the same object ([#354](https://github.com/gpbl/react-day-picker/issue/354). You can now write before/after modifiers such as `disabledDays={ { before: aDate, after: aDate }}`.
+* Allow `{after, before}` modifiers in the same object ([#354](https://github.com/gpbl/react-day-picker/issue/354)). You can now write before/after modifiers such as `disabledDays={ { before: aDate, after: aDate }}`.
 * **DayPickerInput**: added [`clickUnselectsDay`](http://react-day-picker.js.org/DayPickerInputAPI.html#clickunselectsday) prop to unselect and clear the input when clicking on a previously selected day ([#399](https://github.com/gpbl/react-day-picker/issue/399))
 
 **Bug fixes**
