@@ -62,4 +62,32 @@ The object expects the following keys:
 
 The component to render the input field. 
 
-You can pass your custom component to render the input field, but it must support the `onChange`, `onClick`, `onFocus`, `onBlur` and `onKeyUp` props and the `focus` and `blur` methods.
+To work properly with a custom input component, the passed component must be compatible with the standard HTML's `input`: this means it should support `onChange`, `onFocus`, `onKeyUp`, `onClick` and `onBlur` and the `focus` method.
+See [this issue](https://github.com/gpbl/react-day-picker/issues/378).
+
+If your custom component doesn't support such properties, wrap it in a component contaning them. For example:
+
+```jsx
+import React from 'react';
+import { DayPickerInput } from 'react-day-picker';
+import MyInputWithoutFocus from './MyInputWithoutFocus';
+
+class MyInputWithFocus extends React.Component {
+  focus = () => {
+    this.input.focus();
+  }
+  render() {
+    return (
+      <MyInputWithoutFocus 
+        ref={el => (this.input = el)} 
+        {...this.props} 
+      />
+    );
+  }
+}
+
+function MyDayPickerInput(props) {
+  return <DayPickerInput component={MyInputWithFocus} />
+} 
+
+```
