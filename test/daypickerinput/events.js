@@ -202,7 +202,7 @@ describe('DayPickerInput', () => {
         const wrapper = mount(
           <DayPickerInput
             value="02/08/2017"
-            clickUnselectDay
+            clickUnselectsDay
             dayPickerProps={{
               month: new Date(2017, 1),
               selectedDays: new Date(2017, 1, 8),
@@ -220,7 +220,7 @@ describe('DayPickerInput', () => {
           <DayPickerInput
             value="02/08/2017"
             onDayChange={onDayChange}
-            clickUnselectDay
+            clickUnselectsDay
             dayPickerProps={{
               month: new Date(2017, 1),
               selectedDays: new Date(2017, 1, 8),
