@@ -5,9 +5,12 @@ export default {
   wrapper: 'DayPicker-wrapper',
   interactionDisabled: 'DayPicker--interactionDisabled',
   month: 'DayPicker-Month',
+
   navBar: 'DayPicker-NavBar',
   navButtonPrev: 'DayPicker-NavButton DayPicker-NavButton--prev',
   navButtonNext: 'DayPicker-NavButton DayPicker-NavButton--next',
+  navButtonInteractionDisabled: 'DayPicker-NavButton--interactionDisabled',
+
   caption: 'DayPicker-Caption',
   weekdays: 'DayPicker-Weekdays',
   weekdaysRow: 'DayPicker-WeekdaysRow',
@@ -18,7 +21,6 @@ export default {
   day: 'DayPicker-Day',
   footer: 'DayPicker-Footer',
   todayButton: 'DayPicker-TodayButton',
-  navButtonInteractionDisabled: 'DayPicker-NavButton--interactionDisabled',
 
   // default modifiers
   today: 'today',
