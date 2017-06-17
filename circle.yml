@@ -19,13 +19,10 @@ jobs:
             - "/usr/local/share/.cache/yarn"
             - "./node_modules"
       - run: mkdir -p reports
-      - run: yarn run lint -- --format junit --output-file reports/eslint.xml
-      - run: yarn run dtslint
-      - run: yarn run cover -- --testResultsProcessor jest-junit-reporter
-      - run: 
-          name: Upload coverage info
-          command: |
-            yarn run coveralls < ./coverage/lcov.info
+      - run: yarn lint -- --format junit --output-file reports/eslint.xml
+      - run: yarn dtslint
+      - run: yarn cover -- --testResultsProcessor jest-junit-reporter
+      - run: yarn codecov
       - store_test_results:
           path: reports/
       - run: 

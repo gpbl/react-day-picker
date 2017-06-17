@@ -84,7 +84,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "cheerio": "^1.0.0-rc.1",
-    "coveralls": "^2.13.1",
+    "codecov": "^2.2.0",
     "dtslint": "^0.1.2",
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
