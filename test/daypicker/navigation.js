@@ -95,7 +95,9 @@ describe('DayPicker’s navigation', () => {
   it('should call `showNextMonth()` when the RIGHT key is pressed', () => {
     const wrapper = mount(<DayPicker />);
     const showNextMonth = jest.spyOn(wrapper.instance(), 'showNextMonth');
-    wrapper.simulate('keyDown', { keyCode: keys.RIGHT });
+    wrapper
+      .find('.DayPicker-wrapper')
+      .simulate('keyDown', { keyCode: keys.RIGHT });
     expect(showNextMonth).toHaveBeenCalledTimes(1);
     showNextMonth.mockReset();
   });
@@ -105,21 +107,27 @@ describe('DayPicker’s navigation', () => {
       wrapper.instance(),
       'showPreviousMonth'
     );
-    wrapper.simulate('keyDown', { keyCode: keys.LEFT });
+    wrapper
+      .find('.DayPicker-wrapper')
+      .simulate('keyDown', { keyCode: keys.LEFT });
     expect(showPreviousMonth).toHaveBeenCalledTimes(1);
     showPreviousMonth.mockReset();
   });
   it('should call `showPreviousYear()` when the UP key is pressed', () => {
     const wrapper = mount(<DayPicker />);
     const showPreviousYear = jest.spyOn(wrapper.instance(), 'showPreviousYear');
-    wrapper.simulate('keyDown', { keyCode: keys.UP });
+    wrapper
+      .find('.DayPicker-wrapper')
+      .simulate('keyDown', { keyCode: keys.UP });
     expect(showPreviousYear).toHaveBeenCalledTimes(1);
     showPreviousYear.mockReset();
   });
   it('should call `showNextYear()` when the DOWN key is pressed', () => {
     const wrapper = mount(<DayPicker />);
     const showNextYear = jest.spyOn(wrapper.instance(), 'showNextYear');
-    wrapper.simulate('keyDown', { keyCode: keys.DOWN });
+    wrapper
+      .find('.DayPicker-wrapper')
+      .simulate('keyDown', { keyCode: keys.DOWN });
     expect(showNextYear).toHaveBeenCalledTimes(1);
     showNextYear.mockReset();
   });

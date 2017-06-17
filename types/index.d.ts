@@ -80,6 +80,7 @@ declare namespace DayPicker {
 
   interface ClassNames {
     container: string;
+    wrapper: string;
     interactionDisabled: string;
     navBar: string;
     navButtonPrev: string;
