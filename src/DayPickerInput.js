@@ -69,9 +69,6 @@ export default class DayPickerInput extends React.Component {
 
   constructor(props) {
     super(props);
-    /* istanbul ignore next */
-    // for the ignore above see: https://github.com/gotwarlost/istanbul/issues/690
-
     this.state = getStateFromProps(props);
     this.state.showOverlay = false;
   }
@@ -86,9 +83,7 @@ export default class DayPickerInput extends React.Component {
   }
 
   componentWillUnmount() {
-    /* istanbul ignore next */
     clearTimeout(this.clickTimeout);
-    /* istanbul ignore next */
     clearTimeout(this.hideTimeout);
   }
 
