@@ -1,6 +1,65 @@
+# [v6.0.0](https://github.com/gpbl/react-day-picker/tree/v6.0.0) (2017-06-16)
+
+This major release focuses on performance, improves accessibility and fixes some bugs. There are some possible breaking changes, but they are easy to fix (read below).
+
+**Breaking changes**
+
+* Container HTML structure has changed: the interactive element is moved into a child of the container to improve accessibility ([#392](https://github.com/gpbl/react-day-picker/issue/392))
+
+  This is a **breaking change** if you are styling the component using your own CSS or with the `classNames` prop.
+  
+  * If you are styling with your own stylesheet, rename your `.DayPicker` selector to `.DayPicker-wrapper`.
+  
+  * If you are using `classNames` with the `container` prop, rename the `container` className to `wrapper`.
+
+* When using `fromMonth`/`toMonth` props, navigation buttons now are rendered and hidden via CSS. Before, the buttons were not rendered at all, so it was impossible to style them ([#366](https://github.com/gpbl/react-day-picker/issue/366))
+
+  This is a **breaking change** if you are using those props and styling the component using your own CSS or with the `classNames` prop. 
+  
+  In such cases, the buttons will be always shown even if the previous or the next months are not navigable. 
+
+  * If you are styling with your own stylesheet, add a `.DayPickerNavBar--interactionDisabled` selector to your style with `display: hidden`.
+
+  * If you are using `classNames`, add a `navButtonInteractionDisabled` to your `classNames` with `display: hidden` to hide them.
+
+* Improved rendering performance using `shouldComponentUpdate` and `PureComponent` ([#389](https://github.com/gpbl/react-day-picker/issue/389))
+
+  It should not be a breaking change, but if something is not working for you when updating some props please file an issue 🙃
+
+**Improvements**
+
+* Allow `{after, before}` modifiers in the same object ([#354](https://github.com/gpbl/react-day-picker/issue/354))
+
+  You can now write before/after modifiers such as `disabledDays={ { before: aDate, after: aDate }}`
+
+* **DayPickerInput**: added [`clickUnselectsDay`](http://react-day-picker.js.org/DayPickerInputAPI.html#clickunselectsday) prop to unselect and clear the input when clicking on a previously selected day ([#399](https://github.com/gpbl/react-day-picker/issue/399))
+
+**Bug fixes**
+
+* Fixed an issue where users were able to focus outside days ([#400](https://github.com/gpbl/react-day-picker/issue/400) by [oigewan](https://github.com/oigewan))
+
+* Fixed an issue with Internet Explorer 11 ([#403](https://github.com/gpbl/react-day-picker/issue/403) by [oigewan](https://github.com/oigewan))
+
+* **a11y**: fixed a warning  `You have an unlabeled element or control.` shown with react-a11y ([#386](https://github.com/gpbl/react-day-picker/issue/386))
+
+* **DayPickerInput**: fixed an issue when updating the `month`'s `dayPickerProps` value ([#380](https://github.com/gpbl/react-day-picker/issue/380) by [Yustynn](https://github.com/Yustynn))
+
+
+**Improvements in the built version**
+
+These changes applies to the production build from the `lib` dir (e.g. that served from unpkg.com). 
+
+* Removed prop types from production build ([#349](https://github.com/gpbl/react-day-picker/issues/349))
+* Include `DayPicker.Input` in the built file ([#383](https://github.com/gpbl/react-day-picker/issues/383))
+
+  Use `<DayPicker.Input />` to render the input component.
+
+
+---
+
 ### [v5.5.3](https://github.com/gpbl/react-day-picker/tree/v5.5.3) (2017-05-25)
 
-* Bugfix for `DayPickerInput`: updated `value` prop now will be reflected in the component's state ([#363](https://github.com/gpbl/react-day-picker/issuses/363))
+* Bugfix for `DayPickerInput`: updated `value` prop now will be reflected in the component's state ([#363](https://github.com/gpbl/react-day-picker/issues/363))
 
 ## [v5.5.0](https://github.com/gpbl/react-day-picker/tree/v5.5.0) (2017-05-09)
 
