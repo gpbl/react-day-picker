@@ -71,6 +71,7 @@ The object expects the following keys:
 
 ```js
   container,            // The container element
+  wrapper,              // The wrapper element, used for keyboard interaction
   interactionDisabled,  // Added to the container when there's no interaction with the calendar
 
   navBar,         // The navigation bar with the arrows to switch between months
