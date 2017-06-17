@@ -1,13 +1,16 @@
 /* DayPicker styles */
 
 .DayPicker {
+}
+
+.DayPicker-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
-  padding: 1rem 0;
   user-select: none;
   flex-direction: row;
+  padding: 1rem 0;
 }
 
 .DayPicker-Month {
