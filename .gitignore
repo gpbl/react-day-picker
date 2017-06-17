@@ -5,3 +5,4 @@ npm-debug.log
 /coverage
 _book
 _site
+test-report.xml
