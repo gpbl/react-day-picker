@@ -85,6 +85,7 @@ declare namespace DayPicker {
     navBar: string;
     navButtonPrev: string;
     navButtonNext: string;
+    navButtonInteractionDisabled: string;
 
     month: string;
     caption: string;
