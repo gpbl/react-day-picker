@@ -21,7 +21,6 @@
     "lint": "eslint src test",
     "dtslint": "dtslint types",
     "test": "jest",
-    "cover": "jest --coverage",
     "check": "npm run lint && npm run dtslint && npm run test",
     "prerelease": "npm run check && npm run build",
     "build": "npm run build:node && npm run build:production && npm run build:development",

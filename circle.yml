@@ -21,7 +21,7 @@ jobs:
       - run: mkdir -p reports
       - run: yarn lint -- --format junit --output-file reports/eslint.xml
       - run: yarn dtslint
-      - run: yarn cover -- --testResultsProcessor jest-junit-reporter
+      - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
       - store_test_results:
           path: reports/
