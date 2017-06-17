@@ -21,6 +21,7 @@ This major release focuses on performance, improves accessibility and fixes some
   ```diff
   - .DayPicker {
   + .DayPicker-wrapper {
+  ```
   
   * If you are using `classNames` with the `container` prop, rename the `container` className to `wrapper`.
 
