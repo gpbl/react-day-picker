@@ -77,6 +77,7 @@ The object expects the following keys:
   navBar,         // The navigation bar with the arrows to switch between months
   navButtonPrev,  // Button to switch to the previous month
   navButtonNext,  // Button to switch to the next month
+  navButtonInteractionDisabled,  // Added to the navbuttons when disabled with fromMonth/toMonth props
 
   month,          // The month's main tables
   caption,        // The caption element, containing the current month's name and year

@@ -26,6 +26,11 @@ Note that the `selectedDays` and `numberOfMonths` props, and a `selected` modifi
 
 Hides the day picker when the user clicks on a day cell.
 
+### clickUnselectsDay
+
+**Type**: `Boolean` | **Default**: `false`
+
+Unselect and clear the input when clicking on a previously selected day
 
 ### onDayChange
 
