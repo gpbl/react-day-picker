@@ -105,7 +105,7 @@ describe('DayPicker’s rendering', () => {
   });
   it('should use the given tabIndex', () => {
     const wrapper = shallow(<DayPicker tabIndex={-1} />);
-    expect(wrapper).toHaveProp('tabIndex', -1);
+    expect(wrapper.find('.DayPicker-wrapper')).toHaveProp('tabIndex', -1);
   });
   it('should spread props to the container', () => {
     const wrapper = shallow(
@@ -119,8 +119,8 @@ describe('DayPicker’s rendering', () => {
     const wrapper = mount(
       <DayPicker onFocus={handleFocus} onBlur={handleBlur} />
     );
-    wrapper.simulate('focus');
-    wrapper.simulate('blur');
+    wrapper.find('.DayPicker-wrapper').simulate('focus');
+    wrapper.find('.DayPicker-wrapper').simulate('blur');
     expect(handleBlur).toHaveBeenCalledTimes(1);
     expect(handleFocus).toHaveBeenCalledTimes(1);
   });

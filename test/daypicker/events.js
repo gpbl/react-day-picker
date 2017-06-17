@@ -199,7 +199,7 @@ describe('DayPicker’s events handlers', () => {
   it('should call `onKeyDown` event handler', () => {
     const handleKeyDown = jest.fn();
     const wrapper = mount(<DayPicker onKeyDown={handleKeyDown} />);
-    wrapper.simulate('keyDown');
+    wrapper.find('.DayPicker-wrapper').simulate('keyDown');
     expect(handleKeyDown.mock.calls[0][0]).toBeInstanceOf(SyntheticEvent);
   });
   it('should call `onKeyDown` also when changing month is disabled', () => {
@@ -207,7 +207,7 @@ describe('DayPicker’s events handlers', () => {
     const wrapper = mount(
       <DayPicker onKeyDown={handleKeyDown} canChangeMonth={false} />
     );
-    wrapper.simulate('keyDown');
+    wrapper.find('.DayPicker-wrapper').simulate('keyDown');
     expect(handleKeyDown.mock.calls[0][0]).toBeInstanceOf(SyntheticEvent);
   });
   it('should display the current month when clicking the today button', () => {
