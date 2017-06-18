@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 
 import DayPickerInput from '../../src/DayPickerInput';
@@ -102,6 +103,14 @@ describe('DayPickerInput', () => {
       const wrapper = mount(<DayPickerInput value="12/15/2017" />);
       wrapper.setProps({ dayPickerProps: {} });
       expect(wrapper.instance().state.value).toBe('12/15/2017');
+    });
+    it('should clear timeouts when component unmounts', () => {
+      const container = document.createElement('div');
+      mount(<DayPickerInput />, { attachTo: container });
+      const spy = jest.spyOn(window, 'clearTimeout');
+      ReactDOM.unmountComponentAtNode(container);
+      expect(spy).toHaveBeenCalledTimes(2);
+      spy.mockRestore();
     });
   });
 });
