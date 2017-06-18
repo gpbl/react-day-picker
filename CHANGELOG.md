@@ -25,6 +25,8 @@ This major release focuses on performance, improves accessibility and fixes some
   
   * If you are using `classNames` with the `container` prop, rename the `container` className to `wrapper`.
 
+* The container element is now an `inline-block` element.
+
 * When using `fromMonth`/`toMonth` props, navigation buttons now are rendered and hidden via CSS. Before, the buttons were not rendered at all, and it was impossible to style them ([#366](https://github.com/gpbl/react-day-picker/issues/366))
 
   This is a **breaking change** if you are using those props and styling the component using your own CSS or with the `classNames` prop. 
