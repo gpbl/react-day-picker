@@ -26,7 +26,7 @@ export default class RangeAdvanced extends React.Component {
   handleDayClick = day => {
     const { from, to } = this.state;
 
-    if (DateUtils.isSameDay(day, from)) {
+    if (from && to && day >= from && day <= to) {
       this.reset();
       return;
     }
