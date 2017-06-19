@@ -1,0 +1,595 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Basic usage · react-day-picker: flexible date picker for React</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-githubcontributors/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Input.html" />
+    
+    
+    <link rel="prev" href="Examples.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"gpbl/react-day-picker","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    react-day-picker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Examples.html">
+            
+                <a href="Examples.html">
+            
+                    
+                    Getting started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="Basic.html">
+            
+                <a href="Basic.html">
+            
+                    
+                    Basic usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Input.html">
+            
+                <a href="Input.html">
+            
+                    
+                    Using the input field
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Modifiers.html">
+            
+                <a href="Modifiers.html">
+            
+                    
+                    Matching days with modifiers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Styling.html">
+            
+                <a href="Styling.html">
+            
+                    
+                    Styling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="CSSModules.html">
+            
+                <a href="CSSModules.html">
+            
+                    
+                    With CSS Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="DayPickerAPI.html">
+            
+                <a href="DayPickerAPI.html">
+            
+                    
+                    DayPicker API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="DayPickerInputAPI.html">
+            
+                <a href="DayPickerInputAPI.html">
+            
+                    
+                    DayPickerInput API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Localization.html">
+            
+                <a href="Localization.html">
+            
+                    
+                    Localization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="LocalizationMoment.html">
+            
+                <a href="LocalizationMoment.html">
+            
+                    
+                    With moment.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="LocalizationAdvanced.html">
+            
+                <a href="LocalizationAdvanced.html">
+            
+                    
+                    Advanced localization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Utilities.html">
+            
+                <a href="Utilities.html">
+            
+                    
+                    Utilities
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="DateUtils.html">
+            
+                <a href="DateUtils.html">
+            
+                    
+                    DateUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="LocaleUtils.html">
+            
+                <a href="LocaleUtils.html">
+            
+                    
+                    LocaleUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="ModifiersUtils.html">
+            
+                <a href="ModifiersUtils.html">
+            
+                    
+                    ModifiersUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Changelog.html">
+            
+                <a href="Changelog.html">
+            
+                    
+                    Changelog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="Contributing.html">
+            
+                <a href="Contributing.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Basic usage</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="basic-usage"><a name="basic-usage" class="plugin-anchor" href="#basic-usage"><i class="fa fa-link" aria-hidden="true"></i></a>Basic usage</h1><p>react-day-picker is designed to cover the most common needs for a date picker in web applications.</p><p>The package includes:</p><ul><li>the <strong>DayPicker</strong> component, to render the date picker (the &quot;calendar&quot;)
+</li>
+<li>the <strong>DayPickerInput</strong> component &#x2013; to render an input field opening the DayPicker in an overlay.
+</li></ul>
+<p>This guide illustrates the DayPicker basic concepts by implementing a date picker to select, clear and disable days from the calendar. For using the input field, read <a href="Input.html">this chapter</a>.</p><h2 id="selecting-a-day"><a name="selecting-a-day" class="plugin-anchor" href="#selecting-a-day"><i class="fa fa-link" aria-hidden="true"></i></a>Selecting a day</h2><p>react-day-picker doesn&apos;t hold the selected day in its state. Instead, you have to save it in your component as the user interacts with the calendar.</p><p>The following component uses the <code>onDayClick</code> prop to save the clicked day in its own state:</p><pre class="language-"><code class="lang-jsx"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&apos;react&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> DayPicker <span class="token keyword">from</span> <span class="token string">&apos;react-day-picker&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&apos;react-day-picker/lib/style.css&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SelectDay</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+
+  state <span class="token operator">=</span> <span class="token punctuation">{</span>
+    selectedDay<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// We set the selected default as today</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  handleDayClick <span class="token operator">=</span> day <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+      selectedDay<span class="token punctuation">:</span> day 
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span> <span class="token attr-name">onDayClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleDayClick <span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+          The selected day is <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectedDay<span class="token punctuation">.</span><span class="token function">toLocaleDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<blockquote><p><strong>Note</strong> You can import the CSS from <code>react-day-picker/lib/style.css</code>, which contains a basic stylesheet. However, we recommend to write your own based on it. Read <a href="Styling.html">Styling</a> to know how to properly style the component.</p></blockquote><p>We pass then the selected day (saved in the component&#x2019;s state) to the <code>selectedDays</code> prop:</p><pre class="language-"><code class="lang-diff"><span class="token deleted">&lt;DayPicker</span>
+  onDayClick={ this.handleDayClick }
+<span class="token inserted">+ selectedDays={ this.state.selectedDay }</span>
+/&gt;</code></pre>
+<p>That day cell will get the <code>DayPicker-Day--selected</code> CSS class.</p><h3 id="clearing-the-selected-day"><a name="clearing-the-selected-day" class="plugin-anchor" href="#clearing-the-selected-day"><i class="fa fa-link" aria-hidden="true"></i></a>Clearing the selected day</h3><p>When a selected day is clicked again, we want to clear it. This can be made setting the component&apos;s <code>selectedDay</code> to <code>undefined</code> (or <code>null</code>).</p><p>The <code>onDayClick</code> handler receives as second argument an object that can be inspected to check if the clicked day has been selected or not:</p><pre class="language-"><code class="lang-diff">handleDayClick = (day, { selected }) =&gt; {
+<span class="token inserted">+  if (selected) {</span>
+<span class="token inserted">+    // Unselect the day if already selected</span>
+<span class="token inserted">+    this.state({ selectedDay: undefined });</span>
+<span class="token inserted">+    return;</span>
+<span class="token inserted">+  }</span>
+  this.setState({ selectedDay: day });
+}</code></pre>
+<p>That&apos;s all! <a href="http://react-day-picker.js.org/examples?selectable" target="_blank">See this example</a> using the code above.</p><h2 id="marking-days-as-disabled"><a name="marking-days-as-disabled" class="plugin-anchor" href="#marking-days-as-disabled"><i class="fa fa-link" aria-hidden="true"></i></a>Marking days as disabled</h2><p>Disabled days should not respond to the user&apos;s interaction and should appear as &quot;disabled&quot; (e.g. grayed out) on the calendar. Here we are disabling all the Sundays:</p><pre class="language-"><code class="lang-diff"><span class="token deleted">&lt;DayPicker</span>
+  selectedDays={ this.state.selectedDay }
+<span class="token inserted">+  disabledDays={ { daysOfWeek: [0] } }</span>
+  onDayClick={ this.handleDayClick }
+/&gt;</code></pre>
+<blockquote><p>The <code>selectedDays</code> and <code>disabledDays</code> prop can accept <a href="http://react-day-picker.js.org/Modifiers.html" target="_blank">different value types</a> to give you more flexibility about which days should appear selected or disabled.</p></blockquote><h3 id="preventing-the-user-to-select-a-disabled-day"><a name="preventing-the-user-to-select-a-disabled-day" class="plugin-anchor" href="#preventing-the-user-to-select-a-disabled-day"><i class="fa fa-link" aria-hidden="true"></i></a>Preventing the user to select a disabled day</h3><p>This change still does not prevent the user to select a disabled day. Thus, we need our component to <em>not</em> update its state if the clicked day is disabled.</p><p>In the click handler we can use the second argument to check if the clicked day is disabled, and prevent its selection:</p><pre class="language-"><code class="lang-diff"><span class="token deleted">- handleDayClick = (day, { selected }) =&gt; {</span>
+<span class="token inserted">+ handleDayClick = (day, { selected, disabled }) =&gt; {</span>
+<span class="token inserted">+   if (disabled) {</span>
+<span class="token inserted">+     return;</span>
+<span class="token inserted">+   }</span>
+   if (selected) {
+     // Unselect the day if already selected
+     this.state({ selectedDay: undefined });
+     return;
+   }
+  this.setState({ selectedDay: day });
+}</code></pre>
+<p>The final implementation:</p><pre class="language-"><code class="lang-jsx"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&apos;react&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> DayPicker <span class="token keyword">from</span> <span class="token string">&apos;react-day-picker&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&apos;react-day-picker/lib/style.css&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SelectDay</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+
+  state <span class="token operator">=</span> <span class="token punctuation">{</span>
+    selectedDay<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  handleDayClick <span class="token operator">=</span> <span class="token punctuation">(</span>day<span class="token punctuation">,</span> <span class="token punctuation">{</span> selected<span class="token punctuation">,</span> disabled <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>disabled<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>selected<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+        selectedDay<span class="token punctuation">:</span> undefined 
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+      selectedDay<span class="token punctuation">:</span> day 
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span> 
+          <span class="token attr-name">selectedDays</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectedDay <span class="token punctuation">}</span></span>
+          <span class="token attr-name">disabledDays</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token punctuation">{</span> daysOfWeek<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span></span>
+          <span class="token attr-name">onDayClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleDayClick <span class="token punctuation">}</span></span> 
+        <span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+          The selected day is <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectedDay<span class="token punctuation">.</span><span class="token function">toLocaleDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Check out <a href="http://react-day-picker.js.org/examples?disabled" target="_blank">this example</a> running a similar implementation.</p><h2 id="next-steps"><a name="next-steps" class="plugin-anchor" href="#next-steps"><i class="fa fa-link" aria-hidden="true"></i></a>Next steps</h2><p>The <code>selectedDays</code>/<code>disabledDays</code> props and the <code>onDayClick</code> event handler can implement a more complex logic to respond to your app&apos;s needs. For example, you can make the date picker to <a href="http://react-day-picker.js.org/examples?range" target="_blank">select a range of days</a>.</p><p>You can go deeper with the customization using <strong>day modifiers</strong>. Read more about them in the <a href="Modifiers.html">next chapter</a>.</p></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Examples.html" class="navigation navigation-prev " aria-label="Previous page: Getting started">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Input.html" class="navigation navigation-next " aria-label="Next page: Using the input field">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Basic usage","level":"1.3","depth":1,"next":{"title":"Using the input field","level":"1.4","depth":1,"path":"Input.md","ref":"Input.md","articles":[]},"previous":{"title":"Getting started","level":"1.2","depth":1,"path":"Examples.md","ref":"Examples.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","-sharing","ga","include","anchors","github-buttons","githubcontributors"],"root":"./docs","styles":{"website":"styles/website.css"},"pluginsConfig":{"prism":{},"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"github-buttons":{"repo":"gpbl/react-day-picker","types":["star"],"size":"small"},"ga":{"configuration":"auto","token":"UA-68185118-1"},"githubcontributors":{"contributorWidth":"300px","githubOwner":"gpbl","githubRepository":"react-day-picker"},"edit-link":{"label":"Edit This Page","base":"https://github.com/gpbl/react-day-picker/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"react-day-picker: flexible date picker for React","gitbook":"3.2.x"},"file":{"path":"Basic.md","mtime":"2017-06-19T14:59:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2017-06-19T15:00:37.881Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-githubcontributors/contributors.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

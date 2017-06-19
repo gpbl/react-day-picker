@@ -1,0 +1,614 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>DayPicker API · react-day-picker: flexible date picker for React</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-githubcontributors/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="DayPickerInputAPI.html" />
+    
+    
+    <link rel="prev" href="CSSModules.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"gpbl/react-day-picker","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    react-day-picker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Examples.html">
+            
+                <a href="Examples.html">
+            
+                    
+                    Getting started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Basic.html">
+            
+                <a href="Basic.html">
+            
+                    
+                    Basic usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Input.html">
+            
+                <a href="Input.html">
+            
+                    
+                    Using the input field
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Modifiers.html">
+            
+                <a href="Modifiers.html">
+            
+                    
+                    Matching days with modifiers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Styling.html">
+            
+                <a href="Styling.html">
+            
+                    
+                    Styling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="CSSModules.html">
+            
+                <a href="CSSModules.html">
+            
+                    
+                    With CSS Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="DayPickerAPI.html">
+            
+                <a href="DayPickerAPI.html">
+            
+                    
+                    DayPicker API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="DayPickerInputAPI.html">
+            
+                <a href="DayPickerInputAPI.html">
+            
+                    
+                    DayPickerInput API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Localization.html">
+            
+                <a href="Localization.html">
+            
+                    
+                    Localization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="LocalizationMoment.html">
+            
+                <a href="LocalizationMoment.html">
+            
+                    
+                    With moment.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="LocalizationAdvanced.html">
+            
+                <a href="LocalizationAdvanced.html">
+            
+                    
+                    Advanced localization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Utilities.html">
+            
+                <a href="Utilities.html">
+            
+                    
+                    Utilities
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="DateUtils.html">
+            
+                <a href="DateUtils.html">
+            
+                    
+                    DateUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="LocaleUtils.html">
+            
+                <a href="LocaleUtils.html">
+            
+                    
+                    LocaleUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="ModifiersUtils.html">
+            
+                <a href="ModifiersUtils.html">
+            
+                    
+                    ModifiersUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Changelog.html">
+            
+                <a href="Changelog.html">
+            
+                    
+                    Changelog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="Contributing.html">
+            
+                <a href="Contributing.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >DayPicker API</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="daypicker-api"><a name="daypicker-api" class="plugin-anchor" href="#daypicker-api"><i class="fa fa-link" aria-hidden="true"></i></a>DayPicker API</h1><pre class="language-"><code class="lang-js"><span class="token keyword">import</span> DayPicker <span class="token keyword">from</span> <span class="token string">&apos;react-day-picker&apos;</span><span class="token punctuation">;</span></code></pre>
+<h4 id="props-summary"><a name="props-summary" class="plugin-anchor" href="#props-summary"><i class="fa fa-link" aria-hidden="true"></i></a>Props summary</h4><p><strong>Rendering months</strong>: <a href="#initialmonth">initialMonth</a>, <a href="#month">month</a>, <a href="#frommonth">fromMonth</a>, <a href="#tomonth">toMonth</a>, <a href="#numberofmonths">numberOfMonths</a>, <a href="#pagednavigation">pagedNavigation</a>, <a href="#canchangemonth">canChangeMonth</a>, <a href="#reversemonths">reverseMonths</a></p><p><strong>Day Modifiers</strong>: <a href="#selecteddays">selectedDays</a>, <a href="#disableddays">disabledDays</a>, <a href="#modifiers">modifiers</a>, <a href="#modifiersstyles">modifiersStyles</a></p><p><strong>Customization</strong>: <a href="#enableoutsidedays">enableOutsideDays</a>, <a href="#fixedweeks">fixedWeeks</a>, <a href="#showweeknumbers">showWeekNumbers</a>, <a href="#todaybutton">todayButton</a></p><p><strong>Localization</strong>: <a href="#dir">dir</a>, <a href="#firstdayofweek">firstDayOfWeek</a>, <a href="#labels">labels</a>, <a href="#locale">locale</a>, <a href="#localeUtils">localeUtils</a>, <a href="#months">months</a>, <a href="#weekdayslong">weekdaysLong</a>, <a href="#weekdaysshort">weekdaysShort</a></p><p><strong>CSS and HTML</strong>: <a href="#classname">className</a>, <a href="#classnames">classNames</a>, <a href="#containerprops">containerProps</a>, <a href="#tabindex">tabIndex</a></p><p><strong>Elements</strong>: <a href="#renderday">renderDay</a>, <a href="#weekdayelement">weekdayElement</a>, <a href="#navbarelement">navbarElement</a>, <a href="#captionelement">captionElement</a></p><p><strong>Events</strong>: <a href="#onblur">onBlur</a>, <a href="#oncaptionclick">onCaptionClick</a>, <a href="#ondayclick">onDayClick</a>, <a href="#ondayfocus">onDayFocus</a>, <a href="#ondaykeydown">onDayKeyDown</a>, <a href="#ondaymouseenter">onDayMouseEnter</a>, <a href="#ondaymouseleave">onDayMouseLeave</a>, <a href="#ondaytouchend">onDayTouchEnd</a>, <a href="#ondaytouchstart">onDayTouchStart</a>, <a href="#onfocus">onFocus</a>, <a href="#onkeydown">onKeyDown</a>, <a href="#onmonthchange">onMonthChange</a></p><h4 id="methods-summary"><a name="methods-summary" class="plugin-anchor" href="#methods-summary"><i class="fa fa-link" aria-hidden="true"></i></a>Methods summary</h4><p><a href="#showmonth">showMonth</a>, <a href="#showpreviousmonth">showPreviousMonth</a>, <a href="#shownextmonth">showNextMonth</a>, <a href="#showpreviousyear">showPreviousYear</a>, <a href="#shownextyear">showNextYear</a></p><h4 id="typescript-type-definitions"><a name="typescript-type-definitions" class="plugin-anchor" href="#typescript-type-definitions"><i class="fa fa-link" aria-hidden="true"></i></a>Typescript Type Definitions</h4><p>Typescript Type Definitions are available in the main repo: see <a href="https://github.com/gpbl/react-day-picker/tree/master/types/index.d.ts" target="_blank">types/index.d.ts</a>.</p><h2 id="reference"><a name="reference" class="plugin-anchor" href="#reference"><i class="fa fa-link" aria-hidden="true"></i></a>Reference</h2><h3 id="canchangemonth"><a name="canchangemonth" class="plugin-anchor" href="#canchangemonth"><i class="fa fa-link" aria-hidden="true"></i></a>canChangeMonth</h3><p><strong>Type</strong>: <code>Bool</code> | <strong>Default</strong>: <code>true</code></p><p>Enable the navigation between months.</p><h3 id="captionelement"><a name="captionelement" class="plugin-anchor" href="#captionelement"><i class="fa fa-link" aria-hidden="true"></i></a>captionElement</h3><p><strong>Type</strong>: <code>Element</code> || <code>React.Component</code> || <code>(props) =&gt; Element</code></p><p>A React element or constructor to use as caption. This element will receive the following props:</p><ul><li><code>date: Date</code> The currently displayed month.
+</li>
+<li><code>localeUtils: Object</code> The <a href="#localeutils-object">localeUtils</a> object passed to the component.
+</li>
+<li><code>locale: String</code> The current <a href="#locale-string">locale</a> passed to the component.
+</li>
+<li><code>onClick</code> The <a href="#oncaptionclick-function">onCaptionClick</a> function, if specified.
+</li></ul>
+<p>The default caption is a <code>div</code> with class <code>DayPicker-Caption</code>, showing a &quot;month year&quot; text.</p><p>See also <a href="../examples">this advanced example</a>, showing a year navigation element using this prop.</p><h3 id="classname"><a name="classname" class="plugin-anchor" href="#classname"><i class="fa fa-link" aria-hidden="true"></i></a>className</h3><p><strong>Type</strong>: <code>String</code></p><p>Additional CSS class names to add to the default.</p><h3 id="classnames"><a name="classnames" class="plugin-anchor" href="#classnames"><i class="fa fa-link" aria-hidden="true"></i></a>classNames</h3><p><strong>Type</strong>: <code>Object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>String</span><span class="token punctuation">&gt;</span></span></code></p><p>Customize the CSS class names used when rendering the component.</p><ul><li>Use this prop to use your custom styles imported via CSS Modules (<a href="http://react-day-picker.js.org/examples/?cssModules" target="_blank">see example</a>).
+</li>
+<li>Skipping this prop will make the calendar use the default BEM conventions (e.g. <code>DayPicker-Day DayPicker-Day--modifier</code>)
+</li></ul>
+<p>The object expects the following keys:</p><pre class="language-"><code class="lang-js">  container<span class="token punctuation">,</span>            <span class="token comment" spellcheck="true">// The container element</span>
+  wrapper<span class="token punctuation">,</span>              <span class="token comment" spellcheck="true">// The wrapper element, used for keyboard interaction</span>
+  interactionDisabled<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// Added to the container when there&apos;s no interaction with the calendar</span>
+
+  navBar<span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">// The navigation bar with the arrows to switch between months</span>
+  navButtonPrev<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// Button to switch to the previous month</span>
+  navButtonNext<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// Button to switch to the next month</span>
+  navButtonInteractionDisabled<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// Added to the navbuttons when disabled with fromMonth/toMonth props</span>
+
+  month<span class="token punctuation">,</span>          <span class="token comment" spellcheck="true">// The month&apos;s main tables</span>
+  caption<span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// The caption element, containing the current month&apos;s name and year</span>
+  weekdays<span class="token punctuation">,</span>       <span class="token comment" spellcheck="true">// Table header displaying the weekdays names</span>
+  weekdaysRow<span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// Table row displaying the weekdays names</span>
+  weekday<span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// Cell displaying the weekday name</span>
+  body<span class="token punctuation">,</span>           <span class="token comment" spellcheck="true">// Table&apos;s body with the weeks</span>
+  week<span class="token punctuation">,</span>           <span class="token comment" spellcheck="true">// Table&apos;s row for each week</span>
+  day<span class="token punctuation">,</span>            <span class="token comment" spellcheck="true">// The single day cell</span>
+
+  footer<span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">// The calendar footer (only with todayButton prop)</span>
+  todayButton<span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// The today button (only with todayButton prop)</span>
+
+  <span class="token comment" spellcheck="true">// default modifiers</span>
+  today<span class="token punctuation">,</span>          <span class="token comment" spellcheck="true">// Added to the day&apos;s cell for the current day</span>
+  selected<span class="token punctuation">,</span>       <span class="token comment" spellcheck="true">// Added to the day&apos;s cell specified in the `selectedDays` prop</span>
+  disabled<span class="token punctuation">,</span>       <span class="token comment" spellcheck="true">// Added to the day&apos;s cell specified in the `disabledDays` prop</span>
+  outside<span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">// Added to the day&apos;s cell outside the current month</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="containerprops"><a name="containerprops" class="plugin-anchor" href="#containerprops"><i class="fa fa-link" aria-hidden="true"></i></a>containerProps</h3><p><strong>Type</strong>: <code>Object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Any</span><span class="token punctuation">&gt;</span></span></code></p><p>Props to pass to the container <code>div</code> HTML element. Only props by a <code>div</code> are valid.</p><p><code>className</code>, <code>role</code>, <code>tabIndex</code>, <code>onKeyDown</code>, <code>onFocus</code> and <code>onBlur</code> must be passed directly to the component. E.g.:</p><pre class="language-"><code class="lang-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span>
+  <span class="token attr-name">containerProps</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> className<span class="token punctuation">:</span> <span class="token string">&apos;will_be_ignored&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+  <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>will_work<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">/&gt;</span></span> </code></pre>
+<h3 id="disableddays"><a name="disableddays" class="plugin-anchor" href="#disableddays"><i class="fa fa-link" aria-hidden="true"></i></a>disabledDays</h3><p><strong>Type</strong>: <code>Date</code> || <code>Object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Any</span><span class="token punctuation">&gt;</span></span></code> || <code>(day: Date) &#x21D2; Bool</code> || <code>Array<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Date|Object|Function</span><span class="token punctuation">&gt;</span></span></code></p><p>Indicate which day should appear as disabled. Set a <code>selected</code> modifier.</p><p>See <a href="Modifiers.html">Modifiers</a> for a reference of the accepted values.</p><h3 id="enableoutsidedays"><a name="enableoutsidedays" class="plugin-anchor" href="#enableoutsidedays"><i class="fa fa-link" aria-hidden="true"></i></a>enableOutsideDays</h3><p><strong>Type</strong>: <code>Bool</code> <strong>Default</strong>: <code>false</code></p><p>Display the days outside the current month.</p><h3 id="firstdayofweek"><a name="firstdayofweek" class="plugin-anchor" href="#firstdayofweek"><i class="fa fa-link" aria-hidden="true"></i></a>firstDayOfWeek</h3><p><strong>Type</strong>: <code>Number</code> <strong>Default</strong>: <code>0</code> (Sunday)</p><p>The day to use as first day of the week, starting from <code>0</code> (Sunday) to <code>6</code> (Saturday).</p><h3 id="fixedweeks"><a name="fixedweeks" class="plugin-anchor" href="#fixedweeks"><i class="fa fa-link" aria-hidden="true"></i></a>fixedWeeks</h3><p><strong>Type</strong>: <code>Bool</code> <strong>Default</strong>: <code>false</code></p><p>Display 6 weeks per months, regardless the month&apos;s number of weeks. 
+Outside days will be always shown if setting this to <code>true</code>.</p><h3 id="frommonth"><a name="frommonth" class="plugin-anchor" href="#frommonth"><i class="fa fa-link" aria-hidden="true"></i></a>fromMonth</h3><p><strong>Type</strong>: <code>Date</code></p><p>The first allowed month. Users won&apos;t be able to navigate or interact with the days before it.</p><h3 id="initialmonth"><a name="initialmonth" class="plugin-anchor" href="#initialmonth"><i class="fa fa-link" aria-hidden="true"></i></a>initialMonth</h3><p><strong>Type</strong>: <code>Date</code> <strong>Default</strong>: The current month</p><p>The month to display in the calendar at first render. See also <a href="#month"><code>month</code></a> prop. Default is the current month.</p><h3 id="labels"><a name="labels" class="plugin-anchor" href="#labels"><i class="fa fa-link" aria-hidden="true"></i></a>labels</h3><p><strong>Type</strong>: <code>Object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>String</span><span class="token punctuation">&gt;</span></span></code> <strong>Default</strong>: <code>{ nextMonth: &quot;Next Month&quot;, previousMonth: &quot;Previous Month&quot; }</code></p><p>Labels to use as <code>aria-label</code> HTML attributes.</p><p>The object expects the following keys (as strings):</p><pre class="language-"><code class="lang-js"><span class="token punctuation">{</span>
+  previousMonth<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// Used for the button to navigate the previous month</span>
+  nextMonth<span class="token punctuation">,</span>      <span class="token comment" spellcheck="true">// Used for the button to navigate the next month</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="locale"><a name="locale" class="plugin-anchor" href="#locale"><i class="fa fa-link" aria-hidden="true"></i></a>locale</h3><p><strong>Type</strong>: <code>String</code> <strong>Default</strong>: <code>en</code></p><p>The locale used by the <code>localeUtils</code> functions. Default is <code>en</code>.  See also <a href="Localization.html">Localization</a> and <a href="LocaleUtils.html">LocaleUtils</a>.</p><h3 id="localeutils"><a name="localeutils" class="plugin-anchor" href="#localeutils"><i class="fa fa-link" aria-hidden="true"></i></a>localeUtils</h3><p><strong>Type</strong>: <code>Object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Function</span><span class="token punctuation">&gt;</span></span></code></p><p>Object of functions to format dates and to get the first day of the week. Pass your own utils to support localization.
+By default the used locale is English (US). See also <a href="Localization.html">Localization</a> and <a href="LocaleUtils.html">LocaleUtils</a>.</p><h3 id="modifiers"><a name="modifiers" class="plugin-anchor" href="#modifiers"><i class="fa fa-link" aria-hidden="true"></i></a>modifiers</h3><p><strong>Type</strong>: <code>Object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Any</span><span class="token punctuation">&gt;</span></span></code></p><p>An object of <a href="Modifiers.html">day modifiers</a>.</p><p>As default, the calendar adds <code>today</code> and <code>outside</code> modifiers. (<em>Outside days</em> are the days appearing on the calendar but don&apos;t belonging to the current month).</p><h3 id="modifiersstyles"><a name="modifiersstyles" class="plugin-anchor" href="#modifiersstyles"><i class="fa fa-link" aria-hidden="true"></i></a>modifiersStyles</h3><p><strong>Type</strong>: <code>Object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Any</span><span class="token punctuation">&gt;</span></span></code></p><p>An object of inline styles added to the day cells when a <a href="#modifiers">modifier</a> is met. Use this prop to style day cells inline instead of using CSS classes. Example:</p><pre class="language-"><code class="lang-jsx"><span class="token keyword">const</span> modifiers <span class="token operator">=</span> <span class="token punctuation">{</span>
+  even<span class="token punctuation">:</span> day <span class="token operator">=</span><span class="token operator">&gt;</span> day<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  odd<span class="token punctuation">:</span> day <span class="token operator">=</span><span class="token operator">&gt;</span> day<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  first<span class="token punctuation">:</span> day <span class="token operator">=</span><span class="token operator">&gt;</span> day<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span>
+  <span class="token attr-name">modifiers</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>modifiers<span class="token punctuation">}</span></span>
+  <span class="token attr-name">modifiersStyles</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+    even<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      background<span class="token punctuation">:</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span>
+      fontWeight<span class="token punctuation">:</span> <span class="token string">&quot;bold&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    odd<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      background<span class="token punctuation">:</span> <span class="token string">&quot;purple&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    first<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      background<span class="token punctuation">:</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+<span class="token punctuation">/&gt;</span></span>
+</code></pre>
+<h3 id="month"><a name="month" class="plugin-anchor" href="#month"><i class="fa fa-link" aria-hidden="true"></i></a>month</h3><p><strong>Type</strong>: <code>Date</code></p><p>The month to display in the calendar. This differs from the <a href="#initialmonth"><code>initialMonth</code></a> prop, as it causes the calendar to re-render when its value changes.</p><h3 id="months"><a name="months" class="plugin-anchor" href="#months"><i class="fa fa-link" aria-hidden="true"></i></a>months</h3><p><strong>Type</strong>: <code>Array<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>String</span><span class="token punctuation">&gt;</span></span></code> <strong>Default</strong>: <code>[&apos;January&apos;, &apos;February&apos;, &apos;March&apos;, &apos;April&apos;, &apos;May&apos;, &apos;June&apos;, &apos;July&apos;, &apos;August&apos;, &apos;September&apos;, &apos;October&apos;, &apos;November&apos;, &apos;December&apos;]</code></p><p>An array containing the long month names to use in the month&apos;s header.</p><h3 id="navbarelement"><a name="navbarelement" class="plugin-anchor" href="#navbarelement"><i class="fa fa-link" aria-hidden="true"></i></a>navbarElement</h3><p><strong>Type</strong>: <code>Element</code> || <code>React.Component</code> || <code>(props) =&gt; Element</code></p><p>A React Element or React Component to render the navigation bar. It will receive the following props:</p><ul><li>className <code>String</code>
+</li>
+<li>previousMonth <code>Date</code>
+</li>
+<li>nextMonth <code>Date</code>
+</li>
+<li>showPreviousButton <code>Bool</code>
+</li>
+<li>showNextButton <code>Bool</code>
+</li>
+<li>onPreviousClick <code>() =&gt; void</code>
+</li>
+<li>onNextClick <code>() =&gt; void</code>
+</li>
+<li>dir <code>String</code>
+</li>
+<li>localeUtils <code>Object</code>
+</li>
+<li>locale <code>String</code>
+</li></ul>
+<h3 id="numberofmonths-number"><a name="numberofmonths-number" class="plugin-anchor" href="#numberofmonths-number"><i class="fa fa-link" aria-hidden="true"></i></a>numberOfMonths <code>Number</code></h3><p><strong>Type</strong>: <code>Number</code> <strong>Default</strong>: <code>1</code></p><p>The number of months to render, where <code>initialMonth</code> is the first month.</p><h3 id="pagednavigation"><a name="pagednavigation" class="plugin-anchor" href="#pagednavigation"><i class="fa fa-link" aria-hidden="true"></i></a>pagedNavigation</h3><p><strong>Type</strong>: <code>Bool</code> <strong>Default</strong>: <code>false</code></p><p>When displaying multiple months, navigation will be paginated displaying the <code>numberOfMonths</code> at time.</p><h3 id="renderday"><a name="renderday" class="plugin-anchor" href="#renderday"><i class="fa fa-link" aria-hidden="true"></i></a>renderDay</h3><p><strong>Type</strong>: <code>(day: Date, modifiers: Object) &#x21D2; Element</code> <strong>Default</strong>: <code>(day) &#x21D2; day.getDate()</code></p><p>Returns the content of a day cell.</p><h3 id="reversemonths"><a name="reversemonths" class="plugin-anchor" href="#reversemonths"><i class="fa fa-link" aria-hidden="true"></i></a>reverseMonths</h3><p><strong>Type</strong>: <code>Bool</code> <strong>Default</strong>: <code>false</code></p><p>Render the months in reversed order. Useful when <code>numberOfMonths</code> is greater than 1 to display the most recent month first.</p><h3 id="selecteddays"><a name="selecteddays" class="plugin-anchor" href="#selecteddays"><i class="fa fa-link" aria-hidden="true"></i></a>selectedDays</h3><p><strong>Type</strong>: <code>Date</code> || <code>Object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Any</span><span class="token punctuation">&gt;</span></span></code> || <code>(day: Date) &#x21D2; Bool</code> || <code>Array<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Date|Object|Function</span><span class="token punctuation">&gt;</span></span></code></p><p>Indicate which day should appear as selected. Set a <code>selected</code> modifier.</p><p>See <a href="Modifiers.html">Modifiers</a> for a reference of the accepted values.</p><h3 id="showweeknumbers"><a name="showweeknumbers" class="plugin-anchor" href="#showweeknumbers"><i class="fa fa-link" aria-hidden="true"></i></a>showWeekNumbers</h3><p><strong>Type</strong>: <code>Boolean</code></p><p>Display the year&apos;s week number next to each week (<a href="../examples">example</a>).</p><h3 id="todaybutton"><a name="todaybutton" class="plugin-anchor" href="#todaybutton"><i class="fa fa-link" aria-hidden="true"></i></a>todayButton</h3><p><strong>Type</strong>: <code>String</code></p><p>Display a button to switch to the current month using the provided string as label.</p><h3 id="tomonth"><a name="tomonth" class="plugin-anchor" href="#tomonth"><i class="fa fa-link" aria-hidden="true"></i></a>toMonth</h3><p><strong>Type</strong>: <code>Date</code></p><p>The last allowed month. Users won&apos;t be able to navigate or interact with the days after it.</p><h3 id="weekdayelement"><a name="weekdayelement" class="plugin-anchor" href="#weekdayelement"><i class="fa fa-link" aria-hidden="true"></i></a>weekdayElement</h3><p><strong>Type</strong>: <code>Element</code> || <code>React.Component</code> || <code>(props) =&gt; Element</code></p><p>A React Element or React Component to render the weekday cells in the header. It will receive the following props:</p><ul><li>weekday <code>Number</code>
+</li>
+<li>className <code>String</code>
+</li>
+<li>localeUtils <code>Object</code>
+</li>
+<li>locale <code>String</code>
+</li></ul>
+<h3 id="weekdayslong"><a name="weekdayslong" class="plugin-anchor" href="#weekdayslong"><i class="fa fa-link" aria-hidden="true"></i></a>weekdaysLong</h3><p><strong>Type</strong>: <code>Array<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>String</span><span class="token punctuation">&gt;</span></span></code> <strong>Default</strong>: <code>[&apos;Sunday&apos;, &apos;Monday&apos;, &apos;Tuesday&apos;, &apos;Wednesday&apos;, &apos;Thursday&apos;, &apos;Friday&apos;, &apos;Saturday&apos;]</code></p><p>An array containing the long weekdays names to use in the month&apos;s header. Must start from Sunday.</p><h3 id="weekdaysshort"><a name="weekdaysshort" class="plugin-anchor" href="#weekdaysshort"><i class="fa fa-link" aria-hidden="true"></i></a>weekdaysShort</h3><p><strong>Type</strong>: <code>Array<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>String</span><span class="token punctuation">&gt;</span></span></code> <strong>Default</strong>: <code>[&apos;Su&apos;, &apos;Mo&apos;, &apos;Tu&apos;, &apos;We&apos;, &apos;Th&apos;, &apos;Fr&apos;, &apos;Sa&apos;]</code></p><p>An array containing the short weekdays names to use in the month&apos;s header. Must start from Sunday.</p><h2 id="event-handlers"><a name="event-handlers" class="plugin-anchor" href="#event-handlers"><i class="fa fa-link" aria-hidden="true"></i></a>Event handlers</h2><h3 id="oncaptionclick"><a name="oncaptionclick" class="plugin-anchor" href="#oncaptionclick"><i class="fa fa-link" aria-hidden="true"></i></a>onCaptionClick</h3><p><strong>Type</strong>: <code>(currentMonth: Date, e: SyntheticEvent) &#x21D2; void</code></p><p>Event handler when the user clicks on the caption in the header displaying the month.</p><hr><h3 id="ondayclick"><a name="ondayclick" class="plugin-anchor" href="#ondayclick"><i class="fa fa-link" aria-hidden="true"></i></a>onDayClick</h3><p><strong>Type</strong>: <code>(day: Date, modifiers: Object, e: SyntheticEvent) &#x21D2; void</code></p><p>Event handler when the user clicks on a day cell.</p><hr><h3 id="onblur"><a name="onblur" class="plugin-anchor" href="#onblur"><i class="fa fa-link" aria-hidden="true"></i></a>onBlur</h3><p><strong>Type</strong>: <code>(e: SyntheticEvent) &#x21D2; void</code></p><p>Event handler when the calendar get the <code>blur</code> event.</p><h3 id="ondaykeydown"><a name="ondaykeydown" class="plugin-anchor" href="#ondaykeydown"><i class="fa fa-link" aria-hidden="true"></i></a>onDayKeyDown</h3><p><strong>Type</strong>: <code>(day: Date, modifiers: Object, e: SyntheticEvent) &#x21D2; void</code></p><p>Event handler when the day cell gets the <code>keydown</code> event.</p><h3 id="ondaymouseenter"><a name="ondaymouseenter" class="plugin-anchor" href="#ondaymouseenter"><i class="fa fa-link" aria-hidden="true"></i></a>onDayMouseEnter</h3><p><strong>Type</strong>: <code>(day: Date, modifiers: Object, e: SyntheticEvent) &#x21D2; void</code></p><p>Event handler when the mouse enters a day cell.</p><h3 id="ondaymouseleave"><a name="ondaymouseleave" class="plugin-anchor" href="#ondaymouseleave"><i class="fa fa-link" aria-hidden="true"></i></a>onDayMouseLeave</h3><p><strong>Type</strong>: <code>(day: Date, modifiers: Object, e: SyntheticEvent) &#x21D2; void</code></p><p>Event handler when the mouse leave a day cell.</p><h3 id="ondaytouchstart"><a name="ondaytouchstart" class="plugin-anchor" href="#ondaytouchstart"><i class="fa fa-link" aria-hidden="true"></i></a>onDayTouchStart</h3><p><strong>Type</strong>: <code>(day: Date, modifiers: Object, e: SyntheticEvent) &#x21D2; void</code></p><p>Event handler when the day cell gets the <code>touchStart</code> event.</p><h3 id="ondaytouchend"><a name="ondaytouchend" class="plugin-anchor" href="#ondaytouchend"><i class="fa fa-link" aria-hidden="true"></i></a>onDayTouchEnd</h3><p><strong>Type</strong>: <code>(day: Date, modifiers: Object, e: SyntheticEvent) &#x21D2; void</code></p><p>Event handler when the day cell gets the <code>touchEnd</code> event.</p><h3 id="onfocus"><a name="onfocus" class="plugin-anchor" href="#onfocus"><i class="fa fa-link" aria-hidden="true"></i></a>onFocus</h3><p><strong>Type</strong>: <code>(e: SyntheticEvent) &#x21D2; void</code></p><p>Event handler when the calendar get the <code>focus</code> event</p><h3 id="onkeydown"><a name="onkeydown" class="plugin-anchor" href="#onkeydown"><i class="fa fa-link" aria-hidden="true"></i></a>onKeyDown</h3><p><strong>Type</strong>: <code>(e: SyntheticEvent) &#x21D2; void</code></p><p>Event handler when the calendar get the <code>keydown</code> event</p><h3 id="onmonthchange"><a name="onmonthchange" class="plugin-anchor" href="#onmonthchange"><i class="fa fa-link" aria-hidden="true"></i></a>onMonthChange</h3><p><strong>Type</strong> <code>(month: Date) &#x21D2; void</code></p><p>Event handler when the month is changed, i.e. clicking the navigation buttons or using the keyboard.</p><h3 id="onweekclick"><a name="onweekclick" class="plugin-anchor" href="#onweekclick"><i class="fa fa-link" aria-hidden="true"></i></a>onWeekClick</h3><p><strong>Type</strong>: <code>(weekNumber: Number, days: Date[], e: SyntheticEvent) &#x21D2; void</code></p><p>Event hander when the user clicks on a week number (when <a href="#showweeknumbers">showWeekNumbers</a> is set to <code>true</code>).</p><h2 id="component-methods"><a name="component-methods" class="plugin-anchor" href="#component-methods"><i class="fa fa-link" aria-hidden="true"></i></a>Component methods</h2><h3 id="showmonth"><a name="showmonth" class="plugin-anchor" href="#showmonth"><i class="fa fa-link" aria-hidden="true"></i></a>showMonth</h3><p><strong>Signature</strong> <code>(month: Date) &#x21D2; void</code></p><p>Show the given <code>month</code> in the calendar.</p><p>Example:</p><pre class="language-"><code class="lang-jsx"><span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React</span> <span class="token punctuation">{</span>
+
+  daypicker <span class="token operator">=</span> <span class="token keyword">null</span>
+
+  <span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>daypicker<span class="token punctuation">.</span><span class="token function">showMonth</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2014</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span> 
+          <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> el <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>daypicker <span class="token operator">=</span> el <span class="token punctuation">}</span></span> 
+          <span class="token attr-name">initialMonth</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2015</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">}</span></span> 
+        <span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleClick <span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span>
+          Change month
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<hr><h3 id="showpreviousmonth"><a name="showpreviousmonth" class="plugin-anchor" href="#showpreviousmonth"><i class="fa fa-link" aria-hidden="true"></i></a>showPreviousMonth</h3><p><strong>Signature</strong> <code>() &#x21D2; void</code></p><p>Show the previous month in the calendar.</p><h3 id="shownextmonth"><a name="shownextmonth" class="plugin-anchor" href="#shownextmonth"><i class="fa fa-link" aria-hidden="true"></i></a>showNextMonth</h3><p><strong>Signature</strong> <code>() &#x21D2; void</code></p><p>Show the next month in the calendar.</p><h3 id="showpreviousyear"><a name="showpreviousyear" class="plugin-anchor" href="#showpreviousyear"><i class="fa fa-link" aria-hidden="true"></i></a>showPreviousYear</h3><p><strong>Signature</strong> <code>() &#x21D2; void</code></p><p>Show the previous year in the calendar.</p><h3 id="shownextyear"><a name="shownextyear" class="plugin-anchor" href="#shownextyear"><i class="fa fa-link" aria-hidden="true"></i></a>showNextYear</h3><p><strong>Signature</strong> <code>() &#x21D2; void</code></p><p>Show the next year in the calendar.</p></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="CSSModules.html" class="navigation navigation-prev " aria-label="Previous page: With CSS Modules">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="DayPickerInputAPI.html" class="navigation navigation-next " aria-label="Next page: DayPickerInput API">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"DayPicker API","level":"1.7","depth":1,"next":{"title":"DayPickerInput API","level":"1.8","depth":1,"path":"DayPickerInputAPI.md","ref":"DayPickerInputAPI.md","articles":[]},"previous":{"title":"With CSS Modules","level":"1.6.1","depth":2,"path":"CSSModules.md","ref":"CSSModules.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","-sharing","ga","include","anchors","github-buttons","githubcontributors"],"root":"./docs","styles":{"website":"styles/website.css"},"pluginsConfig":{"prism":{},"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"github-buttons":{"repo":"gpbl/react-day-picker","types":["star"],"size":"small"},"ga":{"configuration":"auto","token":"UA-68185118-1"},"githubcontributors":{"contributorWidth":"300px","githubOwner":"gpbl","githubRepository":"react-day-picker"},"edit-link":{"label":"Edit This Page","base":"https://github.com/gpbl/react-day-picker/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"react-day-picker: flexible date picker for React","gitbook":"3.2.x"},"file":{"path":"DayPickerAPI.md","mtime":"2017-06-19T14:59:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2017-06-19T15:00:37.881Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-githubcontributors/contributors.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

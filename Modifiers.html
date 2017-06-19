@@ -1,0 +1,589 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Matching days with modifiers · react-day-picker: flexible date picker for React</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-githubcontributors/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Styling.html" />
+    
+    
+    <link rel="prev" href="Input.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"gpbl/react-day-picker","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    react-day-picker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Examples.html">
+            
+                <a href="Examples.html">
+            
+                    
+                    Getting started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Basic.html">
+            
+                <a href="Basic.html">
+            
+                    
+                    Basic usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Input.html">
+            
+                <a href="Input.html">
+            
+                    
+                    Using the input field
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="Modifiers.html">
+            
+                <a href="Modifiers.html">
+            
+                    
+                    Matching days with modifiers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Styling.html">
+            
+                <a href="Styling.html">
+            
+                    
+                    Styling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="CSSModules.html">
+            
+                <a href="CSSModules.html">
+            
+                    
+                    With CSS Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="DayPickerAPI.html">
+            
+                <a href="DayPickerAPI.html">
+            
+                    
+                    DayPicker API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="DayPickerInputAPI.html">
+            
+                <a href="DayPickerInputAPI.html">
+            
+                    
+                    DayPickerInput API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Localization.html">
+            
+                <a href="Localization.html">
+            
+                    
+                    Localization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="LocalizationMoment.html">
+            
+                <a href="LocalizationMoment.html">
+            
+                    
+                    With moment.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="LocalizationAdvanced.html">
+            
+                <a href="LocalizationAdvanced.html">
+            
+                    
+                    Advanced localization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Utilities.html">
+            
+                <a href="Utilities.html">
+            
+                    
+                    Utilities
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="DateUtils.html">
+            
+                <a href="DateUtils.html">
+            
+                    
+                    DateUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="LocaleUtils.html">
+            
+                <a href="LocaleUtils.html">
+            
+                    
+                    LocaleUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="ModifiersUtils.html">
+            
+                <a href="ModifiersUtils.html">
+            
+                    
+                    ModifiersUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Changelog.html">
+            
+                <a href="Changelog.html">
+            
+                    
+                    Changelog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="Contributing.html">
+            
+                <a href="Contributing.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Matching days with modifiers</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="matching-days-using-modifiers"><a name="matching-days-using-modifiers" class="plugin-anchor" href="#matching-days-using-modifiers"><i class="fa fa-link" aria-hidden="true"></i></a>Matching days using modifiers</h1><p><em>Day modifiers</em> change the aspect of the day cells and allow you to customize the interaction with the calendar. When a modifier matches a specific day, its day cells receive a modifier CSS class, and its name is passed down to the event handlers.</p><h2 id="type-of-modifier-matchers"><a name="type-of-modifier-matchers" class="plugin-anchor" href="#type-of-modifier-matchers"><i class="fa fa-link" aria-hidden="true"></i></a>Type of modifier matchers</h2><p>The value of a modifier can be either:</p><ul><li><strong>a <code>Date</code> object</strong>, to match a specific day
+</li>
+<li><p><strong>a <code>range</code> object</strong> with <code>from</code> and <code>to</code> keys, to match a range of days:</p><pre class="language-"><code class="lang-js"><span class="token keyword">const</span> range <span class="token operator">=</span> <span class="token punctuation">{</span> 
+  <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2015</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+  to<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2015</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span> 
+<span class="token punctuation">}</span></code></pre>
+<p>will match the days between the 12th and the 16th of January.</p></li>
+<li><p><strong>an object with a <code>before</code> and/or <code>after</code> key</strong>, to match the days before and/or after the given date:</p><pre class="language-"><code class="lang-js"><span class="token keyword">const</span> range <span class="token operator">=</span> <span class="token punctuation">{</span> 
+  before<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<p>The code above will match all the past the days (i.e. the days before today).</p><pre class="language-"><code class="lang-js"><span class="token keyword">const</span> range <span class="token operator">=</span> <span class="token punctuation">{</span> 
+  after<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2018</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+<span class="token punctuation">}</span></code></pre>
+<p>The code above will match all the days after the January, 1st 2018.</p><pre class="language-"><code class="lang-js"><span class="token keyword">const</span> range <span class="token operator">=</span> <span class="token punctuation">{</span> 
+  after<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+  before<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+<span class="token punctuation">}</span></code></pre>
+<p>The code above will match all the days between the 30th and the 20th of April 2018.</p></li>
+<li><p><strong>an object with a <code>daysOfWeek</code> array</strong>, to match specific days of week:</p><pre class="language-"><code class="lang-js"><span class="token keyword">const</span> weekends <span class="token operator">=</span> <span class="token punctuation">{</span> 
+  daysOfWeek<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<p>will match all the Sundays (<code>0</code>) and Saturdays (<code>6</code>)</p></li>
+<li><p><strong>a function</strong> taking the day as first argument and return a boolean value. For example:</p><pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">sundays</span><span class="token punctuation">(</span>day<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> day<span class="token punctuation">.</span><span class="token function">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">isFirstOfMonth</span><span class="token punctuation">(</span>day<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> day<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>are all valid modifiers.</p></li>
+<li><p><strong>an array of the above</strong></p></li></ul>
+<h2 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h2><p>A CSS modifier (as in <a href="https://css-tricks.com/bem-101/" target="_blank">BEM-like syntax</a>) is added to each day cell when a day matches a modifier. You set the day modifiers with the <code>selectedDay</code>, <code>disabledDays</code> or <code>modifiers</code> props. Examples:</p><ul><li>To add a <code>.DayPicker-Day--selected</code> CSS class to the February, 12th 2017 cell:
+</li></ul>
+<pre class="language-"><code class="lang-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span> <span class="token attr-name">selectedDays</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2017</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span> <span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span></code></pre>
+<ul><li>To add a <code>.DayPicker-Day--disabled</code> to the 4th and 7th of February 2017
+</li></ul>
+<pre class="language-"><code class="lang-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span> <span class="token attr-name">disabledDays</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2017</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2017</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span></code></pre>
+<ul><li>Beside <code>disabled</code> or <code>selected</code>, you can pass any modifier you prefer. For example, to set <code>.DayPicker-Day--past</code> to the days in the past:
+</li></ul>
+<pre class="language-"><code class="lang-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span> 
+  <span class="token attr-name">modifiers</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token punctuation">{</span> 
+    past<span class="token punctuation">:</span> <span class="token punctuation">{</span> before<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> 
+  <span class="token punctuation">}</span></span> <span class="token attr-name">}</span>
+<span class="token punctuation">/&gt;</span></span></code></pre>
+<p>You pass more day modifiers using the <code>modifiers</code> prop:</p><pre class="language-"><code class="lang-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span> 
+  <span class="token attr-name">modifiers</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> 
+    special<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2018</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    booked<span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+      <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2017</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+      to<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2017</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">)</span> 
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    holiday<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2018</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+      <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2018</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2018</span><span class="token punctuation">,</span> <span class="token number">06</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> to<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2018</span><span class="token punctuation">,</span> <span class="token number">06</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    sunday<span class="token punctuation">:</span> <span class="token punctuation">{</span> daysOfWeek<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+
+    firstOfMonth<span class="token punctuation">:</span> day <span class="token operator">=</span><span class="token operator">&gt;</span> day<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+<span class="token punctuation">/&gt;</span></span></code></pre>
+<h3 id="selected-and-disabled-modifiers"><a name="selected-and-disabled-modifiers" class="plugin-anchor" href="#selected-and-disabled-modifiers"><i class="fa fa-link" aria-hidden="true"></i></a><code>selected</code> and <code>disabled</code> modifiers</h3><p>Under the hood, the <code>selectedDays</code> and <code>disabledDays</code> props act as shortcut for the <code>selected</code> and a <code>disabled</code> modifiers. The following renders the same calendar:</p><pre class="language-"><code class="lang-jsx">
+<span class="token keyword">function</span> <span class="token function">isFirstOfMonth</span><span class="token punctuation">(</span>day<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> day<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span> <span class="token attr-name">disabledDays</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> sundays <span class="token punctuation">}</span></span> <span class="token attr-name">selectedDays</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> isFirstOfMonth <span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span> 
+  <span class="token attr-name">modifiers</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token punctuation">{</span> 
+    disabled<span class="token punctuation">:</span> <span class="token punctuation">{</span> daysOfWeek<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+    selected<span class="token punctuation">:</span> isFirstOfMonth 
+  <span class="token punctuation">}</span></span><span class="token attr-name">}</span> 
+<span class="token punctuation">/&gt;</span></span></code></pre>
+<h2 id="accessing-modifiers-from-event-handlers"><a name="accessing-modifiers-from-event-handlers" class="plugin-anchor" href="#accessing-modifiers-from-event-handlers"><i class="fa fa-link" aria-hidden="true"></i></a>Accessing modifiers from event handlers</h2><p>Modifiers are passed as argument to the event handlers:</p><pre class="language-"><code class="lang-jsx"><span class="token keyword">function</span> <span class="token function">handleDayClick</span><span class="token punctuation">(</span>day<span class="token punctuation">,</span> modifiers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>modifiers<span class="token punctuation">.</span>sundays<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Sunday has been clicked&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">handleDayMouseEnter</span><span class="token punctuation">(</span>day<span class="token punctuation">,</span> <span class="token punctuation">{</span> isFirstOfMonth<span class="token punctuation">,</span> disabled <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>isFirstOfMonth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;The first day of month received mouse enter&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>disabled<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;This day is disabled&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DayPicker</span>
+  <span class="token attr-name">disabledDays</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2015</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span> <span class="token punctuation">}</span></span>
+  <span class="token attr-name">modifiers</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> sundays<span class="token punctuation">,</span> isFirstOfMonth <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+  <span class="token attr-name">onDayClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> handleDayClick <span class="token punctuation">}</span></span>
+  <span class="token attr-name">onDayMouseEnter</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> handleDayMouseEnter <span class="token punctuation">}</span></span>
+<span class="token punctuation">/&gt;</span></span></code></pre>
+<h3 id="use-dateutils-to-create-modifiers"><a name="use-dateutils-to-create-modifiers" class="plugin-anchor" href="#use-dateutils-to-create-modifiers"><i class="fa fa-link" aria-hidden="true"></i></a>Use DateUtils to create modifiers</h3><p>react-day-picker includes <a href="DateUtils.html">DateUtils</a>, a small function library useful to simplify the creation of advanced modifiers.</p></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Input.html" class="navigation navigation-prev " aria-label="Previous page: Using the input field">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Styling.html" class="navigation navigation-next " aria-label="Next page: Styling">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Matching days with modifiers","level":"1.5","depth":1,"next":{"title":"Styling","level":"1.6","depth":1,"path":"Styling.md","ref":"Styling.md","articles":[{"title":"With CSS Modules","level":"1.6.1","depth":2,"path":"CSSModules.md","ref":"CSSModules.md","articles":[]}]},"previous":{"title":"Using the input field","level":"1.4","depth":1,"path":"Input.md","ref":"Input.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","-sharing","ga","include","anchors","github-buttons","githubcontributors"],"root":"./docs","styles":{"website":"styles/website.css"},"pluginsConfig":{"prism":{},"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"github-buttons":{"repo":"gpbl/react-day-picker","types":["star"],"size":"small"},"ga":{"configuration":"auto","token":"UA-68185118-1"},"githubcontributors":{"contributorWidth":"300px","githubOwner":"gpbl","githubRepository":"react-day-picker"},"edit-link":{"label":"Edit This Page","base":"https://github.com/gpbl/react-day-picker/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"react-day-picker: flexible date picker for React","gitbook":"3.2.x"},"file":{"path":"Modifiers.md","mtime":"2017-06-19T14:59:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2017-06-19T15:00:37.881Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-githubcontributors/contributors.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

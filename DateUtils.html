@@ -1,0 +1,503 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>DateUtils · react-day-picker: flexible date picker for React</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-githubcontributors/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="LocaleUtils.html" />
+    
+    
+    <link rel="prev" href="Utilities.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"gpbl/react-day-picker","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    react-day-picker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Examples.html">
+            
+                <a href="Examples.html">
+            
+                    
+                    Getting started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Basic.html">
+            
+                <a href="Basic.html">
+            
+                    
+                    Basic usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Input.html">
+            
+                <a href="Input.html">
+            
+                    
+                    Using the input field
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Modifiers.html">
+            
+                <a href="Modifiers.html">
+            
+                    
+                    Matching days with modifiers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Styling.html">
+            
+                <a href="Styling.html">
+            
+                    
+                    Styling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="CSSModules.html">
+            
+                <a href="CSSModules.html">
+            
+                    
+                    With CSS Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="DayPickerAPI.html">
+            
+                <a href="DayPickerAPI.html">
+            
+                    
+                    DayPicker API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="DayPickerInputAPI.html">
+            
+                <a href="DayPickerInputAPI.html">
+            
+                    
+                    DayPickerInput API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Localization.html">
+            
+                <a href="Localization.html">
+            
+                    
+                    Localization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="LocalizationMoment.html">
+            
+                <a href="LocalizationMoment.html">
+            
+                    
+                    With moment.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="LocalizationAdvanced.html">
+            
+                <a href="LocalizationAdvanced.html">
+            
+                    
+                    Advanced localization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Utilities.html">
+            
+                <a href="Utilities.html">
+            
+                    
+                    Utilities
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.10.1" data-path="DateUtils.html">
+            
+                <a href="DateUtils.html">
+            
+                    
+                    DateUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="LocaleUtils.html">
+            
+                <a href="LocaleUtils.html">
+            
+                    
+                    LocaleUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="ModifiersUtils.html">
+            
+                <a href="ModifiersUtils.html">
+            
+                    
+                    ModifiersUtils
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Changelog.html">
+            
+                <a href="Changelog.html">
+            
+                    
+                    Changelog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="Contributing.html">
+            
+                <a href="Contributing.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >DateUtils</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="dateutils"><a name="dateutils" class="plugin-anchor" href="#dateutils"><i class="fa fa-link" aria-hidden="true"></i></a>DateUtils</h1><p><code>DateUtils</code> is a set of functions useful to work with dates and modifiers.</p><pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> DateUtils <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react-day-picker&quot;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>DateUtils<span class="token punctuation">.</span><span class="token function">isPastDay</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span></code></pre>
+<h2 id="functions"><a name="functions" class="plugin-anchor" href="#functions"><i class="fa fa-link" aria-hidden="true"></i></a>Functions</h2><h3 id="addmonths-d-date-n-number-&#x21D2;-date"><a name="addmonths-d-date-n-number-&#x21D2;-date" class="plugin-anchor" href="#addmonths-d-date-n-number-&#x21D2;-date"><i class="fa fa-link" aria-hidden="true"></i></a>addMonths <code>(d: Date, n: Number) &#x21D2; Date</code></h3><p>Return <code>d</code> as a new date with <code>n</code> months added. Missing days will be added to the final date, e.g. 2016-03-31 + 1 month = 2016-05-01 (the 31th of April is missing).</p><h3 id="clone-d-date-&#x21D2;-date"><a name="clone-d-date-&#x21D2;-date" class="plugin-anchor" href="#clone-d-date-&#x21D2;-date"><i class="fa fa-link" aria-hidden="true"></i></a>clone <code>(d: Date) &#x21D2; Date</code></h3><p>Clone the date <code>d</code> returning a new date with the same time.</p><h3 id="isdayafter-day1-date-day2-date-&#x21D2;-bool"><a name="isdayafter-day1-date-day2-date-&#x21D2;-bool" class="plugin-anchor" href="#isdayafter-day1-date-day2-date-&#x21D2;-bool"><i class="fa fa-link" aria-hidden="true"></i></a>isDayAfter <code>(day1: ?Date, day2: ?Date) &#x21D2; Bool</code></h3><p>Return <code>true</code> if the first day is after the second day.</p><h3 id="isdaybefore-day1-date-day2-date-&#x21D2;-bool"><a name="isdaybefore-day1-date-day2-date-&#x21D2;-bool" class="plugin-anchor" href="#isdaybefore-day1-date-day2-date-&#x21D2;-bool"><i class="fa fa-link" aria-hidden="true"></i></a>isDayBefore <code>(day1: ?Date, day2: ?Date) &#x21D2; Bool</code></h3><p>Return <code>true</code> if the first day is before the second day.</p><h3 id="issameday-day1-date-day2-date-&#x21D2;-bool"><a name="issameday-day1-date-day2-date-&#x21D2;-bool" class="plugin-anchor" href="#issameday-day1-date-day2-date-&#x21D2;-bool"><i class="fa fa-link" aria-hidden="true"></i></a>isSameDay <code>(day1: ?Date, day2: ?Date) &#x21D2; Bool</code></h3><p>Return <code>true</code> if <code>day1</code> and <code>day2</code> are the same day.</p><h3 id="ispastday-day-date-&#x21D2;-bool"><a name="ispastday-day-date-&#x21D2;-bool" class="plugin-anchor" href="#ispastday-day-date-&#x21D2;-bool"><i class="fa fa-link" aria-hidden="true"></i></a>isPastDay <code>(day: Date) &#x21D2; Bool</code></h3><p>Returns <code>true</code> if <code>day</code> is in the past, e.g. is yesterday or any day before yesterday.</p><h3 id="isfutureday-day-date-&#x21D2;-bool"><a name="isfutureday-day-date-&#x21D2;-bool" class="plugin-anchor" href="#isfutureday-day-date-&#x21D2;-bool"><i class="fa fa-link" aria-hidden="true"></i></a>isFutureDay <code>(day: Date) &#x21D2; Bool</code></h3><p>Returns <code>true</code> if <code>day</code> is in the future, e.g. is tomorrow or any day after tomorrow.</p><h3 id="isdaybetween-day-date-day1-date-day2-date-&#x21D2;-bool"><a name="isdaybetween-day-date-day1-date-day2-date-&#x21D2;-bool" class="plugin-anchor" href="#isdaybetween-day-date-day1-date-day2-date-&#x21D2;-bool"><i class="fa fa-link" aria-hidden="true"></i></a>isDayBetween <code>(day: Date, day1: Date, day2: Date) &#x21D2; Bool</code></h3><p>Returns <code>true</code> if <code>day</code> is between the days <code>day1</code> and <code>day2</code>, without including those days.</p><h3 id="adddaytorange-day-date-range-objectfrom-date-to-date-&#x21D2;-objectfrom-date-to-date"><a name="adddaytorange-day-date-range-objectfrom-date-to-date-&#x21D2;-objectfrom-date-to-date" class="plugin-anchor" href="#adddaytorange-day-date-range-objectfrom-date-to-date-&#x21D2;-objectfrom-date-to-date"><i class="fa fa-link" aria-hidden="true"></i></a>addDayToRange <code>(day: Date, range: ?object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">from:</span></span> <span class="token attr-name">?Date,</span> <span class="token attr-name"><span class="token namespace">to:</span></span> <span class="token attr-name">?Date</span><span class="token punctuation">&gt;</span></span>) &#x21D2; Object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">from:</span></span> <span class="token attr-name">?Date,</span> <span class="token attr-name"><span class="token namespace">to:</span></span> <span class="token attr-name">?Date</span><span class="token punctuation">&gt;</span></span></code></h3><p>Add <code>day</code> to a range of days, returning a new range including that day. A range is an object with <code>from</code> and <code>to</code> keys.</p><p>See the <a href="http://react-day-picker.js.org/examples?range" target="_blank">range example</a> for an example using this function.</p><pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> DateUtils <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react-day-picker&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> range <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2015</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  to<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2015</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> newRange <span class="token operator">=</span> DateUtils<span class="token punctuation">.</span><span class="token function">addDayToRange</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">2015</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">,</span> range<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newRange<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 2015-05-24</span></code></pre>
+<h3 id="isdayinrange-day-date-range-objectfrom-date-to-date-&#x21D2;-bool"><a name="isdayinrange-day-date-range-objectfrom-date-to-date-&#x21D2;-bool" class="plugin-anchor" href="#isdayinrange-day-date-range-objectfrom-date-to-date-&#x21D2;-bool"><i class="fa fa-link" aria-hidden="true"></i></a>isDayInRange <code>(day: Date, range: object<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">from:</span></span> <span class="token attr-name">?Date,</span> <span class="token attr-name"><span class="token namespace">to:</span></span> <span class="token attr-name">?Date</span><span class="token punctuation">&gt;</span></span>) &#x21D2; Bool</code></h3><p>Returns <code>true</code> if <code>day</code> is included in the specified range of days.  See the <a href="http://react-day-picker.js.org/examples?range" target="_blank">range example</a> for an example using this function.</p><h3 id="getweeknumber-day-date-&#x21D2;-number"><a name="getweeknumber-day-date-&#x21D2;-number" class="plugin-anchor" href="#getweeknumber-day-date-&#x21D2;-number"><i class="fa fa-link" aria-hidden="true"></i></a>getWeekNumber <code>(day: Date) &#x21D2; Number</code></h3><p>Returns the year&apos;s week number (as per ISO, i.e. with the week starting from Monday) for the given day.</p></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Utilities.html" class="navigation navigation-prev " aria-label="Previous page: Utilities">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="LocaleUtils.html" class="navigation navigation-next " aria-label="Next page: LocaleUtils">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"DateUtils","level":"1.10.1","depth":2,"next":{"title":"LocaleUtils","level":"1.10.2","depth":2,"path":"LocaleUtils.md","ref":"LocaleUtils.md","articles":[]},"previous":{"title":"Utilities","level":"1.10","depth":1,"path":"Utilities.md","ref":"Utilities.md","articles":[{"title":"DateUtils","level":"1.10.1","depth":2,"path":"DateUtils.md","ref":"DateUtils.md","articles":[]},{"title":"LocaleUtils","level":"1.10.2","depth":2,"path":"LocaleUtils.md","ref":"LocaleUtils.md","articles":[]},{"title":"ModifiersUtils","level":"1.10.3","depth":2,"path":"ModifiersUtils.md","ref":"ModifiersUtils.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","-sharing","ga","include","anchors","github-buttons","githubcontributors"],"root":"./docs","styles":{"website":"styles/website.css"},"pluginsConfig":{"prism":{},"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"github-buttons":{"repo":"gpbl/react-day-picker","types":["star"],"size":"small"},"ga":{"configuration":"auto","token":"UA-68185118-1"},"githubcontributors":{"contributorWidth":"300px","githubOwner":"gpbl","githubRepository":"react-day-picker"},"edit-link":{"label":"Edit This Page","base":"https://github.com/gpbl/react-day-picker/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"react-day-picker: flexible date picker for React","gitbook":"3.2.x"},"file":{"path":"DateUtils.md","mtime":"2017-06-19T14:59:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2017-06-19T15:00:37.881Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-githubcontributors/contributors.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
