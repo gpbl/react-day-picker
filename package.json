@@ -108,7 +108,7 @@
     "react-test-renderer": "^15.6.1",
     "rimraf": "^2.6.1",
     "typescript": "^2.3.4",
-    "webpack": "^2.6.1"
+    "webpack": "^3.0.0"
   },
   "dependencies": {
     "object-assign": "^4.1.1",
