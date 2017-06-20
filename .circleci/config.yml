@@ -22,7 +22,7 @@ jobs:
             - "./node_modules"
       - persist_to_workspace:
           root: .
-  install:
+  install_dependencies:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -39,11 +39,13 @@ jobs:
   lint_files:
     <<: *defaults
     steps:
+      - attach_workspace:
+          at: .
       - run: yarn lint -- --format junit --output-file reports/eslint.xml
   lint_dts:
-    docker:
-      - image: node:7.9.0
-    working_directory: /react-day-picker
+    <<: *defaults
+    - attach_workspace:
+      at: .
     steps:
       - run: yarn dtslint
   # test:
@@ -73,16 +75,15 @@ workflows:
   buildy:
     jobs:
       - build
-
-      - install:
+      - install_dependencies:
           requires: 
             - build
       - lint_files:
           requires: 
-            - build
+            - install_dependencies
       - lint_dts:
           requires: 
-            - build
+            - install_dependencies
       # - lint_dts:
       #     requires: build
       # - test:
