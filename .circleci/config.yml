@@ -13,10 +13,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: cache-project-{{ checksum "yarn.lock" }}
+          key: cache-project-v1-{{ checksum "yarn.lock" }}
       - run: yarn --pure-lockfile
       - save_cache:
-          key: cache-project-{{ checksum "yarn.lock" }}
+          key: cache-project-v1-{{ checksum "yarn.lock" }}
           paths:
             - "/usr/local/share/.cache/yarn"
             - "./node_modules"
