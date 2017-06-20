@@ -44,14 +44,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: cache-docs-{{ checksum "docs/Gemfile.lock" }}
+          key: cache-docs-v1-{{ checksum "docs/Gemfile.lock" }}
       - run: npm install gh-pages
       - run: |
           cd docs
           bundle install
        # Store bundle cache
       - save_cache:
-          key: cache-docs-{{ checksum "docs/Gemfile.lock" }}
+          key: cache-docs-v1-{{ checksum "docs/Gemfile.lock" }}
           paths:
             - "./node_modules"
       - run: |
