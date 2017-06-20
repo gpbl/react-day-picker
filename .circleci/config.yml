@@ -45,7 +45,9 @@ jobs:
       - checkout
       - run: cd docs && bundle install
       - run: cd docs && bundle exec jekyll build
-      - run: yarn docs:publish
+      - run: |
+          export LANG=en_US.UTF-8
+          yarn docs:publish
 
 workflows:
   version: 2
