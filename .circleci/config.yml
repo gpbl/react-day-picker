@@ -71,11 +71,14 @@ workflows:
     jobs:
       - build:
       - install:
-          requires: build
+          requires: 
+            - build
       - lint_files:
-          requires: build
+          requires: 
+            - build
       - lint_dts:
-          requires: build
+          requires: 
+            - build
       # - lint_dts:
       #     requires: build
       # - test:
