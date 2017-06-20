@@ -14,8 +14,8 @@ $ yarn
 Some useful scripts:
 
 ```bash
-yarn test               # run unit tests
-yarn test -- --coverage # print test coverage report
-yarn lint               # make sure the code is linted
-yarn dtslint            # lint Typescript declaration
+$ yarn test               # run unit tests
+$ yarn test -- --coverage # print test coverage report
+$ yarn lint               # make sure the code is linted
+$ yarn dtslint            # lint Typescript declaration
 ```
