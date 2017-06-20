@@ -35,14 +35,13 @@ jobs:
       - run: yarn build
 
   build_docs:
-    working_directory: /react-day-picker/docs
+    working_directory: /react-day-picker
     docker:
       - image: ruby
     steps:
-      - attach_workspace:
-          at: .
-      - run: bundle install
-      - run: bundle exec jekyll build
+      - checkout
+      - run: cd docs && bundle install
+      - run: cd docs && bundle exec jekyll build
       - run: yarn docs:publish
 
 workflows:
@@ -57,8 +56,6 @@ workflows:
             branches:
               only: master   
       - build_docs:
-          requires: 
-            - checkout-and-test
           filters:
             branches:
               only: ci_docs_build   
