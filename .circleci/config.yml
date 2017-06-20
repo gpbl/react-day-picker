@@ -51,9 +51,8 @@ jobs:
           export LANG=en_US.UTF-8
           bundle exec jekyll build
       - run: |
-          git config --global -l
-          git config --global user.email circleci@circleci
-          git config --global user.name CircleCI
+          git config --global user.email "$GH_EMAIL" > /dev/null 2>&1 
+          git config --global user.name "$GH_NAME" > /dev/null 2>&1
       - run: npm run docs:publish
 
 workflows:
