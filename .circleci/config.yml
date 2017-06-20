@@ -1,5 +1,5 @@
 defaults: &defaults
-  working_directory: ~/react-day-picker
+  working_directory: /react-day-picker
   docker:
     - image: node:7.10.0
       environment:
