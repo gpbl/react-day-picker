@@ -43,8 +43,7 @@ jobs:
       - run: cd docs && bundle install
       - run: |
           cd docs
-          locale-gen "en_US.UTF-8"
-          export LC_ALL=en_US.UTF-8
+          export LC_ALL=C.UTF-8
           export LANG=en_US.UTF-8
           bundle exec jekyll build
       - run: 
