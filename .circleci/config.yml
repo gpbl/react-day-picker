@@ -74,4 +74,4 @@ workflows:
       - build-docs:
           filters:
             branches:
-              only: ci_docs_build   
+              only: master   
