@@ -28,7 +28,7 @@ jobs:
       - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
       - persist_to_workspace:
-          root: .
+          root: react-day-picker
       
   build-project: 
     <<: *defaults
