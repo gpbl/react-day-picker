@@ -13,10 +13,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: yarn-{{ checksum "yarn.lock" }}
+          key: react-day-picker-{{ checksum "yarn.lock" }}
       - run: yarn --pure-lockfile
       - save_cache:
-          key: yarn-{{ checksum "yarn.lock" }}
+          key: react-day-picker-{{ checksum "yarn.lock" }}
           paths:
             - "/usr/local/share/.cache/yarn"
             - "./node_modules"
@@ -27,14 +27,14 @@ jobs:
       - persist_to_workspace:
           root: .
       
-  build_lib: 
+  build-project: 
     <<: *defaults
     steps:
       - attach_workspace:
           at: .
       - run: yarn build
 
-  build_docs:
+  build-docs:
     working_directory: ~/react-day-picker
     docker:
       - image: circleci/ruby:2.4.1-node
@@ -66,13 +66,13 @@ workflows:
   build:
     jobs:
       - checkout-and-test
-      - build_lib:
+      - build-project:
           requires: 
             - checkout-and-test
           filters:
             branches:
               only: master   
-      - build_docs:
+      - build-docs:
           filters:
             branches:
               only: ci_docs_build   
