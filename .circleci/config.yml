@@ -1,25 +1,87 @@
-version: 2.0
+version: 2
+    
 jobs:
   build:
-    machine:
-      enabled: true
+    working_directory: /react-day-picker
+    docker:
+      - image: node:7.9.0
+        environment:
+          TEST_REPORT_PATH: "reports"
     steps:
-      - type: checkout
-      - type: shell
-        name: Say Hello
-        command: |
-          echo "Hello There"
-  test:
+      - checkout
+      - restore_cache:
+          key: yarn-{{ checksum "yarn.lock" }}
+      - run: yarn --pure-lockfile
+      - save_cache:
+          key: yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - "/usr/local/share/.cache/yarn"
+            - "./node_modules"
+  install:
+    working_directory: /react-day-picker
+    docker:
+      - image: node:7.9.0
     steps:
-      - type: shell
-        name: Say Goodbye
-        command: |
-          echo "Hello Goodbye"
-
-workflows:
-  version: 2.0
-  build-and-test:
-    - build
-    - test:
-        requires:
-          - build
+      - restore_cache:
+          key: yarn-{{ checksum "yarn.lock" }}
+      - run: yarn --pure-lockfile
+      - save_cache:
+          key: yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - "/usr/local/share/.cache/yarn"
+            - "./node_modules"
+  
+  lint_files:
+    docker:
+      - image: node:7.9.0
+    working_directory: /react-day-picker
+    steps:
+      - run: yarn lint -- --format junit --output-file reports/eslint.xml
+  lint_dts:
+    docker:
+      - image: node:7.9.0
+    working_directory: /react-day-picker
+    steps:
+      - run: yarn dtslint
+  # test:
+  #   attach_workspace:
+  #     at: /workspace
+  #   steps:
+  #     - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
+  #     - run: yarn codecov
+  #     - store_test_results:
+  #         path: reports/
+  #   persist_to_workspace: /workspace
+  # build_lib: 
+  #   attach_workspace:
+  #     at: /workspace
+  #   steps:
+  #     - run: yarn build
+  #   persist_to_workspace: /workspace
+  # docs_publish:
+  #   attach_workspace:
+  #     at: /workspace
+  #   steps: 
+  #     - run: yarn docs:publish
+  #   persist_to_workspace: /workspace
+      
+workflows: 
+  version: 2
+  build_and_test:
+    jobs:
+      - build:
+      - install:
+          requires: build
+      - lint_files:
+          requires: build
+      - lint_dts:
+          requires: build
+      # - lint_dts:
+      #     requires: build
+      # - test:
+      #     requires: build
+      # - build_lib:
+      #     requires: test
+      # - docs_publish:
+      #     branches:
+      #       only: master
