@@ -1,7 +1,7 @@
 version: 2
     
 jobs:
-  install:
+  build:
     working_directory: /react-day-picker
     docker:
       - image: node:7.9.0
@@ -9,6 +9,8 @@ jobs:
           TEST_REPORT_PATH: "reports"
     steps:
       - checkout
+  install:
+    steps: 
       - restore_cache:
           key: yarn-{{ checksum "yarn.lock" }}
       - run: yarn --pure-lockfile
@@ -40,6 +42,7 @@ workflows:
   version: 2
   test_and_build:
     jobs:
+      - build
       - install
       - lint_files:
           requires: install
