@@ -1,3 +1,7 @@
-# Changelog
+---
+layout: changelog
+title: CHANGELOG
+permalink: /changelog.html
+---
 
-!INCLUDE "../CHANGELOG.md"
+{% include CHANGELOG.md %}

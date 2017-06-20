@@ -1,0 +1,46 @@
+# source: .
+# destination:  ./docs/_site
+# # plugins_dir:  ./docs/_plugins
+# layouts_dir:  ./docs/_layouts
+# data_dir:     ./docs/_data
+include:
+- ../README.md
+
+title: react-day-picker
+email: your-email@domain.com
+description:
+  react-day-picker is a flexible and customizable date picker component 
+  for React. Select days, ranges, whatever using modifiers. Simple 
+  localization. Navigable with keyboard. ARIA support.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://react-day-picker.js.org/"
+
+#Others
+markdown: kramdown
+
+# Syntax highlighting
+highlighter: rouge
+kramdown:
+    input: GFM 
+    syntax_highlighter: rouge
+
+# highlighter: pygments
+# markdown: redcarpet
+# redcarpet:
+#   extensions:
+#   - fenced_code_blocks
+#   - footnotes
+
+sass:
+  style: :compressed
+  sass_dir: _css
+
+gems:
+  - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-autoprefixer
+
+lib_version: 6.0.1
+exclude:
+  - Gemfile
+  - Gemfile.lock
