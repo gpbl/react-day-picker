@@ -46,7 +46,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-        at: .
+          at: .
       - run: yarn dtslint
   # test:
   #   attach_workspace:
