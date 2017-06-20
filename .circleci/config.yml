@@ -40,7 +40,10 @@ jobs:
       - image: ruby
     steps:
       - checkout
-      - run: apt-get install -y nodejs
+      - run: |
+          apt-get update
+          apt-get install -y nodejs
+          npm install gh-pages
       - run: |
           cd docs
           bundle install
