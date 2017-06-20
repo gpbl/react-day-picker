@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>react-day-picker - Example: Save the clicked day in state</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="">
+  <meta property="og:url" content="http://react-day-picker.js.org/examples/selecting-click.html">
+  <meta property="og:image" content="">
+  <meta property="og:description" content="">
+
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="stylesheet" href="https://unpkg.com/react-day-picker@6/lib/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-diff.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+  <script src="https://unpkg.com/moment@2.14.1/min/moment.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://unpkg.com/react-day-picker@6/lib/daypicker.min.js"></script>
+  <script>
+    DayPickerInput = DayPicker.Input;
+    DateUtils = DayPicker.DateUtils;
+  </script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/prism.css">
+</head>
+
+<body>
+
+      <header>
+    <div class="wrap">
+      <a href="/" class="nav-home"><img src="/images/logo.png" alt="Home page" height="50" /></a>
+      <nav>
+        <ul>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/examples">Examples</a></li>
+          <li><a href="/changelog.html">v6.0.2</a></li>
+        </ul>
+        <ul class="nav-external">
+          <li><a class="nav-github" href="https://github.com/gpbl/react-day-picker">GitHub</a></li>
+          </ul>          
+      </nav>
+    </div>
+  </header>
+
+    <div class="container wrap">
+      <section class="content">
+  <nav class="nav-content">
+  <div>
+    <h3>Examples</h3>
+
+    <ul>
+      <li>
+        <a href="/examples/index.html">Render a simple calendar</a>
+      </li>
+    </ul>
+
+    <h4>Customization</h4>
+      <ul>
+        <li>
+          <a href="/examples/customization-outside-days.html">Display the outside days</a>
+        </li>
+        <li>
+          <a href="/examples/customization-week-numbers.html">Show the week numbers</a>
+        </li>
+        <li>
+          <a href="/examples/customization-fixed-weeks.html">Display a fixed number of weeks</a>
+        </li>
+        <li>
+          <a href="/examples/customization-today-button.html">Add a today button</a>
+        </li>
+        <li>
+          <a href="/examples/localization.html">Localization</a>
+        </li>
+      </ul>
+      <h4>Rendering months</h4>
+      <ul>
+        <li>
+          <a href="/examples/months-initial.html">Change the initial month</a>
+        </li>
+        <li>
+          <a href="/examples/months-prevent-navigation.html">Prevent navigation between months</a>
+        </li>
+        <li>
+          <a href="/examples/months-restrict-navigation.html">Restrict months navigation</a>
+        </li>
+        <li>
+          <a href="/examples/months-multiple.html">Display multiple months</a>
+        </li>
+        <li>
+          <a href="/examples/months-paged-navigation.html">Paged months navigation</a>
+        </li>
+        <li>
+          <a href="/examples/months-reverse.html">Reverse months order</a>
+        </li>
+      </ul>
+      
+      <h4>Selected days</h4>
+      <ul>
+        <li>
+          <a href="/examples/selecting.html">Display days as selected</a>
+        </li>
+        <li>
+          <a href="/examples/selecting-click.html">Save the clicked day in state</a>
+        </li>
+        <li>
+          <a href="/examples/selecting-multiple.html">Select multiple days</a>
+        </li>
+        <li>
+          <a href="/examples/selecting-range.html">Selecting a range on click</a>
+        </li>
+        <li>
+          <a href="/examples/selecting-range-mouse-enter.html">Selecting a range on mouse enter</a>
+        </li>
+      </ul>
+      <h4>Disabled days</h4>
+      <ul>
+        <li>
+          <a href="/examples/disabling.html">Display days as disabled</a>
+        </li>
+        <li>
+          <a href="/examples/disabling-weekends.html">Disabling weekends</a>
+        </li>
+        <li>
+          <a href="/examples/disabling-interaction.html">Interaction with disabled days</a>
+        </li>
+      </ul>
+      <h4>Input field</h4>
+      <ul>
+        <li>
+          <a href="/examples/input.html">Render the input field</a>
+        </li>
+        <li>
+          <a href="/examples/input-advanced.html">Interaction with the input field</a>
+        </li>
+      </ul>
+      <h4>Modifiers</h4>
+      <ul>
+        <li>
+          <a href="/examples/modifiers.html">Add CSS modifiers to days</a>
+        </li>
+        <li>
+          <a href="/examples/modifiers-styles.html">Add inline-style modifiers</a>
+        </li>
+      </ul>
+      <h4>Customizing elements</h4>
+      <ul>
+        <li>
+          <a href="/examples/advanced-year-navigation.html">Switch between years and months</a>
+        </li>
+        <li>
+          <a href="/examples/advanced-day.html">Add custom content to a day cell</a>
+        </li>
+        <li>
+          <a href="/examples/advanced-elements.html">Customize navbar and weekdays</a>
+        </li>
+      </ul>
+  </div>
+</nav>
+
+  <div class="inner-content">
+    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/selecting-click.js" target="_blank">Edit code</a>
+    <h1 class="inner-content-title">Save the clicked day in state</h1>
+    <p>Use the <code class="highlighter-rouge">onDayClick</code> event to mark or unmark a day as selected when the user clicks a day cell.</p>
+
+
+    <div id="example" class="example-result"></div>
+
+
+<pre><code class="language-jsx">import React from 'react';
+import DayPicker from 'react-day-picker';
+
+import 'react-day-picker/lib/style.css';
+
+export default class Example extends React.Component {
+  state = {
+    selectedDay: null,
+  };
+  handleDayClick = (day, { selected }) =&gt; {
+    this.setState({
+      selectedDay: selected ? undefined : day,
+    });
+  };
+  render() {
+    const { selectedDay } = this.state;
+    return (
+      &lt;div&gt;
+        &lt;DayPicker
+          selectedDays={selectedDay}
+          onDayClick={this.handleDayClick}
+        /&gt;
+        &lt;p&gt;
+          {selectedDay
+            ? selectedDay.toLocaleDateString()
+            : 'Please select a day 👻'}
+        &lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</pre></code></pre>
+
+    <script type="text/babel" 
+     data-presets="es2015,stage-1,react" data-plugins="transform-es2015-modules-umd">
+      export default class Example extends React.Component {
+  state = {
+    selectedDay: null,
+  };
+  handleDayClick = (day, { selected }) => {
+    this.setState({
+      selectedDay: selected ? undefined : day,
+    });
+  };
+  render() {
+    const { selectedDay } = this.state;
+    return (
+      <div>
+        <DayPicker
+          selectedDays={selectedDay}
+          onDayClick={this.handleDayClick}
+        />
+        <p>
+          {selectedDay
+            ? selectedDay.toLocaleDateString()
+            : 'Please select a day 👻'}
+        </p>
+      </div>
+    );
+  }
+}
+
+      ReactDOM.render(<Example />, document.getElementById('example'));
+    </script>
+
+  </div>
+
+</section>
+    </div> 
+
+    <footer>
+  <div class="footer-content wrap">
+    <section class="footer-logo">
+      <div>
+        <a href="/" class="nav-home"><img src="/images/logo.png" alt="Home page" height="40" /></a>
+      </div>
+      <p>
+        Licensed under the <a href="https://github.com/gpbl/react-day-picker/blob/master/LICENSE">MIT License</a>.
+      </p>
+      <p>
+        Created by <a href="https://github.com/gpbl">gpbl</a> and <a href="https://github.com/gpbl/react-day-picker/graphs/contributors">contributors</a>.
+      </p>
+    </section>
+    <section>
+      <h4>😫 Get support</h4>
+
+      <p>Ask on <a href="http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest">Stack Overflow</a> (tag with <code>react-day-picker</code>) or join the <a href="https://gitter.im/gpbl/react-day-picker">Gitter room</a> to talk with other developers</p>
+
+      <p>Please fork <a href="https://codesandbox.io/s/XDAE3x0W8">this codesandbox</a> to reproduce your issue.</p>
+
+    </section>
+
+    <section>
+      <h4>❤️ Contribute</h4>
+      <p>
+        File bugs and feature requests in the <a href="https://github.com/gpbl/react-day-picker/issues">issues page</a>. Fork the <a href="https://github.com/gpbl/react-day-picker">GitHub repo</a> to open a nice PR.
+      </p>
+    </section>
+  </div>
+
+</footer>
+    
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68185118-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+
+</html>

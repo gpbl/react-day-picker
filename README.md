@@ -1,27 +1,34 @@
 <p align="center">
-<img width="359"  style="margin: 0 auto" alt="title" src="https://cloud.githubusercontent.com/assets/120693/17276843/94ad5b62-5734-11e6-9f25-454f50f81122.png">
+<img width="359"  style="margin: 0 auto" alt="title" src="https://user-images.githubusercontent.com/120693/27316947-e18c7cac-5548-11e7-8d5b-d832f16219c5.png">
+<p align="center">
+  Flexible date picker component for <a href="https://facebook.github.io/react/">React</a>.
+  <br />
+  no dependencies – fully customizable – ARIA support – localizable –  less than 10KB
 </p>
 <p align="center">
-<img width="254" style="margin: 0 auto"  alt="screen shot" src="https://cloud.githubusercontent.com/assets/120693/22856445/3a6b008e-f070-11e6-8ef6-59bbab1c218b.png">
+  <img width="254" style="margin: 0 auto"  alt="screen shot" src="https://user-images.githubusercontent.com/120693/27316978-1110459e-5549-11e7-95d4-7d2043653a57.png">
+</p>
+<p align="center">
+  See <a href="http://react-day-picker.js.org">documentation and examples</a>.
+</p>
+<p align="center">
+  <a href="https://www.npmjs.com/package/react-day-picker">
+    <img src="https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square" alt="npm version">
+  </a>
+  <a href="http://npm-stat.com/charts.html?package=react-day-picker">
+    <img src="https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square" alt="npm downloads">
+  </a>
+  <a href="https://circleci.com/gh/gpbl/react-day-picker">
+    <img src="https://img.shields.io/circleci/project/github/gpbl/react-day-picker/master.svg?style=flat-square" alt="circleci">
+  </a>
+  <a href="https://codecov.io/gh/gpbl/react-day-picker">
+    <img src="https://img.shields.io/codecov/c/github/gpbl/react-day-picker/master.svg?style=flat-square" alt="npm downloads">
+  </a>
 </p>
 
-react-day-picker is a flexible date picker component for [React](https://facebook.github.io/react/).
+# Quick start
 
-* no external dependencies, 10KB minified and gzipped
-* select [days](http://react-day-picker.js.org/examples?selectable), [ranges](http://react-day-picker.js.org/examples?range), whatever using CSS modifiers
-* simple [localization](http://react-day-picker.js.org/examples?localized)
-* customizable [style](https://github.com/gpbl/react-day-picker/blob/master/src/style.css) and [CSS Modules](http://react-day-picker.js.org/CSSModules.html) support
-* navigable via keyboard, ARIA support
-* integrates with `<input />` fields (requires moment.js – [example](http://react-day-picker.js.org/examples?input))
-
-Check out the [examples](http://react-day-picker.js.org/examples) to see its features.
-
-[![npm version](https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-day-picker)
-[![npm downloads](https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square)](http://npm-stat.com/charts.html?package=react-day-picker)
-[![CircleCI](https://img.shields.io/circleci/project/github/gpbl/react-day-picker/master.svg?style=flat-square)](https://circleci.com/gh/gpbl/react-day-picker)
-[![Codecov](https://img.shields.io/codecov/c/github/gpbl/react-day-picker/master.svg?style=flat-square)](https://codecov.io/gh/gpbl/react-day-picker)
-
-## Quick start
+Go to the <a href="http://react-day-picker.js.org">website</a> to learn more about react-day-picker.
 
 **Add the dependency to your project**
 
@@ -42,53 +49,9 @@ Include the component without installing:
 
 > The main component is globally exported as `DayPicker`, the input component as `DayPicker.Input`. See this [jsfiddle](https://jsfiddle.net/gpbl/cggxvq6t/) as example.
 
-### Example
+# Get support
 
-```js
-import React from 'react';
-import DayPicker from "react-day-picker";
-
-import "react-day-picker/lib/style.css"
-
-class MyComponent extends React.Component {
-  state = {
-    selectedDay: undefined,
-  };
-  handleDayClick = (day, { selected }) => {
-    this.setState({
-      selectedDay: selected ? undefined : day,
-    });
-  };
-  render() {
-    return (
-      <DayPicker
-        disabledDays={{ daysOfWeek: [0] }}
-        selectedDays={this.state.selectedDay}
-        onDayClick={this.handleDayClick}
-      />
-    );
-  }
-}
-```
-
-See [this running example](http://react-day-picker.js.org/examples/?disabled) and read [basic usage](http://react-day-picker.js.org/Basic.html) for a deeper explanation of the example above.
-
-### Docs and examples
-
-* [Examples with code](http://react-day-picker.js.org/examples)
-* [Documentation and API reference](http://react-day-picker.js.org)
-* [CHANGELOG](https://github.com/gpbl/react-day-picker/blob/master/CHANGELOG.md)
-
-### Get support
-
-Please fork and use [https://jsfiddle.net/gpbl/cggxvq6t](https://jsfiddle.net/gpbl/cggxvq6t) to reproduce your problem.
+Please fork and use [https://codesandbox.io/s/XDAE3x0W8](https://codesandbox.io/s/XDAE3x0W8) to reproduce your problem.
 
 * Ask on on [Stack Overflow](http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest)  (tag your question with `react-day-picker`)
 * Join the [Gitter room](https://gitter.im/gpbl/react-day-picker) for immediate help
-
-### Contribute
-
-* File bugs and feature requests in the [issues page](https://github.com/gpbl/react-day-picker/issues)
-* Check out the source code on [Github](https://github.com/gpbl/react-day-picker)
-* Pull requests are welcome! If you are planning a pull request with lot of changes, please add an issue to discuss your idea first
-  * See how to start the project locally [here](http://react-day-picker.js.org/Contributing.html)
