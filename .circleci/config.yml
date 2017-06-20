@@ -64,10 +64,10 @@ workflows:
       - checkout
       - lint_files:
           requires: 
-            - install_dependencies
+            - checkout
       - lint_dts:
           requires: 
-            - install_dependencies
+            - checkout
       # - lint_dts:
       #     requires: build
       # - test:
