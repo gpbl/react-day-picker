@@ -1,5 +1,5 @@
 defaults: &defaults
-  working_directory: /react-day-picker
+  working_directory: /root/react-day-picker
   docker:
     - image: node:7.10.0
       environment:
@@ -34,7 +34,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /react-day-picker
+          at: /root/react-day-picker
       - run: yarn build
 
   build-docs:
