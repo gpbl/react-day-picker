@@ -1,13 +1,17 @@
 defaults: &defaults
-  working_directory: /react-day-picker
+  working_directory: ~/react-day-picker
   docker:
-      - image: node:7.10.0
-        environment:
-          TEST_REPORT_PATH: "reports"
+    - image: node:7.10.0
+      environment:
+        TEST_REPORT_PATH: "reports"
 
 version: 2
     
 jobs:
+  branches:
+  ignore:
+    - gh-pages
+
   checkout-and-test:
     <<: *defaults
     steps:
@@ -24,14 +28,10 @@ jobs:
       - run: yarn dtslint
       - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
-      - persist_to_workspace:
-          root: .
       
   build-project: 
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: .
       - run: yarn build
 
   build-docs:
