@@ -9,8 +9,8 @@ version: 2
     
 jobs:
   branches:
-  ignore:
-    - gh-pages
+    ignore:
+      - gh-pages
 
   checkout-and-test:
     <<: *defaults
