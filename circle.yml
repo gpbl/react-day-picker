@@ -30,7 +30,7 @@ jobs:
           command: yarn run build
   docs_publish:
     steps: 
-      - yarn docs:publish
+      - run: yarn docs:publish
       
 workflows: 
   version: 2
