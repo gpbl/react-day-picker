@@ -34,7 +34,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /root/react-day-picker
+          at: /root
       - run: yarn build
 
   build-docs:
