@@ -28,14 +28,15 @@ jobs:
       - run: 
           name: Build lib
           command: yarn run build
-
-deployment:
-  master:
-    branch: master
-    commands:
-      - yarn run build # make sure build works
-  npm:
-    tag: /v[0-9]+(\.[0-9]+)*/
-    commands:
-      - yarn run build
-      - npm publish
+  docs_publish:
+    steps: 
+      - yarn docs:publish
+      
+workflows: 
+  version: 2
+  build_and_test:
+    jobs:
+      - docs_publish:
+          filters:
+              branches:
+                only: master
