@@ -204,6 +204,6 @@ export default class SelectDay extends React.Component {
 
 ## Next steps
 
-The `selectedDays`/`disabledDays` props and the `onDayClick` event handler can implement a more complex logic to respond to your app's needs. For example, you can make the date picker to [select a range of days](http://react-day-picker.js.org/examples?range).
+The `selectedDays`/`disabledDays` props and the `onDayClick` event handler can implement a more complex logic to respond to your app's needs. For example, you can make the date picker to [select a range of days](../examples/selecting-range.md).
 
 You can go deeper with the customization using **day modifiers**. Read more about them in [Matching days with modifiers](modifiers.md).

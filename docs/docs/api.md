@@ -62,7 +62,7 @@ A React element or constructor to use as caption. This element will receive the 
 
 The default caption is a `div` with class `DayPicker-Caption`, showing a "month year" text.
 
-See also [this advanced example](../examples?yearNavigation), showing a year navigation element using this prop.
+See also [this advanced example](../examples/advanced-year-navigation.md), showing a year navigation element using this prop.
 
 ### className
 
