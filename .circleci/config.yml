@@ -37,7 +37,7 @@ jobs:
   build_docs:
     working_directory: /react-day-picker
     docker:
-      - image: ruby-node
+      - image: mwallasch/docker-ruby-node
     steps:
       - checkout
       - run: |
