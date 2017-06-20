@@ -44,9 +44,9 @@ jobs:
       - run: yarn lint -- --format junit --output-file reports/eslint.xml
   lint_dts:
     <<: *defaults
-    - attach_workspace:
-      at: .
     steps:
+      - attach_workspace:
+        at: .
       - run: yarn dtslint
   # test:
   #   attach_workspace:
