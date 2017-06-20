@@ -1,13 +1,15 @@
-version: 2
-    
-jobs:
-  build:
-    working_directory: /react-day-picker
-    docker:
+defaults: &defaults
+  working_directory: /react-day-picker
+  docker:
       - image: node:7.9.0
         environment:
           TEST_REPORT_PATH: "reports"
-  
+
+version: 2
+    
+jobs:
+  checkout-and-test:
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
@@ -18,28 +20,28 @@ jobs:
           paths:
             - "/usr/local/share/.cache/yarn"
             - "./node_modules"
-      - run: mkdir -p reports
       - run: yarn lint -- --format junit --output-file reports/eslint.xml
       - run: yarn dtslint
       - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
-      - store_test_results:
-          path: reports/
-      - run: 
-          name: Build lib
-          command: yarn run build
-  docs_publish:
-    working_directory: /react-day-picker
-    docker:
-      - image: node:7.9.0
-    steps: 
-      - run: yarn docs:publish
+      - persist_to_workspace:
+          root: .
       
-# workflows: 
-#   version: 2
-#   build_and_test:
-#     jobs:
-#       - docs_publish:
-#           filters:
-#               branches:
-#                 only: master
+  build_lib: 
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run: yarn build
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - checkout-and-test
+      - build_lib:
+          requires: 
+            - checkout-and-test
+          filters:
+            branches:
+              only: dev   
