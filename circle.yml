@@ -42,8 +42,8 @@ workflows:
   version: 2
   test_and_build:
     jobs:
-      - build
-      - install
+      - build:
+      - install:
       - lint_files:
           requires: install
       - lint_dts:
