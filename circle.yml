@@ -29,6 +29,9 @@ jobs:
           name: Build lib
           command: yarn run build
   docs_publish:
+    working_directory: /react-day-picker
+    docker:
+      - image: node:7.9.0
     steps: 
       - run: yarn docs:publish
       
