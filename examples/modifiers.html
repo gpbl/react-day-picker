@@ -5,10 +5,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>react-day-picker - Example: Render a simple calendar</title>
+  <title>react-day-picker - Example: Add CSS modifiers to days</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="">
-  <meta property="og:url" content="http://react-day-picker.js.org/examples/index.html">
+  <meta property="og:url" content="http://react-day-picker.js.org/examples/modifiers.html">
   <meta property="og:image" content="">
   <meta property="og:description" content="">
 
@@ -172,9 +172,21 @@
 </nav>
 
   <div class="inner-content">
-    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/simple.js" target="_blank">Edit code</a>
-    <h1 class="inner-content-title">Render a simple calendar</h1>
-    
+    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/modifiers.js" target="_blank">Edit code</a>
+    <h1 class="inner-content-title">Add CSS modifiers to days</h1>
+    <p>Style day cells using CSS modifiers and the <code class="highlighter-rouge">modifiers</code> prop.</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.DayPicker-Day--birthday</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#ffc107</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.DayPicker-Day--mondays</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.DayPicker-Day--outside</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#ffc107</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#fffdee</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 
     <div id="example" class="example-result"></div>
@@ -186,14 +198,22 @@ import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
 export default function Example() {
-  return &lt;DayPicker onDayClick={day =&gt; alert(day)} /&gt;;
+  const modifiers = {
+    mondays: { daysOfWeek: [1] },
+    birthday: new Date(2018, 8, 19),
+  };
+  return &lt;DayPicker month={new Date(2018, 8)} modifiers={modifiers} /&gt;;
 }
 </pre></code></pre>
 
     <script type="text/babel" 
      data-presets="es2015,stage-1,react" data-plugins="transform-es2015-modules-umd">
       export default function Example() {
-  return <DayPicker onDayClick={day => alert(day)} />;
+  const modifiers = {
+    mondays: { daysOfWeek: [1] },
+    birthday: new Date(2018, 8, 19),
+  };
+  return <DayPicker month={new Date(2018, 8)} modifiers={modifiers} />;
 }
 
       ReactDOM.render(<Example />, document.getElementById('example'));

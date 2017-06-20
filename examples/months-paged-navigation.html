@@ -5,10 +5,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>react-day-picker - Example: Render a simple calendar</title>
+  <title>react-day-picker - Example: Paged months navigation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="">
-  <meta property="og:url" content="http://react-day-picker.js.org/examples/index.html">
+  <meta property="og:url" content="http://react-day-picker.js.org/examples/months-paged-navigation.html">
   <meta property="og:image" content="">
   <meta property="og:description" content="">
 
@@ -172,9 +172,9 @@
 </nav>
 
   <div class="inner-content">
-    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/simple.js" target="_blank">Edit code</a>
-    <h1 class="inner-content-title">Render a simple calendar</h1>
-    
+    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/months-paged-navigation.js" target="_blank">Edit code</a>
+    <h1 class="inner-content-title">Paged months navigation</h1>
+    <p>When displaying multiple months, navigation will be paginated displaying the <code class="highlighter-rouge">numberOfMonths</code> at time.</p>
 
 
     <div id="example" class="example-result"></div>
@@ -186,14 +186,14 @@ import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
 export default function Example() {
-  return &lt;DayPicker onDayClick={day =&gt; alert(day)} /&gt;;
+  return &lt;DayPicker numberOfMonths={2} pagedNavigation /&gt;;
 }
 </pre></code></pre>
 
     <script type="text/babel" 
      data-presets="es2015,stage-1,react" data-plugins="transform-es2015-modules-umd">
       export default function Example() {
-  return <DayPicker onDayClick={day => alert(day)} />;
+  return <DayPicker numberOfMonths={2} pagedNavigation />;
 }
 
       ReactDOM.render(<Example />, document.getElementById('example'));

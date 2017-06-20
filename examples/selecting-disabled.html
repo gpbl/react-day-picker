@@ -5,10 +5,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>react-day-picker - Example: Render a simple calendar</title>
+  <title>react-day-picker - Example: Render a day as selected or disabled</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="">
-  <meta property="og:url" content="http://react-day-picker.js.org/examples/index.html">
+  <meta property="og:url" content="http://react-day-picker.js.org/examples/selecting-disabled.html">
   <meta property="og:image" content="">
   <meta property="og:description" content="">
 
@@ -172,9 +172,9 @@
 </nav>
 
   <div class="inner-content">
-    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/simple.js" target="_blank">Edit code</a>
-    <h1 class="inner-content-title">Render a simple calendar</h1>
-    
+    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/selecting-disabled.js" target="_blank">Edit code</a>
+    <h1 class="inner-content-title">Render a day as selected or disabled</h1>
+    <p>Pass <a href="/docs/modifiers.html">modifiers</a> the <code class="highlighter-rouge">selectedDays</code> and <code class="highlighter-rouge">disabledDays</code> props to style one or multiple days as selected or disabled.</p>
 
 
     <div id="example" class="example-result"></div>
@@ -185,15 +185,39 @@ import DayPicker from 'react-day-picker';
 
 import 'react-day-picker/lib/style.css';
 
+function handleDayClick(day, modifiers, e) {
+  console.log(&quot;Day's modifiers&quot;, modifiers);
+  console.log(&quot;Day's CSS classes&quot;, e.target.classList.toString());
+}
+
 export default function Example() {
-  return &lt;DayPicker onDayClick={day =&gt; alert(day)} /&gt;;
+  return (
+    &lt;DayPicker
+      initialMonth={new Date(2017, 3)}
+      selectedDays={[new Date(2017, 3, 12), new Date(2017, 3, 2)]}
+      disabledDays={[new Date(2017, 3, 15), { before: new Date(2017, 3, 2) }]}
+      onDayClick={handleDayClick}
+    /&gt;
+  );
 }
 </pre></code></pre>
 
     <script type="text/babel" 
      data-presets="es2015,stage-1,react" data-plugins="transform-es2015-modules-umd">
-      export default function Example() {
-  return <DayPicker onDayClick={day => alert(day)} />;
+      function handleDayClick(day, modifiers, e) {
+  console.log("Day's modifiers", modifiers);
+  console.log("Day's CSS classes", e.target.classList.toString());
+}
+
+export default function Example() {
+  return (
+    <DayPicker
+      initialMonth={new Date(2017, 3)}
+      selectedDays={[new Date(2017, 3, 12), new Date(2017, 3, 2)]}
+      disabledDays={[new Date(2017, 3, 15), { before: new Date(2017, 3, 2) }]}
+      onDayClick={handleDayClick}
+    />
+  );
 }
 
       ReactDOM.render(<Example />, document.getElementById('example'));

@@ -5,10 +5,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>react-day-picker - Example: Render a simple calendar</title>
+  <title>react-day-picker - Example: Render the input field</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="">
-  <meta property="og:url" content="http://react-day-picker.js.org/examples/index.html">
+  <meta property="og:url" content="http://react-day-picker.js.org/examples/input.html">
   <meta property="og:image" content="">
   <meta property="og:description" content="">
 
@@ -172,8 +172,8 @@
 </nav>
 
   <div class="inner-content">
-    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/simple.js" target="_blank">Edit code</a>
-    <h1 class="inner-content-title">Render a simple calendar</h1>
+    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/input.js" target="_blank">Edit code</a>
+    <h1 class="inner-content-title">Render the input field</h1>
     
 
 
@@ -181,19 +181,30 @@
 
 
 <pre><code class="language-jsx">import React from 'react';
-import DayPicker from 'react-day-picker';
+import moment from 'moment';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
 
 import 'react-day-picker/lib/style.css';
 
 export default function Example() {
-  return &lt;DayPicker onDayClick={day =&gt; alert(day)} /&gt;;
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Please type a day:&lt;/p&gt;
+      &lt;DayPickerInput placeholder=&quot;MM/DD/YYYY&quot; /&gt;
+    &lt;/div&gt;
+  );
 }
 </pre></code></pre>
 
     <script type="text/babel" 
      data-presets="es2015,stage-1,react" data-plugins="transform-es2015-modules-umd">
       export default function Example() {
-  return <DayPicker onDayClick={day => alert(day)} />;
+  return (
+    <div>
+      <p>Please type a day:</p>
+      <DayPickerInput placeholder="MM/DD/YYYY" />
+    </div>
+  );
 }
 
       ReactDOM.render(<Example />, document.getElementById('example'));

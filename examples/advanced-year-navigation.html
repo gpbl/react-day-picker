@@ -5,10 +5,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>react-day-picker - Example: Render a simple calendar</title>
+  <title>react-day-picker - Example: Switch between years and months</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="">
-  <meta property="og:url" content="http://react-day-picker.js.org/examples/index.html">
+  <meta property="og:url" content="http://react-day-picker.js.org/examples/advanced-year-navigation.html">
   <meta property="og:image" content="">
   <meta property="og:description" content="">
 
@@ -172,9 +172,9 @@
 </nav>
 
   <div class="inner-content">
-    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/simple.js" target="_blank">Edit code</a>
-    <h1 class="inner-content-title">Render a simple calendar</h1>
-    
+    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/advanced-year-navigation.js" target="_blank">Edit code</a>
+    <h1 class="inner-content-title">Switch between years and months</h1>
+    <p>Use a custom component as <code class="highlighter-rouge">captionElement</code> to customize the react-day-picker caption, e.g. to add a form to switch years and months.</p>
 
 
     <div id="example" class="example-result"></div>
@@ -185,15 +185,121 @@ import DayPicker from 'react-day-picker';
 
 import 'react-day-picker/lib/style.css';
 
-export default function Example() {
-  return &lt;DayPicker onDayClick={day =&gt; alert(day)} /&gt;;
+const currentYear = new Date().getFullYear();
+const fromMonth = new Date(currentYear, 0);
+const toMonth = new Date(currentYear + 10, 11);
+
+// Component will receive date, locale and localeUtils props
+function YearMonthForm({ date, localeUtils, onChange }) {
+  const months = localeUtils.getMonths();
+
+  const years = [];
+  for (let i = fromMonth.getFullYear(); i &lt;= toMonth.getFullYear(); i += 1) {
+    years.push(i);
+  }
+
+  const handleChange = function handleChange(e) {
+    const { year, month } = e.target.form;
+    onChange(new Date(year.value, month.value));
+  };
+
+  return (
+    &lt;form className=&quot;DayPicker-Caption&quot;&gt;
+      &lt;select name=&quot;month&quot; onChange={handleChange} value={date.getMonth()}&gt;
+        {months.map((month, i) =&gt; &lt;option key={i} value={i}&gt;{month}&lt;/option&gt;)}
+      &lt;/select&gt;
+      &lt;select name=&quot;year&quot; onChange={handleChange} value={date.getFullYear()}&gt;
+        {years.map((year, i) =&gt;
+          &lt;option key={i} value={year}&gt;
+            {year}
+          &lt;/option&gt;
+        )}
+      &lt;/select&gt;
+    &lt;/form&gt;
+  );
+}
+
+export default class Example extends React.Component {
+  state = {
+    month: fromMonth,
+  };
+  handleYearMonthChange = month =&gt; {
+    this.setState({ month });
+  };
+  render() {
+    return (
+      &lt;div className=&quot;YearNavigation&quot;&gt;
+        &lt;DayPicker
+          month={this.state.month}
+          fromMonth={fromMonth}
+          toMonth={toMonth}
+          captionElement={
+            &lt;YearMonthForm onChange={this.handleYearMonthChange} /&gt;
+          }
+        /&gt;
+      &lt;/div&gt;
+    );
+  }
 }
 </pre></code></pre>
 
     <script type="text/babel" 
      data-presets="es2015,stage-1,react" data-plugins="transform-es2015-modules-umd">
-      export default function Example() {
-  return <DayPicker onDayClick={day => alert(day)} />;
+      const currentYear = new Date().getFullYear();
+const fromMonth = new Date(currentYear, 0);
+const toMonth = new Date(currentYear + 10, 11);
+
+// Component will receive date, locale and localeUtils props
+function YearMonthForm({ date, localeUtils, onChange }) {
+  const months = localeUtils.getMonths();
+
+  const years = [];
+  for (let i = fromMonth.getFullYear(); i <= toMonth.getFullYear(); i += 1) {
+    years.push(i);
+  }
+
+  const handleChange = function handleChange(e) {
+    const { year, month } = e.target.form;
+    onChange(new Date(year.value, month.value));
+  };
+
+  return (
+    <form className="DayPicker-Caption">
+      <select name="month" onChange={handleChange} value={date.getMonth()}>
+        {months.map((month, i) => <option key={i} value={i}>{month}</option>)}
+      </select>
+      <select name="year" onChange={handleChange} value={date.getFullYear()}>
+        {years.map((year, i) =>
+          <option key={i} value={year}>
+            {year}
+          </option>
+        )}
+      </select>
+    </form>
+  );
+}
+
+export default class Example extends React.Component {
+  state = {
+    month: fromMonth,
+  };
+  handleYearMonthChange = month => {
+    this.setState({ month });
+  };
+  render() {
+    return (
+      <div className="YearNavigation">
+        <DayPicker
+          month={this.state.month}
+          fromMonth={fromMonth}
+          toMonth={toMonth}
+          captionElement={
+            <YearMonthForm onChange={this.handleYearMonthChange} />
+          }
+        />
+      </div>
+    );
+  }
 }
 
       ReactDOM.render(<Example />, document.getElementById('example'));

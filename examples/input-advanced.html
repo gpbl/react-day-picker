@@ -5,10 +5,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>react-day-picker - Example: Render a simple calendar</title>
+  <title>react-day-picker - Example: Interaction with the input field</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="">
-  <meta property="og:url" content="http://react-day-picker.js.org/examples/index.html">
+  <meta property="og:url" content="http://react-day-picker.js.org/examples/input-advanced.html">
   <meta property="og:image" content="">
   <meta property="og:description" content="">
 
@@ -172,8 +172,8 @@
 </nav>
 
   <div class="inner-content">
-    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/simple.js" target="_blank">Edit code</a>
-    <h1 class="inner-content-title">Render a simple calendar</h1>
+    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/input-advanced.js" target="_blank">Edit code</a>
+    <h1 class="inner-content-title">Interaction with the input field</h1>
     
 
 
@@ -181,19 +181,112 @@
 
 
 <pre><code class="language-jsx">import React from 'react';
-import DayPicker from 'react-day-picker';
+import moment from 'moment';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
 
 import 'react-day-picker/lib/style.css';
 
-export default function Example() {
-  return &lt;DayPicker onDayClick={day =&gt; alert(day)} /&gt;;
+const DAY_FORMAT = 'DD/MM/YYYY';
+
+export default class Example extends React.Component {
+  state = {
+    selectedDay: undefined,
+    isDisabled: false,
+  };
+
+  handleDayChange = (selectedDay, modifiers) =&gt; {
+    this.setState({
+      selectedDay,
+      isDisabled: modifiers.disabled,
+    });
+  };
+
+  render() {
+    const { selectedDay, isDisabled } = this.state;
+    const formattedDay = selectedDay
+      ? moment(selectedDay).format(DAY_FORMAT)
+      : '';
+
+    const dayPickerProps = {
+      todayButton: 'Go to Today',
+      disabledDays: {
+        daysOfWeek: [0, 6],
+      },
+      enableOutsideDays: true,
+      modifiers: {
+        monday: { daysOfWeek: [1] },
+      },
+    };
+    return (
+      &lt;div&gt;
+        &lt;p&gt;
+          {!selectedDay &amp;&amp; '🤔 Type or pick a valid day'}
+          {selectedDay &amp;&amp; isDisabled &amp;&amp; '😡 This day is disabled'}
+          {selectedDay &amp;&amp; !isDisabled &amp;&amp; `😄 You chose ${formattedDay}`}
+        &lt;/p&gt;
+        &lt;DayPickerInput
+          value={formattedDay}
+          onDayChange={this.handleDayChange}
+          format={DAY_FORMAT}
+          placeholder={`E.g. ${moment().locale('en').format(DAY_FORMAT)}`}
+          dayPickerProps={dayPickerProps}
+        /&gt;
+      &lt;/div&gt;
+    );
+  }
 }
 </pre></code></pre>
 
     <script type="text/babel" 
      data-presets="es2015,stage-1,react" data-plugins="transform-es2015-modules-umd">
-      export default function Example() {
-  return <DayPicker onDayClick={day => alert(day)} />;
+      const DAY_FORMAT = 'DD/MM/YYYY';
+
+export default class Example extends React.Component {
+  state = {
+    selectedDay: undefined,
+    isDisabled: false,
+  };
+
+  handleDayChange = (selectedDay, modifiers) => {
+    this.setState({
+      selectedDay,
+      isDisabled: modifiers.disabled,
+    });
+  };
+
+  render() {
+    const { selectedDay, isDisabled } = this.state;
+    const formattedDay = selectedDay
+      ? moment(selectedDay).format(DAY_FORMAT)
+      : '';
+
+    const dayPickerProps = {
+      todayButton: 'Go to Today',
+      disabledDays: {
+        daysOfWeek: [0, 6],
+      },
+      enableOutsideDays: true,
+      modifiers: {
+        monday: { daysOfWeek: [1] },
+      },
+    };
+    return (
+      <div>
+        <p>
+          {!selectedDay && '🤔 Type or pick a valid day'}
+          {selectedDay && isDisabled && '😡 This day is disabled'}
+          {selectedDay && !isDisabled && `😄 You chose ${formattedDay}`}
+        </p>
+        <DayPickerInput
+          value={formattedDay}
+          onDayChange={this.handleDayChange}
+          format={DAY_FORMAT}
+          placeholder={`E.g. ${moment().locale('en').format(DAY_FORMAT)}`}
+          dayPickerProps={dayPickerProps}
+        />
+      </div>
+    );
+  }
 }
 
       ReactDOM.render(<Example />, document.getElementById('example'));

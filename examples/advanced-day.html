@@ -5,10 +5,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>react-day-picker - Example: Render a simple calendar</title>
+  <title>react-day-picker - Example: Add custom content to a day cell</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="">
-  <meta property="og:url" content="http://react-day-picker.js.org/examples/index.html">
+  <meta property="og:url" content="http://react-day-picker.js.org/examples/advanced-day.html">
   <meta property="og:image" content="">
   <meta property="og:description" content="">
 
@@ -172,9 +172,9 @@
 </nav>
 
   <div class="inner-content">
-    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/simple.js" target="_blank">Edit code</a>
-    <h1 class="inner-content-title">Render a simple calendar</h1>
-    
+    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/examples/src/advanced-day.js" target="_blank">Edit code</a>
+    <h1 class="inner-content-title">Add custom content to a day cell</h1>
+    <p>Use the <code class="highlighter-rouge">renderDay</code> prop to customize the content of a day cell.</p>
 
 
     <div id="example" class="example-result"></div>
@@ -185,15 +185,83 @@ import DayPicker from 'react-day-picker';
 
 import 'react-day-picker/lib/style.css';
 
+const birthdays = {
+  3: [{ name: 'Mirko', age: 35 }, { name: 'Gianluca', age: 29 }],
+  8: [{ name: 'Elena', age: 21 }],
+  9: [{ name: 'Irene', age: 43 }],
+  12: [{ name: 'Paolo', age: 78 }, { name: 'Giorgia', age: 18 }],
+  18: [{ name: 'Claudia', age: 54 }],
+  22: [{ name: 'Maria', age: 9 }, { name: 'Luigi', age: 67 }],
+  25: [{ name: 'Simone', age: 31 }],
+  26: [{ name: 'Marta', age: 46 }],
+};
+
+function renderDay(day) {
+  const date = day.getDate();
+  return (
+    &lt;div&gt;
+      {date}
+      &lt;div className=&quot;Birthdays-List&quot;&gt;
+        {birthdays[date] &amp;&amp;
+          birthdays[date].map((birthday, i) =&gt;
+            &lt;div key={i}&gt;
+              🎁 {birthday.name} ({birthday.age})
+            &lt;/div&gt;
+          )}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+
 export default function Example() {
-  return &lt;DayPicker onDayClick={day =&gt; alert(day)} /&gt;;
+  return (
+    &lt;DayPicker
+      canChangeMonth={false}
+      className=&quot;Birthdays&quot;
+      renderDay={renderDay}
+    /&gt;
+  );
 }
 </pre></code></pre>
 
     <script type="text/babel" 
      data-presets="es2015,stage-1,react" data-plugins="transform-es2015-modules-umd">
-      export default function Example() {
-  return <DayPicker onDayClick={day => alert(day)} />;
+      const birthdays = {
+  3: [{ name: 'Mirko', age: 35 }, { name: 'Gianluca', age: 29 }],
+  8: [{ name: 'Elena', age: 21 }],
+  9: [{ name: 'Irene', age: 43 }],
+  12: [{ name: 'Paolo', age: 78 }, { name: 'Giorgia', age: 18 }],
+  18: [{ name: 'Claudia', age: 54 }],
+  22: [{ name: 'Maria', age: 9 }, { name: 'Luigi', age: 67 }],
+  25: [{ name: 'Simone', age: 31 }],
+  26: [{ name: 'Marta', age: 46 }],
+};
+
+function renderDay(day) {
+  const date = day.getDate();
+  return (
+    <div>
+      {date}
+      <div className="Birthdays-List">
+        {birthdays[date] &&
+          birthdays[date].map((birthday, i) =>
+            <div key={i}>
+              🎁 {birthday.name} ({birthday.age})
+            </div>
+          )}
+      </div>
+    </div>
+  );
+}
+
+export default function Example() {
+  return (
+    <DayPicker
+      canChangeMonth={false}
+      className="Birthdays"
+      renderDay={renderDay}
+    />
+  );
 }
 
       ReactDOM.render(<Example />, document.getElementById('example'));
