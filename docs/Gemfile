@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
 gem "jekyll", "~>3.4"
+gem "execjs"
+gem "therubyracer"
 
 gem "redcarpet"
 
