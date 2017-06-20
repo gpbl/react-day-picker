@@ -40,7 +40,10 @@ jobs:
       - image: ruby
     steps:
       - checkout
-      - run: cd docs && bundle install
+      - run: apt-get install -y nodejs
+      - run: |
+          cd docs
+          bundle install
       - run: |
           cd docs
           export LC_ALL=C.UTF-8
