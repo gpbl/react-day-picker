@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "6.0.0",
+  "version": "6.0.2",
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "style": "lib/style.css",
@@ -23,7 +23,7 @@
     "test": "jest",
     "check": "npm run lint && npm run dtslint && npm run test",
     "prerelease": "npm run check && npm run build",
-    "build": "npm run build:node && npm run build:production && npm run build:development",
+    "build": "rimraf lib && npm run build:node && npm run build:production && npm run build:development",
     "build:node": "babel ./src -d ./lib/src --source-maps && npm run build:css",
     "build:development": "NODE_ENV=development webpack",
     "build:production": "NODE_ENV=production webpack -p",
@@ -108,7 +108,7 @@
     "react-test-renderer": "^15.6.1",
     "rimraf": "^2.6.1",
     "typescript": "^2.3.4",
-    "webpack": "^2.6.1"
+    "webpack": "^3.0.0"
   },
   "dependencies": {
     "object-assign": "^4.1.1",

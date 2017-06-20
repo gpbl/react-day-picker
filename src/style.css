@@ -1,6 +1,7 @@
 /* DayPicker styles */
 
 .DayPicker {
+  display: inline-block;
 }
 
 .DayPicker-wrapper {

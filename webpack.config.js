@@ -3,6 +3,7 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     daypicker: './DayPicker.dist.js',
   },

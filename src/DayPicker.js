@@ -13,7 +13,7 @@ import keys from './keys';
 import PropTypes, { ModifierPropType } from './PropTypes';
 
 export default class DayPicker extends Component {
-  static VERSION = '6.0.0';
+  static VERSION = '6.0.2';
 
   static propTypes = {
     // Rendering months
@@ -394,7 +394,9 @@ export default class DayPicker extends Component {
     if (modifiers.outside) {
       this.handleOutsideDayClick(day);
     }
-    this.props.onDayClick(day, modifiers, e);
+    if (this.props.onDayClick) {
+      this.props.onDayClick(day, modifiers, e);
+    }
   };
 
   handleOutsideDayClick(day) {

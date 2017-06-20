@@ -8,6 +8,12 @@ import keys from '../../src/keys';
 import { formatMonthTitle } from '../../src/LocaleUtils';
 
 describe('DayPicker’s events handlers', () => {
+  it('should not throw when onDayClick is not specified', () => {
+    const wrapper = mount(<DayPicker />);
+    expect(() => {
+      wrapper.find('.DayPicker-Day').at(10).simulate('click');
+    }).not.toThrow();
+  });
   it('should call the `onCaptionClick` handler', () => {
     const handleCaptionClick = jest.fn();
     const wrapper = mount(<DayPicker onCaptionClick={handleCaptionClick} />);
