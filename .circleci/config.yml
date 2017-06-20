@@ -38,18 +38,20 @@ jobs:
       - run: yarn dtslint
 
   test:
-    - attach_workspace:
-          at: .
+    <<: *defaults
     steps:
+      - attach_workspace:
+          at: .
       - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
       - store_test_results:
           path: reports/
 
   build_lib: 
-    attach_workspace:
-      at: .
+    <<: *defaults
     steps:
+      - attach_workspace:
+          at: .
       - run: yarn build
 
   # docs_publish:
