@@ -41,7 +41,7 @@ jobs:
     steps:
       - checkout
       - type: cache-restore
-        key: react-day-picker-{{ checksum "docs/Gemfile.lock" }}
+        key: react-day-picker-docs-{{ checksum "docs/Gemfile.lock" }}
       - run: npm install gh-pages
       - run: |
           cd docs
@@ -49,9 +49,9 @@ jobs:
           ls -lah
        # Store bundle cache
       - type: cache-save
-        key: react-day-picker-{{ checksum "docs/Gemfile.lock" }}
+        key: react-day-picker-docs-{{ checksum "docs/Gemfile.lock" }}
         paths:
-          - docs/vendor/bundle
+          - /usr/local/bundle
       - run: |
           cd docs
           export LC_ALL=C.UTF-8
