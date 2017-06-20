@@ -8,7 +8,7 @@ defaults: &defaults
 version: 2
     
 jobs:
-  checkout:
+  checkout-and-test:
     <<: *defaults
     steps:
       - checkout
@@ -20,33 +20,13 @@ jobs:
           paths:
             - "/usr/local/share/.cache/yarn"
             - "./node_modules"
-      - persist_to_workspace:
-          root: .
-  
-  lint_files:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
       - run: yarn lint -- --format junit --output-file reports/eslint.xml
-
-  lint_dts:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
       - run: yarn dtslint
-
-  test:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
       - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
-      - store_test_results:
-          path: reports/
-
+      - persist_to_workspace:
+          root: .
+      
   build_lib: 
     <<: *defaults
     steps:
@@ -54,27 +34,14 @@ jobs:
           at: .
       - run: yarn build
 
-  # docs_publish:
-  #   attach_workspace:
-  #     at: .
-  #   steps: 
-  #     - run: yarn docs:publish
-  #   persist_to_workspace: /workspace
-      
 workflows:
   version: 2
-  buildy:
+  build:
     jobs:
-      - checkout
-      - lint_files:
-          requires: 
-            - checkout
-      - lint_dts:
-          requires: 
-            - checkout
-      - test:
-          requires: 
-            - checkout
+      - checkout-and-test
       - build_lib:
           requires: 
-            - checkout
+            - checkout-and-test
+          filters:
+            branches:
+              only: dev   
