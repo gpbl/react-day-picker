@@ -35,11 +35,11 @@ jobs:
     steps: 
       - run: yarn docs:publish
       
-workflows: 
-  version: 2
-  build_and_test:
-    jobs:
-      - docs_publish:
-          filters:
-              branches:
-                only: master
+# workflows: 
+#   version: 2
+#   build_and_test:
+#     jobs:
+#       - docs_publish:
+#           filters:
+#               branches:
+#                 only: master
