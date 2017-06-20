@@ -8,7 +8,7 @@ defaults: &defaults
 version: 2
     
 jobs:
-  build:
+  checkout:
     <<: *defaults
     steps:
       - checkout
@@ -22,19 +22,6 @@ jobs:
             - "./node_modules"
       - persist_to_workspace:
           root: .
-  install_dependencies:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
-      - restore_cache:
-          key: yarn-{{ checksum "yarn.lock" }}
-      - run: yarn --pure-lockfile
-      - save_cache:
-          key: yarn-{{ checksum "yarn.lock" }}
-          paths:
-            - "/usr/local/share/.cache/yarn"
-            - "./node_modules"
   
   lint_files:
     <<: *defaults
@@ -74,10 +61,7 @@ workflows:
   version: 2
   buildy:
     jobs:
-      - build
-      - install_dependencies:
-          requires: 
-            - build
+      - checkout
       - lint_files:
           requires: 
             - install_dependencies
