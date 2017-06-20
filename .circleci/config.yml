@@ -18,12 +18,11 @@ jobs:
       - checkout
       - restore_cache:
           key: cache-project-v1-{{ checksum "yarn.lock" }}
-      - run: yarn --pure-lockfile
+      - run: yarn --pure-lockfile --cache-folder yarn-cache
       - save_cache:
           key: cache-project-v1-{{ checksum "yarn.lock" }}
           paths:
-            - "/usr/local/share/.cache/yarn"
-            - "./node_modules"
+            - ~/react-day-picker/yarn-cache
       - run: yarn lint -- --format junit --output-file reports/eslint.xml
       - run: yarn dtslint
       - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
@@ -54,7 +53,6 @@ jobs:
       - save_cache:
           key: cache-docs-{{ checksum "docs/Gemfile.lock" }}
           paths:
-            - "/usr/local/bundle"
             - "./node_modules"
       - run: |
           cd docs
