@@ -45,6 +45,7 @@ jobs:
           apt-get install -y nodejs
           apt-get install -y npm
           npm install gh-pages
+      - run: ls -lah 
       - run: |
           cd docs
           bundle install
@@ -53,7 +54,8 @@ jobs:
           export LC_ALL=C.UTF-8
           export LANG=en_US.UTF-8
           bundle exec jekyll build
-      - run: 
+      - run: |
+          ls -lah
           npm run docs:publish
 
 workflows:
