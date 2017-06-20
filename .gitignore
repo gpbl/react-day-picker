@@ -1,7 +1,5 @@
 bower_components
 node_modules
 npm-debug.log
-/examples/built
-/coverage
-_book
+coverage
 test-report.xml

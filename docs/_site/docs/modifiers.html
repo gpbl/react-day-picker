@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>react-day-picker - Matching days using modifiers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="">
+  <meta property="og:url" content="http://react-day-picker.js.org/docs/modifiers.html">
+  <meta property="og:image" content="">
+  <meta property="og:description" content="">
+
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="stylesheet" href="https://unpkg.com/react-day-picker@6/lib/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-diff.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+  <script src="https://unpkg.com/moment@2.14.1/min/moment.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://unpkg.com/react-day-picker@6/lib/daypicker.min.js"></script>
+  <script>
+    DayPickerInput = DayPicker.Input;
+    DateUtils = DayPicker.DateUtils;
+  </script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/prism.css">
+</head>
+
+<body>
+
+      <header>
+    <div class="wrap">
+      <a href="/" class="nav-home"><img src="/images/logo.png" alt="Home page" height="50" /></a>
+      <nav>
+        <ul>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/examples">Examples</a></li>
+          <li><a href="/changelog.html">v6.0.2</a></li>
+        </ul>
+        <ul class="nav-external">
+          <li><a class="nav-github" href="https://github.com/gpbl/react-day-picker">GitHub</a></li>
+          </ul>          
+      </nav>
+    </div>
+  </header>
+
+    <div class="container wrap">
+      <section class="content">
+  <nav class="nav-content">
+  <div class="sticky">
+    <h3>Guides</h3>
+    <ul>
+      <li>
+        <a href="/docs/index.html">Getting started</a>
+      </li>
+      <li>
+        <a href="/docs/modifiers.html">Matching days with modifiers</a>
+      </li>
+      <li>
+        <a href="/docs/input.html">Using the input field</a>
+      </li>
+      <li>
+        <a href="/docs/styling.html">Styling</a>
+      </li>
+      <li>
+        <a href="/docs/css-modules.html">Styling with CSS Modules</a>
+      </li>
+      <li>
+        <a href="/docs/localization.html">Localization</a>
+      </li>
+      <li>
+        <a href="/docs/localization-moment.html">Localization with moment</a>
+      </li>
+      <li>
+        <a href="/docs/localization-advanced.html">Advanced localization</a>
+      </li>
+    </ul>
+    <h3>API</h3>
+    <ul>
+      <li>
+        <a href="/docs/api.html">DayPicker</a>
+      </li>
+      <li>
+        <a href="/docs/api-input.html">DayPickerInput</a>
+      </li>
+      <li>
+        <a href="/docs/utils-date.html">DateUtils</a>
+      </li>
+      <li>
+        <a href="/docs/utils-locale.html">LocaleUtils</a>
+      </li>
+      <li>
+        <a href="/docs/utils-modifiers.html">ModifiersUtils</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <div class="inner-content">
+    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/docs/modifiers.md" target="_blank">Edit page</a>
+    <h1 class="inner-content-title">Matching days using modifiers</h1>
+    <p><em>Day modifiers</em> change the aspect of the day cells and allow you to customize the interaction with the calendar. When a modifier matches a specific day, its day cells receive a modifier CSS class, and its name is passed down to the event handlers.</p>
+
+<h2 id="type-of-modifier-matchers">Type of modifier matchers</h2>
+
+<p>The value of a modifier can be either:</p>
+
+<ul>
+  <li><strong>a <code class="highlighter-rouge">Date</code> object</strong>, to match a specific day</li>
+  <li>
+    <p><strong>a <code class="highlighter-rouge">range</code> object</strong> with <code class="highlighter-rouge">from</code> and <code class="highlighter-rouge">to</code> keys, to match a range of days:</p>
+
+    <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">range</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="na">from</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> 
+  <span class="na">to</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> 
+<span class="p">}</span>
+</code></pre>
+    </div>
+    <p>will match the days between the 12th and the 16th of January.</p>
+  </li>
+  <li>
+    <p><strong>an object with a <code class="highlighter-rouge">before</code> and/or <code class="highlighter-rouge">after</code> key</strong>, to match the days before and/or after the given date:</p>
+
+    <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">range</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="na">before</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+<span class="p">}</span>
+</code></pre>
+    </div>
+    <p>The code above will match all the past the days (i.e. the days before today).</p>
+
+    <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">range</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="na">after</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> 
+<span class="p">}</span>
+</code></pre>
+    </div>
+
+    <p>The code above will match all the days after the January, 1st 2018.</p>
+
+    <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">range</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="na">after</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> 
+  <span class="na">before</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> 
+<span class="p">}</span>
+</code></pre>
+    </div>
+
+    <p>The code above will match all the days between the 30th and the 20th of April 2018.</p>
+  </li>
+  <li>
+    <p><strong>an object with a <code class="highlighter-rouge">daysOfWeek</code> array</strong>, to match specific days of week:</p>
+
+    <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">weekends</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="na">daysOfWeek</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+<span class="p">}</span>
+</code></pre>
+    </div>
+
+    <p>will match all the Sundays (<code class="highlighter-rouge">0</code>) and Saturdays (<code class="highlighter-rouge">6</code>)</p>
+  </li>
+  <li>
+    <p><strong>a function</strong> taking the day as first argument and return a boolean value. For example:</p>
+
+    <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sundays</span><span class="p">(</span><span class="nx">day</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">day</span><span class="p">.</span><span class="nx">getDay</span><span class="p">()</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">isFirstOfMonth</span><span class="p">(</span><span class="nx">day</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">day</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">===</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+    </div>
+    <p>are all valid modifiers.</p>
+  </li>
+  <li><strong>an array of the above</strong></li>
+</ul>
+
+<h2 id="examples">Examples</h2>
+
+<p>A CSS modifier (as in <a href="https://css-tricks.com/bem-101/">BEM-like syntax</a>) is added to each day cell when a day matches a modifier. You set the day modifiers with the <code class="highlighter-rouge">selectedDay</code>, <code class="highlighter-rouge">disabledDays</code> or <code class="highlighter-rouge">modifiers</code> props. Examples:</p>
+
+<ul>
+  <li>
+    <p>To add a <code class="highlighter-rouge">.DayPicker-Day--selected</code> CSS class to the February, 12th 2017 cell:</p>
+
+    <pre><code class="language-jsx">&lt;DayPicker selectedDays={ new Date(2017, 1, 12) } /&gt;
+</code></pre>
+  </li>
+  <li>
+    <p>To add a <code class="highlighter-rouge">.DayPicker-Day--disabled</code> to the 4th and 7th of February 2017</p>
+
+    <pre><code class="language-jsx">&lt;DayPicker disabledDays={ [new Date(2017, 2, 4), new Date(2017, 2, 7)] } /&gt;
+</code></pre>
+  </li>
+  <li>
+    <p>Beside <code class="highlighter-rouge">disabled</code> or <code class="highlighter-rouge">selected</code>, you can pass any modifier you prefer. For example, to set <code class="highlighter-rouge">.DayPicker-Day--past</code> to the days in the past:</p>
+
+    <pre><code class="language-jsx">&lt;DayPicker 
+  modifiers={ { 
+    past: { before: new Date() } 
+  } }
+/&gt;
+</code></pre>
+  </li>
+  <li>
+    <p>You pass more day modifiers using the <code class="highlighter-rouge">modifiers</code> prop:</p>
+
+    <pre><code class="language-jsx">&lt;DayPicker 
+  modifiers={ { 
+    special: new Date(2018, 11, 11),
+      
+    booked: { 
+      from: new Date(2017, 1, 11), 
+      to: new Date(2017, 2, 23) 
+    },
+      
+    holiday: [
+      new Date(2018, 11, 25), 
+      new Date(2018, 10, 31),
+      { from: new Date(2018, 06, 10), to: new Date(2018, 06, 20) }
+    ],
+
+    sunday: { daysOfWeek: [0] }, 
+      
+    firstOfMonth: day =&gt; day.getDate() === 1,
+  } }
+/&gt;
+</code></pre>
+  </li>
+</ul>
+
+<h3 id="shortcuts-for-selected-and-disabled-modifiers">Shortcuts for <code class="highlighter-rouge">selected</code> and <code class="highlighter-rouge">disabled</code> modifiers</h3>
+
+<p>Under the hood, the <code class="highlighter-rouge">selectedDays</code> and <code class="highlighter-rouge">disabledDays</code> props act as shortcut for the <code class="highlighter-rouge">selected</code> and a <code class="highlighter-rouge">disabled</code> modifiers. The following renders the same calendar:</p>
+
+<pre><code class="language-jsx">function isFirstOfMonth(day) {
+  return day.getDate() === 1;
+}
+
+&lt;DayPicker disabledDays={ sundays } selectedDays={ isFirstOfMonth } /&gt;
+
+&lt;DayPicker 
+  modifiers={ { 
+    disabled: { daysOfWeek: [0] }, 
+    selected: isFirstOfMonth 
+  }} 
+/&gt;
+</code></pre>
+
+<h2 id="accessing-modifiers-from-event-handlers">Accessing modifiers from event handlers</h2>
+
+<p>Modifiers are passed as argument to the event handlers:</p>
+
+<pre><code class="language-jsx">function handleDayClick(day, modifiers) {
+  if (modifiers.sundays) {
+    console.log('Sunday has been clicked')
+  }
+}
+
+function handleDayMouseEnter(day, { isFirstOfMonth, disabled }) {
+  if (isFirstOfMonth) {
+    console.log('The first day of month received mouse enter')
+  }
+  if (disabled) {
+    console.log('This day is disabled')
+  }
+}
+
+&lt;DayPicker
+  disabledDays={ new Date(2015, 0, 12) }
+  modifiers={ { sundays, isFirstOfMonth } }
+  onDayClick={ handleDayClick }
+  onDayMouseEnter={ handleDayMouseEnter }
+/&gt;
+</code></pre>
+
+<h3 id="use-dateutils-to-create-modifiers">Use DateUtils to create modifiers</h3>
+
+<p>react-day-picker includes <a href="/docs/utils-date.html">DateUtils</a>, a small function library useful to simplify the creation of advanced modifiers.</p>
+
+  </div>
+
+</section>
+    </div> 
+
+    <footer>
+  <div class="footer-content wrap">
+    <section class="footer-logo">
+      <div>
+        <a href="/" class="nav-home"><img src="/images/logo.png" alt="Home page" height="40" /></a>
+      </div>
+      <p>
+        Licensed under the <a href="https://github.com/gpbl/react-day-picker/blob/master/LICENSE">MIT License</a>.
+      </p>
+      <p>
+        Created by <a href="https://github.com/gpbl">gpbl</a> and <a href="https://github.com/gpbl/react-day-picker/graphs/contributors">contributors</a>.
+      </p>
+    </section>
+    <section>
+      <h4>😫 Get support</h4>
+
+      <p>Ask on <a href="http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest">Stack Overflow</a> (tag with <code>react-day-picker</code>) or join the <a href="https://gitter.im/gpbl/react-day-picker">Gitter room</a> to talk with other developers</p>
+
+      <p>Please fork <a href="https://codesandbox.io/s/XDAE3x0W8">this codesandbox</a> to reproduce your issue.</p>
+
+    </section>
+
+    <section>
+      <h4>❤️ Contribute</h4>
+      <p>
+        File bugs and feature requests in the <a href="https://github.com/gpbl/react-day-picker/issues">issues page</a>. Fork the <a href="https://github.com/gpbl/react-day-picker">GitHub repo</a> to open a nice PR.
+      </p>
+    </section>
+  </div>
+
+</footer>
+    
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68185118-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+
+</html>
