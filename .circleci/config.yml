@@ -38,6 +38,8 @@ jobs:
     working_directory: /react-day-picker
     docker:
       - image: ruby
+        environment:
+          LC_ALL: "en_US.UTF-8"
     steps:
       - checkout
       - run: cd docs && bundle install
