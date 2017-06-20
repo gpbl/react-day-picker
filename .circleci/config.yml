@@ -45,6 +45,7 @@ jobs:
           apt-get install -y nodejs
           apt-get install -y npm
           npm install gh-pages
+          ln -s /usr/bin/nodejs /usr/bin/node
       - run: ls -lah 
       - run: |
           cd docs
