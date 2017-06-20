@@ -40,6 +40,7 @@ jobs:
       - image: mwallasch/docker-ruby-node
     steps:
       - checkout
+      - run: npm install gh-pages
       - run: |
           cd docs
           bundle install
