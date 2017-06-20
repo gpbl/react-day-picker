@@ -46,6 +46,7 @@ jobs:
       - run: |
           cd docs
           bundle install
+          ls -lah
        # Store bundle cache
       - type: cache-save
         key: react-day-picker-{{ checksum "docs/Gemfile.lock" }}
