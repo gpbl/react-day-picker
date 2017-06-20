@@ -18,7 +18,7 @@
 .hero h1 {
   font-size: 2rem;
   font-weight: 300;
-  margin-bottom: 0;
+  margin-bottom: .1em;
 }
 
 .hero h2 {
