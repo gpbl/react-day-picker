@@ -54,7 +54,7 @@ jobs:
           export LANG=en_US.UTF-8
           bundle exec jekyll build
       - run: 
-          yarn docs:publish
+          npm run docs:publish
 
 workflows:
   version: 2
