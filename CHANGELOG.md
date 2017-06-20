@@ -1,3 +1,5 @@
+<a class="anchor" name="v6"></a>
+
 # [v6.0.0](https://github.com/gpbl/react-day-picker/tree/v6.0.0) (2017-06-16)
 
 This major release focuses on performance, improves accessibility and fixes some bugs. There are some possible breaking changes, but they are easy to fix (read below).
@@ -59,8 +61,8 @@ These changes applies to the production build from the `lib` dir (e.g. that serv
 
   Use `<DayPicker.Input />` to render the input component.
 
-
 ---
+<a class="anchor" name="v5"></a>
 
 ### [v5.5.3](https://github.com/gpbl/react-day-picker/tree/v5.5.3) (2017-05-25)
 
@@ -193,9 +195,10 @@ This release focuses on improving perfomance and the component's API.
   ```
 
 ---
+<a class="anchor" name="v4"></a>
 
 # [v4.0.0](https://github.com/gpbl/react-day-picker/tree/v4.0.0) (2017-02-10)
-
+<a class="anchor" name="v4"></a>
 * Pass the day's modifiers to the `renderDay` prop function ([#237](https://github.com/gpbl/react-day-picker/issues/237))
 
 * **Breaking change** Updating `initialMonth` will not show anymore a different month after the first mount ([#169](https://github.com/gpbl/react-day-picker/issues/169))
@@ -216,6 +219,7 @@ This release focuses on improving perfomance and the component's API.
   ```
 
 ---
+<a class="anchor" name="v3"></a>
 
 ### [v3.1.1](https://github.com/gpbl/react-day-picker/tree/v3.1.1) (2016-10-18)
 
@@ -245,19 +249,16 @@ With these new props you can localize the Day Picker in a more declarative way. 
 For any locale, weekday names must now begin from Sunday, and the first day of week should reflect this change (hence to start from Monday, the first day of week is `1`). See this [diff](https://github.com/gpbl/react-day-picker/commit/e1462b3818e0a56c24cbcdeb9dba52da8cd8ff72?diff=unified) as example.
   
 ---
+<a class="anchor" name="v2"></a>
 
 ## [v2.5.0](https://github.com/gpbl/react-day-picker/tree/v2.5.0) (2016-10-06)
 
 * Build dist files as UMD module ([#216](https://github.com/gpbl/react-day-picker/pull/216) by [pguimera](https://github.com/pguimera)).
 
----
-
 ## [v2.4.0](https://github.com/gpbl/react-day-picker/tree/v2.4.0) (2016-07-31)
 
 * Added `pageNavigation` prop ([#196](https://github.com/gpbl/react-day-picker/pull/196) by [zaygraveyard](https://github.com/zaygraveyard)).
 * Improved behavior of `initialMonth` ([#198](https://github.com/gpbl/react-day-picker/pull/198) by [zaygraveyard](https://github.com/zaygraveyard)).
-
----
 
 ### [v2.3.3](https://github.com/gpbl/react-day-picker/tree/v2.3.3) (2016-07-04)
 
@@ -281,14 +282,10 @@ Removed superfluous deprecation warnings.
 + <DayPicker navbarElement={ <MyCustomNavbar/> } weekdayElement={ <MyCustomWeekday /> } />
 ```
 
----
-
 ## [v2.2.0](https://github.com/gpbl/react-day-picker/tree/v2.2.0) (2016-06-09)
 
 Added `fixedWeeks` prop ([#176](https://github.com/gpbl/react-day-picker/pull/176) by [fcsonline](https://github.com/fcsonline)).
  Use this prop to always display 6 weeks per month: [example](http://react-day-picker.js.org/examples/?fixedWeeks).
-
----
 
 ### [v2.1.1](https://github.com/gpbl/react-day-picker/tree/v2.1.1) (2016-06-06)
 
@@ -300,8 +297,6 @@ Fixed compatibility with IE11 ([#175](https://github.com/gpbl/react-day-picker/p
  Use this prop to use a custom component for rendering the weekday cells in the header.
 * Added [`navbarComponent`](http://react-day-picker.js.org/DayPickerAPI.html#navbarcomponent-component) prop ([#173](https://github.com/gpbl/react-day-picker/pull/173) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)).
  Use this prop to use a custom component for rendering the navigation bar.
-
----
 
 ### [v2.0.3](https://github.com/gpbl/react-day-picker/tree/v2.0.3) (2016-05-24)
 
@@ -406,6 +401,7 @@ If you have issues or suggestions, don't forget the [Gitter room](https://gitter
 * Navigation with keyboard when using `fromMonth` or `endMonth`
 
 ---
+<a class="anchor" name="v1"></a>
 
 ### [v1.3.2](https://github.com/gpbl/react-day-picker/tree/v1.3.12) (2016-04-10)
 
@@ -424,8 +420,6 @@ Fixes an issue causing className being overwritten by `className` prop ([\#137](
 * HTML props are spread to container tag, so to support `onBlur`, `onFocus`, etc. ([#122](https://github.com/gpbl/react-day-picker/issues/122), [#123](https://github.com/gpbl/react-day-picker/issues/123))
 * Better RTL support for month navigation ([#125](https://github.com/gpbl/react-day-picker/issues/125))
 
----
-
 ## [v1.2.0](https://github.com/gpbl/react-day-picker/tree/v1.2.0) (2015-12-04)
 
 **New features**
@@ -443,8 +437,6 @@ Fixes an issue causing className being overwritten by `className` prop ([\#137](
 * Make the component working again with React ~0.13 ([#108](https://github.com/gpbl/react-day-picker/issues/108))
 * Fix a bug when clicking on outside days when `fromMonth` or `toMonth` were set ([#97](https://github.com/gpbl/react-day-picker/issues/97))
 * Replace a wrong `attr` tag with the right `abbr` in the weekdays row – https://github.com/gpbl/react-day-picker/issues/33#issuecomment-159751186. ⚠️ Please note that the component may now use the CSS defined for `abbr` tags.
-
----
 
 ### [v1.1.5](https://github.com/gpbl/react-day-picker/tree/v1.1.5) (2015-11-20)
 
@@ -472,8 +464,6 @@ Minor changes when importing utilities
 * New `fromMonth` and `toMonth` props. Use the [`fromMonth`](http://react-day-picker.js.org/DayPickerAPI.html#frommonth-date) and [`toMonth`](http://react-day-picker.js.org/DayPickerAPI.html#tomonth-date) props to restrict the months within which the calendar can work. See [this example](http://react-day-picker.js.org/examples?restricted).
 * `dateUtils` includes some useful function to set custom modifiers
 * `localeUtils ` are the default functions used to localize the Day Picker in english. See https://github.com/gpbl/react-day-picker/issues/46#issuecomment-153498039 for a sample usage of this library.
-
----
 
 ### [v1.0.10](https://github.com/gpbl/react-day-picker/tree/v1.0.10) (2015-10-15)
 
