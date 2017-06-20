@@ -43,6 +43,7 @@ jobs:
       - run: |
           apt-get update
           apt-get install -y nodejs
+          apt-get install -y npm
           npm install gh-pages
       - run: |
           cd docs
