@@ -118,7 +118,7 @@
 
 <ul>
   <li>Allow <code class="highlighter-rouge"><span class="p">{</span><span class="err">after,</span><span class="w"> </span><span class="err">before</span><span class="p">}</span></code> modifiers in the same object (<a href="https://github.com/gpbl/react-day-picker/issues/354">#354</a>). You can now write before/after modifiers such as <code class="highlighter-rouge">disabledDays={ { before: aDate, after: aDate }}</code>.</li>
-  <li><strong>DayPickerInput</strong>: added <a href="http://react-day-picker.js.org/DayPickerInputAPI.html#clickunselectsday"><code class="highlighter-rouge">clickUnselectsDay</code></a> prop to unselect and clear the input when clicking on a previously selected day (<a href="https://github.com/gpbl/react-day-picker/issues/399">#399</a>)</li>
+  <li><strong>DayPickerInput</strong>: added <a href="http://react-day-picker.js.org/docs/api-input.html#clickunselectsday"><code class="highlighter-rouge">clickUnselectsDay</code></a> prop to unselect and clear the input when clicking on a previously selected day (<a href="https://github.com/gpbl/react-day-picker/issues/399">#399</a>)</li>
 </ul>
 
 <p><strong>Bug fixes</strong></p>
@@ -158,20 +158,20 @@
 
 <p>Use the <code class="highlighter-rouge">DayPickerInput</code> component to render an input field interacting with the day picker (<a href="https://github.com/gpbl/react-day-picker/issues/213">#213</a>).</p>
 
-<p>See <a href="http://react-day-picker.js.org/examples/?input">example</a>, <a href="http://react-day-picker.js.org/Input.html">docs</a> and <a href="http://react-day-picker.js.org/DayPickerInputAPI.html">API reference</a>.</p>
+<p>See <a href="http://react-day-picker.js.org/examples/input.html">example</a>, <a href="http://react-day-picker.js.org/docs/input.html">docs</a> and <a href="http://react-day-picker.js.org/docs/api-input.html">API reference</a>.</p>
 
 <p><strong>New features</strong></p>
 
 <ul>
   <li>
-    <p>New <a href="http://react-day-picker.js.org/DayPickerAPI.html#todaybutton"><code class="highlighter-rouge">todayButton</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/issues/329">#329</a>).</p>
+    <p>New <a href="http://react-day-picker.js.org/docs/api.html#todaybutton"><code class="highlighter-rouge">todayButton</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/issues/329">#329</a>).</p>
 
-    <p>Use this prop to display a button on the calendar’s footer to switch to the current month (<a href="http://react-day-picker.js.org/examples/?todayButton">example</a>).</p>
+    <p>Use this prop to display a button on the calendar’s footer to switch to the current month (<a href="http://react-day-picker.js.org/examples/customization-today-button.html">example</a>).</p>
   </li>
   <li>
-    <p>New <a href="http://react-day-picker.js.org/DayPickerAPI.html#showweekdays"><code class="highlighter-rouge">showWeekDays</code></a> and <a href="http://react-day-picker.js.org/DayPickerAPI.html#onweekclick"><code class="highlighter-rouge">onWeekClick</code></a> props  (<a href="https://github.com/gpbl/react-day-picker/issues/304">#304</a>).</p>
+    <p>New <a href="http://react-day-picker.js.org/docs/api.html#showweekdays"><code class="highlighter-rouge">showWeekDays</code></a> and <a href="http://react-day-picker.js.org/docs/api.html#onweekclick"><code class="highlighter-rouge">onWeekClick</code></a> props  (<a href="https://github.com/gpbl/react-day-picker/issues/304">#304</a>).</p>
 
-    <p>Use this props to display and interact with the year’s week numbers (<a href="http://react-day-picker.js.org/examples/?weekNumbers">example</a>).</p>
+    <p>Use this props to display and interact with the year’s week numbers (<a href="http://react-day-picker.js.org/examples/customization-week-numbers.html">example</a>).</p>
   </li>
   <li>
     <p>New <code class="highlighter-rouge">daysOfWeek</code> <a href="http://react-day-picker.js.org/Modifiers.html">modifiers type</a> to match days of the weeks (<a href="https://github.com/gpbl/react-day-picker/issues/330">#330</a>).</p>
@@ -215,7 +215,7 @@
 
 <ul>
   <li>Include Typescript Type Definitions (<a href="https://github.com/gpbl/react-day-picker/pull/303">#303</a>)</li>
-  <li>Add a new <a href="http://react-day-picker.js.org/DayPickerAPI.html#modifiersstyles"><code class="highlighter-rouge">modifiersStyles</code></a> prop to add inline style to the days matching the given modifiers (see <a href="http://react-day-picker.js.org/DayPickerAPI.html#modifiersstyles"><code class="highlighter-rouge">example</code></a>).</li>
+  <li>Add a new <a href="http://react-day-picker.js.org/docs/api.html#modifiersstyles"><code class="highlighter-rouge">modifiersStyles</code></a> prop to add inline style to the days matching the given modifiers (see <a href="http://react-day-picker.js.org/docs/api.html#modifiersstyles"><code class="highlighter-rouge">example</code></a>).</li>
   <li>Add <code class="highlighter-rouge">isDayBefore</code>, <code class="highlighter-rouge">isDayAfter</code> functions to <a href="http://react-day-picker.js.org/DateUtils.html">DateUtils</a>.</li>
 </ul>
 
@@ -237,7 +237,7 @@
 <ul>
   <li>Allow overriding <code class="highlighter-rouge">today</code> modifier (<a href="https://github.com/gpbl/react-day-picker/pull/279">#279</a> by <a href="https://github.com/maxdubrinsky">maxdubrinsky</a>)</li>
   <li>
-    <p>Pass React Components to <a href="http://react-day-picker.js.org/DayPickerAPI.html#navBarElement"><code class="highlighter-rouge">navBarElement</code></a>, <a href="http://react-day-picker.js.org/DayPickerAPI.html#captionElement"><code class="highlighter-rouge">captionElement</code></a>, <a href="http://react-day-picker.js.org/DayPickerAPI.html#weekdayElement"><code class="highlighter-rouge">weekdayElement</code></a> (<a href="https://github.com/gpbl/react-day-picker/pull/280">#280</a> by <a href="https://github.com/cwmoo740">cwmoo740</a>)</p>
+    <p>Pass React Components to <a href="http://react-day-picker.js.org/docs/api.html#navBarElement"><code class="highlighter-rouge">navBarElement</code></a>, <a href="http://react-day-picker.js.org/docs/api.html#captionElement"><code class="highlighter-rouge">captionElement</code></a>, <a href="http://react-day-picker.js.org/docs/api.html#weekdayElement"><code class="highlighter-rouge">weekdayElement</code></a> (<a href="https://github.com/gpbl/react-day-picker/pull/280">#280</a> by <a href="https://github.com/cwmoo740">cwmoo740</a>)</p>
   </li>
   <li>Fixed <code class="highlighter-rouge">aria</code> roles for weekdays and months HTML elements (<a href="https://github.com/gpbl/react-day-picker/pull/276">#276</a> by <a href="https://github.com/oigewan">oigewan</a>)</li>
 </ul>
@@ -253,17 +253,17 @@
 
 <ul>
   <li>
-    <p>New <a href="http://react-day-picker.js.org/DayPickerAPI.html#classnames"><code class="highlighter-rouge">classNames</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/issues/264">#264</a>).</p>
+    <p>New <a href="http://react-day-picker.js.org/docs/api.html#classnames"><code class="highlighter-rouge">classNames</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/issues/264">#264</a>).</p>
 
-    <p>Use this prop to change the CSS class names or add support for CSS modules (<a href="https://github.com/gpbl/react-day-picker/issues/73">#73</a>, see <a href="http://react-day-picker.js.org/examples?cssModules">this example</a>).</p>
+    <p>Use this prop to change the CSS class names or add support for CSS modules (<a href="https://github.com/gpbl/react-day-picker/issues/73">#73</a>, see <a href="http://react-day-picker.js.org/docs/css-modules.html">this example</a>).</p>
   </li>
   <li>
-    <p>New <a href="http://react-day-picker.js.org/DayPickerAPI.html#month"><code class="highlighter-rouge">month</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/issues/263">#263</a>).</p>
+    <p>New <a href="http://react-day-picker.js.org/docs/api.html#month"><code class="highlighter-rouge">month</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/issues/263">#263</a>).</p>
 
     <p>This differs from the <code class="highlighter-rouge">initialMonth</code> props as it causes the calendar to re-render when its value changes.</p>
   </li>
   <li>
-    <p>Add <code class="highlighter-rouge">aria-label</code> attributes to the navigation bar with the new <a href="http://react-day-picker.js.org/DayPickerAPI.html#labels"><code class="highlighter-rouge">labels</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/issues/258">#258</a>).</p>
+    <p>Add <code class="highlighter-rouge">aria-label</code> attributes to the navigation bar with the new <a href="http://react-day-picker.js.org/docs/api.html#labels"><code class="highlighter-rouge">labels</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/issues/258">#258</a>).</p>
   </li>
 </ul>
 
@@ -304,7 +304,7 @@
     </div>
   </li>
   <li>
-    <p><strong>Breaking change</strong> Use <a href="http://react-day-picker.js.org/DayPickerAPI.html#containerprops"><code class="highlighter-rouge">containerProps</code></a> to pass props to the container <code class="highlighter-rouge">div</code> element. Before, any prop was passed to the container element degrading performance (<a href="https://github.com/gpbl/react-day-picker/issues/255">#255</a>):</p>
+    <p><strong>Breaking change</strong> Use <a href="http://react-day-picker.js.org/docs/api.html#containerprops"><code class="highlighter-rouge">containerProps</code></a> to pass props to the container <code class="highlighter-rouge">div</code> element. Before, any prop was passed to the container element degrading performance (<a href="https://github.com/gpbl/react-day-picker/issues/255">#255</a>):</p>
 
     <div class="language-diff highlighter-rouge"><pre class="highlight"><code>&lt;DayPicker 
 <span class="gd">-    data-thing="foo" 
@@ -327,7 +327,7 @@
   <li>
     <p><strong>Breaking change</strong> Updating <code class="highlighter-rouge">initialMonth</code> will not show anymore a different month after the first mount (<a href="https://github.com/gpbl/react-day-picker/issues/169">#169</a>)</p>
 
-    <p>If you need the calendar to display a different month, use the <a href="http://react-day-picker.js.org/DayPickerAPI.html#month"><code class="highlighter-rouge">month</code></a> prop.</p>
+    <p>If you need the calendar to display a different month, use the <a href="http://react-day-picker.js.org/docs/api.html#month"><code class="highlighter-rouge">month</code></a> prop.</p>
   </li>
   <li>
     <p><strong>Breaking change</strong> Use <code class="highlighter-rouge">lang</code> HTML attribute instead of a specific CSS class name.</p>
@@ -435,9 +435,9 @@ if you are styling the calendar for the <code class="highlighter-rouge">de</code
 <h2 id="v210-2016-06-02"><a href="https://github.com/gpbl/react-day-picker/tree/v2.1.0">v2.1.0</a> (2016-06-02)</h2>
 
 <ul>
-  <li>Added <a href="http://react-day-picker.js.org/DayPickerAPI.html#weekdaycomponent-component"><code class="highlighter-rouge">weekdayComponent</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/pull/172">#172</a> by <a href="https://github.com/stanislav-ermakov-roi">stanislav-ermakov-roi</a>).
+  <li>Added <a href="http://react-day-picker.js.org/docs/api.html#weekdaycomponent-component"><code class="highlighter-rouge">weekdayComponent</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/pull/172">#172</a> by <a href="https://github.com/stanislav-ermakov-roi">stanislav-ermakov-roi</a>).
  Use this prop to use a custom component for rendering the weekday cells in the header.</li>
-  <li>Added <a href="http://react-day-picker.js.org/DayPickerAPI.html#navbarcomponent-component"><code class="highlighter-rouge">navbarComponent</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/pull/173">#173</a> by <a href="https://github.com/stanislav-ermakov-roi">stanislav-ermakov-roi</a>).
+  <li>Added <a href="http://react-day-picker.js.org/docs/api.html#navbarcomponent-component"><code class="highlighter-rouge">navbarComponent</code></a> prop (<a href="https://github.com/gpbl/react-day-picker/pull/173">#173</a> by <a href="https://github.com/stanislav-ermakov-roi">stanislav-ermakov-roi</a>).
  Use this prop to use a custom component for rendering the navigation bar.</li>
 </ul>
 
@@ -510,16 +510,16 @@ If you have issues or suggestions, don’t forget the <a href="https://gitter.im
 <p>This affects code using <code class="highlighter-rouge">require('react-day-picker').default</code> or similar syntax, which was required for v1.3.0. Now you can <code class="highlighter-rouge">require('react-day-picker')</code> as usual, i.e. without specifying <code class="highlighter-rouge">default</code>. If you are using ES2015 modules <code class="highlighter-rouge">import DayPicker from 'react-day-picker'</code>, this change shouldn’t affect you.</p>
 
 <ul>
-  <li>New <code class="highlighter-rouge">formatDay</code> function in <a href="http://react-day-picker.js.org/LocaleUtils.html">LocaleUtils</a>.</li>
+  <li>New <code class="highlighter-rouge">formatDay</code> function in <a href="http://react-day-picker.js.org/docs/utils-locale.html">LocaleUtils</a>.</li>
 </ul>
 
-<p>If you are using your <a href="http://react-day-picker.js.org/LocalizationAdvanced.html">custom LocaleUtils</a> to localize the calendar, you need to implement this function as well, which is required to format the newly added <a href="https://github.com/gpbl/react-day-picker/pull/132">aria-label attribute</a> (see the <a href="http://react-day-picker.js.org/LocalizationAdvanced.html">documentation</a> for an example). If you are localizing <a href="http://react-day-picker.js.org/LocalizationMoment.html">using moment</a>, this change shouldn’t affect you.</p>
+<p>If you are using your <a href="http://react-day-picker.js.org/docs/localization-advanced.html">custom LocaleUtils</a> to localize the calendar, you need to implement this function as well, which is required to format the newly added <a href="https://github.com/gpbl/react-day-picker/pull/132">aria-label attribute</a> (see the <a href="http://react-day-picker.js.org/docs/localization-advanced.html">documentation</a> for an example). If you are localizing <a href="http://react-day-picker.js.org/docs/localization-moment.html">using moment</a>, this change shouldn’t affect you.</p>
 
 <p><strong>New props</strong></p>
 
 <ul>
   <li>
-    <p>New <a href="http://react-day-picker.js.org/DayPickerAPI.html#disabledays-prop"><code class="highlighter-rouge">disabledDays</code></a> and <a href="http://react-day-picker.js.org/DayPickerAPI.html#disabledays-prop"><code class="highlighter-rouge">selectedDays</code></a> props. They receive a function <code class="highlighter-rouge">(day) =&gt; Bool</code> as value to easily define which day should have the <code class="highlighter-rouge">selected</code> or <code class="highlighter-rouge">disabled</code> modifiers. See <a href="https://github.com/gpbl/react-day-picker/issues/34">#34</a> for more details.</p>
+    <p>New <a href="http://react-day-picker.js.org/docs/api.html#disabledays-prop"><code class="highlighter-rouge">disabledDays</code></a> and <a href="http://react-day-picker.js.org/docs/api.html#disabledays-prop"><code class="highlighter-rouge">selectedDays</code></a> props. They receive a function <code class="highlighter-rouge">(day) =&gt; Bool</code> as value to easily define which day should have the <code class="highlighter-rouge">selected</code> or <code class="highlighter-rouge">disabled</code> modifiers. See <a href="https://github.com/gpbl/react-day-picker/issues/34">#34</a> for more details.</p>
 
     <p>So if you were writing something like:</p>
 
@@ -541,8 +541,8 @@ If you have issues or suggestions, don’t forget the <a href="https://gitter.im
 </span></code></pre>
     </div>
   </li>
-  <li>Added <a href="http://react-day-picker.js.org/DayPickerAPI.html#reversemonths-prop"><code class="highlighter-rouge">reverseMonths</code></a> prop to render the most recent month first. (<a href="https://github.com/gpbl/react-day-picker/pull/141">#147</a> by <a href="sonrtomas">sonrtomas</a>)</li>
-  <li>Added <a href="http://react-day-picker.js.org/DayPickerAPI.html#ondaykeydown-prop"><code class="highlighter-rouge">onDayKeyDown</code></a>, <a href="http://react-day-picker.js.org/DayPickerAPI.html#ondaytouchstart-prop"><code class="highlighter-rouge">onDayTouchStart</code></a>, <a href="http://react-day-picker.js.org/DayPickerAPI.html#ondaytouchend-prop"><code class="highlighter-rouge">onDayTouchEnd</code></a> props.</li>
+  <li>Added <a href="http://react-day-picker.js.org/docs/api.html#reversemonths-prop"><code class="highlighter-rouge">reverseMonths</code></a> prop to render the most recent month first. (<a href="https://github.com/gpbl/react-day-picker/pull/141">#147</a> by <a href="sonrtomas">sonrtomas</a>)</li>
+  <li>Added <a href="http://react-day-picker.js.org/docs/api.html#ondaykeydown-prop"><code class="highlighter-rouge">onDayKeyDown</code></a>, <a href="http://react-day-picker.js.org/docs/api.html#ondaytouchstart-prop"><code class="highlighter-rouge">onDayTouchStart</code></a>, <a href="http://react-day-picker.js.org/docs/api.html#ondaytouchend-prop"><code class="highlighter-rouge">onDayTouchEnd</code></a> props.</li>
 </ul>
 
 <p><strong>Improvements</strong></p>
@@ -588,7 +588,7 @@ If you have issues or suggestions, don’t forget the <a href="https://gitter.im
 <p><strong>New features</strong></p>
 
 <ul>
-  <li>Use a custom caption element with the new <a href="http://react-day-picker.js.org/DayPickerAPI.html#captionelement-element"><code class="highlighter-rouge">captionElement</code></a> prop. A custom caption element is useful, for example, to create a year/month navigation as shown in <a href="http://react-day-picker.js.org/examples?yearNavigation">this example</a>. Read <a href="https://github.com/gpbl/react-day-picker/issues/52">#52</a> for a discussion about this feature.</li>
+  <li>Use a custom caption element with the new <a href="http://react-day-picker.js.org/docs/api.html#captionelement-element"><code class="highlighter-rouge">captionElement</code></a> prop. A custom caption element is useful, for example, to create a year/month navigation as shown in <a href="http://react-day-picker.js.org/examples?yearNavigation">this example</a>. Read <a href="https://github.com/gpbl/react-day-picker/issues/52">#52</a> for a discussion about this feature.</li>
 </ul>
 
 <p><strong>Improvements</strong></p>
@@ -633,7 +633,7 @@ If you have issues or suggestions, don’t forget the <a href="https://gitter.im
 <p><strong>New features</strong></p>
 
 <ul>
-  <li>New <code class="highlighter-rouge">fromMonth</code> and <code class="highlighter-rouge">toMonth</code> props. Use the <a href="http://react-day-picker.js.org/DayPickerAPI.html#frommonth-date"><code class="highlighter-rouge">fromMonth</code></a> and <a href="http://react-day-picker.js.org/DayPickerAPI.html#tomonth-date"><code class="highlighter-rouge">toMonth</code></a> props to restrict the months within which the calendar can work. See <a href="http://react-day-picker.js.org/examples?restricted">this example</a>.</li>
+  <li>New <code class="highlighter-rouge">fromMonth</code> and <code class="highlighter-rouge">toMonth</code> props. Use the <a href="http://react-day-picker.js.org/docs/api.html#frommonth-date"><code class="highlighter-rouge">fromMonth</code></a> and <a href="http://react-day-picker.js.org/docs/api.html#tomonth-date"><code class="highlighter-rouge">toMonth</code></a> props to restrict the months within which the calendar can work. See <a href="http://react-day-picker.js.org/examples?restricted">this example</a>.</li>
   <li><code class="highlighter-rouge">dateUtils</code> includes some useful function to set custom modifiers</li>
   <li><code class="highlighter-rouge">localeUtils </code> are the default functions used to localize the Day Picker in english. See https://github.com/gpbl/react-day-picker/issues/46#issuecomment-153498039 for a sample usage of this library.</li>
 </ul>
