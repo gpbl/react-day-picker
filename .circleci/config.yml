@@ -20,10 +20,10 @@ jobs:
           paths:
             - "/usr/local/share/.cache/yarn"
             - "./node_modules"
-      - run: yarn lint -- --format junit --output-file reports/eslint.xml
-      - run: yarn dtslint
-      - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
-      - run: yarn codecov
+      # - run: yarn lint -- --format junit --output-file reports/eslint.xml
+      # - run: yarn dtslint
+      # - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
+      # - run: yarn codecov
       - persist_to_workspace:
           root: .
       
@@ -35,8 +35,9 @@ jobs:
       - run: yarn build
 
   build_docs:
-    <<: *defaults
     working_directory: /react-day-picker/docs
+    docker:
+      - image: ruby
     steps:
       - attach_workspace:
           at: .
