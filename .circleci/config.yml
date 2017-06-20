@@ -17,10 +17,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: cache-project-v1-{{ checksum "yarn.lock" }}
+          key: cache-project-v2-{{ checksum "yarn.lock" }}
       - run: yarn --pure-lockfile --cache-folder yarn-cache
       - save_cache:
-          key: cache-project-v1-{{ checksum "yarn.lock" }}
+          key: cache-project-v2-{{ checksum "yarn.lock" }}
           paths:
             - ~/react-day-picker/yarn-cache
       - run: yarn lint -- --format junit --output-file reports/eslint.xml
