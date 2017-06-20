@@ -27,10 +27,13 @@ jobs:
       - run: yarn dtslint
       - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
+      - persist_to_workspace:
+          root: .
       
   build-project: 
-    <<: *defaults
     steps:
+      - attach_workspace:
+          at: /root/react-day-picker
       - run: yarn build
 
   build-docs:
