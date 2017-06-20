@@ -38,16 +38,13 @@ jobs:
     working_directory: /react-day-picker
     docker:
       - image: ruby
-        environment:
-          LANG: "en_US.UTF-8"
-          LC_ALL: ""
     steps:
       - checkout
       - run: cd docs && bundle install
       - run: |
           cd docs
-          export LC_CTYPE="en_US.UTF-8"
-          export LANG="en_US.UTF-8"
+          export LC_ALL=en_US.UTF-8
+          export LANG=en_US.UTF-8
           bundle exec jekyll build
       - run: 
           yarn docs:publish
