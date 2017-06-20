@@ -44,9 +44,11 @@ jobs:
     steps:
       - checkout
       - run: cd docs && bundle install
-      - run: cd docs && bundle exec jekyll build
       - run: |
+          cd docs
           export LANG=en_US.UTF-8
+          bundle exec jekyll build
+      - run: 
           yarn docs:publish
 
 workflows:
