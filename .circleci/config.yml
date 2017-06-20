@@ -1,5 +1,5 @@
 defaults: &defaults
-  working_directory: /react-day-picker
+  working_directory: ~/react-day-picker
   docker:
       - image: circleci/node:7.10.0
         environment:
@@ -35,7 +35,7 @@ jobs:
       - run: yarn build
 
   build_docs:
-    working_directory: /react-day-picker
+    working_directory: ~/react-day-picker
     docker:
       - image: circleci/ruby:2.4.1-node
     steps:
