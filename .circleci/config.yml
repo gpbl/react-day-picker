@@ -37,17 +37,9 @@ jobs:
   build_docs:
     working_directory: /react-day-picker
     docker:
-      - image: ruby
+      - image: ruby-node
     steps:
       - checkout
-      - run: |
-          curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-          apt-get update
-          apt-get install -y nodejs
-          apt-get install -y npm
-          npm install gh-pages
-          ln -s /usr/bin/nodejs /usr/bin/node
-      - run: ls -lah 
       - run: |
           cd docs
           bundle install
@@ -56,10 +48,7 @@ jobs:
           export LC_ALL=C.UTF-8
           export LANG=en_US.UTF-8
           bundle exec jekyll build
-      - run: |
-          ls docs
-          cp docs/CNAME docs/_site
-          npm run docs:publish
+      - run: npm run docs:publish
 
 workflows:
   version: 2
