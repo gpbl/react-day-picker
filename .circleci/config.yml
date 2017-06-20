@@ -29,30 +29,32 @@ jobs:
       - attach_workspace:
           at: .
       - run: yarn lint -- --format junit --output-file reports/eslint.xml
+
   lint_dts:
     <<: *defaults
     steps:
       - attach_workspace:
           at: .
       - run: yarn dtslint
-  # test:
-  #   attach_workspace:
-  #     at: /workspace
-  #   steps:
-  #     - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
-  #     - run: yarn codecov
-  #     - store_test_results:
-  #         path: reports/
-  #   persist_to_workspace: /workspace
-  # build_lib: 
-  #   attach_workspace:
-  #     at: /workspace
-  #   steps:
-  #     - run: yarn build
-  #   persist_to_workspace: /workspace
+
+  test:
+    - attach_workspace:
+          at: .
+    steps:
+      - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
+      - run: yarn codecov
+      - store_test_results:
+          path: reports/
+
+  build_lib: 
+    attach_workspace:
+      at: .
+    steps:
+      - run: yarn build
+
   # docs_publish:
   #   attach_workspace:
-  #     at: /workspace
+  #     at: .
   #   steps: 
   #     - run: yarn docs:publish
   #   persist_to_workspace: /workspace
@@ -68,12 +70,9 @@ workflows:
       - lint_dts:
           requires: 
             - checkout
-      # - lint_dts:
-      #     requires: build
-      # - test:
-      #     requires: build
-      # - build_lib:
-      #     requires: test
-      # - docs_publish:
-      #     branches:
-      #       only: master
+      - test:
+          requires: 
+            - checkout
+      - build_lib:
+          requires: 
+            - checkout
