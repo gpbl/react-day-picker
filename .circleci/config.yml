@@ -20,9 +20,13 @@ jobs:
           paths:
             - "/usr/local/share/.cache/yarn"
             - "./node_modules"
+      - persist_to_workspace:
+          root: react-day-picker
   install:
     <<: *defaults
     steps:
+      - attach_workspace:
+          at: /tmp/react-day-picker
       - restore_cache:
           key: yarn-{{ checksum "yarn.lock" }}
       - run: yarn --pure-lockfile
