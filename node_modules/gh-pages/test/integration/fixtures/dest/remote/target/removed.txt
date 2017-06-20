@@ -1,0 +1,1 @@
+This file will be removed since the directory is used as the `dest` option.
