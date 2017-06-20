@@ -4,13 +4,13 @@ defaults: &defaults
     - image: node:7.10.0
       environment:
         TEST_REPORT_PATH: "reports"
+  branches:
+    ignore:
+      - gh-pages
 
 version: 2
     
 jobs:
-  branches:
-    ignore:
-      - gh-pages
 
   checkout-and-test:
     <<: *defaults
@@ -35,6 +35,10 @@ jobs:
       - run: yarn build
 
   build-docs:
+    branches:
+      ignore:
+        - gh-pages
+
     working_directory: ~/react-day-picker
     docker:
       - image: circleci/ruby:2.4.1-node
