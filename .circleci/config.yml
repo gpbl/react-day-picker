@@ -50,7 +50,7 @@ jobs:
       - type: cache-save
         key: react-day-picker-{{ checksum "docs/Gemfile.lock" }}
         paths:
-          - vendor/bundle
+          - docs/vendor/bundle
       - run: |
           cd docs
           export LC_ALL=C.UTF-8
