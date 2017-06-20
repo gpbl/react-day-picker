@@ -1,5 +1,5 @@
 defaults: &defaults
-  working_directory: ~/react-day-picker
+  working_directory: react-day-picker
   docker:
       - image: circleci/node:7.10.0
         environment:
@@ -13,10 +13,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: react-day-picker-{{ checksum "yarn.lock" }}
+          key: cache-project-{{ checksum "yarn.lock" }}
       - run: yarn --pure-lockfile
       - save_cache:
-          key: react-day-picker-{{ checksum "yarn.lock" }}
+          key: cache-project-{{ checksum "yarn.lock" }}
           paths:
             - "/usr/local/share/.cache/yarn"
             - "./node_modules"
@@ -25,7 +25,7 @@ jobs:
       - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
       - persist_to_workspace:
-          root: /react-day-picker
+          root: .
       
   build-project: 
     <<: *defaults
@@ -40,19 +40,19 @@ jobs:
       - image: circleci/ruby:2.4.1-node
     steps:
       - checkout
-      - type: cache-restore
-        key: react-day-picker-docs-v2-{{ checksum "docs/Gemfile.lock" }}
+      - restore_cache:
+          key: cache-docs-{{ checksum "docs/Gemfile.lock" }}
       - run: npm install gh-pages
       - run: |
           cd docs
           bundle install
           ls -lah
        # Store bundle cache
-      - type: cache-save
-        key: react-day-picker-docs-v2-{{ checksum "docs/Gemfile.lock" }}
-        paths:
-          - "/usr/local/bundle"
-          - "./node_modules"
+      - save_cache:
+          key: cache-docs-{{ checksum "docs/Gemfile.lock" }}
+          paths:
+            - "/usr/local/bundle"
+            - "./node_modules"
       - run: |
           cd docs
           export LC_ALL=C.UTF-8
