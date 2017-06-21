@@ -4,7 +4,7 @@ title: Styling with CSS Modules
 permalink: docs/css-modules.html
 ---
 
-Once you have setup your build system to import [CSS Modules](https://github.com/css-modules/css-modules), use the [classNames prop](api.md#classnames) to pass to the component the imported styles:
+Once you have setup your build system to import [CSS Modules](https://github.com/css-modules/css-modules), use the [classNames prop](api-daypicker.md#classnames) to pass to the component the imported styles:
 
 
 ```jsx

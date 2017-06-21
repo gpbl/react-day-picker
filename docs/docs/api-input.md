@@ -20,7 +20,7 @@ The format string used to format the date. User is expected to type the day in t
 
 **Type**: `Object` | **Default**: {}
 
-The [DayPicker props](api.md) to pass to the DayPicker for further customization.
+The [DayPicker props](api-daypicker.md) to pass to the DayPicker for further customization.
 
 Note that the `selectedDays` and `numberOfMonths` props, and a `selected` modifier, are handled by this component and they will be ignored.
 
