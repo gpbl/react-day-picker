@@ -1,3 +1,0 @@
-verbose: false
-instrumentation:
-    excludes: ['lib/**']
