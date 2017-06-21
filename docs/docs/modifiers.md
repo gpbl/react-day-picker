@@ -2,6 +2,8 @@
 layout: docs
 title: Matching days using modifiers
 permalink: docs/modifiers.html
+redirect_from: 
+  - /Modifiers.html
 ---
 
 _Day modifiers_ change the aspect of the day cells and allow you to customize the interaction with the calendar. When a modifier matches a specific day, its day cells receive a modifier CSS class, and its name is passed down to the event handlers.

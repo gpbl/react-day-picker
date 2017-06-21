@@ -12,7 +12,7 @@ The `DayPicker` component internally uses [LocaleUtils](utils-locale.md), a smal
 
 In the following example, a custom `localeUtils` object is used to localize the calendar in English or in Italian.
 
-[Open in codesandbox](https://codesandbox.io/s/Rjg9jJrE)
+[Open in CodeSandbox](https://codesandbox.io/s/Rjg9jJrE)
 
 ```jsx
 import React from 'react';

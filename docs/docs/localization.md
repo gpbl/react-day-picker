@@ -14,7 +14,7 @@ You can either set the localization props (`months`, `weekdaysLong`, `weekdaysSh
 
 The following code will render react-day-picker in Italian, using Monday as first day of the week.
 
-[Open in codesandbox](https://codesandbox.io/s/0R72WgDPN).
+[Open in CodeSandbox](https://codesandbox.io/s/0R72WgDPN).
 
 ```jsx
 import React from 'react';

@@ -51,7 +51,7 @@ The components will be available as `window.DayPicker` and `window.DayPicker.Inp
 
 ## Usage example
 
-[Open in codesandbox](https://codesandbox.io/s/98EZJ6VZZ).
+[Open in CodeSandbox](https://codesandbox.io/s/98EZJ6VZZ).
 
 ```jsx
 class MyAwesomeComponent extends React.Component {

@@ -17,7 +17,7 @@ To localize the calendar with [moment.js](http://www.momentjs.com):
 
 The following component shows four react-day-pickers, in English, Japanese, Arabic and Italian.
 
-[Open in codesandbox](https://codesandbox.io/s/W6jXx7Wnv).
+[Open in CodeSandbox](https://codesandbox.io/s/W6jXx7Wnv).
 
 ```jsx
 import React from 'react'; 

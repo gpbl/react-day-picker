@@ -2,6 +2,8 @@
 layout: docs
 title: Basic concepts
 permalink: docs/basics.html
+redirect_from:
+  - /Basic.html
 ---
 
 This guide illustrates the DayPicker basic concepts by implementing a date picker to select, clear and disable days from the calendar. For using the input field, read [this chapter](input.md).
@@ -40,7 +42,7 @@ export default class SelectDay extends React.Component {
 }
 ```
 
-[Open in codesandbox](https://codesandbox.io/s/Elx938L34).
+[Open in CodeSandbox](https://codesandbox.io/s/Elx938L34).
 
 > **Note** You can import the CSS from `react-day-picker/lib/style.css`, which contains a basic stylesheet. However, we recommend to write your own based on it. Read [Styling](styling.md) to know how to properly style the component.
 
@@ -53,7 +55,7 @@ We pass then the selected day (saved in the component’s state) to the `selecte
 />
 ```
 
-[Open in codesandbox](https://codesandbox.io/s/0VYXPDl3V).
+[Open in CodeSandbox](https://codesandbox.io/s/0VYXPDl3V).
 
 That day cell will get the `DayPicker-Day--selected` CSS class.
 
@@ -75,7 +77,7 @@ The `onDayClick` handler receives as second argument an object that can be inspe
 }
 ```
 
-That's all! [See the codesandbox](https://codesandbox.io/s/kNxJxMMv) using the code above.
+That's all! [See the CodeSandbox](https://codesandbox.io/s/kNxJxMMv) using the code above.
 
 ## Marking days as disabled
 
@@ -89,7 +91,7 @@ Disabled days should not respond to the user's interaction and should appear as 
 />
 ```
 
-[Open in codesandbox](https://codesandbox.io/s/BLyAmBWPk).
+[Open in CodeSandbox](https://codesandbox.io/s/BLyAmBWPk).
 
 > The `selectedDays` and `disabledDays` props can accept [different value types](http://react-day-picker.js.org/Modifiers.html) to match different days.
 
@@ -161,7 +163,7 @@ export default class SelectDay extends React.Component {
 
 ```
 
-[Open in codesandbox](https://codesandbox.io/s/1wpDZJAOq).
+[Open in CodeSandbox](https://codesandbox.io/s/1wpDZJAOq).
 
 ## Next steps
 

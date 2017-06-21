@@ -2,6 +2,8 @@
 layout: api
 title: DayPickerInput API
 permalink: docs/api-input.html
+redirect_from: 
+  - /DayPickerInputAPI.html
 ---
 
 ```js

@@ -2,6 +2,8 @@
 layout: docs
 title: API and props reference
 permalink: docs/api.html
+redirect_from:
+  - /DayPickerAPI.html
 ---
 
 ### Components included in this package

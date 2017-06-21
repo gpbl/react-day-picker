@@ -2,6 +2,8 @@
 layout: docs
 title: Using the input field
 permalink: docs/input.html
+redirect_from: 
+  - /Input.html
 ---
 
 The package includes [`<DayPickerInput />`](api-input.md), a component rendering an input field and displaying react-day-picker in an overlay.
@@ -36,7 +38,7 @@ If your are using [unpkg](https://unpkg.com), the component is available as `Day
 
 ## Example
 
-[Open this example in codesandbox](https://codesandbox.io/s/4qWp4zR7).
+[Open this example in CodeSandbox](https://codesandbox.io/s/4qWp4zR7).
 
 ```jsx
 import React from 'react';

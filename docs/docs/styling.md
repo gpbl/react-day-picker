@@ -2,6 +2,8 @@
 layout: docs
 title: Styling
 permalink: docs/styling.html
+redirect_from: 
+  - /Styling.html
 ---
 
 You must style the component with your own CSS: start with [src/style.css](https://github.com/gpbl/react-day-picker/blob/master/src/style.css) as template, copy it in a new CSS file and hack it to fit the desired style.
