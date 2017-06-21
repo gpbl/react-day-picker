@@ -26,30 +26,11 @@
   </a>
 </p>
 
-# Quick start
+## Quick start
 
-Go to the <a href="http://react-day-picker.js.org">website</a> to learn more about react-day-picker.
+See [getting started](http://react-day-picker.js.org/docs/index.html)
 
-**Add the dependency to your project**
-
-```bash
-yarn add react-day-picker
-
-# or with npm
-npm install react-day-picker --save
-```
-
-**Using unpkg**
-
-Include the component without installing:
-
-```html
-<script src="https://unpkg.com/react-day-picker/daypicker.min.js"></script>
-```
-
-> The main component is globally exported as `DayPicker`, the input component as `DayPicker.Input`. See this [jsfiddle](https://jsfiddle.net/gpbl/cggxvq6t/) as example.
-
-# Get support
+## Get support
 
 Please fork and use [https://codesandbox.io/s/XDAE3x0W8](https://codesandbox.io/s/XDAE3x0W8) to reproduce your problem.
 
