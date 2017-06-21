@@ -26,10 +26,6 @@
   </a>
 </p>
 
-## Quick start
-
-See [getting started](http://react-day-picker.js.org/docs/index.html)
-
 ## Get support
 
 Please fork and use [https://codesandbox.io/s/XDAE3x0W8](https://codesandbox.io/s/XDAE3x0W8) to reproduce your problem.
