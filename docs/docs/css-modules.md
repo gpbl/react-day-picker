@@ -17,5 +17,3 @@ export default function CSSModules() {
   return <DayPicker classNames={ styles } />
 }
 ```
-
-See also [this example](http://react-day-picker.js.org/examples/?cssModules).
