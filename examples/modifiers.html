@@ -200,8 +200,9 @@ import 'react-day-picker/lib/style.css';
 
 export default function Example() {
   const modifiers = {
-    mondays: { daysOfWeek: [1] },
+    disabled: { daysOfWeek: [6] },
     birthday: new Date(2018, 8, 19),
+    mondays: { daysOfWeek: [1] },
   };
   return &lt;DayPicker month={new Date(2018, 8)} modifiers={modifiers} /&gt;;
 }
@@ -211,8 +212,9 @@ export default function Example() {
      data-presets="es2015,stage-1,react" data-plugins="transform-es2015-modules-umd">
       export default function Example() {
   const modifiers = {
-    mondays: { daysOfWeek: [1] },
+    disabled: { daysOfWeek: [6] },
     birthday: new Date(2018, 8, 19),
+    mondays: { daysOfWeek: [1] },
   };
   return <DayPicker month={new Date(2018, 8)} modifiers={modifiers} />;
 }

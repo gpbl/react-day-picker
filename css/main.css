@@ -163,6 +163,12 @@ header nav ul li img {
   display: inline-block;
 }
 
+@media screen and (max-width: 360px) {
+  header nav ul.nav-external {
+    display: none;
+  }
+}
+
 header nav ul.nav-external {
   -webkit-box-flex: 1;
       -ms-flex: 1;
