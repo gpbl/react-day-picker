@@ -68,6 +68,19 @@ describe('DayPickerInput', () => {
         wrapper.find('input').simulate('change');
         expect(onChange).toHaveBeenCalledTimes(1);
       });
+      it('should update the input if its value is empty', () => {
+        const wrapper = mount(<DayPickerInput />);
+        const input = wrapper.find('input');
+        input.simulate('change', { target: { value: ' ' } });
+        expect(wrapper.find('input')).toHaveProp('value', ' ');
+      });
+      it("should call `onDayChange` if the input's value is empty", () => {
+        const onDayChange = jest.fn();
+        const wrapper = mount(<DayPickerInput onDayChange={onDayChange} />);
+        const input = wrapper.find('input');
+        input.simulate('change', { target: { value: '' } });
+        expect(onDayChange).toHaveBeenCalledWith(undefined, {});
+      });
       it("should update the input's value if the value is not a valid date", () => {
         const wrapper = mount(<DayPickerInput />);
         const input = wrapper.find('input');
