@@ -2,6 +2,10 @@
   margin-bottom: 1em;
 }
 
+.DayPickerInput .DayPicker-Month {
+  margin-bottom: 0;
+}
+
 .DayPicker-Day--birthday {
   color: white;
   background-color: #ffc107;
