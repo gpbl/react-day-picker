@@ -40,7 +40,7 @@ gems:
   - jekyll-relative-links
   - jekyll-autoprefixer
 
-lib_version: 6.0.2
+lib_version: 6.0.3
 exclude:
   - Gemfile
   - Gemfile.lock
