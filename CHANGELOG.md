@@ -1,5 +1,12 @@
 <a class="anchor" name="v6"></a>
 
+### [v6.0.3](https://github.com/gpbl/react-day-picker/tree/v6.0.3) (2017-06-22)
+
+**Bug fixes for the `DayPickerInputComponent`**
+
+* Call `onDayChange(undefined, {})` when user empties the input field. ([#423](https://github.com/gpbl/react-day-picker/issues/423))
+* Fixed: shown month was not updated when updating month in `dayPickerProps` ([#425](https://github.com/gpbl/react-day-picker/issues/425))
+
 # [v6.0.0](https://github.com/gpbl/react-day-picker/tree/v6.0.0) (2017-06-16)
 
 This major release focuses on performance, improves accessibility and fixes some bugs. There are some possible breaking changes, but they are easy to fix (read below).
