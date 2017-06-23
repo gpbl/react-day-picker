@@ -43,7 +43,7 @@ import from 'react-day-picker/lib/style';
 Include the component without installing:
 
 ```html
-<script src="https://unpkg.com/react-day-picker/daypicker.min.js"></script>
+<script src="https://unpkg.com/react-day-picker/lib/daypicker.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/react-day-picker/lib/style.css">
 ```
 
