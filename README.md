@@ -1,12 +1,12 @@
 <p align="center">
-<img width="359"  style="margin: 0 auto" alt="title" src="https://user-images.githubusercontent.com/120693/27316947-e18c7cac-5548-11e7-8d5b-d832f16219c5.png">
+<a href="http://react-day-picker.js.org"><img width="359"  style="margin: 0 auto" alt="title" src="https://user-images.githubusercontent.com/120693/27316947-e18c7cac-5548-11e7-8d5b-d832f16219c5.png"></a>
 <p align="center">
   Flexible date picker component for <a href="https://facebook.github.io/react/">React</a>.
   <br />
   no dependencies – fully customizable – ARIA support – localizable –  less than 10KB
 </p>
 <p align="center">
-  <img width="254" style="margin: 0 auto"  alt="screen shot" src="https://user-images.githubusercontent.com/120693/27316978-1110459e-5549-11e7-95d4-7d2043653a57.png">
+  <a href="http://react-day-picker.js.org"><img width="254" style="margin: 0 auto"  alt="screen shot" src="https://user-images.githubusercontent.com/120693/27316978-1110459e-5549-11e7-95d4-7d2043653a57.png"></a>
 </p>
 <p align="center">
   See <a href="http://react-day-picker.js.org">documentation and examples</a>.
@@ -31,4 +31,5 @@
 Please fork and use [https://codesandbox.io/s/XDAE3x0W8](https://codesandbox.io/s/XDAE3x0W8) to reproduce your problem.
 
 * Ask on on [Stack Overflow](http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest)  (tag your question with `react-day-picker`)
+* Open an [new issue](https://github.com/gpbl/react-day-picker/issues/new)
 * Join the [Gitter room](https://gitter.im/gpbl/react-day-picker) for immediate help
