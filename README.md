@@ -1,5 +1,5 @@
 <p align="center">
-<img width="359"  style="margin: 0 auto" alt="title" src="https://user-images.githubusercontent.com/120693/27316947-e18c7cac-5548-11e7-8d5b-d832f16219c5.png">
+<a href="http://react-day-picker.js.org"><img width="359"  style="margin: 0 auto" alt="title" src="https://user-images.githubusercontent.com/120693/27316947-e18c7cac-5548-11e7-8d5b-d832f16219c5.png"></a>
 <p align="center">
   Flexible date picker component for <a href="https://facebook.github.io/react/">React</a>.
   <br />
