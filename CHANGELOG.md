@@ -95,7 +95,7 @@ See [example](http://react-day-picker.js.org/examples/input.html), [docs](http:/
 
   Use this props to display and interact with the year's week numbers ([example](http://react-day-picker.js.org/examples/customization-week-numbers.html)).
 
-* New `daysOfWeek` [modifiers type](http://react-day-picker.js.org/Modifiers.html) to match days of the weeks ([#330](https://github.com/gpbl/react-day-picker/issues/330)).
+* New `daysOfWeek` [modifiers type](http://react-day-picker.js.org/docs/modifiers.html) to match days of the weeks ([#330](https://github.com/gpbl/react-day-picker/issues/330)).
 
   For example, to match Sundays and Mondays:
 
@@ -176,7 +176,7 @@ This release focuses on improving perfomance and the component's api-daypicker.
   />
   ```
 
-  Read more in the [modifiers documentation](http://react-day-picker.js.org/Modifiers.html).
+  Read more in the [modifiers documentation](http://react-day-picker.js.org/docs/modifiers.html).
 
 * **Breaking change** Event handlers signature has changed ([#256](https://github.com/gpbl/react-day-picker/issues/256))
 

@@ -93,7 +93,7 @@ Disabled days should not respond to the user's interaction and should appear as 
 
 [Open in CodeSandbox](https://codesandbox.io/s/BLyAmBWPk).
 
-> The `selectedDays` and `disabledDays` props can accept [different value types](http://react-day-picker.js.org/Modifiers.html) to match different days.
+> The `selectedDays` and `disabledDays` props can accept [different value types](http://react-day-picker.js.org/docs/modifiers.html) to match different days.
 
 ### Preventing the user to select a disabled day
 
