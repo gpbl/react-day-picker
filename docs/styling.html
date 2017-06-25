@@ -117,24 +117,21 @@
   <div class="inner-content">
     <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/docs/styling.md" target="_blank">Edit page</a>
     <h1 class="inner-content-title">Styling</h1>
-    <p>You must style the component with your own CSS: start with <a href="https://github.com/gpbl/react-day-picker/blob/master/src/style.css">src/style.css</a> as template, copy it in a new CSS file and hack it to fit the desired style.</p>
+    <p>You should style the component from your own stylesheet: start from <a href="https://github.com/gpbl/react-day-picker/blob/master/src/style.css">src/style.css</a> as template, copy it in a new CSS file and update it to fit the desired style.</p>
 
 <blockquote>
   <p>The CSS classes follow a <a href="https://css-tricks.com/bem-101/">BEM-like syntax</a>.</p>
 </blockquote>
 
-<ul>
-  <li>If you need to customize the CSS class names, use the <a href="/docs/api-daypicker.html#classnames"><code class="highlighter-rouge">classNames</code></a> prop.</li>
-  <li>You can also use <a href="/docs/css-modules.html">CSS Modules</a>.</li>
-</ul>
+<p>If you need to customize the CSS class names, use the <a href="/docs/api-daypicker.html#classnames"><code class="highlighter-rouge">classNames</code></a> prop. Using this prop you can also import a <a href="/docs/css-modules.html">CSS Module</a>.</p>
 
 <h3 id="modifiers">Modifiers</h3>
 
-<p>Modifiers added to react-day-picker through the <code class="highlighter-rouge">modifiers</code> prop becomes CSS modifiers for the <code class="highlighter-rouge">DayPicker-day</code> class. For example, if you use a <code class="highlighter-rouge">isFirstDayOfMonth</code> modifier, the CSS class to style the corrispondent day cells is <code class="highlighter-rouge">DayPicker-day--isFirstDayOfMonth</code>.</p>
+<p>Modifiers added to react-day-picker via the <code class="highlighter-rouge">modifiers</code> prop becomes CSS modifiers for the <code class="highlighter-rouge">DayPicker-day</code> class. For example, if you use a <code class="highlighter-rouge">isFirstDayOfMonth</code> modifier, the CSS class for the matched day cells will be <code class="highlighter-rouge">DayPicker-day--isFirstDayOfMonth</code>.</p>
 
 <h3 id="importing-the-style-template">Importing the style template</h3>
 
-<p>You can use import the CSS template in your Sass files, for example from <code class="highlighter-rouge">node_modules</code>:</p>
+<p>You can also import and extend the CSS template in your Sass files, for example from <code class="highlighter-rouge">node_modules</code>:</p>
 
 <div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="k">@import</span> <span class="s1">"../node_modules/react-day-picker/lib/style"</span>
 </code></pre>
