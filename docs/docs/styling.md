@@ -6,20 +6,19 @@ redirect_from:
   - /Styling.html
 ---
 
-You must style the component with your own CSS: start with [src/style.css](https://github.com/gpbl/react-day-picker/blob/master/src/style.css) as template, copy it in a new CSS file and hack it to fit the desired style.
+You should style the component from your own stylesheet: start from [src/style.css](https://github.com/gpbl/react-day-picker/blob/master/src/style.css) as template, copy it in a new CSS file and update it to fit the desired style.
 
 > The CSS classes follow a [BEM-like syntax](https://css-tricks.com/bem-101/).
 
-* If you need to customize the CSS class names, use the [`classNames`](api-daypicker.md#classnames) prop.
-* You can also use [CSS Modules](css-modules.md).
+If you need to customize the CSS class names, use the [`classNames`](api-daypicker.md#classnames) prop. Using this prop you can also import a [CSS Module](css-modules.md).
 
 ### Modifiers
 
-Modifiers added to react-day-picker through the `modifiers` prop becomes CSS modifiers for the `DayPicker-day` class. For example, if you use a `isFirstDayOfMonth` modifier, the CSS class to style the corrispondent day cells is `DayPicker-day--isFirstDayOfMonth`.
+Modifiers added to react-day-picker via the `modifiers` prop becomes CSS modifiers for the `DayPicker-day` class. For example, if you use a `isFirstDayOfMonth` modifier, the CSS class for the matched day cells will be `DayPicker-day--isFirstDayOfMonth`.
 
 ### Importing the style template
 
-You can use import the CSS template in your Sass files, for example from `node_modules`:
+You can also import and extend the CSS template in your Sass files, for example from `node_modules`:
 
 ```css
 @import "../node_modules/react-day-picker/lib/style"
