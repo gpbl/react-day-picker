@@ -129,7 +129,7 @@
 <pre><code class="language-jsx">import DayPicker, { LocaleUtils } from "react-day-picker";
 
 function formatMonthTitle(d, locale) {
- return `${d.getMonth() + 1}/${d.getFullYear}`
+ return `${d.getMonth() + 1}/${d.getFullYear()}`
 }
 
 &lt;DayPicker localeUtils={ { ...LocaleUtils, formatMonthTitle } } /&gt;
