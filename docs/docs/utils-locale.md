@@ -14,7 +14,7 @@ For example, this code renders the month's title as `M/YYYY` instead of the defa
 import DayPicker, { LocaleUtils } from "react-day-picker";
 
 function formatMonthTitle(d, locale) {
- return `${d.getMonth() + 1}/${d.getFullYear}`
+ return `${d.getMonth() + 1}/${d.getFullYear()}`
 }
 
 <DayPicker localeUtils={ { ...LocaleUtils, formatMonthTitle } } />
