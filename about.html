@@ -14,7 +14,7 @@
   <meta property="og:description" content="no dependencies ● fully customizable ● ARIA support ● localizable ● less than 10KB">
 
   <link rel="shortcut icon" href="/images/favicon.png">
-  <link rel="stylesheet" href="https://unpkg.com/react-day-picker@6.0.3/lib/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/react-day-picker@6.0.4/lib/style.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
@@ -27,7 +27,7 @@
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
   <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
-  <script src="https://unpkg.com/react-day-picker@6.0.3/lib/daypicker.min.js"></script>
+  <script src="https://unpkg.com/react-day-picker@6.0.4/lib/daypicker.min.js"></script>
   <script>
     DayPickerInput = DayPicker.Input;
     DateUtils = DayPicker.DateUtils;
@@ -50,7 +50,7 @@
           <li><a href="/docs">Docs</a></li>
           <li><a href="/examples">Examples</a></li>
           <li><a href="/docs/api.html">API</a></li>
-          <li><a href="/changelog.html">v6.0.3</a></li>
+          <li><a href="/changelog.html">v6.0.4</a></li>
         </ul>
         <ul class="nav-external">
           <li><a class="nav-github" href="https://github.com/gpbl/react-day-picker">GitHub</a></li>
@@ -62,13 +62,22 @@
     <div class="container wrap">
       <p><a class="anchor" name="v6"></a></p>
 
-<h3 id="v603-2017-06-22"><a href="https://github.com/gpbl/react-day-picker/tree/v6.0.3">v6.0.3</a> (2017-06-22)</h3>
+<h3 id="v604-2017-06-26"><a href="https://github.com/gpbl/react-day-picker/tree/v6.0.4">v6.0.4</a> (2017-06-26)</h3>
 
-<p><strong>Bug fixes for the <code class="highlighter-rouge">DayPickerInputComponent</code></strong></p>
+<p><strong>Bug fixes</strong></p>
 
 <ul>
-  <li>Call <code class="highlighter-rouge">onDayChange(undefined, {})</code> when user empties the input field. (<a href="https://github.com/gpbl/react-day-picker/issues/423">#423</a>)</li>
-  <li>Fixed: shown month was not updated when updating month in <code class="highlighter-rouge">dayPickerProps</code> (<a href="https://github.com/gpbl/react-day-picker/issues/425">#425</a>)</li>
+  <li>Fixed: next and previous buttons not working via keyboard (<a href="https://github.com/gpbl/react-day-picker/issues/430">#430</a>)</li>
+  <li>Fixed: wrapper style cannot be set when using CSS modules (<a href="https://github.com/gpbl/react-day-picker/issues/432">#432</a>)</li>
+</ul>
+
+<h3 id="v603-2017-06-22"><a href="https://github.com/gpbl/react-day-picker/tree/v6.0.3">v6.0.3</a> (2017-06-22)</h3>
+
+<p><strong>Bug fixes</strong></p>
+
+<ul>
+  <li>[DayPickerInput] Call <code class="highlighter-rouge">onDayChange(undefined, {})</code> when user empties the input field. (<a href="https://github.com/gpbl/react-day-picker/issues/423">#423</a>)</li>
+  <li>[DayPickerInput] Fixed: shown month was not updated when updating month in <code class="highlighter-rouge">dayPickerProps</code> (<a href="https://github.com/gpbl/react-day-picker/issues/425">#425</a>)</li>
 </ul>
 
 <h1 id="v600-2017-06-16"><a href="https://github.com/gpbl/react-day-picker/tree/v6.0.0">v6.0.0</a> (2017-06-16)</h1>
