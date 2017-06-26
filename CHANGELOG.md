@@ -1,11 +1,18 @@
 <a class="anchor" name="v6"></a>
 
+### [v6.0.4](https://github.com/gpbl/react-day-picker/tree/v6.0.4) (2017-06-26)
+
+**Bug fixes**
+
+* Fixed: next and previous buttons not working via keyboard ([#430](https://github.com/gpbl/react-day-picker/issues/430))
+* Fixed: wrapper style cannot be set when using CSS modules ([#432](https://github.com/gpbl/react-day-picker/issues/432))
+
 ### [v6.0.3](https://github.com/gpbl/react-day-picker/tree/v6.0.3) (2017-06-22)
 
-**Bug fixes for the `DayPickerInputComponent`**
+**Bug fixes**
 
-* Call `onDayChange(undefined, {})` when user empties the input field. ([#423](https://github.com/gpbl/react-day-picker/issues/423))
-* Fixed: shown month was not updated when updating month in `dayPickerProps` ([#425](https://github.com/gpbl/react-day-picker/issues/425))
+* [DayPickerInput] Call `onDayChange(undefined, {})` when user empties the input field. ([#423](https://github.com/gpbl/react-day-picker/issues/423))
+* [DayPickerInput] Fixed: shown month was not updated when updating month in `dayPickerProps` ([#425](https://github.com/gpbl/react-day-picker/issues/425))
 
 # [v6.0.0](https://github.com/gpbl/react-day-picker/tree/v6.0.0) (2017-06-16)
 
