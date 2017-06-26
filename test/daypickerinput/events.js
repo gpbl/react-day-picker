@@ -2,7 +2,7 @@ import React from 'react';
 
 import { mount } from 'enzyme';
 
-import keys from '../../src/keys';
+import * as keys from '../../src/keys';
 
 import DayPickerInput, { HIDE_TIMEOUT } from '../../src/DayPickerInput';
 import DayPicker from '../../src/DayPicker';

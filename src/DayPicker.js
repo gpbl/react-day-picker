@@ -9,7 +9,7 @@ import * as DateUtils from './DateUtils';
 import * as LocaleUtils from './LocaleUtils';
 import classNames from './classNames';
 
-import keys from './keys';
+import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 import PropTypes, { ModifierPropType } from './PropTypes';
 
 export default class DayPicker extends Component {
@@ -335,16 +335,16 @@ export default class DayPicker extends Component {
     e.persist();
 
     switch (e.keyCode) {
-      case keys.LEFT:
+      case LEFT:
         this.showPreviousMonth();
         break;
-      case keys.RIGHT:
+      case RIGHT:
         this.showNextMonth();
         break;
-      case keys.UP:
+      case UP:
         this.showPreviousYear();
         break;
-      case keys.DOWN:
+      case DOWN:
         this.showNextYear();
         break;
       default:
@@ -359,24 +359,24 @@ export default class DayPicker extends Component {
   handleDayKeyDown = (day, modifiers, e) => {
     e.persist();
     switch (e.keyCode) {
-      case keys.LEFT:
+      case LEFT:
         Helpers.cancelEvent(e);
         this.focusPreviousDay(e.target);
         break;
-      case keys.RIGHT:
+      case RIGHT:
         Helpers.cancelEvent(e);
         this.focusNextDay(e.target);
         break;
-      case keys.UP:
+      case UP:
         Helpers.cancelEvent(e);
         this.focusPreviousWeek(e.target);
         break;
-      case keys.DOWN:
+      case DOWN:
         Helpers.cancelEvent(e);
         this.focusNextWeek(e.target);
         break;
-      case keys.ENTER:
-      case keys.SPACE:
+      case ENTER:
+      case SPACE:
         Helpers.cancelEvent(e);
         if (this.props.onDayClick) {
           this.handleDayClick(day, modifiers, e);

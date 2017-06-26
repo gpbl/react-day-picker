@@ -4,7 +4,7 @@ import moment from 'moment'; // eslint-disable-line import/no-extraneous-depende
 
 import DayPicker from './DayPicker';
 import { getModifiersForDay } from './ModifiersUtils';
-import keys from './keys';
+import { ESC } from './keys';
 
 export const HIDE_TIMEOUT = 100;
 
@@ -214,7 +214,7 @@ export default class DayPickerInput extends React.Component {
 
   handleOnKeyUp = e => {
     this.setState({
-      showOverlay: e.keyCode !== keys.ESC,
+      showOverlay: e.keyCode !== ESC,
     });
     if (this.props.onKeyUp) {
       e.persist();
