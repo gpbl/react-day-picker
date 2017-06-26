@@ -73,6 +73,7 @@ export default class DayPicker extends Component {
       today: PropTypes.string.isRequired,
       todayButton: PropTypes.string,
       week: PropTypes.string,
+      wrapper: PropTypes.string,
     }),
     className: PropTypes.string,
     containerProps: PropTypes.object,
@@ -504,7 +505,7 @@ export default class DayPicker extends Component {
         lang={this.props.locale}
       >
         <div
-          className={classNames.wrapper}
+          className={this.props.classNames.wrapper}
           tabIndex={this.props.canChangeMonth && this.props.tabIndex}
           onKeyDown={this.handleKeyDown}
           onFocus={this.props.onFocus}
