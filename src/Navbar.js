@@ -39,6 +39,7 @@ export default class Navbar extends Component {
     if (e.keyCode !== ENTER && e.keyCode !== SPACE) {
       return;
     }
+    e.preventDefault();
     this.handleNextClick();
   };
 
@@ -46,6 +47,7 @@ export default class Navbar extends Component {
     if (e.keyCode !== ENTER && e.keyCode !== SPACE) {
       return;
     }
+    e.preventDefault();
     this.handlePreviousClick();
   };
 
