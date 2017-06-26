@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import DayPicker from '../../src/DayPicker';
-import keys from '../../src/keys';
+import * as keys from '../../src/keys';
 
 describe('DayPicker’s navigation', () => {
   it('should not allow the previous month when the first month is the first allowed one', () => {

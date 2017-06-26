@@ -4,7 +4,7 @@ import SyntheticEvent from 'react-dom/lib/SyntheticEvent';
 import { mount } from 'enzyme';
 
 import DayPicker from '../../src/DayPicker';
-import keys from '../../src/keys';
+import * as keys from '../../src/keys';
 import { formatMonthTitle } from '../../src/LocaleUtils';
 
 describe('DayPicker’s events handlers', () => {

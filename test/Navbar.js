@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Navbar from '../src/Navbar';
+import { SPACE, ENTER } from '../src/keys';
 
 describe('<Navbar />', () => {
   it('should have default props', () => {
@@ -79,11 +80,57 @@ describe('<Navbar />', () => {
     wrapper.find('.DayPicker-NavButton--next').simulate('click');
     expect(handleNextClick).toHaveBeenCalledTimes(1);
   });
+  it('should work without `onNextClick`', () => {
+    const wrapper = shallow(<Navbar />);
+    expect(() =>
+      wrapper.find('.DayPicker-NavButton--next').simulate('click')
+    ).not.toThrow();
+  });
+  it('should call `onNextClick` when pressing ENTER or SPACE on the next button', () => {
+    const handleNextClick = jest.fn();
+    const wrapper = shallow(<Navbar onNextClick={handleNextClick} />);
+    wrapper
+      .find('.DayPicker-NavButton--next')
+      .simulate('keydown', { keyCode: ENTER })
+      .simulate('keydown', { keyCode: SPACE });
+    expect(handleNextClick).toHaveBeenCalledTimes(2);
+  });
+  it('should not call `onNextClick` when pressing a key different than ENTER or SPACE on the next button', () => {
+    const handleNextClick = jest.fn();
+    const wrapper = shallow(<Navbar onNextClick={handleNextClick} />);
+    wrapper
+      .find('.DayPicker-NavButton--next')
+      .simulate('keydown', { keyCode: 1 });
+    expect(handleNextClick).not.toHaveBeenCalled();
+  });
   it('should call `onPreviousClick` when clicking the prev button', () => {
     const handlePreviousClick = jest.fn();
     const wrapper = shallow(<Navbar onPreviousClick={handlePreviousClick} />);
     wrapper.find('.DayPicker-NavButton--prev').simulate('click');
     expect(handlePreviousClick).toHaveBeenCalledTimes(1);
+  });
+  it('should work without `onPreviousClick`', () => {
+    const wrapper = shallow(<Navbar />);
+    expect(() =>
+      wrapper.find('.DayPicker-NavButton--prev').simulate('click')
+    ).not.toThrow();
+  });
+  it('should call `onPreviousClick` when pressing ENTER or SPACE on the prev button', () => {
+    const handlePreviousClick = jest.fn();
+    const wrapper = shallow(<Navbar onPreviousClick={handlePreviousClick} />);
+    wrapper
+      .find('.DayPicker-NavButton--prev')
+      .simulate('keydown', { keyCode: ENTER })
+      .simulate('keydown', { keyCode: SPACE });
+    expect(handlePreviousClick).toHaveBeenCalledTimes(2);
+  });
+  it('should not call `onPreviousClick` when pressing a key different than ENTER or SPACE on the prev button', () => {
+    const handlePreviousClick = jest.fn();
+    const wrapper = shallow(<Navbar onPreviousClick={handlePreviousClick} />);
+    wrapper
+      .find('.DayPicker-NavButton--prev')
+      .simulate('keydown', { keyCode: 1 });
+    expect(handlePreviousClick).not.toHaveBeenCalled();
   });
   it('should call `onNextClick` when clicking the prev button for RTL', () => {
     const handleNextClick = jest.fn();
