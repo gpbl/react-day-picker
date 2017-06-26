@@ -88,12 +88,14 @@ describe('<Navbar />', () => {
   });
   it('should call `onNextClick` when pressing ENTER or SPACE on the next button', () => {
     const handleNextClick = jest.fn();
+    const preventDefault = jest.fn();
     const wrapper = shallow(<Navbar onNextClick={handleNextClick} />);
     wrapper
       .find('.DayPicker-NavButton--next')
-      .simulate('keydown', { keyCode: ENTER })
-      .simulate('keydown', { keyCode: SPACE });
+      .simulate('keydown', { keyCode: ENTER, preventDefault })
+      .simulate('keydown', { keyCode: SPACE, preventDefault });
     expect(handleNextClick).toHaveBeenCalledTimes(2);
+    expect(preventDefault).toHaveBeenCalledTimes(2);
   });
   it('should not call `onNextClick` when pressing a key different than ENTER or SPACE on the next button', () => {
     const handleNextClick = jest.fn();
@@ -117,12 +119,14 @@ describe('<Navbar />', () => {
   });
   it('should call `onPreviousClick` when pressing ENTER or SPACE on the prev button', () => {
     const handlePreviousClick = jest.fn();
+    const preventDefault = jest.fn();
     const wrapper = shallow(<Navbar onPreviousClick={handlePreviousClick} />);
     wrapper
       .find('.DayPicker-NavButton--prev')
-      .simulate('keydown', { keyCode: ENTER })
-      .simulate('keydown', { keyCode: SPACE });
+      .simulate('keydown', { keyCode: ENTER, preventDefault })
+      .simulate('keydown', { keyCode: SPACE, preventDefault });
     expect(handlePreviousClick).toHaveBeenCalledTimes(2);
+    expect(preventDefault).toHaveBeenCalledTimes(2);
   });
   it('should not call `onPreviousClick` when pressing a key different than ENTER or SPACE on the prev button', () => {
     const handlePreviousClick = jest.fn();
