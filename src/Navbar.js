@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from './PropTypes';
 import defaultClassNames from './classNames';
+import { SPACE, ENTER } from './keys';
 
 export default class Navbar extends Component {
   static defaultProps = {
@@ -13,6 +14,7 @@ export default class Navbar extends Component {
     showPreviousButton: true,
     showNextButton: true,
   };
+
   shouldComponentUpdate(nextProps) {
     return (
       nextProps.labels !== this.props.labels ||
@@ -21,19 +23,66 @@ export default class Navbar extends Component {
     );
   }
 
+  handleNextClick = () => {
+    if (this.props.onNextClick) {
+      this.props.onNextClick();
+    }
+  };
+
+  handlePreviousClick = () => {
+    if (this.props.onPreviousClick) {
+      this.props.onPreviousClick();
+    }
+  };
+
+  handleNextKeyDown = e => {
+    if (e.keyCode !== ENTER && e.keyCode !== SPACE) {
+      return;
+    }
+    this.handleNextClick();
+  };
+
+  handlePreviousKeyDown = e => {
+    if (e.keyCode !== ENTER && e.keyCode !== SPACE) {
+      return;
+    }
+    this.handlePreviousClick();
+  };
+
   render() {
     const {
       classNames,
       className,
       showPreviousButton,
       showNextButton,
-      onPreviousClick,
-      onNextClick,
       labels,
       dir,
     } = this.props;
-    const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
-    const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
+
+    let previousClickHandler;
+    let nextClickHandler;
+    let previousKeyDownHandler;
+    let nextKeyDownHandler;
+
+    if (dir === 'rtl') {
+      previousClickHandler = this.handleNextClick;
+      nextClickHandler = this.handlePreviousClick;
+      previousKeyDownHandler = this.handleNextKeyDown;
+      nextKeyDownHandler = this.handlePreviousKeyDown;
+    } else {
+      previousClickHandler = this.handlePreviousClick;
+      nextClickHandler = this.handleNextClick;
+      previousKeyDownHandler = this.handlePreviousKeyDown;
+      nextKeyDownHandler = this.handleNextKeyDown;
+    }
+
+    const previousClassName = showPreviousButton
+      ? classNames.navButtonPrev
+      : `${classNames.navButtonPrev} ${classNames.navButtonInteractionDisabled}`;
+
+    const nextClassName = showNextButton
+      ? classNames.navButtonNext
+      : `${classNames.navButtonNext} ${classNames.navButtonInteractionDisabled}`;
 
     const previousButton = (
       <span
@@ -41,12 +90,9 @@ export default class Navbar extends Component {
         role="button"
         aria-label={labels.previousMonth}
         key="previous"
-        className={
-          showPreviousButton
-            ? classNames.navButtonPrev
-            : `${classNames.navButtonPrev} ${classNames.navButtonInteractionDisabled}`
-        }
-        onClick={showPreviousButton ? () => previousClickHandler() : undefined}
+        className={previousClassName}
+        onKeyDown={showPreviousButton ? previousKeyDownHandler : undefined}
+        onClick={showPreviousButton ? previousClickHandler : undefined}
       />
     );
 
@@ -56,12 +102,9 @@ export default class Navbar extends Component {
         role="button"
         aria-label={labels.nextMonth}
         key="right"
-        className={
-          showNextButton
-            ? classNames.navButtonNext
-            : `${classNames.navButtonNext} ${classNames.navButtonInteractionDisabled}`
-        }
-        onClick={showNextButton ? () => nextClickHandler() : undefined}
+        className={nextClassName}
+        onKeyDown={showNextButton ? nextKeyDownHandler : undefined}
+        onClick={showNextButton ? nextClickHandler : undefined}
       />
     );
 
