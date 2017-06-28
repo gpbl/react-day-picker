@@ -13,9 +13,9 @@ The package includes [`<DayPickerInput />`](api-input.md), a component rendering
 [moment.js](https://momentjs.com/) is required, as it is used to validate and format the date typed by the user. Make sure you have it installed in your dependencies:
 
 ```bash
-yarn add moment
-# or if you use npm
 npm install moment --save
+# or with yarn
+yarn add moment
 ```
 
 In your code, import the component from `react-day-picker/DayPickerInput`

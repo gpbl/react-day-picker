@@ -18,13 +18,17 @@ The package includes:
 Install as dependency to use it in your project:
 
 ```bash
+npm install react-day-picker --save
+# or with yarn
 yarn add react-day-picker
 ```
 
 If you are using the [DayPickerInput](input.md) component, you must install moment.js as well:
 
 ```bash
-yarn add moment
+npm install moment --save
+# or with yarn
+yarn add react-day-picker
 ```
 
 Then import the component and its style in your component:
