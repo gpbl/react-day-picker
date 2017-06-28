@@ -315,15 +315,6 @@ table td {
   vertical-align: top;
 }
 
-h3:target:before {
-  position: absolute;
-  left: -36px;
-  width: 14px;
-  content: '☛';
-  top: 0px;
-  font-size: 32px;
-}
-
 .api h3 {
   position: relative;
   padding-top: 1em;

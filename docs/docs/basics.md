@@ -42,9 +42,7 @@ export default class SelectDay extends React.Component {
 }
 ```
 
-[Open in CodeSandbox](https://codesandbox.io/s/Elx938L34).
-
-> **Note** You can import the CSS from `react-day-picker/lib/style.css`, which contains a basic stylesheet. However, we recommend to write your own based on it. Read [Styling](styling.md) to know how to properly style the component.
+▸ [Open in CodeSandbox](https://codesandbox.io/s/Elx938L34).
 
 We pass then the selected day (saved in the component’s state) to the `selectedDays` prop:
 
@@ -55,7 +53,7 @@ We pass then the selected day (saved in the component’s state) to the `selecte
 />
 ```
 
-[Open in CodeSandbox](https://codesandbox.io/s/0VYXPDl3V).
+▸ [Open in CodeSandbox](https://codesandbox.io/s/0VYXPDl3V).
 
 That day cell will get the `DayPicker-Day--selected` CSS class.
 
@@ -91,7 +89,7 @@ Disabled days should not respond to the user's interaction and should appear as 
 />
 ```
 
-[Open in CodeSandbox](https://codesandbox.io/s/BLyAmBWPk).
+▸ [Open in CodeSandbox](https://codesandbox.io/s/BLyAmBWPk).
 
 > The `selectedDays` and `disabledDays` props can accept [different value types](http://react-day-picker.js.org/docs/modifiers.html) to match different days.
 
@@ -163,7 +161,7 @@ export default class SelectDay extends React.Component {
 
 ```
 
-[Open in CodeSandbox](https://codesandbox.io/s/1wpDZJAOq).
+▸ [Open in CodeSandbox](https://codesandbox.io/s/1wpDZJAOq).
 
 ## Next steps
 

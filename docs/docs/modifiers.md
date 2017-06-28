@@ -6,11 +6,13 @@ redirect_from:
   - /Modifiers.html
 ---
 
-_Day modifiers_ change the aspect of the day cells and allow you to customize the interaction with the calendar. When a modifier matches a specific day, its day cells receive a modifier CSS class, and its name is passed down to the event handlers.
+With _modifiers_ you change the aspect of the day cells and customize the interaction with the calendar. 
 
-## Type of modifier matchers
+When a modifier matches a specific day, its day cells receive a modifier CSS class (as in [BEM-like syntax](https://css-tricks.com/bem-101/)), and its name is passed down to the event handlers.
 
-The value of a modifier can be either:
+## Type of modifiers
+
+A modifier can be either:
 
 - **a `Date` object**, to match a specific day
 - **a `range` object** with `from` and `to` keys, to match a range of days:
@@ -75,7 +77,7 @@ The value of a modifier can be either:
 
 ## Examples
 
-A CSS modifier (as in [BEM-like syntax](https://css-tricks.com/bem-101/)) is added to each day cell when a day matches a modifier. You set the day modifiers with the `selectedDay`, `disabledDays` or `modifiers` props. Examples:
+A CSS modifier is added to each day cell when a day matches a modifier. You set the day modifiers with the `selectedDay`, `disabledDays` or `modifiers` props. Examples:
 
 * To add a `.DayPicker-Day--selected` CSS class to the February, 12th 2017 cell:
 
