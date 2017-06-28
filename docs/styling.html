@@ -72,7 +72,7 @@
         <a href="/docs/basics.html">Basic concepts</a>
       </li>
       <li>
-        <a href="/docs/modifiers.html">Matching days with modifiers</a>
+        <a href="/docs/modifiers.html">Matching days</a>
       </li>
       <li>
         <a href="/docs/input.html">Using the input field</a>
@@ -81,16 +81,7 @@
         <a href="/docs/styling.html">Styling</a>
       </li>
       <li>
-        <a href="/docs/css-modules.html">Styling with CSS Modules</a>
-      </li>
-      <li>
         <a href="/docs/localization.html">Localization</a>
-      </li>
-      <li>
-        <a href="/docs/localization-moment.html">Localization with moment</a>
-      </li>
-      <li>
-        <a href="/docs/localization-advanced.html">Advanced localization</a>
       </li>
     </ul>
     <h3>API</h3>
@@ -120,10 +111,8 @@
     <p>You should style the component from your own stylesheet: start from <a href="https://github.com/gpbl/react-day-picker/blob/master/src/style.css">src/style.css</a> as template, copy it in a new CSS file and update it to fit the desired style.</p>
 
 <blockquote>
-  <p>The CSS classes follow a <a href="https://css-tricks.com/bem-101/">BEM-like syntax</a>.</p>
+  <p>The CSS classes follow a <a href="https://css-tricks.com/bem-101/">BEM-like syntax</a>. If you need to customize the CSS class names, use the <a href="/docs/api-daypicker.html#classnames"><code class="highlighter-rouge">classNames</code></a> prop. Using this prop you can also import a <a href="#css-modules">CSS Module</a>.</p>
 </blockquote>
-
-<p>If you need to customize the CSS class names, use the <a href="/docs/api-daypicker.html#classnames"><code class="highlighter-rouge">classNames</code></a> prop. Using this prop you can also import a <a href="/docs/css-modules.html">CSS Module</a>.</p>
 
 <h3 id="modifiers">Modifiers</h3>
 
@@ -144,6 +133,22 @@
 </div>
 
 <p>Keep in mind the default style is not production-tested and may change between releases.</p>
+
+<p><a name="css-modules"></a></p>
+
+<h2 id="styling-with-css-modules">Styling with CSS Modules</h2>
+
+<p>Once you have setup your build system to import <a href="https://github.com/css-modules/css-modules">CSS Modules</a>, use the <a href="/docs/api-daypicker.html#classnames">classNames prop</a> to pass to the component the imported styles:</p>
+
+<pre><code class="language-jsx">import React from 'react';
+import DayPicker from 'react-day-picker';
+
+import styles from '../styles/cssmodules.css';
+
+export default function CSSModules() {
+  return &lt;DayPicker classNames={ styles } /&gt;
+}
+</code></pre>
 
   </div>
 

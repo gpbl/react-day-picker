@@ -72,7 +72,7 @@
         <a href="/docs/basics.html">Basic concepts</a>
       </li>
       <li>
-        <a href="/docs/modifiers.html">Matching days with modifiers</a>
+        <a href="/docs/modifiers.html">Matching days</a>
       </li>
       <li>
         <a href="/docs/input.html">Using the input field</a>
@@ -81,16 +81,7 @@
         <a href="/docs/styling.html">Styling</a>
       </li>
       <li>
-        <a href="/docs/css-modules.html">Styling with CSS Modules</a>
-      </li>
-      <li>
         <a href="/docs/localization.html">Localization</a>
-      </li>
-      <li>
-        <a href="/docs/localization-moment.html">Localization with moment</a>
-      </li>
-      <li>
-        <a href="/docs/localization-advanced.html">Advanced localization</a>
       </li>
     </ul>
     <h3>API</h3>
@@ -117,11 +108,13 @@
   <div class="inner-content">
     <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/docs/modifiers.md" target="_blank">Edit page</a>
     <h1 class="inner-content-title">Matching days using modifiers</h1>
-    <p><em>Day modifiers</em> change the aspect of the day cells and allow you to customize the interaction with the calendar. When a modifier matches a specific day, its day cells receive a modifier CSS class, and its name is passed down to the event handlers.</p>
+    <p>With <em>modifiers</em> you change the aspect of the day cells and customize the interaction with the calendar.</p>
 
-<h2 id="type-of-modifier-matchers">Type of modifier matchers</h2>
+<p>When a modifier matches a specific day, its day cells receive a modifier CSS class (as in <a href="https://css-tricks.com/bem-101/">BEM-like syntax</a>), and its name is passed down to the event handlers.</p>
 
-<p>The value of a modifier can be either:</p>
+<h2 id="type-of-modifiers">Type of modifiers</h2>
+
+<p>A modifier can be either:</p>
 
 <ul>
   <li><strong>a <code class="highlighter-rouge">Date</code> object</strong>, to match a specific day</li>
@@ -192,7 +185,7 @@
 
 <h2 id="examples">Examples</h2>
 
-<p>A CSS modifier (as in <a href="https://css-tricks.com/bem-101/">BEM-like syntax</a>) is added to each day cell when a day matches a modifier. You set the day modifiers with the <code class="highlighter-rouge">selectedDay</code>, <code class="highlighter-rouge">disabledDays</code> or <code class="highlighter-rouge">modifiers</code> props. Examples:</p>
+<p>A CSS modifier is added to each day cell when a day matches a modifier. You set the day modifiers with the <code class="highlighter-rouge">selectedDay</code>, <code class="highlighter-rouge">disabledDays</code> or <code class="highlighter-rouge">modifiers</code> props. Examples:</p>
 
 <ul>
   <li>
