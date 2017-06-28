@@ -1,6 +1,6 @@
 export default function Example() {
   const modifiers = {
-    thusdays: { daysOfWeek: [4] },
+    thursdays: { daysOfWeek: [4] },
     birthday: new Date(2018, 9, 30),
   };
   const modifiersStyles = {
@@ -8,7 +8,7 @@ export default function Example() {
       color: 'white',
       backgroundColor: '#ffc107',
     },
-    thusdays: {
+    thursdays: {
       color: '#ffc107',
       backgroundColor: '#fffdee',
     },
