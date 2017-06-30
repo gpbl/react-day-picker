@@ -19,6 +19,29 @@ describe('DayPickerInput', () => {
       const wrapper = shallow(<DayPickerInput />);
       expect(wrapper).toHaveClassName('DayPickerInput');
     });
+    it('should set the month based on the specified format', () => {
+      const wrapper = shallow(
+        <DayPickerInput value="12/05/2010" format="DD/MM/YYYY" />
+      );
+      expect(wrapper.instance().state.month.getMonth()).toBe(4);
+      expect(wrapper.instance().state.month.getFullYear()).toBe(2010);
+    });
+    it('should not set the month if the value is not valid acording to `format`', () => {
+      const wrapper = shallow(
+        <DayPickerInput value="12/17/2010" format="DD/MM/YYYY" />
+      );
+      expect(wrapper.instance().state.month).toBeUndefined();
+    });
+    it('should accept multiple `format`s', () => {
+      const wrapper = shallow(
+        <DayPickerInput
+          value="2010/05/12"
+          format={['DD/MM/YYYY', 'YYYY/MM/DD']}
+        />
+      );
+      expect(wrapper.instance().state.month.getMonth()).toBe(4);
+      expect(wrapper.instance().state.month.getFullYear()).toBe(2010);
+    });
     it('should render an input field with the passed attributes', () => {
       const wrapper = shallow(
         <DayPickerInput value="12/14/2017" placeholder="bar" />
