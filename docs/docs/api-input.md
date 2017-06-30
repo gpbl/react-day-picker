@@ -14,9 +14,9 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 
 ### format
 
-**Type**: `String` | **Default**: `L`
+**Type**: `String|Array<String>` | **Default**: `L`
 
-The format string used to format the date. User is expected to type the day in this format. It works with all the [format strings](https://momentjs.com/docs/#/displaying/format/) accepted by momentjs.
+The format string(s) used to format the date. User is expected to type the date in these formats. It works with all the [format strings](https://momentjs.com/docs/#/displaying/format/) accepted by momentjs.
 
 ### dayPickerProps
 
