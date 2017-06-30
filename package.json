@@ -65,7 +65,7 @@
     "react": "~0.13.x || ~0.14.x || ^15.0.0"
   },
   "devDependencies": {
-    "@types/react": "^15.0.33",
+    "@types/react": "15.0.30",
     "autoprefixer": "^7.1.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
