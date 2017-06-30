@@ -232,7 +232,9 @@ describe('DayPicker’s rendering', () => {
   });
   it('should render a custom weekday element', () => {
     const CustomWeekday = ({ className, weekday }) =>
-      <div className={className}>{weekday}</div>;
+      <div className={className}>
+        {weekday}
+      </div>;
     CustomWeekday.propTypes = {
       className: PropTypes.string,
       weekday: PropTypes.number,
@@ -251,7 +253,9 @@ describe('DayPicker’s rendering', () => {
   });
   it('should render a custom weekday element as a function', () => {
     const CustomWeekday = ({ className, weekday }) =>
-      <div className={className}>{weekday}</div>;
+      <div className={className}>
+        {weekday}
+      </div>;
     CustomWeekday.propTypes = {
       className: PropTypes.string,
       weekday: PropTypes.number,
@@ -275,7 +279,11 @@ describe('DayPicker’s rendering', () => {
         weekday: PropTypes.number,
       };
       render() {
-        return <div className={this.props.className}>{this.props.weekday}</div>;
+        return (
+          <div className={this.props.className}>
+            {this.props.weekday}
+          </div>
+        );
       }
     }
     const dayPicker = <DayPicker weekdayElement={CustomWeekday} />;

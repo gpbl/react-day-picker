@@ -33,7 +33,11 @@ export default class DayPickerInput extends React.Component {
     // eslint-disable-next-line react/no-unused-prop-types
     value: PropTypes.string,
 
-    format: PropTypes.string.isRequired,
+    format: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.string),
+      PropTypes.string,
+    ]).isRequired,
+
     dayPickerProps: PropTypes.object,
     hideOnDayClick: PropTypes.bool,
     clickUnselectsDay: PropTypes.bool,
