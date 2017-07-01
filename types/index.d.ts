@@ -203,6 +203,16 @@ declare namespace DayPicker {
       modifiers: DayModifiers,
       e: React.MouseEvent<HTMLDivElement>
     ): void;
+    onDayMouseDown?(
+      day: Date,
+      modifiers: DayModifiers,
+      e: React.MouseEvent<HTMLDivElement>
+    ): void;
+    onDayMouseUp?(
+      day: Date,
+      modifiers: DayModifiers,
+      e: React.MouseEvent<HTMLDivElement>
+    ): void;
     onDayTouchEnd?(
       day: Date,
       modifiers: DayModifiers,
