@@ -96,20 +96,41 @@ describe('ModifiersUtils', () => {
       );
       expect(match2).toBe(true);
     });
-    it('matches "after" and "before" modifiers', () => {
-      const afterModifier = {
+    it('matches "after" and "before" modifiers (inner)', () => {
+      const afterBeforeModifier = {
         after: new Date(2015, 8, 10),
         before: new Date(2015, 8, 18),
       };
       const match = ModifiersUtils.dayMatchesModifier(
         new Date(2015, 8, 15),
-        afterModifier
+        afterBeforeModifier
       );
       expect(match).toBe(true);
 
       const fail = ModifiersUtils.dayMatchesModifier(
         new Date(2014, 8, 9),
-        afterModifier
+        afterBeforeModifier
+      );
+      expect(fail).toBe(false);
+    });
+    it('matches "after" and "before" modifiers (outer)', () => {
+      const afterBeforeModifier = {
+        after: new Date(2015, 8, 18),
+        before: new Date(2015, 8, 10),
+      };
+      const match1 = ModifiersUtils.dayMatchesModifier(
+        new Date(2015, 8, 5),
+        afterBeforeModifier
+      );
+      expect(match1).toBe(true);
+      const match2 = ModifiersUtils.dayMatchesModifier(
+        new Date(2015, 8, 20),
+        afterBeforeModifier
+      );
+      expect(match2).toBe(true);
+      const fail = ModifiersUtils.dayMatchesModifier(
+        new Date(2015, 8, 15),
+        afterBeforeModifier
       );
       expect(fail).toBe(false);
     });
