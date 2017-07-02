@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import Caption from './Caption';
 import Navbar from './Navbar';
 import Month from './Month';
@@ -10,7 +12,6 @@ import * as LocaleUtils from './LocaleUtils';
 import classNames from './classNames';
 
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
-import PropTypes, { ModifierPropType } from './PropTypes';
 
 export default class DayPicker extends Component {
   static VERSION = '6.0.5';
@@ -30,12 +31,14 @@ export default class DayPicker extends Component {
 
     // Modifiers
     selectedDays: PropTypes.oneOfType([
-      ModifierPropType,
-      PropTypes.arrayOf(ModifierPropType),
+      PropTypes.object,
+      PropTypes.func,
+      PropTypes.array,
     ]),
     disabledDays: PropTypes.oneOfType([
-      ModifierPropType,
-      PropTypes.arrayOf(ModifierPropType),
+      PropTypes.object,
+      PropTypes.func,
+      PropTypes.array,
     ]),
 
     modifiers: PropTypes.object,
@@ -49,7 +52,12 @@ export default class DayPicker extends Component {
       previousMonth: PropTypes.string.isRequired,
     }).isRequired,
     locale: PropTypes.string,
-    localeUtils: PropTypes.localeUtils,
+    localeUtils: PropTypes.shape({
+      formatMonthTitle: PropTypes.func,
+      formatWeekdayShort: PropTypes.func,
+      formatWeekdayLong: PropTypes.func,
+      getFirstDayOfWeek: PropTypes.func,
+    }),
     months: PropTypes.arrayOf(PropTypes.string),
     weekdaysLong: PropTypes.arrayOf(PropTypes.string),
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),

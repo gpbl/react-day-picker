@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import PropTypes from './PropTypes';
+import PropTypes from 'prop-types';
 
 export default class Weekdays extends PureComponent {
   static propTypes = {
@@ -14,7 +14,7 @@ export default class Weekdays extends PureComponent {
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),
     showWeekNumbers: PropTypes.bool,
     locale: PropTypes.string.isRequired,
-    localeUtils: PropTypes.localeUtils.isRequired,
+    localeUtils: PropTypes.object.isRequired,
     weekdayElement: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.func,

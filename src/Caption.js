@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import PropTypes from './PropTypes';
+import PropTypes from 'prop-types';
 
 export default class Caption extends Component {
   static propTypes = {
     date: PropTypes.instanceOf(Date),
     months: PropTypes.arrayOf(PropTypes.string),
     locale: PropTypes.string,
-    localeUtils: PropTypes.localeUtils,
+    localeUtils: PropTypes.object,
     onClick: PropTypes.func,
     classNames: PropTypes.shape({
       caption: PropTypes.string.isRequired,

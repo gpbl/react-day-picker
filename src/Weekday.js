@@ -1,7 +1,16 @@
 import React, { PureComponent } from 'react';
-import PropTypes from './PropTypes';
+import PropTypes from 'prop-types';
 
 export default class Weekday extends PureComponent {
+  static propTypes = {
+    weekday: PropTypes.number,
+    className: PropTypes.string,
+    locale: PropTypes.string,
+    localeUtils: PropTypes.object,
+
+    weekdaysLong: PropTypes.arrayOf(PropTypes.string),
+    weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+  };
   render() {
     const {
       weekday,
@@ -33,15 +42,3 @@ export default class Weekday extends PureComponent {
     );
   }
 }
-
-export const WeekdayPropTypes = {
-  weekday: PropTypes.number,
-  className: PropTypes.string,
-  locale: PropTypes.string,
-  localeUtils: PropTypes.localeUtils,
-
-  weekdaysLong: PropTypes.arrayOf(PropTypes.string),
-  weekdaysShort: PropTypes.arrayOf(PropTypes.string),
-};
-
-Weekday.propTypes = WeekdayPropTypes;

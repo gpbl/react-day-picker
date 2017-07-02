@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from './PropTypes';
+import PropTypes from 'prop-types';
+
 import defaultClassNames from './classNames';
 import { SPACE, ENTER } from './keys';
 
@@ -13,6 +14,24 @@ export default class Navbar extends Component {
     },
     showPreviousButton: true,
     showNextButton: true,
+  };
+
+  static propTypes = {
+    classNames: PropTypes.shape({
+      navBar: PropTypes.string.isRequired,
+      navButtonPrev: PropTypes.string.isRequired,
+      navButtonNext: PropTypes.string.isRequired,
+    }),
+    className: PropTypes.string,
+    showPreviousButton: PropTypes.bool,
+    showNextButton: PropTypes.bool,
+    onPreviousClick: PropTypes.func,
+    onNextClick: PropTypes.func,
+    dir: PropTypes.string,
+    labels: PropTypes.shape({
+      previousMonth: PropTypes.string.isRequired,
+      nextMonth: PropTypes.string.isRequired,
+    }),
   };
 
   shouldComponentUpdate(nextProps) {
@@ -119,23 +138,3 @@ export default class Navbar extends Component {
     );
   }
 }
-
-export const NavbarPropTypes = {
-  classNames: PropTypes.shape({
-    navBar: PropTypes.string.isRequired,
-    navButtonPrev: PropTypes.string.isRequired,
-    navButtonNext: PropTypes.string.isRequired,
-  }),
-  className: PropTypes.string,
-  showPreviousButton: PropTypes.bool,
-  showNextButton: PropTypes.bool,
-  onPreviousClick: PropTypes.func,
-  onNextClick: PropTypes.func,
-  dir: PropTypes.string,
-  labels: PropTypes.shape({
-    previousMonth: PropTypes.string.isRequired,
-    nextMonth: PropTypes.string.isRequired,
-  }),
-};
-
-Navbar.propTypes = NavbarPropTypes;

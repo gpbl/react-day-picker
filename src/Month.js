@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from './PropTypes';
+import PropTypes from 'prop-types';
+
 import Weekdays from './Weekdays';
 import Day from './Day';
 
@@ -43,7 +44,7 @@ export default class Month extends Component {
     showWeekNumbers: PropTypes.bool,
 
     locale: PropTypes.string.isRequired,
-    localeUtils: PropTypes.localeUtils.isRequired,
+    localeUtils: PropTypes.object.isRequired,
     weekdaysLong: PropTypes.arrayOf(PropTypes.string),
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),
     firstDayOfWeek: PropTypes.number.isRequired,

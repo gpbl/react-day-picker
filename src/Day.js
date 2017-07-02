@@ -2,8 +2,9 @@
 
 import React, { Component } from 'react';
 import assign from 'object-assign';
+import PropTypes from 'prop-types';
+
 import defaultClassNames from './classNames';
-import PropTypes from './PropTypes';
 
 function handleEvent(handler, day, modifiers) {
   if (!handler) {

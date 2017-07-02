@@ -17,7 +17,6 @@ const PrimitiveTypes = {
   before: PropTypes.shape({
     before: PropTypes.instanceOf(Date),
   }),
-  ...PropTypes,
 };
 
 export const ModifierPropType = PropTypes.oneOfType([
