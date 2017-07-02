@@ -1,6 +1,8 @@
+/* eslint global-require: 0, import/no-extraneous-dependencies: 0 */
 /* eslint-env node */
 
 const isProduction = process.env.NODE_ENV === 'production';
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
@@ -12,6 +14,27 @@ module.exports = {
     filename: `[name]${isProduction ? '.min' : ''}.js`,
     library: 'DayPicker',
     libraryTarget: 'umd',
+  },
+  module: {
+    rules: [
+      {
+        test: /prop-types/,
+        use: 'null-loader',
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['react', 'es2015', 'stage-1'],
+            plugins: [
+              require('babel-plugin-transform-react-remove-prop-types').default,
+            ],
+          },
+        },
+      },
+    ],
   },
   externals: {
     react: {

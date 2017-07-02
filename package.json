@@ -93,6 +93,7 @@
     "jest-junit-reporter": "^1.1.0",
     "jsdom": "^11.0.0",
     "moment": "^2.18.1",
+    "null-loader": "^0.1.1",
     "postcss-cli": "^4.1.0",
     "prettier": "^1.5.2",
     "react": "^15.6.1",
