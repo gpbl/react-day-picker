@@ -1,5 +1,13 @@
 <a class="anchor" name="v6"></a>
 
+### [v6.0.5](https://github.com/gpbl/react-day-picker/tree/v6.0.5) (2017-07-02)
+
+**Bug fixes**
+
+* Fixed: today button inside a form submits the form ([#443](https://github.com/gpbl/react-day-picker/issues/443))
+* Fixed: before/after modifiers not working as expected in some cases ([#442](https://github.com/gpbl/react-day-picker/issues/442))
+* [DayPickerInput] Fixed: allow multiple formats in `format` prop ([#439](https://github.com/gpbl/react-day-picker/issues/439))
+
 ### [v6.0.4](https://github.com/gpbl/react-day-picker/tree/v6.0.4) (2017-06-26)
 
 **Bug fixes**
