@@ -4,14 +4,13 @@ defaults: &defaults
     - image: node:7.10.0
       environment:
         TEST_REPORT_PATH: "reports"
-  branches:
-    ignore:
-      - gh-pages
 
 version: 2
     
 jobs:
-
+  branches:
+    ignore:
+      - gh-pages
   checkout-and-test:
     <<: *defaults
     steps:
