@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Matching days using modifiers
+title: Matching days with modifiers
 permalink: docs/modifiers.html
 redirect_from: 
   - /Modifiers.html
