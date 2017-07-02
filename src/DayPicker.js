@@ -476,6 +476,7 @@ export default class DayPicker extends Component {
   renderTodayButton() {
     return (
       <button
+        type="button"
         tabIndex={0}
         className={this.props.classNames.todayButton}
         aria-label={this.props.todayButton}
