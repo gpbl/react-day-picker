@@ -30,7 +30,7 @@ permalink: docs/api-daypicker.html
 
 #### Events
 
-[onBlur](#onblur), [onCaptionClick](#oncaptionclick), [onDayClick](#ondayclick), [onDayFocus](#ondayfocus), [onDayKeyDown](#ondaykeydown), [onDayMouseEnter](#ondaymouseenter), [onDayMouseLeave](#ondaymouseleave), [onDayTouchEnd](#ondaytouchend), [onDayTouchStart](#ondaytouchstart), [onFocus](#onfocus), [onKeyDown](#onkeydown), [onMonthChange](#onmonthchange)
+[onBlur](#onblur), [onCaptionClick](#oncaptionclick), [onDayClick](#ondayclick), [onDayFocus](#ondayfocus), [onDayKeyDown](#ondaykeydown), [onDayMouseEnter](#ondaymouseenter), [onDayMouseLeave](#ondaymouseleave), [onDayMouseDown](#ondaymousedown), [onDayMouseUp](#ondaymouseup), [onDayTouchEnd](#ondaytouchend), [onDayTouchStart](#ondaytouchstart), [onFocus](#onfocus), [onKeyDown](#onkeydown), [onMonthChange](#onmonthchange)
 
 #### Methods
 
@@ -371,6 +371,18 @@ Event handler when the mouse enters a day cell.
 | **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
 
 Event handler when the mouse leave a day cell.
+
+### onDayMouseDown
+
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
+
+Event handler when the mouse button is pressed on a day cell.
+
+### onDayMouseUp
+
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
+
+Event handler when the mouse button is released on a day cell.
 
 ### onDayTouchStart
 
