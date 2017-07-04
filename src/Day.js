@@ -35,7 +35,7 @@ export default class Day extends Component {
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     onMouseDown: PropTypes.func,
-    onMouseUp: propTypes.func,
+    onMouseUp: PropTypes.func,
     onTouchEnd: PropTypes.func,
     onTouchStart: PropTypes.func,
     onFocus: PropTypes.func,

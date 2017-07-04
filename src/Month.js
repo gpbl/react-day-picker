@@ -55,7 +55,7 @@ export default class Month extends Component {
     onDayMouseEnter: PropTypes.func,
     onDayMouseLeave: PropTypes.func,
     onDayMouseDown: PropTypes.func,
-    onDAyMouseUp: PropTypes.func,
+    onDayMouseUp: PropTypes.func,
     onDayTouchEnd: PropTypes.func,
     onDayTouchStart: PropTypes.func,
     onWeekClick: PropTypes.func,
@@ -109,8 +109,8 @@ export default class Month extends Component {
         onKeyDown={this.props.onDayKeyDown}
         onMouseEnter={this.props.onDayMouseEnter}
         onMouseLeave={this.props.onDayMouseLeave}
-        onMouseDown={this.props.onMouseDown}
-        onMouseUp={this.props.onMouseUp}
+        onMouseDown={this.props.onDayMouseDown}
+        onMouseUp={this.props.onDayMouseUp}
         onTouchEnd={this.props.onDayTouchEnd}
         onTouchStart={this.props.onDayTouchStart}
       >
