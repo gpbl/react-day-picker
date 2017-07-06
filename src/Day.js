@@ -42,19 +42,10 @@ export default class Day extends Component {
   };
 
   static defaultProps = {
-    tabIndex: -1,
-  };
-
-  static defaultProps = {
     modifiers: {},
     empty: false,
+    tabIndex: -1,
   };
-
-  shouldComponentUpdate(nextProps) {
-    const modifiers = Object.keys(this.props.modifiers).sort();
-    const nextModifiers = Object.keys(nextProps.modifiers).sort();
-    return modifiers.join() !== nextModifiers.join();
-  }
 
   render() {
     const {
