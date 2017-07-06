@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 
 import DayPicker from '../../src/DayPicker';
 import * as keys from '../../src/keys';
+import defaultClassNames from '../../src/classNames';
 
 describe('DayPicker’s navigation', () => {
   it('should not allow the previous month when the first month is the first allowed one', () => {
@@ -54,6 +55,20 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getFullYear()).toBe(2015);
     expect(instance.state.currentMonth.getMonth()).toBe(8);
   });
+  it('should show the next month when clicking outside days with classNames set', () => {
+    const wrapper = mount(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        enableOutsideDays
+        classNames={{ ...defaultClassNames, outside: 'fakeOutside' }}
+        onDayClick={() => {}}
+      />
+    );
+    wrapper.find('.fakeOutside').last().simulate('click');
+    const instance = wrapper.instance();
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(8);
+  });
   it('should show the previous month when clicking the previous button', () => {
     const wrapper = mount(<DayPicker initialMonth={new Date(2015, 7)} />);
     wrapper.find('.DayPicker-NavButton--prev').simulate('click');
@@ -70,6 +85,20 @@ describe('DayPicker’s navigation', () => {
       />
     );
     wrapper.find('.DayPicker-Day--outside').first().simulate('click');
+    const instance = wrapper.instance();
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(6);
+  });
+  it('should show the previous month when clicking outside days with classNames set', () => {
+    const wrapper = mount(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        enableOutsideDays
+        classNames={{ ...defaultClassNames, outside: 'fakeOutside' }}
+        onDayClick={() => {}}
+      />
+    );
+    wrapper.find('.fakeOutside').first().simulate('click');
     const instance = wrapper.instance();
     expect(instance.state.currentMonth.getFullYear()).toBe(2015);
     expect(instance.state.currentMonth.getMonth()).toBe(6);
