@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import assign from 'object-assign';
 import PropTypes from 'prop-types';
 import { isSameDay } from './DateUtils';
+import { hasOwnProp } from './Helpers';
 
 import defaultClassNames from './classNames';
 
@@ -16,9 +17,6 @@ function handleEvent(handler, day, modifiers) {
     handler(day, modifiers, e);
   };
 }
-
-const hasOwnProp = (obj, prop) =>
-  Object.prototype.hasOwnProperty.call(obj, prop);
 
 export default class Day extends Component {
   static propTypes = {

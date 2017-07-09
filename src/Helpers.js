@@ -140,3 +140,7 @@ export function getDayNodes(node, classNames) {
 export function nodeListToArray(nodeList) {
   return Array.prototype.slice.call(nodeList, 0);
 }
+
+export function hasOwnProp(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
