@@ -5,6 +5,7 @@ import { isElement } from 'react-dom/test-utils';
 import { shallow, mount, render } from 'enzyme';
 
 import DayPicker from '../../src/DayPicker';
+import Day from '../../src/Day';
 import classNames from '../../src/classNames';
 
 describe('DayPicker’s rendering', () => {
@@ -360,5 +361,131 @@ describe('DayPicker’s rendering', () => {
     );
     expect(wrapper.find('.foo')).toHaveLength(28);
     expect(wrapper.find('.bar')).toHaveLength(1);
+  });
+});
+
+describe('Day.shouldComponentUpdate', () => {
+  it('should return false if the modifiers object passes a shallow compare', () => {
+    const initial = {
+      a: true,
+      b: true,
+    };
+    const updated = {
+      b: true,
+      a: true,
+    };
+    const day = shallow(
+      <Day day={new Date()} classNames={{ day: 'day' }} modifiers={initial}>
+        2
+      </Day>
+    ).instance();
+    const newProps = Object.assign({}, day.props, {
+      modifiers: updated,
+    });
+    expect(day.shouldComponentUpdate(newProps)).toBeFalsy();
+  });
+
+  it('should return false if a new day date is passed that is in the same day', () => {
+    const day = shallow(
+      <Day day={new Date()} classNames={{ day: 'day' }}>
+        2
+      </Day>
+    ).instance();
+    const newProps = Object.assign({}, day.props, {
+      day: new Date(),
+    });
+    expect(day.shouldComponentUpdate(newProps)).toBeFalsy();
+  });
+
+  it('should return false if the modifiersStyles object passes a shallow compare', () => {
+    const initial = {
+      a: {},
+      b: {},
+    };
+    const updated = {
+      b: initial.b,
+      a: initial.a,
+    };
+    const day = shallow(
+      <Day
+        day={new Date()}
+        classNames={{ day: 'day' }}
+        modifiersStyles={initial}
+      >
+        2
+      </Day>
+    ).instance();
+    const newProps = Object.assign({}, day.props, {
+      modifiersStyles: updated,
+    });
+    expect(day.shouldComponentUpdate(newProps)).toBeFalsy();
+  });
+
+  it('should return false when empty does not change', () => {
+    const day = shallow(
+      <Day day={new Date()} classNames={{ day: 'day' }} empty>
+        2
+      </Day>
+    ).instance();
+    const newProps = Object.assign({}, day.props, {
+      empty: true,
+    });
+    expect(day.shouldComponentUpdate(newProps)).toBeFalsy();
+  });
+
+  it('should return true when modifiers change', () => {
+    const initial = {
+      a: true,
+      b: true,
+    };
+    const updated = {
+      c: true,
+      a: true,
+    };
+    const day = shallow(
+      <Day day={new Date()} classNames={{ day: 'day' }} modifiers={initial}>
+        2
+      </Day>
+    ).instance();
+    const newProps = Object.assign({}, day.props, {
+      modifiers: updated,
+    });
+    expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
+  });
+
+  it('should return true when the day changes', () => {
+    const day = shallow(
+      <Day day={new Date()} classNames={{ day: 'day' }}>
+        2
+      </Day>
+    ).instance();
+    const newProps = Object.assign({}, day.props, {
+      day: new Date(2015, 1, 1),
+    });
+    expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
+  });
+
+  it('should return true when empty changes', () => {
+    const day = shallow(
+      <Day day={new Date()} classNames={{ day: 'day' }} empty>
+        2
+      </Day>
+    ).instance();
+    const newProps = Object.assign({}, day.props, {
+      empty: false,
+    });
+    expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
+  });
+
+  it('should return true when you add a prop', () => {
+    const day = shallow(
+      <Day day={new Date()} classNames={{ day: 'day' }} empty>
+        2
+      </Day>
+    ).instance();
+    const newProps = Object.assign({}, day.props, {
+      onKeyDown: () => {},
+    });
+    expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
   });
 });

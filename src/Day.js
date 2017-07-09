@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import assign from 'object-assign';
 import PropTypes from 'prop-types';
+import { isSameDay } from './DateUtils';
 
 import defaultClassNames from './classNames';
 
@@ -15,6 +16,9 @@ function handleEvent(handler, day, modifiers) {
     handler(day, modifiers, e);
   };
 }
+
+const hasOwnProp = (obj, prop) =>
+  Object.prototype.hasOwnProperty.call(obj, prop);
 
 export default class Day extends Component {
   static propTypes = {
@@ -49,13 +53,40 @@ export default class Day extends Component {
 
   static defaultProps = {
     modifiers: {},
+    modifiersStyles: {},
     empty: false,
   };
 
   shouldComponentUpdate(nextProps) {
-    const modifiers = Object.keys(this.props.modifiers).sort();
-    const nextModifiers = Object.keys(nextProps.modifiers).sort();
-    return modifiers.join() !== nextModifiers.join();
+    const propNames = Object.keys(this.props);
+    const nextPropNames = Object.keys(nextProps);
+    if (propNames.length !== nextPropNames.length) {
+      return true;
+    }
+    return propNames.some(name => {
+      if (
+        name === 'modifiers' ||
+        name === 'modifiersStyles' ||
+        name === 'classNames'
+      ) {
+        const prop = this.props[name];
+        const nextProp = nextProps[name];
+        const modifiers = Object.keys(prop);
+        const nextModifiers = Object.keys(nextProp);
+        if (modifiers.length !== nextModifiers.length) {
+          return true;
+        }
+        return modifiers.some(
+          mod => !hasOwnProp(nextProp, mod) || prop[mod] !== nextProp[mod]
+        );
+      }
+      if (name === 'day') {
+        return !isSameDay(this.props[name], nextProps[name]);
+      }
+      return (
+        !hasOwnProp(nextProps, name) || this.props[name] !== nextProps[name]
+      );
+    });
   }
 
   render() {
