@@ -14,7 +14,7 @@
   <meta property="og:description" content="no dependencies ● fully customizable ● ARIA support ● localizable ● less than 10KB">
 
   <link rel="shortcut icon" href="/images/favicon.png">
-  <link rel="stylesheet" href="https://unpkg.com/react-day-picker@6.0.5/lib/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/react-day-picker@6.1.0/lib/style.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
@@ -28,7 +28,7 @@
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
   <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
-  <script src="https://unpkg.com/react-day-picker@6.0.5/lib/daypicker.min.js"></script>
+  <script src="https://unpkg.com/react-day-picker@6.1.0/lib/daypicker.min.js"></script>
   <script>
     DayPickerInput = DayPicker.Input;
     DateUtils = DayPicker.DateUtils;
@@ -51,7 +51,7 @@
           <li><a href="/docs">Docs</a></li>
           <li><a href="/examples">Examples</a></li>
           <li><a href="/docs/api.html">API</a></li>
-          <li><a href="/changelog.html">v6.0.5</a></li>
+          <li><a href="/changelog.html">v6.1.0</a></li>
         </ul>
         <ul class="nav-external">
           <li><a class="nav-github" href="https://github.com/gpbl/react-day-picker">GitHub</a></li>
@@ -136,7 +136,7 @@
 
 <h4 id="events">Events</h4>
 
-<p><a href="#onblur">onBlur</a>, <a href="#oncaptionclick">onCaptionClick</a>, <a href="#ondayclick">onDayClick</a>, <a href="#ondayfocus">onDayFocus</a>, <a href="#ondaykeydown">onDayKeyDown</a>, <a href="#ondaymouseenter">onDayMouseEnter</a>, <a href="#ondaymouseleave">onDayMouseLeave</a>, <a href="#ondaymousedown">onDayMouseDown</a>, <a href="#ondaymouseup">onDayMouseUp</a>, <a href="#ondaytouchend">onDayTouchEnd</a>, <a href="#ondaytouchstart">onDayTouchStart</a>, <a href="#onfocus">onFocus</a>, <a href="#onkeydown">onKeyDown</a>, <a href="#onmonthchange">onMonthChange</a></p>
+<p><a href="#onblur">onBlur</a>, <a href="#oncaptionclick">onCaptionClick</a>, <a href="#ondayclick">onDayClick</a>, <a href="#ondayfocus">onDayFocus</a>, <a href="#ondaykeydown">onDayKeyDown</a>, <a href="#ondaymousedown">onDayMouseDown</a>, <a href="#ondaymouseenter">onDayMouseEnter</a>, <a href="#ondaymouseleave">onDayMouseLeave</a>, <a href="#ondaymouseup">onDayMouseUp</a>, <a href="#ondaytouchend">onDayTouchEnd</a>, <a href="#ondaytouchstart">onDayTouchStart</a>, <a href="#onfocus">onFocus</a>, <a href="#onkeydown">onKeyDown</a>, <a href="#onmonthchange">onMonthChange</a></p>
 
 <h4 id="methods">Methods</h4>
 
@@ -646,7 +646,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(currentMonth: date, e: SyntheticEvent) ⇒ void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(currentMonth: date, e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -658,7 +658,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -670,7 +670,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(e: SyntheticEvent) ⇒ void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -682,19 +682,31 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
 
 <p>Event handler when the day cell gets the <code class="highlighter-rouge">keydown</code> event.</p>
 
+<h3 id="ondaymousedown">onDayMouseDown</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Event handler when the mouse button is pressed on a day cell.</p>
+
 <h3 id="ondaymouseenter">onDayMouseEnter</h3>
 
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -706,31 +718,19 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
 
 <p>Event handler when the mouse leave a day cell.</p>
 
-<h3 id="ondaymousedown">onDayMouseDown</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Event handler when the mouse button is pressed on a day cell.</p>
-
 <h3 id="ondaymouseup">onDayMouseUp</h3>
 
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -742,7 +742,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -754,7 +754,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -766,7 +766,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(e: SyntheticEvent) ⇒ void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -778,7 +778,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(e: SyntheticEvent) ⇒ void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -790,7 +790,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong> <code class="highlighter-rouge">(month: date) ⇒ void</code></td>
+      <td><strong>Type</strong> <code class="highlighter-rouge">(month: date) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -802,7 +802,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Type</strong>: <code class="highlighter-rouge">(weekNumber: number, days: date[], e: SyntheticEvent) ⇒  |void</code></td>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(weekNumber: number, days: date[], e: SyntheticEvent) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -816,7 +816,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Signature</strong> <code class="highlighter-rouge">(month: date) ⇒ void</code></td>
+      <td><strong>Signature</strong> <code class="highlighter-rouge">(month: date) ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -853,7 +853,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Signature</strong> <code class="highlighter-rouge">() ⇒ void</code></td>
+      <td><strong>Signature</strong> <code class="highlighter-rouge">() ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -865,7 +865,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Signature</strong> <code class="highlighter-rouge">() ⇒ void</code></td>
+      <td><strong>Signature</strong> <code class="highlighter-rouge">() ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -877,7 +877,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Signature</strong> <code class="highlighter-rouge">() ⇒ void</code></td>
+      <td><strong>Signature</strong> <code class="highlighter-rouge">() ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>
@@ -889,7 +889,7 @@ By default the used locale is English (US). See also <a href="/docs/localization
 <table>
   <tbody>
     <tr>
-      <td><strong>Signature</strong> <code class="highlighter-rouge">() ⇒ void</code></td>
+      <td><strong>Signature</strong> <code class="highlighter-rouge">() ⇒ undefined</code></td>
     </tr>
   </tbody>
 </table>

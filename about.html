@@ -14,7 +14,7 @@
   <meta property="og:description" content="no dependencies ● fully customizable ● ARIA support ● localizable ● less than 10KB">
 
   <link rel="shortcut icon" href="/images/favicon.png">
-  <link rel="stylesheet" href="https://unpkg.com/react-day-picker@6.0.5/lib/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/react-day-picker@6.1.0/lib/style.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
@@ -28,7 +28,7 @@
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
   <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
-  <script src="https://unpkg.com/react-day-picker@6.0.5/lib/daypicker.min.js"></script>
+  <script src="https://unpkg.com/react-day-picker@6.1.0/lib/daypicker.min.js"></script>
   <script>
     DayPickerInput = DayPicker.Input;
     DateUtils = DayPicker.DateUtils;
@@ -51,7 +51,7 @@
           <li><a href="/docs">Docs</a></li>
           <li><a href="/examples">Examples</a></li>
           <li><a href="/docs/api.html">API</a></li>
-          <li><a href="/changelog.html">v6.0.5</a></li>
+          <li><a href="/changelog.html">v6.1.0</a></li>
         </ul>
         <ul class="nav-external">
           <li><a class="nav-github" href="https://github.com/gpbl/react-day-picker">GitHub</a></li>
@@ -62,6 +62,22 @@
 
     <div class="container wrap">
       <p><a class="anchor" name="v6"></a></p>
+
+<h2 id="v610-2017-07-09"><a href="https://github.com/gpbl/react-day-picker/tree/v6.1.0">v6.1.0</a> (2017-07-09)</h2>
+
+<p><strong>Improvements</strong></p>
+
+<ul>
+  <li>Added new <a href="http://react-day-picker.js.org/docs/api-input.html#ondaymousedown"><code class="highlighter-rouge">onDayMouseDown</code></a> and <a href="http://react-day-picker.js.org/docs/api-input.html#ondaymouseup"><code class="highlighter-rouge">onDayMouseUp</code></a> props (<a href="https://github.com/gpbl/react-day-picker/issues/445">#445</a> by <a href="https://github.com/eldritchideen">eldritchideen</a>)</li>
+</ul>
+
+<p><strong>Bug fixes</strong></p>
+
+<ul>
+  <li>Fixed: before/after modifier not working as expected (<a href="https://github.com/gpbl/react-day-picker/issues/451">#451</a>)</li>
+  <li>Fixed: changing some props would not update day cells (<a href="https://github.com/gpbl/react-day-picker/issues/452">#452</a> by <a href="https://github.com/oigewan">oigewan</a>)</li>
+  <li>Fixed: <code class="highlighter-rouge">classNames</code> may prevent clicking on outside days (<a href="https://github.com/gpbl/react-day-picker/issues/449">#449</a>)</li>
+</ul>
 
 <h3 id="v605-2017-07-02"><a href="https://github.com/gpbl/react-day-picker/tree/v6.0.5">v6.0.5</a> (2017-07-02)</h3>
 
