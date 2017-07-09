@@ -100,6 +100,42 @@ describe('DayPicker’s events handlers', () => {
     expect(arg1).toEqual({ foo: true });
     expect(arg2).toBeInstanceOf(SyntheticEvent);
   });
+  it('should call the `onDayMouseDown` event handler', () => {
+    const handleDayMouseDown = jest.fn();
+
+    const modifiers = { foo: d => d.getDate() === 15 };
+    const wrapper = mount(
+      <DayPicker modifiers={modifiers} onDayMouseDown={handleDayMouseDown} />
+    );
+
+    wrapper.find('.DayPicker-Day--foo').simulate('mouseDown');
+
+    const arg0 = handleDayMouseDown.mock.calls[0][0];
+    const arg1 = handleDayMouseDown.mock.calls[0][1];
+    const arg2 = handleDayMouseDown.mock.calls[0][2];
+    expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
+    expect(arg0.getMonth()).toEqual(new Date().getMonth());
+    expect(arg1).toEqual({ foo: true });
+    expect(arg2).toBeInstanceOf(SyntheticEvent);
+  });
+  it('should call the `onDayMouseUp` event handler', () => {
+    const handleDayMouseUp = jest.fn();
+
+    const modifiers = { foo: d => d.getDate() === 15 };
+    const wrapper = mount(
+      <DayPicker modifiers={modifiers} onDayMouseUp={handleDayMouseUp} />
+    );
+
+    wrapper.find('.DayPicker-Day--foo').simulate('mouseUp');
+
+    const arg0 = handleDayMouseUp.mock.calls[0][0];
+    const arg1 = handleDayMouseUp.mock.calls[0][1];
+    const arg2 = handleDayMouseUp.mock.calls[0][2];
+    expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
+    expect(arg0.getMonth()).toEqual(new Date().getMonth());
+    expect(arg1).toEqual({ foo: true });
+    expect(arg2).toBeInstanceOf(SyntheticEvent);
+  });
   it('should call the `onDayTouchStart` event handler', () => {
     const handleDayTouchStart = jest.fn();
 

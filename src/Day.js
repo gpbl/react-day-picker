@@ -35,6 +35,8 @@ export default class Day extends Component {
     onKeyDown: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
+    onMouseDown: PropTypes.func,
+    onMouseUp: PropTypes.func,
     onTouchEnd: PropTypes.func,
     onTouchStart: PropTypes.func,
     onFocus: PropTypes.func,
@@ -66,6 +68,8 @@ export default class Day extends Component {
       modifiers,
       onMouseEnter,
       onMouseLeave,
+      onMouseUp,
+      onMouseDown,
       onClick,
       onKeyDown,
       onTouchStart,
@@ -112,6 +116,8 @@ export default class Day extends Component {
         onKeyDown={handleEvent(onKeyDown, day, modifiers)}
         onMouseEnter={handleEvent(onMouseEnter, day, modifiers)}
         onMouseLeave={handleEvent(onMouseLeave, day, modifiers)}
+        onMouseUp={handleEvent(onMouseUp, day, modifiers)}
+        onMouseDown={handleEvent(onMouseDown, day, modifiers)}
         onTouchEnd={handleEvent(onTouchEnd, day, modifiers)}
         onTouchStart={handleEvent(onTouchStart, day, modifiers)}
         onFocus={handleEvent(onFocus, day, modifiers)}
