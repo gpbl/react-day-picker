@@ -4,7 +4,7 @@
 
 **Improvements**
 
-* Added new [`onDayMouseDown`](http://react-day-picker.js.org/docs/api-input.html#ondaymousedown) and [`onDayMouseUp`](http://react-day-picker.js.org/docs/api-input.html#ondaymouseup) props ([#445](https://github.com/gpbl/react-day-picker/issues/445) by [eldritchideen](https://github.com/eldritchideen))
+* Added new [`onDayMouseDown`](http://react-day-picker.js.org/docs/api.html#ondaymousedown) and [`onDayMouseUp`](http://react-day-picker.js.org/docs/api.html#ondaymouseup) props ([#445](https://github.com/gpbl/react-day-picker/issues/445) by [eldritchideen](https://github.com/eldritchideen))
 
 **Bug fixes**
 
