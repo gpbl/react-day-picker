@@ -477,7 +477,7 @@ describe('Day.shouldComponentUpdate', () => {
     expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
   });
 
-  it('should return true when you add a prop', () => {
+  it('should return true when adding a prop', () => {
     const day = shallow(
       <Day day={new Date()} classNames={{ day: 'day' }} empty>
         2
