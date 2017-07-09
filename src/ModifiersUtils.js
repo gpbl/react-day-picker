@@ -27,7 +27,11 @@ export function dayMatchesModifier(day, modifier) {
     if (mod.after && mod.before && isDayAfter(mod.before, mod.after)) {
       return isDayAfter(day, mod.after) && isDayBefore(day, mod.before);
     }
-    if (mod.after && mod.before && isDayAfter(mod.after, mod.before)) {
+    if (
+      mod.after &&
+      mod.before &&
+      (isDayAfter(mod.after, mod.before) || isSameDay(mod.after, mod.before))
+    ) {
       return isDayAfter(day, mod.after) || isDayBefore(day, mod.before);
     }
     if (mod.after) {

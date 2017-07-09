@@ -134,6 +134,27 @@ describe('ModifiersUtils', () => {
       );
       expect(fail).toBe(false);
     });
+    it('matches "after" and "before" modifiers (same day)', () => {
+      const afterBeforeModifier = {
+        before: new Date(2015, 8, 10),
+        after: new Date(2015, 8, 10),
+      };
+      const match1 = ModifiersUtils.dayMatchesModifier(
+        new Date(2015, 8, 5),
+        afterBeforeModifier
+      );
+      expect(match1).toBe(true);
+      const match2 = ModifiersUtils.dayMatchesModifier(
+        new Date(2015, 8, 20),
+        afterBeforeModifier
+      );
+      expect(match2).toBe(true);
+      const fail = ModifiersUtils.dayMatchesModifier(
+        new Date(2015, 8, 10),
+        afterBeforeModifier
+      );
+      expect(fail).toBe(false);
+    });
     it('matches "after" modifiers', () => {
       const afterModifier = {
         after: new Date(2015, 8, 18),
