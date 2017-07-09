@@ -30,7 +30,7 @@ permalink: docs/api-daypicker.html
 
 #### Events
 
-[onBlur](#onblur), [onCaptionClick](#oncaptionclick), [onDayClick](#ondayclick), [onDayFocus](#ondayfocus), [onDayKeyDown](#ondaykeydown), [onDayMouseEnter](#ondaymouseenter), [onDayMouseLeave](#ondaymouseleave), [onDayMouseDown](#ondaymousedown), [onDayMouseUp](#ondaymouseup), [onDayTouchEnd](#ondaytouchend), [onDayTouchStart](#ondaytouchstart), [onFocus](#onfocus), [onKeyDown](#onkeydown), [onMonthChange](#onmonthchange)
+[onBlur](#onblur), [onCaptionClick](#oncaptionclick), [onDayClick](#ondayclick), [onDayFocus](#ondayfocus), [onDayKeyDown](#ondaykeydown), [onDayMouseDown](#ondaymousedown), [onDayMouseEnter](#ondaymouseenter), [onDayMouseLeave](#ondaymouseleave), [onDayMouseUp](#ondaymouseup), [onDayTouchEnd](#ondaytouchend), [onDayTouchStart](#ondaytouchstart), [onFocus](#onfocus), [onKeyDown](#onkeydown), [onMonthChange](#onmonthchange)
 
 #### Methods
 
@@ -338,85 +338,85 @@ An array containing the short weekdays names to use in the month's header. Must 
 
 ### onCaptionClick
 
-| **Type**: `(currentMonth: date, e: SyntheticEvent) ⇒ void` |
+| **Type**: `(currentMonth: date, e: SyntheticEvent) ⇒ undefined` |
 
 Event handler when the user clicks on the caption in the header displaying the month.
 
 ### onDayClick
 
-| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined`
 
 Event handler when the user clicks on a day cell.
 
 ### onBlur
 
-| **Type**: `(e: SyntheticEvent) ⇒ void` |
+| **Type**: `(e: SyntheticEvent) ⇒ undefined` |
 
 Event handler when the calendar get the `blur` event.
 
 ### onDayKeyDown
 
-| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined`
 
 Event handler when the day cell gets the `keydown` event.
 
+### onDayMouseDown
+
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined`
+
+Event handler when the mouse button is pressed on a day cell.
+
 ### onDayMouseEnter
 
-| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined`
 
 Event handler when the mouse enters a day cell.
 
 ### onDayMouseLeave
 
-| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined`
 
 Event handler when the mouse leave a day cell.
 
-### onDayMouseDown
-
-| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
-
-Event handler when the mouse button is pressed on a day cell.
-
 ### onDayMouseUp
 
-| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined`
 
 Event handler when the mouse button is released on a day cell.
 
 ### onDayTouchStart
 
-| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined`
 
 Event handler when the day cell gets the `touchStart` event.
 
 ### onDayTouchEnd
 
-| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void`
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined`
 
 Event handler when the day cell gets the `touchEnd` event.
 
 ### onFocus
 
-| **Type**: `(e: SyntheticEvent) ⇒ void` |
+| **Type**: `(e: SyntheticEvent) ⇒ undefined` |
 
 Event handler when the calendar get the `focus` event
 
 ### onKeyDown
 
-| **Type**: `(e: SyntheticEvent) ⇒ void` |
+| **Type**: `(e: SyntheticEvent) ⇒ undefined` |
 
 Event handler when the calendar get the `keydown` event
 
 ### onMonthChange
 
-| **Type** `(month: date) ⇒ void` |
+| **Type** `(month: date) ⇒ undefined` |
 
 Event handler when the month is changed, i.e. clicking the navigation buttons or using the keyboard.
 
 ### onWeekClick
 
-| **Type**: `(weekNumber: number, days: date[], e: SyntheticEvent) ⇒  |void`
+| **Type**: `(weekNumber: number, days: date[], e: SyntheticEvent) ⇒ undefined`
 
 Event hander when the user clicks on a week number (when [showWeekNumbers](#showweeknumbers) is set to `true`).
 
@@ -424,7 +424,7 @@ Event hander when the user clicks on a week number (when [showWeekNumbers](#show
 
 ### showMonth 
 
-| **Signature** `(month: date) ⇒ void` |
+| **Signature** `(month: date) ⇒ undefined` |
 
 Show the given `month` in the calendar.
 
@@ -456,25 +456,25 @@ class MyComponent extends React {
 
 ### showPreviousMonth
 
-| **Signature** `() ⇒ void` |
+| **Signature** `() ⇒ undefined` |
 
 Show the previous month in the calendar.
 
 ### showNextMonth
 
-| **Signature** `() ⇒ void` |
+| **Signature** `() ⇒ undefined` |
 
 Show the next month in the calendar.
 
 ### showPreviousYear
 
-| **Signature** `() ⇒ void` |
+| **Signature** `() ⇒ undefined` |
 
 Show the previous year in the calendar.
 
 ### showNextYear
 
-| **Signature** `() ⇒ void` |
+| **Signature** `() ⇒ undefined` |
 
 Show the next year in the calendar.
 
