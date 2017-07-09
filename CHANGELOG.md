@@ -1,5 +1,17 @@
 <a class="anchor" name="v6"></a>
 
+## [v6.1.0](https://github.com/gpbl/react-day-picker/tree/v6.1.0) (2017-07-09)
+
+**Improvements**
+
+* Added new [`onDayMouseDown`](http://react-day-picker.js.org/docs/api-input.html#ondaymousedown) and [`onDayMouseUp`](http://react-day-picker.js.org/docs/api-input.html#ondaymouseup) props ([#445](https://github.com/gpbl/react-day-picker/issues/445) by [eldritchideen](https://github.com/eldritchideen))
+
+**Bug fixes**
+
+* Fixed: before/after modifier not working as expected ([#451](https://github.com/gpbl/react-day-picker/issues/451))
+* Fixed: changing some props would not update day cells ([#452](https://github.com/gpbl/react-day-picker/issues/452) by [oigewan](https://github.com/oigewan))
+* Fixed: `classNames` may prevent clicking on outside days ([#449](https://github.com/gpbl/react-day-picker/issues/449))
+
 ### [v6.0.5](https://github.com/gpbl/react-day-picker/tree/v6.0.5) (2017-07-02)
 
 **Bug fixes**
