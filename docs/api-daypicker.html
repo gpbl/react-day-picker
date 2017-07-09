@@ -136,7 +136,7 @@
 
 <h4 id="events">Events</h4>
 
-<p><a href="#onblur">onBlur</a>, <a href="#oncaptionclick">onCaptionClick</a>, <a href="#ondayclick">onDayClick</a>, <a href="#ondayfocus">onDayFocus</a>, <a href="#ondaykeydown">onDayKeyDown</a>, <a href="#ondaymouseenter">onDayMouseEnter</a>, <a href="#ondaymouseleave">onDayMouseLeave</a>, <a href="#ondaytouchend">onDayTouchEnd</a>, <a href="#ondaytouchstart">onDayTouchStart</a>, <a href="#onfocus">onFocus</a>, <a href="#onkeydown">onKeyDown</a>, <a href="#onmonthchange">onMonthChange</a></p>
+<p><a href="#onblur">onBlur</a>, <a href="#oncaptionclick">onCaptionClick</a>, <a href="#ondayclick">onDayClick</a>, <a href="#ondayfocus">onDayFocus</a>, <a href="#ondaykeydown">onDayKeyDown</a>, <a href="#ondaymouseenter">onDayMouseEnter</a>, <a href="#ondaymouseleave">onDayMouseLeave</a>, <a href="#ondaymousedown">onDayMouseDown</a>, <a href="#ondaymouseup">onDayMouseUp</a>, <a href="#ondaytouchend">onDayTouchEnd</a>, <a href="#ondaytouchstart">onDayTouchStart</a>, <a href="#onfocus">onFocus</a>, <a href="#onkeydown">onKeyDown</a>, <a href="#onmonthchange">onMonthChange</a></p>
 
 <h4 id="methods">Methods</h4>
 
@@ -712,6 +712,30 @@ By default the used locale is English (US). See also <a href="/docs/localization
 </table>
 
 <p>Event handler when the mouse leave a day cell.</p>
+
+<h3 id="ondaymousedown">onDayMouseDown</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Event handler when the mouse button is pressed on a day cell.</p>
+
+<h3 id="ondaymouseup">onDayMouseUp</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object, e: SyntheticEvent) ⇒  |void</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Event handler when the mouse button is released on a day cell.</p>
 
 <h3 id="ondaytouchstart">onDayTouchStart</h3>
 
