@@ -354,6 +354,12 @@ Event handler when the user clicks on a day cell.
 
 Event handler when the calendar get the `blur` event.
 
+### onDayFocus
+
+| **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined`
+
+Event handler when the day cell gets the `focus` event.
+
 ### onDayKeyDown
 
 | **Type**: `(day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined`
