@@ -23,6 +23,7 @@ export default class DayPicker extends Component {
     numberOfMonths: PropTypes.number,
     fromMonth: PropTypes.instanceOf(Date),
     toMonth: PropTypes.instanceOf(Date),
+    shouldMonthChange: PropTypes.func,
     canChangeMonth: PropTypes.bool,
     reverseMonths: PropTypes.bool,
     pagedNavigation: PropTypes.bool,
@@ -213,8 +214,15 @@ export default class DayPicker extends Component {
     return this.props.canChangeMonth;
   }
 
-  showMonth(d, callback) {
+  showMonth(d, callback, force) {
     if (!this.allowMonth(d)) {
+      return;
+    }
+    if (
+      !force &&
+      this.props.shouldMonthChange &&
+      !this.props.shouldMonthChange(d, callback)
+    ) {
       return;
     }
     this.setState({ currentMonth: Helpers.startOfMonth(d) }, () => {

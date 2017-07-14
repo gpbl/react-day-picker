@@ -181,12 +181,35 @@ describe('DayPicker’s methods', () => {
   describe('showMonth()', () => {
     it('should show the specified month', () => {
       const instance = shallow(
-        <DayPicker initialMonth={new Date(2015, 5, 4)} />
+        <DayPicker initialMonth={new Date(2015, 5)} />
       ).instance();
-      instance.showMonth(new Date(2016, 1, 15));
+      instance.showMonth(new Date(2016, 1));
       expect(instance.state.currentMonth.getFullYear()).toBe(2016);
       expect(instance.state.currentMonth.getMonth()).toBe(1);
-      expect(instance.state.currentMonth.getDate()).toBe(1);
+    });
+    it('should suppress showMonth if shouldMonthChange returns false', () => {
+      const shouldMonthChange = () => false;
+      const instance = shallow(
+        <DayPicker
+          initialMonth={new Date(2017, 7)}
+          shouldMonthChange={shouldMonthChange}
+        />
+      ).instance();
+      instance.showMonth(new Date(2014, 3));
+      expect(instance.state.currentMonth.getFullYear()).toBe(2017);
+      expect(instance.state.currentMonth.getMonth()).toBe(7);
+    });
+    it('should not suppress showMonth if force is true and shouldMonthChange returns false', () => {
+      const shouldMonthChange = () => false;
+      const instance = shallow(
+        <DayPicker
+          initialMonth={new Date(2017, 7)}
+          shouldMonthChange={shouldMonthChange}
+        />
+      ).instance();
+      instance.showMonth(new Date(2014, 3), undefined, true);
+      expect(instance.state.currentMonth.getFullYear()).toBe(2014);
+      expect(instance.state.currentMonth.getMonth()).toBe(3);
     });
     it('should not change month if after `toMonth`', () => {
       const instance = shallow(
