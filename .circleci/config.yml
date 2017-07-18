@@ -27,14 +27,21 @@ jobs:
       - run: yarn dtslint
       - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
+      - store_test_results:
+          path: ~/react-day-picker/reports
       - persist_to_workspace:
           root: .
+          paths: 
+            - "*"
+            - src
       
   build-project: 
     <<: *defaults
     steps:
       - attach_workspace:
           at: /root/react-day-picker
+      - restore_cache:
+          key: cache-project-v2-{{ checksum "yarn.lock" }}
       - run: yarn build
 
   build-docs:
@@ -49,7 +56,7 @@ jobs:
       - checkout
       - restore_cache:
           key: cache-docs-v1-{{ checksum "docs/Gemfile.lock" }}
-      - run: npm install gh-pages
+      - run: yarn install gh-pages
       - run: |
           cd docs
           bundle install
@@ -64,7 +71,7 @@ jobs:
       - run: |
           git config --global user.email "$GH_EMAIL" > /dev/null 2>&1 
           git config --global user.name "$GH_NAME" > /dev/null 2>&1
-      - run: npm run docs:publish
+      - run: yarn run docs:publish
 
 workflows:
   version: 2
