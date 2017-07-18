@@ -42,6 +42,7 @@ jobs:
           at: /root/react-day-picker
       - restore_cache:
           key: cache-project-v2-{{ checksum "yarn.lock" }}
+      - run: yarn --cache-folder yarn-cache
       - run: yarn build
 
   build-docs:
