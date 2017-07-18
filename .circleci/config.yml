@@ -83,8 +83,10 @@ workflows:
             - checkout-and-test
           filters:
             branches:
-              only: master   
+              only: 
+                - master   
       - build-docs:
           filters:
             branches:
-              only: master   
+              only: 
+                - master   
