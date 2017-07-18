@@ -27,6 +27,8 @@ jobs:
       - run: yarn dtslint
       - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
+      - store_test_results:
+          path: ~/react-day-picker/reports
       - persist_to_workspace:
           root: .
           paths: 
