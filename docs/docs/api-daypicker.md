@@ -87,7 +87,7 @@ Additional CSS class names to add to the default.
 
 Customize the CSS class names used when rendering the component. 
 
-* Use this prop to use your custom styles imported via CSS Modules ([see example](http://react-day-picker.js.org/examples/?cssModules)).
+* Use this prop to use your custom styles imported via CSS Modules
 * Skipping this prop will make the calendar use the default BEM conventions (e.g. `DayPicker-Day DayPicker-Day--modifier`)
 
 The object expects the following keys:
