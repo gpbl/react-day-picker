@@ -7,13 +7,9 @@ redirect_from:
   - /docs/css-modules.html
 ---
 
-You should style the component from your own stylesheet: start from [src/style.css](https://github.com/gpbl/react-day-picker/blob/master/src/style.css) as template, copy it in a new CSS file and update it to fit the desired style.
+To style the component, use [src/style.css](https://github.com/gpbl/react-day-picker/blob/master/src/style.css) as template and update it to fit the desired style. Then, just include it with your CSS files.
 
 > The CSS classes follow a [BEM-like syntax](https://css-tricks.com/bem-101/). If you need to customize the CSS class names, use the [`classNames`](api-daypicker.md#classnames) prop. Using this prop you can also import a [CSS Module](#css-modules).
-
-### Modifiers
-
-Modifiers added to react-day-picker via the `modifiers` prop becomes CSS modifiers for the `DayPicker-day` class. For example, if you use a `isFirstDayOfMonth` modifier, the CSS class for the matched day cells will be `DayPicker-day--isFirstDayOfMonth`.
 
 ### Importing the style template
 
@@ -29,7 +25,17 @@ or in your JS files (e.g. when using [webpack-css-loader](https://github.com/web
 import "react-day-picker/lib/style.css";
 ```
 
+The stylesheet is also available from unpkg:
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/react-day-picker/lib/style.css">
+```
+
 Keep in mind the default style is not production-tested and may change between releases.
+
+### Modifiers
+
+Modifiers added to react-day-picker via the [`modifiers` prop](api-daypicker.md#modifiers) becomes CSS modifiers for the `DayPicker-day` class. For example, if you use a `isFirstDayOfMonth` modifier, the CSS class for the matched day cells will be `DayPicker-day--isFirstDayOfMonth`.
 
 <a name="css-modules"></a>
 

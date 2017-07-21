@@ -6,7 +6,9 @@ redirect_from:
   - /Basic.html
 ---
 
-This guide illustrates the DayPicker basic concepts by implementing a date picker to select, clear and disable days from the calendar. For using the input field, read [this chapter](input.md).
+This guide illustrates the DayPicker basic concepts by implementing a date picker to select, clear and disable days from the calendar. 
+
+For a guide to render the input field, read [this chapter](input.md).
 
 ## Selecting a day
 

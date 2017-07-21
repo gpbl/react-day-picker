@@ -4,6 +4,22 @@ title: DayPicker API
 permalink: docs/api-daypicker.html
 ---
 
+<picture style="text-align: center;display: block"><a href="/examples/modifiers.html"><img src="../images/demo-modifiers.png" width="200" /></a></picture>
+
+Use the `DayPicker` component to render the calendar.
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import DayPicker from 'react-day-picker';
+
+ReactDOM.render(<DayPicker />, document.getElementById('#root'));
+```
+
+> Typescript Type Definitions are available in the main repo: see [types/index.d.ts](https://github.com/gpbl/react-day-picker/tree/master/types/index.d.ts).
+
+## Props summary
+
 #### Rendering months
 
 [initialMonth](#initialmonth), [month](#month), [fromMonth](#frommonth), [toMonth](#tomonth), [numberOfMonths](#numberofmonths), [pagedNavigation](#pagednavigation), [canChangeMonth](#canchangemonth), [reverseMonths](#reversemonths)
@@ -35,11 +51,6 @@ permalink: docs/api-daypicker.html
 #### Methods
 
 [showMonth](#showmonth), [showPreviousMonth](#showpreviousmonth), [showNextMonth](#shownextmonth), [showPreviousYear](#showpreviousyear), [showNextYear](#shownextyear)
-
-#### Typescript Type Definitions
-
-Typescript Type Definitions are available in the main repo: see [types/index.d.ts](https://github.com/gpbl/react-day-picker/tree/master/types/index.d.ts).
-
 
 ## Reference
 

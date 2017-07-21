@@ -8,8 +8,8 @@ react-day-picker is designed to cover the most common needs for a date picker in
 
 The package includes:
 
-* the **DayPicker** component, to render the date picker (the "calendar")
-* the **DayPickerInput** component – to render an input field opening the DayPicker in an overlay.
+* the [**DayPicker**](api-daypicker.md) component, to render the date picker (the "calendar")
+* the [**DayPickerInput**](api-input.md) component – to render an input field opening the DayPicker in an overlay.
 
 ## Setup
 

@@ -6,45 +6,17 @@ redirect_from:
   - /DayPickerInputAPI.html
 ---
 
+<picture style="text-align: center;display: block"><a href="/examples/input-advanced.html"><img src="../images/demo-input.png" width="200" /></a></picture>
+
+Use the `DayPickerInput` component to render an input field opening with the `DayPicker` in an overlay.
+
 ```js
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 ```
 
+## Reference
+
 `<DayPickerInput />` accept all the props valid for a standard `<input/>` React component plus the following ones:
-
-### format
-
-**Type**: `String|Array<String>` | **Default**: `L`
-
-The format string(s) used to format the date. User is expected to type the date in these formats. It works with all the [format strings](https://momentjs.com/docs/#/displaying/format/) accepted by momentjs.
-
-### dayPickerProps
-
-**Type**: `Object` | **Default**: {}
-
-The [DayPicker props](api-daypicker.md) to pass to the DayPicker for further customization.
-
-Note that the `selectedDays` and `numberOfMonths` props, and a `selected` modifier, are handled by this component and they will be ignored.
-
-### hideOnDayClick
-
-**Type**: `Boolean` | **Default**: `true`
-
-Hides react-day-picker when the user clicks on a day cell.
-
-### clickUnselectsDay
-
-**Type**: `Boolean` | **Default**: `false`
-
-Unselect and clear the input when clicking on a previously selected day
-
-### onDayChange
-
-**Type**: `(day: date, modifiers: Object) => void`
-
-Handler function when the user types a valid day (according to the `format` prop) or clicks on a day on the calendar. 
-
-If the typed day is not valid, `day` and `modifiers` will be `undefined` (useful to display validation warnings).
 
 ### classNames
 
@@ -61,6 +33,12 @@ The object expects the following keys:
   overlay,              // The overlay's container
 }
 ```
+
+### clickUnselectsDay
+
+**Type**: `Boolean` | **Default**: `false`
+
+Unselect and clear the input when clicking on a previously selected day
 
 ### component
 
@@ -97,3 +75,32 @@ function MyDayPickerInput(props) {
 } 
 
 ```
+
+### dayPickerProps
+
+**Type**: `Object` | **Default**: {}
+
+The [DayPicker props](api-daypicker.md) to pass to the DayPicker for further customization.
+
+Note that the `selectedDays` and `numberOfMonths` props, and a `selected` modifier, are handled by this component and they will be ignored.
+
+### format
+
+**Type**: `String|Array<String>` | **Default**: `L`
+
+The format string(s) used to format the date. User is expected to type the date in these formats. It works with all the [format strings](https://momentjs.com/docs/#/displaying/format/) accepted by momentjs.
+
+### hideOnDayClick
+
+**Type**: `Boolean` | **Default**: `true`
+
+Hides react-day-picker when the user clicks on a day cell.
+
+### onDayChange
+
+**Type**: `(day: date, modifiers: Object) => void`
+
+Handler function when the user types a valid day (according to the `format` prop) or clicks on a day on the calendar. 
+
+If the typed day is not valid, `day` and `modifiers` will be `undefined` (useful to display validation warnings).
+
