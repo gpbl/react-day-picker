@@ -8,7 +8,7 @@ redirect_from:
 
 <picture style="text-align: center;display: block"><a href="/examples/input-advanced.html"><img src="../images/demo-input.png" width="200" /></a></picture>
 
-Use the `DayPickerInput` component to render an input field opening with the `DayPicker` in an overlay.
+Use the `DayPickerInput` component to render an input field opening  the `DayPicker` in an overlay.
 
 ```js
 import DayPickerInput from 'react-day-picker/DayPickerInput';
@@ -16,7 +16,7 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 
 ## Reference
 
-`<DayPickerInput />` accept all the props valid for a standard `<input/>` React component plus the following ones:
+`<DayPickerInput />` accepts all the props accepted by a standard `<input/>`, plus the following ones:
 
 ### classNames
 
@@ -38,18 +38,15 @@ The object expects the following keys:
 
 **Type**: `Boolean` | **Default**: `false`
 
-Unselect and clear the input when clicking on a previously selected day
+Unselect and clear the input when clicking on a previously selected day.
 
 ### component
 
 **Type**: `String|React.Component|React.PureComponent` | **Default**: `input`
 
-The component to render the input field. 
+The component class to render the input field. The component must be compatible with the standard HTML `input`s: i.e. it should support the `onChange`, `onFocus`, `onKeyUp`, `onClick` and `onBlur` and the `focus` props.
 
-To work properly with a custom input component, the passed component must be compatible with the standard HTML's `input`: this means it should support `onChange`, `onFocus`, `onKeyUp`, `onClick` and `onBlur` and the `focus` method.
-See [this issue](https://github.com/gpbl/react-day-picker/issues/378).
-
-If your custom component doesn't support such properties, wrap it in a component contaning them. For example:
+If your custom component doesn't support such props, wrap it in a component contaning them. For example:
 
 ```jsx
 import React from 'react';
@@ -80,27 +77,26 @@ function MyDayPickerInput(props) {
 
 **Type**: `Object` | **Default**: {}
 
-The [DayPicker props](api-daypicker.md) to pass to the DayPicker for further customization.
+The [DayPicker props](api-daypicker.md) to customize the DayPicker rendered in the overlay.
 
-Note that the `selectedDays` and `numberOfMonths` props, and a `selected` modifier, are handled by this component and they will be ignored.
+Note that the `selectedDays` prop, the `numberOfMonths` prop and the `selected` modifier are handled by this component, thus they will be ignored.
 
 ### format
 
 **Type**: `String|Array<String>` | **Default**: `L`
 
-The format string(s) used to format the date. User is expected to type the date in these formats. It works with all the [format strings](https://momentjs.com/docs/#/displaying/format/) accepted by momentjs.
+The format strings used for parsing the date entered in the input field. It accepts all the [format strings](https://momentjs.com/docs/#/displaying/format/) used by moment.js.
 
 ### hideOnDayClick
 
 **Type**: `Boolean` | **Default**: `true`
 
-Hides react-day-picker when the user clicks on a day cell.
+Hides the overlay when the user clicks on a day cell.
 
 ### onDayChange
 
 **Type**: `(day: date, modifiers: Object) => void`
 
-Handler function when the user types a valid day (according to the `format` prop) or clicks on a day on the calendar. 
+Handler function called when the user types a valid day (according to the `format` prop) or when a day is clicked on the calendar. 
 
-If the typed day is not valid, `day` and `modifiers` will be `undefined` (useful to display validation warnings).
-
+If the day is not valid, `day` and `modifiers` arguments will be `undefined` (useful to display validation warnings).
