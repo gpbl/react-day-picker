@@ -110,7 +110,24 @@
     <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/docs/api-daypicker.md" target="_blank">Edit page</a>
     <h1 class="inner-content-title">DayPicker API</h1>
     <div class="api">
-  <h4 id="rendering-months">Rendering months</h4>
+  <picture style="text-align: center;display: block"><a href="/examples/modifiers.html"><img src="../images/demo-modifiers.png" width="200" /></a></picture>
+
+<p>Use the <code class="highlighter-rouge">DayPicker</code> component to render the calendar.</p>
+
+<pre><code class="language-jsx">import React from 'react';
+import ReactDOM from 'react-dom';
+import DayPicker from 'react-day-picker';
+
+ReactDOM.render(&lt;DayPicker /&gt;, document.getElementById('#root'));
+</code></pre>
+
+<blockquote>
+  <p>Typescript Type Definitions are available in the main repo: see <a href="https://github.com/gpbl/react-day-picker/tree/master/types/index.d.ts">types/index.d.ts</a>.</p>
+</blockquote>
+
+<h2 id="props-summary">Props summary</h2>
+
+<h4 id="rendering-months">Rendering months</h4>
 
 <p><a href="#initialmonth">initialMonth</a>, <a href="#month">month</a>, <a href="#frommonth">fromMonth</a>, <a href="#tomonth">toMonth</a>, <a href="#numberofmonths">numberOfMonths</a>, <a href="#pagednavigation">pagedNavigation</a>, <a href="#canchangemonth">canChangeMonth</a>, <a href="#reversemonths">reverseMonths</a></p>
 
@@ -141,10 +158,6 @@
 <h4 id="methods">Methods</h4>
 
 <p><a href="#showmonth">showMonth</a>, <a href="#showpreviousmonth">showPreviousMonth</a>, <a href="#shownextmonth">showNextMonth</a>, <a href="#showpreviousyear">showPreviousYear</a>, <a href="#shownextyear">showNextYear</a></p>
-
-<h4 id="typescript-type-definitions">Typescript Type Definitions</h4>
-
-<p>Typescript Type Definitions are available in the main repo: see <a href="https://github.com/gpbl/react-day-picker/tree/master/types/index.d.ts">types/index.d.ts</a>.</p>
 
 <h2 id="reference">Reference</h2>
 
