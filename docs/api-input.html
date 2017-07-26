@@ -112,7 +112,7 @@
     <div class="api">
   <picture style="text-align: center;display: block"><a href="/examples/input-advanced.html"><img src="../images/demo-input.png" width="200" /></a></picture>
 
-<p>Use the <code class="highlighter-rouge">DayPickerInput</code> component to render an input field opening with the <code class="highlighter-rouge">DayPicker</code> in an overlay.</p>
+<p>Use the <code class="highlighter-rouge">DayPickerInput</code> component to render an input field opening  the <code class="highlighter-rouge">DayPicker</code> in an overlay.</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">DayPickerInput</span> <span class="nx">from</span> <span class="s1">'react-day-picker/DayPickerInput'</span><span class="p">;</span>
 </code></pre>
@@ -120,7 +120,7 @@
 
 <h2 id="reference">Reference</h2>
 
-<p><code class="highlighter-rouge">&lt;DayPickerInput /&gt;</code> accept all the props valid for a standard <code class="highlighter-rouge">&lt;input/&gt;</code> React component plus the following ones:</p>
+<p><code class="highlighter-rouge">&lt;DayPickerInput /&gt;</code> accepts all the props accepted by a standard <code class="highlighter-rouge">&lt;input/&gt;</code>, plus the following ones:</p>
 
 <h3 id="classnames">classNames</h3>
 
@@ -149,7 +149,7 @@
   </tbody>
 </table>
 
-<p>Unselect and clear the input when clicking on a previously selected day</p>
+<p>Unselect and clear the input when clicking on a previously selected day.</p>
 
 <h3 id="component">component</h3>
 
@@ -162,12 +162,9 @@
   </tbody>
 </table>
 
-<p>The component to render the input field.</p>
+<p>The component class to render the input field. The component must be compatible with the standard HTML <code class="highlighter-rouge">input</code>s: i.e. it should support the <code class="highlighter-rouge">onChange</code>, <code class="highlighter-rouge">onFocus</code>, <code class="highlighter-rouge">onKeyUp</code>, <code class="highlighter-rouge">onClick</code> and <code class="highlighter-rouge">onBlur</code> and the <code class="highlighter-rouge">focus</code> props.</p>
 
-<p>To work properly with a custom input component, the passed component must be compatible with the standard HTML’s <code class="highlighter-rouge">input</code>: this means it should support <code class="highlighter-rouge">onChange</code>, <code class="highlighter-rouge">onFocus</code>, <code class="highlighter-rouge">onKeyUp</code>, <code class="highlighter-rouge">onClick</code> and <code class="highlighter-rouge">onBlur</code> and the <code class="highlighter-rouge">focus</code> method.
-See <a href="https://github.com/gpbl/react-day-picker/issues/378">this issue</a>.</p>
-
-<p>If your custom component doesn’t support such properties, wrap it in a component contaning them. For example:</p>
+<p>If your custom component doesn’t support such props, wrap it in a component contaning them. For example:</p>
 
 <pre><code class="language-jsx">import React from 'react';
 import { DayPickerInput } from 'react-day-picker';
@@ -204,9 +201,9 @@ function MyDayPickerInput(props) {
   </tbody>
 </table>
 
-<p>The <a href="/docs/api-daypicker.html">DayPicker props</a> to pass to the DayPicker for further customization.</p>
+<p>The <a href="/docs/api-daypicker.html">DayPicker props</a> to customize the DayPicker rendered in the overlay.</p>
 
-<p>Note that the <code class="highlighter-rouge">selectedDays</code> and <code class="highlighter-rouge">numberOfMonths</code> props, and a <code class="highlighter-rouge">selected</code> modifier, are handled by this component and they will be ignored.</p>
+<p>Note that the <code class="highlighter-rouge">selectedDays</code> prop, the <code class="highlighter-rouge">numberOfMonths</code> prop and the <code class="highlighter-rouge">selected</code> modifier are handled by this component, thus they will be ignored.</p>
 
 <h3 id="format">format</h3>
 
@@ -219,7 +216,7 @@ function MyDayPickerInput(props) {
   </tbody>
 </table>
 
-<p>The format string(s) used to format the date. User is expected to type the date in these formats. It works with all the <a href="https://momentjs.com/docs/#/displaying/format/">format strings</a> accepted by momentjs.</p>
+<p>The format strings used for parsing the date entered in the input field. It accepts all the <a href="https://momentjs.com/docs/#/displaying/format/">format strings</a> used by moment.js.</p>
 
 <h3 id="hideondayclick">hideOnDayClick</h3>
 
@@ -232,16 +229,15 @@ function MyDayPickerInput(props) {
   </tbody>
 </table>
 
-<p>Hides react-day-picker when the user clicks on a day cell.</p>
+<p>Hides the overlay when the user clicks on a day cell.</p>
 
 <h3 id="ondaychange">onDayChange</h3>
 
 <p><strong>Type</strong>: <code class="highlighter-rouge">(day: date, modifiers: Object) =&gt; void</code></p>
 
-<p>Handler function when the user types a valid day (according to the <code class="highlighter-rouge">format</code> prop) or clicks on a day on the calendar.</p>
+<p>Handler function called when the user types a valid day (according to the <code class="highlighter-rouge">format</code> prop) or when a day is clicked on the calendar.</p>
 
-<p>If the typed day is not valid, <code class="highlighter-rouge">day</code> and <code class="highlighter-rouge">modifiers</code> will be <code class="highlighter-rouge">undefined</code> (useful to display validation warnings).</p>
-
+<p>If the day is not valid, <code class="highlighter-rouge">day</code> and <code class="highlighter-rouge">modifiers</code> arguments will be <code class="highlighter-rouge">undefined</code> (useful to display validation warnings).</p>
 
 </div>
 
