@@ -68,7 +68,7 @@ jobs:
       - run: |
           git config --global user.email "$GH_EMAIL" > /dev/null 2>&1 
           git config --global user.name "$GH_NAME" > /dev/null 2>&1
-      - run:  NODE_DEBUG=gh-pages yarn run docs:publish
+      - run: NODE_DEBUG=gh-pages yarn run docs:publish
 
 workflows:
   version: 2
