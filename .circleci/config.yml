@@ -42,10 +42,6 @@ jobs:
       - run: yarn build
 
   build-docs:
-    branches:
-      ignore:
-        - gh-pages
-
     working_directory: ~/react-day-picker
     docker:
       - image: circleci/ruby:2.4.1-node
@@ -74,7 +70,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - checkout-and-test
+      - checkout-and-test 
       - build-project:
           requires: 
             - checkout-and-test
