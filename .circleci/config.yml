@@ -7,10 +7,6 @@ defaults: &defaults
 
 version: 2
     
-branches:
-  ignore:
-    - gh-pages
-    
 jobs:
   checkout-and-test:
     <<: *defaults
