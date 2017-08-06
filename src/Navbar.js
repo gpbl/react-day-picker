@@ -37,6 +37,7 @@ export default class Navbar extends Component {
   shouldComponentUpdate(nextProps) {
     return (
       nextProps.labels !== this.props.labels ||
+      nextProps.dir !== this.props.dir ||
       this.props.showPreviousButton !== nextProps.showPreviousButton ||
       this.props.showNextButton !== nextProps.showNextButton
     );
@@ -84,24 +85,30 @@ export default class Navbar extends Component {
     let nextClickHandler;
     let previousKeyDownHandler;
     let nextKeyDownHandler;
+    let shouldShowPrevious;
+    let shouldShowNext;
 
     if (dir === 'rtl') {
       previousClickHandler = this.handleNextClick;
       nextClickHandler = this.handlePreviousClick;
       previousKeyDownHandler = this.handleNextKeyDown;
       nextKeyDownHandler = this.handlePreviousKeyDown;
+      shouldShowNext = showPreviousButton;
+      shouldShowPrevious = showNextButton;
     } else {
       previousClickHandler = this.handlePreviousClick;
       nextClickHandler = this.handleNextClick;
       previousKeyDownHandler = this.handlePreviousKeyDown;
       nextKeyDownHandler = this.handleNextKeyDown;
+      shouldShowNext = showNextButton;
+      shouldShowPrevious = showPreviousButton;
     }
 
-    const previousClassName = showPreviousButton
+    const previousClassName = shouldShowPrevious
       ? classNames.navButtonPrev
       : `${classNames.navButtonPrev} ${classNames.navButtonInteractionDisabled}`;
 
-    const nextClassName = showNextButton
+    const nextClassName = shouldShowNext
       ? classNames.navButtonNext
       : `${classNames.navButtonNext} ${classNames.navButtonInteractionDisabled}`;
 
@@ -112,8 +119,8 @@ export default class Navbar extends Component {
         aria-label={labels.previousMonth}
         key="previous"
         className={previousClassName}
-        onKeyDown={showPreviousButton ? previousKeyDownHandler : undefined}
-        onClick={showPreviousButton ? previousClickHandler : undefined}
+        onKeyDown={shouldShowPrevious ? previousKeyDownHandler : undefined}
+        onClick={shouldShowPrevious ? previousClickHandler : undefined}
       />
     );
 
@@ -124,8 +131,8 @@ export default class Navbar extends Component {
         aria-label={labels.nextMonth}
         key="right"
         className={nextClassName}
-        onKeyDown={showNextButton ? nextKeyDownHandler : undefined}
-        onClick={showNextButton ? nextClickHandler : undefined}
+        onKeyDown={shouldShowNext ? nextKeyDownHandler : undefined}
+        onClick={shouldShowNext ? nextClickHandler : undefined}
       />
     );
 
