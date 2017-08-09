@@ -212,7 +212,7 @@ export default class SelectDay extends React.Component {
 +   }
 </span>   if (selected) {
      // Unselect the day if already selected
-     this.state({ selectedDay: undefined });
+     this.setState({ selectedDay: undefined });
      return;
    }
   this.setState({ selectedDay: day });
