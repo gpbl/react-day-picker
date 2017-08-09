@@ -39,7 +39,7 @@ import DayPicker from 'react-day-picker';
 // Or import the input component
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
-import from 'react-day-picker/lib/style';
+import 'react-day-picker/lib/style.css';
 ```
 
 ### Use from unpkg
