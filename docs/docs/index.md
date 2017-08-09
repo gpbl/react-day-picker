@@ -28,7 +28,7 @@ If you are using the [DayPickerInput](input.md) component, you must install mome
 ```bash
 npm install moment --save
 # or with yarn
-yarn add react-day-picker
+yarn add moment
 ```
 
 Then import the component and its style in your component:
