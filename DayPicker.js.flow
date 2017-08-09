@@ -1,0 +1,252 @@
+// @flow
+
+import React from 'react';
+
+type Months = [
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string
+];
+
+type Week = [
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string
+];
+
+type LocaleUtils = {
+  formatDay(day: Date, locale: string): string,
+  formatMonthTitle(month: Date, locale: string): string,
+  formatWeekdayLong(weekday: number, locale: string): string,
+  formatWeekdayShort(weekday: number, locale: string): string,
+  getFirstDayOfWeek(locale: string): number,
+  getMonths(locale: string): Months
+};
+
+type RangeModifier = {
+  from: Date,
+  to: Date
+};
+
+type BeforeModifier = {
+  before: Date
+};
+
+type AfterModifier = {
+  after: Date
+};
+
+type BeforeAfterModifier = {
+  after: Date,
+  before: Date
+};
+
+type DaysOfWeekModifier = {
+  daysOfWeek: number[]
+};
+
+type FunctionModifier = (date: Date) => boolean;
+
+type Modifier =
+  | Date
+  | RangeModifier
+  | BeforeModifier
+  | AfterModifier
+  | BeforeAfterModifier
+  | DaysOfWeekModifier
+  | FunctionModifier;
+
+type DateUtils = {
+  addDayToRange(day: Date, range: RangeModifier): RangeModifier,
+  addMonths(d: Date, n: number): Date,
+  clone(d: Date): Date,
+  isDayAfter(day1: Date, day2: Date): boolean,
+  isDayBefore(day1: Date, day2: Date): boolean,
+  isDayBetween(day: Date, begin: Date, end: Date): boolean,
+  isDayInRange(day: Date, range: RangeModifier): boolean,
+  isFutureDay(day: Date): boolean,
+  isPastDay(day: Date): boolean,
+  isSameDay(day1: Date, day2: Date): boolean
+};
+
+type ModifiersUtils = {
+  dayMatchesModifier(day: Date, modifier?: Modifier | Modifier[]): boolean,
+  getModifiersForDay(
+    day: Date,
+    modifiers: {
+      [string]: Modifier | Modifier[]
+    }
+  ): string[]
+};
+
+type ClassNames = {
+  container: string,
+  wrapper: string;
+  interactionDisabled: string,
+  navBar: string,
+  navButtonPrev: string,
+  navButtonNext: string,
+  navButtonInteractionDisabled: string,
+
+  month: string,
+  caption: string,
+  weekdays: string,
+  weekdaysRow: string,
+  weekday: string,
+  body: string,
+  week: string,
+  day: string,
+
+  today: string,
+  selected: string,
+  disabled: string,
+  outside: string
+};
+
+type CaptionElementProps = {
+  date: Date,
+  classNames: ClassNames,
+  localeUtils: LocaleUtils,
+  locale: string,
+  onClick?: SyntheticMouseEvent => void
+};
+
+type NavbarElementProps = {
+  className: string,
+  classNames: ClassNames,
+  previousMonth: Date,
+  nextMonth: Date,
+  showPreviousButton: boolean,
+  showNextButton: boolean,
+  onPreviousClick(callback?: () => void): void,
+  onNextClick(callback?: () => void): void,
+  dir?: string,
+  labels: { previousMonth: string, nextMonth: string },
+  localeUtils: LocaleUtils,
+  locale: string
+};
+
+type WeekdayElementProps = {
+  weekday: number,
+  className: string,
+  localeUtils: LocaleUtils,
+  locale: string
+};
+
+
+type Modifiers = {
+  today: Modifier | Modifier[],
+  outside: Modifier | Modifier[],
+  [other: string]: Modifier | Modifier[]
+};
+
+type DayModifiers = {
+  today?: boolean,
+  outside?: boolean,
+  [other: string]: boolean
+};
+
+type DayEventHandler<T> = (
+  day: Date,
+  modifiers: DayModifiers,
+  e: T
+) => void;
+
+type WeekEventHandler<T> = (
+  weekNumber: number,
+  days: Date[],
+  e: T
+) => void;
+
+type PickerElement<T> =
+    | React.Element<T>
+    | React.Component<T>
+    | T => React.Element<*>;
+
+type Props = {
+  canChangeMonth?: boolean,
+  captionElement?: PickerElement<CaptionElementProps>,
+  className?: string,
+  classNames?: ClassNames,
+  containerProps?: Object,
+  disabledDays?: Modifier | Modifier[],
+  enableOutsideDays?: boolean,
+  firstDayOfWeek?: number,
+  fixedWeeks?: boolean,
+  fromMonth?: Date,
+  initialMonth?: Date,
+  labels?: { previousMonth: string, nextMonth: string },
+  locale?: string,
+  localeUtils?: LocaleUtils,
+  modifiers?: $Shape<Modifiers>,
+  modifiersStyles?: Object,
+  month?: Date,
+  months?: Months,
+  navbarElement?: PickerElement<NavbarElementProps>,
+  numberOfMonths?: number,
+  onBlur?: (e: SyntheticFocusEvent) => void,
+  onCaptionClick?: (month: Date, e: SyntheticMouseEvent) => void,
+  onDayClick?: DayEventHandler<SyntheticMouseEvent>,
+  onDayKeyDown?: DayEventHandler<SyntheticKeyboardEvent>,
+  onDayMouseEnter?: DayEventHandler<SyntheticMouseEvent>,
+  onDayMouseLeave?: DayEventHandler<SyntheticMouseEvent>,
+  onDayMouseDown?: DayEventHandler<SyntheticMouseEvent>,
+  onDayMouseUp?: DayEventHandler<SyntheticMouseEvent>,
+  onDayTouchEnd?: DayEventHandler<SyntheticTouchEvent>,
+  onDayTouchStart?: DayEventHandler<SyntheticTouchEvent>,
+  onFocus?: (e: SyntheticFocusEvent) => void,
+  onKeyDown?: (e: SyntheticKeyboardEvent) => void,
+  onMonthChange?: (month: Date) => void,
+  onWeekClick?: WeekEventHandler<SyntheticMouseEvent>,
+  pagedNavigation?: boolean,
+  renderDay?: (date: Date, modifiers: Modifiers) => React.Element<*>,
+  reverseMonths?: boolean,
+  selectedDays?: Modifier | Modifier[],
+  showWeekNumbers?: boolean,
+  todayButton?: string,
+  toMonth?: Date,
+  weekdayElement?: PickerElement<WeekdayElementProps>,
+  weekdaysLong?: Week,
+  weekdaysShort?: Week
+};
+
+declare var localeUtils: LocaleUtils;
+declare var dateUtils: DateUtils;
+declare var modifiersUtils: ModifiersUtils;
+
+declare class DayPicker extends React.Component {
+  props: Props;
+
+  showMonth(month: Date): void;
+
+  showPreviousMonth(): void;
+
+  showNextMonth(): void;
+
+  showPreviousYear(): void;
+
+  showNextYear(): void;
+}
+
+declare export var VERSION: string;
+
+export {
+  localeUtils as LocaleUtils,
+  dateUtils as DateUtils,
+  modifiersUtils as ModifiersUtils
+};
+
+export default DayPicker;
