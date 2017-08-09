@@ -109,7 +109,7 @@ In the click handler we can use the second argument to check if the clicked day 
 +   }
    if (selected) {
      // Unselect the day if already selected
-     this.state({ selectedDay: undefined });
+     this.setState({ selectedDay: undefined });
      return;
    }
   this.setState({ selectedDay: day });
