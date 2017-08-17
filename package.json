@@ -19,7 +19,7 @@
   "scripts": {
     "clean": "rimraf coverage lib",
     "lint": "eslint src test",
-    "dtslint": "dtslint types",
+    "dtslint": "dtslint",
     "test": "jest",
     "check": "npm run lint && npm run dtslint && npm run test",
     "prerelease": "npm run check && npm run build",
