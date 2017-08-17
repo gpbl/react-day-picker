@@ -1,32 +1,31 @@
 // TypeScript Version: 2.2
 import * as React from 'react';
 
-declare namespace DayPicker {
-  interface LocaleUtils {
+export interface LocaleUtils {
     formatDay(day: Date, locale: string): string;
     formatMonthTitle(month: Date, locale: string): string;
     formatWeekdayLong(weekday: number, locale: string): string;
     formatWeekdayShort(weekday: number, locale: string): string;
     getFirstDayOfWeek(locale: string): number;
     getMonths(
-      locale: string
+        locale: string
     ): [
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string
-    ];
-  }
+            string,
+            string,
+            string,
+            string,
+            string,
+            string,
+            string,
+            string,
+            string,
+            string,
+            string,
+            string
+        ];
+}
 
-  interface DateUtils {
+export interface DateUtils {
     addDayToRange(day: Date, range: RangeModifier): RangeModifier;
     addMonths(d: Date, n: number): Date;
     clone(d: Date): Date;
@@ -37,26 +36,26 @@ declare namespace DayPicker {
     isFutureDay(day: Date): boolean;
     isPastDay(day: Date): boolean;
     isSameDay(day1: Date, day2: Date): boolean;
-  }
+}
 
-  interface ModifiersUtils {
+export interface ModifiersUtils {
     dayMatchesModifier(day: Date, modifier?: Modifier | Modifier[]): boolean;
     getModifiersForDay(
-      day: Date,
-      modifiers: Record<string, Modifier | Modifier[]>
+        day: Date,
+        modifiers: Record<string, Modifier | Modifier[]>
     ): string[];
-  }
+}
 
-  interface CaptionElementProps {
+export interface CaptionElementProps {
     date: Date;
     classNames: ClassNames;
     localeUtils: LocaleUtils;
     locale: string;
     months: undefined;
     onClick?: React.MouseEventHandler<HTMLElement>;
-  }
+}
 
-  interface NavbarElementProps {
+export interface NavbarElementProps {
     className: string;
     classNames: ClassNames;
     previousMonth: Date;
@@ -69,16 +68,16 @@ declare namespace DayPicker {
     labels: { previousMonth: string; nextMonth: string };
     localeUtils: LocaleUtils;
     locale: string;
-  }
+}
 
-  interface WeekdayElementProps {
+export interface WeekdayElementProps {
     weekday: number;
     className: string;
     localeUtils: LocaleUtils;
     locale: string;
-  }
+}
 
-  interface ClassNames {
+export interface ClassNames {
     container: string;
     wrapper: string;
     interactionDisabled: string;
@@ -100,27 +99,27 @@ declare namespace DayPicker {
     selected: string;
     disabled: string;
     outside: string;
-  }
+}
 
-  interface RangeModifier {
+export interface RangeModifier {
     from: Date;
     to: Date;
-  }
-  interface BeforeModifier {
+}
+export interface BeforeModifier {
     before: Date;
-  }
-  interface AfterModifier {
+}
+export interface AfterModifier {
     after: Date;
-  }
-  interface BeforeAfterModifier {
+}
+export interface BeforeAfterModifier {
     after: Date;
     before: Date;
-  }
-  interface DaysOfWeekModifier {
+}
+export interface DaysOfWeekModifier {
     daysOfWeek: number[];
-  }
-  type FunctionModifier = (date: Date) => boolean;
-  type Modifier =
+}
+export type FunctionModifier = (date: Date) => boolean;
+export type Modifier =
     | Date
     | RangeModifier
     | BeforeModifier
@@ -129,24 +128,24 @@ declare namespace DayPicker {
     | DaysOfWeekModifier
     | FunctionModifier;
 
-  interface Modifiers {
+export interface Modifiers {
     today: Modifier | Modifier[];
     outside: Modifier | Modifier[];
     [other: string]: Modifier | Modifier[] | undefined;
-  }
+}
 
-  interface DayModifiers {
+export interface DayModifiers {
     today: boolean | undefined;
     outside: boolean | undefined;
     [other: string]: boolean | undefined;
-  }
+}
 
-  interface Props {
+export interface DayPickerProps {
     canChangeMonth?: boolean;
     captionElement?:
-      | React.ReactElement<Partial<CaptionElementProps>>
-      | React.ComponentClass<CaptionElementProps>
-      | React.SFC<CaptionElementProps>;
+    | React.ReactElement<Partial<CaptionElementProps>>
+    | React.ComponentClass<CaptionElementProps>
+    | React.SFC<CaptionElementProps>;
     className?: string;
     classNames?: ClassNames;
     containerProps?: React.HTMLAttributes<HTMLDivElement>;
@@ -163,73 +162,73 @@ declare namespace DayPicker {
     modifiersStyles?: object;
     month?: Date;
     months?: [
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string,
-      string
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string
     ];
     navbarElement?:
-      | React.ReactElement<Partial<NavbarElementProps>>
-      | React.ComponentClass<NavbarElementProps>
-      | React.SFC<NavbarElementProps>;
+    | React.ReactElement<Partial<NavbarElementProps>>
+    | React.ComponentClass<NavbarElementProps>
+    | React.SFC<NavbarElementProps>;
     numberOfMonths?: number;
     onBlur?(e: React.FocusEvent<HTMLDivElement>): void;
     onCaptionClick?(month: Date, e: React.MouseEvent<HTMLDivElement>): void;
     onDayClick?(
-      day: Date,
-      modifiers: DayModifiers,
-      e: React.MouseEvent<HTMLDivElement>
+        day: Date,
+        modifiers: DayModifiers,
+        e: React.MouseEvent<HTMLDivElement>
     ): void;
     onDayKeyDown?(
-      day: Date,
-      modifiers: DayModifiers,
-      e: React.KeyboardEvent<HTMLDivElement>
+        day: Date,
+        modifiers: DayModifiers,
+        e: React.KeyboardEvent<HTMLDivElement>
     ): void;
     onDayMouseEnter?(
-      day: Date,
-      modifiers: DayModifiers,
-      e: React.MouseEvent<HTMLDivElement>
+        day: Date,
+        modifiers: DayModifiers,
+        e: React.MouseEvent<HTMLDivElement>
     ): void;
     onDayMouseLeave?(
-      day: Date,
-      modifiers: DayModifiers,
-      e: React.MouseEvent<HTMLDivElement>
+        day: Date,
+        modifiers: DayModifiers,
+        e: React.MouseEvent<HTMLDivElement>
     ): void;
     onDayMouseDown?(
-      day: Date,
-      modifiers: DayModifiers,
-      e: React.MouseEvent<HTMLDivElement>
+        day: Date,
+        modifiers: DayModifiers,
+        e: React.MouseEvent<HTMLDivElement>
     ): void;
     onDayMouseUp?(
-      day: Date,
-      modifiers: DayModifiers,
-      e: React.MouseEvent<HTMLDivElement>
+        day: Date,
+        modifiers: DayModifiers,
+        e: React.MouseEvent<HTMLDivElement>
     ): void;
     onDayTouchEnd?(
-      day: Date,
-      modifiers: DayModifiers,
-      e: React.TouchEvent<HTMLDivElement>
+        day: Date,
+        modifiers: DayModifiers,
+        e: React.TouchEvent<HTMLDivElement>
     ): void;
     onDayTouchStart?(
-      day: Date,
-      modifiers: DayModifiers,
-      e: React.TouchEvent<HTMLDivElement>
+        day: Date,
+        modifiers: DayModifiers,
+        e: React.TouchEvent<HTMLDivElement>
     ): void;
     onFocus?(e: React.FocusEvent<HTMLDivElement>): void;
     onKeyDown?(e: React.KeyboardEvent<HTMLDivElement>): void;
     onMonthChange?(month: Date): void;
     onWeekClick?(
-      weekNumber: number,
-      days: Date[],
-      e: React.MouseEvent<HTMLDivElement>
+        weekNumber: number,
+        days: Date[],
+        e: React.MouseEvent<HTMLDivElement>
     ): void;
     pagedNavigation?: boolean;
     renderDay?(date: Date, modifiers: Modifiers): React.ReactNode;
@@ -239,28 +238,52 @@ declare namespace DayPicker {
     todayButton?: string;
     toMonth?: Date;
     weekdayElement?:
-      | React.ReactElement<Partial<WeekdayElementProps>>
-      | React.ComponentClass<WeekdayElementProps>
-      | React.SFC<WeekdayElementProps>;
+    | React.ReactElement<Partial<WeekdayElementProps>>
+    | React.ComponentClass<WeekdayElementProps>
+    | React.SFC<WeekdayElementProps>;
     weekdaysLong?: [string, string, string, string, string, string, string];
     weekdaysShort?: [string, string, string, string, string, string, string];
-  }
-  const VERSION: string;
-  const LocaleUtils: DayPicker.LocaleUtils;
-  const DateUtils: DayPicker.DateUtils;
-  const ModifiersUtils: DayPicker.ModifiersUtils;
 }
 
-declare class DayPicker extends React.Component<DayPicker.Props, never> {
-  showMonth(month: Date): void;
+export interface DayPickerInputProps {
+    value?: string;
+    format: string | string[];
 
-  showPreviousMonth(): void;
+    dayPickerProps?: DayPickerProps;
+    hideOnDayClick?: boolean;
+    clickUnselectsDay?: boolean;
+    // Not sure React.ComponentClass<any> is the right type for _propTypes2.default.any
+    component?: any;
 
-  showNextMonth(): void;
+    classNames?: ClassNames;
 
-  showPreviousYear(): void;
-
-  showNextYear(): void;
+    onDayChange?(e: React.FocusEvent<HTMLDivElement>): void;
+    onChange?(e: React.FocusEvent<HTMLDivElement>): void;
+    onClick?(e: React.FocusEvent<HTMLDivElement>): void;
+    onFocus?(e: React.FocusEvent<HTMLDivElement>): void;
+    onBlur?(e: React.FocusEvent<HTMLDivElement>): void;
+    onKeyUp?(e: React.FocusEvent<HTMLDivElement>): void;
 }
 
-export = DayPicker;
+export const VERSION: string;
+export const LocaleUtils: LocaleUtils;
+export const DateUtils: DateUtils;
+export const ModifiersUtils: ModifiersUtils;
+
+export class DayPicker extends React.Component<DayPickerProps, never> {
+    showMonth(month: Date): void;
+
+    showPreviousMonth(): void;
+
+    showNextMonth(): void;
+
+    showPreviousYear(): void;
+
+    showNextYear(): void;
+}
+
+export class DayPickerInput extends React.Component<DayPickerInputProps, never> {
+    showDayPicker(): void;
+
+    hideDayPicker(): void;
+}
