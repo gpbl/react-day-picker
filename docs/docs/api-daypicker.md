@@ -16,7 +16,7 @@ import DayPicker from 'react-day-picker';
 ReactDOM.render(<DayPicker />, document.getElementById('#root'));
 ```
 
-> Typescript Type Definitions are available in the main repo: see [types/index.d.ts](https://github.com/gpbl/react-day-picker/tree/master/types/index.d.ts).
+> Typescript Type Definitions are available in the main repo: see [index.d.ts](https://github.com/gpbl/react-day-picker/tree/master/index.d.ts).
 
 ## Props summary
 
