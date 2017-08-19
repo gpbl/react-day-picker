@@ -2,7 +2,6 @@
 /* eslint-env node */
 
 var DayPicker = require('./lib/src/DayPicker');
-var DayPickerInput = require('./lib/src/DayPickerInput');
 var DateUtils = require('./lib/src/DateUtils');
 var LocaleUtils = require('./lib/src/LocaleUtils');
 var ModifiersUtils = require('./lib/src/ModifiersUtils');
@@ -11,7 +10,6 @@ var Navbar = require('./lib/src/Navbar').default;
 var PropTypes = require('./lib/src/PropTypes');
 
 module.exports.DayPicker = DayPicker.default || DayPicker;
-module.exports.DayPickerInput = DayPickerInput.default || DayPickerInput;
 module.exports.DateUtils = DateUtils.default || DateUtils;
 module.exports.LocaleUtils = LocaleUtils.default || LocaleUtils;
 module.exports.ModifiersUtils = ModifiersUtils.default || ModifiersUtils;
