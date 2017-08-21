@@ -4,15 +4,14 @@
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "style": "lib/style.css",
-  "types": ["./index.d.ts","./DayPickerInput.d.ts"],
+  "types": "*.d.ts",
   "files": [
     "DayPicker.js",
     "DayPickerInput.js",
     "lib",
-    "moment.js",
+    "moment.js",    
     "utils.js",
-    "index.d.ts",
-    "DayPickerInput.d.ts"
+    "*.d.ts"
   ],
   "directories": {
     "doc": "docs"
