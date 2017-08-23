@@ -173,5 +173,20 @@ describe('DayPickerInput', () => {
       expect(spy).toHaveBeenCalledTimes(2);
       spy.mockRestore();
     });
+
+    it('should render the overlayWrapper provided', () => {
+      const overlayWrapper = picker =>
+        <div className="some-wrapper">
+          {picker}
+        </div>;
+      const wrapper = mount(
+        <DayPickerInput value="12/15/2017" overlayWrapper={overlayWrapper} />
+      );
+      wrapper.instance().showDayPicker();
+      expect(wrapper.find('.some-wrapper')).toBeDefined();
+      expect(
+        wrapper.find('.some-wrapper').children().find(DayPicker)
+      ).toBeDefined();
+    });
   });
 });

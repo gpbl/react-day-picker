@@ -2,7 +2,7 @@
 layout: api
 title: DayPickerInput API
 permalink: docs/api-input.html
-redirect_from: 
+redirect_from:
   - /DayPickerInputAPI.html
 ---
 
@@ -22,7 +22,7 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 
 **Type**: `Object<String>`
 
-Customize the CSS class names used when rendering the component. 
+Customize the CSS class names used when rendering the component.
 
 The object expects the following keys:
 
@@ -59,9 +59,9 @@ class MyInputWithFocus extends React.Component {
   }
   render() {
     return (
-      <MyInputWithoutFocus 
-        ref={el => (this.input = el)} 
-        {...this.props} 
+      <MyInputWithoutFocus
+        ref={el => (this.input = el)}
+        {...this.props}
       />
     );
   }
@@ -69,8 +69,28 @@ class MyInputWithFocus extends React.Component {
 
 function MyDayPickerInput(props) {
   return <DayPickerInput component={MyInputWithFocus} />
-} 
+}
 
+```
+
+### overlayWrapper
+
+**Type**: `(picker: DayPicker) => React.Component|React.PureComponent|React.Element`
+
+An optional function prop that takes in the `DayPicker` and allows you to wrap it in any arbitrary React Components. For Example:
+
+```jsx
+const myWrappedPicker = picker => {
+  return (
+    <div className="some-important-thing">
+      <h1>This Title is Important</h1>
+      {picker}
+    </div>
+  );
+}
+
+// Where you render the DayPickerInput
+<DayPickerInput overlayWrapper={myWrappedPicker} />
 ```
 
 ### dayPickerProps
@@ -97,6 +117,6 @@ Hides the overlay when the user clicks on a day cell.
 
 **Type**: `(day: date, modifiers: Object) => void`
 
-Handler function called when the user types a valid day (according to the `format` prop) or when a day is clicked on the calendar. 
+Handler function called when the user types a valid day (according to the `format` prop) or when a day is clicked on the calendar.
 
 If the day is not valid, `day` and `modifiers` arguments will be `undefined` (useful to display validation warnings).
