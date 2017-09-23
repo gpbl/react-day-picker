@@ -14,7 +14,7 @@ Use the `DayPickerInput` component to render an input field opening  the `DayPic
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 ```
 
-## Reference
+## Component’s Props
 
 `<DayPickerInput />` accepts all the props accepted by a standard `<input/>`, plus the following ones:
 
@@ -100,3 +100,17 @@ Hides the overlay when the user clicks on a day cell.
 Handler function called when the user types a valid day (according to the `format` prop) or when a day is clicked on the calendar. 
 
 If the day is not valid, `day` and `modifiers` arguments will be `undefined` (useful to display validation warnings).
+
+## Component’s methods
+
+### showDayPicker
+
+| **Signature** `() ⇒ undefined` |
+
+Show the Day Picker overlay.
+
+### hideDayPicker
+
+| **Signature** `() ⇒ undefined` |
+
+Hide the Day Picker overlay.

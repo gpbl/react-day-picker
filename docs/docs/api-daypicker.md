@@ -52,7 +52,7 @@ ReactDOM.render(<DayPicker />, document.getElementById('#root'));
 
 [showMonth](#showmonth), [showPreviousMonth](#showpreviousmonth), [showNextMonth](#shownextmonth), [showPreviousYear](#showpreviousyear), [showNextYear](#shownextyear)
 
-## Reference
+## Component‘s Prop
 
 ### canChangeMonth
 
@@ -437,7 +437,7 @@ Event handler when the month is changed, i.e. clicking the navigation buttons or
 
 Event hander when the user clicks on a week number (when [showWeekNumbers](#showweeknumbers) is set to `true`).
 
-## Component methods
+## Component‘s Methods
 
 ### showMonth 
 

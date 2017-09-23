@@ -107,12 +107,22 @@ export default class DayPickerInput extends React.Component {
   clickTimeout = null;
   hideTimeout = null;
 
+  /**
+   * Show the Day Picker overlay.
+   * 
+   * @memberof DayPickerInput
+   */
   showDayPicker() {
     this.setState({
       showOverlay: true,
     });
   }
 
+  /**
+   * Hide the Day Picker overlay
+   * 
+   * @memberof DayPickerInput
+   */
   hideDayPicker() {
     this.setState({
       showOverlay: false,
