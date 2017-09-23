@@ -118,7 +118,7 @@
 </code></pre>
 </div>
 
-<h2 id="reference">Reference</h2>
+<h2 id="components-props">Component’s Props</h2>
 
 <p><code class="highlighter-rouge">&lt;DayPickerInput /&gt;</code> accepts all the props accepted by a standard <code class="highlighter-rouge">&lt;input/&gt;</code>, plus the following ones:</p>
 
@@ -238,6 +238,32 @@ function MyDayPickerInput(props) {
 <p>Handler function called when the user types a valid day (according to the <code class="highlighter-rouge">format</code> prop) or when a day is clicked on the calendar.</p>
 
 <p>If the day is not valid, <code class="highlighter-rouge">day</code> and <code class="highlighter-rouge">modifiers</code> arguments will be <code class="highlighter-rouge">undefined</code> (useful to display validation warnings).</p>
+
+<h2 id="components-methods">Component’s methods</h2>
+
+<h3 id="showdaypicker">showDayPicker</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Signature</strong> <code class="highlighter-rouge">() ⇒ undefined</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Show the Day Picker overlay.</p>
+
+<h3 id="hidedaypicker">hideDayPicker</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Signature</strong> <code class="highlighter-rouge">() ⇒ undefined</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Hide the Day Picker overlay.</p>
 
 </div>
 
