@@ -78,21 +78,28 @@ export default class DayPickerInput extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { month, value } = this.state;
-    const hasDifferentValue = nextProps.value !== value;
+    const { dayPickerProps, value } = this.props;
+    const { dayPickerProps: nextDayPickerProps, value: nextValue } = nextProps;
+
+    const hasDifferentValue = nextValue !== value;
+
+    const willUpdateDayPickerMonth =
+      nextDayPickerProps.month && dayPickerProps.month;
+
+    const newMonthProp = nextDayPickerProps.month && !dayPickerProps.month;
 
     const shouldDisplayAnotherMonth =
-      nextProps.dayPickerProps &&
-      nextProps.dayPickerProps.month &&
-      (nextProps.dayPickerProps.month.getFullYear() !== month.getFullYear() ||
-        nextProps.dayPickerProps.month.getMonth() !== month.getMonth());
+      newMonthProp ||
+      (willUpdateDayPickerMonth &&
+        (nextDayPickerProps.month.getFullYear() !==
+          dayPickerProps.month.getFullYear() ||
+          nextDayPickerProps.month.getMonth() !==
+            dayPickerProps.month.getMonth()));
 
     if (hasDifferentValue && !shouldDisplayAnotherMonth) {
       this.setState(getStateFromProps(nextProps));
     } else if (shouldDisplayAnotherMonth) {
-      this.setState({
-        month: nextProps.dayPickerProps.month,
-      });
+      this.setState({ month: nextDayPickerProps.month });
     }
   }
 
