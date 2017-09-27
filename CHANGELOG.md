@@ -1,5 +1,15 @@
 <a class="anchor" name="v6"></a>
 
+## [v6.1.1](https://github.com/gpbl/react-day-picker/tree/v6.1.1) (2017-09-27)
+
+* Add React 16 as peer dependency ([#498](https://github.com/gpbl/react-day-picker/issues/498) by [brycehill](https://github.com/brycehill))
+* Allow node consumers to remove propTypes for production builds ([#463](https://github.com/gpbl/react-day-picker/issues/463) by [oigewan](https://github.com/oigewan))
+
+**Bug fixes**
+
+* Fixed: disabled interaction in RTL ([#471](https://github.com/gpbl/react-day-picker/issues/471) by [edoshor](https://github.com/edoshor))
+
+
 ## [v6.1.0](https://github.com/gpbl/react-day-picker/tree/v6.1.0) (2017-07-09)
 
 **Improvements**
