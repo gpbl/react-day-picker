@@ -3,9 +3,7 @@ import * as DateUtils from '../src/DateUtils';
 describe('DateUtils', () => {
   it('should export all the functions', () => {
     const imported = require('../src/DateUtils').default; // eslint-disable-line global-require
-    expect(Object.keys(DateUtils).length - 1).toEqual(
-      Object.keys(imported).length
-    );
+    expect(Object.keys(DateUtils).length - 1).toEqual(Object.keys(imported).length);
   });
 
   describe('addMonths', () => {

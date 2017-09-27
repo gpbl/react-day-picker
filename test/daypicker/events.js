@@ -11,29 +11,29 @@ describe('DayPicker’s events handlers', () => {
   it('should not throw when onDayClick is not specified', () => {
     const wrapper = mount(<DayPicker />);
     expect(() => {
-      wrapper.find('.DayPicker-Day').at(10).simulate('click');
+      wrapper
+        .find('.DayPicker-Day')
+        .at(10)
+        .simulate('click');
     }).not.toThrow();
   });
   it('should call the `onCaptionClick` handler', () => {
     const handleCaptionClick = jest.fn();
     const wrapper = mount(<DayPicker onCaptionClick={handleCaptionClick} />);
-    wrapper.find('.DayPicker-Caption').childAt(0).simulate('click');
+    wrapper
+      .find('.DayPicker-Caption')
+      .childAt(0)
+      .simulate('click');
 
-    expect(handleCaptionClick.mock.calls[0][0].getFullYear()).toEqual(
-      new Date().getFullYear()
-    );
-    expect(handleCaptionClick.mock.calls[0][0].getMonth()).toEqual(
-      new Date().getMonth()
-    );
+    expect(handleCaptionClick.mock.calls[0][0].getFullYear()).toEqual(new Date().getFullYear());
+    expect(handleCaptionClick.mock.calls[0][0].getMonth()).toEqual(new Date().getMonth());
     expect(handleCaptionClick.mock.calls[0][1]).toBeInstanceOf(SyntheticEvent);
   });
   it('should call the `onDayClick` event handler', () => {
     const handleDayClick = jest.fn();
 
     const modifiers = { foo: d => d.getDate() === 15 };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} onDayClick={handleDayClick} />
-    );
+    const wrapper = mount(<DayPicker modifiers={modifiers} onDayClick={handleDayClick} />);
 
     wrapper.find('.DayPicker-Day--foo').simulate('click');
 
@@ -50,9 +50,7 @@ describe('DayPicker’s events handlers', () => {
     const handleDayKeyDown = jest.fn();
 
     const modifiers = { foo: d => d.getDate() === 15 };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} onDayKeyDown={handleDayKeyDown} />
-    );
+    const wrapper = mount(<DayPicker modifiers={modifiers} onDayKeyDown={handleDayKeyDown} />);
 
     wrapper.find('.DayPicker-Day--foo').simulate('keyDown');
 
@@ -68,9 +66,7 @@ describe('DayPicker’s events handlers', () => {
     const handleDayMouseEnter = jest.fn();
 
     const modifiers = { foo: d => d.getDate() === 15 };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} onDayMouseEnter={handleDayMouseEnter} />
-    );
+    const wrapper = mount(<DayPicker modifiers={modifiers} onDayMouseEnter={handleDayMouseEnter} />);
 
     wrapper.find('.DayPicker-Day--foo').simulate('mouseEnter');
 
@@ -86,9 +82,7 @@ describe('DayPicker’s events handlers', () => {
     const handleDayMouseLeave = jest.fn();
 
     const modifiers = { foo: d => d.getDate() === 15 };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} onDayMouseLeave={handleDayMouseLeave} />
-    );
+    const wrapper = mount(<DayPicker modifiers={modifiers} onDayMouseLeave={handleDayMouseLeave} />);
 
     wrapper.find('.DayPicker-Day--foo').simulate('mouseLeave');
 
@@ -104,9 +98,7 @@ describe('DayPicker’s events handlers', () => {
     const handleDayMouseDown = jest.fn();
 
     const modifiers = { foo: d => d.getDate() === 15 };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} onDayMouseDown={handleDayMouseDown} />
-    );
+    const wrapper = mount(<DayPicker modifiers={modifiers} onDayMouseDown={handleDayMouseDown} />);
 
     wrapper.find('.DayPicker-Day--foo').simulate('mouseDown');
 
@@ -122,9 +114,7 @@ describe('DayPicker’s events handlers', () => {
     const handleDayMouseUp = jest.fn();
 
     const modifiers = { foo: d => d.getDate() === 15 };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} onDayMouseUp={handleDayMouseUp} />
-    );
+    const wrapper = mount(<DayPicker modifiers={modifiers} onDayMouseUp={handleDayMouseUp} />);
 
     wrapper.find('.DayPicker-Day--foo').simulate('mouseUp');
 
@@ -140,9 +130,7 @@ describe('DayPicker’s events handlers', () => {
     const handleDayTouchStart = jest.fn();
 
     const modifiers = { foo: d => d.getDate() === 15 };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} onDayTouchStart={handleDayTouchStart} />
-    );
+    const wrapper = mount(<DayPicker modifiers={modifiers} onDayTouchStart={handleDayTouchStart} />);
 
     wrapper.find('.DayPicker-Day--foo').simulate('touchStart');
 
@@ -158,9 +146,7 @@ describe('DayPicker’s events handlers', () => {
     const handleDayTouchEnd = jest.fn();
 
     const modifiers = { foo: d => d.getDate() === 15 };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} onDayTouchEnd={handleDayTouchEnd} />
-    );
+    const wrapper = mount(<DayPicker modifiers={modifiers} onDayTouchEnd={handleDayTouchEnd} />);
 
     wrapper.find('.DayPicker-Day--foo').simulate('touchEnd');
 
@@ -177,30 +163,30 @@ describe('DayPicker’s events handlers', () => {
     const handleDayClick = jest.fn();
     const handleDayMouseEnter = jest.fn();
     const handleDayMouseLeave = jest.fn();
-    const wrapper = mount(
-      <DayPicker
-        initialMonth={new Date(2015, 11, 5)}
-        onDayClick={handleDayClick}
-        onDayMouseEnter={handleDayMouseEnter}
-        onDayMouseLeave={handleDayMouseLeave}
-      />
-    );
+    const wrapper = mount(<DayPicker initialMonth={new Date(2015, 11, 5)} onDayClick={handleDayClick} onDayMouseEnter={handleDayMouseEnter} onDayMouseLeave={handleDayMouseLeave} />);
 
-    wrapper.find('.DayPicker-Day--outside').at(0).simulate('click');
+    wrapper
+      .find('.DayPicker-Day--outside')
+      .at(0)
+      .simulate('click');
     expect(handleDayClick).not.toHaveBeenCalled();
 
-    wrapper.find('.DayPicker-Day--outside').at(0).simulate('mouseEnter');
+    wrapper
+      .find('.DayPicker-Day--outside')
+      .at(0)
+      .simulate('mouseEnter');
     expect(handleDayMouseEnter).not.toHaveBeenCalled();
 
-    wrapper.find('.DayPicker-Day--outside').at(0).simulate('mouseLeave');
+    wrapper
+      .find('.DayPicker-Day--outside')
+      .at(0)
+      .simulate('mouseLeave');
     expect(handleDayMouseLeave).not.toHaveBeenCalled();
   });
   it('should call `onDayClick` event handler when pressing the ENTER key', () => {
     const handleDayClick = jest.fn();
     const modifiers = { foo: d => d.getDate() === 15, bar: () => false };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} onDayClick={handleDayClick} />
-    );
+    const wrapper = mount(<DayPicker modifiers={modifiers} onDayClick={handleDayClick} />);
     wrapper
       .find('.DayPicker-Day--foo')
       .simulate('keyDown', { keyCode: keys.ENTER });
@@ -224,9 +210,7 @@ describe('DayPicker’s events handlers', () => {
   it('should call `onDayClick` event handler when pressing the SPACE key', () => {
     const handleDayClick = jest.fn();
     const modifiers = { foo: d => d.getDate() === 15 };
-    const wrapper = mount(
-      <DayPicker modifiers={modifiers} onDayClick={handleDayClick} />
-    );
+    const wrapper = mount(<DayPicker modifiers={modifiers} onDayClick={handleDayClick} />);
     wrapper
       .find('.DayPicker-Day--foo')
       .simulate('keyDown', { keyCode: keys.SPACE });
@@ -246,32 +230,23 @@ describe('DayPicker’s events handlers', () => {
   });
   it('should call `onKeyDown` also when changing month is disabled', () => {
     const handleKeyDown = jest.fn();
-    const wrapper = mount(
-      <DayPicker onKeyDown={handleKeyDown} canChangeMonth={false} />
-    );
+    const wrapper = mount(<DayPicker onKeyDown={handleKeyDown} canChangeMonth={false} />);
     wrapper.find('.DayPicker-wrapper').simulate('keyDown');
     expect(handleKeyDown.mock.calls[0][0]).toBeInstanceOf(SyntheticEvent);
   });
   it('should display the current month when clicking the today button', () => {
-    const wrapper = mount(
-      <DayPicker todayButton="foo" initialMonth={new Date(2015, 1)} />
-    );
+    const wrapper = mount(<DayPicker todayButton="foo" initialMonth={new Date(2015, 1)} />);
     wrapper.find('button.DayPicker-TodayButton').simulate('click');
     expect(wrapper.find('.DayPicker-Footer')).toBeDefined();
-    expect(wrapper.find('.DayPicker-Caption')).toHaveText(
-      formatMonthTitle(new Date())
-    );
+    expect(wrapper.find('.DayPicker-Caption')).toHaveText(formatMonthTitle(new Date()));
   });
   it('should call `onWeekClick` when clicking on a week number', () => {
     const handleWeekClick = jest.fn();
-    const wrapper = mount(
-      <DayPicker
-        showWeekNumbers
-        onWeekClick={handleWeekClick}
-        initialMonth={new Date(2015, 1)}
-      />
-    );
-    wrapper.find('.DayPicker-WeekNumber').at(1).simulate('click');
+    const wrapper = mount(<DayPicker showWeekNumbers onWeekClick={handleWeekClick} initialMonth={new Date(2015, 1)} />);
+    wrapper
+      .find('.DayPicker-WeekNumber')
+      .at(1)
+      .simulate('click');
     expect(handleWeekClick.mock.calls[0][0]).toBe(6);
     expect(handleWeekClick.mock.calls[0][1]).toHaveLength(7);
   });

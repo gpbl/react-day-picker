@@ -183,7 +183,7 @@ export default class Month extends Component {
                 className={classNames.week}
                 role="row"
               >
-                {showWeekNumbers &&
+                {showWeekNumbers && (
                   <div
                     className={classNames.weekNumber}
                     tabIndex={0}
@@ -191,16 +191,14 @@ export default class Month extends Component {
                     onClick={e => onWeekClick(weekNumber, week, e)}
                   >
                     {weekNumber}
-                  </div>}
+                  </div>
+                )}
                 {week.map(this.renderDay)}
               </div>
             );
           })}
         </div>
-        {footer &&
-          <div className={classNames.footer}>
-            {footer}
-          </div>}
+        {footer && <div className={classNames.footer}>{footer}</div>}
       </div>
     );
   }

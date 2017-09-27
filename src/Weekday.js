@@ -35,9 +35,7 @@ export default class Weekday extends PureComponent {
 
     return (
       <div className={className} role="columnheader">
-        <abbr title={title}>
-          {content}
-        </abbr>
+        <abbr title={title}>{content}</abbr>
       </div>
     );
   }

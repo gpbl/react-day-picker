@@ -18,9 +18,7 @@ describe('Helpers', () => {
     });
 
     it('should return the day from localeUtils first', () => {
-      const localeUtils = {
-        getFirstDayOfWeek: () => 3,
-      };
+      const localeUtils = { getFirstDayOfWeek: () => 3 };
       expect(Helpers.getFirstDayOfWeekFromProps({ localeUtils })).toBe(3);
     });
     it('should return the day from a number', () => {
@@ -151,14 +149,16 @@ describe('Helpers', () => {
 
   describe('isRangeOfDates', () => {
     it('should detect a properly shaped object', () => {
-      expect(Helpers.isRangeOfDates({ from: new Date(), to: new Date() })).toBe(
-        true
-      );
+      expect(Helpers.isRangeOfDates({
+          from: new Date(),
+          to: new Date(),
+        })).toBe(true);
     });
     it('should detect not properly shaped objects', () => {
-      expect(Helpers.isRangeOfDates({ from: null, to: new Date() })).toBe(
-        false
-      );
+      expect(Helpers.isRangeOfDates({
+          from: null,
+          to: new Date(),
+        })).toBe(false);
       expect(Helpers.isRangeOfDates({ to: new Date() })).toBe(false);
       expect(Helpers.isRangeOfDates({ from: new Date() })).toBe(false);
     });

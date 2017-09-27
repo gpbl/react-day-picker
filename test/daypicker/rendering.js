@@ -35,28 +35,15 @@ describe('DayPicker’s rendering', () => {
   it('should use `initialMonth` as the current month', () => {
     const wrapper = shallow(<DayPicker />);
     const instance = wrapper.instance();
-    expect(instance.props.initialMonth.getFullYear()).toBe(
-      instance.state.currentMonth.getFullYear()
-    );
-    expect(instance.props.initialMonth.getMonth()).toBe(
-      instance.state.currentMonth.getMonth()
-    );
+    expect(instance.props.initialMonth.getFullYear()).toBe(instance.state.currentMonth.getFullYear());
+    expect(instance.props.initialMonth.getMonth()).toBe(instance.state.currentMonth.getMonth());
     expect(instance.state.currentMonth.getDate()).toBe(1);
   });
   it('should use `month` as the current month instead of `initialMonth`', () => {
-    const wrapper = shallow(
-      <DayPicker
-        month={new Date(2018, 10, 11)}
-        initialMonth={new Date(2018, 1, 11)}
-      />
-    );
+    const wrapper = shallow(<DayPicker month={new Date(2018, 10, 11)} initialMonth={new Date(2018, 1, 11)} />);
     const instance = wrapper.instance();
-    expect(instance.props.month.getFullYear()).toBe(
-      instance.state.currentMonth.getFullYear()
-    );
-    expect(instance.props.month.getMonth()).toBe(
-      instance.state.currentMonth.getMonth()
-    );
+    expect(instance.props.month.getFullYear()).toBe(instance.state.currentMonth.getFullYear());
+    expect(instance.props.month.getMonth()).toBe(instance.state.currentMonth.getMonth());
     expect(instance.state.currentMonth.getDate()).toBe(1);
   });
   it('should update the current month when `month` is updated', () => {
@@ -80,16 +67,10 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-Month')).toHaveLength(12);
   });
   it('should render multiple months, reversed', () => {
-    const wrapper = mount(
-      <DayPicker
-        initialMonth={new Date(2015, 0)}
-        numberOfMonths={2}
-        reverseMonths
-      />
-    );
-    expect(wrapper.find('.DayPicker-Caption').at(0)).toHaveText(
-      'February 2015'
-    );
+    const wrapper = mount(<DayPicker initialMonth={new Date(2015, 0)} numberOfMonths={2} reverseMonths />);
+    expect(wrapper
+        .find('.DayPicker-Caption')
+        .at(0)).toHaveText('February 2015');
     expect(wrapper.find('.DayPicker-Caption').at(1)).toHaveText('January 2015');
   });
   it('should not include the interactionDisabled CSS modifier', () => {
@@ -109,17 +90,13 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-wrapper')).toHaveProp('tabIndex', -1);
   });
   it('should spread props to the container', () => {
-    const wrapper = shallow(
-      <DayPicker containerProps={{ 'data-foo': 'bar' }} />
-    );
+    const wrapper = shallow(<DayPicker containerProps={{ 'data-foo': 'bar' }} />);
     expect(wrapper).toHaveProp('data-foo', 'bar');
   });
   it('should handle focus and blur events', () => {
     const handleBlur = jest.fn();
     const handleFocus = jest.fn();
-    const wrapper = mount(
-      <DayPicker onFocus={handleFocus} onBlur={handleBlur} />
-    );
+    const wrapper = mount(<DayPicker onFocus={handleFocus} onBlur={handleBlur} />);
     wrapper.find('.DayPicker-wrapper').simulate('focus');
     wrapper.find('.DayPicker-wrapper').simulate('blur');
     expect(handleBlur).toHaveBeenCalledTimes(1);
@@ -131,14 +108,8 @@ describe('DayPicker’s rendering', () => {
   });
   it('should render the aria labels', () => {
     const wrapper = mount(<DayPicker />);
-    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveProp(
-      'aria-label',
-      'Previous Month'
-    );
-    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveProp(
-      'aria-label',
-      'Next Month'
-    );
+    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveProp('aria-label', 'Previous Month');
+    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveProp('aria-label', 'Next Month');
   });
   it('should render the day cells', () => {
     const wrapper = mount(<DayPicker initialMonth={new Date(2015, 6)} />);
@@ -155,13 +126,7 @@ describe('DayPicker’s rendering', () => {
       }
       return 'foo';
     };
-    const wrapper = mount(
-      <DayPicker
-        enableOutsideDays
-        modifiers={{ foo: () => true }}
-        renderDay={renderDay}
-      />
-    );
+    const wrapper = mount(<DayPicker enableOutsideDays modifiers={{ foo: () => true }} renderDay={renderDay} />);
     expect(wrapper.find('.DayPicker-Day').first()).toHaveText('bar');
   });
   it('should render a custom number of months', () => {
@@ -192,8 +157,9 @@ describe('DayPicker’s rendering', () => {
     /* eslint-enable react/prefer-stateless-function */
   });
   it('should render a custom navbar element', () => {
-    const CustomNavbar = ({ className }) =>
-      <div className={className}>Navbar</div>;
+    const CustomNavbar = ({ className }) => <div className={className}>
+        Navbar
+      </div>;
     CustomNavbar.propTypes = { className: PropTypes.string };
     const navbar = <CustomNavbar />;
     const dayPicker = <DayPicker navbarElement={navbar} />;
@@ -205,8 +171,9 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-NavBar').at(0)).toHaveText('Navbar');
   });
   it('should render a custom navbar element as a function', () => {
-    const CustomNavbar = ({ className }) =>
-      <div className={className}>Navbar</div>;
+    const CustomNavbar = ({ className }) => <div className={className}>
+        Navbar
+      </div>;
     CustomNavbar.propTypes = { className: PropTypes.string };
     const wrapper = mount(<DayPicker navbarElement={CustomNavbar} />);
 
@@ -232,14 +199,12 @@ describe('DayPicker’s rendering', () => {
     /* eslint-enable react/no-multi-comp */
   });
   it('should render a custom weekday element', () => {
-    const CustomWeekday = ({ className, weekday }) =>
-      <div className={className}>
+    const CustomWeekday = ({ className, weekday }) => <div
+        className={className}
+      >
         {weekday}
       </div>;
-    CustomWeekday.propTypes = {
-      className: PropTypes.string,
-      weekday: PropTypes.number,
-    };
+    CustomWeekday.propTypes = { className: PropTypes.string, weekday: PropTypes.number };
     const weekday = <CustomWeekday />;
     const dayPicker = <DayPicker weekdayElement={weekday} />;
     const wrapper = mount(dayPicker);
@@ -253,14 +218,12 @@ describe('DayPicker’s rendering', () => {
     });
   });
   it('should render a custom weekday element as a function', () => {
-    const CustomWeekday = ({ className, weekday }) =>
-      <div className={className}>
+    const CustomWeekday = ({ className, weekday }) => <div
+        className={className}
+      >
         {weekday}
       </div>;
-    CustomWeekday.propTypes = {
-      className: PropTypes.string,
-      weekday: PropTypes.number,
-    };
+    CustomWeekday.propTypes = { className: PropTypes.string, weekday: PropTypes.number };
     const dayPicker = <DayPicker weekdayElement={CustomWeekday} />;
     const wrapper = mount(dayPicker);
 
@@ -275,16 +238,9 @@ describe('DayPicker’s rendering', () => {
     /* eslint-disable react/prefer-stateless-function */
     /* eslint-disable react/no-multi-comp */
     class CustomWeekday extends React.Component {
-      static propTypes = {
-        className: PropTypes.string,
-        weekday: PropTypes.number,
-      };
+      static propTypes = { className: PropTypes.string, weekday: PropTypes.number };
       render() {
-        return (
-          <div className={this.props.className}>
-            {this.props.weekday}
-          </div>
-        );
+        return <div className={this.props.className}>{this.props.weekday}</div>;
       }
     }
     const dayPicker = <DayPicker weekdayElement={CustomWeekday} />;
@@ -306,59 +262,42 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper.find('.DayPicker-Day').at(2)).toHaveText('');
   });
   it('should render the outside days', () => {
-    const wrapper = mount(
-      <DayPicker enableOutsideDays initialMonth={new Date(2015, 6)} />
-    );
+    const wrapper = mount(<DayPicker enableOutsideDays initialMonth={new Date(2015, 6)} />);
     expect(wrapper.find('.DayPicker-Day').at(0)).toHaveText('28');
     expect(wrapper.find('.DayPicker-Day').at(1)).toHaveText('29');
     expect(wrapper.find('.DayPicker-Day').at(2)).toHaveText('30');
   });
   it('should not allow tabbing to outside days', () => {
-    const wrapper = mount(
-      <DayPicker enableOutsideDays initialMonth={new Date(2015, 6)} />
-    );
-    expect(wrapper.find('.DayPicker-Day').at(0).prop('tabIndex')).toBe(-1);
-    expect(wrapper.find('.DayPicker-Day').at(1).prop('tabIndex')).toBe(-1);
-    expect(wrapper.find('.DayPicker-Day').at(2).prop('tabIndex')).toBe(-1);
+    const wrapper = mount(<DayPicker enableOutsideDays initialMonth={new Date(2015, 6)} />);
+    expect(wrapper
+        .find('.DayPicker-Day')
+        .at(0)
+        .prop('tabIndex')).toBe(-1);
+    expect(wrapper
+        .find('.DayPicker-Day')
+        .at(1)
+        .prop('tabIndex')).toBe(-1);
+    expect(wrapper
+        .find('.DayPicker-Day')
+        .at(2)
+        .prop('tabIndex')).toBe(-1);
   });
   it('should render the fixed amount of weeks', () => {
-    const wrapper = mount(
-      <DayPicker
-        enableOutsideDays
-        fixedWeeks
-        initialMonth={new Date(2015, 1)}
-      />
-    );
+    const wrapper = mount(<DayPicker enableOutsideDays fixedWeeks initialMonth={new Date(2015, 1)} />);
     expect(wrapper.find('.DayPicker-Day')).toHaveLength(42);
   });
   it('should render the today button', () => {
-    const wrapper = mount(
-      <DayPicker todayButton="foo" initialMonth={new Date(2015, 1)} />
-    );
+    const wrapper = mount(<DayPicker todayButton="foo" initialMonth={new Date(2015, 1)} />);
     expect(wrapper.find('.DayPicker-Footer')).toBeDefined();
     expect(wrapper.find('button.DayPicker-TodayButton')).toHaveText('foo');
   });
   it('should render the week numbers', () => {
-    const wrapper = mount(
-      <DayPicker showWeekNumbers initialMonth={new Date(2015, 1)} />
-    );
+    const wrapper = mount(<DayPicker showWeekNumbers initialMonth={new Date(2015, 1)} />);
     expect(wrapper.find('.DayPicker-WeekNumber')).toHaveLength(4);
     expect(wrapper.find('.DayPicker-WeekNumber').at(1)).toHaveText('6');
   });
   it('should use the specified class names', () => {
-    const wrapper = mount(
-      <DayPicker
-        enableOutsideDays
-        initialMonth={new Date(2015, 1)}
-        classNames={{
-          ...classNames,
-          day: 'foo',
-        }}
-        modifiers={{
-          bar: new Date(2015, 1, 10),
-        }}
-      />
-    );
+    const wrapper = mount(<DayPicker enableOutsideDays initialMonth={new Date(2015, 1)} classNames={{ ...classNames, day: 'foo' }} modifiers={{ bar: new Date(2015, 1, 10) }} />);
     expect(wrapper.find('.foo')).toHaveLength(28);
     expect(wrapper.find('.bar')).toHaveLength(1);
   });
@@ -366,99 +305,55 @@ describe('DayPicker’s rendering', () => {
 
 describe('Day.shouldComponentUpdate', () => {
   it('should return false if the modifiers object passes a shallow compare', () => {
-    const initial = {
-      a: true,
-      b: true,
-    };
-    const updated = {
-      b: true,
-      a: true,
-    };
-    const day = shallow(
-      <Day day={new Date()} classNames={{ day: 'day' }} modifiers={initial}>
+    const initial = { a: true, b: true };
+    const updated = { b: true, a: true };
+    const day = shallow(<Day day={new Date()} classNames={{ day: 'day' }} modifiers={initial}>
         2
-      </Day>
-    ).instance();
-    const newProps = Object.assign({}, day.props, {
-      modifiers: updated,
-    });
+      </Day>).instance();
+    const newProps = Object.assign({}, day.props, { modifiers: updated });
     expect(day.shouldComponentUpdate(newProps)).toBeFalsy();
   });
 
   it('should return false if a new day date is passed that is in the same day', () => {
-    const day = shallow(
-      <Day day={new Date()} classNames={{ day: 'day' }}>
+    const day = shallow(<Day day={new Date()} classNames={{ day: 'day' }}>
         2
-      </Day>
-    ).instance();
-    const newProps = Object.assign({}, day.props, {
-      day: new Date(),
-    });
+      </Day>).instance();
+    const newProps = Object.assign({}, day.props, { day: new Date() });
     expect(day.shouldComponentUpdate(newProps)).toBeFalsy();
   });
 
   it('should return false if the modifiersStyles object passes a shallow compare', () => {
-    const initial = {
-      a: {},
-      b: {},
-    };
-    const updated = {
-      b: initial.b,
-      a: initial.a,
-    };
-    const day = shallow(
-      <Day
-        day={new Date()}
-        classNames={{ day: 'day' }}
-        modifiersStyles={initial}
-      >
+    const initial = { a: {}, b: {} };
+    const updated = { b: initial.b, a: initial.a };
+    const day = shallow(<Day day={new Date()} classNames={{ day: 'day' }} modifiersStyles={initial}>
         2
-      </Day>
-    ).instance();
-    const newProps = Object.assign({}, day.props, {
-      modifiersStyles: updated,
-    });
+      </Day>).instance();
+    const newProps = Object.assign({}, day.props, { modifiersStyles: updated });
     expect(day.shouldComponentUpdate(newProps)).toBeFalsy();
   });
 
   it('should return false when empty does not change', () => {
-    const day = shallow(
-      <Day day={new Date()} classNames={{ day: 'day' }} empty>
+    const day = shallow(<Day day={new Date()} classNames={{ day: 'day' }} empty>
         2
-      </Day>
-    ).instance();
-    const newProps = Object.assign({}, day.props, {
-      empty: true,
-    });
+      </Day>).instance();
+    const newProps = Object.assign({}, day.props, { empty: true });
     expect(day.shouldComponentUpdate(newProps)).toBeFalsy();
   });
 
   it('should return true when modifiers change', () => {
-    const initial = {
-      a: true,
-      b: true,
-    };
-    const updated = {
-      c: true,
-      a: true,
-    };
-    const day = shallow(
-      <Day day={new Date()} classNames={{ day: 'day' }} modifiers={initial}>
+    const initial = { a: true, b: true };
+    const updated = { c: true, a: true };
+    const day = shallow(<Day day={new Date()} classNames={{ day: 'day' }} modifiers={initial}>
         2
-      </Day>
-    ).instance();
-    const newProps = Object.assign({}, day.props, {
-      modifiers: updated,
-    });
+      </Day>).instance();
+    const newProps = Object.assign({}, day.props, { modifiers: updated });
     expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
   });
 
   it('should return true when the day changes', () => {
-    const day = shallow(
-      <Day day={new Date()} classNames={{ day: 'day' }}>
+    const day = shallow(<Day day={new Date()} classNames={{ day: 'day' }}>
         2
-      </Day>
-    ).instance();
+      </Day>).instance();
     const newProps = Object.assign({}, day.props, {
       day: new Date(2015, 1, 1),
     });
@@ -466,26 +361,18 @@ describe('Day.shouldComponentUpdate', () => {
   });
 
   it('should return true when empty changes', () => {
-    const day = shallow(
-      <Day day={new Date()} classNames={{ day: 'day' }} empty>
+    const day = shallow(<Day day={new Date()} classNames={{ day: 'day' }} empty>
         2
-      </Day>
-    ).instance();
-    const newProps = Object.assign({}, day.props, {
-      empty: false,
-    });
+      </Day>).instance();
+    const newProps = Object.assign({}, day.props, { empty: false });
     expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
   });
 
   it('should return true when adding a prop', () => {
-    const day = shallow(
-      <Day day={new Date()} classNames={{ day: 'day' }} empty>
+    const day = shallow(<Day day={new Date()} classNames={{ day: 'day' }} empty>
         2
-      </Day>
-    ).instance();
-    const newProps = Object.assign({}, day.props, {
-      onKeyDown: () => {},
-    });
+      </Day>).instance();
+    const newProps = Object.assign({}, day.props, { onKeyDown: () => {} });
     expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
   });
 });
