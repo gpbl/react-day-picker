@@ -6,4 +6,4 @@ source: selecting-multiple.js
 source-uses-dateutils: true
 ---
 
-Pass an array of days to `selectDays` to select multiple days.
+Pass an array of days to `selectedDays` to select multiple days.
