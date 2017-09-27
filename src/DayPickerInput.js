@@ -42,6 +42,7 @@ export default class DayPickerInput extends React.Component {
     hideOnDayClick: PropTypes.bool,
     clickUnselectsDay: PropTypes.bool,
     component: PropTypes.any,
+    overlayWrapper: PropTypes.func,
 
     classNames: PropTypes.shape({
       container: PropTypes.string,
@@ -279,18 +280,24 @@ export default class DayPickerInput extends React.Component {
       }
     }
 
+    const { overlayWrapper } = this.props;
+    const picker = (
+      <DayPicker
+        ref={el => (this.daypicker = el)}
+        fixedWeeks
+        {...this.props.dayPickerProps}
+        month={this.state.month}
+        selectedDays={selectedDay}
+        onDayClick={this.handleDayClick}
+        numberOfMonths={1}
+      />
+    );
+
     return (
       <div className={this.props.classNames.overlayWrapper}>
         <div className={this.props.classNames.overlay}>
-          <DayPicker
-            ref={el => (this.daypicker = el)}
-            fixedWeeks
-            {...this.props.dayPickerProps}
-            month={this.state.month}
-            selectedDays={selectedDay}
-            onDayClick={this.handleDayClick}
-            numberOfMonths={1}
-          />
+          {typeof overlayWrapper === 'function' && overlayWrapper(picker)}
+          {typeof overlayWrapper !== 'function' && picker}
         </div>
       </div>
     );
@@ -305,6 +312,7 @@ export default class DayPickerInput extends React.Component {
     delete inputProps.hideOnDayClick;
     delete inputProps.onDayChange;
     delete inputProps.classNames;
+    delete inputProps.overlayWrapper;
     return (
       <div
         className={this.props.classNames.container}
