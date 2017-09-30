@@ -222,7 +222,7 @@ describe('DayPicker’s methods', () => {
     beforeEach(() => {
       wrapper = mount(<DayPicker initialMonth={new Date(2015, 5)} />);
       instance = wrapper.instance();
-      body = wrapper.find('.DayPicker-Body').nodes[0];
+      body = wrapper.find('div.DayPicker-Body').instance();
     });
 
     function getDayNode(monthBody, weekIndex, dayIndex) {
@@ -292,7 +292,7 @@ describe('DayPicker’s methods', () => {
       it('should focus the first day of the next month after leapday', () => {
         wrapper = mount(<DayPicker initialMonth={new Date(2016, 1)} />);
         instance = wrapper.instance();
-        body = wrapper.find('.DayPicker-Body').nodes[0];
+        body = wrapper.find('div.DayPicker-Body').instance();
 
         const focusedNode = getDayNode(body, 4, 1);
         instance.focusNextDay(focusedNode);

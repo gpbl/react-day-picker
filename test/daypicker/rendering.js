@@ -247,8 +247,8 @@ describe('DayPicker’s rendering', () => {
 
     expect(isElement(dayPicker.props.weekdayElement)).toBe(true);
     expect(wrapper.containsMatchingElement(weekday)).toBe(true);
-    expect(wrapper.find('.DayPicker-Weekday')).toHaveLength(7);
-    const weekdayDoms = wrapper.find('.DayPicker-Weekday');
+    expect(wrapper.find('div.DayPicker-Weekday')).toHaveLength(7);
+    const weekdayDoms = wrapper.find('div.DayPicker-Weekday');
     weekdayDoms.forEach((_, i) => {
       expect(weekdayDoms.at(i)).toHaveText(i.toString());
     });
@@ -265,8 +265,8 @@ describe('DayPicker’s rendering', () => {
     const wrapper = mount(dayPicker);
 
     expect(wrapper.containsMatchingElement(<CustomWeekday />)).toBe(true);
-    expect(wrapper.find('.DayPicker-Weekday')).toHaveLength(7);
-    const weekdayDoms = wrapper.find('.DayPicker-Weekday');
+    expect(wrapper.find('div.DayPicker-Weekday')).toHaveLength(7);
+    const weekdayDoms = wrapper.find('div.DayPicker-Weekday');
     weekdayDoms.forEach((_, i) => {
       expect(weekdayDoms.at(i)).toHaveText(i.toString());
     });
@@ -287,8 +287,8 @@ describe('DayPicker’s rendering', () => {
     const wrapper = mount(dayPicker);
 
     expect(wrapper.containsMatchingElement(<CustomWeekday />)).toBe(true);
-    expect(wrapper.find('.DayPicker-Weekday')).toHaveLength(7);
-    const weekdayDoms = wrapper.find('.DayPicker-Weekday');
+    expect(wrapper.find('div.DayPicker-Weekday')).toHaveLength(7);
+    const weekdayDoms = wrapper.find('div.DayPicker-Weekday');
     weekdayDoms.forEach((_, i) => {
       expect(weekdayDoms.at(i)).toHaveText(i.toString());
     });

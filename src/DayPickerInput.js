@@ -199,6 +199,7 @@ export default class DayPickerInput extends React.Component {
     }
 
     if (value.trim() === '') {
+      console.log('value `%s`', value);
       this.setState({ value });
       if (this.props.onDayChange) {
         this.props.onDayChange(undefined, {});
