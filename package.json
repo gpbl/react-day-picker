@@ -30,15 +30,6 @@
     "build:css": "postcss src/style.css --use autoprefixer -d lib/ --no-map",
     "docs:publish": "cp docs/CNAME docs/_site && gh-pages -d docs/_site"
   },
-  "jest": {
-    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
-    "setupFiles": [
-      "./test/setup.js"
-    ],
-    "testMatch": [
-      "<rootDir>/test/**/!(setup).js"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gpbl/react-day-picker.git"
@@ -65,7 +56,7 @@
     "react": "~0.13.x || ~0.14.x || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@types/react": "15.0.30",
+    "@types/react": "16.0.7",
     "autoprefixer": "7.1.4",
     "babel-core": "6.26.0",
     "babel-eslint": "8.0.1",
@@ -80,7 +71,8 @@
     "cheerio": "1.0.0-rc.2",
     "codecov": "2.3.0",
     "dtslint": "0.1.2",
-    "enzyme": "2.9.1",
+    "enzyme": "3.0.0",
+    "enzyme-adapter-react-16": "1.0.0",
     "eslint": "4.8.0",
     "eslint-config-airbnb": "15.1.0",
     "eslint-config-airbnb-base": "12.0.1",
@@ -92,16 +84,13 @@
     "gh-pages": "1.0.0",
     "husky": "0.14.3",
     "jest": "21.2.1",
-    "jest-enzyme": "3.6.1",
+    "jest-enzyme": "4.0.0",
     "jest-junit-reporter": "1.1.0",
-    "jsdom": "11.1.0",
     "moment": "2.18.1",
     "null-loader": "0.1.1",
     "postcss-cli": "4.1.1",
     "prettier": "1.7.3",
-    "react": "15.6.1",
-    "react-dom": "15.6.1",
-    "react-test-renderer": "15.6.1",
+    "raf": "3.3.2",
     "react": "16.0.0",
     "react-dom": "16.0.0",
     "react-test-renderer": "16.0.0",
