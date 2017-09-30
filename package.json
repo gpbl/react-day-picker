@@ -88,7 +88,7 @@
     "eslint-plugin-react": "^7.4.0",
     "gh-pages": "^1.0.0",
     "husky": "^0.14.3",
-    "jest": "^20.0.4",
+    "jest": "^21.2.1",
     "jest-enzyme": "^3.6.1",
     "jest-junit-reporter": "^1.1.0",
     "jsdom": "^11.1.0",
