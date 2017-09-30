@@ -12,7 +12,6 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: npm install -g yarn
       - restore_cache:
           key: cache-project-v2-{{ checksum "yarn.lock" }}
       - run: yarn --pure-lockfile --cache-folder yarn-cache
