@@ -7,7 +7,13 @@ import defaultClassNames from '../../src/classNames';
 
 describe('DayPicker’s navigation', () => {
   it('should not allow the previous month when the first month is the first allowed one', () => {
-    const wrapper = shallow(<DayPicker initialMonth={new Date(2015, 9)} fromMonth={new Date(2015, 9)} numberOfMonths={3} />);
+    const wrapper = shallow(
+      <DayPicker
+        initialMonth={new Date(2015, 9)}
+        fromMonth={new Date(2015, 9)}
+        numberOfMonths={3}
+      />
+    );
     expect(wrapper.instance().allowPreviousMonth()).toBe(false);
   });
   it('should not allow the previous month when cannot change months', () => {
@@ -15,7 +21,13 @@ describe('DayPicker’s navigation', () => {
     expect(wrapper.instance().allowPreviousMonth()).toBe(false);
   });
   it('should not allow the next month when the last month is the last allowed one', () => {
-    const wrapper = shallow(<DayPicker initialMonth={new Date(2015, 7)} toMonth={new Date(2015, 9)} numberOfMonths={3} />);
+    const wrapper = shallow(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        toMonth={new Date(2015, 9)}
+        numberOfMonths={3}
+      />
+    );
     expect(wrapper.instance().allowNextMonth()).toBe(false);
   });
   it('should not allow the next month when cannot change months', () => {
@@ -31,7 +43,13 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getDate()).toBe(1);
   });
   it('should show the next month when clicking outside days', () => {
-    const wrapper = mount(<DayPicker initialMonth={new Date(2015, 7)} enableOutsideDays onDayClick={() => {}} />);
+    const wrapper = mount(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        enableOutsideDays
+        onDayClick={() => {}}
+      />
+    );
     wrapper
       .find('.DayPicker-Day--outside')
       .last()
@@ -41,7 +59,14 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getMonth()).toBe(8);
   });
   it('should show the next month when clicking outside days with classNames set', () => {
-    const wrapper = mount(<DayPicker initialMonth={new Date(2015, 7)} enableOutsideDays classNames={{ ...defaultClassNames, outside: 'fakeOutside' }} onDayClick={() => {}} />);
+    const wrapper = mount(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        enableOutsideDays
+        classNames={{ ...defaultClassNames, outside: 'fakeOutside' }}
+        onDayClick={() => {}}
+      />
+    );
     wrapper
       .find('.fakeOutside')
       .last()
@@ -58,7 +83,13 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getMonth()).toBe(6);
   });
   it('should show the previous month when clicking outside days', () => {
-    const wrapper = mount(<DayPicker initialMonth={new Date(2015, 7)} enableOutsideDays onDayClick={() => {}} />);
+    const wrapper = mount(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        enableOutsideDays
+        onDayClick={() => {}}
+      />
+    );
     wrapper
       .find('.DayPicker-Day--outside')
       .first()
@@ -68,7 +99,14 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getMonth()).toBe(6);
   });
   it('should show the previous month when clicking outside days with classNames set', () => {
-    const wrapper = mount(<DayPicker initialMonth={new Date(2015, 7)} enableOutsideDays classNames={{ ...defaultClassNames, outside: 'fakeOutside' }} onDayClick={() => {}} />);
+    const wrapper = mount(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        enableOutsideDays
+        classNames={{ ...defaultClassNames, outside: 'fakeOutside' }}
+        onDayClick={() => {}}
+      />
+    );
     wrapper
       .find('.fakeOutside')
       .first()
@@ -78,7 +116,14 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getMonth()).toBe(6);
   });
   it('should not show the previous month when clicking outside days from the first month out of 2', () => {
-    const wrapper = mount(<DayPicker initialMonth={new Date(2015, 3)} numberOfMonths={2} enableOutsideDays onDayClick={() => {}} />);
+    const wrapper = mount(
+      <DayPicker
+        initialMonth={new Date(2015, 3)}
+        numberOfMonths={2}
+        enableOutsideDays
+        onDayClick={() => {}}
+      />
+    );
     wrapper
       .find('.DayPicker-Day--outside')
       .at(6)
@@ -102,7 +147,10 @@ describe('DayPicker’s navigation', () => {
   });
   it('should call `showPreviousMonth()` when the LEFT key is pressed', () => {
     const wrapper = mount(<DayPicker />);
-    const showPreviousMonth = jest.spyOn(wrapper.instance(), 'showPreviousMonth');
+    const showPreviousMonth = jest.spyOn(
+      wrapper.instance(),
+      'showPreviousMonth'
+    );
     wrapper
       .find('.DayPicker-wrapper')
       .simulate('keyDown', { keyCode: keys.LEFT });
@@ -162,7 +210,10 @@ describe('DayPicker’s navigation', () => {
   });
   it('should call `focusPreviousWeek()` when the UP key is pressed on a day', () => {
     const wrapper = mount(<DayPicker />);
-    const focusPreviousWeek = jest.spyOn(wrapper.instance(), 'focusPreviousWeek');
+    const focusPreviousWeek = jest.spyOn(
+      wrapper.instance(),
+      'focusPreviousWeek'
+    );
     wrapper
       .find('.DayPicker-Day')
       .filterWhere(node => !node.hasClass('DayPicker-Day--outside'))
@@ -172,21 +223,47 @@ describe('DayPicker’s navigation', () => {
     focusPreviousWeek.mockReset();
   });
   it('should set the current month to the first month in its page if fromMonth is set', () => {
-    const instance = shallow(<DayPicker initialMonth={new Date(2015, 7)} fromMonth={new Date(2015, 1)} numberOfMonths={4} pagedNavigation />).instance();
+    const instance = shallow(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        fromMonth={new Date(2015, 1)}
+        numberOfMonths={4}
+        pagedNavigation
+      />
+    ).instance();
     expect(instance.state.currentMonth.getFullYear()).toBe(2015);
     expect(instance.state.currentMonth.getMonth()).toBe(5);
     expect(instance.state.currentMonth.getDate()).toBe(1);
   });
 
   describe('with custom classNames', () => {
-    const getDaysInMonth = wrapper => wrapper
+    const getDaysInMonth = wrapper =>
+      wrapper
         .find('.day.another-day-class')
         .filterWhere(
           node =>
             !node.hasClass('othermonth') &&
             !node.hasClass('another-othermonth-class')
         );
-    const classes = { container: 'datepicker', interactionDisabled: 'interaction-disabled', navBar: 'navbar', navButtonPrev: 'prev', navButtonNext: 'next', month: 'month', caption: 'caption', weekdays: 'weekdays', weekdaysRow: 'weekdaysRow', weekday: 'weekday', body: 'body', week: 'week', day: 'day another-day-class', today: 'today', selected: 'selected', outside: 'othermonth another-othermonth-class', disabled: 'disabled' };
+    const classes = {
+      container: 'datepicker',
+      interactionDisabled: 'interaction-disabled',
+      navBar: 'navbar',
+      navButtonPrev: 'prev',
+      navButtonNext: 'next',
+      month: 'month',
+      caption: 'caption',
+      weekdays: 'weekdays',
+      weekdaysRow: 'weekdaysRow',
+      weekday: 'weekday',
+      body: 'body',
+      week: 'week',
+      day: 'day another-day-class',
+      today: 'today',
+      selected: 'selected',
+      outside: 'othermonth another-othermonth-class',
+      disabled: 'disabled',
+    };
 
     it('should call `focusNextDay()` when the RIGHT key is pressed on a day', () => {
       const wrapper = mount(<DayPicker classNames={classes} />);
@@ -199,7 +276,10 @@ describe('DayPicker’s navigation', () => {
     });
     it('should call `focusPreviousDay()` when the LEFT key is pressed on a day', () => {
       const wrapper = mount(<DayPicker classNames={classes} />);
-      const focusPreviousDay = jest.spyOn(wrapper.instance(), 'focusPreviousDay');
+      const focusPreviousDay = jest.spyOn(
+        wrapper.instance(),
+        'focusPreviousDay'
+      );
       getDaysInMonth(wrapper)
         .first()
         .simulate('keyDown', { keyCode: keys.LEFT });
@@ -217,7 +297,10 @@ describe('DayPicker’s navigation', () => {
     });
     it('should call `focusPreviousWeek()` when the UP key is pressed on a day', () => {
       const wrapper = mount(<DayPicker classNames={classes} />);
-      const focusPreviousWeek = jest.spyOn(wrapper.instance(), 'focusPreviousWeek');
+      const focusPreviousWeek = jest.spyOn(
+        wrapper.instance(),
+        'focusPreviousWeek'
+      );
       getDaysInMonth(wrapper)
         .last()
         .simulate('keyDown', { keyCode: keys.UP });

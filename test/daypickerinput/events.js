@@ -99,18 +99,27 @@ describe('DayPickerInput', () => {
         const input = wrapper.find('input');
         wrapper.instance().showDayPicker();
         input.simulate('change', { target: { value: '12/16/2013' } });
-        expect(wrapper
-            .find('.DayPicker-Caption')
-            .first()).toHaveText('December 2013');
+        expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
+          'December 2013'
+        );
         input.simulate('change', { target: { value: '11/10/2015' } });
-        expect(wrapper
-            .find('.DayPicker-Caption')
-            .first()).toHaveText('November 2015');
+        expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
+          'November 2015'
+        );
       });
       it('should call `onDayChange` with modifiers', () => {
         const onDayChange = jest.fn();
         const testDay = new Date(2015, 11, 20);
-        const wrapper = mount(<DayPickerInput dayPickerProps={{ modifiers: { foo: testDay }, selectedDays: testDay, disabledDays: testDay }} onDayChange={onDayChange} />);
+        const wrapper = mount(
+          <DayPickerInput
+            dayPickerProps={{
+              modifiers: { foo: testDay },
+              selectedDays: testDay,
+              disabledDays: testDay,
+            }}
+            onDayChange={onDayChange}
+          />
+        );
         const input = wrapper.find('input');
         wrapper.instance().showDayPicker();
         input.simulate('change', { target: { value: '12/20/2015' } });
@@ -140,7 +149,9 @@ describe('DayPickerInput', () => {
     describe('dayclick', () => {
       it('should call `onDayClick` event handler', () => {
         const onDayClick = jest.fn();
-        const wrapper = mount(<DayPickerInput dayPickerProps={{ onDayClick }} />);
+        const wrapper = mount(
+          <DayPickerInput dayPickerProps={{ onDayClick }} />
+        );
         wrapper.instance().showDayPicker();
         wrapper
           .find('.DayPicker-Day')
@@ -149,7 +160,9 @@ describe('DayPickerInput', () => {
         expect(onDayClick).toHaveBeenCalledTimes(1);
       });
       it('should select and display the clicked day', () => {
-        const wrapper = mount(<DayPickerInput dayPickerProps={{ month: new Date(2017, 1) }} />);
+        const wrapper = mount(
+          <DayPickerInput dayPickerProps={{ month: new Date(2017, 1) }} />
+        );
         wrapper.instance().showDayPicker();
         wrapper
           .find('.DayPicker-Day')
@@ -161,7 +174,15 @@ describe('DayPickerInput', () => {
       });
       it('should call `onDayChange` when clicking on a day', () => {
         const onDayChange = jest.fn();
-        const wrapper = mount(<DayPickerInput onDayChange={onDayChange} dayPickerProps={{ month: new Date(2017, 1), modifiers: { foo: new Date(2017, 1, 8) } }} />);
+        const wrapper = mount(
+          <DayPickerInput
+            onDayChange={onDayChange}
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              modifiers: { foo: new Date(2017, 1, 8) },
+            }}
+          />
+        );
         wrapper.instance().showDayPicker();
         wrapper
           .find('.DayPicker-Day')
@@ -194,7 +215,16 @@ describe('DayPickerInput', () => {
         expect(wrapper.find('.DayPicker')).toBeDefined();
       });
       it('should unselect the clicked day if already selected', () => {
-        const wrapper = mount(<DayPickerInput value="02/08/2017" clickUnselectsDay dayPickerProps={{ month: new Date(2017, 1), selectedDays: new Date(2017, 1, 8) }} />);
+        const wrapper = mount(
+          <DayPickerInput
+            value="02/08/2017"
+            clickUnselectsDay
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: new Date(2017, 1, 8),
+            }}
+          />
+        );
         wrapper.instance().showDayPicker();
         wrapper
           .find('.DayPicker-Day')
@@ -205,7 +235,18 @@ describe('DayPickerInput', () => {
       });
       it('should call `onDayChange` when clicking a selected day', () => {
         const onDayChange = jest.fn();
-        const wrapper = mount(<DayPickerInput value="02/08/2017" onDayChange={onDayChange} clickUnselectsDay dayPickerProps={{ month: new Date(2017, 1), selectedDays: new Date(2017, 1, 8), modifiers: { foo: new Date(2017, 1, 8) } }} />);
+        const wrapper = mount(
+          <DayPickerInput
+            value="02/08/2017"
+            onDayChange={onDayChange}
+            clickUnselectsDay
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: new Date(2017, 1, 8),
+              modifiers: { foo: new Date(2017, 1, 8) },
+            }}
+          />
+        );
         wrapper.instance().showDayPicker();
         wrapper
           .find('.DayPicker-Day')
@@ -218,7 +259,16 @@ describe('DayPickerInput', () => {
       });
       it('should not call `onDayChange` if the day is disabled', () => {
         const onDayChange = jest.fn();
-        const wrapper = mount(<DayPickerInput value="02/08/2017" onDayChange={onDayChange} dayPickerProps={{ month: new Date(2017, 1), disabledDays: new Date(2017, 1, 8) }} />);
+        const wrapper = mount(
+          <DayPickerInput
+            value="02/08/2017"
+            onDayChange={onDayChange}
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              disabledDays: new Date(2017, 1, 8),
+            }}
+          />
+        );
         wrapper.instance().showDayPicker();
         wrapper
           .find('.DayPicker-Day')
