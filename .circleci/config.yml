@@ -14,7 +14,7 @@ jobs:
       - checkout
       - restore_cache:
           key: cache-project-v2-{{ checksum "yarn.lock" }}
-      - run: yarn --pure-lockfile --cache-folder yarn-cache
+      - run: yarn --cache-folder yarn-cache
       - save_cache:
           key: cache-project-v2-{{ checksum "yarn.lock" }}
           paths:
