@@ -9,9 +9,7 @@
     "prettier/react"
   ],
   "rules": {
-    "prettier/prettier": [
-      "warn"
-    ],
+    "prettier/prettier": "error",
     "no-console": [
       "error",
       {
