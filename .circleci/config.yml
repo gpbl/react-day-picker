@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: /root/react-day-picker
   docker:
-    - image: node:7.10.0
+    - image: node:8.6
       environment:
         TEST_REPORT_PATH: "reports"
 
@@ -13,16 +13,28 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: cache-project-v2-{{ checksum "yarn.lock" }}
-      - run: yarn --pure-lockfile --cache-folder yarn-cache
-      - save_cache:
-          key: cache-project-v2-{{ checksum "yarn.lock" }}
+          key: cache-{{ checksum "yarn.lock" }}
           paths:
-            - ~/react-day-picker/yarn-cache
-      - run: yarn lint -- --format junit --output-file reports/eslint.xml
-      - run: yarn dtslint
-      - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
-      - run: yarn codecov
+            - ~/react-day-picker/node_modules
+      - run: 
+          name: Install dependencies
+          command: yarn install
+      - run: 
+          name: Lint sources
+          command: yarn lint --format junit --output-file reports/eslint.xml
+      - run: 
+          name: Lint TypeScript definition files
+          command: yarn dtslint
+      - run: 
+          name: Run unit tests
+          command: yarn test --coverage --testResultsProcessor jest-junit-reporter
+      - run: 
+          name: Uploade codevoverage data
+          command: yarn codecov
+      - save_cache:
+          key: cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/react-day-picker/node_modules
       - store_test_results:
           path: ~/react-day-picker/reports
       - persist_to_workspace:
@@ -37,8 +49,10 @@ jobs:
       - attach_workspace:
           at: /root/react-day-picker
       - restore_cache:
-          key: cache-project-v2-{{ checksum "yarn.lock" }}
-      - run: yarn --cache-folder yarn-cache
+          key: cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/react-day-picker/node_modules
+      - run: yarn
       - run: yarn build
 
   build-docs:

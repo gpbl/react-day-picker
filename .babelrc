@@ -1,12 +1,17 @@
 {
   "presets": [
     "react",
-    "es2015",
-    "stage-1"
+    "env"
   ],
   "plugins": [
-    ["transform-react-remove-prop-types", {
-      "mode": "wrap"
-    }]
+    "transform-export-extensions",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    [
+      "transform-react-remove-prop-types",
+      {
+        "mode": "wrap"
+      }
+    ]
   ]
 }

@@ -17,47 +17,71 @@ describe('<Navbar />', () => {
   });
   it('should render the aria labels for buttons', () => {
     const wrapper = shallow(<Navbar />);
-    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveProp('aria-label', 'Previous Month');
-    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveProp('aria-label', 'Next Month');
+    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveProp(
+      'aria-label',
+      'Previous Month'
+    );
+    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveProp(
+      'aria-label',
+      'Next Month'
+    );
   });
   it('should render custom aria labels', () => {
-    const wrapper = shallow(<Navbar labels={{ nextMonth: 'Successivo', previousMonth: 'Precedente' }} />);
-    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveProp('aria-label', 'Precedente');
-    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveProp('aria-label', 'Successivo');
+    const wrapper = shallow(
+      <Navbar
+        labels={{ nextMonth: 'Successivo', previousMonth: 'Precedente' }}
+      />
+    );
+    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveProp(
+      'aria-label',
+      'Precedente'
+    );
+    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveProp(
+      'aria-label',
+      'Successivo'
+    );
   });
   it('should have the navigation buttons classes', () => {
     const wrapper = shallow(<Navbar />);
-    expect(wrapper
-        .find('.DayPicker-NavButton')
-        .at(0)).toHaveClassName('DayPicker-NavButton--prev');
-    expect(wrapper
-        .find('.DayPicker-NavButton')
-        .at(1)).toHaveClassName('DayPicker-NavButton--next');
+    expect(wrapper.find('.DayPicker-NavButton').at(0)).toHaveClassName(
+      'DayPicker-NavButton--prev'
+    );
+    expect(wrapper.find('.DayPicker-NavButton').at(1)).toHaveClassName(
+      'DayPicker-NavButton--next'
+    );
   });
   it('should invert buttons position for RTL', () => {
     const wrapper = shallow(<Navbar dir="rtl" />);
-    expect(wrapper
-        .find('.DayPicker-NavButton')
-        .at(0)).toHaveClassName('DayPicker-NavButton--next');
-    expect(wrapper
-        .find('.DayPicker-NavButton')
-        .at(1)).toHaveClassName('DayPicker-NavButton--prev');
+    expect(wrapper.find('.DayPicker-NavButton').at(0)).toHaveClassName(
+      'DayPicker-NavButton--next'
+    );
+    expect(wrapper.find('.DayPicker-NavButton').at(1)).toHaveClassName(
+      'DayPicker-NavButton--prev'
+    );
   });
   it('should disable interaction with the previous button', () => {
     const wrapper = shallow(<Navbar showPreviousButton={false} />);
-    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveClassName('.DayPicker-NavButton--interactionDisabled');
+    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveClassName(
+      '.DayPicker-NavButton--interactionDisabled'
+    );
   });
   it('should disable interaction with the next button', () => {
     const wrapper = shallow(<Navbar showNextButton={false} />);
-    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveClassName('.DayPicker-NavButton--interactionDisabled');
+    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveClassName(
+      '.DayPicker-NavButton--interactionDisabled'
+    );
   });
   it('should disable interaction with the previous button for RTL', () => {
     const wrapper = shallow(<Navbar dir="rtl" showNextButton={false} />);
-    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveClassName('.DayPicker-NavButton--interactionDisabled');
+    expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveClassName(
+      '.DayPicker-NavButton--interactionDisabled'
+    );
   });
   it('should disable interaction with the next button for RTL', () => {
     const wrapper = shallow(<Navbar dir="rtl" showPreviousButton={false} />);
-    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveClassName('.DayPicker-NavButton--interactionDisabled');
+    expect(wrapper.find('.DayPicker-NavButton--next')).toHaveClassName(
+      '.DayPicker-NavButton--interactionDisabled'
+    );
   });
   it('should call `onNextClick` when clicking the next button', () => {
     const handleNextClick = jest.fn();
@@ -129,7 +153,9 @@ describe('<Navbar />', () => {
   });
   it('should call `onPreviousClick` when clicking the next button for RTL', () => {
     const handlePreviousClick = jest.fn();
-    const wrapper = shallow(<Navbar dir="rtl" onPreviousClick={handlePreviousClick} />);
+    const wrapper = shallow(
+      <Navbar dir="rtl" onPreviousClick={handlePreviousClick} />
+    );
     wrapper.find('.DayPicker-NavButton--next').simulate('click');
     expect(handlePreviousClick).toHaveBeenCalledTimes(1);
   });

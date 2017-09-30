@@ -149,16 +149,20 @@ describe('Helpers', () => {
 
   describe('isRangeOfDates', () => {
     it('should detect a properly shaped object', () => {
-      expect(Helpers.isRangeOfDates({
+      expect(
+        Helpers.isRangeOfDates({
           from: new Date(),
           to: new Date(),
-        })).toBe(true);
+        })
+      ).toBe(true);
     });
     it('should detect not properly shaped objects', () => {
-      expect(Helpers.isRangeOfDates({
+      expect(
+        Helpers.isRangeOfDates({
           from: null,
           to: new Date(),
-        })).toBe(false);
+        })
+      ).toBe(false);
       expect(Helpers.isRangeOfDates({ to: new Date() })).toBe(false);
       expect(Helpers.isRangeOfDates({ from: new Date() })).toBe(false);
     });

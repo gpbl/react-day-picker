@@ -4,7 +4,9 @@ import * as LocaleUtils from '../src/LocaleUtils';
 describe('LocaleUtils', () => {
   it('should export all the functions', () => {
     const imported = require('../src/LocaleUtils').default; // eslint-disable-line global-require
-    expect(Object.keys(LocaleUtils).length - 1).toEqual(Object.keys(imported).length);
+    expect(Object.keys(LocaleUtils).length - 1).toEqual(
+      Object.keys(imported).length
+    );
   });
 
   describe('formatMonthTitle', () => {

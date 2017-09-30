@@ -9,13 +9,7 @@
     "prettier/react"
   ],
   "rules": {
-    "prettier/prettier": [
-      "warn",
-      {
-        "singleQuote": true,
-        "trailingComma": "es5"
-      }
-    ],
+    "prettier/prettier": "error",
     "no-console": [
       "error",
       {
@@ -25,6 +19,7 @@
         ]
       }
     ],
+    "no-return-assign": 0,
     "import/named": 2,
     "react/jsx-filename-extension": 0,
     "react/require-default-props": 0
