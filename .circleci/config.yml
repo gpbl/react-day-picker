@@ -12,13 +12,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - restore_cache:
-          key: cache-project-v2-{{ checksum "yarn.lock" }}
-      - run: yarn --cache-folder yarn-cache
-      - save_cache:
-          key: cache-project-v2-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/react-day-picker/yarn-cache
+      - run: yarn install
       - run: yarn lint --format junit --output-file reports/eslint.xml
       - run: yarn dtslint
       - run: yarn test --coverage --testResultsProcessor jest-junit-reporter
@@ -38,7 +32,7 @@ jobs:
           at: /root/react-day-picker
       - restore_cache:
           key: cache-project-v2-{{ checksum "yarn.lock" }}
-      - run: yarn --cache-folder yarn-cache
+      - run: yarn
       - run: yarn build
 
   build-docs:
