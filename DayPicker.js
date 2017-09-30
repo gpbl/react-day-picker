@@ -9,7 +9,7 @@ var Weekday = require('./lib/src/Weekday').default;
 var Navbar = require('./lib/src/Navbar').default;
 var PropTypes = require('./lib/src/PropTypes');
 
-module.exports = DayPicker.default || DayPicker;
+module.exports.DayPicker = DayPicker.default || DayPicker;
 module.exports.DateUtils = DateUtils.default || DateUtils;
 module.exports.LocaleUtils = LocaleUtils.default || LocaleUtils;
 module.exports.ModifiersUtils = ModifiersUtils.default || ModifiersUtils;
