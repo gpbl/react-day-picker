@@ -11,7 +11,7 @@
     "lib",
     "moment.js",
     "utils.js",
-    "types/index.d.ts"
+    "types"
   ],
   "directories": {
     "doc": "docs"
@@ -56,7 +56,6 @@
     "react": "~0.13.x || ~0.14.x || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@types/react": "16.0.7",
     "autoprefixer": "7.1.4",
     "babel-core": "6.26.0",
     "babel-eslint": "8.0.1",
