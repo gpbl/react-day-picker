@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: /root/react-day-picker
   docker:
-    - image: node:7.10.0
+    - image: node:8.6
       environment:
         TEST_REPORT_PATH: "reports"
 
