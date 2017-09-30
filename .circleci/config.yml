@@ -12,6 +12,10 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - restore_cache:
+          key: cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/react-day-picker/node_modules
       - run: 
           name: Install dependencies
           command: yarn install
@@ -27,6 +31,10 @@ jobs:
       - run: 
           name: Uploade codevoverage data
           command: yarn codecov
+      - save_cache:
+          key: cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/react-day-picker/node_modules
       - store_test_results:
           path: ~/react-day-picker/reports
       - persist_to_workspace:
@@ -40,6 +48,10 @@ jobs:
     steps:
       - attach_workspace:
           at: /root/react-day-picker
+      - restore_cache:
+          key: cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/react-day-picker/node_modules
       - run: yarn
       - run: yarn build
 
