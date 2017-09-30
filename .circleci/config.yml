@@ -19,9 +19,9 @@ jobs:
           key: cache-project-v2-{{ checksum "yarn.lock" }}
           paths:
             - ~/react-day-picker/yarn-cache
-      - run: yarn lint -- --format junit --output-file reports/eslint.xml
+      - run: yarn lint --format junit --output-file reports/eslint.xml
       - run: yarn dtslint
-      - run: yarn test -- --coverage --testResultsProcessor jest-junit-reporter
+      - run: yarn test --coverage --testResultsProcessor jest-junit-reporter
       - run: yarn codecov
       - store_test_results:
           path: ~/react-day-picker/reports
