@@ -72,7 +72,8 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput />);
         const input = wrapper.find('input');
         input.simulate('change', { target: { value: ' ' } });
-        expect(wrapper.find('input')).toHaveProp('value', ' ');
+        console.log(input.html());
+        expect(input).toHaveProp('value', ' ');
       });
       it("should call `onDayChange` if the input's value is empty", () => {
         const onDayChange = jest.fn();
