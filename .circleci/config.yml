@@ -12,11 +12,21 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: yarn install
-      - run: yarn lint --format junit --output-file reports/eslint.xml
-      - run: yarn dtslint
-      - run: yarn test --coverage --testResultsProcessor jest-junit-reporter
-      - run: yarn codecov
+      - run: 
+          name: Install dependencies
+          command: yarn install
+      - run: 
+          name: Lint sources
+          command: yarn lint --format junit --output-file reports/eslint.xml
+      - run: 
+          name: Lint TypeScript definition files
+          command: yarn dtslint
+      - run: 
+          name: Run unit tests
+          command: yarn test --coverage --testResultsProcessor jest-junit-reporter
+      - run: 
+          name: Uploade codevoverage data
+          command: yarn codecov
       - store_test_results:
           path: ~/react-day-picker/reports
       - persist_to_workspace:
@@ -30,8 +40,6 @@ jobs:
     steps:
       - attach_workspace:
           at: /root/react-day-picker
-      - restore_cache:
-          key: cache-project-v2-{{ checksum "yarn.lock" }}
       - run: yarn
       - run: yarn build
 
