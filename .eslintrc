@@ -10,11 +10,7 @@
   ],
   "rules": {
     "prettier/prettier": [
-      "warn",
-      {
-        "singleQuote": true,
-        "trailingComma": "es5"
-      }
+      "warn"
     ],
     "no-console": [
       "error",
