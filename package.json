@@ -67,6 +67,7 @@
   "devDependencies": {
     "@types/react": "15.0.30",
     "autoprefixer": "7.1.4",
+    "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-eslint": "8.0.1",
     "babel-loader": "7.1.2",
