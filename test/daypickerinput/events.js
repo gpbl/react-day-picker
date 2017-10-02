@@ -191,6 +191,24 @@ describe('DayPickerInput', () => {
         expect(onDayChange.mock.calls[0][0].format('L')).toBe('02/08/2017');
         expect(onDayChange.mock.calls[0][1]).toEqual({ foo: true });
       });
+      it('should work also when `format` is an array', () => {
+        const onDayChange = jest.fn();
+        const wrapper = mount(
+          <DayPickerInput
+            onDayChange={onDayChange}
+            format={['L', 'LL']}
+            dayPickerProps={{
+              month: new Date(2017, 1),
+            }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper
+          .find('.DayPicker-Day')
+          .at(10)
+          .simulate('click');
+        expect(onDayChange.mock.calls[0][0].format('L')).toBe('02/08/2017');
+      });
       it('should hide the day picker when clicking on a day', done => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.instance().showDayPicker();

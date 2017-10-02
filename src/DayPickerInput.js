@@ -261,13 +261,20 @@ export default class DayPickerInput extends React.Component {
       return;
     }
 
+    const { format } = this.props;
     const m = moment(day);
-    this.setState({ value: m.format(this.props.format), month: day }, () => {
-      if (this.props.onDayChange) {
-        this.props.onDayChange(m, modifiers);
+    this.setState(
+      {
+        value: m.format(typeof format === 'string' ? format : format[0]),
+        month: day,
+      },
+      () => {
+        if (this.props.onDayChange) {
+          this.props.onDayChange(m, modifiers);
+        }
+        this.hideAfterDayClick();
       }
-      this.hideAfterDayClick();
-    });
+    );
   };
 
   renderOverlay() {
