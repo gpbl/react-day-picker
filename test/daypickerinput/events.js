@@ -209,6 +209,7 @@ describe('DayPickerInput', () => {
           />
         );
         wrapper.instance().showDayPicker();
+        wrapper.update();
         wrapper
           .find('.DayPicker-Day')
           .at(10)
