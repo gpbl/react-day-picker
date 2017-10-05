@@ -6,6 +6,7 @@
 
 **Bug fixes**
 
+* Fix an issue with React 0.14
 * Fix a console warning in React 16 ([#493](https://github.com/gpbl/react-day-picker/issues/493))
 * [DayPickerInput] Fix an error when `format` is passed as array ([#502](https://github.com/gpbl/react-day-picker/issues/502))
 * [DayPickerInput] Fix update when receiving new props ([#495](https://github.com/gpbl/react-day-picker/issues/495) by [kradical](https://github.com/kradical))
