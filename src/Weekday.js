@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Weekday extends PureComponent {
+export default class Weekday extends Component {
   static propTypes = {
     weekday: PropTypes.number,
     className: PropTypes.string,
@@ -11,6 +11,9 @@ export default class Weekday extends PureComponent {
     weekdaysLong: PropTypes.arrayOf(PropTypes.string),
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),
   };
+  shouldComponentUpdate(nextProps) {
+    return this.props !== nextProps;
+  }
   render() {
     const {
       weekday,
