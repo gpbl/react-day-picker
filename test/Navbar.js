@@ -99,10 +99,9 @@ describe('<Navbar />', () => {
     const handleNextClick = jest.fn();
     const preventDefault = jest.fn();
     const wrapper = shallow(<Navbar onNextClick={handleNextClick} />);
-    wrapper
-      .find('.DayPicker-NavButton--next')
-      .simulate('keydown', { keyCode: ENTER, preventDefault })
-      .simulate('keydown', { keyCode: SPACE, preventDefault });
+    const next = wrapper.find('.DayPicker-NavButton--next');
+    next.simulate('keydown', { keyCode: ENTER, preventDefault });
+    next.simulate('keydown', { keyCode: SPACE, preventDefault });
     expect(handleNextClick).toHaveBeenCalledTimes(2);
     expect(preventDefault).toHaveBeenCalledTimes(2);
   });
@@ -130,10 +129,9 @@ describe('<Navbar />', () => {
     const handlePreviousClick = jest.fn();
     const preventDefault = jest.fn();
     const wrapper = shallow(<Navbar onPreviousClick={handlePreviousClick} />);
-    wrapper
-      .find('.DayPicker-NavButton--prev')
-      .simulate('keydown', { keyCode: ENTER, preventDefault })
-      .simulate('keydown', { keyCode: SPACE, preventDefault });
+    const prev = wrapper.find('.DayPicker-NavButton--prev');
+    prev.simulate('keydown', { keyCode: ENTER, preventDefault });
+    prev.simulate('keydown', { keyCode: SPACE, preventDefault });
     expect(handlePreviousClick).toHaveBeenCalledTimes(2);
     expect(preventDefault).toHaveBeenCalledTimes(2);
   });

@@ -506,7 +506,6 @@ export default class DayPicker extends Component {
     if (this.props.className) {
       className = `${className} ${this.props.className}`;
     }
-
     return (
       <div
         {...this.props.containerProps}
@@ -517,7 +516,11 @@ export default class DayPicker extends Component {
       >
         <div
           className={this.props.classNames.wrapper}
-          tabIndex={this.props.canChangeMonth && this.props.tabIndex}
+          tabIndex={
+            this.props.canChangeMonth && this.props.tabIndex
+              ? this.props.tabIndex
+              : -1
+          }
           onKeyDown={this.handleKeyDown}
           onFocus={this.props.onFocus}
           onBlur={this.props.onBlur}

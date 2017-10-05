@@ -70,8 +70,8 @@ describe('DayPickerInput', () => {
       });
       it('should update the input if its value is empty', () => {
         const wrapper = mount(<DayPickerInput />);
-        const input = wrapper.find('input');
-        input.simulate('change', { target: { value: ' ' } });
+        wrapper.find('input').simulate('change', { target: { value: ' ' } });
+        wrapper.update();
         expect(wrapper.find('input')).toHaveProp('value', ' ');
       });
       it("should call `onDayChange` if the input's value is empty", () => {
@@ -98,6 +98,7 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput />);
         const input = wrapper.find('input');
         wrapper.instance().showDayPicker();
+        wrapper.update();
         input.simulate('change', { target: { value: '12/16/2013' } });
         expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
           'December 2013'
@@ -122,6 +123,7 @@ describe('DayPickerInput', () => {
         );
         const input = wrapper.find('input');
         wrapper.instance().showDayPicker();
+        wrapper.update();
         input.simulate('change', { target: { value: '12/20/2015' } });
         expect(onDayChange).toHaveBeenCalledTimes(1);
         expect(onDayChange.mock.calls[0][0].format('L')).toBe('12/20/2015');
@@ -136,6 +138,7 @@ describe('DayPickerInput', () => {
       it('should hide the overlay on ESC', () => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.instance().showDayPicker();
+        wrapper.update();
         wrapper.find('input').simulate('keyup', { keyCode: keys.ESC });
         expect(wrapper.state('showOverlay')).toBe(false);
       });
@@ -153,6 +156,7 @@ describe('DayPickerInput', () => {
           <DayPickerInput dayPickerProps={{ onDayClick }} />
         );
         wrapper.instance().showDayPicker();
+        wrapper.update();
         wrapper
           .find('.DayPicker-Day')
           .at(6)
@@ -164,6 +168,7 @@ describe('DayPickerInput', () => {
           <DayPickerInput dayPickerProps={{ month: new Date(2017, 1) }} />
         );
         wrapper.instance().showDayPicker();
+        wrapper.update();
         wrapper
           .find('.DayPicker-Day')
           .at(10)
@@ -184,6 +189,7 @@ describe('DayPickerInput', () => {
           />
         );
         wrapper.instance().showDayPicker();
+        wrapper.update();
         wrapper
           .find('.DayPicker-Day')
           .at(10)
@@ -212,19 +218,22 @@ describe('DayPickerInput', () => {
       it('should hide the day picker when clicking on a day', done => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.instance().showDayPicker();
+        wrapper.update();
         wrapper
           .find('.DayPicker-Day')
           .at(10)
           .simulate('click');
         expect(wrapper.instance().hideTimeout).not.toBeNull();
         setTimeout(() => {
+          wrapper.update();
           expect(wrapper.find(DayPicker)).toHaveLength(0);
           done();
-        }, HIDE_TIMEOUT + 10);
+        }, HIDE_TIMEOUT + 50);
       });
       it('should not hide the day picker if `hideOnDayClick` is false', () => {
         const wrapper = mount(<DayPickerInput hideOnDayClick={false} />);
         wrapper.instance().showDayPicker();
+        wrapper.update();
         wrapper
           .find('.DayPicker-Day')
           .at(10)
@@ -244,6 +253,7 @@ describe('DayPickerInput', () => {
           />
         );
         wrapper.instance().showDayPicker();
+        wrapper.update();
         wrapper
           .find('.DayPicker-Day')
           .at(10)
@@ -266,6 +276,7 @@ describe('DayPickerInput', () => {
           />
         );
         wrapper.instance().showDayPicker();
+        wrapper.update();
         wrapper
           .find('.DayPicker-Day')
           .at(10)
@@ -288,6 +299,7 @@ describe('DayPickerInput', () => {
           />
         );
         wrapper.instance().showDayPicker();
+        wrapper.update();
         wrapper
           .find('.DayPicker-Day')
           .at(10)
