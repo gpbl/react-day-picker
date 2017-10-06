@@ -11,7 +11,7 @@
 * [DayPickerInput] Fix an error when `format` is passed as array ([#502](https://github.com/gpbl/react-day-picker/issues/502))
 * [DayPickerInput] Fix update when receiving new props ([#495](https://github.com/gpbl/react-day-picker/issues/495) by [kradical](https://github.com/kradical))
 
-## [v6.1.1](https://github.com/gpbl/react-day-picker/tree/v6.1.1) (2017-09-27)
+### [v6.1.1](https://github.com/gpbl/react-day-picker/tree/v6.1.1) (2017-09-27)
 
 * Add React 16 as peer dependency ([#498](https://github.com/gpbl/react-day-picker/issues/498) by [brycehill](https://github.com/brycehill))
 * Allow node consumers to remove propTypes for production builds ([#463](https://github.com/gpbl/react-day-picker/issues/463) by [oigewan](https://github.com/oigewan))
