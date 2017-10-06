@@ -8,7 +8,7 @@ redirect_from:
 
 With _modifiers_ you change the aspect of the day cells and customize the interaction with the calendar. 
 
-When a modifier matches a specific day, its day cells receive a modifier CSS class (as in [BEM-like syntax](https://css-tricks.com/bem-101/)), and its name is passed down to the event handlers.
+When a modifier matches a specific day, its day cells receives a modifier CSS class (as in [BEM-like syntax](https://css-tricks.com/bem-101/)), and its name is passed down to the event handlers.
 
 ## Type of modifiers
 
