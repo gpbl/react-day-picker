@@ -90,8 +90,8 @@ This major release focuses on performance, improves accessibility and fixes some
   
   In such cases, the buttons will be always shown even if the previous or the next months are not navigable. 
 
-  * If you are styling with your own stylesheet, add a `.DayPickerNavBar--interactionDisabled` selector to your style with `display: hidden`.
-  * If you are using `classNames`, add a `navButtonInteractionDisabled` to your `classNames` with `display: hidden` to hide the buttons.
+  * If you are styling with your own stylesheet, add a `.DayPicker-NavButton--interactionDisabled` selector to your style with `display: none`.
+  * If you are using `classNames`, add a `navButtonInteractionDisabled` to your `classNames` with `display: none` to hide the buttons.
 
 * Improved rendering performance using `shouldComponentUpdate` and `PureComponent` ([#389](https://github.com/gpbl/react-day-picker/issues/389))
 
