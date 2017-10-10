@@ -27,6 +27,7 @@ export default class Month extends Component {
     enableOutsideDays: PropTypes.bool,
 
     renderDay: PropTypes.func.isRequired,
+    renderWeek: PropTypes.func.isRequired,
 
     captionElement: PropTypes.oneOfType([
       PropTypes.element,
@@ -190,7 +191,7 @@ export default class Month extends Component {
                     role="gridcell"
                     onClick={e => onWeekClick(weekNumber, week, e)}
                   >
-                    {weekNumber}
+                    {this.props.renderWeek(weekNumber, week)}
                   </div>
                 )}
                 {week.map(this.renderDay)}

@@ -89,6 +89,7 @@ export default class DayPicker extends Component {
 
     // Custom elements
     renderDay: PropTypes.func,
+    renderWeek: PropTypes.func,
     weekdayElement: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.func,
@@ -141,6 +142,7 @@ export default class DayPicker extends Component {
     pagedNavigation: false,
     showWeekNumbers: false,
     renderDay: day => day.getDate(),
+    renderWeek: weekNumber => weekNumber,
     weekdayElement: <Weekday />,
     navbarElement: <Navbar classNames={classNames} />,
     captionElement: <Caption classNames={classNames} />,
