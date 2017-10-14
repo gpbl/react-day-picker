@@ -154,8 +154,8 @@ export default function Localized() {
 
 <ol>
   <li>make sure <code class="highlighter-rouge">moment</code> is included in your dependencies</li>
-  <li>make sure the required moment’s locale data is available when rendering react-day-picker</li>
-  <li>import <code class="highlighter-rouge">LocaleUtils</code> from <code class="highlighter-rouge">react-day-picker/moment</code> and pass it to the <code class="highlighter-rouge">localeUtils</code> props</li>
+  <li>make sure the required moment’s locale data is available when rendering react-day-picker (see example below)</li>
+  <li>import <code class="highlighter-rouge">MomentLocaleUtils</code> from <code class="highlighter-rouge">react-day-picker/moment</code> and pass it to the <code class="highlighter-rouge">localeUtils</code> props</li>
   <li>use the <code class="highlighter-rouge">locale</code> prop to set the locale in react-day-picker</li>
 </ol>
 
@@ -170,7 +170,8 @@ import ReactDOM from 'react-dom';
 
 import DayPicker from 'react-day-picker';
 
-import LocaleUtils from 'react-day-picker/moment';
+// Include the locale utils designed for moment
+import MomentLocaleUtils from 'react-day-picker/moment';
 
 import 'react-day-picker/lib/style.css';
 
@@ -184,16 +185,16 @@ export default function LocalizedExample() {
     &lt;div&gt;
 
       &lt;p&gt;English&lt;/p&gt;
-      &lt;DayPicker localeUtils={LocaleUtils} locale="en" /&gt;
+      &lt;DayPicker localeUtils={MomentLocaleUtils} locale="en" /&gt;
 
       &lt;p&gt;Japanese&lt;/p&gt;
-      &lt;DayPicker localeUtils={LocaleUtils} locale="ja" /&gt;
+      &lt;DayPicker localeUtils={MomentLocaleUtils} locale="ja" /&gt;
 
       &lt;p&gt;Arabic&lt;/p&gt;
-      &lt;DayPicker localeUtils={LocaleUtils} locale="ar" /&gt;
+      &lt;DayPicker localeUtils={MomentLocaleUtils} locale="ar" /&gt;
 
       &lt;p&gt;Italian&lt;/p&gt;
-      &lt;DayPicker localeUtils={LocaleUtils} locale="it" /&gt;
+      &lt;DayPicker localeUtils={MomentLocaleUtils} locale="it" /&gt;
 
     &lt;/div&gt;
   );
