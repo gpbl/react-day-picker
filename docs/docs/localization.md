@@ -50,8 +50,8 @@ export default function Localized() {
 If you already use [moment.js](http://www.momentjs.com) in your dependencies, you may find convenient to use moment's translation strings.
 
 1. make sure `moment` is included in your dependencies
-2. make sure the required moment's locale data is available when rendering react-day-picker
-3. import `LocaleUtils` from `react-day-picker/moment` and pass it to the `localeUtils` props
+2. make sure the required moment's locale data is available when rendering react-day-picker (see example below)
+3. import `MomentLocaleUtils` from `react-day-picker/moment` and pass it to the `localeUtils` props
 4. use the `locale` prop to set the locale in react-day-picker
 
 ### Example
@@ -66,7 +66,8 @@ import ReactDOM from 'react-dom';
 
 import DayPicker from 'react-day-picker';
 
-import LocaleUtils from 'react-day-picker/moment';
+// Include the locale utils designed for moment
+import MomentLocaleUtils from 'react-day-picker/moment';
 
 import 'react-day-picker/lib/style.css';
 
@@ -80,16 +81,16 @@ export default function LocalizedExample() {
     <div>
 
       <p>English</p>
-      <DayPicker localeUtils={LocaleUtils} locale="en" />
+      <DayPicker localeUtils={MomentLocaleUtils} locale="en" />
 
       <p>Japanese</p>
-      <DayPicker localeUtils={LocaleUtils} locale="ja" />
+      <DayPicker localeUtils={MomentLocaleUtils} locale="ja" />
 
       <p>Arabic</p>
-      <DayPicker localeUtils={LocaleUtils} locale="ar" />
+      <DayPicker localeUtils={MomentLocaleUtils} locale="ar" />
 
       <p>Italian</p>
-      <DayPicker localeUtils={LocaleUtils} locale="it" />
+      <DayPicker localeUtils={MomentLocaleUtils} locale="it" />
 
     </div>
   );

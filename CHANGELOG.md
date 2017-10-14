@@ -418,7 +418,7 @@ If you have issues or suggestions, don't forget the [Gitter room](https://gitter
 
 * New `formatDay` function in [LocaleUtils](http://react-day-picker.js.org/docs/utils-locale.html).
 
- If you are using your [custom LocaleUtils](http://react-day-picker.js.org/docs/localization-advanced.html) to localize the calendar, you need to implement this function as well, which is required to format the newly added [aria-label attribute](https://github.com/gpbl/react-day-picker/pull/132) (see the [documentation](http://react-day-picker.js.org/docs/localization-advanced.html) for an example). If you are localizing [using moment](http://react-day-picker.js.org/docs/localization-moment.html), this change shouldn't affect you.
+ If you are using your [custom LocaleUtils](http://react-day-picker.js.org/docs/localization.html#advanced) to localize the calendar, you need to implement this function as well, which is required to format the newly added [aria-label attribute](https://github.com/gpbl/react-day-picker/pull/132) (see the [documentation](http://react-day-picker.js.org/docs/localization.html#advanced) for an example). If you are localizing [using moment](http://react-day-picker.js.org/docs/localization.html#moment), this change shouldn't affect you.
 
 
 **New props**
