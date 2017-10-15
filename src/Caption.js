@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import LocaleUtils from './LocaleUtils';
+
 import { ENTER } from './keys';
 
 export default class Caption extends Component {
@@ -13,6 +15,10 @@ export default class Caption extends Component {
     classNames: PropTypes.shape({
       caption: PropTypes.string.isRequired,
     }).isRequired,
+  };
+
+  static defaultProps = {
+    localeUtils: LocaleUtils,
   };
 
   constructor(props) {
