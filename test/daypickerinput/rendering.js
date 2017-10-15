@@ -107,8 +107,7 @@ describe('DayPickerInput', () => {
       instance.showDayPicker();
       expect(instance.daypicker.props.fixedWeeks).toBe(false);
       expect(instance.daypicker.props.enableOutsideDays).toBe(true);
-      // number of months should be overridden by implementation
-      expect(instance.daypicker.props.numberOfMonths).toBe(1);
+      expect(instance.daypicker.props.numberOfMonths).toBe(12);
     });
     it('should open the daypicker to the month of the selected day', () => {
       const wrapper = mount(<DayPickerInput value="12/15/2017" />);
