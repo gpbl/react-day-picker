@@ -4,6 +4,7 @@ import moment from 'moment'; // eslint-disable-line import/no-extraneous-depende
 
 import DayPicker from './DayPicker';
 import { getModifiersForDay } from './ModifiersUtils';
+import MomentLocaleUtils from './addons/MomentLocaleUtils';
 import { ESC } from './keys';
 
 export const HIDE_TIMEOUT = 100;
@@ -291,6 +292,7 @@ export default class DayPickerInput extends React.Component {
         <div className={this.props.classNames.overlay}>
           <DayPicker
             ref={el => (this.daypicker = el)}
+            localeUtils={MomentLocaleUtils}
             fixedWeeks
             {...this.props.dayPickerProps}
             month={this.state.month}
