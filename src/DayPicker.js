@@ -50,7 +50,7 @@ export default class DayPicker extends Component {
     labels: PropTypes.shape({
       nextMonth: PropTypes.string.isRequired,
       previousMonth: PropTypes.string.isRequired,
-    }).isRequired,
+    }),
     locale: PropTypes.string,
     localeUtils: PropTypes.shape({
       formatMonthTitle: PropTypes.func,
