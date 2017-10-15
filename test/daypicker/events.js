@@ -298,4 +298,35 @@ describe('DayPicker’s events handlers', () => {
     expect(handleWeekClick.mock.calls[0][0]).toBe(6);
     expect(handleWeekClick.mock.calls[0][1]).toHaveLength(7);
   });
+  it('should call `onWeekClick` when pressing ENTER on a week number', () => {
+    const handleWeekClick = jest.fn();
+    const wrapper = mount(
+      <DayPicker
+        showWeekNumbers
+        onWeekClick={handleWeekClick}
+        initialMonth={new Date(2015, 1)}
+      />
+    );
+    wrapper
+      .find('.DayPicker-WeekNumber')
+      .at(1)
+      .simulate('keyUp', { keyCode: keys.ENTER });
+    expect(handleWeekClick.mock.calls[0][0]).toBe(6);
+    expect(handleWeekClick.mock.calls[0][1]).toHaveLength(7);
+  });
+  it('should not call `onWeekClick` when pressing a key on a week number', () => {
+    const handleWeekClick = jest.fn();
+    const wrapper = mount(
+      <DayPicker
+        showWeekNumbers
+        onWeekClick={handleWeekClick}
+        initialMonth={new Date(2015, 1)}
+      />
+    );
+    wrapper
+      .find('.DayPicker-WeekNumber')
+      .at(1)
+      .simulate('keyUp', { keyCode: keys.SPACE });
+    expect(handleWeekClick).toHaveBeenCalledTimes(0);
+  });
 });
