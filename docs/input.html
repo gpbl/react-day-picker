@@ -196,8 +196,13 @@ export default class MyForm extends React.Component {
 <p>You can use the <code class="highlighter-rouge">locale</code> and <code class="highlighter-rouge">format</code> methods of moment.js to format the value displayed
 in the input field. Remember to add the <code class="highlighter-rouge">locale</code> prop to the <code class="highlighter-rouge">dayPickerProps</code>!</p>
 
+<p>For example, this implementation display the input field in Italian:</p>
+
 <pre><code class="language-jsx">import React from 'react';
 import moment from 'moment';
+
+// Make sure moment.js has the required locale
+import 'moment/locale/it';
 
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
