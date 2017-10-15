@@ -249,11 +249,14 @@ export default class DayPickerInput extends React.Component {
       this.props.dayPickerProps.onDayClick(day, modifiers, e);
     }
 
-    if (modifiers.disabled) {
+    if (modifiers[this.props.classNames.disabled]) {
       // Do nothing if the day is disabled
       return;
     }
-    if (modifiers.selected && this.props.clickUnselectsDay) {
+    if (
+      modifiers[this.props.classNames.selected] &&
+      this.props.clickUnselectsDay
+    ) {
       // Unselect the day
       this.setState({ value: '' }, this.hideAfterDayClick);
       if (this.props.onDayChange) {
