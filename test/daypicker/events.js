@@ -49,7 +49,7 @@ describe('DayPicker’s events handlers', () => {
     const arg2 = handleDayClick.mock.calls[0][2];
     expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
     expect(arg0.getMonth()).toEqual(new Date().getMonth());
-    expect(arg1).toEqual({ foo: true });
+    expect(arg1).toEqual({ foo: true, today: true });
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
 
@@ -68,7 +68,7 @@ describe('DayPicker’s events handlers', () => {
     const arg2 = handleDayKeyDown.mock.calls[0][2];
     expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
     expect(arg0.getMonth()).toEqual(new Date().getMonth());
-    expect(arg1).toEqual({ foo: true });
+    expect(arg1).toEqual({ foo: true, today: true });
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
   it('should call the `onDayMouseEnter` event handler', () => {
@@ -86,7 +86,7 @@ describe('DayPicker’s events handlers', () => {
     const arg2 = handleDayMouseEnter.mock.calls[0][2];
     expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
     expect(arg0.getMonth()).toEqual(new Date().getMonth());
-    expect(arg1).toEqual({ foo: true });
+    expect(arg1).toEqual({ foo: true, today: true });
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
   it('should call the `onDayMouseLeave` event handler', () => {
@@ -104,7 +104,7 @@ describe('DayPicker’s events handlers', () => {
     const arg2 = handleDayMouseLeave.mock.calls[0][2];
     expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
     expect(arg0.getMonth()).toEqual(new Date().getMonth());
-    expect(arg1).toEqual({ foo: true });
+    expect(arg1).toEqual({ foo: true, today: true });
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
   it('should call the `onDayMouseDown` event handler', () => {
@@ -122,7 +122,7 @@ describe('DayPicker’s events handlers', () => {
     const arg2 = handleDayMouseDown.mock.calls[0][2];
     expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
     expect(arg0.getMonth()).toEqual(new Date().getMonth());
-    expect(arg1).toEqual({ foo: true });
+    expect(arg1).toEqual({ foo: true, today: true });
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
   it('should call the `onDayMouseUp` event handler', () => {
@@ -140,7 +140,7 @@ describe('DayPicker’s events handlers', () => {
     const arg2 = handleDayMouseUp.mock.calls[0][2];
     expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
     expect(arg0.getMonth()).toEqual(new Date().getMonth());
-    expect(arg1).toEqual({ foo: true });
+    expect(arg1).toEqual({ foo: true, today: true });
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
   it('should call the `onDayTouchStart` event handler', () => {
@@ -158,7 +158,7 @@ describe('DayPicker’s events handlers', () => {
     const arg2 = handleDayTouchStart.mock.calls[0][2];
     expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
     expect(arg0.getMonth()).toEqual(new Date().getMonth());
-    expect(arg1).toEqual({ foo: true });
+    expect(arg1).toEqual({ foo: true, today: true });
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
   it('should call the `onDayTouchEnd` event handler', () => {
@@ -176,7 +176,7 @@ describe('DayPicker’s events handlers', () => {
     const arg2 = handleDayTouchEnd.mock.calls[0][2];
     expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
     expect(arg0.getMonth()).toEqual(new Date().getMonth());
-    expect(arg1).toEqual({ foo: true });
+    expect(arg1).toEqual({ foo: true, today: true });
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
 
@@ -225,7 +225,7 @@ describe('DayPicker’s events handlers', () => {
     const arg2 = handleDayClick.mock.calls[0][2];
     expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
     expect(arg0.getMonth()).toEqual(new Date().getMonth());
-    expect(arg1).toEqual({ foo: true });
+    expect(arg1).toEqual({ foo: true, today: true });
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
   it('should not call an undefined `onDayClick` event handler when pressing the ENTER key', () => {
@@ -251,7 +251,7 @@ describe('DayPicker’s events handlers', () => {
     const arg2 = handleDayClick.mock.calls[0][2];
     expect(arg0.getFullYear()).toEqual(new Date().getFullYear());
     expect(arg0.getMonth()).toEqual(new Date().getMonth());
-    expect(arg1).toEqual({ foo: true });
+    expect(arg1).toEqual({ foo: true, today: true });
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
   it('should call `onKeyDown` event handler', () => {
