@@ -37,7 +37,7 @@ export default class DayPickerInput extends React.Component {
     format: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.string),
       PropTypes.string,
-    ]).isRequired,
+    ]),
 
     dayPickerProps: PropTypes.object,
     hideOnDayClick: PropTypes.bool,

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Weekdays from './Weekdays';
 import Day from './Day';
+import { ENTER } from './keys';
 
 import * as ModifiersUtils from './ModifiersUtils';
 import * as Helpers from './Helpers';
@@ -84,7 +85,7 @@ export default class Month extends Component {
     let tabIndex = -1;
     // Focus on the first day of the month
     if (this.props.onDayClick && !isOutside && day.getDate() === 1) {
-      tabIndex = this.props.tabIndex;
+      tabIndex = this.props.tabIndex; // eslint-disable-line prefer-destructuring
     }
     const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
     const modifiers = {};
@@ -190,6 +191,8 @@ export default class Month extends Component {
                     tabIndex={0}
                     role="gridcell"
                     onClick={e => onWeekClick(weekNumber, week, e)}
+                    onKeyUp={e =>
+                      e.keyCode === ENTER && onWeekClick(weekNumber, week, e)}
                   >
                     {this.props.renderWeek(weekNumber, week)}
                   </div>
