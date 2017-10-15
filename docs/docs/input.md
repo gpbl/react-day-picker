@@ -95,9 +95,14 @@ function MyDatePicker() {
 You can use the `locale` and `format` methods of moment.js to format the value displayed
 in the input field. Remember to add the `locale` prop to the `dayPickerProps`!
 
+For example, this implementation display the input field in Italian:
+
 ```jsx
 import React from 'react';
 import moment from 'moment';
+
+// Make sure moment.js has the required locale
+import 'moment/locale/it';
 
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
