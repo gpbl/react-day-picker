@@ -34,7 +34,7 @@ describe('DayPickerInput', () => {
     });
     it('should not set the month if the value is not valid acording to `parse` prop', () => {
       const parse = d => {
-        const m = moment(d, "DD/MM/YYYY", true);
+        const m = moment(d, 'DD/MM/YYYY', true);
         return m.isValid() ? m.toDate() : null;
       };
       const wrapper = shallow(
