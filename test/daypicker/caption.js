@@ -1,0 +1,41 @@
+import React from 'react';
+
+import { mount } from 'enzyme';
+import Caption from '../../src/Caption';
+
+import { ENTER } from '../../src/keys';
+
+describe('DayPicker’s Caption', () => {
+  it('should call the `onClick` event handler', () => {
+    const handleCaptionClick = jest.fn();
+    const wrapper = mount(
+      <Caption
+        date={new Date()}
+        classNames={{ caption: 'foo' }}
+        onClick={handleCaptionClick}
+      />
+    );
+    wrapper
+      .find('div')
+      .at(1)
+      .simulate('click');
+
+    expect(handleCaptionClick).toHaveBeenCalled();
+  });
+  it('should call the `onClick` event handler when pressing the ENTER key', () => {
+    const handleCaptionClick = jest.fn();
+    const wrapper = mount(
+      <Caption
+        date={new Date()}
+        classNames={{ caption: 'foo' }}
+        onClick={handleCaptionClick}
+      />
+    );
+    wrapper
+      .find('div')
+      .at(1)
+      .simulate('keyUp', { keyCode: ENTER });
+
+    expect(handleCaptionClick).toHaveBeenCalled();
+  });
+});
