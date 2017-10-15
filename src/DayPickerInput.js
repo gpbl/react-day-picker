@@ -298,7 +298,6 @@ export default class DayPickerInput extends React.Component {
             month={this.state.month}
             selectedDays={selectedDay}
             onDayClick={this.handleDayClick}
-            numberOfMonths={1}
           />
         </div>
       </div>
