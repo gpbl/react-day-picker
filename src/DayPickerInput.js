@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment'; // eslint-disable-line import/no-extraneous-dependencies
 
 import DayPicker from './DayPicker';
 import { getModifiersForDay } from './ModifiersUtils';
@@ -12,9 +11,9 @@ export const HIDE_TIMEOUT = 100;
 function getStateFromProps(props) {
   let month;
   if (props.value) {
-    const m = moment(props.value, props.format, true);
-    if (m.isValid()) {
-      month = m.toDate();
+    const day = props.parse(props.value);
+    if (day) {
+      month = day;
     }
   } else {
     month =
@@ -34,10 +33,8 @@ export default class DayPickerInput extends React.Component {
     // eslint-disable-next-line react/no-unused-prop-types
     value: PropTypes.string,
 
-    format: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.string),
-      PropTypes.string,
-    ]),
+    format: PropTypes.func,
+    parse: PropTypes.func,
 
     dayPickerProps: PropTypes.object,
     hideOnDayClick: PropTypes.bool,
@@ -61,7 +58,11 @@ export default class DayPickerInput extends React.Component {
   static defaultProps = {
     dayPickerProps: {},
     value: '',
-    format: 'L',
+    format: d => String(d),
+    parse: d => {
+      const day = new Date(d);
+      return isNaN(day.getTime()) ? null : day;
+    },
     hideOnDayClick: true,
     clickUnselectsDay: false,
     component: 'input',
@@ -191,8 +192,8 @@ export default class DayPickerInput extends React.Component {
 
   handleChange = e => {
     const { value } = e.target;
-    const { format, dayPickerProps, onDayChange, onChange } = this.props;
-    const m = moment(value, format, true);
+    const { parse, dayPickerProps, onDayChange, onChange } = this.props;
+    const day = parse(value);
 
     if (onChange) {
       e.persist();
@@ -207,12 +208,11 @@ export default class DayPickerInput extends React.Component {
       return;
     }
 
-    if (!m.isValid()) {
+    if (!day) {
       this.setState({ value });
       return;
     }
 
-    const day = m.toDate();
     this.setState({ month: day, value }, () => {
       if (!onDayChange) {
         return;
@@ -230,7 +230,7 @@ export default class DayPickerInput extends React.Component {
         newObj[modifier] = true;
         return newObj;
       }, {});
-      this.props.onDayChange(m, modifiers);
+      this.props.onDayChange(day, modifiers);
     });
   };
 
@@ -263,15 +263,14 @@ export default class DayPickerInput extends React.Component {
     }
 
     const { format } = this.props;
-    const m = moment(day);
     this.setState(
       {
-        value: m.format(typeof format === 'string' ? format : format[0]),
+        value: format(day),
         month: day,
       },
       () => {
         if (this.props.onDayChange) {
-          this.props.onDayChange(m, modifiers);
+          this.props.onDayChange(day, modifiers);
         }
         this.hideAfterDayClick();
       }
@@ -281,9 +280,9 @@ export default class DayPickerInput extends React.Component {
   renderOverlay() {
     let selectedDay;
     if (this.state.value) {
-      const m = moment(this.state.value, this.props.format, true);
-      if (m.isValid()) {
-        selectedDay = m.toDate();
+      const day = this.props.parse(this.state.value);
+      if (day) {
+        selectedDay = day;
       }
     }
 
@@ -309,6 +308,7 @@ export default class DayPickerInput extends React.Component {
     delete inputProps.component;
     delete inputProps.dayPickerProps;
     delete inputProps.format;
+    delete inputProps.parse;
     delete inputProps.clickUnselectsDay;
     delete inputProps.hideOnDayClick;
     delete inputProps.onDayChange;

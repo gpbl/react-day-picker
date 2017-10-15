@@ -2,6 +2,8 @@ import React from 'react';
 
 import { mount } from 'enzyme';
 
+import moment from 'moment';
+
 import * as keys from '../../src/keys';
 
 import DayPickerInput, { HIDE_TIMEOUT } from '../../src/DayPickerInput';
@@ -126,7 +128,7 @@ describe('DayPickerInput', () => {
         wrapper.update();
         input.simulate('change', { target: { value: '12/20/2015' } });
         expect(onDayChange).toHaveBeenCalledTimes(1);
-        expect(onDayChange.mock.calls[0][0].format('L')).toBe('12/20/2015');
+        expect(moment(onDayChange.mock.calls[0][0]).format('L')).toBe('12/20/2015');
         expect(onDayChange.mock.calls[0][1]).toEqual({
           foo: true,
           selected: true,
@@ -165,7 +167,7 @@ describe('DayPickerInput', () => {
       });
       it('should select and display the clicked day', () => {
         const wrapper = mount(
-          <DayPickerInput dayPickerProps={{ month: new Date(2017, 1) }} />
+          <DayPickerInput dayPickerProps={{ month: new Date(2017, 1) }} format={d => moment(d).format('L')} />
         );
         wrapper.instance().showDayPicker();
         wrapper.update();
@@ -194,27 +196,8 @@ describe('DayPickerInput', () => {
           .find('.DayPicker-Day')
           .at(10)
           .simulate('click');
-        expect(onDayChange.mock.calls[0][0].format('L')).toBe('02/08/2017');
+        expect(moment(onDayChange.mock.calls[0][0]).format('L')).toBe('02/08/2017');
         expect(onDayChange.mock.calls[0][1]).toEqual({ foo: true });
-      });
-      it('should work also when `format` is an array', () => {
-        const onDayChange = jest.fn();
-        const wrapper = mount(
-          <DayPickerInput
-            onDayChange={onDayChange}
-            format={['L', 'LL']}
-            dayPickerProps={{
-              month: new Date(2017, 1),
-            }}
-          />
-        );
-        wrapper.instance().showDayPicker();
-        wrapper.update();
-        wrapper
-          .find('.DayPicker-Day')
-          .at(10)
-          .simulate('click');
-        expect(onDayChange.mock.calls[0][0].format('L')).toBe('02/08/2017');
       });
       it('should hide the day picker when clicking on a day', done => {
         const wrapper = mount(<DayPickerInput />);
