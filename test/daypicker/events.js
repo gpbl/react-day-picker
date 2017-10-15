@@ -311,8 +311,7 @@ describe('DayPicker’s events handlers', () => {
       .find('.DayPicker-WeekNumber')
       .at(1)
       .simulate('keyUp', { keyCode: keys.ENTER });
-    expect(handleWeekClick.mock.calls[0][0]).toBe(6);
-    expect(handleWeekClick.mock.calls[0][1]).toHaveLength(7);
+    expect(handleWeekClick).toHaveBeenCalledTimes(1);
   });
   it('should not call `onWeekClick` when pressing a key on a week number', () => {
     const handleWeekClick = jest.fn();
