@@ -43,7 +43,7 @@ export interface DayPickerProps {
     | React.SFC<CaptionElementProps>;
   className?: string;
   classNames?: ClassNames;
-  containerProps?: React.HTMLAttributes<HTMLDivElement>;
+  containerProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
   disabledDays?: Modifier | Modifier[];
   enableOutsideDays?: boolean;
   firstDayOfWeek?: number;
