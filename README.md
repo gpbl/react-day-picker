@@ -26,6 +26,17 @@
   </a>
 </p>
 
+## Run the website locally
+
+The website is built with [Jekyll](https://jekyllrb.com).
+
+```bash
+$ git clone https://github.com/gpbl/react-day-picker.git
+$ cd react-day-picker/docs
+$ bundle install
+$ jekyll serve
+```
+
 ## Get support
 
 Please fork and use [https://codesandbox.io/s/XDAE3x0W8](https://codesandbox.io/s/XDAE3x0W8) to reproduce your problem.
