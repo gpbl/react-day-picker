@@ -171,7 +171,7 @@ describe('DayPickerInput', () => {
       mount(<DayPickerInput />, { attachTo: container });
       const spy = jest.spyOn(window, 'clearTimeout');
       ReactDOM.unmountComponentAtNode(container);
-      expect(spy).toHaveBeenCalledTimes(2);
+      expect(spy).toHaveBeenCalledTimes(3);
       spy.mockRestore();
     });
   });
