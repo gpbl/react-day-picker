@@ -178,12 +178,9 @@ export default class DayPickerInput extends React.Component {
       showOverlay: this.clickedInside,
     });
 
-    // Force input's focus if blur event was caused
-    // by clicking inside the overlay
+    // Force input's focus if blur event was caused by clicking inside the overlay
     if (this.clickedInside) {
-      this.blurTimeout = setTimeout(() => {
-        this.input.focus();
-      }, 0);
+      this.blurTimeout = setTimeout(() => this.input.focus(), 0);
     }
 
     if (this.props.onBlur) {
