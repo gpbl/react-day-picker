@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>react-day-picker - Localization</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="react-day-picker - Localization">
+  <meta property="og:url" content="http://react-day-picker.js.org/docs/localization.html">
+  <meta property="og:image" content="http://react-day-picker.js.org/images/og-image.png"
+  <meta property="og:description" content="no dependencies ● fully customizable ● ARIA support ● localizable ● less than 10KB">
+
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="stylesheet" href="https://unpkg.com/react-day-picker@6.2.1/lib/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/components/prism-jsx.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/components/prism-diff.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/plugins/line-highlight/prism-line-highlight.min.js"></script>
+  <script src="https://unpkg.com/moment@2.14.1/min/moment.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/react-day-picker@6.2.1/lib/daypicker.min.js"></script>
+  <script>
+    DayPickerInput = DayPicker.Input;
+    DateUtils = DayPicker.DateUtils;
+  </script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/daypicker.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/prism.css">
+</head>
+
+<body>
+
+      <header>
+    <div class="wrap">
+      <a href="/" class="nav-home"><img src="/images/logo.png" alt="Home page" height="50" /></a>
+      <nav>
+        <ul>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/examples">Examples</a></li>
+          <li><a href="/docs/api.html">API</a></li>
+          <li><a href="/changelog.html">v6.2.1</a></li>
+        </ul>
+        <ul class="nav-external">
+          <li><a class="nav-github" href="https://github.com/gpbl/react-day-picker">GitHub</a></li>
+          </ul>          
+      </nav>
+    </div>
+  </header>
+
+    <div class="container wrap">
+      <section class="content">
+  <nav class="nav-content">
+  <div class="sticky">
+    <h3>Guides</h3>
+    <ul>
+      <li>
+        <a href="/docs/index.html">Getting started</a>
+      </li>
+      <li>
+        <a href="/docs/basics.html">Basic concepts</a>
+      </li>
+      <li>
+        <a href="/docs/modifiers.html">Matching days</a>
+      </li>
+      <li>
+        <a href="/docs/input.html">Using the input field</a>
+      </li>
+      <li>
+        <a href="/docs/styling.html">Styling</a>
+      </li>
+      <li>
+        <a href="/docs/localization.html">Localization</a>
+      </li>
+    </ul>
+    <h3>API</h3>
+    <ul>
+      <li>
+        <a href="/docs/api-daypicker.html">DayPicker</a>
+      </li>
+      <li>
+        <a href="/docs/api-input.html">DayPickerInput</a>
+      </li>
+      <li>
+        <a href="/docs/utils-date.html">DateUtils</a>
+      </li>
+      <li>
+        <a href="/docs/utils-locale.html">LocaleUtils</a>
+      </li>
+      <li>
+        <a href="/docs/utils-modifiers.html">ModifiersUtils</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <div class="inner-content">
+    <a class="edit-page-link" href="https://github.com/gpbl/react-day-picker/tree/master/docs/docs/localization.md" target="_blank">Edit page</a>
+    <h1 class="inner-content-title">Localization</h1>
+    <p>react-day-picker can be localized into any language (English being the default).</p>
+
+<p>You can either:</p>
+
+<ul>
+  <li>use the localization props (<code class="highlighter-rouge">locale</code>, <code class="highlighter-rouge">months</code>, <code class="highlighter-rouge">weekdaysLong</code>, <code class="highlighter-rouge">weekdaysShort</code> and <code class="highlighter-rouge">firstDayOfWeek</code> as shown in <a href="/examples/localization.html">this example</a>)</li>
+  <li>or <a href="#moment">use moment.js</a> for the translations strings (e.g. if you are already including it in your project).</li>
+  <li>for more advanced options, such as changing the way days and captions are displayed, see <a href="#advanced">advanced localization</a>.</li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>The following code will render react-day-picker in Italian, using Monday as first day of the week.</p>
+
+<p><a href="https://codesandbox.io/s/0R72WgDPN">Open in CodeSandbox</a>.</p>
+
+<pre><code class="language-jsx">import React from 'react';
+import DayPicker from 'react-day-picker';
+
+const MONTHS = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+const WEEKDAYS_LONG = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
+const WEEKDAYS_SHORT = ['Do', 'Lu', 'Ma', 'Me', 'Gi', 'Ve', 'Sa'];
+
+export default function Localized() {
+  return (
+    &lt;div&gt;
+      &lt;DayPicker
+        locale="it"
+        months={MONTHS}
+        weekdaysLong={WEEKDAYS_LONG}
+        weekdaysShort={WEEKDAYS_SHORT}
+        firstDayOfWeek={1}
+      /&gt;
+    &lt;/div&gt;
+  );
+}
+
+</code></pre>
+<p><a name="moment"></a></p>
+<h2 id="localization-with-momentjs">Localization with moment.js</h2>
+
+<p>If you already use <a href="http://www.momentjs.com">moment.js</a> in your dependencies, you may find convenient to use moment’s translation strings.</p>
+
+<ol>
+  <li>make sure <code class="highlighter-rouge">moment</code> is included in your dependencies</li>
+  <li>make sure the required moment’s locale data is available when rendering react-day-picker (see example below)</li>
+  <li>import <code class="highlighter-rouge">MomentLocaleUtils</code> from <code class="highlighter-rouge">react-day-picker/moment</code> and pass it to the <code class="highlighter-rouge">localeUtils</code> props</li>
+  <li>use the <code class="highlighter-rouge">locale</code> prop to set the locale in react-day-picker</li>
+</ol>
+
+<h3 id="example-1">Example</h3>
+
+<p>The following component shows four react-day-pickers, in English, Japanese, Arabic and Italian.</p>
+
+<p><a href="https://codesandbox.io/s/W6jXx7Wnv">Open in CodeSandbox</a>.</p>
+
+<pre><code class="language-jsx">import React from 'react'; 
+import ReactDOM from 'react-dom';
+
+import DayPicker from 'react-day-picker';
+
+// Include the locale utils designed for moment
+import MomentLocaleUtils from 'react-day-picker/moment';
+
+import 'react-day-picker/lib/style.css';
+
+// Make sure moment.js has the required locale data
+import 'moment/locale/ja';
+import 'moment/locale/ar';
+import 'moment/locale/it';
+
+export default function LocalizedExample() {
+  return (
+    &lt;div&gt;
+
+      &lt;p&gt;English&lt;/p&gt;
+      &lt;DayPicker localeUtils={MomentLocaleUtils} locale="en" /&gt;
+
+      &lt;p&gt;Japanese&lt;/p&gt;
+      &lt;DayPicker localeUtils={MomentLocaleUtils} locale="ja" /&gt;
+
+      &lt;p&gt;Arabic&lt;/p&gt;
+      &lt;DayPicker localeUtils={MomentLocaleUtils} locale="ar" /&gt;
+
+      &lt;p&gt;Italian&lt;/p&gt;
+      &lt;DayPicker localeUtils={MomentLocaleUtils} locale="it" /&gt;
+
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+<p><a name="advanced"></a></p>
+
+<h2 id="advanced-localization">Advanced localization</h2>
+
+<p>Internally, react-day-picker uses <a href="/docs/utils-locale.html">LocaleUtils</a>, a set of formatting functions. You can overwrite its behavior by passing your own custom functions to the <code class="highlighter-rouge">localeUtils</code> props.</p>
+
+<h3 id="example-2">Example</h3>
+
+<p>In the following example, a custom <code class="highlighter-rouge">localeUtils</code> object is used to localize the calendar in English or in Italian.</p>
+
+<p><a href="https://codesandbox.io/s/Rjg9jJrE">Open in CodeSandbox</a></p>
+
+<pre><code class="language-jsx">import React from 'react';
+import DayPicker from 'react-day-picker';
+
+const WEEKDAYS_LONG = {
+  en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+  it: ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
+};
+const WEEKDAYS_SHORT = {
+  en: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+  it: ['D', 'L', 'M', 'M', 'G', 'V', 'S'],
+};
+
+const MONTHS = {
+  en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  it: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+};
+
+const FIRST_DAY = {
+  en: 0,
+  it: 1, // Use Monday as first day of the week
+};
+
+const localeUtils = {
+  formatDay: (d, locale = 'en') =&gt;
+    `${weekdaysLong[locale][d.getDay()]}, ${d.getDate()} ${months[locale][
+      d.getMonth()
+    ]} ${d.getFullYear()}`,
+  formatMonthTitle: (d, locale) =&gt;
+    `${MONTHS[locale][d.getMonth()]} ${d.getFullYear()}`,
+  formatWeekdayShort: (i, locale) =&gt; WEEKDAYS_SHORT[locale][i],
+  formatWeekdayLong: (i, locale) =&gt; WEEKDAYS_LONG[locale][i],
+  getFirstDayOfWeek: locale =&gt; FIRST_DAY[locale],
+};
+
+export default function MyComponent() {
+  return &lt;DayPicker locale="it" localeUtils={localeUtils} /&gt;;
+}
+</code></pre>
+
+  </div>
+
+</section>
+    </div> 
+
+    <footer>
+  <div class="footer-content wrap">
+    <section class="footer-logo">
+      <div>
+        <a href="/" class="nav-home"><img src="/images/logo.png" alt="Home page" height="40" /></a>
+      </div>
+      <p>
+        Created by <a href="https://github.com/gpbl">gpbl</a> and <a href="https://github.com/gpbl/react-day-picker/graphs/contributors">contributors</a>.
+      </p>
+      <p>
+        Licensed under the <a href="https://github.com/gpbl/react-day-picker/blob/master/LICENSE">MIT License</a>.
+      </p>
+      <a class="github-button" href="https://github.com/gpbl/react-day-picker" data-icon="octicon-star" data-show-count="true" aria-label="Star gpbl/react-day-picker on GitHub">Star</a>
+    </section>
+    <section>
+      <h4>😫 Get support</h4>
+
+      <p>Ask on <a href="http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest">Stack Overflow</a> (tag with <code>react-day-picker</code>) or join the <a href="https://gitter.im/gpbl/react-day-picker">Gitter room</a> to talk with other developers</p>
+
+      <p>Please fork <a href="https://codesandbox.io/s/XDAE3x0W8">this codesandbox</a> to reproduce your issue.</p>
+
+    </section>
+
+    <section>
+      <h4>❤️ Contribute</h4>
+      <p>
+        File bugs and feature requests in the <a href="https://github.com/gpbl/react-day-picker/issues">issues page</a>. Fork the <a href="https://github.com/gpbl/react-day-picker">GitHub repo</a> to open a nice PR.
+      </p>
+    </section>
+  </div>
+
+</footer>
+    
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68185118-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+
+</html>
