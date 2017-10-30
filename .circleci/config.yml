@@ -27,7 +27,7 @@ jobs:
           command: yarn dtslint
       - run: 
           name: Run unit tests
-          command: yarn test --coverage --testResultsProcessor jest-junit-reporter
+          command: yarn test --coverage --no-colors --testResultsProcessor jest-junit-reporter
       - run: 
           name: Uploade code-coverage results
           command: yarn codecov
