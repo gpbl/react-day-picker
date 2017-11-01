@@ -1,6 +1,6 @@
 # react-day-picker.js.org
 
-This is the source code for the [documentation website](react-day-picker.js.org).
+This is the source code for the [documentation website](http://react-day-picker.js.org).
 
 ## Run the website locally
 
