@@ -5,6 +5,8 @@ import moment from 'moment'; // eslint-disable-line import/no-extraneous-depende
 import DayPicker from './DayPicker';
 import { getModifiersForDay } from './ModifiersUtils';
 import MomentLocaleUtils from './addons/MomentLocaleUtils';
+import classNames from './classNames';
+
 import { ESC } from './keys';
 
 export const HIDE_TIMEOUT = 100;
@@ -245,19 +247,29 @@ export default class DayPickerInput extends React.Component {
   };
 
   handleDayClick = (day, modifiers, e) => {
-    if (this.props.dayPickerProps.onDayClick) {
-      this.props.dayPickerProps.onDayClick(day, modifiers, e);
+    const { dayPickerProps, clickUnselectsDay, onDayChange } = this.props;
+    if (dayPickerProps.onDayClick) {
+      dayPickerProps.onDayClick(day, modifiers, e);
     }
 
-    if (modifiers.disabled) {
+    let disabledClassName = classNames.disabled;
+    if (dayPickerProps.classNames && dayPickerProps.classNames.disabled) {
+      disabledClassName = dayPickerProps.classNames.disabled;
+    }
+    if (modifiers[disabledClassName]) {
       // Do nothing if the day is disabled
       return;
     }
-    if (modifiers.selected && this.props.clickUnselectsDay) {
+
+    let selectedClassName = classNames.selected;
+    if (dayPickerProps.classNames && dayPickerProps.classNames.selected) {
+      selectedClassName = dayPickerProps.classNames.selected;
+    }
+    if (modifiers[selectedClassName] && clickUnselectsDay) {
       // Unselect the day
       this.setState({ value: '' }, this.hideAfterDayClick);
-      if (this.props.onDayChange) {
-        this.props.onDayChange(undefined, modifiers);
+      if (onDayChange) {
+        onDayChange(undefined, modifiers);
       }
       return;
     }
@@ -270,8 +282,8 @@ export default class DayPickerInput extends React.Component {
         month: day,
       },
       () => {
-        if (this.props.onDayChange) {
-          this.props.onDayChange(m, modifiers);
+        if (onDayChange) {
+          onDayChange(m, modifiers);
         }
         this.hideAfterDayClick();
       }
