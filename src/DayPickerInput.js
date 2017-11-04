@@ -10,7 +10,7 @@ import { ESC } from './keys';
 export const HIDE_TIMEOUT = 100;
 
 function getStateFromProps(props) {
-  const { dayPickerProps, format, selectedDays, value } = props;
+  const { dayPickerProps, format, value } = props;
   let month;
   if (value) {
     const m = moment(value, format, true);
@@ -22,9 +22,9 @@ function getStateFromProps(props) {
   }
 
   return {
-    value: props.value,
+    value,
     month,
-    selectedDays,
+    selectedDays: dayPickerProps.selectedDays,
   };
 }
 
@@ -55,12 +55,6 @@ export default class DayPickerInput extends React.Component {
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     onKeyUp: PropTypes.func,
-
-    selectedDays: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.func,
-      PropTypes.array,
-    ]),
   };
 
   static defaultProps = {
@@ -70,7 +64,6 @@ export default class DayPickerInput extends React.Component {
     hideOnDayClick: true,
     clickUnselectsDay: false,
     component: 'input',
-    selectedDays: null,
     classNames: {
       container: 'DayPickerInput',
       overlayWrapper: 'DayPickerInput-OverlayWrapper',
@@ -85,15 +78,10 @@ export default class DayPickerInput extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { dayPickerProps, value, selectedDays } = this.props;
-    const {
-      dayPickerProps: nextDayPickerProps,
-      value: nextValue,
-      selectedDays: nextSelectedDays,
-    } = nextProps;
+    const { dayPickerProps, value } = this.props;
+    const { dayPickerProps: nextDayPickerProps, value: nextValue } = nextProps;
 
-    const hasDifferences =
-      nextValue !== value || nextSelectedDays !== selectedDays;
+    const hasDifferentValue = nextValue !== value;
 
     const willUpdateDayPickerMonth =
       nextDayPickerProps.month && dayPickerProps.month;
@@ -108,7 +96,7 @@ export default class DayPickerInput extends React.Component {
           nextDayPickerProps.month.getMonth() !==
             dayPickerProps.month.getMonth()));
 
-    if (hasDifferences && !shouldDisplayAnotherMonth) {
+    if (hasDifferentValue && !shouldDisplayAnotherMonth) {
       this.setState(getStateFromProps(nextProps));
     } else if (shouldDisplayAnotherMonth) {
       this.setState({ month: nextDayPickerProps.month });
@@ -230,7 +218,7 @@ export default class DayPickerInput extends React.Component {
       }
       const modifiersObj = {
         disabled: dayPickerProps.disabledDays,
-        selected: this.state.selectedDays || dayPickerProps.selectedDays,
+        selected: dayPickerProps.selectedDays,
         ...dayPickerProps.modifiers,
       };
       const modifiers = getModifiersForDay(
@@ -266,7 +254,15 @@ export default class DayPickerInput extends React.Component {
     }
     if (modifiers.selected && this.props.clickUnselectsDay) {
       // Unselect the day
-      this.setState({ value: '' }, this.hideAfterDayClick);
+      let { selectedDays } = this.state;
+      if (Array.isArray(selectedDays)) {
+        selectedDays = selectedDays.slice(0);
+        const selectedDayIdx = selectedDays.indexOf(day);
+        selectedDays.splice(selectedDayIdx, 1);
+      } else if (moment(selectedDays).isValid()) {
+        selectedDays = null;
+      }
+      this.setState({ value: '', selectedDays }, this.hideAfterDayClick);
       if (this.props.onDayChange) {
         this.props.onDayChange(undefined, modifiers);
       }
@@ -290,10 +286,11 @@ export default class DayPickerInput extends React.Component {
   };
 
   renderOverlay() {
+    const { format } = this.props;
     const { selectedDays, value } = this.state;
     let selectedDay;
-    if (value && !selectedDays) {
-      const m = moment(value, this.props.format, true);
+    if (!selectedDays && value) {
+      const m = moment(value, format, true);
       if (m.isValid()) {
         selectedDay = m.toDate();
       }
@@ -327,7 +324,6 @@ export default class DayPickerInput extends React.Component {
     delete inputProps.hideOnDayClick;
     delete inputProps.onDayChange;
     delete inputProps.classNames;
-    delete inputProps.selectedDays;
     return (
       <div
         className={this.props.classNames.container}

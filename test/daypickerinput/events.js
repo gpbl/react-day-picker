@@ -310,6 +310,47 @@ describe('DayPickerInput', () => {
           .simulate('click');
         expect(onDayChange).not.toHaveBeenCalled();
       });
+
+      it('should use `dayPickerProps.selectedDays` after clicking a day', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: [new Date(2017, 1, 8), new Date(2017, 1, 9)],
+            }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper
+          .find('.DayPicker-Day')
+          .at(9)
+          .simulate('click');
+        const selectedDays = wrapper.find('.DayPicker-Day--selected');
+        expect(selectedDays).toHaveLength(2);
+        expect(selectedDays.at(0)).toHaveText('8');
+        expect(selectedDays.at(1)).toHaveText('9');
+      });
+
+      it('should use `dayPickerProps.selectedDays` after typing a valid day', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: [new Date(2017, 1, 8), new Date(2017, 1, 9)],
+            }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper
+          .find('input')
+          .simulate('change', { target: { value: '02/07/2017' } });
+        const selectedDays = wrapper.find('.DayPicker-Day--selected');
+        expect(selectedDays).toHaveLength(2);
+        expect(selectedDays.at(0)).toHaveText('8');
+        expect(selectedDays.at(1)).toHaveText('9');
+      });
     });
   });
 });

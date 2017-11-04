@@ -174,21 +174,5 @@ describe('DayPickerInput', () => {
       expect(spy).toHaveBeenCalledTimes(3);
       spy.mockRestore();
     });
-
-    it('should use `selectedDays` from DayPickerInput props', () => {
-      const wrapper = mount(
-        <DayPickerInput
-          selectedDays={new Date(2017, 1, 8)}
-          dayPickerProps={{
-            month: new Date(2017, 1),
-            selectedDays: new Date(2017, 1, 9),
-          }}
-        />
-      );
-      wrapper.instance().showDayPicker();
-      wrapper.update();
-      expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(1);
-      expect(wrapper.find('.DayPicker-Day--selected').at(0)).toHaveText('8');
-    });
   });
 });
