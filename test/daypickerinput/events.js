@@ -265,6 +265,26 @@ describe('DayPickerInput', () => {
         expect(wrapper.find('input')).toHaveProp('value', '');
         expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(0);
       });
+      it('should unselect the clicked day if already selected', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            value="02/08/2017"
+            clickUnselectsDay
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: [new Date(2017, 1, 8), new Date(2017, 1, 9)],
+            }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper
+          .find('.DayPicker-Day')
+          .at(10)
+          .simulate('click');
+        expect(wrapper.find('input')).toHaveProp('value', '');
+        expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(1);
+      });
       it('should call `onDayChange` when clicking a selected day', () => {
         const onDayChange = jest.fn();
         const wrapper = mount(
@@ -309,6 +329,45 @@ describe('DayPickerInput', () => {
           .at(10)
           .simulate('click');
         expect(onDayChange).not.toHaveBeenCalled();
+      });
+      it('should use `dayPickerProps.selectedDays` after clicking a day', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: [new Date(2017, 1, 8), new Date(2017, 1, 9)],
+            }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper
+          .find('.DayPicker-Day')
+          .at(9)
+          .simulate('click');
+        const selectedDays = wrapper.find('.DayPicker-Day--selected');
+        expect(selectedDays).toHaveLength(2);
+        expect(selectedDays.at(0)).toHaveText('8');
+        expect(selectedDays.at(1)).toHaveText('9');
+      });
+      it('should use `dayPickerProps.selectedDays` after typing a valid day', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: [new Date(2017, 1, 8), new Date(2017, 1, 9)],
+            }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper
+          .find('input')
+          .simulate('change', { target: { value: '02/07/2017' } });
+        const selectedDays = wrapper.find('.DayPicker-Day--selected');
+        expect(selectedDays).toHaveLength(2);
+        expect(selectedDays.at(0)).toHaveText('8');
+        expect(selectedDays.at(1)).toHaveText('9');
       });
     });
   });
