@@ -1,5 +1,6 @@
 import * as React from 'react';
-import DayPicker from '../';
+import Picker from '../index';
+import { DayPicker } from '../index';
 import 'react-day-picker/lib/style.css';
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
   onCalendarSelect: (date: Date) => void;
 }
 
-export default class TestTypingsComponent extends React.Component<Props, any> {
+export default class DayPickerComponentTest extends React.Component<Props, any> {
   render() {
     return (
       <DayPicker selectedDays={this.props.selected} onDayClick={this.props.onCalendarSelect} />
