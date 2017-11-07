@@ -1,7 +1,5 @@
 import * as React from 'react';
-import Picker from '../index';
-import { DayPicker } from '../index';
-import 'react-day-picker/lib/style.css';
+import { default as Picker , DayPicker } from '../';
 
 interface Props {
   selected: Date;
