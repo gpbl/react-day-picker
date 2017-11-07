@@ -21,6 +21,7 @@
     "lint": "eslint src test",
     "dtslint": "dtslint types",
     "test": "jest",
+    "test:types": "tsc -p types/tsconfig.json",
     "check": "npm run lint && npm run dtslint && npm run test",
     "prerelease": "npm run check && npm run build",
     "build": "rimraf lib && npm run build:node && npm run build:production && npm run build:development",
@@ -53,7 +54,8 @@
   },
   "homepage": "https://react-day-picker.js.org",
   "peerDependencies": {
-    "react": "~0.13.x || ~0.14.x || ^15.0.0 || ^16.0.0"
+    "react": "~0.13.x || ~0.14.x || ^15.0.0 || ^16.0.0",
+    "@types/react": "^15.6.6"
   },
   "devDependencies": {
     "autoprefixer": "7.1.5",
@@ -95,7 +97,7 @@
     "react-dom": "16.0.0",
     "react-test-renderer": "16.0.0",
     "rimraf": "2.6.2",
-    "typescript": "2.5.3",
+    "typescript": "^2.6.1",
     "webpack": "3.7.1"
   },
   "dependencies": {
