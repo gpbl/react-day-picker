@@ -2,6 +2,7 @@ import React from 'react';
 
 import Link from 'gatsby-link';
 
+import Anchor from '../../ui/Anchor';
 import CodeBlock from '../../ui/CodeBlock';
 import DocPage from '../../containers/DocPage';
 import ApiDocs from '../../containers/ApiDocs';
@@ -36,7 +37,8 @@ export default () => (
 
     <ApiDocs>
       <h2>DayPickerInput Props</h2>
-      <h3 id="classNames">
+      <h3>
+        <Anchor id="classNames" />
         classNames <code>Object</code>
       </h3>
       <p>Customize the CSS class names used when rendering the component.</p>
@@ -47,14 +49,16 @@ export default () => (
   overlay,              // The overlay's container
 }`}</CodeBlock>
 
-      <h3 id="clickUnselectsDay">
+      <h3>
+        <Anchor id="clickUnselectsDay" />
         clickUnselectsDay <code>Boolean = false</code>
       </h3>
       <p>
         Unselect and clear the input when clicking on a previously selected day.
       </p>
 
-      <h3 id="component">
+      <h3>
+        <Anchor id="component" />
         component <code>String | React.Component = &quot;input&quot;</code>
       </h3>
       <p>The component class to render the input field.</p>
@@ -92,7 +96,8 @@ function MyDayPickerInput(props) {
 } 
 `}</CodeBlock>
 
-      <h3 id="dayPickerProps">
+      <h3>
+        <Anchor id="dayPickerProps" />
         dayPickerProps <code>Object</code>
       </h3>
       <p>
@@ -100,7 +105,8 @@ function MyDayPickerInput(props) {
         calendar rendered in the overlay.
       </p>
 
-      <h3 id="format">
+      <h3>
+        <Anchor id="format" />
         format <code>String | Array&lt;String&gt;</code>
       </h3>
       <p>
@@ -112,7 +118,8 @@ function MyDayPickerInput(props) {
         used by moment.js.
       </p>
 
-      <h3 id="hideOnDayClick">
+      <h3>
+        <Anchor id="hideOnDayClick" />
         hideOnDayClick <code>Boolean = true</code>
       </h3>
       <p>Hide the overlay when the user clicks on a day cell.</p>
@@ -120,7 +127,8 @@ function MyDayPickerInput(props) {
       <hr />
       <h2>Event handlers</h2>
 
-      <h3 id="onDayChange">
+      <h3>
+        <Anchor id="onDayChange" />
         onDayChange <code>(day: Date, modifiers: Object) ⇒ undefined</code>
       </h3>
       <p>
@@ -133,12 +141,14 @@ function MyDayPickerInput(props) {
       <hr />
       <h2>Public methods</h2>
 
-      <h3 id="showDayPicker">
+      <h3>
+        <Anchor id="showDayPicker" />
         showDayPicker <code>() ⇒ undefined</code>
       </h3>
       <p>Show the Day Picker overlay.</p>
 
-      <h3 id="hideDayPicker">
+      <h3>
+        <Anchor id="hideDayPicker" />
         hideDayPicker <code>() ⇒ undefined</code>
       </h3>
       <p>Hide the Day Picker overlay.</p>

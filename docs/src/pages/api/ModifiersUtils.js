@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Anchor from '../../ui/Anchor';
 import CodeBlock from '../../ui/CodeBlock';
 import DocPage from '../../containers/DocPage';
 import ApiDocs from '../../containers/ApiDocs';
@@ -12,14 +13,16 @@ export default () => (
     <hr />
     <ApiDocs>
       <h2>Functions</h2>
-      <h3 id="dayMatchesModifier">
+      <h3>
+        <Anchor id="dayMatchesModifier" />
         dayMatchesModifier <code>(day: Date, modifier: Any) ⇒ Boolean</code>
       </h3>
       <p>
         Return <code>true</code> if <code>day</code> date matches{' '}
         <code>modifier</code>.
       </p>
-      <h3 id="getModifiersForDay">
+      <h3>
+        <Anchor id="getModifiersForDay" />
         getModifiersForDay <code>(day: Date, modifiers: Object) ⇒ Array</code>
       </h3>
       <p>

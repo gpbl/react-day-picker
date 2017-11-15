@@ -1,0 +1,8 @@
+.anchor:before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 0;
+  height: 70px;
+  margin-top: -70px;
+}

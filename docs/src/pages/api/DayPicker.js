@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import DocPage from '../../containers/DocPage';
 import ApiDocs from '../../containers/ApiDocs';
 
+import Anchor from '../../ui/Anchor';
 import CodeBlock from '../../ui/CodeBlock';
 
 export default () => (
@@ -13,78 +14,78 @@ export default () => (
 
     <h4>Rendering months</h4>
     <p>
-      <a href="#initialmonth">initialMonth</a>, <a href="#month">month</a>,{' '}
-      <a href="#frommonth">fromMonth</a>, <a href="#tomonth">toMonth</a>,{' '}
-      <a href="#numberofmonths">numberOfMonths</a>,{' '}
-      <a href="#pagednavigation">pagedNavigation</a>,{' '}
-      <a href="#canchangemonth">canChangeMonth</a>,{' '}
-      <a href="#reversemonths">reverseMonths</a>
+      <a href="#initialMonth">initialMonth</a>, <a href="#month">month</a>,{' '}
+      <a href="#fromMonth">fromMonth</a>, <a href="#toMonth">toMonth</a>,{' '}
+      <a href="#numberOfMonths">numberOfMonths</a>,{' '}
+      <a href="#pagedNavigation">pagedNavigation</a>,{' '}
+      <a href="#canChangeMonth">canChangeMonth</a>,{' '}
+      <a href="#reverseMonths">reverseMonths</a>
     </p>
 
     <h4>Day Modifiers</h4>
     <p>
-      <a href="#selecteddays">selectedDays</a>,{' '}
-      <a href="#disableddays">disabledDays</a>,{' '}
+      <a href="#selectedDays">selectedDays</a>,{' '}
+      <a href="#disabledDays">disabledDays</a>,{' '}
       <a href="#modifiers">modifiers</a>,{' '}
-      <a href="#modifiersstyles">modifiersStyles</a>
+      <a href="#modifiersStyles">modifiersStyles</a>
     </p>
 
     <h4>Customization</h4>
     <p>
-      <a href="#enableoutsidedays">enableOutsideDays</a>,{' '}
-      <a href="#fixedweeks">fixedWeeks</a>,{' '}
-      <a href="#showweeknumbers">showWeekNumbers</a>,{' '}
-      <a href="#todaybutton">todayButton</a>
+      <a href="#enableOutsideDays">enableOutsideDays</a>,{' '}
+      <a href="#fixedWeeks">fixedWeeks</a>,{' '}
+      <a href="#showWeekNumbers">showWeekNumbers</a>,{' '}
+      <a href="#todayButton">todayButton</a>
     </p>
 
     <h4>Localization</h4>
     <p>
-      <a href="#dir">dir</a>, <a href="#firstdayofweek">firstDayOfWeek</a>,{' '}
+      <a href="#dir">dir</a>, <a href="#firstDayOfWeek">firstDayOfWeek</a>,{' '}
       <a href="#labels">labels</a>, <a href="#locale">locale</a>,{' '}
       <a href="#localeUtils">localeUtils</a>, <a href="#months">months</a>,{' '}
-      <a href="#weekdayslong">weekdaysLong</a>,{' '}
-      <a href="#weekdaysshort">weekdaysShort</a>
+      <a href="#weekdaysLong">weekdaysLong</a>,{' '}
+      <a href="#weekdaysShort">weekdaysShort</a>
     </p>
 
     <h4>CSS and HTML</h4>
     <p>
-      <a href="#classname">className</a>, <a href="#classnames">classNames</a>,{' '}
-      <a href="#containerprops">containerProps</a>,{' '}
-      <a href="#tabindex">tabIndex</a>
+      <a href="#className">className</a>, <a href="#classNames">classNames</a>,{' '}
+      <a href="#containerProps">containerProps</a>,{' '}
+      <a href="#tabIndex">tabIndex</a>
     </p>
 
     <h4>Elements</h4>
     <p>
-      <a href="#renderday">renderDay</a>,{' '}
-      <a href="#weekdayelement">weekdayElement</a>,{' '}
-      <a href="#navbarelement">navbarElement</a>,{' '}
-      <a href="#captionelement">captionElement</a>
+      <a href="#renderDay">renderDay</a>,{' '}
+      <a href="#weekdayElement">weekdayElement</a>,{' '}
+      <a href="#navbarElement">navbarElement</a>,{' '}
+      <a href="#captionElement">captionElement</a>
     </p>
 
     <h4>Event handlers</h4>
     <p>
-      <a href="#onblur">onBlur</a>, <a href="#oncaptionclick">
+      <a href="#onBlur">onBlur</a>, <a href="#onCaptionClick">
         onCaptionClick
-      </a>, <a href="#ondayclick">onDayClick</a>,{' '}
-      <a href="#ondayfocus">onDayFocus</a>,{' '}
-      <a href="#ondaykeydown">onDayKeyDown</a>,{' '}
-      <a href="#ondaymousedown">onDayMouseDown</a>,{' '}
-      <a href="#ondaymouseenter">onDayMouseEnter</a>,{' '}
-      <a href="#ondaymouseleave">onDayMouseLeave</a>,{' '}
-      <a href="#ondaymouseup">onDayMouseUp</a>,{' '}
-      <a href="#ondaytouchend">onDayTouchEnd</a>,{' '}
-      <a href="#ondaytouchstart">onDayTouchStart</a>,{' '}
-      <a href="#onfocus">onFocus</a>, <a href="#onkeydown">onKeyDown</a>,{' '}
-      <a href="#onmonthchange">onMonthChange</a>
+      </a>, <a href="#onDayClick">onDayClick</a>,{' '}
+      <a href="#onDayFocus">onDayFocus</a>,{' '}
+      <a href="#onDayKeyDown">onDayKeyDown</a>,{' '}
+      <a href="#onDayMouseDown">onDayMouseDown</a>,{' '}
+      <a href="#onDayMouseEnter">onDayMouseEnter</a>,{' '}
+      <a href="#onDayMouseLeave">onDayMouseLeave</a>,{' '}
+      <a href="#onDayMouseUp">onDayMouseUp</a>,{' '}
+      <a href="#onDayTouchEnd">onDayTouchEnd</a>,{' '}
+      <a href="#onDayTouchStart">onDayTouchStart</a>,{' '}
+      <a href="#onFocus">onFocus</a>, <a href="#onKeyDown">onKeyDown</a>,{' '}
+      <a href="#onMonthChange">onMonthChange</a>
     </p>
 
     <h4>Public Methods</h4>
     <p>
-      <a href="#showmonth">showMonth</a>,{' '}
-      <a href="#showpreviousmonth">showPreviousMonth</a>,{' '}
-      <a href="#shownextmonth">showNextMonth</a>,{' '}
-      <a href="#showpreviousyear">showPreviousYear</a>,{' '}
-      <a href="#shownextyear">showNextYear</a>
+      <a href="#showMonth">showMonth</a>,{' '}
+      <a href="#showPreviousMonth">showPreviousMonth</a>,{' '}
+      <a href="#showNextMonth">showNextMonth</a>,{' '}
+      <a href="#showPreviousYear">showPreviousYear</a>,{' '}
+      <a href="#showNextYear">showNextYear</a>
     </p>
 
     <hr />
@@ -92,11 +93,13 @@ export default () => (
     <ApiDocs>
       <h2 id="components-prop">DayPicker Props</h2>
 
-      <h3 id="canchangemonth">
+      <h3>
+        <Anchor id="canChangeMonth" />
         canChangeMonth <code>Boolean = true</code>
       </h3>
       <p>Enable the navigation between months.</p>
-      <h3 id="captionelement">
+      <h3>
+        <Anchor id="captionElement" />
         captionElement{' '}
         <code>React.Element | React.Component | (props) ⇒ Element</code>
       </h3>
@@ -110,17 +113,17 @@ export default () => (
         </li>
         <li>
           <code>localeUtils: Object</code> The{' '}
-          <a href="#localeutils-object">localeUtils</a> object passed to the
-          component.
+          <a href="#localeUtils">localeUtils</a> object passed to the component.
         </li>
         <li>
-          <code>locale: String</code> The current{' '}
-          <a href="#locale-string">locale</a> passed to the component.
+          <code>locale: String</code> The current <a href="#locale">locale</a>{' '}
+          passed to the component.
         </li>
         <li>
-          <code>onClick</code> The{' '}
-          <a href="#oncaptionclick-function">onCaptionClick</a> function, if
-          specified.
+          <code>onClick</code> The <a href="#onCaptionClick">
+            onCaptionClick
+          </a>{' '}
+          function, if specified.
         </li>
       </ul>
       <p>
@@ -133,17 +136,25 @@ export default () => (
           this advanced example
         </a>, showing a year navigation element using this prop.
       </p>
-      <h3 id="classname">
+      <h3>
+        <Anchor id="className" />
         className <code>String</code>
       </h3>
-      <p>Additional CSS class names to add to the default.</p>
-      <h3 id="classnames">
+      <p>Additional CSS class names to add to the container.</p>
+      <h3>
+        <Anchor id="classNames" />
         classNames <code>Object</code>
       </h3>
       <p>
-        Customize the CSS class names used when rendering the component. Use
-        this prop to use your custom styles imported via CSS Modules. See{' '}
-        <Link to="/docs/styling">Styling</Link>.
+        The CSS class names used when rendering the component.{' '}
+        <a href="https://github.com/gpbl/react-day-picker/blob/master/src/classNames.js">
+          See defaults
+        </a>{' '}
+        on Github.
+      </p>
+      <p>
+        You can use this prop to adopt the custom styles imported via CSS
+        Modules. See <Link to="/docs/styling">Styling</Link>.
       </p>
       <p>The object expects the following keys:</p>
       <CodeBlock>{`{
@@ -174,7 +185,8 @@ export default () => (
   disabled,       // Added to the day's cell specified in the "disabledDays" prop
   outside,        // Added to the day's cell outside the current month
 }`}</CodeBlock>
-      <h3 id="containerprops">
+      <h3>
+        <Anchor id="containerProps" />
         containerProps <code>Object</code>
       </h3>
       <p>
@@ -189,54 +201,62 @@ export default () => (
   containerProps={ { className: 'will_be_ignored' } }
   className="will_work"
 /> `}</CodeBlock>
-      <h3 id="disableddays">
+      <h3>
+        <Anchor id="disabledDays" />
         disabledDays{' '}
         <code>Date | Object | Array&lt;Date&gt; | (day: Date) ⇒ Boolean</code>
       </h3>
       <p>
-        Indicate which day should appear as disabled. Set a{' '}
-        <code>disabled</code> modifier. See{' '}
-        <Link to="/docs/matching-days">Matching days</Link> for a reference of
-        the accepted values.
+        Day(s) that should appear as disabled. Set a <code>disabled</code>{' '}
+        modifier. See <Link to="/docs/matching-days">Matching days</Link> for a
+        reference of the accepted value types.
       </p>
-      <h3 id="enableoutsidedays">
+      <h3>
+        <Anchor id="enableOutsideDays" />
         enableOutsideDays <code>Boolean = false</code>
       </h3>
       <p>Display the days outside the current month.</p>
-      <h3 id="firstdayofweek">
+      <h3>
+        <Anchor id="firstDayOfWeek" />
         firstDayOfWeek <code>Number = 0 (Sunday)</code>
       </h3>
       <p>
         The day to use as first day of the week, starting from <code>0</code>{' '}
         (Sunday) to <code>6</code> (Saturday).
       </p>
-      <h3 id="fixedweeks">
+      <h3>
+        <Anchor id="fixedWeeks" />
         fixedWeeks <code>Boolean = false</code>
       </h3>
       <p>
         Display 6 weeks per months, regardless the month’s number of weeks.
         Outside days will be always shown if setting this to <code>true</code>.
       </p>
-      <h3 id="frommonth">
+      <h3>
+        <Anchor id="fromMonth" />
         fromMonth <code>Date</code>
       </h3>
       <p>
         The first allowed month. Users won’t be able to navigate or interact
         with the days before it. See also{' '}
-        <a href="#tomonth">
+        <a href="#toMonth">
           <code>toMonth</code>
         </a>.
       </p>
-      <h3 id="initialmonth">
+      <h3>
+        <Anchor id="initialMonth" />
         initialMonth <code>Date = new Date() (current month)</code>
       </h3>
       <p>
-        The month to display in the calendar at first render. See also{' '}
+        The month to display in the calendar at first render. This differs from
+        the{' '}
         <a href="#month">
           <code>month</code>
-        </a>.
+        </a>{' '}
+        prop, as it won’t re-render the calendar if its value changes.
       </p>
-      <h3 id="labels">
+      <h3>
+        <Anchor id="labels" />
         labels{' '}
         <code>
           Object ={' '}
@@ -251,30 +271,36 @@ export default () => (
   previousMonth,  // Used for the button to navigate the previous month
   nextMonth,      // Used for the button to navigate the next month
 }`}</CodeBlock>
-      <h3 id="locale">
+      <h3>
+        <Anchor id="locale" />
         locale <code>String = &quot;en&quot;</code>
       </h3>
       <p>
         The calendar’s locale. See {' '}
         <Link to="/docs/localization">Localization</Link>.
       </p>
-      <h3 id="localeutils">
-        localeUtils <code>Object</code>
+      <h3>
+        <Anchor id="localeUtils" />
+        localeUtils{' '}
+        <code>
+          Object = <Link to="/api/LocaleUtils">LocaleUtils</Link>
+        </code>
       </h3>
       <p>
         Object of functions to format dates and to get the first day of the
-        week. Pass your own utils to support localization. By default the used
-        locale is English (US). See {' '}
+        week. You can pass your own object for advanced localization. See {' '}
         <Link to="/docs/localization">Localization</Link>.
       </p>
-      <h3 id="modifiers">
+      <h3>
+        <Anchor id="modifiers" />
         modifiers <code>Object</code>
       </h3>
       <p>
         An object of <i>day modifiers</i>. See{' '}
         <Link to="/docs/matching-days">matching days</Link>.
       </p>
-      <h3 id="modifiersstyles">
+      <h3>
+        <Anchor id="modifiersStyles" />
         modifiersStyles <code>Object</code>
       </h3>
       <p>
@@ -284,23 +310,27 @@ export default () => (
         <Link to="/docs/styling">Styling</Link>.
       </p>
 
-      <h3 id="month">
+      <h3>
+        <Anchor id="month" />
         month <code>Date</code>
       </h3>
       <p>
         The month to display in the calendar. This differs from the{' '}
-        <a href="#initialmonth">
+        <a href="#initialMonth">
           <code>initialMonth</code>
         </a>{' '}
         prop, as it causes the calendar to re-render when its value changes.
       </p>
-      <h3 id="months">
+      <h3>
+        <Anchor id="months" />
         months <code>Array&lt;String&gt;</code>
       </h3>
       <p>
         An array containing the long month names to use in the month’s header.
+        Default to the English months names.
       </p>
-      <h3 id="navbarelement">
+      <h3>
+        <Anchor id="navbarElement" />
         navbarElement{' '}
         <code>React.Element | React.Component | (props) ⇒ React.Element</code>
       </h3>
@@ -340,73 +370,81 @@ export default () => (
           locale <code>String</code>
         </li>
       </ul>
-      <h3 id="numberofmonths">
+      <h3>
+        <Anchor id="numberOfMonths" />
         numberOfMonths <code>Number = 1</code>
       </h3>
       <p>The number of months to render.</p>
-      <h3 id="pagednavigation">
+      <h3>
+        <Anchor id="pagedNavigation" />
         pagedNavigation <code>Boolean = false</code>
       </h3>
       <p>
         When displaying multiple months, navigation will be paginated displaying
         the{' '}
-        <a href="#numberofmonths">
+        <a href="#numberOfMonths">
           <code>numberOfMonths</code>
         </a>{' '}
         at time instead of one.
       </p>
-      <h3 id="renderday">
+      <h3>
+        <Anchor id="renderDay" />
         renderDay <code>(day: Date, modifiers: Object) ⇒ React.Element</code>
       </h3>
       <p>
         Returns the content of a day cell. As default it returns{' '}
         <code>day</code>’s current date.
       </p>
-      <h3 id="reversemonths">
+      <h3>
+        <Anchor id="reverseMonths" />
         reverseMonths <code>Boolean = false</code>
       </h3>
       <p>
         Render the months in reversed order. Useful when{' '}
-        <a href="#numberofmonths">
+        <a href="#numberOfMonths">
           <code>numberOfMonths</code>
         </a>{' '}
-        is greater than 1, to display the most recent month first.
+        is greater than <code>1</code>, to display the most recent month first.
       </p>
-      <h3 id="selecteddays">
+      <h3>
+        <Anchor id="selectedDays" />
         selectedDays{' '}
         <code>Date | Object | Array&lt;Date&gt; | (day: Date) ⇒ Boolean</code>
       </h3>
       <p>
-        Indicate which day should appear as selected. Set a{' '}
-        <code>selected</code> modifier. See{' '}
-        <Link to="/docs/matching-days">Matching days</Link> for a reference of
-        the accepted values.
+        Day(s) that should appear as selected. Set a <code>selected</code>{' '}
+        modifier. See <Link to="/docs/matching-days">Matching days</Link> for a
+        reference of the accepted value types.
       </p>
-      <h3 id="showweeknumbers">
+      <h3>
+        <Anchor id="showWeekNumbers" />
         showWeekNumbers <code>Boolean</code>
       </h3>
       <p>
         Display the year’s week number next to each week (<a href="../examples/?weekNumbers">example</a>).
       </p>
-      <h3 id="todaybutton">
+      <h3>
+        <Anchor id="todayButton" />
         todayButton <code>String</code>
       </h3>
       <p>
         Display a button to switch to the current month using the provided
         string as label.
       </p>
-      <h3 id="tomonth">
+      <h3>
+        <Anchor id="toMonth" />
         toMonth <code>Date</code>
       </h3>
       <p>
         The last allowed month. Users won’t be able to navigate or interact with
         the days after it. See also{' '}
-        <a href="#frommonth">
+        <a href="#fromMonth">
           <code>fromMonth</code>
         </a>.
       </p>
 
-      <h3 id="weekdayelement">
+      <h3>
+        <Anchor id="weekdayElement" />
         weekdayElement{' '}
         <code>React.Element | React.Component | (props) ⇒ React.Element</code>
       </h3>
@@ -429,26 +467,29 @@ export default () => (
         </li>
       </ul>
 
-      <h3 id="weekdayslong">
+      <h3>
+        <Anchor id="weekdaysLong" />
         weekdaysLong <code>Array&lt;String&gt;</code>
       </h3>
       <p>
         An array containing the long weekdays names to use in the month’s
-        header. Must start from Sunday.
+        header. Defaults to the English weekdays names. Must start from Sunday.
       </p>
 
-      <h3 id="weekdaysshort">
+      <h3>
+        <Anchor id="weekdaysShort" />
         weekdaysShort <code>Array&lt;String&gt;</code>
       </h3>
       <p>
         An array containing the short weekdays names to use in the month’s
-        header. Must start from Sunday.
+        header. Defaults to the English weekdays names. Must start from Sunday.
       </p>
 
       <hr />
       <h2 id="event-handlers">Event handlers</h2>
 
-      <h3 id="oncaptionclick">
+      <h3>
+        <Anchor id="onCaptionClick" />
         onCaptionClick{' '}
         <code>(currentMonth: date, e: SyntheticEvent) ⇒ undefined</code>
       </h3>
@@ -457,7 +498,8 @@ export default () => (
         displaying the month.
       </p>
 
-      <h3 id="ondayclick">
+      <h3>
+        <Anchor id="onDayClick" />
         onDayClick{' '}
         <code>
           (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
@@ -465,14 +507,16 @@ export default () => (
       </h3>
       <p>Event handler when the user clicks on a day cell.</p>
 
-      <h3 id="onblur">
+      <h3>
+        <Anchor id="onBlur" />
         onBlur <code>(e: SyntheticEvent) ⇒ undefined</code>
       </h3>
       <p>
         Event handler when the calendar get the <code>blur</code> event.
       </p>
 
-      <h3 id="ondayfocus">
+      <h3>
+        <Anchor id="onDayFocus" />
         onDayFocus{' '}
         <code>
           (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
@@ -482,7 +526,8 @@ export default () => (
         Event handler when the day cell gets the <code>focus</code> event.
       </p>
 
-      <h3 id="ondaykeydown">
+      <h3>
+        <Anchor id="onDayKeyDown" />
         onDayKeyDown{' '}
         <code>
           (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
@@ -492,7 +537,8 @@ export default () => (
         Event handler when the day cell gets the <code>keydown</code> event.
       </p>
 
-      <h3 id="ondaymousedown">
+      <h3>
+        <Anchor id="onDayMouseDown" />
         onDayMouseDown{' '}
         <code>
           (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
@@ -500,7 +546,8 @@ export default () => (
       </h3>
       <p>Event handler when the mouse button is pressed on a day cell.</p>
 
-      <h3 id="ondaymouseenter">
+      <h3>
+        <Anchor id="onDayMouseEnter" />
         onDayMouseEnter{' '}
         <code>
           (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
@@ -508,7 +555,8 @@ export default () => (
       </h3>
       <p>Event handler when the mouse enters a day cell.</p>
 
-      <h3 id="ondaymouseleave">
+      <h3>
+        <Anchor id="onDayMouseLeave" />
         onDayMouseLeave{' '}
         <code>
           (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
@@ -516,7 +564,8 @@ export default () => (
       </h3>
       <p>Event handler when the mouse leave a day cell.</p>
 
-      <h3 id="ondaymouseup">
+      <h3>
+        <Anchor id="onDayMouseUp" />
         onDayMouseUp{' '}
         <code>
           (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
@@ -524,7 +573,8 @@ export default () => (
       </h3>
       <p>Event handler when the mouse button is released on a day cell.</p>
 
-      <h3 id="ondaytouchstart">
+      <h3>
+        <Anchor id="onDayTouchStart" />
         onDayTouchStart{' '}
         <code>
           (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
@@ -534,7 +584,8 @@ export default () => (
         Event handler when the day cell gets the <code>touchStart</code> event.
       </p>
 
-      <h3 id="ondaytouchend">
+      <h3>
+        <Anchor id="onDayTouchEnd" />
         onDayTouchEnd{' '}
         <code>
           (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
@@ -544,21 +595,24 @@ export default () => (
         Event handler when the day cell gets the <code>touchEnd</code> event.
       </p>
 
-      <h3 id="onfocus">
+      <h3>
+        <Anchor id="onFocus" />
         onFocus <code>(e: SyntheticEvent) ⇒ undefined</code>
       </h3>
       <p>
         Event handler when the calendar get the <code>focus</code> event
       </p>
 
-      <h3 id="onkeydown">
+      <h3>
+        <Anchor id="onKeyDown" />
         onKeyDown <code>(e: SyntheticEvent) ⇒ undefined</code>
       </h3>
       <p>
         Event handler when the calendar get the <code>keydown</code> event
       </p>
 
-      <h3 id="onmonthchange">
+      <h3>
+        <Anchor id="onMonthChange" />
         onMonthChange <code>(month: date) ⇒ undefined</code>
       </h3>
       <p>
@@ -566,7 +620,8 @@ export default () => (
         buttons or using the keyboard.
       </p>
 
-      <h3 id="onweekclick">
+      <h3>
+        <Anchor id="onWeekClick" />
         onWeekClick{' '}
         <code>
           (weekNumber: number, days: date[], e: SyntheticEvent) ⇒ undefined
@@ -574,34 +629,39 @@ export default () => (
       </h3>
       <p>
         Event hander when the user clicks on a week number (when{' '}
-        <a href="#showweeknumbers">showWeekNumbers</a> is set to{' '}
+        <a href="#showWeekNumbers">showWeekNumbers</a> is set to{' '}
         <code>true</code>).
       </p>
       <hr />
       <h2 id="components-methods">Public Methods</h2>
-      <h3 id="showmonth">
+      <h3>
+        <Anchor id="showMonth" />
         showMonth <code>(month: date) ⇒ undefined</code>
       </h3>
       <p>
         Show the given <code>month</code> in the calendar.
       </p>
 
-      <h3 id="showpreviousmonth">
+      <h3>
+        <Anchor id="showPreviousMonth" />
         showPreviousMonth <code>() ⇒ undefined</code>
       </h3>
       <p>Show the previous month in the calendar.</p>
 
-      <h3 id="shownextmonth">
+      <h3>
+        <Anchor id="showNextMonth" />
         showNextMonth <code>() ⇒ undefined</code>
       </h3>
       <p>Show the next month in the calendar.</p>
 
-      <h3 id="showpreviousyear">
+      <h3>
+        <Anchor id="showPreviousYear" />
         showPreviousYear <code>() ⇒ undefined</code>
       </h3>
       <p>Show the previous year in the calendar.</p>
 
-      <h3 id="shownextyear">
+      <h3>
+        <Anchor id="showNextYear" />
         showNextYear <code>() ⇒ undefined</code>
       </h3>
       <p>Show the next year in the calendar.</p>
