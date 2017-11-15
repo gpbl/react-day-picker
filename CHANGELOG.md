@@ -10,6 +10,7 @@ _The following changes are not released yet, but are on the master branch and wi
 **Fixes**
 
 * (Typescript) Added again `DayModifiers` and `Modifiers` back to type definitions file ([#526](https://github.com/gpbl/react-day-picker/issues/526) by [azhangstrata](https://github.com/azhangstrata))
+* (a11y) Removed <code>role="application"</code> ([#548](https://github.com/gpbl/react-day-picker/issues/548) by [trezy](https://github.com/trezy))
 
 **DayPickerInput**
 
