@@ -12,6 +12,8 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight';
 
 import '../style/main.scss';
 
+import favicon from '../images/favicon.png';
+
 import Header from './Header';
 
 const DESCRIPTION =
@@ -48,6 +50,7 @@ export default function Page({ children, title }) {
           href="https://fonts.googleapis.com/css?family=Inconsolata"
           rel="stylesheet"
         />
+        <link rel="shortcut icon" href={favicon} />
       </Helmet>
       <Header />
       {children}
