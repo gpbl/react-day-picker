@@ -76,7 +76,8 @@ export default () => (
       <a href="#onDayTouchEnd">onDayTouchEnd</a>,{' '}
       <a href="#onDayTouchStart">onDayTouchStart</a>,{' '}
       <a href="#onFocus">onFocus</a>, <a href="#onKeyDown">onKeyDown</a>,{' '}
-      <a href="#onMonthChange">onMonthChange</a>
+      <a href="#onMonthChange">onMonthChange</a>,{' '}
+      <a href="#onTodayButtonClick">onTodayButtonClick</a>
     </p>
 
     <h4>Public Methods</h4>
@@ -631,6 +632,18 @@ export default () => (
         Event hander when the user clicks on a week number (when{' '}
         <a href="#showWeekNumbers">showWeekNumbers</a> is set to{' '}
         <code>true</code>).
+      </p>
+      <h3>
+        <Anchor id="onTodayButtonClick" />
+        onTodayButtonClick{' '}
+        <code>
+          (day: Date, modifiers: Array&lt;String&gt;, e: SyntheticEvent) ⇒
+          undefined
+        </code>
+      </h3>
+      <p>
+        Event hander when the user clicks on the today button (when{' '}
+        <a href="#todayButton">todayButton</a> is set).
       </p>
       <hr />
       <h2 id="components-methods">Public Methods</h2>

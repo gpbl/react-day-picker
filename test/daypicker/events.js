@@ -282,6 +282,25 @@ describe('DayPicker’s events handlers', () => {
       formatMonthTitle(new Date())
     );
   });
+  it('should call `onTodayButtonClick` when clicking the today button', () => {
+    const onTodayButtonClick = jest.fn();
+    const today = new Date();
+    const wrapper = mount(
+      <DayPicker
+        todayButton="Today"
+        modifiers={{ foo: today }}
+        initialMonth={new Date(2015, 1)}
+        onTodayButtonClick={onTodayButtonClick}
+      />
+    );
+    wrapper.find('button.DayPicker-TodayButton').simulate('click');
+    expect(onTodayButtonClick).toHaveBeenCalled();
+    const receivedDate = onTodayButtonClick.mock.calls[0][0];
+    expect(receivedDate.getDate()).toBe(today.getDate());
+    expect(receivedDate.getFullYear()).toBe(today.getFullYear());
+    expect(receivedDate.getMonth()).toBe(today.getMonth());
+    expect(onTodayButtonClick.mock.calls[0][1]).toEqual(['foo']);
+  });
   it('should call `onWeekClick` when clicking on a week number', () => {
     const handleWeekClick = jest.fn();
     const wrapper = mount(

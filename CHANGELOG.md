@@ -1,3 +1,11 @@
+## Next version
+
+_The following changes are not released yet, but are on the master branch and will released soon._
+
+**New features**
+
+* Added [`onTodayButtonClick`](http://react-day-picker.js.org/api/DayPicker#onTodayButtonClick) prop ([#529](https://github.com/gpbl/react-day-picker/issues/529))
+
 ## [v6.2.0](https://github.com/gpbl/react-day-picker/tree/v6.2.0) (2017-10-05)
 
 * Add TypeScript definitions for DayPickerInput ([#487](https://github.com/gpbl/react-day-picker/issues/487) by [adidahiya](https://github.com/adidahiya) and [lpcarignan](https://github.com/lpcarignan))
