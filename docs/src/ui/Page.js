@@ -2,10 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import '../ui/globalStyle';
+import 'prismjs';
+
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-diff';
+import 'prismjs/plugins/line-highlight/prism-line-highlight';
+
+import '../style/main.scss';
 
 import Header from './Header';
-import Footer from './Footer';
 
 const DESCRIPTION =
   'A flexible date picker component for React, with no dependencies, fully customizable, localizable and with ARIA support.';
@@ -13,7 +20,7 @@ const DESCRIPTION =
 export default function Page({ children, title }) {
   const htmlTitle = `react-day-picker - ${title}`;
   return (
-    <div css={{ background: 'white' }}>
+    <div>
       <Helmet>
         <title>{htmlTitle}</title>
         <meta name="description" content={DESCRIPTION} />
@@ -44,7 +51,6 @@ export default function Page({ children, title }) {
       </Helmet>
       <Header />
       {children}
-      <Footer />
     </div>
   );
 }

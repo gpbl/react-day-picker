@@ -1,11 +1,17 @@
 module.exports = {
   plugins: [
     'gatsby-plugin-glamor',
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: ['gatsby-remark-prismjs'],
-      },
-    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
   ],
+  //   {
+  //     resolve: ``,
+  //     options: {
+  //       filetypes: {
+  //         '.scss': { syntax: `postcss-scss` },
+  //       },
+  //       exclude: '/global/',
+  //     },
+  //   },
+  // ],
 };

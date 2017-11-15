@@ -1,0 +1,56 @@
+@import '../style/constants.scss';
+
+.hero {
+  background: $background-color;
+  text-align: center;
+
+  > div {
+    padding: 2em 0.5em;
+  }
+  h1 {
+    margin-top: 0.5em;
+    margin-bottom: 0.25em;
+    font-weight: 300;
+  }
+  h2 {
+    margin-top: 0;
+    margin-bottom: 2em;
+    font-weight: 300;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+  @media screen and (max-width: 640px) {
+    position: relative;
+    height: calc(100vh - 130px);
+    padding-top: 10vh;
+  }
+}
+
+.features {
+  @media screen and (min-width: 640px) {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-column-gap: 2em;
+  }
+  h3 {
+    margin-bottom: 0;
+  }
+}
+
+.feature {
+  text-align: center;
+}
+.featureExample {
+  text-align: center;
+}
+
+.gettingStarted {
+  @media screen and (min-width: 640px) {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-column-gap: 2em;
+    h3 {
+      text-align: right;
+    }
+  }
+}
