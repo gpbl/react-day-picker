@@ -51,6 +51,19 @@ export default function Page({ children, title }) {
           rel="stylesheet"
         />
         <link rel="shortcut icon" href={favicon} />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-68185118-1"
+        />
+        <script>
+          {`
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-68185118-1');
+  `}
+        </script>
       </Helmet>
       <Header />
       {children}
