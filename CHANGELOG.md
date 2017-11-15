@@ -1,6 +1,6 @@
 ## Next version
 
-_The following changes are not released yet, but are on the master branch and will released soon._
+_The following changes are not released yet, but are on the master branch and will be released soon._
 
 **New features**
 
