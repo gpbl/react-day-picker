@@ -53,8 +53,8 @@
       "path---examples-customization-fixed-weeks-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-changelog-js": [
-      "component---src-pages-changelog-js-07c266adca1feea49cdc.js",
-      "component---src-pages-changelog-js-07c266adca1feea49cdc.js.map"
+      "component---src-pages-changelog-js-80bfa8e812cd0cb95560.js",
+      "component---src-pages-changelog-js-80bfa8e812cd0cb95560.js.map"
     ],
     "path---examples-disabled": [
       "path---examples-disabled-a0e39f21c11f6a62c5ab.js",
@@ -291,9 +291,9 @@
       "path---examples-months-restrict-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-3b750fa6cafa411d93db.js",
+      "app-4db9fa23aae9644e3306.js",
       "build-js-styles.css",
-      "app-3b750fa6cafa411d93db.js.map",
+      "app-4db9fa23aae9644e3306.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-pages-examples-customization-week-numbers-js": [
