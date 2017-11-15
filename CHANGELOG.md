@@ -7,6 +7,10 @@ _The following changes are not released yet, but are on the master branch and wi
 * Added [`renderWeek`](http://react-day-picker.js.org/api/DayPicker`renderWeek) prop ([#497](https://github.com/gpbl/react-day-picker/issues/497) by [jenshandersson](https://github.com/jenshandersson))
 * Added [`onTodayButtonClick`](http://react-day-picker.js.org/api/DayPicker#onTodayButtonClick) prop ([#529](https://github.com/gpbl/react-day-picker/issues/529))
 
+**Fixes**
+
+* (Typescript) Added again `DayModifiers` and `Modifiers` back to type definitions file ([#526](https://github.com/gpbl/react-day-picker/issues/526) by [azhangstrata](https://github.com/azhangstrata))
+
 **DayPickerInput**
 
 * Fixed: allow to change `numberOfMonths`, `selectedDays` props from `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513), [#531](https://github.com/gpbl/react-day-picker/issues/531) by [hydrognomik](https://github.com/hydrognomik))
