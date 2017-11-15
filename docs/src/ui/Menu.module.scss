@@ -1,0 +1,35 @@
+.menu {
+  &:first-child {
+    padding-top: 2em;
+    h3 {
+      margin-top: 0;
+    }
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+  + .menu {
+    margin-top: 1.25em;
+  }
+  h3, h4 {
+    padding-left: 7px;
+  }
+}
+
+.item {
+  margin: 0;
+  padding: 0;
+  display: block;
+  a {
+    position: relative;
+    display: block;
+    padding: .25em 7px;
+  }
+}
+
+a.itemActive {
+  background-color: aliceblue;
+}

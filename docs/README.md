@@ -1,15 +1,10 @@
-# react-day-picker.js.org
+# react-day-picker website
 
-This is the source code for the [documentation website](http://react-day-picker.js.org).
+This is the source code for [http://react-day-picker.js.org](http://react-day-picker.js.org). It is built with [Gatsby](gatsbyjs.org).
 
-## Run the website locally
-
-The website is built with [Jekyll](https://jekyllrb.com).
+### To run the website
 
 ```bash
-$ git clone https://github.com/gpbl/react-day-picker.git
-$ cd react-day-picker/docs
-$ bundle install
-$ jekyll serve
+$ cd docs
+$ yarn develop
 ```
-
