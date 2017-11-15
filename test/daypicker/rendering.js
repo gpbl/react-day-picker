@@ -100,10 +100,6 @@ describe('DayPicker’s rendering', () => {
     const wrapper = shallow(<DayPicker className="given" />);
     expect(wrapper).toHaveClassName('given');
   });
-  it('should have the application role', () => {
-    const wrapper = shallow(<DayPicker />);
-    expect(wrapper).toHaveProp('role', 'application');
-  });
   it('should use the given tabIndex', () => {
     const wrapper = shallow(<DayPicker tabIndex={-1} />);
     expect(wrapper.find('.DayPicker-wrapper')).toHaveProp('tabIndex', -1);
