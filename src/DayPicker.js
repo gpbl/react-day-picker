@@ -9,6 +9,7 @@ import Weekday from './Weekday';
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
 import * as LocaleUtils from './LocaleUtils';
+import * as ModifiersUtils from './ModifiersUtils';
 import classNames from './classNames';
 
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
@@ -122,6 +123,7 @@ export default class DayPicker extends Component {
     onMonthChange: PropTypes.func,
     onCaptionClick: PropTypes.func,
     onWeekClick: PropTypes.func,
+    onTodayButtonClick: PropTypes.func,
   };
 
   static defaultProps = {
@@ -424,8 +426,18 @@ export default class DayPicker extends Component {
   }
 
   handleTodayButtonClick = e => {
-    this.showMonth(new Date());
+    const today = new Date();
+    const month = new Date(today.getFullYear(), today.getMonth());
+    this.showMonth(month);
     e.target.blur();
+    if (this.props.onTodayButtonClick) {
+      e.persist();
+      this.props.onTodayButtonClick(
+        new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        ModifiersUtils.getModifiersForDay(today, this.props.modifiers),
+        e
+      );
+    }
   };
 
   renderNavbar() {
