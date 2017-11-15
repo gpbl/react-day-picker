@@ -7,6 +7,12 @@ _The following changes are not released yet, but are on the master branch and wi
 * Added [`renderWeek`](http://react-day-picker.js.org/api/DayPicker`renderWeek) prop ([#497](https://github.com/gpbl/react-day-picker/issues/497) by [jenshandersson](https://github.com/jenshandersson))
 * Added [`onTodayButtonClick`](http://react-day-picker.js.org/api/DayPicker#onTodayButtonClick) prop ([#529](https://github.com/gpbl/react-day-picker/issues/529))
 
+**DayPickerInput**
+
+* Fixed: allow to change `numberOfMonths`, `selectedDays` props from `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513), [#531](https://github.com/gpbl/react-day-picker/issues/531) by [hydrognomik](https://github.com/hydrognomik))
+* Fixed: some modifiers were not passed down when using a custom `classNames` ([#517](https://github.com/gpbl/react-day-picker/issues/517), [#504](https://github.com/gpbl/react-day-picker/issues/504) by [tume](https://github.com/tume))
+* Fixed: focus behavior on Firefox ([#525](https://github.com/gpbl/react-day-picker/issues/525) by [martinmosko](https://github.com/martinmosko))
+
 ## [v6.2.0](https://github.com/gpbl/react-day-picker/tree/v6.2.0) (2017-10-05)
 
 * Add TypeScript definitions for DayPickerInput ([#487](https://github.com/gpbl/react-day-picker/issues/487) by [adidahiya](https://github.com/adidahiya) and [lpcarignan](https://github.com/lpcarignan))
