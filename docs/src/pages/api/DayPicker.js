@@ -56,7 +56,7 @@ export default () => (
 
     <h4>Elements</h4>
     <p>
-      <a href="#renderDay">renderDay</a>,{' '}
+      <a href="#renderDay">renderDay</a>, <a href="#renderWeek">renderWeek</a>,{' '}
       <a href="#weekdayElement">weekdayElement</a>,{' '}
       <a href="#navbarElement">navbarElement</a>,{' '}
       <a href="#captionElement">captionElement</a>
@@ -129,13 +129,13 @@ export default () => (
       </ul>
       <p>
         The default caption is a <code>div</code> with class{' '}
-        <code>DayPicker-Caption</code>, showing a “month year” text.
+        <code>DayPicker-Caption</code>, showing a “month year”.
       </p>
       <p>
+        {' '}
         See also{' '}
-        <a href="/examples/advanced-year-navigation.html">
-          this advanced example
-        </a>, showing a year navigation element using this prop.
+        <Link to="/examples/elements-year-navigation">this example</Link> using
+        this props to display an element to switch between months and years.
       </p>
       <h3>
         <Anchor id="className" />
@@ -397,6 +397,18 @@ export default () => (
         <code>day</code>’s current date.
       </p>
       <h3>
+        <Anchor id="renderWeek" />
+        renderWeek{' '}
+        <code>(weekNumber: Number, week: Array) ⇒ React.Element</code>
+      </h3>
+      <p>
+        Returns the content of the week element when{' '}
+        <a href="#showWeekNumbers">
+          <code>showWeekNumbers</code>
+        </a>{' '}
+        is set. As default it returns the week number.
+      </p>
+      <h3>
         <Anchor id="reverseMonths" />
         reverseMonths <code>Boolean = false</code>
       </h3>
@@ -422,7 +434,9 @@ export default () => (
         showWeekNumbers <code>Boolean</code>
       </h3>
       <p>
-        Display the year’s week number next to each week (<a href="../examples/?weekNumbers">example</a>).
+        Display the year’s week number next to each week (<Link to="/examples/customization-week-numbers">
+          example
+        </Link>).
       </p>
       <h3>
         <Anchor id="todayButton" />
