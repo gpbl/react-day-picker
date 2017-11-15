@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "babel-preset-flow": "6.23.0",
-    "gatsby": "1.9.100",
+    "gatsby": "1.9.112",
     "gatsby-link": "^1.6.21",
     "gatsby-plugin-glamor": "1.6.8",
     "gatsby-plugin-react-css-modules": "1.0.9",
