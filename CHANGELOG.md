@@ -1,5 +1,3 @@
-<a class="anchor" name="v6"></a>
-
 ## [v6.2.0](https://github.com/gpbl/react-day-picker/tree/v6.2.0) (2017-10-05)
 
 * Add TypeScript definitions for DayPickerInput ([#487](https://github.com/gpbl/react-day-picker/issues/487) by [adidahiya](https://github.com/adidahiya) and [lpcarignan](https://github.com/lpcarignan))
@@ -8,8 +6,8 @@
 
 * Fix an issue with React 0.14
 * Fix a console warning in React 16 ([#493](https://github.com/gpbl/react-day-picker/issues/493))
-* [DayPickerInput] Fix an error when `format` is passed as array ([#502](https://github.com/gpbl/react-day-picker/issues/502))
-* [DayPickerInput] Fix update when receiving new props ([#495](https://github.com/gpbl/react-day-picker/issues/495) by [kradical](https://github.com/kradical))
+* `DayPickerInput` Fix an error when `format` is passed as array ([#502](https://github.com/gpbl/react-day-picker/issues/502))
+* `DayPickerInput` Fix update when receiving new props ([#495](https://github.com/gpbl/react-day-picker/issues/495) by [kradical](https://github.com/kradical))
 
 ### [v6.1.1](https://github.com/gpbl/react-day-picker/tree/v6.1.1) (2017-09-27)
 
@@ -39,7 +37,7 @@
 
 * Fixed: today button inside a form submits the form ([#443](https://github.com/gpbl/react-day-picker/issues/443))
 * Fixed: before/after modifiers not working as expected in some cases ([#442](https://github.com/gpbl/react-day-picker/issues/442))
-* [DayPickerInput] Fixed: allow multiple formats in `format` prop ([#439](https://github.com/gpbl/react-day-picker/issues/439))
+* `DayPickerInput` Fixed: allow multiple formats in `format` prop ([#439](https://github.com/gpbl/react-day-picker/issues/439))
 
 ### [v6.0.4](https://github.com/gpbl/react-day-picker/tree/v6.0.4) (2017-06-26)
 
@@ -52,8 +50,8 @@
 
 **Bug fixes**
 
-* [DayPickerInput] Call `onDayChange(undefined, {})` when user empties the input field. ([#423](https://github.com/gpbl/react-day-picker/issues/423))
-* [DayPickerInput] Fixed: shown month was not updated when updating month in `dayPickerProps` ([#425](https://github.com/gpbl/react-day-picker/issues/425))
+* `DayPickerInput` Call `onDayChange(undefined, {})` when user empties the input field. ([#423](https://github.com/gpbl/react-day-picker/issues/423))
+* `DayPickerInput` Fixed: shown month was not updated when updating month in `dayPickerProps` ([#425](https://github.com/gpbl/react-day-picker/issues/425))
 
 # [v6.0.0](https://github.com/gpbl/react-day-picker/tree/v6.0.0) (2017-06-16)
 
@@ -119,7 +117,6 @@ These changes applies to the production build from the `lib` dir (e.g. that serv
   Use `<DayPicker.Input />` to render the input component.
 
 ---
-<a class="anchor" name="v5"></a>
 
 ### [v5.5.3](https://github.com/gpbl/react-day-picker/tree/v5.5.3) (2017-05-25)
 
@@ -252,10 +249,8 @@ This release focuses on improving perfomance and the component's api-daypicker.
   ```
 
 ---
-<a class="anchor" name="v4"></a>
 
 # [v4.0.0](https://github.com/gpbl/react-day-picker/tree/v4.0.0) (2017-02-10)
-<a class="anchor" name="v4"></a>
 * Pass the day's modifiers to the `renderDay` prop function ([#237](https://github.com/gpbl/react-day-picker/issues/237))
 
 * **Breaking change** Updating `initialMonth` will not show anymore a different month after the first mount ([#169](https://github.com/gpbl/react-day-picker/issues/169))
@@ -276,7 +271,6 @@ This release focuses on improving perfomance and the component's api-daypicker.
   ```
 
 ---
-<a class="anchor" name="v3"></a>
 
 ### [v3.1.1](https://github.com/gpbl/react-day-picker/tree/v3.1.1) (2016-10-18)
 
@@ -306,7 +300,6 @@ With these new props you can localize the Day Picker in a more declarative way. 
 For any locale, weekday names must now begin from Sunday, and the first day of week should reflect this change (hence to start from Monday, the first day of week is `1`). See this [diff](https://github.com/gpbl/react-day-picker/commit/e1462b3818e0a56c24cbcdeb9dba52da8cd8ff72?diff=unified) as example.
   
 ---
-<a class="anchor" name="v2"></a>
 
 ## [v2.5.0](https://github.com/gpbl/react-day-picker/tree/v2.5.0) (2016-10-06)
 
@@ -427,7 +420,7 @@ If you have issues or suggestions, don't forget the [Gitter room](https://gitter
 
   So if you were writing something like:
 
-  ```js
+  ```jsx
   <DayPicker
     modifiers={
       { selected: day => isDaySelected(day) },
@@ -438,7 +431,7 @@ If you have issues or suggestions, don't forget the [Gitter room](https://gitter
 
   now you can write:
 
-  ```js
+  ```jsx
   <DayPicker
     selectedDays={ day => isDaySelected(day) }
     disabledDays={ day => isDayDisabled(day) }
@@ -458,7 +451,6 @@ If you have issues or suggestions, don't forget the [Gitter room](https://gitter
 * Navigation with keyboard when using `fromMonth` or `endMonth`
 
 ---
-<a class="anchor" name="v1"></a>
 
 ### [v1.3.2](https://github.com/gpbl/react-day-picker/tree/v1.3.12) (2016-04-10)
 
