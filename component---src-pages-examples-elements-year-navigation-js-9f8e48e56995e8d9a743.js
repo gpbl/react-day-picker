@@ -1,0 +1,2 @@
+webpackJsonp([70336158226027],{370:function(e,t,n){(function(a){"use strict";function l(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var u=n(1),r=(l(u),n(12)),c=l(r),o=n(8),s=l(o);t.default=function(){return a.createElement(c.default,{title:"Switch between years and months"},a.createElement(s.default,{name:"examples/elements-year-navigation"}))},e.exports=t.default}).call(t,n(2))}});
+//# sourceMappingURL=component---src-pages-examples-elements-year-navigation-js-9f8e48e56995e8d9a743.js.map
