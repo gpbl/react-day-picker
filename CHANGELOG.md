@@ -13,6 +13,8 @@ _The following changes are not released yet, but are on the master branch and wi
 * Fixed: some modifiers were not passed down when using a custom `classNames` ([#517](https://github.com/gpbl/react-day-picker/issues/517), [#504](https://github.com/gpbl/react-day-picker/issues/504) by [tume](https://github.com/tume))
 * Fixed: focus behavior on Firefox ([#525](https://github.com/gpbl/react-day-picker/issues/525) by [martinmosko](https://github.com/martinmosko))
 
+---
+
 ## [v6.2.0](https://github.com/gpbl/react-day-picker/tree/v6.2.0) (2017-10-05)
 
 * Add TypeScript definitions for DayPickerInput ([#487](https://github.com/gpbl/react-day-picker/issues/487) by [adidahiya](https://github.com/adidahiya) and [lpcarignan](https://github.com/lpcarignan))
