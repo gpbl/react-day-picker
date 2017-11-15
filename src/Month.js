@@ -194,7 +194,7 @@ export default class Month extends Component {
                     onKeyUp={e =>
                       e.keyCode === ENTER && onWeekClick(weekNumber, week, e)}
                   >
-                    {this.props.renderWeek(weekNumber, week)}
+                    {this.props.renderWeek(weekNumber, week, month)}
                   </div>
                 )}
                 {week.map(this.renderDay)}
