@@ -340,9 +340,9 @@ export default () => (
         receive the following props:
       </p>
       <ul>
-        <li>
+        {/* <li>
           <code>month: Date</code> The currently displayed month
-        </li>
+        </li> */}
         <li>
           <code>previousMonth: Date</code>
         </li>
