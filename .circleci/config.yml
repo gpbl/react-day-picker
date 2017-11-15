@@ -62,23 +62,18 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: cache-docs-v1-{{ checksum "docs/Gemfile.lock" }}
-      - run: yarn add gh-pages
-      - run: |
-          cd docs
-          bundle install
-       # Store bundle cache
+          key: cache-docs-v1-{{ checksum "docs/package.json" }}
       - save_cache:
-          key: cache-docs-v1-{{ checksum "docs/Gemfile.lock" }}
+          key: cache-docs-v1-{{ checksum "docs/package.json" }}
           paths:
             - "./node_modules"
       - run: |
-          cd docs
-          yarn build
-      - run: |
           git config --global user.email "$GH_EMAIL" > /dev/null 2>&1 
           git config --global user.name "$GH_NAME" > /dev/null 2>&1
-      - run: NODE_DEBUG=gh-pages yarn run docs:publish
+      - run: |
+          cd docs
+          yarn build
+          yarn run publish
 
 workflows:
   version: 2
