@@ -1,57 +1,57 @@
 import React from 'react';
-import { css } from 'glamor';
+import DayPicker from 'react-day-picker';
 
-import * as colors from '../constants/color';
-import { WIDE_SCREEN } from '../constants/mediaSelector';
-
-import logo from '../images/logo.png';
+import Link from 'gatsby-link';
 
 import Wrap from './Wrap';
-import Navigation from './Navigation';
 
-export const HEADER_HEIGHT = 60;
-export const LOGO_HEIGHT = 50;
-export const LOGO_WIDTH = 250;
-
-const cssHeader = css({
-  width: '100%',
-  borderBottom: `1px solid ${colors.BORDER}`,
-  backgroundColor: 'white',
-  textAlign: 'center',
-  [WIDE_SCREEN]: {
-    position: 'fixed',
-    // marginBottom: HEADER_HEIGHT,
-    height: HEADER_HEIGHT,
-    zIndex: 1,
-    top: 0,
-    padding: '5px 10px',
-    boxSizing: 'border-box',
-    textAlign: 'left',
-    '& + *': {
-      paddingTop: HEADER_HEIGHT,
-    },
-  },
-});
-
-const cssHome = css({
-  verticalAlign: 'middle',
-  display: 'inline-block',
-  marginRight: '1em',
-});
+import logo from '../images/logo.png';
+import github from '../images/github.png';
+import styles from './Header.module.scss';
 
 export default function Header() {
   return (
-    <header css={cssHeader}>
+    <header className={styles.container}>
       <Wrap>
-        <a href="/" css={cssHome}>
-          <img
-            src={logo}
-            alt="Home page"
-            height={LOGO_HEIGHT}
-            width={LOGO_WIDTH}
-          />
-        </a>
-        <Navigation />
+        <div className={styles.header}>
+          <a className={styles.headerLogo} href="/">
+            <img src={logo} alt="Home page" width={200} height={40} />
+          </a>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/docs" activeClassName={styles.active}>
+                  Docs & API
+                </Link>
+              </li>
+              <li>
+                <Link to="/examples" activeClassName={styles.active}>
+                  Examples
+                </Link>
+              </li>
+              <li>
+                <Link to="/support" activeClassName={styles.active}>
+                  Support
+                </Link>
+              </li>
+              <li>
+                <Link to="/contributing" activeClassName={styles.active}>
+                  Contribute
+                </Link>
+              </li>
+              <li>
+                <Link to="/changelog" activeClassName={styles.active}>
+                  v{DayPicker.VERSION}
+                </Link>
+              </li>
+              <li>
+                <a href="https://github.com/gpbl/react-day-picker">
+                  <img src={github} width="20" height="20" alt="Github logo" />
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </Wrap>
     </header>
   );

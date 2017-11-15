@@ -1,2 +1,0 @@
-.sass-cache
-.jekyll-metadata
