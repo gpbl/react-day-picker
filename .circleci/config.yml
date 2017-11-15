@@ -56,24 +56,21 @@ jobs:
       - run: yarn build
 
   build-docs:
-    working_directory: ~/react-day-picker/docs
-    docker:
-      - image: circleci/ruby:2.4.1-node
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
           key: cache-docs-v1-{{ checksum "package.json" }}
-      - run: yarn install
+      - run: cd docs && yarn install
       - save_cache:
           key: cache-docs-v1-{{ checksum "package.json" }}
           paths:
-            - "./node_modules"
+            - "./docs/node_modules"
       - run: |
           git config --global user.email "$GH_EMAIL" > /dev/null 2>&1 
           git config --global user.name "$GH_NAME" > /dev/null 2>&1
-      - run: |
-          yarn build
-          yarn run publish
+      - run: cd docs && yarn build
+      - run: cd docs && yarn publish
 
 workflows:
   version: 2
