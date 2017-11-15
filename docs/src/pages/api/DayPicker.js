@@ -341,34 +341,19 @@ export default () => (
       </p>
       <ul>
         <li>
-          className <code>String</code>
+          <code>month: Date</code> The currently displayed month
         </li>
         <li>
-          previousMonth <code>Date</code>
+          <code>previousMonth: Date</code>
         </li>
         <li>
-          nextMonth <code>Date</code>
+          <code>nextMonth: Date</code>
         </li>
         <li>
-          showPreviousButton <code>Boolean</code>
+          <code>onPreviousClick: () ⇒ undefined</code>
         </li>
         <li>
-          showNextButton <code>Boolean</code>
-        </li>
-        <li>
-          onPreviousClick <code>() ⇒ undefined</code>
-        </li>
-        <li>
-          onNextClick <code>() ⇒ undefined</code>
-        </li>
-        <li>
-          dir <code>String</code>
-        </li>
-        <li>
-          localeUtils <code>Object</code>
-        </li>
-        <li>
-          locale <code>String</code>
+          <code>onNextClick: () ⇒ undefined</code>
         </li>
       </ul>
       <h3>

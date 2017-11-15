@@ -6,6 +6,7 @@ _The following changes are not released yet, but are on the master branch and wi
 
 * Added [`renderWeek`](http://react-day-picker.js.org/api/DayPicker`renderWeek) prop ([#497](https://github.com/gpbl/react-day-picker/issues/497) by [jenshandersson](https://github.com/jenshandersson))
 * Added [`onTodayButtonClick`](http://react-day-picker.js.org/api/DayPicker#onTodayButtonClick) prop ([#529](https://github.com/gpbl/react-day-picker/issues/529))
+* Added `month` prop to [`navbarElement`]((http://react-day-picker.js.org/api/DayPicker#navbarElement)) ([#552](https://github.com/gpbl/react-day-picker/issues/552))
 
 **Fixes**
 
