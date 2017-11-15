@@ -28,7 +28,7 @@
     "build:development": "NODE_ENV=development webpack",
     "build:production": "NODE_ENV=production webpack -p",
     "build:css": "postcss src/style.css --use autoprefixer -d lib/ --no-map",
-    "docs:publish": "cp docs/CNAME docs/_site && gh-pages -d docs/_site"
+    "docs:publish": "cp docs/CNAME docs/public && gh-pages -d docs/public"
   },
   "repository": {
     "type": "git",
