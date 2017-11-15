@@ -7,7 +7,7 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "publish": "cp CNAME public && NODE_DEBUG=gh-pages gh-pages -d public"
+    "docs-publish": "cp CNAME public && NODE_DEBUG=gh-pages gh-pages -d public"
   },
   "dependencies": {
     "babel-preset-flow": "6.23.0",
