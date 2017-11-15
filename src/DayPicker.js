@@ -525,7 +525,6 @@ export default class DayPicker extends Component {
         {...this.props.containerProps}
         className={className}
         ref={el => (this.dayPicker = el)}
-        role="application"
         lang={this.props.locale}
       >
         <div
