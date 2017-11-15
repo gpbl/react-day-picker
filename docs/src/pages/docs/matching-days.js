@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'gatsby-link';
 
 import DocPage from '../../containers/DocPage';
 import CodeBlock from '../../ui/CodeBlock';
@@ -24,9 +25,21 @@ export default () => (
 
     <blockquote>
       <p>
-        The modifiers’ CSS classes follow a{' '}
-        <a href="https://css-tricks.com/bem-101/">BEM-like syntax</a>, but you
-        can
+        Modifers CSS classes are generated automatically to follow a{' '}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://css-tricks.com/bem-101/"
+        >
+          BEM-like syntax
+        </a>. You can change the name of the classes using the{' '}
+        <Link to="/api/DayPicker#classnames">
+          <code>classNames</code>
+        </Link>{' '}
+        prop, or even use{' '}
+        <Link to="/docs/styling#styling-css-modules">
+          modifiers with CSS modules
+        </Link>.
       </p>
     </blockquote>
 

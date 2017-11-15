@@ -32,8 +32,8 @@
   display: inline-block;
   vertical-align: middle;
   @include small-screen() {
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    top: calc(100vh - 45px);
     left: 0;
     right: 0;
     background: white;

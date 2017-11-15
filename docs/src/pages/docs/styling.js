@@ -2,8 +2,9 @@ import React from 'react';
 import Link from 'gatsby-link';
 
 import DocPage from '../../containers/DocPage';
-import CodeSample from '../../ui/CodeSample';
 
+import Anchor from '../../ui/Anchor';
+import CodeSample from '../../ui/CodeSample';
 import CodeBlock from '../../ui/CodeBlock';
 import NextButton from '../../ui/NextButton';
 
@@ -102,6 +103,7 @@ export default function CSSModules() {
 }`}
     </CodeBlock>
 
+    <Anchor id="styling-css-modules" />
     <h3>Styling modifiers with CSS Modules</h3>
 
     <p>

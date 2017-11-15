@@ -2,6 +2,7 @@ import React from 'react';
 
 import Link from 'gatsby-link';
 
+import Anchor from '../../ui/Anchor';
 import CodeBlock from '../../ui/CodeBlock';
 import DocPage from '../../containers/DocPage';
 import ApiDocs from '../../containers/ApiDocs';
@@ -30,14 +31,16 @@ function formatMonthTitle(d, locale) {
 
     <ApiDocs>
       <h2>Functions</h2>
-      <h3 id="formatDay">
+      <h3>
+        <Anchor id="formatDay" />
         formatDay <code>(day: Date, locale: String) ⇒ String</code>
       </h3>
       <p>
         Format the string used as aria-label for the given <code>day</code>.
       </p>
 
-      <h3 id="formatMonthTitle">
+      <h3>
+        <Anchor id="formatMonthTitle" />
         formatMonthTitle <code>(month: Date, locale: String) ⇒ String</code>
       </h3>
       <p>
@@ -45,7 +48,8 @@ function formatMonthTitle(d, locale) {
         <code>month</code>.
       </p>
 
-      <h3 id="formatWeekdayLong">
+      <h3>
+        <Anchor id="formatWeekdayLong" />
         formatWeekdayLong <code>(i: Number, locale: String) ⇒ String</code>
       </h3>
       <p>
@@ -53,7 +57,8 @@ function formatMonthTitle(d, locale) {
         <code>0</code> as Sunday).
       </p>
 
-      <h3 id="formatWeekdayShort">
+      <h3>
+        <Anchor id="formatWeekdayShort" />
         formatWeekdayShort <code>(i: Number, locale: String) ⇒ String</code>
       </h3>
       <p>
@@ -62,7 +67,8 @@ function formatMonthTitle(d, locale) {
         <i>Monday</i>.
       </p>
 
-      <h3 id="getFirstDayOfWeek">
+      <h3>
+        <Anchor id="getFirstDayOfWeek" />
         getFirstDayOfWeek <code>(locale: String) ⇒ Number</code>
       </h3>
       <p>
@@ -71,7 +77,8 @@ function formatMonthTitle(d, locale) {
         is Sunday).
       </p>
 
-      <h3 id="getMonths">
+      <h3>
+        <Anchor id="getMonths" />
         getMonths <code>(locale: String) ⇒ Number</code>
       </h3>
       <p>
