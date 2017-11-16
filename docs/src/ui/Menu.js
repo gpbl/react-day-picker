@@ -8,11 +8,9 @@ export default class Menu extends React.Component {
   componentDidMount() {
     const activeNodes = this.node.querySelectorAll(`.${styles.itemActive}`);
     if (activeNodes.length === 1) {
-      console.log(activeNodes[0]);
       activeNodes[0].scrollIntoView({ block: 'center', inline: 'nearest' });
     }
   }
-
   render() {
     const { children, title, subtitle } = this.props;
     return (

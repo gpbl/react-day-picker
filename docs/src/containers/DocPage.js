@@ -18,7 +18,7 @@ export default function DocPage({ title, children }) {
         <Main>
           <Main.Aside>
             <Menu title="Documentation">
-              <Menu.Item to="/docs/getting-started">Getting Started</Menu.Item>
+              <Menu.Item to="/docs/getting-started">Get Started</Menu.Item>
               <Menu.Item to="/docs/basic-concepts">Basic concepts</Menu.Item>
               <Menu.Item to="/docs/matching-days">Matching days</Menu.Item>
               <Menu.Item to="/docs/styling">Styling</Menu.Item>

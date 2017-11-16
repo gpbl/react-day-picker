@@ -1,4 +1,5 @@
 @import '../style/mixins.scss';
+@import '../style/constants.scss';
 
 .container {
   position: fixed;
@@ -6,7 +7,7 @@
   right: 0;
   top: 0;
   box-sizing: border-box;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid $border-color;
   background: white;
   z-index: 1;
 }
@@ -37,7 +38,7 @@
     left: 0;
     right: 0;
     background: white;
-    border-top: 1px solid #f1f1f1;
+    border-top: 1px solid $border-color;
   }
   ul {
     display: flex;
