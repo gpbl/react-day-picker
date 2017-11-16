@@ -1,2 +1,0 @@
-webpackJsonp([63924301981268],{367:function(e,t,n){(function(l){"use strict";function a(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var u=n(1),d=(a(u),n(12)),s=a(d),c=n(8),f=a(c);t.default=function(){return l.createElement(s.default,{title:"Disable weekends"},l.createElement(f.default,{name:"examples/disabled-weekends"}))},e.exports=t.default}).call(t,n(2))}});
-//# sourceMappingURL=component---src-pages-examples-disabled-weekends-js-16646c479327b3ef0b33.js.map

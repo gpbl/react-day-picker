@@ -1,2 +1,0 @@
-webpackJsonp([0x759a5773978f],{361:function(e,t,a){(function(l){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var u=a(1),c=(n(u),a(12)),f=n(c),r=a(8),d=n(r);t.default=function(){return l.createElement(f.default,{title:"Simple calendar"},l.createElement(d.default,{name:"examples/basic"}))},e.exports=t.default}).call(t,a(2))}});
-//# sourceMappingURL=component---src-pages-examples-basic-js-f0c141982e43d03f9b28.js.map

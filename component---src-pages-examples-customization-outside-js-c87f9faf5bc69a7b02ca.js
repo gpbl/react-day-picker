@@ -1,2 +1,0 @@
-webpackJsonp([0x77b5c7a50fee],{363:function(e,t,u){(function(a){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var l=u(1),c=(n(l),u(12)),o=n(c),s=u(8),d=n(s);t.default=function(){return a.createElement(o.default,{title:"Outside days"},a.createElement(d.default,{name:"examples/customization-outside"}))},e.exports=t.default}).call(t,u(2))}});
-//# sourceMappingURL=component---src-pages-examples-customization-outside-js-c87f9faf5bc69a7b02ca.js.map
