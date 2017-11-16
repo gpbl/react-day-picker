@@ -7,7 +7,7 @@ import CodeBlock from '../../ui/CodeBlock';
 import NextButton from '../../ui/NextButton';
 
 export default () => (
-  <DocPage title="Getting started">
+  <DocPage title="Get started">
     <p>
       react-day-picker is designed to cover the most common needs for a date
       picker in web applications. This package includes:

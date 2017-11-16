@@ -14,6 +14,7 @@ export default class MyForm extends React.Component {
     this.setState({ selectedDay: day });
   }
   render() {
+    const { selectedDay } = this.state;
     return (
       <div>
         <DayPickerInput
@@ -22,10 +23,7 @@ export default class MyForm extends React.Component {
           format="DD/MM/YYYY"
           onDayChange={this.handleDayChange}
         />
-        Selected:{' '}
-        {this.state.selectedDay && (
-          <p>{this.state.selectedDay.format('LLL')}</p>
-        )}
+        {selectedDay && <p>Selected: {<p>{selectedDay.format('LLL')}</p>}</p>}
       </div>
     );
   }

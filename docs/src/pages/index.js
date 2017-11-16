@@ -90,7 +90,7 @@ export default function HomePage() {
           </div>
         </div>
         <hr />
-        <h2>Getting started</h2>
+        <h2>Get started</h2>
         <div className={styles.gettingStarted}>
           <div>
             <h3>Install via npm or yarn</h3>
