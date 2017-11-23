@@ -76,6 +76,11 @@
   color: #8b9898;
 }
 
+.DayPicker-Weekday abbr[title] {
+  border-bottom: none;
+  text-decoration: none;
+}
+
 .DayPicker-Body {
   display: table-row-group;
 }
