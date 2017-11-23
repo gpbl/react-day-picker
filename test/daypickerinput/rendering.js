@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
+import moment from 'moment';
 
 import DayPickerInput from '../../src/DayPickerInput';
 import DayPicker from '../../src/DayPicker';
@@ -173,6 +174,15 @@ describe('DayPickerInput', () => {
       ReactDOM.unmountComponentAtNode(container);
       expect(spy).toHaveBeenCalledTimes(3);
       spy.mockRestore();
+    });
+    it('should set today when clicking on today button', () => {
+      const wrapper = mount(
+        <DayPickerInput dayPickerProps={{ todayButton: 'Today' }} />
+      );
+      wrapper.instance().showDayPicker();
+      wrapper.update();
+      wrapper.find('.DayPicker-TodayButton').simulate('click');
+      expect(wrapper.find('input')).toHaveProp('value', moment().format('L'));
     });
   });
 });
