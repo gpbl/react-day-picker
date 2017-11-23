@@ -15,6 +15,8 @@ _The following changes are not released yet, but are on the master branch and wi
 
 **DayPickerInput**
 
+* New: clicking the Today Button will set the input value to today ([#561](https://github.com/gpbl/react-day-picker/issues/561))
+
 * Fixed: allow to change `numberOfMonths`, `selectedDays` props from `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513), [#531](https://github.com/gpbl/react-day-picker/issues/531) by [hydrognomik](https://github.com/hydrognomik))
 * Fixed: some modifiers were not passed down when using a custom `classNames` ([#517](https://github.com/gpbl/react-day-picker/issues/517), [#504](https://github.com/gpbl/react-day-picker/issues/504) by [tume](https://github.com/tume))
 * Fixed: focus behavior on Firefox ([#525](https://github.com/gpbl/react-day-picker/issues/525) by [martinmosko](https://github.com/martinmosko))
