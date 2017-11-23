@@ -166,21 +166,6 @@ export function isDayInRange(day, range) {
 }
 
 /**
- * Return `true` if a the two dates are in the same month
- *
- * @export
- * @param  {Date}  date1
- * @param  {Date}  date2
- * @return {Boolean}
- */
-export function isSameMonth(date1, date2) {
-  return (
-    date1.getFullYear() === date2.getFullYear() &&
-    date1.getMonth() === date2.getMonth()
-  );
-}
-
-/**
  * Return the year's week number (as per ISO, i.e. with the week starting from monday)
  * for the given day.
  * 
@@ -209,5 +194,4 @@ export default {
   isFutureDay,
   isPastDay,
   isSameDay,
-  isSameMonth,
 };

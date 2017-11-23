@@ -221,17 +221,4 @@ describe('DateUtils', () => {
       expect(isDayInRange).toBe(false);
     });
   });
-
-  describe('isSameMonth', () => {
-    it('return `true` if two dates are in the same month', () => {
-      const date1 = new Date(2015, 10, 5);
-      const date2 = new Date(2015, 10, 4);
-      expect(DateUtils.isSameMonth(date1, date2)).toBe(true);
-    });
-    it('return `false` if two dates are in the same month', () => {
-      const date1 = new Date(2015, 10, 5);
-      const date2 = new Date(2015, 11, 4);
-      expect(DateUtils.isSameMonth(date1, date2)).toBe(false);
-    });
-  });
 });
