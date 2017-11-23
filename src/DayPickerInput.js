@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import moment from 'moment'; // eslint-disable-line import/no-extraneous-dependencies
 
 import DayPicker from './DayPicker';
-import { isSameMonth } from './DateUtils';
 import { getModifiersForDay } from './ModifiersUtils';
 import MomentLocaleUtils from './addons/MomentLocaleUtils';
 import { ESC } from './keys';
