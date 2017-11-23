@@ -30,7 +30,6 @@ function getStateFromProps(props) {
 
 export default class DayPickerInput extends React.Component {
   static propTypes = {
-    // eslint-disable-next-line react/no-unused-prop-types
     value: PropTypes.string,
 
     format: PropTypes.oneOfType([
@@ -115,6 +114,50 @@ export default class DayPickerInput extends React.Component {
   clickTimeout = null;
   hideTimeout = null;
 
+  updateValue(newValue) {
+    const { format, dayPickerProps, onDayChange } = this.props;
+    let value = newValue;
+    let day = value;
+    let m;
+    if (typeof value === 'string') {
+      m = moment(value, format, true);
+      if (value.trim() === '') {
+        this.setState({ value });
+        if (onDayChange) {
+          onDayChange(undefined, {});
+        }
+        return;
+      }
+      if (!m.isValid()) {
+        this.setState({ value });
+        return;
+      }
+      day = m.toDate();
+    } else {
+      m = moment(day);
+      value = m.format(format);
+    }
+    this.setState({ month: day, value }, () => {
+      if (!onDayChange) {
+        return;
+      }
+      const modifiersObj = {
+        disabled: dayPickerProps.disabledDays,
+        selected: dayPickerProps.selectedDays,
+        ...dayPickerProps.modifiers,
+      };
+      const modifiers = getModifiersForDay(
+        day,
+        modifiersObj
+      ).reduce((obj, modifier) => {
+        const newObj = { ...obj };
+        newObj[modifier] = true;
+        return newObj;
+      }, {});
+      onDayChange(m, modifiers);
+    });
+  }
+
   /**
    * Show the Day Picker overlay.
    * 
@@ -189,48 +232,11 @@ export default class DayPickerInput extends React.Component {
   };
 
   handleChange = e => {
-    const { value } = e.target;
-    const { format, dayPickerProps, onDayChange, onChange } = this.props;
-    const m = moment(value, format, true);
-
-    if (onChange) {
+    if (this.props.onChange) {
       e.persist();
-      onChange(e);
+      this.props.onChange(e);
     }
-
-    if (value.trim() === '') {
-      this.setState({ value });
-      if (this.props.onDayChange) {
-        this.props.onDayChange(undefined, {});
-      }
-      return;
-    }
-
-    if (!m.isValid()) {
-      this.setState({ value });
-      return;
-    }
-
-    const day = m.toDate();
-    this.setState({ month: day, value }, () => {
-      if (!onDayChange) {
-        return;
-      }
-      const modifiersObj = {
-        disabled: dayPickerProps.disabledDays,
-        selected: dayPickerProps.selectedDays,
-        ...dayPickerProps.modifiers,
-      };
-      const modifiers = getModifiersForDay(
-        day,
-        modifiersObj
-      ).reduce((obj, modifier) => {
-        const newObj = { ...obj };
-        newObj[modifier] = true;
-        return newObj;
-      }, {});
-      this.props.onDayChange(m, modifiers);
-    });
+    this.updateValue(e.target.value);
   };
 
   handleOnKeyUp = e => {
@@ -286,7 +292,7 @@ export default class DayPickerInput extends React.Component {
   };
 
   renderOverlay() {
-    const { format } = this.props;
+    const { format, classNames, dayPickerProps } = this.props;
     const { selectedDays, value } = this.state;
     let selectedDay;
     if (!selectedDays && value) {
@@ -298,14 +304,20 @@ export default class DayPickerInput extends React.Component {
       selectedDay = selectedDays;
     }
 
+    let onTodayButtonClick;
+    if (dayPickerProps.todayButton) {
+      onTodayButtonClick = () => this.updateValue(new Date());
+    }
+
     return (
-      <div className={this.props.classNames.overlayWrapper}>
-        <div className={this.props.classNames.overlay}>
+      <div className={classNames.overlayWrapper}>
+        <div className={classNames.overlay}>
           <DayPicker
             ref={el => (this.daypicker = el)}
             localeUtils={MomentLocaleUtils}
             fixedWeeks
-            {...this.props.dayPickerProps}
+            onTodayButtonClick={onTodayButtonClick}
+            {...dayPickerProps}
             month={this.state.month}
             selectedDays={selectedDay}
             onDayClick={this.handleDayClick}
