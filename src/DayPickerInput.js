@@ -71,11 +71,13 @@ export default class DayPickerInput extends React.Component {
     const { dayPickerProps, value } = this.props;
     const currentMonth = dayPickerProps.month;
     const nextMonth = nextProps.dayPickerProps.month;
-    const nextValue = nextProps.dayPickerProps.value;
+    const nextValue = nextProps.value;
 
     const shouldUpdateMonth =
       (nextMonth && !currentMonth) ||
-      (nextMonth && currentMonth && !isSameMonth(nextMonth, currentMonth));
+      (nextMonth &&
+        (nextMonth.getFullYear() !== currentMonth.getFullYear() ||
+          nextMonth.getMonth() !== currentMonth.getMonth()));
 
     if (nextValue !== value && !shouldUpdateMonth) {
       this.setState(this.getStateFromProps(nextProps));
