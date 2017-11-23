@@ -86,6 +86,5 @@ workflows:
                 - master   
       - build-docs:
           filters:
-            branches:
-              only: 
-                - master   
+            tags:
+              only: /^v.*/  
