@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
+import moment from 'moment';
 
 import DayPickerInput from '../../src/DayPickerInput';
 import DayPicker from '../../src/DayPicker';
@@ -124,6 +125,25 @@ describe('DayPickerInput', () => {
       expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(1);
       expect(wrapper.find('.DayPicker-Day--selected')).toHaveText('15');
     });
+    it('should clear timeouts when component unmounts', () => {
+      const container = document.createElement('div');
+      mount(<DayPickerInput />, { attachTo: container });
+      const spy = jest.spyOn(window, 'clearTimeout');
+      ReactDOM.unmountComponentAtNode(container);
+      expect(spy).toHaveBeenCalledTimes(3);
+      spy.mockRestore();
+    });
+    it('should set today when clicking on today button', () => {
+      const wrapper = mount(
+        <DayPickerInput dayPickerProps={{ todayButton: 'Today' }} />
+      );
+      wrapper.instance().showDayPicker();
+      wrapper.update();
+      wrapper.find('.DayPicker-TodayButton').simulate('click');
+      expect(wrapper.find('input')).toHaveProp('value', moment().format('L'));
+    });
+  });
+  describe('updating props', () => {
     it('should update the current value when `value` prop is updated', () => {
       const wrapper = mount(<DayPickerInput value="12/15/2017" />);
       wrapper.setProps({ value: '01/10/2018' });
@@ -135,7 +155,12 @@ describe('DayPickerInput', () => {
       expect(wrapper.instance().state.value).toBe('12/15/2017');
     });
     it("should update the displayed month when `dayPickerProps.month`'s month is updated", () => {
-      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
+      const wrapper = mount(
+        <DayPickerInput
+          dayPickerProps={{ month: new Date(2017, 9) }}
+          value="12/15/2017"
+        />
+      );
       wrapper.instance().showDayPicker();
       wrapper.update();
       expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
@@ -148,7 +173,12 @@ describe('DayPickerInput', () => {
       );
     });
     it("should update the displayed month when `dayPickerProps.month`'s year is updated", () => {
-      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
+      const wrapper = mount(
+        <DayPickerInput
+          dayPickerProps={{ month: new Date(2018, 10) }}
+          value="12/15/2017"
+        />
+      );
       wrapper.instance().showDayPicker();
       wrapper.update();
       expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
@@ -160,19 +190,23 @@ describe('DayPickerInput', () => {
         'November 2016'
       );
     });
+    it('should not change state if month did not change', () => {
+      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
+      wrapper.instance().showDayPicker();
+      wrapper.update();
+      expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
+        'December 2017'
+      );
+      wrapper.setProps({ dayPickerProps: { month: new Date(2017, 11) } });
+      expect(wrapper.instance().state.value).toBe('12/15/2017');
+      expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
+        'December 2017'
+      );
+    });
     it('should not update the current value when other props are updated', () => {
       const wrapper = mount(<DayPickerInput value="12/15/2017" />);
-      wrapper.setProps({ dayPickerProps: {} });
+      wrapper.setProps({ dayPickerProps: {}, value: '12/15/2017' });
       expect(wrapper.instance().state.value).toBe('12/15/2017');
-    });
-
-    it('should clear timeouts when component unmounts', () => {
-      const container = document.createElement('div');
-      mount(<DayPickerInput />, { attachTo: container });
-      const spy = jest.spyOn(window, 'clearTimeout');
-      ReactDOM.unmountComponentAtNode(container);
-      expect(spy).toHaveBeenCalledTimes(3);
-      spy.mockRestore();
     });
   });
 });
