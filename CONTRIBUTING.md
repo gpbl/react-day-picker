@@ -1,6 +1,8 @@
 # Contributing to react-day-picker
 
-You are welcome to join the [other contributors](https://github.com/gpbl/react-day-picker/graphs/contributors) and help improving react-day-picker! Please consider:
+You are welcome to join the
+[other contributors](https://github.com/gpbl/react-day-picker/graphs/contributors)
+and help improving react-day-picker! Please consider:
 
 * The development environment is Node 7+.
 * Code has 100% coverage and it should stay so
@@ -17,30 +19,33 @@ $ cd react-day-picker
 $ yarn
 ```
 
-### Use the docs website to test your changes
+## How to use the website to test your changes
 
-Sometimes, the best way to develop and test a new idea or a bug fix is run it directly from the browser. That's why the docs website is written in React with [Gatsby](http://gatsbyjs.org).
-
-To run the documentation website, 
+The best way to develop and test a new idea or a bug fix is to run locally
+[the website](https://react-day-picker.js.org):
 
 ```bash
+$ git clone https://github.com/gpbl/react-day-picker.git
 $ cd react-day-picker
 $ cd docs
 $ yarn install
 $ yarn develop
 ```
 
-To see your changes, import `react-day-picker` directly from the source. For example, to use your locally modified `DayPicker` component in the [basic example](http://react-day-picker.js.org/examples/basic/) ([source](https://github.com/gpbl/react-day-picker/blob/master/docs/src/code-samples/examples/basic.js#L3)), point the `import` statement  to the main package's `./src` directory:
+Then open [localhost:8000](http://localhost:8000).
 
-```diff
-// docs/src/code-samples/examples/basic.js
-- import DayPicker from 'react-day-picker';
-+ import DayPicker from '../../../../src/DayPicker';
-```
+> For example, Change
+> [./docs/src/code-samples/examples/basic.js](./docs/src/code-samples/examples/basic.js)
+> to see it updated in
+> [localhost:8000/examples/basic](http://localhost:8000/examples/basic).
+
+In the code, using `import from react-day-picker` will load the
+[source code](src) instead of the [compiled lib](lib).
 
 ### Add unit tests
 
-Tests are written with [jest](https://facebook.github.io/jest/). Please make sure your tests pass:
+Tests are written with [jest](https://facebook.github.io/jest/). Please make
+sure your tests pass:
 
 ```bash
 $ yarn test               # run unit tests

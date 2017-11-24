@@ -1,3 +1,5 @@
+const path = require('path');
+
 exports.createPages = ({ boundActionCreators }) => {
   const { createRedirect } = boundActionCreators;
   const redirects = [
@@ -24,6 +26,36 @@ exports.createPages = ({ boundActionCreators }) => {
       toPath,
       redirectInBrowser: true,
     });
-    console.log(`Redirecting %s to %s`, fromPath, toPath);
   });
+};
+
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  switch (stage) {
+    case 'develop':
+      config.merge({
+        resolve: {
+          alias: {
+            'react-day-picker$': path.resolve(__dirname, '../src/DayPicker.js'),
+            'react-day-picker/lib/style.css$': path.resolve(
+              __dirname,
+              '../src/style.css'
+            ),
+          },
+        },
+      });
+      break;
+
+    case 'build-css':
+      break;
+
+    case 'build-html':
+      break;
+
+    case 'build-javascript':
+      break;
+
+    default:
+  }
+
+  return config;
 };
