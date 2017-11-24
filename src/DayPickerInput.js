@@ -290,7 +290,7 @@ export default class DayPickerInput extends React.Component {
       return;
     }
 
-    const m = moment(day).locale(dayPickerProps.locale);
+    const m = moment(day).locale(dayPickerProps.locale || 'en');
     const value = m.format(typeof format === 'string' ? format : format[0]);
     this.setState({ value, month: day }, () => {
       if (onDayChange) {
@@ -320,7 +320,7 @@ export default class DayPickerInput extends React.Component {
         this.updateState(
           new Date(),
           moment()
-            .locale(dayPickerProps.locale)
+            .locale(dayPickerProps.locale || 'en')
             .format(this.props.format)
         );
     }
