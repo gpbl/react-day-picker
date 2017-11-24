@@ -1,8 +1,8 @@
 // TypeScript Version: 2.2
 
-import * as React from "react";
-import { ClassNames, Modifier, Modifiers, DayModifiers } from "./common";
-import { LocaleUtils } from "./utils";
+import * as React from 'react';
+import { ClassNames, Modifier, Modifiers, DayModifiers } from './common';
+import { LocaleUtils } from './utils';
 
 export interface CaptionElementProps {
   date: Date;
@@ -43,7 +43,10 @@ export interface DayPickerProps {
     | React.SFC<CaptionElementProps>;
   className?: string;
   classNames?: ClassNames;
-  containerProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+  containerProps?: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  >;
   disabledDays?: Modifier | Modifier[];
   enableOutsideDays?: boolean;
   firstDayOfWeek?: number;
@@ -147,8 +150,10 @@ export interface DayPickerInputProps {
   dayPickerProps?: DayPickerProps;
   hideOnDayClick?: boolean;
   clickUnselectsDay?: boolean;
+
   // Not sure React.ComponentClass<any> is the right type for _propTypes2.default.any
   component?: any;
+  overlayComponent?: any;
 
   classNames?: ClassNames;
 

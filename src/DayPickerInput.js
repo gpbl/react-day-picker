@@ -23,6 +23,7 @@ export default class DayPickerInput extends React.Component {
     hideOnDayClick: PropTypes.bool,
     clickUnselectsDay: PropTypes.bool,
     component: PropTypes.any,
+    overlayComponent: PropTypes.any,
 
     classNames: PropTypes.shape({
       container: PropTypes.string,
@@ -45,6 +46,11 @@ export default class DayPickerInput extends React.Component {
     hideOnDayClick: true,
     clickUnselectsDay: false,
     component: 'input',
+    overlayComponent: ({ children, classNames }) => (
+      <div className={classNames.overlayWrapper}>
+        <div className={classNames.overlay}>{children}</div>
+      </div>
+    ),
     classNames: {
       container: 'DayPickerInput',
       overlayWrapper: 'DayPickerInput-OverlayWrapper',
@@ -54,15 +60,17 @@ export default class DayPickerInput extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = this.getStateFromProps(props);
     this.state.showOverlay = false;
+
     this.hideAfterDayClick = this.hideAfterDayClick.bind(this);
     this.handleContainerMouseDown = this.handleContainerMouseDown.bind(this);
     this.handleInputClick = this.handleInputClick.bind(this);
     this.handleInputFocus = this.handleInputFocus.bind(this);
     this.handleInputBlur = this.handleInputBlur.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleInputOnKeyUp = this.handleInputOnKeyUp.bind(this);
+    this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
     this.handleDayClick = this.handleDayClick.bind(this);
   }
 
@@ -239,7 +247,7 @@ export default class DayPickerInput extends React.Component {
     this.updateState(day, value);
   }
 
-  handleInputOnKeyUp(e) {
+  handleInputKeyUp(e) {
     // Hide the overlay if the ESC key is pressed
     this.setState({ showOverlay: e.keyCode !== ESC });
     if (this.props.onKeyUp) {
@@ -311,49 +319,57 @@ export default class DayPickerInput extends React.Component {
       onTodayButtonClick = () =>
         this.updateState(new Date(), moment().format(this.props.format));
     }
-
+    const Overlay = this.props.overlayComponent;
     return (
-      <div className={classNames.overlayWrapper}>
-        <div className={classNames.overlay}>
-          <DayPicker
-            ref={el => (this.daypicker = el)}
-            localeUtils={MomentLocaleUtils}
-            fixedWeeks
-            onTodayButtonClick={onTodayButtonClick}
-            {...dayPickerProps}
-            month={this.state.month}
-            selectedDays={selectedDay}
-            onDayClick={this.handleDayClick}
-          />
-        </div>
-      </div>
+      <Overlay
+        classNames={classNames}
+        month={this.state.month}
+        selectedDay={selectedDay}
+        input={this.input}
+      >
+        <DayPicker
+          ref={el => (this.daypicker = el)}
+          localeUtils={MomentLocaleUtils}
+          fixedWeeks
+          onTodayButtonClick={onTodayButtonClick}
+          {...dayPickerProps}
+          month={this.state.month}
+          selectedDays={selectedDay}
+          onDayClick={this.handleDayClick}
+          onMonthChange={month => this.setState({ month })}
+        />
+      </Overlay>
     );
   }
 
   render() {
-    const inputProps = { ...this.props };
-    delete inputProps.component;
-    delete inputProps.dayPickerProps;
-    delete inputProps.format;
-    delete inputProps.clickUnselectsDay;
-    delete inputProps.hideOnDayClick;
-    delete inputProps.onDayChange;
-    delete inputProps.classNames;
+    const {
+      component,
+      overlayComponent,
+      dayPickerProps,
+      format,
+      clickUnselectsDay,
+      hideOnDayClick,
+      onDayChange,
+      classNames,
+      ...inputProps
+    } = this.props;
+    const Input = this.props.component;
     return (
       <div
         className={this.props.classNames.container}
         onMouseDown={this.handleContainerMouseDown}
       >
-        {React.createElement(this.props.component, {
-          ref: el => (this.input = el),
-          ...inputProps,
-          value: this.state.value,
-          onChange: this.handleInputChange,
-          onFocus: this.handleInputFocus,
-          onBlur: this.handleInputBlur,
-          onKeyUp: this.handleInputOnKeyUp,
-          onClick: this.handleInputClick,
-        })}
+        <Input
+          ref={el => (this.input = el)}
+          {...inputProps}
+          value={this.state.value}
+          onChange={this.handleInputChange}
+          onFocus={this.handleInputFocus}
+          onBlur={this.handleInputBlur}
+          onKeyUp={this.handleInputKeyUp}
+          onClick={this.handleInputClick}
+        />
         {this.state.showOverlay && this.renderOverlay()}
       </div>
     );

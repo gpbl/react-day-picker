@@ -83,8 +83,11 @@ export default function ExamplePage({ children, title }) {
               </Menu.Item>
             </Menu>
             <Menu subtitle="Input field">
-              <Menu.Item to="/examples/input-advanced">
-                Advanced input
+              <Menu.Item to="/examples/input-state">
+                Using input with state
+              </Menu.Item>
+              <Menu.Item to="/examples/input-custom-overlay">
+                Customize the overlay
               </Menu.Item>
             </Menu>
             <Menu subtitle="Matching days">
