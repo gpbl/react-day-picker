@@ -19,7 +19,7 @@ $ cd react-day-picker
 $ yarn
 ```
 
-## How to use the website to test your changes
+### Use the website to manually test changes
 
 The best way to develop and test a new idea or a bug fix is to run locally
 [the website](https://react-day-picker.js.org):
@@ -34,7 +34,7 @@ $ yarn develop
 
 Then open [localhost:8000](http://localhost:8000).
 
-> For example, Change
+> For example, change
 > [./docs/src/code-samples/examples/basic.js](./docs/src/code-samples/examples/basic.js)
 > to see it updated in
 > [localhost:8000/examples/basic](http://localhost:8000/examples/basic).
