@@ -16,6 +16,7 @@ export interface CaptionElementProps {
 export interface NavbarElementProps {
   className: string;
   classNames: ClassNames;
+  month: Date;
   previousMonth: Date;
   nextMonth: Date;
   showPreviousButton: boolean;
@@ -123,6 +124,11 @@ export interface DayPickerProps {
   onFocus?(e: React.FocusEvent<HTMLDivElement>): void;
   onKeyDown?(e: React.KeyboardEvent<HTMLDivElement>): void;
   onMonthChange?(month: Date): void;
+  onTodayButtonClick?(
+    day: Date,
+    modifiers: DayModifiers,
+    e: React.MouseEvent<HTMLButtonElement>
+  ): void;
   onWeekClick?(
     weekNumber: number,
     days: Date[],
@@ -130,6 +136,7 @@ export interface DayPickerProps {
   ): void;
   pagedNavigation?: boolean;
   renderDay?(date: Date, modifiers: Modifiers): React.ReactNode;
+  renderWeek?(weekNumber: number, week: Date[]): React.ReactNode;
   reverseMonths?: boolean;
   selectedDays?: Modifier | Modifier[];
   showWeekNumbers?: boolean;
