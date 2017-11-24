@@ -5,25 +5,25 @@ will be released soon._
 
 **New features**
 
-* Added [`renderWeek`](http://react-day-picker.js.org/api/DayPicker`renderWeek)
+* Added: [`renderWeek`](http://react-day-picker.js.org/api/DayPicker`renderWeek)
   prop ([#497](https://github.com/gpbl/react-day-picker/issues/497) by
   [jenshandersson](https://github.com/jenshandersson))
-* Added
+* Added:
   [`onTodayButtonClick`](http://react-day-picker.js.org/api/DayPicker#onTodayButtonClick)
   prop ([#529](https://github.com/gpbl/react-day-picker/issues/529))
-* Added `month` prop to
+* Added: `month` prop to
   [`navbarElement`](<(http://react-day-picker.js.org/api/DayPicker#navbarElement)>)
   ([#552](https://github.com/gpbl/react-day-picker/issues/552))
 
-**Fixes**
+**Bug fixes**
 
-* Multiple months navigation not working correctly in some cases
+* Fixed: multiple months navigation not working correctly in some cases
   ([#556](https://github.com/gpbl/react-day-picker/issues/556) by
   [hydrognomik](https://github.com/azhangstrata))
-* (Typescript) Added again `DayModifiers` and `Modifiers` back to type
+* Fixed: (Typescript) added again `DayModifiers` and `Modifiers` back to type
   definitions file ([#526](https://github.com/gpbl/react-day-picker/issues/526)
   by [azhangstrata](https://github.com/azhangstrata))
-* (a11y) Removed `role="application"`
+* Fixed: (a11y) removed `role="application"`
   ([#548](https://github.com/gpbl/react-day-picker/issues/548) by
   [trezy](https://github.com/trezy))
 
@@ -57,15 +57,15 @@ will be released soon._
 
 ## [v6.2.0](https://github.com/gpbl/react-day-picker/tree/v6.2.0) (2017-10-05)
 
-* Add TypeScript definitions for DayPickerInput
+* Added: TypeScript definitions for DayPickerInput
   ([#487](https://github.com/gpbl/react-day-picker/issues/487) by
   [adidahiya](https://github.com/adidahiya) and
   [lpcarignan](https://github.com/lpcarignan))
 
 **Bug fixes**
 
-* Fix an issue with React 0.14
-* Fix a console warning in React 16
+* Fixed: an issue with React 0.14
+* Fixed: a console warning in React 16
   ([#493](https://github.com/gpbl/react-day-picker/issues/493))
 * `DayPickerInput` Fix an error when `format` is passed as array
   ([#502](https://github.com/gpbl/react-day-picker/issues/502))
@@ -75,7 +75,7 @@ will be released soon._
 
 ### [v6.1.1](https://github.com/gpbl/react-day-picker/tree/v6.1.1) (2017-09-27)
 
-* Add React 16 as peer dependency
+* Added: React 16 as peer dependency
   ([#498](https://github.com/gpbl/react-day-picker/issues/498) by
   [brycehill](https://github.com/brycehill))
 * Allow node consumers to remove propTypes for production builds
@@ -312,11 +312,11 @@ See [example](http://react-day-picker.js.org/examples/input.html),
 
 * Include Typescript Type Definitions
   ([#303](https://github.com/gpbl/react-day-picker/pull/303))
-* Add a new
+* Added: a new
   [`modifiersStyles`](http://react-day-picker.js.org/docs/api-daypicker.html#modifiersstyles)
   prop to add inline style to the days matching the given modifiers (see
   [`example`](http://react-day-picker.js.org/docs/api-daypicker.html#modifiersstyles)).
-* Add `isDayBefore`, `isDayAfter` functions to
+* Added: `isDayBefore`, `isDayAfter` functions to
   [DateUtils](http://react-day-picker.js.org/DateUtils.html).
 
 **Bug fixes**
@@ -348,11 +348,11 @@ See [example](http://react-day-picker.js.org/examples/input.html),
 
 ### [v5.1.2](https://github.com/gpbl/react-day-picker/tree/v5.1.2) (2017-03-03)
 
-* Fix an issue with keyboard navigation when using `classNames` prop
+* Fixed: an issue with keyboard navigation when using `classNames` prop
   ([#269](https://github.com/gpbl/react-day-picker/pull/269) by
   [oigewan](https://github.com/oigewan),
   [#275](https://github.com/gpbl/react-day-picker/pull/275))
-* Fix installation issue with bower
+* Fixed: installation issue with bower
 
 ## [v5.1.1](https://github.com/gpbl/react-day-picker/tree/v5.1.1) (2017-03-03)
 
@@ -370,7 +370,7 @@ See [example](http://react-day-picker.js.org/examples/input.html),
   This differs from the `initialMonth` props as it causes the calendar to
   re-render when its value changes.
 
-* Add `aria-label` attributes to the navigation bar with the new
+* Added: `aria-label` attributes to the navigation bar with the new
   [`labels`](http://react-day-picker.js.org/docs/api-daypicker.html#labels) prop
   ([#258](https://github.com/gpbl/react-day-picker/issues/258)).
 
@@ -757,8 +757,8 @@ Fixes an issue causing className being overwritten by `className` prop
 
 * Make the component working again with React ~0.13
   ([#108](https://github.com/gpbl/react-day-picker/issues/108))
-* Fix a bug when clicking on outside days when `fromMonth` or `toMonth` were set
-  ([#97](https://github.com/gpbl/react-day-picker/issues/97))
+* Fixed: a bug when clicking on outside days when `fromMonth` or `toMonth` were
+  set ([#97](https://github.com/gpbl/react-day-picker/issues/97))
 * Replace a wrong `attr` tag with the right `abbr` in the weekdays row –
   https://github.com/gpbl/react-day-picker/issues/33#issuecomment-159751186. ⚠️
   Please note that the component may now use the CSS defined for `abbr` tags.
