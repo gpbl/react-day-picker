@@ -33,7 +33,7 @@ function formatMonthTitle(d, locale) {
       <h2>Functions</h2>
       <h3>
         <Anchor id="formatDay" />
-        formatDay <code>(day: Date, locale: String) ⇒ String</code>
+        formatDay <code>(day: Date, locale: string) ⇒ string</code>
       </h3>
       <p>
         Format the string used as aria-label for the given <code>day</code>.
@@ -41,7 +41,7 @@ function formatMonthTitle(d, locale) {
 
       <h3>
         <Anchor id="formatMonthTitle" />
-        formatMonthTitle <code>(month: Date, locale: String) ⇒ String</code>
+        formatMonthTitle <code>(month: Date, locale: string) ⇒ string</code>
       </h3>
       <p>
         Return the string used to format the month’s title for the given{' '}
@@ -50,7 +50,7 @@ function formatMonthTitle(d, locale) {
 
       <h3>
         <Anchor id="formatWeekdayLong" />
-        formatWeekdayLong <code>(i: Number, locale: String) ⇒ String</code>
+        formatWeekdayLong <code>(i: number, locale: string) ⇒ string</code>
       </h3>
       <p>
         Return the string used to render the weekday’s long name (starting from
@@ -59,7 +59,7 @@ function formatMonthTitle(d, locale) {
 
       <h3>
         <Anchor id="formatWeekdayShort" />
-        formatWeekdayShort <code>(i: Number, locale: String) ⇒ String</code>
+        formatWeekdayShort <code>(i: number, locale: string) ⇒ string</code>
       </h3>
       <p>
         Return the string used to render the weekday’s short name, e.g.{' '}
@@ -69,7 +69,7 @@ function formatMonthTitle(d, locale) {
 
       <h3>
         <Anchor id="getFirstDayOfWeek" />
-        getFirstDayOfWeek <code>(locale: String) ⇒ Number</code>
+        getFirstDayOfWeek <code>(locale: string) ⇒ number</code>
       </h3>
       <p>
         Return the first day of the week for the given locale (where{' '}
@@ -79,7 +79,7 @@ function formatMonthTitle(d, locale) {
 
       <h3>
         <Anchor id="getMonths" />
-        getMonths <code>(locale: String) ⇒ Number</code>
+        getMonths <code>(locale: string) ⇒ number</code>
       </h3>
       <p>
         Return the twelve months for the given locale (full name, e.g.{' '}
