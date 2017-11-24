@@ -22,7 +22,8 @@ export default () => (
       <a href="#clickUnselectsDay">clickUnselectsDay</a>,{' '}
       <a href="#component">component</a>,{' '}
       <a href="#dayPickerProps">dayPickerProps</a>, <a href="#format">format</a>,{' '}
-      <a href="#hideOnDayClick">hideOnDayClick</a>
+      <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
+      <a href="#overlayComponent">overlayComponent</a>
     </p>
     <h4>Event handlers</h4>
     <p>
@@ -123,6 +124,29 @@ function MyDayPickerInput(props) {
         hideOnDayClick <code>Boolean = true</code>
       </h3>
       <p>Hide the overlay when the user clicks on a day cell.</p>
+
+      <h3>
+        <Anchor id="overlayComponent" />
+        overlayComponent <code>React.Component</code>
+      </h3>
+      <p>
+        A React element or constructor to use as overlay. The element will
+        receive the following props:
+      </p>
+      <ul>
+        <li>
+          <code>selectedDay: ?Date</code> The currently selected day
+        </li>
+        <li>
+          <code>month: Date</code> The month displayed in the calendar
+        </li>
+        <li>
+          <code>input: DOM Element</code> The input field
+        </li>
+      </ul>
+      <p>
+        See also <Link to="/examples/input-custom-overlay">this example</Link>.
+      </p>
 
       <hr />
       <h2>Event handlers</h2>
