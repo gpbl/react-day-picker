@@ -46,15 +46,8 @@ export default class DayPickerInput extends React.Component {
     hideOnDayClick: true,
     clickUnselectsDay: false,
     component: 'input',
-    overlayComponent: ({
-      children,
-      classNames,
-      month,
-      value,
-      selectedDay,
-      ...props
-    }) => (
-      <div className={classNames.overlayWrapper} {...props}>
+    overlayComponent: ({ children, classNames }) => (
+      <div className={classNames.overlayWrapper}>
         <div className={classNames.overlay}>{children}</div>
       </div>
     ),
