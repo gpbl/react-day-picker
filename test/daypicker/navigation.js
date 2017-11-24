@@ -235,6 +235,18 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getMonth()).toBe(5);
     expect(instance.state.currentMonth.getDate()).toBe(1);
   });
+  it('should set the currentMonth to the first rendered month if toMonth equals current month', () => {
+    const instance = shallow(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        toMonth={new Date(2015, 7)}
+        numberOfMonths={3}
+      />
+    ).instance();
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(5);
+    expect(instance.state.currentMonth.getDate()).toBe(1);
+  });
 
   describe('with custom classNames', () => {
     const getDaysInMonth = wrapper =>
