@@ -64,10 +64,8 @@ export default () => (
 
     <h4>Event handlers</h4>
     <p>
-      <a href="#onBlur">onBlur</a>, <a href="#onCaptionClick">
-        onCaptionClick
-      </a>, <a href="#onDayClick">onDayClick</a>,{' '}
-      <a href="#onDayFocus">onDayFocus</a>,{' '}
+      <a href="#onBlur">onBlur</a>, <a href="#onCaptionClick">onCaptionClick</a>,{' '}
+      <a href="#onDayClick">onDayClick</a>, <a href="#onDayFocus">onDayFocus</a>,{' '}
       <a href="#onDayKeyDown">onDayKeyDown</a>,{' '}
       <a href="#onDayMouseDown">onDayMouseDown</a>,{' '}
       <a href="#onDayMouseEnter">onDayMouseEnter</a>,{' '}
@@ -121,9 +119,7 @@ export default () => (
           passed to the component.
         </li>
         <li>
-          <code>onClick</code> The <a href="#onCaptionClick">
-            onCaptionClick
-          </a>{' '}
+          <code>onClick</code> The <a href="#onCaptionClick">onCaptionClick</a>{' '}
           function, if specified.
         </li>
       </ul>
@@ -277,7 +273,7 @@ export default () => (
         locale <code>String = &quot;en&quot;</code>
       </h3>
       <p>
-        The calendar’s locale. See {' '}
+        The calendar’s locale. See{' '}
         <Link to="/docs/localization">Localization</Link>.
       </p>
       <h3>
@@ -289,7 +285,7 @@ export default () => (
       </h3>
       <p>
         Object of functions to format dates and to get the first day of the
-        week. You can pass your own object for advanced localization. See {' '}
+        week. You can pass your own object for advanced localization. See{' '}
         <Link to="/docs/localization">Localization</Link>.
       </p>
       <h3>
