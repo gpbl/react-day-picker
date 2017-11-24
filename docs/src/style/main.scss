@@ -13,7 +13,9 @@ body {
   padding: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin: 1em 0;
 }
 
@@ -42,16 +44,20 @@ h4 {
   text-transform: uppercase;
   font-weight: 400;
   font-size: 12px;
-  margin: .5em 0;
+  margin: 0.5em 0;
 }
 
-p, li {
+p,
+li {
   line-height: 1.5em;
 }
 
-p code, li code, h3 code, blockquote code {
+p code,
+li code,
+h3 code,
+blockquote code {
   display: inline-block;
-  padding: 0 .3em;
+  padding: 0 0.3em;
   background: $background-color-alt;
 }
 
@@ -63,21 +69,22 @@ a {
   }
 }
 
-code, pre {
+code,
+pre {
   font-family: $font-family-mono;
-  background-color: $background-color; 
+  background-color: $background-color;
 }
 
 blockquote {
   border-left: 4px solid $quote-border;
   margin-left: 0;
   margin-right: 0;
-  padding: .1em 1em;
+  padding: 0.1em 1em;
   background-color: $quote-background;
 }
 
 hr {
-  margin: .5em 0;
+  margin: 0.5em 0;
   height: 0;
   border: 0;
   border-bottom: 1px solid $border-color;
@@ -85,8 +92,8 @@ hr {
 
 input {
   appearance: none;
-  padding: .5em 1em;
-  border: 1px solid #DDD;
+  padding: 0.5em 1em;
+  border: 1px solid #ddd;
   font-size: 1em;
   font-family: $font-family;
   text-align: center;
@@ -100,4 +107,3 @@ abbr[title] {
 }
 
 @import './prism.css';
-
