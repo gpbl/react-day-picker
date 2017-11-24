@@ -5,13 +5,11 @@ You are welcome to join the
 and help improving react-day-picker! Please consider:
 
 * The development environment is Node 7+.
-* Code has 100% coverage and it should stay so
 * Unit tests run with [jest](https://facebook.github.io/jest/)
-* Code must be linted to pass our CI
+* Code has 100% test coverage and it should stay so (`yarn test --coverage` to check it)
+* Code must be linted to pass our CI (`yarn lint`)
 
-### Fork and run the repo on your local machine
-
-To setup the repository:
+### Start now! Fork and run the repo on your local machine:
 
 ```bash
 $ git clone https://github.com/gpbl/react-day-picker.git
@@ -41,22 +39,3 @@ Then open [localhost:8000](http://localhost:8000).
 
 In the code, using `import from react-day-picker` will load the
 [source code](src) instead of the [compiled lib](lib).
-
-### Add unit tests
-
-Tests are written with [jest](https://facebook.github.io/jest/). Please make
-sure your tests pass:
-
-```bash
-$ yarn test               # run unit tests
-$ yarn test -- --coverage # print test coverage report
-```
-
-### Lint your files
-
-If files are not linted, they will not pass our CI:
-
-```bash
-$ yarn lint               # make sure the code is linted
-$ yarn dtslint            # lint Typescript declaration
-```
