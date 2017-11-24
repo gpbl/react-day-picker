@@ -9,7 +9,12 @@ and help improving react-day-picker! Please consider:
 * Code has 100% test coverage and it should stay so (`yarn test --coverage` to check it)
 * Code must be linted to pass our CI (`yarn lint`)
 
-### Start now! Fork and run the repo on your local machine:
+### Start now! 
+
+Pick an [issue](https://github.com/gpbl/react-day-picker/issues) you would like to fix or a feature you would like to see.
+[good-first-issues](https://github.com/gpbl/react-day-picker/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) are a good place to start.
+
+### Fork and run the repo on your local machine:
 
 ```bash
 $ git clone https://github.com/gpbl/react-day-picker.git
