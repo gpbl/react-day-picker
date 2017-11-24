@@ -290,7 +290,7 @@ export default class DayPickerInput extends React.Component {
       return;
     }
 
-    const m = moment(day);
+    const m = moment(day).locale(dayPickerProps.locale);
     const value = m.format(typeof format === 'string' ? format : format[0]);
     this.setState({ value, month: day }, () => {
       if (onDayChange) {
@@ -317,7 +317,12 @@ export default class DayPickerInput extends React.Component {
     if (dayPickerProps.todayButton) {
       // Set the current day when clicking the today button
       onTodayButtonClick = () =>
-        this.updateState(new Date(), moment().format(this.props.format));
+        this.updateState(
+          new Date(),
+          moment()
+            .locale(dayPickerProps.locale)
+            .format(this.props.format)
+        );
     }
     const Overlay = this.props.overlayComponent;
     return (
