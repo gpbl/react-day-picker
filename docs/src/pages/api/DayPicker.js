@@ -111,7 +111,7 @@ export default () => (
 
       <h3>
         <Anchor id="canChangeMonth" />
-        canChangeMonth <code>Boolean = true</code>
+        canChangeMonth <code>boolean = true</code>
       </h3>
       <p>Enable the navigation between months.</p>
       <h3>
@@ -132,7 +132,7 @@ export default () => (
           <a href="#localeUtils">localeUtils</a> object passed to the component.
         </li>
         <li>
-          <code>locale: String</code> The current <a href="#locale">locale</a>{' '}
+          <code>locale: string</code> The current <a href="#locale">locale</a>{' '}
           passed to the component.
         </li>
         <li>
@@ -152,7 +152,7 @@ export default () => (
       </p>
       <h3>
         <Anchor id="className" />
-        className <code>String</code>
+        className <code>string</code>
       </h3>
       <p>Additional CSS class names to add to the container.</p>
       <h3>
@@ -217,8 +217,7 @@ export default () => (
 /> `}</CodeBlock>
       <h3>
         <Anchor id="disabledDays" />
-        disabledDays{' '}
-        <code>Date | Object | Array&lt;Date&gt; | (day: Date) ⇒ Boolean</code>
+        disabledDays <code>Date | Object | [Date] | (day: Date) ⇒ boolean</code>
       </h3>
       <p>
         Day(s) that should appear as disabled. Set a <code>disabled</code>{' '}
@@ -227,12 +226,12 @@ export default () => (
       </p>
       <h3>
         <Anchor id="enableOutsideDays" />
-        enableOutsideDays <code>Boolean = false</code>
+        enableOutsideDays <code>boolean = false</code>
       </h3>
       <p>Display the days outside the current month.</p>
       <h3>
         <Anchor id="firstDayOfWeek" />
-        firstDayOfWeek <code>Number = 0 (Sunday)</code>
+        firstDayOfWeek <code>number = 0 (Sunday)</code>
       </h3>
       <p>
         The day to use as first day of the week, starting from <code>0</code>{' '}
@@ -240,7 +239,7 @@ export default () => (
       </p>
       <h3>
         <Anchor id="fixedWeeks" />
-        fixedWeeks <code>Boolean = false</code>
+        fixedWeeks <code>boolean = false</code>
       </h3>
       <p>
         Display 6 weeks per months, regardless the month’s number of weeks.
@@ -287,7 +286,7 @@ export default () => (
 }`}</CodeBlock>
       <h3>
         <Anchor id="locale" />
-        locale <code>String = &quot;en&quot;</code>
+        locale <code>string = &quot;en&quot;</code>
       </h3>
       <p>
         The calendar’s locale. See{' '}
@@ -337,7 +336,7 @@ export default () => (
       </p>
       <h3>
         <Anchor id="months" />
-        months <code>Array&lt;String&gt;</code>
+        months <code>[string]</code>
       </h3>
       <p>
         An array containing the long month names to use in the month’s header.
@@ -363,20 +362,20 @@ export default () => (
           <code>nextMonth: Date</code>
         </li>
         <li>
-          <code>onPreviousClick: () ⇒ undefined</code>
+          <code>onPreviousClick: () ⇒ void</code>
         </li>
         <li>
-          <code>onNextClick: () ⇒ undefined</code>
+          <code>onNextClick: () ⇒ void</code>
         </li>
       </ul>
       <h3>
         <Anchor id="numberOfMonths" />
-        numberOfMonths <code>Number = 1</code>
+        numberOfMonths <code>number = 1</code>
       </h3>
       <p>The number of months to render.</p>
       <h3>
         <Anchor id="pagedNavigation" />
-        pagedNavigation <code>Boolean = false</code>
+        pagedNavigation <code>boolean = false</code>
       </h3>
       <p>
         When displaying multiple months, navigation will be paginated displaying
@@ -397,7 +396,7 @@ export default () => (
       <h3>
         <Anchor id="renderWeek" />
         renderWeek{' '}
-        <code>(weekNumber: Number, week: Array) ⇒ React.Element</code>
+        <code>(weekNumber: number, week: Array) ⇒ React.Element</code>
       </h3>
       <p>
         Returns the content of the week element when{' '}
@@ -408,7 +407,7 @@ export default () => (
       </p>
       <h3>
         <Anchor id="reverseMonths" />
-        reverseMonths <code>Boolean = false</code>
+        reverseMonths <code>boolean = false</code>
       </h3>
       <p>
         Render the months in reversed order. Useful when{' '}
@@ -419,8 +418,7 @@ export default () => (
       </p>
       <h3>
         <Anchor id="selectedDays" />
-        selectedDays{' '}
-        <code>Date | Object | Array&lt;Date&gt; | (day: Date) ⇒ Boolean</code>
+        selectedDays <code>Date | Object | [Date] | (day: Date) ⇒ boolean</code>
       </h3>
       <p>
         Day(s) that should appear as selected. Set a <code>selected</code>{' '}
@@ -429,7 +427,7 @@ export default () => (
       </p>
       <h3>
         <Anchor id="showWeekNumbers" />
-        showWeekNumbers <code>Boolean</code>
+        showWeekNumbers <code>boolean</code>
       </h3>
       <p>
         Display the year’s week number next to each week (<Link to="/examples/customization-week-numbers">
@@ -438,7 +436,7 @@ export default () => (
       </p>
       <h3>
         <Anchor id="todayButton" />
-        todayButton <code>String</code>
+        todayButton <code>string</code>
       </h3>
       <p>
         Display a button to switch to the current month using the provided
@@ -467,22 +465,22 @@ export default () => (
       </p>
       <ul>
         <li>
-          weekday <code>Number</code>
+          weekday <code>number</code>
         </li>
         <li>
-          className <code>String</code>
+          className <code>string</code>
         </li>
         <li>
           localeUtils <code>Object</code>
         </li>
         <li>
-          locale <code>String</code>
+          locale <code>string</code>
         </li>
       </ul>
 
       <h3>
         <Anchor id="weekdaysLong" />
-        weekdaysLong <code>Array&lt;String&gt;</code>
+        weekdaysLong <code>[string]</code>
       </h3>
       <p>
         An array containing the long weekdays names to use in the month’s
@@ -491,7 +489,7 @@ export default () => (
 
       <h3>
         <Anchor id="weekdaysShort" />
-        weekdaysShort <code>Array&lt;String&gt;</code>
+        weekdaysShort <code>[string]</code>
       </h3>
       <p>
         An array containing the short weekdays names to use in the month’s
@@ -504,7 +502,7 @@ export default () => (
       <h3>
         <Anchor id="onCaptionClick" />
         onCaptionClick{' '}
-        <code>(currentMonth: date, e: SyntheticEvent) ⇒ undefined</code>
+        <code>(currentMonth: date, e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>
         Event handler when the user clicks on the caption in the header
@@ -514,15 +512,13 @@ export default () => (
       <h3>
         <Anchor id="onDayClick" />
         onDayClick{' '}
-        <code>
-          (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
-        </code>
+        <code>(day: date, modifiers: Object, e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>Event handler when the user clicks on a day cell.</p>
 
       <h3>
         <Anchor id="onBlur" />
-        onBlur <code>(e: SyntheticEvent) ⇒ undefined</code>
+        onBlur <code>(e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>
         Event handler when the calendar get the <code>blur</code> event.
@@ -531,9 +527,7 @@ export default () => (
       <h3>
         <Anchor id="onDayFocus" />
         onDayFocus{' '}
-        <code>
-          (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
-        </code>
+        <code>(day: date, modifiers: Object, e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>
         Event handler when the day cell gets the <code>focus</code> event.
@@ -542,9 +536,7 @@ export default () => (
       <h3>
         <Anchor id="onDayKeyDown" />
         onDayKeyDown{' '}
-        <code>
-          (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
-        </code>
+        <code>(day: date, modifiers: Object, e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>
         Event handler when the day cell gets the <code>keydown</code> event.
@@ -553,45 +545,35 @@ export default () => (
       <h3>
         <Anchor id="onDayMouseDown" />
         onDayMouseDown{' '}
-        <code>
-          (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
-        </code>
+        <code>(day: date, modifiers: Object, e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>Event handler when the mouse button is pressed on a day cell.</p>
 
       <h3>
         <Anchor id="onDayMouseEnter" />
         onDayMouseEnter{' '}
-        <code>
-          (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
-        </code>
+        <code>(day: date, modifiers: Object, e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>Event handler when the mouse enters a day cell.</p>
 
       <h3>
         <Anchor id="onDayMouseLeave" />
         onDayMouseLeave{' '}
-        <code>
-          (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
-        </code>
+        <code>(day: date, modifiers: Object, e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>Event handler when the mouse leave a day cell.</p>
 
       <h3>
         <Anchor id="onDayMouseUp" />
         onDayMouseUp{' '}
-        <code>
-          (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
-        </code>
+        <code>(day: date, modifiers: Object, e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>Event handler when the mouse button is released on a day cell.</p>
 
       <h3>
         <Anchor id="onDayTouchStart" />
         onDayTouchStart{' '}
-        <code>
-          (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
-        </code>
+        <code>(day: date, modifiers: Object, e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>
         Event handler when the day cell gets the <code>touchStart</code> event.
@@ -600,9 +582,7 @@ export default () => (
       <h3>
         <Anchor id="onDayTouchEnd" />
         onDayTouchEnd{' '}
-        <code>
-          (day: date, modifiers: Object, e: SyntheticEvent) ⇒ undefined
-        </code>
+        <code>(day: date, modifiers: Object, e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>
         Event handler when the day cell gets the <code>touchEnd</code> event.
@@ -610,7 +590,7 @@ export default () => (
 
       <h3>
         <Anchor id="onFocus" />
-        onFocus <code>(e: SyntheticEvent) ⇒ undefined</code>
+        onFocus <code>(e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>
         Event handler when the calendar get the <code>focus</code> event
@@ -618,7 +598,7 @@ export default () => (
 
       <h3>
         <Anchor id="onKeyDown" />
-        onKeyDown <code>(e: SyntheticEvent) ⇒ undefined</code>
+        onKeyDown <code>(e: SyntheticEvent) ⇒ void</code>
       </h3>
       <p>
         Event handler when the calendar get the <code>keydown</code> event
@@ -626,7 +606,7 @@ export default () => (
 
       <h3>
         <Anchor id="onMonthChange" />
-        onMonthChange <code>(month: date) ⇒ undefined</code>
+        onMonthChange <code>(month: date) ⇒ void</code>
       </h3>
       <p>
         Event handler when the month is changed, i.e. clicking the navigation
@@ -637,7 +617,7 @@ export default () => (
         <Anchor id="onWeekClick" />
         onWeekClick{' '}
         <code>
-          (weekNumber: number, days: date[], e: SyntheticEvent) ⇒ undefined
+          (weekNumber: number, days: date[], e: SyntheticEvent) ⇒ void
         </code>
       </h3>
       <p>
@@ -649,8 +629,7 @@ export default () => (
         <Anchor id="onTodayButtonClick" />
         onTodayButtonClick{' '}
         <code>
-          (day: Date, modifiers: Array&lt;String&gt;, e: SyntheticEvent) ⇒
-          undefined
+          (day: Date, modifiers: [string], e: SyntheticEvent) ⇒ undefined
         </code>
       </h3>
       <p>
@@ -661,7 +640,7 @@ export default () => (
       <h2 id="components-methods">Public Methods</h2>
       <h3>
         <Anchor id="showMonth" />
-        showMonth <code>(month: date) ⇒ undefined</code>
+        showMonth <code>(month: date) ⇒ void</code>
       </h3>
       <p>
         Show the given <code>month</code> in the calendar.
@@ -669,25 +648,25 @@ export default () => (
 
       <h3>
         <Anchor id="showPreviousMonth" />
-        showPreviousMonth <code>() ⇒ undefined</code>
+        showPreviousMonth <code>() ⇒ void</code>
       </h3>
       <p>Show the previous month in the calendar.</p>
 
       <h3>
         <Anchor id="showNextMonth" />
-        showNextMonth <code>() ⇒ undefined</code>
+        showNextMonth <code>() ⇒ void</code>
       </h3>
       <p>Show the next month in the calendar.</p>
 
       <h3>
         <Anchor id="showPreviousYear" />
-        showPreviousYear <code>() ⇒ undefined</code>
+        showPreviousYear <code>() ⇒ void</code>
       </h3>
       <p>Show the previous year in the calendar.</p>
 
       <h3>
         <Anchor id="showNextYear" />
-        showNextYear <code>() ⇒ undefined</code>
+        showNextYear <code>() ⇒ void</code>
       </h3>
       <p>Show the next year in the calendar.</p>
     </ApiDocs>

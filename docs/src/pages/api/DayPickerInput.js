@@ -52,7 +52,7 @@ export default () => (
 
       <h3>
         <Anchor id="clickUnselectsDay" />
-        clickUnselectsDay <code>Boolean = false</code>
+        clickUnselectsDay <code>boolean = false</code>
       </h3>
       <p>
         Unselect and clear the input when clicking on a previously selected day.
@@ -60,7 +60,7 @@ export default () => (
 
       <h3>
         <Anchor id="component" />
-        component <code>String | React.Component = &quot;input&quot;</code>
+        component <code>string | React.Component = &quot;input&quot;</code>
       </h3>
       <p>The component class to render the input field.</p>
       <p>
@@ -108,7 +108,7 @@ function MyDayPickerInput(props) {
 
       <h3>
         <Anchor id="format" />
-        format <code>String | Array&lt;String&gt;</code>
+        format <code>string | [string]</code>
       </h3>
       <p>
         The format strings used for parsing the date entered in the input field.
@@ -121,7 +121,7 @@ function MyDayPickerInput(props) {
 
       <h3>
         <Anchor id="hideOnDayClick" />
-        hideOnDayClick <code>Boolean = true</code>
+        hideOnDayClick <code>boolean = true</code>
       </h3>
       <p>Hide the overlay when the user clicks on a day cell.</p>
 
@@ -153,7 +153,7 @@ function MyDayPickerInput(props) {
 
       <h3>
         <Anchor id="onDayChange" />
-        onDayChange <code>(day: Date, modifiers: Object) ⇒ undefined</code>
+        onDayChange <code>(day: Date, modifiers: Object) ⇒ void</code>
       </h3>
       <p>
         Handler function called when the user types a valid day (according to
@@ -167,13 +167,13 @@ function MyDayPickerInput(props) {
 
       <h3>
         <Anchor id="showDayPicker" />
-        showDayPicker <code>() ⇒ undefined</code>
+        showDayPicker <code>() ⇒ void</code>
       </h3>
       <p>Show the Day Picker overlay.</p>
 
       <h3>
         <Anchor id="hideDayPicker" />
-        hideDayPicker <code>() ⇒ undefined</code>
+        hideDayPicker <code>() ⇒ void</code>
       </h3>
       <p>Hide the Day Picker overlay.</p>
     </ApiDocs>

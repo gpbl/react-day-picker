@@ -15,7 +15,7 @@ export default () => (
       <h2>Functions</h2>
       <h3>
         <Anchor id="dayMatchesModifier" />
-        dayMatchesModifier <code>(day: Date, modifier: Any) ⇒ Boolean</code>
+        dayMatchesModifier <code>(day: Date, modifier: Any) ⇒ boolean</code>
       </h3>
       <p>
         Return <code>true</code> if <code>day</code> date matches{' '}

@@ -39,7 +39,7 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
 
       <h3>
         <Anchor id="addMonths" />
-        addMonths <code>(date: Date, n: Number) ⇒ Date</code>
+        addMonths <code>(date: Date, n: number) ⇒ Date</code>
       </h3>
       <p>
         Return <code>date</code> as a new Date with <code>n</code> months added.
@@ -58,7 +58,7 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
 
       <h3>
         <Anchor id="isDayAfter" />
-        isDayAfter <code>(day1: ?Date, day2: ?Date) ⇒ Boolean</code>
+        isDayAfter <code>(day1: ?Date, day2: ?Date) ⇒ boolean</code>
       </h3>
       <p>
         Return <code>true</code> if <code>day1</code> is after <code>day2</code>.
@@ -66,7 +66,7 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
 
       <h3>
         <Anchor id="isDayBefore" />
-        isDayBefore <code>(day1: ?Date, day2: ?Date) ⇒ Boolean</code>
+        isDayBefore <code>(day1: ?Date, day2: ?Date) ⇒ boolean</code>
       </h3>
       <p>
         Return <code>true</code> if <code>day1</code> is before{' '}
@@ -75,7 +75,7 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
 
       <h3>
         <Anchor id="isDayBetween" />
-        isDayBetween <code>(day: Date, day1: Date, day2: Date) ⇒ Boolean</code>
+        isDayBetween <code>(day: Date, day1: Date, day2: Date) ⇒ boolean</code>
       </h3>
       <p>
         Returns <code>true</code> if <code>day</code> is between{' '}
@@ -86,7 +86,7 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
         <Anchor id="isDayInRange" />
         isDayInRange{' '}
         <code>
-          (day: Date, range: Object&lt;from: ?Date, to: ?Date&gt;) ⇒ Boolean
+          (day: Date, range: Object&lt;from: ?Date, to: ?Date&gt;) ⇒ boolean
         </code>
       </h3>
       <p>
@@ -96,7 +96,7 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
 
       <h3>
         <Anchor id="isFutureDay" />
-        isFutureDay <code>(day: Date) ⇒ Boolean</code>
+        isFutureDay <code>(day: Date) ⇒ boolean</code>
       </h3>
       <p>
         Return <code>true</code> if <code>day</code> is in the future, i.e. is
@@ -105,7 +105,7 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
 
       <h3>
         <Anchor id="isPastDay" />
-        isPastDay <code>(day: Date) ⇒ Boolean</code>
+        isPastDay <code>(day: Date) ⇒ boolean</code>
       </h3>
       <p>
         Return <code>true</code> if <code>day</code> is in the past, i.e. is
@@ -114,7 +114,7 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
 
       <h3>
         <Anchor id="isSameDay" />
-        isSameDay <code>(day1: ?Date, day2: ?Date) ⇒ Boolean</code>
+        isSameDay <code>(day1: ?Date, day2: ?Date) ⇒ boolean</code>
       </h3>
       <p>
         Return <code>true</code> if <code>day1</code> and
