@@ -136,21 +136,21 @@ export default class DayPickerInput extends React.Component {
         selected: dayPickerProps.selectedDays,
         ...dayPickerProps.modifiers,
       };
-      const modifiers = getModifiersForDay(
-        day,
-        modifiersObj
-      ).reduce((obj, modifier) => {
-        const newObj = { ...obj };
-        newObj[modifier] = true;
-        return newObj;
-      }, {});
+      const modifiers = getModifiersForDay(day, modifiersObj).reduce(
+        (obj, modifier) => {
+          const newObj = { ...obj };
+          newObj[modifier] = true;
+          return newObj;
+        },
+        {}
+      );
       onDayChange(moment(day), modifiers);
     });
   }
 
   /**
    * Show the Day Picker overlay.
-   * 
+   *
    * @memberof DayPickerInput
    */
   showDayPicker() {
@@ -161,7 +161,7 @@ export default class DayPickerInput extends React.Component {
 
   /**
    * Hide the Day Picker overlay
-   * 
+   *
    * @memberof DayPickerInput
    */
   hideDayPicker() {

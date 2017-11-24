@@ -192,7 +192,8 @@ export default class Month extends Component {
                     role="gridcell"
                     onClick={e => onWeekClick(weekNumber, week, e)}
                     onKeyUp={e =>
-                      e.keyCode === ENTER && onWeekClick(weekNumber, week, e)}
+                      e.keyCode === ENTER && onWeekClick(weekNumber, week, e)
+                    }
                   >
                     {this.props.renderWeek(weekNumber, week, month)}
                   </div>

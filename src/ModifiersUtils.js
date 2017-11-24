@@ -3,10 +3,10 @@ import { isRangeOfDates } from './Helpers';
 
 /**
  * Return `true` if a date matches the specified modifier.
- * 
+ *
  * @export
  * @param {Date} day
- * @param {Any} modifier 
+ * @param {Any} modifier
  * @return {Boolean}
  */
 export function dayMatchesModifier(day, modifier) {
@@ -53,10 +53,10 @@ export function dayMatchesModifier(day, modifier) {
 /**
  * Return the modifiers matching the given day for the given
  * object of modifiers.
- * 
+ *
  * @export
  * @param {Date} day
- * @param {Object} [modifiersObj={}] 
+ * @param {Object} [modifiersObj={}]
  * @return {Array}
  */
 export function getModifiersForDay(day, modifiersObj = {}) {
