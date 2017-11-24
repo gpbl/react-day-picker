@@ -6,7 +6,7 @@ defaults: &defaults
         TEST_REPORT_PATH: "reports"
 
 version: 2
-    
+
 jobs:
   checkout-and-test:
     <<: *defaults
@@ -16,19 +16,19 @@ jobs:
           key: cache-{{ checksum "yarn.lock" }}
           paths:
             - ~/react-day-picker/node_modules
-      - run: 
+      - run:
           name: Install dependencies
           command: yarn install
-      - run: 
+      - run:
           name: Lint sources
           command: yarn lint --format junit --output-file reports/eslint.xml
-      - run: 
+      - run:
           name: Lint TypeScript definition files
           command: yarn dtslint
-      - run: 
+      - run:
           name: Run unit tests
           command: yarn test --ci --coverage --colors --testResultsProcessor jest-junit-reporter
-      - run: 
+      - run:
           name: Uploade code-coverage results
           command: yarn codecov
       - save_cache:
@@ -39,11 +39,11 @@ jobs:
           path: ~/react-day-picker/reports
       - persist_to_workspace:
           root: .
-          paths: 
+          paths:
             - "*"
             - src
-      
-  build-project: 
+
+  build-project:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -67,7 +67,7 @@ jobs:
           paths:
             - "./docs/node_modules"
       - run: |
-          git config --global user.email "$GH_EMAIL" > /dev/null 2>&1 
+          git config --global user.email "$GH_EMAIL" > /dev/null 2>&1
           git config --global user.name "$GH_NAME" > /dev/null 2>&1
       - run: cd docs && yarn build
       - run: cd docs && yarn docs-publish
@@ -76,16 +76,16 @@ workflows:
   version: 2
   build:
     jobs:
-      - checkout-and-test 
+      - checkout-and-test
       - build-project:
-          requires: 
+          requires:
             - checkout-and-test
           filters:
             branches:
-              only: 
-                - master   
+              only: master
       - build-docs:
           filters:
+            branches:
+              only: master
             tags:
-              only: 
-                - /^v.*/
+              only: /^v.*/
