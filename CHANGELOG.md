@@ -10,6 +10,7 @@ _The following changes are not released yet, but are on the master branch and wi
 
 **Fixes**
 
+* Multiple months navigation not working correctly in some cases ([#556](https://github.com/gpbl/react-day-picker/issues/556) by [hydrognomik](https://github.com/azhangstrata))
 * (Typescript) Added again `DayModifiers` and `Modifiers` back to type definitions file ([#526](https://github.com/gpbl/react-day-picker/issues/526) by [azhangstrata](https://github.com/azhangstrata))
 * (a11y) Removed <code>role="application"</code> ([#548](https://github.com/gpbl/react-day-picker/issues/548) by [trezy](https://github.com/trezy))
 
@@ -20,6 +21,7 @@ _The following changes are not released yet, but are on the master branch and wi
 * Fixed: allow to change `numberOfMonths`, `selectedDays` props from `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513), [#531](https://github.com/gpbl/react-day-picker/issues/531) by [hydrognomik](https://github.com/hydrognomik))
 * Fixed: some modifiers were not passed down when using a custom `classNames` ([#517](https://github.com/gpbl/react-day-picker/issues/517), [#504](https://github.com/gpbl/react-day-picker/issues/504) by [tume](https://github.com/tume))
 * Fixed: focus behavior on Firefox ([#525](https://github.com/gpbl/react-day-picker/issues/525) by [martinmosko](https://github.com/martinmosko))
+* Fixed: value not updated when changed in some cases ([#535](https://github.com/gpbl/react-day-picker/issues/535))
 
 ---
 
