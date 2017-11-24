@@ -23,6 +23,7 @@ export default class DayPickerInput extends React.Component {
     hideOnDayClick: PropTypes.bool,
     clickUnselectsDay: PropTypes.bool,
     component: PropTypes.any,
+    overlayComponent: PropTypes.any,
 
     classNames: PropTypes.shape({
       container: PropTypes.string,
@@ -45,17 +46,29 @@ export default class DayPickerInput extends React.Component {
     hideOnDayClick: true,
     clickUnselectsDay: false,
     component: 'input',
+    overlayComponent: ({
+      children,
+      classNames,
+      month,
+      value,
+      selectedDay,
+      ...props
+    }) => (
+      <div className={classNames.overlayWrapper} {...props}>
+        <div className={classNames.overlay}>{children}</div>
+      </div>
+    ),
     classNames: {
       container: 'DayPickerInput',
       overlayWrapper: 'DayPickerInput-OverlayWrapper',
       overlay: 'DayPickerInput-Overlay',
     },
   };
-
   constructor(props) {
     super(props);
     this.state = this.getStateFromProps(props);
     this.state.showOverlay = false;
+
     this.hideAfterDayClick = this.hideAfterDayClick.bind(this);
     this.handleContainerMouseDown = this.handleContainerMouseDown.bind(this);
     this.handleInputClick = this.handleInputClick.bind(this);
@@ -311,22 +324,26 @@ export default class DayPickerInput extends React.Component {
       onTodayButtonClick = () =>
         this.updateState(new Date(), moment().format(this.props.format));
     }
-
+    const Overlay = this.props.overlayComponent;
     return (
-      <div className={classNames.overlayWrapper}>
-        <div className={classNames.overlay}>
-          <DayPicker
-            ref={el => (this.daypicker = el)}
-            localeUtils={MomentLocaleUtils}
-            fixedWeeks
-            onTodayButtonClick={onTodayButtonClick}
-            {...dayPickerProps}
-            month={this.state.month}
-            selectedDays={selectedDay}
-            onDayClick={this.handleDayClick}
-          />
-        </div>
-      </div>
+      <Overlay
+        classNames={classNames}
+        month={this.state.month}
+        selectedDay={selectedDay}
+        input={this.input}
+      >
+        <DayPicker
+          ref={el => (this.daypicker = el)}
+          localeUtils={MomentLocaleUtils}
+          fixedWeeks
+          onTodayButtonClick={onTodayButtonClick}
+          {...dayPickerProps}
+          month={this.state.month}
+          selectedDays={selectedDay}
+          onDayClick={this.handleDayClick}
+          onMonthChange={month => this.setState({ month })}
+        />
+      </Overlay>
     );
   }
 
