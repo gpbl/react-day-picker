@@ -10,6 +10,23 @@ import CodeBlock from '../../ui/CodeBlock';
 export default () => (
   <DocPage title="DayPicker API">
     <CodeBlock>{`import DayPicker from 'react-day-picker'`}</CodeBlock>
+
+    <blockquote>
+      <h3>Note to Typescript developers</h3>
+      <p>
+        Until v7.0 is not released use{' '}
+        <code>{`import { DayPicker } from 'react-day-picker`}`</code> to import
+        DayPicker.<br />
+        <small>
+          See{' '}
+          <a href="https://github.com/gpbl/react-day-picker/issues/533">#533</a>{' '}
+          and{' '}
+          <a href="https://github.com/gpbl/react-day-picker/issues/539">#539</a>{' '}
+          for more details.
+        </small>
+      </p>
+    </blockquote>
+
     <h2>API summary</h2>
 
     <h4>Rendering months</h4>
