@@ -31,7 +31,7 @@ will be released soon._
 
 * New
   [`overlayComponent`](http://react-day-picker.js.org/api/DayPickerInput#overlayComponent)
-  prop ([#477](https://github.com/gpbl/react-day-picker/issues/477))
+  prop ([#477](https://github.com/gpbl/react-day-picker/issues/477), thanks to [wldcordeiro](https://github.com/wldcordeiro))
 
 * Improvement: clicking the Today Button will set the input value to today
   ([#561](https://github.com/gpbl/react-day-picker/issues/561))
