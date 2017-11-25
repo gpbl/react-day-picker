@@ -31,8 +31,8 @@ function renderDay(day) {
   return (
     <div style={cellStyle}>
       <div style={dateStyle}>{date}</div>
-      {birthdaysDate[] &&
-        birthdaysDate[].map((name, i) => (
+      {birthdays[date] &&
+        birthdays[date].map((name, i) => (
           <div key={i} style={birthdayStyle}>
             🎁 {name}
           </div>
