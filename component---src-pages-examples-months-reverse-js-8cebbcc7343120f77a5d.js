@@ -1,2 +1,0 @@
-webpackJsonp([0x79b670259b37],{332:function(e,t,a){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var u=a(1),l=n(u),r=a(7),s=n(r),f=a(6),o=n(f);t.default=function(){return l.default.createElement(s.default,{title:"Reverse months navigation"},l.default.createElement(o.default,{vertical:!0,name:"examples/months-reverse"}))},e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-examples-months-reverse-js-8cebbcc7343120f77a5d.js.map

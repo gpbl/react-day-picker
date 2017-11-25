@@ -1,2 +1,0 @@
-webpackJsonp([0x91844f7ffbd0],{327:function(e,t,n){"use strict";function a(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var l=n(1),u=a(l),f=n(7),i=a(f),d=n(6),o=a(d);t.default=function(){return u.default.createElement(i.default,{title:"Change the initial month"},u.default.createElement(o.default,{name:"examples/months-initial"}))},e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-examples-months-initial-js-8f710de824e5b02d16c6.js.map
