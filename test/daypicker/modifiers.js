@@ -59,7 +59,7 @@ describe('DayPicker’s day modifiers', () => {
   });
   it('should include "outside" for outside days', () => {
     const wrapper = mount(
-      <DayPicker initialMonth={new Date(2015, 6)} enableOutsideDays />
+      <DayPicker initialMonth={new Date(2015, 6)} showOutsideDays />
     );
     expect(wrapper.find('.DayPicker-Day').at(0)).toHaveClassName(
       'DayPicker-Day--outside'

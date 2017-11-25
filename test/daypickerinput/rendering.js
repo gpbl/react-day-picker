@@ -83,7 +83,7 @@ describe('DayPickerInput', () => {
       const instance = mount(
         <DayPickerInput
           dayPickerProps={{
-            enableOutsideDays: true,
+            showOutsideDays: true,
             numberOfMonths: 12,
             fixedWeeks: false,
           }}
@@ -91,7 +91,7 @@ describe('DayPickerInput', () => {
       ).instance();
       instance.showDayPicker();
       expect(instance.daypicker.props.fixedWeeks).toBe(false);
-      expect(instance.daypicker.props.enableOutsideDays).toBe(true);
+      expect(instance.daypicker.props.showOutsideDays).toBe(true);
       expect(instance.daypicker.props.numberOfMonths).toBe(12);
     });
     it('should open the daypicker to the month of the selected day', () => {

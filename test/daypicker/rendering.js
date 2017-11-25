@@ -16,7 +16,7 @@ describe('DayPicker’s rendering', () => {
     expect(dayPicker.props.initialMonth.getYear()).toBe(now.getYear());
     expect(dayPicker.props.numberOfMonths).toBe(1);
     expect(dayPicker.props.locale).toBe('en');
-    expect(dayPicker.props.enableOutsideDays).toBe(false);
+    expect(dayPicker.props.showOutsideDays).toBe(false);
     expect(dayPicker.props.fixedWeeks).toBe(false);
     expect(dayPicker.props.canChangeMonth).toBe(true);
     expect(dayPicker.props.reverseMonths).toBe(false);
@@ -153,7 +153,7 @@ describe('DayPicker’s rendering', () => {
     };
     const wrapper = mount(
       <DayPicker
-        enableOutsideDays
+        showOutsideDays
         modifiers={{ foo: () => true }}
         renderDay={renderDay}
       />
@@ -299,7 +299,7 @@ describe('DayPicker’s rendering', () => {
   });
   it('should render the outside days', () => {
     const wrapper = mount(
-      <DayPicker enableOutsideDays initialMonth={new Date(2015, 6)} />
+      <DayPicker showOutsideDays initialMonth={new Date(2015, 6)} />
     );
     expect(wrapper.find('.DayPicker-Day').at(0)).toHaveText('28');
     expect(wrapper.find('.DayPicker-Day').at(1)).toHaveText('29');
@@ -307,7 +307,7 @@ describe('DayPicker’s rendering', () => {
   });
   it('should not allow tabbing to outside days', () => {
     const wrapper = mount(
-      <DayPicker enableOutsideDays initialMonth={new Date(2015, 6)} />
+      <DayPicker showOutsideDays initialMonth={new Date(2015, 6)} />
     );
     expect(
       wrapper
@@ -331,7 +331,7 @@ describe('DayPicker’s rendering', () => {
   it('should render the fixed amount of weeks', () => {
     const wrapper = mount(
       <DayPicker
-        enableOutsideDays
+        showOutsideDays
         fixedWeeks
         initialMonth={new Date(2015, 1)}
       />
@@ -355,7 +355,7 @@ describe('DayPicker’s rendering', () => {
   it('should use the specified class names', () => {
     const wrapper = mount(
       <DayPicker
-        enableOutsideDays
+        showOutsideDays
         initialMonth={new Date(2015, 1)}
         classNames={{ ...classNames, day: 'foo' }}
         modifiers={{ bar: new Date(2015, 1, 10) }}

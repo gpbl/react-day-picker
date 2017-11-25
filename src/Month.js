@@ -26,7 +26,7 @@ export default class Month extends Component {
     modifiersStyles: PropTypes.object,
 
     showWeekDays: PropTypes.bool,
-    enableOutsideDays: PropTypes.bool,
+    showOutsideDays: PropTypes.bool,
 
     renderDay: PropTypes.func.isRequired,
     renderWeek: PropTypes.func.isRequired,
@@ -101,7 +101,7 @@ export default class Month extends Component {
         modifiers={modifiers}
         modifiersStyles={this.props.modifiersStyles}
         empty={
-          isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks
+          isOutside && !this.props.showOutsideDays && !this.props.fixedWeeks
         }
         tabIndex={tabIndex}
         ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
