@@ -42,7 +42,6 @@ export default class Month extends Component {
       PropTypes.instanceOf(React.Component),
     ]),
 
-    footer: PropTypes.node,
     fixedWeeks: PropTypes.bool,
     showWeekNumbers: PropTypes.bool,
 
@@ -142,7 +141,6 @@ export default class Month extends Component {
 
       onCaptionClick,
 
-      footer,
       showWeekNumbers,
       showWeekDays,
       onWeekClick,
@@ -193,9 +191,17 @@ export default class Month extends Component {
                     className={classNames.weekNumber}
                     tabIndex={0}
                     role="gridcell"
-                    onClick={e => onWeekClick(weekNumber, week, e)}
-                    onKeyUp={e =>
-                      e.keyCode === ENTER && onWeekClick(weekNumber, week, e)
+                    onClick={
+                      onWeekClick
+                        ? e => onWeekClick(weekNumber, week, e)
+                        : undefined
+                    }
+                    onKeyUp={
+                      onWeekClick
+                        ? e =>
+                            e.keyCode === ENTER &&
+                            onWeekClick(weekNumber, week, e)
+                        : undefined
                     }
                   >
                     {this.props.renderWeek(weekNumber, week, month)}
@@ -206,7 +212,6 @@ export default class Month extends Component {
             );
           })}
         </div>
-        {footer && <div className={classNames.footer}>{footer}</div>}
       </div>
     );
   }
