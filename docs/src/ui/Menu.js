@@ -1,14 +1,20 @@
+/* global window */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
+import scrollIntoView from 'scroll-into-view';
 
 import styles from './Menu.module.scss';
 
 export default class Menu extends React.Component {
   componentDidMount() {
-    const activeNodes = this.node.querySelectorAll(`.${styles.itemActive}`);
-    if (activeNodes.length === 1) {
-      activeNodes[0].scrollIntoView({ block: 'center', inline: 'nearest' });
+    const activeNode = this.node.querySelector(`.${styles.itemActive}`);
+    if (activeNode) {
+      scrollIntoView(activeNode, {
+        time: 0,
+        validTarget: target => target !== window,
+      });
     }
   }
   render() {
