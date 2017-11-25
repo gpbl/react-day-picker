@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { ClassNames } from './common';
 import { DayPickerInputProps } from './props';
-import { DayPicker } from './DayPicker';
+import DayPicker from './DayPicker';
 
 export class DayPickerInput extends React.Component<DayPickerInputProps, any> {
   showDayPicker(): void;
