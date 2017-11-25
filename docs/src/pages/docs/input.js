@@ -6,36 +6,28 @@ import CodeBlock from '../../ui/CodeBlock';
 import CodeSample from '../../ui/CodeSample';
 
 export default () => (
-  <DocPage title="Using the input field">
+  <DocPage title="Using DayPickerInput">
     <p>
-      The package includes <code>{`<DayPickerInput />`}</code>, a component
-      rendering an input field and displaying react-day-picker in an overlay.
+      The package includes{' '}
+      <Link to="/api/DayPickerInput">
+        <code>{`<DayPickerInput />`}</code>
+      </Link>, a component rendering an input field and displaying
+      react-day-picker in an overlay.
     </p>
-    <h3>Add moment.js dependency</h3>
-    <p>
-      <a href="http://momentjs.com">moment.js</a> is required as it is used to
-      validate and format the date typed by the user. Make sure you have
-      installed it in your dependencies:
-    </p>
-    <CodeBlock language="bash">{`npm install moment --save
-# or with yarn
-yarn add moment`}</CodeBlock>
-    <h3>Import the component</h3>
     <CodeBlock
     >{`import DayPickerInput from 'react-day-picker/DayPickerInput';`}</CodeBlock>
     <p>
-      If you are using <a href="https://unpkg.com/">unpkg</a>, the component is
-      available as <code>DayPicker.Input</code> global variable:
+      <small>
+        If you are using <a href="https://unpkg.com/">unpkg</a>, the component
+        is available as <code>DayPicker.Input</code> global variable.
+      </small>
     </p>
 
-    <CodeBlock
-    >{`<script src="https://unpkg.com/moment@2/min/moment.min.js"></script>
-<script src="https://unpkg.com/react-day-picker/lib/daypicker.min.js"></script>
-<script type="text/javascript">
-  DayPickerInput = DayPicker.Input;
-</script>`}</CodeBlock>
-
     <h3>Example</h3>
+    <p>
+      In its simple form, you use <code>DayPickerInput</code> to get the day
+      typed in the input field, or the day picked in the calendar:
+    </p>
     <CodeSample name="input-01" />
 
     <h2>Customizing the DayPicker</h2>
@@ -46,13 +38,34 @@ yarn add moment`}</CodeBlock>
     </p>
     <CodeSample name="input-02" />
 
-    <h2>Localization</h2>
+    <h2>Changing the date format</h2>
+
     <p>
-      You can use the locale and format methods of moment.js to format the value
-      displayed in the input field. Remember to add the <code>locale</code>{' '}
-      value to the <code>dayPickerProps</code>.
+      As default, the date format is the ”ugly” <code>YYYY-M-D</code>. This is
+      because parsing JavaScript dates from strings is not an easy task, and we
+      don’t want to depend on an external library for doing this.
     </p>
-    <p>For example, this implementation display the input field in Italian:</p>
-    <CodeSample name="input-03" />
+
+    <p>
+      To customize the way dates are parsed and formatted, for example using
+      your date library of choice, use the{' '}
+      <Link to="/api/DayPickerInput#parsedate">
+        <code>parseDate</code>
+      </Link>{' '}
+      and the{' '}
+      <Link to="/api/DayPickerInput#formatDate">
+        <code>formatDate</code>
+      </Link>{' '}
+      props.
+    </p>
+
+    <h3>Use moment.js to parse and format dates</h3>
+    <p>
+      If you use <a href="http://momentjs.com">moment.js</a>, we provide an
+      utility for using its parser and formatter functions. See{' '}
+      <Link to="/examples/input-moment">this example</Link>.
+    </p>
+
+    <CodeSample name="examples/input-moment" />
   </DocPage>
 );

@@ -13,6 +13,7 @@ import styles from './index.module.scss';
 
 import FeatureModifiers from '../code-samples/examples/modifiers-styles';
 import FeatureInput from '../code-samples/examples/input';
+import FeatureInput2 from '../code-samples/examples/input-from-to';
 import FeatureLocalization from '../code-samples/examples/localization';
 import FeatureRange from '../code-samples/examples/selected-range';
 
@@ -35,7 +36,8 @@ export default function HomePage() {
             <a href="https://facebook.github.io/react/">React</a>
           </h2>
           <p>
-            Flexible, highly customizable, localizable and with ARIA support.
+            Flexible, highly customizable, localizable, with ARIA support, no
+            external dependencies, ~9KB gzipped
           </p>
           <p>
             <LinkButton to="/docs">Read the docs</LinkButton>
@@ -50,7 +52,7 @@ export default function HomePage() {
             <h3>Style days with modifiers</h3>
             <p>
               Define the disabled or selected days and change the aspect of each
-              day cell with <a href="/docs/modifiers.html">modifiers</a>.
+              day cell with <Link to="/docs/matching-days">modifiers</Link>.
             </p>
             <div className={styles.feature}>
               <FeatureModifiers />
@@ -60,20 +62,19 @@ export default function HomePage() {
             <h3>Works with input fields</h3>
             <p>
               Display the date picker in an overlay using the{' '}
-              <a href="/docs/input.html">DayPickerInput</a> component.{' '}
-              <small>
-                Requires <a href="https://momentjs.com/">moment.js</a>.
-              </small>
+              <Link to="/docs/input">DayPickerInput</Link> component.
             </p>
             <div className={styles.feature}>
               <FeatureInput />
+              <p>...or choose a range of days:</p>
+              <FeatureInput2 />
             </div>
           </div>
           <div>
             <h3>Localizable</h3>
             <p>
-              Use your own translation strings or import those from moment.js
-              (if you use it).
+              Use your own translation strings or import those from moment.js,
+              if you use it.
             </p>
             <div className={styles.feature}>
               <FeatureLocalization />
@@ -82,7 +83,9 @@ export default function HomePage() {
           <div>
             <h3>Select range of days</h3>
             <p>
-              Specify which days should be selected in your component’s state (<Link to="/examples/selected-range">source</Link>).
+              Specify which days should be selected in your component’s state (<Link to="/examples/selected-range">
+                source
+              </Link>).
             </p>
             <div className={styles.feature}>
               <FeatureRange numberOfMonths={1} />

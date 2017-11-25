@@ -23,7 +23,7 @@ export default function DocPage({ title, children }) {
               <Menu.Item to="/docs/matching-days">Matching days</Menu.Item>
               <Menu.Item to="/docs/styling">Styling</Menu.Item>
               <Menu.Item to="/docs/localization">Localization</Menu.Item>
-              <Menu.Item to="/docs/input">Using the input field</Menu.Item>
+              <Menu.Item to="/docs/input">DayPickerInput</Menu.Item>
             </Menu>
             <Menu title="API">
               <Menu.Item to="/api/DayPicker">DayPicker</Menu.Item>
