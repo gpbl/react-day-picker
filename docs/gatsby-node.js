@@ -40,6 +40,10 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
               __dirname,
               '../src/style.css'
             ),
+            'react-day-picker/DayPickerInput$': path.resolve(
+              __dirname,
+              '../src/DayPickerInput.js'
+            ),
           },
         },
       });
