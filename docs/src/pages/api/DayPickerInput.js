@@ -14,16 +14,14 @@ export default () => (
     <h2>API summary</h2>
     <h4>Component’s Props</h4>
     <p>
-      <code>{`<DayPickerInput />`}</code> accepts all the props accepted by a
-      standard <code>{`<input/>`}</code>, plus the followings:
-    </p>
-    <p>
       <a href="#classNames">classNames</a>,{' '}
       <a href="#clickUnselectsDay">clickUnselectsDay</a>,{' '}
       <a href="#component">component</a>,{' '}
       <a href="#dayPickerProps">dayPickerProps</a>, <a href="#format">format</a>,{' '}
       <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
+      <a href="#inputProps">inputProps</a>,{' '}
       <a href="#overlayComponent">overlayComponent</a>,{' '}
+      <a href="#placeholder">placeholder</a>,{' '}
       <a href="#showOverlay">showOverlay</a>
     </p>
     <h4>Event handlers</h4>
@@ -126,6 +124,18 @@ function MyDayPickerInput(props) {
         hideOnDayClick <code>boolean = true</code>
       </h3>
       <p>Hide the overlay when the user clicks on a day cell.</p>
+      <h3>
+        <Anchor id="inputProps" />
+        inputProps <code>Object</code>
+      </h3>
+      <p>
+        Additional props to add to the <code>input</code> component. The{' '}
+        <code>value</code> key is ignored: use the{' '}
+        <a href="#value">
+          <code>value</code>
+        </a>{' '}
+        prop instead.
+      </p>
 
       <h3>
         <Anchor id="overlayComponent" />
@@ -148,6 +158,13 @@ function MyDayPickerInput(props) {
       </ul>
       <p>
         See also <Link to="/examples/input-custom-overlay">this example</Link>.
+      </p>
+      <h3>
+        <Anchor id="placeholder" />
+        placeholder <code>string</code>
+      </h3>
+      <p>
+        The placeholder to use for the <code>input</code> field.
       </p>
       <h3>
         <Anchor id="showOverlay" />
