@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import moment from 'moment';
 
 import DayPickerInput from '../../src/DayPickerInput';
 import DayPicker from '../../src/DayPicker';
@@ -12,36 +11,14 @@ describe('DayPickerInput', () => {
       const dayPicker = <DayPickerInput />;
       expect(dayPicker.props.dayPickerProps).toEqual({});
       expect(dayPicker.props.value).toBe('');
-      expect(dayPicker.props.format).toBe('L');
+      expect(typeof dayPicker.props.formatDate).toBe('function');
+      expect(typeof dayPicker.props.parseDate).toBe('function');
       expect(dayPicker.props.hideOnDayClick).toBe(true);
       expect(dayPicker.props.component).toBe('input');
     });
     it('should have the right CSS classes', () => {
       const wrapper = shallow(<DayPickerInput />);
       expect(wrapper).toHaveClassName('DayPickerInput');
-    });
-    it('should set the month based on the specified format', () => {
-      const wrapper = shallow(
-        <DayPickerInput value="12/05/2010" format="DD/MM/YYYY" />
-      );
-      expect(wrapper.instance().state.month.getMonth()).toBe(4);
-      expect(wrapper.instance().state.month.getFullYear()).toBe(2010);
-    });
-    it('should not set the month if the value is not valid acording to `format`', () => {
-      const wrapper = shallow(
-        <DayPickerInput value="12/17/2010" format="DD/MM/YYYY" />
-      );
-      expect(wrapper.instance().state.month).toBeUndefined();
-    });
-    it('should accept multiple `format`s', () => {
-      const wrapper = shallow(
-        <DayPickerInput
-          value="2010/05/12"
-          format={['DD/MM/YYYY', 'YYYY/MM/DD']}
-        />
-      );
-      expect(wrapper.instance().state.month.getMonth()).toBe(4);
-      expect(wrapper.instance().state.month.getFullYear()).toBe(2010);
     });
     it('should render an input field with the passed attributes', () => {
       const wrapper = shallow(
@@ -52,7 +29,7 @@ describe('DayPickerInput', () => {
       expect(input).toHaveProp('value', '12/14/2017');
       expect(input).toHaveProp('placeholder', 'bar');
     });
-    it('should work with not value dates', () => {
+    it('should work with not valid date as value', () => {
       const wrapper = shallow(
         <DayPickerInput value="very wrong" placeholder="bar" />
       );
@@ -61,6 +38,13 @@ describe('DayPickerInput', () => {
       wrapper.instance().showDayPicker();
       wrapper.update();
       expect(wrapper.find(DayPicker)).toBeDefined();
+    });
+    it('should work with a date object as value', () => {
+      const wrapper = shallow(
+        <DayPickerInput value={new Date(2018, 4, 12)} placeholder="bar" />
+      );
+      const input = wrapper.find('input');
+      expect(input).toHaveProp('value', '2018-5-12');
     });
     it('should show the DayPicker', () => {
       const wrapper = shallow(<DayPickerInput />);
@@ -111,7 +95,7 @@ describe('DayPickerInput', () => {
       expect(instance.daypicker.props.numberOfMonths).toBe(12);
     });
     it('should open the daypicker to the month of the selected day', () => {
-      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
+      const wrapper = mount(<DayPickerInput value="2017-12-15" />);
       wrapper.instance().showDayPicker();
       wrapper.update();
       expect(wrapper.find('.DayPicker-Caption div').first()).toHaveText(
@@ -119,7 +103,7 @@ describe('DayPickerInput', () => {
       );
     });
     it('should display the current value as a selected day', () => {
-      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
+      const wrapper = mount(<DayPickerInput value="2017-12-15" />);
       wrapper.instance().showDayPicker();
       wrapper.update();
       expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(1);
@@ -140,25 +124,29 @@ describe('DayPickerInput', () => {
       wrapper.instance().showDayPicker();
       wrapper.update();
       wrapper.find('.DayPicker-TodayButton').simulate('click');
-      expect(wrapper.find('input')).toHaveProp('value', moment().format('L'));
+      const today = new Date();
+      expect(wrapper.find('input')).toHaveProp(
+        'value',
+        `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+      );
     });
   });
   describe('updating props', () => {
     it('should update the current value when `value` prop is updated', () => {
-      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
+      const wrapper = mount(<DayPickerInput value="2017-12-15" />);
       wrapper.setProps({ value: '01/10/2018' });
       expect(wrapper.instance().state.value).toBe('01/10/2018');
     });
     it('should not update the current value when other props are updated', () => {
-      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
+      const wrapper = mount(<DayPickerInput value="2017-12-15" />);
       wrapper.setProps({ dayPickerProps: {} });
-      expect(wrapper.instance().state.value).toBe('12/15/2017');
+      expect(wrapper.instance().state.value).toBe('2017-12-15');
     });
     it("should update the displayed month when `dayPickerProps.month`'s month is updated", () => {
       const wrapper = mount(
         <DayPickerInput
           dayPickerProps={{ month: new Date(2017, 9) }}
-          value="12/15/2017"
+          value="2017-12-15"
         />
       );
       wrapper.instance().showDayPicker();
@@ -167,7 +155,7 @@ describe('DayPickerInput', () => {
         'December 2017'
       );
       wrapper.setProps({ dayPickerProps: { month: new Date(2017, 10) } });
-      expect(wrapper.instance().state.value).toBe('12/15/2017');
+      expect(wrapper.instance().state.value).toBe('2017-12-15');
       expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
         'November 2017'
       );
@@ -176,7 +164,7 @@ describe('DayPickerInput', () => {
       const wrapper = mount(
         <DayPickerInput
           dayPickerProps={{ month: new Date(2018, 10) }}
-          value="12/15/2017"
+          value="2017-12-15"
         />
       );
       wrapper.instance().showDayPicker();
@@ -185,28 +173,47 @@ describe('DayPickerInput', () => {
         'December 2017'
       );
       wrapper.setProps({ dayPickerProps: { month: new Date(2016, 10) } });
-      expect(wrapper.instance().state.value).toBe('12/15/2017');
+      expect(wrapper.instance().state.value).toBe('2017-12-15');
       expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
         'November 2016'
       );
     });
     it('should not change state if month did not change', () => {
-      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
+      const wrapper = mount(<DayPickerInput value="2017-12-15" />);
       wrapper.instance().showDayPicker();
       wrapper.update();
       expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
         'December 2017'
       );
       wrapper.setProps({ dayPickerProps: { month: new Date(2017, 11) } });
-      expect(wrapper.instance().state.value).toBe('12/15/2017');
+      expect(wrapper.instance().state.value).toBe('2017-12-15');
       expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
         'December 2017'
       );
     });
     it('should not update the current value when other props are updated', () => {
-      const wrapper = mount(<DayPickerInput value="12/15/2017" />);
-      wrapper.setProps({ dayPickerProps: {}, value: '12/15/2017' });
-      expect(wrapper.instance().state.value).toBe('12/15/2017');
+      const wrapper = mount(<DayPickerInput value="2017-12-15" />);
+      wrapper.setProps({ dayPickerProps: {}, value: '2017-12-15' });
+      expect(wrapper.instance().state.value).toBe('2017-12-15');
+    });
+    it('should update the value when it is passed as Date', () => {
+      const wrapper = mount(<DayPickerInput value="2017-12-15" />);
+      wrapper.setProps({ dayPickerProps: {}, value: new Date(2017, 11, 16) });
+      expect(wrapper.instance().state.value).toBe('2017-12-16');
+    });
+    it('should update the selected days from prop', () => {
+      const wrapper = mount(
+        <DayPickerInput
+          dayPickerProps={{ selectedDays: new Date(2020, 2, 20) }}
+        />
+      );
+      wrapper.setProps({
+        dayPickerProps: { selectedDays: new Date(2020, 2, 10) },
+      });
+      wrapper.update();
+      expect(wrapper.instance().state.selectedDays).toEqual(
+        new Date(2020, 2, 10)
+      );
     });
   });
 });
