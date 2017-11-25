@@ -14,6 +14,7 @@ export default class DayPickerInput extends React.Component {
   static propTypes = {
     value: PropTypes.string,
     inputProps: PropTypes.object,
+    placeholder: PropTypes.string,
 
     format: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.string),
@@ -377,6 +378,7 @@ export default class DayPickerInput extends React.Component {
       >
         <Input
           ref={el => (this.input = el)}
+          placeholder={this.props.placeholder}
           {...this.props.inputProps}
           value={this.state.value}
           onChange={this.handleInputChange}
