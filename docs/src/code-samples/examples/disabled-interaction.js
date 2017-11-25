@@ -25,7 +25,7 @@ export default class Example extends React.Component {
     return (
       <div>
         <DayPicker
-          enableOutsideDays
+          showOutsideDays
           selectedDays={this.state.selectedDay}
           disabledDays={disabledDays}
           onDayClick={this.handleDayClick}

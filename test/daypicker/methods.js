@@ -9,7 +9,7 @@ describe('DayPicker’s methods', () => {
       const instance = shallow(
         <DayPicker
           initialMonth={new Date(2015, 7)}
-          enableOutsideDays={false}
+          showOutsideDays={false}
           numberOfMonths={2}
         />
       ).instance();
@@ -42,7 +42,7 @@ describe('DayPicker’s methods', () => {
       const instance = shallow(
         <DayPicker
           initialMonth={new Date(2015, 7)}
-          enableOutsideDays={false}
+          showOutsideDays={false}
           numberOfMonths={2}
           pagedNavigation
         />
@@ -57,7 +57,7 @@ describe('DayPicker’s methods', () => {
   describe('showPreviousMonth()', () => {
     it('should show the previous month', () => {
       const instance = shallow(
-        <DayPicker initialMonth={new Date(2015, 7)} enableOutsideDays={false} />
+        <DayPicker initialMonth={new Date(2015, 7)} showOutsideDays={false} />
       ).instance();
       instance.showPreviousMonth();
       expect(instance.state.currentMonth.getMonth()).toBe(6);
@@ -88,7 +88,7 @@ describe('DayPicker’s methods', () => {
       const instance = shallow(
         <DayPicker
           initialMonth={new Date(2015, 7)}
-          enableOutsideDays={false}
+          showOutsideDays={false}
           numberOfMonths={2}
           pagedNavigation
         />
