@@ -21,6 +21,7 @@ export default () => (
       <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
       <a href="#inputProps">inputProps</a>,{' '}
       <a href="#overlayComponent">overlayComponent</a>,{' '}
+      <a href="#placeholder">placeholder</a>,{' '}
       <a href="#showOverlay">showOverlay</a>
     </p>
     <h4>Event handlers</h4>
@@ -157,6 +158,13 @@ function MyDayPickerInput(props) {
       </ul>
       <p>
         See also <Link to="/examples/input-custom-overlay">this example</Link>.
+      </p>
+      <h3>
+        <Anchor id="placeholder" />
+        placeholder <code>string</code>
+      </h3>
+      <p>
+        The placeholder to use for the <code>input</code> field.
       </p>
       <h3>
         <Anchor id="showOverlay" />
