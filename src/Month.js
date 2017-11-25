@@ -25,7 +25,7 @@ export default class Month extends Component {
 
     modifiersStyles: PropTypes.object,
 
-    showWeekdays: PropTypes.bool,
+    showWeekDays: PropTypes.bool,
     enableOutsideDays: PropTypes.bool,
 
     renderDay: PropTypes.func.isRequired,
