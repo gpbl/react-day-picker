@@ -8,7 +8,7 @@ will be released soon._
 Your existing code may break if:
 
 * you are using `DayPickerInput`: we removed the moment.js dependency and
-  changed how to pass props to the input field (see below).
+  changed how to pass props to the input field (upgrade is easy, see below).
 * you are using commonjs to import the component. In this case, change your
   code:
   ```diff
