@@ -101,6 +101,16 @@ input {
   outline: none;
 }
 
+button.link {
+  background-color: transparent;
+  border: 0;
+  appearance: none;
+  color: $link-color;
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
 abbr[title] {
   text-decoration: none;
   border-bottom: 0;

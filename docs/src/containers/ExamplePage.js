@@ -89,6 +89,9 @@ export default function ExamplePage({ children, title }) {
               <Menu.Item to="/examples/input-custom-overlay">
                 Customize the overlay
               </Menu.Item>
+              <Menu.Item to="/examples/input-from-to">
+                Range with two inputs
+              </Menu.Item>
             </Menu>
             <Menu subtitle="Matching days">
               <Menu.Item to="/examples/modifiers">
