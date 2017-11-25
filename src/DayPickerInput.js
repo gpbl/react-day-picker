@@ -335,7 +335,6 @@ export default class DayPickerInput extends React.Component {
         <DayPicker
           ref={el => (this.daypicker = el)}
           localeUtils={MomentLocaleUtils}
-          fixedWeeks
           onTodayButtonClick={onTodayButtonClick}
           {...dayPickerProps}
           month={this.state.month}

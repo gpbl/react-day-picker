@@ -36,7 +36,8 @@ will be released soon._
 
 * Improvement: clicking the Today Button will set the input value to today
   ([#561](https://github.com/gpbl/react-day-picker/issues/561))
-
+* Changed: removed `fixedWeek` prop. Use `dayPickerProps: { fixedWeek: true }`
+  to restore it.
 * Fixed: allow to change `numberOfMonths`, `selectedDays` props from
   `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513),
   [#531](https://github.com/gpbl/react-day-picker/issues/531) by
