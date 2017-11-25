@@ -28,8 +28,7 @@
     "build:node": "babel ./src -d ./lib/src --source-maps && npm run build:css",
     "build:development": "NODE_ENV=development webpack",
     "build:production": "NODE_ENV=production webpack -p",
-    "build:css":
-      "postcss src/style.css --use autoprefixer -d lib/ --no-map && postcss src/style-old.css --use autoprefixer -d lib/ --no-map"
+    "build:css": "postcss src/style.css --use autoprefixer -d lib/ --no-map"
   },
   "repository": {
     "type": "git",
