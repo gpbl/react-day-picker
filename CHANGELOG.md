@@ -5,7 +5,7 @@ will be released soon._
 
 **Breaking changes**
 
-Your existing code may break if:
+Your existing implementation may break in one of the following case:
 
 * you are using `DayPickerInput`: we removed the moment.js dependency and
   changed how to pass props to the input field (upgrade is easy, see below).
@@ -20,12 +20,13 @@ Your existing code may break if:
   - import { DayPicker } from 'react-day-picker`;
   + import DayPicker from 'react-day-picker';
   ```
+* you are using a custom css: the months tables are now inside a `div` with a `.DayPicker-Months` CSS class.
 
 If you find problems while upgrading, please [add an issue](https://github.com/gpbl/react-day-picker/issues/new), thanks!
 
 **New features**
 
-* New modern CSS style (the old one is available from `lib/style-old.css`)
+* Improved layout and style. Added `.DayPicker-Months` container.
 * Added: [`renderWeek`](http://react-day-picker.js.org/api/DayPicker`renderWeek)
   prop ([#497](https://github.com/gpbl/react-day-picker/issues/497) by
   [jenshandersson](https://github.com/jenshandersson))
