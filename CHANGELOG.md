@@ -29,24 +29,31 @@ will be released soon._
 
 **DayPickerInput**
 
-* New
+* New:
   [`overlayComponent`](http://react-day-picker.js.org/api/DayPickerInput#overlayComponent)
-  prop ([#477](https://github.com/gpbl/react-day-picker/issues/477), thanks to
+  prop: useful to customize the overlay component
+  ([#477](https://github.com/gpbl/react-day-picker/issues/477), thanks to
   [wldcordeiro](https://github.com/wldcordeiro))
+* New: allow to change `numberOfMonths`, `selectedDays` props from
+  `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513),
+  [#531](https://github.com/gpbl/react-day-picker/issues/531) by
+  [hydrognomik](https://github.com/hydrognomik)). Useful for selecting range of
+  days ([example](http://react-day-picker.js.org/examples/input-from-to)).
 * New:
   [`showOverlay`](http://react-day-picker.js.org/api/DayPickerInput#showOverlay)
   prop: shows the overlay at the initial rendering (useful for styling)
-* New:
-  [`getInput`](http://react-day-picker.js.org/api/DayPickerInput#getInput) and [`getDayPicker`](http://react-day-picker.js.org/api/DayPickerInput#getDayPicker)
+* New: [`getInput`](http://react-day-picker.js.org/api/DayPickerInput#getInput)
+  and
+  [`getDayPicker`](http://react-day-picker.js.org/api/DayPickerInput#getDayPicker)
   public methods
+
+
 * Changed: clicking the Today Button will set the input value to today
   ([#561](https://github.com/gpbl/react-day-picker/issues/561))
-* Changed: removed `fixedWeek` prop. Use `dayPickerProps: { fixedWeek: true }`
+* Changed: removed `fixedWeek` prop. Use `dayPickerProps ={{ fixedWeek: true }}`
   to restore it.
-* Fixed: allow to change `numberOfMonths`, `selectedDays` props from
-  `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513),
-  [#531](https://github.com/gpbl/react-day-picker/issues/531) by
-  [hydrognomik](https://github.com/hydrognomik))
+
+
 * Fixed: some modifiers were not passed down when using a custom `classNames`
   ([#517](https://github.com/gpbl/react-day-picker/issues/517),
   [#504](https://github.com/gpbl/react-day-picker/issues/504) by
