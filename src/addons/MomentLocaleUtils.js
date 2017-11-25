@@ -49,7 +49,7 @@ export function getMonths(locale = 'en') {
 export function formatDate(date, format = 'L', locale = 'en') {
   return moment(date)
     .locale(locale)
-    .format(format);
+    .format(Array.isArray(format) ? format[0] : format);
 }
 
 export function parseDate(str, format = 'L', locale = 'en') {

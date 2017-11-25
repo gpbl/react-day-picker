@@ -109,10 +109,11 @@ function MyDayPickerInput(props) {
 
       <h3>
         <Anchor id="format" />
-        format <code>string</code>
+        format <code>string | string[]</code>
       </h3>
       <p>
-        The format strings used for formatting and parsing dates. It works with{' '}
+        The format string(s) used for formatting and parsing dates. It works
+        with{' '}
         <a href="#parseDate">
           <code>parseDate</code>
         </a>{' '}
@@ -125,7 +126,9 @@ function MyDayPickerInput(props) {
       <h3>
         <Anchor id="formatDate" />
         formatDate{' '}
-        <code>(date: Date?, format: string?, locale: string?) ⇒ string</code>
+        <code>
+          (date: Date?, format: string? | string[]?, locale: string?) ⇒ string
+        </code>
       </h3>
       <p>
         Date formatter used for displaying the selected date as value of the
@@ -194,7 +197,10 @@ function MyDayPickerInput(props) {
       <h3>
         <Anchor id="parseDate" />
         parseDate{' '}
-        <code>(str: string?, format: string?, locale: string?) ⇒ string</code>
+        <code>
+          (str: string?, format: string? | string[]?, locale: string?) ⇒ Date |
+          void
+        </code>
       </h3>
       <p>
         Date parser used for parsing the string typed in the input field. As
