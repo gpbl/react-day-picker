@@ -12,6 +12,9 @@ will be released soon._
 * Added:
   [`onTodayButtonClick`](http://react-day-picker.js.org/api/DayPicker#onTodayButtonClick)
   prop ([#529](https://github.com/gpbl/react-day-picker/issues/529))
+* Added:
+  [`showWeekDays`](http://react-day-picker.js.org/api/DayPicker#showWeekDays)
+  prop. Set it to `false` to hide weekday names
 * Added: `month` prop to
   [`navbarElement`](<(http://react-day-picker.js.org/api/DayPicker#navbarElement)>)
   ([#552](https://github.com/gpbl/react-day-picker/issues/552))
@@ -48,12 +51,10 @@ will be released soon._
   [`getDayPicker`](http://react-day-picker.js.org/api/DayPickerInput#getDayPicker)
   public methods
 
-
-* Changed: clicking the Today Button will set the input value to today
+- Changed: clicking the Today Button will set the input value to today
   ([#561](https://github.com/gpbl/react-day-picker/issues/561))
-* Changed: removed `fixedWeek` prop. Use `dayPickerProps ={{ fixedWeek: true }}`
+- Changed: removed `fixedWeek` prop. Use `dayPickerProps ={{ fixedWeek: true }}`
   to restore it.
-
 
 * Fixed: some modifiers were not passed down when using a custom `classNames`
   ([#517](https://github.com/gpbl/react-day-picker/issues/517),

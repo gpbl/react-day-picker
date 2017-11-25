@@ -140,6 +140,7 @@ export interface DayPickerProps {
   reverseMonths?: boolean;
   selectedDays?: Modifier | Modifier[];
   showWeekNumbers?: boolean;
+  showWeekDays?: boolean;
   todayButton?: string;
   toMonth?: Date;
   weekdayElement?:

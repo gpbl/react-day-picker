@@ -25,6 +25,7 @@ export default class Month extends Component {
 
     modifiersStyles: PropTypes.object,
 
+    showWeekdays: PropTypes.bool,
     enableOutsideDays: PropTypes.bool,
 
     renderDay: PropTypes.func.isRequired,
@@ -143,6 +144,7 @@ export default class Month extends Component {
 
       footer,
       showWeekNumbers,
+      showWeekDays,
       onWeekClick,
     } = this.props;
 
@@ -159,20 +161,21 @@ export default class Month extends Component {
       : React.createElement(captionElement, captionProps);
 
     const weeks = Helpers.getWeekArray(month, firstDayOfWeek, fixedWeeks);
-
     return (
       <div className={classNames.month} role="grid">
         {caption}
-        <Weekdays
-          classNames={classNames}
-          weekdaysShort={weekdaysShort}
-          weekdaysLong={weekdaysLong}
-          firstDayOfWeek={firstDayOfWeek}
-          showWeekNumbers={showWeekNumbers}
-          locale={locale}
-          localeUtils={localeUtils}
-          weekdayElement={weekdayElement}
-        />
+        {showWeekDays && (
+          <Weekdays
+            classNames={classNames}
+            weekdaysShort={weekdaysShort}
+            weekdaysLong={weekdaysLong}
+            firstDayOfWeek={firstDayOfWeek}
+            showWeekNumbers={showWeekNumbers}
+            locale={locale}
+            localeUtils={localeUtils}
+            weekdayElement={weekdayElement}
+          />
+        )}
         <div className={classNames.body} role="rowgroup">
           {weeks.map(week => {
             let weekNumber;
