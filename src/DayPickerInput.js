@@ -122,6 +122,14 @@ export default class DayPickerInput extends React.Component {
     };
   }
 
+  getInput() {
+    return this.input;
+  }
+
+  getDayPicker() {
+    return this.daypicker;
+  }
+
   input = null;
   daypicker = null;
   clickedInside = false;

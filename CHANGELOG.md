@@ -33,11 +33,13 @@ will be released soon._
   [`overlayComponent`](http://react-day-picker.js.org/api/DayPickerInput#overlayComponent)
   prop ([#477](https://github.com/gpbl/react-day-picker/issues/477), thanks to
   [wldcordeiro](https://github.com/wldcordeiro))
-
-* Improvement: clicking the Today Button will set the input value to today
 * New:
   [`showOverlay`](http://react-day-picker.js.org/api/DayPickerInput#showOverlay)
   prop: shows the overlay at the initial rendering (useful for styling)
+* New:
+  [`getInput`](http://react-day-picker.js.org/api/DayPickerInput#getInput) and [`getDayPicker`](http://react-day-picker.js.org/api/DayPickerInput#getDayPicker)
+  public methods
+* Changed: clicking the Today Button will set the input value to today
   ([#561](https://github.com/gpbl/react-day-picker/issues/561))
 * Changed: removed `fixedWeek` prop. Use `dayPickerProps: { fixedWeek: true }`
   to restore it.
