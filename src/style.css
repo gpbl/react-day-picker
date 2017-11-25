@@ -5,14 +5,16 @@
 }
 
 .DayPicker-wrapper {
+  position: relative;
+  user-select: none;
+  padding-bottom: 1rem;
+  flex-direction: row;
+}
+
+.DayPicker-Months {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  position: relative;
-  user-select: none;
-  padding: 1rem 0;
-
-  flex-direction: row;
 }
 
 .DayPicker-Month {
@@ -21,14 +23,10 @@
   border-spacing: 0;
   user-select: none;
   margin: 0 1rem;
-}
-
-.DayPicker-Month + .DayPicker-Month {
-  margin-bottom: 1.2rem;
+  margin-top: 1rem;
 }
 
 .DayPicker-NavBar {
-  margin-top: 1rem;
 }
 
 .DayPicker-NavButton {

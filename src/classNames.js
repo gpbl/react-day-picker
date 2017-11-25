@@ -4,6 +4,7 @@ export default {
   container: 'DayPicker',
   wrapper: 'DayPicker-wrapper',
   interactionDisabled: 'DayPicker--interactionDisabled',
+  months: 'DayPicker-Months',
   month: 'DayPicker-Month',
 
   navBar: 'DayPicker-NavBar',
