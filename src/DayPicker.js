@@ -492,7 +492,6 @@ export default class DayPicker extends Component {
           key={i}
           {...this.props}
           month={month}
-          footer={this.props.todayButton && this.renderTodayButton()}
           firstDayOfWeek={firstDayOfWeek}
           onDayKeyDown={this.handleDayKeyDown}
           onDayClick={this.handleDayClick}
@@ -504,6 +503,17 @@ export default class DayPicker extends Component {
       months.reverse();
     }
     return months;
+  }
+
+  renderFooter() {
+    if (this.props.todayButton) {
+      return (
+        <div className={this.props.classNames.footer}>
+          {this.renderTodayButton()}
+        </div>
+      );
+    }
+    return null;
   }
 
   renderTodayButton() {
@@ -549,6 +559,7 @@ export default class DayPicker extends Component {
         >
           {this.renderNavbar()}
           {this.renderMonths()}
+          {this.renderFooter()}
         </div>
       </div>
     );

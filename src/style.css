@@ -10,8 +10,9 @@
   justify-content: center;
   position: relative;
   user-select: none;
-  flex-direction: row;
   padding: 1rem 0;
+
+  flex-direction: row;
 }
 
 .DayPicker-Month {
@@ -27,13 +28,14 @@
 }
 
 .DayPicker-NavBar {
+  margin-top: 1rem;
 }
 
 .DayPicker-NavButton {
   position: absolute;
   cursor: pointer;
   top: 1rem;
-  margin-top: 2px;
+  margin-top: 3px;
   font-size: 1rem;
   color: #8b9898;
   width: 1.25rem;
@@ -66,7 +68,7 @@
   padding: 0 0.5rem;
   display: table-caption;
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .DayPicker-Caption > div {
@@ -130,8 +132,6 @@
 }
 
 .DayPicker-Footer {
-  display: table-caption;
-  caption-side: bottom;
   padding-top: 0.5rem;
 }
 
@@ -203,6 +203,7 @@
 
 .DayPickerInput-Overlay {
   left: 0;
+  z-index: 1;
   position: absolute;
   background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
