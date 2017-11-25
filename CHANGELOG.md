@@ -1,28 +1,27 @@
 # [v7.0.0](https://github.com/gpbl/react-day-picker/tree/v7.0.0) (2017-11-25)
 
-_The following changes are not released yet, but are on the master branch and
-will be released soon._
-
 **Breaking changes**
 
-Your existing implementation may break in one of the following case:
-
-* you are using `DayPickerInput`: we removed the moment.js dependency and
+* `enableOutsideDays` prop is now named `showOutsideDays`
+* if you are using `DayPickerInput`, we removed the moment.js dependency and
   changed how to pass props to the input field (upgrade is easy, see below).
-* you are using commonjs to import the component. In this case, change your
-  code:
+* if you are using commonjs to import the component, change your code:
   ```diff
   - var DayPicker = require('react-day-picker`)
   + var DayPicker = require('react-day-picker`).default
   ```
-* you are using TypeScript and upgrading from `v6.2` (see [#533](https://github.com/gpbl/react-day-picker/issues/533)):
+* if you are using TypeScript and upgrading from `v6.2.1` (see
+  [#533](https://github.com/gpbl/react-day-picker/issues/533)), use the default
+  import:
   ```diff
   - import { DayPicker } from 'react-day-picker`;
   + import DayPicker from 'react-day-picker';
   ```
-* you are using a custom css: the months tables are now inside a `div` with a `.DayPicker-Months` CSS class.
+* if you are using a custom CSS, consider that now the calendar table is inside
+  a `div` with a `.DayPicker-Months` CSS class.
 
-If you find problems while upgrading, please [add an issue](https://github.com/gpbl/react-day-picker/issues/new), thanks!
+If you find problems while upgrading, please
+[add an issue](https://github.com/gpbl/react-day-picker/issues/new), thanks!
 
 **New features**
 
@@ -39,6 +38,8 @@ If you find problems while upgrading, please [add an issue](https://github.com/g
 * Added: `month` prop to
   [`navbarElement`](<(http://react-day-picker.js.org/api/DayPicker#navbarElement)>)
   ([#552](https://github.com/gpbl/react-day-picker/issues/552))
+* Renamed `enableOutsideDays` prop to
+  [`showOutsideDays`](<(http://react-day-picker.js.org/api/DayPicker#showOutsideDays)>)
 
 **Bug fixes**
 
@@ -58,7 +59,9 @@ If you find problems while upgrading, please [add an issue](https://github.com/g
 
 **Breaking changes**
 
-* The moment.js requirement [has been removed](https://github.com/gpbl/react-day-picker/pull/518), and you should use
+* The moment.js requirement
+  [has been removed](https://github.com/gpbl/react-day-picker/pull/518), and you
+  should use
   [`parseDate`](http://react-day-picker.js.org/api/DayPickerInput#parseDate) and
   [`formatDate`](http://react-day-picker.js.org/api/DayPickerInput#formatDate)
   props to parse and format the dates. If you want to keep using moment.js, your
