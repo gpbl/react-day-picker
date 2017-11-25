@@ -1,4 +1,4 @@
-# Next version
+# [v7.0.0](https://github.com/gpbl/react-day-picker/tree/v7.0.0) (2017-11-25)
 
 _The following changes are not released yet, but are on the master branch and
 will be released soon._
