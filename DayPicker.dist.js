@@ -1,8 +1,8 @@
-const DayPicker = require('./src/DayPicker');
+/* eslint-disable no-var */
+/* eslint-env node */
 
-DayPicker.default.Input = require('./src/DayPickerInput').default;
-DayPicker.default.DateUtils = require('./src/DateUtils').default;
-DayPicker.default.ModifiersUtils = require('./src/ModifiersUtils').default;
-DayPicker.default.LocaleUtils = require('./src/LocaleUtils').default;
+var DayPicker = require('./src/DayPicker');
 
-module.exports = DayPicker.default;
+DayPicker.Input = require('./src/DayPickerInput');
+
+module.exports = DayPicker;
