@@ -330,11 +330,7 @@ describe('DayPicker’s rendering', () => {
   });
   it('should render the fixed amount of weeks', () => {
     const wrapper = mount(
-      <DayPicker
-        showOutsideDays
-        fixedWeeks
-        initialMonth={new Date(2015, 1)}
-      />
+      <DayPicker showOutsideDays fixedWeeks initialMonth={new Date(2015, 1)} />
     );
     expect(wrapper.find('.DayPicker-Day')).toHaveLength(42);
   });
