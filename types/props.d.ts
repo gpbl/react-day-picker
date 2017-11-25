@@ -152,10 +152,16 @@ export interface DayPickerProps {
 }
 
 export interface DayPickerInputProps {
-  value?: string;
+  value?: string | Date;
   format: string | string[];
+  placeholder?: string;
 
   dayPickerProps?: DayPickerProps;
+  inputProps?: object;
+
+  formatDate?(date: Date, format: string, locale: string): string;
+  parseDate?(str: string, format: string, locale: string): Date | void;
+
   hideOnDayClick?: boolean;
   clickUnselectsDay?: boolean;
   showOverlay?: boolean;
