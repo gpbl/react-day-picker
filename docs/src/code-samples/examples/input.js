@@ -6,10 +6,7 @@ export default function Example() {
   return (
     <div>
       <p>Please type a day:</p>
-      <DayPickerInput
-        onDayChange={day => console.log(day)}
-        placeholder="MM/DD/YYYY"
-      />
+      <DayPickerInput onDayChange={day => console.log(day)} />
     </div>
   );
 }

@@ -18,11 +18,12 @@ export default () => (
       <a href="#clickUnselectsDay">clickUnselectsDay</a>,{' '}
       <a href="#component">component</a>,{' '}
       <a href="#dayPickerProps">dayPickerProps</a>, <a href="#format">format</a>,{' '}
+      <a href="#formatDate">formatDate</a>,{' '}
       <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
       <a href="#inputProps">inputProps</a>,{' '}
       <a href="#overlayComponent">overlayComponent</a>,{' '}
-      <a href="#placeholder">placeholder</a>,{' '}
-      <a href="#showOverlay">showOverlay</a>
+      <a href="#parseDate">parseDate</a>, <a href="#placeholder">placeholder</a>,{' '}
+      <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>
     </p>
     <h4>Event handlers</h4>
     <p>
@@ -108,15 +109,45 @@ function MyDayPickerInput(props) {
 
       <h3>
         <Anchor id="format" />
-        format <code>string | [string]</code>
+        format <code>string</code>
       </h3>
       <p>
-        The format strings used for parsing the date entered in the input field.
-        It accepts all the{' '}
-        <a href="https://momentjs.com/docs/#/displaying/format/">
-          format strings
+        The format strings used for formatting and parsing dates. It works with{' '}
+        <a href="#parseDate">
+          <code>parseDate</code>
         </a>{' '}
-        used by moment.js.
+        and{' '}
+        <a href="#formatDate">
+          <code>formatDate</code>
+        </a>
+      </p>
+
+      <h3>
+        <Anchor id="formatDate" />
+        formatDate{' '}
+        <code>(date: Date?, format: string?, locale: string?) ⇒ string</code>
+      </h3>
+      <p>
+        Date formatter used for displaying the selected date as value of the
+        input field. As default, it returns dates formatted as{' '}
+        <code>YYYY-M-D</code>.<br />
+        Arguments: <code>format</code> is the value coming from the{' '}
+        <a href="#format">
+          <code>format</code>
+        </a>{' '}
+        prop, while <code>locale</code> is from{' '}
+        <a href="#dayPickerProps">
+          <code>dayPickerProps</code>
+        </a>.<br />
+        See also{' '}
+        <a href="#parseDate">
+          <code>parseDate</code>
+        </a>.
+      </p>
+      <p>
+        If you are using <a href="http://momentjs.com/">moment.js</a> in your
+        app, we already provide this function as addon: see{' '}
+        <Link to="/examples/input-moment">this example</Link>.
       </p>
 
       <h3>
@@ -159,6 +190,34 @@ function MyDayPickerInput(props) {
       <p>
         See also <Link to="/examples/input-custom-overlay">this example</Link>.
       </p>
+
+      <h3>
+        <Anchor id="parseDate" />
+        parseDate{' '}
+        <code>(str: string?, format: string?, locale: string?) ⇒ string</code>
+      </h3>
+      <p>
+        Date parser used for parsing the string typed in the input field. As
+        default, it parses only dates formatted as <code>YYYY-M-D</code>.
+        <br />
+        Arguments: <code>format</code> is the value coming from the{' '}
+        <a href="#format">
+          <code>format</code>
+        </a>{' '}
+        prop, while <code>locale</code> is from{' '}
+        <a href="#dayPickerProps">
+          <code>dayPickerProps</code>
+        </a>.<br />See also{' '}
+        <a href="#formatDate">
+          <code>formatDate</code>
+        </a>.
+      </p>
+      <p>
+        If you are using <a href="http://momentjs.com/">moment.js</a> in your
+        app, we already provide this function as addon: see{' '}
+        <Link to="/examples/input-moment">this example</Link>.
+      </p>
+
       <h3>
         <Anchor id="placeholder" />
         placeholder <code>string</code>
@@ -173,6 +232,13 @@ function MyDayPickerInput(props) {
       <p>
         Show the overlay during the initial rendering of the component. This is
         useful if you want to keep the overlay visibile while styling it.
+      </p>
+      <h3>
+        <Anchor id="value" />
+        value <code>string | Date</code>
+      </h3>
+      <p>
+        The value of the <code>input</code> field.
       </p>
 
       <hr />

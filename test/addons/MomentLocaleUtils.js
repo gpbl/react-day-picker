@@ -54,4 +54,44 @@ describe('MomentLocaleUtils', () => {
       expect(MomentLocaleUtils.getMonths()).toHaveLength(12);
     });
   });
+
+  describe('getMonths', () => {
+    it('return twelve months for it locale', () => {
+      const months = MomentLocaleUtils.getMonths('it');
+      expect(months).toHaveLength(12);
+      expect(months[0]).toBe('gennaio');
+    });
+    it('return twelve months for default locale', () => {
+      expect(MomentLocaleUtils.getMonths()).toHaveLength(12);
+    });
+  });
+
+  describe('formatDate', () => {
+    it('format a date', () => {
+      const formatted = MomentLocaleUtils.formatDate(new Date(2018, 1, 20));
+      expect(formatted).toBe('02/20/2018');
+    });
+    it('format a date according to locale and format', () => {
+      const formatted = MomentLocaleUtils.formatDate(
+        new Date(2018, 1, 20),
+        'LL',
+        'it'
+      );
+      expect(formatted).toBe('20 febbraio 2018');
+    });
+  });
+  describe('parseDate', () => {
+    it('parse a date', () => {
+      const parsed = MomentLocaleUtils.parseDate(new Date(2018, 1, 20));
+      expect(parsed).toEqual(new Date(2018, 1, 20));
+    });
+    it('parse a date according to locale and format', () => {
+      const parsed = MomentLocaleUtils.parseDate('02/20/2018');
+      expect(parsed).toEqual(new Date(2018, 1, 20));
+    });
+    it('return undefined if date is not valid', () => {
+      const parsed = MomentLocaleUtils.parseDate('20 foo 2018', 'LL', 'it');
+      expect(parsed).toBeUndefined();
+    });
+  });
 });

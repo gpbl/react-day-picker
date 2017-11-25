@@ -5,6 +5,8 @@ import Helmet from 'react-helmet';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
+import { formatDate, parseDate } from 'react-day-picker/moment';
+
 export default class Example extends React.Component {
   constructor(props) {
     super(props);
@@ -34,29 +36,26 @@ export default class Example extends React.Component {
   }
   handleFromChange(from) {
     // Change the from date and focus the "to" input field
-    this.setState({ from: from ? from.toDate() : undefined }, () => {
+    this.setState({ from }, () => {
       if (!this.state.to) {
         this.focusTo();
       }
     });
   }
-  handleToChange(day) {
-    const to = day ? day.toDate() : undefined;
+  handleToChange(to) {
     this.setState({ to }, this.showFromMonth);
   }
   render() {
-    const format = 'YYYY-MM-DD';
     const { from, to } = this.state;
-    const fromFormatted = from ? moment(from).format(format) : '';
-    const toFormatted = to ? moment(to).format(format) : '';
     const modifiers = { start: from, end: to };
     return (
       <div className="InputFromTo">
         <DayPickerInput
-          value={fromFormatted}
-          onDayChange={this.handleFromChange}
+          value={from}
           placeholder="From"
-          format={format}
+          format="LL"
+          formatDate={formatDate}
+          parseDate={parseDate}
           dayPickerProps={{
             selectedDays: [from, { from, to }],
             disabledDays: { after: to },
@@ -64,16 +63,17 @@ export default class Example extends React.Component {
             modifiers,
             numberOfMonths: 2,
           }}
+          onDayChange={this.handleFromChange}
         />{' '}
         —{' '}
         <span className="InputFromTo-to">
           <DayPickerInput
             ref={el => (this.to = el)}
-            value={toFormatted}
-            onDayChange={this.handleToChange}
+            value={to}
             placeholder="To"
-            format={format}
-            hideOnDayClick={false}
+            format="LL"
+            formatDate={formatDate}
+            parseDate={parseDate}
             dayPickerProps={{
               selectedDays: [from, { from, to }],
               disabledDays: { before: from },
@@ -82,6 +82,7 @@ export default class Example extends React.Component {
               fromMonth: from,
               numberOfMonths: 2,
             }}
+            onDayChange={this.handleToChange}
           />
         </span>
         <Helmet>
@@ -105,7 +106,7 @@ export default class Example extends React.Component {
     width: 550px;
   }
   .InputFromTo-to .DayPickerInput-Overlay {
-    margin-left: -198px;
+    margin-left: -224.5px;
   }
 `}</style>
         </Helmet>

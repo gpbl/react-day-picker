@@ -2,6 +2,8 @@ import React from 'react';
 
 import { mount } from 'enzyme';
 
+import moment from 'moment';
+
 import * as keys from '../../src/keys';
 
 import DayPickerInput, { HIDE_TIMEOUT } from '../../src/DayPickerInput';
@@ -102,13 +104,13 @@ describe('DayPickerInput', () => {
         const input = wrapper.find('input');
         wrapper.instance().showDayPicker();
         wrapper.update();
-        input.simulate('change', { target: { value: '12/16/2013' } });
+        input.simulate('change', { target: { value: '2013-12-16' } });
         expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
           'December 2013'
         );
-        input.simulate('change', { target: { value: '11/10/2015' } });
+        input.simulate('change', { target: { value: '2015-10-11' } });
         expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
-          'November 2015'
+          'October 2015'
         );
       });
       it('should call `onDayChange` with modifiers', () => {
@@ -127,9 +129,9 @@ describe('DayPickerInput', () => {
         const input = wrapper.find('input');
         wrapper.instance().showDayPicker();
         wrapper.update();
-        input.simulate('change', { target: { value: '12/20/2015' } });
+        input.simulate('change', { target: { value: '2015-12-20' } });
         expect(onDayChange).toHaveBeenCalledTimes(1);
-        expect(onDayChange.mock.calls[0][0].format('L')).toBe('12/20/2015');
+        expect(onDayChange.mock.calls[0][0]).toEqual(new Date(2015, 11, 20));
         expect(onDayChange.mock.calls[0][1]).toEqual({
           foo: true,
           selected: true,
@@ -176,7 +178,7 @@ describe('DayPickerInput', () => {
           .find('.DayPicker-Day')
           .at(10)
           .simulate('click');
-        expect(wrapper.find('input')).toHaveProp('value', '02/08/2017');
+        expect(wrapper.find('input')).toHaveProp('value', '2017-2-8');
         expect(wrapper.find('.DayPicker-Caption')).toHaveText('February 2017');
         expect(wrapper.find('.DayPicker-Day--selected')).toHaveText('8');
       });
@@ -197,27 +199,10 @@ describe('DayPickerInput', () => {
           .find('.DayPicker-Day')
           .at(10)
           .simulate('click');
-        expect(onDayChange.mock.calls[0][0].format('L')).toBe('02/08/2017');
-        expect(onDayChange.mock.calls[0][1]).toEqual({ foo: true });
-      });
-      it('should work also when `format` is an array', () => {
-        const onDayChange = jest.fn();
-        const wrapper = mount(
-          <DayPickerInput
-            onDayChange={onDayChange}
-            format={['L', 'LL']}
-            dayPickerProps={{
-              month: new Date(2017, 1),
-            }}
-          />
+        expect(moment(onDayChange.mock.calls[0][0]).format('L')).toBe(
+          '02/08/2017'
         );
-        wrapper.instance().showDayPicker();
-        wrapper.update();
-        wrapper
-          .find('.DayPicker-Day')
-          .at(10)
-          .simulate('click');
-        expect(onDayChange.mock.calls[0][0].format('L')).toBe('02/08/2017');
+        expect(onDayChange.mock.calls[0][1]).toEqual({ foo: true });
       });
       it('should hide the day picker when clicking on a day', done => {
         const wrapper = mount(<DayPickerInput />);
@@ -245,14 +230,14 @@ describe('DayPickerInput', () => {
         expect(wrapper.instance().hideTimeout).toBeNull();
         expect(wrapper.find('.DayPicker')).toBeDefined();
       });
-      it('should unselect the clicked day if already selected', () => {
+      it('should unselect the clicked day if already selected (clickUnselectsDay)', () => {
         const wrapper = mount(
           <DayPickerInput
-            value="02/08/2017"
+            value="2017-11-8"
             clickUnselectsDay
             dayPickerProps={{
               month: new Date(2017, 1),
-              selectedDays: new Date(2017, 1, 8),
+              selectedDays: new Date(2017, 10, 8),
             }}
           />
         );
@@ -265,14 +250,14 @@ describe('DayPickerInput', () => {
         expect(wrapper.find('input')).toHaveProp('value', '');
         expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(0);
       });
-      it('should unselect the clicked day if already selected', () => {
+      it('should unselect the clicked day if already selected (clickUnselectsDay)', () => {
         const wrapper = mount(
           <DayPickerInput
-            value="02/08/2017"
+            value="2017-11-8"
             clickUnselectsDay
             dayPickerProps={{
               month: new Date(2017, 1),
-              selectedDays: [new Date(2017, 1, 8), new Date(2017, 1, 9)],
+              selectedDays: [new Date(2017, 10, 8), new Date(2017, 10, 7)],
             }}
           />
         );
@@ -289,7 +274,7 @@ describe('DayPickerInput', () => {
         const onDayChange = jest.fn();
         const wrapper = mount(
           <DayPickerInput
-            value="02/08/2017"
+            value="2017-2-8"
             onDayChange={onDayChange}
             clickUnselectsDay
             dayPickerProps={{
@@ -314,7 +299,7 @@ describe('DayPickerInput', () => {
         const onDayChange = jest.fn();
         const wrapper = mount(
           <DayPickerInput
-            value="02/08/2017"
+            value="2017-2-8"
             onDayChange={onDayChange}
             dayPickerProps={{
               month: new Date(2017, 1),

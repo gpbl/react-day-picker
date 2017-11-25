@@ -44,6 +44,10 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
               __dirname,
               '../src/DayPickerInput.js'
             ),
+            'react-day-picker/moment$': path.resolve(
+              __dirname,
+              '../src/addons/MomentLocaleUtils.js'
+            ),
           },
         },
       });
