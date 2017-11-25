@@ -23,8 +23,7 @@
     "test": "jest",
     "check": "npm run lint && npm run dtslint && npm run test",
     "prerelease": "npm run check && npm run build",
-    "build":
-      "rimraf lib && npm run build:node && npm run build:production && npm run build:development",
+    "build": "rimraf lib && npm run build:node && npm run build:production && npm run build:development",
     "build:node": "babel ./src -d ./lib/src --source-maps && npm run build:css",
     "build:development": "NODE_ENV=development webpack",
     "build:production": "NODE_ENV=production webpack -p",
@@ -81,7 +80,7 @@
     "eslint-plugin-jsx-a11y": "6.0.2",
     "eslint-plugin-prettier": "2.3.1",
     "eslint-plugin-react": "7.5.1",
-    "gh-pages": "1.0.0",
+    "gh-pages": "1.1.0",
     "husky": "0.14.3",
     "jest": "21.2.1",
     "jest-enzyme": "4.0.1",
@@ -96,7 +95,7 @@
     "react-test-renderer": "16.1.1",
     "rimraf": "2.6.2",
     "typescript": "2.5.3",
-    "webpack": "3.7.1"
+    "webpack": "3.8.1"
   },
   "dependencies": {
     "object-assign": "^4.1.1",

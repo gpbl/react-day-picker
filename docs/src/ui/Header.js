@@ -25,7 +25,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link to="/examples" activeClassName={styles.active}>
+                <Link to="/examples/basic" activeClassName={styles.active}>
                   Examples
                 </Link>
               </li>
