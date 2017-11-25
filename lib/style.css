@@ -5,6 +5,19 @@
 }
 
 .DayPicker-wrapper {
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding-bottom: 1rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.DayPicker-Months {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,16 +26,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: relative;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding: 1rem 0;
 }
 
 .DayPicker-Month {
@@ -34,10 +37,7 @@
       -ms-user-select: none;
           user-select: none;
   margin: 0 1rem;
-}
-
-.DayPicker-Month + .DayPicker-Month {
-  margin-bottom: 1.2rem;
+  margin-top: 1rem;
 }
 
 .DayPicker-NavBar {
@@ -80,7 +80,7 @@
   padding: 0 0.5rem;
   display: table-caption;
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .DayPicker-Caption > div {
@@ -144,8 +144,6 @@
 }
 
 .DayPicker-Footer {
-  display: table-caption;
-  caption-side: bottom;
   padding-top: 0.5rem;
 }
 
@@ -218,6 +216,7 @@
 
 .DayPickerInput-Overlay {
   left: 0;
+  z-index: 1;
   position: absolute;
   background: white;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
