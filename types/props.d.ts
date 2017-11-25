@@ -49,7 +49,7 @@ export interface DayPickerProps {
     HTMLDivElement
   >;
   disabledDays?: Modifier | Modifier[];
-  enableOutsideDays?: boolean;
+  showOutsideDays?: boolean;
   firstDayOfWeek?: number;
   fixedWeeks?: boolean;
   fromMonth?: Date;

@@ -46,7 +46,7 @@ describe('DayPicker’s navigation', () => {
     const wrapper = mount(
       <DayPicker
         initialMonth={new Date(2015, 7)}
-        enableOutsideDays
+        showOutsideDays
         onDayClick={() => {}}
       />
     );
@@ -62,7 +62,7 @@ describe('DayPicker’s navigation', () => {
     const wrapper = mount(
       <DayPicker
         initialMonth={new Date(2015, 7)}
-        enableOutsideDays
+        showOutsideDays
         classNames={{ ...defaultClassNames, outside: 'fakeOutside' }}
         onDayClick={() => {}}
       />
@@ -86,7 +86,7 @@ describe('DayPicker’s navigation', () => {
     const wrapper = mount(
       <DayPicker
         initialMonth={new Date(2015, 7)}
-        enableOutsideDays
+        showOutsideDays
         onDayClick={() => {}}
       />
     );
@@ -102,7 +102,7 @@ describe('DayPicker’s navigation', () => {
     const wrapper = mount(
       <DayPicker
         initialMonth={new Date(2015, 7)}
-        enableOutsideDays
+        showOutsideDays
         classNames={{ ...defaultClassNames, outside: 'fakeOutside' }}
         onDayClick={() => {}}
       />
@@ -120,7 +120,7 @@ describe('DayPicker’s navigation', () => {
       <DayPicker
         initialMonth={new Date(2015, 3)}
         numberOfMonths={2}
-        enableOutsideDays
+        showOutsideDays
         onDayClick={() => {}}
       />
     );

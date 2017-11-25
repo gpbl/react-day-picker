@@ -65,7 +65,7 @@ export default class DayPicker extends Component {
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),
 
     // Customization
-    enableOutsideDays: PropTypes.bool,
+    showOutsideDays: PropTypes.bool,
     fixedWeeks: PropTypes.bool,
 
     // CSS and HTML
@@ -139,7 +139,7 @@ export default class DayPicker extends Component {
     },
     locale: 'en',
     localeUtils: LocaleUtils,
-    enableOutsideDays: false,
+    showOutsideDays: false,
     fixedWeeks: false,
     canChangeMonth: true,
     reverseMonths: false,
