@@ -3,6 +3,26 @@
 _The following changes are not released yet, but are on the master branch and
 will be released soon._
 
+**Breaking changes**
+
+Your existing code may break if:
+
+* you are using `DayPickerInput`: we removed the moment.js dependency and
+  changed how to pass props to the input field (see below).
+* you are using commonjs to import the component. In this case, change your
+  code:
+  ```diff
+  - var DayPicker = require('react-day-picker`)
+  + var DayPicker = require('react-day-picker`).default
+  ```
+* you are using TypeScript and upgrading from `v6.2` (see [#533](https://github.com/gpbl/react-day-picker/issues/533)):
+  ```diff
+  - import { DayPicker } from 'react-day-picker`;
+  + import DayPicker from 'react-day-picker';
+  ```
+
+If you find problems while upgrading, please [add an issue](https://github.com/gpbl/react-day-picker/issues/new), thanks!
+
 **New features**
 
 * New modern CSS style (the old one is available from `lib/style-old.css`)
@@ -27,56 +47,104 @@ will be released soon._
 * Fixed: (Typescript) added again `DayModifiers` and `Modifiers` back to type
   definitions file ([#526](https://github.com/gpbl/react-day-picker/issues/526)
   by [azhangstrata](https://github.com/azhangstrata))
+* Fixed: (Typescript) missing default export
+  ([#533](https://github.com/gpbl/react-day-picker/issues/533))
 * Fixed: (a11y) removed `role="application"`
   ([#548](https://github.com/gpbl/react-day-picker/issues/548) by
   [trezy](https://github.com/trezy))
 
 ### DayPickerInput
 
-* **Breaking:** pass additional props to the input component using the
+**Breaking changes**
+
+* The moment.js requirement [has been removed](https://github.com/gpbl/react-day-picker/pull/518), and you should use
+  [`parseDate`](http://react-day-picker.js.org/api/DayPickerInput#parseDate) and
+  [`formatDate`](http://react-day-picker.js.org/api/DayPickerInput#formatDate)
+  props to parse and format the dates. If you want to keep using moment.js, your
+  existing code should changes as follows:
+
+  ```diff
+    import DayPicker from 'react-day-picker/DayPickerInput'
+  + import { formatDate, parseDate, } from 'react-day-picker/moment';
+
+    function MyDayPicker() {
+      return (
+        <DayPickerInput
+          placeholder="Please choose a date"
+          format="LL"
+  +       formatDate={formatDate}
+  +       parseDate={parseDate}
+        >
+      );
+    }
+  ```
+
+  See also [this example](http://react-day-picker.js.org/examples/input-moment).
+
+* You must pass additional props to the input component using the
   [`inputProps`](http://react-day-picker.js.org/api/DayPickerInput#inputProps)
   prop. _This is not a breaking change if you are just using `placeholder` or
-  `value`_.
+  `value`_. E.g.:
+  ```diff
+  <DayPickerInput
+     placeholder="Type a day"
+     value={this.state.selectedDay}
+  -  onFocus={myFocusHandler}
+  -  className="my-input-css"
+  +  inputProps={{
+  +   onFocus: myFocusHandler,
+  +   className: 'my-input-css,
+  +  }}
+  />
+  ```
 
-- New:
+**New features**
+
+* New:
   [`inputProps`](http://react-day-picker.js.org/api/DayPickerInput#inputProps)
   prop to pass additional props to the input component
-- New:
-  [`placeholder`](http://react-day-picker.js.org/api/DayPickerInput#placeholder)
-  prop
-- New:
+* New:
+  [`parseDate`](http://react-day-picker.js.org/api/DayPickerInput#parseDate) and
+  [`formatDate`](http://react-day-picker.js.org/api/DayPickerInput#formatDate)
+  props
+* New:
+  [`inputProps`](http://react-day-picker.js.org/api/DayPickerInput#inputProps)
+  prop to pass additional props to the input component
+* New:
   [`overlayComponent`](http://react-day-picker.js.org/api/DayPickerInput#overlayComponent)
   prop: useful to customize the overlay component
   ([#477](https://github.com/gpbl/react-day-picker/issues/477), thanks to
   [wldcordeiro](https://github.com/wldcordeiro))
-- New: allow to change `numberOfMonths`, `selectedDays` props from
+* New: allow to change `numberOfMonths`, `selectedDays` props from
   `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513),
   [#531](https://github.com/gpbl/react-day-picker/issues/531) by
   [hydrognomik](https://github.com/hydrognomik)). Useful for selecting range of
   days ([example](http://react-day-picker.js.org/examples/input-from-to)).
-- New:
+* New:
   [`showOverlay`](http://react-day-picker.js.org/api/DayPickerInput#showOverlay)
   prop: shows the overlay at the initial rendering (useful for styling)
-- New: [`getInput`](http://react-day-picker.js.org/api/DayPickerInput#getInput)
+* New: [`getInput`](http://react-day-picker.js.org/api/DayPickerInput#getInput)
   and
   [`getDayPicker`](http://react-day-picker.js.org/api/DayPickerInput#getDayPicker)
   public methods
 
-* Changed: clicking the Today Button will set the input value to today
+- Changed: clicking the Today Button will set the input value to today
   ([#561](https://github.com/gpbl/react-day-picker/issues/561))
-* Changed: removed `fixedWeek` prop. Use `dayPickerProps ={{ fixedWeek: true }}`
+- Changed: removed `fixedWeek` prop. Use `dayPickerProps ={{ fixedWeek: true }}`
   to restore it.
 
-- Fixed: some modifiers were not passed down when using a custom `classNames`
+**Bug fixes**
+
+* Fixed: some modifiers were not passed down when using a custom `classNames`
   ([#517](https://github.com/gpbl/react-day-picker/issues/517),
   [#504](https://github.com/gpbl/react-day-picker/issues/504) by
   [tume](https://github.com/tume))
-- Fixed: focus behavior on Firefox
+* Fixed: focus behavior on Firefox
   ([#525](https://github.com/gpbl/react-day-picker/issues/525) by
   [martinmosko](https://github.com/martinmosko))
-- Fixed: value not updated when changed in some cases
+* Fixed: value not updated when changed in some cases
   ([#535](https://github.com/gpbl/react-day-picker/issues/535))
-- Fixed: localization bug when using multiple languages
+* Fixed: localization bug when using multiple languages
   ([#509](https://github.com/gpbl/react-day-picker/issues/509))
 
 ---
