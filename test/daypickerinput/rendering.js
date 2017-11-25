@@ -29,7 +29,7 @@ describe('DayPickerInput', () => {
       expect(input).toHaveProp('value', '12/14/2017');
       expect(input).toHaveProp('placeholder', 'bar');
     });
-    it('should work with not value dates', () => {
+    it('should work with not valid date as value', () => {
       const wrapper = shallow(
         <DayPickerInput value="very wrong" placeholder="bar" />
       );
@@ -38,6 +38,13 @@ describe('DayPickerInput', () => {
       wrapper.instance().showDayPicker();
       wrapper.update();
       expect(wrapper.find(DayPicker)).toBeDefined();
+    });
+    it('should work with a date object as value', () => {
+      const wrapper = shallow(
+        <DayPickerInput value={new Date(2018, 4, 12)} placeholder="bar" />
+      );
+      const input = wrapper.find('input');
+      expect(input).toHaveProp('value', '2018-5-12');
     });
     it('should show the DayPicker', () => {
       const wrapper = shallow(<DayPickerInput />);
@@ -188,6 +195,25 @@ describe('DayPickerInput', () => {
       const wrapper = mount(<DayPickerInput value="2017-12-15" />);
       wrapper.setProps({ dayPickerProps: {}, value: '2017-12-15' });
       expect(wrapper.instance().state.value).toBe('2017-12-15');
+    });
+    it('should update the value when it is passed as Date', () => {
+      const wrapper = mount(<DayPickerInput value="2017-12-15" />);
+      wrapper.setProps({ dayPickerProps: {}, value: new Date(2017, 11, 16) });
+      expect(wrapper.instance().state.value).toBe('2017-12-16');
+    });
+    it('should update the selected days from prop', () => {
+      const wrapper = mount(
+        <DayPickerInput
+          dayPickerProps={{ selectedDays: new Date(2020, 2, 20) }}
+        />
+      );
+      wrapper.setProps({
+        dayPickerProps: { selectedDays: new Date(2020, 2, 10) },
+      });
+      wrapper.update();
+      expect(wrapper.instance().state.selectedDays).toEqual(
+        new Date(2020, 2, 10)
+      );
     });
   });
 });
