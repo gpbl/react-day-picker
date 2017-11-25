@@ -79,6 +79,10 @@ export default class DayPickerInput extends React.Component {
   componentWillReceiveProps(nextProps) {
     const monthFromProps = this.props.dayPickerProps.month;
     const nextMonthFromProps = nextProps.dayPickerProps.month;
+
+    const selectedDaysFromProps = this.props.dayPickerProps.selectedDays;
+    const nextSelectedDaysFromProps = nextProps.dayPickerProps.selectedDays;
+
     const nextValue = nextProps.value;
     const currentValue = this.props.value;
 
@@ -93,6 +97,9 @@ export default class DayPickerInput extends React.Component {
     }
     if (monthChanged) {
       this.setState({ month: nextMonthFromProps });
+    }
+    if (selectedDaysFromProps !== nextSelectedDaysFromProps) {
+      this.setState({ selectedDays: nextSelectedDaysFromProps });
     }
   }
 
@@ -325,7 +332,6 @@ export default class DayPickerInput extends React.Component {
     } else if (selectedDays) {
       selectedDay = selectedDays;
     }
-
     let onTodayButtonClick;
     if (dayPickerProps.todayButton) {
       // Set the current day when clicking the today button
