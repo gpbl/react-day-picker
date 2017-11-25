@@ -1,4 +1,4 @@
-## Next version
+# Next version
 
 _The following changes are not released yet, but are on the master branch and
 will be released soon._
@@ -31,41 +31,52 @@ will be released soon._
   ([#548](https://github.com/gpbl/react-day-picker/issues/548) by
   [trezy](https://github.com/trezy))
 
-**DayPickerInput**
+### DayPickerInput
 
-* New:
+* **Breaking:** pass additional props to the input component using the
+  [`inputProps`](http://react-day-picker.js.org/api/DayPickerInput#inputProps)
+  prop. _This is not a breaking change if you are just using `placeholder` or
+  `value`_.
+
+- New:
+  [`inputProps`](http://react-day-picker.js.org/api/DayPickerInput#inputProps)
+  prop to pass additional props to the input component
+- New:
+  [`placeholder`](http://react-day-picker.js.org/api/DayPickerInput#placeholder)
+  prop
+- New:
   [`overlayComponent`](http://react-day-picker.js.org/api/DayPickerInput#overlayComponent)
   prop: useful to customize the overlay component
   ([#477](https://github.com/gpbl/react-day-picker/issues/477), thanks to
   [wldcordeiro](https://github.com/wldcordeiro))
-* New: allow to change `numberOfMonths`, `selectedDays` props from
+- New: allow to change `numberOfMonths`, `selectedDays` props from
   `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513),
   [#531](https://github.com/gpbl/react-day-picker/issues/531) by
   [hydrognomik](https://github.com/hydrognomik)). Useful for selecting range of
   days ([example](http://react-day-picker.js.org/examples/input-from-to)).
-* New:
+- New:
   [`showOverlay`](http://react-day-picker.js.org/api/DayPickerInput#showOverlay)
   prop: shows the overlay at the initial rendering (useful for styling)
-* New: [`getInput`](http://react-day-picker.js.org/api/DayPickerInput#getInput)
+- New: [`getInput`](http://react-day-picker.js.org/api/DayPickerInput#getInput)
   and
   [`getDayPicker`](http://react-day-picker.js.org/api/DayPickerInput#getDayPicker)
   public methods
 
-- Changed: clicking the Today Button will set the input value to today
+* Changed: clicking the Today Button will set the input value to today
   ([#561](https://github.com/gpbl/react-day-picker/issues/561))
-- Changed: removed `fixedWeek` prop. Use `dayPickerProps ={{ fixedWeek: true }}`
+* Changed: removed `fixedWeek` prop. Use `dayPickerProps ={{ fixedWeek: true }}`
   to restore it.
 
-* Fixed: some modifiers were not passed down when using a custom `classNames`
+- Fixed: some modifiers were not passed down when using a custom `classNames`
   ([#517](https://github.com/gpbl/react-day-picker/issues/517),
   [#504](https://github.com/gpbl/react-day-picker/issues/504) by
   [tume](https://github.com/tume))
-* Fixed: focus behavior on Firefox
+- Fixed: focus behavior on Firefox
   ([#525](https://github.com/gpbl/react-day-picker/issues/525) by
   [martinmosko](https://github.com/martinmosko))
-* Fixed: value not updated when changed in some cases
+- Fixed: value not updated when changed in some cases
   ([#535](https://github.com/gpbl/react-day-picker/issues/535))
-* Fixed: localization bug when using multiple languages
+- Fixed: localization bug when using multiple languages
   ([#509](https://github.com/gpbl/react-day-picker/issues/509))
 
 ---
