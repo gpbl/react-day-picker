@@ -79,6 +79,14 @@ describe('MomentLocaleUtils', () => {
       );
       expect(formatted).toBe('20 febbraio 2018');
     });
+    it('format a date according to locale and multiple formats', () => {
+      const formatted = MomentLocaleUtils.formatDate(
+        new Date(2018, 1, 20),
+        ['LL', 'L'],
+        'it'
+      );
+      expect(formatted).toBe('20 febbraio 2018');
+    });
   });
   describe('parseDate', () => {
     it('parse a date', () => {
