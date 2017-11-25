@@ -19,7 +19,7 @@ describe('DayPickerInput', () => {
       });
       it('should call `onClick` event handler', () => {
         const onClick = jest.fn();
-        const wrapper = mount(<DayPickerInput onClick={onClick} />);
+        const wrapper = mount(<DayPickerInput inputProps={{ onClick }} />);
         wrapper.find('input').simulate('click');
         expect(onClick).toHaveBeenCalledTimes(1);
       });
@@ -33,7 +33,7 @@ describe('DayPickerInput', () => {
       });
       it('should call `onFocus` event handler', () => {
         const onFocus = jest.fn();
-        const wrapper = mount(<DayPickerInput onFocus={onFocus} />);
+        const wrapper = mount(<DayPickerInput inputProps={{ onFocus }} />);
         wrapper.find('input').simulate('focus');
         expect(onFocus).toHaveBeenCalledTimes(1);
       });
@@ -48,25 +48,28 @@ describe('DayPickerInput', () => {
       });
       it('should call `onBlur` event handler', () => {
         const onBlur = jest.fn();
-        const wrapper = mount(<DayPickerInput onBlur={onBlur} />);
+        const wrapper = mount(<DayPickerInput inputProps={{ onBlur }} />);
         wrapper.find('input').simulate('blur');
         expect(onBlur).toHaveBeenCalledTimes(1);
       });
-      it('should focus the input if blur after clicking the overlay', () => {
+      it('should focus the input if blur after clicking the overlay', done => {
         const wrapper = mount(<DayPickerInput />);
         wrapper.find('.DayPickerInput').simulate('mousedown');
         const instance = wrapper.instance();
         expect(instance.clickedInside).toBe(true);
         expect(instance.clickTimeout).not.toBeNull();
         wrapper.find('input').simulate('blur');
-        expect(document.activeElement).toEqual(instance.input);
+        setTimeout(() => {
+          expect(document.activeElement).toEqual(instance.input);
+          done();
+        }, 1);
       });
     });
 
     describe('change', () => {
       it('should call `onChange` event handler', () => {
         const onChange = jest.fn();
-        const wrapper = mount(<DayPickerInput onChange={onChange} />);
+        const wrapper = mount(<DayPickerInput inputProps={{ onChange }} />);
         wrapper.find('input').simulate('change');
         expect(onChange).toHaveBeenCalledTimes(1);
       });
@@ -148,7 +151,7 @@ describe('DayPickerInput', () => {
       });
       it('should call `onKeyUp` event handler', () => {
         const onKeyUp = jest.fn();
-        const wrapper = mount(<DayPickerInput onKeyUp={onKeyUp} />);
+        const wrapper = mount(<DayPickerInput inputProps={{ onKeyUp }} />);
         wrapper.find('input').simulate('keyup');
         expect(onKeyUp).toHaveBeenCalledTimes(1);
       });
@@ -252,6 +255,26 @@ describe('DayPickerInput', () => {
         expect(wrapper.find('input')).toHaveProp('value', '');
         expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(0);
       });
+      it('should unselect the clicked day if already selected', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            value="02/08/2017"
+            clickUnselectsDay
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: [new Date(2017, 1, 8), new Date(2017, 1, 9)],
+            }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper
+          .find('.DayPicker-Day')
+          .at(10)
+          .simulate('click');
+        expect(wrapper.find('input')).toHaveProp('value', '');
+        expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(1);
+      });
       it('should call `onDayChange` when clicking a selected day', () => {
         const onDayChange = jest.fn();
         const wrapper = mount(
@@ -296,6 +319,45 @@ describe('DayPickerInput', () => {
           .at(10)
           .simulate('click');
         expect(onDayChange).not.toHaveBeenCalled();
+      });
+      it('should use `dayPickerProps.selectedDays` after clicking a day', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: [new Date(2017, 1, 8), new Date(2017, 1, 9)],
+            }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper
+          .find('.DayPicker-Day')
+          .at(9)
+          .simulate('click');
+        const selectedDays = wrapper.find('.DayPicker-Day--selected');
+        expect(selectedDays).toHaveLength(2);
+        expect(selectedDays.at(0)).toHaveText('8');
+        expect(selectedDays.at(1)).toHaveText('9');
+      });
+      it('should use `dayPickerProps.selectedDays` after typing a valid day', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: [new Date(2017, 1, 8), new Date(2017, 1, 9)],
+            }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper
+          .find('input')
+          .simulate('change', { target: { value: '02/07/2017' } });
+        const selectedDays = wrapper.find('.DayPicker-Day--selected');
+        expect(selectedDays).toHaveLength(2);
+        expect(selectedDays.at(0)).toHaveText('8');
+        expect(selectedDays.at(1)).toHaveText('9');
       });
     });
   });

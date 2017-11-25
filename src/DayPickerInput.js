@@ -6,40 +6,24 @@ import { getModifiersForDay } from './ModifiersUtils';
 import MomentLocaleUtils from './addons/MomentLocaleUtils';
 import { ESC } from './keys';
 
+// When clicking on a day cell, overlay will be hidden after this timeout
 export const HIDE_TIMEOUT = 100;
-
-function getStateFromProps(props) {
-  let month;
-  if (props.value) {
-    const day = props.parse(props.value);
-    if (day) {
-      month = day;
-    }
-  } else {
-    month =
-      props.dayPickerProps.initialMonth ||
-      props.dayPickerProps.month ||
-      new Date();
-  }
-
-  return {
-    value: props.value,
-    month,
-  };
-}
 
 export default class DayPickerInput extends React.Component {
   static propTypes = {
-    // eslint-disable-next-line react/no-unused-prop-types
     value: PropTypes.string,
+    inputProps: PropTypes.object,
+    placeholder: PropTypes.string,
 
     format: PropTypes.func,
     parse: PropTypes.func,
 
+    showOverlay: PropTypes.bool,
     dayPickerProps: PropTypes.object,
     hideOnDayClick: PropTypes.bool,
     clickUnselectsDay: PropTypes.bool,
     component: PropTypes.any,
+    overlayComponent: PropTypes.any,
 
     classNames: PropTypes.shape({
       container: PropTypes.string,
@@ -63,9 +47,16 @@ export default class DayPickerInput extends React.Component {
       const day = new Date(d);
       return isNaN(day.getTime()) ? null : day;
     },
+    showOverlay: false,
     hideOnDayClick: true,
     clickUnselectsDay: false,
     component: 'input',
+    inputProps: {},
+    overlayComponent: ({ children, classNames }) => (
+      <div className={classNames.overlayWrapper}>
+        <div className={classNames.overlay}>{children}</div>
+      </div>
+    ),
     classNames: {
       container: 'DayPickerInput',
       overlayWrapper: 'DayPickerInput-OverlayWrapper',
@@ -75,39 +66,78 @@ export default class DayPickerInput extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = getStateFromProps(props);
-    this.state.showOverlay = false;
+
+    this.state = this.getStateFromProps(props);
+    this.state.showOverlay = props.showOverlay;
+
+    this.hideAfterDayClick = this.hideAfterDayClick.bind(this);
+    this.handleContainerMouseDown = this.handleContainerMouseDown.bind(this);
+    this.handleInputClick = this.handleInputClick.bind(this);
+    this.handleInputFocus = this.handleInputFocus.bind(this);
+    this.handleInputBlur = this.handleInputBlur.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
+    this.handleDayClick = this.handleDayClick.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    const { dayPickerProps, value } = this.props;
-    const { dayPickerProps: nextDayPickerProps, value: nextValue } = nextProps;
+    const monthFromProps = this.props.dayPickerProps.month;
+    const nextMonthFromProps = nextProps.dayPickerProps.month;
 
-    const hasDifferentValue = nextValue !== value;
+    const selectedDaysFromProps = this.props.dayPickerProps.selectedDays;
+    const nextSelectedDaysFromProps = nextProps.dayPickerProps.selectedDays;
 
-    const willUpdateDayPickerMonth =
-      nextDayPickerProps.month && dayPickerProps.month;
+    const nextValue = nextProps.value;
+    const currentValue = this.props.value;
 
-    const newMonthProp = nextDayPickerProps.month && !dayPickerProps.month;
+    const monthChanged =
+      (nextMonthFromProps && !monthFromProps) ||
+      (nextMonthFromProps &&
+        (nextMonthFromProps.getFullYear() !== monthFromProps.getFullYear() ||
+          nextMonthFromProps.getMonth() !== monthFromProps.getMonth()));
 
-    const shouldDisplayAnotherMonth =
-      newMonthProp ||
-      (willUpdateDayPickerMonth &&
-        (nextDayPickerProps.month.getFullYear() !==
-          dayPickerProps.month.getFullYear() ||
-          nextDayPickerProps.month.getMonth() !==
-            dayPickerProps.month.getMonth()));
-
-    if (hasDifferentValue && !shouldDisplayAnotherMonth) {
-      this.setState(getStateFromProps(nextProps));
-    } else if (shouldDisplayAnotherMonth) {
-      this.setState({ month: nextDayPickerProps.month });
+    if (nextValue !== currentValue) {
+      this.setState({ value: nextValue });
+    }
+    if (monthChanged) {
+      this.setState({ month: nextMonthFromProps });
+    }
+    if (selectedDaysFromProps !== nextSelectedDaysFromProps) {
+      this.setState({ selectedDays: nextSelectedDaysFromProps });
     }
   }
 
   componentWillUnmount() {
     clearTimeout(this.clickTimeout);
     clearTimeout(this.hideTimeout);
+    clearTimeout(this.blurTimeout);
+  }
+
+  getStateFromProps(props) {
+    const { dayPickerProps, format, value } = props;
+    let month;
+    if (value) {
+      const day = props.parse(props.value);
+      if (day) {
+        month = day;
+      }
+    } else {
+      // Otherwise display the month coming from `dayPickerProps` or the current month
+      month = dayPickerProps.initialMonth || dayPickerProps.month || new Date();
+    }
+    return {
+      value,
+      month,
+      selectedDays: dayPickerProps.selectedDays,
+    };
+  }
+
+  getInput() {
+    return this.input;
+  }
+
+  getDayPicker() {
+    return this.daypicker;
   }
 
   input = null;
@@ -117,8 +147,41 @@ export default class DayPickerInput extends React.Component {
   hideTimeout = null;
 
   /**
+   * Update the component's state and fire the `onDayChange` event
+   * passing the day's modifiers to it
+   * @param {Date} day - Will be used for changing the month
+   * @param {String} value - Input field value
+   * @private
+   */
+  updateState(day, value, callback) {
+    const { dayPickerProps, onDayChange } = this.props;
+    this.setState({ month: day, value }, () => {
+      if (callback) {
+        callback();
+      }
+      if (!onDayChange) {
+        return;
+      }
+      const modifiersObj = {
+        disabled: dayPickerProps.disabledDays,
+        selected: dayPickerProps.selectedDays,
+        ...dayPickerProps.modifiers,
+      };
+      const modifiers = getModifiersForDay(day, modifiersObj).reduce(
+        (obj, modifier) => {
+          const newObj = { ...obj };
+          newObj[modifier] = true;
+          return newObj;
+        },
+        {}
+      );
+      onDayChange(moment(day), modifiers);
+    });
+  }
+
+  /**
    * Show the Day Picker overlay.
-   * 
+   *
    * @memberof DayPickerInput
    */
   showDayPicker() {
@@ -129,7 +192,7 @@ export default class DayPickerInput extends React.Component {
 
   /**
    * Hide the Day Picker overlay
-   * 
+   *
    * @memberof DayPickerInput
    */
   hideDayPicker() {
@@ -138,196 +201,190 @@ export default class DayPickerInput extends React.Component {
     });
   }
 
-  hideAfterDayClick = () => {
+  hideAfterDayClick() {
     if (!this.props.hideOnDayClick) {
       return;
     }
-    this.hideTimeout = setTimeout(
-      () => this.hideDayPicker(),
-      HIDE_TIMEOUT // give a timeout to show the clicked day
-    );
-  };
+    this.hideTimeout = setTimeout(() => this.hideDayPicker(), HIDE_TIMEOUT);
+  }
 
-  handleContainerMouseDown = () => {
+  handleContainerMouseDown() {
     this.clickedInside = true;
-    // The input's onBlur method is called from a queue right after onMouseDown event.
-    // setTimeout adds another callback in the queue, but is called later than onBlur event
+    // The input's onBlur method is called from a queue right after the onMouseDown event.
+    // setTimeout adds another callback in the queue, which is called after the onBlur event.
     this.clickTimeout = setTimeout(() => {
       this.clickedInside = false;
     }, 0);
-  };
+  }
 
-  handleClick = e => {
+  handleInputClick(e) {
     this.showDayPicker();
-    if (this.props.onClick) {
+    if (this.props.inputProps.onClick) {
       e.persist();
-      this.props.onClick(e);
+      this.props.inputProps.onClick(e);
     }
-  };
+  }
 
-  handleFocus = e => {
+  handleInputFocus(e) {
     this.showDayPicker();
-    if (this.props.onFocus) {
+    if (this.props.inputProps.onFocus) {
       e.persist();
-      this.props.onFocus(e);
+      this.props.inputProps.onFocus(e);
     }
-  };
+  }
 
-  handleBlur = e => {
+  handleInputBlur(e) {
     this.setState({
       showOverlay: this.clickedInside,
     });
-
-    // Force input's focus if blur event was caused
-    // by clicking inside the overlay
+    // Force input's focus if blur event was caused by clicking inside the overlay
     if (this.clickedInside) {
-      this.input.focus();
+      this.blurTimeout = setTimeout(() => this.input.focus(), 0);
     }
-
-    if (this.props.onBlur) {
+    if (this.props.inputProps.onBlur) {
       e.persist();
-      this.props.onBlur(e);
+      this.props.inputProps.onBlur(e);
     }
-  };
+  }
 
-  handleChange = e => {
+  handleInputChange(e) {
+    const { inputProps, onDayChange, parse } = this.props;
+    if (inputProps.onChange) {
+      e.persist();
+      inputProps.onChange(e);
+    }
     const { value } = e.target;
-    const { parse, dayPickerProps, onDayChange, onChange } = this.props;
-    const day = parse(value);
-
-    if (onChange) {
-      e.persist();
-      onChange(e);
-    }
-
     if (value.trim() === '') {
       this.setState({ value });
-      if (this.props.onDayChange) {
-        this.props.onDayChange(undefined, {});
+      if (onDayChange) {
+        onDayChange(undefined, {});
       }
       return;
     }
-
+    const day = parse(value);
     if (!day) {
       this.setState({ value });
       return;
     }
+    this.updateState(day, value);
+  }
 
-    this.setState({ month: day, value }, () => {
-      if (!onDayChange) {
-        return;
-      }
-      const modifiersObj = {
-        disabled: dayPickerProps.disabledDays,
-        selected: dayPickerProps.selectedDays,
-        ...dayPickerProps.modifiers,
-      };
-      const modifiers = getModifiersForDay(
-        day,
-        modifiersObj
-      ).reduce((obj, modifier) => {
-        const newObj = { ...obj };
-        newObj[modifier] = true;
-        return newObj;
-      }, {});
-      this.props.onDayChange(day, modifiers);
-    });
-  };
-
-  handleOnKeyUp = e => {
-    this.setState({
-      showOverlay: e.keyCode !== ESC,
-    });
-    if (this.props.onKeyUp) {
+  handleInputKeyUp(e) {
+    // Hide the overlay if the ESC key is pressed
+    this.setState({ showOverlay: e.keyCode !== ESC });
+    if (this.props.inputProps.onKeyUp) {
       e.persist();
-      this.props.onKeyUp(e);
+      this.props.inputProps.onKeyUp(e);
     }
-  };
+  }
 
-  handleDayClick = (day, modifiers, e) => {
-    if (this.props.dayPickerProps.onDayClick) {
-      this.props.dayPickerProps.onDayClick(day, modifiers, e);
+  handleDayClick(day, modifiers, e) {
+    const {
+      clickUnselectsDay,
+      dayPickerProps,
+      onDayChange,
+      format,
+    } = this.props;
+    if (dayPickerProps.onDayClick) {
+      dayPickerProps.onDayClick(day, modifiers, e);
     }
 
+    // Do nothing if the day is disabled
     if (modifiers.disabled) {
-      // Do nothing if the day is disabled
       return;
     }
-    if (modifiers.selected && this.props.clickUnselectsDay) {
-      // Unselect the day
-      this.setState({ value: '' }, this.hideAfterDayClick);
-      if (this.props.onDayChange) {
-        this.props.onDayChange(undefined, modifiers);
+
+    // If the clicked day is already selected, remove the clicked day
+    // from the selected days and empty the field value
+    if (modifiers.selected && clickUnselectsDay) {
+      let { selectedDays } = this.state;
+      if (Array.isArray(selectedDays)) {
+        selectedDays = selectedDays.slice(0);
+        const selectedDayIdx = selectedDays.indexOf(day);
+        selectedDays.splice(selectedDayIdx, 1);
+      } else if (moment(selectedDays).isValid()) {
+        selectedDays = null;
+      }
+      this.setState({ value: '', selectedDays }, this.hideAfterDayClick);
+      if (onDayChange) {
+        onDayChange(undefined, modifiers);
       }
       return;
     }
 
-    const { format } = this.props;
-    this.setState(
-      {
-        value: format(day),
-        month: day,
-      },
-      () => {
-        if (this.props.onDayChange) {
-          this.props.onDayChange(day, modifiers);
-        }
-        this.hideAfterDayClick();
+    const value = format(day, dayPickerProps.locale);
+    this.setState({ value, month: day }, () => {
+      if (onDayChange) {
+        onDayChange(m, modifiers);
       }
-    );
-  };
+      this.hideAfterDayClick();
+    });
+  }
 
   renderOverlay() {
+    const { format, classNames, dayPickerProps, parse } = this.props;
+    const { selectedDays, value } = this.state;
     let selectedDay;
-    if (this.state.value) {
-      const day = this.props.parse(this.state.value);
+    if (!selectedDays && value) {
+      const day = parse(value);
       if (day) {
         selectedDay = day;
       }
+    } else if (selectedDays) {
+      selectedDay = selectedDays;
     }
-
+    let onTodayButtonClick;
+    if (dayPickerProps.todayButton) {
+      // Set the current day when clicking the today button
+      onTodayButtonClick = () =>
+        this.updateState(
+          new Date(),
+          moment()
+            .locale(dayPickerProps.locale || 'en')
+            .format(this.props.format),
+          this.hideAfterDayClick
+        );
+    }
+    const Overlay = this.props.overlayComponent;
     return (
-      <div className={this.props.classNames.overlayWrapper}>
-        <div className={this.props.classNames.overlay}>
-          <DayPicker
-            ref={el => (this.daypicker = el)}
-            localeUtils={MomentLocaleUtils}
-            fixedWeeks
-            {...this.props.dayPickerProps}
-            month={this.state.month}
-            selectedDays={selectedDay}
-            onDayClick={this.handleDayClick}
-          />
-        </div>
-      </div>
+      <Overlay
+        classNames={classNames}
+        month={this.state.month}
+        selectedDay={selectedDay}
+        input={this.input}
+      >
+        <DayPicker
+          ref={el => (this.daypicker = el)}
+          localeUtils={MomentLocaleUtils}
+          onTodayButtonClick={onTodayButtonClick}
+          {...dayPickerProps}
+          month={this.state.month}
+          selectedDays={selectedDay}
+          onDayClick={this.handleDayClick}
+          onMonthChange={month => this.setState({ month })}
+        />
+      </Overlay>
     );
   }
 
   render() {
-    const inputProps = { ...this.props };
-    delete inputProps.component;
-    delete inputProps.dayPickerProps;
-    delete inputProps.format;
-    delete inputProps.parse;
-    delete inputProps.clickUnselectsDay;
-    delete inputProps.hideOnDayClick;
-    delete inputProps.onDayChange;
-    delete inputProps.classNames;
+    const Input = this.props.component;
     return (
       <div
         className={this.props.classNames.container}
         onMouseDown={this.handleContainerMouseDown}
       >
-        {React.createElement(this.props.component, {
-          ref: el => (this.input = el),
-          ...inputProps,
-          value: this.state.value,
-          onChange: this.handleChange,
-          onFocus: this.handleFocus,
-          onBlur: this.handleBlur,
-          onKeyUp: this.handleOnKeyUp,
-          onClick: this.handleClick,
-        })}
+        <Input
+          ref={el => (this.input = el)}
+          placeholder={this.props.placeholder}
+          {...this.props.inputProps}
+          value={this.state.value}
+          onChange={this.handleInputChange}
+          onFocus={this.handleInputFocus}
+          onBlur={this.handleInputBlur}
+          onKeyUp={this.handleInputKeyUp}
+          onClick={this.handleInputClick}
+        />
         {this.state.showOverlay && this.renderOverlay()}
       </div>
     );
