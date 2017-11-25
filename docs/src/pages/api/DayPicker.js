@@ -166,7 +166,8 @@ export default () => (
   navButtonNext,  // Button to switch to the next month
   navButtonInteractionDisabled,  // Added to the navbuttons when disabled with fromMonth/toMonth props
 
-  month,          // The month's main tables
+  months,         // Container of the months table
+  month,          // The month's main table
   caption,        // The caption element, containing the current month's name and year
   weekdays,       // Table header displaying the weekdays names
   weekdaysRow,    // Table row displaying the weekdays names

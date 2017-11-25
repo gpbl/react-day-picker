@@ -76,6 +76,7 @@ export default class DayPicker extends Component {
       disabled: PropTypes.string.isRequired,
       footer: PropTypes.string,
       interactionDisabled: PropTypes.string,
+      months: PropTypes.string,
       month: PropTypes.string,
       navBar: PropTypes.string,
       outside: PropTypes.string.isRequired,
@@ -558,7 +559,9 @@ export default class DayPicker extends Component {
           onBlur={this.props.onBlur}
         >
           {this.renderNavbar()}
-          {this.renderMonths()}
+          <div className={this.props.classNames.months}>
+            {this.renderMonths()}
+          </div>
           {this.renderFooter()}
         </div>
       </div>

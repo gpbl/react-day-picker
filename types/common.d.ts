@@ -9,6 +9,7 @@ export interface ClassNames {
   navButtonNext: string;
   navButtonInteractionDisabled: string;
 
+  months: string;
   month: string;
   caption: string;
   weekdays: string;
