@@ -5,6 +5,7 @@ will be released soon._
 
 **New features**
 
+* New modern CSS style (the old one is available from `lib/style-old.css`)
 * Added: [`renderWeek`](http://react-day-picker.js.org/api/DayPicker`renderWeek)
   prop ([#497](https://github.com/gpbl/react-day-picker/issues/497) by
   [jenshandersson](https://github.com/jenshandersson))
