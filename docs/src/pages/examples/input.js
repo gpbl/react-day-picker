@@ -7,13 +7,16 @@ export default () => (
   <ExamplePage title="Input field">
     <p>
       <Link to="/api/DayPickerInput">DayPickerInput</Link> binds the DayPicker
-      with an input field.
+      with an input field, displaying the calendar in an overlay.
     </p>
     <p>
-      See also how to <Link to="/examples/input-state">use it with state</Link>,
-      how to{' '}
-      <Link to="/examples/input-custom-overlay">customize the overlay</Link> and
-      how to <Link to="/examples/input-moment">change the date format</Link>.
+      <small>
+        See also how to{' '}
+        <Link to="/examples/input-state">use it with state</Link>, how to{' '}
+        <Link to="/examples/input-custom-overlay">customize the overlay</Link>{' '}
+        and how to{' '}
+        <Link to="/examples/input-moment">change the date format</Link>.
+      </small>
     </p>
     <CodeSample name="examples/input" />
   </ExamplePage>

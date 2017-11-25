@@ -106,7 +106,7 @@ export default class Example extends React.Component {
     width: 550px;
   }
   .InputFromTo-to .DayPickerInput-Overlay {
-    margin-left: -224.5px;
+    margin-left: -198px;
   }
 `}</style>
         </Helmet>
