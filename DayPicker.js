@@ -1,10 +1,18 @@
 /* eslint-disable no-var */
 /* eslint-env node */
 
-export default from './lib/src/DayPicker';
-export DateUtils from './src/DateUtils';
-export ModifiersUtils from './src/ModifiersUtils';
-export LocaleUtils from './src/LocaleUtils';
-export { propTypes as WeekdayPropTypes } from './lib/src/Weekday';
-export { propTypes as NavbarPropTypes } from './lib/src/Navbar';
-export PropTypes from './lib/src/PropTypes';
+var DayPicker = require('./lib/src/DayPicker');
+var DateUtils = require('./lib/src/DateUtils');
+var LocaleUtils = require('./lib/src/LocaleUtils');
+var ModifiersUtils = require('./lib/src/ModifiersUtils');
+var Weekday = require('./lib/src/Weekday').default;
+var Navbar = require('./lib/src/Navbar').default;
+var PropTypes = require('./lib/src/PropTypes');
+
+module.exports = DayPicker;
+module.exports.DateUtils = DateUtils;
+module.exports.LocaleUtils = LocaleUtils;
+module.exports.ModifiersUtils = ModifiersUtils;
+module.exports.WeekdayPropTypes = Weekday.propTypes;
+module.exports.NavbarPropTypes = Navbar.propTypes;
+module.exports.PropTypes = PropTypes;

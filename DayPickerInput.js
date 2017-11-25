@@ -1,4 +1,6 @@
 /* eslint-disable no-var */
 /* eslint-env node */
 
-export default from './lib/src/DayPickerInput';
+var DayPickerInput = require('./lib/src/DayPickerInput');
+
+module.exports = DayPickerInput;

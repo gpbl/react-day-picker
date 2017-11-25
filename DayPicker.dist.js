@@ -1,5 +1,8 @@
-export default from './src/DayPicker';
-export Input from './src/DayPickerInput';
-export DateUtils from './src/DateUtils';
-export ModifiersUtils from './src/ModifiersUtils';
-export LocaleUtils from './src/LocaleUtils';
+/* eslint-disable no-var */
+/* eslint-env node */
+
+var DayPicker = require('./src/DayPicker');
+
+DayPicker.Input = require('./src/DayPickerInput');
+
+module.exports = DayPicker;
