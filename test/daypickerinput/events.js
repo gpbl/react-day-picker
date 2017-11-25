@@ -17,7 +17,7 @@ describe('DayPickerInput', () => {
       });
       it('should call `onClick` event handler', () => {
         const onClick = jest.fn();
-        const wrapper = mount(<DayPickerInput onClick={onClick} />);
+        const wrapper = mount(<DayPickerInput inputProps={{ onClick }} />);
         wrapper.find('input').simulate('click');
         expect(onClick).toHaveBeenCalledTimes(1);
       });
@@ -31,7 +31,7 @@ describe('DayPickerInput', () => {
       });
       it('should call `onFocus` event handler', () => {
         const onFocus = jest.fn();
-        const wrapper = mount(<DayPickerInput onFocus={onFocus} />);
+        const wrapper = mount(<DayPickerInput inputProps={{ onFocus }} />);
         wrapper.find('input').simulate('focus');
         expect(onFocus).toHaveBeenCalledTimes(1);
       });
@@ -46,7 +46,7 @@ describe('DayPickerInput', () => {
       });
       it('should call `onBlur` event handler', () => {
         const onBlur = jest.fn();
-        const wrapper = mount(<DayPickerInput onBlur={onBlur} />);
+        const wrapper = mount(<DayPickerInput inputProps={{ onBlur }} />);
         wrapper.find('input').simulate('blur');
         expect(onBlur).toHaveBeenCalledTimes(1);
       });
@@ -67,7 +67,7 @@ describe('DayPickerInput', () => {
     describe('change', () => {
       it('should call `onChange` event handler', () => {
         const onChange = jest.fn();
-        const wrapper = mount(<DayPickerInput onChange={onChange} />);
+        const wrapper = mount(<DayPickerInput inputProps={{ onChange }} />);
         wrapper.find('input').simulate('change');
         expect(onChange).toHaveBeenCalledTimes(1);
       });
@@ -147,7 +147,7 @@ describe('DayPickerInput', () => {
       });
       it('should call `onKeyUp` event handler', () => {
         const onKeyUp = jest.fn();
-        const wrapper = mount(<DayPickerInput onKeyUp={onKeyUp} />);
+        const wrapper = mount(<DayPickerInput inputProps={{ onKeyUp }} />);
         wrapper.find('input').simulate('keyup');
         expect(onKeyUp).toHaveBeenCalledTimes(1);
       });
