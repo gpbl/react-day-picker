@@ -5,11 +5,10 @@ import { LocaleUtils } from 'react-day-picker';
 
 import 'react-day-picker/lib/style.css';
 
-function CustomOverlay({ classNames, selectedDay, month, children }) {
+function CustomOverlay({ classNames, selectedDay, children }) {
   return (
     <div className={classNames.overlayWrapper} style={{ marginLeft: -100 }}>
       <div className={classNames.overlay}>
-        <h3>{LocaleUtils.formatMonthTitle(month)}</h3>
         <p>
           {selectedDay
             ? `You picked: ${selectedDay.toLocaleDateString()}`
@@ -23,15 +22,12 @@ function CustomOverlay({ classNames, selectedDay, month, children }) {
 
 export default function Example() {
   return (
-    <div>
-      <p>Please type a day:</p>
-      <DayPickerInput
-        placeholder="MM/DD/YYYY"
-        overlayComponent={CustomOverlay}
-        dayPickerProps={{
-          todayButton: 'Today',
-        }}
-      />
-    </div>
+    <DayPickerInput
+      placeholder="MM/DD/YYYY"
+      overlayComponent={CustomOverlay}
+      dayPickerProps={{
+        todayButton: 'Today',
+      }}
+    />
   );
 }
