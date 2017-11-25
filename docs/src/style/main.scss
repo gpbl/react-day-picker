@@ -1,0 +1,119 @@
+@import './constants.scss';
+@import './normalize.css';
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 14px;
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 1em 0;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 2.2em;
+  &:first-child {
+    margin-top: 0;
+  }
+  & + p {
+    margin-top: -1em;
+  }
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.25em;
+}
+
+h4 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  margin: 0.5em 0;
+}
+
+p,
+li {
+  line-height: 1.5em;
+}
+
+p code,
+li code,
+h3 code,
+blockquote code {
+  display: inline-block;
+  padding: 0 0.3em;
+  background: $background-color-alt;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
+code,
+pre {
+  font-family: $font-family-mono;
+  background-color: $background-color;
+}
+
+blockquote {
+  border-left: 4px solid $quote-border;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.1em 1em;
+  background-color: $quote-background;
+}
+
+hr {
+  margin: 0.5em 0;
+  height: 0;
+  border: 0;
+  border-bottom: 1px solid $border-color;
+}
+
+input {
+  appearance: none;
+  padding: 0.5em 1em;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  font-family: $font-family;
+  text-align: center;
+  font-weight: 400;
+  outline: none;
+}
+
+button.link {
+  background-color: transparent;
+  border: 0;
+  appearance: none;
+  color: $link-color;
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
+abbr[title] {
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+@import './prism.css';

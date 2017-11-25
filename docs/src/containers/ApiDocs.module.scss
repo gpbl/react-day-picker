@@ -1,0 +1,21 @@
+.container {
+  h2 + h3 {
+    margin-top: 0
+  }
+  h3 {
+    background: aliceblue;
+    padding: 4px 10px;
+    margin-left: -10px;
+    margin-bottom: .5em;
+    margin-top: 2em;
+    & + p {
+      margin-top: 0;
+    }
+  }
+  h3 code {
+    font-size: 13px;
+    line-height: 1.2em;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

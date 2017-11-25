@@ -11,7 +11,7 @@ export function clone(d) {
 
 /**
  * Return `d` as a new date with `n` months added.
- * 
+ *
  * @export
  * @param {[type]} d
  * @param {[type]} n
@@ -43,10 +43,10 @@ export function isSameDay(d1, d2) {
 
 /**
  * Returns `true` if the first day is before the second day.
- * 
+ *
  * @export
- * @param {Date} d1 
- * @param {Date} d2 
+ * @param {Date} d1
+ * @param {Date} d2
  * @returns {Boolean}
  */
 export function isDayBefore(d1, d2) {
@@ -57,10 +57,10 @@ export function isDayBefore(d1, d2) {
 
 /**
  * Returns `true` if the first day is after the second day.
- * 
+ *
  * @export
- * @param {Date} d1 
- * @param {Date} d2 
+ * @param {Date} d1
+ * @param {Date} d2
  * @returns {Boolean}
  */
 export function isDayAfter(d1, d2) {
@@ -168,9 +168,9 @@ export function isDayInRange(day, range) {
 /**
  * Return the year's week number (as per ISO, i.e. with the week starting from monday)
  * for the given day.
- * 
+ *
  * @export
- * @param {Date} day 
+ * @param {Date} day
  * @returns {Number}
  */
 export function getWeekNumber(day) {

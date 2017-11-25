@@ -1,0 +1,28 @@
+{
+  "name": "react-day-picker-website",
+  "description": "",
+  "license": "MIT",
+  "version": "1",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "docs-publish": "cp CNAME public && NODE_DEBUG=gh-pages gh-pages -d public"
+  },
+  "dependencies": {
+    "babel-preset-flow": "6.23.0",
+    "gatsby": "1.9.119",
+    "gatsby-link": "^1.6.28",
+    "gatsby-plugin-react-css-modules": "1.0.9",
+    "gatsby-plugin-react-helmet": "2.0.1",
+    "gatsby-plugin-react-next": "1.0.4",
+    "gatsby-plugin-sass": "1.0.13",
+    "gh-pages": "1.1.0",
+    "moment": "2.19.2",
+    "prismjs": "1.8.4",
+    "prop-types": "15.6.0",
+    "react-day-picker": "../",
+    "react-helmet": "5.2.0",
+    "react-markdown": "3.0.2"
+  }
+}

@@ -1,12 +1,12 @@
 defaults: &defaults
   working_directory: /root/react-day-picker
   docker:
-    - image: node:8.6
+    - image: node:8.9
       environment:
         TEST_REPORT_PATH: "reports"
 
 version: 2
-    
+
 jobs:
   checkout-and-test:
     <<: *defaults
@@ -16,19 +16,19 @@ jobs:
           key: cache-{{ checksum "yarn.lock" }}
           paths:
             - ~/react-day-picker/node_modules
-      - run: 
+      - run:
           name: Install dependencies
           command: yarn install
-      - run: 
+      - run:
           name: Lint sources
           command: yarn lint --format junit --output-file reports/eslint.xml
-      - run: 
+      - run:
           name: Lint TypeScript definition files
           command: yarn dtslint
-      - run: 
+      - run:
           name: Run unit tests
-          command: yarn test --coverage --testResultsProcessor jest-junit-reporter
-      - run: 
+          command: yarn test --ci --coverage --colors --testResultsProcessor jest-junit-reporter
+      - run:
           name: Uploade code-coverage results
           command: yarn codecov
       - save_cache:
@@ -39,11 +39,11 @@ jobs:
           path: ~/react-day-picker/reports
       - persist_to_workspace:
           root: .
-          paths: 
+          paths:
             - "*"
             - src
-      
-  build-project: 
+
+  build-project:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -56,44 +56,36 @@ jobs:
       - run: yarn build
 
   build-docs:
-    working_directory: ~/react-day-picker
-    docker:
-      - image: circleci/ruby:2.4.1-node
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
-          key: cache-docs-v1-{{ checksum "docs/Gemfile.lock" }}
-      - run: yarn add gh-pages
-      - run: |
-          cd docs
-          bundle install
-       # Store bundle cache
+          key: cache-docs-v1-{{ checksum "package.json" }}
+      - run: cd docs && yarn install
       - save_cache:
-          key: cache-docs-v1-{{ checksum "docs/Gemfile.lock" }}
+          key: cache-docs-v1-{{ checksum "package.json" }}
           paths:
-            - "./node_modules"
+            - "./docs/node_modules"
       - run: |
-          cd docs
-          bundle exec jekyll build
-      - run: |
-          git config --global user.email "$GH_EMAIL" > /dev/null 2>&1 
+          git config --global user.email "$GH_EMAIL" > /dev/null 2>&1
           git config --global user.name "$GH_NAME" > /dev/null 2>&1
-      - run: NODE_DEBUG=gh-pages yarn run docs:publish
+      - run: cd docs && yarn build
+      - run: cd docs && yarn docs-publish
 
 workflows:
   version: 2
   build:
     jobs:
-      - checkout-and-test 
+      - checkout-and-test
       - build-project:
-          requires: 
+          requires:
             - checkout-and-test
           filters:
             branches:
-              only: 
-                - master   
+              only: master
       - build-docs:
           filters:
             branches:
-              only: 
-                - master   
+              ignore: /.*/
+            tags:
+              only: /^v.*/

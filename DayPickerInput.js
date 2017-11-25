@@ -3,4 +3,4 @@
 
 var DayPickerInput = require('./lib/src/DayPickerInput');
 
-module.exports = DayPickerInput.default || DayPickerInput;
+module.exports = DayPickerInput;

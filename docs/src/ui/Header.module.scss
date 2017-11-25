@@ -1,0 +1,88 @@
+@import '../style/mixins.scss';
+@import '../style/constants.scss';
+
+.container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid $border-color;
+  background: white;
+  z-index: 1;
+}
+
+.container + div {
+  margin-top: 60px;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  nav {
+    flex: 1 0 0;
+    padding-left: 50px;
+    @include small-screen() {
+      padding-left: 0;
+    }
+  }
+}
+
+.header nav {
+  display: inline-block;
+  vertical-align: middle;
+  @include small-screen() {
+    position: absolute;
+    top: calc(100vh - 45px);
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid $border-color;
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+  }
+  li {
+    display: inline-flex;
+    vertical-align: middle;
+    &:last-child {
+      width: 100%;
+      flex: 1 0 0;
+      align-content: flex-end;
+      a {
+        text-align: right;
+      }
+    }
+    text-align: center;
+    a {
+      text-transform: uppercase;
+      white-space: nowrap;
+      @include wide-screen() {
+        padding: 0 20px;
+      }
+      @include small-screen() {
+        padding: 10px 15px;
+      }
+    }
+  }
+}
+
+.headerLogo {
+  display: inline-block;
+  vertical-align: middle;
+  @include small-screen() {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.active {
+  @include small-screen() {
+    background-color: aliceblue;
+  }
+}
