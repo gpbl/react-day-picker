@@ -157,6 +157,7 @@ export interface DayPickerInputProps {
   dayPickerProps?: DayPickerProps;
   hideOnDayClick?: boolean;
   clickUnselectsDay?: boolean;
+  showOverlay?: boolean;
 
   // Not sure React.ComponentClass<any> is the right type for _propTypes2.default.any
   component?: any;

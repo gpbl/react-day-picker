@@ -19,6 +19,7 @@ export default class DayPickerInput extends React.Component {
       PropTypes.string,
     ]),
 
+    showOverlay: PropTypes.bool,
     dayPickerProps: PropTypes.object,
     hideOnDayClick: PropTypes.bool,
     clickUnselectsDay: PropTypes.bool,
@@ -43,6 +44,7 @@ export default class DayPickerInput extends React.Component {
     dayPickerProps: {},
     value: '',
     format: 'L',
+    showOverlay: false,
     hideOnDayClick: true,
     clickUnselectsDay: false,
     component: 'input',
@@ -62,7 +64,7 @@ export default class DayPickerInput extends React.Component {
     super(props);
 
     this.state = this.getStateFromProps(props);
-    this.state.showOverlay = false;
+    this.state.showOverlay = props.showOverlay;
 
     this.hideAfterDayClick = this.hideAfterDayClick.bind(this);
     this.handleContainerMouseDown = this.handleContainerMouseDown.bind(this);
