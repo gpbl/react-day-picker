@@ -31,9 +31,16 @@ will be released soon._
   ([#548](https://github.com/gpbl/react-day-picker/issues/548) by
   [trezy](https://github.com/trezy))
 
-**DayPickerInput**
+### DayPickerInput
 
-* New:
+* **Breaking:** pass additional props to the input component using the
+  [`inputProps`](http://react-day-picker.js.org/api/DayPickerInput#inputProps)
+  prop. _This is not a breaking change if you are just using `placeholder` or
+  `value`_.
+
+- New:
+  [`inputProps`](http://react-day-picker.js.org/api/DayPickerInput#inputProps)
+  prop to pass additional props to the input component
   [`overlayComponent`](http://react-day-picker.js.org/api/DayPickerInput#overlayComponent)
   prop: useful to customize the overlay component
   ([#477](https://github.com/gpbl/react-day-picker/issues/477), thanks to
