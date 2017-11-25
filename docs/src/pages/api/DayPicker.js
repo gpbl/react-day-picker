@@ -33,8 +33,8 @@ export default () => (
 
     <h4>Customization</h4>
     <p>
-      <a href="#enableOutsideDays">enableOutsideDays</a>,{' '}
       <a href="#fixedWeeks">fixedWeeks</a>,{' '}
+      <a href="#showOutsideDays">showOutsideDays</a>,{' '}
       <a href="#showWeekDays">showWeekDays</a>,{' '}
       <a href="#showWeekNumbers">showWeekNumbers</a>,{' '}
       <a href="#todayButton">todayButton</a>
@@ -210,11 +210,6 @@ export default () => (
         modifier. See <Link to="/docs/matching-days">Matching days</Link> for a
         reference of the accepted value types.
       </p>
-      <h3>
-        <Anchor id="enableOutsideDays" />
-        enableOutsideDays <code>boolean = false</code>
-      </h3>
-      <p>Display the days outside the current month.</p>
       <h3>
         <Anchor id="firstDayOfWeek" />
         firstDayOfWeek <code>number = 0 (Sunday)</code>
@@ -411,6 +406,11 @@ export default () => (
         modifier. See <Link to="/docs/matching-days">Matching days</Link> for a
         reference of the accepted value types.
       </p>
+      <h3>
+        <Anchor id="showOutsideDays" />
+        showOutsideDays <code>boolean = false</code>
+      </h3>
+      <p>Display the days outside the current month.</p>
       <h3>
         <Anchor id="showWeekDays" />
         showWeekDays <code>boolean = true</code>
