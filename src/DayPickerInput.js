@@ -23,6 +23,9 @@ export function defaultFormat(d) {
 }
 
 export function defaultParse(str) {
+  if (typeof str !== 'string') {
+    return undefined;
+  }
   const split = str.split('-');
   if (split.length !== 3) {
     return undefined;
@@ -34,21 +37,20 @@ export function defaultParse(str) {
     isNaN(year) ||
     isNaN(month) ||
     isNaN(day) ||
-    day < 0 ||
+    day <= 0 ||
     day > 31 ||
-    month < 0 ||
-    month > 12
+    month <= 0 ||
+    month >= 12
   ) {
     return undefined;
   }
 
-  const date = new Date(year, month, day);
-  return isDate(date) ? date : undefined;
+  return new Date(year, month, day);
 }
 
 export default class DayPickerInput extends React.Component {
   static propTypes = {
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
     inputProps: PropTypes.object,
     placeholder: PropTypes.string,
 
@@ -228,11 +230,7 @@ export default class DayPickerInput extends React.Component {
         },
         {}
       );
-      if (parseDate(value, format, dayPickerProps.locale)) {
-        onDayChange(day, modifiers);
-      } else {
-        onDayChange(undefined, {});
-      }
+      onDayChange(day, modifiers);
     });
   }
 

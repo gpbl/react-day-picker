@@ -230,7 +230,7 @@ describe('DayPickerInput', () => {
         expect(wrapper.instance().hideTimeout).toBeNull();
         expect(wrapper.find('.DayPicker')).toBeDefined();
       });
-      it('should unselect the clicked day if already selected', () => {
+      it('should unselect the clicked day if already selected (clickUnselectsDay)', () => {
         const wrapper = mount(
           <DayPickerInput
             value="2017-11-8"
@@ -249,6 +249,26 @@ describe('DayPickerInput', () => {
           .simulate('click');
         expect(wrapper.find('input')).toHaveProp('value', '');
         expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(0);
+      });
+      it('should unselect the clicked day if already selected (clickUnselectsDay)', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            value="2017-11-8"
+            clickUnselectsDay
+            dayPickerProps={{
+              month: new Date(2017, 1),
+              selectedDays: [new Date(2017, 10, 8), new Date(2017, 10, 7)],
+            }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper
+          .find('.DayPicker-Day')
+          .at(10)
+          .simulate('click');
+        expect(wrapper.find('input')).toHaveProp('value', '');
+        expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(1);
       });
       it('should call `onDayChange` when clicking a selected day', () => {
         const onDayChange = jest.fn();
