@@ -209,7 +209,7 @@ export default class DayPickerInput extends React.Component {
    * @private
    */
   updateState(day, value, callback) {
-    const { dayPickerProps, onDayChange, parseDate, format } = this.props;
+    const { dayPickerProps, onDayChange } = this.props;
     this.setState({ month: day, value }, () => {
       if (callback) {
         callback();
