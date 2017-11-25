@@ -79,7 +79,12 @@ export default class Example extends React.Component {
             to &&
             `Selected from ${from.toLocaleDateString()} to
                 ${to.toLocaleDateString()}`}{' '}
-          {from && to && <button onClick={this.handleResetClick}>Reset</button>}
+          {from &&
+            to && (
+              <button className="link" onClick={this.handleResetClick}>
+                Reset
+              </button>
+            )}
         </div>
         <Helmet>
           <style>{`

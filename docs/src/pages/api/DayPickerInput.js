@@ -23,7 +23,8 @@ export default () => (
       <a href="#component">component</a>,{' '}
       <a href="#dayPickerProps">dayPickerProps</a>, <a href="#format">format</a>,{' '}
       <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
-      <a href="#overlayComponent">overlayComponent</a>
+      <a href="#overlayComponent">overlayComponent</a>,{' '}
+      <a href="#showOverlay">showOverlay</a>
     </p>
     <h4>Event handlers</h4>
     <p>
@@ -31,6 +32,7 @@ export default () => (
     </p>
     <h4>Public methods</h4>
     <p>
+      <a href="#getDayPicker">getDayPicker</a>, <a href="#getInput">getInput</a>,{' '}
       <a href="#hideDayPicker">hideDayPicker</a>,{' '}
       <a href="#showDayPicker">showDayPicker</a>
     </p>
@@ -147,6 +149,14 @@ function MyDayPickerInput(props) {
       <p>
         See also <Link to="/examples/input-custom-overlay">this example</Link>.
       </p>
+      <h3>
+        <Anchor id="showOverlay" />
+        showOverlay <code>boolean = false</code>
+      </h3>
+      <p>
+        Show the overlay during the initial rendering of the component. This is
+        useful if you want to keep the overlay visibile while styling it.
+      </p>
 
       <hr />
       <h2>Event handlers</h2>
@@ -164,6 +174,18 @@ function MyDayPickerInput(props) {
 
       <hr />
       <h2>Public methods</h2>
+
+      <h3>
+        <Anchor id="getDayPicker" />
+        getDayPicker <code>() ⇒ DayPicker</code>
+      </h3>
+      <p>Return the DayPicker instance.</p>
+
+      <h3>
+        <Anchor id="getInput" />
+        getInput <code>() ⇒ DOMNode | ReactNode</code>
+      </h3>
+      <p>Return the input element instance.</p>
 
       <h3>
         <Anchor id="showDayPicker" />
