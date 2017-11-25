@@ -203,7 +203,7 @@ export default () => (
 /> `}</CodeBlock>
       <h3>
         <Anchor id="disabledDays" />
-        disabledDays <code>Date | Object | [Date] | (day: Date) ⇒ boolean</code>
+        disabledDays <code>Date | Object | Date[] | (day: Date) ⇒ boolean</code>
       </h3>
       <p>
         Day(s) that should appear as disabled. Set a <code>disabled</code>{' '}
@@ -322,7 +322,7 @@ export default () => (
       </p>
       <h3>
         <Anchor id="months" />
-        months <code>[string]</code>
+        months <code>string[]</code>
       </h3>
       <p>
         An array containing the long month names to use in the month’s header.
@@ -404,7 +404,7 @@ export default () => (
       </p>
       <h3>
         <Anchor id="selectedDays" />
-        selectedDays <code>Date | Object | [Date] | (day: Date) ⇒ boolean</code>
+        selectedDays <code>Date | Object | Date[] | (day: Date) ⇒ boolean</code>
       </h3>
       <p>
         Day(s) that should appear as selected. Set a <code>selected</code>{' '}
@@ -471,7 +471,7 @@ export default () => (
 
       <h3>
         <Anchor id="weekdaysLong" />
-        weekdaysLong <code>[string]</code>
+        weekdaysLong <code>string[]</code>
       </h3>
       <p>
         An array containing the long weekdays names to use in the month’s
@@ -480,7 +480,7 @@ export default () => (
 
       <h3>
         <Anchor id="weekdaysShort" />
-        weekdaysShort <code>[string]</code>
+        weekdaysShort <code>string[]</code>
       </h3>
       <p>
         An array containing the short weekdays names to use in the month’s
@@ -620,7 +620,7 @@ export default () => (
         <Anchor id="onTodayButtonClick" />
         onTodayButtonClick{' '}
         <code>
-          (day: Date, modifiers: [string], e: SyntheticEvent) ⇒ undefined
+          (day: Date, modifiers: string[], e: SyntheticEvent) ⇒ undefined
         </code>
       </h3>
       <p>
