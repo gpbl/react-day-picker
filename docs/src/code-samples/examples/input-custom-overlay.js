@@ -1,8 +1,5 @@
 import React from 'react';
-
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import { LocaleUtils } from 'react-day-picker';
-
 import 'react-day-picker/lib/style.css';
 
 function CustomOverlay({ classNames, selectedDay, children }) {
@@ -23,7 +20,6 @@ function CustomOverlay({ classNames, selectedDay, children }) {
 export default function Example() {
   return (
     <DayPickerInput
-      placeholder="MM/DD/YYYY"
       overlayComponent={CustomOverlay}
       dayPickerProps={{
         todayButton: 'Today',

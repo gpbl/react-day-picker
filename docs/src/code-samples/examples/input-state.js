@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
@@ -15,29 +14,25 @@ export default class Example extends React.Component {
   handleDayChange(selectedDay, modifiers) {
     this.setState({
       selectedDay,
-      isDisabled: modifiers.disabled,
+      isDisabled: modifiers.disabled === true,
     });
   }
   render() {
     const { selectedDay, isDisabled } = this.state;
-    const formattedDay = selectedDay
-      ? moment(selectedDay).format('DD/MM/YYYY')
-      : '';
     return (
       <div>
         <p>
           {!selectedDay && '🤔 Type or pick a valid day'}
           {selectedDay && isDisabled && '😡 This day is disabled'}
-          {selectedDay && !isDisabled && `😄 You chose ${formattedDay}`}
+          {selectedDay &&
+            !isDisabled &&
+            `😄 You chose ${selectedDay.toLocaleDateString()}`}
         </p>
         <DayPickerInput
-          value={formattedDay}
+          value={selectedDay}
           onDayChange={this.handleDayChange}
-          format="DD/MM/YYYY"
-          placeholder={`E.g. ${moment()
-            .locale('en')
-            .format('DD/MM/YYYY')}`}
           dayPickerProps={{
+            selectedDays: selectedDay,
             disabledDays: {
               daysOfWeek: [0, 6],
             },

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 
 import DocPage from '../../containers/DocPage';
+import Anchor from '../../ui/Anchor';
 import CodeSample from '../../ui/CodeSample';
 import NextButton from '../../ui/NextButton';
 
@@ -40,7 +41,9 @@ export default () => (
 
     <CodeSample name="localization-01" />
 
-    <h2>Localization with moment.js</h2>
+    <h2>
+      <Anchor id="localization-moment" />Localization with moment.js
+    </h2>
     <p>
       If you already include <a href="http://www.momentjs.com">moment.js</a> in
       your dependencies, you may find convenient to use moment’s translation
@@ -87,6 +90,6 @@ export default () => (
 
     <CodeSample name="localization-03" />
 
-    <NextButton to="/docs/input" label="Using the input field" />
+    <NextButton to="/docs/input" label="Using DayPickerInput" />
   </DocPage>
 );

@@ -37,14 +37,6 @@ export default () => (
 $ yarn add react-day-picker`}
     </CodeBlock>
 
-    <blockquote>
-      <p>
-        If you want to use the{' '}
-        <Link to="/api/DayPickerInput">DayPickerInput component</Link>, you must
-        install moment.js as well.
-      </p>
-    </blockquote>
-
     <p>Then import the component and its style into your component:</p>
 
     <CodeBlock>

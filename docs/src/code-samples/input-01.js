@@ -17,13 +17,9 @@ export default class MyForm extends React.Component {
     const { selectedDay } = this.state;
     return (
       <div>
-        <DayPickerInput
-          name="birthday"
-          placeholder="DD/MM/YYYY"
-          format="DD/MM/YYYY"
-          onDayChange={this.handleDayChange}
-        />
-        {selectedDay && <p>Selected: {<p>{selectedDay.format('LLL')}</p>}</p>}
+        {selectedDay && <p>Day: {selectedDay.toLocaleDateString()}</p>}
+        {!selectedDay && <p>Choose a day</p>}
+        <DayPickerInput onDayChange={this.handleDayChange} />
       </div>
     );
   }
