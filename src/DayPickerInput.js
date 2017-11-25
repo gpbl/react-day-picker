@@ -13,6 +13,7 @@ export const HIDE_TIMEOUT = 100;
 export default class DayPickerInput extends React.Component {
   static propTypes = {
     value: PropTypes.string,
+    inputProps: PropTypes.object,
 
     format: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.string),
@@ -48,6 +49,7 @@ export default class DayPickerInput extends React.Component {
     hideOnDayClick: true,
     clickUnselectsDay: false,
     component: 'input',
+    inputProps: {},
     overlayComponent: ({ children, classNames }) => (
       <div className={classNames.overlayWrapper}>
         <div className={classNames.overlay}>{children}</div>
@@ -216,17 +218,17 @@ export default class DayPickerInput extends React.Component {
 
   handleInputClick(e) {
     this.showDayPicker();
-    if (this.props.onClick) {
+    if (this.props.inputProps.onClick) {
       e.persist();
-      this.props.onClick(e);
+      this.props.inputProps.onClick(e);
     }
   }
 
   handleInputFocus(e) {
     this.showDayPicker();
-    if (this.props.onFocus) {
+    if (this.props.inputProps.onFocus) {
       e.persist();
-      this.props.onFocus(e);
+      this.props.inputProps.onFocus(e);
     }
   }
 
@@ -238,17 +240,17 @@ export default class DayPickerInput extends React.Component {
     if (this.clickedInside) {
       this.blurTimeout = setTimeout(() => this.input.focus(), 0);
     }
-    if (this.props.onBlur) {
+    if (this.props.inputProps.onBlur) {
       e.persist();
-      this.props.onBlur(e);
+      this.props.inputProps.onBlur(e);
     }
   }
 
   handleInputChange(e) {
-    const { onChange, onDayChange, format } = this.props;
-    if (onChange) {
+    const { inputProps, onDayChange, format } = this.props;
+    if (inputProps.onChange) {
       e.persist();
-      onChange(e);
+      inputProps.onChange(e);
     }
     const { value } = e.target;
     const m = moment(value, format, true);
@@ -270,9 +272,9 @@ export default class DayPickerInput extends React.Component {
   handleInputKeyUp(e) {
     // Hide the overlay if the ESC key is pressed
     this.setState({ showOverlay: e.keyCode !== ESC });
-    if (this.props.onKeyUp) {
+    if (this.props.inputProps.onKeyUp) {
       e.persist();
-      this.props.onKeyUp(e);
+      this.props.inputProps.onKeyUp(e);
     }
   }
 
@@ -367,17 +369,6 @@ export default class DayPickerInput extends React.Component {
   }
 
   render() {
-    const {
-      component,
-      overlayComponent,
-      dayPickerProps,
-      format,
-      clickUnselectsDay,
-      hideOnDayClick,
-      onDayChange,
-      classNames,
-      ...inputProps
-    } = this.props;
     const Input = this.props.component;
     return (
       <div
@@ -386,7 +377,7 @@ export default class DayPickerInput extends React.Component {
       >
         <Input
           ref={el => (this.input = el)}
-          {...inputProps}
+          {...this.props.inputProps}
           value={this.state.value}
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus}
