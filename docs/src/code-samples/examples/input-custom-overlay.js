@@ -28,6 +28,9 @@ export default function Example() {
       <DayPickerInput
         placeholder="MM/DD/YYYY"
         overlayComponent={CustomOverlay}
+        dayPickerProps={{
+          todayButton: 'Today',
+        }}
       />
     </div>
   );
