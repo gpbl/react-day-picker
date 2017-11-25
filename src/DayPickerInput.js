@@ -133,9 +133,12 @@ export default class DayPickerInput extends React.Component {
    * @param {String} value - Input field value
    * @private
    */
-  updateState(day, value) {
+  updateState(day, value, callback) {
     const { dayPickerProps, onDayChange } = this.props;
     this.setState({ month: day, value }, () => {
+      if (callback) {
+        callback();
+      }
       if (!onDayChange) {
         return;
       }
@@ -321,7 +324,8 @@ export default class DayPickerInput extends React.Component {
           new Date(),
           moment()
             .locale(dayPickerProps.locale || 'en')
-            .format(this.props.format)
+            .format(this.props.format),
+          this.hideAfterDayClick
         );
     }
     const Overlay = this.props.overlayComponent;
