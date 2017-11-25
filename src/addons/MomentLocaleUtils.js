@@ -46,14 +46,14 @@ export function getMonths(locale = 'en') {
   return months;
 }
 
-export function formatDate(str, format = 'L', locale = 'en') {
-  return moment(str)
+export function formatDate(date, format = 'L', locale = 'en') {
+  return moment(date)
     .locale(locale)
     .format(format);
 }
 
-export function parseDate(str, format = 'L') {
-  const m = moment(str, format, true);
+export function parseDate(str, format = 'L', locale = 'en') {
+  const m = moment(str, format, locale);
   if (m.isValid()) {
     return m.toDate();
   }
