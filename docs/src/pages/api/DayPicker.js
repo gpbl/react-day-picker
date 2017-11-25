@@ -35,6 +35,7 @@ export default () => (
     <p>
       <a href="#enableOutsideDays">enableOutsideDays</a>,{' '}
       <a href="#fixedWeeks">fixedWeeks</a>,{' '}
+      <a href="#showWeekDays">showWeekDays</a>,{' '}
       <a href="#showWeekNumbers">showWeekNumbers</a>,{' '}
       <a href="#todayButton">todayButton</a>
     </p>
@@ -410,8 +411,13 @@ export default () => (
         reference of the accepted value types.
       </p>
       <h3>
+        <Anchor id="showWeekDays" />
+        showWeekDays <code>boolean = true</code>
+      </h3>
+      <p>Display the weekday names in the calendar header.</p>
+      <h3>
         <Anchor id="showWeekNumbers" />
-        showWeekNumbers <code>boolean</code>
+        showWeekNumbers <code>boolean = false</code>
       </h3>
       <p>
         Display the year’s week number next to each week (<Link to="/examples/customization-week-numbers">

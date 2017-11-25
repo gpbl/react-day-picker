@@ -29,6 +29,7 @@ export default class DayPicker extends Component {
     pagedNavigation: PropTypes.bool,
     todayButton: PropTypes.string,
     showWeekNumbers: PropTypes.bool,
+    showWeekDays: PropTypes.bool,
 
     // Modifiers
     selectedDays: PropTypes.oneOfType([
@@ -143,6 +144,7 @@ export default class DayPicker extends Component {
     reverseMonths: false,
     pagedNavigation: false,
     showWeekNumbers: false,
+    showWeekDays: true,
     renderDay: day => day.getDate(),
     renderWeek: weekNumber => weekNumber,
     weekdayElement: <Weekday />,
@@ -483,10 +485,8 @@ export default class DayPicker extends Component {
   renderMonths() {
     const months = [];
     const firstDayOfWeek = Helpers.getFirstDayOfWeekFromProps(this.props);
-
     for (let i = 0; i < this.props.numberOfMonths; i += 1) {
       const month = DateUtils.addMonths(this.state.currentMonth, i);
-
       months.push(
         <Month
           key={i}
