@@ -1,3 +1,5 @@
+@import './mixins.scss';
+
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+bash+diff+jsx&plugins=line-highlight */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
@@ -57,7 +59,7 @@ pre.prism-code {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
-  font-size: 13px;
+  font-size: 0.875rem;
 }
 
 :not(pre) > code[class*='language-'],

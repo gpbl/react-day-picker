@@ -9,50 +9,99 @@ import logo from '../images/logo.png';
 import github from '../images/github.png';
 import styles from './Header.module.scss';
 
-export default function Header() {
-  return (
-    <header className={styles.container}>
-      <Wrap>
-        <div className={styles.header}>
-          <a className={styles.headerLogo} href="/">
-            <img src={logo} alt="Home page" width={200} height={40} />
-          </a>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/docs" activeClassName={styles.active}>
-                  Docs & API
-                </Link>
-              </li>
-              <li>
-                <Link to="/examples/basic" activeClassName={styles.active}>
-                  Examples
-                </Link>
-              </li>
-              <li>
-                <Link to="/support" activeClassName={styles.active}>
-                  Support
-                </Link>
-              </li>
-              <li>
-                <Link to="/contributing" activeClassName={styles.active}>
-                  Contribute
-                </Link>
-              </li>
-              <li>
-                <Link to="/changelog" activeClassName={styles.active}>
-                  v{DayPicker.VERSION}
-                </Link>
-              </li>
-              <li>
-                <a href="https://github.com/gpbl/react-day-picker">
-                  <img src={github} width="20" height="20" alt="Github logo" />
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </Wrap>
-    </header>
-  );
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMenu: false,
+    };
+    this.handleMenuButtonClick = this.handleMenuButtonClick.bind(this);
+  }
+  handleMenuButtonClick(e) {
+    e.preventDefault();
+    this.setState({ showMenu: !this.state.showMenu });
+  }
+  handleMenuClick() {
+    this.setState({ showMenu: false });
+  }
+  render() {
+    const { showMenu } = this.state;
+    return (
+      <header
+        className={`${styles.container} ${showMenu ? styles.menuVisible : ''}`}
+      >
+        <Wrap>
+          <div className={styles.header}>
+            <button
+              type="button"
+              className={styles.headerMenuButton}
+              onClick={this.handleMenuButtonClick}
+            />
+            <a className={styles.headerLogo} href="/">
+              <img src={logo} alt="Home page" width={200} height={40} />
+            </a>
+            <nav>
+              <ul>
+                <li>
+                  <Link
+                    to="/docs"
+                    onClick={this.handleMenuClick}
+                    activeClassName={styles.active}
+                  >
+                    Docs & API
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/examples/basic"
+                    onClick={this.handleMenuClick}
+                    activeClassName={styles.active}
+                  >
+                    Examples
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/support"
+                    onClick={this.handleMenuClick}
+                    activeClassName={styles.active}
+                  >
+                    Support
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contributing"
+                    onClick={this.handleMenuClick}
+                    activeClassName={styles.active}
+                  >
+                    Contribute
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/changelog"
+                    onClick={this.handleMenuClick}
+                    activeClassName={styles.active}
+                  >
+                    v{DayPicker.VERSION}
+                  </Link>
+                </li>
+                <li>
+                  <a href="https://github.com/gpbl/react-day-picker">
+                    <img
+                      src={github}
+                      width="20"
+                      height="20"
+                      alt="Github logo"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </Wrap>
+      </header>
+    );
+  }
 }
