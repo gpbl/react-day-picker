@@ -63,9 +63,9 @@ const FIRST_DAY = {
 };
 
 function formatDay(d, locale = 'en') {
-  return `${WEEKDAYS_LONG[locale][d.getDay()]}, ${d.getDate()} ${MONTHS[locale][
-    d.getMonth()
-  ]} ${d.getFullYear()}`;
+  return `${WEEKDAYS_LONG[locale][d.getDay()]}, ${d.getDate()} ${
+    MONTHS[locale][d.getMonth()]
+  } ${d.getFullYear()}`;
 }
 
 function formatMonthTitle(d, locale = 'en') {
