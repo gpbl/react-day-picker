@@ -49,14 +49,14 @@ export default function ChangeLog() {
             <h3>Search for existing issues</h3>
             <ul>
               <li>
-                Search the questions {' '}
+                Search the questions{' '}
                 <a href="https://stackoverflow.com/questions/tagged/react-day-picker?sort=newest">
                   tagged <code>react-day-picker</code>
                 </a>{' '}
                 on Stack Overflow
               </li>
               <li>
-                Give a look to the open or closed {' '}
+                Give a look to the open or closed{' '}
                 <a href="https://github.com/gpbl/react-day-picker/issues?utf8=%E2%9C%93&q=">
                   issues on Github
                 </a>
@@ -72,7 +72,7 @@ export default function ChangeLog() {
                 and tag your question with <code>react-day-picker</code>
               </li>
               <li>
-                It’s super ok to {' '}
+                It’s super ok to{' '}
                 <a href="https://github.com/gpbl/react-day-picker/issues/new">
                   open issues on Github
                 </a>{' '}

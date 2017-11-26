@@ -128,7 +128,9 @@ export default () => (
 // .DayPicker-Day--weekends`}
         </CodeBlock>
         <p>
-          will match all the Sundays (<code>0</code>) and Saturdays (<code>6</code>)
+          will match all the Sundays (<code>0</code>) and Saturdays (<code>
+            6
+          </code>)
         </p>
       </li>
       <li>

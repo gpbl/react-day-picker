@@ -7,10 +7,12 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "lint": "eslint src",
     "docs-publish": "cp CNAME public && NODE_DEBUG=gh-pages gh-pages -d public"
   },
   "dependencies": {
     "babel-preset-flow": "6.23.0",
+    "eslint": "4.12.0",
     "gatsby": "1.9.119",
     "gatsby-link": "^1.6.28",
     "gatsby-plugin-react-css-modules": "1.0.9",

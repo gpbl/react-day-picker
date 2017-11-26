@@ -12,9 +12,9 @@ export default function CodeSamples({ name, lines, vertical = false }) {
 
   return (
     <div
-      className={`${styles.container} ${vertical
-        ? styles.vertical
-        : styles.horizontal}`}
+      className={`${styles.container} ${
+        vertical ? styles.vertical : styles.horizontal
+      }`}
     >
       <div>
         <h4>Code</h4>
