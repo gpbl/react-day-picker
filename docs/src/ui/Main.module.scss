@@ -13,8 +13,12 @@
 .aside {
   flex: 1 0 0;
   @include small-screen {
+    border-top: 1px solid $border-color;
+    background-color: $background-color;
     width: 100%;
     padding-bottom: 3em;
+    margin: 0 -10px;
+    padding: 0 10px;
   }
   @include wide-screen() {
     position: sticky;

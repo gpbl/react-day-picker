@@ -1,17 +1,25 @@
 @import './constants.scss';
+@import './mixins.scss';
 @import './normalize.css';
 
 html {
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body {
-  font-size: 14px;
+  font-size: 0.875em;
   font-family: $font-family;
   margin: 0;
   padding: 0;
+  overflow-x: none;
+  @include smartphone {
+    font-size: 1em;
+  }
 }
+
+
 
 h1,
 h2,
@@ -43,7 +51,7 @@ h3 {
 h4 {
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 0.875em;
   margin: 0.5em 0;
 }
 
@@ -116,4 +124,4 @@ abbr[title] {
   border-bottom: 0;
 }
 
-@import './prism.css';
+@import './prism.scss';
