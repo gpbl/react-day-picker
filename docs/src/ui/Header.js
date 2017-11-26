@@ -44,7 +44,7 @@ export default class Header extends React.Component {
               <ul>
                 <li>
                   <Link
-                    to="/docs"
+                    to="/docs/getting-started"
                     onClick={this.handleMenuClick}
                     activeClassName={styles.active}
                   >
