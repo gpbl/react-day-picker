@@ -21,9 +21,9 @@ export default class Example extends React.Component {
     };
   }
   isSelectingFirstDay(from, to, day) {
-    const isBeforeFirtDay = from && DateUtils.isDayBefore(day, from);
+    const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
     const isRangeSelected = from && to;
-    return !from || isBeforeFirtDay || isRangeSelected;
+    return !from || isBeforeFirstDay || isRangeSelected;
   }
   handleDayClick(day) {
     const { from, to } = this.state;
