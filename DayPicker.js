@@ -5,8 +5,8 @@ var DayPicker = require('./lib/src/DayPicker');
 var DateUtils = require('./lib/src/DateUtils');
 var LocaleUtils = require('./lib/src/LocaleUtils');
 var ModifiersUtils = require('./lib/src/ModifiersUtils');
-var Weekday = require('./lib/src/Weekday').default;
-var Navbar = require('./lib/src/Navbar').default;
+var Weekday = require('./lib/src/Weekday');
+var Navbar = require('./lib/src/Navbar');
 var PropTypes = require('./lib/src/PropTypes');
 
 module.exports = DayPicker;
