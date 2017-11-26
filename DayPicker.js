@@ -1,3 +1,7 @@
+/*
+  Used as main file in package.json
+*/
+
 /* eslint-disable no-var */
 /* eslint-env node */
 
