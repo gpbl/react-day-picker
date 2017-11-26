@@ -1,0 +1,36 @@
+<!-- Use this file to test the dist lib is working, just open this file in a browser -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="../lib/daypicker.min.js"></script>
+  <link rel="stylesheet" href="../src/style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="container-daypicker"></div>
+  <div id="container-daypicker-input"></div>
+  <script>
+      ReactDOM.render(
+        React.createElement(DayPicker),
+        document.getElementById('container-daypicker'),
+        () => console.info('✅ DayPicker is working')
+      );
+      ReactDOM.render(
+        React.createElement(DayPicker.Input),
+        document.getElementById('container-daypicker-input'),
+        () => console.info('✅ DayPickerInput is working')
+      )
+      console.log('DateUtils', DayPicker.DateUtils);
+      console.log('LocaleUtils', DayPicker.LocaleUtils);
+    </script>
+</body>
+</html>
