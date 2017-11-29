@@ -19,10 +19,11 @@ export default () => (
         <Link to="/api/DayPicker">API</Link>)
       </li>
       <li>
-        the <code>DayPickerInput</code> component to render an input field
-        opening the DayPicker in an overlay (see:{' '}
-        <Link to="/docs/input">docs</Link>,{' '}
-        <Link to="/api/DayPickerInput">API</Link>)
+        the{' '}
+        <Link to="/docs/input">
+          <code>DayPickerInput</code>
+        </Link>{' '}
+        component to render an input field opening the DayPicker in an overlay
       </li>
     </ul>
     <h2>Setup</h2>
