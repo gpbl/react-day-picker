@@ -27,7 +27,7 @@ export default () => (
         <a href="/api/DayPicker#classnames">
           <code>classNames</code>
         </a>{' '}
-        prop. Using this prop you can also import a{' '}
+        prop. Using this prop you can import a{' '}
         <a href="#css-modules">CSS Module</a>.
       </p>
     </blockquote>
@@ -35,8 +35,8 @@ export default () => (
     <h3>Importing the style template</h3>
 
     <p>
-      You can also import and extend the CSS template in your Sass files, for
-      example from <code>node_modules</code>:
+      Import and extend the CSS template in your Sass files, for example from{' '}
+      <code>node_modules</code>:
     </p>
 
     <CodeBlock language="css">
@@ -53,10 +53,6 @@ export default () => (
     <p>The stylesheet is also available from unpkg:</p>
 
     <CodeBlock language="html">{`<link rel="stylesheet" href="https://unpkg.com/react-day-picker/lib/style.css">`}</CodeBlock>
-    <p>
-      Keep in mind the default style is not production-tested and may change
-      between releases.
-    </p>
 
     <h2>Styling modifiers</h2>
     <p>

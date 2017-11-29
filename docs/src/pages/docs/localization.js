@@ -23,7 +23,7 @@ export default () => (
       </li>
     </ul>
     <p>
-      For more advanced options, such as changing the way days and captions are
+      For more advanced options, such as changing how days and captions are
       displayed, see <a href="#advanced">advanced localization</a>.
     </p>
 
@@ -37,7 +37,7 @@ export default () => (
 
     <h3>Example</h3>
 
-    <p>The following example translate the calendar in Italian:</p>
+    <p>The following example translates the calendar in Italian:</p>
 
     <CodeSample name="localization-01" />
 
