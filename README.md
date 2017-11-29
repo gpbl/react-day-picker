@@ -12,7 +12,7 @@
 </a>
 </p>
 <p align="center">
-  <a href="http://react-day-picker.js.org">Documentation</a> | <a href="http://react-day-picker.js.org/examples.basic">Examples</a> | <a href="http://react-day-picker.js.org/api/DayPicker">API</a> | <a href="http://react-day-picker.js.org/changelog">Changelog</a>
+  <a href="http://react-day-picker.js.org">Documentation</a> | <a href="http://react-day-picker.js.org/examples/basic">Examples</a> | <a href="http://react-day-picker.js.org/api/DayPicker">API</a> | <a href="http://react-day-picker.js.org/changelog">Changelog</a>
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/react-day-picker">
