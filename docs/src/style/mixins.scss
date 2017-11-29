@@ -1,0 +1,17 @@
+@mixin smartphone() {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin small-screen() {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin wide-screen() {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}

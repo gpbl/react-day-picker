@@ -1,0 +1,136 @@
+@import '../style/mixins.scss';
+@import '../style/constants.scss';
+
+.container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid $border-color;
+  background: white;
+  z-index: 1;
+}
+
+.container + div {
+  margin-top: 60px;
+}
+
+.header {
+  height: 60px;
+  text-align: center;
+  @include wide-screen {
+    display: flex;
+    align-items: center;
+  }
+  position: relative;
+}
+
+
+@include small-screen {
+  .menuVisible {
+    .header nav {
+      left: 0;
+    }
+  }
+  .header nav {
+    text-align: left;
+    background-color: white;
+    position: fixed;
+    left: -200px;
+    top: 60px;
+    padding-top: 20px;
+    bottom: 0;
+    width: 200px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.2);
+    transition: left .15s ease-in-out;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      a {
+        padding: 7px 14px;
+        display: block;
+        &:active {
+          background-color: aliceblue;
+        }
+      }
+    }
+  }
+}
+@include wide-screen() {
+  nav {
+    flex: 1 0 0;
+    padding-left: 50px;
+  }
+  .header nav {
+    display: inline-block;
+    vertical-align: middle;
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+    }
+    li {
+      display: inline-flex;
+      vertical-align: middle;
+      &:last-child {
+        width: 100%;
+        flex: 1 0 0;
+        align-content: flex-end;
+        a {
+          text-align: right;
+        }
+      }
+      text-align: center;
+      a {
+        text-transform: uppercase;
+        white-space: nowrap;
+        @include wide-screen() {
+          padding: 0 20px;
+        }
+        @include small-screen() {
+          padding: 10px 15px;
+        }
+      }
+    }
+  }
+}
+
+.headerLogo {
+  display: inline-block;
+  vertical-align: middle;
+  @include small-screen() {
+    position: relative;
+    text-align: center;
+    top: 10px;
+  }
+}
+
+.headerMenuButton {
+  @include wide-screen {
+    display: none;
+  }
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  left: 5px;
+  top: 20px;
+  z-index: 2;
+  background-image: url('../images/nav.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.active {
+  @include small-screen() {
+    background-color: aliceblue;
+  }
+}

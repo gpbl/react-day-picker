@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "react/prefer-stateless-function": 0
+  },
+  "globals": {
+    "render": true
+  }
+}

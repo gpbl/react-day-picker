@@ -1,8 +1,11 @@
-const DayPicker = require('./src/DayPicker');
+/*
+  Used to create /lib/daypicker.min.js (e.g. for unpkg)
+*/
 
-DayPicker.default.Input = require('./src/DayPickerInput').default;
-DayPicker.default.DateUtils = require('./src/DateUtils').default;
-DayPicker.default.ModifiersUtils = require('./src/ModifiersUtils').default;
-DayPicker.default.LocaleUtils = require('./src/LocaleUtils').default;
+/* eslint-disable no-var */
+/* eslint-env node */
 
-module.exports = DayPicker.default;
+var DayPicker = require('./src/DayPicker').default;
+DayPicker.Input = require('./src/DayPickerInput').default;
+
+module.exports = DayPicker;

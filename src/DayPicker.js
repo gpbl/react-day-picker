@@ -9,12 +9,13 @@ import Weekday from './Weekday';
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
 import * as LocaleUtils from './LocaleUtils';
+import * as ModifiersUtils from './ModifiersUtils';
 import classNames from './classNames';
 
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 
 export default class DayPicker extends Component {
-  static VERSION = '6.2.1';
+  static VERSION = '7.0.2';
 
   static propTypes = {
     // Rendering months
@@ -28,6 +29,7 @@ export default class DayPicker extends Component {
     pagedNavigation: PropTypes.bool,
     todayButton: PropTypes.string,
     showWeekNumbers: PropTypes.bool,
+    showWeekDays: PropTypes.bool,
 
     // Modifiers
     selectedDays: PropTypes.oneOfType([
@@ -63,7 +65,7 @@ export default class DayPicker extends Component {
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),
 
     // Customization
-    enableOutsideDays: PropTypes.bool,
+    showOutsideDays: PropTypes.bool,
     fixedWeeks: PropTypes.bool,
 
     // CSS and HTML
@@ -74,6 +76,7 @@ export default class DayPicker extends Component {
       disabled: PropTypes.string.isRequired,
       footer: PropTypes.string,
       interactionDisabled: PropTypes.string,
+      months: PropTypes.string,
       month: PropTypes.string,
       navBar: PropTypes.string,
       outside: PropTypes.string.isRequired,
@@ -122,6 +125,7 @@ export default class DayPicker extends Component {
     onMonthChange: PropTypes.func,
     onCaptionClick: PropTypes.func,
     onWeekClick: PropTypes.func,
+    onTodayButtonClick: PropTypes.func,
   };
 
   static defaultProps = {
@@ -135,12 +139,13 @@ export default class DayPicker extends Component {
     },
     locale: 'en',
     localeUtils: LocaleUtils,
-    enableOutsideDays: false,
+    showOutsideDays: false,
     fixedWeeks: false,
     canChangeMonth: true,
     reverseMonths: false,
     pagedNavigation: false,
     showWeekNumbers: false,
+    showWeekDays: true,
     renderDay: day => day.getDate(),
     renderWeek: weekNumber => weekNumber,
     weekdayElement: <Weekday />,
@@ -170,6 +175,15 @@ export default class DayPicker extends Component {
       currentMonth = DateUtils.addMonths(
         props.fromMonth,
         Math.floor(diffInMonths / props.numberOfMonths) * props.numberOfMonths
+      );
+    } else if (
+      props.toMonth &&
+      props.numberOfMonths > 1 &&
+      Helpers.getMonthsDiff(props.toMonth, currentMonth) <= 0
+    ) {
+      currentMonth = DateUtils.addMonths(
+        props.toMonth,
+        1 - this.props.numberOfMonths
       );
     }
     return { currentMonth };
@@ -424,8 +438,18 @@ export default class DayPicker extends Component {
   }
 
   handleTodayButtonClick = e => {
-    this.showMonth(new Date());
+    const today = new Date();
+    const month = new Date(today.getFullYear(), today.getMonth());
+    this.showMonth(month);
     e.target.blur();
+    if (this.props.onTodayButtonClick) {
+      e.persist();
+      this.props.onTodayButtonClick(
+        new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        ModifiersUtils.getModifiersForDay(today, this.props.modifiers),
+        e
+      );
+    }
   };
 
   renderNavbar() {
@@ -441,6 +465,7 @@ export default class DayPicker extends Component {
     if (!canChangeMonth) return null;
 
     const props = {
+      month: this.state.month,
       classNames: this.props.classNames,
       className: this.props.classNames.navBar,
       nextMonth: this.getNextNavigableMonth(),
@@ -462,16 +487,13 @@ export default class DayPicker extends Component {
   renderMonths() {
     const months = [];
     const firstDayOfWeek = Helpers.getFirstDayOfWeekFromProps(this.props);
-
     for (let i = 0; i < this.props.numberOfMonths; i += 1) {
       const month = DateUtils.addMonths(this.state.currentMonth, i);
-
       months.push(
         <Month
           key={i}
           {...this.props}
           month={month}
-          footer={this.props.todayButton && this.renderTodayButton()}
           firstDayOfWeek={firstDayOfWeek}
           onDayKeyDown={this.handleDayKeyDown}
           onDayClick={this.handleDayClick}
@@ -483,6 +505,17 @@ export default class DayPicker extends Component {
       months.reverse();
     }
     return months;
+  }
+
+  renderFooter() {
+    if (this.props.todayButton) {
+      return (
+        <div className={this.props.classNames.footer}>
+          {this.renderTodayButton()}
+        </div>
+      );
+    }
+    return null;
   }
 
   renderTodayButton() {
@@ -513,7 +546,6 @@ export default class DayPicker extends Component {
         {...this.props.containerProps}
         className={className}
         ref={el => (this.dayPicker = el)}
-        role="application"
         lang={this.props.locale}
       >
         <div
@@ -528,9 +560,16 @@ export default class DayPicker extends Component {
           onBlur={this.props.onBlur}
         >
           {this.renderNavbar()}
-          {this.renderMonths()}
+          <div className={this.props.classNames.months}>
+            {this.renderMonths()}
+          </div>
+          {this.renderFooter()}
         </div>
       </div>
     );
   }
 }
+
+DayPicker.DateUtils = DateUtils;
+DayPicker.LocaleUtils = LocaleUtils;
+DayPicker.ModifiersUtils = ModifiersUtils;

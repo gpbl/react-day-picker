@@ -25,7 +25,8 @@ export default class Month extends Component {
 
     modifiersStyles: PropTypes.object,
 
-    enableOutsideDays: PropTypes.bool,
+    showWeekDays: PropTypes.bool,
+    showOutsideDays: PropTypes.bool,
 
     renderDay: PropTypes.func.isRequired,
     renderWeek: PropTypes.func.isRequired,
@@ -41,7 +42,6 @@ export default class Month extends Component {
       PropTypes.instanceOf(React.Component),
     ]),
 
-    footer: PropTypes.node,
     fixedWeeks: PropTypes.bool,
     showWeekNumbers: PropTypes.bool,
 
@@ -101,7 +101,7 @@ export default class Month extends Component {
         modifiers={modifiers}
         modifiersStyles={this.props.modifiersStyles}
         empty={
-          isOutside && !this.props.enableOutsideDays && !this.props.fixedWeeks
+          isOutside && !this.props.showOutsideDays && !this.props.fixedWeeks
         }
         tabIndex={tabIndex}
         ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
@@ -141,8 +141,8 @@ export default class Month extends Component {
 
       onCaptionClick,
 
-      footer,
       showWeekNumbers,
+      showWeekDays,
       onWeekClick,
     } = this.props;
 
@@ -159,20 +159,21 @@ export default class Month extends Component {
       : React.createElement(captionElement, captionProps);
 
     const weeks = Helpers.getWeekArray(month, firstDayOfWeek, fixedWeeks);
-
     return (
       <div className={classNames.month} role="grid">
         {caption}
-        <Weekdays
-          classNames={classNames}
-          weekdaysShort={weekdaysShort}
-          weekdaysLong={weekdaysLong}
-          firstDayOfWeek={firstDayOfWeek}
-          showWeekNumbers={showWeekNumbers}
-          locale={locale}
-          localeUtils={localeUtils}
-          weekdayElement={weekdayElement}
-        />
+        {showWeekDays && (
+          <Weekdays
+            classNames={classNames}
+            weekdaysShort={weekdaysShort}
+            weekdaysLong={weekdaysLong}
+            firstDayOfWeek={firstDayOfWeek}
+            showWeekNumbers={showWeekNumbers}
+            locale={locale}
+            localeUtils={localeUtils}
+            weekdayElement={weekdayElement}
+          />
+        )}
         <div className={classNames.body} role="rowgroup">
           {weeks.map(week => {
             let weekNumber;
@@ -190,9 +191,18 @@ export default class Month extends Component {
                     className={classNames.weekNumber}
                     tabIndex={0}
                     role="gridcell"
-                    onClick={e => onWeekClick(weekNumber, week, e)}
-                    onKeyUp={e =>
-                      e.keyCode === ENTER && onWeekClick(weekNumber, week, e)}
+                    onClick={
+                      onWeekClick
+                        ? e => onWeekClick(weekNumber, week, e)
+                        : undefined
+                    }
+                    onKeyUp={
+                      onWeekClick
+                        ? e =>
+                            e.keyCode === ENTER &&
+                            onWeekClick(weekNumber, week, e)
+                        : undefined
+                    }
                   >
                     {this.props.renderWeek(weekNumber, week, month)}
                   </div>
@@ -202,7 +212,6 @@ export default class Month extends Component {
             );
           })}
         </div>
-        {footer && <div className={classNames.footer}>{footer}</div>}
       </div>
     );
   }

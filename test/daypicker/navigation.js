@@ -46,7 +46,7 @@ describe('DayPicker’s navigation', () => {
     const wrapper = mount(
       <DayPicker
         initialMonth={new Date(2015, 7)}
-        enableOutsideDays
+        showOutsideDays
         onDayClick={() => {}}
       />
     );
@@ -62,7 +62,7 @@ describe('DayPicker’s navigation', () => {
     const wrapper = mount(
       <DayPicker
         initialMonth={new Date(2015, 7)}
-        enableOutsideDays
+        showOutsideDays
         classNames={{ ...defaultClassNames, outside: 'fakeOutside' }}
         onDayClick={() => {}}
       />
@@ -86,7 +86,7 @@ describe('DayPicker’s navigation', () => {
     const wrapper = mount(
       <DayPicker
         initialMonth={new Date(2015, 7)}
-        enableOutsideDays
+        showOutsideDays
         onDayClick={() => {}}
       />
     );
@@ -102,7 +102,7 @@ describe('DayPicker’s navigation', () => {
     const wrapper = mount(
       <DayPicker
         initialMonth={new Date(2015, 7)}
-        enableOutsideDays
+        showOutsideDays
         classNames={{ ...defaultClassNames, outside: 'fakeOutside' }}
         onDayClick={() => {}}
       />
@@ -120,7 +120,7 @@ describe('DayPicker’s navigation', () => {
       <DayPicker
         initialMonth={new Date(2015, 3)}
         numberOfMonths={2}
-        enableOutsideDays
+        showOutsideDays
         onDayClick={() => {}}
       />
     );
@@ -229,6 +229,18 @@ describe('DayPicker’s navigation', () => {
         fromMonth={new Date(2015, 1)}
         numberOfMonths={4}
         pagedNavigation
+      />
+    ).instance();
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(5);
+    expect(instance.state.currentMonth.getDate()).toBe(1);
+  });
+  it('should set the currentMonth to the first rendered month if toMonth equals current month', () => {
+    const instance = shallow(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        toMonth={new Date(2015, 7)}
+        numberOfMonths={3}
       />
     ).instance();
     expect(instance.state.currentMonth.getFullYear()).toBe(2015);

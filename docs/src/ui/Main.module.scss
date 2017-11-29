@@ -1,0 +1,53 @@
+@import '../style/constants.scss';
+@import '../style/mixins.scss';
+
+.main {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  @include small-screen() {
+    flex-direction: column-reverse;
+  }
+}
+
+.aside {
+  flex: 1 0 0;
+  @include small-screen {
+    border-top: 1px solid $border-color;
+    background-color: $background-color;
+    width: 100%;
+    padding-bottom: 3em;
+    margin: 0 -10px;
+    padding: 0 10px;
+  }
+  @include wide-screen() {
+    position: sticky;
+    top: 61px;
+    width: 250px;
+    flex: 0 0 250px;
+    height: calc(100vh - 61px);
+    overflow: auto;
+  }
+  > div {
+    padding-bottom: 3em;
+    @include wide-screen() {
+      padding-right: 2em;
+      border-right: 1px solid $border-color;
+    }
+  }
+}
+
+.article {
+  min-height: calc(100vh - 102px);
+  @include small-screen {
+    width: 100%;
+  }
+  @include wide-screen() {
+    flex: 1 0 0;
+    padding-left: 2em;
+    margin-left: -1px;
+    border-left: 1px solid $border-color;
+  }
+  padding-top: 1em;
+  padding-bottom: 2em;
+}

@@ -1,0 +1,72 @@
+@import '../style/constants.scss';
+@import '../style/mixins.scss';
+
+.container {
+  display: flex;
+  @include wide-screen() {
+    > div:last-child {
+      > div {
+        text-align: center;
+      }
+    }
+    &.horizontal {
+      > div:first-child {
+        flex: 1 0 0;
+        max-width: 500px;
+        padding-right: 0.5em;
+        h4 {
+          position: sticky;
+          top: 0;
+        }
+      }
+      > div:last-child {
+        flex: 0 0 300px;
+        padding-left: 0.5em;
+        padding-bottom: 1em;
+        > div {
+          position: sticky;
+          position: -webkit-sticky;
+          top: 70px;
+        }
+      }
+      @include small-screen() {
+        flex-direction: column-reverse;
+        > div:first-child {
+          max-width: 100%;
+        }
+        > div:last-child {
+          padding-bottom: 2em;
+          text-align: center;
+        }
+        > div:last-child h4,
+        > div:last-child hr {
+          display: none;
+        }
+      }
+    }
+  }
+  @include small-screen() {
+    width: 100%;
+    flex-direction: column-reverse;
+    > div:last-child {
+      padding-bottom: 2em;
+      text-align: center;
+    }
+    > div:last-child h4,
+    > div:last-child hr {
+      display: none;
+    }
+  }
+}
+
+.vertical {
+  flex-direction: column-reverse;
+  > div:last-child {
+    padding-bottom: 2em;
+    text-align: center;
+  }
+  > div:last-child h4,
+  > div:last-child hr {
+    display: none;
+  }
+}
