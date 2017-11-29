@@ -1,8 +1,8 @@
 // TypeScript Version: 2.2
 
-import * as React from "react";
-import { ClassNames, Modifier, Modifiers, DayModifiers } from "./common";
-import { LocaleUtils } from "./utils";
+import * as React from 'react';
+import { ClassNames, Modifier, Modifiers, DayModifiers } from './common';
+import { LocaleUtils } from './utils';
 
 export interface CaptionElementProps {
   date: Date;
@@ -16,6 +16,7 @@ export interface CaptionElementProps {
 export interface NavbarElementProps {
   className: string;
   classNames: ClassNames;
+  month: Date;
   previousMonth: Date;
   nextMonth: Date;
   showPreviousButton: boolean;
@@ -43,9 +44,12 @@ export interface DayPickerProps {
     | React.SFC<CaptionElementProps>;
   className?: string;
   classNames?: ClassNames;
-  containerProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+  containerProps?: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  >;
   disabledDays?: Modifier | Modifier[];
-  enableOutsideDays?: boolean;
+  showOutsideDays?: boolean;
   firstDayOfWeek?: number;
   fixedWeeks?: boolean;
   fromMonth?: Date;
@@ -120,6 +124,11 @@ export interface DayPickerProps {
   onFocus?(e: React.FocusEvent<HTMLDivElement>): void;
   onKeyDown?(e: React.KeyboardEvent<HTMLDivElement>): void;
   onMonthChange?(month: Date): void;
+  onTodayButtonClick?(
+    day: Date,
+    modifiers: DayModifiers,
+    e: React.MouseEvent<HTMLButtonElement>
+  ): void;
   onWeekClick?(
     weekNumber: number,
     days: Date[],
@@ -127,9 +136,11 @@ export interface DayPickerProps {
   ): void;
   pagedNavigation?: boolean;
   renderDay?(date: Date, modifiers: Modifiers): React.ReactNode;
+  renderWeek?(weekNumber: number, week: Date[]): React.ReactNode;
   reverseMonths?: boolean;
   selectedDays?: Modifier | Modifier[];
   showWeekNumbers?: boolean;
+  showWeekDays?: boolean;
   todayButton?: string;
   toMonth?: Date;
   weekdayElement?:
@@ -141,14 +152,23 @@ export interface DayPickerProps {
 }
 
 export interface DayPickerInputProps {
-  value?: string;
+  value?: string | Date;
   format: string | string[];
+  placeholder?: string;
 
   dayPickerProps?: DayPickerProps;
+  inputProps?: object;
+
+  formatDate?(date: Date, format: string, locale: string): string;
+  parseDate?(str: string, format: string, locale: string): Date | void;
+
   hideOnDayClick?: boolean;
   clickUnselectsDay?: boolean;
+  showOverlay?: boolean;
+
   // Not sure React.ComponentClass<any> is the right type for _propTypes2.default.any
   component?: any;
+  overlayComponent?: any;
 
   classNames?: ClassNames;
 

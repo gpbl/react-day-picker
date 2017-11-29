@@ -1,0 +1,17 @@
+@import '../style/constants.scss';
+
+.LinkButton {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid $link-color;
+  padding: 0.5em 1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin: 0.25em 1em;
+  border-radius: 4px;
+  background-color: white;
+  &:hover {
+    background-color: $link-color;
+    color: white;
+  }
+}

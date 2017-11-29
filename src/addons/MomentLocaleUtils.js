@@ -46,6 +46,20 @@ export function getMonths(locale = 'en') {
   return months;
 }
 
+export function formatDate(date, format = 'L', locale = 'en') {
+  return moment(date)
+    .locale(locale)
+    .format(Array.isArray(format) ? format[0] : format);
+}
+
+export function parseDate(str, format = 'L', locale = 'en') {
+  const m = moment(str, format, locale);
+  if (m.isValid()) {
+    return m.toDate();
+  }
+  return undefined;
+}
+
 export default {
   formatDay,
   formatMonthTitle,
@@ -53,4 +67,6 @@ export default {
   formatWeekdayLong,
   getFirstDayOfWeek,
   getMonths,
+  formatDate,
+  parseDate,
 };

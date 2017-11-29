@@ -1,0 +1,19 @@
+{
+  "settings": {
+    // These packages are provided "magically' by Gatsby
+    "import/core-modules": [
+      "react",
+      "config",
+      "typography",
+      "glamor"
+    ]
+  },
+  "globals": {
+    "graphql": true
+  },
+  "rules": {
+    "react/jsx-curly-brace-presence": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "class-methods-use-this": 0
+  }
+}
