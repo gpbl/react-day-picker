@@ -1,15 +1,18 @@
 <p align="center">
-<a href="http://react-day-picker.js.org"><img width="250" style="margin: 0 auto" alt="title" src="https://user-images.githubusercontent.com/120693/32996259-bc72ef0e-cd80-11e7-8b0e-b82842e2ddcf.png"></a>
+<a href="http://react-day-picker.js.org"><img width="80" style="margin: 0 auto" alt="title" src="https://user-images.githubusercontent.com/120693/33364057-0d4a962a-d4e3-11e7-8506-0f9aede2b345.png"></a>
+</p>
+<h2 align="center">react-day-picker</h2>
 <p align="center">
   Flexible date picker component for <a href="https://facebook.github.io/react/">React</a>.
   <br />
-  no dependencies – fully customizable – ARIA support – localizable –  less than 10KB
+  Flexible, highly customizable, localizable, with ARIA support, no external dependencies, 9KB gzipped
 </p>
 <p align="center">
-  <a href="http://react-day-picker.js.org"><img width="254" style="margin: 0 auto"  alt="screen shot" src="https://user-images.githubusercontent.com/120693/32996238-8e3256fc-cd80-11e7-86c8-e6cb4721bed6.png"></a>
+  <a href="http://react-day-picker.js.org"><img width="266" alt="screen shot 2017-11-29 at 08 53 17" src="https://user-images.githubusercontent.com/120693/33363979-cb60fb5a-d4e2-11e7-8d21-f4779b8b9105.png">
+</a>
 </p>
 <p align="center">
-  <a href="http://react-day-picker.js.org">Documentation and examples</a>
+  <a href="http://react-day-picker.js.org">Documentation</a> | <a href="http://react-day-picker.js.org/examples/basic">Examples</a> | <a href="http://react-day-picker.js.org/api/DayPicker">API</a> | <a href="http://react-day-picker.js.org/changelog">Changelog</a>
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/react-day-picker">
