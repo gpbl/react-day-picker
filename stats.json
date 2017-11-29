@@ -101,8 +101,8 @@
       "path---docs-getting-started-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-docs-getting-started-js": [
-      "component---src-pages-docs-getting-started-js-a78cf0f3c9fb280bc52f.js",
-      "component---src-pages-docs-getting-started-js-a78cf0f3c9fb280bc52f.js.map"
+      "component---src-pages-docs-getting-started-js-760d12d3e0bb75a64c21.js",
+      "component---src-pages-docs-getting-started-js-760d12d3e0bb75a64c21.js.map"
     ],
     "path---api-day-picker-input": [
       "path---api-day-picker-input-a0e39f21c11f6a62c5ab.js",
@@ -229,9 +229,9 @@
       "component---src-pages-404-js-f4c4b102edfafc071de3.js.map"
     ],
     "commons": [
-      "commons-2acafbf949296d37cbf9.js",
+      "commons-1a912dcb33b6ce56ff84.js",
       "build-js-styles.css",
-      "commons-2acafbf949296d37cbf9.js.map",
+      "commons-1a912dcb33b6ce56ff84.js.map",
       "build-js-styles.css.map"
     ],
     "path---examples-months-prevent": [
@@ -291,8 +291,8 @@
       "path---examples-months-reverse-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-docs-styling-js": [
-      "component---src-pages-docs-styling-js-ff54f177042f16a4e08e.js",
-      "component---src-pages-docs-styling-js-ff54f177042f16a4e08e.js.map"
+      "component---src-pages-docs-styling-js-53f54ca40b32dbd9e102.js",
+      "component---src-pages-docs-styling-js-53f54ca40b32dbd9e102.js.map"
     ],
     "component---src-pages-docs-matching-days-js": [
       "component---src-pages-docs-matching-days-js-9cc705d9bc7f7eae8359.js",
@@ -319,9 +319,9 @@
       "path---examples-months-restrict-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-dcddda97cb89b345eca3.js",
+      "app-3110f378dfef8af16fd7.js",
       "build-js-styles.css",
-      "app-dcddda97cb89b345eca3.js.map",
+      "app-3110f378dfef8af16fd7.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-pages-examples-input-from-to-js": [
@@ -389,8 +389,8 @@
       "component---src-pages-contributing-js-f2e3c55d4d077024de3c.js.map"
     ],
     "component---src-pages-docs-localization-js": [
-      "component---src-pages-docs-localization-js-09240955e8334906b6fa.js",
-      "component---src-pages-docs-localization-js-09240955e8334906b6fa.js.map"
+      "component---src-pages-docs-localization-js-4a222e5ab86f039a8fe2.js",
+      "component---src-pages-docs-localization-js-4a222e5ab86f039a8fe2.js.map"
     ],
     "component---src-pages-examples-months-paged-js": [
       "component---src-pages-examples-months-paged-js-4a03d02dbf240685e377.js",
