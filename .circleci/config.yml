@@ -29,7 +29,7 @@ jobs:
           name: Run unit tests
           command: yarn test --ci --coverage --colors --testResultsProcessor jest-junit-reporter
       - run:
-          name: Uploade code-coverage results
+          name: Upload code-coverage results
           command: yarn codecov
       - save_cache:
           key: cache-{{ checksum "yarn.lock" }}
@@ -52,8 +52,12 @@ jobs:
           key: cache-{{ checksum "yarn.lock" }}
           paths:
             - ~/react-day-picker/node_modules
-      - run: yarn
-      - run: yarn build
+      - run: 
+          name: Install dependencies
+          command: yarn
+      - run: 
+          name: Build library
+          command: yarn build
 
   build-docs:
     <<: *defaults
@@ -61,16 +65,27 @@ jobs:
       - checkout
       - restore_cache:
           key: cache-docs-v1-{{ checksum "yarn.lock" }}
-      - run: cd docs && yarn install
+      - run: 
+          name: Install dependencies
+          command: cd docs && yarn install
+      - run:
+          name: Install react-day-picker from source
+          command: cd docs && yarn add ../    
       - save_cache:
           key: cache-docs-v1-{{ checksum "yarn.lock" }}
           paths:
             - "./docs/node_modules"
-      - run: |
-          git config --global user.email "$GH_EMAIL" > /dev/null 2>&1
-          git config --global user.name "$GH_NAME" > /dev/null 2>&1
-      - run: cd docs && yarn build
-      - run: cd docs && yarn docs-publish
+      - run:
+          name: Setting git config 
+          command: |
+            git config --global user.email "$GH_EMAIL" > /dev/null 2>&1
+            git config --global user.name "$GH_NAME" > /dev/null 2>&1
+      - run: 
+          name: Build website
+          command: cd docs && yarn build
+      - run: 
+          name: Publish website
+          command: cd docs && yarn docs-publish
 
 workflows:
   version: 2
