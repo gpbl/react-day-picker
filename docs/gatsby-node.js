@@ -4,6 +4,7 @@ exports.createPages = ({ boundActionCreators }) => {
   const { createRedirect } = boundActionCreators;
   const redirects = [
     { fromPath: `/docs`, toPath: `/docs/getting-started` },
+    { fromPath: `/docs/`, toPath: `/docs/getting-started` },
     { fromPath: `/docs/index.html`, toPath: `/docs/getting-started` },
     { fromPath: `/docs/basics.html`, toPath: `/docs/basic-concepts` },
     { fromPath: `/docs/modifiers.html`, toPath: `/docs/matching-days` },
@@ -16,8 +17,10 @@ exports.createPages = ({ boundActionCreators }) => {
     { fromPath: `/docs/utils-locale.html`, toPath: `/api/LocaleUtils` },
     { fromPath: `/docs/utils-modifiers.html`, toPath: `/api/ModifiersUtils` },
     { fromPath: `/api`, toPath: `/api/DayPicker` },
+    { fromPath: `/api/`, toPath: `/api/DayPicker` },
     { fromPath: `/examples/index.html`, toPath: `/examples/basic` },
     { fromPath: `/examples`, toPath: `/examples/basic` },
+    { fromPath: `/examples/`, toPath: `/examples/basic` },
   ];
 
   redirects.forEach(({ fromPath, toPath }) => {
