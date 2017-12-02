@@ -1,11 +1,11 @@
 <p align="center">
 <a href="http://react-day-picker.js.org"><img width="80" style="margin: 0 auto" alt="title" src="https://user-images.githubusercontent.com/120693/33364057-0d4a962a-d4e3-11e7-8506-0f9aede2b345.png"></a>
 </p>
-<h2 align="center">react-day-picker</h2>
+<h1 align="center">react-day-picker</h1>
 <p align="center">
   Flexible date picker component for <a href="https://facebook.github.io/react/">React</a>.
   <br />
-  Flexible, highly customizable, localizable, with ARIA support, no external dependencies, 9KB gzipped
+  Highly customizable, localizable, with ARIA support, no external dependencies, 9KB gzipped
 </p>
 <p align="center">
   <a href="http://react-day-picker.js.org"><img width="266" alt="screen shot 2017-11-29 at 08 53 17" src="https://user-images.githubusercontent.com/120693/33363979-cb60fb5a-d4e2-11e7-8d21-f4779b8b9105.png">
