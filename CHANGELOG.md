@@ -1,3 +1,8 @@
+### [v7.0.4](https://github.com/gpbl/react-day-picker/tree/v7.0.4) (2017-12-03)
+
+* (Typescript) Various fixes to type definitions
+* (DayPickerInput) Fixed: issue parsing dates in January
+
 # [v7.0.0](https://github.com/gpbl/react-day-picker/tree/v7.0.0) (2017-11-25)
 
 **Breaking changes**
