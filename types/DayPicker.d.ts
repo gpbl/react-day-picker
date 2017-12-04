@@ -10,7 +10,7 @@ import {
   DayPickerProps,
 } from './props';
 
-export default class DayPicker extends React.Component<DayPickerProps, any> {
+export default class DayPicker<T> extends React.Component<DayPickerProps, any> {
   static dayPicker: HTMLDivElement;
   static VERSION: string;
   static LocaleUtils: LocaleUtils;
