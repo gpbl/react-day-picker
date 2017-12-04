@@ -179,7 +179,7 @@ export default class DayPicker extends Component {
     } else if (
       props.toMonth &&
       props.numberOfMonths > 1 &&
-      Helpers.getMonthsDiff(props.toMonth, currentMonth) <= 0
+      Helpers.getMonthsDiff(currentMonth, props.toMonth) <= 0
     ) {
       currentMonth = DateUtils.addMonths(
         props.toMonth,
