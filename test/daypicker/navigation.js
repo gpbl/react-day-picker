@@ -235,7 +235,7 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getMonth()).toBe(5);
     expect(instance.state.currentMonth.getDate()).toBe(1);
   });
-  it('should set the currentMonth to the first rendered month if toMonth equals current month', () => {
+  it('should update the `currentMonth` to the first rendered month when `toMonth` is the current month', () => {
     const instance = shallow(
       <DayPicker
         initialMonth={new Date(2015, 7)}
@@ -247,7 +247,21 @@ describe('DayPicker’s navigation', () => {
     expect(instance.state.currentMonth.getMonth()).toBe(5);
     expect(instance.state.currentMonth.getDate()).toBe(1);
   });
-
+  it('should update from props the `currentMonth` to the first rendered month when `toMonth` is the current month', () => {
+    const wrapper = shallow(
+      <DayPicker
+        initialMonth={new Date(2015, 7)}
+        toMonth={new Date(2015, 7)}
+        numberOfMonths={2}
+      />
+    );
+    wrapper.setProps({ month: new Date(2015, 1) });
+    wrapper.update();
+    const instance = wrapper.instance();
+    expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+    expect(instance.state.currentMonth.getMonth()).toBe(1);
+    expect(instance.state.currentMonth.getDate()).toBe(1);
+  });
   describe('with custom classNames', () => {
     const getDaysInMonth = wrapper =>
       wrapper
