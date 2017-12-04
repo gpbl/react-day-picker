@@ -1,7 +1,9 @@
-### [v7.0.4](https://github.com/gpbl/react-day-picker/tree/v7.0.4) (2017-12-03)
+### [v7.0.5](https://github.com/gpbl/react-day-picker/tree/v7.0.5) (2017-12-03)
 
 * (Typescript) Various fixes to type definitions
 * (DayPickerInput) Fixed: issue parsing dates in January
+* Fixed: Updated month prop not updating the calendar when displaying multiple
+  months ([#580](https://github.com/gpbl/react-day-picker/issues/580))
 
 # [v7.0.0](https://github.com/gpbl/react-day-picker/tree/v7.0.0) (2017-11-25)
 
