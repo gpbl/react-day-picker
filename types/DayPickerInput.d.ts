@@ -8,6 +8,6 @@ import DayPicker from './DayPicker';
 export class DayPickerInput extends React.Component<DayPickerInputProps, any> {
   showDayPicker(): void;
   hideDayPicker(): void;
-  getDayPicker(): DayPicker;
+  getDayPicker(): DayPicker<{}>;
   getInput(): any;
 }
