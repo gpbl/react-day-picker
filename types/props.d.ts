@@ -50,7 +50,7 @@ export interface DayPickerProps {
   >;
   disabledDays?: Modifier | Modifier[];
   showOutsideDays?: boolean;
-  rollOnOutsideDays?: boolean;
+  enableOutsideDaysClick?: boolean;
   firstDayOfWeek?: number;
   fixedWeeks?: boolean;
   fromMonth?: Date;
