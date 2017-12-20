@@ -101,5 +101,9 @@ describe('MomentLocaleUtils', () => {
       const parsed = MomentLocaleUtils.parseDate('20 foo 2018', 'LL', 'it');
       expect(parsed).toBeUndefined();
     });
+    it('returns undefined if date does not match the format', () => {
+      const parsed = MomentLocaleUtils.parseDate('20/11/201', 'DD/MM/YYYY');
+      expect(parsed).toBeUndefined();
+    });
   });
 });
