@@ -139,6 +139,21 @@ describe('DayPickerInput', () => {
         });
       });
     });
+    describe('keydown', () => {
+      it('should hide the overlay on TAB', () => {
+        const wrapper = mount(<DayPickerInput />);
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper.find('input').simulate('keydown', { keyCode: keys.TAB });
+        expect(wrapper.state('showOverlay')).toBe(false);
+      });
+      it('should call `onKeyDown` event handler', () => {
+        const onKeyDown = jest.fn();
+        const wrapper = mount(<DayPickerInput inputProps={{ onKeyDown }} />);
+        wrapper.find('input').simulate('keydown');
+        expect(onKeyDown).toHaveBeenCalledTimes(1);
+      });
+    });
     describe('keyup', () => {
       it('should hide the overlay on ESC', () => {
         const wrapper = mount(<DayPickerInput />);
