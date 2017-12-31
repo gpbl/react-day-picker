@@ -154,21 +154,6 @@ describe('DayPickerInput', () => {
         expect(onKeyUp).toHaveBeenCalledTimes(1);
       });
     });
-    describe('keydown', () => {
-      it('should not hide the overlay on TAB', () => {
-        const wrapper = mount(<DayPickerInput />);
-        wrapper.instance().showDayPicker();
-        wrapper.update();
-        wrapper.find('input').simulate('keydown', { keyCode: keys.TAB });
-        expect(wrapper.state('showOverlay')).toBe(true);
-      });
-      it('should call `onKeyDown` event handler', () => {
-        const onKeyDown = jest.fn();
-        const wrapper = mount(<DayPickerInput inputProps={{ onKeyDown }} />);
-        wrapper.find('input').simulate('keydown');
-        expect(onKeyDown).toHaveBeenCalledTimes(1);
-      });
-    });
     describe('dayclick', () => {
       it('should call `onDayClick` event handler', () => {
         const onDayClick = jest.fn();
