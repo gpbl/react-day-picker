@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import DayPicker from './DayPicker';
 import { getModifiersForDay } from './ModifiersUtils';
-import { ESC } from './keys';
+import { ESC, TAB } from './keys';
 
 // When clicking on a day cell, overlay will be hidden after this timeout
 export const HIDE_TIMEOUT = 100;
@@ -119,6 +119,7 @@ export default class DayPickerInput extends React.Component {
     this.handleInputFocus = this.handleInputFocus.bind(this);
     this.handleInputBlur = this.handleInputBlur.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputKeyDown = this.handleInputKeyDown.bind(this);
     this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
     this.handleDayClick = this.handleDayClick.bind(this);
   }
@@ -334,6 +335,16 @@ export default class DayPickerInput extends React.Component {
     this.updateState(day, value);
   }
 
+  handleInputKeyDown(e) {
+    if (e.keyCode === TAB) {
+      this.setState({ showOverlay: false });
+    }
+    if (this.props.inputProps.onKeyDown) {
+      e.persist();
+      this.props.inputProps.onKeyDown(e);
+    }
+  }
+
   handleInputKeyUp(e) {
     // Hide the overlay if the ESC key is pressed
     if (e.keyCode === ESC) {
@@ -453,6 +464,7 @@ export default class DayPickerInput extends React.Component {
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
+          onKeyDown={this.handleInputKeyDown}
           onKeyUp={this.handleInputKeyUp}
           onClick={this.handleInputClick}
         />
