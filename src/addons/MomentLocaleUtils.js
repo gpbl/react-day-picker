@@ -53,7 +53,7 @@ export function formatDate(date, format = 'L', locale = 'en') {
 }
 
 export function parseDate(str, format = 'L', locale = 'en') {
-  const m = moment(str, format, locale);
+  const m = moment(str, format, locale, true);
   if (m.isValid()) {
     return m.toDate();
   }
