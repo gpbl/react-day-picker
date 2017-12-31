@@ -84,14 +84,14 @@ describe('DayPicker’s day modifiers', () => {
     expect(wrapper.find('.DayPicker-Day--none')).toHaveLength(0);
     expect(wrapper.find('.DayPicker-Day--all')).toHaveLength(35);
   });
-  it('should show "today" as something other than the current day', () => {
-    const newToday = new Date();
-    newToday.setDate(new Date().getDate() + 1);
-    newToday.setMonth(new Date().getMonth());
+  it('should allow to override "today" modifier', () => {
+    const newToday = new Date(2018, 2, 10);
+    newToday.setDate(new Date(2018, 2, 10).getDate() + 1);
+    newToday.setMonth(new Date(2018, 2, 10).getMonth());
 
     const modifiers = { today: newToday };
     const wrapper = mount(
-      <DayPicker initialMonth={new Date()} modifiers={modifiers} />
+      <DayPicker initialMonth={new Date(2018, 2, 10)} modifiers={modifiers} />
     );
     expect(wrapper.find('.DayPicker-Day--today')).toHaveText(
       newToday.getDate().toString()
