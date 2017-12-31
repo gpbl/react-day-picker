@@ -1,3 +1,11 @@
+### [v7.0.6](https://github.com/gpbl/react-day-picker/tree/v7.0.6) (2017-12-31)
+
+* (DayPickerInput) Fixed: focusing behavior when pressing the `TAB` key ([#594](https://github.com/gpbl/react-day-picker/issues/594))
+* (DayPickerInput) Fixed: wrong behavior with malformatted dates using the included moment `parseDate` function ([#584](https://github.com/gpbl/react-day-picker/issues/584)  by
+  [jbarco](https://github.com/jbarco))
+* Removed duplicated style from CSS ([#591](https://github.com/gpbl/react-day-picker/issues/591)  by
+  [nicoffee](https://github.com/nicoffee))
+
 ### [v7.0.5](https://github.com/gpbl/react-day-picker/tree/v7.0.5) (2017-12-03)
 
 * (Typescript) Various fixes to type definitions
