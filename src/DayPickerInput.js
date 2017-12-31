@@ -336,7 +336,9 @@ export default class DayPickerInput extends React.Component {
 
   handleInputKeyUp(e) {
     // Hide the overlay if the ESC key is pressed
-    this.setState({ showOverlay: e.keyCode !== ESC });
+    if (e.keyCode === ESC) {
+      this.setState({ showOverlay: false });
+    }
     if (this.props.inputProps.onKeyUp) {
       e.persist();
       this.props.inputProps.onKeyUp(e);
