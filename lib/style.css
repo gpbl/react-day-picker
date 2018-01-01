@@ -188,7 +188,6 @@
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
   position: relative;
   color: #f0f8ff;
-  color: #f0f8ff;
   background-color: #4a90e2;
   border-radius: 100%;
 }
