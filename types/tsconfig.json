@@ -9,7 +9,8 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "noEmit": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "strictFunctionTypes": false
   },
   "include": [
     "./*.d.ts"
