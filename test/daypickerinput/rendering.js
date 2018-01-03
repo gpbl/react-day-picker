@@ -114,7 +114,7 @@ describe('DayPickerInput', () => {
       mount(<DayPickerInput />, { attachTo: container });
       const spy = jest.spyOn(window, 'clearTimeout');
       ReactDOM.unmountComponentAtNode(container);
-      expect(spy).toHaveBeenCalledTimes(3);
+      expect(spy).toHaveBeenCalledTimes(2);
       spy.mockRestore();
     });
     it('should set today when clicking on today button', () => {
