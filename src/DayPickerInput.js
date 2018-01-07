@@ -114,7 +114,6 @@ export default class DayPickerInput extends React.Component {
     this.state.showOverlay = props.showOverlay;
 
     this.hideAfterDayClick = this.hideAfterDayClick.bind(this);
-    this.handleContainerMouseDown = this.handleContainerMouseDown.bind(this);
     this.handleInputClick = this.handleInputClick.bind(this);
     this.handleInputFocus = this.handleInputFocus.bind(this);
     this.handleInputBlur = this.handleInputBlur.bind(this);
@@ -123,6 +122,7 @@ export default class DayPickerInput extends React.Component {
     this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleMonthChange = this.handleMonthChange.bind(this);
+    this.handleOverlayFocus = this.handleOverlayFocus.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -203,7 +203,7 @@ export default class DayPickerInput extends React.Component {
 
   input = null;
   daypicker = null;
-  clickedInside = false;
+  overlayNode = null;
   clickTimeout = null;
   hideTimeout = null;
 
@@ -265,15 +265,6 @@ export default class DayPickerInput extends React.Component {
     this.hideTimeout = setTimeout(() => this.hideDayPicker(), HIDE_TIMEOUT);
   }
 
-  handleContainerMouseDown() {
-    this.clickedInside = true;
-    // The input's onBlur method is called from a queue right after the onMouseDown event.
-    // setTimeout adds another callback in the queue, which is called after the onBlur event.
-    this.clickTimeout = setTimeout(() => {
-      this.clickedInside = false;
-    }, 0);
-  }
-
   handleInputClick(e) {
     this.showDayPicker();
     if (this.props.inputProps.onClick) {
@@ -291,17 +282,21 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputBlur(e) {
-    if (this.clickedInside) {
-      this.showDayPicker();
-      // Force input's focus if blur event was caused by clicking inside the overlay
-      this.blurTimeout = setTimeout(() => this.input.focus(), 0);
-    } else {
-      this.hideDayPicker();
-    }
+    this.setState({
+      showOverlay: this.overlayNode && this.overlayNode.contains(e.relatedTarget),
+    });
     if (this.props.inputProps.onBlur) {
       e.persist();
       this.props.inputProps.onBlur(e);
     }
+  }
+
+  handleOverlayFocus(e) {
+    // do we want to always keep the input focused when clicking inside the overlay?
+    // what if we have a custom overlay that contains an input? this is now unusable...
+    // console.log(e.target.getAttribute('tabindex'), e.target.nodeName);
+    e.preventDefault();
+    this.input.focus();
   }
 
   handleInputChange(e) {
@@ -438,22 +433,24 @@ export default class DayPickerInput extends React.Component {
     }
     const Overlay = this.props.overlayComponent;
     return (
-      <Overlay
-        classNames={classNames}
-        month={this.state.month}
-        selectedDay={selectedDay}
-        input={this.input}
-      >
-        <DayPicker
-          ref={el => (this.daypicker = el)}
-          onTodayButtonClick={onTodayButtonClick}
-          {...dayPickerProps}
+      <span onFocus={this.handleOverlayFocus} ref={(el) => this.overlayNode = el}>
+        <Overlay
+          classNames={classNames}
           month={this.state.month}
-          selectedDays={selectedDay}
-          onDayClick={this.handleDayClick}
-          onMonthChange={this.handleMonthChange}
-        />
-      </Overlay>
+          selectedDay={selectedDay}
+          input={this.input}
+        >
+          <DayPicker
+            ref={el => (this.daypicker = el)}
+            onTodayButtonClick={onTodayButtonClick}
+            {...dayPickerProps}
+            month={this.state.month}
+            selectedDays={selectedDay}
+            onDayClick={this.handleDayClick}
+            onMonthChange={this.handleMonthChange}
+          />
+        </Overlay>
+      </span>
     );
   }
 
@@ -462,7 +459,6 @@ export default class DayPickerInput extends React.Component {
     return (
       <div
         className={this.props.classNames.container}
-        onMouseDown={this.handleContainerMouseDown}
       >
         <Input
           ref={el => (this.input = el)}
