@@ -52,6 +52,19 @@ describe('DayPickerInput', () => {
         wrapper.find('input').simulate('blur');
         expect(onBlur).toHaveBeenCalledTimes(1);
       });
+
+      it('should focus the input if blur after clicking the overlay', done => {
+					const wrapper = mount(<DayPickerInput />);
+          wrapper.find('.DayPickerInput').simulate('mousedown');
+          const instance = wrapper.instance();
+          expect(instance.clickedInside).toBe(true);
+          expect(instance.clickTimeout).not.toBeNull();
+          wrapper.find('input').simulate('blur');
+          setTimeout(() => {
+              expect(document.activeElement).toEqual(instance.input);
+              done();
+            }, 1);
+        });
     });
 
     describe('change', () => {
