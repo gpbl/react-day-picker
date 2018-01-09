@@ -246,9 +246,7 @@ export default class DayPickerInput extends React.Component {
    * @memberof DayPickerInput
    */
   showDayPicker() {
-    this.setState({
-      showOverlay: true,
-    });
+    this.setState({ showOverlay: true });
   }
 
   /**
@@ -257,9 +255,7 @@ export default class DayPickerInput extends React.Component {
    * @memberof DayPickerInput
    */
   hideDayPicker() {
-    this.setState({
-      showOverlay: false,
-    });
+    this.setState({ showOverlay: false });
   }
 
   hideAfterDayClick() {
@@ -295,12 +291,12 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputBlur(e) {
-    this.setState({
-      showOverlay: this.clickedInside,
-    });
-    // Force input's focus if blur event was caused by clicking inside the overlay
     if (this.clickedInside) {
+      this.showDayPicker();
+      // Force input's focus if blur event was caused by clicking inside the overlay
       this.blurTimeout = setTimeout(() => this.input.focus(), 0);
+    } else {
+      this.hideDayPicker();
     }
     if (this.props.inputProps.onBlur) {
       e.persist();
@@ -338,7 +334,7 @@ export default class DayPickerInput extends React.Component {
 
   handleInputKeyDown(e) {
     if (e.keyCode === TAB) {
-      this.setState({ showOverlay: false });
+      this.hideDayPicker();
     }
     if (this.props.inputProps.onKeyDown) {
       e.persist();
@@ -349,7 +345,7 @@ export default class DayPickerInput extends React.Component {
   handleInputKeyUp(e) {
     // Hide the overlay if the ESC key is pressed
     if (e.keyCode === ESC) {
-      this.setState({ showOverlay: false });
+      this.hideDayPicker();
     }
     if (this.props.inputProps.onKeyUp) {
       e.persist();
