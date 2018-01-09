@@ -1,3 +1,10 @@
+# Not yet released 
+
+**Bug fixes**
+
+* (DayPickerInput) Fixed: `daypickerProps.onMonthChange` not being called ([#584](https://github.com/gpbl/react-day-picker/issues/604)  by
+  [ah-adarlow](https://github.com/ah-adarlow))
+
 ### [v7.0.6](https://github.com/gpbl/react-day-picker/tree/v7.0.6) (2017-12-31)
 
 * (DayPickerInput) Fixed: focusing behavior when pressing the `TAB` key ([#594](https://github.com/gpbl/react-day-picker/issues/594))
