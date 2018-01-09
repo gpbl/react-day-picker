@@ -1,8 +1,8 @@
 # Not yet released 
 
-**Bug fixes**
+### [v7.0.7](https://github.com/gpbl/react-day-picker/tree/v7.0.7) (2018-01-09)
 
-* (DayPickerInput) Fixed: `daypickerProps.onMonthChange` not being called ([#584](https://github.com/gpbl/react-day-picker/issues/604)  by
+* (DayPickerInput) Fixed: `daypickerProps.onMonthChange` not being called ([#604](https://github.com/gpbl/react-day-picker/issues/604)  by
   [ah-adarlow](https://github.com/ah-adarlow))
 
 ### [v7.0.6](https://github.com/gpbl/react-day-picker/tree/v7.0.6) (2017-12-31)
