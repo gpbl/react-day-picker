@@ -122,6 +122,7 @@ export default class DayPickerInput extends React.Component {
     this.handleInputKeyDown = this.handleInputKeyDown.bind(this);
     this.handleInputKeyUp = this.handleInputKeyUp.bind(this);
     this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleMonthChange = this.handleMonthChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -356,6 +357,17 @@ export default class DayPickerInput extends React.Component {
     }
   }
 
+  handleMonthChange(month) {
+    this.setState({ month }, () => {
+      if (
+        this.props.dayPickerProps &&
+        this.props.dayPickerProps.onMonthChange
+      ) {
+        this.props.dayPickerProps.onMonthChange(month);
+      }
+    });
+  }
+
   handleDayClick(day, modifiers, e) {
     const {
       clickUnselectsDay,
@@ -443,7 +455,7 @@ export default class DayPickerInput extends React.Component {
           month={this.state.month}
           selectedDays={selectedDay}
           onDayClick={this.handleDayClick}
-          onMonthChange={month => this.setState({ month })}
+          onMonthChange={this.handleMonthChange}
         />
       </Overlay>
     );
