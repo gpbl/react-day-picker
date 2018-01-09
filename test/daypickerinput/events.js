@@ -370,5 +370,40 @@ describe('DayPickerInput', () => {
         expect(selectedDays.at(1)).toHaveText('9');
       });
     });
+
+    describe('onMonthChange', () => {
+      it('should update state when month changes', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            dayPickerProps={{
+              initialMonth: new Date(2015, 7),
+            }}
+          />
+        );
+        const instance = wrapper.instance();
+        instance.showDayPicker();
+        wrapper.update();
+        instance.getDayPicker().showNextMonth();
+        expect(instance.state.month.getMonth()).toEqual(8);
+      });
+
+      it('should call onMonthChange when month changes', () => {
+        const handleMonthChange = jest.fn();
+        const wrapper = mount(
+          <DayPickerInput
+            dayPickerProps={{
+              onMonthChange: handleMonthChange,
+              initialMonth: new Date(2015, 7),
+            }}
+          />
+        );
+        const instance = wrapper.instance();
+        instance.showDayPicker();
+        wrapper.update();
+        instance.getDayPicker().showNextMonth();
+        expect(handleMonthChange).toHaveBeenCalled();
+        expect(handleMonthChange.mock.calls[0][0].getMonth()).toEqual(8);
+      });
+    });
   });
 });
