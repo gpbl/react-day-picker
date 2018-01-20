@@ -66,6 +66,7 @@ export default class DayPickerInput extends React.Component {
     dayPickerProps: PropTypes.object,
     hideOnDayClick: PropTypes.bool,
     clickUnselectsDay: PropTypes.bool,
+    keepFocus: PropTypes.bool,
     component: PropTypes.any,
     overlayComponent: PropTypes.any,
 
@@ -93,6 +94,7 @@ export default class DayPickerInput extends React.Component {
     showOverlay: false,
     hideOnDayClick: true,
     clickUnselectsDay: false,
+    keepFocus: true,
     component: 'input',
     inputProps: {},
     overlayComponent: ({ children, classNames }) => (
@@ -123,6 +125,7 @@ export default class DayPickerInput extends React.Component {
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleMonthChange = this.handleMonthChange.bind(this);
     this.handleOverlayFocus = this.handleOverlayFocus.bind(this);
+    this.handleOverlayBlur = this.handleOverlayBlur.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -164,7 +167,6 @@ export default class DayPickerInput extends React.Component {
   componentWillUnmount() {
     clearTimeout(this.clickTimeout);
     clearTimeout(this.hideTimeout);
-    clearTimeout(this.blurTimeout);
   }
 
   getStateFromProps(props) {
@@ -292,11 +294,16 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleOverlayFocus(e) {
-    // do we want to always keep the input focused when clicking inside the overlay?
-    // what if we have a custom overlay that contains an input? this is now unusable...
-    // console.log(e.target.getAttribute('tabindex'), e.target.nodeName);
-    e.preventDefault();
-    this.input.focus();
+    if (this.props.keepFocus === true) {
+      e.preventDefault();
+      this.input.focus();
+    }
+  }
+
+  handleOverlayBlur(e) {
+    this.setState({
+      showOverlay: this.overlayNode && this.overlayNode.contains(e.relatedTarget),
+    });
   }
 
   handleInputChange(e) {
@@ -433,7 +440,7 @@ export default class DayPickerInput extends React.Component {
     }
     const Overlay = this.props.overlayComponent;
     return (
-      <span onFocus={this.handleOverlayFocus} ref={(el) => this.overlayNode = el}>
+      <span onFocus={this.handleOverlayFocus} ref={(el) => this.overlayNode = el} onBlur={this.handleOverlayBlur}>
         <Overlay
           classNames={classNames}
           month={this.state.month}
