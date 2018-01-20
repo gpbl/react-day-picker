@@ -44,13 +44,13 @@ describe('DayPickerInput', () => {
         document.activeElement.blur();
       });
       it('should focus the input if keepFocus is true', () => {
-        const wrapper = mount(<DayPickerInput showOverlay={true} keepFocus={true} />);
+        const wrapper = mount(<DayPickerInput showOverlay keepFocus />);
         wrapper.find('.DayPickerInput-Overlay').simulate('focus');
         const instance = wrapper.instance();
         expect(document.activeElement).toEqual(instance.input);
       });
       it('should not focus the input if keepFocus is false', () => {
-        const wrapper = mount(<DayPickerInput showOverlay={true} keepFocus={false} />);
+        const wrapper = mount(<DayPickerInput showOverlay keepFocus={false} />);
         wrapper.find('.DayPickerInput-Overlay').simulate('focus');
         const instance = wrapper.instance();
         expect(document.activeElement).not.toEqual(instance.input);
@@ -74,10 +74,9 @@ describe('DayPickerInput', () => {
 
     describe('overlayblur', () => {
       it('should hide the overlay', () => {
-        const wrapper = mount(<DayPickerInput showOverlay={true} keepFocus={true} />);
+        const wrapper = mount(<DayPickerInput showOverlay keepFocus />);
         wrapper.find('.DayPickerInput-Overlay').simulate('focus');
         wrapper.find('.DayPickerInput-Overlay').simulate('blur');
-        const instance = wrapper.instance();
         expect(wrapper.find('.DayPicker')).toHaveLength(0);
       });
     });

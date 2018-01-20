@@ -285,7 +285,8 @@ export default class DayPickerInput extends React.Component {
 
   handleInputBlur(e) {
     this.setState({
-      showOverlay: this.overlayNode && this.overlayNode.contains(e.relatedTarget),
+      showOverlay:
+        this.overlayNode && this.overlayNode.contains(e.relatedTarget),
     });
     if (this.props.inputProps.onBlur) {
       e.persist();
@@ -302,7 +303,8 @@ export default class DayPickerInput extends React.Component {
 
   handleOverlayBlur(e) {
     this.setState({
-      showOverlay: this.overlayNode && this.overlayNode.contains(e.relatedTarget),
+      showOverlay:
+        this.overlayNode && this.overlayNode.contains(e.relatedTarget),
     });
   }
 
@@ -440,7 +442,11 @@ export default class DayPickerInput extends React.Component {
     }
     const Overlay = this.props.overlayComponent;
     return (
-      <span onFocus={this.handleOverlayFocus} ref={(el) => this.overlayNode = el} onBlur={this.handleOverlayBlur}>
+      <span
+        onFocus={this.handleOverlayFocus}
+        ref={el => (this.overlayNode = el)}
+        onBlur={this.handleOverlayBlur}
+      >
         <Overlay
           classNames={classNames}
           month={this.state.month}
@@ -464,9 +470,7 @@ export default class DayPickerInput extends React.Component {
   render() {
     const Input = this.props.component;
     return (
-      <div
-        className={this.props.classNames.container}
-      >
+      <div className={this.props.classNames.container}>
         <Input
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}
