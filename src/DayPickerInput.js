@@ -179,9 +179,6 @@ export default class DayPickerInput extends React.Component {
       } else {
         day = props.parseDate(props.value, format, dayPickerProps.locale);
       }
-      if (day) {
-        month = day;
-      }
     }
 
     // Use DayPicker's controlled month. Then try the current `value`. Finally default to today.
