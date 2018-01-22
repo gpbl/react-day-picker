@@ -251,7 +251,7 @@ describe('DayPickerInput', () => {
             value="2017-11-8"
             clickUnselectsDay
             dayPickerProps={{
-              month: new Date(2017, 1),
+              month: new Date(2017, 10),
               selectedDays: new Date(2017, 10, 8),
             }}
           />
@@ -271,7 +271,7 @@ describe('DayPickerInput', () => {
             value="2017-11-8"
             clickUnselectsDay
             dayPickerProps={{
-              month: new Date(2017, 1),
+              month: new Date(2017, 10),
               selectedDays: [new Date(2017, 10, 8), new Date(2017, 10, 7)],
             }}
           />
