@@ -249,7 +249,7 @@ function MyDayPickerInput(props) {
       </p>
       <h3>
         <Anchor id="keepFocus" />
-        keeFocus <code>boolean = true</code>
+        keepFocus <code>boolean = true</code>
       </h3>
       <p>
         Keep focus on the input when switching focus to something inside the
