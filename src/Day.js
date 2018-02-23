@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions, react/forbid-prop-types */
 
 import React, { Component } from 'react';
-import assign from 'object-assign';
 import PropTypes from 'prop-types';
 import { isSameDay } from './DateUtils';
 import { hasOwnProp } from './Helpers';
@@ -125,7 +124,7 @@ export default class Day extends Component {
       Object.keys(modifiers)
         .filter(modifier => !!modifiersStyles[modifier])
         .forEach(modifier => {
-          style = assign({}, style, modifiersStyles[modifier]);
+          style = { ...style, ...modifiersStyles[modifier] };
         });
     }
 
