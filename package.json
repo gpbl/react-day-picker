@@ -98,7 +98,6 @@
     "webpack": "3.10.0"
   },
   "dependencies": {
-    "object-assign": "^4.1.1",
     "prop-types": "^15.6.0"
   }
 }
