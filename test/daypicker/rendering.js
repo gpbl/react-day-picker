@@ -125,6 +125,12 @@ describe('DayPicker’s rendering', () => {
     const wrapper = render(<DayPicker />);
     expect(wrapper.find('.DayPicker-NavBar')).toBeDefined();
   });
+  it('should pass corrent month into the navigation bar component', () => {
+    const NavBar = () => <div />;
+    const dayPicker = <DayPicker navbarElement={NavBar} />;
+    const wrapper = shallow(dayPicker);
+    expect(wrapper.find(NavBar).props().month).toBeDefined();
+  });
   it('should render the aria labels', () => {
     const wrapper = mount(<DayPicker />);
     expect(wrapper.find('.DayPicker-NavButton--prev')).toHaveProp(

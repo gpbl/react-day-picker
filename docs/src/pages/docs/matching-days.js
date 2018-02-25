@@ -12,7 +12,7 @@ export default () => (
     <p>
       With <em>modifiers</em> you change the aspect of the day cells and
       customize the interaction with the calendar. When a modifier matches a
-      specific day, its day cells receives a the modifier’s name as CSS class.
+      specific day, its day cells receives the modifier’s name as CSS class.
     </p>
     <p>
       In the following example, the <code>highlighted</code> modifier is used to

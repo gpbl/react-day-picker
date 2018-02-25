@@ -58,7 +58,7 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
 
       <h3>
         <Anchor id="isDayAfter" />
-        isDayAfter <code>(day1: ?Date, day2: ?Date) ⇒ boolean</code>
+        isDayAfter <code>(day1: Date, day2: Date) ⇒ boolean</code>
       </h3>
       <p>
         Return <code>true</code> if <code>day1</code> is after <code>day2</code>.
@@ -66,7 +66,7 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
 
       <h3>
         <Anchor id="isDayBefore" />
-        isDayBefore <code>(day1: ?Date, day2: ?Date) ⇒ boolean</code>
+        isDayBefore <code>(day1: Date, day2: Date) ⇒ boolean</code>
       </h3>
       <p>
         Return <code>true</code> if <code>day1</code> is before{' '}
