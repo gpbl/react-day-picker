@@ -22,6 +22,8 @@ export default class Month extends Component {
 
     month: PropTypes.instanceOf(Date).isRequired,
     months: PropTypes.arrayOf(PropTypes.string),
+    fromMonth: PropTypes.instanceOf(Date),
+    toMonth: PropTypes.instanceOf(Date),
 
     modifiersStyles: PropTypes.object,
 
@@ -93,6 +95,12 @@ export default class Month extends Component {
       modifiers[modifier] = true;
     });
 
+    const { showOutsideDays, fixedWeeks, toMonth, fromMonth } = this.props;
+    const empty =
+      (isOutside && !showOutsideDays && !fixedWeeks) ||
+      (toMonth && isOutside && DateUtils.isDayAfter(day, toMonth)) ||
+      (fromMonth && isOutside && DateUtils.isDayBefore(day, fromMonth));
+
     return (
       <Day
         key={`${isOutside ? 'outside-' : ''}${key}`}
@@ -100,9 +108,7 @@ export default class Month extends Component {
         day={day}
         modifiers={modifiers}
         modifiersStyles={this.props.modifiersStyles}
-        empty={
-          isOutside && !this.props.showOutsideDays && !this.props.fixedWeeks
-        }
+        empty={empty}
         tabIndex={tabIndex}
         ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
         ariaDisabled={isOutside || dayModifiers.indexOf('disabled') > -1}
