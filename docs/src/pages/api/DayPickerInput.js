@@ -23,7 +23,8 @@ export default () => (
       <a href="#inputProps">inputProps</a>,{' '}
       <a href="#overlayComponent">overlayComponent</a>,{' '}
       <a href="#parseDate">parseDate</a>, <a href="#placeholder">placeholder</a>,{' '}
-      <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>
+      <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>,
+      <a href="#parseOnBlur">parseOnBlur</a>
     </p>
     <h4>Event handlers</h4>
     <p>
@@ -85,9 +86,9 @@ class MyInputWithFocus extends React.Component {
   }
   render() {
     return (
-      <MyInputWithoutFocus 
-        ref={el => (this.input = el)} 
-        {...this.props} 
+      <MyInputWithoutFocus
+        ref={el => (this.input = el)}
+        {...this.props}
       />
     );
   }
@@ -95,7 +96,7 @@ class MyInputWithFocus extends React.Component {
 
 function MyDayPickerInput(props) {
   return <DayPickerInput component={MyInputWithFocus} />
-} 
+}
 `}</CodeBlock>
 
       <h3>
@@ -256,6 +257,16 @@ function MyDayPickerInput(props) {
       </h3>
       <p>
         The value of the <code>input</code> field.
+      </p>
+      <h3>
+        <Anchor id="#parseOnBlur" />
+        parseOnBlur <code>boolean = false</code>
+      </h3>
+      <p>
+        If you are using the <a href="#parseDate">parseDate</a> prop, delay
+        parsing the user input into a date until the input onBlur event. This is
+        helpful for using libraries other than{' '}
+        <a href="http://momentjs.com/">moment.js</a> for parsing dates.
       </p>
 
       <hr />
