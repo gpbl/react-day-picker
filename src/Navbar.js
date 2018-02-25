@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import defaultClassNames from './classNames';
 import { SPACE, ENTER } from './keys';
 
-export default class Navbar extends Component {
+export default class Navbar extends React.Component {
   static defaultProps = {
     classNames: defaultClassNames,
     dir: 'ltr',

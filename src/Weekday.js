@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
-export default class Weekday extends Component {
+export default class Weekday extends React.Component {
   static propTypes = {
     weekday: PropTypes.number,
     className: PropTypes.string,
