@@ -1,4 +1,3 @@
-import ignore from 'rollup-plugin-ignore';
 import babel from 'rollup-plugin-babel';
 import replace from 'rollup-plugin-replace';
 import uglify from 'rollup-plugin-uglify';
@@ -13,22 +12,20 @@ export default {
     format: 'umd',
     name: 'DayPicker',
     globals: {
-      react: 'React'
-    }
+      react: 'React',
+    },
   },
-  external: [
-    'react'
-  ],
+  external: ['react'],
   plugins: [
-    ignore(['prop-types']),
     babel({
       plugins: [
-        'external-helpers'
-      ]
+        'external-helpers',
+        ['transform-react-remove-prop-types', { removeImport: true }],
+      ],
     }),
     replace({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    isProduction ? uglify() : {}
-  ]
+    isProduction ? uglify() : {},
+  ],
 };
