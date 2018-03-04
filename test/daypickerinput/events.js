@@ -39,6 +39,24 @@ describe('DayPickerInput', () => {
       });
     });
 
+    describe('overlayfocus', () => {
+      afterEach(() => {
+        document.activeElement.blur();
+      });
+      it('should focus the input if keepFocus is true', () => {
+        const wrapper = mount(<DayPickerInput showOverlay keepFocus />);
+        wrapper.find('.DayPickerInput-Overlay').simulate('focus');
+        const instance = wrapper.instance();
+        expect(document.activeElement).toEqual(instance.input);
+      });
+      it('should not focus the input if keepFocus is false', () => {
+        const wrapper = mount(<DayPickerInput showOverlay keepFocus={false} />);
+        wrapper.find('.DayPickerInput-Overlay').simulate('focus');
+        const instance = wrapper.instance();
+        expect(document.activeElement).not.toEqual(instance.input);
+      });
+    });
+
     describe('blur', () => {
       it('should hide the overlay when the input is blurred', () => {
         const wrapper = mount(<DayPickerInput value="12/15/2017" />);
@@ -52,17 +70,14 @@ describe('DayPickerInput', () => {
         wrapper.find('input').simulate('blur');
         expect(onBlur).toHaveBeenCalledTimes(1);
       });
-      it('should focus the input if blur after clicking the overlay', done => {
-        const wrapper = mount(<DayPickerInput />);
-        wrapper.find('.DayPickerInput').simulate('mousedown');
-        const instance = wrapper.instance();
-        expect(instance.clickedInside).toBe(true);
-        expect(instance.clickTimeout).not.toBeNull();
-        wrapper.find('input').simulate('blur');
-        setTimeout(() => {
-          expect(document.activeElement).toEqual(instance.input);
-          done();
-        }, 1);
+    });
+
+    describe('overlayblur', () => {
+      it('should hide the overlay', () => {
+        const wrapper = mount(<DayPickerInput showOverlay keepFocus />);
+        wrapper.find('.DayPickerInput-Overlay').simulate('focus');
+        wrapper.find('.DayPickerInput-Overlay').simulate('blur');
+        expect(wrapper.find('.DayPicker')).toHaveLength(0);
       });
     });
 
