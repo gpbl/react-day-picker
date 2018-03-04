@@ -1,3 +1,22 @@
+## [v7.1.0](https://github.com/gpbl/react-day-picker/tree/v7.1.0) (2018-03-04)
+
+* Added: [`enableOutsideDaysClick`](http://react-day-picker.js.org/api/DayPickerInput#enableOutsideDaysClick) prop ([#585](https://github.com/gpbl/react-day-picker/issues/585)  by
+  [smesgr](https://github.com/smesgr))
+* Fixed: UMD build ([#637](https://github.com/gpbl/react-day-picker/issues/637) by
+  [TrySound](https://github.com/TrySound))
+* Fixed: `undefined` month in the NaVBar component ([#607](https://github.com/gpbl/react-day-picker/issues/607) by
+  [MhMadHamster](https://github.com/MhMadHamster))
+* TypeScript: added more types ([#618](https://github.com/gpbl/react-day-picker/issues/618) by
+  [adidahiya](https://github.com/adidahiya))
+
+### DayPickerInput
+
+* Improved: focus/blur behavior ([#598](https://github.com/gpbl/react-day-picker/issues/598)  by
+  [jbarco](https://github.com/bartpeeters))
+* Added: [`keepFocus`](http://react-day-picker.js.org/api/DayPickerInput#keepFocus) prop ([#598](https://github.com/gpbl/react-day-picker/issues/598)  by
+  [jbarco](https://github.com/bartpeeters))
+* Typescript: fixed `onDayChange` definition ([#622](https://github.com/gpbl/react-day-picker/issues/622))
+
 ### [v7.0.7](https://github.com/gpbl/react-day-picker/tree/v7.0.7) (2018-01-09)
 
 * (DayPickerInput) Fixed: `daypickerProps.onMonthChange` not being called ([#604](https://github.com/gpbl/react-day-picker/issues/604)  by
