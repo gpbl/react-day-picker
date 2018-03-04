@@ -1,7 +1,4 @@
 {
-  "ignore": [
-    "src/index.umd.js"
-  ],
   "presets": [
     "react",
     ["env", { "modules": false }]
