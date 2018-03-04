@@ -5,7 +5,6 @@
 /* eslint-disable no-var */
 /* eslint-env node */
 
-var DayPicker = require('./src/DayPicker').default;
-DayPicker.Input = require('./src/DayPickerInput').default;
+var DayPicker = require('./src').default;
 
 module.exports = DayPicker;
