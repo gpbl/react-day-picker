@@ -18,12 +18,12 @@ export default () => (
       <a href="#clickUnselectsDay">clickUnselectsDay</a>,{' '}
       <a href="#component">component</a>,{' '}
       <a href="#dayPickerProps">dayPickerProps</a>, <a href="#format">format</a>,{' '}
-      <a href="#formatDate">formatDate</a>, <a href="#keepFocus">keepFocus</a>,{' '}
+      <a href="#formatDate">formatDate</a>, <a href="#keepFocus">keepFocus</a>
       <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
       <a href="#inputProps">inputProps</a>,{' '}
       <a href="#overlayComponent">overlayComponent</a>,{' '}
       <a href="#parseDate">parseDate</a>, <a href="#placeholder">placeholder</a>,{' '}
-      <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>
+      <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>,{' '}
     </p>
     <h4>Event handlers</h4>
     <p>
