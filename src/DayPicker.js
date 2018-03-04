@@ -66,6 +66,7 @@ export default class DayPicker extends Component {
 
     // Customization
     showOutsideDays: PropTypes.bool,
+    enableOutsideDaysClick: PropTypes.bool,
     fixedWeeks: PropTypes.bool,
 
     // CSS and HTML
@@ -140,6 +141,7 @@ export default class DayPicker extends Component {
     locale: 'en',
     localeUtils: LocaleUtils,
     showOutsideDays: false,
+    enableOutsideDaysClick: true,
     fixedWeeks: false,
     canChangeMonth: true,
     reverseMonths: false,
@@ -418,7 +420,10 @@ export default class DayPicker extends Component {
 
   handleDayClick = (day, modifiers, e) => {
     e.persist();
-    if (modifiers[this.props.classNames.outside]) {
+    if (
+      modifiers[this.props.classNames.outside] &&
+      this.props.enableOutsideDaysClick
+    ) {
       this.handleOutsideDayClick(day);
     }
     if (this.props.onDayClick) {
