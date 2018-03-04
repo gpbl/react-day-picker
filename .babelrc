@@ -1,7 +1,10 @@
 {
+  "ignore": [
+    "src/index.umd.js"
+  ],
   "presets": [
     "react",
-    "env"
+    ["env", { "modules": false }]
   ],
   "plugins": [
     "transform-export-extensions",
@@ -13,5 +16,17 @@
         "mode": "wrap"
       }
     ]
-  ]
+  ],
+  "env": {
+    "cjs": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
 }
