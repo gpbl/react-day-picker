@@ -300,7 +300,7 @@ export default class DayPicker extends Component {
   focusPreviousDay(dayNode) {
     const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
     const dayNodeIndex = Helpers.nodeListToArray(dayNodes).indexOf(dayNode);
-
+    if (dayNodeIndex === -1) return;
     if (dayNodeIndex === 0) {
       this.showPreviousMonth(() => this.focusLastDayOfMonth());
     } else {
@@ -311,7 +311,7 @@ export default class DayPicker extends Component {
   focusNextDay(dayNode) {
     const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
     const dayNodeIndex = Helpers.nodeListToArray(dayNodes).indexOf(dayNode);
-
+    if (dayNodeIndex === -1) return;
     if (dayNodeIndex === dayNodes.length - 1) {
       this.showNextMonth(() => this.focusFirstDayOfMonth());
     } else {
