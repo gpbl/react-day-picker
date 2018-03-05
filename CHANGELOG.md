@@ -1,11 +1,9 @@
-## [v7.1.0](https://github.com/gpbl/react-day-picker/tree/v7.1.0) (2018-03-04)
+## [v7.1.0](https://github.com/gpbl/react-day-picker/tree/v7.1.1) (2018-03-04)
 
 **DayPicker**
 
-* Added: [`enableOutsideDaysClick`](http://react-day-picker.js.org/api/DayPickerInput#enableOutsideDaysClick) prop ([#585](https://github.com/gpbl/react-day-picker/issues/585)  by
+* Added: [`enableOutsideDaysClick`](http://react-day-picker.js.org/api/DayPicker#enableOutsideDaysClick) prop ([#585](https://github.com/gpbl/react-day-picker/issues/585)  by
   [smesgr](https://github.com/smesgr))
-* Fixed: UMD build not working correctly ([#637](https://github.com/gpbl/react-day-picker/issues/637) by
-  [TrySound](https://github.com/TrySound))
 * Fixed: month may be not defined in the navigation component ([#607](https://github.com/gpbl/react-day-picker/issues/607) by
   [MhMadHamster](https://github.com/MhMadHamster))
 * Fixed: outside days were shown also when using `toMonth`/`fromMonth` ([#630](https://github.com/gpbl/react-day-picker/issues/630))
