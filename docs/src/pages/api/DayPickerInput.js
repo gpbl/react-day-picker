@@ -18,13 +18,12 @@ export default () => (
       <a href="#clickUnselectsDay">clickUnselectsDay</a>,{' '}
       <a href="#component">component</a>,{' '}
       <a href="#dayPickerProps">dayPickerProps</a>, <a href="#format">format</a>,{' '}
-      <a href="#formatDate">formatDate</a>,{' '}
+      <a href="#formatDate">formatDate</a>, <a href="#keepFocus">keepFocus</a>,{' '}
       <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
       <a href="#inputProps">inputProps</a>,{' '}
       <a href="#overlayComponent">overlayComponent</a>,{' '}
       <a href="#parseDate">parseDate</a>, <a href="#placeholder">placeholder</a>,{' '}
-      <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>,{' '}
-      <a href="#keepFocus">keepFocus</a>
+      <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>
     </p>
     <h4>Event handlers</h4>
     <p>
@@ -173,6 +172,17 @@ function MyDayPickerInput(props) {
       </p>
 
       <h3>
+        <Anchor id="keepFocus" />
+        keepFocus <code>boolean = true</code>
+      </h3>
+      <p>
+        Keep focus on the input field after switching the focus into the
+        overlay. You may want to disable the focus on the input field when using
+        an an
+        <a href="#overlayComponent">overlayComponent</a>.
+      </p>
+
+      <h3>
         <Anchor id="overlayComponent" />
         overlayComponent <code>React.Component</code>
       </h3>
@@ -246,16 +256,6 @@ function MyDayPickerInput(props) {
       </h3>
       <p>
         The value of the <code>input</code> field.
-      </p>
-      <h3>
-        <Anchor id="keepFocus" />
-        keepFocus <code>boolean = true</code>
-      </h3>
-      <p>
-        Keep focus on the input when switching focus to something inside the
-        dayPickerOverlay. You should disable this if you have custom inputs in
-        something like an
-        <a href="#overlayComponent">overlayComponent</a>.
       </p>
 
       <hr />

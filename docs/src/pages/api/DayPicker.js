@@ -35,6 +35,7 @@ export default () => (
     <p>
       <a href="#fixedWeeks">fixedWeeks</a>,{' '}
       <a href="#showOutsideDays">showOutsideDays</a>,{' '}
+      <a href="#enableOutsideDaysClick">enableOutsideDaysClick</a>,{' '}
       <a href="#showWeekDays">showWeekDays</a>,{' '}
       <a href="#showWeekNumbers">showWeekNumbers</a>,{' '}
       <a href="#todayButton">todayButton</a>
@@ -209,6 +210,17 @@ export default () => (
         Day(s) that should appear as disabled. Set a <code>disabled</code>{' '}
         modifier. See <Link to="/docs/matching-days">Matching days</Link> for a
         reference of the accepted value types.
+      </p>
+      <h3>
+        <Anchor id="enableOutsideDaysClick" />
+        enableOutsideDaysClick <code>boolean = true</code>
+      </h3>
+      <p>
+        When{' '}
+        <a href="#showOutsideDays">
+          <code>showOutsideDays</code>
+        </a>{' '}
+        is enabled, enable click events for outside days.{' '}
       </p>
       <h3>
         <Anchor id="firstDayOfWeek" />
@@ -410,7 +422,7 @@ export default () => (
         <Anchor id="showOutsideDays" />
         showOutsideDays <code>boolean = false</code>
       </h3>
-      <p>Display the days outside the current month.</p>
+      <p>Display the days falling outside the current month.</p>
       <h3>
         <Anchor id="showWeekDays" />
         showWeekDays <code>boolean = true</code>
