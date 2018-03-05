@@ -145,7 +145,7 @@ describe('DayPickerInput', () => {
     it("should update the displayed month when `dayPickerProps.month`'s month is updated", () => {
       const wrapper = mount(
         <DayPickerInput
-          dayPickerProps={{ month: new Date(2017, 9) }}
+          dayPickerProps={{ month: new Date(2017, 11) }}
           value="2017-12-15"
         />
       );
@@ -163,7 +163,7 @@ describe('DayPickerInput', () => {
     it("should update the displayed month when `dayPickerProps.month`'s year is updated", () => {
       const wrapper = mount(
         <DayPickerInput
-          dayPickerProps={{ month: new Date(2018, 10) }}
+          dayPickerProps={{ month: new Date(2017, 11) }}
           value="2017-12-15"
         />
       );
