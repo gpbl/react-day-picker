@@ -107,12 +107,12 @@ describe('DayPickerInput', () => {
         input.simulate('change', { target: { value: 'foo' } });
         expect(wrapper.find('input')).toHaveProp('value', 'foo');
       });
-      it('should not call `onDayChange` if the value is not a valid date', () => {
+      it('should call `onDayChange` with `undefined` if the value is not a valid date', () => {
         const onDayChange = jest.fn();
         const wrapper = mount(<DayPickerInput onDayChange={onDayChange} />);
         const input = wrapper.find('input');
         input.simulate('change', { target: { value: 'foo' } });
-        expect(onDayChange).not.toHaveBeenCalled();
+        expect(onDayChange).toHaveBeenCalledWith(undefined, {});
       });
       it("should update the input's value and the displayed month", () => {
         const wrapper = mount(<DayPickerInput />);
