@@ -15,6 +15,7 @@
 
 * Improved: focus/blur behavior ([#598](https://github.com/gpbl/react-day-picker/issues/598)  by
   [jbarco](https://github.com/bartpeeters), [#579](https://github.com/gpbl/react-day-picker/issues/579))
+* Improved: `onDayChange` is called `undefined` when day is not valid ([#647](https://github.com/gpbl/react-day-picker/issues/647))
 * Added: [`keepFocus`](http://react-day-picker.js.org/api/DayPickerInput#keepFocus) prop ([#598](https://github.com/gpbl/react-day-picker/issues/598) by
   [bartpeeters](https://github.com/bartpeeters))
 * Fixed: use `dayPickerProps.month` before the input's value ([#612](https://github.com/gpbl/react-day-picker/issues/612) by
