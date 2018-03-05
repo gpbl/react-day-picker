@@ -172,7 +172,7 @@ export default class DayPickerInput extends React.Component {
   getStateFromProps(props) {
     const { dayPickerProps, formatDate, format } = props;
     let { value } = props;
-    let month;
+
     let day;
     if (props.value) {
       if (isDate(props.value)) {
@@ -181,13 +181,12 @@ export default class DayPickerInput extends React.Component {
       } else {
         day = props.parseDate(props.value, format, dayPickerProps.locale);
       }
-      if (day) {
-        month = day;
-      }
-    } else {
-      // Otherwise display the month coming from `dayPickerProps` or the current month
-      month = dayPickerProps.initialMonth || dayPickerProps.month || new Date();
     }
+
+    // Use DayPicker's controlled month. Then try the current `value`. Finally default to today.
+    const month =
+      dayPickerProps.initialMonth || dayPickerProps.month || day || new Date();
+
     return {
       value,
       month,
