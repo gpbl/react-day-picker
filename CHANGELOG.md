@@ -1,3 +1,27 @@
+## [v7.1.0](https://github.com/gpbl/react-day-picker/tree/v7.1.0) (2018-03-04)
+
+* Added: [`enableOutsideDaysClick`](http://react-day-picker.js.org/api/DayPickerInput#enableOutsideDaysClick) prop ([#585](https://github.com/gpbl/react-day-picker/issues/585)  by
+  [smesgr](https://github.com/smesgr))
+* Fixed: UMD build not working correctly ([#637](https://github.com/gpbl/react-day-picker/issues/637) by
+  [TrySound](https://github.com/TrySound))
+* Fixed: month may be not defined in the navigation component ([#607](https://github.com/gpbl/react-day-picker/issues/607) by
+  [MhMadHamster](https://github.com/MhMadHamster))
+* Fixed: outside days were shown also when using `toMonth`/`fromMonth` ([#630](https://github.com/gpbl/react-day-picker/issues/630))
+* Fixed: `Cannot read property 'focus'` error with outside days ([#646](https://github.com/gpbl/react-day-picker/issues/646))
+* TypeScript: added more types ([#618](https://github.com/gpbl/react-day-picker/issues/618) by
+  [adidahiya](https://github.com/adidahiya))
+
+### DayPickerInput
+
+* Improved: focus/blur behavior ([#598](https://github.com/gpbl/react-day-picker/issues/598)  by
+  [jbarco](https://github.com/bartpeeters), [#579](https://github.com/gpbl/react-day-picker/issues/579))
+* Improved: `onDayChange` is called `undefined` when day is not valid ([#647](https://github.com/gpbl/react-day-picker/issues/647))
+* Added: [`keepFocus`](http://react-day-picker.js.org/api/DayPickerInput#keepFocus) prop ([#598](https://github.com/gpbl/react-day-picker/issues/598) by
+  [bartpeeters](https://github.com/bartpeeters))
+* Fixed: use `dayPickerProps.month` before the input's value ([#612](https://github.com/gpbl/react-day-picker/issues/612) by
+  [kradical](https://github.com/kradical))
+* Typescript: fixed `onDayChange` definition ([#622](https://github.com/gpbl/react-day-picker/issues/622))
+
 ### [v7.0.7](https://github.com/gpbl/react-day-picker/tree/v7.0.7) (2018-01-09)
 
 * (DayPickerInput) Fixed: `daypickerProps.onMonthChange` not being called ([#604](https://github.com/gpbl/react-day-picker/issues/604)  by
