@@ -258,6 +258,11 @@ describe('DayPicker’s methods', () => {
         expect(document.activeElement.innerHTML).toBe('31');
         expect(instance.state.currentMonth.getMonth()).toBe(4);
       });
+      it('should not throw an error when the node is not found', () => {
+        expect(() =>
+          instance.focusPreviousDay(document.createElement('div'))
+        ).not.toThrow();
+      });
     });
 
     describe('focusNextDay()', () => {
@@ -300,6 +305,11 @@ describe('DayPicker’s methods', () => {
         expect(focusedNode.innerHTML).toBe('29');
         expect(document.activeElement.innerHTML).toBe('1');
         expect(instance.state.currentMonth.getMonth()).toBe(2);
+      });
+      it('should not throw an error when the node is not found', () => {
+        expect(() =>
+          instance.focusNextDay(document.createElement('div'))
+        ).not.toThrow();
       });
     });
 
