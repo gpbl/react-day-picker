@@ -322,14 +322,13 @@ export default class DayPickerInput extends React.Component {
     const { value } = e.target;
     if (value.trim() === '') {
       this.setState({ value });
-      if (onDayChange) {
-        onDayChange(undefined, {});
-      }
+      if (onDayChange) onDayChange(undefined, {});
       return;
     }
     const day = parseDate(value, format, dayPickerProps.locale);
     if (!day) {
       this.setState({ value });
+      if (onDayChange) onDayChange(undefined, {});
       return;
     }
     this.updateState(day, value);
