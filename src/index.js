@@ -9,9 +9,4 @@ DayPicker.DateUtils = DateUtils;
 DayPicker.LocaleUtils = LocaleUtils;
 DayPicker.ModifiersUtils = ModifiersUtils;
 
-export {
-  DayPicker as default,
-  DateUtils,
-  LocaleUtils,
-  ModifiersUtils
-}
+export { DayPicker as default, DateUtils, LocaleUtils, ModifiersUtils };
