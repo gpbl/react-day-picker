@@ -1,8 +1,6 @@
 /* eslint global-require: 0, import/no-extraneous-dependencies: 0 */
 /* eslint-env node */
 
-const webpack = require('webpack');
-
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -31,11 +29,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
-  ],
   externals: {
     react: {
       root: 'React',
