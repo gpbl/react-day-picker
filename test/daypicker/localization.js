@@ -1,8 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import DayPicker from '../../src/DayPicker';
-import * as LocaleUtils from '../../src/LocaleUtils';
+import { DayPicker, LocaleUtils } from '../../src';
 
 describe('DayPicker’s localization', () => {
   it('should use the months prop to localize the month names', () => {

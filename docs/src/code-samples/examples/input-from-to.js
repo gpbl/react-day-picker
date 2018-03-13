@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import Helmet from 'react-helmet';
 
-import DayPickerInput from 'react-day-picker/DayPickerInput';
+import { DayPickerInput } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
 import { formatDate, parseDate } from 'react-day-picker/moment';

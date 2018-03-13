@@ -35,25 +35,6 @@ exports.createPages = ({ boundActionCreators }) => {
 exports.modifyWebpackConfig = ({ config, stage }) => {
   switch (stage) {
     case 'develop':
-      config.merge({
-        resolve: {
-          alias: {
-            'react-day-picker$': path.resolve(__dirname, '../src/DayPicker.js'),
-            'react-day-picker/lib/style.css$': path.resolve(
-              __dirname,
-              '../src/style.css'
-            ),
-            'react-day-picker/DayPickerInput$': path.resolve(
-              __dirname,
-              '../src/DayPickerInput.js'
-            ),
-            'react-day-picker/moment$': path.resolve(
-              __dirname,
-              '../src/addons/MomentLocaleUtils.js'
-            ),
-          },
-        },
-      });
       break;
 
     case 'build-css':

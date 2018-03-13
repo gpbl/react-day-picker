@@ -23,7 +23,7 @@
     "moment": "2.21.0",
     "prismjs": "1.11.0",
     "prop-types": "15.6.1",
-    "react-day-picker": "../",
+    "react-day-picker": "link:../",
     "react-helmet": "5.2.0",
     "react-markdown": "3.2.2",
     "scroll-into-view": "1.9.1"

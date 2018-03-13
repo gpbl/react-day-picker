@@ -6,8 +6,8 @@ import moment from 'moment';
 
 import * as keys from '../../src/keys';
 
-import DayPickerInput, { HIDE_TIMEOUT } from '../../src/DayPickerInput';
-import DayPicker from '../../src/DayPicker';
+import { DayPicker, DayPickerInput } from '../../src';
+import { HIDE_TIMEOUT } from '../../src/DayPickerInput';
 
 describe('DayPickerInput', () => {
   describe('events', () => {

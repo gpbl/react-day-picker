@@ -1,4 +1,4 @@
-import * as DateUtils from '../src/DateUtils';
+import { DateUtils } from '../src';
 
 describe('DateUtils', () => {
   it('should export all the functions', () => {

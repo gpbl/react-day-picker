@@ -2,15 +2,12 @@
   "name": "react-day-picker",
   "version": "7.1.2",
   "description": "Flexible date picker component for React",
-  "main": "DayPicker.js",
+  "main": "lib/src/index.js",
   "style": "lib/style.css",
   "types": "./types/index.d.ts",
   "files": [
-    "DayPicker.js",
-    "DayPickerInput.js",
     "lib",
     "moment.js",
-    "utils.js",
     "types"
   ],
   "directories": {

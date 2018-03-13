@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import DayPicker from '../../src/DayPicker';
+import { DayPicker } from '../../src';
 
 describe('DayPicker’s day modifiers', () => {
   it('should use `selectedDays` prop as `selected` modifier', () => {

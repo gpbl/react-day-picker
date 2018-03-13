@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import * as LocaleUtils from '../src/LocaleUtils';
+import { LocaleUtils } from '../src';
 
 describe('LocaleUtils', () => {
   it('should export all the functions', () => {

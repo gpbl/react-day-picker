@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { isElement } from 'react-dom/test-utils';
 import { shallow, mount, render } from 'enzyme';
 
-import DayPicker from '../../src/DayPicker';
+import { DayPicker } from '../../src';
 import Day from '../../src/Day';
 import classNames from '../../src/classNames';
 
