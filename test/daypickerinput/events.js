@@ -79,6 +79,25 @@ describe('DayPickerInput', () => {
         wrapper.find('.DayPickerInput-Overlay').simulate('blur');
         expect(wrapper.find('.DayPicker')).toHaveLength(0);
       });
+      it('should update value on blur if the `parseOnInputBlur` prop is enabled', () => {
+        const wrapper = mount(<DayPickerInput parseOnInputBlur />);
+        const input = wrapper.find('input');
+        input.simulate('change', { target: { value: '2013-12-16' } });
+        expect(wrapper.props().value === '');
+        input.simulate('blur');
+        expect(wrapper.props().value === '2013-12-16');
+      });
+      it('should parse input value on blur if input is valid date and `parseOnInputBlur` prop is enabled', () => {
+        const parse = jest.fn();
+        const wrapper = mount(
+          <DayPickerInput parseOnInputBlur parseDate={parse} />
+        );
+        const input = wrapper.find('input');
+        input.simulate('change', { target: { value: '2013-12-16' } });
+        expect(parse).not.toHaveBeenCalled();
+        input.simulate('blur');
+        expect(parse).toHaveBeenCalled();
+      });
     });
 
     describe('change', () => {
@@ -113,6 +132,12 @@ describe('DayPickerInput', () => {
         const input = wrapper.find('input');
         input.simulate('change', { target: { value: 'foo' } });
         expect(onDayChange).toHaveBeenCalledWith(undefined, {});
+      });
+      it('should not update value on change if the `parseOnInputBlur` prop is enabled', () => {
+        const wrapper = mount(<DayPickerInput parseOnInputBlur />);
+        const input = wrapper.find('input');
+        input.simulate('change', { target: { value: '2013-12-16' } });
+        expect(wrapper.props().value === '');
       });
       it("should update the input's value and the displayed month", () => {
         const wrapper = mount(<DayPickerInput />);

@@ -61,6 +61,7 @@ export default class DayPickerInput extends React.Component {
 
     formatDate: PropTypes.func,
     parseDate: PropTypes.func,
+    parseOnInputBlur: PropTypes.bool,
 
     showOverlay: PropTypes.bool,
     dayPickerProps: PropTypes.object,
@@ -91,6 +92,7 @@ export default class DayPickerInput extends React.Component {
     format: 'L',
     formatDate: defaultFormat,
     parseDate: defaultParse,
+    parseOnInputBlur: false,
     showOverlay: false,
     hideOnDayClick: true,
     clickUnselectsDay: false,
@@ -154,6 +156,7 @@ export default class DayPickerInput extends React.Component {
       }
       this.setState({
         value: nextValue,
+        inputValue: nextValue,
       });
     }
     if (monthChanged) {
@@ -188,6 +191,7 @@ export default class DayPickerInput extends React.Component {
       dayPickerProps.initialMonth || dayPickerProps.month || day || new Date();
 
     return {
+      inputValue: value,
       value,
       month,
       selectedDays: dayPickerProps.selectedDays,
@@ -217,7 +221,7 @@ export default class DayPickerInput extends React.Component {
    */
   updateState(day, value, callback) {
     const { dayPickerProps, onDayChange } = this.props;
-    this.setState({ month: day, value }, () => {
+    this.setState({ month: day, value, inputValue: value }, () => {
       if (callback) {
         callback();
       }
@@ -287,9 +291,43 @@ export default class DayPickerInput extends React.Component {
       showOverlay:
         this.overlayNode && this.overlayNode.contains(e.relatedTarget),
     });
-    if (this.props.inputProps.onBlur) {
+
+    const {
+      dayPickerProps,
+      format,
+      inputProps,
+      onDayChange,
+      parseDate,
+      parseOnInputBlur,
+      value,
+    } = this.props;
+
+    if (inputProps.onBlur) {
       e.persist();
-      this.props.inputProps.onBlur(e);
+      inputProps.onBlur(e);
+    }
+
+    if (parseOnInputBlur) {
+      const newValue = e.target.value;
+      if (newValue.trim() === '') {
+        this.setState({ value: newValue });
+        if (onDayChange) {
+          onDayChange(undefined, {});
+        }
+        return;
+      }
+      const newDay = parseDate(newValue, format, dayPickerProps.locale) || '';
+      if (isNaN(newDay) || newDay.valueOf() === value.valueOf()) {
+        this.setState((_state, prevProps) => ({
+          inputValue: prevProps.formatDate(
+            prevProps.value,
+            prevProps.format,
+            prevProps.dayPickerProps.locale
+          ),
+        }));
+        return;
+      }
+      this.updateState(newDay, newValue);
     }
   }
 
@@ -314,20 +352,30 @@ export default class DayPickerInput extends React.Component {
       inputProps,
       onDayChange,
       parseDate,
+      parseOnInputBlur,
     } = this.props;
+
     if (inputProps.onChange) {
       e.persist();
       inputProps.onChange(e);
     }
+
+    if (parseOnInputBlur) {
+      this.setState({ inputValue: e.target.value });
+      return;
+    }
+
     const { value } = e.target;
     if (value.trim() === '') {
-      this.setState({ value });
-      if (onDayChange) onDayChange(undefined, {});
+      this.setState({ value, inputValue: value });
+      if (onDayChange) {
+        onDayChange(undefined, {});
+      }
       return;
     }
     const day = parseDate(value, format, dayPickerProps.locale);
     if (!day) {
-      this.setState({ value });
+      this.setState({ value, inputValue: value });
       if (onDayChange) onDayChange(undefined, {});
       return;
     }
@@ -394,7 +442,10 @@ export default class DayPickerInput extends React.Component {
       } else if (selectedDays) {
         selectedDays = null;
       }
-      this.setState({ value: '', selectedDays }, this.hideAfterDayClick);
+      this.setState(
+        { value: '', inputValue: '', selectedDays },
+        this.hideAfterDayClick
+      );
       if (onDayChange) {
         onDayChange(undefined, modifiers);
       }
@@ -402,7 +453,7 @@ export default class DayPickerInput extends React.Component {
     }
 
     const value = formatDate(day, format, dayPickerProps.locale);
-    this.setState({ value, month: day }, () => {
+    this.setState({ value, inputValue: value, month: day }, () => {
       if (onDayChange) {
         onDayChange(day, modifiers);
       }
@@ -473,7 +524,7 @@ export default class DayPickerInput extends React.Component {
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}
           {...this.props.inputProps}
-          value={this.state.value}
+          value={this.state.inputValue}
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
