@@ -1,4 +1,4 @@
-## [v7.1](https://github.com/gpbl/react-day-picker/tree/v7.1.3) (2018-03-04)
+## [v7.1](https://github.com/gpbl/react-day-picker/tree/v7.1.4) (2018-03-04)
 
 **DayPicker**
 
@@ -21,10 +21,6 @@
 * Fixed: use `dayPickerProps.month` before the input's value ([#612](https://github.com/gpbl/react-day-picker/issues/612) by
   [kradical](https://github.com/kradical))
 * Typescript: fixed `onDayChange` definition ([#622](https://github.com/gpbl/react-day-picker/issues/622))
-
-**Other**
-
-* [v7.1.3] Fixed: UMD build not working correctly ([#651](https://github.com/gpbl/react-day-picker/issues/651))
 
 > This should be the last minor release before [v8.0.0](https://github.com/gpbl/react-day-picker/milestone/10). The next major version should not break existing code but as we are moving [from webpack to rollup](https://github.com/gpbl/react-day-picker/milestone/10) we will bump a major for safety :)
 
