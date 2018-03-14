@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import Weekdays from './Weekdays';
@@ -9,7 +9,7 @@ import * as ModifiersUtils from './ModifiersUtils';
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
 
-export default class Month extends Component {
+export default class Month extends React.Component {
   static propTypes = {
     classNames: PropTypes.shape({
       body: PropTypes.string.isRequired,

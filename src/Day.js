@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions, react/forbid-prop-types */
 
-import React, { Component } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { isSameDay } from './DateUtils';
 import { hasOwnProp } from './Helpers';
@@ -17,7 +17,7 @@ function handleEvent(handler, day, modifiers) {
   };
 }
 
-export default class Day extends Component {
+export default class Day extends React.Component {
   static propTypes = {
     classNames: PropTypes.shape({
       day: PropTypes.string.isRequired,

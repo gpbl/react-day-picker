@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import LocaleUtils from './LocaleUtils';
 
 import { ENTER } from './keys';
 
-export default class Caption extends Component {
+export default class Caption extends React.Component {
   static propTypes = {
     date: PropTypes.instanceOf(Date),
     months: PropTypes.arrayOf(PropTypes.string),

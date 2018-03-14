@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import Caption from './Caption';
@@ -14,7 +14,7 @@ import classNames from './classNames';
 
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 
-export default class DayPicker extends Component {
+export default class DayPicker extends React.Component {
   static VERSION = '7.1.2';
 
   static propTypes = {
@@ -97,17 +97,17 @@ export default class DayPicker extends Component {
     weekdayElement: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.func,
-      PropTypes.instanceOf(Component),
+      PropTypes.instanceOf(React.Component),
     ]),
     navbarElement: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.func,
-      PropTypes.instanceOf(Component),
+      PropTypes.instanceOf(React.Component),
     ]),
     captionElement: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.func,
-      PropTypes.instanceOf(Component),
+      PropTypes.instanceOf(React.Component),
     ]),
 
     // Events
