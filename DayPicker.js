@@ -14,9 +14,6 @@ var LocaleUtils = require('./lib/src/LocaleUtils');
 var ModifiersUtils = require('./lib/src/ModifiersUtils');
 
 module.exports = DayPicker;
-module.exports.DateUtils = DateUtils;
-module.exports.LocaleUtils = LocaleUtils;
-module.exports.ModifiersUtils = ModifiersUtils;
 module.exports.WeekdayPropTypes = Weekday.propTypes;
 module.exports.NavbarPropTypes = Navbar.propTypes;
 module.exports.PropTypes = PropTypes;
