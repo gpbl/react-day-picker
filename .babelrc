@@ -1,17 +1,25 @@
 {
   "presets": [
     "react",
-    "env"
+    ["env", { "modules": false }]
   ],
   "plugins": [
     "transform-export-extensions",
     "transform-class-properties",
-    "transform-object-rest-spread",
-    [
-      "transform-react-remove-prop-types",
-      {
-        "mode": "wrap"
-      }
-    ]
-  ]
+    "transform-object-rest-spread"
+  ],
+  "env": {
+    "cjs": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        ["transform-react-remove-prop-types", { "mode": "wrap" }]
+      ]
+    },
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        ["transform-react-remove-prop-types", { "mode": "wrap" }]
+      ]
+    }
+  }
 }
