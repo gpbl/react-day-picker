@@ -574,7 +574,3 @@ export default class DayPicker extends Component {
     );
   }
 }
-
-DayPicker.DateUtils = DateUtils;
-DayPicker.LocaleUtils = LocaleUtils;
-DayPicker.ModifiersUtils = ModifiersUtils;
