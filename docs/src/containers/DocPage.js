@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import DayPicker from 'react-day-picker';
+import { DayPicker } from 'react-day-picker';
 
 import Menu from '../ui/Menu';
 import Main from '../ui/Main';

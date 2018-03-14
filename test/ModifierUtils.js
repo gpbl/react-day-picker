@@ -1,4 +1,4 @@
-import * as ModifiersUtils from '../src/ModifiersUtils';
+import { ModifiersUtils } from '../src';
 
 describe('ModifiersUtils', () => {
   it('should export all the functions', () => {

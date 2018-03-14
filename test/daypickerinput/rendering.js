@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 
-import DayPickerInput from '../../src/DayPickerInput';
-import DayPicker from '../../src/DayPicker';
+import { DayPicker, DayPickerInput } from '../../src';
 
 describe('DayPickerInput', () => {
   describe('rendering', () => {

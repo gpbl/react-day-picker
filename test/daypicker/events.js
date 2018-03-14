@@ -2,9 +2,8 @@ import React from 'react';
 
 import { mount } from 'enzyme';
 
-import DayPicker from '../../src/DayPicker';
+import { DayPicker, LocaleUtils } from '../../src';
 import * as keys from '../../src/keys';
-import { formatMonthTitle } from '../../src/LocaleUtils';
 
 describe('DayPicker’s events handlers', () => {
   it('should not throw when onDayClick is not specified', () => {
@@ -279,7 +278,7 @@ describe('DayPicker’s events handlers', () => {
     wrapper.find('button.DayPicker-TodayButton').simulate('click');
     expect(wrapper.find('.DayPicker-Footer')).toBeDefined();
     expect(wrapper.find('.DayPicker-Caption')).toHaveText(
-      formatMonthTitle(new Date())
+      LocaleUtils.formatMonthTitle(new Date())
     );
   });
   it('should call `onTodayButtonClick` when clicking the today button', () => {

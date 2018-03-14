@@ -6642,10 +6642,9 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-day-picker@../:
-  version "7.1.0"
-  dependencies:
-    prop-types "^15.6.1"
+"react-day-picker@link:..":
+  version "0.0.0"
+  uid ""
 
 react-deep-force-update@^2.1.1:
   version "2.1.1"

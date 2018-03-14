@@ -1,11 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import DayPickerInput, {
-  defaultFormat,
-  defaultParse,
-} from '../../src/DayPickerInput';
-import DayPicker from '../../src/DayPicker';
+import { DayPicker, DayPickerInput } from '../../src';
+import { defaultFormat, defaultParse } from '../../src/DayPickerInput';
 
 describe('DayPickerInput', () => {
   describe('methods', () => {

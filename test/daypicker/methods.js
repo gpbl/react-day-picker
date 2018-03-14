@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import DayPicker from '../../src/DayPicker';
+import { DayPicker } from '../../src';
 
 describe('DayPicker’s methods', () => {
   describe('showNextMonth()', () => {
