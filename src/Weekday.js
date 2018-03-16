@@ -37,7 +37,7 @@ export default class Weekday extends Component {
     }
 
     return (
-      <div className={className} role="columnheader">
+      <div className={className} role="presentation">
         <abbr title={title}>{content}</abbr>
       </div>
     );

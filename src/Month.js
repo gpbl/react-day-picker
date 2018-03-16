@@ -68,8 +68,9 @@ export default class Month extends Component {
     const monthNumber = this.props.month.getMonth();
     const propModifiers = Helpers.getModifiersFromProps(this.props);
     const dayModifiers = ModifiersUtils.getModifiersForDay(day, propModifiers);
+    const isToday = DateUtils.isSameDay(day, new Date());
     if (
-      DateUtils.isSameDay(day, new Date()) &&
+      isToday &&
       !Object.prototype.hasOwnProperty.call(
         propModifiers,
         this.props.classNames.today
@@ -107,6 +108,7 @@ export default class Month extends Component {
         ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
         ariaDisabled={isOutside || dayModifiers.indexOf('disabled') > -1}
         ariaSelected={dayModifiers.indexOf('selected') > -1}
+        ariaCurrent={isToday}
         onClick={this.props.onDayClick}
         onFocus={this.props.onDayFocus}
         onKeyDown={this.props.onDayKeyDown}
@@ -160,7 +162,7 @@ export default class Month extends Component {
 
     const weeks = Helpers.getWeekArray(month, firstDayOfWeek, fixedWeeks);
     return (
-      <div className={classNames.month} role="grid">
+      <div className={classNames.month} role="application">
         {caption}
         {showWeekDays && (
           <Weekdays
@@ -174,7 +176,7 @@ export default class Month extends Component {
             weekdayElement={weekdayElement}
           />
         )}
-        <div className={classNames.body} role="rowgroup">
+        <div className={classNames.body} role="presentation">
           {weeks.map(week => {
             let weekNumber;
             if (showWeekNumbers) {
@@ -184,13 +186,12 @@ export default class Month extends Component {
               <div
                 key={week[0].getTime()}
                 className={classNames.week}
-                role="row"
+                role="presentation"
               >
                 {showWeekNumbers && (
                   <div
                     className={classNames.weekNumber}
-                    tabIndex={0}
-                    role="gridcell"
+                    role={onWeekClick ? 'link' : undefined}
                     onClick={
                       onWeekClick
                         ? e => onWeekClick(weekNumber, week, e)
