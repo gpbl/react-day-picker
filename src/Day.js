@@ -136,11 +136,10 @@ export default class Day extends Component {
         className={className}
         tabIndex={tabIndex}
         style={style}
-        role="link"
+        role={!ariaDisabled ? 'link' : undefined}
         aria-label={ariaLabel}
         aria-disabled={ariaDisabled}
         aria-current={ariaCurrent ? 'date' : null}
-        title=""
         onClick={handleEvent(onClick, day, modifiers)}
         onKeyDown={handleEvent(onKeyDown, day, modifiers)}
         onMouseEnter={handleEvent(onMouseEnter, day, modifiers)}
