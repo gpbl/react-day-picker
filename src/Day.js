@@ -28,6 +28,7 @@ export default class Day extends Component {
 
     ariaDisabled: PropTypes.bool,
     ariaLabel: PropTypes.string,
+    ariaCurrent: PropTypes.bool,
     ariaSelected: PropTypes.bool,
     empty: PropTypes.bool,
     modifiers: PropTypes.object,
@@ -105,6 +106,7 @@ export default class Day extends Component {
       onFocus,
       ariaLabel,
       ariaDisabled,
+      ariaCurrent,
       ariaSelected,
       children,
     } = this.props;
@@ -136,10 +138,11 @@ export default class Day extends Component {
         className={className}
         tabIndex={tabIndex}
         style={style}
-        role="gridcell"
+        role={!ariaDisabled ? 'link' : undefined}
         aria-label={ariaLabel}
         aria-disabled={ariaDisabled}
-        aria-selected={ariaSelected}
+        aria-current={ariaCurrent ? 'date' : null}
+        aria-selected={ariaSelected ? 'date' : null}
         onClick={handleEvent(onClick, day, modifiers)}
         onKeyDown={handleEvent(onKeyDown, day, modifiers)}
         onMouseEnter={handleEvent(onMouseEnter, day, modifiers)}
