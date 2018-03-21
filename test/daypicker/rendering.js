@@ -7,6 +7,7 @@ import { shallow, mount, render } from 'enzyme';
 import DayPicker from '../../src/DayPicker';
 import Day from '../../src/Day';
 import classNames from '../../src/classNames';
+import { defaultRoles } from '../../src/PropTypes';
 
 describe('DayPicker’s rendering', () => {
   it('should have default props', () => {
@@ -25,6 +26,7 @@ describe('DayPicker’s rendering', () => {
     expect(typeof dayPicker.props.weekdayElement).toBe('object');
     expect(typeof dayPicker.props.navbarElement).toBe('object');
     expect(dayPicker.props.tabIndex).toBe(0);
+    expect(dayPicker.props.roles).toBe(defaultRoles);
   });
   it('should have default roles', () => {
     const wrapper = mount(<DayPicker />);
