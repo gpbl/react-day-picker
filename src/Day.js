@@ -6,7 +6,7 @@ import { isSameDay } from './DateUtils';
 import { hasOwnProp } from './Helpers';
 
 import defaultClassNames from './classNames';
-import { RoleTypesShape, defaultRoles } from './DayPicker';
+import { RoleTypesShape, defaultRoles } from './PropTypes';
 
 function handleEvent(handler, day, modifiers) {
   if (!handler) {

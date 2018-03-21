@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { RoleTypesShape, defaultRoles } from './DayPicker';
+import { RoleTypesShape, defaultRoles } from './PropTypes';
 
 export default class Weekday extends Component {
   static propTypes = {

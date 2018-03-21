@@ -13,30 +13,7 @@ import * as ModifiersUtils from './ModifiersUtils';
 import classNames from './classNames';
 
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
-
-export const RoleTypesShape = {
-  caption: PropTypes.string,
-  month: PropTypes.string,
-  body: PropTypes.string,
-  weeknumber: PropTypes.string,
-  week: PropTypes.string,
-  weekday: PropTypes.string,
-  weekdays: PropTypes.string,
-  weekdaysRow: PropTypes.string,
-  day: PropTypes.string,
-  disabledDay: PropTypes.string,
-};
-
-export const defaultRoles = {
-  caption: 'heading',
-  weeknumber: 'gridrow',
-  weekdays: 'rowgroup',
-  month: 'grid',
-  body: 'rowgroup',
-  week: 'row',
-  day: 'gridcell',
-  disabledDay: 'gridcell',
-};
+import { RoleTypesShape, defaultRoles } from './PropTypes';
 
 export default class DayPicker extends Component {
   static VERSION = '7.1.4';

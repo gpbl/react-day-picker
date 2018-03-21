@@ -8,7 +8,7 @@ import { ENTER } from './keys';
 import * as ModifiersUtils from './ModifiersUtils';
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
-import { RoleTypesShape, defaultRoles } from './DayPicker';
+import { RoleTypesShape, defaultRoles } from './PropTypes';
 
 export default class Month extends Component {
   static propTypes = {
