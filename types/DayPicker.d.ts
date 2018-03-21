@@ -8,6 +8,7 @@ import {
   NavbarElementProps,
   WeekdayElementProps,
   DayPickerProps,
+  RoleTypesShape,
 } from './props';
 
 export default class DayPicker extends React.Component<DayPickerProps, any> {

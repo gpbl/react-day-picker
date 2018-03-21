@@ -6,6 +6,7 @@ import { isSameDay } from './DateUtils';
 import { hasOwnProp } from './Helpers';
 
 import defaultClassNames from './classNames';
+import { RoleTypesShape } from './DayPicker';
 
 function handleEvent(handler, day, modifiers) {
   if (!handler) {
@@ -42,6 +43,7 @@ export default class Day extends Component {
     onTouchStart: PropTypes.func,
     onFocus: PropTypes.func,
     tabIndex: PropTypes.number,
+    roles: PropTypes.shape(RoleTypesShape),
   };
 
   static defaultProps = {
@@ -106,6 +108,7 @@ export default class Day extends Component {
       ariaLabel,
       ariaDisabled,
       ariaSelected,
+      roles,
       children,
     } = this.props;
 
@@ -136,7 +139,8 @@ export default class Day extends Component {
         className={className}
         tabIndex={tabIndex}
         style={style}
-        role="gridcell"
+        role={ariaDisabled ? roles.disabledDay : roles.day}
+        aria-hidden={!!ariaDisabled}
         aria-label={ariaLabel}
         aria-disabled={ariaDisabled}
         aria-selected={ariaSelected}
