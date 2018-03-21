@@ -8,7 +8,7 @@ import { ENTER } from './keys';
 import * as ModifiersUtils from './ModifiersUtils';
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
-import { RoleTypesShape } from './DayPicker';
+import { RoleTypesShape, defaultRoles } from './DayPicker';
 
 export default class Month extends Component {
   static propTypes = {
@@ -148,7 +148,7 @@ export default class Month extends Component {
       showWeekNumbers,
       showWeekDays,
       onWeekClick,
-      roles,
+      roles = defaultRoles,
     } = this.props;
 
     const captionProps = {

@@ -6,7 +6,7 @@ import { isSameDay } from './DateUtils';
 import { hasOwnProp } from './Helpers';
 
 import defaultClassNames from './classNames';
-import { RoleTypesShape } from './DayPicker';
+import { RoleTypesShape, defaultRoles } from './DayPicker';
 
 function handleEvent(handler, day, modifiers) {
   if (!handler) {
@@ -108,7 +108,7 @@ export default class Day extends Component {
       ariaLabel,
       ariaDisabled,
       ariaSelected,
-      roles,
+      roles = defaultRoles,
       children,
     } = this.props;
 

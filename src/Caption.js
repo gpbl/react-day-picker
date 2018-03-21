@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import LocaleUtils from './LocaleUtils';
 
 import { ENTER } from './keys';
-import { RoleTypesShape } from './DayPicker';
+import { RoleTypesShape, defaultRoles } from './DayPicker';
 
 export default class Caption extends Component {
   static propTypes = {
@@ -21,6 +21,7 @@ export default class Caption extends Component {
 
   static defaultProps = {
     localeUtils: LocaleUtils,
+    roles: defaultRoles,
   };
 
   constructor(props) {

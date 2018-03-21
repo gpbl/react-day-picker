@@ -27,6 +27,17 @@ export const RoleTypesShape = {
   disabledDay: PropTypes.string,
 };
 
+export const defaultRoles = {
+  caption: 'heading',
+  weeknumber: 'gridrow',
+  weekdays: 'rowgroup',
+  month: 'grid',
+  body: 'rowgroup',
+  week: 'row',
+  day: 'gridcell',
+  disabledDay: 'gridcell',
+};
+
 export default class DayPicker extends Component {
   static VERSION = '7.1.4';
 
@@ -169,16 +180,7 @@ export default class DayPicker extends Component {
     weekdayElement: <Weekday />,
     navbarElement: <Navbar classNames={classNames} />,
     captionElement: <Caption classNames={classNames} />,
-    roles: {
-      caption: 'heading',
-      weeknumber: 'gridrow',
-      weekdays: 'rowgroup',
-      month: 'grid',
-      body: 'rowgroup',
-      week: 'row',
-      day: 'gridcell',
-      disabledDay: 'gridcell',
-    },
+    roles: defaultRoles,
   };
 
   constructor(props) {

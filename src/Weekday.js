@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { RoleTypesShape } from './DayPicker';
+import { RoleTypesShape, defaultRoles } from './DayPicker';
 
 export default class Weekday extends Component {
   static propTypes = {
@@ -14,6 +14,7 @@ export default class Weekday extends Component {
 
     roles: PropTypes.shape(RoleTypesShape),
   };
+
   shouldComponentUpdate(nextProps) {
     return this.props !== nextProps;
   }
@@ -25,7 +26,7 @@ export default class Weekday extends Component {
       weekdaysShort,
       localeUtils,
       locale,
-      roles,
+      roles = defaultRoles,
     } = this.props;
     let title;
     if (weekdaysLong) {
