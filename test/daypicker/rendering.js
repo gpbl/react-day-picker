@@ -26,6 +26,18 @@ describe('DayPicker’s rendering', () => {
     expect(typeof dayPicker.props.navbarElement).toBe('object');
     expect(dayPicker.props.tabIndex).toBe(0);
   });
+  it('should have default roles', () => {
+    const wrapper = mount(<DayPicker />);
+    expect(wrapper.find('.DayPicker-Month')).toHaveProp('role', 'grid');
+    expect(wrapper.find('.DayPicker-Caption')).toHaveProp('role', 'heading');
+    expect(wrapper.find('.DayPicker-Weekdays')).toHaveProp('role', 'rowgroup');
+    expect(wrapper.find('.DayPicker-Body')).toHaveProp('role', 'rowgroup');
+    expect(wrapper.find('.DayPicker-Week').at(0)).toHaveProp('role', 'row');
+    expect(wrapper.find('.DayPicker-Day[tabIndex=0]').at(0)).toHaveProp(
+      'role',
+      'gridcell'
+    );
+  });
   it('should have the right CSS classes and attributes', () => {
     const wrapper = shallow(<DayPicker />);
     expect(wrapper).toHaveClassName('DayPicker');
