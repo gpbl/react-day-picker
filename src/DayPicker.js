@@ -13,6 +13,7 @@ import * as ModifiersUtils from './ModifiersUtils';
 import classNames from './classNames';
 
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
+import { RoleTypesShape, defaultRoles } from './PropTypes';
 
 export default class DayPicker extends Component {
   static VERSION = '7.1.4';
@@ -110,6 +111,9 @@ export default class DayPicker extends Component {
       PropTypes.instanceOf(Component),
     ]),
 
+    // Roles
+    roles: PropTypes.shape(RoleTypesShape),
+
     // Events
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
@@ -153,6 +157,7 @@ export default class DayPicker extends Component {
     weekdayElement: <Weekday />,
     navbarElement: <Navbar classNames={classNames} />,
     captionElement: <Caption classNames={classNames} />,
+    roles: defaultRoles,
   };
 
   constructor(props) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { RoleTypesShape } from './PropTypes';
 
 export default class Weekdays extends Component {
   static propTypes = {
@@ -20,7 +21,9 @@ export default class Weekdays extends Component {
       PropTypes.func,
       PropTypes.instanceOf(React.Component),
     ]),
+    roles: PropTypes.shape(RoleTypesShape).isRequired,
   };
+
   shouldComponentUpdate(nextProps) {
     return this.props !== nextProps;
   }
@@ -34,6 +37,7 @@ export default class Weekdays extends Component {
       locale,
       localeUtils,
       weekdayElement,
+      roles,
     } = this.props;
     const days = [];
     for (let i = 0; i < 7; i += 1) {
@@ -46,6 +50,7 @@ export default class Weekdays extends Component {
         weekdaysShort,
         localeUtils,
         locale,
+        roles,
       };
       const element = React.isValidElement(weekdayElement)
         ? React.cloneElement(weekdayElement, elementProps)
@@ -54,8 +59,12 @@ export default class Weekdays extends Component {
     }
 
     return (
-      <div className={classNames.weekdays} role="rowgroup">
-        <div className={classNames.weekdaysRow} role="row">
+      <div
+        className={classNames.weekdays}
+        role={roles.weekdays}
+        aria-hidden={roles.weekdays === 'presentation'}
+      >
+        <div className={classNames.weekdaysRow} role={roles.weekdaysRow}>
           {showWeekNumbers && <div className={classNames.weekday} />}
           {days}
         </div>

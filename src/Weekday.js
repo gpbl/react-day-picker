@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { RoleTypesShape, defaultRoles } from './PropTypes';
 
 export default class Weekday extends Component {
   static propTypes = {
@@ -10,7 +11,14 @@ export default class Weekday extends Component {
 
     weekdaysLong: PropTypes.arrayOf(PropTypes.string),
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+
+    roles: PropTypes.shape(RoleTypesShape),
   };
+
+  static defaultProps = {
+    roles: defaultRoles,
+  };
+
   shouldComponentUpdate(nextProps) {
     return this.props !== nextProps;
   }
@@ -22,6 +30,7 @@ export default class Weekday extends Component {
       weekdaysShort,
       localeUtils,
       locale,
+      roles,
     } = this.props;
     let title;
     if (weekdaysLong) {
@@ -37,7 +46,7 @@ export default class Weekday extends Component {
     }
 
     return (
-      <div className={className} role="columnheader">
+      <div className={className} role={roles.columnHeader}>
         <abbr title={title}>{content}</abbr>
       </div>
     );

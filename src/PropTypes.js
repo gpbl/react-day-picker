@@ -27,4 +27,28 @@ export const ModifierPropType = PropTypes.oneOfType([
   PropTypes.array,
 ]);
 
+export const RoleTypesShape = {
+  caption: PropTypes.string,
+  month: PropTypes.string,
+  body: PropTypes.string,
+  weeknumber: PropTypes.string,
+  week: PropTypes.string,
+  weekday: PropTypes.string,
+  weekdays: PropTypes.string,
+  weekdaysRow: PropTypes.string,
+  day: PropTypes.string,
+  disabledDay: PropTypes.string,
+};
+
+export const defaultRoles = {
+  caption: 'heading',
+  weeknumber: 'gridrow',
+  weekdays: 'rowgroup',
+  month: 'grid',
+  body: 'rowgroup',
+  week: 'row',
+  day: 'gridcell',
+  disabledDay: 'gridcell',
+};
+
 export default PrimitiveTypes;

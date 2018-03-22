@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import LocaleUtils from './LocaleUtils';
 
 import { ENTER } from './keys';
+import { RoleTypesShape, defaultRoles } from './PropTypes';
 
 export default class Caption extends Component {
   static propTypes = {
@@ -15,10 +16,12 @@ export default class Caption extends Component {
     classNames: PropTypes.shape({
       caption: PropTypes.string.isRequired,
     }).isRequired,
+    roles: PropTypes.shape(RoleTypesShape),
   };
 
   static defaultProps = {
     localeUtils: LocaleUtils,
+    roles: defaultRoles,
   };
 
   constructor(props) {
@@ -49,9 +52,10 @@ export default class Caption extends Component {
       locale,
       localeUtils,
       onClick,
+      roles,
     } = this.props;
     return (
-      <div className={classNames.caption} role="heading">
+      <div className={classNames.caption} role={roles.caption}>
         <div onClick={onClick} onKeyUp={this.handleKeyUp}>
           {months
             ? `${months[date.getMonth()]} ${date.getFullYear()}`

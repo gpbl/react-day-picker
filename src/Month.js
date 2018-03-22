@@ -8,6 +8,7 @@ import { ENTER } from './keys';
 import * as ModifiersUtils from './ModifiersUtils';
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
+import { RoleTypesShape } from './PropTypes';
 
 export default class Month extends Component {
   static propTypes = {
@@ -62,6 +63,8 @@ export default class Month extends Component {
     onDayTouchEnd: PropTypes.func,
     onDayTouchStart: PropTypes.func,
     onWeekClick: PropTypes.func,
+
+    roles: PropTypes.shape(RoleTypesShape),
   };
 
   renderDay = day => {
@@ -116,6 +119,7 @@ export default class Month extends Component {
         onMouseUp={this.props.onDayMouseUp}
         onTouchEnd={this.props.onDayTouchEnd}
         onTouchStart={this.props.onDayTouchStart}
+        roles={this.props.roles}
       >
         {this.props.renderDay(day, modifiers)}
       </Day>
@@ -144,6 +148,7 @@ export default class Month extends Component {
       showWeekNumbers,
       showWeekDays,
       onWeekClick,
+      roles,
     } = this.props;
 
     const captionProps = {
@@ -152,6 +157,7 @@ export default class Month extends Component {
       months,
       localeUtils,
       locale,
+      roles,
       onClick: onCaptionClick ? e => onCaptionClick(month, e) : undefined,
     };
     const caption = React.isValidElement(captionElement)
@@ -160,7 +166,7 @@ export default class Month extends Component {
 
     const weeks = Helpers.getWeekArray(month, firstDayOfWeek, fixedWeeks);
     return (
-      <div className={classNames.month} role="grid">
+      <div className={classNames.month} role={roles.month}>
         {caption}
         {showWeekDays && (
           <Weekdays
@@ -172,9 +178,10 @@ export default class Month extends Component {
             locale={locale}
             localeUtils={localeUtils}
             weekdayElement={weekdayElement}
+            roles={roles}
           />
         )}
-        <div className={classNames.body} role="rowgroup">
+        <div className={classNames.body} role={roles.body}>
           {weeks.map(week => {
             let weekNumber;
             if (showWeekNumbers) {
@@ -184,13 +191,14 @@ export default class Month extends Component {
               <div
                 key={week[0].getTime()}
                 className={classNames.week}
-                role="row"
+                role={roles.week}
               >
                 {showWeekNumbers && (
                   <div
                     className={classNames.weekNumber}
-                    tabIndex={0}
-                    role="gridcell"
+                    /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+                    tabIndex={onWeekClick ? 0 : undefined}
+                    role={roles.weeknumber}
                     onClick={
                       onWeekClick
                         ? e => onWeekClick(weekNumber, week, e)

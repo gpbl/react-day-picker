@@ -7,6 +7,7 @@ import { shallow, mount, render } from 'enzyme';
 import DayPicker from '../../src/DayPicker';
 import Day from '../../src/Day';
 import classNames from '../../src/classNames';
+import { defaultRoles } from '../../src/PropTypes';
 
 describe('DayPicker’s rendering', () => {
   it('should have default props', () => {
@@ -25,6 +26,7 @@ describe('DayPicker’s rendering', () => {
     expect(typeof dayPicker.props.weekdayElement).toBe('object');
     expect(typeof dayPicker.props.navbarElement).toBe('object');
     expect(dayPicker.props.tabIndex).toBe(0);
+    expect(dayPicker.props.roles).toBe(defaultRoles);
   });
   it('should have the right CSS classes and attributes', () => {
     const wrapper = shallow(<DayPicker />);
@@ -459,5 +461,22 @@ describe('Day.shouldComponentUpdate', () => {
     ).instance();
     const newProps = Object.assign({}, day.props, { onKeyDown: () => {} });
     expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
+  });
+  describe('should use roles', () => {
+    it('datepicker should have default roles', () => {
+      const wrapper = mount(<DayPicker />);
+      expect(wrapper.find('.DayPicker-Month')).toHaveProp('role', 'grid');
+      expect(wrapper.find('.DayPicker-Caption')).toHaveProp('role', 'heading');
+      expect(wrapper.find('.DayPicker-Weekdays')).toHaveProp(
+        'role',
+        'rowgroup'
+      );
+      expect(wrapper.find('.DayPicker-Body')).toHaveProp('role', 'rowgroup');
+      expect(wrapper.find('.DayPicker-Week').at(0)).toHaveProp('role', 'row');
+      expect(wrapper.find('.DayPicker-Day[tabIndex=0]').at(0)).toHaveProp(
+        'role',
+        'gridcell'
+      );
+    });
   });
 });
