@@ -21,6 +21,7 @@ export default class Caption extends Component {
 
   static defaultProps = {
     localeUtils: LocaleUtils,
+    roles: defaultRoles,
   };
 
   constructor(props) {
@@ -51,7 +52,7 @@ export default class Caption extends Component {
       locale,
       localeUtils,
       onClick,
-      roles = defaultRoles,
+      roles,
     } = this.props;
     return (
       <div className={classNames.caption} role={roles.caption}>

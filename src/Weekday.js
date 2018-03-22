@@ -15,6 +15,10 @@ export default class Weekday extends Component {
     roles: PropTypes.shape(RoleTypesShape),
   };
 
+  static defaultProps = {
+    roles: defaultRoles,
+  };
+
   shouldComponentUpdate(nextProps) {
     return this.props !== nextProps;
   }
@@ -26,7 +30,7 @@ export default class Weekday extends Component {
       weekdaysShort,
       localeUtils,
       locale,
-      roles = defaultRoles,
+      roles,
     } = this.props;
     let title;
     if (weekdaysLong) {

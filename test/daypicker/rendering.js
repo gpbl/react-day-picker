@@ -6,7 +6,6 @@ import { shallow, mount, render } from 'enzyme';
 
 import DayPicker from '../../src/DayPicker';
 import Day from '../../src/Day';
-import Month from '../../src/Month';
 import classNames from '../../src/classNames';
 import { defaultRoles } from '../../src/PropTypes';
 

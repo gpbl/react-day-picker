@@ -48,12 +48,10 @@ export default class Day extends Component {
 
   static defaultProps = {
     tabIndex: -1,
-  };
-
-  static defaultProps = {
     modifiers: {},
     modifiersStyles: {},
     empty: false,
+    roles: defaultRoles,
   };
 
   shouldComponentUpdate(nextProps) {
@@ -108,7 +106,7 @@ export default class Day extends Component {
       ariaLabel,
       ariaDisabled,
       ariaSelected,
-      roles = defaultRoles,
+      roles,
       children,
     } = this.props;
 
