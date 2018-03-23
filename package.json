@@ -20,10 +20,9 @@
     "test": "jest",
     "check": "npm run lint && npm run dtslint && npm run test",
     "prerelease": "npm run check && npm run build",
-    "build": "rimraf lib && npm run build:node && npm run build:production && npm run build:development",
+    "build": "rimraf lib && npm run build:node && npm run build:umd",
     "build:node": "cross-env NODE_ENV=cjs babel ./src -d ./lib/src --source-maps && npm run build:css",
-    "build:development": "cross-env NODE_ENV=development rollup -c",
-    "build:production": "cross-env NODE_ENV=production rollup -c",
+    "build:umd": "rollup -c",
     "build:css": "postcss src/style.css --use autoprefixer -d lib/ --no-map"
   },
   "repository": {
