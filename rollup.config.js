@@ -1,13 +1,21 @@
 import babel from 'rollup-plugin-babel';
-import replace from 'rollup-plugin-replace';
-import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 import uglify from 'rollup-plugin-uglify';
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 
-const getUMDConfig = ({ env, file }) => {
-  const config = {
-    input: './src/index.js',
+const input = './src/index.js';
+
+const getBabelOptions = () => ({
+  plugins: [
+    'external-helpers',
+    ['transform-react-remove-prop-types', { removeImport: true }],
+  ],
+});
+
+export default [
+  {
+    input,
     output: {
-      file,
+      file: 'lib/daypicker.js',
       sourcemap: true,
       format: 'umd',
       name: 'DayPicker',
@@ -17,30 +25,26 @@ const getUMDConfig = ({ env, file }) => {
     },
     external: ['react'],
     plugins: [
-      babel({
-        plugins: [
-          'external-helpers',
-          ['transform-react-remove-prop-types', { removeImport: true }],
-        ],
-      }),
-      replace({
-        'process.env.NODE_ENV': JSON.stringify(env),
-      }),
+      babel(getBabelOptions()),
+      sizeSnapshot(),
     ],
-  };
+  },
 
-  if (env === 'development') {
-    config.plugins.push(sizeSnapshot());
-  }
-
-  if (env === 'production') {
-    config.plugins.push(uglify());
-  }
-
-  return config;
-};
-
-export default [
-  getUMDConfig({ env: 'development', file: 'lib/daypicker.js' }),
-  getUMDConfig({ env: 'production', file: 'lib/daypicker.min.js' }),
+  {
+    input,
+    output: {
+      file: 'lib/daypicker.min.js',
+      sourcemap: true,
+      format: 'umd',
+      name: 'DayPicker',
+      globals: {
+        react: 'React',
+      },
+    },
+    external: ['react'],
+    plugins: [
+      babel(getBabelOptions()),
+      uglify(),
+    ],
+  },
 ];
