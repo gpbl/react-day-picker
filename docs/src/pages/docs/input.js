@@ -67,5 +67,11 @@ export default () => (
     </p>
 
     <CodeSample name="examples/input-moment" />
+
+    <h3>Use date-fns to parse and format dates</h3>
+    <p>
+      If you are using <a href="http://date-fns.org">date-fns</a>, see{' '}
+      <Link to="/examples/input-date-fns">this example</Link>.
+    </p>
   </DocPage>
 );
