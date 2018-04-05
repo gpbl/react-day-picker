@@ -56,10 +56,17 @@ export default () => (
       <Link to="/api/DayPickerInput#formatDate">
         <code>formatDate</code>
       </Link>{' '}
-      props.
+      props. See below for examples using{' '}
+      <a href="http://date-fns.org">date-fns</a> or{' '}
+      <a href="http://momentjs.com">moment.js</a>.
     </p>
 
-    <h3>Use moment.js to parse and format dates</h3>
+    <h3>
+      Example using <code>date-fns</code>
+    </h3>
+    <CodeSample name="examples/input-date-fns" />
+
+    <h3>Example using moment.js</h3>
     <p>
       If you use <a href="http://momentjs.com">moment.js</a>, we provide an
       utility for using its parser and formatter functions. See{' '}
@@ -67,11 +74,5 @@ export default () => (
     </p>
 
     <CodeSample name="examples/input-moment" />
-
-    <h3>Use date-fns to parse and format dates</h3>
-    <p>
-      If you are using <a href="http://date-fns.org">date-fns</a>, see{' '}
-      <Link to="/examples/input-date-fns">this example</Link>.
-    </p>
   </DocPage>
 );
