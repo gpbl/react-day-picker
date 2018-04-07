@@ -374,6 +374,16 @@ export default class DayPickerInput extends React.Component {
       formatDate,
       format,
     } = this.props;
+    
+    if (dayPickerProps.classNames) {
+        Object.keys(dayPickerProps.classNames).map(function (key) {
+            let value = dayPickerProps.classNames[key];
+            if (modifiers[value]) {
+                modifiers[key] = modifiers[value];
+            }
+        })
+    }
+
     if (dayPickerProps.onDayClick) {
       dayPickerProps.onDayClick(day, modifiers, e);
     }
