@@ -204,26 +204,24 @@ export default class DayPickerInput extends React.Component {
     return this.daypicker;
   }
 
+  setStateFrom(relatedTarget) {
+    this.setState({
+      showOverlay: this.overlayNode && this.overlayNode.contains(relatedTarget),
+    });
+  }
+
   isIE() {
     return /*@cc_on!@*/false || !!document.documentMode;
   }
 
-  setStateFrom(relatedTarget) {
-    this.setState({
-        showOverlay:
-          this.overlayNode && this.overlayNode.contains(relatedTarget),
-    });
-  }
-
   resetHideTimeout() {
-    if(this.hideTimeout) {
-      this.hideTimeout = setTimeout(() => { 
-          this.hideDayPicker();
-          this.hideTimeout = null;
-        }, HIDE_TIMEOUT);
+    if (this.hideTimeout) {
+      this.hideTimeout = setTimeout(() => {
+        this.hideDayPicker();
+        this.hideTimeout = null;
+      }, HIDE_TIMEOUT);
     }
   }
-
 
   input = null;
   daypicker = null;
@@ -308,11 +306,13 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputBlur(e) {
-    if(this.isIE()) {
-        this.ieInputBlurTimeout = setTimeout(() => 
-            this.setStateFrom(e.relatedTarget), HIDE_TIMEOUT);
+    if (this.isIE()) {
+      this.ieInputBlurTimeout = setTimeout(
+        () => this.setStateFrom(e.relatedTarget),
+        HIDE_TIMEOUT
+      );
     } else {
-        this.setStateFrom(e.relatedTarget);
+      this.setStateFrom(e.relatedTarget);
     }
     if (this.props.inputProps.onBlur) {
       e.persist();
@@ -323,11 +323,11 @@ export default class DayPickerInput extends React.Component {
   handleOverlayFocus(e) {
     if (this.props.keepFocus === true) {
       e.preventDefault();
-      if(this.isIE()) {
+      if (this.isIE()) {
         this.ieInputFocusTimeout = setTimeout(() => {
-            this.input.focus();
-            this.resetHideTimeout();
-          }, HIDE_TIMEOUT);
+          this.input.focus();
+          this.resetHideTimeout();
+        }, HIDE_TIMEOUT);
       } else {
         this.input.focus();
       }
