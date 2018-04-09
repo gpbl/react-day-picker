@@ -168,7 +168,7 @@ export default class DayPickerInput extends React.Component {
     clearTimeout(this.clickTimeout);
     clearTimeout(this.hideTimeout);
     clearTimeout(this.ieInputFocusTimeout);
-    clearTImeout(this.ieInputBlurTimeout);
+    clearTimeout(this.ieInputBlurTimeout);
   }
 
   getStateFromProps(props) {
