@@ -314,7 +314,7 @@ describe('DayPicker’s events handlers', () => {
       .find('.DayPicker-WeekNumber')
       .at(1)
       .simulate('click');
-    expect(handleWeekClick.mock.calls[0][0]).toBe(6);
+    expect(handleWeekClick.mock.calls[0][0]).toBe(7);
     expect(handleWeekClick.mock.calls[0][1]).toHaveLength(7);
   });
   it('should call `onWeekClick` when pressing ENTER on a week number', () => {
