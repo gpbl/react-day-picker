@@ -42,6 +42,23 @@ export function isSameDay(d1, d2) {
 }
 
 /**
+ * Return `true` if two dates fall in the same month.
+ *
+ * @export
+ * @param  {Date}  d1
+ * @param  {Date}  d2
+ * @return {Boolean}
+ */
+export function isSameMonth(d1, d2) {
+  if (!d1 || !d2) {
+    return false;
+  }
+  return (
+    d1.getMonth() === d2.getMonth() && d1.getFullYear() === d2.getFullYear()
+  );
+}
+
+/**
  * Returns `true` if the first day is before the second day.
  *
  * @export
@@ -194,4 +211,5 @@ export default {
   isFutureDay,
   isPastDay,
   isSameDay,
+  isSameMonth,
 };
