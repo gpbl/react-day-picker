@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { polyfill } from 'react-lifecycles-compat';
 import PropTypes from 'prop-types';
 
 import Caption from './Caption';
@@ -14,7 +15,7 @@ import classNames from './classNames';
 
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 
-export default class DayPicker extends Component {
+export class _DayPicker extends Component {
   static VERSION = '7.1.4';
 
   static propTypes = {
@@ -575,6 +576,10 @@ export default class DayPicker extends Component {
   }
 }
 
+const DayPicker = polyfill(_DayPicker);
+
 DayPicker.DateUtils = DateUtils;
 DayPicker.LocaleUtils = LocaleUtils;
 DayPicker.ModifiersUtils = ModifiersUtils;
+
+export default DayPicker;
