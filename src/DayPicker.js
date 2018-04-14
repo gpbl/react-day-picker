@@ -161,7 +161,7 @@ export default class DayPicker extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.month !== nextProps.month) {
+    if (!DateUtils.isSameMonth(this.props.month, nextProps.month)) {
       this.setState(this.getStateFromProps(nextProps));
     }
   }
