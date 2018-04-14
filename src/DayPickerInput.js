@@ -112,7 +112,7 @@ export default class DayPickerInput extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.getStateFromProps(props);
+    this.state = this.getInitialStateFromProps(props);
     this.state.showOverlay = props.showOverlay;
 
     this.hideAfterDayClick = this.hideAfterDayClick.bind(this);
@@ -152,9 +152,7 @@ export default class DayPickerInput extends React.Component {
           this.props.dayPickerProps.locale
         );
       }
-      this.setState({
-        value: nextValue,
-      });
+      this.setState({ value: nextValue });
     }
     if (monthChanged) {
       this.setState({ month: nextMonthFromProps });
@@ -169,7 +167,7 @@ export default class DayPickerInput extends React.Component {
     clearTimeout(this.hideTimeout);
   }
 
-  getStateFromProps(props) {
+  getInitialStateFromProps(props) {
     const { dayPickerProps, formatDate, format } = props;
     let { value } = props;
 
