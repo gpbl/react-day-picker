@@ -97,6 +97,26 @@ describe('DateUtils', () => {
     });
   });
 
+  describe('isSameMonth', () => {
+    it('returns true if two days differ only by time', () => {
+      const day1 = new Date(2015, 10, 11, 5, 25);
+      const day2 = new Date(2015, 10, 11, 7, 40);
+      const isSameMonth = DateUtils.isSameMonth(day1, day2);
+      expect(isSameMonth).toBe(true);
+    });
+    it('returns true for different days', () => {
+      const day1 = new Date(2015, 8, 12);
+      const day2 = new Date(2015, 8, 11);
+      const isSameMonth = DateUtils.isSameMonth(day1, day2);
+      expect(isSameMonth).toBe(true);
+    });
+    it('returns false if one of the days is not specified', () => {
+      const day1 = new Date(2015, 8, 12);
+      const isSameMonth = DateUtils.isSameMonth(day1, null);
+      expect(isSameMonth).toBe(false);
+    });
+  });
+
   describe('isPastDay', () => {
     it('detects a day is in the past', () => {
       const isPastDay = DateUtils.isPastDay(new Date(2015, 5, 11));

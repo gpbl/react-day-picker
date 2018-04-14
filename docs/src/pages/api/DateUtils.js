@@ -120,6 +120,14 @@ console.log(newRange.from) // 2015-05-24`}</CodeBlock>
         Return <code>true</code> if <code>day1</code> and
         <code>day2</code> are the same day.
       </p>
+      <h3>
+        <Anchor id="isSameMonth" />
+        isSameMonth <code>(day1: ?Date, day2: ?Date) ⇒ boolean</code>
+      </h3>
+      <p>
+        Return <code>true</code> if <code>day1</code> and
+        <code>day2</code> fall in the same month.
+      </p>
     </ApiDocs>
   </DocPage>
 );
