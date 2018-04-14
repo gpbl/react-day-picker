@@ -112,7 +112,7 @@ export default class DayPickerInput extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.getStateFromProps(props);
+    this.state = this.getInitialStateFromProps(props);
     this.state.showOverlay = props.showOverlay;
 
     this.hideAfterDayClick = this.hideAfterDayClick.bind(this);
@@ -152,9 +152,7 @@ export default class DayPickerInput extends React.Component {
           this.props.dayPickerProps.locale
         );
       }
-      this.setState({
-        value: nextValue,
-      });
+      this.setState({ value: nextValue });
     }
     if (monthChanged) {
       this.setState({ month: nextMonthFromProps });
@@ -169,27 +167,30 @@ export default class DayPickerInput extends React.Component {
     clearTimeout(this.hideTimeout);
   }
 
-  getStateFromProps(props) {
-    const { dayPickerProps, formatDate, format } = props;
-    let { value } = props;
-
+  getInitialMonthFromProps(props) {
+    const { dayPickerProps, format } = props;
     let day;
     if (props.value) {
       if (isDate(props.value)) {
         day = props.value;
-        value = formatDate(props.value, format, dayPickerProps.locale);
       } else {
         day = props.parseDate(props.value, format, dayPickerProps.locale);
       }
     }
+    return (
+      dayPickerProps.initialMonth || dayPickerProps.month || day || new Date()
+    );
+  }
 
-    // Use DayPicker's controlled month. Then try the current `value`. Finally default to today.
-    const month =
-      dayPickerProps.initialMonth || dayPickerProps.month || day || new Date();
-
+  getInitialStateFromProps(props) {
+    const { dayPickerProps, formatDate, format } = props;
+    let { value } = props;
+    if (props.value && isDate(props.value)) {
+      value = formatDate(props.value, format, dayPickerProps.locale);
+    }
     return {
       value,
-      month,
+      month: this.getInitialMonthFromProps(props),
       selectedDays: dayPickerProps.selectedDays,
     };
   }
@@ -247,7 +248,19 @@ export default class DayPickerInput extends React.Component {
    * @memberof DayPickerInput
    */
   showDayPicker() {
-    this.setState({ showOverlay: true });
+    const { parseDate, format, dayPickerProps } = this.props;
+    const { value, showOverlay } = this.state;
+    let month;
+    if (showOverlay === false) {
+      // Reset the current displayed month when showing the overlay
+      month = value
+        ? parseDate(value, format, dayPickerProps.locale) // Use the month in the input field
+        : this.getInitialMonthFromProps(this.props); // Restore the month from the props
+    }
+    this.setState({
+      showOverlay: true,
+      month: month || this.state.month,
+    });
   }
 
   /**
