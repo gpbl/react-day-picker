@@ -22,6 +22,7 @@
     "no-return-assign": 0,
     "no-restricted-globals": 0,
     "import/named": 2,
+    "import/no-named-as-default": 0,
     "react/jsx-filename-extension": 0,
     "react/require-default-props": 0
   }
