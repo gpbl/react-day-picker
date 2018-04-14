@@ -49,7 +49,7 @@ export function defaultParse(str) {
   return new Date(year, month, day);
 }
 
-export class _DayPickerInput extends React.Component {
+export class DayPickerInput extends React.Component {
   static propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
     inputProps: PropTypes.object,
@@ -501,5 +501,4 @@ export class _DayPickerInput extends React.Component {
   }
 }
 
-const DayPickerInput = polyfill(_DayPickerInput);
-export default DayPickerInput;
+export default polyfill(DayPickerInput);
