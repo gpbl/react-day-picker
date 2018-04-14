@@ -15,7 +15,7 @@ import classNames from './classNames';
 
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 
-export class _DayPicker extends Component {
+export class DayPicker extends Component {
   static VERSION = '7.1.4';
 
   static propTypes = {
@@ -162,7 +162,10 @@ export class _DayPicker extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!DateUtils.isSameMonth(this.props.month, nextProps.month)) {
+    if (
+      this.props.month !== nextProps.month &&
+      !DateUtils.isSameMonth(this.props.month, nextProps.month)
+    ) {
       this.setState(this.getStateFromProps(nextProps));
     }
   }
@@ -576,10 +579,8 @@ export class _DayPicker extends Component {
   }
 }
 
-const DayPicker = polyfill(_DayPicker);
-
 DayPicker.DateUtils = DateUtils;
 DayPicker.LocaleUtils = LocaleUtils;
 DayPicker.ModifiersUtils = ModifiersUtils;
 
-export default DayPicker;
+export default polyfill(DayPicker);
