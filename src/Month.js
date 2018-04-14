@@ -178,7 +178,7 @@ export default class Month extends Component {
           {weeks.map(week => {
             let weekNumber;
             if (showWeekNumbers) {
-              weekNumber = DateUtils.getWeekNumber(week[0]);
+              weekNumber = DateUtils.getWeekNumber(week[6]);
             }
             return (
               <div
