@@ -352,7 +352,7 @@ describe('DayPicker’s rendering', () => {
       <DayPicker showWeekNumbers initialMonth={new Date(2015, 1)} />
     );
     expect(wrapper.find('.DayPicker-WeekNumber')).toHaveLength(4);
-    expect(wrapper.find('.DayPicker-WeekNumber').at(1)).toHaveText('6');
+    expect(wrapper.find('.DayPicker-WeekNumber').at(1)).toHaveText('7');
   });
   it('should use the specified class names', () => {
     const wrapper = mount(
