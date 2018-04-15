@@ -15,7 +15,7 @@ import classNames from './classNames';
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 
 export class DayPicker extends Component {
-  static VERSION = '7.1.5';
+  static VERSION = '7.1.6';
 
   static propTypes = {
     // Rendering months
