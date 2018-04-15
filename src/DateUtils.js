@@ -10,6 +10,17 @@ export function clone(d) {
 }
 
 /**
+ * Return `true` if the passed value is a valid JavaScript Date object.
+ *
+ * @export
+ * @param {any} value
+ * @returns {Boolean}
+ */
+export function isDate(value) {
+  return value instanceof Date && !isNaN(value.valueOf());
+}
+
+/**
  * Return `d` as a new date with `n` months added.
  *
  * @export
@@ -204,6 +215,7 @@ export default {
   addMonths,
   clone,
   getWeekNumber,
+  isDate,
   isDayAfter,
   isDayBefore,
   isDayBetween,
