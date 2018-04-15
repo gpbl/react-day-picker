@@ -1,9 +1,11 @@
-### [v7.1.5](https://github.com/gpbl/react-day-picker/tree/v7.1.5) (2018-04-14)
+### [v7.1.6](https://github.com/gpbl/react-day-picker/tree/v7.1.6) (2018-04-15)
 
-* Added support for React 17 ([#696](https://github.com/gpbl/react-day-picker/issues/696))
+* Updated to support React 17 ([#696](https://github.com/gpbl/react-day-picker/issues/696))
+* Added: `isSameMonth`, `isDate` functions to DateUtils.
 * Fixed: month was reset when selecting multiple days ([#669](https://github.com/gpbl/react-day-picker/issues/669))
 * Fixed: week numbers may not be correct ([#692](https://github.com/gpbl/react-day-picker/issues/692))
 * Fixed: DayPickerInput did not reset the displayed month when appearing again ([#667](https://github.com/gpbl/react-day-picker/issues/667))
+* Fixed: DayPickerInput did display the overlay even if the input was disabled ([#680](https://github.com/gpbl/react-day-picker/issues/680))
 
 ## [v7.1](https://github.com/gpbl/react-day-picker/tree/v7.1.4) (2018-03-04)
 
