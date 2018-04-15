@@ -289,6 +289,9 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputClick(e) {
+    if (this.props.inputProps.disabled) {
+      return;
+    }
     this.showDayPicker();
     if (this.props.inputProps.onClick) {
       e.persist();
