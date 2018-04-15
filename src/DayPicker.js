@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import PropTypes from 'prop-types';
 
 import Caption from './Caption';
@@ -163,12 +162,14 @@ export class DayPicker extends Component {
     this.state = { currentMonth };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
+    // Changing the `month` props means changing the current displayed month
     if (
-      this.props.month !== nextProps.month &&
-      !DateUtils.isSameMonth(this.props.month, nextProps.month)
+      prevProps.month !== this.props.month &&
+      !DateUtils.isSameMonth(prevProps.month, this.props.month)
     ) {
-      this.setState(this.getStateFromProps(nextProps));
+      const currentMonth = this.getCurrentMonthFromProps(this.props);
+      this.setState({ currentMonth });
     }
   }
 
@@ -593,4 +594,6 @@ DayPicker.DateUtils = DateUtils;
 DayPicker.LocaleUtils = LocaleUtils;
 DayPicker.ModifiersUtils = ModifiersUtils;
 
-export default polyfill(DayPicker);
+export { DateUtils, LocaleUtils, ModifiersUtils };
+
+export default DayPicker;
