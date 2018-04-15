@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "7.1.5",
+  "version": "7.1.6",
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "style": "lib/style.css",
@@ -99,7 +99,6 @@
     "webpack": "3.10.0"
   },
   "dependencies": {
-    "prop-types": "^15.6.1",
-    "react-lifecycles-compat": "^3.0.2"
+    "prop-types": "^15.6.1"
   }
 }
