@@ -489,19 +489,20 @@ export default class DayPickerInput extends React.Component {
 
   render() {
     const Input = this.props.component;
+    const { inputProps } = this.props;
     return (
       <div className={this.props.classNames.container}>
         <Input
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}
-          {...this.props.inputProps}
+          {...inputProps}
           value={this.state.value}
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
           onKeyDown={this.handleInputKeyDown}
           onKeyUp={this.handleInputKeyUp}
-          onClick={this.handleInputClick}
+          onClick={!inputProps.disabled ? this.handleInputClick : undefined}
         />
         {this.state.showOverlay && this.renderOverlay()}
       </div>

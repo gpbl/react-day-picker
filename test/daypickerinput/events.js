@@ -17,6 +17,14 @@ describe('DayPickerInput', () => {
         wrapper.find('input').simulate('click');
         expect(wrapper.find('.DayPicker')).toBeDefined();
       });
+      it('should not show the overlay when the input is disabled', () => {
+        const wrapper = mount(
+          <DayPickerInput inputProps={{ disabled: true }} />
+        );
+        wrapper.find('input').simulate('click');
+        // The following won't work until https://github.com/airbnb/enzyme/issues/386 is fixed.
+        // expect(wrapper.find('.DayPicker')).not.toBeDefined();
+      });
       it('should call `onClick` event handler', () => {
         const onClick = jest.fn();
         const wrapper = mount(<DayPickerInput inputProps={{ onClick }} />);
