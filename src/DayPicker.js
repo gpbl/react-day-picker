@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import PropTypes from 'prop-types';
 
 import Caption from './Caption';
@@ -158,19 +157,32 @@ export class DayPicker extends Component {
 
   constructor(props) {
     super(props);
-    this.state = this.getStateFromProps(props);
+
+    const currentMonth = this.getCurrentMonthFromProps(props);
+    this.state = { currentMonth };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
+    // Changing the `month` props means changing the current displayed month
     if (
-      this.props.month !== nextProps.month &&
-      !DateUtils.isSameMonth(this.props.month, nextProps.month)
+      prevProps.month !== this.props.month &&
+      !DateUtils.isSameMonth(prevProps.month, this.props.month)
     ) {
-      this.setState(this.getStateFromProps(nextProps));
+      const currentMonth = this.getCurrentMonthFromProps(this.props);
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ currentMonth });
     }
   }
 
-  getStateFromProps = props => {
+  /**
+   * Return the month to be shown in the calendar based on the component props.
+   *
+   * @param {Object} props
+   * @returns Date
+   * @memberof DayPicker
+   * @private
+   */
+  getCurrentMonthFromProps(props) {
     const initialMonth = Helpers.startOfMonth(
       props.month || props.initialMonth
     );
@@ -192,8 +204,8 @@ export class DayPicker extends Component {
         1 - this.props.numberOfMonths
       );
     }
-    return { currentMonth };
-  };
+    return currentMonth;
+  }
 
   getNextNavigableMonth() {
     return DateUtils.addMonths(
@@ -583,4 +595,6 @@ DayPicker.DateUtils = DateUtils;
 DayPicker.LocaleUtils = LocaleUtils;
 DayPicker.ModifiersUtils = ModifiersUtils;
 
-export default polyfill(DayPicker);
+export { DateUtils, LocaleUtils, ModifiersUtils };
+
+export default DayPicker;
