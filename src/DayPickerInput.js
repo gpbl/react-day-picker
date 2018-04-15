@@ -8,10 +8,6 @@ import { ESC, TAB } from './keys';
 // When clicking on a day cell, overlay will be hidden after this timeout
 export const HIDE_TIMEOUT = 100;
 
-function isDate(date) {
-  return date instanceof Date && !isNaN(date.valueOf());
-}
-
 /**
  * The default function used to format a Date to String, passed to the `format` prop.
  * @param {Date} d

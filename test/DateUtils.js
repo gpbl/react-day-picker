@@ -35,6 +35,21 @@ describe('DateUtils', () => {
     });
   });
 
+  describe('isDate', () => {
+    it('should detect a valid date', () =>
+      expect(DateUtils.isDate(new Date())).toBe(true));
+    it('should detect invalid date from String', () =>
+      expect(DateUtils.isDate('x')).toBe(false));
+    it('should detect invalid date from Object', () =>
+      expect(DateUtils.isDate({})).toBe(false));
+    it('should detect invalid date from Array', () =>
+      expect(DateUtils.isDate([])).toBe(false));
+    it('should detect invalid date from `undefined`', () =>
+      expect(DateUtils.isDate(undefined)).toBe(false));
+    it('should detect invalid date from `null`', () =>
+      expect(DateUtils.isDate(null)).toBe(false));
+  });
+
   describe('isDayBefore', () => {
     it('returns true when the day is before the other day', () => {
       const day1 = new Date(2015, 10, 11, 5, 25);
