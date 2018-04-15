@@ -1,18 +1,19 @@
 import React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import PropTypes from 'prop-types';
 
 import DayPicker from './DayPicker';
+import { isSameMonth, isDate } from './DateUtils';
 import { getModifiersForDay } from './ModifiersUtils';
 import { ESC, TAB } from './keys';
 
 // When clicking on a day cell, overlay will be hidden after this timeout
 export const HIDE_TIMEOUT = 100;
 
-function isDate(date) {
-  return date instanceof Date && !isNaN(date.valueOf());
-}
-
+/**
+ * The default function used to format a Date to String, passed to the `format` prop.
+ * @param {Date} d
+ * @return {String}
+ */
 export function defaultFormat(d) {
   if (isDate(d)) {
     const year = d.getFullYear();
@@ -23,6 +24,11 @@ export function defaultFormat(d) {
   return '';
 }
 
+/**
+ * The default function used to parse a String as Date, passed to the `parse` prop.
+ * @param {String} str
+ * @return {Date}
+ */
 export function defaultParse(str) {
   if (typeof str !== 'string') {
     return undefined;
@@ -49,7 +55,7 @@ export function defaultParse(str) {
   return new Date(year, month, day);
 }
 
-export class DayPickerInput extends React.Component {
+export default class DayPickerInput extends React.Component {
   static propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
     inputProps: PropTypes.object,
@@ -129,37 +135,39 @@ export class DayPickerInput extends React.Component {
     this.handleOverlayBlur = this.handleOverlayBlur.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const monthFromProps = this.props.dayPickerProps.month;
-    const nextMonthFromProps = nextProps.dayPickerProps.month;
+  componentDidUpdate(prevProps) {
+    const newState = {};
 
-    const selectedDaysFromProps = this.props.dayPickerProps.selectedDays;
-    const nextSelectedDaysFromProps = nextProps.dayPickerProps.selectedDays;
+    // Current props
+    const { value, formatDate, format, dayPickerProps } = this.props;
 
-    let nextValue = nextProps.value;
-    const currentValue = this.props.value;
-
-    const monthChanged =
-      (nextMonthFromProps && !monthFromProps) ||
-      (nextMonthFromProps &&
-        (nextMonthFromProps.getFullYear() !== monthFromProps.getFullYear() ||
-          nextMonthFromProps.getMonth() !== monthFromProps.getMonth()));
-
-    if (nextValue !== currentValue) {
-      if (isDate(nextValue)) {
-        nextValue = this.props.formatDate(
-          nextValue,
-          this.props.format,
-          this.props.dayPickerProps.locale
-        );
+    // Update the input value if the `value` prop has changed
+    if (value !== prevProps.value) {
+      if (isDate(value)) {
+        newState.value = formatDate(value, format, dayPickerProps.locale);
+      } else {
+        newState.value = value;
       }
-      this.setState({ value: nextValue });
     }
-    if (monthChanged) {
-      this.setState({ month: nextMonthFromProps });
+
+    // Update the month if the months from props changed
+    const prevMonth = prevProps.dayPickerProps.month;
+    if (
+      dayPickerProps.month &&
+      dayPickerProps.month !== prevMonth &&
+      !isSameMonth(dayPickerProps.month, prevMonth)
+    ) {
+      newState.month = dayPickerProps.month;
     }
-    if (selectedDaysFromProps !== nextSelectedDaysFromProps) {
-      this.setState({ selectedDays: nextSelectedDaysFromProps });
+
+    // Updated the selected days from props if they changed
+    if (prevProps.dayPickerProps.selectedDays !== dayPickerProps.selectedDays) {
+      newState.selectedDays = dayPickerProps.selectedDays;
+    }
+
+    if (Object.keys(newState).length > 0) {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState(newState);
     }
   }
 
@@ -500,5 +508,3 @@ export class DayPickerInput extends React.Component {
     );
   }
 }
-
-export default polyfill(DayPickerInput);
