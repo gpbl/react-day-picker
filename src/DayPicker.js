@@ -158,7 +158,9 @@ export class DayPicker extends Component {
 
   constructor(props) {
     super(props);
-    this.state = this.getStateFromProps(props);
+
+    const currentMonth = this.getCurrentMonthFromProps(props);
+    this.state = { currentMonth };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -170,7 +172,15 @@ export class DayPicker extends Component {
     }
   }
 
-  getStateFromProps = props => {
+  /**
+   * Return the month to be shown in the calendar based on the component props.
+   *
+   * @param {Object} props
+   * @returns Date
+   * @memberof DayPicker
+   * @private
+   */
+  getCurrentMonthFromProps(props) {
     const initialMonth = Helpers.startOfMonth(
       props.month || props.initialMonth
     );
@@ -192,8 +202,8 @@ export class DayPicker extends Component {
         1 - this.props.numberOfMonths
       );
     }
-    return { currentMonth };
-  };
+    return currentMonth;
+  }
 
   getNextNavigableMonth() {
     return DateUtils.addMonths(
