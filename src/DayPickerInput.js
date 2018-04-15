@@ -12,6 +12,11 @@ function isDate(date) {
   return date instanceof Date && !isNaN(date.valueOf());
 }
 
+/**
+ * The default function used to format a Date to String, passed to the `format` prop.
+ * @param {Date} d
+ * @return {String}
+ */
 export function defaultFormat(d) {
   if (isDate(d)) {
     const year = d.getFullYear();
@@ -22,6 +27,11 @@ export function defaultFormat(d) {
   return '';
 }
 
+/**
+ * The default function used to parse a String as Date, passed to the `parse` prop.
+ * @param {String} str
+ * @return {Date}
+ */
 export function defaultParse(str) {
   if (typeof str !== 'string') {
     return undefined;
