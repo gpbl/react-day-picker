@@ -1,5 +1,4 @@
 import React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import PropTypes from 'prop-types';
 
 import DayPicker from './DayPicker';
@@ -49,7 +48,7 @@ export function defaultParse(str) {
   return new Date(year, month, day);
 }
 
-export class DayPickerInput extends React.Component {
+export default class DayPickerInput extends React.Component {
   static propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
     inputProps: PropTypes.object,
@@ -500,5 +499,3 @@ export class DayPickerInput extends React.Component {
     );
   }
 }
-
-export default polyfill(DayPickerInput);
