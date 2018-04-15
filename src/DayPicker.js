@@ -1,5 +1,3 @@
-/* eslint-disable react/no-did-update-set-state */
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -171,6 +169,7 @@ export class DayPicker extends Component {
       !DateUtils.isSameMonth(prevProps.month, this.props.month)
     ) {
       const currentMonth = this.getCurrentMonthFromProps(this.props);
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ currentMonth });
     }
   }
