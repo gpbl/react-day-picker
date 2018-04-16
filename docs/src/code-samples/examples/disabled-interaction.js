@@ -10,12 +10,12 @@ export default class Example extends React.Component {
       selectedDay: undefined,
     };
   }
-  handleDayClick(day, { disabled, selected }) {
-    if (disabled) {
+  handleDayClick(day, modifiers = {}) {
+    if (modifiers.disabled) {
       return;
     }
     this.setState({
-      selectedDay: selected ? undefined : day,
+      selectedDay: modifiers.selected ? undefined : day,
     });
   }
   render() {

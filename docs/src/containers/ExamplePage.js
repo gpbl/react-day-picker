@@ -92,6 +92,9 @@ export default function ExamplePage({ children, title }) {
               <Menu.Item to="/examples/input-moment">
                 Using moment.js to parse and format dates
               </Menu.Item>
+              <Menu.Item to="/examples/input-date-fns">
+                Using date-fns to parse and format dates
+              </Menu.Item>
               <Menu.Item to="/examples/input-from-to">
                 Range with two inputs
               </Menu.Item>
