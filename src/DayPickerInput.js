@@ -221,15 +221,6 @@ export default class DayPickerInput extends React.Component {
     });
   }
 
-  resetHideTimeout() {
-    if (this.hideTimeout) {
-      this.hideTimeout = setTimeout(() => {
-        this.hideDayPicker();
-        this.hideTimeout = null;
-      }, HIDE_TIMEOUT);
-    }
-  }
-
   input = null;
   daypicker = null;
   overlayNode = null;
@@ -345,7 +336,13 @@ export default class DayPickerInput extends React.Component {
       if (isIE()) {
         this.ieInputFocusTimeout = setTimeout(() => {
           this.input.focus();
-          this.resetHideTimeout();
+          // Reset the hide timeout
+          if (this.hideTimeout) {
+            this.hideTimeout = setTimeout(() => {
+              this.hideDayPicker();
+              this.hideTimeout = null;
+            }, HIDE_TIMEOUT);
+          }
         }, HIDE_TIMEOUT);
       } else {
         this.input.focus();
