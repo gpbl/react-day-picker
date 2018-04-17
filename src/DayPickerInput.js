@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DayPicker from './DayPicker';
+import { isIE } from './Helpers';
 import { isSameMonth, isDate } from './DateUtils';
 import { getModifiersForDay } from './ModifiersUtils';
 import { ESC, TAB } from './keys';
@@ -174,6 +175,8 @@ export default class DayPickerInput extends React.Component {
   componentWillUnmount() {
     clearTimeout(this.clickTimeout);
     clearTimeout(this.hideTimeout);
+    clearTimeout(this.ieInputFocusTimeout);
+    clearTimeout(this.ieInputBlurTimeout);
   }
 
   getInitialMonthFromProps(props) {
@@ -212,11 +215,19 @@ export default class DayPickerInput extends React.Component {
     return this.daypicker;
   }
 
+  setStateFrom(relatedTarget) {
+    this.setState({
+      showOverlay: this.overlayNode && this.overlayNode.contains(relatedTarget),
+    });
+  }
+
   input = null;
   daypicker = null;
   overlayNode = null;
   clickTimeout = null;
   hideTimeout = null;
+  ieInputFocusTimeout = null;
+  ieInputBlutTimeout = null;
 
   /**
    * Update the component's state and fire the `onDayChange` event
@@ -305,10 +316,14 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputBlur(e) {
-    this.setState({
-      showOverlay:
-        this.overlayNode && this.overlayNode.contains(e.relatedTarget),
-    });
+    if (!isIE()) {
+      this.setStateFrom(e.relatedTarget);
+    } else {
+      this.ieInputBlurTimeout = setTimeout(
+        () => this.setStateFrom(e.relatedTarget),
+        HIDE_TIMEOUT
+      );
+    }
     if (this.props.inputProps.onBlur) {
       e.persist();
       this.props.inputProps.onBlur(e);
@@ -316,9 +331,26 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleOverlayFocus(e) {
-    if (this.props.keepFocus === true) {
-      e.preventDefault();
+    if (!this.props.keepFocus) {
+      return;
+    }
+    e.preventDefault();
+    if (!isIE()) {
       this.input.focus();
+    } else {
+      // Fix behavior in Internet Explorer
+      // See https://github.com/gpbl/react-day-picker/pull/691
+      this.ieInputFocusTimeout = setTimeout(() => {
+        this.input.focus();
+        // Reset the hide timeout for reasons
+        // TODO: add a comment specifying why we need this
+        if (this.hideTimeout) {
+          this.hideTimeout = setTimeout(() => {
+            this.hideDayPicker();
+            this.hideTimeout = null;
+          }, HIDE_TIMEOUT);
+        }
+      }, HIDE_TIMEOUT);
     }
   }
 
