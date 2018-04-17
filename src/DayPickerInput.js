@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DayPicker from './DayPicker';
+import { isIE } from './Helpers';
 import { isSameMonth, isDate } from './DateUtils';
 import { getModifiersForDay } from './ModifiersUtils';
 import { ESC, TAB } from './keys';
@@ -220,10 +221,6 @@ export default class DayPickerInput extends React.Component {
     });
   }
 
-  isIE() {
-    return /*@cc_on!@*/false || !!document.documentMode;
-  }
-
   resetHideTimeout() {
     if (this.hideTimeout) {
       this.hideTimeout = setTimeout(() => {
@@ -328,7 +325,7 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputBlur(e) {
-    if (this.isIE()) {
+    if (isIE()) {
       this.ieInputBlurTimeout = setTimeout(
         () => this.setStateFrom(e.relatedTarget),
         HIDE_TIMEOUT
@@ -345,7 +342,7 @@ export default class DayPickerInput extends React.Component {
   handleOverlayFocus(e) {
     if (this.props.keepFocus === true) {
       e.preventDefault();
-      if (this.isIE()) {
+      if (isIE()) {
         this.ieInputFocusTimeout = setTimeout(() => {
           this.input.focus();
           this.resetHideTimeout();
