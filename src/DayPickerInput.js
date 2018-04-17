@@ -215,12 +215,6 @@ export default class DayPickerInput extends React.Component {
     return this.daypicker;
   }
 
-  setStateFrom(relatedTarget) {
-    this.setState({
-      showOverlay: this.overlayNode && this.overlayNode.contains(relatedTarget),
-    });
-  }
-
   input = null;
   daypicker = null;
   overlayNode = null;
@@ -292,6 +286,14 @@ export default class DayPickerInput extends React.Component {
     this.setState({ showOverlay: false });
   }
 
+  showOverlayBasedOnTargetNode(node) {
+    if (this.overlayNode && this.overlayNode.contains(node)) {
+      this.showDayPicker();
+    } else {
+      this.hideDayPicker();
+    }
+  }
+
   hideAfterDayClick() {
     if (!this.props.hideOnDayClick) {
       return;
@@ -316,11 +318,12 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputBlur(e) {
+    const target = e.relatedTarget;
     if (!isIE()) {
-      this.setStateFrom(e.relatedTarget);
+      this.showOverlayBasedOnTargetNode(target);
     } else {
       this.ieInputBlurTimeout = setTimeout(
-        () => this.setStateFrom(e.relatedTarget),
+        () => this.showOverlayBasedOnTargetNode(target),
         HIDE_TIMEOUT
       );
     }
