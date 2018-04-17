@@ -316,13 +316,13 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputBlur(e) {
-    if (isIE()) {
+    if (!isIE()) {
+      this.setStateFrom(e.relatedTarget);
+    } else {
       this.ieInputBlurTimeout = setTimeout(
         () => this.setStateFrom(e.relatedTarget),
         HIDE_TIMEOUT
       );
-    } else {
-      this.setStateFrom(e.relatedTarget);
     }
     if (this.props.inputProps.onBlur) {
       e.persist();
