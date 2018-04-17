@@ -331,22 +331,26 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleOverlayFocus(e) {
-    if (this.props.keepFocus === true) {
-      e.preventDefault();
-      if (isIE()) {
-        this.ieInputFocusTimeout = setTimeout(() => {
-          this.input.focus();
-          // Reset the hide timeout
-          if (this.hideTimeout) {
-            this.hideTimeout = setTimeout(() => {
-              this.hideDayPicker();
-              this.hideTimeout = null;
-            }, HIDE_TIMEOUT);
-          }
-        }, HIDE_TIMEOUT);
-      } else {
+    if (!this.props.keepFocus) {
+      return;
+    }
+    e.preventDefault();
+    if (!isIE()) {
+      this.input.focus();
+    } else {
+      // Fix behavior in Internet Explorer
+      // See https://github.com/gpbl/react-day-picker/pull/691
+      this.ieInputFocusTimeout = setTimeout(() => {
         this.input.focus();
-      }
+        // Reset the hide timeout for reasons
+        // TODO: add a comment specifying why we need this
+        if (this.hideTimeout) {
+          this.hideTimeout = setTimeout(() => {
+            this.hideDayPicker();
+            this.hideTimeout = null;
+          }, HIDE_TIMEOUT);
+        }
+      }, HIDE_TIMEOUT);
     }
   }
 
