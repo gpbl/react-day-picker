@@ -174,6 +174,8 @@ export default class DayPickerInput extends React.Component {
   componentWillUnmount() {
     clearTimeout(this.clickTimeout);
     clearTimeout(this.hideTimeout);
+    clearTimeout(this.ieInputFocusTimeout);
+    clearTimeout(this.ieInputBlurTimeout);
   }
 
   getInitialMonthFromProps(props) {
@@ -212,11 +214,32 @@ export default class DayPickerInput extends React.Component {
     return this.daypicker;
   }
 
+  setStateFrom(relatedTarget) {
+    this.setState({
+      showOverlay: this.overlayNode && this.overlayNode.contains(relatedTarget),
+    });
+  }
+
+  isIE() {
+    return /*@cc_on!@*/false || !!document.documentMode;
+  }
+
+  resetHideTimeout() {
+    if (this.hideTimeout) {
+      this.hideTimeout = setTimeout(() => {
+        this.hideDayPicker();
+        this.hideTimeout = null;
+      }, HIDE_TIMEOUT);
+    }
+  }
+
   input = null;
   daypicker = null;
   overlayNode = null;
   clickTimeout = null;
   hideTimeout = null;
+  ieInputFocusTimeout = null;
+  ieInputBlutTimeout = null;
 
   /**
    * Update the component's state and fire the `onDayChange` event
@@ -305,10 +328,14 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputBlur(e) {
-    this.setState({
-      showOverlay:
-        this.overlayNode && this.overlayNode.contains(e.relatedTarget),
-    });
+    if (this.isIE()) {
+      this.ieInputBlurTimeout = setTimeout(
+        () => this.setStateFrom(e.relatedTarget),
+        HIDE_TIMEOUT
+      );
+    } else {
+      this.setStateFrom(e.relatedTarget);
+    }
     if (this.props.inputProps.onBlur) {
       e.persist();
       this.props.inputProps.onBlur(e);
@@ -318,7 +345,14 @@ export default class DayPickerInput extends React.Component {
   handleOverlayFocus(e) {
     if (this.props.keepFocus === true) {
       e.preventDefault();
-      this.input.focus();
+      if (this.isIE()) {
+        this.ieInputFocusTimeout = setTimeout(() => {
+          this.input.focus();
+          this.resetHideTimeout();
+        }, HIDE_TIMEOUT);
+      } else {
+        this.input.focus();
+      }
     }
   }
 
