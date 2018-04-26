@@ -263,13 +263,17 @@ function MyDayPickerInput(props) {
 
       <h3>
         <Anchor id="onDayChange" />
-        onDayChange <code>(day: Date, modifiers: Object) ⇒ void</code>
+        onDayChange <code>(day: ?Date, modifiers: Object) ⇒ void</code>
       </h3>
       <p>
-        Handler function called when the user types a valid day (according to
-        the <code>format</code> prop) or when a day is clicked on the calendar.
-        If the day is not valid, day and modifiers arguments will be{' '}
-        <code>undefined</code> (useful to display validation warnings).
+        Handler function called when the user types a valid day – according to
+        the{' '}
+        <code>
+          <a href="#format">format</a>
+        </code>{' '}
+        prop – or when a day is clicked on the calendar. If the typed value is
+        empty or not valid, `day` is <code>undefined</code> and `modifiers` is
+        an empty object.
       </p>
 
       <hr />
