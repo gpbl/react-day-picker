@@ -225,7 +225,8 @@ export default class DayPickerInput extends React.Component {
 
   /**
    * Update the component's state and fire the `onDayChange` event
-   * passing the day's modifiers to it
+   * passing the day's modifiers to it.
+   *
    * @param {Date} day - Will be used for changing the month
    * @param {String} value - Input field value
    * @private
