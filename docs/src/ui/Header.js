@@ -15,6 +15,7 @@ export default class Header extends React.Component {
     this.state = {
       showMenu: false,
     };
+    this.handleMenuClick = this.handleMenuClick.bind(this);
     this.handleMenuButtonClick = this.handleMenuButtonClick.bind(this);
   }
   handleMenuButtonClick(e) {
