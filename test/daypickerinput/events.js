@@ -64,13 +64,29 @@ describe('DayPickerInput', () => {
         expect(document.activeElement).not.toEqual(instance.input);
       });
     });
+    describe('overlayblur', () => {
+      it('should set overlayHasFocus to false', done => {
+        const wrapper = mount(<DayPickerInput showOverlay keepFocus />);
+        wrapper.find('.DayPickerInput-Overlay').simulate('focus');
+        wrapper.find('.DayPickerInput-Overlay').simulate('blur');
+        setTimeout(() => {
+          wrapper.update();
+          expect(wrapper.instance().overlayHasFocus).toBe(false);
+          done();
+        }, 100);
+      });
+    });
 
     describe('blur', () => {
-      it('should hide the overlay when the input is blurred', () => {
+      it('should hide the overlay when the input is blurred', done => {
         const wrapper = mount(<DayPickerInput value="12/15/2017" />);
         wrapper.find('input').simulate('focus');
         wrapper.find('input').simulate('blur');
-        expect(wrapper.find('.DayPicker')).toHaveLength(0);
+        setTimeout(() => {
+          wrapper.update();
+          expect(wrapper.find('.DayPicker')).toHaveLength(0);
+          done();
+        }, 100);
       });
       it('should call `onBlur` event handler', () => {
         const onBlur = jest.fn();
@@ -79,16 +95,6 @@ describe('DayPickerInput', () => {
         expect(onBlur).toHaveBeenCalledTimes(1);
       });
     });
-
-    describe('overlayblur', () => {
-      it('should hide the overlay', () => {
-        const wrapper = mount(<DayPickerInput showOverlay keepFocus />);
-        wrapper.find('.DayPickerInput-Overlay').simulate('focus');
-        wrapper.find('.DayPickerInput-Overlay').simulate('blur');
-        expect(wrapper.find('.DayPicker')).toHaveLength(0);
-      });
-    });
-
     describe('change', () => {
       it('should call `onChange` event handler', () => {
         const onChange = jest.fn();

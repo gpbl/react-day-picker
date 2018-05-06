@@ -72,10 +72,22 @@ describe('DayPickerInput', () => {
     });
     it('should hide the DayPicker', () => {
       const wrapper = shallow(<DayPickerInput />);
+      wrapper.setState({ showOverlay: false });
       wrapper.instance().showDayPicker();
       wrapper.update();
       expect(wrapper.find(DayPicker)).toHaveLength(1);
       wrapper.update();
+      wrapper.instance().hideDayPicker();
+      expect(wrapper.find('.DayPicker')).toHaveLength(0);
+    });
+    it('should hide the DayPicker', () => {
+      const wrapper = shallow(<DayPickerInput />);
+      wrapper.setState({ showOverlay: true });
+      wrapper.instance().showDayPicker();
+      wrapper.update();
+      expect(wrapper.find(DayPicker)).toHaveLength(1);
+      wrapper.update();
+      wrapper.setState({ showOverlay: false });
       wrapper.instance().hideDayPicker();
       expect(wrapper.find('.DayPicker')).toHaveLength(0);
     });
@@ -114,7 +126,7 @@ describe('DayPickerInput', () => {
       mount(<DayPickerInput />, { attachTo: container });
       const spy = jest.spyOn(window, 'clearTimeout');
       ReactDOM.unmountComponentAtNode(container);
-      expect(spy).toHaveBeenCalledTimes(4);
+      expect(spy).toHaveBeenCalledTimes(5);
       spy.mockRestore();
     });
     it('should set today when clicking on today button', () => {
