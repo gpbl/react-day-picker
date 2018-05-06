@@ -73,7 +73,7 @@ describe('DayPickerInput', () => {
           wrapper.update();
           expect(wrapper.instance().overlayHasFocus).toBeTruthy();
           done();
-        });
+        }, 100);
       });
     });
 
