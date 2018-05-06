@@ -69,8 +69,8 @@
       "path---examples-customization-fixed-weeks-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-changelog-js": [
-      "component---src-pages-changelog-js-a1925cf5f60343dfc1cc.js",
-      "component---src-pages-changelog-js-a1925cf5f60343dfc1cc.js.map"
+      "component---src-pages-changelog-js-69115099b5ea23fe8068.js",
+      "component---src-pages-changelog-js-69115099b5ea23fe8068.js.map"
     ],
     "path---examples-disabled": [
       "path---examples-disabled-a0e39f21c11f6a62c5ab.js",
@@ -233,9 +233,9 @@
       "component---src-pages-404-js-f4c4b102edfafc071de3.js.map"
     ],
     "commons": [
-      "commons-e686fe66062d6209d696.js",
+      "commons-38c0649e5821f6499d89.js",
       "build-js-styles.css",
-      "commons-e686fe66062d6209d696.js.map",
+      "commons-38c0649e5821f6499d89.js.map",
       "build-js-styles.css.map"
     ],
     "path---examples-months-prevent": [
@@ -307,8 +307,8 @@
       "component---src-pages-docs-matching-days-js-2f1eb0129893bf42e1ab.js.map"
     ],
     "component---src-pages-api-day-picker-input-js": [
-      "component---src-pages-api-day-picker-input-js-c54ea36839b75419514e.js",
-      "component---src-pages-api-day-picker-input-js-c54ea36839b75419514e.js.map"
+      "component---src-pages-api-day-picker-input-js-9a10ba9ff689a9ee82b4.js",
+      "component---src-pages-api-day-picker-input-js-9a10ba9ff689a9ee82b4.js.map"
     ],
     "path---examples-disabled-weekends": [
       "path---examples-disabled-weekends-a0e39f21c11f6a62c5ab.js",
@@ -327,9 +327,9 @@
       "path---examples-months-restrict-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-d0a2943a2f5097e87fc0.js",
+      "app-b523ce00b4356c22a393.js",
       "build-js-styles.css",
-      "app-d0a2943a2f5097e87fc0.js.map",
+      "app-b523ce00b4356c22a393.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-pages-examples-input-from-to-js": [
