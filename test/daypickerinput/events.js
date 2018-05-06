@@ -65,13 +65,13 @@ describe('DayPickerInput', () => {
       });
     });
     describe('overlayblur', () => {
-      it('should hide the overlay', done => {
+      it('should set overlayHasFocus to false', done => {
         const wrapper = mount(<DayPickerInput showOverlay keepFocus />);
         wrapper.find('.DayPickerInput-Overlay').simulate('focus');
         wrapper.find('.DayPickerInput-Overlay').simulate('blur');
         setTimeout(() => {
           wrapper.update();
-          expect(wrapper.instance().overlayHasFocus).toBeTruthy();
+          expect(wrapper.instance().overlayHasFocus).toBe(false);
           done();
         }, 100);
       });
