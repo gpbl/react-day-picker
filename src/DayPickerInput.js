@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DayPicker from './DayPicker';
-import { isIE } from './Helpers';
 import { isSameMonth, isDate } from './DateUtils';
 import { getModifiersForDay } from './ModifiersUtils';
 import { ESC, TAB } from './keys';
@@ -55,7 +54,8 @@ export function defaultFormat(d) {
 }
 
 /**
- * The default function used to parse a String as Date, passed to the `parse` prop.
+ * The default function used to parse a String as Date, passed to the `parse`
+ * prop.
  * @param {String} str
  * @return {Date}
  */
@@ -200,8 +200,9 @@ export default class DayPickerInput extends React.Component {
   componentWillUnmount() {
     clearTimeout(this.clickTimeout);
     clearTimeout(this.hideTimeout);
-    clearTimeout(this.ieInputFocusTimeout);
-    clearTimeout(this.ieInputBlurTimeout);
+    clearTimeout(this.inputFocusTimeout);
+    clearTimeout(this.inputBlurTimeout);
+    clearTimeout(this.overlayBlurTimeout);
   }
 
   getInitialMonthFromProps(props) {
@@ -242,15 +243,14 @@ export default class DayPickerInput extends React.Component {
 
   input = null;
   daypicker = null;
-  overlayNode = null;
   clickTimeout = null;
   hideTimeout = null;
-  ieInputFocusTimeout = null;
-  ieInputBlutTimeout = null;
+  inputBlurTimeout = null;
+  inputFocusTimeout = null;
 
   /**
-   * Update the component's state and fire the `onDayChange` event
-   * passing the day's modifiers to it.
+   * Update the component's state and fire the `onDayChange` event passing the
+   * day's modifiers to it.
    *
    * @param {Date} day - Will be used for changing the month
    * @param {String} value - Input field value
@@ -335,26 +335,29 @@ export default class DayPickerInput extends React.Component {
 
   handleInputFocus(e) {
     this.showDayPicker();
+    // Set `overlayHasFocus` after a timeout so the overlay can be hidden when
+    // the input is blurred
+    this.inputFocusTimeout = setTimeout(() => {
+      this.overlayHasFocus = false;
+    }, 2);
     if (this.props.inputProps.onFocus) {
       e.persist();
       this.props.inputProps.onFocus(e);
     }
   }
 
-  handleInputBlur(e) {
-    const target = e.relatedTarget;
-    if (!isIE()) {
-      this.showOverlayBasedOnTargetNode(target);
-    } else {
-      this.ieInputBlurTimeout = setTimeout(
-        () => this.showOverlayBasedOnTargetNode(target),
-        HIDE_TIMEOUT
-      );
-    }
-    if (this.props.inputProps.onBlur) {
-      e.persist();
-      this.props.inputProps.onBlur(e);
-    }
+  // When the input is blurred, the overlay should disappear. However the input
+  // is blurred also when the user interacts with the overlay (e.g. the overlay
+  // get the focus by clicking it). In these cases, the overlay should not be
+  // hidden. There are different approaches to avoid hiding the overlay when
+  // this happens, but the only cross-browser hack we’ve found is to set all
+  // these timeouts in code before changing `overlayHasFocus`.
+  handleInputBlur() {
+    this.inputBlurTimeout = setTimeout(() => {
+      if (!this.overlayHasFocus) {
+        this.hideDayPicker();
+      }
+    }, 1);
   }
 
   handleOverlayFocus(e) {
@@ -362,30 +365,16 @@ export default class DayPickerInput extends React.Component {
       return;
     }
     e.preventDefault();
-    if (!isIE()) {
-      this.input.focus();
-    } else {
-      // Fix behavior in Internet Explorer
-      // See https://github.com/gpbl/react-day-picker/pull/691
-      this.ieInputFocusTimeout = setTimeout(() => {
-        this.input.focus();
-        // Reset the hide timeout for reasons
-        // TODO: add a comment specifying why we need this
-        if (this.hideTimeout) {
-          this.hideTimeout = setTimeout(() => {
-            this.hideDayPicker();
-            this.hideTimeout = null;
-          }, HIDE_TIMEOUT);
-        }
-      }, HIDE_TIMEOUT);
-    }
+    this.input.focus();
+    this.overlayHasFocus = true;
   }
 
-  handleOverlayBlur(e) {
-    this.setState({
-      showOverlay:
-        this.overlayNode && this.overlayNode.contains(e.relatedTarget),
-    });
+  handleOverlayBlur() {
+    // We need to set a timeout otherwise IE11 will hide the overlay when
+    // focusing it
+    this.overlayBlurTimeout = setTimeout(() => {
+      this.overlayHasFocus = false;
+    }, 3);
   }
 
   handleInputChange(e) {
@@ -418,6 +407,8 @@ export default class DayPickerInput extends React.Component {
   handleInputKeyDown(e) {
     if (e.keyCode === TAB) {
       this.hideDayPicker();
+    } else {
+      this.showDayPicker();
     }
     if (this.props.inputProps.onKeyDown) {
       e.persist();
@@ -426,9 +417,10 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputKeyUp(e) {
-    // Hide the overlay if the ESC key is pressed
     if (e.keyCode === ESC) {
       this.hideDayPicker();
+    } else {
+      this.showDayPicker();
     }
     if (this.props.inputProps.onKeyUp) {
       e.persist();
@@ -521,28 +513,25 @@ export default class DayPickerInput extends React.Component {
     }
     const Overlay = this.props.overlayComponent;
     return (
-      <span
+      <Overlay
+        classNames={classNames}
+        month={this.state.month}
+        selectedDay={selectedDay}
+        input={this.input}
+        tabIndex={0} // tabIndex is necessary to catch focus/blur events on Safari
         onFocus={this.handleOverlayFocus}
-        ref={el => (this.overlayNode = el)}
         onBlur={this.handleOverlayBlur}
       >
-        <Overlay
-          classNames={classNames}
+        <DayPicker
+          ref={el => (this.daypicker = el)}
+          onTodayButtonClick={onTodayButtonClick}
+          {...dayPickerProps}
           month={this.state.month}
-          selectedDay={selectedDay}
-          input={this.input}
-        >
-          <DayPicker
-            ref={el => (this.daypicker = el)}
-            onTodayButtonClick={onTodayButtonClick}
-            {...dayPickerProps}
-            month={this.state.month}
-            selectedDays={selectedDay}
-            onDayClick={this.handleDayClick}
-            onMonthChange={this.handleMonthChange}
-          />
-        </Overlay>
-      </span>
+          selectedDays={selectedDay}
+          onDayClick={this.handleDayClick}
+          onMonthChange={this.handleMonthChange}
+        />
+      </Overlay>
     );
   }
 
