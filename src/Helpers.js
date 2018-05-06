@@ -144,8 +144,3 @@ export function nodeListToArray(nodeList) {
 export function hasOwnProp(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
-
-export function isIE() {
-  // eslint-disable-next-line no-undef
-  return /* @cc_on!@ */ false || !!document.documentMode;
-}
