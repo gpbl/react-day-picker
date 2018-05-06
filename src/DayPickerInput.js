@@ -293,13 +293,10 @@ export default class DayPickerInput extends React.Component {
     if (showOverlay) {
       return;
     }
-    let month;
-    if (showOverlay === false) {
-      // Reset the current displayed month when showing the overlay
-      month = value
-        ? parseDate(value, format, dayPickerProps.locale) // Use the month in the input field
-        : this.getInitialMonthFromProps(this.props); // Restore the month from the props
-    }
+    // Reset the current displayed month when showing the overlay
+    const month = value
+      ? parseDate(value, format, dayPickerProps.locale) // Use the month in the input field
+      : this.getInitialMonthFromProps(this.props); // Restore the month from the props
     this.setState({
       showOverlay: true,
       month: month || this.state.month,
