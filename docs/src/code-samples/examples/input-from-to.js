@@ -36,11 +36,7 @@ export default class Example extends React.Component {
   }
   handleFromChange(from) {
     // Change the from date and focus the "to" input field
-    this.setState({ from }, () => {
-      if (!this.state.to) {
-        this.focusTo();
-      }
-    });
+    this.setState({ from });
   }
   handleToChange(to) {
     this.setState({ to }, this.showFromMonth);
@@ -62,6 +58,7 @@ export default class Example extends React.Component {
             toMonth: to,
             modifiers,
             numberOfMonths: 2,
+            onDayClick: () => this.to.getInput().focus(),
           }}
           onDayChange={this.handleFromChange}
         />{' '}
