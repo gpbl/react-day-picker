@@ -11,7 +11,36 @@ import { ESC, TAB } from './keys';
 export const HIDE_TIMEOUT = 100;
 
 /**
- * The default function used to format a Date to String, passed to the `format` prop.
+ * The default component used as Overlay.
+ *
+ * @param {Object} props
+ */
+export function OverlayComponent({
+  input,
+  selectedDay,
+  month,
+  children,
+  classNames,
+  ...props
+}) {
+  return (
+    <div className={classNames.overlayWrapper} {...props}>
+      <div className={classNames.overlay}>{children}</div>
+    </div>
+  );
+}
+
+OverlayComponent.propTypes = {
+  input: PropTypes.any,
+  selectedDay: PropTypes.any,
+  month: PropTypes.instanceOf(Date),
+  children: PropTypes.node,
+  classNames: PropTypes.object,
+};
+
+/**
+ * The default function used to format a Date to String, passed to the `format`
+ * prop.
  * @param {Date} d
  * @return {String}
  */
@@ -105,11 +134,7 @@ export default class DayPickerInput extends React.Component {
     keepFocus: true,
     component: 'input',
     inputProps: {},
-    overlayComponent: ({ children, classNames }) => (
-      <div className={classNames.overlayWrapper}>
-        <div className={classNames.overlay}>{children}</div>
-      </div>
-    ),
+    overlayComponent: OverlayComponent,
     classNames: {
       container: 'DayPickerInput',
       overlayWrapper: 'DayPickerInput-OverlayWrapper',
