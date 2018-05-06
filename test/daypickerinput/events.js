@@ -64,6 +64,18 @@ describe('DayPickerInput', () => {
         expect(document.activeElement).not.toEqual(instance.input);
       });
     });
+    describe('overlayblur', () => {
+      it('should hide the overlay', done => {
+        const wrapper = mount(<DayPickerInput showOverlay keepFocus />);
+        wrapper.find('.DayPickerInput-Overlay').simulate('focus');
+        wrapper.find('.DayPickerInput-Overlay').simulate('blur');
+        setTimeout(() => {
+          wrapper.update();
+          expect(wrapper.instance().overlayHasFocus).toBeTruthy();
+          done();
+        });
+      });
+    });
 
     describe('blur', () => {
       it('should hide the overlay when the input is blurred', done => {
@@ -83,7 +95,6 @@ describe('DayPickerInput', () => {
         expect(onBlur).toHaveBeenCalledTimes(1);
       });
     });
-
     describe('change', () => {
       it('should call `onChange` event handler', () => {
         const onChange = jest.fn();
