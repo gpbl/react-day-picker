@@ -290,6 +290,9 @@ export default class DayPickerInput extends React.Component {
   showDayPicker() {
     const { parseDate, format, dayPickerProps } = this.props;
     const { value, showOverlay } = this.state;
+    if (showOverlay) {
+      return;
+    }
     let month;
     if (showOverlay === false) {
       // Reset the current displayed month when showing the overlay
@@ -309,15 +312,10 @@ export default class DayPickerInput extends React.Component {
    * @memberof DayPickerInput
    */
   hideDayPicker() {
-    this.setState({ showOverlay: false });
-  }
-
-  showOverlayBasedOnTargetNode(node) {
-    if (this.overlayNode && this.overlayNode.contains(node)) {
-      this.showDayPicker();
-    } else {
-      this.hideDayPicker();
+    if (this.state.showOverlay === false) {
+      return;
     }
+    this.setState({ showOverlay: false });
   }
 
   hideAfterDayClick() {
