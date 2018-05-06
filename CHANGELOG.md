@@ -1,17 +1,22 @@
+### [v7.1.7](https://github.com/gpbl/react-day-picker/tree/v7.1.7) (2018-05-06)
+
+* Fixed: `tabIndex={0}` was not passed to the container ([#716](https://github.com/gpbl/react-day-picker/issues/716))
+* (DayPickerInput) Fixed: interaction with the overlay was not working correctly on Safari or IE 11 ([#715](https://github.com/gpbl/react-day-picker/issues/715))
+
 ### [v7.1.6](https://github.com/gpbl/react-day-picker/tree/v7.1.6) (2018-04-15)
 
 * Updated to support React 17 ([#696](https://github.com/gpbl/react-day-picker/issues/696))
 * Added: `isSameMonth`, `isDate` functions to DateUtils.
 * Fixed: month was reset when selecting multiple days ([#669](https://github.com/gpbl/react-day-picker/issues/669))
 * Fixed: week numbers may not be correct ([#692](https://github.com/gpbl/react-day-picker/issues/692))
-* Fixed: DayPickerInput did not reset the displayed month when appearing again ([#667](https://github.com/gpbl/react-day-picker/issues/667))
-* Fixed: DayPickerInput did display the overlay even if the input was disabled ([#680](https://github.com/gpbl/react-day-picker/issues/680))
+* (DayPickerInput) Fixed: overlay did not reset the displayed month when appearing again ([#667](https://github.com/gpbl/react-day-picker/issues/667))
+* (DayPickerInput) Fixed: overlay was shown even if the input was disabled ([#680](https://github.com/gpbl/react-day-picker/issues/680))
 
 ## [v7.1](https://github.com/gpbl/react-day-picker/tree/v7.1.4) (2018-03-04)
 
 **DayPicker**
 
-* Added: [`enableOutsideDaysClick`](http://react-day-picker.js.org/api/DayPicker#enableOutsideDaysClick) prop ([#585](https://github.com/gpbl/react-day-picker/issues/585)  by
+* Added: [`enableOutsideDaysClick`](http://react-day-picker.js.org/api/DayPicker#enableOutsideDaysClick) prop ([#585](https://github.com/gpbl/react-day-picker/issues/585) by
   [smesgr](https://github.com/smesgr))
 * Fixed: month may be not defined in the navigation component ([#607](https://github.com/gpbl/react-day-picker/issues/607) by
   [MhMadHamster](https://github.com/MhMadHamster))
@@ -22,7 +27,7 @@
 
 **DayPickerInput**
 
-* Improved: focus/blur behavior ([#598](https://github.com/gpbl/react-day-picker/issues/598)  by
+* Improved: focus/blur behavior ([#598](https://github.com/gpbl/react-day-picker/issues/598) by
   [jbarco](https://github.com/bartpeeters), [#579](https://github.com/gpbl/react-day-picker/issues/579))
 * Improved: `onDayChange` is called `undefined` when day is not valid ([#647](https://github.com/gpbl/react-day-picker/issues/647))
 * Added: [`keepFocus`](http://react-day-picker.js.org/api/DayPickerInput#keepFocus) prop ([#598](https://github.com/gpbl/react-day-picker/issues/598) by
@@ -35,15 +40,15 @@
 
 ### [v7.0.7](https://github.com/gpbl/react-day-picker/tree/v7.0.7) (2018-01-09)
 
-* (DayPickerInput) Fixed: `daypickerProps.onMonthChange` not being called ([#604](https://github.com/gpbl/react-day-picker/issues/604)  by
+* (DayPickerInput) Fixed: `daypickerProps.onMonthChange` not being called ([#604](https://github.com/gpbl/react-day-picker/issues/604) by
   [ah-adarlow](https://github.com/ah-adarlow))
 
 ### [v7.0.6](https://github.com/gpbl/react-day-picker/tree/v7.0.6) (2017-12-31)
 
 * (DayPickerInput) Fixed: focusing behavior when pressing the `TAB` key ([#594](https://github.com/gpbl/react-day-picker/issues/594))
-* (DayPickerInput) Fixed: wrong behavior with malformatted dates using the included moment `parseDate` function ([#584](https://github.com/gpbl/react-day-picker/issues/584)  by
+* (DayPickerInput) Fixed: wrong behavior with malformatted dates using the included moment `parseDate` function ([#584](https://github.com/gpbl/react-day-picker/issues/584) by
   [jbarco](https://github.com/jbarco))
-* Removed duplicated style from CSS ([#591](https://github.com/gpbl/react-day-picker/issues/591)  by
+* Removed duplicated style from CSS ([#591](https://github.com/gpbl/react-day-picker/issues/591) by
   [nicoffee](https://github.com/nicoffee))
 
 ### [v7.0.5](https://github.com/gpbl/react-day-picker/tree/v7.0.5) (2017-12-03)
@@ -354,8 +359,7 @@ below).
 
 * Allow `{after, before}` modifiers in the same object
   ([#354](https://github.com/gpbl/react-day-picker/issues/354)). You can now
-  write before/after modifiers such as `disabledDays={ { before: aDate, after:
-  aDate }}`.
+  write before/after modifiers such as `disabledDays={ { before: aDate, after: aDate }}`.
 * **DayPickerInput**: added
   [`clickUnselectsDay`](http://react-day-picker.js.org/docs/api-input.html#clickunselectsday)
   prop to unselect and clear the input when clicking on a previously selected
@@ -823,7 +827,7 @@ this change shouldn't affect you.
       ({ selected: day => isDaySelected(day) },
       { disabled: day => isDayDisabled(day) })
     }
-  />;
+  />
   ```
 
   now you can write:
@@ -832,7 +836,7 @@ this change shouldn't affect you.
   <DayPicker
     selectedDays={day => isDaySelected(day)}
     disabledDays={day => isDayDisabled(day)}
-  />;
+  />
   ```
 
 * Added
