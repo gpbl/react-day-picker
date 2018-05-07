@@ -1,4 +1,4 @@
-### [v7.1.7](https://github.com/gpbl/react-day-picker/tree/v7.1.7) (2018-05-06)
+### [v7.1.8](https://github.com/gpbl/react-day-picker/tree/v7.1.8) (2018-05-06)
 
 * Fixed: `tabIndex={0}` was not passed to the container ([#716](https://github.com/gpbl/react-day-picker/issues/716))
 * (DayPickerInput) Fixed: interaction with the overlay was not working correctly on Safari or IE 11 ([#715](https://github.com/gpbl/react-day-picker/issues/715))
