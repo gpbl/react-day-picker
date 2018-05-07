@@ -13,7 +13,10 @@ function CustomOverlay({ classNames, selectedDay, children, ...props }) {
     >
       <div className={classNames.overlay}>
         <h3>Hello day picker!</h3>
-        <button onClick={() => console.log('clicked!')}>button</button>
+        <p>
+          <input />
+          <button onClick={() => console.log('clicked!')}>button</button>
+        </p>
         <p>
           {selectedDay
             ? `You picked: ${selectedDay.toLocaleDateString()}`
@@ -38,6 +41,7 @@ export default function Example() {
       dayPickerProps={{
         todayButton: 'Today',
       }}
+      keepFocus={false}
     />
   );
 }
