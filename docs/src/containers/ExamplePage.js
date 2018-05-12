@@ -70,6 +70,7 @@ export default function ExamplePage({ children, title }) {
               <Menu.Item to="/examples/selected-range-enter">
                 Select range on mouse enter
               </Menu.Item>
+              <Menu.Item to="/examples/selected-week">Select a week</Menu.Item>
             </Menu>
             <Menu subtitle="Disabling days">
               <Menu.Item to="/examples/disabled">
