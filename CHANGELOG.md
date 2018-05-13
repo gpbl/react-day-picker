@@ -1,3 +1,7 @@
+### [v7.1.9](https://github.com/gpbl/react-day-picker/tree/v7.1.9) (2018-05-13)
+
+* (DayPickerInput) Fixed an error when year from input is too big ([#717](https://github.com/gpbl/react-day-picker/issues/717))
+
 ### [v7.1.8](https://github.com/gpbl/react-day-picker/tree/v7.1.8) (2018-05-06)
 
 * Fixed: `tabIndex={0}` was not passed to the container ([#716](https://github.com/gpbl/react-day-picker/issues/716))
