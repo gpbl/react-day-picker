@@ -78,7 +78,8 @@ export default () => (
       <a href="#onDayTouchStart">onDayTouchStart</a>,{' '}
       <a href="#onFocus">onFocus</a>, <a href="#onKeyDown">onKeyDown</a>,{' '}
       <a href="#onMonthChange">onMonthChange</a>,{' '}
-      <a href="#onTodayButtonClick">onTodayButtonClick</a>
+      <a href="#onTodayButtonClick">onTodayButtonClick</a>,{' '}
+      <a href="#onWeekClick">onWeekClick</a>
     </p>
 
     <h4>Public Methods</h4>
