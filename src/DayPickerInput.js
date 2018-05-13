@@ -72,6 +72,7 @@ export function defaultParse(str) {
   const day = parseInt(split[2], 10);
   if (
     isNaN(year) ||
+    String(year).length > 4 ||
     isNaN(month) ||
     isNaN(day) ||
     day <= 0 ||
