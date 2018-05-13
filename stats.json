@@ -69,8 +69,8 @@
       "path---examples-customization-fixed-weeks-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-changelog-js": [
-      "component---src-pages-changelog-js-22d669271fefa77358ee.js",
-      "component---src-pages-changelog-js-22d669271fefa77358ee.js.map"
+      "component---src-pages-changelog-js-cdeeab7b7a17abdae29d.js",
+      "component---src-pages-changelog-js-cdeeab7b7a17abdae29d.js.map"
     ],
     "path---examples-disabled": [
       "path---examples-disabled-a0e39f21c11f6a62c5ab.js",
@@ -108,6 +108,10 @@
       "component---src-pages-docs-getting-started-js-760d12d3e0bb75a64c21.js",
       "component---src-pages-docs-getting-started-js-760d12d3e0bb75a64c21.js.map"
     ],
+    "component---src-pages-examples-selected-week-js": [
+      "component---src-pages-examples-selected-week-js-eed8b33a288afcdb91af.js",
+      "component---src-pages-examples-selected-week-js-eed8b33a288afcdb91af.js.map"
+    ],
     "path---api-day-picker-input": [
       "path---api-day-picker-input-a0e39f21c11f6a62c5ab.js",
       "path---api-day-picker-input-a0e39f21c11f6a62c5ab.js.map"
@@ -119,6 +123,10 @@
     "path---examples-months-multiple": [
       "path---examples-months-multiple-a0e39f21c11f6a62c5ab.js",
       "path---examples-months-multiple-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---examples-selected-week": [
+      "path---examples-selected-week-a0e39f21c11f6a62c5ab.js",
+      "path---examples-selected-week-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-api-locale-utils-js": [
       "component---src-pages-api-locale-utils-js-b772e211c8af8b9931b7.js",
@@ -233,9 +241,9 @@
       "component---src-pages-404-js-f4c4b102edfafc071de3.js.map"
     ],
     "commons": [
-      "commons-d88617d83b3f5e9ae914.js",
+      "commons-2e486924b7339cc77f03.js",
       "build-js-styles.css",
-      "commons-d88617d83b3f5e9ae914.js.map",
+      "commons-2e486924b7339cc77f03.js.map",
       "build-js-styles.css.map"
     ],
     "path---examples-months-prevent": [
@@ -251,8 +259,8 @@
       "component---src-pages-examples-modifiers-styles-js-21e7140caa09b04d6109.js.map"
     ],
     "component---src-pages-api-day-picker-js": [
-      "component---src-pages-api-day-picker-js-c49e555e9103e8ccd512.js",
-      "component---src-pages-api-day-picker-js-c49e555e9103e8ccd512.js.map"
+      "component---src-pages-api-day-picker-js-7a5be8caba4117509440.js",
+      "component---src-pages-api-day-picker-js-7a5be8caba4117509440.js.map"
     ],
     "component---src-pages-api-date-utils-js": [
       "component---src-pages-api-date-utils-js-263ff04ce756dc348bf8.js",
@@ -327,9 +335,9 @@
       "path---examples-months-restrict-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-b523ce00b4356c22a393.js",
+      "app-e05ca0a41e97a8fd8681.js",
       "build-js-styles.css",
-      "app-b523ce00b4356c22a393.js.map",
+      "app-e05ca0a41e97a8fd8681.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-pages-examples-input-from-to-js": [
