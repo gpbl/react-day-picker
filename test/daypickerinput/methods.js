@@ -44,6 +44,7 @@ describe('DayPickerInput', () => {
       expect(defaultParse('2012-2-0')).toBeUndefined();
       expect(defaultParse('2012-0-20')).toBeUndefined();
       expect(defaultParse('2012-13-20')).toBeUndefined();
+      expect(defaultParse('20112-13-20')).toBeUndefined();
     });
     it('should return a parsed date', () => {
       const parsed = defaultParse('2018-7-12');
