@@ -4,62 +4,57 @@ import moment from 'moment';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
-export default class Example extends React.Component {
-  state = {
-    hoverRange: null,
-    selectedDays: [],
-  };
+function getWeekDays(weekStart) {
+  const days = [weekStart];
+  for (let i = 1; i < 7; i += 1) {
+    days.push(
+      moment(weekStart)
+        .add(i, 'days')
+        .toDate()
+    );
+  }
+  return days;
+}
 
-  daysFromWeek = weekStart => [
-    weekStart,
-    moment(weekStart)
-      .add(1, 'days')
-      .toDate(),
-    moment(weekStart)
-      .add(2, 'days')
-      .toDate(),
-    moment(weekStart)
-      .add(3, 'days')
-      .toDate(),
-    moment(weekStart)
-      .add(4, 'days')
-      .toDate(),
-    moment(weekStart)
-      .add(5, 'days')
-      .toDate(),
-    moment(weekStart)
-      .add(6, 'days')
-      .toDate(),
-  ];
-
-  weekFromDay = date => ({
+function getWeekRange(date) {
+  return {
     from: moment(date)
       .startOf('week')
       .toDate(),
     to: moment(date)
       .endOf('week')
       .toDate(),
-  });
+  };
+}
 
-  handelDayChange = date => {
-    this.setState(prevState => ({
-      ...prevState,
-      selectedDays: this.daysFromWeek(this.weekFromDay(date).from),
-    }));
+export default class Example extends React.Component {
+  state = {
+    hoverRange: undefined,
+    selectedDays: [],
+  };
+
+  handleDayChange = date => {
+    this.setState({
+      selectedDays: getWeekDays(getWeekRange(date).from),
+    });
   };
 
   handleDayEnter = date => {
-    this.setState(prevState => ({
-      ...prevState,
-      hoverRange: this.weekFromDay(date),
-    }));
+    this.setState({
+      hoverRange: getWeekRange(date),
+    });
   };
 
   handleDayLeave = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      hoverRange: null,
-    }));
+    this.setState({
+      hoverRange: undefined,
+    });
+  };
+
+  handleWeekClick = (weekNumber, days, e) => {
+    this.setState({
+      selectedDays: days,
+    });
   };
 
   render() {
@@ -80,48 +75,64 @@ export default class Example extends React.Component {
     };
 
     return (
-      <div>
+      <div className="SelectedWeekExample">
         <DayPicker
           selectedDays={selectedDays}
-          onDayClick={this.handelDayChange}
+          showWeekNumbers
+          showOutsideDays
+          modifiers={modifiers}
+          onDayClick={this.handleDayChange}
           onDayMouseEnter={this.handleDayEnter}
           onDayMouseLeave={this.handleDayLeave}
-          modifiers={modifiers}
+          onWeekClick={this.handleWeekClick}
         />
+        {selectedDays.length === 7 && (
+          <div>
+            {moment(selectedDays[0]).format('LL')} –{' '}
+            {moment(selectedDays[6]).format('LL')}
+          </div>
+        )}
+
         <Helmet>
           <style>{`
-            .DayPicker-Day--hoverRange {
-              background-color: rgb(209, 238, 248) !important;
+            .SelectedWeekExample .DayPicker-Month {
+              border-collapse: separate;
+            }
+            .SelectedWeekExample .DayPicker-WeekNumber {
+              outline: none;
+            }
+            .SelectedWeekExample .DayPicker-Day {
+              outline: none;
+              border: 1px solid transparent;
+            }
+            .SelectedWeekExample .DayPicker-Day--hoverRange {
+              background-color: #EFEFEF !important;
             }
 
-            .DayPicker-Day--selectedRange {
-              background-color: lightblue !important;
+            .SelectedWeekExample .DayPicker-Day--selectedRange {
+              background-color: #fff7ba !important;
+              border-top-color: #FFEB3B;
+              border-bottom-color: #FFEB3B;
+              border-left-color: #fff7ba;
+              border-right-color: #fff7ba;
             }
 
-            .DayPicker-Day--hoverRangeStart,
-            .DayPicker-Day--selectedRangeStart {
-              border-top-left-radius: 5px;
-              border-bottom-left-radius: 5px;
+            .SelectedWeekExample .DayPicker-Day--selectedRangeStart {
+              background-color: #FFEB3B !important;
+              border-left: 1px solid #FFEB3B;
             }
 
-            .DayPicker-Day--hoverRangeEnd,
-            .DayPicker-Day--selectedRangeEnd {
-              border-top-right-radius: 5px;
-              border-bottom-right-radius: 5px;
+            .SelectedWeekExample .DayPicker-Day--selectedRangeEnd {
+              background-color: #FFEB3B !important;
+              border-right: 1px solid #FFEB3B;
             }
 
-            .DayPicker-Day--selectedRangeStart,
-            .DayPicker-Day--selectedRangeEnd {
-              background-color: lightskyblue !important;
-            }
-
-            .DayPicker-Day--selectedRange.DayPicker-Day--selected,
-            .DayPicker-Day--hoverRange.DayPicker-Day--selected {
+            .SelectedWeekExample .DayPicker-Day--selectedRange:not(.DayPicker-Day--outside).DayPicker-Day--selected,
+            .SelectedWeekExample .DayPicker-Day--hoverRange:not(.DayPicker-Day--outside).DayPicker-Day--selected {
               border-radius: 0 !important;
               color: black !important;
             }
-
-            .DayPicker-Day--hoverRange:hover {
+            .SelectedWeekExample .DayPicker-Day--hoverRange:hover {
               border-radius: 0 !important;
             }
           `}</style>
