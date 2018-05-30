@@ -162,14 +162,13 @@ export class DayPicker extends Component {
     this.state = { currentMonth };
   }
 
-  componentDidUpdate(prevProps) {
+  componentWillReceiveProps(nextProps) {
     // Changing the `month` props means changing the current displayed month
     if (
-      prevProps.month !== this.props.month &&
-      !DateUtils.isSameMonth(prevProps.month, this.props.month)
+      this.props.month !== nextProps.month &&
+      !DateUtils.isSameMonth(this.props.month, nextProps.month)
     ) {
-      const currentMonth = this.getCurrentMonthFromProps(this.props);
-      // eslint-disable-next-line react/no-did-update-set-state
+      const currentMonth = this.getCurrentMonthFromProps(nextProps);
       this.setState({ currentMonth });
     }
   }
@@ -253,14 +252,20 @@ export class DayPicker extends Component {
     if (!this.allowMonth(d)) {
       return;
     }
-    this.setState({ currentMonth: Helpers.startOfMonth(d) }, () => {
+    const newCurrentMonth = Helpers.startOfMonth(d);
+    const onMonthChange = () => {
       if (callback) {
         callback();
       }
       if (this.props.onMonthChange) {
-        this.props.onMonthChange(this.state.currentMonth);
+        this.props.onMonthChange(newCurrentMonth);
       }
-    });
+    };
+    if (this.props.month) {
+      onMonthChange();
+    } else {
+      this.setState({ currentMonth: newCurrentMonth }, onMonthChange);
+    }
   }
 
   showNextMonth = callback => {
