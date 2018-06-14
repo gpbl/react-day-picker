@@ -17,14 +17,6 @@ export default class Example extends React.Component {
       to: undefined,
     };
   }
-  componentWillUnmount() {
-    clearTimeout(this.timeout);
-  }
-  focusTo() {
-    // Focus to `to` field. A timeout is required here because the overlays
-    // already set timeouts to work well with input fields
-    this.timeout = setTimeout(() => this.to.getInput().focus(), 0);
-  }
   showFromMonth() {
     const { from, to } = this.state;
     if (!from) {
