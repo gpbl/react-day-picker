@@ -456,7 +456,8 @@ export default class DayPickerInput extends React.Component {
     // Do nothing if the day is disabled
     if (
       modifiers.disabled ||
-      (dayPickerProps.classNames &&
+      (dayPickerProps &&
+        dayPickerProps.classNames &&
         modifiers[dayPickerProps.classNames.disabled])
     ) {
       return;
