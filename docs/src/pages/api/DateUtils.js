@@ -35,7 +35,7 @@ const range = {
 }
 const newRange = DateUtils.addDayToRange(new Date(2015, 5, 24), range);
 
-console.log(newRange.from) // 2015-05-24`}</CodeBlock>
+console.log(newRange.to) // 2015-05-24`}</CodeBlock>
 
       <h3>
         <Anchor id="addMonths" />
