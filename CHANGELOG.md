@@ -1,3 +1,11 @@
+### [v7.1.10](https://github.com/gpbl/react-day-picker/tree/v7.1.10) (2018-07-07)
+
+* Fixed a flickering issue with mouse hover using the default style ([#726](https://github.com/gpbl/react-day-picker/issues/726) by
+  [sv3k](https://github.com/sv3k))
+* (DayPickerInput) Fixed: disabled days not working correctly with `classNames` ([#741](https://github.com/gpbl/react-day-picker/issues/741) by
+  [hannescalibrate](https://github.com/hannescalibrate))
+* (DayPickerInput) Do not focus the input field if not supported by a custom `component` ([#747](https://github.com/gpbl/react-day-picker/issues/747))
+
 ### [v7.1.9](https://github.com/gpbl/react-day-picker/tree/v7.1.9) (2018-05-13)
 
 * (DayPickerInput) Fixed an error when year from input is too big ([#717](https://github.com/gpbl/react-day-picker/issues/717))
