@@ -73,7 +73,7 @@ export default () => (
       </p>
       <p>
         If your custom component doesn’t support such props, wrap it in a
-        component contaning them. For example:
+        component containing them. For example:
       </p>
       <CodeBlock>{`import React from 'react';
 import { DayPickerInput } from 'react-day-picker';
@@ -93,8 +93,32 @@ class MyInputWithFocus extends React.Component {
   }
 }
 
-function MyDayPickerInput(props) {
+function MyDayPickerInput() {
   return <DayPickerInput component={MyInputWithFocus} />
+} 
+`}</CodeBlock>
+
+      <p>
+        An alternative is to use{' '}
+        <a href="https://reactjs.org/docs/forwarding-refs.html">forwardRef()</a>{' '}
+        from React 16.3 to forward the ref directly to the native input.
+      </p>
+      <CodeBlock>{`import React from 'react';
+import { DayPickerInput } from 'react-day-picker';
+
+class MyInput extends React.Component {
+  render() {
+    const { forwardRef, ...rest} = this.props;
+    return <input ref={forwardRef} {...rest} />;
+  }
+}
+
+const MyInputWithForwardedRef = React.forwardRef((props, ref) => (
+  <MyInputWithoutFocus {...props} forwardRef={ref} />
+));
+
+function MyDayPickerInput() {
+  return <DayPickerInput component={MyInputWithForwardedRef} />
 } 
 `}</CodeBlock>
 
