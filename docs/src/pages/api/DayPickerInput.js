@@ -64,40 +64,16 @@ export default () => (
         component <code>string | React.Component = &quot;input&quot;</code>
       </h3>
       <p>The component class to render the input field.</p>
+      <CodeBlock
+      >{`<DayPickerInput component={props => <input {...props} />} />`}</CodeBlock>
+
       <p>
-        The component must be compatible with the standard HTML{' '}
-        <code>input</code>: i.e. it should support the
+        The component must support the
         <code>onChange</code>, <code>onFocus</code>, <code>onKeyUp</code>,{' '}
-        <code>onClick</code> and <code>onBlur</code> props, and the{' '}
+        <code>onClick</code> and <code>onBlur</code> props. If you want to keep
+        the focus when the user picks a day, the component class must have a{' '}
         <code>focus</code> method.
       </p>
-      <p>
-        If your custom component doesn’t support such props, wrap it in a
-        component contaning them. For example:
-      </p>
-      <CodeBlock>{`import React from 'react';
-import { DayPickerInput } from 'react-day-picker';
-import MyInputWithoutFocus from './MyInputWithoutFocus';
-
-class MyInputWithFocus extends React.Component {
-  focus = () => {
-    this.input.focus();
-  }
-  render() {
-    return (
-      <MyInputWithoutFocus 
-        ref={el => (this.input = el)} 
-        {...this.props} 
-      />
-    );
-  }
-}
-
-function MyDayPickerInput(props) {
-  return <DayPickerInput component={MyInputWithFocus} />
-} 
-`}</CodeBlock>
-
       <h3>
         <Anchor id="dayPickerProps" />
         dayPickerProps <code>Object</code>
