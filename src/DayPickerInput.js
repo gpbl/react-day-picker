@@ -365,7 +365,7 @@ export default class DayPickerInput extends React.Component {
   handleOverlayFocus(e) {
     e.preventDefault();
     this.overlayHasFocus = true;
-    if (!this.props.keepFocus) {
+    if (!this.props.keepFocus || typeof this.input.focus !== 'function') {
       return;
     }
     this.input.focus();
