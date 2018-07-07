@@ -68,8 +68,8 @@ export default () => (
         The component must be compatible with the standard HTML{' '}
         <code>input</code>: i.e. it should support the
         <code>onChange</code>, <code>onFocus</code>, <code>onKeyUp</code>,{' '}
-        <code>onClick</code> and <code>onBlur</code> and the <code>focus</code>{' '}
-        props.
+        <code>onClick</code> and <code>onBlur</code> props, and the{' '}
+        <code>focus</code> method.
       </p>
       <p>
         If your custom component doesn’t support such props, wrap it in a
