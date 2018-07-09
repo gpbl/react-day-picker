@@ -436,6 +436,11 @@ export class DayPicker extends Component {
 
   handleDayClick = (day, modifiers, e) => {
     e.persist();
+    if (
+      modifiers.disabled || modifiers[this.props.classNames.disabled]
+    ) {
+      return;
+    }
     if (
       modifiers[this.props.classNames.outside] &&
       this.props.enableOutsideDaysClick
