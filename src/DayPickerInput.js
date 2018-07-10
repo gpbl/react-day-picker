@@ -272,12 +272,10 @@ export default class DayPickerInput extends React.Component {
         ...dayPickerProps.modifiers,
       };
       const modifiers = getModifiersForDay(day, modifiersObj).reduce(
-        (obj, modifier) => {
-          const newObj = { ...obj };
-          newObj[modifier] = true;
-          return newObj;
-        },
-        {}
+        (obj, modifier) => ({
+          ...obj,
+          [modifier]: true
+        }), {}
       );
       onDayChange(day, modifiers);
     });
