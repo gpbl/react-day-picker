@@ -125,7 +125,7 @@ export default class Day extends Component {
           .reduce(
             (initial, modifier) => ({
               ...initial,
-              ...modifiersStyles[modifier]
+              ...modifiersStyles[modifier],
             }),
             {}
           )
