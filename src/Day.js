@@ -122,10 +122,13 @@ export default class Day extends Component {
     const style = modifiersStyles
       ? Object.keys(modifiers)
           .filter(modifier => !!modifiersStyles[modifier])
-          .reduce((initial, modifier) => ({
-            ...initial,
-            ...modifiersStyles[modifier]
-          }))
+          .reduce(
+            (initial, modifier) => ({
+              ...initial,
+              ...modifiersStyles[modifier]
+            }),
+            {}
+          )
       : undefined;
 
     if (empty) {
