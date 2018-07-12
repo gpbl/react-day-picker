@@ -119,14 +119,17 @@ export default class Day extends Component {
         .join('');
     }
 
-    let style;
-    if (modifiersStyles) {
-      Object.keys(modifiers)
-        .filter(modifier => !!modifiersStyles[modifier])
-        .forEach(modifier => {
-          style = { ...style, ...modifiersStyles[modifier] };
-        });
-    }
+    const style = modifiersStyles
+      ? Object.keys(modifiers)
+          .filter(modifier => !!modifiersStyles[modifier])
+          .reduce(
+            (initial, modifier) => ({
+              ...initial,
+              ...modifiersStyles[modifier],
+            }),
+            {}
+          )
+      : undefined;
 
     if (empty) {
       return <div aria-disabled className={className} style={style} />;
