@@ -5,17 +5,6 @@ import defaultClassNames from './classNames';
 import { SPACE, ENTER } from './keys';
 
 export default class Navbar extends Component {
-  static defaultProps = {
-    classNames: defaultClassNames,
-    dir: 'ltr',
-    labels: {
-      previousMonth: 'Previous Month',
-      nextMonth: 'Next Month',
-    },
-    showPreviousButton: true,
-    showNextButton: true,
-  };
-
   static propTypes = {
     classNames: PropTypes.shape({
       navBar: PropTypes.string.isRequired,
@@ -32,6 +21,17 @@ export default class Navbar extends Component {
       previousMonth: PropTypes.string.isRequired,
       nextMonth: PropTypes.string.isRequired,
     }),
+  };
+
+  static defaultProps = {
+    classNames: defaultClassNames,
+    dir: 'ltr',
+    labels: {
+      previousMonth: 'Previous Month',
+      nextMonth: 'Next Month',
+    },
+    showPreviousButton: true,
+    showNextButton: true,
   };
 
   shouldComponentUpdate(nextProps) {
