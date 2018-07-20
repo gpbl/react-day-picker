@@ -18,6 +18,7 @@ export default class DayPicker extends React.Component<DayPickerProps, any> {
   static ModifiersUtils: ModifiersUtils;
   static DayModifiers: DayModifiers;
   static Modifiers: Modifiers;
+  focus(): void;
   showMonth(month: Date): void;
   showPreviousMonth(): void;
   showNextMonth(): void;
