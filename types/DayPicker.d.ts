@@ -11,13 +11,13 @@ import {
 } from './props';
 
 export default class DayPicker extends React.Component<DayPickerProps, any> {
-  static dayPicker: HTMLDivElement;
   static VERSION: string;
   static LocaleUtils: LocaleUtils;
   static DateUtils: DateUtils;
   static ModifiersUtils: ModifiersUtils;
   static DayModifiers: DayModifiers;
   static Modifiers: Modifiers;
+  readonly dayPicker: HTMLDivElement;
   showMonth(month: Date): void;
   showPreviousMonth(): void;
   showNextMonth(): void;
