@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-export default function GithubButton() {
+export default function GitHubButton() {
   return (
     <span>
       <Helmet>
