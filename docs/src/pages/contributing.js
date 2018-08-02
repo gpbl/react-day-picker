@@ -20,7 +20,7 @@ export default function ChangeLog() {
           <Main.Aside>
             <Menu title="Useful links">
               <Menu.Item to="https://github.com/gpbl/react-day-picker">
-                Project on Github
+                Project on GitHub
               </Menu.Item>
               <Menu.Item to="https://gitter.im/gpbl/react-day-picker">
                 Gitter Room

@@ -151,7 +151,7 @@ export default () => (
         <a href="https://github.com/gpbl/react-day-picker/blob/master/src/classNames.js">
           See defaults
         </a>{' '}
-        on Github.
+        on GitHub.
       </p>
       <p>
         You can use this prop to adopt the custom styles imported via CSS

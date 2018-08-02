@@ -6,7 +6,7 @@ import Page from '../ui/Page';
 import Footer from '../ui/Footer';
 import Wrap from '../ui/Wrap';
 import LinkButton from '../ui/LinkButton';
-import GithubButton from '../ui/GithubButton';
+import GitHubButton from '../ui/GitHubButton';
 import CodeBlock from '../ui/CodeBlock';
 
 import styles from './index.module.scss';
@@ -43,7 +43,7 @@ export default function HomePage() {
             <LinkButton to="/docs">Read the docs</LinkButton>
             <LinkButton to="/examples">Browse the examples</LinkButton>
           </p>
-          <GithubButton />
+          <GitHubButton />
         </Wrap>
       </div>
       <Wrap>
@@ -100,7 +100,7 @@ export default function HomePage() {
           </div>
           <div span={2}>
             <CodeBlock language="bash">
-              {`$ npm install react-day-picker --save 
+              {`$ npm install react-day-picker --save
 # or with yarn:
 $ yarn add react-day-picker`}
             </CodeBlock>
