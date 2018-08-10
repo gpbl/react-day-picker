@@ -9,7 +9,7 @@ export default () => (
     <p>
       You can add custom CSS classes to day cells using modifiers. The following
       example add a custom <code>birthday</code> CSS modifier for a specific day
-      and a <code>moday</code> modifiers to match all the Mondays.
+      and a <code>monday</code> modifiers to match all the Mondays.
     </p>
     <p>
       Day cells can also formatted{' '}
