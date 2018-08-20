@@ -17,6 +17,9 @@ export default class Example extends React.Component {
       isDisabled: modifiers.disabled === true,
     });
   }
+  handleClose() {
+    console.log('Closed!');
+  }
   render() {
     const { selectedDay, isDisabled } = this.state;
     return (
@@ -31,6 +34,7 @@ export default class Example extends React.Component {
         <DayPickerInput
           value={selectedDay}
           onDayChange={this.handleDayChange}
+          onClose={this.handleClose}
           dayPickerProps={{
             selectedDays: selectedDay,
             disabledDays: {
