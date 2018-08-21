@@ -168,12 +168,14 @@ describe('DayPickerInput', () => {
         });
       });
     });
-    describe('close', () => {
-      it('should call `onClose` when overlay is being hid', () => {
-        const onClose = jest.fn();
-        const wrapper = mount(<DayPickerInput showOverlay onClose={onClose} />);
+    describe('hide', () => {
+      it('should call `onDayPickerHide` when overlay is being hid', () => {
+        const onDayPickerHide = jest.fn();
+        const wrapper = mount(
+          <DayPickerInput showOverlay onDayPickerHide={onDayPickerHide} />
+        );
         wrapper.instance().hideDayPicker();
-        expect(onClose).toHaveBeenCalledTimes(1);
+        expect(onDayPickerHide).toHaveBeenCalledTimes(1);
       });
     });
     describe('keydown', () => {
