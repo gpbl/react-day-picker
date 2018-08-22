@@ -168,6 +168,16 @@ describe('DayPickerInput', () => {
         });
       });
     });
+    describe('hide', () => {
+      it('should call `onDayPickerHide` when overlay is being hid', () => {
+        const onDayPickerHide = jest.fn();
+        const wrapper = mount(
+          <DayPickerInput showOverlay onDayPickerHide={onDayPickerHide} />
+        );
+        wrapper.instance().hideDayPicker();
+        expect(onDayPickerHide).toHaveBeenCalledTimes(1);
+      });
+    });
     describe('keydown', () => {
       it('should hide the overlay on TAB', () => {
         const wrapper = mount(<DayPickerInput />);
