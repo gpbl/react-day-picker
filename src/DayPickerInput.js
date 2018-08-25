@@ -115,6 +115,7 @@ export default class DayPickerInput extends React.Component {
     }),
 
     onDayChange: PropTypes.func,
+    onDayPickerHide: PropTypes.func,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
@@ -312,7 +313,9 @@ export default class DayPickerInput extends React.Component {
     if (this.state.showOverlay === false) {
       return;
     }
-    this.setState({ showOverlay: false });
+    this.setState({ showOverlay: false }, () => {
+      if (this.props.onDayPickerHide) this.props.onDayPickerHide();
+    });
   }
 
   hideAfterDayClick() {

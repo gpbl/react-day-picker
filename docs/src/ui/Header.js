@@ -94,7 +94,7 @@ export default class Header extends React.Component {
                       src={github}
                       width="20"
                       height="20"
-                      alt="Github logo"
+                      alt="GitHub logo"
                     />
                   </a>
                 </li>

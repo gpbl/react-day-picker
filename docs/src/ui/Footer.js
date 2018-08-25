@@ -2,7 +2,7 @@ import React from 'react';
 
 import logo from '../images/logo.png';
 
-import GithubButton from '../ui/GithubButton';
+import GitHubButton from '../ui/GitHubButton';
 import Wrap from '../ui/Wrap';
 
 import styles from './Footer.module.scss';
@@ -18,7 +18,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <GithubButton />
+            <GitHubButton />
           </div>
           <div>
             <p>
