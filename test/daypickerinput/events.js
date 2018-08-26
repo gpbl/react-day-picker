@@ -324,7 +324,7 @@ describe('DayPickerInput', () => {
         expect(wrapper.find('input')).toHaveProp('value', '');
         expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(1);
       });
-      it('should call `onDayChange` when clicking a selected day', () => {
+      it('should call `onDayChange` when clicking a selected day and unselect the day', () => {
         const onDayChange = jest.fn();
         const wrapper = mount(
           <DayPickerInput
@@ -348,6 +348,21 @@ describe('DayPickerInput', () => {
           selected: true,
           foo: true,
         });
+      });
+      it.only('should call `onDayChange` when typing an invalid day', () => {
+        const onDayChange = jest.fn();
+        const wrapper = mount(
+          <DayPickerInput onDayChange={onDayChange} clickUnselectsDay />
+        );
+        wrapper.update();
+        wrapper
+          .find('input')
+          .simulate('change', { target: { value: '02/07/x' } });
+        wrapper.update();
+        expect(onDayChange).toHaveBeenCalledWith(undefined, {});
+        wrapper.setState({ typedValue: '02/07/x', value: '' });
+        expect(wrapper.state('typedValue')).toBe('02/07/x');
+        expect(wrapper.find('input')).toHaveProp('value', '02/07/x');
       });
       it('should not call `onDayChange` if the day is disabled', () => {
         const onDayChange = jest.fn();
