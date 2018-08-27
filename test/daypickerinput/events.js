@@ -349,7 +349,7 @@ describe('DayPickerInput', () => {
           foo: true,
         });
       });
-      it.only('should call `onDayChange` when typing an invalid day', () => {
+      it('should call `onDayChange` when typing an invalid day', () => {
         const onDayChange = jest.fn();
         const wrapper = mount(
           <DayPickerInput onDayChange={onDayChange} clickUnselectsDay />
