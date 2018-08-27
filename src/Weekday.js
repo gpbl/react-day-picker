@@ -11,9 +11,11 @@ export default class Weekday extends Component {
     weekdaysLong: PropTypes.arrayOf(PropTypes.string),
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),
   };
+
   shouldComponentUpdate(nextProps) {
     return this.props !== nextProps;
   }
+
   render() {
     const {
       weekday,

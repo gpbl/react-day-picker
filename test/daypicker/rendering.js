@@ -223,6 +223,7 @@ describe('DayPicker’s rendering', () => {
     /* eslint-disable react/no-multi-comp */
     class CustomNavbar extends React.Component {
       static propTypes = { className: PropTypes.string };
+
       render() {
         return <div className={this.props.className}>Navbar</div>;
       }
@@ -281,6 +282,7 @@ describe('DayPicker’s rendering', () => {
         className: PropTypes.string,
         weekday: PropTypes.number,
       };
+
       render() {
         return <div className={this.props.className}>{this.props.weekday}</div>;
       }

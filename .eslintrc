@@ -1,29 +1,35 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "prettier"
-  ],
-  "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/react"
-  ],
+  "plugins": ["prettier"],
+  "extends": ["airbnb", "prettier", "prettier/react"],
   "rules": {
     "prettier/prettier": "error",
     "no-console": [
       "error",
       {
-        "allow": [
-          "warn",
-          "error"
-        ]
+        "allow": ["warn", "error"]
       }
     ],
-    "no-return-assign": 0,
-    "no-restricted-globals": 0,
-    "import/named": 2,
-    "import/no-named-as-default": 0,
-    "react/jsx-filename-extension": 0,
-    "react/require-default-props": 0
+    "no-return-assign": "off",
+    "no-restricted-globals": "off",
+    "import/named": "on",
+    "import/no-named-as-default": "off",
+    "react/jsx-filename-extension": "off",
+    "react/require-default-props": "off",
+    "react/destructuring-assignment": "off",
+
+    "react/sort-comp": [
+      1,
+      {
+        "order": [
+          "static-methods",
+          "instance-variables",
+          "lifecycle",
+          "everything-else",
+          "/^handle.+$/",
+          "render"
+        ]
+      }
+    ]
   }
 }

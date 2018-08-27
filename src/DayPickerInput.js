@@ -244,10 +244,15 @@ export default class DayPickerInput extends React.Component {
   }
 
   input = null;
+
   daypicker = null;
+
   clickTimeout = null;
+
   hideTimeout = null;
+
   inputBlurTimeout = null;
+
   inputFocusTimeout = null;
 
   /**

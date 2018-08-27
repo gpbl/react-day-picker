@@ -155,6 +155,8 @@ export class DayPicker extends Component {
     captionElement: <Caption classNames={classNames} />,
   };
 
+  dayPicker = null;
+
   constructor(props) {
     super(props);
 
@@ -217,8 +219,6 @@ export class DayPicker extends Component {
   getPreviousNavigableMonth() {
     return DateUtils.addMonths(this.state.currentMonth, -1);
   }
-
-  dayPicker = null;
 
   allowPreviousMonth() {
     const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
