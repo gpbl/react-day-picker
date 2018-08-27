@@ -1,3 +1,23 @@
+## [v7.2.0](https://github.com/gpbl/react-day-picker/tree/v7.2.0) (2018-08-27)
+
+**DayPicker**
+
+* (CSS) Added `left: auto` to navigation buttons style for easier styling ([#771](https://github.com/gpbl/react-day-picker/issues/771) by
+  [DDDDDanica](https://github.com/DDDDDanica))
+* (CSS) Changed css to use `em` units ([#777](https://github.com/gpbl/react-day-picker/issues/777) by
+  [signalwerk](https://github.com/signalwerk))
+* (TypeScript) Added `undefined` and `null` as allowed modifier types ([#775](https://github.com/gpbl/react-day-picker/issues/775) by
+  [Lavoaster](https://github.com/Lavoaster))
+
+**DayPickerInput**
+
+* Added `onDayPickerHide` prop
+* (TypeScript) Added top-level type definition for DayPickerInput ([#762](https://github.com/gpbl/react-day-picker/issues/762) by
+  [kryops](https://github.com/kryops))
+* (TypeScript) Fixed definition for `DayPickerInput.dayPicker` top-level type definition for DayPickerInput ([#790](https://github.com/gpbl/react-day-picker/issues/790) by
+  [strax](https://github.com/strax))
+* Fixed: input content was deleted when typing an invalid date in some cases ([#778](https://github.com/gpbl/react-day-picker/issues/778))
+
 ### [v7.1.10](https://github.com/gpbl/react-day-picker/tree/v7.1.10) (2018-07-07)
 
 * Fixed a flickering issue with mouse hover using the default style ([#726](https://github.com/gpbl/react-day-picker/issues/726) by
