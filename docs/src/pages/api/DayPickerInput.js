@@ -27,7 +27,8 @@ export default () => (
     </p>
     <h4>Event handlers</h4>
     <p>
-      <a href="#onDayChange">onDayChange</a>
+      <a href="#onDayChange">onDayChange</a>,{' '}
+      <a href="#onDayPickerHide">onDayPickerHide</a>
     </p>
     <h4>Public methods</h4>
     <p>
@@ -280,6 +281,11 @@ function MyDayPickerInput() {
         empty or not valid, `day` is <code>undefined</code> and `modifiers` is
         an empty object.
       </p>
+      <h3>
+        <Anchor id="onDayPickerHide" />
+        onDayPickerHide <code>() ⇒ void</code>
+      </h3>
+      <p>Handler function called when the overlay is hidden.</p>
 
       <hr />
       <h2>Public methods</h2>
