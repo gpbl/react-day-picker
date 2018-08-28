@@ -284,7 +284,7 @@ export default class DayPickerInput extends React.Component {
         }),
         {}
       );
-      onDayChange(day, modifiers);
+      onDayChange(day, modifiers, this);
     });
   }
 
@@ -405,14 +405,14 @@ export default class DayPickerInput extends React.Component {
     const { value } = e.target;
     if (value.trim() === '') {
       this.setState({ value, typedValue: undefined });
-      if (onDayChange) onDayChange(undefined, {});
+      if (onDayChange) onDayChange(undefined, {}, this);
       return;
     }
     const day = parseDate(value, format, dayPickerProps.locale);
     if (!day) {
       // Day is invalid: we save the value in the typedValue state
       this.setState({ value, typedValue: value });
-      if (onDayChange) onDayChange(undefined, {});
+      if (onDayChange) onDayChange(undefined, {}, this);
       return;
     }
     this.updateState(day, value);
@@ -491,7 +491,7 @@ export default class DayPickerInput extends React.Component {
         this.hideAfterDayClick
       );
       if (onDayChange) {
-        onDayChange(undefined, modifiers);
+        onDayChange(undefined, modifiers, this);
       }
       return;
     }
@@ -499,7 +499,7 @@ export default class DayPickerInput extends React.Component {
     const value = formatDate(day, format, dayPickerProps.locale);
     this.setState({ value, typedValue: undefined, month: day }, () => {
       if (onDayChange) {
-        onDayChange(day, modifiers);
+        onDayChange(day, modifiers, this);
       }
       this.hideAfterDayClick();
     });

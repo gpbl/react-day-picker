@@ -17,13 +17,13 @@ export default () => (
       <a href="#classNames">classNames</a>,{' '}
       <a href="#clickUnselectsDay">clickUnselectsDay</a>,{' '}
       <a href="#component">component</a>,{' '}
-      <a href="#dayPickerProps">dayPickerProps</a>, <a href="#format">format</a>,{' '}
-      <a href="#formatDate">formatDate</a>, <a href="#keepFocus">keepFocus</a>,{' '}
-      <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
+      <a href="#dayPickerProps">dayPickerProps</a>, <a href="#format">format</a>
+      , <a href="#formatDate">formatDate</a>, <a href="#keepFocus">keepFocus</a>
+      , <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
       <a href="#inputProps">inputProps</a>,{' '}
       <a href="#overlayComponent">overlayComponent</a>,{' '}
-      <a href="#parseDate">parseDate</a>, <a href="#placeholder">placeholder</a>,{' '}
-      <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>
+      <a href="#parseDate">parseDate</a>, <a href="#placeholder">placeholder</a>
+      , <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>
     </p>
     <h4>Event handlers</h4>
     <p>
@@ -32,8 +32,8 @@ export default () => (
     </p>
     <h4>Public methods</h4>
     <p>
-      <a href="#getDayPicker">getDayPicker</a>, <a href="#getInput">getInput</a>,{' '}
-      <a href="#hideDayPicker">hideDayPicker</a>,{' '}
+      <a href="#getDayPicker">getDayPicker</a>, <a href="#getInput">getInput</a>
+      , <a href="#hideDayPicker">hideDayPicker</a>,{' '}
       <a href="#showDayPicker">showDayPicker</a>
     </p>
     <hr />
@@ -118,11 +118,13 @@ export default () => (
         prop, while <code>locale</code> is from{' '}
         <a href="#dayPickerProps">
           <code>dayPickerProps</code>
-        </a>.<br />
+        </a>
+        .<br />
         See also{' '}
         <a href="#parseDate">
           <code>parseDate</code>
-        </a>.
+        </a>
+        .
       </p>
       <p>
         If you are using <a href="http://momentjs.com/">moment.js</a> in your
@@ -221,8 +223,7 @@ function MyDayPickerInput() {
       </h3>
       <p>
         Date parser used for parsing the string typed in the input field. As
-        default, it parses only dates formatted as <code>YYYY-M-D</code>.
-        <br />
+        default, it parses only dates formatted as <code>YYYY-M-D</code>.<br />
         Arguments: <code>format</code> is the value coming from the{' '}
         <a href="#format">
           <code>format</code>
@@ -230,10 +231,13 @@ function MyDayPickerInput() {
         prop, while <code>locale</code> is from{' '}
         <a href="#dayPickerProps">
           <code>dayPickerProps</code>
-        </a>.<br />See also{' '}
+        </a>
+        .<br />
+        See also{' '}
         <a href="#formatDate">
           <code>formatDate</code>
-        </a>.
+        </a>
+        .
       </p>
       <p>
         If you are using <a href="http://momentjs.com/">moment.js</a> in your
@@ -269,18 +273,43 @@ function MyDayPickerInput() {
 
       <h3>
         <Anchor id="onDayChange" />
-        onDayChange <code>(day: ?Date, modifiers: Object) ⇒ void</code>
+        onDayChange{' '}
+        <code>
+          (day: ?Date, modifiers: Object, dayPickerInput: DayPickerInput) ⇒ void
+        </code>
       </h3>
       <p>
-        Handler function called when the user types a valid day – according to
-        the{' '}
-        <code>
-          <a href="#format">format</a>
-        </code>{' '}
-        prop – or when a day is clicked on the calendar. If the typed value is
-        empty or not valid, `day` is <code>undefined</code> and `modifiers` is
-        an empty object.
+        Handler function called when the user types into the input field or when
+        a day is clicked on the calendar.
       </p>
+      <p>
+        <strong>Implementation Notes</strong>
+      </p>
+      <ul>
+        <li>
+          If the typed value is empty or not valid, <code>day</code> is{' '}
+          <code>undefined</code> and <code>modifiers</code> is an empty object.
+        </li>
+        <li>
+          The third argument is the DayPickerInput instance. You can use it to
+          access to the instance props or public methods
+        </li>
+      </ul>
+      <CodeBlock>{`handleDayChange(selectedDay, modifiers, dayPickerInput) {
+  const input = dayPickerInput.getInput();
+  this.setState({
+    selectedDay,
+    isEmpty: !input.value.trim(),
+    isValidDay: typeof selectedDay !== 'undefined',
+    isDisabled: modifiers.disabled === true,
+  });
+}
+
+<DayPickerInput 
+  onDayChange={handleDayChange} 
+  selectedDay={this.state.selectedDay} 
+/>`}</CodeBlock>
+
       <h3>
         <Anchor id="onDayPickerHide" />
         onDayPickerHide <code>() ⇒ void</code>
