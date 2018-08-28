@@ -2,9 +2,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import CodeSandboxer from 'react-codesandboxer';
 
 import styles from './CodeSample.module.scss';
-import CodeBlock from '../ui/CodeBlock';
+import CodeBlock from './CodeBlock';
 
 export default function CodeSamples({ name, lines, vertical = false }) {
   const source = require(`!raw-loader!../code-samples/${name}.js`);
@@ -17,7 +18,27 @@ export default function CodeSamples({ name, lines, vertical = false }) {
       }`}
     >
       <div>
-        <h4>Code</h4>
+        <h4>
+          Code
+          <CodeSandboxer
+            dependencies={{
+              'react-day-picker': 'latest',
+              'react-helmet': 'latest',
+              moment: 'latest',
+              'date-fns': 'next',
+            }}
+            gitInfo={{
+              account: 'gpbl',
+              repository: 'react-day-picker',
+              host: 'github',
+            }}
+            name={`react-day-picker ${name}`}
+            description="boh"
+            examplePath={`docs/src/code-samples/${name}.js`}
+          >
+            {() => <button type="submit">↗ CodeSandbox</button>}
+          </CodeSandboxer>
+        </h4>
         <hr />
         <CodeBlock data-line={lines}>{source}</CodeBlock>
       </div>
