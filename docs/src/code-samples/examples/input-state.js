@@ -8,25 +8,31 @@ export default class Example extends React.Component {
     this.handleDayChange = this.handleDayChange.bind(this);
     this.state = {
       selectedDay: undefined,
+      isEmpty: true,
       isDisabled: false,
     };
   }
-  handleDayChange(selectedDay, modifiers) {
+
+  handleDayChange(selectedDay, modifiers, dayPickerInput) {
+    const input = dayPickerInput.getInput();
     this.setState({
       selectedDay,
+      isEmpty: !input.value.trim(),
       isDisabled: modifiers.disabled === true,
     });
   }
+
   render() {
-    const { selectedDay, isDisabled } = this.state;
+    const { selectedDay, isDisabled, isEmpty } = this.state;
     return (
       <div>
         <p>
-          {!selectedDay && '🤔 Type or pick a valid day'}
-          {selectedDay && isDisabled && '😡 This day is disabled'}
+          {isEmpty && 'Please type or pick a day'}
+          {!isEmpty && !selectedDay && 'This day is invalid'}
+          {selectedDay && isDisabled && 'This day is disabled'}
           {selectedDay &&
             !isDisabled &&
-            `😄 You chose ${selectedDay.toLocaleDateString()}`}
+            `You chose ${selectedDay.toLocaleDateString()}`}
         </p>
         <DayPickerInput
           value={selectedDay}
