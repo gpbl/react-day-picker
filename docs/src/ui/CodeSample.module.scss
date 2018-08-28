@@ -3,6 +3,19 @@
 
 .container {
   display: flex;
+  h4 button {
+    -webkit-appearance: none;
+    border: 0;
+    margin: 0;
+    line-height: 0.8em;
+    padding: 0;
+    margin-left: 10px;
+    color: $link-color;
+    font-size: 0.875em;
+    &:hover {
+      color: $link-color-hover;
+    }
+  }
   @include wide-screen() {
     > div:last-child {
       > div {
