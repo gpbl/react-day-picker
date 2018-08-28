@@ -113,7 +113,11 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput onDayChange={onDayChange} />);
         const input = wrapper.find('input');
         input.simulate('change', { target: { value: '' } });
-        expect(onDayChange).toHaveBeenCalledWith(undefined, {});
+        expect(onDayChange).toHaveBeenCalledWith(
+          undefined,
+          {},
+          expect.anything()
+        );
       });
       it("should update the input's value if the value is not a valid date", () => {
         const wrapper = mount(<DayPickerInput />);
@@ -126,7 +130,11 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput onDayChange={onDayChange} />);
         const input = wrapper.find('input');
         input.simulate('change', { target: { value: 'foo' } });
-        expect(onDayChange).toHaveBeenCalledWith(undefined, {});
+        expect(onDayChange).toHaveBeenCalledWith(
+          undefined,
+          {},
+          expect.anything()
+        );
       });
       it("should update the input's value and the displayed month", () => {
         const wrapper = mount(<DayPickerInput />);
@@ -344,10 +352,14 @@ describe('DayPickerInput', () => {
           .find('.DayPicker-Day')
           .at(10)
           .simulate('click');
-        expect(onDayChange).toHaveBeenCalledWith(undefined, {
-          selected: true,
-          foo: true,
-        });
+        expect(onDayChange).toHaveBeenCalledWith(
+          undefined,
+          {
+            selected: true,
+            foo: true,
+          },
+          expect.anything()
+        );
       });
       it('should call `onDayChange` when typing an invalid day', () => {
         const onDayChange = jest.fn();
@@ -359,7 +371,11 @@ describe('DayPickerInput', () => {
           .find('input')
           .simulate('change', { target: { value: '02/07/x' } });
         wrapper.update();
-        expect(onDayChange).toHaveBeenCalledWith(undefined, {});
+        expect(onDayChange).toHaveBeenCalledWith(
+          undefined,
+          {},
+          expect.anything()
+        );
         wrapper.setState({ typedValue: '02/07/x', value: '' });
         expect(wrapper.state('typedValue')).toBe('02/07/x');
         expect(wrapper.find('input')).toHaveProp('value', '02/07/x');
