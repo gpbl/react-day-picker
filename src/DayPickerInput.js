@@ -486,7 +486,10 @@ export default class DayPickerInput extends React.Component {
       } else if (selectedDays) {
         selectedDays = null;
       }
-      this.setState({ value: '', selectedDays }, this.hideAfterDayClick);
+      this.setState(
+        { value: '', typedValue: undefined, selectedDays },
+        this.hideAfterDayClick
+      );
       if (onDayChange) {
         onDayChange(undefined, modifiers);
       }
@@ -494,7 +497,7 @@ export default class DayPickerInput extends React.Component {
     }
 
     const value = formatDate(day, format, dayPickerProps.locale);
-    this.setState({ value, month: day }, () => {
+    this.setState({ value, typedValue: undefined, month: day }, () => {
       if (onDayChange) {
         onDayChange(day, modifiers);
       }
