@@ -8,6 +8,7 @@
   "files": [
     "DayPicker.js",
     "DayPickerInput.js",
+    "DayPickerInput.d.ts",
     "lib",
     "moment.js",
     "utils.js",
