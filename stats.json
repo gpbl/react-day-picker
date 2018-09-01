@@ -33,8 +33,8 @@
       "component---src-pages-examples-months-multiple-js-4a85f3918f9b529fa335.js.map"
     ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-6f47fb43f919af9c2d81.js",
-      "component---src-pages-index-js-6f47fb43f919af9c2d81.js.map"
+      "component---src-pages-index-js-2e5bed73459838f82e29.js",
+      "component---src-pages-index-js-2e5bed73459838f82e29.js.map"
     ],
     "path---examples-months-initial": [
       "path---examples-months-initial-a0e39f21c11f6a62c5ab.js",
@@ -69,8 +69,8 @@
       "path---examples-customization-fixed-weeks-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-changelog-js": [
-      "component---src-pages-changelog-js-4e476610c7684dd2c434.js",
-      "component---src-pages-changelog-js-4e476610c7684dd2c434.js.map"
+      "component---src-pages-changelog-js-2550ae09538626173fa2.js",
+      "component---src-pages-changelog-js-2550ae09538626173fa2.js.map"
     ],
     "path---examples-disabled": [
       "path---examples-disabled-a0e39f21c11f6a62c5ab.js",
@@ -241,9 +241,9 @@
       "component---src-pages-404-js-f4c4b102edfafc071de3.js.map"
     ],
     "commons": [
-      "commons-793aedcfdfeb698f9a13.js",
+      "commons-de26d740628177d3aa9f.js",
       "build-js-styles.css",
-      "commons-793aedcfdfeb698f9a13.js.map",
+      "commons-de26d740628177d3aa9f.js.map",
       "build-js-styles.css.map"
     ],
     "path---examples-months-prevent": [
@@ -335,9 +335,9 @@
       "path---examples-months-restrict-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-d95bf15d5bf267dbd02e.js",
+      "app-5ad76f89c4dbf8397e5e.js",
       "build-js-styles.css",
-      "app-d95bf15d5bf267dbd02e.js.map",
+      "app-5ad76f89c4dbf8397e5e.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-pages-examples-input-from-to-js": [
