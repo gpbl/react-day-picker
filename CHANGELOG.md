@@ -1,4 +1,4 @@
-## [v7.2](https://github.com/gpbl/react-day-picker/tree/v7.2.1) (2018-08-27)
+## [v7.2](https://github.com/gpbl/react-day-picker/tree/v7.2.2) (2018-08-27)
 
 **DayPicker**
 
