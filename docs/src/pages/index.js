@@ -37,7 +37,15 @@ export default function HomePage() {
           </h2>
           <p>
             Flexible, highly customizable, localizable, with ARIA support, no
-            external dependencies, ~9KB gzipped
+            external dependencies,{' '}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://bundlephobia.com/result?p=react-day-picker"
+            >
+              7.4kB gzipped
+            </a>
+            .
           </p>
           <p>
             <LinkButton to="/docs">Read the docs</LinkButton>
@@ -83,9 +91,9 @@ export default function HomePage() {
           <div>
             <h3>Select range of days</h3>
             <p>
-              Specify which days should be selected in your component’s state (<Link to="/examples/selected-range">
-                source
-              </Link>).
+              Specify which days should be selected in your component’s state (
+              <Link to="/examples/selected-range">source</Link>
+              ).
             </p>
             <div className={styles.feature}>
               <FeatureRange numberOfMonths={1} />
