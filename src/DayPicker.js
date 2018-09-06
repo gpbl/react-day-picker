@@ -191,9 +191,10 @@ export class DayPicker extends Component {
     let currentMonth = initialMonth;
 
     if (props.pagedNavigation && props.numberOfMonths > 1 && props.fromMonth) {
-      const diffInMonths = Helpers.getMonthsDiff(props.fromMonth, currentMonth);
+      const fromMonth = Helpers.startOfMonth(props.fromMonth);
+      const diffInMonths = Helpers.getMonthsDiff(fromMonth, currentMonth);
       currentMonth = DateUtils.addMonths(
-        props.fromMonth,
+        fromMonth,
         Math.floor(diffInMonths / props.numberOfMonths) * props.numberOfMonths
       );
     } else if (
@@ -202,7 +203,7 @@ export class DayPicker extends Component {
       Helpers.getMonthsDiff(currentMonth, props.toMonth) <= 0
     ) {
       currentMonth = DateUtils.addMonths(
-        props.toMonth,
+        Helpers.startOfMonth(props.toMonth),
         1 - this.props.numberOfMonths
       );
     }
