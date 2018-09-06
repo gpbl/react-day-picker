@@ -1,3 +1,7 @@
+### [v7.2.3](https://github.com/gpbl/react-day-picker/tree/v7.2.3) (2018-09-06)
+
+- Fixed an issue with paged navigation when using `toMonth` or `fromMonth` props ([#787](https://github.com/gpbl/react-day-picker/issues/787))
+
 ## [v7.2](https://github.com/gpbl/react-day-picker/tree/v7.2.2) (2018-08-27)
 
 **DayPicker**
