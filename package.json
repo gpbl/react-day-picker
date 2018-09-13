@@ -102,7 +102,7 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
-    "opencollective": "^1.0.3",
+    "opencollective-postinstall": "^2.0.0",
     "prop-types": "^15.6.2"
   },
   "collective": {
