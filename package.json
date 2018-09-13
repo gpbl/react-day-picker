@@ -28,7 +28,8 @@
     "build:node": "babel ./src -d ./lib/src --source-maps && npm run build:css",
     "build:development": "cross-env NODE_ENV=development webpack",
     "build:production": "cross-env NODE_ENV=production webpack -p",
-    "build:css": "postcss src/style.css --use autoprefixer -d lib/ --no-map"
+    "build:css": "postcss src/style.css --use autoprefixer -d lib/ --no-map",
+    "postinstall": "opencollective-postinstall"
   },
   "repository": {
     "type": "git",
@@ -101,6 +102,11 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
+    "opencollective": "^1.0.3",
     "prop-types": "^15.6.2"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/react-day-picker"
   }
 }
