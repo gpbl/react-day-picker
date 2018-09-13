@@ -1,5 +1,7 @@
-### [v7.2.3](https://github.com/gpbl/react-day-picker/tree/v7.2.3) (2018-09-06)
+### [v7.2.4](https://github.com/gpbl/react-day-picker/tree/v7.2.4) (2018-09-13)
 
+- Fix regression: re-enabled click on disabled days ([#789](https://github.com/gpbl/react-day-picker/issues/789) by
+  [dewey92](https://github.com/dewey92))
 - Fixed an issue with paged navigation when using `toMonth` or `fromMonth` props ([#787](https://github.com/gpbl/react-day-picker/issues/787))
 
 ## [v7.2](https://github.com/gpbl/react-day-picker/tree/v7.2.2) (2018-08-27)
