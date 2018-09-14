@@ -1,7 +1,6 @@
 // TypeScript Version: 2.2
 
 import * as React from 'react';
-import { ClassNames } from './common';
 import { DayPickerInputProps } from './props';
 import DayPicker from './DayPicker';
 
