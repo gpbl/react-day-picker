@@ -137,7 +137,7 @@ export interface DayPickerProps {
     e: React.MouseEvent<HTMLDivElement>
   ): void;
   pagedNavigation?: boolean;
-  renderDay?(date: Date, modifiers: Modifiers): React.ReactNode;
+  renderDay?(date: Date, modifiers: DayModifiers): React.ReactNode;
   renderWeek?(weekNumber: number, week: Date[], month: Date): React.ReactNode;
   reverseMonths?: boolean;
   selectedDays?: Modifier | Modifier[];
