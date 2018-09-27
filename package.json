@@ -11,6 +11,7 @@
     "DayPickerInput.d.ts",
     "lib",
     "moment.js",
+    "moment.d.ts",
     "utils.js",
     "types"
   ],
