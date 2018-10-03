@@ -180,9 +180,12 @@ export default class Month extends Component {
             if (showWeekNumbers) {
               weekNumber = DateUtils.getWeekNumber(week[6]);
             }
+            const dateWithoutOffset = new Date(
+              week[0].getTime() - week[0].getTimezoneOffset() * 60000
+            );
             return (
               <div
-                key={week[0].getTime()}
+                key={dateWithoutOffset.getTime()}
                 className={classNames.week}
                 role="row"
               >
