@@ -11,7 +11,7 @@ import Month from '../../src/Month';
 import { LocaleUtils } from '../../DayPicker';
 import Weekday from '../../src/Weekday';
 import Navbar from '../../src/Navbar';
-import Caption from '../../src/Caption';
+import ActualCaption from '../../src/Caption';
 
 describe('DayPicker’s rendering', () => {
   it('should have default props', () => {
@@ -483,7 +483,7 @@ describe("Month's rendering", () => {
       localeUtils: LocaleUtils,
       weekdayElement: <Weekday />,
       navbarElement: <Navbar classNames={classNames} />,
-      captionElement: <Caption classNames={classNames} />,
+      captionElement: <ActualCaption classNames={classNames} />,
     };
 
     const monthWithLocalizedTZ = mount(
