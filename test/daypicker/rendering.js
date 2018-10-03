@@ -7,6 +7,11 @@ import { shallow, mount, render } from 'enzyme';
 import DayPicker from '../../src/DayPicker';
 import Day from '../../src/Day';
 import classNames from '../../src/classNames';
+import Month from '../../src/Month';
+import { LocaleUtils } from '../../DayPicker';
+import Weekday from '../../src/Weekday';
+import Navbar from '../../src/Navbar';
+import Caption from '../../src/Caption';
 
 describe('DayPicker’s rendering', () => {
   it('should have default props', () => {
@@ -461,5 +466,35 @@ describe('Day.shouldComponentUpdate', () => {
     ).instance();
     const newProps = Object.assign({}, day.props, { onKeyDown: () => {} });
     expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
+  });
+});
+
+describe("Month's rendering", () => {
+  it('should render same key for same date no matter what local tz is set', () => {
+    const monthProps = {
+      selectedDays: new Date(2018, 6, 0),
+      toMonth: new Date(2018, 11, 0),
+      classNames,
+      numberOfMonths: 1,
+      firstDayOfWeek: 0,
+      renderDay: day => day.getDate(),
+      renderWeek: weekNumber => weekNumber,
+      locale: 'en',
+      localeUtils: LocaleUtils,
+      weekdayElement: <Weekday />,
+      navbarElement: <Navbar classNames={classNames} />,
+      captionElement: <Caption classNames={classNames} />,
+    };
+
+    const monthWithLocalizedTZ = mount(
+      <Month {...monthProps} month={new Date(2018, 6, 1, 18, 0, 0)} />
+    );
+
+    const localizedKey = monthWithLocalizedTZ
+      .find('.DayPicker-Week')
+      .first()
+      .key();
+
+    expect(localizedKey).toMatchSnapshot();
   });
 });
