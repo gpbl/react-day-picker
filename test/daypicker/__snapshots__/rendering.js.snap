@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Month's rendering should render same key for same date no matter what local tz is set 1`] = `"1530439200000"`;
+exports[`Month's rendering should render same key for same date no matter what local tz is set 1`] = `"1530446400000"`;
