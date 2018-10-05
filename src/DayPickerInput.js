@@ -486,10 +486,13 @@ export default class DayPickerInput extends React.Component {
       } else if (selectedDays) {
         selectedDays = null;
       }
+
       this.setState(
-        { value: '', typedValue: undefined, selectedDays },
+        { value: '', typedValue: '', selectedDays },
         this.hideAfterDayClick
       );
+
+
       if (onDayChange) {
         onDayChange(undefined, modifiers, this);
       }
@@ -566,7 +569,7 @@ export default class DayPickerInput extends React.Component {
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}
           {...inputProps}
-          value={this.state.typedValue || this.state.value}
+          value={this.state.value || this.state.typedValue}
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
