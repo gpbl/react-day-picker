@@ -108,6 +108,8 @@ export default class DayPickerInput extends React.Component {
     component: PropTypes.any,
     overlayComponent: PropTypes.any,
 
+    changeMonthOnDayClick: PropTypes.bool,
+
     classNames: PropTypes.shape({
       container: PropTypes.string,
       overlayWrapper: PropTypes.string,
@@ -142,6 +144,7 @@ export default class DayPickerInput extends React.Component {
       overlayWrapper: 'DayPickerInput-OverlayWrapper',
       overlay: 'DayPickerInput-Overlay',
     },
+    changeMonthOnDayClick: true,
   };
 
   input = null;
@@ -460,6 +463,7 @@ export default class DayPickerInput extends React.Component {
       onDayChange,
       formatDate,
       format,
+      changeMonthOnDayClick,
     } = this.props;
     if (dayPickerProps.onDayClick) {
       dayPickerProps.onDayClick(day, modifiers, e);
@@ -497,7 +501,14 @@ export default class DayPickerInput extends React.Component {
     }
 
     const value = formatDate(day, format, dayPickerProps.locale);
-    this.setState({ value, typedValue: undefined, month: day }, () => {
+
+    const newState = { value, typedValue: undefined };
+
+    if (changeMonthOnDayClick) {
+      newState.month = day;
+    }
+
+    this.setState(newState, () => {
       if (onDayChange) {
         onDayChange(day, modifiers, this);
       }
