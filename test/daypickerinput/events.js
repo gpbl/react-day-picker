@@ -150,6 +150,24 @@ describe('DayPickerInput', () => {
           'October 2015'
         );
       });
+      it('should not update the dispayled month when changeMonthOnDayClick is false', () => {
+        const wrapper = mount(
+          <DayPickerInput
+            changeMonthOnDayClick={false}
+            dayPickerProps={{ numberOfMonths: 2 }}
+          />
+        );
+        wrapper.instance().showDayPicker();
+        wrapper.update();
+        wrapper
+          .find('.DayPicker-Day')
+          .at(40)
+          .simulate('click');
+
+        expect(wrapper.find('.DayPicker-Caption').first()).toHaveText(
+          moment().format('MMMM YYYY')
+        );
+      });
       it('should call `onDayChange` with modifiers', () => {
         const onDayChange = jest.fn();
         const testDay = new Date(2015, 11, 20);
