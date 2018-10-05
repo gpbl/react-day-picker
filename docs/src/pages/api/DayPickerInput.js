@@ -188,13 +188,13 @@ export default () => (
       </ul>
       <CodeBlock>
         {`import React from 'react';
-import { DayPickerInput } from 'react-day-picker';
+import DayPickerInput from "react-day-picker/DayPickerInput";
 
 function OverlayComponent({ children, ...props }) {
   return (
-    <div {...props}}>
+    <div {...props}>
       <p>My custom things</p>
-      /* include the calendar */
+      {/* include the calendar */}
       { children }
       <p>Some content below the calendar</p>
     </div>
@@ -306,7 +306,7 @@ function MyDayPickerInput() {
 }
 
 <DayPickerInput 
-  onDayChange={handleDayChange} 
+  onDayChange={this.handleDayChange} 
   selectedDay={this.state.selectedDay} 
 />`}</CodeBlock>
 
