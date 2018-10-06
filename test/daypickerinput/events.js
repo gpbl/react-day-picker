@@ -176,7 +176,7 @@ describe('DayPickerInput', () => {
         });
       });
       it('should clear an invalid input value when the value prop is updated with a valid date', () => {
-        const wrapper = mount(<DayPickerInput value={"2015-7-01"} />);
+        const wrapper = mount(<DayPickerInput value="2015-7-01" />);
         wrapper
           .find('input')
           .simulate('change', { target: { value: 'an invalid date value' } });
