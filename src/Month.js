@@ -117,8 +117,10 @@ export default class Month extends Component {
         onTouchEnd={this.props.onDayTouchEnd}
         onTouchStart={this.props.onDayTouchStart}
       >
-        {this.props.numbers ?
-          this.props.localeUtils.formatNumbers(this.props.renderDay(day, modifiers), this.props.numbers)
+        {this.props.numbers ? this.props.localeUtils.formatNumbers(
+            this.props.renderDay(day, modifiers),
+            this.props.numbers
+          )
           :
           this.props.renderDay(day, modifiers)}
       </Day>

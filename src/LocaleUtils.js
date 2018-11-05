@@ -30,9 +30,7 @@ export function formatDay(day) {
 }
 
 export function formatNumbers(number, numbersFormat) {
-  return number
-    .toString()
-    .replace(/\d/g, x => numbersFormat[x]);
+  return number.toString().replace(/\d/g, x => numbersFormat[x]);
 }
 
 export function formatMonthTitle(d) {
