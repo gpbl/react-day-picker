@@ -51,10 +51,12 @@ export default class Caption extends Component {
       localeUtils,
       onClick,
     } = this.props;
-    let caption = months ? `${months[date.getMonth()]} ${date.getFullYear()}` : localeUtils.formatMonthTitle(date, locale);
+    let caption = months
+      ? `${months[date.getMonth()]} ${date.getFullYear()}`
+     :
+      localeUtils.formatMonthTitle(date, locale);
 
-    if (numbers)
-      caption = localeUtils.formatNumbers(caption, numbers);
+    if (numbers) caption = localeUtils.formatNumbers(caption, numbers);
 
     return (
       <div className={classNames.caption} role="heading">

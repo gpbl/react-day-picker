@@ -120,8 +120,7 @@ export default class Month extends Component {
         {this.props.numbers ? this.props.localeUtils.formatNumbers(
             this.props.renderDay(day, modifiers),
             this.props.numbers
-          )
-          :
+          ):
           this.props.renderDay(day, modifiers)}
       </Day>
     );
