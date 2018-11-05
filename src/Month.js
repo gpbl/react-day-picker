@@ -22,6 +22,7 @@ export default class Month extends Component {
 
     month: PropTypes.instanceOf(Date).isRequired,
     months: PropTypes.arrayOf(PropTypes.string),
+    numbers: PropTypes.arrayOf(PropTypes.string),
 
     modifiersStyles: PropTypes.object,
 
@@ -117,10 +118,11 @@ export default class Month extends Component {
         onTouchEnd={this.props.onDayTouchEnd}
         onTouchStart={this.props.onDayTouchStart}
       >
-        {this.props.numbers ? this.props.localeUtils.formatNumbers(
-            this.props.renderDay(day, modifiers),
-            this.props.numbers
-          ):
+        {
+          this.props.numbers ? this.props.localeUtils.formatNumbers(
+              this.props.renderDay(day, modifiers),
+              this.props.numbers
+          ) :
           this.props.renderDay(day, modifiers)}
       </Day>
     );

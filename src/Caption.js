@@ -9,6 +9,7 @@ export default class Caption extends Component {
   static propTypes = {
     date: PropTypes.instanceOf(Date),
     months: PropTypes.arrayOf(PropTypes.string),
+    numbers: PropTypes.arrayOf(PropTypes.string),
     locale: PropTypes.string,
     localeUtils: PropTypes.object,
     onClick: PropTypes.func,
@@ -52,8 +53,7 @@ export default class Caption extends Component {
       onClick,
     } = this.props;
     let caption = months
-      ? `${months[date.getMonth()]} ${date.getFullYear()}`
-     :
+      ? `${months[date.getMonth()]} ${date.getFullYear()}` :
       localeUtils.formatMonthTitle(date, locale);
 
     if (numbers) caption = localeUtils.formatNumbers(caption, numbers);
