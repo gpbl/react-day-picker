@@ -141,6 +141,7 @@ export default class Month extends Component {
       weekdaysLong,
       weekdaysShort,
       firstDayOfWeek,
+      numbers,
 
       onCaptionClick,
 
@@ -153,6 +154,7 @@ export default class Month extends Component {
       date: month,
       classNames,
       months,
+      numbers,
       localeUtils,
       locale,
       onClick: onCaptionClick ? e => onCaptionClick(month, e) : undefined,

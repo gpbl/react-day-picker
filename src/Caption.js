@@ -46,6 +46,7 @@ export default class Caption extends Component {
       classNames,
       date,
       months,
+      numbers,
       locale,
       localeUtils,
       onClick,
