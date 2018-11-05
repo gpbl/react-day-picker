@@ -29,6 +29,12 @@ export function formatDay(day) {
   return day.toDateString();
 }
 
+export function formatNumbers(number, numbersFormat) {
+  return number
+    .toString()
+    .replace(/\d/g, x => numbersFormat[x]);
+}
+
 export function formatMonthTitle(d) {
   return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
 }
