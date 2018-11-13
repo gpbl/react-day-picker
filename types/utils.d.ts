@@ -3,13 +3,13 @@
 import { RangeModifier, Modifier } from "./common";
 
 export interface LocaleUtils {
-  formatDay(day: Date, locale: string): string;
-  formatMonthTitle(month: Date, locale: string): string;
-  formatWeekdayLong(weekday: number, locale: string): string;
-  formatWeekdayShort(weekday: number, locale: string): string;
-  getFirstDayOfWeek(locale: string): number;
+  formatDay(day: Date, locale?: string): string;
+  formatMonthTitle(month: Date, locale?: string): string;
+  formatWeekdayLong(weekday: number, locale?: string): string;
+  formatWeekdayShort(weekday: number, locale?: string): string;
+  getFirstDayOfWeek(locale?: string): number;
   getMonths(
-    locale: string
+    locale?: string
   ): [
     string,
     string,
