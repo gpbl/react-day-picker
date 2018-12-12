@@ -10,7 +10,7 @@ export interface CaptionElementProps {
   classNames: ClassNames;
   localeUtils: LocaleUtils;
   locale: string;
-  months: undefined;
+  months?: string[];
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
@@ -35,6 +35,8 @@ export interface WeekdayElementProps {
   className: string;
   localeUtils: LocaleUtils;
   locale: string;
+  weekdaysLong?: string[];
+  weekdaysShort?: string[];
 }
 
 export interface DayPickerProps {
@@ -62,20 +64,7 @@ export interface DayPickerProps {
   modifiers?: Partial<Modifiers>;
   modifiersStyles?: object;
   month?: Date;
-  months?: [
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string
-  ];
+  months?: string[];
   navbarElement?:
     | React.ReactElement<Partial<NavbarElementProps>>
     | React.ComponentClass<NavbarElementProps>
@@ -149,8 +138,8 @@ export interface DayPickerProps {
     | React.ReactElement<Partial<WeekdayElementProps>>
     | React.ComponentClass<WeekdayElementProps>
     | React.SFC<WeekdayElementProps>;
-  weekdaysLong?: [string, string, string, string, string, string, string];
-  weekdaysShort?: [string, string, string, string, string, string, string];
+  weekdaysLong?: string[];
+  weekdaysShort?: string[];
 }
 
 export interface DayPickerInputProps {
