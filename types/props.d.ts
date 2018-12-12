@@ -49,6 +49,7 @@ export interface DayPickerProps {
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   >;
+  dir?: string;
   disabledDays?: Modifier | Modifier[];
   showOutsideDays?: boolean;
   enableOutsideDaysClick?: boolean;
