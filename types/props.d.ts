@@ -64,7 +64,20 @@ export interface DayPickerProps {
   modifiers?: Partial<Modifiers>;
   modifiersStyles?: object;
   month?: Date;
-  months?: string[];
+  months?: [
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string
+  ];
   navbarElement?:
     | React.ReactElement<Partial<NavbarElementProps>>
     | React.ComponentClass<NavbarElementProps>
@@ -138,8 +151,8 @@ export interface DayPickerProps {
     | React.ReactElement<Partial<WeekdayElementProps>>
     | React.ComponentClass<WeekdayElementProps>
     | React.SFC<WeekdayElementProps>;
-  weekdaysLong?: string[];
-  weekdaysShort?: string[];
+  weekdaysLong?: [string, string, string, string, string, string, string];
+  weekdaysShort?: [string, string, string, string, string, string, string];
 }
 
 export interface DayPickerInputProps {
