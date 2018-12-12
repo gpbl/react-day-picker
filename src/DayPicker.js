@@ -382,15 +382,19 @@ export class DayPicker extends Component {
     switch (e.keyCode) {
       case LEFT:
         this.showPreviousMonth();
+        Helpers.cancelEvent(e);
         break;
       case RIGHT:
         this.showNextMonth();
+        Helpers.cancelEvent(e);
         break;
       case UP:
         this.showPreviousYear();
+        Helpers.cancelEvent(e);
         break;
       case DOWN:
         this.showNextYear();
+        Helpers.cancelEvent(e);
         break;
       default:
         break;
