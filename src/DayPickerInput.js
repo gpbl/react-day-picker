@@ -562,18 +562,33 @@ export default class DayPickerInput extends React.Component {
     const { inputProps } = this.props;
     return (
       <div className={this.props.classNames.container}>
-        <Input
-          ref={el => (this.input = el)}
-          placeholder={this.props.placeholder}
-          {...inputProps}
-          value={this.state.typedValue || this.state.value}
-          onChange={this.handleInputChange}
-          onFocus={this.handleInputFocus}
-          onBlur={this.handleInputBlur}
-          onKeyDown={this.handleInputKeyDown}
-          onKeyUp={this.handleInputKeyUp}
-          onClick={!inputProps.disabled ? this.handleInputClick : undefined}
-        />
+        {this.props.component &&
+        {}.toString.call(this.props.component) !== '[object Function]' ? (
+          <Input
+            ref={el => (this.input = el)}
+            placeholder={this.props.placeholder}
+            {...inputProps}
+            value={this.state.typedValue || this.state.value}
+            onChange={this.handleInputChange}
+            onFocus={this.handleInputFocus}
+            onBlur={this.handleInputBlur}
+            onKeyDown={this.handleInputKeyDown}
+            onKeyUp={this.handleInputKeyUp}
+            onClick={!inputProps.disabled ? this.handleInputClick : undefined}
+          />
+        ) : (
+          this.props.component({
+            placeholder: this.props.placeholder,
+            ...inputProps,
+            value: this.state.typedValue || this.state.value,
+            onChange: this.handleInputChange,
+            onFocus: this.handleInputFocus,
+            onBlur: this.handleInputBlur,
+            onKeyDown: this.handleInputKeyDown,
+            onKeyUp: this.handleInputKeyUp,
+            onClick: !inputProps.disabled ? this.handleInputClick : undefined,
+          })
+        )}
         {this.state.showOverlay && this.renderOverlay()}
       </div>
     );

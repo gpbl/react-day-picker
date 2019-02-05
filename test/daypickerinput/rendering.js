@@ -227,5 +227,30 @@ describe('DayPickerInput', () => {
         new Date(2020, 2, 10)
       );
     });
+    it('should render a component passed as function', () => {
+      const wrapper = shallow(
+        <DayPickerInput
+          value="2019-2-5"
+          component={props => (
+            <div id="customDiv">
+              <input id="customInput" {...props} />
+            </div>
+          )}
+        />
+      );
+      const customDiv = wrapper.find('#customDiv');
+      expect(customDiv).toBeDefined();
+      const input = wrapper.find('input');
+      expect(input).toBeDefined();
+      expect(input).toHaveProp('value', '2019-2-5');
+      expect(input).toHaveProp('placeholder', 'YYYY-M-D');
+      expect(input).toHaveProp('onChange');
+      expect(input).toHaveProp('onFocus');
+      expect(input).toHaveProp('onBlur');
+      expect(input).toHaveProp('onKeyDown');
+      expect(input).toHaveProp('onKeyUp');
+      expect(input).toHaveProp('onClick');
+      expect(typeof wrapper.instance().props.component).toBe('function');
+    });
   });
 });
