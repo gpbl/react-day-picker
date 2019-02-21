@@ -381,10 +381,18 @@ export class DayPicker extends Component {
 
     switch (e.keyCode) {
       case LEFT:
-        this.showPreviousMonth();
+        if (this.props.dir === 'rtl') {
+          this.showNextMonth();
+        } else {
+          this.showPreviousMonth();
+        }
         break;
       case RIGHT:
-        this.showNextMonth();
+        if (this.props.dir === 'rtl') {
+          this.showPreviousMonth();
+        } else {
+          this.showNextMonth();
+        }
         break;
       case UP:
         this.showPreviousYear();
@@ -403,14 +411,23 @@ export class DayPicker extends Component {
 
   handleDayKeyDown = (day, modifiers, e) => {
     e.persist();
+
     switch (e.keyCode) {
       case LEFT:
         Helpers.cancelEvent(e);
-        this.focusPreviousDay(e.target);
+        if (this.props.dir === 'rtl') {
+          this.focusNextDay(e.target);
+        } else {
+          this.focusPreviousDay(e.target);
+        }
         break;
       case RIGHT:
         Helpers.cancelEvent(e);
-        this.focusNextDay(e.target);
+        if (this.props.dir === 'rtl') {
+          this.focusPreviousDay(e.target);
+        } else {
+          this.focusNextDay(e.target);
+        }
         break;
       case UP:
         Helpers.cancelEvent(e);
