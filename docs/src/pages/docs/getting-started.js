@@ -14,7 +14,7 @@ export default () => (
     </p>
     <ul>
       <li>
-        the <code>DayPicker</code> component to renders the calendar (see:{' '}
+        the <code>DayPicker</code> component to render the calendar (see:{' '}
         <Link to="/docs/basic-concepts">basic concepts</Link>,{' '}
         <Link to="/api/DayPicker">API</Link>)
       </li>
