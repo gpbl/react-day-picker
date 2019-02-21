@@ -23,12 +23,14 @@ export default () => (
       <a href="#inputProps">inputProps</a>,{' '}
       <a href="#overlayComponent">overlayComponent</a>,{' '}
       <a href="#parseDate">parseDate</a>, <a href="#placeholder">placeholder</a>
-      , <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>
+      , <a href="#showOverlay">showOverlay</a>, <a href="#style">style</a>,{' '}
+      <a href="#value">value</a>
     </p>
     <h4>Event handlers</h4>
     <p>
       <a href="#onDayChange">onDayChange</a>,{' '}
-      <a href="#onDayPickerHide">onDayPickerHide</a>
+      <a href="#onDayPickerHide">onDayPickerHide</a>{' '}
+      <a href="#onDayPickerShow">onDayPickerShow</a>
     </p>
     <h4>Public methods</h4>
     <p>
@@ -261,6 +263,11 @@ function MyDayPickerInput() {
         useful if you want to keep the overlay visibile while styling it.
       </p>
       <h3>
+        <Anchor id="style" />
+        style <code>object</code>
+      </h3>
+      <p>The style attribute applied to the container.</p>
+      <h3>
         <Anchor id="value" />
         value <code>string | Date</code>
       </h3>
@@ -305,14 +312,19 @@ function MyDayPickerInput() {
   });
 }
 
-<DayPickerInput 
-  onDayChange={handleDayChange} 
-  selectedDay={this.state.selectedDay} 
+<DayPickerInput
+  onDayChange={handleDayChange}
+  selectedDay={this.state.selectedDay}
 />`}</CodeBlock>
 
       <h3>
         <Anchor id="onDayPickerHide" />
         onDayPickerHide <code>() ⇒ void</code>
+      </h3>
+      <p>Handler function called when the overlay is hidden.</p>
+      <h3>
+        <Anchor id="onDayPickerShow" />
+        onDayPickerShow <code>() ⇒ void</code>
       </h3>
       <p>Handler function called when the overlay is hidden.</p>
 

@@ -12,7 +12,9 @@ function handleEvent(handler, day, modifiers) {
     return undefined;
   }
   return e => {
-    e.persist();
+    if(e.persist) { 
+       e.persist();
+    }
     handler(day, modifiers, e);
   };
 }

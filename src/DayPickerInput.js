@@ -108,6 +108,7 @@ export default class DayPickerInput extends React.Component {
     component: PropTypes.any,
     overlayComponent: PropTypes.any,
 
+    style: PropTypes.object,
     classNames: PropTypes.shape({
       container: PropTypes.string,
       overlayWrapper: PropTypes.string,
@@ -339,7 +340,9 @@ export default class DayPickerInput extends React.Component {
   handleInputClick(e) {
     this.showDayPicker();
     if (this.props.inputProps.onClick) {
-      e.persist();
+      if(e.persist) { 
+        return e.persist();
+      }      
       this.props.inputProps.onClick(e);
     }
   }
@@ -352,7 +355,9 @@ export default class DayPickerInput extends React.Component {
       this.overlayHasFocus = false;
     }, 2);
     if (this.props.inputProps.onFocus) {
-      e.persist();
+      if(e.persist) { 
+        return e.persist();
+      }   
       this.props.inputProps.onFocus(e);
     }
   }
@@ -370,7 +375,9 @@ export default class DayPickerInput extends React.Component {
       }
     }, 1);
     if (this.props.inputProps.onBlur) {
-      e.persist();
+      if(e.persist) { 
+        return e.persist();
+      }   
       this.props.inputProps.onBlur(e);
     }
   }
@@ -405,7 +412,9 @@ export default class DayPickerInput extends React.Component {
       parseDate,
     } = this.props;
     if (inputProps.onChange) {
-      e.persist();
+      if(e.persist) { 
+        return e.persist();
+      }   
       inputProps.onChange(e);
     }
     const { value } = e.target;
@@ -431,7 +440,9 @@ export default class DayPickerInput extends React.Component {
       this.showDayPicker();
     }
     if (this.props.inputProps.onKeyDown) {
-      e.persist();
+      if(e.persist) { 
+        return e.persist();
+      }   
       this.props.inputProps.onKeyDown(e);
     }
   }
@@ -443,7 +454,9 @@ export default class DayPickerInput extends React.Component {
       this.showDayPicker();
     }
     if (this.props.inputProps.onKeyUp) {
-      e.persist();
+      if(e.persist) { 
+        return e.persist();
+      }   
       this.props.inputProps.onKeyUp(e);
     }
   }
@@ -567,7 +580,7 @@ export default class DayPickerInput extends React.Component {
     const Input = this.props.component;
     const { inputProps } = this.props;
     return (
-      <div className={this.props.classNames.container}>
+      <div className={this.props.classNames.container} style={this.props.style}>
         <Input
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}

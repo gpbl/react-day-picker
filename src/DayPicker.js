@@ -15,7 +15,7 @@ import classNames from './classNames';
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 
 export class DayPicker extends Component {
-  static VERSION = '7.2.4';
+  static VERSION = '7.3.0';
 
   static propTypes = {
     // Rendering months
@@ -377,8 +377,9 @@ export class DayPicker extends Component {
   // Event handlers
 
   handleKeyDown = e => {
-    e.persist();
-
+    if(e.persist) { 
+       e.persist();
+    }
     switch (e.keyCode) {
       case LEFT:
         if (this.props.dir === 'rtl') {
@@ -414,8 +415,9 @@ export class DayPicker extends Component {
   };
 
   handleDayKeyDown = (day, modifiers, e) => {
-    e.persist();
-
+    if(e.persist) { 
+       e.persist();
+    }
     switch (e.keyCode) {
       case LEFT:
         Helpers.cancelEvent(e);
@@ -457,8 +459,9 @@ export class DayPicker extends Component {
   };
 
   handleDayClick = (day, modifiers, e) => {
-    e.persist();
-
+    if(e.persist) { 
+       e.persist();
+    }
     if (
       modifiers[this.props.classNames.outside] &&
       this.props.enableOutsideDaysClick
@@ -487,7 +490,9 @@ export class DayPicker extends Component {
     this.showMonth(month);
     e.target.blur();
     if (this.props.onTodayButtonClick) {
-      e.persist();
+      if(e.persist) { 
+        e.persist();
+      }
       this.props.onTodayButtonClick(
         new Date(today.getFullYear(), today.getMonth(), today.getDate()),
         ModifiersUtils.getModifiersForDay(today, this.props.modifiers),

@@ -24,8 +24,8 @@ export function isDate(value) {
  * Return `d` as a new date with `n` months added.
  *
  * @export
- * @param {[type]} d
- * @param {[type]} n
+ * @param {Date} d
+ * @param {number} n
  */
 export function addMonths(d, n) {
   const newDate = clone(d);
