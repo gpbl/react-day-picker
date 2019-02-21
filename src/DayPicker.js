@@ -386,6 +386,7 @@ export class DayPicker extends Component {
         } else {
           this.showPreviousMonth();
         }
+        Helpers.cancelEvent(e);
         break;
       case RIGHT:
         if (this.props.dir === 'rtl') {
@@ -393,12 +394,15 @@ export class DayPicker extends Component {
         } else {
           this.showNextMonth();
         }
+        Helpers.cancelEvent(e);
         break;
       case UP:
         this.showPreviousYear();
+        Helpers.cancelEvent(e);
         break;
       case DOWN:
         this.showNextYear();
+        Helpers.cancelEvent(e);
         break;
       default:
         break;
