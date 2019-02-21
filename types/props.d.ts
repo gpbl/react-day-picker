@@ -1,7 +1,7 @@
 // TypeScript Version: 2.2
 
 import * as React from 'react';
-import { ClassNames, Modifier, Modifiers, DayModifiers } from './common';
+import { ClassNames, Modifier, Modifiers, DayModifiers, InputClassNames } from './common';
 import { LocaleUtils } from './utils';
 import { DayPickerInput } from './DayPickerInput';
 
@@ -163,7 +163,7 @@ export interface DayPickerInputProps {
   component?: any;
   overlayComponent?: any;
 
-  classNames?: ClassNames;
+  classNames?: InputClassNames;
 
   onDayChange?(
     day: Date,
