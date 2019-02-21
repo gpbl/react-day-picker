@@ -10,7 +10,7 @@ export interface CaptionElementProps {
   classNames: ClassNames;
   localeUtils: LocaleUtils;
   locale: string;
-  months: undefined;
+  months?: string[];
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
@@ -35,6 +35,8 @@ export interface WeekdayElementProps {
   className: string;
   localeUtils: LocaleUtils;
   locale: string;
+  weekdaysLong?: string[];
+  weekdaysShort?: string[];
 }
 
 export interface DayPickerProps {
