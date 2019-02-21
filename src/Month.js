@@ -189,7 +189,7 @@ export default class Month extends Component {
                 {showWeekNumbers && (
                   <div
                     className={classNames.weekNumber}
-                    tabIndex={0}
+                    tabIndex={onWeekClick ? 0 : -1}
                     role="gridcell"
                     onClick={
                       onWeekClick
