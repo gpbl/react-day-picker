@@ -108,6 +108,7 @@ export default class DayPickerInput extends React.Component {
     component: PropTypes.any,
     overlayComponent: PropTypes.any,
 
+    style: PropTypes.object,
     classNames: PropTypes.shape({
       container: PropTypes.string,
       overlayWrapper: PropTypes.string,
@@ -567,7 +568,7 @@ export default class DayPickerInput extends React.Component {
     const Input = this.props.component;
     const { inputProps } = this.props;
     return (
-      <div className={this.props.classNames.container}>
+      <div className={this.props.classNames.container} style={this.props.style}>
         <Input
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}
