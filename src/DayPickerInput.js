@@ -108,7 +108,7 @@ export default class DayPickerInput extends React.Component {
     component: PropTypes.any,
     overlayComponent: PropTypes.any,
 
-    style: PropTypes.any,
+    style: PropTypes.object,
     classNames: PropTypes.shape({
       container: PropTypes.string,
       overlayWrapper: PropTypes.string,
