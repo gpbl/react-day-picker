@@ -157,6 +157,27 @@ describe('DayPicker’s navigation', () => {
     expect(showPreviousMonth).toHaveBeenCalledTimes(1);
     showPreviousMonth.mockReset();
   });
+  it('should call `showPreviousMonth()` when the RIGHT key is pressed and the direction is rtl', () => {
+    const wrapper = mount(<DayPicker dir="rtl" />);
+    const showPreviousMonth = jest.spyOn(
+      wrapper.instance(),
+      'showPreviousMonth'
+    );
+    wrapper
+      .find('.DayPicker-wrapper')
+      .simulate('keyDown', { keyCode: keys.RIGHT });
+    expect(showPreviousMonth).toHaveBeenCalledTimes(1);
+    showPreviousMonth.mockReset();
+  });
+  it('should call `showNextMonth()` when the LEFT key is pressed and the direction is rtl', () => {
+    const wrapper = mount(<DayPicker dir="rtl" />);
+    const showNextMonth = jest.spyOn(wrapper.instance(), 'showNextMonth');
+    wrapper
+      .find('.DayPicker-wrapper')
+      .simulate('keyDown', { keyCode: keys.LEFT });
+    expect(showNextMonth).toHaveBeenCalledTimes(1);
+    showNextMonth.mockReset();
+  });
   it('should call `showPreviousYear()` when the UP key is pressed', () => {
     const wrapper = mount(<DayPicker />);
     const showPreviousYear = jest.spyOn(wrapper.instance(), 'showPreviousYear');
@@ -196,6 +217,28 @@ describe('DayPicker’s navigation', () => {
       .simulate('keyDown', { keyCode: keys.LEFT });
     expect(focusPreviousDay).toHaveBeenCalledTimes(1);
     focusPreviousDay.mockReset();
+  });
+  it('should call `focusPreviousDay()` when the RIGHT key is pressed on a day and the direction is rtl', () => {
+    const wrapper = mount(<DayPicker dir="rtl" />);
+    const focusPreviousDay = jest.spyOn(wrapper.instance(), 'focusPreviousDay');
+    wrapper
+      .find('.DayPicker-Day')
+      .filterWhere(node => !node.hasClass('DayPicker-Day--outside'))
+      .first()
+      .simulate('keyDown', { keyCode: keys.RIGHT });
+    expect(focusPreviousDay).toHaveBeenCalledTimes(1);
+    focusPreviousDay.mockReset();
+  });
+  it('should call `focusNextDay()` when the LEFT key is pressed on a day and the direction is rtl', () => {
+    const wrapper = mount(<DayPicker dir="rtl" />);
+    const focusNextDay = jest.spyOn(wrapper.instance(), 'focusNextDay');
+    wrapper
+      .find('.DayPicker-Day')
+      .filterWhere(node => !node.hasClass('DayPicker-Day--outside'))
+      .first()
+      .simulate('keyDown', { keyCode: keys.LEFT });
+    expect(focusNextDay).toHaveBeenCalledTimes(1);
+    focusNextDay.mockReset();
   });
   it('should call `focusNextWeek()` when the DOWN key is pressed on a day', () => {
     const wrapper = mount(<DayPicker />);
