@@ -15,9 +15,12 @@ export interface ClassNames {
   weekdays: string;
   weekdaysRow: string;
   weekday: string;
+  weekNumber: string;
   body: string;
   week: string;
   day: string;
+  footer: string;
+  todayButton: string;
 
   today: string;
   selected: string;
