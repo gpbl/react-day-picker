@@ -116,6 +116,7 @@ export default class DayPickerInput extends React.Component {
 
     onDayChange: PropTypes.func,
     onDayPickerHide: PropTypes.func,
+    onDayPickerShow: PropTypes.func,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
@@ -303,10 +304,15 @@ export default class DayPickerInput extends React.Component {
     const month = value
       ? parseDate(value, format, dayPickerProps.locale) // Use the month in the input field
       : this.getInitialMonthFromProps(this.props); // Restore the month from the props
-    this.setState(state => ({
-      showOverlay: true,
-      month: month || state.month,
-    }));
+    this.setState(
+      state => ({
+        showOverlay: true,
+        month: month || state.month,
+      }),
+      () => {
+        if (this.props.onDayPickerShow) this.props.onDayPickerShow();
+      }
+    );
   }
 
   /**
