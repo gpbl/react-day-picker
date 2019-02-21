@@ -28,6 +28,12 @@ export interface ClassNames {
   outside: string;
 }
 
+export interface InputClassNames {
+  container: string;
+  overlayWrapper: string;
+  overlay: string;
+}
+
 export interface RangeModifier {
   from: Date;
   to: Date;
