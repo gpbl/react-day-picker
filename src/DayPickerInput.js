@@ -394,6 +394,7 @@ export default class DayPickerInput extends React.Component {
     // focusing it
     this.overlayBlurTimeout = setTimeout(() => {
       this.overlayHasFocus = false;
+      this.setState({ showOverlay: false });
     }, 3);
   }
 
