@@ -146,6 +146,13 @@ export default class DayPickerInput extends React.Component {
     },
   };
 
+  static getDerivedStateFromProps(newProps, previousState) {
+    if (newProps.showOverlay !== previousState.showOverlay) {
+      return { showOverlay: newProps.showOverlay };
+    }
+    return null;
+  }
+
   input = null;
 
   daypicker = null;
