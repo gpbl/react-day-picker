@@ -345,6 +345,13 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputClick(e) {
+    // don't load click event if we're clicking on the dropdown button
+    if (
+      this.props.inputProps.dropdownButtonRef.current &&
+      this.props.inputProps.dropdownButtonRef.current.contains(e.target)
+    ) {
+      return;
+    }
     this.showDayPicker();
     if (this.props.inputProps.onClick) {
       e.persist();
@@ -353,6 +360,13 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputFocus(e) {
+    // don't load click event if we're clicking on the dropdown button
+    if (
+      this.props.inputProps.dropdownButtonRef.current &&
+      this.props.inputProps.dropdownButtonRef.current.contains(e.target)
+    ) {
+      return;
+    }
     this.showDayPicker();
     // Set `overlayHasFocus` after a timeout so the overlay can be hidden when
     // the input is blurred
