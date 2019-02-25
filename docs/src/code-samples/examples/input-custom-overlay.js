@@ -34,14 +34,55 @@ CustomOverlay.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default function Example() {
-  return (
-    <DayPickerInput
-      overlayComponent={CustomOverlay}
-      dayPickerProps={{
-        todayButton: 'Today',
-      }}
-      keepFocus={false}
-    />
-  );
+class Example extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.dayPickerInputRef = React.createRef();
+
+    this.state = {
+      showOverlay: false,
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClick, false);
+  }
+
+  handleClick(e) {
+    const dayPickerInputNode = this.dayPickerInputRef.current;
+    // Open (or keep open) the panel if you click on it
+    if (dayPickerInputNode && dayPickerInputNode.contains(e.target)) {
+      this.setState({ showOverlay: true });
+      return;
+    }
+
+    // If the click is anywhere else, close the panel
+    this.setState({ showOverlay: false });
+  }
+
+  render() {
+    return (
+      <div ref={this.dayPickerInputRef}>
+        <DayPickerInput
+          overlayComponent={CustomOverlay}
+          dayPickerProps={{
+            todayButton: 'Today',
+          }}
+          keepFocus={false}
+          showOverlay={this.state.showOverlay}
+          onDayPickerShow={e => this.setState({ showOverlay: true })}
+          onDayPickerHide={e => this.setState({ showOverlay: false })}
+        />
+      </div>
+    );
+  }
 }
+
+export default Example;
