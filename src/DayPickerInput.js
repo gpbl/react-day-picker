@@ -344,14 +344,30 @@ export default class DayPickerInput extends React.Component {
     this.hideTimeout = setTimeout(() => this.hideDayPicker(), HIDE_TIMEOUT);
   }
 
-  handleInputClick(e) {
-    // don't load click event if we're clicking on the dropdown button
+  // don't load click event if we're clicking on the clear or dropdown button
+  // Call hideOverlay if we've clicked on the clear button
+  isInputButtonClick(e) {
+    if (
+      this.props.inputProps.clearButtonRef.current &&
+      this.props.inputProps.clearButtonRef.current.contains(e.target)
+    ) {
+      this.hideDayPicker();
+      e.preventDefault();
+      return true;
+    }
     if (
       this.props.inputProps.dropdownButtonRef.current &&
       this.props.inputProps.dropdownButtonRef.current.contains(e.target)
     ) {
-      return;
+      e.preventDefault();
+      return true;
     }
+    return false;
+  }
+
+  handleInputClick(e) {
+    if (this.isInputButtonClick(e)) return;
+
     this.showDayPicker();
     if (this.props.inputProps.onClick) {
       e.persist();
@@ -360,13 +376,8 @@ export default class DayPickerInput extends React.Component {
   }
 
   handleInputFocus(e) {
-    // don't load click event if we're clicking on the dropdown button
-    if (
-      this.props.inputProps.dropdownButtonRef.current &&
-      this.props.inputProps.dropdownButtonRef.current.contains(e.target)
-    ) {
-      return;
-    }
+    if (this.isInputButtonClick(e)) return;
+
     this.showDayPicker();
     // Set `overlayHasFocus` after a timeout so the overlay can be hidden when
     // the input is blurred
