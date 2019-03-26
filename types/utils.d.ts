@@ -24,6 +24,8 @@ export interface LocaleUtils {
     string,
     string
   ];
+  formatDate(date: Date, format?: string, locale?: string ): string;
+  parseDate(dateString: string, format?: string, locale?: string): Date;
 }
 
 export interface DateUtils {
