@@ -13,6 +13,7 @@
     "moment.js",
     "moment.d.ts",
     "utils.js",
+    "utils.d.ts",
     "types"
   ],
   "directories": {
