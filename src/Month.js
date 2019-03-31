@@ -41,6 +41,11 @@ export default class Month extends Component {
       PropTypes.func,
       PropTypes.instanceOf(React.Component),
     ]),
+    weekNumberElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(React.Component),
+    ]),
 
     fixedWeeks: PropTypes.bool,
     showWeekNumbers: PropTypes.bool,
@@ -132,6 +137,7 @@ export default class Month extends Component {
       fixedWeeks,
       captionElement,
       weekdayElement,
+      weekNumberElement,
 
       locale,
       localeUtils,
@@ -144,6 +150,8 @@ export default class Month extends Component {
       showWeekNumbers,
       showWeekDays,
       onWeekClick,
+
+      renderWeek
     } = this.props;
 
     const captionProps = {
@@ -177,36 +185,32 @@ export default class Month extends Component {
         <div className={classNames.body} role="rowgroup">
           {weeks.map(week => {
             let weekNumber;
+            let weekNumberElementComponent;
+            let weekNumberElementProps;
+
             if (showWeekNumbers) {
               weekNumber = DateUtils.getWeekNumber(week[6]);
+
+              weekNumberElementProps = {
+                month: month,
+                onWeekClick: onWeekClick,
+                renderWeek: renderWeek,
+                week: week,
+                weekNumber: weekNumber,
+              }
+  
+              weekNumberElementComponent = React.isValidElement(weekNumberElement)
+                ? React.cloneElement(weekNumberElement, weekNumberElementProps)
+                : React.createElement(weekNumberElement, weekNumberElementProps);
             }
+
             return (
               <div
                 key={week[0].getTime()}
                 className={classNames.week}
                 role="row"
               >
-                {showWeekNumbers && (
-                  <div
-                    className={classNames.weekNumber}
-                    tabIndex={onWeekClick ? 0 : -1}
-                    role="gridcell"
-                    onClick={
-                      onWeekClick
-                        ? e => onWeekClick(weekNumber, week, e)
-                        : undefined
-                    }
-                    onKeyUp={
-                      onWeekClick
-                        ? e =>
-                            e.keyCode === ENTER &&
-                            onWeekClick(weekNumber, week, e)
-                        : undefined
-                    }
-                  >
-                    {this.props.renderWeek(weekNumber, week, month)}
-                  </div>
-                )}
+                {showWeekNumbers && weekNumberElementComponent}
                 {week.map(this.renderDay)}
               </div>
             );

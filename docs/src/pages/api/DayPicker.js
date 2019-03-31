@@ -61,6 +61,7 @@ export default () => (
     <p>
       <a href="#renderDay">renderDay</a>, <a href="#renderWeek">renderWeek</a>,{' '}
       <a href="#weekdayElement">weekdayElement</a>,{' '}
+      <a href="#weekNumberElement">weekNumberElement</a>,{' '}
       <a href="#navbarElement">navbarElement</a>,{' '}
       <a href="#captionElement">captionElement</a>
     </p>
@@ -499,6 +500,37 @@ export default () => (
         An array containing the short weekdays names to use in the month’s
         header. Defaults to the English weekdays names. Must start from Sunday.
       </p>
+
+      <h3>
+        <Anchor id="weekNumberElement" />
+        weekNumberElement{' '}
+        <code>React.Element | React.Component | (props) ⇒ React.Element</code>
+      </h3>
+      <p>
+        A React Element or React Component to render the week number cells when{' '}
+        <a href="#showWeekNumbers">
+          <code>showWeekNumbers</code>
+        </a>{' '}
+        is set. It will receive the following props:
+      </p>
+
+      <ul>
+        <li>
+          classNames <code>string</code>
+        </li>
+        <li>
+          weekNumber <code>number</code>
+        </li>
+        <li>
+          renderWeek <code>(week) ⇒ week</code>
+        </li>
+        <li>
+          week <code>Date[]</code>
+        </li>
+        <li>
+          month <code>Date</code>
+        </li>
+      </ul>
 
       <hr />
       <h2 id="event-handlers">Event handlers</h2>

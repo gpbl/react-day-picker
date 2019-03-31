@@ -5,6 +5,7 @@ import Caption from './Caption';
 import Navbar from './Navbar';
 import Month from './Month';
 import Weekday from './Weekday';
+import WeekNumber from './WeekNumber';
 
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
@@ -99,6 +100,11 @@ export class DayPicker extends Component {
       PropTypes.func,
       PropTypes.instanceOf(Component),
     ]),
+    weekNumberElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(Component),
+    ]),
     navbarElement: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.func,
@@ -151,6 +157,7 @@ export class DayPicker extends Component {
     renderDay: day => day.getDate(),
     renderWeek: weekNumber => weekNumber,
     weekdayElement: <Weekday />,
+    weekNumberElement: <WeekNumber classNames={classNames} />,
     navbarElement: <Navbar classNames={classNames} />,
     captionElement: <Caption classNames={classNames} />,
   };
