@@ -7,6 +7,7 @@ import {
   CaptionElementProps,
   NavbarElementProps,
   WeekdayElementProps,
+  WeekNumberElementProps,
   DayPickerProps,
 } from './props';
 

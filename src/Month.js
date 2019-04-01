@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import Weekdays from './Weekdays';
 import Day from './Day';
-import { ENTER } from './keys';
 
 import * as ModifiersUtils from './ModifiersUtils';
 import * as Helpers from './Helpers';
@@ -151,7 +150,7 @@ export default class Month extends Component {
       showWeekDays,
       onWeekClick,
 
-      renderWeek
+      renderWeek,
     } = this.props;
 
     const captionProps = {
@@ -192,16 +191,21 @@ export default class Month extends Component {
               weekNumber = DateUtils.getWeekNumber(week[6]);
 
               weekNumberElementProps = {
-                month: month,
-                onWeekClick: onWeekClick,
-                renderWeek: renderWeek,
-                week: week,
-                weekNumber: weekNumber,
-              }
-  
-              weekNumberElementComponent = React.isValidElement(weekNumberElement)
+                month,
+                onWeekClick,
+                renderWeek,
+                week,
+                weekNumber,
+              };
+
+              weekNumberElementComponent = React.isValidElement(
+                weekNumberElement
+              )
                 ? React.cloneElement(weekNumberElement, weekNumberElementProps)
-                : React.createElement(weekNumberElement, weekNumberElementProps);
+                : React.createElement(
+                    weekNumberElement,
+                    weekNumberElementProps
+                  );
             }
 
             return (

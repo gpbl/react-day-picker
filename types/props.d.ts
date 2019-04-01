@@ -39,6 +39,19 @@ export interface WeekdayElementProps {
   weekdaysShort?: string[];
 }
 
+export interface WeekNumberElementProps {
+	week: Date[];
+	weekNumber: number[];
+	month?: Date;
+	classNames: string;
+	onWeekClick(
+		weekNumber: number,
+		days: Date[],
+		e: React.MouseEvent<HTMLDivElement>
+	  ): void;
+	renderWeek(weekNumber: number, week: Date[], month: Date): React.ReactNode;
+}
+
 export interface DayPickerProps {
   canChangeMonth?: boolean;
   captionElement?:

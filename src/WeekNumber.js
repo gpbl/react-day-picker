@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import defaultClassNames from './classNames';
+import { ENTER } from './keys';
 
 export default class WeekNumber extends Component {
   static propTypes = {
     classNames: PropTypes.shape({
-      weekNumber: PropTypes.string.isRequired
+      weekNumber: PropTypes.string.isRequired,
     }),
     month: PropTypes.instanceOf(Date),
     onWeekClick: PropTypes.func,
     renderWeek: PropTypes.func,
     week: PropTypes.array,
-    weekNumber: PropTypes.number
+    weekNumber: PropTypes.number,
   };
 
   static defaultProps = {
@@ -29,7 +30,7 @@ export default class WeekNumber extends Component {
       onWeekClick,
       renderWeek,
       week,
-      weekNumber
+      weekNumber,
     } = this.props;
 
     return (
@@ -38,15 +39,11 @@ export default class WeekNumber extends Component {
         tabIndex={onWeekClick ? 0 : -1}
         role="gridcell"
         onClick={
-          onWeekClick
-            ? e => onWeekClick(weekNumber, week, e)
-            : undefined
+          onWeekClick ? e => onWeekClick(weekNumber, week, e) : undefined
         }
         onKeyUp={
           onWeekClick
-            ? e =>
-                e.keyCode === ENTER &&
-                onWeekClick(weekNumber, week, e)
+            ? e => e.keyCode === ENTER && onWeekClick(weekNumber, week, e)
             : undefined
         }
       >
