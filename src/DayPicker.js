@@ -10,7 +10,7 @@ import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
 import * as LocaleUtils from './LocaleUtils';
 import * as ModifiersUtils from './ModifiersUtils';
-import classNames from './classNames';
+import defaultClassNames from './classNames';
 
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 
@@ -130,7 +130,7 @@ export class DayPicker extends Component {
   };
 
   static defaultProps = {
-    classNames,
+    classNames: defaultClassNames,
     tabIndex: 0,
     initialMonth: new Date(),
     numberOfMonths: 1,
@@ -151,8 +151,8 @@ export class DayPicker extends Component {
     renderDay: day => day.getDate(),
     renderWeek: weekNumber => weekNumber,
     weekdayElement: <Weekday />,
-    navbarElement: <Navbar classNames={classNames} />,
-    captionElement: <Caption classNames={classNames} />,
+    navbarElement: <Navbar classNames={defaultClassNames} />,
+    captionElement: <Caption classNames={defaultClassNames} />,
   };
 
   dayPicker = null;
@@ -174,6 +174,12 @@ export class DayPicker extends Component {
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ currentMonth });
     }
+  }
+
+  get classNames() {
+    return this.props.classNames === defaultClassNames
+      ? defaultClassNames
+      : { ...defaultClassNames, ...this.props.classNames };
   }
 
   /**
@@ -306,16 +312,16 @@ export class DayPicker extends Component {
   }
 
   focusFirstDayOfMonth() {
-    Helpers.getDayNodes(this.dayPicker, this.props.classNames)[0].focus();
+    Helpers.getDayNodes(this.dayPicker, this.classNames)[0].focus();
   }
 
   focusLastDayOfMonth() {
-    const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
+    const dayNodes = Helpers.getDayNodes(this.dayPicker, this.classNames);
     dayNodes[dayNodes.length - 1].focus();
   }
 
   focusPreviousDay(dayNode) {
-    const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
+    const dayNodes = Helpers.getDayNodes(this.dayPicker, this.classNames);
     const dayNodeIndex = Helpers.nodeListToArray(dayNodes).indexOf(dayNode);
     if (dayNodeIndex === -1) return;
     if (dayNodeIndex === 0) {
@@ -326,7 +332,7 @@ export class DayPicker extends Component {
   }
 
   focusNextDay(dayNode) {
-    const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
+    const dayNodes = Helpers.getDayNodes(this.dayPicker, this.classNames);
     const dayNodeIndex = Helpers.nodeListToArray(dayNodes).indexOf(dayNode);
     if (dayNodeIndex === -1) return;
     if (dayNodeIndex === dayNodes.length - 1) {
@@ -337,7 +343,7 @@ export class DayPicker extends Component {
   }
 
   focusNextWeek(dayNode) {
-    const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
+    const dayNodes = Helpers.getDayNodes(this.dayPicker, this.classNames);
     const dayNodeIndex = Helpers.nodeListToArray(dayNodes).indexOf(dayNode);
     const isInLastWeekOfMonth = dayNodeIndex > dayNodes.length - 8;
 
@@ -345,7 +351,7 @@ export class DayPicker extends Component {
       this.showNextMonth(() => {
         const daysAfterIndex = dayNodes.length - dayNodeIndex;
         const nextMonthDayNodeIndex = 7 - daysAfterIndex;
-        Helpers.getDayNodes(this.dayPicker, this.props.classNames)[
+        Helpers.getDayNodes(this.dayPicker, this.classNames)[
           nextMonthDayNodeIndex
         ].focus();
       });
@@ -355,7 +361,7 @@ export class DayPicker extends Component {
   }
 
   focusPreviousWeek(dayNode) {
-    const dayNodes = Helpers.getDayNodes(this.dayPicker, this.props.classNames);
+    const dayNodes = Helpers.getDayNodes(this.dayPicker, this.classNames);
     const dayNodeIndex = Helpers.nodeListToArray(dayNodes).indexOf(dayNode);
     const isInFirstWeekOfMonth = dayNodeIndex <= 6;
 
@@ -363,7 +369,7 @@ export class DayPicker extends Component {
       this.showPreviousMonth(() => {
         const previousMonthDayNodes = Helpers.getDayNodes(
           this.dayPicker,
-          this.props.classNames
+          this.classNames
         );
         const startOfLastWeekOfMonth = previousMonthDayNodes.length - 7;
         const previousMonthDayNodeIndex = startOfLastWeekOfMonth + dayNodeIndex;
@@ -460,7 +466,7 @@ export class DayPicker extends Component {
     e.persist();
 
     if (
-      modifiers[this.props.classNames.outside] &&
+      modifiers[this.classNames.outside] &&
       this.props.enableOutsideDaysClick
     ) {
       this.handleOutsideDayClick(day);
@@ -510,8 +516,8 @@ export class DayPicker extends Component {
 
     const props = {
       month: this.state.currentMonth,
-      classNames: this.props.classNames,
-      className: this.props.classNames.navBar,
+      classNames: this.classNames,
+      className: this.classNames.navBar,
       nextMonth: this.getNextNavigableMonth(),
       previousMonth: this.getPreviousNavigableMonth(),
       showPreviousButton: this.allowPreviousMonth(),
@@ -554,9 +560,7 @@ export class DayPicker extends Component {
   renderFooter() {
     if (this.props.todayButton) {
       return (
-        <div className={this.props.classNames.footer}>
-          {this.renderTodayButton()}
-        </div>
+        <div className={this.classNames.footer}>{this.renderTodayButton()}</div>
       );
     }
     return null;
@@ -567,7 +571,7 @@ export class DayPicker extends Component {
       <button
         type="button"
         tabIndex={0}
-        className={this.props.classNames.todayButton}
+        className={this.classNames.todayButton}
         aria-label={this.props.todayButton}
         onClick={this.handleTodayButtonClick}
       >
@@ -577,10 +581,10 @@ export class DayPicker extends Component {
   }
 
   render() {
-    let className = this.props.classNames.container;
+    let className = this.classNames.container;
 
     if (!this.props.onDayClick) {
-      className = `${className} ${this.props.classNames.interactionDisabled}`;
+      className = `${className} ${this.classNames.interactionDisabled}`;
     }
     if (this.props.className) {
       className = `${className} ${this.props.className}`;
@@ -593,7 +597,7 @@ export class DayPicker extends Component {
         lang={this.props.locale}
       >
         <div
-          className={this.props.classNames.wrapper}
+          className={this.classNames.wrapper}
           tabIndex={
             this.props.canChangeMonth &&
             typeof this.props.tabIndex !== 'undefined'
@@ -605,9 +609,7 @@ export class DayPicker extends Component {
           onBlur={this.props.onBlur}
         >
           {this.renderNavbar()}
-          <div className={this.props.classNames.months}>
-            {this.renderMonths()}
-          </div>
+          <div className={this.classNames.months}>{this.renderMonths()}</div>
           {this.renderFooter()}
         </div>
       </div>

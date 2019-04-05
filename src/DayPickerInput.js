@@ -86,6 +86,12 @@ export function defaultParse(str) {
   return new Date(year, month, day);
 }
 
+const defaultClassNames = {
+  container: 'DayPickerInput',
+  overlayWrapper: 'DayPickerInput-OverlayWrapper',
+  overlay: 'DayPickerInput-Overlay',
+};
+
 export default class DayPickerInput extends React.Component {
   static propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
@@ -139,11 +145,7 @@ export default class DayPickerInput extends React.Component {
     component: 'input',
     inputProps: {},
     overlayComponent: OverlayComponent,
-    classNames: {
-      container: 'DayPickerInput',
-      overlayWrapper: 'DayPickerInput-OverlayWrapper',
-      overlay: 'DayPickerInput-Overlay',
-    },
+    classNames: defaultClassNames,
   };
 
   input = null;
@@ -219,6 +221,12 @@ export default class DayPickerInput extends React.Component {
     clearTimeout(this.inputFocusTimeout);
     clearTimeout(this.inputBlurTimeout);
     clearTimeout(this.overlayBlurTimeout);
+  }
+
+  get classNames() {
+    return this.props.classNames === defaultClassNames
+      ? defaultClassNames
+      : { ...defaultClassNames, ...this.props.classNames };
   }
 
   getInitialMonthFromProps(props) {
@@ -513,13 +521,7 @@ export default class DayPickerInput extends React.Component {
   }
 
   renderOverlay() {
-    const {
-      classNames,
-      dayPickerProps,
-      parseDate,
-      formatDate,
-      format,
-    } = this.props;
+    const { dayPickerProps, parseDate, formatDate, format } = this.props;
     const { selectedDays, value } = this.state;
     let selectedDay;
     if (!selectedDays && value) {
@@ -543,7 +545,7 @@ export default class DayPickerInput extends React.Component {
     const Overlay = this.props.overlayComponent;
     return (
       <Overlay
-        classNames={classNames}
+        classNames={this.classNames}
         month={this.state.month}
         selectedDay={selectedDay}
         input={this.input}
@@ -568,7 +570,7 @@ export default class DayPickerInput extends React.Component {
     const Input = this.props.component;
     const { inputProps } = this.props;
     return (
-      <div className={this.props.classNames.container} style={this.props.style}>
+      <div className={this.classNames.container} style={this.props.style}>
         <Input
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}
