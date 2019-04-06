@@ -42,8 +42,9 @@ export interface WeekdayElementProps {
 export interface WeekNumberElementProps {
 	week: Date[];
 	weekNumber: number[];
-	month?: Date;
+	month: Date;
 	classNames: string;
+	className: string;
 	onWeekClick(
 		weekNumber: number,
 		days: Date[],

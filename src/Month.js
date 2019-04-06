@@ -191,6 +191,7 @@ export default class Month extends Component {
               weekNumber = DateUtils.getWeekNumber(week[6]);
 
               weekNumberElementProps = {
+                className: classNames.weekNumber,
                 month,
                 onWeekClick,
                 renderWeek,

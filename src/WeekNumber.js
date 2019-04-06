@@ -5,6 +5,7 @@ import { ENTER } from './keys';
 
 export default class WeekNumber extends Component {
   static propTypes = {
+    className: PropTypes.string,
     classNames: PropTypes.shape({
       weekNumber: PropTypes.string.isRequired,
     }),
@@ -25,6 +26,7 @@ export default class WeekNumber extends Component {
 
   render() {
     const {
+      className,
       classNames,
       month,
       onWeekClick,
@@ -35,7 +37,7 @@ export default class WeekNumber extends Component {
 
     return (
       <div
-        className={classNames.weekNumber}
+        className={className || classNames.weekNumber}
         tabIndex={onWeekClick ? 0 : -1}
         role="gridcell"
         onClick={

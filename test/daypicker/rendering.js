@@ -299,6 +299,76 @@ describe('DayPicker’s rendering', () => {
     /* eslint-enable react/prefer-stateless-function */
     /* eslint-enable react/no-multi-comp */
   });
+  it('should render a custom week number element', () => {
+    const CustomWeekNumber = ({ className, weekNumber }) => (
+      <div className={className}>{weekNumber}</div>
+    );
+    CustomWeekNumber.propTypes = {
+      className: PropTypes.string,
+      weekNumber: PropTypes.number,
+    };
+    const weekNumber = <CustomWeekNumber />;
+    const dayPicker = (
+      <DayPicker
+        showWeekNumbers
+        weekNumberElement={weekNumber}
+        onWeekClick={() => {}}
+      />
+    );
+    const wrapper = mount(dayPicker);
+    expect(isElement(dayPicker.props.weekNumberElement)).toBe(true);
+    expect(wrapper.containsMatchingElement(<CustomWeekNumber />)).toBe(true);
+    expect(wrapper.find('div.DayPicker-WeekNumber')).toHaveLength(5);
+  });
+  it('should render a custom week number element as a function', () => {
+    const CustomWeekNumber = ({ className, weekNumber }) => (
+      <div className={className}>{weekNumber}</div>
+    );
+    CustomWeekNumber.propTypes = {
+      className: PropTypes.string,
+      weekNumber: PropTypes.number,
+    };
+    const dayPicker = (
+      <DayPicker
+        showWeekNumbers
+        weekNumberElement={CustomWeekNumber}
+        onWeekClick={() => {}}
+      />
+    );
+    const wrapper = mount(dayPicker);
+
+    expect(wrapper.containsMatchingElement(<CustomWeekNumber />)).toBe(true);
+    expect(wrapper.find('div.DayPicker-WeekNumber')).toHaveLength(5);
+  });
+  it('should render a custom week number element as a class', () => {
+    /* eslint-disable react/prefer-stateless-function */
+    /* eslint-disable react/no-multi-comp */
+    class CustomWeekNumber extends React.Component {
+      static propTypes = {
+        className: PropTypes.string,
+        weekNumber: PropTypes.number,
+      };
+
+      render() {
+        return (
+          <div className={this.props.className}>{this.props.weekNumber}</div>
+        );
+      }
+    }
+    const dayPicker = (
+      <DayPicker
+        showWeekNumbers
+        weekNumberElement={CustomWeekNumber}
+        onWeekClick={() => {}}
+      />
+    );
+    const wrapper = mount(dayPicker);
+
+    expect(wrapper.containsMatchingElement(<CustomWeekNumber />)).toBe(true);
+    expect(wrapper.find('div.DayPicker-WeekNumber')).toHaveLength(5);
+    /* eslint-enable react/prefer-stateless-function */
+    /* eslint-enable react/no-multi-comp */
+  });
   it('should not render the outside days', () => {
     const wrapper = mount(<DayPicker initialMonth={new Date(2015, 6)} />);
     expect(wrapper.find('.DayPicker-Day').at(0)).toHaveText('');
@@ -353,8 +423,8 @@ describe('DayPicker’s rendering', () => {
     const wrapper = mount(
       <DayPicker showWeekNumbers initialMonth={new Date(2015, 1)} />
     );
-    expect(wrapper.find('.DayPicker-WeekNumber')).toHaveLength(4);
-    expect(wrapper.find('.DayPicker-WeekNumber').at(1)).toHaveText('7');
+    expect(wrapper.find('div.DayPicker-WeekNumber')).toHaveLength(4);
+    expect(wrapper.find('div.DayPicker-WeekNumber').at(1)).toHaveText('7');
   });
   it('should use the specified class names', () => {
     const wrapper = mount(
