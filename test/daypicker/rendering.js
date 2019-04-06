@@ -23,6 +23,7 @@ describe('DayPicker’s rendering', () => {
     expect(dayPicker.props.pagedNavigation).toBe(false);
     expect(typeof dayPicker.props.renderDay).toBe('function');
     expect(typeof dayPicker.props.weekdayElement).toBe('object');
+    expect(typeof dayPicker.props.weekNumberElement).toBe('object');
     expect(typeof dayPicker.props.navbarElement).toBe('object');
     expect(dayPicker.props.tabIndex).toBe(0);
   });
