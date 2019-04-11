@@ -145,7 +145,7 @@ export interface DayPickerProps {
 
 export interface DayPickerInputProps {
   value?: string | Date;
-  format: string | string[];
+  format?: string | string[];
   placeholder?: string;
 
   dayPickerProps?: DayPickerProps;
