@@ -2,4 +2,9 @@
 
 import { LocaleUtils } from './utils';
 
-export const MomentLocaleUtils: LocaleUtils;
+interface MomentLocaleUtils extends LocaleUtils {
+  formatDate(date: Date, format?: string, locale?: string): string;
+  parseDate(str: string, format?: string, locale?: string): Date | undefined;
+}
+
+export = MomentLocaleUtils;
