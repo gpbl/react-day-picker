@@ -2,13 +2,13 @@
 
 import { RangeModifier, Modifier } from "./common";
 
-export interface LocaleUtils {
-  formatDay(day: Date, locale?: string): string;
-  formatMonthTitle(month: Date, locale?: string): string;
-  formatWeekdayLong(weekday: number, locale?: string): string;
-  formatWeekdayShort(weekday: number, locale?: string): string;
-  getFirstDayOfWeek(locale?: string): number;
-  getMonths(
+export namespace LocaleUtils {
+  function formatDay(day: Date, locale?: string): string;
+  function formatMonthTitle(month: Date, locale?: string): string;
+  function formatWeekdayLong(weekday: number, locale?: string): string;
+  function formatWeekdayShort(weekday: number, locale?: string): string;
+  function getFirstDayOfWeek(locale?: string): number;
+  function getMonths(
     locale?: string
   ): [
     string,
@@ -26,24 +26,24 @@ export interface LocaleUtils {
   ];
 }
 
-export interface DateUtils {
-  addDayToRange(day: Date, range: RangeModifier): RangeModifier;
-  addMonths(d: Date, n: number): Date;
-  clone(d: Date): Date;
-  isDate(d: Date): boolean;
-  isDayAfter(day1: Date, day2: Date): boolean;
-  isDayBefore(day1: Date, day2: Date): boolean;
-  isDayBetween(day: Date, begin: Date, end: Date): boolean;
-  isDayInRange(day: Date, range: RangeModifier): boolean;
-  isFutureDay(day: Date): boolean;
-  isPastDay(day: Date): boolean;
-  isSameDay(day1: Date, day2: Date): boolean;
-  isSameMonth(day1: Date, day2: Date): boolean;
+export namespace DateUtils {
+  function addDayToRange(day: Date, range: RangeModifier): RangeModifier;
+  function addMonths(d: Date, n: number): Date;
+  function clone(d: Date): Date;
+  function isDate(d: Date): boolean;
+  function isDayAfter(day1: Date, day2: Date): boolean;
+  function isDayBefore(day1: Date, day2: Date): boolean;
+  function isDayBetween(day: Date, begin: Date, end: Date): boolean;
+  function isDayInRange(day: Date, range: RangeModifier): boolean;
+  function isFutureDay(day: Date): boolean;
+  function isPastDay(day: Date): boolean;
+  function isSameDay(day1: Date, day2: Date): boolean;
+  function isSameMonth(day1: Date, day2: Date): boolean;
 }
 
-export interface ModifiersUtils {
-  dayMatchesModifier(day: Date, modifier?: Modifier | Modifier[]): boolean;
-  getModifiersForDay(
+export namespace ModifiersUtils {
+  function dayMatchesModifier(day: Date, modifier?: Modifier | Modifier[]): boolean;
+  function getModifiersForDay(
     day: Date,
     modifiers: Record<string, Modifier | Modifier[]>
   ): string[];
