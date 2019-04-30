@@ -3,13 +3,13 @@
 import { RangeModifier, Modifier } from "./common";
 
 export interface LocaleUtils {
-  formatDay(day: Date, locale: string): string;
-  formatMonthTitle(month: Date, locale: string): string;
-  formatWeekdayLong(weekday: number, locale: string): string;
-  formatWeekdayShort(weekday: number, locale: string): string;
-  getFirstDayOfWeek(locale: string): number;
+  formatDay(day: Date, locale?: string): string;
+  formatMonthTitle(month: Date, locale?: string): string;
+  formatWeekdayLong(weekday: number, locale?: string): string;
+  formatWeekdayShort(weekday: number, locale?: string): string;
+  getFirstDayOfWeek(locale?: string): number;
   getMonths(
-    locale: string
+    locale?: string
   ): [
     string,
     string,
@@ -30,6 +30,7 @@ export interface DateUtils {
   addDayToRange(day: Date, range: RangeModifier): RangeModifier;
   addMonths(d: Date, n: number): Date;
   clone(d: Date): Date;
+  isDate(d: Date): boolean;
   isDayAfter(day1: Date, day2: Date): boolean;
   isDayBefore(day1: Date, day2: Date): boolean;
   isDayBetween(day: Date, begin: Date, end: Date): boolean;
@@ -37,6 +38,7 @@ export interface DateUtils {
   isFutureDay(day: Date): boolean;
   isPastDay(day: Date): boolean;
   isSameDay(day1: Date, day2: Date): boolean;
+  isSameMonth(day1: Date, day2: Date): boolean;
 }
 
 export interface ModifiersUtils {

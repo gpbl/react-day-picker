@@ -625,7 +625,7 @@ export default () => (
         </code>
       </h3>
       <p>
-        Event hander when the user clicks on a week number (when{' '}
+        Event handler when the user clicks on a week number (when{' '}
         <a href="#showWeekNumbers">showWeekNumbers</a> is set to{' '}
         <code>true</code>).
       </p>
@@ -637,7 +637,7 @@ export default () => (
         </code>
       </h3>
       <p>
-        Event hander when the user clicks on the today button (when{' '}
+        Event handler when the user clicks on the today button (when{' '}
         <a href="#todayButton">todayButton</a> is set).
       </p>
       <hr />

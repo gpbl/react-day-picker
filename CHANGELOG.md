@@ -1,3 +1,29 @@
+## [v7.3](https://github.com/gpbl/react-day-picker/tree/v7.3.0) (2019-02-21)
+
+Mostly an update for TypeScript users, few minor fixes, and two new minor  props to the input component.
+
+**DayPicker**
+
+- Fixed: left/right keyboard navigation on RTL ([#845](https://github.com/gpbl/react-day-picker/issues/845) by [johnjesse](https://github.com/johnjesse))
+- Fixed: cancel keydown events ([#844](https://github.com/gpbl/react-day-picker/issues/844) by [johnjesse](https://github.com/johnjesse))
+- Fix for week number's `tabIndex` when `onWeekClick` is not defined ([#818](https://github.com/gpbl/react-day-picker/issues/818) by [uosl](https://github.com/uosl))
+- TypeScript: added `isDate` and `isSameMonth` to `utils` definitions ([#854](https://github.com/gpbl/react-day-picker/issues/854) by [rnons](https://github.com/rnons))
+- TypeScript: make months and weekdays types slightly less restrictive  ([#843](https://github.com/gpbl/react-day-picker/issues/843) by [johnjesse](https://github.com/johnjesse))
+- TypeScript: add missing props to `weekdayElement` and `captionElement`  ([#842](https://github.com/gpbl/react-day-picker/issues/842) by [johnjesse](https://github.com/johnjesse))
+- TypeScript: added missing `utils` export ([#834](https://github.com/gpbl/react-day-picker/issues/834) by [davidspiess](https://github.com/davidspiess))
+- TypeScript: missing default entries to `classNames` ([#833](https://github.com/gpbl/react-day-picker/issues/833) by [saenglert](https://github.com/saenglert))
+- TypeScript: updated type definitions for `locale` ([#828](https://github.com/gpbl/react-day-picker/issues/828) by [lukyth](https://github.com/lukyth))
+- TypeScript: add definitions for moment locale utils ([#806](https://github.com/gpbl/react-day-picker/issues/806) by [howlettt](https://github.com/howlettt))
+
+**DayPickerInput**
+
+- Added `onDayPickerShow` prop ([#831](https://github.com/gpbl/react-day-picker/issues/831) by
+  [saenglert](https://github.com/saenglert))
+- Added `style` prop ([#832](https://github.com/gpbl/react-day-picker/issues/832) by
+  [kirillku](https://github.com/kirillku))
+- Typescript: fixed `classNames` definition ([#796](https://github.com/gpbl/react-day-picker/issues/796) by
+  [davidspiess](https://github.com/davidspiess))
+
 ### [v7.2.4](https://github.com/gpbl/react-day-picker/tree/v7.2.4) (2018-09-13)
 
 - Fix regression: re-enabled click on disabled days ([#789](https://github.com/gpbl/react-day-picker/issues/789) by

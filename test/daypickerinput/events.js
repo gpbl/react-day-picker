@@ -31,6 +31,16 @@ describe('DayPickerInput', () => {
         wrapper.find('input').simulate('click');
         expect(onClick).toHaveBeenCalledTimes(1);
       });
+      it('should call the onDayPickerShow callback', () => {
+        const onDayPickerShow = jest.fn();
+        const wrapper = mount(
+          <DayPickerInput onDayPickerShow={onDayPickerShow} />
+        );
+
+        wrapper.find('input').simulate('click');
+
+        expect(onDayPickerShow).toHaveBeenCalledTimes(1);
+      });
     });
 
     describe('focus', () => {
@@ -44,6 +54,16 @@ describe('DayPickerInput', () => {
         const wrapper = mount(<DayPickerInput inputProps={{ onFocus }} />);
         wrapper.find('input').simulate('focus');
         expect(onFocus).toHaveBeenCalledTimes(1);
+      });
+      it('should call the onDayPickerShow callback', () => {
+        const onDayPickerShow = jest.fn();
+        const wrapper = mount(
+          <DayPickerInput onDayPickerShow={onDayPickerShow} />
+        );
+
+        wrapper.find('input').simulate('focus');
+
+        expect(onDayPickerShow).toHaveBeenCalledTimes(1);
       });
     });
 
@@ -194,6 +214,19 @@ describe('DayPickerInput', () => {
         wrapper.find('input').simulate('keydown', { keyCode: keys.TAB });
         expect(wrapper.state('showOverlay')).toBe(false);
       });
+      it('should show the overlay and call onDayPickerShow on any other key', () => {
+        const onDayPickerShow = jest.fn();
+        const wrapper = mount(
+          <DayPickerInput onDayPickerShow={onDayPickerShow} />
+        );
+
+        expect(wrapper.state('showOverlay')).toBe(false);
+
+        wrapper.find('input').simulate('keydown');
+
+        expect(wrapper.state('showOverlay')).toBe(true);
+        expect(onDayPickerShow).toHaveBeenCalledTimes(1);
+      });
       it('should call `onKeyDown` event handler', () => {
         const onKeyDown = jest.fn();
         const wrapper = mount(<DayPickerInput inputProps={{ onKeyDown }} />);
@@ -208,6 +241,19 @@ describe('DayPickerInput', () => {
         wrapper.update();
         wrapper.find('input').simulate('keyup', { keyCode: keys.ESC });
         expect(wrapper.state('showOverlay')).toBe(false);
+      });
+      it('should show the overlay and call onDayPickerShow on any other key', () => {
+        const onDayPickerShow = jest.fn();
+        const wrapper = mount(
+          <DayPickerInput onDayPickerShow={onDayPickerShow} />
+        );
+
+        expect(wrapper.state('showOverlay')).toBe(false);
+
+        wrapper.find('input').simulate('keyup');
+
+        expect(wrapper.state('showOverlay')).toBe(true);
+        expect(onDayPickerShow).toHaveBeenCalledTimes(1);
       });
       it('should call `onKeyUp` event handler', () => {
         const onKeyUp = jest.fn();

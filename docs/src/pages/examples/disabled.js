@@ -7,10 +7,10 @@ import CodeSample from '../../ui/CodeSample';
 export default () => (
   <ExamplePage title="Display days as disabled">
     <p>
-      Use the <code>disasbledDays</code> prop to display days with a ”disabled”
+      Use the <code>disabledDays</code> prop to display days with a ”disabled”
       style. You can match a wide range of days by passing one or more{' '}
       <Link to="/docs/matching-days">different modifiers</Link> to{' '}
-      <code>disasbledDays</code>.
+      <code>disabledDays</code>.
     </p>
     <p>
       Disabled days are styled using the{' '}

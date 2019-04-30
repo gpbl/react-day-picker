@@ -108,6 +108,7 @@ export default class DayPickerInput extends React.Component {
     component: PropTypes.any,
     overlayComponent: PropTypes.any,
 
+    style: PropTypes.object,
     classNames: PropTypes.shape({
       container: PropTypes.string,
       overlayWrapper: PropTypes.string,
@@ -116,6 +117,7 @@ export default class DayPickerInput extends React.Component {
 
     onDayChange: PropTypes.func,
     onDayPickerHide: PropTypes.func,
+    onDayPickerShow: PropTypes.func,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
@@ -303,10 +305,15 @@ export default class DayPickerInput extends React.Component {
     const month = value
       ? parseDate(value, format, dayPickerProps.locale) // Use the month in the input field
       : this.getInitialMonthFromProps(this.props); // Restore the month from the props
-    this.setState(state => ({
-      showOverlay: true,
-      month: month || state.month,
-    }));
+    this.setState(
+      state => ({
+        showOverlay: true,
+        month: month || state.month,
+      }),
+      () => {
+        if (this.props.onDayPickerShow) this.props.onDayPickerShow();
+      }
+    );
   }
 
   /**
@@ -561,7 +568,7 @@ export default class DayPickerInput extends React.Component {
     const Input = this.props.component;
     const { inputProps } = this.props;
     return (
-      <div className={this.props.classNames.container}>
+      <div className={this.props.classNames.container} style={this.props.style}>
         {this.props.component &&
         {}.toString.call(this.props.component) !== '[object Function]' ? (
           <Input

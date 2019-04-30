@@ -15,14 +15,23 @@ export interface ClassNames {
   weekdays: string;
   weekdaysRow: string;
   weekday: string;
+  weekNumber: string;
   body: string;
   week: string;
   day: string;
+  footer: string;
+  todayButton: string;
 
   today: string;
   selected: string;
   disabled: string;
   outside: string;
+}
+
+export interface InputClassNames {
+  container: string;
+  overlayWrapper: string;
+  overlay: string;
 }
 
 export interface RangeModifier {
