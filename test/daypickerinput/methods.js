@@ -48,7 +48,7 @@ describe('DayPickerInput', () => {
     });
     it('should return a parsed date', () => {
       const parsed = defaultParse('2018-7-12');
-      expect(parsed).toEqual(new Date(2018, 6, 12));
+      expect(parsed).toEqual(new Date(2018, 6, 12, 12, 0, 0, 0));
     });
   });
 });
