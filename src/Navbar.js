@@ -10,6 +10,7 @@ export default class Navbar extends Component {
       navBar: PropTypes.string.isRequired,
       navButtonPrev: PropTypes.string.isRequired,
       navButtonNext: PropTypes.string.isRequired,
+      navButtonInteractionDisabled: PropTypes.string.isRequired,
     }),
     className: PropTypes.string,
     showPreviousButton: PropTypes.bool,
