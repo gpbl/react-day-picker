@@ -1,14 +1,20 @@
 // TypeScript Version: 2.2
 
 import * as React from 'react';
-import { ClassNames, Modifier, Modifiers, DayModifiers, InputClassNames } from './common';
+import {
+  ClassNames,
+  Modifier,
+  Modifiers,
+  DayModifiers,
+  InputClassNames,
+} from './common';
 import { LocaleUtils } from './utils';
 import { DayPickerInput } from './DayPickerInput';
 
 export interface CaptionElementProps {
   date: Date;
   classNames: ClassNames;
-  localeUtils: LocaleUtils;
+  localeUtils: typeof LocaleUtils;
   locale: string;
   months?: string[];
   onClick?: React.MouseEventHandler<HTMLElement>;
@@ -26,14 +32,14 @@ export interface NavbarElementProps {
   onNextClick(callback?: () => void): void;
   dir?: string;
   labels: { previousMonth: string; nextMonth: string };
-  localeUtils: LocaleUtils;
+  localeUtils: typeof LocaleUtils;
   locale: string;
 }
 
 export interface WeekdayElementProps {
   weekday: number;
   className: string;
-  localeUtils: LocaleUtils;
+  localeUtils: typeof LocaleUtils;
   locale: string;
   weekdaysLong?: string[];
   weekdaysShort?: string[];
@@ -61,7 +67,7 @@ export interface DayPickerProps {
   initialMonth?: Date;
   labels?: { previousMonth: string; nextMonth: string };
   locale?: string;
-  localeUtils?: LocaleUtils;
+  localeUtils?: typeof LocaleUtils;
   modifiers?: Partial<Modifiers>;
   modifiersStyles?: object;
   month?: Date;
