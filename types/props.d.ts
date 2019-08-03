@@ -141,6 +141,7 @@ export interface DayPickerProps {
     | React.SFC<WeekdayElementProps>;
   weekdaysLong?: string[];
   weekdaysShort?: string[];
+  tabIndex?: number;
 }
 
 export interface DayPickerInputProps {
