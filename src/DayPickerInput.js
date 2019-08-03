@@ -83,7 +83,7 @@ export function defaultParse(str) {
     return undefined;
   }
 
-  return new Date(year, month, day);
+  return new Date(year, month, day, 12, 0, 0, 0); // always set noon to avoid time zone issues
 }
 
 export default class DayPickerInput extends React.Component {
