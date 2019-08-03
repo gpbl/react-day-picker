@@ -1,17 +1,8 @@
 {
-  "presets": [
-    "react",
-    "env"
-  ],
+  "presets": ["react", "env"],
   "plugins": [
     "transform-export-extensions",
     "transform-class-properties",
-    "transform-object-rest-spread",
-    [
-      "transform-react-remove-prop-types",
-      {
-        "mode": "wrap"
-      }
-    ]
+    "transform-object-rest-spread"
   ]
 }
