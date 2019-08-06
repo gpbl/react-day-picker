@@ -7,6 +7,6 @@ export * from './common';
 export * from './props';
 export * from './utils';
 
-export const DateUtils: UtilTypes.DateUtils;
-export const LocaleUtils: UtilTypes.LocaleUtils;
-export const ModifiersUtils: UtilTypes.ModifiersUtils;
+export const DateUtils: typeof UtilTypes.DateUtils;
+export const LocaleUtils: typeof UtilTypes.LocaleUtils;
+export const ModifiersUtils: typeof UtilTypes.ModifiersUtils;
