@@ -2,4 +2,4 @@
 
 import { LocaleUtils } from './utils';
 
-export const MomentLocaleUtils: LocaleUtils;
+export const MomentLocaleUtils: typeof LocaleUtils;

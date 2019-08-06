@@ -10,6 +10,7 @@ export default class Navbar extends Component {
       navBar: PropTypes.string.isRequired,
       navButtonPrev: PropTypes.string.isRequired,
       navButtonNext: PropTypes.string.isRequired,
+      navButtonInteractionDisabled: PropTypes.string.isRequired,
     }),
     className: PropTypes.string,
     showPreviousButton: PropTypes.bool,
@@ -106,15 +107,11 @@ export default class Navbar extends Component {
 
     const previousClassName = shouldShowPrevious
       ? classNames.navButtonPrev
-      : `${classNames.navButtonPrev} ${
-          classNames.navButtonInteractionDisabled
-        }`;
+      : `${classNames.navButtonPrev} ${classNames.navButtonInteractionDisabled}`;
 
     const nextClassName = shouldShowNext
       ? classNames.navButtonNext
-      : `${classNames.navButtonNext} ${
-          classNames.navButtonInteractionDisabled
-        }`;
+      : `${classNames.navButtonNext} ${classNames.navButtonInteractionDisabled}`;
 
     const previousButton = (
       <span

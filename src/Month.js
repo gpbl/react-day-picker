@@ -17,6 +17,7 @@ export default class Month extends Component {
       outside: PropTypes.string.isRequired,
       today: PropTypes.string.isRequired,
       week: PropTypes.string.isRequired,
+      weekNumber: PropTypes.string.isRequired,
     }).isRequired,
     tabIndex: PropTypes.number,
 

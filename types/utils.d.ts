@@ -1,8 +1,8 @@
 // TypeScript Version: 2.2
 
-import { RangeModifier, Modifier } from "./common";
+import { RangeModifier, Modifier } from './common';
 
-export interface LocaleUtils {
+export const LocaleUtils: {
   formatDay(day: Date, locale?: string): string;
   formatMonthTitle(month: Date, locale?: string): string;
   formatWeekdayLong(weekday: number, locale?: string): string;
@@ -24,9 +24,9 @@ export interface LocaleUtils {
     string,
     string
   ];
-}
+};
 
-export interface DateUtils {
+export const DateUtils: {
   addDayToRange(day: Date, range: RangeModifier): RangeModifier;
   addMonths(d: Date, n: number): Date;
   clone(d: Date): Date;
@@ -39,12 +39,12 @@ export interface DateUtils {
   isPastDay(day: Date): boolean;
   isSameDay(day1: Date, day2: Date): boolean;
   isSameMonth(day1: Date, day2: Date): boolean;
-}
+};
 
-export interface ModifiersUtils {
+export const ModifiersUtils: {
   dayMatchesModifier(day: Date, modifier?: Modifier | Modifier[]): boolean;
   getModifiersForDay(
     day: Date,
     modifiers: Record<string, Modifier | Modifier[]>
   ): string[];
-}
+};

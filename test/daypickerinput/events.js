@@ -188,7 +188,9 @@ describe('DayPickerInput', () => {
         wrapper.update();
         input.simulate('change', { target: { value: '2015-12-20' } });
         expect(onDayChange).toHaveBeenCalledTimes(1);
-        expect(onDayChange.mock.calls[0][0]).toEqual(new Date(2015, 11, 20));
+        expect(onDayChange.mock.calls[0][0]).toEqual(
+          new Date(2015, 11, 20, 12, 0, 0, 0)
+        );
         expect(onDayChange.mock.calls[0][1]).toEqual({
           foo: true,
           selected: true,
