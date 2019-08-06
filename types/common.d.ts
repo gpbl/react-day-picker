@@ -60,8 +60,7 @@ export type Modifier =
   | BeforeAfterModifier
   | DaysOfWeekModifier
   | FunctionModifier
-  | undefined
-  | null;
+  | undefined;
 
 export interface Modifiers {
   today: Modifier | Modifier[];
