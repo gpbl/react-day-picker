@@ -170,6 +170,7 @@ export interface DayPickerInputProps {
   component?: any;
   overlayComponent?: any;
 
+  styles?: object;
   classNames?: InputClassNames;
 
   onDayChange?(
