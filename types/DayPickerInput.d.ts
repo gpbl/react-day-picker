@@ -1,4 +1,4 @@
-// TypeScript Version: 2.2
+// TypeScript Version: 2.3
 
 import * as React from 'react';
 import { DayPickerInputProps } from './props';
