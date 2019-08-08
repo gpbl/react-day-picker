@@ -74,6 +74,10 @@
   text-align: left;
 }
 
+.DayPicker-Caption::first-letter {
+  text-transform: uppercase;
+}
+
 .DayPicker-Caption > div {
   font-weight: 500;
   font-size: 1.15em;
