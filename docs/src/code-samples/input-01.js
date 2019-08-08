@@ -10,9 +10,11 @@ export default class MyForm extends React.Component {
       selectedDay: undefined,
     };
   }
+
   handleDayChange(day) {
     this.setState({ selectedDay: day });
   }
+
   render() {
     const { selectedDay } = this.state;
     return (

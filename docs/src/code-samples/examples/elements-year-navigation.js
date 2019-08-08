@@ -47,9 +47,11 @@ export default class Example extends React.Component {
       month: fromMonth,
     };
   }
+
   handleYearMonthChange(month) {
     this.setState({ month });
   }
+
   render() {
     return (
       <div className="YearNavigation">

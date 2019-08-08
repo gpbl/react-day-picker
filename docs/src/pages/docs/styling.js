@@ -63,7 +63,8 @@ export default () => (
       </a>{' '}
       prop becomes CSS modifiers for the <code>DayPicker-day</code> class. For
       example, if you use a <code>firstOfMonth</code> modifier, the CSS class
-      for the matched day cells will be <code>DayPicker-day--firstOfMonth</code>.
+      for the matched day cells will be <code>DayPicker-day--firstOfMonth</code>
+      .
     </p>
 
     <h3>Inline styles with modifiers</h3>

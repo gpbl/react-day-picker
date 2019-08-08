@@ -11,6 +11,7 @@ export default class BasicConcepts extends React.Component {
       selectedDay: undefined,
     };
   }
+
   handleDayClick(day, { selected, disabled }) {
     if (disabled) {
       // Day is disabled, do nothing
@@ -23,6 +24,7 @@ export default class BasicConcepts extends React.Component {
     }
     this.setState({ selectedDay: day });
   }
+
   render() {
     return (
       <div>

@@ -17,6 +17,7 @@ export default class Example extends React.Component {
       to: undefined,
     };
   }
+
   showFromMonth() {
     const { from, to } = this.state;
     if (!from) {
@@ -26,13 +27,16 @@ export default class Example extends React.Component {
       this.to.getDayPicker().showMonth(from);
     }
   }
+
   handleFromChange(from) {
     // Change the from date and focus the "to" input field
     this.setState({ from });
   }
+
   handleToChange(to) {
     this.setState({ to }, this.showFromMonth);
   }
+
   render() {
     const { from, to } = this.state;
     const modifiers = { start: from, end: to };
