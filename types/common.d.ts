@@ -1,4 +1,4 @@
-// TypeScript Version: 2.2
+// TypeScript Version: 2.3
 
 export interface ClassNames {
   container: string;
@@ -60,8 +60,7 @@ export type Modifier =
   | BeforeAfterModifier
   | DaysOfWeekModifier
   | FunctionModifier
-  | undefined
-  | null;
+  | undefined;
 
 export interface Modifiers {
   today: Modifier | Modifier[];
