@@ -13,6 +13,7 @@ export default class Example extends React.Component {
     this.handleResetClick = this.handleResetClick.bind(this);
     this.state = this.getInitialState();
   }
+
   getInitialState() {
     return {
       from: null,
@@ -20,11 +21,13 @@ export default class Example extends React.Component {
       enteredTo: null, // Keep track of the last day for mouseEnter.
     };
   }
+
   isSelectingFirstDay(from, to, day) {
     const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
     const isRangeSelected = from && to;
     return !from || isBeforeFirstDay || isRangeSelected;
   }
+
   handleDayClick(day) {
     const { from, to } = this.state;
     if (from && to && day >= from && day <= to) {
@@ -44,6 +47,7 @@ export default class Example extends React.Component {
       });
     }
   }
+
   handleDayMouseEnter(day) {
     const { from, to } = this.state;
     if (!this.isSelectingFirstDay(from, to, day)) {
@@ -52,9 +56,11 @@ export default class Example extends React.Component {
       });
     }
   }
+
   handleResetClick() {
     this.setState(this.getInitialState());
   }
+
   render() {
     const { from, to, enteredTo } = this.state;
     const modifiers = { start: from, end: enteredTo };
@@ -79,12 +85,11 @@ export default class Example extends React.Component {
             to &&
             `Selected from ${from.toLocaleDateString()} to
                 ${to.toLocaleDateString()}`}{' '}
-          {from &&
-            to && (
-              <button className="link" onClick={this.handleResetClick}>
-                Reset
-              </button>
-            )}
+          {from && to && (
+            <button className="link" onClick={this.handleResetClick}>
+              Reset
+            </button>
+          )}
         </div>
         <Helmet>
           <style>{`

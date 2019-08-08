@@ -10,6 +10,7 @@ export default class Example extends React.Component {
       selectedDay: undefined,
     };
   }
+
   handleDayClick(day, modifiers = {}) {
     if (modifiers.disabled) {
       return;
@@ -18,6 +19,7 @@ export default class Example extends React.Component {
       selectedDay: modifiers.selected ? undefined : day,
     });
   }
+
   render() {
     const disabledDays = {
       daysOfWeek: [0, 6],

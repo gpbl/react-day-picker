@@ -9,8 +9,7 @@ import ApiDocs from '../../containers/ApiDocs';
 
 export default () => (
   <DocPage title="DayPickerInput API">
-    <CodeBlock
-    >{`import DayPickerInput from 'react-day-picker/DayPickerInput'`}</CodeBlock>
+    <CodeBlock>{`import DayPickerInput from 'react-day-picker/DayPickerInput'`}</CodeBlock>
     <h2>API summary</h2>
     <h4>Component’s Props</h4>
     <p>
@@ -67,8 +66,7 @@ export default () => (
         component <code>string | React.Component = &quot;input&quot;</code>
       </h3>
       <p>The component class to render the input field.</p>
-      <CodeBlock
-      >{`<DayPickerInput component={props => <input {...props} />} />`}</CodeBlock>
+      <CodeBlock>{`<DayPickerInput component={props => <input {...props} />} />`}</CodeBlock>
 
       <p>
         The component must support the

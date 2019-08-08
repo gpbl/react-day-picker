@@ -10,11 +10,13 @@ export default class Example extends React.Component {
       selectedDay: null,
     };
   }
+
   handleDayClick(day, { selected }) {
     this.setState({
       selectedDay: selected ? undefined : day,
     });
   }
+
   render() {
     return (
       <div>

@@ -8,8 +8,7 @@ import ApiDocs from '../../containers/ApiDocs';
 export default () => (
   <DocPage title="ModifiersUtils API">
     <p>Set of functions used internally to work with modifiers.</p>
-    <CodeBlock
-    >{`import { ModifiersUtils } from "react-day-picker";`}</CodeBlock>
+    <CodeBlock>{`import { ModifiersUtils } from "react-day-picker";`}</CodeBlock>
     <hr />
     <ApiDocs>
       <h2>Functions</h2>

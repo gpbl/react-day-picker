@@ -17,6 +17,7 @@ export default class Menu extends React.Component {
       });
     }
   }
+
   render() {
     const { children, title, subtitle } = this.props;
     return (
