@@ -1,4 +1,4 @@
-### [v7.3.1](https://github.com/gpbl/react-day-picker/tree/v7.3.0) (2019-08-03)
+### [v7.3.2](https://github.com/gpbl/react-day-picker/tree/v7.3.2) (2019-08-08)
 
 Updates for TypeScript users:
 
