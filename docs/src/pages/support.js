@@ -42,7 +42,8 @@ export default function ChangeLog() {
                   <a href="https://codesandbox.io/s/XDAE3x0W8">
                     this CodeSandbox
                   </a>
-                </strong>: change the code, save it and use the URL to share it.
+                </strong>
+                : change the code, save it and use the URL to share it.
               </p>
             </blockquote>
 

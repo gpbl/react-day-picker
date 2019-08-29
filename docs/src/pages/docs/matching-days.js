@@ -32,14 +32,16 @@ export default () => (
           href="https://css-tricks.com/bem-101/"
         >
           BEM-like syntax
-        </a>. You can change the name of the classes using the{' '}
+        </a>
+        . You can change the name of the classes using the{' '}
         <Link to="/api/DayPicker#classnames">
           <code>classNames</code>
         </Link>{' '}
         prop, or even use{' '}
         <Link to="/docs/styling#styling-css-modules">
           modifiers with CSS modules
-        </Link>.
+        </Link>
+        .
       </p>
     </blockquote>
 
@@ -53,13 +55,16 @@ export default () => (
           <strong>
             a <code>Date</code> object
           </strong>
-          <br />to match a specific day, as the example above
+          <br />
+          to match a specific day, as the example above
         </p>
       </li>
       <li>
         <p>
           <strong>a range object</strong> with <code>from</code> and{' '}
-          <code>to</code> keys<br />to match a range of days:
+          <code>to</code> keys
+          <br />
+          to match a range of days:
           <CodeBlock>
             {`const highlighted = { 
   from: new Date(2018, 0, 12), 
@@ -77,7 +82,8 @@ export default () => (
           <strong>
             an object with a <code>before</code> and/or <code>after</code> key
           </strong>
-          <br />to match the days before and/or after the given date:
+          <br />
+          to match the days before and/or after the given date:
         </p>
         <CodeBlock>
           {`const past = { 
@@ -118,7 +124,8 @@ export default () => (
           <strong>
             an object with a <code>daysOfWeek</code> array
           </strong>
-          <br />to match specific days of week:
+          <br />
+          to match specific days of week:
         </p>
         <CodeBlock>
           {`const weekends = { 
@@ -128,9 +135,8 @@ export default () => (
 // .DayPicker-Day--weekends`}
         </CodeBlock>
         <p>
-          will match all the Sundays (<code>0</code>) and Saturdays (<code>
-            6
-          </code>)
+          will match all the Sundays (<code>0</code>) and Saturdays (
+          <code>6</code>)
         </p>
       </li>
       <li>

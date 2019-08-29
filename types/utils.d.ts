@@ -1,4 +1,4 @@
-// TypeScript Version: 2.2
+// TypeScript Version: 2.3
 
 import { RangeModifier, Modifier } from './common';
 

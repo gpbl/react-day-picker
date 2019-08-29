@@ -10,6 +10,7 @@ export default class Example extends React.Component {
       selectedDays: [],
     };
   }
+
   handleDayClick(day, { selected }) {
     const { selectedDays } = this.state;
     if (selected) {
@@ -22,6 +23,7 @@ export default class Example extends React.Component {
     }
     this.setState({ selectedDays });
   }
+
   render() {
     return (
       <div>
