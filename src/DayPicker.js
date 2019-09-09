@@ -155,26 +155,6 @@ export class DayPicker extends Component {
     captionElement: <Caption classNames={classNames} />,
   };
 
-  dayPicker = null;
-
-  constructor(props) {
-    super(props);
-
-    const currentMonth = this.getCurrentMonthFromProps(props);
-    this.state = { currentMonth };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // Changing the `month` props means changing the current displayed month
-    if (
-      this.props.month !== nextProps.month &&
-      !DateUtils.isSameMonth(this.props.month, nextProps.month)
-    ) {
-      const currentMonth = this.getCurrentMonthFromProps(nextProps);
-      this.setState({ currentMonth });
-    }
-  }
-
   /**
    * Return the month to be shown in the calendar based on the component props.
    *
@@ -183,7 +163,7 @@ export class DayPicker extends Component {
    * @memberof DayPicker
    * @private
    */
-  getCurrentMonthFromProps(props) {
+  static getCurrentMonthFromProps(props) {
     const initialMonth = Helpers.startOfMonth(
       props.month || props.initialMonth
     );
@@ -203,10 +183,37 @@ export class DayPicker extends Component {
     ) {
       currentMonth = DateUtils.addMonths(
         Helpers.startOfMonth(props.toMonth),
-        1 - this.props.numberOfMonths
+        1 - props.numberOfMonths
       );
     }
     return currentMonth;
+  }
+
+  dayPicker = null;
+
+  constructor(props) {
+    super(props);
+
+    const currentMonth = DayPicker.getCurrentMonthFromProps(props);
+    this.state = {
+      currentMonth,
+      memoPrevPropMonth: props.month,
+    };
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    // Changing the `month` props means changing the current displayed month
+    if (
+      state.memoPrevPropMonth !== props.month &&
+      !DateUtils.isSameMonth(state.memoPrevPropMonth, props.month)
+    ) {
+      const currentMonth = DayPicker.getCurrentMonthFromProps(props);
+      return {
+        currentMonth,
+        memoPrevPropMonth: props.month,
+      };
+    }
+    return null;
   }
 
   getNextNavigableMonth() {
