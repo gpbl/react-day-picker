@@ -2,8 +2,8 @@ import React from 'react';
 
 import logo from '../images/logo.png';
 
-import GithubButton from '../ui/GithubButton';
-import Wrap from '../ui/Wrap';
+import GitHubButton from './GitHubButton';
+import Wrap from './Wrap';
 
 import styles from './Footer.module.scss';
 
@@ -18,17 +18,19 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <GithubButton />
+            <GitHubButton />
           </div>
           <div>
             <p>
               Created by <a href="https://github.com/gpbl">gpbl</a> and{' '}
               <a href="https://github.com/gpbl/react-day-picker/graphs/contributors">
                 contributors
-              </a>. Licensed under the{' '}
+              </a>
+              . Licensed under the{' '}
               <a href="https://github.com/gpbl/react-day-picker/blob/master/LICENSE">
                 MIT License
-              </a>.
+              </a>
+              .
             </p>
           </div>
         </div>

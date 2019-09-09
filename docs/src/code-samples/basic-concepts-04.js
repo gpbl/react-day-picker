@@ -11,6 +11,7 @@ export default class BasicConcepts extends React.Component {
       selectedDay: undefined,
     };
   }
+
   handleDayClick(day, { selected }) {
     if (selected) {
       // Unselect the day if already selected
@@ -19,6 +20,7 @@ export default class BasicConcepts extends React.Component {
     }
     this.setState({ selectedDay: day });
   }
+
   render() {
     return (
       <div>

@@ -15,7 +15,7 @@ import classNames from './classNames';
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 
 export class DayPicker extends Component {
-  static VERSION = '7.1.9';
+  static VERSION = '7.3.2';
 
   static propTypes = {
     // Rendering months
@@ -155,6 +155,8 @@ export class DayPicker extends Component {
     captionElement: <Caption classNames={classNames} />,
   };
 
+  dayPicker = null;
+
   constructor(props) {
     super(props);
 
@@ -188,9 +190,10 @@ export class DayPicker extends Component {
     let currentMonth = initialMonth;
 
     if (props.pagedNavigation && props.numberOfMonths > 1 && props.fromMonth) {
-      const diffInMonths = Helpers.getMonthsDiff(props.fromMonth, currentMonth);
+      const fromMonth = Helpers.startOfMonth(props.fromMonth);
+      const diffInMonths = Helpers.getMonthsDiff(fromMonth, currentMonth);
       currentMonth = DateUtils.addMonths(
-        props.fromMonth,
+        fromMonth,
         Math.floor(diffInMonths / props.numberOfMonths) * props.numberOfMonths
       );
     } else if (
@@ -199,7 +202,7 @@ export class DayPicker extends Component {
       Helpers.getMonthsDiff(currentMonth, props.toMonth) <= 0
     ) {
       currentMonth = DateUtils.addMonths(
-        props.toMonth,
+        Helpers.startOfMonth(props.toMonth),
         1 - this.props.numberOfMonths
       );
     }
@@ -216,8 +219,6 @@ export class DayPicker extends Component {
   getPreviousNavigableMonth() {
     return DateUtils.addMonths(this.state.currentMonth, -1);
   }
-
-  dayPicker = null;
 
   allowPreviousMonth() {
     const previousMonth = DateUtils.addMonths(this.state.currentMonth, -1);
@@ -385,16 +386,28 @@ export class DayPicker extends Component {
 
     switch (e.keyCode) {
       case LEFT:
-        this.showPreviousMonth();
+        if (this.props.dir === 'rtl') {
+          this.showNextMonth();
+        } else {
+          this.showPreviousMonth();
+        }
+        Helpers.cancelEvent(e);
         break;
       case RIGHT:
-        this.showNextMonth();
+        if (this.props.dir === 'rtl') {
+          this.showPreviousMonth();
+        } else {
+          this.showNextMonth();
+        }
+        Helpers.cancelEvent(e);
         break;
       case UP:
         this.showPreviousYear();
+        Helpers.cancelEvent(e);
         break;
       case DOWN:
         this.showNextYear();
+        Helpers.cancelEvent(e);
         break;
       default:
         break;
@@ -407,14 +420,23 @@ export class DayPicker extends Component {
 
   handleDayKeyDown = (day, modifiers, e) => {
     e.persist();
+
     switch (e.keyCode) {
       case LEFT:
         Helpers.cancelEvent(e);
-        this.focusPreviousDay(e.target);
+        if (this.props.dir === 'rtl') {
+          this.focusNextDay(e.target);
+        } else {
+          this.focusPreviousDay(e.target);
+        }
         break;
       case RIGHT:
         Helpers.cancelEvent(e);
-        this.focusNextDay(e.target);
+        if (this.props.dir === 'rtl') {
+          this.focusPreviousDay(e.target);
+        } else {
+          this.focusNextDay(e.target);
+        }
         break;
       case UP:
         Helpers.cancelEvent(e);
@@ -441,6 +463,7 @@ export class DayPicker extends Component {
 
   handleDayClick = (day, modifiers, e) => {
     e.persist();
+
     if (
       modifiers[this.props.classNames.outside] &&
       this.props.enableOutsideDaysClick

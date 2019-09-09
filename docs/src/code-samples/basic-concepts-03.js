@@ -11,9 +11,11 @@ export default class BasicConcepts extends React.Component {
       selectedDay: undefined,
     };
   }
+
   handleDayClick(day) {
     this.setState({ selectedDay: day });
   }
+
   render() {
     return (
       <div>

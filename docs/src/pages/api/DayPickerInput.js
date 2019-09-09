@@ -9,30 +9,32 @@ import ApiDocs from '../../containers/ApiDocs';
 
 export default () => (
   <DocPage title="DayPickerInput API">
-    <CodeBlock
-    >{`import DayPickerInput from 'react-day-picker/DayPickerInput'`}</CodeBlock>
+    <CodeBlock>{`import DayPickerInput from 'react-day-picker/DayPickerInput'`}</CodeBlock>
     <h2>API summary</h2>
     <h4>Component’s Props</h4>
     <p>
       <a href="#classNames">classNames</a>,{' '}
       <a href="#clickUnselectsDay">clickUnselectsDay</a>,{' '}
       <a href="#component">component</a>,{' '}
-      <a href="#dayPickerProps">dayPickerProps</a>, <a href="#format">format</a>,{' '}
-      <a href="#formatDate">formatDate</a>, <a href="#keepFocus">keepFocus</a>,{' '}
-      <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
+      <a href="#dayPickerProps">dayPickerProps</a>, <a href="#format">format</a>
+      , <a href="#formatDate">formatDate</a>, <a href="#keepFocus">keepFocus</a>
+      , <a href="#hideOnDayClick">hideOnDayClick</a>,{' '}
       <a href="#inputProps">inputProps</a>,{' '}
       <a href="#overlayComponent">overlayComponent</a>,{' '}
-      <a href="#parseDate">parseDate</a>, <a href="#placeholder">placeholder</a>,{' '}
-      <a href="#showOverlay">showOverlay</a>, <a href="#value">value</a>
+      <a href="#parseDate">parseDate</a>, <a href="#placeholder">placeholder</a>
+      , <a href="#showOverlay">showOverlay</a>, <a href="#style">style</a>,{' '}
+      <a href="#value">value</a>
     </p>
     <h4>Event handlers</h4>
     <p>
-      <a href="#onDayChange">onDayChange</a>
+      <a href="#onDayChange">onDayChange</a>,{' '}
+      <a href="#onDayPickerHide">onDayPickerHide</a>{' '}
+      <a href="#onDayPickerShow">onDayPickerShow</a>
     </p>
     <h4>Public methods</h4>
     <p>
-      <a href="#getDayPicker">getDayPicker</a>, <a href="#getInput">getInput</a>,{' '}
-      <a href="#hideDayPicker">hideDayPicker</a>,{' '}
+      <a href="#getDayPicker">getDayPicker</a>, <a href="#getInput">getInput</a>
+      , <a href="#hideDayPicker">hideDayPicker</a>,{' '}
       <a href="#showDayPicker">showDayPicker</a>
     </p>
     <hr />
@@ -64,40 +66,15 @@ export default () => (
         component <code>string | React.Component = &quot;input&quot;</code>
       </h3>
       <p>The component class to render the input field.</p>
+      <CodeBlock>{`<DayPickerInput component={props => <input {...props} />} />`}</CodeBlock>
+
       <p>
-        The component must be compatible with the standard HTML{' '}
-        <code>input</code>: i.e. it should support the
+        The component must support the
         <code>onChange</code>, <code>onFocus</code>, <code>onKeyUp</code>,{' '}
-        <code>onClick</code> and <code>onBlur</code> and the <code>focus</code>{' '}
-        props.
+        <code>onClick</code> and <code>onBlur</code> props. If you want to keep
+        the focus when the user picks a day, the component class must have a{' '}
+        <code>focus</code> method.
       </p>
-      <p>
-        If your custom component doesn’t support such props, wrap it in a
-        component contaning them. For example:
-      </p>
-      <CodeBlock>{`import React from 'react';
-import { DayPickerInput } from 'react-day-picker';
-import MyInputWithoutFocus from './MyInputWithoutFocus';
-
-class MyInputWithFocus extends React.Component {
-  focus = () => {
-    this.input.focus();
-  }
-  render() {
-    return (
-      <MyInputWithoutFocus 
-        ref={el => (this.input = el)} 
-        {...this.props} 
-      />
-    );
-  }
-}
-
-function MyDayPickerInput(props) {
-  return <DayPickerInput component={MyInputWithFocus} />
-} 
-`}</CodeBlock>
-
       <h3>
         <Anchor id="dayPickerProps" />
         dayPickerProps <code>Object</code>
@@ -141,11 +118,13 @@ function MyDayPickerInput(props) {
         prop, while <code>locale</code> is from{' '}
         <a href="#dayPickerProps">
           <code>dayPickerProps</code>
-        </a>.<br />
+        </a>
+        .<br />
         See also{' '}
         <a href="#parseDate">
           <code>parseDate</code>
-        </a>.
+        </a>
+        .
       </p>
       <p>
         If you are using <a href="http://momentjs.com/">moment.js</a> in your
@@ -244,8 +223,7 @@ function MyDayPickerInput() {
       </h3>
       <p>
         Date parser used for parsing the string typed in the input field. As
-        default, it parses only dates formatted as <code>YYYY-M-D</code>.
-        <br />
+        default, it parses only dates formatted as <code>YYYY-M-D</code>.<br />
         Arguments: <code>format</code> is the value coming from the{' '}
         <a href="#format">
           <code>format</code>
@@ -253,10 +231,13 @@ function MyDayPickerInput() {
         prop, while <code>locale</code> is from{' '}
         <a href="#dayPickerProps">
           <code>dayPickerProps</code>
-        </a>.<br />See also{' '}
+        </a>
+        .<br />
+        See also{' '}
         <a href="#formatDate">
           <code>formatDate</code>
-        </a>.
+        </a>
+        .
       </p>
       <p>
         If you are using <a href="http://momentjs.com/">moment.js</a> in your
@@ -280,6 +261,11 @@ function MyDayPickerInput() {
         useful if you want to keep the overlay visibile while styling it.
       </p>
       <h3>
+        <Anchor id="style" />
+        style <code>object</code>
+      </h3>
+      <p>The style attribute applied to the container.</p>
+      <h3>
         <Anchor id="value" />
         value <code>string | Date</code>
       </h3>
@@ -292,18 +278,53 @@ function MyDayPickerInput() {
 
       <h3>
         <Anchor id="onDayChange" />
-        onDayChange <code>(day: ?Date, modifiers: Object) ⇒ void</code>
+        onDayChange{' '}
+        <code>
+          (day: ?Date, modifiers: Object, dayPickerInput: DayPickerInput) ⇒ void
+        </code>
       </h3>
       <p>
-        Handler function called when the user types a valid day – according to
-        the{' '}
-        <code>
-          <a href="#format">format</a>
-        </code>{' '}
-        prop – or when a day is clicked on the calendar. If the typed value is
-        empty or not valid, `day` is <code>undefined</code> and `modifiers` is
-        an empty object.
+        Handler function called when the user types into the input field or when
+        a day is clicked on the calendar.
       </p>
+      <p>
+        <strong>Implementation Notes</strong>
+      </p>
+      <ul>
+        <li>
+          If the typed value is empty or not valid, <code>day</code> is{' '}
+          <code>undefined</code> and <code>modifiers</code> is an empty object.
+        </li>
+        <li>
+          The third argument is the DayPickerInput instance. You can use it to
+          access to the instance props or public methods
+        </li>
+      </ul>
+      <CodeBlock>{`handleDayChange(selectedDay, modifiers, dayPickerInput) {
+  const input = dayPickerInput.getInput();
+  this.setState({
+    selectedDay,
+    isEmpty: !input.value.trim(),
+    isValidDay: typeof selectedDay !== 'undefined',
+    isDisabled: modifiers.disabled === true,
+  });
+}
+
+<DayPickerInput
+  onDayChange={handleDayChange}
+  selectedDay={this.state.selectedDay}
+/>`}</CodeBlock>
+
+      <h3>
+        <Anchor id="onDayPickerHide" />
+        onDayPickerHide <code>() ⇒ void</code>
+      </h3>
+      <p>Handler function called when the overlay is hidden.</p>
+      <h3>
+        <Anchor id="onDayPickerShow" />
+        onDayPickerShow <code>() ⇒ void</code>
+      </h3>
+      <p>Handler function called when the overlay is hidden.</p>
 
       <hr />
       <h2>Public methods</h2>

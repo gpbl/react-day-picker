@@ -83,7 +83,7 @@ export function defaultParse(str) {
     return undefined;
   }
 
-  return new Date(year, month, day);
+  return new Date(year, month, day, 12, 0, 0, 0); // always set noon to avoid time zone issues
 }
 
 export default class DayPickerInput extends React.Component {
@@ -108,6 +108,7 @@ export default class DayPickerInput extends React.Component {
     component: PropTypes.any,
     overlayComponent: PropTypes.any,
 
+    style: PropTypes.object,
     classNames: PropTypes.shape({
       container: PropTypes.string,
       overlayWrapper: PropTypes.string,
@@ -115,6 +116,8 @@ export default class DayPickerInput extends React.Component {
     }),
 
     onDayChange: PropTypes.func,
+    onDayPickerHide: PropTypes.func,
+    onDayPickerShow: PropTypes.func,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
@@ -142,6 +145,18 @@ export default class DayPickerInput extends React.Component {
       overlay: 'DayPickerInput-Overlay',
     },
   };
+
+  input = null;
+
+  daypicker = null;
+
+  clickTimeout = null;
+
+  hideTimeout = null;
+
+  inputBlurTimeout = null;
+
+  inputFocusTimeout = null;
 
   constructor(props) {
     super(props);
@@ -242,13 +257,6 @@ export default class DayPickerInput extends React.Component {
     return this.daypicker;
   }
 
-  input = null;
-  daypicker = null;
-  clickTimeout = null;
-  hideTimeout = null;
-  inputBlurTimeout = null;
-  inputFocusTimeout = null;
-
   /**
    * Update the component's state and fire the `onDayChange` event passing the
    * day's modifiers to it.
@@ -259,7 +267,7 @@ export default class DayPickerInput extends React.Component {
    */
   updateState(day, value, callback) {
     const { dayPickerProps, onDayChange } = this.props;
-    this.setState({ month: day, value }, () => {
+    this.setState({ month: day, value, typedValue: undefined }, () => {
       if (callback) {
         callback();
       }
@@ -272,14 +280,13 @@ export default class DayPickerInput extends React.Component {
         ...dayPickerProps.modifiers,
       };
       const modifiers = getModifiersForDay(day, modifiersObj).reduce(
-        (obj, modifier) => {
-          const newObj = { ...obj };
-          newObj[modifier] = true;
-          return newObj;
-        },
+        (obj, modifier) => ({
+          ...obj,
+          [modifier]: true,
+        }),
         {}
       );
-      onDayChange(day, modifiers);
+      onDayChange(day, modifiers, this);
     });
   }
 
@@ -298,10 +305,15 @@ export default class DayPickerInput extends React.Component {
     const month = value
       ? parseDate(value, format, dayPickerProps.locale) // Use the month in the input field
       : this.getInitialMonthFromProps(this.props); // Restore the month from the props
-    this.setState({
-      showOverlay: true,
-      month: month || this.state.month,
-    });
+    this.setState(
+      state => ({
+        showOverlay: true,
+        month: month || state.month,
+      }),
+      () => {
+        if (this.props.onDayPickerShow) this.props.onDayPickerShow();
+      }
+    );
   }
 
   /**
@@ -313,7 +325,9 @@ export default class DayPickerInput extends React.Component {
     if (this.state.showOverlay === false) {
       return;
     }
-    this.setState({ showOverlay: false });
+    this.setState({ showOverlay: false }, () => {
+      if (this.props.onDayPickerHide) this.props.onDayPickerHide();
+    });
   }
 
   hideAfterDayClick() {
@@ -365,7 +379,11 @@ export default class DayPickerInput extends React.Component {
   handleOverlayFocus(e) {
     e.preventDefault();
     this.overlayHasFocus = true;
-    if (!this.props.keepFocus) {
+    if (
+      !this.props.keepFocus ||
+      !this.input ||
+      typeof this.input.focus !== 'function'
+    ) {
       return;
     }
     this.input.focus();
@@ -393,14 +411,15 @@ export default class DayPickerInput extends React.Component {
     }
     const { value } = e.target;
     if (value.trim() === '') {
-      this.setState({ value });
-      if (onDayChange) onDayChange(undefined, {});
+      this.setState({ value, typedValue: undefined });
+      if (onDayChange) onDayChange(undefined, {}, this);
       return;
     }
     const day = parseDate(value, format, dayPickerProps.locale);
     if (!day) {
-      this.setState({ value });
-      if (onDayChange) onDayChange(undefined, {});
+      // Day is invalid: we save the value in the typedValue state
+      this.setState({ value, typedValue: value });
+      if (onDayChange) onDayChange(undefined, {}, this);
       return;
     }
     this.updateState(day, value);
@@ -454,7 +473,12 @@ export default class DayPickerInput extends React.Component {
     }
 
     // Do nothing if the day is disabled
-    if (modifiers.disabled) {
+    if (
+      modifiers.disabled ||
+      (dayPickerProps &&
+        dayPickerProps.classNames &&
+        modifiers[dayPickerProps.classNames.disabled])
+    ) {
       return;
     }
 
@@ -469,17 +493,20 @@ export default class DayPickerInput extends React.Component {
       } else if (selectedDays) {
         selectedDays = null;
       }
-      this.setState({ value: '', selectedDays }, this.hideAfterDayClick);
+      this.setState(
+        { value: '', typedValue: undefined, selectedDays },
+        this.hideAfterDayClick
+      );
       if (onDayChange) {
-        onDayChange(undefined, modifiers);
+        onDayChange(undefined, modifiers, this);
       }
       return;
     }
 
     const value = formatDate(day, format, dayPickerProps.locale);
-    this.setState({ value, month: day }, () => {
+    this.setState({ value, typedValue: undefined, month: day }, () => {
       if (onDayChange) {
-        onDayChange(day, modifiers);
+        onDayChange(day, modifiers, this);
       }
       this.hideAfterDayClick();
     });
@@ -541,12 +568,12 @@ export default class DayPickerInput extends React.Component {
     const Input = this.props.component;
     const { inputProps } = this.props;
     return (
-      <div className={this.props.classNames.container}>
+      <div className={this.props.classNames.container} style={this.props.style}>
         <Input
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}
           {...inputProps}
-          value={this.state.value}
+          value={this.state.typedValue || this.state.value}
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}

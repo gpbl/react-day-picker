@@ -6,7 +6,7 @@ import Page from '../ui/Page';
 import Footer from '../ui/Footer';
 import Wrap from '../ui/Wrap';
 import LinkButton from '../ui/LinkButton';
-import GithubButton from '../ui/GithubButton';
+import GitHubButton from '../ui/GitHubButton';
 import CodeBlock from '../ui/CodeBlock';
 
 import styles from './index.module.scss';
@@ -37,13 +37,21 @@ export default function HomePage() {
           </h2>
           <p>
             Flexible, highly customizable, localizable, with ARIA support, no
-            external dependencies, ~9KB gzipped
+            external dependencies,{' '}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://bundlephobia.com/result?p=react-day-picker"
+            >
+              7.4kB gzipped
+            </a>
+            .
           </p>
           <p>
             <LinkButton to="/docs">Read the docs</LinkButton>
             <LinkButton to="/examples">Browse the examples</LinkButton>
           </p>
-          <GithubButton />
+          <GitHubButton />
         </Wrap>
       </div>
       <Wrap>
@@ -83,9 +91,9 @@ export default function HomePage() {
           <div>
             <h3>Select range of days</h3>
             <p>
-              Specify which days should be selected in your component’s state (<Link to="/examples/selected-range">
-                source
-              </Link>).
+              Specify which days should be selected in your component’s state (
+              <Link to="/examples/selected-range">source</Link>
+              ).
             </p>
             <div className={styles.feature}>
               <FeatureRange numberOfMonths={1} />
@@ -100,7 +108,7 @@ export default function HomePage() {
           </div>
           <div span={2}>
             <CodeBlock language="bash">
-              {`$ npm install react-day-picker --save 
+              {`$ npm install react-day-picker --save
 # or with yarn:
 $ yarn add react-day-picker`}
             </CodeBlock>

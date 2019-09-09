@@ -67,8 +67,9 @@ export default () => (
 
     <h4>Event handlers</h4>
     <p>
-      <a href="#onBlur">onBlur</a>, <a href="#onCaptionClick">onCaptionClick</a>,{' '}
-      <a href="#onDayClick">onDayClick</a>, <a href="#onDayFocus">onDayFocus</a>,{' '}
+      <a href="#onBlur">onBlur</a>, <a href="#onCaptionClick">onCaptionClick</a>
+      , <a href="#onDayClick">onDayClick</a>,{' '}
+      <a href="#onDayFocus">onDayFocus</a>,{' '}
       <a href="#onDayKeyDown">onDayKeyDown</a>,{' '}
       <a href="#onDayMouseDown">onDayMouseDown</a>,{' '}
       <a href="#onDayMouseEnter">onDayMouseEnter</a>,{' '}
@@ -151,7 +152,7 @@ export default () => (
         <a href="https://github.com/gpbl/react-day-picker/blob/master/src/classNames.js">
           See defaults
         </a>{' '}
-        on Github.
+        on GitHub.
       </p>
       <p>
         You can use this prop to adopt the custom styles imported via CSS
@@ -248,7 +249,8 @@ export default () => (
         with the days before it. See also{' '}
         <a href="#toMonth">
           <code>toMonth</code>
-        </a>.
+        </a>
+        .
       </p>
       <h3>
         <Anchor id="initialMonth" />
@@ -434,9 +436,8 @@ export default () => (
         showWeekNumbers <code>boolean = false</code>
       </h3>
       <p>
-        Display the year’s week number next to each week (<Link to="/examples/customization-week-numbers">
-          example
-        </Link>).
+        Display the year’s week number next to each week (
+        <Link to="/examples/customization-week-numbers">example</Link>).
       </p>
       <h3>
         <Anchor id="todayButton" />
@@ -455,7 +456,8 @@ export default () => (
         the days after it. See also{' '}
         <a href="#fromMonth">
           <code>fromMonth</code>
-        </a>.
+        </a>
+        .
       </p>
 
       <h3>
@@ -625,7 +627,7 @@ export default () => (
         </code>
       </h3>
       <p>
-        Event hander when the user clicks on a week number (when{' '}
+        Event handler when the user clicks on a week number (when{' '}
         <a href="#showWeekNumbers">showWeekNumbers</a> is set to{' '}
         <code>true</code>).
       </p>
@@ -637,7 +639,7 @@ export default () => (
         </code>
       </h3>
       <p>
-        Event hander when the user clicks on the today button (when{' '}
+        Event handler when the user clicks on the today button (when{' '}
         <a href="#todayButton">todayButton</a> is set).
       </p>
       <hr />

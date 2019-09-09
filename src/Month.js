@@ -17,6 +17,7 @@ export default class Month extends Component {
       outside: PropTypes.string.isRequired,
       today: PropTypes.string.isRequired,
       week: PropTypes.string.isRequired,
+      weekNumber: PropTypes.string.isRequired,
     }).isRequired,
     tabIndex: PropTypes.number,
 
@@ -189,7 +190,7 @@ export default class Month extends Component {
                 {showWeekNumbers && (
                   <div
                     className={classNames.weekNumber}
-                    tabIndex={0}
+                    tabIndex={onWeekClick ? 0 : -1}
                     role="gridcell"
                     onClick={
                       onWeekClick

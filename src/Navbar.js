@@ -5,22 +5,12 @@ import defaultClassNames from './classNames';
 import { SPACE, ENTER } from './keys';
 
 export default class Navbar extends Component {
-  static defaultProps = {
-    classNames: defaultClassNames,
-    dir: 'ltr',
-    labels: {
-      previousMonth: 'Previous Month',
-      nextMonth: 'Next Month',
-    },
-    showPreviousButton: true,
-    showNextButton: true,
-  };
-
   static propTypes = {
     classNames: PropTypes.shape({
       navBar: PropTypes.string.isRequired,
       navButtonPrev: PropTypes.string.isRequired,
       navButtonNext: PropTypes.string.isRequired,
+      navButtonInteractionDisabled: PropTypes.string.isRequired,
     }),
     className: PropTypes.string,
     showPreviousButton: PropTypes.bool,
@@ -32,6 +22,17 @@ export default class Navbar extends Component {
       previousMonth: PropTypes.string.isRequired,
       nextMonth: PropTypes.string.isRequired,
     }),
+  };
+
+  static defaultProps = {
+    classNames: defaultClassNames,
+    dir: 'ltr',
+    labels: {
+      previousMonth: 'Previous Month',
+      nextMonth: 'Next Month',
+    },
+    showPreviousButton: true,
+    showNextButton: true,
   };
 
   shouldComponentUpdate(nextProps) {
@@ -106,15 +107,11 @@ export default class Navbar extends Component {
 
     const previousClassName = shouldShowPrevious
       ? classNames.navButtonPrev
-      : `${classNames.navButtonPrev} ${
-          classNames.navButtonInteractionDisabled
-        }`;
+      : `${classNames.navButtonPrev} ${classNames.navButtonInteractionDisabled}`;
 
     const nextClassName = shouldShowNext
       ? classNames.navButtonNext
-      : `${classNames.navButtonNext} ${
-          classNames.navButtonInteractionDisabled
-        }`;
+      : `${classNames.navButtonNext} ${classNames.navButtonInteractionDisabled}`;
 
     const previousButton = (
       <span

@@ -1,4 +1,4 @@
-// TypeScript Version: 2.2
+// TypeScript Version: 2.3
 
 export interface ClassNames {
   container: string;
@@ -15,14 +15,23 @@ export interface ClassNames {
   weekdays: string;
   weekdaysRow: string;
   weekday: string;
+  weekNumber: string;
   body: string;
   week: string;
   day: string;
+  footer: string;
+  todayButton: string;
 
   today: string;
   selected: string;
   disabled: string;
   outside: string;
+}
+
+export interface InputClassNames {
+  container: string;
+  overlayWrapper: string;
+  overlay: string;
 }
 
 export interface RangeModifier {
@@ -50,7 +59,8 @@ export type Modifier =
   | AfterModifier
   | BeforeAfterModifier
   | DaysOfWeekModifier
-  | FunctionModifier;
+  | FunctionModifier
+  | undefined;
 
 export interface Modifiers {
   today: Modifier | Modifier[];

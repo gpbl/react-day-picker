@@ -18,13 +18,16 @@ export default class Header extends React.Component {
     this.handleMenuClick = this.handleMenuClick.bind(this);
     this.handleMenuButtonClick = this.handleMenuButtonClick.bind(this);
   }
+
   handleMenuButtonClick(e) {
     e.preventDefault();
     this.setState({ showMenu: !this.state.showMenu });
   }
+
   handleMenuClick() {
     this.setState({ showMenu: false });
   }
+
   render() {
     const { showMenu } = this.state;
     return (
@@ -94,7 +97,7 @@ export default class Header extends React.Component {
                       src={github}
                       width="20"
                       height="20"
-                      alt="Github logo"
+                      alt="GitHub logo"
                     />
                   </a>
                 </li>

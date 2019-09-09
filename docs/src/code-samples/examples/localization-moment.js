@@ -18,11 +18,13 @@ export default class LocalizedExample extends React.Component {
       locale: 'en',
     };
   }
+
   handleSelectChange(e) {
     this.setState({
       locale: e.target.value,
     });
   }
+
   render() {
     return (
       <div>

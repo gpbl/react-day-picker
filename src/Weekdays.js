@@ -21,9 +21,11 @@ export default class Weekdays extends Component {
       PropTypes.instanceOf(React.Component),
     ]),
   };
+
   shouldComponentUpdate(nextProps) {
     return this.props !== nextProps;
   }
+
   render() {
     const {
       classNames,

@@ -24,7 +24,7 @@ export default function ChangeLog() {
                 Gitter Room
               </Menu.Item>
               <Menu.Item to="https://github.com/gpbl/react-day-picker/issues">
-                Github issues
+                GitHub issues
               </Menu.Item>
               <Menu.Item to="https://codesandbox.io/s/XDAE3x0W8">
                 CodeSandbox
@@ -42,7 +42,8 @@ export default function ChangeLog() {
                   <a href="https://codesandbox.io/s/XDAE3x0W8">
                     this CodeSandbox
                   </a>
-                </strong>: change the code, save it and use the URL to share it.
+                </strong>
+                : change the code, save it and use the URL to share it.
               </p>
             </blockquote>
 
@@ -58,7 +59,7 @@ export default function ChangeLog() {
               <li>
                 Give a look to the open or closed{' '}
                 <a href="https://github.com/gpbl/react-day-picker/issues?utf8=%E2%9C%93&q=">
-                  issues on Github
+                  issues on GitHub
                 </a>
               </li>
             </ul>
@@ -74,7 +75,7 @@ export default function ChangeLog() {
               <li>
                 It’s super ok to{' '}
                 <a href="https://github.com/gpbl/react-day-picker/issues/new">
-                  open issues on Github
+                  open issues on GitHub
                 </a>{' '}
                 as well, even better if you want to{' '}
                 <Link to="/contribute">contribute</Link>!

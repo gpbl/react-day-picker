@@ -1,15 +1,22 @@
-// TypeScript Version: 2.2
+// TypeScript Version: 2.3
 
 import * as React from 'react';
-import { ClassNames, Modifier, Modifiers, DayModifiers } from './common';
+import {
+  ClassNames,
+  Modifier,
+  Modifiers,
+  DayModifiers,
+  InputClassNames,
+} from './common';
 import { LocaleUtils } from './utils';
+import { DayPickerInput } from './DayPickerInput';
 
 export interface CaptionElementProps {
   date: Date;
   classNames: ClassNames;
-  localeUtils: LocaleUtils;
+  localeUtils: typeof LocaleUtils;
   locale: string;
-  months: undefined;
+  months?: string[];
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
@@ -25,29 +32,32 @@ export interface NavbarElementProps {
   onNextClick(callback?: () => void): void;
   dir?: string;
   labels: { previousMonth: string; nextMonth: string };
-  localeUtils: LocaleUtils;
+  localeUtils: typeof LocaleUtils;
   locale: string;
 }
 
 export interface WeekdayElementProps {
   weekday: number;
   className: string;
-  localeUtils: LocaleUtils;
+  localeUtils: typeof LocaleUtils;
   locale: string;
+  weekdaysLong?: string[];
+  weekdaysShort?: string[];
 }
 
 export interface DayPickerProps {
   canChangeMonth?: boolean;
   captionElement?:
-  | React.ReactElement<Partial<CaptionElementProps>>
-  | React.ComponentClass<CaptionElementProps>
-  | React.SFC<CaptionElementProps>;
+    | React.ReactElement<Partial<CaptionElementProps>>
+    | React.ComponentClass<CaptionElementProps>
+    | React.SFC<CaptionElementProps>;
   className?: string;
   classNames?: ClassNames;
   containerProps?: React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
   >;
+  dir?: string;
   disabledDays?: Modifier | Modifier[];
   showOutsideDays?: boolean;
   enableOutsideDaysClick?: boolean;
@@ -57,28 +67,15 @@ export interface DayPickerProps {
   initialMonth?: Date;
   labels?: { previousMonth: string; nextMonth: string };
   locale?: string;
-  localeUtils?: LocaleUtils;
+  localeUtils?: typeof LocaleUtils;
   modifiers?: Partial<Modifiers>;
   modifiersStyles?: object;
   month?: Date;
-  months?: [
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string
-  ];
+  months?: string[];
   navbarElement?:
-  | React.ReactElement<Partial<NavbarElementProps>>
-  | React.ComponentClass<NavbarElementProps>
-  | React.SFC<NavbarElementProps>;
+    | React.ReactElement<Partial<NavbarElementProps>>
+    | React.ComponentClass<NavbarElementProps>
+    | React.SFC<NavbarElementProps>;
   numberOfMonths?: number;
   onBlur?(e: React.FocusEvent<HTMLDivElement>): void;
   onCaptionClick?(month: Date, e: React.MouseEvent<HTMLDivElement>): void;
@@ -136,7 +133,7 @@ export interface DayPickerProps {
     e: React.MouseEvent<HTMLDivElement>
   ): void;
   pagedNavigation?: boolean;
-  renderDay?(date: Date, modifiers: Modifiers): React.ReactNode;
+  renderDay?(date: Date, modifiers: DayModifiers): React.ReactNode;
   renderWeek?(weekNumber: number, week: Date[], month: Date): React.ReactNode;
   reverseMonths?: boolean;
   selectedDays?: Modifier | Modifier[];
@@ -145,11 +142,12 @@ export interface DayPickerProps {
   todayButton?: string;
   toMonth?: Date;
   weekdayElement?:
-  | React.ReactElement<Partial<WeekdayElementProps>>
-  | React.ComponentClass<WeekdayElementProps>
-  | React.SFC<WeekdayElementProps>;
-  weekdaysLong?: [string, string, string, string, string, string, string];
-  weekdaysShort?: [string, string, string, string, string, string, string];
+    | React.ReactElement<Partial<WeekdayElementProps>>
+    | React.ComponentClass<WeekdayElementProps>
+    | React.SFC<WeekdayElementProps>;
+  weekdaysLong?: string[];
+  weekdaysShort?: string[];
+  tabIndex?: number;
 }
 
 export interface DayPickerInputProps {
@@ -172,9 +170,15 @@ export interface DayPickerInputProps {
   component?: any;
   overlayComponent?: any;
 
-  classNames?: ClassNames;
+  classNames?: InputClassNames;
 
-  onDayChange?(day: Date, DayModifiers: DayModifiers): void;
+  onDayChange?(
+    day: Date,
+    DayModifiers: DayModifiers,
+    dayPickerInput: DayPickerInput
+  ): void;
+  onDayPickerHide?(): void;
+  onDayPickerShow?(): void;
   onChange?(e: React.FocusEvent<HTMLDivElement>): void;
   onClick?(e: React.FocusEvent<HTMLDivElement>): void;
   onFocus?(e: React.FocusEvent<HTMLDivElement>): void;
