@@ -20,6 +20,7 @@ export default class Weekdays extends Component {
       PropTypes.func,
       PropTypes.instanceOf(React.Component),
     ]),
+    onWeekdayClick: PropTypes.func,
   };
 
   shouldComponentUpdate(nextProps) {
@@ -36,6 +37,7 @@ export default class Weekdays extends Component {
       locale,
       localeUtils,
       weekdayElement,
+      onWeekdayClick,
     } = this.props;
     const days = [];
     for (let i = 0; i < 7; i += 1) {
@@ -48,6 +50,7 @@ export default class Weekdays extends Component {
         weekdaysShort,
         localeUtils,
         locale,
+        onWeekdayClick,
       };
       const element = React.isValidElement(weekdayElement)
         ? React.cloneElement(weekdayElement, elementProps)

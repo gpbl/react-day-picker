@@ -126,6 +126,7 @@ export class DayPicker extends Component {
     onMonthChange: PropTypes.func,
     onCaptionClick: PropTypes.func,
     onWeekClick: PropTypes.func,
+    onWeekdayClick: PropTypes.func,
     onTodayButtonClick: PropTypes.func,
   };
 

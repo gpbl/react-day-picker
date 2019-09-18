@@ -43,6 +43,7 @@ export interface WeekdayElementProps {
   locale: string;
   weekdaysLong?: string[];
   weekdaysShort?: string[];
+  onWeekdayClick?: (weekDayNumber: number, month: Date) => null;
 }
 
 export interface DayPickerProps {
@@ -132,6 +133,7 @@ export interface DayPickerProps {
     days: Date[],
     e: React.MouseEvent<HTMLDivElement>
   ): void;
+  onWeekdayClick?: (weekDayNumber: number, month: Date) => void;
   pagedNavigation?: boolean;
   renderDay?(date: Date, modifiers: DayModifiers): React.ReactNode;
   renderWeek?(weekNumber: number, week: Date[], month: Date): React.ReactNode;

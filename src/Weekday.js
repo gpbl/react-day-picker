@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { ENTER } from './keys';
 
 export default class Weekday extends Component {
   static propTypes = {
@@ -7,6 +8,7 @@ export default class Weekday extends Component {
     className: PropTypes.string,
     locale: PropTypes.string,
     localeUtils: PropTypes.object,
+    onWeekdayClick: PropTypes.func,
 
     weekdaysLong: PropTypes.arrayOf(PropTypes.string),
     weekdaysShort: PropTypes.arrayOf(PropTypes.string),
@@ -15,6 +17,19 @@ export default class Weekday extends Component {
   shouldComponentUpdate(nextProps) {
     return this.props !== nextProps;
   }
+
+  onClick = () => {
+    const { onWeekdayClick, weekday } = this.props;
+    if (typeof onWeekdayClick === 'function') {
+      onWeekdayClick(weekday);
+    }
+  };
+
+  handleKeyUp = e => {
+    if (e.keyCode === ENTER) {
+      this.onClick(e);
+    }
+  };
 
   render() {
     const {
@@ -39,7 +54,13 @@ export default class Weekday extends Component {
     }
 
     return (
-      <div className={className} role="columnheader">
+      <div
+        className={className}
+        onClick={this.onClick}
+        onKeyUp={this.handleKeyUp}
+        role="columnheader"
+        tabIndex="-1"
+      >
         <abbr title={title}>{content}</abbr>
       </div>
     );

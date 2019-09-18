@@ -63,6 +63,12 @@ export default class Month extends Component {
     onDayTouchEnd: PropTypes.func,
     onDayTouchStart: PropTypes.func,
     onWeekClick: PropTypes.func,
+    onWeekdayClick: PropTypes.func,
+  };
+
+  onWeekdayClick = dayNumber => {
+    const { month, onWeekdayClick } = this.props;
+    onWeekdayClick(dayNumber, month);
   };
 
   renderDay = day => {
@@ -173,6 +179,7 @@ export default class Month extends Component {
             locale={locale}
             localeUtils={localeUtils}
             weekdayElement={weekdayElement}
+            onWeekdayClick={this.onWeekdayClick}
           />
         )}
         <div className={classNames.body} role="rowgroup">

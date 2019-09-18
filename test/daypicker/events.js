@@ -52,7 +52,36 @@ describe('DayPicker’s events handlers', () => {
     expect(arg1.foo).toEqual(true);
     expect(arg2.constructor.name).toBe('SyntheticEvent');
   });
+  it('should call the `onWeekdayClick` event handler', () => {
+    const handleWeekdayClick = jest.fn();
 
+    const wrapper = mount(<DayPicker onWeekdayClick={handleWeekdayClick} />);
+    wrapper
+      .find('.DayPicker-Weekday')
+      .find({ weekday: 0 })
+      .simulate('click');
+
+    const arg0 = handleWeekdayClick.mock.calls[0][0];
+    const arg1 = handleWeekdayClick.mock.calls[0][1];
+    expect(arg0).toEqual(0);
+    expect(arg1.getFullYear()).toEqual(new Date().getFullYear());
+    expect(arg1.getMonth()).toEqual(new Date().getMonth());
+  });
+  it('should call `onWeekDayClick` event handler when pressing the ENTER key', () => {
+    const handleWeekdayClick = jest.fn();
+
+    const wrapper = mount(<DayPicker onWeekdayClick={handleWeekdayClick} />);
+    wrapper
+      .find('.DayPicker-Weekday')
+      .find({ weekday: 0 })
+      .simulate('keyUp', { keyCode: keys.ENTER });
+
+    const arg0 = handleWeekdayClick.mock.calls[0][0];
+    const arg1 = handleWeekdayClick.mock.calls[0][1];
+    expect(arg0).toEqual(0);
+    expect(arg1.getFullYear()).toEqual(new Date().getFullYear());
+    expect(arg1.getMonth()).toEqual(new Date().getMonth());
+  });
   it('should call the `onDayKeyDown` event handler', () => {
     const handleDayKeyDown = jest.fn();
 
