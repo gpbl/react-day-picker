@@ -12,11 +12,15 @@
     ],
     "no-return-assign": "off",
     "no-restricted-globals": "off",
-    "import/named": "on",
+    "import/named": "warn",
     "import/no-named-as-default": "off",
     "react/jsx-filename-extension": "off",
     "react/require-default-props": "off",
     "react/destructuring-assignment": "off",
+    "react/static-property-placement": ["warn", "static public field"],
+    "react/jsx-props-no-spreading": "off",
+    "max-classes-per-file": "off",
+    "prefer-object-spread": "off",
 
     "react/sort-comp": [
       1,

@@ -8,6 +8,7 @@ module.exports = {
   entry: {
     daypicker: './DayPicker.dist.js',
   },
+  mode: isProduction ? 'production' : 'development',
   output: {
     path: `${__dirname}/lib`,
     filename: `[name]${isProduction ? '.min' : ''}.js`,
