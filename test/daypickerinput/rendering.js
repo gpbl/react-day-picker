@@ -149,6 +149,40 @@ describe('DayPickerInput', () => {
       wrapper.setProps({ value: '01/10/2018' });
       expect(wrapper.instance().state.value).toBe('01/10/2018');
     });
+    it('should update the current value when `dayPickerProps.locale` changes', () => {
+      const date = new Date(2019, 8, 30);
+      const formatDate = (d, _format, _locale) => {
+        const year = d.getFullYear();
+        const month = `${d.getMonth() + 1}`;
+        const day = `${d.getDate()}`;
+        return `${year}-${month}-${day} ${_locale}`;
+      };
+      const wrapper = mount(
+        <DayPickerInput value={date} formatDate={formatDate} />
+      );
+      wrapper.setProps({ dayPickerProps: { locale: 'en' }, formatDate });
+      expect(wrapper.instance().state.value).toBe('2019-9-30 en');
+
+      wrapper.setProps({ dayPickerProps: { locale: 'es' }, formatDate });
+      expect(wrapper.instance().state.value).toBe('2019-9-30 es');
+    });
+    it('should update the current value when `format` changes', () => {
+      const date = new Date(2019, 8, 30);
+      const formatDate = (d, _format) => {
+        const year = d.getFullYear();
+        const month = `${d.getMonth() + 1}`;
+        const day = `${d.getDate()}`;
+        return `${year}-${month}-${day} ${_format}`;
+      };
+      const wrapper = mount(
+        <DayPickerInput value={date} formatDate={formatDate} />
+      );
+      wrapper.setProps({ format: 'YYYY-M-D', formatDate });
+      expect(wrapper.instance().state.value).toBe('2019-9-30 YYYY-M-D');
+
+      wrapper.setProps({ format: 'YYYY-MM-DD', formatDate });
+      expect(wrapper.instance().state.value).toBe('2019-9-30 YYYY-MM-DD');
+    });
     it('should not update the current value when other props are updated', () => {
       const wrapper = mount(<DayPickerInput value="2017-12-15" />);
       wrapper.setProps({ dayPickerProps: {} });
