@@ -1,0 +1,547 @@
+{
+  "style": {
+    "type": {
+      "name": "object"
+    },
+    "required": false,
+    "description": "",
+    "categories": {}
+  },
+  "styles": {
+    "type": {
+      "name": "shape",
+      "value": {
+        "container": {
+          "name": "string",
+          "required": false
+        },
+        "caption": {
+          "name": "string",
+          "required": false
+        },
+        "day": {
+          "name": "string",
+          "required": false
+        },
+        "dayWrapper": {
+          "name": "string",
+          "required": false
+        },
+        "month": {
+          "name": "string",
+          "required": false
+        },
+        "monthTable": {
+          "name": "string",
+          "required": false
+        },
+        "monthTbody": {
+          "name": "string",
+          "required": false
+        },
+        "months": {
+          "name": "string",
+          "required": false
+        },
+        "head": {
+          "name": "string",
+          "required": false
+        },
+        "headRow": {
+          "name": "string",
+          "required": false
+        },
+        "headWeekNumber": {
+          "name": "string",
+          "required": false
+        },
+        "headWeekName": {
+          "name": "string",
+          "required": false
+        },
+        "nav": {
+          "name": "string",
+          "required": false
+        },
+        "navStart": {
+          "name": "string",
+          "required": false
+        },
+        "navPrev": {
+          "name": "string",
+          "required": false
+        },
+        "navNext": {
+          "name": "string",
+          "required": false
+        },
+        "week": {
+          "name": "string",
+          "required": false
+        },
+        "weekNumber": {
+          "name": "string",
+          "required": false
+        },
+        "weekDay": {
+          "name": "string",
+          "required": false
+        },
+        "modifiers": {
+          "name": "object",
+          "required": false
+        }
+      }
+    },
+    "required": false,
+    "description": "",
+    "defaultValue": {
+      "value": "{}",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "className": {
+    "type": {
+      "name": "string"
+    },
+    "required": false,
+    "description": "",
+    "categories": {}
+  },
+  "classNames": {
+    "type": {
+      "name": "shape",
+      "value": {
+        "container": {
+          "name": "string",
+          "required": false
+        },
+        "caption": {
+          "name": "string",
+          "required": false
+        },
+        "day": {
+          "name": "string",
+          "required": false
+        },
+        "dayWrapper": {
+          "name": "string",
+          "required": false
+        },
+        "month": {
+          "name": "string",
+          "required": false
+        },
+        "monthTable": {
+          "name": "string",
+          "required": false
+        },
+        "monthTbody": {
+          "name": "string",
+          "required": false
+        },
+        "months": {
+          "name": "string",
+          "required": false
+        },
+        "head": {
+          "name": "string",
+          "required": false
+        },
+        "headRow": {
+          "name": "string",
+          "required": false
+        },
+        "headWeekNumber": {
+          "name": "string",
+          "required": false
+        },
+        "headWeekName": {
+          "name": "string",
+          "required": false
+        },
+        "nav": {
+          "name": "string",
+          "required": false
+        },
+        "navStart": {
+          "name": "string",
+          "required": false
+        },
+        "navPrev": {
+          "name": "string",
+          "required": false
+        },
+        "navNext": {
+          "name": "string",
+          "required": false
+        },
+        "week": {
+          "name": "string",
+          "required": false
+        },
+        "weekNumber": {
+          "name": "string",
+          "required": false
+        },
+        "weekDay": {
+          "name": "string",
+          "required": false
+        },
+        "modifiers": {
+          "name": "object",
+          "required": false
+        }
+      }
+    },
+    "required": false,
+    "description": "",
+    "categories": {}
+  },
+  "month": {
+    "type": {
+      "name": "instanceOf",
+      "value": "Date"
+    },
+    "required": false,
+    "description": "The month to show in the calendar.",
+    "defaultValue": {
+      "value": "startOfMonth(new Date())",
+      "computed": true
+    },
+    "categories": {}
+  },
+  "numberOfMonths": {
+    "type": {
+      "name": "number"
+    },
+    "required": false,
+    "description": "The number of months to show in the date picker. See also `pagedNavigation`\nand `reverseMonths`.",
+    "defaultValue": {
+      "value": "1",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "fromMonth": {
+    "type": {
+      "name": "instanceOf",
+      "value": "Date"
+    },
+    "required": false,
+    "description": "The first allowed month. Users won’t be able to navigate or interact with\nthe days before it. See also `toMonth`.",
+    "categories": {}
+  },
+  "toMonth": {
+    "type": {
+      "name": "instanceOf",
+      "value": "Date"
+    },
+    "required": false,
+    "description": "The last allowed month. Users won’t be able to navigate or interact with\nthe days after it. See also `fromMonth`.",
+    "categories": {}
+  },
+  "pagedNavigation": {
+    "type": {
+      "name": "bool"
+    },
+    "required": false,
+    "description": "When displaying multiple months, the navigation will be paginated\ndisplaying the `numberOfMonths` at time instead of one.",
+    "defaultValue": {
+      "value": "false",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "reverseMonths": {
+    "type": {
+      "name": "bool"
+    },
+    "required": false,
+    "description": "Render the months in reversed order. Useful when `numberOfMonths` is\ngreater than 1, to display the most recent month first.",
+    "defaultValue": {
+      "value": "false",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "canChangeMonth": {
+    "type": {
+      "name": "custom",
+      "raw": "deprecated(\n  PropTypes.bool,\n  'Use \"showNavigation\" prop instead.'\n)"
+    },
+    "required": false,
+    "description": "Enable the navigation between months.\n\n",
+    "categories": {
+      "@deprecated": "Use `showNavigation` prop instead."
+    }
+  },
+  "initialMonth": {
+    "type": {
+      "name": "custom",
+      "raw": "deprecated(\n  PropTypes.instanceOf(Date),\n  'Use `month` prop instead.'\n)"
+    },
+    "required": false,
+    "description": "The month to display in the calendar at first render.\n\n",
+    "categories": {
+      "@deprecated": "Use `month` prop instead"
+    }
+  },
+  "todayButton": {
+    "type": {
+      "name": "custom",
+      "raw": "deprecated(PropTypes.string, 'Use \"startLabel\" prop instead.')"
+    },
+    "required": false,
+    "description": "Display a button to switch to the current month using the provided string\nas label.\n\n",
+    "categories": {
+      "@deprecated": "Use `startLabel` prop instead."
+    }
+  },
+  "fixedWeeks": {
+    "type": {
+      "name": "bool"
+    },
+    "required": false,
+    "description": "Display 6 weeks per months, regardless the month’s number of weeks. Outside\ndays will be always shown if setting this to `true`. See also\n`showOutsideDays`.",
+    "defaultValue": {
+      "value": "false",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "showCaption": {
+    "type": {
+      "name": "bool"
+    },
+    "required": false,
+    "description": "Show the month caption displaying the month and the year.",
+    "defaultValue": {
+      "value": "true",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "showHead": {
+    "type": {
+      "name": "bool"
+    },
+    "required": false,
+    "description": "Show the month head containing the weekday names.",
+    "defaultValue": {
+      "value": "true",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "showOutsideDays": {
+    "type": {
+      "name": "bool"
+    },
+    "required": false,
+    "description": "Show the outside days. An outside day is a day displayed in a month but\nfalling in the next or the previous month. See also\n`enableOutsideDaysClick`.",
+    "defaultValue": {
+      "value": "false",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "enableOutsideDaysClick": {
+    "type": {
+      "name": "bool"
+    },
+    "required": false,
+    "description": "Enable the click event for outside days. See also `showOutsideDays`.",
+    "defaultValue": {
+      "value": "false",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "showWeekDays": {
+    "type": {
+      "name": "custom",
+      "raw": "deprecated(PropTypes.bool, 'Use \"showHead\" prop instead.')"
+    },
+    "required": false,
+    "description": "Display the weekday names in the calendar header.\n\n",
+    "categories": {
+      "@deprecated": "Use `showHead` prop instead."
+    }
+  },
+  "showWeekNumber": {
+    "type": {
+      "name": "bool"
+    },
+    "required": false,
+    "description": "Show the week numbers. See also `onWeekNumberClick`.",
+    "defaultValue": {
+      "value": "false",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "showNavigation": {
+    "type": {
+      "name": "bool"
+    },
+    "required": false,
+    "description": "Show the navigation bar. `onMonthChange` must be set.",
+    "defaultValue": {
+      "value": "true",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "startDay": {
+    "type": {
+      "name": "instanceOf",
+      "value": "Date"
+    },
+    "required": false,
+    "description": "The date passed when clicking the start button in the navigation.",
+    "defaultValue": {
+      "value": "new Date()",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "startLabel": {
+    "type": {
+      "name": "string"
+    },
+    "required": false,
+    "description": "Label used for the start button in Navigation. Set it to empty string to\nhide the button.",
+    "defaultValue": {
+      "value": "'●'",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "prevLabel": {
+    "type": {
+      "name": "string"
+    },
+    "required": false,
+    "description": "Label used for the previous month button in Navigation. Set it to empty\nstring to hide the button.",
+    "defaultValue": {
+      "value": "'◀'",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "nextLabel": {
+    "type": {
+      "name": "string"
+    },
+    "required": false,
+    "description": "Label used for the next month button in Navigation. Set it to empty string\nto hide the button.",
+    "defaultValue": {
+      "value": "'▶'",
+      "computed": false
+    },
+    "categories": {}
+  },
+  "selected": {
+    "type": {
+      "name": "instanceOf",
+      "value": "'Modifier'"
+    },
+    "required": false,
+    "description": "The days that should appear as selected",
+    "categories": {}
+  },
+  "selectedDays": {
+    "type": {
+      "name": "custom",
+      "raw": "deprecated(PropTypes.any)"
+    },
+    "required": false,
+    "description": "",
+    "categories": {
+      "@deprecated": "Use `selected` instead."
+    }
+  },
+  "disabled": {
+    "type": {
+      "name": "instanceOf",
+      "value": "'Modifier'"
+    },
+    "required": false,
+    "description": "The days that should appear as disabled",
+    "categories": {}
+  },
+  "disabledDays": {
+    "type": {
+      "name": "custom",
+      "raw": "deprecated(PropTypes.any)"
+    },
+    "required": false,
+    "description": "",
+    "categories": {
+      "@deprecated": "Use `disabled` instead."
+    }
+  },
+  "hidden": {
+    "type": {
+      "name": "instanceOf",
+      "value": "'Modifier'"
+    },
+    "required": false,
+    "description": "The days that should not appear",
+    "categories": {}
+  },
+  "modifiers": {
+    "type": {
+      "name": "object"
+    },
+    "required": false,
+    "description": "TODO: write jsdocs",
+    "categories": {}
+  },
+  "locale": {
+    "type": {
+      "name": "object"
+    },
+    "required": false,
+    "description": "Locale object for localization.",
+    "defaultValue": {
+      "value": "defaultLocale",
+      "computed": true
+    },
+    "categories": {}
+  },
+  "onDayClick": {
+    "type": {
+      "name": "func"
+    },
+    "required": false,
+    "description": "Event handler when the user clicks on a day. Receives a `DateWithModifiers`\nobject as first argument, and the native event as second argument.",
+    "categories": {}
+  },
+  "onMonthChange": {
+    "type": {
+      "name": "func"
+    },
+    "required": false,
+    "description": "Event handler when the month changes, e.g. when using the next/prev\nnavigation buttons. Receives a `Date` object as first argument, and the\nnative event as second argument.",
+    "categories": {}
+  },
+  "onNextClick": {
+    "type": {
+      "name": "func"
+    },
+    "required": false,
+    "description": "Event handler when the next navigation button is clicked. Receives a `Date`\nobject as first argument, and the native event as second argument.",
+    "categories": {}
+  },
+  "onPrevClick": {
+    "type": {
+      "name": "func"
+    },
+    "required": false,
+    "description": "Event handler when the prev navigation button is clicked. Receives a `Date`\nobject as first argument, and the native event as second argument.",
+    "categories": {}
+  }
+}

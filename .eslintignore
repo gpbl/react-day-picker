@@ -1,1 +1,2 @@
-lib/**/*.js
+node_modules
+build

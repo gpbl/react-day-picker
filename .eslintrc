@@ -1,36 +1,44 @@
 {
+  "root": true,
   "parser": "babel-eslint",
-  "plugins": ["prettier"],
-  "extends": ["airbnb", "prettier", "prettier/react"],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "plugins": ["react", "react-hooks", "jsx-a11y", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
     "no-console": [
       "error",
       {
         "allow": ["warn", "error"]
       }
-    ],
-    "no-return-assign": "off",
-    "no-restricted-globals": "off",
-    "import/named": "on",
-    "import/no-named-as-default": "off",
-    "react/jsx-filename-extension": "off",
-    "react/require-default-props": "off",
-    "react/destructuring-assignment": "off",
-
-    "react/sort-comp": [
-      1,
-      {
-        "order": [
-          "static-methods",
-          "instance-variables",
-          "lifecycle",
-          "everything-else",
-          "/^handle.+$/",
-          "/^render.+$/",
-          "render"
-        ]
-      }
     ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.js"],
+      "env": {
+        "jest": true
+      },
+      "plugins": ["jest"]
+    },
+    {
+      "files": ["**/*.stories.js"]
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

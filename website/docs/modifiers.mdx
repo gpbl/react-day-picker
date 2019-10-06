@@ -1,0 +1,165 @@
+---
+id: modifiers
+title: Use of Modifiers
+---
+
+It is possible to assign one or more **modifiers** to each day of the calendar.
+
+A modifier is a property that [matches a day](./matching-days.mdx) in the calendar. A modifier may have two main purposes:
+
+1. to give days a different style and appearance;
+2. to change the interaction when user picks a specific day.
+
+## Adding and Styling Day Modifiers
+
+To change the appearance of a day according to a modifier:
+
+1. pass to the [`modifiers`](./props#modifiers) prop a `modifiers` object to match any modifiers with any day;
+2. use the [`styles`](./props#styles) prop to style a day when it matches a modifier.
+
+For example, the following assigns and styles the modifiers `unavailable`, `booked` and `available`:
+
+```jsx preview
+function App() {
+  const modifiers = {
+    unavailable: { before: new Date(2019, 8, 15) },
+    available: { after: new Date(2019, 8, 18) },
+    booked: [
+      new Date(2019, 8, 15),
+      new Date(2019, 8, 16),
+      new Date(2019, 8, 17),
+      new Date(2019, 8, 18),
+    ],
+  };
+  const modifierStyles = {
+    available: { color: 'limegreen' },
+    unavailable: { textDecoration: 'line-through' },
+    booked: { color: 'salmon' },
+  };
+  return (
+    <div>
+      <DayPicker
+        month={new Date(2019, 8)}
+        modifiers={modifiers}
+        styles={{ modifiers: modifierStyles }}
+      />
+      <pre>
+        Legend: <span style={modifierStyles.unavailable}>unavailable</span>{' '}
+        <span style={modifierStyles.booked}>booked</span>{' '}
+        <span style={modifierStyles.available}>available</span>{' '}
+      </pre>
+    </div>
+  );
+}
+```
+
+## Using CSS Classes to Style Day Modifiers
+
+The `styles` prop will add an inline style to the day's button. To use a CSS class names instead, use the [`classNames`](./props#classNames) prop.
+
+```jsx preview
+function App() {
+  return (
+    <div>
+      <style>
+        {`.unavailable-day { text-decoration: line-through; opacity: 0.5 }`}
+      </style>
+      <DayPicker
+        month={new Date(2019, 8)}
+        modifiers={{
+          unavailable: { before: new Date(2019, 8, 15) },
+        }}
+        classNames={{
+          modifiers: { unavailable: 'unavailable-day' },
+        }}
+      />
+    </div>
+  );
+}
+```
+
+## Access Modifiers from `onDayClick`
+
+Day modifiers are an sent to the [`onDayClick`](./props#ondayclick) event.
+
+For example, to display an alert when the selected day is unavailable, check the `unavailable` modifier in `handleDayClick`:
+
+```jsx preview
+function App() {
+  const [selected, setSelected] = useState();
+  const [month, setMonth] = useState(new Date(2019, 8));
+
+  const styles = {
+    modifiers: {
+      unavailable: { textDecoration: 'line-through', color: 'salmon' },
+    },
+  };
+  const unavailableDays = [
+    new Date(2019, 8, 19),
+    new Date(2019, 8, 20),
+    new Date(2019, 8, 21),
+  ];
+
+  const handleDayClick = (day, modifiers) => {
+    if (modifiers.unavailable) {
+      alert('This day is not available.');
+      return;
+    }
+    if (modifiers.selected) {
+      setSelected(undefined);
+    } else {
+      setSelected(day);
+    }
+  };
+  return (
+    <div>
+      <DayPicker
+        month={month}
+        onMonthChange={setMonth}
+        selected={selected}
+        onDayClick={handleDayClick}
+        modifiers={{
+          unavailable: unavailableDays,
+        }}
+        styles={styles}
+      />
+      <p>Try selecting an unavailable day.</p>
+    </div>
+  );
+}
+```
+
+## Default Modifiers
+
+Some modifiers are assigned to each day automatically:
+
+| Modifier    | Type | Meaning                                                          |
+| ----------- | ---- | ---------------------------------------------------------------- |
+| disabled    | Bool | The day matches the `disabled` prop.                             |
+| hidden      | Bool | The day matches the `hidden` prop.                               |
+| interactive | Bool | The user can actually interact (by clicking or tapping) the day. |
+| outside     | Enum | The day is outside the month. `start` or `end` of the month.     |
+| selected    | Bool | The day matches the `selected` prop.                             |
+| today       | Bool | The day is today.                                                |
+
+```jsx preview
+function App() {
+  const [log, setLog] = useState();
+
+  const handleDayClick = (day, modifiers) =>
+    setLog(JSON.stringify({ day, modifiers }, null, 4));
+
+  return (
+    <div>
+      <DayPicker
+        showOutsideDays
+        enableOutsideDaysClick
+        onDayClick={handleDayClick}
+      />
+      <pre style={{ textAlign: 'left' }}>
+        {log || 'Click a day to log its defaults modifiers.'}
+      </pre>
+    </div>
+  );
+}
+```

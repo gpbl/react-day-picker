@@ -1,8 +1,10 @@
 {
-  "presets": ["react", "env"],
-  "plugins": [
-    "transform-export-extensions",
-    "transform-class-properties",
-    "transform-object-rest-spread"
-  ]
+  "presets": ["@babel/preset-react", "@babel/preset-env"],
+  "env": {
+    "production": {
+      "plugins": [
+        ["transform-react-remove-prop-types", { "removeImport": true }]
+      ]
+    }
+  }
 }

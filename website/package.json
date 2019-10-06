@@ -1,0 +1,53 @@
+{
+  "name": "react-day-picker-website",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "build-props": "node ./scripts/build-props.js",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "lint": "yarn eslint src scripts"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0-alpha.24",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.24",
+    "buble": "^0.19.8",
+    "classnames": "^2.2.6",
+    "date-fns": "^2.4.0",
+    "eslint-import-resolver-babel-module": "^5.1.0",
+    "file-loader": "^4.2.0",
+    "ora": "^4.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-day-picker": "file:../",
+    "react-docgen": "^4.1.1",
+    "react-dom": "^16.8.4",
+    "react-frame-component": "^4.1.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.1",
+    "prettier": "^1.18.2"
+  }
+}

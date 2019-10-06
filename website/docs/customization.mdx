@@ -1,0 +1,91 @@
+---
+id: customization
+title: Customization
+---
+
+import CustomizationProps from '../src/components/CustomizationProps';
+import Frame from '../src/components/Frame';
+
+### Toggle Calendar Features On or Off
+
+`DayPicker` support few [customization props](./customization) to toggle its features on or off.
+
+<div style={{ margin: '2em' }}>
+  <Frame>
+    <CustomizationProps />
+  </Frame>
+</div>
+
+### Defining Month Ranges
+
+To define the months within `DayPicker` can operate, use the `fromMonth` or `toMonth` props.
+
+For example, the following day picker is restricted to the year 2019.
+
+```jsx preview
+import React, { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [month, setMonth] = useState(new Date(2019, 8));
+  return (
+    <DayPicker
+      month={month}
+      fromMonth={new Date(2019, 0)}
+      toMonth={new Date(2019, 11)}
+      showOutsideDay
+      onMonthChange={month => setMonth(month)}
+    />
+  );
+}
+```
+
+### Rendering Multiple Months
+
+To render multiple months, use the `numberOfMonths` prop.
+
+Other props may be useful when setting `numberOfMonths`:
+
+- use [`reverseMonths`](./props#reversemonths) to display the last month first
+- use [`pagedNavigation`](./props#pagednavigation) to navigate the number of months per time.
+
+```jsx preview
+import { DayPicker } from 'react-day-picker';
+import { isSameDay } from 'date-fns';
+
+function App() {
+  const [selectedDays, setSelectedDays] = useState([]);
+  const [month, setMonth] = useState();
+
+  const handleDayClick = day => {
+    setSelectedDays(state => {
+      const selected = state.findIndex(d => isSameDay(d, day));
+      if (selected > -1) {
+        const newState = [...state];
+        newState.splice(selected, 1); // remove already selected day
+        return newState;
+      }
+      return [...state, day];
+    });
+  };
+
+  return (
+    <div>
+      <DayPicker
+        month={month}
+        numberOfMonths={2}
+        reverseMonths={true}
+        pagedNavigation={true}
+        selected={selectedDays}
+        onDayClick={handleDayClick}
+        onMonthChange={month => setMonth(month)}
+      />
+      <h4>
+        {selectedDays.length > 0
+          ? `You picked ${selectedDays.length} day(s)`
+          : 'Select some days'}
+      </h4>
+    </div>
+  );
+}
+```
