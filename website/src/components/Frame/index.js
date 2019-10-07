@@ -25,7 +25,7 @@ const initialContent = `<!DOCTYPE html>
   </body>
 </html>`;
 
-export default function Frame({ children, initialHeight, code }) {
+export default function Frame({ children, initialHeight = 250 }) {
   const [height, setHeight] = useState(initialHeight);
   const iframeRef = createRef();
   const handleResize = iframe => {
@@ -38,7 +38,7 @@ export default function Frame({ children, initialHeight, code }) {
     }
   };
 
-  React.useEffect(() => handleResize(iframeRef), [children, code]);
+  React.useEffect(() => handleResize(iframeRef), [children]);
 
   return (
     <FrameComponent

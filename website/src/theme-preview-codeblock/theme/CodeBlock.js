@@ -3,19 +3,14 @@ import PropTypes from 'prop-types';
 
 import nightOwlTheme from 'prism-react-renderer/themes/nightOwl';
 
-import Preview from '../../../components/Preview';
-import Highlight from '../../../components/Highlight';
+import Preview from '../../components/Preview';
+import Highlight from '../../components/Highlight';
 
 const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    fontSize: '0.875rem',
-  },
+  container: {},
   preview: {
+    position: 'relative',
     margin: '1em 0',
-    padding: '1em',
-    border: '1px solid #ffba00',
     borderRadius: 'var(--ifm-pre-border-radius)',
   },
 };
@@ -36,6 +31,7 @@ function CodeBlock({ children, className = '', preview, reverse, ...props }) {
     content.push(
       <div key="preview" style={styles.preview}>
         <Preview code={children} theme={nightOwlTheme} {...props} />
+        {/* <hr style={{ margin: 0 }} /> */}
       </div>
     );
   }

@@ -3,19 +3,23 @@ id: start
 title: Quick Start
 ---
 
-Without any props, react-day-picker renders a simple, inactive calendar.
+Without any props, DayPicker renders a simple calendar. Start adding [some props](./props) to make the calendar interactive.
 
-Start adding some props to make the calendar interactive, for example:
+For example:
 
-- enable the navigation between months, or
-- respond to day events by selecting or deselecting days.
+- enable the navigation between months;
+- respond to day events by selecting or deselecting days;
+- choose which days should be disabled.
 
-### Enable Navigation between Months
+## Enable Navigation Between Months
 
-To allow navigation between months,
+To allow the user navigate between months:
 
-1. keep the visible month in the parent component’s state;
-2. set the month using the [`onMonthChange`](./props#onmonthchange) prop.
+1. keep the current visible month in the parent component’s state;
+2. use the [`month`](./props#month) prop to display the current month in the calendar;
+3. update the month using [`onMonthChange`](./props#onmonthchange).
+
+When adding the `onMonthChange` prop, a Navigation Bar will appear next to the caption.
 
 ```jsx preview
 import React, { useState } from 'react';
@@ -29,12 +33,12 @@ function App() {
 }
 ```
 
-### Selecting a Day from the Calendar
+## Selecting a Day from the Calendar
 
 To allow users to select a day from the calendar:
 
-1. listen to the [`onDayClick`](./props#ondayclick) event to get the selected day;
-2. save the selected day in your component's state;
+1. listen to the [`onDayClick`](./props#ondayclick) event to get the clicked day;
+2. save the clicked day in your component's state;
 3. highlight the selected day using the [`selected`](./props#selected) prop.
 
 ```jsx preview
@@ -59,11 +63,9 @@ function App() {
 }
 ```
 
-### Selecting or Unselecting Multiple Days
+## Selecting or Unselecting Multiple Days
 
-The `selected` prop accepts multiple types, as array, function, and [other ways to match days](./matching-days).
-
-By playing with `onDayClick` and the component’s state, it is possible to select days per week, ranges of days, etc.
+There are [many options to match days](./matching-days) via the `selected` prop. By playing with `onDayClick` and the component’s state, it is possible to extend the DayPicker behaviour in multiple ways.
 
 For example, to select multiple days:
 
@@ -79,15 +81,15 @@ function App() {
   const [selectedDays, setSelectedDays] = useState([]);
   const [month, setMonth] = useState();
 
-  const handleDayClick = (day, { selected }) => {
-    setSelectedDays(state => {
-      const selectedIndex = state.findIndex(d => isSameDay(d, day));
+  const handleDayClick = day => {
+    setSelectedDays(currentDays => {
+      const selectedIndex = currentDays.findIndex(d => isSameDay(d, day));
       if (selectedIndex > -1) {
-        const newState = [...state];
-        newState.splice(selectedIndex, 1); // remove already selected day
-        return newState;
+        const newDays = [...currentDays];
+        newDays.splice(selectedIndex, 1);
+        return newDays;
       }
-      return [...state, day];
+      return [...currentDays, day];
     });
   };
 
@@ -109,7 +111,7 @@ function App() {
 }
 ```
 
-### Disabling or Hiding Days
+## Disabling or Hiding Days
 
 Similarly to `selected`, the `hidden` and `disabled` props can be used to hide or disable the day cell. These props too support [few useful types](./matching-days).
 

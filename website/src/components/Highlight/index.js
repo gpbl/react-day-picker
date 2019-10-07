@@ -18,7 +18,7 @@ function Highlight({ code, language = 'jsx' }) {
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style }}>
+        <pre className={className} style={{ ...style, maxHeight: 300 }}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
