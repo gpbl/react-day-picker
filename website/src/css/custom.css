@@ -21,7 +21,7 @@
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-color-primary: #2196f3;
-  --ifm-font-base-color: #484848;
+  --ifm-font-base-color: var(--ifm-color-emphasis-alpha-80);
   --ifm-font-size-base: 14px;
   --ifm-global-radius: 4px;
   --ifm-code-border-radius: 2px;
@@ -34,6 +34,8 @@
   --ifm-table-head-background: var(--ifm-color-emphasis-alpha-10);
   --ifm-table-head-color: var(--ifm-table-cell-color);
   --ifm-table-stripe-background: transparent;
+  --ifm-menu-link-padding-vertical: 0.25em;
+  --ifm-menu-link-padding-horizontal: 1em;
 }
 
 [class^='mdxCodeBlock'] {
@@ -63,6 +65,21 @@ ol {
 
 a > code {
   color: var(--ifm-link-color);
+}
+
+.menu {
+  font-weight: var(--ifm-font-weight-normal);
+}
+.menu .menu__list .menu__list {
+  /* margin-left: 0; */
+  /* padding-left: var(--ifm-menu-link-padding-horizontal); */
+}
+.menu .menu__link {
+  border-radius: 2px;
+  color: var(--ifm-color-emphasis-alpha-80);
+}
+.menu .menu__list .menu__list .menu__link {
+  font-size: 0.875em;
 }
 
 .markdown > ul,
