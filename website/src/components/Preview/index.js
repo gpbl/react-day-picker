@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import * as DateFns from 'date-fns';
 
-import { DayPicker, classNames } from 'react-day-picker';
+import { DayPicker } from 'react-day-picker';
 import { generateElement } from './utils/transpile';
 
 import Frame from '../Frame';
@@ -25,7 +25,7 @@ export default function Preview({ code }) {
 
   const Element = generateElement({
     code: transformedCode,
-    scope: { ...DateFns, ...React, DayPicker, classNames },
+    scope: { ...DateFns, ...React, DayPicker },
   });
 
   return (
