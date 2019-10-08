@@ -2,24 +2,33 @@
   position: relative;
 
   display: inline-block;
+  font-size: 1rem;
 }
 .rdp-caption {
   margin-bottom: 0.75em;
   text-align: left;
   font-weight: bold;
+  font-size: 1.2em;
 }
 .rdp-day {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
   align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
-  min-width: 2em;
-  height: 2em;
+  min-width: 2.2em;
+  height: 2.2em;
   border: 0;
   background: none;
   font-size: 1em;
 
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
-  font-variant-numeric: tabular-nums;
 }
 
 .rdp-day_disabled {
@@ -32,13 +41,13 @@
 .rdp-day_today {
   position: relative;
 
-  border-radius: 25%;
-  box-shadow: 0 0 0 2px #fa383e;
+  border: 2px solid #fa383e;
+  border-radius: 100%;
   font-weight: bold;
 }
 .rdp-day_selected {
-  border-radius: 25%;
-  background: black;
+  border-radius: 100%;
+  background: #2196f3;
   color: white;
 }
 
@@ -54,6 +63,8 @@
 .rdp-month_tbody {
 }
 .rdp-months {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .rdp-head {

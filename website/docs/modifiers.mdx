@@ -14,10 +14,10 @@ A modifier is a property that [matches a day](./matching-days.mdx) in the calend
 
 To change the appearance of a day according to a modifier:
 
-1. pass to the [`modifiers`](./props#modifiers) prop a `modifiers` object to match any modifiers with any day;
-2. use the [`styles`](./props#styles) prop to style a day when it matches a modifier.
+1. pass to the [`modifiers`](./props#modifiers) prop an object of`modifiers` matching specific days;
+2. use the [`styles`](./props#styles) prop to style a day when it matches one of the modifiers.
 
-For example, the following assigns and styles the modifiers `unavailable`, `booked` and `available`:
+For example, the following App styles the modifiers `unavailable`, `booked` and `available`:
 
 ```jsx preview
 function App() {
@@ -78,7 +78,7 @@ function App() {
 }
 ```
 
-## Access Modifiers from `onDayClick`
+## Access Modifiers from onDayClick
 
 Day modifiers are an sent to the [`onDayClick`](./props#ondayclick) event.
 
@@ -133,14 +133,14 @@ function App() {
 
 Some modifiers are assigned to each day automatically:
 
-| Modifier    | Type | Meaning                                                          |
-| ----------- | ---- | ---------------------------------------------------------------- |
-| disabled    | Bool | The day matches the `disabled` prop.                             |
-| hidden      | Bool | The day matches the `hidden` prop.                               |
-| interactive | Bool | The user can actually interact (by clicking or tapping) the day. |
-| outside     | Enum | The day is outside the month. `start` or `end` of the month.     |
-| selected    | Bool | The day matches the `selected` prop.                             |
-| today       | Bool | The day is today.                                                |
+| Modifier      | Type | Meaning                                                          |
+| ------------- | ---- | ---------------------------------------------------------------- |
+| `disabled`    | Bool | The day matches the `disabled` prop.                             |
+| `hidden`      | Bool | The day matches the `hidden` prop.                               |
+| `interactive` | Bool | The user can actually interact (by clicking or tapping) the day. |
+| `outside`     | Enum | The day is outside the month. `start` or `end` of the month.     |
+| `selected`    | Bool | The day matches the `selected` prop.                             |
+| `today`       | Bool | The day is today.                                                |
 
 ```jsx preview
 function App() {

@@ -6,9 +6,11 @@ title: Customization
 import CustomizationProps from '../src/components/CustomizationProps';
 import Frame from '../src/components/Frame';
 
-## Toggle Calendar Features On or Off
+DayPicker offers various props to toggle features or customize the navigation. For more advanced customization, it is possible to use [Custom Components]('./custom-components.mdx').
 
-`DayPicker` support few [customization props](./customization) to toggle its features on or off.
+## Toggle Calendar Features
+
+DayPicker supports few [customization props](./props) to toggle features on or off.
 
 <div style={{ margin: '2em' }}>
   <Frame>
@@ -27,7 +29,7 @@ import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 
 function App() {
-  const [month, setMonth] = useState(new Date(2019, 8));
+  const [month, setMonth] = useState(new Date(2019, 0));
   return (
     <DayPicker
       month={month}
@@ -42,12 +44,11 @@ function App() {
 
 ## Rendering Multiple Months
 
-To render multiple months, use the `numberOfMonths` prop.
+To render multiple months,
 
-Other props may be useful when setting `numberOfMonths`:
-
-- use [`reverseMonths`](./props#reversemonths) to display the last month first
+- use [`numberOfMonths`](./props#numberofmonths) to set the amount of months to render.
 - use [`pagedNavigation`](./props#pagednavigation) to navigate the number of months per time.
+- use [`reverseMonths`](./props#reversemonths) to display the last month first
 
 ```jsx preview
 import { DayPicker } from 'react-day-picker';
@@ -74,17 +75,19 @@ function App() {
       <DayPicker
         month={month}
         numberOfMonths={2}
-        reverseMonths={true}
+        reverseMonths={false}
         pagedNavigation={true}
         selected={selectedDays}
         onDayClick={handleDayClick}
         onMonthChange={month => setMonth(month)}
       />
-      <h4>
-        {selectedDays.length > 0
-          ? `You picked ${selectedDays.length} day(s)`
-          : 'Select some days'}
-      </h4>
+      <p style={{ textAlign: 'center' }}>
+        <small>
+          {selectedDays.length > 0
+            ? `You picked ${selectedDays.length} day(s)`
+            : 'Select some days'}
+        </small>
+      </p>
     </div>
   );
 }

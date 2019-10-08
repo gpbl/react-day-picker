@@ -1,23 +1,23 @@
 ---
 id: start
-title: Quick Start
+title: DayPicker Basics
 ---
 
-Without any props, DayPicker renders a simple calendar. Start adding [some props](./props) to make the calendar interactive.
+As default, DayPicker renders a simple calendar. Use its [props](./props) to make the calendar interactive.
 
-For example:
+For example, it is possible to:
 
 - enable the navigation between months;
-- respond to day events by selecting or deselecting days;
+- respond to day clicks to select days;
 - choose which days should be disabled.
 
 ## Enable Navigation Between Months
 
 To allow the user navigate between months:
 
-1. keep the current visible month in the parent component’s state;
-2. use the [`month`](./props#month) prop to display the current month in the calendar;
-3. update the month using [`onMonthChange`](./props#onmonthchange).
+1. use the component’s state to store the current month;
+2. use the [`month`](./props#month) prop to display the current month;
+3. update the month listening to the [`onMonthChange`](./props#onmonthchange) event.
 
 When adding the `onMonthChange` prop, a Navigation Bar will appear next to the caption.
 
@@ -57,7 +57,11 @@ function App() {
         onDayClick={day => setSelectedDay(day)}
         onMonthChange={month => setMonth(month)}
       />
-      <h4>{selectedDay ? selectedDay.toLocaleDateString() : 'Pick a day'}</h4>
+      <p>
+        <small>
+          {selectedDay ? selectedDay.toLocaleDateString() : 'Pick a day'}
+        </small>
+      </p>
     </div>
   );
 }
@@ -101,11 +105,13 @@ function App() {
         onDayClick={handleDayClick}
         onMonthChange={month => setMonth(month)}
       />
-      <h4>
-        {selectedDays.length > 0
-          ? `You picked ${selectedDays.length} day(s)`
-          : 'Select some days'}
-      </h4>
+      <p>
+        <small>
+          {selectedDays.length > 0
+            ? `You picked ${selectedDays.length} day(s)`
+            : 'Select some days'}
+        </small>
+      </p>
     </div>
   );
 }

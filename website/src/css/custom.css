@@ -13,7 +13,7 @@
 
 /* You can override the default cz variables here. */
 :root {
-  --ifm-code-font-size: 11px;
+  --ifm-code-font-size: 12px;
   --ifm-color-primary-dark: rgb(33, 175, 144);
   --ifm-color-primary-darker: rgb(31, 165, 136);
   --ifm-color-primary-darkest: rgb(26, 136, 112);
@@ -22,7 +22,7 @@
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-color-primary: #2196f3;
   --ifm-font-base-color: var(--ifm-color-emphasis-alpha-80);
-  --ifm-font-size-base: 14px;
+  --ifm-font-size-base: 15px;
   --ifm-global-radius: 4px;
   --ifm-code-border-radius: 2px;
   --ifm-code-background: #f6f8fa;
@@ -31,20 +31,18 @@
   --ifm-list-margin: 0.875em;
   --ifm-table-border-width: 0;
   --ifm-table-cell-padding: 7px;
-  --ifm-table-head-background: var(--ifm-color-emphasis-alpha-10);
+  --ifm-table-head-background: var(--ifm-color-emphasis-alpha-05);
   --ifm-table-head-color: var(--ifm-table-cell-color);
   --ifm-table-stripe-background: transparent;
   --ifm-menu-link-padding-vertical: 0.25em;
   --ifm-menu-link-padding-horizontal: 1em;
+  --ifm-contents-link-color: var(--ifm-color-emphasis-alpha-60);
+  --ifm-contents-border-color: var(--ifm-color-emphasis-alpha-10);
 }
 
 [class^='mdxCodeBlock'] {
   box-shadow: none !important;
   border: none !important;
-}
-
-body {
-  -webkit-font-smoothing: antialiased;
 }
 
 table th,
@@ -57,6 +55,7 @@ pre {
   margin: 0;
   margin-bottom: 0;
 }
+
 ul,
 ol {
   margin-bottom: var(--ifm-list-margin);
@@ -67,43 +66,34 @@ a > code {
   color: var(--ifm-link-color);
 }
 
-.menu {
-  font-weight: var(--ifm-font-weight-normal);
-}
-.menu .menu__list .menu__list {
-  /* margin-left: 0; */
-  /* padding-left: var(--ifm-menu-link-padding-horizontal); */
-}
 .menu .menu__link {
-  border-radius: 2px;
   color: var(--ifm-color-emphasis-alpha-80);
 }
-.menu .menu__list .menu__list .menu__link {
-  font-size: 0.875em;
+.navbar__brand {
+  white-space: nowrap;
 }
 
 .markdown > ul,
 .markdown > p {
-  margin-top: var(--ifm-leading);
-  margin-bottom: var(--ifm-leading);
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 h1,
 h1.margin-bottom--lg {
-  font-weight: normal;
-  margin-bottom: 0.5em !important;
+  margin-bottom: 1em !important;
 }
 
 .markdown > h2 {
-  margin-top: 1.4em;
-  margin-bottom: 0.9em;
-  font-weight: normal;
+  margin-top: 1.75em;
+  margin-bottom: 1em;
 }
 .markdown > h3 {
   margin-bottom: 1em;
-  font-weight: normal;
 }
-.markdown > h4 {
-  font-weight: 600;
+.markdown > h5 {
+  font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 1em;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-alpha-50);
 }
