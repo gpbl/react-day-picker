@@ -1,7 +1,7 @@
 {
   "name": "react-day-picker-website",
-  "version": "0.0.0",
-  "private": true,
+  "version": "8.0.0-alpha.1",
+  "description": "react-day-picker website: http://react-day-picker.js.org",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",

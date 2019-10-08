@@ -1,7 +1,7 @@
 {
   "name": "react-day-picker",
-  "version": "0.0.1",
-  "description": "",
+  "version": "8.0.0-alpha.1",
+  "description": "Flexible Date Picker for React",
   "main": "lib/daypicker.js",
   "browser": "lib/daypicker.min.js",
   "module": "lib/daypicker.module.js",
