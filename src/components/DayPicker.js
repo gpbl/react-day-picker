@@ -74,35 +74,35 @@ DayPicker.propTypes = {
   // STYLE AND CLASSES
   style: PropTypes.object,
   styles: PropTypes.shape({
-    container: PropTypes.string,
-    caption: PropTypes.string,
+    container: PropTypes.object,
+    caption: PropTypes.object,
 
     // Day Component
-    day: PropTypes.string,
-    dayWrapper: PropTypes.string,
+    day: PropTypes.object,
+    dayWrapper: PropTypes.object,
 
     // Month Component
-    month: PropTypes.string,
-    monthTable: PropTypes.string,
-    monthTbody: PropTypes.string,
-    months: PropTypes.string,
+    month: PropTypes.object,
+    monthTable: PropTypes.object,
+    monthTbody: PropTypes.object,
+    months: PropTypes.object,
 
     // Head Components
-    head: PropTypes.string,
-    headRow: PropTypes.string,
-    headWeekNumber: PropTypes.string,
-    headWeekName: PropTypes.string,
+    head: PropTypes.object,
+    headRow: PropTypes.object,
+    headWeekNumber: PropTypes.object,
+    headWeekName: PropTypes.object,
 
     // Navigation Component
-    nav: PropTypes.string,
-    navStart: PropTypes.string,
-    navPrev: PropTypes.string,
-    navNext: PropTypes.string,
+    nav: PropTypes.object,
+    navStart: PropTypes.object,
+    navPrev: PropTypes.object,
+    navNext: PropTypes.object,
 
     // Week Component
-    week: PropTypes.string,
-    weekNumber: PropTypes.string,
-    weekDay: PropTypes.string,
+    week: PropTypes.object,
+    weekNumber: PropTypes.object,
+    weekDay: PropTypes.object,
 
     // Modifiers
     modifiers: PropTypes.object,
