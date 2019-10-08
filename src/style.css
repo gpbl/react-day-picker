@@ -10,6 +10,11 @@
   font-weight: bold;
   font-size: 1.2em;
 }
+
+.rdp[dir='rtl'] .rdp-caption {
+  text-align: right;
+}
+
 .rdp-day {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,6 +88,10 @@
   position: absolute;
   top: 1em;
   right: 1em;
+}
+.rdp[dir='rtl'] .rdp-nav {
+  left: 1em;
+  right: auto;
 }
 .rdp-nav_start {
 }

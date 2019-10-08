@@ -31,7 +31,11 @@ const config = {
         { to: 'docs/intro', label: 'Docs', position: 'left' },
         { to: 'docs/props', label: 'Props', position: 'left' },
         { to: 'changelog', label: 'Changelog', position: 'left' },
-        { to: 'docs/support', label: 'Support', position: 'right' },
+        {
+          to: 'https://spectrum.chat/react-day-picker',
+          label: 'Support',
+          position: 'right',
+        },
         {
           href: 'https://github.com/gpbl/react-day-picker',
           label: 'GitHub',

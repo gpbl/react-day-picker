@@ -1,13 +1,13 @@
-import { startOfWeek, addDays, format } from 'date-fns';
+import { startOfWeek, addDays } from 'date-fns';
 
 const date = new Date();
 
-function getWeekdaysNames(locale) {
+function getWeekdaysNames(locale, format) {
   const start = startOfWeek(date, { locale });
   const names = [];
   for (let i = 0; i < 7; i++) {
     const day = addDays(start, i);
-    names.push(format(day, 'E', { locale }));
+    names.push(format(day, { locale }));
   }
   return names;
 }

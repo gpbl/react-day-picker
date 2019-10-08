@@ -23,46 +23,58 @@ function Navigation({ dayPickerProps }) {
   if (dayPickerProps.todayButton) {
     startLabel = dayPickerProps.todayButton;
   }
+
+  const prevButton = prevLabel && (
+    <button
+      key="prev"
+      disabled={!prevMonth}
+      type="button"
+      onClick={handlePrevClick}
+      className={classNames.navPrev}
+      style={styles.navPrev}
+    >
+      {prevLabel}
+    </button>
+  );
+
+  const startButton = startLabel && (
+    <button
+      key="start"
+      type="button"
+      onClick={handleStartClick}
+      className={classNames.navStart}
+      style={styles.navStart}
+    >
+      {startLabel}
+    </button>
+  );
+
+  const nextButton = nextLabel && (
+    <button
+      key={'next'}
+      disabled={!nextMonth}
+      type="button"
+      onClick={handleNextClick}
+      className={classNames.navNext}
+      style={styles.navNext}
+    >
+      {nextLabel}
+    </button>
+  );
+  let buttons = [prevButton, startButton, nextButton];
+  if (dayPickerProps.dir === 'rtl') {
+    buttons = buttons.reverse();
+  }
   return (
     <div className={classNames.nav} style={styles.nav}>
-      {prevLabel && (
-        <button
-          disabled={!prevMonth}
-          type="button"
-          onClick={handlePrevClick}
-          className={classNames.navPrev}
-          style={styles.navPrev}
-        >
-          {prevLabel}
-        </button>
-      )}
-      {startLabel && (
-        <button
-          type="button"
-          onClick={handleStartClick}
-          className={classNames.navStart}
-          style={styles.navStart}
-        >
-          {startLabel}
-        </button>
-      )}
-      {nextLabel && (
-        <button
-          disabled={!nextMonth}
-          type="button"
-          onClick={handleNextClick}
-          className={classNames.navNext}
-          style={styles.navNext}
-        >
-          {nextLabel}
-        </button>
-      )}
+      {buttons}
     </div>
   );
 }
 
 Navigation.propTypes = {
   dayPickerProps: PropTypes.shape({
+    dir: PropTypes.oneOf(['ltr', 'rtl']),
     onMonthChange: PropTypes.func,
     startLabel: PropTypes.string,
     prevLabel: PropTypes.string,

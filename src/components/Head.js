@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import getWeekdaysNames from './utils/getWeekdaysNames';
 
 function Head({ locale, showWeekNumber, dayPickerProps }) {
-  const { classNames, styles } = dayPickerProps;
-  const weekdayNames = getWeekdaysNames(locale);
+  const { classNames, styles, formatWeekdayName } = dayPickerProps;
+  const weekdayNames = getWeekdaysNames(locale, formatWeekdayName);
   return (
     <thead style={styles.head} className={classNames.head}>
       <tr style={styles.headRow} className={classNames.headRow}>
         {showWeekNumber && (
           <th
-            style={styles.headWeekMumber}
-            className={classNames.headWeekMumber}
+            style={styles.headWeekNumber}
+            className={classNames.headWeekNumber}
           ></th>
         )}
         {weekdayNames.map((name, i) => (
@@ -37,15 +37,16 @@ Head.propTypes = {
     classNames: PropTypes.shape({
       head: PropTypes.string,
       headRow: PropTypes.string,
-      headWeekMumber: PropTypes.string,
+      headWeekNumber: PropTypes.string,
       headWeekName: PropTypes.string,
     }),
     styles: PropTypes.shape({
       head: PropTypes.string,
       headRow: PropTypes.string,
-      headWeekMumber: PropTypes.string,
+      headWeekNumber: PropTypes.string,
       headWeekName: PropTypes.string,
     }),
+    formatWeekdayName: PropTypes.func.isRequired,
   }).isRequired,
 };
 

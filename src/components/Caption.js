@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { format } from 'date-fns';
 
 import { prepareCaption } from './helpers';
 
 function Caption({ month, dayPickerProps }) {
-  const { locale } = dayPickerProps;
   const { props } = prepareCaption(dayPickerProps);
-  return <caption {...props}>{format(month, 'LLLL yyyy', { locale })}</caption>;
+  const { locale } = dayPickerProps;
+  return (
+    <caption {...props}>
+      {dayPickerProps.formatCaption(month, { locale })}
+    </caption>
+  );
 }
 
 Caption.propTypes = {

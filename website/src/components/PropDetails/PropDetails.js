@@ -34,7 +34,7 @@ function PropDetails({ name }) {
         )}
       </p>
 
-      <p>{decorateDescription(description)}</p>
+      {decorateDescription(description)}
     </>
   );
 }

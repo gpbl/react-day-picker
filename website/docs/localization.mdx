@@ -3,4 +3,94 @@ id: localization
 title: Localization
 ---
 
-**TODO**
+react-day-picker can be easily localized using the localization packages found in [date-fns](https://date-fns.org/docs/I18n).
+
+## Changing Locale
+
+To change the locale of DayPicker use the [`locale`](./props#locale) prop. For example, to localize the calendar in Spanish:
+
+1. import the Spanish locale object from `date-fns`.;
+2. pass the locale object to the `locale` props.
+
+```jsx preview
+import esLocale from 'date-fns/locale/es';
+
+function App() {
+  return <DayPicker locale={esLocale} />;
+}
+```
+
+## Right-to-left Text Direction
+
+To add right-to-left text direction, set the [`dir`](./props#dir) prop to `rtl`.
+
+```jsx preview
+import arLocale from 'date-fns/locale/ar-SA';
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/lib/style-rtl.css';
+
+function App() {
+  const [month, setMonth] = useState();
+  return (
+    <DayPicker
+      month={month}
+      onMonthChange={setMonth}
+      dir="rtl"
+      locale={arLocale}
+    />
+  );
+}
+```
+
+## Numbering System
+
+Use [formatters](http://localhost:3000/docs/props#formatters) props to change the numbering system.
+
+For example, to switch to the hindu-arabic, use the native's [`toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+
+- set the [`formatDay`](./props/formatDay) prop to format the day cell;
+- set the [`formatCaption`](./props/formatCaption) prop to format the caption's year;
+- set the [`formatWeekNumber`](./props/formatWeekNumber) prop to format the week numbers;
+
+```jsx preview
+import React, { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+import { format } from 'date-fns';
+import arLocale from 'date-fns/locale/ar-SA';
+
+import 'react-day-picker/lib/style.css';
+
+function App() {
+  const [month, setMonth] = useState();
+
+  const nuLocale = 'ar-u-nu-arab';
+
+  function formatDay(day) {
+    return day.getDate().toLocaleString(nuLocale);
+  }
+
+  function formatCaption(date, { locale }) {
+    const y = date.getYear().toLocaleString(nuLocale);
+    const m = format(date, 'LLLL', { locale });
+    return `${m} ${y}`;
+  }
+
+  function formatWeekNumber(weekNumber) {
+    return weekNumber.toLocaleString(nuLocale);
+  }
+
+  return (
+    <DayPicker
+      month={month}
+      showWeekNumber
+      dir="rtl"
+      locale={arLocale}
+      formatDay={formatDay}
+      formatCaption={formatCaption}
+      formatWeekNumber={formatWeekNumber}
+      onMonthChange={setMonth}
+    />
+  );
+}
+```

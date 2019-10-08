@@ -1,10 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+
 import * as DateFns from 'date-fns';
+import esLocale from 'date-fns/locale/es';
+import arLocale from 'date-fns/locale/ar-SA';
 
 import { DayPicker } from 'react-day-picker';
-import { generateElement } from './utils';
 
+import { generateElement } from './utils';
 import Frame from '../Frame';
 
 // eslint-disable-next-line no-undef
@@ -25,7 +28,7 @@ export default function Preview({ code }) {
 
   const Element = generateElement({
     code: transformedCode,
-    scope: { ...DateFns, ...React, DayPicker },
+    scope: { ...DateFns, ...React, DayPicker, esLocale, arLocale },
   });
 
   return (

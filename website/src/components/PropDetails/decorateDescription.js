@@ -23,11 +23,8 @@ export default function decorateDescription(str) {
   }
 
   // Add new lines
-  result = str.split(/\n\n./gi).map(token => (
-    <React.Fragment key={token}>
-      {addCodeBlocks(token)}
-      <br />
-    </React.Fragment>
-  ));
+  result = str
+    .split(/\n\n/gi)
+    .map(token => <p key={token}>{addCodeBlocks(token)}</p>);
   return result;
 }

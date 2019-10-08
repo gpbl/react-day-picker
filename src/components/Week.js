@@ -5,12 +5,18 @@ import { getUnixTime } from 'date-fns';
 import Day from './Day';
 
 function Week({ weekNumber, week, dayPickerProps }) {
-  const { showWeekNumber, classNames, styles } = dayPickerProps;
+  const {
+    showWeekNumber,
+    classNames,
+    styles,
+    locale,
+    formatWeekNumber,
+  } = dayPickerProps;
   return (
     <tr className={classNames.week} style={styles.week}>
       {showWeekNumber && (
         <th className={classNames.weekNumber} style={styles.weekNumber}>
-          {weekNumber}
+          {formatWeekNumber(Number(weekNumber), { locale })}
         </th>
       )}
       {week.map(day => (
@@ -34,6 +40,7 @@ Week.propTypes = {
   weekNumber: PropTypes.string.isRequired,
   week: PropTypes.array.isRequired,
   dayPickerProps: PropTypes.shape({
+    formatWeekNumber: PropTypes.func.isRequired,
     locale: PropTypes.object.isRequired,
     showWeekNumber: PropTypes.bool,
     showOutsideDays: PropTypes.bool,

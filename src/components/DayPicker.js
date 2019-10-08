@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import defaultLocale from 'date-fns/locale/en-US';
-import { getTime, startOfMonth } from 'date-fns';
+import { getTime } from 'date-fns';
 
+import defaultProps from './defaultProps';
 import { prepareDayPicker } from './helpers';
+import deprecated from './utils/deprecated';
 
 import defaultClassNames from './defaultClassNames';
-
-import deprecated from './utils/deprecated';
 
 import Month from './Month';
 import Navigation from './Navigation';
@@ -33,7 +32,7 @@ function DayPicker(initialProps) {
 
   const { months } = prepareDayPicker(props);
   return (
-    <div className={className} style={style}>
+    <div className={className} style={style} dir={props.dir}>
       {props.showNavigation && <Navigation dayPickerProps={props} />}
       <div className={props.classNames.months} style={props.styles.months}>
         {months.map(month => (
@@ -49,27 +48,7 @@ function DayPicker(initialProps) {
   );
 }
 
-DayPicker.defaultProps = {
-  styles: {},
-  month: startOfMonth(new Date()),
-  numberOfMonths: 1,
-  showNavigation: true,
-  pagedNavigation: false,
-  reverseMonths: false,
-  locale: defaultLocale,
-  showWeekNumber: false,
-  showOutsideDays: false,
-  enableOutsideDaysClick: false,
-  fixedWeeks: false,
-  showCaption: true,
-  showHead: true,
-
-  startDay: new Date(),
-  startLabel: '●',
-  prevLabel: '◀',
-  nextLabel: '▶',
-};
-
+DayPicker.defaultProps = defaultProps;
 DayPicker.propTypes = {
   // STYLE AND CLASSES
   style: PropTypes.object,
@@ -148,33 +127,32 @@ DayPicker.propTypes = {
 
   /**
    * The month to show in the calendar.
-   *
    */
   month: PropTypes.instanceOf(Date),
 
   /**
    * The number of months to show in the date picker. See also `pagedNavigation`
    * and `reverseMonths`.
-   *
    */
   numberOfMonths: PropTypes.number,
 
   /**
-   * The first allowed month. Users won’t be able to navigate or interact with
-   * the days before it. See also `toMonth`.
+   * Allow navigation only after this month.
    *
+   * See also `toMonth`.
    */
   fromMonth: PropTypes.instanceOf(Date),
 
   /**
-   * The last allowed month. Users won’t be able to navigate or interact with
-   * the days after it. See also `fromMonth`.
+   * Allow navigation only before this month.
+   *
+   * See also `fromMonth`.
    */
   toMonth: PropTypes.instanceOf(Date),
 
   /**
    * When displaying multiple months, the navigation will be paginated
-   * displaying the `numberOfMonths` at time instead of one.
+   * displaying the `numberOfMonths` months at time instead of one.
    */
   pagedNavigation: PropTypes.bool,
 
@@ -186,7 +164,7 @@ DayPicker.propTypes = {
 
   // Deprecated props
   /**
-   * Enable the navigation between months.
+   * Enable navigation between months.
    *
    * @deprecated Use `showNavigation` prop instead.
    */
@@ -240,7 +218,7 @@ DayPicker.propTypes = {
   showOutsideDays: PropTypes.bool,
 
   /**
-   * Enable the click event for outside days. See also `showOutsideDays`.
+   * Enable click event for outside days. See also `showOutsideDays`.
    */
   enableOutsideDaysClick: PropTypes.bool,
 
@@ -288,25 +266,36 @@ DayPicker.propTypes = {
 
   // MODIFIERS
 
-  /** The days that should appear as selected */
-  selected: PropTypes.instanceOf('Modifier'),
   /**
+   * Days that should appear as selected.
+   */
+  selected: PropTypes.instanceOf('Modifier'),
+
+  /**
+   * Days that should appear as selected.
+   *
    * @deprecated Use `selected` instead.
    */
   selectedDays: deprecated(PropTypes.any),
 
-  /** The days that should appear as disabled */
+  /**
+   * Days that should appear as disabled.
+   */
   disabled: PropTypes.instanceOf('Modifier'),
   /**
+   * Days that should appear as disabled.
+   *
    * @deprecated Use `disabled` instead.
    */
   disabledDays: deprecated(PropTypes.any),
 
-  /** The days that should not appear */
+  /**
+   * Days that should not appear in the calendar.
+   */
   hidden: PropTypes.instanceOf('Modifier'),
 
   /**
-   * TODO: write jsdocs
+   * An object of modifiers.
    */
   modifiers: PropTypes.object,
 
@@ -316,6 +305,47 @@ DayPicker.propTypes = {
    * Locale object for localization.
    */
   locale: PropTypes.object,
+
+  /**
+   * The text direction.
+   */
+  dir: PropTypes.oneOf(['left', 'right']),
+
+  /**
+   * Format the month caption text.
+   *
+   * The formatter receives the month (as `Date` object) as first argument, and
+   * an option object with `locale` as second argument. It must return a string.
+   *
+   * The default format is "Month Year".
+   */
+  formatCaption: PropTypes.func.isRequired,
+
+  /**
+   * Format the content of the day element.
+   *
+   * The formatter receives the day (as `Date` object) as first argument, and an option
+   * object with `locale` as second argument. It must return a string.
+   *
+   * Default is the day's date.
+   */
+  formatDay: PropTypes.func.isRequired,
+
+  /**
+   * Format the weekday's name in the head element.
+   *
+   * The formatter receives the day (as `Date` object) as first argument, and an option
+   * object with `locale` as second argument. It must return a string.
+   */
+  formatWeekdayName: PropTypes.func.isRequired,
+
+  /**
+   * Format the week numbers (when `showWeekNumber` is set).
+   *
+   * The formatter receives the week number as first argument, and an option
+   * object with `locale` as second argument. It must return a string.
+   */
+  formatWeekNumber: PropTypes.func.isRequired,
 
   // EVENTS
 

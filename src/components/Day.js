@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { format } from 'date-fns';
 import { DateWithModifiers } from '../classes';
 import { prepareDay } from './helpers';
 
@@ -15,7 +14,7 @@ function Day({ day, dayPickerProps }) {
 
   return (
     <Container {...props}>
-      <span {...wrapperProps}>{format(day, 'd', { locale })}</span>
+      <span {...wrapperProps}>{dayPickerProps.formatDay(day, { locale })}</span>
     </Container>
   );
 }
