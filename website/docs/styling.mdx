@@ -3,24 +3,14 @@ id: styling
 title: Styling
 ---
 
-The package includes a CSS file to give a minimal style to DayPicker:
-
-```jsx
-import 'react-day-picker/lib/style.css';
-```
-
 There are two ways to customize the appearance:
 
 1. using CSS classes;
 2. using inline styles.
 
-To each HTML element are assigned predefined `.rdp-*` CSS classes, as in the table below:
+To each HTML element created by DayPicker are assigned `.rdp` CSS classes, as in the table below.
 
----
-
-##### Elements Table
-
-| Element name       | Default class          | Element description                          |
+| Element name       | Default CSS Class      | Element description                          |
 | ------------------ | ---------------------- | -------------------------------------------- |
 | **container**      | `.rdp`                 | The container element                        |
 | **caption**        | `.rdp-caption`         | The caption element                          |
@@ -45,11 +35,7 @@ To each HTML element are assigned predefined `.rdp-*` CSS classes, as in the tab
 | **weekNumber**     | `.rdp-weeknumber`      | The week's number cell                       |
 | **weekDay**        | `.rdp-week_day`        | The week's day cell                          |
 
----
-
-### Style Using CSS classes
-
-To change the appearance using CSS classes, style `.rdp-*` classes in the application's CSS file.
+For example, style the DayPicker CSS classes in your the application’s CSS file:
 
 ```css
 /* container */
@@ -64,12 +50,20 @@ To change the appearance using CSS classes, style `.rdp-*` classes in the applic
 /* etc. */
 ```
 
-### Defining Custom Class Names
+## Default Style
 
-Set custom class names
+The package includes a CSS file for a minimal, basic style. Refer to your bundler’s documentation for importing CSS files in your application.
 
-- if you use [CSS Modules](https://github.com/css-modules/css-modules) or other bundler that define their own class names;
-- if you don't want to use the default class names in the table above.
+```jsx
+import 'react-day-picker/lib/style.css';
+```
+
+## Custom Class Names
+
+Set custom class names when:
+
+- you use [CSS Modules](https://github.com/css-modules/css-modules) or other CSS bundler defining different class names;
+- you don’t want to use the default class names.
 
 To define custom class names, pass to the [`classNames`](./props#classnames) props the class name for each element.
 

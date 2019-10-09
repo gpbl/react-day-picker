@@ -218,7 +218,7 @@
       "value": "Date"
     },
     "required": false,
-    "description": "The first allowed month. Users won’t be able to navigate or interact with\nDays before it. See also `toMonth`.",
+    "description": "Allow navigation only after this month.\n\nSee also `toMonth`.",
     "categories": {}
   },
   "toMonth": {
@@ -227,7 +227,7 @@
       "value": "Date"
     },
     "required": false,
-    "description": "The last allowed month. Users won’t be able to navigate or interact with\nDays after it. See also `fromMonth`.",
+    "description": "Allow navigation only before this month.\n\nSee also `fromMonth`.",
     "categories": {}
   },
   "pagedNavigation": {
@@ -235,7 +235,7 @@
       "name": "bool"
     },
     "required": false,
-    "description": "When displaying multiple months, the navigation will be paginated\ndisplaying the `numberOfMonths` at time instead of one.",
+    "description": "When displaying multiple months, the navigation will be paginated\ndisplaying the `numberOfMonths` months at time instead of one.",
     "categories": {}
   },
   "reverseMonths": {
@@ -252,7 +252,7 @@
       "raw": "deprecated(\n  PropTypes.bool,\n  'Use \"showNavigation\" prop instead.'\n)"
     },
     "required": false,
-    "description": "Enable the navigation between months.\n\n",
+    "description": "Enable navigation between months.\n\n",
     "categories": {
       "@deprecated": "Use `showNavigation` prop instead."
     }
@@ -316,7 +316,7 @@
       "name": "bool"
     },
     "required": false,
-    "description": "Enable the click event for outside days. See also `showOutsideDays`.",
+    "description": "Enable click event for outside days. See also `showOutsideDays`.",
     "categories": {}
   },
   "showWeekDays": {
@@ -467,7 +467,7 @@
       "name": "func"
     },
     "required": true,
-    "description": "Format the Month Caption.\n\nThe formatter receives the month (as `Date` object) as first argument, and\nan option object with `locale` as second argument. It must return a string.\n\nThe default format is \"Month Year\".",
+    "description": "Format the month caption text.\n\nThe formatter receives the month (as `Date` object) as first argument, and\nan option object with `locale` as second argument. It must return a string.\n\nThe default format is \"Month Year\".",
     "categories": {}
   },
   "formatDay": {
@@ -475,7 +475,7 @@
       "name": "func"
     },
     "required": true,
-    "description": "Format the content of the Day element.\n\nThe formatter receives the day (as `Date` object) as first argument, and an option\nobject with `locale` as second argument. It must return a string.\n\nDefault is the day's date.",
+    "description": "Format the content of the day element.\n\nThe formatter receives the day (as `Date` object) as first argument, and an option\nobject with `locale` as second argument. It must return a string.\n\nDefault is the day's date.",
     "categories": {}
   },
   "formatWeekdayName": {
@@ -483,7 +483,7 @@
       "name": "func"
     },
     "required": true,
-    "description": "Format the weekday name in the head element.\n\nThe formatter receives the day (as `Date` object) as first argument, and an option\nobject with `locale` as second argument. It must return a string.",
+    "description": "Format the weekday's name in the head element.\n\nThe formatter receives the day (as `Date` object) as first argument, and an option\nobject with `locale` as second argument. It must return a string.",
     "categories": {}
   },
   "formatWeekNumber": {
@@ -491,7 +491,41 @@
       "name": "func"
     },
     "required": true,
-    "description": "Format the week numbers when `showWeekNumber` is set.\n\nThe formatter receives the week number as first argument, and an option\nobject with `locale` as second argument. It must return a string.",
+    "description": "Format the week numbers (when `showWeekNumber` is set).\n\nThe formatter receives the week number as first argument, and an option\nobject with `locale` as second argument. It must return a string.",
+    "categories": {}
+  },
+  "components": {
+    "type": {
+      "name": "shape",
+      "value": {
+        "Caption": {
+          "name": "element",
+          "required": false
+        },
+        "Day": {
+          "name": "element",
+          "required": false
+        },
+        "Head": {
+          "name": "element",
+          "required": false
+        },
+        "Month": {
+          "name": "element",
+          "required": false
+        },
+        "Navigation": {
+          "name": "element",
+          "required": false
+        },
+        "Week": {
+          "name": "element",
+          "required": false
+        }
+      }
+    },
+    "required": false,
+    "description": "React components replacing the native ones.\n\nTODO: better description",
     "categories": {}
   },
   "onDayClick": {

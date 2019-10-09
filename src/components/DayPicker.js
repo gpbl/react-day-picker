@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { getTime } from 'date-fns';
 
-import defaultProps from './defaultProps';
-import { prepareDayPicker } from './helpers';
 import deprecated from './utils/deprecated';
 
+import { prepareDayPicker } from './helpers';
+import defaultProps from './defaultProps';
 import defaultClassNames from './defaultClassNames';
-
-import Month from './Month';
-import Navigation from './Navigation';
 
 function DayPicker(initialProps) {
   const props = {
     ...initialProps,
+    components: {
+      ...defaultProps.components,
+      ...initialProps.components,
+    },
     classNames: {
       ...defaultClassNames,
       ...initialProps.classNames,
@@ -24,6 +24,7 @@ function DayPicker(initialProps) {
     ...props.styles.container,
     ...props.styles,
   };
+
   let className = [props.classNames.container];
   if (props.className) {
     className.push(props.className.split(' '));
@@ -31,6 +32,8 @@ function DayPicker(initialProps) {
   className = className.join(' ');
 
   const { months } = prepareDayPicker(props);
+  const { Navigation, Month } = props.components;
+
   return (
     <div className={className} style={style} dir={props.dir}>
       {props.showNavigation && <Navigation dayPickerProps={props} />}
@@ -346,6 +349,24 @@ DayPicker.propTypes = {
    * object with `locale` as second argument. It must return a string.
    */
   formatWeekNumber: PropTypes.func.isRequired,
+
+  /* #region CUSTOM COMPONENTS */
+
+  /**
+   * React components replacing the native ones.
+   *
+   * TODO: better description
+   */
+  components: PropTypes.shape({
+    Caption: PropTypes.element,
+    Day: PropTypes.element,
+    Head: PropTypes.element,
+    Month: PropTypes.element,
+    Navigation: PropTypes.element,
+    Week: PropTypes.element,
+  }),
+
+  /* #endregion */
 
   // EVENTS
 

@@ -6,6 +6,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import copy from 'rollup-plugin-copy';
 import replace from 'rollup-plugin-replace';
 import resolve from 'rollup-plugin-node-resolve';
+import stripPropTypes from 'rollup-plugin-strip-prop-types';
 
 import pkg from './package.json';
 
@@ -22,6 +23,7 @@ const sharedPlugins = [
   resolve(),
   commonjs(),
   autoExternal(),
+  stripPropTypes(),
   copy({
     targets: [{ src: 'src/style.css', dest: 'lib' }],
   }),

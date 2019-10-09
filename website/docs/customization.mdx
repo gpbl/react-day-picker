@@ -24,7 +24,7 @@ To define the months within `DayPicker` can operate, use the `fromMonth` or `toM
 
 For example, the following day picker is restricted to the year 2019.
 
-```jsx preview
+```jsx
 import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 
@@ -74,6 +74,7 @@ function App() {
     <div>
       <DayPicker
         month={month}
+        fixedWeeks={true}
         numberOfMonths={2}
         reverseMonths={false}
         pagedNavigation={true}

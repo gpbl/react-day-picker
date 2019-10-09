@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import decorateDescription from './decorateDescription';
+import Description from './Description';
 const EMSPACE = ' ';
 
 /**
@@ -15,12 +15,13 @@ function Deprecated({ message }) {
           verticalAlign: 'middle',
           display: 'inline-block',
           color: 'var(--ifm-color-danger)',
+          textTransform: 'uppercase',
         }}
       >
-        DEPRECATED
+        Deprecated
       </code>
       {EMSPACE}
-      {decorateDescription(message)}
+      <Description as="span">{message}</Description>
     </>
   );
 }

@@ -3696,6 +3696,13 @@ fast-levenshtein@~2.0.4:
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
+fastdom@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/fastdom/-/fastdom-1.0.9.tgz#b395fab11a3701173c02a054fe769d8f596a0a26"
+  integrity sha512-SSp4fbVzu8JkkG01NUX+0iOwe9M5PN3MGIQ84txLf4TkkJG4q30khkzumKgi4hUqO1+jX6wLHfnCPoZ6eSZ6Tg==
+  dependencies:
+    strictdom "^1.0.1"
+
 fastq@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.6.0.tgz#4ec8a38f4ac25f21492673adb7eae9cfef47d1c2"
@@ -7686,10 +7693,10 @@ rc@^1.2.7:
     strip-json-comments "~2.0.1"
 
 "react-day-picker@file:..":
-  version "0.0.1"
+  version "8.0.0-alpha.1"
 
 "react-day-picker@file:../":
-  version "0.0.1"
+  version "8.0.0-alpha.1"
 
 react-dev-utils@^5.0.1:
   version "5.0.3"
@@ -8899,6 +8906,11 @@ strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
+
+strictdom@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/strictdom/-/strictdom-1.0.1.tgz#189de91649f73d44d59b8432efa68ef9d2659460"
+  integrity sha1-GJ3pFkn3PUTVm4Qy76aO+dJllGA=
 
 string-width@^1.0.1:
   version "1.0.2"

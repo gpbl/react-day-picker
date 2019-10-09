@@ -1,6 +1,7 @@
 {
   "name": "react-day-picker-website",
   "version": "8.0.0-alpha.1",
+  "license": "MIT",
   "description": "react-day-picker website: http://react-day-picker.js.org",
   "scripts": {
     "docusaurus": "docusaurus",
@@ -19,7 +20,9 @@
     "classnames": "^2.2.6",
     "date-fns": "^2.4.0",
     "eslint-import-resolver-babel-module": "^5.1.0",
+    "fastdom": "^1.0.9",
     "file-loader": "^4.2.0",
+    "lodash": "^4.17.15",
     "ora": "^4.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
@@ -27,18 +30,6 @@
     "react-docgen": "^4.1.1",
     "react-dom": "^16.8.4",
     "react-frame-component": "^4.1.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

@@ -26,8 +26,6 @@
   --ifm-global-radius: 4px;
   --ifm-code-border-radius: 2px;
   --ifm-code-background: #f6f8fa;
-  --ifm-heading-vertical-rhythm-bottom: 2em;
-  --ifm-leading: 0.875em;
   --ifm-list-margin: 0.875em;
   --ifm-table-border-width: 0;
   --ifm-table-cell-padding: 7px;
@@ -38,6 +36,15 @@
   --ifm-menu-link-padding-horizontal: 1em;
   --ifm-contents-link-color: var(--ifm-color-emphasis-alpha-60);
   --ifm-contents-border-color: var(--ifm-color-emphasis-alpha-10);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.markdown {
+  --ifm-heading-vertical-rhythm-bottom: 1em;
+  --ifm-heading-line-height: 1.2em;
 }
 
 [class^='mdxCodeBlock'] {
@@ -78,18 +85,12 @@ a > code {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-h1,
-h1.margin-bottom--lg {
-  margin-bottom: 1em !important;
+
+.markdown > table {
+  margin: 2em 0;
+  width: 100%;
 }
 
-.markdown > h2 {
-  margin-top: 1.75em;
-  margin-bottom: 1em;
-}
-.markdown > h3 {
-  margin-bottom: 1em;
-}
 .markdown > h5 {
   font-weight: 700;
   text-transform: uppercase;

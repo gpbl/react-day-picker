@@ -1,27 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { DateWithModifiers } from '../classes';
 import { prepareDay } from './helpers';
 
-function Day({ day, dayPickerProps }) {
-  const { locale } = dayPickerProps;
+function Day({ day, modifiers, dayPickerProps }) {
+  const { locale, formatDay } = dayPickerProps;
 
-  const { Container, props, wrapperProps } = prepareDay(day, dayPickerProps);
+  const { Container, htmlProps, wrapperHtmlProps } = prepareDay(
+    day,
+    modifiers,
+    dayPickerProps
+  );
 
-  if (day.modifiers.hidden) {
+  if (modifiers && modifiers.hidden) {
     return null;
   }
 
   return (
-    <Container {...props}>
-      <span {...wrapperProps}>{dayPickerProps.formatDay(day, { locale })}</span>
+    <Container {...htmlProps}>
+      <span {...wrapperHtmlProps}>{formatDay(day, { locale })}</span>
     </Container>
   );
 }
 
 Day.propTypes = {
   day: PropTypes.instanceOf(DateWithModifiers).isRequired,
-  dayPickerProps: PropTypes.object.isRequired,
+  modifiers: PropTypes.shape({
+    hidden: PropTypes.bool,
+  }).isRequired,
+  dayPickerProps: PropTypes.shape({
+    locale: PropTypes.object.isRequired,
+    formatDay: PropTypes.func.isRequired,
+  }).isRequired,
   style: PropTypes.object,
 };
 

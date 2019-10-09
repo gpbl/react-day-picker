@@ -3,15 +3,14 @@
  *
  * TODO: document returned props.
  *
- * @param {Date|DateWithModifiers} day
+ * @param {Date} day
+ * @param {Date} modifiers
  * @param {Object} props
  *
  * @return {Object}
  */
-export default function prepareDay(day, props) {
+export default function prepareDay(day, modifiers, props) {
   const { onDayClick, styles, classNames } = props;
-  const modifiers = day.modifiers || {};
-
   const Container = modifiers.interactive ? 'button' : 'span';
 
   let onClick;
@@ -52,7 +51,7 @@ export default function prepareDay(day, props) {
       ([modifier, value]) => (dataProps[`data-rdp-${modifier}`] = value)
     );
 
-  const componentProps = {
+  const htmlProps = {
     'aria-disabled': !modifiers.interactive || undefined,
     disabled: modifiers.disabled || undefined,
     onClick,
@@ -60,10 +59,10 @@ export default function prepareDay(day, props) {
     className,
     ...dataProps,
   };
-  const wrapperProps = {
+  const wrapperHtmlProps = {
     className: classNames.dayWrapper,
     styles: styles.dayWrapper,
   };
 
-  return { Container, props: componentProps, wrapperProps };
+  return { Container, htmlProps, wrapperHtmlProps };
 }

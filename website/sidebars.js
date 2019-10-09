@@ -1,13 +1,13 @@
 module.exports = {
   docs: {
-    Documentation: ['intro', 'start', 'styling', 'customization'],
+    Documentation: ['start', 'basics', 'styling', 'customization'],
     Guides: [
       'matching-days',
       'modifiers',
-      'recipes',
+      'input',
       'localization',
       'custom-components',
     ],
-    API: ['props'],
+    API: ['props', 'utils'],
   },
 };

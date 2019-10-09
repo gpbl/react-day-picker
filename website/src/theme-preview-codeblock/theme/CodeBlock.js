@@ -11,11 +11,16 @@ const styles = {
   preview: {
     position: 'relative',
     margin: '1em 0',
-    borderRadius: 'var(--ifm-pre-border-radius)',
   },
 };
 
-function CodeBlock({ children, className = '', preview, reverse, ...props }) {
+function CodeBlock({
+  children,
+  className = '',
+  preview,
+  previewHeight,
+  reverse,
+}) {
   let content = [];
 
   content.push(
@@ -30,8 +35,11 @@ function CodeBlock({ children, className = '', preview, reverse, ...props }) {
   if (preview) {
     content.push(
       <div key="preview" style={styles.preview}>
-        <Preview code={children} theme={nightOwlTheme} {...props} />
-        {/* <hr style={{ margin: 0 }} /> */}
+        <Preview
+          code={children}
+          theme={nightOwlTheme}
+          height={previewHeight ? Number(previewHeight) : undefined}
+        />
       </div>
     );
   }
@@ -46,6 +54,7 @@ CodeBlock.propTypes = {
   children: PropTypes.string.isRequired,
   layout: PropTypes.oneOf(['row', 'column']),
   preview: PropTypes.bool,
+  previewHeight: PropTypes.string,
   reverse: PropTypes.bool,
 };
 

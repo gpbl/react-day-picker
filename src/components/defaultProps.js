@@ -1,6 +1,13 @@
 import locale from 'date-fns/locale/en-US';
 import { startOfMonth, format } from 'date-fns';
 
+import Caption from './Caption';
+import Day from './Day';
+import Head from './Head';
+import Month from './Month';
+import Navigation from './Navigation';
+import Week from './Week';
+
 function formatDay(day, { locale }) {
   return format(day, 'd', { locale });
 }
@@ -19,6 +26,14 @@ function formatWeekNumber(weekNumber) {
 
 export default {
   enableOutsideDaysClick: false,
+  components: {
+    Caption,
+    Day,
+    Head,
+    Month,
+    Navigation,
+    Week,
+  },
   fixedWeeks: false,
   formatCaption,
   formatDay,

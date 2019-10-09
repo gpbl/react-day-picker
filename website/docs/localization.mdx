@@ -44,12 +44,12 @@ function App() {
 
 ## Numbering System
 
-Use [formatters](http://localhost:3000/docs/props#formatters) props to change the numbering system.
+Use [formatter*](http://localhost:3000/docs/props#localization) props to change the numbering system in the calendar.
 
-For example, to switch to the hindu-arabic, use the native's [`toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+For example, to switch to the hindu-arabic using [`toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
 
-- set the [`formatDay`](./props/formatDay) prop to format the day cell;
-- set the [`formatCaption`](./props/formatCaption) prop to format the caption's year;
+- set the [`formatDay`](./props/formatDay) prop to format the day number;
+- set the [`formatCaption`](./props/formatCaption) prop to format the year in caption;
 - set the [`formatWeekNumber`](./props/formatWeekNumber) prop to format the week numbers;
 
 ```jsx preview

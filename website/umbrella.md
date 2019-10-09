@@ -59,7 +59,7 @@ Website for v8 is temporarily available at http://rdp-v8.netlify.com.
 
 - [x] Setup Docusaurus
 - [x] Get Started
-- [x] DayPicker Basics
+- [x] Using DayPicker
 - [x] Styling
 - [x] Customization
 - [ ] Guides

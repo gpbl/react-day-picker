@@ -3,4 +3,63 @@ id: custom-components
 title: Custom Components
 ---
 
-**TODO**
+Use the [`components`](./components) prop to change the components used to compose the calendar.
+
+## Day Custom Component
+
+To change the day component:
+
+1. create a `Day` component with `day`, [`modifiers`](./modifiers) and `dayPickerProps` props;
+2. (optional) get DayPicker-specific props via [`prepareDay`](./utils#prepareDay);
+3. (optional) extend DayPicker props
+4. pass the `Day` component to the `components` prop.
+
+For example, this DayPicker implement a `Day` component to show the modifiers on mouse enter:
+
+```jsx
+import { DayPicker, prepareDay } from 'react-day-picker';
+
+/**
+ * Day component adding support for `onDayEnter`, `onDayLeave`.
+ */
+function Day({ day, modifiers, dayPickerProps }) {
+  const { htmlProps } = prepareDay(day, modifiers, dayPickerProps);
+  const { onDayEnter, onDayLeave } = dayPickerProps;
+  const handleMouseEnter = e => onDayEnter(day, modifiers, e);
+  const handleMouseLeave = e => onDayLeave(day, modifiers, e);
+  return (
+    <div
+      {...htmlProps}
+      onMouseEnter={onDayEnter ? handleMouseEnter : undefined}
+      onMouseLeave={onDayLeave ? handleDayLeave : undefined}
+    >
+      {day.getDate()}
+    </div>
+  );
+}
+
+/**
+ * Extended DayPicker component adding support for `onDayEnter`, `onDayLeave`
+ */
+function ExtendedDayPicker({ onDayEnter, onDayLeave, ...props }) {
+  return;
+  <DayPicker
+    {...props}
+    components={{ Day }}
+    onDayEnter={onDayEnter}
+    onDayLeave={onDayLeave}
+  />;
+}
+
+function App() {
+  const [month, setMonth] = useState();
+  return (
+    <ExtendedDayPicker
+      month={month}
+      onMonthChange={setMonth}
+      onDayEnter={day => console.log(day, modifiers)}
+      onDayLeave={day => console.log(day, modifiers)}
+    />
+  );
+}
+```

@@ -28,7 +28,7 @@ const config = {
         src: 'images/logo.png',
       },
       links: [
-        { to: 'docs/intro', label: 'Docs', position: 'left' },
+        { to: 'docs/start', label: 'Docs', position: 'left' },
         { to: 'docs/props', label: 'Props', position: 'left' },
         { to: 'changelog', label: 'Changelog', position: 'left' },
         {

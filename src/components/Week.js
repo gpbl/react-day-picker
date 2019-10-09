@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getUnixTime } from 'date-fns';
 
-import Day from './Day';
-
 function Week({ weekNumber, week, dayPickerProps }) {
   const {
     showWeekNumber,
@@ -11,7 +9,9 @@ function Week({ weekNumber, week, dayPickerProps }) {
     styles,
     locale,
     formatWeekNumber,
+    components: { Day },
   } = dayPickerProps;
+
   return (
     <tr className={classNames.week} style={styles.week}>
       {showWeekNumber && (
@@ -27,7 +27,8 @@ function Week({ weekNumber, week, dayPickerProps }) {
         >
           <Day
             key={getUnixTime(day)}
-            day={day}
+            day={day.date}
+            modifiers={day.modifiers}
             dayPickerProps={dayPickerProps}
           />
         </td>
@@ -40,6 +41,9 @@ Week.propTypes = {
   weekNumber: PropTypes.string.isRequired,
   week: PropTypes.array.isRequired,
   dayPickerProps: PropTypes.shape({
+    components: PropTypes.shape({
+      Day: PropTypes.element.isRequired,
+    }).isRequired,
     formatWeekNumber: PropTypes.func.isRequired,
     locale: PropTypes.object.isRequired,
     showWeekNumber: PropTypes.bool,

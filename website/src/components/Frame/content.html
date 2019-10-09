@@ -17,13 +17,22 @@
     }
 
     .frame-content {
-      padding: 1em;
+      padding: 0;
     }
 
     pre,
     code {
       font-size: .875em;
       font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    }
+
+    p,
+    pre,
+    ul,
+    ol {
+      margin: 0;
+      padding: 1em;
+      /* prevent wrong height calculations */
     }
 
     /* #style */

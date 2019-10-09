@@ -5,7 +5,7 @@ import * as DateFns from 'date-fns';
 import esLocale from 'date-fns/locale/es';
 import arLocale from 'date-fns/locale/ar-SA';
 
-import { DayPicker } from 'react-day-picker';
+import * as DayPicker from 'react-day-picker';
 
 import { generateElement } from './utils';
 import Frame from '../Frame';
@@ -13,7 +13,10 @@ import Frame from '../Frame';
 // eslint-disable-next-line no-undef
 const buble = require('buble');
 
-const transformOptions = { transforms: { moduleImport: false } };
+const transformOptions = {
+  transforms: { moduleImport: false },
+  objectAssign: 'Object.assign',
+};
 const errorCallback = (...args) => {
   console.error(args);
 };
@@ -21,18 +24,20 @@ const errorCallback = (...args) => {
 /**
  * Live preview of `code`
  */
-export default function Preview({ code }) {
-  let transformedCode = buble.transform(code, transformOptions, errorCallback)
-    .code;
-  transformedCode = transformedCode.replace(/^import.*$/gm, '');
+export default function Preview({ code, height }) {
+  const { _code = code } = buble.transform(
+    code,
+    transformOptions,
+    errorCallback
+  ).code;
+  const transformedCode = _code.replace(/^import.*$/gm, '');
 
   const Element = generateElement({
     code: transformedCode,
-    scope: { ...DateFns, ...React, DayPicker, esLocale, arLocale },
+    scope: { ...DateFns, ...React, ...DayPicker, esLocale, arLocale },
   });
-
   return (
-    <Frame>
+    <Frame height={height}>
       <Element />
     </Frame>
   );
@@ -40,4 +45,5 @@ export default function Preview({ code }) {
 
 Preview.propTypes = {
   code: PropTypes.string.isRequired,
+  height: PropTypes.number,
 };

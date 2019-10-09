@@ -6,10 +6,14 @@ import PROP_TYPES from './prop_types.json';
 
 import Deprecated from './Deprecated';
 
-import formatType from './formatType';
-import decorateDescription from './decorateDescription';
+import DefaultValue from './DefaultValue';
+import PropType from './PropType';
+
+import Description from './Description';
 
 const EMSPACE = ' ';
+
+const style = { margin: '0.5em 0' };
 
 /**
  * Render prop details
@@ -20,21 +24,24 @@ function PropDetails({ name }) {
   return (
     <>
       {categories['@deprecated'] && (
-        <p style={{ marginBottom: '.5em', fontSize: '.8em' }}>
-          <Deprecated message={categories['@deprecated']} />
+        <p style={style}>
+          <small>
+            <Deprecated message={categories['@deprecated']} />
+          </small>
         </p>
       )}
-      <p style={{ marginBottom: '1em', fontSize: '.8em' }}>
-        Type <code>{formatType(type)}</code>
-        {EMSPACE}
-        {defaultValue && (
-          <>
-            Default <code>{defaultValue.value.replace(/'/g, '')}</code>
-          </>
-        )}
+      <p style={style}>
+        <small>
+          Type <PropType name={type.name} value={type.value} />
+          {EMSPACE}
+          {defaultValue && (
+            <>
+              Default <DefaultValue value={defaultValue.value} />
+            </>
+          )}
+        </small>
       </p>
-
-      {decorateDescription(description)}
+      <Description>{description}</Description>
     </>
   );
 }

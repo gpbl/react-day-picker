@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Head from './Head';
-import Week from './Week';
-import Caption from './Caption';
-
 import { prepareMonth } from './helpers';
 
 function Month({ month, dayPickerProps }) {
-  const { locale, showCaption, showHead, classNames, styles } = dayPickerProps;
+  const {
+    locale,
+    showCaption,
+    showHead,
+    classNames,
+    styles,
+    components: { Caption, Head, Week },
+  } = dayPickerProps;
   const { weeks } = prepareMonth(month, dayPickerProps);
   return (
     <div className={classNames.month}>
@@ -42,6 +45,11 @@ Month.propTypes = {
   month: PropTypes.instanceOf(Date).isRequired,
   months: PropTypes.arrayOf(PropTypes.instanceOf(Date).isRequired).isRequired,
   dayPickerProps: PropTypes.shape({
+    components: PropTypes.shape({
+      Caption: PropTypes.element.isRequired,
+      Head: PropTypes.element.isRequired,
+      Week: PropTypes.element.isRequired,
+    }).isRequired,
     locale: PropTypes.object.isRequired,
     showCaption: PropTypes.bool,
     showHead: PropTypes.bool,

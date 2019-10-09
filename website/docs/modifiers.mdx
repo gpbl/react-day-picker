@@ -3,14 +3,12 @@ id: modifiers
 title: Use of Modifiers
 ---
 
-It is possible to assign one or more **modifiers** to each day of the calendar.
+A modifier is a custom property that [matches a day](./matching-days.mdx) in the calendar. For example, you can use modifiers,
 
-A modifier is a property that [matches a day](./matching-days.mdx) in the calendar. A modifier may have two main purposes:
+* to customize the appearance of day elements;
+* to change how the user’s interact with single days.
 
-1. to give days a different style and appearance;
-2. to change the interaction when user picks a specific day.
-
-## Adding and Styling Day Modifiers
+## Adding and Styling Modifiers
 
 To change the appearance of a day according to a modifier:
 
@@ -53,7 +51,7 @@ function App() {
 }
 ```
 
-## Using CSS Classes to Style Day Modifiers
+## Using CSS Classes to Style Modifiers
 
 The `styles` prop will add an inline style to the day's button. To use a CSS class names instead, use the [`classNames`](./props#classNames) prop.
 
@@ -80,7 +78,7 @@ function App() {
 
 ## Access Modifiers from onDayClick
 
-Day modifiers are an sent to the [`onDayClick`](./props#ondayclick) event.
+Modifiers are an accessible from the [`onDayClick(day, modifiers)`](./props#ondayclick) event.
 
 For example, to display an alert when the selected day is unavailable, check the `unavailable` modifier in `handleDayClick`:
 

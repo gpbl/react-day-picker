@@ -15,16 +15,22 @@ function addCodeBlocks(str) {
   return parts;
 }
 
-export default function decorateDescription(str) {
+export default function Description({ as = 'p', children }) {
+  const Component = as;
+
   let result = [];
 
-  if (Array.isArray(str)) {
-    return str.map(token => decorateDescription(token));
+  if (Array.isArray(children)) {
+    return children.map((token, i) => (
+      <Description as={as} key={i}>
+        {token}
+      </Description>
+    ));
   }
 
   // Add new lines
-  result = str
+  result = children
     .split(/\n\n/gi)
-    .map(token => <p key={token}>{addCodeBlocks(token)}</p>);
+    .map(token => <Component key={token}>{addCodeBlocks(token)}</Component>);
   return result;
 }
