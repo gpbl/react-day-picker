@@ -192,7 +192,7 @@ import { DayPickerInput } from 'react-day-picker';
 
 function OverlayComponent({ children, ...props }) {
   return (
-    <div {...props}}>
+    <div {...props}>
       <p>My custom things</p>
       /* include the calendar */
       { children }
