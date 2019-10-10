@@ -1,19 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import { getTime } from 'date-fns';
 
 import { prepareDayPicker } from './helpers';
 import defaultProps from './defaultProps';
-import { DayPickerProps } from 'types/props';
-import { ClassNames, Components } from 'types/common';
-
-function filterEmpty(obj: object): object {
-  if (!obj) {
-    return {};
-  }
-  return Object.entries(obj)
-    .filter(([key, value]) => value !== undefined)
-    .reduce((obj, [key, value]) => ((obj[key] = value), obj), {});
-}
+import { DayPickerProps } from '../types/props';
+import { ClassNames, Components } from '../types/common';
+import { filterEmpty } from './utils/filterEmpty';
 
 export const DayPicker: React.FC<DayPickerProps> = (
   initialProps = defaultProps
