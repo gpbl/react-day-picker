@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { prepareNavigation } from './helpers';
 import { DayPickerProps } from 'types/props';

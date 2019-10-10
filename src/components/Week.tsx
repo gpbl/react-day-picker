@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { getUnixTime } from 'date-fns';
 import { DayPickerProps } from 'types/props';
 import { DateWithModifiers } from 'classes';
