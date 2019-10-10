@@ -32,8 +32,8 @@
   --ifm-table-head-background: var(--ifm-color-emphasis-alpha-05);
   --ifm-table-head-color: var(--ifm-table-cell-color);
   --ifm-table-stripe-background: transparent;
-  --ifm-menu-link-padding-vertical: 0.25em;
-  --ifm-menu-link-padding-horizontal: 1em;
+  /* --ifm-menu-link-padding-vertical: 0.25em; */
+  /* --ifm-menu-link-padding-horizontal: 1em; */
   --ifm-contents-link-color: var(--ifm-color-emphasis-alpha-60);
   --ifm-contents-border-color: var(--ifm-color-emphasis-alpha-10);
 }
@@ -43,7 +43,7 @@ body {
 }
 
 .markdown {
-  --ifm-heading-vertical-rhythm-bottom: 1em;
+  /* --ifm-heading-vertical-rhythm-bottom: 1em; */
   --ifm-heading-line-height: 1.2em;
 }
 

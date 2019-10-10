@@ -1,14 +1,18 @@
 const fs = require('fs');
 const path = require('path');
-const reactDocs = require('react-docgen');
-const ora = require('ora');
+const { withDefaultConfig } = require('react-docgen-typescript');
 
-const sourceFile = path.resolve('../src/components/DayPicker.js');
-const destFile = path.resolve('./src/components/PropDetails/prop_types.json');
+const sourceFile = path.resolve(
+  __dirname,
+  '../../src/components/DayPicker.tsx'
+);
+const destFile = path.resolve(
+  __dirname,
+  '../src/components/PropDetails/prop_types.json'
+);
 
+console.log('Reading props from... %s', sourceFile);
 const linesRE = /(@[a-z]*) ?(.*)$/gm;
-
-const spinner = ora('Reading prop types for DayPicker...').start();
 
 const parseProps = obj => {
   let props = {};
@@ -31,21 +35,16 @@ const parseProps = obj => {
   return props;
 };
 
-fs.readFile(sourceFile, (err, data) => {
+const docs = withDefaultConfig().parse(sourceFile);
+const props = parseProps(docs[0]);
+
+const json = JSON.stringify(props, null, 2);
+
+console.log('Writing props to %s', destFile);
+
+fs.writeFile(destFile, json, function(err) {
   if (err) {
-    throw err;
+    return console.error(err);
   }
-  const source = data.toString();
-  const docs = reactDocs.parse(source);
-  const props = parseProps(docs);
-  const json = JSON.stringify(props, null, 2);
-
-  spinner.text = 'Writing prop types...';
-
-  fs.writeFile(destFile, json, function(err) {
-    if (err) {
-      return console.error(err);
-    }
-    spinner.succeed(`Prop file saved to ${destFile}`);
-  });
+  console.log('Done.');
 });

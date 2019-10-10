@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // Generate prop types via `yarn build-props`
 import PROP_TYPES from './prop_types.json';
-
+console.log(PROP_TYPES);
 import Deprecated from './Deprecated';
 
 import DefaultValue from './DefaultValue';
@@ -20,6 +20,9 @@ const style = { margin: '0.5em 0' };
  */
 function PropDetails({ name }) {
   const prop = PROP_TYPES[name];
+  if (!prop) {
+    return <p>{name} prop not found</p>;
+  }
   const { type, defaultValue, categories, description } = prop;
   return (
     <>

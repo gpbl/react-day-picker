@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   docs: {
     Documentation: ['start', 'basics', 'styling', 'customization'],

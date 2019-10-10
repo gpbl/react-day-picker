@@ -3,7 +3,9 @@ id: custom-components
 title: Custom Components
 ---
 
-Use the [`components`](./components) prop to change the components used to compose the calendar.
+Use the [`components`](./components) prop to change the calendar’s components.
+Custom components are useful to implement additional features or customize
+the calendar.
 
 ## Day Custom Component
 
@@ -14,7 +16,7 @@ To change the day component:
 3. (optional) extend DayPicker props
 4. pass the `Day` component to the `components` prop.
 
-For example, this DayPicker implement a `Day` component to show the modifiers on mouse enter:
+For example, the following DayPicker implements a `Day` component that supports `onDayEnter`, `onDayLeave` events:
 
 ```jsx
 import { DayPicker, prepareDay } from 'react-day-picker';
