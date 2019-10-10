@@ -1,8 +1,8 @@
 {
   "lib/daypicker.min.js": {
-    "bundled": 19191,
-    "minified": 19164,
-    "gzipped": 6442
+    "bundled": 16533,
+    "minified": 16514,
+    "gzipped": 5551
   },
   "lib/daypicker.js": {
     "bundled": 18419,
