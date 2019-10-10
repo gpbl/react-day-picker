@@ -1,52 +1,54 @@
+import { Modifiers } from 'types/common';
+import { DayPickerProps } from 'types/props';
+
 /**
  * Return the props for the Day component.
- *
- * TODO: document returned props.
- *
- * @param {Date} day
- * @param {Date} modifiers
- * @param {Object} props
- *
- * @return {Object}
  */
-export default function prepareDay(day, modifiers, props) {
+export function prepareDay(
+  day: Date,
+  modifiers: Modifiers,
+  props: DayPickerProps
+) {
   const { onDayClick, styles, classNames } = props;
   const Container = modifiers.interactive ? 'button' : 'span';
 
   let onClick;
-  if (modifiers.interactive) {
-    onClick = e => {
+  if (modifiers.interactive && onDayClick) {
+    onClick = (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
       e.preventDefault();
-      onDayClick(day.date, modifiers, e);
+      onDayClick(day, modifiers, e);
     };
   }
 
   let style = { ...styles.day };
-  if (styles && styles.modifiers) {
+  if (styles) {
     Object.keys(modifiers).forEach(modifier => {
-      style = {
-        ...style,
-        ...styles.modifiers[modifier],
-      };
+      if (styles.modifiers && styles.modifiers[modifier]) {
+        style = {
+          ...style,
+          ...styles.modifiers[modifier],
+        };
+      }
     });
   }
 
-  let className = [classNames.day] || [];
-
-  if (classNames && classNames.modifiers) {
+  const className = [classNames.day] || [];
+  if (classNames) {
     Object.keys(modifiers)
+      // Pick classnames only for modifiers having a truthy value
       .filter(modifier => Boolean(modifiers[modifier]))
       .forEach(modifier => {
-        className.push(classNames.modifiers[modifier]);
+        if (classNames.modifiers) {
+          className.push(classNames.modifiers[modifier]);
+        }
       });
-    className = className.join(' ').trim();
   }
 
   const dataProps = {};
   Object.entries(modifiers)
     // eslint-disable-next-line no-unused-vars
-    .filter(([modifier, value]) => value !== false)
+    .filter(([modifier, value]) => Boolean(value))
     .forEach(
       ([modifier, value]) => (dataProps[`data-rdp-${modifier}`] = value)
     );
@@ -56,7 +58,7 @@ export default function prepareDay(day, modifiers, props) {
     disabled: modifiers.disabled || undefined,
     onClick,
     style,
-    className,
+    className: className.join(' '),
     ...dataProps,
   };
   const wrapperHtmlProps = {

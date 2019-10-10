@@ -1,7 +1,8 @@
 import { isSameDay, isToday } from 'date-fns';
 
-import getModifiersForDay from './utils/getModifiersForDay';
-import getModifiersFromProps from './utils/getModifiersFromProps';
+import { getModifiersForDay } from './utils/getModifiersForDay';
+import { getModifiersFromProps } from './utils/getModifiersFromProps';
+import { DayPickerProps } from 'types/props';
 
 const defaultModifiers = {
   hidden: false,
@@ -10,16 +11,19 @@ const defaultModifiers = {
   interactive: true,
 };
 
-class DateWithModifiers extends Date {
-  constructor(date, initialModifiers = {}, props) {
-    super(date);
+export interface DateWithModifiers {
+  date: Date;
+  modifiers: object;
+}
 
+export class DateWithModifiers {
+  constructor(date: Date, initialModifiers = {}, props: DayPickerProps) {
     this.date = date;
 
     const modifiers = {
       ...defaultModifiers,
       today: isToday(date),
-      start: isSameDay(date, props.startDay),
+      start: props.startDay ? isSameDay(date, props.startDay) : false,
       ...initialModifiers,
     };
 
@@ -41,9 +45,7 @@ class DateWithModifiers extends Date {
     this.modifiers = modifiers;
   }
 
-  getModifier(name) {
+  getModifier(name: string) {
     return this.modifiers[name];
   }
 }
-
-export default DateWithModifiers;

@@ -1,9 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+import { DayPickerProps } from 'types/props';
 import { prepareMonth } from './helpers';
 
-function Month({ month, dayPickerProps }) {
+interface Month {
+  month: Date;
+  dayPickerProps: DayPickerProps;
+}
+
+export const Month: React.FC<Month> = props => {
+  const { month, dayPickerProps } = props;
   const {
     locale,
     showCaption,
@@ -39,32 +45,4 @@ function Month({ month, dayPickerProps }) {
       </table>
     </div>
   );
-}
-
-Month.propTypes = {
-  month: PropTypes.instanceOf(Date).isRequired,
-  months: PropTypes.arrayOf(PropTypes.instanceOf(Date).isRequired).isRequired,
-  dayPickerProps: PropTypes.shape({
-    components: PropTypes.shape({
-      Caption: PropTypes.element.isRequired,
-      Head: PropTypes.element.isRequired,
-      Week: PropTypes.element.isRequired,
-    }).isRequired,
-    locale: PropTypes.object.isRequired,
-    showCaption: PropTypes.bool,
-    showHead: PropTypes.bool,
-    showWeekNumber: PropTypes.bool,
-    classNames: PropTypes.shape({
-      month: PropTypes.string,
-      monthTable: PropTypes.string,
-      monthTbody: PropTypes.string,
-    }),
-    styles: PropTypes.shape({
-      month: PropTypes.string,
-      monthTable: PropTypes.string,
-      monthTbody: PropTypes.string,
-    }),
-  }).isRequired,
 };
-
-export default Month;

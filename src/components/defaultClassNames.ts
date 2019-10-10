@@ -1,4 +1,6 @@
-export default {
+import { ClassNames } from 'types/common';
+
+export const defaultClassNames: ClassNames = {
   container: 'rdp',
   caption: 'rdp-caption',
 

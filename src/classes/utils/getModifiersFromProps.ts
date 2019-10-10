@@ -1,5 +1,7 @@
-function getModifiersFromProps(props) {
-  const modifiers = { ...props.modifiers };
+import { DayPickerProps } from 'types/props';
+
+export function getModifiersFromProps(props: DayPickerProps) {
+  const modifiers = Object.assign({}, props.modifiers);
   if (props.selected) {
     modifiers.selected = props.selected;
   }
@@ -11,5 +13,3 @@ function getModifiersFromProps(props) {
   }
   return modifiers;
 }
-
-export default getModifiersFromProps;

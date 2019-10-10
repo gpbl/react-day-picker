@@ -1,9 +1,9 @@
 /* #region Containers */
 .rdp {
-  box-sizing: border-box;
   position: relative;
 
   display: inline-block;
+  box-sizing: border-box;
   font-size: 1rem;
 }
 .rdp-months {
@@ -78,9 +78,9 @@
   right: 1em;
 }
 .rdp[dir='rtl'] .rdp-nav {
+  right: auto;
   /* Toggle navigation position on rtl */
   left: 1em;
-  right: auto;
 }
 .rdp-nav_start {
   /* Navigation start button */
@@ -104,6 +104,7 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  box-sizing: border-box;
   min-width: 2.2em;
   height: 2.2em;
   border: 0;
@@ -111,8 +112,8 @@
   font-size: 1em;
 
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .rdp-day_wrapper {
   /* Wrapper for the day number */
@@ -129,13 +130,13 @@
 .rdp-day_today {
   position: relative;
 
-  border: 2px solid #fa383e;
+  border: 2px solid #FA383E;
   border-radius: 100%;
   font-weight: bold;
 }
 .rdp-day_selected {
   border-radius: 100%;
-  background: #2196f3;
+  background: #2196F3;
   color: white;
 }
 /* #endregion */

@@ -1,9 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { prepareNavigation } from './helpers';
+import { DayPickerProps } from 'types/props';
 
-function Navigation({ dayPickerProps }) {
+interface Navigation {
+  dayPickerProps: DayPickerProps;
+}
+
+export const Navigation: React.FC<Navigation> = props => {
+  const { dayPickerProps } = props;
   const { styles, classNames } = dayPickerProps;
   const {
     prevMonth,
@@ -18,11 +23,6 @@ function Navigation({ dayPickerProps }) {
   }
 
   let { startLabel, prevLabel, nextLabel } = dayPickerProps;
-
-  // TODO: deprecated prop, remove
-  if (dayPickerProps.todayButton) {
-    startLabel = dayPickerProps.todayButton;
-  }
 
   const prevButton = prevLabel && (
     <button
@@ -70,29 +70,4 @@ function Navigation({ dayPickerProps }) {
       {buttons}
     </div>
   );
-}
-
-Navigation.propTypes = {
-  dayPickerProps: PropTypes.shape({
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
-    onMonthChange: PropTypes.func,
-    startLabel: PropTypes.string,
-    prevLabel: PropTypes.string,
-    nextLabel: PropTypes.string,
-    todayButton: PropTypes.string,
-    styles: PropTypes.shape({
-      nav: PropTypes.string,
-      navNext: PropTypes.string,
-      navPrev: PropTypes.string,
-      navStart: PropTypes.string,
-    }),
-    classNames: PropTypes.shape({
-      nav: PropTypes.string,
-      navNext: PropTypes.string,
-      navPrev: PropTypes.string,
-      navStart: PropTypes.string,
-    }),
-  }).isRequired,
 };
-
-export default Navigation;

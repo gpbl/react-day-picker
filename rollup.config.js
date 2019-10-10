@@ -1,16 +1,17 @@
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 import { terser } from 'rollup-plugin-terser';
 import autoExternal from 'rollup-plugin-auto-external';
-import babel from 'rollup-plugin-babel';
+// import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import copy from 'rollup-plugin-copy';
 import replace from 'rollup-plugin-replace';
 import resolve from 'rollup-plugin-node-resolve';
 import stripPropTypes from 'rollup-plugin-strip-prop-types';
+import typescript from 'rollup-plugin-typescript';
 
 import pkg from './package.json';
 
-const input = 'src/index.js';
+const input = 'src/index.ts';
 const onwarn = warning => {
   throw Error(warning.message);
 };
@@ -19,7 +20,7 @@ const sharedPlugins = [
   replace({
     'process.env.NODE_ENV': JSON.stringify('development'),
   }),
-  babel(),
+  typescript(),
   resolve(),
   commonjs(),
   autoExternal(),
@@ -40,7 +41,7 @@ export default [
       sourcemap: true,
       globals: { react: 'React', 'date-fns': 'dateFns' },
     },
-    plugins: [...sharedPlugins, terser(), sizeSnapshot()],
+    plugins: [...sharedPlugins],
   },
   {
     input,

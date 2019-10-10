@@ -12,18 +12,12 @@ import {
 import { DateWithModifiers } from '../../classes';
 import getOutsideStartDays from '../utils/getOutsideStartDays';
 import getOutsideEndDays from '../utils/getOutsideEndDays';
+import { DayPickerProps } from 'types/props';
 
 /**
  * Return the data for the Month component.
- *
- * TODO: document returned props.
- *
- * @param {Date} month
- * @param {Object} props
- *
- * @return {Object}
  */
-export default function prepareMonth(month, props) {
+export function prepareMonth(month: Date, props: DayPickerProps) {
   const { locale, fixedWeeks } = props;
   const monthStart = startOfMonth(month);
   const monthEnd = endOfMonth(month);
@@ -31,21 +25,20 @@ export default function prepareMonth(month, props) {
   let diff = differenceInDays(monthEnd, monthStart);
 
   const weeks = {};
-  let week;
+  let week = -1;
   for (let i = 0; i <= diff; i++) {
     const date = addDays(monthStart, i);
-    const month = getMonth(date);
-    const day = new DateWithModifiers(date, {}, props);
-    week = getWeek(day, { locale });
-    if (week === 1 && month === 11) {
+    const dateWithModifiers = new DateWithModifiers(date, {}, props);
+    week = getWeek(dateWithModifiers.date, { locale });
+    if (week === 1 && getMonth(date) === 11) {
       week = 53;
     }
     if (!weeks[week]) {
-      const startDays = getOutsideStartDays(day, props);
+      const startDays = getOutsideStartDays(dateWithModifiers.date, props);
       // Create a new week by adding outside start days
       weeks[week] = startDays;
     }
-    weeks[week].push(day);
+    weeks[week].push(dateWithModifiers);
   }
 
   let lastWeek = weeks[week];
@@ -56,24 +49,28 @@ export default function prepareMonth(month, props) {
   // add extra weeks to the month, up to 6 weeks
   if (fixedWeeks) {
     lastWeek = weeks[week];
-    const lastWeekDay = lastWeek[lastWeek.length - 1];
+    const lastWeekDate = lastWeek[lastWeek.length - 1].date;
     const weeksInMonth = getWeeksInMonth(month, { locale });
     if (weeksInMonth < 6) {
       let diff = differenceInDays(
-        addWeeks(lastWeekDay, 6 - weeksInMonth),
-        lastWeekDay
+        addWeeks(lastWeekDate, 6 - weeksInMonth),
+        lastWeekDate
       );
       for (var i = 0; i < diff; i++) {
-        const date = addDays(lastWeekDay, i + 1);
-        const day = new DateWithModifiers(date, { outside: 'end' }, props);
+        const date = addDays(lastWeekDate, i + 1);
+        const dateWithModifiers = new DateWithModifiers(
+          date,
+          { outside: 'end' },
+          props
+        );
         week = getWeek(date, { locale });
-        if (week === 1 && month === 11) {
+        if (week === 1 && getMonth(month) === 11) {
           week = 53;
         }
         if (!weeks[week]) {
           weeks[week] = [];
         }
-        weeks[week].push(day);
+        weeks[week].push(dateWithModifiers);
       }
     }
   }

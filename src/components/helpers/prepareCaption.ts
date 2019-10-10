@@ -1,11 +1,9 @@
+import { DayPickerProps } from 'types/props';
+
 /**
  * Return the props for the Caption component.
- * TODO: document returned props.
- *
- * @param {Object} props
- * @return {Object}
  */
-export default function prepareCaption(props) {
+export function prepareCaption(props: DayPickerProps) {
   const { styles, classNames } = props;
   return {
     props: {

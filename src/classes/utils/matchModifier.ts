@@ -1,9 +1,10 @@
 import { isSameDay, differenceInDays } from 'date-fns';
+import { Modifier } from 'types/common';
 
-function isDayAfter(day1, day2) {
+function isDayAfter(day1: Date, day2: Date) {
   return differenceInDays(day1, day2) > 0;
 }
-function isDayBefore(day1, day2) {
+function isDayBefore(day1: Date, day2: Date) {
   return differenceInDays(day1, day2) < 0;
 }
 
@@ -15,7 +16,7 @@ function isDayBefore(day1, day2) {
  * @param {Any} modifier
  * @return {Boolean}
  */
-function matchModifier(day, modifier) {
+function matchModifier(day: Date, modifier: Modifier) {
   if (!modifier) {
     return false;
   }
@@ -48,7 +49,7 @@ function matchModifier(day, modifier) {
       return isDayBefore(day, mod.before);
     }
     if (mod.daysOfWeek) {
-      return mod.daysOfWeek.some(dayOfWeek => day.getDay() === dayOfWeek);
+      return day.getDay() === mod.daysOfWeek;
     }
     if (typeof mod === 'function') {
       return mod(day);

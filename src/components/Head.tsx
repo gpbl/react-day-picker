@@ -1,9 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import getWeekdaysNames from './utils/getWeekdaysNames';
+import { DayPickerProps } from 'types/props';
 
-function Head({ locale, showWeekNumber, dayPickerProps }) {
+interface HeadProps {
+  locale: Locale;
+  showWeekNumber: boolean;
+  dayPickerProps: DayPickerProps;
+}
+
+export const Head: React.FC<HeadProps> = props => {
+  const { locale, showWeekNumber, dayPickerProps } = props;
   const { classNames, styles, formatWeekdayName } = dayPickerProps;
   const weekdayNames = getWeekdaysNames(locale, formatWeekdayName);
   return (
@@ -28,26 +35,4 @@ function Head({ locale, showWeekNumber, dayPickerProps }) {
       </tr>
     </thead>
   );
-}
-
-Head.propTypes = {
-  showWeekNumber: PropTypes.bool,
-  locale: PropTypes.object,
-  dayPickerProps: PropTypes.shape({
-    classNames: PropTypes.shape({
-      head: PropTypes.string,
-      headRow: PropTypes.string,
-      headWeekNumber: PropTypes.string,
-      headWeekName: PropTypes.string,
-    }),
-    styles: PropTypes.shape({
-      head: PropTypes.string,
-      headRow: PropTypes.string,
-      headWeekNumber: PropTypes.string,
-      headWeekName: PropTypes.string,
-    }),
-    formatWeekdayName: PropTypes.func.isRequired,
-  }).isRequired,
 };
-
-export default Head;

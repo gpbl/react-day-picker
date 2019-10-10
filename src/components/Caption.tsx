@@ -1,9 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { prepareCaption } from './helpers';
+import { DayPickerProps } from 'types/props';
 
-function Caption({ month, dayPickerProps }) {
+interface CaptionProps {
+  month: Date;
+  dayPickerProps: DayPickerProps;
+}
+
+export const Caption: React.FC<CaptionProps> = ({ month, dayPickerProps }) => {
   const { props } = prepareCaption(dayPickerProps);
   const { locale } = dayPickerProps;
   return (
@@ -11,11 +16,4 @@ function Caption({ month, dayPickerProps }) {
       {dayPickerProps.formatCaption(month, { locale })}
     </caption>
   );
-}
-
-Caption.propTypes = {
-  month: PropTypes.instanceOf(Date).isRequired,
-  dayPickerProps: PropTypes.object,
 };
-
-export default Caption;

@@ -1,17 +1,19 @@
 import { startOfMonth, addMonths } from 'date-fns';
 
-import { DateWithModifiers } from '../../classes';
+import { DayPickerProps } from 'types/props';
 
+interface PrepareNavigation {
+  prevMonth?: Date;
+  nextMonth?: Date;
+  currentMonth: Date;
+  handlePrevClick: Function;
+  handleNextClick: Function;
+  handleStartClick: Function;
+}
 /**
  * Return the props for the Navigation component.
- *
- * TODO: document returned props.
- *
- * @param {Object} props
- *
- * @return {Object}
  */
-export default function prepareNavigation(props) {
+export function prepareNavigation(props: DayPickerProps): PrepareNavigation {
   const {
     fromMonth,
     toMonth,
@@ -28,12 +30,12 @@ export default function prepareNavigation(props) {
   const add = pagedNavigation ? numberOfMonths : 1;
   let currentMonth = startOfMonth(month);
 
-  let prevMonth;
+  let prevMonth: any = null;
   if (!fromMonth || currentMonth > startOfMonth(fromMonth)) {
     prevMonth = addMonths(currentMonth, add * -1);
   }
 
-  let nextMonth;
+  let nextMonth: any;
   if (
     !toMonth ||
     addMonths(currentMonth, numberOfMonths) <= startOfMonth(toMonth)
@@ -41,21 +43,20 @@ export default function prepareNavigation(props) {
     nextMonth = addMonths(currentMonth, add);
   }
 
-  const handlePrevClick = e => {
+  const handlePrevClick = (e: React.MouseEvent<HTMLDivElement>) => {
     onMonthChange && onMonthChange(prevMonth, e);
     onPrevClick && onPrevClick(prevMonth, e);
   };
-  const handleNextClick = e => {
+  const handleNextClick = (e: React.MouseEvent<HTMLDivElement>) => {
     onMonthChange && onMonthChange(nextMonth, e);
     onNextClick && onNextClick(nextMonth, e);
   };
-  const handleStartClick = e => {
-    const day = new DateWithModifiers(startDay, {}, props);
-    onMonthChange && onMonthChange(day, e);
-    onStartClick && onStartClick(day, e);
+  const handleStartClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    onMonthChange && onMonthChange(startDay, e);
+    onStartClick && onStartClick(startDay, e);
   };
 
-  return {
+  const preparedNavigation: PrepareNavigation = {
     prevMonth,
     nextMonth,
     currentMonth,
@@ -63,4 +64,6 @@ export default function prepareNavigation(props) {
     handleNextClick,
     handleStartClick,
   };
+
+  return preparedNavigation;
 }

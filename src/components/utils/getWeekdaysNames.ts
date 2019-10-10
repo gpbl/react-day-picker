@@ -2,7 +2,7 @@ import { startOfWeek, addDays } from 'date-fns';
 
 const date = new Date();
 
-function getWeekdaysNames(locale, format) {
+function getWeekdaysNames(locale: Locale, format: Function) {
   const start = startOfWeek(date, { locale });
   const names = [];
   for (let i = 0; i < 7; i++) {
