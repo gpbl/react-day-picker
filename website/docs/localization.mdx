@@ -30,7 +30,7 @@ import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/lib/style-rtl.css';
 
 function App() {
-  const [month, setMonth] = useState();
+  const [month, setMonth] = useState(new Date());
   return (
     <DayPicker
       month={month}
@@ -62,7 +62,7 @@ import arLocale from 'date-fns/locale/ar-SA';
 import 'react-day-picker/lib/style.css';
 
 function App() {
-  const [month, setMonth] = useState();
+  const [month, setMonth] = useState(new Date());
 
   const nuLocale = 'ar-u-nu-arab';
 

@@ -8,7 +8,7 @@ Custom components are useful to implement additional features or further [custom
 
 ## Day Component
 
-To change the day component:
+The `Day` component is used to render the day in the calendar. To specify your own `Day` component:
 
 1. create a `Day` component with `day`, [`modifiers`](./modifiers) and `dayPickerProps` props;
 2. (optional) get DayPicker-specific props via [`prepareDay`](./utils#prepareDay);
@@ -68,7 +68,7 @@ function App() {
 
 ## Caption Component
 
-To change the caption component:
+The `Caption` component is used to render the caption (with month/year) in the calendar. To specify your own `Caption` component:
 
 1. create a `Caption` component with `month` and `dayPickerProps` props;
 2. (optional) get DayPicker-specific props via [`prepareCaption`](./utils#prepareCaption);
@@ -129,7 +129,7 @@ function App() {
 
 ## Navigation Component
 
-To change the navigation component:
+The `Navigation` component is used to render the navigation buttons. To specify your own `Navigation` component:
 
 1. create a `Navigation` component with a `dayPickerProps` prop;
 2. (optional) get DayPicker-specific props via [`prepareNavigation`](./utils#prepareNavigation);
@@ -164,6 +164,50 @@ function App() {
       month={month}
       onMonthChange={setMonth}
       components={{ Navigation }}
+    />
+  );
+}
+```
+
+## WeekNumber Component
+
+The `WeekNumber` component is used to render the week number when [`showWeekNumber`](./props#showweeknumber) is set. To specify your own `WeekNumber` component:
+
+1. create a `WeekNumber` component with a `number`, `days` and `dayPickerProps` prop;
+2. pass the `WeekNumber` component to the `components` prop.
+
+For example, the following DayPicker implements a `WeekNumber` with a button selecting the entire week.
+
+```jsx preview
+import { DayPicker } from 'react-day-picker';
+import { getWeek } from 'date-fns';
+
+function App() {
+  const [month, setMonth] = useState(new Date());
+  const [selectedWeekNumber, setSelectedWeekNumber] = useState();
+
+  function WeekNumber({ number, days, dayPickerProps, onClick }) {
+    const { onWeekNumberClick } = dayPickerProps;
+    const handleClick = e => onWeekNumberClick(number, e);
+    return <button onClick={handleClick}>Select</button>;
+  }
+
+  function isDayInWeek(day, weekNumber) {
+    return getWeek(day) === weekNumber;
+  }
+
+  return (
+    <DayPicker
+      month={month}
+      showWeekNumber
+      components={{ WeekNumber }}
+      selected={
+        selectedWeekNumber
+          ? day => isDayInWeek(day, selectedWeekNumber)
+          : undefined
+      }
+      onWeekNumberClick={weekNumber => setSelectedWeekNumber(weekNumber)}
+      onMonthChange={setMonth}
     />
   );
 }
