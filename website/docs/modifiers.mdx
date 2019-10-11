@@ -5,12 +5,12 @@ title: Use of Modifiers
 
 A modifier is a custom property that [matches a day](./matching-days.mdx) in the calendar. For example, you can use modifiers,
 
-* to customize the appearance of day elements;
-* to change how the user’s interact with single days.
+- to customize the appearance of day elements;
+- to change how the user’s interact with single days.
 
 ## Adding and Styling Modifiers
 
-To change the appearance of a day according to a modifier:
+##### To change the appearance of a day according to a modifier
 
 1. pass to the [`modifiers`](./props#modifiers) prop an object of`modifiers` matching specific days;
 2. use the [`styles`](./props#styles) prop to style a day when it matches one of the modifiers.
@@ -29,7 +29,7 @@ function App() {
       new Date(2019, 8, 18),
     ],
   };
-  const modifierStyles = {
+  const styles = {
     available: { color: 'limegreen' },
     unavailable: { textDecoration: 'line-through' },
     booked: { color: 'salmon' },
@@ -39,12 +39,12 @@ function App() {
       <DayPicker
         month={new Date(2019, 8)}
         modifiers={modifiers}
-        styles={{ modifiers: modifierStyles }}
+        modifiersStyles={styles}
       />
       <pre>
-        Legend: <span style={modifierStyles.unavailable}>unavailable</span>{' '}
-        <span style={modifierStyles.booked}>booked</span>{' '}
-        <span style={modifierStyles.available}>available</span>{' '}
+        Legend: <span style={styles.unavailable}>unavailable</span>{' '}
+        <span style={styles.booked}>booked</span>{' '}
+        <span style={styles.available}>available</span>{' '}
       </pre>
     </div>
   );
@@ -67,9 +67,7 @@ function App() {
         modifiers={{
           unavailable: { before: new Date(2019, 8, 15) },
         }}
-        classNames={{
-          modifiers: { unavailable: 'unavailable-day' },
-        }}
+        modifiersClassNames={{ unavailable: 'unavailable-day' }}
       />
     </div>
   );

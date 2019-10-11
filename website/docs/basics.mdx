@@ -13,7 +13,9 @@ For example, it is possible to:
 
 ## Enable Navigation Between Months
 
-To allow the user navigate between months:
+DayPicker is a controlled component: you pass the month to display and what to do when the month changes.
+
+##### To navigate between months
 
 1. use the component’s state to store the current month;
 2. use the [`month`](./props#month) prop to display the current month;
@@ -35,7 +37,9 @@ function App() {
 
 ## Selecting a Day from the Calendar
 
-To allow users to select a day from the calendar:
+A common feature for a date picker is to select a day from the calendar. Selecting a day means capturing the day the user has clicked, and highlight it in the calendar.
+
+##### To select a day from the calendar
 
 1. listen to the [`onDayClick`](./props#ondayclick) event to get the clicked day;
 2. save the clicked day in your component's state;
@@ -68,9 +72,9 @@ function App() {
 
 ## Selecting or Unselecting Multiple Days
 
-The `selected` props can match dates in the calendar in [different ways](./matching-days).
+The `selected` props can match dates in the calendar in [different ways](./matching-days). For example, you can select an array of days.
 
-For example, to select multiple days:
+##### To select multiple days
 
 1. initialize the state with an empty array;
 2. add the day to the array when a day is clicked;

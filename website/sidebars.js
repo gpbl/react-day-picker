@@ -7,7 +7,7 @@ module.exports = {
       'modifiers',
       'input',
       'localization',
-      'custom-components',
+      'extending',
     ],
     ['API Reference']: ['props', 'utils'],
   },

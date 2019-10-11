@@ -93,7 +93,8 @@ a > code {
 .markdown > h5 {
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  margin-top: 2em;
   font-size: 0.875rem;
-  color: var(--ifm-color-emphasis-alpha-50);
+  /* color: var(--ifm-color-emphasis-alpha-60); */
 }

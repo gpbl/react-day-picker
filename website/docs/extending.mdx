@@ -1,14 +1,22 @@
 ---
-id: custom-components
-title: Custom Components
+id: extending
+title: Extending DayPicker
 ---
 
-Use the [`components`](./components) prop to change DayPicker internal components.
-Custom components are useful to implement additional features or further [customize](./customization) the calendar.
+DayPicker can be extended by implementing custom components. Use the [`components`](./props#components) prop to change DayPicker internal components and add new custom props.
+
+Currently, you can implement custom components for:
+
+* `Day` – used to render the day;
+* `Caption` – used to render the caption (with month/year);
+* `Navigation` – used to render the prev/next month navigation;
+* `WeekNumber` – used to render the week numbers.
 
 ## Day Component
 
-The `Day` component is used to render the day in the calendar. To specify your own `Day` component:
+The `Day` component is used to render the day in the calendar.
+
+##### To use a custom Day component
 
 1. create a `Day` component with `day`, [`modifiers`](./modifiers) and `dayPickerProps` props;
 2. (optional) get DayPicker-specific props via [`prepareDay`](./utils#prepareDay);
@@ -68,7 +76,9 @@ function App() {
 
 ## Caption Component
 
-The `Caption` component is used to render the caption (with month/year) in the calendar. To specify your own `Caption` component:
+The `Caption` component is used to render the caption (with month/year) in the calendar.
+
+##### To use a custom Caption component
 
 1. create a `Caption` component with `month` and `dayPickerProps` props;
 2. (optional) get DayPicker-specific props via [`prepareCaption`](./utils#prepareCaption);
@@ -129,7 +139,9 @@ function App() {
 
 ## Navigation Component
 
-The `Navigation` component is used to render the navigation buttons. To specify your own `Navigation` component:
+The `Navigation` component is used to render the navigation buttons.
+
+##### To use a custom Navigation component
 
 1. create a `Navigation` component with a `dayPickerProps` prop;
 2. (optional) get DayPicker-specific props via [`prepareNavigation`](./utils#prepareNavigation);
@@ -171,7 +183,9 @@ function App() {
 
 ## WeekNumber Component
 
-The `WeekNumber` component is used to render the week number when [`showWeekNumber`](./props#showweeknumber) is set. To specify your own `WeekNumber` component:
+The `WeekNumber` component is used to render the week number when [`showWeekNumber`](./props#showweeknumber) is set.
+
+##### To use a custom WeekNumber component
 
 1. create a `WeekNumber` component with a `number`, `days` and `dayPickerProps` prop;
 2. pass the `WeekNumber` component to the `components` prop.

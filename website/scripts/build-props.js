@@ -18,13 +18,13 @@ const parseProps = obj => {
   let props = {};
   Object.entries(obj.props).forEach(([name, details]) => {
     const categories = {};
-
     let matches;
     while ((matches = linesRE.exec(details.description))) {
       const category = matches[1];
       const description = matches[2] || true;
       categories[category] = description;
     }
+    delete details.parent;
     const description = details.description.replace(/@.*/gim, '');
     props[name] = {
       ...details,
@@ -41,6 +41,8 @@ const props = parseProps(docs[0]);
 const json = JSON.stringify(props, null, 2);
 
 console.log('Writing props to %s', destFile);
+
+console.log(json);
 
 fs.writeFile(destFile, json, function(err) {
   if (err) {
