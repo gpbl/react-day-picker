@@ -26,6 +26,4 @@ export interface ClassNames {
   weekDay?: string;
   // WeekNumber Component
   weekNumber?: string;
-  // Modifiers
-  modifiers?: ModifiersClassNames;
 }

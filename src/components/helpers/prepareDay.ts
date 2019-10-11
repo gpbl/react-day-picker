@@ -9,7 +9,6 @@ interface PreparedDay {
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     className?: string;
     style?: React.CSSProperties;
-    [other: string]: any;
   };
   wrapperProps: {
     className?: string;
@@ -22,7 +21,13 @@ export function prepareDay(
   modifiers: ModifierValues,
   props: DayPickerProps
 ): PreparedDay {
-  const { onDayClick, styles, classNames } = props;
+  const {
+    onDayClick,
+    styles,
+    modifiersStyles,
+    classNames,
+    modifiersClassNames,
+  } = props;
   const Container = modifiers.interactive ? 'button' : 'span';
 
   let onClick;
@@ -35,32 +40,31 @@ export function prepareDay(
   }
 
   let style = { ...styles.day };
-  if (styles) {
+  if (modifiersStyles) {
     Object.keys(modifiers).forEach(modifier => {
-      if (styles.modifiers && styles.modifiers[modifier]) {
+      if (modifiersStyles[modifier]) {
         style = {
           ...style,
-          ...styles.modifiers[modifier],
+          ...modifiersStyles[modifier],
         };
       }
     });
   }
 
   const className = [classNames.day] || [];
-  if (classNames) {
+  if (modifiersClassNames) {
     Object.keys(modifiers)
       // Pick classnames only for modifiers having a truthy value
       .filter(modifier => Boolean(modifiers[modifier]))
       .forEach(modifier => {
-        if (classNames.modifiers) {
-          className.push(classNames.modifiers[modifier]);
+        if (modifiersClassNames[modifier]) {
+          className.push(modifiersClassNames[modifier]);
         }
       });
   }
 
   const dataProps = {};
   Object.entries(modifiers)
-    // eslint-disable-next-line no-unused-vars
     .filter(value => Boolean(value))
     .forEach(
       ([modifier, value]) => (dataProps[`data-rdp-${modifier}`] = value)
