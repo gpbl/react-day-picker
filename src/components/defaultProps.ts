@@ -7,7 +7,7 @@ import { Head } from './Head';
 import { Month } from './Month';
 import { Navigation } from './Navigation';
 import { Week } from './Week';
-import { DayPickerProps } from 'types/props';
+import { DayPicker } from 'types/DayPicker';
 import { defaultClassNames } from './defaultClassNames';
 
 interface FormatOptions {
@@ -36,7 +36,7 @@ function formatWeekNumber(weekNumber: Number): React.ReactNode {
   return weekNumber;
 }
 
-const defaultProps: DayPickerProps = {
+const defaultProps: DayPicker = {
   enableOutsideDaysClick: false,
   classNames: defaultClassNames,
   className: '',

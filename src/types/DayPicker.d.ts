@@ -1,6 +1,8 @@
-import { ClassNames, Styles, Modifiers, Components, Modifier } from './common';
+import { ClassNames } from './ClassNames';
+import { Modifier, Modifiers } from './Modifier';
+import { Styles } from './Styles';
 
-export interface DayPickerProps {
+export interface DayPicker {
   classNames: ClassNames;
   styles: Styles;
   className: string;

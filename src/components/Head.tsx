@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import getWeekdaysNames from './utils/getWeekdaysNames';
-import { DayPickerProps } from 'types/props';
+import { DayPicker } from 'types/DayPicker';
 
 interface HeadProps {
   locale: Locale;
   showWeekNumber: boolean;
-  dayPickerProps: DayPickerProps;
+  dayPickerProps: DayPicker;
 }
 
 export const Head: React.FC<HeadProps> = props => {

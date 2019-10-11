@@ -12,12 +12,12 @@ import {
 import { DateWithModifiers } from '../../classes';
 import getOutsideStartDays from '../utils/getOutsideStartDays';
 import getOutsideEndDays from '../utils/getOutsideEndDays';
-import { DayPickerProps } from 'types/props';
+import { DayPicker } from 'types/DayPicker';
 
 /**
  * Return the data for the Month component.
  */
-export function prepareMonth(month: Date, props: DayPickerProps) {
+export function prepareMonth(month: Date, props: DayPicker) {
   const { locale, fixedWeeks } = props;
   const monthStart = startOfMonth(month);
   const monthEnd = endOfMonth(month);

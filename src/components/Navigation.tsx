@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import { prepareNavigation } from './helpers';
-import { DayPickerProps } from 'types/props';
+import { DayPicker } from 'types/DayPicker';
 
 interface Navigation {
-  dayPickerProps: DayPickerProps;
+  dayPickerProps: DayPicker;
 }
 
 export const Navigation: React.FC<Navigation> = props => {

@@ -1,6 +1,6 @@
-import { DayPickerProps } from 'types/props';
+import { DayPicker } from 'types/DayPicker';
 
-export function getModifiersFromProps(props: DayPickerProps) {
+export function getModifiersFromProps(props: DayPicker) {
   const modifiers = Object.assign({}, props.modifiers);
   if (props.selected) {
     modifiers.selected = props.selected;

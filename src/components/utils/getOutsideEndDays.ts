@@ -1,8 +1,8 @@
 import { endOfWeek, differenceInDays, addDays } from 'date-fns';
 import { DateWithModifiers } from '../../classes';
-import { DayPickerProps } from 'types/props';
+import { DayPicker } from 'types/DayPicker';
 
-function getOutsideEndDays(lastDay: Date, props: DayPickerProps) {
+function getOutsideEndDays(lastDay: Date, props: DayPicker) {
   const { locale } = props;
   const days = [];
   const lastDayOfWeek = endOfWeek(lastDay, { locale });

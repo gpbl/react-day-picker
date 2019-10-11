@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import { prepareCaption } from './helpers';
-import { DayPickerProps } from 'types/props';
+import { DayPicker } from 'types/DayPicker';
 
 interface CaptionProps {
   month: Date;
-  dayPickerProps: DayPickerProps;
+  dayPickerProps: DayPicker;
 }
 
 export const Caption: React.FC<CaptionProps> = ({ month, dayPickerProps }) => {

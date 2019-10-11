@@ -1,8 +1,8 @@
 import { startOfWeek, differenceInDays, addDays } from 'date-fns';
 import { DateWithModifiers } from '../../classes';
-import { DayPickerProps } from 'types/props';
+import { DayPicker } from 'types/DayPicker';
 
-function getOutsideStartDays(firstDay: Date, props: DayPickerProps) {
+function getOutsideStartDays(firstDay: Date, props: DayPicker) {
   const { locale } = props;
   const days = [];
   const firstDayOfWeek = startOfWeek(firstDay, { locale });

@@ -1,14 +1,10 @@
-import { Modifiers } from 'types/common';
-import { DayPickerProps } from 'types/props';
+import { Modifiers } from 'types/Modifiers';
+import { DayPicker } from 'types/DayPicker';
 
 /**
  * Return the props for the Day component.
  */
-export function prepareDay(
-  day: Date,
-  modifiers: Modifiers,
-  props: DayPickerProps
-) {
+export function prepareDay(day: Date, modifiers: Modifiers, props: DayPicker) {
   const { onDayClick, styles, classNames } = props;
   const Container = modifiers.interactive ? 'button' : 'span';
 

@@ -1,6 +1,6 @@
 import { startOfMonth, addMonths } from 'date-fns';
 
-import { DayPickerProps } from 'types/props';
+import { DayPicker } from 'types/DayPicker';
 
 interface PrepareNavigation {
   prevMonth?: Date;
@@ -13,7 +13,7 @@ interface PrepareNavigation {
 /**
  * Return the props for the Navigation component.
  */
-export function prepareNavigation(props: DayPickerProps): PrepareNavigation {
+export function prepareNavigation(props: DayPicker): PrepareNavigation {
   const {
     fromMonth,
     toMonth,

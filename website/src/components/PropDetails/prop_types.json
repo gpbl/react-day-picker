@@ -5,7 +5,7 @@
     "name": "classNames",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -19,7 +19,7 @@
     "name": "styles",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -33,7 +33,7 @@
     "name": "className",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -47,7 +47,7 @@
     "name": "style",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -61,7 +61,7 @@
     "name": "month",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -75,7 +75,7 @@
     "name": "numberOfMonths",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -89,7 +89,7 @@
     "name": "fromMonth",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -103,7 +103,7 @@
     "name": "toMonth",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -117,7 +117,7 @@
     "name": "pagedNavigation",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -131,7 +131,7 @@
     "name": "reverseMonths",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -145,7 +145,7 @@
     "name": "fixedWeeks",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -159,7 +159,7 @@
     "name": "showCaption",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -173,7 +173,7 @@
     "name": "showHead",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -187,7 +187,7 @@
     "name": "showOutsideDays",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -201,7 +201,7 @@
     "name": "enableOutsideDaysClick",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -215,7 +215,7 @@
     "name": "showWeekNumber",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -229,7 +229,7 @@
     "name": "showNavigation",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -243,7 +243,7 @@
     "name": "startDay",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -257,7 +257,7 @@
     "name": "startLabel",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -271,7 +271,7 @@
     "name": "prevLabel",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -285,7 +285,7 @@
     "name": "nextLabel",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -299,7 +299,7 @@
     "name": "selected",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -313,7 +313,7 @@
     "name": "disabled",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -327,7 +327,7 @@
     "name": "hidden",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -341,7 +341,7 @@
     "name": "modifiers",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -355,7 +355,7 @@
     "name": "locale",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -369,7 +369,7 @@
     "name": "dir",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -383,7 +383,7 @@
     "name": "formatCaption",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -397,7 +397,7 @@
     "name": "formatDay",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -411,7 +411,7 @@
     "name": "formatWeekdayName",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -425,7 +425,7 @@
     "name": "formatWeekNumber",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -439,7 +439,7 @@
     "name": "components",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": true,
     "type": {
@@ -453,7 +453,7 @@
     "name": "onDayClick",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -467,7 +467,7 @@
     "name": "onMonthChange",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -481,7 +481,7 @@
     "name": "onNextClick",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -495,7 +495,7 @@
     "name": "onPrevClick",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {
@@ -509,7 +509,7 @@
     "name": "onStartClick",
     "parent": {
       "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPickerProps"
+      "name": "DayPicker"
     },
     "required": false,
     "type": {

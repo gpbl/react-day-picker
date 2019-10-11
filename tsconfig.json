@@ -28,6 +28,5 @@
     "src/classes/DateWithModifiers.ts",
     "src/components/defaultClassNames.ts"
   ],
-  "exclude": ["node_modules", "build", "scripts"],
-  "files": ["src/types/common.d.ts", "src/types/props.d.ts"]
+  "files": ["src/types/*.d.ts"]
 }

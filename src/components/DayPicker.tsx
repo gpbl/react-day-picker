@@ -3,8 +3,11 @@ import { getTime } from 'date-fns';
 
 import { prepareDayPicker } from './helpers';
 import defaultProps from './defaultProps';
-import { DayPickerProps } from '../types/props';
-import { ClassNames, Components } from '../types/common';
+
+import { DayPicker as DayPickerProps } from 'types/DayPicker';
+import { ClassNames } from 'types/ClassNames';
+import { Components } from 'types/Components';
+
 import { filterEmpty } from './utils/filterEmpty';
 
 export const DayPicker: React.FC<DayPickerProps> = (

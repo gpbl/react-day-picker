@@ -1,10 +1,10 @@
 import { addMonths, differenceInMonths, startOfMonth } from 'date-fns';
-import { DayPickerProps } from 'types/props';
+import { DayPicker } from 'types/DayPicker';
 
 /**
  * Return the props for the DayPicker component.
  */
-export function prepareDayPicker(props: DayPickerProps) {
+export function prepareDayPicker(props: DayPicker) {
   const { month, numberOfMonths, toMonth, fromMonth, reverseMonths } = props;
   const start = startOfMonth(month);
   const end = startOfMonth(addMonths(start, numberOfMonths));
