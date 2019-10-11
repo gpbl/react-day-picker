@@ -10,9 +10,7 @@ interface PreparedNavigation {
   prevProps: object;
   startProps: object;
 }
-/**
- * Return the props for the Navigation component.
- */
+
 export function prepareNavigation(props: DayPickerProps): PreparedNavigation {
   const {
     fromMonth,

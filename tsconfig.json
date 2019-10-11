@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "build/lib",
+    "outDir": "/dev/null",
     "module": "commonjs",
     "target": "es5",
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
@@ -23,10 +23,5 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true
   },
-  "include": [
-    "src/**/*.tsx",
-    "src/classes/DateWithModifiers.ts",
-    "src/components/defaultClassNames.ts"
-  ],
-  "files": ["src/types/*.d.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"]
 }

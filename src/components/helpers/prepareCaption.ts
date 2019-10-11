@@ -1,12 +1,13 @@
-import { DayPicker } from 'types/DayPicker';
+import { DayPickerProps } from '../../types/DayPickerProps';
 
-/**
- * Return the props for the Caption component.
- */
-export function prepareCaption(props: DayPicker) {
+interface PreparedCaption {
+  containerProps: { className?: string; style?: React.CSSProperties };
+}
+
+export function prepareCaption(props: DayPickerProps): PreparedCaption {
   const { styles, classNames } = props;
   return {
-    htmlProps: {
+    containerProps: {
       className: classNames.caption,
       style: styles.caption,
     },

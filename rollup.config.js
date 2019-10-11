@@ -29,24 +29,24 @@ const sharedPlugins = [
 ];
 
 export default [
-  {
-    input,
-    onwarn,
-    output: {
-      name: 'DayPicker',
-      file: pkg.browser,
-      format: 'umd',
-      sourcemap: true,
-      globals: { react: 'React', 'date-fns': 'dateFns' },
-    },
-    plugins: [...sharedPlugins, terser(), sizeSnapshot(), stripPropTypes()],
-  },
+  // {
+  //   input,
+  //   onwarn,
+  //   output: {
+  //     name: 'DayPicker',
+  //     file: pkg.browser,
+  //     format: 'umd',
+  //     sourcemap: true,
+  //     globals: { react: 'React', 'date-fns': 'dateFns' },
+  //   },
+  //   plugins: [...sharedPlugins, terser(), sizeSnapshot(), stripPropTypes()],
+  // },
   {
     input,
     onwarn,
     output: [
-      { file: pkg.main, format: 'cjs', sourcemap: true },
-      { file: pkg.module, format: 'es', sourcemap: true },
+      // { file: pkg.main, format: 'cjs', sourcemap: true },
+      { file: pkg.main, format: 'es', sourcemap: true },
     ],
     plugins: sharedPlugins,
   },

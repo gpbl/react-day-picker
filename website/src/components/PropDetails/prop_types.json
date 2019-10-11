@@ -4,8 +4,8 @@
     "description": "",
     "name": "classNames",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -18,8 +18,8 @@
     "description": "",
     "name": "styles",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -32,8 +32,8 @@
     "description": "",
     "name": "className",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -46,8 +46,8 @@
     "description": "",
     "name": "style",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -60,8 +60,8 @@
     "description": "The month to show in the calendar.",
     "name": "month",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -74,8 +74,8 @@
     "description": "The number of months to show in the date picker. See also `pagedNavigation`\nand `reverseMonths`.",
     "name": "numberOfMonths",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -88,8 +88,8 @@
     "description": "Allow navigation only after this month.\n\nSee also `toMonth`.",
     "name": "fromMonth",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -102,8 +102,8 @@
     "description": "Allow navigation only before this month.\n\nSee also `fromMonth`.",
     "name": "toMonth",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -116,12 +116,12 @@
     "description": "When displaying multiple months, the navigation will be paginated\ndisplaying the `numberOfMonths` months at time instead of one.",
     "name": "pagedNavigation",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Boolean"
+      "name": "boolean"
     },
     "categories": {}
   },
@@ -130,12 +130,12 @@
     "description": "Render the months in reversed order. Useful when `numberOfMonths` is\ngreater than 1, to display the most recent month first.",
     "name": "reverseMonths",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Boolean"
+      "name": "boolean"
     },
     "categories": {}
   },
@@ -144,12 +144,12 @@
     "description": "Display 6 weeks per months, regardless the month’s number of weeks. Outside\ndays will be always shown if setting this to `true`. See also\n`showOutsideDays`.",
     "name": "fixedWeeks",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Boolean"
+      "name": "boolean"
     },
     "categories": {}
   },
@@ -158,12 +158,12 @@
     "description": "Show the month caption displaying the month and the year.",
     "name": "showCaption",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Boolean"
+      "name": "boolean"
     },
     "categories": {}
   },
@@ -172,12 +172,12 @@
     "description": "Show the month head containing the weekday names.",
     "name": "showHead",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Boolean"
+      "name": "boolean"
     },
     "categories": {}
   },
@@ -186,12 +186,12 @@
     "description": "Show the outside days. An outside day is a day displayed in a month but\nfalling in the next or the previous month. See also\n`enableOutsideDaysClick`.",
     "name": "showOutsideDays",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Boolean"
+      "name": "boolean"
     },
     "categories": {}
   },
@@ -200,12 +200,12 @@
     "description": "Enable click event for outside days. See also `showOutsideDays`.",
     "name": "enableOutsideDaysClick",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Boolean"
+      "name": "boolean"
     },
     "categories": {}
   },
@@ -214,12 +214,12 @@
     "description": "Show the week numbers. See also `onWeekNumberClick`.",
     "name": "showWeekNumber",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Boolean"
+      "name": "boolean"
     },
     "categories": {}
   },
@@ -228,12 +228,12 @@
     "description": "Show the navigation bar. `onMonthChange` must be set.",
     "name": "showNavigation",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Boolean"
+      "name": "boolean"
     },
     "categories": {}
   },
@@ -242,8 +242,8 @@
     "description": "The date passed when clicking the start button in the navigation.",
     "name": "startDay",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -256,8 +256,8 @@
     "description": "Label used for the start button in Navigation. Set it to empty string to\nhide the button.",
     "name": "startLabel",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -270,8 +270,8 @@
     "description": "Label used for the previous month button in Navigation. Set it to empty\nstring to hide the button.",
     "name": "prevLabel",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -284,8 +284,8 @@
     "description": "Label used for the next month button in Navigation. Set it to empty string\nto hide the button.",
     "name": "nextLabel",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -298,8 +298,8 @@
     "description": "Days that should appear as selected.",
     "name": "selected",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -312,8 +312,8 @@
     "description": "Days that should appear as disabled.",
     "name": "disabled",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -326,8 +326,8 @@
     "description": "Days that should not appear in the calendar.",
     "name": "hidden",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -340,8 +340,8 @@
     "description": "An object of modifiers.",
     "name": "modifiers",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -354,8 +354,8 @@
     "description": "Locale object for localization.",
     "name": "locale",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -368,8 +368,8 @@
     "description": "The text direction.",
     "name": "dir",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -379,43 +379,43 @@
   },
   "formatCaption": {
     "defaultValue": null,
-    "description": "Format the month caption text.\n\nThe formatter receives the month (as `Date` object) as first argument, and\nan option object with `locale` as second argument. It must return a String.\n\nThe default format is \"Month Year\".",
+    "description": "Format the month caption text.",
     "name": "formatCaption",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Function"
+      "name": "(month: Date, options?: FormatOptions) => string"
     },
     "categories": {}
   },
   "formatDay": {
     "defaultValue": null,
-    "description": "Format the content of the day element.\n\nThe formatter receives the day (as `Date` object) as first argument, and an option\nobject with `locale` as second argument. It must return a String.\n\nDefault is the day's date.",
+    "description": "Format the content of the day element.",
     "name": "formatDay",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Function"
+      "name": "(day?: Date, options?: FormatOptions) => string"
     },
     "categories": {}
   },
   "formatWeekdayName": {
     "defaultValue": null,
-    "description": "Format the weekday's name in the head element.\n\nThe formatter receives the day (as `Date` object) as first argument, and an option\nobject with `locale` as second argument. It must return a String.",
+    "description": "Format the weekday's name in the head element.",
     "name": "formatWeekdayName",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Function"
+      "name": "(day?: Date, options?: FormatOptions) => string"
     },
     "categories": {}
   },
@@ -424,12 +424,12 @@
     "description": "Format the week numbers (when `showWeekNumber` is set).\n\nThe formatter receives the week number as first argument, and an option\nobject with `locale` as second argument. It must return a String.",
     "name": "formatWeekNumber",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
-      "name": "Function"
+      "name": "(weekNumber: number, options?: FormatOptions) => string"
     },
     "categories": {}
   },
@@ -438,8 +438,8 @@
     "description": "React components replacing the native ones.\n\nTODO?: better description",
     "name": "components",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": true,
     "type": {
@@ -452,8 +452,8 @@
     "description": "Event handler when the user clicks on a day. Receives a `DateWithModifiers`\nobject as first argument, and the native event as second argument.",
     "name": "onDayClick",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -466,8 +466,8 @@
     "description": "Event handler when the month changes, e.g. when using the next/prev\nnavigation buttons. Receives a `Date` object as first argument, and the\nnative event as second argument.",
     "name": "onMonthChange",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -480,8 +480,8 @@
     "description": "Event handler when the next navigation button is clicked. Receives a `Date`\nobject as first argument, and the native event as second argument.",
     "name": "onNextClick",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -494,8 +494,8 @@
     "description": "Event handler when the prev navigation button is clicked. Receives a `Date`\nobject as first argument, and the native event as second argument.",
     "name": "onPrevClick",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {
@@ -508,8 +508,8 @@
     "description": "Event handler when the prev navigation button is clicked. Receives a `Date`\nobject as first argument, and the native event as second argument.",
     "name": "onStartClick",
     "parent": {
-      "fileName": "/Users/gp/Development/react-day-picker/src/types/props.d.ts",
-      "name": "DayPicker"
+      "fileName": "/Users/gp/Development/react-day-picker/src/types/DayPickerProps.d.ts",
+      "name": "DayPickerProps"
     },
     "required": false,
     "type": {

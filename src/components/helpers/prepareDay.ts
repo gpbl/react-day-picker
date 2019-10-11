@@ -1,16 +1,33 @@
-import { Modifiers } from 'types/Modifiers';
-import { DayPicker } from 'types/DayPicker';
+import { ModifierValues } from '../../types/Modifiers';
+import { DayPickerProps } from '../../types/DayPickerProps';
 
-/**
- * Return the props for the Day component.
- */
-export function prepareDay(day: Date, modifiers: Modifiers, props: DayPicker) {
+interface PreparedDay {
+  Container: 'button' | 'span';
+  containerProps: {
+    'aria-disabled'?: boolean;
+    disabled?: boolean;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    className?: string;
+    style?: React.CSSProperties;
+    [other: string]: any;
+  };
+  wrapperProps: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+}
+
+export function prepareDay(
+  day: Date,
+  modifiers: ModifierValues,
+  props: DayPickerProps
+): PreparedDay {
   const { onDayClick, styles, classNames } = props;
   const Container = modifiers.interactive ? 'button' : 'span';
 
   let onClick;
   if (modifiers.interactive && onDayClick) {
-    onClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    onClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
       e.stopPropagation();
       e.preventDefault();
       onDayClick(day, modifiers, e);
@@ -44,12 +61,12 @@ export function prepareDay(day: Date, modifiers: Modifiers, props: DayPicker) {
   const dataProps = {};
   Object.entries(modifiers)
     // eslint-disable-next-line no-unused-vars
-    .filter(([modifier, value]) => Boolean(value))
+    .filter(value => Boolean(value))
     .forEach(
       ([modifier, value]) => (dataProps[`data-rdp-${modifier}`] = value)
     );
 
-  const htmlProps = {
+  const containerProps = {
     'aria-disabled': !modifiers.interactive || undefined,
     disabled: modifiers.disabled || undefined,
     onClick,
@@ -57,10 +74,10 @@ export function prepareDay(day: Date, modifiers: Modifiers, props: DayPicker) {
     className: className.join(' '),
     ...dataProps,
   };
-  const wrapperHtmlProps = {
+  const wrapperProps = {
     className: classNames.dayWrapper,
     styles: styles.dayWrapper,
   };
 
-  return { Container, htmlProps, wrapperHtmlProps };
+  return { Container, containerProps, wrapperProps };
 }

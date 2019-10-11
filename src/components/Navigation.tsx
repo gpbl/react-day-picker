@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import { prepareNavigation } from './helpers';
-import { DayPicker } from 'types/DayPicker';
+import { DayPickerProps } from '../types/DayPickerProps';
 
 interface Navigation {
-  dayPickerProps: DayPicker;
+  dayPickerProps: DayPickerProps;
 }
 
 export const Navigation: React.FC<Navigation> = props => {
@@ -18,23 +18,23 @@ export const Navigation: React.FC<Navigation> = props => {
   } = dayPickerProps;
 
   const {
-    htmlProps,
-    htmlNextProps,
+    containerProps,
+    nextProps,
     nextMonth,
-    htmlPrevProps,
+    prevProps,
     prevMonth,
-    htmlStartProps,
+    startProps,
   } = prepareNavigation(dayPickerProps);
 
-  const handlePrevClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handlePrevClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     onMonthChange && onMonthChange(prevMonth, e);
     onPrevClick && onPrevClick(prevMonth, e);
   };
-  const handleNextClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleNextClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     onMonthChange && onMonthChange(nextMonth, e);
     onNextClick && onNextClick(nextMonth, e);
   };
-  const handleStartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleStartClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     onMonthChange && onMonthChange(startDay, e);
     onStartClick && onStartClick(startDay, e);
   };
@@ -43,11 +43,11 @@ export const Navigation: React.FC<Navigation> = props => {
     return null;
   }
 
-  let { startLabel, styles, classNames, prevLabel, nextLabel } = dayPickerProps;
+  const { startLabel, prevLabel, nextLabel } = dayPickerProps;
 
   const prevButton = prevLabel && (
     <button
-      {...htmlPrevProps}
+      {...prevProps}
       key="prev"
       disabled={!prevMonth}
       type="button"
@@ -59,7 +59,7 @@ export const Navigation: React.FC<Navigation> = props => {
 
   const startButton = startLabel && (
     <button
-      {...htmlStartProps}
+      {...startProps}
       key="start"
       type="button"
       onClick={handleStartClick}
@@ -70,7 +70,7 @@ export const Navigation: React.FC<Navigation> = props => {
 
   const nextButton = nextLabel && (
     <button
-      {...htmlNextProps}
+      {...nextProps}
       key={'next'}
       disabled={!nextMonth}
       type="button"
@@ -83,5 +83,5 @@ export const Navigation: React.FC<Navigation> = props => {
   if (dayPickerProps.dir === 'rtl') {
     buttons = buttons.reverse();
   }
-  return <div {...htmlProps}>{buttons}</div>;
+  return <div {...containerProps}>{buttons}</div>;
 };

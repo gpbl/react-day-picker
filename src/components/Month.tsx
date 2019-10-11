@@ -1,14 +1,14 @@
 import * as React from 'react';
 
-import { DayPicker } from 'types/DayPicker';
+import { DayPickerProps } from '../types/DayPickerProps';
 import { prepareMonth } from './helpers';
 
-interface Month {
+interface MonthProps {
   month: Date;
-  dayPickerProps: DayPicker;
+  dayPickerProps: DayPickerProps;
 }
 
-export const Month: React.FC<Month> = props => {
+export const Month: React.FC<MonthProps> = props => {
   const { month, dayPickerProps } = props;
   const {
     locale,

@@ -1,8 +1,13 @@
 import { ClassNames } from './ClassNames';
-import { Modifier, Modifiers } from './Modifier';
+import { Modifier, Modifiers } from './Modifiers';
 import { Styles } from './Styles';
+import { Components } from './Components';
 
-export interface DayPicker {
+export interface FormatOptions {
+  locale?: Locale;
+}
+
+export interface DayPickerProps {
   classNames: ClassNames;
   styles: Styles;
   className: string;
@@ -37,13 +42,13 @@ export interface DayPicker {
    * When displaying multiple months, the navigation will be paginated
    * displaying the `numberOfMonths` months at time instead of one.
    */
-  pagedNavigation: Boolean;
+  pagedNavigation: boolean;
 
   /**
    * Render the months in reversed order. Useful when `numberOfMonths` is
    * greater than 1, to display the most recent month first.
    */
-  reverseMonths: Boolean;
+  reverseMonths: boolean;
 
   // CUSTOMIZATION PROPS
 
@@ -52,41 +57,41 @@ export interface DayPicker {
    * days will be always shown if setting this to `true`. See also
    * `showOutsideDays`.
    */
-  fixedWeeks: Boolean;
+  fixedWeeks: boolean;
 
   /**
    * Show the month caption displaying the month and the year.
    */
-  showCaption: Boolean;
+  showCaption: boolean;
 
   /**
    * Show the month head containing the weekday names.
    */
-  showHead: Boolean;
+  showHead: boolean;
 
   /**
    * Show the outside days. An outside day is a day displayed in a month but
    * falling in the next or the previous month. See also
    * `enableOutsideDaysClick`.
    */
-  showOutsideDays: Boolean;
+  showOutsideDays: boolean;
 
   /**
    * Enable click event for outside days. See also `showOutsideDays`.
    */
-  enableOutsideDaysClick: Boolean;
+  enableOutsideDaysClick: boolean;
 
   /**
    * Show the week numbers. See also `onWeekNumberClick`.
    */
-  showWeekNumber: Boolean;
+  showWeekNumber: boolean;
 
   // NAVIGATION
 
   /**
    * Show the navigation bar. `onMonthChange` must be set.
    */
-  showNavigation: Boolean;
+  showNavigation: boolean;
 
   /**
    * The date passed when clicking the start button in the navigation.
@@ -147,31 +152,21 @@ export interface DayPicker {
 
   /**
    * Format the month caption text.
-   *
-   * The formatter receives the month (as `Date` object) as first argument, and
-   * an option object with `locale` as second argument. It must return a String.
-   *
-   * The default format is "Month Year".
    */
-  formatCaption: Function;
+  formatCaption: (month: Date, options?: FormatOptions) => string;
 
   /**
    * Format the content of the day element.
-   *
-   * The formatter receives the day (as `Date` object) as first argument, and an option
-   * object with `locale` as second argument. It must return a String.
-   *
-   * Default is the day's date.
    */
-  formatDay: Function;
+  formatDay: (day: Date = new Date(), options?: FormatOptions) => string;
 
   /**
    * Format the weekday's name in the head element.
-   *
-   * The formatter receives the day (as `Date` object) as first argument, and an option
-   * object with `locale` as second argument. It must return a String.
    */
-  formatWeekdayName: Function;
+  formatWeekdayName: (
+    day: Date = new Date(),
+    options?: FormatOptions
+  ) => string;
 
   /**
    * Format the week numbers (when `showWeekNumber` is set).
@@ -179,7 +174,7 @@ export interface DayPicker {
    * The formatter receives the week number as first argument, and an option
    * object with `locale` as second argument. It must return a String.
    */
-  formatWeekNumber: Function;
+  formatWeekNumber: (weekNumber: number, options?: FormatOptions) => string;
 
   /* #region CUSTOM COMPONENTS */
 

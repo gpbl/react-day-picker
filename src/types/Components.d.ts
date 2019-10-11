@@ -5,4 +5,5 @@ export interface Components {
   Month: React.ComponentElement;
   Navigation: React.ComponentElement;
   Week: React.ComponentElement;
+  WeekNumber: React.ComponentElement;
 }

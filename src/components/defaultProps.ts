@@ -7,36 +7,30 @@ import { Head } from './Head';
 import { Month } from './Month';
 import { Navigation } from './Navigation';
 import { Week } from './Week';
-import { DayPicker } from 'types/DayPicker';
+import { WeekNumber } from './WeekNumber';
+import { DayPickerProps, FormatOptions } from '../types/DayPickerProps';
 import { defaultClassNames } from './defaultClassNames';
 
-interface FormatOptions {
-  locale?: Locale;
-}
-
-function formatDay(day: Date, formatOptions?: FormatOptions): React.ReactNode {
+function formatDay(day: Date, formatOptions?: FormatOptions): string {
   return format(day, 'd', formatOptions);
 }
 
-function formatCaption(
-  month: Date,
-  formatOptions: FormatOptions
-): React.ReactNode {
+function formatCaption(month: Date, formatOptions?: FormatOptions): string {
   return format(month, 'LLLL yyyy', formatOptions);
 }
 
-function formatWeekdayName(
-  day: Date,
-  formatOptions: FormatOptions
-): React.ReactNode {
+function formatWeekdayName(day: Date, formatOptions?: FormatOptions): string {
   return format(day, 'E', formatOptions);
 }
 
-function formatWeekNumber(weekNumber: Number): React.ReactNode {
-  return weekNumber;
+function formatWeekNumber(
+  weekNumber: number,
+  _formatOptions?: FormatOptions
+): string {
+  return `${weekNumber}`;
 }
 
-const defaultProps: DayPicker = {
+const defaultProps: DayPickerProps = {
   enableOutsideDaysClick: false,
   classNames: defaultClassNames,
   className: '',
@@ -48,6 +42,7 @@ const defaultProps: DayPicker = {
     Month,
     Navigation,
     Week,
+    WeekNumber,
   },
   fixedWeeks: false,
   formatCaption,
@@ -55,8 +50,8 @@ const defaultProps: DayPicker = {
   formatWeekdayName,
   formatWeekNumber,
   locale,
-  month: startOfMonth(new Date()),
   nextLabel: '▶',
+  month: startOfMonth(new Date()),
   numberOfMonths: 1,
   pagedNavigation: false,
   prevLabel: '◀',

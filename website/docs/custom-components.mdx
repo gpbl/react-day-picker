@@ -24,13 +24,13 @@ function App() {
    * Day component adding support for `onDayEnter`, `onDayLeave`.
    */
   function Day({ day, modifiers, dayPickerProps }) {
-    const { htmlProps } = prepareDay(day, modifiers, dayPickerProps);
+    const { containerProps } = prepareDay(day, modifiers, dayPickerProps);
     const { onDayEnter, onDayLeave } = dayPickerProps;
     const handleMouseEnter = e => onDayEnter(day, modifiers, e);
     const handleMouseLeave = e => onDayLeave(day, modifiers, e);
     return (
       <div
-        {...htmlProps}
+        {...containerProps}
         onMouseEnter={onDayEnter ? handleMouseEnter : undefined}
         onMouseLeave={onDayLeave ? handleMouseLeave : undefined}
       >
@@ -100,10 +100,10 @@ function App() {
   }
   function Caption({ month, dayPickerProps }) {
     const { locale, onCaptionMonthChange } = dayPickerProps;
-    const { htmlProps } = prepareCaption(dayPickerProps);
+    const { containerProps } = prepareCaption(dayPickerProps);
 
     return (
-      <caption {...htmlProps}>
+      <caption {...containerProps}>
         <MonthSelect locale={locale} onChange={onCaptionMonthChange} />{' '}
         <small>{month.getFullYear()}</small>
       </caption>
@@ -143,11 +143,11 @@ import { DayPicker, prepareCaption } from 'react-day-picker';
 function App() {
   function Navigation({ month, dayPickerProps }) {
     const { locale, onMonthChange } = dayPickerProps;
-    const { prevMonth, nextMonth, htmlProps } = prepareNavigation(
+    const { prevMonth, nextMonth, containerProps } = prepareNavigation(
       dayPickerProps
     );
     return (
-      <div {...htmlProps}>
+      <div {...containerProps}>
         {prevMonth && (
           <button onClick={e => onMonthChange(prevMonth, e)}>Prev</button>
         )}

@@ -1,22 +1,24 @@
 import { isSameDay, differenceInDays } from 'date-fns';
-import { Modifier } from 'types/common';
+import { Modifier } from '../../types/Modifiers';
 
-function isDayAfter(day1: Date, day2: Date) {
+/**
+ * Return true if `day1` is after `day2`.
+ */
+function isDayAfter(day1: Date, day2: Date): boolean {
   return differenceInDays(day1, day2) > 0;
 }
-function isDayBefore(day1: Date, day2: Date) {
+
+/**
+ * Return true if `day1` is before `day2`.
+ */
+function isDayBefore(day1: Date, day2: Date): boolean {
   return differenceInDays(day1, day2) < 0;
 }
 
 /**
  * Return `true` if a date matches the specified modifier.
- *
- * @export
- * @param {Date} day
- * @param {Any} modifier
- * @return {Boolean}
  */
-function matchModifier(day: Date, modifier: Modifier) {
+export function matchModifier(day: Date, modifier: Modifier): boolean {
   if (!modifier) {
     return false;
   }
@@ -57,5 +59,3 @@ function matchModifier(day: Date, modifier: Modifier) {
     return false;
   });
 }
-
-export default matchModifier;

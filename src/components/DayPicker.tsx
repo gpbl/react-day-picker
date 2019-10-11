@@ -4,9 +4,9 @@ import { getTime } from 'date-fns';
 import { prepareDayPicker } from './helpers';
 import defaultProps from './defaultProps';
 
-import { DayPicker as DayPickerProps } from 'types/DayPicker';
-import { ClassNames } from 'types/ClassNames';
-import { Components } from 'types/Components';
+import { DayPickerProps } from '../types/DayPickerProps';
+import { ClassNames } from '../types/ClassNames';
+import { Components } from '../types/Components';
 
 import { filterEmpty } from './utils/filterEmpty';
 
@@ -33,7 +33,7 @@ export const DayPicker: React.FC<DayPickerProps> = (
   const style = { ...props.styles.container, ...props.style };
 
   // From `className prop`
-  let className = [props.classNames.container];
+  const className = [props.classNames.container];
   if (props.className) {
     className.concat(props.className.split(' '));
   }

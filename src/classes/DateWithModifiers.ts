@@ -1,23 +1,24 @@
 import { isSameDay, isToday } from 'date-fns';
 
-import { getModifiersForDay } from './utils/getModifiersForDay';
+import { listModifiers } from './utils/listModifiers';
 import { getModifiersFromProps } from './utils/getModifiersFromProps';
-import { DayPicker } from 'types/DayPicker';
+import { DayPickerProps } from '../types/DayPickerProps';
+import { ModifierValues } from '../types/Modifiers';
 
 const defaultModifiers = {
   hidden: false,
   disabled: false,
-  outside: false,
+  outside: '',
   interactive: true,
 };
 
 export interface DateWithModifiers {
   date: Date;
-  modifiers: object;
+  modifiers: ModifierValues;
 }
 
 export class DateWithModifiers {
-  constructor(date: Date, initialModifiers = {}, props: DayPicker) {
+  constructor(date: Date, initialModifiers = {}, props: DayPickerProps) {
     this.date = date;
 
     const modifiers = {
@@ -35,7 +36,7 @@ export class DateWithModifiers {
     );
 
     const modifiersFromProps = getModifiersFromProps(props);
-    const modifiersArray = getModifiersForDay(date, modifiersFromProps);
+    const modifiersArray = listModifiers(date, modifiersFromProps);
     modifiersArray.forEach(modifier => (modifiers[modifier] = true));
 
     if (!props.onDayClick || modifiers.hidden || modifiers.disabled) {
@@ -45,7 +46,7 @@ export class DateWithModifiers {
     this.modifiers = modifiers;
   }
 
-  getModifier(name: string) {
+  getModifier(name: string): string | boolean {
     return this.modifiers[name];
   }
 }

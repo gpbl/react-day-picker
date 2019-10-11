@@ -7,7 +7,7 @@
   "module": "lib/daypicker.module.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src",
+    "lint": "eslint src --ext .ts,.d.ts,.tsx",
     "build": "NODE_ENV=production rollup -c"
   },
   "files": [

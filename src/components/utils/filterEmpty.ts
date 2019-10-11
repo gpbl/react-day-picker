@@ -1,8 +1,6 @@
 export function filterEmpty(obj: object): object {
-  if (!obj) {
-    return {};
-  }
+  if (!obj) return {};
   return Object.entries(obj)
-    .filter(([key, value]) => value !== undefined)
+    .filter(value => typeof value !== undefined)
     .reduce((obj, [key, value]) => ((obj[key] = value), obj), {});
 }

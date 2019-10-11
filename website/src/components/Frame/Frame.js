@@ -18,18 +18,13 @@ export default function Frame({ children, height }) {
   React.useEffect(() => {
     resize = iframe => {
       if (height) {
-        console.log('Frame: setting height from prop');
         setFrameHeight(height);
         return;
       }
-
-      console.log('Frame: setting height from scrollHeight');
       const scrollHeight =
         iframe && iframe.node
           ? iframe.node.contentDocument.body.scrollHeight
           : 280;
-      console.log('Frame: setting frame height to: %s', scrollHeight);
-
       setFrameHeight(scrollHeight);
     };
   }, [children]);
@@ -47,7 +42,6 @@ export default function Frame({ children, height }) {
       }}
       ref={iframeRef}
       onLoad={() => {
-        console.log(iframeRef.current.node.contentDocument.body.scrollHeight);
         setTimeout(() => resize(iframeRef.current), 10);
         iframeRef.current && setTheme(iframeRef.current);
       }}

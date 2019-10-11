@@ -49,3 +49,13 @@ export interface ModifiersClassNames {
 export interface ModifiersStyles {
   [other: string]: React.CSSProperties;
 }
+
+export interface ModifierValues {
+  disabled?: boolean;
+  hidden?: boolean;
+  outside?: string;
+  selected?: boolean;
+  start?: boolean;
+  today?: boolean;
+  [other: string]: string | boolean;
+}

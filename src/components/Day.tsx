@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { prepareDay } from './helpers';
-import { DayPicker } from 'types/DayPicker';
-import { Modifiers } from 'types/Modifiers';
+import { DayPickerProps } from '../types/DayPickerProps';
+import { ModifierValues } from '../types/Modifiers';
 
 interface DayProps {
   day: Date;
-  modifiers: Modifiers;
-  dayPickerProps: DayPicker;
+  modifiers: ModifierValues;
+  dayPickerProps: DayPickerProps;
 }
 
 export const Day: React.FC<DayProps> = props => {
   const { day, modifiers, dayPickerProps } = props;
   const { locale, formatDay } = dayPickerProps;
 
-  const { Container, htmlProps, wrapperHtmlProps } = prepareDay(
+  const { Container, containerProps, wrapperProps } = prepareDay(
     day,
     modifiers,
     dayPickerProps
@@ -24,8 +24,8 @@ export const Day: React.FC<DayProps> = props => {
   }
 
   return (
-    <Container {...htmlProps}>
-      <span {...wrapperHtmlProps}>{formatDay(day, { locale })}</span>
+    <Container {...containerProps}>
+      <span {...wrapperProps}>{formatDay(day, { locale })}</span>
     </Container>
   );
 };

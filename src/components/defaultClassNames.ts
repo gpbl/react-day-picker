@@ -1,4 +1,4 @@
-import { ClassNames } from 'types/ClassNames';
+import { ClassNames } from '../types/ClassNames';
 
 export const defaultClassNames: ClassNames = {
   container: 'rdp',
@@ -28,8 +28,11 @@ export const defaultClassNames: ClassNames = {
 
   // Week Component
   week: 'rdp-week',
-  weekNumber: 'rdp-weeknumber',
   weekDay: 'rdp-week_day',
+  weekNumberContainer: 'rdp-week_weeknumber',
+
+  // WeekNumber component
+  weekNumber: 'rdp-weeknumber',
 
   // Modifiers
   modifiers: {

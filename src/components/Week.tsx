@@ -1,29 +1,30 @@
 import * as React from 'react';
 import { getUnixTime } from 'date-fns';
-import { DayPicker } from 'types/DayPicker';
-import { DateWithModifiers } from 'classes';
+import { DayPickerProps } from '../types/DayPickerProps';
+import { DateWithModifiers } from '../classes';
 
 interface Week {
-  weekNumber: Number;
+  weekNumber: number;
   week: DateWithModifiers[];
-  dayPickerProps: DayPicker;
+  dayPickerProps: DayPickerProps;
 }
 
 export const Week: React.FC<Week> = props => {
   const { weekNumber, week, dayPickerProps } = props;
-  const {
-    showWeekNumber,
-    classNames,
-    styles,
-    locale,
-    formatWeekNumber,
-    components: { Day },
-  } = dayPickerProps;
+  const { showWeekNumber, classNames, styles, components } = dayPickerProps;
+  const { Day, WeekNumber } = components;
   return (
     <tr className={classNames.week} style={styles.week}>
       {showWeekNumber && (
-        <th className={classNames.weekNumber} style={styles.weekNumber}>
-          {formatWeekNumber(Number(weekNumber), { locale })}
+        <th
+          className={classNames.weekNumberContainer}
+          style={styles.weekNumberContainer}
+        >
+          <WeekNumber
+            days={week}
+            number={weekNumber}
+            dayPickerProps={dayPickerProps}
+          />
         </th>
       )}
       {week.map(day => (

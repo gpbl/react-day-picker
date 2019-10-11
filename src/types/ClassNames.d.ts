@@ -22,8 +22,10 @@ export interface ClassNames {
   navNext?: string;
   // Week Component
   week?: string;
-  weekNumber?: string;
+  weekNumberContainer?: string;
   weekDay?: string;
+  // WeekNumber Component
+  weekNumber?: string;
   // Modifiers
   modifiers?: ModifiersClassNames;
 }
