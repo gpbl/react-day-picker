@@ -5,10 +5,10 @@ import { DayPickerProps } from 'types/props';
 interface PrepareNavigation {
   prevMonth?: Date;
   nextMonth?: Date;
-  currentMonth: Date;
-  handlePrevClick: Function;
-  handleNextClick: Function;
-  handleStartClick: Function;
+  htmlProps: object;
+  htmlNextProps: object;
+  htmlPrevProps: object;
+  htmlStartProps: object;
 }
 /**
  * Return the props for the Navigation component.
@@ -20,11 +20,8 @@ export function prepareNavigation(props: DayPickerProps): PrepareNavigation {
     month,
     numberOfMonths,
     pagedNavigation,
-    onMonthChange,
-    onNextClick,
-    onStartClick,
-    onPrevClick,
-    startDay,
+    classNames,
+    styles,
   } = props;
 
   const add = pagedNavigation ? numberOfMonths : 1;
@@ -43,26 +40,26 @@ export function prepareNavigation(props: DayPickerProps): PrepareNavigation {
     nextMonth = addMonths(currentMonth, add);
   }
 
-  const handlePrevClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    onMonthChange && onMonthChange(prevMonth, e);
-    onPrevClick && onPrevClick(prevMonth, e);
+  const htmlProps = { className: classNames.nav, style: styles.nav };
+  const htmlNextProps = {
+    className: classNames.navNext,
+    style: styles.navNext,
   };
-  const handleNextClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    onMonthChange && onMonthChange(nextMonth, e);
-    onNextClick && onNextClick(nextMonth, e);
+  const htmlPrevProps = {
+    className: classNames.navPrev,
+    style: styles.navPrev,
   };
-  const handleStartClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    onMonthChange && onMonthChange(startDay, e);
-    onStartClick && onStartClick(startDay, e);
+  const htmlStartProps = {
+    className: classNames.navStart,
+    style: styles.navStart,
   };
-
   const preparedNavigation: PrepareNavigation = {
-    prevMonth,
+    htmlProps,
+    htmlNextProps,
     nextMonth,
-    currentMonth,
-    handlePrevClick,
-    handleNextClick,
-    handleStartClick,
+    htmlPrevProps,
+    prevMonth,
+    htmlStartProps,
   };
 
   return preparedNavigation;
