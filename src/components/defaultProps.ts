@@ -11,22 +11,28 @@ import { DayPickerProps } from 'types/props';
 import { defaultClassNames } from './defaultClassNames';
 
 interface FormatOptions {
-  locale: Locale;
+  locale?: Locale;
 }
 
-function formatDay(day: Date, formatOptions: FormatOptions) {
+function formatDay(day: Date, formatOptions?: FormatOptions): React.ReactNode {
   return format(day, 'd', formatOptions);
 }
 
-function formatCaption(month: Date, formatOptions: FormatOptions) {
+function formatCaption(
+  month: Date,
+  formatOptions: FormatOptions
+): React.ReactNode {
   return format(month, 'LLLL yyyy', formatOptions);
 }
 
-function formatWeekdayName(day: Date, formatOptions: FormatOptions) {
+function formatWeekdayName(
+  day: Date,
+  formatOptions: FormatOptions
+): React.ReactNode {
   return format(day, 'E', formatOptions);
 }
 
-function formatWeekNumber(weekNumber: Number) {
+function formatWeekNumber(weekNumber: Number): React.ReactNode {
   return weekNumber;
 }
 

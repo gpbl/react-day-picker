@@ -9,10 +9,10 @@ interface CaptionProps {
 }
 
 export const Caption: React.FC<CaptionProps> = ({ month, dayPickerProps }) => {
-  const { props } = prepareCaption(dayPickerProps);
+  const { htmlProps } = prepareCaption(dayPickerProps);
   const { locale } = dayPickerProps;
   return (
-    <caption {...props}>
+    <caption {...htmlProps}>
       {dayPickerProps.formatCaption(month, { locale })}
     </caption>
   );

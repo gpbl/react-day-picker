@@ -6,7 +6,7 @@ import { DayPickerProps } from 'types/props';
 export function prepareCaption(props: DayPickerProps) {
   const { styles, classNames } = props;
   return {
-    props: {
+    htmlProps: {
       className: classNames.caption,
       style: styles.caption,
     },
