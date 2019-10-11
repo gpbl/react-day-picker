@@ -22,7 +22,7 @@ export interface Styles {
   navNext?: React.CSSProperties;
   // Week Component
   week?: React.CSSProperties;
-  weekNumberContainer?: React.CSSProperties;
+  weekWeeknumber?: React.CSSProperties;
   weekDay?: React.CSSProperties;
   // WeekNumber Component
   weekNumber?: React.CSSProperties;

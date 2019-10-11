@@ -2,13 +2,13 @@ import * as React from 'react';
 import { getTime } from 'date-fns';
 
 import { prepareDayPicker } from './helpers';
-import defaultProps from './defaultProps';
+import { defaultProps } from './defaultProps';
 
 import { DayPickerProps } from '../types/DayPickerProps';
 import { ClassNames } from '../types/ClassNames';
 import { Components } from '../types/Components';
 
-import { filterEmpty } from './utils/filterEmpty';
+import { filterUndefinedProps } from './utils/filterUndefinedProps';
 
 export const DayPicker: React.FC<DayPickerProps> = (
   initialProps = defaultProps
@@ -16,15 +16,15 @@ export const DayPicker: React.FC<DayPickerProps> = (
   // Extend props with defaults
   const components: Components = {
     ...defaultProps.components,
-    ...filterEmpty(initialProps.components),
+    ...filterUndefinedProps(initialProps.components),
   };
   const classNames: ClassNames = {
     ...defaultProps.classNames,
-    ...filterEmpty(initialProps.classNames),
+    ...filterUndefinedProps(initialProps.classNames),
   };
   const props: DayPickerProps = {
     ...defaultProps,
-    ...filterEmpty(initialProps),
+    ...filterUndefinedProps(initialProps),
     components,
     classNames,
   };

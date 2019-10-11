@@ -16,13 +16,10 @@ export const Week: React.FC<Week> = props => {
   return (
     <tr className={classNames.week} style={styles.week}>
       {showWeekNumber && (
-        <th
-          className={classNames.weekNumberContainer}
-          style={styles.weekNumberContainer}
-        >
+        <th className={classNames.weekWeeknumber} style={styles.weekWeeknumber}>
           <WeekNumber
-            days={week}
-            number={weekNumber}
+            days={week.map(day => day.date)}
+            number={Number(weekNumber)}
             dayPickerProps={dayPickerProps}
           />
         </th>

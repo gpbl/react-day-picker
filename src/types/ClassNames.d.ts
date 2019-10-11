@@ -22,7 +22,7 @@ export interface ClassNames {
   navNext?: string;
   // Week Component
   week?: string;
-  weekNumberContainer?: string;
+  weekWeeknumber?: string;
   weekDay?: string;
   // WeekNumber Component
   weekNumber?: string;

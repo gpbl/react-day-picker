@@ -29,7 +29,7 @@ export const defaultClassNames: ClassNames = {
   // Week Component
   week: 'rdp-week',
   weekDay: 'rdp-week_day',
-  weekNumberContainer: 'rdp-week_weeknumber',
+  weekWeeknumber: 'rdp-week_weeknumber',
 
   // WeekNumber component
   weekNumber: 'rdp-weeknumber',

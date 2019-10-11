@@ -4,6 +4,7 @@ import { DayPickerProps } from '../types/DayPickerProps';
 
 interface WeekNumberProps {
   number: number;
+  days: Array<Date>;
   dayPickerProps: DayPickerProps;
 }
 

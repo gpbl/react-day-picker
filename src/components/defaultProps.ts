@@ -30,7 +30,7 @@ function formatWeekNumber(
   return `${weekNumber}`;
 }
 
-const defaultProps: DayPickerProps = {
+export const defaultProps: DayPickerProps = {
   enableOutsideDaysClick: false,
   classNames: defaultClassNames,
   className: '',
@@ -65,5 +65,3 @@ const defaultProps: DayPickerProps = {
   startLabel: '●',
   styles: {},
 };
-
-export default defaultProps;
