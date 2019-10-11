@@ -10,7 +10,7 @@ const styles = {
   container: {},
   preview: {
     position: 'relative',
-    margin: '1em 0',
+    padding: '1.25em 1em 0em 1em',
   },
 };
 

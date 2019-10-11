@@ -6,7 +6,7 @@ title: Customization
 import CustomizationProps from '../src/components/CustomizationProps';
 import Frame from '../src/components/Frame';
 
-DayPicker offers various props to toggle features or customize the navigation. For more advanced customization, it is possible to use [Custom Components]('./custom-components.mdx').
+DayPicker offers various props to toggle features or customize the navigation.
 
 ## Toggle Calendar Features
 
@@ -24,7 +24,7 @@ To define the months within `DayPicker` can operate, use the `fromMonth` or `toM
 
 For example, the following day picker is restricted to the year 2019.
 
-```jsx
+```jsx preview
 import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 
@@ -42,13 +42,54 @@ function App() {
 }
 ```
 
+## Formatting Props
+
+Use formatting props to format the content of the day cell, the month’s caption,the weekday name or the weeknumber:
+
+```jsx preview
+import React, { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+import { format } from 'date-fns';
+
+function App() {
+  const formatDay = day => {
+    const suffix = day.getDay() === 2 ? '*' : '';
+    return `${day.getDate()}${suffix}`;
+  };
+
+  const formatCaption = (month, { locale }) => {
+    return `${format(month, 'dd/yyyy', { locale })}`;
+  };
+
+  const formatWeekdayName = (day, { locale }) => {
+    return format(day, 'E', { locale })[0];
+  };
+
+  const [month, setMonth] = useState(new Date());
+
+  return (
+    <DayPicker
+      month={month}
+      onMonthChange={setMonth}
+      showOutsideDays
+      showWeekNumber
+      formatDay={formatDay}
+      formatCaption={formatCaption}
+      formatWeekdayName={formatWeekdayName}
+    />
+  );
+}
+```
+
+For more advanced customization, it is possible to use [custom components]('./custom-components.mdx').
+
 ## Rendering Multiple Months
 
 To render multiple months,
 
-- use [`numberOfMonths`](./props#numberofmonths) to set the amount of months to render.
-- use [`pagedNavigation`](./props#pagednavigation) to navigate the number of months per time.
-- use [`reverseMonths`](./props#reversemonths) to display the last month first
+- use [`numberOfMonths`](./props#numberofmonths) to set the amount of months to render;
+- use [`pagedNavigation`](./props#pagednavigation) to navigate the number of months per time;
+- use [`reverseMonths`](./props#reversemonths) to display the last month first.
 
 ```jsx preview
 import { DayPicker } from 'react-day-picker';

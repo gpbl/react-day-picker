@@ -34,7 +34,7 @@
   --ifm-table-stripe-background: transparent;
   /* --ifm-menu-link-padding-vertical: 0.25em; */
   /* --ifm-menu-link-padding-horizontal: 1em; */
-  --ifm-contents-link-color: var(--ifm-color-emphasis-alpha-60);
+  --ifm-contents-link-color: var(--ifm-color-emphasis-alpha-80);
   --ifm-contents-border-color: var(--ifm-color-emphasis-alpha-10);
 }
 
@@ -48,7 +48,6 @@ body {
 }
 
 [class^='mdxCodeBlock'] {
-  box-shadow: none !important;
   border: none !important;
 }
 

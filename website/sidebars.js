@@ -9,6 +9,6 @@ module.exports = {
       'localization',
       'custom-components',
     ],
-    API: ['props', 'utils'],
+    ['API Reference']: ['props', 'utils'],
   },
 };

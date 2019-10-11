@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import PrismHighlight, { defaultProps } from 'prism-react-renderer';
 
-// import lightTheme from 'prism-react-renderer/themes/nightOwlLight';
-import darkTheme from 'prism-react-renderer/themes/github';
+import lightTheme from 'prism-react-renderer/themes/github';
+import darkTheme from 'prism-react-renderer/themes/vsDark';
 
+import useTheme from './hooks/useTheme';
 /**
  * Highlight code with PrismHighlight.
  */
 function Highlight({ code, language = 'jsx' }) {
+  const [theme, setTheme] = useState('light');
+  useTheme(newTheme => setTheme(newTheme));
   return (
     <PrismHighlight
       {...defaultProps}
-      theme={darkTheme}
+      theme={theme === 'light' ? lightTheme : darkTheme}
       code={code.trim()}
       language={language}
     >

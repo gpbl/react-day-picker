@@ -49,22 +49,13 @@ const config = {
         {
           title: 'Docs',
           items: [
-            {
-              label: 'Docs',
-              to: 'docs/intro',
-            },
-            {
-              label: 'API',
-              to: 'docs/props',
-            },
+            { label: 'Docs', to: 'docs/intro' },
+            { label: 'API', to: 'docs/props' },
           ],
         },
       ],
-      logo: {
-        alt: '',
-        src: '',
-      },
-      copyright: `Copyright © ${new Date().getFullYear()}. Built with Docusaurus.`,
+      logo: { alt: '', src: '' },
+      copyright: `Copyright © ${new Date().getFullYear()} gpbl & contributors. Built with Docusaurus.`,
     },
   },
   presets: [

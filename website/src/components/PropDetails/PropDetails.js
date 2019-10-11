@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 // Generate prop types via `yarn build-props`
 import PROP_TYPES from './prop_types.json';
-console.log(PROP_TYPES);
 import Deprecated from './Deprecated';
 
 import DefaultValue from './DefaultValue';

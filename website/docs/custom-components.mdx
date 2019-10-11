@@ -3,64 +3,167 @@ id: custom-components
 title: Custom Components
 ---
 
-Use the [`components`](./components) prop to change the calendar’s components.
-Custom components are useful to implement additional features or customize
-the calendar.
+Use the [`components`](./components) prop to change DayPicker internal components.
+Custom components are useful to implement additional features or further [customize](./customization) the calendar.
 
-## Day Custom Component
+## Day Component
 
 To change the day component:
 
 1. create a `Day` component with `day`, [`modifiers`](./modifiers) and `dayPickerProps` props;
 2. (optional) get DayPicker-specific props via [`prepareDay`](./utils#prepareDay);
-3. (optional) extend DayPicker props
-4. pass the `Day` component to the `components` prop.
+3. pass the `Day` component to the `components` prop.
 
 For example, the following DayPicker implements a `Day` component that supports `onDayEnter`, `onDayLeave` events:
 
-```jsx
+```jsx preview
 import { DayPicker, prepareDay } from 'react-day-picker';
 
-/**
- * Day component adding support for `onDayEnter`, `onDayLeave`.
- */
-function Day({ day, modifiers, dayPickerProps }) {
-  const { htmlProps } = prepareDay(day, modifiers, dayPickerProps);
-  const { onDayEnter, onDayLeave } = dayPickerProps;
-  const handleMouseEnter = e => onDayEnter(day, modifiers, e);
-  const handleMouseLeave = e => onDayLeave(day, modifiers, e);
-  return (
-    <div
-      {...htmlProps}
-      onMouseEnter={onDayEnter ? handleMouseEnter : undefined}
-      onMouseLeave={onDayLeave ? handleDayLeave : undefined}
-    >
-      {day.getDate()}
-    </div>
-  );
-}
-
-/**
- * Extended DayPicker component adding support for `onDayEnter`, `onDayLeave`
- */
-function ExtendedDayPicker({ onDayEnter, onDayLeave, ...props }) {
-  return;
-  <DayPicker
-    {...props}
-    components={{ Day }}
-    onDayEnter={onDayEnter}
-    onDayLeave={onDayLeave}
-  />;
-}
-
 function App() {
+  /**
+   * Day component adding support for `onDayEnter`, `onDayLeave`.
+   */
+  function Day({ day, modifiers, dayPickerProps }) {
+    const { htmlProps } = prepareDay(day, modifiers, dayPickerProps);
+    const { onDayEnter, onDayLeave } = dayPickerProps;
+    const handleMouseEnter = e => onDayEnter(day, modifiers, e);
+    const handleMouseLeave = e => onDayLeave(day, modifiers, e);
+    return (
+      <div
+        {...htmlProps}
+        onMouseEnter={onDayEnter ? handleMouseEnter : undefined}
+        onMouseLeave={onDayLeave ? handleMouseLeave : undefined}
+      >
+        {day.getDate()}
+      </div>
+    );
+  }
+
+  /**
+   * Extended DayPicker component adding support for `onDayEnter`, `onDayLeave`
+   */
+  function ExtendedDayPicker({ onDayEnter, onDayLeave, ...props }) {
+    return (
+      <DayPicker
+        {...props}
+        components={{ Day }}
+        onDayEnter={onDayEnter}
+        onDayLeave={onDayLeave}
+      />
+    );
+  }
+
   const [month, setMonth] = useState();
+
   return (
     <ExtendedDayPicker
       month={month}
+      onCaptionMonthChange={setMonth}
+      onDayEnter={(day, modifiers) => console.log(day, modifiers)}
+      onDayLeave={(day, modifiers) => console.log(day, modifiers)}
+    />
+  );
+}
+```
+
+## Caption Component
+
+To change the caption component:
+
+1. create a `Caption` component with `month` and `dayPickerProps` props;
+2. (optional) get DayPicker-specific props via [`prepareCaption`](./utils#prepareCaption);
+3. pass the `Caption` component to the `components` prop.
+
+For example, the following DayPicker implements a `Caption` component to switch the month of the current year:
+
+```jsx preview
+import { DayPicker, prepareCaption } from 'react-day-picker';
+
+function App() {
+  function MonthSelect({ locale, onChange }) {
+    const months = [];
+    for (let i = 0; i < 12; i++) {
+      months.push(locale.localize.month(i));
+    }
+    return (
+      <select
+        value={month.getMonth()}
+        onChange={onChange ? e => onChange(Number(e.target.value)) : undefined}
+      >
+        {months.map((month, i) => (
+          <option key={i} value={i}>
+            {month}
+          </option>
+        ))}
+      </select>
+    );
+  }
+  function Caption({ month, dayPickerProps }) {
+    const { locale, onCaptionMonthChange } = dayPickerProps;
+    const { htmlProps } = prepareCaption(dayPickerProps);
+
+    return (
+      <caption {...htmlProps}>
+        <MonthSelect locale={locale} onChange={onCaptionMonthChange} />{' '}
+        <small>{month.getFullYear()}</small>
+      </caption>
+    );
+  }
+
+  const [month, setMonth] = useState(new Date());
+  const handleCaptionMonthChange = m => {
+    const newMonth = new Date(month);
+    newMonth.setMonth(m);
+    setMonth(newMonth);
+  };
+  return (
+    <DayPicker
+      month={month}
       onMonthChange={setMonth}
-      onDayEnter={day => console.log(day, modifiers)}
-      onDayLeave={day => console.log(day, modifiers)}
+      onCaptionMonthChange={handleCaptionMonthChange}
+      components={{ Caption }}
+    />
+  );
+}
+```
+
+## Navigation Component
+
+To change the navigation component:
+
+1. create a `Navigation` component with a `dayPickerProps` prop;
+2. (optional) get DayPicker-specific props via [`prepareNavigation`](./utils#prepareNavigation);
+3. pass the `Navigation` component to the `components` prop.
+
+For example, the following DayPicker implements a `Navigation` without the start button:
+
+```jsx preview
+import { DayPicker, prepareCaption } from 'react-day-picker';
+
+function App() {
+  function Navigation({ month, dayPickerProps }) {
+    const { locale, onMonthChange } = dayPickerProps;
+    const { prevMonth, nextMonth, htmlProps } = prepareNavigation(
+      dayPickerProps
+    );
+    return (
+      <div {...htmlProps}>
+        {prevMonth && (
+          <button onClick={e => onMonthChange(prevMonth, e)}>Prev</button>
+        )}
+        {nextMonth && (
+          <button onClick={e => onMonthChange(nextMonth, e)}>Next</button>
+        )}
+      </div>
+    );
+  }
+
+  const [month, setMonth] = useState(new Date());
+  return (
+    <DayPicker
+      month={month}
+      onMonthChange={setMonth}
+      components={{ Navigation }}
     />
   );
 }
