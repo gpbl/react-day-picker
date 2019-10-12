@@ -130,13 +130,13 @@
 .rdp-day_today {
   position: relative;
 
-  border: 2px solid #FA383E;
+  border: 2px solid #FC466B;
   border-radius: 100%;
   font-weight: bold;
 }
 .rdp-day_selected {
   border-radius: 100%;
-  background: #2196F3;
+  background: #3F5EFB;
   color: white;
 }
 /* #endregion */
