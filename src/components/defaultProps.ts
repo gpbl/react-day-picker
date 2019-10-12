@@ -5,7 +5,7 @@ import { Caption } from './Caption';
 import { Day } from './Day';
 import { Navigation } from './Navigation';
 import { WeekNumber } from './WeekNumber';
-import { DayPickerProps, FormatOptions } from '../types/DayPickerProps';
+import { DayPickerProps, FormatOptions } from '../types/DayPicker';
 import { defaultClassNames } from './defaultClassNames';
 
 function formatDay(day: Date, formatOptions?: FormatOptions): string {
@@ -20,10 +20,7 @@ function formatWeekdayName(day: Date, formatOptions?: FormatOptions): string {
   return format(day, 'E', formatOptions);
 }
 
-function formatWeekNumber(
-  weekNumber: number,
-  _formatOptions?: FormatOptions
-): string {
+function formatWeekNumber(weekNumber: number): string {
   return `${weekNumber}`;
 }
 

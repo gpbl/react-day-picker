@@ -2,7 +2,7 @@ import { isSameDay, isToday } from 'date-fns';
 
 import { listModifiers } from './utils/listModifiers';
 import { getModifiersFromProps } from './utils/getModifiersFromProps';
-import { DayPickerProps } from '../types/DayPickerProps';
+import { DayPickerProps } from '../types/DayPicker';
 import { MatchingModifiers, ModifierValueType } from '../types/Modifiers';
 
 const defaultModifiers: MatchingModifiers = {

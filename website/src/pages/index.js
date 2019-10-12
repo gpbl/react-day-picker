@@ -7,6 +7,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import withBaseUrl from '@docusaurus/withBaseUrl';
 import styles from './styles.module.css';
 
+import { DayPicker } from 'react-day-picker';
+
 const features = [
   {
     title: <>Easy to Use</>,
@@ -15,6 +17,7 @@ const features = [
       <>
         Docusaurus was designed from the ground up to be easily installed and
         used to get your website up and running quickly.
+        <DayPicker components={new Date()} />
       </>
     ),
   },

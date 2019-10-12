@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { prepareCaption } from './helpers';
-import { DayPickerProps } from '../types/DayPickerProps';
+import { DayPickerProps } from '../types/DayPicker';
 
 export interface CaptionProps {
   month: Date;

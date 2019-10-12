@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { DayPickerProps } from '../types/DayPickerProps';
+import { DayPickerProps } from '../types/DayPicker';
 
 export interface WeekNumberProps {
   number: number;

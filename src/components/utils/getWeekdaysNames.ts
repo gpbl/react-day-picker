@@ -1,5 +1,5 @@
 import { startOfWeek, addDays } from 'date-fns';
-import { DayPickerProps } from '../../types/DayPickerProps';
+import { DayPickerProps } from '../../types/DayPicker';
 
 const date = new Date();
 

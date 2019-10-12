@@ -4,7 +4,7 @@ import { getTime } from 'date-fns';
 import { prepareDayPicker } from './helpers';
 import { defaultProps } from './defaultProps';
 
-import { DayPickerProps } from '../types/DayPickerProps';
+import { DayPickerProps } from '../types/DayPicker';
 import { ClassNames } from '../types/ClassNames';
 import { Components } from '../types/Components';
 

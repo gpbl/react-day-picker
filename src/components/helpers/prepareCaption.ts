@@ -1,4 +1,4 @@
-import { DayPickerProps } from '../../types/DayPickerProps';
+import { DayPickerProps } from '../../types/DayPicker';
 
 interface PreparedCaption {
   containerProps: { className?: string; style?: React.CSSProperties };

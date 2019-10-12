@@ -1,5 +1,5 @@
 import { addMonths, differenceInMonths, startOfMonth } from 'date-fns';
-import { DayPickerProps } from '../../types/DayPickerProps';
+import { DayPickerProps } from '../../types/DayPicker';
 
 interface PrepareDayPicker {
   months: Array<Date>;

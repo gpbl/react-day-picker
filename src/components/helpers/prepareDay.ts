@@ -1,5 +1,5 @@
 import { MatchingModifiers, ModifierValueType } from '../../types/Modifiers';
-import { DayPickerProps } from '../../types/DayPickerProps';
+import { DayPickerProps } from '../../types/DayPicker';
 
 interface PreparedDay {
   Container: 'button' | 'span';

@@ -1,13 +1,13 @@
-import { ClassNames } from './ClassNames';
+import { ClassNames } from '../types/ClassNames';
 import {
   Modifier,
   Modifiers,
   ModifiersStyles,
   ModifiersClassNames,
   MatchingModifiers,
-} from './Modifiers';
-import { Styles } from './Styles';
-import { Components } from './Components';
+} from '../types/Modifiers';
+import { Styles } from '../types/Styles';
+import { Components } from '../types/Components';
 
 export interface FormatOptions {
   locale?: Locale;
