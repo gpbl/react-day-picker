@@ -17,14 +17,12 @@ yarn add date-fns react-day-picker
 npm install date-fns react-day-picker
 ```
 
-2. import `DayPicker` in your script:
+2. import DayPicker in your script.
 
 ```jsx preview
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from 'react-day-picker';
 
 function App() {
-  return <DayPicker />;
+  return <DayPicker onMonthChange={console.log} onDayClick={console.log} />;
 }
 ```
-
-Without any props, DayPicker renders the today’s monthly calendar. See [Using DayPicker](./basics) to learn how to add features to the component. You may want also to give a look to the [DayPicker props](./props).

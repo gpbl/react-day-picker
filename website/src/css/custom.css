@@ -14,20 +14,14 @@
 /* You can override the default cz variables here. */
 :root {
   --ifm-code-font-size: 12px;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-color-primary: #3f5efb;
   --ifm-color-secondary: #fc466b;
   --ifm-font-base-color: var(--ifm-color-emphasis-alpha-80);
-  --ifm-font-size-base: 15px;
-  --ifm-global-radius: 4px;
+  /* --ifm-font-size-base: 15px; */
+  /* --ifm-global-radius: 4px; */
   --ifm-code-border-radius: 2px;
   /* --ifm-code-background: #f6f8fa; */
-  --ifm-list-margin: 0.875em;
+  /* --ifm-list-margin: 0.875em; */
   --ifm-table-border-width: 0;
   --ifm-table-cell-padding: 7px;
   --ifm-table-head-background: var(--ifm-color-emphasis-alpha-05);

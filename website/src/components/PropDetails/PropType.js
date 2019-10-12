@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Highlight from '../Highlight';
 
 function PropType({ value, name }) {
   switch (name) {
