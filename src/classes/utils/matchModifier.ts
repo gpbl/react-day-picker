@@ -1,5 +1,5 @@
 import { isSameDay, differenceInDays } from 'date-fns';
-import { Modifier } from '../../types/Modifiers';
+import { Modifier, Modifiers } from '../../types/Modifiers';
 
 /**
  * Return true if `day1` is after `day2`.
@@ -22,39 +22,51 @@ export function matchModifier(day: Date, modifier: Modifier): boolean {
   if (!modifier) {
     return false;
   }
-  const arr = Array.isArray(modifier) ? modifier : [modifier];
-  return arr.some(mod => {
-    if (!mod) {
+  let modifiers: Array<Modifier>;
+
+  if (Array.isArray(modifier)) {
+    modifiers = modifier;
+  } else {
+    modifiers = [modifier];
+  }
+
+  return modifiers.some((modifier: Modifier) => {
+    if (!modifier) {
       return false;
     }
-    if (mod instanceof Date) {
-      return isSameDay(day, mod);
+    if (modifier instanceof Date) {
+      return isSameDay(day, modifier);
     }
     if (
-      mod.after &&
-      mod.before &&
-      differenceInDays(mod.before, mod.after) > 0
+      'after' in modifier &&
+      'before' in modifier &&
+      differenceInDays(modifier.before, modifier.after) > 0
     ) {
-      return isDayAfter(day, mod.after) && isDayBefore(day, mod.before);
+      return (
+        isDayAfter(day, modifier.after) && isDayBefore(day, modifier.before)
+      );
     }
     if (
-      mod.after &&
-      mod.before &&
-      (isDayAfter(mod.after, mod.before) || isSameDay(mod.after, mod.before))
+      'after' in modifier &&
+      'before' in modifier &&
+      (isDayAfter(modifier.after, modifier.before) ||
+        isSameDay(modifier.after, modifier.before))
     ) {
-      return isDayAfter(day, mod.after) || isDayBefore(day, mod.before);
+      return (
+        isDayAfter(day, modifier.after) || isDayBefore(day, modifier.before)
+      );
     }
-    if (mod.after) {
-      return isDayAfter(day, mod.after);
+    if ('after' in modifier) {
+      return isDayAfter(day, modifier.after);
     }
-    if (mod.before) {
-      return isDayBefore(day, mod.before);
+    if ('before' in modifier) {
+      return isDayBefore(day, modifier.before);
     }
-    if (mod.daysOfWeek) {
-      return day.getDay() === mod.daysOfWeek;
+    if ('daysOfWeek' in modifier) {
+      return modifier.daysOfWeek.includes(day.getDay());
     }
-    if (typeof mod === 'function') {
-      return mod(day);
+    if (typeof modifier === 'function') {
+      return modifier(day);
     }
     return false;
   });
