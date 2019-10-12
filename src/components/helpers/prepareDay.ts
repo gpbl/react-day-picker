@@ -1,4 +1,4 @@
-import { ModifierValues } from '../../types/Modifiers';
+import { MatchingModifiers, ModifierValueType } from '../../types/Modifiers';
 import { DayPickerProps } from '../../types/DayPickerProps';
 
 interface PreparedDay {
@@ -18,7 +18,7 @@ interface PreparedDay {
 
 export function prepareDay(
   day: Date,
-  modifiers: ModifierValues,
+  modifiers: MatchingModifiers,
   props: DayPickerProps
 ): PreparedDay {
   const {
@@ -64,12 +64,12 @@ export function prepareDay(
       });
   }
 
-  const dataProps = {};
+  const dataProps: { [key: string]: ModifierValueType } = {};
   Object.entries(modifiers)
     .filter(value => Boolean(value))
-    .forEach(
-      ([modifier, value]) => (dataProps[`data-rdp-${modifier}`] = value)
-    );
+    .forEach(([modifier, value]) => {
+      dataProps[`data-rdp-${modifier}`] = value;
+    });
 
   const containerProps = {
     'aria-disabled': !modifiers.interactive || undefined,

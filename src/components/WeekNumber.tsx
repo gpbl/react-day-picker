@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { DayPickerProps } from '../types/DayPickerProps';
 
-interface WeekNumberProps {
+export interface WeekNumberProps {
   number: number;
   days: Array<Date>;
   dayPickerProps: DayPickerProps;

@@ -72,14 +72,12 @@
 /* #endregion */
 /* #region Navigation */
 .rdp-nav {
-  /* Navigation bar */
   position: absolute;
   top: 1em;
   right: 1em;
 }
 .rdp[dir='rtl'] .rdp-nav {
   right: auto;
-  /* Toggle navigation position on rtl */
   left: 1em;
 }
 .rdp-nav_start {

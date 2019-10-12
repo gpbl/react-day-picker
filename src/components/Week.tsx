@@ -3,13 +3,13 @@ import { getUnixTime } from 'date-fns';
 import { DayPickerProps } from '../types/DayPickerProps';
 import { DateWithModifiers } from '../classes';
 
-interface Week {
+export interface WeekProps {
   weekNumber: number;
   week: DateWithModifiers[];
   dayPickerProps: DayPickerProps;
 }
 
-export const Week: React.FC<Week> = props => {
+export const Week: React.FC<WeekProps> = props => {
   const { weekNumber, week, dayPickerProps } = props;
   const { showWeekNumber, classNames, styles, components } = dayPickerProps;
   const { Day, WeekNumber } = components;

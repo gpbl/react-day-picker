@@ -2,8 +2,10 @@ import * as React from 'react';
 
 import { DayPickerProps } from '../types/DayPickerProps';
 import { prepareMonth } from './helpers';
+import { Head } from './Head';
+import { Week } from './Week';
 
-interface MonthProps {
+export interface MonthProps {
   month: Date;
   dayPickerProps: DayPickerProps;
 }
@@ -16,7 +18,7 @@ export const Month: React.FC<MonthProps> = props => {
     showHead,
     classNames,
     styles,
-    components: { Caption, Head, Week },
+    components: { Caption },
   } = dayPickerProps;
   const { weeks } = prepareMonth(month, dayPickerProps);
   return (
@@ -37,7 +39,7 @@ export const Month: React.FC<MonthProps> = props => {
             <Week
               key={weekNumber}
               week={weeks[weekNumber]}
-              weekNumber={weekNumber}
+              weekNumber={Number(weekNumber)}
               dayPickerProps={dayPickerProps}
             />
           ))}

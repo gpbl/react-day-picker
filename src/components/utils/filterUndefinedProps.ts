@@ -1,12 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 /**
  * Filter the undefined props of `obj`.
  */
-export function filterUndefinedProps(obj: object): object {
-  const clean = { ...obj };
-  Object.entries(clean).forEach(([key, value]) => {
+export function filterUndefinedProps(obj: {
+  [index: string]: any;
+}): { [index: string]: any } {
+  const clean: { [index: string]: any } = {};
+  Object.entries(obj).forEach(([key, value]) => {
     if (typeof value === 'undefined') {
-      delete clean[key];
+      return;
     }
+    clean[key.toString()] = value;
   });
   return clean;
 }

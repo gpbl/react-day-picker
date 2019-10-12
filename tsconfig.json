@@ -1,27 +1,42 @@
 {
   "compilerOptions": {
-    "outDir": "/tmp/r-d-p",
-    "module": "commonjs",
+    "outDir": "lib",
+    "module": "ES2015",
     "target": "es5",
-    "lib": ["es5", "es6", "es7", "es2017", "dom"],
+    "lib": ["es6", "dom"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDirs": ["src", ".storybook"],
-    "baseUrl": "src",
-    "forceConsistentCasingInFileNames": true,
+    "rootDir": "src",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "declaration": false,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "skipLibCheck": true
+    "strictNullChecks": true
+    // "declaration": true,
+
+    // "declarationMap": true
+    // "jsx": "react",
+    // "sourceMap": true,
+    // "noImplicitThis": true,
+    // "noImplicitAny": true,
+    // "forceConsistentCasingInFileNames": true,
+    // "noImplicitReturns": true,
+    // "strictNullChecks": true,
+    // "noUnusedLocals": true,
+    // "module": "commonjs",
+    // "target": "es5",
+    // "lib": ["es5", "es6", "es7", "es2017", "dom"],
+    // // "allowJs": true,
+    // "moduleResolution": "node",
+    // "rootDirs": ["src", ".storybook"],
+    // "baseUrl": "src",
+    // "suppressImplicitAnyIndexErrors": true,
+    // "allowSyntheticDefaultImports": true,
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
+    // "skipLibCheck": true
   },
-  "include": ["./src"]
+  "include": ["src"]
+  // "files": ["./src/index.ts"]
 }

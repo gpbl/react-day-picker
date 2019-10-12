@@ -3,10 +3,7 @@ import { startOfMonth, format } from 'date-fns';
 
 import { Caption } from './Caption';
 import { Day } from './Day';
-import { Head } from './Head';
-import { Month } from './Month';
 import { Navigation } from './Navigation';
-import { Week } from './Week';
 import { WeekNumber } from './WeekNumber';
 import { DayPickerProps, FormatOptions } from '../types/DayPickerProps';
 import { defaultClassNames } from './defaultClassNames';
@@ -38,10 +35,7 @@ export const defaultProps: DayPickerProps = {
   components: {
     Caption,
     Day,
-    Head,
-    Month,
     Navigation,
-    Week,
     WeekNumber,
   },
   fixedWeeks: false,

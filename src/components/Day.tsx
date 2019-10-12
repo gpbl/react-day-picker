@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { prepareDay } from './helpers';
 import { DayPickerProps } from '../types/DayPickerProps';
-import { ModifierValues } from '../types/Modifiers';
+import { MatchingModifiers } from '../types/Modifiers';
 
-interface DayProps {
+export interface DayProps {
   day: Date;
-  modifiers: ModifierValues;
+  modifiers: MatchingModifiers;
   dayPickerProps: DayPickerProps;
 }
 

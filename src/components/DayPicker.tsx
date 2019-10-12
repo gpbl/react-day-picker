@@ -8,6 +8,8 @@ import { DayPickerProps } from '../types/DayPickerProps';
 import { ClassNames } from '../types/ClassNames';
 import { Components } from '../types/Components';
 
+import { Month } from './Month';
+
 import { filterUndefinedProps } from './utils/filterUndefinedProps';
 
 export const DayPicker: React.FC<DayPickerProps> = (
@@ -40,8 +42,7 @@ export const DayPicker: React.FC<DayPickerProps> = (
   const classNameStr = className.join(' ');
 
   const { months } = prepareDayPicker(props);
-  const { Navigation, Month } = props.components;
-
+  const { Navigation } = props.components;
   return (
     <div className={classNameStr} style={style} dir={props.dir}>
       {props.showNavigation && <Navigation dayPickerProps={props} />}
@@ -50,12 +51,7 @@ export const DayPicker: React.FC<DayPickerProps> = (
         style={props.styles ? props.styles.month : undefined}
       >
         {months.map((month: Date) => (
-          <Month
-            key={getTime(month)}
-            month={month}
-            months={months}
-            dayPickerProps={props}
-          />
+          <Month key={getTime(month)} month={month} dayPickerProps={props} />
         ))}
       </div>
     </div>

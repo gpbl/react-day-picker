@@ -4,6 +4,7 @@ import {
   Modifiers,
   ModifiersStyles,
   ModifiersClassNames,
+  MatchingModifiers,
 } from './Modifiers';
 import { Styles } from './Styles';
 import { Components } from './Components';
@@ -20,7 +21,7 @@ export interface DayPickerProps {
    */
   classNames: ClassNames;
   /**
-   * The class names for the day modifiers specified via the `modifiers`.
+   * The class names for the day modifiers specified via `modifiers`.
    */
   modifiersClassNames: ModifiersClassNames;
   // #endregion
@@ -32,7 +33,7 @@ export interface DayPickerProps {
    */
   styles: Styles;
   /**
-   * The inline-styles for the day modifiers specified via the `modifiers`.
+   * The inline-styles for the day modifiers specified via `modifiers`.
    */
   modifiersStyles: ModifiersStyles;
   // #endregion
@@ -126,15 +127,15 @@ export interface DayPickerProps {
 
   // #region MODIFIERS
   /**
-   * Days that should appear as selected.
+   * Style the matching days as selected.
    */
   selected?: Modifier;
   /**
-   * Days that should appear as disabled.
+   * Disable the matching days. Disabled days cannot be clicked.
    */
   disabled?: Modifier;
   /**
-   * Days that should not appear in the calendar.
+   * Hide the matching days.
    */
   hidden?: Modifier;
   /**
@@ -149,7 +150,8 @@ export interface DayPickerProps {
    */
   locale: Locale;
   /**
-   * The text direction of the calendar (left-to-right or right-to-left).
+   * The text direction of the calendar. Use `ltr` for left-to-right (default)
+   * or `rtl` for right-to-left.
    */
   dir?: string;
   // #endregion
@@ -162,14 +164,11 @@ export interface DayPickerProps {
   /**
    * Format the content of the day element.
    */
-  formatDay: (day: Date = new Date(), options?: FormatOptions) => string;
+  formatDay: (day: Date, options?: FormatOptions) => string;
   /**
    * Format the weekday's name in the head element.
    */
-  formatWeekdayName: (
-    day: Date = new Date(),
-    options?: FormatOptions
-  ) => string;
+  formatWeekdayName: (day: Date, options?: FormatOptions) => string;
   /**
    * Format the week numbers (when `showWeekNumber` is set).
    */
@@ -189,22 +188,22 @@ export interface DayPickerProps {
    */
   onDayClick?: (
     day: Date,
-    modifiers: ModifiersValue,
+    modifiers: MatchingModifiers,
     e: React.MouseEvent
   ) => void;
   /**
    * Event handler when the month changes, e.g. when using the next/prev
    * navigation buttons.
    */
-  onMonthChange?: (month?: Date, e: React.MouseEvent) => void;
+  onMonthChange?: (month: Date, e: React.MouseEvent) => void;
   /**
    * Event handler when the next navigation button is clicked.
    */
-  onNextClick?: (month?: Date, e: React.MouseEvent) => void;
+  onNextClick?: (month: Date, e: React.MouseEvent) => void;
   /**
    * Event handler when the prev navigation button is clicked.
    */
-  onPrevClick?: (month?: Date, e: React.MouseEvent) => void;
+  onPrevClick?: (month: Date, e: React.MouseEvent) => void;
   /**
    * Event handler when the prev navigation button is clicked.
    */

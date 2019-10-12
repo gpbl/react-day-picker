@@ -3,11 +3,11 @@ import * as React from 'react';
 import { prepareNavigation } from './helpers';
 import { DayPickerProps } from '../types/DayPickerProps';
 
-interface Navigation {
+export interface NavigationProps {
   dayPickerProps: DayPickerProps;
 }
 
-export const Navigation: React.FC<Navigation> = props => {
+export const Navigation: React.FC<NavigationProps> = props => {
   const { dayPickerProps } = props;
   const {
     onMonthChange,
@@ -27,12 +27,12 @@ export const Navigation: React.FC<Navigation> = props => {
   } = prepareNavigation(dayPickerProps);
 
   const handlePrevClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    onMonthChange && onMonthChange(prevMonth, e);
-    onPrevClick && onPrevClick(prevMonth, e);
+    onMonthChange && prevMonth && onMonthChange(prevMonth, e);
+    onPrevClick && prevMonth && onPrevClick(prevMonth, e);
   };
   const handleNextClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    onMonthChange && onMonthChange(nextMonth, e);
-    onNextClick && onNextClick(nextMonth, e);
+    onMonthChange && nextMonth && onMonthChange(nextMonth, e);
+    onNextClick && nextMonth && onNextClick(nextMonth, e);
   };
   const handleStartClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     onMonthChange && onMonthChange(startDay, e);

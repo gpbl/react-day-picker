@@ -50,12 +50,15 @@ export interface ModifiersStyles {
   [other: string]: React.CSSProperties;
 }
 
-export interface ModifierValues {
+export type ModifierValueType = string | boolean | undefined;
+
+export interface MatchingModifiers {
   disabled: boolean;
   hidden: boolean;
   outside: string;
-  selected?: boolean;
+  selected: boolean | undefined;
   start: boolean;
   today: boolean;
-  [other: string]: string | boolean;
+  interactive: boolean;
+  [key: string]: ModifierValueType;
 }

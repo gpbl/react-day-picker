@@ -30,4 +30,5 @@ export interface ClassNames {
   weekDay?: string;
   // WeekNumber Component
   weekNumber?: string;
+  [key: string]: string | undefined;
 }

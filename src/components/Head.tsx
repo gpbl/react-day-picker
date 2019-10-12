@@ -3,7 +3,7 @@ import * as React from 'react';
 import { getWeekdaysNames } from './utils/getWeekdaysNames';
 import { DayPickerProps } from '../types/DayPickerProps';
 
-interface HeadProps {
+export interface HeadProps {
   locale: Locale;
   showWeekNumber: boolean;
   dayPickerProps: DayPickerProps;

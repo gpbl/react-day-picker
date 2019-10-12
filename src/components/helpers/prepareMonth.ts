@@ -14,11 +14,11 @@ import { getOutsideStartDays } from '../utils/getOutsideStartDays';
 import { getOutsideEndDays } from '../utils/getOutsideEndDays';
 import { DayPickerProps } from '../../types/DayPickerProps';
 
-interface PreparedMonth {
-  weeks: {
-    [other: string]: DateWithModifiers[];
-  };
-}
+type PreparedMonthWeek = Array<DateWithModifiers>;
+type PreparedMonthWeeks = { [key: string]: PreparedMonthWeek };
+type PreparedMonth = {
+  weeks: PreparedMonthWeeks;
+};
 /**
  * Return the data for the Month component.
  */
@@ -32,31 +32,34 @@ export function prepareMonth(
 
   const diff = differenceInDays(monthEnd, monthStart);
 
-  const weeks = {};
-  let week = -1;
+  const weeks: PreparedMonthWeeks = {};
+  let lastWeekStr = '';
   for (let i = 0; i <= diff; i++) {
     const date = addDays(monthStart, i);
     const dateWithModifiers = new DateWithModifiers(date, {}, props);
-    week = getWeek(dateWithModifiers.date, { locale });
+    let week = getWeek(dateWithModifiers.date, { locale });
     if (week === 1 && getMonth(date) === 11) {
       week = 53;
     }
-    if (!weeks[week]) {
+    const weekStr: string = week.toString();
+
+    if (!weeks[weekStr]) {
       const startDays = getOutsideStartDays(dateWithModifiers, props);
       // Create a new week by adding outside start days
-      weeks[week] = startDays;
+      weeks[weekStr] = startDays;
     }
-    weeks[week].push(dateWithModifiers);
+    weeks[weekStr].push(dateWithModifiers);
+    lastWeekStr = weekStr;
   }
 
-  let lastWeek = weeks[week];
+  let lastWeek = weeks[lastWeekStr];
   const lastDay = lastWeek[lastWeek.length - 1];
   const endDays = getOutsideEndDays(lastDay, props);
-  weeks[week] = lastWeek.concat(endDays);
+  weeks[lastWeekStr] = lastWeek.concat(endDays);
 
   // add extra weeks to the month, up to 6 weeks
   if (fixedWeeks) {
-    lastWeek = weeks[week];
+    lastWeek = weeks[lastWeekStr];
     const lastWeekDate = lastWeek[lastWeek.length - 1].date;
     const weeksInMonth = getWeeksInMonth(month, { locale });
     if (weeksInMonth < 6) {
@@ -71,14 +74,14 @@ export function prepareMonth(
           { outside: 'end' },
           props
         );
-        week = getWeek(date, { locale });
+        let week = getWeek(date, { locale });
         if (week === 1 && getMonth(month) === 11) {
           week = 53;
         }
         if (!weeks[week]) {
           weeks[week] = [];
         }
-        weeks[week].push(dateWithModifiers);
+        weeks[week.toString()].push(dateWithModifiers);
       }
     }
   }

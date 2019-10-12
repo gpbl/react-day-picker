@@ -30,6 +30,5 @@ export interface Styles {
   weekDay?: React.CSSProperties;
   // WeekNumber Component
   weekNumber?: React.CSSProperties;
-  // Modifiers
-  modifiers?: ModifiersClassNames;
+  [key: string]: React.CSSProperties | undefined;
 }
