@@ -69,6 +69,16 @@
     },
     "categories": {}
   },
+  "initialMonth": {
+    "defaultValue": null,
+    "description": "The month to show in the calendar (controlled component).",
+    "name": "initialMonth",
+    "required": false,
+    "type": {
+      "name": "Date"
+    },
+    "categories": {}
+  },
   "numberOfMonths": {
     "defaultValue": null,
     "description": "The number of months to show in the date picker. See also `pagedNavigation`\nand `reverseMonths`.",

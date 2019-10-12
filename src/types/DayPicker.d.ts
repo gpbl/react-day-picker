@@ -44,6 +44,10 @@ export interface DayPickerProps {
    */
   month: Date;
   /**
+   * The month to show in the calendar (controlled component).
+   */
+  initialMonth?: Date;
+  /**
    * The number of months to show in the date picker. See also `pagedNavigation`
    * and `reverseMonths`.
    */

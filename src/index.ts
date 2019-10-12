@@ -1,6 +1,9 @@
 export { Caption } from './components/Caption';
 export { Day } from './components/Day';
-export { DayPicker } from './components/DayPicker';
+export {
+  DayPickerControlled as DayPicker,
+} from './components/DayPickerControlled';
+// export { DayPickerControlled } from './components/DayPickerControlled';
 export { Head } from './components/Head';
 export { Month } from './components/Month';
 export { Navigation } from './components/Navigation';
