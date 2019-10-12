@@ -7,6 +7,8 @@ export function DayPickerControlled({
   initialMonth = new Date(),
   ...props
 }: DayPickerProps) {
+  const isControlled = Boolean(props.month);
+
   const [currentMonth, setCurrentMonth] = React.useState(
     startOfMonth(initialMonth || new Date())
   );
@@ -21,8 +23,8 @@ export function DayPickerControlled({
   return (
     <DayPicker
       {...props}
-      onMonthChange={handleMonthChange}
-      month={currentMonth}
+      onMonthChange={!isControlled ? handleMonthChange : props.onMonthChange}
+      month={isControlled ? props.month : currentMonth}
     />
   );
 }
