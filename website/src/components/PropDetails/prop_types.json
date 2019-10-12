@@ -21,7 +21,7 @@
   },
   "modifiersClassNames": {
     "defaultValue": null,
-    "description": "The class names for the day modifiers specified via the `modifiers`.",
+    "description": "The class names for the day modifiers specified via `modifiers`.",
     "name": "modifiersClassNames",
     "required": true,
     "type": {
@@ -51,7 +51,7 @@
   },
   "modifiersStyles": {
     "defaultValue": null,
-    "description": "The inline-styles for the day modifiers specified via the `modifiers`.",
+    "description": "The inline-styles for the day modifiers specified via `modifiers`.",
     "name": "modifiersStyles",
     "required": true,
     "type": {
@@ -231,7 +231,7 @@
   },
   "selected": {
     "defaultValue": null,
-    "description": "Days that should appear as selected.",
+    "description": "Style the matching days as selected.",
     "name": "selected",
     "required": false,
     "type": {
@@ -241,7 +241,7 @@
   },
   "disabled": {
     "defaultValue": null,
-    "description": "Days that should appear as disabled.",
+    "description": "Disable the matching days. Disabled days cannot be clicked.",
     "name": "disabled",
     "required": false,
     "type": {
@@ -251,7 +251,7 @@
   },
   "hidden": {
     "defaultValue": null,
-    "description": "Days that should not appear in the calendar.",
+    "description": "Hide the matching days.",
     "name": "hidden",
     "required": false,
     "type": {
@@ -281,7 +281,7 @@
   },
   "dir": {
     "defaultValue": null,
-    "description": "The text direction of the calendar (left-to-right or right-to-left).",
+    "description": "The text direction of the calendar. Use `ltr` for left-to-right (default)\nor `rtl` for right-to-left.",
     "name": "dir",
     "required": false,
     "type": {
@@ -305,7 +305,7 @@
     "name": "formatDay",
     "required": true,
     "type": {
-      "name": "(day?: Date, options?: FormatOptions) => string"
+      "name": "(day: Date, options?: FormatOptions) => string"
     },
     "categories": {}
   },
@@ -315,7 +315,7 @@
     "name": "formatWeekdayName",
     "required": true,
     "type": {
-      "name": "(day?: Date, options?: FormatOptions) => string"
+      "name": "(day: Date, options?: FormatOptions) => string"
     },
     "categories": {}
   },
@@ -345,7 +345,7 @@
     "name": "onDayClick",
     "required": false,
     "type": {
-      "name": "(day: Date, modifiers: any, e: MouseEvent<Element, MouseEvent>) => void"
+      "name": "(day: Date, modifiers: MatchingModifiers, e: MouseEvent<Element, MouseEvent>) => void"
     },
     "categories": {}
   },
@@ -355,7 +355,7 @@
     "name": "onMonthChange",
     "required": false,
     "type": {
-      "name": "(month?: Date, e: MouseEvent<Element, MouseEvent>) => void"
+      "name": "(month: Date, e: MouseEvent<Element, MouseEvent>) => void"
     },
     "categories": {}
   },
@@ -365,7 +365,7 @@
     "name": "onNextClick",
     "required": false,
     "type": {
-      "name": "(month?: Date, e: MouseEvent<Element, MouseEvent>) => void"
+      "name": "(month: Date, e: MouseEvent<Element, MouseEvent>) => void"
     },
     "categories": {}
   },
@@ -375,7 +375,7 @@
     "name": "onPrevClick",
     "required": false,
     "type": {
-      "name": "(month?: Date, e: MouseEvent<Element, MouseEvent>) => void"
+      "name": "(month: Date, e: MouseEvent<Element, MouseEvent>) => void"
     },
     "categories": {}
   },

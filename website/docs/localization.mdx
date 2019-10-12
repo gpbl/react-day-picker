@@ -7,10 +7,14 @@ react-day-picker can be easily localized using the localization packages found i
 
 ## Changing Locale
 
-To change the locale of DayPicker use the [`locale`](./props#locale) prop. For example, to localize the calendar in Spanish:
+To change the locale of DayPicker, pass to the [`locale`](./props#locale) prop a [`Locale`](http://date-fns.org/docs/Locale) object.
 
-1. import the Spanish locale object from `date-fns`.;
+For example, to localize the calendar in Spanish:
+
+1. import the Spanish Locale object from dateFns;
 2. pass the locale object to the `locale` props.
+
+Refer to the [Locale documentation](http://date-fns.org/docs/Locale) on date-fns website for more information about the `Locale` object.
 
 ```jsx preview
 import esLocale from 'date-fns/locale/es';
@@ -44,7 +48,7 @@ function App() {
 
 ## Numbering System
 
-Use [format*](http://localhost:3000/docs/props#localization) localization props to change the numbering system in the calendar.
+Use [formatter props](./props#formatting) to change the numbering system used in the calendar.
 
 For example, to switch to hindu-arabic using [`toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
 

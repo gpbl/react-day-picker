@@ -3,13 +3,13 @@ id: basics
 title: Using DayPicker
 ---
 
-Use [DayPicker props](./props) to make the calendar interactive, add features and customize the appearance.
+Use the [DayPicker props](./props) to make the calendar interactive and customize its appearance and behavior.
 
-For example, it is possible to:
+This document describes how to implement some basic date picker features:
 
-- enable the navigation between months;
-- respond to day clicks to select days;
-- choose which days should be disabled.
+- enabling the month navigation;
+- responding to day clicks and selecting days;
+- disabling or hiding days from the calendar.
 
 ## Enabling Month Navigation
 
@@ -21,7 +21,7 @@ DayPicker is a controlled component: you pass the month to display and what to d
 2. use the [`month`](./props#month) prop to display the current month;
 3. update the month listening to the [`onMonthChange`](./props#onmonthchange) event.
 
-When adding the `onMonthChange` prop, a Navigation Bar will appear next to the caption.
+When adding the `onMonthChange` prop, the **navigation element** appears next to the caption.
 
 ```jsx preview
 import React, { useState } from 'react';
@@ -37,12 +37,12 @@ function App() {
 
 ## Selecting a Day from the Calendar
 
-A common feature for a date picker is to select a day from the calendar. Selecting a day means capturing the day the user has clicked, and highlight it in the calendar.
+Selecting a day means capturing the day that the user has clicked/tapped and highlight it in the calendar.
 
 #### To select a day from the calendar
 
 1. listen to the [`onDayClick`](./props#ondayclick) event to get the clicked day;
-2. save the clicked day in your component's state;
+2. save the clicked day in your component’s state;
 3. highlight the selected day using the [`selected`](./props#selected) prop.
 
 ```jsx preview
@@ -61,9 +61,11 @@ function App() {
         onMonthChange={month => setMonth(month)}
       />
       <p>
-        <small>
-          {selectedDay ? selectedDay.toLocaleDateString() : 'Pick a day'}
-        </small>
+        {selectedDay ? (
+          <>You selected <b>{selectedDay.toLocaleDateString()}</b></>
+        ) : (
+          <em>Click on a day to select it.</em>
+        )}
       </p>
     </div>
   );
@@ -72,7 +74,7 @@ function App() {
 
 ## Selecting or Unselecting Multiple Days
 
-The `selected` props can match dates in the calendar in [different ways](./matching-days). For example, you can select an array of days.
+The `selected` props will instruct DayPicker to apply the selected style to the matching days. There are [many ways](./matching-days) to match days via DayPicker. For example, you can select an array of days.
 
 #### To select multiple days
 
@@ -109,9 +111,9 @@ function App() {
         onMonthChange={month => setMonth(month)}
       />
       <p>
-          {selectedDays.length > 0
-            ? `You picked ${selectedDays.length} day(s)`
-            : 'Select some days'}
+        {selectedDays.length > 0
+          ? `You picked ${selectedDays.length} day(s)`
+          : 'Select some days'}
       </p>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Highlight from '../Highlight';
 
 function PropType({ value, name }) {
   switch (name) {
@@ -7,6 +8,18 @@ function PropType({ value, name }) {
       return value.map((t, i) => <PropType key={i} type={t} />).join(' | ');
     case 'instanceOf':
       return <code>{value.replace(/'/g, '')}</code>;
+    case 'Locale':
+      return (
+        <code>
+          <a
+            href="http://date-fns.org/docs/Locale"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Locale
+          </a>
+        </code>
+      );
     default:
       return <code>{name}</code>;
   }

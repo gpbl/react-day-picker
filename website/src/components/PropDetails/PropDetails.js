@@ -12,7 +12,7 @@ import Description from './Description';
 
 const EMSPACE = ' ';
 
-const style = { margin: '0.5em 0' };
+const style = { margin: '0.5em 0', whiteSpace: 'nowrap', overflow: 'auto' };
 
 /**
  * Render prop details

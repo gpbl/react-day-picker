@@ -9,6 +9,7 @@
     "prebuild": "yarn build-props",
     "build": "docusaurus build",
     "build-props": "node ./scripts/build-props.js",
+    "build-schemas": "typescript-json-schema ../tsconfig.json",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "lint": "yarn eslint src scripts"
@@ -42,6 +43,7 @@
     "eslint-plugin-react-hooks": "^2.1.1",
     "prettier": "^1.18.2",
     "raw-loader": "^3.1.0",
-    "react-docgen-typescript": "^1.15.0"
+    "react-docgen-typescript": "^1.15.0",
+    "typescript-json-schema": "^0.40.0"
   }
 }

@@ -10,7 +10,7 @@ import useTheme from './hooks/useTheme';
 /**
  * Highlight code with PrismHighlight.
  */
-function Highlight({ code, language = 'jsx' }) {
+function Highlight({ code, language = 'jsx', style }) {
   const [theme, setTheme] = useState('light');
   useTheme(newTheme => setTheme(newTheme));
   return (
@@ -20,8 +20,8 @@ function Highlight({ code, language = 'jsx' }) {
       code={code.trim()}
       language={language}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style }}>
+      {({ className, _style, tokens, getLineProps, getTokenProps }) => (
+        <pre className={className} style={{ ...style, ..._style }}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
@@ -38,6 +38,7 @@ function Highlight({ code, language = 'jsx' }) {
 Highlight.propTypes = {
   code: PropTypes.string.isRequired,
   language: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default Highlight;
