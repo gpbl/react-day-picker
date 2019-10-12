@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Deploy Logs
-      uses: bdougie/loglify@master:
+      uses: bdougie/loglify@master
      
   build:
 
