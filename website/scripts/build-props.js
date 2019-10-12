@@ -4,7 +4,7 @@ const { withDefaultConfig } = require('react-docgen-typescript');
 
 const sourceFile = path.resolve(
   __dirname,
-  '../../package/src/components/DayPicker.tsx'
+  '../../src/components/DayPicker.tsx'
 );
 const destFile = path.resolve(
   __dirname,
