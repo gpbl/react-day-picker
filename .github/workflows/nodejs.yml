@@ -19,15 +19,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Deploy Logs
-        uses: bdougie/loglify@master
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
+      - name: Install Dependencies
         run: yarn install
-      - name: Lint source
+      - name: Lint Sources
         run: |
           yarn lint
           yarn lint-types
