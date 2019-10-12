@@ -7790,7 +7790,7 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-"react-day-picker@file:..":
+"react-day-picker@file:../package":
   version "8.0.0-alpha.0"
 
 react-dev-utils@^5.0.1:
