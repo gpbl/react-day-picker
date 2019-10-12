@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 
 export default function CustomizationProps() {
-  const [month, setMonth] = useState();
   const [selected, setSelected] = useState();
 
   const [fixedWeeks, setFixedWeeks] = useState(true);
@@ -18,7 +17,6 @@ export default function CustomizationProps() {
     <div style={{ display: 'flex' }}>
       <div>
         <DayPicker
-          month={month}
           selected={selected}
           onDayClick={setSelected}
           fixedWeeks={fixedWeeks}
@@ -28,7 +26,6 @@ export default function CustomizationProps() {
           showOutsideDays={showOutsideDays}
           enableOutsideDaysClick={enableOutsideDaysClick}
           showWeekNumber={showWeekNumber}
-          onMonthChange={month => setMonth(month)}
         />
       </div>
       <div style={{ paddingLeft: '2em' }}>

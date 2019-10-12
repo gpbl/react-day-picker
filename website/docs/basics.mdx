@@ -3,52 +3,9 @@ id: basics
 title: DayPicker Basics
 ---
 
-Use the [DayPicker props](./props) to make the calendar interactive and customize its appearance and behavior.
-
 To familiarize with DayPicker, this page describes how to implement some basic date picker features.
 
-## Setting the initial month
-
-Use [`initialMonth`](./props#initialmonth) to set the first month.
-
-DayPicker will work as stateful component holding the current month in state. Use [`onMonthChange`](./props#onmonthchange) to know when the user navigate between months.
-
-```jsx preview
-import React, { useState } from 'react';
-import { DayPicker } from 'react-day-picker';
-
-function App() {
-  return (
-    <DayPicker
-      initialMonth={new Date(2019, 8)}
-      onMonthChange={day => console.log(day.toLocaleDateString())}
-    />
-  );
-}
-```
-
-### Controlled Component
-
-If want to use DayPicker as **controlled component**:
-
-- use `month` to pass the current month
-- use `onMonthChange` to update the current month
-
-Note: when in controlled mode, without `onMonthChange` the navigation element is not visible.
-
-```jsx preview
-import React, { useState } from 'react';
-import { DayPicker } from 'react-day-picker';
-
-function App() {
-  const [month, setMonth] = useState(new Date());
-  return <DayPicker month={month} onMonthChange={month => setMonth(month)} />;
-}
-```
-
-## Selecting Days
-
-#### To select a day from the calendar
+## Selecting a Day
 
 1. listen to the [`onDayClick`](./props#ondayclick) event to get the clicked day;
 2. save the clicked day in your component’s state;
@@ -71,7 +28,7 @@ function App() {
 }
 ```
 
-#### To select multiple days
+## Selecting Multiple Days
 
 1. initialize the state with an empty array;
 2. add the day to the array when a day is clicked;

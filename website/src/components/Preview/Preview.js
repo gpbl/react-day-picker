@@ -2,8 +2,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import * as DateFns from 'date-fns';
-import esLocale from 'date-fns/locale/es';
-import arLocale from 'date-fns/locale/ar-SA';
+import spanish from 'date-fns/locale/es';
+import arabic from 'date-fns/locale/ar-SA';
 
 import * as DayPicker from 'react-day-picker';
 
@@ -34,10 +34,11 @@ export default function Preview({ code, height }) {
 
   const Element = generateElement({
     code: transformedCode,
-    scope: { ...DateFns, ...React, ...DayPicker, esLocale, arLocale },
+    scope: { ...DateFns, ...React, ...DayPicker, spanish, arabic },
   });
   return (
     <Frame height={height}>
+      <DayPicker.DayPicker month="d" />
       <Element />
     </Frame>
   );

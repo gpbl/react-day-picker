@@ -1,21 +1,22 @@
 ---
 id: modifiers
-title: Use of Modifiers
+title: Use of Day Modifiers
 ---
 
-A modifier is a custom property that [matches a day](./matching-days.mdx) in the calendar. For example, you can use modifiers,
+A **day modifier** is a custom property that [matches a day](./matching-days.mdx) in the calendar. Day modifiers are used to customize the appearance and the behavior of day elements in DayPicker.
 
-- to customize the appearance of day elements;
-- to change how the user’s interact with single days.
+## Adding and Styling Day Modifiers
 
-## Adding and Styling Modifiers
+Add day modifiers to extend DayPicker following your application requirements.
 
-#### To change the appearance of a day according to a modifier
+For example, a booking user interface may implement a `booked` modifier to style days as "already booked" – maybe according to a response from an API.
 
-1. pass to the [`modifiers`](./props#modifiers) prop an object of`modifiers` matching specific days;
-2. use the [`styles`](./props#styles) prop to style a day when it matches one of the modifiers.
+#### To change the day style according to a modifier
 
-For example, the following App styles the modifiers `unavailable`, `booked` and `available`:
+1. pass to the [`modifiers`](./props#modifiers) an object of modifiers [matching](./matching-days) specific days;
+2. use the [`modifiersStyles`](./props#modifiersStyles) prop to style the days matched by the modifier.
+
+For example, the following application implements the modifiers `unavailable`, `booked` and `available`:
 
 ```jsx preview
 function App() {
@@ -53,7 +54,7 @@ function App() {
 
 ## Using CSS Classes to Style Modifiers
 
-The `styles` prop will add an inline style to the day’s button. To use a CSS class names instead, use the [`classNames`](./props#classNames) prop.
+To change the CSS class name for the day matching a modifier, use the [`modifiersClassNames`](./props#modifiersClassNames) prop:
 
 ```jsx preview
 function App() {
@@ -74,9 +75,9 @@ function App() {
 }
 ```
 
-## Access Modifiers from onDayClick
+## Accessing Modifiers from onDayClick
 
-Modifiers are an accessible from the [`onDayClick(day, modifiers)`](./props#ondayclick) event.
+Modifiers are available from the [`onDayClick(day, modifiers)`](./props#ondayclick) event.
 
 For example, to display an alert when the selected day is unavailable, check the `unavailable` modifier in `handleDayClick`:
 
@@ -125,7 +126,8 @@ function App() {
 
 ## Default Modifiers
 
-Some modifiers are assigned to each day automatically:
+
+DayPicker already implements some default modifiers: for example, a disabled day has a `disabled` modifier: it is used to disable the day cell and style it as such.
 
 | Modifier      | Type | Meaning                                                          |
 | ------------- | ---- | ---------------------------------------------------------------- |
@@ -136,7 +138,7 @@ Some modifiers are assigned to each day automatically:
 | `selected`    | Bool | The day matches the `selected` prop.                             |
 | `today`       | Bool | The day is today.                                                |
 
-```jsx preview
+```jsx preview previewHeight=500
 function App() {
   const [log, setLog] = useState();
 

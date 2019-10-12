@@ -76,11 +76,6 @@ html[data-theme='dark'] .navbar {
   font-weight: bold;
 }
 
-.markdown {
-  /* --ifm-heading-vertical-rhythm-bottom: 1em; */
-  --ifm-heading-line-height: 1.2em;
-}
-
 [class^='mdxCodeBlock'] {
   border: none !important;
   box-shadow: none !important;
@@ -105,6 +100,7 @@ html[data-theme='dark'] .navbar {
   /* padding-left: 0; */
   /* flex: 0 0 240px; */
 }
+
 table th,
 table td {
   font-size: 0.875em;
@@ -167,7 +163,7 @@ a > code {
 }
 
 .markdown > table {
-  margin: 2em 0;
+  margin: 1em 0 2em 0;
   width: 100%;
 }
 
@@ -178,4 +174,17 @@ a > code {
   margin-top: 2em;
   font-size: 0.875rem; */
   /* color: var(--ifm-color-emphasis-alpha-60); */
+}
+
+.markdown {
+  /* --ifm-heading-vertical-rhythm-bottom: 1em; */
+  --ifm-heading-line-height: 1.2em;
+  --ifm-heading-vertical-rhythm-top: 2;
+  --ifm-heading-vertical-rhythm-bottom: 1;
+}
+.markdown > h4,
+.markdown > h5,
+.markdown > h6 {
+  --ifm-heading-vertical-rhythm-top: 0.5;
+  --ifm-heading-vertical-rhythm-bottom: 0.25;
 }

@@ -7,12 +7,12 @@ DayPicker can be extended by implementing custom components. Use the [`component
 
 It is possible to use the following custom components:
 
-* `Day` – used to render the day;
-* `Caption` – used to render the caption (with month/year);
-* `Navigation` – used to render the prev/next month navigation;
-* `WeekNumber` – used to render the week numbers.
+- `Day` – used to render the day;
+- `Caption` – used to render the caption (with month/year);
+- `Navigation` – used to render the prev/next month navigation;
+- `WeekNumber` – used to render the week numbers.
 
-## Extending Day Component
+## Day Component
 
 The `Day` component is used to render the day in the calendar.
 
@@ -74,7 +74,7 @@ function App() {
 }
 ```
 
-## Extending the Caption Component
+## Caption Component
 
 The `Caption` component is used to render the caption (with month/year) in the calendar.
 
@@ -137,7 +137,7 @@ function App() {
 }
 ```
 
-## Extending the Navigation Component
+## Navigation Component
 
 The `Navigation` component is used to render the navigation buttons.
 
@@ -150,7 +150,7 @@ The `Navigation` component is used to render the navigation buttons.
 For example, the following DayPicker implements a `Navigation` without the start button:
 
 ```jsx preview
-import { DayPicker, prepareCaption } from 'react-day-picker';
+import { DayPicker, prepareNavigation } from 'react-day-picker';
 
 function App() {
   function Navigation({ month, dayPickerProps }) {
@@ -158,30 +158,20 @@ function App() {
     const { prevMonth, nextMonth, containerProps } = prepareNavigation(
       dayPickerProps
     );
+    const handlePrevClick = e => onMonthChange(prevMonth, e);
+    const handleNextClick = e => onMonthChange(nextMonth, e);
     return (
       <div {...containerProps}>
-        {prevMonth && (
-          <button onClick={e => onMonthChange(prevMonth, e)}>Prev</button>
-        )}
-        {nextMonth && (
-          <button onClick={e => onMonthChange(nextMonth, e)}>Next</button>
-        )}
+        {prevMonth && <button onClick={handlePrevClick}>Prev</button>}
+        {nextMonth && <button onClick={handleNextClick}>Next</button>}
       </div>
     );
   }
-
-  const [month, setMonth] = useState(new Date());
-  return (
-    <DayPicker
-      month={month}
-      onMonthChange={setMonth}
-      components={{ Navigation }}
-    />
-  );
+  return <DayPicker components={{ Navigation }} />;
 }
 ```
 
-## Extending the WeekNumber Component
+## WeekNumber Component
 
 The `WeekNumber` component is used to render the week number when [`showWeekNumber`](./props#showweeknumber) is set.
 
@@ -197,7 +187,6 @@ import { DayPicker } from 'react-day-picker';
 import { getWeek } from 'date-fns';
 
 function App() {
-  const [month, setMonth] = useState(new Date());
   const [selectedWeekNumber, setSelectedWeekNumber] = useState();
 
   function WeekNumber({ number, days, dayPickerProps, onClick }) {
@@ -211,7 +200,6 @@ function App() {
   }
   return (
     <DayPicker
-      month={month}
       showWeekNumber
       components={{ WeekNumber }}
       selected={
@@ -220,7 +208,6 @@ function App() {
           : undefined
       }
       onWeekNumberClick={weekNumber => setSelectedWeekNumber(weekNumber)}
-      onMonthChange={setMonth}
     />
   );
 }

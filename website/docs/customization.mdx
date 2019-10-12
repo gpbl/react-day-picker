@@ -25,18 +25,13 @@ To define the months within `DayPicker` can operate, use the `fromMonth` or `toM
 For example, the following day picker is restricted to the year 2019.
 
 ```jsx preview
-import React, { useState } from 'react';
-import { DayPicker } from 'react-day-picker';
-
 function App() {
-  const [month, setMonth] = useState(new Date(2019, 0));
   return (
     <DayPicker
-      month={month}
+      initialMonth={new Date(2019, 0)}
       fromMonth={new Date(2019, 0)}
       toMonth={new Date(2019, 11)}
       showOutsideDay
-      onMonthChange={month => setMonth(month)}
     />
   );
 }
@@ -47,7 +42,6 @@ function App() {
 Use [formatting props](./props#formatting) to format the content of the day cell, the month’s caption, the weekday name or the week’s number.
 
 For more advanced customization of those elements, see [custom components](./custom-components.mdx).
-
 
 ```jsx preview
 import React, { useState } from 'react';
@@ -68,12 +62,8 @@ function App() {
     return format(day, 'E', { locale })[0];
   };
 
-  const [month, setMonth] = useState(new Date());
-
   return (
     <DayPicker
-      month={month}
-      onMonthChange={setMonth}
       showOutsideDays
       showWeekNumber
       formatDay={formatDay}
@@ -98,8 +88,6 @@ import { isSameDay } from 'date-fns';
 
 function App() {
   const [selectedDays, setSelectedDays] = useState([]);
-  const [month, setMonth] = useState();
-
   const handleDayClick = day => {
     setSelectedDays(state => {
       const selected = state.findIndex(d => isSameDay(d, day));
@@ -115,14 +103,12 @@ function App() {
   return (
     <div>
       <DayPicker
-        month={month}
         fixedWeeks={true}
         numberOfMonths={2}
         reverseMonths={false}
         pagedNavigation={true}
         selected={selectedDays}
         onDayClick={handleDayClick}
-        onMonthChange={month => setMonth(month)}
       />
       <p style={{ textAlign: 'center' }}>
         <small>

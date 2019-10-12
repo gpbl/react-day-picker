@@ -3,14 +3,10 @@ id: styling
 title: Styling DayPicker
 ---
 
-There are two ways to customize the appearance of DayPicker:
+You change the appearance of DayPicker using **CSS**, **inline styles**, or both.
+To each HTML element created by DayPicker are assigned `.rdp` CSS classes, as listed in the table below.
 
-1. using CSS classes;
-2. using inline styles.
-
-To each HTML element created by DayPicker are assigned `.rdp` CSS classes, as listed in the Element CSS Table below.
-
-#### Elements CSS Table
+##### Elements Table
 
 | Element name       | Default CSS Class      | Element description                          |
 | ------------------ | ---------------------- | -------------------------------------------- |
@@ -38,7 +34,9 @@ To each HTML element created by DayPicker are assigned `.rdp` CSS classes, as li
 | **weekDay**        | `.rdp-week_day`        | The week’s day cell                          |
 | **weekNumber**     | `.rdp-weeknumber`      | The week’s number                            |
 
-For example, style the DayPicker CSS classes in your application’s CSS file:
+## Styling via CSS
+
+Style the DayPicker CSS classes in your application’s CSS file:
 
 ```css
 /* container */
@@ -53,37 +51,12 @@ For example, style the DayPicker CSS classes in your application’s CSS file:
 /* etc. */
 ```
 
-## Default Style
+## Using the Included CSS
 
-The package includes a CSS file for a minimal, basic style. Refer to your bundler’s documentation for importing CSS files in your application.
+The package includes a CSS file for a minimal, basic style, that can be used as starting point:
 
 ```jsx
 import 'react-day-picker/lib/style.css';
-```
-
-## Custom Class Names
-
-Set custom class names when:
-
-- you use [CSS Modules](https://github.com/css-modules/css-modules) or other CSS bundler defining different class names;
-- you don’t want to use the default class names.
-
-To define custom class names, pass to the [`classNames`](./props#classnames) props the class name for each element.
-
-```jsx preview
-function App() {
-  return (
-    <>
-      <style>{`.my-custom-head-class { color: salmon }`}</style>
-      <DayPicker
-        classNames={{
-          container: 'my-custom-container-class',
-          head: 'my-custom-head-class',
-        }}
-      />
-    </>
-  );
-}
 ```
 
 ## Using Inline Styles
@@ -100,6 +73,33 @@ function App() {
         weekNumber: { color: 'violet' },
       }}
     />
+  );
+}
+```
+
+
+## Using Custom Class Names
+
+Set custom class names when:
+
+- you use [CSS Modules](https://github.com/css-modules/css-modules) or other CSS bundler defining different class names;
+- you don’t want to use the default class names.
+
+To define custom class names, pass to the [`classNames`](./props#classnames) props the class name for each element.
+
+```jsx preview
+function App() {
+  return (
+    <>
+      <style>{`
+        .my-custom-head-class { color: salmon }
+      `}</style>
+      <DayPicker
+        classNames={{
+          head: 'my-custom-head-class',
+        }}
+      />
+    </>
   );
 }
 ```

@@ -40,11 +40,7 @@ export interface DayPickerProps {
 
   // #region MONTH SETTINGS
   /**
-   * The month to show in the calendar.
-   */
-  month: Date;
-  /**
-   * The month to show in the calendar (controlled component).
+   * The initial month to show in the calendar.
    */
   initialMonth?: Date;
   /**
@@ -70,6 +66,10 @@ export interface DayPickerProps {
    * greater than 1, to display the most recent month first.
    */
   reverseMonths: boolean;
+  /**
+   * The rendered month. Passing this props will make the component switch to controlled mode: this means you will need to implement `onMonthChange` to enable months navigation.
+   */
+  month: Date;
   // #endregion
 
   // #region CUSTOMIZATION PROPS
