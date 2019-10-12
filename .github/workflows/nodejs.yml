@@ -1,8 +1,22 @@
 name: Node CI
 
-on: [push]
-
+on:
+  pull_request:
+    branches:
+    - next
+  push:
+    branches:
+      - next
+        
 jobs:
+  logs4netlify:
+    name: Logs for Netlify
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Deploy Logs
+      uses: bdougie/loglify@master:
+     
   build:
 
     runs-on: ubuntu-latest
