@@ -8,7 +8,7 @@ import { MatchingModifiers, ModifierValueType } from '../types/Modifiers';
 const defaultModifiers: MatchingModifiers = {
   disabled: false,
   hidden: false,
-  interactive: false,
+  interactive: true,
   outside: '',
   selected: undefined,
   start: false,
