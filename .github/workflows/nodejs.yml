@@ -6,6 +6,7 @@ on:
     - next
   push:
     branches:
+      - master
       - next
         
 jobs:
@@ -27,7 +28,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: yarn install
-    - name: Lint soruce
+    - name: Lint source
       run: |
         yarn lint
         yarn lint-types
