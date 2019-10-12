@@ -196,15 +196,15 @@ export interface DayPickerProps {
    * Event handler when the month changes, e.g. when using the next/prev
    * navigation buttons.
    */
-  onMonthChange?: (month: Date, e: React.MouseEvent) => void;
+  onMonthChange?: (month?: Date, e: React.MouseEvent) => void;
   /**
    * Event handler when the next navigation button is clicked.
    */
-  onNextClick?: (month: Date, e: React.MouseEvent) => void;
+  onNextClick?: (month?: Date, e: React.MouseEvent) => void;
   /**
    * Event handler when the prev navigation button is clicked.
    */
-  onPrevClick?: (month: Date, e: React.MouseEvent) => void;
+  onPrevClick?: (month?: Date, e: React.MouseEvent) => void;
   /**
    * Event handler when the prev navigation button is clicked.
    */

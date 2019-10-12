@@ -5,6 +5,10 @@ export interface Styles {
   // Day Component
   day?: React.CSSProperties;
   dayWrapper?: React.CSSProperties;
+  // Modifiers
+  selected?: React.CSSProperties;
+  disabled?: React.CSSProperties;
+  today?: React.CSSProperties;
   // Month Component
   month?: React.CSSProperties;
   monthTable?: React.CSSProperties;

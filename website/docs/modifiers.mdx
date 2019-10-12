@@ -86,9 +86,7 @@ function App() {
   const [month, setMonth] = useState(new Date(2019, 8));
 
   const styles = {
-    modifiers: {
-      unavailable: { textDecoration: 'line-through', color: 'salmon' },
-    },
+    unavailable: { textDecoration: 'line-through', color: 'salmon' },
   };
   const unavailableDays = [
     new Date(2019, 8, 19),
@@ -117,7 +115,7 @@ function App() {
         modifiers={{
           unavailable: unavailableDays,
         }}
-        styles={styles}
+        modifiersStyles={styles}
       />
       <p>Try selecting an unavailable day.</p>
     </div>

@@ -40,23 +40,24 @@ export function prepareDay(
   }
 
   let style = { ...styles.day };
-  if (modifiersStyles) {
+  if (modifiersStyles || styles) {
     Object.keys(modifiers).forEach(modifier => {
-      if (modifiersStyles[modifier]) {
-        style = {
-          ...style,
-          ...modifiersStyles[modifier],
-        };
-      }
+      style = {
+        ...style,
+        ...modifiersStyles[modifier],
+        ...styles[modifier],
+      };
     });
   }
 
   const className = [classNames.day] || [];
-  if (modifiersClassNames) {
+  if (modifiersClassNames || classNames) {
     Object.keys(modifiers)
-      // Pick classnames only for modifiers having a truthy value
       .filter(modifier => Boolean(modifiers[modifier]))
       .forEach(modifier => {
+        if (classNames[modifier]) {
+          className.push(classNames[modifier]);
+        }
         if (modifiersClassNames[modifier]) {
           className.push(modifiersClassNames[modifier]);
         }

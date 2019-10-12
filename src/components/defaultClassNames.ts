@@ -35,9 +35,7 @@ export const defaultClassNames: ClassNames = {
   weekNumber: 'rdp-weeknumber',
 
   // Modifiers
-  modifiers: {
-    selected: 'rdp-day_selected',
-    disabled: 'rdp-day_disabled',
-    today: 'rdp-day_today',
-  },
+  selected: 'rdp-day_selected',
+  disabled: 'rdp-day_disabled',
+  today: 'rdp-day_today',
 };

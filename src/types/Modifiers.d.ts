@@ -33,12 +33,12 @@ export type Modifier =
   | undefined;
 
 export interface Modifiers {
-  disabled?: Modifier | Modifier[];
-  hidden?: Modifier | Modifier[];
-  outside?: Modifier | Modifier[];
+  disabled: Modifier | Modifier[];
+  hidden: Modifier | Modifier[];
+  outside: Modifier | Modifier[];
   selected?: Modifier | Modifier[];
-  start?: Modifier | Modifier[];
-  today?: Modifier | Modifier[];
+  start: Modifier | Modifier[];
+  today: Modifier | Modifier[];
   [other: string]: Modifier | Modifier[] | undefined;
 }
 
@@ -51,11 +51,11 @@ export interface ModifiersStyles {
 }
 
 export interface ModifierValues {
-  disabled?: boolean;
-  hidden?: boolean;
-  outside?: string;
+  disabled: boolean;
+  hidden: boolean;
+  outside: string;
   selected?: boolean;
-  start?: boolean;
-  today?: boolean;
+  start: boolean;
+  today: boolean;
   [other: string]: string | boolean;
 }

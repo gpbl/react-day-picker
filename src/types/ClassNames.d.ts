@@ -5,6 +5,10 @@ export interface ClassNames {
   // Day Component
   day?: string;
   dayWrapper?: string;
+  // Modifiers
+  selected?: string;
+  disabled?: string;
+  today?: string;
   // Month Component
   month?: string;
   monthTable?: string;

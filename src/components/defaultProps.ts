@@ -51,6 +51,8 @@ export const defaultProps: DayPickerProps = {
   formatWeekNumber,
   locale,
   nextLabel: '▶',
+  modifiersClassNames: {},
+  modifiersStyles: {},
   month: startOfMonth(new Date()),
   numberOfMonths: 1,
   pagedNavigation: false,
