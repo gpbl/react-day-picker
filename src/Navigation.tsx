@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { prepareNavigation } from './helpers';
-import { NavigationProps } from '../types';
+import { prepareNavigation } from './helpers/prepareNavigation';
+import { NavigationProps } from './types';
 
 export const Navigation: React.FC<NavigationProps> = props => {
   const { dayPickerProps } = props;

@@ -1,7 +1,8 @@
 import { isSameDay, isToday } from 'date-fns';
 
-import { getModifiersFromProps, listModifiers } from './utils';
-import { DayPickerProps, MatchingModifiers, ModifierValueType } from '../types';
+import { getModifiersFromProps } from './utils/getModifiersFromProps';
+import { listModifiers } from './utils/listModifiers';
+import { DayPickerProps, MatchingModifiers, ModifierValueType } from './types';
 
 const defaultModifiers: MatchingModifiers = {
   disabled: false,

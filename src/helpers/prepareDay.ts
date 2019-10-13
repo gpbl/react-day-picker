@@ -3,7 +3,7 @@ import {
   MatchingModifiers,
   DayPickerProps,
   ModifierValueType,
-} from '../../types';
+} from '../types';
 
 export function prepareDay(
   day: Date,

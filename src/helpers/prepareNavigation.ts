@@ -1,6 +1,6 @@
 import { startOfMonth, addMonths } from 'date-fns';
 
-import { DayPickerProps } from '../../types';
+import { DayPickerProps } from '../types';
 interface PreparedNavigation {
   prevMonth?: Date;
   nextMonth?: Date;

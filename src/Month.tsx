@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { DayPickerProps, MonthProps } from '../types';
-import { prepareMonth } from './helpers';
+import { MonthProps } from './types';
+import { prepareMonth } from './helpers/prepareMonth';
 import { Head } from './Head';
 import { Week } from './Week';
 

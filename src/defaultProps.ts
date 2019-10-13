@@ -1,7 +1,7 @@
 import locale from 'date-fns/locale/en-US';
 import { startOfMonth, format } from 'date-fns';
 
-import { DayPickerProps, FormatOptions } from '../types';
+import { DayPickerProps, FormatOptions } from './types';
 import { Caption } from './Caption';
 import { Day } from './Day';
 import { Navigation } from './Navigation';

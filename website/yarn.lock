@@ -7774,6 +7774,9 @@ rc@^1.2.7:
 "react-day-picker@file:..":
   version "8.0.0-alpha.0"
 
+"react-day-picker@file:../":
+  version "8.0.0-alpha.0"
+
 react-dev-utils@^5.0.1:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-5.0.3.tgz#92f97668f03deb09d7fa11ea288832a8c756e35e"
