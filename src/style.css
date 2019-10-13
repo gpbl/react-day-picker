@@ -108,12 +108,14 @@
   height: 2.2em;
   border: 0;
   background: none;
+  color: inherit;
   font-size: 1em;
 
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
 }
+
 .rdp-day_wrapper {
   /* Wrapper for the day number */
 }

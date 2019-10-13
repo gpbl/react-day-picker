@@ -217,6 +217,7 @@ declare namespace ReactDayPicker {
     selected?: string;
     disabled?: string;
     today?: string;
+    outside?: string;
     // Month Component
     month?: string;
     monthTable?: string;
@@ -355,6 +356,7 @@ declare namespace ReactDayPicker {
     selected?: React.CSSProperties;
     disabled?: React.CSSProperties;
     today?: React.CSSProperties;
+    outside?: React.CSSProperties;
 
     // Month Component
     month?: React.CSSProperties;

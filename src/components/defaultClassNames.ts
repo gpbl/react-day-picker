@@ -37,4 +37,5 @@ export const defaultClassNames: ClassNames = {
   selected: 'rdp-day_selected',
   disabled: 'rdp-day_disabled',
   today: 'rdp-day_today',
+  outside: 'rdp-day_outside',
 };

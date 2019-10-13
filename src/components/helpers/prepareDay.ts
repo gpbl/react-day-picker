@@ -42,7 +42,7 @@ export function prepareDay(
   const className = [classNames.day] || [];
   if (modifiersClassNames || classNames) {
     Object.keys(modifiers)
-      .filter(modifier => Boolean(modifiers[modifier]))
+      .filter(modifier => !!modifiers[modifier])
       .forEach(modifier => {
         if (classNames[modifier]) {
           className.push(classNames[modifier]);
