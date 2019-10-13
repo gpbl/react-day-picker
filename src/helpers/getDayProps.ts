@@ -1,15 +1,15 @@
 import {
-  PreparedDay,
+  DayHtmlProps,
   MatchingModifiers,
   DayPickerProps,
   ModifierValueType,
 } from '../types';
 
-export function prepareDay(
+export function getDayProps(
   day: Date,
   modifiers: MatchingModifiers,
   props: DayPickerProps
-): PreparedDay {
+): DayHtmlProps {
   const {
     onDayClick,
     styles,
@@ -17,7 +17,6 @@ export function prepareDay(
     classNames,
     modifiersClassNames,
   } = props;
-  const Container = modifiers.interactive ? 'button' : 'span';
 
   let onClick;
   if (modifiers.interactive && onDayClick) {
@@ -73,5 +72,5 @@ export function prepareDay(
     styles: styles.dayWrapper,
   };
 
-  return { Container, containerProps, wrapperProps };
+  return { containerProps, wrapperProps };
 }

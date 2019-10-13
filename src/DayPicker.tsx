@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { getTime, startOfMonth } from 'date-fns';
 
-import { prepareDayPicker } from './helpers/prepareDayPicker';
+import { getMonths } from './helpers/getMonths';
 import { defaultProps } from './defaultProps';
 
 import { Month } from './Month';
@@ -36,7 +36,8 @@ const _DayPicker: React.FC<DayPickerProps> = (initialProps = defaultProps) => {
   }
   const classNameStr = className.join(' ');
 
-  const { months } = prepareDayPicker(props);
+  const months = getMonths(props);
+
   const { Navigation } = props.components;
   return (
     <div className={classNameStr} style={style} dir={props.dir}>

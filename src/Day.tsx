@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { prepareDay } from './helpers/prepareDay';
+import { getDayProps } from './helpers/getDayProps';
 import { DayProps } from './types';
 export const Day: React.FC<DayProps> = props => {
   const { day, modifiers, dayPickerProps } = props;
   const { locale, formatDay } = dayPickerProps;
 
-  const { Container, containerProps, wrapperProps } = prepareDay(
+  const { containerProps, wrapperProps } = getDayProps(
     day,
     modifiers,
     dayPickerProps
@@ -15,9 +15,11 @@ export const Day: React.FC<DayProps> = props => {
     return <span />;
   }
 
+  const Component = modifiers.interactive ? 'button' : 'span';
+
   return (
-    <Container {...containerProps}>
+    <Component {...containerProps}>
       <span {...wrapperProps}>{formatDay(day, { locale })}</span>
-    </Container>
+    </Component>
   );
 };

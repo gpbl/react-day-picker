@@ -1,21 +1,20 @@
 import * as React from 'react';
 
 import { MonthProps } from './types';
-import { prepareMonth } from './helpers/prepareMonth';
+import { getWeeks } from './helpers/getWeeks';
 import { Head } from './Head';
 import { Week } from './Week';
 
 export const Month: React.FC<MonthProps> = props => {
   const { month, dayPickerProps } = props;
+  const { locale, classNames, styles } = dayPickerProps;
+  const { showCaption, showHead } = dayPickerProps;
   const {
-    locale,
-    showCaption,
-    showHead,
-    classNames,
-    styles,
     components: { Caption },
   } = dayPickerProps;
-  const { weeks } = prepareMonth(month, dayPickerProps);
+
+  const weeks = getWeeks(month, dayPickerProps);
+
   return (
     <div className={classNames.month}>
       <table className={classNames.monthTable} style={styles.monthTable}>

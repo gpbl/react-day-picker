@@ -14,25 +14,20 @@ import { DayPickerProps } from '../types';
 import { getOutsideStartDays } from '../utils/getOutsideStartDays';
 import { getOutsideEndDays } from '../utils/getOutsideEndDays';
 
-type PreparedMonthWeek = Array<DateWithModifiers>;
-type PreparedMonthWeeks = { [key: string]: PreparedMonthWeek };
-type PreparedMonth = {
-  weeks: PreparedMonthWeeks;
-};
+/* Each key is the week number */
+type MonthWeeks = { [key: string]: DateWithModifiers[] };
+
 /**
- * Return the data for the Month component.
+ * Return the weeks for the given month.
  */
-export function prepareMonth(
-  month: Date,
-  props: DayPickerProps
-): PreparedMonth {
+export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
   const { locale, fixedWeeks } = props;
   const monthStart = startOfMonth(month);
   const monthEnd = endOfMonth(month);
 
   const diff = differenceInDays(monthEnd, monthStart);
 
-  const weeks: PreparedMonthWeeks = {};
+  const weeks: MonthWeeks = {};
   let lastWeekStr = '';
   for (let i = 0; i <= diff; i++) {
     const date = addDays(monthStart, i);
@@ -86,5 +81,5 @@ export function prepareMonth(
     }
   }
 
-  return { weeks };
+  return weeks;
 }

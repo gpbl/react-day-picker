@@ -8,8 +8,8 @@ export { Week } from './Week';
 export { DateWithModifiers } from './DateWithModifiers';
 export { defaultClassNames } from './defaultClassNames';
 
-export { prepareDay } from './helpers/prepareDay';
-export { prepareCaption } from './helpers/prepareCaption';
-export { prepareDayPicker } from './helpers/prepareDayPicker';
-export { prepareMonth } from './helpers/prepareMonth';
+export { getDayProps } from './helpers/getDayProps';
+export { getCaptionProps } from './helpers/getCaptionProps';
+export { getMonths } from './helpers/getMonths';
+export { getWeeks } from './helpers/getWeeks';
 export { prepareNavigation } from './helpers/prepareNavigation';

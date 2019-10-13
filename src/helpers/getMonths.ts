@@ -1,10 +1,12 @@
 import { addMonths, differenceInMonths, startOfMonth } from 'date-fns';
 import { DayPickerProps } from '../types';
-interface PrepareDayPicker {
-  months: Array<Date>;
-}
 
-export function prepareDayPicker(props: DayPickerProps): PrepareDayPicker {
+/**
+ * Get the months to display according to the props passed to the component.
+ *
+ * @param props
+ */
+export function getMonths(props: DayPickerProps): Date[] {
   const { month, numberOfMonths, toMonth, fromMonth, reverseMonths } = props;
   const start = startOfMonth(month);
   const end = startOfMonth(addMonths(start, numberOfMonths));
@@ -25,5 +27,5 @@ export function prepareDayPicker(props: DayPickerProps): PrepareDayPicker {
   if (reverseMonths) {
     months = months.reverse();
   }
-  return { months };
+  return months;
 }
