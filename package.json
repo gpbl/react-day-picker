@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "lib/index.es.js",
   "jsnext:main": "lib/index.es.js",
-  "types": "lib/typings.d.ts",
+  "types": "lib/types.d.ts",
   "license": "MIT",
   "scripts": {
     "lint": "eslint src --ext .ts,.d.ts,.tsx",

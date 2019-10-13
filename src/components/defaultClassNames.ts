@@ -1,4 +1,4 @@
-import { ClassNames } from '../typings';
+import { ClassNames } from '../types';
 export const defaultClassNames: ClassNames = {
   container: 'rdp',
   caption: 'rdp-caption',

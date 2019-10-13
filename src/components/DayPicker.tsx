@@ -4,14 +4,12 @@ import { getTime, startOfMonth } from 'date-fns';
 import { prepareDayPicker } from './helpers';
 import { defaultProps } from './defaultProps';
 
-import { DayPickerProps } from '../typings'; import { ClassNames } from '../typings'; import { Components } from '../typings';
 import { Month } from './Month';
 
-import { filterUndefinedProps } from './utils/filterUndefinedProps';
+import { filterUndefinedProps } from './utils';
+import { DayPickerProps, Components, ClassNames } from '../types';
 
-const _DayPicker: React.FC<DayPickerProps> = (
-  initialProps = defaultProps
-) => {
+const _DayPicker: React.FC<DayPickerProps> = (initialProps = defaultProps) => {
   // Extend props with defaults
   const components: Components = {
     ...defaultProps.components,
@@ -55,8 +53,10 @@ const _DayPicker: React.FC<DayPickerProps> = (
   );
 };
 
-
-export const DayPicker: React.FC<DayPickerProps> = ({ initialMonth, ...props }) => {
+export const DayPicker: React.FC<DayPickerProps> = ({
+  initialMonth,
+  ...props
+}) => {
   const isControlled = Boolean(props.month);
 
   const [currentMonth, setCurrentMonth] = React.useState(
@@ -77,4 +77,4 @@ export const DayPicker: React.FC<DayPickerProps> = ({ initialMonth, ...props }) 
       month={isControlled ? props.month : currentMonth}
     />
   );
-}
+};

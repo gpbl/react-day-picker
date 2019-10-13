@@ -5,7 +5,7 @@ import * as DateFns from 'date-fns';
 import spanish from 'date-fns/locale/es';
 import arabic from 'date-fns/locale/ar-SA';
 
-import { DayPicker } from 'react-day-picker';
+import * as DayPicker from 'react-day-picker';
 
 import { generateElement } from './utils';
 import Frame from '../Frame';
@@ -38,7 +38,6 @@ export default function Preview({ code, height }) {
   });
   return (
     <Frame height={height}>
-      <DayPicker.DayPicker month="d" />
       <Element />
     </Frame>
   );

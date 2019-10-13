@@ -9,10 +9,9 @@ import {
   startOfMonth,
 } from 'date-fns';
 
-import { DateWithModifiers } from '../../classes/DateWithModifiers';
-import { getOutsideStartDays } from '../utils/getOutsideStartDays';
-import { getOutsideEndDays } from '../utils/getOutsideEndDays';
-import { DayPickerProps } from '../../typings';
+import { DateWithModifiers } from '../../classes';
+import { DayPickerProps } from '../../types';
+import { getOutsideStartDays, getOutsideEndDays } from '../utils';
 type PreparedMonthWeek = Array<DateWithModifiers>;
 type PreparedMonthWeeks = { [key: string]: PreparedMonthWeek };
 type PreparedMonth = {

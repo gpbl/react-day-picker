@@ -1,19 +1,9 @@
-import { MatchingModifiers, ModifierValueType } from '../../typings';
-import { DayPickerProps } from '../../typings';
-interface PreparedDay {
-  Container: 'button' | 'span';
-  containerProps: {
-    'aria-disabled'?: boolean;
-    disabled?: boolean;
-    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  wrapperProps: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-}
+import {
+  PreparedDay,
+  MatchingModifiers,
+  DayPickerProps,
+  ModifierValueType,
+} from '../../types';
 
 export function prepareDay(
   day: Date,
