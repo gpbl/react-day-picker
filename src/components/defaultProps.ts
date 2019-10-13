@@ -13,7 +13,7 @@ function formatDay(day: Date, formatOptions?: FormatOptions): string {
 }
 
 function formatCaption(month: Date, formatOptions?: FormatOptions): string {
-  return format(month, 'LLLL yyyy', formatOptions);
+  return format(month, 'LLLL Y', formatOptions);
 }
 
 function formatWeekdayName(day: Date, formatOptions?: FormatOptions): string {

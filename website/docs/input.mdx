@@ -3,4 +3,159 @@ id: input
 title: Input Fields
 ---
 
-**TODO**
+A common user experience with date pickers is to bind it with an input field. This way, users can click a day _or_ type it too.
+
+Requirements may vary according to your application. This guide shows how to add an input field that sync with the selected day in the calendar.
+
+#### 1. Setup a DayPicker with an input field:
+
+```jsx
+function App() {
+  return (
+    <form className="center">
+      <label>
+        <p>Type a day or pick one from the calendar.</p>
+        <input type="text" />
+      </label>
+      <br />
+      <DayPicker />
+    </form>
+  );
+}
+```
+
+#### 2. Define the date format for the input field
+
+You want the input field display the selected day, and let user change the day according to the same format. For example, we can set `yyyy-MM-dd` using date-fns’s [format](https://date-fns.org/v2.4.1/docs/format) function.
+
+```jsx preview
+function App() {
+  const FORMAT = 'yyyy-MM-dd';
+  return (
+    <form className="center">
+      <label>
+        <p>Type a day or pick one from the calendar.</p>
+        <input type="text" placeholder="YYYY-MM-DD" />
+      </label>
+      <br />
+      <DayPicker />
+    </form>
+  );
+}
+```
+
+#### 3. Fill the input field when a day is clicked
+
+Control the `input` field and set its value as the day clicked in the calendar.
+
+- Put in the component’s state the value of the field
+- Update the fields with the clicked day
+
+```jsx preview
+import React, { useState } from 'react';
+import { isSameDay } from 'date-fns';
+
+function App() {
+  const [value, setValue] = useState();
+
+  const FORMAT = 'yyyy-MM-dd';
+
+  const handleDayClick = day => {
+    setValue(format(day, FORMAT));
+  };
+
+  return (
+    <form className="center">
+      <label>
+        <p>Type a day or pick one from the calendar.</p>
+        <input type="text" value={value} placeholder="YYYY-MM-DD" />
+      </label>
+      <br />
+      <DayPicker onDayClick={handleDayClick} value={value} />
+    </form>
+  );
+}
+```
+
+3. parse the string typed in the field according to the format:
+
+- if it is NOT valid date:
+  - highlight the field as invalid
+- if it is a valid date:
+  - delete the invalid status if present
+  - set the date as selected
+
+It is easy to binda a DayPicker with an input field.
+
+```jsx preview previewHeight=400
+import React, { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+import { format, parse, isSameDay } from 'date-fns';
+
+function App() {
+  const [month, setMonth] = useState(new Date());
+  const [selected, setSelected] = useState();
+  const [value, setValue] = useState();
+  const [invalid, setInvalid] = useState();
+
+  const FORMAT = 'yyyy-MM-dd';
+  const handleChange = e => {
+    setValue(e.target.value);
+
+    // Set the selected day, if the typed value is a valid date.
+    const day = parse(e.target.value, FORMAT, new Date());
+    if (isNaN(day.getTime())) {
+      setInvalid(true);
+      // Not a valid date
+      return;
+    }
+
+    setInvalid(false);
+    setSelected(day);
+    setMonth(day); // Display the month for the typed day
+  };
+
+  const handleBlur = e => {
+    if (invalid && selected) {
+      // Reset previous selected value if typed an invalid date
+      setValue(format(selected, FORMAT));
+      setInvalid(false);
+    }
+  };
+
+  const handleDayClick = day => {
+    setInvalid(false);
+    if (isSameDay(day, selected)) {
+      // Empty selected day
+      setSelected();
+      setValue('');
+    } else {
+      setSelected(day);
+      setValue(format(day, FORMAT));
+    }
+  };
+
+  return (
+    <form className="center">
+      <label>
+        <p>Type a day or pick one from the calendar.</p>
+        <input
+          type="text"
+          placeholder="YYYY-MM-DD"
+          value={value}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          style={{ borderColor: invalid && '#fc466b' }}
+        />
+      </label>
+      <br />
+      <DayPicker
+        month={month}
+        onMonthChange={setMonth}
+        selected={selected}
+        onDayClick={handleDayClick}
+      />
+    </form>
+  );
+}
+```
