@@ -1,17 +1,14 @@
-import { ClassNames } from '../types/ClassNames';
+import { ClassNames } from './ClassNames';
 import {
   Modifier,
   Modifiers,
   ModifiersStyles,
   ModifiersClassNames,
   MatchingModifiers,
-} from '../types/Modifiers';
-import { Styles } from '../types/Styles';
-import { Components } from '../types/Components';
-
-export interface FormatOptions {
-  locale?: Locale;
-}
+} from './Modifiers';
+import { Styles } from './Styles';
+import { Components } from './Components';
+import { FormatOptions } from './FormatOptions';
 
 export interface DayPickerProps {
   // #region CLASSNAMES

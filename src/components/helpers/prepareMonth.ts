@@ -12,8 +12,7 @@ import {
 import { DateWithModifiers } from '../../classes/DateWithModifiers';
 import { getOutsideStartDays } from '../utils/getOutsideStartDays';
 import { getOutsideEndDays } from '../utils/getOutsideEndDays';
-import { DayPickerProps } from '../../types/DayPicker';
-
+import { DayPickerProps } from '../../typings';
 type PreparedMonthWeek = Array<DateWithModifiers>;
 type PreparedMonthWeeks = { [key: string]: PreparedMonthWeek };
 type PreparedMonth = {

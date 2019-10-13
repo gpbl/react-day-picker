@@ -1,7 +1,7 @@
-import { CaptionProps } from '../components/Caption';
-import { DayProps } from '../components/Day';
-import { NavigationProps } from '../components/Navigation';
-import { WeekNumberProps } from '../components/WeekNumber';
+import { CaptionProps } from './Caption';
+import { DayProps } from './Day';
+import { NavigationProps } from './Navigation';
+import { WeekNumberProps } from './WeekNumber';
 
 export interface Components {
   Caption: React.ComponentType<CaptionProps>;

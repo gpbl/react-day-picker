@@ -1,6 +1,5 @@
 import { startOfWeek, addDays } from 'date-fns';
-import { DayPickerProps } from '../../types/DayPicker';
-
+import { DayPickerProps } from '../../typings';
 const date = new Date();
 
 export function getWeekdaysNames(

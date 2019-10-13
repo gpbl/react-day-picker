@@ -5,7 +5,7 @@ import * as DateFns from 'date-fns';
 import spanish from 'date-fns/locale/es';
 import arabic from 'date-fns/locale/ar-SA';
 
-import * as DayPicker from 'react-day-picker';
+import { DayPicker } from 'react-day-picker';
 
 import { generateElement } from './utils';
 import Frame from '../Frame';

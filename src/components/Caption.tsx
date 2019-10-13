@@ -1,13 +1,6 @@
 import * as React from 'react';
-
 import { prepareCaption } from './helpers';
-import { DayPickerProps } from '../types/DayPicker';
-
-export interface CaptionProps {
-  month: Date;
-  dayPickerProps: DayPickerProps;
-}
-
+import { CaptionProps } from '../typings';
 export const Caption: React.FC<CaptionProps> = ({ month, dayPickerProps }) => {
   const { containerProps } = prepareCaption(dayPickerProps);
   const { locale } = dayPickerProps;

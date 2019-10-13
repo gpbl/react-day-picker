@@ -1,6 +1,5 @@
-import { MatchingModifiers, ModifierValueType } from '../../types/Modifiers';
-import { DayPickerProps } from '../../types/DayPicker';
-
+import { MatchingModifiers, ModifierValueType } from '../../typings';
+import { DayPickerProps } from '../../typings';
 interface PreparedDay {
   Container: 'button' | 'span';
   containerProps: {

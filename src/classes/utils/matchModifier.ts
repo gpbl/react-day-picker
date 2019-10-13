@@ -1,6 +1,5 @@
 import { isSameDay, differenceInDays } from 'date-fns';
-import { Modifier, Modifiers } from '../../types/Modifiers';
-
+import { Modifier } from '../../typings';
 /**
  * Return true if `day1` is after `day2`.
  */

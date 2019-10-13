@@ -12,9 +12,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
-    "declaration": true,
-    "declarationMap": true
+    "strictNullChecks": true
   },
-  "include": ["src", "./*.js"]
+  "include": ["./src/**/*.ts", "./src/**/*.d.ts", "./src/**/*.tsx", "./*.js"]
 }

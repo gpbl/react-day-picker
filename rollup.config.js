@@ -31,7 +31,10 @@ export default {
       verbosity: 2,
     }),
     copy({
-      targets: [{ src: 'src/style.css', dest: 'lib' }],
+      targets: [
+        { src: ['./src/style.css', './src/typings.d.ts'], dest: 'lib' },
+        { src: './src/types/*.d.ts', dest: 'lib/types' },
+      ],
     }),
     sizeSnapshot(),
   ],

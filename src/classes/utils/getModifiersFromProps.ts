@@ -1,5 +1,4 @@
-import { DayPickerProps } from '../../types/DayPicker';
-import { Modifiers } from '../../types/Modifiers';
+import { DayPickerProps, Modifiers } from '../../typings';
 
 /**
  * Return the `modifiers` prop including the modifiers from shortcut-props

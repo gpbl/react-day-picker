@@ -4,10 +4,7 @@ import { getTime, startOfMonth } from 'date-fns';
 import { prepareDayPicker } from './helpers';
 import { defaultProps } from './defaultProps';
 
-import { DayPickerProps } from '../types/DayPicker';
-import { ClassNames } from '../types/ClassNames';
-import { Components } from '../types/Components';
-
+import { DayPickerProps } from '../typings'; import { ClassNames } from '../typings'; import { Components } from '../typings';
 import { Month } from './Month';
 
 import { filterUndefinedProps } from './utils/filterUndefinedProps';

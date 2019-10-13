@@ -1,11 +1,11 @@
 import locale from 'date-fns/locale/en-US';
 import { startOfMonth, format } from 'date-fns';
 
+import { DayPickerProps, FormatOptions } from '../typings';
 import { Caption } from './Caption';
 import { Day } from './Day';
 import { Navigation } from './Navigation';
 import { WeekNumber } from './WeekNumber';
-import { DayPickerProps, FormatOptions } from '../types/DayPicker';
 import { defaultClassNames } from './defaultClassNames';
 
 function formatDay(day: Date, formatOptions?: FormatOptions): string {

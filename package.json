@@ -5,12 +5,12 @@
   "main": "lib/index.js",
   "module": "lib/index.es.js",
   "jsnext:main": "lib/index.es.js",
-  "types": "lib/index",
+  "types": "lib/typings.d.ts",
   "license": "MIT",
   "scripts": {
     "lint": "eslint src --ext .ts,.d.ts,.tsx",
     "lint-types": "tsc --project ./tsconfig.json --noEmit",
-    "prebuilds": "rm -rf lib",
+    "prebuild": "rm -rf lib",
     "build": "NODE_ENV=production rollup -c"
   },
   "files": [

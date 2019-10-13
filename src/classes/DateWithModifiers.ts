@@ -2,8 +2,11 @@ import { isSameDay, isToday } from 'date-fns';
 
 import { listModifiers } from './utils/listModifiers';
 import { getModifiersFromProps } from './utils/getModifiersFromProps';
-import { DayPickerProps } from '../types/DayPicker';
-import { MatchingModifiers, ModifierValueType } from '../types/Modifiers';
+import {
+  DayPickerProps,
+  MatchingModifiers,
+  ModifierValueType,
+} from '../typings';
 
 const defaultModifiers: MatchingModifiers = {
   disabled: false,
@@ -14,11 +17,6 @@ const defaultModifiers: MatchingModifiers = {
   start: false,
   today: false,
 };
-
-export interface DateWithModifiers {
-  date: Date;
-  modifiers: MatchingModifiers;
-}
 
 export class DateWithModifiers {
   constructor(date: Date, initialModifiers = {}, props: DayPickerProps) {
@@ -48,6 +46,9 @@ export class DateWithModifiers {
 
     this.modifiers = modifiers;
   }
+
+  date: Date;
+  modifiers: MatchingModifiers;
 
   getModifier(name: string): ModifierValueType {
     return this.modifiers[name];
