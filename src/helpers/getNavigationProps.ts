@@ -1,4 +1,7 @@
-import { DayPickerProps, NavigationHtmlProps } from '../types';
+import {
+  DayPickerProps,
+  NavigationHtmlProps,
+} from '../../typings/react-day-picker';
 
 /**
  * Return the props for the Navigation component and its children.

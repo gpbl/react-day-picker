@@ -1,5 +1,5 @@
 import { startOfMonth, addMonths } from 'date-fns';
-import { DayPickerProps } from '../types';
+import { DayPickerProps } from '../../typings/react-day-picker';
 
 /**
  * Return the next and the previous month for the navigation.

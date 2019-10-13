@@ -1,6 +1,6 @@
 import { endOfWeek, differenceInDays, addDays } from 'date-fns';
 import { DateWithModifiers } from '../DateWithModifiers';
-import { DayPickerProps } from '../types';
+import { DayPickerProps } from '../../typings/react-day-picker';
 
 export function getOutsideEndDays(
   day: DateWithModifiers,

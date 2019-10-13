@@ -3,7 +3,7 @@ import {
   MatchingModifiers,
   DayPickerProps,
   ModifierValueType,
-} from '../types';
+} from '../../typings/react-day-picker';
 
 /**
  * Return the props for the Day component.

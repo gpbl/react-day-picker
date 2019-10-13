@@ -1,5 +1,5 @@
 import { isSameDay, differenceInDays } from 'date-fns';
-import { Modifier } from '../types';
+import { Modifier } from '../../typings/react-day-picker';
 /**
  * Return true if `day1` is after `day2`.
  */

@@ -22,7 +22,7 @@ const errorCallback = (...args) => {
 };
 
 /**
- * Live preview of `code`
+ * Live preview of `code`.
  */
 export default function Preview({ code, height }) {
   const { _code = code } = buble.transform(

@@ -1,4 +1,4 @@
-import { DayPickerProps, Modifiers } from '../types';
+import { DayPickerProps, Modifiers } from '../../typings/react-day-picker';
 
 /**
  * Return the `modifiers` prop including the modifiers from shortcut-props

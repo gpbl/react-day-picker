@@ -2,7 +2,11 @@ import { isSameDay, isToday } from 'date-fns';
 
 import { getModifiersFromProps } from './utils/getModifiersFromProps';
 import { listModifiers } from './utils/listModifiers';
-import { DayPickerProps, MatchingModifiers, ModifierValueType } from './types';
+import {
+  DayPickerProps,
+  MatchingModifiers,
+  ModifierValueType,
+} from '../typings/react-day-picker';
 
 const defaultModifiers: MatchingModifiers = {
   disabled: false,

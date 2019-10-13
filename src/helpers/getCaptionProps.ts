@@ -1,4 +1,7 @@
-import { DayPickerProps, CaptionHtmlProps } from '../types';
+import {
+  DayPickerProps,
+  CaptionHtmlProps,
+} from '../../typings/react-day-picker';
 
 /**
  * Return the props for the Caption component.

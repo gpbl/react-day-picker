@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { getDayProps } from './helpers/getDayProps';
-import { DayProps } from './types';
+import { DayProps } from '../typings/react-day-picker';
 export const Day: React.FC<DayProps> = props => {
   const { day, modifiers, dayPickerProps } = props;
   const { locale, formatDay } = dayPickerProps;

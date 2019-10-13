@@ -1,3 +1,7 @@
+import * as React from 'react';
+
+export declare const DayPicker: React.FC<DayPickerProps>;
+
 export interface DayPickerProps {
   // #region CLASSNAMES
   className: string;

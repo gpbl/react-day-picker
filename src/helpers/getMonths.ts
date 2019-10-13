@@ -1,5 +1,5 @@
 import { addMonths, differenceInMonths, startOfMonth } from 'date-fns';
-import { DayPickerProps } from '../types';
+import { DayPickerProps } from '../../typings/react-day-picker';
 
 /**
  * Get the months to display according to the props passed to the component.

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { WeekNumberProps } from './types';
+import { WeekNumberProps } from '../typings/react-day-picker';
 export const WeekNumber: React.FC<WeekNumberProps> = ({
   number,
   dayPickerProps,

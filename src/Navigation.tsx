@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { NavigationProps } from './types';
+import { NavigationProps } from '../typings/react-day-picker';
 import { getNavigation } from './helpers/getNavigation';
 import { getNavigationProps } from './helpers/getNavigationProps';
 
