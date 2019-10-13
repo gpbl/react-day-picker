@@ -1,38 +1,57 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default cz variables here. */
 :root {
+  --ifm-code-border-radius: 2px;
   --ifm-code-font-size: 12px;
   --ifm-color-primary: #3f5efb;
   --ifm-color-secondary: #fc466b;
+  --ifm-contents-border-color: var(--ifm-color-emphasis-alpha-10);
+  --ifm-contents-link-color: var(--ifm-color-emphasis-alpha-80);
   --ifm-font-base-color: var(--ifm-color-emphasis-alpha-80);
-  /* --ifm-font-size-base: 15px; */
-  /* --ifm-global-radius: 4px; */
-  --ifm-code-border-radius: 2px;
-  /* --ifm-code-background: #f6f8fa; */
-  /* --ifm-list-margin: 0.875em; */
+  --ifm-h1-font-size: 2rem;
+  --ifm-h1-line-height: 2;
+  --ifm-h1-vertical-rhythm-bottom: 1;
+  --ifm-h1-vertical-rhythm-top: 2;
+  --ifm-h2-font-size: 1.5rem;
+  --ifm-h2-line-height: 1.5;
+  --ifm-h2-vertical-rhythm-top: 1.75;
+  --ifm-h2-vertical-rhythm-bottom: 1;
+  --ifm-h3-font-size: 1.17rem;
+  --ifm-h3-vertical-rhythm-top: 1.2;
+  --ifm-h3-vertical-rhythm-bottom: 1;
+  --ifm-h4-font-size: 1.12rem;
+  --ifm-h5-font-size: 0.83rem;
+  --ifm-h6-font-size: 0.75rem;
+  --ifm-pre-margin-top: 1.5rem;
+  --ifm-pre-margin-bottom: 1.5rem;
+  --ifm-paragraph-margin-top: 0.5rem;
+  --ifm-paragraph-margin-bottom: 0.5rem;
+  --ifm-heading-font-family: ;
+  --ifm-heading-font-weight: 700;
+  --ifm-heading-line-height: 1.2em;
+  --ifm-heading-margin-bottom: 1rem;
+  --ifm-heading-margin-top: 0;
+  --ifm-heading-vertical-rhythm-bottom: 1;
+  --ifm-heading-vertical-rhythm-top: 1.5;
+  --ifm-list-margin: 1.5rem;
   --ifm-table-border-width: 0;
   --ifm-table-cell-padding: 7px;
   --ifm-table-head-background: var(--ifm-color-emphasis-alpha-05);
   --ifm-table-head-color: var(--ifm-table-cell-color);
   --ifm-table-stripe-background: transparent;
-  /* --ifm-menu-link-padding-vertical: 0.25em; */
-  /* --ifm-menu-link-padding-horizontal: 1em; */
-  --ifm-contents-link-color: var(--ifm-color-emphasis-alpha-80);
-  --ifm-contents-border-color: var(--ifm-color-emphasis-alpha-10);
-  /* --ifm-spacing-horizontal: 0; */
-  /* --ifm-col-width: 200px; */
+  --ifm-font-family-base: 'SF Pro Text', 'SF Pro Icons', system-ui,
+    system -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.markdown {
+  --ifm-h1-line-height: inherit;
+  --ifm-h1-vertical-rhythm-bottom: inherit;
+  --ifm-h1-vertical-rhythm-top: inherit;
+  --ifm-h2-line-height: inherit;
+  --ifm-h2-vertical-rhythm-top: inherit;
+  --ifm-h2-vertical-rhythm-bottom: inherit;
+  --ifm-h3-vertical-rhythm-top: inherit;
+  --ifm-heading-line-height: inherit;
+  --ifm-heading-vertical-rhythm-bottom: inherit;
+  --ifm-heading-vertical-rhythm-top: inherit;
 }
 
 html[data-theme='dark'] {
@@ -40,10 +59,13 @@ html[data-theme='dark'] {
   --ifm-color-primary: #fc466b;
 }
 html:not([data-theme='dark']) {
+}
+
+html {
   -webkit-font-smoothing: antialiased;
 }
 
-html .navbar {
+.navbar {
   background: linear-gradient(
     to right,
     rgba(12, 198, 239, 0.75),
@@ -60,45 +82,39 @@ html .navbar {
   --ifm-navbar-link-hover-color: white;
 }
 
-html[data-theme='dark'] .navbar {
-  /* background: linear-gradient( */
-  /* to right, */
-  /* rgba(12, 198, 239, 1),
-    rgba(197, 110, 240, 1),
-    rgba(250, 75, 85, 1) */
-  /* ); */
-}
-
 .menu {
   font-weight: normal;
 }
 .menu__link--active {
   font-weight: bold;
 }
+.menu .menu__link {
+  color: var(--ifm-color-emphasis-alpha-80);
+}
+
+.markdown > pre {
+  margin-top: var(--ifm-pre-margin-top);
+  margin-bottom: var(--ifm-pre-margin-bottom);
+}
+
+.markdown > p {
+  margin-top: var(--ifm-paragraph-margin-top);
+  margin-bottom: var(--ifm-paragraph-margin-bottom);
+}
+
+.markdown > ul,
+.markdown > ol {
+  margin-top: var(--ifm-list-margin);
+  margin-bottom: var(--ifm-list-margin);
+}
 
 [class^='mdxCodeBlock'] {
   border: none !important;
   box-shadow: none !important;
 }
-[class^='docItemContainer'] {
-  /* margin-left: 0 !important; */
-}
-
-[class^='sidebar'] {
-  /* padding-top: 1.5rem !important; */
-}
 
 [class^='tableOfContents'] {
-  /* top: var(--ifm-navbar-height) !important; */
   max-height: initial !important;
-}
-
-.container.container--fluid {
-  /* max-width: var(--ifm-container-width); */
-}
-.container > .row:first-child > .col:first-child {
-  /* padding-left: 0; */
-  /* flex: 0 0 240px; */
 }
 
 table th,
@@ -112,79 +128,26 @@ pre {
   margin-bottom: 0;
 }
 
-.navbar.navbar--fixed-top {
-  /* background: linear-gradient(to right, #fc466b, #3f5efb); */
-  /* -webkit-backdrop-filter: blur(10px); */
-}
-.navbar__brand.active,
-.navbar__item.navbar__link,
-.navbar__item.navbar__link:hover {
-  /* color: white; */
-}
-.navbar__item.navbar__link:hover {
-  /* color: white; */
-}
-
-.navbar__item.navbar__link.navbar__link--active {
-  /* font-weight: 900; */
-}
-.padding-vert--lg {
-  /* padding-top: 0 !important; */
-}
-.padding-vert--lg header {
-  /* padding-top: 1rem; */
-}
-
-header h1 {
-  /* margin-top: 1rem; */
-}
-
-ul,
-ol {
-  margin-bottom: var(--ifm-list-margin);
-  margin-top: var(--ifm-list-margin);
+p {
+  margin-top: var(--ifm-paragraph-margin-top);
 }
 
 a > code {
   color: var(--ifm-link-color);
 }
 
-.menu .menu__link {
-  color: var(--ifm-color-emphasis-alpha-80);
-}
 .navbar__brand {
   white-space: nowrap;
 }
 
-.markdown > ul,
-.markdown > p {
-  /* margin-top: 1em;
-  margin-bottom: 1em; */
-}
-
-.markdown > table {
+table {
   margin: 1em 0 2em 0;
   width: 100%;
 }
 
-.markdown > h5 {
-  /* font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 1.5em;
-  margin-top: 2em;
-  font-size: 0.875rem; */
-  /* color: var(--ifm-color-emphasis-alpha-60); */
-}
-
-.markdown {
-  /* --ifm-heading-vertical-rhythm-bottom: 1em; */
-  --ifm-heading-line-height: 1.2em;
-  --ifm-heading-vertical-rhythm-top: 2;
-  --ifm-heading-vertical-rhythm-bottom: 1;
-}
-.markdown > h4,
-.markdown > h5,
-.markdown > h6 {
+/* h4,
+h5,
+h6 {
   --ifm-heading-vertical-rhythm-top: 0.5;
   --ifm-heading-vertical-rhythm-bottom: 0.25;
-}
+} */

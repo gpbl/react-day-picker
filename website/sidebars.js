@@ -1,14 +1,9 @@
 /* eslint-env node */
 module.exports = {
   docs: {
-    Documentation: ['start', 'basics', 'styling', 'customization'],
-    Guides: [
-      'matching-days',
-      'modifiers',
-      'input',
-      'localization',
-      'extending',
-    ],
+    'Get Started': ['start', 'basics', 'styling', 'customization'],
+    Guides: ['matching-days', 'modifiers', 'localization', 'extending'],
+    Recipes: ['input'],
     ['API Reference']: ['props', 'utils'],
   },
 };

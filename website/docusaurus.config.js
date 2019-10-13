@@ -6,7 +6,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-const path = require('path');
+// const path = require('path');
 
 const config = {
   title: 'react-day-picker',
@@ -17,7 +17,7 @@ const config = {
   organizationName: 'gpbl', // Usually your GitHub org/user name.
   projectName: 'react-day-picker', // Usually your repo name.
   plugins: [],
-  themes: [path.resolve(__dirname, './src/theme-preview-codeblock')],
+  // themes: [path.resolve(__dirname, './src/theme-preview-codeblock')],
   themeConfig: {
     previewScopes: { DayPicker: 'react-day-picker' },
     prismTheme: require('prism-react-renderer/themes/oceanicNext'),

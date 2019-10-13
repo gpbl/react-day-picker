@@ -5,11 +5,13 @@ title: Input Fields
 
 A common user experience with date pickers is to bind it with an input field. This way, users can click a day _or_ type it too.
 
-Requirements may vary according to your application. This guide shows how to add an input field that sync with the selected day in the calendar.
+Requirements may vary according to your application. This recipe shows how to add an input field that sync with the selected day in the calendar.
 
-#### 1. Setup a DayPicker with an input field:
+### 1. Setup a DayPicker with an input field
 
-```jsx
+Create a scaffolding component:
+
+```jsx preview highlight=5,9
 function App() {
   return (
     <form className="center">
@@ -24,9 +26,11 @@ function App() {
 }
 ```
 
-#### 2. Define the date format for the input field
+### 2. Define the date string format
 
-You want the input field display the selected day, and let user change the day according to the same format. For example, we can set `yyyy-MM-dd` using date-fns’s [format](https://date-fns.org/v2.4.1/docs/format) function.
+You want the input field display the selected day, and let user change the day according to the same format.
+
+For example, set `yyyy-MM-dd` using date-fns’s [format](https://date-fns.org/v2.4.1/docs/format) function.
 
 ```jsx preview
 function App() {
@@ -44,12 +48,9 @@ function App() {
 }
 ```
 
-#### 3. Fill the input field when a day is clicked
+### 3. Set the input field value when a day is clicked
 
-Control the `input` field and set its value as the day clicked in the calendar.
-
-- Put in the component’s state the value of the field
-- Update the fields with the clicked day
+Control the `input` field with an internal state, and set its value as the day clicked in the calendar.
 
 ```jsx preview
 import React, { useState } from 'react';
@@ -77,7 +78,11 @@ function App() {
 }
 ```
 
-3. parse the string typed in the field according to the format:
+_Select a day to see its formatted value in the input field_.
+
+### 4. parse the string typed in the field
+
+Typing a valid date into the field should update the selected day in the calendar.
 
 - if it is NOT valid date:
   - highlight the field as invalid

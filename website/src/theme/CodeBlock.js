@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import nightOwlTheme from 'prism-react-renderer/themes/nightOwl';
 
-import Preview from '../../components/Preview';
-import Highlight from '../../components/Highlight';
+import Preview from '../components/Preview';
+import Highlight from '../components/Highlight';
 
 const styles = {
   container: {},
