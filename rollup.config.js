@@ -31,7 +31,7 @@ export default [
   {
     input,
     output: {
-      file: 'dist/index.umd.js',
+      file: 'lib/index.umd.js',
       format: 'umd',
       name,
       globals,
@@ -43,7 +43,7 @@ export default [
   {
     input,
     output: {
-      file: 'dist/index.umd.min.js',
+      file: 'lib/index.umd.min.js',
       format: 'umd',
       name,
       globals,
@@ -69,18 +69,19 @@ export default [
       },
       {
         file: pkg.module,
-        format: 'es',
+        format: 'esm',
         exports: 'auto',
         sourcemap: true,
       },
     ],
+    external: id =>
+      !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/'),
     plugins: [
-      autoExternal(),
       resolve(),
       typescriptPlugin,
       replaceDevelopment,
       copy({
-        targets: [{ src: ['src/style.css'], dest: ['lib', 'dist'] }],
+        targets: [{ src: ['src/style.css'], dest: ['lib'] }],
       }),
       sizeSnapshot(),
     ],

@@ -1,32 +1,19 @@
 /* eslint-env node */
 
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-// const path = require('path');
-
 const config = {
   title: 'react-day-picker',
-  tagline: 'Flexible and customizable date picker.',
-  url: 'https://react-day-picker.js.org',
+  tagline: 'Flexible and Customizable Date Picker for React.',
+  url: 'http://react-day-picker.js.org',
   baseUrl: '/',
   favicon: 'images/favicon.png',
-  organizationName: 'gpbl', // Usually your GitHub org/user name.
-  projectName: 'react-day-picker', // Usually your repo name.
-  plugins: [],
-  // themes: [path.resolve(__dirname, './src/theme-preview-codeblock')],
+  organizationName: 'gpbl',
+  projectName: 'react-day-picker',
   themeConfig: {
     previewScopes: { DayPicker: 'react-day-picker' },
     prismTheme: require('prism-react-renderer/themes/oceanicNext'),
     navbar: {
       title: 'react-day-picker',
-      logo: {
-        alt: 'react-day-picker Logo',
-        src: 'images/logo.png',
-      },
+      logo: { alt: 'react-day-picker Logo', src: 'images/logo.png' },
       links: [
         { to: 'docs/start', label: 'Documentation', position: 'left' },
         { to: 'docs/props', label: 'Props', position: 'left' },
@@ -57,17 +44,18 @@ const config = {
       logo: { alt: '', src: '' },
       copyright: `Copyright © ${new Date().getFullYear()} gpbl & contributors. Built with Docusaurus.`,
     },
+    algolia: {
+      apiKey: 'api-key',
+      indexName: 'index-name',
+      algoliaOptions: {},
+    },
   },
   presets: [
     [
       '@docusaurus/preset-classic',
       {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
+        docs: { sidebarPath: require.resolve('./sidebars.js') },
+        theme: { customCss: require.resolve('./src/css/custom.css') },
       },
     ],
   ],

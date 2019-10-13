@@ -1,6 +1,5 @@
 node_modules
 lib
-dist
 
 .vscode
 .DS_Store
