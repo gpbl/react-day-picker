@@ -2,18 +2,28 @@
   "name": "react-day-picker",
   "version": "8.0.0-alpha.0",
   "description": "Flexible Date Picker for React",
+  "author": "Giampaolo Bellavite <io@gpbl.org>",
+  "homepage": "http://react-day-picker.js.org",
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "typings": "lib/DayPicker.d.ts",
+  "module": "lib/index.esm.js",
+  "typings": "typings/react-day-picker.d.ts",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gpbl/react-react-day-picker"
+  },
+  "bugs": {
+    "url": "https://github.com/gpbl/react-react-day-picker/issues"
+  },
   "scripts": {
     "lint": "eslint src --ext .ts,.d.ts,.tsx",
     "lint-types": "tsc --project ./tsconfig.json --noEmit",
     "prebuild": "rm -rf lib",
-    "build": "NODE_ENV=production rollup -c"
+    "build": "rollup -c"
   },
   "files": [
-    "lib"
+    "/lib",
+    "/typings/react-day-picker.d.ts"
   ],
   "devDependencies": {
     "@types/react": "^16.9.5",
