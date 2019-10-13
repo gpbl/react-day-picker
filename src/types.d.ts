@@ -411,6 +411,18 @@ export interface DayHtmlProps {
   };
 }
 
+export interface SharedHtmlProps {
+  className?: string;
+  style?: React.CSSProperties;
+}
+
 export interface CaptionHtmlProps {
-  containerProps: { className?: string; style?: React.CSSProperties };
+  containerProps: SharedHtmlProps;
+}
+
+export interface NavigationHtmlProps {
+  containerProps: SharedHtmlProps;
+  nextProps: SharedHtmlProps;
+  prevProps: SharedHtmlProps;
+  startProps: SharedHtmlProps;
 }

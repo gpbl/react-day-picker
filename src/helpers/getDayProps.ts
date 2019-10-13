@@ -5,6 +5,9 @@ import {
   ModifierValueType,
 } from '../types';
 
+/**
+ * Return the props for the Day component.
+ */
 export function getDayProps(
   day: Date,
   modifiers: MatchingModifiers,

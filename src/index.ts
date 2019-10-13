@@ -12,4 +12,5 @@ export { getDayProps } from './helpers/getDayProps';
 export { getCaptionProps } from './helpers/getCaptionProps';
 export { getMonths } from './helpers/getMonths';
 export { getWeeks } from './helpers/getWeeks';
-export { prepareNavigation } from './helpers/prepareNavigation';
+export { getNavigation } from './helpers/getNavigation';
+export { getNavigationProps } from './helpers/getNavigationProps';

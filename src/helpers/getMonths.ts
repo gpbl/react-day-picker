@@ -3,8 +3,6 @@ import { DayPickerProps } from '../types';
 
 /**
  * Get the months to display according to the props passed to the component.
- *
- * @param props
  */
 export function getMonths(props: DayPickerProps): Date[] {
   const { month, numberOfMonths, toMonth, fromMonth, reverseMonths } = props;
