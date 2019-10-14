@@ -1,5 +1,5 @@
 describe('<Caption />', () => {
-  test('Caption test', async () => {
+  test('Caption test', () => {
     expect(1 === 1);
   });
 });
