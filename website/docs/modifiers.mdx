@@ -84,7 +84,6 @@ For example, to display an alert when the selected day is unavailable, check the
 ```jsx preview
 function App() {
   const [selected, setSelected] = useState();
-  const [month, setMonth] = useState(new Date(2019, 8));
 
   const styles = {
     unavailable: { textDecoration: 'line-through', color: 'salmon' },
@@ -109,8 +108,6 @@ function App() {
   return (
     <div>
       <DayPicker
-        month={month}
-        onMonthChange={setMonth}
         selected={selected}
         onDayClick={handleDayClick}
         modifiers={{
