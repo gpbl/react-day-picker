@@ -1,23 +1,23 @@
 ---
 id: input
-title: Input Fields
+title: Input Field Integration
 ---
 
-A common user experience with date pickers is to bind it with an input field. This way, users can click a day _or_ type it too.
+You may need to integrate DayPicker with an input field, to let user _type in a date_ instead of clicking the calendar.
 
-Requirements may vary according to your application. This recipe shows how to add an input field that sync with the selected day in the calendar.
+This recipe shows how to add an input field that sync with the selected day in DayPicker.
 
-### 1. Setup a DayPicker with an input field
+### 1. Setup a DayPicker and an Input Field
 
-Create a scaffolding component:
+Create a basic component with `input` and `DayPicker`:
 
-```jsx preview highlight=5,9
+```jsx
 function App() {
   return (
     <form className="center">
       <label>
         <p>Type a day or pick one from the calendar.</p>
-        <input type="text" />
+        <input />
       </label>
       <br />
       <DayPicker />
@@ -26,20 +26,20 @@ function App() {
 }
 ```
 
-### 2. Define the date string format
+### 2. Define the Date Format
 
-You want the input field display the selected day, and let user change the day according to the same format.
+The input field should display the formatted day selected from DayPicker.
 
-For example, set `yyyy-MM-dd` using date-fns’s [format](https://date-fns.org/v2.4.1/docs/format) function.
+For example, set `yyyy-MM-dd` using date-fns’s [format](https://date-fns.org/v2.4.1/docs/format) function and add a placeholder to the input.
 
-```jsx preview
+```jsx
 function App() {
   const FORMAT = 'yyyy-MM-dd';
   return (
     <form className="center">
       <label>
         <p>Type a day or pick one from the calendar.</p>
-        <input type="text" placeholder="YYYY-MM-DD" />
+        <input placeholder="YYYY-MM-DD" />
       </label>
       <br />
       <DayPicker />
@@ -48,28 +48,26 @@ function App() {
 }
 ```
 
-### 3. Set the input field value when a day is clicked
+### 3. Set the Input Field Value when a Day is Clicked
 
-Control the `input` field with an internal state, and set its value as the day clicked in the calendar.
+Control the `input` field with an internal state, and set its formatted value when a day is clicked in the calendar.
 
-```jsx preview
+```jsx
 import React, { useState } from 'react';
 import { isSameDay } from 'date-fns';
 
 function App() {
   const [value, setValue] = useState();
-
   const FORMAT = 'yyyy-MM-dd';
 
-  const handleDayClick = day => {
-    setValue(format(day, FORMAT));
-  };
+  // Update the input field
+  const handleDayClick = day => setValue(format(day, FORMAT));
 
   return (
     <form className="center">
       <label>
         <p>Type a day or pick one from the calendar.</p>
-        <input type="text" value={value} placeholder="YYYY-MM-DD" />
+        <input value={value} placeholder="YYYY-MM-DD" />
       </label>
       <br />
       <DayPicker onDayClick={handleDayClick} value={value} />
@@ -80,28 +78,21 @@ function App() {
 
 _Select a day to see its formatted value in the input field_.
 
-### 4. parse the string typed in the field
+### 4. Parse the Typed Value
 
-Typing a valid date into the field should update the selected day in the calendar.
+Typing a valid date into the field should update the selected day in the calendar, too. Here we can add some requirements:
 
-- if it is NOT valid date:
-  - highlight the field as invalid
-- if it is a valid date:
-  - delete the invalid status if present
-  - set the date as selected
+- if it is a valid date, set the date as selected in DayPicker;
+- if the text typed is not a valid date, do not select anything.
 
-It is easy to binda a DayPicker with an input field.
-
-```jsx preview previewHeight=400
+```jsx preview previeweight=400
 import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
-import { format, parse, isSameDay } from 'date-fns';
+import { format, parse } from 'date-fns';
 
 function App() {
-  const [month, setMonth] = useState(new Date());
   const [selected, setSelected] = useState();
   const [value, setValue] = useState();
-  const [invalid, setInvalid] = useState();
 
   const FORMAT = 'yyyy-MM-dd';
   const handleChange = e => {
@@ -109,54 +100,98 @@ function App() {
 
     // Set the selected day, if the typed value is a valid date.
     const day = parse(e.target.value, FORMAT, new Date());
+
     if (isNaN(day.getTime())) {
-      setInvalid(true);
-      // Not a valid date
+      // Invalid date, unselect the day
+      setSelected(undefined);
       return;
     }
 
-    setInvalid(false);
     setSelected(day);
-    setMonth(day); // Display the month for the typed day
   };
 
-  const handleBlur = e => {
-    if (invalid && selected) {
-      // Reset previous selected value if typed an invalid date
-      setValue(format(selected, FORMAT));
-      setInvalid(false);
-    }
-  };
-
-  const handleDayClick = day => {
-    setInvalid(false);
-    if (isSameDay(day, selected)) {
-      // Empty selected day
+  const handleDayClick = (day, modifiers) => {
+    if (modifiers.selected) {
+      // Empty selected day in case clicking the same day
       setSelected();
       setValue('');
-    } else {
-      setSelected(day);
-      setValue(format(day, FORMAT));
+      return;
     }
+    setSelected(day);
+    setValue(format(day, FORMAT));
   };
 
   return (
     <form className="center">
       <label>
         <p>Type a day or pick one from the calendar.</p>
-        <input
-          type="text"
-          placeholder="YYYY-MM-DD"
-          value={value}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          style={{ borderColor: invalid && '#fc466b' }}
-        />
+        <input placeholder="YYYY-MM-DD" value={value} onChange={handleChange} />
+      </label>
+      <br />
+      <DayPicker selected={selected} onDayClick={handleDayClick} />
+    </form>
+  );
+}
+```
+
+_Try playing with input and clicking the days._
+
+### 5. Update the Month when Typing the Day
+
+If the typed day is outside the current month, it won't be visible: we need to control the month shown in the calendar.
+
+To update the month in DayPicker when typing the day:
+
+1. add the current month to the component’s state;
+2. use the `month` and the `onMonthChange` props to update the current onMonthChange;
+3. set the current month to the one typed in the field.
+
+```jsx preview previewHeight=400
+import React, { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+import { format, parse } from 'date-fns';
+
+function App() {
+  const [selected, setSelected] = useState();
+  const [value, setValue] = useState();
+
+  // Save the current month in state
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+
+  const FORMAT = 'yyyy-MM-dd';
+  const handleChange = e => {
+    setValue(e.target.value);
+    const day = parse(e.target.value, FORMAT, new Date());
+    if (isNaN(day.getTime())) {
+      setSelected(undefined);
+      return;
+    }
+    setSelected(day);
+
+    // Update the month shown in the calendar.
+    setCurrentMonth(day);
+  };
+
+  const handleDayClick = (day, modifiers) => {
+    if (modifiers.selected) {
+      setSelected();
+      setValue('');
+      return;
+    }
+    setSelected(day);
+    setValue(format(day, FORMAT));
+  };
+
+  return (
+    <form className="center">
+      <label>
+        <p>Type a day or pick one from the calendar.</p>
+        <input placeholder="YYYY-MM-DD" value={value} onChange={handleChange} />
       </label>
       <br />
       <DayPicker
-        month={month}
-        onMonthChange={setMonth}
+        month={currentMonth}
+        onMonthChange={setCurrentMonth}
         selected={selected}
         onDayClick={handleDayClick}
       />
@@ -164,3 +199,11 @@ function App() {
   );
 }
 ```
+
+Other features that are easy to add:
+
+- highlight the field when the date is not valid;
+- reset the original date when the date is not valid and the field loses focus;
+- place DayPicker in a pop-over, for example with [popper.js](https://popper.js.org).
+
+...have fun cooking with DayPicker!
