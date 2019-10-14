@@ -1,8 +1,14 @@
+:root {
+  --rdp-color-primary: #3f5efb;
+  --rdp-color-secondary: #fc466b;
+}
+
 /* #region Containers */
 .rdp {
   position: relative;
 
   display: inline-block;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 1rem;
 }
@@ -102,6 +108,7 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   min-width: 2.2em;
@@ -112,8 +119,8 @@
   font-size: 1em;
 
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .rdp-day_wrapper {
@@ -131,13 +138,13 @@
 .rdp-day_today {
   position: relative;
 
-  border: 2px solid #FC466B;
+  border: 2px solid var(--rdp-color-secondary);
   border-radius: 100%;
   font-weight: bold;
 }
 .rdp-day_selected {
   border-radius: 100%;
-  background: #3F5EFB;
+  background-color: var(--rdp-color-primary);
   color: white;
 }
 /* #endregion */
