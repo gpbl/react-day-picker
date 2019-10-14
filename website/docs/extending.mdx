@@ -19,20 +19,20 @@ The `Day` component is used to render the day in the calendar.
 #### To use a custom Day component
 
 1. create a `Day` component with `day`, [`modifiers`](./modifiers) and `dayPickerProps` props;
-2. (optional) get DayPicker-specific props via [`prepareDay`](./utils#prepareDay);
+2. (optional) get DayPicker-specific props via [`getDayProps`](./utils#getDayProps);
 3. pass the `Day` component to the `components` prop.
 
 For example, the following DayPicker implements a `Day` component that supports `onDayEnter`, `onDayLeave` events:
 
 ```jsx preview
-import { DayPicker, prepareDay } from 'react-day-picker';
+import { DayPicker, getDayProps } from 'react-day-picker';
 
 function App() {
   /**
    * Day component adding support for `onDayEnter`, `onDayLeave`.
    */
   function Day({ day, modifiers, dayPickerProps }) {
-    const { containerProps } = prepareDay(day, modifiers, dayPickerProps);
+    const { containerProps } = getDayProps(day, modifiers, dayPickerProps);
     const { onDayEnter, onDayLeave } = dayPickerProps;
     const handleMouseEnter = e => onDayEnter(day, modifiers, e);
     const handleMouseLeave = e => onDayLeave(day, modifiers, e);
@@ -81,13 +81,13 @@ The `Caption` component is used to render the caption (with month/year) in the c
 #### To use a custom Caption component
 
 1. create a `Caption` component with `month` and `dayPickerProps` props;
-2. (optional) get DayPicker-specific props via [`prepareCaption`](./utils#prepareCaption);
+2. (optional) get DayPicker-specific props via [`getCaptionProps`](./utils#getCaptionProps);
 3. pass the `Caption` component to the `components` prop.
 
 For example, the following DayPicker implements a `Caption` component to switch the month of the current year:
 
 ```jsx preview
-import { DayPicker, prepareCaption } from 'react-day-picker';
+import { DayPicker, getCaptionProps } from 'react-day-picker';
 
 function App() {
   function MonthSelect({ locale, onChange }) {
@@ -110,7 +110,7 @@ function App() {
   }
   function Caption({ month, dayPickerProps }) {
     const { locale, onCaptionMonthChange } = dayPickerProps;
-    const { containerProps } = prepareCaption(dayPickerProps);
+    const { containerProps } = getCaptionProps(dayPickerProps);
 
     return (
       <caption {...containerProps}>
@@ -144,20 +144,19 @@ The `Navigation` component is used to render the navigation buttons.
 #### To use a custom Navigation component
 
 1. create a `Navigation` component with a `dayPickerProps` prop;
-2. (optional) get DayPicker-specific props via [`prepareNavigation`](./utils#prepareNavigation);
+2. (optional) get DayPicker-specific props via [`getNavigationProps`](./utils#getNavigationProps) and [`getNavigation`](./utils#getNavigation);
 3. pass the `Navigation` component to the `components` prop.
 
 For example, the following DayPicker implements a `Navigation` without the start button:
 
 ```jsx preview
-import { DayPicker, prepareNavigation } from 'react-day-picker';
+import { DayPicker, getNavigationProps } from 'react-day-picker';
 
 function App() {
   function Navigation({ month, dayPickerProps }) {
     const { locale, onMonthChange } = dayPickerProps;
-    const { prevMonth, nextMonth, containerProps } = prepareNavigation(
-      dayPickerProps
-    );
+    const { containerProps } = getNavigationProps(dayPickerProps);
+    const { prevMonth, nextMonth } = getNavigation(dayPickerProps);
     const handlePrevClick = e => onMonthChange(prevMonth, e);
     const handleNextClick = e => onMonthChange(nextMonth, e);
     return (

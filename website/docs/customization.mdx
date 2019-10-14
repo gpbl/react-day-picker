@@ -111,11 +111,9 @@ function App() {
         onDayClick={handleDayClick}
       />
       <p style={{ textAlign: 'center' }}>
-        <small>
-          {selectedDays.length > 0
-            ? `You picked ${selectedDays.length} day(s)`
-            : 'Select some days'}
-        </small>
+        {selectedDays.length > 0
+          ? `You picked ${selectedDays.length} day(s)`
+          : 'Select some days'}
       </p>
     </div>
   );
