@@ -17,7 +17,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/gpbl/react-day-picker/edit/next/website/docs/',
-          showLastUpdateAuthor: true,
+          showLastUpdateAuthor: false,
           showLastUpdateTime: true,
         },
         theme: { customCss: require.resolve('./src/css/custom.css') },
