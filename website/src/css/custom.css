@@ -66,11 +66,25 @@ html {
 }
 
 .navbar {
+  color: white;
+  background: -webkit-gradient(
+    linear,
+    left top, right top,
+    from(rgba(12, 198, 239, 0.75)),
+    color-stop(rgba(197, 110, 240, 0.75)),
+    to(rgba(250, 75, 85, 0.75))
+  );
   background: linear-gradient(
     to right,
     rgba(12, 198, 239, 0.75),
     rgba(197, 110, 240, 0.75),
     rgba(250, 75, 85, 0.75)
+  );
+  background: -webkit-gradient(
+    linear,
+    left top, right top,
+    from(#fc466b),
+    to(#3f5efb)
   );
   background: linear-gradient(
     to right,
@@ -110,7 +124,8 @@ html {
 
 [class^='mdxCodeBlock'] {
   border: none !important;
-  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 [class^='tableOfContents'] {
