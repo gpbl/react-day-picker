@@ -54,8 +54,36 @@ const config = {
         {
           title: 'Docs',
           items: [
-            { label: 'Docs', to: 'docs/intro' },
-            { label: 'API', to: 'docs/props' },
+            {
+              label: 'Welcome',
+              to: 'docs/start',
+            },
+            {
+              label: 'DayPicker Basics',
+              to: 'docs/basics',
+            },
+            {
+              label: 'DayPicker Props',
+              to: 'docs/props',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'GitHub Issues',
+              to: 'http://github.com/gpbl/react-day-picker/issues',
+            },
+            {
+              label: 'Stack Overflow',
+              href:
+                'https://stackoverflow.com/questions/tagged/react-day-picker',
+            },
+            {
+              label: 'Spectrum',
+              href: 'https://spectrum.chat/react-day-picker',
+            },
           ],
         },
       ],
