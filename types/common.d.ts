@@ -1,4 +1,4 @@
-// TypeScript Version: 2.3
+// TypeScript Version: 3.1
 
 export interface ClassNames {
   container: string;
