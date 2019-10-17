@@ -183,8 +183,13 @@ export default class DayPickerInput extends React.Component {
     // Current props
     const { value, formatDate, format, dayPickerProps } = this.props;
 
-    // Update the input value if the `value` prop has changed
-    if (value !== prevProps.value) {
+    // Update the input value if `value`, `dayPickerProps.locale` or `format`
+    // props have changed
+    if (
+      value !== prevProps.value ||
+      dayPickerProps.locale !== prevProps.dayPickerProps.locale ||
+      format !== prevProps.format
+    ) {
       if (isDate(value)) {
         newState.value = formatDate(value, format, dayPickerProps.locale);
       } else {
