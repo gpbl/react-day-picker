@@ -8,6 +8,7 @@ export { Week } from './Week';
 export { DateWithModifiers } from './DateWithModifiers';
 export { defaultClassNames } from './defaultClassNames';
 
+export { useInput } from './helpers/useInput';
 export { getDayProps } from './helpers/getDayProps';
 export { getCaptionProps } from './helpers/getCaptionProps';
 export { getMonths } from './helpers/getMonths';
