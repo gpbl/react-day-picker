@@ -64,6 +64,6 @@
   },
   "peerDependencies": {
     "date-fns": "^2.2.1",
-    "react": "^16.10.2"
+    "react": "^16.8.0"
   }
 }
