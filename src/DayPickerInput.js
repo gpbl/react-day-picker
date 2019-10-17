@@ -334,7 +334,10 @@ export default class DayPickerInput extends React.Component {
     if (!this.props.hideOnDayClick) {
       return;
     }
-    this.hideTimeout = setTimeout(() => this.hideDayPicker(), HIDE_TIMEOUT);
+    this.hideTimeout = setTimeout(() => {
+      this.overlayHasFocus = false;
+      this.hideDayPicker();
+    }, HIDE_TIMEOUT);
   }
 
   handleInputClick(e) {
