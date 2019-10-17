@@ -7,19 +7,20 @@ import { defaultProps } from './defaultProps';
 import { Month } from './Month';
 
 import { filterUndefinedProps } from './utils/filterUndefinedProps';
-import { DayPickerProps, Components, ClassNames } from '../typings/react-day-picker';
 
-const DayPickerControlled: React.FC<DayPickerProps> = (initialProps = defaultProps) => {
+const DayPickerControlled: React.FC<ReactDayPicker.DayPickerProps> = (
+  initialProps = defaultProps
+) => {
   // Extend props with defaults
-  const components: Components = {
+  const components: ReactDayPicker.Components = {
     ...defaultProps.components,
     ...filterUndefinedProps(initialProps.components),
   };
-  const classNames: ClassNames = {
+  const classNames: ReactDayPicker.ClassNames = {
     ...defaultProps.classNames,
     ...filterUndefinedProps(initialProps.classNames),
   };
-  const props: DayPickerProps = {
+  const props: ReactDayPicker.DayPickerProps = {
     ...defaultProps,
     ...filterUndefinedProps(initialProps),
     components,
@@ -54,7 +55,9 @@ const DayPickerControlled: React.FC<DayPickerProps> = (initialProps = defaultPro
   );
 };
 
-export const DayPicker: React.FC<DayPickerProps> = (initialProps: DayPickerProps) => {
+export const DayPicker: React.FC<ReactDayPicker.DayPickerProps> = (
+  initialProps: ReactDayPicker.DayPickerProps
+) => {
   const { initialMonth, ...props } = initialProps;
   const isControlled = Boolean(props.month);
 

@@ -19,7 +19,11 @@ const defaultModifiers: MatchingModifiers = {
 };
 
 export class DateWithModifiers {
-  constructor(date: Date, initialModifiers = {}, props: DayPickerProps) {
+  constructor(
+    date: Date,
+    initialModifiers = {},
+    props: ReactDayPicker.DayPickerProps
+  ) {
     this.date = date;
 
     const modifiers: MatchingModifiers = {

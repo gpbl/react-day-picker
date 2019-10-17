@@ -4,7 +4,7 @@ const date = new Date();
 
 export function getWeekdaysNames(
   locale: Locale,
-  format: DayPickerProps['formatCaption']
+  format: ReactDayPicker.DayPickerProps['formatCaption']
 ): Array<string> {
   const start = startOfWeek(date, { locale });
   const names = [];

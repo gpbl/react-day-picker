@@ -4,7 +4,7 @@ import { DayPickerProps } from '../../typings/react-day-picker';
 
 export function getOutsideEndDays(
   day: DateWithModifiers,
-  props: DayPickerProps
+  props: ReactDayPicker.DayPickerProps
 ): Array<DateWithModifiers> {
   const { locale } = props;
   const days = [];

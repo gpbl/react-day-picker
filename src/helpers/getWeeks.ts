@@ -20,7 +20,10 @@ type MonthWeeks = { [key: string]: DateWithModifiers[] };
  * Return the weeks for the given month. Each key of the returned object is the
  * week number.
  */
-export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
+export function getWeeks(
+  month: Date,
+  props: ReactDayPicker.DayPickerProps
+): MonthWeeks {
   const { locale, fixedWeeks } = props;
   const monthStart = startOfMonth(month);
   const monthEnd = endOfMonth(month);

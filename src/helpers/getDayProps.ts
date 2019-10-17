@@ -11,7 +11,7 @@ import {
 export function getDayProps(
   day: Date,
   modifiers: MatchingModifiers,
-  props: DayPickerProps
+  props: ReactDayPicker.DayPickerProps
 ): DayHtmlProps {
   const {
     onDayClick,

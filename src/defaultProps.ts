@@ -24,7 +24,7 @@ function formatWeekNumber(weekNumber: number): string {
   return `${weekNumber}`;
 }
 
-export const defaultProps: DayPickerProps = {
+export const defaultProps: ReactDayPicker.DayPickerProps = {
   enableOutsideDaysClick: false,
   classNames: defaultClassNames,
   className: '',

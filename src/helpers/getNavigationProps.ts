@@ -6,7 +6,9 @@ import {
 /**
  * Return the props for the Navigation component and its children.
  */
-export function getNavigationProps(props: DayPickerProps): NavigationHtmlProps {
+export function getNavigationProps(
+  props: ReactDayPicker.DayPickerProps
+): NavigationHtmlProps {
   const { classNames, styles } = props;
 
   const containerProps = { className: classNames.nav, style: styles.nav };
