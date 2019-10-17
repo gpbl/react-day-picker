@@ -57,6 +57,7 @@
     "react": "~0.13.x || ~0.14.x || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
+    "@types/react": "^16.9.2",
     "autoprefixer": "^8.4.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -97,7 +98,6 @@
     "react-dom": "^16.4.2",
     "react-test-renderer": "^16.4.2",
     "rimraf": "^2.6.2",
-    "typescript": "^3.0.1",
     "webpack": "^3.10.0"
   },
   "dependencies": {
