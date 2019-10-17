@@ -1,3 +1,11 @@
+### [v7.3.2](https://github.com/gpbl/react-day-picker/tree/v7.3.2) (2019-08-08)
+
+Updates for TypeScript users:
+
+- added `tabIndex` to input component types ([#909](https://github.com/gpbl/react-day-picker/issues/909) by [clarityflowers](https://github.com/clarityflowers))
+- fixed types for utilities ([#904](https://github.com/gpbl/react-day-picker/issues/904) by [Nibblesh](https://github.com/Nibblesh) and [#899](https://github.com/gpbl/react-day-picker/issues/899) by [DylanVann](https://github.com/PprevDylanVann))
+
+
 ## [v7.3](https://github.com/gpbl/react-day-picker/tree/v7.3.0) (2019-02-21)
 
 Mostly an update for TypeScript users, few minor fixes, and two new minor  props to the input component.

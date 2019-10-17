@@ -83,7 +83,7 @@ export function defaultParse(str) {
     return undefined;
   }
 
-  return new Date(year, month, day);
+  return new Date(year, month, day, 12, 0, 0, 0); // always set noon to avoid time zone issues
 }
 
 export default class DayPickerInput extends React.Component {
@@ -183,8 +183,13 @@ export default class DayPickerInput extends React.Component {
     // Current props
     const { value, formatDate, format, dayPickerProps } = this.props;
 
-    // Update the input value if the `value` prop has changed
-    if (value !== prevProps.value) {
+    // Update the input value if `value`, `dayPickerProps.locale` or `format`
+    // props have changed
+    if (
+      value !== prevProps.value ||
+      dayPickerProps.locale !== prevProps.dayPickerProps.locale ||
+      format !== prevProps.format
+    ) {
       if (isDate(value)) {
         newState.value = formatDate(value, format, dayPickerProps.locale);
       } else {
@@ -334,7 +339,10 @@ export default class DayPickerInput extends React.Component {
     if (!this.props.hideOnDayClick) {
       return;
     }
-    this.hideTimeout = setTimeout(() => this.hideDayPicker(), HIDE_TIMEOUT);
+    this.hideTimeout = setTimeout(() => {
+      this.overlayHasFocus = false;
+      this.hideDayPicker();
+    }, HIDE_TIMEOUT);
   }
 
   handleInputClick(e) {

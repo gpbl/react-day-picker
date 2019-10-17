@@ -10,8 +10,8 @@ export default () => (
     <blockquote>
       <p>
         date-fns v1 can’t parse date using a custom formats (see{' '}
-        <a href="https://github.com/date-fns/date-fns/issues/219">this issue</a>),
-        however it will be supported from v2, which is published with the{' '}
+        <a href="https://github.com/date-fns/date-fns/issues/219">this issue</a>
+        ), however it will be supported from v2, which is published with the{' '}
         <code>next</code> tag:
       </p>
       <CodeBlock>{`yarn add date-fns@next`}</CodeBlock>

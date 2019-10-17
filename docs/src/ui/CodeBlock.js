@@ -8,18 +8,23 @@ export default class CodeBlock extends Component {
     children: PropTypes.string.isRequired,
     language: PropTypes.oneOf(['bash', 'jsx', 'html', 'css']),
   };
+
   static defaultProps = {
     language: 'jsx',
   };
+
   componentDidMount() {
     this.highlight();
   }
+
   componentDidUpdate() {
     this.highlight();
   }
+
   highlight() {
     Prism.highlightElement(this.node, false);
   }
+
   render() {
     const { language, children, ...props } = this.props;
     return (

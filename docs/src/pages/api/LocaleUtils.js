@@ -12,9 +12,8 @@ export default () => (
     <p>Set of functions used internally to localize the component.</p>
     <p>
       {' '}
-      In some cases, you may want to implement your own <code>
-        LocaleUtils
-      </code>, or override some of its functions (see:{' '}
+      In some cases, you may want to implement your own <code>LocaleUtils</code>
+      , or override some of its functions (see:{' '}
       <Link to="/docs/localization">Localization</Link>). For example, this code
       renders the month’s title as <code>M/YYYY</code> instead of the default:
     </p>

@@ -11,11 +11,11 @@ export default () => (
       The package includes{' '}
       <Link to="/api/DayPickerInput">
         <code>{`<DayPickerInput />`}</code>
-      </Link>, a component rendering an input field and displaying
-      react-day-picker in an overlay.
+      </Link>
+      , a component rendering an input field and displaying react-day-picker in
+      an overlay.
     </p>
-    <CodeBlock
-    >{`import DayPickerInput from 'react-day-picker/DayPickerInput';`}</CodeBlock>
+    <CodeBlock>{`import DayPickerInput from 'react-day-picker/DayPickerInput';`}</CodeBlock>
     <p>
       <small>
         If you are using <a href="https://unpkg.com/">unpkg</a>, the component

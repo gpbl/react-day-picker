@@ -1,8 +1,6 @@
-// TypeScript Version: 2.2
+// TypeScript Version: 3.1
 
-import DayPicker from './DayPicker';
-export default DayPicker;
-
+export { default } from './DayPicker';
 export * from './common';
 export * from './props';
 export * from './utils';

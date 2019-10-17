@@ -42,7 +42,8 @@ export default () => (
     <CodeSample name="localization-01" />
 
     <h2>
-      <Anchor id="localization-moment" />Localization with moment.js
+      <Anchor id="localization-moment" />
+      Localization with moment.js
     </h2>
     <p>
       If you already include <a href="http://www.momentjs.com">moment.js</a> in

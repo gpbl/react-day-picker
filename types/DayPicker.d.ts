@@ -1,4 +1,4 @@
-// TypeScript Version: 2.2
+// TypeScript Version: 3.1
 
 import * as React from 'react';
 import { LocaleUtils, ModifiersUtils, DateUtils } from './utils';
@@ -12,9 +12,9 @@ import {
 
 export default class DayPicker extends React.Component<DayPickerProps, any> {
   static VERSION: string;
-  static LocaleUtils: LocaleUtils;
-  static DateUtils: DateUtils;
-  static ModifiersUtils: ModifiersUtils;
+  static LocaleUtils: typeof LocaleUtils;
+  static DateUtils: typeof DateUtils;
+  static ModifiersUtils: typeof ModifiersUtils;
   static DayModifiers: DayModifiers;
   static Modifiers: Modifiers;
   readonly dayPicker: HTMLDivElement;
