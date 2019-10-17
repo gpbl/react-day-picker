@@ -305,7 +305,7 @@
     "name": "formatCaption",
     "required": true,
     "type": {
-      "name": "(month: Date, options?: FormatOptions) => string"
+      "name": "CaptionFormatter"
     },
     "categories": {}
   },
@@ -315,7 +315,7 @@
     "name": "formatDay",
     "required": true,
     "type": {
-      "name": "(day: Date, options?: FormatOptions) => string"
+      "name": "DayFormatter"
     },
     "categories": {}
   },
@@ -325,7 +325,7 @@
     "name": "formatWeekdayName",
     "required": true,
     "type": {
-      "name": "(day: Date, options?: FormatOptions) => string"
+      "name": "WeekdayNameFormatter"
     },
     "categories": {}
   },
@@ -335,7 +335,7 @@
     "name": "formatWeekNumber",
     "required": true,
     "type": {
-      "name": "(weekNumber: number, options?: FormatOptions) => string"
+      "name": "WeekNumberFormatter"
     },
     "categories": {}
   },
@@ -355,7 +355,7 @@
     "name": "onDayClick",
     "required": false,
     "type": {
-      "name": "(day: Date, modifiers: MatchingModifiers, e: MouseEvent<Element, MouseEvent>) => void"
+      "name": "DayClickEventHandler"
     },
     "categories": {}
   },
@@ -365,7 +365,7 @@
     "name": "onMonthChange",
     "required": false,
     "type": {
-      "name": "(month: Date, e: MouseEvent<Element, MouseEvent>) => void"
+      "name": "MonthChangeEventHandler"
     },
     "categories": {}
   },
@@ -375,7 +375,7 @@
     "name": "onNextClick",
     "required": false,
     "type": {
-      "name": "(month: Date, e: MouseEvent<Element, MouseEvent>) => void"
+      "name": "MonthChangeEventHandler"
     },
     "categories": {}
   },
@@ -385,7 +385,7 @@
     "name": "onPrevClick",
     "required": false,
     "type": {
-      "name": "(month: Date, e: MouseEvent<Element, MouseEvent>) => void"
+      "name": "MonthChangeEventHandler"
     },
     "categories": {}
   },
@@ -395,7 +395,7 @@
     "name": "onStartClick",
     "required": false,
     "type": {
-      "name": "(startDay: Date, e: MouseEvent<Element, MouseEvent>) => void"
+      "name": "StartClickEventHandler"
     },
     "categories": {}
   }

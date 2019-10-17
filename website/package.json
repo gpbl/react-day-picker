@@ -15,11 +15,11 @@
     "lint": "yarn eslint src scripts"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.24",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.24",
+    "@docusaurus/core": "^2.0.0-alpha.27",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.27",
     "buble": "^0.19.8",
     "classnames": "^2.2.6",
-    "date-fns": "^2.4.0",
+    "date-fns": "^2.5.0",
     "eslint-import-resolver-babel-module": "^5.1.0",
     "fastdom": "^1.0.9",
     "file-loader": "^4.2.0",
