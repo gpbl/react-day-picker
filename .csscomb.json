@@ -427,14 +427,6 @@
       "min-zoom",
       "user-zoom",
       "orientation"
-    ],
-    [
-      "$include small-up",
-      "$include medium-up",
-      "$include large-up",
-      "$include extraLarge-up",
-      "$include portrait",
-      "$include landscape"
     ]
   ]
 }
