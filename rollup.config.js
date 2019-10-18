@@ -62,8 +62,7 @@ export default [
         sourcemap: true,
       },
     ],
-    external: id =>
-      !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/'),
+    external: id => !id.startsWith('.') && !path.isAbsolute(id),
     plugins: [
       typescriptPlugin,
 
