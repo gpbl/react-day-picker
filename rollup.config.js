@@ -1,9 +1,7 @@
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
-import autoExternal from 'rollup-plugin-auto-external';
 import copy from 'rollup-plugin-copy';
 import replace from 'rollup-plugin-replace';
 import { terser } from 'rollup-plugin-terser';
-import resolve from 'rollup-plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
 
 import pkg from './package.json';
@@ -11,6 +9,7 @@ import pkg from './package.json';
 const globals = {
   react: 'React',
   'date-fns': 'dateFns',
+  'date-fns/locale/en-US': 'ReactDayPickerLocale',
 };
 const external = Object.keys(globals);
 const name = 'ReactDayPicker';
@@ -22,9 +21,6 @@ const typescriptPlugin = typescript({
 });
 const replaceProduction = replace({
   'process.env.NODE_ENV': JSON.stringify('production'),
-});
-const replaceDevelopment = replace({
-  'process.env.NODE_ENV': JSON.stringify('development'),
 });
 
 export default [
@@ -38,7 +34,7 @@ export default [
       sourcemap: true,
     },
     external,
-    plugins: [resolve(), typescriptPlugin, replaceDevelopment, sizeSnapshot()],
+    plugins: [typescriptPlugin, sizeSnapshot()],
   },
   {
     input,
@@ -50,13 +46,7 @@ export default [
       sourcemap: true,
     },
     external,
-    plugins: [
-      resolve(),
-      typescriptPlugin,
-      replaceProduction,
-      terser(),
-      sizeSnapshot(),
-    ],
+    plugins: [typescriptPlugin, replaceProduction, terser(), sizeSnapshot()],
   },
   {
     input,
@@ -64,22 +54,19 @@ export default [
       {
         file: pkg.main,
         format: 'cjs',
-        exports: 'auto',
         sourcemap: true,
       },
       {
         file: pkg.module,
         format: 'esm',
-        exports: 'auto',
         sourcemap: true,
       },
     ],
     external: id =>
       !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/'),
     plugins: [
-      resolve(),
       typescriptPlugin,
-      replaceDevelopment,
+
       copy({
         targets: [{ src: ['src/style.css'], dest: ['lib'] }],
       }),
