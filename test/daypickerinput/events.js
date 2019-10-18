@@ -197,6 +197,15 @@ describe('DayPickerInput', () => {
           disabled: true,
         });
       });
+      it('should clear an invalid input value when the value prop is updated with a valid date', () => {
+        const wrapper = mount(<DayPickerInput value="2015-7-01" />);
+        wrapper
+          .find('input')
+          .simulate('change', { target: { value: 'an invalid date value' } });
+        wrapper.setProps({ value: new Date(2015, 7, 10) });
+        wrapper.update();
+        expect(wrapper.find('input')).toHaveProp('value', '2015-8-10');
+      });
     });
     describe('hide', () => {
       it('should call `onDayPickerHide` when overlay is being hid', () => {

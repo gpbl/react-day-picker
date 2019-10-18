@@ -128,6 +128,7 @@ export default class DayPickerInput extends React.Component {
   static defaultProps = {
     dayPickerProps: {},
     value: '',
+    typedValue: '',
     placeholder: 'YYYY-M-D',
     format: 'L',
     formatDate: defaultFormat,
@@ -242,13 +243,15 @@ export default class DayPickerInput extends React.Component {
   }
 
   getInitialStateFromProps(props) {
-    const { dayPickerProps, formatDate, format } = props;
+    const { dayPickerProps, formatDate, format, typedValue } = props;
     let { value } = props;
     if (props.value && isDate(props.value)) {
       value = formatDate(props.value, format, dayPickerProps.locale);
     }
+
     return {
       value,
+      typedValue,
       month: this.getInitialMonthFromProps(props),
       selectedDays: dayPickerProps.selectedDays,
     };
@@ -272,7 +275,7 @@ export default class DayPickerInput extends React.Component {
    */
   updateState(day, value, callback) {
     const { dayPickerProps, onDayChange } = this.props;
-    this.setState({ month: day, value, typedValue: undefined }, () => {
+    this.setState({ month: day, value, typedValue: '' }, () => {
       if (callback) {
         callback();
       }
@@ -419,7 +422,7 @@ export default class DayPickerInput extends React.Component {
     }
     const { value } = e.target;
     if (value.trim() === '') {
-      this.setState({ value, typedValue: undefined });
+      this.setState({ value, typedValue: '' });
       if (onDayChange) onDayChange(undefined, {}, this);
       return;
     }
@@ -501,10 +504,12 @@ export default class DayPickerInput extends React.Component {
       } else if (selectedDays) {
         selectedDays = null;
       }
+
       this.setState(
-        { value: '', typedValue: undefined, selectedDays },
+        { value: '', typedValue: '', selectedDays },
         this.hideAfterDayClick
       );
+
       if (onDayChange) {
         onDayChange(undefined, modifiers, this);
       }
@@ -581,7 +586,7 @@ export default class DayPickerInput extends React.Component {
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}
           {...inputProps}
-          value={this.state.typedValue || this.state.value}
+          value={this.state.value || this.state.typedValue}
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
