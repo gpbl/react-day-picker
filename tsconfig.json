@@ -16,6 +16,7 @@
     "esModuleInterop": true
   },
   "include": [
+    "rollup.config.js",
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
