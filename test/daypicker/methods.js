@@ -229,6 +229,18 @@ describe('DayPicker’s methods', () => {
       return monthBody.childNodes[weekIndex].childNodes[dayIndex];
     }
 
+    describe('focus()', () => {
+      it('should focus on the wrapper', () => {
+        // Ensure that the current focus is somewhere else
+        document.documentElement.focus();
+        const node = wrapper.find('div.DayPicker-wrapper').getDOMNode();
+        expect(document.activeElement).not.toBe(node);
+
+        instance.focus();
+        expect(document.activeElement).toBe(node);
+      });
+    });
+
     describe('focusPreviousDay()', () => {
       it('should focus on the previous day of the current month', () => {
         const focusedNode = getDayNode(body, 0, 2);

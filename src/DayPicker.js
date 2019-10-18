@@ -305,6 +305,10 @@ export class DayPicker extends Component {
     this.showMonth(nextMonth);
   }
 
+  focus() {
+    this.wrapper.focus();
+  }
+
   focusFirstDayOfMonth() {
     Helpers.getDayNodes(this.dayPicker, this.props.classNames)[0].focus();
   }
@@ -594,6 +598,7 @@ export class DayPicker extends Component {
       >
         <div
           className={this.props.classNames.wrapper}
+          ref={el => (this.wrapper = el)}
           tabIndex={
             this.props.canChangeMonth &&
             typeof this.props.tabIndex !== 'undefined'
