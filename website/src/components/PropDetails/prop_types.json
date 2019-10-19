@@ -3,7 +3,7 @@
     "defaultValue": null,
     "description": "",
     "name": "className",
-    "required": true,
+    "required": false,
     "type": {
       "name": "string"
     },
@@ -23,7 +23,7 @@
     "defaultValue": null,
     "description": "The class names for the day modifiers specified via `modifiers`.",
     "name": "modifiersClassNames",
-    "required": true,
+    "required": false,
     "type": {
       "name": "ModifiersClassNames"
     },
@@ -33,7 +33,7 @@
     "defaultValue": null,
     "description": "",
     "name": "style",
-    "required": true,
+    "required": false,
     "type": {
       "name": "CSSProperties"
     },
@@ -53,7 +53,7 @@
     "defaultValue": null,
     "description": "The inline-styles for the day modifiers specified via `modifiers`.",
     "name": "modifiersStyles",
-    "required": true,
+    "required": false,
     "type": {
       "name": "ModifiersStyles"
     },
@@ -103,7 +103,7 @@
     "defaultValue": null,
     "description": "When displaying multiple months, the navigation will be paginated\ndisplaying the `numberOfMonths` months at time instead of one.",
     "name": "pagedNavigation",
-    "required": true,
+    "required": false,
     "type": {
       "name": "boolean"
     },
@@ -113,7 +113,7 @@
     "defaultValue": null,
     "description": "Render the months in reversed order. Useful when `numberOfMonths` is\ngreater than 1, to display the most recent month first.",
     "name": "reverseMonths",
-    "required": true,
+    "required": false,
     "type": {
       "name": "boolean"
     },
@@ -121,9 +121,9 @@
   },
   "month": {
     "defaultValue": null,
-    "description": "The rendered month. Passing this props will make the component switch to controlled mode: this means you will need to implement `onMonthChange` to enable months navigation.",
+    "description": "The rendered month. Passing this props will make the component switch to controlled mode?: this means you will need to implement `onMonthChange` to enable months navigation.",
     "name": "month",
-    "required": true,
+    "required": false,
     "type": {
       "name": "Date"
     },
@@ -133,7 +133,7 @@
     "defaultValue": null,
     "description": "Display 6 weeks per months, regardless the month’s number of weeks. Outside\ndays will be always shown if setting this to `true`. See also\n`showOutsideDays`.",
     "name": "fixedWeeks",
-    "required": true,
+    "required": false,
     "type": {
       "name": "boolean"
     },
@@ -143,7 +143,7 @@
     "defaultValue": null,
     "description": "Show the month caption displaying the month and the year.",
     "name": "showCaption",
-    "required": true,
+    "required": false,
     "type": {
       "name": "boolean"
     },
@@ -153,7 +153,7 @@
     "defaultValue": null,
     "description": "Show the month head containing the weekday names.",
     "name": "showHead",
-    "required": true,
+    "required": false,
     "type": {
       "name": "boolean"
     },
@@ -163,7 +163,7 @@
     "defaultValue": null,
     "description": "Show the outside days. An outside day is a day displayed in a month but\nfalling in the next or the previous month. See also\n`enableOutsideDaysClick`.",
     "name": "showOutsideDays",
-    "required": true,
+    "required": false,
     "type": {
       "name": "boolean"
     },
@@ -173,7 +173,7 @@
     "defaultValue": null,
     "description": "Enable click event for outside days. See also `showOutsideDays`.",
     "name": "enableOutsideDaysClick",
-    "required": true,
+    "required": false,
     "type": {
       "name": "boolean"
     },
@@ -193,7 +193,7 @@
     "defaultValue": null,
     "description": "Show the navigation bar. `onMonthChange` must be set.",
     "name": "showNavigation",
-    "required": true,
+    "required": false,
     "type": {
       "name": "boolean"
     },
@@ -203,7 +203,7 @@
     "defaultValue": null,
     "description": "The date passed when clicking the start button in the navigation.",
     "name": "startDay",
-    "required": true,
+    "required": false,
     "type": {
       "name": "Date"
     },
@@ -213,7 +213,7 @@
     "defaultValue": null,
     "description": "Label used for the start button in Navigation. Set it to empty string to\nhide the button.",
     "name": "startLabel",
-    "required": true,
+    "required": false,
     "type": {
       "name": "string"
     },
@@ -223,7 +223,7 @@
     "defaultValue": null,
     "description": "Label used for the previous month button in Navigation. Set it to empty\nstring to hide the button.",
     "name": "prevLabel",
-    "required": true,
+    "required": false,
     "type": {
       "name": "string"
     },
@@ -233,7 +233,7 @@
     "defaultValue": null,
     "description": "Label used for the next month button in Navigation. Set it to empty string\nto hide the button.",
     "name": "nextLabel",
-    "required": true,
+    "required": false,
     "type": {
       "name": "string"
     },
