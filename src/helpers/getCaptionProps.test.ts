@@ -3,8 +3,8 @@ import { getCaptionProps } from './getCaptionProps';
 import { CaptionHtmlProps } from '../../typings/react-day-picker';
 import { defaultProps } from '../defaultProps';
 
-describe('getCaptionProps', function() {
-  it('return the container props', function() {
+describe('getCaptionProps', () => {
+  it('return the container props', () => {
     const props = {
       ...defaultProps,
       styles: { caption: { color: 'red' } },

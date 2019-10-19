@@ -2,19 +2,19 @@
 import { getMonths } from './getMonths';
 import { defaultProps } from '../defaultProps';
 
-describe('getMonths', function() {
-  it('returns one month with default props', function() {
+describe('getMonths', () => {
+  it('returns one month with default props', () => {
     expect(getMonths(defaultProps).length).toBe(1);
   });
-  it('uses today as default month', function() {
+  it('uses today as default month', () => {
     const props = { ...defaultProps, month: undefined };
     expect(getMonths(props)[0].getMonth()).toBe(new Date().getMonth());
   });
-  it('returns the number of months', function() {
+  it('returns the number of months', () => {
     const props = { ...defaultProps, numberOfMonths: 2 };
     expect(getMonths(props).length).toBe(2);
   });
-  it('respects the toMonth prop', function() {
+  it('respects the toMonth prop', () => {
     const result = getMonths({
       ...defaultProps,
       numberOfMonths: 12,
@@ -23,7 +23,7 @@ describe('getMonths', function() {
     });
     expect(result.length).toBe(5);
   });
-  it('respects the fromMonth prop', function() {
+  it('respects the fromMonth prop', () => {
     const result = getMonths({
       ...defaultProps,
       numberOfMonths: 12,
@@ -33,7 +33,7 @@ describe('getMonths', function() {
     expect(result.length).toBe(7);
     expect(result[0].getMonth()).toBe(5);
   });
-  it('reverses the months', function() {
+  it('reverses the months', () => {
     const result = getMonths({
       ...defaultProps,
       numberOfMonths: 12,

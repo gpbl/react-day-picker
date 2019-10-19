@@ -21,7 +21,8 @@
     "prebuild": "rm -rf lib",
     "build": "rollup -c",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watchAll --coverage",
+    "coverage": "jest --coverage"
   },
   "files": [
     "/lib",
