@@ -31,12 +31,21 @@ export function getDayProps(
   }
 
   let style = { ...styles.day };
-  if (modifiersStyles || styles) {
+  if (styles) {
+    // Apply the custom inline-styles
+    Object.keys(modifiers).forEach(modifier => {
+      style = {
+        ...style,
+        ...styles[modifier],
+      };
+    });
+  }
+  if (modifiersStyles) {
+    // Apply the styles for the modifier
     Object.keys(modifiers).forEach(modifier => {
       style = {
         ...style,
         ...modifiersStyles[modifier],
-        ...styles[modifier],
       };
     });
   }
@@ -49,7 +58,7 @@ export function getDayProps(
         if (classNames[modifier]) {
           className.push(classNames[modifier]);
         }
-        if (modifiersClassNames[modifier]) {
+        if (modifiersClassNames && modifiersClassNames[modifier]) {
           className.push(modifiersClassNames[modifier]);
         }
       });

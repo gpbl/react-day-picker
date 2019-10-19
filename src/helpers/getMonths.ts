@@ -6,7 +6,7 @@ import { DayPickerProps } from '../../typings/react-day-picker';
  */
 export function getMonths(props: ReactDayPicker.DayPickerProps): Date[] {
   const { month, numberOfMonths, toMonth, fromMonth, reverseMonths } = props;
-  const start = startOfMonth(month);
+  const start = startOfMonth(month || new Date());
   const end = startOfMonth(addMonths(start, numberOfMonths));
   const monthsDiff = differenceInMonths(end, start);
 

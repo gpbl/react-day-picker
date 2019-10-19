@@ -32,8 +32,8 @@ export const Navigation: React.FC<NavigationProps> = props => {
     onNextClick && nextMonth && onNextClick(nextMonth, e);
   };
   const handleStartClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    onMonthChange && onMonthChange(startDay, e);
-    onStartClick && onStartClick(startDay, e);
+    startDay && onMonthChange && onMonthChange(startDay, e);
+    startDay && onStartClick && onStartClick(startDay, e);
   };
 
   if (!dayPickerProps.onMonthChange) {

@@ -10,7 +10,7 @@ export function getNavigation(
   const { fromMonth, toMonth, month, numberOfMonths, pagedNavigation } = props;
 
   const add = pagedNavigation ? numberOfMonths : 1;
-  const currentMonth = startOfMonth(month);
+  const currentMonth = startOfMonth(month || new Date());
 
   let prevMonth: Date | undefined;
   if (!fromMonth || currentMonth > startOfMonth(fromMonth)) {

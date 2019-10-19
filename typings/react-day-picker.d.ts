@@ -3,7 +3,7 @@ import * as React from 'react';
 declare namespace ReactDayPicker {
   export interface DayPickerProps {
     // #region CLASSNAMES
-    className: string;
+    className?: string;
     /**
      * The class names for each DayPicker element.
      */
@@ -11,11 +11,11 @@ declare namespace ReactDayPicker {
     /**
      * The class names for the day modifiers specified via `modifiers`.
      */
-    modifiersClassNames: ModifiersClassNames;
+    modifiersClassNames?: ModifiersClassNames;
     // #endregion
 
     // #region STYLES
-    style: React.CSSProperties;
+    style?: React.CSSProperties;
     /**
      * The inline styles for each DayPicker element.
      */
@@ -23,7 +23,7 @@ declare namespace ReactDayPicker {
     /**
      * The inline-styles for the day modifiers specified via `modifiers`.
      */
-    modifiersStyles: ModifiersStyles;
+    modifiersStyles?: ModifiersStyles;
     // #endregion
 
     // #region MONTH SETTINGS
@@ -48,16 +48,16 @@ declare namespace ReactDayPicker {
      * When displaying multiple months, the navigation will be paginated
      * displaying the `numberOfMonths` months at time instead of one.
      */
-    pagedNavigation: boolean;
+    pagedNavigation?: boolean;
     /**
      * Render the months in reversed order. Useful when `numberOfMonths` is
      * greater than 1, to display the most recent month first.
      */
-    reverseMonths: boolean;
+    reverseMonths?: boolean;
     /**
-     * The rendered month. Passing this props will make the component switch to controlled mode: this means you will need to implement `onMonthChange` to enable months navigation.
+     * The rendered month. Passing this props will make the component switch to controlled mode?: this means you will need to implement `onMonthChange` to enable months navigation.
      */
-    month: Date;
+    month?: Date;
     // #endregion
 
     // #region CUSTOMIZATION PROPS
@@ -66,55 +66,55 @@ declare namespace ReactDayPicker {
      * days will be always shown if setting this to `true`. See also
      * `showOutsideDays`.
      */
-    fixedWeeks: boolean;
+    fixedWeeks?: boolean;
     /**
      * Show the month caption displaying the month and the year.
      */
-    showCaption: boolean;
+    showCaption?: boolean;
     /**
      * Show the month head containing the weekday names.
      */
-    showHead: boolean;
+    showHead?: boolean;
     /**
      * Show the outside days. An outside day is a day displayed in a month but
      * falling in the next or the previous month. See also
      * `enableOutsideDaysClick`.
      */
-    showOutsideDays: boolean;
+    showOutsideDays?: boolean;
     /**
      * Enable click event for outside days. See also `showOutsideDays`.
      */
-    enableOutsideDaysClick: boolean;
+    enableOutsideDaysClick?: boolean;
     /**
      * Show the week numbers.
      */
-    showWeekNumber: boolean;
+    showWeekNumber: boolean = true;
     // #endregion
 
     // #region NAVIGATION
     /**
      * Show the navigation bar. `onMonthChange` must be set.
      */
-    showNavigation: boolean;
+    showNavigation?: boolean;
     /**
      * The date passed when clicking the start button in the navigation.
      */
-    startDay: Date;
+    startDay?: Date;
     /**
      * Label used for the start button in Navigation. Set it to empty string to
      * hide the button.
      */
-    startLabel: string;
+    startLabel?: string;
     /**
      * Label used for the previous month button in Navigation. Set it to empty
      * string to hide the button.
      */
-    prevLabel: string;
+    prevLabel?: string;
     /**
      * Label used for the next month button in Navigation. Set it to empty string
      * to hide the button.
      */
-    nextLabel: string;
+    nextLabel?: string;
     // #endregion
 
     // #region MODIFIERS
