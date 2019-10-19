@@ -500,6 +500,8 @@ declare namespace ReactDayPicker {
     onDayClick: ReactDayPicker.DayClickEventHandler
   ) => ReactDayPicker.DayClickEventHandler;
 
+  export type NavigationMonths = { nextMonth?: Date; prevMonth?: Date };
+
   // #endregion
 }
 

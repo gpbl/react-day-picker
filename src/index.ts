@@ -6,6 +6,7 @@ export { Month } from './Month';
 export { Navigation } from './Navigation';
 export { Week } from './Week';
 export { DateWithModifiers } from './DateWithModifiers';
+export { defaultProps } from './defaultProps';
 export { defaultClassNames } from './defaultClassNames';
 
 export { useInput } from './helpers/useInput';

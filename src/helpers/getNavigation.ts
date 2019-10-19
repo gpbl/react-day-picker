@@ -1,12 +1,11 @@
 import { startOfMonth, addMonths } from 'date-fns';
-import { DayPickerProps } from '../../typings/react-day-picker';
 
 /**
- * Return the next and the previous month for the navigation.
+ * Return the next and the previous months for the navigation component, according to the DayPicker props.
  */
 export function getNavigation(
   props: ReactDayPicker.DayPickerProps
-): { nextMonth?: Date; prevMonth?: Date } {
+): ReactDayPicker.NavigationMonths {
   const { fromMonth, toMonth, month, numberOfMonths, pagedNavigation } = props;
 
   const add = pagedNavigation ? numberOfMonths : 1;
