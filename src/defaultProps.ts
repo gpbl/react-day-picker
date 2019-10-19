@@ -29,6 +29,7 @@ export const defaultProps: ReactDayPicker.DayPickerProps = {
   classNames: defaultClassNames,
   className: '',
   style: {},
+  styles: {},
   components: {
     Caption,
     Day,
@@ -56,5 +57,4 @@ export const defaultProps: ReactDayPicker.DayPickerProps = {
   showWeekNumber: false,
   startDay: new Date(),
   startLabel: '●',
-  styles: {},
 };
