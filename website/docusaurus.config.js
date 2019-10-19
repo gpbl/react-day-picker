@@ -90,11 +90,11 @@ const config = {
       logo: { alt: '', src: '' },
       copyright: `Copyright © ${new Date().getFullYear()} gpbl & contributors. Built with Docusaurus.`,
     },
-    // algolia: {
-    //   apiKey: 'api-key',
-    //   indexName: 'index-name',
-    //   algoliaOptions: {},
-    // },
+    algolia: {
+      apiKey: '3fc1a3f2ec2de5aa850d0f46bd780dc6',
+      indexName: 'react-day-picker',
+      algoliaOptions: {},
+    },
   },
 };
 
