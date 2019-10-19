@@ -39,8 +39,6 @@ const json = JSON.stringify(props, null, 2);
 
 console.log('Writing props to %s', destFile);
 
-console.log(json);
-
 fs.writeFile(destFile, json, function(err) {
   if (err) {
     return console.error(err);
