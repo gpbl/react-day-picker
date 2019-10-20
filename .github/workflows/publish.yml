@@ -22,7 +22,8 @@ jobs:
         run: yarn test
       - name: Build
         run: yarn build
-      - run: npm publish
+      - name: Publish on npm
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - name: Archive dist
