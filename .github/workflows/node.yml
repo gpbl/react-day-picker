@@ -9,6 +9,26 @@ on:
       - master
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - name: Install Dependencies
+        run: yarn install
+      - name: Lint files
+        run: yarn lint
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - name: Install Dependencies
+        run: yarn install
+      - name: Run Unit Tests
+        run: yarn test
+
   build:
     runs-on: ubuntu-latest
 
@@ -24,10 +44,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
         run: yarn install
-      - name: Lint Sources
-        run: yarn lint
-      - name: Run Unit Tests
-        run: yarn test
       - name: Build
         run: yarn build
 
