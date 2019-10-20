@@ -1,4 +1,4 @@
-name: package@next
+name: Node CI (next)
 
 on:
   pull_request:

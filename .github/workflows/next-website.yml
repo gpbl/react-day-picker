@@ -1,4 +1,4 @@
-name: website@next
+name: Website CI (next branch)
 
 on:
   pull_request:
