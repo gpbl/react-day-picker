@@ -25,8 +25,8 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: Archive dist
-        uses: actions/upload-artifact@v1
-        with:
-          name: dist
-          path: dist
+      # - name: Archive dist
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: dist
+      #     path: dist
