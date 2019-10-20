@@ -1,4 +1,4 @@
-name: Node CI
+name: website@next
 
 on:
   pull_request:
