@@ -17,7 +17,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Lint files
-        run: yarn cover
+        run: yarn coverage
 
   test:
     runs-on: ubuntu-latest
