@@ -10,8 +10,6 @@ export const Navigation: React.FC<NavigationProps> = props => {
     onMonthChange,
     onPrevClick,
     onNextClick,
-    onStartClick,
-    startDay,
   } = dayPickerProps;
 
   const { nextMonth, prevMonth } = getNavigation(dayPickerProps);
@@ -20,7 +18,6 @@ export const Navigation: React.FC<NavigationProps> = props => {
     containerProps,
     nextProps,
     prevProps,
-    startProps,
   } = getNavigationProps(dayPickerProps);
 
   const handlePrevClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
@@ -31,16 +28,11 @@ export const Navigation: React.FC<NavigationProps> = props => {
     onMonthChange && nextMonth && onMonthChange(nextMonth, e);
     onNextClick && nextMonth && onNextClick(nextMonth, e);
   };
-  const handleStartClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    startDay && onMonthChange && onMonthChange(startDay, e);
-    startDay && onStartClick && onStartClick(startDay, e);
-  };
-
   if (!dayPickerProps.onMonthChange) {
     return null;
   }
 
-  const { startLabel, prevLabel, nextLabel } = dayPickerProps;
+  const { prevLabel, nextLabel } = dayPickerProps;
 
   const prevButton = prevLabel && (
     <button
@@ -51,17 +43,6 @@ export const Navigation: React.FC<NavigationProps> = props => {
       onClick={handlePrevClick}
     >
       {prevLabel}
-    </button>
-  );
-
-  const startButton = startLabel && (
-    <button
-      {...startProps}
-      key="start"
-      type="button"
-      onClick={handleStartClick}
-    >
-      {startLabel}
     </button>
   );
 
@@ -76,7 +57,7 @@ export const Navigation: React.FC<NavigationProps> = props => {
       {nextLabel}
     </button>
   );
-  let buttons = [prevButton, startButton, nextButton];
+  let buttons = [prevButton, nextButton];
   if (dayPickerProps.dir === 'rtl') {
     buttons = buttons.reverse();
   }

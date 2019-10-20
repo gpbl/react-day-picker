@@ -55,6 +55,4 @@ export const defaultProps: ReactDayPicker.DayPickerProps = {
   showNavigation: true,
   showOutsideDays: false,
   showWeekNumber: false,
-  startDay: new Date(),
-  startLabel: '●',
 };

@@ -20,15 +20,10 @@ export function getNavigationProps(
     className: classNames.navPrev,
     style: styles.navPrev,
   };
-  const startProps = {
-    className: classNames.navStart,
-    style: styles.navStart,
-  };
 
   return {
     containerProps,
     nextProps,
     prevProps,
-    startProps,
   };
 }

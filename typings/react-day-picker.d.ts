@@ -97,15 +97,6 @@ declare namespace ReactDayPicker {
      */
     showNavigation?: boolean;
     /**
-     * The date passed when clicking the start button in the navigation.
-     */
-    startDay?: Date;
-    /**
-     * Label used for the start button in Navigation. Set it to empty string to
-     * hide the button.
-     */
-    startLabel?: string;
-    /**
      * Label used for the previous month button in Navigation. Set it to empty
      * string to hide the button.
      */
@@ -192,10 +183,6 @@ declare namespace ReactDayPicker {
      * Event handler when the prev navigation button is clicked.
      */
     onPrevClick?: MonthChangeEventHandler;
-    /**
-     * Event handler when the prev navigation button is clicked.
-     */
-    onStartClick?: StartClickEventHandler;
     // #endregion
   }
 
@@ -224,11 +211,6 @@ declare namespace ReactDayPicker {
 
   export type MonthChangeEventHandler = (
     month: Date,
-    e: React.MouseEvent
-  ) => void;
-
-  export type StartClickEventHandler = (
-    startDay: Date,
     e: React.MouseEvent
   ) => void;
 
@@ -261,7 +243,6 @@ declare namespace ReactDayPicker {
     headWeekName?: string;
     // Navigation Component
     nav?: string;
-    navStart?: string;
     navPrev?: string;
     navNext?: string;
     // Week Component
@@ -340,7 +321,6 @@ declare namespace ReactDayPicker {
     hidden: Modifier | Modifier[];
     outside: Modifier | Modifier[];
     selected?: Modifier | Modifier[];
-    start: Modifier | Modifier[];
     today: Modifier | Modifier[];
     [other: string]: Modifier | Modifier[] | undefined;
   }
@@ -360,7 +340,6 @@ declare namespace ReactDayPicker {
     hidden: boolean;
     outside: string;
     selected: boolean | undefined;
-    start: boolean;
     today: boolean;
     interactive: boolean;
     [key: string]: ModifierValueType;
@@ -403,7 +382,6 @@ declare namespace ReactDayPicker {
 
     // Navigation Component
     nav?: React.CSSProperties;
-    navStart?: React.CSSProperties;
     navPrev?: React.CSSProperties;
     navNext?: React.CSSProperties;
 
@@ -456,7 +434,6 @@ declare namespace ReactDayPicker {
     containerProps: SharedHtmlProps;
     nextProps: SharedHtmlProps;
     prevProps: SharedHtmlProps;
-    startProps: SharedHtmlProps;
   }
 
   // #region HOOKS

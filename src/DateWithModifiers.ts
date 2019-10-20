@@ -14,7 +14,6 @@ const defaultModifiers: MatchingModifiers = {
   interactive: true,
   outside: '',
   selected: undefined,
-  start: false,
   today: false,
 };
 
@@ -29,7 +28,6 @@ export class DateWithModifiers {
     const modifiers: MatchingModifiers = {
       ...defaultModifiers,
       today: isToday(date),
-      start: props.startDay ? isSameDay(date, props.startDay) : false,
       ...initialModifiers,
     };
 
