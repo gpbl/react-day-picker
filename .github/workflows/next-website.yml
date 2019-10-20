@@ -1,4 +1,4 @@
-name: Website CI (next branch)
+name: Website CI (next)
 
 on:
   pull_request:
