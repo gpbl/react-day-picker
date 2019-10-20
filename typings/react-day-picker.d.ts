@@ -88,7 +88,7 @@ declare namespace ReactDayPicker {
     /**
      * Show the week numbers.
      */
-    showWeekNumber: boolean = true;
+    showWeekNumber: boolean;
     // #endregion
 
     // #region NAVIGATION
