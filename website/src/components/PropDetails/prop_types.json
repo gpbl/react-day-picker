@@ -199,26 +199,6 @@
     },
     "categories": {}
   },
-  "startDay": {
-    "defaultValue": null,
-    "description": "The date passed when clicking the start button in the navigation.",
-    "name": "startDay",
-    "required": false,
-    "type": {
-      "name": "Date"
-    },
-    "categories": {}
-  },
-  "startLabel": {
-    "defaultValue": null,
-    "description": "Label used for the start button in Navigation. Set it to empty string to\nhide the button.",
-    "name": "startLabel",
-    "required": false,
-    "type": {
-      "name": "string"
-    },
-    "categories": {}
-  },
   "prevLabel": {
     "defaultValue": null,
     "description": "Label used for the previous month button in Navigation. Set it to empty\nstring to hide the button.",
@@ -386,16 +366,6 @@
     "required": false,
     "type": {
       "name": "MonthChangeEventHandler"
-    },
-    "categories": {}
-  },
-  "onStartClick": {
-    "defaultValue": null,
-    "description": "Event handler when the prev navigation button is clicked.",
-    "name": "onStartClick",
-    "required": false,
-    "type": {
-      "name": "StartClickEventHandler"
     },
     "categories": {}
   }
