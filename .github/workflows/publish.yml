@@ -5,19 +5,7 @@ on:
     types: [created]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Install Dependencies
-        run: yarn install
-      - run: yarn lint
-      - run: yarn test
-
-  build-publish-npm:
+  test-build-publish:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -28,7 +16,17 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Install Dependencies
         run: yarn install
-      - run: npm build
+      - name: Lint Files
+        run: yarn coverage
+      - name: Run Unit Tests
+        run: yarn test
+      - name: Build
+        run: yarn build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Archive dist
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
