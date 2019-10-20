@@ -99,6 +99,7 @@ export default class DayPickerInput extends React.Component {
 
     formatDate: PropTypes.func,
     parseDate: PropTypes.func,
+    typedValue: PropTypes.string,
 
     showOverlay: PropTypes.bool,
     dayPickerProps: PropTypes.object,
