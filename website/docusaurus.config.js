@@ -27,8 +27,8 @@ const config = {
 
   themeConfig: {
     navbar: {
-      title: 'react-day-picker',
-      logo: { alt: 'react-day-picker Logo', src: 'images/logo.png' },
+      title: '',
+      logo: { alt: 'react-day-picker Logo', src: 'images/logo-name.svg' },
       links: [
         { to: 'docs/start', label: 'Documentation', position: 'left' },
         { to: 'docs/props', label: 'Props', position: 'left' },

@@ -92,7 +92,7 @@ html {
     #3f5efb
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-backdrop-filter: blur(10px);
-  --ifm-navbar-link-color: rgba(255, 255, 255, 0.8);
+  --ifm-navbar-link-color: white;
   --ifm-navbar-link-hover-color: white;
 }
 
@@ -125,7 +125,7 @@ html {
 [class^='mdxCodeBlock'] {
   border: none !important;
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 [class^='tableOfContents'] {
