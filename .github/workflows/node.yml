@@ -17,7 +17,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Lint files
-        run: yarn lint
+        run: yarn cover
 
   test:
     runs-on: ubuntu-latest
@@ -30,6 +30,7 @@ jobs:
         run: yarn test
 
   build:
+    needs: [test, lint]
     runs-on: ubuntu-latest
 
     strategy:
@@ -46,24 +47,3 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn build
-
-        env:
-          CI: true
-          
-  build-publish-npm:
-    needs: build
-    on: 
-      release:
-        types: [created]
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - name: Install Dependencies
-        run: yarn install
-      - run: npm test
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}:  
