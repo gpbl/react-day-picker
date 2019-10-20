@@ -32,7 +32,7 @@ exports.createPages = ({ boundActionCreators }) => {
   });
 };
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
+exports.onCreateWebpackConfig = ({ config, stage }) => {
   switch (stage) {
     case 'develop':
       config.merge({
