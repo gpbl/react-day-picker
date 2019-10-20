@@ -5,6 +5,8 @@ on:
     branches:
       - next
   push:
+    paths:
+      - "website/**"
     branches:
       - master
       - next
@@ -23,14 +25,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: cd website
       - name: Install Dependencies
         run: yarn install
-      - name: Lint Sources
-        run: |
-          yarn lint
-          yarn lint-types
-      - name: Run Unit Tests
-        run: yarn test
       - name: Build
         run: yarn build
 
