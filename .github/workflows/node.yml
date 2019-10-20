@@ -1,4 +1,4 @@
-name: package@master
+name: Node CI
 
 on:
   pull_request:
