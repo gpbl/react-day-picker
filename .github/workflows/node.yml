@@ -19,7 +19,7 @@ jobs:
       - name: Lint files
         run: yarn lint
 
-  lint:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
