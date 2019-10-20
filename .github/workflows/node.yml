@@ -1,0 +1,36 @@
+name: Node CI
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 10.x]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: cd package
+      - name: Install Dependencies
+        run: yarn install
+      - name: Lint Sources
+        run: yarn lint
+      - name: Run Unit Tests
+        run: yarn test
+      - name: Build
+        run: yarn build
+
+        env:
+          CI: true
