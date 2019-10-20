@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { withDefaultConfig } = require('react-docgen-typescript');
 
-const sourceFile = path.resolve(__dirname, '../../src/DayPicker.tsx');
+const sourceFile = path.resolve(__dirname, '../../package/src/DayPicker.tsx');
 const destFile = path.resolve(
   __dirname,
   '../src/components/PropDetails/prop_types.json'
