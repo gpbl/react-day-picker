@@ -1,18 +1,11 @@
-import {
-  DayHtmlProps,
-  MatchingModifiers,
-  DayPickerProps,
-  ModifierValueType,
-} from '../../typings/react-day-picker';
-
 /**
  * Return the props for the Day component.
  */
 export function getDayProps(
   day: Date,
-  modifiers: MatchingModifiers,
+  modifiers: ReactDayPicker.MatchingModifiers,
   props: ReactDayPicker.DayPickerProps
-): DayHtmlProps {
+): ReactDayPicker.DayHtmlProps {
   const {
     onDayClick,
     styles,
@@ -64,7 +57,7 @@ export function getDayProps(
       });
   }
 
-  const dataProps: { [key: string]: ModifierValueType } = {};
+  const dataProps: { [key: string]: ReactDayPicker.ModifierValueType } = {};
   Object.entries(modifiers)
     .filter(value => Boolean(value))
     .forEach(([modifier, value]) => {

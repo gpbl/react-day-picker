@@ -1,22 +1,30 @@
 import locale from 'date-fns/locale/en-US';
 import { startOfMonth, format } from 'date-fns';
 
-import { DayPickerProps, FormatOptions } from '../typings/react-day-picker';
 import { Caption } from './Caption';
 import { Day } from './Day';
 import { Navigation } from './Navigation';
 import { WeekNumber } from './WeekNumber';
 import { defaultClassNames } from './defaultClassNames';
 
-function formatDay(day: Date, formatOptions?: FormatOptions): string {
+function formatDay(
+  day: Date,
+  formatOptions?: ReactDayPicker.FormatOptions
+): string {
   return format(day, 'd', formatOptions);
 }
 
-function formatCaption(month: Date, formatOptions?: FormatOptions): string {
+function formatCaption(
+  month: Date,
+  formatOptions?: ReactDayPicker.FormatOptions
+): string {
   return format(month, 'LLLL Y', formatOptions);
 }
 
-function formatWeekdayName(day: Date, formatOptions?: FormatOptions): string {
+function formatWeekdayName(
+  day: Date,
+  formatOptions?: ReactDayPicker.FormatOptions
+): string {
   return format(day, 'E', formatOptions);
 }
 

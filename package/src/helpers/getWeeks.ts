@@ -10,7 +10,6 @@ import {
 } from 'date-fns';
 
 import { DateWithModifiers } from '../DateWithModifiers';
-import { DayPickerProps } from '../../typings/react-day-picker';
 import { getOutsideStartDays } from '../utils/getOutsideStartDays';
 import { getOutsideEndDays } from '../utils/getOutsideEndDays';
 

@@ -1,6 +1,5 @@
 /* eslint-env jest */
 import { getCaptionProps } from './getCaptionProps';
-import { CaptionHtmlProps } from '../../typings/react-day-picker';
 import { defaultProps } from '../defaultProps';
 
 describe('getCaptionProps', () => {
@@ -10,7 +9,7 @@ describe('getCaptionProps', () => {
       styles: { caption: { color: 'red' } },
       classNames: { caption: 'caption-foo' },
     };
-    const expected: CaptionHtmlProps = {
+    const expected: ReactDayPicker.CaptionHtmlProps = {
       containerProps: {
         className: 'caption-foo',
         style: { color: 'red' },

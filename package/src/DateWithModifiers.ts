@@ -1,14 +1,9 @@
-import { isSameDay, isToday } from 'date-fns';
+import { isToday } from 'date-fns';
 
 import { getModifiersFromProps } from './utils/getModifiersFromProps';
 import { listModifiers } from './utils/listModifiers';
-import {
-  DayPickerProps,
-  MatchingModifiers,
-  ModifierValueType,
-} from '../typings/react-day-picker';
 
-const defaultModifiers: MatchingModifiers = {
+const defaultModifiers: ReactDayPicker.MatchingModifiers = {
   disabled: false,
   hidden: false,
   interactive: true,
@@ -25,7 +20,7 @@ export class DateWithModifiers {
   ) {
     this.date = date;
 
-    const modifiers: MatchingModifiers = {
+    const modifiers: ReactDayPicker.MatchingModifiers = {
       ...defaultModifiers,
       today: isToday(date),
       ...initialModifiers,
@@ -50,9 +45,9 @@ export class DateWithModifiers {
   }
 
   date: Date;
-  modifiers: MatchingModifiers;
+  modifiers: ReactDayPicker.MatchingModifiers;
 
-  getModifier(name: string): ModifierValueType {
+  getModifier(name: string): ReactDayPicker.ModifierValueType {
     return this.modifiers[name];
   }
 }

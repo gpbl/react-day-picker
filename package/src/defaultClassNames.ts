@@ -1,5 +1,4 @@
-import { ClassNames } from '../typings/react-day-picker';
-export const defaultClassNames: ClassNames = {
+export const defaultClassNames: ReactDayPicker.ClassNames = {
   container: 'rdp',
   caption: 'rdp-caption',
 

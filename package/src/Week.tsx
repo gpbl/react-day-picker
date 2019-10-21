@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { getUnixTime } from 'date-fns';
-import { WeekProps } from '../typings/react-day-picker';
 
-export const Week: React.FC<WeekProps> = props => {
+export const Week: React.FC<ReactDayPicker.WeekProps> = props => {
   const { weekNumber, week, dayPickerProps } = props;
   const { showWeekNumber, classNames, styles, components } = dayPickerProps;
   const { Day, WeekNumber } = components;
