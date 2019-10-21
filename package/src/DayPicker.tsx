@@ -7,8 +7,9 @@ import { defaultProps } from './defaultProps';
 import { Month } from './Month';
 
 import { filterUndefinedProps } from './utils/filterUndefinedProps';
+import { DayPickerProps } from '../typings/react-day-picker';
 
-const DayPickerControlled: React.FC<ReactDayPicker.DayPickerProps> = (
+const DayPickerControlled: React.FC<DayPickerProps> = (
   initialProps = defaultProps
 ) => {
   // Extend props with defaults
