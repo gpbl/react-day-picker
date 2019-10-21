@@ -208,7 +208,6 @@ var defaultClassNames = {
     headWeekName: 'rdp-head_weekname',
     // Navigation Component
     nav: 'rdp-nav',
-    navStart: 'rdp-nav_start',
     navPrev: 'rdp-nav_prev',
     navNext: 'rdp-nav_next',
     // Week Component

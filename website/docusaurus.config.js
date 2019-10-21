@@ -27,14 +27,14 @@ const config = {
 
   themeConfig: {
     navbar: {
-      title: '',
-      logo: { alt: 'react-day-picker Logo', src: 'images/logo-name.svg' },
+      title: '<DayPicker/>',
+      // logo: { alt: 'react-day-picker Logo', src: 'images/logo-name.svg' },
       links: [
         { to: 'docs/start', label: 'Documentation', position: 'left' },
-        { to: 'docs/props', label: 'Props', position: 'left' },
+        { to: 'docs/props', label: 'API Reference', position: 'left' },
         { to: 'docs/changelog', label: 'Changelog', position: 'left' },
         {
-          to: 'https://spectrum.chat/react-day-picker',
+          to: 'support',
           label: 'Support',
           position: 'right',
         },
@@ -52,7 +52,7 @@ const config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Documentation',
           items: [
             {
               label: 'Welcome',
@@ -66,11 +66,19 @@ const config = {
               label: 'DayPicker Props',
               to: 'docs/props',
             },
+            {
+              label: 'Older docs (v7)',
+              to: 'v7',
+            },
           ],
         },
         {
           title: 'Community',
           items: [
+            {
+              label: 'Spectrum Chat',
+              href: 'https://spectrum.chat/react-day-picker',
+            },
             {
               label: 'GitHub Issues',
               to: 'http://github.com/gpbl/react-day-picker/issues',
@@ -80,21 +88,17 @@ const config = {
               href:
                 'https://stackoverflow.com/questions/tagged/react-day-picker',
             },
-            {
-              label: 'Spectrum',
-              href: 'https://spectrum.chat/react-day-picker',
-            },
           ],
         },
       ],
       logo: { alt: '', src: '' },
       copyright: `Copyright © ${new Date().getFullYear()} gpbl & contributors. Built with Docusaurus.`,
     },
-    algolia: {
-      apiKey: '3fc1a3f2ec2de5aa850d0f46bd780dc6',
-      indexName: 'react-day-picker',
-      algoliaOptions: {},
-    },
+    // algolia: {
+    //   apiKey: '3fc1a3f2ec2de5aa850d0f46bd780dc6',
+    //   indexName: 'react-day-picker',
+    //   algoliaOptions: {},
+    // },
   },
 };
 

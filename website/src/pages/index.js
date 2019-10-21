@@ -5,25 +5,29 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import withBaseUrl from '@docusaurus/withBaseUrl';
-import styles from './styles.module.css';
+import styles from './index.module.css';
+import Frame from '../components/Frame';
 
 import { DayPicker } from 'react-day-picker';
 
 const features = [
   {
-    title: <>Easy to Use</>,
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    title: <>A date picker for React</>,
+    description: (
+      <>DayPicker Easily add a date picker to your React application </>
+    ),
+  },
+  {
+    title: <>Localizable</>,
     description: (
       <>
         Docusaurus was designed from the ground up to be easily installed and
         used to get your website up and running quickly.
-        <DayPicker components={new Date()} />
       </>
     ),
   },
   {
-    title: <>Focus on What Matters</>,
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    title: <>Extensible API</>,
     description: (
       <>
         Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
@@ -31,37 +35,25 @@ const features = [
       </>
     ),
   },
-  {
-    title: <>Powered by React</>,
-    imageUrl: 'img/undraw_docusaurus_react.svg',
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-  },
 ];
 
 function Home() {
   const context = useDocusaurusContext();
-  const { siteConfig = {} } = context;
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title="DayPicker – flexible date picker component for React"
       description="Description will go into a meta tag in <head />"
     >
-      <header className={classnames('hero hero--primary', styles.heroBanner)}>
+      <header className={classnames('hero', styles.header)}>
         <div className="container">
-          <p>
-            <img width="130" height="130" src="/images/logo.png" />
-          </p>
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <h1 className="hero__title">{`<DayPicker/>`}</h1>
+          <h2 className={classnames('hero__subtitle', styles.subtitle)}>
+            The flexible, customizable date picker for React.
+          </h2>
           <div className={styles.buttons}>
             <Link
               className={classnames(
-                'button button--outline button--secondary button--lg',
+                'button button--outline button--lg',
                 styles.getStarted
               )}
               to={withBaseUrl('docs/intro')}
@@ -72,7 +64,7 @@ function Home() {
         </div>
       </header>
       <main>
-        {/* {features && features.length && (
+        {features && features.length && (
           <section className={styles.features}>
             <div className="container">
               <div className="row">
@@ -81,15 +73,6 @@ function Home() {
                     key={idx}
                     className={classnames('col col--4', styles.feature)}
                   >
-                    {imageUrl && (
-                      <div className="text--center">
-                        <img
-                          className={styles.featureImage}
-                          src={withBaseUrl(imageUrl)}
-                          alt={title}
-                        />
-                      </div>
-                    )}
                     <h3>{title}</h3>
                     <p>{description}</p>
                   </div>
@@ -97,7 +80,7 @@ function Home() {
               </div>
             </div>
           </section>
-        )} */}
+        )}
       </main>
     </Layout>
   );

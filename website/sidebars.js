@@ -8,7 +8,8 @@ module.exports = {
       'localization',
       'input',
       'extending',
+      'upgrading',
     ],
-    ['API Reference']: ['props', 'hooks', 'helpers'],
+    'API Reference': ['props', 'hooks', 'components-helpers', 'changelog'],
   },
 };

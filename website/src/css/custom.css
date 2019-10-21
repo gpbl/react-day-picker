@@ -3,6 +3,7 @@
   --ifm-code-font-size: 12px;
   --ifm-color-primary: #3f5efb;
   --ifm-color-secondary: #fc466b;
+  --ifm-container-width: 1260px;
   --ifm-contents-border-color: var(--ifm-color-emphasis-alpha-10);
   --ifm-contents-link-color: var(--ifm-color-emphasis-alpha-80);
   --ifm-font-base-color: var(--ifm-color-emphasis-alpha-80);
@@ -55,8 +56,8 @@
 }
 
 html[data-theme='dark'] {
-  --ifm-color-secondary: #3f5efb;
-  --ifm-color-primary: #fc466b;
+  /* --ifm-color-secondary: #3f5efb; */
+  /* --ifm-color-primary: #3f5efb; */
 }
 html:not([data-theme='dark']) {
 }
@@ -65,11 +66,12 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-.navbar {
+.snavbar {
   color: white;
   background: -webkit-gradient(
     linear,
-    left top, right top,
+    left top,
+    right top,
     from(rgba(12, 198, 239, 0.75)),
     color-stop(rgba(197, 110, 240, 0.75)),
     to(rgba(250, 75, 85, 0.75))
@@ -82,7 +84,8 @@ html {
   );
   background: -webkit-gradient(
     linear,
-    left top, right top,
+    left top,
+    right top,
     from(#fc466b),
     to(#3f5efb)
   );
@@ -94,6 +97,22 @@ html {
   -webkit-backdrop-filter: blur(10px);
   --ifm-navbar-link-color: white;
   --ifm-navbar-link-hover-color: white;
+}
+.navbar .navbar__brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.navbar__inner {
+  max-width: var(--ifm-container-width);
+  margin: 0 auto;
+}
+.navbar__link {
+  white-space: nowrap;
+}
+
+[class^='docPage'] {
+  max-width: var(--ifm-container-width);
+  margin: 0 auto;
 }
 
 .menu {
