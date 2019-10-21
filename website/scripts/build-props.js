@@ -13,6 +13,11 @@ const linesRE = /(@[a-z]*) ?(.*)$/gm;
 
 const parseProps = obj => {
   let props = {};
+  if (!obj.props) {
+    console.log('Props not found');
+    console.log(obj);
+    process.exit(1);
+  }
   Object.entries(obj.props).forEach(([name, details]) => {
     const categories = {};
     let matches;
