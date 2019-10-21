@@ -1,3 +1,22 @@
+## [v7.4](https://github.com/gpbl/react-day-picker/tree/v7.4.0) (2019-10-20)
+
+#### DayPicker
+* Fix text wrapping on `.DayPicker-Day` default style (#824)
+* Add `focus()` method for focusing the `DayPicker` wrapper element (#761)
+
+#### DayPickerInput
+
+* When DayPicker input state is controlled, correctly set the input text if the `value` prop updates ([#816](https://github.com/gpbl/react-day-picker/issues/816) by [MitchRivet](https://github.com/MitchRivet))
+* Fix DayPickerInput value does not recompute on `locale` change (fix #938) (#939)
+* Set overlayHasFocus to false in hideAfterDayClick (#941)
+
+#### Typings
+
+* Improve typings, use TypeScript 3.1 (#929)
+* Add formatDate and parseDate to typings (#873)
+* Make `format` optional (#923)
+* Remove `initialMonth` from `defaultProps` (#874)
+
 ### [v7.3.2](https://github.com/gpbl/react-day-picker/tree/v7.3.2) (2019-08-08)
 
 Updates for TypeScript users:
