@@ -1,4 +1,4 @@
-name: Node CI
+name: Node CI (next)
 
 on:
   pull_request:
@@ -8,7 +8,6 @@ on:
     paths-ignore:
       - "website/**"
     branches:
-      - master
       - next
 
 jobs:
