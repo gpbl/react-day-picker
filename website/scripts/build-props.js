@@ -16,7 +16,7 @@ const parseProps = obj => {
   if (!obj) {
     console.log('Props not found');
     console.log(obj);
-    return {};
+    return undefined;
   }
   Object.entries(obj.props).forEach(([name, details]) => {
     const categories = {};
@@ -39,7 +39,9 @@ const parseProps = obj => {
 
 const docs = withDefaultConfig().parse(sourceFile);
 const props = parseProps(docs[0]);
-
+if (!props) {
+  process.exit();
+}
 const json = JSON.stringify(props, null, 2);
 
 console.log('Writing props to %s', destFile);
