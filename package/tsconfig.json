@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "lib",
+    "module": "ES2015",
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "rollup.config.js",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "typings/react-day-picker.d.ts"
+  ]
+}

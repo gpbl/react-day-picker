@@ -1,0 +1,105 @@
+---
+id: styling
+title: Styling DayPicker
+---
+
+You change the appearance of DayPicker using **CSS**, **inline styles**, or both.
+To each HTML element created by DayPicker are assigned `.rdp` CSS classes, as listed in the table below.
+
+##### Elements Table
+
+| Element name       | Default CSS Class      | Element description                          |
+| ------------------ | ---------------------- | -------------------------------------------- |
+| **container**      | `.rdp`                 | The container element                        |
+| **caption**        | `.rdp-caption`         | The caption element                          |
+| **day**            | `.rdp-day`             | The day element (a button when interactive)  |
+| **selected**       | `.rdp-day_selected`    | The day element when selected                |
+| **disabled**       | `.rdp-day_disabled`    | The day element when disabled                |
+| **today**          | `.rdp-day_today`       | The day element that is today                |
+| **outside**        | `.rdp-day_outside`     | The day element falling outside the month    |
+| **dayWrapper**     | `.rdp-day_wrapper`     | A wrapper of the day text element            |
+| **month**          | `.rdp-month`           | Wrapper element of the month table           |
+| **monthTable**     | `.rdp-month_table`     | The month’s table                            |
+| **monthTbody**     | `.rdp-month_tbody`     | The `tbody` of the month’s table             |
+| **months**         | `.rdp-months`          | The container of the months                  |
+| **head**           | `.rdp-head`            | The head element                             |
+| **headRow**        | `.rdp-head_row`        | The head row element                         |
+| **headWeekNumber** | `.rdp-head_weeknumber` | The head cell element for the week numbers   |
+| **headWeekName**   | `.rdp-head_weekname`   | The head cell element for the weekday names  |
+| **nav**            | `.rdp-nav`             | The navigation container element             |
+| **navPrev**        | `.rdp-nav_prev`        | The button to navigate to the previous month |
+| **navNext**        | `.rdp-nav_next`        | The button to navigate to the next button    |
+| **week**           | `.rdp-week`            | The week row                                 |
+| **weekWeeknumber** | `.rdp-week_weeknumber` | The week’s number cell                  |
+| **weekDay**        | `.rdp-week_day`        | The week’s day cell                          |
+| **weekNumber**     | `.rdp-weeknumber`      | The week’s number                            |
+
+## Styling via CSS
+
+Style the DayPicker CSS classes in your application’s CSS file:
+
+```css
+/* container */
+.rdp {
+  background: salmon:
+}
+/* head element */
+.rdp-head {
+  font-weight: bold;
+  color: blue;
+}
+/* etc. */
+```
+
+## Using the Included CSS
+
+The package includes a CSS file for a minimal, basic style, that can be used as starting point:
+
+```jsx
+import 'react-day-picker/lib/style.css';
+```
+
+## Using Inline Styles
+
+Use the [`styles`](./props#styles) prop to change the inline style of each element:
+
+```jsx preview
+function App() {
+  return (
+    <DayPicker
+      showWeekNumber
+      styles={{
+        head: { color: 'salmon ' },
+        weekNumber: { color: 'violet' },
+      }}
+    />
+  );
+}
+```
+
+
+## Using Custom Class Names
+
+Set custom class names when:
+
+- you use [CSS Modules](https://github.com/css-modules/css-modules) or other CSS bundler defining different class names;
+- you don’t want to use the default class names.
+
+To define custom class names, pass to the [`classNames`](./props#classnames) props the class name for each element.
+
+```jsx preview
+function App() {
+  return (
+    <>
+      <style>{`
+        .my-custom-head-class { color: salmon }
+      `}</style>
+      <DayPicker
+        classNames={{
+          head: 'my-custom-head-class',
+        }}
+      />
+    </>
+  );
+}
+```

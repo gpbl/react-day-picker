@@ -1,0 +1,96 @@
+---
+id: basics
+title: DayPicker Basics
+---
+
+Familiarize with DayPicker by implementing a basic date picker for selecting days.
+
+## Selecting a Day
+
+1. listen to the [`onDayClick`](./props#ondayclick) event to get the clicked day;
+2. save the clicked day in your component’s state;
+3. highlight the selected day using the [`selected`](./props#selected) prop.
+
+```jsx preview
+import React, { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [selectedDay, setSelectedDay] = useState();
+  const handleDayClick = day => setSelectedDay(day);
+  return (
+    <div>
+      <DayPicker selected={selectedDay} onDayClick={handleDayClick} />
+      {selectedDay && <span>Selected: {selectedDay.toLocaleDateString()}</span>}
+      {!selectedDay && <em>Please select a day.</em>}
+    </div>
+  );
+}
+```
+
+## Selecting Multiple Days
+
+1. initialize the state with an empty array;
+2. add the day to the array when a day is clicked;
+3. check if the day is already selected to unselect it.
+
+```jsx preview
+import React, { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+import { isSameDay } from 'date-fns';
+
+function App() {
+  const [selectedDays, setSelectedDays] = useState([]);
+
+  const handleDayClick = day =>
+    setSelectedDays(currentDays => {
+      const selectedIndex = currentDays.findIndex(d => isSameDay(d, day));
+      if (selectedIndex > -1) {
+        // Remove the day from the selected ones
+        const newDays = [...currentDays];
+        newDays.splice(selectedIndex, 1);
+        return newDays;
+      }
+      return [...currentDays, day];
+    });
+
+  const nOfDays = selectedDays.length;
+  return (
+    <div>
+      <DayPicker selected={selectedDays} onDayClick={handleDayClick} />
+      {nOfDays > 0 && <span>{nOfDays} day(s) selected</span>}
+      {nOfDays === 0 && <i>Select some days</i>}
+    </div>
+  );
+}
+```
+
+## Disabling or Hiding Days
+
+Similarly to `selected`, the `hidden` and `disabled` props can be used to hide or disable the day cell. These props too support [few useful types](./matching-days).
+
+For example, the following DayPicker shows a calendar where Tuesdays are disabled and few days are hidden.
+
+```jsx preview
+import React, { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [selectedDay, setSelectedDay] = useState([]);
+  const isTuesday = day => day.getDay() === 2;
+  const hiddenDays = [
+    new Date(2019, 8, 26),
+    new Date(2019, 8, 27),
+    new Date(2019, 8, 28),
+  ];
+  return (
+    <DayPicker
+      initialMonth={new Date(2019, 8)}
+      selected={selectedDay}
+      hidden={hiddenDays}
+      disabled={isTuesday}
+      onDayClick={day => setSelectedDay(day)}
+    />
+  );
+}
+```

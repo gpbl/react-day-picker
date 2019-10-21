@@ -1,0 +1,83 @@
+---
+id: localization
+title: Localization
+---
+
+react-day-picker can be easily localized using the localization packages found in [date-fns](https://date-fns.org/docs/I18n).
+
+## Changing Locale
+
+To change the locale of DayPicker, pass to the [`locale`](./props#locale) prop a `Locale` object. Refer to the [Locale documentation](http://date-fns.org/docs/Locale) on date-fns website for more details.
+
+For example, to localize the calendar in Spanish:
+
+1. import the Spanish Locale object from dateFns;
+2. pass the locale object to the `locale` props.
+
+```jsx preview
+import spanish from 'date-fns/locale/es';
+
+function App() {
+  return <DayPicker locale={spanish} />;
+}
+```
+
+## Right-to-left Text Direction
+
+To add right-to-left text direction, set the [`dir`](./props#dir) prop to `rtl`.
+
+```jsx preview
+import { DayPicker } from 'react-day-picker';
+import arabic from 'date-fns/locale/ar-SA';
+
+function App() {
+  return <DayPicker dir="rtl" locale={arabic} />;
+}
+```
+
+## Numbering System
+
+Use [formatter props](./props#formatting) to change the numbering system used in the calendar.
+
+For example, to switch to hindu-arabic using [`toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+
+- set [`formatDay`](./props/formatDay) to format the day number;
+- set [`formatCaption`](./props/formatCaption) to format the year in caption;
+- set [`formatWeekNumber`](./props/formatWeekNumber) to format the week numbers;
+
+```jsx preview
+import React from 'react';
+import { format } from 'date-fns';
+import { DayPicker } from 'react-day-picker';
+
+import arabic from 'date-fns/locale/ar-SA';
+
+function App() {
+  const nuLocale = 'ar-u-nu-arab';
+
+  function formatDay(day) {
+    return day.getDate().toLocaleString(nuLocale);
+  }
+
+  function formatCaption(date, { locale }) {
+    const y = date.getYear().toLocaleString(nuLocale);
+    const m = format(date, 'LLLL', { locale });
+    return `${m} ${y}`;
+  }
+
+  function formatWeekNumber(weekNumber) {
+    return weekNumber.toLocaleString(nuLocale);
+  }
+
+  return (
+    <DayPicker
+      locale={arabic}
+      dir="rtl"
+      showWeekNumber
+      formatDay={formatDay}
+      formatCaption={formatCaption}
+      formatWeekNumber={formatWeekNumber}
+    />
+  );
+}
+```

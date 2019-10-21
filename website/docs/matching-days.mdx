@@ -1,0 +1,167 @@
+---
+id: matching-days
+title: Matching Days
+---
+
+You can match days via `selected`, `disabled`, `hidden` and `modifiers` by passing different value types.
+
+## Matching a Single Day
+
+Pass a `Date` object to match a single day.
+
+```jsx preview
+import React, { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [month, setMonth] = useState(new Date(2019, 8));
+  return (
+    <DayPicker
+      month={month}
+      onMonthChange={setMonth}
+      selected={new Date(2019, 8, 9)}
+    />
+  );
+}
+```
+
+## Matching Multiple Days
+
+Pass an array of `Date` objects to match multiple days.
+
+```jsx preview
+import React, { setState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [month, setMonth] = useState(new Date(2019, 8));
+  return (
+    <DayPicker
+      month={month}
+      onMonthChange={setMonth}
+      selected={[
+        new Date(2019, 8, 9),
+        new Date(2019, 8, 10),
+        new Date(2019, 8, 11),
+      ]}
+    />
+  );
+}
+```
+
+## Matching Days between a Range
+
+Pass a `{ before, after }` object.
+
+```jsx preview
+import React, { setState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [month, setMonth] = useState(new Date(2019, 8));
+  return (
+    <DayPicker
+      month={month}
+      onMonthChange={setMonth}
+      selected={{
+        after: new Date(2019, 8, 9),
+        before: new Date(2019, 8, 19),
+      }}
+    />
+  );
+}
+```
+
+It is possible to omit the `before` or `after` keys.
+
+```jsx preview
+import React, { setState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [month, setMonth] = useState(new Date(2019, 8));
+  return (
+    <DayPicker
+      month={month}
+      onMonthChange={setMonth}
+      selected={{
+        after: new Date(2019, 8, 9),
+      }}
+    />
+  );
+}
+```
+
+## Matching Days of the Week
+
+Pass an array of days of the week (`0` being Sunday) to a `daysOfWeek` object.
+
+For example, to disable Sundays and Tuesdays:
+
+```jsx preview
+import React, { setState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [month, setMonth] = useState(new Date(2019, 8));
+  return (
+    <DayPicker
+      month={month}
+      onMonthChange={setMonth}
+      selected={{ daysOfWeek: [0, 2] }}
+    />
+  );
+}
+```
+
+## Matching Anything
+
+Pass a function to have complete control. The function receive the day as argument:
+
+```jsx preview
+import React, { setState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [month, setMonth] = useState(new Date(2019, 8));
+  const isBirthday = day => day.getDate() === 19 && day.getMonth() === 8;
+
+  return (
+    <DayPicker month={month} onMonthChange={setMonth} selected={isBirthday} />
+  );
+}
+```
+
+## Combining Types
+
+Pass an array to mix multiple types:
+
+```jsx preview
+import React, { setState } from 'react';
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [month, setMonth] = useState(new Date(2019, 8));
+  const isBirthday = day => day.getDate() === 19 && day.getMonth() === 8;
+
+  return (
+    <DayPicker
+      month={month}
+      numberOfMonths={2}
+      selected={[
+        isBirthday,
+        {
+          after: new Date(2019, 8, 1),
+          before: new Date(2019, 8, 6),
+        },
+        {
+          after: new Date(2019, 9, 14),
+          before: new Date(2019, 9, 19),
+        },
+        new Date(2019, 8, 21),
+      ]}
+      onMonthChange={setMonth}
+    />
+  );
+}
+```

@@ -29,10 +29,16 @@
   </a>
 </p>
 
+## v8 is coming
+
+v8 will be a rewrite of react-day-picker. Read more [here](https://github.com/gpbl/react-day-picker/issues/942).
+
+> ➡️ `master` branch is for the [upcoming v8 release](https://github.com/gpbl/react-day-picker/issues/942). Switch to the `v7` branch to send PR for the v7 version.
+)
+
 ## Get support
 
 Please fork and use [https://codesandbox.io/s/XDAE3x0W8](https://codesandbox.io/s/XDAE3x0W8) to reproduce your problem.
 
 * Ask on on [Stack Overflow](http://stackoverflow.com/questions/tagged/react-day-picker?sort=newest) tagging your question with `react-day-picker`.
-* Open a [new issue](https://github.com/gpbl/react-day-picker/issues/new) on GitHub.
-* Join the [Gitter room](https://gitter.im/gpbl/react-day-picker) to chat with other developers.
+* Join the [Spectrum Chat](https://spectrum.chat/react-day-picker?tab=chat) to chat with other developers.

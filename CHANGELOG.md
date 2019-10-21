@@ -837,7 +837,7 @@ the upcoming new features!
 
 Thanks everyone for the support and for the help on making this component better
 🤗 If you have issues or suggestions, don't forget the
-[Gitter room](https://gitter.im/gpbl/react-day-picker)!
+[Spectrum Chat](https://spectrum.chat/react-day-picker?tab=chat)!
 
 **Breaking changes**
 
