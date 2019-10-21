@@ -8,14 +8,13 @@ const destFile = path.resolve(
   '../src/components/PropDetails/prop_types.json'
 );
 
-console.log('Reading props from... %s', sourceFile);
+console.log('[INFO] Started build props script');
+console.log(`[INFO] Reading props from %s...`, sourceFile);
 const linesRE = /(@[a-z]*) ?(.*)$/gm;
 
 const parseProps = obj => {
   let props = {};
   if (!obj) {
-    console.log('Props not found');
-    console.log(obj);
     return undefined;
   }
   Object.entries(obj.props).forEach(([name, details]) => {
@@ -40,15 +39,17 @@ const parseProps = obj => {
 const docs = withDefaultConfig().parse(sourceFile);
 const props = parseProps(docs[0]);
 if (!props) {
+  console.log('[INFO] Props file couldn’t be created.');
   process.exit();
 }
 const json = JSON.stringify(props, null, 2);
 
-console.log('Writing props to %s', destFile);
+console.log('[INFO] Writing props to %s', destFile);
 
 fs.writeFile(destFile, json, function(err) {
   if (err) {
-    return console.error(err);
+    console.error(err);
+    process.exit(1);
   }
   console.log('Done.');
 });
