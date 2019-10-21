@@ -14,7 +14,7 @@ import { DayPickerInput } from './DayPickerInput';
 export interface CaptionElementProps {
   date: Date;
   classNames: ClassNames;
-  localeUtils: typeof LocaleUtils;
+  localeUtils: LocaleUtils;
   locale: string;
   months?: string[];
   onClick?: React.MouseEventHandler<HTMLElement>;
@@ -32,14 +32,14 @@ export interface NavbarElementProps {
   onNextClick(callback?: () => void): void;
   dir?: string;
   labels: { previousMonth: string; nextMonth: string };
-  localeUtils: typeof LocaleUtils;
+  localeUtils: LocaleUtils;
   locale: string;
 }
 
 export interface WeekdayElementProps {
   weekday: number;
   className: string;
-  localeUtils: typeof LocaleUtils;
+  localeUtils: LocaleUtils;
   locale: string;
   weekdaysLong?: string[];
   weekdaysShort?: string[];
@@ -67,7 +67,7 @@ export interface DayPickerProps {
   initialMonth?: Date;
   labels?: { previousMonth: string; nextMonth: string };
   locale?: string;
-  localeUtils?: typeof LocaleUtils;
+  localeUtils?: LocaleUtils;
   modifiers?: Partial<Modifiers>;
   modifiersStyles?: object;
   month?: Date;

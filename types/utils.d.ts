@@ -26,7 +26,7 @@ export interface LocaleUtils {
     string
   ];
   parseDate(str: string, format?: string, locale?: string): Date;
-};
+}
 
 export const DateUtils: {
   addDayToRange(day: Date, range: RangeModifier): RangeModifier;

@@ -12,7 +12,7 @@ import {
 
 export default class DayPicker extends React.Component<DayPickerProps, any> {
   static VERSION: string;
-  static LocaleUtils: typeof LocaleUtils;
+  static LocaleUtils: LocaleUtils;
   static DateUtils: typeof DateUtils;
   static ModifiersUtils: typeof ModifiersUtils;
   static DayModifiers: DayModifiers;
