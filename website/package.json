@@ -1,0 +1,48 @@
+{
+  "name": "react-day-picker-website",
+  "version": "8.0.0-alpha.1",
+  "license": "MIT",
+  "description": "react-day-picker website: http://react-day-picker.js.org",
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "yarn build-props && docusaurus start",
+    "prebuild": "yarn build-props",
+    "build": "docusaurus build",
+    "build-props": "node ./scripts/build-props.js",
+    "build-schemas": "typescript-json-schema ../tsconfig.json",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "lint": "yarn eslint src scripts"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0-alpha.27",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.27",
+    "buble": "^0.19.8",
+    "classnames": "^2.2.6",
+    "date-fns": "^2.5.0",
+    "eslint-import-resolver-babel-module": "^5.1.0",
+    "fastdom": "^1.0.9",
+    "file-loader": "^4.2.0",
+    "lodash": "^4.17.15",
+    "ora": "^4.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-day-picker": "^7.3.2",
+    "react-dom": "^16.10.2",
+    "react-frame-component": "^4.1.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.1",
+    "prettier": "^1.18.2",
+    "raw-loader": "^3.1.0",
+    "react-docgen-typescript": "^1.15.0",
+    "typescript-json-schema": "^0.40.0"
+  }
+}

@@ -1,0 +1,372 @@
+{
+  "className": {
+    "defaultValue": null,
+    "description": "",
+    "name": "className",
+    "required": false,
+    "type": {
+      "name": "string"
+    },
+    "categories": {}
+  },
+  "classNames": {
+    "defaultValue": null,
+    "description": "The class names for each DayPicker element.",
+    "name": "classNames",
+    "required": true,
+    "type": {
+      "name": "ClassNames"
+    },
+    "categories": {}
+  },
+  "modifiersClassNames": {
+    "defaultValue": null,
+    "description": "The class names for the day modifiers specified via `modifiers`.",
+    "name": "modifiersClassNames",
+    "required": false,
+    "type": {
+      "name": "ModifiersClassNames"
+    },
+    "categories": {}
+  },
+  "style": {
+    "defaultValue": null,
+    "description": "",
+    "name": "style",
+    "required": false,
+    "type": {
+      "name": "CSSProperties"
+    },
+    "categories": {}
+  },
+  "styles": {
+    "defaultValue": null,
+    "description": "The inline styles for each DayPicker element.",
+    "name": "styles",
+    "required": true,
+    "type": {
+      "name": "Styles"
+    },
+    "categories": {}
+  },
+  "modifiersStyles": {
+    "defaultValue": null,
+    "description": "The inline-styles for the day modifiers specified via `modifiers`.",
+    "name": "modifiersStyles",
+    "required": false,
+    "type": {
+      "name": "ModifiersStyles"
+    },
+    "categories": {}
+  },
+  "initialMonth": {
+    "defaultValue": null,
+    "description": "The initial month to show in the calendar.",
+    "name": "initialMonth",
+    "required": false,
+    "type": {
+      "name": "Date"
+    },
+    "categories": {}
+  },
+  "numberOfMonths": {
+    "defaultValue": null,
+    "description": "The number of months to show in the date picker. See also `pagedNavigation`\nand `reverseMonths`.",
+    "name": "numberOfMonths",
+    "required": true,
+    "type": {
+      "name": "number"
+    },
+    "categories": {}
+  },
+  "fromMonth": {
+    "defaultValue": null,
+    "description": "Allow navigation only after this month. See also `toMonth`.",
+    "name": "fromMonth",
+    "required": false,
+    "type": {
+      "name": "Date"
+    },
+    "categories": {}
+  },
+  "toMonth": {
+    "defaultValue": null,
+    "description": "Allow navigation only before this month. See also `fromMonth`.",
+    "name": "toMonth",
+    "required": false,
+    "type": {
+      "name": "Date"
+    },
+    "categories": {}
+  },
+  "pagedNavigation": {
+    "defaultValue": null,
+    "description": "When displaying multiple months, the navigation will be paginated\ndisplaying the `numberOfMonths` months at time instead of one.",
+    "name": "pagedNavigation",
+    "required": false,
+    "type": {
+      "name": "boolean"
+    },
+    "categories": {}
+  },
+  "reverseMonths": {
+    "defaultValue": null,
+    "description": "Render the months in reversed order. Useful when `numberOfMonths` is\ngreater than 1, to display the most recent month first.",
+    "name": "reverseMonths",
+    "required": false,
+    "type": {
+      "name": "boolean"
+    },
+    "categories": {}
+  },
+  "month": {
+    "defaultValue": null,
+    "description": "The rendered month. Passing this props will make the component switch to controlled mode?: this means you will need to implement `onMonthChange` to enable months navigation.",
+    "name": "month",
+    "required": false,
+    "type": {
+      "name": "Date"
+    },
+    "categories": {}
+  },
+  "fixedWeeks": {
+    "defaultValue": null,
+    "description": "Display 6 weeks per months, regardless the month’s number of weeks. Outside\ndays will be always shown if setting this to `true`. See also\n`showOutsideDays`.",
+    "name": "fixedWeeks",
+    "required": false,
+    "type": {
+      "name": "boolean"
+    },
+    "categories": {}
+  },
+  "showCaption": {
+    "defaultValue": null,
+    "description": "Show the month caption displaying the month and the year.",
+    "name": "showCaption",
+    "required": false,
+    "type": {
+      "name": "boolean"
+    },
+    "categories": {}
+  },
+  "showHead": {
+    "defaultValue": null,
+    "description": "Show the month head containing the weekday names.",
+    "name": "showHead",
+    "required": false,
+    "type": {
+      "name": "boolean"
+    },
+    "categories": {}
+  },
+  "showOutsideDays": {
+    "defaultValue": null,
+    "description": "Show the outside days. An outside day is a day displayed in a month but\nfalling in the next or the previous month. See also\n`enableOutsideDaysClick`.",
+    "name": "showOutsideDays",
+    "required": false,
+    "type": {
+      "name": "boolean"
+    },
+    "categories": {}
+  },
+  "enableOutsideDaysClick": {
+    "defaultValue": null,
+    "description": "Enable click event for outside days. See also `showOutsideDays`.",
+    "name": "enableOutsideDaysClick",
+    "required": false,
+    "type": {
+      "name": "boolean"
+    },
+    "categories": {}
+  },
+  "showWeekNumber": {
+    "defaultValue": null,
+    "description": "Show the week numbers.",
+    "name": "showWeekNumber",
+    "required": true,
+    "type": {
+      "name": "boolean"
+    },
+    "categories": {}
+  },
+  "showNavigation": {
+    "defaultValue": null,
+    "description": "Show the navigation bar. `onMonthChange` must be set.",
+    "name": "showNavigation",
+    "required": false,
+    "type": {
+      "name": "boolean"
+    },
+    "categories": {}
+  },
+  "prevLabel": {
+    "defaultValue": null,
+    "description": "Label used for the previous month button in Navigation. Set it to empty\nstring to hide the button.",
+    "name": "prevLabel",
+    "required": false,
+    "type": {
+      "name": "string"
+    },
+    "categories": {}
+  },
+  "nextLabel": {
+    "defaultValue": null,
+    "description": "Label used for the next month button in Navigation. Set it to empty string\nto hide the button.",
+    "name": "nextLabel",
+    "required": false,
+    "type": {
+      "name": "string"
+    },
+    "categories": {}
+  },
+  "selected": {
+    "defaultValue": null,
+    "description": "Style the matching days as selected.",
+    "name": "selected",
+    "required": false,
+    "type": {
+      "name": "Modifier"
+    },
+    "categories": {}
+  },
+  "disabled": {
+    "defaultValue": null,
+    "description": "Disable the matching days. Disabled days cannot be clicked.",
+    "name": "disabled",
+    "required": false,
+    "type": {
+      "name": "Modifier"
+    },
+    "categories": {}
+  },
+  "hidden": {
+    "defaultValue": null,
+    "description": "Hide the matching days.",
+    "name": "hidden",
+    "required": false,
+    "type": {
+      "name": "Modifier"
+    },
+    "categories": {}
+  },
+  "modifiers": {
+    "defaultValue": null,
+    "description": "An object of modifiers.",
+    "name": "modifiers",
+    "required": false,
+    "type": {
+      "name": "Modifiers"
+    },
+    "categories": {}
+  },
+  "locale": {
+    "defaultValue": null,
+    "description": "Locale object used for localization.",
+    "name": "locale",
+    "required": true,
+    "type": {
+      "name": "Locale"
+    },
+    "categories": {}
+  },
+  "dir": {
+    "defaultValue": null,
+    "description": "The text direction of the calendar. Use `ltr` for left-to-right (default)\nor `rtl` for right-to-left.",
+    "name": "dir",
+    "required": false,
+    "type": {
+      "name": "string"
+    },
+    "categories": {}
+  },
+  "formatCaption": {
+    "defaultValue": null,
+    "description": "Format the month caption text.",
+    "name": "formatCaption",
+    "required": true,
+    "type": {
+      "name": "CaptionFormatter"
+    },
+    "categories": {}
+  },
+  "formatDay": {
+    "defaultValue": null,
+    "description": "Format the content of the day element.",
+    "name": "formatDay",
+    "required": true,
+    "type": {
+      "name": "DayFormatter"
+    },
+    "categories": {}
+  },
+  "formatWeekdayName": {
+    "defaultValue": null,
+    "description": "Format the weekday's name in the head element.",
+    "name": "formatWeekdayName",
+    "required": true,
+    "type": {
+      "name": "WeekdayNameFormatter"
+    },
+    "categories": {}
+  },
+  "formatWeekNumber": {
+    "defaultValue": null,
+    "description": "Format the week numbers (when `showWeekNumber` is set).",
+    "name": "formatWeekNumber",
+    "required": true,
+    "type": {
+      "name": "WeekNumberFormatter"
+    },
+    "categories": {}
+  },
+  "components": {
+    "defaultValue": null,
+    "description": "Components to extend DayPicker.",
+    "name": "components",
+    "required": true,
+    "type": {
+      "name": "Components"
+    },
+    "categories": {}
+  },
+  "onDayClick": {
+    "defaultValue": null,
+    "description": "Event handler when the user clicks on a day.",
+    "name": "onDayClick",
+    "required": false,
+    "type": {
+      "name": "DayClickEventHandler"
+    },
+    "categories": {}
+  },
+  "onMonthChange": {
+    "defaultValue": null,
+    "description": "Event handler when the month changes, e.g. when using the next/prev\nnavigation buttons.",
+    "name": "onMonthChange",
+    "required": false,
+    "type": {
+      "name": "MonthChangeEventHandler"
+    },
+    "categories": {}
+  },
+  "onNextClick": {
+    "defaultValue": null,
+    "description": "Event handler when the next navigation button is clicked.",
+    "name": "onNextClick",
+    "required": false,
+    "type": {
+      "name": "MonthChangeEventHandler"
+    },
+    "categories": {}
+  },
+  "onPrevClick": {
+    "defaultValue": null,
+    "description": "Event handler when the prev navigation button is clicked.",
+    "name": "onPrevClick",
+    "required": false,
+    "type": {
+      "name": "MonthChangeEventHandler"
+    },
+    "categories": {}
+  }
+}

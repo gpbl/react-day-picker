@@ -1,0 +1,20 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "plugins": ["react", "import", "react-hooks", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "shared-node-browser": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

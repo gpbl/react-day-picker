@@ -1,0 +1,79 @@
+---
+id: input
+title: Input Fields
+---
+
+import { InputBindingExample } from '../src/components/InputBindingExample.js';
+import Frame from '../src/components/Frame';
+
+When binding DayPicker with an input field:
+
+- the value of the field will appear as "selected" in DayPicker
+- the selected day in DayPicker will be the value of the input field.
+
+## Example
+
+<Frame>
+  <InputBindingExample />
+</Frame>
+
+
+## useInput Hook
+DayPicker includes a [`useInput`](./hooks#useinput) hook to simplify the binding with an input element.
+
+#### To bind DayPicker with an input field
+
+1. call `useInput` hook by passing the initial day and the format string;
+2. pass `currentMonth` and `selectedDay` (returned by the hook) to `DayPicker`;
+3. pass the `inputValue` to the `input` component;
+4. use the event handler creators to bind events to `DayPicker` and `input`.
+
+The format string will be used to format and parse the input value.
+
+For example, this application calls `useInput` to bind a simple text input to DayPicker.
+
+
+```jsx
+import { DayPicker, useInput } from 'react-day-picker';
+
+function App() {
+  const {
+    currentMonth,
+    selectedDay,
+    inputValue,
+    createDayClickHandler,
+    createMonthChangeHandler,
+    createChangeHandler,
+    createFocusHandler,
+    createBlurHandler,
+  } = useInput(new Date(), 'yyyy-MM-dd', { required: true });
+
+  const handleDayClick = createDayClickHandler(day => console.log(day));
+  const handleMonthChange = createMonthChangeHandler();
+  const handleChange = createChangeHandler();
+  const handleFocus = createFocusHandler();
+  const handleBlur = createBlurHandler();
+
+  return (
+    <form className="center">
+      <label>
+        <p>Type a day or pick one from the calendar.</p>
+        <input
+          placeholder="YYYY-MM-DD"
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          value={inputValue}
+        />
+      </label>
+      <br />
+      <DayPicker
+        month={currentMonth}
+        selected={selectedDay}
+        onDayClick={handleDayClick}
+        onMonthChange={handleMonthChange}
+      />
+    </form>
+  );
+}
+```
