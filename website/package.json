@@ -27,7 +27,7 @@
     "ora": "^4.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
-    "react-day-picker": "^7.3.2",
+    "react-day-picker": "file:../package",
     "react-dom": "^16.10.2",
     "react-frame-component": "^4.1.1"
   },
