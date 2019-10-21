@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import withBaseUrl from '@docusaurus/withBaseUrl';
 import styles from './index.module.css';
 import Frame from '../components/Frame';
 
@@ -56,7 +55,7 @@ function Home() {
                 'button button--outline button--lg',
                 styles.getStarted
               )}
-              to={withBaseUrl('docs/intro')}
+              to={'docs/intro'}
             >
               Get Started
             </Link>
