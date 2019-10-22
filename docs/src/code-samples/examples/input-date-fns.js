@@ -8,7 +8,7 @@ import dateFnsFormat from 'date-fns/format';
 import dateFnsParse from 'date-fns/parse';
 
 function parseDate(str, format, locale) {
-  const parsed = dateFnsParse(str, format, { locale });
+  const parsed = dateFnsParse(str, format, new Date(), { locale });
   if (DateUtils.isDate(parsed)) {
     return parsed;
   }
