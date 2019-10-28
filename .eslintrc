@@ -3,7 +3,7 @@
   "plugins": ["prettier"],
   "extends": ["airbnb", "prettier", "prettier/react"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
     "no-console": [
       "error",
       {
