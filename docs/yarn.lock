@@ -2788,10 +2788,10 @@ datauri@^1.1.0:
     mimer "^0.3.2"
     semver "^5.5.0"
 
-date-fns@next:
-  version "2.0.0-alpha.16"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-alpha.16.tgz#d249a6c9b799252652fb9e3f25460eaf9de86ac7"
-  integrity sha1-0kmmybeZJSZS+54/JUYOr53oasc=
+date-fns@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.6.0.tgz#a5bc82e6a4c3995ae124b0ba1a71aec7b8cbd666"
+  integrity sha512-F55YxqRdEfP/eYQmQjLN798v0AwLjmZ8nMBjdQvNwEE3N/zWVrlkkqT+9seBlPlsbkybG4JmWg3Ee3dIV9BcGQ==
 
 date-now@^0.1.4:
   version "0.1.4"
@@ -8507,7 +8507,7 @@ react-codesandboxer@^2.1.3:
     react-node-resolver "^1.0.1"
 
 react-day-picker@../:
-  version "7.3.0"
+  version "7.4.0"
   dependencies:
     prop-types "^15.6.2"
 

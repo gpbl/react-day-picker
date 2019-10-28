@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "babel-preset-flow": "^6.23.0",
-    "date-fns": "next",
+    "date-fns": "^2.6.0",
     "eslint": "^4.19.1",
     "gatsby": "^1.9.259",
     "gatsby-link": "^1.6.44",
