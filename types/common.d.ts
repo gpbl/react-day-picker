@@ -1,5 +1,3 @@
-// TypeScript Version: 3.1
-
 export interface ClassNames {
   container: string;
   wrapper: string;
