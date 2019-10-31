@@ -34,7 +34,7 @@ export default [
       sourcemap: true,
     },
     external,
-    plugins: [typescriptPlugin, sizeSnapshot()],
+    plugins: [typescriptPlugin],
   },
   {
     input,
@@ -69,7 +69,6 @@ export default [
       copy({
         targets: [{ src: ['src/style.css'], dest: ['lib'] }],
       }),
-      sizeSnapshot(),
     ],
   },
 ];
