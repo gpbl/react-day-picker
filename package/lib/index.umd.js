@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('date-fns'), require('date-fns/locale/en-US')) :
     typeof define === 'function' && define.amd ? define(['exports', 'react', 'date-fns', 'date-fns/locale/en-US'], factory) :
     (global = global || self, factory(global.ReactDayPicker = {}, global.React, global.dateFns, global.ReactDayPickerLocale));
-}(this, function (exports, React, dateFns, locale) { 'use strict';
+}(this, (function (exports, React, dateFns, locale) { 'use strict';
 
     locale = locale && locale.hasOwnProperty('default') ? locale['default'] : locale;
 
@@ -736,5 +736,5 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
 //# sourceMappingURL=index.umd.js.map
