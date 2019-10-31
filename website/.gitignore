@@ -1,7 +1,5 @@
-/node_modules
-/build
+node_modules
 
-.vscode
 .docusaurus
 .cache-loader
 
