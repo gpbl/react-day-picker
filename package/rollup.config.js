@@ -1,19 +1,17 @@
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 import copy from 'rollup-plugin-copy';
+import resolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import path from 'path';
 import pkg from './package.json';
 
-const globals = {
-  react: 'React',
-  'date-fns': 'dateFns',
-  'date-fns/locale/en-US': 'ReactDayPickerLocale',
-};
-const external = Object.keys(globals);
 const name = 'ReactDayPicker';
 const input = './src/index.ts';
+const globals = { react: 'React' };
+const external = Object.keys(globals);
+
 const typescriptPlugin = typescript({
   rollupCommonJSResolveHack: true,
   clean: true,
@@ -34,7 +32,7 @@ export default [
       sourcemap: true,
     },
     external,
-    plugins: [typescriptPlugin],
+    plugins: [resolve(), typescriptPlugin],
   },
   {
     input,
@@ -46,7 +44,13 @@ export default [
       sourcemap: true,
     },
     external,
-    plugins: [typescriptPlugin, replaceProduction, terser(), sizeSnapshot()],
+    plugins: [
+      resolve(),
+      typescriptPlugin,
+      replaceProduction,
+      terser(),
+      sizeSnapshot(),
+    ],
   },
   {
     input,
@@ -64,8 +68,8 @@ export default [
     ],
     external: id => !id.startsWith('.') && !path.isAbsolute(id),
     plugins: [
+      resolve(),
       typescriptPlugin,
-
       copy({
         targets: [{ src: ['src/style.css'], dest: ['lib'] }],
       }),
