@@ -66,7 +66,7 @@ export const DayPicker: React.FC<ReactDayPicker.DayPickerProps> = (
     startOfMonth(initialMonth || new Date())
   );
 
-  function handleMonthChange(month: Date, e: React.MouseEvent) {
+  function handleMonthChange(month: Date, e: React.MouseEvent): void {
     setCurrentMonth(month);
     if (props.onMonthChange) {
       props.onMonthChange(month, e);
