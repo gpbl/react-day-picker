@@ -727,16 +727,17 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@docusaurus/core@^2.0.0-alpha.27":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/core/-/core-2.0.0-alpha.31.tgz#50e3c07ff93b669623324b01f58e5e5e68231828"
-  integrity sha512-A1Wro5wNRb6b5zzebvzq6P5KsPZ6nzDhghPog3RjwtKXf7JK+c8XcFBlEmQRxNUftpiVgJW3cThfcFOURjWXLw==
+"@docusaurus/core@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/core/-/core-2.0.0-alpha.32.tgz#c0b50141f57726f89e01265f22dedef4a2ce62c7"
+  integrity sha512-NNp/Sjji5iIzoPoDYqXegEYO4VF3wirkQHrOrhYBcOFkAUOa50jGBwnrsKNNZOY2ClHN+Vs+hmwYclpedICnBg==
   dependencies:
     "@babel/core" "^7.6.4"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     "@babel/preset-env" "^7.6.3"
     "@babel/preset-react" "^7.6.3"
-    "@docusaurus/utils" "^2.0.0-alpha.31"
+    "@docusaurus/utils" "^2.0.0-alpha.32"
+    "@endiliey/static-site-generator-webpack-plugin" "^4.0.0"
     babel-loader "^8.0.6"
     babel-plugin-dynamic-import-node "^2.3.0"
     cache-loader "^4.1.0"
@@ -771,10 +772,9 @@
     react-router-dom "^5.1.2"
     semver "^6.3.0"
     shelljs "^0.8.3"
-    static-site-generator-webpack-plugin "^3.4.2"
     std-env "^2.2.1"
     style-loader "^1.0.0"
-    terser-webpack-plugin "^2.1.3"
+    terser-webpack-plugin "^2.2.1"
     wait-file "^1.0.5"
     webpack "^4.41.2"
     webpack-bundle-analyzer "^3.6.0"
@@ -782,10 +782,10 @@
     webpack-merge "^4.2.2"
     webpackbar "^4.0.0"
 
-"@docusaurus/mdx-loader@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/mdx-loader/-/mdx-loader-2.0.0-alpha.31.tgz#0be9f0248e38de03ddf40814c74fea4594819dc8"
-  integrity sha512-yy3WnJrLTTs9eTRNoCHDioee9EryQ/4CZOV7+pQTlugCbKrkXAzXF9BemiO0JPvi2Vi26OwBl8XpsvtthYQPLw==
+"@docusaurus/mdx-loader@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/mdx-loader/-/mdx-loader-2.0.0-alpha.32.tgz#b1fb47bb384058905be0eb6db6c70ae77e5f8019"
+  integrity sha512-Y3YrUv3zNBHLIgokD3d800mrM8D1VIMeJ69WKkMCFrGqYXcxZIMFf5CQHAolbGFBXiiZIwkYGTouT/6RyI7kpA==
   dependencies:
     "@babel/parser" "^7.6.4"
     "@babel/traverse" "^7.6.3"
@@ -800,25 +800,25 @@
     stringify-object "^3.3.0"
     unist-util-visit "^2.0.0"
 
-"@docusaurus/plugin-content-blog@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-content-blog/-/plugin-content-blog-2.0.0-alpha.31.tgz#f712eef06a776443571e54a3b28877c3debd82d5"
-  integrity sha512-SVtTTGfxvcFdkfeJirvxXnUT/WvM6JZB094tR/DnC54cNNeScuB/QgnfJkvrEXd1Wk2zPO+sR4g3UZJv2vZlNQ==
+"@docusaurus/plugin-content-blog@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-content-blog/-/plugin-content-blog-2.0.0-alpha.32.tgz#e18c9c195216402d97f63e7d7b26f669b8d303b7"
+  integrity sha512-2Hrtxxv4WxnVu/vNNMDUrdmDJiDLO+g8t+VT3RfM/2mymky/U+0Ia1UgpXUs+8vPaeoGk0DP8HnbdYR7HpwgCA==
   dependencies:
-    "@docusaurus/mdx-loader" "^2.0.0-alpha.31"
-    "@docusaurus/utils" "^2.0.0-alpha.31"
+    "@docusaurus/mdx-loader" "^2.0.0-alpha.32"
+    "@docusaurus/utils" "^2.0.0-alpha.32"
     fs-extra "^8.1.0"
     globby "^10.0.1"
     loader-utils "^1.2.3"
     lodash "^4.17.15"
 
-"@docusaurus/plugin-content-docs@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-content-docs/-/plugin-content-docs-2.0.0-alpha.31.tgz#cc4a3ae8dbec078dfcaa5b835049be6e58602167"
-  integrity sha512-tgGczrHZ5jsw+IDAfWrGBEGAuPrUDaDwas/6opnsl497foW6+Dk8U+aCIsEH/jUdQ57rHyIHAFxSBcW9xGwBbQ==
+"@docusaurus/plugin-content-docs@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-content-docs/-/plugin-content-docs-2.0.0-alpha.32.tgz#617a677afb9a815e436b205af3d99622a3a5c5ba"
+  integrity sha512-oMKr/xdgkAEYff453kLpP2CWbMyb/AbbG+UMs4QEAArmhJH8Tlx0ureaQEKFOsYnSt/ZrMpIbR3VRquunV1hMQ==
   dependencies:
-    "@docusaurus/mdx-loader" "^2.0.0-alpha.31"
-    "@docusaurus/utils" "^2.0.0-alpha.31"
+    "@docusaurus/mdx-loader" "^2.0.0-alpha.32"
+    "@docusaurus/utils" "^2.0.0-alpha.32"
     cross-spawn "^7.0.1"
     fs-extra "^8.1.0"
     globby "^10.0.1"
@@ -826,85 +826,98 @@
     loader-utils "^1.2.3"
     shelljs "^0.8.3"
 
-"@docusaurus/plugin-content-pages@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-content-pages/-/plugin-content-pages-2.0.0-alpha.31.tgz#95a1e17af4dd9c3d88f04207aaaef1d94c6ab012"
-  integrity sha512-66bULLuOVM1k9ecd0cGmUfqUywFOiRR6qWLFlL/6UH2dZS/Qbc85WQCTJAia5+DejXarh+NTCCaMmb27nubhBQ==
+"@docusaurus/plugin-content-pages@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-content-pages/-/plugin-content-pages-2.0.0-alpha.32.tgz#3dadab8866de96a31f1e02601dc903098cfc8018"
+  integrity sha512-qqQY2FIoQQXoKG0mvrih1JuG1ChTcHDWjIJFDZqHLoM9cbMIOA8Lo1ctbgoppnHgpwnNI46pWSMrTcCXLiKr4Q==
   dependencies:
-    "@docusaurus/types" "^2.0.0-alpha.31"
-    "@docusaurus/utils" "^2.0.0-alpha.31"
+    "@docusaurus/types" "^2.0.0-alpha.32"
+    "@docusaurus/utils" "^2.0.0-alpha.32"
     globby "^10.0.1"
 
-"@docusaurus/plugin-google-analytics@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-google-analytics/-/plugin-google-analytics-2.0.0-alpha.31.tgz#3414dd774b8e6c24a5bc33a1878e6c68ec27c6b3"
-  integrity sha512-MDQClTE2CDLnOGnq3FHsoVJrSu2owaTQ8PvNrwVlWalwjS+2mCWp2zMOcusDEt75HGb9qc/cxlTCoNzfUCIc8g==
+"@docusaurus/plugin-google-analytics@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-google-analytics/-/plugin-google-analytics-2.0.0-alpha.32.tgz#77c6c096a69eeb774b1107a1027a262e8258b320"
+  integrity sha512-4GzE5TJKjPaaAeZ9tPrgC2Ac0Hdtt3BaqmZpNLa8GNuLfm1lZH3B5dQzDpD+J/4ol2xo4nZcRguGFe47V9BGAA==
 
-"@docusaurus/plugin-google-gtag@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-google-gtag/-/plugin-google-gtag-2.0.0-alpha.31.tgz#a609e0122e660ae1633a4eb5c0932f3c5eb5152f"
-  integrity sha512-LA4EulgGYWhg4EF3RMIkL0qNwERpy4ck38wIvODVNzquis9UdfiFjkc8KhdFIhJgmVGU5HSc4tUrfnZ0CaQ7Bg==
+"@docusaurus/plugin-google-gtag@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-google-gtag/-/plugin-google-gtag-2.0.0-alpha.32.tgz#7e1f350b585dc3abd77acd6d818be15c7d727256"
+  integrity sha512-6eqLpwh2Ny2q4mWf05Zo0c3VUa211QL6UVdvXIhV5qx4r9MKpd0vcAW59cqtDO6yKOVcqamxHF2vvJVO6eM/sA==
 
-"@docusaurus/plugin-sitemap@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-sitemap/-/plugin-sitemap-2.0.0-alpha.31.tgz#5fd6d8d3fb03480016e5facc9ae0d311a2ce65db"
-  integrity sha512-J6BbhKffl8McWeo/bk0BygQl80EfWT93VWvMUeht4AcAJDuV2vErQle9cLALZa28b2gike9Ukqn2vsg8PPMZqw==
+"@docusaurus/plugin-sitemap@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-sitemap/-/plugin-sitemap-2.0.0-alpha.32.tgz#629cf222c0e698a901a697e18cea450aaf25bc1b"
+  integrity sha512-ui4t+btI4Raow5q1kf8cfBrOWNrPqAOtoWN0/vNIXJXCj+fx4CC6sybg5VK3PVS9hvprKj+2kPQQrh2T8uxk3A==
   dependencies:
+    "@docusaurus/types" "^2.0.0-alpha.32"
     sitemap "^3.2.2"
 
-"@docusaurus/preset-classic@^2.0.0-alpha.27":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/preset-classic/-/preset-classic-2.0.0-alpha.31.tgz#d5d8ffed226cfb8170c1a99d457c9a5df199c9dc"
-  integrity sha512-lezztwBXC7rU70XW7I1JPkzXjO+kxjeq9c0e5QHBC/PnwlL19L2NhtN9h1Dkqf/2/GcsaS+RileViW5jSuX0Iw==
+"@docusaurus/preset-classic@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/preset-classic/-/preset-classic-2.0.0-alpha.32.tgz#a574408164d06c59d32f84f7fb5b4734e2881ac7"
+  integrity sha512-LAeRZMez7zPW6OQRs1LcG/EBc7hozAo2V0t3wNkgFpPa+ukOrxfL1r54fP3Vp1GXGKq5CnPFGUqv+vmgHDKHOg==
   dependencies:
-    "@docusaurus/plugin-content-blog" "^2.0.0-alpha.31"
-    "@docusaurus/plugin-content-docs" "^2.0.0-alpha.31"
-    "@docusaurus/plugin-content-pages" "^2.0.0-alpha.31"
-    "@docusaurus/plugin-google-analytics" "^2.0.0-alpha.31"
-    "@docusaurus/plugin-google-gtag" "^2.0.0-alpha.31"
-    "@docusaurus/plugin-sitemap" "^2.0.0-alpha.31"
-    "@docusaurus/theme-classic" "^2.0.0-alpha.31"
-    "@docusaurus/theme-search-algolia" "^2.0.0-alpha.31"
+    "@docusaurus/plugin-content-blog" "^2.0.0-alpha.32"
+    "@docusaurus/plugin-content-docs" "^2.0.0-alpha.32"
+    "@docusaurus/plugin-content-pages" "^2.0.0-alpha.32"
+    "@docusaurus/plugin-google-analytics" "^2.0.0-alpha.32"
+    "@docusaurus/plugin-google-gtag" "^2.0.0-alpha.32"
+    "@docusaurus/plugin-sitemap" "^2.0.0-alpha.32"
+    "@docusaurus/theme-classic" "^2.0.0-alpha.32"
+    "@docusaurus/theme-search-algolia" "^2.0.0-alpha.32"
 
-"@docusaurus/theme-classic@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/theme-classic/-/theme-classic-2.0.0-alpha.31.tgz#c4ebf075b03cf221542733650725cb14aa628ff8"
-  integrity sha512-mZLDUIbNdI5Sznpr+4TDGTiHccO/iN+BjHIv02An0OVdOBqwCoHtm3tDnz5h2+yXs7zjRzrGa2VBrt1KuiL0Ew==
+"@docusaurus/theme-classic@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/theme-classic/-/theme-classic-2.0.0-alpha.32.tgz#983e50cceb2a3be2f234f8dbfd31be97a69667b6"
+  integrity sha512-H0p90mGOd33kBKuBGd4tz7WS+B6tK6h2ZdGMz/oJ3SI4GbZO/x2d22CVY1LelZfFdBKlVNajrfZSgz1JYR7MWg==
   dependencies:
     "@mdx-js/mdx" "^1.5.1"
     "@mdx-js/react" "^1.5.1"
     classnames "^2.2.6"
     clipboard "^2.0.4"
     infima "0.2.0-alpha.3"
+    parse-numeric-range "^0.0.2"
     prism-react-renderer "^1.0.2"
     react-toggle "^4.1.1"
 
-"@docusaurus/theme-search-algolia@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/theme-search-algolia/-/theme-search-algolia-2.0.0-alpha.31.tgz#26af773e192cb88ade4b13cae11a77b16763afca"
-  integrity sha512-lROIAFFCN3qdUC6/hjFwA1oWgm4UCjAjsqgewGW5HQIAGKiIP+hqKJ8OU2SUUNPOuHrzRYWLHfwFnPERlellYg==
+"@docusaurus/theme-search-algolia@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/theme-search-algolia/-/theme-search-algolia-2.0.0-alpha.32.tgz#f7b975c9b868de9a9b497c4006b0b481844ab7e4"
+  integrity sha512-ZO00JieNg4Z6kAK4xS7tIkSZFMRb1tnl8Z9jTQfOd4y6PwiwTgiUXslxdMW3DamrQmnbC0ZOxIaLB9kE3jxxww==
   dependencies:
     classnames "^2.2.6"
     docsearch.js "^2.6.3"
 
-"@docusaurus/types@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/types/-/types-2.0.0-alpha.31.tgz#49dedbb718e7b2031d2a7c2a372ed279d8a929c5"
-  integrity sha512-UjIdYOlR3f4AsVPJJmBucZoGtNteqFmhla24zihZ1vN9xDNPPZxRxJt1llYofg4hAYGuoayIo91HlXqrV4iZBA==
+"@docusaurus/types@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/types/-/types-2.0.0-alpha.32.tgz#b6c7c5e133c4f1d909b497c6b229096247818f17"
+  integrity sha512-vo89SbhS3JpULFbtisyWgzhXx2s1eBlYLjaYLar0ywUufdw0yzPMt8MwQ+3TPBOMZYYDrwoQOWJ22dQDIpTLZQ==
   dependencies:
     "@types/webpack" "^4.32.0"
     commander "^2.20.0"
     querystring "0.2.0"
 
-"@docusaurus/utils@^2.0.0-alpha.31":
-  version "2.0.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@docusaurus/utils/-/utils-2.0.0-alpha.31.tgz#ff6ea2a175af6586c90a915d5f84d0842b007908"
-  integrity sha512-nO5CByRyvrYqxPxFF0YIMGxXhCKuSrONv1o1InNgcAu5fRkCpAg5HokI5+as+4JudGLtGoPoSMGj4xh8R2bHCQ==
+"@docusaurus/utils@^2.0.0-alpha.32":
+  version "2.0.0-alpha.32"
+  resolved "https://registry.yarnpkg.com/@docusaurus/utils/-/utils-2.0.0-alpha.32.tgz#62b2864eb9fd1577c53347c16a5da9b74768050b"
+  integrity sha512-Wg2U7RhJkgsRp1F0TnicBOBXJakucyML159EsqR1IwNtqo4F09X0qWkM40JdnxQo2AqVniuVSVULYssiSNAw8g==
   dependencies:
     escape-string-regexp "^2.0.0"
     fs-extra "^8.1.0"
     gray-matter "^4.0.2"
     lodash "^4.17.15"
+
+"@endiliey/static-site-generator-webpack-plugin@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@endiliey/static-site-generator-webpack-plugin/-/static-site-generator-webpack-plugin-4.0.0.tgz#94bfe58fd83aeda355de797fcb5112adaca3a6b1"
+  integrity sha512-3MBqYCs30qk1OBRC697NqhGouYbs71D1B8hrk/AFJC6GwF2QaJOQZtA1JYAaGSe650sZ8r5ppRTtCRXepDWlng==
+  dependencies:
+    bluebird "^3.7.1"
+    cheerio "^0.22.0"
+    eval "^0.1.4"
+    url "^0.11.0"
+    webpack-sources "^1.4.3"
 
 "@hapi/address@2.x.x":
   version "2.1.2"
@@ -1723,7 +1736,7 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.0.0.tgz#23c0df14f6a88077f5f986c0d167ec03c3d5537c"
   integrity sha512-Phlt0plgpIIBOGTT/ehfFnbNlfsDEiqmzE2KRXoX1bLIlir4X/MR+zSyBEkL05ffWgnRSf/DXv+WrUAVr93/ow==
 
-bluebird@^3.0.5, bluebird@^3.5.5:
+bluebird@^3.5.5, bluebird@^3.7.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.1.tgz#df70e302b471d7473489acf26a93d63b53f874de"
   integrity sha512-DdmyoGCleJnkbp3nkbxTLJ18rjDsE4yCggEwKNXkeV123sPNfOCYeDoeuOY+F2FrSjO1YXcTU+dsy96KMy+gcg==
@@ -2835,7 +2848,7 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-date-fns@^2.5.0:
+date-fns@^2.5.0, date-fns@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.6.0.tgz#a5bc82e6a4c3995ae124b0ba1a71aec7b8cbd666"
   integrity sha512-F55YxqRdEfP/eYQmQjLN798v0AwLjmZ8nMBjdQvNwEE3N/zWVrlkkqT+9seBlPlsbkybG4JmWg3Ee3dIV9BcGQ==
@@ -3525,7 +3538,7 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-eval@^0.1.0:
+eval@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/eval/-/eval-0.1.4.tgz#e05dbe0dab4b9330215cbb7bf4886eb24bd58700"
   integrity sha512-npGsebJejyjMRnLdFu+T/97dnigqIU0Ov3IGrZ8ygd1v7RL1vGkEKtvyWZobqUH1AQgKlg0Yqqe2BtMA9/QZLw==
@@ -6612,6 +6625,11 @@ parse-json@^4.0.0:
     error-ex "^1.3.1"
     json-parse-better-errors "^1.0.1"
 
+parse-numeric-range@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/parse-numeric-range/-/parse-numeric-range-0.0.2.tgz#b4f09d413c7adbcd987f6e9233c7b4b210c938e4"
+  integrity sha1-tPCdQTx6282Yf26SM8e0shDJOOQ=
+
 parse5@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-5.1.0.tgz#c59341c9723f414c452975564c7c00a68d58acd2"
@@ -7653,6 +7671,8 @@ rc@^1.2.7:
 
 "react-day-picker@file:../package":
   version "8.0.0-alpha.0"
+  dependencies:
+    date-fns "^2.6.0"
 
 react-dev-utils@^9.1.0:
   version "9.1.0"
@@ -8542,11 +8562,6 @@ sort-keys@^1.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
-source-list-map@^1.1.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-1.1.2.tgz#9889019d1024cce55cdc069498337ef6186a11a1"
-  integrity sha1-mIkBnRAkzOVc3AaUmDN+9hhqEaE=
-
 source-list-map@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
@@ -8576,7 +8591,7 @@ source-map-url@^0.4.0:
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
   integrity sha1-PpNdfd1zYxuXZZlW1VEo6HtQhKM=
 
-source-map@^0.5.0, source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.3:
+source-map@^0.5.0, source-map@^0.5.3, source-map@^0.5.6:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
@@ -8709,17 +8724,6 @@ static-extend@^0.1.1:
   dependencies:
     define-property "^0.2.5"
     object-copy "^0.1.0"
-
-static-site-generator-webpack-plugin@^3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/static-site-generator-webpack-plugin/-/static-site-generator-webpack-plugin-3.4.2.tgz#ad9fd0a4fb8b6f439a7a66018320b459bdb6d916"
-  integrity sha512-39Kn+fZDVjolLYuX5y1rDvksJIW0QEUaEC/AVO/UewNXxGzoSQI1UYnRsL+ocAcN5Yti6d6rJgEL0qZ5tNXfdw==
-  dependencies:
-    bluebird "^3.0.5"
-    cheerio "^0.22.0"
-    eval "^0.1.0"
-    url "^0.11.0"
-    webpack-sources "^0.2.0"
 
 "statuses@>= 1.4.0 < 2", "statuses@>= 1.5.0 < 2", statuses@~1.5.0:
   version "1.5.0"
@@ -9000,7 +9004,7 @@ terser-webpack-plugin@^1.4.1:
     webpack-sources "^1.4.0"
     worker-farm "^1.7.0"
 
-terser-webpack-plugin@^2.1.3:
+terser-webpack-plugin@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-2.2.1.tgz#5569e6c7d8be79e5e43d6da23acc3b6ba77d22bd"
   integrity sha512-jwdauV5Al7zopR6OAYvIIRcxXCSvLjZjr7uZE8l2tIWb/ryrGN48sJftqGf5k9z09tWhajx53ldp0XPI080YnA==
@@ -9697,14 +9701,6 @@ webpack-merge@^4.2.2:
   integrity sha512-TUE1UGoTX2Cd42j3krGYqObZbOD+xF7u28WB7tfUordytSjbWTIjK/8V0amkBfTYN4/pB/GIDlJZZ657BGG19g==
   dependencies:
     lodash "^4.17.15"
-
-webpack-sources@^0.2.0:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-0.2.3.tgz#17c62bfaf13c707f9d02c479e0dcdde8380697fb"
-  integrity sha1-F8Yr+vE8cH+dAsR54Nzd6DgGl/s=
-  dependencies:
-    source-list-map "^1.1.1"
-    source-map "~0.5.3"
 
 webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1, webpack-sources@^1.4.3:
   version "1.4.3"
