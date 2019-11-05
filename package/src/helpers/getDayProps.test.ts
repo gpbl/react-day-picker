@@ -1,6 +1,6 @@
 /* eslint-env jest */
-import { getDayProps } from './getDayProps';
-import { defaultProps } from '../defaultProps';
+// import { getDayProps } from './getDayProps';
+// import { defaultProps } from '../defaultProps';
 
 describe('getDayProps', () => {
   it('return next and previous months with default props', () => {
