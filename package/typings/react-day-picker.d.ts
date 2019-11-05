@@ -446,36 +446,17 @@ declare namespace ReactDayPicker {
     initialValue: Date | undefined,
     formatStr: string,
     options?: UseInputOptions
-  ) => {
-    currentMonth: Date;
-    selectedDay: Date | undefined;
-    inputValue: string;
-
-    createDayClickHandler: DayClickEventHandlerCreator;
-    createChangeHandler: ChangeEventHandlerCreator;
-    createBlurHandler: BlurEventHandlerCreator;
-    createMonthChangeHandler: MonthEventHandlerCreator;
-  };
-
-  export type ChangeEventHandlerCreator = (
-    onChange: React.ChangeEventHandler<HTMLInputElement>
-  ) => React.ChangeEventHandler<HTMLInputElement>;
-
-  export type BlurEventHandlerCreator = (
-    onBlur: React.FocusEventHandler<HTMLInputElement>
-  ) => React.FocusEventHandler<HTMLInputElement>;
-
-  export type FocusEventHandlerCreator = (
-    onBlur: React.FocusEventHandler<HTMLInputElement>
-  ) => React.FocusEventHandler<HTMLInputElement>;
-
-  export type MonthEventHandlerCreator = (
-    onDayClick: ReactDayPicker.MonthChangeEventHandler
-  ) => ReactDayPicker.MonthChangeEventHandler;
-
-  export type DayClickEventHandlerCreator = (
-    onDayClick: ReactDayPicker.DayClickEventHandler
-  ) => ReactDayPicker.DayClickEventHandler;
+  ) => [
+    Date, // current month
+    Date | undefined, // selected day
+    string, // input value
+    {
+      onDayClick: DayClickEventHandler;
+      onChange: React.ChangeEventHandler<HTMLInputElement>;
+      onBlur: React.FocusEventHandler<HTMLInputElement>;
+      onMonthChange: MonthChangeEventHandler;
+    }
+  ];
 
   export type NavigationMonths = { nextMonth?: Date; prevMonth?: Date };
 
