@@ -4,9 +4,9 @@
   --ifm-color-primary: #3f5efb;
   --ifm-color-secondary: #fc466b;
   --ifm-container-width: 1260px;
-  --ifm-contents-border-color: var(--ifm-color-emphasis-alpha-10);
+  /* --ifm-contents-border-color: var(--ifm-color-emphasis-alpha-10);
   --ifm-contents-link-color: var(--ifm-color-emphasis-alpha-80);
-  --ifm-font-base-color: var(--ifm-color-emphasis-alpha-80);
+  --ifm-font-base-color: var(--ifm-color-emphasis-alpha-80); */
   --ifm-h1-font-size: 2rem;
   --ifm-h1-line-height: 2;
   --ifm-h1-vertical-rhythm-bottom: 1;
