@@ -15,8 +15,8 @@
     "lint": "yarn eslint src scripts"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.27",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.27",
+    "@docusaurus/core": "^2.0.0-alpha.32",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.32",
     "buble": "^0.19.8",
     "classnames": "^2.2.6",
     "date-fns": "^2.5.0",

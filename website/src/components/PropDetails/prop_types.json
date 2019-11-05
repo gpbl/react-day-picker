@@ -265,7 +265,7 @@
     "name": "locale",
     "required": true,
     "type": {
-      "name": "any"
+      "name": "Locale"
     },
     "categories": {}
   },

@@ -17,8 +17,8 @@ When binding DayPicker with an input field:
   <InputBindingExample />
 </Frame>
 
-
 ## useInput Hook
+
 DayPicker includes a [`useInput`](./hooks#useinput) hook to simplify the binding with an input element.
 
 #### To bind DayPicker with an input field
@@ -37,16 +37,17 @@ For example, this application calls `useInput` to bind a simple text input to Da
 import { DayPicker, useInput } from 'react-day-picker';
 
 function App() {
-  const {
+  const [
     currentMonth,
     selectedDay,
-    inputValue,
+    inputValue,{
     createDayClickHandler,
     createMonthChangeHandler,
     createChangeHandler,
     createFocusHandler,
     createBlurHandler,
-  } = useInput(new Date(), 'yyyy-MM-dd', { required: true });
+    }
+   ] = useInput(new Date(), 'yyyy-MM-dd', { required: true });
 
   const handleDayClick = createDayClickHandler(day => console.log(day));
   const handleMonthChange = createMonthChangeHandler();
