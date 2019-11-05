@@ -1,5 +1,5 @@
 /* eslint-env node */
-
+const path = require('path');
 const config = {
   title: 'react-day-picker',
   tagline: 'Flexible and Customizable Date Picker for React.',
@@ -8,7 +8,7 @@ const config = {
   favicon: 'images/favicon.png',
   organizationName: 'gpbl',
   projectName: 'react-day-picker',
-
+  plugins: [path.resolve(__dirname, './src/plugins/react-dev.js')],
   presets: [
     [
       '@docusaurus/preset-classic',
