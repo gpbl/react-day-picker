@@ -29,101 +29,73 @@ export const useInput: ReactDayPicker.useInput = (
     initialSelectedDay || new Date()
   );
 
-  const createChangeHandler: ReactDayPicker.ChangeEventHandlerCreator = onChange => {
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
-      const el = e.target as HTMLInputElement;
-      setInputValue(el.value);
-      const day = parse(el.value, formatStr, new Date(), options);
-      if (!isValid(day)) {
-        setSelectedDay(undefined);
-        return;
-      }
-      setSelectedDay(day);
-      setCurrentMonth(day); // Update the month shown in the calendar.
-      if (onChange) onChange(e);
+  function onChange(e: React.ChangeEvent<HTMLInputElement>): void {
+    const el = e.target;
+    setInputValue(el.value);
+    const day = parse(el.value, formatStr, new Date(), options);
+    if (!isValid(day)) {
+      setSelectedDay(undefined);
+      return;
     }
-    return handleChange;
-  };
+    setSelectedDay(day);
+    setCurrentMonth(day); // Update the month shown in the calendar.
+  }
 
-  const createBlurHandler: ReactDayPicker.BlurEventHandlerCreator = onBlur => {
-    function handleBlur(e: React.FocusEvent<HTMLInputElement>): void {
-      const el = e.target as HTMLInputElement;
-      const day = parse(el.value, formatStr, new Date(), options);
-      if (isValid(day) || !options.required) {
-        if (onBlur) onBlur(e);
-        return;
-      }
-
-      setSelectedDay(initialSelectedDay);
-      setCurrentMonth(initialSelectedDay || new Date());
-      setInputValue(initialInputValue || '');
-
+  function onBlur(e: React.FocusEvent<HTMLInputElement>): void {
+    const el = e.target;
+    const day = parse(el.value, formatStr, new Date(), options);
+    if (isValid(day) || !options.required) {
       if (onBlur) onBlur(e);
+      return;
     }
-    return handleBlur;
-  };
 
-  const createFocusHandler: ReactDayPicker.FocusEventHandlerCreator = onFocus => {
-    function handleFocus(e: React.FocusEvent<HTMLInputElement>): void {
-      const el = e.target as HTMLInputElement;
+    setSelectedDay(initialSelectedDay);
+    setCurrentMonth(initialSelectedDay || new Date());
+    setInputValue(initialInputValue || '');
+  }
 
-      if (el.value) {
-        const day = parse(el.value, formatStr, new Date(), options);
-        if (isValid(day)) {
-          setCurrentMonth(day);
-        }
-        if (onFocus) onFocus(e);
-        return;
+  function onFocus(e: React.FocusEvent<HTMLInputElement>): void {
+    const el = e.target;
+
+    if (el.value) {
+      const day = parse(el.value, formatStr, new Date(), options);
+      if (isValid(day)) {
+        setCurrentMonth(day);
       }
-      setSelectedDay(initialSelectedDay);
-      setCurrentMonth(initialSelectedDay || new Date());
-      setInputValue(initialInputValue || '');
-
       if (onFocus) onFocus(e);
+      return;
     }
-    return handleFocus;
-  };
+    setSelectedDay(initialSelectedDay);
+    setCurrentMonth(initialSelectedDay || new Date());
+    setInputValue(initialInputValue || '');
 
-  const createDayClickHandler: ReactDayPicker.DayClickEventHandlerCreator = onDayClick => {
-    const handleDayClick: ReactDayPicker.DayClickEventHandler = (
-      day,
-      modifiers,
-      e
-    ) => {
-      if (modifiers.selected) {
-        if (!options.required) {
-          setSelectedDay(undefined);
-          setInputValue('');
-        }
-        return;
+    if (onFocus) onFocus(e);
+  }
+
+  function onDayClick(
+    day: Date,
+    modifiers: ReactDayPicker.MatchingModifiers
+  ): void {
+    if (modifiers.selected) {
+      if (!options.required) {
+        setSelectedDay(undefined);
+        setInputValue('');
       }
-      setSelectedDay(day);
-      const value = format(day, formatStr, options);
-      setInputValue(value);
-      if (onDayClick) onDayClick(day, modifiers, e);
-    };
-    return handleDayClick;
-  };
+      return;
+    }
+    setSelectedDay(day);
+    const value = format(day, formatStr, options);
+    setInputValue(value);
+  }
 
-  const createMonthChangeHandler: ReactDayPicker.MonthEventHandlerCreator = onMonthChange => {
-    const handleMonthChange: ReactDayPicker.MonthChangeEventHandler = (
-      month,
-      e
-    ) => {
-      setCurrentMonth(month);
-      if (onMonthChange) onMonthChange(month, e);
-    };
-    return handleMonthChange;
-  };
+  function onMonthChange(month: React.SetStateAction<Date>): void {
+    setCurrentMonth(month);
+  }
 
-  return {
+  return [
     currentMonth,
     selectedDay,
     inputValue,
-    createDayClickHandler,
-    createMonthChangeHandler,
-    createChangeHandler,
-    createFocusHandler,
-    createBlurHandler,
-  };
+    { onDayClick, onMonthChange, onChange, onFocus, onBlur },
+  ];
 };

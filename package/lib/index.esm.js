@@ -585,94 +585,67 @@ var useInput = function (initialSelectedDay, formatStr, _options) {
     var _a = useState(initialSelectedDay), selectedDay = _a[0], setSelectedDay = _a[1];
     var _b = useState(initialInputValue), inputValue = _b[0], setInputValue = _b[1];
     var _c = useState(initialSelectedDay || new Date()), currentMonth = _c[0], setCurrentMonth = _c[1];
-    var createChangeHandler = function (onChange) {
-        function handleChange(e) {
-            var el = e.target;
-            setInputValue(el.value);
-            var day = parse(el.value, formatStr, new Date(), options);
-            if (!isValid(day)) {
-                setSelectedDay(undefined);
-                return;
-            }
-            setSelectedDay(day);
-            setCurrentMonth(day); // Update the month shown in the calendar.
-            if (onChange)
-                onChange(e);
+    function onChange(e) {
+        var el = e.target;
+        setInputValue(el.value);
+        var day = parse(el.value, formatStr, new Date(), options);
+        if (!isValid(day)) {
+            setSelectedDay(undefined);
+            return;
         }
-        return handleChange;
-    };
-    var createBlurHandler = function (onBlur) {
-        function handleBlur(e) {
-            var el = e.target;
-            var day = parse(el.value, formatStr, new Date(), options);
-            if (isValid(day) || !options.required) {
-                if (onBlur)
-                    onBlur(e);
-                return;
-            }
-            setSelectedDay(initialSelectedDay);
-            setCurrentMonth(initialSelectedDay || new Date());
-            setInputValue(initialInputValue || '');
+        setSelectedDay(day);
+        setCurrentMonth(day); // Update the month shown in the calendar.
+    }
+    function onBlur(e) {
+        var el = e.target;
+        var day = parse(el.value, formatStr, new Date(), options);
+        if (isValid(day) || !options.required) {
             if (onBlur)
                 onBlur(e);
+            return;
         }
-        return handleBlur;
-    };
-    var createFocusHandler = function (onFocus) {
-        function handleFocus(e) {
-            var el = e.target;
-            if (el.value) {
-                var day = parse(el.value, formatStr, new Date(), options);
-                if (isValid(day)) {
-                    setCurrentMonth(day);
-                }
-                if (onFocus)
-                    onFocus(e);
-                return;
+        setSelectedDay(initialSelectedDay);
+        setCurrentMonth(initialSelectedDay || new Date());
+        setInputValue(initialInputValue || '');
+    }
+    function onFocus(e) {
+        var el = e.target;
+        if (el.value) {
+            var day = parse(el.value, formatStr, new Date(), options);
+            if (isValid(day)) {
+                setCurrentMonth(day);
             }
-            setSelectedDay(initialSelectedDay);
-            setCurrentMonth(initialSelectedDay || new Date());
-            setInputValue(initialInputValue || '');
             if (onFocus)
                 onFocus(e);
+            return;
         }
-        return handleFocus;
-    };
-    var createDayClickHandler = function (onDayClick) {
-        var handleDayClick = function (day, modifiers, e) {
-            if (modifiers.selected) {
-                if (!options.required) {
-                    setSelectedDay(undefined);
-                    setInputValue('');
-                }
-                return;
+        setSelectedDay(initialSelectedDay);
+        setCurrentMonth(initialSelectedDay || new Date());
+        setInputValue(initialInputValue || '');
+        if (onFocus)
+            onFocus(e);
+    }
+    function onDayClick(day, modifiers) {
+        if (modifiers.selected) {
+            if (!options.required) {
+                setSelectedDay(undefined);
+                setInputValue('');
             }
-            setSelectedDay(day);
-            var value = format(day, formatStr, options);
-            setInputValue(value);
-            if (onDayClick)
-                onDayClick(day, modifiers, e);
-        };
-        return handleDayClick;
-    };
-    var createMonthChangeHandler = function (onMonthChange) {
-        var handleMonthChange = function (month, e) {
-            setCurrentMonth(month);
-            if (onMonthChange)
-                onMonthChange(month, e);
-        };
-        return handleMonthChange;
-    };
-    return {
-        currentMonth: currentMonth,
-        selectedDay: selectedDay,
-        inputValue: inputValue,
-        createDayClickHandler: createDayClickHandler,
-        createMonthChangeHandler: createMonthChangeHandler,
-        createChangeHandler: createChangeHandler,
-        createFocusHandler: createFocusHandler,
-        createBlurHandler: createBlurHandler,
-    };
+            return;
+        }
+        setSelectedDay(day);
+        var value = format(day, formatStr, options);
+        setInputValue(value);
+    }
+    function onMonthChange(month) {
+        setCurrentMonth(month);
+    }
+    return [
+        currentMonth,
+        selectedDay,
+        inputValue,
+        { onDayClick: onDayClick, onMonthChange: onMonthChange, onChange: onChange, onFocus: onFocus, onBlur: onBlur },
+    ];
 };
 
 export { Caption, DateWithModifiers, Day, DayPicker, Head, Month, Navigation, Week, defaultClassNames, defaultProps, getCaptionProps, getDayProps, getMonths, getNavigation, getNavigationProps, getWeeks, useInput };
