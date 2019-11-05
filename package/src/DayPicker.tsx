@@ -76,7 +76,7 @@ export const DayPicker: React.FC<ReactDayPicker.DayPickerProps> = (
   return (
     <DayPickerControlled
       {...props}
-      onMonthChange={isControlled ? props.onMonthChange : handleMonthChange}
+      onMonthChange={isControlled ? handleMonthChange : props.onMonthChange}
       month={isControlled ? props.month : currentMonth}
     />
   );
