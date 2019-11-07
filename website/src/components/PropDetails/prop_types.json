@@ -121,7 +121,7 @@
   },
   "month": {
     "defaultValue": null,
-    "description": "The rendered month. Passing this props will make the component switch to controlled mode?: this means you will need to implement `onMonthChange` to enable months navigation.",
+    "description": "The current month. If you pass this prop, you need to  implement `onMonthChange` to enable months navigation.",
     "name": "month",
     "required": false,
     "type": {
