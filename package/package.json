@@ -29,13 +29,13 @@
     "/typings/react-day-picker.d.ts"
   ],
   "devDependencies": {
-    "@babel/core": "7",
-    "@testing-library/jest-dom": "^4.2.0",
-    "@testing-library/react": "^9.3.1",
-    "@types/jest": "^24.0.21",
+    "@babel/core": "^7.7.2",
+    "@testing-library/jest-dom": "^4.2.3",
+    "@testing-library/react": "^9.3.2",
+    "@types/jest": "^24.0.22",
     "@types/react": "^16.9.11",
-    "@typescript-eslint/eslint-plugin": "^2.6.0",
-    "@typescript-eslint/parser": "^2.6.0",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
     "date-fns": "^2.6.0",
     "debug": "^4.1.1",
     "eslint": "^6.6.0",
@@ -50,7 +50,7 @@
     "prettier": "^1.18.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "rollup": "^1.26.0",
+    "rollup": "^1.26.3",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.1.0",
@@ -60,11 +60,10 @@
     "rollup-plugin-size-snapshot": "^0.10.0",
     "rollup-plugin-strip-prop-types": "^1.0.2",
     "rollup-plugin-terser": "^5.1.2",
-    "rollup-plugin-typescript": "^1.0.1",
-    "rollup-plugin-typescript2": "^0.24.3",
+    "rollup-plugin-typescript2": "^0.25.2",
     "ts-jest": "^24.1.0",
     "tslib": "^1.10.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.7.2"
   },
   "dependencies": {
     "date-fns": "^2.6.0"
