@@ -5855,182 +5855,36 @@
             React.createElement("span", __assign({}, wrapperProps), formatDay(day, { locale: locale }))));
     };
 
-    /**
-     * Get the months to render in DayPicker according to the passed
-     * `numberOfMonths` and other month-related props.
-     */
-    function getMonths(props) {
-        var _a = props.month, month = _a === void 0 ? new Date() : _a, numberOfMonths = props.numberOfMonths, toMonth = props.toMonth, fromMonth = props.fromMonth, reverseMonths = props.reverseMonths;
-        var start = startOfMonth(month);
-        var end = startOfMonth(addMonths(start, numberOfMonths));
-        var monthsDiff = differenceInMonths(end, start);
-        var months = [];
-        for (var i = 0; i < monthsDiff; i++) {
-            var month_1 = addMonths(start, i);
-            if (toMonth && month_1 > startOfMonth(toMonth)) {
-                // Skip months after toMonth
-                continue;
-            }
-            if (fromMonth && month_1 < startOfMonth(fromMonth)) {
-                // Skip months before fromMonth
-                continue;
-            }
-            months.push(month_1);
+    var date = new Date();
+    function getWeekdaysNames(locale, format) {
+        var start = startOfWeek(date, { locale: locale });
+        var names = [];
+        for (var i = 0; i < 7; i++) {
+            var day = addDays(start, i);
+            names.push(format(day, { locale: locale }));
         }
-        if (reverseMonths) {
-            months = months.reverse();
-        }
-        return months;
+        return names;
     }
 
-    /**
-     * Return the next and the previous months for the navigation component, according to the DayPicker props.
-     */
-    function getNavigation(props) {
-        var fromMonth = props.fromMonth, toMonth = props.toMonth, month = props.month, numberOfMonths = props.numberOfMonths, pagedNavigation = props.pagedNavigation;
-        var add = pagedNavigation ? numberOfMonths : 1;
-        var currentMonth = startOfMonth(month || new Date());
-        var prevMonth;
-        if (!fromMonth || currentMonth > startOfMonth(fromMonth)) {
-            prevMonth = addMonths(currentMonth, add * -1);
-        }
-        var nextMonth;
-        if (!toMonth ||
-            addMonths(currentMonth, numberOfMonths) <= startOfMonth(toMonth)) {
-            nextMonth = addMonths(currentMonth, add);
-        }
-        return { nextMonth: nextMonth, prevMonth: prevMonth };
-    }
-
-    /**
-     * Return the props for the Navigation component and its children.
-     */
-    function getNavigationProps(props) {
-        var classNames = props.classNames, styles = props.styles;
-        var containerProps = { className: classNames.nav, style: styles.nav };
-        var nextProps = {
-            className: classNames.navNext,
-            style: styles.navNext,
-        };
-        var prevProps = {
-            className: classNames.navPrev,
-            style: styles.navPrev,
-        };
-        return {
-            containerProps: containerProps,
-            nextProps: nextProps,
-            prevProps: prevProps,
-        };
-    }
-
-    var Navigation = function (props) {
-        var dayPickerProps = props.dayPickerProps;
-        var onMonthChange = dayPickerProps.onMonthChange, onPrevClick = dayPickerProps.onPrevClick, onNextClick = dayPickerProps.onNextClick;
-        var _a = getNavigation(dayPickerProps), nextMonth = _a.nextMonth, prevMonth = _a.prevMonth;
-        var _b = getNavigationProps(dayPickerProps), containerProps = _b.containerProps, nextProps = _b.nextProps, prevProps = _b.prevProps;
-        var handlePrevClick = function (e) {
-            onMonthChange && prevMonth && onMonthChange(prevMonth, e);
-            onPrevClick && prevMonth && onPrevClick(prevMonth, e);
-        };
-        var handleNextClick = function (e) {
-            onMonthChange && nextMonth && onMonthChange(nextMonth, e);
-            onNextClick && nextMonth && onNextClick(nextMonth, e);
-        };
-        if (!dayPickerProps.onMonthChange) {
-            return null;
-        }
-        var prevLabel = dayPickerProps.prevLabel, nextLabel = dayPickerProps.nextLabel;
-        var prevButton = prevLabel && (React.createElement("button", __assign({}, prevProps, { key: "prev", disabled: !prevMonth, type: "button", onClick: handlePrevClick }), prevLabel));
-        var nextButton = nextLabel && (React.createElement("button", __assign({}, nextProps, { key: 'next', disabled: !nextMonth, type: "button", onClick: handleNextClick }), nextLabel));
-        var buttons = [prevButton, nextButton];
-        if (dayPickerProps.dir === 'rtl') {
-            buttons = buttons.reverse();
-        }
-        return React.createElement("div", __assign({}, containerProps), buttons);
+    var Head = function (props) {
+        var locale = props.locale, showWeekNumber = props.showWeekNumber, dayPickerProps = props.dayPickerProps;
+        var classNames = dayPickerProps.classNames, styles = dayPickerProps.styles, formatWeekdayName = dayPickerProps.formatWeekdayName;
+        var weekdayNames = getWeekdaysNames(locale, formatWeekdayName);
+        return (React.createElement("thead", { style: styles.head, className: classNames.head },
+            React.createElement("tr", { style: styles.headRow, className: classNames.headRow },
+                showWeekNumber && (React.createElement("th", { style: styles.headWeekNumber, className: classNames.headWeekNumber })),
+                weekdayNames.map(function (name, i) { return (React.createElement("th", { key: i, scope: "col", style: styles.headWeekName, className: classNames.headWeekName }, name)); }))));
     };
 
-    var WeekNumber = function (_a) {
-        var number = _a.number, dayPickerProps = _a.dayPickerProps;
-        var formatWeekNumber = dayPickerProps.formatWeekNumber, locale = dayPickerProps.locale, classNames = dayPickerProps.classNames, styles = dayPickerProps.styles;
-        return (React.createElement("span", { className: classNames.weekNumber, style: styles.weekNumber }, formatWeekNumber(number, { locale: locale })));
-    };
-
-    var defaultClassNames = {
-        container: 'rdp',
-        caption: 'rdp-caption',
-        // Day Component
-        day: 'rdp-day',
-        dayWrapper: 'rdp-day_wrapper',
-        // Month Component
-        month: 'rdp-month',
-        monthTable: 'rdp-month_table',
-        monthTbody: 'rdp-month_tbody',
-        months: 'rdp-months',
-        // Head Components
-        head: 'rdp-head',
-        headRow: 'rdp-head_row',
-        headWeekNumber: 'rdp-head_weeknumber',
-        headWeekName: 'rdp-head_weekname',
-        // Navigation Component
-        nav: 'rdp-nav',
-        navPrev: 'rdp-nav_prev',
-        navNext: 'rdp-nav_next',
-        // Week Component
-        week: 'rdp-week',
-        weekDay: 'rdp-week_day',
-        weekWeeknumber: 'rdp-week_weeknumber',
-        // WeekNumber component
-        weekNumber: 'rdp-weeknumber',
-        // Modifiers
-        selected: 'rdp-day_selected',
-        disabled: 'rdp-day_disabled',
-        today: 'rdp-day_today',
-        outside: 'rdp-day_outside',
-    };
-
-    function formatDay(day, formatOptions) {
-        return format(day, 'd', formatOptions);
-    }
-    function formatCaption(month, formatOptions) {
-        return format(month, 'LLLL Y', formatOptions);
-    }
-    function formatWeekdayName(day, formatOptions) {
-        return format(day, 'E', formatOptions);
-    }
-    function formatWeekNumber(weekNumber) {
-        return "" + weekNumber;
-    }
-    var defaultProps = {
-        enableOutsideDaysClick: false,
-        classNames: defaultClassNames,
-        className: '',
-        style: {},
-        styles: {},
-        components: {
-            Caption: Caption,
-            Day: Day,
-            Navigation: Navigation,
-            WeekNumber: WeekNumber,
-        },
-        fixedWeeks: false,
-        formatCaption: formatCaption,
-        formatDay: formatDay,
-        formatWeekdayName: formatWeekdayName,
-        formatWeekNumber: formatWeekNumber,
-        locale: locale,
-        nextLabel: '▶',
-        modifiersClassNames: {},
-        modifiersStyles: {},
-        month: startOfMonth(new Date()),
-        numberOfMonths: 1,
-        pagedNavigation: false,
-        prevLabel: '◀',
-        reverseMonths: false,
-        showCaption: true,
-        showHead: true,
-        showNavigation: true,
-        showOutsideDays: false,
-        showWeekNumber: false,
+    var Week = function (props) {
+        var weekNumber = props.weekNumber, week = props.week, dayPickerProps = props.dayPickerProps;
+        var showWeekNumber = dayPickerProps.showWeekNumber, classNames = dayPickerProps.classNames, styles = dayPickerProps.styles, components = dayPickerProps.components;
+        var Day = components.Day, WeekNumber = components.WeekNumber;
+        return (React.createElement("tr", { className: classNames.week, style: styles.week },
+            showWeekNumber && (React.createElement("th", { className: classNames.weekWeeknumber, style: styles.weekWeeknumber },
+                React.createElement(WeekNumber, { days: week.map(function (day) { return day.date; }), number: Number(weekNumber), dayPickerProps: dayPickerProps }))),
+            week.map(function (day) { return (React.createElement("td", { className: classNames.weekDay, style: styles.weekDay, key: getUnixTime(day.date) },
+                React.createElement(Day, { day: day.date, modifiers: day.modifiers, dayPickerProps: dayPickerProps }))); })));
     };
 
     function getOutsideStartDays(day, props) {
@@ -6118,38 +5972,6 @@
         return weeks;
     }
 
-    var date = new Date();
-    function getWeekdaysNames(locale, format) {
-        var start = startOfWeek(date, { locale: locale });
-        var names = [];
-        for (var i = 0; i < 7; i++) {
-            var day = addDays(start, i);
-            names.push(format(day, { locale: locale }));
-        }
-        return names;
-    }
-
-    var Head = function (props) {
-        var locale = props.locale, showWeekNumber = props.showWeekNumber, dayPickerProps = props.dayPickerProps;
-        var classNames = dayPickerProps.classNames, styles = dayPickerProps.styles, formatWeekdayName = dayPickerProps.formatWeekdayName;
-        var weekdayNames = getWeekdaysNames(locale, formatWeekdayName);
-        return (React.createElement("thead", { style: styles.head, className: classNames.head },
-            React.createElement("tr", { style: styles.headRow, className: classNames.headRow },
-                showWeekNumber && (React.createElement("th", { style: styles.headWeekNumber, className: classNames.headWeekNumber })),
-                weekdayNames.map(function (name, i) { return (React.createElement("th", { key: i, scope: "col", style: styles.headWeekName, className: classNames.headWeekName }, name)); }))));
-    };
-
-    var Week = function (props) {
-        var weekNumber = props.weekNumber, week = props.week, dayPickerProps = props.dayPickerProps;
-        var showWeekNumber = dayPickerProps.showWeekNumber, classNames = dayPickerProps.classNames, styles = dayPickerProps.styles, components = dayPickerProps.components;
-        var Day = components.Day, WeekNumber = components.WeekNumber;
-        return (React.createElement("tr", { className: classNames.week, style: styles.week },
-            showWeekNumber && (React.createElement("th", { className: classNames.weekWeeknumber, style: styles.weekWeeknumber },
-                React.createElement(WeekNumber, { days: week.map(function (day) { return day.date; }), number: Number(weekNumber), dayPickerProps: dayPickerProps }))),
-            week.map(function (day) { return (React.createElement("td", { className: classNames.weekDay, style: styles.weekDay, key: getUnixTime(day.date) },
-                React.createElement(Day, { day: day.date, modifiers: day.modifiers, dayPickerProps: dayPickerProps }))); })));
-    };
-
     var Month = function (props) {
         var month = props.month, dayPickerProps = props.dayPickerProps;
         var locale = dayPickerProps.locale, classNames = dayPickerProps.classNames, styles = dayPickerProps.styles;
@@ -6161,6 +5983,184 @@
                 showCaption && (React.createElement(Caption, { month: month, dayPickerProps: dayPickerProps })),
                 showHead && (React.createElement(Head, { locale: locale, showWeekNumber: dayPickerProps.showWeekNumber, dayPickerProps: dayPickerProps })),
                 React.createElement("tbody", { className: classNames.monthTbody, style: styles.monthTbody }, Object.keys(weeks).map(function (weekNumber) { return (React.createElement(Week, { key: weekNumber, week: weeks[weekNumber], weekNumber: Number(weekNumber), dayPickerProps: dayPickerProps })); })))));
+    };
+
+    /**
+     * Get the months to render in DayPicker according to the passed
+     * `numberOfMonths` and other month-related props.
+     */
+    function getMonths(props) {
+        var _a = props.month, month = _a === void 0 ? new Date() : _a, numberOfMonths = props.numberOfMonths, toMonth = props.toMonth, fromMonth = props.fromMonth, reverseMonths = props.reverseMonths;
+        var start = startOfMonth(month);
+        var end = startOfMonth(addMonths(start, numberOfMonths));
+        var monthsDiff = differenceInMonths(end, start);
+        var months = [];
+        for (var i = 0; i < monthsDiff; i++) {
+            var month_1 = addMonths(start, i);
+            if (toMonth && month_1 > startOfMonth(toMonth)) {
+                // Skip months after toMonth
+                continue;
+            }
+            if (fromMonth && month_1 < startOfMonth(fromMonth)) {
+                // Skip months before fromMonth
+                continue;
+            }
+            months.push(month_1);
+        }
+        if (reverseMonths) {
+            months = months.reverse();
+        }
+        return months;
+    }
+
+    var WeekNumber = function (_a) {
+        var number = _a.number, dayPickerProps = _a.dayPickerProps;
+        var formatWeekNumber = dayPickerProps.formatWeekNumber, locale = dayPickerProps.locale, classNames = dayPickerProps.classNames, styles = dayPickerProps.styles;
+        return (React.createElement("span", { className: classNames.weekNumber, style: styles.weekNumber }, formatWeekNumber(number, { locale: locale })));
+    };
+
+    /**
+     * Return the next and the previous months for the navigation component, according to the DayPicker props.
+     */
+    function getNavigation(props) {
+        var fromMonth = props.fromMonth, toMonth = props.toMonth, month = props.month, numberOfMonths = props.numberOfMonths, pagedNavigation = props.pagedNavigation;
+        var add = pagedNavigation ? numberOfMonths : 1;
+        var currentMonth = startOfMonth(month || new Date());
+        var prevMonth;
+        if (!fromMonth || currentMonth > startOfMonth(fromMonth)) {
+            prevMonth = addMonths(currentMonth, add * -1);
+        }
+        var nextMonth;
+        if (!toMonth ||
+            addMonths(currentMonth, numberOfMonths) <= startOfMonth(toMonth)) {
+            nextMonth = addMonths(currentMonth, add);
+        }
+        return { nextMonth: nextMonth, prevMonth: prevMonth };
+    }
+
+    /**
+     * Return the props for the Navigation component and its children.
+     */
+    function getNavigationProps(props) {
+        var classNames = props.classNames, styles = props.styles;
+        var containerProps = { className: classNames.nav, style: styles.nav };
+        var nextProps = {
+            className: classNames.navNext,
+            style: styles.navNext,
+        };
+        var prevProps = {
+            className: classNames.navPrev,
+            style: styles.navPrev,
+        };
+        return {
+            containerProps: containerProps,
+            nextProps: nextProps,
+            prevProps: prevProps,
+        };
+    }
+
+    var Navigation = function (props) {
+        var dayPickerProps = props.dayPickerProps;
+        var onMonthChange = dayPickerProps.onMonthChange, onPrevClick = dayPickerProps.onPrevClick, onNextClick = dayPickerProps.onNextClick;
+        var _a = getNavigation(dayPickerProps), nextMonth = _a.nextMonth, prevMonth = _a.prevMonth;
+        var _b = getNavigationProps(dayPickerProps), containerProps = _b.containerProps, nextProps = _b.nextProps, prevProps = _b.prevProps;
+        var handlePrevClick = function (e) {
+            onMonthChange && prevMonth && onMonthChange(prevMonth, e);
+            onPrevClick && prevMonth && onPrevClick(prevMonth, e);
+        };
+        var handleNextClick = function (e) {
+            onMonthChange && nextMonth && onMonthChange(nextMonth, e);
+            onNextClick && nextMonth && onNextClick(nextMonth, e);
+        };
+        if (!dayPickerProps.onMonthChange) {
+            return null;
+        }
+        var prevLabel = dayPickerProps.prevLabel, nextLabel = dayPickerProps.nextLabel;
+        var prevButton = prevLabel && (React.createElement("button", __assign({}, prevProps, { key: "prev", disabled: !prevMonth, type: "button", onClick: handlePrevClick }), prevLabel));
+        var nextButton = nextLabel && (React.createElement("button", __assign({}, nextProps, { key: 'next', disabled: !nextMonth, type: "button", onClick: handleNextClick }), nextLabel));
+        var buttons = [prevButton, nextButton];
+        if (dayPickerProps.dir === 'rtl') {
+            buttons = buttons.reverse();
+        }
+        return React.createElement("div", __assign({}, containerProps), buttons);
+    };
+
+    var defaultClassNames = {
+        container: 'rdp',
+        caption: 'rdp-caption',
+        // Day Component
+        day: 'rdp-day',
+        dayWrapper: 'rdp-day_wrapper',
+        // Month Component
+        month: 'rdp-month',
+        monthTable: 'rdp-month_table',
+        monthTbody: 'rdp-month_tbody',
+        months: 'rdp-months',
+        // Head Components
+        head: 'rdp-head',
+        headRow: 'rdp-head_row',
+        headWeekNumber: 'rdp-head_weeknumber',
+        headWeekName: 'rdp-head_weekname',
+        // Navigation Component
+        nav: 'rdp-nav',
+        navPrev: 'rdp-nav_prev',
+        navNext: 'rdp-nav_next',
+        // Week Component
+        week: 'rdp-week',
+        weekDay: 'rdp-week_day',
+        weekWeeknumber: 'rdp-week_weeknumber',
+        // WeekNumber component
+        weekNumber: 'rdp-weeknumber',
+        // Modifiers
+        selected: 'rdp-day_selected',
+        disabled: 'rdp-day_disabled',
+        today: 'rdp-day_today',
+        outside: 'rdp-day_outside',
+    };
+
+    function formatDay(day, formatOptions) {
+        return format(day, 'd', formatOptions);
+    }
+    function formatCaption(month, formatOptions) {
+        return format(month, 'LLLL Y', formatOptions);
+    }
+    function formatWeekdayName(day, formatOptions) {
+        return format(day, 'E', formatOptions);
+    }
+    function formatWeekNumber(weekNumber) {
+        return "" + weekNumber;
+    }
+    var defaultProps = {
+        enableOutsideDaysClick: false,
+        classNames: defaultClassNames,
+        className: '',
+        style: {},
+        styles: {},
+        components: {
+            Caption: Caption,
+            Day: Day,
+            Navigation: Navigation,
+            WeekNumber: WeekNumber,
+        },
+        fixedWeeks: false,
+        formatCaption: formatCaption,
+        formatDay: formatDay,
+        formatWeekdayName: formatWeekdayName,
+        formatWeekNumber: formatWeekNumber,
+        locale: locale,
+        nextLabel: '▶',
+        modifiersClassNames: {},
+        modifiersStyles: {},
+        month: startOfMonth(new Date()),
+        numberOfMonths: 1,
+        pagedNavigation: false,
+        prevLabel: '◀',
+        reverseMonths: false,
+        showCaption: true,
+        showHead: true,
+        showNavigation: true,
+        showOutsideDays: false,
+        showWeekNumber: false,
     };
 
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -6298,6 +6298,7 @@
     exports.Navigation = Navigation;
     exports.Week = Week;
     exports.WeekNumber = WeekNumber;
+    exports.defaultProps = defaultProps;
     exports.useInput = useInput;
 
     Object.defineProperty(exports, '__esModule', { value: true });
