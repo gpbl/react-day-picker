@@ -14,12 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-      - run: cd package
-      - run: pwd
-      - run: ls
       - name: Install Dependencies
+        working-directory: ./package
         run: yarn install
       - name: Lint files
+        working-directory: ./package
         run: yarn coverage
 
   test:
@@ -27,11 +26,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-      - run: cd package
       - name: Install Dependencies
+        working-directory: ./package
         run: yarn install
-      # - name: Run Unit Tests
-      #   run: yarn test
+      - name: Run Unit Tests
+        working-directory: ./package
+        run: yarn test
 
   build:
     needs: [test, lint]
@@ -47,8 +47,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: cd package
       - name: Install Dependencies
+        working-directory: ./package
         run: yarn install
       - name: Build
+        working-directory: ./package
         run: yarn build
