@@ -7,7 +7,16 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var tslib = require('tslib');
 var dateFns = require('date-fns');
 var React = require('react');
+var Month$1 = require('components/Month');
 var locale = _interopDefault(require('date-fns/locale/en-US'));
+var Caption$1 = require('components/Caption/Caption');
+var Day$1 = require('components/Day/Day');
+var WeekNumber$1 = require('components/WeekNumber/WeekNumber');
+var Navigation$1 = require('components/Navigation/Navigation');
+var Head$1 = require('components/Head');
+var Week$1 = require('components/Week');
+var classes = require('classes');
+var components = require('components');
 
 /**
  * Return the `modifiers` prop including the modifiers from shortcut-props
@@ -248,6 +257,255 @@ function getMonths(props) {
     return months;
 }
 
+var defaultClassNames = {
+    container: 'rdp',
+    caption: 'rdp-caption',
+    // Day Component
+    day: 'rdp-day',
+    dayWrapper: 'rdp-day_wrapper',
+    // Month Component
+    month: 'rdp-month',
+    monthTable: 'rdp-month_table',
+    monthTbody: 'rdp-month_tbody',
+    months: 'rdp-months',
+    // Head Components
+    head: 'rdp-head',
+    headRow: 'rdp-head_row',
+    headWeekNumber: 'rdp-head_weeknumber',
+    headWeekName: 'rdp-head_weekname',
+    // Navigation Component
+    nav: 'rdp-nav',
+    navPrev: 'rdp-nav_prev',
+    navNext: 'rdp-nav_next',
+    // Week Component
+    week: 'rdp-week',
+    weekDay: 'rdp-week_day',
+    weekWeeknumber: 'rdp-week_weeknumber',
+    // WeekNumber component
+    weekNumber: 'rdp-weeknumber',
+    // Modifiers
+    selected: 'rdp-day_selected',
+    disabled: 'rdp-day_disabled',
+    today: 'rdp-day_today',
+    outside: 'rdp-day_outside',
+};
+
+function formatDay(day, formatOptions) {
+    return dateFns.format(day, 'd', formatOptions);
+}
+function formatCaption(month, formatOptions) {
+    return dateFns.format(month, 'LLLL Y', formatOptions);
+}
+function formatWeekdayName(day, formatOptions) {
+    return dateFns.format(day, 'E', formatOptions);
+}
+function formatWeekNumber(weekNumber) {
+    return "" + weekNumber;
+}
+var defaultProps = {
+    enableOutsideDaysClick: false,
+    classNames: defaultClassNames,
+    className: '',
+    style: {},
+    styles: {},
+    components: {
+        Caption: Caption$1.Caption,
+        Day: Day$1.Day,
+        Navigation: Navigation$1.Navigation,
+        WeekNumber: WeekNumber$1.WeekNumber,
+    },
+    fixedWeeks: false,
+    formatCaption: formatCaption,
+    formatDay: formatDay,
+    formatWeekdayName: formatWeekdayName,
+    formatWeekNumber: formatWeekNumber,
+    locale: locale,
+    nextLabel: '▶',
+    modifiersClassNames: {},
+    modifiersStyles: {},
+    month: dateFns.startOfMonth(new Date()),
+    numberOfMonths: 1,
+    pagedNavigation: false,
+    prevLabel: '◀',
+    reverseMonths: false,
+    showCaption: true,
+    showHead: true,
+    showNavigation: true,
+    showOutsideDays: false,
+    showWeekNumber: false,
+};
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/**
+ * Filter the undefined props of `obj`.
+ */
+function filterUndefinedProps(obj) {
+    if (!obj)
+        return {};
+    var clean = {};
+    Object.entries(obj).forEach(function (_a) {
+        var key = _a[0], value = _a[1];
+        if (typeof value === 'undefined') {
+            return;
+        }
+        clean[key.toString()] = value;
+    });
+    return clean;
+}
+
+var DayPickerControlled = function (initialProps) {
+    if (initialProps === void 0) { initialProps = defaultProps; }
+    // Extend props with defaults
+    var components = tslib.__assign(tslib.__assign({}, defaultProps.components), filterUndefinedProps(initialProps.components));
+    var classNames = tslib.__assign(tslib.__assign({}, defaultProps.classNames), filterUndefinedProps(initialProps.classNames));
+    var props = tslib.__assign(tslib.__assign(tslib.__assign({}, defaultProps), filterUndefinedProps(initialProps)), { components: components,
+        classNames: classNames });
+    // From `style` prop
+    var style = tslib.__assign(tslib.__assign({}, props.styles.container), props.style);
+    // From `className prop`
+    var className = [props.classNames.container];
+    if (props.className) {
+        className.concat(props.className.split(' '));
+    }
+    var classNameStr = className.join(' ');
+    var months = getMonths(props);
+    var Navigation = props.components.Navigation;
+    return (React.createElement("div", { className: classNameStr, style: style, dir: props.dir },
+        props.showNavigation && React.createElement(Navigation, { dayPickerProps: props }),
+        React.createElement("div", { className: props.classNames.months, style: props.styles ? props.styles.month : undefined }, months.map(function (month) { return (React.createElement(Month$1.Month, { key: dateFns.getTime(month), month: month, dayPickerProps: props })); }))));
+};
+var DayPicker = function (initialProps) {
+    var initialMonth = initialProps.initialMonth, props = tslib.__rest(initialProps, ["initialMonth"]);
+    var isControlled = Boolean(props.month);
+    var _a = React.useState(dateFns.startOfMonth(initialMonth || new Date())), currentMonth = _a[0], setCurrentMonth = _a[1];
+    function handleMonthChange(month, e) {
+        setCurrentMonth(month);
+        if (props.onMonthChange) {
+            props.onMonthChange(month, e);
+        }
+    }
+    return (React.createElement(DayPickerControlled, tslib.__assign({}, props, { onMonthChange: !isControlled ? handleMonthChange : props.onMonthChange, month: isControlled ? props.month : currentMonth })));
+};
+
+var date = new Date();
+function getWeekdaysNames(locale, format) {
+    var start = dateFns.startOfWeek(date, { locale: locale });
+    var names = [];
+    for (var i = 0; i < 7; i++) {
+        var day = dateFns.addDays(start, i);
+        names.push(format(day, { locale: locale }));
+    }
+    return names;
+}
+
+var Head = function (props) {
+    var locale = props.locale, showWeekNumber = props.showWeekNumber, dayPickerProps = props.dayPickerProps;
+    var classNames = dayPickerProps.classNames, styles = dayPickerProps.styles, formatWeekdayName = dayPickerProps.formatWeekdayName;
+    var weekdayNames = getWeekdaysNames(locale, formatWeekdayName);
+    return (React.createElement("thead", { style: styles.head, className: classNames.head },
+        React.createElement("tr", { style: styles.headRow, className: classNames.headRow },
+            showWeekNumber && (React.createElement("th", { style: styles.headWeekNumber, className: classNames.headWeekNumber })),
+            weekdayNames.map(function (name, i) { return (React.createElement("th", { key: i, scope: "col", style: styles.headWeekName, className: classNames.headWeekName }, name)); }))));
+};
+
+function getOutsideStartDays(day, props) {
+    var locale = props.locale;
+    var days = [];
+    var firstDayOfWeek = dateFns.startOfWeek(day.date, { locale: locale });
+    var startDiff = dateFns.differenceInDays(day.date, firstDayOfWeek);
+    for (var i = 0; i < startDiff; i++) {
+        var day_1 = dateFns.addDays(firstDayOfWeek, i);
+        var hidden = props.fromMonth && day_1 < props.fromMonth;
+        var modifiers = { outside: 'start', hidden: hidden };
+        var dateWithModifiers = new classes.DateWithModifiers(day_1, modifiers, props);
+        days.push(dateWithModifiers);
+    }
+    return days;
+}
+
+function getOutsideEndDays(day, props) {
+    var locale = props.locale;
+    var days = [];
+    var lastDayOfWeek = dateFns.endOfWeek(day.date, { locale: locale });
+    var endDiff = dateFns.differenceInDays(lastDayOfWeek, day.date);
+    for (var i = 1; i <= endDiff; i++) {
+        var dayDate = dateFns.addDays(day.date, i);
+        var hidden = props.toMonth && dayDate > props.toMonth;
+        var modifiers = { outside: 'end', hidden: hidden };
+        var dateWithModifiers = new classes.DateWithModifiers(dayDate, modifiers, props);
+        days.push(dateWithModifiers);
+    }
+    return days;
+}
+
+/**
+ * Return the weeks for the given month. Each key of the returned object is the
+ * week number.
+ */
+function getWeeks(month, props) {
+    var locale = props.locale, fixedWeeks = props.fixedWeeks;
+    var monthStart = dateFns.startOfMonth(month);
+    var monthEnd = dateFns.endOfMonth(month);
+    var diff = dateFns.differenceInDays(monthEnd, monthStart);
+    var weeks = {};
+    var lastWeekStr = '';
+    for (var i = 0; i <= diff; i++) {
+        var date = dateFns.addDays(monthStart, i);
+        var dateWithModifiers = new classes.DateWithModifiers(date, {}, props);
+        var week = dateFns.getWeek(dateWithModifiers.date, { locale: locale });
+        if (week === 1 && dateFns.getMonth(date) === 11) {
+            week = 53;
+        }
+        var weekStr = week.toString();
+        if (!weeks[weekStr]) {
+            var startDays = getOutsideStartDays(dateWithModifiers, props);
+            // Create a new week by adding outside start days
+            weeks[weekStr] = startDays;
+        }
+        weeks[weekStr].push(dateWithModifiers);
+        lastWeekStr = weekStr;
+    }
+    var lastWeek = weeks[lastWeekStr];
+    var lastDay = lastWeek[lastWeek.length - 1];
+    var endDays = getOutsideEndDays(lastDay, props);
+    weeks[lastWeekStr] = lastWeek.concat(endDays);
+    // add extra weeks to the month, up to 6 weeks
+    if (fixedWeeks) {
+        lastWeek = weeks[lastWeekStr];
+        var lastWeekDate = lastWeek[lastWeek.length - 1].date;
+        var weeksInMonth = dateFns.getWeeksInMonth(month, { locale: locale });
+        if (weeksInMonth < 6) {
+            var diff_1 = dateFns.differenceInDays(dateFns.addWeeks(lastWeekDate, 6 - weeksInMonth), lastWeekDate);
+            for (var i = 0; i < diff_1; i++) {
+                var date = dateFns.addDays(lastWeekDate, i + 1);
+                var dateWithModifiers = new classes.DateWithModifiers(date, { outside: 'end' }, props);
+                var week = dateFns.getWeek(date, { locale: locale });
+                if (week === 1 && dateFns.getMonth(month) === 11) {
+                    week = 53;
+                }
+                if (!weeks[week]) {
+                    weeks[week] = [];
+                }
+                weeks[week.toString()].push(dateWithModifiers);
+            }
+        }
+    }
+    return weeks;
+}
+
+var Month = function (props) {
+    var month = props.month, dayPickerProps = props.dayPickerProps;
+    var locale = dayPickerProps.locale, classNames = dayPickerProps.classNames, styles = dayPickerProps.styles;
+    var showCaption = dayPickerProps.showCaption, showHead = dayPickerProps.showHead;
+    var Caption = dayPickerProps.components.Caption;
+    var weeks = getWeeks(month, dayPickerProps);
+    return (React.createElement("div", { className: classNames.month },
+        React.createElement("table", { className: classNames.monthTable, style: styles.monthTable },
+            showCaption && (React.createElement(Caption, { month: month, dayPickerProps: dayPickerProps })),
+            showHead && (React.createElement(Head$1.Head, { locale: locale, showWeekNumber: dayPickerProps.showWeekNumber, dayPickerProps: dayPickerProps })),
+            React.createElement("tbody", { className: classNames.monthTbody, style: styles.monthTbody }, Object.keys(weeks).map(function (weekNumber) { return (React.createElement(Week$1.Week, { key: weekNumber, week: weeks[weekNumber], weekNumber: Number(weekNumber), dayPickerProps: dayPickerProps })); })))));
+};
+
 /**
  * Return the next and the previous months for the navigation component, according to the DayPicker props.
  */
@@ -314,196 +572,6 @@ var Navigation = function (props) {
     return React.createElement("div", tslib.__assign({}, containerProps), buttons);
 };
 
-var WeekNumber = function (_a) {
-    var number = _a.number, dayPickerProps = _a.dayPickerProps;
-    var formatWeekNumber = dayPickerProps.formatWeekNumber, locale = dayPickerProps.locale, classNames = dayPickerProps.classNames, styles = dayPickerProps.styles;
-    return (React.createElement("span", { className: classNames.weekNumber, style: styles.weekNumber }, formatWeekNumber(number, { locale: locale })));
-};
-
-var defaultClassNames = {
-    container: 'rdp',
-    caption: 'rdp-caption',
-    // Day Component
-    day: 'rdp-day',
-    dayWrapper: 'rdp-day_wrapper',
-    // Month Component
-    month: 'rdp-month',
-    monthTable: 'rdp-month_table',
-    monthTbody: 'rdp-month_tbody',
-    months: 'rdp-months',
-    // Head Components
-    head: 'rdp-head',
-    headRow: 'rdp-head_row',
-    headWeekNumber: 'rdp-head_weeknumber',
-    headWeekName: 'rdp-head_weekname',
-    // Navigation Component
-    nav: 'rdp-nav',
-    navPrev: 'rdp-nav_prev',
-    navNext: 'rdp-nav_next',
-    // Week Component
-    week: 'rdp-week',
-    weekDay: 'rdp-week_day',
-    weekWeeknumber: 'rdp-week_weeknumber',
-    // WeekNumber component
-    weekNumber: 'rdp-weeknumber',
-    // Modifiers
-    selected: 'rdp-day_selected',
-    disabled: 'rdp-day_disabled',
-    today: 'rdp-day_today',
-    outside: 'rdp-day_outside',
-};
-
-function formatDay(day, formatOptions) {
-    return dateFns.format(day, 'd', formatOptions);
-}
-function formatCaption(month, formatOptions) {
-    return dateFns.format(month, 'LLLL Y', formatOptions);
-}
-function formatWeekdayName(day, formatOptions) {
-    return dateFns.format(day, 'E', formatOptions);
-}
-function formatWeekNumber(weekNumber) {
-    return "" + weekNumber;
-}
-var defaultProps = {
-    enableOutsideDaysClick: false,
-    classNames: defaultClassNames,
-    className: '',
-    style: {},
-    styles: {},
-    components: {
-        Caption: Caption,
-        Day: Day,
-        Navigation: Navigation,
-        WeekNumber: WeekNumber,
-    },
-    fixedWeeks: false,
-    formatCaption: formatCaption,
-    formatDay: formatDay,
-    formatWeekdayName: formatWeekdayName,
-    formatWeekNumber: formatWeekNumber,
-    locale: locale,
-    nextLabel: '▶',
-    modifiersClassNames: {},
-    modifiersStyles: {},
-    month: dateFns.startOfMonth(new Date()),
-    numberOfMonths: 1,
-    pagedNavigation: false,
-    prevLabel: '◀',
-    reverseMonths: false,
-    showCaption: true,
-    showHead: true,
-    showNavigation: true,
-    showOutsideDays: false,
-    showWeekNumber: false,
-};
-
-function getOutsideStartDays(day, props) {
-    var locale = props.locale;
-    var days = [];
-    var firstDayOfWeek = dateFns.startOfWeek(day.date, { locale: locale });
-    var startDiff = dateFns.differenceInDays(day.date, firstDayOfWeek);
-    for (var i = 0; i < startDiff; i++) {
-        var day_1 = dateFns.addDays(firstDayOfWeek, i);
-        var hidden = props.fromMonth && day_1 < props.fromMonth;
-        var modifiers = { outside: 'start', hidden: hidden };
-        var dateWithModifiers = new DateWithModifiers(day_1, modifiers, props);
-        days.push(dateWithModifiers);
-    }
-    return days;
-}
-
-function getOutsideEndDays(day, props) {
-    var locale = props.locale;
-    var days = [];
-    var lastDayOfWeek = dateFns.endOfWeek(day.date, { locale: locale });
-    var endDiff = dateFns.differenceInDays(lastDayOfWeek, day.date);
-    for (var i = 1; i <= endDiff; i++) {
-        var dayDate = dateFns.addDays(day.date, i);
-        var hidden = props.toMonth && dayDate > props.toMonth;
-        var modifiers = { outside: 'end', hidden: hidden };
-        var dateWithModifiers = new DateWithModifiers(dayDate, modifiers, props);
-        days.push(dateWithModifiers);
-    }
-    return days;
-}
-
-/**
- * Return the weeks for the given month. Each key of the returned object is the
- * week number.
- */
-function getWeeks(month, props) {
-    var locale = props.locale, fixedWeeks = props.fixedWeeks;
-    var monthStart = dateFns.startOfMonth(month);
-    var monthEnd = dateFns.endOfMonth(month);
-    var diff = dateFns.differenceInDays(monthEnd, monthStart);
-    var weeks = {};
-    var lastWeekStr = '';
-    for (var i = 0; i <= diff; i++) {
-        var date = dateFns.addDays(monthStart, i);
-        var dateWithModifiers = new DateWithModifiers(date, {}, props);
-        var week = dateFns.getWeek(dateWithModifiers.date, { locale: locale });
-        if (week === 1 && dateFns.getMonth(date) === 11) {
-            week = 53;
-        }
-        var weekStr = week.toString();
-        if (!weeks[weekStr]) {
-            var startDays = getOutsideStartDays(dateWithModifiers, props);
-            // Create a new week by adding outside start days
-            weeks[weekStr] = startDays;
-        }
-        weeks[weekStr].push(dateWithModifiers);
-        lastWeekStr = weekStr;
-    }
-    var lastWeek = weeks[lastWeekStr];
-    var lastDay = lastWeek[lastWeek.length - 1];
-    var endDays = getOutsideEndDays(lastDay, props);
-    weeks[lastWeekStr] = lastWeek.concat(endDays);
-    // add extra weeks to the month, up to 6 weeks
-    if (fixedWeeks) {
-        lastWeek = weeks[lastWeekStr];
-        var lastWeekDate = lastWeek[lastWeek.length - 1].date;
-        var weeksInMonth = dateFns.getWeeksInMonth(month, { locale: locale });
-        if (weeksInMonth < 6) {
-            var diff_1 = dateFns.differenceInDays(dateFns.addWeeks(lastWeekDate, 6 - weeksInMonth), lastWeekDate);
-            for (var i = 0; i < diff_1; i++) {
-                var date = dateFns.addDays(lastWeekDate, i + 1);
-                var dateWithModifiers = new DateWithModifiers(date, { outside: 'end' }, props);
-                var week = dateFns.getWeek(date, { locale: locale });
-                if (week === 1 && dateFns.getMonth(month) === 11) {
-                    week = 53;
-                }
-                if (!weeks[week]) {
-                    weeks[week] = [];
-                }
-                weeks[week.toString()].push(dateWithModifiers);
-            }
-        }
-    }
-    return weeks;
-}
-
-var date = new Date();
-function getWeekdaysNames(locale, format) {
-    var start = dateFns.startOfWeek(date, { locale: locale });
-    var names = [];
-    for (var i = 0; i < 7; i++) {
-        var day = dateFns.addDays(start, i);
-        names.push(format(day, { locale: locale }));
-    }
-    return names;
-}
-
-var Head = function (props) {
-    var locale = props.locale, showWeekNumber = props.showWeekNumber, dayPickerProps = props.dayPickerProps;
-    var classNames = dayPickerProps.classNames, styles = dayPickerProps.styles, formatWeekdayName = dayPickerProps.formatWeekdayName;
-    var weekdayNames = getWeekdaysNames(locale, formatWeekdayName);
-    return (React.createElement("thead", { style: styles.head, className: classNames.head },
-        React.createElement("tr", { style: styles.headRow, className: classNames.headRow },
-            showWeekNumber && (React.createElement("th", { style: styles.headWeekNumber, className: classNames.headWeekNumber })),
-            weekdayNames.map(function (name, i) { return (React.createElement("th", { key: i, scope: "col", style: styles.headWeekName, className: classNames.headWeekName }, name)); }))));
-};
-
 var Week = function (props) {
     var weekNumber = props.weekNumber, week = props.week, dayPickerProps = props.dayPickerProps;
     var showWeekNumber = dayPickerProps.showWeekNumber, classNames = dayPickerProps.classNames, styles = dayPickerProps.styles, components = dayPickerProps.components;
@@ -515,76 +583,17 @@ var Week = function (props) {
             React.createElement(Day, { day: day.date, modifiers: day.modifiers, dayPickerProps: dayPickerProps }))); })));
 };
 
-var Month = function (props) {
-    var month = props.month, dayPickerProps = props.dayPickerProps;
-    var locale = dayPickerProps.locale, classNames = dayPickerProps.classNames, styles = dayPickerProps.styles;
-    var showCaption = dayPickerProps.showCaption, showHead = dayPickerProps.showHead;
-    var Caption = dayPickerProps.components.Caption;
-    var weeks = getWeeks(month, dayPickerProps);
-    return (React.createElement("div", { className: classNames.month },
-        React.createElement("table", { className: classNames.monthTable, style: styles.monthTable },
-            showCaption && (React.createElement(Caption, { month: month, dayPickerProps: dayPickerProps })),
-            showHead && (React.createElement(Head, { locale: locale, showWeekNumber: dayPickerProps.showWeekNumber, dayPickerProps: dayPickerProps })),
-            React.createElement("tbody", { className: classNames.monthTbody, style: styles.monthTbody }, Object.keys(weeks).map(function (weekNumber) { return (React.createElement(Week, { key: weekNumber, week: weeks[weekNumber], weekNumber: Number(weekNumber), dayPickerProps: dayPickerProps })); })))));
-};
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/**
- * Filter the undefined props of `obj`.
- */
-function filterUndefinedProps(obj) {
-    if (!obj)
-        return {};
-    var clean = {};
-    Object.entries(obj).forEach(function (_a) {
-        var key = _a[0], value = _a[1];
-        if (typeof value === 'undefined') {
-            return;
-        }
-        clean[key.toString()] = value;
-    });
-    return clean;
-}
-
-var DayPickerControlled = function (initialProps) {
-    if (initialProps === void 0) { initialProps = defaultProps; }
-    // Extend props with defaults
-    var components = tslib.__assign(tslib.__assign({}, defaultProps.components), filterUndefinedProps(initialProps.components));
-    var classNames = tslib.__assign(tslib.__assign({}, defaultProps.classNames), filterUndefinedProps(initialProps.classNames));
-    var props = tslib.__assign(tslib.__assign(tslib.__assign({}, defaultProps), filterUndefinedProps(initialProps)), { components: components,
-        classNames: classNames });
-    // From `style` prop
-    var style = tslib.__assign(tslib.__assign({}, props.styles.container), props.style);
-    // From `className prop`
-    var className = [props.classNames.container];
-    if (props.className) {
-        className.concat(props.className.split(' '));
-    }
-    var classNameStr = className.join(' ');
-    var months = getMonths(props);
-    var Navigation = props.components.Navigation;
-    return (React.createElement("div", { className: classNameStr, style: style, dir: props.dir },
-        props.showNavigation && React.createElement(Navigation, { dayPickerProps: props }),
-        React.createElement("div", { className: props.classNames.months, style: props.styles ? props.styles.month : undefined }, months.map(function (month) { return (React.createElement(Month, { key: dateFns.getTime(month), month: month, dayPickerProps: props })); }))));
-};
-var DayPicker = function (initialProps) {
-    var initialMonth = initialProps.initialMonth, props = tslib.__rest(initialProps, ["initialMonth"]);
-    var isControlled = Boolean(props.month);
-    var _a = React.useState(dateFns.startOfMonth(initialMonth || new Date())), currentMonth = _a[0], setCurrentMonth = _a[1];
-    function handleMonthChange(month, e) {
-        setCurrentMonth(month);
-        if (props.onMonthChange) {
-            props.onMonthChange(month, e);
-        }
-    }
-    return (React.createElement(DayPickerControlled, tslib.__assign({}, props, { onMonthChange: !isControlled ? handleMonthChange : props.onMonthChange, month: isControlled ? props.month : currentMonth })));
+var WeekNumber = function (_a) {
+    var number = _a.number, dayPickerProps = _a.dayPickerProps;
+    var formatWeekNumber = dayPickerProps.formatWeekNumber, locale = dayPickerProps.locale, classNames = dayPickerProps.classNames, styles = dayPickerProps.styles;
+    return (React.createElement("span", { className: classNames.weekNumber, style: styles.weekNumber }, formatWeekNumber(number, { locale: locale })));
 };
 
 function isValid(day) {
     return !isNaN(day.getTime());
 }
 var useInput = function (initialSelectedDay, formatStr, _options) {
-    var options = tslib.__assign({ locale: defaultProps.locale, required: false }, _options);
+    var options = tslib.__assign({ locale: components.defaultProps.locale, required: false }, _options);
     var initialInputValue = initialSelectedDay
         ? dateFns.format(initialSelectedDay, formatStr, options)
         : '';
@@ -663,5 +672,6 @@ exports.Month = Month;
 exports.Navigation = Navigation;
 exports.Week = Week;
 exports.WeekNumber = WeekNumber;
+exports.defaultProps = defaultProps;
 exports.useInput = useInput;
 //# sourceMappingURL=index.js.map
