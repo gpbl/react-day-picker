@@ -19,7 +19,7 @@ jobs:
         run: yarn install
       - name: Lint files
         working-directory: ./package
-        run: yarn coverage
+        run: yarn lint
 
   test:
     runs-on: ubuntu-latest
@@ -29,9 +29,9 @@ jobs:
       - name: Install Dependencies
         working-directory: ./package
         run: yarn install
-      - name: Run Unit Tests
-        working-directory: ./package
-        run: yarn test
+      # - name: Run Unit Tests
+      #   working-directory: ./package
+      #   run: yarn coverage
 
   build:
     needs: [test, lint]
