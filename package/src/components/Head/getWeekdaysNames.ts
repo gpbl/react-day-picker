@@ -1,5 +1,5 @@
 import { startOfWeek, addDays } from 'date-fns';
-import { DayPickerProps } from '../../typings/react-day-picker';
+
 const date = new Date();
 
 export function getWeekdaysNames(

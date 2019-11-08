@@ -1,12 +1,10 @@
-import { DayPickerProps, Modifiers } from '../../typings/react-day-picker';
-
 /**
  * Return the `modifiers` prop including the modifiers from shortcut-props
  * (`selected`, `disabled` and `hidden`)
  */
 export function getModifiersFromProps(
   props: ReactDayPicker.DayPickerProps
-): Modifiers {
+): ReactDayPicker.Modifiers {
   const modifiers = Object.assign({}, props.modifiers);
   if (props.selected) {
     modifiers.selected = props.selected;

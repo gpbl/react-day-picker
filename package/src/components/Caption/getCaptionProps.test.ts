@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import { getCaptionProps } from './getCaptionProps';
-import { defaultProps } from '../defaultProps';
+import { defaultProps } from '../DayPicker/defaultProps';
 
 describe('getCaptionProps', () => {
   it('return the container props', () => {

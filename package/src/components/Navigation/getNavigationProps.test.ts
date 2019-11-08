@@ -4,7 +4,7 @@
 
 describe('getNavigationProps', () => {
   it('return next and previous months with default props', () => {
-    // const result = getNavigationProps(defazultProps);
+    // const result = getNavigationProps(defaultProps);
     // expect(result.nextMonth).toBeDefined();
     // expect(result.prevMonth).toBeDefined();
   });

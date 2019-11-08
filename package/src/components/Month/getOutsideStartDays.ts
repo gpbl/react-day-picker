@@ -1,6 +1,6 @@
 import { startOfWeek, differenceInDays, addDays } from 'date-fns';
-import { DateWithModifiers } from '../DateWithModifiers';
-import { DayPickerProps } from '../../typings/react-day-picker';
+import { DateWithModifiers } from '../../classes/DateWithModifiers';
+
 export function getOutsideStartDays(
   day: DateWithModifiers,
   props: ReactDayPicker.DayPickerProps

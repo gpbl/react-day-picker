@@ -5,9 +5,9 @@
     "gzipped": 14001
   },
   "lib/index.umd.min.js": {
-    "bundled": 60019,
-    "minified": 59884,
-    "gzipped": 13834
+    "bundled": 59845,
+    "minified": 59701,
+    "gzipped": 13740
   },
   "lib/index.js": {
     "bundled": 27970,

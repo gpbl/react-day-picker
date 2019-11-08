@@ -16,7 +16,7 @@
     "url": "https://github.com/gpbl/react-react-day-picker/issues"
   },
   "scripts": {
-    "lint": "eslint src --ext .ts,.d.ts,.tsx",
+    "lint": "eslint src --ext .ts,.tsx",
     "lint-types": "tsc --project ./tsconfig.json --noEmit",
     "prebuild": "rm -rf lib",
     "build": "rollup -c",
