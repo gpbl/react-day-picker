@@ -1,5 +1,5 @@
-import { MatchingModifiers, DayPickerProps, ModifierValueType } from 'types';
-import { DayHtmlProps } from './Day';
+import { MatchingModifiers, DayPickerProps, ModifierValueType } from "types";
+import { DayHtmlProps } from "./Day";
 
 /**
  * Return the props for the Day component.
@@ -14,7 +14,7 @@ export function getDayProps(
     styles,
     modifiersStyles,
     classNames,
-    modifiersClassNames,
+    modifiersClassNames
   } = props;
 
   let onClick;
@@ -32,7 +32,7 @@ export function getDayProps(
     Object.keys(modifiers).forEach(modifier => {
       style = {
         ...style,
-        ...styles[modifier],
+        ...styles[modifier]
       };
     });
   }
@@ -41,7 +41,7 @@ export function getDayProps(
     Object.keys(modifiers).forEach(modifier => {
       style = {
         ...style,
-        ...modifiersStyles[modifier],
+        ...modifiersStyles[modifier]
       };
     });
   }
@@ -68,16 +68,16 @@ export function getDayProps(
     });
 
   const containerProps = {
-    'aria-disabled': !modifiers.interactive || undefined,
+    "aria-disabled": !modifiers.interactive || undefined,
     disabled: modifiers.disabled || undefined,
     onClick,
     style,
-    className: className.join(' '),
-    ...dataProps,
+    className: className.join(" "),
+    ...dataProps
   };
   const wrapperProps = {
     className: classNames.dayWrapper,
-    styles: styles.dayWrapper,
+    styles: styles.dayWrapper
   };
 
   return { containerProps, wrapperProps };

@@ -1,8 +1,8 @@
-import { isToday } from 'date-fns';
-import { MatchingModifiers, ModifierValueType, DayPickerProps } from 'types';
+import { isToday } from "date-fns";
+import { MatchingModifiers, ModifierValueType, DayPickerProps } from "types";
 
-import { getModifiersFromProps } from './utils/getModifiersFromProps';
-import { listModifiers } from './utils/listModifiers';
+import { getModifiersFromProps } from "./utils/getModifiersFromProps";
+import { listModifiers } from "./utils/listModifiers";
 
 export interface DateWithModifiers {
   date: Date;
@@ -13,9 +13,9 @@ const defaultModifiers: MatchingModifiers = {
   disabled: false,
   hidden: false,
   interactive: true,
-  outside: '',
+  outside: "",
   selected: undefined,
-  today: false,
+  today: false
 };
 
 export class DateWithModifiers {
@@ -25,7 +25,7 @@ export class DateWithModifiers {
     const modifiers: MatchingModifiers = {
       ...defaultModifiers,
       today: isToday(date),
-      ...initialModifiers,
+      ...initialModifiers
     };
 
     if (modifiers.outside && !props.showOutsideDays) {

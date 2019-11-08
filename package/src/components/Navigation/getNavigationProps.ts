@@ -1,5 +1,5 @@
-import { DayPickerProps } from 'types';
-import { NavigationHtmlProps } from './Navigation';
+import { DayPickerProps } from "types";
+import { NavigationHtmlProps } from "./Navigation";
 
 /**
  * Return the props for the Navigation component and its children.
@@ -10,16 +10,16 @@ export function getNavigationProps(props: DayPickerProps): NavigationHtmlProps {
   const containerProps = { className: classNames.nav, style: styles.nav };
   const nextProps = {
     className: classNames.navNext,
-    style: styles.navNext,
+    style: styles.navNext
   };
   const prevProps = {
     className: classNames.navPrev,
-    style: styles.navPrev,
+    style: styles.navPrev
   };
 
   return {
     containerProps,
     nextProps,
-    prevProps,
+    prevProps
   };
 }

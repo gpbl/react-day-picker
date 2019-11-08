@@ -1,6 +1,6 @@
-import { startOfMonth, addMonths } from 'date-fns';
-import { DayPickerProps } from 'types';
-import { NavigationMonths } from './Navigation';
+import { startOfMonth, addMonths } from "date-fns";
+import { DayPickerProps } from "types";
+import { NavigationMonths } from "./Navigation";
 
 /**
  * Return the next and the previous months for the navigation component, according to the DayPicker props.

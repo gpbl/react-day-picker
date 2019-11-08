@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { format, parse } from 'date-fns';
+import * as React from "react";
+import { format, parse } from "date-fns";
 
-import { defaultProps } from 'components';
+import { defaultProps } from "components";
 
 import {
   DayClickEventHandler,
   MonthChangeEventHandler,
-  MatchingModifiers,
-} from '../types';
+  MatchingModifiers
+} from "../types";
 
 function isValid(day: Date): boolean {
   return !isNaN(day.getTime());
@@ -37,12 +37,12 @@ export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
   const options: UseInputOptions = {
     locale: defaultProps.locale,
     required: false,
-    ..._options,
+    ..._options
   };
 
   const initialInputValue = initialSelectedDay
     ? format(initialSelectedDay, formatStr, options)
-    : '';
+    : "";
 
   const [selectedDay, setSelectedDay] = React.useState<Date | undefined>(
     initialSelectedDay
@@ -74,7 +74,7 @@ export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
 
     setSelectedDay(initialSelectedDay);
     setCurrentMonth(initialSelectedDay || new Date());
-    setInputValue(initialInputValue || '');
+    setInputValue(initialInputValue || "");
   }
 
   function onFocus(e: React.FocusEvent<HTMLInputElement>): void {
@@ -90,7 +90,7 @@ export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
     }
     setSelectedDay(initialSelectedDay);
     setCurrentMonth(initialSelectedDay || new Date());
-    setInputValue(initialInputValue || '');
+    setInputValue(initialInputValue || "");
 
     if (onFocus) onFocus(e);
   }
@@ -99,7 +99,7 @@ export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
     if (modifiers.selected) {
       if (!options.required) {
         setSelectedDay(undefined);
-        setInputValue('');
+        setInputValue("");
       }
       return;
     }
@@ -116,6 +116,6 @@ export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
     currentMonth,
     selectedDay,
     inputValue,
-    { onDayClick, onMonthChange, onChange, onFocus, onBlur },
+    { onDayClick, onMonthChange, onChange, onFocus, onBlur }
   ];
 };

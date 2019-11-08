@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { DayPickerProps } from 'types';
-import { getNavigation } from './getNavigation';
-import { getNavigationProps } from './getNavigationProps';
+import * as React from "react";
+import { DayPickerProps } from "types";
+import { getNavigation } from "./getNavigation";
+import { getNavigationProps } from "./getNavigationProps";
 
 export interface NavigationProps {
   dayPickerProps: DayPickerProps;
@@ -63,7 +63,7 @@ export const Navigation: React.FC<NavigationProps> = props => {
   const nextButton = nextLabel && (
     <button
       {...nextProps}
-      key={'next'}
+      key={"next"}
       disabled={!nextMonth}
       type="button"
       onClick={handleNextClick}
@@ -72,7 +72,7 @@ export const Navigation: React.FC<NavigationProps> = props => {
     </button>
   );
   let buttons = [prevButton, nextButton];
-  if (dayPickerProps.dir === 'rtl') {
+  if (dayPickerProps.dir === "rtl") {
     buttons = buttons.reverse();
   }
   return <div {...containerProps}>{buttons}</div>;

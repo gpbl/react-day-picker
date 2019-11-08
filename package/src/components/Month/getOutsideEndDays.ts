@@ -1,6 +1,6 @@
-import { endOfWeek, differenceInDays, addDays } from 'date-fns';
-import { DateWithModifiers } from 'classes';
-import { DayPickerProps } from 'types';
+import { endOfWeek, differenceInDays, addDays } from "date-fns";
+import { DateWithModifiers } from "classes";
+import { DayPickerProps } from "types";
 
 export function getOutsideEndDays(
   day: DateWithModifiers,
@@ -13,7 +13,7 @@ export function getOutsideEndDays(
   for (let i = 1; i <= endDiff; i++) {
     const dayDate = addDays(day.date, i);
     const hidden = props.toMonth && dayDate > props.toMonth;
-    const modifiers = { outside: 'end', hidden };
+    const modifiers = { outside: "end", hidden };
     const dateWithModifiers = new DateWithModifiers(dayDate, modifiers, props);
     days.push(dateWithModifiers);
   }

@@ -1,5 +1,5 @@
-import { Modifiers, Modifier } from 'types';
-import { matchModifier } from './matchModifier';
+import { Modifiers, Modifier } from "types";
+import { matchModifier } from "./matchModifier";
 
 /**
  * Return the list of modifiers name matching the given day for the given

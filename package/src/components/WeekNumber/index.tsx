@@ -1,1 +1,1 @@
-export * from './WeekNumber';
+export * from "./WeekNumber";
