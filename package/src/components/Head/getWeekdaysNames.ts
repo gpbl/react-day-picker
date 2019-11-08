@@ -1,10 +1,11 @@
 import { startOfWeek, addDays } from 'date-fns';
+import { DayPickerProps } from 'types';
 
 const date = new Date();
 
 export function getWeekdaysNames(
   locale: Locale,
-  format: ReactDayPicker.DayPickerProps['formatCaption']
+  format: DayPickerProps['formatCaption']
 ): Array<string> {
   const start = startOfWeek(date, { locale });
   const names = [];

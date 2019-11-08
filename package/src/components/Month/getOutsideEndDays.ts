@@ -1,9 +1,10 @@
 import { endOfWeek, differenceInDays, addDays } from 'date-fns';
-import { DateWithModifiers } from '../../classes/DateWithModifiers';
+import { DateWithModifiers } from 'classes';
+import { DayPickerProps } from 'types';
 
 export function getOutsideEndDays(
   day: DateWithModifiers,
-  props: ReactDayPicker.DayPickerProps
+  props: DayPickerProps
 ): Array<DateWithModifiers> {
   const { locale } = props;
   const days = [];

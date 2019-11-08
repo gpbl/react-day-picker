@@ -1,26 +1,25 @@
 import * as React from 'react';
 import { getTime, startOfMonth } from 'date-fns';
+import { DayPickerProps, Components, ClassNames } from 'types';
+import { Month } from 'components/Month';
 
 import { getMonths } from './getMonths';
 import { defaultProps } from './defaultProps';
-
-import { Month } from '../Month';
-
 import { filterUndefinedProps } from './filterUndefinedProps';
 
-const DayPickerControlled: React.FC<ReactDayPicker.DayPickerProps> = (
+const DayPickerControlled: React.FC<DayPickerProps> = (
   initialProps = defaultProps
 ) => {
   // Extend props with defaults
-  const components: ReactDayPicker.Components = {
+  const components: Components = {
     ...defaultProps.components,
     ...filterUndefinedProps(initialProps.components),
   };
-  const classNames: ReactDayPicker.ClassNames = {
+  const classNames: ClassNames = {
     ...defaultProps.classNames,
     ...filterUndefinedProps(initialProps.classNames),
   };
-  const props: ReactDayPicker.DayPickerProps = {
+  const props: DayPickerProps = {
     ...defaultProps,
     ...filterUndefinedProps(initialProps),
     components,
@@ -55,8 +54,8 @@ const DayPickerControlled: React.FC<ReactDayPicker.DayPickerProps> = (
   );
 };
 
-export const DayPicker: React.FC<ReactDayPicker.DayPickerProps> = (
-  initialProps: ReactDayPicker.DayPickerProps
+export const DayPicker: React.FC<DayPickerProps> = (
+  initialProps: DayPickerProps
 ) => {
   const { initialMonth, ...props } = initialProps;
   const isControlled = Boolean(props.month);
