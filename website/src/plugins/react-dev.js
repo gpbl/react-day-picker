@@ -12,7 +12,7 @@ module.exports = function() {
         resolve: {
           alias: {
             react: require.resolve('react'),
-            'react-dom': require.resolve('react-dom'),
+            // 'react-dom': require.resolve('react-dom'),
           },
         },
       };
