@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for react-day-picker
+about: Suggest an idea for DayPicker
 title: ''
 labels: "feature request \U0001F64F\U0001F3FD"
 assignees: ''
