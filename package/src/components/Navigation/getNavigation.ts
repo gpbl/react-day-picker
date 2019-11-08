@@ -1,5 +1,5 @@
 import { startOfMonth, addMonths } from "date-fns";
-import { DayPickerProps } from "types";
+import { DayPickerProps } from "../../types";
 import { NavigationMonths } from "./Navigation";
 
 /**

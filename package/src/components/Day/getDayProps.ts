@@ -1,4 +1,8 @@
-import { MatchingModifiers, DayPickerProps, ModifierValueType } from "types";
+import {
+  MatchingModifiers,
+  DayPickerProps,
+  ModifierValueType
+} from "../../types";
 import { DayHtmlProps } from "./Day";
 
 /**

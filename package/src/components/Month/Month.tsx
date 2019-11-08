@@ -1,7 +1,7 @@
 import * as React from "react";
-import { DayPickerProps } from "types";
-import { Head } from "components/Head";
-import { Week } from "components/Week";
+import { DayPickerProps } from "../../types";
+import { Head } from "../Head";
+import { Week } from "../Week";
 import { getWeeks } from "./getWeeks";
 
 export interface MonthProps {

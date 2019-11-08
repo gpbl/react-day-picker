@@ -1,7 +1,7 @@
 import * as React from "react";
 import { getTime, startOfMonth } from "date-fns";
-import { DayPickerProps, Components, ClassNames } from "types";
-import { Month } from "components/Month";
+import { DayPickerProps, Components, ClassNames } from "../../types";
+import { Month } from "../Month";
 
 import { getMonths } from "./getMonths";
 import { defaultProps } from "./defaultProps";

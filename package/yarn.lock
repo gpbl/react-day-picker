@@ -750,6 +750,20 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@zerollup/ts-helpers@^1.7.4":
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/@zerollup/ts-helpers/-/ts-helpers-1.7.4.tgz#59ac8c643b8cc6def5449691630091226991da36"
+  integrity sha512-8JLREeiO6MtmJhU8kw/eNwi+HKlh/K3cMlpH6HVbW53bqhAgTvt8KnIqFh9FMNbCL3QDht35g8VJHVWYkMEt2A==
+  dependencies:
+    resolve "^1.12.0"
+
+"@zerollup/ts-transform-paths@^1.7.4":
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/@zerollup/ts-transform-paths/-/ts-transform-paths-1.7.4.tgz#e9265b5c6350934a9033e6dee36d1e57c1547a2f"
+  integrity sha512-yUQpPAlDb6BYxuoEosEI8lhN9Y1uDTfn6lNiussyJh9XHyGBKXXG/rnUPFbx3FsDqDPXJWm8G9oNujANRk2scA==
+  dependencies:
+    "@zerollup/ts-helpers" "^1.7.4"
+
 abab@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.2.tgz#a2fba1b122c69a85caa02d10f9270c7219709a9d"

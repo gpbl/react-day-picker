@@ -1,4 +1,4 @@
-import { Modifiers, Modifier } from "types";
+import { Modifiers, Modifier } from "../../types";
 import { matchModifier } from "./matchModifier";
 
 /**

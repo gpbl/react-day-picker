@@ -1,12 +1,12 @@
 import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 import copy from "rollup-plugin-copy";
-import resolve from "rollup-plugin-node-resolve";
-import replace from "rollup-plugin-replace";
+import nodeResolve from "rollup-plugin-node-resolve";
+import replace from "@rollup/plugin-replace";
+import alias from "@rollup/plugin-alias";
 import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
 import path from "path";
 import pkg from "./package.json";
-import alias from "@rollup/plugin-alias";
 
 const name = "ReactDayPicker";
 const input = "./src/index.ts";
@@ -18,16 +18,14 @@ const typescriptPlugin = typescript({
   clean: true,
   verbosity: 2
 });
+const aliasPlugin = alias({
+  resolve: ["*.ts", "*.tsx"],
+  entries: {
+    components: path.resolve("./src/components")
+  }
+});
 const replaceProduction = replace({
   "process.env.NODE_ENV": JSON.stringify("production")
-});
-
-const aliasPlugin = alias({
-  entries: {
-    components: "src/components",
-    hooks: "src/hooks",
-    classes: "src/classes"
-  }
 });
 
 export default [
@@ -41,7 +39,7 @@ export default [
       sourcemap: true
     },
     external,
-    plugins: [resolve(), typescriptPlugin, aliasPlugin]
+    plugins: [nodeResolve(), typescriptPlugin]
   },
   {
     input,
@@ -54,9 +52,8 @@ export default [
     },
     external,
     plugins: [
-      resolve(),
+      nodeResolve(),
       typescriptPlugin,
-      aliasPlugin,
       replaceProduction,
       terser(),
       sizeSnapshot()
@@ -78,7 +75,7 @@ export default [
     ],
     external: id => !id.startsWith(".") && !path.isAbsolute(id),
     plugins: [
-      resolve(),
+      nodeResolve(),
       aliasPlugin,
       typescriptPlugin,
       copy({
