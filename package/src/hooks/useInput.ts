@@ -1,7 +1,7 @@
 import * as React from "react";
 import { format, parse } from "date-fns";
 
-import { defaultProps } from "components";
+import { defaultProps } from "../components/DayPicker";
 
 import {
   DayClickEventHandler,

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { getUnixTime } from "date-fns";
-import { DayPickerProps } from "types";
-import { DateWithModifiers } from "classes";
+import { DayPickerProps } from "../../types";
+import { DateWithModifiers } from "../../classes";
 
 export interface WeekProps {
   weekNumber: number;

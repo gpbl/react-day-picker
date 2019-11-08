@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DayPickerProps } from "types";
+import { DayPickerProps } from "../../types";
 import { getNavigation } from "./getNavigation";
 import { getNavigationProps } from "./getNavigationProps";
 

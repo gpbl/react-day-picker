@@ -1,4 +1,4 @@
-import { ClassNames } from "types";
+import { ClassNames } from "../../types";
 
 export const defaultClassNames: ClassNames = {
   container: "rdp",

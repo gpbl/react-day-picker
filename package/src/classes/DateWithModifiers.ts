@@ -1,6 +1,5 @@
 import { isToday } from "date-fns";
-import { MatchingModifiers, ModifierValueType, DayPickerProps } from "types";
-
+import { MatchingModifiers, ModifierValueType, DayPickerProps } from "../types";
 import { getModifiersFromProps } from "./utils/getModifiersFromProps";
 import { listModifiers } from "./utils/listModifiers";
 
