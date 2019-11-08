@@ -28,7 +28,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-day-picker": "file:../package",
-    "react-dom": "^16.10.2",
+    "react-dom": "^16.11.0",
     "react-frame-component": "^4.1.1"
   },
   "devDependencies": {
