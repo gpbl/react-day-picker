@@ -1,5 +1,5 @@
-import { isSameDay, differenceInDays } from 'date-fns';
-import { Modifier } from 'types';
+import { isSameDay, differenceInDays } from "date-fns";
+import { Modifier } from "types";
 /**
  * Return true if `day1` is after `day2`.
  */
@@ -37,8 +37,8 @@ export function matchModifier(day: Date, modifier: Modifier): boolean {
       return isSameDay(day, modifier);
     }
     if (
-      'after' in modifier &&
-      'before' in modifier &&
+      "after" in modifier &&
+      "before" in modifier &&
       differenceInDays(modifier.before, modifier.after) > 0
     ) {
       return (
@@ -46,8 +46,8 @@ export function matchModifier(day: Date, modifier: Modifier): boolean {
       );
     }
     if (
-      'after' in modifier &&
-      'before' in modifier &&
+      "after" in modifier &&
+      "before" in modifier &&
       (isDayAfter(modifier.after, modifier.before) ||
         isSameDay(modifier.after, modifier.before))
     ) {
@@ -55,16 +55,16 @@ export function matchModifier(day: Date, modifier: Modifier): boolean {
         isDayAfter(day, modifier.after) || isDayBefore(day, modifier.before)
       );
     }
-    if ('after' in modifier) {
+    if ("after" in modifier) {
       return isDayAfter(day, modifier.after);
     }
-    if ('before' in modifier) {
+    if ("before" in modifier) {
       return isDayBefore(day, modifier.before);
     }
-    if ('daysOfWeek' in modifier) {
+    if ("daysOfWeek" in modifier) {
       return modifier.daysOfWeek.includes(day.getDay());
     }
-    if (typeof modifier === 'function') {
+    if (typeof modifier === "function") {
       return modifier(day);
     }
     return false;

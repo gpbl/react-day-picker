@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { getTime, startOfMonth } from 'date-fns';
-import { DayPickerProps, Components, ClassNames } from 'types';
-import { Month } from 'components/Month';
+import * as React from "react";
+import { getTime, startOfMonth } from "date-fns";
+import { DayPickerProps, Components, ClassNames } from "types";
+import { Month } from "components/Month";
 
-import { getMonths } from './getMonths';
-import { defaultProps } from './defaultProps';
-import { filterUndefinedProps } from './filterUndefinedProps';
+import { getMonths } from "./getMonths";
+import { defaultProps } from "./defaultProps";
+import { filterUndefinedProps } from "./filterUndefinedProps";
 
 const DayPickerControlled: React.FC<DayPickerProps> = (
   initialProps = defaultProps
@@ -13,17 +13,17 @@ const DayPickerControlled: React.FC<DayPickerProps> = (
   // Extend props with defaults
   const components: Components = {
     ...defaultProps.components,
-    ...filterUndefinedProps(initialProps.components),
+    ...filterUndefinedProps(initialProps.components)
   };
   const classNames: ClassNames = {
     ...defaultProps.classNames,
-    ...filterUndefinedProps(initialProps.classNames),
+    ...filterUndefinedProps(initialProps.classNames)
   };
   const props: DayPickerProps = {
     ...defaultProps,
     ...filterUndefinedProps(initialProps),
     components,
-    classNames,
+    classNames
   };
 
   // From `style` prop
@@ -32,9 +32,9 @@ const DayPickerControlled: React.FC<DayPickerProps> = (
   // From `className prop`
   const className = [props.classNames.container];
   if (props.className) {
-    className.concat(props.className.split(' '));
+    className.concat(props.className.split(" "));
   }
-  const classNameStr = className.join(' ');
+  const classNameStr = className.join(" ");
 
   const months = getMonths(props);
 

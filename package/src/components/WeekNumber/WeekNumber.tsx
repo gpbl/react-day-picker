@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { DayPickerProps } from 'types';
+import * as React from "react";
+import { DayPickerProps } from "types";
 
 export interface WeekNumberProps {
   number: number;
@@ -9,7 +9,7 @@ export interface WeekNumberProps {
 
 export const WeekNumber: React.FC<WeekNumberProps> = ({
   number,
-  dayPickerProps,
+  dayPickerProps
 }) => {
   const { formatWeekNumber, locale, classNames, styles } = dayPickerProps;
   return (

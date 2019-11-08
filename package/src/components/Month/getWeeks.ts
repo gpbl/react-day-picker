@@ -6,12 +6,12 @@ import {
   getMonth,
   getWeek,
   getWeeksInMonth,
-  startOfMonth,
-} from 'date-fns';
-import { DateWithModifiers } from 'classes';
-import { DayPickerProps } from 'types';
-import { getOutsideStartDays } from './getOutsideStartDays';
-import { getOutsideEndDays } from './getOutsideEndDays';
+  startOfMonth
+} from "date-fns";
+import { DateWithModifiers } from "classes";
+import { DayPickerProps } from "types";
+import { getOutsideStartDays } from "./getOutsideStartDays";
+import { getOutsideEndDays } from "./getOutsideEndDays";
 
 type MonthWeeks = { [key: string]: DateWithModifiers[] };
 
@@ -27,7 +27,7 @@ export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
   const diff = differenceInDays(monthEnd, monthStart);
 
   const weeks: MonthWeeks = {};
-  let lastWeekStr = '';
+  let lastWeekStr = "";
   for (let i = 0; i <= diff; i++) {
     const date = addDays(monthStart, i);
     const dateWithModifiers = new DateWithModifiers(date, {}, props);
@@ -65,7 +65,7 @@ export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
         const date = addDays(lastWeekDate, i + 1);
         const dateWithModifiers = new DateWithModifiers(
           date,
-          { outside: 'end' },
+          { outside: "end" },
           props
         );
         let week = getWeek(date, { locale });

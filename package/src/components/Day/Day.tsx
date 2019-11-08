@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { DayPickerProps, MatchingModifiers } from 'types';
-import { getDayProps } from './getDayProps';
+import * as React from "react";
+import { DayPickerProps, MatchingModifiers } from "types";
+import { getDayProps } from "./getDayProps";
 
 export interface DayProps {
   day: Date;
@@ -10,7 +10,7 @@ export interface DayProps {
 
 export interface DayHtmlProps {
   containerProps: {
-    'aria-disabled'?: boolean;
+    "aria-disabled"?: boolean;
     disabled?: boolean;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     className?: string;
@@ -36,7 +36,7 @@ export const Day: React.FC<DayProps> = props => {
     return <span />;
   }
 
-  const Component = modifiers.interactive ? 'button' : 'span';
+  const Component = modifiers.interactive ? "button" : "span";
 
   return (
     <Component {...containerProps}>

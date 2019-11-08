@@ -1,14 +1,14 @@
-import { CaptionProps } from '../components/Caption/Caption';
-import { DayProps } from '../components/Day/Day';
-import { WeekNumberProps } from '../components/WeekNumber/WeekNumber';
-import { NavigationProps } from '../components/Navigation/Navigation';
+import { CaptionProps } from "../components/Caption/Caption";
+import { DayProps } from "../components/Day/Day";
+import { WeekNumberProps } from "../components/WeekNumber/WeekNumber";
+import { NavigationProps } from "../components/Navigation/Navigation";
 import {
   ModifiersClassNames,
   ModifiersStyles,
   Modifier,
   Modifiers,
-  MatchingModifiers,
-} from './Modifiers';
+  MatchingModifiers
+} from "./Modifiers";
 
 export interface DayPickerProps {
   // #region CLASSNAMES

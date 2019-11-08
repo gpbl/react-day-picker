@@ -1,6 +1,6 @@
-import { startOfWeek, differenceInDays, addDays } from 'date-fns';
-import { DateWithModifiers } from 'classes';
-import { DayPickerProps } from 'types';
+import { startOfWeek, differenceInDays, addDays } from "date-fns";
+import { DateWithModifiers } from "classes";
+import { DayPickerProps } from "types";
 
 export function getOutsideStartDays(
   day: DateWithModifiers,
@@ -14,7 +14,7 @@ export function getOutsideStartDays(
   for (let i = 0; i < startDiff; i++) {
     const day = addDays(firstDayOfWeek, i);
     const hidden = props.fromMonth && day < props.fromMonth;
-    const modifiers = { outside: 'start', hidden };
+    const modifiers = { outside: "start", hidden };
     const dateWithModifiers = new DateWithModifiers(day, modifiers, props);
     days.push(dateWithModifiers);
   }

@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { DayPickerProps } from 'types';
-import { getWeekdaysNames } from './getWeekdaysNames';
+import * as React from "react";
+import { DayPickerProps } from "types";
+import { getWeekdaysNames } from "./getWeekdaysNames";
 
 export interface HeadProps {
   locale: Locale;

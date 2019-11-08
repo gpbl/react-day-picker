@@ -1,5 +1,5 @@
-import { DayPickerProps } from 'types';
-import { CaptionHtmlProps } from './Caption';
+import { DayPickerProps } from "types";
+import { CaptionHtmlProps } from "./Caption";
 
 /**
  * Return props for the Caption component.
@@ -9,7 +9,7 @@ export function getCaptionProps(props: DayPickerProps): CaptionHtmlProps {
   return {
     containerProps: {
       className: classNames.caption,
-      style: styles.caption,
-    },
+      style: styles.caption
+    }
   };
 }
