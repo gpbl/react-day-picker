@@ -14,13 +14,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
-    "baseUrl": "./src",
-    "paths": {
-      "components/*": ["components/*"],
-      "hooks/*": ["hooks/*"],
-      "classes/*": ["classes/*"],
-      "types/*": ["types/*"]
-    }
+    "baseUrl": "./src"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"]
 }
