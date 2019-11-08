@@ -1,10 +1,10 @@
 import locale from 'date-fns/locale/en-US';
 import { startOfMonth, format } from 'date-fns';
 
-import { Caption } from './Caption';
-import { Day } from './Day';
-import { Navigation } from './Navigation';
-import { WeekNumber } from './WeekNumber';
+import { Caption } from '../Caption';
+import { Day } from '../Day';
+import { Navigation } from '../Navigation';
+import { WeekNumber } from '../WeekNumber';
 import { defaultClassNames } from './defaultClassNames';
 
 function formatDay(

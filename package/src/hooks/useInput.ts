@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { format, parse } from 'date-fns';
-import { defaultProps } from '../defaultProps';
+
+import { defaultProps } from '../components/DayPicker/defaultProps';
 
 function isValid(day: Date): boolean {
   return !isNaN(day.getTime());

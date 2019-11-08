@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getCaptionProps } from './helpers/getCaptionProps';
+import { getCaptionProps } from './getCaptionProps';
 
 export const Caption: React.FC<ReactDayPicker.CaptionProps> = ({
   month,

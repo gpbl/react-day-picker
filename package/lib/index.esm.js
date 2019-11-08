@@ -1,7 +1,131 @@
 import { __assign, __rest } from 'tslib';
+import { isSameDay, differenceInDays, isToday, startOfMonth, addMonths, differenceInMonths, format, startOfWeek, addDays, endOfWeek, endOfMonth, getWeek, getMonth, getWeeksInMonth, addWeeks, getUnixTime, getTime, parse } from 'date-fns';
 import { createElement, useState } from 'react';
-import { startOfMonth, addMonths, differenceInMonths, format, isSameDay, differenceInDays, isToday, startOfWeek, addDays, endOfWeek, endOfMonth, getWeek, getMonth, getWeeksInMonth, addWeeks, getUnixTime, getTime, parse } from 'date-fns';
 import locale from 'date-fns/locale/en-US';
+
+/**
+ * Return the `modifiers` prop including the modifiers from shortcut-props
+ * (`selected`, `disabled` and `hidden`)
+ */
+function getModifiersFromProps(props) {
+    var modifiers = Object.assign({}, props.modifiers);
+    if (props.selected) {
+        modifiers.selected = props.selected;
+    }
+    if (props.disabled) {
+        modifiers.disabled = props.disabled;
+    }
+    if (props.hidden) {
+        modifiers.hidden = props.hidden;
+    }
+    return modifiers;
+}
+
+/**
+ * Return true if `day1` is after `day2`.
+ */
+function isDayAfter(day1, day2) {
+    return differenceInDays(day1, day2) > 0;
+}
+/**
+ * Return true if `day1` is before `day2`.
+ */
+function isDayBefore(day1, day2) {
+    return differenceInDays(day1, day2) < 0;
+}
+/**
+ * Return `true` if a date matches the specified modifier.
+ */
+function matchModifier(day, modifier) {
+    if (!modifier) {
+        return false;
+    }
+    var modifiers;
+    if (Array.isArray(modifier)) {
+        modifiers = modifier;
+    }
+    else {
+        modifiers = [modifier];
+    }
+    return modifiers.some(function (modifier) {
+        if (!modifier) {
+            return false;
+        }
+        if (modifier instanceof Date) {
+            return isSameDay(day, modifier);
+        }
+        if ('after' in modifier &&
+            'before' in modifier &&
+            differenceInDays(modifier.before, modifier.after) > 0) {
+            return (isDayAfter(day, modifier.after) && isDayBefore(day, modifier.before));
+        }
+        if ('after' in modifier &&
+            'before' in modifier &&
+            (isDayAfter(modifier.after, modifier.before) ||
+                isSameDay(modifier.after, modifier.before))) {
+            return (isDayAfter(day, modifier.after) || isDayBefore(day, modifier.before));
+        }
+        if ('after' in modifier) {
+            return isDayAfter(day, modifier.after);
+        }
+        if ('before' in modifier) {
+            return isDayBefore(day, modifier.before);
+        }
+        if ('daysOfWeek' in modifier) {
+            return modifier.daysOfWeek.includes(day.getDay());
+        }
+        if (typeof modifier === 'function') {
+            return modifier(day);
+        }
+        return false;
+    });
+}
+
+/**
+ * Return the list of modifiers name matching the given day for the given
+ * modifiers.
+ */
+function listModifiers(day, modifiers) {
+    function reduceModifiers(previousValue, _a) {
+        var name = _a[0], modifier = _a[1];
+        if (matchModifier(day, modifier)) {
+            previousValue.push(name);
+        }
+        return previousValue;
+    }
+    return Object.entries(modifiers).reduce(reduceModifiers, []);
+}
+
+var defaultModifiers = {
+    disabled: false,
+    hidden: false,
+    interactive: true,
+    outside: '',
+    selected: undefined,
+    today: false,
+};
+var DateWithModifiers = /** @class */ (function () {
+    function DateWithModifiers(date, initialModifiers, props) {
+        if (initialModifiers === void 0) { initialModifiers = {}; }
+        this.date = date;
+        var modifiers = __assign(__assign(__assign({}, defaultModifiers), { today: isToday(date) }), initialModifiers);
+        if (modifiers.outside && !props.showOutsideDays) {
+            modifiers.hidden = true;
+        }
+        modifiers.disabled = Boolean(modifiers.outside && !props.enableOutsideDaysClick);
+        var modifiersFromProps = getModifiersFromProps(props);
+        var modifiersArray = listModifiers(date, modifiersFromProps);
+        modifiersArray.forEach(function (modifier) { return (modifiers[modifier] = true); });
+        if (!props.onDayClick || modifiers.hidden || modifiers.disabled) {
+            modifiers.interactive = false;
+        }
+        this.modifiers = modifiers;
+    }
+    DateWithModifiers.prototype.getModifier = function (name) {
+        return this.modifiers[name];
+    };
+    return DateWithModifiers;
+}());
 
 /**
  * Return props for the Caption component.
@@ -268,130 +392,6 @@ var defaultProps = {
     showWeekNumber: false,
 };
 
-/**
- * Return the `modifiers` prop including the modifiers from shortcut-props
- * (`selected`, `disabled` and `hidden`)
- */
-function getModifiersFromProps(props) {
-    var modifiers = Object.assign({}, props.modifiers);
-    if (props.selected) {
-        modifiers.selected = props.selected;
-    }
-    if (props.disabled) {
-        modifiers.disabled = props.disabled;
-    }
-    if (props.hidden) {
-        modifiers.hidden = props.hidden;
-    }
-    return modifiers;
-}
-
-/**
- * Return true if `day1` is after `day2`.
- */
-function isDayAfter(day1, day2) {
-    return differenceInDays(day1, day2) > 0;
-}
-/**
- * Return true if `day1` is before `day2`.
- */
-function isDayBefore(day1, day2) {
-    return differenceInDays(day1, day2) < 0;
-}
-/**
- * Return `true` if a date matches the specified modifier.
- */
-function matchModifier(day, modifier) {
-    if (!modifier) {
-        return false;
-    }
-    var modifiers;
-    if (Array.isArray(modifier)) {
-        modifiers = modifier;
-    }
-    else {
-        modifiers = [modifier];
-    }
-    return modifiers.some(function (modifier) {
-        if (!modifier) {
-            return false;
-        }
-        if (modifier instanceof Date) {
-            return isSameDay(day, modifier);
-        }
-        if ('after' in modifier &&
-            'before' in modifier &&
-            differenceInDays(modifier.before, modifier.after) > 0) {
-            return (isDayAfter(day, modifier.after) && isDayBefore(day, modifier.before));
-        }
-        if ('after' in modifier &&
-            'before' in modifier &&
-            (isDayAfter(modifier.after, modifier.before) ||
-                isSameDay(modifier.after, modifier.before))) {
-            return (isDayAfter(day, modifier.after) || isDayBefore(day, modifier.before));
-        }
-        if ('after' in modifier) {
-            return isDayAfter(day, modifier.after);
-        }
-        if ('before' in modifier) {
-            return isDayBefore(day, modifier.before);
-        }
-        if ('daysOfWeek' in modifier) {
-            return modifier.daysOfWeek.includes(day.getDay());
-        }
-        if (typeof modifier === 'function') {
-            return modifier(day);
-        }
-        return false;
-    });
-}
-
-/**
- * Return the list of modifiers name matching the given day for the given
- * modifiers.
- */
-function listModifiers(day, modifiers) {
-    function reduceModifiers(previousValue, _a) {
-        var name = _a[0], modifier = _a[1];
-        if (matchModifier(day, modifier)) {
-            previousValue.push(name);
-        }
-        return previousValue;
-    }
-    return Object.entries(modifiers).reduce(reduceModifiers, []);
-}
-
-var defaultModifiers = {
-    disabled: false,
-    hidden: false,
-    interactive: true,
-    outside: '',
-    selected: undefined,
-    today: false,
-};
-var DateWithModifiers = /** @class */ (function () {
-    function DateWithModifiers(date, initialModifiers, props) {
-        if (initialModifiers === void 0) { initialModifiers = {}; }
-        this.date = date;
-        var modifiers = __assign(__assign(__assign({}, defaultModifiers), { today: isToday(date) }), initialModifiers);
-        if (modifiers.outside && !props.showOutsideDays) {
-            modifiers.hidden = true;
-        }
-        modifiers.disabled = Boolean(modifiers.outside && !props.enableOutsideDaysClick);
-        var modifiersFromProps = getModifiersFromProps(props);
-        var modifiersArray = listModifiers(date, modifiersFromProps);
-        modifiersArray.forEach(function (modifier) { return (modifiers[modifier] = true); });
-        if (!props.onDayClick || modifiers.hidden || modifiers.disabled) {
-            modifiers.interactive = false;
-        }
-        this.modifiers = modifiers;
-    }
-    DateWithModifiers.prototype.getModifier = function (name) {
-        return this.modifiers[name];
-    };
-    return DateWithModifiers;
-}());
-
 function getOutsideStartDays(day, props) {
     var locale = props.locale;
     var days = [];
@@ -648,5 +648,5 @@ var useInput = function (initialSelectedDay, formatStr, _options) {
     ];
 };
 
-export { Caption, DateWithModifiers, Day, DayPicker, Head, Month, Navigation, Week, defaultClassNames, defaultProps, getCaptionProps, getDayProps, getMonths, getNavigation, getNavigationProps, getWeeks, useInput };
+export { Caption, DateWithModifiers, Day, DayPicker, Head, Month, Navigation, Week, WeekNumber, useInput };
 //# sourceMappingURL=index.esm.js.map

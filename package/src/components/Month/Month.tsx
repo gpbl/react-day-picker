@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { getWeeks } from './helpers/getWeeks';
-import { Head } from './Head';
-import { Week } from './Week';
+import { getWeeks } from './getWeeks';
+import { Head } from '../Head';
+import { Week } from '../Week';
 
 export const Month: React.FC<ReactDayPicker.MonthProps> = props => {
   const { month, dayPickerProps } = props;

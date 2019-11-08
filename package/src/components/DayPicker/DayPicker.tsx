@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { getTime, startOfMonth } from 'date-fns';
 
-import { getMonths } from './helpers/getMonths';
+import { getMonths } from './getMonths';
 import { defaultProps } from './defaultProps';
 
-import { Month } from './Month';
+import { Month } from '../Month';
 
-import { filterUndefinedProps } from './utils/filterUndefinedProps';
-import { DayPickerProps } from '../typings/react-day-picker';
+import { filterUndefinedProps } from './filterUndefinedProps';
 
-const DayPickerControlled: React.FC<DayPickerProps> = (
+const DayPickerControlled: React.FC<ReactDayPicker.DayPickerProps> = (
   initialProps = defaultProps
 ) => {
   // Extend props with defaults

@@ -9,9 +9,9 @@ import {
   startOfMonth,
 } from 'date-fns';
 
-import { DateWithModifiers } from '../DateWithModifiers';
-import { getOutsideStartDays } from '../utils/getOutsideStartDays';
-import { getOutsideEndDays } from '../utils/getOutsideEndDays';
+import { DateWithModifiers } from '../../classes/DateWithModifiers';
+import { getOutsideStartDays } from './getOutsideStartDays';
+import { getOutsideEndDays } from './getOutsideEndDays';
 
 type MonthWeeks = { [key: string]: DateWithModifiers[] };
 
