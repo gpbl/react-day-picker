@@ -14,6 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
+      - run: cd package
       - name: Install Dependencies
         run: yarn install
       - name: Lint files
@@ -24,6 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
+      - run: cd package
       - name: Install Dependencies
         run: yarn install
       # - name: Run Unit Tests
@@ -43,6 +45,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: cd package
       - name: Install Dependencies
         run: yarn install
       - name: Build
