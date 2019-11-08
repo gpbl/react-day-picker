@@ -27,7 +27,7 @@
   },
   "files": [
     "/lib",
-    "/typings/react-day-picker.d.ts"
+    "/src"
   ],
   "devDependencies": {
     "@babel/core": "^7.7.2",
