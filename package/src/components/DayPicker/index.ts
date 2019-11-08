@@ -1,1 +1,2 @@
-export { DayPicker } from './DayPicker';
+export * from './DayPicker';
+export * from './defaultProps';

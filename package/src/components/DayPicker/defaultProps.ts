@@ -1,30 +1,23 @@
 import locale from 'date-fns/locale/en-US';
 import { startOfMonth, format } from 'date-fns';
 
-import { Caption } from '../Caption';
-import { Day } from '../Day';
-import { Navigation } from '../Navigation';
-import { WeekNumber } from '../WeekNumber';
+import { FormatOptions, DayPickerProps } from 'types';
+import { Caption } from 'components/Caption/Caption';
+import { Day } from 'components/Day/Day';
+import { WeekNumber } from 'components/WeekNumber/WeekNumber';
+import { Navigation } from 'components/Navigation/Navigation';
+
 import { defaultClassNames } from './defaultClassNames';
 
-function formatDay(
-  day: Date,
-  formatOptions?: ReactDayPicker.FormatOptions
-): string {
+function formatDay(day: Date, formatOptions?: FormatOptions): string {
   return format(day, 'd', formatOptions);
 }
 
-function formatCaption(
-  month: Date,
-  formatOptions?: ReactDayPicker.FormatOptions
-): string {
+function formatCaption(month: Date, formatOptions?: FormatOptions): string {
   return format(month, 'LLLL Y', formatOptions);
 }
 
-function formatWeekdayName(
-  day: Date,
-  formatOptions?: ReactDayPicker.FormatOptions
-): string {
+function formatWeekdayName(day: Date, formatOptions?: FormatOptions): string {
   return format(day, 'E', formatOptions);
 }
 
@@ -32,7 +25,7 @@ function formatWeekNumber(weekNumber: number): string {
   return `${weekNumber}`;
 }
 
-export const defaultProps: ReactDayPicker.DayPickerProps = {
+export const defaultProps: DayPickerProps = {
   enableOutsideDaysClick: false,
   classNames: defaultClassNames,
   className: '',

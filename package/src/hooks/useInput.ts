@@ -1,18 +1,40 @@
 import * as React from 'react';
 import { format, parse } from 'date-fns';
 
-import { defaultProps } from '../components/DayPicker/defaultProps';
+import { defaultProps } from 'components';
+
+import {
+  DayClickEventHandler,
+  MonthChangeEventHandler,
+  MatchingModifiers,
+} from '../types';
 
 function isValid(day: Date): boolean {
   return !isNaN(day.getTime());
 }
 
-export const useInput: ReactDayPicker.useInput = (
-  initialSelectedDay,
-  formatStr,
-  _options
-) => {
-  const options: ReactDayPicker.UseInputOptions = {
+export type UseInputOptions = {
+  locale: Locale;
+  required: boolean;
+};
+export type useInput = (
+  initialValue: Date | undefined,
+  formatStr: string,
+  options?: UseInputOptions
+) => [
+  Date, // current month
+  Date | undefined, // selected day
+  string, // input value
+  {
+    onDayClick: DayClickEventHandler;
+    onChange: React.ChangeEventHandler<HTMLInputElement>;
+    onBlur: React.FocusEventHandler<HTMLInputElement>;
+    onMonthChange: MonthChangeEventHandler;
+  }
+];
+
+export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
+  const options: UseInputOptions = {
     locale: defaultProps.locale,
     required: false,
     ..._options,
@@ -73,10 +95,7 @@ export const useInput: ReactDayPicker.useInput = (
     if (onFocus) onFocus(e);
   }
 
-  function onDayClick(
-    day: Date,
-    modifiers: ReactDayPicker.MatchingModifiers
-  ): void {
+  function onDayClick(day: Date, modifiers: MatchingModifiers): void {
     if (modifiers.selected) {
       if (!options.required) {
         setSelectedDay(undefined);

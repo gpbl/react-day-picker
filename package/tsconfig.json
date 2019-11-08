@@ -13,13 +13,14 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "hooks/*": ["hooks/*"],
+      "classes/*": ["classes/*"],
+      "types/*": ["types/*"]
+    }
   },
-  "include": [
-    "rollup.config.js",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "typings/react-day-picker.d.ts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"]
 }

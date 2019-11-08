@@ -1,9 +1,30 @@
 import * as React from 'react';
-
+import { DayPickerProps } from 'types';
 import { getNavigation } from './getNavigation';
 import { getNavigationProps } from './getNavigationProps';
 
-export const Navigation: React.FC<ReactDayPicker.NavigationProps> = props => {
+export interface NavigationProps {
+  dayPickerProps: DayPickerProps;
+}
+
+export interface NavigationHtmlProps {
+  containerProps: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  nextProps: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  prevProps: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+}
+
+export type NavigationMonths = { nextMonth?: Date; prevMonth?: Date };
+
+export const Navigation: React.FC<NavigationProps> = props => {
   const { dayPickerProps } = props;
   const { onMonthChange, onPrevClick, onNextClick } = dayPickerProps;
 

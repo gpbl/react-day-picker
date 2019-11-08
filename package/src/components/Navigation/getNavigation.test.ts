@@ -1,6 +1,7 @@
 /* eslint-env jest */
-import { getNavigation } from './getNavigation';
 import { defaultProps } from '../DayPicker/defaultProps';
+import { getNavigation } from './getNavigation';
+import { NavigationMonths } from './Navigation';
 
 describe('getNavigation', () => {
   it('return next and previous months with default props', () => {
@@ -14,7 +15,7 @@ describe('getNavigation', () => {
     expect(result.prevMonth).toBeDefined();
   });
   it('return next and previous months for the specified month', () => {
-    const result: ReactDayPicker.NavigationMonths = getNavigation({
+    const result: NavigationMonths = getNavigation({
       ...defaultProps,
       month: new Date(2019, 8),
     });
@@ -22,7 +23,7 @@ describe('getNavigation', () => {
     expect(result.prevMonth && result.prevMonth.getMonth()).toBe(7);
   });
   it('respect the passed number of months', () => {
-    const result: ReactDayPicker.NavigationMonths = getNavigation({
+    const result: NavigationMonths = getNavigation({
       ...defaultProps,
       month: new Date(2019, 8),
       pagedNavigation: true,
@@ -32,7 +33,7 @@ describe('getNavigation', () => {
     expect(result.prevMonth && result.prevMonth.getMonth()).toBe(5);
   });
   it('returns undefined as prev month when fromMonth is set', () => {
-    const result: ReactDayPicker.NavigationMonths = getNavigation({
+    const result: NavigationMonths = getNavigation({
       ...defaultProps,
       month: new Date(2019, 8),
       fromMonth: new Date(2019, 8),
@@ -40,7 +41,7 @@ describe('getNavigation', () => {
     expect(result.prevMonth).toBeUndefined();
   });
   it('returns undefined as next month when toMonth is set', () => {
-    const result: ReactDayPicker.NavigationMonths = getNavigation({
+    const result: NavigationMonths = getNavigation({
       ...defaultProps,
       month: new Date(2019, 8),
       toMonth: new Date(2019, 8),
