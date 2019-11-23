@@ -6,6 +6,7 @@
   "homepage": "http://react-day-picker.js.org",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
+  "sideEffects": false,
   "typings": "typings/react-day-picker.d.ts",
   "license": "MIT",
   "repository": {
