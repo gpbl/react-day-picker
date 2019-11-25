@@ -119,7 +119,9 @@ describe('DayPickerInput', () => {
       wrapper.instance().showDayPicker();
       wrapper.update();
       expect(wrapper.find('.DayPicker-Day--selected')).toHaveLength(1);
-      expect(wrapper.find('.DayPicker-Day--selected')).toHaveText('15');
+      expect(wrapper.find('.DayPicker-Day--selected')).toHaveText(
+        'Fri Dec 15 201715'
+      );
     });
     it('should clear timeouts when component unmounts', () => {
       const container = document.createElement('div');

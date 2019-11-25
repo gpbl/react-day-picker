@@ -68,7 +68,7 @@ describe('DayPicker’s day modifiers', () => {
   it('should include "today"', () => {
     const wrapper = mount(<DayPicker />);
     expect(wrapper.find('.DayPicker-Day--today')).toHaveText(
-      new Date().getDate().toString()
+      `Mon Nov 25 2019${new Date().getDate().toString()}`
     );
   });
   it('should add custom modifiers', () => {
@@ -94,7 +94,7 @@ describe('DayPicker’s day modifiers', () => {
       <DayPicker initialMonth={new Date(2018, 2, 10)} modifiers={modifiers} />
     );
     expect(wrapper.find('.DayPicker-Day--today')).toHaveText(
-      newToday.getDate().toString()
+      `Sun Mar 11 2018${newToday.getDate().toString()}`
     );
   });
 });

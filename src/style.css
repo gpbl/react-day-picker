@@ -210,3 +210,16 @@
   background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
+
+/* DayPicker a11y helpers */
+
+.DayPicker-ScreenReaderOnly {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}

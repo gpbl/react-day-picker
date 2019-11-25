@@ -299,7 +299,9 @@ describe('DayPickerInput', () => {
           .simulate('click');
         expect(wrapper.find('input')).toHaveProp('value', '2017-2-8');
         expect(wrapper.find('.DayPicker-Caption')).toHaveText('February 2017');
-        expect(wrapper.find('.DayPicker-Day--selected')).toHaveText('8');
+        expect(wrapper.find('.DayPicker-Day--selected')).toHaveText(
+          'Wed Feb 08 20178'
+        );
       });
       it('should call `onDayChange` when clicking on a day', () => {
         const onDayChange = jest.fn();
@@ -474,8 +476,8 @@ describe('DayPickerInput', () => {
           .simulate('click');
         const selectedDays = wrapper.find('.DayPicker-Day--selected');
         expect(selectedDays).toHaveLength(2);
-        expect(selectedDays.at(0)).toHaveText('8');
-        expect(selectedDays.at(1)).toHaveText('9');
+        expect(selectedDays.at(0)).toHaveText('Wed Feb 08 20178');
+        expect(selectedDays.at(1)).toHaveText('Thu Feb 09 20179');
       });
       it('should use `dayPickerProps.selectedDays` after typing a valid day', () => {
         const wrapper = mount(
@@ -493,8 +495,8 @@ describe('DayPickerInput', () => {
           .simulate('change', { target: { value: '02/07/2017' } });
         const selectedDays = wrapper.find('.DayPicker-Day--selected');
         expect(selectedDays).toHaveLength(2);
-        expect(selectedDays.at(0)).toHaveText('8');
-        expect(selectedDays.at(1)).toHaveText('9');
+        expect(selectedDays.at(0)).toHaveText('Wed Feb 08 20178');
+        expect(selectedDays.at(1)).toHaveText('Thu Feb 09 20179');
       });
     });
 

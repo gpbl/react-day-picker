@@ -164,7 +164,9 @@ describe('DayPicker’s rendering', () => {
         renderDay={renderDay}
       />
     );
-    expect(wrapper.find('.DayPicker-Day').first()).toHaveText('bar');
+    expect(wrapper.find('.DayPicker-Day').first()).toHaveText(
+      'Sun Oct 27 2019bar'
+    );
   });
   it('should render a custom number of months', () => {
     const wrapper = render(<DayPicker numberOfMonths={3} />);
@@ -309,9 +311,15 @@ describe('DayPicker’s rendering', () => {
     const wrapper = mount(
       <DayPicker showOutsideDays initialMonth={new Date(2015, 6)} />
     );
-    expect(wrapper.find('.DayPicker-Day').at(0)).toHaveText('28');
-    expect(wrapper.find('.DayPicker-Day').at(1)).toHaveText('29');
-    expect(wrapper.find('.DayPicker-Day').at(2)).toHaveText('30');
+    expect(wrapper.find('.DayPicker-Day').at(0)).toHaveText(
+      'Sun Jun 28 201528'
+    );
+    expect(wrapper.find('.DayPicker-Day').at(1)).toHaveText(
+      'Mon Jun 29 201529'
+    );
+    expect(wrapper.find('.DayPicker-Day').at(2)).toHaveText(
+      'Tue Jun 30 201530'
+    );
   });
   it('should not allow tabbing to outside days', () => {
     const wrapper = mount(

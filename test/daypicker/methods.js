@@ -247,9 +247,9 @@ describe('DayPicker’s methods', () => {
         const previousNode = getDayNode(body, 0, 1);
         instance.focusPreviousDay(focusedNode);
 
-        expect(focusedNode.innerHTML).toBe('2');
-        expect(previousNode.innerHTML).toBe('1');
-        expect(document.activeElement.innerHTML).toBe('1');
+        expect(focusedNode.children[1].innerHTML).toBe('2');
+        expect(previousNode.children[1].innerHTML).toBe('1');
+        expect(document.activeElement.children[1].innerHTML).toBe('1');
         expect(instance.state.currentMonth.getMonth()).toBe(5);
       });
       it('should focus on the last day of the previous week', () => {
@@ -257,17 +257,17 @@ describe('DayPicker’s methods', () => {
         const previousNode = getDayNode(body, 0, 6);
         instance.focusPreviousDay(focusedNode);
 
-        expect(focusedNode.innerHTML).toBe('7');
-        expect(previousNode.innerHTML).toBe('6');
-        expect(document.activeElement.innerHTML).toBe('6');
+        expect(focusedNode.children[1].innerHTML).toBe('7');
+        expect(previousNode.children[1].innerHTML).toBe('6');
+        expect(document.activeElement.children[1].innerHTML).toBe('6');
         expect(instance.state.currentMonth.getMonth()).toBe(5);
       });
       it('should focus on the last day of the previous month', () => {
         const focusedNode = getDayNode(body, 0, 1);
         instance.focusPreviousDay(focusedNode);
 
-        expect(focusedNode.innerHTML).toBe('1');
-        expect(document.activeElement.innerHTML).toBe('31');
+        expect(focusedNode.children[1].innerHTML).toBe('1');
+        expect(document.activeElement.children[1].innerHTML).toBe('31');
         expect(instance.state.currentMonth.getMonth()).toBe(4);
       });
       it('should not throw an error when the node is not found', () => {
@@ -283,9 +283,9 @@ describe('DayPicker’s methods', () => {
         const nextNode = getDayNode(body, 0, 3);
         instance.focusNextDay(focusedNode);
 
-        expect(focusedNode.innerHTML).toBe('2');
-        expect(nextNode.innerHTML).toBe('3');
-        expect(document.activeElement.innerHTML).toBe('3');
+        expect(focusedNode.children[1].innerHTML).toBe('2');
+        expect(nextNode.children[1].innerHTML).toBe('3');
+        expect(document.activeElement.children[1].innerHTML).toBe('3');
         expect(instance.state.currentMonth.getMonth()).toBe(5);
       });
       it('should focus on the first day of the next week', () => {
@@ -293,17 +293,17 @@ describe('DayPicker’s methods', () => {
         const nextNode = getDayNode(body, 1, 0);
         instance.focusNextDay(focusedNode);
 
-        expect(focusedNode.innerHTML).toBe('6');
-        expect(nextNode.innerHTML).toBe('7');
-        expect(document.activeElement.innerHTML).toBe('7');
+        expect(focusedNode.children[1].innerHTML).toBe('6');
+        expect(nextNode.children[1].innerHTML).toBe('7');
+        expect(document.activeElement.children[1].innerHTML).toBe('7');
         expect(instance.state.currentMonth.getMonth()).toBe(5);
       });
       it('should focus on the first day of the next month', () => {
         const focusedNode = getDayNode(body, 4, 2);
         instance.focusNextDay(focusedNode);
 
-        expect(focusedNode.innerHTML).toBe('30');
-        expect(document.activeElement.innerHTML).toBe('1');
+        expect(focusedNode.children[1].innerHTML).toBe('30');
+        expect(document.activeElement.children[1].innerHTML).toBe('1');
         expect(instance.state.currentMonth.getMonth()).toBe(6);
       });
       it('should focus the first day of the next month after leapday', () => {
@@ -314,8 +314,8 @@ describe('DayPicker’s methods', () => {
         const focusedNode = getDayNode(body, 4, 1);
         instance.focusNextDay(focusedNode);
 
-        expect(focusedNode.innerHTML).toBe('29');
-        expect(document.activeElement.innerHTML).toBe('1');
+        expect(focusedNode.children[1].innerHTML).toBe('29');
+        expect(document.activeElement.children[1].innerHTML).toBe('1');
         expect(instance.state.currentMonth.getMonth()).toBe(2);
       });
       it('should not throw an error when the node is not found', () => {
@@ -330,23 +330,23 @@ describe('DayPicker’s methods', () => {
         const focusedNode = getDayNode(body, 2, 1);
         instance.focusNextWeek(focusedNode);
 
-        expect(focusedNode.innerHTML).toBe('15');
-        expect(document.activeElement.innerHTML).toBe('22');
+        expect(focusedNode.children[1].innerHTML).toBe('15');
+        expect(document.activeElement.children[1].innerHTML).toBe('22');
         expect(instance.state.currentMonth.getMonth()).toBe(5);
       });
       it('should focus on the same day of the next week in the next month', () => {
         const juneThirtieth = getDayNode(body, 4, 2);
-        expect(juneThirtieth.innerHTML).toBe('30');
+        expect(juneThirtieth.children[1].innerHTML).toBe('30');
 
         instance.focusNextWeek(juneThirtieth);
-        expect(document.activeElement.innerHTML).toBe('7');
+        expect(document.activeElement.children[1].innerHTML).toBe('7');
         expect(instance.state.currentMonth.getMonth()).toBe(6);
 
         const julyThirtyFirst = getDayNode(body, 4, 5);
-        expect(julyThirtyFirst.innerHTML).toBe('31');
+        expect(julyThirtyFirst.children[1].innerHTML).toBe('31');
 
         instance.focusNextWeek(julyThirtyFirst);
-        expect(document.activeElement.innerHTML).toBe('7');
+        expect(document.activeElement.children[1].innerHTML).toBe('7');
         expect(instance.state.currentMonth.getMonth()).toBe(7);
       });
     });
@@ -354,25 +354,25 @@ describe('DayPicker’s methods', () => {
     describe('focusPreviousWeek()', () => {
       it('should focus on the same day of the previous week', () => {
         const focusedNode = getDayNode(body, 2, 1);
-        expect(focusedNode.innerHTML).toBe('15');
+        expect(focusedNode.children[1].innerHTML).toBe('15');
 
         instance.focusPreviousWeek(focusedNode);
-        expect(document.activeElement.innerHTML).toBe('8');
+        expect(document.activeElement.children[1].innerHTML).toBe('8');
         expect(instance.state.currentMonth.getMonth()).toBe(5);
       });
       it('should focus on the same day of the previous week in the previous month', () => {
         const juneFirst = getDayNode(body, 0, 1);
-        expect(juneFirst.innerHTML).toBe('1');
+        expect(juneFirst.children[1].innerHTML).toBe('1');
 
         instance.focusPreviousWeek(juneFirst);
-        expect(document.activeElement.innerHTML).toBe('25');
+        expect(document.activeElement.children[1].innerHTML).toBe('25');
         expect(instance.state.currentMonth.getMonth()).toBe(4);
 
         const maySecond = getDayNode(body, 1, 0);
-        expect(maySecond.innerHTML).toBe('3');
+        expect(maySecond.children[1].innerHTML).toBe('3');
 
         instance.focusPreviousWeek(maySecond);
-        expect(document.activeElement.innerHTML).toBe('26');
+        expect(document.activeElement.children[1].innerHTML).toBe('26');
         expect(instance.state.currentMonth.getMonth()).toBe(3);
       });
     });

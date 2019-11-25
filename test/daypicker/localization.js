@@ -32,7 +32,7 @@ describe('DayPicker’s localization', () => {
       <DayPicker initialMonth={new Date(2015, 0)} firstDayOfWeek={1} />
     );
     expect(wrapper.find('.DayPicker-Weekday').first()).toHaveText('Mo');
-    expect(wrapper.find('.DayPicker-Day').at(3)).toHaveText('1');
+    expect(wrapper.find('.DayPicker-Day').at(3)).toHaveText('Thu Jan 01 20151');
   });
   it('should use the weekdaysShort prop to localize the weekday names', () => {
     const wrapper = mount(
