@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import DayPicker from '../../src/DayPicker';
+import * as LocaleUtils from '../../src/LocaleUtils';
 
 describe('DayPicker’s day modifiers', () => {
   it('should use `selectedDays` prop as `selected` modifier', () => {
@@ -66,9 +67,11 @@ describe('DayPicker’s day modifiers', () => {
     );
   });
   it('should include "today"', () => {
+    const today = new Date();
+    const formattedDate = LocaleUtils.formatDay(today);
     const wrapper = mount(<DayPicker />);
     expect(wrapper.find('.DayPicker-Day--today')).toHaveText(
-      `Mon Nov 25 2019${new Date().getDate().toString()}`
+      `${formattedDate}${today.getDate().toString()}`
     );
   });
   it('should add custom modifiers', () => {
