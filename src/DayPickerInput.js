@@ -430,8 +430,9 @@ export default class DayPickerInput extends React.Component {
     const day = parseDate(value, format, dayPickerProps.locale);
     if (!day) {
       // Day is invalid: we save the value in the typedValue state
-      this.setState({ value, typedValue: value });
-      if (onDayChange) onDayChange(undefined, {}, this);
+      this.setState({ value, typedValue: value }, () => {
+        if (onDayChange) onDayChange(undefined, {}, this);
+      });
       return;
     }
     this.updateState(day, value);
