@@ -26,9 +26,9 @@ export interface LocaleUtils {
     string
   ];
   parseDate(str: string, format?: string, locale?: string): Date;
-}
+};
 
-export type DateUtils = {
+export const DateUtils: {
   addDayToRange(day: Date, range: RangeModifier): RangeModifier;
   addMonths(d: Date, n: number): Date;
   clone(d: Date): Date;
@@ -43,7 +43,7 @@ export type DateUtils = {
   isSameMonth(day1: Date, day2: Date): boolean;
 };
 
-export type ModifiersUtils = {
+export const ModifiersUtils: {
   dayMatchesModifier(day: Date, modifier?: Modifier | Modifier[]): boolean;
   getModifiersForDay(
     day: Date,

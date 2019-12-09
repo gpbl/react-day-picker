@@ -1,2 +1,5 @@
+// TypeScript Version: 3.1
+
 import { LocaleUtils } from './utils';
-export type MomentLocaleUtils = LocaleUtils;
+
+export const MomentLocaleUtils: typeof LocaleUtils;
