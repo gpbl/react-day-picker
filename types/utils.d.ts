@@ -2,7 +2,7 @@
 
 import { RangeModifier, Modifier } from './common';
 
-export interface LocaleUtils {
+export const LocaleUtils: {
   formatDate(date: Date, format?: string | string[], locale?: string): string;
   formatDay(day: Date, locale?: string): string;
   formatMonthTitle(month: Date, locale?: string): string;
