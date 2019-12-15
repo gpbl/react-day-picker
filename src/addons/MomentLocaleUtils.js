@@ -15,35 +15,19 @@ export function formatMonthTitle(date, locale = 'en') {
 }
 
 export function formatWeekdayShort(day, locale = 'en') {
-  return moment()
-    .locale(locale)
-    ._locale.weekdaysMin()[day];
+  return moment.localeData(locale).weekdaysMin()[day];
 }
 
 export function formatWeekdayLong(day, locale = 'en') {
-  return moment()
-    .locale(locale)
-    ._locale.weekdays()[day];
+  return moment.localeData(locale).weekdays()[day];
 }
 
 export function getFirstDayOfWeek(locale = 'en') {
-  const localeData = moment.localeData(locale);
-  return localeData.firstDayOfWeek();
+  return moment.localeData(locale).firstDayOfWeek();
 }
 
 export function getMonths(locale = 'en') {
-  const months = [];
-  let i = 0;
-  while (i < 12) {
-    months.push(
-      moment()
-        .locale(locale)
-        .month(i)
-        .format('MMMM')
-    );
-    i += 1;
-  }
-  return months;
+  return moment.localeData(locale).months();
 }
 
 export function formatDate(date, format = 'L', locale = 'en') {
