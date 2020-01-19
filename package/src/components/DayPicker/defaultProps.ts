@@ -3,10 +3,10 @@ import { startOfMonth, format } from "date-fns";
 
 import { FormatOptions, DayPickerProps } from "../DayPicker";
 
-import { Caption } from "components/Caption";
-import { Day } from "components/Day";
-import { WeekNumber } from "components/WeekNumber";
-import { Navigation } from "components/Navigation";
+import { Caption } from "../Caption";
+import { Day } from "../Day";
+import { WeekNumber } from "../WeekNumber";
+import { Navigation } from "../Navigation";
 
 import { defaultClassNames } from "./defaultClassNames";
 

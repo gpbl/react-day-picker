@@ -32,7 +32,7 @@
 
     // Type-checking Options
     "strict": true,
-    "typeRoots": ["./types"],
+    // "typeRoots": ["./types"],
 
     // Linting Options
     "noImplicitAny": true,
@@ -40,6 +40,5 @@
     "noUnusedLocals": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "include": ["src/**/*", "types/**/*"],
-  "exclude": ["src/**/*.test.ts"]
+  "include": ["src/**/*", "types/**/*"]
 }
