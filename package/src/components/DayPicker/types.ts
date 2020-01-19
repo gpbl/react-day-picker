@@ -1,14 +1,177 @@
-import { CaptionProps } from "../components/Caption/Caption";
-import { DayProps } from "../components/Day/Day";
-import { WeekNumberProps } from "../components/WeekNumber/WeekNumber";
-import { NavigationProps } from "../components/Navigation/Navigation";
-import {
-  ModifiersClassNames,
-  ModifiersStyles,
-  Modifier,
-  Modifiers,
-  MatchingModifiers
-} from "./Modifiers";
+import { CaptionProps } from "../Caption";
+import { DayProps } from "../Day";
+import { WeekNumberProps } from "../WeekNumber";
+import { NavigationProps } from "../Navigation";
+
+export interface Styles {
+  container?: React.CSSProperties;
+  caption?: React.CSSProperties;
+
+  // Day Component
+  day?: React.CSSProperties;
+  dayWrapper?: React.CSSProperties;
+
+  // Modifiers
+  selected?: React.CSSProperties;
+  disabled?: React.CSSProperties;
+  today?: React.CSSProperties;
+  outside?: React.CSSProperties;
+
+  // Month Component
+  month?: React.CSSProperties;
+  monthTable?: React.CSSProperties;
+  monthTbody?: React.CSSProperties;
+  months?: React.CSSProperties;
+
+  // Head Component
+  head?: React.CSSProperties;
+  headRow?: React.CSSProperties;
+  headWeekNumber?: React.CSSProperties;
+  headWeekName?: React.CSSProperties;
+
+  // Navigation Component
+  nav?: React.CSSProperties;
+  navPrev?: React.CSSProperties;
+  navNext?: React.CSSProperties;
+
+  // Week Component
+  week?: React.CSSProperties;
+  weekWeeknumber?: React.CSSProperties;
+  weekDay?: React.CSSProperties;
+
+  // WeekNumber Component
+  weekNumber?: React.CSSProperties;
+  [key: string]: React.CSSProperties | undefined;
+}
+
+export interface ClassNames {
+  /* Container element */
+  container?: string;
+  caption?: string;
+  // Day Component
+  day?: string;
+  dayWrapper?: string;
+  // Modifiers
+  selected?: string;
+  disabled?: string;
+  today?: string;
+  outside?: string;
+  // Month Component
+  month?: string;
+  monthTable?: string;
+  monthTbody?: string;
+  months?: string;
+  // Head Components
+  head?: string;
+  headRow?: string;
+  headWeekNumber?: string;
+  headWeekName?: string;
+  // Navigation Component
+  nav?: string;
+  navPrev?: string;
+  navNext?: string;
+  // Week Component
+  week?: string;
+  weekWeeknumber?: string;
+  weekDay?: string;
+  // WeekNumber Component
+  weekNumber?: string;
+  [key: string]: string | undefined;
+}
+
+export interface RangeModifier {
+  from: Date;
+  to: Date;
+}
+
+export interface BeforeModifier {
+  before: Date;
+}
+
+export interface AfterModifier {
+  after: Date;
+}
+
+export interface BeforeAfterModifier {
+  after: Date;
+  before: Date;
+}
+
+export interface DaysOfWeekModifier {
+  daysOfWeek: number[];
+}
+
+export type FunctionModifier = (date: Date) => boolean;
+
+export interface ModifiersClassNames {
+  [other: string]: string;
+}
+
+export interface ModifiersStyles {
+  [other: string]: React.CSSProperties;
+}
+
+export type ModifierValueType = string | boolean | undefined;
+
+export interface MatchingModifiers {
+  disabled: boolean;
+  hidden: boolean;
+  outside: string;
+  selected: boolean | undefined;
+  today: boolean;
+  interactive: boolean;
+  [key: string]: ModifierValueType | undefined;
+}
+
+export type Modifier =
+  | Date
+  | RangeModifier
+  | BeforeModifier
+  | AfterModifier
+  | BeforeAfterModifier
+  | DaysOfWeekModifier
+  | FunctionModifier
+  | Modifier[];
+
+export interface Modifiers {
+  disabled: Modifier | Modifier[];
+  hidden: Modifier | Modifier[];
+  outside: Modifier | Modifier[];
+  selected: Modifier | Modifier[];
+  today: Modifier | Modifier[];
+  [other: string]: Modifier | Modifier[];
+}
+
+export interface Components {
+  Caption: React.ComponentType<CaptionProps>;
+  Day: React.ComponentType<DayProps>;
+  Navigation: React.ComponentType<NavigationProps>;
+  WeekNumber: React.ComponentType<WeekNumberProps>;
+}
+
+export interface FormatOptions {
+  locale?: Locale;
+}
+export type CaptionFormatter = (month: Date, options?: FormatOptions) => string;
+export type DayFormatter = (day: Date, options?: FormatOptions) => string;
+export type WeekNumberFormatter = (
+  weekNumber: number,
+  options?: FormatOptions
+) => string;
+export type WeekdayNameFormatter = (
+  day: Date,
+  options?: FormatOptions
+) => string;
+
+export type DayClickEventHandler = (
+  day: Date,
+  modifiers: MatchingModifiers,
+  e: React.MouseEvent
+) => void;
+export type MonthChangeEventHandler = (
+  month: Date,
+  e: React.MouseEvent
+) => void;
 
 export interface DayPickerProps {
   // #region CLASSNAMES
@@ -193,116 +356,4 @@ export interface DayPickerProps {
    */
   onPrevClick?: MonthChangeEventHandler;
   // #endregion
-}
-
-export type CaptionFormatter = (month: Date, options?: FormatOptions) => string;
-
-export type DayFormatter = (day: Date, options?: FormatOptions) => string;
-
-export type WeekNumberFormatter = (
-  weekNumber: number,
-  options?: FormatOptions
-) => string;
-
-export type WeekdayNameFormatter = (
-  day: Date,
-  options?: FormatOptions
-) => string;
-
-export type DayClickEventHandler = (
-  day: Date,
-  modifiers: MatchingModifiers,
-  e: React.MouseEvent
-) => void;
-
-export type MonthChangeEventHandler = (
-  month: Date,
-  e: React.MouseEvent
-) => void;
-
-export interface ClassNames {
-  /* Container element */
-  container?: string;
-  caption?: string;
-  // Day Component
-  day?: string;
-  dayWrapper?: string;
-  // Modifiers
-  selected?: string;
-  disabled?: string;
-  today?: string;
-  outside?: string;
-  // Month Component
-  month?: string;
-  monthTable?: string;
-  monthTbody?: string;
-  months?: string;
-  // Head Components
-  head?: string;
-  headRow?: string;
-  headWeekNumber?: string;
-  headWeekName?: string;
-  // Navigation Component
-  nav?: string;
-  navPrev?: string;
-  navNext?: string;
-  // Week Component
-  week?: string;
-  weekWeeknumber?: string;
-  weekDay?: string;
-  // WeekNumber Component
-  weekNumber?: string;
-  [key: string]: string | undefined;
-}
-
-export interface Components {
-  Caption: React.ComponentType<CaptionProps>;
-  Day: React.ComponentType<DayProps>;
-  Navigation: React.ComponentType<NavigationProps>;
-  WeekNumber: React.ComponentType<WeekNumberProps>;
-}
-
-export interface FormatOptions {
-  locale?: Locale;
-}
-
-export interface Styles {
-  container?: React.CSSProperties;
-  caption?: React.CSSProperties;
-
-  // Day Component
-  day?: React.CSSProperties;
-  dayWrapper?: React.CSSProperties;
-
-  // Modifiers
-  selected?: React.CSSProperties;
-  disabled?: React.CSSProperties;
-  today?: React.CSSProperties;
-  outside?: React.CSSProperties;
-
-  // Month Component
-  month?: React.CSSProperties;
-  monthTable?: React.CSSProperties;
-  monthTbody?: React.CSSProperties;
-  months?: React.CSSProperties;
-
-  // Head Component
-  head?: React.CSSProperties;
-  headRow?: React.CSSProperties;
-  headWeekNumber?: React.CSSProperties;
-  headWeekName?: React.CSSProperties;
-
-  // Navigation Component
-  nav?: React.CSSProperties;
-  navPrev?: React.CSSProperties;
-  navNext?: React.CSSProperties;
-
-  // Week Component
-  week?: React.CSSProperties;
-  weekWeeknumber?: React.CSSProperties;
-  weekDay?: React.CSSProperties;
-
-  // WeekNumber Component
-  weekNumber?: React.CSSProperties;
-  [key: string]: React.CSSProperties | undefined;
 }

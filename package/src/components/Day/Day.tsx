@@ -1,6 +1,7 @@
 import * as React from "react";
-import { DayPickerProps, MatchingModifiers } from "../../types";
+
 import { getDayProps } from "./getDayProps";
+import { MatchingModifiers, DayPickerProps } from "../DayPicker";
 
 export interface DayProps {
   day: Date;
