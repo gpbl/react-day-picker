@@ -1,4 +1,4 @@
-name: Node CI
+name: react-day-picker
 
 on:
   pull_request:
@@ -15,11 +15,9 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
       - name: Install Dependencies
-        working-directory: ./package
         run: yarn install
       - name: Lint files
-        working-directory: ./package
-        run: yarn lint
+        run: yarn workspace react-day-picker lint
 
   test:
     runs-on: ubuntu-latest
@@ -27,20 +25,15 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
       - name: Install Dependencies
-        working-directory: ./package
         run: yarn install
-      # - name: Run Unit Tests
-      #   working-directory: ./package
-      #   run: yarn coverage
+      - name: Run Unit Tests
+        run: yarn workspace react-day-picker coverage
 
   build:
-    needs: [test, lint]
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [12.x]
-
+        node-version: [10.x, 12.x]
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
@@ -48,8 +41,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
-        working-directory: ./package
         run: yarn install
       - name: Build
-        working-directory: ./package
-        run: yarn build
+        run: yarn workspace react-day-picker build

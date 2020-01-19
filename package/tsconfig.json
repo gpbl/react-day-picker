@@ -1,20 +1,44 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
-    "outDir": "lib",
+    // Code Emit Options
+    "target": "ES5", // target IE10
     "module": "ES2015",
-    "target": "es5",
-    "lib": ["es6", "dom"],
-    "sourceMap": true,
-    "allowJs": false,
-    "jsx": "react",
-    "moduleResolution": "node",
-    "rootDir": "src",
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
     "esModuleInterop": true,
-    "baseUrl": "./src"
+    "jsx": "react",
+    "sourceMap": true,
+    "removeComments": false,
+    "declaration": true,
+    "pretty": true,
+
+    // Emit Location Options
+    "outDir": "./lib",
+    "rootDir": "./src",
+
+    // Library Options
+    "lib": ["es5", "es6", "es7", "es2017", "dom"],
+
+    // File Inclusion Options
+    "allowJs": false,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+
+    // Module Resolution Options
+    "baseUrl": "./src",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+
+    // Type-checking Options
+    "strict": true,
+    // "typeRoots": ["./types"],
+
+    // Linting Options
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "suppressImplicitAnyIndexErrors": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "types/**/*"]
 }

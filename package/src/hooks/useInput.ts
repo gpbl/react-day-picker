@@ -1,13 +1,12 @@
 import * as React from "react";
 import { format, parse } from "date-fns";
 
-import { defaultProps } from "../components/DayPicker";
-
 import {
+  defaultProps,
   DayClickEventHandler,
   MonthChangeEventHandler,
   MatchingModifiers
-} from "../types";
+} from "../components/DayPicker";
 
 function isValid(day: Date): boolean {
   return !isNaN(day.getTime());

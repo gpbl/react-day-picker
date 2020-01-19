@@ -1,11 +1,12 @@
 import locale from "date-fns/locale/en-US";
 import { startOfMonth, format } from "date-fns";
 
-import { FormatOptions, DayPickerProps } from "../../types";
-import { Caption } from "../Caption/Caption";
-import { Day } from "../Day/Day";
-import { WeekNumber } from "../WeekNumber/WeekNumber";
-import { Navigation } from "../Navigation/Navigation";
+import { FormatOptions, DayPickerProps } from "../DayPicker";
+
+import { Caption } from "../Caption";
+import { Day } from "../Day";
+import { WeekNumber } from "../WeekNumber";
+import { Navigation } from "../Navigation";
 
 import { defaultClassNames } from "./defaultClassNames";
 

@@ -4,9 +4,6 @@
   "description": "Flexible Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.org>",
   "homepage": "http://react-day-picker.js.org",
-  "main": "lib/index.js",
-  "module": "lib/index.esm.js",
-  "typings": "typings/react-day-picker.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -15,34 +12,36 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-react-day-picker/issues"
   },
-  "types": "./src/types",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "lint": "eslint src --ext .ts,.tsx",
     "lint-types": "tsc --project ./tsconfig.json --noEmit",
     "prebuild": "rm -rf lib",
-    "build": "rollup -c",
+    "build": "tsc && rollup -c",
+    "develop": "tsc --watch",
     "test": "jest",
     "test:watch": "jest --watchAll --coverage",
     "coverage": "jest --coverage"
   },
   "files": [
-    "/lib",
-    "/src"
+    "lib",
+    "types"
   ],
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@rollup/plugin-alias": "*",
-    "@rollup/plugin-replace": "^2.2.0",
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@rollup/plugin-typescript": "^2.1.0",
     "@testing-library/jest-dom": "^4.2.3",
     "@testing-library/react": "^9.3.2",
-    "@types/jest": "^24.0.22",
+    "@types/jest": "^24.9.0",
     "@types/react": "^16.9.11",
     "@typescript-eslint/eslint-plugin": "^2.6.1",
     "@typescript-eslint/parser": "^2.6.1",
-    "@zerollup/ts-transform-paths": "^1.7.4",
     "date-fns": "^2.6.0",
     "debug": "^4.1.1",
-    "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.18.2",
@@ -56,21 +55,16 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "rollup": "^1.26.3",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.1.0",
     "rollup-plugin-filesize": "^6.2.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-size-snapshot": "^0.10.0",
-    "rollup-plugin-strip-prop-types": "^1.0.2",
     "rollup-plugin-terser": "^5.1.2",
-    "rollup-plugin-typescript2": "^0.25.2",
     "ts-jest": "^24.1.0",
     "tslib": "^1.10.0",
     "typescript": "^3.7.2"
   },
   "dependencies": {
-    "date-fns": "^2.6.0"
+    "date-fns": "^2.6.0",
+    "eslint": "^6.8.0"
   },
   "peerDependencies": {
     "react": "^16.8.0"

@@ -1,4 +1,4 @@
-import { DayPickerProps } from "../../types";
+import { DayPickerProps } from "../DayPicker";
 import { NavigationHtmlProps } from "./Navigation";
 
 /**

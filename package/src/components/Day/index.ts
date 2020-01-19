@@ -1,2 +1,2 @@
 export * from "./Day";
-export * from "./getDayProps";
+export { getDayProps } from "./getDayProps";

@@ -1,1 +1,1 @@
-export * from "./DateWithModifiers";
+export { DateWithModifiers } from "./DateWithModifiers";

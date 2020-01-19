@@ -1,12 +1,11 @@
 import { isToday } from "date-fns";
-import { MatchingModifiers, ModifierValueType, DayPickerProps } from "../types";
 import { getModifiersFromProps } from "./utils/getModifiersFromProps";
 import { listModifiers } from "./utils/listModifiers";
-
-export interface DateWithModifiers {
-  date: Date;
-  modifiers: MatchingModifiers;
-}
+import {
+  MatchingModifiers,
+  DayPickerProps,
+  ModifierValueType
+} from "../components/DayPicker";
 
 const defaultModifiers: MatchingModifiers = {
   disabled: false,

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { getUnixTime } from "date-fns";
-import { DayPickerProps } from "../../types";
+import { DayPickerProps } from "../DayPicker";
 import { DateWithModifiers } from "../../classes";
 
 export interface WeekProps {
