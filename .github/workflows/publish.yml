@@ -1,6 +1,6 @@
 # TODO
 
-name: Publish
+name: react-day-picker publish
 
 on:
   release:
