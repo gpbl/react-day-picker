@@ -25,10 +25,8 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
       - name: Install Dependencies
-        working-directory: ./package
         run: yarn install
       - name: Run Unit Tests
-        working-directory: ./package
         run: yarn workspace react-day-picker coverage
 
   build:
