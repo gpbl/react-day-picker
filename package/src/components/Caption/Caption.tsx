@@ -1,6 +1,6 @@
 import * as React from "react";
-import { DayPickerProps } from "../../types";
 import { getCaptionProps } from "./getCaptionProps";
+import { DayPickerProps } from "../DayPicker";
 
 export interface CaptionProps {
   month: Date;

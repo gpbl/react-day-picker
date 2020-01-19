@@ -1,2 +1,2 @@
 export * from "./Caption";
-export * from "./getCaptionProps";
+export { getCaptionProps } from "./getCaptionProps";

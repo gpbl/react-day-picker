@@ -1,14 +1,15 @@
 import { isSameDay, differenceInDays } from "date-fns";
-import { Modifier } from "../../types";
+import { Modifier } from "../../components/DayPicker";
+
 /**
- * Return true if `day1` is after `day2`.
+ * Return `true` if `day1` is after and not same as `day2`.
  */
 function isDayAfter(day1: Date, day2: Date): boolean {
   return differenceInDays(day1, day2) > 0;
 }
 
 /**
- * Return true if `day1` is before `day2`.
+ * Return `true` if `day1` is before and not same as `day2`.
  */
 function isDayBefore(day1: Date, day2: Date): boolean {
   return differenceInDays(day1, day2) < 0;

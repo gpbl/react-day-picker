@@ -1,6 +1,6 @@
 import { endOfWeek, differenceInDays, addDays } from "date-fns";
 import { DateWithModifiers } from "../../classes";
-import { DayPickerProps } from "../../types";
+import { DayPickerProps } from "../DayPicker";
 
 export function getOutsideEndDays(
   day: DateWithModifiers,

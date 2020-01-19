@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DayPickerProps } from "../../types";
+import { DayPickerProps } from "../DayPicker";
 import { getWeekdaysNames } from "./getWeekdaysNames";
 
 export interface HeadProps {

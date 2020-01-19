@@ -2,7 +2,7 @@ import {
   MatchingModifiers,
   DayPickerProps,
   ModifierValueType
-} from "../../types";
+} from "../DayPicker";
 import { DayHtmlProps } from "./Day";
 
 /**

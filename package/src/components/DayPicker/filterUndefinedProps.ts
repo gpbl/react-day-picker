@@ -8,7 +8,8 @@ export function filterUndefinedProps(obj: {
 }): { [index: string]: any } {
   if (!obj) return {};
   const clean: { [index: string]: any } = {};
-  Object.entries(obj).forEach(([key, value]) => {
+
+  Object.entries(obj).forEach(([key, value]: [string, any]) => {
     if (typeof value === "undefined") {
       return;
     }

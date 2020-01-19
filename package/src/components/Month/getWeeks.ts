@@ -9,7 +9,7 @@ import {
   startOfMonth
 } from "date-fns";
 import { DateWithModifiers } from "../../classes";
-import { DayPickerProps } from "../../types";
+import { DayPickerProps } from "../DayPicker";
 import { getOutsideStartDays } from "./getOutsideStartDays";
 import { getOutsideEndDays } from "./getOutsideEndDays";
 
