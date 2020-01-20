@@ -1,8 +1,11 @@
 import { DayPickerProps } from "../DayPicker";
-import { NavigationHtmlProps } from "./Navigation";
+import { NavigationHtmlProps } from "../../types/Navigation";
 
 /**
  * Return the props for the Navigation component and its children.
+ *
+ * @category Swizzle Helpers
+ * @private
  */
 export function getNavigationProps(props: DayPickerProps): NavigationHtmlProps {
   const { classNames, styles } = props;

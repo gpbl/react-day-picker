@@ -1,0 +1,5 @@
+{
+  "mode": "file",
+  "out": "docs",
+  "exclude": "**/*+(index|.spec|.e2e).ts"
+}
