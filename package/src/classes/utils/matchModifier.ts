@@ -3,6 +3,8 @@ import { Modifier } from "../../components/DayPicker";
 
 /**
  * Return `true` if `day1` is after and not same as `day2`.
+ *
+ * @category Modifiers
  */
 function isDayAfter(day1: Date, day2: Date): boolean {
   return differenceInDays(day1, day2) > 0;
@@ -10,6 +12,8 @@ function isDayAfter(day1: Date, day2: Date): boolean {
 
 /**
  * Return `true` if `day1` is before and not same as `day2`.
+ *
+ * @category Modifiers
  */
 function isDayBefore(day1: Date, day2: Date): boolean {
   return differenceInDays(day1, day2) < 0;
@@ -17,6 +21,8 @@ function isDayBefore(day1: Date, day2: Date): boolean {
 
 /**
  * Return `true` if a date matches the specified modifier.
+ *
+ * @category Modifiers
  */
 export function matchModifier(day: Date, modifier: Modifier): boolean {
   if (!modifier) {

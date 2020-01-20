@@ -1,16 +1,21 @@
 import React from "react";
-import { Month } from "components/Month/Month";
-
-import { getMonths } from "./getMonths";
-import { defaultProps } from "./defaultProps";
-import { filterUndefinedProps } from "./filterUndefinedProps";
-
+import { Month } from "../Month/Month";
 import { getTime } from "date-fns";
-import { DayPickerProps, Components, ClassNames } from "./DayPicker";
 
-export const DayPickerControlled: React.FC<DayPickerProps> = (
-  initialProps = defaultProps
-) => {
+import { getMonths } from "./helpers/getMonths";
+import { filterUndefinedProps } from "./helpers/filterUndefinedProps";
+
+import { DayPickerProps, Components } from "../../types/DayPicker";
+import { ClassNames } from "../../types/ClassNames";
+
+import { defaultProps } from "./defaultProps";
+/**
+ * Render...
+ *
+ * @private
+ * @category Components
+ */
+export function DayPickerControlled(initialProps = defaultProps): JSX.Element {
   // Extend props with defaults
   const components: Components = {
     ...defaultProps.components,
@@ -54,4 +59,4 @@ export const DayPickerControlled: React.FC<DayPickerProps> = (
       </div>
     </div>
   );
-};
+}

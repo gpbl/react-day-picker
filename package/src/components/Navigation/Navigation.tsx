@@ -1,30 +1,20 @@
 import * as React from "react";
-import { DayPickerProps } from "../DayPicker";
 import { getNavigation } from "./getNavigation";
 import { getNavigationProps } from "./getNavigationProps";
+import { NavigationProps } from "../../types/Navigation";
 
-export interface NavigationProps {
-  dayPickerProps: DayPickerProps;
-}
-
-export interface NavigationHtmlProps {
-  containerProps: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  nextProps: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  prevProps: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-}
-
-export type NavigationMonths = { nextMonth?: Date; prevMonth?: Date };
-
-export const Navigation: React.FC<NavigationProps> = props => {
+/**
+ * The `Navigation` component renders....
+ *
+ * #### Use with DayPicker
+ *
+ * - Swizzle this component using the {@link components} prop and the
+ *   {@link getNavigationProps} helper.
+ *
+ * @category Components
+ * @private
+ */
+export function Navigation(props: NavigationProps): JSX.Element | null {
   const { dayPickerProps } = props;
   const { onMonthChange, onPrevClick, onNextClick } = dayPickerProps;
 
@@ -76,4 +66,4 @@ export const Navigation: React.FC<NavigationProps> = props => {
     buttons = buttons.reverse();
   }
   return <div {...containerProps}>{buttons}</div>;
-};
+}

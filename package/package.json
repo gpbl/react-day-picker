@@ -60,6 +60,7 @@
     "rollup-plugin-terser": "^5.1.2",
     "ts-jest": "^24.1.0",
     "tslib": "^1.10.0",
+    "typedoc": "^0.16.7",
     "typescript": "^3.7.2"
   },
   "dependencies": {

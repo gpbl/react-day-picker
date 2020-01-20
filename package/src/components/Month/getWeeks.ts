@@ -13,11 +13,17 @@ import { DayPickerProps } from "../DayPicker";
 import { getOutsideStartDays } from "./getOutsideStartDays";
 import { getOutsideEndDays } from "./getOutsideEndDays";
 
+/**
+ * @ignore
+ */
 type MonthWeeks = { [key: string]: DateWithModifiers[] };
 
 /**
  * Return the weeks for the given month. Each key of the returned object is the
  * week number.
+ *
+ * @private
+ * @category Components
  */
 export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
   const { locale, fixedWeeks } = props;

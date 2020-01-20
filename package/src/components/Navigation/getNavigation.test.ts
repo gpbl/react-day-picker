@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import { defaultProps } from "../DayPicker/defaultProps";
 import { getNavigation } from "./getNavigation";
-import { NavigationMonths } from "./Navigation";
+import { NavigationMonths } from "../../types/Navigation";
 
 describe("getNavigation", () => {
   it("return next and previous months with default props", () => {

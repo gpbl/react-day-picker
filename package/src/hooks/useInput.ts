@@ -1,21 +1,33 @@
 import * as React from "react";
-import { format, parse } from "date-fns";
+import * as DateFns from "date-fns";
 
 import {
-  defaultProps,
   DayClickEventHandler,
   MonthChangeEventHandler,
   MatchingModifiers
 } from "../components/DayPicker";
 
+import { defaultProps } from "../components/DayPicker/defaultProps";
+
+/**
+ * @category Hooks
+ * @ignore
+ */
 function isValid(day: Date): boolean {
   return !isNaN(day.getTime());
 }
 
+/**
+ * @category Hooks
+ */
 export type UseInputOptions = {
-  locale: Locale;
+  locale: DateFns.Locale;
   required: boolean;
 };
+
+/**
+ * @category Hooks
+ */
 export type useInput = (
   initialValue: Date | undefined,
   formatStr: string,
@@ -32,6 +44,9 @@ export type useInput = (
   }
 ];
 
+/**
+ * @category Hooks
+ */
 export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
   const options: UseInputOptions = {
     locale: defaultProps.locale,
@@ -40,7 +55,7 @@ export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
   };
 
   const initialInputValue = initialSelectedDay
-    ? format(initialSelectedDay, formatStr, options)
+    ? DateFns.format(initialSelectedDay, formatStr, options)
     : "";
 
   const [selectedDay, setSelectedDay] = React.useState<Date | undefined>(
@@ -54,7 +69,7 @@ export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
   function onChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const el = e.target;
     setInputValue(el.value);
-    const day = parse(el.value, formatStr, new Date(), options);
+    const day = DateFns.parse(el.value, formatStr, new Date(), options);
     if (!isValid(day)) {
       setSelectedDay(undefined);
       return;
@@ -65,7 +80,7 @@ export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
 
   function onBlur(e: React.FocusEvent<HTMLInputElement>): void {
     const el = e.target;
-    const day = parse(el.value, formatStr, new Date(), options);
+    const day = DateFns.parse(el.value, formatStr, new Date(), options);
     if (isValid(day) || !options.required) {
       if (onBlur) onBlur(e);
       return;
@@ -80,7 +95,7 @@ export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
     const el = e.target;
 
     if (el.value) {
-      const day = parse(el.value, formatStr, new Date(), options);
+      const day = DateFns.parse(el.value, formatStr, new Date(), options);
       if (isValid(day)) {
         setCurrentMonth(day);
       }
@@ -103,7 +118,7 @@ export const useInput: useInput = (initialSelectedDay, formatStr, _options) => {
       return;
     }
     setSelectedDay(day);
-    const value = format(day, formatStr, options);
+    const value = DateFns.format(day, formatStr, options);
     setInputValue(value);
   }
 
