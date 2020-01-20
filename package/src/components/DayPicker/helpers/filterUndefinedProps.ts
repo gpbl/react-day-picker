@@ -2,6 +2,9 @@
 
 /**
  * Filter the undefined props of `obj`.
+ *
+ * @private
+ * @category Components
  */
 export function filterUndefinedProps(obj: {
   [index: string]: any;

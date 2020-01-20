@@ -1,5 +1,8 @@
-import { ClassNames } from "./DayPicker";
+import { ClassNames } from "../DayPicker";
 
+/**
+ * @category Components
+ */
 export const defaultClassNames: ClassNames = {
   container: "rdp",
   caption: "rdp-caption",

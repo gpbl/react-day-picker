@@ -1,16 +1,18 @@
-import { startOfWeek, addDays } from "date-fns";
+import * as DateFns from "date-fns";
 import { DayPickerProps } from "../DayPicker";
 
-const date = new Date();
-
+/**
+ * @private
+ * @category Components
+ */
 export function getWeekdaysNames(
-  locale: Locale,
+  locale: DateFns.Locale,
   format: DayPickerProps["formatCaption"]
 ): Array<string> {
-  const start = startOfWeek(date, { locale });
+  const start = DateFns.startOfWeek(new Date(), { locale });
   const names = [];
   for (let i = 0; i < 7; i++) {
-    const day = addDays(start, i);
+    const day = DateFns.addDays(start, i);
     names.push(format(day, { locale }));
   }
   return names;

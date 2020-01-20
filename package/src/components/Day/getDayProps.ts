@@ -3,10 +3,34 @@ import {
   DayPickerProps,
   ModifierValueType
 } from "../DayPicker";
-import { DayHtmlProps } from "./Day";
 
 /**
- * Return the props for the Day component.
+ * @category Components
+ */
+export interface DayHtmlProps {
+  containerProps: {
+    "aria-disabled"?: boolean;
+    disabled?: boolean;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    className?: string;
+    style?: React.CSSProperties;
+  };
+  wrapperProps: {
+    className?: string;
+    style?: React.CSSProperties;
+  };
+}
+/**
+ * Return props for creating a {@link Day} component.
+ *
+ * #### Usage
+ *
+ * - Use this helper when swizzling the {@link Day} via the
+ *   {@link DayPickerProps.components} prop.
+ * - This component is a bit complex to swizzle: see the source of the
+ *   {@link Day} component for an example.
+ *
+ * @category Swizzle Helpers
  */
 export function getDayProps(
   day: Date,

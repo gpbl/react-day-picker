@@ -1,25 +1,26 @@
 import * as React from "react";
 import { getCaptionProps } from "./getCaptionProps";
-import { DayPickerProps } from "../DayPicker";
+import { CaptionProps } from "../../types/Caption";
 
-export interface CaptionProps {
-  month: Date;
-  dayPickerProps: DayPickerProps;
-}
-
-export interface CaptionHtmlProps {
-  containerProps: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-}
-
-export const Caption: React.FC<CaptionProps> = ({ month, dayPickerProps }) => {
-  const { containerProps } = getCaptionProps(dayPickerProps);
-  const { locale } = dayPickerProps;
+/**
+ * The `Caption` component renders the caption of the month. As default, it
+ * displays the month’s name and its year.
+ *
+ * #### Use with DayPicker
+ *
+ * - To change how the caption is formatted, use the {@link formatCaption} prop.
+ * - Swizzle this component using the {@link components} prop and the
+ *   {@link getCaptionProps} helper.
+ *
+ * @private
+ * @category Components
+ */
+export function Caption(props: CaptionProps): JSX.Element {
+  const { containerProps } = getCaptionProps(props.dayPickerProps);
+  const { locale } = props.dayPickerProps;
   return (
     <caption {...containerProps}>
-      {dayPickerProps.formatCaption(month, { locale })}
+      {props.dayPickerProps.formatCaption(props.month, { locale })}
     </caption>
   );
-};
+}

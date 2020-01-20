@@ -1,12 +1,11 @@
 import { isToday } from "date-fns";
 import { getModifiersFromProps } from "./utils/getModifiersFromProps";
 import { listModifiers } from "./utils/listModifiers";
-import {
-  MatchingModifiers,
-  DayPickerProps,
-  ModifierValueType
-} from "../components/DayPicker";
+import { MatchingModifiers, DayPickerProps, ModifierValueType } from "../types";
 
+/**
+ * @category Modifiers
+ */
 const defaultModifiers: MatchingModifiers = {
   disabled: false,
   hidden: false,
@@ -16,6 +15,11 @@ const defaultModifiers: MatchingModifiers = {
   today: false
 };
 
+/**
+ * DateWithModifier
+ *
+ * @category Modifiers
+ */
 export class DateWithModifiers {
   constructor(date: Date, initialModifiers = {}, props: DayPickerProps) {
     this.date = date;

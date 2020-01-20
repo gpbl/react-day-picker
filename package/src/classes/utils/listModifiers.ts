@@ -1,6 +1,9 @@
 import { Modifiers } from "../../components/DayPicker";
 import { matchModifier } from "./matchModifier";
 
+/**
+ * @ignore
+ */
 const reduce = (day: Date, modifiers: Modifiers) => (
   previousValue: string[],
   key: string
@@ -12,6 +15,8 @@ const reduce = (day: Date, modifiers: Modifiers) => (
 
 /**
  * Given a date and a list of modifiers, return the names of the modifiers matching that day.
+ *
+ * @category Modifiers
  */
 export function listModifiers(day: Date, modifiers: Modifiers): Array<string> {
   return Object.keys(modifiers).reduce(reduce(day, modifiers), []);

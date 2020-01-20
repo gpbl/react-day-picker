@@ -11,3 +11,4 @@ lib
 .size-snapshot.json
 build
 .vscode
+/package/docs

@@ -4,13 +4,17 @@ import { startOfMonth } from "date-fns";
 import { DayPickerControlled } from "./DayPickerControlled";
 import { DayPickerProps } from "./types";
 
-// Export types
+// Export all types
 export * from "./types";
 
 /**
- * # ReactDayPicker
+ * Render a day picker.
  *
- * Welcome to react-day-picker!
+ * #### Usage
+ *
+ * #### Examples
+ *
+ * @category Components
  */
 export const DayPicker: React.FC<DayPickerProps> = (
   initialProps: DayPickerProps

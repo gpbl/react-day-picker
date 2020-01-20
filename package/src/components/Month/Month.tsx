@@ -1,15 +1,16 @@
 import * as React from "react";
-import { DayPickerProps } from "../DayPicker";
 import { Head } from "../Head";
 import { Week } from "../Week";
 import { getWeeks } from "./getWeeks";
+import { MonthProps } from "../../types/Month";
 
-export interface MonthProps {
-  month: Date;
-  dayPickerProps: DayPickerProps;
-}
-
-export const Month: React.FC<MonthProps> = props => {
+/**
+ * The `Month` component renders....
+ *
+ * @private
+ * @category Components
+ */
+export function Month(props: MonthProps): JSX.Element {
   const { month, dayPickerProps } = props;
   const { locale, classNames, styles } = dayPickerProps;
   const { showCaption, showHead } = dayPickerProps;
@@ -45,4 +46,4 @@ export const Month: React.FC<MonthProps> = props => {
       </table>
     </div>
   );
-};
+}

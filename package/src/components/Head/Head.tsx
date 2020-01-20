@@ -1,14 +1,14 @@
 import * as React from "react";
-import { DayPickerProps } from "../DayPicker";
 import { getWeekdaysNames } from "./getWeekdaysNames";
+import { HeadProps } from "../../types/Head";
 
-export interface HeadProps {
-  locale: Locale;
-  showWeekNumber: boolean;
-  dayPickerProps: DayPickerProps;
-}
-
-export const Head: React.FC<HeadProps> = props => {
+/**
+ * The `Head` component renders....
+ *
+ * @private
+ * @category Components
+ */
+export function Head(props: HeadProps): JSX.Element {
   const { locale, showWeekNumber, dayPickerProps } = props;
   const { classNames, styles, formatWeekdayName } = dayPickerProps;
   const weekdayNames = getWeekdaysNames(locale, formatWeekdayName);
@@ -34,4 +34,4 @@ export const Head: React.FC<HeadProps> = props => {
       </tr>
     </thead>
   );
-};
+}
