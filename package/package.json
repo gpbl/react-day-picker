@@ -20,6 +20,7 @@
     "prebuild": "rm -rf lib",
     "build": "tsc && rollup -c",
     "develop": "tsc --watch",
+    "docs": "rm -rf ./docs && typedoc",
     "test": "jest",
     "test:watch": "jest --watchAll --coverage",
     "coverage": "jest --coverage"
