@@ -25,8 +25,7 @@
     "coverage": "jest --coverage"
   },
   "files": [
-    "lib",
-    "types"
+    "lib"
   ],
   "devDependencies": {
     "@babel/core": "^7.7.2",
