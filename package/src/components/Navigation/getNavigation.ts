@@ -1,14 +1,20 @@
 import { startOfMonth, addMonths } from "date-fns";
 import { DayPickerProps } from "../DayPicker";
-import { NavigationMonths } from "../../types/Navigation";
+import { NavigationMonths } from "./types";
 /**
  * Return the next and the previous months for the navigation component,
  * according to the DayPicker props.
  *
- * @category Swizzle Helpers
+ * @category Components
  */
 export function getNavigation(props: DayPickerProps): NavigationMonths {
-  const { fromMonth, toMonth, month, numberOfMonths, pagedNavigation } = props;
+  const {
+    fromMonth,
+    toMonth,
+    month,
+    numberOfMonths = 1,
+    pagedNavigation
+  } = props;
 
   const add = pagedNavigation ? numberOfMonths : 1;
   const currentMonth = startOfMonth(month || new Date());

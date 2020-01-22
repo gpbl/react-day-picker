@@ -1,6 +1,6 @@
 /* eslint-env jest */
 // import { getNavigationProps } from './getNavigationProps';
-// import { defaultProps } from '../defaultProps';
+// import { defaultProps } from '../defaults/defaultProps';
 
 describe("getNavigationProps", () => {
   it("return next and previous months with default props", () => {

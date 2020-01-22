@@ -1,21 +1,24 @@
 import * as React from "react";
 import { getUnixTime } from "date-fns";
-import { WeekProps } from "../../types/Week";
+import { WeekProps } from "./types";
 
 /**
- * The `Week` component renders....
+ * Render a week row.
  *
- * @private
  * @category Components
+ * @private
  */
 export function Week(props: WeekProps): JSX.Element {
   const { weekNumber, week, dayPickerProps } = props;
-  const { showWeekNumber, classNames, styles, components } = dayPickerProps;
-  const { Day, WeekNumber } = components;
+  const { showWeekNumber, classNames, styles, swizzle } = dayPickerProps;
+  const { Day, WeekNumber } = swizzle!;
   return (
-    <tr className={classNames.week} style={styles.week}>
+    <tr className={classNames?.week} style={styles?.week}>
       {showWeekNumber && (
-        <th className={classNames.weekWeeknumber} style={styles.weekWeeknumber}>
+        <th
+          className={classNames?.weekWeeknumber}
+          style={styles?.weekWeeknumber}
+        >
           <WeekNumber
             days={week.map(day => day.date)}
             number={Number(weekNumber)}
@@ -25,8 +28,8 @@ export function Week(props: WeekProps): JSX.Element {
       )}
       {week.map(day => (
         <td
-          className={classNames.weekDay}
-          style={styles.weekDay}
+          className={classNames?.weekDay}
+          style={styles?.weekDay}
           key={getUnixTime(day.date)}
         >
           <Day

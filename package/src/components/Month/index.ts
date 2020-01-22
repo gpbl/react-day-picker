@@ -1,1 +1,2 @@
-export * from "./Month";
+export { Month } from "./Month";
+export * from "./types";

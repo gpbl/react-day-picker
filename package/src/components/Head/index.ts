@@ -1,1 +1,2 @@
-export * from "./Head";
+export { Head } from "./Head";
+export * from "./types";

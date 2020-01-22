@@ -1,20 +1,17 @@
 import * as React from "react";
-import { WeekNumberProps } from "../../types/WeekNumber";
+import { WeekNumberProps } from "./types";
 
 /**
- * The `WeekNumber` component renders....
+ * Render the number of the week when {@link showWeekNumber} is enabled.
  *
- * @private
  * @category Components
  */
-export const WeekNumber: React.FC<WeekNumberProps> = ({
-  number,
-  dayPickerProps
-}) => {
+export function WeekNumber(props: WeekNumberProps): JSX.Element {
+  const { number, dayPickerProps } = props;
   const { formatWeekNumber, locale, classNames, styles } = dayPickerProps;
   return (
-    <span className={classNames.weekNumber} style={styles.weekNumber}>
-      {formatWeekNumber(number, { locale })}
+    <span className={classNames?.weekNumber} style={styles?.weekNumber}>
+      {formatWeekNumber!(number, { locale: locale! })}
     </span>
   );
-};
+}

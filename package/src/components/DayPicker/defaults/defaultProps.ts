@@ -1,23 +1,23 @@
 import locale from "date-fns/locale/en-US";
 import { startOfMonth } from "date-fns";
 
-import { DayPickerProps } from "../DayPicker";
+import { DayPickerProps } from "../";
 
-import { Caption } from "../Caption";
-import { Day } from "../Day";
-import { WeekNumber } from "../WeekNumber";
-import { Navigation } from "../Navigation";
+import { Caption } from "../../Caption/Caption";
+import { Day } from "../../Day";
+import { WeekNumber } from "../../WeekNumber";
+import { Navigation } from "../../Navigation";
 
 import { defaultClassNames } from "./defaultClassNames";
-import {
-  formatDay,
-  formatWeekdayName,
-  formatCaption,
-  formatWeekNumber
-} from "./formatters";
+import { formatCaption } from "./formatCaption";
+import { formatDay } from "./formatDay";
+import { formatWeekdayName } from "./formatWeekdayName";
+import { formatWeekNumber } from "./formatWeekNumber";
 
 /**
- * @category Components
+ * List the default props used by the {@link DayPicker} component.
+ *
+ * @readonly
  */
 export const defaultProps: DayPickerProps = {
   enableOutsideDaysClick: false,
@@ -25,7 +25,7 @@ export const defaultProps: DayPickerProps = {
   className: "",
   style: {},
   styles: {},
-  components: {
+  swizzle: {
     Caption,
     Day,
     Navigation,

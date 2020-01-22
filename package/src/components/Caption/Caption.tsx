@@ -1,6 +1,6 @@
 import * as React from "react";
 import { getCaptionProps } from "./getCaptionProps";
-import { CaptionProps } from "../../types/Caption";
+import { CaptionProps } from "./types";
 
 /**
  * The `Caption` component renders the caption of the month. As default, it
@@ -9,10 +9,9 @@ import { CaptionProps } from "../../types/Caption";
  * #### Use with DayPicker
  *
  * - To change how the caption is formatted, use the {@link formatCaption} prop.
- * - Swizzle this component using the {@link components} prop and the
+ * - Swizzle this component using the {@link swizzle} prop and the
  *   {@link getCaptionProps} helper.
  *
- * @private
  * @category Components
  */
 export function Caption(props: CaptionProps): JSX.Element {
@@ -20,7 +19,7 @@ export function Caption(props: CaptionProps): JSX.Element {
   const { locale } = props.dayPickerProps;
   return (
     <caption {...containerProps}>
-      {props.dayPickerProps.formatCaption(props.month, { locale })}
+      {props.dayPickerProps.formatCaption!(props.month, { locale })}
     </caption>
   );
 }

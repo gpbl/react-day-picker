@@ -1,16 +1,15 @@
 import { DayPickerProps } from "../DayPicker";
-import { CaptionHtmlProps } from "../../types";
+import { CaptionHtmlProps } from "./types";
 
 /**
  * Return props for creating a {@link Caption} component.
  *
  * #### Usage
  *
- * Use this helper when swizzling the {@link Caption} via the
- * {@link DayPickerProps.components} prop. It will make sure it plays nicely
- * inside DayPicker.
+ * Use this helper when swizzling the caption using  the
+ * {@link DayPickerProps.components} prop.
  *
- * ```tsx
+ * ```jsx
  * function Caption({ dayPickerProps }): JSX.Element {
  *   const { containerProps } = getCaptionProps(dayPickerProps);
  *   return (
@@ -22,7 +21,8 @@ import { CaptionHtmlProps } from "../../types";
  * <DayPicker components={{ Caption }} />
  * ```
  *
- * @category Swizzle Helpers
+ * @category Components
+ *
  */
 export function getCaptionProps(
   dayPickerProps: DayPickerProps
@@ -30,8 +30,8 @@ export function getCaptionProps(
   const { styles, classNames } = dayPickerProps;
   return {
     containerProps: {
-      className: classNames.caption,
-      style: styles.caption
+      className: classNames?.caption,
+      style: styles?.caption
     }
   };
 }

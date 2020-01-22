@@ -1,14 +1,13 @@
 import { endOfWeek, differenceInDays, addDays } from "date-fns";
-import { DateWithModifiers } from "../../classes";
+import { DateWithModifiers } from "../../classes/DateWithModifiers";
 import { DayPickerProps } from "../DayPicker";
 
 /**
+ * Return the outside ending days for the given day.
  *
  * @private
- * @param day
- * @param props
- * @category Components
  */
+
 export function getOutsideEndDays(
   day: DateWithModifiers,
   props: DayPickerProps

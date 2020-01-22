@@ -1,3 +1,4 @@
-export * from "./Navigation";
-export * from "./getNavigation";
-export * from "./getNavigationProps";
+export { Navigation } from "./Navigation";
+export { getNavigation } from "./getNavigation";
+export { getNavigationProps } from "./getNavigationProps";
+export * from "./types";

@@ -1,12 +1,11 @@
 import { addMonths, differenceInMonths, startOfMonth } from "date-fns";
-import { DayPickerProps } from "../DayPicker";
+import { DayPickerProps } from "../../DayPicker/types/DayPickerProps";
 
 /**
  * Get the months to render in DayPicker according to the passed
  * `numberOfMonths` and other month-related props.
  *
  * @private
- * @category Components
  */
 export function getMonths(props: DayPickerProps): Date[] {
   const {
@@ -18,7 +17,7 @@ export function getMonths(props: DayPickerProps): Date[] {
   } = props;
 
   const start = startOfMonth(month);
-  const end = startOfMonth(addMonths(start, numberOfMonths));
+  const end = startOfMonth(addMonths(start, numberOfMonths!));
   const monthsDiff = differenceInMonths(end, start);
 
   let months = [];

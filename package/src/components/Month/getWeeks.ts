@@ -8,22 +8,23 @@ import {
   getWeeksInMonth,
   startOfMonth
 } from "date-fns";
-import { DateWithModifiers } from "../../classes";
+import { DateWithModifiers } from "../../classes/DateWithModifiers";
 import { DayPickerProps } from "../DayPicker";
 import { getOutsideStartDays } from "./getOutsideStartDays";
 import { getOutsideEndDays } from "./getOutsideEndDays";
 
 /**
- * @ignore
- */
-type MonthWeeks = { [key: string]: DateWithModifiers[] };
-
-/**
- * Return the weeks for the given month. Each key of the returned object is the
- * week number.
+ * The weeks belonging to a month. Each key of the returned object is the
+ * week number of the year.
  *
  * @private
- * @category Components
+ */
+type MonthWeeks = { [weeknumber: string]: DateWithModifiers[] };
+
+/**
+ * Return the weeks belonging to the given month.
+ *
+ * @private
  */
 export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
   const { locale, fixedWeeks } = props;

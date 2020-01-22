@@ -1,26 +1,17 @@
 import * as React from "react";
 import { startOfMonth } from "date-fns";
 
-import { DayPickerControlled } from "./DayPickerControlled";
+import { Months } from "../Months";
 import { DayPickerProps } from "./types";
-
-// Export all types
-export * from "./types";
 
 /**
  * Render a day picker.
  *
- * #### Usage
- *
- * #### Examples
- *
  * @category Components
  */
-export const DayPicker: React.FC<DayPickerProps> = (
-  initialProps: DayPickerProps
-) => {
-  const { initialMonth, ...props } = initialProps;
-  const isControlled = Boolean(props.month);
+export function DayPicker(props: DayPickerProps): JSX.Element {
+  const { initialMonth, month, ...controlledProps } = props;
+  const isControlled = Boolean(month);
 
   const [currentMonth, setCurrentMonth] = React.useState(
     startOfMonth(initialMonth || new Date())
@@ -28,16 +19,14 @@ export const DayPicker: React.FC<DayPickerProps> = (
 
   function handleMonthChange(month: Date, e: React.MouseEvent): void {
     setCurrentMonth(month);
-    if (props.onMonthChange) {
-      props.onMonthChange(month, e);
-    }
+    if (props.onMonthChange) props.onMonthChange(month, e);
   }
 
   return (
-    <DayPickerControlled
-      {...props}
+    <Months
+      {...controlledProps}
       onMonthChange={!isControlled ? handleMonthChange : props.onMonthChange}
-      month={isControlled ? props.month : currentMonth}
+      month={isControlled ? month : currentMonth}
     />
   );
-};
+}

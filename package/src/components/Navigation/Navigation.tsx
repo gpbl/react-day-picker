@@ -1,18 +1,12 @@
 import * as React from "react";
 import { getNavigation } from "./getNavigation";
 import { getNavigationProps } from "./getNavigationProps";
-import { NavigationProps } from "../../types/Navigation";
+import { NavigationProps } from "./types";
 
 /**
- * The `Navigation` component renders....
- *
- * #### Use with DayPicker
- *
- * - Swizzle this component using the {@link components} prop and the
- *   {@link getNavigationProps} helper.
+ * Renders the buttons to navigate between months.
  *
  * @category Components
- * @private
  */
 export function Navigation(props: NavigationProps): JSX.Element | null {
   const { dayPickerProps } = props;

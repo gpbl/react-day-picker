@@ -4,7 +4,7 @@ import { DayPickerProps, Modifiers } from "../../components/DayPicker";
  * Return the `modifiers` prop including the modifiers from shortcut-props
  * (`selected`, `disabled` and `hidden`)
  *
- * @category Modifiers
+ * @private
  */
 export function getModifiersFromProps(props: DayPickerProps): Modifiers {
   const modifiers = Object.assign({}, props.modifiers);

@@ -1,24 +1,19 @@
 import { isToday } from "date-fns";
+
+import { defaultModifiers } from "../components/DayPicker/defaults/defaultModifiers";
+import {
+  DayPickerProps,
+  MatchingModifiers,
+  ModifierValueType
+} from "../components/DayPicker";
+
 import { getModifiersFromProps } from "./utils/getModifiersFromProps";
 import { listModifiers } from "./utils/listModifiers";
-import { MatchingModifiers, DayPickerProps, ModifierValueType } from "../types";
-
-/**
- * @category Modifiers
- */
-const defaultModifiers: MatchingModifiers = {
-  disabled: false,
-  hidden: false,
-  interactive: true,
-  outside: "",
-  selected: undefined,
-  today: false
-};
 
 /**
  * DateWithModifier
  *
- * @category Modifiers
+ * @private
  */
 export class DateWithModifiers {
   constructor(date: Date, initialModifiers = {}, props: DayPickerProps) {

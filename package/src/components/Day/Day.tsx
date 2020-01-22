@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { getDayProps } from "./getDayProps";
-import { DayProps } from "../../types/Day";
+import { DayProps } from "./types";
 
 /**
  * The `Day` component renders the content of the day cell. It returns a button
@@ -10,12 +10,11 @@ import { DayProps } from "../../types/Day";
  * #### Use with DayPicker
  *
  * - To change how the day is formatted, use the {@link formatDay} prop.
- * - Swizzle this component using the {@link components} prop and the
+ * - Swizzle this component using the {@link swizzle} prop and the
  *   {@link getDayProps} helper.
  * - This component is a bit complex to swizzle: see the source of the
  *   {@link Day} component for an example.
  *
- * @private
  * @category Components
  */
 
@@ -40,7 +39,7 @@ export function Day(props: DayProps): JSX.Element {
 
   return (
     <Component {...containerProps}>
-      <span {...wrapperProps}>{formatDay(day, { locale })}</span>
+      <span {...wrapperProps}>{formatDay!(day, { locale })}</span>
     </Component>
   );
 }

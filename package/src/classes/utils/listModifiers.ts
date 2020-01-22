@@ -16,7 +16,7 @@ const reduce = (day: Date, modifiers: Modifiers) => (
 /**
  * Given a date and a list of modifiers, return the names of the modifiers matching that day.
  *
- * @category Modifiers
+ * @private
  */
 export function listModifiers(day: Date, modifiers: Modifiers): Array<string> {
   return Object.keys(modifiers).reduce(reduce(day, modifiers), []);

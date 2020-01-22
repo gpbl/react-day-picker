@@ -4,22 +4,23 @@ import {
   ModifierValueType
 } from "../DayPicker";
 
-/**
- * @category Components
- */
-export interface DayHtmlProps {
-  containerProps: {
-    "aria-disabled"?: boolean;
-    disabled?: boolean;
-    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    className?: string;
-    style?: React.CSSProperties;
-  };
-  wrapperProps: {
-    className?: string;
-    style?: React.CSSProperties;
-  };
-}
+export type DayContainerHtmlProps = {
+  "aria-disabled"?: boolean;
+  disabled?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  className?: string;
+  style?: React.CSSProperties;
+};
+
+export type DayWrapperHtmlProps = {
+  className?: string;
+  style?: React.CSSProperties;
+};
+
+export type DayHtmlProps = {
+  containerProps: DayContainerHtmlProps;
+  wrapperProps: DayWrapperHtmlProps;
+};
 /**
  * Return props for creating a {@link Day} component.
  *
@@ -30,7 +31,7 @@ export interface DayHtmlProps {
  * - This component is a bit complex to swizzle: see the source of the
  *   {@link Day} component for an example.
  *
- * @category Swizzle Helpers
+ * @category Components
  */
 export function getDayProps(
   day: Date,
@@ -54,7 +55,7 @@ export function getDayProps(
     };
   }
 
-  let style = { ...styles.day };
+  let style = { ...styles?.day };
   if (styles) {
     // Apply the custom inline-styles
     Object.keys(modifiers).forEach(modifier => {
@@ -74,18 +75,21 @@ export function getDayProps(
     });
   }
 
-  const className = [classNames.day] || [];
-  if (modifiersClassNames || classNames) {
-    Object.keys(modifiers)
-      .filter(modifier => !!modifiers[modifier])
-      .forEach(modifier => {
-        if (classNames[modifier]) {
-          className.push(classNames[modifier]);
-        }
-        if (modifiersClassNames && modifiersClassNames[modifier]) {
-          className.push(modifiersClassNames[modifier]);
-        }
-      });
+  let className: Array<string | undefined> = [];
+  if (classNames && classNames.day) {
+    className.push(classNames.day);
+    if (modifiersClassNames) {
+      Object.keys(modifiers)
+        .filter(modifier => !!modifiers[modifier])
+        .forEach(modifier => {
+          if (modifier && classNames[modifier]) {
+            className.push(classNames[modifier]);
+          }
+          if (modifiersClassNames && modifiersClassNames[modifier]) {
+            className.push(modifiersClassNames[modifier]);
+          }
+        });
+    }
   }
 
   const dataProps: { [key: string]: ModifierValueType } = {};
@@ -104,8 +108,8 @@ export function getDayProps(
     ...dataProps
   };
   const wrapperProps = {
-    className: classNames.dayWrapper,
-    styles: styles.dayWrapper
+    className: classNames?.dayWrapper,
+    styles: styles?.dayWrapper
   };
 
   return { containerProps, wrapperProps };

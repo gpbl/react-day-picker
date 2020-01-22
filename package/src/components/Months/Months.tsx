@@ -4,39 +4,37 @@ import { getTime } from "date-fns";
 
 import { getMonths } from "./helpers/getMonths";
 import { filterUndefinedProps } from "./helpers/filterUndefinedProps";
+import { defaultProps } from "../DayPicker/defaults/defaultProps";
+import { SwizzlingComponents, ClassNames, DayPickerProps } from "../DayPicker";
 
-import { DayPickerProps, Components } from "../../types/DayPicker";
-import { ClassNames } from "../../types/ClassNames";
-
-import { defaultProps } from "./defaultProps";
 /**
- * Render...
+ * Render the months and the navigation.
  *
- * @private
  * @category Components
+ * @private
  */
-export function DayPickerControlled(initialProps = defaultProps): JSX.Element {
+export function Months(initialProps = defaultProps): JSX.Element {
   // Extend props with defaults
-  const components: Components = {
-    ...defaultProps.components,
-    ...filterUndefinedProps(initialProps.components)
+  const swizzle: SwizzlingComponents = {
+    ...defaultProps.swizzle!,
+    ...initialProps.swizzle
   };
   const classNames: ClassNames = {
     ...defaultProps.classNames,
-    ...filterUndefinedProps(initialProps.classNames)
+    ...initialProps.classNames
   };
   const props: DayPickerProps = {
     ...defaultProps,
     ...filterUndefinedProps(initialProps),
-    components,
+    swizzle,
     classNames
   };
 
   // From `style` prop
-  const style = { ...props.styles.container, ...props.style };
+  const style = { ...props.styles?.container, ...props.style };
 
   // From `className prop`
-  const className = [props.classNames.container];
+  const className = [props.classNames?.container || ""];
   if (props.className) {
     className.concat(props.className.split(" "));
   }
@@ -44,13 +42,13 @@ export function DayPickerControlled(initialProps = defaultProps): JSX.Element {
 
   const months = getMonths(props);
 
-  const { Navigation } = props.components;
+  const { Navigation } = props.swizzle!;
 
   return (
     <div className={classNameStr} style={style} dir={props.dir}>
       {props.showNavigation && <Navigation dayPickerProps={props} />}
       <div
-        className={props.classNames.months}
+        className={props.classNames?.months}
         style={props.styles ? props.styles.month : undefined}
       >
         {months.map((month: Date) => (

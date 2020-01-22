@@ -1,11 +1,11 @@
 /**
- * @category Components
+ * Describe the CSS classes added by DayPicker to the resulting HTML.
+ *
+ * See {@link defaultClassNames} for the default values.
  */
-export interface ClassNames {
-  /* Container element */
+export type ClassNames = {
   container?: string;
   caption?: string;
-  // Day Component
   day?: string;
   dayWrapper?: string;
   // Modifiers
@@ -34,4 +34,4 @@ export interface ClassNames {
   // WeekNumber Component
   weekNumber?: string;
   [key: string]: string | undefined;
-}
+};

@@ -1,7 +1,14 @@
-import { ClassNames } from "../DayPicker";
+import { ClassNames } from "../";
 
 /**
- * @category Components
+ * List the default class names used by the {@link DayPicker} component.
+ *
+ * - Use the {@link classNames} prop to override the default values, for example
+ *   when using a css-in-js solution.
+ *
+ * See {@link ClassNames} for a description of each entry.
+ *
+ * @readonly
  */
 export const defaultClassNames: ClassNames = {
   container: "rdp",

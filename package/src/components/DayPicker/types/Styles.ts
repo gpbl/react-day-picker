@@ -1,8 +1,7 @@
 /**
- * @category Components
+ * List of styles supported by the {@link styles} prop.
  */
-
-export interface Styles {
+export type InlineStyles = {
   container?: React.CSSProperties;
   caption?: React.CSSProperties;
 
@@ -41,4 +40,4 @@ export interface Styles {
   // WeekNumber Component
   weekNumber?: React.CSSProperties;
   [key: string]: React.CSSProperties | undefined;
-}
+};
