@@ -2,7 +2,7 @@ import * as React from "react";
 import { WeekNumberProps } from "./types";
 
 /**
- * Render the number of the week when {@link showWeekNumber} is enabled.
+ * Render the number of the week when [[showWeekNumber]] is enabled.
  *
  * @category Components
  */
@@ -11,7 +11,7 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
   const { formatWeekNumber, locale, classNames, styles } = dayPickerProps;
   return (
     <span className={classNames?.weekNumber} style={styles?.weekNumber}>
-      {formatWeekNumber!(number, { locale: locale! })}
+      {formatWeekNumber && formatWeekNumber(number, { locale: locale! })}
     </span>
   );
 }

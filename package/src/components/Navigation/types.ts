@@ -1,14 +1,14 @@
 import { DayPickerProps } from "../DayPicker";
 
 /**
- * Props for the {@link Navigation}.
+ * Props for the [[Navigation]] component.
  */
-export type NavigationProps = {
+export interface NavigationProps {
   dayPickerProps: DayPickerProps;
-};
+}
 
 /**
- * HTML props for the {@link Navigation}.
+ * HTML props for the [[Navigation]].
  */
 export type NavigationHtmlProps = {
   containerProps: {

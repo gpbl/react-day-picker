@@ -3,7 +3,6 @@
   --rdp-color-secondary: #fc466b;
 }
 
-/* #region Containers */
 .rdp {
   position: relative;
 
@@ -13,24 +12,21 @@
   font-size: 1rem;
 }
 .rdp-months {
-  /* Months container */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-/* #endregion */
-/* #region Caption */
+
 .rdp-caption {
   margin-bottom: 0.75em;
   text-align: left;
   font-weight: bold;
   font-size: 1.2em;
 }
-.rdp[dir='rtl'] .rdp-caption {
+.rdp[dir="rtl"] .rdp-caption {
   text-align: right;
 }
-/* #endregion */
-/* #region Month */
+
 .rdp-month {
   /* Month table container */
   margin: 1em;
@@ -42,8 +38,7 @@
 .rdp-month_tbody {
   /* Tbody element in the table */
 }
-/* #endregion */
-/* #region Head */
+
 .rdp-head {
   /* Head element (weekday names) */
 }
@@ -58,8 +53,7 @@
   font-weight: normal;
   font-size: 0.75em;
 }
-/* #endregion */
-/* #region Week */
+
 .rdp-week {
   /* Week row */
 }
@@ -75,14 +69,13 @@
   /* Week day table cell */
   text-align: center;
 }
-/* #endregion */
-/* #region Navigation */
+
 .rdp-nav {
   position: absolute;
   top: 1em;
   right: 1em;
 }
-.rdp[dir='rtl'] .rdp-nav {
+.rdp[dir="rtl"] .rdp-nav {
   right: auto;
   left: 1em;
 }
@@ -93,8 +86,6 @@
   /* Navigation next button */
 }
 
-/* #endregion */
-/* #region Day */
 .rdp-day {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -123,8 +114,6 @@
 .rdp-day_wrapper {
   /* Wrapper for the day number */
 }
-/* #endregion */
-/* #region Day modifiers */
 
 .rdp-day_disabled {
   opacity: 0.25;
@@ -144,4 +133,3 @@
   background-color: var(--rdp-color-primary);
   color: white;
 }
-/* #endregion */

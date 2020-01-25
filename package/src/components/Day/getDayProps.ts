@@ -1,37 +1,21 @@
 import {
   MatchingModifiers,
   DayPickerProps,
-  ModifierValueType
+  DayMatchModifier
 } from "../DayPicker";
+import { DayHtmlProps } from "./types";
 
-export type DayContainerHtmlProps = {
-  "aria-disabled"?: boolean;
-  disabled?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  className?: string;
-  style?: React.CSSProperties;
-};
-
-export type DayWrapperHtmlProps = {
-  className?: string;
-  style?: React.CSSProperties;
-};
-
-export type DayHtmlProps = {
-  containerProps: DayContainerHtmlProps;
-  wrapperProps: DayWrapperHtmlProps;
-};
 /**
- * Return props for creating a {@link Day} component.
+ * Return props for creating a [[Day]] component.
  *
  * #### Usage
  *
- * - Use this helper when swizzling the {@link Day} via the
- *   {@link DayPickerProps.components} prop.
+ * - Use this helper when swizzling the [[Day]] via the
+ *   [[DayPickerProps.components]] prop.
  * - This component is a bit complex to swizzle: see the source of the
- *   {@link Day} component for an example.
+ *   [[Day]] component for an example.
  *
- * @category Components
+ *
  */
 export function getDayProps(
   day: Date,
@@ -75,7 +59,7 @@ export function getDayProps(
     });
   }
 
-  let className: Array<string | undefined> = [];
+  const className: Array<string | undefined> = [];
   if (classNames && classNames.day) {
     className.push(classNames.day);
     if (modifiersClassNames) {
@@ -92,7 +76,7 @@ export function getDayProps(
     }
   }
 
-  const dataProps: { [key: string]: ModifierValueType } = {};
+  const dataProps: { [key: string]: DayMatchModifier } = {};
   Object.entries(modifiers)
     .filter(value => Boolean(value))
     .forEach(([modifier, value]) => {
@@ -101,7 +85,7 @@ export function getDayProps(
 
   const containerProps = {
     "aria-disabled": !modifiers.interactive || undefined,
-    disabled: modifiers.disabled || undefined,
+    disabled: Boolean(modifiers.disabled) || undefined,
     onClick,
     style,
     className: className.join(" "),

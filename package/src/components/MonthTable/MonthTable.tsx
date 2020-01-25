@@ -1,20 +1,20 @@
 import * as React from "react";
 import { Head } from "../Head";
-import { Week } from "../Week";
+import { WeekRow } from "../WeekRow";
 import { getWeeks } from "./getWeeks";
-import { MonthProps } from "./types";
+import { MonthTableProps } from "./types";
 
 /**
  * Render the month table.
  *
- * @category Components
  * @private
+ * @category Components
  */
-export function Month(props: MonthProps): JSX.Element {
+export function MonthTable(props: MonthTableProps): JSX.Element {
   const { month, dayPickerProps } = props;
   const { locale, classNames, styles } = dayPickerProps;
   const { showCaption, showHead } = dayPickerProps;
-  const Caption = dayPickerProps.swizzle!.Caption;
+  const MonthCaption = dayPickerProps.swizzle!.MonthCaption;
 
   const weeks = getWeeks(month, dayPickerProps);
 
@@ -22,7 +22,7 @@ export function Month(props: MonthProps): JSX.Element {
     <div className={classNames?.month}>
       <table className={classNames?.monthTable} style={styles?.monthTable}>
         {showCaption && (
-          <Caption month={month} dayPickerProps={dayPickerProps} />
+          <MonthCaption month={month} dayPickerProps={dayPickerProps} />
         )}
         {showHead && (
           <Head
@@ -33,7 +33,7 @@ export function Month(props: MonthProps): JSX.Element {
         )}
         <tbody className={classNames?.monthTbody} style={styles?.monthTbody}>
           {Object.keys(weeks).map(weekNumber => (
-            <Week
+            <WeekRow
               key={weekNumber}
               week={weeks[weekNumber]}
               weekNumber={Number(weekNumber)}

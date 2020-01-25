@@ -4,7 +4,7 @@ import { NavigationHtmlProps } from "./types";
 /**
  * Return the props for the Navigation component and its children.
  *
- * @category Components
+ *
  */
 export function getNavigationProps(props: DayPickerProps): NavigationHtmlProps {
   const { classNames, styles } = props;

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { getUnixTime } from "date-fns";
-import { WeekProps } from "./types";
+import { WeekRowProps } from "./types";
 
 /**
  * Render a week row.
@@ -8,7 +8,7 @@ import { WeekProps } from "./types";
  * @category Components
  * @private
  */
-export function Week(props: WeekProps): JSX.Element {
+export function WeekRow(props: WeekRowProps): JSX.Element {
   const { weekNumber, week, dayPickerProps } = props;
   const { showWeekNumber, classNames, styles, swizzle } = dayPickerProps;
   const { Day, WeekNumber } = swizzle!;

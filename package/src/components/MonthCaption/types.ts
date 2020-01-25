@@ -11,9 +11,9 @@ export type CaptionHtmlProps = {
   };
 };
 /**
- * The props used by the {@link Caption} component.
+ * The props used by the [[MonthCaption]] component.
  */
-export type CaptionProps = {
+export interface MonthCaptionProps {
   /**
    * The month the caption is referring to.
    */
@@ -22,11 +22,11 @@ export type CaptionProps = {
    * Reference to the props used by the DayPicker component.
    */
   dayPickerProps: DayPickerProps;
-};
+}
 /**
- * A function that format a month for the {@link Caption} component.
+ * A function that format a month for the [[MonthCaption]] component.
  */
-export type CaptionFormatter = (
+export type MonthCaptionFormatter = (
   month: Date,
   options?: { locale?: dateFns.Locale }
 ) => string;

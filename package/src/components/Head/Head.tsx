@@ -6,8 +6,8 @@ import { HeadProps } from "./types";
  * Render the head of the month table, including the weekday names (Mon, Tue,
  * etc.).
  *
- * @category Components
  * @private
+ * @category Components
  */
 export function Head(props: HeadProps): JSX.Element {
   const { locale, showWeekNumber, dayPickerProps } = props;

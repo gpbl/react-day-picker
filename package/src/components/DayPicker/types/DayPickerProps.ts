@@ -1,72 +1,97 @@
 import * as dateFns from "date-fns";
 
-import { CaptionProps, CaptionFormatter } from "../../Caption";
+import { MonthCaptionProps, MonthCaptionFormatter } from "../../MonthCaption";
 import { DayProps, DayFormatter } from "../../Day";
 import { NavigationProps } from "../../Navigation";
 import { WeekNumberProps, WeekNumberFormatter } from "../../WeekNumber";
-import { WeekdayNameFormatter } from "../../Week";
+import { WeekdayNameFormatter } from "../../WeekRow";
 
 import {
   MatchingModifiers,
   ModifiersClassNames,
   ModifiersStyles,
-  Modifiers,
-  DayModifier
+  DayMatcher,
+  DayModifiers
 } from "./Modifiers";
 
-import { ClassNames } from "./ClassNames";
-import { InlineStyles } from "./Styles";
+import { DayPickerElements } from "./DayPickerElements";
 
-/** Event handler when a day is clicked */
+/**
+ * Names of the CSS classes for each UI element.
+ */
+export type DayPickerClassNames = {
+  [name in DayPickerElements]?: string;
+};
+/**
+ * Inline `style` for each UI element.
+ */
+export type DayPickerStyles = {
+  [name in DayPickerElements]?: React.CSSProperties;
+};
+
+/**
+ * Event handler when a day is clicked.
+ */
 export type DayClickEventHandler = (
   day: Date,
   modifiers: MatchingModifiers,
   e: React.MouseEvent
 ) => void;
 
-/** Event handler when the month changed */
+/**
+ * Event handler when the month is changed.
+ */
 export type MonthChangeEventHandler = (
   month: Date,
   e: React.MouseEvent
 ) => void;
 
-/** Components that can be swizzled */
+/**
+ * Components that can be [swizzled](./docs/swizzling).
+ */
 export type SwizzlingComponents = {
-  Caption: React.ComponentType<CaptionProps>;
+  /** A [[MonthCaption]] component. */
+  MonthCaption: React.ComponentType<MonthCaptionProps>;
+  /** A [[Day]] component. */
   Day: React.ComponentType<DayProps>;
+  /** A [[Navigation]] component. */
   Navigation: React.ComponentType<NavigationProps>;
+  /** A [[WeekNumber]] component. */
   WeekNumber: React.ComponentType<WeekNumberProps>;
 };
 
-/**
- * The props used by the {@link DayPicker} component.
- */
 export interface DayPickerProps {
   /**
-   * @ignore
+   * CSS class to add to the root element.
    */
   className?: string;
   /**
-   * The CSS classes to use for each DayPicker element.
+   * Change the class names used by `DayPicker`.
    *
-   * See {@link defaultClassNames} for the defaults.
+   * Use this prop when you cannot style the CSS using the
+   * [[defaultClassNames]], for example when using CSS modules.
+   *
+   * ```jsx
+   * import { selected, disabled } from './styles.css';
+   * <DayPicker classNames={{ selected, disabled }} />
+   * ````
    */
-  classNames?: ClassNames;
+  classNames?: DayPickerClassNames;
   /**
-   * The class names for the day {@link modifiers}.
+   * Change the class names used for the day [[modifiers]].
    */
   modifiersClassNames?: ModifiersClassNames;
 
   /**
-   * @ignore
+   * Style to apply to the root element.
    */
   style?: React.CSSProperties;
   /**
-   * The inline styles for each DayPicker element.
+   * Inline styles to apply to the [[DayPickerElements]].
    */
-  styles?: InlineStyles;
+  styles?: DayPickerStyles;
   /**
-   * The inline-styles for the day {@link modifiers}.
+   * Change the inline style for the day [[modifiers]].
    */
   modifiersStyles?: ModifiersStyles;
 
@@ -75,101 +100,104 @@ export interface DayPickerProps {
    */
   initialMonth?: Date;
   /**
-   * The number of months to display at tha same time.
+   * The number of months to render.
    *
-   * See also {@link pagedNavigation}.
+   * See also [[pagedNavigation]].
    */
   numberOfMonths?: number;
   /**
-   * Allow navigation only after this month.
+   * Allow navigation after (and including) the specified month.
    *
-   * See also {@link toMonth}.
+   * See also [[toMonth]].
    */
   fromMonth?: Date;
   /**
-   * Allow navigation only before this month.
+   * Allow navigation before (and including) the specified month.
    *
-   * See also {@link fromMonth}.
+   * See also [[fromMonth]].
    */
   toMonth?: Date;
   /**
    * When displaying multiple months, the navigation will be paginated
-   * displaying the {@link numberOfMonths} months at time instead of one.
+   * displaying the [[numberOfMonths]] months at time instead of one.
    */
   pagedNavigation?: boolean;
   /**
-   * Render the months in reversed order. Useful when {@link numberOfMonths} is
-   * greater than 1, to display the most recent month first.
+   * Render the months in reversed order. Useful when [[numberOfMonths]] is
+   * greater than `1`, to display the most recent month first.
    */
   reverseMonths?: boolean;
   /**
-   * The rendered month. Implement {@link onMonthChange} to enable months
+   * The rendered month. Implement [[onMonthChange]] to enable months
    * navigation.
    */
   month?: Date;
-
   /**
-   * Display 6 weeks per months, regardless the month’s number of weeks. Outside
-   * days will be always shown if setting this to `true`.
+   * Display six weeks per months, regardless the month’s number of weeks. Outside
+   * days will be always shown when setting this prop.
    *
-   * See also {@link showOutsideDays}.
+   * See also [[showOutsideDays]].
    */
   fixedWeeks?: boolean;
   /**
-   * Show the month caption displaying the month and the year.
+   * Show the month’s caption. As default, the caption displays month and year.
+   *
+   * - use [[formatCaption]] to localize the content of the caption
+   * - [swizzle](../docs/swizzling) this component using the [[swizzle]] prop
    */
   showCaption?: boolean;
   /**
-   * Show the month head containing the weekday names.
+   * Show the month’s head. As default, it displays the weekday names according
+   * to [[locale]].
    */
   showHead?: boolean;
   /**
-   * Show the outside days. An outside day is a day displayed in a month but
-   * falling in the next or the previous month.
+   * Show the outside days. An outside day is a day falling in the next or the
+   * previous month.
    *
-   * See also {@link enableOutsideDaysClick}.
+   * See also [[enableOutsideDaysClick]].
    */
   showOutsideDays?: boolean;
   /**
-   * Enable click event for outside days when {@link showOutsideDays} is used.
+   * Enable click event for outside days when [[showOutsideDays]] is used.
    */
   enableOutsideDaysClick?: boolean;
   /**
-   * Show the week numbers.
+   * Show the week numbers column.
    */
   showWeekNumber?: boolean;
 
   /**
-   * Show the navigation bar. {@link onMonthChange} must be set.
+   * Show the navigation bar. [[onMonthChange]] must be set.
    */
   showNavigation?: boolean;
   /**
-   * Label used for the previous month button in {@link Navigation}. Set it to
-   * empty string to hide the prev button.
+   * Label used for the previous month button in [[Navigation]]. Set it to
+   * empty string to hide the button.
    */
   prevLabel?: string;
   /**
-   * Label used for the next month button in {@link Navigation}. Set it to empty
-   * string to hide the next button.
+   * Label used for the next month button in [[Navigation]]. Set it to empty
+   * string to hide the button.
    */
   nextLabel?: string;
 
   /**
    * Style the matching days as selected.
    */
-  selected?: DayModifier;
+  selected?: DayMatcher;
   /**
    * Disable the matching days. Disabled days cannot be clicked.
    */
-  disabled?: DayModifier;
+  disabled?: DayMatcher;
   /**
    * Hide the matching days.
    */
-  hidden?: DayModifier;
+  hidden?: DayMatcher;
   /**
    * An object of modifiers.
    */
-  modifiers?: Modifiers;
+  modifiers?: DayModifiers;
 
   /**
    * A [`dateFns.Locale`](https://date-fns.org/docs/Locale) object to localize
@@ -180,28 +208,35 @@ export interface DayPickerProps {
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
    */
-  dir?: string;
+  dir?: string | undefined;
 
   /**
    * Format the month caption text.
+   *
+   * @default See [[defaultFormatCaption]].
    */
-  formatCaption?: CaptionFormatter;
+  formatCaption?: MonthCaptionFormatter;
   /**
    * Format the content of the day element.
+   *
+   * @default See [[defaultFormatDay]].
    */
   formatDay?: DayFormatter;
   /**
    * Format the weekday's name in the head element.
+   *
+   * @default See [[defaultFormatWeekdayName]].
    */
   formatWeekdayName?: WeekdayNameFormatter;
   /**
    * Format the week numbers (when `showWeekNumber` is set).
    *
+   * @default See [[defaultFormatWeekNumber]].
    */
   formatWeekNumber?: WeekNumberFormatter;
 
   /**
-   * Components to extend DayPicker.
+   * The components to [swizzle](./docs/swizzling).
    */
   swizzle?: SwizzlingComponents;
 
@@ -210,16 +245,15 @@ export interface DayPickerProps {
    */
   onDayClick?: DayClickEventHandler;
   /**
-   * Event handler when the month changes, e.g. when using the next/prev
-   * navigation buttons.
+   * Event handler when the month changes.
    */
   onMonthChange?: MonthChangeEventHandler;
   /**
-   * Event handler when the next navigation button is clicked.
+   * Event handler when the next month button is clicked.
    */
   onNextClick?: MonthChangeEventHandler;
   /**
-   * Event handler when the prev navigation button is clicked.
+   * Event handler when the previous month button is clicked.
    */
   onPrevClick?: MonthChangeEventHandler;
 }

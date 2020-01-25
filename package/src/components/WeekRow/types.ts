@@ -4,15 +4,13 @@ import { DateWithModifiers } from "../../classes/DateWithModifiers";
 import { DayPickerProps } from "../DayPicker";
 
 /**
- * Props for the {@link Week} component.
- *
  * @private
  */
-export type WeekProps = {
+export interface WeekRowProps {
   weekNumber: number;
   week: DateWithModifiers[];
   dayPickerProps: DayPickerProps;
-};
+}
 
 /**
  * Format the weekday name.

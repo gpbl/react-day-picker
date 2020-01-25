@@ -2,18 +2,20 @@
 import { getCaptionProps } from "./getCaptionProps";
 import { defaultProps } from "../DayPicker/defaults/defaultProps";
 import { CaptionHtmlProps } from "./types";
+import { DayPickerClassNames, DayPickerProps } from "components/DayPicker";
 
 describe("getCaptionProps", () => {
   it("return the container props", () => {
-    const props = {
+    const classNames: DayPickerClassNames = {
+      caption: "caption-foo"
+    };
+    const props: DayPickerProps = {
       ...defaultProps,
-      styles: { caption: { color: "red" } },
-      classNames: { caption: "caption-foo" }
+      classNames: classNames
     };
     const expected: CaptionHtmlProps = {
       containerProps: {
-        className: "caption-foo",
-        style: { color: "red" }
+        className: "caption-foo"
       }
     };
     const result = getCaptionProps(props);

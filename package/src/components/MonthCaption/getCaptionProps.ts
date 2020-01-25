@@ -2,15 +2,15 @@ import { DayPickerProps } from "../DayPicker";
 import { CaptionHtmlProps } from "./types";
 
 /**
- * Return props for creating a {@link Caption} component.
+ * Return props for creating a [[MonthCaption]] component.
  *
  * #### Usage
  *
  * Use this helper when swizzling the caption using  the
- * {@link DayPickerProps.components} prop.
+ * [[DayPickerProps.components]] prop.
  *
  * ```jsx
- * function Caption({ dayPickerProps }): JSX.Element {
+ * function MonthCaption({ dayPickerProps }): JSX.Element {
  *   const { containerProps } = getCaptionProps(dayPickerProps);
  *   return (
  *     <caption {...containerProps}>
@@ -18,10 +18,10 @@ import { CaptionHtmlProps } from "./types";
  *     </caption>;
  *   )
  * }
- * <DayPicker components={{ Caption }} />
+ * <DayPicker components={{ MonthCaption }} />
  * ```
  *
- * @category Components
+ *
  *
  */
 export function getCaptionProps(

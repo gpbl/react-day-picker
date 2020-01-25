@@ -1,11 +1,11 @@
 import { DayPickerProps } from "../DayPicker";
 
 /**
- * Props of the {@link Month} component.
+ * Props of the [[Month]] component.
  *
  * @private
  */
-export type MonthProps = {
+export interface MonthTableProps {
   month: Date;
   dayPickerProps: DayPickerProps;
-};
+}

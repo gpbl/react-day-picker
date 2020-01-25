@@ -1,9 +1,13 @@
 import { isSameDay, differenceInDays } from "date-fns";
-import { DayModifier } from "../../components/DayPicker";
+import {
+  DayMatcher,
+  MatchDayBetween,
+  MatchDayBefore,
+  MatchDayInRange,
+  MatchDayAfter
+} from "../../components/DayPicker/types";
 
 /**
- * Return `true` if `day1` is after and not same as `day2`.
- *
  * @private
  */
 function isDayAfter(day1: Date, day2: Date): boolean {
@@ -11,8 +15,6 @@ function isDayAfter(day1: Date, day2: Date): boolean {
 }
 
 /**
- * Return `true` if `day1` is before and not same as `day2`.
- *
  * @private
  */
 function isDayBefore(day1: Date, day2: Date): boolean {
@@ -20,60 +22,99 @@ function isDayBefore(day1: Date, day2: Date): boolean {
 }
 
 /**
- * Return `true` if a date matches the specified modifier.
+ * @private
+ */
+function matchDate(day: Date, matcher: DayMatcher): boolean {
+  if (!(matcher instanceof Date)) return false;
+
+  return isSameDay(day, matcher);
+}
+
+/**
+ * @private
+ */
+function matchDayInRange(day: Date, matcher: DayMatcher): boolean {
+  if (!("from" in matcher) || !("to" in matcher)) return false;
+  const matchDayT: MatchDayInRange = {
+    from: matcher.from,
+    to: matcher.to
+  };
+  if (differenceInDays(matchDayT.from, matchDayT.to) <= 0) return false;
+  return isDayBefore(day, matcher.to) && isDayAfter(day, matcher.from);
+}
+
+/**
+ * @private
+ */
+function matchDayBefore(day: Date, matcher: DayMatcher): boolean {
+  if ("after" in matcher || !("before" in matcher)) return false;
+  const matchDayT: MatchDayBefore = { before: matcher.before };
+  return isDayBefore(day, matchDayT.before);
+}
+
+/**
+ * @private
+ */
+function matchDayAfter(day: Date, matcher: DayMatcher): boolean {
+  if ("before" in matcher || !("after" in matcher)) return false;
+  const matchDayT: MatchDayAfter = { after: matcher.after };
+  return isDayBefore(day, matchDayT.after);
+}
+
+/**
+ * @private
+ */
+function matchDayBetween(day: Date, matcher: DayMatcher): boolean {
+  if (!("after" in matcher) || !("before" in matcher)) return false;
+  const matchDayT: MatchDayBetween = {
+    before: matcher.before,
+    after: matcher.after
+  };
+  if (differenceInDays(matchDayT.before, matchDayT.after) <= 0) return false;
+  return isDayAfter(day, matcher.after) && isDayBefore(day, matcher.before);
+}
+
+/**
+ * @private
+ */
+function matchDayOfWeek(day: Date, matcher: DayMatcher): boolean {
+  if (!("daysOfWeek" in matcher)) return false;
+  return matcher.daysOfWeek.includes(day.getDay());
+}
+
+/**
+ * @private
+ */
+function matchFunction(day: Date, matcher: DayMatcher): boolean {
+  if (!(matcher instanceof Function)) return false;
+  return matcher(day);
+}
+
+/**
+ * Return `true` if a day matches a day matcher.
  *
  * @private
  */
-export function matchModifier(day: Date, modifier: DayModifier): boolean {
-  if (!modifier) {
-    return false;
-  }
-  let modifiers: Array<DayModifier>;
+export function matchDay(day: Date, matcher: DayMatcher): boolean {
+  if (!matcher) return false;
+  let matchers: Array<DayMatcher>;
 
-  if (Array.isArray(modifier)) {
-    modifiers = modifier;
+  if (Array.isArray(matcher)) {
+    matchers = matcher;
   } else {
-    modifiers = [modifier];
+    matchers = [matcher];
   }
 
-  return modifiers.some((modifier: DayModifier) => {
-    if (!modifier) {
-      return false;
-    }
-    if (modifier instanceof Date) {
-      return isSameDay(day, modifier);
-    }
-    if (
-      "after" in modifier &&
-      "before" in modifier &&
-      differenceInDays(modifier.before, modifier.after) > 0
-    ) {
-      return (
-        isDayAfter(day, modifier.after) && isDayBefore(day, modifier.before)
-      );
-    }
-    if (
-      "after" in modifier &&
-      "before" in modifier &&
-      (isDayAfter(modifier.after, modifier.before) ||
-        isSameDay(modifier.after, modifier.before))
-    ) {
-      return (
-        isDayAfter(day, modifier.after) || isDayBefore(day, modifier.before)
-      );
-    }
-    if ("after" in modifier) {
-      return isDayAfter(day, modifier.after);
-    }
-    if ("before" in modifier) {
-      return isDayBefore(day, modifier.before);
-    }
-    if ("daysOfWeek" in modifier) {
-      return modifier.daysOfWeek.includes(day.getDay());
-    }
-    if (typeof modifier === "function") {
-      return modifier(day);
-    }
-    return false;
+  return matchers.some((matcher: DayMatcher) => {
+    if (!matcher) return false;
+    return (
+      matchDate(day, matcher) ||
+      matchDayInRange(day, matcher) ||
+      matchDayBefore(day, matcher) ||
+      matchDayAfter(day, matcher) ||
+      matchDayBetween(day, matcher) ||
+      matchDayOfWeek(day, matcher) ||
+      matchFunction(day, matcher)
+    );
   });
 }

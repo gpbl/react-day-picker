@@ -1,17 +1,13 @@
-import { ClassNames } from "../";
+import { DayPickerClassNames } from "../types";
 
 /**
- * List the default class names used by the {@link DayPicker} component.
- *
- * - Use the {@link classNames} prop to override the default values, for example
- *   when using a css-in-js solution.
- *
- * See {@link ClassNames} for a description of each entry.
+ * List the default CSS class names. Class names can be overridden using the
+ * [[classNames]] prop.
  *
  * @readonly
  */
-export const defaultClassNames: ClassNames = {
-  container: "rdp",
+export const defaultClassNames: DayPickerClassNames = {
+  root: "rdp",
   caption: "rdp-caption",
 
   // Day Component
@@ -47,5 +43,6 @@ export const defaultClassNames: ClassNames = {
   selected: "rdp-day_selected",
   disabled: "rdp-day_disabled",
   today: "rdp-day_today",
-  outside: "rdp-day_outside"
+  outsideEnd: "rdp-day_outside",
+  outsideStart: "rdp-day_outside"
 };

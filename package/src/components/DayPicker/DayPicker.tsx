@@ -1,20 +1,24 @@
+/* eslint-disable prefer-rest-params */
 import * as React from "react";
 import { startOfMonth } from "date-fns";
 
 import { Months } from "../Months";
-import { DayPickerProps } from "./types";
+import { defaultProps } from "./defaults/defaultProps";
 
 /**
  * Render a day picker.
  *
+ * [[include:../guides/swizzling.md]]
+ *
+ * @param {DayPickerProps} props
  * @category Components
  */
-export function DayPicker(props: DayPickerProps): JSX.Element {
-  const { initialMonth, month, ...controlledProps } = props;
-  const isControlled = Boolean(month);
+export function DayPicker(props = defaultProps): JSX.Element {
+  // const props = arguments[0];
+  const isControlled = Boolean(props.month);
 
   const [currentMonth, setCurrentMonth] = React.useState(
-    startOfMonth(initialMonth || new Date())
+    startOfMonth(props.initialMonth || new Date())
   );
 
   function handleMonthChange(month: Date, e: React.MouseEvent): void {
@@ -24,9 +28,9 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
 
   return (
     <Months
-      {...controlledProps}
+      {...props}
       onMonthChange={!isControlled ? handleMonthChange : props.onMonthChange}
-      month={isControlled ? month : currentMonth}
+      month={isControlled ? props.month : currentMonth}
     />
   );
 }

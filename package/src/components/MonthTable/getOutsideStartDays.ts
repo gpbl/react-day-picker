@@ -19,7 +19,7 @@ export function getOutsideStartDays(
   for (let i = 0; i < startDiff; i++) {
     const day = addDays(firstDayOfWeek, i);
     const hidden = props.fromMonth && day < props.fromMonth;
-    const modifiers = { outside: "start", hidden };
+    const modifiers = { outsideStart: true, hidden };
     const dateWithModifiers = new DateWithModifiers(day, modifiers, props);
     days.push(dateWithModifiers);
   }

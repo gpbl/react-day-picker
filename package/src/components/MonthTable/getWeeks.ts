@@ -72,7 +72,7 @@ export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
         const date = addDays(lastWeekDate, i + 1);
         const dateWithModifiers = new DateWithModifiers(
           date,
-          { outside: "end" },
+          { outsideEnd: true },
           props
         );
         let week = getWeek(date, { locale });

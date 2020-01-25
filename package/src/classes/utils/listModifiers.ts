@@ -1,15 +1,15 @@
-import { Modifiers } from "../../components/DayPicker";
-import { matchModifier } from "./matchModifier";
+import { DayModifiers } from "../../components/DayPicker/types";
+import { matchDay } from "./matchModifier";
 
 /**
  * @ignore
  */
-const reduce = (day: Date, modifiers: Modifiers) => (
+const reduce = (day: Date, modifiers: DayModifiers) => (
   previousValue: string[],
   key: string
 ): string[] => {
   const modifier = modifiers[key];
-  if (matchModifier(day, modifier)) previousValue.push(name);
+  if (matchDay(day, modifier)) previousValue.push(name);
   return previousValue;
 };
 
@@ -18,6 +18,9 @@ const reduce = (day: Date, modifiers: Modifiers) => (
  *
  * @private
  */
-export function listModifiers(day: Date, modifiers: Modifiers): Array<string> {
+export function listModifiers(
+  day: Date,
+  modifiers: DayModifiers
+): Array<string> {
   return Object.keys(modifiers).reduce(reduce(day, modifiers), []);
 }

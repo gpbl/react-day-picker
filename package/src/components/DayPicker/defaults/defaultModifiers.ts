@@ -9,7 +9,8 @@ export const defaultModifiers: MatchingModifiers = {
   disabled: false,
   hidden: false,
   interactive: true,
-  outside: "",
-  selected: undefined,
+  outsideEnd: false,
+  outsideStart: false,
+  selected: false,
   today: false
 };

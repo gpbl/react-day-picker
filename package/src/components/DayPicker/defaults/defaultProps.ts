@@ -1,21 +1,21 @@
-import locale from "date-fns/locale/en-US";
 import { startOfMonth } from "date-fns";
+import english from "date-fns/locale/en-US";
 
-import { DayPickerProps } from "../";
+import { DayPickerProps } from "../types";
 
-import { Caption } from "../../Caption/Caption";
+import { MonthCaption } from "../../MonthCaption/MonthCaption";
 import { Day } from "../../Day";
 import { WeekNumber } from "../../WeekNumber";
 import { Navigation } from "../../Navigation";
 
 import { defaultClassNames } from "./defaultClassNames";
-import { formatCaption } from "./formatCaption";
-import { formatDay } from "./formatDay";
-import { formatWeekdayName } from "./formatWeekdayName";
-import { formatWeekNumber } from "./formatWeekNumber";
+import { defaultFormatCaption } from "./defaultFormatCaption";
+import { defaultFormatDay } from "./defaultFormatDay";
+import { defaultFormatWeekNumber } from "./defaultFormatWeekNumber";
+import { defaultFormatWeekdayName } from "./defaultFormatWeekdayName";
 
 /**
- * List the default props used by the {@link DayPicker} component.
+ * List the default props used by the [[DayPicker]] component.
  *
  * @readonly
  */
@@ -26,17 +26,17 @@ export const defaultProps: DayPickerProps = {
   style: {},
   styles: {},
   swizzle: {
-    Caption,
+    MonthCaption,
     Day,
     Navigation,
     WeekNumber
   },
   fixedWeeks: false,
-  formatCaption,
-  formatDay,
-  formatWeekdayName,
-  formatWeekNumber,
-  locale,
+  formatCaption: defaultFormatCaption,
+  formatDay: defaultFormatDay,
+  formatWeekdayName: defaultFormatWeekdayName,
+  formatWeekNumber: defaultFormatWeekNumber,
+  locale: english,
   nextLabel: "▶",
   modifiersClassNames: {},
   modifiersStyles: {},

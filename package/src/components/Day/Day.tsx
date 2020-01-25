@@ -4,23 +4,13 @@ import { getDayProps } from "./getDayProps";
 import { DayProps } from "./types";
 
 /**
- * The `Day` component renders the content of the day cell. It returns a button
+ * The `Day` component renders the content of the day cell. It renders a button
  * if the day is interactive (i.e. it is clickable).
  *
- * #### Use with DayPicker
- *
- * - To change how the day is formatted, use the {@link formatDay} prop.
- * - Swizzle this component using the {@link swizzle} prop and the
- *   {@link getDayProps} helper.
- * - This component is a bit complex to swizzle: see the source of the
- *   {@link Day} component for an example.
+ * This component can be [[include:swizzling.md]].
  *
  * @category Components
  */
-
-// TODO: split this component in wrapper and container so it is easier to
-// swizzle
-
 export function Day(props: DayProps): JSX.Element {
   const { day, modifiers, dayPickerProps } = props;
   const { locale, formatDay } = dayPickerProps;

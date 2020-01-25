@@ -5,7 +5,7 @@ import { NavigationMonths } from "./types";
  * Return the next and the previous months for the navigation component,
  * according to the DayPicker props.
  *
- * @category Components
+ *
  */
 export function getNavigation(props: DayPickerProps): NavigationMonths {
   const {

@@ -16,7 +16,7 @@ export default [
   {
     input,
     output: {
-      file: "lib/index.min.js",
+      file: "dist/index.min.js",
       format: "umd",
       name,
       globals,

@@ -4,19 +4,23 @@ import { defaultModifiers } from "../components/DayPicker/defaults/defaultModifi
 import {
   DayPickerProps,
   MatchingModifiers,
-  ModifierValueType
+  DayMatchModifier
 } from "../components/DayPicker";
 
 import { getModifiersFromProps } from "./utils/getModifiersFromProps";
 import { listModifiers } from "./utils/listModifiers";
 
 /**
- * DateWithModifier
+ * Helper class to move modifiers around the components.
  *
  * @private
  */
 export class DateWithModifiers {
-  constructor(date: Date, initialModifiers = {}, props: DayPickerProps) {
+  constructor(
+    date: Date,
+    initialModifiers: MatchingModifiers = {},
+    props: DayPickerProps
+  ) {
     this.date = date;
 
     const modifiers: MatchingModifiers = {
@@ -46,7 +50,7 @@ export class DateWithModifiers {
   date: Date;
   modifiers: MatchingModifiers;
 
-  getModifier(name: string): ModifierValueType {
+  getModifier(name: string): DayMatchModifier {
     return this.modifiers[name];
   }
 }
