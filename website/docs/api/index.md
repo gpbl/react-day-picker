@@ -4,8 +4,6 @@ title: "react-day-picker"
 sidebar_label: "Globals"
 ---
 
-[react-day-picker](index.md)
-
 # react-day-picker
 
 ## Index
@@ -121,7 +119,7 @@ sidebar_label: "Globals"
 
 Ƭ **CaptionHtmlProps**: *object*
 
-*Defined in [package/src/components/MonthCaption/types.ts:7](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/MonthCaption/types.ts#L7)*
+*Defined in [packages/react-day-picker/src/components/MonthCaption/types.ts:7](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthCaption/types.ts#L7)*
 
 Props for the #{}
 
@@ -139,7 +137,7 @@ ___
 
 Ƭ **DayClickEventHandler**: *function*
 
-*Defined in [package/src/components/DayPicker/types/DayPickerProps.ts:35](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/DayPickerProps.ts#L35)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts:35](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts#L35)*
 
 Event handler when a day is clicked.
 
@@ -161,7 +159,7 @@ ___
 
 Ƭ **DayContainerHtmlProps**: *object*
 
-*Defined in [package/src/components/Day/types.ts:30](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Day/types.ts#L30)*
+*Defined in [packages/react-day-picker/src/components/Day/types.ts:30](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Day/types.ts#L30)*
 
 #### Type declaration:
 
@@ -181,7 +179,7 @@ ___
 
 Ƭ **DayFormatter**: *function*
 
-*Defined in [package/src/components/Day/types.ts:25](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Day/types.ts#L25)*
+*Defined in [packages/react-day-picker/src/components/Day/types.ts:25](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Day/types.ts#L25)*
 
 A function that format the day for the [Day](index.md#day) component.
 
@@ -202,7 +200,7 @@ ___
 
 Ƭ **DayHtmlProps**: *object*
 
-*Defined in [package/src/components/Day/types.ts:43](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Day/types.ts#L43)*
+*Defined in [packages/react-day-picker/src/components/Day/types.ts:43](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Day/types.ts#L43)*
 
 #### Type declaration:
 
@@ -216,7 +214,7 @@ ___
 
 Ƭ **DayMatchModifier**: *boolean | undefined*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:65](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L65)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:65](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L65)*
 
 A type to indicate when a day matches a modifier.
 
@@ -226,7 +224,7 @@ ___
 
 Ƭ **DayMatcher**: *[MatchDate](index.md#matchdate) | [MatchDayInRange](index.md#matchdayinrange) | [MatchDayBetween](index.md#matchdaybetween) | [MatchDayBefore](index.md#matchdaybefore) | [MatchDayAfter](index.md#matchdayafter) | [MatchDaysOfWeek](index.md#matchdaysofweek) | [MatchFunction](index.md#matchfunction) | [DayMatcher](index.md#daymatcher)[]*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:115](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L115)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:115](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L115)*
 
 Day matchers are used to find if a day matches a specific condition, like
 being between two dates, or in a specified day of the week, etc.
@@ -237,7 +235,7 @@ ___
 
 Ƭ **DayModifiers**: *object*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:58](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L58)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:58](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L58)*
 
 Modifiers to assign when a day is matched.
 
@@ -251,7 +249,7 @@ ___
 
 Ƭ **DayPickerClassNames**: *object*
 
-*Defined in [package/src/components/DayPicker/types/DayPickerProps.ts:22](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/DayPickerProps.ts#L22)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts:22](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts#L22)*
 
 Names of the CSS classes for each UI element.
 
@@ -263,7 +261,7 @@ ___
 
 Ƭ **DayPickerStyles**: *object*
 
-*Defined in [package/src/components/DayPicker/types/DayPickerProps.ts:28](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/DayPickerProps.ts#L28)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts:28](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts#L28)*
 
 Inline `style` for each UI element.
 
@@ -275,7 +273,7 @@ ___
 
 Ƭ **DayWrapperHtmlProps**: *object*
 
-*Defined in [package/src/components/Day/types.ts:38](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Day/types.ts#L38)*
+*Defined in [packages/react-day-picker/src/components/Day/types.ts:38](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Day/types.ts#L38)*
 
 #### Type declaration:
 
@@ -289,7 +287,7 @@ ___
 
 Ƭ **MatchDate**: *Date*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:79](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L79)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:79](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L79)*
 
 Matches a day that is the same as the specified date.
 
@@ -299,7 +297,7 @@ ___
 
 Ƭ **MatchDayAfter**: *object*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:94](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L94)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:94](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L94)*
 
 Matches the days after (but not including) the specified date.
 
@@ -313,7 +311,7 @@ ___
 
 Ƭ **MatchDayBefore**: *object*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:89](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L89)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:89](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L89)*
 
 Matches the days before (but not including) the specified date.
 
@@ -327,7 +325,7 @@ ___
 
 Ƭ **MatchDayBetween**: *object*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:99](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L99)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:99](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L99)*
 
 Matches the days between (but not including) the specified date.
 
@@ -343,7 +341,7 @@ ___
 
 Ƭ **MatchDayInRange**: *object*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:84](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L84)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:84](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L84)*
 
 Matches the days that are inside (but not including) the specified range.
 
@@ -359,7 +357,7 @@ ___
 
 Ƭ **MatchDaysOfWeek**: *object*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:104](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L104)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:104](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L104)*
 
 Matches one or more days of the week (`0` = Sundays).
 
@@ -373,7 +371,7 @@ ___
 
 Ƭ **MatchFunction**: *function*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:109](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L109)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:109](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L109)*
 
 Matches any day for which this function returns a truthy value.
 
@@ -393,7 +391,7 @@ ___
 
 Ƭ **MatchingModifiers**: *object*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:72](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L72)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:72](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L72)*
 
 An object containing modifiers matching a specific day. Some defaults
 modifiers are used in DayPicker. They can be extended using the
@@ -407,7 +405,7 @@ ___
 
 Ƭ **Modifier**: *string*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:6](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L6)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:6](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L6)*
 
 A modifier is a string attached to a day whose behavior and appearance is meant to be modified by it.
 
@@ -419,7 +417,7 @@ ___
 
 Ƭ **ModifiersClassNames**: *object*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:10](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L10)*
 
 #### Type declaration:
 
@@ -431,7 +429,7 @@ ___
 
 Ƭ **ModifiersStyles**: *object*
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:17](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L17)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:17](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L17)*
 
 Inline styles to apply to the day element having the specified modifier.
 
@@ -443,7 +441,7 @@ ___
 
 Ƭ **MonthCaptionFormatter**: *function*
 
-*Defined in [package/src/components/MonthCaption/types.ts:29](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/MonthCaption/types.ts#L29)*
+*Defined in [packages/react-day-picker/src/components/MonthCaption/types.ts:29](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthCaption/types.ts#L29)*
 
 A function that format a month for the [MonthCaption](index.md#monthcaption) component.
 
@@ -464,7 +462,7 @@ ___
 
 Ƭ **MonthChangeEventHandler**: *function*
 
-*Defined in [package/src/components/DayPicker/types/DayPickerProps.ts:44](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/DayPickerProps.ts#L44)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts:44](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts#L44)*
 
 Event handler when the month is changed.
 
@@ -485,7 +483,7 @@ ___
 
 Ƭ **MonthWeeks**: *object*
 
-*Defined in [package/src/components/MonthTable/getWeeks.ts:22](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/MonthTable/getWeeks.ts#L22)*
+*Defined in [packages/react-day-picker/src/components/MonthTable/getWeeks.ts:22](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthTable/getWeeks.ts#L22)*
 
 The weeks belonging to a month. Each key of the returned object is the
 week number of the year.
@@ -500,7 +498,7 @@ ___
 
 Ƭ **NavigationHtmlProps**: *object*
 
-*Defined in [package/src/components/Navigation/types.ts:13](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Navigation/types.ts#L13)*
+*Defined in [packages/react-day-picker/src/components/Navigation/types.ts:13](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Navigation/types.ts#L13)*
 
 HTML props for the [Navigation](index.md#navigation).
 
@@ -530,7 +528,7 @@ ___
 
 Ƭ **NavigationMonths**: *object*
 
-*Defined in [package/src/components/Navigation/types.ts:31](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Navigation/types.ts#L31)*
+*Defined in [packages/react-day-picker/src/components/Navigation/types.ts:31](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Navigation/types.ts#L31)*
 
 The months that is possible to navigate.
 
@@ -546,7 +544,7 @@ ___
 
 Ƭ **SwizzlingComponents**: *object*
 
-*Defined in [package/src/components/DayPicker/types/DayPickerProps.ts:52](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/DayPickerProps.ts#L52)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts:52](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts#L52)*
 
 Components that can be [swizzled](./docs/swizzling).
 
@@ -566,7 +564,7 @@ ___
 
 Ƭ **UseInputDayPickerProps**: *object*
 
-*Defined in [package/src/hooks/useInput.ts:16](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/hooks/useInput.ts#L16)*
+*Defined in [packages/react-day-picker/src/hooks/useInput.ts:16](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/hooks/useInput.ts#L16)*
 
 Props to attach to the `DayPicker` component
 
@@ -582,7 +580,7 @@ ___
 
 Ƭ **UseInputInputProps**: *object*
 
-*Defined in [package/src/hooks/useInput.ts:22](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/hooks/useInput.ts#L22)*
+*Defined in [packages/react-day-picker/src/hooks/useInput.ts:22](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/hooks/useInput.ts#L22)*
 
 Props to attach to the `input` HTML element
 
@@ -602,7 +600,7 @@ ___
 
 Ƭ **WeekNumberFormatter**: *function*
 
-*Defined in [package/src/components/WeekNumber/types.ts:10](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/WeekNumber/types.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/WeekNumber/types.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/WeekNumber/types.ts#L10)*
 
 #### Type declaration:
 
@@ -621,7 +619,7 @@ ___
 
 Ƭ **WeekdayNameFormatter**: *function*
 
-*Defined in [package/src/components/WeekRow/types.ts:20](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/WeekRow/types.ts#L20)*
+*Defined in [packages/react-day-picker/src/components/WeekRow/types.ts:20](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/WeekRow/types.ts#L20)*
 
 Format the weekday name.
 
@@ -642,7 +640,7 @@ Name | Type |
 
 ▸ **Day**(`props`: [DayProps](interfaces/dayprops.md)): *Element*
 
-*Defined in [package/src/components/Day/Day.tsx:14](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Day/Day.tsx#L14)*
+*Defined in [packages/react-day-picker/src/components/Day/Day.tsx:14](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Day/Day.tsx#L14)*
 
 The `Day` component renders the content of the day cell. It renders a button
 if the day is interactive (i.e. it is clickable).
@@ -663,7 +661,7 @@ ___
 
 ▸ **DayPicker**(`props`: [DayPickerProps](interfaces/daypickerprops.md)): *Element*
 
-*Defined in [package/src/components/DayPicker/DayPicker.tsx:16](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/DayPicker.tsx#L16)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/DayPicker.tsx:16](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/DayPicker.tsx#L16)*
 
 Render a day picker.
 
@@ -683,7 +681,7 @@ ___
 
 ▸ **Head**(`props`: [HeadProps](interfaces/headprops.md)): *Element*
 
-*Defined in [package/src/components/Head/Head.tsx:12](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Head/Head.tsx#L12)*
+*Defined in [packages/react-day-picker/src/components/Head/Head.tsx:12](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Head/Head.tsx#L12)*
 
 Render the head of the month table, including the weekday names (Mon, Tue,
 etc.).
@@ -702,7 +700,7 @@ ___
 
 ▸ **MonthCaption**(`props`: [MonthCaptionProps](interfaces/monthcaptionprops.md)): *Element*
 
-*Defined in [package/src/components/MonthCaption/MonthCaption.tsx:12](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/MonthCaption/MonthCaption.tsx#L12)*
+*Defined in [packages/react-day-picker/src/components/MonthCaption/MonthCaption.tsx:12](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthCaption/MonthCaption.tsx#L12)*
 
 Renders the caption of the month.
 
@@ -722,7 +720,7 @@ ___
 
 ▸ **MonthTable**(`props`: [MonthTableProps](interfaces/monthtableprops.md)): *Element*
 
-*Defined in [package/src/components/MonthTable/MonthTable.tsx:13](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/MonthTable/MonthTable.tsx#L13)*
+*Defined in [packages/react-day-picker/src/components/MonthTable/MonthTable.tsx:13](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthTable/MonthTable.tsx#L13)*
 
 Render the month table.
 
@@ -740,7 +738,7 @@ ___
 
 ▸ **Months**(`initialProps`: [DayPickerProps](interfaces/daypickerprops.md)): *Element*
 
-*Defined in [package/src/components/Months/Months.tsx:20](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Months/Months.tsx#L20)*
+*Defined in [packages/react-day-picker/src/components/Months/Months.tsx:20](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Months/Months.tsx#L20)*
 
 Render the months and the navigation.
 
@@ -758,7 +756,7 @@ ___
 
 ▸ **Navigation**(`props`: [NavigationProps](interfaces/navigationprops.md)): *Element | null*
 
-*Defined in [package/src/components/Navigation/Navigation.tsx:11](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Navigation/Navigation.tsx#L11)*
+*Defined in [packages/react-day-picker/src/components/Navigation/Navigation.tsx:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Navigation/Navigation.tsx#L11)*
 
 Renders the buttons to navigate between months.
 
@@ -776,7 +774,7 @@ ___
 
 ▸ **WeekNumber**(`props`: [WeekNumberProps](interfaces/weeknumberprops.md)): *Element*
 
-*Defined in [package/src/components/WeekNumber/WeekNumber.tsx:9](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/WeekNumber/WeekNumber.tsx#L9)*
+*Defined in [packages/react-day-picker/src/components/WeekNumber/WeekNumber.tsx:9](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/WeekNumber/WeekNumber.tsx#L9)*
 
 Render the number of the week when [showWeekNumber](interfaces/headprops.md#optional-showweeknumber) is enabled.
 
@@ -794,7 +792,7 @@ ___
 
 ▸ **WeekRow**(`props`: [WeekRowProps](interfaces/weekrowprops.md)): *Element*
 
-*Defined in [package/src/components/WeekRow/WeekRow.tsx:11](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/WeekRow/WeekRow.tsx#L11)*
+*Defined in [packages/react-day-picker/src/components/WeekRow/WeekRow.tsx:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/WeekRow/WeekRow.tsx#L11)*
 
 Render a week row.
 
@@ -814,7 +812,7 @@ ___
 
 ▸ **Test**(): *Element*
 
-*Defined in [package/src/Test.tsx:4](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/Test.tsx#L4)*
+*Defined in [packages/react-day-picker/src/Test.tsx:4](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/Test.tsx#L4)*
 
 **Returns:** *Element*
 
@@ -824,7 +822,7 @@ ___
 
 ▸ **defaultFormatCaption**(`month`: Date, `formatOptions?`: undefined | object): *string*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultFormatCaption.ts:11](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultFormatCaption.ts#L11)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultFormatCaption.ts:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultFormatCaption.ts#L11)*
 
 The default function used to format the caption. Use the [formatCaption](interfaces/daypickerprops.md#optional-formatcaption)
 prop to use another function.
@@ -847,7 +845,7 @@ ___
 
 ▸ **defaultFormatDay**(`day`: Date, `formatOptions?`: undefined | object): *string*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultFormatDay.ts:11](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultFormatDay.ts#L11)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultFormatDay.ts:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultFormatDay.ts#L11)*
 
 The default function used to format the day date. Use the [formatDay](interfaces/daypickerprops.md#optional-formatday) prop
 to use another function.
@@ -870,7 +868,7 @@ ___
 
 ▸ **defaultFormatWeekNumber**(`weekNumber`: number): *string*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultFormatWeekNumber.ts:8](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultFormatWeekNumber.ts#L8)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultFormatWeekNumber.ts:8](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultFormatWeekNumber.ts#L8)*
 
 The default function used to format the week number. Use the
 [formatWeekNumber](interfaces/daypickerprops.md#optional-formatweeknumber) prop to use another function.
@@ -891,7 +889,7 @@ ___
 
 ▸ **defaultFormatWeekdayName**(`day`: Date, `formatOptions?`: undefined | object): *string*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultFormatWeekdayName.ts:10](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultFormatWeekdayName.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultFormatWeekdayName.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultFormatWeekdayName.ts#L10)*
 
 The default function used to format the day. Use the [formatWeekdayName](interfaces/daypickerprops.md#optional-formatweekdayname)
 prop to use another function.
@@ -914,7 +912,7 @@ ___
 
 ▸ **filterUndefinedProps**(`obj`: object): *object*
 
-*Defined in [package/src/components/Months/helpers/filterUndefinedProps.ts:8](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Months/helpers/filterUndefinedProps.ts#L8)*
+*Defined in [packages/react-day-picker/src/components/Months/helpers/filterUndefinedProps.ts:8](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Months/helpers/filterUndefinedProps.ts#L8)*
 
 Filter the undefined props of `obj`.
 
@@ -934,7 +932,7 @@ ___
 
 ▸ **getCaptionProps**(`dayPickerProps`: [DayPickerProps](interfaces/daypickerprops.md)): *[CaptionHtmlProps](index.md#captionhtmlprops)*
 
-*Defined in [package/src/components/MonthCaption/getCaptionProps.ts:27](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/MonthCaption/getCaptionProps.ts#L27)*
+*Defined in [packages/react-day-picker/src/components/MonthCaption/getCaptionProps.ts:27](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthCaption/getCaptionProps.ts#L27)*
 
 Return props for creating a [MonthCaption](index.md#monthcaption) component.
 
@@ -969,7 +967,7 @@ ___
 
 ▸ **getDayProps**(`day`: Date, `modifiers`: [MatchingModifiers](index.md#matchingmodifiers), `props`: [DayPickerProps](interfaces/daypickerprops.md)): *[DayHtmlProps](index.md#dayhtmlprops)*
 
-*Defined in [package/src/components/Day/getDayProps.ts:20](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Day/getDayProps.ts#L20)*
+*Defined in [packages/react-day-picker/src/components/Day/getDayProps.ts:20](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Day/getDayProps.ts#L20)*
 
 Return props for creating a [Day](index.md#day) component.
 
@@ -996,7 +994,7 @@ ___
 
 ▸ **getModifiersFromProps**(`props`: [DayPickerProps](interfaces/daypickerprops.md)): *[DayModifiers](index.md#daymodifiers)*
 
-*Defined in [package/src/classes/utils/getModifiersFromProps.ts:9](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/getModifiersFromProps.ts#L9)*
+*Defined in [packages/react-day-picker/src/classes/utils/getModifiersFromProps.ts:9](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/getModifiersFromProps.ts#L9)*
 
 Return the `modifiers` prop including the modifiers from shortcut-props
 (`selected`, `disabled` and `hidden`)
@@ -1015,7 +1013,7 @@ ___
 
 ▸ **getMonths**(`props`: [DayPickerProps](interfaces/daypickerprops.md)): *Date[]*
 
-*Defined in [package/src/components/Months/helpers/getMonths.ts:10](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Months/helpers/getMonths.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/Months/helpers/getMonths.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Months/helpers/getMonths.ts#L10)*
 
 Get the months to render in DayPicker according to the passed
 `numberOfMonths` and other month-related props.
@@ -1034,7 +1032,7 @@ ___
 
 ▸ **getNavigation**(`props`: [DayPickerProps](interfaces/daypickerprops.md)): *[NavigationMonths](index.md#navigationmonths)*
 
-*Defined in [package/src/components/Navigation/getNavigation.ts:10](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Navigation/getNavigation.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/Navigation/getNavigation.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Navigation/getNavigation.ts#L10)*
 
 Return the next and the previous months for the navigation component,
 according to the DayPicker props.
@@ -1053,7 +1051,7 @@ ___
 
 ▸ **getNavigationProps**(`props`: [DayPickerProps](interfaces/daypickerprops.md)): *[NavigationHtmlProps](index.md#navigationhtmlprops)*
 
-*Defined in [package/src/components/Navigation/getNavigationProps.ts:9](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Navigation/getNavigationProps.ts#L9)*
+*Defined in [packages/react-day-picker/src/components/Navigation/getNavigationProps.ts:9](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Navigation/getNavigationProps.ts#L9)*
 
 Return the props for the Navigation component and its children.
 
@@ -1071,7 +1069,7 @@ ___
 
 ▸ **getOutsideEndDays**(`day`: [DateWithModifiers](classes/datewithmodifiers.md), `props`: [DayPickerProps](interfaces/daypickerprops.md)): *Array‹[DateWithModifiers](classes/datewithmodifiers.md)›*
 
-*Defined in [package/src/components/MonthTable/getOutsideEndDays.ts:11](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/MonthTable/getOutsideEndDays.ts#L11)*
+*Defined in [packages/react-day-picker/src/components/MonthTable/getOutsideEndDays.ts:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthTable/getOutsideEndDays.ts#L11)*
 
 Return the outside ending days for the given day.
 
@@ -1090,7 +1088,7 @@ ___
 
 ▸ **getOutsideStartDays**(`day`: [DateWithModifiers](classes/datewithmodifiers.md), `props`: [DayPickerProps](interfaces/daypickerprops.md)): *Array‹[DateWithModifiers](classes/datewithmodifiers.md)›*
 
-*Defined in [package/src/components/MonthTable/getOutsideStartDays.ts:10](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/MonthTable/getOutsideStartDays.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/MonthTable/getOutsideStartDays.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthTable/getOutsideStartDays.ts#L10)*
 
 Return the outside starting days for the given day.
 
@@ -1109,7 +1107,7 @@ ___
 
 ▸ **getWeekdaysNames**(`locale`: DateFns.Locale, `format`: DayPickerProps["formatCaption"]): *Array‹string›*
 
-*Defined in [package/src/components/Head/getWeekdaysNames.ts:9](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Head/getWeekdaysNames.ts#L9)*
+*Defined in [packages/react-day-picker/src/components/Head/getWeekdaysNames.ts:9](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Head/getWeekdaysNames.ts#L9)*
 
 Return the name of the weekdays according to the formatting function.
 
@@ -1128,7 +1126,7 @@ ___
 
 ▸ **getWeeks**(`month`: Date, `props`: [DayPickerProps](interfaces/daypickerprops.md)): *[MonthWeeks](index.md#private-monthweeks)*
 
-*Defined in [package/src/components/MonthTable/getWeeks.ts:29](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/MonthTable/getWeeks.ts#L29)*
+*Defined in [packages/react-day-picker/src/components/MonthTable/getWeeks.ts:29](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthTable/getWeeks.ts#L29)*
 
 Return the weeks belonging to the given month.
 
@@ -1147,7 +1145,7 @@ ___
 
 ▸ **isDayAfter**(`day1`: Date, `day2`: Date): *boolean*
 
-*Defined in [package/src/classes/utils/matchModifier.ts:13](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/matchModifier.ts#L13)*
+*Defined in [packages/react-day-picker/src/classes/utils/matchModifier.ts:13](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/matchModifier.ts#L13)*
 
 **Parameters:**
 
@@ -1164,7 +1162,7 @@ ___
 
 ▸ **isDayBefore**(`day1`: Date, `day2`: Date): *boolean*
 
-*Defined in [package/src/classes/utils/matchModifier.ts:20](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/matchModifier.ts#L20)*
+*Defined in [packages/react-day-picker/src/classes/utils/matchModifier.ts:20](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/matchModifier.ts#L20)*
 
 **Parameters:**
 
@@ -1181,7 +1179,7 @@ ___
 
 ▸ **isValidDate**(`day`: Date): *boolean*
 
-*Defined in [package/src/hooks/useInput.ts:11](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/hooks/useInput.ts#L11)*
+*Defined in [packages/react-day-picker/src/hooks/useInput.ts:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/hooks/useInput.ts#L11)*
 
 **Parameters:**
 
@@ -1197,7 +1195,7 @@ ___
 
 ▸ **listModifiers**(`day`: Date, `modifiers`: [DayModifiers](index.md#daymodifiers)): *Array‹string›*
 
-*Defined in [package/src/classes/utils/listModifiers.ts:21](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/listModifiers.ts#L21)*
+*Defined in [packages/react-day-picker/src/classes/utils/listModifiers.ts:21](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/listModifiers.ts#L21)*
 
 Given a date and a list of modifiers, return the names of the modifiers matching that day.
 
@@ -1216,7 +1214,7 @@ ___
 
 ▸ **matchDate**(`day`: Date, `matcher`: [DayMatcher](index.md#daymatcher)): *boolean*
 
-*Defined in [package/src/classes/utils/matchModifier.ts:27](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/matchModifier.ts#L27)*
+*Defined in [packages/react-day-picker/src/classes/utils/matchModifier.ts:27](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/matchModifier.ts#L27)*
 
 **Parameters:**
 
@@ -1233,7 +1231,7 @@ ___
 
 ▸ **matchDay**(`day`: Date, `matcher`: [DayMatcher](index.md#daymatcher)): *boolean*
 
-*Defined in [package/src/classes/utils/matchModifier.ts:98](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/matchModifier.ts#L98)*
+*Defined in [packages/react-day-picker/src/classes/utils/matchModifier.ts:98](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/matchModifier.ts#L98)*
 
 Return `true` if a day matches a day matcher.
 
@@ -1252,7 +1250,7 @@ ___
 
 ▸ **matchDayAfter**(`day`: Date, `matcher`: [DayMatcher](index.md#daymatcher)): *boolean*
 
-*Defined in [package/src/classes/utils/matchModifier.ts:58](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/matchModifier.ts#L58)*
+*Defined in [packages/react-day-picker/src/classes/utils/matchModifier.ts:58](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/matchModifier.ts#L58)*
 
 **Parameters:**
 
@@ -1269,7 +1267,7 @@ ___
 
 ▸ **matchDayBefore**(`day`: Date, `matcher`: [DayMatcher](index.md#daymatcher)): *boolean*
 
-*Defined in [package/src/classes/utils/matchModifier.ts:49](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/matchModifier.ts#L49)*
+*Defined in [packages/react-day-picker/src/classes/utils/matchModifier.ts:49](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/matchModifier.ts#L49)*
 
 **Parameters:**
 
@@ -1286,7 +1284,7 @@ ___
 
 ▸ **matchDayBetween**(`day`: Date, `matcher`: [DayMatcher](index.md#daymatcher)): *boolean*
 
-*Defined in [package/src/classes/utils/matchModifier.ts:67](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/matchModifier.ts#L67)*
+*Defined in [packages/react-day-picker/src/classes/utils/matchModifier.ts:67](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/matchModifier.ts#L67)*
 
 **Parameters:**
 
@@ -1303,7 +1301,7 @@ ___
 
 ▸ **matchDayInRange**(`day`: Date, `matcher`: [DayMatcher](index.md#daymatcher)): *boolean*
 
-*Defined in [package/src/classes/utils/matchModifier.ts:36](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/matchModifier.ts#L36)*
+*Defined in [packages/react-day-picker/src/classes/utils/matchModifier.ts:36](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/matchModifier.ts#L36)*
 
 **Parameters:**
 
@@ -1320,7 +1318,7 @@ ___
 
 ▸ **matchDayOfWeek**(`day`: Date, `matcher`: [DayMatcher](index.md#daymatcher)): *boolean*
 
-*Defined in [package/src/classes/utils/matchModifier.ts:80](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/matchModifier.ts#L80)*
+*Defined in [packages/react-day-picker/src/classes/utils/matchModifier.ts:80](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/matchModifier.ts#L80)*
 
 **Parameters:**
 
@@ -1337,7 +1335,7 @@ ___
 
 ▸ **matchFunction**(`day`: Date, `matcher`: [DayMatcher](index.md#daymatcher)): *boolean*
 
-*Defined in [package/src/classes/utils/matchModifier.ts:88](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/classes/utils/matchModifier.ts#L88)*
+*Defined in [packages/react-day-picker/src/classes/utils/matchModifier.ts:88](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/utils/matchModifier.ts#L88)*
 
 **Parameters:**
 
@@ -1354,7 +1352,7 @@ ___
 
 ▸ **useInput**(`initialSelectedDay`: Date | undefined, `formatStr`: string, `options`: object): *object*
 
-*Defined in [package/src/hooks/useInput.ts:44](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/hooks/useInput.ts#L44)*
+*Defined in [packages/react-day-picker/src/hooks/useInput.ts:44](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/hooks/useInput.ts#L44)*
 
 Hook to bind a input with a calendar.
 
@@ -1399,7 +1397,7 @@ Name | Type |
 
 ### ▪ **defaultClassNames**: *object*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:9](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L9)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:9](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L9)*
 
 List the default CSS class names. Class names can be overridden using the
 [classNames](interfaces/daypickerprops.md#optional-classnames) prop.
@@ -1410,145 +1408,145 @@ List the default CSS class names. Class names can be overridden using the
 
 • **caption**: *string* = "rdp-caption"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:11](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L11)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L11)*
 
 ###  day
 
 • **day**: *string* = "rdp-day"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:14](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L14)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:14](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L14)*
 
 ###  dayWrapper
 
 • **dayWrapper**: *string* = "rdp-day_wrapper"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:15](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L15)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:15](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L15)*
 
 ###  disabled
 
 • **disabled**: *string* = "rdp-day_disabled"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:44](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L44)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:44](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L44)*
 
 ###  head
 
 • **head**: *string* = "rdp-head"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:24](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L24)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:24](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L24)*
 
 ###  headRow
 
 • **headRow**: *string* = "rdp-head_row"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:25](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L25)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:25](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L25)*
 
 ###  headWeekName
 
 • **headWeekName**: *string* = "rdp-head_weekname"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:27](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L27)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:27](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L27)*
 
 ###  headWeekNumber
 
 • **headWeekNumber**: *string* = "rdp-head_weeknumber"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:26](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L26)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:26](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L26)*
 
 ###  month
 
 • **month**: *string* = "rdp-month"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:18](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L18)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:18](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L18)*
 
 ###  monthTable
 
 • **monthTable**: *string* = "rdp-month_table"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:19](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L19)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:19](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L19)*
 
 ###  monthTbody
 
 • **monthTbody**: *string* = "rdp-month_tbody"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:20](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L20)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:20](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L20)*
 
 ###  months
 
 • **months**: *string* = "rdp-months"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:21](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L21)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:21](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L21)*
 
 ###  nav
 
 • **nav**: *string* = "rdp-nav"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:30](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L30)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:30](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L30)*
 
 ###  navNext
 
 • **navNext**: *string* = "rdp-nav_next"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:32](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L32)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:32](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L32)*
 
 ###  navPrev
 
 • **navPrev**: *string* = "rdp-nav_prev"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:31](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L31)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:31](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L31)*
 
 ###  outsideend
 
 • **outsideend**: *string* = "rdp-day_outside"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:46](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L46)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:46](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L46)*
 
 ###  outsidestart
 
 • **outsidestart**: *string* = "rdp-day_outside"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:47](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L47)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:47](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L47)*
 
 ###  root
 
 • **root**: *string* = "rdp"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:10](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L10)*
 
 ###  selected
 
 • **selected**: *string* = "rdp-day_selected"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:43](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L43)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:43](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L43)*
 
 ###  today
 
 • **today**: *string* = "rdp-day_today"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:45](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L45)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:45](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L45)*
 
 ###  week
 
 • **week**: *string* = "rdp-week"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:35](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L35)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:35](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L35)*
 
 ###  weekDay
 
 • **weekDay**: *string* = "rdp-week_day"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:36](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L36)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:36](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L36)*
 
 ###  weekNumber
 
 • **weekNumber**: *string* = "rdp-weeknumber"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:40](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L40)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:40](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L40)*
 
 ###  weekWeeknumber
 
 • **weekWeeknumber**: *string* = "rdp-week_weeknumber"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultClassNames.ts:37](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultClassNames.ts#L37)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts:37](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultClassNames.ts#L37)*
 
 ___
 
@@ -1556,7 +1554,7 @@ ___
 
 ### ▪ **defaultModifiers**: *object*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultModifiers.ts:8](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultModifiers.ts#L8)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts:8](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts#L8)*
 
 Default modifiers.
 
@@ -1566,43 +1564,43 @@ Default modifiers.
 
 • **disabled**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultModifiers.ts:9](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultModifiers.ts#L9)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts:9](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts#L9)*
 
 ###  hidden
 
 • **hidden**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultModifiers.ts:10](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultModifiers.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts#L10)*
 
 ###  interactive
 
 • **interactive**: *true* = true
 
-*Defined in [package/src/components/DayPicker/defaults/defaultModifiers.ts:11](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultModifiers.ts#L11)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts#L11)*
 
 ###  outsideend
 
 • **outsideend**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultModifiers.ts:12](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultModifiers.ts#L12)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts:12](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts#L12)*
 
 ###  outsidestart
 
 • **outsidestart**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultModifiers.ts:13](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultModifiers.ts#L13)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts:13](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts#L13)*
 
 ###  selected
 
 • **selected**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultModifiers.ts:14](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultModifiers.ts#L14)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts:14](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts#L14)*
 
 ###  today
 
 • **today**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultModifiers.ts:15](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultModifiers.ts#L15)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts:15](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultModifiers.ts#L15)*
 
 ___
 
@@ -1610,7 +1608,7 @@ ___
 
 ### ▪ **defaultProps**: *object*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:22](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L22)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:22](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L22)*
 
 List the default props used by the [DayPicker](index.md#daypicker) component.
 
@@ -1620,13 +1618,13 @@ List the default props used by the [DayPicker](index.md#daypicker) component.
 
 • **className**: *string* = ""
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:25](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L25)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:25](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L25)*
 
 ###  classNames
 
 • **classNames**: *object* = defaultClassNames
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:24](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L24)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:24](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L24)*
 
 #### Type declaration:
 
@@ -1634,43 +1632,43 @@ List the default props used by the [DayPicker](index.md#daypicker) component.
 
 • **enableOutsideDaysClick**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:23](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L23)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:23](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L23)*
 
 ###  fixedWeeks
 
 • **fixedWeeks**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:34](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L34)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:34](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L34)*
 
 ###  formatCaption
 
 • **formatCaption**: *[defaultFormatCaption](index.md#private-defaultformatcaption)* = defaultFormatCaption
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:35](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L35)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:35](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L35)*
 
 ###  formatDay
 
 • **formatDay**: *[defaultFormatDay](index.md#private-defaultformatday)* = defaultFormatDay
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:36](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L36)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:36](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L36)*
 
 ###  formatWeekNumber
 
 • **formatWeekNumber**: *[defaultFormatWeekNumber](index.md#private-defaultformatweeknumber)* = defaultFormatWeekNumber
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:38](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L38)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:38](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L38)*
 
 ###  formatWeekdayName
 
 • **formatWeekdayName**: *[defaultFormatWeekdayName](index.md#private-defaultformatweekdayname)* = defaultFormatWeekdayName
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:37](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L37)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:37](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L37)*
 
 ###  locale
 
 • **locale**: *object* = english
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:39](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L39)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:39](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L39)*
 
 #### Type declaration:
 
@@ -1692,7 +1690,7 @@ List the default props used by the [DayPicker](index.md#daypicker) component.
 
 • **modifiersClassNames**: *object*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:41](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L41)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:41](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L41)*
 
 #### Type declaration:
 
@@ -1700,7 +1698,7 @@ List the default props used by the [DayPicker](index.md#daypicker) component.
 
 • **modifiersStyles**: *object*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:42](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L42)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:42](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L42)*
 
 #### Type declaration:
 
@@ -1708,73 +1706,73 @@ List the default props used by the [DayPicker](index.md#daypicker) component.
 
 • **month**: *Date* = startOfMonth(new Date())
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:43](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L43)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:43](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L43)*
 
 ###  nextLabel
 
 • **nextLabel**: *string* = "▶"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:40](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L40)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:40](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L40)*
 
 ###  numberOfMonths
 
 • **numberOfMonths**: *number* = 1
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:44](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L44)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:44](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L44)*
 
 ###  pagedNavigation
 
 • **pagedNavigation**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:45](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L45)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:45](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L45)*
 
 ###  prevLabel
 
 • **prevLabel**: *string* = "◀"
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:46](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L46)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:46](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L46)*
 
 ###  reverseMonths
 
 • **reverseMonths**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:47](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L47)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:47](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L47)*
 
 ###  showCaption
 
 • **showCaption**: *true* = true
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:48](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L48)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:48](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L48)*
 
 ###  showHead
 
 • **showHead**: *true* = true
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:49](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L49)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:49](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L49)*
 
 ###  showNavigation
 
 • **showNavigation**: *true* = true
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:50](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L50)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:50](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L50)*
 
 ###  showOutsideDays
 
 • **showOutsideDays**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:51](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L51)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:51](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L51)*
 
 ###  showWeekNumber
 
 • **showWeekNumber**: *false* = false
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:52](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L52)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:52](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L52)*
 
 ###  style
 
 • **style**: *object*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:26](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L26)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:26](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L26)*
 
 #### Type declaration:
 
@@ -1782,13 +1780,13 @@ List the default props used by the [DayPicker](index.md#daypicker) component.
 
 • **styles**: *object*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:27](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L27)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:27](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L27)*
 
 #### Type declaration:
 
 ▪ **swizzle**: *object*
 
-*Defined in [package/src/components/DayPicker/defaults/defaultProps.ts:28](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/defaults/defaultProps.ts#L28)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts:28](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/defaults/defaultProps.ts#L28)*
 
 * **Day**: *[Day](index.md#day)*
 

@@ -4,8 +4,6 @@ title: "HeadProps"
 sidebar_label: "HeadProps"
 ---
 
-[react-day-picker](../index.md) › [HeadProps](headprops.md)
-
 # Interface: HeadProps
 
 The props used by the [Head](../index.md#private-head) component.
@@ -28,7 +26,7 @@ The props used by the [Head](../index.md#private-head) component.
 
 • **dayPickerProps**: *[DayPickerProps](daypickerprops.md)*
 
-*Defined in [package/src/components/Head/types.ts:18](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Head/types.ts#L18)*
+*Defined in [packages/react-day-picker/src/components/Head/types.ts:18](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Head/types.ts#L18)*
 
 Reference to the props used by the DayPicker component.
 
@@ -38,7 +36,7 @@ ___
 
 • **locale**: *DateFns.Locale*
 
-*Defined in [package/src/components/Head/types.ts:10](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Head/types.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/Head/types.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Head/types.ts#L10)*
 
 ___
 
@@ -46,6 +44,6 @@ ___
 
 • **showWeekNumber**? : *undefined | false | true*
 
-*Defined in [package/src/components/Head/types.ts:14](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Head/types.ts#L14)*
+*Defined in [packages/react-day-picker/src/components/Head/types.ts:14](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Head/types.ts#L14)*
 
 Add a column to accommodate the week numbers.

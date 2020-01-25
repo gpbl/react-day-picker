@@ -4,8 +4,6 @@ title: "WeekRowProps"
 sidebar_label: "WeekRowProps"
 ---
 
-[react-day-picker](../index.md) › [WeekRowProps](weekrowprops.md)
-
 # Interface: WeekRowProps
 
 ## Hierarchy
@@ -26,7 +24,7 @@ sidebar_label: "WeekRowProps"
 
 • **dayPickerProps**: *[DayPickerProps](daypickerprops.md)*
 
-*Defined in [package/src/components/WeekRow/types.ts:12](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/WeekRow/types.ts#L12)*
+*Defined in [packages/react-day-picker/src/components/WeekRow/types.ts:12](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/WeekRow/types.ts#L12)*
 
 ___
 
@@ -34,7 +32,7 @@ ___
 
 • **week**: *[DateWithModifiers](../classes/datewithmodifiers.md)[]*
 
-*Defined in [package/src/components/WeekRow/types.ts:11](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/WeekRow/types.ts#L11)*
+*Defined in [packages/react-day-picker/src/components/WeekRow/types.ts:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/WeekRow/types.ts#L11)*
 
 ___
 
@@ -42,4 +40,4 @@ ___
 
 • **weekNumber**: *number*
 
-*Defined in [package/src/components/WeekRow/types.ts:10](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/WeekRow/types.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/WeekRow/types.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/WeekRow/types.ts#L10)*

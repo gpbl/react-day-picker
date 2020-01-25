@@ -4,8 +4,6 @@ title: "DayProps"
 sidebar_label: "DayProps"
 ---
 
-[react-day-picker](../index.md) › [DayProps](dayprops.md)
-
 # Interface: DayProps
 
 The props used by the [Day](../index.md#day) component.
@@ -28,7 +26,7 @@ The props used by the [Day](../index.md#day) component.
 
 • **day**: *Date*
 
-*Defined in [package/src/components/Day/types.ts:11](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Day/types.ts#L11)*
+*Defined in [packages/react-day-picker/src/components/Day/types.ts:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Day/types.ts#L11)*
 
 The day to display in the calendar.
 
@@ -38,7 +36,7 @@ ___
 
 • **dayPickerProps**: *[DayPickerProps](daypickerprops.md)*
 
-*Defined in [package/src/components/Day/types.ts:19](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Day/types.ts#L19)*
+*Defined in [packages/react-day-picker/src/components/Day/types.ts:19](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Day/types.ts#L19)*
 
 Reference to the props used by the DayPicker component.
 
@@ -48,6 +46,6 @@ ___
 
 • **modifiers**: *[MatchingModifiers](../index.md#matchingmodifiers)*
 
-*Defined in [package/src/components/Day/types.ts:15](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/Day/types.ts#L15)*
+*Defined in [packages/react-day-picker/src/components/Day/types.ts:15](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Day/types.ts#L15)*
 
 The modifiers that matches the given day.

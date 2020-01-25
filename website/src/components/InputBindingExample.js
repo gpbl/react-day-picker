@@ -1,8 +1,6 @@
 import React from "react";
 import { DayPicker, useInput } from "react-day-picker";
 
-console.log(useInput);
-
 export function InputBindingExample() {
   const { month, selected, dayPickerProps, inputProps } = useInput(
     new Date(),

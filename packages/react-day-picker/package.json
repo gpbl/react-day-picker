@@ -24,9 +24,8 @@
     "test": "jest",
     "test:watch": "jest --watchAll --coverage",
     "coverage": "jest --coverage",
-    "docs": "yarn docs:website-md && yarn docs:website-json",
-    "docs:website-md": "typedoc --out ../website/docs/api --theme ./typedoc/themes/website",
-    "docs:website-json": "typedoc --json ../website/docs/api.json"
+    "docs": "yarn docs:website",
+    "docs:website": "typedoc --out ../../website/docs/api --theme ./typedoc/themes/website --hideBreadcrumbs"
   },
   "files": [
     "lib"

@@ -64,7 +64,7 @@ export interface DayPickerProps {
   /**
    * CSS class to add to the root element.
    *
-   * @category Styling
+   * @group Styling
    */
   className?: string;
   /**
@@ -78,13 +78,13 @@ export interface DayPickerProps {
    * <DayPicker classNames={{ selected, disabled }} />
    * ````
    *
-   * @category Styling
+   * @group Styling
    */
   classNames?: DayPickerClassNames;
   /**
    * Change the class names used for the day [[modifiers]].
    *
-   * @category Styling
+   * @group Styling
    */
   modifiersClassNames?: ModifiersClassNames;
 

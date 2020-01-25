@@ -4,8 +4,6 @@ title: "DefaultModifiersNames"
 sidebar_label: "DefaultModifiersNames"
 ---
 
-[react-day-picker](../index.md) › [DefaultModifiersNames](defaultmodifiersnames.md)
-
 # Enumeration: DefaultModifiersNames
 
 List the names of the default modifiers.
@@ -28,7 +26,7 @@ List the names of the default modifiers.
 
 • **DISABLED**: = "disabled"
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:28](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L28)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:28](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L28)*
 
 The day is disabled.
 
@@ -38,7 +36,7 @@ ___
 
 • **HIDDEN**: = "hidden"
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:32](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L32)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:32](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L32)*
 
 The day is hidden.
 
@@ -48,7 +46,7 @@ ___
 
 • **INTERACTIVE**: = "interactive"
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:36](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L36)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:36](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L36)*
 
 The day is interactive.
 
@@ -58,7 +56,7 @@ ___
 
 • **OUTSIDE_END**: = "outside-end"
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:40](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L40)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:40](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L40)*
 
 The day is outside.
 
@@ -68,7 +66,7 @@ ___
 
 • **OUTSIDE_START**: = "outside-start"
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:44](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L44)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:44](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L44)*
 
 The day is outside.
 
@@ -78,7 +76,7 @@ ___
 
 • **SELECTED**: = "selected"
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:48](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L48)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:48](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L48)*
 
 The day is selected.
 
@@ -88,6 +86,6 @@ ___
 
 • **TODAY**: = "today"
 
-*Defined in [package/src/components/DayPicker/types/Modifiers.ts:52](https://github.com/gpbl/react-day-picker/blob/af710c0a/package/src/components/DayPicker/types/Modifiers.ts#L52)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts:52](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/Modifiers.ts#L52)*
 
 The day is today.

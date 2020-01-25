@@ -5,6 +5,7 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
+import DayPickerProps from "../../docs/api/interfaces/daypickerprops.md";
 
 const features = [
   {
@@ -57,6 +58,7 @@ function Feature({ imageUrl, title, description }) {
 function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
+
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
