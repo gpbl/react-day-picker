@@ -7,11 +7,10 @@ import { WeekNumberProps } from "./types";
  * @category Components
  */
 export function WeekNumber(props: WeekNumberProps): JSX.Element {
-  const { number, dayPickerProps } = props;
-  const { formatWeekNumber, locale, classNames, styles } = dayPickerProps;
+  const { formatWeekNumber, locale, classNames, styles } = props.dayPickerProps;
   return (
     <span className={classNames?.weekNumber} style={styles?.weekNumber}>
-      {formatWeekNumber && formatWeekNumber(number, { locale: locale! })}
+      {formatWeekNumber && formatWeekNumber(props.number, { locale: locale! })}
     </span>
   );
 }

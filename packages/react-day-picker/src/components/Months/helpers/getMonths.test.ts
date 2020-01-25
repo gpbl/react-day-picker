@@ -1,4 +1,3 @@
-/* eslint-env jest */
 import { getMonths } from "./getMonths";
 import { defaultProps } from "../../DayPicker/defaults/defaultProps";
 

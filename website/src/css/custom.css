@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,700,700i&display=swap");
 :root {
   --ifm-color-primary: #3f5efb;
   --ifm-color-primary-dark: #2044fa;
@@ -7,6 +8,7 @@
   --ifm-color-primary-lighter: #6d85fc;
   --ifm-color-primary-lightest: #9babfd;
 
+  --ifm-code-font-family: "IBM Plex Mono", monospace;
   --ifm-code-font-size: 13px;
 }
 

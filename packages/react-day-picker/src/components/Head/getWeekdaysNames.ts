@@ -9,7 +9,7 @@ import { DayPickerProps } from "../DayPicker";
 export function getWeekdaysNames(
   locale: DateFns.Locale,
   format: DayPickerProps["formatCaption"]
-): Array<string> {
+): string[] {
   const start = DateFns.startOfWeek(new Date(), { locale });
   const names = [];
   for (let i = 0; i < 7; i++) {

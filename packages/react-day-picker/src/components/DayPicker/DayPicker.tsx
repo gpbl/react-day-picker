@@ -1,4 +1,3 @@
-/* eslint-disable prefer-rest-params */
 import * as React from "react";
 import { startOfMonth } from "date-fns";
 
@@ -6,15 +5,12 @@ import { Months } from "../Months";
 import { defaultProps } from "./defaults/defaultProps";
 
 /**
- * Render a day picker.
- *
- * [[include:../guides/swizzling.md]]
+ * Render a date picker component.
  *
  * @param {DayPickerProps} props
  * @category Components
  */
 export function DayPicker(props = defaultProps): JSX.Element {
-  // const props = arguments[0];
   const isControlled = Boolean(props.month);
 
   const [currentMonth, setCurrentMonth] = React.useState(

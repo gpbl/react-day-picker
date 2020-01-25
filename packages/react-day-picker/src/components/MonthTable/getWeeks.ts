@@ -64,11 +64,11 @@ export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
     const lastWeekDate = lastWeek[lastWeek.length - 1].date;
     const weeksInMonth = getWeeksInMonth(month, { locale });
     if (weeksInMonth < 6) {
-      const diff = differenceInDays(
+      const diffDays = differenceInDays(
         addWeeks(lastWeekDate, 6 - weeksInMonth),
         lastWeekDate
       );
-      for (let i = 0; i < diff; i++) {
+      for (let i = 0; i < diffDays; i++) {
         const date = addDays(lastWeekDate, i + 1);
         const dateWithModifiers = new DateWithModifiers(
           date,

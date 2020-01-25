@@ -51,7 +51,9 @@ export function Months(initialProps = defaultProps): JSX.Element {
 
   return (
     <div className={className.join(" ")} style={style} dir={props.dir}>
-      {props.showNavigation && <Navigation dayPickerProps={props} />}
+      {props.showNavigation && props.onMonthChange && (
+        <Navigation dayPickerProps={props} />
+      )}
       <div
         className={props.classNames?.months}
         style={props.styles ? props.styles.month : undefined}

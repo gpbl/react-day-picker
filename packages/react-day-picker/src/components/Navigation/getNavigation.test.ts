@@ -1,4 +1,3 @@
-/* eslint-env jest */
 import { defaultProps } from "../DayPicker/defaults/defaultProps";
 import { getNavigation } from "./getNavigation";
 import { NavigationMonths } from "./types";

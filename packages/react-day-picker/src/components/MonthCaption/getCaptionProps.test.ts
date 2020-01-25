@@ -1,4 +1,3 @@
-/* eslint-env jest */
 import { getCaptionProps } from "./getCaptionProps";
 import { defaultProps } from "../DayPicker/defaults/defaultProps";
 import { CaptionHtmlProps } from "./types";
@@ -11,7 +10,7 @@ describe("getCaptionProps", () => {
     };
     const props: DayPickerProps = {
       ...defaultProps,
-      classNames: classNames
+      classNames
     };
     const expected: CaptionHtmlProps = {
       containerProps: {

@@ -1,4 +1,3 @@
-/* eslint-env jest */
 // import { getNavigationProps } from './getNavigationProps';
 // import { defaultProps } from '../defaults/defaultProps';
 

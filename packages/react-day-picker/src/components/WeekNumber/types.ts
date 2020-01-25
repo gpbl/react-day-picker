@@ -3,7 +3,7 @@ import * as DateFns from "date-fns";
 
 export interface WeekNumberProps {
   number: number;
-  days: Array<Date>;
+  days: Date[];
   dayPickerProps: DayPickerProps;
 }
 

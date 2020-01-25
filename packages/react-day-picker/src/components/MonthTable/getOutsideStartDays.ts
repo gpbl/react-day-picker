@@ -10,17 +10,17 @@ import { DayPickerProps } from "../DayPicker";
 export function getOutsideStartDays(
   day: DateWithModifiers,
   props: DayPickerProps
-): Array<DateWithModifiers> {
+): DateWithModifiers[] {
   const { locale } = props;
   const days = [];
   const firstDayOfWeek = startOfWeek(day.date, { locale });
   const startDiff = differenceInDays(day.date, firstDayOfWeek);
 
   for (let i = 0; i < startDiff; i++) {
-    const day = addDays(firstDayOfWeek, i);
-    const hidden = props.fromMonth && day < props.fromMonth;
+    const newDay = addDays(firstDayOfWeek, i);
+    const hidden = props.fromMonth && newDay < props.fromMonth;
     const modifiers = { outsidestart: true, hidden };
-    const dateWithModifiers = new DateWithModifiers(day, modifiers, props);
+    const dateWithModifiers = new DateWithModifiers(newDay, modifiers, props);
     days.push(dateWithModifiers);
   }
   return days;

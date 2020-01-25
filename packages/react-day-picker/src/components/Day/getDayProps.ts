@@ -59,7 +59,7 @@ export function getDayProps(
     });
   }
 
-  const className: Array<string | undefined> = [];
+  const className: (string | undefined)[] = [];
   if (classNames && classNames.day) {
     className.push(classNames.day);
     if (modifiersClassNames) {

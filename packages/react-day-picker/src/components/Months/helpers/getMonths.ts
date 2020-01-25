@@ -22,16 +22,16 @@ export function getMonths(props: DayPickerProps): Date[] {
 
   let months = [];
   for (let i = 0; i < monthsDiff; i++) {
-    const month = addMonths(start, i);
-    if (toMonth && month > startOfMonth(toMonth)) {
+    const nextMonth = addMonths(start, i);
+    if (toMonth && nextMonth > startOfMonth(toMonth)) {
       // Skip months after toMonth
       continue;
     }
-    if (fromMonth && month < startOfMonth(fromMonth)) {
+    if (fromMonth && nextMonth < startOfMonth(fromMonth)) {
       // Skip months before fromMonth
       continue;
     }
-    months.push(month);
+    months.push(nextMonth);
   }
 
   if (reverseMonths) {

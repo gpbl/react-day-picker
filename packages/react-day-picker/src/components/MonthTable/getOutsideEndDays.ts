@@ -11,7 +11,7 @@ import { DayPickerProps } from "../DayPicker";
 export function getOutsideEndDays(
   day: DateWithModifiers,
   props: DayPickerProps
-): Array<DateWithModifiers> {
+): DateWithModifiers[] {
   const { locale } = props;
   const days = [];
   const lastDayOfWeek = endOfWeek(day.date, { locale });

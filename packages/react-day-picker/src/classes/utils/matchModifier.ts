@@ -97,7 +97,7 @@ function matchFunction(day: Date, matcher: DayMatcher): boolean {
  */
 export function matchDay(day: Date, matcher: DayMatcher): boolean {
   if (!matcher) return false;
-  let matchers: Array<DayMatcher>;
+  let matchers: DayMatcher[];
 
   if (Array.isArray(matcher)) {
     matchers = matcher;
@@ -105,16 +105,16 @@ export function matchDay(day: Date, matcher: DayMatcher): boolean {
     matchers = [matcher];
   }
 
-  return matchers.some((matcher: DayMatcher) => {
-    if (!matcher) return false;
+  return matchers.some((dayMatcher: DayMatcher) => {
+    if (!dayMatcher) return false;
     return (
-      matchDate(day, matcher) ||
-      matchDayInRange(day, matcher) ||
-      matchDayBefore(day, matcher) ||
-      matchDayAfter(day, matcher) ||
-      matchDayBetween(day, matcher) ||
-      matchDayOfWeek(day, matcher) ||
-      matchFunction(day, matcher)
+      matchDate(day, dayMatcher) ||
+      matchDayInRange(day, dayMatcher) ||
+      matchDayBefore(day, dayMatcher) ||
+      matchDayAfter(day, dayMatcher) ||
+      matchDayBetween(day, dayMatcher) ||
+      matchDayOfWeek(day, dayMatcher) ||
+      matchFunction(day, dayMatcher)
     );
   });
 }

@@ -21,6 +21,6 @@ const reduce = (day: Date, modifiers: DayModifiers) => (
 export function listModifiers(
   day: Date,
   modifiers: DayModifiers
-): Array<string> {
+): string[] {
   return Object.keys(modifiers).reduce(reduce(day, modifiers), []);
 }

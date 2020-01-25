@@ -13,22 +13,21 @@ export function Navigation(props: NavigationProps): JSX.Element | null {
   const { onMonthChange, onPrevClick, onNextClick } = dayPickerProps;
 
   const { nextMonth, prevMonth } = getNavigation(dayPickerProps);
-
   const { containerProps, nextProps, prevProps } = getNavigationProps(
     dayPickerProps
   );
 
   const handlePrevClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    onMonthChange && prevMonth && onMonthChange(prevMonth, e);
-    onPrevClick && prevMonth && onPrevClick(prevMonth, e);
+    if (!prevMonth) return;
+    if (onMonthChange) onMonthChange(prevMonth, e);
+    if (onPrevClick) onPrevClick(prevMonth, e);
   };
+
   const handleNextClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    onMonthChange && nextMonth && onMonthChange(nextMonth, e);
-    onNextClick && nextMonth && onNextClick(nextMonth, e);
+    if (!nextMonth) return;
+    if (onMonthChange) onMonthChange(nextMonth, e);
+    if (onNextClick) onNextClick(nextMonth, e);
   };
-  if (!dayPickerProps.onMonthChange) {
-    return null;
-  }
 
   const { prevLabel, nextLabel } = dayPickerProps;
 
