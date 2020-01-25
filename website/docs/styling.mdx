@@ -30,7 +30,7 @@ To each HTML element created by DayPicker are assigned `.rdp` CSS classes, as li
 | **navPrev**        | `.rdp-nav_prev`        | The button to navigate to the previous month |
 | **navNext**        | `.rdp-nav_next`        | The button to navigate to the next button    |
 | **week**           | `.rdp-week`            | The week row                                 |
-| **weekWeeknumber** | `.rdp-week_weeknumber` | The week’s number cell                  |
+| **weekWeeknumber** | `.rdp-week_weeknumber` | The week’s number cell                       |
 | **weekDay**        | `.rdp-week_day`        | The week’s day cell                          |
 | **weekNumber**     | `.rdp-weeknumber`      | The week’s number                            |
 
@@ -56,7 +56,7 @@ Style the DayPicker CSS classes in your application’s CSS file:
 The package includes a CSS file for a minimal, basic style, that can be used as starting point:
 
 ```jsx
-import 'react-day-picker/lib/style.css';
+import "react-day-picker/dist/style.css";
 ```
 
 ## Using Inline Styles
@@ -69,14 +69,13 @@ function App() {
     <DayPicker
       showWeekNumber
       styles={{
-        head: { color: 'salmon ' },
-        weekNumber: { color: 'violet' },
+        head: { color: "salmon " },
+        weekNumber: { color: "violet" }
       }}
     />
   );
 }
 ```
-
 
 ## Using Custom Class Names
 
@@ -96,7 +95,7 @@ function App() {
       `}</style>
       <DayPicker
         classNames={{
-          head: 'my-custom-head-class',
+          head: "my-custom-head-class"
         }}
       />
     </>

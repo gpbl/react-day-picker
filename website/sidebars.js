@@ -1,15 +1,4 @@
-/* eslint-env node */
+const sidebar = require("./config/sidebar");
 module.exports = {
-  docs: {
-    'Get Started': ['start', 'basics', 'styling', 'customization'],
-    Guides: [
-      'matching-days',
-      'modifiers',
-      'localization',
-      'input',
-      'extending',
-      'upgrading',
-    ],
-    'API Reference': ['props', 'hooks', 'components-helpers', 'changelog'],
-  },
+  sidebar
 };
