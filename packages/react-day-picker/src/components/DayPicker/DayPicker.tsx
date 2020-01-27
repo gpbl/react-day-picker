@@ -21,7 +21,6 @@ export function DayPicker(props = defaultProps): JSX.Element {
     setCurrentMonth(month);
     if (props.onMonthChange) props.onMonthChange(month, e);
   }
-
   return (
     <Months
       {...props}

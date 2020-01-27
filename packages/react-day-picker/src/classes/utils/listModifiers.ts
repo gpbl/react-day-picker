@@ -9,7 +9,10 @@ const reduce = (day: Date, modifiers: DayModifiers) => (
   key: string
 ): string[] => {
   const modifier = modifiers[key];
-  if (matchDay(day, modifier)) previousValue.push(name);
+  if (matchDay(day, modifier)) {
+    previousValue.push(key);
+  }
+
   return previousValue;
 };
 
@@ -18,9 +21,6 @@ const reduce = (day: Date, modifiers: DayModifiers) => (
  *
  * @private
  */
-export function listModifiers(
-  day: Date,
-  modifiers: DayModifiers
-): string[] {
+export function listModifiers(day: Date, modifiers: DayModifiers): string[] {
   return Object.keys(modifiers).reduce(reduce(day, modifiers), []);
 }

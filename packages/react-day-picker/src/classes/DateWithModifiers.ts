@@ -22,7 +22,6 @@ export class DateWithModifiers {
     props: DayPickerProps
   ) {
     this.date = date;
-
     const modifiers: MatchingModifiers = {
       ...defaultModifiers,
       today: isToday(date),
