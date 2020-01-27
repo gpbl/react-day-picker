@@ -1,5 +1,3 @@
-/* eslint-env node */
-
 const path = require("path");
 /**
  * This plugins make sure that linked modules dependencies (such as React) do

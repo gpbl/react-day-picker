@@ -1,6 +1,6 @@
 ---
 id: start
-title: Get Started
+title: Getting Started
 ---
 
 ## Installing DayPicker
@@ -12,16 +12,17 @@ yarn add react-day-picker     # when using yarn
 npm install react-day-picker  # when using npm
 ```
 
-2. import DayPicker in your script
+2. import DayPicker and its CSS file in your script
 :
 
 ```jsx
+import "react-day-picker/dist/style.css";
 import { DayPicker } from "react-day-picker";
 ```
 
-## Selecting a Day
+Familiarize with the component by implementing a basic date picker for selecting a day:
 
-Familiarize with DayPicker by implementing a basic date picker for selecting days.
+## Selecting a Day
 
 1. listen to the [`onDayClick`](./props#ondayclick) event to get the clicked day;
 2. save the clicked day in your component’s state;
@@ -29,10 +30,11 @@ Familiarize with DayPicker by implementing a basic date picker for selecting day
 
 ```jsx preview
 import React, { useState } from "react";
+import "react-day-picker/dist/style.css";
 import { DayPicker } from "react-day-picker";
 
 function App() {
-  const [selectedDay, setSelectedDay] = useState();
+  const [selectedDay, setSelectedDay] = useState(new Date());
   const handleDayClick = day => setSelectedDay(day);
   return (
     <div>
@@ -50,7 +52,7 @@ function App() {
 2. add the day to the array when a day is clicked;
 3. check if the day is already selected to unselect it.
 
-```jsx preview
+```jsx
 import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import { isSameDay } from "date-fns";
@@ -87,7 +89,7 @@ Similarly to `selected`, the `hidden` and `disabled` props can be used to hide o
 
 For example, the following DayPicker shows a calendar where Tuesdays are disabled and few days are hidden.
 
-```jsx preview
+```jsx
 import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 
