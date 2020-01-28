@@ -38,3 +38,5 @@ The next version will be a rewrite in TypeScript. Read more [here](https://githu
 
 - [master branch](https://github.com/gpbl/react-day-picker/tree/master) is for the upcoming v8 release.
 - [v7 branch](https://github.com/gpbl/react-day-picker/tree/v7) to send PR for the v7 version.
+
+See [packages/react-day-picker](packages/react-day-picker) for more details.
