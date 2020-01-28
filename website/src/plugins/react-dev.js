@@ -1,21 +1,22 @@
-/* eslint-env node */
-
+const path = require("path");
 /**
  * This plugins make sure that linked modules dependencies (such as React) do
  * not crash.
  */
 module.exports = function() {
   return {
-    name: '@gpbl/react-dev-plugin',
+    name: "@gpbl/react-dev-plugin",
     configureWebpack() {
-      return {
+      const config = {
         resolve: {
-          alias: {
-            react: require.resolve('react'),
-            // 'react-dom': require.resolve('react-dom'),
-          },
-        },
+          modules: [
+            "node_modules",
+            path.resolve(__dirname, "../../../node_modules/")
+          ]
+        }
       };
-    },
+      console.log("Using custom config", config);
+      return config;
+    }
   };
 };

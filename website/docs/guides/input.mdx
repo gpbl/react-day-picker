@@ -1,0 +1,71 @@
+---
+id: input
+title: Input Fields
+---
+
+import { InputBindingExample } from "../../src/components/InputBindingExample.js";
+import Frame from "../../src/components/Frame";
+
+When binding DayPicker with an input field:
+
+- the value of the field will appear as "selected" in DayPicker
+- the selected day in DayPicker will be the value of the input field.
+
+## Example
+
+<Frame>
+  <InputBindingExample />
+</Frame>
+
+## useInput Hook
+
+DayPicker includes a [`useInput`](./hooks#useinput) hook to simplify the binding with an input element.
+
+#### To bind DayPicker with an input field
+
+1. call `useInput` hook by passing the initial day and the format string;
+2. pass the current month and the selected day (returned by the hook) to `DayPicker`;
+3. pass the input value (returned by the hook) to the `input` component;
+4. use the returned event handlers to bind events to `DayPicker` and `input`.
+
+The format string will be used to format and parse the input value.
+
+For example, this application calls `useInput` to bind a simple text input to DayPicker.
+
+```jsx preview
+import { DayPicker, useInput } from "react-day-picker";
+
+function App() {
+  const [
+    month,
+    selected,
+    value,
+    { onDayClick, onMonthChange, onChange, onFocus, onBlur }
+  ] = useInput(new Date(), "yyyy-MM-dd");
+
+  return (
+    <form className="center">
+      <label>
+        <p>Type a day or pick one from the calendar.</p>
+        <input
+          placeholder="YYYY-MM-DD"
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          value={value}
+        />
+      </label>
+      <br />
+      <DayPicker
+        month={month}
+        selected={selected}
+        onDayClick={(day, modifiers, e) => {
+          onDayClick(day, modifiers, e);
+          console.log(day);
+        }}
+        onMonthChange={onMonthChange}
+      />
+    </form>
+  );
+}
+```

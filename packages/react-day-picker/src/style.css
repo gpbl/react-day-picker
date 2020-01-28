@@ -1,0 +1,135 @@
+:root {
+  --rdp-color-primary: #3f5efb;
+  --rdp-color-secondary: #fc466b;
+}
+
+.rdp {
+  position: relative;
+
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+.rdp-months {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.rdp-caption {
+  margin-bottom: 0.75em;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.rdp[dir="rtl"] .rdp-caption {
+  text-align: right;
+}
+
+.rdp-month {
+  /* Month table container */
+  margin: 1em;
+}
+.rdp-month_table {
+  /* Month table */
+  border-collapse: collapse;
+}
+.rdp-month_tbody {
+  /* Tbody element in the table */
+}
+
+.rdp-head {
+  /* Head element (weekday names) */
+}
+.rdp-head_row {
+  /* Head element (weekday names) row */
+}
+.rdp-head_weeknumber {
+  font-variant-numeric: tabular-nums;
+}
+.rdp-head_weekname {
+  padding-bottom: 0.5em;
+  font-weight: normal;
+  font-size: 0.75em;
+}
+
+.rdp-week {
+  /* Week row */
+}
+.rdp-weeknumber {
+  /* Week number table cell */
+  padding-bottom: 0.5em;
+  min-width: 1.25em;
+  text-align: right;
+  font-weight: normal;
+  font-size: 0.625em;
+}
+.rdp-week_day {
+  /* Week day table cell */
+  text-align: center;
+}
+
+.rdp-nav {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+.rdp[dir="rtl"] .rdp-nav {
+  right: auto;
+  left: 1em;
+}
+.rdp-nav_prev {
+  /* Navigation prev button */
+}
+.rdp-nav_next {
+  /* Navigation next button */
+}
+
+.rdp-day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 2.2em;
+  height: 2.2em;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: 1em;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.rdp-day_wrapper {
+  /* Wrapper for the day number */
+}
+
+.rdp-day_disabled {
+  opacity: 0.25;
+}
+.rdp-day_outside {
+  opacity: 0.25;
+}
+.rdp-day_today {
+  position: relative;
+
+  border: 2px solid var(--rdp-color-secondary);
+  border-radius: 100%;
+  font-weight: bold;
+}
+.rdp-day_selected {
+  border-radius: 100%;
+  background-color: var(--rdp-color-primary);
+  color: white;
+}

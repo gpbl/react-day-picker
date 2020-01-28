@@ -1,7 +1,20 @@
 {
+  "name": "@react-day-picker/monorepo",
   "private": true,
+  "version": "8.0.0-alpha.0",
+  "description": "Flexible Date Picker for React",
+  "author": "Giampaolo Bellavite <io@gpbl.org>",
+  "homepage": "http://react-day-picker.js.org",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gpbl/react-day-picker"
+  },
+  "bugs": {
+    "url": "https://github.com/gpbl/react-day-picker/issues"
+  },
   "workspaces": [
-    "./website",
-    "./package"
+    "website",
+    "packages/*"
   ]
 }

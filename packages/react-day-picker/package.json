@@ -1,0 +1,66 @@
+{
+  "name": "react-day-picker",
+  "version": "8.0.0-alpha.0",
+  "description": "Flexible Date Picker for React",
+  "author": "Giampaolo Bellavite <io@gpbl.org>",
+  "homepage": "http://react-day-picker.js.org",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gpbl/react-day-picker"
+  },
+  "bugs": {
+    "url": "https://github.com/gpbl/react-day-picker/issues"
+  },
+  "main": "dist/index.cjs.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "develop": "tsc --watch",
+    "lint": "tslint --project tsconfig.json",
+    "test": "jest",
+    "test:watch": "jest --watchAll --coverage",
+    "coverage": "jest --coverage",
+    "prebuild": "rm -rf lib && rm -rf dist",
+    "build": "tsc && rollup -c",
+    "docs": "typedoc --out ../../website/docs/api --theme ./typedoc/themes/website --hideBreadcrumbs"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@rollup/plugin-alias": "*",
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@rollup/plugin-typescript": "^2.1.0",
+    "@testing-library/jest-dom": "^4.2.3",
+    "@testing-library/react": "^9.3.2",
+    "@types/jest": "^24.9.0",
+    "@types/react": "^16.9.11",
+    "date-fns": "^2.6.0",
+    "debug": "^4.1.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "rollup": "^1.26.3",
+    "rollup-plugin-copy": "^3.1.0",
+    "rollup-plugin-filesize": "^6.2.0",
+    "rollup-plugin-terser": "^5.2.0",
+    "ts-jest": "^24.1.0",
+    "tslib": "^1.10.0",
+    "tslint": "^6.0.0",
+    "typedoc": "^0.16.7",
+    "typedoc-plugin-markdown": "^2.2.16",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "date-fns": "^2.6.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  }
+}
