@@ -1,25 +1,25 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as React from "react";
+import PropTypes from "prop-types";
 
-import nightOwlTheme from 'prism-react-renderer/themes/nightOwl';
+import nightOwlTheme from "prism-react-renderer/themes/nightOwl";
 
-import Preview from '../components/Preview';
-import Highlight from '../components/Highlight';
+import { Preview } from "../components/Preview";
+import Highlight from "../components/Highlight";
 
 const styles = {
   container: {},
   preview: {
-    position: 'relative',
-    padding: '1.25em 1em 0em 1em',
-  },
+    position: "relative",
+    padding: "1.25em 1em 0em 1em"
+  }
 };
 
 function CodeBlock({
   children,
-  className = '',
+  className = "",
   preview,
   previewHeight,
-  reverse,
+  reverse
 }) {
   let content = [];
 
@@ -27,7 +27,7 @@ function CodeBlock({
     <Highlight
       key="highlight"
       code={children}
-      language={className.replace('language-', '')}
+      language={className.replace("language-", "")}
       style={{ borderTopLeftRadius: 0 }}
     />
   );
@@ -52,10 +52,10 @@ function CodeBlock({
 CodeBlock.propTypes = {
   className: PropTypes.string,
   children: PropTypes.string.isRequired,
-  layout: PropTypes.oneOf(['row', 'column']),
+  layout: PropTypes.oneOf(["row", "column"]),
   preview: PropTypes.bool,
   previewHeight: PropTypes.string,
-  reverse: PropTypes.bool,
+  reverse: PropTypes.bool
 };
 
 export default CodeBlock;

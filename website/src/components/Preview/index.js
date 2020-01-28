@@ -1,1 +1,1 @@
-export { default } from './Preview';
+export { Preview } from "./Preview";

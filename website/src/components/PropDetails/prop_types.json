@@ -261,7 +261,7 @@
   },
   "locale": {
     "defaultValue": null,
-    "description": "Locale object used for localization.",
+    "description": "DateFns.Locale object used for localization.",
     "name": "locale",
     "required": true,
     "type": {
@@ -325,7 +325,7 @@
     "name": "components",
     "required": true,
     "type": {
-      "name": "Components"
+      "name": "SwizzlingComponents"
     },
     "categories": {}
   },
