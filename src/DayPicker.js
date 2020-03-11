@@ -109,6 +109,11 @@ export class DayPicker extends Component {
       PropTypes.func,
       PropTypes.instanceOf(Component),
     ]),
+    todayButtonElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(Component),
+    ]),
 
     // Events
     onBlur: PropTypes.func,
@@ -556,10 +561,12 @@ export class DayPicker extends Component {
   }
 
   renderFooter() {
-    if (this.props.todayButton) {
+    if (this.props.todayButton || this.props.todayButtonElement) {
       return (
         <div className={this.props.classNames.footer}>
-          {this.renderTodayButton()}
+          {this.props.todayButtonElement
+            ? this.renderTodayButtonElement()
+            : this.renderTodayButton()}
         </div>
       );
     }
@@ -578,6 +585,17 @@ export class DayPicker extends Component {
         {this.props.todayButton}
       </button>
     );
+  }
+
+  renderTodayButtonElement() {
+    const { todayButtonElement } = this.props;
+
+    const props = {
+      onClick: this.handleTodayButtonClick,
+    };
+    return React.isValidElement(todayButtonElement)
+      ? React.cloneElement(todayButtonElement, props)
+      : React.createElement(todayButtonElement, props);
   }
 
   render() {
