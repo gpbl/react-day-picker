@@ -45,6 +45,10 @@ export interface WeekdayElementProps {
   weekdaysShort?: string[];
 }
 
+export interface TodayButtonElementProps {
+  onTodayButtonElementClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
 export interface DayPickerProps {
   canChangeMonth?: boolean;
   captionElement?:
@@ -152,6 +156,10 @@ export interface DayPickerProps {
   weekdaysLong?: string[];
   weekdaysShort?: string[];
   tabIndex?: number;
+  todayButtonElement?:
+    | React.ReactElement<Partial<TodayButtonElementProps>>
+    | React.ComponentClass<TodayButtonElementProps>
+    | React.SFC<TodayButtonElementProps>;
 }
 
 export interface DayPickerInputProps {

@@ -591,7 +591,7 @@ export class DayPicker extends Component {
     const { todayButtonElement } = this.props;
 
     const props = {
-      onClick: this.handleTodayButtonClick,
+      onTodayButtonElementClick: this.handleTodayButtonClick,
     };
     return React.isValidElement(todayButtonElement)
       ? React.cloneElement(todayButtonElement, props)
