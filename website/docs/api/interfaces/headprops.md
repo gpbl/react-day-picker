@@ -4,21 +4,11 @@ title: "HeadProps"
 sidebar_label: "HeadProps"
 ---
 
-# Interface: HeadProps
-
-The props used by the [Head](../index.md#private-head) component.
-
-## Hierarchy
-
-* **HeadProps**
+The props used by the [Head](../index.md#head) component.
 
 ## Index
 
-### Properties
-
-* [dayPickerProps](headprops.md#daypickerprops)
-* [locale](headprops.md#locale)
-* [showWeekNumber](headprops.md#optional-showweeknumber)
+**Properties **: [dayPickerProps](headprops.md#daypickerprops), [locale](headprops.md#locale), [showWeekNumber](headprops.md#optional-showweeknumber), 
 
 ## Properties
 
@@ -26,7 +16,7 @@ The props used by the [Head](../index.md#private-head) component.
 
 • **dayPickerProps**: *[DayPickerProps](daypickerprops.md)*
 
-*Defined in [packages/react-day-picker/src/components/Head/types.ts:18](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Head/types.ts#L18)*
+*Defined in [packages/react-day-picker/src/components/Head/types.ts:16](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/Head/types.ts#L16)*
 
 Reference to the props used by the DayPicker component.
 
@@ -36,7 +26,7 @@ ___
 
 • **locale**: *DateFns.Locale*
 
-*Defined in [packages/react-day-picker/src/components/Head/types.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Head/types.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/Head/types.ts:8](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/Head/types.ts#L8)*
 
 ___
 
@@ -44,6 +34,6 @@ ___
 
 • **showWeekNumber**? : *undefined | false | true*
 
-*Defined in [packages/react-day-picker/src/components/Head/types.ts:14](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Head/types.ts#L14)*
+*Defined in [packages/react-day-picker/src/components/Head/types.ts:12](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/Head/types.ts#L12)*
 
 Add a column to accommodate the week numbers.

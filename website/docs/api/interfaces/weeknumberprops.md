@@ -4,19 +4,11 @@ title: "WeekNumberProps"
 sidebar_label: "WeekNumberProps"
 ---
 
-# Interface: WeekNumberProps
-
-## Hierarchy
-
-* **WeekNumberProps**
+Props for the [WeekNumber](../index.md#weeknumber) component.
 
 ## Index
 
-### Properties
-
-* [dayPickerProps](weeknumberprops.md#daypickerprops)
-* [days](weeknumberprops.md#days)
-* [number](weeknumberprops.md#number)
+**Properties **: [dayPickerProps](weeknumberprops.md#daypickerprops), [days](weeknumberprops.md#days), [number](weeknumberprops.md#number), 
 
 ## Properties
 
@@ -24,15 +16,15 @@ sidebar_label: "WeekNumberProps"
 
 • **dayPickerProps**: *[DayPickerProps](daypickerprops.md)*
 
-*Defined in [packages/react-day-picker/src/components/WeekNumber/types.ts:7](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/WeekNumber/types.ts#L7)*
+*Defined in [packages/react-day-picker/src/components/WeekNumber/types.ts:10](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/WeekNumber/types.ts#L10)*
 
 ___
 
 ###  days
 
-• **days**: *Array‹Date›*
+• **days**: *Date[]*
 
-*Defined in [packages/react-day-picker/src/components/WeekNumber/types.ts:6](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/WeekNumber/types.ts#L6)*
+*Defined in [packages/react-day-picker/src/components/WeekNumber/types.ts:9](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/WeekNumber/types.ts#L9)*
 
 ___
 
@@ -40,4 +32,4 @@ ___
 
 • **number**: *number*
 
-*Defined in [packages/react-day-picker/src/components/WeekNumber/types.ts:5](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/WeekNumber/types.ts#L5)*
+*Defined in [packages/react-day-picker/src/components/WeekNumber/types.ts:8](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/WeekNumber/types.ts#L8)*

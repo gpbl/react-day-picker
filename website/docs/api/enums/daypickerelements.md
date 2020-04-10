@@ -4,38 +4,11 @@ title: "DayPickerElements"
 sidebar_label: "DayPickerElements"
 ---
 
-# Enumeration: DayPickerElements
-
-List of the name of the user interface elements.
+List of the name of the DOM elements interface elements.
 
 ## Index
 
-### Enumeration members
-
-* [CAPTION](daypickerelements.md#caption)
-* [DAY](daypickerelements.md#day)
-* [DAYWRAPPER](daypickerelements.md#daywrapper)
-* [DISABLED](daypickerelements.md#disabled)
-* [HEAD](daypickerelements.md#head)
-* [HEADROW](daypickerelements.md#headrow)
-* [HEADWEEKNAME](daypickerelements.md#headweekname)
-* [HEADWEEKNUMBER](daypickerelements.md#headweeknumber)
-* [MONTH](daypickerelements.md#month)
-* [MONTHS](daypickerelements.md#months)
-* [MONTHTABLE](daypickerelements.md#monthtable)
-* [MONTHTBODY](daypickerelements.md#monthtbody)
-* [NAV](daypickerelements.md#nav)
-* [NAVNEXT](daypickerelements.md#navnext)
-* [NAVPREV](daypickerelements.md#navprev)
-* [OUTSIDE_END](daypickerelements.md#outside_end)
-* [OUTSIDE_START](daypickerelements.md#outside_start)
-* [ROOT](daypickerelements.md#root)
-* [SELECTED](daypickerelements.md#selected)
-* [TODAY](daypickerelements.md#today)
-* [WEEK](daypickerelements.md#week)
-* [WEEKDAY](daypickerelements.md#weekday)
-* [WEEKNUMBER](daypickerelements.md#weeknumber)
-* [WEEKWEEKNUMBER](daypickerelements.md#weekweeknumber)
+**Enumeration members **: [CAPTION](daypickerelements.md#caption), [DAY](daypickerelements.md#day), [DAYWRAPPER](daypickerelements.md#daywrapper), [DISABLED](daypickerelements.md#disabled), [HEAD](daypickerelements.md#head), [HEADROW](daypickerelements.md#headrow), [HEADWEEKNAME](daypickerelements.md#headweekname), [HEADWEEKNUMBER](daypickerelements.md#headweeknumber), [MONTH](daypickerelements.md#month), [MONTHS](daypickerelements.md#months), [MONTHTABLE](daypickerelements.md#monthtable), [MONTHTBODY](daypickerelements.md#monthtbody), [NAV](daypickerelements.md#nav), [NAVNEXT](daypickerelements.md#navnext), [NAVPREV](daypickerelements.md#navprev), [OUTSIDE_END](daypickerelements.md#outside_end), [OUTSIDE_START](daypickerelements.md#outside_start), [ROOT](daypickerelements.md#root), [SELECTED](daypickerelements.md#selected), [TODAY](daypickerelements.md#today), [WEEK](daypickerelements.md#week), [WEEKDAY](daypickerelements.md#weekday), [WEEKNUMBER](daypickerelements.md#weeknumber), [WEEKWEEKNUMBER](daypickerelements.md#weekweeknumber), 
 
 ## Enumeration members
 
@@ -43,7 +16,7 @@ List of the name of the user interface elements.
 
 • **CAPTION**: = "caption"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:6](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L6)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:6](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L6)*
 
 ___
 
@@ -51,7 +24,7 @@ ___
 
 • **DAY**: = "day"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:7](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L7)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:7](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L7)*
 
 ___
 
@@ -59,7 +32,7 @@ ___
 
 • **DAYWRAPPER**: = "dayWrapper"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:8](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L8)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:8](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L8)*
 
 ___
 
@@ -67,7 +40,7 @@ ___
 
 • **DISABLED**: = "disabled"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:11](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L11)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:11](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L11)*
 
 ___
 
@@ -75,7 +48,7 @@ ___
 
 • **HEAD**: = "head"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:21](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L21)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:21](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L21)*
 
 ___
 
@@ -83,7 +56,7 @@ ___
 
 • **HEADROW**: = "headRow"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:22](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L22)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:22](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L22)*
 
 ___
 
@@ -91,7 +64,7 @@ ___
 
 • **HEADWEEKNAME**: = "headWeekName"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:24](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L24)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:24](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L24)*
 
 ___
 
@@ -99,7 +72,7 @@ ___
 
 • **HEADWEEKNUMBER**: = "headWeekNumber"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:23](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L23)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:23](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L23)*
 
 ___
 
@@ -107,7 +80,7 @@ ___
 
 • **MONTH**: = "month"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:16](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L16)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:16](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L16)*
 
 ___
 
@@ -115,7 +88,7 @@ ___
 
 • **MONTHS**: = "months"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:19](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L19)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:19](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L19)*
 
 ___
 
@@ -123,7 +96,7 @@ ___
 
 • **MONTHTABLE**: = "monthTable"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:17](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L17)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:17](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L17)*
 
 ___
 
@@ -131,7 +104,7 @@ ___
 
 • **MONTHTBODY**: = "monthTbody"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:18](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L18)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:18](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L18)*
 
 ___
 
@@ -139,7 +112,7 @@ ___
 
 • **NAV**: = "nav"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:28](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L28)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:28](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L28)*
 
 Container of [Navigation](../index.md#navigation).
 
@@ -149,7 +122,7 @@ ___
 
 • **NAVNEXT**: = "navNext"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:36](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L36)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:36](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L36)*
 
 "Next Month" button in [Navigation](../index.md#navigation).
 
@@ -159,7 +132,7 @@ ___
 
 • **NAVPREV**: = "navPrev"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:32](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L32)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:32](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L32)*
 
 "Previous Month" button in [Navigation](../index.md#navigation).
 
@@ -169,7 +142,7 @@ ___
 
 • **OUTSIDE_END**: = "outsideend"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:14](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L14)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:14](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L14)*
 
 ___
 
@@ -177,7 +150,7 @@ ___
 
 • **OUTSIDE_START**: = "outsidestart"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:13](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L13)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:13](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L13)*
 
 ___
 
@@ -185,7 +158,7 @@ ___
 
 • **ROOT**: = "root"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:5](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L5)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:5](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L5)*
 
 ___
 
@@ -193,7 +166,7 @@ ___
 
 • **SELECTED**: = "selected"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:10](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L10)*
 
 ___
 
@@ -201,7 +174,7 @@ ___
 
 • **TODAY**: = "today"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:12](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L12)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:12](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L12)*
 
 ___
 
@@ -209,7 +182,7 @@ ___
 
 • **WEEK**: = "week"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:38](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L38)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:38](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L38)*
 
 ___
 
@@ -217,7 +190,7 @@ ___
 
 • **WEEKDAY**: = "weekDay"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:40](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L40)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:40](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L40)*
 
 ___
 
@@ -225,7 +198,7 @@ ___
 
 • **WEEKNUMBER**: = "weekNumber"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:42](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L42)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:42](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L42)*
 
 The weeknumber
 
@@ -235,4 +208,4 @@ ___
 
 • **WEEKWEEKNUMBER**: = "weekWeeknumber"
 
-*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:39](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L39)*
+*Defined in [packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts:39](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/DayPicker/types/DayPickerElements.ts#L39)*

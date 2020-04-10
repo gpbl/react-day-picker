@@ -4,20 +4,11 @@ title: "MonthTableProps"
 sidebar_label: "MonthTableProps"
 ---
 
-# Interface: MonthTableProps
-
 Props of the [[Month]] component.
-
-## Hierarchy
-
-* **MonthTableProps**
 
 ## Index
 
-### Properties
-
-* [dayPickerProps](monthtableprops.md#daypickerprops)
-* [month](monthtableprops.md#month)
+**Properties **: [dayPickerProps](monthtableprops.md#daypickerprops), [month](monthtableprops.md#month), 
 
 ## Properties
 
@@ -25,7 +16,7 @@ Props of the [[Month]] component.
 
 • **dayPickerProps**: *[DayPickerProps](daypickerprops.md)*
 
-*Defined in [packages/react-day-picker/src/components/MonthTable/types.ts:10](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthTable/types.ts#L10)*
+*Defined in [packages/react-day-picker/src/components/MonthTable/types.ts:8](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/MonthTable/types.ts#L8)*
 
 ___
 
@@ -33,4 +24,4 @@ ___
 
 • **month**: *Date*
 
-*Defined in [packages/react-day-picker/src/components/MonthTable/types.ts:9](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/MonthTable/types.ts#L9)*
+*Defined in [packages/react-day-picker/src/components/MonthTable/types.ts:7](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/MonthTable/types.ts#L7)*

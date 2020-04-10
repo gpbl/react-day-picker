@@ -4,19 +4,11 @@ title: "NavigationProps"
 sidebar_label: "NavigationProps"
 ---
 
-# Interface: NavigationProps
-
 Props for the [Navigation](../index.md#navigation) component.
-
-## Hierarchy
-
-* **NavigationProps**
 
 ## Index
 
-### Properties
-
-* [dayPickerProps](navigationprops.md#daypickerprops)
+**Properties **: [dayPickerProps](navigationprops.md#daypickerprops), 
 
 ## Properties
 
@@ -24,4 +16,4 @@ Props for the [Navigation](../index.md#navigation) component.
 
 • **dayPickerProps**: *[DayPickerProps](daypickerprops.md)*
 
-*Defined in [packages/react-day-picker/src/components/Navigation/types.ts:7](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/components/Navigation/types.ts#L7)*
+*Defined in [packages/react-day-picker/src/components/Navigation/types.ts:7](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/components/Navigation/types.ts#L7)*
