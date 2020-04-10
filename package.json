@@ -15,6 +15,13 @@
   },
   "workspaces": [
     "website",
+    "docs",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@yarnpkg/pnpify": "^2.0.0-rc.20",
+    "eslint": "^6.8.0",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
+  }
 }

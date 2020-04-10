@@ -22,8 +22,11 @@
     "test:watch": "jest --watchAll --coverage",
     "coverage": "jest --coverage",
     "prebuild": "rm -rf lib && rm -rf dist",
-    "build": "tsc && rollup -c",
-    "docs": "typedoc --out ../../website/docs/api --theme ./typedoc/themes/website --hideBreadcrumbs"
+    "build": "yarn run prebuild && rollup -c && yarn postbuild",
+    "postbuild": "tsc -p tsconfig.td.json",
+    "docs": "yarn docs:markdown && yarn docs:json",
+    "docs:markdown": "typedoc --out ../../website/docs/api --theme ./typedoc/themes/default",
+    "docs:json": "typedoc --json ../../website/docs/api.json"
   },
   "files": [
     "dist",
@@ -31,34 +34,32 @@
     "src"
   ],
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@rollup/plugin-alias": "*",
-    "@rollup/plugin-commonjs": "^11.0.1",
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "@rollup/plugin-typescript": "^2.1.0",
-    "@testing-library/jest-dom": "^4.2.3",
-    "@testing-library/react": "^9.3.2",
-    "@types/jest": "^24.9.0",
-    "@types/react": "^16.9.11",
-    "date-fns": "^2.6.0",
+    "@babel/core": "^7.9.0",
+    "@rollup/plugin-alias": "^3.0.1",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-typescript": "^4.0.0",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.2",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.34",
+    "date-fns": "^2.12.0",
     "debug": "^4.1.1",
-    "jest": "^24.9.0",
-    "prettier": "^1.18.2",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "rollup": "^1.26.3",
-    "rollup-plugin-copy": "^3.1.0",
-    "rollup-plugin-filesize": "^6.2.0",
-    "rollup-plugin-terser": "^5.2.0",
-    "ts-jest": "^24.1.0",
-    "tslib": "^1.10.0",
-    "tslint": "^6.0.0",
-    "typedoc": "^0.16.7",
-    "typedoc-plugin-markdown": "^2.2.16",
-    "typescript": "^3.7.5"
+    "jest": "^25.3.0",
+    "prettier": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.4.0",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-filesize": "^7.0.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "ts-jest": "^25.3.1",
+    "tslib": "^1.11.1",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
-    "date-fns": "^2.6.0"
+    "date-fns": "^2.12.0"
   },
   "peerDependencies": {
     "react": "^16.8.0"
