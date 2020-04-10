@@ -4,8 +4,6 @@ import { DayPickerProps } from "../../DayPicker/types/DayPickerProps";
 /**
  * Get the months to render in DayPicker according to the passed
  * `numberOfMonths` and other month-related props.
- *
- * @private
  */
 export function getMonths(props: DayPickerProps): Date[] {
   const {

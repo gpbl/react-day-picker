@@ -16,8 +16,6 @@ import { defaultFormatWeekdayName } from "./defaultFormatWeekdayName";
 
 /**
  * List the default props used by the [[DayPicker]] component.
- *
- * @readonly
  */
 export const defaultProps: DayPickerProps = {
   enableOutsideDaysClick: false,

@@ -8,21 +8,21 @@ import {
 } from "../../components/DayPicker/types";
 
 /**
- * @private
+ * Return true if `day1` is after `day2`.
  */
 function isDayAfter(day1: Date, day2: Date): boolean {
   return differenceInDays(day1, day2) > 0;
 }
 
 /**
- * @private
+ * Return true if `day1` is before `day2`.
  */
 function isDayBefore(day1: Date, day2: Date): boolean {
   return differenceInDays(day1, day2) < 0;
 }
 
 /**
- * @private
+ * Return true if `day` matches the given [[DayMatcher]].
  */
 function matchDate(day: Date, matcher: DayMatcher): boolean {
   if (!(matcher instanceof Date)) return false;
@@ -31,7 +31,7 @@ function matchDate(day: Date, matcher: DayMatcher): boolean {
 }
 
 /**
- * @private
+ * Returns true if the day is in the range specified by the [[DayMatcher]].
  */
 function matchDayInRange(day: Date, matcher: DayMatcher): boolean {
   if (!("from" in matcher) || !("to" in matcher)) return false;
@@ -44,7 +44,7 @@ function matchDayInRange(day: Date, matcher: DayMatcher): boolean {
 }
 
 /**
- * @private
+ * TODO: write docs
  */
 function matchDayBefore(day: Date, matcher: DayMatcher): boolean {
   if ("after" in matcher || !("before" in matcher)) return false;
@@ -53,7 +53,7 @@ function matchDayBefore(day: Date, matcher: DayMatcher): boolean {
 }
 
 /**
- * @private
+ * TODO: write docs
  */
 function matchDayAfter(day: Date, matcher: DayMatcher): boolean {
   if ("before" in matcher || !("after" in matcher)) return false;
@@ -62,7 +62,7 @@ function matchDayAfter(day: Date, matcher: DayMatcher): boolean {
 }
 
 /**
- * @private
+ * TODO: write docs
  */
 function matchDayBetween(day: Date, matcher: DayMatcher): boolean {
   if (!("after" in matcher) || !("before" in matcher)) return false;
@@ -75,7 +75,7 @@ function matchDayBetween(day: Date, matcher: DayMatcher): boolean {
 }
 
 /**
- * @private
+ * TODO: write docs
  */
 function matchDayOfWeek(day: Date, matcher: DayMatcher): boolean {
   if (!("daysOfWeek" in matcher)) return false;
@@ -83,7 +83,7 @@ function matchDayOfWeek(day: Date, matcher: DayMatcher): boolean {
 }
 
 /**
- * @private
+ * TODO: write docs
  */
 function matchFunction(day: Date, matcher: DayMatcher): boolean {
   if (!(matcher instanceof Function)) return false;
@@ -92,8 +92,6 @@ function matchFunction(day: Date, matcher: DayMatcher): boolean {
 
 /**
  * Return `true` if a day matches a day matcher.
- *
- * @private
  */
 export function matchDay(day: Date, matcher: DayMatcher): boolean {
   if (!matcher) return false;

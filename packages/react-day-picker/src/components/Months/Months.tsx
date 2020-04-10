@@ -13,8 +13,6 @@ import {
 
 /**
  * Render the months and the navigation.
- *
- * @private
  * @category Components
  */
 export function Months(initialProps = defaultProps): JSX.Element {

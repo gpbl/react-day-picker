@@ -14,8 +14,6 @@ export interface WeekRowProps {
 
 /**
  * Format the weekday name.
- *
- * @private
  */
 export type WeekdayNameFormatter = (
   day: Date,

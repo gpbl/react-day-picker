@@ -4,7 +4,7 @@ import { matchDay } from "./matchModifier";
 /**
  * @ignore
  */
-const reduce = (day: Date, modifiers: DayModifiers) => (
+const reduceCallback = (day: Date, modifiers: DayModifiers) => (
   previousValue: string[],
   key: string
 ): string[] => {
@@ -18,9 +18,7 @@ const reduce = (day: Date, modifiers: DayModifiers) => (
 
 /**
  * Given a date and a list of modifiers, return the names of the modifiers matching that day.
- *
- * @private
  */
 export function listModifiers(day: Date, modifiers: DayModifiers): string[] {
-  return Object.keys(modifiers).reduce(reduce(day, modifiers), []);
+  return Object.keys(modifiers).reduce(reduceCallback(day, modifiers), []);
 }

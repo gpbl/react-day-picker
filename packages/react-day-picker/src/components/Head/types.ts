@@ -3,8 +3,6 @@ import { DayPickerProps } from "../DayPicker";
 
 /**
  * The props used by the [[Head]] component.
- *
- * @private
  */
 export interface HeadProps {
   locale: DateFns.Locale;
