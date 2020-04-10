@@ -74,6 +74,7 @@
   position: absolute;
   top: 1em;
   right: 1em;
+  display: flex;
 }
 .rdp[dir="rtl"] .rdp-nav {
   right: auto;
