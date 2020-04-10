@@ -1,3 +1,4 @@
+const RendererEvent = require("typedoc/dist/lib/output/events").RendererEvent;
 const MarkdownTheme = require("typedoc-plugin-markdown/dist/theme");
 const {
   FrontMatterComponent
@@ -9,8 +10,18 @@ const {
 class WebsiteTheme extends MarkdownTheme.default {
   constructor(renderer, basePath) {
     super(renderer, basePath);
-    this.indexName = "index"; // Override the default README.md
     renderer.addComponent("frontmatter", new FrontMatterComponent(renderer));
+    this.listenTo(
+      renderer,
+      RendererEvent.END,
+      renderer => this.writeSummary(renderer),
+      1024
+    );
+    this.indexName = "index"; // Override the default README.md
+  }
+  writeSummary(renderer) {
+    console.log(this.indexName);
+    // console.log(this.getNavigation(renderer.project).children[1]);
   }
 }
 

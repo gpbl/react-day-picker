@@ -2,18 +2,17 @@
   "compileOnSave": true,
   "compilerOptions": {
     // Code Emit Options
-    "target": "ES5", // target IE10
+    "target": "ES5", // targets IE10
     "module": "ES2015",
     "esModuleInterop": true,
     "jsx": "react",
     "sourceMap": true,
     "removeComments": false,
-    "declaration": true,
+    "declaration": false,
     "pretty": true,
 
     // Emit Location Options
-    "outDir": "./lib",
-    "rootDir": "./src",
+    "rootDir": "src",
 
     // Library Options
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
