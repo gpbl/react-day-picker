@@ -16,15 +16,11 @@ import { getOutsideEndDays } from "./getOutsideEndDays";
 /**
  * The weeks belonging to a month. Each key of the returned object is the
  * week number of the year.
- *
- * @private
  */
 type MonthWeeks = { [weeknumber: string]: DateWithModifiers[] };
 
 /**
  * Return the weeks belonging to the given month.
- *
- * @private
  */
 export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
   const { locale, fixedWeeks } = props;

@@ -4,8 +4,6 @@ import { DayPickerProps } from "../DayPicker";
 
 /**
  * Return the outside ending days for the given day.
- *
- * @private
  */
 
 export function getOutsideEndDays(

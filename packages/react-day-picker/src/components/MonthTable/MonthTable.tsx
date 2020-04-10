@@ -6,8 +6,6 @@ import { MonthTableProps } from "./types";
 
 /**
  * Render the month table.
- *
- * @private
  * @category Components
  */
 export function MonthTable(props: MonthTableProps): JSX.Element {

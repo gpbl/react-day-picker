@@ -2,8 +2,6 @@ import { MatchingModifiers } from "../types";
 
 /**
  * Default modifiers.
- *
- * @readonly
  */
 export const defaultModifiers: MatchingModifiers = {
   disabled: false,

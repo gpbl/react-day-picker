@@ -1,5 +1,5 @@
 /**
- * List of the name of the user interface elements.
+ * List of the name of the DOM elements interface elements.
  */
 export enum DayPickerElements {
   ROOT = "root",

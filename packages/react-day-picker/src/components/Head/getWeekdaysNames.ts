@@ -3,8 +3,6 @@ import { DayPickerProps } from "../DayPicker";
 
 /**
  * Return the name of the weekdays according to the formatting function.
- *
- * @private
  */
 export function getWeekdaysNames(
   locale: DateFns.Locale,

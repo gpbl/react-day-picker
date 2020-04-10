@@ -60,11 +60,12 @@ export type SwizzlingComponents = {
   WeekNumber: React.ComponentType<WeekNumberProps>;
 };
 
+/**
+ * The props used by the [[DayPicker]] component.
+ */
 export interface DayPickerProps {
   /**
    * CSS class to add to the root element.
-   *
-   * @group Styling
    */
   className?: string;
   /**
@@ -77,14 +78,10 @@ export interface DayPickerProps {
    * import { selected, disabled } from './styles.css';
    * <DayPicker classNames={{ selected, disabled }} />
    * ````
-   *
-   * @group Styling
    */
   classNames?: DayPickerClassNames;
   /**
    * Change the class names used for the day [[modifiers]].
-   *
-   * @group Styling
    */
   modifiersClassNames?: ModifiersClassNames;
 

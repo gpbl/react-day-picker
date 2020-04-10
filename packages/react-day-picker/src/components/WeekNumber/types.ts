@@ -1,6 +1,9 @@
 import { DayPickerProps } from "../DayPicker";
 import * as DateFns from "date-fns";
 
+/**
+ * Props for the [[WeekNumber]] component.
+ */
 export interface WeekNumberProps {
   number: number;
   days: Date[];

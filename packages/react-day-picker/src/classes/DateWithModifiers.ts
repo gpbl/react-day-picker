@@ -12,8 +12,6 @@ import { listModifiers } from "./utils/listModifiers";
 
 /**
  * Helper class to move modifiers around the components.
- *
- * @private
  */
 export class DateWithModifiers {
   constructor(

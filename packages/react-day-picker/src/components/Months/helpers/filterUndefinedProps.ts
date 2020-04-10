@@ -1,7 +1,5 @@
 /**
  * Filter the undefined props of `obj`.
- *
- * @private
  */
 export function filterUndefinedProps(obj: {
   [index: string]: any;
