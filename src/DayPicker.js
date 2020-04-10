@@ -132,7 +132,6 @@ export class DayPicker extends Component {
   static defaultProps = {
     classNames,
     tabIndex: 0,
-    initialMonth: new Date(),
     numberOfMonths: 1,
     labels: {
       previousMonth: 'Previous Month',
@@ -186,7 +185,7 @@ export class DayPicker extends Component {
    */
   getCurrentMonthFromProps(props) {
     const initialMonth = Helpers.startOfMonth(
-      props.month || props.initialMonth
+      props.month || props.initialMonth || new Date()
     );
     let currentMonth = initialMonth;
 
