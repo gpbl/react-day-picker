@@ -7,16 +7,16 @@ module.exports = function() {
   return {
     name: "@gpbl/react-dev-plugin",
     configureWebpack() {
-      const config = {
-        resolve: {
-          modules: [
-            "node_modules",
-            path.resolve(__dirname, "../../../node_modules/")
-          ]
-        }
-      };
-      console.log("Using custom config", config);
-      return config;
+      // const config = {
+      //   resolve: {
+      //     modules: [
+      //       "node_modules",
+      //       path.resolve(__dirname, "../../../node_modules/")
+      //     ]
+      //   }
+      // };
+      // console.log("Using custom config", config);
+      return {};
     }
   };
 };

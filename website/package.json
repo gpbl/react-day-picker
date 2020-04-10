@@ -1,23 +1,28 @@
 {
-  "name": "@react-day-picker/website",
+  "name": "website",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy"
+    "deploy": "docusaurus deploy",
+    "api-docs": "yarn api-docs:markdown & yarn api-docs:json",
+    "api-docs:json": "typedoc --json src/api.json --theme ./typedoc/website",
+    "api-docs:markdown": "typedoc --theme ./typedoc/website --hideBreadcrumbs",
+    "api-docs:html": "typedoc --plugin none --theme ./typedoc/html --readme ../packages/react-day-picker/README.md"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.40",
+    "@docusaurus/core": "^2.0.0-alpha.50",
     "@docusaurus/preset-classic": "^2.0.0-alpha.40",
-    "buble": "^0.19.8",
+    "@yarnpkg/pnpify": "^2.0.0-rc.20",
+    "buble": "^0.20.0",
     "classnames": "^2.2.6",
-    "date-fns": "^2.9.0",
+    "date-fns": "^2.12.0",
     "mdx-loader": "^3.0.2",
-    "react": "^16.11.0",
+    "react": "^16.13.1",
     "react-day-picker": "8.0.0-alpha.0",
-    "react-dom": "^16.11.0",
+    "react-dom": "^16.13.1",
     "react-frame-component": "^4.1.1"
   },
   "browserslist": {
@@ -35,7 +40,9 @@
   "devDependencies": {
     "prop-types": "^15.7.2",
     "raw-loader": "^4.0.0",
-    "react-docgen": "^5.1.0",
-    "webpack": "^4.41.5"
+    "react-docgen": "^5.3.0",
+    "typedoc": "^0.17.4",
+    "typedoc-plugin-markdown": "^2.2.17",
+    "webpack": "^4.42.1"
   }
 }

@@ -4,28 +4,15 @@ title: "DateWithModifiers"
 sidebar_label: "DateWithModifiers"
 ---
 
-# Class: DateWithModifiers
-
 Helper class to move modifiers around the components.
-
-## Hierarchy
-
-* **DateWithModifiers**
 
 ## Index
 
-### Constructors
+**Constructors **: [constructor](datewithmodifiers.md#constructor), 
 
-* [constructor](datewithmodifiers.md#constructor)
+**Properties **: [date](datewithmodifiers.md#date), [modifiers](datewithmodifiers.md#modifiers), 
 
-### Properties
-
-* [date](datewithmodifiers.md#date)
-* [modifiers](datewithmodifiers.md#modifiers)
-
-### Methods
-
-* [getModifier](datewithmodifiers.md#getmodifier)
+**Methods **: [getModifier](datewithmodifiers.md#getmodifier), 
 
 ## Constructors
 
@@ -33,7 +20,7 @@ Helper class to move modifiers around the components.
 
 \+ **new DateWithModifiers**(`date`: Date, `initialModifiers`: [MatchingModifiers](../index.md#matchingmodifiers), `props`: [DayPickerProps](../interfaces/daypickerprops.md)): *[DateWithModifiers](datewithmodifiers.md)*
 
-*Defined in [packages/react-day-picker/src/classes/DateWithModifiers.ts:18](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/DateWithModifiers.ts#L18)*
+*Defined in [packages/react-day-picker/src/classes/DateWithModifiers.ts:16](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/classes/DateWithModifiers.ts#L16)*
 
 **Parameters:**
 
@@ -51,7 +38,7 @@ Name | Type | Default |
 
 • **date**: *Date*
 
-*Defined in [packages/react-day-picker/src/classes/DateWithModifiers.ts:50](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/DateWithModifiers.ts#L50)*
+*Defined in [packages/react-day-picker/src/classes/DateWithModifiers.ts:47](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/classes/DateWithModifiers.ts#L47)*
 
 ___
 
@@ -59,7 +46,7 @@ ___
 
 • **modifiers**: *[MatchingModifiers](../index.md#matchingmodifiers)*
 
-*Defined in [packages/react-day-picker/src/classes/DateWithModifiers.ts:51](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/DateWithModifiers.ts#L51)*
+*Defined in [packages/react-day-picker/src/classes/DateWithModifiers.ts:48](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/classes/DateWithModifiers.ts#L48)*
 
 ## Methods
 
@@ -67,7 +54,7 @@ ___
 
 ▸ **getModifier**(`name`: string): *[DayMatchModifier](../index.md#daymatchmodifier)*
 
-*Defined in [packages/react-day-picker/src/classes/DateWithModifiers.ts:53](https://github.com/gpbl/react-day-picker/blob/fdbc0b39/packages/react-day-picker/src/classes/DateWithModifiers.ts#L53)*
+*Defined in [packages/react-day-picker/src/classes/DateWithModifiers.ts:50](https://github.com/gpbl/react-day-picker/blob/a13347e4/packages/react-day-picker/src/classes/DateWithModifiers.ts#L50)*
 
 **Parameters:**
 
