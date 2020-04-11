@@ -158,6 +158,7 @@ export interface DayPickerInputProps {
   value?: string | Date;
   format?: string | string[];
   placeholder?: string;
+  style?: object;
 
   dayPickerProps?: DayPickerProps;
   inputProps?: object;
