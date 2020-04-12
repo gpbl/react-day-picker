@@ -18,6 +18,7 @@ export default class Month extends Component {
       today: PropTypes.string.isRequired,
       week: PropTypes.string.isRequired,
       weekNumber: PropTypes.string.isRequired,
+      disabled: PropTypes.string.isRequired,
     }).isRequired,
     tabIndex: PropTypes.number,
 
@@ -106,7 +107,9 @@ export default class Month extends Component {
         }
         tabIndex={tabIndex}
         ariaLabel={this.props.localeUtils.formatDay(day, this.props.locale)}
-        ariaDisabled={isOutside || dayModifiers.indexOf(this.props.classNames.disabled) > -1}
+        ariaDisabled={
+          isOutside || dayModifiers.indexOf(this.props.classNames.disabled) > -1
+        }
         ariaSelected={dayModifiers.indexOf(this.props.classNames.selected) > -1}
         onClick={this.props.onDayClick}
         onFocus={this.props.onDayFocus}
