@@ -518,7 +518,7 @@ export default class DayPickerInput extends React.Component {
     }
 
     const value = formatDate(day, format, dayPickerProps.locale);
-    this.setState({ value, typedValue: undefined, month: day }, () => {
+    this.setState({ value, typedValue: '', month: day }, () => {
       if (onDayChange) {
         onDayChange(day, modifiers, this);
       }
