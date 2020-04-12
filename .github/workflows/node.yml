@@ -3,10 +3,10 @@ name: Node CI
 on:
   pull_request:
     branches:
-      - master
+      - v7
   push:
     branches:
-      - master
+      - v7
 
 jobs:
   lint:
