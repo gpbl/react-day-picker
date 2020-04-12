@@ -15,7 +15,7 @@ import classNames from './classNames';
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 
 export class DayPicker extends Component {
-  static VERSION = '7.4.0';
+  dayPicker = null;
 
   static propTypes = {
     // Rendering months
@@ -132,7 +132,6 @@ export class DayPicker extends Component {
   static defaultProps = {
     classNames,
     tabIndex: 0,
-    initialMonth: new Date(),
     numberOfMonths: 1,
     labels: {
       previousMonth: 'Previous Month',
@@ -155,8 +154,6 @@ export class DayPicker extends Component {
     captionElement: <Caption classNames={classNames} />,
   };
 
-  dayPicker = null;
-
   constructor(props) {
     super(props);
 
@@ -176,6 +173,8 @@ export class DayPicker extends Component {
     }
   }
 
+  static VERSION = '7.4.0';
+
   /**
    * Return the month to be shown in the calendar based on the component props.
    *
@@ -186,7 +185,7 @@ export class DayPicker extends Component {
    */
   getCurrentMonthFromProps(props) {
     const initialMonth = Helpers.startOfMonth(
-      props.month || props.initialMonth
+      props.month || props.initialMonth || new Date()
     );
     let currentMonth = initialMonth;
 

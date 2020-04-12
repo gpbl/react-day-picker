@@ -11,9 +11,6 @@ import classNames from '../../src/classNames';
 describe('DayPicker’s rendering', () => {
   it('should have default props', () => {
     const dayPicker = <DayPicker />;
-    const now = new Date();
-    expect(dayPicker.props.initialMonth.getMonth()).toBe(now.getMonth());
-    expect(dayPicker.props.initialMonth.getYear()).toBe(now.getYear());
     expect(dayPicker.props.numberOfMonths).toBe(1);
     expect(dayPicker.props.locale).toBe('en');
     expect(dayPicker.props.showOutsideDays).toBe(false);
@@ -33,7 +30,7 @@ describe('DayPicker’s rendering', () => {
     expect(wrapper).toHaveClassName('DayPicker--interactionDisabled');
   });
   it('should use `initialMonth` as the current month', () => {
-    const wrapper = shallow(<DayPicker />);
+    const wrapper = shallow(<DayPicker initialMonth={new Date(2020, 10)} />);
     const instance = wrapper.instance();
     expect(instance.props.initialMonth.getFullYear()).toBe(
       instance.state.currentMonth.getFullYear()
