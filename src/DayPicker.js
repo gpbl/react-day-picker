@@ -15,7 +15,7 @@ import classNames from './classNames';
 import { ENTER, SPACE, LEFT, UP, DOWN, RIGHT } from './keys';
 
 export class DayPicker extends Component {
-  static VERSION = '7.4.0';
+  dayPicker = null;
 
   static propTypes = {
     // Rendering months
@@ -154,8 +154,6 @@ export class DayPicker extends Component {
     captionElement: <Caption classNames={classNames} />,
   };
 
-  dayPicker = null;
-
   constructor(props) {
     super(props);
 
@@ -174,6 +172,8 @@ export class DayPicker extends Component {
       this.setState({ currentMonth });
     }
   }
+
+  static VERSION = '7.4.0';
 
   /**
    * Return the month to be shown in the calendar based on the component props.

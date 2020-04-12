@@ -87,6 +87,18 @@ export function defaultParse(str) {
 }
 
 export default class DayPickerInput extends React.Component {
+  input = null;
+
+  daypicker = null;
+
+  clickTimeout = null;
+
+  hideTimeout = null;
+
+  inputBlurTimeout = null;
+
+  inputFocusTimeout = null;
+
   static propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
     inputProps: PropTypes.object,
@@ -147,18 +159,6 @@ export default class DayPickerInput extends React.Component {
       overlay: 'DayPickerInput-Overlay',
     },
   };
-
-  input = null;
-
-  daypicker = null;
-
-  clickTimeout = null;
-
-  hideTimeout = null;
-
-  inputBlurTimeout = null;
-
-  inputFocusTimeout = null;
 
   constructor(props) {
     super(props);
