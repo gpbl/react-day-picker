@@ -2,7 +2,7 @@
 
 import { RangeModifier, Modifier } from './common';
 
-export interface LocaleUtils {
+export const LocaleUtils: {
   formatDate(date: Date, format?: string | string[], locale?: string): string;
   formatDay(day: Date, locale?: string): string;
   formatMonthTitle(month: Date, locale?: string): string;
@@ -26,9 +26,10 @@ export interface LocaleUtils {
     string
   ];
   parseDate(str: string, format?: string, locale?: string): Date;
-}
+};
+export type LocaleUtils = typeof LocaleUtils;
 
-export type DateUtils = {
+export const DateUtils: {
   addDayToRange(day: Date, range: RangeModifier): RangeModifier;
   addMonths(d: Date, n: number): Date;
   clone(d: Date): Date;
@@ -42,11 +43,13 @@ export type DateUtils = {
   isSameDay(day1: Date, day2: Date): boolean;
   isSameMonth(day1: Date, day2: Date): boolean;
 };
+export type DateUtils = typeof DateUtils;
 
-export type ModifiersUtils = {
+export const ModifiersUtils: {
   dayMatchesModifier(day: Date, modifier?: Modifier | Modifier[]): boolean;
   getModifiersForDay(
     day: Date,
     modifiers: Record<string, Modifier | Modifier[]>
   ): string[];
 };
+export type ModifiersUtils = typeof ModifiersUtils;
