@@ -1,6 +1,8 @@
-bower_components
 node_modules
-npm-debug.log
+.log
 coverage
 test-report.xml
 docs/_site
+umd
+lib
+build
