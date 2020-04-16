@@ -1,16 +1,10 @@
-/* eslint global-require: 0, import/no-extraneous-dependencies: 0 */
-/* eslint-env node */
-
-const isProduction = process.env.NODE_ENV === 'production';
-
 module.exports = {
   devtool: 'source-map',
   entry: {
-    daypicker: './DayPicker.dist.js',
+    daypicker: './umd-entrypoint.js',
   },
   output: {
-    path: `${__dirname}/lib`,
-    filename: `[name]${isProduction ? '.min' : ''}.js`,
+    path: `${__dirname}/umd`,
     library: 'DayPicker',
     libraryTarget: 'umd',
   },
@@ -22,7 +16,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
         },
