@@ -1,15 +1,9 @@
-// TypeScript Version: 3.1
-
 import * as React from 'react';
-import {
-  ClassNames,
-  Modifier,
-  Modifiers,
-  DayModifiers,
-  InputClassNames,
-} from './common';
-import { LocaleUtils } from './utils';
-import { DayPickerInput } from './DayPickerInput';
+
+import { Modifiers, Modifier, DayModifiers } from './Modifiers';
+import { ClassNames, InputClassNames } from './ClassNames';
+import { LocaleUtils } from './LocaleUtils';
+import DayPickerInput from './DayPickerInput';
 
 export interface CaptionElementProps {
   date: Date;
@@ -163,8 +157,8 @@ export interface DayPickerInputProps {
   dayPickerProps?: DayPickerProps;
   inputProps?: object;
 
-  formatDate: (date: Date, format: string, locale: string) => string;
-  parseDate: (str: string, format: string, locale: string) => Date | void;
+  formatDate?: (date: Date, format: string, locale: string) => string;
+  parseDate?: (str: string, format: string, locale: string) => Date | void;
 
   hideOnDayClick?: boolean;
   clickUnselectsDay?: boolean;

@@ -1,4 +1,7 @@
+export as namespace DayPicker;
+
 export { default } from './DayPicker';
-export * from './common';
-export * from './props';
-export * from './utils';
+export * from './Props';
+export * from './LocaleUtils';
+export * from './DateUtils';
+export * from './Modifiers';

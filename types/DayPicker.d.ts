@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { LocaleUtils, ModifiersUtils, DateUtils } from './utils';
-import { DayModifiers, Modifiers } from './common';
 
-import { DayPickerProps } from './props';
+import { LocaleUtils } from './LocaleUtils';
+import { DateUtils } from './DateUtils';
+import { DayModifiers, Modifiers, ModifiersUtils } from './Modifiers';
+import { DayPickerProps } from './Props';
 
 export default class DayPicker extends React.Component<DayPickerProps, any> {
   static VERSION: string;
