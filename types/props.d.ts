@@ -176,13 +176,13 @@ export interface DayPickerInputProps {
 
   classNames?: InputClassNames;
 
-  onDayChange: (
+  onDayChange?: (
     day: Date,
     DayModifiers: DayModifiers,
     dayPickerInput: DayPickerInput
   ) => void;
-  onDayPickerHide: () => void;
-  onDayPickerShow: () => void;
+  onDayPickerHide?: () => void;
+  onDayPickerShow?: () => void;
   onChange?: (e: React.FocusEvent<HTMLDivElement>) => void;
   onClick?: (e: React.FocusEvent<HTMLDivElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLDivElement>) => void;
