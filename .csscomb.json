@@ -22,7 +22,7 @@
   "tab-size": true,
   "unitless-zero": true,
   "vendor-prefix-align": true,
-  "exclude": [".git/**", "node_modules/**", "bower_components/**"],
+  "exclude": [".git/**", "node_modules/**"],
   "sort-order": [
     ["$variable"],
     ["$include", "$extend"],
