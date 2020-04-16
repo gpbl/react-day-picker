@@ -23,6 +23,7 @@
     "lint": "eslint src test",
     "test": "jest",
     "coverage": "jest --coverage",
+    "prepublishOnly": "yarn build",
     "prebuild": "rimraf lib umd build",
     "build": "yarn build:src && yarn build:umd && yarn build:umd-minified",
     "build:src": "babel ./src -d ./build --source-maps && yarn build:css",
