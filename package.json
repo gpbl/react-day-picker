@@ -2,7 +2,8 @@
   "name": "react-day-picker",
   "version": "7.4.2",
   "description": "Flexible date picker component for React",
-  "main": "build/index.js",
+  "main": "lib/react-day-picker.min.js",
+  "module": "build/index.js",
   "types": "types/index.d.ts",
   "style": "lib/style.css",
   "files": [
@@ -25,10 +26,9 @@
     "coverage": "jest --coverage",
     "prepublishOnly": "yarn build",
     "prebuild": "rimraf lib umd build",
-    "build": "yarn build:src && yarn build:umd && yarn build:umd-minified",
+    "build": "yarn build:src && yarn build:umd",
     "build:src": "babel ./src -d ./build --source-maps && yarn build:css",
-    "build:umd": "cross-env NODE_ENV=umd webpack -p --output-filename react-day-picker.js --optimize-minimize=false",
-    "build:umd-minified": "cross-env NODE_ENV=umd webpack -p  --output-filename react-day-picker.min.js",
+    "build:umd": "cross-env NODE_ENV=production webpack -p",
     "build:css": "postcss src/style.css --use autoprefixer -d lib/ --no-map"
   },
   "repository": {

@@ -1,19 +1,17 @@
+const webpack = require('webpack');
+
 module.exports = {
   devtool: 'source-map',
-  entry: {
-    daypicker: './umd-entrypoint.js',
-  },
+  entry: './src/umd.js',
   output: {
-    path: `${__dirname}/umd`,
+    path: `${__dirname}/lib`,
+    filename: 'react-day-picker.min.js',
     library: 'DayPicker',
+    libraryExport: 'default',
     libraryTarget: 'umd',
   },
   module: {
     rules: [
-      {
-        test: /prop-types/,
-        use: 'null-loader',
-      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -23,6 +21,11 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+  ],
   externals: {
     react: {
       root: 'React',
