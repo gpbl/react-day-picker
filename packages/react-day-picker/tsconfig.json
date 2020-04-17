@@ -11,7 +11,14 @@
     "declaration": false,
     "pretty": true,
 
+    // Module Resolution Options
+    "baseUrl": "./src",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+
     // Emit Location Options
+    "incremental": true,
+    "outDir": "lib",
     "rootDir": "src",
 
     // Library Options
@@ -23,11 +30,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
-
-    // Module Resolution Options
-    "baseUrl": "./src",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
 
     // Type-checking Options
     "strict": true,
