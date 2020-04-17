@@ -17,7 +17,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "develop": "tsc --watch",
-    "lint": "eslint",
+    "lint": "",
     "test": "jest",
     "test:watch": "jest --watchAll --coverage",
     "coverage": "jest --coverage",
