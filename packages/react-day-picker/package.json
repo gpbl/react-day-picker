@@ -21,9 +21,9 @@
     "test": "jest",
     "test:watch": "jest --watchAll --coverage",
     "coverage": "jest --coverage",
-    "prebuild": "rm -rf lib && rm -rf dist",
-    "build": "yarn run prebuild && rollup -c && yarn postbuild",
-    "postbuild": "tsc -p tsconfig.td.json",
+    "build-clean": "rm -rf lib && rm -rf dist",
+    "build-types": "tsc -p tsconfig.td.json",
+    "build": "yarn build-clean && rollup -c && yarn build-types",
     "docs": "yarn docs:markdown && yarn docs:json",
     "docs:markdown": "typedoc --out ../../website/docs/api --theme ./typedoc/themes/default",
     "docs:json": "typedoc --json ../../website/docs/api.json"
@@ -35,8 +35,6 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@rollup/plugin-alias": "^3.1.0",
-    "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
     "@rollup/plugin-typescript": "^4.1.1",
     "@testing-library/jest-dom": "^5.5.0",
