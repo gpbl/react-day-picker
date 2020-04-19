@@ -4,6 +4,7 @@
 - Fixed custom `classNames` breaking `aria-` props (#1004 by @camflan)
 - Added `style` type to `DayPickerInputProps` (#996 by @anilkabobo)
 - Fixed UMD build ([#1009](https://github.com/gpbl/react-day-picker/issues/1009))
+- (chore) Use moment `localeData` via documented API (#968)
 
 ## [v7.4](https://github.com/gpbl/react-day-picker/tree/v7.4.0) (2019-10-20)
 
