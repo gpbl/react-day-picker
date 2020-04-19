@@ -1,4 +1,4 @@
-### [v7.4.5](https://github.com/gpbl/react-day-picker/tree/v7.4.5) (2020-04-16)
+### [v7.4.6](https://github.com/gpbl/react-day-picker/tree/v7.4.6) (2020-04-19)
 
 - Fixed uncontrolled `DayPickerInput` causing the field not being cleared (#990 by @ntlf)
 - Fixed custom `classNames` breaking `aria-` props (#1004 by @camflan)
