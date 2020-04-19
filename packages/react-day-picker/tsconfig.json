@@ -17,7 +17,6 @@
     "allowSyntheticDefaultImports": true,
 
     // Emit Location Options
-    "incremental": true,
     "outDir": "lib",
     "rootDir": "src",
 
