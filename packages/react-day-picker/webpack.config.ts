@@ -1,4 +1,4 @@
-import * as webpack from 'webpack'
+import * as webpack from 'webpack';
 
 const base: webpack.Configuration = {
   mode: 'production',
@@ -28,7 +28,7 @@ const base: webpack.Configuration = {
   module: {
     rules: [{ test: /\.tsx?$/, loader: 'ts-loader' }]
   }
-}
+};
 
 const minified = {
   ...base,
@@ -36,7 +36,7 @@ const minified = {
     ...base.output,
     filename: 'index.min.js'
   }
-}
+};
 
 const notMinified = {
   ...base,
@@ -47,6 +47,6 @@ const notMinified = {
   optimization: {
     minimize: false
   }
-}
+};
 
-export default [minified, notMinified]
+export default [minified, notMinified];
