@@ -24,8 +24,9 @@
     "build-clean": "rm -rf lib && rm -rf dist",
     "build-types": "tsc -p tsconfig.types.json",
     "build-lib": "tsc",
+    "build-css": "cp ./src/style.css ./dist/style.css",
     "build-dist": "cross-env TS_NODE_PROJECT=tsconfig.dist.json webpack",
-    "build": "yarn build-clean && yarn build-dist && yarn build-lib && yarn build-types",
+    "build": "yarn build-clean && yarn build-dist && yarn build-lib && yarn build-types && yarn build-css",
     "docs": "yarn docs:markdown && yarn docs:json",
     "docs:markdown": "typedoc --out ../../website/docs/api --theme ./typedoc/themes/default",
     "docs:json": "typedoc --json ../../website/docs/api.json"
