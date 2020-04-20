@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "10"
+  },
   "name": "react-day-picker-website",
   "description": "",
   "license": "MIT",
