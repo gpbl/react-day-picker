@@ -2,7 +2,7 @@
  * Filter the undefined props of `obj`.
  */
 export function filterUndefinedProps(obj: {
-  [index: string]: unknown;
+  [index: string]: any;
 }): { [index: string]: unknown } {
   if (!obj) return {};
   const clean: { [index: string]: unknown } = {};

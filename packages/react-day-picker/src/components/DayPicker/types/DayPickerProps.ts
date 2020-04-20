@@ -218,7 +218,7 @@ export interface DayPickerProps {
    *
    * @default See [[defaultFormatCaption]].
    */
-  formatCaption: MonthCaptionFormatter;
+  formatCaption?: MonthCaptionFormatter;
   /**
    * Format the content of the day element.
    *
