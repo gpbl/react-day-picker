@@ -1,10 +1,10 @@
-import * as dateFns from "date-fns";
+import * as dateFns from 'date-fns';
 
-import { MonthCaptionProps, MonthCaptionFormatter } from "../../MonthCaption";
-import { DayProps, DayFormatter } from "../../Day";
-import { NavigationProps } from "../../Navigation";
-import { WeekNumberProps, WeekNumberFormatter } from "../../WeekNumber";
-import { WeekdayNameFormatter } from "../../WeekRow";
+import { MonthCaptionProps, MonthCaptionFormatter } from '../../MonthCaption';
+import { DayProps, DayFormatter } from '../../Day';
+import { NavigationProps } from '../../Navigation';
+import { WeekNumberProps, WeekNumberFormatter } from '../../WeekNumber';
+import { WeekdayNameFormatter } from '../../WeekRow';
 
 import {
   MatchingModifiers,
@@ -12,9 +12,9 @@ import {
   ModifiersStyles,
   DayMatcher,
   DayModifiers
-} from "./Modifiers";
+} from './Modifiers';
 
-import { DayPickerElements } from "./DayPickerElements";
+import { DayPickerElements } from './DayPickerElements';
 
 /**
  * Names of the CSS classes for each UI element.
@@ -218,7 +218,7 @@ export interface DayPickerProps {
    *
    * @default See [[defaultFormatCaption]].
    */
-  formatCaption?: MonthCaptionFormatter;
+  formatCaption: MonthCaptionFormatter;
   /**
    * Format the content of the day element.
    *
