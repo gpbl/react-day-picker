@@ -173,7 +173,7 @@ export class DayPicker extends Component {
     }
   }
 
-  static VERSION = '7.4.7';
+  static VERSION = '7.4.8';
 
   /**
    * Return the month to be shown in the calendar based on the component props.

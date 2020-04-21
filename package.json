@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "7.4.7",
+  "version": "7.4.8",
   "description": "Flexible date picker component for React",
   "main": "lib/react-day-picker.min.js",
   "module": "build/index.js",
