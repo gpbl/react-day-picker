@@ -1,2 +1,2 @@
 import { LocaleUtils } from './LocaleUtils';
-export const MomentLocaleUtils: LocaleUtils;
+export default LocaleUtils;
