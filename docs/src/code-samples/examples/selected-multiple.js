@@ -12,7 +12,7 @@ export default class Example extends React.Component {
   }
 
   handleDayClick(day, { selected }) {
-    const { selectedDays } = this.state;
+    const selectedDays = this.state.selectedDays.concat();
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
         DateUtils.isSameDay(selectedDay, day)
