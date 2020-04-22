@@ -11,22 +11,20 @@ echo
 echo 📡 Committing changes...
 
 printf "\n"
-git commit -a -m "Bump ${VERSION}" | sed 's/\(.*\)/  \1/'
+git commit -a -m "Bump ${VERSION}"
 printf "\n"
 
 echo 📝 Tagging version...
-printf "\n"
-git tag $VERSION -a -m "${VERSION}" | sed 's/\(.*\)/  \1/'
-printf "\n"
+git tag $VERSION -a -m "${VERSION}"
 
 echo 📡 Pushing changes...
 printf "\n"
-git push | sed 's/\(.*\)/  \1/'
+git push
 printf "\n"
 
 echo 📡 Pushing tags...
 printf "\n"
-git push --tags | sed 's/\(.*\)/  \1/'
+git push --tags
 printf "\n"
 
 echo 
