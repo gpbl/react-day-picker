@@ -1,8 +1,11 @@
 name: Publish package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - master
+    tags:
+      - v8.*
 
 jobs:
   test-build-publish:
@@ -13,8 +16,16 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+
+      - name: Get tag name
+        id: get_tag_name
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      - uses: actions/checkout@v1
+        with:
+          ref: ${{ steps.get_tag_name.outputs.VERSION }}
+
       - name: Bump version
-        run: npm version ${{github.event.release.tag_name}}
+        run: npm version ${{steps.get_tag_name.outputs.VERSION}}
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
