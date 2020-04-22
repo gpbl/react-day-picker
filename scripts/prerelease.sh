@@ -14,17 +14,17 @@ printf "\n"
 git commit -a -m "Bump ${VERSION}" | sed 's/\(.*\)/  \1/'
 printf "\n"
 
-echo ✏️ Tagging version...
+echo 📝 Tagging version...
 printf "\n"
 git tag $VERSION -a -m "${VERSION}" | sed 's/\(.*\)/  \1/'
 printf "\n"
 
-echo 📡Pushing changes...
+echo 📡 Pushing changes...
 printf "\n"
 git push | sed 's/\(.*\)/  \1/'
 printf "\n"
 
-echo 📡Pushing tags...
+echo 📡 Pushing tags...
 printf "\n"
 git push --tags | sed 's/\(.*\)/  \1/'
 printf "\n"
