@@ -3,9 +3,11 @@ id: extending
 title: Extending DayPicker
 ---
 
-DayPicker can be extended by implementing custom components. Use the [`components`](./props#components) prop to change DayPicker internal components and add new custom props.
+Extended DayPicker by implementing custom components. Use the
+[components](./props#components) prop to change the default’s internal
+components, add new custom props or alter the rendered HTML.
 
-It is possible to use the following custom components:
+So far you can replace the following components:
 
 - `Day` – used to render the day;
 - `Caption` – used to render the caption (with month/year);
@@ -18,8 +20,8 @@ The `Day` component is used to render the day in the calendar.
 
 #### To use a custom Day component
 
-1. create a `Day` component with `day`, [`modifiers`](./modifiers) and `dayPickerProps` props;
-2. (optional) get DayPicker-specific props via [`getDayProps`](./utils#getDayProps);
+1. create a `Day` component with `day`, [modifiers](./modifiers) and `dayPickerProps` props;
+2. (optional) get DayPicker-specific props via [getDayProps](./utils#getDayProps);
 3. pass the `Day` component to the `components` prop.
 
 For example, the following DayPicker implements a `Day` component that supports `onDayEnter`, `onDayLeave` events:
@@ -81,7 +83,7 @@ The `Caption` component is used to render the caption (with month/year) in the c
 #### To use a custom Caption component
 
 1. create a `Caption` component with `month` and `dayPickerProps` props;
-2. (optional) get DayPicker-specific props via [`getCaptionProps`](./utils#getCaptionProps);
+2. (optional) get DayPicker-specific props via [getCaptionProps](./utils#getCaptionProps);
 3. pass the `Caption` component to the `components` prop.
 
 For example, the following DayPicker implements a `Caption` component to switch the month of the current year:
@@ -144,7 +146,7 @@ The `Navigation` component is used to render the navigation buttons.
 #### To use a custom Navigation component
 
 1. create a `Navigation` component with a `dayPickerProps` prop;
-2. (optional) get DayPicker-specific props via [`getNavigationProps`](./utils#getNavigationProps) and [`getNavigation`](./utils#getNavigation);
+2. (optional) get DayPicker-specific props via [getNavigationProps](./utils#getNavigationProps) and [getNavigation](./utils#getNavigation);
 3. pass the `Navigation` component to the `components` prop.
 
 For example, the following DayPicker implements a `Navigation` without the start button:
@@ -172,7 +174,7 @@ function App() {
 
 ## WeekNumber Component
 
-The `WeekNumber` component is used to render the week number when [`showWeekNumber`](./props#showweeknumber) is set.
+The `WeekNumber` component is used to render the week number when [showWeekNumber](./props#showweeknumber) is set.
 
 #### To use a custom WeekNumber component
 
