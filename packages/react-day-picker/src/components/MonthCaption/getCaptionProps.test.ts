@@ -1,12 +1,12 @@
-import { getCaptionProps } from "./getCaptionProps";
-import { defaultProps } from "../DayPicker/defaults/defaultProps";
-import { CaptionHtmlProps } from "./types";
-import { DayPickerClassNames, DayPickerProps } from "components/DayPicker";
+import { getCaptionProps } from './getCaptionProps';
+import { defaultProps } from '../DayPicker/defaults/defaultProps';
+import { CaptionHtmlProps } from './types';
+import { DayPickerClassNames, DayPickerProps } from 'components/DayPicker';
 
-describe("getCaptionProps", () => {
-  it("return the container props", () => {
+describe('getCaptionProps', () => {
+  it('return the container props', () => {
     const classNames: DayPickerClassNames = {
-      caption: "caption-foo"
+      caption: 'caption-foo'
     };
     const props: DayPickerProps = {
       ...defaultProps,
@@ -14,7 +14,7 @@ describe("getCaptionProps", () => {
     };
     const expected: CaptionHtmlProps = {
       containerProps: {
-        className: "caption-foo"
+        className: 'caption-foo'
       }
     };
     const result = getCaptionProps(props);

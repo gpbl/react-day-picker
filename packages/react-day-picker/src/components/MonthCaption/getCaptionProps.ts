@@ -1,5 +1,5 @@
-import { DayPickerProps } from "../DayPicker";
-import { CaptionHtmlProps } from "./types";
+import { DayPickerProps } from '../DayPicker';
+import { CaptionHtmlProps } from './types';
 
 /**
  * Return props for creating a [[MonthCaption]] component.

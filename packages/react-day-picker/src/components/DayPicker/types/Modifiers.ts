@@ -25,31 +25,31 @@ export enum DefaultModifiersNames {
   /**
    * The day is disabled.
    */
-  DISABLED = "disabled",
+  DISABLED = 'disabled',
   /**
    * The day is hidden.
    */
-  HIDDEN = "hidden",
+  HIDDEN = 'hidden',
   /**
    * The day is interactive.
    */
-  INTERACTIVE = "interactive",
+  INTERACTIVE = 'interactive',
   /**
    * The day is outside.
    */
-  OUTSIDE_END = "outside-end",
+  OUTSIDE_END = 'outside-end',
   /**
    * The day is outside.
    */
-  OUTSIDE_START = "outside-start",
+  OUTSIDE_START = 'outside-start',
   /**
    * The day is selected.
    */
-  SELECTED = "selected",
+  SELECTED = 'selected',
   /**
    * The day is today.
    */
-  TODAY = "today"
+  TODAY = 'today'
 }
 
 /**

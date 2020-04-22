@@ -1,5 +1,5 @@
-import * as dateFns from "date-fns";
-import { DayPickerProps } from "../DayPicker";
+import * as dateFns from 'date-fns';
+import { DayPickerProps } from '../DayPicker';
 
 /**
  * Props for the #{}

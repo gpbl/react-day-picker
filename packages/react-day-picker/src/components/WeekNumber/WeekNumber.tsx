@@ -1,5 +1,5 @@
-import * as React from "react";
-import { WeekNumberProps } from "./types";
+import * as React from 'react';
+import { WeekNumberProps } from './types';
 
 /**
  * Render the number of the week when [[showWeekNumber]] is enabled.

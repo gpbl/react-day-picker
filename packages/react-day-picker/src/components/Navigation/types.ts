@@ -1,4 +1,4 @@
-import { DayPickerProps } from "../DayPicker";
+import { DayPickerProps } from '../DayPicker';
 
 /**
  * Props for the [[Navigation]] component.

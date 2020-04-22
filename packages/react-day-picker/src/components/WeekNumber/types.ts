@@ -1,5 +1,5 @@
-import { DayPickerProps } from "../DayPicker";
-import * as DateFns from "date-fns";
+import { DayPickerProps } from '../DayPicker';
+import * as DateFns from 'date-fns';
 
 /**
  * Props for the [[WeekNumber]] component.
