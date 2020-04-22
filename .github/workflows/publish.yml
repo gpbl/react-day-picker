@@ -26,6 +26,8 @@ jobs:
 
       - name: Bump version
         run: npm version ${{steps.get_tag_name.outputs.VERSION}}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -50,7 +52,7 @@ jobs:
       # - name: Publish on npm
       #   run: yarn npm publish --tag next
       #   env:
-      #     NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       # - name: Archive dist
       #   uses: actions/upload-artifact@v1
       #   with:
