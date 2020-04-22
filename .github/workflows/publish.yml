@@ -2,8 +2,6 @@ name: Publish package
 
 on:
   push:
-    branches:
-      - master
     tags:
       - v8.*
 
@@ -16,6 +14,11 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+
+      - name: Configure git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
 
       - name: Get tag name
         id: get_tag_name
