@@ -1,4 +1,4 @@
-name: react-day-picker publish
+name: Publish package
 
 on:
   release:
@@ -13,16 +13,29 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - name: Bump version
+        run: npm version ${{github.event.release.tag_name}}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Install Dependencies
         run: yarn install
+
       - name: Lint Files
         run: yarn workspace react-day-picker coverage
       - name: Run Unit Tests
         run: yarn workspace react-day-picker test
       - name: Build
         run: yarn workspace react-day-picker build
-      - name: Bump version
-        run: npm version ${{github.event.release.tag_name}}
       # - name: Publish on npm
       #   run: yarn npm publish --tag next
       #   env:
