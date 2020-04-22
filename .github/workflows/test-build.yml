@@ -1,4 +1,4 @@
-name: DayPicker
+name: Test and build (v8)
 
 on:
   pull_request:
