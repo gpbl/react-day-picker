@@ -2,8 +2,8 @@ import React from 'react';
 import { MonthTable } from '../MonthTable';
 import { getTime } from 'date-fns';
 
-import { getMonths } from './helpers/getMonths';
-import { filterUndefinedProps } from './helpers/filterUndefinedProps';
+import { getMonths } from './getMonths';
+import { filterUndefinedProps } from './filterUndefinedProps';
 import { defaultProps } from '../DayPicker/defaults/defaultProps';
 import {
   SwizzlingComponents,
