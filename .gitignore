@@ -13,3 +13,4 @@ yarn-error.log*
 .yarn/cache
 .yarn/releases
 .yarn/plugins
+.yarn/install-state.gz
