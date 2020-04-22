@@ -1,13 +1,6 @@
 #!/bin/bash
 set -e
 
-indent() {
-  local indentSize=2
-  local indent=1
-  if [ -n "$1" ]; then indent=$1; fi
-  pr -to $(($indent * $indentSize))
-}
-
 cd packages/react-day-picker
 
 VERSION=`npm version prerelease --preid=alpha`;
@@ -16,16 +9,18 @@ echo 👋 This script will pre-release react-day-picker on npm.
 echo    Version: $VERSION
 echo
 echo 📡 Committing changes...
-git commit -a -m "Bump ${VERSION}" | indent
+
+printf \n
+git commit -a -m "Bump ${VERSION}" | sed 's/\(.*\)/  \1/'
 
 echo 🏷  Tagging version...
-git tag $VERSION -a -m "${VERSION}" | indent
+git tag $VERSION -a -m "${VERSION}" | sed 's/\(.*\)/  \1/'
 
 echo 📡 Pushing changes...
-git push | indent
+git push | sed 's/\(.*\)/  \1/'
 
 echo 📡 Pushing tags...
-git push --tags | indent
+git push --tags | sed 's/\(.*\)/  \1/'
 
 echo 
 echo ✅ Done!
