@@ -1,13 +1,12 @@
-import React from "react";
-import { DayPicker, useInput } from "react-day-picker";
+import React from 'react';
+import { DayPicker, useInput } from 'react-day-picker';
 
 export function InputBindingExample() {
   const { month, selected, dayPickerProps, inputProps } = useInput(
     new Date(),
-    "yyyy-MM-dd",
+    'yyyy-MM-dd',
     { required: true }
   );
-
   return (
     <form className="center">
       <label>
