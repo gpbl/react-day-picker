@@ -1,9 +1,8 @@
-import * as React from "react";
-import * as DateFns from "date-fns";
+import * as React from 'react';
+import * as DateFns from 'date-fns';
 
-import { MatchingModifiers, DayPickerProps } from "../components/DayPicker";
-
-import { defaultProps } from "../components/DayPicker/defaults/defaultProps";
+import { DayPickerProps } from '../components/DayPicker';
+import { defaultProps } from '../components/DayPicker/defaults/defaultProps';
 
 /**
  * @private
@@ -14,16 +13,16 @@ function isValidDate(day: Date): boolean {
 
 /** Props to attach to the `DayPicker` component */
 export type UseInputDayPickerProps = {
-  onMonthChange: DayPickerProps["onMonthChange"];
-  onDayClick: DayPickerProps["onDayClick"];
+  onMonthChange: DayPickerProps['onMonthChange'];
+  onDayClick: DayPickerProps['onDayClick'];
 };
 
 /** Props to attach to the `input` HTML element */
 export type UseInputInputProps = {
-  value: JSX.IntrinsicElements["input"]["value"];
-  onFocus: JSX.IntrinsicElements["input"]["onFocus"];
-  onBlur: JSX.IntrinsicElements["input"]["onBlur"];
-  onChange: JSX.IntrinsicElements["input"]["onChange"];
+  value: JSX.IntrinsicElements['input']['value'];
+  onFocus: JSX.IntrinsicElements['input']['onFocus'];
+  onBlur: JSX.IntrinsicElements['input']['onBlur'];
+  onChange: JSX.IntrinsicElements['input']['onChange'];
 };
 
 /**
@@ -59,10 +58,9 @@ export function useInput(
     required: false,
     ...options
   };
-
   const initialInputValue = initialSelectedDay
     ? DateFns.format(initialSelectedDay, formatStr, opts)
-    : "";
+    : '';
 
   const [selectedDay, setSelectedDay] = React.useState<Date | undefined>(
     initialSelectedDay
@@ -94,7 +92,7 @@ export function useInput(
 
     setSelectedDay(initialSelectedDay);
     setCurrentMonth(initialSelectedDay || new Date());
-    setInputValue(initialInputValue || "");
+    setInputValue(initialInputValue || '');
   }
 
   function onFocus(e: React.FocusEvent<HTMLInputElement>): void {
@@ -110,19 +108,19 @@ export function useInput(
     }
     setSelectedDay(initialSelectedDay);
     setCurrentMonth(initialSelectedDay || new Date());
-    setInputValue(initialInputValue || "");
+    setInputValue(initialInputValue || '');
 
     if (onFocus) onFocus(e);
   }
 
-  function onDayClick(day: Date, modifiers: MatchingModifiers): void {
-    if (modifiers.selected) {
-      if (!opts.required) {
-        setSelectedDay(undefined);
-        setInputValue("");
-      }
-      return;
-    }
+  function onDayClick(day: Date): void {
+    // if (day.modifiers.selected) {
+    //   if (!opts.required) {
+    //     setSelectedDay(undefined);
+    //     setInputValue('');
+    //   }
+    //   return;
+    // }
     setSelectedDay(day);
     const value = DateFns.format(day, formatStr, opts);
     setInputValue(value);

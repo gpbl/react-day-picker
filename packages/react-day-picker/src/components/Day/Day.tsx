@@ -1,7 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { getDayProps } from "./getDayProps";
-import { DayProps } from "./types";
+import { getDayProps } from './getDayProps';
+import { useModifiers } from './hooks/useModifiers';
+import { DayProps } from './types';
 
 /**
  * The `Day` component renders the content of the day cell. It renders a button
@@ -12,8 +13,14 @@ import { DayProps } from "./types";
  * @category Components
  */
 export function Day(props: DayProps): JSX.Element {
-  const { day, modifiers, dayPickerProps } = props;
+  const { day, dayPickerProps } = props;
   const { locale, formatDay } = dayPickerProps;
+
+  const modifiers = useModifiers(day, dayPickerProps);
+
+  if (modifiers.hidden) {
+    return <span aria-hidden />;
+  }
 
   const { containerProps, wrapperProps } = getDayProps(
     day,
@@ -21,15 +28,10 @@ export function Day(props: DayProps): JSX.Element {
     dayPickerProps
   );
 
-  if (modifiers && modifiers.hidden) {
-    return <span />;
-  }
-
-  const Component = modifiers.interactive ? "button" : "span";
-
+  const Component = modifiers.interactive ? 'button' : 'span';
   return (
     <Component {...containerProps}>
-      <span {...wrapperProps}>{formatDay!(day, { locale })}</span>
+      <span {...wrapperProps}>{formatDay?.(day, { locale })}</span>
     </Component>
   );
 }

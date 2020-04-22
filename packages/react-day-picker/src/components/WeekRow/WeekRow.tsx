@@ -1,6 +1,6 @@
-import * as React from "react";
-import { getUnixTime } from "date-fns";
-import { WeekRowProps } from "./types";
+import * as React from 'react';
+import { getUnixTime } from 'date-fns';
+import { WeekRowProps } from './types';
 
 /**
  * Render a week row.
@@ -20,23 +20,19 @@ export function WeekRow(props: WeekRowProps): JSX.Element {
           style={styles?.weekWeeknumber}
         >
           <WeekNumber
-            days={week.map(day => day.date)}
+            days={week}
             number={Number(weekNumber)}
             dayPickerProps={dayPickerProps}
           />
         </th>
       )}
-      {week.map(day => (
+      {week.map((day) => (
         <td
           className={classNames?.weekDay}
           style={styles?.weekDay}
-          key={getUnixTime(day.date)}
+          key={getUnixTime(day)}
         >
-          <Day
-            day={day.date}
-            modifiers={day.modifiers}
-            dayPickerProps={dayPickerProps}
-          />
+          <Day day={day} dayPickerProps={dayPickerProps} />
         </td>
       ))}
     </tr>

@@ -7,11 +7,11 @@ import { WeekNumberProps, WeekNumberFormatter } from '../../WeekNumber';
 import { WeekdayNameFormatter } from '../../WeekRow';
 
 import {
+  DayMatcher,
+  DayModifiers,
   MatchingModifiers,
   ModifiersClassNames,
-  ModifiersStyles,
-  DayMatcher,
-  DayModifiers
+  ModifiersStyles
 } from './Modifiers';
 
 import { DayPickerElements } from './DayPickerElements';

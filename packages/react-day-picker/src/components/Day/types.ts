@@ -1,5 +1,5 @@
-import * as DateFns from "date-fns";
-import { MatchingModifiers, DayPickerProps } from "../DayPicker";
+import * as DateFns from 'date-fns';
+import { DayPickerProps, MatchingModifiers } from '../DayPicker';
 
 /**
  * The props used by the [[Day]] component.
@@ -9,10 +9,6 @@ export interface DayProps {
    * The day to display in the calendar.
    */
   day: Date;
-  /**
-   * The modifiers that matches the given day.
-   */
-  modifiers: MatchingModifiers;
   /**
    * Reference to the props used by the DayPicker component.
    */
@@ -28,7 +24,8 @@ export type DayFormatter = (
 ) => string;
 
 export type DayContainerHtmlProps = {
-  "aria-disabled"?: boolean;
+  'aria-disabled'?: boolean;
+  'aria-hidden'?: boolean;
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
@@ -43,4 +40,5 @@ export type DayWrapperHtmlProps = {
 export type DayHtmlProps = {
   containerProps: DayContainerHtmlProps;
   wrapperProps: DayWrapperHtmlProps;
+  modifiers: MatchingModifiers;
 };
