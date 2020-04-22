@@ -38,15 +38,19 @@ jobs:
         run: yarn install
 
       - name: Lint Files
-        run: yarn workspace react-day-picker coverage
+        run: yarn coverage
+        working-directory: ./packages/react-day-picker
 
       - name: Run Unit Tests
-        run: yarn workspace react-day-picker test
+        run: yarn test
+        working-directory: ./packages/react-day-picker
 
       - name: Build
-        run: yarn workspace react-day-picker build
+        run: yarn build
+        working-directory: ./packages/react-day-picker
 
       - name: Publish on npm
         run: yarn npm publish --tag next
+        working-directory: ./packages/react-day-picker
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
