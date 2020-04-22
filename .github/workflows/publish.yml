@@ -21,12 +21,14 @@ jobs:
         run: yarn workspace react-day-picker test
       - name: Build
         run: yarn workspace react-day-picker build
-      - name: Publish on npm
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: Archive dist
-        uses: actions/upload-artifact@v1
-        with:
-          name: dist
-          path: dist
+      - name: Bump version
+        run: npm version ${{github.event.release.tag_name}}
+      # - name: Publish on npm
+      #   run: yarn npm publish --tag next
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      # - name: Archive dist
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: dist
+      #     path: dist
