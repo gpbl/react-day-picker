@@ -4,11 +4,11 @@ module.exports = [
     type: 'category',
     label: 'Guides',
     items: [
+      'guides/modifiers',
+      'guides/matching-days',
+      'guides/localization',
       'guides/styling',
       'guides/customization',
-      'guides/matching-days',
-      'guides/modifiers',
-      'guides/localization',
       'guides/input',
       'guides/extending'
     ]

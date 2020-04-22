@@ -6,7 +6,7 @@ import { CaptionHtmlProps } from './types';
  *
  * #### Usage
  *
- * Use this helper when swizzling the caption using  the
+ * Use this helper when swizzling the caption using the
  * [[DayPickerProps.components]] prop.
  *
  * ```jsx
@@ -18,11 +18,8 @@ import { CaptionHtmlProps } from './types';
  *     </caption>;
  *   )
  * }
- * <DayPicker components={{ MonthCaption }} />
+ * <DayPicker swizzle={{ MonthCaption }} />
  * ```
- *
- *
- *
  */
 export function getCaptionProps(
   dayPickerProps: DayPickerProps

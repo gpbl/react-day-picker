@@ -1,6 +1,6 @@
 ---
 id: modifiers
-title: Use of Day Modifiers
+title: Day Modifiers
 ---
 
 In DayPicker, a **modifier** is a property added to any day matching [one or more
@@ -46,7 +46,7 @@ Days matching a modifier can be styled via
 Using the [modifiers prop](../reference/props.mdx#modifiers) you can add new
 modifiers according to your application’s requirement. For example, a booking
 user interface may implement "booked", "available"  and "unavailable" modifiers
-to style days in different ways:
+to style those days in different way:
 
 ```jsx preview
 function App() {
@@ -84,8 +84,9 @@ function App() {
 
 ## Using CSS to style modifiers
 
-To change the CSS class name for the day matching a modifier, use the
-[modifiersClassNames](../reference/props#modifiersClassNames) prop:
+As alternative to the inline styles above, you can assign CSS classes to the
+days matching a modifier. Use the
+[modifiersClassNames prop](../reference/props#modifiersClassNames):
 
 ```jsx preview
 function App() {
@@ -129,7 +130,7 @@ function App() {
 
 ## Modifiers from event handlers
 
-For convenience, day modifiers are passed with the day to the [onDayClick event
+For convenience, day modifiers are passed to the [onDayClick event
 handler](../reference/props#ondayclick). 
 
 For example, to display an alert when the selected day is unavailable, check the
