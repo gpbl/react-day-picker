@@ -1,7 +1,7 @@
 {
   "name": "@react-day-picker/monorepo",
   "private": true,
-  "version": "8.0.0-alpha.9",
+  "version": "8.0.0-alpha.10",
   "description": "Flexible Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.org>",
   "homepage": "http://react-day-picker.js.org",
