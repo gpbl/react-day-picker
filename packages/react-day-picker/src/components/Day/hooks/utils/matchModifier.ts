@@ -1,11 +1,11 @@
-import { isSameDay, differenceInDays } from "date-fns";
+import { isSameDay, differenceInDays } from 'date-fns';
 import {
   DayMatcher,
   MatchDayBetween,
   MatchDayBefore,
   MatchDayInRange,
   MatchDayAfter
-} from "../../components/DayPicker/types";
+} from '../../../DayPicker/types';
 
 /**
  * Return true if `day1` is after `day2`.
@@ -26,7 +26,6 @@ function isDayBefore(day1: Date, day2: Date): boolean {
  */
 function matchDate(day: Date, matcher: DayMatcher): boolean {
   if (!(matcher instanceof Date)) return false;
-
   return isSameDay(day, matcher);
 }
 
@@ -34,7 +33,7 @@ function matchDate(day: Date, matcher: DayMatcher): boolean {
  * Returns true if the day is in the range specified by the [[DayMatcher]].
  */
 function matchDayInRange(day: Date, matcher: DayMatcher): boolean {
-  if (!("from" in matcher) || !("to" in matcher)) return false;
+  if (!('from' in matcher) || !('to' in matcher)) return false;
   const matchDayT: MatchDayInRange = {
     from: matcher.from,
     to: matcher.to
@@ -47,7 +46,7 @@ function matchDayInRange(day: Date, matcher: DayMatcher): boolean {
  * TODO: write docs
  */
 function matchDayBefore(day: Date, matcher: DayMatcher): boolean {
-  if ("after" in matcher || !("before" in matcher)) return false;
+  if ('after' in matcher || !('before' in matcher)) return false;
   const matchDayT: MatchDayBefore = { before: matcher.before };
   return isDayBefore(day, matchDayT.before);
 }
@@ -56,16 +55,16 @@ function matchDayBefore(day: Date, matcher: DayMatcher): boolean {
  * TODO: write docs
  */
 function matchDayAfter(day: Date, matcher: DayMatcher): boolean {
-  if ("before" in matcher || !("after" in matcher)) return false;
+  if ('before' in matcher || !('after' in matcher)) return false;
   const matchDayT: MatchDayAfter = { after: matcher.after };
-  return isDayBefore(day, matchDayT.after);
+  return isDayAfter(day, matchDayT.after);
 }
 
 /**
  * TODO: write docs
  */
 function matchDayBetween(day: Date, matcher: DayMatcher): boolean {
-  if (!("after" in matcher) || !("before" in matcher)) return false;
+  if (!('after' in matcher) || !('before' in matcher)) return false;
   const matchDayT: MatchDayBetween = {
     before: matcher.before,
     after: matcher.after
@@ -78,7 +77,7 @@ function matchDayBetween(day: Date, matcher: DayMatcher): boolean {
  * TODO: write docs
  */
 function matchDayOfWeek(day: Date, matcher: DayMatcher): boolean {
-  if (!("daysOfWeek" in matcher)) return false;
+  if (!('daysOfWeek' in matcher)) return false;
   return matcher.daysOfWeek.includes(day.getDay());
 }
 

@@ -1,8 +1,8 @@
-import * as React from "react";
-import { startOfMonth } from "date-fns";
+import * as React from 'react';
+import { startOfMonth } from 'date-fns';
 
-import { Months } from "../Months";
-import { defaultProps } from "./defaults/defaultProps";
+import { Months } from '../Months';
+import { defaultProps } from './defaults/defaultProps';
 
 /**
  * Render a date picker component.

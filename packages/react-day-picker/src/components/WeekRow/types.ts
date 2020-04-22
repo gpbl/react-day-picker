@@ -1,14 +1,13 @@
-import * as dateFns from "date-fns";
+import * as dateFns from 'date-fns';
 
-import { DateWithModifiers } from "../../classes/DateWithModifiers";
-import { DayPickerProps } from "../DayPicker";
+import { DayPickerProps } from '../DayPicker';
 
 /**
  * @private
  */
 export interface WeekRowProps {
   weekNumber: number;
-  week: DateWithModifiers[];
+  week: Date[];
   dayPickerProps: DayPickerProps;
 }
 

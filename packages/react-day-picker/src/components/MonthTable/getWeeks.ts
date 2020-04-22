@@ -7,17 +7,16 @@ import {
   getWeek,
   getWeeksInMonth,
   startOfMonth
-} from "date-fns";
-import { DateWithModifiers } from "../../classes/DateWithModifiers";
-import { DayPickerProps } from "../DayPicker";
-import { getOutsideStartDays } from "./getOutsideStartDays";
-import { getOutsideEndDays } from "./getOutsideEndDays";
+} from 'date-fns';
+import { DayPickerProps } from '../DayPicker';
+import { getOutsideStartDays } from './getOutsideStartDays';
+import { getOutsideEndDays } from './getOutsideEndDays';
 
 /**
  * The weeks belonging to a month. Each key of the returned object is the
  * week number of the year.
  */
-type MonthWeeks = { [weeknumber: string]: DateWithModifiers[] };
+type MonthWeeks = { [weeknumber: string]: Date[] };
 
 /**
  * Return the weeks belonging to the given month.
@@ -30,22 +29,21 @@ export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
   const diff = differenceInDays(monthEnd, monthStart);
 
   const weeks: MonthWeeks = {};
-  let lastWeekStr = "";
+  let lastWeekStr = '';
   for (let i = 0; i <= diff; i++) {
     const date = addDays(monthStart, i);
-    const dateWithModifiers = new DateWithModifiers(date, {}, props);
-    let week = getWeek(dateWithModifiers.date, { locale });
+    let week = getWeek(date, { locale });
     if (week === 1 && getMonth(date) === 11) {
       week = 53;
     }
     const weekStr: string = week.toString();
 
     if (!weeks[weekStr]) {
-      const startDays = getOutsideStartDays(dateWithModifiers, props);
+      const startDays = getOutsideStartDays(date, props);
       // Create a new week by adding outside start days
       weeks[weekStr] = startDays;
     }
-    weeks[weekStr].push(dateWithModifiers);
+    weeks[weekStr].push(date);
     lastWeekStr = weekStr;
   }
 
@@ -57,7 +55,7 @@ export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
   // add extra weeks to the month, up to 6 weeks
   if (fixedWeeks) {
     lastWeek = weeks[lastWeekStr];
-    const lastWeekDate = lastWeek[lastWeek.length - 1].date;
+    const lastWeekDate = lastWeek[lastWeek.length - 1];
     const weeksInMonth = getWeeksInMonth(month, { locale });
     if (weeksInMonth < 6) {
       const diffDays = differenceInDays(
@@ -66,11 +64,6 @@ export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
       );
       for (let i = 0; i < diffDays; i++) {
         const date = addDays(lastWeekDate, i + 1);
-        const dateWithModifiers = new DateWithModifiers(
-          date,
-          { outsideend: true },
-          props
-        );
         let week = getWeek(date, { locale });
         if (week === 1 && getMonth(month) === 11) {
           week = 53;
@@ -78,10 +71,9 @@ export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
         if (!weeks[week]) {
           weeks[week] = [];
         }
-        weeks[week.toString()].push(dateWithModifiers);
+        weeks[week.toString()].push(date);
       }
     }
   }
-
   return weeks;
 }

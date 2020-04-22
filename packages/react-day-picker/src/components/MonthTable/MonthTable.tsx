@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Head } from "../Head";
-import { WeekRow } from "../WeekRow";
-import { getWeeks } from "./getWeeks";
-import { MonthTableProps } from "./types";
+import * as React from 'react';
+import { Head } from '../Head';
+import { WeekRow } from '../WeekRow';
+import { getWeeks } from './getWeeks';
+import { MonthTableProps } from './types';
 
 /**
  * Render the month table.
@@ -30,7 +30,7 @@ export function MonthTable(props: MonthTableProps): JSX.Element {
           />
         )}
         <tbody className={classNames?.monthTbody} style={styles?.monthTbody}>
-          {Object.keys(weeks).map(weekNumber => (
+          {Object.keys(weeks).map((weekNumber) => (
             <WeekRow
               key={weekNumber}
               week={weeks[weekNumber]}
