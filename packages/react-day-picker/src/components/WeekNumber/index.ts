@@ -1,2 +1,2 @@
-export { WeekNumber } from "./WeekNumber";
-export * from "./types";
+export { WeekNumber } from './WeekNumber';
+export * from './types';

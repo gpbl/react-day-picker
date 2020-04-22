@@ -1,15 +1,15 @@
-import React from "react";
-import { MonthTable } from "../MonthTable";
-import { getTime } from "date-fns";
+import React from 'react';
+import { MonthTable } from '../MonthTable';
+import { getTime } from 'date-fns';
 
-import { getMonths } from "./helpers/getMonths";
-import { filterUndefinedProps } from "./helpers/filterUndefinedProps";
-import { defaultProps } from "../DayPicker/defaults/defaultProps";
+import { getMonths } from './helpers/getMonths';
+import { filterUndefinedProps } from './helpers/filterUndefinedProps';
+import { defaultProps } from '../DayPicker/defaults/defaultProps';
 import {
   SwizzlingComponents,
   DayPickerClassNames,
   DayPickerProps
-} from "../DayPicker";
+} from '../DayPicker';
 
 /**
  * Render the months and the navigation.
@@ -38,9 +38,9 @@ export function Months(initialProps = defaultProps): JSX.Element {
   const style = { ...props.styles?.root, ...props.style };
 
   // From `className prop`
-  const className = [props.classNames?.root || ""];
+  const className = [props.classNames?.root || ''];
   if (props.className) {
-    className.concat(props.className.split(" "));
+    className.concat(props.className.split(' '));
   }
 
   const months = getMonths(props);
@@ -48,7 +48,7 @@ export function Months(initialProps = defaultProps): JSX.Element {
   const Navigation = props.swizzle?.Navigation!;
 
   return (
-    <div className={className.join(" ")} style={style} dir={props.dir}>
+    <div className={className.join(' ')} style={style} dir={props.dir}>
       {props.showNavigation && props.onMonthChange && (
         <Navigation dayPickerProps={props} />
       )}

@@ -1,6 +1,6 @@
-import * as React from "react";
-import { getWeekdaysNames } from "./getWeekdaysNames";
-import { HeadProps } from "./types";
+import * as React from 'react';
+import { getWeekdaysNames } from './getWeekdaysNames';
+import { HeadProps } from './types';
 
 /**
  * Render the head of the month table, including the weekday names (Mon, Tue,

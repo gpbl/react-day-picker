@@ -1,14 +1,14 @@
 /* eslint-env browser */
 /* eslint-disable import/no-unresolved */
-import React, { useState, createRef } from "react";
-import PropTypes from "prop-types";
-import FrameComponent from "react-frame-component";
+import React, { useState, createRef } from 'react';
+import PropTypes from 'prop-types';
+import FrameComponent from 'react-frame-component';
 
-import htmlContent from "!!raw-loader!./content.html";
-import styleContent from "!!raw-loader!react-day-picker/dist/style.css";
-import useTheme from "./hooks/useTheme";
+import htmlContent from '!!raw-loader!./content.html';
+import styleContent from '!!raw-loader!react-day-picker/dist/style.css';
+import useTheme from './hooks/useTheme';
 
-const initialContent = htmlContent.replace("/* #style */", styleContent);
+const initialContent = htmlContent.replace('/* #style */', styleContent);
 
 export default function Frame({ children, height }) {
   const [frameHeight, setFrameHeight] = useState(height);
@@ -16,7 +16,7 @@ export default function Frame({ children, height }) {
 
   let resize;
   React.useEffect(() => {
-    resize = iframe => {
+    resize = (iframe) => {
       if (height) {
         setFrameHeight(height);
         return;
@@ -35,9 +35,9 @@ export default function Frame({ children, height }) {
     <FrameComponent
       initialContent={initialContent}
       style={{
-        width: "100%",
+        width: '100%',
         height: frameHeight || 280,
-        margin: "0 auto",
+        margin: '0 auto',
         border: 0
       }}
       ref={iframeRef}

@@ -1,5 +1,5 @@
-import { DayPickerProps } from "../DayPicker";
-import { NavigationHtmlProps } from "./types";
+import { DayPickerProps } from '../DayPicker';
+import { NavigationHtmlProps } from './types';
 
 /**
  * Return the props for the Navigation component and its children.

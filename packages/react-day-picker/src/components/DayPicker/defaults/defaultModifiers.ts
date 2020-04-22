@@ -1,4 +1,4 @@
-import { MatchingModifiers } from "../types";
+import { MatchingModifiers } from '../types';
 
 /**
  * Default modifiers.

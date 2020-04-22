@@ -23,7 +23,7 @@
   font-weight: bold;
   font-size: 1.2em;
 }
-.rdp[dir="rtl"] .rdp-caption {
+.rdp[dir='rtl'] .rdp-caption {
   text-align: right;
 }
 
@@ -76,7 +76,7 @@
   right: 1em;
   display: flex;
 }
-.rdp[dir="rtl"] .rdp-nav {
+.rdp[dir='rtl'] .rdp-nav {
   right: auto;
   left: 1em;
 }

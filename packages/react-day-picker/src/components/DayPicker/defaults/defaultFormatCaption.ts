@@ -1,4 +1,4 @@
-import * as dateFns from "date-fns";
+import * as dateFns from 'date-fns';
 
 /**
  * The default function used to format the caption. Use the [[formatCaption]]
@@ -12,5 +12,5 @@ export function defaultFormatCaption(
   month: Date,
   formatOptions?: { locale?: dateFns.Locale }
 ): string {
-  return dateFns.format(month, "LLLL Y", formatOptions);
+  return dateFns.format(month, 'LLLL Y', formatOptions);
 }

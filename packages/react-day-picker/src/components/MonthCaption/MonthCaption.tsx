@@ -1,6 +1,6 @@
-import * as React from "react";
-import { getCaptionProps } from "./getCaptionProps";
-import { MonthCaptionProps } from "./types";
+import * as React from 'react';
+import { getCaptionProps } from './getCaptionProps';
+import { MonthCaptionProps } from './types';
 
 /**
  * Renders the caption of the month.

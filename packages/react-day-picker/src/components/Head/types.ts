@@ -1,5 +1,5 @@
-import * as DateFns from "date-fns";
-import { DayPickerProps } from "../DayPicker";
+import * as DateFns from 'date-fns';
+import { DayPickerProps } from '../DayPicker';
 
 /**
  * The props used by the [[Head]] component.

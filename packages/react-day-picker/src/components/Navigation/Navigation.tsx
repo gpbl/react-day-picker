@@ -1,7 +1,7 @@
-import * as React from "react";
-import { getNavigation } from "./getNavigation";
-import { getNavigationProps } from "./getNavigationProps";
-import { NavigationProps } from "./types";
+import * as React from 'react';
+import { getNavigation } from './getNavigation';
+import { getNavigationProps } from './getNavigationProps';
+import { NavigationProps } from './types';
 
 /**
  * Renders the buttons to navigate between months.
@@ -46,7 +46,7 @@ export function Navigation(props: NavigationProps): JSX.Element | null {
   const nextButton = nextLabel && (
     <button
       {...nextProps}
-      key={"next"}
+      key={'next'}
       disabled={!nextMonth}
       type="button"
       onClick={handleNextClick}
@@ -55,7 +55,7 @@ export function Navigation(props: NavigationProps): JSX.Element | null {
     </button>
   );
   let buttons = [prevButton, nextButton];
-  if (dayPickerProps.dir === "rtl") {
+  if (dayPickerProps.dir === 'rtl') {
     buttons = buttons.reverse();
   }
   return <div {...containerProps}>{buttons}</div>;
