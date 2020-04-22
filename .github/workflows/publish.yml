@@ -50,7 +50,7 @@ jobs:
         working-directory: ./packages/react-day-picker
 
       - name: Publish on npm
-        run: yarn npm publish --tag next
+        run: npm publish --tag next
         working-directory: ./packages/react-day-picker
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
