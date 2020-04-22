@@ -16,11 +16,11 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Get version name
-        id: get_tag_name
+        id: get-tag-name
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - uses: actions/checkout@v1
         with:
-          ref: ${{ steps.get_tag_name.outputs.VERSION }}
+          ref: ${{ steps.get-tag-name.outputs.VERSION }}
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -30,7 +30,7 @@ jobs:
         id: yarn-cache-v1
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('./yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
