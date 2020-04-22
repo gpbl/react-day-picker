@@ -11,7 +11,7 @@ echo
 echo 📡 Committing changes...
 
 printf "\n"
-git commit -a -m "Bump ${VERSION}"
+git commit package.json -m "Bump ${VERSION}"
 printf "\n"
 
 echo 📝 Tagging version...
