@@ -12,17 +12,16 @@ export default class Example extends React.Component {
   }
 
   handleDayClick(day, { selected }) {
-    const { selectedDays } = this.state;
-    const _selectedDays = selectedDays.concat();
+    const selectedDays = this.state.selectedDays.concat();
     if (selected) {
-      const selectedIndex = _selectedDays.findIndex(selectedDay =>
+      const selectedIndex = selectedDays.findIndex(selectedDay =>
         DateUtils.isSameDay(selectedDay, day)
       );
-      _selectedDays.splice(selectedIndex, 1);
+      selectedDays.splice(selectedIndex, 1);
     } else {
-      _selectedDays.push(day);
+      selectedDays.push(day);
     }
-    this.setState({ selectedDays: _selectedDays });
+    this.setState({ selectedDays });
   }
 
   render() {
