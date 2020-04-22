@@ -15,49 +15,26 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
 
-      - name: Configure git
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
-      - name: Get tag name
+      - name: Get version name
         id: get_tag_name
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - uses: actions/checkout@v1
         with:
           ref: ${{ steps.get_tag_name.outputs.VERSION }}
 
-      - name: Bump version
-        run: npm version ${{steps.get_tag_name.outputs.VERSION}}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
       - name: Install Dependencies
         run: yarn install
 
       - name: Lint Files
         run: yarn workspace react-day-picker coverage
+
       - name: Run Unit Tests
         run: yarn workspace react-day-picker test
+
       - name: Build
         run: yarn workspace react-day-picker build
-      # - name: Publish on npm
-      #   run: yarn npm publish --tag next
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      # - name: Archive dist
-      #   uses: actions/upload-artifact@v1
-      #   with:
-      #     name: dist
-      #     path: dist
+
+      - name: Publish on npm
+        run: yarn npm publish --tag next
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
