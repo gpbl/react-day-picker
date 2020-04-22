@@ -3,10 +3,103 @@ id: styling
 title: Styling DayPicker
 ---
 
-You change the appearance of DayPicker using **CSS**, **inline styles**, or both.
-To each HTML element created by DayPicker are assigned `.rdp` CSS classes, as listed in the table below.
 
-##### Elements Table
+DayPicker comes with a [small CSS
+file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css)
+featuring a basic style. If your build tools allow to import CSS files, include
+it when you are using DayPicker. Otherwise just copy/paste it in your CSS file.
+
+```js
+import "react-day-picker/dist/style.css";
+import { DayPicker } from 'react-day-picker';
+```
+
+There are few options to style DayPicker:
+
+- overriding the default CSS
+- using custom class names like in [CSS Modules](https://github.com/css-modules/css-modules)
+- setting the inline style for each HTML element
+
+## Overriding the Default CSS
+
+To each HTML element created by DayPicker are assigned `.rdp-*` CSS class names,
+as listed in the [table below](#html-elements).
+
+They can overridden in the application’s CSS file, for example
+
+```css
+/* container */
+.rdp {
+  background: salmon:
+}
+/* head element */
+.rdp-head {
+  font-weight: bold;
+  color: blue;
+}
+/* etc. */
+```
+
+## Using Inline Styles
+
+Use the [styles](./reference/props#styles) prop to change the inline style of
+each element (object keys are listed in the [table below](#html-elements)).
+
+```jsx preview
+function App() {
+  return (
+    <DayPicker
+      styles={{
+        caption: { color: "salmon " },
+        head: { color: "violet" }
+      }}
+    />
+  );
+}
+```
+
+
+## Using Custom Class Names
+
+Replacing the default class names is useful with [CSS
+Modules](https://github.com/css-modules/css-modules) or other JS-in-CSS bundlers. To
+use custom class names, pass them the [classNames prop](./props#classnames):
+
+```jsx preview
+function App() {
+  const css = `
+    .salmon-head { 
+      color: salmon;
+    }
+    .purple-caption {
+      font-weight: bold;
+      color: purple;
+      padding: 3px 0 6px 0;
+    }
+  `;
+  return (
+    <>
+      <style>{css}</style>
+      <DayPicker 
+        classNames={{ 
+          head: 'salmon-head', 
+          caption: 'purple-caption' 
+        }}
+      />
+    </>
+  );
+}
+```
+
+
+## HTML Elements
+
+The table lists all the HTML elements in use by DayPicker. Use the element’s
+name in combination with `styles` or `classNames` props.
+
+:::caution
+The table is not updated as it should be created by typedocs instead.
+:::
 
 | Element name       | Default CSS Class      | Element description                          |
 | ------------------ | ---------------------- | -------------------------------------------- |
@@ -33,72 +126,3 @@ To each HTML element created by DayPicker are assigned `.rdp` CSS classes, as li
 | **weekWeeknumber** | `.rdp-week_weeknumber` | The week’s number cell                       |
 | **weekDay**        | `.rdp-week_day`        | The week’s day cell                          |
 | **weekNumber**     | `.rdp-weeknumber`      | The week’s number                            |
-
-## Styling via CSS
-
-Style the DayPicker CSS classes in your application’s CSS file:
-
-```css
-/* container */
-.rdp {
-  background: salmon:
-}
-/* head element */
-.rdp-head {
-  font-weight: bold;
-  color: blue;
-}
-/* etc. */
-```
-
-## Using the Included CSS
-
-The package includes a CSS file for a minimal, basic style, that can be used as starting point:
-
-```jsx
-import "react-day-picker/dist/style.css";
-```
-
-## Using Inline Styles
-
-Use the [`styles`](./props#styles) prop to change the inline style of each element:
-
-```jsx preview
-function App() {
-  return (
-    <DayPicker
-      showWeekNumber
-      styles={{
-        head: { color: "salmon " },
-        weekNumber: { color: "violet" }
-      }}
-    />
-  );
-}
-```
-
-## Using Custom Class Names
-
-Set custom class names when:
-
-- you use [CSS Modules](https://github.com/css-modules/css-modules) or other CSS bundler defining different class names;
-- you don’t want to use the default class names.
-
-To define custom class names, pass to the [`classNames`](./props#classnames) props the class name for each element.
-
-```jsx preview
-function App() {
-  return (
-    <>
-      <style>{`
-        .my-custom-head-class { color: salmon }
-      `}</style>
-      <DayPicker
-        classNames={{
-          head: "my-custom-head-class"
-        }}
-      />
-    </>
-  );
-}
-```

@@ -3,164 +3,136 @@ id: matching-days
 title: Matching Days
 ---
 
-You can match days via `selected`, `disabled`, `hidden` and `modifiers` by passing different value types.
+:::note
+In DayPicker the [selected](../reference/props#selected),
+[disabled](../reference/props#disabled), [hidden](../reference/props#hidden) and
+[modifiers](../reference/props#modifiers) props accept different types. This
+page how they work when applied to the `selected` prop.
+:::
 
-## Matching a Single Day
+## Matching a single day
 
-Pass a `Date` object to match a single day.
+Pass a date to match a single day.
 
 ```jsx preview
-import React, { useState } from 'react';
-import { DayPicker } from 'react-day-picker';
-
 function App() {
-  const [month, setMonth] = useState(new Date(2019, 8));
   return (
     <DayPicker
-      month={month}
-      onMonthChange={setMonth}
-      selected={new Date(2019, 8, 9)}
+      initialMonth={new Date(2020, 8)}
+      selected={new Date(2020, 8, 9)}
     />
   );
 }
 ```
 
-## Matching Multiple Days
+## Matching multiple days
 
-Pass an array of `Date` objects to match multiple days.
+Pass an array of dates to match multiple days.
 
 ```jsx preview
-import React, { setState } from 'react';
-import { DayPicker } from 'react-day-picker';
-
 function App() {
-  const [month, setMonth] = useState(new Date(2019, 8));
   return (
     <DayPicker
-      month={month}
-      onMonthChange={setMonth}
+      initialMonth={new Date(2020, 8)}
       selected={[
-        new Date(2019, 8, 9),
-        new Date(2019, 8, 10),
-        new Date(2019, 8, 11),
+        new Date(2020, 8, 9),
+        new Date(2020, 8, 10),
+        new Date(2020, 8, 11),
       ]}
     />
   );
 }
 ```
 
-## Matching Days between a Range
+## Matching days between a range
 
 Pass a `{ before, after }` object.
 
 ```jsx preview
-import React, { setState } from 'react';
-import { DayPicker } from 'react-day-picker';
-
 function App() {
-  const [month, setMonth] = useState(new Date(2019, 8));
   return (
     <DayPicker
-      month={month}
-      onMonthChange={setMonth}
+      initialMonth={new Date(2020, 8)}
       selected={{
-        after: new Date(2019, 8, 9),
-        before: new Date(2019, 8, 19),
+        after: new Date(2020, 8, 9),
+        before: new Date(2020, 8, 19),
       }}
     />
   );
 }
 ```
 
-It is possible to omit the `before` or `after` keys.
+It is possible to omit the `before` or `after` keys:
 
 ```jsx preview
-import React, { setState } from 'react';
-import { DayPicker } from 'react-day-picker';
-
 function App() {
-  const [month, setMonth] = useState(new Date(2019, 8));
   return (
     <DayPicker
-      month={month}
-      onMonthChange={setMonth}
+      initialMonth={new Date(2020, 8)}
       selected={{
-        after: new Date(2019, 8, 9),
+        after: new Date(2020, 8, 9),
       }}
     />
   );
 }
 ```
 
-## Matching Days of the Week
+## Matching days of the week
 
 Pass an array of days of the week (`0` being Sunday) to a `daysOfWeek` object.
 
-For example, to disable Sundays and Tuesdays:
+For example, to select Sundays and Tuesdays:
 
 ```jsx preview
-import React, { setState } from 'react';
-import { DayPicker } from 'react-day-picker';
-
 function App() {
-  const [month, setMonth] = useState(new Date(2019, 8));
   return (
     <DayPicker
-      month={month}
-      onMonthChange={setMonth}
+      initialMonth={new Date(2020, 8)}
       selected={{ daysOfWeek: [0, 2] }}
     />
   );
 }
 ```
 
-## Matching Anything
+## Matching everything
 
-Pass a function to have complete control. The function receive the day as argument:
+Pass a function returning a boolean value:
 
 ```jsx preview
-import React, { setState } from 'react';
-import { DayPicker } from 'react-day-picker';
-
 function App() {
-  const [month, setMonth] = useState(new Date(2019, 8));
   const isBirthday = day => day.getDate() === 19 && day.getMonth() === 8;
-
   return (
-    <DayPicker month={month} onMonthChange={setMonth} selected={isBirthday} />
+    <DayPicker 
+      initialMonth={new Date(2020, 8)} 
+      selected={isBirthday}
+    />
   );
 }
 ```
 
-## Combining Types
+## Combining types
 
 Pass an array to mix multiple types:
 
 ```jsx preview
-import React, { setState } from 'react';
-import { DayPicker } from 'react-day-picker';
-
 function App() {
-  const [month, setMonth] = useState(new Date(2019, 8));
   const isBirthday = day => day.getDate() === 19 && day.getMonth() === 8;
-
   return (
     <DayPicker
-      month={month}
+      initialMonth={new Date(2020, 8)}
       numberOfMonths={2}
       selected={[
         isBirthday,
         {
-          after: new Date(2019, 8, 1),
-          before: new Date(2019, 8, 6),
+          after: new Date(2020, 8, 1),
+          before: new Date(2020, 8, 6),
         },
         {
-          after: new Date(2019, 9, 14),
-          before: new Date(2019, 9, 19),
+          after: new Date(2020, 9, 14),
+          before: new Date(2020, 9, 19),
         },
-        new Date(2019, 8, 21),
+        new Date(2020, 8, 21),
       ]}
-      onMonthChange={setMonth}
     />
   );
 }

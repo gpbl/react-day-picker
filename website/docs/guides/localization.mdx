@@ -3,11 +3,14 @@ id: localization
 title: Localization
 ---
 
-react-day-picker can be easily localized using the localization packages found in [date-fns](https://date-fns.org/docs/I18n).
+DayPicker can be easily localized using the localization packages found in
+[date-fns](https://date-fns.org/docs/I18n).
 
 ## Changing Locale
 
-To change the locale of DayPicker, pass to the [`locale`](./props#locale) prop a `Locale` object. Refer to the [Locale documentation](http://date-fns.org/docs/Locale) on date-fns website for more details.
+To change the locale, pass to the [locale prop](../reference/props#locale) a `Locale`
+object. Refer to the [Locale documentation](http://date-fns.org/docs/Locale) on
+date-fns website for more details.
 
 For example, to localize the calendar in Spanish:
 
@@ -22,9 +25,9 @@ function App() {
 }
 ```
 
-## Right-to-left Text Direction
+## Right-to-left direction
 
-To add right-to-left text direction, set the [`dir`](./props#dir) prop to `rtl`.
+To add right-to-left text direction, set the [dir](../reference/props#dir) prop to `rtl`.
 
 ```jsx preview
 import { DayPicker } from 'react-day-picker';
@@ -37,13 +40,15 @@ function App() {
 
 ## Numbering System
 
-Use [formatter props](./props#formatting) to change the numbering system used in the calendar.
+Use [formatter props](../reference/props#formatting) to change the numbering
+system used in the calendar.
 
-For example, to switch to hindu-arabic using [`toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+For example, to switch to hindu-arabic using
+[toLocaleString](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
 
-- set [`formatDay`](./props/formatDay) to format the day number;
-- set [`formatCaption`](./props/formatCaption) to format the year in caption;
-- set [`formatWeekNumber`](./props/formatWeekNumber) to format the week numbers;
+- set [formatDay](../reference/props.mdx#formatday) to format the day number;
+- set [formatCaption](../reference/props.mdx#formatcaption) to format the year in caption;
+- set [formatWeekNumber](../reference/props.mdx#formatweeknumber) to format the week numbers.
 
 ```jsx preview
 import React from 'react';
