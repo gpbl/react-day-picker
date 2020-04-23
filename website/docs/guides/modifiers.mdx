@@ -3,17 +3,15 @@ id: modifiers
 title: Day Modifiers
 ---
 
-In DayPicker, a **modifier** is a property added to any day matching [one or more
+In DayPicker, a **modifier** is a property of a day matching [one or more
 conditions](./matching-days.mdx). Modifiers are used to customize the appearance
-and the behavior of day elements, and are a key feature of the component.
+and the behavior of day elements.
 
-DayPicker adds default modifiers for the days matched via the `selected`,
-`hidden`, `disabled` props, and other [listed below](#default-modifiers). 
-
-When a day is clicked, its modifiers are accessible from the event handler:
+For example, when a day is clicked, its modifiers are accessible from the event
+handler:
 
 ```jsx
-<DayPicker 
+<DayPicker
   onDayClick={ (day, modifiers) => {
     console.log('Is %s today?', day, modifiers.today);
     console.log('Is %s selected?', day, modifiers.selected);
@@ -29,10 +27,10 @@ Days matching a modifier can be styled via
 [modifiersClassNames](../reference/props.mdx#modifiersclassnames):
 
 ```jsx
-<DayPicker 
+<DayPicker
   modifiersStyles={{
-    disabled: { opacity: 1 },
-    selected: { background: salmon },
+    disabled: { opacity: 0.5 },
+    selected: { background: "salmon" },
   }}
   modifiersClassNames={{
     today: 'some-today-css-class',
@@ -41,12 +39,19 @@ Days matching a modifier can be styled via
 />
 ```
 
-### Adding custom modifiers
+DayPicker uses modifiers for the days matched with
+[selected](../reference/props.mdx#selected),
+[disabled](../reference/props.mdx#disabled) and
+[hidden](../reference/props.mdx#disabled) props. Other accessory modifiers
+available for any day are [listed below](#default-modifiers).
 
-Using the [modifiers prop](../reference/props.mdx#modifiers) you can add new
-modifiers according to your application’s requirement. For example, a booking
-user interface may implement "booked", "available"  and "unavailable" modifiers
-to style those days in different way:
+### Adding modifiers
+
+Use the [modifiers prop](../reference/props.mdx#modifiers) to add
+modifiers according to your application’s requirement.
+
+For example, a booking user interface may implement "booked", "available"  and
+"unavailable" modifiers to style the days in different ways:
 
 ```jsx preview
 function App() {

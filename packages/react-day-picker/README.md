@@ -6,7 +6,8 @@ Thanks to an extensive set of props, DayPicker helps developers to implement dat
 
 ## This is a prerelase 
 
-Visit https://react-day-picker-next.netlify.app for the latest documentation.
+* See work-in-progres website at: https://react-day-picker-next.netlify.app
+* v7 documentation: https://react-day-picker.js.org
 
 ## Quick start
 
