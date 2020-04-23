@@ -5724,6 +5724,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-config-prettier@npm:^6.11.0":
+  version: 6.11.0
+  resolution: "eslint-config-prettier@npm:6.11.0"
+  dependencies:
+    get-stdin: ^6.0.0
+  peerDependencies:
+    eslint: ">=3.14.1"
+  bin:
+    eslint-config-prettier-check: bin/cli.js
+  checksum: 2/59efd906c78d47753a673c205ef515fdab19cd6ea0fd992c9cb2366804861746238244526ab565ccc7448569f5472ce7646a77d0c9998787192e4ebae95df71d
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-jest@npm:^23.8.2":
   version: 23.8.2
   resolution: "eslint-plugin-jest@npm:23.8.2"
@@ -5732,6 +5745,18 @@ __metadata:
   peerDependencies:
     eslint: ">=5"
   checksum: 2/eec0f788a98f3c6b962e47533a421a15e2cc6e74fd971ae890ac322446a7b964775b8eb781898ac45d0508f25922765e0dc118d4c4385e6ca3281db104d036ee
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-prettier@npm:^3.1.3":
+  version: 3.1.3
+  resolution: "eslint-plugin-prettier@npm:3.1.3"
+  dependencies:
+    prettier-linter-helpers: ^1.0.0
+  peerDependencies:
+    eslint: ">= 5.0.0"
+    prettier: ">= 1.13.0"
+  checksum: 2/fcaf7c783309145f46611b43156fc51c31b02055d0eb09d7ab29d9ad085d34ad492bf2e611804396fcebf0122b259019b6ec24c3d60a4c7a316db9e45f952c32
   languageName: node
   linkType: hard
 
@@ -6139,6 +6164,13 @@ __metadata:
   version: 3.1.1
   resolution: "fast-deep-equal@npm:3.1.1"
   checksum: 2/38fe57c5ea7dbb42cf84f5d94166358b930beb49345619205ff16c4a0c896f8679a444f0fbd0f352a633f2ea800673173e2a150d81d3d85933d714d24498c688
+  languageName: node
+  linkType: hard
+
+"fast-diff@npm:^1.1.2":
+  version: 1.2.0
+  resolution: "fast-diff@npm:1.2.0"
+  checksum: 2/9c5407d9c4869407854fe8838b8d9d26065ca747c9b80697957ae37482e982e880de823efa2c97ea1cba05dc06fce853a005e7557d10550c64c052cf7021ba9e
   languageName: node
   linkType: hard
 
@@ -6619,6 +6651,13 @@ __metadata:
   version: 3.0.2
   resolution: "get-own-enumerable-property-symbols@npm:3.0.2"
   checksum: 2/23f13946c768d9803a8e072ba13a4250528ced6bd5af4b4b31306eb197281f01a6426936b24b16725ff0e55f9097475296e4bcdb6d33455989683c3d385079ce
+  languageName: node
+  linkType: hard
+
+"get-stdin@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "get-stdin@npm:6.0.0"
+  checksum: 2/b51d664838aef7f8353dc57371ce59cea54d8d584fec015a9d89d24561e95b97806d5b5ba120bc81574c9ed63cb3e210176ffa0ff9263c7e7ba4d56d0fe54913
   languageName: node
   linkType: hard
 
@@ -11941,6 +11980,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier-linter-helpers@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "prettier-linter-helpers@npm:1.0.0"
+  dependencies:
+    fast-diff: ^1.1.2
+  checksum: 2/6d698b9c8dc28e52c8d69df520cde3410cc06cc40471acf81b4b7c18ca08e73d0efb0f878654985bb02fce4f8d3d64cdf64fe9f3ffad3e1dc7e17b837d4ddcb2
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^2.0.4":
   version: 2.0.5
   resolution: "prettier@npm:2.0.5"
@@ -12271,7 +12319,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-day-picker@workspace:packages/react-day-picker":
+"react-day-picker@>=8.0.0-alpha.42, react-day-picker@workspace:packages/react-day-picker":
   version: 0.0.0-use.local
   resolution: "react-day-picker@workspace:packages/react-day-picker"
   dependencies:
@@ -12288,7 +12336,9 @@ __metadata:
     date-fns: ^2.12.0
     debug: ^4.1.1
     eslint: ^6.8.0
+    eslint-config-prettier: ^6.11.0
     eslint-plugin-jest: ^23.8.2
+    eslint-plugin-prettier: ^3.1.3
     jest: ^25.4.0
     prettier: ^2.0.4
     react: ^16.13.1
@@ -15899,7 +15949,7 @@ __metadata:
     prop-types: ^15.7.2
     raw-loader: ^4.0.1
     react: ^16.13.1
-    react-day-picker: "workspace:packages/react-day-picker"
+    react-day-picker: ">=8.0.0-alpha.42"
     react-docgen: ^5.3.0
     react-dom: ^16.13.1
     react-frame-component: ^4.1.1
