@@ -12,8 +12,9 @@ The upcoming majore release is a Typescript rewrite. Checkout the [v8 project](h
 
 ### Developing environment
 
-* The repository is using workspaces with `yarn 2`
+* The repository is using workspaces with [yarn v2](http://yarnpkg.com)
   * There are two workspaces, one for the website and one for the package
+* Website is built with [docusaurus](https://v2.docusaurus.io)
 * The Node.js version we use is `^12.0`
 
 ### Start contributing now
@@ -28,15 +29,13 @@ yarn install
 
 #### 2. Start the development environment
 
-```bash
-# watch mode for compiling typescript
-yarn workspace react-day-picker develop 
+Build the package and website in watch mode:
 
-# start the website with hot-reload
-yarn workspace website start
+```bash
+yarn develop
 ```
 
-#### 3. Apply changes and open a PR
+#### 3. Apply changes and open a PR :)
 
 * add tests and make sure they pass: `yarn test`
 * make sure your files are linted: `yarn lint`
