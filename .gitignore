@@ -11,5 +11,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .yarn/cache
-.yarn/releases
-.yarn/install-state.gz

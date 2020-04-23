@@ -1,11 +1,11 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2018, // Allows for the parsing of modern ECMAScript features
-    "sourceType": "module" // Allows for the use of imports
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
   "plugins": [
-    "@typescript-eslint",
+    "@typescript-eslint"
   ],
   "extends": [
     "eslint:recommended",
