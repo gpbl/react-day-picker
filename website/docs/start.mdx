@@ -8,6 +8,14 @@ Thanks to an extensive [set of props](./reference/props.mdx), DayPicker helps
 developers to implement date pickers – without fighting with JavaScript dates
 and complex layouts.
 
+:::important
+
+This documentation refers to the upcoming version which is still in development.
+See [react-day-picker.js.org](http://react-day-picker.js.org) for the
+documentation of the current version.
+
+:::
+
 ## Installing DayPicker
 
 1. Add `react-day-picker` to the project’s dependencies:
@@ -32,13 +40,8 @@ import { DayPicker } from "react-day-picker";
 
 function App() {
   const [selectedDay, setSelectedDay] = useState();
-  const handleDayClick = day => setSelectedDay(day);
-
   return (
-    <DayPicker
-      selected={selectedDay}
-      onDayClick={handleDayClick}
-    />
+    <DayPicker selected={selectedDay} onDayClick={setSelectedDay} />
   );
 }
 ```
