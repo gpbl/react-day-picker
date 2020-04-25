@@ -1,0 +1,81 @@
+---
+id: examples
+title: Examples
+---
+
+Familiarize with the component by implementing some basic features.
+
+### Changing the month
+
+To change the initial displayed month, use the
+[initialMonth prop](./reference/props.mdx#initialMonth):
+
+```jsx preview
+function App() {
+  return (
+    <DayPicker
+      initialMonth={new Date(2020, 8)}
+    />
+  );
+}
+```
+
+### Displaying days as selected
+
+To display days as selected, pass one or more dates to the
+[selected](./reference/props.mdx#selected) prop. You can also use ranges or
+other values to [match days](./matching-days.mdx).
+
+```jsx preview
+function App() {
+  return (
+    <DayPicker
+      initialMonth={new Date(2020, 8)}
+      selected={[
+        new Date(2020, 8, 1),
+        new Date(2020, 8, 19),
+        new Date(2020, 8, 21),
+        { after: new Date(2020, 8, 30), before: new Date(2020, 10, 1) }
+      ]}
+    />
+  );
+}
+```
+
+### Selecting days
+
+To make days selectable, add a state to the component and use the
+[onDayClick](./reference/props.mdx#onDayClick) event handler.
+
+```jsx preview
+function App() {
+  const [selectedDay, setSelectedDay] = useState();
+  const handleDayClick = day => setSelectedDay(day);
+
+  return (
+    <DayPicker
+      selected={selectedDay}
+      onDayClick={handleDayClick}
+    />
+  );
+}
+```
+
+### Disabling days
+
+To disable days, pass them to the [disabled](./reference/props.mdx#disabled)
+prop. Disabled days cannot be clicked. You can also use ranges or other values
+to [match days](./matching-days.mdx).
+
+```jsx preview
+function App() {
+  const today = new Date();
+  const sundays = { daysOfWeek: [0] };
+  return (
+    <DayPicker
+      disabled={[today, sundays]}
+      onDayClick={day => console.log(day)}
+    />
+  );
+}
+```

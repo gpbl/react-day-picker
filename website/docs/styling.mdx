@@ -1,26 +1,26 @@
 ---
 id: styling
-title: Styling DayPicker
+title: Styling
 ---
-
 
 DayPicker comes with a [small CSS
 file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css)
 featuring a basic style. If your build tools allow to import CSS files, include
-it when you are using DayPicker. Otherwise just copy/paste it in your CSS file.
+it when you are using DayPicker. Otherwise just copy and paste its content into
+your application’s CSS file.
 
 ```js
 import "react-day-picker/dist/style.css";
 import { DayPicker } from 'react-day-picker';
 ```
 
-There are few options to style DayPicker:
+You can style DayPicker in the following ways:
 
 - overriding the default CSS
-- using custom class names like in [CSS Modules](https://github.com/css-modules/css-modules)
+- using custom class names (e.g. for [CSS Modules](https://github.com/css-modules/css-modules))
 - setting the inline style for each HTML element
 
-## Overriding the Default CSS
+## Overriding the default CSS
 
 To each HTML element created by DayPicker are assigned `.rdp-*` CSS class names,
 as listed in the [table below](#html-elements).
@@ -42,7 +42,7 @@ They can overridden in the application’s CSS file, for example
 
 ## Using Inline Styles
 
-Use the [styles](./reference/props#styles) prop to change the inline style of
+Use the [styles](./reference/props.mdx#styles) prop to change the inline style of
 each element (object keys are listed in the [table below](#html-elements)).
 
 ```jsx preview
@@ -63,12 +63,12 @@ function App() {
 
 Replacing the default class names is useful with [CSS
 Modules](https://github.com/css-modules/css-modules) or other JS-in-CSS bundlers. To
-use custom class names, pass them the [classNames prop](./props#classnames):
+use custom class names, pass them the [classNames prop](./props.mdx#classnames):
 
 ```jsx preview
 function App() {
   const css = `
-    .salmon-head { 
+    .salmon-head {
       color: salmon;
     }
     .purple-caption {
@@ -80,10 +80,10 @@ function App() {
   return (
     <>
       <style>{css}</style>
-      <DayPicker 
-        classNames={{ 
-          head: 'salmon-head', 
-          caption: 'purple-caption' 
+      <DayPicker
+        classNames={{
+          head: 'salmon-head',
+          caption: 'purple-caption'
         }}
       />
     </>

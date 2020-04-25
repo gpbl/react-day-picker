@@ -186,7 +186,7 @@ export interface DayPickerProps {
   nextLabel?: string;
 
   /**
-   * Style the matching days as selected.
+   * Apply the `selected` modifiers to the matching days.
    */
   selected?: DayMatcher;
   /**

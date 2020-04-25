@@ -3,8 +3,8 @@ id: customization
 title: Customization
 ---
 
-import CustomizationProps from '../../src/components/CustomizationProps';
-import Frame from '../../src/components/Frame';
+import CustomizationProps from '../src/components/CustomizationProps';
+import Frame from '../src/components/Frame';
 
 DayPicker offers various props to customize its appearance, the navigation and the
 rendered months.
@@ -16,8 +16,8 @@ rendered months.
 ## Limiting the month navigation
 
 To change the months within `DayPicker` can operate, use the
-[fromMonth](../reference/props.mdx#frommonth) or
-[toMonth](../reference/props.mdx#tomonth) props. For example, the following day
+[fromMonth](./reference/props.mdx#frommonth) or
+[toMonth](./reference/props.mdx#tomonth) props. For example, the following day
 picker is restricted to the year 2019.
 
 ```jsx preview
@@ -34,10 +34,10 @@ function App() {
 
 ## Formatting props
 
-Use [formatting props](../reference/props.mdx#formatting) to format the content of the day
+Use [formatting props](./reference/props.mdx#formatting) to format the content of the day
 cell, the month’s caption, the weekday name or the week’s number.
 
-For more advanced customization of those elements, see [extending DayPicker](./extending.mdx).
+For more advanced customization of those elements, see [custom components](./custom-components.mdx).
 
 ```jsx preview
 import React, { useState } from 'react';
@@ -74,9 +74,9 @@ function App() {
 
 To render multiple months,
 
-- use [numberOfMonths](./props#numberofmonths) to set the amount of months to render;
-- use [pagedNavigation](./props#pagednavigation) to navigate the number of months per time;
-- use [reverseMonths](./props#reversemonths) to display the last month first.
+- use [numberOfMonths](./props.mdx#numberofmonths) to set the amount of months to render;
+- use [pagedNavigation](./props.mdx#pagednavigation) to navigate the number of months per time;
+- use [reverseMonths](./props.mdx#reversemonths) to display the last month first.
 
 ```jsx preview
 import { DayPicker } from 'react-day-picker';
