@@ -4,17 +4,16 @@ title: Welcome
 ---
 
 DayPicker is a React component to display a monthly calendar for picking dates.
-
-Thanks to an extensive [set of props](./reference.props), DayPicker helps
+Thanks to an extensive [set of props](./reference/props.mdx), DayPicker helps
 developers to implement date pickers – without fighting with JavaScript dates
-and complex layouts. 
+and complex layouts.
 
 ## Installing DayPicker
 
 1. Add `react-day-picker` to the project’s dependencies:
   ```bash
-  yarn add react-day-picker     # when using yarn
-  npm install react-day-picker  # when using npm
+  yarn add react-day-picker@next     # when using yarn
+  npm install react-day-picker@next  # when using npm
   ```
 2. import DayPicker and its CSS file in your script:
   ```jsx
@@ -22,86 +21,23 @@ and complex layouts.
   import { DayPicker } from "react-day-picker";
   ```
 
-## Quick Start
+## Example
 
-Familiarize with the component by implementing some basic features.
-
-Without any props, DayPicker renders a monthly calendar:
 
 ```jsx preview
-function App() {
-  return (
-    <DayPicker />
-  );
-}
-```
+import { React, useState } from 'react';
 
-### Changing the month
+import "react-day-picker/dist/style.css";
+import { DayPicker } from "react-day-picker";
 
-To change the initial displayed month, use the [initialMonth](./reference/props#initialMonth)
-prop:
-
-```jsx preview
-function App() {
-  return (
-    <DayPicker 
-      initialMonth={new Date(2020, 8)} 
-    />
-  );
-}
-```
-
-### Displaying days as selected
-
-To display days as selected, pass one or more dates to the
-[selected](./reference/props#selected) prop:
-
-```jsx preview
-function App() {
-  return (
-    <DayPicker 
-      initialMonth={new Date(2020, 8)} 
-      selected={[
-        new Date(2020, 8, 1), 
-        new Date(2020, 8, 19),
-        new Date(2020, 8, 21)
-      ]}
-    />
-  );
-}
-```
-
-### Selecting days
-
-To make days selectable, add a state to the component and use the
-[onDayClick](./reference/props#onDayClick) event handler.
-
-```jsx preview
 function App() {
   const [selectedDay, setSelectedDay] = useState();
   const handleDayClick = day => setSelectedDay(day);
 
   return (
-    <DayPicker 
-      selected={selectedDay} 
-      onDayClick={handleDayClick} 
-    />
-  );
-}
-```
-
-### Disabling days
-
-To disable days, pass them to the [disabled](./reference/props#disabled) prop:
-
-```jsx preview
-function App() {
-  const today = new Date();
-  const sundays = { daysOfWeek: [0] };
-  return (
-    <DayPicker 
-      disabled={[today, sundays]} 
-      onDayClick={day => console.log(day)} 
+    <DayPicker
+      selected={selectedDay}
+      onDayClick={handleDayClick}
     />
   );
 }

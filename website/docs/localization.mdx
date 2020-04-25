@@ -6,16 +6,14 @@ title: Localization
 DayPicker can be easily localized using the localization packages found in
 [date-fns](https://date-fns.org/docs/I18n).
 
-## Changing Locale
+## Changing locale
 
-To change the locale, pass to the [locale prop](../reference/props#locale) a `Locale`
+To change the locale, pass to the [locale prop](./reference/props.mdx#locale) a `Locale`
 object. Refer to the [Locale documentation](http://date-fns.org/docs/Locale) on
 date-fns website for more details.
 
-For example, to localize the calendar in Spanish:
-
-1. import the Spanish Locale object from dateFns;
-2. pass the locale object to the `locale` props.
+For example, to localize the calendar in Spanish, import the locale object from
+date-fns and pass it to the component:
 
 ```jsx preview
 import spanish from 'date-fns/locale/es';
@@ -27,7 +25,7 @@ function App() {
 
 ## Right-to-left direction
 
-To add right-to-left text direction, set the [dir](../reference/props#dir) prop to `rtl`.
+To add right-to-left text direction, set the [dir](./reference/props.mdx#dir) prop to `rtl`.
 
 ```jsx preview
 import { DayPicker } from 'react-day-picker';
@@ -40,17 +38,11 @@ function App() {
 
 ## Numbering system
 
-Use [formatter props](../reference/props#formatting) to change the numbering
+Use [formatter props](./reference/props.mdx#formatting) to change the numbering
 system used in the calendar.
 
 For example, to switch to hindu-arabic using
 [toLocaleString](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
-
-- set [formatDay](../reference/props.mdx#formatday) to format the day number;
-- set [formatCaption](../reference/props.mdx#formatcaption) to format the year 
-  in caption;
-- set [formatWeekNumber](../reference/props.mdx#formatweeknumber) to format the 
-  week numbers.
 
 ```jsx preview
 import React from 'react';
@@ -62,19 +54,15 @@ import arabic from 'date-fns/locale/ar-SA';
 function App() {
   const nuLocale = 'ar-u-nu-arab';
 
-  function formatDay(day) {
-    return day.getDate().toLocaleString(nuLocale);
-  }
+  const formatDay = (day) => day.getDate().toLocaleString(nuLocale);
+  const formatWeekNumber = (weekNumber) => weekNumber.toLocaleString(nuLocale);
 
-  function formatCaption(date, { locale }) {
+  const formatCaption = (date, { locale }) => {
     const y = date.getYear().toLocaleString(nuLocale);
     const m = format(date, 'LLLL', { locale });
     return `${m} ${y}`;
   }
 
-  function formatWeekNumber(weekNumber) {
-    return weekNumber.toLocaleString(nuLocale);
-  }
 
   return (
     <DayPicker

@@ -1,14 +1,14 @@
 ---
 id: modifiers
-title: Day Modifiers
+title: What are modifiers?
 ---
 
-In DayPicker, a **modifier** is a property of a day matching [one or more
-conditions](./matching-days.mdx). Modifiers are used to customize the appearance
-and the behavior of day elements.
+In DayPicker, a **modifier** is a property of a day matching one or more
+conditions. Modifiers are used to modify the appearance and the interaction with
+day elements.
 
-For example, when a day is clicked, its modifiers are accessible from the event
-handler:
+For example, when a day is clicked, the day’s modifiers are accessible from the
+event handler:
 
 ```jsx
 <DayPicker
@@ -22,9 +22,9 @@ handler:
 />
 ```
 
-Days matching a modifier can be styled via
-[modifiersStyles](../reference/props.mdx#modifiersstyles) or
-[modifiersClassNames](../reference/props.mdx#modifiersclassnames):
+Change the appearance of days matching a modifier using
+[modifiersStyles](./reference/props.mdx#modifiersstyles) or
+[modifiersClassNames](./reference/props.mdx#modifiersclassnames) props:
 
 ```jsx
 <DayPicker
@@ -39,15 +39,15 @@ Days matching a modifier can be styled via
 />
 ```
 
-DayPicker uses modifiers for the days matched with
-[selected](../reference/props.mdx#selected),
-[disabled](../reference/props.mdx#disabled) and
-[hidden](../reference/props.mdx#disabled) props. Other accessory modifiers
+DayPicker internally assigns some modifiers for the days matching
+[selected](./reference/props.mdx#selected),
+[disabled](./reference/props.mdx#disabled) and
+[hidden](./reference/props.mdx#disabled) props. Other accessory modifiers
 available for any day are [listed below](#default-modifiers).
 
 ### Adding modifiers
 
-Use the [modifiers prop](../reference/props.mdx#modifiers) to add
+Use the [modifiers prop](./reference/props.mdx#modifiers) to add
 modifiers according to your application’s requirement.
 
 For example, a booking user interface may implement "booked", "available"  and
@@ -91,7 +91,7 @@ function App() {
 
 As alternative to the inline styles above, you can assign CSS classes to the
 days matching a modifier. Use the
-[modifiersClassNames prop](../reference/props#modifiersClassNames):
+[modifiersClassNames prop](./reference/props.mdx#modifiersClassNames):
 
 ```jsx preview
 function App() {
@@ -106,13 +106,13 @@ function App() {
     ],
   };
   const css = `
-    .unavailable-day { 
-      text-decoration: line-through; 
+    .unavailable-day {
+      text-decoration: line-through;
     }
-    .available-day { 
+    .available-day {
       color: limegreen;
     }
-    .booked-day { 
+    .booked-day {
       color: salmon;
     }
   `;
@@ -122,10 +122,10 @@ function App() {
       <DayPicker
         month={new Date(2020, 8)}
         modifiers={modifiers}
-        modifiersClassNames={{ 
+        modifiersClassNames={{
           unavailable: 'unavailable-day',
           available: 'available-day',
-          booked: 'booked-day' 
+          booked: 'booked-day'
         }}
       />
     </div>
@@ -135,18 +135,18 @@ function App() {
 
 ## Modifiers from event handlers
 
-For convenience, day modifiers are passed to the [onDayClick event
-handler](../reference/props#ondayclick). 
+Modifiers are passed to the [event handler
+props](./reference/props.mdx#event-handlers).
 
 For example, to display an alert when the selected day is unavailable, check the
-`unavailable` modifier in `onDayClick`; to deselect an already selected day,
-check for the `selected` modifier, etc.
+"unavailable" modifier in the `onDayClick` event handler. To deselect an already
+selected day, check for the `selected` modifier, etc.
 
 ```jsx preview
 function App() {
   const [selected, setSelected] = useState();
 
-  const modifiers = { 
+  const modifiers = {
     unavailable: [
       new Date(2020, 8, 19),
       new Date(2020, 8, 20),
@@ -154,9 +154,9 @@ function App() {
     ]
   };
   const modifiersStyles = {
-    unavailable: { 
-      textDecoration: 'line-through', 
-      color: 'salmon' 
+    unavailable: {
+      textDecoration: 'line-through',
+      color: 'salmon'
     },
   };
 

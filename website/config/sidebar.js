@@ -1,26 +1,26 @@
 module.exports = [
-  'start',
+  "start",
+  "examples",
   {
-    type: 'category',
-    label: 'Guides',
-    items: [
-      'guides/modifiers',
-      'guides/matching-days',
-      'guides/localization',
-      'guides/styling',
-      'guides/customization',
-      'guides/input',
-      'guides/extending'
-    ]
+    type: "category",
+    label: "Use of modifiers",
+    items: ["modifiers", "matching-days"],
   },
   {
-    type: 'category',
-    label: 'Reference',
+    type: "category",
+    label: "Guides",
     items: [
-      'reference/props',
-      'reference/hooks',
-      'reference/upgrading',
-      'changelog'
-    ]
-  }
+      "styling",
+      "customization",
+      "localization",
+      "input",
+      "custom-components",
+      "upgrading",
+    ],
+  },
+  {
+    type: "category",
+    label: "Reference",
+    items: ["reference/props", "reference/hooks", "reference/changelog"],
+  },
 ];

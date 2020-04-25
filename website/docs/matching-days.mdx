@@ -1,13 +1,20 @@
 ---
 id: matching-days
-title: Matching Days
+title: Matching days
 ---
 
+In DayPicker, [modifiers](./modifiers.mdx) are set when a day matches one or
+more conditions. The component supports different options to define the matching
+conditions.
+
 :::note
-In DayPicker the [selected](../reference/props#selected),
-[disabled](../reference/props#disabled), [hidden](../reference/props#hidden) and
-[modifiers](../reference/props#modifiers) props accept different types. This
+
+In DayPicker the [selected](./reference/props.mdx#selected),
+[disabled](./reference/props.mdx#disabled),
+[hidden](./reference/props.mdx#hidden) and
+[modifiers](./reference/props.mdx#modifiers) props accept different types. This
 page shows how they work when applied to the `selected` prop.
+
 :::
 
 ## Matching a single day
@@ -102,8 +109,8 @@ Pass a function returning a boolean value:
 function App() {
   const isBirthday = day => day.getDate() === 19 && day.getMonth() === 8;
   return (
-    <DayPicker 
-      initialMonth={new Date(2020, 8)} 
+    <DayPicker
+      initialMonth={new Date(2020, 8)}
       selected={isBirthday}
     />
   );
