@@ -19,7 +19,7 @@ export function DayPicker(props = defaultProps): JSX.Element {
 
   function handleMonthChange(month: Date, e: React.MouseEvent): void {
     setCurrentMonth(month);
-    if (props.onMonthChange) props.onMonthChange(month, e);
+    props.onMonthChange?.(month, e);
   }
   return (
     <Months

@@ -11,7 +11,7 @@ function isValidDate(day: Date): boolean {
   return !isNaN(day.getTime());
 }
 
-/** Props to attach to the `DayPicker` component */
+/** Props to attach to the DayPicker component */
 export type UseInputDayPickerProps = {
   onMonthChange: DayPickerProps['onMonthChange'];
   onDayClick: DayPickerProps['onDayClick'];
