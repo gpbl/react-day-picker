@@ -13,10 +13,10 @@ import { DayProps } from './types';
  * @category Components
  */
 export function Day(props: DayProps): JSX.Element {
-  const { day, dayPickerProps } = props;
+  const { day, dayPickerProps, currentMonth } = props;
   const { locale, formatDay } = dayPickerProps;
 
-  const modifiers = useModifiers(day, dayPickerProps);
+  const modifiers = useModifiers(day, currentMonth, dayPickerProps);
 
   if (modifiers.hidden) {
     return <span aria-hidden />;

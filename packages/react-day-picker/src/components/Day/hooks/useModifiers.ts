@@ -5,12 +5,14 @@ import { defaultModifiers } from '../../DayPicker/defaults/defaultModifiers';
 
 import { getMatchingModifiers } from './utils/getMatchingModifiers';
 import { getModifiersFromProps } from './utils/getModifiersFromProps';
+import { getOutsideModifier } from './utils/getOutsideModifier';
 
 /**
  * TODO: add docs
  */
 export function useModifiers(
   day: Date,
+  currentMonth: Date,
   props: DayPickerProps
 ): MatchingModifiers {
   const modifiers: MatchingModifiers = {
@@ -18,20 +20,15 @@ export function useModifiers(
   };
   modifiers.today = isToday(day);
 
-  // TODO: outside modifiers
+  const outsideModifier = getOutsideModifier(day, currentMonth);
+  if (outsideModifier) {
+    modifiers[outsideModifier] = true;
+  }
 
-  if (modifiers.outside && !props.showOutsideDays) {
-    modifiers.hidden = true;
-  }
-  modifiers.disabled = Boolean(
-    modifiers.outside && !props.enableOutsideDaysClick
-  );
-  if (modifiers.outside && !props.showOutsideDays) {
-    modifiers.hidden = true;
-  }
-  modifiers.disabled = Boolean(
-    modifiers.outside && !props.enableOutsideDaysClick
-  );
+  const isOutside = modifiers.beforemonth || modifiers.aftermonth;
+
+  modifiers.hidden = isOutside && !props.showOutsideDays;
+  modifiers.disabled = isOutside && !props.enableOutsideDaysClick;
 
   const modifiersFromProps = getModifiersFromProps(props);
   const modifiersArray = getMatchingModifiers(day, modifiersFromProps);

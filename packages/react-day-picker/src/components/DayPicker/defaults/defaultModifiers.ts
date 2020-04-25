@@ -7,8 +7,8 @@ export const defaultModifiers: MatchingModifiers = {
   disabled: false,
   hidden: false,
   interactive: true,
-  outsideend: false,
-  outsidestart: false,
+  aftermonth: false,
+  beforemonth: false,
   selected: false,
   today: false
 };

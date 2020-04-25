@@ -10,6 +10,10 @@ export interface DayProps {
    */
   day: Date;
   /**
+   * The month the calendar belongs to. Used to calulate outside days.
+   */
+  currentMonth: Date;
+  /**
    * Reference to the props used by the DayPicker component.
    */
   dayPickerProps: DayPickerProps;
