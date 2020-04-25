@@ -42,6 +42,6 @@ export const defaultClassNames: DayPickerClassNames = {
   selected: 'rdp-day_selected',
   disabled: 'rdp-day_disabled',
   today: 'rdp-day_today',
-  outsideend: 'rdp-day_outside',
-  outsidestart: 'rdp-day_outside'
+  aftermonth: 'rdp-day_outside',
+  beforemonth: 'rdp-day_outside'
 };

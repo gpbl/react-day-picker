@@ -32,6 +32,7 @@ export function MonthTable(props: MonthTableProps): JSX.Element {
         <tbody className={classNames?.monthTbody} style={styles?.monthTbody}>
           {Object.keys(weeks).map((weekNumber) => (
             <WeekRow
+              currentMonth={month}
               key={weekNumber}
               week={weeks[weekNumber]}
               weekNumber={Number(weekNumber)}

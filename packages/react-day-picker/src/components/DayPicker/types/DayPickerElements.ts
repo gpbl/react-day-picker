@@ -10,8 +10,8 @@ export enum DayPickerElements {
   SELECTED = 'selected',
   DISABLED = 'disabled',
   TODAY = 'today',
-  OUTSIDE_START = 'outsidestart',
-  OUTSIDE_END = 'outsideend',
+  OUTSIDE_START = 'beforemonth',
+  OUTSIDE_END = 'aftermonth',
   // Month Component
   MONTH = 'month',
   MONTHTABLE = 'monthTable',

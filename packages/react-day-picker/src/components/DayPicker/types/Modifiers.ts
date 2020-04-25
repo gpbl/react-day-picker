@@ -37,11 +37,11 @@ export enum DefaultModifiersNames {
   /**
    * The day is outside.
    */
-  OUTSIDE_END = 'outside-end',
+  AFTER_MONTH = 'aftermonth',
   /**
    * The day is outside.
    */
-  OUTSIDE_START = 'outside-start',
+  BEFORE_MONTH = 'beforemonth',
   /**
    * The day is selected.
    */

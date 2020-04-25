@@ -9,9 +9,9 @@ import { WeekRowProps } from './types';
  * @private
  */
 export function WeekRow(props: WeekRowProps): JSX.Element {
-  const { weekNumber, week, dayPickerProps } = props;
   const { showWeekNumber, classNames, styles, swizzle } = dayPickerProps;
   const { Day, WeekNumber } = swizzle!;
+  const { weekNumber, week, currentMonth, dayPickerProps } = props;
   return (
     <tr className={classNames?.week} style={styles?.week}>
       {showWeekNumber && (
@@ -32,7 +32,11 @@ export function WeekRow(props: WeekRowProps): JSX.Element {
           style={styles?.weekDay}
           key={getUnixTime(day)}
         >
-          <Day day={day} dayPickerProps={dayPickerProps} />
+          <Day
+            day={day}
+            dayPickerProps={dayPickerProps}
+            currentMonth={currentMonth}
+          />
         </td>
       ))}
     </tr>
