@@ -11,7 +11,8 @@ module.exports = [
     label: "Guides",
     items: [
       "styling",
-      "customization",
+      "months",
+      "formatting",
       "localization",
       "input",
       "custom-components",

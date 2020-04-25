@@ -3,7 +3,7 @@ const themeConfig = require("./config/themeConfig");
 const classic = require("./config/presets/classic");
 
 module.exports = {
-  title: "React Day Picker",
+  title: "react-day-picker",
   tagline: "The tagline of my site",
   url: "https://react-day-picker.js.org",
   baseUrl: "/",
@@ -12,5 +12,5 @@ module.exports = {
   projectName: "react-day-picker",
   themeConfig,
   plugins: [path.resolve(__dirname, "./src/plugins/react-dev.js")],
-  presets: [classic]
+  presets: [classic],
 };

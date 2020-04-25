@@ -10,29 +10,33 @@ day elements.
 For example, when a day is clicked, the day’s modifiers are accessible from the
 event handler:
 
-```jsx
+```jsx preview
 <DayPicker
+  showOutsideDays
+  enableOutsideDaysClick
   onDayClick={ (day, modifiers) => {
     console.log('Is %s today?', day, modifiers.today);
     console.log('Is %s selected?', day, modifiers.selected);
     console.log('Is %s disabled?', day, modifiers.disabled);
     console.log('Is %s hidden?', day, modifiers.hidden);
     console.log('Is %s interactive?', day, modifiers.interactive);
+    console.log('Is %s before the start of the month?', day, modifiers.beforemonth);
+    console.log('Is %s after the end of the month?', day, modifiers.aftermonth);
   }}
 />
 ```
 
 Change the appearance of days matching a modifier using
-[modifiersStyles](./reference/props.mdx#modifiersstyles) or
-[modifiersClassNames](./reference/props.mdx#modifiersclassnames) props:
+[daysStyles](./reference/props.mdx#daysstyles) or
+[daysClassNames](./reference/props.mdx#daysclassnames) props:
 
 ```jsx
 <DayPicker
-  modifiersStyles={{
+  daysStyles={{
     disabled: { opacity: 0.5 },
     selected: { background: "salmon" },
   }}
-  modifiersClassNames={{
+  daysClassNames={{
     today: 'some-today-css-class',
     interactive: 'some-other-css-class',
   }}
@@ -47,15 +51,15 @@ available for any day are [listed below](#default-modifiers).
 
 ### Adding modifiers
 
-Use the [modifiers prop](./reference/props.mdx#modifiers) to add
-modifiers according to your application’s requirement.
+Use the [days prop](./reference/props.mdx#days) to add day modifiers according
+to your application’s requirement.
 
-For example, a booking user interface may implement "booked", "available"  and
-"unavailable" modifiers to style the days in different ways:
+For example, a booking user interface may implement "available", "unavailable"
+and "booked" days:
 
 ```jsx preview
 function App() {
-  const modifiers = {
+  const days = {
     available: { after: new Date(2020, 8, 18) },
     unavailable: { before: new Date(2020, 8, 15) },
     booked: [
@@ -74,8 +78,8 @@ function App() {
     <div>
       <DayPicker
         month={new Date(2020, 8)}
-        modifiers={modifiers}
-        modifiersStyles={styles}
+        days={days}
+        daysStyles={styles}
       />
       <pre>
         Legend: <span style={styles.unavailable}>unavailable</span>{' '}
@@ -91,11 +95,11 @@ function App() {
 
 As alternative to the inline styles above, you can assign CSS classes to the
 days matching a modifier. Use the
-[modifiersClassNames prop](./reference/props.mdx#modifiersClassNames):
+[daysClassNames prop](./reference/props.mdx#daysClassNames):
 
 ```jsx preview
 function App() {
-  const modifiers = {
+  const days = {
     available: { after: new Date(2020, 8, 18) },
     unavailable: { before: new Date(2020, 8, 15) },
     booked: [
@@ -121,8 +125,8 @@ function App() {
       <style>{ css }</style>
       <DayPicker
         month={new Date(2020, 8)}
-        modifiers={modifiers}
-        modifiersClassNames={{
+        days={days}
+        daysClassNames={{
           unavailable: 'unavailable-day',
           available: 'available-day',
           booked: 'booked-day'
@@ -146,14 +150,14 @@ selected day, check for the `selected` modifier, etc.
 function App() {
   const [selected, setSelected] = useState();
 
-  const modifiers = {
+  const days = {
     unavailable: [
       new Date(2020, 8, 19),
       new Date(2020, 8, 20),
       new Date(2020, 8, 21),
     ]
   };
-  const modifiersStyles = {
+  const daysStyles = {
     unavailable: {
       textDecoration: 'line-through',
       color: 'salmon'
@@ -176,8 +180,8 @@ function App() {
     <DayPicker
       initialMonth={new Date(2020, 8)}
       selected={selected}
-      modifiers={modifiers}
-      modifiersStyles={modifiersStyles}
+      days={days}
+      daysStyles={daysStyles}
       onDayClick={handleDayClick}
     />
   );
@@ -192,11 +196,12 @@ DayPicker already implements some default modifiers:
 The table is not updated as it should be created by typedocs instead.
 :::
 
-| Modifier      | Type | Meaning                                                          |
-| ------------- | ---- | ---------------------------------------------------------------- |
-| `disabled`    | Bool | The day matches the `disabled` prop.                             |
-| `hidden`      | Bool | The day matches the `hidden` prop.                               |
-| `interactive` | Bool | The user can actually interact (by clicking or tapping) the day. |
-| `outside`     | Enum | The day is outside the month. `start` or `end` of the month.     |
-| `selected`    | Bool | The day matches the `selected` prop.                             |
-| `today`       | Bool | The day is today.                                                |
+| Modifier      | Meaning                                                          |
+| ------------- | ---------------------------------------------------------------- |
+| `aftermonth`  | The day is after the current displayed month.                    |
+| `beforemonth` | The day is before the current displayed month.                   |
+| `disabled`    | The day matches the `disabled` prop.                             |
+| `hidden`      | The day matches the `hidden` prop.                               |
+| `interactive` | The user can actually interact (by clicking or tapping) the day. |
+| `selected`    | The day matches the `selected` prop.                             |
+| `today`       | The day is today.                                                |
