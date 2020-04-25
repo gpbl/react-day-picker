@@ -2,6 +2,7 @@
  * Filter the undefined props of `obj`.
  */
 export function filterUndefinedProps(obj: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [index: string]: any;
 }): { [index: string]: unknown } {
   if (!obj) return {};

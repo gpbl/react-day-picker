@@ -12,6 +12,7 @@ export function getWeekdaysNames(
   const names = [];
   for (let i = 0; i < 7; i++) {
     const day = DateFns.addDays(start, i);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     names.push(format!(day, { locale }));
   }
   return names;

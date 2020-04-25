@@ -12,6 +12,7 @@ export function WeekRow(props: WeekRowProps): JSX.Element {
   const { showWeekNumber, classNames, styles, swizzle } = dayPickerProps;
   const { Day, WeekNumber } = swizzle!;
   const { weekNumber, week, currentMonth, dayPickerProps } = props;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   return (
     <tr className={classNames?.week} style={styles?.week}>
       {showWeekNumber && (

@@ -46,6 +46,7 @@ export function Months(initialProps = defaultProps): JSX.Element {
   const months = getMonths(props);
 
   const Navigation = props.swizzle?.Navigation!;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 
   return (
     <div className={className.join(' ')} style={style} dir={props.dir}>
