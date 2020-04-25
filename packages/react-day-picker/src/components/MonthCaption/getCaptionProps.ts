@@ -18,7 +18,7 @@ import { CaptionHtmlProps } from './types';
  *     </caption>;
  *   )
  * }
- * <DayPicker swizzle={{ MonthCaption }} />
+ * <DayPicker components={{ MonthCaption }} />
  * ```
  */
 export function getCaptionProps(

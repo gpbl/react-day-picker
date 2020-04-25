@@ -1,21 +1,19 @@
 /**
  * A modifier is a string attached to a day whose behavior and appearance is meant to be modified by it.
- *
- * TODO: evaluate to rename this "DayTag" or "DayModifier".
  */
-export type Modifier = string;
+export type DayModifier = string;
 
 /**
  */
-export type ModifiersClassNames = {
+export type DaysClassNames = {
   [other: string]: string;
 };
 
 /**
  * Inline styles to apply to the day element having the specified modifier.
  */
-export type ModifiersStyles = {
-  [name in Modifier]: React.CSSProperties;
+export type DaysStyles = {
+  [name in DayModifier]: React.CSSProperties;
 };
 
 /**
@@ -55,7 +53,7 @@ export enum DefaultModifiersNames {
 /**
  * Modifiers to assign when a day is matched.
  */
-export type DayModifiers = {
+export type DaysModifiers = {
   [modifier: string]: DayMatcher;
 };
 
@@ -66,8 +64,8 @@ export type DayMatchModifier = boolean | undefined;
 
 /**
  * An object containing modifiers matching a specific day. Some defaults
- * modifiers are used in DayPicker. They can be extended using the
- * [[DayPickerProps.modifiers]] prop.
+ * modifiers are used in `DayPicker`. They can be extended using the
+ * [[DayPickerProps.days]] prop.
  */
 export type MatchingModifiers = {
   [name in DefaultModifiersNames | string]?: DayMatchModifier;

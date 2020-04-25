@@ -6,7 +6,7 @@ import { getMonths } from './getMonths';
 import { filterUndefinedProps } from './filterUndefinedProps';
 import { defaultProps } from '../DayPicker/defaults/defaultProps';
 import {
-  SwizzlingComponents,
+  CustomComponents,
   DayPickerClassNames,
   DayPickerProps
 } from '../DayPicker';
@@ -17,10 +17,10 @@ import {
  */
 export function Months(initialProps = defaultProps): JSX.Element {
   // Extend props with defaults
-  const swizzle: SwizzlingComponents = Object.assign(
+  const components: CustomComponents = Object.assign(
     {},
-    defaultProps.swizzle,
-    initialProps.swizzle
+    defaultProps.components,
+    initialProps.components
   );
   const classNames: DayPickerClassNames = Object.assign(
     {},
@@ -30,7 +30,7 @@ export function Months(initialProps = defaultProps): JSX.Element {
   const props: DayPickerProps = {
     ...defaultProps,
     ...filterUndefinedProps(initialProps),
-    swizzle,
+    components: components,
     classNames
   };
 
@@ -45,8 +45,8 @@ export function Months(initialProps = defaultProps): JSX.Element {
 
   const months = getMonths(props);
 
-  const Navigation = props.swizzle?.Navigation!;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const Navigation = props.components?.Navigation!;
 
   return (
     <div className={className.join(' ')} style={style} dir={props.dir}>

@@ -1,11 +1,11 @@
-import { DayPickerProps, DayModifiers } from '../../../DayPicker';
+import { DayPickerProps, DaysModifiers } from '../../../DayPicker';
 
 /**
  * Return the `modifiers` prop including the modifiers from shortcut-props
  * (`selected`, `disabled` and `hidden`)
  */
-export function getModifiersFromProps(props: DayPickerProps): DayModifiers {
-  const modifiers = Object.assign({}, props.modifiers);
+export function getModifiersFromProps(props: DayPickerProps): DaysModifiers {
+  const modifiers = Object.assign({}, props.days);
   if (props.selected) {
     modifiers.selected = props.selected;
   }
