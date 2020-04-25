@@ -15,3 +15,12 @@
 .markdown {
   --ifm-heading-vertical-rhythm-bottom: 1.25;
 }
+
+.markdown a[href*="//"]:after
+{
+  content: " ↗︎";
+  font-size: 0.875em;
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0.5;
+}
