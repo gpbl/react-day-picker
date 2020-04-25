@@ -13,6 +13,7 @@ export function MonthTable(props: MonthTableProps): JSX.Element {
   const { locale, classNames, styles } = dayPickerProps;
   const { showCaption, showHead } = dayPickerProps;
   const MonthCaption = dayPickerProps.swizzle!.MonthCaption;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 
   const weeks = getWeeks(month, dayPickerProps);
 
@@ -24,6 +25,7 @@ export function MonthTable(props: MonthTableProps): JSX.Element {
         )}
         {showHead && (
           <Head
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             locale={locale!}
             showWeekNumber={dayPickerProps.showWeekNumber}
             dayPickerProps={dayPickerProps}
