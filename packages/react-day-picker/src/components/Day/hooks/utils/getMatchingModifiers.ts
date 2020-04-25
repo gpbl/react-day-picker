@@ -1,7 +1,7 @@
-import { DayModifiers } from '../../../DayPicker/types';
+import { DaysModifiers } from '../../../DayPicker/types';
 import { matchDay } from './matchModifier';
 
-const reduceCallback = (day: Date, modifiers: DayModifiers) => (
+const reduceCallback = (day: Date, modifiers: DaysModifiers) => (
   previousValue: string[],
   key: string
 ): string[] => {
@@ -17,7 +17,7 @@ const reduceCallback = (day: Date, modifiers: DayModifiers) => (
  */
 export function getMatchingModifiers(
   day: Date,
-  modifiers: DayModifiers
+  modifiers: DaysModifiers
 ): string[] {
   return Object.keys(modifiers).reduce(reduceCallback(day, modifiers), []);
 }

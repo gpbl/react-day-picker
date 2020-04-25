@@ -8,10 +8,10 @@ import { WeekdayNameFormatter } from '../../WeekRow';
 
 import {
   DayMatcher,
-  DayModifiers,
+  DaysModifiers,
   MatchingModifiers,
-  ModifiersClassNames,
-  ModifiersStyles
+  DaysClassNames,
+  DaysStyles
 } from './Modifiers';
 
 import { DayPickerElements } from './DayPickerElements';
@@ -47,9 +47,9 @@ export type MonthChangeEventHandler = (
 ) => void;
 
 /**
- * Components that can be [swizzled](./docs/swizzling).
+ * Components that can be replaced
  */
-export type SwizzlingComponents = {
+export type CustomComponents = {
   /** A [[MonthCaption]] component. */
   MonthCaption: React.ComponentType<MonthCaptionProps>;
   /** A [[Day]] component. */
@@ -83,7 +83,7 @@ export interface DayPickerProps {
   /**
    * Change the class names used for the day [[modifiers]].
    */
-  modifiersClassNames?: ModifiersClassNames;
+  daysClassNames?: DaysClassNames;
 
   /**
    * Style to apply to the root element.
@@ -96,7 +96,7 @@ export interface DayPickerProps {
   /**
    * Change the inline style for the day [[modifiers]].
    */
-  modifiersStyles?: ModifiersStyles;
+  daysStyles?: DaysStyles;
 
   /**
    * The initial month to show in the calendar.
@@ -144,9 +144,6 @@ export interface DayPickerProps {
   fixedWeeks?: boolean;
   /**
    * Show the month’s caption. As default, the caption displays month and year.
-   *
-   * - use [[formatCaption]] to localize the content of the caption
-   * - [swizzle](../docs/swizzling) this component using the [[swizzle]] prop
    */
   showCaption?: boolean;
   /**
@@ -200,7 +197,7 @@ export interface DayPickerProps {
   /**
    * An object of modifiers.
    */
-  modifiers?: DayModifiers;
+  days?: DaysModifiers;
 
   /**
    * A [`dateFns.Locale`](https://date-fns.org/docs/Locale) object to localize
@@ -239,9 +236,9 @@ export interface DayPickerProps {
   formatWeekNumber?: WeekNumberFormatter;
 
   /**
-   * The components to [swizzle](./docs/swizzling).
+   * Customize the internal components.
    */
-  swizzle?: SwizzlingComponents;
+  components?: CustomComponents;
 
   /**
    * Event handler when the user clicks on a day.

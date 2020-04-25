@@ -9,10 +9,10 @@ import { WeekRowProps } from './types';
  * @private
  */
 export function WeekRow(props: WeekRowProps): JSX.Element {
-  const { showWeekNumber, classNames, styles, swizzle } = dayPickerProps;
-  const { Day, WeekNumber } = swizzle!;
   const { weekNumber, week, currentMonth, dayPickerProps } = props;
+  const { showWeekNumber, classNames, styles, components } = dayPickerProps;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const { Day, WeekNumber } = components!;
   return (
     <tr className={classNames?.week} style={styles?.week}>
       {showWeekNumber && (

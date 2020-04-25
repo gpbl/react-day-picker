@@ -23,7 +23,7 @@ export const defaultProps: DayPickerProps = {
   className: '',
   style: {},
   styles: {},
-  swizzle: {
+  components: {
     MonthCaption,
     Day,
     Navigation,
@@ -36,8 +36,8 @@ export const defaultProps: DayPickerProps = {
   formatWeekNumber: defaultFormatWeekNumber,
   locale: english,
   nextLabel: '▶',
-  modifiersClassNames: {},
-  modifiersStyles: {},
+  daysClassNames: {},
+  daysStyles: {},
   month: startOfMonth(new Date()),
   numberOfMonths: 1,
   pagedNavigation: false,

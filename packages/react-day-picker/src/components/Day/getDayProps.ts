@@ -14,13 +14,7 @@ export function getDayProps(
   modifiers: MatchingModifiers,
   props: DayPickerProps
 ): DayHtmlProps {
-  const {
-    classNames,
-    modifiersClassNames,
-    modifiersStyles,
-    onDayClick,
-    styles
-  } = props;
+  const { classNames, daysClassNames, daysStyles, onDayClick, styles } = props;
 
   let onClick;
   if (modifiers.interactive && onDayClick) {
@@ -41,12 +35,12 @@ export function getDayProps(
       };
     });
   }
-  if (modifiersStyles) {
+  if (daysStyles) {
     // Apply the styles for the modifier
     Object.keys(modifiers).forEach((modifier) => {
       style = {
         ...style,
-        ...modifiersStyles[modifier]
+        ...daysStyles[modifier]
       };
     });
   }
@@ -54,15 +48,15 @@ export function getDayProps(
   const className: (string | undefined)[] = [];
   if (classNames && classNames.day) {
     className.push(classNames.day);
-    if (modifiersClassNames) {
+    if (daysClassNames) {
       Object.keys(modifiers)
         .filter((modifier) => !!modifiers[modifier])
         .forEach((modifier) => {
           if (modifier && classNames[modifier]) {
             className.push(classNames[modifier]);
           }
-          if (modifiersClassNames && modifiersClassNames[modifier]) {
-            className.push(modifiersClassNames[modifier]);
+          if (daysClassNames && daysClassNames[modifier]) {
+            className.push(daysClassNames[modifier]);
           }
         });
     }
