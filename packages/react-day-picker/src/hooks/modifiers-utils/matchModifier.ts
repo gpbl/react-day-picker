@@ -5,7 +5,7 @@ import {
   MatchDayBefore,
   MatchDayInRange,
   MatchDayAfter
-} from '../../../DayPicker/types';
+} from '../../components/DayPicker/types';
 
 /**
  * Return true if `day1` is after `day2`.

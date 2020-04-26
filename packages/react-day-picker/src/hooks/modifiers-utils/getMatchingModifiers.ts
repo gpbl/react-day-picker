@@ -1,4 +1,4 @@
-import { DaysModifiers } from '../../../DayPicker/types';
+import { DaysModifiers } from '../../components/DayPicker/types';
 import { matchDay } from './matchModifier';
 
 const reduceCallback = (day: Date, modifiers: DaysModifiers) => (
