@@ -1,47 +1,31 @@
 ---
 id: start
-title: Welcome
+title: Getting started
+subtitle: test
 ---
 
-DayPicker is a React component to display a monthly calendar for picking dates.
-Thanks to an extensive [set of props](./reference/props.mdx), DayPicker helps
-developers to implement date pickers – without fighting with JavaScript dates
-and complex layouts.
+> DayPicker helps React developers to implement date pickers without worrying about JavaScript dates and layouts.
 
 :::important
 
-This documentation refers to the upcoming version which is still in development.
+This documentation is about the upcoming version, which is still in development.
 See [react-day-picker.js.org](http://react-day-picker.js.org) for the
 documentation of the current version.
 
 :::
 
-## Installing DayPicker
+## Installing and importing
 
-1. Add `react-day-picker` to the project’s dependencies:
-  ```bash
-  yarn add react-day-picker@next     # when using yarn
-  npm install react-day-picker@next  # when using npm
-  ```
-2. import DayPicker and its CSS file in your script:
-  ```jsx
-  import "react-day-picker/dist/style.css";
-  import { DayPicker } from "react-day-picker";
-  ```
+Add `react-day-picker` to your project’s dependencies:
 
-## Example
+```bash
+yarn add react-day-picker@next     # when using yarn
+npm install react-day-picker@next  # when using npm
+```
 
+Import DayPicker and its CSS file in your script.
 
-```jsx preview
-import { React, useState } from 'react';
-
+```jsx
 import "react-day-picker/dist/style.css";
 import { DayPicker } from "react-day-picker";
-
-function App() {
-  const [selectedDay, setSelectedDay] = useState();
-  return (
-    <DayPicker selected={selectedDay} onDayClick={setSelectedDay} />
-  );
-}
 ```

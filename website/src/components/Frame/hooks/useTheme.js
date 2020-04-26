@@ -1,6 +1,6 @@
 /* eslint-env browser */
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export default function useTheme(iframeRef) {
   function setTheme(iframe) {
@@ -9,16 +9,16 @@ export default function useTheme(iframeRef) {
     }
     const theme = document.documentElement.dataset.theme;
     iframe.node.contentDocument.documentElement.setAttribute(
-      'data-theme',
-      theme || 'light'
+      "data-theme",
+      theme || "light"
     );
   }
 
   useEffect(() => {
     const iframe = iframeRef.current;
-    const observer = new MutationObserver(mutationsList => {
+    const observer = new MutationObserver((mutationsList) => {
       for (let mutation of mutationsList) {
-        if (mutation.attributeName !== 'data-theme') {
+        if (mutation.attributeName !== "data-theme") {
           continue;
         }
         setTheme(iframe);

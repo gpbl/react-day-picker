@@ -3,13 +3,13 @@ id: examples
 title: Examples
 ---
 
-Familiarize with the component by implementing some basic features.
+> Familiarize with the component by implementing some basic features.
 
 ## Selecting days
 
-To display days as selected, pass one or more dates to the
-[selected](./reference/props.mdx#selected) prop. You can also use ranges or
-other values to [match days](./matching-days.mdx).
+To display days as selected, pass one or more dates to the [selected
+prop](./reference/props.mdx#selected). You can also use ranges or other values
+to [match days](./modifiers-matching-days.mdx).
 
 ```jsx preview
 function App() {
@@ -27,8 +27,8 @@ function App() {
 }
 ```
 
-To make days selectable, add a state to the component and use the
-[onDayClick](./reference/props.mdx#onDayClick) event handler.
+To make days selectable when clicked, add a state to the component and bind it
+to the [onDayClick event handler](./reference/props.mdx#onDayClick).
 
 ```jsx preview
 function App() {
@@ -48,7 +48,7 @@ function App() {
 
 To disable days, pass them to the [disabled](./reference/props.mdx#disabled)
 prop. Disabled days cannot be clicked. You can also use ranges or other values
-to [match days](./matching-days.mdx).
+to [match days](./modifiers-matching-days.mdx).
 
 ```jsx preview
 function App() {
