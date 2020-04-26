@@ -11,6 +11,5 @@ module.exports = {
   organizationName: "gpbl",
   projectName: "react-day-picker",
   themeConfig,
-  plugins: [path.resolve(__dirname, "./src/plugins/react-dev.js")],
   presets: [classic],
 };
