@@ -7,10 +7,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "deploy": "docusaurus deploy",
-    "api-docs": "yarn api-docs:markdown & yarn api-docs:json",
-    "api-docs:json": "typedoc --json src/api.json --theme ./typedoc/website",
-    "api-docs:markdown": "typedoc --theme ./typedoc/website --hideBreadcrumbs",
-    "api-docs:html": "typedoc --plugin none --theme ./typedoc/html --readme ../packages/react-day-picker/README.md"
+    "api-docs": "typedoc --json static/api.json"
   },
   "dependencies": {
     "@docusaurus/core": ">=2.0.0-alpha.50",
