@@ -6935,7 +6935,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"handlebars@npm:^4.7.3, handlebars@npm:^4.7.6":
+"handlebars@npm:^4.7.6":
   version: 4.7.6
   resolution: "handlebars@npm:4.7.6"
   dependencies:
@@ -7183,10 +7183,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"highlight.js@npm:^9.18.1":
-  version: 9.18.1
-  resolution: "highlight.js@npm:9.18.1"
-  checksum: 2/3fe99105e4cda17ae8dac7b49b791065b9b8306c1de40955cd59ce1a2cd2bed2683135a26f9ffd8f872a1d6e9d77935c48ffbb2557c228e647fe940a3bbbc4f2
+"highlight.js@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "highlight.js@npm:10.0.0"
+  checksum: 2/205e7f515f5db1fe0f8d6cd2617ecac8dace874a065d8cfd3234d51b62e1adf0b27ef1be473f646f6c76c63403f90a3adca12e8677a373ded33f8539fc5465b0
   languageName: node
   linkType: hard
 
@@ -9503,12 +9503,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"marked@npm:0.8.2":
-  version: 0.8.2
-  resolution: "marked@npm:0.8.2"
+"marked@npm:1.0.0":
+  version: 1.0.0
+  resolution: "marked@npm:1.0.0"
   bin:
     marked: bin/marked
-  checksum: 2/49148dd7898fcd7215458a6ba5dec895a8343f2823c12da527dd40b29ed71c5235cba06a19833cc61e138811fa459484550a69ad89aa42af9f6e87b9dad19b7d
+  checksum: 2/4121f2f5cb7130e57571780181cddac9e3a8692486045f760baad14c6d896c9481180ad8ab8a36fb9476375ddaa860dbc7d29ecf386b2bfa47d4450a9f866cd4
   languageName: node
   linkType: hard
 
@@ -13668,6 +13668,19 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
+"shelljs@npm:^0.8.4":
+  version: 0.8.4
+  resolution: "shelljs@npm:0.8.4"
+  dependencies:
+    glob: ^7.0.0
+    interpret: ^1.0.0
+    rechoir: ^0.6.2
+  bin:
+    shjs: bin/shjs
+  checksum: 2/bdf68e3c2a8a6d191dde3be2800bfcfd688c126344ccaf6cf7024cdaf824d0d3523b8e514cd52264f739cbabd2b0569637dd5a8183377347225af918e03ff5dc
+  languageName: node
+  linkType: hard
+
 "shellwords@npm:^0.1.1":
   version: 0.1.1
   resolution: "shellwords@npm:0.1.1"
@@ -15009,7 +15022,7 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"typedoc-default-themes@npm:^0.10.0":
+"typedoc-default-themes@npm:^0.10.1":
   version: 0.10.1
   resolution: "typedoc-default-themes@npm:0.10.1"
   dependencies:
@@ -15018,37 +15031,25 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-markdown@npm:^2.2.17":
-  version: 2.2.17
-  resolution: "typedoc-plugin-markdown@npm:2.2.17"
-  dependencies:
-    fs-extra: ^8.1.0
-    handlebars: ^4.7.3
-  peerDependencies:
-    typedoc: ">=0.16.0"
-  checksum: 2/cc4573434c3cc33770d3bdfca05e96a1abd3855a5971198a4e98cde83586cfc4342a1c01d91bd2df726172c346af20e1d92ea0ae30aabbf1160caa0119e686a2
-  languageName: node
-  linkType: hard
-
-"typedoc@npm:^0.17.4":
-  version: 0.17.4
-  resolution: "typedoc@npm:0.17.4"
+"typedoc@npm:^0.17.5":
+  version: 0.17.5
+  resolution: "typedoc@npm:0.17.5"
   dependencies:
     fs-extra: ^8.1.0
     handlebars: ^4.7.6
-    highlight.js: ^9.18.1
+    highlight.js: ^10.0.0
     lodash: ^4.17.15
     lunr: ^2.3.8
-    marked: 0.8.2
+    marked: 1.0.0
     minimatch: ^3.0.0
     progress: ^2.0.3
-    shelljs: ^0.8.3
-    typedoc-default-themes: ^0.10.0
+    shelljs: ^0.8.4
+    typedoc-default-themes: ^0.10.1
   peerDependencies:
     typescript: ">=3.8.3"
   bin:
     typedoc: bin/typedoc
-  checksum: 2/994624da398f7874db4a1e56be2c4823ed02d6ca7628cac34592ae12f2e2dd67952a8fd898b5cfb77504bd3775a1fa2bb1c8acecfc0b3c7c709a25d9a6f50e64
+  checksum: 2/65a249e722772fe048b71dcb2d0e4d4eb91df56449971c54f2209a5bc8af799e1838b0c1068976472494d2ab74021fea9a8b82f42c3392aa484b0e01ee9b5eb3
   languageName: node
   linkType: hard
 
@@ -16000,8 +16001,7 @@ typescript@^3.8.3:
     react-docgen: ^5.3.0
     react-dom: ^16.13.1
     react-frame-component: ^4.1.1
-    typedoc: ^0.17.4
-    typedoc-plugin-markdown: ^2.2.17
+    typedoc: ^0.17.5
     webpack: ^4.42.1
   languageName: unknown
   linkType: soft
