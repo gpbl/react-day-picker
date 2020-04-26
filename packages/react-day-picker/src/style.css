@@ -9,7 +9,6 @@
   display: inline-block;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-size: 1rem;
 }
 .rdp-months {
   display: -webkit-box;
@@ -21,7 +20,7 @@
   margin-bottom: 0.75em;
   text-align: left;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.25em;
 }
 .rdp[dir='rtl'] .rdp-caption {
   text-align: right;
