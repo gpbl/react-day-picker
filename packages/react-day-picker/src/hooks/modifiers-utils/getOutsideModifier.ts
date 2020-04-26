@@ -1,4 +1,4 @@
-import { DayModifier } from '../../../DayPicker';
+import { DayModifier } from '../../components/DayPicker';
 import { isAfter, isBefore, startOfMonth, endOfMonth } from 'date-fns';
 
 /**

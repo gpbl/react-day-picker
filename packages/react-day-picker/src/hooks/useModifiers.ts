@@ -1,11 +1,11 @@
 import { isToday } from 'date-fns';
 
-import { MatchingModifiers, DayPickerProps } from '../../DayPicker';
-import { defaultModifiers } from '../../DayPicker/defaults/defaultModifiers';
+import { MatchingModifiers, DayPickerProps } from '../components/DayPicker';
+import { defaultModifiers } from '../components/DayPicker/defaults/defaultModifiers';
 
-import { getMatchingModifiers } from './utils/getMatchingModifiers';
-import { getModifiersFromProps } from './utils/getModifiersFromProps';
-import { getOutsideModifier } from './utils/getOutsideModifier';
+import { getMatchingModifiers } from './modifiers-utils/getMatchingModifiers';
+import { getModifiersFromProps } from './modifiers-utils/getModifiersFromProps';
+import { getOutsideModifier } from './modifiers-utils/getOutsideModifier';
 
 /**
  * TODO: add docs

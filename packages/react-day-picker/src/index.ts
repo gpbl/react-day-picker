@@ -18,4 +18,5 @@ export { getNavigationProps } from './components/Navigation/getNavigationProps';
 export { WeekNumber } from './components/WeekNumber';
 
 // Hooks
-export { useInput } from './hooks';
+export { useInput } from './hooks/useInput';
+export { useModifiers } from './hooks/useModifiers';

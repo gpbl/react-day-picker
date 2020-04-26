@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { getDayProps } from './getDayProps';
-import { useModifiers } from './hooks/useModifiers';
+import { useModifiers } from '../../hooks/useModifiers';
 import { DayProps } from './types';
 
 /**
