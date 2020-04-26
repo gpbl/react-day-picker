@@ -1,86 +1,29 @@
 ---
 id: custom-components
-title: Custom components
+title: Custom Components
 ---
 
-Extend DayPicker by using custom components. Use the
-[components](./reference/props.mdx#components) prop to change DayPicker’s  internal
-components, add new custom props or alter the rendered HTML.
+> Extend DayPicker by replacing its internal component.
 
-So far you can replace the following components:
+Use the [components prop](./reference/props.mdx#components) to replace
+DayPicker’s internals with your own components:
 
-- `Day` – used to render the day;
-- `Caption` – used to render the caption (with month/year);
-- `Navigation` – used to render the prev/next month navigation;
-- `WeekNumber` – used to render the week numbers.
+* `Caption` – used to render the caption;
+* `Navigation` – used to render the month navigation;
+* `WeekNumber` – used to render the week numbers;
+* `Day` – used to render the day.
 
-## Day Component
+:::caution
 
-The `Day` component is used to render the day in the calendar.
+This guide is still a work in progress.
 
-#### To use a custom Day component
+:::
 
-1. create a `Day` component with `day`, [modifiers](./modifiers) and `dayPickerProps` props;
-2. (optional) get DayPicker-specific props via [getDayProps](./utils#getDayProps);
-3. pass the `Day` component to the `components` prop.
-
-For example, the following DayPicker implements a `Day` component that supports `onDayEnter`, `onDayLeave` events:
-
-```jsx preview
-import { DayPicker, getDayProps } from 'react-day-picker';
-
-function App() {
-  /**
-   * Day component adding support for `onDayEnter`, `onDayLeave`.
-   */
-  function Day({ day, modifiers, dayPickerProps }) {
-    const { containerProps } = getDayProps(day, modifiers, dayPickerProps);
-    const { onDayEnter, onDayLeave } = dayPickerProps;
-    const handleMouseEnter = e => onDayEnter(day, modifiers, e);
-    const handleMouseLeave = e => onDayLeave(day, modifiers, e);
-    return (
-      <div
-        {...containerProps}
-        onMouseEnter={onDayEnter ? handleMouseEnter : undefined}
-        onMouseLeave={onDayLeave ? handleMouseLeave : undefined}
-      >
-        {day.getDate()}
-      </div>
-    );
-  }
-
-  /**
-   * Extended DayPicker component adding support for `onDayEnter`, `onDayLeave`
-   */
-  function ExtendedDayPicker({ onDayEnter, onDayLeave, ...props }) {
-    return (
-      <DayPicker
-        {...props}
-        components={{ Day }}
-        onDayEnter={onDayEnter}
-        onDayLeave={onDayLeave}
-      />
-    );
-  }
-
-  const [month, setMonth] = useState();
-
-  return (
-    <ExtendedDayPicker
-      month={month}
-      onCaptionMonthChange={setMonth}
-      onDayEnter={(day, modifiers) => console.log(day, modifiers)}
-      onDayLeave={(day, modifiers) => console.log(day, modifiers)}
-    />
-  );
-}
-```
-
-## Caption Component
+## Caption component
 
 The `Caption` component is used to render the caption (with month/year) in the calendar.
 
-#### To use a custom Caption component
+To use a custom Caption component,
 
 1. create a `Caption` component with `month` and `dayPickerProps` props;
 2. (optional) get DayPicker-specific props via [getCaptionProps](./utils#getCaptionProps);
@@ -139,11 +82,11 @@ function App() {
 }
 ```
 
-## Navigation Component
+## Navigation component
 
 The `Navigation` component is used to render the navigation buttons.
 
-#### To use a custom Navigation component
+To use a custom Navigation component,
 
 1. create a `Navigation` component with a `dayPickerProps` prop;
 2. (optional) get DayPicker-specific props via [getNavigationProps](./utils#getNavigationProps) and [getNavigation](./utils#getNavigation);
@@ -172,11 +115,11 @@ function App() {
 }
 ```
 
-## WeekNumber Component
+## WeekNumber component
 
 The `WeekNumber` component is used to render the week number when [showWeekNumber](./props.mdx#showweeknumber) is set.
 
-#### To use a custom WeekNumber component
+To use a custom WeekNumber component,
 
 1. create a `WeekNumber` component with a `number`, `days` and `dayPickerProps` prop;
 2. pass the `WeekNumber` component to the `components` prop.
@@ -209,6 +152,87 @@ function App() {
           : undefined
       }
       onWeekNumberClick={weekNumber => setSelectedWeekNumber(weekNumber)}
+    />
+  );
+}
+```
+
+## Day component
+
+The `Day` component is used to render the day in the calendar.
+
+:::caution
+Changing Day component is an advanced feature may break accessibility and require some familiarity with DayPicker. If you need to change the content of the day cell, use the [formatDay prop](./reference/props.mdx#formatDay).
+:::
+
+To use a custom Day component, you will need thye
+
+1. create a `Day` component with `day`, [modifiers](./modifiers) and
+   `dayPickerProps` props;
+2. (optional) get DayPicker-specific props via
+   [getDayProps](./utils#getDayProps);
+3. pass the `Day` component to the `components` prop.
+
+For example, the following DayPicker implements a `Day` component that supports
+`onDayEnter`, `onDayLeave` events:
+
+```jsx preview
+import { DayPicker, useModifiers, getDayProps } from 'react-day-picker';
+
+function App() {
+
+  /**
+   * Day component adding support for `onDayEnter`, `onDayLeave`.
+   */
+  function DayExtended({ day, currentMonth, dayPickerProps }) {
+    const { onDayEnter, onDayLeave } = dayPickerProps;
+
+    // Calculate the modifiers associated to this day
+    const modifiers = useModifiers(day, currentMonth, dayPickerProps);
+
+    // Get the props for the HTML elements
+    const { containerProps, wrapperProps } = getDayProps(day, modifiers, dayPickerProps);
+
+    // Add the event handlers
+    const handleMouseEnter = e => onDayEnter && onDayEnter(day, modifiers, e);
+    const handleMouseLeave = e => onDayLeave && onDayLeave(day, modifiers, e);
+
+    return (
+      <div
+        {...containerProps}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <span {...wrapperProps}>
+          {day.getDate()}
+        </span>
+      </div>
+    );
+  }
+
+  /**
+   * Extended DayPicker component adding support for `onDayEnter`, `onDayLeave`.
+   */
+  function ExtendedDayPicker({ onDayEnter, onDayLeave, ...props }) {
+    return (
+      <DayPicker
+        {...props}
+        components={{
+          Day: DayExtended
+        }}
+        onDayEnter={onDayEnter}
+        onDayLeave={onDayLeave}
+      />
+    );
+  }
+
+  const [selectedDay, setSelectedDay] = useState();
+
+  return (
+    <ExtendedDayPicker
+      selected={selectedDay}
+      onDayEnter={(day) => setSelectedDay(day)}
+      onDayLeave={(day) => setSelectedDay(undefined)}
     />
   );
 }

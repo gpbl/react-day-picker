@@ -4,7 +4,7 @@ module.exports = [
   {
     type: "category",
     label: "Use of modifiers",
-    items: ["modifiers", "matching-days"],
+    items: ["modifiers", "modifiers-matching-days"],
   },
   {
     type: "category",

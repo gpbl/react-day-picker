@@ -1,14 +1,13 @@
 ---
 id: modifiers
-title: What are modifiers?
+title: About Modifiers
 ---
 
-In DayPicker, a **modifier** is a property of a day matching one or more
-conditions. Modifiers are used to modify the appearance and the interaction with
-day elements.
+> Use modifiers to change the appearance and the interaction with day elements.
 
-For example, when a day is clicked, the day’s modifiers are accessible from the
-event handler:
+Modifiers are customizable properties accessible from days matching a specific
+condition. For example, when a day is clicked, the day’s modifiers are
+accessible from the event handler:
 
 ```jsx preview
 <DayPicker
@@ -49,13 +48,13 @@ DayPicker internally assigns some modifiers for the days matching
 [hidden](./reference/props.mdx#disabled) props. Other accessory modifiers
 available for any day are [listed below](#default-modifiers).
 
-### Adding modifiers
+## Adding modifiers
 
 Use the [days prop](./reference/props.mdx#days) to add day modifiers according
 to your application’s requirement.
 
-For example, a booking user interface may implement "available", "unavailable"
-and "booked" days:
+For example, a booking user interface may need to implement “available”,
+“unavailable” and “booked” days:
 
 ```jsx preview
 function App() {

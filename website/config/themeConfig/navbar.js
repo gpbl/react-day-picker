@@ -11,7 +11,7 @@ const links = [
 ];
 
 module.exports = {
-  title: "<DayPicker />",
+  title: "React DayPicker",
   logo: {
     alt: "DayPicker Logo",
     src: "img/logo.svg",
