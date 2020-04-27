@@ -7,7 +7,6 @@ import { defaultProps } from './defaults/defaultProps';
 /**
  * Render a date picker component.
  *
- * @param {DayPickerProps} props
  * @category Components
  */
 export function DayPicker(props = defaultProps): JSX.Element {
