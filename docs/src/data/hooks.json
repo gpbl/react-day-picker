@@ -1,0 +1,325 @@
+{
+  "useInput": {
+    "flags": {
+      "isExported": true
+    },
+    "id": 543,
+    "name": "useInput",
+    "parameters": [
+      {
+        "id": 544,
+        "name": "initialSelectedDay",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "union",
+          "types": [
+            {
+              "type": "reference",
+              "name": "Date"
+            },
+            {
+              "type": "intrinsic",
+              "name": "undefined"
+            }
+          ]
+        }
+      },
+      {
+        "id": 545,
+        "name": "formatStr",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "intrinsic",
+          "name": "string"
+        }
+      },
+      {
+        "id": 546,
+        "name": "options",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reflection",
+          "declaration": {
+            "id": 547,
+            "name": "__type",
+            "kind": 65536,
+            "kindString": "Type literal",
+            "flags": {
+              "isExported": true
+            },
+            "children": [
+              {
+                "id": 548,
+                "name": "locale",
+                "kind": 32,
+                "kindString": "Variable",
+                "flags": {
+                  "isExported": true
+                },
+                "sources": [
+                  {
+                    "fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+                    "line": 49,
+                    "character": 10
+                  }
+                ],
+                "type": {
+                  "type": "reference",
+                  "name": "DateFns.Locale"
+                }
+              },
+              {
+                "id": 549,
+                "name": "required",
+                "kind": 32,
+                "kindString": "Variable",
+                "flags": {
+                  "isExported": true
+                },
+                "sources": [
+                  {
+                    "fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+                    "line": 50,
+                    "character": 12
+                  }
+                ],
+                "type": {
+                  "type": "intrinsic",
+                  "name": "boolean"
+                }
+              }
+            ],
+            "groups": [
+              {
+                "title": "Variables",
+                "kind": 32,
+                "children": [
+                  548,
+                  549
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+                "line": 48,
+                "character": 10
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "type": {
+      "type": "reflection",
+      "declaration": {
+        "id": 550,
+        "name": "__type",
+        "kind": 65536,
+        "kindString": "Type literal",
+        "flags": {
+          "isExported": true
+        },
+        "children": [
+          {
+            "id": 553,
+            "name": "dayPickerProps",
+            "kind": 32,
+            "kindString": "Variable",
+            "flags": {
+              "isExported": true
+            },
+            "sources": [
+              {
+                "fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+                "line": 55,
+                "character": 16
+              }
+            ],
+            "type": {
+              "type": "reference",
+              "id": 532,
+              "name": "UseInputDayPickerProps"
+            }
+          },
+          {
+            "id": 554,
+            "name": "inputProps",
+            "kind": 32,
+            "kindString": "Variable",
+            "flags": {
+              "isExported": true
+            },
+            "sources": [
+              {
+                "fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+                "line": 56,
+                "character": 12
+              }
+            ],
+            "type": {
+              "type": "reference",
+              "id": 536,
+              "name": "UseInputInputProps"
+            }
+          },
+          {
+            "id": 551,
+            "name": "month",
+            "kind": 32,
+            "kindString": "Variable",
+            "flags": {
+              "isExported": true
+            },
+            "sources": [
+              {
+                "fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+                "line": 53,
+                "character": 7
+              }
+            ],
+            "type": {
+              "type": "reference",
+              "name": "Date"
+            }
+          },
+          {
+            "id": 552,
+            "name": "selected",
+            "kind": 32,
+            "kindString": "Variable",
+            "flags": {
+              "isExported": true
+            },
+            "sources": [
+              {
+                "fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+                "line": 54,
+                "character": 10
+              }
+            ],
+            "type": {
+              "type": "union",
+              "types": [
+                {
+                  "type": "reference",
+                  "name": "Date"
+                },
+                {
+                  "type": "intrinsic",
+                  "name": "undefined"
+                }
+              ]
+            }
+          }
+        ],
+        "groups": [
+          {
+            "title": "Variables",
+            "kind": 32,
+            "children": [
+              553,
+              554,
+              551,
+              552
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+            "line": 52,
+            "character": 2
+          }
+        ]
+      }
+    },
+    "comment": {
+      "shortText": "Hook to bind a input with a calendar.",
+      "text": "```jsx\nconst {\n month,\n selected,\n dayPickerProps,\n inputProps\n} = useInput(new Date());\n\n<DayPicker {...dayPickerProps} />\n<input {...inputProps} />\n```\n"
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+        "line": 45,
+        "character": 24
+      }
+    ]
+  },
+  "useModifiers": {
+    "flags": {
+      "isExported": true
+    },
+    "id": 522,
+    "name": "useModifiers",
+    "parameters": [
+      {
+        "id": 523,
+        "name": "day",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "name": "Date"
+        }
+      },
+      {
+        "id": 524,
+        "name": "currentMonth",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "name": "Date"
+        }
+      },
+      {
+        "id": 525,
+        "name": "props",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "id": 215,
+          "name": "DayPickerProps"
+        }
+      }
+    ],
+    "type": {
+      "type": "reference",
+      "id": 165,
+      "name": "MatchingModifiers"
+    },
+    "comment": {
+      "shortText": "Get the modifiers for the specified day."
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/hooks/useModifiers.ts",
+        "line": 15,
+        "character": 28
+      }
+    ]
+  }
+}

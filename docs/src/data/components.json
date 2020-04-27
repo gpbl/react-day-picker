@@ -1,0 +1,349 @@
+{
+  "Day": {
+    "flags": {
+      "isExported": true
+    },
+    "id": 527,
+    "name": "Day",
+    "parameters": [
+      {
+        "id": 528,
+        "name": "props",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "id": 71,
+          "name": "DayProps"
+        }
+      }
+    ],
+    "type": {
+      "type": "reference",
+      "name": "Element"
+    },
+    "comment": {
+      "shortText": "The `Day` component renders the content of the day cell. It renders a button\nif the day is interactive (i.e. it is clickable).",
+      "text": "This component can be [[include:swizzling.md]].\n"
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/components/Day/Day.tsx",
+        "line": 15,
+        "character": 19
+      }
+    ]
+  },
+  "DayPicker": {
+    "flags": {
+      "isExported": true
+    },
+    "id": 451,
+    "name": "DayPicker",
+    "parameters": [
+      {
+        "id": 452,
+        "name": "props",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "id": 215,
+          "name": "DayPickerProps"
+        },
+        "defaultValue": "defaultProps"
+      }
+    ],
+    "type": {
+      "type": "reference",
+      "name": "Element"
+    },
+    "comment": {
+      "shortText": "Render a date picker component."
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/components/DayPicker/DayPicker.tsx",
+        "line": 12,
+        "character": 25
+      }
+    ]
+  },
+  "Head": {
+    "flags": {
+      "isExported": true
+    },
+    "id": 10,
+    "name": "Head",
+    "parameters": [
+      {
+        "id": 11,
+        "name": "props",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "id": 5,
+          "name": "HeadProps"
+        }
+      }
+    ],
+    "type": {
+      "type": "reference",
+      "name": "Element"
+    },
+    "comment": {
+      "shortText": "Render the head of the month table, including the weekday names (Mon, Tue,\netc.)."
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/components/Head/Head.tsx",
+        "line": 10,
+        "character": 20
+      }
+    ]
+  },
+  "MonthCaption": {
+    "flags": {
+      "isExported": true
+    },
+    "id": 69,
+    "name": "MonthCaption",
+    "parameters": [
+      {
+        "id": 70,
+        "name": "props",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "id": 49,
+          "name": "MonthCaptionProps"
+        }
+      }
+    ],
+    "type": {
+      "type": "reference",
+      "name": "Element"
+    },
+    "comment": {
+      "shortText": "Renders the caption of the month."
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/components/MonthCaption/MonthCaption.tsx",
+        "line": 10,
+        "character": 28
+      }
+    ]
+  },
+  "MonthTable": {
+    "flags": {
+      "isExported": true
+    },
+    "id": 47,
+    "name": "MonthTable",
+    "parameters": [
+      {
+        "id": 48,
+        "name": "props",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "id": 43,
+          "name": "MonthTableProps"
+        }
+      }
+    ],
+    "type": {
+      "type": "reference",
+      "name": "Element"
+    },
+    "comment": {
+      "shortText": "Render the month table."
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/components/MonthTable/MonthTable.tsx",
+        "line": 11,
+        "character": 26
+      }
+    ]
+  },
+  "Months": {
+    "flags": {
+      "isExported": true
+    },
+    "id": 448,
+    "name": "Months",
+    "parameters": [
+      {
+        "id": 449,
+        "name": "initialProps",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "id": 215,
+          "name": "DayPickerProps"
+        },
+        "defaultValue": "defaultProps"
+      }
+    ],
+    "type": {
+      "type": "reference",
+      "name": "Element"
+    },
+    "comment": {
+      "shortText": "Render the months and the navigation."
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/components/Months/Months.tsx",
+        "line": 18,
+        "character": 22
+      }
+    ]
+  },
+  "Navigation": {
+    "flags": {
+      "isExported": true
+    },
+    "id": 129,
+    "name": "Navigation",
+    "parameters": [
+      {
+        "id": 130,
+        "name": "props",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "id": 102,
+          "name": "NavigationProps"
+        }
+      }
+    ],
+    "type": {
+      "type": "union",
+      "types": [
+        {
+          "type": "reference",
+          "name": "Element"
+        },
+        {
+          "type": "intrinsic",
+          "name": "null"
+        }
+      ]
+    },
+    "comment": {
+      "shortText": "Renders the buttons to navigate between months."
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/components/Navigation/Navigation.tsx",
+        "line": 11,
+        "character": 26
+      }
+    ]
+  },
+  "WeekNumber": {
+    "flags": {
+      "isExported": true
+    },
+    "id": 143,
+    "name": "WeekNumber",
+    "parameters": [
+      {
+        "id": 144,
+        "name": "props",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "id": 131,
+          "name": "WeekNumberProps"
+        }
+      }
+    ],
+    "type": {
+      "type": "reference",
+      "name": "Element"
+    },
+    "comment": {
+      "shortText": "Render the number of the week when [[showWeekNumber]] is enabled.",
+      "text": "This is just an exmaple of a long text.\n"
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/components/WeekNumber/WeekNumber.tsx",
+        "line": 11,
+        "character": 26
+      }
+    ]
+  },
+  "WeekRow": {
+    "flags": {
+      "isPrivate": true,
+      "isExported": true
+    },
+    "id": 25,
+    "name": "WeekRow",
+    "parameters": [
+      {
+        "id": 26,
+        "name": "props",
+        "kind": 32768,
+        "kindString": "Parameter",
+        "flags": {
+          "isExported": true
+        },
+        "type": {
+          "type": "reference",
+          "id": 12,
+          "name": "WeekRowProps"
+        }
+      }
+    ],
+    "type": {
+      "type": "reference",
+      "name": "Element"
+    },
+    "comment": {
+      "shortText": "Render a week row."
+    },
+    "sources": [
+      {
+        "fileName": "packages/react-day-picker/src/components/WeekRow/WeekRow.tsx",
+        "line": 11,
+        "character": 23
+      }
+    ]
+  }
+}

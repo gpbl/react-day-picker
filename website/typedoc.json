@@ -1,6 +1,0 @@
-{
-  "mode": "file",
-  "readme": "none",
-  "excludePrivate": true,
-  "tsconfig": "../packages/react-day-picker/tsconfig.json"
-}

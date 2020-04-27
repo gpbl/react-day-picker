@@ -22,6 +22,7 @@
   },
   "workspaces": [
     "website",
+    "docs",
     "packages/*"
   ],
   "devDependencies": {

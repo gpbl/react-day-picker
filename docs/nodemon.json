@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "scripts",
+    "../packages/react-day-picker/src"
+  ],
+  "ext": "ts,tsx",
+  "ignore": [],
+  "exec": "ts-node ./scripts/start.ts"
+}
