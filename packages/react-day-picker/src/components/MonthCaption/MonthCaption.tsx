@@ -4,6 +4,8 @@ import { MonthCaptionProps } from './types';
 
 /**
  * Renders the caption of the month.
+ *
+ * @category Components
  */
 export function MonthCaption(props: MonthCaptionProps): JSX.Element {
   const { containerProps } = getCaptionProps(props.dayPickerProps);
