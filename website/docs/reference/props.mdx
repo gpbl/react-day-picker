@@ -1,20 +1,25 @@
 ---
-id: props
-title: Props
+id: "props"
+title: "Props"
+sidebar_label: "Props"
 ---
 
-import { components, Function } from 'docs';
 
-<Function reflection={{name: "xx"}} />
+<div className="docs">
+  <h2>className</h2>
+  <h3>Change the class names used by DayPicker.</h3>
+  <hr />
+  <pre>
+    <code>
+      <span class="syntax-keyword">prop</span> <span class="syntax-identifier">classNames</span>?: <span class="syntax-symbol-ref"><a href="#DayPickerClassNames">DayPickerClassNames</a></span>
+    </code>
+  </pre>
+  <p>
+    Use this prop when you want to style the CSS using other class names then the <a href="#defaultClassNames">defaults</a>, for example when using CSS modules.
+  </p>
+</div>
 
-## Feature props
-
-TODO: include here details for the feature props.
-
-## Formatting props
-
-TODO: include here details for the formatting props.
-
-## Event handlers
-
-TODO: include here details for the event handlers.
+```jsx
+import { selected, disabled } from './styles.css';
+<DayPicker classNames={{ selected, disabled }} />
+```
