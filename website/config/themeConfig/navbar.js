@@ -1,8 +1,8 @@
 const links = [
-  { to: "docs/start", label: "Docs", position: "left" },
-  { to: "docs/examples", label: "Examples", position: "left" },
-  { to: "docs/reference/props", label: "Props", position: "left" },
-  { to: "docs/reference/changelog", label: "Changelog", position: "left" },
+  { to: "docs/start", label: "Docs", position: "right" },
+  { to: "docs/examples", label: "Examples", position: "right" },
+  { to: "docs/reference/props", label: "Props", position: "right" },
+  { to: "docs/reference/changelog", label: "Changelog", position: "right" },
   {
     href: "https://github.com/gpbl/react-day-picker",
     label: "GitHub",
@@ -14,7 +14,7 @@ module.exports = {
   title: "React DayPicker",
   logo: {
     alt: "DayPicker Logo",
-    src: "img/logo.svg",
+    src: "img/logo.png",
   },
   links,
 };
