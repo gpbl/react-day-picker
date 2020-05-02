@@ -5,7 +5,7 @@ cd packages/react-day-picker
 
 VERSION=`npm version prerelease --preid=alpha`;
 
-echo 👋 This script will pre-release react-day-picker on npm.
+echo 👋 This script will pre-release React DayPicker on npm.
 echo 🚀 Version: $VERSION
 echo
 echo 📡 Committing changes...
@@ -27,5 +27,5 @@ printf "\n"
 git push --tags
 printf "\n"
 
-echo 
+echo
 echo ✅ Done!
