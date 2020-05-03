@@ -11,6 +11,9 @@ export interface NavigationProps {
  * HTML props for the [[Navigation]].
  */
 export type NavigationHtmlProps = {
+  /**
+   * The props to apply to the container component
+   */
   containerProps: {
     className?: string;
     style?: React.CSSProperties;

@@ -1,13 +1,10 @@
 ---
-id: interfaces
+id: interface
 title: Interfaces
 ---
 <a id="docs"></a> {{!-- Used by custom.css --}}
-
 {{#each interfaces }}
 
-{{name}}
-
-{{!-- {{> enum enum=this}} --}}
+{{> interface this}}
 
 {{/each}}

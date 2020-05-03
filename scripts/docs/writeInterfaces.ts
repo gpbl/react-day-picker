@@ -18,8 +18,9 @@ export function writeInterfaces(
   outputPath: string
 ) {
   makeDir(outputPath);
-
   const interfaces = findReflection(project, ReflectionKind.Interface);
-  const componentPath = `${outputPath}/interfaces.mdx`;
+  const componentPath = `${outputPath}/interface.mdx`;
+
   writeFile(componentPath, template({ interfaces }));
+  console.log(componentPath);
 }

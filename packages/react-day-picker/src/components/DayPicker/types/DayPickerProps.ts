@@ -17,13 +17,15 @@ import {
 import { DayPickerElements } from './DayPickerElements';
 
 /**
- * Names of the CSS classes for each UI element.
+ * An object defining the CSS class names for each [DayPicker
+ * element](./enumerations#daypickerelements).
  */
 export type DayPickerClassNames = {
   [name in DayPickerElements]?: string;
 };
 /**
- * Inline `style` for each UI element.
+ * An object defining the inline style for each [DayPicker
+ * element](./enumerations#daypickerelements).
  */
 export type DayPickerStyles = {
   [name in DayPickerElements]?: React.CSSProperties;
@@ -115,7 +117,7 @@ export interface DayPickerProps {
    */
   style?: React.CSSProperties;
   /**
-   * Inline styles to apply to the [[DayPickerElements]].
+   * Change the inline styles for each [DayPicker element](./enumerations#daypickerelements).
    */
   styles?: DayPickerStyles;
   /**

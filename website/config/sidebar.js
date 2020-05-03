@@ -26,7 +26,7 @@ module.exports = [
       'api/daypicker',
       {
         type: 'category',
-        label: 'Customizable components',
+        label: 'Components',
         items: [
           'api/day',
           'api/monthcaption',
@@ -35,6 +35,8 @@ module.exports = [
         ]
       },
       'api/enumerations',
+      'api/interface',
+      'api/type',
       'reference/changelog',
       'reference/hooks'
     ]

@@ -6,6 +6,8 @@ import { createProject } from './createProject';
 import { writeComponents } from './writeComponents';
 import { configure } from './templates/configure';
 import { writeEnumerations } from './writeEnumerations';
+import { writeInterfaces } from './writeInterfaces';
+import { writeTypeAliases } from './writeTypeAliases';
 
 const program = new Commander.Command();
 program
@@ -35,12 +37,13 @@ program
     const inputPath = Path.resolve(projectPath, program.input);
     const configPath = Path.resolve(projectPath, program.config);
 
-    console.log(1);
     configure();
-
+    console.log('Creating project...');
     const project = createProject(inputPath, outputPath, configPath);
-    // writeComponents(project, outputPath);
-    // writeEnumerations(project, outputPath);
+    writeComponents(project, outputPath);
+    writeEnumerations(project, outputPath);
+    writeTypeAliases(project, outputPath);
+    writeInterfaces(project, outputPath);
     // writeHooks(project, outputPath);
   });
 

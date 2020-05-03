@@ -159,3 +159,32 @@ hr {
   margin-bottom: 0.875rem;
   font-weight: normal;
 }
+
+.interface-syntax {
+  display: block;
+  padding: 0.5em 0;
+}
+
+/* syntax template */
+
+a > code {
+  color: inherit;
+}
+
+.syntax + p {
+  margin-bottom: 0.5em;
+}
+
+.syntax + p code {
+  background: none;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.syntax + p > code:first-child {
+  color: tomato;
+}
+
+.syntax + p + p {
+  margin-bottom: 1em;
+}

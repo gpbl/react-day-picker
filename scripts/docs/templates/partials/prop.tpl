@@ -1,9 +1,10 @@
-## {{prop.name}}
-
-{{#if prop.shortText~}}
-  {{replaceInternalLinks prop.shortText}}
+## {{name}}
+{{#if comment.shortText~}}
+  {{replaceLinks comment.shortText}}
 {{~/if}}
 
-{{> syntax kind="prop" name=prop.name optional=true type=prop.type }}
+{{> syntax prefix="prop" name=name flags=flags type=type }}
 
-{{#if prop.text}}{{replaceInternalLinks prop.text}}{{/if}}
+<hr />
+
+{{#if comment.text}}{{replaceLinks comment.text}}{{/if}}

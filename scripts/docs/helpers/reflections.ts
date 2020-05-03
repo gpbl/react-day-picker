@@ -2,51 +2,54 @@ import * as TD from 'typedoc';
 import { CategoryTitle } from './types';
 import { ReflectionGroup, ReflectionCategory } from 'typedoc/dist/lib/models';
 
-/**
- * Find the reflections belonging to a category.
- */
-export function findReflectionsByCategory(
-  project: TD.ProjectReflection,
-  title: CategoryTitle
-): TD.DeclarationReflection[] {
-  const functionsGroup = project.groups!.find(
-    (group: ReflectionGroup) => group.kind === TD.ReflectionKind.Function
-  );
-  const ids = <[number]>(
-    (<unknown>(
-      functionsGroup!.categories!.find(
-        (cat: ReflectionCategory) => cat.title.toLowerCase() === title
-      )?.children
-    ))
-  );
-
-  const reflections = <TD.DeclarationReflection[]>(
-    ids.map((reflectionId: number) =>
-      project!.children!.find(
-        (reflection: TD.Reflection) => reflection.id === reflectionId
-      )
-    )
-  );
-  return reflections!;
-}
-
 export function findReflection(
   project: TD.ProjectReflection,
-  kind: TD.ReflectionKind
+  kind: TD.ReflectionKind,
+  categoryTitle?: CategoryTitle
 ) {
-  const ids = (<unknown>(
-    project.groups?.find((group: ReflectionGroup) => group.kind === kind)
-      ?.children
-  )) as number[];
-
-  const reflections = <TD.DeclarationReflection[]>(
-    ids?.map((id: number) =>
-      project!.children!.find(
-        (reflection: TD.Reflection) => reflection.id === id
-      )
-    )
+  console.log(
+    'Finding reflections with kind "%s" and category "%s"',
+    kind,
+    categoryTitle
   );
-  return reflections!;
+  const group = <any>(
+    project.groups?.find((group: ReflectionGroup) => group.kind === kind)
+  );
+
+  let ids = [];
+
+  if (!categoryTitle) {
+    ids = group.children;
+  } else {
+    const category = group.categories.find(
+      (cat: any) => cat.title.toLowerCase() === categoryTitle
+    );
+    ids = category.children;
+  }
+
+  const reflections = <TD.DeclarationReflection[]>ids?.map((id: number) => {
+    const reflection = project!.children!.find(
+      (reflection: TD.Reflection) => reflection.id === id
+    );
+    const children = reflection?.children?.map((child: any) => {
+      let { type } = child;
+      if (type?.id) {
+        const typeExtended = project.children?.find(
+          (child) => child.id === type.id
+        );
+        const page = typeExtended?.kindString?.split(' ')[0].toLowerCase();
+        const childWithType = {
+          ...child,
+          type: { ...type, page }
+        };
+        return childWithType;
+      }
+      return child;
+    });
+
+    return { ...reflection, children };
+  });
+  return reflections;
 }
 
 const mdnUrl =
@@ -55,7 +58,7 @@ const dateFnsUrl = 'https://date-fns.org/docs/';
 
 function getLink(reflection: any) {
   const { id, name } = reflection;
-  let link;
+  let link = '';
   if (id) {
     link = `./types#${name.toLowerCase()}`;
   } else if (

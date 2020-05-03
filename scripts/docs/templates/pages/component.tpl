@@ -5,9 +5,9 @@ sidebar_label: {{name}}
 ---
 <a id="docs"></a> {{!-- Used by custom.css --}}
 
-{{replaceInternalLinks shortText}}
+{{replaceLinks comment.shortText}}
 
-{{#if text}}{{replaceInternalLinks text}}{{/if}}
+{{#if text}}{{replaceLinks comment.text}}{{/if}}
 
 <a id="props"></a>
 
@@ -15,6 +15,6 @@ sidebar_label: {{name}}
 
 {{#each props }}
 
-{{> prop prop=this}}
+{{> prop this}}
 
 {{/each}}

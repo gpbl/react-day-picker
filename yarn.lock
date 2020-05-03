@@ -3244,13 +3244,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"atomic-sleep@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "atomic-sleep@npm:1.0.0"
-  checksum: 2/2c6fa68cafef5ec1501245da00cde40b8f7ac71428bd727a923ea883b81ad643667a85677056cd663ad3ca584a49dbeb3a1bd4e6c70c1e9e36afd71b6e36ef96
-  languageName: node
-  linkType: hard
-
 "autocomplete.js@npm:0.36.0":
   version: 0.36.0
   resolution: "autocomplete.js@npm:0.36.0"
@@ -6509,13 +6502,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-redact@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "fast-redact@npm:2.0.0"
-  checksum: 2/dc2b3a85cfa5bc23d1d75cac1b19868ecf12e4cc75542244a36c87150681f09ccf6e5198041e928a02a9d6bb6d0514c0675677b4ee876ecf558a39ef07d21e23
-  languageName: node
-  linkType: hard
-
 "fast-safe-stringify@npm:^2.0.7":
   version: 2.0.7
   resolution: "fast-safe-stringify@npm:2.0.7"
@@ -6717,13 +6703,6 @@ __metadata:
     rimraf: 2.6.3
     write: 1.0.3
   checksum: 2/a36ba407553064be4a571cdee4021a50290f6179a0827df1d076a2e33cd84e543d0274cb15dbeb551c2ae6d53e611e3c02564a93f0d527563d0f560be7a14b0d
-  languageName: node
-  linkType: hard
-
-"flatstr@npm:^1.0.12":
-  version: 1.0.12
-  resolution: "flatstr@npm:1.0.12"
-  checksum: 2/2803767f91887ffd60ac2aac0d6ccf2dd9e2d8f216628a73e3f525d5b5bfa4ac9a5b57334a4c1e6d5622f92f440c52562f7ca9719ace9d025d6c5b7a1a1579db
   languageName: node
   linkType: hard
 
@@ -11622,29 +11601,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pino-std-serializers@npm:^2.4.2":
-  version: 2.4.2
-  resolution: "pino-std-serializers@npm:2.4.2"
-  checksum: 2/85526a9b35f268bf744e3b9cdb032fb8bcf9aebc6ece2ed04fb0340e7571bea8a48a5f8a7cef1791fffd6bbab7e1f1ff831a072f6c21dd48500d66f50e165f3c
-  languageName: node
-  linkType: hard
-
-"pino@npm:^6.2.1":
-  version: 6.2.1
-  resolution: "pino@npm:6.2.1"
-  dependencies:
-    fast-redact: ^2.0.0
-    fast-safe-stringify: ^2.0.7
-    flatstr: ^1.0.12
-    pino-std-serializers: ^2.4.2
-    quick-format-unescaped: ^4.0.1
-    sonic-boom: ^1.0.0
-  bin:
-    pino: bin.js
-  checksum: 2/87fdc9b43f5d0480c57215e9b6eda61f2fc7a2117c779101b02c5891c427ed35696bf95165993d74f957fb6de1104957e3298fd9c9f4fee4a18c075c6f91701d
-  languageName: node
-  linkType: hard
-
 "pirates@npm:^4.0.1":
   version: 4.0.1
   resolution: "pirates@npm:4.0.1"
@@ -12796,13 +12752,6 @@ fsevents@^1.2.7:
   version: 2.1.1
   resolution: "querystringify@npm:2.1.1"
   checksum: 2/35301cc744d5de15040a6bdb6b751ef127f65a82675c5f3a9139a4ce0d047ed8b61a459a93261cd7ae0becfa389edd3f02e8aec1c025ae3e7f0d06dc758baa98
-  languageName: node
-  linkType: hard
-
-"quick-format-unescaped@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "quick-format-unescaped@npm:4.0.1"
-  checksum: 2/0935e55e0aaaf789baa080768e822694bc0a497a3170fd35bf2b1aee2a953cf3b5a24e9d29a70dbe7bdc72534c6e1be917ab5c599d587ce0425c98293d8cc1c7
   languageName: node
   linkType: hard
 
@@ -14005,7 +13954,6 @@ resolve@^1.17.0:
     "@types/pino": ^6.0.0
     handlebars: ^4.7.6
     nodemon: ^2.0.3
-    pino: ^6.2.1
     pino-pretty: ^4.0.0
     ts-node: ^8.9.1
     typedoc: ^0.17.6
@@ -14378,16 +14326,6 @@ resolve@^1.17.0:
     faye-websocket: ^0.10.0
     uuid: ^3.0.1
   checksum: 2/04c93f75468230e1279340799e3d5fa39978e591e1af4544b9981609c8b2b5f2720269fa11ee1e1bd4413e49bd717792e21f6d467f93337d2a9718ab9e9dc5f7
-  languageName: node
-  linkType: hard
-
-"sonic-boom@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "sonic-boom@npm:1.0.1"
-  dependencies:
-    atomic-sleep: ^1.0.0
-    flatstr: ^1.0.12
-  checksum: 2/9b4d7548dd0211ba67c9084c5beb16c7f000606cb9e242eb178fbf8dd148ca566cecd956a4499745f2e9529704d4b260c5dde7be6d91d22402be10b2efd87060
   languageName: node
   linkType: hard
 

@@ -92,7 +92,7 @@ export type MatchDayBefore = { before: Date };
 export type MatchDayAfter = { after: Date };
 
 /**
- * Matches the days between (but not including) the specified date.
+ * Matches the days between (but not including) the specified dates.
  */
 export type MatchDayBetween = { after: Date; before: Date };
 

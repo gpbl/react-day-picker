@@ -1,8 +1,6 @@
 import * as TS from 'typescript';
 import * as TD from 'typedoc';
 
-import { logger } from './helpers/logger';
-
 /**
  * Filename in the output directory that contains all the typings in json
  * format.
@@ -19,6 +17,7 @@ export function createProject(
   tsconfigPath: string
 ): TD.ProjectReflection {
   const app = new TD.Application();
+
   app.bootstrap({
     mode: 'file',
     readme: 'none',
@@ -26,8 +25,7 @@ export function createProject(
     esModuleInterop: true,
     ignoreCompilerErrors: true,
     tsconfig: tsconfigPath,
-    exclude: ['*.test.ts', 'node_modules'],
-    logger: (msg: string) => logger.debug(msg)
+    exclude: ['*.test.ts', 'node_modules']
   });
 
   const project = app.convert(app.expandInputFiles([inputPath]));
@@ -36,7 +34,5 @@ export function createProject(
 
   const allPath = `${outputPath}/${ALL_FILENAME}`;
   app.generateJson(project, allPath);
-  logger.info(allPath);
-
   return require(allPath);
 }

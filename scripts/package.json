@@ -26,7 +26,6 @@
     "@mdx-js/mdx": "^1.6.1",
     "@types/node": "12",
     "handlebars": "^4.7.6",
-    "pino": "^6.2.1",
     "pino-pretty": "^4.0.0",
     "ts-node": "^8.9.1",
     "typedoc": "^0.17.6",
