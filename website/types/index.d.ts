@@ -1,3 +1,28 @@
+declare module '*.css' {
+  export interface ClassNames {
+    [className: string]: string;
+  }
+  const classNames: ClassNames;
+  export = classNames;
+}
+
+declare module '*.svg' {
+  export = React.Component;
+}
+
+declare module '*.png' {
+  export = string;
+}
+
+declare module '*.jpg' {
+  export = string;
+}
+
+type DocComment = {
+  shortText: string | undefined;
+  text: string | undefined;
+};
+
 declare module '@mdx-js/react' {
   import * as React from 'react';
   type ComponentType =
@@ -34,9 +59,4 @@ declare module '@mdx-js/react' {
     components: Components;
   }
   export class MDXProvider extends React.Component<MDXProviderProps> {}
-}
-
-declare module '@mdx-js/mdx' {
-  export default function (src: string): Promise<string>;
-  export function sync(text: string): string;
 }

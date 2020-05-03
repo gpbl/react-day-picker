@@ -1,0 +1,68 @@
+---
+id: day
+title: Day
+sidebar_label: Day
+---
+<a id="docs"></a> 
+
+The `Day` component renders the content of the day cell. It renders a button
+if the day is interactive (i.e. it is clickable).
+
+This component can be [[include:swizzling.md]].
+
+
+<a id="props"></a>
+
+# Day props
+
+
+## currentMonth
+
+The month the calendar belongs to. Used to calulate outside days.
+
+<div className="docs">
+  <div class="syntax">
+    <code>
+      <span class="syntax-keyword">prop</span> <span class="syntax-identifier">currentMonth</span>?: <span class="syntax-symbol-ref">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>
+      </span>
+    </code>
+  </div>
+</div>
+
+
+
+
+## day
+
+The day to display in the calendar.
+
+<div className="docs">
+  <div class="syntax">
+    <code>
+      <span class="syntax-keyword">prop</span> <span class="syntax-identifier">day</span>?: <span class="syntax-symbol-ref">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>
+      </span>
+    </code>
+  </div>
+</div>
+
+
+
+
+## dayPickerProps
+
+Reference to the props used by the DayPicker component.
+
+<div className="docs">
+  <div class="syntax">
+    <code>
+      <span class="syntax-keyword">prop</span> <span class="syntax-identifier">dayPickerProps</span>?: <span class="syntax-symbol-ref">
+        <a href="./types#daypickerprops">DayPickerProps</a>
+      </span>
+    </code>
+  </div>
+</div>
+
+
+

@@ -24,6 +24,7 @@
   "homepage": "https://github.com/gpbl/react-day-picker#readme",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.1",
+    "@types/node": "12",
     "handlebars": "^4.7.6",
     "pino": "^6.2.1",
     "pino-pretty": "^4.0.0",

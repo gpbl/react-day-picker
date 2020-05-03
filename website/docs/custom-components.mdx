@@ -8,7 +8,7 @@ title: Custom Components
 Use the [components prop](./reference/props.mdx#components) to replace
 DayPicker’s internals with your own components:
 
-* `Caption` – used to render the caption;
+* `MonthCaption` – used to render the caption;
 * `Navigation` – used to render the month navigation;
 * `WeekNumber` – used to render the week numbers;
 * `Day` – used to render the day.
@@ -19,17 +19,17 @@ This guide is still a work in progress.
 
 :::
 
-## Caption component
+## MonthCaption component
 
-The `Caption` component is used to render the caption (with month/year) in the calendar.
+The `MonthCaption` component is used to render the caption (with month/year) in the calendar.
 
 To use a custom Caption component,
 
-1. create a `Caption` component with `month` and `dayPickerProps` props;
+1. create a `MonthCaption` component with `month` and `dayPickerProps` props;
 2. (optional) get DayPicker-specific props via [getCaptionProps](./utils#getCaptionProps);
-3. pass the `Caption` component to the `components` prop.
+3. pass the `MonthCaption` component to the `components` prop.
 
-For example, the following DayPicker implements a `Caption` component to switch the month of the current year:
+For example, the following DayPicker implements a `MonthCaption` component to switch the month of the current year:
 
 ```jsx preview
 import { DayPicker, getCaptionProps } from 'react-day-picker';
@@ -53,7 +53,7 @@ function App() {
       </select>
     );
   }
-  function Caption({ month, dayPickerProps }) {
+  function MonthCaption({ month, dayPickerProps }) {
     const { locale, onCaptionMonthChange } = dayPickerProps;
     const { containerProps } = getCaptionProps(dayPickerProps);
 
@@ -76,7 +76,7 @@ function App() {
       month={month}
       onMonthChange={setMonth}
       onCaptionMonthChange={handleCaptionMonthChange}
-      components={{ Caption }}
+      components={{ MonthCaption }}
     />
   );
 }

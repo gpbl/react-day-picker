@@ -1,0 +1,153 @@
+---
+id: enumerations
+title: Enumerations
+sidebar_label: Enumerations
+---
+<a id="docs"></a> 
+
+
+## DayPickerProps
+
+The props used by the [DayPicker](#daypicker) component.
+
+
+
+|Name|Description
+|----|-----------
+| |CSS class to add to the root element.|
+| |Change the class names used by `DayPicker`.|
+| |Customize the internal components.|
+| |An object of modifiers.|
+| |Change the class names used for the [days modifiers](#day).|
+| |Change the inline style for the [days modifiers](#day).|
+| |The text direction of the calendar. Use `ltr` for left-to-right (default)
+or `rtl` for right-to-left.|
+| |Disable the matching days. Disabled days cannot be clicked.|
+| |Enable click event for outside days when [showOutsideDays](#showoutsidedays) is used.|
+| |Display six weeks per months, regardless the month’s number of weeks. Outside
+days will be always shown when setting this prop.|
+| |Format the month caption text.|
+| |Format the content of the day element.|
+| |Format the week numbers (when [showWeekNumber](#showweeknumber) is set).|
+| |Format the weekday's name in the head element.|
+| |Allow navigation after (and including) the specified month.|
+| |Hide the matching days.|
+| |The initial month to show in the calendar.|
+| |A locale object to localize
+the user interface.|
+| |The rendered month. Implement [onMonthChange](#onmonthchange) to enable months
+navigation.|
+| |Label used for the next month button in [Navigation](#navigation). Set it to empty
+string to hide the button.|
+| |The number of months to render.|
+| |Event handler when the user clicks on a day.|
+| |Event handler when the month changes.|
+| |Event handler when the next month button is clicked.|
+| |Event handler when the previous month button is clicked.|
+| |When displaying multiple months, the navigation will be paginated
+displaying the [numberOfMonths](#numberofmonths) months at time instead of
+one.|
+| |Label used for the previous month button in [Navigation](#navigation). Set it to
+empty string to hide the button.|
+| |Render the months in reversed order. Useful when [numberOfMonths](#numberofmonths) is
+greater than `1`, to display the most recent month first.|
+| |Apply the `selected` modifiers to the matching days.|
+| |Show the month’s caption. As default, the caption displays month and year.|
+| |Show the month’s head. As default, it displays the weekday names according
+to [locale](#locale).|
+| |Show the navigation bar. [onMonthChange](#onmonthchange) must be set.|
+| |Show the outside days. An outside day is a day falling in the next or the
+previous month.|
+| |Show the week numbers column.|
+| |Style to apply to the root element.|
+| |Inline styles to apply to the [DayPickerElements](#daypickerelements).|
+| |Allow navigation before (and including) the specified month.|
+
+
+## DayProps
+
+The props used by the [Day](#day) component.
+
+
+
+|Name|Description
+|----|-----------
+| |The month the calendar belongs to. Used to calulate outside days.|
+| |The day to display in the calendar.|
+| |Reference to the props used by the DayPicker component.|
+
+
+## HeadProps
+
+The props used by the [Head](#head) component.
+
+
+
+|Name|Description
+|----|-----------
+| |Reference to the props used by the DayPicker component.|
+| ||
+| |Add a column to accommodate the week numbers.|
+
+
+## MonthCaptionProps
+
+The props used by the [MonthCaption](#monthcaption) component.
+
+
+
+|Name|Description
+|----|-----------
+| |Reference to the props used by the DayPicker component.|
+| |The month the caption is referring to.|
+
+
+## MonthTableProps
+
+Props of the [Month](#month) component.
+
+
+
+|Name|Description
+|----|-----------
+| ||
+| ||
+
+
+## NavigationProps
+
+Props for the [Navigation](#navigation) component.
+
+
+
+|Name|Description
+|----|-----------
+| ||
+
+
+## WeekNumberProps
+
+Props for the [WeekNumber](#weeknumber) component.
+
+
+
+|Name|Description
+|----|-----------
+| ||
+| ||
+| ||
+
+
+## WeekRowProps
+
+
+
+
+
+|Name|Description
+|----|-----------
+| ||
+| ||
+| ||
+| ||
+

@@ -13,7 +13,7 @@ const ALL_FILENAME = 'all.json';
  * Create a Typedoc project and save the reflections to the output dir.
  * Reflections are then returned as parsed JSON.
  */
-export function createReflections(
+export function createProject(
   inputPath: string,
   outputPath: string,
   tsconfigPath: string

@@ -2,9 +2,10 @@
 import * as Path from 'path';
 import * as Commander from 'commander';
 
-import { createReflections } from './createReflections';
-import { writeHooks } from './writeHooks';
+import { createProject } from './createProject';
 import { writeComponents } from './writeComponents';
+import { configure } from './templates/configure';
+import { writeEnumerations } from './writeEnumerations';
 
 const program = new Commander.Command();
 program
@@ -26,7 +27,7 @@ program
   .option(
     '-o, --outDir <path>',
     'set the output directory',
-    '../website/src/assets/data'
+    '../website/docs/api'
   )
   .action(() => {
     const projectPath = Path.resolve(program.project);
@@ -34,9 +35,12 @@ program
     const inputPath = Path.resolve(projectPath, program.input);
     const configPath = Path.resolve(projectPath, program.config);
 
-    const project = createReflections(inputPath, outputPath, configPath);
+    console.log(1);
+    configure();
 
-    writeComponents(project, outputPath);
+    const project = createProject(inputPath, outputPath, configPath);
+    // writeComponents(project, outputPath);
+    // writeEnumerations(project, outputPath);
     // writeHooks(project, outputPath);
   });
 

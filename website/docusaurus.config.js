@@ -3,8 +3,8 @@ const themeConfig = require("./config/themeConfig");
 const classic = require("./config/presets/classic");
 
 module.exports = {
-  title: "react-day-picker",
-  tagline: "The tagline of my site",
+  title: "React DayPicker",
+  tagline: "Date picker component for React",
   url: "https://react-day-picker.js.org",
   baseUrl: "/",
   favicon: "img/favicon.ico",
