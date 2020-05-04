@@ -51,7 +51,7 @@ export default class Caption extends Component {
       onClick,
     } = this.props;
     return (
-      <div className={classNames.caption} role="heading">
+      <div className={classNames.caption} role="heading" aria-live="polite">
         <div onClick={onClick} onKeyUp={this.handleKeyUp}>
           {months
             ? `${months[date.getMonth()]} ${date.getFullYear()}`
