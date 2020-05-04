@@ -17,13 +17,15 @@ import {
 import { DayPickerElements } from './DayPickerElements';
 
 /**
- * Names of the CSS classes for each UI element.
+ * An object defining the CSS class names for each [DayPicker
+ * element](./enumerations#daypickerelements).
  */
 export type DayPickerClassNames = {
   [name in DayPickerElements]?: string;
 };
 /**
- * Inline `style` for each UI element.
+ * An object defining the inline style for each [DayPicker
+ * element](./enumerations#daypickerelements).
  */
 export type DayPickerStyles = {
   [name in DayPickerElements]?: React.CSSProperties;
@@ -71,17 +73,42 @@ export interface DayPickerProps {
   /**
    * Change the class names used by `DayPicker`.
    *
-   * Use this prop when you cannot style the CSS using the
-   * [[defaultClassNames]], for example when using CSS modules.
+   * Use this prop when you need to change the [default class
+   * names](defaultClassNames.mdx) — for example when using CSS modules.
    *
-   * ```jsx
-   * import { selected, disabled } from './styles.css';
-   * <DayPicker classNames={{ selected, disabled }} />
-   * ````
+   * ### Example
+   *
+   * Using custom class names for the head and the caption elements.
+   *
+   * ```jsx preview
+   *  function App() {
+   *    const css = `
+   *      .salmon-head {
+   *        color: salmon;
+   *      }
+   *      .purple-caption {
+   *        font-weight: bold;
+   *        color: purple;
+   *        padding: 3px 0 6px 0;
+   *      }
+   *    `;
+   *    return (
+   *      <>
+   *        <style>{css}</style>
+   *        <DayPicker
+   *          classNames={{
+   *            head: 'salmon-head',
+   *            caption: 'purple-caption'
+   *          }}
+   *        />
+   *      </>
+   *    );
+   *  }
+   * ```
    */
   classNames?: DayPickerClassNames;
   /**
-   * Change the class names used for the day [[modifiers]].
+   * Change the class names used for the [days modifiers](#day).
    */
   daysClassNames?: DaysClassNames;
 
@@ -90,11 +117,11 @@ export interface DayPickerProps {
    */
   style?: React.CSSProperties;
   /**
-   * Inline styles to apply to the [[DayPickerElements]].
+   * Change the inline styles for each [DayPicker element](./enumerations#daypickerelements).
    */
   styles?: DayPickerStyles;
   /**
-   * Change the inline style for the day [[modifiers]].
+   * Change the inline style for the [days modifiers](#day).
    */
   daysStyles?: DaysStyles;
 
@@ -105,24 +132,25 @@ export interface DayPickerProps {
   /**
    * The number of months to render.
    *
-   * See also [[pagedNavigation]].
+   * @see pagedNavigation
    */
   numberOfMonths?: number;
   /**
    * Allow navigation after (and including) the specified month.
    *
-   * See also [[toMonth]].
+   * @see toMonth
    */
   fromMonth?: Date;
   /**
    * Allow navigation before (and including) the specified month.
    *
-   * See also [[fromMonth]].
+   * @see fromMonth
    */
   toMonth?: Date;
   /**
    * When displaying multiple months, the navigation will be paginated
-   * displaying the [[numberOfMonths]] months at time instead of one.
+   * displaying the [numberOfMonths](#numberofmonths) months at time instead of
+   * one.
    */
   pagedNavigation?: boolean;
   /**
@@ -139,7 +167,7 @@ export interface DayPickerProps {
    * Display six weeks per months, regardless the month’s number of weeks. Outside
    * days will be always shown when setting this prop.
    *
-   * See also [[showOutsideDays]].
+   * @see showOutsideDays
    */
   fixedWeeks?: boolean;
   /**
@@ -155,7 +183,7 @@ export interface DayPickerProps {
    * Show the outside days. An outside day is a day falling in the next or the
    * previous month.
    *
-   * See also [[enableOutsideDaysClick]].
+   * @see enableOutsideDaysClick
    */
   showOutsideDays?: boolean;
   /**
@@ -200,7 +228,7 @@ export interface DayPickerProps {
   days?: DaysModifiers;
 
   /**
-   * A [`dateFns.Locale`](https://date-fns.org/docs/Locale) object to localize
+   * A locale object to localize
    * the user interface.
    */
   locale?: dateFns.Locale;
@@ -208,7 +236,7 @@ export interface DayPickerProps {
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
    */
-  dir?: string | undefined;
+  dir?: string;
 
   /**
    * Format the month caption text.

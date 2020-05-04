@@ -1,16 +1,60 @@
 ---
-id: props
-title: Props
+id: "props"
+title: "DayPicker"
+sidebar_label: "DayPicker"
 ---
 
-## Feature props
+<div className="docs">
+  <h3>Render a date picker component.</h3>
+</div>
 
-TODO: include here details for the feature props.
+Magni saepe temporibus qui. Nisi ipsa beatae tenetur neque voluptatum aut delectus quis enim. Nesciunt perferendis reprehenderit voluptas omnis exercitationem quo sit repudiandae. Officia assumenda aliquid eius dicta voluptas rem et ut enim. Alias cumque perferendis. Earum qui aut et. Sed veritatis sed rerum voluptatem.
 
-## Formatting props
+Eveniet consequatur ad. Accusamus atque et enim. Cum officiis laboriosam esse hic minima et rerum et voluptatibus. Aut maxime maiores vero esse dolor distinctio deserunt. Est consequatur repellat consequatur qui pariatur commodi autem. Sint quam et.
 
-TODO: include here details for the formatting props.
+Corrupti nobis beatae tempore totam et voluptatum consequatur eos quo. Maxime culpa blanditiis ipsam aut dolores incidunt et reprehenderit. Quia sit hic ut dignissimos omnis voluptates est est. Debitis eveniet nemo consequuntur.
 
-## Event handlers
+## Props list
 
-TODO: include here details for the event handlers.
+* Rendering props: [className](#classname), [classNames](#classnames),
+* Modifiers props: [days](#modifiers), [selected](#selected),
+
+{{#each props ~}}
+## {{this.name}}
+{{~/each}}
+
+## className
+
+<div className="docs">
+  <h3>Change the class names used by DayPicker.</h3>
+  <div class="syntax">
+    <code>
+      <span class="syntax-keyword">prop</span> <span class="syntax-identifier">classNames</span>?: <span class="syntax-symbol-ref"><a href="#DayPickerClassNames">DayPickerClassNames</a></span>
+    </code>
+  </div>
+</div>
+
+Use this prop when you want to style the CSS using other class names then the <a href="#defaultClassNames">defaults</a>, for example when using CSS modules.
+
+```jsx
+import { selected, disabled } from './styles.css';
+<DayPicker classNames={{ selected, disabled }} />
+```
+
+## classNames
+
+<div className="docs">
+  <h3>Change the class names used by DayPicker.</h3>
+  <div class="syntax">
+    <code>
+      <span class="syntax-keyword">prop</span> <span class="syntax-identifier">classNames</span>?: <span class="syntax-symbol-ref"><a href="#DayPickerClassNames">DayPickerClassNames</a></span>
+    </code>
+  </div>
+</div>
+
+Use this prop when you want to style the CSS using other class names then the <a href="#defaultClassNames">defaults</a>, for example when using CSS modules.
+
+```jsx
+import { selected, disabled } from './styles.css';
+<DayPicker classNames={{ selected, disabled }} />
+```

@@ -8,7 +8,9 @@ import { getModifiersFromProps } from './modifiers-utils/getModifiersFromProps';
 import { getOutsideModifier } from './modifiers-utils/getOutsideModifier';
 
 /**
- * TODO: add docs
+ * Get the modifiers for the specified day.
+ *
+ * @category Hooks
  */
 export function useModifiers(
   day: Date,

@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "docs",
+    "../packages/react-day-picker/src"
+  ],
+  "ext": "ts,tsx,tpl",
+  "ignore": [],
+  "exec": "yarn docs"
+}
