@@ -76,9 +76,8 @@ export interface DayPickerProps {
    * Use this prop when you need to change the [default class
    * names](defaultClassNames.mdx) — for example when using CSS modules.
    *
-   * ### Example
-   *
-   * Using custom class names for the head and the caption elements.
+   * **Example**. Use of custom class names for the head and the caption
+   * elements:
    *
    * ```jsx preview
    *  function App() {
