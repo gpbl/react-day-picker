@@ -1,0 +1,38 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "Package to generate react-day-picker docs",
+  "main": "dist/index.js",
+  "scripts": {
+    "docs:develop": "yarn nodemon",
+    "docs": "yarn node -r ts-node/register ./docs/start.ts"
+  },
+  "types": "./types",
+  "files": [
+    "dist",
+    "output"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gpbl/react-day-picker.git"
+  },
+  "author": "Giampaolo Bellavite <io@gpbl.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gpbl/react-day-picker/issues"
+  },
+  "homepage": "https://github.com/gpbl/react-day-picker#readme",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.1",
+    "@types/node": "12",
+    "handlebars": "^4.7.6",
+    "pino-pretty": "^4.0.0",
+    "ts-node": "^8.9.1",
+    "typedoc": "^0.17.6",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/pino": "^6.0.0",
+    "nodemon": "^2.0.3"
+  }
+}

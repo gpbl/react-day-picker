@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn workspaces foreach -v -t run build",
-    "develop": "concurrently --names \"react-day-picker,website\" \"yarn workspace react-day-picker develop\" \"yarn workspace website develop\""
+    "develop": "concurrently --names react-day-picker,website,scripts \"yarn workspace react-day-picker develop\" \"yarn workspace website develop\" \"yarn workspace scripts develop\""
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,10 @@
   },
   "workspaces": [
     "website",
+    "scripts",
     "packages/*"
   ],
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.2.0"
   }
 }

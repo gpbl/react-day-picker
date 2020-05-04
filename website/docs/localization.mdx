@@ -3,12 +3,11 @@ id: localization
 title: Localization
 ---
 
-> DayPicker can be easily localized using
-> [date-fns](https://date-fns.org/docs/I18n).
+> DayPicker can be easily localized in any languaged supported by date-fns.
 
 ## Changing locale
 
-To change the locale, pass to the [locale prop](./reference/props.mdx#locale) a date-fns [Locale
+To change the locale, pass to the [locale prop](./api/daypicker#locale) a date-fns [Locale
 object](http://date-fns.org/docs/Locale).
 
 For example, to localize the calendar in Spanish, import the locale object from
@@ -24,7 +23,7 @@ function App() {
 
 ## Right-to-left direction
 
-To add right-to-left text direction, set the [dir](./reference/props.mdx#dir) prop to `rtl`.
+To add right-to-left text direction, set the [dir](./api/daypicker#dir) prop to `rtl`.
 
 ```jsx preview
 import { DayPicker } from 'react-day-picker';
@@ -37,7 +36,7 @@ function App() {
 
 ## Numbering system
 
-[Formatter props](./reference/props.mdx#formatting) can be used also change the
+[Formatter props](./api/daypicker#formatting-props) can be used also change the
 numbering system used in the calendar.
 
 For example, to switch to hindu-arabic using

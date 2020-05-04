@@ -3,10 +3,9 @@ id: formatting
 title: Formatting
 ---
 
-> Changing the content of the DayPicker components it is easy with [formatting
-> props](./reference/props.mdx#formatting).
+> Discover how to format the content of DayPicker elements.
 
-Use [formatting props](./reference/props.mdx#formatting) to format the content of the day
+Use [formatting props](./api/daypicker#formatting-props) to format the content of the day
 cell, the month’s caption, the weekday name or the week’s number.
 
 * For more advanced customization of those elements, see [custom components](./custom-components.mdx).
@@ -18,9 +17,11 @@ import { DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
 
 function App() {
+  // Add a "pin" emoji when the date is the 12th or the 17h of the month
   const formatDay = day => {
-    const suffix = day.getDay() === 2 ? '*' : '';
-    return `${day.getDate()}${suffix}`;
+    const isPinned = (day.getDate() === 12 ||  day.getDate() === 17);
+    const pin = isPinned ? '📌' : '';
+    return `${day.getDate()}${pin}`;
   };
 
   const formatCaption = (month, { locale }) => {

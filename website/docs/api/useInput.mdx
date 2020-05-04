@@ -1,0 +1,26 @@
+---
+id: useinput
+title: useInput
+sidebar_label: useInput
+---
+<a id="docs"></a> 
+
+Hook to bind a input with a calendar.
+
+```jsx
+const {
+ month,
+ selected,
+ dayPickerProps,
+ inputProps
+} = useInput(new Date());
+
+<DayPicker {...dayPickerProps} />
+<input {...inputProps} />
+```
+
+
+<a id="props"></a>
+
+# useInput props
+

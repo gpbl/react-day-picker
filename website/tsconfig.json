@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    // Code Emit Options
+    "target": "ES5", // targets IE10
+    "module": "ES2015",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "removeComments": false,
+    "declaration": false,
+    "pretty": true,
+    // Module Resolution Options
+    "baseUrl": "./src",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    // Emit Location Options
+    "outDir": "lib",
+    "rootDir": "./",
+    // Library Options
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+      "es2017",
+      "dom"
+    ],
+    // File Inclusion Options
+    "allowJs": false,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    // Type-checking Options
+    "strict": true,
+    // Linting Options
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "suppressImplicitAnyIndexErrors": true
+  },
+}

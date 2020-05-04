@@ -1,16 +1,16 @@
 ---
 id: start
-title: Getting started
+title: Get started
 subtitle: test
 ---
 
-> DayPicker helps React developers to implement date pickers without worrying about JavaScript dates and layouts.
+> DayPicker is a date picker component for React.
 
 :::important
 
 This documentation is about the upcoming version, which is still in development.
 See [react-day-picker.js.org](http://react-day-picker.js.org) for the
-documentation of the current version.
+documentation about the current version.
 
 :::
 
@@ -28,4 +28,45 @@ Import DayPicker and its CSS file in your script.
 ```jsx
 import "react-day-picker/dist/style.css";
 import { DayPicker } from "react-day-picker";
+```
+
+## Example: selecting days
+
+Familiarize with React DayPicker by implementing a date picker to select days.
+
+To display days as selected, pass one or more dates to the [selected
+prop](./api/daypicker#selected). You can also use ranges or other values
+to [match days](./modifiers-matching-days.mdx).
+
+```jsx preview
+function App() {
+  return (
+    <DayPicker
+      initialMonth={new Date(2020, 8)}
+      selected={[
+        new Date(2020, 8, 1),
+        new Date(2020, 8, 19),
+        new Date(2020, 8, 21),
+        { after: new Date(2020, 8, 30), before: new Date(2020, 10, 1) }
+      ]}
+    />
+  );
+}
+```
+
+To make days selectable when clicked, add a state to the component and bind it
+to the [onDayClick event handler](./api/daypicker#onDayClick).
+
+```jsx preview
+function App() {
+  const [selectedDay, setSelectedDay] = useState();
+  const handleDayClick = day => setSelectedDay(day);
+
+  return (
+    <DayPicker
+      selected={selectedDay}
+      onDayClick={handleDayClick}
+    />
+  );
+}
 ```

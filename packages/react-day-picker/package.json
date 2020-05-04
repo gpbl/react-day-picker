@@ -26,10 +26,7 @@
     "build-lib": "tsc",
     "build-css": "cp ./src/style.css ./dist/style.css",
     "build-dist": "cross-env TS_NODE_PROJECT=tsconfig.dist.json webpack",
-    "build": "yarn build-clean && yarn build-dist && yarn build-lib && yarn build-types && yarn build-css",
-    "docs": "yarn docs:markdown && yarn docs:json",
-    "docs:markdown": "typedoc --out ../../website/docs/api --theme ./typedoc/themes/default",
-    "docs:json": "typedoc --json ../../website/docs/api.json"
+    "build": "yarn build-clean && yarn build-dist && yarn build-lib && yarn build-types && yarn build-css"
   },
   "files": [
     "dist",
@@ -37,29 +34,27 @@
     "src"
   ],
   "devDependencies": {
-    "@babel/core": "^7.9.0",
     "@testing-library/jest-dom": "^5.5.0",
-    "@testing-library/react": "^10.0.2",
+    "@testing-library/react": "^10.0.4",
     "@types/jest": "^25.2.1",
-    "@types/node": "^13.13.1",
+    "@types/node": "^13.13.4",
     "@types/react": "^16.9.34",
     "@types/webpack": "^4.41.12",
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
     "cross-env": "^7.0.2",
     "date-fns": "^2.12.0",
     "debug": "^4.1.1",
     "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-jest": "^23.8.2",
-    "jest": "^25.4.0",
-    "prettier": "^2.0.4",
+    "eslint-plugin-prettier": "^3.1.3",
+    "jest": "^25.5.4",
+    "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "ts-jest": "^25.4.0",
-    "ts-loader": "^7.0.1",
-    "ts-node": "^8.9.0",
-    "tsconfig-paths": "^3.9.0",
-    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "ts-loader": "^7.0.2",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3",
     "webpack": "^5.0.0-beta.13",
@@ -68,9 +63,5 @@
   "peerDependencies": {
     "date-fns": "^2.12.0",
     "react": "^16.8.0"
-  },
-  "dependencies": {
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.3"
   }
 }

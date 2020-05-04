@@ -39,6 +39,8 @@ export type UseInputInputProps = {
  * <DayPicker {...dayPickerProps} />
  * <input {...inputProps} />
  * ```
+ *
+ * @category Hooks
  */
 export function useInput(
   initialSelectedDay: Date | undefined,

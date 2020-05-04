@@ -6,10 +6,10 @@ Lightweight date picker component for [React.js](http://reactjs.org).
   <img src="https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square" alt="npm version">
 </a>
 <a href="http://npm-stat.com/charts.html?package=react-day-picker">
-  <img src="https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square" alt="npm downloads">    
+  <img src="https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square" alt="npm downloads">
 </a>
 
-## Getting started
+## Get started
 
 ```bash
 npm install react-day-picker

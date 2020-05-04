@@ -3,23 +3,19 @@ id: styling
 title: Styling
 ---
 
-> DayPicker can be styled via CSS, via inline-style, using CSS modules or any
-> JS-in-CSS solution.
+> Style React DayPicker via CSS, inline styles, or by using CSS modules or any JS-in-CSS solution.
 
-DayPicker comes with a [small CSS
-file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css)
-featuring a basic style. If your build tools allow to import CSS files, include
-it when you are using DayPicker. Otherwise just copy and paste its content into
-your application’s CSS file.
+DayPicker is bundled with a [small CSS
+file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css): use it as template for your own CSS style. If your build tools allow to import CSS files, you can also import directly in your script:
 
 ```js
 import "react-day-picker/dist/style.css";
 import { DayPicker } from 'react-day-picker';
 ```
 
-You can style DayPicker in the following ways:
+You can style DayPicker:
 
-- overriding the default CSS
+- changing the CSS for each element.
 - using custom class names (e.g. for [CSS Modules](https://github.com/css-modules/css-modules))
 - setting the inline style for each HTML element
 
@@ -28,7 +24,7 @@ You can style DayPicker in the following ways:
 To each HTML element created by DayPicker are assigned `.rdp-*` CSS class names,
 as listed in the [table below](#html-elements).
 
-They can overridden in the application’s CSS file, for example
+Use them in the application’s CSS file, for example
 
 ```css
 /* container */
@@ -45,7 +41,7 @@ They can overridden in the application’s CSS file, for example
 
 ## Using Inline Styles
 
-Use the [styles](./reference/props.mdx#styles) prop to change the inline style of
+Use the [styles](./api/daypicker#styles) prop to change the inline style of
 each element (object keys are listed in the [table below](#html-elements)).
 
 ```jsx preview

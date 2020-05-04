@@ -1,14 +1,14 @@
 module.exports = [
-  "@docusaurus/preset-classic",
+  '@docusaurus/preset-classic',
   {
     docs: {
-      sidebarPath: require.resolve("../../sidebars.js"),
-      editUrl: "https://github.com/gpbl/react-day-picker/edit/master/website/",
+      sidebarPath: require.resolve('../../sidebars.js'),
+      editUrl: 'https://github.com/gpbl/react-day-picker/edit/master/website/',
       showLastUpdateAuthor: false,
-      showLastUpdateTime: true
+      showLastUpdateTime: false
     },
     theme: {
-      customCss: require.resolve("../../src/css/custom.css")
+      customCss: require.resolve('../../src/css/custom.css')
     }
   }
 ];

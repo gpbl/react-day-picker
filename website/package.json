@@ -7,7 +7,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "deploy": "docusaurus deploy",
-    "api-docs": "typedoc --json static/api.json"
+    "docs": "typedoc --json ./static/api.json"
   },
   "dependencies": {
     "@docusaurus/core": ">=2.0.0-alpha.50",
@@ -15,11 +15,11 @@
     "buble": "^0.20.0",
     "classnames": "^2.2.6",
     "date-fns": "^2.12.0",
-    "mdx-loader": "^3.0.2",
     "react": "^16.13.1",
     "react-day-picker": ">=8.0.0-alpha.42",
     "react-dom": "^16.13.1",
-    "react-frame-component": "^4.1.1"
+    "react-frame-component": "^4.1.1",
+    "scripts": "workspace:scripts"
   },
   "browserslist": {
     "production": [
@@ -36,9 +36,6 @@
   "devDependencies": {
     "prop-types": "^15.7.2",
     "raw-loader": "^4.0.1",
-    "react-docgen": "^5.3.0",
-    "typedoc": "^0.17.4",
-    "typedoc-plugin-markdown": "^2.2.17",
     "webpack": "^4.42.1"
   }
 }
