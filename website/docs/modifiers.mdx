@@ -5,9 +5,11 @@ title: About Modifiers
 
 > Use modifiers to change the appearance and the interaction with day elements.
 
-Modifiers are customizable properties accessible from days matching a specific
-condition. For example, when a day is clicked, the day’s modifiers are
-accessible from the event handler:
+Modifiers are properties assigned to days matching a specific condition – for
+example when a day is selected, disabled, interactive. etc. By adding new
+modifiers, you can implement advanced date pickers.
+
+For example, default modifiers are passed to the onDayClick event handler:
 
 ```jsx preview
 <DayPicker
@@ -26,8 +28,8 @@ accessible from the event handler:
 ```
 
 Change the appearance of days matching a modifier using
-[daysStyles](./reference/props.mdx#daysstyles) or
-[daysClassNames](./reference/props.mdx#daysclassnames) props:
+[daysStyles](./api/daypicker#daysstyles) or
+[daysClassNames](./api/daypicker#daysclassnames) props:
 
 ```jsx
 <DayPicker
@@ -42,15 +44,17 @@ Change the appearance of days matching a modifier using
 />
 ```
 
-DayPicker internally assigns some modifiers for the days matching
-[selected](./reference/props.mdx#selected),
-[disabled](./reference/props.mdx#disabled) and
-[hidden](./reference/props.mdx#disabled) props. Other accessory modifiers
+DayPicker assigns modifiers for the days matching
+[selected](./api/daypicker#selected),
+[disabled](./api/daypicker#disabled) and
+[hidden](./api/daypicker#disabled) props.
+
+Other accessory modifiers
 available for any day are [listed below](#default-modifiers).
 
 ## Adding modifiers
 
-Use the [days prop](./reference/props.mdx#days) to add day modifiers according
+Use the [days prop](./api/daypicker#days) to add day modifiers according
 to your application’s requirement.
 
 For example, a booking user interface may need to implement “available”,
@@ -94,7 +98,7 @@ function App() {
 
 As alternative to the inline styles above, you can assign CSS classes to the
 days matching a modifier. Use the
-[daysClassNames prop](./reference/props.mdx#daysClassNames):
+[daysClassNames prop](./api/daypicker#daysClassNames):
 
 ```jsx preview
 function App() {
@@ -136,10 +140,10 @@ function App() {
 }
 ```
 
-## Modifiers from event handlers
+## Accessing modifiers from event handlers
 
 Modifiers are passed to the [event handler
-props](./reference/props.mdx#event-handlers).
+props](./api/daypicker#event-handlers).
 
 For example, to display an alert when the selected day is unavailable, check the
 "unavailable" modifier in the `onDayClick` event handler. To deselect an already
