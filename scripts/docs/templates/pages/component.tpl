@@ -3,7 +3,7 @@ id: {{toLowerCase name}}
 title: {{name}}
 sidebar_label: {{name}}
 ---
-<a id="docs"></a> {{!-- Used by custom.css --}}
+<a id="docs"></a>
 
 {{replaceLinks comment.shortText}}
 
@@ -11,7 +11,7 @@ sidebar_label: {{name}}
 
 <a id="props"></a>
 
-# {{name}} props
+<h2>{{name}} props</h2>
 
 {{#each props }}
 

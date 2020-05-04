@@ -21,19 +21,19 @@ module.exports = [
   },
   {
     type: 'category',
-    label: 'Reference',
+    label: 'Components',
     items: [
       'api/daypicker',
-      {
-        type: 'category',
-        label: 'Components',
-        items: [
-          'api/day',
-          'api/monthcaption',
-          'api/navigation',
-          'api/weeknumber'
-        ]
-      },
+      'api/day',
+      'api/monthcaption',
+      'api/navigation',
+      'api/weeknumber'
+    ]
+  },
+  {
+    type: 'category',
+    label: 'Reference',
+    items: [
       'api/enumerations',
       'api/interface',
       'api/type',

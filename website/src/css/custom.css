@@ -8,23 +8,25 @@
   --ifm-color-primary-light: #5e78fc;
   --ifm-color-primary-lighter: #6d85fc;
   --ifm-color-primary-lightest: #9babfd;
-  --ifm-font-base-color: #333;
+  --ifm-font-base-color: hsl(0, 0%, 20%);
+  --ifm-heading-color: var(--ifm-font-base-color);
   --ifm-font-size-base: 17px;
   --ifm-line-height-base: 26px;
   --ifm-heading-font-weight: 500;
   --ifm-code-font-family: 'IBM Plex Mono', monospace;
   --ifm-contents-padding-vertical: 0.75em 0;
   --ifm-contents-link-color: var(--ifm-color-primary);
-  /* --ifm-contents-border-color: transparent;   */
 }
 
 html[data-theme='dark'] {
-  --ifm-font-base-color: #fff;
+  --ifm-font-base-color: #eee;
 }
 
 .navbar__title {
   font-weight: 500;
   font-size: 1.4em;
+  white-space: nowrap;
+  text-align: center;
 }
 .navbar__logo {
   /* display: none; */
@@ -39,8 +41,14 @@ body {
   font-size: 17px;
 }
 
-.markdown {
+.markdown > h2 {
   --ifm-heading-vertical-rhythm-bottom: 1.25;
+  --ifm-h2-font-size: 1.75rem;
+}
+
+.markdown > h3 {
+  --ifm-heading-vertical-rhythm-bottom: 1.25;
+  --ifm-h2-font-size: 1.5rem;
 }
 
 article header h1 {
@@ -118,6 +126,7 @@ div > ul.contents > li:first-child:before {
 hr {
   border-width: 0;
   border-top-width: 1px;
+  margin: 1em 0;
 }
 
 .docs {
@@ -146,12 +155,12 @@ hr {
 
 #docs ~ h2 {
   font-weight: 600;
-  margin-bottom: 0.875rem;
+  /* margin-bottom: 0.875rem; */
 }
 
 #docs ~ h3 {
   font-weight: 600;
-  margin: 0.875rem 0;
+  margin-bottom: 0.5rem;
 }
 
 #docs ~ h2 + p {
@@ -162,7 +171,7 @@ hr {
 
 .interface-syntax {
   display: block;
-  padding: 0.5em 0;
+  /* padding: 0.5em 0; */
 }
 
 /* syntax template */
@@ -178,7 +187,7 @@ a > code {
 .syntax + p code {
   background: none;
   padding: 0;
-  font-size: 1rem;
+  /* font-size: 1rem; */
 }
 
 .syntax + p > code:first-child {
@@ -186,5 +195,6 @@ a > code {
 }
 
 .syntax + p + p {
+  margin-top: 0.2 5em;
   margin-bottom: 1em;
 }

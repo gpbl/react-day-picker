@@ -3,7 +3,7 @@ id: months
 title: Months
 sidebar_label: Months
 ---
-<a id="docs"></a> 
+<a id="docs"></a>
 
 Render the months and the navigation.
 
@@ -11,10 +11,10 @@ Render the months and the navigation.
 
 <a id="props"></a>
 
-# Months props
+<h2>Months props</h2>
 
 
-## className
+### className
 CSS class to add to the root element.
 <a class="syntax"></a>
 
@@ -25,7 +25,7 @@ CSS class to add to the root element.
 
 
 
-## classNames
+### classNames
 Change the class names used by `DayPicker`.
 <a class="syntax"></a>
 
@@ -36,9 +36,8 @@ Change the class names used by `DayPicker`.
 Use this prop when you need to change the [default class
 names](defaultClassNames.mdx) — for example when using CSS modules.
 
-### Example
-
-Using custom class names for the head and the caption elements.
+**Example**. Use of custom class names for the head and the caption
+elements:
 
 ```jsx preview
  function App() {
@@ -68,7 +67,7 @@ Using custom class names for the head and the caption elements.
 
 
 
-## components
+### components
 Customize the internal components.
 <a class="syntax"></a>
 
@@ -79,7 +78,7 @@ Customize the internal components.
 
 
 
-## days
+### days
 An object of modifiers.
 <a class="syntax"></a>
 
@@ -90,7 +89,7 @@ An object of modifiers.
 
 
 
-## daysClassNames
+### daysClassNames
 Change the class names used for the [days modifiers](#day).
 <a class="syntax"></a>
 
@@ -101,7 +100,7 @@ Change the class names used for the [days modifiers](#day).
 
 
 
-## daysStyles
+### daysStyles
 Change the inline style for the [days modifiers](#day).
 <a class="syntax"></a>
 
@@ -112,7 +111,7 @@ Change the inline style for the [days modifiers](#day).
 
 
 
-## dir
+### dir
 The text direction of the calendar. Use `ltr` for left-to-right (default)
 or `rtl` for right-to-left.
 <a class="syntax"></a>
@@ -124,7 +123,7 @@ or `rtl` for right-to-left.
 
 
 
-## disabled
+### disabled
 Disable the matching days. Disabled days cannot be clicked.
 <a class="syntax"></a>
 
@@ -135,7 +134,7 @@ Disable the matching days. Disabled days cannot be clicked.
 
 
 
-## enableOutsideDaysClick
+### enableOutsideDaysClick
 Enable click event for outside days when [showOutsideDays](#showoutsidedays) is used.
 <a class="syntax"></a>
 
@@ -146,7 +145,7 @@ Enable click event for outside days when [showOutsideDays](#showoutsidedays) is 
 
 
 
-## fixedWeeks
+### fixedWeeks
 Display six weeks per months, regardless the month’s number of weeks. Outside
 days will be always shown when setting this prop.
 <a class="syntax"></a>
@@ -158,7 +157,7 @@ days will be always shown when setting this prop.
 
 
 
-## formatCaption
+### formatCaption
 Format the month caption text.
 <a class="syntax"></a>
 
@@ -169,7 +168,7 @@ Format the month caption text.
 
 
 
-## formatDay
+### formatDay
 Format the content of the day element.
 <a class="syntax"></a>
 
@@ -180,7 +179,7 @@ Format the content of the day element.
 
 
 
-## formatWeekNumber
+### formatWeekNumber
 Format the week numbers (when [showWeekNumber](#showweeknumber) is set).
 <a class="syntax"></a>
 
@@ -191,7 +190,7 @@ Format the week numbers (when [showWeekNumber](#showweeknumber) is set).
 
 
 
-## formatWeekdayName
+### formatWeekdayName
 Format the weekday's name in the head element.
 <a class="syntax"></a>
 
@@ -202,7 +201,7 @@ Format the weekday's name in the head element.
 
 
 
-## fromMonth
+### fromMonth
 Allow navigation after (and including) the specified month.
 <a class="syntax"></a>
 
@@ -213,7 +212,7 @@ Allow navigation after (and including) the specified month.
 
 
 
-## hidden
+### hidden
 Hide the matching days.
 <a class="syntax"></a>
 
@@ -224,7 +223,7 @@ Hide the matching days.
 
 
 
-## initialMonth
+### initialMonth
 The initial month to show in the calendar.
 <a class="syntax"></a>
 
@@ -235,7 +234,7 @@ The initial month to show in the calendar.
 
 
 
-## locale
+### locale
 A locale object to localize
 the user interface.
 <a class="syntax"></a>
@@ -247,7 +246,7 @@ the user interface.
 
 
 
-## month
+### month
 The rendered month. Implement [onMonthChange](#onmonthchange) to enable months
 navigation.
 <a class="syntax"></a>
@@ -259,7 +258,7 @@ navigation.
 
 
 
-## nextLabel
+### nextLabel
 Label used for the next month button in [Navigation](#navigation). Set it to empty
 string to hide the button.
 <a class="syntax"></a>
@@ -271,7 +270,7 @@ string to hide the button.
 
 
 
-## numberOfMonths
+### numberOfMonths
 The number of months to render.
 <a class="syntax"></a>
 
@@ -282,7 +281,7 @@ The number of months to render.
 
 
 
-## onDayClick
+### onDayClick
 Event handler when the user clicks on a day.
 <a class="syntax"></a>
 
@@ -293,7 +292,7 @@ Event handler when the user clicks on a day.
 
 
 
-## onMonthChange
+### onMonthChange
 Event handler when the month changes.
 <a class="syntax"></a>
 
@@ -304,7 +303,7 @@ Event handler when the month changes.
 
 
 
-## onNextClick
+### onNextClick
 Event handler when the next month button is clicked.
 <a class="syntax"></a>
 
@@ -315,7 +314,7 @@ Event handler when the next month button is clicked.
 
 
 
-## onPrevClick
+### onPrevClick
 Event handler when the previous month button is clicked.
 <a class="syntax"></a>
 
@@ -326,7 +325,7 @@ Event handler when the previous month button is clicked.
 
 
 
-## pagedNavigation
+### pagedNavigation
 When displaying multiple months, the navigation will be paginated
 displaying the [numberOfMonths](#numberofmonths) months at time instead of
 one.
@@ -339,7 +338,7 @@ one.
 
 
 
-## prevLabel
+### prevLabel
 Label used for the previous month button in [Navigation](#navigation). Set it to
 empty string to hide the button.
 <a class="syntax"></a>
@@ -351,7 +350,7 @@ empty string to hide the button.
 
 
 
-## reverseMonths
+### reverseMonths
 Render the months in reversed order. Useful when [numberOfMonths](#numberofmonths) is
 greater than `1`, to display the most recent month first.
 <a class="syntax"></a>
@@ -363,7 +362,7 @@ greater than `1`, to display the most recent month first.
 
 
 
-## selected
+### selected
 Apply the `selected` modifiers to the matching days.
 <a class="syntax"></a>
 
@@ -374,7 +373,7 @@ Apply the `selected` modifiers to the matching days.
 
 
 
-## showCaption
+### showCaption
 Show the month’s caption. As default, the caption displays month and year.
 <a class="syntax"></a>
 
@@ -385,7 +384,7 @@ Show the month’s caption. As default, the caption displays month and year.
 
 
 
-## showHead
+### showHead
 Show the month’s head. As default, it displays the weekday names according
 to [locale](#locale).
 <a class="syntax"></a>
@@ -397,7 +396,7 @@ to [locale](#locale).
 
 
 
-## showNavigation
+### showNavigation
 Show the navigation bar. [onMonthChange](#onmonthchange) must be set.
 <a class="syntax"></a>
 
@@ -408,7 +407,7 @@ Show the navigation bar. [onMonthChange](#onmonthchange) must be set.
 
 
 
-## showOutsideDays
+### showOutsideDays
 Show the outside days. An outside day is a day falling in the next or the
 previous month.
 <a class="syntax"></a>
@@ -420,7 +419,7 @@ previous month.
 
 
 
-## showWeekNumber
+### showWeekNumber
 Show the week numbers column.
 <a class="syntax"></a>
 
@@ -431,7 +430,7 @@ Show the week numbers column.
 
 
 
-## style
+### style
 Style to apply to the root element.
 <a class="syntax"></a>
 
@@ -442,7 +441,7 @@ Style to apply to the root element.
 
 
 
-## styles
+### styles
 Change the inline styles for each [DayPicker element](./enumerations#daypickerelements).
 <a class="syntax"></a>
 
@@ -453,7 +452,7 @@ Change the inline styles for each [DayPicker element](./enumerations#daypickerel
 
 
 
-## toMonth
+### toMonth
 Allow navigation before (and including) the specified month.
 <a class="syntax"></a>
 

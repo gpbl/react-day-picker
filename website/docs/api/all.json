@@ -701,12 +701,12 @@
 					},
 					"comment": {
 						"shortText": "Change the class names used by `DayPicker`.",
-						"text": "Use this prop when you need to change the [default class\nnames](defaultClassNames.mdx) — for example when using CSS modules.\n\n### Example\n\nUsing custom class names for the head and the caption elements.\n\n```jsx preview\n function App() {\n   const css = `\n     .salmon-head {\n       color: salmon;\n     }\n     .purple-caption {\n       font-weight: bold;\n       color: purple;\n       padding: 3px 0 6px 0;\n     }\n   `;\n   return (\n     <>\n       <style>{css}</style>\n       <DayPicker\n         classNames={{\n           head: 'salmon-head',\n           caption: 'purple-caption'\n         }}\n       />\n     </>\n   );\n }\n```\n"
+						"text": "Use this prop when you need to change the [default class\nnames](defaultClassNames.mdx) — for example when using CSS modules.\n\n**Example**. Use of custom class names for the head and the caption\nelements:\n\n```jsx preview\n function App() {\n   const css = `\n     .salmon-head {\n       color: salmon;\n     }\n     .purple-caption {\n       font-weight: bold;\n       color: purple;\n       padding: 3px 0 6px 0;\n     }\n   `;\n   return (\n     <>\n       <style>{css}</style>\n       <DayPicker\n         classNames={{\n           head: 'salmon-head',\n           caption: 'purple-caption'\n         }}\n       />\n     </>\n   );\n }\n```\n"
 					},
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 109,
+							"line": 108,
 							"character": 12
 						}
 					],
@@ -731,7 +731,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 269,
+							"line": 268,
 							"character": 12
 						}
 					],
@@ -756,7 +756,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 228,
+							"line": 227,
 							"character": 6
 						}
 					],
@@ -781,7 +781,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 113,
+							"line": 112,
 							"character": 16
 						}
 					],
@@ -806,7 +806,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 126,
+							"line": 125,
 							"character": 12
 						}
 					],
@@ -831,7 +831,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 239,
+							"line": 238,
 							"character": 5
 						}
 					],
@@ -855,7 +855,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 220,
+							"line": 219,
 							"character": 10
 						}
 					],
@@ -880,7 +880,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 192,
+							"line": 191,
 							"character": 24
 						}
 					],
@@ -910,7 +910,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 172,
+							"line": 171,
 							"character": 12
 						}
 					],
@@ -940,7 +940,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 246,
+							"line": 245,
 							"character": 15
 						}
 					],
@@ -971,7 +971,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 252,
+							"line": 251,
 							"character": 11
 						}
 					],
@@ -1002,7 +1002,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 264,
+							"line": 263,
 							"character": 18
 						}
 					],
@@ -1033,7 +1033,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 258,
+							"line": 257,
 							"character": 19
 						}
 					],
@@ -1064,7 +1064,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 143,
+							"line": 142,
 							"character": 11
 						}
 					],
@@ -1088,7 +1088,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 224,
+							"line": 223,
 							"character": 8
 						}
 					],
@@ -1113,7 +1113,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 131,
+							"line": 130,
 							"character": 14
 						}
 					],
@@ -1137,7 +1137,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 234,
+							"line": 233,
 							"character": 8
 						}
 					],
@@ -1161,7 +1161,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 165,
+							"line": 164,
 							"character": 7
 						}
 					],
@@ -1185,7 +1185,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 211,
+							"line": 210,
 							"character": 11
 						}
 					],
@@ -1215,7 +1215,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 137,
+							"line": 136,
 							"character": 16
 						}
 					],
@@ -1239,7 +1239,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 274,
+							"line": 273,
 							"character": 12
 						}
 					],
@@ -1264,7 +1264,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 278,
+							"line": 277,
 							"character": 15
 						}
 					],
@@ -1289,7 +1289,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 282,
+							"line": 281,
 							"character": 13
 						}
 					],
@@ -1314,7 +1314,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 286,
+							"line": 285,
 							"character": 13
 						}
 					],
@@ -1339,7 +1339,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 155,
+							"line": 154,
 							"character": 17
 						}
 					],
@@ -1363,7 +1363,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 206,
+							"line": 205,
 							"character": 11
 						}
 					],
@@ -1387,7 +1387,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 160,
+							"line": 159,
 							"character": 15
 						}
 					],
@@ -1411,7 +1411,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 216,
+							"line": 215,
 							"character": 10
 						}
 					],
@@ -1436,7 +1436,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 176,
+							"line": 175,
 							"character": 13
 						}
 					],
@@ -1460,7 +1460,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 181,
+							"line": 180,
 							"character": 10
 						}
 					],
@@ -1484,7 +1484,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 201,
+							"line": 200,
 							"character": 16
 						}
 					],
@@ -1514,7 +1514,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 188,
+							"line": 187,
 							"character": 17
 						}
 					],
@@ -1538,7 +1538,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 196,
+							"line": 195,
 							"character": 16
 						}
 					],
@@ -1562,7 +1562,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 118,
+							"line": 117,
 							"character": 7
 						}
 					],
@@ -1586,7 +1586,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 122,
+							"line": 121,
 							"character": 8
 						}
 					],
@@ -1617,7 +1617,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 149,
+							"line": 148,
 							"character": 9
 						}
 					],

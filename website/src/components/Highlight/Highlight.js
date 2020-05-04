@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import PrismHighlight, { defaultProps } from 'prism-react-renderer';
 
-import lightTheme from 'prism-react-renderer/themes/github';
-import darkTheme from 'prism-react-renderer/themes/vsDark';
+import lightTheme from 'prism-react-renderer/themes/nightOwlLight';
+import darkTheme from 'prism-react-renderer/themes/dracula';
 
 import useTheme from './hooks/useTheme';
 
@@ -14,7 +14,7 @@ function renderTokens({
   style,
   tokens,
   getLineProps,
-  getTokenProps,
+  getTokenProps
 }) {
   const renderLine = (line, i) => {
     const lineProps = getLineProps({ line, key: i });
@@ -38,7 +38,7 @@ function renderTokens({
  */
 function Highlight({ code, language = 'jsx' }) {
   const [theme, setTheme] = useState('light');
-  useTheme(newTheme => setTheme(newTheme));
+  useTheme((newTheme) => setTheme(newTheme));
   return (
     <PrismHighlight
       {...defaultProps}
@@ -55,7 +55,7 @@ function Highlight({ code, language = 'jsx' }) {
 Highlight.propTypes = {
   code: PropTypes.string.isRequired,
   language: PropTypes.string,
-  style: PropTypes.object,
+  style: PropTypes.object
 };
 
 export default Highlight;
