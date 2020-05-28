@@ -26,12 +26,12 @@ For example, this application calls `useInput` to bind a simple text input to Da
 import { DayPicker, useInput } from "react-day-picker";
 
 function App() {
-  const [
+  const {
     month,
     selected,
-    value,
-    { onDayClick, onMonthChange, onChange, onFocus, onBlur }
-  ] = useInput(new Date(), "yyyy-MM-dd");
+    dayPickerProps: { onDayClick, onMonthChange },
+    inputProps: { value, onChange, onFocus, onBlur },
+  } = useInput(new Date(), "yyyy-MM-dd");
 
   return (
     <form className="center">
