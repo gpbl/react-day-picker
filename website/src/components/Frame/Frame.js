@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import FrameComponent from "react-frame-component";
 
 import htmlContent from "!!raw-loader!./content.html";
-import styleContent from "!!raw-loader!react-day-picker/dist/style.css";
+import styleContent from "!!raw-loader!../../css/custom.css";
 import useTheme from "./hooks/useTheme";
 
 const initialContent = htmlContent.replace("/* #style */", styleContent);
