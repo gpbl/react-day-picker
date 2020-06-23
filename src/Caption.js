@@ -52,7 +52,7 @@ export default class Caption extends Component {
       onClick,
     } = this.props;
     return (
-      <caption
+      <div
         className={classNames.caption}
         id={captionId(date)}
         aria-live="polite"
@@ -62,7 +62,7 @@ export default class Caption extends Component {
             ? `${months[date.getMonth()]} ${date.getFullYear()}`
             : localeUtils.formatMonthTitle(date, locale)}
         </div>
-      </caption>
+      </div>
     );
   }
 }

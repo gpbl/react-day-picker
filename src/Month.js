@@ -166,7 +166,11 @@ export default class Month extends Component {
 
     const weeks = Helpers.getWeekArray(month, firstDayOfWeek, fixedWeeks);
     return (
-      <div className={classNames.month} role="grid" aria-describedby={captionId(date)}>
+      <div
+        className={classNames.month}
+        role="grid"
+        aria-describedby={captionId(month)}
+      >
         {caption}
         {showWeekDays && (
           <Weekdays
