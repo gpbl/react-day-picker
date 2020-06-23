@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Weekdays from './Weekdays';
 import Day from './Day';
 import { ENTER } from './keys';
+import { captionId } from './CaptionUtils';
 
 import * as ModifiersUtils from './ModifiersUtils';
 import * as Helpers from './Helpers';
@@ -165,7 +166,7 @@ export default class Month extends Component {
 
     const weeks = Helpers.getWeekArray(month, firstDayOfWeek, fixedWeeks);
     return (
-      <div className={classNames.month} role="grid">
+      <div className={classNames.month} role="grid" aria-describedby={captionId(date)}>
         {caption}
         {showWeekDays && (
           <Weekdays
