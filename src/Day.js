@@ -136,7 +136,6 @@ export default class Day extends Component {
         className={className}
         tabIndex={tabIndex}
         style={style}
-        role="button"
         aria-label={ariaLabel}
         aria-disabled={ariaDisabled}
         aria-selected={ariaSelected}
