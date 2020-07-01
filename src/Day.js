@@ -136,7 +136,7 @@ export default class Day extends Component {
         className={className}
         tabIndex={tabIndex}
         style={style}
-        role="gridcell"
+        role="button"
         aria-label={ariaLabel}
         aria-disabled={ariaDisabled}
         aria-selected={ariaSelected}
