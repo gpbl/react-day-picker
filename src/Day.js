@@ -136,9 +136,7 @@ export default class Day extends Component {
         className={className}
         tabIndex={tabIndex}
         style={style}
-        aria-label={ariaLabel}
-        aria-disabled={ariaDisabled}
-        aria-selected={ariaSelected}
+        role="gridcell"
         onClick={handleEvent(onClick, day, modifiers)}
         onKeyDown={handleEvent(onKeyDown, day, modifiers)}
         onMouseEnter={handleEvent(onMouseEnter, day, modifiers)}
@@ -149,7 +147,9 @@ export default class Day extends Component {
         onTouchStart={handleEvent(onTouchStart, day, modifiers)}
         onFocus={handleEvent(onFocus, day, modifiers)}
       >
-        {children}
+        <div aria-label={ariaLabel} aria-disabled={ariaDisabled} role="button">
+          {children}
+        </div>
       </div>
     );
   }
