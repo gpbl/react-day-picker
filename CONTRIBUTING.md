@@ -27,7 +27,13 @@ cd react-day-picker
 yarn install
 ```
 
-#### 2. Start the development environment
+#### 2. Build workspaces
+
+```bash
+yarn build
+```
+
+#### 3. Start the development environment
 
 Build the package and website in watch mode:
 
@@ -35,7 +41,7 @@ Build the package and website in watch mode:
 yarn develop
 ```
 
-#### 3. Apply changes and open a PR :)
+#### 4. Apply changes and open a PR :)
 
 * add tests and make sure they pass: `yarn test`
 * make sure your files are linted: `yarn lint`
