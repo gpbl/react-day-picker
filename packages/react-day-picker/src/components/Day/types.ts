@@ -32,6 +32,14 @@ export type DayContainerHtmlProps = {
   'aria-hidden'?: boolean;
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseEnter?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseLeave?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
+  onKeyUp?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
+  onKeyPress?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
+  onTouchEvent?: (e: React.TouchEvent<HTMLButtonElement>) => void;
+  onTouch?: (e: React.Touch) => void;
+  onTouchList?: (e: React.TouchList) => void;
   className?: string;
   style?: React.CSSProperties;
 };

@@ -32,14 +32,46 @@ export type DayPickerStyles = {
 };
 
 /**
- * Event handler when a day is clicked.
+ * Day event handler for mouse events.
  */
 export type DayClickEventHandler = (
   day: Date,
   modifiers: MatchingModifiers,
   e: React.MouseEvent
 ) => void;
+/**
+ * Day event handler for keyboard events.
+ */
+export type DayKeyboardEventHandler = (
+  day: Date,
+  modifiers: MatchingModifiers,
+  e: React.KeyboardEvent
+) => void;
 
+/**
+ * Day event handler for draging touch events.
+ */
+export type DayDragEventHandler = (
+  day: Date,
+  modifiers: MatchingModifiers,
+  e: React.TouchEvent
+) => void;
+/**
+ * Day event handler for single touch events.
+ */
+export type DayTouchEventHandler = (
+  day: Date,
+  modifiers: MatchingModifiers,
+  e: React.Touch
+) => void;
+/**
+ * Day event handler for multiple touch events.
+ */
+export type DayTouchListEventHandler = (
+  days: Date[],
+  modifiers: MatchingModifiers,
+  e: React.TouchList
+) => void;
 /**
  * Event handler when the month is changed.
  */
@@ -271,6 +303,38 @@ export interface DayPickerProps {
    * Event handler when the user clicks on a day.
    */
   onDayClick?: DayClickEventHandler;
+  /**
+   * Event handler when the mouse enters in a day.
+   */
+  onDayMouseEnter?: DayClickEventHandler;
+  /**
+   * Event handler when the mouse leave a day.
+   */
+  onDayMouseLeave?: DayClickEventHandler;
+  /**
+   * Event handler when the user makes a keyDown on a day.
+   */
+  onDayKeyDown?: DayKeyboardEventHandler;
+  /**
+   * Event handler when the user makes a keyUp on a day.
+   */
+  onDayKeyUp?: DayKeyboardEventHandler;
+  /**
+   * Event handler when the user makes a keyPress on a day.
+   */
+  onDayKeyPress?: DayKeyboardEventHandler;
+  /**
+   * Event handler when the state of the touches on the surface, changes.
+   */
+  onDayTouchEvent?: DayDragEventHandler;
+  /**
+   * Event handler when the user make a single touch on day.
+   */
+  onDayTouch?: DayTouchEventHandler;
+  /**
+   * Event handler when the user makes multiple touches on some days.
+   */
+  onDayTouchList?: DayTouchListEventHandler;
   /**
    * Event handler when the month changes.
    */
