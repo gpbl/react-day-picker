@@ -6,7 +6,7 @@
 	"originalName": "",
 	"children": [
 		{
-			"id": 190,
+			"id": 222,
 			"name": "DayPickerElements",
 			"kind": 4,
 			"kindString": "Enumeration",
@@ -18,7 +18,7 @@
 			},
 			"children": [
 				{
-					"id": 192,
+					"id": 224,
 					"name": "CAPTION",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -35,7 +35,7 @@
 					"defaultValue": "\"caption\""
 				},
 				{
-					"id": 193,
+					"id": 225,
 					"name": "DAY",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -52,7 +52,7 @@
 					"defaultValue": "\"day\""
 				},
 				{
-					"id": 194,
+					"id": 226,
 					"name": "DAYWRAPPER",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -69,7 +69,7 @@
 					"defaultValue": "\"dayWrapper\""
 				},
 				{
-					"id": 196,
+					"id": 228,
 					"name": "DISABLED",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -86,7 +86,7 @@
 					"defaultValue": "\"disabled\""
 				},
 				{
-					"id": 204,
+					"id": 236,
 					"name": "HEAD",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -103,7 +103,7 @@
 					"defaultValue": "\"head\""
 				},
 				{
-					"id": 205,
+					"id": 237,
 					"name": "HEADROW",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -120,7 +120,7 @@
 					"defaultValue": "\"headRow\""
 				},
 				{
-					"id": 207,
+					"id": 239,
 					"name": "HEADWEEKNAME",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -137,7 +137,7 @@
 					"defaultValue": "\"headWeekName\""
 				},
 				{
-					"id": 206,
+					"id": 238,
 					"name": "HEADWEEKNUMBER",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -154,7 +154,7 @@
 					"defaultValue": "\"headWeekNumber\""
 				},
 				{
-					"id": 200,
+					"id": 232,
 					"name": "MONTH",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -171,7 +171,7 @@
 					"defaultValue": "\"month\""
 				},
 				{
-					"id": 203,
+					"id": 235,
 					"name": "MONTHS",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -188,7 +188,7 @@
 					"defaultValue": "\"months\""
 				},
 				{
-					"id": 201,
+					"id": 233,
 					"name": "MONTHTABLE",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -205,7 +205,7 @@
 					"defaultValue": "\"monthTable\""
 				},
 				{
-					"id": 202,
+					"id": 234,
 					"name": "MONTHTBODY",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -222,7 +222,7 @@
 					"defaultValue": "\"monthTbody\""
 				},
 				{
-					"id": 208,
+					"id": 240,
 					"name": "NAV",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -242,7 +242,7 @@
 					"defaultValue": "\"nav\""
 				},
 				{
-					"id": 210,
+					"id": 242,
 					"name": "NAVNEXT",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -262,7 +262,7 @@
 					"defaultValue": "\"navNext\""
 				},
 				{
-					"id": 209,
+					"id": 241,
 					"name": "NAVPREV",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -282,7 +282,7 @@
 					"defaultValue": "\"navPrev\""
 				},
 				{
-					"id": 199,
+					"id": 231,
 					"name": "OUTSIDE_END",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -299,7 +299,7 @@
 					"defaultValue": "\"aftermonth\""
 				},
 				{
-					"id": 198,
+					"id": 230,
 					"name": "OUTSIDE_START",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -316,7 +316,7 @@
 					"defaultValue": "\"beforemonth\""
 				},
 				{
-					"id": 191,
+					"id": 223,
 					"name": "ROOT",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -333,7 +333,7 @@
 					"defaultValue": "\"root\""
 				},
 				{
-					"id": 195,
+					"id": 227,
 					"name": "SELECTED",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -350,7 +350,7 @@
 					"defaultValue": "\"selected\""
 				},
 				{
-					"id": 197,
+					"id": 229,
 					"name": "TODAY",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -367,7 +367,7 @@
 					"defaultValue": "\"today\""
 				},
 				{
-					"id": 211,
+					"id": 243,
 					"name": "WEEK",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -384,7 +384,7 @@
 					"defaultValue": "\"week\""
 				},
 				{
-					"id": 213,
+					"id": 245,
 					"name": "WEEKDAY",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -401,7 +401,7 @@
 					"defaultValue": "\"weekDay\""
 				},
 				{
-					"id": 214,
+					"id": 246,
 					"name": "WEEKNUMBER",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -421,7 +421,7 @@
 					"defaultValue": "\"weekNumber\""
 				},
 				{
-					"id": 212,
+					"id": 244,
 					"name": "WEEKWEEKNUMBER",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -443,30 +443,30 @@
 					"title": "Enumeration members",
 					"kind": 16,
 					"children": [
-						192,
-						193,
-						194,
-						196,
-						204,
-						205,
-						207,
-						206,
-						200,
-						203,
-						201,
-						202,
-						208,
-						210,
-						209,
-						199,
-						198,
-						191,
-						195,
-						197,
-						211,
-						213,
-						214,
-						212
+						224,
+						225,
+						226,
+						228,
+						236,
+						237,
+						239,
+						238,
+						232,
+						235,
+						233,
+						234,
+						240,
+						242,
+						241,
+						231,
+						230,
+						223,
+						227,
+						229,
+						243,
+						245,
+						246,
+						244
 					]
 				}
 			],
@@ -479,7 +479,7 @@
 			]
 		},
 		{
-			"id": 145,
+			"id": 177,
 			"name": "DefaultModifiersNames",
 			"kind": 4,
 			"kindString": "Enumeration",
@@ -491,7 +491,7 @@
 			},
 			"children": [
 				{
-					"id": 149,
+					"id": 181,
 					"name": "AFTER_MONTH",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -511,7 +511,7 @@
 					"defaultValue": "\"aftermonth\""
 				},
 				{
-					"id": 150,
+					"id": 182,
 					"name": "BEFORE_MONTH",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -531,7 +531,7 @@
 					"defaultValue": "\"beforemonth\""
 				},
 				{
-					"id": 146,
+					"id": 178,
 					"name": "DISABLED",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -551,7 +551,7 @@
 					"defaultValue": "\"disabled\""
 				},
 				{
-					"id": 147,
+					"id": 179,
 					"name": "HIDDEN",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -571,7 +571,7 @@
 					"defaultValue": "\"hidden\""
 				},
 				{
-					"id": 148,
+					"id": 180,
 					"name": "INTERACTIVE",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -591,7 +591,7 @@
 					"defaultValue": "\"interactive\""
 				},
 				{
-					"id": 151,
+					"id": 183,
 					"name": "SELECTED",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -611,7 +611,7 @@
 					"defaultValue": "\"selected\""
 				},
 				{
-					"id": 152,
+					"id": 184,
 					"name": "TODAY",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -636,13 +636,13 @@
 					"title": "Enumeration members",
 					"kind": 16,
 					"children": [
-						149,
-						150,
-						146,
-						147,
-						148,
-						151,
-						152
+						181,
+						182,
+						178,
+						179,
+						180,
+						183,
+						184
 					]
 				}
 			],
@@ -655,7 +655,7 @@
 			]
 		},
 		{
-			"id": 215,
+			"id": 247,
 			"name": "DayPickerProps",
 			"kind": 256,
 			"kindString": "Interface",
@@ -667,7 +667,7 @@
 			},
 			"children": [
 				{
-					"id": 216,
+					"id": 248,
 					"name": "className",
 					"kind": 1024,
 					"kindString": "Property",
@@ -681,7 +681,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 72,
+							"line": 104,
 							"character": 11
 						}
 					],
@@ -691,7 +691,7 @@
 					}
 				},
 				{
-					"id": 217,
+					"id": 249,
 					"name": "classNames",
 					"kind": 1024,
 					"kindString": "Property",
@@ -706,18 +706,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 108,
+							"line": 140,
 							"character": 12
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 253,
+						"id": 293,
 						"name": "DayPickerClassNames"
 					}
 				},
 				{
-					"id": 248,
+					"id": 280,
 					"name": "components",
 					"kind": 1024,
 					"kindString": "Property",
@@ -731,18 +731,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 268,
+							"line": 300,
 							"character": 12
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 268,
+						"id": 332,
 						"name": "CustomComponents"
 					}
 				},
 				{
-					"id": 241,
+					"id": 273,
 					"name": "days",
 					"kind": 1024,
 					"kindString": "Property",
@@ -756,18 +756,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 227,
+							"line": 259,
 							"character": 6
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 160,
+						"id": 192,
 						"name": "DaysModifiers"
 					}
 				},
 				{
-					"id": 218,
+					"id": 250,
 					"name": "daysClassNames",
 					"kind": 1024,
 					"kindString": "Property",
@@ -781,18 +781,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 112,
+							"line": 144,
 							"character": 16
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 154,
+						"id": 186,
 						"name": "DaysClassNames"
 					}
 				},
 				{
-					"id": 221,
+					"id": 253,
 					"name": "daysStyles",
 					"kind": 1024,
 					"kindString": "Property",
@@ -806,18 +806,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 125,
+							"line": 157,
 							"character": 12
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 158,
+						"id": 190,
 						"name": "DaysStyles"
 					}
 				},
 				{
-					"id": 243,
+					"id": 275,
 					"name": "dir",
 					"kind": 1024,
 					"kindString": "Property",
@@ -831,7 +831,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 238,
+							"line": 270,
 							"character": 5
 						}
 					],
@@ -841,7 +841,7 @@
 					}
 				},
 				{
-					"id": 239,
+					"id": 271,
 					"name": "disabled",
 					"kind": 1024,
 					"kindString": "Property",
@@ -855,18 +855,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 219,
+							"line": 251,
 							"character": 10
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 189,
+						"id": 221,
 						"name": "DayMatcher"
 					}
 				},
 				{
-					"id": 233,
+					"id": 265,
 					"name": "enableOutsideDaysClick",
 					"kind": 1024,
 					"kindString": "Property",
@@ -880,7 +880,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 191,
+							"line": 223,
 							"character": 24
 						}
 					],
@@ -890,7 +890,7 @@
 					}
 				},
 				{
-					"id": 229,
+					"id": 261,
 					"name": "fixedWeeks",
 					"kind": 1024,
 					"kindString": "Property",
@@ -910,7 +910,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 171,
+							"line": 203,
 							"character": 12
 						}
 					],
@@ -920,7 +920,7 @@
 					}
 				},
 				{
-					"id": 244,
+					"id": 276,
 					"name": "formatCaption",
 					"kind": 1024,
 					"kindString": "Property",
@@ -940,7 +940,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 245,
+							"line": 277,
 							"character": 15
 						}
 					],
@@ -951,7 +951,7 @@
 					}
 				},
 				{
-					"id": 245,
+					"id": 277,
 					"name": "formatDay",
 					"kind": 1024,
 					"kindString": "Property",
@@ -971,7 +971,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 251,
+							"line": 283,
 							"character": 11
 						}
 					],
@@ -982,7 +982,7 @@
 					}
 				},
 				{
-					"id": 247,
+					"id": 279,
 					"name": "formatWeekNumber",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1002,18 +1002,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 263,
+							"line": 295,
 							"character": 18
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 135,
+						"id": 167,
 						"name": "WeekNumberFormatter"
 					}
 				},
 				{
-					"id": 246,
+					"id": 278,
 					"name": "formatWeekdayName",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1033,7 +1033,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 257,
+							"line": 289,
 							"character": 19
 						}
 					],
@@ -1044,7 +1044,7 @@
 					}
 				},
 				{
-					"id": 224,
+					"id": 256,
 					"name": "fromMonth",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1064,7 +1064,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 142,
+							"line": 174,
 							"character": 11
 						}
 					],
@@ -1074,7 +1074,7 @@
 					}
 				},
 				{
-					"id": 240,
+					"id": 272,
 					"name": "hidden",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1088,18 +1088,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 223,
+							"line": 255,
 							"character": 8
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 189,
+						"id": 221,
 						"name": "DayMatcher"
 					}
 				},
 				{
-					"id": 222,
+					"id": 254,
 					"name": "initialMonth",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1113,7 +1113,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 130,
+							"line": 162,
 							"character": 14
 						}
 					],
@@ -1123,7 +1123,7 @@
 					}
 				},
 				{
-					"id": 242,
+					"id": 274,
 					"name": "locale",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1137,7 +1137,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 233,
+							"line": 265,
 							"character": 8
 						}
 					],
@@ -1147,7 +1147,7 @@
 					}
 				},
 				{
-					"id": 228,
+					"id": 260,
 					"name": "month",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1161,7 +1161,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 164,
+							"line": 196,
 							"character": 7
 						}
 					],
@@ -1171,7 +1171,7 @@
 					}
 				},
 				{
-					"id": 237,
+					"id": 269,
 					"name": "nextLabel",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1185,7 +1185,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 210,
+							"line": 242,
 							"character": 11
 						}
 					],
@@ -1195,7 +1195,7 @@
 					}
 				},
 				{
-					"id": 223,
+					"id": 255,
 					"name": "numberOfMonths",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1215,7 +1215,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 136,
+							"line": 168,
 							"character": 16
 						}
 					],
@@ -1225,7 +1225,7 @@
 					}
 				},
 				{
-					"id": 249,
+					"id": 281,
 					"name": "onDayClick",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1239,18 +1239,218 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 273,
+							"line": 305,
 							"character": 12
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 257,
+						"id": 297,
 						"name": "DayClickEventHandler"
 					}
 				},
 				{
-					"id": 250,
+					"id": 284,
+					"name": "onDayKeyDown",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Event handler when the user makes a keyDown on a day."
+					},
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 317,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 303,
+						"name": "DayKeyboardEventHandler"
+					}
+				},
+				{
+					"id": 286,
+					"name": "onDayKeyPress",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Event handler when the user makes a keyPress on a day."
+					},
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 325,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 303,
+						"name": "DayKeyboardEventHandler"
+					}
+				},
+				{
+					"id": 285,
+					"name": "onDayKeyUp",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Event handler when the user makes a keyUp on a day."
+					},
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 321,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 303,
+						"name": "DayKeyboardEventHandler"
+					}
+				},
+				{
+					"id": 282,
+					"name": "onDayMouseEnter",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Event handler when the mouse enters in a day."
+					},
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 309,
+							"character": 17
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 297,
+						"name": "DayClickEventHandler"
+					}
+				},
+				{
+					"id": 283,
+					"name": "onDayMouseLeave",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Event handler when the mouse leave a day."
+					},
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 313,
+							"character": 17
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 297,
+						"name": "DayClickEventHandler"
+					}
+				},
+				{
+					"id": 288,
+					"name": "onDayTouch",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Event handler when the user make a single touch on day."
+					},
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 333,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 315,
+						"name": "DayTouchEventHandler"
+					}
+				},
+				{
+					"id": 287,
+					"name": "onDayTouchEvent",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Event handler when the state of the touches on the surface, changes."
+					},
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 329,
+							"character": 17
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 309,
+						"name": "DayDragEventHandler"
+					}
+				},
+				{
+					"id": 289,
+					"name": "onDayTouchList",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true,
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Event handler when the user makes multiple touches on some days."
+					},
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 337,
+							"character": 16
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 321,
+						"name": "DayTouchListEventHandler"
+					}
+				},
+				{
+					"id": 290,
 					"name": "onMonthChange",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1264,18 +1464,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 277,
+							"line": 341,
 							"character": 15
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 263,
+						"id": 327,
 						"name": "MonthChangeEventHandler"
 					}
 				},
 				{
-					"id": 251,
+					"id": 291,
 					"name": "onNextClick",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1289,18 +1489,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 281,
+							"line": 345,
 							"character": 13
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 263,
+						"id": 327,
 						"name": "MonthChangeEventHandler"
 					}
 				},
 				{
-					"id": 252,
+					"id": 292,
 					"name": "onPrevClick",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1314,18 +1514,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 285,
+							"line": 349,
 							"character": 13
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 263,
+						"id": 327,
 						"name": "MonthChangeEventHandler"
 					}
 				},
 				{
-					"id": 226,
+					"id": 258,
 					"name": "pagedNavigation",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1339,7 +1539,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 154,
+							"line": 186,
 							"character": 17
 						}
 					],
@@ -1349,7 +1549,7 @@
 					}
 				},
 				{
-					"id": 236,
+					"id": 268,
 					"name": "prevLabel",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1363,7 +1563,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 205,
+							"line": 237,
 							"character": 11
 						}
 					],
@@ -1373,7 +1573,7 @@
 					}
 				},
 				{
-					"id": 227,
+					"id": 259,
 					"name": "reverseMonths",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1387,7 +1587,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 159,
+							"line": 191,
 							"character": 15
 						}
 					],
@@ -1397,7 +1597,7 @@
 					}
 				},
 				{
-					"id": 238,
+					"id": 270,
 					"name": "selected",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1411,18 +1611,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 215,
+							"line": 247,
 							"character": 10
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 189,
+						"id": 221,
 						"name": "DayMatcher"
 					}
 				},
 				{
-					"id": 230,
+					"id": 262,
 					"name": "showCaption",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1436,7 +1636,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 175,
+							"line": 207,
 							"character": 13
 						}
 					],
@@ -1446,7 +1646,7 @@
 					}
 				},
 				{
-					"id": 231,
+					"id": 263,
 					"name": "showHead",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1460,7 +1660,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 180,
+							"line": 212,
 							"character": 10
 						}
 					],
@@ -1470,7 +1670,7 @@
 					}
 				},
 				{
-					"id": 235,
+					"id": 267,
 					"name": "showNavigation",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1484,7 +1684,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 200,
+							"line": 232,
 							"character": 16
 						}
 					],
@@ -1494,7 +1694,7 @@
 					}
 				},
 				{
-					"id": 232,
+					"id": 264,
 					"name": "showOutsideDays",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1514,7 +1714,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 187,
+							"line": 219,
 							"character": 17
 						}
 					],
@@ -1524,7 +1724,7 @@
 					}
 				},
 				{
-					"id": 234,
+					"id": 266,
 					"name": "showWeekNumber",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1538,7 +1738,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 195,
+							"line": 227,
 							"character": 16
 						}
 					],
@@ -1548,7 +1748,7 @@
 					}
 				},
 				{
-					"id": 219,
+					"id": 251,
 					"name": "style",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1562,7 +1762,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 117,
+							"line": 149,
 							"character": 7
 						}
 					],
@@ -1572,7 +1772,7 @@
 					}
 				},
 				{
-					"id": 220,
+					"id": 252,
 					"name": "styles",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1586,18 +1786,18 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 121,
+							"line": 153,
 							"character": 8
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 255,
+						"id": 295,
 						"name": "DayPickerStyles"
 					}
 				},
 				{
-					"id": 225,
+					"id": 257,
 					"name": "toMonth",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1617,7 +1817,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 148,
+							"line": 180,
 							"character": 9
 						}
 					],
@@ -1632,50 +1832,58 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						216,
-						217,
 						248,
-						241,
-						218,
-						221,
-						243,
-						239,
-						233,
-						229,
-						244,
-						245,
-						247,
-						246,
-						224,
-						240,
-						222,
-						242,
-						228,
-						237,
-						223,
 						249,
+						280,
+						273,
 						250,
+						253,
+						275,
+						271,
+						265,
+						261,
+						276,
+						277,
+						279,
+						278,
+						256,
+						272,
+						254,
+						274,
+						260,
+						269,
+						255,
+						281,
+						284,
+						286,
+						285,
+						282,
+						283,
+						288,
+						287,
+						289,
+						290,
+						291,
+						292,
+						258,
+						268,
+						259,
+						270,
+						262,
+						263,
+						267,
+						264,
+						266,
 						251,
 						252,
-						226,
-						236,
-						227,
-						238,
-						230,
-						231,
-						235,
-						232,
-						234,
-						219,
-						220,
-						225
+						257
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-					"line": 68,
+					"line": 100,
 					"character": 31
 				}
 			]
@@ -1758,7 +1966,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 215,
+						"id": 247,
 						"name": "DayPickerProps"
 					}
 				}
@@ -1814,7 +2022,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 215,
+						"id": 247,
 						"name": "DayPickerProps"
 					}
 				},
@@ -1914,7 +2122,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 215,
+						"id": 247,
 						"name": "DayPickerProps"
 					}
 				},
@@ -1989,7 +2197,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 215,
+						"id": 247,
 						"name": "DayPickerProps"
 					}
 				},
@@ -2033,7 +2241,7 @@
 			]
 		},
 		{
-			"id": 102,
+			"id": 134,
 			"name": "NavigationProps",
 			"kind": 256,
 			"kindString": "Interface",
@@ -2045,7 +2253,7 @@
 			},
 			"children": [
 				{
-					"id": 103,
+					"id": 135,
 					"name": "dayPickerProps",
 					"kind": 1024,
 					"kindString": "Property",
@@ -2061,7 +2269,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 215,
+						"id": 247,
 						"name": "DayPickerProps"
 					}
 				}
@@ -2071,7 +2279,7 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						103
+						135
 					]
 				}
 			],
@@ -2084,7 +2292,7 @@
 			]
 		},
 		{
-			"id": 131,
+			"id": 163,
 			"name": "WeekNumberProps",
 			"kind": 256,
 			"kindString": "Interface",
@@ -2096,7 +2304,7 @@
 			},
 			"children": [
 				{
-					"id": 134,
+					"id": 166,
 					"name": "dayPickerProps",
 					"kind": 1024,
 					"kindString": "Property",
@@ -2112,12 +2320,12 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 215,
+						"id": 247,
 						"name": "DayPickerProps"
 					}
 				},
 				{
-					"id": 133,
+					"id": 165,
 					"name": "days",
 					"kind": 1024,
 					"kindString": "Property",
@@ -2140,7 +2348,7 @@
 					}
 				},
 				{
-					"id": 132,
+					"id": 164,
 					"name": "number",
 					"kind": 1024,
 					"kindString": "Property",
@@ -2165,9 +2373,9 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						134,
-						133,
-						132
+						166,
+						165,
+						164
 					]
 				}
 			],
@@ -2227,7 +2435,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 215,
+						"id": 247,
 						"name": "DayPickerProps"
 					}
 				},
@@ -2434,7 +2642,7 @@
 			}
 		},
 		{
-			"id": 268,
+			"id": 332,
 			"name": "CustomComponents",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -2447,14 +2655,14 @@
 			"sources": [
 				{
 					"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-					"line": 54,
+					"line": 86,
 					"character": 28
 				}
 			],
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 269,
+					"id": 333,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -2463,7 +2671,7 @@
 					},
 					"children": [
 						{
-							"id": 271,
+							"id": 335,
 							"name": "Day",
 							"kind": 32,
 							"kindString": "Variable",
@@ -2476,7 +2684,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-									"line": 58,
+									"line": 90,
 									"character": 5
 								}
 							],
@@ -2493,7 +2701,7 @@
 							}
 						},
 						{
-							"id": 270,
+							"id": 334,
 							"name": "MonthCaption",
 							"kind": 32,
 							"kindString": "Variable",
@@ -2506,7 +2714,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-									"line": 56,
+									"line": 88,
 									"character": 14
 								}
 							],
@@ -2523,7 +2731,7 @@
 							}
 						},
 						{
-							"id": 272,
+							"id": 336,
 							"name": "Navigation",
 							"kind": 32,
 							"kindString": "Variable",
@@ -2536,7 +2744,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-									"line": 60,
+									"line": 92,
 									"character": 12
 								}
 							],
@@ -2545,7 +2753,7 @@
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 102,
+										"id": 134,
 										"name": "NavigationProps"
 									}
 								],
@@ -2553,7 +2761,7 @@
 							}
 						},
 						{
-							"id": 273,
+							"id": 337,
 							"name": "WeekNumber",
 							"kind": 32,
 							"kindString": "Variable",
@@ -2566,7 +2774,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-									"line": 62,
+									"line": 94,
 									"character": 12
 								}
 							],
@@ -2575,7 +2783,7 @@
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 131,
+										"id": 163,
 										"name": "WeekNumberProps"
 									}
 								],
@@ -2588,17 +2796,17 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								271,
-								270,
-								272,
-								273
+								335,
+								334,
+								336,
+								337
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 54,
+							"line": 86,
 							"character": 30
 						}
 					]
@@ -2606,7 +2814,7 @@
 			}
 		},
 		{
-			"id": 257,
+			"id": 297,
 			"name": "DayClickEventHandler",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -2614,7 +2822,7 @@
 				"isExported": true
 			},
 			"comment": {
-				"shortText": "Event handler when a day is clicked."
+				"shortText": "Day event handler for mouse events."
 			},
 			"sources": [
 				{
@@ -2626,7 +2834,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 258,
+					"id": 298,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -2635,7 +2843,7 @@
 					},
 					"signatures": [
 						{
-							"id": 259,
+							"id": 299,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2644,7 +2852,7 @@
 							},
 							"parameters": [
 								{
-									"id": 260,
+									"id": 300,
 									"name": "day",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2657,7 +2865,7 @@
 									}
 								},
 								{
-									"id": 261,
+									"id": 301,
 									"name": "modifiers",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2666,12 +2874,12 @@
 									},
 									"type": {
 										"type": "reference",
-										"id": 165,
+										"id": 197,
 										"name": "MatchingModifiers"
 									}
 								},
 								{
-									"id": 262,
+									"id": 302,
 									"name": "e",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2769,7 +2977,7 @@
 							}
 						},
 						{
-							"id": 91,
+							"id": 123,
 							"name": "className",
 							"kind": 32,
 							"kindString": "Variable",
@@ -2780,7 +2988,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
-									"line": 35,
+									"line": 43,
 									"character": 11
 								}
 							],
@@ -2883,8 +3091,296 @@
 							}
 						},
 						{
-							"id": 92,
-							"name": "style",
+							"id": 99,
+							"name": "onKeyDown",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+									"line": 37,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 100,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"signatures": [
+										{
+											"id": 101,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {
+												"isExported": true
+											},
+											"parameters": [
+												{
+													"id": 102,
+													"name": "e",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"name": "HTMLButtonElement"
+															}
+														],
+														"name": "KeyboardEvent"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+											"line": 37,
+											"character": 13
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 107,
+							"name": "onKeyPress",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+									"line": 39,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 108,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"signatures": [
+										{
+											"id": 109,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {
+												"isExported": true
+											},
+											"parameters": [
+												{
+													"id": 110,
+													"name": "e",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"name": "HTMLButtonElement"
+															}
+														],
+														"name": "KeyboardEvent"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+											"line": 39,
+											"character": 14
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 103,
+							"name": "onKeyUp",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+									"line": 38,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 104,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"signatures": [
+										{
+											"id": 105,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {
+												"isExported": true
+											},
+											"parameters": [
+												{
+													"id": 106,
+													"name": "e",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"name": "HTMLButtonElement"
+															}
+														],
+														"name": "KeyboardEvent"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+											"line": 38,
+											"character": 11
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 91,
+							"name": "onMouseEnter",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+									"line": 35,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 92,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"signatures": [
+										{
+											"id": 93,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {
+												"isExported": true
+											},
+											"parameters": [
+												{
+													"id": 94,
+													"name": "e",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"name": "HTMLButtonElement"
+															}
+														],
+														"name": "MouseEvent"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+											"line": 35,
+											"character": 16
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 95,
+							"name": "onMouseLeave",
 							"kind": 32,
 							"kindString": "Variable",
 							"flags": {
@@ -2895,6 +3391,282 @@
 								{
 									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
 									"line": 36,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 96,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"signatures": [
+										{
+											"id": 97,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {
+												"isExported": true
+											},
+											"parameters": [
+												{
+													"id": 98,
+													"name": "e",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"name": "HTMLButtonElement"
+															}
+														],
+														"name": "MouseEvent"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+											"line": 36,
+											"character": 16
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 115,
+							"name": "onTouch",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+									"line": 41,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 116,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"signatures": [
+										{
+											"id": 117,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {
+												"isExported": true
+											},
+											"parameters": [
+												{
+													"id": 118,
+													"name": "e",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "reference",
+														"name": "Touch"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+											"line": 41,
+											"character": 11
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 111,
+							"name": "onTouchEvent",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+									"line": 40,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 112,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"signatures": [
+										{
+											"id": 113,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {
+												"isExported": true
+											},
+											"parameters": [
+												{
+													"id": 114,
+													"name": "e",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"name": "HTMLButtonElement"
+															}
+														],
+														"name": "TouchEvent"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+											"line": 40,
+											"character": 16
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 119,
+							"name": "onTouchList",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+									"line": 42,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 120,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"signatures": [
+										{
+											"id": 121,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {
+												"isExported": true
+											},
+											"parameters": [
+												{
+													"id": 122,
+													"name": "e",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "reference",
+														"name": "TouchList"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+											"line": 42,
+											"character": 15
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 124,
+							"name": "style",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
+									"line": 44,
 									"character": 7
 								}
 							],
@@ -2911,10 +3683,18 @@
 							"children": [
 								84,
 								85,
-								91,
+								123,
 								86,
 								87,
-								92
+								99,
+								107,
+								103,
+								91,
+								95,
+								115,
+								111,
+								119,
+								124
 							]
 						}
 					],
@@ -2923,6 +3703,101 @@
 							"fileName": "packages/react-day-picker/src/components/Day/types.ts",
 							"line": 30,
 							"character": 35
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 309,
+			"name": "DayDragEventHandler",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Day event handler for draging touch events."
+			},
+			"sources": [
+				{
+					"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+					"line": 54,
+					"character": 31
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 310,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 311,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 312,
+									"name": "day",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "Date"
+									}
+								},
+								{
+									"id": 313,
+									"name": "modifiers",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 197,
+										"name": "MatchingModifiers"
+									}
+								},
+								{
+									"id": 314,
+									"name": "e",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "TouchEvent"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 54,
+							"character": 33
 						}
 					]
 				}
@@ -3058,7 +3933,7 @@
 			}
 		},
 		{
-			"id": 97,
+			"id": 129,
 			"name": "DayHtmlProps",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3068,14 +3943,14 @@
 			"sources": [
 				{
 					"fileName": "packages/react-day-picker/src/components/Day/types.ts",
-					"line": 44,
+					"line": 52,
 					"character": 24
 				}
 			],
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 98,
+					"id": 130,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3084,7 +3959,7 @@
 					},
 					"children": [
 						{
-							"id": 99,
+							"id": 131,
 							"name": "containerProps",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3094,7 +3969,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
-									"line": 45,
+									"line": 53,
 									"character": 16
 								}
 							],
@@ -3105,7 +3980,7 @@
 							}
 						},
 						{
-							"id": 101,
+							"id": 133,
 							"name": "modifiers",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3115,18 +3990,18 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
-									"line": 47,
+									"line": 55,
 									"character": 11
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 165,
+								"id": 197,
 								"name": "MatchingModifiers"
 							}
 						},
 						{
-							"id": 100,
+							"id": 132,
 							"name": "wrapperProps",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3136,13 +4011,13 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
-									"line": 46,
+									"line": 54,
 									"character": 14
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 93,
+								"id": 125,
 								"name": "DayWrapperHtmlProps"
 							}
 						}
@@ -3152,16 +4027,16 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								99,
-								101,
-								100
+								131,
+								133,
+								132
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/Day/types.ts",
-							"line": 44,
+							"line": 52,
 							"character": 26
 						}
 					]
@@ -3169,7 +4044,102 @@
 			}
 		},
 		{
-			"id": 164,
+			"id": 303,
+			"name": "DayKeyboardEventHandler",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Day event handler for keyboard events."
+			},
+			"sources": [
+				{
+					"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+					"line": 45,
+					"character": 35
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 304,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 305,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 306,
+									"name": "day",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "Date"
+									}
+								},
+								{
+									"id": 307,
+									"name": "modifiers",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 197,
+										"name": "MatchingModifiers"
+									}
+								},
+								{
+									"id": 308,
+									"name": "e",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "KeyboardEvent"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 45,
+							"character": 37
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 196,
 			"name": "DayMatchModifier",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3201,7 +4171,7 @@
 			}
 		},
 		{
-			"id": 189,
+			"id": 221,
 			"name": "DayMatcher",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3223,44 +4193,44 @@
 				"types": [
 					{
 						"type": "reference",
-						"id": 167,
+						"id": 199,
 						"name": "MatchDate"
 					},
 					{
 						"type": "reference",
-						"id": 168,
+						"id": 200,
 						"name": "MatchDayInRange"
 					},
 					{
 						"type": "reference",
-						"id": 178,
+						"id": 210,
 						"name": "MatchDayBetween"
 					},
 					{
 						"type": "reference",
-						"id": 172,
+						"id": 204,
 						"name": "MatchDayBefore"
 					},
 					{
 						"type": "reference",
-						"id": 175,
+						"id": 207,
 						"name": "MatchDayAfter"
 					},
 					{
 						"type": "reference",
-						"id": 182,
+						"id": 214,
 						"name": "MatchDaysOfWeek"
 					},
 					{
 						"type": "reference",
-						"id": 185,
+						"id": 217,
 						"name": "MatchFunction"
 					},
 					{
 						"type": "array",
 						"elementType": {
 							"type": "reference",
-							"id": 189,
+							"id": 221,
 							"name": "DayMatcher"
 						}
 					}
@@ -3268,7 +4238,7 @@
 			}
 		},
 		{
-			"id": 153,
+			"id": 185,
 			"name": "DayModifier",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3291,7 +4261,7 @@
 			}
 		},
 		{
-			"id": 253,
+			"id": 293,
 			"name": "DayPickerClassNames",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3311,7 +4281,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 254,
+					"id": 294,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3329,7 +4299,7 @@
 			}
 		},
 		{
-			"id": 255,
+			"id": 295,
 			"name": "DayPickerStyles",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3349,7 +4319,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 256,
+					"id": 296,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3367,7 +4337,200 @@
 			}
 		},
 		{
-			"id": 93,
+			"id": 315,
+			"name": "DayTouchEventHandler",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Day event handler for single touch events."
+			},
+			"sources": [
+				{
+					"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+					"line": 62,
+					"character": 32
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 316,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 317,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 318,
+									"name": "day",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "Date"
+									}
+								},
+								{
+									"id": 319,
+									"name": "modifiers",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 197,
+										"name": "MatchingModifiers"
+									}
+								},
+								{
+									"id": 320,
+									"name": "e",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "Touch"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 62,
+							"character": 34
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 321,
+			"name": "DayTouchListEventHandler",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"comment": {
+				"shortText": "Day event handler for multiple touch events."
+			},
+			"sources": [
+				{
+					"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+					"line": 70,
+					"character": 36
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 322,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 323,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 324,
+									"name": "days",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "Date"
+										}
+									}
+								},
+								{
+									"id": 325,
+									"name": "modifiers",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 197,
+										"name": "MatchingModifiers"
+									}
+								},
+								{
+									"id": 326,
+									"name": "e",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "TouchList"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
+							"line": 70,
+							"character": 38
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 125,
 			"name": "DayWrapperHtmlProps",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3377,14 +4540,14 @@
 			"sources": [
 				{
 					"fileName": "packages/react-day-picker/src/components/Day/types.ts",
-					"line": 39,
+					"line": 47,
 					"character": 31
 				}
 			],
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 94,
+					"id": 126,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3393,7 +4556,7 @@
 					},
 					"children": [
 						{
-							"id": 95,
+							"id": 127,
 							"name": "className",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3404,7 +4567,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
-									"line": 40,
+									"line": 48,
 									"character": 11
 								}
 							],
@@ -3414,7 +4577,7 @@
 							}
 						},
 						{
-							"id": 96,
+							"id": 128,
 							"name": "style",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3425,7 +4588,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/components/Day/types.ts",
-									"line": 41,
+									"line": 49,
 									"character": 7
 								}
 							],
@@ -3440,15 +4603,15 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								95,
-								96
+								127,
+								128
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/Day/types.ts",
-							"line": 39,
+							"line": 47,
 							"character": 33
 						}
 					]
@@ -3456,7 +4619,7 @@
 			}
 		},
 		{
-			"id": 154,
+			"id": 186,
 			"name": "DaysClassNames",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3474,7 +4637,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 155,
+					"id": 187,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3483,7 +4646,7 @@
 					},
 					"indexSignature": [
 						{
-							"id": 156,
+							"id": 188,
 							"name": "__index",
 							"kind": 8192,
 							"kindString": "Index signature",
@@ -3492,7 +4655,7 @@
 							},
 							"parameters": [
 								{
-									"id": 157,
+									"id": 189,
 									"name": "other",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3522,7 +4685,7 @@
 			}
 		},
 		{
-			"id": 160,
+			"id": 192,
 			"name": "DaysModifiers",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3542,7 +4705,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 161,
+					"id": 193,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3551,7 +4714,7 @@
 					},
 					"indexSignature": [
 						{
-							"id": 162,
+							"id": 194,
 							"name": "__index",
 							"kind": 8192,
 							"kindString": "Index signature",
@@ -3560,7 +4723,7 @@
 							},
 							"parameters": [
 								{
-									"id": 163,
+									"id": 195,
 									"name": "modifier",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3575,7 +4738,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 189,
+								"id": 221,
 								"name": "DayMatcher"
 							}
 						}
@@ -3591,7 +4754,7 @@
 			}
 		},
 		{
-			"id": 158,
+			"id": 190,
 			"name": "DaysStyles",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3611,7 +4774,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 159,
+					"id": 191,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3629,7 +4792,7 @@
 			}
 		},
 		{
-			"id": 167,
+			"id": 199,
 			"name": "MatchDate",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3652,7 +4815,7 @@
 			}
 		},
 		{
-			"id": 175,
+			"id": 207,
 			"name": "MatchDayAfter",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3672,7 +4835,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 176,
+					"id": 208,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3681,7 +4844,7 @@
 					},
 					"children": [
 						{
-							"id": 177,
+							"id": 209,
 							"name": "after",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3706,7 +4869,7 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								177
+								209
 							]
 						}
 					],
@@ -3721,7 +4884,7 @@
 			}
 		},
 		{
-			"id": 172,
+			"id": 204,
 			"name": "MatchDayBefore",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3741,7 +4904,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 173,
+					"id": 205,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3750,7 +4913,7 @@
 					},
 					"children": [
 						{
-							"id": 174,
+							"id": 206,
 							"name": "before",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3775,7 +4938,7 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								174
+								206
 							]
 						}
 					],
@@ -3790,7 +4953,7 @@
 			}
 		},
 		{
-			"id": 178,
+			"id": 210,
 			"name": "MatchDayBetween",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3810,7 +4973,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 179,
+					"id": 211,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3819,7 +4982,7 @@
 					},
 					"children": [
 						{
-							"id": 180,
+							"id": 212,
 							"name": "after",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3839,7 +5002,7 @@
 							}
 						},
 						{
-							"id": 181,
+							"id": 213,
 							"name": "before",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3864,8 +5027,8 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								180,
-								181
+								212,
+								213
 							]
 						}
 					],
@@ -3880,7 +5043,7 @@
 			}
 		},
 		{
-			"id": 168,
+			"id": 200,
 			"name": "MatchDayInRange",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3900,7 +5063,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 169,
+					"id": 201,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3909,7 +5072,7 @@
 					},
 					"children": [
 						{
-							"id": 170,
+							"id": 202,
 							"name": "from",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3929,7 +5092,7 @@
 							}
 						},
 						{
-							"id": 171,
+							"id": 203,
 							"name": "to",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3954,8 +5117,8 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								170,
-								171
+								202,
+								203
 							]
 						}
 					],
@@ -3970,7 +5133,7 @@
 			}
 		},
 		{
-			"id": 182,
+			"id": 214,
 			"name": "MatchDaysOfWeek",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -3990,7 +5153,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 183,
+					"id": 215,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -3999,7 +5162,7 @@
 					},
 					"children": [
 						{
-							"id": 184,
+							"id": 216,
 							"name": "daysOfWeek",
 							"kind": 32,
 							"kindString": "Variable",
@@ -4027,7 +5190,7 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								184
+								216
 							]
 						}
 					],
@@ -4042,7 +5205,7 @@
 			}
 		},
 		{
-			"id": 185,
+			"id": 217,
 			"name": "MatchFunction",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -4062,7 +5225,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 186,
+					"id": 218,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -4071,7 +5234,7 @@
 					},
 					"signatures": [
 						{
-							"id": 187,
+							"id": 219,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4080,7 +5243,7 @@
 							},
 							"parameters": [
 								{
-									"id": 188,
+									"id": 220,
 									"name": "date",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4110,7 +5273,7 @@
 			}
 		},
 		{
-			"id": 165,
+			"id": 197,
 			"name": "MatchingModifiers",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -4130,7 +5293,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 166,
+					"id": 198,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -4277,7 +5440,7 @@
 			}
 		},
 		{
-			"id": 263,
+			"id": 327,
 			"name": "MonthChangeEventHandler",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -4290,14 +5453,14 @@
 			"sources": [
 				{
 					"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-					"line": 46,
+					"line": 78,
 					"character": 35
 				}
 			],
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 264,
+					"id": 328,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -4306,7 +5469,7 @@
 					},
 					"signatures": [
 						{
-							"id": 265,
+							"id": 329,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4315,7 +5478,7 @@
 							},
 							"parameters": [
 								{
-									"id": 266,
+									"id": 330,
 									"name": "month",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4328,7 +5491,7 @@
 									}
 								},
 								{
-									"id": 267,
+									"id": 331,
 									"name": "e",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4350,7 +5513,7 @@
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/components/DayPicker/types/DayPickerProps.ts",
-							"line": 46,
+							"line": 78,
 							"character": 37
 						}
 					]
@@ -4429,7 +5592,7 @@
 			}
 		},
 		{
-			"id": 104,
+			"id": 136,
 			"name": "NavigationHtmlProps",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -4449,7 +5612,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 105,
+					"id": 137,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -4458,7 +5621,7 @@
 					},
 					"children": [
 						{
-							"id": 106,
+							"id": 138,
 							"name": "containerProps",
 							"kind": 32,
 							"kindString": "Variable",
@@ -4478,7 +5641,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 107,
+									"id": 139,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -4487,7 +5650,7 @@
 									},
 									"children": [
 										{
-											"id": 108,
+											"id": 140,
 											"name": "className",
 											"kind": 32,
 											"kindString": "Variable",
@@ -4508,7 +5671,7 @@
 											}
 										},
 										{
-											"id": 109,
+											"id": 141,
 											"name": "style",
 											"kind": 32,
 											"kindString": "Variable",
@@ -4534,8 +5697,8 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												108,
-												109
+												140,
+												141
 											]
 										}
 									],
@@ -4550,7 +5713,7 @@
 							}
 						},
 						{
-							"id": 110,
+							"id": 142,
 							"name": "nextProps",
 							"kind": 32,
 							"kindString": "Variable",
@@ -4567,7 +5730,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 111,
+									"id": 143,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -4576,7 +5739,7 @@
 									},
 									"children": [
 										{
-											"id": 112,
+											"id": 144,
 											"name": "className",
 											"kind": 32,
 											"kindString": "Variable",
@@ -4597,7 +5760,7 @@
 											}
 										},
 										{
-											"id": 113,
+											"id": 145,
 											"name": "style",
 											"kind": 32,
 											"kindString": "Variable",
@@ -4623,8 +5786,8 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												112,
-												113
+												144,
+												145
 											]
 										}
 									],
@@ -4639,7 +5802,7 @@
 							}
 						},
 						{
-							"id": 114,
+							"id": 146,
 							"name": "prevProps",
 							"kind": 32,
 							"kindString": "Variable",
@@ -4656,7 +5819,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 115,
+									"id": 147,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -4665,7 +5828,7 @@
 									},
 									"children": [
 										{
-											"id": 116,
+											"id": 148,
 											"name": "className",
 											"kind": 32,
 											"kindString": "Variable",
@@ -4686,7 +5849,7 @@
 											}
 										},
 										{
-											"id": 117,
+											"id": 149,
 											"name": "style",
 											"kind": 32,
 											"kindString": "Variable",
@@ -4712,8 +5875,8 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												116,
-												117
+												148,
+												149
 											]
 										}
 									],
@@ -4733,9 +5896,9 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								106,
-								110,
-								114
+								138,
+								142,
+								146
 							]
 						}
 					],
@@ -4750,7 +5913,7 @@
 			}
 		},
 		{
-			"id": 118,
+			"id": 150,
 			"name": "NavigationMonths",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -4770,7 +5933,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 119,
+					"id": 151,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -4779,7 +5942,7 @@
 					},
 					"children": [
 						{
-							"id": 120,
+							"id": 152,
 							"name": "nextMonth",
 							"kind": 32,
 							"kindString": "Variable",
@@ -4800,7 +5963,7 @@
 							}
 						},
 						{
-							"id": 121,
+							"id": 153,
 							"name": "prevMonth",
 							"kind": 32,
 							"kindString": "Variable",
@@ -4826,8 +5989,8 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								120,
-								121
+								152,
+								153
 							]
 						}
 					],
@@ -4842,7 +6005,7 @@
 			}
 		},
 		{
-			"id": 532,
+			"id": 596,
 			"name": "UseInputDayPickerProps",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -4862,7 +6025,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 533,
+					"id": 597,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -4871,7 +6034,7 @@
 					},
 					"children": [
 						{
-							"id": 535,
+							"id": 599,
 							"name": "onDayClick",
 							"kind": 32,
 							"kindString": "Variable",
@@ -4898,7 +6061,223 @@
 							}
 						},
 						{
-							"id": 534,
+							"id": 602,
+							"name": "onDayKeyDown",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+									"line": 20,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "stringLiteral",
+									"value": "onDayKeyDown"
+								},
+								"objectType": {
+									"type": "reference",
+									"name": "DayPickerProps"
+								}
+							}
+						},
+						{
+							"id": 604,
+							"name": "onDayKeyPress",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+									"line": 22,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "stringLiteral",
+									"value": "onDayKeyPress"
+								},
+								"objectType": {
+									"type": "reference",
+									"name": "DayPickerProps"
+								}
+							}
+						},
+						{
+							"id": 603,
+							"name": "onDayKeyUp",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+									"line": 21,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "stringLiteral",
+									"value": "onDayKeyUp"
+								},
+								"objectType": {
+									"type": "reference",
+									"name": "DayPickerProps"
+								}
+							}
+						},
+						{
+							"id": 600,
+							"name": "onDayMouseEnter",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+									"line": 18,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "stringLiteral",
+									"value": "onDayMouseEnter"
+								},
+								"objectType": {
+									"type": "reference",
+									"name": "DayPickerProps"
+								}
+							}
+						},
+						{
+							"id": 601,
+							"name": "onDayMouseLeave",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+									"line": 19,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "stringLiteral",
+									"value": "onDayMouseLeave"
+								},
+								"objectType": {
+									"type": "reference",
+									"name": "DayPickerProps"
+								}
+							}
+						},
+						{
+							"id": 606,
+							"name": "onDayTouch",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+									"line": 24,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "stringLiteral",
+									"value": "onDayTouch"
+								},
+								"objectType": {
+									"type": "reference",
+									"name": "DayPickerProps"
+								}
+							}
+						},
+						{
+							"id": 605,
+							"name": "onDayTouchEvent",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+									"line": 23,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "stringLiteral",
+									"value": "onDayTouchEvent"
+								},
+								"objectType": {
+									"type": "reference",
+									"name": "DayPickerProps"
+								}
+							}
+						},
+						{
+							"id": 607,
+							"name": "onDayTouchList",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
+									"line": 25,
+									"character": 16
+								}
+							],
+							"type": {
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "stringLiteral",
+									"value": "onDayTouchList"
+								},
+								"objectType": {
+									"type": "reference",
+									"name": "DayPickerProps"
+								}
+							}
+						},
+						{
+							"id": 598,
 							"name": "onMonthChange",
 							"kind": 32,
 							"kindString": "Variable",
@@ -4930,8 +6309,16 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								535,
-								534
+								599,
+								602,
+								604,
+								603,
+								600,
+								601,
+								606,
+								605,
+								607,
+								598
 							]
 						}
 					],
@@ -4946,7 +6333,7 @@
 			}
 		},
 		{
-			"id": 536,
+			"id": 608,
 			"name": "UseInputInputProps",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -4959,14 +6346,14 @@
 			"sources": [
 				{
 					"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-					"line": 21,
+					"line": 29,
 					"character": 30
 				}
 			],
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 537,
+					"id": 609,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -4975,7 +6362,7 @@
 					},
 					"children": [
 						{
-							"id": 540,
+							"id": 612,
 							"name": "onBlur",
 							"kind": 32,
 							"kindString": "Variable",
@@ -4985,7 +6372,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-									"line": 24,
+									"line": 32,
 									"character": 8
 								}
 							],
@@ -5009,7 +6396,7 @@
 							}
 						},
 						{
-							"id": 541,
+							"id": 613,
 							"name": "onChange",
 							"kind": 32,
 							"kindString": "Variable",
@@ -5019,7 +6406,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-									"line": 25,
+									"line": 33,
 									"character": 10
 								}
 							],
@@ -5043,7 +6430,7 @@
 							}
 						},
 						{
-							"id": 539,
+							"id": 611,
 							"name": "onFocus",
 							"kind": 32,
 							"kindString": "Variable",
@@ -5053,7 +6440,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-									"line": 23,
+									"line": 31,
 									"character": 9
 								}
 							],
@@ -5077,7 +6464,7 @@
 							}
 						},
 						{
-							"id": 538,
+							"id": 610,
 							"name": "value",
 							"kind": 32,
 							"kindString": "Variable",
@@ -5087,7 +6474,7 @@
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-									"line": 22,
+									"line": 30,
 									"character": 7
 								}
 							],
@@ -5116,17 +6503,17 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								540,
-								541,
-								539,
-								538
+								612,
+								613,
+								611,
+								610
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-							"line": 21,
+							"line": 29,
 							"character": 32
 						}
 					]
@@ -5134,7 +6521,7 @@
 			}
 		},
 		{
-			"id": 135,
+			"id": 167,
 			"name": "WeekNumberFormatter",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -5151,7 +6538,7 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 136,
+					"id": 168,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
@@ -5160,7 +6547,7 @@
 					},
 					"signatures": [
 						{
-							"id": 137,
+							"id": 169,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5169,7 +6556,7 @@
 							},
 							"parameters": [
 								{
-									"id": 138,
+									"id": 170,
 									"name": "weekNumber",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5182,7 +6569,7 @@
 									}
 								},
 								{
-									"id": 139,
+									"id": 171,
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5193,7 +6580,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 140,
+											"id": 172,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -5202,7 +6589,7 @@
 											},
 											"children": [
 												{
-													"id": 141,
+													"id": 173,
 													"name": "locale",
 													"kind": 32,
 													"kindString": "Variable",
@@ -5227,7 +6614,7 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														141
+														173
 													]
 												}
 											],
@@ -5388,7 +6775,7 @@
 			}
 		},
 		{
-			"id": 526,
+			"id": 590,
 			"name": "Day",
 			"kind": 64,
 			"kindString": "Function",
@@ -5397,7 +6784,7 @@
 			},
 			"signatures": [
 				{
-					"id": 527,
+					"id": 591,
 					"name": "Day",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -5410,7 +6797,7 @@
 					},
 					"parameters": [
 						{
-							"id": 528,
+							"id": 592,
 							"name": "props",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -5439,7 +6826,7 @@
 			]
 		},
 		{
-			"id": 450,
+			"id": 514,
 			"name": "DayPicker",
 			"kind": 64,
 			"kindString": "Function",
@@ -5448,7 +6835,7 @@
 			},
 			"signatures": [
 				{
-					"id": 451,
+					"id": 515,
 					"name": "DayPicker",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -5461,7 +6848,7 @@
 					},
 					"parameters": [
 						{
-							"id": 452,
+							"id": 516,
 							"name": "props",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -5470,7 +6857,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							},
 							"defaultValue": "defaultProps"
@@ -5641,7 +7028,7 @@
 			]
 		},
 		{
-			"id": 447,
+			"id": 511,
 			"name": "Months",
 			"kind": 64,
 			"kindString": "Function",
@@ -5650,7 +7037,7 @@
 			},
 			"signatures": [
 				{
-					"id": 448,
+					"id": 512,
 					"name": "Months",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -5662,7 +7049,7 @@
 					},
 					"parameters": [
 						{
-							"id": 449,
+							"id": 513,
 							"name": "initialProps",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -5671,7 +7058,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							},
 							"defaultValue": "defaultProps"
@@ -5692,7 +7079,7 @@
 			]
 		},
 		{
-			"id": 128,
+			"id": 160,
 			"name": "Navigation",
 			"kind": 64,
 			"kindString": "Function",
@@ -5701,7 +7088,7 @@
 			},
 			"signatures": [
 				{
-					"id": 129,
+					"id": 161,
 					"name": "Navigation",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -5713,7 +7100,7 @@
 					},
 					"parameters": [
 						{
-							"id": 130,
+							"id": 162,
 							"name": "props",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -5722,7 +7109,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 102,
+								"id": 134,
 								"name": "NavigationProps"
 							}
 						}
@@ -5751,7 +7138,7 @@
 			]
 		},
 		{
-			"id": 142,
+			"id": 174,
 			"name": "WeekNumber",
 			"kind": 64,
 			"kindString": "Function",
@@ -5760,7 +7147,7 @@
 			},
 			"signatures": [
 				{
-					"id": 143,
+					"id": 175,
 					"name": "WeekNumber",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -5772,7 +7159,7 @@
 					},
 					"parameters": [
 						{
-							"id": 144,
+							"id": 176,
 							"name": "props",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -5781,7 +7168,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 131,
+								"id": 163,
 								"name": "WeekNumberProps"
 							}
 						}
@@ -5853,7 +7240,7 @@
 			]
 		},
 		{
-			"id": 311,
+			"id": 375,
 			"name": "defaultFormatCaption",
 			"kind": 64,
 			"kindString": "Function",
@@ -5863,7 +7250,7 @@
 			},
 			"signatures": [
 				{
-					"id": 312,
+					"id": 376,
 					"name": "defaultFormatCaption",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -5877,7 +7264,7 @@
 					},
 					"parameters": [
 						{
-							"id": 313,
+							"id": 377,
 							"name": "month",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -5890,7 +7277,7 @@
 							}
 						},
 						{
-							"id": 314,
+							"id": 378,
 							"name": "formatOptions",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -5901,7 +7288,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 315,
+									"id": 379,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -5910,7 +7297,7 @@
 									},
 									"children": [
 										{
-											"id": 316,
+											"id": 380,
 											"name": "locale",
 											"kind": 32,
 											"kindString": "Variable",
@@ -5936,7 +7323,7 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												316
+												380
 											]
 										}
 									],
@@ -5966,7 +7353,7 @@
 			]
 		},
 		{
-			"id": 317,
+			"id": 381,
 			"name": "defaultFormatDay",
 			"kind": 64,
 			"kindString": "Function",
@@ -5976,7 +7363,7 @@
 			},
 			"signatures": [
 				{
-					"id": 318,
+					"id": 382,
 					"name": "defaultFormatDay",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -5990,7 +7377,7 @@
 					},
 					"parameters": [
 						{
-							"id": 319,
+							"id": 383,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6003,7 +7390,7 @@
 							}
 						},
 						{
-							"id": 320,
+							"id": 384,
 							"name": "formatOptions",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6014,7 +7401,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 321,
+									"id": 385,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -6023,7 +7410,7 @@
 									},
 									"children": [
 										{
-											"id": 322,
+											"id": 386,
 											"name": "locale",
 											"kind": 32,
 											"kindString": "Variable",
@@ -6049,7 +7436,7 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												322
+												386
 											]
 										}
 									],
@@ -6079,7 +7466,7 @@
 			]
 		},
 		{
-			"id": 323,
+			"id": 387,
 			"name": "defaultFormatWeekNumber",
 			"kind": 64,
 			"kindString": "Function",
@@ -6089,7 +7476,7 @@
 			},
 			"signatures": [
 				{
-					"id": 324,
+					"id": 388,
 					"name": "defaultFormatWeekNumber",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -6103,7 +7490,7 @@
 					},
 					"parameters": [
 						{
-							"id": 325,
+							"id": 389,
 							"name": "weekNumber",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6131,7 +7518,7 @@
 			]
 		},
 		{
-			"id": 326,
+			"id": 390,
 			"name": "defaultFormatWeekdayName",
 			"kind": 64,
 			"kindString": "Function",
@@ -6141,7 +7528,7 @@
 			},
 			"signatures": [
 				{
-					"id": 327,
+					"id": 391,
 					"name": "defaultFormatWeekdayName",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -6155,7 +7542,7 @@
 					},
 					"parameters": [
 						{
-							"id": 328,
+							"id": 392,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6168,7 +7555,7 @@
 							}
 						},
 						{
-							"id": 329,
+							"id": 393,
 							"name": "formatOptions",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6179,7 +7566,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 330,
+									"id": 394,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -6188,7 +7575,7 @@
 									},
 									"children": [
 										{
-											"id": 331,
+											"id": 395,
 											"name": "locale",
 											"kind": 32,
 											"kindString": "Variable",
@@ -6214,7 +7601,7 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												331
+												395
 											]
 										}
 									],
@@ -6244,7 +7631,7 @@
 			]
 		},
 		{
-			"id": 277,
+			"id": 341,
 			"name": "filterUndefinedProps",
 			"kind": 64,
 			"kindString": "Function",
@@ -6253,7 +7640,7 @@
 			},
 			"signatures": [
 				{
-					"id": 278,
+					"id": 342,
 					"name": "filterUndefinedProps",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -6265,7 +7652,7 @@
 					},
 					"parameters": [
 						{
-							"id": 279,
+							"id": 343,
 							"name": "obj",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6275,7 +7662,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 280,
+									"id": 344,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -6284,7 +7671,7 @@
 									},
 									"indexSignature": [
 										{
-											"id": 281,
+											"id": 345,
 											"name": "__index",
 											"kind": 8192,
 											"kindString": "Index signature",
@@ -6293,7 +7680,7 @@
 											},
 											"parameters": [
 												{
-													"id": 282,
+													"id": 346,
 													"name": "index",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -6326,7 +7713,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 283,
+							"id": 347,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -6335,7 +7722,7 @@
 							},
 							"indexSignature": [
 								{
-									"id": 284,
+									"id": 348,
 									"name": "__index",
 									"kind": 8192,
 									"kindString": "Index signature",
@@ -6344,7 +7731,7 @@
 									},
 									"parameters": [
 										{
-											"id": 285,
+											"id": 349,
 											"name": "index",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6414,7 +7801,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							}
 						}
@@ -6435,7 +7822,7 @@
 			]
 		},
 		{
-			"id": 461,
+			"id": 525,
 			"name": "getDayProps",
 			"kind": 64,
 			"kindString": "Function",
@@ -6444,7 +7831,7 @@
 			},
 			"signatures": [
 				{
-					"id": 462,
+					"id": 526,
 					"name": "getDayProps",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -6456,7 +7843,7 @@
 					},
 					"parameters": [
 						{
-							"id": 463,
+							"id": 527,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6469,7 +7856,7 @@
 							}
 						},
 						{
-							"id": 464,
+							"id": 528,
 							"name": "modifiers",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6478,12 +7865,12 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 165,
+								"id": 197,
 								"name": "MatchingModifiers"
 							}
 						},
 						{
-							"id": 465,
+							"id": 529,
 							"name": "props",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6492,14 +7879,14 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							}
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 97,
+						"id": 129,
 						"name": "DayHtmlProps"
 					}
 				}
@@ -6513,7 +7900,7 @@
 			]
 		},
 		{
-			"id": 510,
+			"id": 574,
 			"name": "getMatchingModifiers",
 			"kind": 64,
 			"kindString": "Function",
@@ -6522,7 +7909,7 @@
 			},
 			"signatures": [
 				{
-					"id": 511,
+					"id": 575,
 					"name": "getMatchingModifiers",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -6534,7 +7921,7 @@
 					},
 					"parameters": [
 						{
-							"id": 512,
+							"id": 576,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6547,7 +7934,7 @@
 							}
 						},
 						{
-							"id": 513,
+							"id": 577,
 							"name": "modifiers",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6556,7 +7943,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 160,
+								"id": 192,
 								"name": "DaysModifiers"
 							}
 						}
@@ -6579,7 +7966,7 @@
 			]
 		},
 		{
-			"id": 514,
+			"id": 578,
 			"name": "getModifiersFromProps",
 			"kind": 64,
 			"kindString": "Function",
@@ -6588,7 +7975,7 @@
 			},
 			"signatures": [
 				{
-					"id": 515,
+					"id": 579,
 					"name": "getModifiersFromProps",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -6600,7 +7987,7 @@
 					},
 					"parameters": [
 						{
-							"id": 516,
+							"id": 580,
 							"name": "props",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6609,14 +7996,14 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							}
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 160,
+						"id": 192,
 						"name": "DaysModifiers"
 					}
 				}
@@ -6630,7 +8017,7 @@
 			]
 		},
 		{
-			"id": 274,
+			"id": 338,
 			"name": "getMonths",
 			"kind": 64,
 			"kindString": "Function",
@@ -6639,7 +8026,7 @@
 			},
 			"signatures": [
 				{
-					"id": 275,
+					"id": 339,
 					"name": "getMonths",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -6651,7 +8038,7 @@
 					},
 					"parameters": [
 						{
-							"id": 276,
+							"id": 340,
 							"name": "props",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6660,7 +8047,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							}
 						}
@@ -6683,7 +8070,7 @@
 			]
 		},
 		{
-			"id": 122,
+			"id": 154,
 			"name": "getNavigation",
 			"kind": 64,
 			"kindString": "Function",
@@ -6692,7 +8079,7 @@
 			},
 			"signatures": [
 				{
-					"id": 123,
+					"id": 155,
 					"name": "getNavigation",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -6704,7 +8091,7 @@
 					},
 					"parameters": [
 						{
-							"id": 124,
+							"id": 156,
 							"name": "props",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6713,14 +8100,14 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							}
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 118,
+						"id": 150,
 						"name": "NavigationMonths"
 					}
 				}
@@ -6734,7 +8121,7 @@
 			]
 		},
 		{
-			"id": 125,
+			"id": 157,
 			"name": "getNavigationProps",
 			"kind": 64,
 			"kindString": "Function",
@@ -6743,7 +8130,7 @@
 			},
 			"signatures": [
 				{
-					"id": 126,
+					"id": 158,
 					"name": "getNavigationProps",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -6755,7 +8142,7 @@
 					},
 					"parameters": [
 						{
-							"id": 127,
+							"id": 159,
 							"name": "props",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6764,14 +8151,14 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							}
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 104,
+						"id": 136,
 						"name": "NavigationHtmlProps"
 					}
 				}
@@ -6828,7 +8215,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							}
 						}
@@ -6851,7 +8238,7 @@
 			]
 		},
 		{
-			"id": 517,
+			"id": 581,
 			"name": "getOutsideModifier",
 			"kind": 64,
 			"kindString": "Function",
@@ -6860,7 +8247,7 @@
 			},
 			"signatures": [
 				{
-					"id": 518,
+					"id": 582,
 					"name": "getOutsideModifier",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -6872,7 +8259,7 @@
 					},
 					"parameters": [
 						{
-							"id": 519,
+							"id": 583,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6885,7 +8272,7 @@
 							}
 						},
 						{
-							"id": 520,
+							"id": 584,
 							"name": "currentMonth",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -6903,7 +8290,7 @@
 						"types": [
 							{
 								"type": "reference",
-								"id": 153,
+								"id": 185,
 								"name": "DayModifier"
 							},
 							{
@@ -6966,7 +8353,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							}
 						}
@@ -7104,7 +8491,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							}
 						}
@@ -7125,7 +8512,7 @@
 			]
 		},
 		{
-			"id": 466,
+			"id": 530,
 			"name": "isDayAfter",
 			"kind": 64,
 			"kindString": "Function",
@@ -7134,7 +8521,7 @@
 			},
 			"signatures": [
 				{
-					"id": 467,
+					"id": 531,
 					"name": "isDayAfter",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7146,7 +8533,7 @@
 					},
 					"parameters": [
 						{
-							"id": 468,
+							"id": 532,
 							"name": "day1",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7159,7 +8546,7 @@
 							}
 						},
 						{
-							"id": 469,
+							"id": 533,
 							"name": "day2",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7187,7 +8574,7 @@
 			]
 		},
 		{
-			"id": 470,
+			"id": 534,
 			"name": "isDayBefore",
 			"kind": 64,
 			"kindString": "Function",
@@ -7196,7 +8583,7 @@
 			},
 			"signatures": [
 				{
-					"id": 471,
+					"id": 535,
 					"name": "isDayBefore",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7208,7 +8595,7 @@
 					},
 					"parameters": [
 						{
-							"id": 472,
+							"id": 536,
 							"name": "day1",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7221,7 +8608,7 @@
 							}
 						},
 						{
-							"id": 473,
+							"id": 537,
 							"name": "day2",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7249,7 +8636,7 @@
 			]
 		},
 		{
-			"id": 529,
+			"id": 593,
 			"name": "isValidDate",
 			"kind": 64,
 			"kindString": "Function",
@@ -7259,7 +8646,7 @@
 			},
 			"signatures": [
 				{
-					"id": 530,
+					"id": 594,
 					"name": "isValidDate",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7270,7 +8657,7 @@
 					"comment": {},
 					"parameters": [
 						{
-							"id": 531,
+							"id": 595,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7298,7 +8685,7 @@
 			]
 		},
 		{
-			"id": 474,
+			"id": 538,
 			"name": "matchDate",
 			"kind": 64,
 			"kindString": "Function",
@@ -7307,7 +8694,7 @@
 			},
 			"signatures": [
 				{
-					"id": 475,
+					"id": 539,
 					"name": "matchDate",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7319,7 +8706,7 @@
 					},
 					"parameters": [
 						{
-							"id": 476,
+							"id": 540,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7332,7 +8719,7 @@
 							}
 						},
 						{
-							"id": 477,
+							"id": 541,
 							"name": "matcher",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7341,7 +8728,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 189,
+								"id": 221,
 								"name": "DayMatcher"
 							}
 						}
@@ -7361,7 +8748,7 @@
 			]
 		},
 		{
-			"id": 502,
+			"id": 566,
 			"name": "matchDay",
 			"kind": 64,
 			"kindString": "Function",
@@ -7370,7 +8757,7 @@
 			},
 			"signatures": [
 				{
-					"id": 503,
+					"id": 567,
 					"name": "matchDay",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7382,7 +8769,7 @@
 					},
 					"parameters": [
 						{
-							"id": 504,
+							"id": 568,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7395,7 +8782,7 @@
 							}
 						},
 						{
-							"id": 505,
+							"id": 569,
 							"name": "matcher",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7404,7 +8791,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 189,
+								"id": 221,
 								"name": "DayMatcher"
 							}
 						}
@@ -7424,7 +8811,7 @@
 			]
 		},
 		{
-			"id": 486,
+			"id": 550,
 			"name": "matchDayAfter",
 			"kind": 64,
 			"kindString": "Function",
@@ -7433,7 +8820,7 @@
 			},
 			"signatures": [
 				{
-					"id": 487,
+					"id": 551,
 					"name": "matchDayAfter",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7445,7 +8832,7 @@
 					},
 					"parameters": [
 						{
-							"id": 488,
+							"id": 552,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7458,7 +8845,7 @@
 							}
 						},
 						{
-							"id": 489,
+							"id": 553,
 							"name": "matcher",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7467,7 +8854,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 189,
+								"id": 221,
 								"name": "DayMatcher"
 							}
 						}
@@ -7487,7 +8874,7 @@
 			]
 		},
 		{
-			"id": 482,
+			"id": 546,
 			"name": "matchDayBefore",
 			"kind": 64,
 			"kindString": "Function",
@@ -7496,7 +8883,7 @@
 			},
 			"signatures": [
 				{
-					"id": 483,
+					"id": 547,
 					"name": "matchDayBefore",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7508,7 +8895,7 @@
 					},
 					"parameters": [
 						{
-							"id": 484,
+							"id": 548,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7521,7 +8908,7 @@
 							}
 						},
 						{
-							"id": 485,
+							"id": 549,
 							"name": "matcher",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7530,7 +8917,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 189,
+								"id": 221,
 								"name": "DayMatcher"
 							}
 						}
@@ -7550,7 +8937,7 @@
 			]
 		},
 		{
-			"id": 490,
+			"id": 554,
 			"name": "matchDayBetween",
 			"kind": 64,
 			"kindString": "Function",
@@ -7559,7 +8946,7 @@
 			},
 			"signatures": [
 				{
-					"id": 491,
+					"id": 555,
 					"name": "matchDayBetween",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7571,7 +8958,7 @@
 					},
 					"parameters": [
 						{
-							"id": 492,
+							"id": 556,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7584,7 +8971,7 @@
 							}
 						},
 						{
-							"id": 493,
+							"id": 557,
 							"name": "matcher",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7593,7 +8980,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 189,
+								"id": 221,
 								"name": "DayMatcher"
 							}
 						}
@@ -7613,7 +9000,7 @@
 			]
 		},
 		{
-			"id": 478,
+			"id": 542,
 			"name": "matchDayInRange",
 			"kind": 64,
 			"kindString": "Function",
@@ -7622,7 +9009,7 @@
 			},
 			"signatures": [
 				{
-					"id": 479,
+					"id": 543,
 					"name": "matchDayInRange",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7634,7 +9021,7 @@
 					},
 					"parameters": [
 						{
-							"id": 480,
+							"id": 544,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7647,7 +9034,7 @@
 							}
 						},
 						{
-							"id": 481,
+							"id": 545,
 							"name": "matcher",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7656,7 +9043,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 189,
+								"id": 221,
 								"name": "DayMatcher"
 							}
 						}
@@ -7676,7 +9063,7 @@
 			]
 		},
 		{
-			"id": 494,
+			"id": 558,
 			"name": "matchDayOfWeek",
 			"kind": 64,
 			"kindString": "Function",
@@ -7685,7 +9072,7 @@
 			},
 			"signatures": [
 				{
-					"id": 495,
+					"id": 559,
 					"name": "matchDayOfWeek",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7697,7 +9084,7 @@
 					},
 					"parameters": [
 						{
-							"id": 496,
+							"id": 560,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7710,7 +9097,7 @@
 							}
 						},
 						{
-							"id": 497,
+							"id": 561,
 							"name": "matcher",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7719,7 +9106,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 189,
+								"id": 221,
 								"name": "DayMatcher"
 							}
 						}
@@ -7739,7 +9126,7 @@
 			]
 		},
 		{
-			"id": 498,
+			"id": 562,
 			"name": "matchFunction",
 			"kind": 64,
 			"kindString": "Function",
@@ -7748,7 +9135,7 @@
 			},
 			"signatures": [
 				{
-					"id": 499,
+					"id": 563,
 					"name": "matchFunction",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7760,7 +9147,7 @@
 					},
 					"parameters": [
 						{
-							"id": 500,
+							"id": 564,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7773,7 +9160,7 @@
 							}
 						},
 						{
-							"id": 501,
+							"id": 565,
 							"name": "matcher",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7782,7 +9169,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 189,
+								"id": 221,
 								"name": "DayMatcher"
 							}
 						}
@@ -7802,7 +9189,7 @@
 			]
 		},
 		{
-			"id": 506,
+			"id": 570,
 			"name": "reduceCallback",
 			"kind": 64,
 			"kindString": "Function",
@@ -7812,7 +9199,7 @@
 			},
 			"signatures": [
 				{
-					"id": 507,
+					"id": 571,
 					"name": "reduceCallback",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7821,7 +9208,7 @@
 					},
 					"parameters": [
 						{
-							"id": 508,
+							"id": 572,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7834,7 +9221,7 @@
 							}
 						},
 						{
-							"id": 509,
+							"id": 573,
 							"name": "modifiers",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7843,7 +9230,7 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 160,
+								"id": 192,
 								"name": "DaysModifiers"
 							}
 						}
@@ -7863,7 +9250,7 @@
 			]
 		},
 		{
-			"id": 542,
+			"id": 614,
 			"name": "useInput",
 			"kind": 64,
 			"kindString": "Function",
@@ -7872,7 +9259,7 @@
 			},
 			"signatures": [
 				{
-					"id": 543,
+					"id": 615,
 					"name": "useInput",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -7885,7 +9272,7 @@
 					},
 					"parameters": [
 						{
-							"id": 544,
+							"id": 616,
 							"name": "initialSelectedDay",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7907,7 +9294,7 @@
 							}
 						},
 						{
-							"id": 545,
+							"id": 617,
 							"name": "formatStr",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7920,7 +9307,7 @@
 							}
 						},
 						{
-							"id": 546,
+							"id": 618,
 							"name": "options",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7930,7 +9317,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 547,
+									"id": 619,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -7939,7 +9326,7 @@
 									},
 									"children": [
 										{
-											"id": 548,
+											"id": 620,
 											"name": "locale",
 											"kind": 32,
 											"kindString": "Variable",
@@ -7949,7 +9336,7 @@
 											"sources": [
 												{
 													"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-													"line": 49,
+													"line": 57,
 													"character": 10
 												}
 											],
@@ -7959,7 +9346,7 @@
 											}
 										},
 										{
-											"id": 549,
+											"id": 621,
 											"name": "required",
 											"kind": 32,
 											"kindString": "Variable",
@@ -7969,7 +9356,7 @@
 											"sources": [
 												{
 													"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-													"line": 50,
+													"line": 58,
 													"character": 12
 												}
 											],
@@ -7984,15 +9371,15 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												548,
-												549
+												620,
+												621
 											]
 										}
 									],
 									"sources": [
 										{
 											"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-											"line": 48,
+											"line": 56,
 											"character": 10
 										}
 									]
@@ -8003,7 +9390,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 550,
+							"id": 622,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -8012,7 +9399,7 @@
 							},
 							"children": [
 								{
-									"id": 553,
+									"id": 625,
 									"name": "dayPickerProps",
 									"kind": 32,
 									"kindString": "Variable",
@@ -8022,18 +9409,18 @@
 									"sources": [
 										{
 											"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-											"line": 55,
+											"line": 63,
 											"character": 16
 										}
 									],
 									"type": {
 										"type": "reference",
-										"id": 532,
+										"id": 596,
 										"name": "UseInputDayPickerProps"
 									}
 								},
 								{
-									"id": 554,
+									"id": 626,
 									"name": "inputProps",
 									"kind": 32,
 									"kindString": "Variable",
@@ -8043,18 +9430,18 @@
 									"sources": [
 										{
 											"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-											"line": 56,
+											"line": 64,
 											"character": 12
 										}
 									],
 									"type": {
 										"type": "reference",
-										"id": 536,
+										"id": 608,
 										"name": "UseInputInputProps"
 									}
 								},
 								{
-									"id": 551,
+									"id": 623,
 									"name": "month",
 									"kind": 32,
 									"kindString": "Variable",
@@ -8064,7 +9451,7 @@
 									"sources": [
 										{
 											"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-											"line": 53,
+											"line": 61,
 											"character": 7
 										}
 									],
@@ -8074,7 +9461,7 @@
 									}
 								},
 								{
-									"id": 552,
+									"id": 624,
 									"name": "selected",
 									"kind": 32,
 									"kindString": "Variable",
@@ -8084,7 +9471,7 @@
 									"sources": [
 										{
 											"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-											"line": 54,
+											"line": 62,
 											"character": 10
 										}
 									],
@@ -8108,17 +9495,17 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										553,
-										554,
-										551,
-										552
+										625,
+										626,
+										623,
+										624
 									]
 								}
 							],
 							"sources": [
 								{
 									"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-									"line": 52,
+									"line": 60,
 									"character": 2
 								}
 							]
@@ -8129,13 +9516,13 @@
 			"sources": [
 				{
 					"fileName": "packages/react-day-picker/src/hooks/useInput.ts",
-					"line": 45,
+					"line": 53,
 					"character": 24
 				}
 			]
 		},
 		{
-			"id": 521,
+			"id": 585,
 			"name": "useModifiers",
 			"kind": 64,
 			"kindString": "Function",
@@ -8144,7 +9531,7 @@
 			},
 			"signatures": [
 				{
-					"id": 522,
+					"id": 586,
 					"name": "useModifiers",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -8156,7 +9543,7 @@
 					},
 					"parameters": [
 						{
-							"id": 523,
+							"id": 587,
 							"name": "day",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -8169,7 +9556,7 @@
 							}
 						},
 						{
-							"id": 524,
+							"id": 588,
 							"name": "currentMonth",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -8182,7 +9569,7 @@
 							}
 						},
 						{
-							"id": 525,
+							"id": 589,
 							"name": "props",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -8191,14 +9578,14 @@
 							},
 							"type": {
 								"type": "reference",
-								"id": 215,
+								"id": 247,
 								"name": "DayPickerProps"
 							}
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 165,
+						"id": 197,
 						"name": "MatchingModifiers"
 					}
 				}
@@ -8212,7 +9599,7 @@
 			]
 		},
 		{
-			"id": 286,
+			"id": 350,
 			"name": "defaultClassNames",
 			"kind": 2097152,
 			"kindString": "Object literal",
@@ -8225,7 +9612,7 @@
 			},
 			"children": [
 				{
-					"id": 309,
+					"id": 373,
 					"name": "aftermonth",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8246,7 +9633,7 @@
 					"defaultValue": "\"rdp-day_outside\""
 				},
 				{
-					"id": 310,
+					"id": 374,
 					"name": "beforemonth",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8267,7 +9654,7 @@
 					"defaultValue": "\"rdp-day_outside\""
 				},
 				{
-					"id": 288,
+					"id": 352,
 					"name": "caption",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8288,7 +9675,7 @@
 					"defaultValue": "\"rdp-caption\""
 				},
 				{
-					"id": 289,
+					"id": 353,
 					"name": "day",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8309,7 +9696,7 @@
 					"defaultValue": "\"rdp-day\""
 				},
 				{
-					"id": 290,
+					"id": 354,
 					"name": "dayWrapper",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8330,7 +9717,7 @@
 					"defaultValue": "\"rdp-day_wrapper\""
 				},
 				{
-					"id": 307,
+					"id": 371,
 					"name": "disabled",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8351,7 +9738,7 @@
 					"defaultValue": "\"rdp-day_disabled\""
 				},
 				{
-					"id": 295,
+					"id": 359,
 					"name": "head",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8372,7 +9759,7 @@
 					"defaultValue": "\"rdp-head\""
 				},
 				{
-					"id": 296,
+					"id": 360,
 					"name": "headRow",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8393,7 +9780,7 @@
 					"defaultValue": "\"rdp-head_row\""
 				},
 				{
-					"id": 298,
+					"id": 362,
 					"name": "headWeekName",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8414,7 +9801,7 @@
 					"defaultValue": "\"rdp-head_weekname\""
 				},
 				{
-					"id": 297,
+					"id": 361,
 					"name": "headWeekNumber",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8435,7 +9822,7 @@
 					"defaultValue": "\"rdp-head_weeknumber\""
 				},
 				{
-					"id": 291,
+					"id": 355,
 					"name": "month",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8456,7 +9843,7 @@
 					"defaultValue": "\"rdp-month\""
 				},
 				{
-					"id": 292,
+					"id": 356,
 					"name": "monthTable",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8477,7 +9864,7 @@
 					"defaultValue": "\"rdp-month_table\""
 				},
 				{
-					"id": 293,
+					"id": 357,
 					"name": "monthTbody",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8498,7 +9885,7 @@
 					"defaultValue": "\"rdp-month_tbody\""
 				},
 				{
-					"id": 294,
+					"id": 358,
 					"name": "months",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8519,7 +9906,7 @@
 					"defaultValue": "\"rdp-months\""
 				},
 				{
-					"id": 299,
+					"id": 363,
 					"name": "nav",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8540,7 +9927,7 @@
 					"defaultValue": "\"rdp-nav\""
 				},
 				{
-					"id": 301,
+					"id": 365,
 					"name": "navNext",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8561,7 +9948,7 @@
 					"defaultValue": "\"rdp-nav_next\""
 				},
 				{
-					"id": 300,
+					"id": 364,
 					"name": "navPrev",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8582,7 +9969,7 @@
 					"defaultValue": "\"rdp-nav_prev\""
 				},
 				{
-					"id": 287,
+					"id": 351,
 					"name": "root",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8606,7 +9993,7 @@
 					"defaultValue": "\"rdp\""
 				},
 				{
-					"id": 306,
+					"id": 370,
 					"name": "selected",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8627,7 +10014,7 @@
 					"defaultValue": "\"rdp-day_selected\""
 				},
 				{
-					"id": 308,
+					"id": 372,
 					"name": "today",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8648,7 +10035,7 @@
 					"defaultValue": "\"rdp-day_today\""
 				},
 				{
-					"id": 302,
+					"id": 366,
 					"name": "week",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8669,7 +10056,7 @@
 					"defaultValue": "\"rdp-week\""
 				},
 				{
-					"id": 303,
+					"id": 367,
 					"name": "weekDay",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8690,7 +10077,7 @@
 					"defaultValue": "\"rdp-week_day\""
 				},
 				{
-					"id": 305,
+					"id": 369,
 					"name": "weekNumber",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8711,7 +10098,7 @@
 					"defaultValue": "\"rdp-weeknumber\""
 				},
 				{
-					"id": 304,
+					"id": 368,
 					"name": "weekWeeknumber",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8737,30 +10124,30 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						309,
-						310,
-						288,
-						289,
-						290,
-						307,
-						295,
-						296,
-						298,
-						297,
-						291,
-						292,
-						293,
-						294,
-						299,
-						301,
-						300,
-						287,
-						306,
-						308,
-						302,
-						303,
-						305,
-						304
+						373,
+						374,
+						352,
+						353,
+						354,
+						371,
+						359,
+						360,
+						362,
+						361,
+						355,
+						356,
+						357,
+						358,
+						363,
+						365,
+						364,
+						351,
+						370,
+						372,
+						366,
+						367,
+						369,
+						368
 					]
 				}
 			],
@@ -8777,7 +10164,7 @@
 			}
 		},
 		{
-			"id": 453,
+			"id": 517,
 			"name": "defaultModifiers",
 			"kind": 2097152,
 			"kindString": "Object literal",
@@ -8790,7 +10177,7 @@
 			},
 			"children": [
 				{
-					"id": 457,
+					"id": 521,
 					"name": "aftermonth",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8811,7 +10198,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 458,
+					"id": 522,
 					"name": "beforemonth",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8832,7 +10219,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 454,
+					"id": 518,
 					"name": "disabled",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8853,7 +10240,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 455,
+					"id": 519,
 					"name": "hidden",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8874,7 +10261,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 456,
+					"id": 520,
 					"name": "interactive",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8895,7 +10282,7 @@
 					"defaultValue": "true"
 				},
 				{
-					"id": 459,
+					"id": 523,
 					"name": "selected",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8916,7 +10303,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 460,
+					"id": 524,
 					"name": "today",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8942,13 +10329,13 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						457,
-						458,
-						454,
-						455,
-						456,
-						459,
-						460
+						521,
+						522,
+						518,
+						519,
+						520,
+						523,
+						524
 					]
 				}
 			],
@@ -8965,7 +10352,7 @@
 			}
 		},
 		{
-			"id": 332,
+			"id": 396,
 			"name": "defaultProps",
 			"kind": 2097152,
 			"kindString": "Object literal",
@@ -8978,7 +10365,7 @@
 			},
 			"children": [
 				{
-					"id": 336,
+					"id": 400,
 					"name": "className",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8999,7 +10386,7 @@
 					"defaultValue": "\"\""
 				},
 				{
-					"id": 334,
+					"id": 398,
 					"name": "classNames",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9016,7 +10403,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 335,
+							"id": 399,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -9028,7 +10415,7 @@
 					"defaultValue": "defaultClassNames"
 				},
 				{
-					"id": 433,
+					"id": 497,
 					"name": "daysClassNames",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9045,7 +10432,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 434,
+							"id": 498,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -9056,7 +10443,7 @@
 					}
 				},
 				{
-					"id": 435,
+					"id": 499,
 					"name": "daysStyles",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9073,7 +10460,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 436,
+							"id": 500,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -9084,7 +10471,7 @@
 					}
 				},
 				{
-					"id": 333,
+					"id": 397,
 					"name": "enableOutsideDaysClick",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9105,7 +10492,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 346,
+					"id": 410,
 					"name": "fixedWeeks",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9126,7 +10513,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 347,
+					"id": 411,
 					"name": "formatCaption",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9142,13 +10529,13 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 311,
+						"id": 375,
 						"name": "defaultFormatCaption"
 					},
 					"defaultValue": "defaultFormatCaption"
 				},
 				{
-					"id": 348,
+					"id": 412,
 					"name": "formatDay",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9164,13 +10551,13 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 317,
+						"id": 381,
 						"name": "defaultFormatDay"
 					},
 					"defaultValue": "defaultFormatDay"
 				},
 				{
-					"id": 350,
+					"id": 414,
 					"name": "formatWeekNumber",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9186,13 +10573,13 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 323,
+						"id": 387,
 						"name": "defaultFormatWeekNumber"
 					},
 					"defaultValue": "defaultFormatWeekNumber"
 				},
 				{
-					"id": 349,
+					"id": 413,
 					"name": "formatWeekdayName",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9208,13 +10595,13 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 326,
+						"id": 390,
 						"name": "defaultFormatWeekdayName"
 					},
 					"defaultValue": "defaultFormatWeekdayName"
 				},
 				{
-					"id": 351,
+					"id": 415,
 					"name": "locale",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9231,7 +10618,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 352,
+							"id": 416,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -9240,7 +10627,7 @@
 							},
 							"children": [
 								{
-									"id": 353,
+									"id": 417,
 									"name": "code",
 									"kind": 32,
 									"kindString": "Variable",
@@ -9261,7 +10648,7 @@
 									}
 								},
 								{
-									"id": 354,
+									"id": 418,
 									"name": "formatDistance",
 									"kind": 32,
 									"kindString": "Variable",
@@ -9279,7 +10666,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 355,
+											"id": 419,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -9288,7 +10675,7 @@
 											},
 											"signatures": [
 												{
-													"id": 356,
+													"id": 420,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -9297,7 +10684,7 @@
 													},
 													"parameters": [
 														{
-															"id": 357,
+															"id": 421,
 															"name": "args",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -9334,7 +10721,7 @@
 									}
 								},
 								{
-									"id": 388,
+									"id": 452,
 									"name": "formatLong",
 									"kind": 32,
 									"kindString": "Variable",
@@ -9352,7 +10739,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 389,
+											"id": 453,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -9361,7 +10748,7 @@
 											},
 											"children": [
 												{
-													"id": 390,
+													"id": 454,
 													"name": "date",
 													"kind": 32,
 													"kindString": "Variable",
@@ -9378,7 +10765,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 391,
+															"id": 455,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -9387,7 +10774,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 392,
+																	"id": 456,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -9396,7 +10783,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 393,
+																			"id": 457,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -9433,7 +10820,7 @@
 													}
 												},
 												{
-													"id": 398,
+													"id": 462,
 													"name": "dateTime",
 													"kind": 32,
 													"kindString": "Variable",
@@ -9450,7 +10837,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 399,
+															"id": 463,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -9459,7 +10846,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 400,
+																	"id": 464,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -9468,7 +10855,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 401,
+																			"id": 465,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -9505,7 +10892,7 @@
 													}
 												},
 												{
-													"id": 394,
+													"id": 458,
 													"name": "time",
 													"kind": 32,
 													"kindString": "Variable",
@@ -9522,7 +10909,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 395,
+															"id": 459,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -9531,7 +10918,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 396,
+																	"id": 460,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -9540,7 +10927,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 397,
+																			"id": 461,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -9582,9 +10969,9 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														390,
-														398,
-														394
+														454,
+														462,
+														458
 													]
 												}
 											],
@@ -9599,7 +10986,7 @@
 									}
 								},
 								{
-									"id": 358,
+									"id": 422,
 									"name": "formatRelative",
 									"kind": 32,
 									"kindString": "Variable",
@@ -9617,7 +11004,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 359,
+											"id": 423,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -9626,7 +11013,7 @@
 											},
 											"signatures": [
 												{
-													"id": 360,
+													"id": 424,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -9635,7 +11022,7 @@
 													},
 													"parameters": [
 														{
-															"id": 361,
+															"id": 425,
 															"name": "args",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -9672,7 +11059,7 @@
 									}
 								},
 								{
-									"id": 362,
+									"id": 426,
 									"name": "localize",
 									"kind": 32,
 									"kindString": "Variable",
@@ -9690,7 +11077,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 363,
+											"id": 427,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -9699,7 +11086,7 @@
 											},
 											"children": [
 												{
-													"id": 380,
+													"id": 444,
 													"name": "day",
 													"kind": 32,
 													"kindString": "Variable",
@@ -9716,7 +11103,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 381,
+															"id": 445,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -9725,7 +11112,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 382,
+																	"id": 446,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -9734,7 +11121,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 383,
+																			"id": 447,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -9771,7 +11158,7 @@
 													}
 												},
 												{
-													"id": 384,
+													"id": 448,
 													"name": "dayPeriod",
 													"kind": 32,
 													"kindString": "Variable",
@@ -9788,7 +11175,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 385,
+															"id": 449,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -9797,7 +11184,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 386,
+																	"id": 450,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -9806,7 +11193,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 387,
+																			"id": 451,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -9843,7 +11230,7 @@
 													}
 												},
 												{
-													"id": 368,
+													"id": 432,
 													"name": "era",
 													"kind": 32,
 													"kindString": "Variable",
@@ -9860,7 +11247,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 369,
+															"id": 433,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -9869,7 +11256,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 370,
+																	"id": 434,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -9878,7 +11265,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 371,
+																			"id": 435,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -9915,7 +11302,7 @@
 													}
 												},
 												{
-													"id": 376,
+													"id": 440,
 													"name": "month",
 													"kind": 32,
 													"kindString": "Variable",
@@ -9932,7 +11319,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 377,
+															"id": 441,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -9941,7 +11328,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 378,
+																	"id": 442,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -9950,7 +11337,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 379,
+																			"id": 443,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -9987,7 +11374,7 @@
 													}
 												},
 												{
-													"id": 364,
+													"id": 428,
 													"name": "ordinalNumber",
 													"kind": 32,
 													"kindString": "Variable",
@@ -10004,7 +11391,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 365,
+															"id": 429,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -10013,7 +11400,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 366,
+																	"id": 430,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10022,7 +11409,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 367,
+																			"id": 431,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -10059,7 +11446,7 @@
 													}
 												},
 												{
-													"id": 372,
+													"id": 436,
 													"name": "quarter",
 													"kind": 32,
 													"kindString": "Variable",
@@ -10076,7 +11463,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 373,
+															"id": 437,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -10085,7 +11472,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 374,
+																	"id": 438,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10094,7 +11481,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 375,
+																			"id": 439,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -10136,12 +11523,12 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														380,
-														384,
-														368,
-														376,
-														364,
-														372
+														444,
+														448,
+														432,
+														440,
+														428,
+														436
 													]
 												}
 											],
@@ -10156,7 +11543,7 @@
 									}
 								},
 								{
-									"id": 402,
+									"id": 466,
 									"name": "match",
 									"kind": 32,
 									"kindString": "Variable",
@@ -10174,7 +11561,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 403,
+											"id": 467,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -10183,7 +11570,7 @@
 											},
 											"children": [
 												{
-													"id": 420,
+													"id": 484,
 													"name": "day",
 													"kind": 32,
 													"kindString": "Variable",
@@ -10200,7 +11587,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 421,
+															"id": 485,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -10209,7 +11596,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 422,
+																	"id": 486,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10218,7 +11605,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 423,
+																			"id": 487,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -10255,7 +11642,7 @@
 													}
 												},
 												{
-													"id": 424,
+													"id": 488,
 													"name": "dayPeriod",
 													"kind": 32,
 													"kindString": "Variable",
@@ -10272,7 +11659,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 425,
+															"id": 489,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -10281,7 +11668,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 426,
+																	"id": 490,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10290,7 +11677,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 427,
+																			"id": 491,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -10327,7 +11714,7 @@
 													}
 												},
 												{
-													"id": 408,
+													"id": 472,
 													"name": "era",
 													"kind": 32,
 													"kindString": "Variable",
@@ -10344,7 +11731,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 409,
+															"id": 473,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -10353,7 +11740,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 410,
+																	"id": 474,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10362,7 +11749,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 411,
+																			"id": 475,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -10399,7 +11786,7 @@
 													}
 												},
 												{
-													"id": 416,
+													"id": 480,
 													"name": "month",
 													"kind": 32,
 													"kindString": "Variable",
@@ -10416,7 +11803,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 417,
+															"id": 481,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -10425,7 +11812,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 418,
+																	"id": 482,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10434,7 +11821,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 419,
+																			"id": 483,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -10471,7 +11858,7 @@
 													}
 												},
 												{
-													"id": 404,
+													"id": 468,
 													"name": "ordinalNumber",
 													"kind": 32,
 													"kindString": "Variable",
@@ -10488,7 +11875,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 405,
+															"id": 469,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -10497,7 +11884,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 406,
+																	"id": 470,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10506,7 +11893,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 407,
+																			"id": 471,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -10543,7 +11930,7 @@
 													}
 												},
 												{
-													"id": 412,
+													"id": 476,
 													"name": "quarter",
 													"kind": 32,
 													"kindString": "Variable",
@@ -10560,7 +11947,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 413,
+															"id": 477,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -10569,7 +11956,7 @@
 															},
 															"signatures": [
 																{
-																	"id": 414,
+																	"id": 478,
 																	"name": "__call",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10578,7 +11965,7 @@
 																	},
 																	"parameters": [
 																		{
-																			"id": 415,
+																			"id": 479,
 																			"name": "args",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -10620,12 +12007,12 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														420,
-														424,
-														408,
-														416,
-														404,
-														412
+														484,
+														488,
+														472,
+														480,
+														468,
+														476
 													]
 												}
 											],
@@ -10640,7 +12027,7 @@
 									}
 								},
 								{
-									"id": 428,
+									"id": 492,
 									"name": "options",
 									"kind": 32,
 									"kindString": "Variable",
@@ -10658,7 +12045,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 429,
+											"id": 493,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -10667,7 +12054,7 @@
 											},
 											"children": [
 												{
-													"id": 431,
+													"id": 495,
 													"name": "firstWeekContainsDate",
 													"kind": 32,
 													"kindString": "Variable",
@@ -10717,7 +12104,7 @@
 													}
 												},
 												{
-													"id": 430,
+													"id": 494,
 													"name": "weekStartsOn",
 													"kind": 32,
 													"kindString": "Variable",
@@ -10772,8 +12159,8 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														431,
-														430
+														495,
+														494
 													]
 												}
 											],
@@ -10793,13 +12180,13 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										353,
-										354,
-										388,
-										358,
-										362,
-										402,
-										428
+										417,
+										418,
+										452,
+										422,
+										426,
+										466,
+										492
 									]
 								}
 							]
@@ -10808,7 +12195,7 @@
 					"defaultValue": "english"
 				},
 				{
-					"id": 437,
+					"id": 501,
 					"name": "month",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10829,7 +12216,7 @@
 					"defaultValue": "startOfMonth(new Date())"
 				},
 				{
-					"id": 432,
+					"id": 496,
 					"name": "nextLabel",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10850,7 +12237,7 @@
 					"defaultValue": "\"▶\""
 				},
 				{
-					"id": 438,
+					"id": 502,
 					"name": "numberOfMonths",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10871,7 +12258,7 @@
 					"defaultValue": "1"
 				},
 				{
-					"id": 439,
+					"id": 503,
 					"name": "pagedNavigation",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10892,7 +12279,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 440,
+					"id": 504,
 					"name": "prevLabel",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10913,7 +12300,7 @@
 					"defaultValue": "\"◀\""
 				},
 				{
-					"id": 441,
+					"id": 505,
 					"name": "reverseMonths",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10934,7 +12321,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 442,
+					"id": 506,
 					"name": "showCaption",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10955,7 +12342,7 @@
 					"defaultValue": "true"
 				},
 				{
-					"id": 443,
+					"id": 507,
 					"name": "showHead",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10976,7 +12363,7 @@
 					"defaultValue": "true"
 				},
 				{
-					"id": 444,
+					"id": 508,
 					"name": "showNavigation",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10997,7 +12384,7 @@
 					"defaultValue": "true"
 				},
 				{
-					"id": 445,
+					"id": 509,
 					"name": "showOutsideDays",
 					"kind": 32,
 					"kindString": "Variable",
@@ -11018,7 +12405,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 446,
+					"id": 510,
 					"name": "showWeekNumber",
 					"kind": 32,
 					"kindString": "Variable",
@@ -11039,7 +12426,7 @@
 					"defaultValue": "false"
 				},
 				{
-					"id": 337,
+					"id": 401,
 					"name": "style",
 					"kind": 32,
 					"kindString": "Variable",
@@ -11056,7 +12443,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 338,
+							"id": 402,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -11067,7 +12454,7 @@
 					}
 				},
 				{
-					"id": 339,
+					"id": 403,
 					"name": "styles",
 					"kind": 32,
 					"kindString": "Variable",
@@ -11084,7 +12471,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 340,
+							"id": 404,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -11095,7 +12482,7 @@
 					}
 				},
 				{
-					"id": 341,
+					"id": 405,
 					"name": "components",
 					"kind": 2097152,
 					"kindString": "Object literal",
@@ -11104,7 +12491,7 @@
 					},
 					"children": [
 						{
-							"id": 343,
+							"id": 407,
 							"name": "Day",
 							"kind": 32,
 							"kindString": "Variable",
@@ -11120,12 +12507,12 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 526,
+								"id": 590,
 								"name": "Day"
 							}
 						},
 						{
-							"id": 342,
+							"id": 406,
 							"name": "MonthCaption",
 							"kind": 32,
 							"kindString": "Variable",
@@ -11146,7 +12533,7 @@
 							}
 						},
 						{
-							"id": 344,
+							"id": 408,
 							"name": "Navigation",
 							"kind": 32,
 							"kindString": "Variable",
@@ -11162,12 +12549,12 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 128,
+								"id": 160,
 								"name": "Navigation"
 							}
 						},
 						{
-							"id": 345,
+							"id": 409,
 							"name": "WeekNumber",
 							"kind": 32,
 							"kindString": "Variable",
@@ -11183,7 +12570,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 142,
+								"id": 174,
 								"name": "WeekNumber"
 							}
 						}
@@ -11193,10 +12580,10 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								343,
-								342,
-								344,
-								345
+								407,
+								406,
+								408,
+								409
 							]
 						}
 					],
@@ -11218,37 +12605,37 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						336,
-						334,
-						433,
-						435,
-						333,
-						346,
-						347,
-						348,
-						350,
-						349,
-						351,
-						437,
-						432,
-						438,
-						439,
-						440,
-						441,
-						442,
-						443,
-						444,
-						445,
-						446,
-						337,
-						339
+						400,
+						398,
+						497,
+						499,
+						397,
+						410,
+						411,
+						412,
+						414,
+						413,
+						415,
+						501,
+						496,
+						502,
+						503,
+						504,
+						505,
+						506,
+						507,
+						508,
+						509,
+						510,
+						401,
+						403
 					]
 				},
 				{
 					"title": "Object literals",
 					"kind": 2097152,
 					"children": [
-						341
+						405
 					]
 				}
 			],
@@ -11270,21 +12657,21 @@
 			"title": "Enumerations",
 			"kind": 4,
 			"children": [
-				190,
-				145
+				222,
+				177
 			]
 		},
 		{
 			"title": "Interfaces",
 			"kind": 256,
 			"children": [
-				215,
+				247,
 				71,
 				5,
 				49,
 				43,
-				102,
-				131,
+				134,
+				163,
 				12
 			]
 		},
@@ -11293,36 +12680,40 @@
 			"kind": 4194304,
 			"children": [
 				52,
-				268,
-				257,
+				332,
+				297,
 				82,
+				309,
 				75,
-				97,
-				164,
-				189,
-				153,
-				253,
-				255,
-				93,
-				154,
-				160,
-				158,
-				167,
-				175,
-				172,
-				178,
-				168,
-				182,
+				129,
+				303,
+				196,
+				221,
 				185,
-				165,
+				293,
+				295,
+				315,
+				321,
+				125,
+				186,
+				192,
+				190,
+				199,
+				207,
+				204,
+				210,
+				200,
+				214,
+				217,
+				197,
 				58,
-				263,
+				327,
 				35,
-				104,
-				118,
-				532,
-				536,
-				135,
+				136,
+				150,
+				596,
+				608,
+				167,
 				17
 			]
 		},
@@ -11330,101 +12721,101 @@
 			"title": "Functions",
 			"kind": 64,
 			"children": [
-				526,
-				450,
+				590,
+				514,
 				9,
 				68,
 				46,
-				447,
-				128,
-				142,
+				511,
+				160,
+				174,
 				24,
-				311,
-				317,
-				323,
-				326,
-				277,
+				375,
+				381,
+				387,
+				390,
+				341,
 				65,
-				461,
-				510,
-				514,
-				274,
-				122,
-				125,
+				525,
+				574,
+				578,
+				338,
+				154,
+				157,
 				31,
-				517,
+				581,
 				27,
 				1,
 				39,
-				466,
-				470,
-				529,
-				474,
-				502,
-				486,
-				482,
-				490,
-				478,
-				494,
-				498,
-				506,
+				530,
+				534,
+				593,
+				538,
+				566,
+				550,
+				546,
+				554,
 				542,
-				521
+				558,
+				562,
+				570,
+				614,
+				585
 			],
 			"categories": [
 				{
 					"title": "Components",
 					"children": [
-						526,
-						450,
+						590,
+						514,
 						9,
 						68,
 						46,
-						447,
-						128,
-						142,
+						511,
+						160,
+						174,
 						24
 					]
 				},
 				{
 					"title": "Hooks",
 					"children": [
-						542,
-						521
+						614,
+						585
 					]
 				},
 				{
 					"title": "Other",
 					"children": [
-						311,
-						317,
-						323,
-						326,
-						277,
+						375,
+						381,
+						387,
+						390,
+						341,
 						65,
-						461,
-						510,
-						514,
-						274,
-						122,
-						125,
+						525,
+						574,
+						578,
+						338,
+						154,
+						157,
 						31,
-						517,
+						581,
 						27,
 						1,
 						39,
-						466,
-						470,
-						529,
-						474,
-						502,
-						486,
-						482,
-						490,
-						478,
-						494,
-						498,
-						506
+						530,
+						534,
+						593,
+						538,
+						566,
+						550,
+						546,
+						554,
+						542,
+						558,
+						562,
+						570
 					]
 				}
 			]
@@ -11433,9 +12824,9 @@
 			"title": "Object literals",
 			"kind": 2097152,
 			"children": [
-				286,
-				453,
-				332
+				350,
+				517,
+				396
 			]
 		}
 	]

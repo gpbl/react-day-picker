@@ -15,6 +15,14 @@ function isValidDate(day: Date): boolean {
 export type UseInputDayPickerProps = {
   onMonthChange: DayPickerProps['onMonthChange'];
   onDayClick: DayPickerProps['onDayClick'];
+  onDayMouseEnter: DayPickerProps['onDayMouseEnter'];
+  onDayMouseLeave: DayPickerProps['onDayMouseLeave'];
+  onDayKeyDown: DayPickerProps['onDayKeyDown'];
+  onDayKeyUp: DayPickerProps['onDayKeyUp'];
+  onDayKeyPress: DayPickerProps['onDayKeyPress'];
+  onDayTouchEvent: DayPickerProps['onDayTouchEvent'];
+  onDayTouch: DayPickerProps['onDayTouch'];
+  onDayTouchList: DayPickerProps['onDayTouchList'];
 };
 
 /** Props to attach to the `input` HTML element */
@@ -132,10 +140,73 @@ export function useInput(
     setCurrentMonth(month);
   }
 
+  function onDayMouseEnter(day: Date): void {
+    // e.preventDefault();
+    // alert(e.nativeEvent);
+    // console.log(e.nativeEvent);
+    setSelectedDay(day);
+    const value = DateFns.format(day, formatStr, opts);
+    setInputValue(value);
+  }
+
+  function onDayMouseLeave(day: Date): void {
+    setSelectedDay(day);
+    const value = DateFns.format(day, formatStr, opts);
+    setInputValue(value);
+  }
+
+  function onDayKeyDown(day: Date): void {
+    setSelectedDay(day);
+    const value = DateFns.format(day, formatStr, opts);
+    setInputValue(value);
+  }
+
+  function onDayKeyUp(day: Date): void {
+    setSelectedDay(day);
+    const value = DateFns.format(day, formatStr, opts);
+    setInputValue(value);
+  }
+
+  function onDayKeyPress(day: Date): void {
+    setSelectedDay(day);
+    const value = DateFns.format(day, formatStr, opts);
+    setInputValue(value);
+  }
+
+  function onDayTouchEvent(day: Date): void {
+    setSelectedDay(day);
+    const value = DateFns.format(day, formatStr, opts);
+    setInputValue(value);
+  }
+
+  function onDayTouch(day: Date): void {
+    setSelectedDay(day);
+    const value = DateFns.format(day, formatStr, opts);
+    setInputValue(value);
+  }
+
+  function onDayTouchList(days: Date[]): void {
+    const day = days[days.length - 1];
+    setSelectedDay(day);
+    const value = DateFns.format(day, formatStr, opts);
+    setInputValue(value);
+  }
+
   return {
     month: currentMonth,
     selected: selectedDay,
-    dayPickerProps: { onDayClick, onMonthChange },
+    dayPickerProps: {
+      onDayClick,
+      onMonthChange,
+      onDayMouseEnter,
+      onDayMouseLeave,
+      onDayKeyDown,
+      onDayKeyUp,
+      onDayKeyPress,
+      onDayTouchEvent,
+      onDayTouch,
+      onDayTouchList
+    },
     inputProps: {
       value: inputValue,
       onChange,

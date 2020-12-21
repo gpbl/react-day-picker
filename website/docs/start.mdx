@@ -61,11 +61,21 @@ to the [onDayClick event handler](./api/daypicker#onDayClick).
 function App() {
   const [selectedDay, setSelectedDay] = useState();
   const handleDayClick = day => setSelectedDay(day);
+  const handleDayMouseEnter = day => console.log(day);
+  const handleDayKeyDown = day => console.log("keydown :" + day);
+  const handleDayKeyUp = day => console.log("keyup :" + day);
+  const handleDayKeyPress = day => console.log("keypress :" + day);
+  const handleTouch = day => console.log("today is " + day)
 
   return (
     <DayPicker
       selected={selectedDay}
       onDayClick={handleDayClick}
+      onDayMouseEnter={handleDayMouseEnter}
+      onDayKeyDown={handleDayKeyDown}
+      onDayKeyUp={handleDayKeyUp}
+      onDayKeyPress={handleDayKeyPress}
+      onDayTouchEvent={handleTouch}
     />
   );
 }
