@@ -90,6 +90,7 @@ export class DayPicker extends Component {
     className: PropTypes.string,
     containerProps: PropTypes.object,
     tabIndex: PropTypes.number,
+    removeWrapperTabIndex: PropTypes.bool,
 
     // Custom elements
     renderDay: PropTypes.func,
@@ -132,6 +133,7 @@ export class DayPicker extends Component {
   static defaultProps = {
     classNames,
     tabIndex: 0,
+    removeWrapperTabIndex: false,
     numberOfMonths: 1,
     labels: {
       previousMonth: 'Previous Month',
@@ -588,6 +590,11 @@ export class DayPicker extends Component {
     if (this.props.className) {
       className = `${className} ${this.props.className}`;
     }
+    
+    const tabIndex = !this.props.removeWrapperTabIndex ? (
+        this.props.canChangeMonth && typeof this.props.tabIndex !== 'undefined' ? this.props.tabIndex : -1
+      ) : undefined;
+
     return (
       <div
         {...this.props.containerProps}
@@ -598,12 +605,7 @@ export class DayPicker extends Component {
         <div
           className={this.props.classNames.wrapper}
           ref={el => (this.wrapper = el)}
-          tabIndex={
-            this.props.canChangeMonth &&
-            typeof this.props.tabIndex !== 'undefined'
-              ? this.props.tabIndex
-              : -1
-          }
+          tabIndex={tabIndex}
           onKeyDown={this.handleKeyDown}
           onFocus={this.props.onFocus}
           onBlur={this.props.onBlur}
