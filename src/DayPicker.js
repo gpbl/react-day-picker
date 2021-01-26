@@ -591,9 +591,11 @@ export class DayPicker extends Component {
       className = `${className} ${this.props.className}`;
     }
     
-    const tabIndex = !this.props.removeWrapperTabIndex ? (
-        this.props.canChangeMonth && typeof this.props.tabIndex !== 'undefined' ? this.props.tabIndex : -1
-      ) : undefined;
+    let tabIndex = undefined;ֿ
+
+    if (!this.props.removeWrapperTabIndex) {
+      tabIndex = (this.props.canChangeMonth && typeof this.props.tabIndex !== 'undefined') ? this.props.tabIndex : -1;
+    }
 
     return (
       <div
