@@ -42,14 +42,13 @@ const handleDayClick = (day, modifiers) => {
 
 DayPicker includes other modifiers, like `disabled`, `hidden` and `today`.
 
-## The `disabled` modifier
+## Disabling days
 
-A disabled day is a day that a user cannot interact with. Use the `disabled`
-prop to define which day should be disabled.
+A disabled day is not interactive. The `disabled` prop defines the disabled days
+by using the `disabled` modifier.
 
 ```jsx {7-13} showOutput open=no
 function App() {
-  const handleDayClick = (day) => window.alert(day.toLocaleDateString());
   return (
     <DayPicker
       numberOfMonths={2}
@@ -61,7 +60,6 @@ function App() {
         { before: new Date(2022, 1) },
         { from: new Date(2022, 4, 18), to: new Date(2022, 4, 29) }
       ]}
-      onDayClick={handleDayClick}
     />
   );
 }
