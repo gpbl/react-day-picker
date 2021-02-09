@@ -74,7 +74,6 @@ module.exports = {
         disableSources: true,
 
         // Markdown plugin settings
-        mdHideSources: true,
         hideProjectName: true,
         hideBreadcrumbs: true,
         hideInPageTOC: true,
