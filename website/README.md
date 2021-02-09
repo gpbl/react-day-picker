@@ -1,33 +1,24 @@
-# website (work in progress)
+# DayPicker website
 
-The react-day-picker website is built using [Docusaurus 2](https://v2.docusaurus.io/).
+Built using [Docusaurus 2](https://v2.docusaurus.io/).
 
-### Installation
-
-```
-$ yarn
-```
-
-### Local Development
+### Development
 
 ```
-$ yarn start
+$ yarn develop
 ```
 
-This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server and open up a browser window.
+Most changes are reflected live without having to restart the server.
 
-### Build
+Module reloading is active – meaning you can change the source of DayPicker and
+see them applied in website.
+
+### Building
 
 ```
 $ yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-```
-$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+This command generates static content into the `build` directory and can be
+served using any static contents hosting service.
