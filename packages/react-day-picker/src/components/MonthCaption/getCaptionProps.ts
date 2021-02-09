@@ -6,7 +6,7 @@ import { CaptionHtmlProps } from './types';
  *
  * #### Usage
  *
- * Use this helper when swizzling the caption using the
+ * Use this helper when changing the caption using the
  * [[DayPickerProps.components]] prop.
  *
  * ```jsx
