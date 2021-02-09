@@ -15,7 +15,7 @@ import 'react-day-picker/dist/style.css';
 import { DayPicker } from 'react-day-picker';
 ```
 
-Each [DayPicker element](../api/types/uielement) is described by a CSS class prefixed with `rdp-`.
+Each [UI element](/api/types/uielement) is described by a CSS class prefixed with `rdp-`.
 
 ```css
 /* container */
@@ -34,7 +34,7 @@ Each [DayPicker element](../api/types/uielement) is described by a CSS class pre
 
 Replacing the default class names is useful with [CSS
 Modules](https://github.com/css-modules/css-modules) or other JS-in-CSS bundlers. To
-use custom class names, pass them the [classNames prop](./props.mdx#classnames):
+use custom class names, pass them the `classNames` prop:
 
 ```jsx showOutput
 function App() {
@@ -64,7 +64,8 @@ function App() {
 
 ## Inline styles
 
-To add an inline-style to a [DayPicker element](../api/types/uielement), use the [styles](./api/daypicker#styles) prop:
+To add an inline-style to a [UI element](/api/types/uielement), use the `styles`
+prop:
 
 ```jsx showOutput
 function App() {
