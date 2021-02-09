@@ -9,6 +9,9 @@
   "author": "Giampaolo Bellavite <io@gpbl.org>",
   "homepage": "http://react-day-picker.js.org",
   "license": "MIT",
+  "scripts": {
+    "build": "yarn workspace react-day-picker run build && yarn workspace website run build"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gpbl/react-day-picker"
