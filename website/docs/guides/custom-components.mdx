@@ -16,7 +16,7 @@ components:
 The `MonthCaption` component is used to render the caption (with month/year) in the calendar.
 
 1. create a `MonthCaption` component with `month` and `dayPickerProps` props;
-2. (optional) get DayPicker-specific props via [getCaptionProps](./utils#getCaptionProps);
+2. (optional) get DayPicker-specific props via [getCaptionProps](/api/functions/getcaptionprops);
 3. pass the `MonthCaption` component to the `components` prop.
 
 For example, the following DayPicker implements a `MonthCaption` component to switch the month of the current year:
@@ -79,7 +79,7 @@ function App() {
 The `Navigation` component is used to render the navigation buttons.
 
 1. create a `Navigation` component with a `dayPickerProps` prop;
-2. (optional) get DayPicker-specific props via [getNavigationProps](./utils#getNavigationProps) and [getNavigation](./utils#getNavigation);
+2. (optional) get DayPicker-specific props via [getNavigationProps](/api/functions/getnavigationprops) and [getNavigation](/api/functions/getnavigation);
 3. pass the `Navigation` component to the `components` prop.
 
 For example, the following DayPicker implements a `Navigation` without the start button:
@@ -151,12 +151,12 @@ The `Day` component is used to render the day in the calendar.
 
 **Note** Changing Day component may break ARIA and requires some familiarity
 with DayPicker. If you need to change the content of the day cell, use the
-[formatDay prop](./api/daypicker#formatDay).
+`formatDay` prop.
 
-1. create a `Day` component with `day`, [modifiers](./modifiers) and
+1. create a `Day` component with `day`, [modifiers](/tutorials/modifiers) and
    `dayPickerProps` props;
 2. (optional) get DayPicker-specific props via
-   [getDayProps](./utils#getDayProps);
+   [getDayProps](/api/functions/getdayprops);
 3. pass the `Day` component to the `components` prop.
 
 For example, the following DayPicker implements a `Day` component that supports

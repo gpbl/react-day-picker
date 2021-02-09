@@ -67,7 +67,7 @@ export interface DayPickerProps {
    */
   style?: React.CSSProperties;
   /**
-   * Change the inline styles for each [DayPicker element](./enumerations#daypickerelements).
+   * Change the inline styles for each [UI element](/api/types/uielement).
    */
   styles?: DayPickerStyles;
   /**
