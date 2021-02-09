@@ -1,4 +1,4 @@
-import { ModifiersStatus } from './Modifiers';
+import { ModifiersStatus } from './ModifiersStatus';
 
 export type DayClickEventHandler = (
   day: Date,
