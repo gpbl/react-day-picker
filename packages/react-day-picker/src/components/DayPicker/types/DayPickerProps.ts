@@ -6,10 +6,12 @@ import { WeekNumberFormatter } from '../../WeekNumber';
 import { WeekdayNameFormatter } from '../../WeekRow';
 import { CustomComponents } from './CustomComponents';
 import { DayClickEventHandler } from './DayClickEventHandler';
+import { DayKeyDownEventHandler } from './DayKeyDownEventHandler';
 import { DayPickerClassNames } from './DayPickerClassNames';
 import { DayPickerStyles } from './DayPickerStyles';
 import { Matcher } from './Matcher';
-import { ModifiersClassNames, ModifiersStyles } from './Modifiers';
+import { ModifiersStyles } from './ModifiersStyles';
+import { ModifiersClassNames } from './ModifiersClassNames';
 import { ModifiersMatchers } from './ModifiersMatchers';
 import { MonthChangeEventHandler } from './MonthChangeEventHandler';
 

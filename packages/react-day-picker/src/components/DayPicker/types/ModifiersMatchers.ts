@@ -1,5 +1,5 @@
 import { Matcher } from './Matcher';
-import { Modifier } from './Modifiers';
+import { Modifier } from './Modifier';
 
 /**
  * Matchers assigned to each modifier.
