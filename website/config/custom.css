@@ -110,3 +110,10 @@ h3 code {
 .navbar__title {
   font-weight: 700;
 }
+
+.markdown hr {
+  all: revert;
+  border: none;
+  height: 1px;
+  background-color: var(--ifm-color-emphasis-300);
+}
