@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "copy-docs": "./scripts/copy-docs",
+    "copy-docs": "./scripts/copy-docs.sh",
     "develop": "yarn run start --no-open",
     "start": "yarn copy-docs && docusaurus start",
     "build": "yarn copy-docs && docusaurus build",

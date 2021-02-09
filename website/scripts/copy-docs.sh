@@ -1,6 +1,6 @@
-# (C) @felipecrs https://github.com/facebook/docusaurus/issues/3475#issuecomment-700204163
-
 #!/bin/bash
+
+# (C) @felipecrs https://github.com/facebook/docusaurus/issues/3475#issuecomment-700204163
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd "$script_dir"
