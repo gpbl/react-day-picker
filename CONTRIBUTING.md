@@ -1,25 +1,25 @@
 # Contributing to DayPicker
 
-> ⚠️ The `master` branch is for the [upcoming v8 release](https://github.com/gpbl/react-day-picker/issues/942). Switch to the `v7` branch to send updates for the v7 version.
-
 You are welcome to join the
-[other contributors](https://github.com/gpbl/react-day-picker/graphs/contributors)
-and help improving DayPicker!
+[other contributors](https://github.com/gpbl/react-day-picker/graphs/contributors),
+help us building the best date picker for React. 
 
-## Contributing to v8
+There are many ways to contribute to DayPicker:
 
-The upcoming major release is a Typescript rewrite. Checkout the [v8 project](https://github.com/gpbl/react-day-picker/projects/7) to see what's left to do.
+- Proofreading [our website](http://react-day-picker-next.netlify.app) and the
+  code documentation in the source files
+- Opening PRs with new features and bug fixes
+- Help maintaining the repository on Github and triaging issues and PRs
+- Improve our build tools and Github actions
+- [Sponsoring the developer](https://github.com/sponsors/gpbl) :)
 
-### Developing environment
+[Add a new
+discussion](https://github.com/gpbl/react-day-picker/discussions/categories/contributing)
+to our contributing categories to present yourself and start collaborating.
 
-* The repository is using workspaces with [yarn v2](http://yarnpkg.com)
-  * There are two workspaces, one for the website and one for the package
-* Website is built with [docusaurus](https://v2.docusaurus.io)
-* The Node.js version we use is `^12.0`
+## Changing the source code
 
-### Start contributing
-
-#### 1. Fork the repo on your local machine
+### 1. Fork the repo on your local machine
 
 ```bash
 git clone https://github.com/gpbl/react-day-picker.git
@@ -27,7 +27,7 @@ cd react-day-picker
 yarn install
 ```
 
-#### 2. Start the development environment
+### 2. Start the development environment
 
 Build the package and website in watch mode:
 
@@ -36,7 +36,11 @@ yarn workspace react-day-picker develop
 yarn workspace website develop
 ```
 
-#### 3. Apply changes and open a PR :)
+### 3. Change the code and do your stuff
+
+Remember:
 
 * add tests and make sure they pass: `yarn test`
 * make sure your files are linted: `yarn lint`
+
+### 4. [Open a PR](https://github.com/gpbl/react-day-picker/pulls) with your changes
