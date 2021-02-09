@@ -1,12 +1,12 @@
-import * as React from 'react';
 import { getUnixTime } from 'date-fns';
-import { WeekRowProps } from './types';
+import * as React from 'react';
+
+import { WeekRowProps } from './types/WeekRowProps';
 
 /**
  * Render a week row.
  *
- * @category Components
- * @private
+ * @category Component
  */
 export function WeekRow(props: WeekRowProps): JSX.Element {
   const { weekNumber, week, currentMonth, dayPickerProps } = props;

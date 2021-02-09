@@ -1,0 +1,33 @@
+---
+slug: /
+id: intro
+title: Introduction
+hide_title: true
+---
+
+# React DayPicker
+
+DayPicker is a date picker component for [React](https://reactjs.org). It allows users to pick dates,
+select date ranges, navigate between years, interact with weeks, etc.
+
+### Main features
+
+- unopininated and extensible user interface
+- adopts [date-fns](http://date-fns.org) as date utility library
+- support for [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) and keyboard navigation
+- localizable in any language supported by date-fns
+
+### Example
+
+```jsx showOutput
+function App() {
+  const [selected, setSelected] = useState();
+
+  const handleDayClick = (day, { selected }) => {
+    if (!selected) setSelected(day);
+    else setSelected();
+  };
+
+  return <DayPicker onDayClick={handleDayClick} selected={selected} />;
+}
+```

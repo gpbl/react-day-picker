@@ -28,7 +28,7 @@
 
 .rdp-month {
   /* Month table container */
-  margin: 1em;
+  /* margin: 1em; */
 }
 .rdp-month_table {
   /* Month table */
@@ -71,8 +71,8 @@
 
 .rdp-nav {
   position: absolute;
-  top: 1em;
-  right: 1em;
+  top: 0.5em;
+  right: 0.25em;
   display: flex;
 }
 .rdp[dir='rtl'] .rdp-nav {
@@ -105,6 +105,7 @@
   background: none;
   color: inherit;
   font-size: 1em;
+  font-family: inherit;
 
   -webkit-appearance: none;
   -moz-appearance: none;

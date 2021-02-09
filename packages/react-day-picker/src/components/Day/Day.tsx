@@ -1,7 +1,7 @@
 import * as React from 'react';
 
+import { useModifiers } from '../../hooks/useModifiers/useModifiers';
 import { getDayProps } from './getDayProps';
-import { useModifiers } from '../../hooks/useModifiers';
 import { DayProps } from './types';
 
 /**
@@ -10,7 +10,7 @@ import { DayProps } from './types';
  *
  * This component can be [[include:swizzling.md]].
  *
- * @category Components
+ * @category Component
  */
 export function Day(props: DayProps): JSX.Element {
   const { day, dayPickerProps, currentMonth } = props;

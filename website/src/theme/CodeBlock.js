@@ -1,61 +1,39 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import nightOwlTheme from 'prism-react-renderer/themes/nightOwl';
+import InitialCodeBlock from '@theme-init/CodeBlock';
 
-import { Preview } from '../components/Preview';
-import Highlight from '../components/Highlight';
+import { CodeOutput } from './CodeOutput';
 
 const styles = {
   container: {},
-  preview: {
+  output: {
     position: 'relative',
     padding: '1.25em 1em 0em 1em'
   }
 };
 
-function CodeBlock({
-  children,
-  className = '',
-  preview,
-  previewHeight,
-  reverse
-}) {
+export default function CodeBlock(props) {
+  const { children, showOutput, reverse = false, open = true } = props;
+
   let content = [];
-  console.log(preview);
-  content.push(
-    <Highlight
-      key="highlight"
-      code={children}
-      language={className.replace('language-', '')}
-      style={{ borderTopLeftRadius: 0 }}
-    />
-  );
+  content.push(<InitialCodeBlock {...props} key="code" />);
 
-  if (preview) {
-    content.push(
-      <div key="preview" style={styles.preview}>
-        <Preview
-          code={children}
-          theme={nightOwlTheme}
-          height={previewHeight ? Number(previewHeight) : undefined}
-        />
-      </div>
-    );
+  if (showOutput) {
+    let outputContent = <CodeOutput code={children} key="output" />;
+    if (typeof open === 'string') {
+      // TODO: to improve performance, render content only when open is yes.
+      outputContent = (
+        <details key="output" open={open === 'yes'}>
+          <summary>
+            <strong>Show Output</strong>
+          </summary>
+          {outputContent}
+        </details>
+      );
+    }
+    content.push(outputContent);
   }
-  if (reverse) {
-    content = content.reverse();
-  }
-  return <div style={styles.container}>{content}</div>;
+  if (reverse) content = content.reverse();
+  return content;
 }
-
-CodeBlock.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.string.isRequired,
-  layout: PropTypes.oneOf(['row', 'column']),
-  preview: PropTypes.bool,
-  previewHeight: PropTypes.string,
-  reverse: PropTypes.bool
-};
-
-export default CodeBlock;

@@ -1,12 +1,14 @@
 import * as React from 'react';
+
 import { Head } from '../Head';
 import { WeekRow } from '../WeekRow';
 import { getWeeks } from './getWeeks';
-import { MonthTableProps } from './types';
+import { MonthTableProps } from './types/MonthTableProps';
 
 /**
  * Render the month table.
- * @category Components
+ *
+ * @category Component
  */
 export function MonthTable(props: MonthTableProps): JSX.Element {
   const { month, dayPickerProps } = props;

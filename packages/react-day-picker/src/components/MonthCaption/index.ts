@@ -1,3 +1,3 @@
-export { MonthCaption } from './MonthCaption';
-export { getCaptionProps } from './getCaptionProps';
+export * from './MonthCaption';
+export * from './getCaptionProps';
 export * from './types';
