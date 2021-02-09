@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { DayPickerProps, ModifiersStatus } from '../DayPicker';
 import { DayHtmlProps } from './types';
 
@@ -14,19 +15,27 @@ export function getDayProps(
     modifiersClassNames: daysClassNames,
     modifiersStyles: daysStyles,
     onDayClick,
-    styles,
-    locale,
-    formatDay
+    styles
   } = props;
 
-  let onClick;
-  if (modifiers.interactive && onDayClick) {
-    onClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+  const onClick: React.MouseEventHandler<HTMLSpanElement> = (e) => {
+    if (!onDayClick) return;
+    e.stopPropagation();
+    e.preventDefault();
+    onDayClick(day, modifiers, e);
+  };
+
+  const onKeyDown: React.KeyboardEventHandler<HTMLSpanElement> = (e) => {
+    if (e.code === 'Space' || e.code === 'Enter') {
+      if (!onDayClick) return;
       e.stopPropagation();
       e.preventDefault();
       onDayClick(day, modifiers, e);
-    };
-  }
+    }
+    if (props.onDayKeyDown) {
+      props.onDayKeyDown(day, modifiers, e);
+    }
+  };
 
   let style = { ...styles?.day };
   if (styles) {
@@ -66,18 +75,21 @@ export function getDayProps(
   }
 
   const containerProps = {
-    'aria-disabled': !modifiers.interactive || undefined,
+    tabIndex: modifiers.interactive ? 0 : undefined,
+    role: modifiers.interactive ? 'button' : undefined,
+    'aria-disabled': !modifiers.disabled || undefined,
     'aria-selected': modifiers.selected || undefined,
-    'aria-label': formatDay?.(day, { locale }), // TODO: improve ARIA label using a formatDayLabel
     disabled: Boolean(modifiers.disabled) || undefined,
     onClick,
+    onKeyDown,
     style,
     className: className.join(' ')
-    // ...dataTagProps
   };
+
   const wrapperProps = {
     className: classNames?.dayWrapper,
-    styles: styles?.dayWrapper
+    styles: styles?.dayWrapper,
+    dateTime: format(day, 'yyyy-MM-dd')
   };
 
   return { containerProps, wrapperProps, modifiers };

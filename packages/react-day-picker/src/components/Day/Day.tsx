@@ -4,14 +4,6 @@ import { useModifiers } from '../../hooks/useModifiers/useModifiers';
 import { getDayProps } from './getDayProps';
 import { DayProps } from './types';
 
-/**
- * The `Day` component renders the content of the day cell. It renders a button
- * if the day is interactive (i.e. it is clickable).
- *
- * This component can be [[include:swizzling.md]].
- *
- * @category Component
- */
 export function Day(props: DayProps): JSX.Element {
   const { day, dayPickerProps, currentMonth } = props;
   const { locale, formatDay } = dayPickerProps;
@@ -28,10 +20,9 @@ export function Day(props: DayProps): JSX.Element {
     dayPickerProps
   );
 
-  const Component = modifiers.interactive ? 'button' : 'span';
   return (
-    <Component {...containerProps}>
-      <span {...wrapperProps}>{formatDay?.(day, { locale })}</span>
-    </Component>
+    <span {...containerProps}>
+      <time {...wrapperProps}>{formatDay?.(day, { locale })}</time>
+    </span>
   );
 }

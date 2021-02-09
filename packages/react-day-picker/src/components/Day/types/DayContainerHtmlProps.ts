@@ -4,7 +4,8 @@ export type DayContainerHtmlProps = {
   'aria-selected'?: boolean;
   'aria-label'?: string;
   disabled?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: React.MouseEventHandler;
+  onKeyDown?: React.KeyboardEventHandler;
   className?: string;
   style?: React.CSSProperties;
 };
