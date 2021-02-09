@@ -1,44 +1,26 @@
-module.exports = [
+const sidebar = [
+  'intro',
   'start',
-  'examples',
   {
-    type: 'category',
-    label: 'Use of modifiers',
-    items: ['modifiers', 'modifiers-matching-days']
-  },
-  {
-    type: 'category',
-    label: 'Guides',
-    items: [
-      'styling',
-      'months',
-      'formatting',
-      'localization',
-      'input',
-      'custom-components',
-      'upgrading'
+    'DayPicker Basics': [
+      'tutorials/customization',
+      'tutorials/selecting-days',
+      'tutorials/modifiers'
     ]
   },
   {
-    type: 'category',
-    label: 'Components',
-    items: [
-      'api/daypicker',
-      'api/day',
-      'api/monthcaption',
-      'api/navigation',
-      'api/weeknumber'
+    Guides: [
+      'guides/styling',
+      'guides/formatters',
+      'guides/localization',
+      'guides/changing-months',
+      'guides/input',
+      'guides/custom-components',
+      'guides/upgrading'
     ]
   },
-  {
-    type: 'category',
-    label: 'Reference',
-    items: [
-      'api/enumerations',
-      'api/interface',
-      'api/type',
-      'reference/changelog',
-      'reference/hooks'
-    ]
-  }
+  { 'API Reference': require('./typedoc-sidebar.js') },
+  'changelog'
 ];
+
+module.exports = { sidebar };

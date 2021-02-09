@@ -1,0 +1,68 @@
+---
+id: localization
+title: Localization
+---
+
+## Changing locale
+
+To change the locale, pass to the [locale prop](./api/daypicker#locale) a date-fns [Locale
+object](http://date-fns.org/docs/Locale).
+
+For example, to localize the calendar in Spanish, import the locale object from
+date-fns and pass it to the component:
+
+```jsx showOutput
+import spanish from 'date-fns/locale/es';
+
+function App() {
+  return <DayPicker locale={spanish} />;
+}
+```
+
+## Right-to-left direction
+
+To add right-to-left text direction, set the [dir](./api/daypicker#dir) prop to `rtl`.
+
+```jsx showOutput
+import arabic from 'date-fns/locale/ar-SA';
+
+function App() {
+  return <DayPicker dir="rtl" locale={arabic} />;
+}
+```
+
+## Numbering system
+
+Use [formatters](formatters) to change the numbering system used in the
+calendar.
+
+For example, to switch to hindu-arabic using
+[toLocaleString](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+
+```jsx showOutput
+import { format } from 'date-fns';
+import arabic from 'date-fns/locale/ar-SA';
+
+function App() {
+  const nuLocale = 'ar-u-nu-arab';
+
+  const formatDay = (day) => day.getDate().toLocaleString(nuLocale);
+  const formatWeekNumber = (weekNumber) => weekNumber.toLocaleString(nuLocale);
+  const formatCaption = (date, { locale }) => {
+    const y = date.getYear().toLocaleString(nuLocale);
+    const m = format(date, 'LLLL', { locale });
+    return `${m} ${y}`;
+  };
+
+  return (
+    <DayPicker
+      locale={arabic}
+      dir="rtl"
+      showWeekNumber
+      formatDay={formatDay}
+      formatCaption={formatCaption}
+      formatWeekNumber={formatWeekNumber}
+    />
+  );
+}
+```

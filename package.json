@@ -5,14 +5,10 @@
   },
   "name": "@react-day-picker/monorepo",
   "private": true,
-  "description": "Flexible Date Picker for React",
+  "description": "Monorepo of react-day-picker",
   "author": "Giampaolo Bellavite <io@gpbl.org>",
   "homepage": "http://react-day-picker.js.org",
   "license": "MIT",
-  "scripts": {
-    "build": "yarn workspaces foreach -v -t run build",
-    "develop": "concurrently --names react-day-picker,website,scripts \"yarn workspace react-day-picker develop\" \"yarn workspace website develop\" \"yarn workspace scripts develop\""
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gpbl/react-day-picker"
@@ -22,10 +18,6 @@
   },
   "workspaces": [
     "website",
-    "scripts",
     "packages/*"
-  ],
-  "devDependencies": {
-    "concurrently": "^5.2.0"
-  }
+  ]
 }

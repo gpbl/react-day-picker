@@ -1,34 +1,38 @@
-import React from 'react';
-import { MonthTable } from '../MonthTable';
 import { getTime } from 'date-fns';
+import React from 'react';
 
-import { getMonths } from './getMonths';
-import { filterUndefinedProps } from './filterUndefinedProps';
-import { defaultProps } from '../DayPicker/defaults/defaultProps';
 import {
   CustomComponents,
   DayPickerClassNames,
   DayPickerProps
 } from '../DayPicker';
+import { DEFAULT_PROPS } from '../DayPicker/defaults/props';
+import { MonthTable } from '../MonthTable';
+import { filterUndefinedProps } from './filterUndefinedProps';
+import { getMonths } from './getMonths';
 
 /**
  * Render the months and the navigation.
- * @category Components
+ *
+ * @category Component
  */
-export function Months(initialProps = defaultProps): JSX.Element {
+export function Months(initialProps = DEFAULT_PROPS): JSX.Element {
   // Extend props with defaults
+  // TODO: this looks ugly try something better...
   const components: CustomComponents = Object.assign(
     {},
-    defaultProps.components,
+    DEFAULT_PROPS.components,
     initialProps.components
   );
+  const Navigation = components.Navigation;
+
   const classNames: DayPickerClassNames = Object.assign(
     {},
-    defaultProps.classNames,
+    DEFAULT_PROPS.classNames,
     initialProps.classNames
   );
   const props: DayPickerProps = {
-    ...defaultProps,
+    ...DEFAULT_PROPS,
     ...filterUndefinedProps(initialProps),
     components: components,
     classNames
@@ -44,9 +48,6 @@ export function Months(initialProps = defaultProps): JSX.Element {
   }
 
   const months = getMonths(props);
-
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const Navigation = props.components?.Navigation!;
 
   return (
     <div className={className.join(' ')} style={style} dir={props.dir}>

@@ -1,0 +1,168 @@
+---
+id: selecting-days
+title: Selecting Days
+---
+
+To allow selecting days use these props:
+
+* `onDayClick` – to handle the clicked/tapped day
+  ```jsx
+  <DayPicker onDayClick={(day, { selected }) => console.log(day, selected)} />
+  ```
+
+* `selected` – to highlight the days that have been selected
+  ```jsx
+  <DayPicker selected={new Date(2021, 8, 19)} />
+  ```
+  
+## Selecting a single day
+
+To select a day, store the clicked day in the parent component’s state.
+
+```jsx showOutput
+function App() {
+  const [selectedDay, setSelectedDay] = useState();
+  return (
+    <>
+      <DayPicker
+        onDayClick={(day) => setSelectedDay(day)}
+        selected={selectedDay}
+      />
+      <p>
+        Please pick a day.
+        {selectedDay && <> You selected {selectedDay.toLocaleDateString()}.</>}
+      </p>
+    </>
+  );
+}
+```
+
+## Deselecting a day
+
+Use the second argument of the callback to know if the clicked day has been
+already selected. Unset the selected day to deselect it.
+
+```jsx {4-10} showOutput
+function App() {
+  const [selectedDay, setSelectedDay] = useState();
+
+  const handleDayClick = (day, { selected }) => {
+    if (selected) {
+      setSelectedDay(undefined);
+    } else {
+      setSelectedDay(day);
+    }
+  };
+
+  const handleResetClick = () => setSelectedDay();
+
+  return (
+    <>
+      <DayPicker onDayClick={handleDayClick} selected={selectedDay} />
+      {!selectedDay ? (
+        <p>Please click a day to select it. Click again to deselect.</p>
+      ) : (
+        <p>
+          You picked {selectedDay.toLocaleDateString()}.{' '}
+          <button onClick={handleResetClick}>Reset</button>
+        </p>
+      )}
+    </>
+  );
+}
+```
+
+## Selecting multiple days
+
+The `selected` prop accepts also an array of dates – useful to select multiple
+days in the calendar.
+
+To select multiple days, use an array to store the selection in the component’s
+state.
+
+```jsx showOutput
+function App() {
+  const [selectedDays, setSelectedDays] = useState([]);
+
+  function handleDayClick(day, { selected }) {
+    // Use a callback to clone and add / remove days to the array
+    setSelectedDays((currentlySelectedDays) => {
+      const days = [...currentlySelectedDays];
+      if (selected) {
+        days.splice(currentlySelectedDays.indexOf(day), 1);
+      } else {
+        days.push(day);
+      }
+      return days;
+    });
+  }
+
+  const handleResetClick = () => setSelectedDays([]);
+
+  return (
+    <div>
+      <DayPicker onDayClick={handleDayClick} selected={selectedDays} />
+      {selectedDays.length === 0 ? (
+        <p>Please pick one or more days.</p>
+      ) : (
+        <p>
+          You selected {selectedDays.length} days.{' '}
+          <button onClick={handleResetClick}>Reset</button>
+        </p>
+      )}
+    </div>
+  );
+}
+```
+
+## Selecting a range of days
+
+The `selected` prop accepts range objects to highlight the days included between
+two dates.
+
+```jsx {6-7} showOutput
+function App() {
+  return (
+    <DayPicker
+      initialMonth={new Date(2021, 11)}
+      selected={{
+        from: new Date(2021, 11, 14),
+        to: new Date(2021, 11, 24)
+      }}
+    />
+  );
+}
+```
+
+Depending from your app’s requirements, implement `onDayClick` to change the
+dates in the range. 
+
+### useRange hook
+
+A simple version to select ranges is wrapped in the `useRange` hook found in the
+package.
+
+```jsx {1,4} showOutput
+import { DayPicker, useRange } from 'react-day-picker';
+
+function App() {
+  const [range, setRange] = useRange();
+
+  const handleDayClick = (day) => setRange(day);
+  const handleResetClick = () => setRange();
+
+  return (
+    <>
+      <DayPicker onDayClick={handleDayClick} selected={range} />
+      {range.from ? (
+        <p>
+          {range.from && range.from.toLocaleDateString()} –{' '}
+          {range.to ? range.to.toLocaleDateString() : '...'}
+        </p>
+      ) : (
+        <p>Please select a day.</p>
+      )}
+    </>
+  );
+}
+```

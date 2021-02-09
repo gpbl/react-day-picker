@@ -1,0 +1,43 @@
+---
+id: formatters
+title: Formatters
+---
+
+Use the formatting props to format the content of the day cell, the month’s
+caption, the weekday name or the week’s number.
+
+- For more advanced customization of those elements, see [custom components](./custom-components.mdx).
+- Formatting props can be used for [localization](./localization.mdx) purpose too.
+
+```jsx showOutput
+import React, { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+import { format } from 'date-fns';
+
+function App() {
+  const formatDay = (day) => {
+    const date = day.getDate();
+    if (date === 12 || date === 17) {
+      // Add an astersisk to these dates
+      return `${date} *`;
+    }
+    return date;
+  };
+
+  const formatCaption = (month, { locale }) => {
+    return `${format(month, 'dd/yyyy', { locale })}`;
+  };
+
+  const formatWeekdayName = (day, { locale }) => {
+    return format(day, 'E', { locale })[0];
+  };
+
+  return (
+    <DayPicker
+      formatDay={formatDay}
+      formatCaption={formatCaption}
+      formatWeekdayName={formatWeekdayName}
+    />
+  );
+}
+```

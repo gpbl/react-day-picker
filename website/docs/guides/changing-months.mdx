@@ -1,0 +1,26 @@
+---
+id: changing-months
+title: Changing Months Programmatically
+---
+
+As default, the current month is stored into the DayPicker’s internal state. To
+change the month programmatically, the current month must be stored in the
+parent's state.
+
+1. save the month to render in the parent component’s state
+2. use the `month` prop (as opposed to `initialMonth`)
+3. use the `onMonthChange` event handler to set the month
+
+```jsx showOutput
+function App() {
+  const [month, setMonth] = useState();
+  return (
+    <>
+      <DayPicker month={month} onMonthChange={setMonth} />
+      <div>
+        <button onClick={() => setMonth(new Date())}>Go to Today</button>
+      </div>
+    </>
+  );
+}
+```

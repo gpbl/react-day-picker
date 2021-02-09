@@ -1,85 +1,36 @@
 import * as dateFns from 'date-fns';
 
-import { MonthCaptionProps, MonthCaptionFormatter } from '../../MonthCaption';
-import { DayProps, DayFormatter } from '../../Day';
-import { NavigationProps } from '../../Navigation';
-import { WeekNumberProps, WeekNumberFormatter } from '../../WeekNumber';
+import { DayFormatter } from '../../Day';
+import { MonthCaptionFormatter } from '../../MonthCaption';
+import { WeekNumberFormatter } from '../../WeekNumber';
 import { WeekdayNameFormatter } from '../../WeekRow';
-
-import {
-  DayMatcher,
-  DaysModifiers,
-  MatchingModifiers,
-  DaysClassNames,
-  DaysStyles
-} from './Modifiers';
-
-import { DayPickerElements } from './DayPickerElements';
+import { CustomComponents } from './CustomComponents';
+import { DayClickEventHandler } from './DayClickEventHandler';
+import { DayPickerClassNames } from './DayPickerClassNames';
+import { DayPickerStyles } from './DayPickerStyles';
+import { Matcher } from './Matcher';
+import { ModifiersClassNames, ModifiersStyles } from './Modifiers';
+import { ModifiersMatchers } from './ModifiersMatchers';
+import { MonthChangeEventHandler } from './MonthChangeEventHandler';
 
 /**
- * An object defining the CSS class names for each [DayPicker
- * element](./enumerations#daypickerelements).
- */
-export type DayPickerClassNames = {
-  [name in DayPickerElements]?: string;
-};
-/**
- * An object defining the inline style for each [DayPicker
- * element](./enumerations#daypickerelements).
- */
-export type DayPickerStyles = {
-  [name in DayPickerElements]?: React.CSSProperties;
-};
-
-/**
- * Event handler when a day is clicked.
- */
-export type DayClickEventHandler = (
-  day: Date,
-  modifiers: MatchingModifiers,
-  e: React.MouseEvent
-) => void;
-
-/**
- * Event handler when the month is changed.
- */
-export type MonthChangeEventHandler = (
-  month: Date,
-  e: React.MouseEvent
-) => void;
-
-/**
- * Components that can be replaced
- */
-export type CustomComponents = {
-  /** A [[MonthCaption]] component. */
-  MonthCaption: React.ComponentType<MonthCaptionProps>;
-  /** A [[Day]] component. */
-  Day: React.ComponentType<DayProps>;
-  /** A [[Navigation]] component. */
-  Navigation: React.ComponentType<NavigationProps>;
-  /** A [[WeekNumber]] component. */
-  WeekNumber: React.ComponentType<WeekNumberProps>;
-};
-
-/**
- * The props used by the [[DayPicker]] component.
+ * The props of the [[DayPicker]] component.
  */
 export interface DayPickerProps {
   /**
-   * CSS class to add to the root element.
+   * CSS class to add to the root element
    */
   className?: string;
   /**
    * Change the class names used by `DayPicker`.
    *
-   * Use this prop when you need to change the [default class
-   * names](defaultClassNames.mdx) — for example when using CSS modules.
+   * Use this prop when you need to change the default class
+   * names — for example when using CSS modules.
    *
    * **Example**. Use of custom class names for the head and the caption
    * elements:
    *
-   * ```jsx preview
+   * ```jsx showOutput
    *  function App() {
    *    const css = `
    *      .salmon-head {
@@ -107,9 +58,9 @@ export interface DayPickerProps {
    */
   classNames?: DayPickerClassNames;
   /**
-   * Change the class names used for the [days modifiers](#day).
+   * Change the class names used for the [modifiers](#day).
    */
-  daysClassNames?: DaysClassNames;
+  modifiersClassNames?: ModifiersClassNames;
 
   /**
    * Style to apply to the root element.
@@ -120,9 +71,9 @@ export interface DayPickerProps {
    */
   styles?: DayPickerStyles;
   /**
-   * Change the inline style for the [days modifiers](#day).
+   * Change the inline style for each modifier.
    */
-  daysStyles?: DaysStyles;
+  modifiersStyles?: ModifiersStyles;
 
   /**
    * The initial month to show in the calendar.
@@ -166,7 +117,8 @@ export interface DayPickerProps {
    * Display six weeks per months, regardless the month’s number of weeks. Outside
    * days will be always shown when setting this prop.
    *
-   * @see showOutsideDays
+   * @default false
+   * @see [showOutsideDays](#showoutsidedays)
    */
   fixedWeeks?: boolean;
   /**
@@ -210,27 +162,32 @@ export interface DayPickerProps {
   nextLabel?: string;
 
   /**
-   * Apply the `selected` modifiers to the matching days.
+   * Apply the `selected` modifier to the matching days.
    */
-  selected?: DayMatcher;
+  selected?: Matcher;
   /**
-   * Disable the matching days. Disabled days cannot be clicked.
+   * Add the `disabled` modifier for the matching days. Interaction with
+   * disabled days is disabled.
    */
-  disabled?: DayMatcher;
+  disabled?: Matcher;
   /**
-   * Hide the matching days.
+   * Add the `hidden` modifier for the matching days. Days with the `hidden`
+   * modifier won’t display in the calendar.
    */
-  hidden?: DayMatcher;
+  hidden?: Matcher;
   /**
-   * An object of modifiers.
+   * The today’s date. Default is the current date.
    */
-  days?: DaysModifiers;
+  today?: Date | 'off';
+  /**
+   * Add a custom modifier to the matching days.
+   */
+  modifiers?: ModifiersMatchers;
 
   /**
-   * A locale object to localize
-   * the user interface.
+   * The date-fns locale object to localize the user interface. Defaults to English.
    */
-  locale?: dateFns.Locale;
+  locale: dateFns.Locale;
   /**
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
@@ -242,25 +199,25 @@ export interface DayPickerProps {
    *
    * @default See [[defaultFormatCaption]].
    */
-  formatCaption?: MonthCaptionFormatter;
+  formatCaption: MonthCaptionFormatter;
   /**
    * Format the content of the day element.
    *
    * @default See [[defaultFormatDay]].
    */
-  formatDay?: DayFormatter;
+  formatDay: DayFormatter;
   /**
    * Format the weekday's name in the head element.
    *
    * @default See [[defaultFormatWeekdayName]].
    */
-  formatWeekdayName?: WeekdayNameFormatter;
+  formatWeekdayName: WeekdayNameFormatter;
   /**
    * Format the week numbers (when [[showWeekNumber]] is set).
    *
    * @default See [[defaultFormatWeekNumber]].
    */
-  formatWeekNumber?: WeekNumberFormatter;
+  formatWeekNumber: WeekNumberFormatter;
 
   /**
    * Customize the internal components.
