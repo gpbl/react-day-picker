@@ -1,27 +1,47 @@
-# react-day-picker
+# React DayPicker @next
 
-DayPicker is a React component to display a monthly calendar for picking dates.
+DayPicker is a date picker component for [React](https://reactjs.org).
 
-Thanks to an extensive set of props, DayPicker helps developers to implement date pickers – without fighting with JavaScript dates and complex layouts.
+```
+$ npm install react-day-picker@next
+```
 
-## This is a prerelase 
+<a href="https://www.npmjs.com/package/react-day-picker">
+  <img src="https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square" alt="npm version">
+</a>
+<a href="http://npm-stat.com/charts.html?package=react-day-picker">
+  <img src="https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square" alt="npm downloads">
+</a>
 
-* See work-in-progres website at: https://react-day-picker-next.netlify.app
-* v7 documentation: https://react-day-picker.js.org
+### Unreleased version ⚠️
 
-## Quick start
+This branch is for the next major version – which is not yet released. For the current stable version see the [**v7 branch**](https://github.com/gpbl/react-day-picker/tree/v7).
 
-1. Add react-day-picker to the project’s dependencies:
-  ```bash
-  yarn add react-day-picker     # when using yarn
-  npm install react-day-picker  # when using npm
-  ```
-2. Import DayPicker and its CSS file in your script:
-  ```js
-  import "react-day-picker/dist/style.css";
-  import { DayPicker } from "react-day-picker";
+## Main features
 
-  function App() {
-    return <DayPicker />
-  }
-  ```
+- unopinionated and extensible user interface
+- support for [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+- adopting [date-fns](http://date-fns.org) as date library
+- incomplete "Main features" list
+
+## Documentation
+
+- [v7 website (current version)](http://react-day-picker.js.org)
+- [v8 website (beta)](http://react-day-picker-next.netlify.app)
+
+### Example
+
+```jsx
+import { DayPicker } from 'react-day-picker';
+
+function App() {
+  const [selected, setSelected] = useState();
+
+  const handleDayClick = (day, { selected }) => {
+    if (!selected) setSelected(day);
+    else setSelected();
+  };
+
+  return <DayPicker onDayClick={handleDayClick} />;
+}
+```
