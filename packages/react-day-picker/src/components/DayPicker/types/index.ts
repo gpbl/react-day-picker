@@ -1,5 +1,6 @@
 export * from './CustomComponents';
 export * from './DayClickEventHandler';
+export * from './DayKeyDownEventHandler';
 export * from './DayPickerClassNames';
 export * from './DayPickerProps';
 export * from './DayPickerStyles';

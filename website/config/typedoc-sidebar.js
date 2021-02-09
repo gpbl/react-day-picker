@@ -24,6 +24,7 @@ module.exports = [
       "api/types/daycontainerhtmlprops",
       "api/types/dayformatter",
       "api/types/dayhtmlprops",
+      "api/types/daykeydowneventhandler",
       "api/types/daypickerclassnames",
       "api/types/daypickerstyles",
       "api/types/daywrapperhtmlprops",

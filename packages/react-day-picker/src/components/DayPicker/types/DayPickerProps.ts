@@ -231,6 +231,10 @@ export interface DayPickerProps {
    */
   onDayClick?: DayClickEventHandler;
   /**
+   * Event handler when the user press a key on a day.
+   */
+  onDayKeyDown?: DayKeyDownEventHandler;
+  /**
    * Event handler when the month changes.
    */
   onMonthChange?: MonthChangeEventHandler;
