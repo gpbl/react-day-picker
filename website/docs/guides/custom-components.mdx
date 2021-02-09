@@ -163,7 +163,7 @@ For example, the following DayPicker implements a `Day` component that supports
 `onDayEnter`, `onDayLeave` events:
 
 ```jsx showOutput
-import { DayPicker, useTags, getDayProps } from 'react-day-picker';
+import { DayPicker, useModifiers, getDayProps } from 'react-day-picker';
 
 function App() {
   /**
@@ -173,7 +173,7 @@ function App() {
     const { onDayEnter, onDayLeave } = dayPickerProps;
 
     // Calculate the modifiers associated to this day
-    const modifiers = useTags(day, currentMonth, dayPickerProps);
+    const modifiers = useModifiers(day, currentMonth, dayPickerProps);
 
     // Get the props for the HTML elements
     const { containerProps, wrapperProps } = getDayProps(
