@@ -77,7 +77,7 @@ export function getDayProps(
   const containerProps = {
     tabIndex: modifiers.interactive ? 0 : undefined,
     role: modifiers.interactive ? 'button' : undefined,
-    'aria-disabled': !modifiers.disabled || undefined,
+    'aria-disabled': modifiers.disabled || undefined,
     'aria-selected': modifiers.selected || undefined,
     disabled: Boolean(modifiers.disabled) || undefined,
     onClick,
