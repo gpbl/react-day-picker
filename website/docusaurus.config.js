@@ -1,15 +1,83 @@
-const path = require("path");
-const themeConfig = require("./config/themeConfig");
-const classic = require("./config/presets/classic");
+const pkg = require('react-day-picker/package.json');
+const pkgPath = '../packages/react-day-picker';
 
 module.exports = {
-  title: "React DayPicker",
-  tagline: "Date picker component for React",
-  url: "https://react-day-picker.js.org",
-  baseUrl: "/",
-  favicon: "img/favicon.ico",
-  organizationName: "gpbl",
-  projectName: "react-day-picker",
-  themeConfig,
-  presets: [classic],
+  title: 'React DayPicker',
+  tagline: 'Date picker component for React',
+  url: 'https://react-day-picker.js.org',
+  baseUrl: '/',
+  favicon: 'img/favicon.ico',
+  organizationName: 'gpbl',
+  projectName: 'react-day-picker',
+  themeConfig: {
+    navbar: {
+      title: 'DayPicker',
+      logo: {
+        alt: 'DayPicker Logo',
+        src: 'img/logo.png'
+      },
+      items: [
+        {
+          to: 'start',
+          label: 'Documentation',
+          activeBaseRegex: '(start|tutorials|guides)'
+        },
+        { to: 'api', label: 'API Reference' },
+        { to: 'changelog', label: `v${pkg.version}`, position: 'right' },
+        {
+          href: 'https://github.com/gpbl/react-day-picker',
+          label: 'GitHub',
+          position: 'right'
+        }
+      ]
+    },
+    gtag: {
+      trackingID: 'UA-68185118-1'
+    },
+    prism: {
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/shadesOfPurple')
+    }
+  },
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          sidebarPath: require.resolve('./config/sidebar.js'),
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
+          routeBasePath: '/'
+        },
+        pages: false,
+        theme: {
+          customCss: require.resolve('./config/custom.css')
+        }
+      }
+    ]
+  ],
+  plugins: [
+    [
+      'docusaurus-plugin-typedoc',
+      {
+        // Plugin settings
+        sidebar: {
+          sidebarFile: './config/typedoc-sidebar.js'
+        },
+
+        // Typedoc settings
+        watch: true,
+        entryPoints: [`${pkgPath}/src/index.ts`],
+        tsconfig: `${pkgPath}/tsconfig.json`,
+        allReflectionsHaveOwnDocument: true,
+        readme: 'none',
+
+        // Markdown plugin settings
+        hideProjectName: true,
+        // hideBreadcrumbs: true,
+        hideInPageTOC: true,
+        indexTitle: 'API Reference'
+      }
+    ]
+  ]
 };

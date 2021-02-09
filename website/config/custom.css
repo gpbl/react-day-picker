@@ -1,0 +1,112 @@
+:root {
+  --ifm-heading-font-weight: 500;
+
+  --ifm-font-base-color: hsl(0, 0%, 20%);
+  --ifm-font-size-base: 15px;
+
+  --ifm-code-font-size: 0.875em;
+  --ifm-heading-font-weight: 500;
+  --ifm-contents-padding-vertical: 0.75em 0;
+  --ifm-contents-link-color: var(--ifm-color-primary);
+
+  --ifm-color-primary: #ff6347;
+  --ifm-color-primary-dark: #ff4726;
+  --ifm-color-primary-darker: #ff3a16;
+  --ifm-color-primary-darkest: #e42300;
+  --ifm-color-primary-light: #ff7f68;
+  --ifm-color-primary-lighter: #ff8c78;
+  --ifm-color-primary-lightest: #ffb6a9;
+
+  --ifm-global-radius: 0.25em;
+
+  --ifm-alert-border-radius: 5px;
+  --ifm-color-warning: #fffacc;
+  --ifm-alert-color: inherit;
+}
+
+a {
+  transition: none;
+}
+
+html[data-theme='dark'] {
+  --ifm-color-warning: #2f1904;
+  --ifm-alert-color: inherit;
+  --ra-admonition-icon-color: var(--ifm-font-color-base);
+  --ifm-code-background: #24282d;
+}
+details summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding: var(--ifm-pre-padding) 0;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: var(--ifm-color-emphasis-200);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: var(--ifm-code-background);
+}
+
+.menu {
+  font-weight: inherit;
+}
+.rdp {
+  all: revert;
+  font-size: initial;
+}
+.rdp * {
+  all: revert;
+}
+.rdp-month {
+  margin: 0.75em;
+}
+
+.rdp > .rdp-nav {
+  top: 1.125em;
+  right: 0.75em;
+}
+
+.code-output {
+  background-color: var(--ifm-pre-background);
+  border-radius: var(--ifm-pre-border-radius);
+  padding: var(--ifm-pre-padding);
+  padding-top: 0;
+}
+
+details .code-output {
+  padding-top: var(--ifm-pre-padding);
+}
+
+.code-output .rdp + p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.code-output input {
+  font: inherit;
+  padding: 0 0.5em;
+}
+
+.prism-code > div {
+  background-color: var(--ifm-pre-background) !important;
+}
+
+h1 code,
+h2 code,
+h3 code {
+  background-color: transparent;
+  padding: 0 0.25em;
+  font-size: 0.875em;
+}
+
+.table-of-contents code {
+  all: inherit;
+}
+
+.navbar__title {
+  font-weight: 700;
+}

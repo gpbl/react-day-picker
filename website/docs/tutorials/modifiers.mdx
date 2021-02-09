@@ -1,0 +1,187 @@
+---
+id: modifiers
+title: Working with Modifiers
+---
+
+A **day modifier** is a property to change the appearance and the behavior of a
+day.
+
+## The `selected` modifier
+
+In the [Selecting Days tutorial](selecting-days), we see how a `selected`
+modifier prop changes the appearance of a selected day. This property is
+available from the `onDayClick` callback.
+
+```jsx {2,3,10} showOutput
+function App() {
+  const handleDayClick = (day, { selected }) => {
+    if (selected) {
+      alert(`${day.toLocaleDateString()} is already selected.`);
+    }
+  };
+  return (
+    <DayPicker
+      initialMonth={new Date(2022, 4)}
+      selected={[new Date(2022, 4, 12), new Date(2022, 4, 14)]}
+      onDayClick={handleDayClick}
+    />
+  );
+}
+```
+
+The second argument of the callback is an object of modifiers for the clicked
+day:
+
+```jsx
+const handleDayClick = (day, modifiers) => {
+  if (modifiers.selected) {
+    alert(`${day.toLocaleDateString()} is already selected.`);
+  }
+};
+```
+
+DayPicker includes other modifiers, like `disabled`, `hidden` and `today`.
+
+## The `disabled` modifier
+
+A disabled day is a day that a user cannot interact with. Use the `disabled`
+modifier prop to define which day should be disabled.
+
+```jsx {7-13} showOutput open=no
+function App() {
+  const handleDayClick = (day) => window.alert(day.toLocaleDateString());
+  return (
+    <DayPicker
+      numberOfMonths={2}
+      initialMonth={new Date(2022, 4)}
+      disabled={[
+        new Date(2022, 4, 12),
+        new Date(2022, 5, 10),
+        new Date(2022, 5, 20),
+        { before: new Date(2022, 1) },
+        { from: new Date(2022, 4, 18), to: new Date(2022, 4, 29) }
+      ]}
+      onDayClick={handleDayClick}
+    />
+  );
+}
+```
+
+## The `today` modifier
+
+The `today` modifier is added to the current date and it is passed as second
+argument to the event handlers.
+
+```jsx showOutput open=no
+function App() {
+  const handleDayClick = (day, { today }) => {
+    if (today) {
+      alert('You clicked the today’s date!');
+    } else {
+      alert(`You clicked ${day.toLocaleDateString()}.`);
+    }
+  };
+
+  return <DayPicker onDayClick={handleDayClick} />;
+}
+```
+
+Change the current date with the `today` prop:
+
+```jsx showOutput open=no
+function App() {
+  return <DayPicker today={new Date(2022, 2, 18)} />;
+}
+```
+
+It is possible to toggle off the `today` modifier:
+
+```jsx showOutput open=no
+function App() {
+  const handleDayClick = (day, { today }) => {
+    if (today) {
+      // (This will never happen as today is turned off)
+      alert('You clicked the today’s date!');
+    } else {
+      alert(`You clicked ${day.toLocaleDateString()}.`);
+    }
+  };
+  return <DayPicker today="off" onDayClick={handleDayClick} />;
+}
+```
+
+## Custom modifiers
+
+Add new modifiers according to your app’s requirements. For example, a booking
+app may use a `booked` modifier to mark days as already booked.
+
+Use the `modifiers` prop to pass an object with custom modifiers
+
+```jsx showOutput open=no
+function Book() {
+  const bookedDays = [
+    new Date(2021, 5, 8),
+    new Date(2021, 5, 9),
+    new Date(2021, 5, 10)
+  ];
+  const bookedStyle = { color: 'tomato' };
+
+  const handleDayClick = (day, { booked }) => {
+    if (booked) {
+      alert('You clicked a booked day.');
+    }
+  };
+  return (
+    <DayPicker
+      initialMonth={bookedDays[0]}
+      modifiers={{
+        booked: bookedDays
+      }}
+      modifiersStyle={{
+        booked: bookedStyle
+      }}
+      onDayClick={handleDayClick}
+    />
+  );
+}
+```
+
+## Styling days with modifiers
+
+Day cells can be styled according to the day modifiers, using CSS or inline
+styles. 
+
+* use `modifiersStyle` to change the inline styles for each modifier
+* use `modifiersClassNames` to add a class name to the DOM element
+
+```jsx showOutput open=no
+function Book() {
+  const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9), new Date(2021, 5, 10)];
+  const bookedStyle = { color: 'tomato' };
+  const availableDays = [new Date(2021, 5, 23), new Date(2021, 5, 24)];
+  const availableStyle = { fontWeight: '900', color: 'lightgreen' };
+
+  const handleDayClick = (day, { booked, available }) => {
+    if (booked) alert('You clicked a booked day.');
+    if (available) alert('You clicked an available day.');
+  };
+  return (
+    <DayPicker
+      initialMonth={bookedDays[0]}
+      modifiers={{
+        booked: bookedDays,
+        available: availableDays
+      }}
+      modifiersStyles={{
+        booked: bookedStyle,
+        available: availableStyle
+      }}
+      onDayClick={handleDayClick}
+    />
+  );
+}
+```
+
+
+See [Styling modifiers](../guides/styling#styling-modifiers) in the
+Styling guide for more details.
