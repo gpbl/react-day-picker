@@ -6,21 +6,17 @@ DayPicker is a date picker component for [React](https://reactjs.org).
 $ npm install react-day-picker@next
 ```
 
-<a href="https://www.npmjs.com/package/react-day-picker">
-  <img src="https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square" alt="npm version">
-</a>
-<a href="http://npm-stat.com/charts.html?package=react-day-picker">
-  <img src="https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square" alt="npm downloads">
-</a>
-
 ### Unreleased version ⚠️
 
-This branch is for the next major version – which is not yet released. For the current stable version see the [**v7 branch**](https://github.com/gpbl/react-day-picker/tree/v7).
+This branch is for the next major version – which is not yet released. For the
+current stable version see the [**v7
+branch**](https://github.com/gpbl/react-day-picker/tree/v7).
 
 ## Main features
 
 - unopinionated and extensible user interface
-- support for [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+- support for
+  [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
 - adopting [date-fns](http://date-fns.org) as date library
 - incomplete "Main features" list
 
@@ -31,7 +27,7 @@ This branch is for the next major version – which is not yet released. For the
 
 ### Example
 
-```jsx
+```jsx showOutput
 import { DayPicker } from 'react-day-picker';
 
 function App() {

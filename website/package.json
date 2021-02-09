@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "copy-docs": "./scripts/copy-docs",
     "develop": "yarn run start --no-open",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
+    "start": "yarn copy-docs && docusaurus start",
+    "build": "yarn copy-docs && docusaurus build",
     "deploy": "docusaurus deploy"
   },
   "dependencies": {

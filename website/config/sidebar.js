@@ -20,7 +20,8 @@ const sidebar = [
     ]
   },
   { 'API Reference': require('./typedoc-sidebar.js') },
-  'changelog'
+  'changelog',
+  'contributing'
 ];
 
 module.exports = { sidebar };
