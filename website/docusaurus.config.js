@@ -71,10 +71,12 @@ module.exports = {
         tsconfig: `${pkgPath}/tsconfig.json`,
         allReflectionsHaveOwnDocument: true,
         readme: 'none',
+        disableSources: true,
 
         // Markdown plugin settings
+        mdHideSources: true,
         hideProjectName: true,
-        // hideBreadcrumbs: true,
+        hideBreadcrumbs: true,
         hideInPageTOC: true,
         indexTitle: 'API Reference'
       }
