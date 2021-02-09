@@ -8,9 +8,9 @@ day.
 
 ## The `selected` modifier
 
-In the [Selecting Days tutorial](selecting-days), we see how a `selected`
-modifier prop changes the appearance of a selected day. This property is
-available from the `onDayClick` callback.
+In the [Selecting Days tutorial](selecting-days), we see how a `selected` prop
+changes the appearance of a selected day. This property is available from the
+`onDayClick` callback.
 
 ```jsx {2,3,10} showOutput
 function App() {
@@ -45,7 +45,7 @@ DayPicker includes other modifiers, like `disabled`, `hidden` and `today`.
 ## The `disabled` modifier
 
 A disabled day is a day that a user cannot interact with. Use the `disabled`
-modifier prop to define which day should be disabled.
+prop to define which day should be disabled.
 
 ```jsx {7-13} showOutput open=no
 function App() {
@@ -149,14 +149,18 @@ function Book() {
 ## Styling days with modifiers
 
 Day cells can be styled according to the day modifiers, using CSS or inline
-styles. 
+styles.
 
-* use `modifiersStyle` to change the inline styles for each modifier
-* use `modifiersClassNames` to add a class name to the DOM element
+- use `modifiersStyle` to change the inline styles for each modifier
+- use `modifiersClassNames` to add a class name to the DOM element
 
 ```jsx showOutput open=no
 function Book() {
-  const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9), new Date(2021, 5, 10)];
+  const bookedDays = [
+    new Date(2021, 5, 8),
+    new Date(2021, 5, 9),
+    new Date(2021, 5, 10)
+  ];
   const bookedStyle = { color: 'tomato' };
   const availableDays = [new Date(2021, 5, 23), new Date(2021, 5, 24)];
   const availableStyle = { fontWeight: '900', color: 'lightgreen' };
@@ -181,7 +185,6 @@ function Book() {
   );
 }
 ```
-
 
 See [Styling modifiers](../guides/styling#styling-modifiers) in the
 Styling guide for more details.
