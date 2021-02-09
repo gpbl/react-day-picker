@@ -1,14 +1,14 @@
-# Contributing to react-day-picker
+# Contributing to DayPicker
 
 > ⚠️ The `master` branch is for the [upcoming v8 release](https://github.com/gpbl/react-day-picker/issues/942). Switch to the `v7` branch to send updates for the v7 version.
 
 You are welcome to join the
 [other contributors](https://github.com/gpbl/react-day-picker/graphs/contributors)
-and help improving react-day-picker!
+and help improving DayPicker!
 
 ## Contributing to v8
 
-The upcoming majore release is a Typescript rewrite. Checkout the [v8 project](https://github.com/gpbl/react-day-picker/projects/7) to see what's left to do.
+The upcoming major release is a Typescript rewrite. Checkout the [v8 project](https://github.com/gpbl/react-day-picker/projects/7) to see what's left to do.
 
 ### Developing environment
 
@@ -17,7 +17,7 @@ The upcoming majore release is a Typescript rewrite. Checkout the [v8 project](h
 * Website is built with [docusaurus](https://v2.docusaurus.io)
 * The Node.js version we use is `^12.0`
 
-### Start contributing now
+### Start contributing
 
 #### 1. Fork the repo on your local machine
 
@@ -32,7 +32,8 @@ yarn install
 Build the package and website in watch mode:
 
 ```bash
-yarn develop
+yarn workspace react-day-picker develop
+yarn workspace website develop
 ```
 
 #### 3. Apply changes and open a PR :)
