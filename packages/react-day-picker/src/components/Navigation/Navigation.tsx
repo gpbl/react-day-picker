@@ -18,13 +18,13 @@ export function Navigation(props: NavigationProps): JSX.Element | null {
     dayPickerProps
   );
 
-  const handlePrevClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+  const handlePrevClick: React.MouseEventHandler = (e) => {
     if (!prevMonth) return;
     if (onMonthChange) onMonthChange(prevMonth, e);
     if (onPrevClick) onPrevClick(prevMonth, e);
   };
 
-  const handleNextClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleNextClick: React.MouseEventHandler = (e): void => {
     if (!nextMonth) return;
     if (onMonthChange) onMonthChange(nextMonth, e);
     if (onNextClick) onNextClick(nextMonth, e);
