@@ -1,11 +1,13 @@
 import * as React from 'react';
+
 import { getWeekdaysNames } from './getWeekdaysNames';
-import { HeadProps } from './types';
+import { HeadProps } from './types/HeadProps';
 
 /**
  * Render the head of the month table, including the weekday names (Mon, Tue,
  * etc.).
- * @category Components
+ *
+ * @category Component
  */
 export function Head(props: HeadProps): JSX.Element {
   const { locale, showWeekNumber, dayPickerProps } = props;

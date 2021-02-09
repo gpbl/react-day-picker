@@ -1,9 +1,4 @@
-import {
-  DayPickerProps,
-  DayMatchModifier,
-  MatchingModifiers
-} from '../DayPicker';
-
+import { DayPickerProps, ModifiersStatus } from '../DayPicker';
 import { DayHtmlProps } from './types';
 
 /**
@@ -11,10 +6,18 @@ import { DayHtmlProps } from './types';
  */
 export function getDayProps(
   day: Date,
-  modifiers: MatchingModifiers,
+  modifiers: ModifiersStatus,
   props: DayPickerProps
 ): DayHtmlProps {
-  const { classNames, daysClassNames, daysStyles, onDayClick, styles } = props;
+  const {
+    classNames,
+    modifiersClassNames: daysClassNames,
+    modifiersStyles: daysStyles,
+    onDayClick,
+    styles,
+    locale,
+    formatDay
+  } = props;
 
   let onClick;
   if (modifiers.interactive && onDayClick) {
@@ -62,21 +65,15 @@ export function getDayProps(
     }
   }
 
-  const dataProps: { [key: string]: DayMatchModifier } = {};
-  Object.entries(modifiers)
-    .filter((value) => Boolean(value))
-    .forEach(([modifier, value]) => {
-      dataProps[`data-rdp-${modifier}`] = value;
-    });
-
   const containerProps = {
     'aria-disabled': !modifiers.interactive || undefined,
-    'aria-hidden': !modifiers.hidden || undefined,
+    'aria-selected': modifiers.selected || undefined,
+    'aria-label': formatDay?.(day, { locale }), // TODO: improve ARIA label using a formatDayLabel
     disabled: Boolean(modifiers.disabled) || undefined,
     onClick,
     style,
-    className: className.join(' '),
-    ...dataProps
+    className: className.join(' ')
+    // ...dataTagProps
   };
   const wrapperProps = {
     className: classNames?.dayWrapper,

@@ -1,4 +1,5 @@
-import { endOfWeek, differenceInDays, addDays } from 'date-fns';
+import { addDays, differenceInDays, endOfWeek } from 'date-fns';
+
 import { DayPickerProps } from '../DayPicker';
 
 /**

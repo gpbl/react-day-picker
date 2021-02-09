@@ -8,9 +8,10 @@ import {
   getWeeksInMonth,
   startOfMonth
 } from 'date-fns';
+
 import { DayPickerProps } from '../DayPicker';
-import { getOutsideStartDays } from './getOutsideStartDays';
 import { getOutsideEndDays } from './getOutsideEndDays';
+import { getOutsideStartDays } from './getOutsideStartDays';
 
 /**
  * The weeks belonging to a month. Each key of the returned object is the
@@ -52,7 +53,7 @@ export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
   const endDays = getOutsideEndDays(lastDay, props);
   weeks[lastWeekStr] = lastWeek.concat(endDays);
 
-  // add extra weeks to the month, up to 6 weeks
+  // Add extra weeks to the month, up to 6 weeks
   if (fixedWeeks) {
     lastWeek = weeks[lastWeekStr];
     const lastWeekDate = lastWeek[lastWeek.length - 1];
