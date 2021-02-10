@@ -52,3 +52,18 @@ EOF
 
 cat $src >> $dest
 echo "Copied $src to $dest"
+
+src='../../LICENSE'
+dest='../docs/license.mdx'
+
+cat << EOF > $dest
+---
+id: license
+title: License
+hide_table_of_contents: true
+---
+
+EOF
+
+cat $src >> $dest
+echo "Copied $src to $dest"

@@ -1,5 +1,6 @@
 # These documents are generated during build time
 
 api
-changelog.mdx
 index.mdx
+changelog.mdx
+license.mdx
