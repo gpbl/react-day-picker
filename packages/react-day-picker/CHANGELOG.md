@@ -1,21 +1,28 @@
+---
+id: changelog
+title: Changelog
+hide_table_of_contents: true
+---
+
 ## [v7.4](https://github.com/gpbl/react-day-picker/tree/v7.4.0) (2019-10-20)
 
 #### DayPicker
-* Fix text wrapping on `.DayPicker-Day` default style (#824)
-* Add `focus()` method for focusing the `DayPicker` wrapper element (#761)
+
+- Fix text wrapping on `.DayPicker-Day` default style (#824)
+- Add `focus()` method for focusing the `DayPicker` wrapper element (#761)
 
 #### DayPickerInput
 
-* When DayPicker input state is controlled, correctly set the input text if the `value` prop updates ([#816](https://github.com/gpbl/react-day-picker/issues/816) by [MitchRivet](https://github.com/MitchRivet))
-* Fix DayPickerInput value does not recompute on `locale` change (fix #938) (#939)
-* Set overlayHasFocus to false in hideAfterDayClick (#941)
+- When DayPicker input state is controlled, correctly set the input text if the `value` prop updates ([#816](https://github.com/gpbl/react-day-picker/issues/816) by [MitchRivet](https://github.com/MitchRivet))
+- Fix DayPickerInput value does not recompute on `locale` change (fix #938) (#939)
+- Set overlayHasFocus to false in hideAfterDayClick (#941)
 
 #### Typings
 
-* Improve typings, use TypeScript 3.1 (#929)
-* Add formatDate and parseDate to typings (#873)
-* Make `format` optional (#923)
-* Remove `initialMonth` from `defaultProps` (#874)
+- Improve typings, use TypeScript 3.1 (#929)
+- Add formatDate and parseDate to typings (#873)
+- Make `format` optional (#923)
+- Remove `initialMonth` from `defaultProps` (#874)
 
 ### [v7.3.2](https://github.com/gpbl/react-day-picker/tree/v7.3.2) (2019-08-08)
 
@@ -24,10 +31,9 @@ Updates for TypeScript users:
 - added `tabIndex` to input component types ([#909](https://github.com/gpbl/react-day-picker/issues/909) by [clarityflowers](https://github.com/clarityflowers))
 - fixed types for utilities ([#904](https://github.com/gpbl/react-day-picker/issues/904) by [Nibblesh](https://github.com/Nibblesh) and [#899](https://github.com/gpbl/react-day-picker/issues/899) by [DylanVann](https://github.com/PprevDylanVann))
 
-
 ## [v7.3](https://github.com/gpbl/react-day-picker/tree/v7.3.0) (2019-02-21)
 
-Mostly an update for TypeScript users, few minor fixes, and two new minor  props to the input component.
+Mostly an update for TypeScript users, few minor fixes, and two new minor props to the input component.
 
 **DayPicker**
 
@@ -35,8 +41,8 @@ Mostly an update for TypeScript users, few minor fixes, and two new minor  props
 - Fixed: cancel keydown events ([#844](https://github.com/gpbl/react-day-picker/issues/844) by [johnjesse](https://github.com/johnjesse))
 - Fix for week number's `tabIndex` when `onWeekClick` is not defined ([#818](https://github.com/gpbl/react-day-picker/issues/818) by [uosl](https://github.com/uosl))
 - TypeScript: added `isDate` and `isSameMonth` to `utils` definitions ([#854](https://github.com/gpbl/react-day-picker/issues/854) by [rnons](https://github.com/rnons))
-- TypeScript: make months and weekdays types slightly less restrictive  ([#843](https://github.com/gpbl/react-day-picker/issues/843) by [johnjesse](https://github.com/johnjesse))
-- TypeScript: add missing props to `weekdayElement` and `captionElement`  ([#842](https://github.com/gpbl/react-day-picker/issues/842) by [johnjesse](https://github.com/johnjesse))
+- TypeScript: make months and weekdays types slightly less restrictive ([#843](https://github.com/gpbl/react-day-picker/issues/843) by [johnjesse](https://github.com/johnjesse))
+- TypeScript: add missing props to `weekdayElement` and `captionElement` ([#842](https://github.com/gpbl/react-day-picker/issues/842) by [johnjesse](https://github.com/johnjesse))
 - TypeScript: added missing `utils` export ([#834](https://github.com/gpbl/react-day-picker/issues/834) by [davidspiess](https://github.com/davidspiess))
 - TypeScript: missing default entries to `classNames` ([#833](https://github.com/gpbl/react-day-picker/issues/833) by [saenglert](https://github.com/saenglert))
 - TypeScript: updated type definitions for `locale` ([#828](https://github.com/gpbl/react-day-picker/issues/828) by [lukyth](https://github.com/lukyth))
@@ -188,10 +194,10 @@ If you find problems while upgrading, please
   [`showWeekDays`](http://react-day-picker.js.org/api/DayPicker#showWeekDays)
   prop. Set it to `false` to hide weekday names
 - Added: `month` prop to
-  [`navbarElement`](<(http://react-day-picker.js.org/api/DayPicker#navbarElement)>)
+  [`navbarElement`](http://react-day-picker.js.org/api/DayPicker#navbarElement)
   ([#552](https://github.com/gpbl/react-day-picker/issues/552))
 - Renamed `enableOutsideDays` prop to
-  [`showOutsideDays`](<(http://react-day-picker.js.org/api/DayPicker#showOutsideDays)>)
+  [`showOutsideDays`](http://react-day-picker.js.org/api/DayPicker#showOutsideDays)
 
 **Bug fixes**
 
@@ -916,8 +922,8 @@ this change shouldn't affect you.
   ```jsx
   <DayPicker
     modifiers={
-      ({ selected: day => isDaySelected(day) },
-      { disabled: day => isDayDisabled(day) })
+      ({ selected: (day) => isDaySelected(day) },
+      { disabled: (day) => isDayDisabled(day) })
     }
   />
   ```
@@ -926,8 +932,8 @@ this change shouldn't affect you.
 
   ```jsx
   <DayPicker
-    selectedDays={day => isDaySelected(day)}
-    disabledDays={day => isDayDisabled(day)}
+    selectedDays={(day) => isDaySelected(day)}
+    disabledDays={(day) => isDayDisabled(day)}
   />
   ```
 
@@ -935,7 +941,7 @@ this change shouldn't affect you.
   [`reverseMonths`](http://react-day-picker.js.org/docs/api-daypicker.html#reversemonths-prop)
   prop to render the most recent month first.
   ([#147](https://github.com/gpbl/react-day-picker/pull/141) by
-  [sonrtomas](sonrtomas))
+  [sonrtomas](https://github.com/sonrtomas))
 - Added
   [`onDayKeyDown`](http://react-day-picker.js.org/docs/api-daypicker.html#ondaykeydown-prop),
   [`onDayTouchStart`](http://react-day-picker.js.org/docs/api-daypicker.html#ondaytouchstart-prop),
