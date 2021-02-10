@@ -4,7 +4,7 @@ import { Modifier } from './Modifier';
 /**
  * Matchers assigned to each modifier.
  *
- * #### Example
+ * **Example**
  *
  * ```
  * const matchers = {
