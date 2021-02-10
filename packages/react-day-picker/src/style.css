@@ -94,7 +94,10 @@
   padding: 0.25em;
   margin: 0;
 }
-
+.rdp-nav_next:disabled,
+.rdp-nav_prev:disabled {
+  opacity: 0.15;
+}
 .rdp-nav_next {
   margin-left: 0.25em;
 }
