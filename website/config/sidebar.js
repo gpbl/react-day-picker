@@ -11,9 +11,9 @@ const sidebar = [
   {
     Guides: [
       'guides/styling',
+      'guides/changing-months',
       'guides/formatters',
       'guides/localization',
-      'guides/changing-months',
       'guides/input',
       'guides/custom-components',
       'guides/upgrading'
