@@ -1,9 +1,3 @@
----
-id: changelog
-title: Changelog
-hide_table_of_contents: true
----
-
 ## [v7.4](https://github.com/gpbl/react-day-picker/tree/v7.4.0) (2019-10-20)
 
 #### DayPicker
