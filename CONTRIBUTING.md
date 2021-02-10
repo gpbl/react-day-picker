@@ -6,11 +6,11 @@ help us building the best date picker for React.
 
 There are many ways to contribute to DayPicker:
 
-- Reporting bugs or filing feature requests 
 - Proofreading [our website](http://react-day-picker-next.netlify.app) and the
   code documentation in the source files
 - Opening PRs with new features and bug fixes
-- Help maintaining the repository on Github and triaging issues and PRs
+- Help maintaining [the repository](https://github.com/gpbl/react-day-picker) on Github and triaging issues and PRs
+- Answering our [support questions](https://github.com/gpbl/react-day-picker/discussions/categories/support)
 - Improve our build tools and Github actions
 - [Sponsoring the developer](https://github.com/sponsors/gpbl) :)
 
