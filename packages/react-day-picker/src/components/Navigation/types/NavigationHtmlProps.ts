@@ -1,7 +1,7 @@
 /**
  * HTML props for the [[Navigation]].
  */
-export type NavigationHtmlProps = {
+export interface NavigationHtmlProps {
   containerProps: {
     className?: string;
     style?: React.CSSProperties;
@@ -14,4 +14,4 @@ export type NavigationHtmlProps = {
     className?: string;
     style?: React.CSSProperties;
   };
-};
+}
