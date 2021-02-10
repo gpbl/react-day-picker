@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 import InitialCodeBlock from '@theme-init/CodeBlock';
 
@@ -14,25 +13,36 @@ const styles = {
 };
 
 export default function CodeBlock(props) {
-  const { children, showOutput, reverse = false, open = true } = props;
-
+  const { children, showOutput, reverse = false, open } = props;
+  const [isMounted, setMount] = React.useState(false);
+  const [detailsOpen, toggleOpen] = React.useState(open === 'yes');
+  React.useEffect(() => {
+    setMount(true);
+  }, []);
   let content = [];
   content.push(<InitialCodeBlock {...props} key="code" />);
-
   if (showOutput) {
+    const handleToggle = () => {
+      toggleOpen((prevOpen) => !prevOpen);
+    };
     let outputContent = <CodeOutput code={children} key="output" />;
     if (typeof open === 'string') {
-      // TODO: to improve performance, render content only when open is yes.
       outputContent = (
-        <details key="output" open={open === 'yes'}>
+        <details
+          key="output"
+          open={detailsOpen}
+          onToggle={isMounted ? handleToggle : undefined}
+        >
           <summary>
             <strong>Show Output</strong>
           </summary>
-          {outputContent}
+          {detailsOpen && <CodeOutput code={children} key="output" />}
         </details>
       );
+      content.push(outputContent);
+    } else {
+      content.push(<CodeOutput code={children} key="output" />);
     }
-    content.push(outputContent);
   }
   if (reverse) content = content.reverse();
   return content;
