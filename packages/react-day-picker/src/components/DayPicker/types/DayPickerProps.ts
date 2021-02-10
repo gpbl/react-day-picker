@@ -186,14 +186,13 @@ export interface DayPickerProps {
   /**
    * Display six weeks per months, regardless the month’s number of weeks.
    *
-   * Outside days will be always shown when setting this prop. Default to
-   * `false`.
+   * To use this prop, [[showOutsideDays]] must be set. Default to `false`.
    *
    * **Example**
    *
    * ```jsx showOutput open=no
    * function Example() {
-   *  return <DayPicker fixedWeeks />
+   *  return <DayPicker showOutsideDays fixedWeeks />
    * };
    * ```
    */
