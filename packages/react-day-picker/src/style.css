@@ -121,7 +121,7 @@
   margin: 0;
   min-width: 2.2em;
   height: 2.2em;
-  border: 0;
+  border: 2px solid transparent;
   background: none;
   color: inherit;
   font-size: 1em;
@@ -149,7 +149,7 @@
 .rdp-day_today {
   position: relative;
 
-  border: 2px solid var(--rdp-color-secondary);
+  border-color: var(--rdp-color-secondary);
   border-radius: 100%;
   font-weight: bold;
 }
