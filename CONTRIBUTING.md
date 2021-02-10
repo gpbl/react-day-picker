@@ -1,11 +1,12 @@
 # Contributing to DayPicker
 
-You are welcome to join the
-[other contributors](https://github.com/gpbl/react-day-picker/graphs/contributors),
+You are welcome to join the [other
+contributors](https://github.com/gpbl/react-day-picker/graphs/contributors),
 help us building the best date picker for React. 
 
 There are many ways to contribute to DayPicker:
 
+- Reporting bugs or filing feature requests 
 - Proofreading [our website](http://react-day-picker-next.netlify.app) and the
   code documentation in the source files
 - Opening PRs with new features and bug fixes
@@ -13,34 +14,7 @@ There are many ways to contribute to DayPicker:
 - Improve our build tools and Github actions
 - [Sponsoring the developer](https://github.com/sponsors/gpbl) :)
 
-[Add a new
-discussion](https://github.com/gpbl/react-day-picker/discussions/categories/contributing)
-to our contributing categories to present yourself and start collaborating.
-
-## Changing the source code
-
-### 1. Fork the repo on your local machine
-
-```bash
-git clone https://github.com/gpbl/react-day-picker.git
-cd react-day-picker
-yarn install
-```
-
-### 2. Start the development environment
-
-Build the package and website in watch mode:
-
-```bash
-yarn workspace react-day-picker develop
-yarn workspace website develop
-```
-
-### 3. Change the code and do your stuff
-
-Remember:
-
-* add tests and make sure they pass: `yarn test`
-* make sure your files are linted: `yarn lint`
-
-### 4. [Open a PR](https://github.com/gpbl/react-day-picker/pulls) with your changes
+[Send a
+message](https://github.com/gpbl/react-day-picker/discussions/categories/contributing)
+in our discussions page to present yourself, or write the maintainer directly at
+io@gpbl.dev.
