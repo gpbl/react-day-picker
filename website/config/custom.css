@@ -34,8 +34,8 @@ html[data-theme='dark'] {
   --ra-admonition-icon-color: var(--ifm-font-color-base);
   --ifm-code-background: #24282d;
 
-  --rdp-color-primary: rgb(179, 98, 255);
-  --rdp-color-secondary: rgb(255, 98, 140);
+  --rdp-color-primary: #4d21fc;
+  --rdp-color-secondary: #ff6347;
 }
 details summary {
   font-weight: bold;
@@ -76,6 +76,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   border-radius: var(--ifm-pre-border-radius);
   padding: var(--ifm-pre-padding);
   padding-top: 0;
+  overflow: auto;
 }
 
 details .code-output {
@@ -96,14 +97,6 @@ details .code-output {
   background-color: var(--ifm-pre-background) !important;
 }
 
-h1 code,
-h2 code,
-h3 code {
-  background-color: transparent;
-  padding: 0 0.25em;
-  font-size: 0.875em;
-}
-
 .table-of-contents code {
   all: inherit;
 }
@@ -117,4 +110,24 @@ h3 code {
   border: none;
   height: 1px;
   background-color: var(--ifm-color-emphasis-300);
+}
+
+.markdown table,
+.markdown thead,
+.markdown th,
+.markdown td,
+.markdown tr {
+  /* all: revert; */
+}
+
+.markdown h4 {
+  font-weight: bold;
+}
+
+.api .markdown h3 {
+  /* font-family: 'Courier New', Courier, monospace; */
+}
+
+.api .markdown > h2:nth-child(2) {
+  /* display: none; */
 }
