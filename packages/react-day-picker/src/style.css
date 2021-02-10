@@ -71,7 +71,7 @@
 
 .rdp-nav {
   position: absolute;
-  top: 1em;
+  top: 0.75em;
   right: 1em;
   display: flex;
 }
@@ -88,10 +88,10 @@
   background: none;
   border: 0;
   color: inherit;
-  cursor: pointer;
+  cursor: default;
   font-family: inherit;
   font-size: 1.25em;
-  padding: 0;
+  padding: 0.25em;
   margin: 0;
 }
 
@@ -127,6 +127,10 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.rdp-day[role='button'] {
+  cursor: default;
 }
 
 .rdp-day_wrapper {
