@@ -33,6 +33,9 @@ html[data-theme='dark'] {
   --ifm-alert-color: inherit;
   --ra-admonition-icon-color: var(--ifm-font-color-base);
   --ifm-code-background: #24282d;
+
+  --rdp-color-primary: rgb(179, 98, 255);
+  --rdp-color-secondary: rgb(255, 98, 140);
 }
 details summary {
   font-weight: bold;
@@ -54,20 +57,18 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .menu {
   font-weight: inherit;
 }
+
 .rdp {
   all: revert;
   font-size: initial;
 }
+
 .rdp * {
   all: revert;
 }
+
 .rdp-month {
   margin: 0.75em;
-}
-
-.rdp > .rdp-nav {
-  top: 1.125em;
-  right: 0.75em;
 }
 
 .code-output {

@@ -22,13 +22,13 @@
   font-weight: bold;
   font-size: 1.25em;
 }
+
 .rdp[dir='rtl'] .rdp-caption {
   text-align: right;
 }
 
 .rdp-month {
   /* Month table container */
-  /* margin: 1em; */
 }
 .rdp-month_table {
   /* Month table */
@@ -71,19 +71,36 @@
 
 .rdp-nav {
   position: absolute;
-  top: 0.5em;
-  right: 0.25em;
+  top: 1em;
+  right: 1em;
   display: flex;
 }
 .rdp[dir='rtl'] .rdp-nav {
   right: auto;
   left: 1em;
 }
+
+.rdp-nav_next,
 .rdp-nav_prev {
-  /* Navigation prev button */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.25em;
+  padding: 0;
+  margin: 0;
 }
+
 .rdp-nav_next {
-  /* Navigation next button */
+  margin-left: 0.25em;
+}
+
+.rdp-nav_prev {
+  margin-right: 0.25em;
 }
 
 .rdp-day {
