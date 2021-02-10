@@ -12,6 +12,12 @@ import { formatWeekNumber } from '../formatters/formatWeekNumber';
 import { DayPickerProps } from '../types';
 import { DEFAULT_CLASSNAMES } from './classNames';
 
+export const defaultLocale = english;
+export const defaultFormatCaption = formatCaption;
+export const defaultFormatDay = formatDay;
+export const defaultFormatWeekdayName = formatWeekdayName;
+export const defaultFormatWeekNumber = formatWeekNumber;
+
 /**
  * List the default props used by the [[DayPicker]] component.
  */
@@ -28,11 +34,11 @@ export const DEFAULT_PROPS: DayPickerProps = {
     WeekNumber
   },
   fixedWeeks: false,
-  formatCaption: formatCaption,
-  formatDay,
-  formatWeekdayName,
-  formatWeekNumber,
-  locale: english,
+  formatCaption: defaultFormatCaption,
+  formatDay: defaultFormatDay,
+  formatWeekdayName: defaultFormatWeekdayName,
+  formatWeekNumber: defaultFormatWeekNumber,
+  locale: defaultLocale,
   nextLabel: '▶',
   modifiersClassNames: {},
   modifiersStyles: {},
