@@ -36,8 +36,6 @@ See also
 ### Example
 
 ```jsx showOutput
-import { DayPicker } from 'react-day-picker';
-
 function App() {
   const [selected, setSelected] = useState();
 
@@ -46,6 +44,6 @@ function App() {
     else setSelected();
   };
 
-  return <DayPicker onDayClick={handleDayClick} />;
+  return <DayPicker selected={selected} onDayClick={handleDayClick} />;
 }
 ```

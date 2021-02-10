@@ -15,6 +15,6 @@ There are many ways to contribute to DayPicker:
 - [Sponsoring the developer](https://github.com/sponsors/gpbl) :)
 
 [Send a
-message](https://github.com/gpbl/react-day-picker/discussions/categories/contributing)
+message](https://github.com/gpbl/react-day-picker/discussions)
 in our discussions page to present yourself, or write the maintainer directly at
 io@gpbl.dev.
