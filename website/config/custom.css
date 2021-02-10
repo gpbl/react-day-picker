@@ -112,22 +112,49 @@ details .code-output {
   background-color: var(--ifm-color-emphasis-300);
 }
 
-.markdown table,
-.markdown thead,
-.markdown th,
-.markdown td,
-.markdown tr {
-  /* all: revert; */
-}
-
 .markdown h4 {
   font-weight: bold;
 }
 
-.api .markdown h3 {
-  /* font-family: 'Courier New', Courier, monospace; */
+.markdown > table {
+  width: 100%;
+  margin-bottom: 2em;
 }
 
-.api .markdown > h2:nth-child(2) {
-  /* display: none; */
+.markdown > table td:last-child {
+  width: 100%;
+}
+
+.markdown > table,
+.markdown > table thead tr {
+  border: 0;
+}
+.markdown > table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.markdown > table tr:nth-child(2n) {
+  background-color: inherit;
+}
+
+.markdown > table thead tr th {
+  text-align: left;
+  font-size: 0.875em;
+  border-top: 0;
+  border-bottom: 0;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.markdown > table th,
+.markdown > table td {
+  padding: calc(var(--ifm-table-cell-padding) / 2) var(--ifm-table-cell-padding);
+}
+
+.markdown > table th:first-child,
+.markdown > table td:first-child {
+  border-left: 0;
+}
+.markdown > table th:last-child,
+.markdown > table td:last-child {
+  border-right: 0;
 }
