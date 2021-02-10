@@ -7,6 +7,21 @@ import { DEFAULT_PROPS } from './defaults/props';
 /**
  * Render a date picker component.
  *
+ * **Example**
+ *
+ * ```jsx showOutput
+ * function App() {
+ *   const [selected, setSelected] = useState();
+ *
+ *   const handleDayClick = (day, { selected }) => {
+ *     if (!selected) setSelected(day);
+ *     else setSelected();
+ *   };
+ *
+ *   return <DayPicker selected={selected} onDayClick={handleDayClick} />;
+ * }
+ * ```
+ *
  * @category Component
  */
 export function DayPicker(props = DEFAULT_PROPS): JSX.Element {

@@ -7,7 +7,7 @@ import { Modifier } from './Modifier';
  * For example, the following day has the `selected` modifiers, but not `today`
  * or `custom`.
  *
- * ```
+ * ```js
  * const modifiers: ModifiersStatus = {
  *  today: false,
  *  selected: true,
