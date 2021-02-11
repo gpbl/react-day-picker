@@ -5,32 +5,16 @@ title: Styling DayPicker
 
 ## Style via CSS
 
-DayPicker includes a [small CSS
+DayPicker includes a [CSS
 file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css)
-to use as template. If your build tools (like Create React App) allows to import
-CSS files, import it directly in your script:
+to import or to use as template. 
 
 ```js
 import 'react-day-picker/dist/style.css';
 import { DayPicker } from 'react-day-picker';
 ```
 
-Each [UI element](/api/types/uielement) is described by a CSS class prefixed with `rdp-`.
-
-```css
-/* container */
-.rdp {
-  background: salmon:
-}
-/* head element */
-.rdp-head {
-  font-weight: bold;
-  color: blue;
-}
-/* etc. */
-```
-
-## Custom CSS classes
+### Using custom CSS classes
 
 Replacing the default class names is useful with [CSS
 Modules](https://github.com/css-modules/css-modules) or other JS-in-CSS
@@ -61,9 +45,8 @@ function App() {
 
 ## Inline styles
 
-To change the appearance via inline-styles, use the `styles`
-prop. [`UIElement`](/api/types/uielement) contains a list of the elements
-that is possible to change.
+To change the appearance of any [`UIElement`](/api/types/uielement) you can also
+use the `styles` prop.
 
 ```jsx showOutput open=no
 function App() {

@@ -152,12 +152,9 @@ styles.
 
 ```jsx showOutput open=no
 function Book() {
-  const bookedDays = [
-    new Date(2021, 5, 8),
-    new Date(2021, 5, 9),
-    new Date(2021, 5, 10)
-  ];
+  const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
   const bookedStyle = { color: 'tomato' };
+
   const availableDays = [new Date(2021, 5, 23), new Date(2021, 5, 24)];
   const availableStyle = { fontWeight: '900', color: 'lightgreen' };
 
@@ -165,6 +162,7 @@ function Book() {
     if (booked) alert('You clicked a booked day.');
     if (available) alert('You clicked an available day.');
   };
+  
   return (
     <DayPicker
       initialMonth={bookedDays[0]}
