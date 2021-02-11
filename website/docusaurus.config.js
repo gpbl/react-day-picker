@@ -20,7 +20,7 @@ module.exports = {
         {
           to: 'start',
           label: 'Documentation',
-          activeBaseRegex: '(start|tutorials|guides)'
+          activeBaseRegex: '(start|basics|guides)'
         },
         { to: 'api', label: 'API Reference' },
         { to: 'changelog', label: `v${pkg.version}`, position: 'right' },

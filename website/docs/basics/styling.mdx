@@ -1,6 +1,6 @@
 ---
 id: styling
-title: Styling
+title: Styling DayPicker
 ---
 
 ## Style via CSS
@@ -33,24 +33,21 @@ Each [UI element](/api/types/uielement) is described by a CSS class prefixed wit
 ## Custom CSS classes
 
 Replacing the default class names is useful with [CSS
-Modules](https://github.com/css-modules/css-modules) or other JS-in-CSS bundlers. To
-use custom class names, pass them the `classNames` prop:
+Modules](https://github.com/css-modules/css-modules) or other JS-in-CSS
+bundlers. 
 
-```jsx showOutput
+To use custom classes, use `classNames`. [`UIElement`](/api/types/uielement)
+contains a list of the elements that is possible to change.
+
+```jsx showOutput open=no
 function App() {
-  const css = `
-    .salmon-head {
-      color: salmon;
-    }
-    .purple-caption {
-      font-weight: bold;
-      color: purple;
-      padding: 3px 0 6px 0;
-    }
+  const style = `
+    .salmon-head { color: salmon; }
+    .purple-caption { color: purple; }
   `;
   return (
     <>
-      <style>{css}</style>
+      <style>{style}</style>
       <DayPicker
         classNames={{
           head: 'salmon-head',
@@ -64,10 +61,11 @@ function App() {
 
 ## Inline styles
 
-To add an inline-style to a [UI element](/api/types/uielement), use the `styles`
-prop:
+To change the appearance via inline-styles, use the `styles`
+prop. [`UIElement`](/api/types/uielement) contains a list of the elements
+that is possible to change.
 
-```jsx showOutput
+```jsx showOutput open=no
 function App() {
   return (
     <DayPicker
@@ -82,4 +80,4 @@ function App() {
 
 ## Styling modifiers
 
-[Modifiers](../tutorials/modifiers) can be styled using `modifiersStyles` or `modifiersClassNames` props.
+[Modifiers](../basics/modifiers) can be styled using `modifiersStyles` or `modifiersClassNames` props.

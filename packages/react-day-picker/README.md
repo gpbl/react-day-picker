@@ -33,7 +33,7 @@ See also
 - [v7 website (current version)](http://react-day-picker.js.org)
 - [v8 website (beta)](http://react-day-picker-next.netlify.app)
 
-### Example
+## Example
 
 ```jsx showOutput
 function App() {

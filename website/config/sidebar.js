@@ -3,20 +3,19 @@ const sidebar = [
   'start',
   {
     'DayPicker Basics': [
-      'tutorials/customization',
-      'tutorials/selecting-days',
-      'tutorials/modifiers'
+      'basics/customization',
+      'basics/changing-months',
+      'basics/selecting-days',
+      'basics/modifiers',
+      'basics/styling'
     ]
   },
   {
     Guides: [
-      'guides/styling',
-      'guides/changing-months',
       'guides/formatters',
       'guides/localization',
       'guides/input',
-      'guides/custom-components',
-      'guides/upgrading'
+      'guides/custom-components'
     ]
   },
   { 'API Reference': require('./typedoc-sidebar.js') },
