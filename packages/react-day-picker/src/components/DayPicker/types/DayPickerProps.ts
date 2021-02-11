@@ -14,6 +14,14 @@ import { ModifiersStyles } from './ModifiersStyles';
 import { ModifiersClassNames } from './ModifiersClassNames';
 import { ModifiersMatchers } from './ModifiersMatchers';
 import { MonthChangeEventHandler } from './MonthChangeEventHandler';
+import { DayMouseEnterEventHandler } from './DayMouseEnterEventHandler';
+import { DayMouseLeaveEventHandler } from './DayMouseLeaveEventHandler';
+import { DayKeyUpEventHandler } from './DayKeyUpEventHandler';
+import { DayKeyPressEventHandler } from './DayKeyPressEventHandler';
+import { DayTouchCancelHandler } from './DayTouchCancelHandler';
+import { DayTouchEndHandler } from './DayTouchEndHandler';
+import { DayTouchMoveEventHandler } from './DayTouchMoveEventHandler';
+import { DayTouchStartEventHandler } from './DayTouchStartEventHandler';
 
 /**
  * The props of the [[DayPicker]] component.
@@ -419,24 +427,21 @@ export interface DayPickerProps {
    */
   components?: CustomComponents;
 
-  /**
-   * Event handler when the user clicks on a day.
-   */
+  /* Event handlers */
+
   onDayClick?: DayClickEventHandler;
-  /**
-   * Event handler when the user press a key on a day.
-   */
+  onDayMouseEnter?: DayMouseEnterEventHandler;
+  onDayMouseLeave?: DayMouseLeaveEventHandler;
   onDayKeyDown?: DayKeyDownEventHandler;
-  /**
-   * Event handler when the month changes.
-   */
+  onDayKeyUp?: DayKeyUpEventHandler;
+  onDayKeyPress?: DayKeyPressEventHandler;
+  onDayTouchCancel?: DayTouchCancelHandler;
+  onDayTouchEnd?: DayTouchEndHandler;
+  onDayTouchMove?: DayTouchMoveEventHandler;
+  onDayTouchStart?: DayTouchStartEventHandler;
+
   onMonthChange?: MonthChangeEventHandler;
-  /**
-   * Event handler when the next month button is clicked.
-   */
+
   onNextClick?: MonthChangeEventHandler;
-  /**
-   * Event handler when the previous month button is clicked.
-   */
   onPrevClick?: MonthChangeEventHandler;
 }
