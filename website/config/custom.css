@@ -43,6 +43,11 @@ details summary {
   padding: var(--ifm-pre-padding) 0;
 }
 
+.container {
+  margin: 0;
+  margin-left: 1em;
+}
+
 .docusaurus-highlight-code-line {
   background-color: var(--ifm-color-emphasis-200);
   display: block;
@@ -114,6 +119,10 @@ details .code-output {
 
 .markdown h4 {
   font-weight: bold;
+}
+
+.markdown .anchor {
+  top: calc(var(--ifm-navbar-height) * -1 - 1em);
 }
 
 .markdown > table {
