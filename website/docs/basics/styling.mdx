@@ -7,24 +7,41 @@ title: Styling DayPicker
 
 DayPicker includes a [CSS
 file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css)
-to import or to use as template. 
+to import or to use as template.
 
 ```js
 import 'react-day-picker/dist/style.css';
-import { DayPicker } from 'react-day-picker';
 ```
 
-### Using custom CSS classes
+## Inline styles
+
+To change the appearance of any DayPicker element via inline-styles use the
+`styles` prop.
+
+```jsx showOutput open=no
+function Example() {
+  return (
+    <DayPicker
+      styles={{
+        caption: { color: 'salmon ' },
+        head: { color: 'violet' }
+      }}
+    />
+  );
+}
+```
+
+## Custom CSS classes
 
 Replacing the default class names is useful with [CSS
 Modules](https://github.com/css-modules/css-modules) or other JS-in-CSS
-bundlers. 
+bundlers.
 
 To use custom classes, use `classNames`. [`UIElement`](/api/types/uielement)
-contains a list of the elements that is possible to change.
+contains a list of the elements that is possible to style.
 
 ```jsx showOutput open=no
-function App() {
+function Example() {
   const style = `
     .salmon-head { color: salmon; }
     .purple-caption { color: purple; }
@@ -42,25 +59,3 @@ function App() {
   );
 }
 ```
-
-## Inline styles
-
-To change the appearance of any [`UIElement`](/api/types/uielement) you can also
-use the `styles` prop.
-
-```jsx showOutput open=no
-function App() {
-  return (
-    <DayPicker
-      styles={{
-        caption: { color: 'salmon ' },
-        head: { color: 'violet' }
-      }}
-    />
-  );
-}
-```
-
-## Styling modifiers
-
-[Modifiers](../basics/modifiers) can be styled using `modifiersStyles` or `modifiersClassNames` props.

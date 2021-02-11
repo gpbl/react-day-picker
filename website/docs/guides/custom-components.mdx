@@ -24,7 +24,7 @@ For example, the following DayPicker implements a `MonthCaption` component to sw
 ```jsx showOutput open=no
 import { DayPicker, getCaptionProps } from 'react-day-picker';
 
-function App() {
+function Example() {
   function MonthSelect({ locale, onChange }) {
     const months = [];
     for (let i = 0; i < 12; i++) {
@@ -87,7 +87,7 @@ For example, the following DayPicker implements a `Navigation` without the start
 ```jsx showOutput open=no
 import { DayPicker, getNavigationProps } from 'react-day-picker';
 
-function App() {
+function Example() {
   function Navigation({ month, dayPickerProps }) {
     const { locale, onMonthChange } = dayPickerProps;
     const { containerProps } = getNavigationProps(dayPickerProps);
@@ -118,7 +118,7 @@ For example, the following DayPicker implements a `WeekNumber` with a button sel
 import { DayPicker } from 'react-day-picker';
 import { getWeek } from 'date-fns';
 
-function App() {
+function Example() {
   const [selectedWeekNumber, setSelectedWeekNumber] = useState();
 
   function WeekNumber({ number, days, dayPickerProps, onClick }) {
@@ -160,7 +160,7 @@ For example, the following DayPicker implements a `Day` component that supports
 ```jsx showOutput open=no
 import { DayPicker, getModifiers, getDayProps } from 'react-day-picker';
 
-function App() {
+function Example() {
   function Day({ day, currentMonth, dayPickerProps }) {
     const { onDayEnter, onDayLeave } = dayPickerProps;
 

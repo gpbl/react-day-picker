@@ -289,7 +289,7 @@ export interface DayPickerProps {
    * **Example**
    *
    * ```jsx showOutput open=no
-   * function App() {
+   * function Example() {
    *   return (
    *     <DayPicker
    *       initialMonth={new Date(2021, 11)}
@@ -309,7 +309,7 @@ export interface DayPickerProps {
    * **Example**
    *
    * ```jsx showOutput open=no
-   * function App() {
+   * function Example() {
    *   return (
    *     <DayPicker
    *       initialMonth={new Date(2021, 11)}
@@ -330,7 +330,7 @@ export interface DayPickerProps {
    * **Example**
    *
    * ```jsx showOutput open=no
-   * function App() {
+   * function Example() {
    *   return (
    *     <DayPicker
    *       initialMonth={new Date(2021, 11)}
@@ -353,7 +353,7 @@ export interface DayPickerProps {
    * **Example**
    *
    * ```jsx showOutput open=no
-   * function App() {
+   * function Example() {
    *   return <DayPicker today={new Date(2022, 2, 18)} />;
    * }
    * ```
@@ -385,7 +385,7 @@ export interface DayPickerProps {
    * ```jsx showOutput open=no
    * import spanish from 'date-fns/locale/es';
    *
-   * function App() {
+   * function Example() {
    *   return <DayPicker locale={spanish} />;
    * }
    * ```
