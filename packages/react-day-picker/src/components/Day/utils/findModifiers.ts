@@ -1,4 +1,4 @@
-import { Modifier, ModifiersMatchers } from '../components/DayPicker/types';
+import { Modifier, ModifiersMatchers } from '../../DayPicker/types';
 import { matchDay } from './matchModifier';
 
 const reduceCallback = (day: Date, matchers: ModifiersMatchers) => (
@@ -13,7 +13,7 @@ const reduceCallback = (day: Date, matchers: ModifiersMatchers) => (
 };
 
 /**
- * Given a date and a list of tags to look for, return the names of the tags
+ * Given a date and a list of modifiers to look for, return the names of the modifiers
  * matching that day.
  */
 export function findModifiers(
