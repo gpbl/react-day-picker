@@ -21,7 +21,7 @@ The `MonthCaption` component is used to render the caption (with month/year) in 
 
 For example, the following DayPicker implements a `MonthCaption` component to switch the month of the current year:
 
-```jsx showOutput
+```jsx showOutput open=no
 import { DayPicker, getCaptionProps } from 'react-day-picker';
 
 function App() {
@@ -84,7 +84,7 @@ The `Navigation` component is used to render the navigation buttons.
 
 For example, the following DayPicker implements a `Navigation` without the start button:
 
-```jsx showOutput
+```jsx showOutput open=no
 import { DayPicker, getNavigationProps } from 'react-day-picker';
 
 function App() {
@@ -114,7 +114,7 @@ The `WeekNumber` component is used to render the week number when `showWeekNumbe
 
 For example, the following DayPicker implements a `WeekNumber` with a button selecting the entire week.
 
-```jsx showOutput
+```jsx showOutput open=no
 import { DayPicker } from 'react-day-picker';
 import { getWeek } from 'date-fns';
 
@@ -147,26 +147,21 @@ function App() {
 
 ## Day component
 
-The `Day` component is used to render the day in the calendar.
+To change the component used to render the day in the calendar,
 
-**Note** Changing Day component may break ARIA and requires some familiarity
-with DayPicker. If you need to change the content of the day cell, use the
-`formatDay` prop.
-
-1. create a `Day` component with `day`, [modifiers](/basics/modifiers) and
+1. create a new `Day` component with `day`, [modifiers](/basics/modifiers) and
    `dayPickerProps` props;
-2. (optional) get DayPicker-specific props via
-   [getDayProps](/api/functions/getdayprops);
-3. pass the `Day` component to the `components` prop.
+2. use the `Day` props from [getDayProps](/api/functions/getdayprops);
+3. pass the new `Day` component to the `components` prop.
 
 For example, the following DayPicker implements a `Day` component that supports
 `onDayEnter`, `onDayLeave` events:
 
-```jsx showOutput
+```jsx showOutput open=no
 import { DayPicker, getModifiers, getDayProps } from 'react-day-picker';
 
 function App() {
-  function DayExtended({ day, currentMonth, dayPickerProps }) {
+  function Day({ day, currentMonth, dayPickerProps }) {
     const { onDayEnter, onDayLeave } = dayPickerProps;
 
     // Calculate the modifiers associated to this day
@@ -184,13 +179,13 @@ function App() {
     const handleMouseLeave = (e) => onDayLeave && onDayLeave(day, modifiers, e);
 
     return (
-      <div
+      <span
         {...containerProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <span {...wrapperProps}>{day.getDate()}</span>
-      </div>
+      </span>
     );
   }
 
@@ -198,9 +193,7 @@ function App() {
     return (
       <DayPicker
         {...props}
-        components={{
-          Day: DayExtended
-        }}
+        components={{ Day }}
         onDayEnter={onDayEnter}
         onDayLeave={onDayLeave}
       />
