@@ -347,15 +347,59 @@ ___
 
 • `Optional` **onDayClick**: *undefined* \| [*DayClickEventHandler*](../types/dayclickeventhandler.md)
 
-Event handler when the user clicks on a day.
-
 ___
 
 ### onDayKeyDown
 
 • `Optional` **onDayKeyDown**: *undefined* \| [*DayKeyDownEventHandler*](../types/daykeydowneventhandler.md)
 
-Event handler when the user press a key on a day.
+___
+
+### onDayKeyPress
+
+• `Optional` **onDayKeyPress**: *undefined* \| [*DayKeyPressEventHandler*](../types/daykeypresseventhandler.md)
+
+___
+
+### onDayKeyUp
+
+• `Optional` **onDayKeyUp**: *undefined* \| [*DayKeyUpEventHandler*](../types/daykeyupeventhandler.md)
+
+___
+
+### onDayMouseEnter
+
+• `Optional` **onDayMouseEnter**: *undefined* \| [*DayMouseEnterEventHandler*](../types/daymouseentereventhandler.md)
+
+___
+
+### onDayMouseLeave
+
+• `Optional` **onDayMouseLeave**: *undefined* \| DayMouseLeaveEventHandler
+
+___
+
+### onDayTouchCancel
+
+• `Optional` **onDayTouchCancel**: *undefined* \| [*DayTouchCancelHandler*](../types/daytouchcancelhandler.md)
+
+___
+
+### onDayTouchEnd
+
+• `Optional` **onDayTouchEnd**: *undefined* \| [*DayTouchEndHandler*](../types/daytouchendhandler.md)
+
+___
+
+### onDayTouchMove
+
+• `Optional` **onDayTouchMove**: *undefined* \| [*DayTouchMoveEventHandler*](../types/daytouchmoveeventhandler.md)
+
+___
+
+### onDayTouchStart
+
+• `Optional` **onDayTouchStart**: *undefined* \| [*DayTouchStartEventHandler*](../types/daytouchstarteventhandler.md)
 
 ___
 
@@ -363,23 +407,17 @@ ___
 
 • `Optional` **onMonthChange**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
 
-Event handler when the month changes.
-
 ___
 
 ### onNextClick
 
 • `Optional` **onNextClick**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
 
-Event handler when the next month button is clicked.
-
 ___
 
 ### onPrevClick
 
 • `Optional` **onPrevClick**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
-
-Event handler when the previous month button is clicked.
 
 ___
 
