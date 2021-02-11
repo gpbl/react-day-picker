@@ -68,7 +68,6 @@ module.exports = [
       "api/functions/getnavigation",
       "api/functions/getnavigationprops",
       "api/functions/useinput",
-      "api/functions/usemodifiers",
       "api/functions/userange"
     ]
   }

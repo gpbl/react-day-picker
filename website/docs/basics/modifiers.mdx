@@ -49,17 +49,19 @@ by using the `disabled` modifier.
 
 ```jsx {7-13} showOutput open=no
 function App() {
+  const disabledDays = [
+    new Date(2022, 4, 12),
+    new Date(2022, 5, 10),
+    new Date(2022, 5, 20),
+    { before: new Date(2022, 1) },
+    { from: new Date(2022, 4, 18), to: new Date(2022, 4, 29) }
+  ];
+
   return (
     <DayPicker
       numberOfMonths={2}
       initialMonth={new Date(2022, 4)}
-      disabled={[
-        new Date(2022, 4, 12),
-        new Date(2022, 5, 10),
-        new Date(2022, 5, 20),
-        { before: new Date(2022, 1) },
-        { from: new Date(2022, 4, 18), to: new Date(2022, 4, 29) }
-      ]}
+      disabled={disabledDays}
     />
   );
 }
@@ -117,11 +119,7 @@ Use the `modifiers` prop to pass an object with custom modifiers
 
 ```jsx showOutput open=no
 function Book() {
-  const bookedDays = [
-    new Date(2021, 5, 8),
-    new Date(2021, 5, 9),
-    new Date(2021, 5, 10)
-  ];
+  const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
   const bookedStyle = { color: 'tomato' };
 
   const handleDayClick = (day, { booked }) => {

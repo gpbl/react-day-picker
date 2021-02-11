@@ -17,9 +17,7 @@ function App() {
   return (
     <>
       <DayPicker month={month} onMonthChange={setMonth} />
-      <div>
-        <button onClick={() => setMonth(new Date())}>Go to Today</button>
-      </div>
+      <button onClick={() => setMonth(new Date())}>Go to Today</button>
     </>
   );
 }
