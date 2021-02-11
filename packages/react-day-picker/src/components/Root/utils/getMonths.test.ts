@@ -1,4 +1,4 @@
-import { DefaultProps } from '../DayPicker/defaults/DefaultProps';
+import { DefaultProps } from '../../DayPicker/defaults/DefaultProps';
 import { getMonths } from './getMonths';
 
 describe('getMonths', () => {

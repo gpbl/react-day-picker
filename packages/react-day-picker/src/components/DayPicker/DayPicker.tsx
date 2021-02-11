@@ -1,8 +1,9 @@
-import { isAfter, isBefore, startOfMonth } from 'date-fns';
 import * as React from 'react';
 
-import { Months } from '../Months';
+import { Root } from '../Root';
 import { DefaultProps } from './defaults/DefaultProps';
+import { getMonthFromProps } from './utils/getMonthFromProps';
+import { DayPickerProps } from './types';
 
 /**
  * Render a date picker component.
@@ -22,37 +23,24 @@ import { DefaultProps } from './defaults/DefaultProps';
  * }
  * ```
  */
-export function DayPicker(props = DefaultProps): JSX.Element {
-  const isControlled = Boolean(props.month);
+export function DayPicker(props: DayPickerProps = {}): JSX.Element {
+  const isControlled = !('month' in props); // DayPicker will handle the state
 
-  let initialMonth = startOfMonth(
-    props.initialMonth || (props.today !== 'off' && props.today) || new Date()
-  );
+  const month = getMonthFromProps(props);
+  const [currentMonth, setCurrentMonth] = React.useState(month);
 
-  if (props.toMonth && isAfter(initialMonth, startOfMonth(props.toMonth))) {
-    initialMonth = startOfMonth(props.toMonth);
-  }
+  const onMonthChange = (newMonth: Date, e: React.MouseEvent) => {
+    if (isControlled) setCurrentMonth(newMonth);
+    props.onMonthChange?.(newMonth, e);
+  };
 
-  if (
-    props.fromMonth &&
-    isBefore(initialMonth, startOfMonth(props.fromMonth))
-  ) {
-    initialMonth = startOfMonth(props.fromMonth);
-  }
+  const dayPickerProps: DayPickerProps = {
+    ...DefaultProps,
+    ...props,
+    components: { ...DefaultProps, ...props.components },
+    onMonthChange,
+    month: isControlled ? currentMonth : month
+  };
 
-  const [currentMonth, setCurrentMonth] = React.useState(
-    startOfMonth(initialMonth)
-  );
-
-  function handleMonthChange(month: Date, e: React.MouseEvent): void {
-    setCurrentMonth(month);
-    props.onMonthChange?.(month, e);
-  }
-  return (
-    <Months
-      {...props}
-      onMonthChange={!isControlled ? handleMonthChange : props.onMonthChange}
-      month={isControlled ? props.month : currentMonth}
-    />
-  );
+  return <Root dayPickerProps={dayPickerProps} />;
 }

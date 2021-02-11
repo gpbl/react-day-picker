@@ -1,6 +1,6 @@
 import { addMonths, differenceInMonths, startOfMonth } from 'date-fns';
 
-import { DayPickerProps } from '../DayPicker';
+import { DayPickerProps } from '../../DayPicker';
 
 /**
  * Get the months to render in DayPicker according to the passed
