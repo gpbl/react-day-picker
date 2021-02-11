@@ -1,7 +1,7 @@
 import { ModifiersStatus } from './ModifiersStatus';
 
-export type DayTouchStartEventHandler = (
+export type DayKeyboardEventHandler = (
   day: Date,
   modifiers: ModifiersStatus,
-  e: React.TouchEvent
+  e: React.KeyboardEvent
 ) => void;

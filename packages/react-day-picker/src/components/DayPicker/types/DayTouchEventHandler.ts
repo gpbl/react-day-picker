@@ -1,6 +1,6 @@
 import { ModifiersStatus } from './ModifiersStatus';
 
-export type DayTouchMoveEventHandler = (
+export type DayTouchEventHandler = (
   day: Date,
   modifiers: ModifiersStatus,
   e: React.TouchEvent

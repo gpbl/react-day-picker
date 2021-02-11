@@ -6,7 +6,7 @@ import { WeekNumberFormatter } from '../../WeekNumber';
 import { WeekdayNameFormatter } from '../../Week';
 import { CustomComponents } from './CustomComponents';
 import { DayClickEventHandler } from './DayClickEventHandler';
-import { DayKeyDownEventHandler } from './DayKeyDownEventHandler';
+import { DayKeyboardEventHandler } from './DayKeyboardEventHandler';
 import { DayPickerClassNames } from './DayPickerClassNames';
 import { DayPickerStyles } from './DayPickerStyles';
 import { Matcher } from './Matcher';
@@ -14,14 +14,8 @@ import { ModifiersStyles } from './ModifiersStyles';
 import { ModifiersClassNames } from './ModifiersClassNames';
 import { ModifiersMatchers } from './ModifiersMatchers';
 import { MonthChangeEventHandler } from './MonthChangeEventHandler';
-import { DayMouseEnterEventHandler } from './DayMouseEnterEventHandler';
-import { DayMouseLeaveEventHandler } from './DayMouseLeaveEventHandler';
-import { DayKeyUpEventHandler } from './DayKeyUpEventHandler';
-import { DayKeyPressEventHandler } from './DayKeyPressEventHandler';
-import { DayTouchCancelHandler } from './DayTouchCancelHandler';
-import { DayTouchEndHandler } from './DayTouchEndHandler';
-import { DayTouchMoveEventHandler } from './DayTouchMoveEventHandler';
-import { DayTouchStartEventHandler } from './DayTouchStartEventHandler';
+import { DayMouseEventHandler } from './DayMouseEventHandler';
+import { DayTouchEventHandler } from './DayTouchEventHandler';
 
 /**
  * The props of the [[DayPicker]] component.
@@ -428,17 +422,16 @@ export interface DayPickerProps {
   components?: CustomComponents;
 
   /* Event handlers */
-
   onDayClick?: DayClickEventHandler;
-  onDayMouseEnter?: DayMouseEnterEventHandler;
-  onDayMouseLeave?: DayMouseLeaveEventHandler;
-  onDayKeyDown?: DayKeyDownEventHandler;
-  onDayKeyUp?: DayKeyUpEventHandler;
-  onDayKeyPress?: DayKeyPressEventHandler;
-  onDayTouchCancel?: DayTouchCancelHandler;
-  onDayTouchEnd?: DayTouchEndHandler;
-  onDayTouchMove?: DayTouchMoveEventHandler;
-  onDayTouchStart?: DayTouchStartEventHandler;
+  onDayMouseEnter?: DayMouseEventHandler;
+  onDayMouseLeave?: DayMouseEventHandler;
+  onDayKeyDown?: DayKeyboardEventHandler;
+  onDayKeyUp?: DayKeyboardEventHandler;
+  onDayKeyPress?: DayKeyboardEventHandler;
+  onDayTouchCancel?: DayTouchEventHandler;
+  onDayTouchEnd?: DayTouchEventHandler;
+  onDayTouchMove?: DayTouchEventHandler;
+  onDayTouchStart?: DayTouchEventHandler;
 
   onMonthChange?: MonthChangeEventHandler;
 
