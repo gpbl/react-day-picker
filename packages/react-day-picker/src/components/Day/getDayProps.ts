@@ -24,7 +24,6 @@ export function getDayProps(
     e.preventDefault();
     onDayClick(day, modifiers, e);
   };
-
   const onKeyDown: React.KeyboardEventHandler<HTMLSpanElement> = (e) => {
     if (e.code === 'Space' || e.code === 'Enter') {
       if (!onDayClick) return;
@@ -35,6 +34,38 @@ export function getDayProps(
     if (props.onDayKeyDown) {
       props.onDayKeyDown(day, modifiers, e);
     }
+  };
+  const onKeyUp: React.KeyboardEventHandler<HTMLSpanElement> = (e) => {
+    if (!props.onDayKeyUp) return;
+    props.onDayKeyUp(day, modifiers, e);
+  };
+  const onKeyPress: React.KeyboardEventHandler<HTMLSpanElement> = (e) => {
+    if (!props.onDayKeyPress) return;
+    props.onDayKeyPress(day, modifiers, e);
+  };
+  const onMouseEnter: React.MouseEventHandler<HTMLSpanElement> = (e) => {
+    if (!props.onDayMouseEnter) return;
+    props.onDayMouseEnter(day, modifiers, e);
+  };
+  const onMouseLeave: React.MouseEventHandler<HTMLSpanElement> = (e) => {
+    if (!props.onDayMouseLeave) return;
+    props.onDayMouseLeave(day, modifiers, e);
+  };
+  const onTouchCancel: React.TouchEventHandler<HTMLSpanElement> = (e) => {
+    if (!props.onDayTouchCancel) return;
+    props.onDayTouchCancel(day, modifiers, e);
+  };
+  const onTouchEnd: React.TouchEventHandler<HTMLSpanElement> = (e) => {
+    if (!props.onDayTouchEnd) return;
+    props.onDayTouchEnd(day, modifiers, e);
+  };
+  const onTouchMove: React.TouchEventHandler<HTMLSpanElement> = (e) => {
+    if (!props.onDayTouchMove) return;
+    props.onDayTouchMove(day, modifiers, e);
+  };
+  const onTouchStart: React.TouchEventHandler<HTMLSpanElement> = (e) => {
+    if (!props.onDayTouchStart) return;
+    props.onDayTouchStart(day, modifiers, e);
   };
 
   let style = { ...styles?.day };
@@ -80,10 +111,18 @@ export function getDayProps(
     'aria-disabled': modifiers.disabled || undefined,
     'aria-selected': modifiers.selected || undefined,
     disabled: Boolean(modifiers.disabled) || undefined,
+    style,
+    className: className.join(' '),
     onClick,
     onKeyDown,
-    style,
-    className: className.join(' ')
+    onKeyUp,
+    onKeyPress,
+    onMouseEnter,
+    onMouseLeave,
+    onTouchCancel,
+    onTouchEnd,
+    onTouchMove,
+    onTouchStart
   };
 
   const wrapperProps = {
