@@ -1,5 +1,5 @@
-import { ModifiersMatchers } from '../components/DayPicker/types';
-import { DayPickerProps } from '../components/DayPicker';
+import { ModifiersMatchers } from '../../DayPicker/types';
+import { DayPickerProps } from '../../DayPicker';
 
 export function getModifiersFromProps(
   props: DayPickerProps

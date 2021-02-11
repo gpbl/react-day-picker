@@ -1,5 +1,5 @@
 import { isSameDay, differenceInDays } from 'date-fns';
-import { Matcher } from '../components/DayPicker/types';
+import { Matcher } from '../../DayPicker/types';
 
 function isDayAfter(day1: Date, day2: Date, inclusive = false): boolean {
   if (inclusive) {
@@ -59,9 +59,6 @@ function matchFunction(day: Date, matcher: Matcher): boolean {
   return matcher(day);
 }
 
-/**
- * Return `true` if a day matches a day matcher.
- */
 export function matchDay(day: Date, matcher: Matcher): boolean {
   if (!matcher) return false;
   let matchers: Matcher[];

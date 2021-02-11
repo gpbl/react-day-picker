@@ -1,18 +1,16 @@
 import { isSameDay } from 'date-fns';
 
-import { ModifiersStatus, DayPickerProps } from '../../components/DayPicker';
-import { DEFAULT_MODIFIERS_VALUES } from '../../components/DayPicker/defaults/modifiersValues';
+import { ModifiersStatus, DayPickerProps } from '../DayPicker';
+import { DEFAULT_MODIFIERS_VALUES } from '../DayPicker/defaults/modifiersValues';
 
-import { findModifiers } from '../../utils/findModifiers';
-import { getModifiersFromProps } from '../../utils/getModifiersFromProps';
-import { getOutsideModifier } from '../../utils/getOutsideModifier';
+import { findModifiers } from './utils/findModifiers';
+import { getModifiersFromProps } from './utils/getModifiersFromProps';
+import { getOutsideModifier } from './utils/getOutsideModifier';
 
 /**
- * Handle the modifiers for the given day,
- *
- * @category Hook
+ * Return the status of the modifiers for the given day,
  */
-export function useModifiers(
+export function getModifiers(
   day: Date,
   currentMonth: Date,
   props: DayPickerProps
