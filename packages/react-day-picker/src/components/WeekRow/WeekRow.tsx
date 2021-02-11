@@ -2,17 +2,16 @@ import { getUnixTime } from 'date-fns';
 import * as React from 'react';
 
 import { WeekRowProps } from './types/WeekRowProps';
+import { Day as DefaultDay } from '../Day';
+import { WeekNumber as DefaultWeekNumber } from '../WeekNumber';
 
-/**
- * Render a week row.
- *
- * @category Component
- */
 export function WeekRow(props: WeekRowProps): JSX.Element {
   const { weekNumber, week, currentMonth, dayPickerProps } = props;
   const { showWeekNumber, classNames, styles, components } = dayPickerProps;
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const { Day, WeekNumber } = components!;
+
+  const Day = components?.Day || DefaultDay;
+  const WeekNumber = components?.WeekNumber || DefaultWeekNumber;
+
   return (
     <tr className={classNames?.week} style={styles?.week}>
       {showWeekNumber && (
