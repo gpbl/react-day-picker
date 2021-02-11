@@ -6,7 +6,7 @@ module.exports = {
   tagline: 'Date picker component for React',
   url: 'https://react-day-picker.js.org',
   baseUrl: '/',
-  favicon: 'img/favicon.ico',
+  favicon: 'images/favicon.ico',
   organizationName: 'gpbl',
   projectName: 'react-day-picker',
   themeConfig: {
@@ -14,7 +14,7 @@ module.exports = {
       title: 'DayPicker',
       logo: {
         alt: 'DayPicker Logo',
-        src: 'img/logo.png'
+        src: 'images/logo.png'
       },
       items: [
         {
