@@ -2,17 +2,14 @@ import { addDays, differenceInDays, endOfWeek } from 'date-fns';
 
 import { DayPickerProps } from '../DayPicker';
 
-/**
- * Return the outside ending days for the given day.
- */
-export function getOutsideEndDays(day: Date, props: DayPickerProps): Date[] {
+export function getOutsideEndDays(month: Date, props: DayPickerProps): Date[] {
   const { locale } = props;
   const days = [];
-  const lastDayOfWeek = endOfWeek(day, { locale });
-  const endDiff = differenceInDays(lastDayOfWeek, day);
+  const lastDayOfWeek = endOfWeek(month, { locale });
+  const endDiff = differenceInDays(lastDayOfWeek, month);
 
   for (let i = 1; i <= endDiff; i++) {
-    const dayDate = addDays(day, i);
+    const dayDate = addDays(month, i);
     days.push(dayDate);
   }
   return days;

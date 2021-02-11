@@ -4,6 +4,18 @@ import { addToRange } from './addToRange';
 
 const emptyRange: DaysRange = { from: undefined, to: undefined };
 
+/**
+ * Returns a range and a state setter for handing ranges when selecting dates.
+ *
+ * **Example**
+ *
+ * ```jsx showOutput open=false
+ * function App() {
+ *   const [range, setRange] = useRange();
+ *   return <DayPicker onDayClick={setRange} selected={range} />;
+ * }
+ * ```
+ */
 export function useRange(
   initialRange = emptyRange
 ): [DaysRange, (day: Date) => void] {

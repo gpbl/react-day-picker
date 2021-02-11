@@ -12,17 +12,26 @@ function isValidDate(day: Date): boolean {
 }
 
 /**
- * Hook to bind a input with a calendar.
+ * Return the props for binding an input field with DayPicker.
  *
- * ```jsx
- * const { dayPickerProps, inputProps } = useInput(new Date());
+ * **Example**
  *
- * <DayPicker {...dayPickerProps} />
- * <input {...inputProps} />
+ * ```jsx showOutput open=no
+ * function App() {
+ *   const { dayPickerProps, inputProps } = useInput(new Date(), 'yyyy-MM-dd');
+ *   return (
+ *     <>
+ *       <p>
+ *         Type a day or pick one from the calendar:
+ *         <input {...inputProps} placeholder="YYYY-MM-DD" />
+ *       </p>
+ *       <DayPicker {...dayPickerProps} />
+ *     </>
+ *   );
+ * }
  * ```
- *
- * @category Hook
  */
+
 export function useInput(
   initialDay: Date,
   formatStr: string,

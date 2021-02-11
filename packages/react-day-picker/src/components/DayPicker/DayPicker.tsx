@@ -21,8 +21,6 @@ import { DEFAULT_PROPS } from './defaults/props';
  *   return <DayPicker selected={selected} onDayClick={handleDayClick} />;
  * }
  * ```
- *
- * @category Component
  */
 export function DayPicker(props = DEFAULT_PROPS): JSX.Element {
   const isControlled = Boolean(props.month);
