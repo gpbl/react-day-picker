@@ -1,14 +1,14 @@
 import { getTime } from 'date-fns';
 import React from 'react';
 
-import { MonthTable } from '../MonthTable';
+import { Month } from '../Month';
 import { Navigation as DefaultNavigation } from '../Navigation';
 import { getMonths } from './utils/getMonths';
 import { RootProps } from './types/RootProps';
 
 export function Root(props: RootProps): JSX.Element {
   const { dayPickerProps } = props;
-  const Navigation = dayPickerProps.components?.Navigation || DefaultNavigation;
+  const Navigation = dayPickerProps.components?.Navigation ?? DefaultNavigation;
 
   const style = {
     ...dayPickerProps.styles?.root,
@@ -31,7 +31,7 @@ export function Root(props: RootProps): JSX.Element {
       )}
       <div className={dayPickerProps.classNames?.months} style={styles?.month}>
         {months.map((month: Date) => (
-          <MonthTable
+          <Month
             key={getTime(month)}
             month={month}
             dayPickerProps={dayPickerProps}

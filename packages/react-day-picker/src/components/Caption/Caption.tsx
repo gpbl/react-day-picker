@@ -5,9 +5,9 @@ import {
   defaultLocale
 } from '../DayPicker/defaults/DefaultProps';
 import { getCaptionProps } from './getCaptionProps';
-import { MonthCaptionProps } from './types/MonthCaptionProps';
+import { CaptionProps } from './types/CaptionProps';
 
-export function MonthCaption(props: MonthCaptionProps): JSX.Element {
+export function Caption(props: CaptionProps): JSX.Element {
   const { containerProps } = getCaptionProps(props.dayPickerProps);
   const locale = props.dayPickerProps.locale || defaultLocale;
   const formatCaption =

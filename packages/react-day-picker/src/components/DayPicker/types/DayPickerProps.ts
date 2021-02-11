@@ -1,9 +1,9 @@
 import * as dateFns from 'date-fns';
 
 import { DayFormatter } from '../../Day';
-import { MonthCaptionFormatter } from '../../MonthCaption';
+import { CaptionFormatter } from '../../Caption';
 import { WeekNumberFormatter } from '../../WeekNumber';
-import { WeekdayNameFormatter } from '../../WeekRow';
+import { WeekdayNameFormatter } from '../../Week';
 import { CustomComponents } from './CustomComponents';
 import { DayClickEventHandler } from './DayClickEventHandler';
 import { DayKeyDownEventHandler } from './DayKeyDownEventHandler';
@@ -400,7 +400,7 @@ export interface DayPickerProps {
   /**
    * Format the month caption text.
    */
-  formatCaption?: MonthCaptionFormatter;
+  formatCaption?: CaptionFormatter;
   /**
    * Format the content of the day element.
    */

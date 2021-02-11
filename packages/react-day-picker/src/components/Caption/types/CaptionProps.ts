@@ -1,6 +1,6 @@
 import { DayPickerProps } from '../../DayPicker';
 
-export interface MonthTableProps {
+export interface CaptionProps {
   month: Date;
   dayPickerProps: DayPickerProps;
 }

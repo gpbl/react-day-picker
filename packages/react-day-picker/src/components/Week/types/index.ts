@@ -1,2 +1,2 @@
-export * from './WeekRowProps';
+export * from './WeekProps';
 export * from './WeekdayNameFormatter';
