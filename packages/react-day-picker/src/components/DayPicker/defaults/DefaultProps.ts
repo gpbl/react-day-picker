@@ -1,4 +1,3 @@
-import { startOfMonth } from 'date-fns';
 import english from 'date-fns/locale/en-US';
 
 import { Day } from '../../Day';
@@ -39,7 +38,6 @@ export const DefaultProps: DayPickerProps = {
   nextLabel: '▶',
   modifiersClassNames: {},
   modifiersStyles: {},
-  month: startOfMonth(new Date()),
   numberOfMonths: 1,
   pagedNavigation: false,
   prevLabel: '◀',
