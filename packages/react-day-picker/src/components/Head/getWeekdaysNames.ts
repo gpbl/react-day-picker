@@ -1,7 +1,7 @@
 import {
   defaultFormatCaption,
   defaultLocale
-} from '../DayPicker/defaults/props';
+} from '../DayPicker/defaults/DefaultProps';
 import * as DateFns from 'date-fns';
 
 import { DayPickerProps } from '../DayPicker';

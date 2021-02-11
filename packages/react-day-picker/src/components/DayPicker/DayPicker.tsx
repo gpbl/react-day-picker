@@ -2,7 +2,7 @@ import { isAfter, isBefore, startOfMonth } from 'date-fns';
 import * as React from 'react';
 
 import { Months } from '../Months';
-import { DEFAULT_PROPS } from './defaults/props';
+import { DefaultProps } from './defaults/DefaultProps';
 
 /**
  * Render a date picker component.
@@ -22,7 +22,7 @@ import { DEFAULT_PROPS } from './defaults/props';
  * }
  * ```
  */
-export function DayPicker(props = DEFAULT_PROPS): JSX.Element {
+export function DayPicker(props = DefaultProps): JSX.Element {
   const isControlled = Boolean(props.month);
 
   let initialMonth = startOfMonth(

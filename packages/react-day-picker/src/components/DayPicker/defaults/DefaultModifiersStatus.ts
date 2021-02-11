@@ -1,6 +1,6 @@
 import { DefaultModifier } from '../types';
 
-export const DEFAULT_MODIFIERS_VALUES: {
+export const DefaultModifiersStatus: {
   [modifier in DefaultModifier]?: boolean;
 } = {
   disabled: false,

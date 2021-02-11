@@ -1,21 +1,21 @@
-import { DEFAULT_PROPS } from '../DayPicker/defaults/props';
+import { DefaultProps } from '../DayPicker/defaults/DefaultProps';
 import { getMonths } from './getMonths';
 
 describe('getMonths', () => {
   it('returns one month with default props', () => {
-    expect(getMonths(DEFAULT_PROPS).length).toBe(1);
+    expect(getMonths(DefaultProps).length).toBe(1);
   });
   it('uses today as default month', () => {
-    const props = { ...DEFAULT_PROPS, month: undefined };
+    const props = { ...DefaultProps, month: undefined };
     expect(getMonths(props)[0].getMonth()).toBe(new Date().getMonth());
   });
   it('returns the number of months', () => {
-    const props = { ...DEFAULT_PROPS, numberOfMonths: 2 };
+    const props = { ...DefaultProps, numberOfMonths: 2 };
     expect(getMonths(props).length).toBe(2);
   });
   it('respects the toMonth prop', () => {
     const result = getMonths({
-      ...DEFAULT_PROPS,
+      ...DefaultProps,
       numberOfMonths: 12,
       month: new Date(2019, 0),
       toMonth: new Date(2019, 4)
@@ -24,7 +24,7 @@ describe('getMonths', () => {
   });
   it('respects the fromMonth prop', () => {
     const result = getMonths({
-      ...DEFAULT_PROPS,
+      ...DefaultProps,
       numberOfMonths: 12,
       month: new Date(2019, 0),
       fromMonth: new Date(2019, 5)
@@ -34,7 +34,7 @@ describe('getMonths', () => {
   });
   it('reverses the months', () => {
     const result = getMonths({
-      ...DEFAULT_PROPS,
+      ...DefaultProps,
       numberOfMonths: 12,
       reverseMonths: true,
       month: new Date(2019, 0)

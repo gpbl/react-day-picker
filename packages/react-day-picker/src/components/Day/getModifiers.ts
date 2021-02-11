@@ -1,7 +1,7 @@
 import { isSameDay } from 'date-fns';
 
 import { ModifiersStatus, DayPickerProps } from '../DayPicker';
-import { DEFAULT_MODIFIERS_VALUES } from '../DayPicker/defaults/modifiersValues';
+import { DefaultModifiersStatus } from '../DayPicker/defaults/DefaultModifiersStatus';
 
 import { findModifiers } from './utils/findModifiers';
 import { getModifiersFromProps } from './utils/getModifiersFromProps';
@@ -16,7 +16,7 @@ export function getModifiers(
   props: DayPickerProps
 ): ModifiersStatus {
   const modifiers: ModifiersStatus = {
-    ...DEFAULT_MODIFIERS_VALUES
+    ...DefaultModifiersStatus
   };
 
   if (props.today !== 'off') {
