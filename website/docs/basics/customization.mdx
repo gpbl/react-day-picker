@@ -9,7 +9,7 @@ As default, DayPicker displays the month of the current day. To change the
 initial month, set the `initialMonth` prop:
 
 ```jsx showOutput open=no
-function App() {
+function Example() {
   return <DayPicker initialMonth={new Date(2022, 8)} />;
 }
 ```
@@ -20,7 +20,7 @@ To change the months within DayPicker can work, use the `fromMonth` or `toMonth`
 props.
 
 ```jsx showOutput open=no
-function App() {
+function Example() {
   return (
     <DayPicker
       initialMonth={new Date(2020, 0)}
@@ -36,7 +36,7 @@ function App() {
 Use `showOutsideDays` to display the days falling out the current month.
 
 ```jsx showOutput open=no
-function App() {
+function Example() {
   return <DayPicker showOutsideDays />;
 }
 ```
@@ -47,7 +47,7 @@ When `showOutsideDays` is turned on, use `fixedWeeks` to display six weeks per
 months. This will prevent the calendar to change its height when navigating.
 
 ```jsx showOutput open=no
-function App() {
+function Example() {
   return <DayPicker showOutsideDays fixedWeeks />;
 }
 ```
@@ -57,7 +57,7 @@ function App() {
 Use `showWeekNumber` to display the week numbers.
 
 ```jsx showOutput open=no
-function App() {
+function Example() {
   return <DayPicker showWeekNumber />;
 }
 ```
@@ -74,9 +74,7 @@ When rendering multiple months, use the following props:
 ```jsx showOutput open=no
 import { DayPicker } from 'react-day-picker';
 
-function App() {
-  return (
-    <DayPicker numberOfMonths={2} reverseMonths={false} pagedNavigation />
-  );
+function Example() {
+  return <DayPicker numberOfMonths={2} reverseMonths={false} pagedNavigation />;
 }
 ```

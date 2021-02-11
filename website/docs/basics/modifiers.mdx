@@ -13,7 +13,7 @@ changes the appearance of a selected day. This property is available from the
 `onDayClick` callback.
 
 ```jsx {2,3,10} showOutput
-function App() {
+function Example() {
   const handleDayClick = (day, { selected }) => {
     if (selected) {
       alert(`${day.toLocaleDateString()} is already selected.`);
@@ -48,7 +48,7 @@ A disabled day is not interactive. The `disabled` prop defines the disabled days
 by using the `disabled` modifier.
 
 ```jsx {7-13} showOutput open=no
-function App() {
+function Example() {
   const disabledDays = [
     new Date(2022, 4, 12),
     new Date(2022, 5, 10),
@@ -73,7 +73,7 @@ The `today` modifier is added to the current date and it is passed as second
 argument to the event handlers.
 
 ```jsx showOutput open=no
-function App() {
+function Example() {
   const handleDayClick = (day, { today }) => {
     if (today) {
       alert('You clicked the today’s date!');
@@ -89,7 +89,7 @@ function App() {
 Change the current date with the `today` prop:
 
 ```jsx showOutput open=no
-function App() {
+function Example() {
   return <DayPicker today={new Date(2022, 2, 18)} />;
 }
 ```
@@ -97,7 +97,7 @@ function App() {
 It is possible to toggle off the `today` modifier:
 
 ```jsx showOutput open=no
-function App() {
+function Example() {
   const handleDayClick = (day, { today }) => {
     if (today) {
       // (This will never happen as today is turned off)
@@ -118,7 +118,7 @@ app may use a `booked` modifier to mark days as already booked.
 Use the `modifiers` prop to pass an object with custom modifiers
 
 ```jsx showOutput open=no
-function Book() {
+function Example() {
   const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
   const bookedStyle = { color: 'tomato' };
 
@@ -148,10 +148,10 @@ Day cells can be styled according to the day modifiers, using CSS or inline
 styles.
 
 - use `modifiersStyle` to change the inline styles for each modifier
-- use `modifiersClassNames` to add a class name to the DOM element
+- use [`modifiersClassNames`](api/types/modifiersClassNames) to add a class name to the DOM element
 
 ```jsx showOutput open=no
-function Book() {
+function Example() {
   const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
   const bookedStyle = { color: 'tomato' };
 
@@ -179,6 +179,3 @@ function Book() {
   );
 }
 ```
-
-See [Styling modifiers](../basics/styling#styling-modifiers) in the
-Styling guide for more details.

@@ -14,7 +14,7 @@ date-fns and pass it to the component:
 ```jsx showOutput
 import spanish from 'date-fns/locale/es';
 
-function App() {
+function Example() {
   return <DayPicker locale={spanish} />;
 }
 ```
@@ -26,7 +26,7 @@ To add right-to-left text direction, set the `dir` prop to `rtl`.
 ```jsx showOutput
 import arabic from 'date-fns/locale/ar-SA';
 
-function App() {
+function Example() {
   return <DayPicker dir="rtl" locale={arabic} />;
 }
 ```
@@ -43,7 +43,7 @@ For example, to switch to hindu-arabic using
 import { format } from 'date-fns';
 import arabic from 'date-fns/locale/ar-SA';
 
-function App() {
+function Example() {
   const nuLocale = 'ar-u-nu-arab';
 
   const formatDay = (day) => day.getDate().toLocaleString(nuLocale);

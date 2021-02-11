@@ -11,7 +11,7 @@ import { DayPickerProps } from './types';
  * **Example**
  *
  * ```jsx showOutput
- * function App() {
+ * function Example() {
  *   const [selected, setSelected] = useState();
  *
  *   const handleDayClick = (day, { selected }) => {

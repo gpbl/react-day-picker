@@ -10,7 +10,7 @@ const emptyRange: DaysRange = { from: undefined, to: undefined };
  * **Example**
  *
  * ```jsx showOutput open=false
- * function App() {
+ * function Example() {
  *   const [range, setRange] = useRange();
  *   return <DayPicker onDayClick={setRange} selected={range} />;
  * }
