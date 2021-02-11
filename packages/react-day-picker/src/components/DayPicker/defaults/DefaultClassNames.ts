@@ -1,10 +1,6 @@
 import { DayPickerClassNames } from '../types';
 
-/**
- * List the default CSS class names. Class names can be overridden using the
- * [[classNames]] prop.
- */
-export const DEFAULT_CLASSNAMES: DayPickerClassNames = {
+export const DefaultClassNames: DayPickerClassNames = {
   /** Root element */
   root: 'rdp',
   caption: 'rdp-caption',

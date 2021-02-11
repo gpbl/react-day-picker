@@ -6,26 +6,26 @@ import {
   DayPickerClassNames,
   DayPickerProps
 } from '../DayPicker';
-import { DEFAULT_PROPS } from '../DayPicker/defaults/props';
+import { DefaultProps } from '../DayPicker/defaults/DefaultProps';
 import { MonthTable } from '../MonthTable';
 import { filterUndefinedProps } from './filterUndefinedProps';
 import { getMonths } from './getMonths';
 
-export function Months(initialProps = DEFAULT_PROPS): JSX.Element {
+export function Months(initialProps = DefaultProps): JSX.Element {
   const components: CustomComponents = Object.assign(
     {},
-    DEFAULT_PROPS.components,
+    DefaultProps.components,
     initialProps.components
   );
   const Navigation = components.Navigation;
 
   const classNames: DayPickerClassNames = Object.assign(
     {},
-    DEFAULT_PROPS.classNames,
+    DefaultProps.classNames,
     initialProps.classNames
   );
   const props: DayPickerProps = {
-    ...DEFAULT_PROPS,
+    ...DefaultProps,
     ...filterUndefinedProps(initialProps),
     components: components,
     classNames
