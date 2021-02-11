@@ -5,24 +5,26 @@ module.exports = [
     "label": "Interfaces",
     "items": [
       "api/interfaces/captionhtmlprops",
+      "api/interfaces/captionprops",
       "api/interfaces/daycontainerhtmlprops",
       "api/interfaces/dayhtmlprops",
       "api/interfaces/daypickerprops",
       "api/interfaces/dayprops",
       "api/interfaces/daywrapperhtmlprops",
       "api/interfaces/headprops",
-      "api/interfaces/monthcaptionprops",
-      "api/interfaces/monthtableprops",
+      "api/interfaces/monthprops",
       "api/interfaces/navigationhtmlprops",
       "api/interfaces/navigationprops",
+      "api/interfaces/rootprops",
       "api/interfaces/weeknumberprops",
-      "api/interfaces/weekrowprops"
+      "api/interfaces/weekprops"
     ]
   },
   {
     "type": "category",
     "label": "Type aliases",
     "items": [
+      "api/types/captionformatter",
       "api/types/customcomponents",
       "api/types/dayclickeventhandler",
       "api/types/dayformatter",
@@ -41,7 +43,6 @@ module.exports = [
       "api/types/modifiersmatchers",
       "api/types/modifiersstatus",
       "api/types/modifiersstyles",
-      "api/types/monthcaptionformatter",
       "api/types/monthchangeeventhandler",
       "api/types/navigationmonths",
       "api/types/uielement",
@@ -53,11 +54,11 @@ module.exports = [
     "type": "category",
     "label": "Functions",
     "items": [
+      "api/functions/caption",
       "api/functions/day",
       "api/functions/daypicker",
       "api/functions/head",
-      "api/functions/monthcaption",
-      "api/functions/monthtable",
+      "api/functions/month",
       "api/functions/navigation",
       "api/functions/root",
       "api/functions/weeknumber",

@@ -1,7 +1,7 @@
 import english from 'date-fns/locale/en-US';
 
 import { Day } from '../../Day';
-import { MonthCaption } from '../../MonthCaption/MonthCaption';
+import { Caption } from '../../Caption/Caption';
 import { Navigation } from '../../Navigation';
 import { WeekNumber } from '../../WeekNumber';
 import { formatCaption } from '../formatters/formatCaption';
@@ -24,7 +24,7 @@ export const DefaultProps: DayPickerProps = {
   style: {},
   styles: {},
   components: {
-    MonthCaption,
+    MonthCaption: Caption,
     Day,
     Navigation,
     WeekNumber

@@ -1,17 +1,18 @@
 import * as React from 'react';
 
+import { Caption as DefaultMonthCaption } from '../Caption';
+import { defaultLocale } from '../DayPicker/defaults/DefaultProps';
 import { Head } from '../Head';
-import { WeekRow } from '../WeekRow';
+import { WeekRow } from '../Week';
 import { getWeeks } from './getWeeks';
-import { MonthTableProps } from './types/MonthTableProps';
-import { MonthCaption as DefaultMonthCaption } from '../MonthCaption';
+import { MonthProps } from './types/MonthProps';
 
-export function MonthTable(props: MonthTableProps): JSX.Element {
+export function Month(props: MonthProps): JSX.Element {
   const { month, dayPickerProps } = props;
-  const { locale, classNames, styles } = dayPickerProps;
-  const { showCaption, showHead } = dayPickerProps;
+  const { classNames, styles, showCaption, showHead } = dayPickerProps;
   const MonthCaption =
-    dayPickerProps.components?.MonthCaption || DefaultMonthCaption;
+    dayPickerProps.components?.MonthCaption ?? DefaultMonthCaption;
+  const locale = dayPickerProps.locale ?? defaultLocale;
 
   const weeks = getWeeks(month, dayPickerProps);
 
@@ -23,8 +24,7 @@ export function MonthTable(props: MonthTableProps): JSX.Element {
         )}
         {showHead && (
           <Head
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            locale={locale!}
+            locale={locale}
             showWeekNumber={dayPickerProps.showWeekNumber}
             dayPickerProps={dayPickerProps}
           />
