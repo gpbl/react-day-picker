@@ -4,12 +4,8 @@ import { Head } from '../Head';
 import { WeekRow } from '../WeekRow';
 import { getWeeks } from './getWeeks';
 import { MonthTableProps } from './types/MonthTableProps';
+import { MonthCaption as DefaultMonthCaption } from '../MonthCaption';
 
-/**
- * Render the month table.
- *
- * @category Component
- */
 export function MonthTable(props: MonthTableProps): JSX.Element {
   const { month, dayPickerProps } = props;
   const { locale, classNames, styles } = dayPickerProps;

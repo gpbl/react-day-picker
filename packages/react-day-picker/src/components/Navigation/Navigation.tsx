@@ -4,11 +4,6 @@ import { getNavigation } from './getNavigation';
 import { getNavigationProps } from './getNavigationProps';
 import { NavigationProps } from './types';
 
-/**
- * Renders the buttons to navigate between months.
- *
- * @category Component
- */
 export function Navigation(props: NavigationProps): JSX.Element | null {
   const { dayPickerProps } = props;
   const { onMonthChange, onPrevClick, onNextClick } = dayPickerProps;

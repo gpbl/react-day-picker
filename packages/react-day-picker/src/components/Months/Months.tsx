@@ -11,14 +11,7 @@ import { MonthTable } from '../MonthTable';
 import { filterUndefinedProps } from './filterUndefinedProps';
 import { getMonths } from './getMonths';
 
-/**
- * Render the months and the navigation.
- *
- * @category Component
- */
 export function Months(initialProps = DEFAULT_PROPS): JSX.Element {
-  // Extend props with defaults
-  // TODO: this looks ugly try something better...
   const components: CustomComponents = Object.assign(
     {},
     DEFAULT_PROPS.components,

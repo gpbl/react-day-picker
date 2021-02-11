@@ -4,12 +4,11 @@ import { DaysRange } from './types';
 const emptyRange: DaysRange = { from: undefined, to: undefined };
 
 /**
- * Use this utility to add a day to an existing range.
+ * Add a day to an existing range.
  *
- * The returned range takes in account the `undefined` range values and if the
- * added day is already present in the range.
+ * The returned range takes in account the `undefined` values and if the added
+ * day is already present in the range.
  */
-
 export function addToRange(range: DaysRange, day: Date): DaysRange {
   const { from, to } = range;
   if (!from) {
