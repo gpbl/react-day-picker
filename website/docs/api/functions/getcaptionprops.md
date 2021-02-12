@@ -10,24 +10,7 @@ hide_title: true
 
 ▸ **getCaptionProps**(`dayPickerProps`: [*DayPickerProps*](../interfaces/daypickerprops.md)): [*CaptionHtmlProps*](../interfaces/captionhtmlprops.md)
 
-Return props for creating a [[MonthCaption]] component.
-
-#### Usage
-
-Use this helper when changing the caption using the
-[DayPickerProps.components](../interfaces/daypickerprops.md#components) prop.
-
-```jsx
-function MonthCaption({ dayPickerProps }): JSX.Element {
-  const { containerProps } = getCaptionProps(dayPickerProps);
-  return (
-    <caption {...containerProps}>
-      Something inside the caption
-    </caption>;
-  )
-}
-<DayPicker components={{ MonthCaption }} />
-```
+Return props for creating a [Caption](../interfaces/customcomponents.md#caption) component.
 
 #### Parameters:
 

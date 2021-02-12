@@ -15,6 +15,7 @@ hide_title: true
 
 - [CaptionHtmlProps](interfaces/captionhtmlprops.md)
 - [CaptionProps](interfaces/captionprops.md)
+- [CustomComponents](interfaces/customcomponents.md)
 - [DayContainerHtmlProps](interfaces/daycontainerhtmlprops.md)
 - [DayHtmlProps](interfaces/dayhtmlprops.md)
 - [DayPickerProps](interfaces/daypickerprops.md)
@@ -22,7 +23,6 @@ hide_title: true
 - [DayWrapperHtmlProps](interfaces/daywrapperhtmlprops.md)
 - [HeadProps](interfaces/headprops.md)
 - [MonthProps](interfaces/monthprops.md)
-- [NavigationHtmlProps](interfaces/navigationhtmlprops.md)
 - [NavigationProps](interfaces/navigationprops.md)
 - [RootProps](interfaces/rootprops.md)
 - [WeekNumberProps](interfaces/weeknumberprops.md)
@@ -31,19 +31,13 @@ hide_title: true
 ### Type aliases
 
 - [CaptionFormatter](types/captionformatter.md)
-- [CustomComponents](types/customcomponents.md)
 - [DayClickEventHandler](types/dayclickeventhandler.md)
 - [DayFormatter](types/dayformatter.md)
-- [DayKeyDownEventHandler](types/daykeydowneventhandler.md)
-- [DayKeyPressEventHandler](types/daykeypresseventhandler.md)
-- [DayKeyUpEventHandler](types/daykeyupeventhandler.md)
-- [DayMouseEnterEventHandler](types/daymouseentereventhandler.md)
+- [DayKeyboardEventHandler](types/daykeyboardeventhandler.md)
+- [DayMouseEventHandler](types/daymouseeventhandler.md)
 - [DayPickerClassNames](types/daypickerclassnames.md)
 - [DayPickerStyles](types/daypickerstyles.md)
-- [DayTouchCancelHandler](types/daytouchcancelhandler.md)
-- [DayTouchEndHandler](types/daytouchendhandler.md)
-- [DayTouchMoveEventHandler](types/daytouchmoveeventhandler.md)
-- [DayTouchStartEventHandler](types/daytouchstarteventhandler.md)
+- [DayTouchEventHandler](types/daytoucheventhandler.md)
 - [DefaultModifier](types/defaultmodifier.md)
 - [MatchAfter](types/matchafter.md)
 - [MatchBefore](types/matchbefore.md)
@@ -70,8 +64,9 @@ hide_title: true
 - [Head](functions/head.md)
 - [Month](functions/month.md)
 - [Navigation](functions/navigation.md)
+- [NextIcon](functions/nexticon.md)
+- [PrevIcon](functions/previcon.md)
 - [Root](functions/root.md)
-- [WeekNumber](functions/weeknumber.md)
 - [WeekRow](functions/weekrow.md)
 - [addToRange](functions/addtorange.md)
 - [getCaptionProps](functions/getcaptionprops.md)
@@ -81,3 +76,9 @@ hide_title: true
 - [getNavigationProps](functions/getnavigationprops.md)
 - [useInput](functions/useinput.md)
 - [useRange](functions/userange.md)
+
+## References
+
+### WeekNumber
+
+Renames and exports: [\_\_type]()

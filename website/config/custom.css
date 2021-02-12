@@ -66,14 +66,11 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .rdp {
   all: revert;
   font-size: initial;
+  margin: 1em;
 }
 
 .rdp * {
   all: revert;
-}
-
-.rdp-month {
-  margin: 0.75em;
 }
 
 .code-output {
