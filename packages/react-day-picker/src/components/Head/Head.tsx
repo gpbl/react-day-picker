@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { getWeekdaysNames } from './getWeekdaysNames';
-import { HeadProps } from './types/HeadProps';
+import { HeadProps } from '../../types/HeadProps';
+import { getWeekdaysNames } from './utils/getWeekdaysNames';
 
 export function Head(props: HeadProps): JSX.Element {
   const { locale, showWeekNumber, dayPickerProps } = props;

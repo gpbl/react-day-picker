@@ -1,8 +1,8 @@
 import * as DateFns from 'date-fns';
 import * as React from 'react';
+import { UseInput, UseInputOptions } from 'types';
 
-import { defaultProps } from '../../components/DayPicker';
-import { UseInput, UseInputOptions } from './types';
+import { defaultProps } from '../../components/DayPicker/defaultProps';
 
 /**
  * @private
@@ -52,9 +52,8 @@ export function useInput(
   // Initialize state
   const [selected, setSelected] = React.useState<Date | undefined>(initialDay);
   const [value, setValue] = React.useState(initialValue);
-  const [month, setMonth] = React.useState(initialDay || new Date());
+  const [month, setMonth] = React.useState(initialDay || defaultProps.month);
 
-  // DayPicker event handlers
   const onDayClick = (day: Date) => {
     setSelected(day);
     setValue(format(day));
@@ -85,7 +84,7 @@ export function useInput(
       return;
     }
     setSelected(initialDay);
-    setMonth(initialDay || new Date());
+    setMonth(initialDay || defaultProps.month);
     setValue(initialValue || '');
   };
 
@@ -100,7 +99,7 @@ export function useInput(
       return;
     }
     setSelected(initialDay);
-    setMonth(initialDay || new Date());
+    setMonth(initialDay || defaultProps.month);
     setValue(initialValue || '');
   };
 

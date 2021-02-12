@@ -1,14 +1,15 @@
 import { getTime } from 'date-fns';
 import React from 'react';
 
+import { RootProps } from '../../types/RootProps';
+import { defaultProps } from '../DayPicker/defaultProps';
 import { Month } from '../Month';
-import { Navigation as DefaultNavigation } from '../Navigation';
-import { RootProps } from './types/RootProps';
 import { getMonths } from './utils/getMonths';
 
 export function Root(props: RootProps): JSX.Element {
   const { dayPickerProps } = props;
-  const Navigation = dayPickerProps.components?.Navigation ?? DefaultNavigation;
+  const Navigation =
+    dayPickerProps.components?.Navigation ?? defaultProps.components.Navigation;
 
   const style = {
     ...dayPickerProps.styles?.root,
