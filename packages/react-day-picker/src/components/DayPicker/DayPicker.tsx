@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Root } from '../Root';
-import { DefaultProps } from './defaults/DefaultProps';
+import { defaultProps } from './defaultProps';
 import { DayPickerProps } from './types';
 import { getMonthFromProps } from './utils/getMonthFromProps';
 
@@ -35,9 +35,9 @@ export function DayPicker(props: DayPickerProps = {}): JSX.Element {
   };
 
   const dayPickerProps: DayPickerProps = {
-    ...DefaultProps,
+    ...defaultProps,
     ...props,
-    components: { ...DefaultProps, ...props.components },
+    components: { ...defaultProps, ...props.components },
     onMonthChange,
     month: isControlled ? currentMonth : month
   };

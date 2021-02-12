@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { defaultLocale } from '../DayPicker/defaults/DefaultProps';
+import { defaultProps } from '../DayPicker';
 import { WeekNumberProps } from './types/WeekNumberProps';
 
 export function WeekNumber(props: WeekNumberProps): JSX.Element {
@@ -9,7 +9,7 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
     <span className={classNames?.weekNumber} style={styles?.weekNumber}>
       {formatWeekNumber &&
         formatWeekNumber(props.number, {
-          locale: locale || defaultLocale
+          locale: locale || defaultProps.locale
         })}
     </span>
   );

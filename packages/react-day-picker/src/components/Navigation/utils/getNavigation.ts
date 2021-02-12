@@ -1,7 +1,6 @@
 import { addMonths, startOfMonth } from 'date-fns';
 
-import { DayPickerProps } from '../../DayPicker';
-import { defaultNumberOfMonths } from '../../DayPicker/defaults/DefaultProps';
+import { DayPickerProps, defaultProps } from '../../DayPicker';
 import { NavigationMonths } from '../types';
 
 /**
@@ -12,7 +11,7 @@ export function getNavigation(props: DayPickerProps): NavigationMonths {
     fromMonth,
     toMonth,
     month,
-    numberOfMonths = defaultNumberOfMonths,
+    numberOfMonths = defaultProps.numberOfMonths,
     pagedNavigation
   } = props;
 

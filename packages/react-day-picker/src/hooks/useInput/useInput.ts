@@ -1,7 +1,7 @@
 import * as DateFns from 'date-fns';
 import * as React from 'react';
 
-import { defaultLocale } from '../../components/DayPicker/defaults/DefaultProps';
+import { defaultProps } from '../../components/DayPicker';
 import { UseInput, UseInputOptions } from './types';
 
 /**
@@ -38,7 +38,7 @@ export function useInput(
   options?: UseInputOptions
 ): UseInput {
   // Defaults from options
-  const locale = options?.locale || defaultLocale;
+  const locale = options?.locale || defaultProps.locale;
   const required = options?.required || false;
 
   // Shortcut to the DateFns functions

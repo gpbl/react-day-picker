@@ -1,14 +1,14 @@
 import * as React from 'react';
 
-import { defaultFormatDay, defaultLocale } from '../DayPicker/defaults/DefaultProps';
+import { defaultProps } from '../DayPicker';
 import { getDayProps } from './getDayProps';
 import { getModifiers } from './getModifiers';
 import { DayProps } from './types';
 
 export function Day(props: DayProps): JSX.Element {
   const { day, dayPickerProps, currentMonth } = props;
-  const locale = dayPickerProps.locale ?? defaultLocale;
-  const formatDay = dayPickerProps.formatDay ?? defaultFormatDay;
+  const locale = dayPickerProps.locale ?? defaultProps.locale;
+  const formatDay = dayPickerProps.formatDay ?? defaultProps.formatDay;
 
   const modifiers = getModifiers(day, currentMonth, dayPickerProps);
 
