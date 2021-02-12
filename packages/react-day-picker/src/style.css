@@ -10,6 +10,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 .rdp-months {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,7 +21,7 @@
   margin-bottom: 0.75em;
   text-align: left;
   font-weight: bold;
-  font-size: 1.25em;
+  font-size: large;
 }
 
 .rdp[dir='rtl'] .rdp-caption {
@@ -50,7 +51,8 @@
 .rdp-head_weekname {
   padding-bottom: 0.5em;
   font-weight: normal;
-  font-size: 0.75em;
+  font-size: smaller;
+  text-align: center;
 }
 
 .rdp-week {
@@ -71,13 +73,13 @@
 
 .rdp-nav {
   position: absolute;
-  top: 0.75em;
-  right: 1em;
+  top: 3px;
+  right: 0;
   display: flex;
 }
 .rdp[dir='rtl'] .rdp-nav {
   right: auto;
-  left: 1em;
+  left: 0;
 }
 
 .rdp-nav_next,
@@ -89,11 +91,16 @@
   border: 0;
   color: inherit;
   cursor: default;
-  font-family: inherit;
-  font-size: 1.25em;
-  padding: 0.25em;
   margin: 0;
+  position: relative;
+  padding: 5px;
 }
+
+.rdp-nav_next svg,
+.rdp-nav_prev svg {
+  fill: currentColor;
+}
+
 .rdp-nav_next:disabled,
 .rdp-nav_prev:disabled {
   opacity: 0.15;
@@ -124,7 +131,7 @@
   border: 2px solid transparent;
   background: none;
   color: inherit;
-  font-size: 1em;
+  font-size: inherit;
   font-family: inherit;
 
   -webkit-appearance: none;

@@ -1,4 +1,4 @@
-export * from './Navigation';
-export * from './getNavigation';
 export * from './getNavigationProps';
+export * from './Navigation';
 export * from './types';
+export * from './utils';
