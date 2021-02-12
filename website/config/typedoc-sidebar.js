@@ -53,6 +53,13 @@ module.exports = [
   },
   {
     "type": "category",
+    "label": "Variables",
+    "items": [
+      "api/variables/defaultprops"
+    ]
+  },
+  {
+    "type": "category",
     "label": "Functions",
     "items": [
       "api/functions/caption",

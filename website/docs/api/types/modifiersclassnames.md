@@ -9,3 +9,5 @@ hide_title: true
 # Type alias: ModifiersClassNames
 
 Ƭ **ModifiersClassNames**: { [modifier in Modifier]: string}
+
+Represent the classnames to assign to each modifier.
