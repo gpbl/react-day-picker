@@ -1,14 +1,14 @@
 ---
-id: "weekrow"
-title: "Function: WeekRow"
-sidebar_label: "WeekRow"
+id: "week"
+title: "Function: Week"
+sidebar_label: "Week"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Function: WeekRow
+# Function: Week
 
-▸ **WeekRow**(`props`: [*WeekProps*](../interfaces/weekprops.md)): JSX.Element
+▸ **Week**(`props`: [*WeekProps*](../interfaces/weekprops.md)): JSX.Element
 
 #### Parameters:
 

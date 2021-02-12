@@ -6,7 +6,6 @@ module.exports = [
     "items": [
       "api/interfaces/captionhtmlprops",
       "api/interfaces/captionprops",
-      "api/interfaces/customcomponents",
       "api/interfaces/daycontainerhtmlprops",
       "api/interfaces/dayhtmlprops",
       "api/interfaces/daypickerprops",
@@ -25,6 +24,7 @@ module.exports = [
     "label": "Type aliases",
     "items": [
       "api/types/captionformatter",
+      "api/types/customcomponents",
       "api/types/dayclickeventhandler",
       "api/types/dayformatter",
       "api/types/daykeyboardeventhandler",
@@ -53,6 +53,17 @@ module.exports = [
   },
   {
     "type": "category",
+    "label": "Variables",
+    "items": [
+      "api/variables/defaultclassnames",
+      "api/variables/defaultmodifiersstatus",
+      "api/variables/defaultprops",
+      "api/variables/defaultlocale",
+      "api/variables/defaultnumberofmonths"
+    ]
+  },
+  {
+    "type": "category",
     "label": "Functions",
     "items": [
       "api/functions/caption",
@@ -64,8 +75,13 @@ module.exports = [
       "api/functions/nexticon",
       "api/functions/previcon",
       "api/functions/root",
-      "api/functions/weekrow",
+      "api/functions/week",
+      "api/functions/weeknumber",
       "api/functions/addtorange",
+      "api/functions/defaultformatcaption",
+      "api/functions/defaultformatday",
+      "api/functions/defaultformatweeknumber",
+      "api/functions/defaultformatweekdayname",
       "api/functions/getcaptionprops",
       "api/functions/getdayprops",
       "api/functions/getmodifiers",

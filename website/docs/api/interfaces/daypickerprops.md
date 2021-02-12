@@ -67,7 +67,7 @@ ___
 
 ### components
 
-• `Optional` **components**: *undefined* \| [*CustomComponents*](customcomponents.md)
+• `Optional` **components**: *undefined* \| [*CustomComponents*](../types/customcomponents.md)
 
 Customize the internal components.
 
@@ -320,7 +320,7 @@ ___
 
 • `Optional` **nextLabel**: *undefined* \| *string*
 
-Label used for the next month button in [Navigation](customcomponents.md#navigation). Set it to empty
+Label used for the next month button in [[Navigation]]. Set it to empty
 string to hide the button.
 
 ___
@@ -444,7 +444,7 @@ ___
 
 • `Optional` **prevLabel**: *undefined* \| *string*
 
-Label used for the previous month button in [Navigation](customcomponents.md#navigation). Set it to
+Label used for the previous month button in [[Navigation]]. Set it to
 empty string to hide the button.
 
 ___
