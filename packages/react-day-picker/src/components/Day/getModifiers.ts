@@ -1,10 +1,13 @@
 import { isSameDay } from 'date-fns';
 
-import { DayPickerProps, defaultProps, ModifiersStatus } from '../DayPicker';
+import {
+  DayPickerProps,
+  defaultModifiers,
+  ModifiersStatus
+} from '../DayPicker';
 import { findModifiers } from './utils/findModifiers';
 import { getModifiersFromProps } from './utils/getModifiersFromProps';
 import { getOutsideModifier } from './utils/getOutsideModifier';
-
 /**
  * Return the status of the modifiers for the given day,
  */
@@ -14,7 +17,7 @@ export function getModifiers(
   props: DayPickerProps
 ): ModifiersStatus {
   const modifiers: ModifiersStatus = {
-    ...defaultProps.modifiers
+    ...defaultModifiers
   };
 
   if (props.today !== 'off') {
@@ -35,7 +38,6 @@ export function getModifiers(
 
   const foundModifiers = findModifiers(day, modifiersFromProps);
   foundModifiers.forEach((modifier) => (modifiers[modifier] = true));
-
   if (!props.onDayClick || modifiers.hidden || modifiers.disabled) {
     modifiers.interactive = false;
   }
