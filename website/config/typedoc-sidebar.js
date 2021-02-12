@@ -53,17 +53,6 @@ module.exports = [
   },
   {
     "type": "category",
-    "label": "Variables",
-    "items": [
-      "api/variables/defaultclassnames",
-      "api/variables/defaultmodifiersstatus",
-      "api/variables/defaultprops",
-      "api/variables/defaultlocale",
-      "api/variables/defaultnumberofmonths"
-    ]
-  },
-  {
-    "type": "category",
     "label": "Functions",
     "items": [
       "api/functions/caption",
@@ -78,10 +67,6 @@ module.exports = [
       "api/functions/week",
       "api/functions/weeknumber",
       "api/functions/addtorange",
-      "api/functions/defaultformatcaption",
-      "api/functions/defaultformatday",
-      "api/functions/defaultformatweeknumber",
-      "api/functions/defaultformatweekdayname",
       "api/functions/getcaptionprops",
       "api/functions/getdayprops",
       "api/functions/getmodifiers",

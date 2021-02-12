@@ -1,7 +1,7 @@
 import { Modifier } from './Modifier';
 
 /**
- * The status of a modifiers if matched against a day according to its
+ * Represent the status of a modifiers if matched against a day according to its
  * [[Matcher]].
  *
  * For example, the following day has the `selected` modifiers, but not `today`
@@ -15,7 +15,6 @@ import { Modifier } from './Modifier';
  * }
  * ```
  */
-
 export type ModifiersStatus = {
   [modifier in Modifier]?: boolean | undefined;
 };

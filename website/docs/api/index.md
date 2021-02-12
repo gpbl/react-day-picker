@@ -56,14 +56,6 @@ hide_title: true
 - [WeekNumberFormatter](types/weeknumberformatter.md)
 - [WeekdayNameFormatter](types/weekdaynameformatter.md)
 
-### Variables
-
-- [DefaultClassNames](variables/defaultclassnames.md)
-- [DefaultModifiersStatus](variables/defaultmodifiersstatus.md)
-- [DefaultProps](variables/defaultprops.md)
-- [defaultLocale](variables/defaultlocale.md)
-- [defaultNumberOfMonths](variables/defaultnumberofmonths.md)
-
 ### Functions
 
 - [Caption](functions/caption.md)
@@ -78,10 +70,6 @@ hide_title: true
 - [Week](functions/week.md)
 - [WeekNumber](functions/weeknumber.md)
 - [addToRange](functions/addtorange.md)
-- [defaultFormatCaption](functions/defaultformatcaption.md)
-- [defaultFormatDay](functions/defaultformatday.md)
-- [defaultFormatWeekNumber](functions/defaultformatweeknumber.md)
-- [defaultFormatWeekdayName](functions/defaultformatweekdayname.md)
 - [getCaptionProps](functions/getcaptionprops.md)
 - [getDayProps](functions/getdayprops.md)
 - [getModifiers](functions/getmodifiers.md)

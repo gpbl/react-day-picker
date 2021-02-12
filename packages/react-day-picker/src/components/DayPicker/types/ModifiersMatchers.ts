@@ -2,7 +2,7 @@ import { Matcher } from './Matcher';
 import { Modifier } from './Modifier';
 
 /**
- * Matchers assigned to each modifier.
+ * Represents the [[Matchers]] assigned to each modifier.
  *
  * **Example**
  *

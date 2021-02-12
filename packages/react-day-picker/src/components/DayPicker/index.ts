@@ -1,3 +1,3 @@
 export * from './DayPicker';
-export * from './defaults';
+export * from './defaultProps';
 export * from './types';
