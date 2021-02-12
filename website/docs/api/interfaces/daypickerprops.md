@@ -67,7 +67,7 @@ ___
 
 ### components
 
-• `Optional` **components**: *undefined* \| [*CustomComponents*](../types/customcomponents.md)
+• `Optional` **components**: *undefined* \| [*CustomizableComponents*](../types/customizablecomponents.md)
 
 Customize the internal components.
 
@@ -135,7 +135,7 @@ ___
 
 ### formatCaption
 
-• `Optional` **formatCaption**: *undefined* \| [*CaptionFormatter*](../types/captionformatter.md)
+• `Optional` **formatCaption**: *undefined* \| [*DateFormatter*](../types/dateformatter.md)
 
 Format the month caption text.
 
@@ -143,7 +143,7 @@ ___
 
 ### formatDay
 
-• `Optional` **formatDay**: *undefined* \| [*DayFormatter*](../types/dayformatter.md)
+• `Optional` **formatDay**: *undefined* \| [*DateFormatter*](../types/dateformatter.md)
 
 Format the content of the day element.
 
@@ -159,7 +159,7 @@ ___
 
 ### formatWeekdayName
 
-• `Optional` **formatWeekdayName**: *undefined* \| [*WeekdayNameFormatter*](../types/weekdaynameformatter.md)
+• `Optional` **formatWeekdayName**: *undefined* \| [*DateFormatter*](../types/dateformatter.md)
 
 Format the weekday's name in the head element.
 

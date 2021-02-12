@@ -12,10 +12,10 @@ const sidebar = [
   },
   {
     Guides: [
+      'guides/custom-components',
       'guides/formatters',
       'guides/localization',
-      'guides/input',
-      'guides/custom-components'
+      'guides/input'
     ]
   },
   { 'API Reference': require('./typedoc-sidebar.js') },

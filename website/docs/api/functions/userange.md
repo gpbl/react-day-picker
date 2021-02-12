@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: useRange
 
-▸ **useRange**(`initialRange?`: DaysRange): [DaysRange, (`day`: Date) => *void*]
+▸ **useRange**(`initialRange?`: [*DaysRange*](../types/daysrange.md)): [[*DaysRange*](../types/daysrange.md), (`day`: Date) => *void*]
 
 Returns a range and a state setter for handing ranges when selecting dates.
 
@@ -25,6 +25,6 @@ function Example() {
 
 Name | Type | Default value |
 ------ | ------ | ------ |
-`initialRange` | DaysRange | ... |
+`initialRange` | [*DaysRange*](../types/daysrange.md) | ... |
 
-**Returns:** [DaysRange, (`day`: Date) => *void*]
+**Returns:** [[*DaysRange*](../types/daysrange.md), (`day`: Date) => *void*]

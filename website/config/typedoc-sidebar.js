@@ -4,13 +4,9 @@ module.exports = [
     "type": "category",
     "label": "Interfaces",
     "items": [
-      "api/interfaces/captionhtmlprops",
       "api/interfaces/captionprops",
-      "api/interfaces/daycontainerhtmlprops",
-      "api/interfaces/dayhtmlprops",
       "api/interfaces/daypickerprops",
       "api/interfaces/dayprops",
-      "api/interfaces/daywrapperhtmlprops",
       "api/interfaces/headprops",
       "api/interfaces/monthprops",
       "api/interfaces/navigationprops",
@@ -23,15 +19,15 @@ module.exports = [
     "type": "category",
     "label": "Type aliases",
     "items": [
-      "api/types/captionformatter",
-      "api/types/customcomponents",
+      "api/types/customizablecomponents",
+      "api/types/dateformatter",
       "api/types/dayclickeventhandler",
-      "api/types/dayformatter",
       "api/types/daykeyboardeventhandler",
       "api/types/daymouseeventhandler",
       "api/types/daypickerclassnames",
       "api/types/daypickerstyles",
       "api/types/daytoucheventhandler",
+      "api/types/daysrange",
       "api/types/defaultmodifier",
       "api/types/matchafter",
       "api/types/matchbefore",
@@ -45,17 +41,10 @@ module.exports = [
       "api/types/modifiersstatus",
       "api/types/modifiersstyles",
       "api/types/monthchangeeventhandler",
-      "api/types/navigationmonths",
       "api/types/uielement",
-      "api/types/weeknumberformatter",
-      "api/types/weekdaynameformatter"
-    ]
-  },
-  {
-    "type": "category",
-    "label": "Variables",
-    "items": [
-      "api/variables/defaultprops"
+      "api/types/useinput",
+      "api/types/useinputoptions",
+      "api/types/weeknumberformatter"
     ]
   },
   {
@@ -74,11 +63,10 @@ module.exports = [
       "api/functions/week",
       "api/functions/weeknumber",
       "api/functions/addtorange",
-      "api/functions/getcaptionprops",
-      "api/functions/getdayprops",
+      "api/functions/getcaptioncomponent",
+      "api/functions/getdaycomponent",
       "api/functions/getmodifiers",
       "api/functions/getnavigation",
-      "api/functions/getnavigationprops",
       "api/functions/useinput",
       "api/functions/userange"
     ]
