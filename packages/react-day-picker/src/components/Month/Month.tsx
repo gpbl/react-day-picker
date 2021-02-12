@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Caption as DefaultMonthCaption } from '../Caption';
+import { Caption as DefaultCaption } from '../Caption';
 import { defaultLocale } from '../DayPicker/defaults/DefaultProps';
 import { Head } from '../Head';
 import { WeekRow } from '../Week';
@@ -10,8 +10,7 @@ import { MonthProps } from './types/MonthProps';
 export function Month(props: MonthProps): JSX.Element {
   const { month, dayPickerProps } = props;
   const { classNames, styles, showCaption, showHead } = dayPickerProps;
-  const MonthCaption =
-    dayPickerProps.components?.MonthCaption ?? DefaultMonthCaption;
+  const Caption = dayPickerProps.components?.Caption ?? DefaultCaption;
   const locale = dayPickerProps.locale ?? defaultLocale;
 
   const weeks = getWeeks(month, dayPickerProps);
@@ -20,7 +19,7 @@ export function Month(props: MonthProps): JSX.Element {
     <div className={classNames?.month}>
       <table className={classNames?.monthTable} style={styles?.monthTable}>
         {showCaption && (
-          <MonthCaption month={month} dayPickerProps={dayPickerProps} />
+          <Caption month={month} dayPickerProps={dayPickerProps} />
         )}
         {showHead && (
           <Head

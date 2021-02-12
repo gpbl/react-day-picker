@@ -1,9 +1,12 @@
 import english from 'date-fns/locale/en-US';
 
-import { Day } from '../../Day';
 import { Caption } from '../../Caption/Caption';
+import { Day } from '../../Day';
 import { Navigation } from '../../Navigation';
+import { NextIcon } from '../../NextIcon';
+import { PrevIcon } from '../../PrevIcon';
 import { WeekNumber } from '../../WeekNumber';
+
 import { formatCaption } from '../formatters/formatCaption';
 import { formatDay } from '../formatters/formatDay';
 import { formatWeekdayName } from '../formatters/formatWeekdayName';
@@ -16,6 +19,7 @@ export const defaultFormatCaption = formatCaption;
 export const defaultFormatDay = formatDay;
 export const defaultFormatWeekdayName = formatWeekdayName;
 export const defaultFormatWeekNumber = formatWeekNumber;
+export const defaultNumberOfMonths = 1;
 
 export const DefaultProps: DayPickerProps = {
   enableOutsideDaysClick: false,
@@ -24,10 +28,12 @@ export const DefaultProps: DayPickerProps = {
   style: {},
   styles: {},
   components: {
-    MonthCaption: Caption,
+    Caption,
     Day,
     Navigation,
-    WeekNumber
+    WeekNumber,
+    NextIcon,
+    PrevIcon
   },
   fixedWeeks: false,
   formatCaption: defaultFormatCaption,
@@ -35,12 +41,10 @@ export const DefaultProps: DayPickerProps = {
   formatWeekdayName: defaultFormatWeekdayName,
   formatWeekNumber: defaultFormatWeekNumber,
   locale: defaultLocale,
-  nextLabel: '▶',
   modifiersClassNames: {},
   modifiersStyles: {},
-  numberOfMonths: 1,
+  numberOfMonths: defaultNumberOfMonths,
   pagedNavigation: false,
-  prevLabel: '◀',
   reverseMonths: false,
   showCaption: true,
   showHead: true,

@@ -1,55 +1,31 @@
 import * as React from 'react';
 
-import { getNavigation } from './getNavigation';
 import { getNavigationProps } from './getNavigationProps';
+import { NextIcon as DefaultNextIcon } from '../NextIcon';
+import { PrevIcon as DefaultPrevIcon } from '../PrevIcon';
 import { NavigationProps } from './types';
 
-export function Navigation(props: NavigationProps): JSX.Element | null {
+export function Navigation(props: NavigationProps): JSX.Element {
   const { dayPickerProps } = props;
-  const { onMonthChange, onPrevClick, onNextClick } = dayPickerProps;
 
-  const { nextMonth, prevMonth } = getNavigation(dayPickerProps);
   const { containerProps, nextProps, prevProps } = getNavigationProps(
     dayPickerProps
   );
 
-  const handlePrevClick: React.MouseEventHandler = (e) => {
-    if (!prevMonth) return;
-    if (onMonthChange) onMonthChange(prevMonth, e);
-    if (onPrevClick) onPrevClick(prevMonth, e);
-  };
-
-  const handleNextClick: React.MouseEventHandler = (e): void => {
-    if (!nextMonth) return;
-    if (onMonthChange) onMonthChange(nextMonth, e);
-    if (onNextClick) onNextClick(nextMonth, e);
-  };
-
-  const { prevLabel, nextLabel } = dayPickerProps;
-
-  const prevButton = prevLabel && (
-    <button
-      {...prevProps}
-      key="prev"
-      disabled={!prevMonth}
-      type="button"
-      onClick={handlePrevClick}
-    >
-      {prevLabel}
+  const PrevIcon = dayPickerProps.components?.PrevIcon ?? DefaultPrevIcon;
+  const prevButton = (
+    <button {...prevProps} key="prev" type="button">
+      <PrevIcon />
     </button>
   );
 
-  const nextButton = nextLabel && (
-    <button
-      {...nextProps}
-      key={'next'}
-      disabled={!nextMonth}
-      type="button"
-      onClick={handleNextClick}
-    >
-      {nextLabel}
+  const NextIcon = dayPickerProps.components?.NextIcon ?? DefaultNextIcon;
+  const nextButton = (
+    <button {...nextProps} key="next" type="button">
+      <NextIcon />
     </button>
   );
+
   let buttons = [prevButton, nextButton];
   if (dayPickerProps.dir === 'rtl') {
     buttons = buttons.reverse();
