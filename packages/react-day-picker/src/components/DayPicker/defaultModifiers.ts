@@ -1,8 +1,6 @@
-import { DefaultModifier } from '../types';
+import { ModifiersStatus } from './types';
 
-export const DefaultModifiersStatus: {
-  [modifier in DefaultModifier]?: boolean;
-} = {
+const modifiers: ModifiersStatus = {
   disabled: false,
   hidden: false,
   interactive: true,
@@ -11,3 +9,5 @@ export const DefaultModifiersStatus: {
   selected: false,
   today: false
 };
+
+export default modifiers;

@@ -1,6 +1,6 @@
-import { DayPickerClassNames } from '../types';
+import { DayPickerClassNames } from './types';
 
-export const DefaultClassNames: DayPickerClassNames = {
+const classNames: DayPickerClassNames = {
   /** Root element */
   root: 'rdp',
   caption: 'rdp-caption',
@@ -41,3 +41,5 @@ export const DefaultClassNames: DayPickerClassNames = {
   aftermonth: 'rdp-day_outside',
   beforemonth: 'rdp-day_outside'
 };
+
+export default classNames;
