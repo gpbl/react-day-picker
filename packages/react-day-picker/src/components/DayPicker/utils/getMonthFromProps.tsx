@@ -3,7 +3,12 @@ import { DayPickerProps } from 'types';
 
 import { defaultProps } from '../defaultProps';
 
-export function getMonthFromProps(props: DayPickerProps = {}): Date {
+export function getMonthFromProps(
+  props: Pick<
+    DayPickerProps,
+    'month' | 'toMonth' | 'fromMonth' | 'initialMonth' | 'today'
+  >
+): Date {
   let month = props.month;
   const { toMonth, fromMonth } = props;
 

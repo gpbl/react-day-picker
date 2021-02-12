@@ -13,7 +13,14 @@ import { getOutsideModifier } from './getOutsideModifier';
 export function getModifiers(
   day: Date,
   currentMonth: Date,
-  props: DayPickerProps
+  props: Pick<
+    DayPickerProps,
+    | 'today'
+    | 'modifiers'
+    | 'showOutsideDays'
+    | 'enableOutsideDaysClick'
+    | 'onDayClick'
+  >
 ): ModifiersStatus {
   const modifiers: ModifiersStatus = {
     ...defaultModifiers

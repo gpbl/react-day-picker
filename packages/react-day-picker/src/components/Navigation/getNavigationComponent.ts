@@ -6,7 +6,10 @@ import { getPrevNextMonths } from './utils/getPrevNextMonths';
  * Return the props to apply to the elements of the [[Navigation]] component.
  */
 export function getNavigationComponent(
-  dayPickerProps: DayPickerProps
+  dayPickerProps: Pick<
+    DayPickerProps,
+    'classNames' | 'styles' | 'onMonthChange'
+  >
 ): {
   nextMonth: Date | undefined;
   prevMonth: Date | undefined;

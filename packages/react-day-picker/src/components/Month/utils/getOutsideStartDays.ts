@@ -3,7 +3,7 @@ import { DayPickerProps } from 'types';
 
 export function getOutsideStartDays(
   month: Date,
-  props: DayPickerProps
+  props: Pick<DayPickerProps, 'locale'>
 ): Date[] {
   const { locale } = props;
   const days = [];
