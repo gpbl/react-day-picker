@@ -3,8 +3,8 @@ import React from 'react';
 
 import { Month } from '../Month';
 import { Navigation as DefaultNavigation } from '../Navigation';
-import { getMonths } from './utils/getMonths';
 import { RootProps } from './types/RootProps';
+import { getMonths } from './utils/getMonths';
 
 export function Root(props: RootProps): JSX.Element {
   const { dayPickerProps } = props;

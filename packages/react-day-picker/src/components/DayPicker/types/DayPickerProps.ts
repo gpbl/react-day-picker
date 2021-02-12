@@ -1,21 +1,21 @@
 import * as dateFns from 'date-fns';
 
-import { DayFormatter } from '../../Day';
 import { CaptionFormatter } from '../../Caption';
-import { WeekNumberFormatter } from '../../WeekNumber';
+import { DayFormatter } from '../../Day';
 import { WeekdayNameFormatter } from '../../Week';
+import { WeekNumberFormatter } from '../../WeekNumber';
 import { CustomComponents } from './CustomComponents';
 import { DayClickEventHandler } from './DayClickEventHandler';
 import { DayKeyboardEventHandler } from './DayKeyboardEventHandler';
+import { DayMouseEventHandler } from './DayMouseEventHandler';
 import { DayPickerClassNames } from './DayPickerClassNames';
 import { DayPickerStyles } from './DayPickerStyles';
+import { DayTouchEventHandler } from './DayTouchEventHandler';
 import { Matcher } from './Matcher';
-import { ModifiersStyles } from './ModifiersStyles';
 import { ModifiersClassNames } from './ModifiersClassNames';
 import { ModifiersMatchers } from './ModifiersMatchers';
+import { ModifiersStyles } from './ModifiersStyles';
 import { MonthChangeEventHandler } from './MonthChangeEventHandler';
-import { DayMouseEventHandler } from './DayMouseEventHandler';
-import { DayTouchEventHandler } from './DayTouchEventHandler';
 
 /**
  * The props of the [[DayPicker]] component.
@@ -275,16 +275,6 @@ export interface DayPickerProps {
    * ```
    */
   showNavigation?: boolean;
-  /**
-   * Label used for the previous month button in [[Navigation]]. Set it to
-   * empty string to hide the button.
-   */
-  prevLabel?: string;
-  /**
-   * Label used for the next month button in [[Navigation]]. Set it to empty
-   * string to hide the button.
-   */
-  nextLabel?: string;
   /**
    * Apply the `selected` modifier to the matching days.
    *

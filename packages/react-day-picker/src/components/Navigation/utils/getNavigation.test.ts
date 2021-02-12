@@ -1,6 +1,6 @@
 import { DefaultProps } from '../../DayPicker/defaults/DefaultProps';
-import { getNavigation } from './getNavigation';
 import { NavigationMonths } from '../types';
+import { getNavigation } from './getNavigation';
 
 describe('getNavigation', () => {
   it('return next and previous months with default props', () => {

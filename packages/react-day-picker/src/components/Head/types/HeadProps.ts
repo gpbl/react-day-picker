@@ -1,4 +1,5 @@
 import * as DateFns from 'date-fns';
+
 import { DayPickerProps } from '../../DayPicker';
 
 export interface HeadProps {

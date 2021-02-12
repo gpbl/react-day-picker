@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+
 import { DayPickerProps, ModifiersStatus } from '../DayPicker';
 import { DayHtmlProps } from './types';
 

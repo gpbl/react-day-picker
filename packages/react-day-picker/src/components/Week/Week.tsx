@@ -1,9 +1,9 @@
 import { getUnixTime } from 'date-fns';
 import * as React from 'react';
 
-import { WeekProps } from './types/WeekProps';
 import { Day as DefaultDay } from '../Day';
 import { WeekNumber as DefaultWeekNumber } from '../WeekNumber';
+import { WeekProps } from './types/WeekProps';
 
 export function Week(props: WeekProps): JSX.Element {
   const { weekNumber, week, currentMonth, dayPickerProps } = props;

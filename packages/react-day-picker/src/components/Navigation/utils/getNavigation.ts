@@ -1,7 +1,7 @@
-import { defaultNumberOfMonths } from '../../DayPicker/defaults/DefaultProps';
 import { addMonths, startOfMonth } from 'date-fns';
 
 import { DayPickerProps } from '../../DayPicker';
+import { defaultNumberOfMonths } from '../../DayPicker/defaults/DefaultProps';
 import { NavigationMonths } from '../types';
 
 /**

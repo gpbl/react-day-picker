@@ -1,10 +1,10 @@
+import * as DateFns from 'date-fns';
+
+import { DayPickerProps } from '../DayPicker';
 import {
   defaultFormatCaption,
   defaultLocale
 } from '../DayPicker/defaults/DefaultProps';
-import * as DateFns from 'date-fns';
-
-import { DayPickerProps } from '../DayPicker';
 
 /**
  * Return the name of the weekdays according to the formatting function.
