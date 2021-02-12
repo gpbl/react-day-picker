@@ -69,6 +69,6 @@ hide_title: true
 - [getCaptionComponent](functions/getcaptioncomponent.md)
 - [getDayComponent](functions/getdaycomponent.md)
 - [getModifiers](functions/getmodifiers.md)
-- [getNavigation](functions/getnavigation.md)
+- [getNavigationComponent](functions/getnavigationcomponent.md)
 - [useInput](functions/useinput.md)
 - [useRange](functions/userange.md)

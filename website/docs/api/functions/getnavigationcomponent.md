@@ -1,14 +1,14 @@
 ---
-id: "getnavigation"
-title: "Function: getNavigation"
-sidebar_label: "getNavigation"
+id: "getnavigationcomponent"
+title: "Function: getNavigationComponent"
+sidebar_label: "getNavigationComponent"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Function: getNavigation
+# Function: getNavigationComponent
 
-▸ **getNavigation**(`dayPickerProps`: [*DayPickerProps*](../interfaces/daypickerprops.md)): *object*
+▸ **getNavigationComponent**(`dayPickerProps`: *Pick*<[*DayPickerProps*](../interfaces/daypickerprops.md), *classNames* \| *styles* \| *onMonthChange*\>): *object*
 
 Return the props to apply to the elements of the [Navigation](navigation.md) component.
 
@@ -16,7 +16,7 @@ Return the props to apply to the elements of the [Navigation](navigation.md) com
 
 Name | Type |
 ------ | ------ |
-`dayPickerProps` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
+`dayPickerProps` | *Pick*<[*DayPickerProps*](../interfaces/daypickerprops.md), *classNames* \| *styles* \| *onMonthChange*\> |
 
 **Returns:** *object*
 
