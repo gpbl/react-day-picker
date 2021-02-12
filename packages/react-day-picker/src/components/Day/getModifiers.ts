@@ -3,11 +3,13 @@ import { isSameDay } from 'date-fns';
 import {
   DayPickerProps,
   defaultModifiers,
+  defaultProps,
   ModifiersStatus
 } from '../DayPicker';
 import { findModifiers } from './utils/findModifiers';
 import { getModifiersFromProps } from './utils/getModifiersFromProps';
 import { getOutsideModifier } from './utils/getOutsideModifier';
+
 /**
  * Return the status of the modifiers for the given day,
  */
@@ -21,7 +23,7 @@ export function getModifiers(
   };
 
   if (props.today !== 'off') {
-    modifiers.today = isSameDay(props.today || new Date(), day);
+    modifiers.today = isSameDay(props.today || defaultProps.today, day);
   }
 
   const outsideModifier = getOutsideModifier(day, currentMonth);

@@ -37,7 +37,11 @@ export function DayPicker(props: DayPickerProps = {}): JSX.Element {
   const dayPickerProps: DayPickerProps = {
     ...defaultProps,
     ...props,
-    components: { ...defaultProps, ...props.components },
+    components: { ...defaultProps.components, ...props.components },
+    modifiers: {
+      ...defaultProps.modifiersClassNames,
+      ...props.modifiersClassNames
+    },
     onMonthChange,
     month: isControlled ? currentMonth : month
   };
