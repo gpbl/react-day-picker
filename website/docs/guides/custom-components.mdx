@@ -6,17 +6,19 @@ title: Custom Components
 Use the `components` prop to replace DayPicker’s internals with your own
 components:
 
-- `Navigation` – used to render the month navigation;
-- `WeekNumber` – used to render the week numbers;
-- `Caption` – used to render the caption;
-- `Day` – used to render the day.
+- `Navigation` – the month navigation;
+- `WeekNumber` – the week numbers;
+- `Caption` – the caption;
+- `Day` – the day;
+- `NextIcon` - the next month icon in navigation;
+- `PrevIcon` - the previous month icon;
 
 ## Custom Navigation
 
-The `Navigation` component is used to render the navigation buttons.
+The `Navigation` component create the navigation buttons.
 
 1. create a `Navigation` component extending [NavigationProps](/api/interfaces/navigationprops)
-2. use the return values from [getNavigationComponent](/api/functions/getnavigationcomponent);
+2. use the return values by [getNavigationComponent](/api/functions/getnavigationcomponent);
 3. pass the `Navigation` component to the `components` prop.
 
 For example, the following DayPicker implements a `Navigation` without the start button:
@@ -83,72 +85,9 @@ function Example() {
 }
 ```
 
-## Custom Caption
+## Custom Day
 
-The `Caption` component is used to render the caption (with month/year) in the calendar.
-
-1. create a `Caption` component with `month` and `dayPickerProps` props;
-2. (optional) get DayPicker-specific props via [getCaptionComponent](/api/functions/getcaptioncomponent);
-3. pass the `Caption` component to the `components` prop.
-
-For example, the following DayPicker implements a `Caption` component to switch the month of the current year:
-
-```jsx showOutput open=no
-import { DayPicker, getCaptionComponent } from 'react-day-picker';
-
-function Example() {
-  function MonthSelect({ locale, onChange }) {
-    const months = [];
-    for (let i = 0; i < 12; i++) {
-      months.push(locale.localize.month(i));
-    }
-    return (
-      <select
-        value={month.getMonth()}
-        onChange={
-          onChange ? (e) => onChange(Number(e.target.value)) : undefined
-        }
-      >
-        {months.map((month, i) => (
-          <option key={i} value={i}>
-            {month}
-          </option>
-        ))}
-      </select>
-    );
-  }
-  function Caption({ month, dayPickerProps }) {
-    const { locale, onCaptionMonthChange } = dayPickerProps;
-    const { containerProps } = getCaptionComponent(dayPickerProps);
-
-    return (
-      <caption {...containerProps}>
-        <MonthSelect locale={locale} onChange={onCaptionMonthChange} />{' '}
-        <small>{month.getFullYear()}</small>
-      </caption>
-    );
-  }
-
-  const [month, setMonth] = useState(new Date());
-  const handleCaptionMonthChange = (m) => {
-    const newMonth = new Date(month);
-    newMonth.setMonth(m);
-    setMonth(newMonth);
-  };
-  return (
-    <DayPicker
-      month={month}
-      onMonthChange={setMonth}
-      onCaptionMonthChange={handleCaptionMonthChange}
-      components={{ Caption }}
-    />
-  );
-}
-```
-
-## Custom Day component
-
-To change the component used to render the day in the calendar,
+To change the component rendering the Day in the calendar,
 
 1. create a new `Day` component extending [DayProps](/api/interfaces/dayprops);
 2. use the return values from [getDayComponent](/api/functions/getdaycomponent);
@@ -178,6 +117,82 @@ function Example() {
       selected={selectedDay}
       onDayClick={setSelectedDay}
       components={{ Day }}
+    />
+  );
+}
+```
+
+## Custom Caption
+
+The `Caption` component is used to render the caption (with month/year) in the calendar.
+
+1. create a new `Caption` component extending [DayProps](/api/interfaces/dayprops)
+2. use the values returned by [getCaptionComponent](/api/functions/getcaptioncomponent);
+3. pass the `Caption` component to the `components` prop.
+
+## Adding custom props
+
+The following example add `onYearSelect` and `onMonthSelect` to the DayPicker
+props, and a custom `Caption` component rendering two selects for swiching
+between month and years.
+
+```jsx showOutput open=no
+import { DayPicker, getCaptionComponent } from 'react-day-picker';
+
+function Example() {
+  const validYears = [2021, 2022, 2023, 2024, 2025];
+
+  /** A custom Caption component */
+  function Caption({ month, dayPickerProps }) {
+    const { locale, onMonthSelect, onYearSelect } = dayPickerProps;
+    const { containerProps } = getCaptionComponent(dayPickerProps);
+    const months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    return (
+      <caption {...containerProps}>
+        <select
+          value={month.getMonth()}
+          onChange={(e) => onMonthSelect(Number(e.target.value))}
+        >
+          {months.map((i) => (
+            <option key={i} value={i}>
+              {locale.localize.month(i)}
+            </option>
+          ))}
+        </select>
+        <select
+          value={month.getFullYear()}
+          onChange={(e) => onYearSelect(Number(e.target.value))}
+        >
+          {validYears.map((year, i) => (
+            <option key={i} value={year}>
+              {year}
+            </option>
+          ))}
+        </select>
+      </caption>
+    );
+  }
+
+  const [month, setMonth] = useState(new Date());
+  const handleMonthSelect = (m) => {
+    const selectedMonth = new Date(month);
+    selectedMonth.setMonth(m);
+    setMonth(selectedMonth);
+  };
+  const handleYearSelect = (year) => {
+    const selectedMonth = new Date(month);
+    selectedMonth.setYear(year);
+    setMonth(selectedMonth);
+  };
+  return (
+    <DayPicker
+      month={month}
+      fromMonth={new Date(validYears[0], 0)}
+      toMonth={new Date(validYears[validYears.length - 1], 11)}
+      components={{ Caption }}
+      onMonthChange={setMonth}
+      onMonthSelect={handleMonthSelect}
+      onYearSelect={handleYearSelect}
     />
   );
 }
