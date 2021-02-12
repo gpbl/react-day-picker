@@ -16,6 +16,7 @@ title: Introduction
 hide_title: true
 hide_table_of_contents: true
 ---
+<!-- This file is copied via copy-docs.sh at build time. Do not edit it! -->
 
 EOF
 
@@ -32,6 +33,7 @@ title: Contributing
 hide_title: true
 hide_table_of_contents: true
 ---
+<!-- This file is copied via copy-docs.sh at build time. Do not edit it! -->
 
 EOF
 
@@ -47,6 +49,7 @@ id: changelog
 title: Changelog
 hide_table_of_contents: true
 ---
+<!-- This file is copied via copy-docs.sh at build time. Do not edit it! -->
 
 EOF
 
@@ -57,11 +60,13 @@ src='../../LICENSE'
 dest='../docs/license.mdx'
 
 cat << EOF > $dest
+
 ---
 id: license
 title: License
 hide_table_of_contents: true
 ---
+<!-- This file is copied via copy-docs.sh at build time. Do not edit it! -->
 
 EOF
 
