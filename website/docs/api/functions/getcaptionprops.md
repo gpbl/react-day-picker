@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ **getCaptionProps**(`dayPickerProps`: [*DayPickerProps*](../interfaces/daypickerprops.md)): [*CaptionHtmlProps*](../interfaces/captionhtmlprops.md)
 
-Return props for creating a [Caption](../interfaces/customcomponents.md#caption) component.
+Return props for creating a [[Caption]] component.
 
 #### Parameters:
 

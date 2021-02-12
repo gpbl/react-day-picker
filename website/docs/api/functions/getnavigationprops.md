@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ **getNavigationProps**(`dayPickerProps`: [*DayPickerProps*](../interfaces/daypickerprops.md)): *object*
 
-Return the props to apply to the elements of the [Navigation](../interfaces/customcomponents.md#navigation) component.
+Return the props to apply to the elements of the [[Navigation]] component.
 
 #### Parameters:
 

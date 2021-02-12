@@ -15,7 +15,6 @@ hide_title: true
 
 - [CaptionHtmlProps](interfaces/captionhtmlprops.md)
 - [CaptionProps](interfaces/captionprops.md)
-- [CustomComponents](interfaces/customcomponents.md)
 - [DayContainerHtmlProps](interfaces/daycontainerhtmlprops.md)
 - [DayHtmlProps](interfaces/dayhtmlprops.md)
 - [DayPickerProps](interfaces/daypickerprops.md)
@@ -31,6 +30,7 @@ hide_title: true
 ### Type aliases
 
 - [CaptionFormatter](types/captionformatter.md)
+- [CustomComponents](types/customcomponents.md)
 - [DayClickEventHandler](types/dayclickeventhandler.md)
 - [DayFormatter](types/dayformatter.md)
 - [DayKeyboardEventHandler](types/daykeyboardeventhandler.md)
@@ -56,6 +56,14 @@ hide_title: true
 - [WeekNumberFormatter](types/weeknumberformatter.md)
 - [WeekdayNameFormatter](types/weekdaynameformatter.md)
 
+### Variables
+
+- [DefaultClassNames](variables/defaultclassnames.md)
+- [DefaultModifiersStatus](variables/defaultmodifiersstatus.md)
+- [DefaultProps](variables/defaultprops.md)
+- [defaultLocale](variables/defaultlocale.md)
+- [defaultNumberOfMonths](variables/defaultnumberofmonths.md)
+
 ### Functions
 
 - [Caption](functions/caption.md)
@@ -67,8 +75,13 @@ hide_title: true
 - [NextIcon](functions/nexticon.md)
 - [PrevIcon](functions/previcon.md)
 - [Root](functions/root.md)
-- [WeekRow](functions/weekrow.md)
+- [Week](functions/week.md)
+- [WeekNumber](functions/weeknumber.md)
 - [addToRange](functions/addtorange.md)
+- [defaultFormatCaption](functions/defaultformatcaption.md)
+- [defaultFormatDay](functions/defaultformatday.md)
+- [defaultFormatWeekNumber](functions/defaultformatweeknumber.md)
+- [defaultFormatWeekdayName](functions/defaultformatweekdayname.md)
 - [getCaptionProps](functions/getcaptionprops.md)
 - [getDayProps](functions/getdayprops.md)
 - [getModifiers](functions/getmodifiers.md)
@@ -76,9 +89,3 @@ hide_title: true
 - [getNavigationProps](functions/getnavigationprops.md)
 - [useInput](functions/useinput.md)
 - [useRange](functions/userange.md)
-
-## References
-
-### WeekNumber
-
-Renames and exports: [\_\_type]()
