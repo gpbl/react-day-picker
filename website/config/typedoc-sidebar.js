@@ -66,7 +66,7 @@ module.exports = [
       "api/functions/getcaptioncomponent",
       "api/functions/getdaycomponent",
       "api/functions/getmodifiers",
-      "api/functions/getnavigation",
+      "api/functions/getnavigationcomponent",
       "api/functions/useinput",
       "api/functions/userange"
     ]

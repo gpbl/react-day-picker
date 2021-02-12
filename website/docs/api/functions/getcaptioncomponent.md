@@ -8,13 +8,13 @@ hide_title: true
 
 # Function: getCaptionComponent
 
-▸ **getCaptionComponent**(`dayPickerProps`: [*DayPickerProps*](../interfaces/daypickerprops.md)): *object*
+▸ **getCaptionComponent**(`dayPickerProps`: *Pick*<[*DayPickerProps*](../interfaces/daypickerprops.md), *classNames* \| *styles*\>): *object*
 
 #### Parameters:
 
 Name | Type |
 ------ | ------ |
-`dayPickerProps` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
+`dayPickerProps` | *Pick*<[*DayPickerProps*](../interfaces/daypickerprops.md), *classNames* \| *styles*\> |
 
 **Returns:** *object*
 
