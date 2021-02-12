@@ -1,11 +1,15 @@
+import { DayPickerProps } from '../../../components/DayPicker';
 import * as React from 'react';
-
-import { UseInputDayPickerProps } from './UseInputDayPickerProps';
-import { UseInputInputProps } from './UseInputInputProps';
 
 export type UseInput = {
   setMonth: React.Dispatch<React.SetStateAction<Date>>;
   setValue: React.Dispatch<React.SetStateAction<string>>;
-  dayPickerProps: UseInputDayPickerProps;
-  inputProps: UseInputInputProps;
+  dayPickerProps: Pick<
+    DayPickerProps,
+    'onMonthChange' | 'onDayClick' | 'month' | 'selected'
+  >;
+  inputProps: Pick<
+    JSX.IntrinsicElements['input'],
+    'onFocus' | 'onBlur' | 'onChange' | 'value'
+  >;
 };
