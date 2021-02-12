@@ -1,12 +1,8 @@
 import * as dateFns from 'date-fns';
 
 /**
- * The function used to format the caption. Use the [[formatCaption]]
- * prop to use another function.
- *
- * @return {string} The month using the `"LLLL Y:` [format
- * string](https://date-fns.org/docs/format).
- * @private
+ * The function used to format the caption. Use the [[formatCaption]] prop to
+ * use another function.
  */
 export function formatCaption(
   month: Date,

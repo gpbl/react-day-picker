@@ -111,7 +111,7 @@ details .code-output {
   all: revert;
   border: none;
   height: 1px;
-  background-color: var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-color-emphasis-200);
 }
 
 .markdown h4 {

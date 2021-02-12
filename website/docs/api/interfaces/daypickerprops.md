@@ -316,15 +316,6 @@ function Example() {
 
 ___
 
-### nextLabel
-
-• `Optional` **nextLabel**: *undefined* \| *string*
-
-Label used for the next month button in [[Navigation]]. Set it to empty
-string to hide the button.
-
-___
-
 ### numberOfMonths
 
 • `Optional` **numberOfMonths**: *undefined* \| *number*
@@ -437,15 +428,6 @@ function Example() {
  return <DayPicker numberOfMonths={2} pagedNavigation />
 };
 ```
-
-___
-
-### prevLabel
-
-• `Optional` **prevLabel**: *undefined* \| *string*
-
-Label used for the previous month button in [[Navigation]]. Set it to
-empty string to hide the button.
 
 ___
 

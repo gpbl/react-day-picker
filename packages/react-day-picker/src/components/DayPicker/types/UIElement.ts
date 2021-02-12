@@ -1,3 +1,6 @@
+/**
+ * Represent an element of the DayPicker user interface.
+ */
 export type UIElement =
   | 'root'
   | 'caption'

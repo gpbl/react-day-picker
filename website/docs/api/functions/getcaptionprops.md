@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: getCaptionProps
 
-▸ **getCaptionProps**(`dayPickerProps`: [*DayPickerProps*](../interfaces/daypickerprops.md)): [*CaptionHtmlProps*](../interfaces/captionhtmlprops.md)
+▸ **getCaptionProps**(`dayPickerProps`: *Pick*<[*DayPickerProps*](../interfaces/daypickerprops.md), *classNames* \| *styles*\>): [*CaptionHtmlProps*](../interfaces/captionhtmlprops.md)
 
 Return props for creating a [[Caption]] component.
 
@@ -16,6 +16,6 @@ Return props for creating a [[Caption]] component.
 
 Name | Type |
 ------ | ------ |
-`dayPickerProps` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
+`dayPickerProps` | *Pick*<[*DayPickerProps*](../interfaces/daypickerprops.md), *classNames* \| *styles*\> |
 
 **Returns:** [*CaptionHtmlProps*](../interfaces/captionhtmlprops.md)

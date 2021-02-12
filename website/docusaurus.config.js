@@ -22,7 +22,12 @@ module.exports = {
           label: 'Documentation',
           activeBaseRegex: '(start|basics|guides)'
         },
-        { to: 'api', label: 'API Reference' },
+        { to: 'api/interfaces/daypickerprops', label: 'Component Props' },
+        {
+          to: 'api',
+          label: 'API Reference',
+          activeBaseRegex: '!(api/interfaces/daypickerprops)'
+        },
         { to: 'changelog', label: `v${pkg.version}`, position: 'right' },
         {
           href: 'https://github.com/gpbl/react-day-picker',
