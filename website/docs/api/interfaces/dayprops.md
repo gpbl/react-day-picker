@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: DayProps
 
+The props of the [Day](../functions/day.md) component.
+
 ## Hierarchy
 
 * **DayProps**

@@ -9,13 +9,15 @@ day.
 ## The `selected` modifier
 
 In the [Selecting Days tutorial](selecting-days), we see how a `selected` prop
-changes the appearance of a selected day. This property is available from the
-`onDayClick` callback.
+changes the appearance of the days. We say these days match the `selected`
+modifier.
 
-```jsx {2,3,10} showOutput
+DayPicker includes other modifiers, like `disabled`, `hidden` and `today`.
+
+```jsx {2,3,10} showOutput open=no
 function Example() {
-  const handleDayClick = (day, { selected }) => {
-    if (selected) {
+  const handleDayClick = (day, modifiers) => {
+    if (modifiers.selected) {
       alert(`${day.toLocaleDateString()} is already selected.`);
     }
   };
@@ -29,25 +31,11 @@ function Example() {
 }
 ```
 
-The second argument of the callback is an object of modifiers for the clicked
-day:
-
-```jsx
-const handleDayClick = (day, modifiers) => {
-  if (modifiers.selected) {
-    alert(`${day.toLocaleDateString()} is already selected.`);
-  }
-};
-```
-
-DayPicker includes other modifiers, like `disabled`, `hidden` and `today`.
-
 ## Disabling days
 
-A disabled day is not interactive. The `disabled` prop defines the disabled days
-by using the `disabled` modifier.
+The `disabled` modifier disable the interaction with the day:
 
-```jsx {7-13} showOutput open=no
+```jsx {3-7} showOutput open=no
 function Example() {
   const disabledDays = [
     new Date(2022, 4, 12),
@@ -148,7 +136,9 @@ Day cells can be styled according to the day modifiers, using CSS or inline
 styles.
 
 - use `modifiersStyle` to change the inline styles for each modifier
-- use [`modifiersClassNames`](/api/types/modifiersClassNames) to add a class name to the DOM element
+- use
+  [`modifiersClassNames`](/api/interfaces/daypickerprops#modifiersclassnames) to
+  add a class name to the DOM element
 
 ```jsx showOutput open=no
 function Example() {

@@ -13,13 +13,9 @@ hide_title: true
 
 ### Interfaces
 
-- [CaptionHtmlProps](interfaces/captionhtmlprops.md)
 - [CaptionProps](interfaces/captionprops.md)
-- [DayContainerHtmlProps](interfaces/daycontainerhtmlprops.md)
-- [DayHtmlProps](interfaces/dayhtmlprops.md)
 - [DayPickerProps](interfaces/daypickerprops.md)
 - [DayProps](interfaces/dayprops.md)
-- [DayWrapperHtmlProps](interfaces/daywrapperhtmlprops.md)
 - [HeadProps](interfaces/headprops.md)
 - [MonthProps](interfaces/monthprops.md)
 - [NavigationProps](interfaces/navigationprops.md)
@@ -29,15 +25,15 @@ hide_title: true
 
 ### Type aliases
 
-- [CaptionFormatter](types/captionformatter.md)
-- [CustomComponents](types/customcomponents.md)
+- [CustomizableComponents](types/customizablecomponents.md)
+- [DateFormatter](types/dateformatter.md)
 - [DayClickEventHandler](types/dayclickeventhandler.md)
-- [DayFormatter](types/dayformatter.md)
 - [DayKeyboardEventHandler](types/daykeyboardeventhandler.md)
 - [DayMouseEventHandler](types/daymouseeventhandler.md)
 - [DayPickerClassNames](types/daypickerclassnames.md)
 - [DayPickerStyles](types/daypickerstyles.md)
 - [DayTouchEventHandler](types/daytoucheventhandler.md)
+- [DaysRange](types/daysrange.md)
 - [DefaultModifier](types/defaultmodifier.md)
 - [MatchAfter](types/matchafter.md)
 - [MatchBefore](types/matchbefore.md)
@@ -51,14 +47,10 @@ hide_title: true
 - [ModifiersStatus](types/modifiersstatus.md)
 - [ModifiersStyles](types/modifiersstyles.md)
 - [MonthChangeEventHandler](types/monthchangeeventhandler.md)
-- [NavigationMonths](types/navigationmonths.md)
 - [UIElement](types/uielement.md)
+- [UseInput](types/useinput.md)
+- [UseInputOptions](types/useinputoptions.md)
 - [WeekNumberFormatter](types/weeknumberformatter.md)
-- [WeekdayNameFormatter](types/weekdaynameformatter.md)
-
-### Variables
-
-- [defaultProps](variables/defaultprops.md)
 
 ### Functions
 
@@ -74,10 +66,9 @@ hide_title: true
 - [Week](functions/week.md)
 - [WeekNumber](functions/weeknumber.md)
 - [addToRange](functions/addtorange.md)
-- [getCaptionProps](functions/getcaptionprops.md)
-- [getDayProps](functions/getdayprops.md)
+- [getCaptionComponent](functions/getcaptioncomponent.md)
+- [getDayComponent](functions/getdaycomponent.md)
 - [getModifiers](functions/getmodifiers.md)
 - [getNavigation](functions/getnavigation.md)
-- [getNavigationProps](functions/getnavigationprops.md)
 - [useInput](functions/useinput.md)
 - [useRange](functions/userange.md)
