@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { DayPickerProps } from 'types';
 
 import { Root } from '../Root';
 import { defaultProps } from './defaultProps';
-import { DayPickerProps } from './types';
 import { getMonthFromProps } from './utils/getMonthFromProps';
 
 /**

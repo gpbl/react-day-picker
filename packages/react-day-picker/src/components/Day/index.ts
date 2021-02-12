@@ -1,4 +1,3 @@
 export * from './Day';
-export * from './getDayProps';
-export * from './getModifiers';
-export * from './types';
+export * from './getDayComponent';
+export * from './utils/getModifiers';

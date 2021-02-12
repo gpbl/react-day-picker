@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
+import { DaysRange } from '../../types/DaysRange';
 import { addToRange } from './addToRange';
-import { DaysRange } from './types/DaysRange';
 
 const emptyRange: DaysRange = { from: undefined, to: undefined };
 

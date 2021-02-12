@@ -1,16 +1,16 @@
 import english from 'date-fns/locale/en-US';
 
 import { Caption } from '../Caption/Caption';
-import { Day } from '../Day';
+import { Day } from '../Day/Day';
 import { Navigation } from '../Navigation';
 import { NextIcon } from '../NextIcon';
 import { PrevIcon } from '../PrevIcon';
 import { WeekNumber } from '../WeekNumber';
+import classNames from './defaultClassNames';
 import { formatCaption } from './formatters/formatCaption';
 import { formatDay } from './formatters/formatDay';
 import { formatWeekdayName } from './formatters/formatWeekdayName';
 import { formatWeekNumber } from './formatters/formatWeekNumber';
-import classNames from './defaultClassNames';
 
 export const defaultProps = {
   enableOutsideDaysClick: false,

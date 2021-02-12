@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { WeekNumberProps } from 'types';
 
-import { defaultProps } from '../DayPicker';
-import { WeekNumberProps } from './types/WeekNumberProps';
+import { defaultProps } from '../DayPicker/defaultProps';
 
 export function WeekNumber(props: WeekNumberProps): JSX.Element {
   const { formatWeekNumber, locale, classNames, styles } = props.dayPickerProps;

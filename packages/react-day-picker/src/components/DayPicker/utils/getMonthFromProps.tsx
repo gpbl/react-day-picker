@@ -1,6 +1,7 @@
 import { isAfter, isBefore, startOfMonth } from 'date-fns';
+import { DayPickerProps } from 'types';
 
-import { DayPickerProps } from '../types';
+import { defaultProps } from '../defaultProps';
 
 export function getMonthFromProps(props: DayPickerProps = {}): Date {
   let month = props.month;

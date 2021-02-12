@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { defaultProps } from '../DayPicker';
-import { getCaptionProps } from './getCaptionProps';
-import { CaptionProps } from './types/CaptionProps';
+import { CaptionProps } from '../../types/CaptionProps';
+import { defaultProps } from '../DayPicker/defaultProps';
+import { getCaptionComponent } from './getCaptionComponent';
 
 export function Caption(props: CaptionProps): JSX.Element {
-  const { containerProps } = getCaptionProps(props.dayPickerProps);
+  const { containerProps } = getCaptionComponent(props.dayPickerProps);
   const locale = props.dayPickerProps.locale || defaultProps.locale;
   const formatCaption =
     props.dayPickerProps.formatCaption || defaultProps.formatCaption;

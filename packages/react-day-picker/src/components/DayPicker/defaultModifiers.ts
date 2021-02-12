@@ -1,4 +1,4 @@
-import { ModifiersStatus } from './types';
+import { ModifiersStatus } from 'types';
 
 export const defaultModifiers: ModifiersStatus = {
   disabled: false,
