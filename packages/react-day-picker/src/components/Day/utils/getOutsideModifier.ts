@@ -1,4 +1,4 @@
-import { isAfter, isBefore, startOfMonth, endOfMonth } from 'date-fns';
+import { endOfMonth, isAfter, isBefore, startOfMonth } from 'date-fns';
 
 /**
  * Return the proper modifier for days outside the current month.

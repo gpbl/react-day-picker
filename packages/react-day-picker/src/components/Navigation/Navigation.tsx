@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { getNavigationProps } from './getNavigationProps';
 import { NextIcon as DefaultNextIcon } from '../NextIcon';
 import { PrevIcon as DefaultPrevIcon } from '../PrevIcon';
+import { getNavigationProps } from './getNavigationProps';
 import { NavigationProps } from './types';
 
 export function Navigation(props: NavigationProps): JSX.Element {

@@ -1,9 +1,6 @@
 import * as React from 'react';
 
-import {
-  defaultFormatDay,
-  defaultLocale
-} from '../DayPicker/defaults/DefaultProps';
+import { defaultFormatDay, defaultLocale } from '../DayPicker/defaults/DefaultProps';
 import { getDayProps } from './getDayProps';
 import { getModifiers } from './getModifiers';
 import { DayProps } from './types';

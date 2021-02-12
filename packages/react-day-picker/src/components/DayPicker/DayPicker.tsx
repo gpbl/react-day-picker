@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { Root } from '../Root';
 import { DefaultProps } from './defaults/DefaultProps';
-import { getMonthFromProps } from './utils/getMonthFromProps';
 import { DayPickerProps } from './types';
+import { getMonthFromProps } from './utils/getMonthFromProps';
 
 /**
  * Render a date picker component.

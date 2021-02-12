@@ -6,7 +6,6 @@ import { Navigation } from '../../Navigation';
 import { NextIcon } from '../../NextIcon';
 import { PrevIcon } from '../../PrevIcon';
 import { WeekNumber } from '../../WeekNumber';
-
 import { formatCaption } from '../formatters/formatCaption';
 import { formatDay } from '../formatters/formatDay';
 import { formatWeekdayName } from '../formatters/formatWeekdayName';

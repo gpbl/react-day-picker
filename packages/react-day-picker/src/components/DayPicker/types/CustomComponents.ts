@@ -1,15 +1,15 @@
-import { Day } from '../../Day';
 import { Caption } from '../../Caption';
-import { PrevIcon } from '../../PrevIcon';
-import { NextIcon } from '../../NextIcon';
+import { Day } from '../../Day';
 import { Navigation } from '../../Navigation';
+import { NextIcon } from '../../NextIcon';
+import { PrevIcon } from '../../PrevIcon';
 import { WeekNumber } from '../../WeekNumber';
 
-export interface CustomComponents {
+export type CustomComponents = {
   Caption?: typeof Caption;
   Day?: typeof Day;
   Navigation?: typeof Navigation;
   WeekNumber?: typeof WeekNumber;
   NextIcon?: typeof NextIcon;
   PrevIcon?: typeof PrevIcon;
-}
+};

@@ -1,4 +1,5 @@
-import { isSameDay, differenceInDays } from 'date-fns';
+import { differenceInDays, isSameDay } from 'date-fns';
+
 import { Matcher } from '../../DayPicker/types';
 
 function isDayAfter(day1: Date, day2: Date, inclusive = false): boolean {
