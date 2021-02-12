@@ -56,6 +56,10 @@ hide_title: true
 - [WeekNumberFormatter](types/weeknumberformatter.md)
 - [WeekdayNameFormatter](types/weekdaynameformatter.md)
 
+### Variables
+
+- [defaultProps](variables/defaultprops.md)
+
 ### Functions
 
 - [Caption](functions/caption.md)

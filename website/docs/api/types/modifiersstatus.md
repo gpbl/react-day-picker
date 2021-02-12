@@ -10,7 +10,7 @@ hide_title: true
 
 Ƭ **ModifiersStatus**: { [modifier in Modifier]?: boolean}
 
-The status of a modifiers if matched against a day according to its
+Represent the status of a modifiers if matched against a day according to its
 [Matcher](matcher.md).
 
 For example, the following day has the `selected` modifiers, but not `today`

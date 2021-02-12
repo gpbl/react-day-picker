@@ -9,3 +9,5 @@ hide_title: true
 # Type alias: ModifiersStyles
 
 Ƭ **ModifiersStyles**: { [modifier in Modifier]: React.CSSProperties}
+
+Represent the inline-style assigned to each modifier.

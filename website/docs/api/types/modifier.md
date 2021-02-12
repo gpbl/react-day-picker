@@ -10,4 +10,4 @@ hide_title: true
 
 Ƭ **Modifier**: [*DefaultModifier*](defaultmodifier.md) \| *string*
 
-A string that is assigned to a day if the day matches a [Matcher](matcher.md).
+Represent the string assigned to a day when matching a [Matcher](matcher.md).

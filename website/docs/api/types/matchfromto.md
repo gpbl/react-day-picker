@@ -10,7 +10,7 @@ hide_title: true
 
 Ƭ **MatchFromTo**: { `from`: Date ; `to`: Date  }
 
-Match any day between and including two dates.
+Represent a Matcher matching between (and including) `from` and `to` dates.
 
 #### Type declaration:
 
