@@ -1,11 +1,6 @@
 export interface RangeModifier {
-  from: Date;
-  to: Date;
-}
-
-export interface RangeModifier {
-  from: Date;
-  to: Date;
+  from: Date | undefined;
+  to: Date | undefined;
 }
 
 export interface BeforeModifier {
