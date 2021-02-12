@@ -7,10 +7,15 @@ import { defaultProps } from '../../DayPicker/defaultProps';
  * Get the months to render in DayPicker according to the passed
  * `numberOfMonths` and other month-related props.
  */
-export function getMonths(props: DayPickerProps): Date[] {
+export function getMonths(
+  props: Pick<
+    DayPickerProps,
+    'month' | 'numberOfMonths' | 'toMonth' | 'fromMonth' | 'reverseMonths'
+  >
+): Date[] {
   const {
     month = defaultProps.month,
-    numberOfMonths = 1,
+    numberOfMonths = defaultProps.numberOfMonths,
     toMonth,
     fromMonth,
     reverseMonths

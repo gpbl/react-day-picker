@@ -1,7 +1,7 @@
 import { DayPickerProps, ModifiersMatchers } from 'types';
 
 export function getModifiersFromProps(
-  props: DayPickerProps
+  props: Pick<DayPickerProps, 'selected' | 'disabled' | 'hidden' | 'modifiers'>
 ): ModifiersMatchers {
   const modifiers = Object.assign({}, props.modifiers);
   if (props.selected) {

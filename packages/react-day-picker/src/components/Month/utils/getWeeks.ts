@@ -22,7 +22,10 @@ type MonthWeeks = { [weeknumber: string]: Date[] };
 /**
  * Return the weeks belonging to the given month.
  */
-export function getWeeks(month: Date, props: DayPickerProps): MonthWeeks {
+export function getWeeks(
+  month: Date,
+  props: Pick<DayPickerProps, 'locale' | 'fixedWeeks'>
+): MonthWeeks {
   const { locale, fixedWeeks } = props;
   const monthStart = startOfMonth(month);
   const monthEnd = endOfMonth(month);
