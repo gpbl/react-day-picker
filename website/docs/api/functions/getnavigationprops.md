@@ -8,14 +8,20 @@ hide_title: true
 
 # Function: getNavigationProps
 
-▸ **getNavigationProps**(`props`: [*DayPickerProps*](../interfaces/daypickerprops.md)): [*NavigationHtmlProps*](../interfaces/navigationhtmlprops.md)
+▸ **getNavigationProps**(`dayPickerProps`: [*DayPickerProps*](../interfaces/daypickerprops.md)): *object*
 
-Return the props for the Navigation component and its children.
+Return the props to apply to the elements of the [Navigation](../interfaces/customcomponents.md#navigation) component.
 
 #### Parameters:
 
 Name | Type |
 ------ | ------ |
-`props` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
+`dayPickerProps` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
 
-**Returns:** [*NavigationHtmlProps*](../interfaces/navigationhtmlprops.md)
+**Returns:** *object*
+
+Name | Type |
+------ | ------ |
+`containerProps` | NavigationContainerProps |
+`nextProps` | NavigationButtonProps |
+`prevProps` | NavigationButtonProps |

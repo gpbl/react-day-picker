@@ -10,8 +10,7 @@ hide_title: true
 
 ▸ **getNavigation**(`props`: [*DayPickerProps*](../interfaces/daypickerprops.md)): [*NavigationMonths*](../types/navigationmonths.md)
 
-Return the next and the previous months for the navigation component,
-according to the DayPicker props.
+Return the next and the previous months, according to the DayPicker props.
 
 #### Parameters:
 

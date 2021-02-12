@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: Navigation
 
-▸ **Navigation**(`props`: [*NavigationProps*](../interfaces/navigationprops.md)): JSX.Element \| *null*
+▸ **Navigation**(`props`: [*NavigationProps*](../interfaces/navigationprops.md)): JSX.Element
 
 #### Parameters:
 
@@ -16,4 +16,4 @@ Name | Type |
 ------ | ------ |
 `props` | [*NavigationProps*](../interfaces/navigationprops.md) |
 
-**Returns:** JSX.Element \| *null*
+**Returns:** JSX.Element

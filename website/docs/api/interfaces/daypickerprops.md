@@ -67,7 +67,7 @@ ___
 
 ### components
 
-• `Optional` **components**: *undefined* \| [*CustomComponents*](../types/customcomponents.md)
+• `Optional` **components**: *undefined* \| [*CustomComponents*](customcomponents.md)
 
 Customize the internal components.
 
@@ -320,7 +320,7 @@ ___
 
 • `Optional` **nextLabel**: *undefined* \| *string*
 
-Label used for the next month button in [[Navigation]]. Set it to empty
+Label used for the next month button in [Navigation](customcomponents.md#navigation). Set it to empty
 string to hide the button.
 
 ___
@@ -351,55 +351,55 @@ ___
 
 ### onDayKeyDown
 
-• `Optional` **onDayKeyDown**: *undefined* \| [*DayKeyDownEventHandler*](../types/daykeydowneventhandler.md)
+• `Optional` **onDayKeyDown**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 ___
 
 ### onDayKeyPress
 
-• `Optional` **onDayKeyPress**: *undefined* \| [*DayKeyPressEventHandler*](../types/daykeypresseventhandler.md)
+• `Optional` **onDayKeyPress**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 ___
 
 ### onDayKeyUp
 
-• `Optional` **onDayKeyUp**: *undefined* \| [*DayKeyUpEventHandler*](../types/daykeyupeventhandler.md)
+• `Optional` **onDayKeyUp**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 ___
 
 ### onDayMouseEnter
 
-• `Optional` **onDayMouseEnter**: *undefined* \| [*DayMouseEnterEventHandler*](../types/daymouseentereventhandler.md)
+• `Optional` **onDayMouseEnter**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
 
 ___
 
 ### onDayMouseLeave
 
-• `Optional` **onDayMouseLeave**: *undefined* \| DayMouseLeaveEventHandler
+• `Optional` **onDayMouseLeave**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
 
 ___
 
 ### onDayTouchCancel
 
-• `Optional` **onDayTouchCancel**: *undefined* \| [*DayTouchCancelHandler*](../types/daytouchcancelhandler.md)
+• `Optional` **onDayTouchCancel**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 ___
 
 ### onDayTouchEnd
 
-• `Optional` **onDayTouchEnd**: *undefined* \| [*DayTouchEndHandler*](../types/daytouchendhandler.md)
+• `Optional` **onDayTouchEnd**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 ___
 
 ### onDayTouchMove
 
-• `Optional` **onDayTouchMove**: *undefined* \| [*DayTouchMoveEventHandler*](../types/daytouchmoveeventhandler.md)
+• `Optional` **onDayTouchMove**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 ___
 
 ### onDayTouchStart
 
-• `Optional` **onDayTouchStart**: *undefined* \| [*DayTouchStartEventHandler*](../types/daytouchstarteventhandler.md)
+• `Optional` **onDayTouchStart**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 ___
 
@@ -444,7 +444,7 @@ ___
 
 • `Optional` **prevLabel**: *undefined* \| *string*
 
-Label used for the previous month button in [[Navigation]]. Set it to
+Label used for the previous month button in [Navigation](customcomponents.md#navigation). Set it to
 empty string to hide the button.
 
 ___
