@@ -10,7 +10,7 @@ export function getMonthFromProps(props: DayPickerProps = {}): Date {
     month =
       props.initialMonth ||
       (props.today !== 'off' && props.today) ||
-      new Date();
+      defaultProps.today;
     month = startOfMonth(month);
   }
   // Fix initial month if is after the `toMonth` prop.

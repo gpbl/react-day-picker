@@ -16,7 +16,7 @@ export function getNavigation(props: DayPickerProps): NavigationMonths {
   } = props;
 
   const add = pagedNavigation ? numberOfMonths : 1;
-  const currentMonth = startOfMonth(month || new Date());
+  const currentMonth = startOfMonth(month || defaultProps.today);
 
   let prevMonth: Date | undefined;
   if (!fromMonth || currentMonth > startOfMonth(fromMonth)) {
