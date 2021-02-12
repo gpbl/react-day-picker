@@ -21,7 +21,7 @@
   margin-bottom: 0.75em;
   text-align: left;
   font-weight: bold;
-  font-size: large;
+  font-size: 20px;
 }
 
 .rdp[dir='rtl'] .rdp-caption {
@@ -73,7 +73,7 @@
 
 .rdp-nav {
   position: absolute;
-  top: 3px;
+  top: 4px;
   right: 0;
   display: flex;
 }
