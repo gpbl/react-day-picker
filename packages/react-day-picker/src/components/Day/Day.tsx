@@ -9,11 +9,15 @@ export function Day(props: DayProps): JSX.Element {
   const locale = dayPickerProps.locale ?? defaultProps.locale;
   const formatDay = dayPickerProps.formatDay ?? defaultProps.formatDay;
 
-  const { containerProps, wrapperProps } = getDayComponent(
+  const { containerProps, wrapperProps, modifiers } = getDayComponent(
     day,
     currentMonth,
     dayPickerProps
   );
+
+  if (modifiers.hidden) {
+    return <span />;
+  }
 
   return (
     <span {...containerProps}>
