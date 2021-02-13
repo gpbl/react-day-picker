@@ -24,6 +24,7 @@ module.exports = [
       "api/types/customizablecomponents",
       "api/types/dateformatter",
       "api/types/dayclickeventhandler",
+      "api/types/dayfocuseventhandler",
       "api/types/daykeyboardeventhandler",
       "api/types/daylabelformatter",
       "api/types/daymouseeventhandler",
