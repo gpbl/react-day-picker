@@ -1,5 +1,12 @@
+import { isSameMonth, startOfMonth } from 'date-fns';
 import * as React from 'react';
-import { DayPickerComponentProps, DayPickerProps } from 'types';
+import {
+  DayClickEventHandler,
+  DayFocusEventHandler,
+  DayPickerComponentProps,
+  DayPickerProps,
+  MonthChangeEventHandler
+} from 'types';
 
 import { Root } from '../Root';
 import { defaultProps } from './defaults';
@@ -27,25 +34,48 @@ export function DayPicker(props: DayPickerComponentProps): JSX.Element {
   const isControlled = !('month' in props); // DayPicker will handle the state
 
   const month = getMonthFromProps(props);
-  const [currentMonth, setCurrentMonth] = React.useState(month);
+  const [currentMonth, setCurrentMonth] = React.useState<Date>(month);
+  const [focusedDay, setFocusedDay] = React.useState<Date | undefined>();
 
-  const onMonthChange = (newMonth: Date, e: React.MouseEvent) => {
+  const onMonthChange: MonthChangeEventHandler = (newMonth, e) => {
     if (isControlled) setCurrentMonth(newMonth);
     props.onMonthChange?.(newMonth, e);
   };
 
+  const onDayFocus: DayFocusEventHandler = (day, modifiers, e) => {
+    if (!isSameMonth(day, currentMonth)) {
+      setCurrentMonth(startOfMonth(day));
+    }
+    setFocusedDay(day);
+    props.onDayFocus?.(day, modifiers, e);
+  };
+
+  const onDayBlur: DayFocusEventHandler = (day, modifiers, e) => {
+    setFocusedDay(undefined);
+    props.onDayBlur?.(day, modifiers, e);
+  };
+
+  const onDayClick: DayClickEventHandler = (day, modifiers, e) => {
+    props.onDayClick?.(day, modifiers, e);
+  };
+
+  const overrideProps = {
+    month: isControlled ? currentMonth : month,
+    onMonthChange,
+    onDayFocus,
+    onDayBlur,
+    onDayClick,
+    focusedDay
+  };
   const dayPickerProps: DayPickerProps = {
     ...defaultProps,
     ...props,
-
-    month: isControlled ? currentMonth : month,
-    onMonthChange,
     components: { ...defaultProps.components, ...props.components },
     modifiers: {
       ...defaultProps.modifiers,
       ...props.modifiers
-    }
+    },
+    ...overrideProps
   };
-
   return <Root dayPickerProps={dayPickerProps} />;
 }

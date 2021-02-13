@@ -15,7 +15,8 @@ import {
   MonthChangeEventHandler,
   WeekNumberFormatter,
   LabelsFormatters,
-  WeekdayFormatter
+  WeekdayFormatter,
+  DayFocusEventHandler
 } from 'types';
 
 /**
@@ -419,6 +420,8 @@ export interface DayPickerComponentProps {
 
   /* Event handlers */
   onDayClick?: DayClickEventHandler;
+  onDayFocus?: DayFocusEventHandler;
+  onDayBlur?: DayFocusEventHandler;
   onDayMouseEnter?: DayMouseEventHandler;
   onDayMouseLeave?: DayMouseEventHandler;
   onDayKeyDown?: DayKeyboardEventHandler;
@@ -428,9 +431,7 @@ export interface DayPickerComponentProps {
   onDayTouchEnd?: DayTouchEventHandler;
   onDayTouchMove?: DayTouchEventHandler;
   onDayTouchStart?: DayTouchEventHandler;
-
   onMonthChange?: MonthChangeEventHandler;
-
   onNextClick?: MonthChangeEventHandler;
   onPrevClick?: MonthChangeEventHandler;
 }

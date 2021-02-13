@@ -3,7 +3,7 @@ import { ModifiersStatus } from 'types';
 export const defaultModifiers: ModifiersStatus = {
   disabled: false,
   hidden: false,
-  interactive: true,
+  interactive: false,
   aftermonth: false,
   beforemonth: false,
   selected: false,

@@ -38,8 +38,10 @@ export function getModifiers(
 
   const foundModifiers = findModifiers(day, modifiersFromProps);
   foundModifiers.forEach((modifier) => (modifiers[modifier] = true));
-  if (!props.onDayClick || modifiers.hidden || modifiers.disabled) {
-    modifiers.interactive = false;
+
+  if (props.onDayClick && !modifiers.hidden && !modifiers.disabled) {
+    modifiers.interactive = true;
   }
+
   return modifiers;
 }

@@ -32,6 +32,7 @@ export const defaultClassNames: DayPickerClassNames = {
   // Modifiers
   DaySelected: 'rdp-day_selected',
   DayDisabled: 'rdp-day_disabled',
+  DayInteractive: 'rdp-day_interactive',
   DayToday: 'rdp-day_today',
   DayAfterMonth: 'rdp-day_outside',
   DayBeforeMonth: 'rdp-day_outside'
