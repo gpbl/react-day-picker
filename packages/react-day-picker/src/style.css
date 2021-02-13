@@ -21,7 +21,7 @@
   margin-bottom: 0.75em;
   text-align: left;
   font-weight: bold;
-  font-size: 20px;
+  font-size: larger;
 }
 
 .rdp[dir='rtl'] .rdp-caption {
@@ -31,49 +31,48 @@
 .rdp .rdp-month {
   /* Month table container */
 }
-.rdp .rdp-month_table {
+.rdp .rdp-table {
   /* Month table */
   border-collapse: collapse;
 }
-.rdp .rdp-month_tbody {
+.rdp .rdp-body {
   /* Tbody element in the table */
 }
 
 .rdp .rdp-head {
   /* Head element (weekday names) */
 }
-.rdp .rdp-head_row {
+.rdp .rdp-head-row {
   /* Head element (weekday names) row */
 }
 .rdp .rdp-head_weeknumber {
   font-variant-numeric: tabular-nums;
 }
-.rdp .rdp-head_weekname {
+.rdp .rdp-head-cell {
   padding-bottom: 0.5em;
-  font-weight: normal;
-  font-size: smaller;
+  font-size: x-small;
   text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.rdp .rdp-week {
+.rdp .rdp-row {
   /* Week row */
 }
-.rdp .rdp-weeknumber {
-  /* Week number table cell */
-  padding-bottom: 0.5em;
+.rdp .rdp-row_head {
   min-width: 1.25em;
   text-align: right;
-  font-weight: normal;
-  font-size: 0.625em;
+  font-weight: 500;
+  font-size: x-small;
 }
-.rdp .rdp-week_day {
+.rdp .rdp-cell {
   /* Week day table cell */
   text-align: center;
 }
 
 .rdp .rdp-nav {
   position: absolute;
-  top: 5px;
+  top: 0.25em;
   right: 0;
   display: flex;
 }
@@ -114,37 +113,18 @@
 }
 
 .rdp .rdp-day {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -ms-flex-align: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   min-width: 2.2em;
   height: 2.2em;
   border: 2px solid transparent;
-  background: none;
-  color: inherit;
-  font-size: inherit;
-  font-family: inherit;
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
 .rdp .rdp-day[role='button'] {
   cursor: default;
-}
-
-.rdp .rdp-day_wrapper {
-  /* Wrapper for the day number */
 }
 
 .rdp .rdp-day_disabled {

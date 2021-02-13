@@ -34,11 +34,11 @@ export function getNavigationComponent(
   };
   const prevAriaLabel =
     prevMonth &&
-    (props.ariaLabels?.navPrev(prevMonth, props) ??
+    (props.labelsFormatters?.navPrev(prevMonth, props) ??
       defaultLabels.navPrev(prevMonth, props));
   const nextAriaLabel =
     nextMonth &&
-    (props.ariaLabels?.navNext(nextMonth, props) ??
+    (props.labelsFormatters?.navNext(nextMonth, props) ??
       defaultLabels.navNext(nextMonth, props));
 
   const prevButtonProps: JSX.IntrinsicElements['button'] = {

@@ -31,10 +31,8 @@ export function Root(props: RootProps): JSX.Element {
       className={rootClassNames.join(' ')}
       style={{ ...styles?.root, ...style }}
       dir={dir}
+      tabIndex={0}
     >
-      {showNavigation && onMonthChange && (
-        <Navigation dayPickerProps={dayPickerProps} />
-      )}
       <div className={classNames?.months} style={styles?.month}>
         {months.map((month: Date) => (
           <Month
@@ -44,6 +42,9 @@ export function Root(props: RootProps): JSX.Element {
           />
         ))}
       </div>
+      {showNavigation && onMonthChange && (
+        <Navigation dayPickerProps={dayPickerProps} />
+      )}
     </div>
   );
 }

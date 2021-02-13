@@ -1,11 +1,5 @@
-import {
-  Caption,
-  Day,
-  Navigation,
-  WeekNumber,
-  NextIcon,
-  PrevIcon
-} from 'components';
+import { Caption, Day, Navigation, NextIcon, PrevIcon, Week } from 'components';
+
 import { DayPickerComponentProps } from './DayPickerComponentProps';
 
 /**
@@ -13,6 +7,7 @@ import { DayPickerComponentProps } from './DayPickerComponentProps';
  * [[DayPickerComponentProps]] with the default props.
  */
 export interface DayPickerProps extends DayPickerComponentProps {
+  labelsFormatters: NonNullable<DayPickerComponentProps['labelsFormatters']>;
   enableOutsideDaysClick: NonNullable<
     DayPickerComponentProps['enableOutsideDaysClick']
   >;
@@ -22,7 +17,7 @@ export interface DayPickerProps extends DayPickerComponentProps {
     Caption: typeof Caption;
     Day: typeof Day;
     Navigation: typeof Navigation;
-    WeekNumber: typeof WeekNumber;
+    Week: typeof Week;
     NextIcon: typeof NextIcon;
     PrevIcon: typeof PrevIcon;
   };

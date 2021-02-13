@@ -5,7 +5,6 @@ export * from './Caption';
 export * from './Root';
 export * from './Month';
 export * from './Navigation';
-export * from './WeekNumber';
 export * from './Week';
 export * from './PrevIcon';
 export * from './NextIcon';
