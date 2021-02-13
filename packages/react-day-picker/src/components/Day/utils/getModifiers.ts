@@ -1,7 +1,7 @@
 import { isSameDay } from 'date-fns';
 import { DayPickerProps, ModifiersStatus } from 'types';
 
-import { defaultModifiers } from '../../DayPicker/defaultModifiers';
+import { defaultModifiers } from '../../DayPicker';
 import { findModifiers } from './findModifiers';
 import { getModifiersFromProps } from './getModifiersFromProps';
 import { getOutsideModifier } from './getOutsideModifier';
