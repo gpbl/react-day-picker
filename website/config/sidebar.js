@@ -4,8 +4,8 @@ const sidebar = [
   {
     'DayPicker Basics': [
       'basics/customization',
-      'basics/changing-months',
       'basics/selecting-days',
+      'basics/changing-months',
       'basics/modifiers',
       'basics/styling'
     ]

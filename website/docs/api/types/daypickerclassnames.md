@@ -8,4 +8,4 @@ hide_title: true
 
 # Type alias: DayPickerClassNames
 
-Ƭ **DayPickerClassNames**: { [element in UIElement]?: string}
+Ƭ **DayPickerClassNames**: { [element in keyof UIElement]?: string}

@@ -8,4 +8,4 @@ hide_title: true
 
 # Type alias: DayPickerStyles
 
-Ƭ **DayPickerStyles**: { [element in UIElement]?: React.CSSProperties}
+Ƭ **DayPickerStyles**: { [element in keyof UIElement]?: React.CSSProperties}

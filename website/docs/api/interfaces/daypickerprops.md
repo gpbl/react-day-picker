@@ -240,7 +240,7 @@ ___
 
 ### initialMonth
 
-• **initialMonth**: Date
+• **initialMonth**: *undefined* \| Date
 
 The initial month to show in the calendar. Default is the current month.
 

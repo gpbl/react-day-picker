@@ -13,10 +13,20 @@ parent's state.
 
 ```jsx showOutput
 function Example() {
+  const [selected, setSelected] = useState();
   const [month, setMonth] = useState();
+
+  const handleDayClick = (day, { selected }) =>
+    setSelected(selected ? undefined : day);
+
   return (
     <>
-      <DayPicker month={month} onMonthChange={setMonth} />
+      <DayPicker
+        month={month}
+        selected={selected}
+        onMonthChange={setMonth}
+        onDayClick={handleDayClick}
+      />
       <button onClick={() => setMonth(new Date())}>Go to Today</button>
     </>
   );

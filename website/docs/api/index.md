@@ -22,6 +22,7 @@ hide_title: true
 - [RootProps](interfaces/rootprops.md)
 - [RowProps](interfaces/rowprops.md)
 - [TableProps](interfaces/tableprops.md)
+- [UIElement](interfaces/uielement.md)
 - [WeekNumberProps](interfaces/weeknumberprops.md)
 
 ### Type aliases
@@ -51,13 +52,20 @@ hide_title: true
 - [ModifiersStyles](types/modifiersstyles.md)
 - [MonthChangeEventHandler](types/monthchangeeventhandler.md)
 - [NavButtonLabelFormatter](types/navbuttonlabelformatter.md)
-- [UIElement](types/uielement.md)
 - [UseInput](types/useinput.md)
 - [UseInputOptions](types/useinputoptions.md)
 - [WeekNumberFormatter](types/weeknumberformatter.md)
 - [WeekNumberLabelFormatter](types/weeknumberlabelformatter.md)
 - [WeekdayFormatter](types/weekdayformatter.md)
 - [WeekdayLabelFormatter](types/weekdaylabelformatter.md)
+
+### Variables
+
+- [defaultClassNames](variables/defaultclassnames.md)
+- [defaultLabels](variables/defaultlabels.md)
+- [defaultModifiers](variables/defaultmodifiers.md)
+- [defaultModifiersClassNames](variables/defaultmodifiersclassnames.md)
+- [defaultProps](variables/defaultprops.md)
 
 ### Functions
 

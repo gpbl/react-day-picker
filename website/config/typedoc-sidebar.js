@@ -13,6 +13,7 @@ module.exports = [
       "api/interfaces/rootprops",
       "api/interfaces/rowprops",
       "api/interfaces/tableprops",
+      "api/interfaces/uielement",
       "api/interfaces/weeknumberprops"
     ]
   },
@@ -45,13 +46,23 @@ module.exports = [
       "api/types/modifiersstyles",
       "api/types/monthchangeeventhandler",
       "api/types/navbuttonlabelformatter",
-      "api/types/uielement",
       "api/types/useinput",
       "api/types/useinputoptions",
       "api/types/weeknumberformatter",
       "api/types/weeknumberlabelformatter",
       "api/types/weekdayformatter",
       "api/types/weekdaylabelformatter"
+    ]
+  },
+  {
+    "type": "category",
+    "label": "Variables",
+    "items": [
+      "api/variables/defaultclassnames",
+      "api/variables/defaultlabels",
+      "api/variables/defaultmodifiers",
+      "api/variables/defaultmodifiersclassnames",
+      "api/variables/defaultprops"
     ]
   },
   {
