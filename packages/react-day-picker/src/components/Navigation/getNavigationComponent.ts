@@ -34,24 +34,24 @@ export function getNavigationComponent(
   };
   const prevAriaLabel =
     prevMonth &&
-    (props.labelsFormatters?.navPrev(prevMonth, props) ??
-      defaultLabels.navPrev(prevMonth, props));
+    (props.labelsFormatters?.navPrevButton(prevMonth, props) ??
+      defaultLabels.navPrevButton(prevMonth, props));
   const nextAriaLabel =
     nextMonth &&
-    (props.labelsFormatters?.navNext(nextMonth, props) ??
-      defaultLabels.navNext(nextMonth, props));
+    (props.labelsFormatters?.navNextButton(nextMonth, props) ??
+      defaultLabels.navNextButton(nextMonth, props));
 
   const prevButtonProps: JSX.IntrinsicElements['button'] = {
-    className: classNames?.navPrev,
-    style: styles?.navPrev,
+    className: classNames?.navPrevButton,
+    style: styles?.navPrevButton,
     onClick: onPrevClick,
     disabled: !prevMonth,
     'aria-label': prevAriaLabel
   };
 
   const nextButtonProps: JSX.IntrinsicElements['button'] = {
-    className: classNames?.navNext,
-    style: styles?.navNext,
+    className: classNames?.navNextButton,
+    style: styles?.navNextButton,
     onClick: onNextClick,
     disabled: !nextMonth,
     'aria-label': nextAriaLabel

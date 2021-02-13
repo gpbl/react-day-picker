@@ -6,7 +6,7 @@ import { Day } from '../Day/Day';
 import { Navigation } from '../Navigation';
 import { NextIcon } from '../NextIcon';
 import { PrevIcon } from '../PrevIcon';
-import { Week } from '../Week';
+import { Row } from '../Row';
 import classNames from './defaultClassNames';
 import { defaultLabels } from './defaultLabels';
 import { formatCaption } from './formatters/formatCaption';
@@ -25,7 +25,7 @@ export const defaultProps: DayPickerProps = {
     Navigation,
     NextIcon,
     PrevIcon,
-    Week
+    Week: Row
   },
   fixedWeeks: false,
   formatCaption,

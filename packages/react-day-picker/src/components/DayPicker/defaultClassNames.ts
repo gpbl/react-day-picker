@@ -7,13 +7,12 @@ const classNames: DayPickerClassNames = {
 
   // Day Component
   day: 'rdp-day',
-  dayWrapper: 'rdp-day_wrapper',
 
   // Month Component
-  month: 'rdp-month',
-  monthTable: 'rdp-table',
-  monthTbody: 'rdp-body',
   months: 'rdp-months',
+  month: 'rdp-month',
+  table: 'rdp-table',
+  tbody: 'rdp-body',
 
   // Head Components
   head: 'rdp-head',
@@ -22,16 +21,13 @@ const classNames: DayPickerClassNames = {
 
   // Navigation Component
   nav: 'rdp-nav',
-  navPrev: 'rdp-nav_prev',
-  navNext: 'rdp-nav_next',
+  navPrevButton: 'rdp-nav-prev',
+  navNextButton: 'rdp-nav-next',
 
   // Week Component
-  week: 'rdp-row',
-  weekDay: 'rdp-cell',
-  weekWeeknumber: 'rdp-row_head',
-
-  // WeekNumber component
-  weekNumber: 'rdp-rownumber',
+  row: 'rdp-row',
+  rowHead: 'rdp-row-head',
+  cell: 'rdp-cell',
 
   // Modifiers
   selected: 'rdp-day_selected',

@@ -16,8 +16,8 @@ export type UIElement =
 
   // Month Component
   | 'month'
-  | 'monthTable'
-  | 'monthTbody'
+  | 'table'
+  | 'tbody'
   | 'months'
 
   // Head Components
@@ -29,13 +29,13 @@ export type UIElement =
   | 'nav'
 
   // Navigation buttons
-  | 'navPrev'
-  | 'navNext'
+  | 'navPrevButton'
+  | 'navNextButton'
 
   // Week Component
-  | 'week'
-  | 'weekWeeknumber'
-  | 'weekDay'
+  | 'row'
+  | 'rowHead'
+  | 'cell'
 
   // The weeknumber
   | 'weekNumber';

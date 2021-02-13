@@ -1,9 +1,9 @@
 import { getUnixTime } from 'date-fns';
 import * as React from 'react';
 
-import { WeekProps } from '../../types/WeekProps';
+import { RowProps } from '../../types/RowProps';
 
-export function Week(props: WeekProps): JSX.Element {
+export function Row(props: RowProps): JSX.Element {
   const { weekNumber, week, currentMonth, dayPickerProps } = props;
   const {
     labelsFormatters,
@@ -17,12 +17,12 @@ export function Week(props: WeekProps): JSX.Element {
   const { Day } = components;
 
   return (
-    <tr className={classNames?.week} style={styles?.week}>
+    <tr className={classNames?.row} style={styles?.row}>
       {showWeekNumber && (
         <th
-          className={classNames?.weekWeeknumber}
-          style={styles?.weekWeeknumber}
-          aria-label={labelsFormatters.weekNumber(
+          className={classNames?.rowHead}
+          style={styles?.rowHead}
+          aria-label={labelsFormatters.rowHead(
             Number(weekNumber),
             dayPickerProps
           )}
@@ -32,8 +32,8 @@ export function Week(props: WeekProps): JSX.Element {
       )}
       {week.map((day) => (
         <td
-          className={classNames?.weekDay}
-          style={styles?.weekDay}
+          className={classNames?.cell}
+          style={styles?.cell}
           key={getUnixTime(day)}
         >
           <Day
