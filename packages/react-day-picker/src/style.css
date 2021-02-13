@@ -11,13 +11,13 @@
   box-sizing: border-box;
 }
 
-.rdp-months {
+.rdp .rdp-months {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.rdp-caption {
+.rdp .rdp-caption {
   margin-bottom: 0.75em;
   text-align: left;
   font-weight: bold;
@@ -28,37 +28,37 @@
   text-align: right;
 }
 
-.rdp-month {
+.rdp .rdp-month {
   /* Month table container */
 }
-.rdp-month_table {
+.rdp .rdp-month_table {
   /* Month table */
   border-collapse: collapse;
 }
-.rdp-month_tbody {
+.rdp .rdp-month_tbody {
   /* Tbody element in the table */
 }
 
-.rdp-head {
+.rdp .rdp-head {
   /* Head element (weekday names) */
 }
-.rdp-head_row {
+.rdp .rdp-head_row {
   /* Head element (weekday names) row */
 }
-.rdp-head_weeknumber {
+.rdp .rdp-head_weeknumber {
   font-variant-numeric: tabular-nums;
 }
-.rdp-head_weekname {
+.rdp .rdp-head_weekname {
   padding-bottom: 0.5em;
   font-weight: normal;
   font-size: smaller;
   text-align: center;
 }
 
-.rdp-week {
+.rdp .rdp-week {
   /* Week row */
 }
-.rdp-weeknumber {
+.rdp .rdp-weeknumber {
   /* Week number table cell */
   padding-bottom: 0.5em;
   min-width: 1.25em;
@@ -66,14 +66,14 @@
   font-weight: normal;
   font-size: 0.625em;
 }
-.rdp-week_day {
+.rdp .rdp-week_day {
   /* Week day table cell */
   text-align: center;
 }
 
-.rdp-nav {
+.rdp .rdp-nav {
   position: absolute;
-  top: 4px;
+  top: 5px;
   right: 0;
   display: flex;
 }
@@ -82,8 +82,8 @@
   left: 0;
 }
 
-.rdp-nav_next,
-.rdp-nav_prev {
+.rdp .rdp-nav_next,
+.rdp .rdp-nav_prev {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -93,27 +93,27 @@
   cursor: default;
   margin: 0;
   position: relative;
-  padding: 5px;
+  padding: 5px 7px;
 }
 
-.rdp-nav_next svg,
-.rdp-nav_prev svg {
+.rdp .rdp-nav_next svg path,
+.rdp .rdp-nav_prev svg path {
   fill: currentColor;
 }
 
-.rdp-nav_next:disabled,
-.rdp-nav_prev:disabled {
+.rdp .rdp-nav_next:disabled,
+.rdp .rdp-nav_prev:disabled {
   opacity: 0.15;
 }
-.rdp-nav_next {
+.rdp .rdp-nav_next {
   margin-left: 0.25em;
 }
 
-.rdp-nav_prev {
+.rdp .rdp-nav_prev {
   margin-right: 0.25em;
 }
 
-.rdp-day {
+.rdp .rdp-day {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,28 +139,28 @@
   appearance: none;
 }
 
-.rdp-day[role='button'] {
+.rdp .rdp-day[role='button'] {
   cursor: default;
 }
 
-.rdp-day_wrapper {
+.rdp .rdp-day_wrapper {
   /* Wrapper for the day number */
 }
 
-.rdp-day_disabled {
+.rdp .rdp-day_disabled {
   opacity: 0.25;
 }
-.rdp-day_outside {
+.rdp .rdp-day_outside {
   opacity: 0.25;
 }
-.rdp-day_today {
+.rdp .rdp-day_today {
   position: relative;
 
   border-color: var(--rdp-color-secondary);
   border-radius: 100%;
   font-weight: bold;
 }
-.rdp-day_selected {
+.rdp .rdp-day_selected {
   border-radius: 100%;
   background-color: var(--rdp-color-primary);
   color: white;
