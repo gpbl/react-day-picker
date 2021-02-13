@@ -13,7 +13,7 @@ export function getNavigationComponent(
 ): {
   nextMonth: Date | undefined;
   prevMonth: Date | undefined;
-  containerProps: Pick<JSX.IntrinsicElements['div'], 'className' | 'style'>;
+  rootProps: Pick<JSX.IntrinsicElements['div'], 'className' | 'style'>;
   prevProps: Pick<
     JSX.IntrinsicElements['button'],
     'className' | 'style' | 'onClick' | 'disabled'
@@ -26,7 +26,7 @@ export function getNavigationComponent(
   const { classNames, styles, onMonthChange } = dayPickerProps;
   const [prevMonth, nextMonth] = getPrevNextMonths(dayPickerProps);
 
-  const containerProps: JSX.IntrinsicElements['div'] = {
+  const rootProps: JSX.IntrinsicElements['div'] = {
     className: classNames?.nav,
     style: styles?.nav
   };
@@ -56,7 +56,7 @@ export function getNavigationComponent(
   return {
     nextMonth,
     prevMonth,
-    containerProps,
+    rootProps,
     nextProps,
     prevProps
   };

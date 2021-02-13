@@ -6,7 +6,7 @@ import { getNavigationComponent } from './getNavigationComponent';
 
 export function Navigation(props: NavigationProps): JSX.Element {
   const { dayPickerProps } = props;
-  const { containerProps, nextProps, prevProps } = getNavigationComponent(
+  const { rootProps, nextProps, prevProps } = getNavigationComponent(
     dayPickerProps
   );
 
@@ -30,5 +30,5 @@ export function Navigation(props: NavigationProps): JSX.Element {
   if (dayPickerProps.dir === 'rtl') {
     buttons = buttons.reverse();
   }
-  return <div {...containerProps}>{buttons}</div>;
+  return <div {...rootProps}>{buttons}</div>;
 }

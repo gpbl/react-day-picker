@@ -13,7 +13,7 @@ describe('getCaptionComponent', () => {
       classNames
     };
     const expected = {
-      containerProps: {
+      rootProps: {
         className: 'caption-foo'
       }
     };
