@@ -44,7 +44,7 @@ export function DayPicker(props: DayPickerComponentProps): JSX.Element {
 
   const onDayFocus: DayFocusEventHandler = (day, modifiers, e) => {
     if (!isSameMonth(day, currentMonth)) {
-      setCurrentMonth(startOfMonth(day));
+      onMonthChange(startOfMonth(day), e);
     }
     setFocusedDay(day);
     props.onDayFocus?.(day, modifiers, e);
