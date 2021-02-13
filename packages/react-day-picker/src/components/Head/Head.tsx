@@ -1,12 +1,18 @@
 import * as React from 'react';
 
 import { HeadProps } from '../../types/HeadProps';
-import { getWeekdaysNames } from './utils/getWeekdaysNames';
+import { getWeekdays } from './utils/getWeekdays';
 
 export function Head(props: HeadProps): JSX.Element {
-  const { locale, showWeekNumber, dayPickerProps } = props;
-  const { classNames, styles, formatWeekdayName } = dayPickerProps;
-  const weekdayNames = getWeekdaysNames(locale, formatWeekdayName);
+  const { showWeekNumber, dayPickerProps } = props;
+  const {
+    classNames,
+    styles,
+    formatWeekdayName,
+    labelsFormatters: ariaLabels,
+    locale
+  } = dayPickerProps;
+  const weekdays = getWeekdays(locale);
   return (
     <thead style={styles?.head} className={classNames?.head}>
       <tr style={styles?.headRow} className={classNames?.headRow}>
@@ -16,14 +22,15 @@ export function Head(props: HeadProps): JSX.Element {
             className={classNames?.headWeekNumber}
           ></th>
         )}
-        {weekdayNames.map((name, i) => (
+        {weekdays.map((weekday, i) => (
           <th
             key={i}
             scope="col"
             style={styles?.headWeekName}
             className={classNames?.headWeekName}
+            aria-label={ariaLabels.weekday(weekday, dayPickerProps)}
           >
-            {name}
+            {formatWeekdayName(weekday, { locale })}
           </th>
         ))}
       </tr>

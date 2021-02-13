@@ -6,14 +6,16 @@ import { Day } from '../Day/Day';
 import { Navigation } from '../Navigation';
 import { NextIcon } from '../NextIcon';
 import { PrevIcon } from '../PrevIcon';
-import { WeekNumber } from '../WeekNumber';
+import { Week } from '../Week';
 import classNames from './defaultClassNames';
+import { defaultLabels } from './defaultLabels';
 import { formatCaption } from './formatters/formatCaption';
 import { formatDay } from './formatters/formatDay';
 import { formatWeekdayName } from './formatters/formatWeekdayName';
 import { formatWeekNumber } from './formatters/formatWeekNumber';
 
 export const defaultProps: DayPickerProps = {
+  labelsFormatters: defaultLabels,
   enableOutsideDaysClick: false,
   classNames,
   className: '',
@@ -21,9 +23,9 @@ export const defaultProps: DayPickerProps = {
     Caption,
     Day,
     Navigation,
-    WeekNumber,
     NextIcon,
-    PrevIcon
+    PrevIcon,
+    Week
   },
   fixedWeeks: false,
   formatCaption,

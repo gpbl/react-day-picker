@@ -8,7 +8,7 @@ hide_title: true
 
 # Type alias: CustomizableComponents
 
-Ƭ **CustomizableComponents**: { `Caption?`: *typeof* [*Caption*](../functions/caption.md) ; `Day?`: *typeof* [*Day*](../functions/day.md) ; `Navigation?`: *typeof* [*Navigation*](../functions/navigation.md) ; `NextIcon?`: *typeof* [*NextIcon*](../functions/nexticon.md) ; `PrevIcon?`: *typeof* [*PrevIcon*](../functions/previcon.md) ; `WeekNumber?`: *typeof* [*WeekNumber*](../functions/weeknumber.md)  }
+Ƭ **CustomizableComponents**: { `Caption?`: *typeof* [*Caption*](../functions/caption.md) ; `Day?`: *typeof* [*Day*](../functions/day.md) ; `Navigation?`: *typeof* [*Navigation*](../functions/navigation.md) ; `NextIcon?`: *typeof* [*NextIcon*](../functions/nexticon.md) ; `PrevIcon?`: *typeof* [*PrevIcon*](../functions/previcon.md) ; `Week?`: *typeof* [*Week*](../functions/week.md)  }
 
 Represent the components that can be customized.
 
@@ -21,4 +21,4 @@ Name | Type |
 `Navigation?` | *typeof* [*Navigation*](../functions/navigation.md) |
 `NextIcon?` | *typeof* [*NextIcon*](../functions/nexticon.md) |
 `PrevIcon?` | *typeof* [*PrevIcon*](../functions/previcon.md) |
-`WeekNumber?` | *typeof* [*WeekNumber*](../functions/weeknumber.md) |
+`Week?` | *typeof* [*Week*](../functions/week.md) |

@@ -22,8 +22,8 @@ Name | Type |
 
 Name | Type |
 ------ | ------ |
+`nextButtonProps` | *Partial*<JSX.IntrinsicElements[*button*]\> |
 `nextMonth` | Date \| *undefined* |
-`nextProps` | JSX.IntrinsicElements[*button*] |
+`prevButtonProps` | *Partial*<JSX.IntrinsicElements[*button*]\> |
 `prevMonth` | Date \| *undefined* |
-`prevProps` | JSX.IntrinsicElements[*button*] |
-`rootProps` | JSX.IntrinsicElements[*div*] |
+`rootProps` | *Partial*<JSX.IntrinsicElements[*div*]\> |

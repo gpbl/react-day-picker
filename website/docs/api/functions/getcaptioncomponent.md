@@ -20,4 +20,4 @@ Name | Type |
 
 Name | Type |
 ------ | ------ |
-`rootProps` | JSX.IntrinsicElements[*caption*] |
+`rootProps` | *Partial*<JSX.IntrinsicElements[*caption*]\> |

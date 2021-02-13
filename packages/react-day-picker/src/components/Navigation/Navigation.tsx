@@ -5,18 +5,19 @@ import { getNavigationComponent } from './getNavigationComponent';
 
 export function Navigation(props: NavigationProps): JSX.Element {
   const { dayPickerProps } = props;
-  const { rootProps, nextProps, prevProps } = getNavigationComponent(
-    dayPickerProps
-  );
+  const {
+    rootProps,
+    nextButtonProps,
+    prevButtonProps
+  } = getNavigationComponent(dayPickerProps);
   const { PrevIcon, NextIcon } = dayPickerProps.components;
-
   const prevButton = (
-    <button {...prevProps} key="prev" type="button">
+    <button {...prevButtonProps} key="prev">
       <PrevIcon />
     </button>
   );
   const nextButton = (
-    <button {...nextProps} key="next" type="button">
+    <button {...nextButtonProps} key="next">
       <NextIcon />
     </button>
   );

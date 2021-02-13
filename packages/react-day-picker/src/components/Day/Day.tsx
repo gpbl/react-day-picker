@@ -3,23 +3,19 @@ import { DayProps } from 'types';
 
 import { getDayComponent } from './getDayComponent';
 
-export function Day(props: DayProps): JSX.Element {
+export function Day(props: DayProps): JSX.Element | null {
   const { day, dayPickerProps, currentMonth } = props;
   const { locale, formatDay } = dayPickerProps;
 
-  const { rootProps, timeProps, modifiers } = getDayComponent(
+  const { rootProps, modifiers } = getDayComponent(
     day,
     currentMonth,
     dayPickerProps
   );
 
   if (modifiers.hidden) {
-    return <span />;
+    return null;
   }
 
-  return (
-    <span {...rootProps}>
-      <time {...timeProps}>{formatDay(day, { locale })}</time>
-    </span>
-  );
+  return <time {...rootProps}>{formatDay(day, { locale })}</time>;
 }

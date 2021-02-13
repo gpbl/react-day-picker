@@ -5,8 +5,16 @@ import { WeekProps } from '../../types/WeekProps';
 
 export function Week(props: WeekProps): JSX.Element {
   const { weekNumber, week, currentMonth, dayPickerProps } = props;
-  const { showWeekNumber, classNames, styles, components } = dayPickerProps;
-  const { Day, WeekNumber } = components;
+  const {
+    labelsFormatters: ariaLabels,
+    showWeekNumber,
+    formatWeekNumber,
+    locale,
+    classNames,
+    styles,
+    components
+  } = dayPickerProps;
+  const { Day } = components;
 
   return (
     <tr className={classNames?.week} style={styles?.week}>
@@ -14,12 +22,9 @@ export function Week(props: WeekProps): JSX.Element {
         <th
           className={classNames?.weekWeeknumber}
           style={styles?.weekWeeknumber}
+          aria-label={ariaLabels.weekNumber(Number(weekNumber), dayPickerProps)}
         >
-          <WeekNumber
-            days={week}
-            number={Number(weekNumber)}
-            dayPickerProps={dayPickerProps}
-          />
+          {formatWeekNumber(Number(weekNumber), { locale })}
         </th>
       )}
       {week.map((day) => (
