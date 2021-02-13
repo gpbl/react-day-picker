@@ -1,6 +1,6 @@
 import { DayPickerProps } from 'types';
 
-import { defaultLabels } from '../DayPicker/defaultLabels';
+import { defaultLabels } from '../DayPicker';
 import { getPrevNextMonths } from './utils/getPrevNextMonths';
 
 /**
