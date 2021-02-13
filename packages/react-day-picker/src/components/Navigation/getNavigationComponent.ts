@@ -1,5 +1,6 @@
 import { DayPickerProps } from 'types';
 
+import { defaultLabels } from '../DayPicker/defaultLabels';
 import { getPrevNextMonths } from './utils/getPrevNextMonths';
 
 /**
@@ -11,8 +12,8 @@ export function getNavigationComponent(
   nextMonth: Date | undefined;
   prevMonth: Date | undefined;
   rootProps: Partial<JSX.IntrinsicElements['div']>;
-  prevProps: Partial<JSX.IntrinsicElements['button']>;
-  nextProps: Partial<JSX.IntrinsicElements['button']>;
+  prevButtonProps: Partial<JSX.IntrinsicElements['button']>;
+  nextButtonProps: Partial<JSX.IntrinsicElements['button']>;
 } {
   const { classNames, styles, onMonthChange } = props;
   const [prevMonth, nextMonth] = getPrevNextMonths(props);
@@ -26,29 +27,41 @@ export function getNavigationComponent(
     if (!prevMonth) return;
     onMonthChange?.(prevMonth, e);
   };
-  const prevProps = {
-    className: classNames?.navPrev,
-    style: styles?.navPrev,
-    onClick: onPrevClick,
-    disabled: !prevMonth
-  };
 
   const onNextClick: React.MouseEventHandler = (e) => {
     if (!nextMonth) return;
     onMonthChange?.(nextMonth, e);
   };
-  const nextProps: Partial<JSX.IntrinsicElements['button']> = {
+  const prevAriaLabel =
+    prevMonth &&
+    (props.labelsFormatters?.navPrev(prevMonth, props) ??
+      defaultLabels.navPrev(prevMonth, props));
+  const nextAriaLabel =
+    nextMonth &&
+    (props.labelsFormatters?.navNext(nextMonth, props) ??
+      defaultLabels.navNext(nextMonth, props));
+
+  const prevButtonProps: JSX.IntrinsicElements['button'] = {
+    className: classNames?.navPrev,
+    style: styles?.navPrev,
+    onClick: onPrevClick,
+    disabled: !prevMonth,
+    'aria-label': prevAriaLabel
+  };
+
+  const nextButtonProps: JSX.IntrinsicElements['button'] = {
     className: classNames?.navNext,
     style: styles?.navNext,
     onClick: onNextClick,
-    disabled: !nextMonth
+    disabled: !nextMonth,
+    'aria-label': nextAriaLabel
   };
 
   return {
     nextMonth,
     prevMonth,
     rootProps,
-    nextProps,
-    prevProps
+    nextButtonProps,
+    prevButtonProps
   };
 }

@@ -5,8 +5,9 @@ import * as dateFns from 'date-fns';
  * prop to use another function.
  */
 export function formatWeekdayName(
-  day: Date,
-  formatOptions?: { locale?: dateFns.Locale }
+  weekday: Date,
+  formatOptions?: { locale?: dateFns.Locale },
+  format = 'cccccc'
 ): string {
-  return dateFns.format(day, 'E', formatOptions);
+  return dateFns.format(weekday, format, formatOptions);
 }

@@ -13,13 +13,20 @@ import {
   ModifiersMatchers,
   ModifiersStyles,
   MonthChangeEventHandler,
-  WeekNumberFormatter
+  WeekNumberFormatter,
+  LabelsFormatters,
+  WeekdayFormatter
 } from 'types';
 
 /**
  * The props for the [[DayPicker]] component.
  */
 export interface DayPickerComponentProps {
+  /**
+   * A map of formatters for the ARIA labels used in the UI.
+   */
+  labelsFormatters: LabelsFormatters;
+
   /**
    * CSS class to add to the root UI element.
    */
@@ -399,7 +406,7 @@ export interface DayPickerComponentProps {
   /**
    * Format the weekday's name in the head element.
    */
-  formatWeekdayName?: DateFormatter;
+  formatWeekdayName?: WeekdayFormatter;
   /**
    * Format the week numbers (when [[showWeekNumber]] is set).
    */

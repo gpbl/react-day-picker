@@ -1,5 +1,6 @@
 import { format } from 'date-fns';
 import { DayPickerProps, ModifiersStatus } from 'types';
+
 import { getModifiers } from './utils/getModifiers';
 
 export function getDayComponent(
@@ -9,7 +10,6 @@ export function getDayComponent(
 ): {
   modifiers: ModifiersStatus;
   rootProps: Partial<JSX.IntrinsicElements['span']>;
-  timeProps: Partial<JSX.IntrinsicElements['time']>;
 } {
   const modifiers = getModifiers(day, currentMonth, props);
 
@@ -18,7 +18,8 @@ export function getDayComponent(
     modifiersClassNames,
     modifiersStyles,
     onDayClick,
-    styles
+    styles,
+    labelsFormatters: ariaLabels
   } = props;
 
   const onClick: React.MouseEventHandler<HTMLSpanElement> = (e) => {
@@ -73,21 +74,13 @@ export function getDayComponent(
 
   let style = { ...styles?.day };
   if (styles) {
-    // Apply the custom inline-styles
     Object.keys(modifiers).forEach((modifier) => {
-      style = {
-        ...style,
-        ...styles[modifier]
-      };
+      style = { ...style, ...styles[modifier] };
     });
   }
   if (modifiersStyles) {
-    // Apply the styles for the modifier
     Object.keys(modifiers).forEach((modifier) => {
-      style = {
-        ...style,
-        ...modifiersStyles[modifier]
-      };
+      style = { ...style, ...modifiersStyles[modifier] };
     });
   }
 
@@ -106,30 +99,26 @@ export function getDayComponent(
       }
     });
 
-  const rootProps: Partial<JSX.IntrinsicElements['span']> = {
-    tabIndex: modifiers.interactive ? 0 : undefined,
-    role: modifiers.interactive ? 'button' : undefined,
+  const rootProps: JSX.IntrinsicElements['time'] = {
     'aria-disabled': modifiers.disabled,
-    'aria-selected': modifiers.selected,
-    style,
+    'aria-label': ariaLabels.day(day, modifiers, props),
+    'aria-pressed': modifiers.selected,
     className: className.join(' '),
+    dateTime: format(day, 'yyyy-MM-dd'),
     onClick,
     onKeyDown,
-    onKeyUp,
     onKeyPress,
+    onKeyUp,
     onMouseEnter,
     onMouseLeave,
     onTouchCancel,
     onTouchEnd,
     onTouchMove,
-    onTouchStart
+    onTouchStart,
+    role: 'button',
+    style,
+    tabIndex: modifiers.interactive ? 0 : -1
   };
 
-  const wrapperProps: JSX.IntrinsicElements['time'] = {
-    className: classNames?.dayWrapper,
-    style: styles?.dayWrapper,
-    dateTime: format(day, 'yyyy-MM-dd')
-  };
-
-  return { modifiers, rootProps, timeProps: wrapperProps };
+  return { modifiers, rootProps };
 }
