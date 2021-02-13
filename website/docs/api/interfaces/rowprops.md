@@ -1,16 +1,16 @@
 ---
-id: "weekprops"
-title: "Interface: WeekProps"
-sidebar_label: "WeekProps"
+id: "rowprops"
+title: "Interface: RowProps"
+sidebar_label: "RowProps"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Interface: WeekProps
+# Interface: RowProps
 
 ## Hierarchy
 
-* **WeekProps**
+* **RowProps**
 
 ## Properties
 

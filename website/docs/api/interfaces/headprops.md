@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: HeadProps
 
+Reppresent the props for the [Head](../functions/head.md) components.
+
 ## Hierarchy
 
 * **HeadProps**
@@ -17,15 +19,3 @@ hide_title: true
 ### dayPickerProps
 
 • **dayPickerProps**: [*DayPickerProps*](daypickerprops.md)
-
-___
-
-### locale
-
-• **locale**: Locale
-
-___
-
-### showWeekNumber
-
-• `Optional` **showWeekNumber**: *undefined* \| *boolean*
