@@ -1,41 +1,32 @@
 /**
  * Represent an element of the DayPicker user interface.
  */
-export type UIElement =
-  | 'root'
-  | 'caption'
-  | 'day'
-  | 'dayWrapper'
+export interface UIElement {
+  Root: 'root';
+  Caption: 'caption';
 
-  // Modifiers
-  | 'selected'
-  | 'disabled'
-  | 'today'
-  | 'beforemonth'
-  | 'aftermonth'
+  Months: 'months';
+  Month: 'month';
+  Table: 'table';
+  TBody: 'tbody';
 
-  // Month Component
-  | 'month'
-  | 'table'
-  | 'tbody'
-  | 'months'
+  Head: 'head';
+  HeadRow: 'headRow';
+  HeadCell: 'headCell';
 
-  // Head Components
-  | 'head'
-  | 'headRow'
-  | 'headCell'
+  Nav: 'nav';
 
-  // Container of navigation
-  | 'nav'
+  NavPrevButton: 'navPrevButton';
+  NavNextButton: 'navNextButton';
 
-  // Navigation buttons
-  | 'navPrevButton'
-  | 'navNextButton'
+  Row: 'row';
+  RowHead: 'rowHead';
+  Cell: 'cell';
 
-  // Week Component
-  | 'row'
-  | 'rowHead'
-  | 'cell'
-
-  // The weeknumber
-  | 'weekNumber';
+  Day: 'day';
+  DaySelected: 'daySelected';
+  DayDisabled: 'dayDisabled';
+  DayToday: 'dayToday';
+  DayAfterMonth: 'dayAfterMonth';
+  DayBeforeMonth: 'dayBeforeMonth';
+}

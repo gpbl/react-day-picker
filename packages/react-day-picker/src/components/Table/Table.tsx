@@ -18,10 +18,10 @@ export function Table(props: TableProps): JSX.Element {
   const weeks = getWeeks(month, dayPickerProps);
 
   return (
-    <table className={classNames?.table} style={styles?.table}>
+    <table className={classNames?.Table} style={styles?.Table}>
       {showCaption && <Caption month={month} dayPickerProps={dayPickerProps} />}
       {showHead && <Head dayPickerProps={dayPickerProps} />}
-      <tbody className={classNames?.tbody} style={styles?.tbody}>
+      <tbody className={classNames?.TBody} style={styles?.TBody}>
         {Object.keys(weeks).map((weekNumber) => (
           <Row
             currentMonth={month}

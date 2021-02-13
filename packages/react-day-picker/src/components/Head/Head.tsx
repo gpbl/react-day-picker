@@ -14,17 +14,17 @@ export function Head(props: HeadProps): JSX.Element {
   } = props.dayPickerProps;
   const weekdays = getWeekdays(locale);
   return (
-    <thead style={styles?.head} className={classNames?.head}>
-      <tr style={styles?.headRow} className={classNames?.headRow}>
+    <thead style={styles?.Head} className={classNames?.Head}>
+      <tr style={styles?.HeadRow} className={classNames?.HeadRow}>
         {showWeekNumber && (
-          <th style={styles?.headCell} className={classNames?.headCell}></th>
+          <th style={styles?.HeadCell} className={classNames?.HeadCell}></th>
         )}
         {weekdays.map((weekday, i) => (
           <th
             key={i}
             scope="col"
-            style={styles?.headCell}
-            className={classNames?.headCell}
+            style={styles?.HeadCell}
+            className={classNames?.HeadCell}
             aria-label={labelsFormatters.headCell(
               weekday,
               props.dayPickerProps

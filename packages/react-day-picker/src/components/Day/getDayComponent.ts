@@ -72,7 +72,7 @@ export function getDayComponent(
     props.onDayTouchStart(day, modifiers, e);
   };
 
-  let style = { ...styles?.day };
+  let style = { ...styles?.Day };
   if (styles) {
     Object.keys(modifiers).forEach((modifier) => {
       style = { ...style, ...styles[modifier] };
@@ -85,8 +85,8 @@ export function getDayComponent(
   }
 
   const className: (string | undefined)[] = [];
-  if (classNames?.day) {
-    className.push(classNames.day);
+  if (classNames?.Day) {
+    className.push(classNames.Day);
   }
   Object.keys(modifiers)
     .filter((modifier) => Boolean(modifiers[modifier]))

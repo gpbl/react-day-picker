@@ -17,11 +17,11 @@ export function Row(props: RowProps): JSX.Element {
   const { Day } = components;
 
   return (
-    <tr className={classNames?.row} style={styles?.row}>
+    <tr className={classNames?.Row} style={styles?.Row}>
       {showWeekNumber && (
         <th
-          className={classNames?.rowHead}
-          style={styles?.rowHead}
+          className={classNames?.RowHead}
+          style={styles?.RowHead}
           aria-label={labelsFormatters.rowHead(
             Number(weekNumber),
             dayPickerProps
@@ -32,8 +32,8 @@ export function Row(props: RowProps): JSX.Element {
       )}
       {week.map((day) => (
         <td
-          className={classNames?.cell}
-          style={styles?.cell}
+          className={classNames?.Cell}
+          style={styles?.Cell}
           key={getUnixTime(day)}
         >
           <Day
