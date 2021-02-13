@@ -9,9 +9,9 @@ import {
  * Represent a map of formatters used to format ARIA labels in the UI elements.
  */
 export type LabelsFormatters = {
-  navNext: NavButtonLabelFormatter;
-  navPrev: NavButtonLabelFormatter;
+  navNextButton: NavButtonLabelFormatter;
+  navPrevButton: NavButtonLabelFormatter;
   day: DayLabelFormatter;
-  weekday: WeekdayLabelFormatter;
-  weekNumber: WeekNumberLabelFormatter;
+  headCell: WeekdayLabelFormatter;
+  rowHead: WeekNumberLabelFormatter;
 };

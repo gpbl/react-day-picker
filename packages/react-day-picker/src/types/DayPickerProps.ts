@@ -1,4 +1,4 @@
-import { Caption, Day, Navigation, NextIcon, PrevIcon, Week } from 'components';
+import { Caption, Day, Navigation, NextIcon, PrevIcon, Row } from 'components';
 
 import { DayPickerComponentProps } from './DayPickerComponentProps';
 
@@ -17,7 +17,7 @@ export interface DayPickerProps extends DayPickerComponentProps {
     Caption: typeof Caption;
     Day: typeof Day;
     Navigation: typeof Navigation;
-    Week: typeof Week;
+    Week: typeof Row;
     NextIcon: typeof NextIcon;
     PrevIcon: typeof PrevIcon;
   };

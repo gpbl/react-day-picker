@@ -1,6 +1,6 @@
 import { DayPickerProps } from 'types';
 
-export interface WeekProps {
+export interface RowProps {
   weekNumber: number;
   /* The month that is displaying the row */
   currentMonth: Date;

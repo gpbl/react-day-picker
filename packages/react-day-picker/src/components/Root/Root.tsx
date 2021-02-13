@@ -2,7 +2,7 @@ import { getTime } from 'date-fns';
 import React from 'react';
 
 import { RootProps } from '../../types/RootProps';
-import { Month } from '../Month';
+import { Table } from '../Table';
 import { getMonths } from './utils/getMonths';
 
 export function Root(props: RootProps): JSX.Element {
@@ -35,11 +35,9 @@ export function Root(props: RootProps): JSX.Element {
     >
       <div className={classNames?.months} style={styles?.month}>
         {months.map((month: Date) => (
-          <Month
-            key={getTime(month)}
-            month={month}
-            dayPickerProps={dayPickerProps}
-          />
+          <div className={classNames?.month} key={getTime(month)}>
+            <Table month={month} dayPickerProps={dayPickerProps} />
+          </div>
         ))}
       </div>
       {showNavigation && onMonthChange && (
