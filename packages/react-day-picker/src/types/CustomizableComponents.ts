@@ -1,9 +1,11 @@
-import { Caption } from '../components/Caption';
-import { Day } from '../components/Day';
-import { Navigation } from '../components/Navigation';
-import { NextIcon } from '../components/NextIcon';
-import { PrevIcon } from '../components/PrevIcon';
-import { WeekNumber } from '../components/WeekNumber';
+import {
+  Caption,
+  Day,
+  Navigation,
+  NextIcon,
+  PrevIcon,
+  WeekNumber
+} from 'components';
 
 /**
  * Represent the components that can be customized.

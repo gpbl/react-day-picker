@@ -22,7 +22,10 @@ module.exports = {
           label: 'Documentation',
           activeBaseRegex: '(start|basics|guides)'
         },
-        { to: 'api/interfaces/daypickerprops', label: 'Component Props' },
+        {
+          to: 'api/interfaces/daypickercomponentprops',
+          label: 'Component Props'
+        },
         {
           to: 'api',
           label: 'API Reference',

@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: DayPicker
 
-▸ **DayPicker**(`props?`: [*DayPickerProps*](../interfaces/daypickerprops.md)): JSX.Element
+▸ **DayPicker**(`props`: [*DayPickerComponentProps*](../interfaces/daypickercomponentprops.md)): JSX.Element
 
 Render a date picker component.
 
@@ -29,8 +29,8 @@ function Example() {
 
 #### Parameters:
 
-Name | Type | Default value |
------- | ------ | ------ |
-`props` | [*DayPickerProps*](../interfaces/daypickerprops.md) | ... |
+Name | Type |
+------ | ------ |
+`props` | [*DayPickerComponentProps*](../interfaces/daypickercomponentprops.md) |
 
 **Returns:** JSX.Element

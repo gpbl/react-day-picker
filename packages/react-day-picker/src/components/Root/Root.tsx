@@ -2,35 +2,40 @@ import { getTime } from 'date-fns';
 import React from 'react';
 
 import { RootProps } from '../../types/RootProps';
-import { defaultProps } from '../DayPicker/defaultProps';
 import { Month } from '../Month';
 import { getMonths } from './utils/getMonths';
 
 export function Root(props: RootProps): JSX.Element {
   const { dayPickerProps } = props;
-  const Navigation =
-    dayPickerProps.components?.Navigation ?? defaultProps.components.Navigation;
-
-  const style = {
-    ...dayPickerProps.styles?.root,
-    ...dayPickerProps.style
-  };
-
-  const rootClassNames = [dayPickerProps.classNames?.root ?? ''];
-  if (dayPickerProps.className) {
-    rootClassNames.concat(dayPickerProps.className.split(' '));
-  }
-
-  const { dir, showNavigation, onMonthChange, styles } = dayPickerProps;
+  const {
+    components,
+    className,
+    classNames,
+    style,
+    styles,
+    dir,
+    showNavigation,
+    onMonthChange
+  } = dayPickerProps;
+  const { Navigation } = components;
 
   const months = getMonths(dayPickerProps);
 
+  const rootClassNames = [classNames?.root ?? ''];
+  if (className) {
+    rootClassNames.concat(className.split(' '));
+  }
+
   return (
-    <div className={rootClassNames.join(' ')} style={style} dir={dir}>
+    <div
+      className={rootClassNames.join(' ')}
+      style={{ ...styles?.root, ...style }}
+      dir={dir}
+    >
       {showNavigation && onMonthChange && (
         <Navigation dayPickerProps={dayPickerProps} />
       )}
-      <div className={dayPickerProps.classNames?.months} style={styles?.month}>
+      <div className={classNames?.months} style={styles?.month}>
         {months.map((month: Date) => (
           <Month
             key={getTime(month)}

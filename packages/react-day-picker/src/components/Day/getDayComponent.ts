@@ -8,8 +8,8 @@ export function getDayComponent(
   props: DayPickerProps
 ): {
   modifiers: ModifiersStatus;
-  rootProps: JSX.IntrinsicElements['span'];
-  wrapperProps: JSX.IntrinsicElements['time'];
+  rootProps: Partial<JSX.IntrinsicElements['span']>;
+  timeProps: Partial<JSX.IntrinsicElements['time']>;
 } {
   const modifiers = getModifiers(day, currentMonth, props);
 
@@ -106,7 +106,7 @@ export function getDayComponent(
       }
     });
 
-  const rootProps: JSX.IntrinsicElements['span'] = {
+  const rootProps: Partial<JSX.IntrinsicElements['span']> = {
     tabIndex: modifiers.interactive ? 0 : undefined,
     role: modifiers.interactive ? 'button' : undefined,
     'aria-disabled': modifiers.disabled,
@@ -131,5 +131,5 @@ export function getDayComponent(
     dateTime: format(day, 'yyyy-MM-dd')
   };
 
-  return { modifiers, rootProps, wrapperProps };
+  return { modifiers, rootProps, timeProps: wrapperProps };
 }

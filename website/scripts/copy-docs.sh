@@ -60,7 +60,6 @@ src='../../LICENSE'
 dest='../docs/license.mdx'
 
 cat << EOF > $dest
-
 ---
 id: license
 title: License

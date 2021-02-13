@@ -14,6 +14,7 @@ hide_title: true
 ### Interfaces
 
 - [CaptionProps](interfaces/captionprops.md)
+- [DayPickerComponentProps](interfaces/daypickercomponentprops.md)
 - [DayPickerProps](interfaces/daypickerprops.md)
 - [DayProps](interfaces/dayprops.md)
 - [HeadProps](interfaces/headprops.md)

@@ -1,18 +1,21 @@
 import * as React from 'react';
 
 import { MonthProps } from '../../types/MonthProps';
-import { defaultProps } from '../DayPicker/defaultProps';
 import { Head } from '../Head';
 import { Week } from '../Week';
 import { getWeeks } from './utils/getWeeks';
 
 export function Month(props: MonthProps): JSX.Element {
   const { month, dayPickerProps } = props;
-  const { classNames, styles, showCaption, showHead } = dayPickerProps;
-  const Caption =
-    dayPickerProps.components?.Caption ?? defaultProps.components.Caption;
-  const locale = dayPickerProps.locale ?? defaultProps.locale;
-
+  const {
+    classNames,
+    styles,
+    showCaption,
+    showHead,
+    components,
+    locale
+  } = dayPickerProps;
+  const { Caption } = components;
   const weeks = getWeeks(month, dayPickerProps);
 
   return (
