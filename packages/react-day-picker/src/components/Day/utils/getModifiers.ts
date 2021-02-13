@@ -27,7 +27,7 @@ export function getModifiers(
   };
 
   if (props.today !== 'off') {
-    modifiers.today = isSameDay(props.today || defaultProps.today, day);
+    modifiers.today = isSameDay(props.today ?? defaultProps.today, day);
   }
 
   const outsideModifier = getOutsideModifier(day, currentMonth);

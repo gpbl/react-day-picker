@@ -109,8 +109,8 @@ export function getDayComponent(
   const containerProps: JSX.IntrinsicElements['span'] = {
     tabIndex: modifiers.interactive ? 0 : undefined,
     role: modifiers.interactive ? 'button' : undefined,
-    'aria-disabled': modifiers.disabled || undefined,
-    'aria-selected': modifiers.selected || undefined,
+    'aria-disabled': modifiers.disabled,
+    'aria-selected': modifiers.selected,
     style,
     className: className.join(' '),
     onClick,
@@ -126,8 +126,8 @@ export function getDayComponent(
   };
 
   const wrapperProps: JSX.IntrinsicElements['time'] = {
-    className: classNames?.dayWrapper || '',
-    style: styles?.dayWrapper || {},
+    className: classNames?.dayWrapper,
+    style: styles?.dayWrapper,
     dateTime: format(day, 'yyyy-MM-dd')
   };
 
