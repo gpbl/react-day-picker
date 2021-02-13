@@ -52,6 +52,12 @@ ___
 
 ___
 
+### DayInteractive
+
+• **DayInteractive**: *dayInteractive*
+
+___
+
 ### DaySelected
 
 • **DaySelected**: *daySelected*

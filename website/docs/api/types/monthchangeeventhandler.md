@@ -8,4 +8,4 @@ hide_title: true
 
 # Type alias: MonthChangeEventHandler
 
-Ƭ **MonthChangeEventHandler**: (`month`: Date, `e`: React.MouseEvent) => *void*
+Ƭ **MonthChangeEventHandler**: (`month`: Date, `e`: React.MouseEvent \| React.KeyboardEvent) => *void*

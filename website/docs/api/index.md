@@ -30,6 +30,7 @@ hide_title: true
 - [CustomizableComponents](types/customizablecomponents.md)
 - [DateFormatter](types/dateformatter.md)
 - [DayClickEventHandler](types/dayclickeventhandler.md)
+- [DayFocusEventHandler](types/dayfocuseventhandler.md)
 - [DayKeyboardEventHandler](types/daykeyboardeventhandler.md)
 - [DayLabelFormatter](types/daylabelformatter.md)
 - [DayMouseEventHandler](types/daymouseeventhandler.md)

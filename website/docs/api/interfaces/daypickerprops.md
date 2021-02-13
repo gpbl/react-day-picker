@@ -161,6 +161,14 @@ Overrides: [DayPickerComponentProps](daypickercomponentprops.md).[fixedWeeks](da
 
 ___
 
+### focusedDay
+
+• `Optional` **focusedDay**: *undefined* \| Date
+
+The day that has the focus. If set, an effect will focus the day cell.
+
+___
+
 ### formatCaption
 
 • **formatCaption**: [*DateFormatter*](../types/dateformatter.md)
@@ -398,11 +406,27 @@ Overrides: [DayPickerComponentProps](daypickercomponentprops.md).[numberOfMonths
 
 ___
 
+### onDayBlur
+
+• `Optional` **onDayBlur**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+
+Overrides: [DayPickerComponentProps](daypickercomponentprops.md).[onDayBlur](daypickercomponentprops.md#ondayblur)
+
+___
+
 ### onDayClick
 
 • `Optional` **onDayClick**: *undefined* \| [*DayClickEventHandler*](../types/dayclickeventhandler.md)
 
 Inherited from: [DayPickerComponentProps](daypickercomponentprops.md).[onDayClick](daypickercomponentprops.md#ondayclick)
+
+___
+
+### onDayFocus
+
+• `Optional` **onDayFocus**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+
+Overrides: [DayPickerComponentProps](daypickercomponentprops.md).[onDayFocus](daypickercomponentprops.md#ondayfocus)
 
 ___
 

@@ -344,9 +344,21 @@ function Example() {
 
 ___
 
+### onDayBlur
+
+• `Optional` **onDayBlur**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+
+___
+
 ### onDayClick
 
 • `Optional` **onDayClick**: *undefined* \| [*DayClickEventHandler*](../types/dayclickeventhandler.md)
+
+___
+
+### onDayFocus
+
+• `Optional` **onDayFocus**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
 
 ___
 
