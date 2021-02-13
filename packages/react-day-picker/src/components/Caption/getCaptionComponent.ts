@@ -1,14 +1,16 @@
 import { DayPickerProps } from 'types';
 
 export function getCaptionComponent(
-  dayPickerProps: Pick<DayPickerProps, 'classNames' | 'styles'>
+  props: DayPickerProps
 ): {
-  rootProps: Pick<JSX.IntrinsicElements['caption'], 'className' | 'style'>;
+  rootProps: JSX.IntrinsicElements['caption'];
 } {
   return {
     rootProps: {
-      className: dayPickerProps.classNames?.caption,
-      style: dayPickerProps.styles?.caption
+      className: props.classNames?.caption,
+      style: props.styles?.caption,
+      'aria-live': 'polite',
+      'aria-atomic': true
     }
   };
 }
