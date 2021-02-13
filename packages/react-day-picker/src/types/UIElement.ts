@@ -23,8 +23,7 @@ export type UIElement =
   // Head Components
   | 'head'
   | 'headRow'
-  | 'headWeekNumber'
-  | 'headWeekName'
+  | 'headCell'
 
   // Container of navigation
   | 'nav'

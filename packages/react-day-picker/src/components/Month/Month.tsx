@@ -12,8 +12,7 @@ export function Month(props: MonthProps): JSX.Element {
     styles,
     showCaption,
     showHead,
-    components,
-    locale
+    components
   } = dayPickerProps;
   const { Caption } = components;
   const weeks = getWeeks(month, dayPickerProps);
@@ -24,13 +23,7 @@ export function Month(props: MonthProps): JSX.Element {
         {showCaption && (
           <Caption month={month} dayPickerProps={dayPickerProps} />
         )}
-        {showHead && (
-          <Head
-            locale={locale}
-            showWeekNumber={dayPickerProps.showWeekNumber}
-            dayPickerProps={dayPickerProps}
-          />
-        )}
+        {showHead && <Head dayPickerProps={dayPickerProps} />}
         <tbody className={classNames?.monthTbody} style={styles?.monthTbody}>
           {Object.keys(weeks).map((weekNumber) => (
             <Week

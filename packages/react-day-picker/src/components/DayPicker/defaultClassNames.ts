@@ -18,8 +18,7 @@ const classNames: DayPickerClassNames = {
   // Head Components
   head: 'rdp-head',
   headRow: 'rdp-head-row',
-  headWeekNumber: 'rdp-head_weeknumber',
-  headWeekName: 'rdp-head-cell',
+  headCell: 'rdp-head-cell',
 
   // Navigation Component
   nav: 'rdp-nav',
