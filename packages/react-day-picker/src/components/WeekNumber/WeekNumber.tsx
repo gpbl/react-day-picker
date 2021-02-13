@@ -9,7 +9,7 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
     <span className={classNames?.weekNumber} style={styles?.weekNumber}>
       {formatWeekNumber &&
         formatWeekNumber(props.number, {
-          locale: locale || defaultProps.locale
+          locale: locale ?? defaultProps.locale
         })}
     </span>
   );

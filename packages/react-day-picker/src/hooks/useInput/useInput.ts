@@ -38,8 +38,8 @@ export function useInput(
   options?: UseInputOptions
 ): UseInput {
   // Defaults from options
-  const locale = options?.locale || defaultProps.locale;
-  const required = options?.required || false;
+  const locale = options?.locale ?? defaultProps.locale;
+  const required = options?.required ?? false;
 
   // Shortcut to the DateFns functions
   const format = (day: Date) => DateFns.format(day, formatStr, { locale });
@@ -52,7 +52,7 @@ export function useInput(
   // Initialize state
   const [selected, setSelected] = React.useState<Date | undefined>(initialDay);
   const [value, setValue] = React.useState(initialValue);
-  const [month, setMonth] = React.useState(initialDay || defaultProps.month);
+  const [month, setMonth] = React.useState(initialDay ?? defaultProps.month);
 
   const onDayClick = (day: Date) => {
     setSelected(day);
@@ -80,12 +80,12 @@ export function useInput(
   // a valid date, reset the calendar and the input value.
   const onBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const day = parse(e.target.value);
-    if (!required || isValidDate(day)) {
+    if (!required ?? isValidDate(day)) {
       return;
     }
     setSelected(initialDay);
-    setMonth(initialDay || defaultProps.month);
-    setValue(initialValue || '');
+    setMonth(initialDay ?? defaultProps.month);
+    setValue(initialValue ?? '');
   };
 
   // When focusing, make sure DayPicker visualize the month of the date in the
@@ -99,8 +99,8 @@ export function useInput(
       return;
     }
     setSelected(initialDay);
-    setMonth(initialDay || defaultProps.month);
-    setValue(initialValue || '');
+    setMonth(initialDay ?? defaultProps.month);
+    setValue(initialValue ?? '');
   };
 
   return {

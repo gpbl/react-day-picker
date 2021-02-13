@@ -16,7 +16,7 @@ export function getPrevNextMonths(props: DayPickerProps): [Date?, Date?] {
   } = props;
 
   const add = pagedNavigation ? numberOfMonths : 1;
-  const currentMonth = startOfMonth(month || defaultProps.today);
+  const currentMonth = startOfMonth(month ?? defaultProps.today);
 
   let prevMonth: Date | undefined;
   if (!fromMonth || currentMonth > startOfMonth(fromMonth)) {

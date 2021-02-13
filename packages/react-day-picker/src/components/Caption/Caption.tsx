@@ -8,7 +8,7 @@ export function Caption(props: CaptionProps): JSX.Element {
   const { containerProps } = getCaptionComponent(props.dayPickerProps);
   const locale = props.dayPickerProps.locale || defaultProps.locale;
   const formatCaption =
-    props.dayPickerProps.formatCaption || defaultProps.formatCaption;
+    props.dayPickerProps.formatCaption ?? defaultProps.formatCaption;
   return (
     <caption {...containerProps}>
       {formatCaption(props.month, { locale })}

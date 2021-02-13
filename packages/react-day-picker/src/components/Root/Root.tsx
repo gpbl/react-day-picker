@@ -16,7 +16,7 @@ export function Root(props: RootProps): JSX.Element {
     ...dayPickerProps.style
   };
 
-  const rootClassNames = [dayPickerProps.classNames?.root || ''];
+  const rootClassNames = [dayPickerProps.classNames?.root ?? ''];
   if (dayPickerProps.className) {
     rootClassNames.concat(dayPickerProps.className.split(' '));
   }

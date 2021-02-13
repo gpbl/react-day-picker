@@ -14,7 +14,7 @@ export function getWeekdaysNames(
   const names = [];
   for (let i = 0; i < 7; i++) {
     const day = DateFns.addDays(start, i);
-    names.push(format(day, { locale: locale || defaultProps.locale }));
+    names.push(format(day, { locale: locale ?? defaultProps.locale }));
   }
   return names;
 }
