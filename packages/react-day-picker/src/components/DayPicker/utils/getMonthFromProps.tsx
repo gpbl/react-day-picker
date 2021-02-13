@@ -4,7 +4,11 @@ import { DayPickerComponentProps } from 'types';
 export function getMonthFromProps(props: DayPickerComponentProps): Date {
   const { toMonth, fromMonth } = props;
 
-  let month = props.initialMonth ?? props.month ?? new Date();
+  let month =
+    props.initialMonth ??
+    props.month ??
+    (props.today !== 'off' ? props.today : undefined) ??
+    new Date();
 
   month = startOfMonth(month);
 
