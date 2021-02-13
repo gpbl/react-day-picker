@@ -8,16 +8,16 @@ hide_title: true
 
 # Function: getCaptionComponent
 
-▸ **getCaptionComponent**(`dayPickerProps`: *Pick*<[*DayPickerProps*](../interfaces/daypickerprops.md), *classNames* \| *styles*\>): *object*
+▸ **getCaptionComponent**(`props`: [*DayPickerProps*](../interfaces/daypickerprops.md)): *object*
 
 #### Parameters:
 
 Name | Type |
 ------ | ------ |
-`dayPickerProps` | *Pick*<[*DayPickerProps*](../interfaces/daypickerprops.md), *classNames* \| *styles*\> |
+`props` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
 
 **Returns:** *object*
 
 Name | Type |
 ------ | ------ |
-`containerProps` | *Pick*<JSX.IntrinsicElements[*caption*], *className* \| *style*\> |
+`rootProps` | JSX.IntrinsicElements[*caption*] |

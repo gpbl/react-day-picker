@@ -22,6 +22,6 @@ Name | Type |
 
 Name | Type |
 ------ | ------ |
-`containerProps` | JSX.IntrinsicElements[*span*] |
 `modifiers` | [*ModifiersStatus*](../types/modifiersstatus.md) |
+`rootProps` | JSX.IntrinsicElements[*span*] |
 `wrapperProps` | JSX.IntrinsicElements[*time*] |
