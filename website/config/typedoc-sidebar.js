@@ -9,11 +9,11 @@ module.exports = [
       "api/interfaces/daypickerprops",
       "api/interfaces/dayprops",
       "api/interfaces/headprops",
-      "api/interfaces/monthprops",
       "api/interfaces/navigationprops",
       "api/interfaces/rootprops",
-      "api/interfaces/weeknumberprops",
-      "api/interfaces/weekprops"
+      "api/interfaces/rowprops",
+      "api/interfaces/tableprops",
+      "api/interfaces/weeknumberprops"
     ]
   },
   {
@@ -62,12 +62,12 @@ module.exports = [
       "api/functions/day",
       "api/functions/daypicker",
       "api/functions/head",
-      "api/functions/month",
       "api/functions/navigation",
       "api/functions/nexticon",
       "api/functions/previcon",
       "api/functions/root",
-      "api/functions/week",
+      "api/functions/row",
+      "api/functions/table",
       "api/functions/addtorange",
       "api/functions/getcaptioncomponent",
       "api/functions/getdaycomponent",

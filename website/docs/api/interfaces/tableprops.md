@@ -1,16 +1,16 @@
 ---
-id: "monthprops"
-title: "Interface: MonthProps"
-sidebar_label: "MonthProps"
+id: "tableprops"
+title: "Interface: TableProps"
+sidebar_label: "TableProps"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Interface: MonthProps
+# Interface: TableProps
 
 ## Hierarchy
 
-* **MonthProps**
+* **TableProps**
 
 ## Properties
 

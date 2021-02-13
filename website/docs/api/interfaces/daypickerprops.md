@@ -74,7 +74,7 @@ ___
 
 ### components
 
-• **components**: { `Caption`: (`props`: [*CaptionProps*](captionprops.md)) => JSX.Element ; `Day`: (`props`: [*DayProps*](dayprops.md)) => JSX.Element \| *null* ; `Navigation`: (`props`: [*NavigationProps*](navigationprops.md)) => JSX.Element ; `NextIcon`: () => JSX.Element ; `PrevIcon`: () => JSX.Element ; `Week`: (`props`: [*WeekProps*](weekprops.md)) => JSX.Element  }
+• **components**: { `Caption`: (`props`: [*CaptionProps*](captionprops.md)) => JSX.Element ; `Day`: (`props`: [*DayProps*](dayprops.md)) => JSX.Element \| *null* ; `Navigation`: (`props`: [*NavigationProps*](navigationprops.md)) => JSX.Element ; `NextIcon`: () => JSX.Element ; `PrevIcon`: () => JSX.Element ; `Week`: (`props`: [*RowProps*](rowprops.md)) => JSX.Element  }
 
 Customize the internal components.
 
@@ -87,7 +87,7 @@ Name | Type |
 `Navigation` | (`props`: [*NavigationProps*](navigationprops.md)) => JSX.Element |
 `NextIcon` | () => JSX.Element |
 `PrevIcon` | () => JSX.Element |
-`Week` | (`props`: [*WeekProps*](weekprops.md)) => JSX.Element |
+`Week` | (`props`: [*RowProps*](rowprops.md)) => JSX.Element |
 
 Overrides: [DayPickerComponentProps](daypickercomponentprops.md).[components](daypickercomponentprops.md#components)
 

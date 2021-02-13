@@ -18,11 +18,11 @@ hide_title: true
 - [DayPickerProps](interfaces/daypickerprops.md)
 - [DayProps](interfaces/dayprops.md)
 - [HeadProps](interfaces/headprops.md)
-- [MonthProps](interfaces/monthprops.md)
 - [NavigationProps](interfaces/navigationprops.md)
 - [RootProps](interfaces/rootprops.md)
+- [RowProps](interfaces/rowprops.md)
+- [TableProps](interfaces/tableprops.md)
 - [WeekNumberProps](interfaces/weeknumberprops.md)
-- [WeekProps](interfaces/weekprops.md)
 
 ### Type aliases
 
@@ -65,12 +65,12 @@ hide_title: true
 - [Day](functions/day.md)
 - [DayPicker](functions/daypicker.md)
 - [Head](functions/head.md)
-- [Month](functions/month.md)
 - [Navigation](functions/navigation.md)
 - [NextIcon](functions/nexticon.md)
 - [PrevIcon](functions/previcon.md)
 - [Root](functions/root.md)
-- [Week](functions/week.md)
+- [Row](functions/row.md)
+- [Table](functions/table.md)
 - [addToRange](functions/addtorange.md)
 - [getCaptionComponent](functions/getcaptioncomponent.md)
 - [getDayComponent](functions/getdaycomponent.md)
