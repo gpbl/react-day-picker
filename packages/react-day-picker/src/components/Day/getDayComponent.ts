@@ -15,11 +15,11 @@ export function getDayComponent(
 
   const {
     classNames,
+    labelsFormatters,
     modifiersClassNames,
     modifiersStyles,
     onDayClick,
-    styles,
-    labelsFormatters: ariaLabels
+    styles
   } = props;
 
   const onClick: React.MouseEventHandler<HTMLSpanElement> = (e) => {
@@ -101,7 +101,7 @@ export function getDayComponent(
 
   const rootProps: JSX.IntrinsicElements['time'] = {
     'aria-disabled': modifiers.disabled,
-    'aria-label': ariaLabels.day(day, modifiers, props),
+    'aria-label': labelsFormatters.day(day, modifiers, props),
     'aria-pressed': modifiers.selected,
     className: className.join(' '),
     dateTime: format(day, 'yyyy-MM-dd'),

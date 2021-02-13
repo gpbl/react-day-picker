@@ -1,8 +1,6 @@
-import * as DateFns from 'date-fns';
 import { DayPickerProps } from 'types';
 
+/** Reppresent the props for the [[Head]] components. */
 export interface HeadProps {
-  locale: DateFns.Locale;
-  showWeekNumber?: boolean;
   dayPickerProps: DayPickerProps;
 }

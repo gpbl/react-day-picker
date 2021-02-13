@@ -6,7 +6,7 @@ import { WeekProps } from '../../types/WeekProps';
 export function Week(props: WeekProps): JSX.Element {
   const { weekNumber, week, currentMonth, dayPickerProps } = props;
   const {
-    labelsFormatters: ariaLabels,
+    labelsFormatters,
     showWeekNumber,
     formatWeekNumber,
     locale,
@@ -22,7 +22,10 @@ export function Week(props: WeekProps): JSX.Element {
         <th
           className={classNames?.weekWeeknumber}
           style={styles?.weekWeeknumber}
-          aria-label={ariaLabels.weekNumber(Number(weekNumber), dayPickerProps)}
+          aria-label={labelsFormatters.weekNumber(
+            Number(weekNumber),
+            dayPickerProps
+          )}
         >
           {formatWeekNumber(Number(weekNumber), { locale })}
         </th>
