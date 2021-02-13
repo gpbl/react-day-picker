@@ -68,7 +68,13 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   margin: 1em;
 }
 
-.rdp * {
+/* revert styles from docusaurus */
+.rdp table,
+.rdp tbody,
+.rdp thead,
+.rdp tr,
+.rdp td,
+.rdp th {
   all: revert;
 }
 
