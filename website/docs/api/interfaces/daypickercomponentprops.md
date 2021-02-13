@@ -161,7 +161,7 @@ ___
 
 ### formatWeekdayName
 
-• `Optional` **formatWeekdayName**: *undefined* \| [*DateFormatter*](../types/dateformatter.md)
+• `Optional` **formatWeekdayName**: *undefined* \| [*WeekdayFormatter*](../types/weekdayformatter.md)
 
 Format the weekday's name in the head element.
 
@@ -210,6 +210,14 @@ Notes
 
 - to know when the user changes the month, use [onMonthChange](daypickercomponentprops.md#onmonthchange).
 - to change the month programmatically, use the [month](daypickercomponentprops.md#month) prop.
+
+___
+
+### labelsFormatters
+
+• **labelsFormatters**: [*LabelsFormatters*](../types/labelsformatters.md)
+
+A map of formatters for the ARIA labels used in the UI.
 
 ___
 

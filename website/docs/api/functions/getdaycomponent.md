@@ -23,5 +23,4 @@ Name | Type |
 Name | Type |
 ------ | ------ |
 `modifiers` | [*ModifiersStatus*](../types/modifiersstatus.md) |
-`rootProps` | JSX.IntrinsicElements[*span*] |
-`wrapperProps` | JSX.IntrinsicElements[*time*] |
+`rootProps` | *Partial*<JSX.IntrinsicElements[*span*]\> |

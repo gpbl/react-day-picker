@@ -74,7 +74,7 @@ ___
 
 ### components
 
-• **components**: { `Caption`: (`props`: [*CaptionProps*](captionprops.md)) => JSX.Element ; `Day`: (`props`: [*DayProps*](dayprops.md)) => JSX.Element ; `Navigation`: (`props`: [*NavigationProps*](navigationprops.md)) => JSX.Element ; `NextIcon`: () => JSX.Element ; `PrevIcon`: () => JSX.Element ; `WeekNumber`: (`props`: [*WeekNumberProps*](weeknumberprops.md)) => JSX.Element  }
+• **components**: { `Caption`: (`props`: [*CaptionProps*](captionprops.md)) => JSX.Element ; `Day`: (`props`: [*DayProps*](dayprops.md)) => JSX.Element \| *null* ; `Navigation`: (`props`: [*NavigationProps*](navigationprops.md)) => JSX.Element ; `NextIcon`: () => JSX.Element ; `PrevIcon`: () => JSX.Element ; `Week`: (`props`: [*WeekProps*](weekprops.md)) => JSX.Element  }
 
 Customize the internal components.
 
@@ -83,11 +83,11 @@ Customize the internal components.
 Name | Type |
 ------ | ------ |
 `Caption` | (`props`: [*CaptionProps*](captionprops.md)) => JSX.Element |
-`Day` | (`props`: [*DayProps*](dayprops.md)) => JSX.Element |
+`Day` | (`props`: [*DayProps*](dayprops.md)) => JSX.Element \| *null* |
 `Navigation` | (`props`: [*NavigationProps*](navigationprops.md)) => JSX.Element |
 `NextIcon` | () => JSX.Element |
 `PrevIcon` | () => JSX.Element |
-`WeekNumber` | (`props`: [*WeekNumberProps*](weeknumberprops.md)) => JSX.Element |
+`Week` | (`props`: [*WeekProps*](weekprops.md)) => JSX.Element |
 
 Overrides: [DayPickerComponentProps](daypickercomponentprops.md).[components](daypickercomponentprops.md#components)
 
@@ -193,7 +193,7 @@ ___
 
 ### formatWeekdayName
 
-• **formatWeekdayName**: [*DateFormatter*](../types/dateformatter.md)
+• **formatWeekdayName**: [*WeekdayFormatter*](../types/weekdayformatter.md)
 
 Format the weekday's name in the head element.
 
@@ -250,6 +250,16 @@ Notes
 - to change the month programmatically, use the [month](daypickerprops.md#month) prop.
 
 Overrides: [DayPickerComponentProps](daypickercomponentprops.md).[initialMonth](daypickercomponentprops.md#initialmonth)
+
+___
+
+### labelsFormatters
+
+• **labelsFormatters**: [*LabelsFormatters*](../types/labelsformatters.md)
+
+A map of formatters for the ARIA labels used in the UI.
+
+Overrides: [DayPickerComponentProps](daypickercomponentprops.md).[labelsFormatters](daypickercomponentprops.md#labelsformatters)
 
 ___
 

@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: Day
 
-▸ **Day**(`props`: [*DayProps*](../interfaces/dayprops.md)): JSX.Element
+▸ **Day**(`props`: [*DayProps*](../interfaces/dayprops.md)): JSX.Element \| *null*
 
 #### Parameters:
 
@@ -16,4 +16,4 @@ Name | Type |
 ------ | ------ |
 `props` | [*DayProps*](../interfaces/dayprops.md) |
 
-**Returns:** JSX.Element
+**Returns:** JSX.Element \| *null*

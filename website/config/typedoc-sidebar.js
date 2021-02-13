@@ -24,12 +24,14 @@ module.exports = [
       "api/types/dateformatter",
       "api/types/dayclickeventhandler",
       "api/types/daykeyboardeventhandler",
+      "api/types/daylabelformatter",
       "api/types/daymouseeventhandler",
       "api/types/daypickerclassnames",
       "api/types/daypickerstyles",
       "api/types/daytoucheventhandler",
       "api/types/daysrange",
       "api/types/defaultmodifier",
+      "api/types/labelsformatters",
       "api/types/matchafter",
       "api/types/matchbefore",
       "api/types/matchdate",
@@ -42,10 +44,14 @@ module.exports = [
       "api/types/modifiersstatus",
       "api/types/modifiersstyles",
       "api/types/monthchangeeventhandler",
+      "api/types/navbuttonlabelformatter",
       "api/types/uielement",
       "api/types/useinput",
       "api/types/useinputoptions",
-      "api/types/weeknumberformatter"
+      "api/types/weeknumberformatter",
+      "api/types/weeknumberlabelformatter",
+      "api/types/weekdayformatter",
+      "api/types/weekdaylabelformatter"
     ]
   },
   {
@@ -62,7 +68,6 @@ module.exports = [
       "api/functions/previcon",
       "api/functions/root",
       "api/functions/week",
-      "api/functions/weeknumber",
       "api/functions/addtorange",
       "api/functions/getcaptioncomponent",
       "api/functions/getdaycomponent",
