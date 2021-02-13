@@ -8,11 +8,11 @@ hide_title: true
 
 # Type alias: UseInputOptions
 
-Ƭ **UseInputOptions**: { `locale?`: DateFns.Locale ; `required`: *boolean*  }
+Ƭ **UseInputOptions**: { `locale`: DateFns.Locale ; `required`: *boolean*  }
 
 #### Type declaration:
 
 Name | Type |
 ------ | ------ |
-`locale?` | DateFns.Locale |
+`locale` | DateFns.Locale |
 `required` | *boolean* |

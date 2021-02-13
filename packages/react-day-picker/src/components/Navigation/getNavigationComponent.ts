@@ -6,27 +6,18 @@ import { getPrevNextMonths } from './utils/getPrevNextMonths';
  * Return the props to apply to the elements of the [[Navigation]] component.
  */
 export function getNavigationComponent(
-  dayPickerProps: Pick<
-    DayPickerProps,
-    'classNames' | 'styles' | 'onMonthChange'
-  >
+  props: DayPickerProps
 ): {
   nextMonth: Date | undefined;
   prevMonth: Date | undefined;
-  rootProps: Pick<JSX.IntrinsicElements['div'], 'className' | 'style'>;
-  prevProps: Pick<
-    JSX.IntrinsicElements['button'],
-    'className' | 'style' | 'onClick' | 'disabled'
-  >;
-  nextProps: Pick<
-    JSX.IntrinsicElements['button'],
-    'className' | 'style' | 'onClick' | 'disabled'
-  >;
+  rootProps: Partial<JSX.IntrinsicElements['div']>;
+  prevProps: Partial<JSX.IntrinsicElements['button']>;
+  nextProps: Partial<JSX.IntrinsicElements['button']>;
 } {
-  const { classNames, styles, onMonthChange } = dayPickerProps;
-  const [prevMonth, nextMonth] = getPrevNextMonths(dayPickerProps);
+  const { classNames, styles, onMonthChange } = props;
+  const [prevMonth, nextMonth] = getPrevNextMonths(props);
 
-  const rootProps: JSX.IntrinsicElements['div'] = {
+  const rootProps: Partial<JSX.IntrinsicElements['div']> = {
     className: classNames?.nav,
     style: styles?.nav
   };
@@ -46,7 +37,7 @@ export function getNavigationComponent(
     if (!nextMonth) return;
     onMonthChange?.(nextMonth, e);
   };
-  const nextProps: JSX.IntrinsicElements['button'] = {
+  const nextProps: Partial<JSX.IntrinsicElements['button']> = {
     className: classNames?.navNext,
     style: styles?.navNext,
     onClick: onNextClick,

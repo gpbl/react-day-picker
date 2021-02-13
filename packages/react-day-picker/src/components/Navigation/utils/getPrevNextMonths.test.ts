@@ -9,8 +9,7 @@ describe('getPrevNextMonths', () => {
   });
   it('defaults to current month', () => {
     const [prevMonth, nextMonth] = getPrevNextMonths({
-      ...defaultProps,
-      month: undefined
+      ...defaultProps
     });
     expect(nextMonth).toBeDefined();
     expect(prevMonth).toBeDefined();

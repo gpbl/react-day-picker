@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DayPickerProps } from 'types';
+import { DayPickerComponentProps, DayPickerProps } from 'types';
 
 import { Root } from '../Root';
 import { defaultProps } from './defaultProps';
@@ -23,10 +23,20 @@ import { getMonthFromProps } from './utils/getMonthFromProps';
  * }
  * ```
  */
-export function DayPicker(props: DayPickerProps = {}): JSX.Element {
+export function DayPicker(props: DayPickerComponentProps): JSX.Element {
+  const dayPickerProps: DayPickerProps = {
+    ...defaultProps,
+    ...props,
+    components: { ...defaultProps.components, ...props.components },
+    modifiers: {
+      ...defaultProps.modifiers,
+      ...props.modifiers
+    }
+  };
+
   const isControlled = !('month' in props); // DayPicker will handle the state
 
-  const month = getMonthFromProps(props);
+  const month = getMonthFromProps(dayPickerProps);
   const [currentMonth, setCurrentMonth] = React.useState(month);
 
   const onMonthChange = (newMonth: Date, e: React.MouseEvent) => {
@@ -34,17 +44,8 @@ export function DayPicker(props: DayPickerProps = {}): JSX.Element {
     props.onMonthChange?.(newMonth, e);
   };
 
-  const dayPickerProps: DayPickerProps = {
-    ...defaultProps,
-    ...props,
-    components: { ...defaultProps.components, ...props.components },
-    modifiers: {
-      ...defaultProps.modifiersClassNames,
-      ...props.modifiersClassNames
-    },
-    onMonthChange,
-    month: isControlled ? currentMonth : month
-  };
+  dayPickerProps.onMonthChange = onMonthChange;
+  dayPickerProps.month = isControlled ? currentMonth : month;
 
   return <Root dayPickerProps={dayPickerProps} />;
 }

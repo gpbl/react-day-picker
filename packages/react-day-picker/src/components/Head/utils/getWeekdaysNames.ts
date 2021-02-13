@@ -1,20 +1,18 @@
 import * as DateFns from 'date-fns';
 import { DayPickerProps } from 'types';
 
-import { defaultProps } from '../../DayPicker/defaultProps';
-
 /**
  * Return the name of the weekdays according to the formatting function.
  */
 export function getWeekdaysNames(
   locale: DateFns.Locale,
-  format: DayPickerProps['formatCaption'] = defaultProps.formatCaption
+  format: DayPickerProps['formatCaption']
 ): string[] {
   const start = DateFns.startOfWeek(new Date(), { locale });
   const names = [];
   for (let i = 0; i < 7; i++) {
     const day = DateFns.addDays(start, i);
-    names.push(format(day, { locale: locale ?? defaultProps.locale }));
+    names.push(format(day, { locale: locale }));
   }
   return names;
 }
