@@ -21,7 +21,7 @@ export function Root(props: RootProps): JSX.Element {
 
   const months = getMonths(dayPickerProps);
 
-  const rootClassNames = [classNames?.root ?? ''];
+  const rootClassNames = [classNames?.Root ?? ''];
   if (className) {
     rootClassNames.concat(className.split(' '));
   }
@@ -29,13 +29,13 @@ export function Root(props: RootProps): JSX.Element {
   return (
     <div
       className={rootClassNames.join(' ')}
-      style={{ ...styles?.root, ...style }}
+      style={{ ...styles?.Root, ...style }}
       dir={dir}
       tabIndex={0}
     >
-      <div className={classNames?.months} style={styles?.month}>
+      <div className={classNames?.Months} style={styles?.Month}>
         {months.map((month: Date) => (
-          <div className={classNames?.month} key={getTime(month)}>
+          <div className={classNames?.Month} key={getTime(month)}>
             <Table month={month} dayPickerProps={dayPickerProps} />
           </div>
         ))}

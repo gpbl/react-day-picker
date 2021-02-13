@@ -19,8 +19,8 @@ export function getNavigationComponent(
   const [prevMonth, nextMonth] = getPrevNextMonths(props);
 
   const rootProps: Partial<JSX.IntrinsicElements['div']> = {
-    className: classNames?.nav,
-    style: styles?.nav
+    className: classNames?.Nav,
+    style: styles?.Nav
   };
 
   const onPrevClick: React.MouseEventHandler = (e) => {
@@ -42,16 +42,16 @@ export function getNavigationComponent(
       defaultLabels.navNextButton(nextMonth, props));
 
   const prevButtonProps: JSX.IntrinsicElements['button'] = {
-    className: classNames?.navPrevButton,
-    style: styles?.navPrevButton,
+    className: classNames?.NavPrevButton,
+    style: styles?.NavPrevButton,
     onClick: onPrevClick,
     disabled: !prevMonth,
     'aria-label': prevAriaLabel
   };
 
   const nextButtonProps: JSX.IntrinsicElements['button'] = {
-    className: classNames?.navNextButton,
-    style: styles?.navNextButton,
+    className: classNames?.NavNextButton,
+    style: styles?.NavNextButton,
     onClick: onNextClick,
     disabled: !nextMonth,
     'aria-label': nextAriaLabel

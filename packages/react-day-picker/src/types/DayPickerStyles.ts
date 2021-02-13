@@ -1,5 +1,5 @@
 import { UIElement } from './UIElement';
 
 export type DayPickerStyles = {
-  [element in UIElement]?: React.CSSProperties;
+  [element in keyof UIElement]?: React.CSSProperties;
 };

@@ -1,12 +1,12 @@
 import { DayPickerClassNames, DayPickerProps } from 'types';
 
-import { defaultProps } from '../DayPicker/defaultProps';
+import { defaultProps } from '../DayPicker';
 import { getCaptionComponent } from './getCaptionComponent';
 
 describe('getCaptionComponent', () => {
   it('return the container props', () => {
     const classNames: DayPickerClassNames = {
-      caption: 'caption-foo'
+      Caption: 'caption-foo'
     };
     const props: DayPickerProps = {
       ...defaultProps,

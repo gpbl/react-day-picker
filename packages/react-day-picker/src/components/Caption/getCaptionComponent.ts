@@ -9,8 +9,8 @@ export function getCaptionComponent(
     rootProps: {
       'aria-atomic': true,
       'aria-live': 'polite',
-      className: props.classNames?.caption,
-      style: props.styles?.caption
+      className: props.classNames?.Caption,
+      style: props.styles?.Caption
     }
   };
 }
