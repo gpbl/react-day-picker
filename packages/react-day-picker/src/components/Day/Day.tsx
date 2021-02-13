@@ -14,7 +14,7 @@ export function Day(props: DayProps): JSX.Element {
   );
 
   if (modifiers.hidden) {
-    return <span />;
+    return null;
   }
 
   return (
