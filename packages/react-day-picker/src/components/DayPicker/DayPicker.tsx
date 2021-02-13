@@ -62,9 +62,9 @@ export function DayPicker(props: DayPickerComponentProps): JSX.Element {
   const overrideProps = {
     month: isControlled ? currentMonth : month,
     onMonthChange,
+    onDayClick: props.onDayClick ? onDayClick : undefined,
     onDayFocus,
     onDayBlur,
-    onDayClick,
     focusedDay
   };
   const dayPickerProps: DayPickerProps = {
