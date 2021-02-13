@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NavigationProps } from 'types';
 
-import { defaultProps } from '../DayPicker/defaultProps';
 import { getNavigationComponent } from './getNavigationComponent';
 
 export function Navigation(props: NavigationProps): JSX.Element {
@@ -9,17 +8,13 @@ export function Navigation(props: NavigationProps): JSX.Element {
   const { rootProps, nextProps, prevProps } = getNavigationComponent(
     dayPickerProps
   );
+  const { PrevIcon, NextIcon } = dayPickerProps.components;
 
-  const PrevIcon =
-    dayPickerProps.components?.PrevIcon ?? defaultProps.components.PrevIcon;
   const prevButton = (
     <button {...prevProps} key="prev" type="button">
       <PrevIcon />
     </button>
   );
-
-  const NextIcon =
-    dayPickerProps.components?.NextIcon ?? defaultProps.components.NextIcon;
   const nextButton = (
     <button {...nextProps} key="next" type="button">
       <NextIcon />

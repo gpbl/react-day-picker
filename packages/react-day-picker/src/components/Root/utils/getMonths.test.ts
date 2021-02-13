@@ -6,7 +6,7 @@ describe('getMonths', () => {
     expect(getMonths(defaultProps).length).toBe(1);
   });
   it('uses today as default month', () => {
-    const props = { ...defaultProps, month: undefined };
+    const props = { ...defaultProps };
     expect(getMonths(props)[0].getMonth()).toBe(new Date().getMonth());
   });
   it('returns the number of months', () => {
