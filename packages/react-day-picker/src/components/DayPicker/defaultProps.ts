@@ -1,4 +1,5 @@
 import english from 'date-fns/locale/en-US';
+import { DayPickerProps } from 'types';
 
 import { Caption } from '../Caption/Caption';
 import { Day } from '../Day/Day';
@@ -12,7 +13,7 @@ import { formatDay } from './formatters/formatDay';
 import { formatWeekdayName } from './formatters/formatWeekdayName';
 import { formatWeekNumber } from './formatters/formatWeekNumber';
 
-export const defaultProps = {
+export const defaultProps: DayPickerProps = {
   enableOutsideDaysClick: false,
   classNames,
   className: '',

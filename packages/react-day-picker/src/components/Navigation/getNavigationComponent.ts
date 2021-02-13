@@ -1,4 +1,3 @@
-import { defaultProps } from 'components/DayPicker/defaultProps';
 import { DayPickerProps } from 'types';
 
 import { defaultLabels } from '../DayPicker/defaultLabels';
@@ -12,14 +11,14 @@ export function getNavigationComponent(
 ): {
   nextMonth: Date | undefined;
   prevMonth: Date | undefined;
-  rootProps: JSX.IntrinsicElements['div'];
-  prevButtonProps: JSX.IntrinsicElements['button'];
-  nextButtonProps: JSX.IntrinsicElements['button'];
+  rootProps: Partial<JSX.IntrinsicElements['div']>;
+  prevButtonProps: Partial<JSX.IntrinsicElements['button']>;
+  nextButtonProps: Partial<JSX.IntrinsicElements['button']>;
 } {
   const { classNames, styles, onMonthChange } = props;
   const [prevMonth, nextMonth] = getPrevNextMonths(props);
 
-  const rootProps: JSX.IntrinsicElements['div'] = {
+  const rootProps: Partial<JSX.IntrinsicElements['div']> = {
     className: classNames?.nav,
     style: styles?.nav
   };
@@ -33,8 +32,6 @@ export function getNavigationComponent(
     if (!nextMonth) return;
     onMonthChange?.(nextMonth, e);
   };
-
-  // TODO: create a default factory
   const prevAriaLabel =
     prevMonth &&
     (props.ariaLabels?.navPrev(prevMonth, props) ??

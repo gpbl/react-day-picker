@@ -3,7 +3,7 @@ import { DayPickerProps } from 'types';
 export function getCaptionComponent(
   props: DayPickerProps
 ): {
-  rootProps: JSX.IntrinsicElements['caption'];
+  rootProps: Partial<JSX.IntrinsicElements['caption']>;
 } {
   return {
     rootProps: {

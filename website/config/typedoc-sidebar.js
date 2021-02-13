@@ -5,6 +5,7 @@ module.exports = [
     "label": "Interfaces",
     "items": [
       "api/interfaces/captionprops",
+      "api/interfaces/daypickercomponentprops",
       "api/interfaces/daypickerprops",
       "api/interfaces/dayprops",
       "api/interfaces/headprops",

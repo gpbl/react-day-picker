@@ -2,7 +2,6 @@ import { isSameDay } from 'date-fns';
 import { DayPickerProps, ModifiersStatus } from 'types';
 
 import { defaultModifiers } from '../../DayPicker/defaultModifiers';
-import { defaultProps } from '../../DayPicker/defaultProps';
 import { findModifiers } from './findModifiers';
 import { getModifiersFromProps } from './getModifiersFromProps';
 import { getOutsideModifier } from './getOutsideModifier';
@@ -13,21 +12,16 @@ import { getOutsideModifier } from './getOutsideModifier';
 export function getModifiers(
   day: Date,
   currentMonth: Date,
-  props: Pick<
-    DayPickerProps,
-    | 'today'
-    | 'modifiers'
-    | 'showOutsideDays'
-    | 'enableOutsideDaysClick'
-    | 'onDayClick'
-  >
+  props: DayPickerProps
 ): ModifiersStatus {
   const modifiers: ModifiersStatus = {
     ...defaultModifiers
   };
 
   if (props.today !== 'off') {
-    modifiers.today = isSameDay(props.today ?? defaultProps.today, day);
+    modifiers.today = isSameDay(props.today, day);
+  } else {
+    modifiers.today = false;
   }
 
   const outsideModifier = getOutsideModifier(day, currentMonth);

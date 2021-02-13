@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: getNavigationComponent
 
-▸ **getNavigationComponent**(`dayPickerProps`: *Pick*<[*DayPickerProps*](../interfaces/daypickerprops.md), *classNames* \| *styles* \| *onMonthChange*\>): *object*
+▸ **getNavigationComponent**(`props`: [*DayPickerProps*](../interfaces/daypickerprops.md)): *object*
 
 Return the props to apply to the elements of the [Navigation](navigation.md) component.
 
@@ -16,14 +16,14 @@ Return the props to apply to the elements of the [Navigation](navigation.md) com
 
 Name | Type |
 ------ | ------ |
-`dayPickerProps` | *Pick*<[*DayPickerProps*](../interfaces/daypickerprops.md), *classNames* \| *styles* \| *onMonthChange*\> |
+`props` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
 
 **Returns:** *object*
 
 Name | Type |
 ------ | ------ |
-`containerProps` | *Pick*<JSX.IntrinsicElements[*div*], *className* \| *style*\> |
 `nextMonth` | Date \| *undefined* |
-`nextProps` | *Pick*<JSX.IntrinsicElements[*button*], *className* \| *style* \| *onClick* \| *disabled*\> |
+`nextProps` | JSX.IntrinsicElements[*button*] |
 `prevMonth` | Date \| *undefined* |
-`prevProps` | *Pick*<JSX.IntrinsicElements[*button*], *className* \| *style* \| *onClick* \| *disabled*\> |
+`prevProps` | JSX.IntrinsicElements[*button*] |
+`rootProps` | JSX.IntrinsicElements[*div*] |

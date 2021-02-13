@@ -5,6 +5,7 @@ export * from './DayClickEventHandler';
 export * from './DayKeyboardEventHandler';
 export * from './DayMouseEventHandler';
 export * from './DayPickerClassNames';
+export * from './DayPickerComponentProps';
 export * from './DayPickerProps';
 export * from './DayPickerStyles';
 export * from './DayProps';
