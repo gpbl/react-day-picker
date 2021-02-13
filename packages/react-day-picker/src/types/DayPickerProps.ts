@@ -26,7 +26,7 @@ export interface DayPickerProps extends DayPickerComponentProps {
   formatDay: NonNullable<DayPickerComponentProps['formatDay']>;
   formatWeekdayName: NonNullable<DayPickerComponentProps['formatWeekdayName']>;
   formatWeekNumber: NonNullable<DayPickerComponentProps['formatWeekNumber']>;
-  initialMonth: NonNullable<DayPickerComponentProps['initialMonth']>;
+  initialMonth: DayPickerComponentProps['initialMonth'];
   locale: NonNullable<DayPickerComponentProps['locale']>;
   modifiersClassNames: NonNullable<
     DayPickerComponentProps['modifiersClassNames']

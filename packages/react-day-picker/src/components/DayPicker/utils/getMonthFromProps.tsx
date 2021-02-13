@@ -1,10 +1,11 @@
 import { isAfter, isBefore, startOfMonth } from 'date-fns';
-import { DayPickerProps } from 'types';
+import { DayPickerComponentProps } from 'types';
 
-export function getMonthFromProps(props: DayPickerProps): Date {
+export function getMonthFromProps(props: DayPickerComponentProps): Date {
   const { toMonth, fromMonth } = props;
 
-  let month = props.initialMonth || (props.today !== 'off' && props.today);
+  let month = props.initialMonth ?? props.month ?? new Date();
+
   month = startOfMonth(month);
 
   // Fix initial month if is after the `toMonth` prop.
