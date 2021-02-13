@@ -5,29 +5,29 @@ import { defaultProps } from '../DayPicker/defaultProps';
 import { getNavigationComponent } from './getNavigationComponent';
 
 export function Navigation(props: NavigationProps): JSX.Element {
-  const { dayPickerProps } = props;
-  const { rootProps, nextProps, prevProps } = getNavigationComponent(
-    dayPickerProps
-  );
+  const { components, dir } = props.dayPickerProps;
+  const {
+    rootProps,
+    nextButtonProps,
+    prevButtonProps
+  } = getNavigationComponent(props.dayPickerProps);
 
-  const PrevIcon =
-    dayPickerProps.components?.PrevIcon ?? defaultProps.components.PrevIcon;
+  const PrevIcon = components?.PrevIcon ?? defaultProps.components.PrevIcon;
   const prevButton = (
-    <button {...prevProps} key="prev" type="button">
+    <button {...prevButtonProps} key="prev">
       <PrevIcon />
     </button>
   );
 
-  const NextIcon =
-    dayPickerProps.components?.NextIcon ?? defaultProps.components.NextIcon;
+  const NextIcon = components?.NextIcon ?? defaultProps.components.NextIcon;
   const nextButton = (
-    <button {...nextProps} key="next" type="button">
+    <button {...nextButtonProps} key="next">
       <NextIcon />
     </button>
   );
 
   let buttons = [prevButton, nextButton];
-  if (dayPickerProps.dir === 'rtl') {
+  if (dir === 'rtl') {
     buttons = buttons.reverse();
   }
   return <div {...rootProps}>{buttons}</div>;

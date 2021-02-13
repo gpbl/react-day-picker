@@ -15,11 +15,16 @@ import {
   MonthChangeEventHandler,
   WeekNumberFormatter
 } from 'types';
+import { AriaLabelsMap } from './AriaLabelsMap';
 
 /**
  * The props of the [[DayPicker]] component.
  */
 export interface DayPickerProps {
+  /**
+   * The `aria-labels` for the UI elements.
+   */
+  ariaLabels?: AriaLabelsMap;
   /**
    * CSS class to add to the root UI element.
    */
