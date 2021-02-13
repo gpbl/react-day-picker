@@ -9,7 +9,7 @@ export function Day(props: DayProps): JSX.Element {
   const locale = dayPickerProps.locale ?? defaultProps.locale;
   const formatDay = dayPickerProps.formatDay ?? defaultProps.formatDay;
 
-  const { containerProps, wrapperProps, modifiers } = getDayComponent(
+  const { rootProps, wrapperProps, modifiers } = getDayComponent(
     day,
     currentMonth,
     dayPickerProps
@@ -20,7 +20,7 @@ export function Day(props: DayProps): JSX.Element {
   }
 
   return (
-    <span {...containerProps}>
+    <span {...rootProps}>
       <time {...wrapperProps}>{formatDay(day, { locale })}</time>
     </span>
   );

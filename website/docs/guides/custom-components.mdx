@@ -29,13 +29,13 @@ import { DayPicker, getNavigationComponent } from 'react-day-picker';
 function Example() {
   function Navigation({ month, dayPickerProps }) {
     const { locale, onMonthChange } = dayPickerProps;
-    const { prevMonth, nextMonth, containerProps } = getNavigationComponent(
+    const { prevMonth, nextMonth, rootProps } = getNavigationComponent(
       dayPickerProps
     );
     const handlePrevClick = (e) => onMonthChange(prevMonth, e);
     const handleNextClick = (e) => onMonthChange(nextMonth, e);
     return (
-      <div {...containerProps}>
+      <div {...rootProps}>
         {prevMonth && <button onClick={handlePrevClick}>Prev</button>}
         {nextMonth && <button onClick={handleNextClick}>Next</button>}
       </div>
@@ -102,9 +102,9 @@ function Example() {
   function Day({ day, currentMonth, dayPickerProps }) {
     const { onDayEnter, onDayLeave } = dayPickerProps;
     const dayComponent = getDayComponent(day, currentMonth, dayPickerProps);
-    const { modifiers, containerProps, wrapperProps } = dayComponent;
+    const { modifiers, rootProps, wrapperProps } = dayComponent;
     return (
-      <span data-selected={modifiers.selected} {...containerProps}>
+      <span data-selected={modifiers.selected} {...rootProps}>
         <time {...wrapperProps}>{day.getDate()}</time>
       </span>
     );
@@ -145,10 +145,10 @@ function Example() {
   /** A custom Caption component */
   function Caption({ month, dayPickerProps }) {
     const { locale, onMonthSelect, onYearSelect } = dayPickerProps;
-    const { containerProps } = getCaptionComponent(dayPickerProps);
+    const { rootProps } = getCaptionComponent(dayPickerProps);
     const months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     return (
-      <caption {...containerProps}>
+      <caption {...rootProps}>
         <select
           value={month.getMonth()}
           onChange={(e) => onMonthSelect(Number(e.target.value))}
