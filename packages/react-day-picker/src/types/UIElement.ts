@@ -29,4 +29,5 @@ export interface UIElement {
   DayToday: 'dayToday';
   DayAfterMonth: 'dayAfterMonth';
   DayBeforeMonth: 'dayBeforeMonth';
+  DayInteractive: 'dayInteractive';
 }

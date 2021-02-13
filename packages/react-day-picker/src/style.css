@@ -1,27 +1,29 @@
 :root {
   --rdp-color-primary: #3f5efb;
   --rdp-color-secondary: #fc466b;
+  --rdp-month-margins: 0.5em;
+  --rdp-caption-margin-bottom: 0.75em;
+  --rdp-caption-font-weight: bold;
+  --rdp-caption-font-size: larger;
 }
 
 .rdp {
   position: relative;
 
   display: inline-block;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 .rdp .rdp-months {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .rdp .rdp-caption {
-  margin-bottom: 0.75em;
+  margin-bottom: var(--rdp-caption-margin-bottom);
   text-align: left;
-  font-weight: bold;
-  font-size: larger;
+  font: var(--rdp-caption-font-weight);
+  font-weight: var(--rdp-caption-font-weight);
+  font-size: var(--rdp-caption-font-size);
 }
 
 .rdp[dir='rtl'] .rdp-caption {
@@ -29,25 +31,13 @@
 }
 
 .rdp .rdp-month {
-  /* Month table container */
-}
-.rdp .rdp-table {
-  /* Month table */
-  border-collapse: collapse;
-}
-.rdp .rdp-body {
-  /* Tbody element in the table */
+  margin: var(--rdp-month-margins);
 }
 
-.rdp .rdp-head {
-  /* Head element (weekday names) */
+.rdp .rdp-table {
+  border-collapse: collapse;
 }
-.rdp .rdp-head-row {
-  /* Head element (weekday names) row */
-}
-.rdp .rdp-head_weeknumber {
-  font-variant-numeric: tabular-nums;
-}
+
 .rdp .rdp-head-cell {
   padding-bottom: 0.5em;
   font-size: x-small;
@@ -56,17 +46,14 @@
   font-weight: 700;
 }
 
-.rdp .rdp-row {
-  /* Week row */
-}
-.rdp .rdp-row_head {
+.rdp .rdp-row-head {
   min-width: 1.25em;
   text-align: right;
   font-weight: 500;
+  font-variant-numeric: tabular-nums;
   font-size: x-small;
 }
 .rdp .rdp-cell {
-  /* Week day table cell */
   text-align: center;
 }
 
@@ -75,6 +62,8 @@
   top: 0.25em;
   right: 0;
   display: flex;
+  margin-top: var(--rdp-month-margins);
+  margin-right: var(--rdp-month-margins);
 }
 .rdp[dir='rtl'] .rdp-nav {
   right: auto;
@@ -121,6 +110,16 @@
   min-width: 2.2em;
   height: 2.2em;
   border: 2px solid transparent;
+  border-radius: 100%;
+}
+
+.rdp .rdp-months:focus,
+.rdp .rdp-day:focus {
+  outline-offset: 0;
+  outline-style: auto;
+  outline-width: 3px;
+  outline-color: Highlight;
+  outline-color: -webkit-focus-ring-color;
 }
 
 .rdp .rdp-day[role='button'] {
@@ -135,9 +134,7 @@
 }
 .rdp .rdp-day_today {
   position: relative;
-
   border-color: var(--rdp-color-secondary);
-  border-radius: 100%;
   font-weight: bold;
 }
 .rdp .rdp-day_selected {

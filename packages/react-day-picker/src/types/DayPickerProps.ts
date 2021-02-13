@@ -22,6 +22,8 @@ export interface DayPickerProps extends DayPickerComponentProps {
     PrevIcon: typeof PrevIcon;
   };
   fixedWeeks: NonNullable<DayPickerComponentProps['fixedWeeks']>;
+  /** The day that has the focus. If set, an effect will focus the day cell. */
+  focusedDay?: Date;
   formatCaption: NonNullable<DayPickerComponentProps['formatCaption']>;
   formatDay: NonNullable<DayPickerComponentProps['formatDay']>;
   formatWeekdayName: NonNullable<DayPickerComponentProps['formatWeekdayName']>;
@@ -33,6 +35,8 @@ export interface DayPickerProps extends DayPickerComponentProps {
   >;
   month: NonNullable<DayPickerComponentProps['month']>;
   numberOfMonths: NonNullable<DayPickerComponentProps['numberOfMonths']>;
+  onDayFocus?: NonNullable<DayPickerComponentProps['onDayFocus']>;
+  onDayBlur?: NonNullable<DayPickerComponentProps['onDayBlur']>;
   pagedNavigation: NonNullable<DayPickerComponentProps['pagedNavigation']>;
   reverseMonths: NonNullable<DayPickerComponentProps['reverseMonths']>;
   showCaption: NonNullable<DayPickerComponentProps['showCaption']>;
