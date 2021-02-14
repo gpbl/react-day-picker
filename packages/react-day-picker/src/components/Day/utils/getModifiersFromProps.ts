@@ -4,14 +4,11 @@ export function getModifiersFromProps(
   props: Pick<DayPickerProps, 'selected' | 'disabled' | 'hidden' | 'modifiers'>
 ): ModifiersMatchers {
   const modifiers = Object.assign({}, props.modifiers);
-  if (props.selected) {
-    modifiers.selected = props.selected;
-  }
-  if (props.disabled) {
-    modifiers.disabled = props.disabled;
-  }
-  if (props.hidden) {
-    modifiers.hidden = props.hidden;
-  }
+  const modifierProps = ['selected', 'disabled', 'hidden'];
+  modifierProps.forEach((propName) => {
+    if (props[propName]) {
+      modifiers[propName] = props[propName];
+    }
+  });
   return modifiers;
 }

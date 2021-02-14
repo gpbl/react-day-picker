@@ -29,10 +29,4 @@ export const defaultClassNames: DayPickerClassNames = {
   RowHead: 'rdp-row-head',
   Cell: 'rdp-cell',
 
-  // Modifiers
-  DaySelected: 'rdp-day_selected',
-  DayDisabled: 'rdp-day_disabled',
-  DayInteractive: 'rdp-day_interactive',
-  DayToday: 'rdp-day_today',
-  DayOutside: 'rdp-day_outside'
 };

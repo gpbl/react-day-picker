@@ -14,11 +14,10 @@ export function createClassName(
   Object.keys(modifiers)
     .filter((modifier) => Boolean(modifiers[modifier]))
     .forEach((modifier) => {
-      if (classNames?.[modifier]) {
-        className.push(classNames[modifier]);
-      }
       if (modifiersClassNames?.[modifier]) {
         className.push(modifiersClassNames[modifier]);
+      } else {
+        className.push(`${props.modifierPrefix}${modifier}`);
       }
     });
   return className.join(' ');

@@ -9,7 +9,6 @@ import { PrevIcon } from '../../PrevIcon';
 import { Row } from '../../Row';
 import { defaultClassNames } from './defaultClassNames';
 import { defaultLabels } from './defaultLabels';
-import { defaultModifiersClassNames } from './defaultModifiersClassNames';
 import { formatCaption } from '../utils/formatCaption';
 import { formatDay } from '../utils/formatDay';
 import { formatWeekdayName } from '../utils/formatWeekdayName';
@@ -37,7 +36,7 @@ export const defaultProps: DayPickerProps = {
   initialMonth: undefined,
   locale: english,
   modifiers: defaultModifiers,
-  modifiersClassNames: defaultModifiersClassNames,
+  modifierPrefix: 'rdp-day_',
   month: new Date(),
   numberOfMonths: 1,
   pagedNavigation: false,
