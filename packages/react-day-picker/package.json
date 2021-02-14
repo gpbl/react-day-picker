@@ -23,15 +23,15 @@
     "test:watch": "jest --watchAll --coverage",
     "build-clean": "rm -rf lib && rm -rf dist && rm -rf docs",
     "build-types": "tsc -p tsconfig.types.json",
-    "build-css": "cp ./src/style.css ./dist/style.css",
     "build-dist": "cross-env TS_NODE_PROJECT=tsconfig.dist.json webpack",
-    "build": "yarn build-clean && yarn build-dist && tsc && yarn build-types && yarn build-css"
+    "build": "yarn build-clean && yarn build-dist && tsc && yarn build-types"
   },
   "files": [
     "dist",
     "lib",
     "src",
-    "docs"
+    "docs",
+    "style.css"
   ],
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",

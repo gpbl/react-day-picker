@@ -24,34 +24,40 @@ export function getNavigationComponent(
   };
 
   const onPrevClick: React.MouseEventHandler = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
     if (!prevMonth) return;
     onMonthChange?.(prevMonth, e);
   };
 
   const onNextClick: React.MouseEventHandler = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
     if (!nextMonth) return;
     onMonthChange?.(nextMonth, e);
   };
   const prevAriaLabel =
     prevMonth &&
-    (props.labelsFormatters?.navPrevButton(prevMonth, props) ??
-      defaultLabels.navPrevButton(prevMonth, props));
+    (props.labelsFormatters?.NavButtonPrev(prevMonth, props) ??
+      defaultLabels.NavButtonPrev(prevMonth, props));
   const nextAriaLabel =
     nextMonth &&
-    (props.labelsFormatters?.navNextButton(nextMonth, props) ??
-      defaultLabels.navNextButton(nextMonth, props));
+    (props.labelsFormatters?.NavButtonNext(nextMonth, props) ??
+      defaultLabels.NavButtonNext(nextMonth, props));
+
+  const buttonClassName = classNames?.NavButton ?? '';
 
   const prevButtonProps: JSX.IntrinsicElements['button'] = {
-    className: classNames?.NavPrevButton,
-    style: styles?.NavPrevButton,
+    className: [buttonClassName, classNames?.NavButtonNext ?? ''].join(' '),
+    style: styles?.NavButtonPrev,
     onClick: onPrevClick,
     disabled: !prevMonth,
     'aria-label': prevAriaLabel
   };
 
   const nextButtonProps: JSX.IntrinsicElements['button'] = {
-    className: classNames?.NavNextButton,
-    style: styles?.NavNextButton,
+    className: [buttonClassName, classNames?.NavButtonNext ?? ''].join(' '),
+    style: styles?.NavButtonNext,
     onClick: onNextClick,
     disabled: !nextMonth,
     'aria-label': nextAriaLabel

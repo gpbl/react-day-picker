@@ -1,0 +1,208 @@
+:root {
+  --rdp-accent-color: #4d21fc;
+
+  /* Default colors for light themes */
+  --rdp-accent-color-light: #8567fd;
+  --rdp-accent-color-lighter: #beaefe;
+  --rdp-accent-color-lightest: #f6f4ff;
+  
+  /* Switch to dark colors for dark themes */
+  --rdp-accent-color-dark: #3003e1;
+  --rdp-accent-color-darker: #2a03c5;
+  --rdp-accent-color-darkest: #180270;
+  
+  --rdp-cell-size: 2.5em;
+}
+
+.rdp,
+.rdp * {
+  box-sizing: border-box;
+}
+
+/** Reset buttons */
+.rdp .rdp-day,
+.rdp .rdp-nav-button {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  color: inherit;
+  border: 0;
+  background: none;
+  font: inherit;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.rdp {
+  display: inline-block;
+}
+.rdp .rdp-month {
+  margin: 0.75em;
+}
+.rdp .rdp-table {
+  border-collapse: collapse;
+}
+
+/* ---------- */
+/* Caption    */
+/* ---------- */
+
+.rdp .rdp-caption {
+  padding: 0.25em 0;
+  caption-side: top;
+  text-align: left;
+  font-size: 140%;
+  font-weight: bold;
+}
+.rdp[dir='rtl'] .rdp-caption {
+  text-align: right;
+}
+.rdp .rdp-caption > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---------- */
+/* Table      */
+/* ---------- */
+
+.rdp .rdp-head-cell {
+  padding: 0.5em;
+  text-align: center;
+  font-size: 75%;
+  font-weight: 500;
+}
+
+.rdp .rdp-row {
+  height: 100%;
+}
+
+.rdp .rdp-row-head {
+  min-width: 1.25em;
+  padding: 0 0.5em;
+  text-align: right;
+  font-size: 67.5%;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.rdp .rdp-cell {
+  width: var(--rdp-cell-size);
+  height: 100%;
+  height: var(--rdp-cell-size);
+  text-align: center;
+}
+
+/* ----------- */
+/* Day element */
+/* ----------- */
+
+.rdp .rdp-day {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--rdp-cell-size);
+  max-width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  margin: 0;
+  border: 2px solid transparent;
+  border-radius: 100%;
+  outline: none;
+}
+
+.rdp .rdp-day:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: var(--rdp-accent-color-lightest);
+}
+
+.rdp .rdp-day:focus {
+  border: 2px solid var(--rdp-accent-color);
+}
+
+.rdp .rdp-day:focus:not(.rdp-day_selected) {
+  background-color: var(--rdp-accent-color-lightest);
+}
+
+/* ----------- */
+/* Modifiers   */
+/* ----------- */
+
+.rdp .rdp-day_interactive {
+  cursor: pointer;
+}
+.rdp .rdp-day_disabled {
+  opacity: 25%;
+}
+.rdp .rdp-day_outside {
+  opacity: 25%;
+}
+.rdp .rdp-day_today {
+  font-weight: bold;
+}
+.rdp .rdp-day_selected {
+  color: white;
+  background-color: var(--rdp-accent-color-light);
+}
+
+.rdp .rdp-day_from {
+  background-color: var(--rdp-accent-color-light);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.rdp .rdp-day_to {
+  background-color: var(--rdp-accent-color-light);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.rdp .rdp-day_to.rdp-day_from {
+  border-radius: 100%;
+}
+.rdp .rdp-day_between {
+  border-radius: 0;
+  background-color: var(--rdp-accent-color-lightest);
+  color: inherit;
+}
+.rdp .rdp-day.rdp-day_between:hover {
+  background-color: var(--rdp-accent-color-lighter);
+  color: inherit;
+}
+
+.rdp .rdp-day_selected:hover {
+  background-color: var(--rdp-accent-color);
+}
+
+/* ---------- */
+/* Navigation */
+/* ---------- */
+
+.rdp .rdp-nav {
+  float: right;
+}
+.rdp[dir='rtl'] .rdp-nav {
+  float: left;
+}
+.rdp .rdp-nav-button {
+  display: inline-flex;
+  padding: 0.5em;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 100%;
+  outline: none;
+}
+.rdp .rdp-nav-button:hover:not([disabled]) {
+  background-color: var(--rdp-accent-color-lightest);
+}
+.rdp .rdp-nav-button:focus:not([disabled]),
+.rdp .rdp-nav-button:active:not([disabled]) {
+  border: 2px solid var(--rdp-accent-color);
+}
+.rdp .rdp-nav-button[disabled] {
+  opacity: 0.20;
+  cursor: default;
+}
