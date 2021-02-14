@@ -3,7 +3,7 @@ import { LabelsFormatters } from '../../../types';
 
 import { defaultProps } from './defaultProps';
 
-export const defaultLabels: LabelsFormatters = {
+export const defaultLabels: Required<LabelsFormatters> = {
   navNextButton: (month, props) => {
     const formatCaption = props?.formatCaption ?? defaultProps.formatCaption;
     return `Go to next month: ${formatCaption(month, props)}`;

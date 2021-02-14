@@ -1,10 +1,24 @@
-import { isSameDay } from 'date-fns';
-import { DayPickerProps, ModifiersStatus } from '../../../types';
-
-import { defaultModifiers } from '../../DayPicker';
-import { findModifiers } from './findModifiers';
+import {
+  DayPickerProps,
+  Modifier,
+  ModifiersMatchers,
+  ModifiersStatus
+} from '../../../types';
 import { getModifiersFromProps } from './getModifiersFromProps';
-import { getOutsideModifier } from './getOutsideModifier';
+import { matchDay } from './matchModifier';
+
+const reduceCallback = (
+  day: Date,
+  matchers: ModifiersMatchers,
+  currentMonth: Date,
+  props: DayPickerProps
+) => (previousValue: string[], key: string): string[] => {
+  const matcher = matchers[key];
+  if (matchDay(day, matcher, currentMonth, props)) {
+    previousValue.push(key);
+  }
+  return previousValue;
+};
 
 /**
  * Return the status of the modifiers for the given day,
@@ -14,34 +28,13 @@ export function getModifiers(
   currentMonth: Date,
   props: DayPickerProps
 ): ModifiersStatus {
-  const modifiers: ModifiersStatus = {
-    ...defaultModifiers
-  };
-
-  if (props.today !== 'off') {
-    modifiers.today = isSameDay(props.today, day);
-  } else {
-    modifiers.today = false;
-  }
-
-  const outsideModifier = getOutsideModifier(day, currentMonth);
-  if (outsideModifier) {
-    modifiers[outsideModifier] = true;
-  }
-
-  const isOutside = modifiers.beforemonth || modifiers.aftermonth;
-
-  modifiers.hidden = isOutside && !props.showOutsideDays;
-  modifiers.disabled = isOutside && !props.enableOutsideDaysClick;
-
-  const modifiersFromProps = getModifiersFromProps(props);
-
-  const foundModifiers = findModifiers(day, modifiersFromProps);
-  foundModifiers.forEach((modifier) => (modifiers[modifier] = true));
-
-  if (props.onDayClick && !modifiers.hidden && !modifiers.disabled) {
-    modifiers.interactive = true;
-  }
+  const modifierMatchers = getModifiersFromProps(props);
+  const modifiersList: Modifier[] = Object.keys(modifierMatchers).reduce(
+    reduceCallback(day, modifierMatchers, currentMonth, props),
+    []
+  );
+  const modifiers = {};
+  modifiersList.forEach((modifier) => (modifiers[modifier] = true));
 
   return modifiers;
 }

@@ -11,23 +11,22 @@ export interface UIElement {
   TBody: 'tbody';
 
   Head: 'head';
-  HeadRow: 'headRow';
-  HeadCell: 'headCell';
+  HeadRow: 'head-row';
+  HeadCell: 'head-cell';
 
   Nav: 'nav';
 
-  NavPrevButton: 'navPrevButton';
-  NavNextButton: 'navNextButton';
+  NavPrevButton: 'nav-prev-button';
+  NavNextButton: 'nav-next-button';
 
   Row: 'row';
-  RowHead: 'rowHead';
+  RowHead: 'row-head';
   Cell: 'cell';
 
   Day: 'day';
-  DaySelected: 'daySelected';
-  DayDisabled: 'dayDisabled';
-  DayToday: 'dayToday';
-  DayAfterMonth: 'dayAfterMonth';
-  DayBeforeMonth: 'dayBeforeMonth';
-  DayInteractive: 'dayInteractive';
+  DaySelected: 'day-selected';
+  DayDisabled: 'day-disabled';
+  DayToday: 'day-today';
+  DayOutside: 'day-outside';
+  DayInteractive: 'day-interactive';
 }

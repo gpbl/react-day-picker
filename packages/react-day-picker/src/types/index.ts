@@ -13,7 +13,6 @@ export * from './DayPickerStyles';
 export * from './DayProps';
 export * from './DayTouchEventHandler';
 export * from './DaysRange';
-export * from './DefaultModifier';
 export * from './HeadProps';
 export * from './LabelsFormatters';
 export * from './MatchAfter';

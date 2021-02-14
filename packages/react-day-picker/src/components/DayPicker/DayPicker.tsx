@@ -70,10 +70,25 @@ export function DayPicker(props: DayPickerComponentProps): JSX.Element {
   const dayPickerProps: DayPickerProps = {
     ...defaultProps,
     ...props,
-    components: { ...defaultProps.components, ...props.components },
+    classNames: {
+      ...defaultProps.classNames,
+      ...props.classNames
+    },
+    components: {
+      ...defaultProps.components,
+      ...props.components
+    },
+    labelsFormatters: {
+      ...defaultProps.labelsFormatters,
+      ...props.labelsFormatters
+    },
     modifiers: {
       ...defaultProps.modifiers,
       ...props.modifiers
+    },
+    modifiersClassNames: {
+      ...defaultProps.modifiersClassNames,
+      ...props.modifiersClassNames
     },
     ...overrideProps
   };
