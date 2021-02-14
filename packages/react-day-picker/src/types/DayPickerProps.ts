@@ -1,7 +1,6 @@
 import { CustomizableComponents } from './CustomizableComponents';
 import { DayPickerComponentProps } from './DayPickerComponentProps';
 import { LabelsFormatters } from './LabelsFormatters';
-import { ModifiersClassNames } from './ModifiersClassNames';
 import { ModifiersMatchers } from './ModifiersMatchers';
 
 /** Represent a required prop name */
@@ -41,10 +40,9 @@ export type DayPickerOptionalProps = Omit<
 export interface DayPickerProps
   extends DayPickerOptionalProps,
     DayPickerRequiredProps {
-  modifiers: Required<ModifiersMatchers>;
-  modifiersClassNames: Required<ModifiersClassNames>;
   components: Required<CustomizableComponents>;
-  labelsFormatters: Required<LabelsFormatters>;
   /** The currently focused day. Used for ARIA. */
   focusedDay?: Date;
+  labelsFormatters: Required<LabelsFormatters>;
+  modifiers: Required<ModifiersMatchers>;
 }
