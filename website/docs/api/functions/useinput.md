@@ -38,3 +38,5 @@ Name | Type |
 `options?` | [*UseInputOptions*](../types/useinputoptions.md) |
 
 **Returns:** [*UseInput*](../types/useinput.md)
+
+Defined in: [hooks/useInput/useInput.ts:35](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/hooks/useInput/useInput.ts#L35)

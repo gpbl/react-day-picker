@@ -11,3 +11,5 @@ hide_title: true
 Ƭ **Modifier**: *string*
 
 Represent the string assigned to a day when matching a [Matcher](matcher.md).
+
+Defined in: [types/Modifier.ts:4](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/Modifier.ts#L4)

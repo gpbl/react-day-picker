@@ -20,11 +20,15 @@ Represent an element of the DayPicker user interface.
 
 • **Caption**: *caption*
 
+Defined in: [types/UIElement.ts:6](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L6)
+
 ___
 
 ### Cell
 
 • **Cell**: *cell*
+
+Defined in: [types/UIElement.ts:27](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L27)
 
 ___
 
@@ -32,35 +36,7 @@ ___
 
 • **Day**: *day*
 
-___
-
-### DayDisabled
-
-• **DayDisabled**: *day-disabled*
-
-___
-
-### DayInteractive
-
-• **DayInteractive**: *day-interactive*
-
-___
-
-### DayOutside
-
-• **DayOutside**: *day-outside*
-
-___
-
-### DaySelected
-
-• **DaySelected**: *day-selected*
-
-___
-
-### DayToday
-
-• **DayToday**: *day-today*
+Defined in: [types/UIElement.ts:29](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L29)
 
 ___
 
@@ -68,11 +44,15 @@ ___
 
 • **Head**: *head*
 
+Defined in: [types/UIElement.ts:13](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L13)
+
 ___
 
 ### HeadCell
 
 • **HeadCell**: *head-cell*
+
+Defined in: [types/UIElement.ts:15](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L15)
 
 ___
 
@@ -80,11 +60,15 @@ ___
 
 • **HeadRow**: *head-row*
 
+Defined in: [types/UIElement.ts:14](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L14)
+
 ___
 
 ### Month
 
 • **Month**: *month*
+
+Defined in: [types/UIElement.ts:9](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L9)
 
 ___
 
@@ -92,23 +76,47 @@ ___
 
 • **Months**: *months*
 
+Defined in: [types/UIElement.ts:8](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L8)
+
 ___
 
 ### Nav
 
 • **Nav**: *nav*
 
-___
-
-### NavNextButton
-
-• **NavNextButton**: *nav-next-button*
+Defined in: [types/UIElement.ts:17](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L17)
 
 ___
 
-### NavPrevButton
+### NavButton
 
-• **NavPrevButton**: *nav-prev-button*
+• **NavButton**: *nav-button*
+
+Defined in: [types/UIElement.ts:19](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L19)
+
+___
+
+### NavButtonNext
+
+• **NavButtonNext**: *nav-button-next*
+
+Defined in: [types/UIElement.ts:21](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L21)
+
+___
+
+### NavButtonPrev
+
+• **NavButtonPrev**: *nav-button-prev*
+
+Defined in: [types/UIElement.ts:20](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L20)
+
+___
+
+### NavIcon
+
+• **NavIcon**: *nav-icon*
+
+Defined in: [types/UIElement.ts:23](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L23)
 
 ___
 
@@ -116,11 +124,15 @@ ___
 
 • **Root**: *root*
 
+Defined in: [types/UIElement.ts:5](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L5)
+
 ___
 
 ### Row
 
 • **Row**: *row*
+
+Defined in: [types/UIElement.ts:25](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L25)
 
 ___
 
@@ -128,14 +140,20 @@ ___
 
 • **RowHead**: *row-head*
 
+Defined in: [types/UIElement.ts:26](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L26)
+
 ___
 
 ### TBody
 
 • **TBody**: *tbody*
 
+Defined in: [types/UIElement.ts:11](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L11)
+
 ___
 
 ### Table
 
 • **Table**: *table*
+
+Defined in: [types/UIElement.ts:10](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UIElement.ts#L10)

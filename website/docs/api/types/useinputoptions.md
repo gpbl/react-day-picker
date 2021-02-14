@@ -16,3 +16,5 @@ Name | Type |
 ------ | ------ |
 `locale` | DateFns.Locale |
 `required` | *boolean* |
+
+Defined in: [types/UseInputOptions.ts:3](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/UseInputOptions.ts#L3)

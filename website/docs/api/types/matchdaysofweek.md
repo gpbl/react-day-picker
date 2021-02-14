@@ -18,3 +18,5 @@ is Sunday).
 Name | Type |
 ------ | ------ |
 `daysOfWeek` | *number*[] |
+
+Defined in: [types/MatchDaysOfWeek.ts:5](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/MatchDaysOfWeek.ts#L5)

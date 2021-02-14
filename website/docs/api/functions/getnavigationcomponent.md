@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ **getNavigationComponent**(`props`: [*DayPickerProps*](../interfaces/daypickerprops.md)): *object*
 
-Return the props to apply to the elements of the [Navigation](navigation.md) component.
+Return the values for creating the [Navigation](navigation.md) components.
 
 #### Parameters:
 
@@ -27,3 +27,5 @@ Name | Type |
 `prevButtonProps` | *Partial*<JSX.IntrinsicElements[*button*]\> |
 `prevMonth` | Date \| *undefined* |
 `rootProps` | *Partial*<JSX.IntrinsicElements[*div*]\> |
+
+Defined in: [components/Navigation/getNavigationComponent.ts:9](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/components/Navigation/getNavigationComponent.ts#L9)

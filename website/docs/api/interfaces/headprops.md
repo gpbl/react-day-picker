@@ -19,3 +19,5 @@ Reppresent the props for the [Head](../functions/head.md) components.
 ### dayPickerProps
 
 • **dayPickerProps**: [*DayPickerProps*](daypickerprops.md)
+
+Defined in: [types/HeadProps.ts:5](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/HeadProps.ts#L5)

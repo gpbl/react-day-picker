@@ -23,3 +23,5 @@ Name | Type |
 `day` | Date |
 
 **Returns:** [*DaysRange*](../types/daysrange.md)
+
+Defined in: [hooks/useRange/addToRange.ts:12](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/hooks/useRange/addToRange.ts#L12)
