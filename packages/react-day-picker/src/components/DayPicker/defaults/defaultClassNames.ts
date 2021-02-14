@@ -21,12 +21,14 @@ export const defaultClassNames: DayPickerClassNames = {
 
   // Navigation Component
   Nav: 'rdp-nav',
-  NavPrevButton: 'rdp-nav-prev',
-  NavNextButton: 'rdp-nav-next',
+  NavButton: 'rdp-nav-button',
+  NavButtonPrev: 'rdp-nav-button_prev',
+  NavButtonNext: 'rdp-nav-button_next',
+
+  NavIcon: 'rdp-nav-icon',
 
   // Week Component
   Row: 'rdp-row',
   RowHead: 'rdp-row-head',
-  Cell: 'rdp-cell',
-
+  Cell: 'rdp-cell'
 };

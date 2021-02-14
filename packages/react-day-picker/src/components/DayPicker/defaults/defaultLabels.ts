@@ -3,22 +3,28 @@ import { LabelsFormatters } from '../../../types';
 
 import { defaultProps } from './defaultProps';
 
+/**
+ * The formatters for the ARIA labels used across the component.
+ *
+ * Change the default formatters using the
+ * [[DayPickerComponentProps.labelsFormatters]] prop.
+ */
 export const defaultLabels: Required<LabelsFormatters> = {
-  navNextButton: (month, props) => {
+  NavButtonNext: (month, props) => {
     const formatCaption = props?.formatCaption ?? defaultProps.formatCaption;
     return `Go to next month: ${formatCaption(month, props)}`;
   },
-  navPrevButton: (month, props) => {
+  NavButtonPrev: (month, props) => {
     const formatCaption = props?.formatCaption ?? defaultProps.formatCaption;
     return `Go to previous month: ${formatCaption(month, props)}`;
   },
-  day: (day, _, props) => {
+  Day: (day, _, props) => {
     return format(day, 'PPPP', { locale: props.locale });
   },
-  headCell: (day, props) => {
+  HeadCell: (day, props) => {
     return props.formatWeekdayName(day, { locale: props.locale }, 'cccc');
   },
-  rowHead: (n, props) => {
+  RowHead: (n, props) => {
     return `Week n. ${n}`;
   }
 };

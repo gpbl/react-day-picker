@@ -21,7 +21,7 @@ export function Row(props: RowProps): JSX.Element {
         <th
           className={classNames?.RowHead}
           style={styles?.RowHead}
-          aria-label={labelsFormatters.rowHead(
+          aria-label={labelsFormatters.RowHead(
             Number(weekNumber),
             dayPickerProps
           )}
