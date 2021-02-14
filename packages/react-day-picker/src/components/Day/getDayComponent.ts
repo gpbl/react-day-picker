@@ -23,13 +23,11 @@ export function getDayComponent(
   const eventHandlers = createEventHandlers(day, modifiers, props);
   const style = createStyle(day, modifiers, props);
   const className = createClassName(day, modifiers, props);
-  const rootProps: JSX.IntrinsicElements['time'] = {
-    'aria-disabled': modifiers.interactive ? modifiers.disabled : undefined,
-    'aria-label': labelsFormatters.day(day, modifiers, props),
+  const rootProps: JSX.IntrinsicElements['button'] = {
+    'aria-label': labelsFormatters.Day(day, modifiers, props),
     'aria-pressed': modifiers.interactive ? modifiers.selected : undefined,
+    disabled: !modifiers.interactive || modifiers.disabled,
     className,
-    dateTime: format(day, 'yyyy-MM-dd'),
-    role: modifiers.interactive ? 'button' : undefined,
     style,
     tabIndex,
     ...eventHandlers
