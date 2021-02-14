@@ -17,6 +17,7 @@ export * from './HeadProps';
 export * from './LabelsFormatters';
 export * from './MatchAfter';
 export * from './MatchBefore';
+export * from './MatchBeforeAfter';
 export * from './MatchDate';
 export * from './MatchDaysOfWeek';
 export * from './MatchFromTo';

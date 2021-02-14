@@ -1,5 +1,6 @@
 import { MatchAfter } from './MatchAfter';
 import { MatchBefore } from './MatchBefore';
+import { MatchBeforeAfter } from './MatchBeforeAfter';
 import { MatchDate } from './MatchDate';
 import { MatchDaysOfWeek } from './MatchDaysOfWeek';
 import { MatchFromTo } from './MatchFromTo';
@@ -12,6 +13,7 @@ export type Matcher =
   | Date
   | MatchDate
   | MatchFromTo
+  | MatchBeforeAfter
   | MatchBefore
   | MatchAfter
   | MatchDaysOfWeek
