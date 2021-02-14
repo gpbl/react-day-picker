@@ -108,7 +108,10 @@ export interface DayPickerComponentProps {
    * ```
    */
   modifiersStyles?: ModifiersStyles;
-
+  /**
+   * The prefix to add to the modifiers classname. Default is `rdp-day_`.
+   */
+  modifierPrefix?: string;
   /**
    * The initial month to show in the calendar. Default is the current month.
    *

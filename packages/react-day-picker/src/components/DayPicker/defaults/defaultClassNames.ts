@@ -1,5 +1,11 @@
 import { DayPickerClassNames } from '../../../types';
 
+/**
+ * The name of the CSS classes for the [[UIElements]].
+ *
+ * Replace the default class names using the [[DayPickerComponent.classNames]]
+ * prop – for example when using CSS modules.
+ */
 export const defaultClassNames: DayPickerClassNames = {
   /** Root element */
   Root: 'rdp',

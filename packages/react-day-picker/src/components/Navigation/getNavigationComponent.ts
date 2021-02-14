@@ -4,7 +4,7 @@ import { defaultLabels } from '../DayPicker';
 import { getPrevNextMonths } from './utils/getPrevNextMonths';
 
 /**
- * Return the props to apply to the elements of the [[Navigation]] component.
+ * Return the values for creating the [[Navigation]] components.
  */
 export function getNavigationComponent(
   props: DayPickerProps

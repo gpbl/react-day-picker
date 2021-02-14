@@ -1,4 +1,3 @@
-import { format } from 'date-fns';
 import { DayPickerProps, ModifiersStatus } from '../../types';
 import { createClassName } from './utils/createClassName';
 import { createEventHandlers } from './utils/createEventHandlers';
