@@ -25,7 +25,7 @@ export function Head(props: HeadProps): JSX.Element {
             scope="col"
             style={styles?.HeadCell}
             className={classNames?.HeadCell}
-            aria-label={labelsFormatters.headCell(
+            aria-label={labelsFormatters.HeadCell(
               weekday,
               props.dayPickerProps
             )}

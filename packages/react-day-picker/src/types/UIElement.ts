@@ -16,17 +16,15 @@ export interface UIElement {
 
   Nav: 'nav';
 
-  NavPrevButton: 'nav-prev-button';
-  NavNextButton: 'nav-next-button';
+  NavButton: 'nav-button';
+  NavButtonPrev: 'nav-button-prev';
+  NavButtonNext: 'nav-button-next';
+
+  NavIcon: 'nav-icon';
 
   Row: 'row';
   RowHead: 'row-head';
   Cell: 'cell';
 
   Day: 'day';
-  DaySelected: 'day-selected';
-  DayDisabled: 'day-disabled';
-  DayToday: 'day-today';
-  DayOutside: 'day-outside';
-  DayInteractive: 'day-interactive';
 }
