@@ -13,12 +13,12 @@ export function Navigation(props: NavigationProps): JSX.Element {
   const { PrevIcon, NextIcon } = dayPickerProps.components;
   const prevButton = (
     <button {...prevButtonProps} key="prev">
-      <PrevIcon />
+      <PrevIcon dayPickerProps={dayPickerProps} />
     </button>
   );
   const nextButton = (
     <button {...nextButtonProps} key="next">
-      <NextIcon />
+      <NextIcon dayPickerProps={dayPickerProps} />
     </button>
   );
 
@@ -26,5 +26,5 @@ export function Navigation(props: NavigationProps): JSX.Element {
   if (dayPickerProps.dir === 'rtl') {
     buttons = buttons.reverse();
   }
-  return <div {...rootProps}>{buttons}</div>;
+  return <span {...rootProps}>{buttons}</span>;
 }
