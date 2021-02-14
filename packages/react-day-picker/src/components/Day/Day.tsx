@@ -15,6 +15,9 @@ export function Day(props: DayProps): JSX.Element | null {
     dayPickerProps
   );
 
+  if (modifiers.hidden) {
+    return null;
+  }
   if (modifiers.outside && !showOutsideDays) {
     return null;
   }

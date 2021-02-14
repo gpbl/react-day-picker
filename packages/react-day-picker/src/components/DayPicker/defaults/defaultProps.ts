@@ -14,6 +14,7 @@ import { formatCaption } from '../utils/formatCaption';
 import { formatDay } from '../utils/formatDay';
 import { formatWeekdayName } from '../utils/formatWeekdayName';
 import { formatWeekNumber } from '../utils/formatWeekNumber';
+import { defaultModifiers } from './defaultModifiers';
 
 export const defaultProps: DayPickerProps = {
   labelsFormatters: defaultLabels,
@@ -35,6 +36,7 @@ export const defaultProps: DayPickerProps = {
   formatWeekNumber,
   initialMonth: undefined,
   locale: english,
+  modifiers: defaultModifiers,
   modifiersClassNames: defaultModifiersClassNames,
   month: new Date(),
   numberOfMonths: 1,

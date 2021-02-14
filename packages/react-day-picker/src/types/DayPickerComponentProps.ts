@@ -26,7 +26,7 @@ export interface DayPickerComponentProps {
   /**
    * A map of formatters for the ARIA labels used in the UI.
    */
-  labelsFormatters: LabelsFormatters;
+  labelsFormatters?: LabelsFormatters;
 
   /**
    * CSS class to add to the root UI element.

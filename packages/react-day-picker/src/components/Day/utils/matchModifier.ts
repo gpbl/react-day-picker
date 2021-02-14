@@ -54,12 +54,22 @@ function matchDayOfWeek(day: Date, matcher: Matcher): boolean {
   return matcher.daysOfWeek.includes(day.getDay());
 }
 
-function matchFunction(day: Date, matcher: Matcher): boolean {
+function matchFunction(
+  day: Date,
+  matcher: Matcher,
+  currentMonth: Date,
+  props: DayPickerProps
+): boolean {
   if (!(matcher instanceof Function)) return false;
-  return matcher(day);
+  return matcher(day, currentMonth, props);
 }
 
-export function matchDay(day: Date, matcher: Matcher): boolean {
+export function matchDay(
+  day: Date,
+  matcher: Matcher,
+  currentMonth: Date,
+  props: DayPickerProps
+): boolean {
   if (!matcher) return false;
   let matchers: Matcher[];
 
@@ -78,7 +88,7 @@ export function matchDay(day: Date, matcher: Matcher): boolean {
       matchDayAfter(day, dayMatcher) ||
       matchDayBetween(day, dayMatcher) ||
       matchDayOfWeek(day, dayMatcher) ||
-      matchFunction(day, dayMatcher)
+      matchFunction(day, dayMatcher, currentMonth, props)
     );
   });
 }
