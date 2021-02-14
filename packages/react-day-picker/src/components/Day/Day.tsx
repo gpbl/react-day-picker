@@ -5,7 +5,7 @@ import { DayProps } from '../../types';
 import { getDayComponent } from './getDayComponent';
 
 export function Day(props: DayProps): JSX.Element | null {
-  const el = React.useRef<HTMLTimeElement>(null);
+  const el = React.useRef<HTMLButtonElement>(null);
   const { day, dayPickerProps, currentMonth } = props;
   const { locale, formatDay, focusedDay, showOutsideDays } = dayPickerProps;
 
@@ -28,8 +28,8 @@ export function Day(props: DayProps): JSX.Element | null {
   }, [dayPickerProps.focusedDay]);
 
   return (
-    <time {...rootProps} ref={el}>
+    <button {...rootProps} ref={el}>
       {formatDay(day, { locale })}
-    </time>
+    </button>
   );
 }
