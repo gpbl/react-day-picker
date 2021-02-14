@@ -21,3 +21,5 @@ Name | Type |
 `props` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
 
 **Returns:** [*ModifiersStatus*](../types/modifiersstatus.md)
+
+Defined in: [components/Day/utils/getModifiers.ts:26](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/components/Day/utils/getModifiers.ts#L26)

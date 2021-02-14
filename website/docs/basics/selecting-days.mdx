@@ -130,7 +130,7 @@ function Example() {
 Depending from your app’s requirements, implement `onDayClick` to change the
 dates in the range.
 
-### useRange hook
+### UseRange hook
 
 A simple version to select ranges is wrapped in the `useRange` hook found in the
 package.
@@ -155,6 +155,33 @@ function Example() {
       ) : (
         <p>Please select a day.</p>
       )}
+    </>
+  );
+}
+```
+
+### Styling a range
+
+```jsx showOutput open=no
+import { DayPicker, useRange } from 'react-day-picker';
+
+function Example() {
+  const [range, setRange] = useRange();
+
+  const handleDayClick = (day) => setRange(day);
+  const handleResetClick = () => setRange();
+
+  return (
+    <>
+      <DayPicker
+        onDayClick={handleDayClick}
+        selected={range}
+        modifiers={{
+          from: range.from,
+          to: range.to,
+          between: { after: range.from, before: range.to }
+        }}
+      />
     </>
   );
 }

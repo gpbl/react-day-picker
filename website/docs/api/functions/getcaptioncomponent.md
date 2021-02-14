@@ -23,3 +23,5 @@ Name | Type |
 Name | Type | Description |
 ------ | ------ | ------ |
 `rootProps` | *Partial*<JSX.IntrinsicElements[*caption*]\> | The props for the root element.   |
+
+Defined in: [components/Caption/getCaptionComponent.ts:6](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/components/Caption/getCaptionComponent.ts#L6)

@@ -17,3 +17,5 @@ Name | Type |
 `props` | [*CaptionProps*](../interfaces/captionprops.md) |
 
 **Returns:** JSX.Element
+
+Defined in: [components/Caption/Caption.tsx:7](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/components/Caption/Caption.tsx#L7)

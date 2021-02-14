@@ -17,3 +17,5 @@ hide_title: true
 ### dayPickerProps
 
 • **dayPickerProps**: [*DayPickerProps*](daypickerprops.md)
+
+Defined in: [types/NavigationProps.ts:4](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/NavigationProps.ts#L4)

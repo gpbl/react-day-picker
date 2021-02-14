@@ -11,3 +11,5 @@ hide_title: true
 Ƭ **WeekNumberLabelFormatter**: (`n`: *number*, `props`: [*DayPickerProps*](../interfaces/daypickerprops.md)) => *string*
 
 Represent a function to format the ARIA label of the week number.
+
+Defined in: [types/WeekNumberLabelFormatter.ts:6](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/WeekNumberLabelFormatter.ts#L6)

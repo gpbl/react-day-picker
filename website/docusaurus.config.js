@@ -53,11 +53,11 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./config/sidebar.js'),
-          showLastUpdateAuthor: false,
-          showLastUpdateTime: false,
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           routeBasePath: '/'
         },
-        pages: false,
+        // pages: false,
         theme: {
           customCss: require.resolve('./config/custom.css')
         }
@@ -74,12 +74,11 @@ module.exports = {
         },
 
         // Typedoc settings
-        watch: true,
         entryPoints: [`${pkgPath}/src/index.ts`],
         tsconfig: `${pkgPath}/tsconfig.json`,
         allReflectionsHaveOwnDocument: true,
         readme: 'none',
-        disableSources: true,
+        disableSources: false,
 
         // Markdown plugin settings
         hideProjectName: true,

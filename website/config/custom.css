@@ -33,9 +33,9 @@ html[data-theme='dark'] {
   --ifm-alert-color: inherit;
   --ra-admonition-icon-color: var(--ifm-font-color-base);
   --ifm-code-background: #24282d;
-
-  --rdp-color-primary: #4d21fc;
-  --rdp-color-secondary: #ff6347;
+  --rdp-accent-color-light: #3003e1;
+  --rdp-accent-color-lighter: #2a03c5;
+  --rdp-accent-color-lightest: #180270;
 }
 details summary {
   font-weight: bold;
@@ -62,13 +62,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   font-weight: inherit;
 }
 
-.rdp {
-  all: revert;
-  font-size: initial;
-  margin: 1em;
-}
-
 /* revert styles from docusaurus */
+.rdp,
 .rdp table,
 .rdp tbody,
 .rdp thead,
@@ -78,12 +73,16 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   all: revert;
 }
 
+.rdp table tr:nth-child(2n) {
+  background: none;
+}
+
 .code-output {
-  background-color: var(--ifm-pre-background);
   border-radius: var(--ifm-pre-border-radius);
   padding: var(--ifm-pre-padding);
   padding-top: 0;
   overflow: auto;
+  font-size: initial;
 }
 
 details .code-output {

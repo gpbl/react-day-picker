@@ -17,3 +17,5 @@ Name | Type |
 `props` | [*HeadProps*](../interfaces/headprops.md) |
 
 **Returns:** JSX.Element
+
+Defined in: [components/Head/Head.tsx:6](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/components/Head/Head.tsx#L6)

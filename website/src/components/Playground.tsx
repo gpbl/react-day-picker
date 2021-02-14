@@ -1,12 +1,9 @@
-import { Caption, DayPicker } from 'react-day-picker';
+import * as React from 'react';
+import { DayPicker } from 'react-day-picker';
 
 export function Playground() {
+  const [selected, setSelected] = React.useState<Date>();
   return (
-    <DayPicker
-      components={{ Caption }}
-      modifiers={{
-        test: { before: new Date() }
-      }}
-    />
+    <DayPicker onDayClick={setSelected} selected={selected} showOutsideDays />
   );
 }

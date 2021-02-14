@@ -16,3 +16,5 @@ Name | Type |
 ------ | ------ |
 `from?` | Date |
 `to?` | Date |
+
+Defined in: [types/DaysRange.ts:1](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/DaysRange.ts#L1)

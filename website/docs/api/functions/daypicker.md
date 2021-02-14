@@ -34,3 +34,5 @@ Name | Type |
 `props` | [*DayPickerComponentProps*](../interfaces/daypickercomponentprops.md) |
 
 **Returns:** JSX.Element
+
+Defined in: [components/DayPicker/DayPicker.tsx:33](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/components/DayPicker/DayPicker.tsx#L33)
