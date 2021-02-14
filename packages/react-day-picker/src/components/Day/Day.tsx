@@ -7,7 +7,7 @@ import { getDayComponent } from './getDayComponent';
 export function Day(props: DayProps): JSX.Element | null {
   const el = React.useRef<HTMLTimeElement>(null);
   const { day, dayPickerProps, currentMonth } = props;
-  const { locale, formatDay, focusedDay } = dayPickerProps;
+  const { locale, formatDay, focusedDay, showOutsideDays } = dayPickerProps;
 
   const { rootProps, modifiers } = getDayComponent(
     day,
@@ -15,7 +15,7 @@ export function Day(props: DayProps): JSX.Element | null {
     dayPickerProps
   );
 
-  if (modifiers.hidden) {
+  if (modifiers.outside && !showOutsideDays) {
     return null;
   }
   React.useEffect(() => {
