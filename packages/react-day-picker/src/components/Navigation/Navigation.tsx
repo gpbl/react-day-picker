@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NavigationProps } from 'types';
+import { NavigationProps } from '../../types';
 
 import { getNavigationComponent } from './getNavigationComponent';
 

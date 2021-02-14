@@ -17,7 +17,7 @@ import {
   LabelsFormatters,
   WeekdayFormatter,
   DayFocusEventHandler
-} from 'types';
+} from '../types';
 
 /**
  * The props for the [[DayPicker]] component.

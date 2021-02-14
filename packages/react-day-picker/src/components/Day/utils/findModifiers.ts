@@ -1,4 +1,4 @@
-import { Modifier, ModifiersMatchers } from 'types';
+import { DayPickerProps, Modifier, ModifiersMatchers } from '../../../types';
 
 import { matchDay } from './matchModifier';
 

@@ -1,5 +1,5 @@
 import { isSameDay, isSameMonth } from 'date-fns';
-import { DayPickerProps, ModifiersStatus } from 'types';
+import { DayPickerProps, ModifiersStatus } from '../../../types';
 
 export function createTabIndex(
   day: Date,

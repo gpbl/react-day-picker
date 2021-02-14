@@ -1,4 +1,4 @@
-import { ModifiersClassNames } from 'types';
+import { ModifiersClassNames } from '../../../types';
 
 export const defaultModifiersClassNames: ModifiersClassNames = {
   selected: 'rdp-day_selected',

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HeadProps } from 'types';
+import { HeadProps } from '../../types';
 
 import { getWeekdays } from './utils/getWeekdays';
 

@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { LabelsFormatters } from 'types';
+import { LabelsFormatters } from '../../../types';
 
 import { defaultProps } from './defaultProps';
 

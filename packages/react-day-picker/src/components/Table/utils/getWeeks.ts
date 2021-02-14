@@ -8,7 +8,7 @@ import {
   getWeeksInMonth,
   startOfMonth
 } from 'date-fns';
-import { DayPickerProps } from 'types';
+import { DayPickerProps } from '../../../types';
 
 import { getOutsideEndDays } from './getOutsideEndDays';
 import { getOutsideStartDays } from './getOutsideStartDays';

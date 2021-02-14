@@ -1,5 +1,5 @@
 import { addDays, addWeeks } from 'date-fns';
-import { DayPickerProps, ModifiersStatus } from 'types';
+import { DayPickerProps, ModifiersStatus } from '../../../types';
 
 export function createEventHandlers(
   day: Date,

@@ -1,4 +1,4 @@
-import { DayPickerClassNames } from 'types';
+import { DayPickerClassNames } from '../../../types';
 
 export const defaultClassNames: DayPickerClassNames = {
   /** Root element */

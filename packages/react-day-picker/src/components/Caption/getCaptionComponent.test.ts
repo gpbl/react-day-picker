@@ -1,5 +1,4 @@
-import { DayPickerClassNames, DayPickerProps } from 'types';
-
+import { DayPickerClassNames, DayPickerProps } from '../../types';
 import { defaultProps } from '../DayPicker';
 import { getCaptionComponent } from './getCaptionComponent';
 

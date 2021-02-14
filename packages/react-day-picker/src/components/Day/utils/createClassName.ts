@@ -1,4 +1,4 @@
-import { DayPickerProps, ModifiersStatus } from 'types';
+import { DayPickerProps, ModifiersStatus } from '../../../types';
 
 export function createClassName(
   day: Date,

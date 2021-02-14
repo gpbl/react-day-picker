@@ -1,6 +1,6 @@
 import * as DateFns from 'date-fns';
 import * as React from 'react';
-import { UseInput, UseInputOptions } from 'types';
+import { UseInput, UseInputOptions } from '../../types';
 
 import { defaultProps } from '../../components/DayPicker';
 

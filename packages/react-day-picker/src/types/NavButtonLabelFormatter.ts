@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'types';
+import { DayPickerProps } from '../types';
 
 /**
  * Represent a function to format the ARIA label for a navigation button.
