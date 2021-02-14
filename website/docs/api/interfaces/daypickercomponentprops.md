@@ -14,8 +14,6 @@ The props for the [DayPicker](../functions/daypicker.md) component.
 
 * **DayPickerComponentProps**
 
-  ↳ [*DayPickerProps*](daypickerprops.md)
-
 ## Properties
 
 ### className
@@ -215,7 +213,7 @@ ___
 
 ### labelsFormatters
 
-• **labelsFormatters**: [*LabelsFormatters*](../types/labelsformatters.md)
+• `Optional` **labelsFormatters**: *undefined* \| [*LabelsFormatters*](../types/labelsformatters.md)
 
 A map of formatters for the ARIA labels used in the UI.
 

@@ -8,6 +8,6 @@ hide_title: true
 
 # Type alias: MatchDate
 
-Ƭ **MatchDate**: (`date`: Date) => *boolean*
+Ƭ **MatchDate**: (`date`: Date, `currentMonth`: Date, `props`: [*DayPickerProps*](../interfaces/daypickerprops.md)) => *boolean*
 
 Matches a day when this function returns `true`.
