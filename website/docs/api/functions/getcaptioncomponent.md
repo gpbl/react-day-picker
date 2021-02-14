@@ -10,6 +10,8 @@ hide_title: true
 
 ▸ **getCaptionComponent**(`props`: [*DayPickerProps*](../interfaces/daypickerprops.md)): *object*
 
+Return the values for creating a [Caption](caption.md) components.
+
 #### Parameters:
 
 Name | Type |
@@ -18,6 +20,6 @@ Name | Type |
 
 **Returns:** *object*
 
-Name | Type |
------- | ------ |
-`rootProps` | *Partial*<JSX.IntrinsicElements[*caption*]\> |
+Name | Type | Description |
+------ | ------ | ------ |
+`rootProps` | *Partial*<JSX.IntrinsicElements[*caption*]\> | The props for the root element.   |

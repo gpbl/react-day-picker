@@ -8,6 +8,6 @@ hide_title: true
 
 # Type alias: Modifier
 
-Ƭ **Modifier**: [*DefaultModifier*](defaultmodifier.md) \| *string*
+Ƭ **Modifier**: *string*
 
 Represent the string assigned to a day when matching a [Matcher](matcher.md).

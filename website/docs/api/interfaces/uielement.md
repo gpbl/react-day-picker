@@ -34,39 +34,33 @@ ___
 
 ___
 
-### DayAfterMonth
-
-• **DayAfterMonth**: *dayAfterMonth*
-
-___
-
-### DayBeforeMonth
-
-• **DayBeforeMonth**: *dayBeforeMonth*
-
-___
-
 ### DayDisabled
 
-• **DayDisabled**: *dayDisabled*
+• **DayDisabled**: *day-disabled*
 
 ___
 
 ### DayInteractive
 
-• **DayInteractive**: *dayInteractive*
+• **DayInteractive**: *day-interactive*
+
+___
+
+### DayOutside
+
+• **DayOutside**: *day-outside*
 
 ___
 
 ### DaySelected
 
-• **DaySelected**: *daySelected*
+• **DaySelected**: *day-selected*
 
 ___
 
 ### DayToday
 
-• **DayToday**: *dayToday*
+• **DayToday**: *day-today*
 
 ___
 
@@ -78,13 +72,13 @@ ___
 
 ### HeadCell
 
-• **HeadCell**: *headCell*
+• **HeadCell**: *head-cell*
 
 ___
 
 ### HeadRow
 
-• **HeadRow**: *headRow*
+• **HeadRow**: *head-row*
 
 ___
 
@@ -108,13 +102,13 @@ ___
 
 ### NavNextButton
 
-• **NavNextButton**: *navNextButton*
+• **NavNextButton**: *nav-next-button*
 
 ___
 
 ### NavPrevButton
 
-• **NavPrevButton**: *navPrevButton*
+• **NavPrevButton**: *nav-prev-button*
 
 ___
 
@@ -132,7 +126,7 @@ ___
 
 ### RowHead
 
-• **RowHead**: *rowHead*
+• **RowHead**: *row-head*
 
 ___
 

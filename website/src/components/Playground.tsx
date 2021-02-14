@@ -1,9 +1,9 @@
-import { DayPicker } from 'react-day-picker';
+import { Caption, DayPicker } from 'react-day-picker';
 
 export function Playground() {
   return (
     <DayPicker
-      onDayMouseLeave={}
+      components={{ Caption }}
       modifiers={{
         test: { before: new Date() }
       }}

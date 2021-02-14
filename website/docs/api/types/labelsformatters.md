@@ -8,7 +8,7 @@ hide_title: true
 
 # Type alias: LabelsFormatters
 
-Ƭ **LabelsFormatters**: { `day`: [*DayLabelFormatter*](daylabelformatter.md) ; `headCell`: [*WeekdayLabelFormatter*](weekdaylabelformatter.md) ; `navNextButton`: [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) ; `navPrevButton`: [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) ; `rowHead`: [*WeekNumberLabelFormatter*](weeknumberlabelformatter.md)  }
+Ƭ **LabelsFormatters**: { `day?`: [*DayLabelFormatter*](daylabelformatter.md) ; `headCell?`: [*WeekdayLabelFormatter*](weekdaylabelformatter.md) ; `navNextButton?`: [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) ; `navPrevButton?`: [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) ; `rowHead?`: [*WeekNumberLabelFormatter*](weeknumberlabelformatter.md)  }
 
 Represent a map of formatters used to format ARIA labels in the UI elements.
 
@@ -16,8 +16,8 @@ Represent a map of formatters used to format ARIA labels in the UI elements.
 
 Name | Type |
 ------ | ------ |
-`day` | [*DayLabelFormatter*](daylabelformatter.md) |
-`headCell` | [*WeekdayLabelFormatter*](weekdaylabelformatter.md) |
-`navNextButton` | [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) |
-`navPrevButton` | [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) |
-`rowHead` | [*WeekNumberLabelFormatter*](weeknumberlabelformatter.md) |
+`day?` | [*DayLabelFormatter*](daylabelformatter.md) |
+`headCell?` | [*WeekdayLabelFormatter*](weekdaylabelformatter.md) |
+`navNextButton?` | [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) |
+`navPrevButton?` | [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) |
+`rowHead?` | [*WeekNumberLabelFormatter*](weeknumberlabelformatter.md) |

@@ -103,7 +103,8 @@ function Example() {
 Add new modifiers according to your app’s requirements. For example, a booking
 app may use a `booked` modifier to mark days as already booked.
 
-Use the `modifiers` prop to pass an object with custom modifiers
+Use the `modifiers` prop to pass an object with custom modifiers. Change the
+inline-style of the cell with `modifiersStyles`.
 
 ```jsx showOutput open=no
 function Example() {
@@ -121,7 +122,7 @@ function Example() {
       modifiers={{
         booked: bookedDays
       }}
-      modifiersStyle={{
+      modifiersStyles={{
         booked: bookedStyle
       }}
       onDayClick={handleDayClick}

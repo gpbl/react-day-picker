@@ -8,4 +8,4 @@ hide_title: true
 
 # Variable: defaultModifiers
 
-• `Const` **defaultModifiers**: [*ModifiersStatus*](../types/modifiersstatus.md)
+• `Const` **defaultModifiers**: [*ModifiersMatchers*](../types/modifiersmatchers.md)

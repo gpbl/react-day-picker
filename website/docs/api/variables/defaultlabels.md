@@ -8,4 +8,4 @@ hide_title: true
 
 # Variable: defaultLabels
 
-• `Const` **defaultLabels**: [*LabelsFormatters*](../types/labelsformatters.md)
+• `Const` **defaultLabels**: *Required*<[*LabelsFormatters*](../types/labelsformatters.md)\>
