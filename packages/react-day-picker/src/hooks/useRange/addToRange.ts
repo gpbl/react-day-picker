@@ -1,5 +1,5 @@
 import { isSameDay } from 'date-fns';
-import { DaysRange } from 'types';
+import { DaysRange } from '../../types';
 
 const emptyRange: DaysRange = { from: undefined, to: undefined };
 

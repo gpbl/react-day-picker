@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'types';
+import { DayPickerProps } from '../types';
 
 /**
  * The props of the [[Day]] component.

@@ -15,7 +15,6 @@ export function Row(props: RowProps): JSX.Element {
     components
   } = dayPickerProps;
   const { Day } = components;
-
   return (
     <tr className={classNames?.Row} style={styles?.Row}>
       {showWeekNumber && (

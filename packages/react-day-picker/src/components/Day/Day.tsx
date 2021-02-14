@@ -1,6 +1,6 @@
 import { isSameDay } from 'date-fns';
 import * as React from 'react';
-import { DayProps } from 'types';
+import { DayProps } from '../../types';
 
 import { getDayComponent } from './getDayComponent';
 

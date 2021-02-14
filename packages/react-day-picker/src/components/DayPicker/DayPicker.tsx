@@ -6,7 +6,7 @@ import {
   DayPickerComponentProps,
   DayPickerProps,
   MonthChangeEventHandler
-} from 'types';
+} from '../../types';
 
 import { Root } from '../Root';
 import { defaultProps } from './defaults';

@@ -1,4 +1,11 @@
-import { Caption, Day, Navigation, NextIcon, PrevIcon, Row } from 'components';
+import {
+  Caption,
+  Day,
+  Navigation,
+  NextIcon,
+  PrevIcon,
+  Row
+} from '../components';
 
 /**
  * Represent the components that can be customized.

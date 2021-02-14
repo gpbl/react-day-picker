@@ -1,5 +1,5 @@
 import english from 'date-fns/locale/en-US';
-import { DayPickerProps } from 'types';
+import { DayPickerProps } from '../../../types';
 
 import { Caption } from '../../Caption/Caption';
 import { Day } from '../../Day/Day';

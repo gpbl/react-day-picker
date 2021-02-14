@@ -1,4 +1,4 @@
-import { DayPickerProps, ModifiersMatchers } from 'types';
+import { DayPickerProps, ModifiersMatchers } from '../../../types';
 
 export function getModifiersFromProps(
   props: Pick<DayPickerProps, 'selected' | 'disabled' | 'hidden' | 'modifiers'>

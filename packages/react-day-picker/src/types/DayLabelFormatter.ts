@@ -1,4 +1,4 @@
-import { DayPickerProps, ModifiersStatus } from 'types';
+import { DayPickerProps, ModifiersStatus } from '../types';
 
 /**
  * Represent a function to format the ARIA label for the Day component.

@@ -1,5 +1,5 @@
 import { addDays, differenceInDays, startOfWeek } from 'date-fns';
-import { DayPickerProps } from 'types';
+import { DayPickerProps } from '../../../types';
 
 export function getOutsideStartDays(
   month: Date,

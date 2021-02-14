@@ -16,7 +16,6 @@ export function Table(props: TableProps): JSX.Element {
   } = dayPickerProps;
   const { Caption } = components;
   const weeks = getWeeks(month, dayPickerProps);
-
   return (
     <table className={classNames?.Table} style={styles?.Table}>
       {showCaption && <Caption month={month} dayPickerProps={dayPickerProps} />}

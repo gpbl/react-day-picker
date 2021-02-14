@@ -1,5 +1,5 @@
 import { addMonths, startOfMonth } from 'date-fns';
-import { DayPickerProps } from 'types';
+import { DayPickerProps } from '../../../types';
 
 /**
  * Returns the next and the previous months that the user can navigate to.

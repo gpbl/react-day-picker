@@ -1,5 +1,5 @@
 import { addDays, differenceInDays, endOfWeek } from 'date-fns';
-import { DayPickerProps } from 'types';
+import { DayPickerProps } from '../../../types';
 
 export function getOutsideEndDays(
   month: Date,
