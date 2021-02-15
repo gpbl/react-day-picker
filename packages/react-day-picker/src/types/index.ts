@@ -14,6 +14,7 @@ export * from './DayProps';
 export * from './DayTouchEventHandler';
 export * from './DaysRange';
 export * from './HeadProps';
+export * from './KeyCode';
 export * from './LabelsFormatters';
 export * from './MatchAfter';
 export * from './MatchBefore';
