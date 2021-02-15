@@ -1,5 +1,5 @@
 import { addDays, addWeeks } from 'date-fns';
-import { DayPickerProps, ModifiersStatus } from '../../../types';
+import { DayPickerProps, ModifiersStatus, KeyCode } from '../../../types';
 
 export function createEventHandlers(
   day: Date,
@@ -30,40 +30,32 @@ export function createEventHandlers(
   };
   const onKeyDown: React.KeyboardEventHandler = (e) => {
     switch (e.code) {
-      case 'ArrowLeft': {
+      case KeyCode.ArrowLeft: {
         e.preventDefault();
         e.stopPropagation();
         const nextDay = addDays(day, -1);
         props.onDayFocus?.(nextDay, modifiers, e);
         break;
       }
-      case 'ArrowRight': {
+      case KeyCode.ArrowRight: {
         e.preventDefault();
         e.stopPropagation();
         const nextDay = addDays(day, 1);
         props.onDayFocus?.(nextDay, modifiers, e);
         return;
       }
-      case 'ArrowUp': {
+      case KeyCode.ArrowUp: {
         e.preventDefault();
         e.stopPropagation();
         const nextDay = addWeeks(day, -1);
         props.onDayFocus?.(nextDay, modifiers, e);
         break;
       }
-      case 'ArrowDown': {
+      case KeyCode.ArrowDown: {
         e.preventDefault();
         e.stopPropagation();
         const nextDay = addWeeks(day, 1);
         props.onDayFocus?.(nextDay, modifiers, e);
-        break;
-      }
-      case 'Space':
-      case 'Enter': {
-        if (!props.onDayClick) return;
-        props.onDayClick(day, modifiers, e);
-        e.preventDefault();
-        e.stopPropagation();
         break;
       }
     }
