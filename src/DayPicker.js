@@ -591,6 +591,10 @@ export class DayPicker extends Component {
     return (
       <div
         {...this.props.containerProps}
+        aria-modal="true"
+        aria-labelledby="IDREF"
+        aria-live="polite"
+        role="dialog"
         className={className}
         ref={el => (this.dayPicker = el)}
         lang={this.props.locale}
