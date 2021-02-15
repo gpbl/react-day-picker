@@ -1,25 +1,19 @@
-import { Navigation } from '../../components/Navigation';
 import * as React from 'react';
 
-import { getCaptionComponent } from './getCaptionComponent';
-import { CaptionProps } from '../../types';
+import { MonthsDropdown, Navigation, YearsDropdown } from '../../components';
+import { DayPickerContext } from '../../types';
 
-export function Caption(props: CaptionProps): JSX.Element {
-  const { rootProps } = getCaptionComponent(props.dayPickerProps);
-  const {
-    locale,
-    formatCaption,
-    showNavigation,
-    onMonthChange
-  } = props.dayPickerProps;
+export function Caption(props: DayPickerContext): JSX.Element {
+  const disabled = !props.fromDate || !props.toDate;
+  const { prevMonth, nextMonth } = props;
+
   return (
-    <caption {...rootProps}>
-      <span>
-        <span>{formatCaption(props.month, { locale })}</span>
-        {showNavigation && onMonthChange && (
-          <Navigation dayPickerProps={props.dayPickerProps} />
-        )}
-      </span>
-    </caption>
+    <div className={props.classNames.Caption}>
+      <div className={props.classNames.CaptionDropdowns}>
+        <MonthsDropdown {...props} disableSelect={disabled} />
+        <YearsDropdown {...props} disableSelect={disabled} />
+      </div>
+      <Navigation prevMonth={prevMonth} nextMonth={nextMonth} {...props} />
+    </div>
   );
 }
