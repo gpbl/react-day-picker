@@ -32,6 +32,7 @@ export * from './NavButtonLabelFormatter';
 export * from './NavigationProps';
 export * from './RootProps';
 export * from './RowProps';
+export * from './SharedProps';
 export * from './TableProps';
 export * from './UIElement';
 export * from './UseInput';

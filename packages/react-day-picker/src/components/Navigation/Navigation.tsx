@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { NavigationProps } from '../../types';
+import { SharedProps } from '../../types';
 
 import { getNavigationComponent } from './getNavigationComponent';
 
-export function Navigation(props: NavigationProps): JSX.Element {
+export function Navigation(props: SharedProps): JSX.Element {
   const { dayPickerProps } = props;
   const {
     rootProps,

@@ -1,6 +1,5 @@
-import { DayPickerProps } from '../types';
+import { SharedProps } from './SharedProps';
 
-export interface CaptionProps {
+export interface CaptionProps extends SharedProps {
   month: Date;
-  dayPickerProps: DayPickerProps;
 }
