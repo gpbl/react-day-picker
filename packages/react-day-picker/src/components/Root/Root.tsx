@@ -1,11 +1,11 @@
 import { getTime } from 'date-fns';
 import React from 'react';
 
-import { RootProps } from '../../types/RootProps';
-import { Table } from '../Table';
+import { Table } from '../../components';
+import { SharedProps } from '../../types';
 import { getMonths } from './utils/getMonths';
 
-export function Root(props: RootProps): JSX.Element {
+export function Root(props: SharedProps): JSX.Element {
   const { dayPickerProps } = props;
   const { className, classNames, style, styles, dir } = dayPickerProps;
   const months = getMonths(dayPickerProps);

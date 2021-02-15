@@ -1,8 +1,7 @@
 import * as React from 'react';
 
-import { TableProps } from '../../types/TableProps';
-import { Head } from '../Head';
-import { Row } from '../Row';
+import { TableProps } from '../../types';
+import { Head, Row } from '../../components';
 import { getWeeks } from './utils/getWeeks';
 
 export function Table(props: TableProps): JSX.Element {

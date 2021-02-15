@@ -1,8 +1,8 @@
 import { Navigation } from '../../components/Navigation';
 import * as React from 'react';
 
-import { CaptionProps } from '../../types/CaptionProps';
 import { getCaptionComponent } from './getCaptionComponent';
+import { CaptionProps } from '../../types';
 
 export function Caption(props: CaptionProps): JSX.Element {
   const { rootProps } = getCaptionComponent(props.dayPickerProps);

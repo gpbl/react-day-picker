@@ -1,7 +1,6 @@
-import { DayPickerProps } from '../types';
+import { SharedProps } from '../types';
 
-export interface WeekNumberProps {
+export interface WeekNumberProps extends SharedProps {
   number: number;
   days: Date[];
-  dayPickerProps: DayPickerProps;
 }

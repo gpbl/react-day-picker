@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { HeadProps } from '../../types';
+import { SharedProps } from '../../types';
 
 import { getWeekdays } from './utils/getWeekdays';
 
-export function Head(props: HeadProps): JSX.Element {
+export function Head(props: SharedProps): JSX.Element {
   const {
     classNames,
     styles,

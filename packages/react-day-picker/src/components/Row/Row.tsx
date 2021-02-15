@@ -1,7 +1,7 @@
 import { getUnixTime } from 'date-fns';
 import * as React from 'react';
 
-import { RowProps } from '../../types/RowProps';
+import { RowProps } from '../../types';
 
 export function Row(props: RowProps): JSX.Element {
   const { weekNumber, week, currentMonth, dayPickerProps } = props;
