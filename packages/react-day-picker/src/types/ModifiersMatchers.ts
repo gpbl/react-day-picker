@@ -1,5 +1,4 @@
 import { Matcher } from './Matcher';
-import { Modifier } from './Modifier';
 
 /**
  * Represents the [[Matchers]] assigned to each modifier.
@@ -15,5 +14,5 @@ import { Modifier } from './Modifier';
  * ```
  */
 export type ModifiersMatchers = {
-  [modifier in Modifier]: Matcher;
+  [modifier: string]: Matcher;
 };

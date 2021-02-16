@@ -1,5 +1,3 @@
-import { Modifier } from './Modifier';
-
 /**
  * Represent the status of a modifiers if matched against a day according to its
  * [[Matcher]].
@@ -16,5 +14,5 @@ import { Modifier } from './Modifier';
  * ```
  */
 export type ModifiersStatus = {
-  [modifier in Modifier]?: boolean | undefined;
+  [modifier: string]: boolean;
 };

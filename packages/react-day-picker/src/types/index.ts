@@ -19,7 +19,6 @@ export * from './MatchDate';
 export * from './MatchDaysOfWeek';
 export * from './MatchFromTo';
 export * from './Matcher';
-export * from './Modifier';
 export * from './ModifiersClassNames';
 export * from './ModifiersMatchers';
 export * from './ModifiersStatus';
