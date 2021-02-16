@@ -13,7 +13,7 @@ hide_title: true
 #### Parameters:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `props` | [*DayProps*](../interfaces/dayprops.md) |
 
 **Returns:** JSX.Element \| *null*

@@ -23,8 +23,8 @@ function Example() {
 
 #### Parameters:
 
-Name | Type | Default value |
------- | ------ | ------ |
-`initialRange` | [*DaysRange*](../types/daysrange.md) | ... |
+Name | Type |
+:------ | :------ |
+`initialRange` | [*DaysRange*](../types/daysrange.md) |
 
 **Returns:** [[*DaysRange*](../types/daysrange.md), (`day`: Date) => *void*]

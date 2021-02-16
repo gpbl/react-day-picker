@@ -8,10 +8,6 @@ hide_title: true
 
 # Interface: YearsDropdownProps
 
-## Hierarchy
-
-* **YearsDropdownProps**
-
 ## Properties
 
 ### displayMonth

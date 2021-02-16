@@ -8,7 +8,7 @@ hide_title: true
 
 # Type alias: Labels
 
-Ƭ **Labels**: { `dayLabel?`: [*DayLabelFormatter*](daylabelformatter.md) ; `nextLabel?`: [*NextLabelFormatter*](nextlabelformatter.md) ; `prevLabel?`: [*NextLabelFormatter*](nextlabelformatter.md) ; `weekNumberLabel?`: [*WeekNumberLabelFormatter*](weeknumberlabelformatter.md) ; `weekdayLabel?`: [*WeekdayLabelFormatter*](weekdaylabelformatter.md)  }
+Ƭ **Labels**: *object*
 
 Represent a map of formatters used to format ARIA labels for the relative
 [[UIElements]].
@@ -16,9 +16,9 @@ Represent a map of formatters used to format ARIA labels for the relative
 #### Type declaration:
 
 Name | Type |
------- | ------ |
-`dayLabel?` | [*DayLabelFormatter*](daylabelformatter.md) |
-`nextLabel?` | [*NextLabelFormatter*](nextlabelformatter.md) |
-`prevLabel?` | [*NextLabelFormatter*](nextlabelformatter.md) |
-`weekNumberLabel?` | [*WeekNumberLabelFormatter*](weeknumberlabelformatter.md) |
-`weekdayLabel?` | [*WeekdayLabelFormatter*](weekdaylabelformatter.md) |
+:------ | :------ |
+`dayLabel`? | [*DayLabelFormatter*](daylabelformatter.md) |
+`nextLabel`? | [*NextLabelFormatter*](nextlabelformatter.md) |
+`prevLabel`? | [*NextLabelFormatter*](nextlabelformatter.md) |
+`weekNumberLabel`? | [*WeekNumberLabelFormatter*](weeknumberlabelformatter.md) |
+`weekdayLabel`? | [*WeekdayLabelFormatter*](weekdaylabelformatter.md) |

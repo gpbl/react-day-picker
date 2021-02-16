@@ -8,12 +8,12 @@ hide_title: true
 
 # Type alias: MatchBefore
 
-Ƭ **MatchBefore**: { `before`: Date  }
+Ƭ **MatchBefore**: *object*
 
 Matches a day before the specified date. The date is not included.
 
 #### Type declaration:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `before` | Date |

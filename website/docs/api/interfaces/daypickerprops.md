@@ -10,10 +10,6 @@ hide_title: true
 
 The props for the [DayPicker](../functions/daypicker.md) component.
 
-## Hierarchy
-
-* **DayPickerProps**
-
 ## Properties
 
 ### className
@@ -110,8 +106,8 @@ ___
 
 • `Optional` **dropdownNavigation**: *undefined* \| *boolean*
 
-When setting `fromDate` and `toDate`, use dropdowns instead of buttons to
-navigate the calendar.
+When setting `fromDate` and `toDate`, use month and year drop-downs instead
+of buttons to navigate the calendar.
 
 **Example**
 
@@ -274,7 +270,24 @@ ___
 
 • `Optional` **modifierPrefix**: *undefined* \| *string*
 
-The prefix to add to the modifiers classname. Default is `rdp-day_`.
+The prefix to add to the modifiers class names. Default is `rdp-day_`.
+
+#### Usage
+
+Each day element will get a `${modifierPrefix}${modifier}` class name when
+matching a modifier.
+
+```
+const today = new Date();
+<DayPicker
+ modifierPrefix="calendar-day_" // use this prefix instead of default
+ selected={today} // Today element has `.calendar-day_selected`
+ hidden={today} // `.calendar-day_hidden`
+ modifiers={{ today }} // `.calendar-day_today`
+/>
+```
+If you need to change the class names without using a prefix, use
+`modifiersClassNames` instead.
 
 ___
 

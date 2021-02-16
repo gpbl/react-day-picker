@@ -32,7 +32,7 @@ function Example() {
 #### Parameters:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `initialDay` | Date |
 `formatStr` | *string* |
 `options?` | [*UseInputOptions*](../types/useinputoptions.md) |

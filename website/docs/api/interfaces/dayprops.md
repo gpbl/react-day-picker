@@ -8,10 +8,6 @@ hide_title: true
 
 # Interface: DayProps
 
-## Hierarchy
-
-* **DayProps**
-
 ## Properties
 
 ### day

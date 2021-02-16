@@ -8,10 +8,6 @@ hide_title: true
 
 # Interface: NavigationProps
 
-## Hierarchy
-
-* **NavigationProps**
-
 ## Properties
 
 ### displayMonth

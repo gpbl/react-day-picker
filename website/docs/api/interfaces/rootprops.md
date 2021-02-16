@@ -8,10 +8,6 @@ hide_title: true
 
 # Interface: RootProps
 
-## Hierarchy
-
-* **RootProps**
-
 ## Properties
 
 ### className

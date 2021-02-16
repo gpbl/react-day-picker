@@ -18,7 +18,7 @@ day is already present in the range.
 #### Parameters:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `range` | [*DaysRange*](../types/daysrange.md) |
 `day` | Date |
 

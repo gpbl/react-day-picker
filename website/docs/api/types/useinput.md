@@ -8,13 +8,13 @@ hide_title: true
 
 # Type alias: UseInput
 
-Ƭ **UseInput**: { `dayPickerProps`: *Partial*<[*DayPickerProps*](../interfaces/daypickerprops.md)\> ; `inputProps`: *Partial*<JSX.IntrinsicElements[*input*]\> ; `setMonth`: *React.Dispatch*<*React.SetStateAction*<Date\>\> ; `setValue`: *React.Dispatch*<*React.SetStateAction*<*string*\>\>  }
+Ƭ **UseInput**: *object*
 
 #### Type declaration:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `dayPickerProps` | *Partial*<[*DayPickerProps*](../interfaces/daypickerprops.md)\> |
 `inputProps` | *Partial*<JSX.IntrinsicElements[*input*]\> |
-`setMonth` | *React.Dispatch*<*React.SetStateAction*<Date\>\> |
-`setValue` | *React.Dispatch*<*React.SetStateAction*<*string*\>\> |
+`setMonth` | *React.Dispatch*<React.SetStateAction<Date\>\> |
+`setValue` | *React.Dispatch*<React.SetStateAction<string\>\> |

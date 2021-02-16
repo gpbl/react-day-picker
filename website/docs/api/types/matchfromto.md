@@ -8,13 +8,13 @@ hide_title: true
 
 # Type alias: MatchFromTo
 
-Ƭ **MatchFromTo**: { `from`: Date ; `to`: Date  }
+Ƭ **MatchFromTo**: *object*
 
 Represent a Matcher matching between (and including) `from` and `to` dates.
 
 #### Type declaration:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `from` | Date |
 `to` | Date |

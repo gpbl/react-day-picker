@@ -12,10 +12,9 @@ hide_title: true
 
 #### Parameters:
 
-• **__namedParameters**: *object*
-
 Name | Type |
------- | ------ |
-`className?` | *string* |
+:------ | :------ |
+`__namedParameters` | *object* |
+`__namedParameters.className?` | *string* |
 
 **Returns:** JSX.Element

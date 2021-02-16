@@ -30,7 +30,7 @@ function Example() {
 #### Parameters:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `props` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
 
 **Returns:** JSX.Element

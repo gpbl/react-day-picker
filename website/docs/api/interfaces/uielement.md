@@ -10,10 +10,6 @@ hide_title: true
 
 Represent an element of the DayPicker user interface.
 
-## Hierarchy
-
-* **UIElement**
-
 ## Properties
 
 ### Caption

@@ -8,12 +8,12 @@ hide_title: true
 
 # Type alias: MatchAfter
 
-Ƭ **MatchAfter**: { `after`: Date  }
+Ƭ **MatchAfter**: *object*
 
 Matches a day after the specified date. The date is not included.
 
 #### Type declaration:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `after` | Date |

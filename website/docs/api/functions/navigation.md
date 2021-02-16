@@ -13,7 +13,7 @@ hide_title: true
 #### Parameters:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `props` | [*NavigationProps*](../interfaces/navigationprops.md) |
 
 **Returns:** JSX.Element

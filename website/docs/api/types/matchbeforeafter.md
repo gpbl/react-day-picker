@@ -8,13 +8,13 @@ hide_title: true
 
 # Type alias: MatchBeforeAfter
 
-Ƭ **MatchBeforeAfter**: { `after`: Date ; `before`: Date  }
+Ƭ **MatchBeforeAfter**: *object*
 
 Matches a day between the specified dates (not included)
 
 #### Type declaration:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `after` | Date |
 `before` | Date |

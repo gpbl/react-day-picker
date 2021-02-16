@@ -11,3 +11,17 @@ hide_title: true
 Ƭ **WeekNumberLabelFormatter**: (`n`: *number*, `options?`: { `locale?`: Locale  }) => *string*
 
 Represent a function to format the ARIA label of the week number.
+
+#### Type declaration:
+
+▸ (`n`: *number*, `options?`: { `locale?`: Locale  }): *string*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`n` | *number* |
+`options?` | *object* |
+`options.locale?` | Locale |
+
+**Returns:** *string*

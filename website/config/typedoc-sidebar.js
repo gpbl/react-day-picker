@@ -12,11 +12,12 @@ module.exports = [
     "label": "Interfaces",
     "items": [
       "api/interfaces/captionprops",
-      "api/interfaces/daypickercontextvalue",
       "api/interfaces/daypickerprops",
       "api/interfaces/dayprops",
       "api/interfaces/monthsdropdownprops",
+      "api/interfaces/navigationcontextvalue",
       "api/interfaces/navigationprops",
+      "api/interfaces/propsvalues",
       "api/interfaces/rootprops",
       "api/interfaces/rowprops",
       "api/interfaces/tableprops",
@@ -67,13 +68,15 @@ module.exports = [
     "type": "category",
     "label": "Variables",
     "items": [
-      "api/variables/daypickercontext",
+      "api/variables/navigationcontext",
+      "api/variables/propscontext",
       "api/variables/defaultclassnames",
       "api/variables/defaultcomponents",
-      "api/variables/defaultcontext",
       "api/variables/defaultformatters",
       "api/variables/defaultlabels",
-      "api/variables/defaultmodifiers"
+      "api/variables/defaultmodifiers",
+      "api/variables/defaultnavigationcontext",
+      "api/variables/defaultpropsvalues"
     ]
   },
   {
@@ -96,6 +99,8 @@ module.exports = [
       "api/functions/addtorange",
       "api/functions/getmodifiers",
       "api/functions/useinput",
+      "api/functions/usenavigation",
+      "api/functions/useprops",
       "api/functions/userange"
     ]
   }

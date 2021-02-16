@@ -8,11 +8,11 @@ hide_title: true
 
 # Type alias: UseInputOptions
 
-Ƭ **UseInputOptions**: { `locale?`: Locale ; `required`: *boolean*  }
+Ƭ **UseInputOptions**: *object*
 
 #### Type declaration:
 
 Name | Type |
------- | ------ |
-`locale?` | Locale |
+:------ | :------ |
+`locale`? | Locale |
 `required` | *boolean* |
