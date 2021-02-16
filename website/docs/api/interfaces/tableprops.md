@@ -14,16 +14,8 @@ hide_title: true
 
 ## Properties
 
-### dayPickerProps
+### displayMonth
 
-• **dayPickerProps**: [*DayPickerProps*](daypickerprops.md)
+• **displayMonth**: Date
 
-Defined in: [types/TableProps.ts:5](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/TableProps.ts#L5)
-
-___
-
-### month
-
-• **month**: Date
-
-Defined in: [types/TableProps.ts:4](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/TableProps.ts#L4)
+The month used to render the table

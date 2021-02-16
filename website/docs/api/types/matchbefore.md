@@ -17,5 +17,3 @@ Matches a day before the specified date. The date is not included.
 Name | Type |
 ------ | ------ |
 `before` | Date |
-
-Defined in: [types/MatchBefore.ts:2](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/MatchBefore.ts#L2)

@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: getModifiers
 
-▸ **getModifiers**(`day`: Date, `currentMonth`: Date, `props`: [*DayPickerProps*](../interfaces/daypickerprops.md)): [*ModifiersStatus*](../types/modifiersstatus.md)
+▸ **getModifiers**(`day`: Date, `currentMonth`: Date, `context`: [*DayPickerContextValue*](../interfaces/daypickercontextvalue.md)): [*ModifiersStatus*](../types/modifiersstatus.md)
 
 Return the status of the modifiers for the given day,
 
@@ -18,8 +18,6 @@ Name | Type |
 ------ | ------ |
 `day` | Date |
 `currentMonth` | Date |
-`props` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
+`context` | [*DayPickerContextValue*](../interfaces/daypickercontextvalue.md) |
 
 **Returns:** [*ModifiersStatus*](../types/modifiersstatus.md)
-
-Defined in: [components/Day/utils/getModifiers.ts:26](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/components/Day/utils/getModifiers.ts#L26)

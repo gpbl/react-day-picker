@@ -48,7 +48,7 @@ function Example() {
 
   const formatDay = (day) => day.getDate().toLocaleString(nuLocale);
   const formatWeekNumber = (weekNumber) => weekNumber.toLocaleString(nuLocale);
-  const formatCaption = (date, { locale }) => {
+  const formatMonthCaption = (date, { locale }) => {
     const y = date.getYear().toLocaleString(nuLocale);
     const m = format(date, 'LLLL', { locale });
     return `${m} ${y}`;
@@ -60,7 +60,7 @@ function Example() {
       dir="rtl"
       showWeekNumber
       formatDay={formatDay}
-      formatCaption={formatCaption}
+      formatMonthCaption={formatMonthCaption}
       formatWeekNumber={formatWeekNumber}
     />
   );

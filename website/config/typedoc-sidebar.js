@@ -2,41 +2,48 @@ module.exports = [
   "api/index",
   {
     "type": "category",
+    "label": "Enumerations",
+    "items": [
+      "api/enums/keycode"
+    ]
+  },
+  {
+    "type": "category",
     "label": "Interfaces",
     "items": [
       "api/interfaces/captionprops",
-      "api/interfaces/daypickercomponentprops",
+      "api/interfaces/daypickercontextvalue",
       "api/interfaces/daypickerprops",
       "api/interfaces/dayprops",
-      "api/interfaces/headprops",
+      "api/interfaces/monthsdropdownprops",
       "api/interfaces/navigationprops",
       "api/interfaces/rootprops",
       "api/interfaces/rowprops",
       "api/interfaces/tableprops",
       "api/interfaces/uielement",
-      "api/interfaces/weeknumberprops"
+      "api/interfaces/yearsdropdownprops"
     ]
   },
   {
     "type": "category",
     "label": "Type aliases",
     "items": [
-      "api/types/customizablecomponents",
+      "api/types/classnames",
+      "api/types/components",
       "api/types/dateformatter",
       "api/types/dayclickeventhandler",
       "api/types/dayfocuseventhandler",
       "api/types/daykeyboardeventhandler",
       "api/types/daylabelformatter",
       "api/types/daymouseeventhandler",
-      "api/types/daypickerclassnames",
-      "api/types/daypickeroptionalprops",
-      "api/types/daypickerrequiredprops",
       "api/types/daypickerstyles",
       "api/types/daytoucheventhandler",
       "api/types/daysrange",
-      "api/types/labelsformatters",
+      "api/types/formatters",
+      "api/types/labels",
       "api/types/matchafter",
       "api/types/matchbefore",
+      "api/types/matchbeforeafter",
       "api/types/matchdate",
       "api/types/matchdaysofweek",
       "api/types/matchfromto",
@@ -47,8 +54,7 @@ module.exports = [
       "api/types/modifiersstatus",
       "api/types/modifiersstyles",
       "api/types/monthchangeeventhandler",
-      "api/types/navbuttonlabelformatter",
-      "api/types/requireddaypickerpropsname",
+      "api/types/nextlabelformatter",
       "api/types/useinput",
       "api/types/useinputoptions",
       "api/types/weeknumberformatter",
@@ -61,11 +67,13 @@ module.exports = [
     "type": "category",
     "label": "Variables",
     "items": [
+      "api/variables/daypickercontext",
       "api/variables/defaultclassnames",
+      "api/variables/defaultcomponents",
+      "api/variables/defaultcontext",
+      "api/variables/defaultformatters",
       "api/variables/defaultlabels",
-      "api/variables/defaultmodifiers",
-      "api/variables/defaultmodifiersclassnames",
-      "api/variables/defaultprops"
+      "api/variables/defaultmodifiers"
     ]
   },
   {
@@ -76,17 +84,17 @@ module.exports = [
       "api/functions/day",
       "api/functions/daypicker",
       "api/functions/head",
+      "api/functions/icondropdown",
+      "api/functions/iconnext",
+      "api/functions/iconprev",
+      "api/functions/monthsdropdown",
       "api/functions/navigation",
-      "api/functions/nexticon",
-      "api/functions/previcon",
       "api/functions/root",
       "api/functions/row",
       "api/functions/table",
+      "api/functions/yearsdropdown",
       "api/functions/addtorange",
-      "api/functions/getcaptioncomponent",
-      "api/functions/getdaycomponent",
       "api/functions/getmodifiers",
-      "api/functions/getnavigationcomponent",
       "api/functions/useinput",
       "api/functions/userange"
     ]

@@ -187,8 +187,8 @@ function Example() {
   return (
     <DayPicker
       month={month}
-      fromMonth={new Date(validYears[0], 0)}
-      toMonth={new Date(validYears[validYears.length - 1], 11)}
+      from={new Date(validYears[0], 0)}
+      to={new Date(validYears[validYears.length - 1], 11)}
       components={{ Caption }}
       onMonthChange={setMonth}
       onMonthSelect={handleMonthSelect}

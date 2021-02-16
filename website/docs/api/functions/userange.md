@@ -28,5 +28,3 @@ Name | Type | Default value |
 `initialRange` | [*DaysRange*](../types/daysrange.md) | ... |
 
 **Returns:** [[*DaysRange*](../types/daysrange.md), (`day`: Date) => *void*]
-
-Defined in: [hooks/useRange/useRange.ts:20](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/hooks/useRange/useRange.ts#L20)
