@@ -1,3 +1,4 @@
+/** Reference to KeyCodes used inside the app. */
 export enum KeyCode {
   ArrowLeft = 'ArrowLeft',
   ArrowRight = 'ArrowRight',
