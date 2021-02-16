@@ -1,5 +1,5 @@
 import { PropsValues } from '../../../components';
-import { Modifier, ModifiersMatchers, ModifiersStatus } from '../../../types';
+import { ModifiersMatchers, ModifiersStatus } from '../../../types';
 import { getModifiersFromProps } from './getModifiersFromProps';
 import { matchDay } from './matchModifier';
 
@@ -25,7 +25,7 @@ export function getModifiers(
   props: PropsValues
 ): ModifiersStatus {
   const modifierMatchers = getModifiersFromProps(props);
-  const modifiersList: Modifier[] = Object.keys(modifierMatchers).reduce(
+  const modifiersList: string[] = Object.keys(modifierMatchers).reduce(
     reduceCallback(day, modifierMatchers, currentMonth, props),
     []
   );
