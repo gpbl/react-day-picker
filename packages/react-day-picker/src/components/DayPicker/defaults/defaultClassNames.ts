@@ -6,7 +6,11 @@ import { ClassNames, UIElement } from '../../../types';
 export const defaultClassNames: Required<ClassNames> = {
   /** Root element */
   [UIElement.Root]: 'rdp',
+  [UIElement.RootMultipleMonths]: 'rdp-multiple-months',
   [UIElement.Caption]: 'rdp-caption',
+  [UIElement.CaptionFirst]: 'rdp-caption_first',
+  [UIElement.CaptionLast]: 'rdp-caption_last',
+  [UIElement.CaptionBetween]: 'rdp-caption_between',
   [UIElement.DropdownsContainer]: 'rdp-caption-dropdowns',
 
   [UIElement.Dropdown]: 'rdp-dropdown',

@@ -10,12 +10,15 @@ export interface NavigationContextValue {
   nextMonth?: Date;
   /** The currently displayed month. When multiple months, is the first. */
   currentMonth: Date;
+  /** The months to display. */
+  displayMonths: Date[];
   /** The day that should focus when rendering. Used for keyboard navigation */
   focusedDay?: Date;
 }
 
 export const defaultNavigationContext: NavigationContextValue = {
-  currentMonth: new Date()
+  currentMonth: new Date(),
+  displayMonths: [new Date()]
 };
 
 /**

@@ -13,7 +13,7 @@ export function getNavMonths(
     toDate?: Date;
     pagedNavigation?: boolean;
     today?: Date;
-    navigation: NavigationType;
+    navigationType: NavigationType;
   }
 ): [Date?, Date?] {
   const {
@@ -21,10 +21,10 @@ export function getNavMonths(
     toDate,
     pagedNavigation,
     numberOfMonths,
-    navigation
+    navigationType
   } = options;
 
-  if (navigation === 'none') {
+  if (navigationType === 'none') {
     return [undefined, undefined];
   }
   const add = pagedNavigation ? numberOfMonths : 1;

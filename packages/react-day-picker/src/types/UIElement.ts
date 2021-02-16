@@ -4,9 +4,18 @@
 export enum UIElement {
   /** The container element. */
   Root = 'root',
+  /** The container element when number of months is greater than 1. */
+  RootMultipleMonths = 'rootMultipleMonths',
 
   /** The caption element (showing the calendar heading and the navigation) */
   Caption = 'caption',
+  /** The caption element when the first of multiple months */
+  CaptionFirst = 'captionFirst',
+  /** The caption element when the last of multiple months */
+  CaptionLast = 'CaptionLast',
+  /** The caption element is between */
+  CaptionBetween = 'CaptionBetween',
+
   /** The container of the drop-downs. */
   DropdownsContainer = 'dropdownsContainer',
   /** The drop-down select element. */
