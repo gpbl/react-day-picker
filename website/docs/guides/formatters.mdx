@@ -31,13 +31,11 @@ function Example() {
 
   return (
     <DayPicker
-      formatters={(formatDay, formatMonthCaption, formatWeekdayName)}
+      formatters={{ formatDay, formatMonthCaption, formatWeekdayName }}
     />
   );
 }
 ```
 
-- For advanced customization of the DayPicker output, see [custom
-  components](./custom-components.mdx).
-- Formatting props can be used for
-  [localization](./localization.mdx) purpose too.
+Formatting props can be used for
+[localization](./localization.mdx).
