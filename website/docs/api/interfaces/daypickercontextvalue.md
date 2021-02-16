@@ -75,9 +75,9 @@ ___
 
 ### dropdownNavigation
 
-• **dropdownNavigation**: *boolean*
+• `Optional` **dropdownNavigation**: *undefined* \| *boolean*
 
-When setting `fromDate` and `toDate`, use dropdowns instead of button to
+When setting `fromDate` and `toDate`, use dropdowns instead of buttons to
 navigate the calendar.
 
 **Example**
