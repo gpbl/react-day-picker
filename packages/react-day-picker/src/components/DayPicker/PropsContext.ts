@@ -35,21 +35,29 @@ export interface PropsValues
     | 'fromYear'
     | 'toYear'
   > {
-  today: Date;
-  components: Required<Components>;
-  labels: Required<Labels>;
-  formatters: Required<Formatters>;
-  numberOfMonths: number;
   classNames: ClassNames;
+  components: Required<Components>;
+  formatters: Required<Formatters>;
+  labels: Required<Labels>;
   locale: Locale;
+  modifierPrefix: string;
   modifiers: ModifiersMatchers;
   modifiersClassNames?: ModifiersClassNames;
-  modifierPrefix: string;
   navigationType: NavigationType;
+  numberOfMonths: number;
+  /**
+   * A reference to the original props passed to the component. Useful for
+   * inspecting in internal components.
+   */
+  originalProps: DayPickerProps;
+  /**
+   * The today’s date used in the calendar. If not overridden from props, is the
+   * current date.
+   */
+  today: Date;
 }
 
 export const defaultPropsValues: PropsValues = {
-  navigationType: 'buttons',
   classNames: defaultClassNames,
   components: defaultComponents,
   formatters: defaultFormatters,
@@ -57,7 +65,9 @@ export const defaultPropsValues: PropsValues = {
   locale: english,
   modifierPrefix: 'rdp-day_',
   modifiers: defaultModifiers,
+  navigationType: 'buttons',
   numberOfMonths: 1,
+  originalProps: {},
   today: new Date()
 };
 

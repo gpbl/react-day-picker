@@ -54,7 +54,7 @@ export function Day(props: DayProps): JSX.Element | null {
 
   const ariaLabel = labels.dayLabel(day, modifiers, { locale });
   const ariaPressed = modifiers.interactive ? modifiers.selected : undefined;
-  const disabled = !modifiers.interactive || modifiers.disabled;
+  const disabled = modifiers.disabled;
 
   // #region TabIndex
   let tabIndex: number;
