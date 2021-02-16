@@ -17,7 +17,7 @@ export function Playground() {
         toDate={toDate}
       />
       <h2>Multiple months</h2>
-      {/* <DayPicker
+      <DayPicker
         onDayClick={handleDayClick}
         selected={selected}
         fromDate={fromDate}
@@ -34,7 +34,7 @@ export function Playground() {
         showWeekNumber
         numberOfMonths={2}
         pagedNavigation
-      /> */}
+      />
     </>
   );
 }

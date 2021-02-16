@@ -14,10 +14,11 @@ Represent a map of formatters used to render localized content.
 
 #### Type declaration:
 
-Name | Type |
-:------ | :------ |
-`formatDay`? | [*DateFormatter*](dateformatter.md) |
-`formatMonthCaption`? | [*DateFormatter*](dateformatter.md) |
-`formatWeekNumber`? | [*WeekNumberFormatter*](weeknumberformatter.md) |
-`formatWeekdayName`? | [*WeekdayFormatter*](weekdayformatter.md) |
-`formatYearCaption`? | [*DateFormatter*](dateformatter.md) |
+Name | Type | Description |
+:------ | :------ | :------ |
+`formatCaption`? | [*DateFormatter*](dateformatter.md) | Format the month in the caption when `navigationType` is `buttons`.   |
+`formatDay`? | [*DateFormatter*](dateformatter.md) | Format the day in the day cell.   |
+`formatMonthCaption`? | [*DateFormatter*](dateformatter.md) | Format the month in the navigation dropdown.   |
+`formatWeekNumber`? | [*WeekNumberFormatter*](weeknumberformatter.md) | Format the week number.   |
+`formatWeekdayName`? | [*WeekdayFormatter*](weekdayformatter.md) | Format the week day name in the header   |
+`formatYearCaption`? | [*DateFormatter*](dateformatter.md) | Format the year in the navigation dropdown.   |

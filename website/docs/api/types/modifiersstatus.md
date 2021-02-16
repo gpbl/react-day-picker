@@ -8,7 +8,7 @@ hide_title: true
 
 # Type alias: ModifiersStatus
 
-Ƭ **ModifiersStatus**: { [modifier in Modifier]?: boolean}
+Ƭ **ModifiersStatus**: *object*
 
 Represent the status of a modifiers if matched against a day according to its
 [Matcher](matcher.md).
@@ -23,3 +23,5 @@ const modifiers: ModifiersStatus = {
  custom: false,
 }
 ```
+
+#### Type declaration:

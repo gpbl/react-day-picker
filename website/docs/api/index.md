@@ -14,6 +14,7 @@ hide_title: true
 ### Enumerations
 
 - [KeyCode](enums/keycode.md)
+- [UIElement](enums/uielement.md)
 
 ### Interfaces
 
@@ -27,7 +28,6 @@ hide_title: true
 - [RootProps](interfaces/rootprops.md)
 - [RowProps](interfaces/rowprops.md)
 - [TableProps](interfaces/tableprops.md)
-- [UIElement](interfaces/uielement.md)
 - [YearsDropdownProps](interfaces/yearsdropdownprops.md)
 
 ### Type aliases
@@ -52,12 +52,12 @@ hide_title: true
 - [MatchDaysOfWeek](types/matchdaysofweek.md)
 - [MatchFromTo](types/matchfromto.md)
 - [Matcher](types/matcher.md)
-- [Modifier](types/modifier.md)
 - [ModifiersClassNames](types/modifiersclassnames.md)
 - [ModifiersMatchers](types/modifiersmatchers.md)
 - [ModifiersStatus](types/modifiersstatus.md)
 - [ModifiersStyles](types/modifiersstyles.md)
 - [MonthChangeEventHandler](types/monthchangeeventhandler.md)
+- [NavigationType](types/navigationtype.md)
 - [NextLabelFormatter](types/nextlabelformatter.md)
 - [UseInput](types/useinput.md)
 - [UseInputOptions](types/useinputoptions.md)

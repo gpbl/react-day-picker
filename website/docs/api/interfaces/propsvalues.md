@@ -12,7 +12,7 @@ Represent the value of a [PropsContext](../variables/propscontext.md).
 
 ## Hierarchy
 
-* *Omit*<[*DayPickerProps*](daypickerprops.md), *className* \| *style* \| *initialMonth* \| *month*\>
+* *Omit*<[*DayPickerProps*](daypickerprops.md), *className* \| *style* \| *initialMonth* \| *month* \| *fromMonth* \| *toMonth* \| *fromYear* \| *toYear*\>
 
   ↳ **PropsValues**
 
@@ -59,28 +59,6 @@ function Example() {
     />
   );
 }
-```
-
-___
-
-### dropdownNavigation
-
-• `Optional` **dropdownNavigation**: *undefined* \| *boolean*
-
-When setting `fromDate` and `toDate`, use month and year drop-downs instead
-of buttons to navigate the calendar.
-
-**Example**
-
-```jsx showOutput open=no
-function Example() {
- return (
-   <DayPicker
-     fromDate={new Date(2020, 10, 1)}
-     toDate={new Date(2022, 5, 1)}
-     dropdownNavigation
-   />
-)};
 ```
 
 ___
@@ -230,6 +208,12 @@ Change the background color of the days matching the `isToday` modifier.
  modifiersStyles={{ isToday: { backgroundColor: 'purple' } }}
 />
 ```
+
+___
+
+### navigationType
+
+• **navigationType**: [*NavigationType*](../types/navigationtype.md)
 
 ___
 

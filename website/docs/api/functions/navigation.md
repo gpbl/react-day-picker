@@ -10,6 +10,8 @@ hide_title: true
 
 ▸ **Navigation**(`props`: [*NavigationProps*](../interfaces/navigationprops.md)): JSX.Element
 
+Render the Navigation bar with prev / next buttons
+
 #### Parameters:
 
 Name | Type |

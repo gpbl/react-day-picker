@@ -8,7 +8,7 @@ hide_title: true
 
 # Type alias: ModifiersMatchers
 
-Ƭ **ModifiersMatchers**: { [modifier in Modifier]: Matcher}
+Ƭ **ModifiersMatchers**: *object*
 
 Represents the [[Matchers]] assigned to each modifier.
 
@@ -21,3 +21,5 @@ const matchers = {
  ...
 }
 ```
+
+#### Type declaration:

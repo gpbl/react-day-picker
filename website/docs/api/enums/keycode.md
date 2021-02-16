@@ -8,6 +8,8 @@ hide_title: true
 
 # Enumeration: KeyCode
 
+Reference to KeyCodes used inside the app.
+
 ## Enumeration members
 
 ### ArrowDown

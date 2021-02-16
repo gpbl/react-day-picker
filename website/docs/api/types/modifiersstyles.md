@@ -8,6 +8,8 @@ hide_title: true
 
 # Type alias: ModifiersStyles
 
-Ƭ **ModifiersStyles**: { [modifier in Modifier]: React.CSSProperties}
+Ƭ **ModifiersStyles**: *object*
 
-Represent the inline-style assigned to each modifier.
+The inline-style to apply to the day matching `modifier`.
+
+#### Type declaration:

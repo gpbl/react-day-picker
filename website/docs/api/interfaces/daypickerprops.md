@@ -102,28 +102,6 @@ function Example() {
 
 ___
 
-### dropdownNavigation
-
-• `Optional` **dropdownNavigation**: *undefined* \| *boolean*
-
-When setting `fromDate` and `toDate`, use month and year drop-downs instead
-of buttons to navigate the calendar.
-
-**Example**
-
-```jsx showOutput open=no
-function Example() {
- return (
-   <DayPicker
-     fromDate={new Date(2020, 10, 1)}
-     toDate={new Date(2022, 5, 1)}
-     dropdownNavigation
-   />
-)};
-```
-
-___
-
 ### enableOutsideDaysClick
 
 • `Optional` **enableOutsideDaysClick**: *undefined* \| *boolean*
@@ -155,6 +133,8 @@ ___
 
 • `Optional` **formatters**: *undefined* \| [*Formatters*](../types/formatters.md)
 
+Change the default formatters.
+
 ___
 
 ### fromDate
@@ -162,6 +142,22 @@ ___
 • `Optional` **fromDate**: *undefined* \| Date
 
 The day to start the calendar.
+
+___
+
+### fromMonth
+
+• `Optional` **fromMonth**: *undefined* \| Date
+
+The month to start the calendar.
+
+___
+
+### fromYear
+
+• `Optional` **fromYear**: *undefined* \| *number*
+
+The year to start the calendar.
 
 ___
 
@@ -370,6 +366,34 @@ function Example() {
     </>
   );
 }
+```
+
+___
+
+### navigationType
+
+• `Optional` **navigationType**: *undefined* \| *none* \| *dropdown* \| *buttons*
+
+Change the design of the navigation to navigate between months.
+
+- `buttons` (default): display prev/right buttons
+- `dropdown`: display drop-downs to change the month and the year
+- `none`: do not display the navigation elements
+
+**Note** `dropdown` is valid only when `fromDate` or `toDate` are set. If
+those are not set, it fallbacks to `buttons`.
+
+**Example**
+
+```jsx showOutput open=no
+function Example() {
+ return (
+   <DayPicker
+     fromYear={2020}
+     toYear={2025}
+     navigationType="dropdown"
+   />
+)};
 ```
 
 ___
@@ -601,6 +625,22 @@ ___
 • `Optional` **toDate**: *undefined* \| Date
 
 The day to end the calendar.
+
+___
+
+### toMonth
+
+• `Optional` **toMonth**: *undefined* \| Date
+
+The month to end the calendar.
+
+___
+
+### toYear
+
+• `Optional` **toYear**: *undefined* \| *number*
+
+The year to end the calendar.
 
 ___
 

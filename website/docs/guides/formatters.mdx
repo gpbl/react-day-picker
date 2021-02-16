@@ -3,8 +3,8 @@ id: formatters
 title: Formatters
 ---
 
-Use the formatting props to format the content of the day cell, the month’s
-caption, the weekday name or the week’s number.
+Use the [formatters prop](../api/interfaces/daypickerprops#formatters) to change the default format for the day, the weekday
+name, etc.
 
 ```jsx showOutput
 import React, { useState } from 'react';
@@ -21,8 +21,8 @@ function Example() {
     return date;
   };
 
-  const formatMonthCaption = (month, { locale }) => {
-    return `${format(month, 'dd/yyyy', { locale })}`;
+  const formatCaption = (month, { locale }) => {
+    return `${format(month, 'LLLL', { locale })}`;
   };
 
   const formatWeekdayName = (day, { locale }) => {
@@ -31,7 +31,9 @@ function Example() {
 
   return (
     <DayPicker
-      formatters={{ formatDay, formatMonthCaption, formatWeekdayName }}
+      fromYear={2020}
+      toYear={2025}
+      formatters={{ formatDay, formatCaption, formatWeekdayName }}
     />
   );
 }
