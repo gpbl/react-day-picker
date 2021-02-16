@@ -9,6 +9,7 @@
   --rdp-accent-color-darker: #2a03c5;
   --rdp-accent-color-darkest: #180270;
   --rdp-cell-size: 40px;
+  --rdp-border-focus: 2px solid var(--rdp-accent-color);
 }
 
 .rdp,
@@ -79,22 +80,6 @@
   line-height: inherit;
 }
 
-.rdp-dropdown-label {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  margin-right: 0.2em;
-  color: currentColor;
-  border: 0;
-  font-family: inherit;
-  font-size: 140%;
-  font-weight: bold;
-}
-
-.rdp .rdp-dropdown_month .rdp-dropdown-icon {
-  margin-right: 10px;
-}
-
 .rdp .rdp-dropdown[disabled] {
   opacity: unset;
   color: unset;
@@ -103,6 +88,31 @@
 .rdp .rdp-dropdown option {
   color: currentColor;
   font-size: 1em;
+}
+
+.rdp .rdp-dropdown-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 0.2em;
+  color: currentColor;
+  border: 0;
+  font-family: inherit;
+  font-size: 140%;
+  font-weight: bold;
+  border: 2px solid transparent;
+}
+
+.rdp-dropdown:focus + .rdp-dropdown-label {
+  border: var(--rdp-border-focus);
+  border-radius: 5px;
+  background-color: var(--rdp-accent-color-lightest);
+}
+
+.rdp-dropdown-icon {
+  margin: 0 0 0 5px;
 }
 
 /* ---------- */
@@ -133,8 +143,9 @@
 .rdp .rdp-head-cell {
   padding: 0.5em;
   text-align: center;
-  font-size: 75%;
-  font-weight: 500;
+  font-size: 65%;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .rdp .rdp-row {
@@ -181,7 +192,7 @@
 }
 
 .rdp .rdp-day:focus {
-  border: 2px solid var(--rdp-accent-color);
+  border: var(--rdp-border-focus);
 }
 
 .rdp .rdp-day:focus:not(.rdp-day_selected) {
@@ -195,7 +206,8 @@
 .rdp .rdp-day_interactive {
   cursor: pointer;
 }
-.rdp .rdp-day_disabled {
+.rdp .rdp-day_disabled,
+.rdp .rdp-day[disabled] {
   opacity: 25%;
 }
 .rdp .rdp-day_outside {
@@ -250,22 +262,23 @@
 }
 .rdp .rdp-nav-button {
   display: inline-flex;
-  padding: 0.5em;
+  align-items: center;
+  width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  padding: 0.25em;
   cursor: pointer;
   border: 2px solid transparent;
   border-radius: 100%;
   outline: none;
-  height: var(--rdp-cell-size);
-  width: var(--rdp-cell-size);
-  align-items: center;
+  justify-content: center;
 }
 .rdp .rdp-nav-button:hover:not([disabled]) {
   background-color: var(--rdp-accent-color-lightest);
 }
 .rdp .rdp-nav-button:focus:not([disabled]),
 .rdp .rdp-nav-button:active:not([disabled]) {
-  background-color: var(--rdp-accent-color-lightest);
   border: 2px solid var(--rdp-accent-color);
+  background-color: var(--rdp-accent-color-lightest);
 }
 .rdp .rdp-nav-button[disabled] {
   cursor: default;

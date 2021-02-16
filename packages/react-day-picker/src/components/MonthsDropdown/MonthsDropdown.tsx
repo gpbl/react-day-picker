@@ -9,12 +9,19 @@ export interface MonthsDropdownProps {
 export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
   const { displayMonth } = props;
   const context = React.useContext(DayPickerContext);
-  const { locale, onMonthChange, fromDate, toDate, classNames } = context;
+  const {
+    locale,
+    onMonthChange,
+    fromDate,
+    toDate,
+    classNames,
+    dropdownNavigation
+  } = context;
 
   const { formatMonthCaption } = context.formatters;
   const dropdownMonths: Date[] = [];
-  const showDropdown = fromDate && toDate;
-
+  const showDropdown =
+    dropdownNavigation && Boolean(fromDate) && Boolean(toDate);
   if (fromDate && toDate) {
     if (isSameYear(fromDate, toDate)) {
       // only display the months included in the range
@@ -59,8 +66,8 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
       )}
       <div className={classNames.DropdownLabel} aria-live="polite">
         {formatMonthCaption(displayMonth, { locale })}
+        {showDropdown && <IconDropdown className={classNames.IconDropdown} />}
       </div>
-      {showDropdown && <IconDropdown className={classNames.IconDropdown} />}
     </div>
   );
 }
