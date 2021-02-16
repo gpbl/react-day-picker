@@ -1,15 +1,18 @@
-import { DayPickerClassNames } from '../../../types';
+import { ClassNames } from '../../../types';
 
 /**
  * The name of the CSS classes for the [[UIElements]].
- *
- * Replace the default class names using the [[DayPickerComponent.classNames]]
- * prop – for example when using CSS modules.
  */
-export const defaultClassNames: DayPickerClassNames = {
+export const defaultClassNames: Required<ClassNames> = {
   /** Root element */
   Root: 'rdp',
   Caption: 'rdp-caption',
+  CaptionDropdowns: 'rdp-caption-dropdowns',
+
+  Dropdown: 'rdp-dropdown',
+  DropdownLabel: 'rdp-dropdown-label',
+  DropdownMonth: 'rdp-dropdown_month',
+  DropdownYear: 'rdp-dropdown_year',
 
   // Day Component
   Day: 'rdp-day',
@@ -32,6 +35,7 @@ export const defaultClassNames: DayPickerClassNames = {
   NavButtonNext: 'rdp-nav-button_next',
 
   NavIcon: 'rdp-nav-icon',
+  IconDropdown: 'rdp-dropdown-icon',
 
   // Week Component
   Row: 'rdp-row',

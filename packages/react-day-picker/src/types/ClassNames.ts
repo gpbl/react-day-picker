@@ -1,6 +1,6 @@
 import { UIElement } from './UIElement';
 
 /** Represent the class names used for each [[UIElement]]. */
-export type DayPickerClassNames = {
+export type ClassNames = {
   [element in keyof UIElement]?: string;
 };

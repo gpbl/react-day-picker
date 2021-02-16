@@ -1,4 +1,4 @@
-import * as dateFns from 'date-fns';
+import { format, Locale } from 'date-fns';
 
 /**
  * The default function used to format the day. Use the [[formatWeekdayName]]
@@ -6,8 +6,7 @@ import * as dateFns from 'date-fns';
  */
 export function formatWeekdayName(
   weekday: Date,
-  formatOptions?: { locale?: dateFns.Locale },
-  format = 'cccccc'
+  options?: { locale?: Locale }
 ): string {
-  return dateFns.format(weekday, format, formatOptions);
+  return format(weekday, 'cccccc', options);
 }

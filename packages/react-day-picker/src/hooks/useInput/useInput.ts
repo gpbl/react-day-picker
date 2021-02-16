@@ -1,8 +1,7 @@
-import * as DateFns from 'date-fns';
+import { format, parse } from 'date-fns';
 import * as React from 'react';
-import { UseInput, UseInputOptions } from '../../types';
 
-import { defaultProps } from '../../components/DayPicker';
+import { UseInput, UseInputOptions } from '../../types';
 
 /**
  * @private
@@ -38,25 +37,25 @@ export function useInput(
   options?: UseInputOptions
 ): UseInput {
   // Defaults from options
-  const locale = options?.locale ?? defaultProps.locale;
+  const locale = options?.locale;
   const required = options?.required ?? false;
 
   // Shortcut to the DateFns functions
-  const format = (day: Date) => DateFns.format(day, formatStr, { locale });
-  const parse = (value: string) =>
-    DateFns.parse(value, formatStr, new Date(), { locale });
+  const formatDay = (day: Date) => format(day, formatStr, { locale });
+  const parseValue = (value: string) =>
+    parse(value, formatStr, new Date(), { locale });
 
   // The initial value of the input field
-  const initialValue = initialDay ? format(initialDay) : '';
+  const initialValue = initialDay ? formatDay(initialDay) : '';
 
   // Initialize state
   const [selected, setSelected] = React.useState<Date | undefined>(initialDay);
   const [value, setValue] = React.useState(initialValue);
-  const [month, setMonth] = React.useState(initialDay ?? defaultProps.month);
+  const [month, setMonth] = React.useState(initialDay ?? new Date());
 
   const onDayClick = (day: Date) => {
     setSelected(day);
-    setValue(format(day));
+    setValue(formatDay(day));
   };
   const onMonthChange = (month: React.SetStateAction<Date>) => {
     setMonth(month);
@@ -67,7 +66,7 @@ export function useInput(
   // the calendar’s month.
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-    const day = parse(e.target.value);
+    const day = parseValue(e.target.value);
     if (!isValidDate(day)) {
       setSelected(undefined);
       return;
@@ -79,12 +78,12 @@ export function useInput(
   // Special case for _required_ fields: on blur, if the value of the input is not
   // a valid date, reset the calendar and the input value.
   const onBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const day = parse(e.target.value);
+    const day = parseValue(e.target.value);
     if (!required ?? isValidDate(day)) {
       return;
     }
     setSelected(initialDay);
-    setMonth(initialDay ?? defaultProps.month);
+    setMonth(initialDay ?? new Date());
     setValue(initialValue ?? '');
   };
 
@@ -92,14 +91,14 @@ export function useInput(
   // input field.
   const onFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     if (e.target.value) {
-      const day = parse(e.target.value);
+      const day = parseValue(e.target.value);
       if (isValidDate(day)) {
         setMonth(day);
       }
       return;
     }
     setSelected(initialDay);
-    setMonth(initialDay ?? defaultProps.month);
+    setMonth(initialDay ?? new Date());
     setValue(initialValue ?? '');
   };
 

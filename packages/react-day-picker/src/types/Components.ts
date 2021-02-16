@@ -1,20 +1,20 @@
 import {
   Caption,
   Day,
+  IconNext,
+  IconPrev,
   Navigation,
-  NextIcon,
-  PrevIcon,
   Row
 } from '../components';
 
 /**
  * Represent the components that can be customized.
  */
-export type CustomizableComponents = {
+export type Components = {
   Caption?: typeof Caption;
   Day?: typeof Day;
   Navigation?: typeof Navigation;
-  Week?: typeof Row;
-  NextIcon?: typeof NextIcon;
-  PrevIcon?: typeof PrevIcon;
+  Row?: typeof Row;
+  IconNext?: typeof IconNext;
+  IconPrev?: typeof IconPrev;
 };

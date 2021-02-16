@@ -1,32 +1,28 @@
 import * as React from 'react';
 
-import { TableProps } from '../../types';
-import { Head, Row } from '../../components';
+import { DayPickerContext, Head, Row } from '../../components';
 import { getWeeks } from './utils/getWeeks';
 
+export interface TableProps {
+  /** The month used to render the table */
+  displayMonth: Date;
+}
+
 export function Table(props: TableProps): JSX.Element {
-  const { month, dayPickerProps } = props;
-  const {
-    classNames,
-    styles,
-    showCaption,
-    showHead,
-    components
-  } = dayPickerProps;
-  const { Caption } = components;
-  const weeks = getWeeks(month, dayPickerProps);
+  const context = React.useContext(DayPickerContext);
+  const { locale, fixedWeeks, classNames, styles, hideHead } = context;
+  const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
+
   return (
     <table className={classNames?.Table} style={styles?.Table}>
-      {showCaption && <Caption month={month} dayPickerProps={dayPickerProps} />}
-      {showHead && <Head dayPickerProps={dayPickerProps} />}
+      {!hideHead && <Head />}
       <tbody className={classNames?.TBody} style={styles?.TBody}>
         {Object.keys(weeks).map((weekNumber) => (
           <Row
-            currentMonth={month}
+            displayMonth={props.displayMonth}
             key={weekNumber}
             week={weeks[weekNumber]}
             weekNumber={Number(weekNumber)}
-            dayPickerProps={dayPickerProps}
           />
         ))}
       </tbody>

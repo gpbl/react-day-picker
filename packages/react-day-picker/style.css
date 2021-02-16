@@ -1,17 +1,14 @@
 :root {
   --rdp-accent-color: #4d21fc;
-
   /* Default colors for light themes */
   --rdp-accent-color-light: #8567fd;
   --rdp-accent-color-lighter: #beaefe;
   --rdp-accent-color-lightest: #f6f4ff;
-  
   /* Switch to dark colors for dark themes */
   --rdp-accent-color-dark: #3003e1;
   --rdp-accent-color-darker: #2a03c5;
   --rdp-accent-color-darkest: #180270;
-  
-  --rdp-cell-size: 2.5em;
+  --rdp-cell-size: 40px;
 }
 
 .rdp,
@@ -22,6 +19,7 @@
 /** Reset buttons */
 .rdp .rdp-day,
 .rdp .rdp-nav-button {
+  appearance: none;
   position: relative;
   margin: 0;
   padding: 0;
@@ -33,12 +31,16 @@
 
   -moz-appearance: none;
   -webkit-appearance: none;
-  appearance: none;
 }
 
 .rdp {
   display: inline-block;
 }
+
+.rdp-months {
+  display: flex;
+}
+
 .rdp .rdp-month {
   margin: 0.75em;
 }
@@ -47,23 +49,81 @@
 }
 
 /* ---------- */
+/* Dropdowns  */
+/* ---------- */
+
+.rdp .rdp-dropdown_year,
+.rdp .rdp-dropdown_month {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.rdp .rdp-dropdown {
+  appearance: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: inherit;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: inherit;
+  opacity: 0;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.rdp-dropdown-label {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  margin-right: 0.2em;
+  color: currentColor;
+  border: 0;
+  font-family: inherit;
+  font-size: 140%;
+  font-weight: bold;
+}
+
+.rdp .rdp-dropdown_month .rdp-dropdown-icon {
+  margin-right: 10px;
+}
+
+.rdp .rdp-dropdown[disabled] {
+  opacity: unset;
+  color: unset;
+}
+
+.rdp .rdp-dropdown option {
+  color: currentColor;
+  font-size: 1em;
+}
+
+/* ---------- */
 /* Caption    */
 /* ---------- */
 
 .rdp .rdp-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.25em 0;
   caption-side: top;
   text-align: left;
-  font-size: 140%;
-  font-weight: bold;
 }
 .rdp[dir='rtl'] .rdp-caption {
   text-align: right;
 }
-.rdp .rdp-caption > span {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+.rdp-caption-dropdowns {
+  position: relative;
+  display: inline-flex;
 }
 
 /* ---------- */
@@ -150,27 +210,27 @@
 }
 
 .rdp .rdp-day_from {
-  background-color: var(--rdp-accent-color-light);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  background-color: var(--rdp-accent-color-light);
 }
 .rdp .rdp-day_to {
-  background-color: var(--rdp-accent-color-light);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  background-color: var(--rdp-accent-color-light);
 }
 
 .rdp .rdp-day_to.rdp-day_from {
   border-radius: 100%;
 }
 .rdp .rdp-day_between {
+  color: inherit;
   border-radius: 0;
   background-color: var(--rdp-accent-color-lightest);
-  color: inherit;
 }
 .rdp .rdp-day.rdp-day_between:hover {
-  background-color: var(--rdp-accent-color-lighter);
   color: inherit;
+  background-color: var(--rdp-accent-color-lighter);
 }
 
 .rdp .rdp-day_selected:hover {
@@ -182,10 +242,11 @@
 /* ---------- */
 
 .rdp .rdp-nav {
-  float: right;
+  white-space: nowrap;
 }
 .rdp[dir='rtl'] .rdp-nav {
-  float: left;
+  /* TODO: invert navigation? */
+  /* float: left; */
 }
 .rdp .rdp-nav-button {
   display: inline-flex;
@@ -194,15 +255,19 @@
   border: 2px solid transparent;
   border-radius: 100%;
   outline: none;
+  height: var(--rdp-cell-size);
+  width: var(--rdp-cell-size);
+  align-items: center;
 }
 .rdp .rdp-nav-button:hover:not([disabled]) {
   background-color: var(--rdp-accent-color-lightest);
 }
 .rdp .rdp-nav-button:focus:not([disabled]),
 .rdp .rdp-nav-button:active:not([disabled]) {
+  background-color: var(--rdp-accent-color-lightest);
   border: 2px solid var(--rdp-accent-color);
 }
 .rdp .rdp-nav-button[disabled] {
-  opacity: 0.20;
   cursor: default;
+  opacity: 0.2;
 }

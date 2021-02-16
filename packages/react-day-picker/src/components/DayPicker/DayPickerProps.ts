@@ -1,32 +1,31 @@
-import * as dateFns from 'date-fns';
+import { Locale } from 'date-fns';
+
 import {
-  CustomizableComponents,
-  DateFormatter,
+  ClassNames,
+  Components,
   DayClickEventHandler,
+  DayFocusEventHandler,
   DayKeyboardEventHandler,
   DayMouseEventHandler,
-  DayPickerClassNames,
   DayPickerStyles,
   DayTouchEventHandler,
+  Formatters,
+  Labels,
   Matcher,
   ModifiersClassNames,
   ModifiersMatchers,
   ModifiersStyles,
-  MonthChangeEventHandler,
-  WeekNumberFormatter,
-  LabelsFormatters,
-  WeekdayFormatter,
-  DayFocusEventHandler
-} from '../types';
+  MonthChangeEventHandler
+} from '../../types';
 
 /**
  * The props for the [[DayPicker]] component.
  */
-export interface DayPickerComponentProps {
+export interface DayPickerProps {
   /**
    * A map of formatters for the ARIA labels used in the UI.
    */
-  labelsFormatters?: LabelsFormatters;
+  labels?: Labels;
 
   /**
    * CSS class to add to the root UI element.
@@ -68,7 +67,7 @@ export interface DayPickerComponentProps {
    *  }
    * ```
    */
-  classNames?: DayPickerClassNames;
+  classNames?: ClassNames;
   /**
    * Change the class name for the day UI element matching the [[modifiers]].
    *
@@ -136,13 +135,13 @@ export interface DayPickerComponentProps {
    */
   numberOfMonths?: number;
   /**
-   * Restrict the month navigation from the specified month. See also [[toMonth]].
+   * The day to start the calendar.
    */
-  fromMonth?: Date;
+  fromDate?: Date;
   /**
-   * Restrict the month navigation to the specified month. See also [[fromMonth]].
+   * The day to end the calendar.
    */
-  toMonth?: Date;
+  toDate?: Date;
   /**
    * When displaying more than one months, the navigation will be paginated
    * displaying the number of months at time (instead of one).
@@ -220,7 +219,7 @@ export interface DayPickerComponentProps {
    * };
    * ```
    */
-  showCaption?: boolean;
+  hideCaption?: boolean;
   /**
    * Show the month’s head. As default, it displays the weekday names according
    * to [[locale]].
@@ -233,7 +232,7 @@ export interface DayPickerComponentProps {
    * };
    * ```
    */
-  showHead?: boolean;
+  hideHead?: boolean;
   /**
    * Show the outside days.
    *
@@ -269,22 +268,6 @@ export interface DayPickerComponentProps {
    * ```
    */
   showWeekNumber?: boolean;
-
-  /**
-   * Show the month navigation bar. Default is `true`.
-   *
-   * When using [[month]], make sure you set [[onMonthChange]] to make the
-   * navigation appear.
-   *
-   * **Example**
-   *
-   * ```jsx showOutput open=no
-   * function Example() {
-   *  return <DayPicker showNavigation={false} />
-   * };
-   * ```
-   */
-  showNavigation?: boolean;
   /**
    * Apply the `selected` modifier to the matching days.
    *
@@ -350,8 +333,6 @@ export interface DayPickerComponentProps {
    * The today’s date. Default is the current date. Adds the `today` modifier to
    * the day cell.
    *
-   * Set it to `off` to disable the today date.
-   *
    * **Example**
    *
    * ```jsx showOutput open=no
@@ -360,7 +341,7 @@ export interface DayPickerComponentProps {
    * }
    * ```
    */
-  today?: Date | 'off';
+  today?: Date;
   /**
    * Add a custom modifier to the matching days.
    *
@@ -392,34 +373,19 @@ export interface DayPickerComponentProps {
    * }
    * ```
    */
-  locale?: dateFns.Locale;
+  locale?: Locale;
   /**
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
    */
   dir?: string;
 
-  /**
-   * Format the month caption text.
-   */
-  formatCaption?: DateFormatter;
-  /**
-   * Format the content of the day element.
-   */
-  formatDay?: DateFormatter;
-  /**
-   * Format the weekday's name in the head element.
-   */
-  formatWeekdayName?: WeekdayFormatter;
-  /**
-   * Format the week numbers (when [[showWeekNumber]] is set).
-   */
-  formatWeekNumber?: WeekNumberFormatter;
+  formatters?: Formatters;
 
   /**
    * Customize the internal components.
    */
-  components?: CustomizableComponents;
+  components?: Components;
 
   /* Event handlers */
   onDayClick?: DayClickEventHandler;
