@@ -8,7 +8,8 @@ import {
   DayFocusEventHandler,
   DayKeyboardEventHandler,
   DayMouseEventHandler,
-  DayTouchEventHandler
+  DayTouchEventHandler,
+  UIElement
 } from '../../types';
 import { getModifiers } from './utils/getModifiers';
 
@@ -107,7 +108,7 @@ export function Day(props: DayProps): JSX.Element | null {
 
   // #region ClassNames
   const { classNames, modifiersClassNames, modifierPrefix } = dayPickerProps;
-  const buttonClassNames: (string | undefined)[] = [classNames.Day];
+  const buttonClassNames: (string | undefined)[] = [classNames[UIElement.Day]];
   Object.keys(modifiers)
     .filter((modifier) => Boolean(modifiers[modifier]))
     .forEach((modifier) => {
@@ -123,7 +124,7 @@ export function Day(props: DayProps): JSX.Element | null {
 
   // #region Styles
   const { styles, modifiersStyles } = dayPickerProps;
-  let style = { ...styles?.Day };
+  let style = { ...styles?.[UIElement.Day] };
   if (styles) {
     Object.keys(modifiers).forEach((modifier) => {
       style = { ...style, ...styles[modifier] };

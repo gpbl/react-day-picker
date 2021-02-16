@@ -1,5 +1,6 @@
 import { addMonths, startOfMonth } from 'date-fns';
-import { NavigationType } from 'types';
+
+import { NavigationType } from '../../../types';
 
 /**
  * Returns the next and the previous months that the user can navigate to.

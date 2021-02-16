@@ -4,6 +4,7 @@ import { isSameYear, setMonth, startOfMonth } from 'date-fns';
 
 import { IconDropdown } from '../../components';
 import { useProps } from '../../hooks';
+import { UIElement } from '../../types';
 
 export interface MonthsDropdownProps {
   displayMonth: Date;
@@ -50,9 +51,9 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
   };
 
   return (
-    <div className={classNames.DropdownMonth}>
+    <div className={classNames[UIElement.DropdownMonth]}>
       <select
-        className={classNames.Dropdown}
+        className={classNames[UIElement.Dropdown]}
         value={displayMonth.getMonth()}
         onChange={handleMonthChange}
       >
@@ -62,9 +63,9 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
           </option>
         ))}
       </select>
-      <div className={classNames.DropdownLabel} aria-live="polite">
+      <div className={classNames[UIElement.DropdownLabel]} aria-live="polite">
         {formatMonthCaption(displayMonth, { locale })}
-        {<IconDropdown className={classNames.IconDropdown} />}
+        {<IconDropdown className={classNames[UIElement.DropdownIcon]} />}
       </div>
     </div>
   );
