@@ -180,6 +180,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     onDayClick,
     onDayFocus,
     onDayKeyDown,
+    originalProps: props,
     selected: props.selected,
     hidden: props.hidden,
     disabled: props.disabled,

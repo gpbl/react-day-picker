@@ -7,20 +7,22 @@ function isOutside(day: Date, currentMonth: Date): boolean {
   return !isSameMonth(day, currentMonth);
 }
 
+/** Props that will make the day button interactive. */
+const interactiveProps = ['onDayClick', 'onDayMouseEnter', 'onDayTouchStart'];
 function isInteractive(
   day: Date,
   currentMonth: Date,
   props: PropsValues
 ): boolean {
-  const { toDate, fromDate } = props;
+  const { toDate, fromDate, originalProps } = props;
+
+  if (interactiveProps.every((name) => !originalProps[name])) {
+    // If none of the interactive props is passed to the component return false
+    return false;
+  }
   const isAfterToDate = toDate && isAfter(day, toDate);
   const isBeforeFromDate = fromDate && isBefore(day, fromDate);
-  return (
-    !isAfterToDate &&
-    !isBeforeFromDate &&
-    !isOutside(day, currentMonth) &&
-    props.onDayClick !== undefined
-  );
+  return !isAfterToDate && !isBeforeFromDate && !isOutside(day, currentMonth);
 }
 
 function isToday(day: Date, _: Date, props: PropsValues): boolean {

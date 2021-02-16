@@ -187,16 +187,13 @@
   outline: none;
 }
 
-.rdp .rdp-day:hover:not([disabled]):not(.rdp-day_selected) {
+.rdp .rdp-day_interactive:hover,
+.rdp .rdp-day_interactive:focus {
   background-color: var(--rdp-accent-color-lightest);
 }
 
 .rdp .rdp-day:focus {
   border: var(--rdp-border-focus);
-}
-
-.rdp .rdp-day:focus:not(.rdp-day_selected) {
-  background-color: var(--rdp-accent-color-lightest);
 }
 
 /* ----------- */
