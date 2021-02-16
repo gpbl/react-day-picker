@@ -1,4 +1,5 @@
 import { format, Locale } from 'date-fns';
+
 import { Labels } from '../../../types';
 
 export const defaultLabels: Required<Labels> = {

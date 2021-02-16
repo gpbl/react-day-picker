@@ -1,4 +1,5 @@
 import { isAfter, isBefore, isSameDay } from 'date-fns';
+
 import { DaysRange } from '../../types';
 
 /**
