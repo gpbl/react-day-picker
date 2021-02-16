@@ -143,7 +143,7 @@ export interface DayPickerProps {
    */
   toDate?: Date;
   /**
-   * When setting `fromDate` and `toDate`, use dropdowns instead of button to
+   * When setting `fromDate` and `toDate`, use dropdowns instead of buttons to
    * navigate the calendar.
    *
    * **Example**
@@ -159,7 +159,7 @@ export interface DayPickerProps {
    * )};
    * ```
    */
-  dropdownNavigation: boolean;
+  dropdownNavigation?: boolean;
 
   /**
    * When displaying more than one months, the navigation will be paginated
