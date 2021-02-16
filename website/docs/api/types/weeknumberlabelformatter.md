@@ -8,6 +8,6 @@ hide_title: true
 
 # Type alias: WeekNumberLabelFormatter
 
-Ƭ **WeekNumberLabelFormatter**: (`n`: *number*, `options`: { `locale`: Locale  }) => *string*
+Ƭ **WeekNumberLabelFormatter**: (`n`: *number*, `options?`: { `locale?`: Locale  }) => *string*
 
 Represent a function to format the ARIA label of the week number.

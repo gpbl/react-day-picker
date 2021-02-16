@@ -23,7 +23,7 @@ module.exports = {
           activeBaseRegex: '(start|basics|guides)'
         },
         {
-          to: 'api/interfaces/daypickercomponentprops',
+          to: 'api/interfaces/daypickerprops',
           label: 'Component Props'
         },
         {

@@ -8,4 +8,4 @@ hide_title: true
 
 # Type alias: NextLabelFormatter
 
-Ƭ **NextLabelFormatter**: (`month`: Date, `options`: { `locale`: Locale  }) => *string*
+Ƭ **NextLabelFormatter**: (`month`: Date, `options?`: { `locale?`: Locale  }) => *string*

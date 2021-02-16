@@ -8,4 +8,4 @@ hide_title: true
 
 # Type alias: DateFormatter
 
-Ƭ **DateFormatter**: (`date`: Date, `options`: { `locale`: Locale  }) => *string*
+Ƭ **DateFormatter**: (`date`: Date, `options?`: { `locale?`: Locale  }) => *string*

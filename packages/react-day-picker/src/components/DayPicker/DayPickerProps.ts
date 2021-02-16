@@ -143,6 +143,25 @@ export interface DayPickerProps {
    */
   toDate?: Date;
   /**
+   * When setting `fromDate` and `toDate`, use dropdowns instead of button to
+   * navigate the calendar.
+   *
+   * **Example**
+   *
+   * ```jsx showOutput open=no
+   * function Example() {
+   *  return (
+   *    <DayPicker
+   *      fromDate={new Date(2020, 10, 1)}
+   *      toDate={new Date(2022, 5, 1)}
+   *      dropdownNavigation
+   *    />
+   * )};
+   * ```
+   */
+  dropdownNavigation: boolean;
+
+  /**
    * When displaying more than one months, the navigation will be paginated
    * displaying the number of months at time (instead of one).
    *
@@ -157,7 +176,6 @@ export interface DayPickerProps {
    * ```
    */
   pagedNavigation?: boolean;
-  dropdownNavigation: boolean;
   /**
    * Render the months in reversed order when [[numberOfMonths]] is greater than
    * `1` – to display the most recent month first.

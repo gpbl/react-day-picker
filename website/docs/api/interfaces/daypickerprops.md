@@ -106,6 +106,28 @@ function Example() {
 
 ___
 
+### dropdownNavigation
+
+• **dropdownNavigation**: *boolean*
+
+When setting `fromDate` and `toDate`, use dropdowns instead of button to
+navigate the calendar.
+
+**Example**
+
+```jsx showOutput open=no
+function Example() {
+ return (
+   <DayPicker
+     fromDate={new Date(2020, 10, 1)}
+     toDate={new Date(2022, 5, 1)}
+     dropdownNavigation
+   />
+)};
+```
+
+___
+
 ### enableOutsideDaysClick
 
 • `Optional` **enableOutsideDaysClick**: *undefined* \| *boolean*
