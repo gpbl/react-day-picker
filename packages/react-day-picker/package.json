@@ -22,9 +22,8 @@
     "coverage": "jest --coverage",
     "test:watch": "jest --watchAll --coverage",
     "build-clean": "rm -rf lib && rm -rf dist",
-    "build-types": "tsc -p tsconfig.types.json",
     "build-dist": "cross-env TS_NODE_PROJECT=tsconfig.dist.json webpack",
-    "build": "yarn build-clean && yarn build-dist && tsc && yarn build-types"
+    "build": "yarn build-clean && yarn build-dist && tsc"
   },
   "files": [
     "dist",
