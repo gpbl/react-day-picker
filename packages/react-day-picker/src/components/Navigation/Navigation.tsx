@@ -7,7 +7,7 @@ export interface NavigationProps {
   /** The month where the navigation is displayed. */
   displayMonth: Date;
 }
-
+/** Render the Navigation bar with prev / next buttons */
 export function Navigation(props: NavigationProps): JSX.Element {
   const { prevMonth, nextMonth } = useNavigation();
   const { dir, locale, classNames, styles, onMonthChange, labels } = useProps();

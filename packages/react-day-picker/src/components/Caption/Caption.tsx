@@ -9,14 +9,30 @@ export interface CaptionProps {
 }
 
 export function Caption(props: CaptionProps): JSX.Element {
-  const { classNames, dropdownNavigation } = useProps();
+  const { displayMonth } = props;
+  const {
+    classNames,
+    navigationType: navigation,
+    locale,
+    formatters: { formatCaption }
+  } = useProps();
   return (
     <div className={classNames.Caption}>
-      <div className={classNames.CaptionDropdowns}>
-        <MonthsDropdown displayMonth={props.displayMonth} />
-        <YearsDropdown displayMonth={props.displayMonth} />
-      </div>
-      {!dropdownNavigation && <Navigation displayMonth={props.displayMonth} />}
+      {navigation === 'dropdown' ? (
+        <div className={classNames.CaptionDropdowns}>
+          <MonthsDropdown displayMonth={displayMonth} />
+          <YearsDropdown displayMonth={displayMonth} />
+        </div>
+      ) : (
+        <>
+          <div className={classNames.DropdownLabel} aria-live="polite">
+            {formatCaption(displayMonth, { locale })}
+          </div>
+          {navigation === 'buttons' && (
+            <Navigation displayMonth={displayMonth} />
+          )}
+        </>
+      )}
     </div>
   );
 }

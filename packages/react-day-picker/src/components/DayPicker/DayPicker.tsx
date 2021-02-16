@@ -22,7 +22,6 @@ import {
   KeyCode,
   MonthChangeEventHandler
 } from '../../types';
-import { getPrevNextMonths } from '../Navigation/utils/getPrevNextMonths';
 import {
   defaultClassNames,
   defaultComponents,
@@ -32,6 +31,7 @@ import {
 import { defaultFormatters } from './defaults/defaultFormatters';
 import { NavigationContext, NavigationContextValue } from './NavigationContext';
 import { defaultPropsValues } from './PropsContext';
+import { getNavMonths } from './utils/getNavMonths';
 
 /**
  * Render a date picker component.
@@ -62,16 +62,57 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   const currentMonth = controlledMonth || props.month || startOfMonth(today);
   const [focusedDay, setFocusedDay] = React.useState<Date | undefined>();
 
+  const numberOfMonths =
+    props.numberOfMonths || defaultPropsValues.numberOfMonths;
+
+  // Calculate the from/to dates according to the other `from*` props
+  let calculatedFromDate: Date | undefined;
+  if (props.fromDate) {
+    calculatedFromDate = props.fromDate;
+  } else if (props.fromMonth) {
+    calculatedFromDate = startOfMonth(props.fromMonth);
+  } else if (props.fromYear) {
+    calculatedFromDate = new Date(props.fromYear, 0, 1);
+  }
+  let calculatedToDate: Date | undefined;
+  if (props.toDate) {
+    calculatedToDate = props.toDate;
+  } else if (props.toMonth) {
+    calculatedToDate = startOfMonth(props.toMonth);
+  } else if (props.toYear) {
+    calculatedToDate = new Date(props.toYear, 11, 31);
+  }
+
+  let calculatedNavigationType =
+    props.navigationType || defaultPropsValues.navigationType;
+  if (
+    calculatedNavigationType === 'dropdown' &&
+    !calculatedFromDate &&
+    !calculatedToDate
+  ) {
+    calculatedNavigationType = 'buttons';
+  }
+
   // #region events
   const onMonthChange: MonthChangeEventHandler = (newMonth, e) => {
-    if (props.toDate && isAfter(newMonth, props.toDate)) return;
-    if (props.fromDate && isBefore(newMonth, props.fromDate)) return;
+    // Do nothing if outside of range
+    if (calculatedToDate && isAfter(newMonth, startOfMonth(calculatedToDate)))
+      return;
+    if (
+      calculatedFromDate &&
+      isBefore(newMonth, startOfMonth(calculatedFromDate))
+    )
+      return;
     if (isControlled) setControlledMonth(newMonth);
     props.onMonthChange?.(newMonth, e);
   };
 
   const onDayFocus: DayFocusEventHandler = (day, modifiers, e) => {
-    if (!isSameMonth(day, currentMonth)) {
+    const sameMonth = isSameMonth(day, currentMonth);
+    if (!sameMonth && calculatedNavigationType === 'none') {
+      return;
+    }
+    if (!sameMonth) {
       onMonthChange(startOfMonth(day), e);
     }
     setFocusedDay(day);
@@ -122,23 +163,17 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   };
   // #endregion
 
-  const numberOfMonths =
-    props.numberOfMonths || defaultPropsValues.numberOfMonths;
-
   const propsValues: PropsValues = {
-    dropdownNavigation:
-      Boolean(props.fromDate) &&
-      Boolean(props.toDate) &&
-      props.dropdownNavigation,
     classNames: { ...defaultClassNames, ...props.classNames },
     components: { ...defaultComponents, ...props.components },
     formatters: { ...defaultFormatters, ...props.formatters },
-    fromDate: props.fromDate,
-    toDate: props.toDate,
+    fromDate: calculatedFromDate,
+    toDate: calculatedToDate,
     labels: { ...defaultLabels, ...props.labels },
     locale: props.locale || defaultPropsValues.locale,
     modifierPrefix: props.modifierPrefix || defaultPropsValues.modifierPrefix,
     modifiers: { ...defaultModifiers, ...props.modifiers },
+    navigationType: calculatedNavigationType,
     numberOfMonths,
     onMonthChange,
     onDayBlur,
@@ -154,12 +189,14 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     today
   };
 
-  const [prevMonth, nextMonth] = getPrevNextMonths(currentMonth, {
-    fromDate: props.fromDate,
-    toDate: props.toDate,
+  const [prevMonth, nextMonth] = getNavMonths(currentMonth, {
+    fromDate: calculatedFromDate,
+    toDate: calculatedToDate,
     pagedNavigation: props.pagedNavigation,
-    numberOfMonths
+    numberOfMonths,
+    navigation: calculatedNavigationType
   });
+
   const navigationContext: NavigationContextValue = {
     nextMonth,
     prevMonth,

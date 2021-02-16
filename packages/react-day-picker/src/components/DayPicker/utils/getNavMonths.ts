@@ -1,9 +1,10 @@
 import { addMonths, startOfMonth } from 'date-fns';
+import { NavigationType } from 'types';
 
 /**
  * Returns the next and the previous months that the user can navigate to.
  */
-export function getPrevNextMonths(
+export function getNavMonths(
   month: Date,
   options: {
     numberOfMonths: number;
@@ -11,10 +12,20 @@ export function getPrevNextMonths(
     toDate?: Date;
     pagedNavigation?: boolean;
     today?: Date;
+    navigation: NavigationType;
   }
 ): [Date?, Date?] {
-  const { fromDate, toDate, pagedNavigation, numberOfMonths } = options;
+  const {
+    fromDate,
+    toDate,
+    pagedNavigation,
+    numberOfMonths,
+    navigation
+  } = options;
 
+  if (navigation === 'none') {
+    return [undefined, undefined];
+  }
   const add = pagedNavigation ? numberOfMonths : 1;
   const currentMonth = startOfMonth(month ?? options.today);
 
