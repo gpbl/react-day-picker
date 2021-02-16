@@ -6,8 +6,8 @@ import {
   getMonth,
   getWeek,
   getWeeksInMonth,
-  startOfMonth,
-  Locale
+  Locale,
+  startOfMonth
 } from 'date-fns';
 
 import { getOutsideEndDays } from './getOutsideEndDays';

@@ -1,4 +1,5 @@
 import { Locale } from 'date-fns';
+
 /**
  * Represent a function to format the ARIA label of the week number.
  */

@@ -23,11 +23,6 @@ import {
  */
 export interface DayPickerProps {
   /**
-   * A map of formatters for the ARIA labels used in the UI.
-   */
-  labels?: Labels;
-
-  /**
    * CSS class to add to the root UI element.
    */
   className?: string;
@@ -83,7 +78,28 @@ export interface DayPickerProps {
    * ```
    */
   modifiersClassNames?: ModifiersClassNames;
-
+  /**
+   * The prefix to add to the modifiers class names. Default is `rdp-day_`.
+   *
+   * #### Usage
+   *
+   * Each day element will get a `${modifierPrefix}${modifier}` class name when
+   * matching a modifier.
+   *
+   * ```
+   * const today = new Date();
+   * <DayPicker
+   *  modifierPrefix="calendar-day_" // use this prefix instead of default
+   *  selected={today} // Today element has `.calendar-day_selected`
+   *  hidden={today} // `.calendar-day_hidden`
+   *  modifiers={{ today }} // `.calendar-day_today`
+   * />
+   * ```
+   * If you need to change the class names without using a prefix, use
+   * `modifiersClassNames` instead.
+   *
+   */
+  modifierPrefix?: string;
   /**
    * Style to apply to the root UI element.
    */
@@ -107,10 +123,6 @@ export interface DayPickerProps {
    * ```
    */
   modifiersStyles?: ModifiersStyles;
-  /**
-   * The prefix to add to the modifiers classname. Default is `rdp-day_`.
-   */
-  modifierPrefix?: string;
   /**
    * The initial month to show in the calendar. Default is the current month.
    *
@@ -143,8 +155,8 @@ export interface DayPickerProps {
    */
   toDate?: Date;
   /**
-   * When setting `fromDate` and `toDate`, use dropdowns instead of buttons to
-   * navigate the calendar.
+   * When setting `fromDate` and `toDate`, use month and year drop-downs instead
+   * of buttons to navigate the calendar.
    *
    * **Example**
    *
@@ -374,6 +386,11 @@ export interface DayPickerProps {
    * ```
    */
   modifiers?: ModifiersMatchers;
+
+  /**
+   * A map of formatters for the ARIA labels used in the UI.
+   */
+  labels?: Labels;
 
   /**
    * The date-fns locale object to localize the user interface. Defaults to English.
