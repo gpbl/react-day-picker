@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { setYear, startOfYear } from 'date-fns';
 
-import { IconDropdown } from '../../components';
+import { Dropdown } from '../../components';
 import { useProps } from '../../hooks';
 import { UIElement } from '../../types';
 
@@ -23,7 +23,6 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   } = useProps();
 
   const years: Date[] = [];
-  const disabled = !fromDate || !toDate;
 
   if (fromDate && toDate) {
     for (
@@ -36,30 +35,24 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     }
   }
 
-  const handleYearChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+  const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
     const newMonth = new Date(displayMonth);
     newMonth.setFullYear(Number(e.target.value));
     onMonthChange?.(newMonth, e);
   };
 
   return (
-    <div className={classNames[UIElement.DropdownYear]}>
-      <select
-        className={classNames[UIElement.Dropdown]}
-        value={displayMonth.getFullYear()}
-        onChange={handleYearChange}
-        disabled={disabled}
-      >
-        {years.map((year) => (
-          <option key={year.getFullYear()} value={year.getFullYear()}>
-            {formatYearCaption(year, { locale })}
-          </option>
-        ))}
-      </select>
-      <div className={classNames[UIElement.DropdownLabel]} aria-live="polite">
-        {formatYearCaption(displayMonth, { locale })}
-        <IconDropdown className={classNames[UIElement.DropdownIcon]} />
-      </div>
-    </div>
+    <Dropdown
+      className={classNames[UIElement.DropdownMonth]}
+      onChange={handleChange}
+      value={displayMonth.getMonth()}
+      caption={formatYearCaption(displayMonth, { locale })}
+    >
+      {years.map((year) => (
+        <option key={year.getFullYear()} value={year.getFullYear()}>
+          {formatYearCaption(year, { locale })}
+        </option>
+      ))}
+    </Dropdown>
   );
 }

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { isSameYear, setMonth, startOfMonth } from 'date-fns';
 
-import { IconDropdown } from '../../components';
+import { Dropdown } from '../../components';
 import { useProps } from '../../hooks';
 import { UIElement } from '../../types';
 
@@ -42,31 +42,24 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     }
   }
 
-  const handleMonthChange: React.ChangeEventHandler<HTMLSelectElement> = (
-    e
-  ) => {
+  const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
     const newMonth = new Date(displayMonth);
     newMonth.setMonth(Number(e.target.value));
     onMonthChange?.(newMonth, e);
   };
 
   return (
-    <div className={classNames[UIElement.DropdownMonth]}>
-      <select
-        className={classNames[UIElement.Dropdown]}
-        value={displayMonth.getMonth()}
-        onChange={handleMonthChange}
-      >
-        {dropdownMonths.map((m) => (
-          <option key={m.getMonth()} value={m.getMonth()}>
-            {formatMonthCaption(m, { locale })}
-          </option>
-        ))}
-      </select>
-      <div className={classNames[UIElement.DropdownLabel]} aria-live="polite">
-        {formatMonthCaption(displayMonth, { locale })}
-        {<IconDropdown className={classNames[UIElement.DropdownIcon]} />}
-      </div>
-    </div>
+    <Dropdown
+      className={classNames[UIElement.DropdownMonth]}
+      onChange={handleChange}
+      value={displayMonth.getMonth()}
+      caption={formatMonthCaption(displayMonth, { locale })}
+    >
+      {dropdownMonths.map((m) => (
+        <option key={m.getMonth()} value={m.getMonth()}>
+          {formatMonthCaption(m, { locale })}
+        </option>
+      ))}
+    </Dropdown>
   );
 }
