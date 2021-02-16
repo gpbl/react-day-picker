@@ -14,20 +14,66 @@ function Example() {
 }
 ```
 
-## Limiting the month navigation
+## Month navigation
 
-To change the months within DayPicker can work, use the `fromDate` or `toDate`
-props.
+As default, DayPicker navigates indefinitely in the past or in the future.
+
+To limit the months to certain dates, use `fromDate` and `toDate`, `fromMonth`
+and `toMonth`, or `fromYear` and `toYear`.
 
 ```jsx showOutput open=no
 function Example() {
+  const fromDate = new Date(2018, 6, 15);
+  const toDate = new Date(2020, 10, 15);
+  const fromMonth = new Date(2020, 4);
+  const toMonth = new Date(2022, 9);
+  const fromYear = 2010;
+  const toYear = 2015;
   return (
-    <DayPicker
-      initialMonth={new Date(2020, 0)}
-      fromDate={new Date(2020, 0)}
-      toDate={new Date(2020, 11, 31)}
-    />
+    <>
+      <DayPicker initialMonth={fromDate} fromDate={fromDate} toDate={toDate} />
+      <div>
+        From {fromDate.toLocaleDateString()} to {toDate.toLocaleDateString()}
+      </div>
+      <DayPicker
+        initialMonth={fromMonth}
+        fromMonth={fromMonth}
+        toMonth={toMonth}
+      />
+      <div>
+        From {fromMonth.toLocaleDateString()} to {toMonth.toLocaleDateString()}
+      </div>
+      <DayPicker
+        initialMonth={new Date(fromYear, 0)}
+        fromYear={fromYear}
+        toYear={toYear}
+      />
+      <div>
+        From {fromYear} to {toYear}
+      </div>
+    </>
   );
+}
+```
+
+### Using a dropdown to navigate between months
+
+When limiting the navigable months, set `navigationType` to display a drop-down
+for navigating between months.
+
+```jsx showOutput open=no
+function Example() {
+  return <DayPicker fromYear={2015} toYear={2025} navigationType="dropdown" />;
+}
+```
+
+### Disabling navigation
+
+To disable navigation between months, set `navigationType` to `none`:
+
+```jsx showOutput open=no
+function Example() {
+  return <DayPicker fromYear={2015} toYear={2025} navigationType="none" />;
 }
 ```
 

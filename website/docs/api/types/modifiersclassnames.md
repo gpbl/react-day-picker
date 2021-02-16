@@ -8,6 +8,8 @@ hide_title: true
 
 # Type alias: ModifiersClassNames
 
-Ƭ **ModifiersClassNames**: { [modifier in Modifier]: string}
+Ƭ **ModifiersClassNames**: *object*
 
 Represent the classnames to assign to each modifier.
+
+#### Type declaration:

@@ -4,7 +4,8 @@ module.exports = [
     "type": "category",
     "label": "Enumerations",
     "items": [
-      "api/enums/keycode"
+      "api/enums/keycode",
+      "api/enums/uielement"
     ]
   },
   {
@@ -21,7 +22,6 @@ module.exports = [
       "api/interfaces/rootprops",
       "api/interfaces/rowprops",
       "api/interfaces/tableprops",
-      "api/interfaces/uielement",
       "api/interfaces/yearsdropdownprops"
     ]
   },
@@ -49,12 +49,12 @@ module.exports = [
       "api/types/matchdaysofweek",
       "api/types/matchfromto",
       "api/types/matcher",
-      "api/types/modifier",
       "api/types/modifiersclassnames",
       "api/types/modifiersmatchers",
       "api/types/modifiersstatus",
       "api/types/modifiersstyles",
       "api/types/monthchangeeventhandler",
+      "api/types/navigationtype",
       "api/types/nextlabelformatter",
       "api/types/useinput",
       "api/types/useinputoptions",
