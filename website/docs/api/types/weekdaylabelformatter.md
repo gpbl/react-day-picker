@@ -8,6 +8,6 @@ hide_title: true
 
 # Type alias: WeekdayLabelFormatter
 
-Ƭ **WeekdayLabelFormatter**: (`day`: Date, `options`: { `locale`: Locale  }) => *string*
+Ƭ **WeekdayLabelFormatter**: (`day`: Date, `options?`: { `locale?`: Locale  }) => *string*
 
 Represent a function to format the ARIA label for the Head component.

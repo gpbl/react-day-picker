@@ -73,6 +73,28 @@ function Example() {
 
 ___
 
+### dropdownNavigation
+
+• **dropdownNavigation**: *boolean*
+
+When setting `fromDate` and `toDate`, use dropdowns instead of button to
+navigate the calendar.
+
+**Example**
+
+```jsx showOutput open=no
+function Example() {
+ return (
+   <DayPicker
+     fromDate={new Date(2020, 10, 1)}
+     toDate={new Date(2022, 5, 1)}
+     dropdownNavigation
+   />
+)};
+```
+
+___
+
 ### enableOutsideDaysClick
 
 • `Optional` **enableOutsideDaysClick**: *undefined* \| *boolean*
@@ -457,15 +479,4 @@ ___
 
 ### today
 
-• `Optional` **today**: *undefined* \| Date
-
-The today’s date. Default is the current date. Adds the `today` modifier to
-the day cell.
-
-**Example**
-
-```jsx showOutput open=no
-function Example() {
-  return <DayPicker today={new Date(2022, 2, 18)} />;
-}
-```
+• **today**: Date

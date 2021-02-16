@@ -8,4 +8,4 @@ hide_title: true
 
 # Type alias: WeekdayFormatter
 
-Ƭ **WeekdayFormatter**: (`weekday`: Date, `options`: { `locale`: Locale  }) => *string*
+Ƭ **WeekdayFormatter**: (`weekday`: Date, `options?`: { `locale?`: Locale  }) => *string*

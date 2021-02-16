@@ -8,4 +8,4 @@ hide_title: true
 
 # Type alias: WeekNumberFormatter
 
-Ƭ **WeekNumberFormatter**: (`weekNumber`: *number*, `options`: { `locale`: Locale  }) => *string*
+Ƭ **WeekNumberFormatter**: (`weekNumber`: *number*, `options?`: { `locale?`: Locale  }) => *string*

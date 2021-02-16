@@ -59,9 +59,7 @@ function Example() {
       locale={arabic}
       dir="rtl"
       showWeekNumber
-      formatDay={formatDay}
-      formatMonthCaption={formatMonthCaption}
-      formatWeekNumber={formatWeekNumber}
+      formatters={{ formatDay, formatMonthCaption, formatWeekNumber }}
     />
   );
 }

@@ -31,9 +31,7 @@ function Example() {
 
   return (
     <DayPicker
-      formatDay={formatDay}
-      formatMonthCaption={formatMonthCaption}
-      formatWeekdayName={formatWeekdayName}
+      formatters={(formatDay, formatMonthCaption, formatWeekdayName)}
     />
   );
 }

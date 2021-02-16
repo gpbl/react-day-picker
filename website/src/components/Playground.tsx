@@ -10,6 +10,7 @@ export function Playground() {
     <>
       <h3>Selecting</h3>
       <DayPicker
+        dropdownNavigation
         onDayClick={handleDayClick}
         selected={selected}
         fromDate={fromDate}
