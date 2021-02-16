@@ -1,5 +1,6 @@
-import english from 'date-fns/locale/en-US';
 import React from 'react';
+
+import english from 'date-fns/locale/en-US';
 
 import {
   ClassNames,
@@ -9,9 +10,7 @@ import {
   ModifiersClassNames,
   ModifiersMatchers
 } from '../../types';
-
 import { DayPickerProps } from './DayPickerProps';
-
 import {
   defaultClassNames,
   defaultComponents,
@@ -21,24 +20,13 @@ import {
 } from './defaults';
 
 /**
- * Represent the value of the [[DayPickerContext]]. Extends `DayPickerProps`
- * with values used by the internal components: `prevMonth`, `nextMonth`,
- * `currentMonth`, `focusedDay`.
+ * Represent the value of a [[PropsContext]].
  */
-export interface DayPickerContextValue
+export interface PropsValues
   extends Omit<
     DayPickerProps,
     'className' | 'style' | 'initialMonth' | 'month'
   > {
-  /** The month coming before the current one */
-  prevMonth?: Date;
-  /** The month coming after the current one */
-  nextMonth?: Date;
-  /** The currently displayed month. When multiple months, is the first. */
-  currentMonth: Date;
-  /** The day that should focus when rendering. Used for keyboard navigation */
-  focusedDay?: Date;
-
   today: Date;
   components: Required<Components>;
   labels: Required<Labels>;
@@ -51,11 +39,10 @@ export interface DayPickerContextValue
   modifierPrefix: string;
 }
 
-export const defaultContext: DayPickerContextValue = {
+export const defaultPropsValues: PropsValues = {
   dropdownNavigation: false,
   classNames: defaultClassNames,
   components: defaultComponents,
-  currentMonth: new Date(),
   formatters: defaultFormatters,
   labels: defaultLabels,
   locale: english,
@@ -66,6 +53,7 @@ export const defaultContext: DayPickerContextValue = {
 };
 
 /**
- * Use this context to consume props and state between DayPicker components.
+ * Context to consume DayPicker original props (with defaults) between
+ * components.
  */
-export const DayPickerContext = React.createContext(defaultContext);
+export const PropsContext = React.createContext(defaultPropsValues);

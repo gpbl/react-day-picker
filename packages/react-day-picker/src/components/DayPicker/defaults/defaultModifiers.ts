@@ -1,6 +1,7 @@
 import { isAfter, isBefore, isSameDay, isSameMonth } from 'date-fns';
+
 import { ModifiersMatchers } from '../../../types';
-import { DayPickerContextValue } from '../DayPickerContext';
+import { PropsValues } from '../PropsContext';
 
 function isOutside(day: Date, currentMonth: Date): boolean {
   return !isSameMonth(day, currentMonth);
@@ -9,21 +10,21 @@ function isOutside(day: Date, currentMonth: Date): boolean {
 function isInteractive(
   day: Date,
   currentMonth: Date,
-  context: DayPickerContextValue
+  props: PropsValues
 ): boolean {
-  const { toDate, fromDate } = context;
+  const { toDate, fromDate } = props;
   const isAfterToDate = toDate && isAfter(day, toDate);
   const isBeforeFromDate = fromDate && isBefore(day, fromDate);
   return (
     !isAfterToDate &&
     !isBeforeFromDate &&
     !isOutside(day, currentMonth) &&
-    context.onDayClick !== undefined
+    props.onDayClick !== undefined
   );
 }
 
-function isToday(day: Date, _: Date, context: DayPickerContextValue): boolean {
-  return isSameDay(day, context.today);
+function isToday(day: Date, _: Date, props: PropsValues): boolean {
+  return isSameDay(day, props.today);
 }
 
 export const defaultModifiers: ModifiersMatchers = {

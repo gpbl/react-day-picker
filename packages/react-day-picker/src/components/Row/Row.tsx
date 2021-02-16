@@ -1,6 +1,8 @@
-import { DayPickerContext } from '../../components';
-import { getUnixTime } from 'date-fns';
 import * as React from 'react';
+
+import { getUnixTime } from 'date-fns';
+
+import { useProps } from '../../hooks';
 
 export interface RowProps {
   /** The month where the row is displayed. */
@@ -12,16 +14,20 @@ export interface RowProps {
 }
 
 export function Row(props: RowProps): JSX.Element {
-  const context = React.useContext(DayPickerContext);
   const { weekNumber, week } = props;
-
-  const { styles, classNames, locale } = context;
-  const { formatWeekNumber } = context.formatters;
-  const { Day } = context.components;
+  const {
+    styles,
+    classNames,
+    locale,
+    showWeekNumber,
+    labels,
+    formatters: { formatWeekNumber },
+    components: { Day }
+  } = useProps();
 
   let weekNumberCell;
-  if (context.showWeekNumber) {
-    const { weekNumberLabel } = context.labels;
+  if (showWeekNumber) {
+    const { weekNumberLabel } = labels;
     const label = weekNumberLabel(Number(weekNumber), { locale });
     weekNumberCell = (
       <th

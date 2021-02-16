@@ -1,7 +1,7 @@
 import * as React from 'react';
 
+import { useProps } from '../../hooks';
 import { getWeekdays } from './utils/getWeekdays';
-import { DayPickerContext } from '../../components';
 
 export function Head(): JSX.Element {
   const {
@@ -10,9 +10,8 @@ export function Head(): JSX.Element {
     styles,
     labels,
     showWeekNumber,
-    formatters
-  } = React.useContext(DayPickerContext);
-  const { formatWeekdayName } = formatters;
+    formatters: { formatWeekdayName }
+  } = useProps();
   const weekdays = getWeekdays(locale);
   return (
     <thead style={styles?.Head} className={classNames.Head}>

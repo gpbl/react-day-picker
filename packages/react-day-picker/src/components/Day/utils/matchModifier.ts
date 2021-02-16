@@ -1,5 +1,6 @@
-import { DayPickerContextValue } from '../../../components';
 import { differenceInDays, isSameDay } from 'date-fns';
+
+import { PropsValues } from '../../../components';
 import { Matcher } from '../../../types';
 
 function matchDate(day: Date, matcher: Matcher): boolean {
@@ -50,17 +51,17 @@ function matchFunction(
   day: Date,
   matcher: Matcher,
   currentMonth: Date,
-  context: DayPickerContextValue
+  props: PropsValues
 ): boolean {
   if (!(matcher instanceof Function)) return false;
-  return matcher(day, currentMonth, context);
+  return matcher(day, currentMonth, props);
 }
 
 export function matchDay(
   day: Date,
   matcher: Matcher,
   currentMonth: Date,
-  context: DayPickerContextValue
+  props: PropsValues
 ): boolean {
   if (!matcher) return false;
   let matchers: Matcher[];
@@ -81,7 +82,7 @@ export function matchDay(
       matchAfter(day, dayMatcher) ||
       matchRange(day, dayMatcher) ||
       matchDaysOfWeek(day, dayMatcher) ||
-      matchFunction(day, dayMatcher, currentMonth, context)
+      matchFunction(day, dayMatcher, currentMonth, props)
     );
   });
 }
