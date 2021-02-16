@@ -1,13 +1,11 @@
-import { addDays, differenceInDays, startOfWeek } from 'date-fns';
-import { DayPickerProps } from '../../../types';
+import { addDays, differenceInDays, Locale, startOfWeek } from 'date-fns';
 
 export function getOutsideStartDays(
   month: Date,
-  props: Pick<DayPickerProps, 'locale'>
+  options?: { locale?: Locale }
 ): Date[] {
-  const { locale } = props;
   const days = [];
-  const firstDayOfWeek = startOfWeek(month, { locale });
+  const firstDayOfWeek = startOfWeek(month, options);
   const startDiff = differenceInDays(month, firstDayOfWeek);
 
   for (let i = 0; i < startDiff; i++) {
