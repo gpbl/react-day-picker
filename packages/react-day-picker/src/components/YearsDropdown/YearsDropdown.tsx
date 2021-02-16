@@ -4,6 +4,7 @@ import { setYear, startOfYear } from 'date-fns';
 
 import { IconDropdown } from '../../components';
 import { useProps } from '../../hooks';
+import { UIElement } from '../../types';
 
 export interface YearsDropdownProps {
   displayMonth: Date;
@@ -42,9 +43,9 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   };
 
   return (
-    <div className={classNames.DropdownYear}>
+    <div className={classNames[UIElement.DropdownYear]}>
       <select
-        className={classNames.Dropdown}
+        className={classNames[UIElement.Dropdown]}
         value={displayMonth.getFullYear()}
         onChange={handleYearChange}
         disabled={disabled}
@@ -55,9 +56,9 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
           </option>
         ))}
       </select>
-      <div className={classNames.DropdownLabel} aria-live="polite">
+      <div className={classNames[UIElement.DropdownLabel]} aria-live="polite">
         {formatYearCaption(displayMonth, { locale })}
-        <IconDropdown className={classNames.IconDropdown} />
+        <IconDropdown className={classNames[UIElement.DropdownIcon]} />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { Caption, Table } from '../../components';
 import { useNavigation, useProps } from '../../hooks';
+import { UIElement } from '../../types';
 import { getMonthsToRender } from './utils/getMonthsToRender';
 
 export interface RootProps {
@@ -11,17 +12,9 @@ export interface RootProps {
 
 export function Root(props: RootProps): JSX.Element {
   const { className, style } = props;
-  const {
-    dir,
-    hideCaption,
-    toDate,
-    fromDate,
-    reverseMonths,
-    classNames,
-    styles,
-    numberOfMonths
-  } = useProps();
-
+  const dayPickerProps = useProps();
+  const { dir, hideCaption, classNames, styles } = dayPickerProps;
+  const { toDate, fromDate, reverseMonths, numberOfMonths } = dayPickerProps;
   const { currentMonth } = useNavigation();
 
   const displayMonths = getMonthsToRender(currentMonth, numberOfMonths, {
@@ -30,11 +23,11 @@ export function Root(props: RootProps): JSX.Element {
     reverseMonths
   });
 
-  const rootClassNames = [classNames.Root];
+  const rootClassNames = [classNames[UIElement.Root]];
   if (className) rootClassNames.concat(className.split(' '));
 
   const renderMonth = (displayMonth: Date, i: number) => (
-    <div className={classNames.Month} key={i}>
+    <div className={classNames[UIElement.Month]} key={i}>
       {!hideCaption && <Caption displayMonth={displayMonth} />}
       <Table displayMonth={displayMonth} />
     </div>
@@ -43,10 +36,13 @@ export function Root(props: RootProps): JSX.Element {
   return (
     <div
       className={rootClassNames.join(' ')}
-      style={{ ...styles?.Root, ...style }}
+      style={{ ...styles?.[UIElement.Root], ...style }}
       dir={dir}
     >
-      <div className={classNames.Months} style={styles?.Month}>
+      <div
+        className={classNames[UIElement.Months]}
+        style={styles?.[UIElement.Months]}
+      >
         {displayMonths.map(renderMonth)}
       </div>
     </div>

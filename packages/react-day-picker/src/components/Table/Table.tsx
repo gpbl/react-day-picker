@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { Head, Row } from '../../components';
 import { useProps } from '../../hooks';
+import { UIElement } from '../../types';
 import { getWeeks } from './utils/getWeeks';
 
 export interface TableProps {
@@ -14,9 +15,15 @@ export function Table(props: TableProps): JSX.Element {
   const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
 
   return (
-    <table className={classNames?.Table} style={styles?.Table}>
+    <table
+      className={classNames?.[UIElement.Table]}
+      style={styles?.[UIElement.Table]}
+    >
       {!hideHead && <Head />}
-      <tbody className={classNames?.TBody} style={styles?.TBody}>
+      <tbody
+        className={classNames?.[UIElement.TBody]}
+        style={styles?.[UIElement.TBody]}
+      >
         {Object.keys(weeks).map((weekNumber) => (
           <Row
             displayMonth={props.displayMonth}

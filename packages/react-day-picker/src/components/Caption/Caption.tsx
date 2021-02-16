@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { MonthsDropdown, Navigation, YearsDropdown } from '../../components';
 import { useProps } from '../../hooks/useProps';
+import { UIElement } from '../../types';
 
 export interface CaptionProps {
   /** The month where the caption is displayed. */
@@ -17,15 +18,18 @@ export function Caption(props: CaptionProps): JSX.Element {
     formatters: { formatCaption }
   } = useProps();
   return (
-    <div className={classNames.Caption}>
+    <div className={classNames[UIElement.Caption]}>
       {navigation === 'dropdown' ? (
-        <div className={classNames.CaptionDropdowns}>
+        <div className={classNames[UIElement.DropdownsContainer]}>
           <MonthsDropdown displayMonth={displayMonth} />
           <YearsDropdown displayMonth={displayMonth} />
         </div>
       ) : (
         <>
-          <div className={classNames.DropdownLabel} aria-live="polite">
+          <div
+            className={classNames[UIElement.DropdownLabel]}
+            aria-live="polite"
+          >
             {formatCaption(displayMonth, { locale })}
           </div>
           {navigation === 'buttons' && (
