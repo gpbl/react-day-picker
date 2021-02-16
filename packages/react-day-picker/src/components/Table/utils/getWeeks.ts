@@ -6,9 +6,9 @@ import {
   getMonth,
   getWeek,
   getWeeksInMonth,
-  startOfMonth
+  startOfMonth,
+  Locale
 } from 'date-fns';
-import { DayPickerProps } from '../../../types';
 
 import { getOutsideEndDays } from './getOutsideEndDays';
 import { getOutsideStartDays } from './getOutsideStartDays';
@@ -24,9 +24,8 @@ type MonthWeeks = { [weeknumber: string]: Date[] };
  */
 export function getWeeks(
   month: Date,
-  props: Pick<DayPickerProps, 'locale' | 'fixedWeeks'>
+  { locale, fixedWeeks }: { locale: Locale; fixedWeeks?: boolean }
 ): MonthWeeks {
-  const { locale, fixedWeeks } = props;
   const monthStart = startOfMonth(month);
   const monthEnd = endOfMonth(month);
 
@@ -43,7 +42,7 @@ export function getWeeks(
     const weekStr: string = week.toString();
 
     if (!weeks[weekStr]) {
-      const startDays = getOutsideStartDays(date, props);
+      const startDays = getOutsideStartDays(date, { locale });
       // Create a new week by adding outside start days
       weeks[weekStr] = startDays;
     }
@@ -53,7 +52,7 @@ export function getWeeks(
 
   let lastWeek = weeks[lastWeekStr];
   const lastDay = lastWeek[lastWeek.length - 1];
-  const endDays = getOutsideEndDays(lastDay, props);
+  const endDays = getOutsideEndDays(lastDay, { locale });
   weeks[lastWeekStr] = lastWeek.concat(endDays);
 
   // Add extra weeks to the month, up to 6 weeks

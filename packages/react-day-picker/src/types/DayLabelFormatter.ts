@@ -1,4 +1,4 @@
-import { DayPickerProps, ModifiersStatus } from '../types';
+import { ModifiersStatus } from '../types';
 
 /**
  * Represent a function to format the ARIA label for the Day component.
@@ -6,5 +6,5 @@ import { DayPickerProps, ModifiersStatus } from '../types';
 export type DayLabelFormatter = (
   day: Date,
   modifiers: ModifiersStatus,
-  props: DayPickerProps
+  options?: { locale?: Locale }
 ) => string;

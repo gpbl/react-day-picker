@@ -1,6 +1,6 @@
-import * as dateFns from 'date-fns';
+import { Locale } from 'date-fns';
 
 export type DateFormatter = (
   date: Date,
-  options?: { locale?: dateFns.Locale }
+  options?: { locale?: Locale }
 ) => string;
