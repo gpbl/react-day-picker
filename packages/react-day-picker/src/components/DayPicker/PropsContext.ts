@@ -5,10 +5,14 @@ import english from 'date-fns/locale/en-US';
 import {
   ClassNames,
   Components,
+  DayClickEventHandler,
+  DayFocusEventHandler,
+  DayKeyboardEventHandler,
   Formatters,
   Labels,
   ModifiersClassNames,
   ModifiersMatchers,
+  MonthChangeEventHandler,
   NavigationType
 } from '../../types';
 import { DayPickerProps } from './DayPickerProps';
@@ -46,6 +50,30 @@ export interface PropsValues
   navigationType: NavigationType;
   numberOfMonths: number;
   /**
+   * Will set the current month if DayPicker is in controlled mode. Calls the
+   * original `onMonthChange`.
+   *
+   * This event handler will do nothing if the passed month is outside the
+   * allowed months.
+   */
+  onMonthChange: MonthChangeEventHandler;
+  /**
+   * Handle focus behavior. Calls the original `onDayBlur` passed from props.
+   */
+  onDayBlur: DayFocusEventHandler;
+  /**
+   * Handle click behavior. Calls the original `onDayClick` passed from props.
+   */
+  onDayClick: DayClickEventHandler;
+  /**
+   * Handle focus behavior. Calls the original `onDayFocus` passed from props.
+   */
+  onDayFocus: DayFocusEventHandler;
+  /**
+   * Handle keyboard navigation. Calls the original `onDayKeyDown` passed from props.
+   */
+  onDayKeyDown: DayKeyboardEventHandler;
+  /**
    * A reference to the original props passed to the component. Useful for
    * inspecting in internal components.
    */
@@ -57,6 +85,8 @@ export interface PropsValues
   today: Date;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const noop = function noop(): void {};
 export const defaultPropsValues: PropsValues = {
   classNames: defaultClassNames,
   components: defaultComponents,
@@ -68,7 +98,14 @@ export const defaultPropsValues: PropsValues = {
   navigationType: 'buttons',
   numberOfMonths: 1,
   originalProps: {},
-  today: new Date()
+  today: new Date(),
+  // These will be replaced by proper event handlers in DayPicker.tsx so we can
+  // safely use noop here
+  onMonthChange: noop,
+  onDayBlur: noop,
+  onDayClick: noop,
+  onDayFocus: noop,
+  onDayKeyDown: noop
 };
 
 /**

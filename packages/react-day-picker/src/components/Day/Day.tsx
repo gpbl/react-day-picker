@@ -71,16 +71,16 @@ export function Day(props: DayProps): JSX.Element | null {
   const { onDayBlur, onDayClick, onDayFocus, onDayKeyDown } = dayPickerProps;
 
   const handleClick: React.MouseEventHandler = (e) => {
-    onDayClick?.(day, modifiers, e);
+    onDayClick(day, modifiers, e);
   };
   const handleFocus: React.FocusEventHandler = (e) => {
-    onDayFocus?.(day, modifiers, e);
+    onDayFocus(day, modifiers, e);
   };
   const handleBlur: React.FocusEventHandler = (e) => {
-    onDayBlur?.(day, modifiers, e);
+    onDayBlur(day, modifiers, e);
   };
   const handleKeyDown: React.KeyboardEventHandler = (e) => {
-    onDayKeyDown?.(day, modifiers, e);
+    onDayKeyDown(day, modifiers, e);
   };
   const handleKeyUp: React.KeyboardEventHandler = (e) => {
     props.onDayKeyUp?.(day, modifiers, e);
