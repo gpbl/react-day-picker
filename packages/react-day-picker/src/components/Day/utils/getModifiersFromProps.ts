@@ -1,14 +1,14 @@
-import { DayPickerProps, ModifiersMatchers } from '../../../types';
+import { DayPickerContextValue } from 'components/DayPicker';
+import { ModifiersMatchers } from '../../../types';
+
+const modifierProps = ['selected', 'disabled', 'hidden'];
 
 export function getModifiersFromProps(
-  props: Pick<DayPickerProps, 'selected' | 'disabled' | 'hidden' | 'modifiers'>
+  context: DayPickerContextValue
 ): ModifiersMatchers {
-  const modifiers = Object.assign({}, props.modifiers);
-  const modifierProps = ['selected', 'disabled', 'hidden'];
+  const modifiers = Object.assign({}, context.modifiers);
   modifierProps.forEach((propName) => {
-    if (props[propName]) {
-      modifiers[propName] = props[propName];
-    }
+    if (context[propName]) modifiers[propName] = context[propName];
   });
   return modifiers;
 }

@@ -1,16 +1,35 @@
-import { isSameMonth, startOfMonth } from 'date-fns';
+import { getPrevNextMonths } from '../Navigation/utils/getPrevNextMonths';
+import {
+  addDays,
+  addWeeks,
+  isAfter,
+  isBefore,
+  isSameMonth,
+  startOfMonth
+} from 'date-fns';
 import * as React from 'react';
+
+import {
+  DayPickerContext,
+  defaultContext,
+  Root,
+  DayPickerProps
+} from '../../components';
 import {
   DayClickEventHandler,
   DayFocusEventHandler,
-  DayPickerComponentProps,
-  DayPickerProps,
+  DayKeyboardEventHandler,
+  KeyCode,
   MonthChangeEventHandler
 } from '../../types';
-
-import { Root } from '../Root';
-import { defaultProps } from './defaults';
-import { getMonthFromProps } from './utils/getMonthFromProps';
+import {
+  defaultClassNames,
+  defaultComponents,
+  defaultLabels,
+  defaultModifiers
+} from './defaults';
+import { defaultFormatters } from './defaults/defaultFormatters';
+import { DayPickerContextValue } from './DayPickerContext';
 
 /**
  * Render a date picker component.
@@ -30,15 +49,22 @@ import { getMonthFromProps } from './utils/getMonthFromProps';
  * }
  * ```
  */
-export function DayPicker(props: DayPickerComponentProps): JSX.Element {
+export function DayPicker(props: DayPickerProps): JSX.Element {
   const isControlled = !('month' in props); // DayPicker will handle the state
+  const today = props.today ?? new Date();
 
-  const month = getMonthFromProps(props);
-  const [currentMonth, setCurrentMonth] = React.useState<Date>(month);
+  const [controlledMonth, setControlledMonth] = React.useState(
+    props.initialMonth ? startOfMonth(props.initialMonth) : undefined
+  );
+
+  const currentMonth = controlledMonth || props.month || startOfMonth(today);
   const [focusedDay, setFocusedDay] = React.useState<Date | undefined>();
 
+  // #region events
   const onMonthChange: MonthChangeEventHandler = (newMonth, e) => {
-    if (isControlled) setCurrentMonth(newMonth);
+    if (props.toDate && isAfter(newMonth, props.toDate)) return;
+    if (props.fromDate && isBefore(newMonth, props.fromDate)) return;
+    if (isControlled) setControlledMonth(newMonth);
     props.onMonthChange?.(newMonth, e);
   };
 
@@ -59,38 +85,80 @@ export function DayPicker(props: DayPickerComponentProps): JSX.Element {
     props.onDayClick?.(day, modifiers, e);
   };
 
-  const overrideProps = {
-    month: isControlled ? currentMonth : month,
+  const onDayKeyDown: DayKeyboardEventHandler = (day, modifiers, e) => {
+    switch (e.code) {
+      case KeyCode.ArrowLeft: {
+        e.preventDefault();
+        e.stopPropagation();
+        const nextDay = addDays(day, -1);
+        onDayFocus?.(nextDay, modifiers, e);
+        break;
+      }
+      case KeyCode.ArrowRight: {
+        e.preventDefault();
+        e.stopPropagation();
+        const nextDay = addDays(day, 1);
+        onDayFocus?.(nextDay, modifiers, e);
+        return;
+      }
+      case KeyCode.ArrowUp: {
+        e.preventDefault();
+        e.stopPropagation();
+        const nextDay = addWeeks(day, -1);
+        onDayFocus?.(nextDay, modifiers, e);
+        break;
+      }
+      case KeyCode.ArrowDown: {
+        e.preventDefault();
+        e.stopPropagation();
+        const nextDay = addWeeks(day, 1);
+        onDayFocus?.(nextDay, modifiers, e);
+        break;
+      }
+    }
+    props.onDayKeyDown?.(day, modifiers, e);
+  };
+  // #endregion
+
+  const numberOfMonths = props.numberOfMonths || defaultContext.numberOfMonths;
+
+  const [prevMonth, nextMonth] = getPrevNextMonths(currentMonth, {
+    fromDate: props.fromDate,
+    toDate: props.toDate,
+    pagedNavigation: props.pagedNavigation,
+    numberOfMonths
+  });
+
+  const contextValue: DayPickerContextValue = {
+    classNames: { ...defaultClassNames, ...props.classNames },
+    components: { ...defaultComponents, ...props.components },
+    currentMonth,
+    focusedDay,
+    formatters: { ...defaultFormatters, ...props.formatters },
+    labels: { ...defaultLabels, ...props.labels },
+    locale: props.locale || defaultContext.locale,
+    modifierPrefix: props.modifierPrefix || defaultContext.modifierPrefix,
+    modifiers: { ...defaultModifiers, ...props.modifiers },
+    nextMonth,
+    numberOfMonths,
     onMonthChange,
-    onDayClick: props.onDayClick ? onDayClick : undefined,
-    onDayFocus,
     onDayBlur,
-    focusedDay
+    onDayClick,
+    onDayFocus,
+    onDayKeyDown,
+    prevMonth,
+    selected: props.selected,
+    hidden: props.hidden,
+    disabled: props.disabled,
+    fixedWeeks: props.fixedWeeks,
+    showWeekNumber: props.showWeekNumber,
+    showOutsideDays: props.showOutsideDays || props.fixedWeeks,
+    today
   };
-  const dayPickerProps: DayPickerProps = {
-    ...defaultProps,
-    ...props,
-    classNames: {
-      ...defaultProps.classNames,
-      ...props.classNames
-    },
-    components: {
-      ...defaultProps.components,
-      ...props.components
-    },
-    labelsFormatters: {
-      ...defaultProps.labelsFormatters,
-      ...props.labelsFormatters
-    },
-    modifiers: {
-      ...defaultProps.modifiers,
-      ...props.modifiers
-    },
-    modifiersClassNames: {
-      ...defaultProps.modifiersClassNames,
-      ...props.modifiersClassNames
-    },
-    ...overrideProps
-  };
-  return <Root dayPickerProps={dayPickerProps} />;
+
+  return (
+    <DayPickerContext.Provider value={contextValue}>
+      <Root />
+    </DayPickerContext.Provider>
+  );
 }

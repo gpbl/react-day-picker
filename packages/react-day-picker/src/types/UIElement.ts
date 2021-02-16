@@ -4,6 +4,11 @@
 export interface UIElement {
   Root: 'root';
   Caption: 'caption';
+  CaptionDropdowns: 'caption-dropdowns';
+  Dropdown: 'dropdown';
+  DropdownLabel: 'dropdown-label';
+  DropdownYear: 'dropdown-year';
+  DropdownMonth: 'dropdown-month';
 
   Months: 'months';
   Month: 'month';
@@ -21,6 +26,7 @@ export interface UIElement {
   NavButtonNext: 'nav-button-next';
 
   NavIcon: 'nav-icon';
+  IconDropdown: 'select-icon';
 
   Row: 'row';
   RowHead: 'row-head';
