@@ -18,7 +18,6 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     fromDate,
     toDate,
     classNames,
-    dropdownNavigation,
     formatters: { formatYearCaption }
   } = useProps();
 
@@ -42,26 +41,23 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     onMonthChange?.(newMonth, e);
   };
 
-  const showDropdown = dropdownNavigation && !disabled && years.length > 1;
   return (
     <div className={classNames.DropdownYear}>
-      {showDropdown && (
-        <select
-          className={classNames.Dropdown}
-          value={displayMonth.getFullYear()}
-          onChange={handleYearChange}
-          disabled={disabled}
-        >
-          {years.map((year) => (
-            <option key={year.getFullYear()} value={year.getFullYear()}>
-              {formatYearCaption(year, { locale })}
-            </option>
-          ))}
-        </select>
-      )}
+      <select
+        className={classNames.Dropdown}
+        value={displayMonth.getFullYear()}
+        onChange={handleYearChange}
+        disabled={disabled}
+      >
+        {years.map((year) => (
+          <option key={year.getFullYear()} value={year.getFullYear()}>
+            {formatYearCaption(year, { locale })}
+          </option>
+        ))}
+      </select>
       <div className={classNames.DropdownLabel} aria-live="polite">
         {formatYearCaption(displayMonth, { locale })}
-        {showDropdown && <IconDropdown className={classNames.IconDropdown} />}
+        <IconDropdown className={classNames.IconDropdown} />
       </div>
     </div>
   );

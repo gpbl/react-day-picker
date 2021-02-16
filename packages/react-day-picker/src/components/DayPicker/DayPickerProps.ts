@@ -15,7 +15,8 @@ import {
   ModifiersClassNames,
   ModifiersMatchers,
   ModifiersStyles,
-  MonthChangeEventHandler
+  MonthChangeEventHandler,
+  NavigationType
 } from '../../types';
 
 /**
@@ -155,8 +156,30 @@ export interface DayPickerProps {
    */
   toDate?: Date;
   /**
-   * When setting `fromDate` and `toDate`, use month and year drop-downs instead
-   * of buttons to navigate the calendar.
+   * The month to start the calendar.
+   */
+  fromMonth?: Date;
+  /**
+   * The month to end the calendar.
+   */
+  toMonth?: Date;
+  /**
+   * The year to start the calendar.
+   */
+  fromYear?: number;
+  /**
+   * The year to end the calendar.
+   */
+  toYear?: number;
+  /**
+   * Change the design of the navigation to navigate between months.
+   *
+   * - `buttons` (default): display prev/right buttons
+   * - `dropdown`: display drop-downs to change the month and the year
+   * - `none`: do not display the navigation elements
+   *
+   * **Note** `dropdown` is valid only when `fromDate` or `toDate` are set. If
+   * those are not set, it fallbacks to `buttons`.
    *
    * **Example**
    *
@@ -164,14 +187,14 @@ export interface DayPickerProps {
    * function Example() {
    *  return (
    *    <DayPicker
-   *      fromDate={new Date(2020, 10, 1)}
-   *      toDate={new Date(2022, 5, 1)}
-   *      dropdownNavigation
+   *      fromYear={2020}
+   *      toYear={2025}
+   *      navigationType="dropdown"
    *    />
    * )};
    * ```
    */
-  dropdownNavigation?: boolean;
+  navigationType?: NavigationType;
 
   /**
    * When displaying more than one months, the navigation will be paginated
@@ -416,6 +439,7 @@ export interface DayPickerProps {
    */
   dir?: string;
 
+  /** Change the default formatters. */
   formatters?: Formatters;
 
   /**

@@ -25,6 +25,7 @@ export * from './ModifiersMatchers';
 export * from './ModifiersStatus';
 export * from './ModifiersStyles';
 export * from './MonthChangeEventHandler';
+export * from './NavigationType';
 export * from './NextLabelFormatter';
 export * from './UIElement';
 export * from './UseInput';

@@ -8,7 +8,8 @@ import {
   Formatters,
   Labels,
   ModifiersClassNames,
-  ModifiersMatchers
+  ModifiersMatchers,
+  NavigationType
 } from '../../types';
 import { DayPickerProps } from './DayPickerProps';
 import {
@@ -25,7 +26,14 @@ import {
 export interface PropsValues
   extends Omit<
     DayPickerProps,
-    'className' | 'style' | 'initialMonth' | 'month'
+    | 'className'
+    | 'style'
+    | 'initialMonth'
+    | 'month'
+    | 'fromMonth'
+    | 'toMonth'
+    | 'fromYear'
+    | 'toYear'
   > {
   today: Date;
   components: Required<Components>;
@@ -37,10 +45,11 @@ export interface PropsValues
   modifiers: ModifiersMatchers;
   modifiersClassNames?: ModifiersClassNames;
   modifierPrefix: string;
+  navigationType: NavigationType;
 }
 
 export const defaultPropsValues: PropsValues = {
-  dropdownNavigation: false,
+  navigationType: 'buttons',
   classNames: defaultClassNames,
   components: defaultComponents,
   formatters: defaultFormatters,

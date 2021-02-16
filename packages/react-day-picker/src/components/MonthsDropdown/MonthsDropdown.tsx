@@ -17,13 +17,11 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     fromDate,
     toDate,
     classNames,
-    dropdownNavigation,
     formatters: { formatMonthCaption }
   } = useProps();
 
   const dropdownMonths: Date[] = [];
-  const showDropdown =
-    dropdownNavigation && Boolean(fromDate) && Boolean(toDate);
+
   if (fromDate && toDate) {
     if (isSameYear(fromDate, toDate)) {
       // only display the months included in the range
@@ -53,22 +51,20 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
 
   return (
     <div className={classNames.DropdownMonth}>
-      {showDropdown && (
-        <select
-          className={classNames.Dropdown}
-          value={displayMonth.getMonth()}
-          onChange={handleMonthChange}
-        >
-          {dropdownMonths.map((m) => (
-            <option key={m.getMonth()} value={m.getMonth()}>
-              {formatMonthCaption(m, { locale })}
-            </option>
-          ))}
-        </select>
-      )}
+      <select
+        className={classNames.Dropdown}
+        value={displayMonth.getMonth()}
+        onChange={handleMonthChange}
+      >
+        {dropdownMonths.map((m) => (
+          <option key={m.getMonth()} value={m.getMonth()}>
+            {formatMonthCaption(m, { locale })}
+          </option>
+        ))}
+      </select>
       <div className={classNames.DropdownLabel} aria-live="polite">
         {formatMonthCaption(displayMonth, { locale })}
-        {showDropdown && <IconDropdown className={classNames.IconDropdown} />}
+        {<IconDropdown className={classNames.IconDropdown} />}
       </div>
     </div>
   );
