@@ -14,8 +14,12 @@ hide_title: true
 
 ## Properties
 
-### dayPickerProps
+### className
 
-• **dayPickerProps**: [*DayPickerProps*](daypickerprops.md)
+• `Optional` **className**: *undefined* \| *string*
 
-Defined in: [types/RootProps.ts:4](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/RootProps.ts#L4)
+___
+
+### style
+
+• `Optional` **style**: *undefined* \| *CSSProperties*

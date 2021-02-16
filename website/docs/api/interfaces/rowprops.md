@@ -14,19 +14,11 @@ hide_title: true
 
 ## Properties
 
-### currentMonth
+### displayMonth
 
-• **currentMonth**: Date
+• **displayMonth**: Date
 
-Defined in: [types/RowProps.ts:6](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/RowProps.ts#L6)
-
-___
-
-### dayPickerProps
-
-• **dayPickerProps**: [*DayPickerProps*](daypickerprops.md)
-
-Defined in: [types/RowProps.ts:8](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/RowProps.ts#L8)
+The month where the row is displayed.
 
 ___
 
@@ -34,7 +26,7 @@ ___
 
 • **week**: Date[]
 
-Defined in: [types/RowProps.ts:7](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/RowProps.ts#L7)
+The days contained in the week.
 
 ___
 
@@ -42,4 +34,4 @@ ___
 
 • **weekNumber**: *number*
 
-Defined in: [types/RowProps.ts:4](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/RowProps.ts#L4)
+The number of the week to render.

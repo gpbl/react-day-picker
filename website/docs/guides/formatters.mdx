@@ -21,7 +21,7 @@ function Example() {
     return date;
   };
 
-  const formatCaption = (month, { locale }) => {
+  const formatMonthCaption = (month, { locale }) => {
     return `${format(month, 'dd/yyyy', { locale })}`;
   };
 
@@ -32,7 +32,7 @@ function Example() {
   return (
     <DayPicker
       formatDay={formatDay}
-      formatCaption={formatCaption}
+      formatMonthCaption={formatMonthCaption}
       formatWeekdayName={formatWeekdayName}
     />
   );

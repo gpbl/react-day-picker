@@ -23,5 +23,3 @@ const modifiers: ModifiersStatus = {
  custom: false,
 }
 ```
-
-Defined in: [types/ModifiersStatus.ts:18](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/ModifiersStatus.ts#L18)

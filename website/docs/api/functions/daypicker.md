@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: DayPicker
 
-▸ **DayPicker**(`props`: [*DayPickerComponentProps*](../interfaces/daypickercomponentprops.md)): JSX.Element
+▸ **DayPicker**(`props`: [*DayPickerProps*](../interfaces/daypickerprops.md)): JSX.Element
 
 Render a date picker component.
 
@@ -31,8 +31,6 @@ function Example() {
 
 Name | Type |
 ------ | ------ |
-`props` | [*DayPickerComponentProps*](../interfaces/daypickercomponentprops.md) |
+`props` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
 
 **Returns:** JSX.Element
-
-Defined in: [components/DayPicker/DayPicker.tsx:33](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/components/DayPicker/DayPicker.tsx#L33)

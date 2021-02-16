@@ -17,5 +17,3 @@ Name | Type |
 `props` | [*RowProps*](../interfaces/rowprops.md) |
 
 **Returns:** JSX.Element
-
-Defined in: [components/Row/Row.tsx:6](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/components/Row/Row.tsx#L6)

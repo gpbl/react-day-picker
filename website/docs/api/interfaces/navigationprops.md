@@ -14,8 +14,8 @@ hide_title: true
 
 ## Properties
 
-### dayPickerProps
+### displayMonth
 
-• **dayPickerProps**: [*DayPickerProps*](daypickerprops.md)
+• **displayMonth**: Date
 
-Defined in: [types/NavigationProps.ts:4](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/NavigationProps.ts#L4)
+The month where the navigation is displayed.

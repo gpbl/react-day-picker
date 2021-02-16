@@ -78,7 +78,7 @@ module.exports = {
         tsconfig: `${pkgPath}/tsconfig.json`,
         allReflectionsHaveOwnDocument: true,
         readme: 'none',
-        disableSources: false,
+        disableSources: true,
 
         // Markdown plugin settings
         hideProjectName: true,

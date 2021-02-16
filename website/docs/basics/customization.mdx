@@ -16,7 +16,7 @@ function Example() {
 
 ## Limiting the month navigation
 
-To change the months within DayPicker can work, use the `fromMonth` or `toMonth`
+To change the months within DayPicker can work, use the `fromDate` or `toDate`
 props.
 
 ```jsx showOutput open=no
@@ -24,8 +24,8 @@ function Example() {
   return (
     <DayPicker
       initialMonth={new Date(2020, 0)}
-      fromMonth={new Date(2020, 0)}
-      toMonth={new Date(2020, 11)}
+      fromDate={new Date(2020, 0)}
+      toDate={new Date(2020, 11, 31)}
     />
   );
 }

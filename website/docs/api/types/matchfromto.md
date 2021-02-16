@@ -18,5 +18,3 @@ Name | Type |
 ------ | ------ |
 `from` | Date |
 `to` | Date |
-
-Defined in: [types/MatchFromTo.ts:4](https://github.com/gpbl/react-day-picker/blob/7a46f8df/packages/react-day-picker/src/types/MatchFromTo.ts#L4)
