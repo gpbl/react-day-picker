@@ -52,6 +52,7 @@ export interface DayPickerContextValue
 }
 
 export const defaultContext: DayPickerContextValue = {
+  dropdownNavigation: false,
   classNames: defaultClassNames,
   components: defaultComponents,
   currentMonth: new Date(),

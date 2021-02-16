@@ -157,6 +157,7 @@ export interface DayPickerProps {
    * ```
    */
   pagedNavigation?: boolean;
+  dropdownNavigation: boolean;
   /**
    * Render the months in reversed order when [[numberOfMonths]] is greater than
    * `1` – to display the most recent month first.

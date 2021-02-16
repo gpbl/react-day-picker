@@ -13,15 +13,14 @@ export interface CaptionProps {
 }
 
 export function Caption(props: CaptionProps): JSX.Element {
-  const { classNames } = React.useContext(DayPickerContext);
-
+  const { classNames, dropdownNavigation } = React.useContext(DayPickerContext);
   return (
     <div className={classNames.Caption}>
       <div className={classNames.CaptionDropdowns}>
         <MonthsDropdown displayMonth={props.displayMonth} />
         <YearsDropdown displayMonth={props.displayMonth} />
       </div>
-      <Navigation displayMonth={props.displayMonth} />
+      {!dropdownNavigation && <Navigation displayMonth={props.displayMonth} />}
     </div>
   );
 }

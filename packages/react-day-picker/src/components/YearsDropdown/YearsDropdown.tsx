@@ -10,7 +10,14 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   const { displayMonth } = props;
 
   const context = React.useContext(DayPickerContext);
-  const { locale, onMonthChange, fromDate, toDate, classNames } = context;
+  const {
+    locale,
+    onMonthChange,
+    fromDate,
+    toDate,
+    classNames,
+    dropdownNavigation
+  } = context;
 
   const { formatYearCaption } = context.formatters;
   const years: Date[] = [];
@@ -33,11 +40,10 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     onMonthChange?.(newMonth, e);
   };
 
-  const showDropDown = !disabled && years.length > 1;
-
+  const showDropdown = dropdownNavigation && !disabled && years.length > 1;
   return (
     <div className={classNames.DropdownYear}>
-      {showDropDown && (
+      {showDropdown && (
         <select
           className={classNames.Dropdown}
           value={displayMonth.getFullYear()}
@@ -53,8 +59,8 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
       )}
       <div className={classNames.DropdownLabel} aria-live="polite">
         {formatYearCaption(displayMonth, { locale })}
+        {showDropdown && <IconDropdown className={classNames.IconDropdown} />}
       </div>
-      {showDropDown && <IconDropdown className={classNames.IconDropdown} />}
     </div>
   );
 }

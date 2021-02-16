@@ -130,11 +130,17 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   });
 
   const contextValue: DayPickerContextValue = {
+    dropdownNavigation:
+      Boolean(props.fromDate) &&
+      Boolean(props.toDate) &&
+      props.dropdownNavigation,
     classNames: { ...defaultClassNames, ...props.classNames },
     components: { ...defaultComponents, ...props.components },
     currentMonth,
     focusedDay,
     formatters: { ...defaultFormatters, ...props.formatters },
+    fromDate: props.fromDate,
+    toDate: props.toDate,
     labels: { ...defaultLabels, ...props.labels },
     locale: props.locale || defaultContext.locale,
     modifierPrefix: props.modifierPrefix || defaultContext.modifierPrefix,

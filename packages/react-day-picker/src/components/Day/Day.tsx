@@ -1,4 +1,4 @@
-import { isAfter, isBefore, isSameDay, isSameMonth } from 'date-fns';
+import { isSameDay, isSameMonth } from 'date-fns';
 import * as React from 'react';
 
 import { DayPickerContext } from '../../components/DayPicker';
@@ -38,13 +38,10 @@ export function Day(props: DayProps): JSX.Element | null {
 
   const { currentMonth, focusedDay } = context;
   const { labels, formatters } = context;
-  const { fromDate, locale, showOutsideDays, toDate } = context;
+  const { locale, showOutsideDays } = context;
   const { formatDay } = formatters;
 
   // Do not return anything if the day is not in the range
-  if (toDate && isAfter(day, toDate)) return null;
-  if (fromDate && isBefore(day, fromDate)) return null;
-
   const modifiers = getModifiers(day, displayMonth, context);
 
   React.useEffect(() => {
