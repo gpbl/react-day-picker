@@ -1,6 +1,9 @@
 import * as React from 'react';
+
 import { setYear, startOfYear } from 'date-fns';
-import { IconDropdown, DayPickerContext } from '../../components';
+
+import { IconDropdown } from '../../components';
+import { useProps } from '../../hooks';
 
 export interface YearsDropdownProps {
   displayMonth: Date;
@@ -9,17 +12,16 @@ export interface YearsDropdownProps {
 export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   const { displayMonth } = props;
 
-  const context = React.useContext(DayPickerContext);
   const {
     locale,
     onMonthChange,
     fromDate,
     toDate,
     classNames,
-    dropdownNavigation
-  } = context;
+    dropdownNavigation,
+    formatters: { formatYearCaption }
+  } = useProps();
 
-  const { formatYearCaption } = context.formatters;
   const years: Date[] = [];
   const disabled = !fromDate || !toDate;
 

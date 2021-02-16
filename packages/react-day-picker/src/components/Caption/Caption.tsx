@@ -1,11 +1,7 @@
 import * as React from 'react';
 
-import {
-  MonthsDropdown,
-  Navigation,
-  YearsDropdown,
-  DayPickerContext
-} from '../../components';
+import { MonthsDropdown, Navigation, YearsDropdown } from '../../components';
+import { useProps } from '../../hooks/useProps';
 
 export interface CaptionProps {
   /** The month where the caption is displayed. */
@@ -13,7 +9,7 @@ export interface CaptionProps {
 }
 
 export function Caption(props: CaptionProps): JSX.Element {
-  const { classNames, dropdownNavigation } = React.useContext(DayPickerContext);
+  const { classNames, dropdownNavigation } = useProps();
   return (
     <div className={classNames.Caption}>
       <div className={classNames.CaptionDropdowns}>

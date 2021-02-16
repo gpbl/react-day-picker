@@ -1,5 +1,7 @@
-import { DayPickerContext, IconNext, IconPrev } from '../../components';
 import * as React from 'react';
+
+import { IconNext, IconPrev } from '../../components';
+import { useNavigation, useProps } from '../../hooks';
 
 export interface NavigationProps {
   /** The month where the navigation is displayed. */
@@ -7,10 +9,8 @@ export interface NavigationProps {
 }
 
 export function Navigation(props: NavigationProps): JSX.Element {
-  const context = React.useContext(DayPickerContext);
-  const { dir, locale, classNames, styles, onMonthChange } = context;
-  const { labels } = context;
-  const { prevMonth, nextMonth } = context;
+  const { prevMonth, nextMonth } = useNavigation();
+  const { dir, locale, classNames, styles, onMonthChange, labels } = useProps();
 
   const onPrevClick: React.MouseEventHandler = (e) => {
     if (!prevMonth) return;

@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { format, isSameYear, setMonth, startOfMonth } from 'date-fns';
-import { DayPickerContext, IconDropdown } from '../../components';
+
+import { isSameYear, setMonth, startOfMonth } from 'date-fns';
+
+import { IconDropdown } from '../../components';
+import { useProps } from '../../hooks';
 
 export interface MonthsDropdownProps {
   displayMonth: Date;
@@ -8,17 +11,16 @@ export interface MonthsDropdownProps {
 
 export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
   const { displayMonth } = props;
-  const context = React.useContext(DayPickerContext);
   const {
     locale,
     onMonthChange,
     fromDate,
     toDate,
     classNames,
-    dropdownNavigation
-  } = context;
+    dropdownNavigation,
+    formatters: { formatMonthCaption }
+  } = useProps();
 
-  const { formatMonthCaption } = context.formatters;
   const dropdownMonths: Date[] = [];
   const showDropdown =
     dropdownNavigation && Boolean(fromDate) && Boolean(toDate);
@@ -59,7 +61,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
         >
           {dropdownMonths.map((m) => (
             <option key={m.getMonth()} value={m.getMonth()}>
-              {format(m, 'LLLL', { locale })}
+              {formatMonthCaption(m, { locale })}
             </option>
           ))}
         </select>

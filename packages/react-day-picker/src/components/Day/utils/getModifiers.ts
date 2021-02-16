@@ -1,4 +1,4 @@
-import { DayPickerContextValue } from '../../../components';
+import { PropsValues } from '../../../components';
 import { Modifier, ModifiersMatchers, ModifiersStatus } from '../../../types';
 import { getModifiersFromProps } from './getModifiersFromProps';
 import { matchDay } from './matchModifier';
@@ -7,10 +7,10 @@ const reduceCallback = (
   day: Date,
   matchers: ModifiersMatchers,
   currentMonth: Date,
-  context: DayPickerContextValue
+  props: PropsValues
 ) => (previousValue: string[], key: string): string[] => {
   const matcher = matchers[key];
-  if (matchDay(day, matcher, currentMonth, context)) {
+  if (matchDay(day, matcher, currentMonth, props)) {
     previousValue.push(key);
   }
   return previousValue;
@@ -22,11 +22,11 @@ const reduceCallback = (
 export function getModifiers(
   day: Date,
   currentMonth: Date,
-  context: DayPickerContextValue
+  props: PropsValues
 ): ModifiersStatus {
-  const modifierMatchers = getModifiersFromProps(context);
+  const modifierMatchers = getModifiersFromProps(props);
   const modifiersList: Modifier[] = Object.keys(modifierMatchers).reduce(
-    reduceCallback(day, modifierMatchers, currentMonth, context),
+    reduceCallback(day, modifierMatchers, currentMonth, props),
     []
   );
   const modifiers = {};

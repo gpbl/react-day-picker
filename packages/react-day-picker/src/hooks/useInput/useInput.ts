@@ -1,5 +1,6 @@
-import { format, parse } from 'date-fns';
 import * as React from 'react';
+
+import { format, parse } from 'date-fns';
 
 import { UseInput, UseInputOptions } from '../../types';
 

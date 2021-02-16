@@ -1,4 +1,5 @@
-import { getPrevNextMonths } from '../Navigation/utils/getPrevNextMonths';
+import * as React from 'react';
+
 import {
   addDays,
   addWeeks,
@@ -7,13 +8,12 @@ import {
   isSameMonth,
   startOfMonth
 } from 'date-fns';
-import * as React from 'react';
 
 import {
-  DayPickerContext,
-  defaultContext,
-  Root,
-  DayPickerProps
+  DayPickerProps,
+  PropsContext,
+  PropsValues,
+  Root
 } from '../../components';
 import {
   DayClickEventHandler,
@@ -22,6 +22,7 @@ import {
   KeyCode,
   MonthChangeEventHandler
 } from '../../types';
+import { getPrevNextMonths } from '../Navigation/utils/getPrevNextMonths';
 import {
   defaultClassNames,
   defaultComponents,
@@ -29,7 +30,8 @@ import {
   defaultModifiers
 } from './defaults';
 import { defaultFormatters } from './defaults/defaultFormatters';
-import { DayPickerContextValue } from './DayPickerContext';
+import { NavigationContext, NavigationContextValue } from './NavigationContext';
+import { defaultPropsValues } from './PropsContext';
 
 /**
  * Render a date picker component.
@@ -120,39 +122,29 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   };
   // #endregion
 
-  const numberOfMonths = props.numberOfMonths || defaultContext.numberOfMonths;
+  const numberOfMonths =
+    props.numberOfMonths || defaultPropsValues.numberOfMonths;
 
-  const [prevMonth, nextMonth] = getPrevNextMonths(currentMonth, {
-    fromDate: props.fromDate,
-    toDate: props.toDate,
-    pagedNavigation: props.pagedNavigation,
-    numberOfMonths
-  });
-
-  const contextValue: DayPickerContextValue = {
+  const propsValues: PropsValues = {
     dropdownNavigation:
       Boolean(props.fromDate) &&
       Boolean(props.toDate) &&
       props.dropdownNavigation,
     classNames: { ...defaultClassNames, ...props.classNames },
     components: { ...defaultComponents, ...props.components },
-    currentMonth,
-    focusedDay,
     formatters: { ...defaultFormatters, ...props.formatters },
     fromDate: props.fromDate,
     toDate: props.toDate,
     labels: { ...defaultLabels, ...props.labels },
-    locale: props.locale || defaultContext.locale,
-    modifierPrefix: props.modifierPrefix || defaultContext.modifierPrefix,
+    locale: props.locale || defaultPropsValues.locale,
+    modifierPrefix: props.modifierPrefix || defaultPropsValues.modifierPrefix,
     modifiers: { ...defaultModifiers, ...props.modifiers },
-    nextMonth,
     numberOfMonths,
     onMonthChange,
     onDayBlur,
     onDayClick,
     onDayFocus,
     onDayKeyDown,
-    prevMonth,
     selected: props.selected,
     hidden: props.hidden,
     disabled: props.disabled,
@@ -162,9 +154,24 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     today
   };
 
+  const [prevMonth, nextMonth] = getPrevNextMonths(currentMonth, {
+    fromDate: props.fromDate,
+    toDate: props.toDate,
+    pagedNavigation: props.pagedNavigation,
+    numberOfMonths
+  });
+  const navigationContext: NavigationContextValue = {
+    nextMonth,
+    prevMonth,
+    currentMonth,
+    focusedDay
+  };
+
   return (
-    <DayPickerContext.Provider value={contextValue}>
-      <Root />
-    </DayPickerContext.Provider>
+    <PropsContext.Provider value={propsValues}>
+      <NavigationContext.Provider value={navigationContext}>
+        <Root />
+      </NavigationContext.Provider>
+    </PropsContext.Provider>
   );
 }

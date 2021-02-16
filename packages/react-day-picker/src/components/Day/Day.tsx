@@ -1,7 +1,8 @@
-import { isSameDay, isSameMonth } from 'date-fns';
 import * as React from 'react';
 
-import { DayPickerContext } from '../../components/DayPicker';
+import { isSameDay, isSameMonth } from 'date-fns';
+
+import { useNavigation, useProps } from '../../hooks';
 import {
   DayClickEventHandler,
   DayFocusEventHandler,
@@ -32,17 +33,15 @@ export interface DayProps {
 
 export function Day(props: DayProps): JSX.Element | null {
   const el = React.useRef<HTMLButtonElement>(null);
-  const context = React.useContext(DayPickerContext);
+  const dayPickerProps = useProps();
+  const { labels, formatters, locale, showOutsideDays } = dayPickerProps;
+  const { currentMonth, focusedDay } = useNavigation();
 
   const { displayMonth, day } = props;
-
-  const { currentMonth, focusedDay } = context;
-  const { labels, formatters } = context;
-  const { locale, showOutsideDays } = context;
   const { formatDay } = formatters;
 
   // Do not return anything if the day is not in the range
-  const modifiers = getModifiers(day, displayMonth, context);
+  const modifiers = getModifiers(day, displayMonth, dayPickerProps);
 
   React.useEffect(() => {
     if (!focusedDay) return;
@@ -68,9 +67,8 @@ export function Day(props: DayProps): JSX.Element | null {
   // #endregion
 
   // #region EventHandlers
-  const { onDayBlur, onDayClick, onDayFocus, onDayKeyDown } = context;
+  const { onDayBlur, onDayClick, onDayFocus, onDayKeyDown } = dayPickerProps;
 
-  // Event handlers from context
   const handleClick: React.MouseEventHandler = (e) => {
     onDayClick?.(day, modifiers, e);
   };
@@ -83,8 +81,6 @@ export function Day(props: DayProps): JSX.Element | null {
   const handleKeyDown: React.KeyboardEventHandler = (e) => {
     onDayKeyDown?.(day, modifiers, e);
   };
-
-  // Event handlers from props
   const handleKeyUp: React.KeyboardEventHandler = (e) => {
     props.onDayKeyUp?.(day, modifiers, e);
   };
@@ -110,7 +106,7 @@ export function Day(props: DayProps): JSX.Element | null {
   // #endregion
 
   // #region ClassNames
-  const { classNames, modifiersClassNames, modifierPrefix } = context;
+  const { classNames, modifiersClassNames, modifierPrefix } = dayPickerProps;
   const buttonClassNames: (string | undefined)[] = [classNames.Day];
   Object.keys(modifiers)
     .filter((modifier) => Boolean(modifiers[modifier]))
@@ -126,7 +122,7 @@ export function Day(props: DayProps): JSX.Element | null {
   // #endregion
 
   // #region Styles
-  const { styles, modifiersStyles } = context;
+  const { styles, modifiersStyles } = dayPickerProps;
   let style = { ...styles?.Day };
   if (styles) {
     Object.keys(modifiers).forEach((modifier) => {
