@@ -13,7 +13,7 @@ hide_title: true
 #### Type declaration:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `Caption` | (`props`: [*CaptionProps*](../interfaces/captionprops.md)) => JSX.Element |
 `Day` | (`props`: [*DayProps*](../interfaces/dayprops.md)) => JSX.Element \| *null* |
 `IconNext` | (`\_\_namedParameters`: { `className?`: *string*  }) => JSX.Element |

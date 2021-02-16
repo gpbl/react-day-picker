@@ -13,7 +13,7 @@ hide_title: true
 #### Parameters:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `props` | [*RowProps*](../interfaces/rowprops.md) |
 
 **Returns:** JSX.Element

@@ -9,3 +9,17 @@ hide_title: true
 # Type alias: DayTouchEventHandler
 
 Ƭ **DayTouchEventHandler**: (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.TouchEvent) => *void*
+
+#### Type declaration:
+
+▸ (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.TouchEvent): *void*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`day` | Date |
+`modifiers` | [*ModifiersStatus*](modifiersstatus.md) |
+`e` | React.TouchEvent |
+
+**Returns:** *void*

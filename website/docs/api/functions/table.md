@@ -13,7 +13,7 @@ hide_title: true
 #### Parameters:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `props` | [*TableProps*](../interfaces/tableprops.md) |
 
 **Returns:** JSX.Element

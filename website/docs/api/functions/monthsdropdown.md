@@ -13,7 +13,7 @@ hide_title: true
 #### Parameters:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `props` | [*MonthsDropdownProps*](../interfaces/monthsdropdownprops.md) |
 
 **Returns:** JSX.Element

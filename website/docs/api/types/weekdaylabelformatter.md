@@ -11,3 +11,17 @@ hide_title: true
 Ƭ **WeekdayLabelFormatter**: (`day`: Date, `options?`: { `locale?`: Locale  }) => *string*
 
 Represent a function to format the ARIA label for the Head component.
+
+#### Type declaration:
+
+▸ (`day`: Date, `options?`: { `locale?`: Locale  }): *string*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`day` | Date |
+`options?` | *object* |
+`options.locale?` | Locale |
+
+**Returns:** *string*

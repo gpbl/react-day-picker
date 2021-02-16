@@ -8,10 +8,6 @@ hide_title: true
 
 # Interface: CaptionProps
 
-## Hierarchy
-
-* **CaptionProps**
-
 ## Properties
 
 ### displayMonth

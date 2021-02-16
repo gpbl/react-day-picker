@@ -8,11 +8,11 @@ hide_title: true
 
 # Type alias: DaysRange
 
-Ƭ **DaysRange**: { `from?`: Date ; `to?`: Date  }
+Ƭ **DaysRange**: *object*
 
 #### Type declaration:
 
 Name | Type |
------- | ------ |
-`from?` | Date |
-`to?` | Date |
+:------ | :------ |
+`from`? | Date |
+`to`? | Date |

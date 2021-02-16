@@ -13,7 +13,7 @@ hide_title: true
 #### Parameters:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `props` | [*CaptionProps*](../interfaces/captionprops.md) |
 
 **Returns:** JSX.Element

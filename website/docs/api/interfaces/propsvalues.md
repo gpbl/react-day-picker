@@ -1,22 +1,20 @@
 ---
-id: "daypickercontextvalue"
-title: "Interface: DayPickerContextValue"
-sidebar_label: "DayPickerContextValue"
+id: "propsvalues"
+title: "Interface: PropsValues"
+sidebar_label: "PropsValues"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Interface: DayPickerContextValue
+# Interface: PropsValues
 
-Represent the value of the [DayPickerContext](../variables/daypickercontext.md). Extends `DayPickerProps`
-with values used by the internal components: `prevMonth`, `nextMonth`,
-`currentMonth`, `focusedDay`.
+Represent the value of a [PropsContext](../variables/propscontext.md).
 
 ## Hierarchy
 
 * *Omit*<[*DayPickerProps*](daypickerprops.md), *className* \| *style* \| *initialMonth* \| *month*\>
 
-  ↳ **DayPickerContextValue**
+  ↳ **PropsValues**
 
 ## Properties
 
@@ -29,14 +27,6 @@ ___
 ### components
 
 • **components**: *Required*<[*Components*](../types/components.md)\>
-
-___
-
-### currentMonth
-
-• **currentMonth**: Date
-
-The currently displayed month. When multiple months, is the first.
 
 ___
 
@@ -77,8 +67,8 @@ ___
 
 • `Optional` **dropdownNavigation**: *undefined* \| *boolean*
 
-When setting `fromDate` and `toDate`, use dropdowns instead of buttons to
-navigate the calendar.
+When setting `fromDate` and `toDate`, use month and year drop-downs instead
+of buttons to navigate the calendar.
 
 **Example**
 
@@ -99,7 +89,7 @@ ___
 
 • `Optional` **enableOutsideDaysClick**: *undefined* \| *boolean*
 
-Enable the dayclick event for outside days when [showOutsideDays](daypickercontextvalue.md#showoutsidedays) is set.
+Enable the dayclick event for outside days when [showOutsideDays](propsvalues.md#showoutsidedays) is set.
 Default to `false`.
 
 ___
@@ -110,7 +100,7 @@ ___
 
 Display six weeks per months, regardless the month’s number of weeks.
 
-To use this prop, [showOutsideDays](daypickercontextvalue.md#showoutsidedays) must be set. Default to `false`.
+To use this prop, [showOutsideDays](propsvalues.md#showoutsidedays) must be set. Default to `false`.
 
 **Example**
 
@@ -119,14 +109,6 @@ function Example() {
  return <DayPicker showOutsideDays fixedWeeks />
 };
 ```
-
-___
-
-### focusedDay
-
-• `Optional` **focusedDay**: *undefined* \| Date
-
-The day that should focus when rendering. Used for keyboard navigation
 
 ___
 
@@ -190,7 +172,7 @@ ___
 • `Optional` **hideHead**: *undefined* \| *boolean*
 
 Show the month’s head. As default, it displays the weekday names according
-to [locale](daypickercontextvalue.md#locale).
+to [locale](propsvalues.md#locale).
 
 **Example**
 
@@ -236,7 +218,7 @@ ___
 
 • `Optional` **modifiersStyles**: *undefined* \| [*ModifiersStyles*](../types/modifiersstyles.md)
 
-Change the inline style for the day UI element matching the [modifiers](daypickercontextvalue.md#modifiers).
+Change the inline style for the day UI element matching the [modifiers](propsvalues.md#modifiers).
 
 **Example**
 
@@ -248,14 +230,6 @@ Change the background color of the days matching the `isToday` modifier.
  modifiersStyles={{ isToday: { backgroundColor: 'purple' } }}
 />
 ```
-
-___
-
-### nextMonth
-
-• `Optional` **nextMonth**: *undefined* \| Date
-
-The month coming after the current one
 
 ___
 
@@ -362,7 +336,7 @@ ___
 When displaying more than one months, the navigation will be paginated
 displaying the number of months at time (instead of one).
 
-Requires [numberOfMonths](daypickercontextvalue.md#numberofmonths) to be set. Default to `false`.
+Requires [numberOfMonths](propsvalues.md#numberofmonths) to be set. Default to `false`.
 
 **Example**
 
@@ -374,19 +348,11 @@ function Example() {
 
 ___
 
-### prevMonth
-
-• `Optional` **prevMonth**: *undefined* \| Date
-
-The month coming before the current one
-
-___
-
 ### reverseMonths
 
 • `Optional` **reverseMonths**: *undefined* \| *boolean*
 
-Render the months in reversed order when [numberOfMonths](daypickercontextvalue.md#numberofmonths) is greater than
+Render the months in reversed order when [numberOfMonths](propsvalues.md#numberofmonths) is greater than
 `1` – to display the most recent month first.
 
 **Example**
@@ -432,7 +398,7 @@ Show the outside days.
 An outside day is a day falling in the next or the previous month. Default
 is `false`.
 
-Outside days are not interactive as default. Use [enableOutsideDaysClick](daypickercontextvalue.md#enableoutsidedaysclick)
+Outside days are not interactive as default. Use [enableOutsideDaysClick](propsvalues.md#enableoutsidedaysclick)
 to make them clickable.
 
 **Example**

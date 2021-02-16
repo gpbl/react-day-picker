@@ -13,7 +13,7 @@ hide_title: true
 #### Parameters:
 
 Name | Type |
------- | ------ |
+:------ | :------ |
 `props` | [*RootProps*](../interfaces/rootprops.md) |
 
 **Returns:** JSX.Element

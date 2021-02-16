@@ -8,17 +8,16 @@ hide_title: true
 
 # Type alias: Formatters
 
-Ƭ **Formatters**: { `formatDay?`: [*DateFormatter*](dateformatter.md) ; `formatMonthCaption?`: [*DateFormatter*](dateformatter.md) ; `formatWeekNumber?`: [*WeekNumberFormatter*](weeknumberformatter.md) ; `formatWeekdayName?`: [*WeekdayFormatter*](weekdayformatter.md) ; `formatYearCaption?`: [*DateFormatter*](dateformatter.md)  }
+Ƭ **Formatters**: *object*
 
-Represent a map of formatters used to format ARIA labels for the relative
-[[UIElements]].
+Represent a map of formatters used to render localized content.
 
 #### Type declaration:
 
 Name | Type |
------- | ------ |
-`formatDay?` | [*DateFormatter*](dateformatter.md) |
-`formatMonthCaption?` | [*DateFormatter*](dateformatter.md) |
-`formatWeekNumber?` | [*WeekNumberFormatter*](weeknumberformatter.md) |
-`formatWeekdayName?` | [*WeekdayFormatter*](weekdayformatter.md) |
-`formatYearCaption?` | [*DateFormatter*](dateformatter.md) |
+:------ | :------ |
+`formatDay`? | [*DateFormatter*](dateformatter.md) |
+`formatMonthCaption`? | [*DateFormatter*](dateformatter.md) |
+`formatWeekNumber`? | [*WeekNumberFormatter*](weeknumberformatter.md) |
+`formatWeekdayName`? | [*WeekdayFormatter*](weekdayformatter.md) |
+`formatYearCaption`? | [*DateFormatter*](dateformatter.md) |

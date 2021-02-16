@@ -8,10 +8,6 @@ hide_title: true
 
 # Interface: RowProps
 
-## Hierarchy
-
-* **RowProps**
-
 ## Properties
 
 ### displayMonth

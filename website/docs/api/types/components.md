@@ -8,17 +8,17 @@ hide_title: true
 
 # Type alias: Components
 
-Ƭ **Components**: { `Caption?`: *typeof* [*Caption*](../functions/caption.md) ; `Day?`: *typeof* [*Day*](../functions/day.md) ; `IconNext?`: *typeof* *IconNext* ; `IconPrev?`: *typeof* *IconPrev* ; `Navigation?`: *typeof* *Navigation* ; `Row?`: *typeof* *Row*  }
+Ƭ **Components**: *object*
 
 Represent the components that can be customized.
 
 #### Type declaration:
 
 Name | Type |
------- | ------ |
-`Caption?` | *typeof* [*Caption*](../functions/caption.md) |
-`Day?` | *typeof* [*Day*](../functions/day.md) |
-`IconNext?` | *typeof* *IconNext* |
-`IconPrev?` | *typeof* *IconPrev* |
-`Navigation?` | *typeof* *Navigation* |
-`Row?` | *typeof* *Row* |
+:------ | :------ |
+`Caption`? | *typeof* [*Caption*](../functions/caption.md) |
+`Day`? | *typeof* [*Day*](../functions/day.md) |
+`IconNext`? | *typeof* *IconNext* |
+`IconPrev`? | *typeof* *IconPrev* |
+`Navigation`? | *typeof* *Navigation* |
+`Row`? | *typeof* *Row* |

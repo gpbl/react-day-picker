@@ -9,3 +9,17 @@ hide_title: true
 # Type alias: DateFormatter
 
 Ƭ **DateFormatter**: (`date`: Date, `options?`: { `locale?`: Locale  }) => *string*
+
+#### Type declaration:
+
+▸ (`date`: Date, `options?`: { `locale?`: Locale  }): *string*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`date` | Date |
+`options?` | *object* |
+`options.locale?` | Locale |
+
+**Returns:** *string*

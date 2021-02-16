@@ -18,11 +18,12 @@ hide_title: true
 ### Interfaces
 
 - [CaptionProps](interfaces/captionprops.md)
-- [DayPickerContextValue](interfaces/daypickercontextvalue.md)
 - [DayPickerProps](interfaces/daypickerprops.md)
 - [DayProps](interfaces/dayprops.md)
 - [MonthsDropdownProps](interfaces/monthsdropdownprops.md)
+- [NavigationContextValue](interfaces/navigationcontextvalue.md)
 - [NavigationProps](interfaces/navigationprops.md)
+- [PropsValues](interfaces/propsvalues.md)
 - [RootProps](interfaces/rootprops.md)
 - [RowProps](interfaces/rowprops.md)
 - [TableProps](interfaces/tableprops.md)
@@ -67,13 +68,15 @@ hide_title: true
 
 ### Variables
 
-- [DayPickerContext](variables/daypickercontext.md)
+- [NavigationContext](variables/navigationcontext.md)
+- [PropsContext](variables/propscontext.md)
 - [defaultClassNames](variables/defaultclassnames.md)
 - [defaultComponents](variables/defaultcomponents.md)
-- [defaultContext](variables/defaultcontext.md)
 - [defaultFormatters](variables/defaultformatters.md)
 - [defaultLabels](variables/defaultlabels.md)
 - [defaultModifiers](variables/defaultmodifiers.md)
+- [defaultNavigationContext](variables/defaultnavigationcontext.md)
+- [defaultPropsValues](variables/defaultpropsvalues.md)
 
 ### Functions
 
@@ -93,4 +96,6 @@ hide_title: true
 - [addToRange](functions/addtorange.md)
 - [getModifiers](functions/getmodifiers.md)
 - [useInput](functions/useinput.md)
+- [useNavigation](functions/usenavigation.md)
+- [useProps](functions/useprops.md)
 - [useRange](functions/userange.md)

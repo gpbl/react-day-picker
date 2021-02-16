@@ -8,6 +8,20 @@ hide_title: true
 
 # Type alias: MatchDate
 
-Ƭ **MatchDate**: (`date`: Date, `currentMonth`: Date, `context`: [*DayPickerContextValue*](../interfaces/daypickercontextvalue.md)) => *boolean*
+Ƭ **MatchDate**: (`date`: Date, `currentMonth`: Date, `context`: [*PropsValues*](../interfaces/propsvalues.md)) => *boolean*
 
 Matches a day when this function returns `true`.
+
+#### Type declaration:
+
+▸ (`date`: Date, `currentMonth`: Date, `context`: [*PropsValues*](../interfaces/propsvalues.md)): *boolean*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`date` | Date |
+`currentMonth` | Date |
+`context` | [*PropsValues*](../interfaces/propsvalues.md) |
+
+**Returns:** *boolean*
