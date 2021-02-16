@@ -31,6 +31,7 @@ import {
 import { defaultFormatters } from './defaults/defaultFormatters';
 import { NavigationContext, NavigationContextValue } from './NavigationContext';
 import { defaultPropsValues } from './PropsContext';
+import { getMonthsToRender } from './utils/getMonthsToRender';
 import { getNavMonths } from './utils/getNavMonths';
 
 /**
@@ -87,8 +88,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     props.navigationType || defaultPropsValues.navigationType;
   if (
     calculatedNavigationType === 'dropdown' &&
-    !calculatedFromDate &&
-    !calculatedToDate
+    ((!calculatedFromDate && !calculatedToDate) || numberOfMonths > 1)
   ) {
     calculatedNavigationType = 'buttons';
   }
@@ -163,6 +163,14 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   };
   // #endregion
 
+  const displayMonths = getMonthsToRender(currentMonth, numberOfMonths, {
+    toDate: calculatedToDate,
+    fromDate: calculatedFromDate,
+    reverseMonths: props.reverseMonths
+  });
+
+  console.log(displayMonths);
+
   const propsValues: PropsValues = {
     classNames: { ...defaultClassNames, ...props.classNames },
     components: { ...defaultComponents, ...props.components },
@@ -195,13 +203,14 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     toDate: calculatedToDate,
     pagedNavigation: props.pagedNavigation,
     numberOfMonths,
-    navigation: calculatedNavigationType
+    navigationType: calculatedNavigationType
   });
 
   const navigationContext: NavigationContextValue = {
     nextMonth,
     prevMonth,
     currentMonth,
+    displayMonths,
     focusedDay
   };
 

@@ -57,13 +57,14 @@ export function Day(props: DayProps): JSX.Element | null {
   const disabled = modifiers.disabled;
 
   // #region TabIndex
-  let tabIndex: number;
-  if (focusedDay && isSameDay(day, focusedDay)) {
-    tabIndex = 0;
-  } else if (isSameMonth(day, currentMonth) && day.getDate() === 1) {
-    tabIndex = 0;
-  } else {
-    tabIndex = -1;
+  let tabIndex: number | undefined = !modifiers.interactive ? undefined : -1;
+  if (modifiers.interactive) {
+    if (
+      (focusedDay && isSameDay(day, focusedDay)) ||
+      (isSameMonth(day, currentMonth) && day.getDate() === 1)
+    ) {
+      tabIndex = 0;
+    }
   }
   // #endregion
 
@@ -137,8 +138,10 @@ export function Day(props: DayProps): JSX.Element | null {
   }
   // #endregion
 
+  const Component = modifiers.interactive ? 'button' : 'span';
+
   return (
-    <button
+    <Component
       ref={el}
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}
@@ -159,6 +162,6 @@ export function Day(props: DayProps): JSX.Element | null {
       onTouchStart={handleTouchStart}
     >
       {formatDay(day, { locale })}
-    </button>
+    </Component>
   );
 }

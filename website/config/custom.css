@@ -85,10 +85,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   font-size: initial;
 }
 
-details .code-output {
-  padding-top: var(--ifm-pre-padding);
-}
-
 .code-output .rdp + p {
   margin-top: 0;
   margin-bottom: 0;

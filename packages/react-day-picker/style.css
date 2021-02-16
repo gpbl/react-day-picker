@@ -128,7 +128,18 @@
   text-align: left;
 }
 .rdp[dir='rtl'] .rdp-caption {
-  text-align: right;
+}
+
+.rdp .rdp-caption.rdp-caption_first {
+  justify-content: flex-start;
+}
+
+.rdp .rdp-caption.rdp-caption_between {
+  justify-content: center;
+}
+
+.rdp .rdp-caption.rdp-caption_last {
+  justify-content: flex-end;
 }
 
 .rdp-caption-dropdowns {

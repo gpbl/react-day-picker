@@ -10,30 +10,12 @@ export function Playground() {
     <>
       <h3>Selecting</h3>
       <DayPicker
-        dropdownNavigation
+        navigationType="dropdown"
         onDayClick={handleDayClick}
         selected={selected}
         fromDate={fromDate}
         toDate={toDate}
-      />
-      <h2>Multiple months</h2>
-      <DayPicker
-        onDayClick={handleDayClick}
-        selected={selected}
-        fromDate={fromDate}
-        toDate={toDate}
-        showWeekNumber
-        numberOfMonths={2}
-      />
-      <h3>With paged navigation</h3>
-      <DayPicker
-        onDayClick={handleDayClick}
-        selected={selected}
-        fromDate={fromDate}
-        toDate={toDate}
-        showWeekNumber
-        numberOfMonths={2}
-        pagedNavigation
+        numberOfMonths={3}
       />
     </>
   );
