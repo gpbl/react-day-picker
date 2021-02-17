@@ -85,7 +85,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   }
 
   let calculatedNavigationType =
-    props.navigationType || defaultPropsValues.navigationType;
+    props.captionLayout || defaultPropsValues.captionLayout;
   if (
     calculatedNavigationType === 'dropdown' &&
     ((!calculatedFromDate && !calculatedToDate) || numberOfMonths > 1)
@@ -169,11 +169,10 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     reverseMonths: props.reverseMonths
   });
 
-  console.log(displayMonths);
-
   const propsValues: PropsValues = {
     classNames: { ...defaultClassNames, ...props.classNames },
     components: { ...defaultComponents, ...props.components },
+    dir: props.dir,
     formatters: { ...defaultFormatters, ...props.formatters },
     fromDate: calculatedFromDate,
     toDate: calculatedToDate,
@@ -181,7 +180,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     locale: props.locale || defaultPropsValues.locale,
     modifierPrefix: props.modifierPrefix || defaultPropsValues.modifierPrefix,
     modifiers: { ...defaultModifiers, ...props.modifiers },
-    navigationType: calculatedNavigationType,
+    captionLayout: calculatedNavigationType,
     numberOfMonths,
     onMonthChange,
     onDayBlur,
@@ -203,7 +202,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     toDate: calculatedToDate,
     pagedNavigation: props.pagedNavigation,
     numberOfMonths,
-    navigationType: calculatedNavigationType
+    captionLayout: calculatedNavigationType
   });
 
   const navigationContext: NavigationContextValue = {

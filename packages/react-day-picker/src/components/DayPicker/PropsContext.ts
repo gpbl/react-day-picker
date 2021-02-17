@@ -3,6 +3,7 @@ import React from 'react';
 import english from 'date-fns/locale/en-US';
 
 import {
+  CaptionLayout,
   ClassNames,
   Components,
   DayClickEventHandler,
@@ -12,8 +13,7 @@ import {
   Labels,
   ModifiersClassNames,
   ModifiersMatchers,
-  MonthChangeEventHandler,
-  NavigationType
+  MonthChangeEventHandler
 } from '../../types';
 import { DayPickerProps } from './DayPickerProps';
 import {
@@ -39,6 +39,7 @@ export interface PropsValues
     | 'fromYear'
     | 'toYear'
   > {
+  captionLayout: CaptionLayout;
   classNames: ClassNames;
   components: Required<Components>;
   formatters: Required<Formatters>;
@@ -47,8 +48,8 @@ export interface PropsValues
   modifierPrefix: string;
   modifiers: ModifiersMatchers;
   modifiersClassNames?: ModifiersClassNames;
-  navigationType: NavigationType;
   numberOfMonths: number;
+  dir?: string;
   /**
    * Will set the current month if DayPicker is in controlled mode. Calls the
    * original `onMonthChange`.
@@ -95,7 +96,7 @@ export const defaultPropsValues: PropsValues = {
   locale: english,
   modifierPrefix: 'rdp-day_',
   modifiers: defaultModifiers,
-  navigationType: 'buttons',
+  captionLayout: 'buttons',
   numberOfMonths: 1,
   originalProps: {},
   today: new Date(),

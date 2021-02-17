@@ -1,6 +1,7 @@
 import { Locale } from 'date-fns';
 
 import {
+  CaptionLayout,
   ClassNames,
   Components,
   DayClickEventHandler,
@@ -15,8 +16,7 @@ import {
   ModifiersClassNames,
   ModifiersMatchers,
   ModifiersStyles,
-  MonthChangeEventHandler,
-  NavigationType
+  MonthChangeEventHandler
 } from '../../types';
 
 /**
@@ -189,12 +189,12 @@ export interface DayPickerProps {
    *    <DayPicker
    *      fromYear={2020}
    *      toYear={2025}
-   *      navigationType="dropdown"
+   *      captionLayout="dropdown"
    *    />
    * )};
    * ```
    */
-  navigationType?: NavigationType;
+  captionLayout?: CaptionLayout;
 
   /**
    * When displaying more than one months, the navigation will be paginated

@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { isSameMonth } from 'date-fns';
-
 import {
   IconNext,
   IconPrev,
@@ -10,27 +8,35 @@ import {
 } from '../../components';
 import { useNavigation } from '../../hooks';
 import { useProps } from '../../hooks/useProps';
-import { UIElement } from '../../types';
+import { UIElement as UI } from '../../types';
 
 export interface CaptionProps {
   /** The month where the caption is displayed. */
   displayMonth: Date;
+  /** The index of the month. */
+  displayIndex: number;
+  /** Whether the caption belongs to the first table (of numberOfMonths). */
+  isFirst: boolean;
+  /** Whether the caption belongs to the last table (of numberOfMonths). */
+  isLast: boolean;
+  /** Whether the caption belongs to a table between others. */
+  isBetween: boolean;
 }
 
 export function Caption(props: CaptionProps): JSX.Element {
-  const { displayMonth } = props;
+  const { displayMonth, isFirst, isLast, isBetween } = props;
   const {
     dir,
     classNames,
     styles,
-    navigationType,
+    captionLayout,
     locale,
     numberOfMonths,
     onMonthChange,
     labels,
     formatters: { formatCaption }
   } = useProps();
-  const { displayMonths, prevMonth, nextMonth } = useNavigation();
+  const { prevMonth, nextMonth } = useNavigation();
 
   const onPrevClick: React.MouseEventHandler = (e) => {
     if (!prevMonth) return;
@@ -46,15 +52,14 @@ export function Caption(props: CaptionProps): JSX.Element {
     <button
       key="prev"
       aria-label={prevMonth && labels.prevLabel(prevMonth, { locale })}
-      className={[
-        classNames[UIElement.NavButton],
-        classNames[UIElement.NavButtonPrev]
-      ].join(' ')}
+      className={[classNames[UI.NavButton], classNames[UI.NavButtonPrev]].join(
+        ' '
+      )}
       disabled={!prevMonth}
       onClick={dir === 'rtl' ? onNextClick : onPrevClick}
-      style={styles?.[UIElement.NavButtonPrev]}
+      style={styles?.[UI.NavButtonPrev]}
     >
-      <IconPrev className={classNames[UIElement.NavIcon]} />
+      <IconPrev className={classNames[UI.NavIcon]} />
     </button>
   );
 
@@ -62,22 +67,21 @@ export function Caption(props: CaptionProps): JSX.Element {
     <button
       key="next"
       aria-label={nextMonth && labels.nextLabel(nextMonth, { locale })}
-      className={[
-        classNames[UIElement.NavButton],
-        classNames[UIElement.NavButtonNext]
-      ].join(' ')}
+      className={[classNames[UI.NavButton], classNames[UI.NavButtonNext]].join(
+        ' '
+      )}
       disabled={!nextMonth}
       onClick={dir === 'rtl' ? onPrevClick : onNextClick}
-      style={styles?.[UIElement.NavButtonNext]}
+      style={styles?.[UI.NavButtonNext]}
     >
-      <IconNext className={classNames[UIElement.NavIcon]} />
+      <IconNext className={classNames[UI.NavIcon]} />
     </button>
   );
 
   const caption = (
     <div
       key="caption"
-      className={classNames[UIElement.DropdownLabel]}
+      className={classNames[UI.CaptionLabel]}
       aria-live="polite"
     >
       {formatCaption(displayMonth, { locale })}
@@ -85,47 +89,31 @@ export function Caption(props: CaptionProps): JSX.Element {
   );
 
   let buttons = [prevButton, nextButton];
+  if (dir === 'rtl') buttons.reverse();
 
-  const isFirstOfMany =
-    numberOfMonths > 1 && isSameMonth(displayMonths[0], displayMonth);
-  const isLastOfMany =
-    numberOfMonths > 1 &&
-    isSameMonth(displayMonths[displayMonths.length - 1], displayMonth);
-  const isBetween = numberOfMonths > 1 && !isFirstOfMany && !isLastOfMany;
-
-  if (isFirstOfMany) buttons = [prevButton];
-  if (isLastOfMany) buttons = [nextButton];
-  if (isBetween) buttons = [];
-
-  if (dir === 'rtl') buttons = buttons.reverse();
+  if (isFirst) buttons = [prevButton]; // show only the prev button"
+  if (isLast) buttons = [nextButton]; // show only the next button"
+  if (isBetween) buttons = []; // do not show buttons at all
 
   const nav = (
-    <span
-      key="nav"
-      className={classNames[UIElement.Nav]}
-      style={styles?.[UIElement.Nav]}
-    >
+    <span key="nav" className={classNames[UI.Nav]} style={styles?.[UI.Nav]}>
       {buttons}
     </span>
   );
 
-  const rootClassName = [classNames[UIElement.Caption]];
-  if (isFirstOfMany) rootClassName.push(classNames[UIElement.CaptionFirst]);
-  if (isLastOfMany) rootClassName.push(classNames[UIElement.CaptionLast]);
-  if (isBetween) rootClassName.push(classNames[UIElement.CaptionBetween]);
-
   return (
-    <div className={rootClassName.join(' ')}>
-      {navigationType === 'dropdown' && (
-        <div className={classNames[UIElement.DropdownsContainer]}>
+    <div className={classNames[UI.Caption]}>
+      {captionLayout === 'dropdown' && (
+        <div className={classNames[UI.CaptionDropdowns]}>
           <MonthsDropdown displayMonth={displayMonth} />
           <YearsDropdown displayMonth={displayMonth} />
         </div>
       )}
-      {navigationType === 'buttons' && numberOfMonths === 1 && [caption, nav]}
-      {navigationType === 'buttons' && isFirstOfMany && [nav, caption]}
-      {navigationType === 'buttons' && isLastOfMany && [caption, nav]}
-      {navigationType === 'buttons' && isBetween && caption}
+      {captionLayout === 'buttons' && numberOfMonths === 1 && [caption, nav]}
+      {captionLayout === 'buttons' && isFirst && [nav, caption]}
+      {captionLayout === 'buttons' && isLast && [caption, nav]}
+      {captionLayout === 'buttons' && isBetween && caption}
+      {captionLayout === 'none' && caption}
     </div>
   );
 }

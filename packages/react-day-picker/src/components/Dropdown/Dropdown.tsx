@@ -24,7 +24,7 @@ export function Dropdown(props: DropdownProps): JSX.Element {
       >
         {children}
       </select>
-      <div className={classNames[UIElement.DropdownLabel]} aria-hidden="true">
+      <div className={classNames[UIElement.CaptionLabel]} aria-hidden="true">
         {caption}
         {<IconDropdown className={classNames[UIElement.DropdownIcon]} />}
       </div>

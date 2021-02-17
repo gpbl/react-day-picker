@@ -7,14 +7,17 @@ export const defaultClassNames: Required<ClassNames> = {
   /** Root element */
   [UIElement.Root]: 'rdp',
   [UIElement.RootMultipleMonths]: 'rdp-multiple-months',
+
+  [UIElement.Months]: 'rdp-months',
+  [UIElement.MonthFirst]: 'rdp-month_first',
+  [UIElement.MonthLast]: 'rdp-month_last',
+  [UIElement.MonthBetween]: 'rdp-month_between',
+
   [UIElement.Caption]: 'rdp-caption',
-  [UIElement.CaptionFirst]: 'rdp-caption_first',
-  [UIElement.CaptionLast]: 'rdp-caption_last',
-  [UIElement.CaptionBetween]: 'rdp-caption_between',
-  [UIElement.DropdownsContainer]: 'rdp-caption-dropdowns',
+  [UIElement.CaptionLabel]: 'rdp-caption-label',
+  [UIElement.CaptionDropdowns]: 'rdp-caption-dropdowns',
 
   [UIElement.Dropdown]: 'rdp-dropdown',
-  [UIElement.DropdownLabel]: 'rdp-dropdown-label',
   [UIElement.DropdownMonth]: 'rdp-dropdown_month',
   [UIElement.DropdownYear]: 'rdp-dropdown_year',
 
@@ -22,7 +25,6 @@ export const defaultClassNames: Required<ClassNames> = {
   [UIElement.Day]: 'rdp-day',
 
   // Month Component
-  [UIElement.Months]: 'rdp-months',
   [UIElement.Month]: 'rdp-month',
   [UIElement.Table]: 'rdp-table',
   [UIElement.TBody]: 'rdp-body',
