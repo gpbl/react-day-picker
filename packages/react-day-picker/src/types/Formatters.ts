@@ -6,7 +6,7 @@ import { WeekNumberFormatter } from './WeekNumberFormatter';
  * Represent a map of formatters used to render localized content.
  */
 export type Formatters = {
-  /** Format the month in the caption when `navigationType` is `buttons`. */
+  /** Format the month in the caption when `captionLayout` is `buttons`. */
   formatCaption?: DateFormatter;
   /** Format the month in the navigation dropdown. */
   formatMonthCaption?: DateFormatter;

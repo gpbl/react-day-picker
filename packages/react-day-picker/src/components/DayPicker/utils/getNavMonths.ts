@@ -1,6 +1,6 @@
 import { addMonths, startOfMonth } from 'date-fns';
 
-import { NavigationType } from '../../../types';
+import { CaptionLayout } from '../../../types';
 
 /**
  * Returns the next and the previous months that the user can navigate to.
@@ -13,7 +13,7 @@ export function getNavMonths(
     toDate?: Date;
     pagedNavigation?: boolean;
     today?: Date;
-    navigationType: NavigationType;
+    captionLayout: CaptionLayout;
   }
 ): [Date?, Date?] {
   const {
@@ -21,10 +21,10 @@ export function getNavMonths(
     toDate,
     pagedNavigation,
     numberOfMonths,
-    navigationType
+    captionLayout
   } = options;
 
-  if (navigationType === 'none') {
+  if (captionLayout === 'none') {
     return [undefined, undefined];
   }
   const add = pagedNavigation ? numberOfMonths : 1;

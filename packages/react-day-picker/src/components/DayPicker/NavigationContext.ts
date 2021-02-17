@@ -10,7 +10,7 @@ export interface NavigationContextValue {
   nextMonth?: Date;
   /** The currently displayed month. When multiple months, is the first. */
   currentMonth: Date;
-  /** The months to display. */
+  /** The months to render with DayPicker. When `numberOfMonths` is `1` contains only the `currentMonth` */
   displayMonths: Date[];
   /** The day that should focus when rendering. Used for keyboard navigation */
   focusedDay?: Date;

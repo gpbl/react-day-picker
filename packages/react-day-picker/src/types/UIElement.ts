@@ -10,18 +10,18 @@ export enum UIElement {
   /** The caption element (showing the calendar heading and the navigation) */
   Caption = 'caption',
   /** The caption element when the first of multiple months */
-  CaptionFirst = 'captionFirst',
+  MonthFirst = 'captionFirst',
   /** The caption element when the last of multiple months */
-  CaptionLast = 'CaptionLast',
+  MonthLast = 'captionLast',
   /** The caption element is between */
-  CaptionBetween = 'CaptionBetween',
+  MonthBetween = 'captionBetween',
 
   /** The container of the drop-downs. */
-  DropdownsContainer = 'dropdownsContainer',
+  CaptionDropdowns = 'dropdownsContainer',
   /** The drop-down select element. */
   Dropdown = 'dropdown',
   /** The container of the caption’s label (e.g. "September 2021"). */
-  DropdownLabel = 'dropdownLabel',
+  CaptionLabel = 'dropdownLabel',
   /** The drop-down to change the month. */
   DropdownMonth = 'dropdownMonth',
   /** The drop-down to change the year. */
