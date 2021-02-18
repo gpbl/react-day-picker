@@ -26,7 +26,7 @@ export function getNavMonths(
     captionLayout
   } = options;
 
-  if (captionLayout === 'none') {
+  if (captionLayout === 'static') {
     return [undefined, undefined];
   }
   const add = pagedNavigation ? numberOfMonths : 1;

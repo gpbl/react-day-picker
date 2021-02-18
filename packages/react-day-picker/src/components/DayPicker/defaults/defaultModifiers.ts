@@ -8,7 +8,12 @@ function isOutside(day: Date, currentMonth: Date): boolean {
 }
 
 /** Props that will make the day button interactive. */
-const interactiveProps = ['onDayClick', 'onDayMouseEnter', 'onDayTouchStart'];
+const interactiveProps = [
+  'onSelect',
+  'onDayClick',
+  'onDayMouseEnter',
+  'onDayTouchStart'
+];
 function isInteractive(
   day: Date,
   currentMonth: Date,

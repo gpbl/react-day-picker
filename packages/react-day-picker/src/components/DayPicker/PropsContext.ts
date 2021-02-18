@@ -32,7 +32,6 @@ export interface PropsValues
     DayPickerProps,
     | 'className'
     | 'style'
-    | 'initialMonth'
     | 'month'
     | 'fromMonth'
     | 'toMonth'
@@ -100,6 +99,7 @@ export const defaultPropsValues: PropsValues = {
   numberOfMonths: 1,
   originalProps: {},
   today: new Date(),
+  type: 'uncontrolled',
   // These will be replaced by proper event handlers in DayPicker.tsx so we can
   // safely use noop here
   onMonthChange: noop,

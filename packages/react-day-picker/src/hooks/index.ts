@@ -1,4 +1,4 @@
 export * from './useInput';
-export * from './useRange';
+export * from './useRangeSelection';
 export * from './useNavigation';
 export * from './useProps';

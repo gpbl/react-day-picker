@@ -28,14 +28,14 @@ function matchAfter(day: Date, matcher: Matcher): boolean {
 
 function matchRange(day: Date, matcher: Matcher): boolean {
   if (!('from' in matcher)) return false;
-
+  if (!matcher.from) return false;
   let { from, to } = matcher;
 
   // Matches { from: <Date> }
-  if (!to && isSameDay(from, day)) return true;
-
+  if (!to && from && isSameDay(from, day)) return true;
+  if (!to) return false;
   // Invert the case where "to" is before "from"
-  if (differenceInDays(from, to) < 0) {
+  if (matcher.to && differenceInDays(from, matcher.to) < 0) {
     from = matcher.to;
     to = matcher.from;
   }
