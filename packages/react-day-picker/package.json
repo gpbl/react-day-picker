@@ -19,8 +19,8 @@
     "develop": "tsc --watch",
     "lint": "eslint --ext .ts src",
     "test": "echo .",
-    "coverage": "jest --coverage",
-    "test:watch": "jest --watchAll --coverage",
+    "coverage": "yarn test --coverage",
+    "test:watch": "yarn test --watchAll --coverage",
     "build-clean": "rm -rf lib && rm -rf dist",
     "build-dist": "cross-env TS_NODE_PROJECT=tsconfig.dist.json webpack",
     "build": "yarn build-clean && yarn build-dist && tsc"
