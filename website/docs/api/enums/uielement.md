@@ -233,3 +233,11 @@ ___
 • **Table**: = "table"
 
 The table displaying the calendar.
+
+___
+
+### WeekNumber
+
+• **WeekNumber**: = "weekNumber"
+
+The element containing the week number
