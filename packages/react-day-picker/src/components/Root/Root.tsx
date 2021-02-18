@@ -28,10 +28,7 @@ export function Root(props: RootProps): JSX.Element {
     let isLast =
       numberOfMonths > 1 && displayIndex === displayMonths.length - 1;
 
-    if (dir === 'rtl') {
-      // swap first/last in RTL
-      [isLast, isFirst] = [isFirst, isLast];
-    }
+    if (dir === 'rtl') [isLast, isFirst] = [isFirst, isLast];
 
     const isBetween = numberOfMonths > 1 && !isFirst && !isLast;
 
