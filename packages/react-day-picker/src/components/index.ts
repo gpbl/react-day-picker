@@ -10,4 +10,5 @@ export * from './MonthsDropdown';
 export * from './Root';
 export * from './Row';
 export * from './Table';
+export * from './WeekNumber';
 export * from './YearsDropdown';
