@@ -6,20 +6,26 @@ title: Get Started
 To start using DayPicker in your project
 
 1. add `react-day-picker` to your dependencies:
-  ```bash
-  yarn add react-day-picker@next     # when using yarn
-  npm install react-day-picker@next  # when using npm
-  ```
 
-2. import `DayPicker` and its CSS in your script:
-  ```jsx showOutput open=no
-  import { DayPicker } from 'react-day-picker';
-  import 'react-day-picker/style.css';
+```bash
+yarn add react-day-picker@next     # when using yarn
+npm install react-day-picker@next  # when using npm
+```
 
-  function MyComponent() {
-    return <DayPicker />;
-  }
-  ```
+2. import `DayPicker` and its CSS in your script
+
+   :
+
+```jsx showOutput open=no
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/style.css';
+
+function MyComponent() {
+  return (
+    <DayPicker selectionOptions={{ required: true }} onSelect={console.log} />
+  );
+}
+```
 
 3. see the [DayPicker Component Props](/api/interfaces/daypickerprops) for a list of the
-available props, or continue with the tutorial.
+   available props, or continue with the tutorial.

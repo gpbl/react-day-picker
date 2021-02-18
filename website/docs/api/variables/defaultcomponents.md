@@ -18,5 +18,4 @@ Name | Type |
 `Day` | (`props`: [*DayProps*](../interfaces/dayprops.md)) => JSX.Element \| *null* |
 `IconNext` | (`\_\_namedParameters`: { `className?`: *string*  }) => JSX.Element |
 `IconPrev` | (`\_\_namedParameters`: { `className?`: *string*  }) => JSX.Element |
-`Navigation` | (`props`: [*NavigationProps*](../interfaces/navigationprops.md)) => JSX.Element |
 `Row` | (`props`: [*RowProps*](../interfaces/rowprops.md)) => JSX.Element |

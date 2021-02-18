@@ -1,14 +1,14 @@
 ---
-id: "daysrange"
-title: "Type alias: DaysRange"
-sidebar_label: "DaysRange"
+id: "daterange"
+title: "Type alias: DateRange"
+sidebar_label: "DateRange"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Type alias: DaysRange
+# Type alias: DateRange
 
-Ƭ **DaysRange**: *object*
+Ƭ **DateRange**: *object*
 
 #### Type declaration:
 

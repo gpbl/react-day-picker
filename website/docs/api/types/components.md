@@ -20,5 +20,4 @@ Name | Type |
 `Day`? | *typeof* [*Day*](../functions/day.md) |
 `IconNext`? | *typeof* *IconNext* |
 `IconPrev`? | *typeof* *IconPrev* |
-`Navigation`? | *typeof* *Navigation* |
 `Row`? | *typeof* *Row* |

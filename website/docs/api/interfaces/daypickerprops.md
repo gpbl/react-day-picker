@@ -12,6 +12,34 @@ The props for the [DayPicker](../functions/daypicker.md) component.
 
 ## Properties
 
+### captionLayout
+
+• `Optional` **captionLayout**: *undefined* \| *static* \| *dropdown* \| *buttons*
+
+Change the design of the navigation to navigate between months.
+
+- `buttons` (default): display prev/right buttons
+- `dropdown`: display drop-downs to change the month and the year
+- `none`: do not display the navigation elements
+
+**Note** `dropdown` is valid only when `fromDate` or `toDate` are set. If
+those are not set, it fallbacks to `buttons`.
+
+**Example**
+
+```jsx showOutput open=no
+function Example() {
+ return (
+   <DayPicker
+     fromYear={2020}
+     toYear={2025}
+     captionLayout="dropdown"
+   />
+)};
+```
+
+___
+
 ### className
 
 • `Optional` **className**: *undefined* \| *string*
@@ -69,6 +97,29 @@ Customize the internal components.
 
 ___
 
+### defaultMonth
+
+• `Optional` **defaultMonth**: *undefined* \| Date
+
+The initial month to show in the calendar. Default is the current month.
+
+Notes
+
+- to know when the user changes the month, use [onMonthChange](daypickerprops.md#onmonthchange).
+- to change the month programmatically, use the [month](daypickerprops.md#month) prop.
+
+___
+
+### defaultSelected
+
+• `Optional` **defaultSelected**: [*DateSelection*](../types/dateselection.md)
+
+The default selected days.
+
+The type of this prop depends from the value passed to the `type` prop:
+
+___
+
 ### dir
 
 • `Optional` **dir**: *undefined* \| *string*
@@ -80,7 +131,7 @@ ___
 
 ### disabled
 
-• `Optional` **disabled**: *undefined* \| Date \| [*MatchDate*](../types/matchdate.md) \| [*MatchFromTo*](../types/matchfromto.md) \| [*MatchBeforeAfter*](../types/matchbeforeafter.md) \| [*MatchBefore*](../types/matchbefore.md) \| [*MatchAfter*](../types/matchafter.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **disabled**: *undefined* \| Date \| [*DateRange*](../types/daterange.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `disabled` modifier to the matching days.
 
@@ -90,7 +141,7 @@ Apply the `disabled` modifier to the matching days.
 function Example() {
   return (
     <DayPicker
-      initialMonth={new Date(2021, 11)}
+      defaultMonth={new Date(2021, 11)}
       disabled={{
         from: new Date(2021, 11, 14),
         to: new Date(2021, 11, 24)
@@ -163,7 +214,7 @@ ___
 
 ### hidden
 
-• `Optional` **hidden**: *undefined* \| Date \| [*MatchDate*](../types/matchdate.md) \| [*MatchFromTo*](../types/matchfromto.md) \| [*MatchBeforeAfter*](../types/matchbeforeafter.md) \| [*MatchBefore*](../types/matchbefore.md) \| [*MatchAfter*](../types/matchafter.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **hidden**: *undefined* \| Date \| [*DateRange*](../types/daterange.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `hidden` modifier to the matching days – to hide them from the
 calendar.
@@ -174,7 +225,7 @@ calendar.
 function Example() {
   return (
     <DayPicker
-      initialMonth={new Date(2021, 11)}
+      defaultMonth={new Date(2021, 11)}
       hidden={{
         from: new Date(2021, 11, 14),
         to: new Date(2021, 11, 24)
@@ -216,19 +267,6 @@ function Example() {
  return <DayPicker showHead={false} />
 };
 ```
-
-___
-
-### initialMonth
-
-• `Optional` **initialMonth**: *undefined* \| Date
-
-The initial month to show in the calendar. Default is the current month.
-
-Notes
-
-- to know when the user changes the month, use [onMonthChange](daypickerprops.md#onmonthchange).
-- to change the month programmatically, use the [month](daypickerprops.md#month) prop.
 
 ___
 
@@ -348,7 +386,7 @@ ___
 
 The month to display in the calendar.
 
-As opposed to [initialMonth](daypickerprops.md#initialmonth), use this prop with [onMonthChange](daypickerprops.md#onmonthchange) to
+As opposed to [defaultMonth](daypickerprops.md#defaultmonth), use this prop with [onMonthChange](daypickerprops.md#onmonthchange) to
 change the month programmatically. Implementing [onMonthChange](daypickerprops.md#onmonthchange) will also
 enable months navigation.
 
@@ -366,34 +404,6 @@ function Example() {
     </>
   );
 }
-```
-
-___
-
-### navigationType
-
-• `Optional` **navigationType**: *undefined* \| *none* \| *dropdown* \| *buttons*
-
-Change the design of the navigation to navigate between months.
-
-- `buttons` (default): display prev/right buttons
-- `dropdown`: display drop-downs to change the month and the year
-- `none`: do not display the navigation elements
-
-**Note** `dropdown` is valid only when `fromDate` or `toDate` are set. If
-those are not set, it fallbacks to `buttons`.
-
-**Example**
-
-```jsx showOutput open=no
-function Example() {
- return (
-   <DayPicker
-     fromYear={2020}
-     toYear={2025}
-     navigationType="dropdown"
-   />
-)};
 ```
 
 ___
@@ -420,17 +430,23 @@ ___
 
 • `Optional` **onDayBlur**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
 
+Event fired when a day button lose the focus.
+
 ___
 
 ### onDayClick
 
 • `Optional` **onDayClick**: *undefined* \| [*DayClickEventHandler*](../types/dayclickeventhandler.md)
 
+Event fired when a day is clicked.
+
 ___
 
 ### onDayFocus
 
 • `Optional` **onDayFocus**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+
+Event fired when a day button get the focus.
 
 ___
 
@@ -456,11 +472,15 @@ ___
 
 • `Optional` **onDayMouseEnter**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
 
+Event fired when the mouse enters the day button.
+
 ___
 
 ### onDayMouseLeave
 
 • `Optional` **onDayMouseLeave**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
+
+Event fired when the mouse leaves the day button.
 
 ___
 
@@ -492,6 +512,8 @@ ___
 
 • `Optional` **onMonthChange**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
 
+Event fired when the user navigates between months.
+
 ___
 
 ### onNextClick
@@ -503,6 +525,16 @@ ___
 ### onPrevClick
 
 • `Optional` **onPrevClick**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
+
+___
+
+### onSelect
+
+• `Optional` **onSelect**: *undefined* \| [*SelectEventHandler*](../types/selecteventhandler.md)
+
+Event fired when a day is selected.
+
+**Note:** This event is disabled when `type='uncontrolled'`.
 
 ___
 
@@ -525,6 +557,14 @@ function Example() {
 
 ___
 
+### required
+
+• `Optional` **required**: *undefined* \| *boolean*
+
+When the selection type is controlled, require at least one day as selected.
+
+___
+
 ### reverseMonths
 
 • `Optional` **reverseMonths**: *undefined* \| *boolean*
@@ -544,7 +584,7 @@ ___
 
 ### selected
 
-• `Optional` **selected**: *undefined* \| Date \| [*MatchDate*](../types/matchdate.md) \| [*MatchFromTo*](../types/matchfromto.md) \| [*MatchBeforeAfter*](../types/matchbeforeafter.md) \| [*MatchBefore*](../types/matchbefore.md) \| [*MatchAfter*](../types/matchafter.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **selected**: *undefined* \| Date \| [*DateRange*](../types/daterange.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `selected` modifier to the matching days.
 
@@ -554,7 +594,7 @@ Apply the `selected` modifier to the matching days.
 function Example() {
   return (
     <DayPicker
-      initialMonth={new Date(2021, 11)}
+      defaultMonth={new Date(2021, 11)}
       selected={{
         from: new Date(2021, 11, 14),
         to: new Date(2021, 11, 24)
@@ -658,3 +698,18 @@ function Example() {
   return <DayPicker today={new Date(2022, 2, 18)} />;
 }
 ```
+
+___
+
+### type
+
+• `Optional` **type**: *undefined* \| *uncontrolled* \| *single* \| *multiple* \| *range*
+
+The type of the selection.
+
+- `single` (default) allows selecting only a single day
+- `multiple` allows selecting multiple days
+- `range` allows selecting a range of days
+- `uncontrolled`: you set the days via the `selected` prop and day events.
+
+**Note:** by using the `selected` prop the type is alwyas set to `uncontrolled`.

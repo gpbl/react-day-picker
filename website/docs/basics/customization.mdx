@@ -58,22 +58,22 @@ function Example() {
 
 ### Using a dropdown to navigate between months
 
-When limiting the navigable months, set `navigationType` to display a drop-down
+When limiting the navigable months, set `captionLayout` to display a drop-down
 for navigating between months.
 
 ```jsx showOutput open=no
 function Example() {
-  return <DayPicker fromYear={2015} toYear={2025} navigationType="dropdown" />;
+  return <DayPicker fromYear={2015} toYear={2025} captionLayout="dropdown" />;
 }
 ```
 
 ### Disabling navigation
 
-To disable navigation between months, set `navigationType` to `none`:
+To disable navigation between months, set `captionLayout` to `none`:
 
 ```jsx showOutput open=no
 function Example() {
-  return <DayPicker fromYear={2015} toYear={2025} navigationType="none" />;
+  return <DayPicker fromYear={2015} toYear={2025} captionLayout="none" />;
 }
 ```
 

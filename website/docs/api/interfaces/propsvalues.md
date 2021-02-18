@@ -12,11 +12,17 @@ Represent the value of a [PropsContext](../variables/propscontext.md).
 
 ## Hierarchy
 
-* *Omit*<[*DayPickerProps*](daypickerprops.md), *className* \| *style* \| *initialMonth* \| *month* \| *fromMonth* \| *toMonth* \| *fromYear* \| *toYear*\>
+* *Omit*<[*DayPickerProps*](daypickerprops.md), *className* \| *style* \| *month* \| *fromMonth* \| *toMonth* \| *fromYear* \| *toYear*\>
 
   ↳ **PropsValues**
 
 ## Properties
+
+### captionLayout
+
+• **captionLayout**: [*CaptionLayout*](../types/captionlayout.md)
+
+___
 
 ### classNames
 
@@ -30,18 +36,38 @@ ___
 
 ___
 
+### defaultMonth
+
+• `Optional` **defaultMonth**: *undefined* \| Date
+
+The initial month to show in the calendar. Default is the current month.
+
+Notes
+
+- to know when the user changes the month, use [onMonthChange](propsvalues.md#onmonthchange).
+- to change the month programmatically, use the [month](daypickerprops.md#month) prop.
+
+___
+
+### defaultSelected
+
+• `Optional` **defaultSelected**: [*DateSelection*](../types/dateselection.md)
+
+The default selected days.
+
+The type of this prop depends from the value passed to the `type` prop:
+
+___
+
 ### dir
 
 • `Optional` **dir**: *undefined* \| *string*
-
-The text direction of the calendar. Use `ltr` for left-to-right (default)
-or `rtl` for right-to-left.
 
 ___
 
 ### disabled
 
-• `Optional` **disabled**: *undefined* \| Date \| [*MatchDate*](../types/matchdate.md) \| [*MatchFromTo*](../types/matchfromto.md) \| [*MatchBeforeAfter*](../types/matchbeforeafter.md) \| [*MatchBefore*](../types/matchbefore.md) \| [*MatchAfter*](../types/matchafter.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **disabled**: *undefined* \| Date \| [*DateRange*](../types/daterange.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `disabled` modifier to the matching days.
 
@@ -51,7 +77,7 @@ Apply the `disabled` modifier to the matching days.
 function Example() {
   return (
     <DayPicker
-      initialMonth={new Date(2021, 11)}
+      defaultMonth={new Date(2021, 11)}
       disabled={{
         from: new Date(2021, 11, 14),
         to: new Date(2021, 11, 24)
@@ -106,7 +132,7 @@ ___
 
 ### hidden
 
-• `Optional` **hidden**: *undefined* \| Date \| [*MatchDate*](../types/matchdate.md) \| [*MatchFromTo*](../types/matchfromto.md) \| [*MatchBeforeAfter*](../types/matchbeforeafter.md) \| [*MatchBefore*](../types/matchbefore.md) \| [*MatchAfter*](../types/matchafter.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **hidden**: *undefined* \| Date \| [*DateRange*](../types/daterange.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `hidden` modifier to the matching days – to hide them from the
 calendar.
@@ -117,7 +143,7 @@ calendar.
 function Example() {
   return (
     <DayPicker
-      initialMonth={new Date(2021, 11)}
+      defaultMonth={new Date(2021, 11)}
       hidden={{
         from: new Date(2021, 11, 14),
         to: new Date(2021, 11, 24)
@@ -211,12 +237,6 @@ Change the background color of the days matching the `isToday` modifier.
 
 ___
 
-### navigationType
-
-• **navigationType**: [*NavigationType*](../types/navigationtype.md)
-
-___
-
 ### numberOfMonths
 
 • **numberOfMonths**: *number*
@@ -225,25 +245,33 @@ ___
 
 ### onDayBlur
 
-• `Optional` **onDayBlur**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+• **onDayBlur**: [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+
+Handle focus behavior. Calls the original `onDayBlur` passed from props.
 
 ___
 
 ### onDayClick
 
-• `Optional` **onDayClick**: *undefined* \| [*DayClickEventHandler*](../types/dayclickeventhandler.md)
+• **onDayClick**: [*DayClickEventHandler*](../types/dayclickeventhandler.md)
+
+Handle click behavior. Calls the original `onDayClick` passed from props.
 
 ___
 
 ### onDayFocus
 
-• `Optional` **onDayFocus**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+• **onDayFocus**: [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+
+Handle focus behavior. Calls the original `onDayFocus` passed from props.
 
 ___
 
 ### onDayKeyDown
 
-• `Optional` **onDayKeyDown**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
+• **onDayKeyDown**: [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
+
+Handle keyboard navigation. Calls the original `onDayKeyDown` passed from props.
 
 ___
 
@@ -263,11 +291,15 @@ ___
 
 • `Optional` **onDayMouseEnter**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
 
+Event fired when the mouse enters the day button.
+
 ___
 
 ### onDayMouseLeave
 
 • `Optional` **onDayMouseLeave**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
+
+Event fired when the mouse leaves the day button.
 
 ___
 
@@ -297,7 +329,13 @@ ___
 
 ### onMonthChange
 
-• `Optional` **onMonthChange**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
+• **onMonthChange**: [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
+
+Will set the current month if DayPicker is in controlled mode. Calls the
+original `onMonthChange`.
+
+This event handler will do nothing if the passed month is outside the
+allowed months.
 
 ___
 
@@ -310,6 +348,25 @@ ___
 ### onPrevClick
 
 • `Optional` **onPrevClick**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
+
+___
+
+### onSelect
+
+• `Optional` **onSelect**: *undefined* \| [*SelectEventHandler*](../types/selecteventhandler.md)
+
+Event fired when a day is selected.
+
+**Note:** This event is disabled when `type='uncontrolled'`.
+
+___
+
+### originalProps
+
+• **originalProps**: [*DayPickerProps*](daypickerprops.md)
+
+A reference to the original props passed to the component. Useful for
+inspecting in internal components.
 
 ___
 
@@ -332,6 +389,14 @@ function Example() {
 
 ___
 
+### required
+
+• `Optional` **required**: *undefined* \| *boolean*
+
+When the selection type is controlled, require at least one day as selected.
+
+___
+
 ### reverseMonths
 
 • `Optional` **reverseMonths**: *undefined* \| *boolean*
@@ -351,7 +416,7 @@ ___
 
 ### selected
 
-• `Optional` **selected**: *undefined* \| Date \| [*MatchDate*](../types/matchdate.md) \| [*MatchFromTo*](../types/matchfromto.md) \| [*MatchBeforeAfter*](../types/matchbeforeafter.md) \| [*MatchBefore*](../types/matchbefore.md) \| [*MatchAfter*](../types/matchafter.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **selected**: *undefined* \| Date \| [*DateRange*](../types/daterange.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `selected` modifier to the matching days.
 
@@ -361,7 +426,7 @@ Apply the `selected` modifier to the matching days.
 function Example() {
   return (
     <DayPicker
-      initialMonth={new Date(2021, 11)}
+      defaultMonth={new Date(2021, 11)}
       selected={{
         from: new Date(2021, 11, 14),
         to: new Date(2021, 11, 24)
@@ -430,3 +495,21 @@ ___
 ### today
 
 • **today**: Date
+
+The today’s date used in the calendar. If not overridden from props, is the
+current date.
+
+___
+
+### type
+
+• `Optional` **type**: *undefined* \| *uncontrolled* \| *single* \| *multiple* \| *range*
+
+The type of the selection.
+
+- `single` (default) allows selecting only a single day
+- `multiple` allows selecting multiple days
+- `range` allows selecting a range of days
+- `uncontrolled`: you set the days via the `selected` prop and day events.
+
+**Note:** by using the `selected` prop the type is alwyas set to `uncontrolled`.

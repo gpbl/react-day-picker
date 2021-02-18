@@ -1,0 +1,92 @@
+---
+id: navigating-months
+title: Navigating months
+---
+
+## Change the initial month
+
+As default, DayPicker displays the month of the current day. To change the
+initial month, set the `initialMonth` prop:
+
+```jsx showOutput open=no
+// Set the initial month to September 2022
+function Example() {
+  return <DayPicker initialMonth={new Date(2022, 8)} />;
+}
+```
+
+### Controlling the current month
+
+As default, the current month is stored into the DayPicker’s internal state. To
+change the month programmatically – for example, to create a "Go to today"
+button – the current month must be stored in the parent’s state.
+
+Use `month` (as opposed to `initialMonth`) and `onMonthChange` to handle the
+current month.
+
+```jsx showOutput open=no
+// Add a "Go to today" button.
+function Example() {
+  const [month, setMonth] = useState();
+  return (
+    <>
+      <DayPicker month={month} onMonthChange={setMonth} />
+      <p>
+        <button onClick={() => setMonth(new Date())}>Go to Today</button>
+      </p>
+    </>
+  );
+}
+```
+
+## Limiting the navigable months
+
+As default, DayPicker will display indefinitely in the past or in the future.
+
+To limit the navigable months between certain dates, use `fromDate` and `toDate`, `fromMonth`
+and `toMonth`, or `fromYear` and `toYear`.
+
+```jsx showOutput open=no
+// Navigate between 2015 and 2018.
+function Example() {
+  return (
+    <DayPicker initialMonth={new Date(2015, 0)} fromYear={2015} toYear={2018} />
+  );
+}
+```
+
+### Using a dropdown to navigate between months
+
+When limiting the navigable months, use `captionLayout` to display a drop-down
+for navigating between months – instead of the previous / next buttons.
+
+```jsx showOutput open=no
+function Example() {
+  return <DayPicker fromYear={2015} toYear={2025} captionLayout="dropdown" />;
+}
+```
+
+### Disabling navigation
+
+To disable navigation between months, set `captionLayout` to `none`.
+
+```jsx showOutput open=no
+function Example() {
+  return <DayPicker fromYear={2015} toYear={2025} captionLayout="none" />;
+}
+```
+
+## Multiple months
+
+Use the `numberOfMonths` to render more than one calendar.
+
+When rendering multiple months, use `pagedNavigation` to navigate the number of
+months per time, and `reverseMonths` to display the latest month first.
+
+```jsx showOutput
+import { DayPicker } from 'react-day-picker';
+
+function Example() {
+  return <DayPicker numberOfMonths={2} pagedNavigation />;
+}
+```
