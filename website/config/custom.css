@@ -33,9 +33,9 @@ html[data-theme='dark'] {
   --ifm-alert-color: inherit;
   --ra-admonition-icon-color: var(--ifm-font-color-base);
   --ifm-code-background: #24282d;
-  --rdp-accent-color-light: #3003e1;
-  --rdp-accent-color-lighter: #2a03c5;
-  --rdp-accent-color-lightest: #180270;
+  --rdp-accent-color-light: var(--rdp-accent-color-dark);
+  --rdp-accent-color-lighter: var(--rdp-accent-color-darker);
+  --rdp-accent-color-lightest: var(--rdp-accent-color-darkest);
 }
 details summary {
   font-weight: bold;

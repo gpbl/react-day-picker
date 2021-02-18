@@ -23,7 +23,7 @@ function Example() {
   };
   return (
     <DayPicker
-      initialMonth={new Date(2022, 4)}
+      defaultMonth={new Date(2022, 4)}
       selected={[new Date(2022, 4, 12), new Date(2022, 4, 14)]}
       onDayClick={handleDayClick}
     />
@@ -48,7 +48,7 @@ function Example() {
   return (
     <DayPicker
       numberOfMonths={2}
-      initialMonth={new Date(2022, 4)}
+      defaultMonth={new Date(2022, 4)}
       disabled={disabledDays}
     />
   );
@@ -118,7 +118,7 @@ function Example() {
   };
   return (
     <DayPicker
-      initialMonth={bookedDays[0]}
+      defaultMonth={bookedDays[0]}
       modifiers={{
         booked: bookedDays
       }}
@@ -156,7 +156,7 @@ function Example() {
 
   return (
     <DayPicker
-      initialMonth={bookedDays[0]}
+      defaultMonth={bookedDays[0]}
       modifiers={{
         booked: bookedDays,
         available: availableDays

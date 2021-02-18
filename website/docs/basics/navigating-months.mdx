@@ -5,23 +5,24 @@ title: Navigating months
 
 ## Change the initial month
 
-As default, DayPicker displays the month of the current day. To change the
-initial month, set the `initialMonth` prop:
+DayPicker displays the month of the current day. To change the
+initial month, set the `defaultMonth` prop:
 
 ```jsx showOutput open=no
 // Set the initial month to September 2022
 function Example() {
-  return <DayPicker initialMonth={new Date(2022, 8)} />;
+  return <DayPicker defaultMonth={new Date(2022, 8)} />;
 }
 ```
 
 ### Controlling the current month
 
-As default, the current month is stored into the DayPicker’s internal state. To
-change the month programmatically – for example, to create a "Go to today"
-button – the current month must be stored in the parent’s state.
+The current month is stored into the DayPicker’s internal state.
 
-Use `month` (as opposed to `initialMonth`) and `onMonthChange` to handle the
+To control the current month – for example, to create a "Go to today"
+button – set it in the parent’s state.
+
+Use `month` (as opposed to `defaultMonth`) and `onMonthChange` to handle the
 current month.
 
 ```jsx showOutput open=no
@@ -50,7 +51,7 @@ and `toMonth`, or `fromYear` and `toYear`.
 // Navigate between 2015 and 2018.
 function Example() {
   return (
-    <DayPicker initialMonth={new Date(2015, 0)} fromYear={2015} toYear={2018} />
+    <DayPicker defaultMonth={new Date(2015, 0)} fromYear={2015} toYear={2018} />
   );
 }
 ```
@@ -66,27 +67,13 @@ function Example() {
 }
 ```
 
-### Disabling navigation
+## Disabling navigation
 
-To disable navigation between months, set `captionLayout` to `none`.
+To disable the navigation between months, use `disableNavigation`. It will turn
+off also the keyboard navigation.
 
 ```jsx showOutput open=no
 function Example() {
-  return <DayPicker fromYear={2015} toYear={2025} captionLayout="none" />;
-}
-```
-
-## Multiple months
-
-Use the `numberOfMonths` to render more than one calendar.
-
-When rendering multiple months, use `pagedNavigation` to navigate the number of
-months per time, and `reverseMonths` to display the latest month first.
-
-```jsx showOutput
-import { DayPicker } from 'react-day-picker';
-
-function Example() {
-  return <DayPicker numberOfMonths={2} pagedNavigation />;
+  return <DayPicker fromYear={2015} toYear={2025} disableNavigation />;
 }
 ```

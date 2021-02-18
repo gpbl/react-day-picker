@@ -21,9 +21,7 @@ import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/style.css';
 
 function MyComponent() {
-  return (
-    <DayPicker selectionOptions={{ required: true }} onSelect={console.log} />
-  );
+  return <DayPicker required onSelect={console.log} />;
 }
 ```
 
