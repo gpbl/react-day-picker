@@ -40,7 +40,7 @@ import { getNavMonths } from './utils/getNavMonths';
  *
  * **Example**
  *
- * ```jsx showOutput
+ * ```jsx
  * function Example() {
  *   const [selected, setSelected] = useState();
  *
