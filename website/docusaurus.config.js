@@ -58,18 +58,7 @@ module.exports = {
           sidebarPath: require.resolve('./config/sidebar.js'),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          routeBasePath: '/',
-          remarkPlugins: [
-            [
-              transpileCodeblocks,
-              {
-                compilerSettings: {
-                  tsconfig: resolve(__dirname, '../website/tsconfig.json'),
-                  externalResolutions: {}
-                }
-              }
-            ]
-          ]
+          routeBasePath: '/'
         },
         // pages: false,
         theme: {
