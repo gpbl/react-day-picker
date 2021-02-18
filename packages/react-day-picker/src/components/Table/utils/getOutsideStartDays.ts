@@ -1,4 +1,9 @@
-import { addDays, differenceInDays, Locale, startOfWeek } from 'date-fns';
+import {
+  addDays,
+  differenceInCalendarDays,
+  Locale,
+  startOfWeek
+} from 'date-fns';
 
 export function getOutsideStartDays(
   month: Date,
@@ -6,7 +11,7 @@ export function getOutsideStartDays(
 ): Date[] {
   const days = [];
   const firstDayOfWeek = startOfWeek(month, options);
-  const startDiff = differenceInDays(month, firstDayOfWeek);
+  const startDiff = differenceInCalendarDays(month, firstDayOfWeek);
 
   for (let i = 0; i < startDiff; i++) {
     const newDay = addDays(firstDayOfWeek, i);

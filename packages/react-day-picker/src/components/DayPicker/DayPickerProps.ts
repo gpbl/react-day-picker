@@ -175,6 +175,10 @@ export interface DayPickerProps {
    */
   toYear?: number;
   /**
+   * Completely disable the navigation between months.
+   */
+  disableNavigation?: boolean;
+  /**
    * Change the design of the navigation to navigate between months.
    *
    * - `buttons` (default): display prev/right buttons
@@ -265,18 +269,6 @@ export interface DayPickerProps {
    * ```
    */
   fixedWeeks?: boolean;
-  /**
-   * Show the month’s caption. As default, the caption displays month and year.
-   *
-   * **Example**
-   *
-   * ```jsx showOutput open=no
-   * function Example() {
-   *  return <DayPicker showCaption={false} />
-   * };
-   * ```
-   */
-  hideCaption?: boolean;
   /**
    * Show the month’s head. As default, it displays the weekday names according
    * to [[locale]].

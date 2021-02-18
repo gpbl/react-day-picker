@@ -1,4 +1,4 @@
-import { differenceInDays, isSameDay } from 'date-fns';
+import { differenceInCalendarDays, isSameDay } from 'date-fns';
 
 import { PropsValues } from '../../../components';
 import { Matcher } from '../../../types';
@@ -11,19 +11,19 @@ function matchDate(day: Date, matcher: Matcher): boolean {
 function matchBeforeAndAfter(day: Date, matcher: Matcher): boolean {
   if (!('before' in matcher) || !('after' in matcher)) return false;
   return (
-    differenceInDays(day, matcher.before) < 0 &&
-    differenceInDays(day, matcher.after) > 0
+    differenceInCalendarDays(day, matcher.before) < 0 &&
+    differenceInCalendarDays(day, matcher.after) > 0
   );
 }
 
 function matchBefore(day: Date, matcher: Matcher): boolean {
   if (!('before' in matcher) || 'after' in matcher) return false;
-  return differenceInDays(day, matcher.before) < 0;
+  return differenceInCalendarDays(day, matcher.before) < 0;
 }
 
 function matchAfter(day: Date, matcher: Matcher): boolean {
   if (!('after' in matcher) || 'before' in matcher) return false;
-  return differenceInDays(day, matcher.after) > 0;
+  return differenceInCalendarDays(day, matcher.after) > 0;
 }
 
 function matchRange(day: Date, matcher: Matcher): boolean {
@@ -35,11 +35,13 @@ function matchRange(day: Date, matcher: Matcher): boolean {
   if (!to && from && isSameDay(from, day)) return true;
   if (!to) return false;
   // Invert the case where "to" is before "from"
-  if (matcher.to && differenceInDays(from, matcher.to) < 0) {
-    from = matcher.to;
-    to = matcher.from;
+  if (matcher.to && differenceInCalendarDays(matcher.to, matcher.from) < 0) {
+    [from, to] = [matcher.to, matcher.from];
   }
-  return differenceInDays(from, day) >= 0 && differenceInDays(to, day) <= 0;
+  return (
+    differenceInCalendarDays(day, from) >= 0 &&
+    differenceInCalendarDays(to, day) >= 0
+  );
 }
 
 function matchDaysOfWeek(day: Date, matcher: Matcher): boolean {

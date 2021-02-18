@@ -1,4 +1,4 @@
-import { addDays, differenceInDays, endOfWeek } from 'date-fns';
+import { addDays, differenceInCalendarDays, endOfWeek } from 'date-fns';
 
 export function getOutsideEndDays(
   month: Date,
@@ -6,7 +6,7 @@ export function getOutsideEndDays(
 ): Date[] {
   const days = [];
   const lastDayOfWeek = endOfWeek(month, options);
-  const endDiff = differenceInDays(lastDayOfWeek, month);
+  const endDiff = differenceInCalendarDays(lastDayOfWeek, month);
 
   for (let i = 1; i <= endDiff; i++) {
     const dayDate = addDays(month, i);

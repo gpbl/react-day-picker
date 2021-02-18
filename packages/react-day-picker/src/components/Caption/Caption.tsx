@@ -34,7 +34,8 @@ export function Caption(props: CaptionProps): JSX.Element {
     numberOfMonths,
     onMonthChange,
     labels,
-    formatters: { formatCaption }
+    formatters: { formatCaption },
+    disableNavigation
   } = useProps();
   const { prevMonth, nextMonth } = useNavigation();
 
@@ -103,17 +104,23 @@ export function Caption(props: CaptionProps): JSX.Element {
 
   return (
     <div className={classNames[UI.Caption]}>
-      {captionLayout === 'dropdown' && (
-        <div className={classNames[UI.CaptionDropdowns]}>
-          <MonthsDropdown displayMonth={displayMonth} />
-          <YearsDropdown displayMonth={displayMonth} />
-        </div>
+      {disableNavigation ? (
+        caption
+      ) : (
+        <>
+          {captionLayout === 'dropdown' && (
+            <div className={classNames[UI.CaptionDropdowns]}>
+              <MonthsDropdown displayMonth={displayMonth} />
+              <YearsDropdown displayMonth={displayMonth} />
+            </div>
+          )}
+          {captionLayout === 'buttons' &&
+            numberOfMonths === 1 && [caption, nav]}
+          {captionLayout === 'buttons' && isFirst && [nav, caption]}
+          {captionLayout === 'buttons' && isLast && [caption, nav]}
+          {captionLayout === 'buttons' && isBetween && caption}
+        </>
       )}
-      {captionLayout === 'buttons' && numberOfMonths === 1 && [caption, nav]}
-      {captionLayout === 'buttons' && isFirst && [nav, caption]}
-      {captionLayout === 'buttons' && isLast && [caption, nav]}
-      {captionLayout === 'buttons' && isBetween && caption}
-      {captionLayout === 'static' && caption}
     </div>
   );
 }

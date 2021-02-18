@@ -21,6 +21,7 @@ import {
   DayFocusEventHandler,
   DayKeyboardEventHandler,
   KeyCode,
+  ModifiersMatchers,
   MonthChangeEventHandler
 } from '../../types';
 import {
@@ -56,10 +57,11 @@ import { getNavMonths } from './utils/getNavMonths';
 export function DayPicker(props: DayPickerProps): JSX.Element {
   //#region Default values
   const today = props.today ?? defaults.today;
-  const type = props.type || defaults.type;
   const locale = props.locale || defaults.locale;
   const numberOfMonths = props.numberOfMonths || defaults.numberOfMonths;
   const showOutsideDays = props.showOutsideDays || props.fixedWeeks;
+  const type =
+    'selected' in props ? 'uncontrolled' : props.type || defaults.type;
 
   // Give precedence to `fromYear` and `fromMonth`
   let fromDate: Date | undefined = props.fromDate;
@@ -118,7 +120,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     setControlledSelected
   ] = useSelection(defaultSelected, type, onSelect, { required });
   React.useEffect(() => {
-    setIsSelectionControlled(type !== 'uncontrolled');
+    setIsSelectionControlled(!('selected' in props) || type !== 'uncontrolled');
   }, [type]);
   if (!isSelectionControlled) type === 'uncontrolled';
 
@@ -143,7 +145,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   };
   const onDayFocus: DayFocusEventHandler = (day, modifiers, e) => {
     const sameMonth = isSameMonth(day, currentMonth);
-    if (!sameMonth && captionLayout === 'static') return;
+    if (!sameMonth && props.disableNavigation) return;
 
     if (!sameMonth) onMonthChange(startOfMonth(day), e);
     setFocusedDay(day);
@@ -192,6 +194,36 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   };
   //#endregion
 
+  const selected = isSelectionControlled ? controlledSelected : props.selected;
+
+  const rangeModifiers: ModifiersMatchers = {};
+  if (
+    controlledSelected &&
+    'from' in controlledSelected &&
+    controlledSelected.from
+  ) {
+    rangeModifiers.from = controlledSelected.from;
+  }
+  if (
+    controlledSelected &&
+    'to' in controlledSelected &&
+    controlledSelected.to
+  ) {
+    rangeModifiers.to = controlledSelected?.to;
+  }
+  if (
+    controlledSelected &&
+    'to' in controlledSelected &&
+    'from' in controlledSelected &&
+    'to' in controlledSelected &&
+    controlledSelected.to
+  ) {
+    rangeModifiers.between = {
+      after: controlledSelected.from,
+      before: controlledSelected.to
+    };
+  }
+
   const propsValues: PropsValues = {
     ...props,
     captionLayout,
@@ -206,7 +238,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
 
     locale,
     modifierPrefix: props.modifierPrefix || defaults.modifierPrefix,
-    modifiers: { ...defaultModifiers, ...props.modifiers },
+    modifiers: { ...defaultModifiers, ...rangeModifiers, ...props.modifiers },
     numberOfMonths,
     onDayBlur,
     onDayClick,
@@ -214,7 +246,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     onDayKeyDown,
     onMonthChange,
     originalProps: props,
-    selected: isSelectionControlled ? controlledSelected : props.selected,
+    selected,
     showOutsideDays,
     today,
     type
@@ -225,7 +257,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     toDate,
     pagedNavigation: props.pagedNavigation,
     numberOfMonths,
-    captionLayout: captionLayout
+    disableNavigation: props.disableNavigation
   });
 
   const navigationValues: NavigationContextValue = {

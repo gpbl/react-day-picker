@@ -22,11 +22,11 @@ export function useRangeSelection(
   onSelect?: SelectEventHandler,
   options: SelectionOptions = { required: false }
 ): UseRangeSelection {
-  const [value, setValue] = useState<DateRange>(initialValue || emptyRange);
+  const [value, setValue] = useState<DateRange | undefined>(initialValue);
 
   const handleSelect: RangeSelectionHandler = (day) => {
     setValue((currentValue) => {
-      const newValue = addToRange(currentValue, day, options.required);
+      const newValue = addToRange(day, currentValue, options.required);
       onSelect?.(newValue);
       setValue(newValue);
       return newValue;
