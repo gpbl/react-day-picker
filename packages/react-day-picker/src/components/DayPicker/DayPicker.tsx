@@ -21,7 +21,6 @@ import {
   DayFocusEventHandler,
   DayKeyboardEventHandler,
   KeyCode,
-  ModifiersMatchers,
   MonthChangeEventHandler
 } from '../../types';
 import {
@@ -117,8 +116,10 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   );
   const [
     controlledSelected,
-    setControlledSelected
+    setControlledSelected,
+    selectionModifiers
   ] = useSelection(defaultSelected, type, onSelect, { required });
+
   React.useEffect(() => {
     setIsSelectionControlled(!('selected' in props) || type !== 'uncontrolled');
   }, [type]);
@@ -196,34 +197,6 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
 
   const selected = isSelectionControlled ? controlledSelected : props.selected;
 
-  const rangeModifiers: ModifiersMatchers = {};
-  if (
-    controlledSelected &&
-    'from' in controlledSelected &&
-    controlledSelected.from
-  ) {
-    rangeModifiers.from = controlledSelected.from;
-  }
-  if (
-    controlledSelected &&
-    'to' in controlledSelected &&
-    controlledSelected.to
-  ) {
-    rangeModifiers.to = controlledSelected?.to;
-  }
-  if (
-    controlledSelected &&
-    'to' in controlledSelected &&
-    'from' in controlledSelected &&
-    'to' in controlledSelected &&
-    controlledSelected.to
-  ) {
-    rangeModifiers.between = {
-      after: controlledSelected.from,
-      before: controlledSelected.to
-    };
-  }
-
   const propsValues: PropsValues = {
     ...props,
     captionLayout,
@@ -238,7 +211,11 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
 
     locale,
     modifierPrefix: props.modifierPrefix || defaults.modifierPrefix,
-    modifiers: { ...defaultModifiers, ...rangeModifiers, ...props.modifiers },
+    modifiers: {
+      ...defaultModifiers,
+      ...selectionModifiers,
+      ...props.modifiers
+    },
     numberOfMonths,
     onDayBlur,
     onDayClick,

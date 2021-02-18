@@ -4,6 +4,7 @@ import {
   DateRange,
   DateSelection,
   DayClickEventHandler,
+  ModifiersMatchers,
   SelectEventHandler,
   SelectionOptions,
   SelectionType
@@ -15,6 +16,7 @@ import { useSingleSelection } from '../useSingleSelection/useSingleSelection';
 export type UseSelection = [
   selection: DateSelection | undefined,
   handleClick: DayClickEventHandler,
+  modifiers: ModifiersMatchers,
   reset: () => void
 ];
 
@@ -62,13 +64,26 @@ export function useSelection(
   };
   useEffect(reset, [type, options.required]);
 
+  const modifiers: ModifiersMatchers = {};
   switch (type) {
     case 'range':
-      return [range, setRange, resetRange];
+      if (range && range.from) {
+        modifiers.from = range.from;
+      }
+      if (range && range.to) {
+        modifiers.to = range.to;
+      }
+      if (range && range.to && range.from) {
+        modifiers.between = {
+          after: range.from,
+          before: range.to
+        };
+      }
+      return [range, setRange, modifiers, resetRange];
     case 'multiple':
-      return [multiple, setMultiple, resetMultiple];
+      return [multiple, setMultiple, modifiers, resetMultiple];
     case 'single':
     default:
-      return [single, setSingle, resetSingle];
+      return [single, setSingle, modifiers, resetSingle];
   }
 }
