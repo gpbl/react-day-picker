@@ -6,7 +6,7 @@
   --rdp-accent-color-lightest: #f6f4ff;
   /* Switch to dark colors for dark themes */
   --rdp-accent-color-dark: #3003e1;
-  --rdp-accent-color-darker: #2a03c5;
+  --rdp-accent-color-darker: #1e0097;
   --rdp-accent-color-darkest: #180270;
   --rdp-cell-size: 40px;
   --rdp-border-focus: 2px solid var(--rdp-accent-color);
@@ -281,11 +281,10 @@
 .rdp .rdp-day_between {
   color: inherit;
   border-radius: 0;
-  background-color: var(--rdp-accent-color-lightest);
+  background-color: var(--rdp-accent-color-lighter);
 }
 .rdp .rdp-day.rdp-day_between:hover {
-  color: inherit;
-  background-color: var(--rdp-accent-color-lighter);
+  color: white;
 }
 
 .rdp .rdp-day_selected:hover {
