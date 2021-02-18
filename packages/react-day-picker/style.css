@@ -50,8 +50,8 @@ button.rdp-day:focus {
   color: inherit;
 }
 
-button.rdp-day:hover,
-button.rdp-weeknumber:hover {
+button.rdp-day:hover:not([disabled]),
+button.rdp-weeknumber:hover:not([disabled]) {
   background-color: var(--rdp-accent-color-lightest);
 }
 
