@@ -4,6 +4,7 @@ import {
   CaptionLayout,
   ClassNames,
   Components,
+  DateSelection,
   DayClickEventHandler,
   DayFocusEventHandler,
   DayKeyboardEventHandler,
@@ -16,7 +17,9 @@ import {
   ModifiersClassNames,
   ModifiersMatchers,
   ModifiersStyles,
-  MonthChangeEventHandler
+  MonthChangeEventHandler,
+  SelectEventHandler,
+  SelectionType
 } from '../../types';
 
 /**
@@ -132,7 +135,7 @@ export interface DayPickerProps {
    * - to know when the user changes the month, use [[onMonthChange]].
    * - to change the month programmatically, use the [[month]] prop.
    */
-  initialMonth?: Date;
+  defaultMonth?: Date;
   /**
    * Change the number of months rendered by the component. Defaults to `1`.
    *
@@ -227,7 +230,7 @@ export interface DayPickerProps {
   /**
    * The month to display in the calendar.
    *
-   * As opposed to [[initialMonth]], use this prop with [[onMonthChange]] to
+   * As opposed to [[defaultMonth]], use this prop with [[onMonthChange]] to
    * change the month programmatically. Implementing [[onMonthChange]] will also
    * enable months navigation.
    *
@@ -323,6 +326,27 @@ export interface DayPickerProps {
    */
   showWeekNumber?: boolean;
   /**
+   * The default selected days.
+   *
+   * The type of this prop depends from the value passed to the `type` prop:
+   */
+  defaultSelected?: DateSelection;
+  /**
+   * The type of the selection.
+   *
+   * - `single` (default) allows selecting only a single day
+   * - `multiple` allows selecting multiple days
+   * - `range` allows selecting a range of days
+   * - `uncontrolled`: you set the days via the `selected` prop and day events.
+   *
+   * **Note:** by using the `selected` prop the type is alwyas set to `uncontrolled`.
+   */
+  type?: SelectionType;
+  /**
+   * When the selection type is controlled, require at least one day as selected.
+   */
+  required?: boolean;
+  /**
    * Apply the `selected` modifier to the matching days.
    *
    * **Example**
@@ -331,7 +355,7 @@ export interface DayPickerProps {
    * function Example() {
    *   return (
    *     <DayPicker
-   *       initialMonth={new Date(2021, 11)}
+   *       defaultMonth={new Date(2021, 11)}
    *       selected={{
    *         from: new Date(2021, 11, 14),
    *         to: new Date(2021, 11, 24)
@@ -351,7 +375,7 @@ export interface DayPickerProps {
    * function Example() {
    *   return (
    *     <DayPicker
-   *       initialMonth={new Date(2021, 11)}
+   *       defaultMonth={new Date(2021, 11)}
    *       disabled={{
    *         from: new Date(2021, 11, 14),
    *         to: new Date(2021, 11, 24)
@@ -372,7 +396,7 @@ export interface DayPickerProps {
    * function Example() {
    *   return (
    *     <DayPicker
-   *       initialMonth={new Date(2021, 11)}
+   *       defaultMonth={new Date(2021, 11)}
    *       hidden={{
    *         from: new Date(2021, 11, 14),
    *         to: new Date(2021, 11, 24)
@@ -448,10 +472,35 @@ export interface DayPickerProps {
   components?: Components;
 
   /* Event handlers */
+  /**
+   * Event fired when the user navigates between months.
+   */
+  onMonthChange?: MonthChangeEventHandler;
+  /**
+   * Event fired when a day is selected.
+   *
+   * **Note:** This event is disabled when `type='uncontrolled'`.
+   */
+  onSelect?: SelectEventHandler;
+  /**
+   * Event fired when a day is clicked.
+   */
   onDayClick?: DayClickEventHandler;
+  /**
+   * Event fired when a day button get the focus.
+   */
   onDayFocus?: DayFocusEventHandler;
+  /**
+   * Event fired when a day button lose the focus.
+   */
   onDayBlur?: DayFocusEventHandler;
+  /**
+   * Event fired when the mouse enters the day button.
+   */
   onDayMouseEnter?: DayMouseEventHandler;
+  /**
+   * Event fired when the mouse leaves the day button.
+   */
   onDayMouseLeave?: DayMouseEventHandler;
   onDayKeyDown?: DayKeyboardEventHandler;
   onDayKeyUp?: DayKeyboardEventHandler;
@@ -460,7 +509,6 @@ export interface DayPickerProps {
   onDayTouchEnd?: DayTouchEventHandler;
   onDayTouchMove?: DayTouchEventHandler;
   onDayTouchStart?: DayTouchEventHandler;
-  onMonthChange?: MonthChangeEventHandler;
   onNextClick?: MonthChangeEventHandler;
   onPrevClick?: MonthChangeEventHandler;
 }

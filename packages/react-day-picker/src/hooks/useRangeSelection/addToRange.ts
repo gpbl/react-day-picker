@@ -1,6 +1,6 @@
 import { isAfter, isBefore, isSameDay } from 'date-fns';
 
-import { DaysRange } from '../../types';
+import { DateRange } from '../../types';
 
 /**
  * Add a day to an existing range.
@@ -8,12 +8,16 @@ import { DaysRange } from '../../types';
  * The returned range takes in account the `undefined` values and if the added
  * day is already present in the range.
  */
-export function addToRange(range: DaysRange, day: Date): DaysRange {
+export function addToRange(
+  range: DateRange,
+  day: Date,
+  required = false
+): DateRange {
   const { from, to } = range;
   if (!from) {
     return { from: day };
   }
-  if (!to && isSameDay(from, day)) {
+  if (!required && !to && isSameDay(from, day)) {
     return { from: undefined, to: undefined };
   }
   if (!to && isBefore(day, from)) {
