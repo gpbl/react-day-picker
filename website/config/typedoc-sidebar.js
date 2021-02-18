@@ -23,6 +23,7 @@ module.exports = [
       "api/interfaces/rowprops",
       "api/interfaces/selectionoptions",
       "api/interfaces/tableprops",
+      "api/interfaces/weeknumberprops",
       "api/interfaces/yearsdropdownprops"
     ]
   },
@@ -63,6 +64,7 @@ module.exports = [
       "api/types/useinput",
       "api/types/useinputoptions",
       "api/types/userangeselection",
+      "api/types/weeknumberclickeventhandler",
       "api/types/weeknumberformatter",
       "api/types/weeknumberlabelformatter",
       "api/types/weekdayformatter",
@@ -100,6 +102,7 @@ module.exports = [
       "api/functions/root",
       "api/functions/row",
       "api/functions/table",
+      "api/functions/weeknumber",
       "api/functions/yearsdropdown",
       "api/functions/addtorange",
       "api/functions/getmodifiers",

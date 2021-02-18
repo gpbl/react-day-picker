@@ -8,10 +8,9 @@ hide_title: true
 
 # Type alias: CaptionLayout
 
-Ƭ **CaptionLayout**: *static* \| *dropdown* \| *buttons*
+Ƭ **CaptionLayout**: *dropdown* \| *buttons*
 
 The layout of the caption:
 
-- `static` - only show the caption label without navigation
 - `dropdown` - display a month / year dropdown
 - `buttons` - display previous / next month button.

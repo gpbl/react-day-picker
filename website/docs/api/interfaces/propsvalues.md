@@ -42,26 +42,27 @@ ___
 
 The initial month to show in the calendar. Default is the current month.
 
-Notes
-
-- to know when the user changes the month, use [onMonthChange](propsvalues.md#onmonthchange).
-- to change the month programmatically, use the [month](daypickerprops.md#month) prop.
-
 ___
 
 ### defaultSelected
 
 • `Optional` **defaultSelected**: [*DateSelection*](../types/dateselection.md)
 
-The default selected days.
-
-The type of this prop depends from the value passed to the `type` prop:
+The default selected day(s).
 
 ___
 
 ### dir
 
 • `Optional` **dir**: *undefined* \| *string*
+
+___
+
+### disableNavigation
+
+• `Optional` **disableNavigation**: *undefined* \| *boolean*
+
+Disable the navigation between months.
 
 ___
 
@@ -93,7 +94,7 @@ ___
 
 • `Optional` **enableOutsideDaysClick**: *undefined* \| *boolean*
 
-Enable the dayclick event for outside days when [showOutsideDays](propsvalues.md#showoutsidedays) is set.
+Enable the day click event for outside days when [showOutsideDays](propsvalues.md#showoutsidedays) is set.
 Default to `false`.
 
 ___
@@ -126,7 +127,7 @@ ___
 
 • `Optional` **fromDate**: *undefined* \| Date
 
-The day to start the calendar.
+The earliest day to start the month navigation.
 
 ___
 
@@ -155,34 +156,17 @@ function Example() {
 
 ___
 
-### hideCaption
-
-• `Optional` **hideCaption**: *undefined* \| *boolean*
-
-Show the month’s caption. As default, the caption displays month and year.
-
-**Example**
-
-```jsx showOutput open=no
-function Example() {
- return <DayPicker showCaption={false} />
-};
-```
-
-___
-
 ### hideHead
 
 • `Optional` **hideHead**: *undefined* \| *boolean*
 
-Show the month’s head. As default, it displays the weekday names according
-to [locale](propsvalues.md#locale).
+Hide the month’s head displaying the weekday names.
 
 **Example**
 
 ```jsx showOutput open=no
 function Example() {
- return <DayPicker showHead={false} />
+ return <DayPicker hideHead />
 };
 ```
 
@@ -222,7 +206,7 @@ ___
 
 • `Optional` **modifiersStyles**: *undefined* \| [*ModifiersStyles*](../types/modifiersstyles.md)
 
-Change the inline style for the day UI element matching the [modifiers](propsvalues.md#modifiers).
+Change the inline style for the day matching the [modifiers](propsvalues.md#modifiers).
 
 **Example**
 
@@ -361,6 +345,12 @@ Event fired when a day is selected.
 
 ___
 
+### onWeekNumberClick
+
+• `Optional` **onWeekNumberClick**: *undefined* \| [*WeekNumberClickEventHandler*](../types/weeknumberclickeventhandler.md)
+
+___
+
 ### originalProps
 
 • **originalProps**: [*DayPickerProps*](daypickerprops.md)
@@ -374,16 +364,13 @@ ___
 
 • `Optional` **pagedNavigation**: *undefined* \| *boolean*
 
-When displaying more than one months, the navigation will be paginated
-displaying the number of months at time (instead of one).
-
-Requires [numberOfMonths](propsvalues.md#numberofmonths) to be set. Default to `false`.
+Paginate the month navigation displaying the [numberOfMonths](propsvalues.md#numberofmonths) at time.
 
 **Example**
 
 ```jsx showOutput open=no
 function Example() {
- return <DayPicker numberOfMonths={2} pagedNavigation />
+ return <DayPicker numberOfMonths={3} pagedNavigation />
 };
 ```
 
@@ -393,7 +380,7 @@ ___
 
 • `Optional` **required**: *undefined* \| *boolean*
 
-When the selection type is controlled, require at least one day as selected.
+When the selection type is controlled, require at least one day to be selected.
 
 ___
 
@@ -401,8 +388,8 @@ ___
 
 • `Optional` **reverseMonths**: *undefined* \| *boolean*
 
-Render the months in reversed order when [numberOfMonths](propsvalues.md#numberofmonths) is greater than
-`1` – to display the most recent month first.
+Render the months in reversed order (when [numberOfMonths](propsvalues.md#numberofmonths) is greater
+than `1`) to display the most recent month first.
 
 **Example**
 
@@ -442,10 +429,8 @@ ___
 
 • `Optional` **showOutsideDays**: *undefined* \| *boolean*
 
-Show the outside days.
-
-An outside day is a day falling in the next or the previous month. Default
-is `false`.
+Show the outside days.  An outside day is a day falling in the next or the
+previous month. Default is `false`.
 
 Outside days are not interactive as default. Use [enableOutsideDaysClick](propsvalues.md#enableoutsidedaysclick)
 to make them clickable.
@@ -480,7 +465,7 @@ ___
 
 • `Optional` **styles**: *undefined* \| [*DayPickerStyles*](../types/daypickerstyles.md)
 
-Change the inline styles for each UI element.
+Change the inline styles for each [UIElement](../enums/uielement.md).
 
 ___
 
@@ -488,7 +473,7 @@ ___
 
 • `Optional` **toDate**: *undefined* \| Date
 
-The day to end the calendar.
+The latest day to end the month navigation.
 
 ___
 
@@ -512,4 +497,17 @@ The type of the selection.
 - `range` allows selecting a range of days
 - `uncontrolled`: you set the days via the `selected` prop and day events.
 
-**Note:** by using the `selected` prop the type is alwyas set to `uncontrolled`.
+**Note:** by using the `selected` prop the type is always set to `uncontrolled`.
+
+**Example**
+
+When setting to `uncontrolled`, the s
+
+```jsx showOutput open=no
+function Example() {
+ const [day, setDay] = useState(new Date());
+ return (
+   <DayPicker type="uncontrolled" selected={day} onDayClick={setDay} />
+ )
+};
+```

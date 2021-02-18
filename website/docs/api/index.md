@@ -29,6 +29,7 @@ hide_title: true
 - [RowProps](interfaces/rowprops.md)
 - [SelectionOptions](interfaces/selectionoptions.md)
 - [TableProps](interfaces/tableprops.md)
+- [WeekNumberProps](interfaces/weeknumberprops.md)
 - [YearsDropdownProps](interfaces/yearsdropdownprops.md)
 
 ### Type aliases
@@ -66,6 +67,7 @@ hide_title: true
 - [UseInput](types/useinput.md)
 - [UseInputOptions](types/useinputoptions.md)
 - [UseRangeSelection](types/userangeselection.md)
+- [WeekNumberClickEventHandler](types/weeknumberclickeventhandler.md)
 - [WeekNumberFormatter](types/weeknumberformatter.md)
 - [WeekNumberLabelFormatter](types/weeknumberlabelformatter.md)
 - [WeekdayFormatter](types/weekdayformatter.md)
@@ -97,6 +99,7 @@ hide_title: true
 - [Root](functions/root.md)
 - [Row](functions/row.md)
 - [Table](functions/table.md)
+- [WeekNumber](functions/weeknumber.md)
 - [YearsDropdown](functions/yearsdropdown.md)
 - [addToRange](functions/addtorange.md)
 - [getModifiers](functions/getmodifiers.md)

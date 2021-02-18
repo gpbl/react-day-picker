@@ -307,15 +307,19 @@ export interface DayPickerProps {
    * - `single` (default) allows selecting only a single day
    * - `multiple` allows selecting multiple days
    * - `range` allows selecting a range of days
-   * - `uncontrolled`: you set the days via the `selected` prop and day events.
-   *
-   * **Note:** by using the `selected` prop the type is always set to `uncontrolled`.
+   * - `uncontrolled`: set the selections using the `selected` prop
    *
    * **Example**
    *
+   * When setting to `uncontrolled`, handle the selection in the parent
+   * component’ state:
+   *
    * ```jsx showOutput open=no
    * function Example() {
-   *  return <DayPicker type="uncontrolled" />
+   *  const [day, setDay] = useState(new Date());
+   *  return (
+   *    <DayPicker type="uncontrolled" selected={day} onDayClick={setDay} />
+   *  )
    * };
    * ```
    *

@@ -45,6 +45,12 @@ Use `showWeekNumber` to display the week numbers.
 
 ```jsx showOutput open=no
 function Example() {
-  return <DayPicker showWeekNumber />;
+  const [weekNumber, setWeekNumber] = useState();
+  return (
+    <>
+      <DayPicker showWeekNumber onWeekNumberClick={(n) => setWeekNumber(n)} />
+      <p>You clicked the week n. {weekNumber}</p>
+    </>
+  );
 }
 ```
