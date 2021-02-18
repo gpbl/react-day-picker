@@ -20,9 +20,10 @@ function isInteractive(
   props: PropsValues
 ): boolean {
   const { toDate, fromDate, originalProps } = props;
-
+  if (props.type !== 'uncontrolled') {
+    return true;
+  }
   if (interactiveProps.every((name) => !originalProps[name])) {
-    // If none of the interactive props is passed to the component return false
     return false;
   }
   const isAfterToDate = toDate && isAfter(day, toDate);

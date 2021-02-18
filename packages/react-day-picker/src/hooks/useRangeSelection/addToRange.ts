@@ -9,16 +9,16 @@ import { DateRange } from '../../types';
  * day is already present in the range.
  */
 export function addToRange(
-  range: DateRange,
   day: Date,
+  range?: DateRange,
   required = false
-): DateRange {
-  const { from, to } = range;
+): DateRange | undefined {
+  const { from, to } = range || {};
   if (!from) {
     return { from: day };
   }
   if (!required && !to && isSameDay(from, day)) {
-    return { from: undefined, to: undefined };
+    return undefined;
   }
   if (!to && isBefore(day, from)) {
     return { from: day, to: from };

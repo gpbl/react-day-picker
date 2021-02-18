@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { isSameDay } from 'date-fns';
+
 import {
   ModifiersStatus,
   SelectEventHandler,
@@ -25,7 +27,7 @@ export function useMultipleSelection(
         if (options.required && currentValue.length === 1) {
           return newValue;
         }
-        const index = currentValue.indexOf(day);
+        const index = currentValue.findIndex((value) => isSameDay(day, value));
         newValue.splice(index, 1);
       } else {
         newValue.push(day);

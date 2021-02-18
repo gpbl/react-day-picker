@@ -20,8 +20,14 @@ export function useSingleSelection(
   const [value, setValue] = useState<Date | undefined>(initialValue);
 
   const setSelected: DayClickEventHandler = (day, modifiers, e) => {
-    if (!options?.required && modifiers.selected) setValue(undefined);
-    else setValue(day);
+    if (modifiers.selected) {
+      if (!options?.required) {
+        setValue(undefined);
+        onSelect?.(undefined);
+      }
+      return;
+    }
+    setValue(day);
     onSelect?.(day);
   };
 

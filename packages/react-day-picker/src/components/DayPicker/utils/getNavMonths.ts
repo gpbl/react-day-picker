@@ -1,14 +1,12 @@
 import { addMonths, startOfMonth } from 'date-fns';
 
-import { CaptionLayout } from '../../../types';
-
 type GetNavMonthsOptions = {
   numberOfMonths: number;
   fromDate?: Date;
   toDate?: Date;
   pagedNavigation?: boolean;
   today?: Date;
-  captionLayout: CaptionLayout;
+  disableNavigation?: boolean;
 };
 
 /**
@@ -23,10 +21,10 @@ export function getNavMonths(
     toDate,
     pagedNavigation,
     numberOfMonths,
-    captionLayout
+    disableNavigation
   } = options;
 
-  if (captionLayout === 'static') {
+  if (disableNavigation) {
     return [undefined, undefined];
   }
   const add = pagedNavigation ? numberOfMonths : 1;

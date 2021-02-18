@@ -99,7 +99,7 @@ export const defaultPropsValues: PropsValues = {
   numberOfMonths: 1,
   originalProps: {},
   today: new Date(),
-  type: 'uncontrolled',
+  type: 'single',
   // These will be replaced by proper event handlers in DayPicker.tsx so we can
   // safely use noop here
   onMonthChange: noop,

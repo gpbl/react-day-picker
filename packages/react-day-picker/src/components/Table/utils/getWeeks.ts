@@ -1,7 +1,7 @@
 import {
   addDays,
   addWeeks,
-  differenceInDays,
+  differenceInCalendarDays,
   endOfMonth,
   getMonth,
   getWeek,
@@ -29,7 +29,7 @@ export function getWeeks(
   const monthStart = startOfMonth(month);
   const monthEnd = endOfMonth(month);
 
-  const diff = differenceInDays(monthEnd, monthStart);
+  const diff = differenceInCalendarDays(monthEnd, monthStart);
 
   const weeks: MonthWeeks = {};
   let lastWeekStr = '';
@@ -61,7 +61,7 @@ export function getWeeks(
     const lastWeekDate = lastWeek[lastWeek.length - 1];
     const weeksInMonth = getWeeksInMonth(month, { locale });
     if (weeksInMonth < 6) {
-      const diffDays = differenceInDays(
+      const diffDays = differenceInCalendarDays(
         addWeeks(lastWeekDate, 6 - weeksInMonth),
         lastWeekDate
       );
