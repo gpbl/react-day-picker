@@ -3,6 +3,7 @@ const sidebar = [
   'start',
   {
     'DayPicker Basics': [
+      'basics/navigating-months',
       'basics/customization',
       'basics/selecting-days',
       'basics/changing-months',

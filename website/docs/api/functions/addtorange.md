@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: addToRange
 
-▸ **addToRange**(`range`: [*DaysRange*](../types/daysrange.md), `day`: Date): [*DaysRange*](../types/daysrange.md)
+▸ **addToRange**(`range`: [*DateRange*](../types/daterange.md), `day`: Date, `required?`: *boolean*): [*DateRange*](../types/daterange.md)
 
 Add a day to an existing range.
 
@@ -17,9 +17,10 @@ day is already present in the range.
 
 #### Parameters:
 
-Name | Type |
-:------ | :------ |
-`range` | [*DaysRange*](../types/daysrange.md) |
-`day` | Date |
+Name | Type | Default value |
+:------ | :------ | :------ |
+`range` | [*DateRange*](../types/daterange.md) | - |
+`day` | Date | - |
+`required` | *boolean* | false |
 
-**Returns:** [*DaysRange*](../types/daysrange.md)
+**Returns:** [*DateRange*](../types/daterange.md)

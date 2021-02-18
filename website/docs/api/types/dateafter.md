@@ -1,14 +1,14 @@
 ---
-id: "matchafter"
-title: "Type alias: MatchAfter"
-sidebar_label: "MatchAfter"
+id: "dateafter"
+title: "Type alias: DateAfter"
+sidebar_label: "DateAfter"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Type alias: MatchAfter
+# Type alias: DateAfter
 
-Ƭ **MatchAfter**: *object*
+Ƭ **DateAfter**: *object*
 
 Matches a day after the specified date. The date is not included.
 

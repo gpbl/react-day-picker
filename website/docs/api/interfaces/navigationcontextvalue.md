@@ -20,6 +20,14 @@ The currently displayed month. When multiple months, is the first.
 
 ___
 
+### displayMonths
+
+• **displayMonths**: Date[]
+
+The months to render with DayPicker. When `numberOfMonths` is `1` contains only the `currentMonth`
+
+___
+
 ### focusedDay
 
 • `Optional` **focusedDay**: *undefined* \| Date

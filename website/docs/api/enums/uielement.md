@@ -20,6 +20,22 @@ The caption element (showing the calendar heading and the navigation)
 
 ___
 
+### CaptionDropdowns
+
+• **CaptionDropdowns**: = "dropdownsContainer"
+
+The container of the drop-downs.
+
+___
+
+### CaptionLabel
+
+• **CaptionLabel**: = "dropdownLabel"
+
+The container of the caption’s label (e.g. "September 2021").
+
+___
+
 ### Cell
 
 • **Cell**: = "cell"
@@ -52,14 +68,6 @@ The icon aside the drop-down.
 
 ___
 
-### DropdownLabel
-
-• **DropdownLabel**: = "dropdownLabel"
-
-The container of the caption’s label (e.g. "September 2021").
-
-___
-
 ### DropdownMonth
 
 • **DropdownMonth**: = "dropdownMonth"
@@ -73,14 +81,6 @@ ___
 • **DropdownYear**: = "dropdownYear"
 
 The drop-down to change the year.
-
-___
-
-### DropdownsContainer
-
-• **DropdownsContainer**: = "dropdownsContainer"
-
-The container of the drop-downs.
 
 ___
 
@@ -113,6 +113,30 @@ ___
 • **Month**: = "month"
 
 The wrapper of the table displaying the month.
+
+___
+
+### MonthBetween
+
+• **MonthBetween**: = "captionBetween"
+
+The caption element is between
+
+___
+
+### MonthFirst
+
+• **MonthFirst**: = "captionFirst"
+
+The caption element when the first of multiple months
+
+___
+
+### MonthLast
+
+• **MonthLast**: = "captionLast"
+
+The caption element when the last of multiple months
 
 ___
 
@@ -169,6 +193,14 @@ ___
 • **Root**: = "root"
 
 The container element.
+
+___
+
+### RootMultipleMonths
+
+• **RootMultipleMonths**: = "rootMultipleMonths"
+
+The container element when number of months is greater than 1.
 
 ___
 
