@@ -1,5 +1,8 @@
+const { resolve } = require('path');
 const pkg = require('react-day-picker/package.json');
 const pkgPath = '../packages/react-day-picker';
+
+const { transpileCodeblocks } = require('remark-typescript-tools');
 
 module.exports = {
   title: 'React DayPicker',
@@ -55,7 +58,18 @@ module.exports = {
           sidebarPath: require.resolve('./config/sidebar.js'),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          routeBasePath: '/'
+          routeBasePath: '/',
+          remarkPlugins: [
+            [
+              transpileCodeblocks,
+              {
+                compilerSettings: {
+                  tsconfig: resolve(__dirname, '../website/tsconfig.json'),
+                  externalResolutions: {}
+                }
+              }
+            ]
+          ]
         },
         // pages: false,
         theme: {

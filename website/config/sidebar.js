@@ -6,14 +6,13 @@ const sidebar = [
       'basics/navigating-months',
       'basics/customization',
       'basics/selecting-days',
-      'basics/changing-months',
-      'basics/modifiers',
       'basics/styling'
     ]
   },
   {
     Guides: [
       // 'guides/custom-components',
+      'guides/modifiers',
       'guides/formatters',
       'guides/localization',
       'guides/input'
