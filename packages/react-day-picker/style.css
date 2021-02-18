@@ -191,7 +191,7 @@ button.rdp-weeknumber:hover {
   font-size: 1em;
 }
 
-.rdp-dropdown:focus + .rdp-dropdown-label {
+.rdp-dropdown:focus + .rdp-caption-label {
   border: var(--rdp-border-focus);
   border-radius: 5px;
   background-color: var(--rdp-accent-color-lightest);
