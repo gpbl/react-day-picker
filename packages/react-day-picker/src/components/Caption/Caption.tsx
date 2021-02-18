@@ -113,7 +113,7 @@ export function Caption(props: CaptionProps): JSX.Element {
       {captionLayout === 'buttons' && isFirst && [nav, caption]}
       {captionLayout === 'buttons' && isLast && [caption, nav]}
       {captionLayout === 'buttons' && isBetween && caption}
-      {captionLayout === 'none' && caption}
+      {captionLayout === 'static' && caption}
     </div>
   );
 }
