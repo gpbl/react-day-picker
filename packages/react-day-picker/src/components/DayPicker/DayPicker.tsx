@@ -115,7 +115,6 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     type !== 'uncontrolled'
   );
 
-  console.log({ isSelectionControlled });
   const [
     controlledSelected,
     setControlledSelected,
