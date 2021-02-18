@@ -112,8 +112,10 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   // parent component must control the selection via `onDayClick`.
   const { defaultSelected, onSelect, required } = props;
   const [isSelectionControlled, setIsSelectionControlled] = useState(
-    !('selected' in props) || type !== 'uncontrolled'
+    type !== 'uncontrolled'
   );
+
+  console.log({ isSelectionControlled });
   const [
     controlledSelected,
     setControlledSelected,
@@ -121,7 +123,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   ] = useSelection(defaultSelected, type, onSelect, { required });
 
   React.useEffect(() => {
-    setIsSelectionControlled(!('selected' in props) || type !== 'uncontrolled');
+    setIsSelectionControlled(type !== 'uncontrolled');
   }, [type]);
   if (!isSelectionControlled) type === 'uncontrolled';
 
