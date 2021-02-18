@@ -118,8 +118,8 @@ or `rtl` for right-to-left.
 
 Set the calendar to Arabic.
 
-```jsx
-import arabic from 'date-fns/locale/ar-SA;
+```jsx showOutput open=no
+import arabic from 'date-fns/locale/ar-SA';
 
 function Example() {
   return <DayPicker locale={arabic} dir="rtl" />;
@@ -418,7 +418,7 @@ ___
 
 • `Optional` **onDayBlur**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
 
-Event fired when a day button lose the focus.
+Event fired when a day button loses the focus.
 
 ___
 
@@ -434,7 +434,7 @@ ___
 
 • `Optional` **onDayFocus**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
 
-Event fired when a day button get the focus.
+Event fired when a day button gets the focus.
 
 ___
 
@@ -698,13 +698,12 @@ The type of the selection.
 - `single` (default) allows selecting only a single day
 - `multiple` allows selecting multiple days
 - `range` allows selecting a range of days
-- `uncontrolled`: you set the days via the `selected` prop and day events.
-
-**Note:** by using the `selected` prop the type is always set to `uncontrolled`.
+- `uncontrolled`: set the selections using the `selected` prop
 
 **Example**
 
-When setting to `uncontrolled`, the s
+When setting to `uncontrolled`, handle the selection in the parent
+component’ state:
 
 ```jsx showOutput open=no
 function Example() {
