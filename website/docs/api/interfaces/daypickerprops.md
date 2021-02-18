@@ -116,7 +116,8 @@ or `rtl` for right-to-left.
 
 **Example**
 
-Set the calendar to Arabic.
+When setting the calendar to Arabic, using `dir` to enable right-to-left
+direction.
 
 ```jsx showOutput open=no
 import arabic from 'date-fns/locale/ar-SA';

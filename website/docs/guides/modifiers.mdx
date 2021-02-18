@@ -3,37 +3,12 @@ id: modifiers
 title: Working with Modifiers
 ---
 
-A **day modifier** is a property to change the appearance and the behavior of a
-day.
-
-## The `selected` modifier
-
-In the [Selecting Days tutorial](selecting-days), we see how a `selected` prop
-changes the appearance of the days. We say these days match the `selected`
-modifier.
-
-DayPicker includes other modifiers, like `disabled`, `hidden` and `today`.
-
-```jsx {2,3,10} showOutput open=no
-function Example() {
-  const handleDayClick = (day, modifiers) => {
-    if (modifiers.selected) {
-      alert(`${day.toLocaleDateString()} is already selected.`);
-    }
-  };
-  return (
-    <DayPicker
-      defaultMonth={new Date(2022, 4)}
-      selected={[new Date(2022, 4, 12), new Date(2022, 4, 14)]}
-      onDayClick={handleDayClick}
-    />
-  );
-}
-```
+A **modifier** is a property to change the appearance and the behavior of a
+day in DayPicker.
 
 ## Disabling days
 
-The `disabled` modifier disable the interaction with the day:
+The `disabled` modifier disable the interaction with a day and is set using the `disabled` prop.
 
 ```jsx {3-7} showOutput open=no
 function Example() {
@@ -86,15 +61,82 @@ It is possible to toggle off the `today` modifier:
 
 ```jsx showOutput open=no
 function Example() {
-  const handleDayClick = (day, { today }) => {
-    if (today) {
-      // (This will never happen as today is turned off)
-      alert('You clicked the today’s date!');
-    } else {
-      alert(`You clicked ${day.toLocaleDateString()}.`);
-    }
-  };
-  return <DayPicker today="off" onDayClick={handleDayClick} />;
+  return <DayPicker modifiers={{ today: false }} />;
+}
+```
+
+## The `selected` modifier
+
+In the [Selecting Days tutorial](/basics/selecting-days). we have set different
+ways to control the selected days. Under the hood, DayPicker handles the
+interaction with the days and assigns a `selected` modifier to them.
+
+:::note
+
+For a basic use of a date picker, you usually won’t need to change the selection
+behavior. Use `onSelect` and the `type` prop to let DayPicker control the
+selection.
+
+:::
+
+Customize the selection behavior by letting the parent component’s handling the
+interaction with the days. To control the selected days, use the `selected` and
+`onDayClick` props and add the dates to the component’s state:
+
+```jsx showOutput open=no
+function Example() {
+  const [selectedDay, setSelectedDay] = useState();
+  return (
+    <>
+      <DayPicker
+        onDayClick={(day) => setSelectedDay(day)}
+        selected={selectedDay}
+      />
+      <p>
+        Please pick a day.
+        {selectedDay && <> You selected {selectedDay.toLocaleDateString()}.</>}
+      </p>
+    </>
+  );
+}
+```
+
+By doing this, DayPicker will switch to uncontrolled mode and let you define with more granularity how the selections work.
+
+For example, to select an array of days:
+
+```jsx showOutput open=no
+function Example() {
+  const [selectedDays, setSelectedDays] = useState([]);
+
+  function handleDayClick(day, { selected }) {
+    // Use a callback to clone and add / remove days to the array
+    setSelectedDays((currentlySelectedDays) => {
+      const days = [...currentlySelectedDays];
+      if (selected) {
+        days.splice(currentlySelectedDays.indexOf(day), 1);
+      } else {
+        days.push(day);
+      }
+      return days;
+    });
+  }
+
+  const handleResetClick = () => setSelectedDays([]);
+
+  return (
+    <div>
+      <DayPicker onDayClick={handleDayClick} selected={selectedDays} />
+      {selectedDays.length === 0 ? (
+        <p>Please pick one or more days.</p>
+      ) : (
+        <p>
+          You selected {selectedDays.length} days.{' '}
+          <button onClick={handleResetClick}>Reset</button>
+        </p>
+      )}
+    </div>
+  );
 }
 ```
 
