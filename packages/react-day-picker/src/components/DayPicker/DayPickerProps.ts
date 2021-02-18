@@ -446,10 +446,11 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * Set the calendar to Arabic.
+   * When setting the calendar to Arabic, using `dir` to enable right-to-left
+   * direction.
    *
-   * ```jsx
-   * import arabic from 'date-fns/locale/ar-SA;
+   * ```jsx showOutput open=no
+   * import arabic from 'date-fns/locale/ar-SA';
    *
    * function Example() {
    *   return <DayPicker locale={arabic} dir="rtl" />;
@@ -484,11 +485,11 @@ export interface DayPickerProps {
    */
   onDayClick?: DayClickEventHandler;
   /**
-   * Event fired when a day button get the focus.
+   * Event fired when a day button gets the focus.
    */
   onDayFocus?: DayFocusEventHandler;
   /**
-   * Event fired when a day button lose the focus.
+   * Event fired when a day button loses the focus.
    */
   onDayBlur?: DayFocusEventHandler;
   /**
