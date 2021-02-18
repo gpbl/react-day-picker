@@ -2,8 +2,9 @@ import * as React from 'react';
 
 import { getUnixTime } from 'date-fns';
 
+import { WeekNumber } from '../../components';
 import { useProps } from '../../hooks';
-import { UIElement } from '../../types';
+import { UIElement as UI } from '../../types';
 
 export interface RowProps {
   /** The month where the row is displayed. */
@@ -19,35 +20,26 @@ export function Row(props: RowProps): JSX.Element {
   const {
     styles,
     classNames,
-    locale,
     showWeekNumber,
-    labels,
-    formatters: { formatWeekNumber },
     components: { Day }
   } = useProps();
 
   let weekNumberCell;
   if (showWeekNumber) {
-    const { weekNumberLabel } = labels;
-    const label = weekNumberLabel(Number(weekNumber), { locale });
     weekNumberCell = (
-      <th
-        className={classNames?.[UIElement.RowHead]}
-        style={styles?.[UIElement.RowHead]}
-        aria-label={label}
-      >
-        {formatWeekNumber(Number(weekNumber), { locale })}
+      <th className={classNames?.[UI.RowHead]} style={styles?.[UI.RowHead]}>
+        <WeekNumber number={weekNumber} dates={week} />
       </th>
     );
   }
 
   return (
-    <tr className={classNames?.[UIElement.Row]} style={styles?.[UIElement.Row]}>
+    <tr className={classNames?.[UI.Row]} style={styles?.[UI.Row]}>
       {weekNumberCell}
       {week.map((day) => (
         <td
-          className={classNames?.[UIElement.Cell]}
-          style={styles?.[UIElement.Cell]}
+          className={classNames?.[UI.Cell]}
+          style={styles?.[UI.Cell]}
           key={getUnixTime(day)}
         >
           <Day displayMonth={props.displayMonth} day={day} />

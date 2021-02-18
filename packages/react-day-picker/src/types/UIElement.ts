@@ -61,6 +61,8 @@ export enum UIElement {
   Row = 'row',
   /** A row head in the table element, used to display the week numbers. */
   RowHead = 'rowHead',
+  /** The element containing the week number */
+  WeekNumber = 'weekNumber',
   /** The cell containing the day element. */
   Cell = 'cell',
   /** The day element (a button when the day is interactive). */

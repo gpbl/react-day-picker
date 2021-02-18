@@ -46,5 +46,6 @@ export const defaultClassNames: Required<ClassNames> = {
   // Week Component
   [UIElement.Row]: 'rdp-row',
   [UIElement.RowHead]: 'rdp-row-head',
+  [UIElement.WeekNumber]: 'rdp-weeknumber',
   [UIElement.Cell]: 'rdp-cell'
 };

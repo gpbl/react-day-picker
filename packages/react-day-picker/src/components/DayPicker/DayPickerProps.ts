@@ -19,7 +19,8 @@ import {
   ModifiersStyles,
   MonthChangeEventHandler,
   SelectEventHandler,
-  SelectionType
+  SelectionType,
+  WeekNumberClickEventHandler
 } from '../../types';
 
 /**
@@ -503,4 +504,5 @@ export interface DayPickerProps {
   onDayTouchStart?: DayTouchEventHandler;
   onNextClick?: MonthChangeEventHandler;
   onPrevClick?: MonthChangeEventHandler;
+  onWeekNumberClick?: WeekNumberClickEventHandler;
 }
