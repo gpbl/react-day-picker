@@ -109,6 +109,7 @@ button.rdp-weeknumber:hover {
   font-family: inherit;
   font-size: 140%;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 /* ---------- */
