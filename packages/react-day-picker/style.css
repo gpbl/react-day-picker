@@ -1,4 +1,7 @@
 :root {
+  --rdp-font-family: -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell,
+    'Noto Sans', sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --rdp-accent-color: #4d21fc;
   /* Default colors for light themes */
   --rdp-accent-color-light: #8567fd;
@@ -12,6 +15,9 @@
   --rdp-border-focus: 2px solid var(--rdp-accent-color);
 }
 
+.rdp {
+  font-family: var(--rdp-font-family);
+}
 .rdp,
 .rdp * {
   box-sizing: border-box;
@@ -239,6 +245,7 @@ button.rdp-weeknumber:hover:not([disabled]) {
   height: 100%;
   height: var(--rdp-cell-size);
   text-align: center;
+  padding: 0;
 }
 
 /* ----------- */
