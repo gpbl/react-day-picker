@@ -26,7 +26,6 @@ button.rdp-nav-button {
   margin: 0;
   padding: 0;
   cursor: default;
-  color: inherit;
   border: 0;
   outline: none;
   background: none;
@@ -48,6 +47,7 @@ button.rdp-weeknumber:focus,
 button.rdp-day:focus {
   border: var(--rdp-border-focus);
   background-color: var(--rdp-accent-color-lightest);
+  color: inherit;
 }
 
 button.rdp-day:hover,
@@ -256,15 +256,6 @@ button.rdp-weeknumber:hover {
   margin: 0;
   border: 2px solid transparent;
   border-radius: 100%;
-}
-
-.rdp .rdp-day.rdp-day_interactive:hover,
-.rdp .rdp-day.rdp-day_interactive:focus {
-  background-color: var(--rdp-accent-color-lightest);
-}
-
-.rdp .rdp-day:focus {
-  border: var(--rdp-border-focus);
 }
 
 /* ----------- */
