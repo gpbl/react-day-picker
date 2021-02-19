@@ -36,7 +36,7 @@ button.rdp-nav-button {
   outline: none;
   background: none;
   font: inherit;
-
+  color: inherit;
   -moz-appearance: none;
   -webkit-appearance: none;
 }
