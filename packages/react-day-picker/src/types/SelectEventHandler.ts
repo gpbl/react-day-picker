@@ -1,3 +1,5 @@
-import { DateSelection } from '../types';
+import { ModifiersStatus } from './ModifiersStatus';
 
-export type SelectEventHandler = (selection: DateSelection) => void;
+export interface SelectEventHandler {
+  (day: Date | undefined, modifiers?: ModifiersStatus): void;
+}

@@ -1,1 +1,1 @@
-export type DateRange = { from?: Date; to?: Date };
+export type DateRange = { from: Date; to?: Date };
