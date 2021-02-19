@@ -49,8 +49,8 @@ export function Day(props: DayProps): JSX.Element | null {
     if (isSameDay(focusedDay, day)) el?.current?.focus();
   }, [focusedDay]);
 
-  if (modifiers.hidden) return null;
-  if (modifiers.outside && !showOutsideDays) return null;
+  if (modifiers.hidden) return <span />;
+  if (modifiers.outside && !showOutsideDays) return <span />;
 
   const ariaLabel = labels.dayLabel(day, modifiers, { locale });
   const ariaPressed = modifiers.interactive ? modifiers.selected : undefined;

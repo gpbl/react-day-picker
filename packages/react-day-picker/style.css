@@ -272,8 +272,7 @@ button.rdp-weeknumber:hover:not([disabled]) {
 
 .rdp .rdp-day.rdp-day_disabled,
 .rdp .rdp-day.rdp-day_outside,
-.rdp .rdp-day[disabled],
-.RDP_CICCIO {
+.rdp .rdp-day[disabled] {
   opacity: 25%;
 }
 
@@ -304,10 +303,10 @@ button.rdp-weeknumber:hover:not([disabled]) {
   border-radius: 0;
   background-color: var(--rdp-accent-color-lighter);
 }
-.rdp .rdp-day.rdp-day_between:hover {
+.rdp button.rdp-day.rdp-day_between:hover {
   color: white;
 }
 
-.rdp .rdp-day.rdp-day_selected:hover {
+.rdp button.rdp-day.rdp-day_selected:hover {
   background-color: var(--rdp-accent-color);
 }
