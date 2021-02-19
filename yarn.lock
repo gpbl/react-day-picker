@@ -3509,15 +3509,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-dynamic-import@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "acorn-dynamic-import@npm:4.0.0"
-  peerDependencies:
-    acorn: ^6.0.0
-  checksum: ce61df77522b5eaee93f4a61043af9b059590d382bdbf5bf4a3717416d0cfb7bebbacb736d82764ba51381d2d55db4b27477384bb7e2642283941b52bcd9d008
-  languageName: node
-  linkType: hard
-
 "acorn-globals@npm:^6.0.0":
   version: 6.0.0
   resolution: "acorn-globals@npm:6.0.0"
@@ -3528,7 +3519,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-jsx@npm:^5.2.0, acorn-jsx@npm:^5.3.1":
+"acorn-jsx@npm:^5.3.1":
   version: 5.3.1
   resolution: "acorn-jsx@npm:5.3.1"
   peerDependencies:
@@ -4529,23 +4520,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buble@npm:^0.20.0":
-  version: 0.20.0
-  resolution: "buble@npm:0.20.0"
-  dependencies:
-    acorn: ^6.4.1
-    acorn-dynamic-import: ^4.0.0
-    acorn-jsx: ^5.2.0
-    chalk: ^2.4.2
-    magic-string: ^0.25.7
-    minimist: ^1.2.5
-    regexpu-core: 4.5.4
-  bin:
-    buble: bin/buble
-  checksum: f11d3340736d9f3f6cde4f556a39507b9a8059498405411f14e06fdf081ac8aa6a134a4a3d30049870104b076b8228aaf3ff0a4addb88627cb3a82e7e9b4af7b
-  languageName: node
-  linkType: hard
-
 "buffer-from@npm:1.x, buffer-from@npm:^1.0.0":
   version: 1.1.1
   resolution: "buffer-from@npm:1.1.1"
@@ -5035,7 +5009,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:^2.2.5, classnames@npm:^2.2.6":
+"classnames@npm:^2.2.5":
   version: 2.2.6
   resolution: "classnames@npm:2.2.6"
   checksum: 490eaeca5931846737ffd33e472a701d268d5b8bc5717dd4cf108a127b06e86e05350e06799abbbe763a0e4c945b4217f6700b7ae00ddc703505682c370e5cf2
@@ -10711,15 +10685,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.25.7":
-  version: 0.25.7
-  resolution: "magic-string@npm:0.25.7"
-  dependencies:
-    sourcemap-codec: ^1.4.4
-  checksum: 4b70c13eb21c6f1c54bf7fb029748dc44d6bfcd3c59e5deeda060eecc38df6144b91d10fb7a3cf6156fadab1a68f83d69a189df20ca5f6bd088bf0196ea8f039
-  languageName: node
-  linkType: hard
-
 "make-dir@npm:^2.0.0":
   version: 2.1.0
   resolution: "make-dir@npm:2.1.0"
@@ -13538,16 +13503,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-day-picker@npm:8.0.0-beta.5":
-  version: 8.0.0-beta.5
-  resolution: "react-day-picker@npm:8.0.0-beta.5"
-  peerDependencies:
-    date-fns: ^2.12.0
-    react: ^16.8.0
-  checksum: ea67643b625083657a9dbc913d213bf252b3368fa48e0a70797f4a2835a5d98660f1062c67a3e84d09cc9a90b7297d1848ad87c12671293a895b63bf3f34db63
-  languageName: node
-  linkType: hard
-
 "react-day-picker@workspace:packages/react-day-picker":
   version: 0.0.0-use.local
   resolution: "react-day-picker@workspace:packages/react-day-picker"
@@ -13571,7 +13526,6 @@ fsevents@^1.2.7:
     jest: ^26.6.3
     prettier: ^2.2.1
     react: ^17.0.1
-    react-day-picker: 8.0.0-beta.5
     react-dom: ^17.0.1
     ts-jest: ^26.5.1
     ts-loader: ^8.0.17
@@ -13582,7 +13536,7 @@ fsevents@^1.2.7:
     webpack-cli: ^4.5.0
   peerDependencies:
     date-fns: ^2.12.0
-    react: ^16.8.0
+    react: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -13934,7 +13888,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"regenerate-unicode-properties@npm:^8.0.2, regenerate-unicode-properties@npm:^8.2.0":
+"regenerate-unicode-properties@npm:^8.2.0":
   version: 8.2.0
   resolution: "regenerate-unicode-properties@npm:8.2.0"
   dependencies:
@@ -13993,20 +13947,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"regexpu-core@npm:4.5.4":
-  version: 4.5.4
-  resolution: "regexpu-core@npm:4.5.4"
-  dependencies:
-    regenerate: ^1.4.0
-    regenerate-unicode-properties: ^8.0.2
-    regjsgen: ^0.5.0
-    regjsparser: ^0.6.0
-    unicode-match-property-ecmascript: ^1.0.4
-    unicode-match-property-value-ecmascript: ^1.1.0
-  checksum: 442defb300cec5d4a7fab4ea10b82e193ce238edbbb908d4eb9779f7e08f8c03428170ab0b83a3ca6e050f6db8a3987c4d353cad6564af6f53899179d71ba37d
-  languageName: node
-  linkType: hard
-
 "regexpu-core@npm:^4.7.1":
   version: 4.7.1
   resolution: "regexpu-core@npm:4.7.1"
@@ -14039,14 +13979,14 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"regjsgen@npm:^0.5.0, regjsgen@npm:^0.5.1":
+"regjsgen@npm:^0.5.1":
   version: 0.5.2
   resolution: "regjsgen@npm:0.5.2"
   checksum: 629afab3d9ce61e104064cda66aca74ec9a1921151cc985d93c5cb58453ed7f7c23479bdb1a4a0826d200ed28c3871a7b8a8938e634ab00194195012893bccbc
   languageName: node
   linkType: hard
 
-"regjsparser@npm:^0.6.0, regjsparser@npm:^0.6.4":
+"regjsparser@npm:^0.6.4":
   version: 0.6.7
   resolution: "regjsparser@npm:0.6.7"
   dependencies:
@@ -15085,13 +15025,6 @@ fsevents@^1.2.7:
   version: 0.7.3
   resolution: "source-map@npm:0.7.3"
   checksum: 351ce26ffa1ebf203660c0d70d7566c81e65d2d994d1c2d94da140808e02da34961673ce12ecea9b40797b96fbeb8c70bf71a4ad9f779f1a4fdbba75530bb386
-  languageName: node
-  linkType: hard
-
-"sourcemap-codec@npm:^1.4.4":
-  version: 1.4.8
-  resolution: "sourcemap-codec@npm:1.4.8"
-  checksum: 4d56d1232a45af813606d1755f11e7ae6b3542c615a7e3f904382f0134a9412ba8d090e83749254d78449eafdfcc62d5158b8f35e6241480b51b74b5c46b99f9
   languageName: node
   linkType: hard
 
@@ -16296,7 +16229,7 @@ typescript@^4.1.5:
   languageName: node
   linkType: hard
 
-"unicode-match-property-value-ecmascript@npm:^1.1.0, unicode-match-property-value-ecmascript@npm:^1.2.0":
+"unicode-match-property-value-ecmascript@npm:^1.2.0":
   version: 1.2.0
   resolution: "unicode-match-property-value-ecmascript@npm:1.2.0"
   checksum: 892ca3933535a30d939de026941f0e615330cb6906b62f76561b76dbe6de2aab1eb2a3c5971056813efd31c48f889b4709d34d4d8327e4ff66e3ac72b58a703e
@@ -17165,8 +17098,6 @@ typescript@^4.1.5:
   dependencies:
     "@docusaurus/core": ">=2.0.0-alpha.71"
     "@docusaurus/preset-classic": ">=2.0.0-alpha.71"
-    buble: ^0.20.0
-    classnames: ^2.2.6
     date-fns: ^2.17.0
     docusaurus-plugin-typedoc: ^0.9.0
     raw-loader: ^4.0.2
@@ -17175,7 +17106,6 @@ typescript@^4.1.5:
     react-dom: ^17.0.1
     typedoc: ^0.20.25
     typedoc-plugin-markdown: ^3.5.0
-    webpack: ^5.22.0
   languageName: unknown
   linkType: soft
 
