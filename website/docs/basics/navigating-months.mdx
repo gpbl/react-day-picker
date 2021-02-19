@@ -3,17 +3,22 @@ id: navigating-months
 title: Navigating months
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 ## Change the initial month
 
 DayPicker displays the month of the current day. To change the
 initial month, set the `defaultMonth` prop:
 
-```jsx showOutput open=no
-// Set the initial month to September 2022
-function Example() {
-  return <DayPicker defaultMonth={new Date(2022, 8)} />;
-}
-```
+import InitialMonth from '../examples/navigation-initialmonth.tsx';
+import InitialMonthSrc from '!!raw-loader!../examples/navigation-initialmonth.tsx';
+
+<CodeBlock className="language-tsx">{InitialMonthSrc}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <InitialMonth />
+</details>
 
 ### Controlling the current month
 
@@ -25,20 +30,15 @@ button – set it in the parent’s state.
 Use `month` (as opposed to `defaultMonth`) and `onMonthChange` to handle the
 current month.
 
-```jsx showOutput open=no
-// Add a "Go to today" button.
-function Example() {
-  const [month, setMonth] = useState();
-  return (
-    <>
-      <DayPicker month={month} onMonthChange={setMonth} />
-      <p>
-        <button onClick={() => setMonth(new Date())}>Go to Today</button>
-      </p>
-    </>
-  );
-}
-```
+import Uncontrolled from '../examples/navigation-uncontrolled.tsx';
+import UncontrolledSrc from '!!raw-loader!../examples/navigation-uncontrolled.tsx';
+
+<CodeBlock className="language-tsx">{UncontrolledSrc}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <Uncontrolled />
+</details>
 
 ## Limiting the navigable months
 
@@ -47,33 +47,42 @@ As default, DayPicker will display indefinitely in the past or in the future.
 To limit the navigable months between certain dates, use `fromDate` and `toDate`, `fromMonth`
 and `toMonth`, or `fromYear` and `toYear`.
 
-```jsx showOutput open=no
-// Navigate between 2015 and 2018.
-function Example() {
-  return (
-    <DayPicker defaultMonth={new Date(2015, 0)} fromYear={2015} toYear={2018} />
-  );
-}
-```
+import FromTo from '../examples/navigation-from-to.tsx';
+import FromToSrc from '!!raw-loader!../examples/navigation-from-to.tsx';
+
+<CodeBlock className="language-tsx">{FromToSrc}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <FromTo />
+</details>
 
 ### Using a dropdown to navigate between months
 
 When limiting the navigable months, use `captionLayout` to display a drop-down
 for navigating between months – instead of the previous / next buttons.
 
-```jsx showOutput open=no
-function Example() {
-  return <DayPicker fromYear={2015} toYear={2025} captionLayout="dropdown" />;
-}
-```
+import Dropdown from '../examples/navigation-dropdown.tsx';
+import DropdownSrc from '!!raw-loader!../examples/navigation-dropdown.tsx';
+
+<CodeBlock className="language-tsx">{DropdownSrc}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <Dropdown />
+</details>
 
 ## Disabling navigation
 
 To disable the navigation between months, use `disableNavigation`. It will turn
 off also the keyboard navigation.
 
-```jsx showOutput open=no
-function Example() {
-  return <DayPicker fromYear={2015} toYear={2025} disableNavigation />;
-}
-```
+import Disabled from '../examples/navigation-disabled.tsx';
+import DisabledSrc from '!!raw-loader!../examples/navigation-disabled.tsx';
+
+<CodeBlock className="language-tsx">{DisabledSrc}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <Disabled />
+</details>

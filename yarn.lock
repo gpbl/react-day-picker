@@ -1574,7 +1574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/core@npm:2.0.0-alpha.fd17476c3, @docusaurus/core@npm:>=2.0.0-alpha.70":
+"@docusaurus/core@npm:2.0.0-alpha.fd17476c3, @docusaurus/core@npm:>=2.0.0-alpha.71":
   version: 2.0.0-alpha.fd17476c3
   resolution: "@docusaurus/core@npm:2.0.0-alpha.fd17476c3"
   dependencies:
@@ -1844,7 +1844,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/preset-classic@npm:>=2.0.0-alpha.70":
+"@docusaurus/preset-classic@npm:>=2.0.0-alpha.71":
   version: 2.0.0-alpha.fd17476c3
   resolution: "@docusaurus/preset-classic@npm:2.0.0-alpha.fd17476c3"
   dependencies:
@@ -13500,6 +13500,18 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"raw-loader@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "raw-loader@npm:4.0.2"
+  dependencies:
+    loader-utils: ^2.0.0
+    schema-utils: ^3.0.0
+  peerDependencies:
+    webpack: ^4.0.0 || ^5.0.0
+  checksum: 1a08968df5bf185923102de589dc28da6c9953f87059c80de3cbfdfb47bc15907f23f5e21048f03af2842df01d0dde2630826697c783c4c9683ea71f04f4538d
+  languageName: node
+  linkType: hard
+
 "rc@npm:^1.2.8":
   version: 1.2.8
   resolution: "rc@npm:1.2.8"
@@ -13526,6 +13538,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-day-picker@npm:8.0.0-beta.5":
+  version: 8.0.0-beta.5
+  resolution: "react-day-picker@npm:8.0.0-beta.5"
+  peerDependencies:
+    date-fns: ^2.12.0
+    react: ^16.8.0
+  checksum: ea67643b625083657a9dbc913d213bf252b3368fa48e0a70797f4a2835a5d98660f1062c67a3e84d09cc9a90b7297d1848ad87c12671293a895b63bf3f34db63
+  languageName: node
+  linkType: hard
+
 "react-day-picker@workspace:packages/react-day-picker":
   version: 0.0.0-use.local
   resolution: "react-day-picker@workspace:packages/react-day-picker"
@@ -13549,6 +13571,7 @@ fsevents@^1.2.7:
     jest: ^26.6.3
     prettier: ^2.2.1
     react: ^17.0.1
+    react-day-picker: 8.0.0-beta.5
     react-dom: ^17.0.1
     ts-jest: ^26.5.1
     ts-loader: ^8.0.17
@@ -17140,12 +17163,13 @@ typescript@^4.1.5:
   version: 0.0.0-use.local
   resolution: "website@workspace:website"
   dependencies:
-    "@docusaurus/core": ">=2.0.0-alpha.70"
-    "@docusaurus/preset-classic": ">=2.0.0-alpha.70"
+    "@docusaurus/core": ">=2.0.0-alpha.71"
+    "@docusaurus/preset-classic": ">=2.0.0-alpha.71"
     buble: ^0.20.0
     classnames: ^2.2.6
     date-fns: ^2.17.0
     docusaurus-plugin-typedoc: ^0.9.0
+    raw-loader: ^4.0.2
     react: ^17.0.1
     react-day-picker: "workspace:packages/react-day-picker"
     react-dom: ^17.0.1

@@ -14,5 +14,5 @@ hide_title: true
 
 Name | Type |
 :------ | :------ |
-`from`? | Date |
+`from` | Date |
 `to`? | Date |

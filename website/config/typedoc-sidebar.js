@@ -21,7 +21,7 @@ module.exports = [
       "api/interfaces/propsvalues",
       "api/interfaces/rootprops",
       "api/interfaces/rowprops",
-      "api/interfaces/selectionoptions",
+      "api/interfaces/selecteventhandler",
       "api/interfaces/tableprops",
       "api/interfaces/weeknumberprops",
       "api/interfaces/yearsdropdownprops"
@@ -39,7 +39,6 @@ module.exports = [
       "api/types/dateformatter",
       "api/types/dateinterval",
       "api/types/daterange",
-      "api/types/dateselection",
       "api/types/dayclickeventhandler",
       "api/types/dayfocuseventhandler",
       "api/types/daykeyboardeventhandler",
@@ -58,12 +57,13 @@ module.exports = [
       "api/types/modifiersstyles",
       "api/types/monthchangeeventhandler",
       "api/types/nextlabelformatter",
-      "api/types/rangeselectionhandler",
-      "api/types/selecteventhandler",
-      "api/types/selectiontype",
+      "api/types/selectmode",
+      "api/types/selectmultipleeventhandler",
+      "api/types/selectrangeeventhandler",
       "api/types/useinput",
       "api/types/useinputoptions",
-      "api/types/userangeselection",
+      "api/types/useselect",
+      "api/types/useselectcallback",
       "api/types/weeknumberclickeventhandler",
       "api/types/weeknumberformatter",
       "api/types/weeknumberlabelformatter",
@@ -104,12 +104,11 @@ module.exports = [
       "api/functions/table",
       "api/functions/weeknumber",
       "api/functions/yearsdropdown",
-      "api/functions/addtorange",
       "api/functions/getmodifiers",
       "api/functions/useinput",
       "api/functions/usenavigation",
       "api/functions/useprops",
-      "api/functions/userangeselection"
+      "api/functions/useselect"
     ]
   }
 ];

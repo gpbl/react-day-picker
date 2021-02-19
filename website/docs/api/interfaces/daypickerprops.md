@@ -101,7 +101,7 @@ ___
 
 ### defaultSelected
 
-• `Optional` **defaultSelected**: [*DateSelection*](../types/dateselection.md)
+• `Optional` **defaultSelected**: *undefined* \| Date \| Date[] \| [*DateRange*](../types/daterange.md)
 
 The default selected day(s).
 
@@ -287,6 +287,33 @@ import spanish from 'date-fns/locale/es';
 function Example() {
   return <DayPicker locale={spanish} />;
 }
+```
+
+___
+
+### mode
+
+• `Optional` **mode**: *undefined* \| *uncontrolled* \| *single* \| *multiple* \| *range*
+
+The type of the selection.
+
+- `single` (default) allows selecting only a single day
+- `multiple` allows selecting multiple days
+- `range` allows selecting a range of days
+- `uncontrolled`: set the selections using the `selected` prop
+
+**Example**
+
+When setting to `uncontrolled`, handle the selection in the parent
+component’ state:
+
+```jsx showOutput open=no
+function Example() {
+ const [day, setDay] = useState(new Date());
+ return (
+   <DayPicker mode="uncontrolled" selected={day} onDayClick={setDay} />
+ )
+};
 ```
 
 ___
@@ -519,11 +546,31 @@ ___
 
 ### onSelect
 
-• `Optional` **onSelect**: *undefined* \| [*SelectEventHandler*](../types/selecteventhandler.md)
+• `Optional` **onSelect**: *undefined* \| [*SelectEventHandler*](selecteventhandler.md)
 
 Event fired when a day is selected.
 
-**Note:** This event is disabled when `type='uncontrolled'`.
+**Note:** This event is disabled when `mode='uncontrolled'`.
+
+___
+
+### onSelectMultiple
+
+• `Optional` **onSelectMultiple**: *undefined* \| [*SelectMultipleEventHandler*](../types/selectmultipleeventhandler.md)
+
+Event fired when multiple days are selected.
+
+**Note:** This event is disabled when `mode='uncontrolled'`.
+
+___
+
+### onSelectRange
+
+• `Optional` **onSelectRange**: *undefined* \| [*SelectRangeEventHandler*](../types/selectrangeeventhandler.md)
+
+Event fired when a range of days is selected.
+
+**Note:** This event is disabled when `mode='uncontrolled'`.
 
 ___
 
@@ -686,31 +733,4 @@ The today’s date. Default is the current date.
 function Example() {
   return <DayPicker today={new Date(2022, 2, 18)} />;
 }
-```
-
-___
-
-### type
-
-• `Optional` **type**: *undefined* \| *uncontrolled* \| *single* \| *multiple* \| *range*
-
-The type of the selection.
-
-- `single` (default) allows selecting only a single day
-- `multiple` allows selecting multiple days
-- `range` allows selecting a range of days
-- `uncontrolled`: set the selections using the `selected` prop
-
-**Example**
-
-When setting to `uncontrolled`, handle the selection in the parent
-component’ state:
-
-```jsx showOutput open=no
-function Example() {
- const [day, setDay] = useState(new Date());
- return (
-   <DayPicker type="uncontrolled" selected={day} onDayClick={setDay} />
- )
-};
 ```
