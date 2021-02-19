@@ -271,12 +271,12 @@ button.rdp-weeknumber:hover:not([disabled]) {
 /* ----------- */
 
 .rdp .rdp-day.rdp-day_disabled,
-.rdp .rdp-day[disabled] {
+.rdp .rdp-day.rdp-day_outside,
+.rdp .rdp-day[disabled],
+.RDP_CICCIO {
   opacity: 25%;
 }
-.rdp .rdp-day.rdp-day_outside {
-  opacity: 25%;
-}
+
 .rdp .rdp-day.rdp-day_today {
   font-weight: bold;
 }

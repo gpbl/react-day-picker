@@ -77,24 +77,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background: none;
 }
 
-.code-output {
-  border-radius: var(--ifm-pre-border-radius);
-  padding: var(--ifm-pre-padding);
-  padding-top: 0;
-  overflow: auto;
-  font-size: initial;
-}
-
-.code-output .rdp + p {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.code-output input {
-  font: inherit;
-  padding: 0 0.5em;
-}
-
 .prism-code {
   font-size: var(--ifm-code-font-size);
 }
