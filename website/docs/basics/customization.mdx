@@ -3,6 +3,8 @@ id: customization
 title: Customization
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 ## Multiple months
 
 Use the `numberOfMonths` to render more than one calendar.
@@ -10,47 +12,55 @@ Use the `numberOfMonths` to render more than one calendar.
 When rendering multiple months, use `pagedNavigation` to navigate the number of
 months per time, and `reverseMonths` to display the latest month first.
 
-```jsx showOutput
-import { DayPicker } from 'react-day-picker';
+import MultipleMonths from '../examples/customization-multiple-months.tsx';
+import MultipleMonthsSrc from '!!raw-loader!../examples/customization-multiple-months.tsx';
 
-function Example() {
-  return <DayPicker numberOfMonths={2} pagedNavigation />;
-}
-```
+<CodeBlock className="language-tsx">{MultipleMonthsSrc}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <MultipleMonths />
+</details>
 
 ## Showing the outside days
 
 Use `showOutsideDays` to display the days falling out the current month.
 
-```jsx showOutput open=no
-function Example() {
-  return <DayPicker showOutsideDays />;
-}
-```
+import ShowOutsideDays from '../examples/customization-outside-days.tsx';
+import ShowOutsideDaysSrc from '!!raw-loader!../examples/customization-outside-days.tsx';
+
+<CodeBlock className="language-tsx">{ShowOutsideDaysSrc}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <ShowOutsideDays />
+</details>
 
 ## Using fixed weeks
 
 When `showOutsideDays` is turned on, use `fixedWeeks` to display six weeks per
 months. This will prevent the calendar to change its height when navigating.
 
-```jsx showOutput open=no
-function Example() {
-  return <DayPicker showOutsideDays fixedWeeks />;
-}
-```
+import FixedWeeks from '../examples/customization-fixedweeks.tsx';
+import FixedWeeksSrc from '!!raw-loader!../examples/customization-fixedweeks.tsx';
+
+<CodeBlock className="language-tsx">{FixedWeeksSrc}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <FixedWeeks />
+</details>
 
 ## Showing the week numbers
 
 Use `showWeekNumber` to display the week numbers.
 
-```jsx showOutput open=no
-function Example() {
-  const [weekNumber, setWeekNumber] = useState();
-  return (
-    <>
-      <DayPicker showWeekNumber onWeekNumberClick={(n) => setWeekNumber(n)} />
-      <p>You clicked the week n. {weekNumber}</p>
-    </>
-  );
-}
-```
+import WeekNumber from '../examples/customization-weeknumber.tsx';
+import WeekNumberSrc from '!!raw-loader!../examples/customization-weeknumber.tsx';
+
+<CodeBlock className="language-tsx">{WeekNumberSrc}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <WeekNumber />
+</details>

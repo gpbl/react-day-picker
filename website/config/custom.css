@@ -95,6 +95,9 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   padding: 0 0.5em;
 }
 
+.prism-code {
+  font-size: var(--ifm-code-font-size);
+}
 .prism-code > div {
   background-color: var(--ifm-pre-background) !important;
 }

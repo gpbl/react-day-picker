@@ -8,11 +8,11 @@ hide_title: true
 
 # Type alias: DayClickEventHandler
 
-Ƭ **DayClickEventHandler**: (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.MouseEvent \| React.KeyboardEvent) => *void*
+Ƭ **DayClickEventHandler**: (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.MouseEvent) => *void*
 
 #### Type declaration:
 
-▸ (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.MouseEvent \| React.KeyboardEvent): *void*
+▸ (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.MouseEvent): *void*
 
 #### Parameters:
 
@@ -20,6 +20,6 @@ Name | Type |
 :------ | :------ |
 `day` | Date |
 `modifiers` | [*ModifiersStatus*](modifiersstatus.md) |
-`e` | React.MouseEvent \| React.KeyboardEvent |
+`e` | React.MouseEvent |
 
 **Returns:** *void*

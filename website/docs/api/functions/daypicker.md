@@ -14,7 +14,7 @@ Render a date picker component.
 
 **Example**
 
-```jsx showOutput
+```jsx
 function Example() {
   const [selected, setSelected] = useState();
 

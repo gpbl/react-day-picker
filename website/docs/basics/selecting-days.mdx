@@ -3,96 +3,61 @@ id: selecting-days
 title: Selecting Days
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+
 ## Getting the selected day
 
-Use `onSelect` to get the selected day
+Use `onSelect` to get the selected day.
 
-```jsx showOutput open=no
-function Example() {
-  const [selectedDay, setSelectedDay] = useState();
-  return (
-    <>
-      <DayPicker onSelect={setSelectedDay} />
-      <p>
-        Please pick a day.
-        {selectedDay && <>You selected {selectedDay.toLocaleDateString()}.</>}
-      </p>
-    </>
-  );
-}
-```
+import Example1 from '../examples/selecting-days-single.tsx';
+import Example1Src from '!!raw-loader!../examples/selecting-days-single.tsx';
+
+<CodeBlock className="language-tsx">{Example1Src}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <Example1 />
+</details>
 
 ## Pre-selecting a day
 
 Use `defautSelected` to initialize DayPicker with a pre-selected day. In combination with
 `required`, DayPicker will always have a day selected.
 
-```jsx showOutput open=no
-function Example() {
-  const defaultSelected = new Date();
-  const [selectedDay, setSelectedDay] = useState(defaultSelected);
-  return (
-    <>
-      <DayPicker
-        defaultSelected={defaultSelected}
-        required
-        onSelect={setSelectedDay}
-      />
-      <p>
-        Please pick a day.
-        {selectedDay && <>You selected {selectedDay.toLocaleDateString()}.</>}
-      </p>
-    </>
-  );
-}
-```
+import Example2 from '../examples/selecting-days-default.tsx';
+import Example2Src from '!!raw-loader!../examples/selecting-days-default.tsx';
+
+<CodeBlock className="language-tsx">{Example2Src}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <Example2 />
+</details>
 
 ## Selecting multiple days
 
-Using `type="multiple"` to allow the selection of multiple days:
+Using `mode="multiple"` to allow the selection of multiple days:
 
-```jsx showOutput open=no
-function Example() {
-  // Store the selected days in an array
-  const defaultSelected = [new Date()];
-  const [days, setDays] = useState(defaultSelected);
+import Multiple from '../examples/selecting-days-multiple.tsx';
+import MultipleSrc from '!!raw-loader!../examples/selecting-days-multiple.tsx';
 
-  const handleResetClick = () => setSelectedDay();
+<CodeBlock className="language-tsx">{MultipleSrc}</CodeBlock>
 
-  return (
-    <>
-      <DayPicker type="multiple" onSelect={setDays} required />
-      <p>You picked {days.map((day) => day.toLocaleDateString()).join(', ')}</p>
-    </>
-  );
-}
-```
+<details>
+  <summary>Show output</summary>
+  <Multiple />
+</details>
 
 ## Selecting a range of days
 
-Using `type="range"` to allow the selection of multiple days. Pass a
-[DateRange](/api/types/daterange) object.
+Use `mode="range"` and `onSelectRange` to allow the selection of multiple days.
 
-```jsx showOutput open=no
-function Example() {
-  const defaultSelected = {
-    from: new Date(),
-    to: addDays(new Date(), 4)
-  };
-  const [range, setRange] = useState(defaultSelected);
+import Range from '../examples/selecting-days-range.tsx';
+import RangeSrc from '!!raw-loader!../examples/selecting-days-range.tsx';
 
-  return (
-    <>
-      <DayPicker
-        defaultSelected={defaultSelected}
-        type="range"
-        onSelect={setRange}
-      />
-      <p>
-        You picked from {range && range.from && range.from.toLocaleDateString()}{' '}
-        to {range && range.to && range.to.toLocaleDateString()}
-      </p>
-    </>
-  );
-}
-```
+<CodeBlock className="language-tsx">{RangeSrc}</CodeBlock>
+
+<details>
+  <summary>Show output</summary>
+  <Range />
+</details>
