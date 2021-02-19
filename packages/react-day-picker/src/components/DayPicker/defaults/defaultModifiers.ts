@@ -20,7 +20,7 @@ function isInteractive(
   props: PropsValues
 ): boolean {
   const { toDate, fromDate, originalProps } = props;
-  if (props.type !== 'uncontrolled') {
+  if (props.mode !== 'uncontrolled') {
     return true;
   }
   if (interactiveProps.every((name) => !originalProps[name])) {

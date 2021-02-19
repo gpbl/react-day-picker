@@ -4,7 +4,7 @@ import {
   CaptionLayout,
   ClassNames,
   Components,
-  DateSelection,
+  DateRange,
   DayClickEventHandler,
   DayFocusEventHandler,
   DayKeyboardEventHandler,
@@ -19,7 +19,9 @@ import {
   ModifiersStyles,
   MonthChangeEventHandler,
   SelectEventHandler,
-  SelectionType,
+  SelectMode,
+  SelectMultipleEventHandler,
+  SelectRangeEventHandler,
   WeekNumberClickEventHandler
 } from '../../types';
 
@@ -300,7 +302,7 @@ export interface DayPickerProps {
   /**
    * The default selected day(s).
    */
-  defaultSelected?: DateSelection;
+  defaultSelected?: Date | Date[] | DateRange | undefined;
   /**
    * The type of the selection.
    *
@@ -318,13 +320,13 @@ export interface DayPickerProps {
    * function Example() {
    *  const [day, setDay] = useState(new Date());
    *  return (
-   *    <DayPicker type="uncontrolled" selected={day} onDayClick={setDay} />
+   *    <DayPicker mode="uncontrolled" selected={day} onDayClick={setDay} />
    *  )
    * };
    * ```
    *
    */
-  type?: SelectionType;
+  mode?: SelectMode;
   /**
    * When the selection type is controlled, require at least one day to be selected.
    */
@@ -477,9 +479,21 @@ export interface DayPickerProps {
   /**
    * Event fired when a day is selected.
    *
-   * **Note:** This event is disabled when `type='uncontrolled'`.
+   * **Note:** This event is disabled when `mode='uncontrolled'`.
    */
   onSelect?: SelectEventHandler;
+  /**
+   * Event fired when multiple days are selected.
+   *
+   * **Note:** This event is disabled when `mode='uncontrolled'`.
+   */
+  onSelectMultiple?: SelectMultipleEventHandler;
+  /**
+   * Event fired when a range of days is selected.
+   *
+   * **Note:** This event is disabled when `mode='uncontrolled'`.
+   */
+  onSelectRange?: SelectRangeEventHandler;
   /**
    * Event fired when a day is clicked.
    */

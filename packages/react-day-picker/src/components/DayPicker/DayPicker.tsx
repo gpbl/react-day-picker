@@ -15,7 +15,9 @@ import {
   PropsValues,
   Root
 } from '../../components';
-import { useSelection } from '../../hooks/useSelection';
+import { useSelect } from '../../hooks';
+import { useRangeSelect } from '../../hooks/useRangeSelect';
+import { useMultipleSelect } from '../../hooks/useSelectMultiple';
 import {
   DayClickEventHandler,
   DayFocusEventHandler,
@@ -55,12 +57,11 @@ import { getNavMonths } from './utils/getNavMonths';
  */
 export function DayPicker(props: DayPickerProps): JSX.Element {
   //#region Default values
+  const mode = props.mode ?? defaults.mode;
   const today = props.today ?? defaults.today;
   const locale = props.locale || defaults.locale;
   const numberOfMonths = props.numberOfMonths || defaults.numberOfMonths;
   const showOutsideDays = props.showOutsideDays || props.fixedWeeks;
-  const type =
-    'selected' in props ? 'uncontrolled' : props.type || defaults.type;
 
   // Give precedence to `fromYear` and `fromMonth`
   let fromDate: Date | undefined = props.fromDate;
@@ -107,24 +108,28 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
 
   //#region Controlled selection
 
-  // As default, days selection is controlled by DayPicker – where the initial
-  // value comes from `defaultSelected`. If `props.selected` is passed, then the
-  // parent component must control the selection via `onDayClick`.
-  const { defaultSelected, onSelect, required } = props;
-  const [isSelectionControlled, setIsSelectionControlled] = useState(
-    type !== 'uncontrolled'
+  // Single select
+  const singleSelect = useSelect(
+    'single',
+    props.defaultSelected,
+    props.required,
+    props.onSelect
   );
 
-  const [
-    controlledSelected,
-    setControlledSelected,
-    selectionModifiers
-  ] = useSelection(defaultSelected, type, onSelect, { required });
+  // Multiple select
+  const multipleSelect = useMultipleSelect(
+    'multiple',
+    props.defaultSelected,
+    props.required,
+    props.onSelectMultiple
+  );
 
-  React.useEffect(() => {
-    setIsSelectionControlled(type !== 'uncontrolled');
-  }, [type]);
-  if (!isSelectionControlled) type === 'uncontrolled';
+  const rangeSelect = useRangeSelect(
+    'range',
+    props.defaultSelected,
+    props.required,
+    props.onSelectRange
+  );
 
   //#endregion
 
@@ -148,7 +153,6 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   const onDayFocus: DayFocusEventHandler = (day, modifiers, e) => {
     const sameMonth = isSameMonth(day, currentMonth);
     if (!sameMonth && props.disableNavigation) return;
-
     if (!sameMonth) onMonthChange(startOfMonth(day), e);
     setFocusedDay(day);
     props.onDayFocus?.(day, modifiers, e);
@@ -159,7 +163,9 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   };
   const onDayClick: DayClickEventHandler = (day, modifiers, e) => {
     props.onDayClick?.(day, modifiers, e);
-    if (isSelectionControlled) setControlledSelected(day, modifiers, e);
+    if (mode === 'single') singleSelect.onDayClick(day, modifiers, e);
+    if (mode === 'multiple') multipleSelect.onDayClick(day, modifiers, e);
+    if (mode === 'range') rangeSelect.onDayClick(day, modifiers, e);
   };
   const onDayKeyDown: DayKeyboardEventHandler = (day, modifiers, e) => {
     switch (e.code) {
@@ -196,8 +202,6 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   };
   //#endregion
 
-  const selected = isSelectionControlled ? controlledSelected : props.selected;
-
   const propsValues: PropsValues = {
     ...props,
     captionLayout,
@@ -214,7 +218,6 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     modifierPrefix: props.modifierPrefix || defaults.modifierPrefix,
     modifiers: {
       ...defaultModifiers,
-      ...selectionModifiers,
       ...props.modifiers
     },
     numberOfMonths,
@@ -224,10 +227,16 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     onDayKeyDown,
     onMonthChange,
     originalProps: props,
-    selected,
+    selected:
+      mode === 'single'
+        ? singleSelect.selected
+        : mode === 'multiple'
+        ? multipleSelect.selected
+        : mode === 'range'
+        ? rangeSelect.selected
+        : props.selected,
     showOutsideDays,
-    today,
-    type
+    today
   };
 
   const [prevMonth, nextMonth] = getNavMonths(currentMonth, {
