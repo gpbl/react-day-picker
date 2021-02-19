@@ -163,6 +163,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   };
   const onDayClick: DayClickEventHandler = (day, modifiers, e) => {
     props.onDayClick?.(day, modifiers, e);
+    if (modifiers.outside) return;
     if (mode === 'single') singleSelect.onDayClick(day, modifiers, e);
     if (mode === 'multiple') multipleSelect.onDayClick(day, modifiers, e);
     if (mode === 'range') rangeSelect.onDayClick(day, modifiers, e);

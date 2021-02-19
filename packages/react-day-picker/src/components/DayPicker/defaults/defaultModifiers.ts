@@ -20,15 +20,18 @@ function isInteractive(
   props: PropsValues
 ): boolean {
   const { toDate, fromDate, originalProps } = props;
-  if (props.mode !== 'uncontrolled') {
+  const outside = isOutside(day, currentMonth);
+  if (props.mode !== 'uncontrolled' && !outside) {
     return true;
   }
-  if (interactiveProps.every((name) => !originalProps[name])) {
+  // If some of the _original props_ is an interactive prop
+  if (interactiveProps.every((name) => !(name in originalProps))) {
     return false;
   }
   const isAfterToDate = toDate && isAfter(day, toDate);
   const isBeforeFromDate = fromDate && isBefore(day, fromDate);
-  return !isAfterToDate && !isBeforeFromDate && !isOutside(day, currentMonth);
+  const interactive = !isAfterToDate && !isBeforeFromDate && !outside;
+  return interactive;
 }
 
 function isToday(day: Date, _: Date, props: PropsValues): boolean {
