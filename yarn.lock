@@ -16933,7 +16933,7 @@ typescript@^4.1.5:
   languageName: node
   linkType: hard
 
-"webpack@npm:^4.44.1":
+"webpack@npm:^4, webpack@npm:^4.44.1":
   version: 4.46.0
   resolution: "webpack@npm:4.46.0"
   dependencies:
@@ -17039,6 +17039,8 @@ typescript@^4.1.5:
     react-dom: ^16.14.0
     typedoc: ^0.20.25
     typedoc-plugin-markdown: ^3.5.0
+    typescript: ^4.1.5
+    webpack: ^4
   languageName: unknown
   linkType: soft
 
