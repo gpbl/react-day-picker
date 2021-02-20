@@ -154,7 +154,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     if (mode === 'range') rangeSelect.onDayClick(day, modifiers, e);
   };
   const onDayKeyDown: DayKeyboardEventHandler = (day, modifiers, e) => {
-    switch (e.code) {
+    switch (e.key) {
       case KeyCode.ArrowLeft: {
         e.preventDefault();
         const nextDay = addDays(day, -1);
