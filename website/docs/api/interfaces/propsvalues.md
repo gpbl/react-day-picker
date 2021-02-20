@@ -74,7 +74,7 @@ Apply the `disabled` modifier to the matching days.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
   return (
     <DayPicker
@@ -109,7 +109,7 @@ To use this prop, [showOutsideDays](propsvalues.md#showoutsidedays) must be set.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker showOutsideDays fixedWeeks />
 };
@@ -140,7 +140,7 @@ calendar.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
   return (
     <DayPicker
@@ -164,7 +164,7 @@ Hide the month’s head displaying the weekday names.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker hideHead />
 };
@@ -200,7 +200,7 @@ The type of the selection.
 When setting to `uncontrolled`, handle the selection in the parent
 component’ state:
 
-```jsx showOutput open=no
+```
 function Example() {
  const [day, setDay] = useState(new Date());
  return (
@@ -239,7 +239,7 @@ Change the inline style for the day matching the [modifiers](propsvalues.md#modi
 
 Change the background color of the days matching the `isToday` modifier.
 
-```jsx
+```
 <DayPicker
  modifiers={{ isToday: new Date() }}
  modifiersStyles={{ isToday: { backgroundColor: 'purple' } }}
@@ -415,7 +415,7 @@ Paginate the month navigation displaying the [numberOfMonths](propsvalues.md#num
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker numberOfMonths={3} pagedNavigation />
 };
@@ -440,7 +440,7 @@ than `1`) to display the most recent month first.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker numberOfMonths={5} reverseMonths />
 };
@@ -456,7 +456,7 @@ Apply the `selected` modifier to the matching days.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
   return (
     <DayPicker
@@ -484,7 +484,7 @@ to make them clickable.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker showOutsideDays />
 };
@@ -500,7 +500,7 @@ Show the week numbers column. Default to `false`.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker showWeekNumber />
 };

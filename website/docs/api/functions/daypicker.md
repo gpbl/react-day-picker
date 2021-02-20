@@ -12,21 +12,6 @@ hide_title: true
 
 Render a date picker component.
 
-**Example**
-
-```jsx
-function Example() {
-  const [selected, setSelected] = useState();
-
-  const handleDayClick = (day, { selected }) => {
-    if (!selected) setSelected(day);
-    else setSelected();
-  };
-
-  return <DayPicker selected={selected} onDayClick={handleDayClick} />;
-}
-```
-
 #### Parameters:
 
 Name | Type |

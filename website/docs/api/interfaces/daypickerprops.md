@@ -25,7 +25,7 @@ Change the layout of the caption:
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return (
    <DayPicker fromYear={2020} toYear={2025} captionLayout="dropdown" />
@@ -55,7 +55,7 @@ when using CSS modules.
 
 Use of custom class names for the head and the caption elements:
 
-```jsx showOutput open=no
+```
  function Example() {
    const css = `
      .salmon-head {
@@ -119,7 +119,7 @@ or `rtl` for right-to-left.
 When setting the calendar to Arabic, using `dir` to enable right-to-left
 direction.
 
-```jsx showOutput open=no
+```
 import arabic from 'date-fns/locale/ar-SA';
 
 function Example() {
@@ -145,7 +145,7 @@ Apply the `disabled` modifier to the matching days.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
   return (
     <DayPicker
@@ -180,7 +180,7 @@ To use this prop, [showOutsideDays](daypickerprops.md#showoutsidedays) must be s
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker showOutsideDays fixedWeeks />
 };
@@ -229,7 +229,7 @@ calendar.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
   return (
     <DayPicker
@@ -253,7 +253,7 @@ Hide the month’s head displaying the weekday names.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker hideHead />
 };
@@ -281,7 +281,7 @@ See also date-fns [Internationalization guide](https://date-fns.org/v2.17.0/docs
 
 Set the calendar to Spanish.
 
-```jsx showOutput open=no
+```
 import spanish from 'date-fns/locale/es';
 
 function Example() {
@@ -307,7 +307,7 @@ The type of the selection.
 When setting to `uncontrolled`, handle the selection in the parent
 component’ state:
 
-```jsx showOutput open=no
+```
 function Example() {
  const [day, setDay] = useState(new Date());
  return (
@@ -351,7 +351,7 @@ Add a custom modifier to the matching days.
 
 Add a `booked` modifier to the current day.
 
-```jsx showOutput open=no
+```
 function Example() {
    return <DayPicker modifiers={{ booked: new Date() }} />
 }
@@ -369,7 +369,7 @@ Change the class name for the day matching the [modifiers](daypickerprops.md#mod
 
 Add the `.with-circle` class of the days matching the `isToday` modifier.
 
-```jsx
+```
 <DayPicker
  modifiers={{ isToday: new Date() }}
  modifiersClassNames={{ isToday: 'with-circle' }}
@@ -388,7 +388,7 @@ Change the inline style for the day matching the [modifiers](daypickerprops.md#m
 
 Change the background color of the days matching the `isToday` modifier.
 
-```jsx
+```
 <DayPicker
  modifiers={{ isToday: new Date() }}
  modifiersStyles={{ isToday: { backgroundColor: 'purple' } }}
@@ -410,7 +410,7 @@ change the month programmatically.
 
 Implement a button to go to today.
 
-```jsx showOutput open=no
+```
 function Example() {
   const [month, setMonth] = useState();
   return (
@@ -434,7 +434,7 @@ See also [pagedNavigation](daypickerprops.md#pagednavigation).
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker numberOfMonths={2} />
 };
@@ -588,7 +588,7 @@ Paginate the month navigation displaying the [numberOfMonths](daypickerprops.md#
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker numberOfMonths={3} pagedNavigation />
 };
@@ -613,7 +613,7 @@ than `1`) to display the most recent month first.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker numberOfMonths={5} reverseMonths />
 };
@@ -629,7 +629,7 @@ Apply the `selected` modifier to the matching days.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
   return (
     <DayPicker
@@ -657,7 +657,7 @@ to make them clickable.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker showOutsideDays />
 };
@@ -673,7 +673,7 @@ Show the week numbers column. Default to `false`.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
  return <DayPicker showWeekNumber />
 };
@@ -729,7 +729,7 @@ The today’s date. Default is the current date.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
   return <DayPicker today={new Date(2022, 2, 18)} />;
 }
