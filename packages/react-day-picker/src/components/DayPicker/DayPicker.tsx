@@ -39,21 +39,6 @@ import { getNavMonths } from './utils/getNavMonths';
 
 /**
  * Render a date picker component.
- *
- * **Example**
- *
- * ```jsx
- * function Example() {
- *   const [selected, setSelected] = useState();
- *
- *   const handleDayClick = (day, { selected }) => {
- *     if (!selected) setSelected(day);
- *     else setSelected();
- *   };
- *
- *   return <DayPicker selected={selected} onDayClick={handleDayClick} />;
- * }
- * ```
  */
 export function DayPicker(props: DayPickerProps): JSX.Element {
   //#region Default values

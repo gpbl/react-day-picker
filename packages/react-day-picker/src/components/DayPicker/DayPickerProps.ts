@@ -43,7 +43,7 @@ export interface DayPickerProps {
    *
    * Use of custom class names for the head and the caption elements:
    *
-   * ```jsx showOutput open=no
+   * ```
    *  function Example() {
    *    const css = `
    *      .salmon-head {
@@ -77,7 +77,7 @@ export interface DayPickerProps {
    *
    * Add the `.with-circle` class of the days matching the `isToday` modifier.
    *
-   * ```jsx
+   * ```
    * <DayPicker
    *  modifiers={{ isToday: new Date() }}
    *  modifiersClassNames={{ isToday: 'with-circle' }}
@@ -119,7 +119,7 @@ export interface DayPickerProps {
    *
    * Change the background color of the days matching the `isToday` modifier.
    *
-   * ```jsx
+   * ```
    * <DayPicker
    *  modifiers={{ isToday: new Date() }}
    *  modifiersStyles={{ isToday: { backgroundColor: 'purple' } }}
@@ -138,7 +138,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *  return <DayPicker numberOfMonths={2} />
    * };
@@ -183,7 +183,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *  return (
    *    <DayPicker fromYear={2020} toYear={2025} captionLayout="dropdown" />
@@ -197,7 +197,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *  return <DayPicker numberOfMonths={3} pagedNavigation />
    * };
@@ -210,7 +210,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *  return <DayPicker numberOfMonths={5} reverseMonths />
    * };
@@ -227,7 +227,7 @@ export interface DayPickerProps {
    *
    * Implement a button to go to today.
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *   const [month, setMonth] = useState();
    *   return (
@@ -247,7 +247,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *  return <DayPicker showOutsideDays fixedWeeks />
    * };
@@ -259,7 +259,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *  return <DayPicker hideHead />
    * };
@@ -275,7 +275,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *  return <DayPicker showOutsideDays />
    * };
@@ -292,7 +292,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *  return <DayPicker showWeekNumber />
    * };
@@ -316,7 +316,7 @@ export interface DayPickerProps {
    * When setting to `uncontrolled`, handle the selection in the parent
    * component’ state:
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *  const [day, setDay] = useState(new Date());
    *  return (
@@ -336,7 +336,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *   return (
    *     <DayPicker
@@ -356,7 +356,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *   return (
    *     <DayPicker
@@ -377,7 +377,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *   return (
    *     <DayPicker
@@ -397,7 +397,7 @@ export interface DayPickerProps {
    *
    * **Example**
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *   return <DayPicker today={new Date(2022, 2, 18)} />;
    * }
@@ -411,7 +411,7 @@ export interface DayPickerProps {
    *
    * Add a `booked` modifier to the current day.
    *
-   * ```jsx showOutput open=no
+   * ```
    * function Example() {
    *    return <DayPicker modifiers={{ booked: new Date() }} />
    * }
@@ -433,7 +433,7 @@ export interface DayPickerProps {
    *
    * Set the calendar to Spanish.
    *
-   * ```jsx showOutput open=no
+   * ```
    * import spanish from 'date-fns/locale/es';
    *
    * function Example() {
@@ -451,7 +451,7 @@ export interface DayPickerProps {
    * When setting the calendar to Arabic, using `dir` to enable right-to-left
    * direction.
    *
-   * ```jsx showOutput open=no
+   * ```
    * import arabic from 'date-fns/locale/ar-SA';
    *
    * function Example() {
