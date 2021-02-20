@@ -16,7 +16,7 @@ function isValidDate(day: Date): boolean {
  *
  * **Example**
  *
- * ```jsx showOutput open=no
+ * ```
  * function Example() {
  *   const { dayPickerProps, inputProps } = useInput(new Date(), 'yyyy-MM-dd');
  *   return (
