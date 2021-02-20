@@ -10,24 +10,8 @@ day in DayPicker.
 
 The `disabled` modifier disable the interaction with a day and is set using the `disabled` prop.
 
-```jsx {3-7} showOutput open=no
-function Example() {
-  const disabledDays = [
-    new Date(2022, 4, 12),
-    new Date(2022, 5, 10),
-    new Date(2022, 5, 20),
-    { before: new Date(2022, 1) },
-    { from: new Date(2022, 4, 18), to: new Date(2022, 4, 29) }
-  ];
-
-  return (
-    <DayPicker
-      numberOfMonths={2}
-      defaultMonth={new Date(2022, 4)}
-      disabled={disabledDays}
-    />
-  );
-}
+```include
+examples/modifiers-disabled.tsx
 ```
 
 ## The `today` modifier
@@ -35,34 +19,20 @@ function Example() {
 The `today` modifier is added to the current date and it is passed as second
 argument to the event handlers.
 
-```jsx showOutput open=no
-function Example() {
-  const handleDayClick = (day, { today }) => {
-    if (today) {
-      alert('You clicked the today’s date!');
-    } else {
-      alert(`You clicked ${day.toLocaleDateString()}.`);
-    }
-  };
-
-  return <DayPicker onDayClick={handleDayClick} />;
-}
+```include
+examples/modifiers-today.tsx
 ```
 
 Change the current date with the `today` prop:
 
-```jsx showOutput open=no
-function Example() {
-  return <DayPicker today={new Date(2022, 2, 18)} />;
-}
+```include
+examples/modifiers-today-change.tsx
 ```
 
 It is possible to toggle off the `today` modifier:
 
-```jsx showOutput open=no
-function Example() {
-  return <DayPicker modifiers={{ today: false }} />;
-}
+```include
+examples/modifiers-today-off.tsx
 ```
 
 ## The `selected` modifier
@@ -74,7 +44,8 @@ interaction with the days and assigns a `selected` modifier to them.
 :::note
 
 For a basic use of a date picker, you usually won’t need to change the selection
-behavior. Use `onSelect` and the `type` prop to let DayPicker control the
+behavior. Use [onSelect](/api/interfaces/daypickerprops#onselect) and the
+[selection mode](/api/interfaces/daypickerprops#mode) prop to let DayPicker control the
 selection.
 
 :::
@@ -83,61 +54,16 @@ Customize the selection behavior by letting the parent component’s handling th
 interaction with the days. To control the selected days, use the `selected` and
 `onDayClick` props and add the dates to the component’s state:
 
-```jsx showOutput open=no
-function Example() {
-  const [selectedDay, setSelectedDay] = useState();
-  return (
-    <>
-      <DayPicker
-        onDayClick={(day) => setSelectedDay(day)}
-        selected={selectedDay}
-      />
-      <p>
-        Please pick a day.
-        {selectedDay && <> You selected {selectedDay.toLocaleDateString()}.</>}
-      </p>
-    </>
-  );
-}
+```include
+examples/modifiers-selected.tsx
 ```
 
 By doing this, DayPicker will switch to uncontrolled mode and let you define with more granularity how the selections work.
 
 For example, to select an array of days:
 
-```jsx showOutput open=no
-function Example() {
-  const [selectedDays, setSelectedDays] = useState([]);
-
-  function handleDayClick(day, { selected }) {
-    // Use a callback to clone and add / remove days to the array
-    setSelectedDays((currentlySelectedDays) => {
-      const days = [...currentlySelectedDays];
-      if (selected) {
-        days.splice(currentlySelectedDays.indexOf(day), 1);
-      } else {
-        days.push(day);
-      }
-      return days;
-    });
-  }
-
-  const handleResetClick = () => setSelectedDays([]);
-
-  return (
-    <div>
-      <DayPicker onDayClick={handleDayClick} selected={selectedDays} />
-      {selectedDays.length === 0 ? (
-        <p>Please pick one or more days.</p>
-      ) : (
-        <p>
-          You selected {selectedDays.length} days.{' '}
-          <button onClick={handleResetClick}>Reset</button>
-        </p>
-      )}
-    </div>
-  );
-}
+```include
+examples/modifiers-selected-multiple.tsx
 ```
 
 ## Custom modifiers
@@ -148,29 +74,8 @@ app may use a `booked` modifier to mark days as already booked.
 Use the `modifiers` prop to pass an object with custom modifiers. Change the
 inline-style of the cell with `modifiersStyles`.
 
-```jsx showOutput open=no
-function Example() {
-  const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
-  const bookedStyle = { color: 'tomato' };
-
-  const handleDayClick = (day, { booked }) => {
-    if (booked) {
-      alert('You clicked a booked day.');
-    }
-  };
-  return (
-    <DayPicker
-      defaultMonth={bookedDays[0]}
-      modifiers={{
-        booked: bookedDays
-      }}
-      modifiersStyles={{
-        booked: bookedStyle
-      }}
-      onDayClick={handleDayClick}
-    />
-  );
-}
+```include
+examples/modifiers-custom.tsx
 ```
 
 ## Styling days with modifiers
@@ -183,32 +88,6 @@ styles.
   [`modifiersClassNames`](/api/interfaces/daypickerprops#modifiersclassnames) to
   add a class name to the DOM element
 
-```jsx showOutput open=no
-function Example() {
-  const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
-  const bookedStyle = { color: 'tomato' };
-
-  const availableDays = [new Date(2021, 5, 23), new Date(2021, 5, 24)];
-  const availableStyle = { fontWeight: '900', color: 'lightgreen' };
-
-  const handleDayClick = (day, { booked, available }) => {
-    if (booked) alert('You clicked a booked day.');
-    if (available) alert('You clicked an available day.');
-  };
-
-  return (
-    <DayPicker
-      defaultMonth={bookedDays[0]}
-      modifiers={{
-        booked: bookedDays,
-        available: availableDays
-      }}
-      modifiersStyles={{
-        booked: bookedStyle,
-        available: availableStyle
-      }}
-      onDayClick={handleDayClick}
-    />
-  );
-}
+```include
+examples/modifiers-style.tsx
 ```

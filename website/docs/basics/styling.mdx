@@ -10,7 +10,7 @@ file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-pi
 to import or to use as template.
 
 ```js
-
+import 'react-day-picker/style.css';
 ```
 
 The CSS uses few variables to quickly override the colors and the cell size:
@@ -39,17 +39,8 @@ The CSS uses few variables to quickly override the colors and the cell size:
 To change the appearance of any DayPicker element via inline-styles use the
 `styles` prop.
 
-```jsx showOutput open=no
-function Example() {
-  return (
-    <DayPicker
-      styles={{
-        caption: { color: 'salmon ' },
-        head: { color: 'violet' }
-      }}
-    />
-  );
-}
+```include
+examples/styling-inline.tsx
 ```
 
 ## Custom CSS classes
@@ -61,22 +52,6 @@ bundlers.
 To use custom classes, use `classNames`. [`UIElement`](/api/enums/uielement)
 contains a list of the elements that is possible to style.
 
-```jsx showOutput open=no
-function Example() {
-  const style = `
-    .salmon-head { color: salmon; }
-    .purple-caption { color: purple; }
-  `;
-  return (
-    <>
-      <style>{style}</style>
-      <DayPicker
-        classNames={{
-          head: 'salmon-head',
-          caption: 'purple-caption'
-        }}
-      />
-    </>
-  );
-}
+```include
+examples/styling-css.tsx
 ```

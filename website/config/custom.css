@@ -1,14 +1,11 @@
 :root {
   --ifm-heading-font-weight: 500;
-
   --ifm-font-base-color: hsl(0, 0%, 20%);
   --ifm-font-size-base: 16px;
-
   --ifm-code-font-size: 0.875em;
   --ifm-heading-font-weight: 500;
   --ifm-contents-padding-vertical: 0.75em 0;
   --ifm-contents-link-color: var(--ifm-color-primary);
-
   --ifm-color-primary: #ff6347;
   --ifm-color-primary-dark: #ff4726;
   --ifm-color-primary-darker: #ff3a16;
@@ -16,9 +13,7 @@
   --ifm-color-primary-light: #ff7f68;
   --ifm-color-primary-lighter: #ff8c78;
   --ifm-color-primary-lightest: #ffb6a9;
-
   --ifm-global-radius: 0.25em;
-
   --ifm-alert-border-radius: 5px;
   --ifm-color-warning: #fffacc;
   --ifm-alert-color: inherit;
@@ -38,9 +33,9 @@ html[data-theme='dark'] {
   --rdp-accent-color-lightest: var(--rdp-accent-color-darkest);
 }
 details summary {
-  font-weight: bold;
-  cursor: pointer;
   padding: var(--ifm-pre-padding) 0;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .container {
@@ -48,10 +43,10 @@ details summary {
 }
 
 .docusaurus-highlight-code-line {
-  background-color: var(--ifm-color-emphasis-200);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
+  background-color: var(--ifm-color-emphasis-200);
 }
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
@@ -77,9 +72,9 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background: none;
 }
 
-.prism-code {
+/* .prism-code {
   font-size: var(--ifm-code-font-size);
-}
+} */
 .prism-code > div {
   background-color: var(--ifm-pre-background) !important;
 }
@@ -92,10 +87,13 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   font-weight: 700;
 }
 
-.markdown hr {
+hr {
   all: revert;
-  border: none;
+}
+
+.markdown hr {
   height: 1px;
+  border: none;
   background-color: var(--ifm-color-emphasis-200);
 }
 
@@ -130,10 +128,10 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .markdown > table thead tr th {
   text-align: left;
-  font-size: 0.875em;
+  color: var(--ifm-color-emphasis-500);
   border-top: 0;
   border-bottom: 0;
-  color: var(--ifm-color-emphasis-500);
+  font-size: 0.875em;
 }
 
 .markdown > table th,
@@ -148,4 +146,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .markdown > table th:last-child,
 .markdown > table td:last-child {
   border-right: 0;
+}
+
+.rdp {
+  font-size: 1.1em;
 }
