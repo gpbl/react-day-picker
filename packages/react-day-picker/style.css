@@ -273,7 +273,7 @@ button.rdp-weeknumber:hover:not([disabled]) {
 .rdp .rdp-day.rdp-day_disabled,
 .rdp .rdp-day.rdp-day_outside,
 .rdp .rdp-day[disabled] {
-  opacity: 25%;
+  opacity: 0.25;
 }
 
 .rdp .rdp-day.rdp-day_today {
