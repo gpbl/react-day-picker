@@ -3,8 +3,6 @@ id: customization
 title: Customization
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-
 ## Multiple months
 
 Use the `numberOfMonths` to render more than one calendar.
@@ -12,55 +10,31 @@ Use the `numberOfMonths` to render more than one calendar.
 When rendering multiple months, use `pagedNavigation` to navigate the number of
 months per time, and `reverseMonths` to display the latest month first.
 
-import MultipleMonths from '../examples/customization-multiple-months.tsx';
-import MultipleMonthsSrc from '!!raw-loader!../examples/customization-multiple-months.tsx';
-
-<CodeBlock className="language-tsx">{MultipleMonthsSrc}</CodeBlock>
-
-<details>
-  <summary>Show output</summary>
-  <MultipleMonths />
-</details>
+```include
+examples/customization-multiple-months.tsx
+```
 
 ## Showing the outside days
 
 Use `showOutsideDays` to display the days falling out the current month.
 
-import ShowOutsideDays from '../examples/customization-outside-days.tsx';
-import ShowOutsideDaysSrc from '!!raw-loader!../examples/customization-outside-days.tsx';
-
-<CodeBlock className="language-tsx">{ShowOutsideDaysSrc}</CodeBlock>
-
-<details>
-  <summary>Show output</summary>
-  <ShowOutsideDays />
-</details>
+```include
+examples/customization-outside-days.tsx
+```
 
 ## Using fixed weeks
 
 When `showOutsideDays` is turned on, use `fixedWeeks` to display six weeks per
 months. This will prevent the calendar to change its height when navigating.
 
-import FixedWeeks from '../examples/customization-fixedweeks.tsx';
-import FixedWeeksSrc from '!!raw-loader!../examples/customization-fixedweeks.tsx';
-
-<CodeBlock className="language-tsx">{FixedWeeksSrc}</CodeBlock>
-
-<details>
-  <summary>Show output</summary>
-  <FixedWeeks />
-</details>
+```include
+examples/customization-fixedweeks.tsx
+```
 
 ## Showing the week numbers
 
 Use `showWeekNumber` to display the week numbers.
 
-import WeekNumber from '../examples/customization-weeknumber.tsx';
-import WeekNumberSrc from '!!raw-loader!../examples/customization-weeknumber.tsx';
-
-<CodeBlock className="language-tsx">{WeekNumberSrc}</CodeBlock>
-
-<details>
-  <summary>Show output</summary>
-  <WeekNumber />
-</details>
+```include
+examples/customization-weeknumber.tsx
+```

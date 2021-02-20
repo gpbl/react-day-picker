@@ -3,40 +3,11 @@ id: formatters
 title: Formatters
 ---
 
-Use the [formatters prop](../api/interfaces/daypickerprops#formatters) to change the default format for the day, the weekday
+Use the [formatters](../api/interfaces/daypickerprops#formatters) to change the default format for the day, the weekday
 name, etc.
 
-```jsx showOutput
-import React, { useState } from 'react';
-import { DayPicker } from 'react-day-picker';
-import { format } from 'date-fns';
-
-function Example() {
-  const formatDay = (day) => {
-    const date = day.getDate();
-    if (date === 12 || date === 17) {
-      // Add an astersisk to these dates
-      return `${date} *`;
-    }
-    return date;
-  };
-
-  const formatCaption = (month, { locale }) => {
-    return `${format(month, 'LLLL', { locale })}`;
-  };
-
-  const formatWeekdayName = (day, { locale }) => {
-    return format(day, 'E', { locale })[0];
-  };
-
-  return (
-    <DayPicker
-      fromYear={2020}
-      toYear={2025}
-      formatters={{ formatDay, formatCaption, formatWeekdayName }}
-    />
-  );
-}
+```include
+examples/formatters.tsx
 ```
 
 Formatting props can be used for

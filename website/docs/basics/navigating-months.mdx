@@ -3,22 +3,14 @@ id: navigating-months
 title: Navigating months
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-
 ## Change the initial month
 
 DayPicker displays the month of the current day. To change the
 initial month, set the `defaultMonth` prop:
 
-import InitialMonth from '../examples/navigation-initialmonth.tsx';
-import InitialMonthSrc from '!!raw-loader!../examples/navigation-initialmonth.tsx';
-
-<CodeBlock className="language-tsx">{InitialMonthSrc}</CodeBlock>
-
-<details>
-  <summary>Show output</summary>
-  <InitialMonth />
-</details>
+```include
+examples/navigation-initialmonth.tsx
+```
 
 ### Controlling the current month
 
@@ -30,15 +22,9 @@ button – set it in the parent’s state.
 Use `month` (as opposed to `defaultMonth`) and `onMonthChange` to handle the
 current month.
 
-import Uncontrolled from '../examples/navigation-uncontrolled.tsx';
-import UncontrolledSrc from '!!raw-loader!../examples/navigation-uncontrolled.tsx';
-
-<CodeBlock className="language-tsx">{UncontrolledSrc}</CodeBlock>
-
-<details>
-  <summary>Show output</summary>
-  <Uncontrolled />
-</details>
+```include
+examples/navigation-uncontrolled.tsx
+```
 
 ## Limiting the navigable months
 
@@ -47,42 +33,24 @@ As default, DayPicker will display indefinitely in the past or in the future.
 To limit the navigable months between certain dates, use `fromDate` and `toDate`, `fromMonth`
 and `toMonth`, or `fromYear` and `toYear`.
 
-import FromTo from '../examples/navigation-from-to.tsx';
-import FromToSrc from '!!raw-loader!../examples/navigation-from-to.tsx';
-
-<CodeBlock className="language-tsx">{FromToSrc}</CodeBlock>
-
-<details>
-  <summary>Show output</summary>
-  <FromTo />
-</details>
+```include
+examples/navigation-from-to.tsx
+```
 
 ### Using a dropdown to navigate between months
 
 When limiting the navigable months, use `captionLayout` to display a drop-down
 for navigating between months – instead of the previous / next buttons.
 
-import Dropdown from '../examples/navigation-dropdown.tsx';
-import DropdownSrc from '!!raw-loader!../examples/navigation-dropdown.tsx';
-
-<CodeBlock className="language-tsx">{DropdownSrc}</CodeBlock>
-
-<details>
-  <summary>Show output</summary>
-  <Dropdown />
-</details>
+```include
+examples/navigation-dropdown.tsx
+```
 
 ## Disabling navigation
 
 To disable the navigation between months, use `disableNavigation`. It will turn
 off also the keyboard navigation.
 
-import Disabled from '../examples/navigation-disabled.tsx';
-import DisabledSrc from '!!raw-loader!../examples/navigation-disabled.tsx';
-
-<CodeBlock className="language-tsx">{DisabledSrc}</CodeBlock>
-
-<details>
-  <summary>Show output</summary>
-  <Disabled />
-</details>
+```include
+examples/navigation-disabled.tsx
+```
