@@ -14,7 +14,7 @@ Return the props for binding an input field with DayPicker.
 
 **Example**
 
-```jsx showOutput open=no
+```
 function Example() {
   const { dayPickerProps, inputProps } = useInput(new Date(), 'yyyy-MM-dd');
   return (
