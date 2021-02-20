@@ -157,28 +157,24 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     switch (e.code) {
       case KeyCode.ArrowLeft: {
         e.preventDefault();
-        e.stopPropagation();
         const nextDay = addDays(day, -1);
         onDayFocus?.(nextDay, modifiers, e);
         break;
       }
       case KeyCode.ArrowRight: {
         e.preventDefault();
-        e.stopPropagation();
         const nextDay = addDays(day, 1);
         onDayFocus?.(nextDay, modifiers, e);
         return;
       }
       case KeyCode.ArrowUp: {
         e.preventDefault();
-        e.stopPropagation();
         const nextDay = addWeeks(day, -1);
         onDayFocus?.(nextDay, modifiers, e);
         break;
       }
       case KeyCode.ArrowDown: {
         e.preventDefault();
-        e.stopPropagation();
         const nextDay = addWeeks(day, 1);
         onDayFocus?.(nextDay, modifiers, e);
         break;
