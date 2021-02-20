@@ -13454,8 +13454,8 @@ fsevents@^1.2.7:
     eslint-plugin-prettier: ^3.3.1
     jest: ^26.6.3
     prettier: ^2.2.1
-    react: ^17.0.1
-    react-dom: ^17.0.1
+    react: ^16.14.0
+    react-dom: ^16.14.0
     ts-jest: ^26.5.1
     ts-loader: ^8.0.17
     ts-node: ^9.1.1
@@ -13465,7 +13465,7 @@ fsevents@^1.2.7:
     webpack-cli: ^4.5.0
   peerDependencies:
     date-fns: ^2.12.0
-    react: ^17.0.2
+    react: ^16.0.0 || ^17.0.0
   languageName: unknown
   linkType: soft
 
@@ -13501,16 +13501,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.1":
-  version: 17.0.1
-  resolution: "react-dom@npm:17.0.1"
+"react-dom@npm:^16.14.0":
+  version: 16.14.0
+  resolution: "react-dom@npm:16.14.0"
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
-    scheduler: ^0.20.1
+    prop-types: ^15.6.2
+    scheduler: ^0.19.1
   peerDependencies:
-    react: 17.0.1
-  checksum: 6a70028fbe3c95e0056c5e8ce065b4a9b8d4ff3bffde9b016454072bde5e4b012af7668ca45b7235ace428267d5be5237b68ea87ce8c296e54e81a8d678a4355
+    react: ^16.14.0
+  checksum: a13558f0e7c6d1a98684214460bcd4b9005500015b5048fb1b0d2856786b8764dbc713e6b078a5b1a56e17866400e1d862183c7a0a513ae8351de11f6f6749d2
   languageName: node
   linkType: hard
 
@@ -13683,13 +13684,14 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.1":
-  version: 17.0.1
-  resolution: "react@npm:17.0.1"
+"react@npm:^16.14.0":
+  version: 16.14.0
+  resolution: "react@npm:16.14.0"
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
-  checksum: a76d86ec973eb4b25a46071ac7f974adfd66ed89ad1db63043be1d976ec25417520a210e6d724b0ad937422b706afcf9962cedda9e92125992a8c0e8a95f2051
+    prop-types: ^15.6.2
+  checksum: 2769580b22952a52de3b5b2ea0f09cb904030b762d759739f49ab4da0b1f550e5c087ce3728c4be90f423d09481e0c075483c0c30b1ea9c549445c8b12020fd3
   languageName: node
   linkType: hard
 
@@ -14408,13 +14410,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.20.1":
-  version: 0.20.1
-  resolution: "scheduler@npm:0.20.1"
+"scheduler@npm:^0.19.1":
+  version: 0.19.1
+  resolution: "scheduler@npm:0.19.1"
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
-  checksum: 377b4ad0d8313c4548bac7374bc38409e9d142799979ce396787efa04d1bcabf2591540f243f2131e3df8e56e7f5b29c5415248523e88ecb60f13a32db2e076f
+  checksum: 804f990b9f370cca6d42b65f3cba2cc2bfed4973ee5623bed1ea36a6627842db8c891e2e5ac003f06f9ee892d1d3396921e27fa077346caf0213af05776e8dee
   languageName: node
   linkType: hard
 
@@ -17032,9 +17034,9 @@ typescript@^4.1.5:
     date-fns: ^2.17.0
     docusaurus-plugin-typedoc: ^0.9.0
     raw-loader: ^4.0.2
-    react: ^17.0.1
+    react: ^16.14.0
     react-day-picker: "workspace:packages/react-day-picker"
-    react-dom: ^17.0.1
+    react-dom: ^16.14.0
     typedoc: ^0.20.25
     typedoc-plugin-markdown: ^3.5.0
   languageName: unknown
