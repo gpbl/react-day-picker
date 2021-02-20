@@ -16,16 +16,17 @@ export default function CodeBlock(props) {
   if (className !== 'language-include') {
     return <OriginalCodeBlock {...props}>{children}</OriginalCodeBlock>;
   }
-  const fileName = children.replace(/\n*/gi, '');
   try {
-    require(`../../${fileName}`).default;
+    require(`../../docs/${fileName}`).default;
   } catch (e) {
     return (
       <OriginalCodeBlock className={className}>{e.message}</OriginalCodeBlock>
     );
   }
-  const Component = require(`../../${fileName}`).default;
-  const src = require(`!!raw-loader!../../${fileName}`).default;
+
+  const fileName = children.replace(/\n*/gi, '');
+  const Component = require(`../../docs/${fileName}`).default;
+  const src = require(`!!raw-loader!../../docs/${fileName}`).default;
 
   return (
     <>

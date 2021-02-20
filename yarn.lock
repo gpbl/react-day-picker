@@ -1574,7 +1574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/core@npm:2.0.0-alpha.fd17476c3, @docusaurus/core@npm:>=2.0.0-alpha.71":
+"@docusaurus/core@npm:2.0.0-alpha.fd17476c3, @docusaurus/core@npm:>=2.0.0-alpha.70":
   version: 2.0.0-alpha.fd17476c3
   resolution: "@docusaurus/core@npm:2.0.0-alpha.fd17476c3"
   dependencies:
@@ -1844,7 +1844,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/preset-classic@npm:>=2.0.0-alpha.71":
+"@docusaurus/preset-classic@npm:>=2.0.0-alpha.70":
   version: 2.0.0-alpha.fd17476c3
   resolution: "@docusaurus/preset-classic@npm:2.0.0-alpha.fd17476c3"
   dependencies:
@@ -17027,8 +17027,8 @@ typescript@^4.1.5:
   version: 0.0.0-use.local
   resolution: "website@workspace:website"
   dependencies:
-    "@docusaurus/core": ">=2.0.0-alpha.71"
-    "@docusaurus/preset-classic": ">=2.0.0-alpha.71"
+    "@docusaurus/core": ">=2.0.0-alpha.70"
+    "@docusaurus/preset-classic": ">=2.0.0-alpha.70"
     date-fns: ^2.17.0
     docusaurus-plugin-typedoc: ^0.9.0
     raw-loader: ^4.0.2
