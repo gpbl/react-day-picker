@@ -16,6 +16,9 @@ export default function CodeBlock(props) {
   if (className !== 'language-include') {
     return <OriginalCodeBlock {...props}>{children}</OriginalCodeBlock>;
   }
+
+  const fileName = children.replace(/\n*/gi, '');
+
   try {
     require(`../../docs/${fileName}`).default;
   } catch (e) {
@@ -24,7 +27,6 @@ export default function CodeBlock(props) {
     );
   }
 
-  const fileName = children.replace(/\n*/gi, '');
   const Component = require(`../../docs/${fileName}`).default;
   const src = require(`!!raw-loader!../../docs/${fileName}`).default;
 
