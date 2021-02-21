@@ -143,6 +143,12 @@ hr {
   border-right: 0;
 }
 
+.markdown form input {
+  padding: 0.5em;
+  font-size: inherit;
+  font-family: inherit;
+}
+
 .rdp {
   font-size: 1.1em;
 }

@@ -21,13 +21,17 @@ function isInteractive(
   displayMonth: Date,
   props: DayPickerContextValue
 ): boolean {
-  /** Props that will make the day button interactive. */
-  const { toDate, fromDate, enableOutsideDaysClick } = props;
+  const { toDate, fromDate, enableOutsideDaysClick, originalProps } = props;
   const outside = isOutside(day, displayMonth);
   if (props.mode !== 'uncontrolled' && !outside) {
     return true;
   }
-
+  const hasInteractiveProps = 'onDayClick' in originalProps;
+  if (props.mode !== 'uncontrolled') {
+    return true;
+  } else if (hasInteractiveProps) {
+    return true;
+  }
   // The day is NOT interactive if not in the range specified in the `fromDate`
   // and `toDate` (these values are set also by `fromDay/toDay` and
   // `fromYear/toYear` in the main component.)
