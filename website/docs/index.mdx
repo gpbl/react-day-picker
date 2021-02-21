@@ -23,29 +23,17 @@ branch**](https://github.com/gpbl/react-day-picker/tree/v7).
 
 ## Main features
 
-- depends on [date-fns](http://date-fns.org) as date library
-- not opinionated, extensible user interface
-- support for
-  [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
-- localizable
-- incomplete "Main features" list
+- ☀️ select days, ranges or whatever
+- 🗓 create multiple calendars
+- ♿️ complete [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) support
+- ➡️ keyboard navigation
+- 🌎 localizable in any language
+- 🎨 easy to style and customize
+- 🤖 native Typescript support
+- 📄 easy integration with input elements
+- 🧘‍♀️ using [date-fns](http://date-fns.org) as date libray
 
 ## Documentation
 
 - [v7 website (current version)](http://react-day-picker.js.org)
 - [v8 website (beta)](http://react-day-picker-next.netlify.app)
-
-## Example
-
-```jsx showOutput
-function Example() {
-  const [selected, setSelected] = useState();
-
-  const handleDayClick = (day, { selected }) => {
-    if (!selected) setSelected(day);
-    else setSelected();
-  };
-
-  return <DayPicker selected={selected} onDayClick={handleDayClick} />;
-}
-```
