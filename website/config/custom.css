@@ -1,6 +1,4 @@
 :root {
-  --ifm-alert-border-radius: 5px;
-  --ifm-alert-color: inherit;
   --ifm-color-primary-dark: #ff4726;
   --ifm-color-primary-darker: #ff3a16;
   --ifm-color-primary-darkest: #e42300;
@@ -9,23 +7,13 @@
   --ifm-color-primary-lightest: #ffb6a9;
   --ifm-color-primary: #ff6347;
   --ifm-color-warning: #fffacc;
-  --ifm-contents-link-color: var(--ifm-color-primary);
-  --ifm-contents-padding-vertical: 0.75em 0;
-  --ifm-font-base-color: hsl(0, 0%, 20%);
-  --ifm-global-radius: 0.25em;
-  --ifm-heading-font-weight: 500;
-  --ifm-heading-font-weight: 500;
 }
 
-a {
+/* a {
   transition: none;
-}
+} */
 
 html[data-theme='dark'] {
-  --ifm-color-warning: #2f1904;
-  --ifm-alert-color: inherit;
-  --ra-admonition-icon-color: var(--ifm-font-color-base);
-  --ifm-code-background: #24282d;
   --rdp-accent-color-light: var(--rdp-accent-color-dark);
   --rdp-accent-color-lighter: var(--rdp-accent-color-darker);
   --rdp-accent-color-lightest: var(--rdp-accent-color-darkest);
@@ -33,6 +21,7 @@ html[data-theme='dark'] {
 details summary {
   padding: var(--ifm-pre-padding) 0;
   cursor: pointer;
+  font-size: larger;
   font-weight: bold;
 }
 
@@ -71,7 +60,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .prism-code > div {
-  background-color: var(--ifm-pre-background) !important;
+  /* background-color: var(--ifm-pre-background) !important; */
 }
 
 .table-of-contents code {
@@ -145,10 +134,6 @@ hr {
 
 .markdown form input {
   padding: 0.5em;
-  font-size: inherit;
   font-family: inherit;
-}
-
-.rdp {
-  font-size: 1.1em;
+  font-size: inherit;
 }
