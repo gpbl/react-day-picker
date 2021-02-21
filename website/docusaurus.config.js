@@ -53,8 +53,8 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./config/sidebar.js'),
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
           routeBasePath: '/'
         },
         // pages: false,
