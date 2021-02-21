@@ -57,7 +57,7 @@ export function Caption(props: CaptionProps): JSX.Element {
   const prevButton = (
     <button
       key="prev"
-      aria-label={prevMonth && labels.prevLabel(prevMonth, { locale })}
+      aria-label={labels.prevLabel(displayMonth, { locale })}
       className={[classNames[UI.NavButton], classNames[UI.NavButtonPrev]].join(
         ' '
       )}
@@ -75,7 +75,7 @@ export function Caption(props: CaptionProps): JSX.Element {
   const nextButton = (
     <button
       key="next"
-      aria-label={nextMonth && labels.nextLabel(nextMonth, { locale })}
+      aria-label={labels.nextLabel(displayMonth, { locale })}
       className={[classNames[UI.NavButton], classNames[UI.NavButtonNext]].join(
         ' '
       )}
