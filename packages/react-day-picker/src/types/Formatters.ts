@@ -1,5 +1,4 @@
 import { DateFormatter } from './DateFormatter';
-import { WeekdayFormatter } from './WeekdayFormatter';
 import { WeekNumberFormatter } from './WeekNumberFormatter';
 
 /**
@@ -17,5 +16,5 @@ export type Formatters = {
   /** Format the week number. */
   formatWeekNumber?: WeekNumberFormatter;
   /** Format the week day name in the header */
-  formatWeekdayName?: WeekdayFormatter;
+  formatWeekdayName?: DateFormatter;
 };

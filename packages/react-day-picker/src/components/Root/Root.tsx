@@ -1,19 +1,25 @@
 import * as React from 'react';
 
 import { Caption, Table } from '../../components';
-import { useNavigation, useProps } from '../../hooks';
+import { useDayPicker, useNavigation } from '../../hooks';
 import { UIElement as UI } from '../../types';
 
+/**
+ * The props for the [[Root]] component.
+ */
 export interface RootProps {
   className?: string;
   style?: React.CSSProperties;
 }
 
+/**
+ * Render the container with the months and their captions. The number of months
+ * rendered depends by the `numberOfMonths` prop.
+ */
 export function Root(props: RootProps): JSX.Element {
   const { className, style } = props;
-  const { dir, classNames, styles, numberOfMonths } = useProps();
+  const { dir, classNames, styles, numberOfMonths } = useDayPicker();
   const { displayMonths } = useNavigation();
-
   const rootClassNames = [classNames[UI.Root]];
   if (numberOfMonths > 1) {
     rootClassNames.push(classNames[UI.RootMultipleMonths]);
@@ -32,9 +38,9 @@ export function Root(props: RootProps): JSX.Element {
 
     const isBetween = numberOfMonths > 1 && !isFirst && !isLast;
 
-    if (isFirst) className.push(classNames[UI.MonthFirst]);
-    if (isLast) className.push(classNames[UI.MonthLast]);
-    if (isBetween) className.push(classNames[UI.MonthBetween]);
+    if (isFirst) className.push(classNames[UI.CaptionFirst]);
+    if (isLast) className.push(classNames[UI.CaptionLast]);
+    if (isBetween) className.push(classNames[UI.CaptionBetween]);
 
     return (
       <div className={className.join(' ')} key={displayIndex}>

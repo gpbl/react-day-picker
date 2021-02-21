@@ -1,13 +1,17 @@
-import { Caption } from '../../Caption/Caption';
+import { Components } from '../../../types';
 import { Day } from '../../Day/Day';
-import { IconNext } from '../../IconNext';
-import { IconPrev } from '../../IconPrev';
+import { Dropdown } from '../../Dropdown';
+import { Head } from '../../Head';
 import { Row } from '../../Row';
+import { WeekNumber } from '../../WeekNumber';
 
-export const defaultComponents = {
-  Caption,
-  Day,
-  IconNext,
-  IconPrev,
-  Row
+/**
+ * The default components passed to the `components` prop.
+ */
+export const defaultComponents: Required<Components> = {
+  Day: Day,
+  Dropdown: Dropdown,
+  Head: Head,
+  Row: Row,
+  WeekNumber: WeekNumber
 };

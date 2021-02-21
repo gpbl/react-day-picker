@@ -1,5 +1,3 @@
 export * from './DayPicker';
-export * from './PropsContext';
+export * from './DayPickerContext';
 export * from './NavigationContext';
-export * from './DayPickerProps';
-export * from './defaults';

@@ -1,7 +1,3 @@
-import React from 'react';
-
-import english from 'date-fns/locale/en-US';
-
 import {
   CaptionLayout,
   ClassNames,
@@ -14,21 +10,16 @@ import {
   ModifiersClassNames,
   ModifiersMatchers,
   MonthChangeEventHandler
-} from '../../types';
+} from './';
 import { DayPickerProps } from './DayPickerProps';
-import {
-  defaultClassNames,
-  defaultComponents,
-  defaultFormatters,
-  defaultLabels,
-  defaultModifiers
-} from './defaults';
 
 /**
- * Represent the value of a [[PropsContext]].
+ * Represent the value of a DayPicker context.
  */
-export interface PropsValues
+export interface DayPickerContextValue
   extends Omit<
+    // No need of these props or they may be confusing as they are not useful in
+    // the context of DayPicker.
     DayPickerProps,
     | 'className'
     | 'style'
@@ -48,7 +39,6 @@ export interface PropsValues
   modifiers: ModifiersMatchers;
   modifiersClassNames?: ModifiersClassNames;
   numberOfMonths: number;
-  dir?: string;
   /**
    * Will set the current month if DayPicker is in controlled mode. Calls the
    * original `onMonthChange`.
@@ -84,33 +74,3 @@ export interface PropsValues
    */
   today: Date;
 }
-
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const noop = function noop(): void {};
-export const defaultPropsValues: PropsValues = {
-  classNames: defaultClassNames,
-  components: defaultComponents,
-  formatters: defaultFormatters,
-  labels: defaultLabels,
-  locale: english,
-  modifierPrefix: 'rdp-day_',
-  modifiers: defaultModifiers,
-  captionLayout: 'buttons',
-  numberOfMonths: 1,
-  originalProps: {},
-  today: new Date(),
-  mode: 'single',
-  // These will be replaced by proper event handlers in DayPicker.tsx so we can
-  // safely use noop here
-  onMonthChange: noop,
-  onDayBlur: noop,
-  onDayClick: noop,
-  onDayFocus: noop,
-  onDayKeyDown: noop
-};
-
-/**
- * Context to consume DayPicker original props (with defaults) between
- * components.
- */
-export const PropsContext = React.createContext(defaultPropsValues);

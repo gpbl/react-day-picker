@@ -2,14 +2,20 @@ import * as React from 'react';
 
 import { setYear, startOfYear } from 'date-fns';
 
-import { Dropdown } from '../../components';
-import { useProps } from '../../hooks';
+import { useDayPicker } from '../../hooks';
 import { UIElement } from '../../types';
 
+/**
+ * The props for the [[YearsDropdown]] component.
+ */
 export interface YearsDropdownProps {
   displayMonth: Date;
 }
 
+/**
+ * Render a dropdown to change the year. Take in account the `fromDate` and
+ * `toDate` from context.
+ */
 export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   const { displayMonth } = props;
 
@@ -19,8 +25,10 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     fromDate,
     toDate,
     classNames,
+    styles,
+    components: { Dropdown },
     formatters: { formatYearCaption }
-  } = useProps();
+  } = useDayPicker();
 
   const years: Date[] = [];
 
@@ -44,6 +52,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   return (
     <Dropdown
       className={classNames[UIElement.DropdownMonth]}
+      style={styles?.[UIElement.DropdownMonth]}
       onChange={handleChange}
       value={displayMonth.getMonth()}
       caption={formatYearCaption(displayMonth, { locale })}

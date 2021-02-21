@@ -1,7 +1,7 @@
 import { ModifiersStatus } from '../types';
 
 /**
- * Represent a function to format the ARIA label for the Day component.
+ * Represent a function to format the ARIA label for the [[Day]] component.
  */
 export type DayLabelFormatter = (
   day: Date,

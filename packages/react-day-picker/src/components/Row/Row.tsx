@@ -3,9 +3,12 @@ import * as React from 'react';
 import { getUnixTime } from 'date-fns';
 
 import { WeekNumber } from '../../components';
-import { useProps } from '../../hooks';
+import { useDayPicker } from '../../hooks';
 import { UIElement as UI } from '../../types';
 
+/**
+ * The props for the [[Row]] component.
+ */
 export interface RowProps {
   /** The month where the row is displayed. */
   displayMonth: Date;
@@ -15,6 +18,9 @@ export interface RowProps {
   week: Date[];
 }
 
+/**
+ * Render a row in the calendar, with the days and optionally the week number.
+ */
 export function Row(props: RowProps): JSX.Element {
   const { weekNumber, week } = props;
   const {
@@ -22,7 +28,7 @@ export function Row(props: RowProps): JSX.Element {
     classNames,
     showWeekNumber,
     components: { Day }
-  } = useProps();
+  } = useDayPicker();
 
   let weekNumberCell;
   if (showWeekNumber) {

@@ -9,7 +9,6 @@ import {
   DayFocusEventHandler,
   DayKeyboardEventHandler,
   DayMouseEventHandler,
-  DayPickerStyles,
   DayTouchEventHandler,
   Formatters,
   Labels,
@@ -22,8 +21,9 @@ import {
   SelectMode,
   SelectMultipleEventHandler,
   SelectRangeEventHandler,
+  Styles,
   WeekNumberClickEventHandler
-} from '../../types';
+} from './';
 
 /**
  * The props for the [[DayPicker]] component.
@@ -111,7 +111,7 @@ export interface DayPickerProps {
   /**
    * Change the inline styles for each [[UIElement]].
    */
-  styles?: DayPickerStyles;
+  styles?: Styles;
   /**
    * Change the inline style for the day matching the [[modifiers]].
    *

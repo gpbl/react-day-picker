@@ -1,12 +1,13 @@
-import { Caption, Day, IconNext, IconPrev, Row } from '../components';
+import { Day, Dropdown, Head, Row, WeekNumber } from '../components';
 
 /**
- * Represent the components that can be customized.
+ * Represent a map of the component that can be changed via the `components`
+ * prop.
  */
 export type Components = {
-  Caption?: typeof Caption;
   Day?: typeof Day;
+  Dropdown?: typeof Dropdown;
+  Head?: typeof Head;
   Row?: typeof Row;
-  IconNext?: typeof IconNext;
-  IconPrev?: typeof IconPrev;
+  WeekNumber?: typeof WeekNumber;
 };

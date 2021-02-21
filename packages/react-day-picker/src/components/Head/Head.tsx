@@ -1,9 +1,12 @@
 import * as React from 'react';
 
-import { useProps } from '../../hooks';
+import { useDayPicker } from '../../hooks';
 import { UIElement } from '../../types';
 import { getWeekdays } from './utils/getWeekdays';
 
+/**
+ * Render the Head component - i.e. the table head with the weekday names.
+ */
 export function Head(): JSX.Element {
   const {
     locale,
@@ -12,7 +15,7 @@ export function Head(): JSX.Element {
     labels,
     showWeekNumber,
     formatters: { formatWeekdayName }
-  } = useProps();
+  } = useDayPicker();
   const weekdays = getWeekdays(locale);
   return (
     <thead
