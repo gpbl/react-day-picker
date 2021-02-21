@@ -36,7 +36,7 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
   return (
     <Component
       aria-label={label}
-      className={classNames?.[UI.WeekNumber]}
+      className={classNames[UI.WeekNumber]}
       style={styles?.[UI.WeekNumber]}
       onClick={handleClick}
     >

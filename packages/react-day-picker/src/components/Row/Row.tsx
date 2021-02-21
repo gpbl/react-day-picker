@@ -33,22 +33,27 @@ export function Row(props: RowProps): JSX.Element {
   let weekNumberCell;
   if (showWeekNumber) {
     weekNumberCell = (
-      <th className={classNames?.[UI.RowHead]} style={styles?.[UI.RowHead]}>
+      <th className={classNames[UI.RowHead]} style={styles?.[UI.RowHead]}>
         <WeekNumber number={weekNumber} dates={dates} />
       </th>
     );
   }
 
   return (
-    <tr className={classNames?.[UI.Row]} style={styles?.[UI.Row]}>
+    <tr className={classNames[UI.Row]} style={styles?.[UI.Row]}>
       {weekNumberCell}
       {dates.map((date) => (
         <td
-          className={classNames?.[UI.Cell]}
+          className={classNames[UI.Cell]}
           style={styles?.[UI.Cell]}
           key={getUnixTime(date)}
         >
-          <Day displayMonth={props.displayMonth} date={date} />
+          <Day
+            displayMonth={props.displayMonth}
+            date={date}
+            weekNumber={weekNumber}
+            weekDates={dates}
+          />
         </td>
       ))}
     </tr>

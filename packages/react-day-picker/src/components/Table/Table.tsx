@@ -29,12 +29,12 @@ export function Table(props: TableProps): JSX.Element {
 
   return (
     <table
-      className={classNames?.[UIElement.Table]}
+      className={classNames[UIElement.Table]}
       style={styles?.[UIElement.Table]}
     >
       {!hideHead && <Head />}
       <tbody
-        className={classNames?.[UIElement.TBody]}
+        className={classNames[UIElement.TBody]}
         style={styles?.[UIElement.TBody]}
       >
         {Object.keys(weeks).map((weekNumber) => (
