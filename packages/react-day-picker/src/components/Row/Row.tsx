@@ -48,12 +48,7 @@ export function Row(props: RowProps): JSX.Element {
           style={styles?.[UI.Cell]}
           key={getUnixTime(date)}
         >
-          <Day
-            displayMonth={props.displayMonth}
-            date={date}
-            weekNumber={weekNumber}
-            weekDates={dates}
-          />
+          <Day displayMonth={props.displayMonth} date={date} />
         </td>
       ))}
     </tr>
