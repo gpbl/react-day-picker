@@ -6,28 +6,10 @@ title: Input Fields
 Use the [useInput hook](/api/functions/useinput) to bind an input field with
 DayPicker.
 
-:::caution Experimental feature
-The hook is still a work in progress and it may not work as expected.
-:::
-
 1. call `useInput` hook by passing the initial day and the [format
    string](https://date-fns.org/v2.17.0/docs/format);
-
 2. use the returned props for the `DayPicker` and the `input` component;
 
-```jsx {1,4,8,10} showOutput
-import { DayPicker, useInput } from 'react-day-picker';
-
-function Example() {
-  const { dayPickerProps, inputProps } = useInput(new Date(), 'yyyy-MM-dd');
-  return (
-    <>
-      <p>
-        Type a day or pick one from the calendar:
-        <input {...inputProps} placeholder="YYYY-MM-DD" />
-      </p>
-      <DayPicker {...dayPickerProps} />
-    </>
-  );
-}
+```include
+examples/use-input.tsx
 ```

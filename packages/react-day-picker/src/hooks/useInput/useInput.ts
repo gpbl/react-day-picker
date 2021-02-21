@@ -100,7 +100,7 @@ export function useInput(
     setValue(initialValue ?? '');
   };
 
-  // When focusing, make sure DayPicker visualize the month of the date in the
+  // When focusing, make sure DayPicker visualizes the month of the date in the
   // input field.
   const onFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     if (e.target.value) {
@@ -122,7 +122,8 @@ export function useInput(
       month,
       selected,
       onDayClick,
-      onMonthChange
+      onMonthChange,
+      mode: 'uncontrolled'
     },
     inputProps: {
       value,
