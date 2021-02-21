@@ -10,7 +10,6 @@ import {
 } from 'date-fns';
 
 import { Root } from '../../components';
-import { Caption } from '../../components/Caption';
 import { useSelect } from '../../hooks';
 import { useRangeSelect } from '../../hooks/useRangeSelect';
 import { useMultipleSelect } from '../../hooks/useSelectMultiple';
