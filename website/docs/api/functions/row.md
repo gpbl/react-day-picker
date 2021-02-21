@@ -10,6 +10,8 @@ hide_title: true
 
 ▸ **Row**(`props`: [*RowProps*](../interfaces/rowprops.md)): JSX.Element
 
+Render a row in the calendar, with the days and optionally the week number.
+
 #### Parameters:
 
 Name | Type |

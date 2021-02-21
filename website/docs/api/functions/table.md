@@ -10,6 +10,8 @@ hide_title: true
 
 ▸ **Table**(`props`: [*TableProps*](../interfaces/tableprops.md)): JSX.Element
 
+Render the table with the calendar.
+
 #### Parameters:
 
 Name | Type |

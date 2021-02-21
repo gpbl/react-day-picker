@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: YearsDropdownProps
 
+The props for the [YearsDropdown](../functions/yearsdropdown.md) component.
+
 ## Properties
 
 ### displayMonth

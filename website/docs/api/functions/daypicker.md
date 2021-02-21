@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ **DayPicker**(`props`: [*DayPickerProps*](../interfaces/daypickerprops.md)): JSX.Element
 
-Render a date picker component.
+Render the date picker component.
 
 #### Parameters:
 

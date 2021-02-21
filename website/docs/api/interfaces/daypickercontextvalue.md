@@ -1,20 +1,20 @@
 ---
-id: "propsvalues"
-title: "Interface: PropsValues"
-sidebar_label: "PropsValues"
+id: "daypickercontextvalue"
+title: "Interface: DayPickerContextValue"
+sidebar_label: "DayPickerContextValue"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Interface: PropsValues
+# Interface: DayPickerContextValue
 
-Represent the value of a [PropsContext](../variables/propscontext.md).
+Represent the value of a DayPicker context.
 
 ## Hierarchy
 
 * *Omit*<[*DayPickerProps*](daypickerprops.md), *className* \| *style* \| *month* \| *fromMonth* \| *toMonth* \| *fromYear* \| *toYear*\>
 
-  ↳ **PropsValues**
+  ↳ **DayPickerContextValue**
 
 ## Properties
 
@@ -56,6 +56,22 @@ ___
 
 • `Optional` **dir**: *undefined* \| *string*
 
+The text direction of the calendar. Use `ltr` for left-to-right (default)
+or `rtl` for right-to-left.
+
+**Example**
+
+When setting the calendar to Arabic, using `dir` to enable right-to-left
+direction.
+
+```
+import arabic from 'date-fns/locale/ar-SA';
+
+function Example() {
+  return <DayPicker locale={arabic} dir="rtl" />;
+}
+```
+
 ___
 
 ### disableNavigation
@@ -68,7 +84,7 @@ ___
 
 ### disabled
 
-• `Optional` **disabled**: *undefined* \| Date \| [*DateRange*](../types/daterange.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **disabled**: *undefined* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `disabled` modifier to the matching days.
 
@@ -94,7 +110,7 @@ ___
 
 • `Optional` **enableOutsideDaysClick**: *undefined* \| *boolean*
 
-Enable the day click event for outside days when [showOutsideDays](propsvalues.md#showoutsidedays) is set.
+Enable the day click event for outside days when [showOutsideDays](daypickercontextvalue.md#showoutsidedays) is set.
 Default to `false`.
 
 ___
@@ -105,7 +121,7 @@ ___
 
 Display six weeks per months, regardless the month’s number of weeks.
 
-To use this prop, [showOutsideDays](propsvalues.md#showoutsidedays) must be set. Default to `false`.
+To use this prop, [showOutsideDays](daypickercontextvalue.md#showoutsidedays) must be set. Default to `false`.
 
 **Example**
 
@@ -133,7 +149,7 @@ ___
 
 ### hidden
 
-• `Optional` **hidden**: *undefined* \| Date \| [*DateRange*](../types/daterange.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **hidden**: *undefined* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `hidden` modifier to the matching days – to hide them from the
 calendar.
@@ -233,7 +249,7 @@ ___
 
 • `Optional` **modifiersStyles**: *undefined* \| [*ModifiersStyles*](../types/modifiersstyles.md)
 
-Change the inline style for the day matching the [modifiers](propsvalues.md#modifiers).
+Change the inline style for the day matching the [modifiers](daypickercontextvalue.md#modifiers).
 
 **Example**
 
@@ -411,7 +427,7 @@ ___
 
 • `Optional` **pagedNavigation**: *undefined* \| *boolean*
 
-Paginate the month navigation displaying the [numberOfMonths](propsvalues.md#numberofmonths) at time.
+Paginate the month navigation displaying the [numberOfMonths](daypickercontextvalue.md#numberofmonths) at time.
 
 **Example**
 
@@ -435,7 +451,7 @@ ___
 
 • `Optional` **reverseMonths**: *undefined* \| *boolean*
 
-Render the months in reversed order (when [numberOfMonths](propsvalues.md#numberofmonths) is greater
+Render the months in reversed order (when [numberOfMonths](daypickercontextvalue.md#numberofmonths) is greater
 than `1`) to display the most recent month first.
 
 **Example**
@@ -450,7 +466,7 @@ ___
 
 ### selected
 
-• `Optional` **selected**: *undefined* \| Date \| [*DateRange*](../types/daterange.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **selected**: *undefined* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `selected` modifier to the matching days.
 
@@ -479,7 +495,7 @@ ___
 Show the outside days.  An outside day is a day falling in the next or the
 previous month. Default is `false`.
 
-Outside days are not interactive as default. Use [enableOutsideDaysClick](propsvalues.md#enableoutsidedaysclick)
+Outside days are not interactive as default. Use [enableOutsideDaysClick](daypickercontextvalue.md#enableoutsidedaysclick)
 to make them clickable.
 
 **Example**
@@ -510,7 +526,7 @@ ___
 
 ### styles
 
-• `Optional` **styles**: *undefined* \| [*DayPickerStyles*](../types/daypickerstyles.md)
+• `Optional` **styles**: *undefined* \| [*Styles*](../types/styles.md)
 
 Change the inline styles for each [UIElement](../enums/uielement.md).
 

@@ -18,7 +18,7 @@ Represent a map of formatters used to format ARIA labels for the relative
 Name | Type |
 :------ | :------ |
 `dayLabel`? | [*DayLabelFormatter*](daylabelformatter.md) |
-`nextLabel`? | [*NextLabelFormatter*](nextlabelformatter.md) |
-`prevLabel`? | [*NextLabelFormatter*](nextlabelformatter.md) |
+`nextLabel`? | [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) |
+`prevLabel`? | [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) |
 `weekNumberLabel`? | [*WeekNumberLabelFormatter*](weeknumberlabelformatter.md) |
 `weekdayLabel`? | [*WeekdayLabelFormatter*](weekdaylabelformatter.md) |

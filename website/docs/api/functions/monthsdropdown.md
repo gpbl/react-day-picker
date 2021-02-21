@@ -10,6 +10,8 @@ hide_title: true
 
 ▸ **MonthsDropdown**(`props`: [*MonthsDropdownProps*](../interfaces/monthsdropdownprops.md)): JSX.Element
 
+Render the dropdown to navigate between months.
+
 #### Parameters:
 
 Name | Type |

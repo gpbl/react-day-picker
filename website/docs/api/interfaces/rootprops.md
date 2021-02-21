@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: RootProps
 
+The props for the [Root](../functions/root.md) component.
+
 ## Properties
 
 ### className

@@ -10,6 +10,9 @@ hide_title: true
 
 ▸ **YearsDropdown**(`props`: [*YearsDropdownProps*](../interfaces/yearsdropdownprops.md)): JSX.Element
 
+Render a dropdown to change the year. Take in account the `fromDate` and
+`toDate` from context.
+
 #### Parameters:
 
 Name | Type |

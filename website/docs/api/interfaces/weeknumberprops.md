@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: WeekNumberProps
 
+The props for the [WeekNumber](../functions/weeknumber.md) component.
+
 ## Properties
 
 ### dates

@@ -10,6 +10,8 @@ hide_title: true
 
 Ƭ **WeekNumberFormatter**: (`weekNumber`: *number*, `options?`: { `locale?`: Locale  }) => *string*
 
+Represent a function to format the week number.
+
 #### Type declaration:
 
 ▸ (`weekNumber`: *number*, `options?`: { `locale?`: Locale  }): *string*

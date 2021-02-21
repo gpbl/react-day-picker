@@ -10,6 +10,10 @@ hide_title: true
 
 ▸ **Day**(`props`: [*DayProps*](../interfaces/dayprops.md)): JSX.Element \| *null*
 
+Render the content of a day cell, as a button or span element according to
+its modifiers. Attaches the event handlers from DayPicker context, and manage the
+focused day.
+
 #### Parameters:
 
 Name | Type |

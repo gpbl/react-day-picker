@@ -10,6 +10,8 @@ hide_title: true
 
 Ƭ **DayClickEventHandler**: (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.MouseEvent) => *void*
 
+Represent the event handler when a day is clicked.
+
 #### Type declaration:
 
 ▸ (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.MouseEvent): *void*

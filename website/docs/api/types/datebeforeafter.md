@@ -1,14 +1,14 @@
 ---
-id: "dateinterval"
-title: "Type alias: DateInterval"
-sidebar_label: "DateInterval"
+id: "datebeforeafter"
+title: "Type alias: DateBeforeAfter"
+sidebar_label: "DateBeforeAfter"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Type alias: DateInterval
+# Type alias: DateBeforeAfter
 
-Ƭ **DateInterval**: *object*
+Ƭ **DateBeforeAfter**: *object*
 
 Matches a day between the specified open interval (before and after date
 excluded).

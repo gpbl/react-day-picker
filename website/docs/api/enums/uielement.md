@@ -8,7 +8,24 @@ hide_title: true
 
 # Enumeration: UIElement
 
-Represent an element of the DayPicker user interface.
+Represent an element of the DayPicker user interface whose style or class
+name can be changed.
+
+For each of these elements, change the class name and the inline style in
+DayPicker using the `classNames` and `styles` prop.
+
+```
+<DayPicker
+   classNames={{
+     captionLast: 'my-custom-class'
+   }}
+   styles={{
+     captionLast: {
+        color: 'red'
+     }
+   }}
+ />
+```
 
 ## Enumeration members
 
@@ -20,6 +37,14 @@ The caption element (showing the calendar heading and the navigation)
 
 ___
 
+### CaptionBetween
+
+• **CaptionBetween**: = "captionBetween"
+
+The caption element is between
+
+___
+
 ### CaptionDropdowns
 
 • **CaptionDropdowns**: = "dropdownsContainer"
@@ -28,11 +53,27 @@ The container of the drop-downs.
 
 ___
 
+### CaptionFirst
+
+• **CaptionFirst**: = "captionFirst"
+
+The caption element when the first of multiple months
+
+___
+
 ### CaptionLabel
 
 • **CaptionLabel**: = "dropdownLabel"
 
 The container of the caption’s label (e.g. "September 2021").
+
+___
+
+### CaptionLast
+
+• **CaptionLast**: = "captionLast"
+
+The caption element when the last of multiple months
 
 ___
 
@@ -113,30 +154,6 @@ ___
 • **Month**: = "month"
 
 The wrapper of the table displaying the month.
-
-___
-
-### MonthBetween
-
-• **MonthBetween**: = "captionBetween"
-
-The caption element is between
-
-___
-
-### MonthFirst
-
-• **MonthFirst**: = "captionFirst"
-
-The caption element when the first of multiple months
-
-___
-
-### MonthLast
-
-• **MonthLast**: = "captionLast"
-
-The caption element when the last of multiple months
 
 ___
 

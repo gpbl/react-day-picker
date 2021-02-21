@@ -21,10 +21,11 @@ function Example() {
         onDayClick={(day) => setSelectedDay(day)}
         selected={selectedDay}
       />
-      <p>
-        Please pick a day.
-        {selectedDay && <> You selected {selectedDay.toLocaleDateString()}.</>}
-      </p>
+      {selectedDay ? (
+        <p>You selected {selectedDay.toLocaleDateString()}.</p>
+      ) : (
+        <p>Please pick a day.</p>
+      )}
     </>
   );
 }

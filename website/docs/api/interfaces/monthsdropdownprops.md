@@ -8,8 +8,12 @@ hide_title: true
 
 # Interface: MonthsDropdownProps
 
+The props for the [MonthsDropdown](../functions/monthsdropdown.md) component.
+
 ## Properties
 
 ### displayMonth
 
 • **displayMonth**: Date
+
+The month where the dropdown is displayed.

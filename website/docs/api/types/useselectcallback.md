@@ -8,17 +8,18 @@ hide_title: true
 
 # Type alias: UseSelectCallback
 
-Ƭ **UseSelectCallback**: (`day`: Date \| *undefined*, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.MouseEvent) => *void*
+Ƭ **UseSelectCallback**: (`day`: Date \| *undefined*, `clickedDay`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.MouseEvent) => *void*
 
 #### Type declaration:
 
-▸ (`day`: Date \| *undefined*, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.MouseEvent): *void*
+▸ (`day`: Date \| *undefined*, `clickedDay`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.MouseEvent): *void*
 
 #### Parameters:
 
 Name | Type |
 :------ | :------ |
 `day` | Date \| *undefined* |
+`clickedDay` | Date |
 `modifiers` | [*ModifiersStatus*](modifiersstatus.md) |
 `e` | React.MouseEvent |
 

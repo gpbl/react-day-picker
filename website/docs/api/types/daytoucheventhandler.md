@@ -10,6 +10,8 @@ hide_title: true
 
 Ƭ **DayTouchEventHandler**: (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.TouchEvent) => *void*
 
+Represent the event handler when a day gets a touch event.
+
 #### Type declaration:
 
 ▸ (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.TouchEvent): *void*

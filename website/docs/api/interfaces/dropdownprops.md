@@ -34,6 +34,12 @@ ___
 
 ___
 
+### style
+
+• `Optional` **style**: *undefined* \| *CSSProperties*
+
+___
+
 ### value
 
 • `Optional` **value**: *undefined* \| *string* \| *number* \| readonly *string*[]
