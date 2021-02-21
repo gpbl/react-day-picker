@@ -1,5 +1,22 @@
 /**
- * Represent an element of the DayPicker user interface.
+ * Represent an element of the DayPicker user interface whose style or class
+ * name can be changed.
+ *
+ * For each of these elements, change the class name and the inline style in
+ * DayPicker using the `classNames` and `styles` prop.
+ *
+ * ```
+ * <DayPicker
+ *    classNames={{
+ *      captionLast: 'my-custom-class'
+ *    }}
+ *    styles={{
+ *      captionLast: {
+ *         color: 'red'
+ *      }
+ *    }}
+ *  />
+ * ```
  */
 export enum UIElement {
   /** The container element. */
@@ -10,11 +27,11 @@ export enum UIElement {
   /** The caption element (showing the calendar heading and the navigation) */
   Caption = 'caption',
   /** The caption element when the first of multiple months */
-  MonthFirst = 'captionFirst',
+  CaptionFirst = 'captionFirst',
   /** The caption element when the last of multiple months */
-  MonthLast = 'captionLast',
+  CaptionLast = 'captionLast',
   /** The caption element is between */
-  MonthBetween = 'captionBetween',
+  CaptionBetween = 'captionBetween',
 
   /** The container of the drop-downs. */
   CaptionDropdowns = 'dropdownsContainer',

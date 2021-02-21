@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useProps } from '../../hooks';
+import { useDayPicker } from '../../hooks';
 import { UIElement } from '../../types';
 import { IconDropdown } from '../IconDropdown';
 
@@ -10,23 +10,37 @@ export interface DropdownProps {
   children?: JSX.Element | JSX.Element[];
   caption?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
+/**
+ * Render a dropdown component (basically, a styled HTMLSelectElement).
+ */
 export function Dropdown(props: DropdownProps): JSX.Element {
-  const { onChange, value, children, caption, className } = props;
-  const { classNames } = useProps();
+  const { onChange, value, children, caption, className, style } = props;
+  const { classNames, styles } = useDayPicker();
   return (
-    <div className={className}>
+    <div className={className} style={style}>
       <select
         className={classNames[UIElement.Dropdown]}
+        style={styles?.[UIElement.Dropdown]}
         value={value}
         onChange={onChange}
       >
         {children}
       </select>
-      <div className={classNames[UIElement.CaptionLabel]} aria-hidden="true">
+      <div
+        className={classNames[UIElement.CaptionLabel]}
+        style={styles?.[UIElement.CaptionLabel]}
+        aria-hidden="true"
+      >
         {caption}
-        {<IconDropdown className={classNames[UIElement.DropdownIcon]} />}
+        {
+          <IconDropdown
+            className={classNames[UIElement.DropdownIcon]}
+            style={styles?.[UIElement.DropdownIcon]}
+          />
+        }
       </div>
     </div>
   );

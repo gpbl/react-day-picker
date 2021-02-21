@@ -10,6 +10,7 @@ export type UseSelect = {
 
 export type UseSelectCallback = (
   day: Date | undefined,
+  clickedDay: Date,
   modifiers: ModifiersStatus,
   e: React.MouseEvent
 ) => void;
@@ -28,12 +29,12 @@ export function useSelect(
     if (modifiers.selected) {
       if (!required) {
         setSelected(undefined);
-        callback?.(undefined, modifiers, e);
+        callback?.(undefined, day, modifiers, e);
       }
       return;
     }
     setSelected(day);
-    callback?.(day, modifiers, e);
+    callback?.(day, day, modifiers, e);
   };
 
   const reset = () => {

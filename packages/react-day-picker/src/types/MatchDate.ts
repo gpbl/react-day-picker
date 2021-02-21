@@ -1,8 +1,8 @@
-import { PropsValues } from '../components';
+import { DayPickerContextValue } from './DayPickerContextValue';
 
-/** Matches a day when this function returns `true`. */
+/** A function that returns true when `date` is matched. */
 export type MatchDate = (
   date: Date,
-  currentMonth: Date,
-  context: PropsValues
+  displayMonth: Date,
+  context: DayPickerContextValue
 ) => boolean;

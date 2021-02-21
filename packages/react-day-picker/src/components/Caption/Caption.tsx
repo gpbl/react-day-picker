@@ -6,23 +6,27 @@ import {
   MonthsDropdown,
   YearsDropdown
 } from '../../components';
-import { useNavigation } from '../../hooks';
-import { useProps } from '../../hooks/useProps';
+import { useDayPicker, useNavigation } from '../../hooks';
 import { UIElement as UI } from '../../types';
 
+/** Represent the props of the [[Caption]] component. */
 export interface CaptionProps {
   /** The month where the caption is displayed. */
   displayMonth: Date;
-  /** The index of the month. */
+  /** The index of the month being displayed (when `numberOfMonths` set). */
   displayIndex: number;
-  /** Whether the caption belongs to the first table (of numberOfMonths). */
+  /** Whether the caption belongs to the first table (when `numberOfMonths` set). */
   isFirst: boolean;
-  /** Whether the caption belongs to the last table (of numberOfMonths). */
+  /** Whether the caption belongs to the last table (when `numberOfMonths` set). */
   isLast: boolean;
-  /** Whether the caption belongs to a table between others. */
+  /** Whether the caption belongs to a table between others (when `numberOfMonths` set).. */
   isBetween: boolean;
 }
 
+/**
+ * Render the caption of a month, which includes title and navigation buttons.
+ * The caption has a different layout when setting the `numberOfMonths` prop.
+ */
 export function Caption(props: CaptionProps): JSX.Element {
   const { displayMonth, isFirst, isLast, isBetween } = props;
   const {
@@ -36,7 +40,8 @@ export function Caption(props: CaptionProps): JSX.Element {
     labels,
     formatters: { formatCaption },
     disableNavigation
-  } = useProps();
+  } = useDayPicker();
+
   const { prevMonth, nextMonth } = useNavigation();
 
   const onPrevClick: React.MouseEventHandler = (e) => {
@@ -60,7 +65,10 @@ export function Caption(props: CaptionProps): JSX.Element {
       onClick={dir === 'rtl' ? onNextClick : onPrevClick}
       style={styles?.[UI.NavButtonPrev]}
     >
-      <IconPrev className={classNames[UI.NavIcon]} />
+      <IconPrev
+        className={classNames[UI.NavIcon]}
+        style={styles?.[UI.NavIcon]}
+      />
     </button>
   );
 
@@ -75,7 +83,10 @@ export function Caption(props: CaptionProps): JSX.Element {
       onClick={dir === 'rtl' ? onPrevClick : onNextClick}
       style={styles?.[UI.NavButtonNext]}
     >
-      <IconNext className={classNames[UI.NavIcon]} />
+      <IconNext
+        className={classNames[UI.NavIcon]}
+        style={styles?.[UI.NavIcon]}
+      />
     </button>
   );
 
@@ -103,13 +114,16 @@ export function Caption(props: CaptionProps): JSX.Element {
   );
 
   return (
-    <div className={classNames[UI.Caption]}>
+    <div className={classNames[UI.Caption]} style={styles?.[UI.Caption]}>
       {disableNavigation ? (
         caption
       ) : (
         <>
           {captionLayout === 'dropdown' && (
-            <div className={classNames[UI.CaptionDropdowns]}>
+            <div
+              className={classNames[UI.CaptionDropdowns]}
+              style={styles?.[UI.CaptionDropdowns]}
+            >
               <MonthsDropdown displayMonth={displayMonth} />
               <YearsDropdown displayMonth={displayMonth} />
             </div>

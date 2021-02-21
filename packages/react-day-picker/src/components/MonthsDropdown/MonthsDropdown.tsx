@@ -2,14 +2,20 @@ import * as React from 'react';
 
 import { isSameYear, setMonth, startOfMonth } from 'date-fns';
 
-import { Dropdown } from '../../components';
-import { useProps } from '../../hooks';
+import { useDayPicker } from '../../hooks';
 import { UIElement } from '../../types';
 
+/**
+ * The props for the [[MonthsDropdown]] component.
+ */
 export interface MonthsDropdownProps {
+  /** The month where the dropdown is displayed. */
   displayMonth: Date;
 }
 
+/**
+ * Render the dropdown to navigate between months.
+ */
 export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
   const { displayMonth } = props;
   const {
@@ -18,8 +24,10 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     fromDate,
     toDate,
     classNames,
+    styles,
+    components: { Dropdown },
     formatters: { formatMonthCaption }
-  } = useProps();
+  } = useDayPicker();
 
   const dropdownMonths: Date[] = [];
 
@@ -51,6 +59,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
   return (
     <Dropdown
       className={classNames[UIElement.DropdownMonth]}
+      style={styles?.[UIElement.DropdownMonth]}
       onChange={handleChange}
       value={displayMonth.getMonth()}
       caption={formatMonthCaption(displayMonth, { locale })}

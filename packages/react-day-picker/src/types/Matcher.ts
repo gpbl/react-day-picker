@@ -1,6 +1,6 @@
 import { DateAfter } from './DateAfter';
 import { DateBefore } from './DateBefore';
-import { DateInterval } from './DateInterval';
+import { DateBeforeAfter } from './DateBeforeAfter';
 import { DateRange } from './DateRange';
 import { MatchDate } from './MatchDate';
 import { MatchDaysOfWeek } from './MatchDaysOfWeek';
@@ -12,7 +12,7 @@ import { MatchDaysOfWeek } from './MatchDaysOfWeek';
 export type Matcher =
   | Date
   | DateRange
-  | DateInterval
+  | DateBeforeAfter
   | DateBefore
   | DateAfter
   | MatchDate

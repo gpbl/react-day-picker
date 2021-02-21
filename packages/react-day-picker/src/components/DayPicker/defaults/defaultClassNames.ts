@@ -1,7 +1,7 @@
 import { ClassNames, UIElement } from '../../../types';
 
 /**
- * The name of the CSS classes for the [[UIElements]].
+ * The name of the default CSS classes for the [[UIElements]].
  */
 export const defaultClassNames: Required<ClassNames> = {
   /** Root element */
@@ -9,9 +9,9 @@ export const defaultClassNames: Required<ClassNames> = {
   [UIElement.RootMultipleMonths]: 'rdp-multiple-months',
 
   [UIElement.Months]: 'rdp-months',
-  [UIElement.MonthFirst]: 'rdp-month_first',
-  [UIElement.MonthLast]: 'rdp-month_last',
-  [UIElement.MonthBetween]: 'rdp-month_between',
+  [UIElement.CaptionFirst]: 'rdp-month_first',
+  [UIElement.CaptionLast]: 'rdp-month_last',
+  [UIElement.CaptionBetween]: 'rdp-month_between',
 
   [UIElement.Caption]: 'rdp-caption',
   [UIElement.CaptionLabel]: 'rdp-caption-label',

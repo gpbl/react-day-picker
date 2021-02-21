@@ -9,12 +9,8 @@ import {
   startOfMonth
 } from 'date-fns';
 
-import {
-  DayPickerProps,
-  PropsContext,
-  PropsValues,
-  Root
-} from '../../components';
+import { Root } from '../../components';
+import { Caption } from '../../components/Caption';
 import { useSelect } from '../../hooks';
 import { useRangeSelect } from '../../hooks/useRangeSelect';
 import { useMultipleSelect } from '../../hooks/useSelectMultiple';
@@ -22,23 +18,21 @@ import {
   DayClickEventHandler,
   DayFocusEventHandler,
   DayKeyboardEventHandler,
+  DayPickerContextValue,
+  DayPickerProps,
   KeyCode,
   MonthChangeEventHandler
 } from '../../types';
-import {
-  defaultClassNames,
-  defaultComponents,
-  defaultLabels,
-  defaultModifiers
-} from './defaults';
-import { defaultFormatters } from './defaults/defaultFormatters';
-import { NavigationContext, NavigationContextValue } from './NavigationContext';
-import { defaultPropsValues as defaults } from './PropsContext';
+import { NavigationContextValue } from '../../types/NavigationContextValue';
+import { DayPickerContext } from './DayPickerContext';
+import { defaultContext as defaults } from './defaults/defaultContext';
+import { NavigationContext } from './NavigationContext';
 import { getMonthsToRender } from './utils/getMonthsToRender';
 import { getNavMonths } from './utils/getNavMonths';
 
+console.log({ Caption });
 /**
- * Render a date picker component.
+ * Render the date picker component.
  */
 export function DayPicker(props: DayPickerProps): JSX.Element {
   //#region Default values
@@ -47,6 +41,7 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   const locale = props.locale || defaults.locale;
   const numberOfMonths = props.numberOfMonths || defaults.numberOfMonths;
   const showOutsideDays = props.showOutsideDays || props.fixedWeeks;
+  const modifierPrefix = props.modifierPrefix || defaults.modifierPrefix;
 
   // Give precedence to `fromYear` and `fromMonth`
   let fromDate: Date | undefined = props.fromDate;
@@ -115,7 +110,14 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     props.required,
     props.onSelectRange
   );
-
+  const selected =
+    mode === 'single'
+      ? singleSelect.selected
+      : mode === 'multiple'
+      ? multipleSelect.selected
+      : mode === 'range'
+      ? rangeSelect.selected
+      : props.selected;
   //#endregion
 
   //#region Focused day
@@ -157,24 +159,28 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     switch (e.key) {
       case KeyCode.ArrowLeft: {
         e.preventDefault();
+        e.stopPropagation();
         const nextDay = addDays(day, -1);
         onDayFocus?.(nextDay, modifiers, e);
         break;
       }
       case KeyCode.ArrowRight: {
         e.preventDefault();
+        e.stopPropagation();
         const nextDay = addDays(day, 1);
         onDayFocus?.(nextDay, modifiers, e);
         return;
       }
       case KeyCode.ArrowUp: {
         e.preventDefault();
+        e.stopPropagation();
         const nextDay = addWeeks(day, -1);
         onDayFocus?.(nextDay, modifiers, e);
         break;
       }
       case KeyCode.ArrowDown: {
         e.preventDefault();
+        e.stopPropagation();
         const nextDay = addWeeks(day, 1);
         onDayFocus?.(nextDay, modifiers, e);
         break;
@@ -184,43 +190,47 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   };
   //#endregion
 
-  const propsValues: PropsValues = {
+  const propsValues: DayPickerContextValue = {
     ...props,
     captionLayout,
 
-    classNames: { ...defaultClassNames, ...props.classNames },
-    components: { ...defaultComponents, ...props.components },
-    formatters: { ...defaultFormatters, ...props.formatters },
-    labels: { ...defaultLabels, ...props.labels },
+    classNames: {
+      ...defaults.classNames,
+      ...props.classNames
+    },
+    components: {
+      ...defaults.components,
+      ...props.components
+    },
+    formatters: {
+      ...defaults.formatters,
+      ...props.formatters
+    },
+    labels: {
+      ...defaults.labels,
+      ...props.labels
+    },
+    modifiers: {
+      ...defaults.modifiers,
+      ...props.modifiers
+    },
 
     fromDate,
     toDate,
 
     locale,
-    modifierPrefix: props.modifierPrefix || defaults.modifierPrefix,
-    modifiers: {
-      ...defaultModifiers,
-      ...props.modifiers
-    },
+    modifierPrefix,
     numberOfMonths,
     onDayBlur,
     onDayClick,
     onDayFocus,
     onDayKeyDown,
     onMonthChange,
-    originalProps: props,
-    selected:
-      mode === 'single'
-        ? singleSelect.selected
-        : mode === 'multiple'
-        ? multipleSelect.selected
-        : mode === 'range'
-        ? rangeSelect.selected
-        : props.selected,
+    selected,
     showOutsideDays,
-    today
+    today,
+    originalProps: props
   };
-
   const [prevMonth, nextMonth] = getNavMonths(currentMonth, {
     fromDate,
     toDate,
@@ -237,11 +247,12 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     focusedDay
   };
 
+  console.log('defaults.components,', defaults.components);
   return (
-    <PropsContext.Provider value={propsValues}>
+    <DayPickerContext.Provider value={propsValues}>
       <NavigationContext.Provider value={navigationValues}>
         <Root />
       </NavigationContext.Provider>
-    </PropsContext.Provider>
+    </DayPickerContext.Provider>
   );
 }

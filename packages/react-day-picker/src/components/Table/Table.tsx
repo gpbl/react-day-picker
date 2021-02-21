@@ -1,17 +1,23 @@
 import * as React from 'react';
 
 import { Head, Row } from '../../components';
-import { useProps } from '../../hooks';
+import { useDayPicker } from '../../hooks';
 import { UIElement } from '../../types';
 import { getWeeks } from './utils/getWeeks';
 
+/**
+ * The props for the [[Table]] component.
+ */
 export interface TableProps {
   /** The month used to render the table */
   displayMonth: Date;
 }
 
+/**
+ * Render the table with the calendar.
+ */
 export function Table(props: TableProps): JSX.Element {
-  const { locale, fixedWeeks, classNames, styles, hideHead } = useProps();
+  const { locale, fixedWeeks, classNames, styles, hideHead } = useDayPicker();
   const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
 
   return (

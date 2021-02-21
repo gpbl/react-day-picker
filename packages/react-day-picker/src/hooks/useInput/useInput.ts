@@ -2,7 +2,19 @@ import * as React from 'react';
 
 import { format, parse } from 'date-fns';
 
-import { UseInput, UseInputOptions } from '../../types';
+import { DayPickerProps } from '../../types';
+
+export type UseInput = {
+  setMonth: React.Dispatch<React.SetStateAction<Date>>;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+  dayPickerProps: Partial<DayPickerProps>;
+  inputProps: Partial<JSX.IntrinsicElements['input']>;
+};
+
+export type UseInputOptions = {
+  locale?: Locale;
+  required: boolean;
+};
 
 /**
  * @private

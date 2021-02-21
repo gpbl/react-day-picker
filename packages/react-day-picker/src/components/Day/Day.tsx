@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { isSameDay, isSameMonth } from 'date-fns';
 
-import { useNavigation, useProps } from '../../hooks';
+import { useDayPicker, useNavigation } from '../../hooks';
 import {
   DayClickEventHandler,
   DayFocusEventHandler,
@@ -11,8 +11,9 @@ import {
   DayTouchEventHandler,
   UIElement
 } from '../../types';
-import { getModifiers } from './utils/getModifiers';
+import { getModifiersStatus } from './utils/getModifiersStatus';
 
+/** Represent the props used by the [[Day]] component. */
 export interface DayProps {
   /** The month where the day is displayed. */
   displayMonth: Date;
@@ -32,17 +33,22 @@ export interface DayProps {
   onDayTouchStart?: DayTouchEventHandler;
 }
 
+/**
+ * Render the content of a day cell, as a button or span element according to
+ * its modifiers. Attaches the event handlers from DayPicker context, and manage the
+ * focused day.
+ */
 export function Day(props: DayProps): JSX.Element | null {
   const el = React.useRef<HTMLButtonElement>(null);
-  const dayPickerProps = useProps();
-  const { labels, formatters, locale, showOutsideDays } = dayPickerProps;
+  const context = useDayPicker();
+  const { labels, formatters, locale, showOutsideDays } = context;
   const { currentMonth, focusedDay } = useNavigation();
 
   const { displayMonth, day } = props;
   const { formatDay } = formatters;
 
   // Do not return anything if the day is not in the range
-  const modifiers = getModifiers(day, displayMonth, dayPickerProps);
+  const modifiers = getModifiersStatus(day, displayMonth, context);
 
   React.useEffect(() => {
     if (!focusedDay) return;
@@ -69,7 +75,7 @@ export function Day(props: DayProps): JSX.Element | null {
   // #endregion
 
   // #region EventHandlers
-  const { onDayBlur, onDayClick, onDayFocus, onDayKeyDown } = dayPickerProps;
+  const { onDayBlur, onDayClick, onDayFocus, onDayKeyDown } = context;
 
   const handleClick: React.MouseEventHandler = (e) => {
     onDayClick(day, modifiers, e);
@@ -108,7 +114,8 @@ export function Day(props: DayProps): JSX.Element | null {
   // #endregion
 
   // #region ClassNames
-  const { classNames, modifiersClassNames, modifierPrefix } = dayPickerProps;
+  // TODO: move in an external utility?
+  const { classNames, modifiersClassNames, modifierPrefix } = context;
   const buttonClassNames: (string | undefined)[] = [classNames[UIElement.Day]];
   Object.keys(modifiers)
     .filter((modifier) => Boolean(modifiers[modifier]))
@@ -124,7 +131,8 @@ export function Day(props: DayProps): JSX.Element | null {
   // #endregion
 
   // #region Styles
-  const { styles, modifiersStyles } = dayPickerProps;
+  // TODO: move to an external utility?
+  const { styles, modifiersStyles } = context;
   let style = { ...styles?.[UIElement.Day] };
   if (styles) {
     Object.keys(modifiers).forEach((modifier) => {

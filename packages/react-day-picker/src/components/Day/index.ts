@@ -1,2 +1,2 @@
 export * from './Day';
-export * from './utils/getModifiers';
+export * from './utils/getModifiersStatus';
