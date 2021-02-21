@@ -12,8 +12,9 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
-  "main": "dist/index.js",
-  "module": "lib/index.js",
+  "main": "lib/index.js",
+  "browser": "dist/index.min.js",
+  "type": "module",
   "types": "lib/index.d.ts",
   "scripts": {
     "develop": "tsc --watch",
