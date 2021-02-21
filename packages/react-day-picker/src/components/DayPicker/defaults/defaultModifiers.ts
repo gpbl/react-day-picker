@@ -22,31 +22,23 @@ function isInteractive(
   props: DayPickerContextValue
 ): boolean {
   /** Props that will make the day button interactive. */
-  const interactiveProps = [
-    'onSelect',
-    'onDayClick',
-    'onDayMouseEnter',
-    'onDayTouchStart'
-  ];
-
-  const { toDate, fromDate, originalProps } = props;
+  const { toDate, fromDate, enableOutsideDaysClick } = props;
   const outside = isOutside(day, displayMonth);
   if (props.mode !== 'uncontrolled' && !outside) {
     return true;
   }
 
-  // Uncontrolled mode: if some of the _original props_ passed to the component
-  // are not an "interactive" prop, we can assume the day is not interactive.
-  if (interactiveProps.every((name) => !(name in originalProps))) {
-    return false;
-  }
-
   // The day is NOT interactive if not in the range specified in the `fromDate`
   // and `toDate` (these values are set also by `fromDay/toDay` and
   // `fromYear/toYear` in the main component.)
-  const isAfterToDate = toDate && isAfter(day, toDate);
-  const isBeforeFromDate = fromDate && isBefore(day, fromDate);
-  const interactive = !isAfterToDate && !isBeforeFromDate && !outside;
+  const isAfterToDate = Boolean(toDate && isAfter(day, toDate));
+  const isBeforeFromDate = Boolean(fromDate && isBefore(day, fromDate));
+  const isOutsideInteractive = outside
+    ? Boolean(enableOutsideDaysClick)
+    : false;
+
+  const interactive =
+    !isAfterToDate && !isBeforeFromDate && isOutsideInteractive;
   return interactive;
 }
 
