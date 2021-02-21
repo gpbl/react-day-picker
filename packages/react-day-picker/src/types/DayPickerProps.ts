@@ -304,7 +304,7 @@ export interface DayPickerProps {
    */
   defaultSelected?: Date | Date[] | DateRange | undefined;
   /**
-   * The type of the selection.
+   * The selection mode.
    *
    * - `single` (default) allows selecting only a single day
    * - `multiple` allows selecting multiple days

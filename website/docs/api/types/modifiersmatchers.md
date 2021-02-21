@@ -10,7 +10,7 @@ hide_title: true
 
 Ƭ **ModifiersMatchers**: *object*
 
-Represents the [[Matchers]] assigned to each modifier.
+Represents the [Matcher](matcher.md) assigned to each modifier.
 
 **Example**
 
