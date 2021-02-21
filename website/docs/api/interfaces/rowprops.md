@@ -12,19 +12,19 @@ The props for the [Row](../functions/row.md) component.
 
 ## Properties
 
+### dates
+
+• **dates**: Date[]
+
+The days contained in the week.
+
+___
+
 ### displayMonth
 
 • **displayMonth**: Date
 
 The month where the row is displayed.
-
-___
-
-### week
-
-• **week**: Date[]
-
-The days contained in the week.
 
 ___
 
