@@ -79,13 +79,26 @@ examples/modifiers-custom.tsx
 
 ## Styling days with modifiers
 
-Day cells can be styled according to the day modifiers, using CSS or inline
+A day can be styled according to its modifiers – using CSS or inline
 styles.
 
-- use `modifiersStyle` to change the inline styles for each modifier
-- use
-  [`modifiersClassNames`](/api/interfaces/daypickerprops#modifiersclassnames) to
-  add a class name to the DOM element
+### Styling via class names
+
+- The modifier is added in the class name of the Day element: `.rdp-day_disabled`,
+  `.rdp-day_booked`, `.rdp-day_selected`, etc.
+- Change the `.rdp-day_` prefix via
+  [modifierPrefix](/api/interfaces/daypickerprops#modifierPrefix) prop.
+- Or, use [`modifiersClassNames`](/api/interfaces/daypickerprops#modifiersclassnames) to change the whole class name.
+
+```include
+examples/modifiers-classnames.tsx
+```
+
+### Styling via inline styles
+
+Another practical way is using inline styles. Use
+[`modifiersStyles`](/api/interfaces/daypickerprops#modifierstyles) to change the
+style of a day matching the specified modifier.
 
 ```include
 examples/modifiers-style.tsx

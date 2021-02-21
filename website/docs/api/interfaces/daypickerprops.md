@@ -295,7 +295,7 @@ ___
 
 • `Optional` **mode**: *undefined* \| *uncontrolled* \| *single* \| *multiple* \| *range*
 
-The type of the selection.
+The selection mode.
 
 - `single` (default) allows selecting only a single day
 - `multiple` allows selecting multiple days

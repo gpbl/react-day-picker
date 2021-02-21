@@ -1,21 +1,13 @@
 /**
- * Represent an element of the DayPicker user interface whose style or class
- * name can be changed.
- *
- * For each of these elements, change the class name and the inline style in
- * DayPicker using the `classNames` and `styles` prop.
+ * Represent an element or an element state of the DayPicker user interface,
+ * whose style or class name can be changed using the `styles` or `classNames`
+ * prop.
  *
  * ```
  * <DayPicker
- *    classNames={{
- *      captionLast: 'my-custom-class'
- *    }}
- *    styles={{
- *      captionLast: {
- *         color: 'red'
- *      }
- *    }}
- *  />
+ *   classNames={{ captionLast: 'my-custom-class' }}
+ *   styles={{ captionLast: { color: 'red' }}}
+ * />
  * ```
  */
 export enum UIElement {

@@ -13,6 +13,4 @@ hide_title: true
 An hook for using the DayPicker context used for rendering the internal
 components.
 
-Use this hook for building your custom components.
-
 **Returns:** [*DayPickerContextValue*](../interfaces/daypickercontextvalue.md)
