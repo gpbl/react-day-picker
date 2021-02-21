@@ -1,7 +1,5 @@
 :root {
-  --rdp-font-family: -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell,
-    'Noto Sans', sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --rdp-font-family: inherit;
   --rdp-accent-color: #4d21fc;
   /* Default colors for light themes */
   --rdp-accent-color-light: #8567fd;
