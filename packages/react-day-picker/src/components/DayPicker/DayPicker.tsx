@@ -30,7 +30,6 @@ import { NavigationContext } from './NavigationContext';
 import { getMonthsToRender } from './utils/getMonthsToRender';
 import { getNavMonths } from './utils/getNavMonths';
 
-console.log({ Caption });
 /**
  * Render the date picker component.
  */
@@ -247,7 +246,6 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
     focusedDay
   };
 
-  console.log('defaults.components,', defaults.components);
   return (
     <DayPickerContext.Provider value={propsValues}>
       <NavigationContext.Provider value={navigationValues}>
