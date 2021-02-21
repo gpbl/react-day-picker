@@ -34,7 +34,7 @@ export function Table(props: TableProps): JSX.Element {
           <Row
             displayMonth={props.displayMonth}
             key={weekNumber}
-            week={weeks[weekNumber]}
+            dates={weeks[weekNumber]}
             weekNumber={Number(weekNumber)}
           />
         ))}

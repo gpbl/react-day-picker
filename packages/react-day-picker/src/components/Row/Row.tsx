@@ -15,14 +15,14 @@ export interface RowProps {
   /** The number of the week to render. */
   weekNumber: number;
   /** The days contained in the week. */
-  week: Date[];
+  dates: Date[];
 }
 
 /**
  * Render a row in the calendar, with the days and optionally the week number.
  */
 export function Row(props: RowProps): JSX.Element {
-  const { weekNumber, week } = props;
+  const { weekNumber, dates } = props;
   const {
     styles,
     classNames,
@@ -34,7 +34,7 @@ export function Row(props: RowProps): JSX.Element {
   if (showWeekNumber) {
     weekNumberCell = (
       <th className={classNames?.[UI.RowHead]} style={styles?.[UI.RowHead]}>
-        <WeekNumber number={weekNumber} dates={week} />
+        <WeekNumber number={weekNumber} dates={dates} />
       </th>
     );
   }
@@ -42,13 +42,13 @@ export function Row(props: RowProps): JSX.Element {
   return (
     <tr className={classNames?.[UI.Row]} style={styles?.[UI.Row]}>
       {weekNumberCell}
-      {week.map((day) => (
+      {dates.map((date) => (
         <td
           className={classNames?.[UI.Cell]}
           style={styles?.[UI.Cell]}
-          key={getUnixTime(day)}
+          key={getUnixTime(date)}
         >
-          <Day displayMonth={props.displayMonth} day={day} />
+          <Day displayMonth={props.displayMonth} date={date} />
         </td>
       ))}
     </tr>
