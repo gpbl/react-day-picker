@@ -12,11 +12,11 @@ Represent the props used by the [Day](../functions/day.md) component.
 
 ## Properties
 
-### day
+### date
 
-• **day**: Date
+• **date**: Date
 
-The day to render.
+The date to render.
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 • **displayMonth**: Date
 
-The month where the day is displayed.
+The month where the date is displayed.
 
 ___
 
