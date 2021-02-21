@@ -10,6 +10,8 @@ hide_title: true
 
 Ƭ **WeekNumberClickEventHandler**: (`weekNumber`: *number*, `dates`: Date[], `e`: React.MouseEvent) => *void*
 
+Represent the event handler when the week number is clicked.
+
 #### Type declaration:
 
 ▸ (`weekNumber`: *number*, `dates`: Date[], `e`: React.MouseEvent): *void*

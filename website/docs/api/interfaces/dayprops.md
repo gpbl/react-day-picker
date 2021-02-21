@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: DayProps
 
+Represent the props used by the [Day](../functions/day.md) component.
+
 ## Properties
 
 ### day

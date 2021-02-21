@@ -20,5 +20,5 @@ Name | Type | Description |
 `formatDay`? | [*DateFormatter*](dateformatter.md) | Format the day in the day cell.   |
 `formatMonthCaption`? | [*DateFormatter*](dateformatter.md) | Format the month in the navigation dropdown.   |
 `formatWeekNumber`? | [*WeekNumberFormatter*](weeknumberformatter.md) | Format the week number.   |
-`formatWeekdayName`? | [*WeekdayFormatter*](weekdayformatter.md) | Format the week day name in the header   |
+`formatWeekdayName`? | [*DateFormatter*](dateformatter.md) | Format the week day name in the header   |
 `formatYearCaption`? | [*DateFormatter*](dateformatter.md) | Format the year in the navigation dropdown.   |

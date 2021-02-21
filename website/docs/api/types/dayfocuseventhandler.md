@@ -10,6 +10,8 @@ hide_title: true
 
 Ƭ **DayFocusEventHandler**: (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.FocusEvent \| React.KeyboardEvent) => *void*
 
+Represent the event handler when a day is focused.
+
 #### Type declaration:
 
 ▸ (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.FocusEvent \| React.KeyboardEvent): *void*

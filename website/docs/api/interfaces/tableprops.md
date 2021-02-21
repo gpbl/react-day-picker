@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: TableProps
 
+The props for the [Table](../functions/table.md) component.
+
 ## Properties
 
 ### displayMonth

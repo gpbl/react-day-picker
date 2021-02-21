@@ -13,12 +13,12 @@ module.exports = [
     "label": "Interfaces",
     "items": [
       "api/interfaces/captionprops",
+      "api/interfaces/daypickercontextvalue",
       "api/interfaces/daypickerprops",
       "api/interfaces/dayprops",
       "api/interfaces/dropdownprops",
       "api/interfaces/monthsdropdownprops",
       "api/interfaces/navigationcontextvalue",
-      "api/interfaces/propsvalues",
       "api/interfaces/rootprops",
       "api/interfaces/rowprops",
       "api/interfaces/selecteventhandler",
@@ -36,15 +36,14 @@ module.exports = [
       "api/types/components",
       "api/types/dateafter",
       "api/types/datebefore",
+      "api/types/datebeforeafter",
       "api/types/dateformatter",
-      "api/types/dateinterval",
       "api/types/daterange",
       "api/types/dayclickeventhandler",
       "api/types/dayfocuseventhandler",
       "api/types/daykeyboardeventhandler",
       "api/types/daylabelformatter",
       "api/types/daymouseeventhandler",
-      "api/types/daypickerstyles",
       "api/types/daytoucheventhandler",
       "api/types/formatters",
       "api/types/labels",
@@ -56,10 +55,11 @@ module.exports = [
       "api/types/modifiersstatus",
       "api/types/modifiersstyles",
       "api/types/monthchangeeventhandler",
-      "api/types/nextlabelformatter",
+      "api/types/navbuttonlabelformatter",
       "api/types/selectmode",
       "api/types/selectmultipleeventhandler",
       "api/types/selectrangeeventhandler",
+      "api/types/styles",
       "api/types/useinput",
       "api/types/useinputoptions",
       "api/types/useselect",
@@ -67,7 +67,6 @@ module.exports = [
       "api/types/weeknumberclickeventhandler",
       "api/types/weeknumberformatter",
       "api/types/weeknumberlabelformatter",
-      "api/types/weekdayformatter",
       "api/types/weekdaylabelformatter"
     ]
   },
@@ -75,15 +74,8 @@ module.exports = [
     "type": "category",
     "label": "Variables",
     "items": [
-      "api/variables/navigationcontext",
-      "api/variables/propscontext",
-      "api/variables/defaultclassnames",
-      "api/variables/defaultcomponents",
-      "api/variables/defaultformatters",
-      "api/variables/defaultlabels",
-      "api/variables/defaultmodifiers",
-      "api/variables/defaultnavigationcontext",
-      "api/variables/defaultpropsvalues"
+      "api/variables/daypickercontext",
+      "api/variables/navigationcontext"
     ]
   },
   {
@@ -104,10 +96,10 @@ module.exports = [
       "api/functions/table",
       "api/functions/weeknumber",
       "api/functions/yearsdropdown",
-      "api/functions/getmodifiers",
+      "api/functions/getmodifiersstatus",
+      "api/functions/usedaypicker",
       "api/functions/useinput",
       "api/functions/usenavigation",
-      "api/functions/useprops",
       "api/functions/useselect"
     ]
   }

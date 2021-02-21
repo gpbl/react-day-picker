@@ -10,4 +10,6 @@ hide_title: true
 
 ▸ **Head**(): JSX.Element
 
+Render the Head component - i.e. the table head with the weekday names.
+
 **Returns:** JSX.Element

@@ -14,7 +14,11 @@ export default function CodeBlock(props) {
   const { children, className } = props;
 
   if (className !== 'language-include') {
-    return <OriginalCodeBlock {...props}>{children}</OriginalCodeBlock>;
+    return (
+      <OriginalCodeBlock className="language-jsx" {...props}>
+        {children}
+      </OriginalCodeBlock>
+    );
   }
 
   const fileName = children.replace(/\n*/gi, '');
@@ -22,9 +26,7 @@ export default function CodeBlock(props) {
   try {
     require(`../../docs/${fileName}`).default;
   } catch (e) {
-    return (
-      <OriginalCodeBlock className={className}>{e.message}</OriginalCodeBlock>
-    );
+    return <OriginalCodeBlock {...props}>{e.message}</OriginalCodeBlock>;
   }
 
   const Component = require(`../../docs/${fileName}`).default;
@@ -32,7 +34,9 @@ export default function CodeBlock(props) {
 
   return (
     <>
-      <OriginalCodeBlock className="language-tsx">{src}</OriginalCodeBlock>
+      <OriginalCodeBlock {...props} className="language-tsx">
+        {src}
+      </OriginalCodeBlock>
       <details>
         <summary>Show output</summary>
         <Component />

@@ -10,6 +10,9 @@ hide_title: true
 
 ▸ **Caption**(`props`: [*CaptionProps*](../interfaces/captionprops.md)): JSX.Element
 
+Render the caption of a month, which includes title and navigation buttons.
+The caption has a different layout when setting the `numberOfMonths` prop.
+
 #### Parameters:
 
 Name | Type |

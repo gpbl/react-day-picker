@@ -10,6 +10,9 @@ hide_title: true
 
 ▸ **WeekNumber**(`props`: [*WeekNumberProps*](../interfaces/weeknumberprops.md)): JSX.Element
 
+Render the week number element. If `onWeekNumberClick` is passed to DayPicker, it
+renders a button, otherwise a span element.
+
 #### Parameters:
 
 Name | Type |

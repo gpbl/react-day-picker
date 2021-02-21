@@ -10,7 +10,7 @@ hide_title: true
 
 Ƭ **DayLabelFormatter**: (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `options?`: { `locale?`: Locale  }) => *string*
 
-Represent a function to format the ARIA label for the Day component.
+Represent a function to format the ARIA label for the [Day](../functions/day.md) component.
 
 #### Type declaration:
 

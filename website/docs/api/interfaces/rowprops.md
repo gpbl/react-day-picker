@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: RowProps
 
+The props for the [Row](../functions/row.md) component.
+
 ## Properties
 
 ### displayMonth

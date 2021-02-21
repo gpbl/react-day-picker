@@ -7,10 +7,11 @@ export default function App() {
   return (
     <>
       <DayPicker onDayClick={handleDayClick} selected={selectedDay} />
-      <p>
-        Please pick a day.
-        {selectedDay && <> You selected {selectedDay?.toLocaleDateString()}.</>}
-      </p>
+      {selectedDay ? (
+        <p>You selected {selectedDay.toLocaleDateString()}.</p>
+      ) : (
+        <p>Please pick a day.</p>
+      )}
     </>
   );
 }

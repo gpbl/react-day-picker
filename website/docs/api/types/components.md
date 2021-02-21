@@ -10,14 +10,15 @@ hide_title: true
 
 Ƭ **Components**: *object*
 
-Represent the components that can be customized.
+Represent a map of the component that can be changed via the `components`
+prop.
 
 #### Type declaration:
 
 Name | Type |
 :------ | :------ |
-`Caption`? | *typeof* [*Caption*](../functions/caption.md) |
 `Day`? | *typeof* [*Day*](../functions/day.md) |
-`IconNext`? | *typeof* *IconNext* |
-`IconPrev`? | *typeof* *IconPrev* |
-`Row`? | *typeof* *Row* |
+`Dropdown`? | *typeof* [*Dropdown*](../functions/dropdown.md) |
+`Head`? | *typeof* [*Head*](../functions/head.md) |
+`Row`? | *typeof* [*Row*](../functions/row.md) |
+`WeekNumber`? | *typeof* [*WeekNumber*](../functions/weeknumber.md) |

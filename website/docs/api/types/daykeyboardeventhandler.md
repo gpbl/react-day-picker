@@ -10,6 +10,8 @@ hide_title: true
 
 Ƭ **DayKeyboardEventHandler**: (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.KeyboardEvent) => *void*
 
+Represent the event handler when a day gets a keyboard event.
+
 #### Type declaration:
 
 ▸ (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `e`: React.KeyboardEvent): *void*

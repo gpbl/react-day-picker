@@ -11,10 +11,11 @@ export default function App() {
         defaultSelected={defaultSelected}
         onSelect={setSelectedDay}
       />
-      <p>
-        Please pick a day.
-        {selectedDay && <>You selected {selectedDay.toLocaleDateString()}.</>}
-      </p>
+      {selectedDay ? (
+        <p>You selected {selectedDay.toLocaleDateString()}.</p>
+      ) : (
+        <p>Please pick a day.</p>
+      )}
     </>
   );
 }

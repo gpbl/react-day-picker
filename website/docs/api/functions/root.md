@@ -10,6 +10,9 @@ hide_title: true
 
 ▸ **Root**(`props`: [*RootProps*](../interfaces/rootprops.md)): JSX.Element
 
+Render the container with the months and their captions. The number of months
+rendered depends by the `numberOfMonths` prop.
+
 #### Parameters:
 
 Name | Type |
