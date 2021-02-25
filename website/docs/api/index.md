@@ -19,7 +19,7 @@ hide_title: true
 ### Interfaces
 
 - [CaptionProps](interfaces/captionprops.md)
-- [DayPickerContextValue](interfaces/daypickercontextvalue.md)
+- [DayPickerContext](interfaces/daypickercontext.md)
 - [DayPickerProps](interfaces/daypickerprops.md)
 - [DayProps](interfaces/dayprops.md)
 - [DropdownProps](interfaces/dropdownprops.md)
@@ -46,7 +46,6 @@ hide_title: true
 - [DayKeyboardEventHandler](types/daykeyboardeventhandler.md)
 - [DayLabelFormatter](types/daylabelformatter.md)
 - [DayMouseEventHandler](types/daymouseeventhandler.md)
-- [DayPickerContext](types/daypickercontext.md)
 - [DayTouchEventHandler](types/daytoucheventhandler.md)
 - [Formatters](types/formatters.md)
 - [Labels](types/labels.md)
@@ -66,7 +65,6 @@ hide_title: true
 - [SelectionContextValue](types/selectioncontextvalue.md)
 - [Styles](types/styles.md)
 - [UseInput](types/useinput.md)
-- [UseInputOptions](types/useinputoptions.md)
 - [WeekNumberClickEventHandler](types/weeknumberclickeventhandler.md)
 - [WeekNumberFormatter](types/weeknumberformatter.md)
 - [WeekNumberLabelFormatter](types/weeknumberlabelformatter.md)
@@ -74,7 +72,7 @@ hide_title: true
 
 ### Variables
 
-- [DayPickerReactContext](variables/daypickerreactcontext.md)
+- [DayPickerContext](variables/daypickercontext.md)
 - [NavigationContext](variables/navigationcontext.md)
 - [SelectionContext](variables/selectioncontext.md)
 
@@ -97,7 +95,7 @@ hide_title: true
 - [Table](functions/table.md)
 - [WeekNumber](functions/weeknumber.md)
 - [YearsDropdown](functions/yearsdropdown.md)
-- [useDayPickerContext](functions/usedaypickercontext.md)
+- [useDayPicker](functions/usedaypicker.md)
 - [useInput](functions/useinput.md)
 - [useModifiers](functions/usemodifiers.md)
 - [useNavigation](functions/usenavigation.md)

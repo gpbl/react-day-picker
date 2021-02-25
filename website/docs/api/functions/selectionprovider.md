@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ `Const`**SelectionProvider**(`props`: SelectionProviderProps): *Element*
 
-Provides the setters and values for the three controlled selection modes.
+Provides the setters and values for the controlled selection modes.
 
 #### Parameters:
 

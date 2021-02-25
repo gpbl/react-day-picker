@@ -8,7 +8,9 @@ hide_title: true
 
 # Function: useModifiers
 
-▸ **useModifiers**(`date`: Date): *object*
+▸ **useModifiers**(`date`: Date): [*ModifierStatus*](../types/modifierstatus.md)
+
+Return the status for the modifiers given the specified date
 
 #### Parameters:
 
@@ -16,9 +18,4 @@ Name | Type |
 :------ | :------ |
 `date` | Date |
 
-**Returns:** *object*
-
-Name | Type |
-:------ | :------ |
-`modifiers` | [*ModifierMatchers*](../types/modifiermatchers.md) |
-`status` | [*ModifierStatus*](../types/modifierstatus.md) |
+**Returns:** [*ModifierStatus*](../types/modifierstatus.md)

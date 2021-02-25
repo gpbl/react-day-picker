@@ -10,4 +10,6 @@ hide_title: true
 
 ▸ **useSelection**(): [*SelectionContextValue*](../types/selectioncontextvalue.md)
 
+Return the context for the controlled mode selection.
+
 **Returns:** [*SelectionContextValue*](../types/selectioncontextvalue.md)

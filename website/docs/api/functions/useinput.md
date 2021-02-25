@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: useInput
 
-▸ **useInput**(`initialDay`: Date, `formatStr`: *string*, `options?`: [*UseInputOptions*](../types/useinputoptions.md)): [*UseInput*](../types/useinput.md)
+▸ **useInput**(`initialDay`: Date, `formatStr`: *string*, `options?`: { `locale?`: Locale ; `required`: *boolean*  }): [*UseInput*](../types/useinput.md)
 
 Return the props for binding an input field with DayPicker.
 
@@ -35,6 +35,8 @@ Name | Type |
 :------ | :------ |
 `initialDay` | Date |
 `formatStr` | *string* |
-`options?` | [*UseInputOptions*](../types/useinputoptions.md) |
+`options?` | *object* |
+`options.locale?` | Locale |
+`options.required` | *boolean* |
 
 **Returns:** [*UseInput*](../types/useinput.md)

@@ -548,7 +548,7 @@ ___
 
 • `Optional` **onSelect**: *undefined* \| [*SelectEventHandler*](selecteventhandler.md)
 
-Event fired when a day is selected.
+Event fired when a day is selected (use with `mode="single"`).
 
 **Note:** This event is disabled when `mode='uncontrolled'`.
 
@@ -558,7 +558,7 @@ ___
 
 • `Optional` **onSelectMultiple**: *undefined* \| [*SelectMultipleEventHandler*](../types/selectmultipleeventhandler.md)
 
-Event fired when multiple days are selected.
+Event fired when multiple days are selected (use with `mode="multiple"`).
 
 **Note:** This event is disabled when `mode='uncontrolled'`.
 
@@ -568,7 +568,7 @@ ___
 
 • `Optional` **onSelectRange**: *undefined* \| [*SelectRangeEventHandler*](../types/selectrangeeventhandler.md)
 
-Event fired when a range of days is selected.
+Event fired when a range of days is selected (use with `mode="range"`).
 
 **Note:** This event is disabled when `mode='uncontrolled'`.
 

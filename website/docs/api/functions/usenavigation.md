@@ -10,4 +10,6 @@ hide_title: true
 
 ▸ **useNavigation**(): [*NavigationContextValue*](../types/navigationcontextvalue.md)
 
+Return the [NavigationContext](../variables/navigationcontext.md) for handing the navigation.
+
 **Returns:** [*NavigationContextValue*](../types/navigationcontextvalue.md)
