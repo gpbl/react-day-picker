@@ -13,7 +13,7 @@ module.exports = [
     "label": "Interfaces",
     "items": [
       "api/interfaces/captionprops",
-      "api/interfaces/daypickercontextvalue",
+      "api/interfaces/daypickercontext",
       "api/interfaces/daypickerprops",
       "api/interfaces/dayprops",
       "api/interfaces/dropdownprops",
@@ -43,7 +43,6 @@ module.exports = [
       "api/types/daykeyboardeventhandler",
       "api/types/daylabelformatter",
       "api/types/daymouseeventhandler",
-      "api/types/daypickercontext",
       "api/types/daytoucheventhandler",
       "api/types/formatters",
       "api/types/labels",
@@ -63,7 +62,6 @@ module.exports = [
       "api/types/selectioncontextvalue",
       "api/types/styles",
       "api/types/useinput",
-      "api/types/useinputoptions",
       "api/types/weeknumberclickeventhandler",
       "api/types/weeknumberformatter",
       "api/types/weeknumberlabelformatter",
@@ -74,7 +72,7 @@ module.exports = [
     "type": "category",
     "label": "Variables",
     "items": [
-      "api/variables/daypickerreactcontext",
+      "api/variables/daypickercontext",
       "api/variables/navigationcontext",
       "api/variables/selectioncontext"
     ]
@@ -100,7 +98,7 @@ module.exports = [
       "api/functions/table",
       "api/functions/weeknumber",
       "api/functions/yearsdropdown",
-      "api/functions/usedaypickercontext",
+      "api/functions/usedaypicker",
       "api/functions/useinput",
       "api/functions/usemodifiers",
       "api/functions/usenavigation",

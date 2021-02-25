@@ -10,6 +10,8 @@ hide_title: true
 
 ▸ `Const`**NavigationProvider**(`__namedParameters`: { `children?`: ReactNode  }): *Element*
 
+Provides the values for the [NavigationContext](../variables/navigationcontext.md).
+
 #### Parameters:
 
 Name | Type |

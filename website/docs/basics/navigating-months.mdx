@@ -12,15 +12,14 @@ initial month, set the `defaultMonth` prop:
 examples/navigation-initialmonth.tsx
 ```
 
-### Controlling the current month
+## Controlling the current month
 
-The current month is stored into the DayPicker’s internal state.
+DayPicker controls the displayed month and store it in its internal state. To
+control the current month – for example, for creatinge a "Go to today" button –
+set the month yourself in the parent component’s state.
 
-To control the current month – for example, to create a "Go to today"
-button – set it in the parent’s state.
-
-Use `month` (as opposed to `defaultMonth`) and `onMonthChange` to handle the
-current month.
+To control the current month, use `month` (as opposed to `defaultMonth`) and
+`onMonthChange` to handle the current month.
 
 ```include
 examples/navigation-uncontrolled.tsx
@@ -28,7 +27,7 @@ examples/navigation-uncontrolled.tsx
 
 ## Limiting the navigable months
 
-As default, DayPicker will display indefinitely in the past or in the future.
+As default, DayPicker can navigate indefinitely in the past or in the future.
 
 To limit the navigable months between certain dates, use `fromDate` and `toDate`, `fromMonth`
 and `toMonth`, or `fromYear` and `toYear`.
@@ -37,10 +36,11 @@ and `toMonth`, or `fromYear` and `toYear`.
 examples/navigation-from-to.tsx
 ```
 
-### Using a dropdown to navigate between months
+## Using a drop-down to change the month
 
 When limiting the navigable months, use `captionLayout` to display a drop-down
-for navigating between months – instead of the previous / next buttons.
+(a select HTML element) for navigating between months – instead of the previous
+/ next buttons.
 
 ```include
 examples/navigation-dropdown.tsx

@@ -12,8 +12,8 @@ hide_title: true
 
 #### Type declaration:
 
-Name | Type |
-:------ | :------ |
-`displayMonths` | Date[] |
-`month` | Date |
-`setMonth` | (`month`: Date) => *void* |
+Name | Type | Description |
+:------ | :------ | :------ |
+`displayMonths` | Date[] | The months to display, according to `numberOfMonths`.   |
+`month` | Date | The current month. Note that when `numberOfMonths > 1` represent the first month in the displayed months.   |
+`setMonth` | (`month`: Date) => *void* | Navigate to the specified month.   |

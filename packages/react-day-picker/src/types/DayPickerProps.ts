@@ -129,20 +129,37 @@ export interface DayPickerProps {
   modifierStyles?: ModifierStyles;
   /**
    * The initial month to show in the calendar. Default is the current month.
+   *
+   * As opposed to [[month]], use this prop to let DayPicker control the current
+   * month.
    */
   defaultMonth?: Date;
   /**
-   * Change the number of months displayed by the component. Defaults to `1`.
+   * The month to display in the calendar.
    *
-   * See also [[pagedNavigation]].
+   * As opposed to [[defaultMonth]], use this prop with [[onMonthChange]] to
+   * change the month programmatically.
    *
    * **Example**
    *
+   * Implement a button to go to today.
+   *
    * ```
    * function Example() {
-   *  return <DayPicker numberOfMonths={2} />
-   * };
+   *   const [month, setMonth] = useState();
+   *   return (
+   *     <>
+   *       <DayPicker month={month} onMonthChange={setMonth} />
+   *       <button onClick={() => setMonth(new Date())}>Go to Today</button>
+   *     </>
+   *   );
+   * }
    * ```
+   */
+  month?: Date;
+  /**
+   * Change the number of months displayed by the component. Defaults to `1`.
+   * See also [[pagedNavigation]].
    */
   numberOfMonths?: number;
   /**
@@ -179,7 +196,8 @@ export interface DayPickerProps {
    * - `buttons` (default): display prev/right buttons
    * - `dropdown`: display drop-downs to change the month and the year
    *
-   * **Note** `dropdown` is valid only when `fromDate` or `toDate` are set.
+   * **Note** `dropdown` is valid only when `fromDate/fromMonth/fromYear` and
+   * `toDate/toMonth/toYear` are set.
    *
    * **Example**
    *
@@ -194,55 +212,15 @@ export interface DayPickerProps {
 
   /**
    * Paginate the month navigation displaying the [[numberOfMonths]] at time.
-   *
-   * **Example**
-   *
-   * ```
-   * function Example() {
-   *  return <DayPicker numberOfMonths={3} pagedNavigation />
-   * };
-   * ```
    */
   pagedNavigation?: boolean;
   /**
    * Render the months in reversed order (when [[numberOfMonths]] is greater
    * than `1`) to display the most recent month first.
-   *
-   * **Example**
-   *
-   * ```
-   * function Example() {
-   *  return <DayPicker numberOfMonths={5} reverseMonths />
-   * };
-   * ```
    */
   reverseMonths?: boolean;
   /**
-   * The month to display in the calendar.
-   *
-   * As opposed to [[defaultMonth]], use this prop with [[onMonthChange]] to
-   * change the month programmatically.
-   *
-   * **Example**
-   *
-   * Implement a button to go to today.
-   *
-   * ```
-   * function Example() {
-   *   const [month, setMonth] = useState();
-   *   return (
-   *     <>
-   *       <DayPicker month={month} onMonthChange={setMonth} />
-   *       <button onClick={() => setMonth(new Date())}>Go to Today</button>
-   *     </>
-   *   );
-   * }
-   * ```
-   */
-  month?: Date;
-  /**
    * Display six weeks per months, regardless the month’s number of weeks.
-   *
    * To use this prop, [[showOutsideDays]] must be set. Default to `false`.
    *
    * **Example**
@@ -256,47 +234,15 @@ export interface DayPickerProps {
   fixedWeeks?: boolean;
   /**
    * Hide the month’s head displaying the weekday names.
-   *
-   * **Example**
-   *
-   * ```
-   * function Example() {
-   *  return <DayPicker hideHead />
-   * };
-   * ```
    */
   hideHead?: boolean;
   /**
    * Show the outside days.  An outside day is a day falling in the next or the
    * previous month. Default is `false`.
-   *
-   * Outside days are not interactive as default. Use [[enableOutsideDaysClick]]
-   * to make them clickable.
-   *
-   * **Example**
-   *
-   * ```
-   * function Example() {
-   *  return <DayPicker showOutsideDays />
-   * };
-   * ```
    */
   showOutsideDays?: boolean;
   /**
-   * Enable the day click event for outside days when [[showOutsideDays]] is set.
-   * Default to `false`.
-   */
-  enableOutsideDaysClick?: boolean;
-  /**
    * Show the week numbers column. Default to `false`.
-   *
-   * **Example**
-   *
-   * ```
-   * function Example() {
-   *  return <DayPicker showWeekNumber />
-   * };
-   * ```
    */
   showWeekNumber?: boolean;
   /**
@@ -420,11 +366,6 @@ export interface DayPickerProps {
   modifiers?: ModifierMatchers;
 
   /**
-   * A map of labels creators used for the ARIA labels attributes.
-   */
-  labels?: Partial<Labels>;
-
-  /**
    * The date-fns locale object to localize the user interface. Defaults to English.
    *
    * See also date-fns [Internationalization guide](https://date-fns.org/v2.17.0/docs/I18n).
@@ -442,6 +383,12 @@ export interface DayPickerProps {
    * ```
    */
   locale?: Locale;
+
+  /**
+   * A map of labels creators used for the ARIA labels attributes.
+   */
+  labels?: Partial<Labels>;
+
   /**
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
@@ -462,34 +409,35 @@ export interface DayPickerProps {
   dir?: string;
 
   /**
-   * Change the default formatters.
+   * A map of formatters to change the default formatting functions.
    */
   formatters?: Partial<Formatters>;
 
   /**
-   * Customize the internal components.
+   * A map of components used to create the layout.
    */
   components?: Partial<Components>;
 
-  /* Event handlers */
+  // #region event handlers
+
   /**
    * Event fired when the user navigates between months.
    */
   onMonthChange?: MonthChangeEventHandler;
   /**
-   * Event fired when a day is selected.
+   * Event fired when a day is selected (use with `mode="single"`).
    *
    * **Note:** This event is disabled when `mode='uncontrolled'`.
    */
   onSelect?: SelectEventHandler;
   /**
-   * Event fired when multiple days are selected.
+   * Event fired when multiple days are selected (use with `mode="multiple"`).
    *
    * **Note:** This event is disabled when `mode='uncontrolled'`.
    */
   onSelectMultiple?: SelectMultipleEventHandler;
   /**
-   * Event fired when a range of days is selected.
+   * Event fired when a range of days is selected (use with `mode="range"`).
    *
    * **Note:** This event is disabled when `mode='uncontrolled'`.
    */
@@ -524,4 +472,5 @@ export interface DayPickerProps {
   onNextClick?: MonthChangeEventHandler;
   onPrevClick?: MonthChangeEventHandler;
   onWeekNumberClick?: WeekNumberClickEventHandler;
+  // #endregion
 }

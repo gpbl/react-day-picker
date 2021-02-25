@@ -26,6 +26,7 @@ export const FocusContext = React.createContext<FocusContextValue | undefined>(
   undefined
 );
 
+/** Enable the FocusContext to handle the focus when navigating via keyboard. */
 export const FocusProvider = ({
   children
 }: {
