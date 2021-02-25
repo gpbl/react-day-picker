@@ -19,7 +19,9 @@ export interface RootProps {
 export function Root(props: RootProps): JSX.Element {
   const { className, style } = props;
   const { dir, classNames, styles, numberOfMonths } = useDayPicker();
+
   const { displayMonths } = useNavigation();
+
   const rootClassNames = [classNames[UI.Root]];
   if (numberOfMonths > 1) {
     rootClassNames.push(classNames[UI.RootMultipleMonths]);
@@ -28,8 +30,7 @@ export function Root(props: RootProps): JSX.Element {
 
   const renderMonth = (displayMonth: Date, displayIndex: number) => {
     const className = [classNames[UI.Month]];
-    // When numberOfMonths > 1, keep track of the position of this month between
-    // the other – so that we can style them better and give a different layout.
+    const style = { ...styles[UI.Month] };
     let isFirst = numberOfMonths > 1 && displayIndex === 0;
     let isLast =
       numberOfMonths > 1 && displayIndex === displayMonths.length - 1;
@@ -38,12 +39,15 @@ export function Root(props: RootProps): JSX.Element {
 
     const isBetween = numberOfMonths > 1 && !isFirst && !isLast;
 
-    if (isFirst) className.push(classNames[UI.CaptionFirst]);
+    if (isFirst) {
+      className.push(classNames[UI.CaptionFirst]);
+      Object.assign(style, styles[UI.CaptionFirst]);
+    }
     if (isLast) className.push(classNames[UI.CaptionLast]);
     if (isBetween) className.push(classNames[UI.CaptionBetween]);
 
     return (
-      <div className={className.join(' ')} key={displayIndex}>
+      <div key={displayIndex} className={className.join(' ')} style={style}>
         <Caption
           displayMonth={displayMonth}
           displayIndex={displayIndex}
@@ -59,10 +63,10 @@ export function Root(props: RootProps): JSX.Element {
   return (
     <div
       className={rootClassNames.join(' ')}
-      style={{ ...styles?.[UI.Root], ...style }}
+      style={{ ...styles[UI.Root], ...style }}
       dir={dir}
     >
-      <div className={classNames[UI.Months]} style={styles?.[UI.Months]}>
+      <div className={classNames[UI.Months]} style={styles[UI.Months]}>
         {displayMonths.map(renderMonth)}
       </div>
     </div>

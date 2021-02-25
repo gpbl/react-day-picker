@@ -1,10 +1,10 @@
-import { ModifiersStatus } from './ModifiersStatus';
+import { ModifierStatus } from './ModifierStatus';
 
 /**
  * Represent the event handler when a day is clicked.
  */
 export type DayClickEventHandler = (
   day: Date,
-  modifiers: ModifiersStatus,
+  modifiers: ModifierStatus,
   e: React.MouseEvent
 ) => void;

@@ -85,7 +85,7 @@ ___
 
 ### components
 
-• `Optional` **components**: *undefined* \| [*Components*](../types/components.md)
+• `Optional` **components**: *undefined* \| *Partial*<[*Components*](../types/components.md)\>
 
 Customize the internal components.
 
@@ -190,7 +190,7 @@ ___
 
 ### formatters
 
-• `Optional` **formatters**: *undefined* \| [*Formatters*](../types/formatters.md)
+• `Optional` **formatters**: *undefined* \| *Partial*<[*Formatters*](../types/formatters.md)\>
 
 Change the default formatters.
 
@@ -263,7 +263,7 @@ ___
 
 ### labels
 
-• `Optional` **labels**: *undefined* \| [*Labels*](../types/labels.md)
+• `Optional` **labels**: *undefined* \| *Partial*<[*Labels*](../types/labels.md)\>
 
 A map of labels creators used for the ARIA labels attributes.
 
@@ -318,6 +318,25 @@ function Example() {
 
 ___
 
+### modifierClassNames
+
+• `Optional` **modifierClassNames**: *undefined* \| [*ModifierClassNames*](../types/modifierclassnames.md)
+
+Change the class name for the day matching the [modifiers](daypickerprops.md#modifiers).
+
+**Example**
+
+Add the `.with-circle` class of the days matching the `isToday` modifier.
+
+```
+<DayPicker
+ modifiers={{ isToday: new Date() }}
+ modifierClassNames={{ isToday: 'with-circle' }}
+/>
+```
+
+___
+
 ### modifierPrefix
 
 • `Optional` **modifierPrefix**: *undefined* \| *string*
@@ -341,9 +360,28 @@ const today = new Date();
 
 ___
 
+### modifierStyles
+
+• `Optional` **modifierStyles**: *undefined* \| [*ModifierStyles*](../types/modifierstyles.md)
+
+Change the inline style for the day matching the [modifiers](daypickerprops.md#modifiers).
+
+**Example**
+
+Change the background color of the days matching the `isToday` modifier.
+
+```
+<DayPicker
+ modifiers={{ isToday: new Date() }}
+ modifierStyles={{ isToday: { backgroundColor: 'purple' } }}
+/>
+```
+
+___
+
 ### modifiers
 
-• `Optional` **modifiers**: *undefined* \| [*ModifiersMatchers*](../types/modifiersmatchers.md)
+• `Optional` **modifiers**: *undefined* \| [*ModifierMatchers*](../types/modifiermatchers.md)
 
 Add a custom modifier to the matching days.
 
@@ -355,44 +393,6 @@ Add a `booked` modifier to the current day.
 function Example() {
    return <DayPicker modifiers={{ booked: new Date() }} />
 }
-```
-
-___
-
-### modifiersClassNames
-
-• `Optional` **modifiersClassNames**: *undefined* \| [*ModifiersClassNames*](../types/modifiersclassnames.md)
-
-Change the class name for the day matching the [modifiers](daypickerprops.md#modifiers).
-
-**Example**
-
-Add the `.with-circle` class of the days matching the `isToday` modifier.
-
-```
-<DayPicker
- modifiers={{ isToday: new Date() }}
- modifiersClassNames={{ isToday: 'with-circle' }}
-/>
-```
-
-___
-
-### modifiersStyles
-
-• `Optional` **modifiersStyles**: *undefined* \| [*ModifiersStyles*](../types/modifiersstyles.md)
-
-Change the inline style for the day matching the [modifiers](daypickerprops.md#modifiers).
-
-**Example**
-
-Change the background color of the days matching the `isToday` modifier.
-
-```
-<DayPicker
- modifiers={{ isToday: new Date() }}
- modifiersStyles={{ isToday: { backgroundColor: 'purple' } }}
-/>
 ```
 
 ___

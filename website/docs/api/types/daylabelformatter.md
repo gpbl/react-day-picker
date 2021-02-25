@@ -8,20 +8,20 @@ hide_title: true
 
 # Type alias: DayLabelFormatter
 
-Ƭ **DayLabelFormatter**: (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `options?`: { `locale?`: Locale  }) => *string*
+Ƭ **DayLabelFormatter**: (`day`: Date, `modifiers`: [*ModifierStatus*](modifierstatus.md), `options?`: { `locale?`: Locale  }) => *string*
 
 Represent a function to format the ARIA label for the [Day](../functions/day.md) component.
 
 #### Type declaration:
 
-▸ (`day`: Date, `modifiers`: [*ModifiersStatus*](modifiersstatus.md), `options?`: { `locale?`: Locale  }): *string*
+▸ (`day`: Date, `modifiers`: [*ModifierStatus*](modifierstatus.md), `options?`: { `locale?`: Locale  }): *string*
 
 #### Parameters:
 
 Name | Type |
 :------ | :------ |
 `day` | Date |
-`modifiers` | [*ModifiersStatus*](modifiersstatus.md) |
+`modifiers` | [*ModifierStatus*](modifierstatus.md) |
 `options?` | *object* |
 `options.locale?` | Locale |
 

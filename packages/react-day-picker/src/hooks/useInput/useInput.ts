@@ -11,14 +11,7 @@ export type UseInput = {
   inputProps: Partial<JSX.IntrinsicElements['input']>;
 };
 
-export type UseInputOptions = {
-  locale?: Locale;
-  required: boolean;
-};
-
-/**
- * @private
- */
+/** @private */
 function isValidDate(day: Date): boolean {
   return !isNaN(day.getTime());
 }
@@ -47,7 +40,10 @@ function isValidDate(day: Date): boolean {
 export function useInput(
   initialDay: Date,
   formatStr: string,
-  options?: UseInputOptions
+  options?: {
+    locale?: Locale;
+    required: boolean;
+  }
 ): UseInput {
   // Defaults from options
   const locale = options?.locale;

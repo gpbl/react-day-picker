@@ -8,8 +8,6 @@ hide_title: true
 
 # Function: useNavigation
 
-▸ **useNavigation**(): [*NavigationContextValue*](../interfaces/navigationcontextvalue.md)
+▸ **useNavigation**(): [*NavigationContextValue*](../types/navigationcontextvalue.md)
 
-Returns the Navigation context used for navigating between months and days.
-
-**Returns:** [*NavigationContextValue*](../interfaces/navigationcontextvalue.md)
+**Returns:** [*NavigationContextValue*](../types/navigationcontextvalue.md)

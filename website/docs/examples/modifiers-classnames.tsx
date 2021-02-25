@@ -20,7 +20,7 @@ export default function App() {
         modifiers={{
           booked: bookedDays
         }}
-        modifiersClassNames={{
+        modifierClassNames={{
           booked: 'my-booked-class'
         }}
         onDayClick={handleDayClick}

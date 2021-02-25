@@ -3,58 +3,52 @@ import * as React from 'react';
 import { setYear, startOfYear } from 'date-fns';
 
 import { useDayPicker } from '../../hooks';
-import { UIElement } from '../../types';
+import { MonthChangeEventHandler, UIElement } from '../../types';
 
 /**
  * The props for the [[YearsDropdown]] component.
  */
 export interface YearsDropdownProps {
+  onChange: MonthChangeEventHandler;
   displayMonth: Date;
 }
 
 /**
- * Render a dropdown to change the year. Take in account the `fromDate` and
+ * Render a dropdown to change the year. Take in account the `nav.fromDate` and
  * `toDate` from context.
  */
 export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   const { displayMonth } = props;
-
   const {
-    locale,
-    onMonthChange,
     fromDate,
     toDate,
-    classNames,
+    locale,
     styles,
+    classNames,
     components: { Dropdown },
     formatters: { formatYearCaption }
   } = useDayPicker();
 
   const years: Date[] = [];
-
   if (fromDate && toDate) {
-    for (
-      let year = fromDate.getFullYear();
-      year <= toDate.getFullYear();
-      year++
-    ) {
-      const anyDate = new Date(); // any date is OK, we just need the year
-      years.push(setYear(startOfYear(anyDate), year));
+    const fromYear = fromDate.getFullYear();
+    const toYear = toDate.getFullYear();
+    for (let year = fromYear; year <= toYear; year++) {
+      years.push(setYear(startOfYear(new Date()), year));
     }
   }
 
   const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-    const newMonth = new Date(displayMonth);
-    newMonth.setFullYear(Number(e.target.value));
-    onMonthChange?.(newMonth, e);
+    const newMonth = setYear(new Date(displayMonth), Number(e.target.value));
+    props.onChange(newMonth);
   };
 
   return (
     <Dropdown
       className={classNames[UIElement.DropdownMonth]}
-      style={styles?.[UIElement.DropdownMonth]}
+      style={styles[UIElement.DropdownMonth]}
       onChange={handleChange}
-      value={displayMonth.getMonth()}
+      value={displayMonth.getFullYear()}
       caption={formatYearCaption(displayMonth, { locale })}
     >
       {years.map((year) => (

@@ -1,5 +1,5 @@
 import { DateRange } from './DateRange';
-import { ModifiersStatus } from './ModifiersStatus';
+import { ModifierStatus } from './ModifierStatus';
 
 export type SelectRangeEventHandler = (
   /** The current range of the selected days. */
@@ -7,6 +7,6 @@ export type SelectRangeEventHandler = (
   /** The day that was selected (or clicked) triggering the event. */
   selectedDay: Date,
   /** The modifiers of the selected day. */
-  modifiers: ModifiersStatus,
+  modifiers: ModifierStatus,
   e: React.MouseEvent
 ) => void;

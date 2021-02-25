@@ -7,8 +7,8 @@ import {
   DayKeyboardEventHandler,
   Formatters,
   Labels,
-  ModifiersClassNames,
-  ModifiersMatchers,
+  ModifierClassNames,
+  ModifierMatchers,
   MonthChangeEventHandler
 } from './';
 import { DayPickerProps } from './DayPickerProps';
@@ -36,8 +36,8 @@ export interface DayPickerContextValue
   labels: Required<Labels>;
   locale: Locale;
   modifierPrefix: string;
-  modifiers: ModifiersMatchers;
-  modifiersClassNames?: ModifiersClassNames;
+  modifiers: ModifierMatchers;
+  modifierClassNames?: ModifierClassNames;
   numberOfMonths: number;
   /**
    * Will set the current month if DayPicker is in controlled mode. Calls the

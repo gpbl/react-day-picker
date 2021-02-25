@@ -15,6 +15,7 @@
 
 .rdp {
   font-family: var(--rdp-font-family);
+  font-size: 110%;
 }
 .rdp,
 .rdp * {
@@ -125,10 +126,12 @@ button.rdp-weeknumber:hover:not([disabled]) {
 }
 .rdp .rdp-month_first .rdp-nav {
   position: absolute;
+  top: 0;
   left: 0;
 }
 .rdp .rdp-month_last .rdp-nav {
   position: absolute;
+  top: 0;
   right: 0;
 }
 
@@ -282,26 +285,26 @@ button.rdp-weeknumber:hover:not([disabled]) {
   background-color: var(--rdp-accent-color-light);
 }
 
-.rdp .rdp-day.rdp-day_from {
+.rdp .rdp-day.rdp-day_range-start {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   background-color: var(--rdp-accent-color-light);
 }
-.rdp .rdp-day.rdp-day_to {
+.rdp .rdp-day.rdp-day_range-end {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   background-color: var(--rdp-accent-color-light);
 }
 
-.rdp .rdp-day.rdp-day_to.rdp-day_from {
+.rdp .rdp-day.rdp-day_range-end.rdp-day_range-start {
   border-radius: 100%;
 }
-.rdp .rdp-day.rdp-day_between {
+.rdp .rdp-day.rdp-day_range-middle {
   color: inherit;
   border-radius: 0;
   background-color: var(--rdp-accent-color-lighter);
 }
-.rdp button.rdp-day.rdp-day_between:hover {
+.rdp button.rdp-day.rdp-day_range-middle:hover {
   color: white;
 }
 

@@ -21,6 +21,7 @@
   },
   "workspaces": [
     "website",
+    "playground",
     "packages/*"
   ]
 }

@@ -24,13 +24,12 @@ export enum UIElement {
   CaptionLast = 'captionLast',
   /** The caption element is between */
   CaptionBetween = 'captionBetween',
-
+  /** The container of the caption’s label (e.g. "September 2021"). */
+  CaptionLabel = 'captionLabel',
   /** The container of the drop-downs. */
   CaptionDropdowns = 'dropdownsContainer',
   /** The drop-down select element. */
   Dropdown = 'dropdown',
-  /** The container of the caption’s label (e.g. "September 2021"). */
-  CaptionLabel = 'dropdownLabel',
   /** The drop-down to change the month. */
   DropdownMonth = 'dropdownMonth',
   /** The drop-down to change the year. */
@@ -74,6 +73,10 @@ export enum UIElement {
   WeekNumber = 'weekNumber',
   /** The cell containing the day element. */
   Cell = 'cell',
-  /** The day element (a button when the day is interactive). */
-  Day = 'day'
+  /** The day element. */
+  Day = 'day',
+  /** The day element when outside the month */
+  Outside = 'outside',
+  /** The day element when is today */
+  Today = 'today'
 }

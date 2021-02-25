@@ -23,7 +23,7 @@ export function Dropdown(props: DropdownProps): JSX.Element {
     <div className={className} style={style}>
       <select
         className={classNames[UIElement.Dropdown]}
-        style={styles?.[UIElement.Dropdown]}
+        style={styles[UIElement.Dropdown]}
         value={value}
         onChange={onChange}
       >
@@ -31,14 +31,14 @@ export function Dropdown(props: DropdownProps): JSX.Element {
       </select>
       <div
         className={classNames[UIElement.CaptionLabel]}
-        style={styles?.[UIElement.CaptionLabel]}
+        style={styles[UIElement.CaptionLabel]}
         aria-hidden="true"
       >
         {caption}
         {
           <IconDropdown
             className={classNames[UIElement.DropdownIcon]}
-            style={styles?.[UIElement.DropdownIcon]}
+            style={styles[UIElement.DropdownIcon]}
           />
         }
       </div>

@@ -17,3 +17,9 @@ The props for the [MonthsDropdown](../functions/monthsdropdown.md) component.
 • **displayMonth**: Date
 
 The month where the dropdown is displayed.
+
+___
+
+### onChange
+
+• **onChange**: [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)

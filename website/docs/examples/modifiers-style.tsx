@@ -18,7 +18,7 @@ export default function App() {
       modifiers={{
         available: availableDays
       }}
-      modifiersStyles={{
+      modifierStyles={{
         available: availableStyle
       }}
       onDayClick={handleDayClick}
