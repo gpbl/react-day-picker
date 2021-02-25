@@ -4,15 +4,13 @@ import { DayClickEventHandler, ModifierStatus, SelectMode } from '../../types';
 import { DateRange } from '../../types/DateRange';
 import { addToRange } from './utils/addToRange';
 
-export type RangeSelectionHandler = (day: Date) => void;
-
 export type UseRangeSelect = {
   selected: DateRange | undefined;
   onDayClick: DayClickEventHandler;
   reset: () => void;
 };
 
-export type UseRangeCallback = (
+export type RangeSelectionHandler = (
   range: DateRange | undefined,
   day: Date,
   modifiers: ModifierStatus,
@@ -24,7 +22,7 @@ export function useRangeSelect(
   mode: SelectMode,
   defaultValue?: unknown,
   required = false,
-  callback?: UseRangeCallback
+  callback?: RangeSelectionHandler
 ): UseRangeSelect {
   const initialValue =
     mode === 'range' && defaultValue ? (defaultValue as DateRange) : undefined;
