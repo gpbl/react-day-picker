@@ -13,9 +13,9 @@ import {
   Formatters,
   Labels,
   Matcher,
-  ModifiersClassNames,
-  ModifiersMatchers,
-  ModifiersStyles,
+  ModifierClassNames,
+  ModifierMatchers,
+  ModifierStyles,
   MonthChangeEventHandler,
   SelectEventHandler,
   SelectMode,
@@ -80,11 +80,11 @@ export interface DayPickerProps {
    * ```
    * <DayPicker
    *  modifiers={{ isToday: new Date() }}
-   *  modifiersClassNames={{ isToday: 'with-circle' }}
+   *  modifierClassNames={{ isToday: 'with-circle' }}
    * />
    * ```
    */
-  modifiersClassNames?: ModifiersClassNames;
+  modifierClassNames?: ModifierClassNames;
   /**
    * The prefix to add to the modifiers class names. Default is `rdp-day_`.
    *
@@ -122,11 +122,11 @@ export interface DayPickerProps {
    * ```
    * <DayPicker
    *  modifiers={{ isToday: new Date() }}
-   *  modifiersStyles={{ isToday: { backgroundColor: 'purple' } }}
+   *  modifierStyles={{ isToday: { backgroundColor: 'purple' } }}
    * />
    * ```
    */
-  modifiersStyles?: ModifiersStyles;
+  modifierStyles?: ModifierStyles;
   /**
    * The initial month to show in the calendar. Default is the current month.
    */
@@ -417,12 +417,12 @@ export interface DayPickerProps {
    * }
    * ```
    */
-  modifiers?: ModifiersMatchers;
+  modifiers?: ModifierMatchers;
 
   /**
    * A map of labels creators used for the ARIA labels attributes.
    */
-  labels?: Labels;
+  labels?: Partial<Labels>;
 
   /**
    * The date-fns locale object to localize the user interface. Defaults to English.
@@ -464,12 +464,12 @@ export interface DayPickerProps {
   /**
    * Change the default formatters.
    */
-  formatters?: Formatters;
+  formatters?: Partial<Formatters>;
 
   /**
    * Customize the internal components.
    */
-  components?: Components;
+  components?: Partial<Components>;
 
   /* Event handlers */
   /**

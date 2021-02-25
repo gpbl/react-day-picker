@@ -18,15 +18,15 @@ export interface WeekNumberProps {
 export function WeekNumber(props: WeekNumberProps): JSX.Element {
   const { number: weekNumber, dates } = props;
   const {
+    onWeekNumberClick,
     styles,
     classNames,
     locale,
-    labels: { weekNumberLabel },
-    formatters: { formatWeekNumber },
-    onWeekNumberClick
+    labels: { labelWeekNumber },
+    formatters: { formatWeekNumber }
   } = useDayPicker();
-  const label = weekNumberLabel(Number(weekNumber), { locale });
 
+  const label = labelWeekNumber(Number(weekNumber), { locale });
   const handleClick: MouseEventHandler = function (e) {
     onWeekNumberClick?.(weekNumber, dates, e);
   };
@@ -37,7 +37,7 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
     <Component
       aria-label={label}
       className={classNames[UI.WeekNumber]}
-      style={styles?.[UI.WeekNumber]}
+      style={styles[UI.WeekNumber]}
       onClick={handleClick}
     >
       {formatWeekNumber(Number(weekNumber), { locale })}

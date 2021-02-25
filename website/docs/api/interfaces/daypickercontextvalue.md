@@ -227,27 +227,21 @@ function Example() {
 
 ___
 
+### modifierClassNames
+
+• `Optional` **modifierClassNames**: *undefined* \| [*ModifierClassNames*](../types/modifierclassnames.md)
+
+___
+
 ### modifierPrefix
 
 • **modifierPrefix**: *string*
 
 ___
 
-### modifiers
+### modifierStyles
 
-• **modifiers**: [*ModifiersMatchers*](../types/modifiersmatchers.md)
-
-___
-
-### modifiersClassNames
-
-• `Optional` **modifiersClassNames**: *undefined* \| [*ModifiersClassNames*](../types/modifiersclassnames.md)
-
-___
-
-### modifiersStyles
-
-• `Optional` **modifiersStyles**: *undefined* \| [*ModifiersStyles*](../types/modifiersstyles.md)
+• `Optional` **modifierStyles**: *undefined* \| [*ModifierStyles*](../types/modifierstyles.md)
 
 Change the inline style for the day matching the [modifiers](daypickercontextvalue.md#modifiers).
 
@@ -258,9 +252,15 @@ Change the background color of the days matching the `isToday` modifier.
 ```
 <DayPicker
  modifiers={{ isToday: new Date() }}
- modifiersStyles={{ isToday: { backgroundColor: 'purple' } }}
+ modifierStyles={{ isToday: { backgroundColor: 'purple' } }}
 />
 ```
+
+___
+
+### modifiers
+
+• **modifiers**: [*ModifierMatchers*](../types/modifiermatchers.md)
 
 ___
 

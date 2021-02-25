@@ -15,6 +15,7 @@ export default function App() {
       numberOfMonths={2}
       defaultMonth={new Date(2022, 4)}
       disabled={disabledDays}
+      pagedNavigation
     />
   );
 }

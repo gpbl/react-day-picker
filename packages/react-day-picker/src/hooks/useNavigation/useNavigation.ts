@@ -1,11 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 
-import { NavigationContext } from '../../components';
-import { NavigationContextValue } from '../../types';
+import { NavigationContext, NavigationContextValue } from './NavigationContext';
 
-/**
- * Returns the Navigation context used for navigating between months and days.
- */
+/** Return the [[NavigationContext]] for handing the navigation. */
 export function useNavigation(): NavigationContextValue {
-  return React.useContext(NavigationContext);
+  const context = React.useContext(NavigationContext);
+  if (!context) {
+    throw new Error('useNavigation must be used within a NavigationProvider');
+  }
+  return context;
 }

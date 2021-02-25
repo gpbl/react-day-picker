@@ -5,8 +5,8 @@
   "scripts": {
     "copy-docs": "./scripts/copy-docs.sh",
     "develop": "yarn run start --no-open",
-    "start": "yarn copy-docs && docusaurus start",
-    "build": "yarn copy-docs && docusaurus build",
+    "start": "yarn run copy-docs && docusaurus start",
+    "build": "yarn run copy-docs && docusaurus build",
     "serve": "docusaurus serve",
     "deploy": "docusaurus deploy"
   },
@@ -16,12 +16,12 @@
     "date-fns": "^2.17.0",
     "docusaurus-plugin-typedoc": "^0.9.0",
     "raw-loader": "^4.0.2",
-    "react": "^16.14.0",
+    "react": "^17.0.1",
     "react-day-picker": "workspace:packages/react-day-picker",
-    "react-dom": "^16.14.0",
+    "react-dom": "^17.0.1",
     "typedoc": "^0.20.25",
     "typedoc-plugin-markdown": "^3.5.0",
-    "typescript": "^4.1.5",
+    "typescript": "~4.1.0",
     "webpack": "^4"
   }
 }

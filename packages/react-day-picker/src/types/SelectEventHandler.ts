@@ -1,4 +1,4 @@
-import { ModifiersStatus } from './ModifiersStatus';
+import { ModifierStatus } from './ModifierStatus';
 
 /**
  * Represent the event handler when a day is selected (undefined when the day is unselected).
@@ -10,6 +10,6 @@ export interface SelectEventHandler {
     /** The day that was selected (or clicked) triggering the event. */
     selectedDay: Date,
     /** The modifiers of the selected day. */
-    modifiers: ModifiersStatus
+    modifiers: ModifierStatus
   ): void;
 }

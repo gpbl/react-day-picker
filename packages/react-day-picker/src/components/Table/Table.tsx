@@ -19,23 +19,22 @@ export interface TableProps {
 export function Table(props: TableProps): JSX.Element {
   const {
     locale,
-    fixedWeeks,
     classNames,
     styles,
     hideHead,
+    fixedWeeks,
     components: { Row }
   } = useDayPicker();
   const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
-
   return (
     <table
       className={classNames[UIElement.Table]}
-      style={styles?.[UIElement.Table]}
+      style={styles[UIElement.Table]}
     >
       {!hideHead && <Head />}
       <tbody
         className={classNames[UIElement.TBody]}
-        style={styles?.[UIElement.TBody]}
+        style={styles[UIElement.TBody]}
       >
         {Object.keys(weeks).map((weekNumber) => (
           <Row

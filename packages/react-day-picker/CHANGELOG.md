@@ -594,7 +594,7 @@ See [example](http://react-day-picker.js.org/examples/input.html),
 - Include Typescript Type Definitions
   ([#303](https://github.com/gpbl/react-day-picker/pull/303))
 - Added: a new
-  [`modifiersStyles`](http://react-day-picker.js.org/docs/api-daypicker.html#modifiersstyles)
+  [`modifierStyles`](http://react-day-picker.js.org/docs/api-daypicker.html#modifiersstyles)
   prop to add inline style to the days matching the given modifiers (see
   [`example`](http://react-day-picker.js.org/docs/api-daypicker.html#modifiersstyles)).
 - Added: `isDayBefore`, `isDayAfter` functions to

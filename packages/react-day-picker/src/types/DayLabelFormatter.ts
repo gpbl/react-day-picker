@@ -1,10 +1,10 @@
-import { ModifiersStatus } from '../types';
+import { ModifierStatus } from '../types';
 
 /**
  * Represent a function to format the ARIA label for the [[Day]] component.
  */
 export type DayLabelFormatter = (
   day: Date,
-  modifiers: ModifiersStatus,
+  modifiers: ModifierStatus,
   options?: { locale?: Locale }
 ) => string;

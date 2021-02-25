@@ -5,9 +5,9 @@ import { Day, Dropdown, Head, Row, WeekNumber } from '../components';
  * prop.
  */
 export type Components = {
-  Day?: typeof Day;
-  Dropdown?: typeof Dropdown;
-  Head?: typeof Head;
-  Row?: typeof Row;
-  WeekNumber?: typeof WeekNumber;
+  Day: typeof Day;
+  Dropdown: typeof Dropdown;
+  Head: typeof Head;
+  Row: typeof Row;
+  WeekNumber: typeof WeekNumber;
 };

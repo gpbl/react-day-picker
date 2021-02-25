@@ -1,14 +1,15 @@
 import * as React from 'react';
 
-import { isSameYear, setMonth, startOfMonth } from 'date-fns';
+import { isSameYear, setMonth as setDateMonth, startOfMonth } from 'date-fns';
 
 import { useDayPicker } from '../../hooks';
-import { UIElement } from '../../types';
+import { MonthChangeEventHandler, UIElement } from '../../types';
 
 /**
  * The props for the [[MonthsDropdown]] component.
  */
 export interface MonthsDropdownProps {
+  onChange: MonthChangeEventHandler;
   /** The month where the dropdown is displayed. */
   displayMonth: Date;
 }
@@ -18,17 +19,16 @@ export interface MonthsDropdownProps {
  */
 export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
   const { displayMonth } = props;
+
   const {
-    locale,
-    onMonthChange,
     fromDate,
     toDate,
-    classNames,
     styles,
-    components: { Dropdown },
-    formatters: { formatMonthCaption }
+    locale,
+    formatters: { formatMonthCaption },
+    classNames,
+    components: { Dropdown }
   } = useDayPicker();
-
   const dropdownMonths: Date[] = [];
 
   if (fromDate && toDate) {
@@ -39,27 +39,29 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
         month <= toDate.getMonth();
         month++
       ) {
-        dropdownMonths.push(setMonth(startOfMonth(fromDate), month));
+        dropdownMonths.push(setDateMonth(startOfMonth(fromDate), month));
       }
     } else {
       // display all the 12 months
       for (let month = 0; month <= 11; month++) {
         const anyDate = new Date(); // any date is OK, we just need the year
-        dropdownMonths.push(setMonth(startOfMonth(anyDate), month));
+        dropdownMonths.push(setDateMonth(startOfMonth(anyDate), month));
       }
     }
   }
 
   const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-    const newMonth = new Date(displayMonth);
-    newMonth.setMonth(Number(e.target.value));
-    onMonthChange?.(newMonth, e);
+    const newMonth = setDateMonth(
+      new Date(displayMonth),
+      Number(e.target.value)
+    );
+    props.onChange(newMonth);
   };
 
   return (
     <Dropdown
       className={classNames[UIElement.DropdownMonth]}
-      style={styles?.[UIElement.DropdownMonth]}
+      style={styles[UIElement.DropdownMonth]}
       onChange={handleChange}
       value={displayMonth.getMonth()}
       caption={formatMonthCaption(displayMonth, { locale })}

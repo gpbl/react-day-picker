@@ -8,9 +8,9 @@ import { WeekNumberLabelFormatter } from './WeekNumberLabelFormatter';
  * [[UIElements]].
  */
 export type Labels = {
-  nextLabel?: NavButtonLabelFormatter;
-  prevLabel?: NavButtonLabelFormatter;
-  dayLabel?: DayLabelFormatter;
-  weekdayLabel?: WeekdayLabelFormatter;
-  weekNumberLabel?: WeekNumberLabelFormatter;
+  labelNext: NavButtonLabelFormatter;
+  labelPrev: NavButtonLabelFormatter;
+  labelDay: DayLabelFormatter;
+  labelWeekday: WeekdayLabelFormatter;
+  labelWeekNumber: WeekNumberLabelFormatter;
 };

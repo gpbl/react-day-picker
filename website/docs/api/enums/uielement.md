@@ -55,7 +55,7 @@ ___
 
 ### CaptionLabel
 
-• **CaptionLabel**: = "dropdownLabel"
+• **CaptionLabel**: = "captionLabel"
 
 The container of the caption’s label (e.g. "September 2021").
 
@@ -81,7 +81,7 @@ ___
 
 • **Day**: = "day"
 
-The day element (a button when the day is interactive).
+The day element.
 
 ___
 
@@ -197,6 +197,14 @@ The icon contained in navigation button.
 
 ___
 
+### Outside
+
+• **Outside**: = "outside"
+
+The day element when outside the month
+
+___
+
 ### Root
 
 • **Root**: = "root"
@@ -242,6 +250,14 @@ ___
 • **Table**: = "table"
 
 The table displaying the calendar.
+
+___
+
+### Today
+
+• **Today**: = "today"
+
+The day element when is today
 
 ___
 

@@ -40,15 +40,6 @@ In the [Selecting Days tutorial](/basics/selecting-days). we have set different
 ways to control the selected days. Under the hood, DayPicker handles the
 interaction with the days and assigns a `selected` modifier to them.
 
-:::note
-
-For a basic use of a date picker, you usually won’t need to change the selection
-behavior. Use [onSelect](/api/interfaces/daypickerprops#onselect) and the
-[selection mode](/api/interfaces/daypickerprops#mode) prop to let DayPicker control the
-selection.
-
-:::
-
 Customize the selection behavior by letting the parent component’s handling the
 interaction with the days. To control the selected days, use the `selected` and
 `onDayClick` props and add the dates to the component’s state:
@@ -57,7 +48,8 @@ interaction with the days. To control the selected days, use the `selected` and
 examples/modifiers-selected.tsx
 ```
 
-By doing this, DayPicker will switch to uncontrolled mode and let you define with more granularity how the selections work.
+When using the `select` prop, DayPicker will switch to uncontrolled selection and let you
+define with more granularity how the selections work.
 
 For example, to select an array of days:
 
@@ -65,13 +57,22 @@ For example, to select an array of days:
 examples/modifiers-selected-multiple.tsx
 ```
 
+:::info About using uncontrolled selection
+
+For a basic use of a date picker, you usually won’t need to change the selection
+behavior. Use [onSelect](/api/interfaces/daypickerprops#onselect) and the
+[selection mode](/api/interfaces/daypickerprops#mode) prop to let DayPicker control the
+selection.
+
+:::
+
 ## Custom modifiers
 
 Add new modifiers according to your app’s requirements. For example, a booking
 app may use a `booked` modifier to mark days as already booked.
 
 Use the `modifiers` prop to pass an object with custom modifiers. Change the
-inline-style of the cell with `modifiersStyles`.
+inline-style of the cell with `modifierStyles`.
 
 ```include
 examples/modifiers-custom.tsx
@@ -88,7 +89,7 @@ styles.
   `.rdp-day_booked`, `.rdp-day_selected`, etc.
 - Change the `.rdp-day_` prefix via
   [modifierPrefix](/api/interfaces/daypickerprops#modifierPrefix) prop.
-- Or, use [`modifiersClassNames`](/api/interfaces/daypickerprops#modifiersclassnames) to change the whole class name.
+- Or, use [`modifierClassNames`](/api/interfaces/daypickerprops#modifiersclassnames) to change the whole class name.
 
 ```include
 examples/modifiers-classnames.tsx
@@ -97,7 +98,7 @@ examples/modifiers-classnames.tsx
 ### Styling via inline styles
 
 Another practical way is using inline styles. Use
-[`modifiersStyles`](/api/interfaces/daypickerprops#modifierstyles) to change the
+[`modifierStyles`](/api/interfaces/daypickerprops#modifierstyles) to change the
 style of a day matching the specified modifier.
 
 ```include

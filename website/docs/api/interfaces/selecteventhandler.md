@@ -12,7 +12,7 @@ Represent the event handler when a day is selected (undefined when the day is un
 
 ## Callable
 
-▸ **SelectEventHandler**(`day`: *undefined* \| Date, `selectedDay`: Date, `modifiers`: [*ModifiersStatus*](../types/modifiersstatus.md)): *void*
+▸ **SelectEventHandler**(`day`: *undefined* \| Date, `selectedDay`: Date, `modifiers`: [*ModifierStatus*](../types/modifierstatus.md)): *void*
 
 Represent the event handler when a day is selected (undefined when the day is unselected).
 
@@ -22,6 +22,6 @@ Name | Type |
 :------ | :------ |
 `day` | *undefined* \| Date |
 `selectedDay` | Date |
-`modifiers` | [*ModifiersStatus*](../types/modifiersstatus.md) |
+`modifiers` | [*ModifierStatus*](../types/modifierstatus.md) |
 
 **Returns:** *void*

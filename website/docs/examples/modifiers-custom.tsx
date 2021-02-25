@@ -16,7 +16,7 @@ export default function App() {
       modifiers={{
         booked: bookedDays
       }}
-      modifiersStyles={{
+      modifierStyles={{
         booked: bookedStyle
       }}
       onDayClick={handleDayClick}

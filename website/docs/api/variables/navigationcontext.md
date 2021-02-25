@@ -8,7 +8,4 @@ hide_title: true
 
 # Variable: NavigationContext
 
-• `Const` **NavigationContext**: *Context*<[*NavigationContextValue*](../interfaces/navigationcontextvalue.md)\>
-
-Context to consume navigation values (such as the current month) in the
-DayPicker internal components.
+• `Const` **NavigationContext**: *Context*<undefined \| [*NavigationContextValue*](../types/navigationcontextvalue.md)\>
