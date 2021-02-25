@@ -1,10 +1,10 @@
-import { DayPickerContext } from '../../../hooks';
+import { DayPickerContextValue } from '../../../hooks';
 import { ModifierStatus } from '../../../types';
 
 export function createHandlers(
   date: Date,
   modifierStatus: ModifierStatus,
-  context: DayPickerContext
+  context: DayPickerContextValue
 ): {
   onKeyUp: React.KeyboardEventHandler;
   onMouseEnter: React.MouseEventHandler;
