@@ -1,16 +1,32 @@
 import * as React from 'react';
 
+import { Locale } from 'date-fns';
 import english from 'date-fns/locale/en-US';
 
 import { Day, Dropdown, Head, Row, WeekNumber } from '../../components';
 import {
+  CaptionLayout,
+  ClassNames,
   Components,
+  DateRange,
+  DayClickEventHandler,
+  DayKeyboardEventHandler,
+  DayMouseEventHandler,
   DayPickerProps,
+  DayTouchEventHandler,
   Formatters,
   Labels,
   ModifierClassNames,
-  Styles
+  ModifierMatchers,
+  ModifierStyles,
+  MonthChangeEventHandler,
+  SelectEventHandler,
+  SelectMode,
+  SelectMultipleEventHandler,
+  Styles,
+  WeekNumberClickEventHandler
 } from '../../types';
+import { RangeSelectionHandler } from '../useSelection/useSelectRange';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';
@@ -18,48 +34,62 @@ import { getWeekdays } from './utils/getWeekdays';
 import { parseFromToProps } from './utils/parseFromToProps';
 
 /**
- * The props that have always a default value in the context.
+ * Represent the value of the `DayPickerContext`.
  */
-type RequiredPropName =
-  | 'classNames'
-  | 'modifierPrefix'
-  | 'numberOfMonths'
-  | 'captionLayout'
-  | 'modifiers'
-  | 'mode'
-  | 'today'
-  | 'locale';
+export interface DayPickerContextValue {
+  captionLayout: CaptionLayout;
+  classNames: ClassNames;
+  components: Components;
+  defaultMonth?: Date;
+  defaultSelected?: Date | Date[] | DateRange;
+  dir?: string;
+  disableNavigation?: boolean;
+  fixedWeeks?: boolean;
+  formatters: Formatters;
+  fromDate?: Date;
+  labels: Labels;
+  locale: Locale;
+  hideHead?: boolean;
+  mode: SelectMode;
+  modifierClassNames: ModifierClassNames;
+  modifierPrefix: string;
+  modifiers: ModifierMatchers;
+  modifierStyles?: ModifierStyles;
+  /** This is the `month` from the initial props - use `useNavigation` hook for getting the current month. */
+  month?: Date;
+  numberOfMonths: number;
+  onDayClick?: DayClickEventHandler;
+  onDayKeyUp?: DayKeyboardEventHandler;
+  onDayMouseEnter?: DayMouseEventHandler;
+  onDayMouseLeave?: DayMouseEventHandler;
+  onDayTouchCancel?: DayTouchEventHandler;
+  onDayTouchEnd?: DayTouchEventHandler;
+  onDayTouchMove?: DayTouchEventHandler;
+  onDayTouchStart?: DayTouchEventHandler;
+  onMonthChange?: MonthChangeEventHandler;
+  onSelect?: SelectEventHandler;
+  onSelectMultiple?: SelectMultipleEventHandler;
+  onSelectRange?: RangeSelectionHandler;
+  onWeekNumberClick?: WeekNumberClickEventHandler;
+  required?: boolean;
+  showOutsideDays?: boolean;
+  showWeekNumber?: boolean;
+  styles: Styles;
+  /** Limit the navigation up to this date. Includes a parsed value from the `toMonth` and `toYear` props. */
+  toDate?: Date;
+  /** The today’s date used for calculations. */
+  today: Date;
+  /** The weekdays used for the head */
+  weekdays: Date[];
+}
 
 /**
- * These props can be removed from context as they are used only to calculate
- * the defaults
- */
-type OmittedPropName =
-  | 'fromDay'
-  | 'toDay'
-  | 'fromMonth'
-  | 'toMonth'
-  | 'selected'
-  | 'disabled'
-  | 'hidden';
-
-export type DayPickerContext = Omit<DayPickerProps, OmittedPropName> &
-  Required<Pick<DayPickerProps, RequiredPropName>> & {
-    formatters: Formatters;
-    labels: Labels;
-    components: Components;
-    modifierClassNames: ModifierClassNames;
-    styles: Styles;
-    weekdays: Date[];
-  };
-
-/**
- * The DayPickerContext is a React context to share proprieties and settings
- * within the internal components. Use [[useDayPickerContext]] to get the
- * context from the internal components.
+ * The DayPickerContext is a context to share props and settings within the
+ * internal components. It set the defaults values, parses some props, and
+ * perform one-time calculation required to render the days.
  */
 export const DayPickerContext = React.createContext<
-  DayPickerContext | undefined
+  DayPickerContextValue | undefined
 >(undefined);
 
 /**
@@ -103,7 +133,7 @@ export const DayPickerProvider = ({
   if (fromDate) modifiers.disabled.push({ before: fromDate });
   if (toDate) modifiers.disabled.push({ after: toDate });
 
-  const context: DayPickerContext = {
+  const context: DayPickerContextValue = {
     ...initialProps,
     modifierPrefix: 'rdp-day_',
     numberOfMonths,
