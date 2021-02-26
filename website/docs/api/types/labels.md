@@ -19,6 +19,6 @@ Name | Type |
 :------ | :------ |
 `labelDay` | [*DayLabelFormatter*](daylabelformatter.md) |
 `labelNext` | [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) |
-`labelPrev` | [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) |
+`labelPrevious` | [*NavButtonLabelFormatter*](navbuttonlabelformatter.md) |
 `labelWeekNumber` | [*WeekNumberLabelFormatter*](weeknumberlabelformatter.md) |
 `labelWeekday` | [*WeekdayLabelFormatter*](weekdaylabelformatter.md) |

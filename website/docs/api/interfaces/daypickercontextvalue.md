@@ -60,6 +60,14 @@ ___
 
 ___
 
+### footer
+
+• `Optional` **footer**: *undefined* \| *ReactElement*<any, string \| (`props`: *any*) => *null* \| *ReactElement*<any, any\> \| (`props`: *any*) => *Component*<any, any, any\>\>
+
+The content of the Footer component
+
+___
+
 ### formatters
 
 • **formatters**: [*Formatters*](../types/formatters.md)

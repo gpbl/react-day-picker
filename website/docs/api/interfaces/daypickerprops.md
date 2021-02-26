@@ -182,6 +182,14 @@ function Example() {
 
 ___
 
+### footer
+
+• `Optional` **footer**: *undefined* \| *ReactElement*<any, string \| (`props`: *any*) => *null* \| *ReactElement*<any, any\> \| (`props`: *any*) => *Component*<any, any, any\>\>
+
+Content to add to the `tfoot` element.
+
+___
+
 ### formatters
 
 • `Optional` **formatters**: *undefined* \| *Partial*<[*Formatters*](../types/formatters.md)\>

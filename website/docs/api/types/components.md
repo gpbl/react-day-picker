@@ -19,6 +19,7 @@ Name | Type |
 :------ | :------ |
 `Day` | *typeof* [*Day*](../functions/day.md) |
 `Dropdown` | *typeof* [*Dropdown*](../functions/dropdown.md) |
+`Footer` | *typeof* [*Footer*](../functions/footer.md) |
 `Head` | *typeof* [*Head*](../functions/head.md) |
 `Row` | *typeof* [*Row*](../functions/row.md) |
 `WeekNumber` | *typeof* [*WeekNumber*](../functions/weeknumber.md) |
