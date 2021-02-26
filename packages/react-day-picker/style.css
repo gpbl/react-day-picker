@@ -304,7 +304,7 @@ button.rdp-weeknumber:hover:not([disabled]) {
   border-radius: 100%;
 }
 .rdp .rdp-day.rdp-day_range-middle {
-  color: inherit;
+  color: white;
   border-radius: 0;
   background-color: var(--rdp-accent-color-lighter);
 }
