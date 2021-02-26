@@ -1,5 +1,5 @@
 export * from './labelDay';
 export * from './labelNext';
-export * from './labelPrev';
+export * from './labelPrevious';
 export * from './labelWeekNumber';
 export * from './labelWeekday';

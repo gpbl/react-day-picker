@@ -9,7 +9,7 @@ import { WeekNumberLabelFormatter } from './WeekNumberLabelFormatter';
  */
 export type Labels = {
   labelNext: NavButtonLabelFormatter;
-  labelPrev: NavButtonLabelFormatter;
+  labelPrevious: NavButtonLabelFormatter;
   labelDay: DayLabelFormatter;
   labelWeekday: WeekdayLabelFormatter;
   labelWeekNumber: WeekNumberLabelFormatter;
