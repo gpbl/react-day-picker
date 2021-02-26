@@ -5,6 +5,7 @@ import english from 'date-fns/locale/en-US';
 
 import {
   Caption,
+  CaptionLabel,
   Day,
   Dropdown,
   Footer,
@@ -69,6 +70,7 @@ export interface DayPickerContextValue {
   /** This is the `month` from the initial props - use `useNavigation` hook for getting the current month. */
   month?: Date;
   numberOfMonths: number;
+
   onDayClick?: DayClickEventHandler;
   onDayKeyUp?: DayKeyboardEventHandler;
   onDayMouseEnter?: DayMouseEventHandler;
@@ -82,9 +84,11 @@ export interface DayPickerContextValue {
   onSelectMultiple?: SelectMultipleEventHandler;
   onSelectRange?: RangeSelectionHandler;
   onWeekNumberClick?: WeekNumberClickEventHandler;
+
   required?: boolean;
   showOutsideDays?: boolean;
   showWeekNumber?: boolean;
+
   styles: Styles;
   /** Limit the navigation up to this date. Includes a parsed value from the `toMonth` and `toYear` props. */
   toDate?: Date;
@@ -176,6 +180,7 @@ export const DayPickerProvider = ({
     },
     components: {
       Caption: Caption,
+      CaptionLabel: CaptionLabel,
       Day: Day,
       Dropdown: Dropdown,
       Footer: Footer,

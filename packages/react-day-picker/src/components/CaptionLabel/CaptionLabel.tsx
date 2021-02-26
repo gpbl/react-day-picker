@@ -10,13 +10,12 @@ export interface CaptionLabelProps {
 }
 
 export function CaptionLabel(props: CaptionLabelProps): JSX.Element {
-  const context = useDayPicker();
   const {
     locale,
     classNames,
     styles,
     formatters: { formatCaption }
-  } = context;
+  } = useDayPicker();
   return (
     <div
       key="caption"

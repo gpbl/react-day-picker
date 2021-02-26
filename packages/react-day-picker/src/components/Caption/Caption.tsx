@@ -3,7 +3,6 @@ import * as React from 'react';
 import { MonthsDropdown, Navigation, YearsDropdown } from '../../components';
 import { useDayPicker, useNavigation } from '../../hooks';
 import { MonthChangeEventHandler, UIElement as UI } from '../../types';
-import { CaptionLabel } from '../CaptionLabel/CaptionLabel';
 
 /** Represent the props of the [[Caption]] component. */
 export interface CaptionProps {
@@ -33,7 +32,8 @@ export function Caption(props: CaptionProps): JSX.Element {
     disableNavigation,
     styles,
     captionLayout,
-    onMonthChange
+    onMonthChange,
+    components: { CaptionLabel }
   } = context;
 
   const { previousMonth, nextMonth, setMonth } = useNavigation();
