@@ -4,10 +4,12 @@ import { Locale } from 'date-fns';
 import english from 'date-fns/locale/en-US';
 
 import {
+  Caption,
   Day,
   Dropdown,
   Footer,
   Head,
+  IconDropdown,
   IconNext,
   IconPrevious,
   Row,
@@ -173,14 +175,16 @@ export const DayPickerProvider = ({
       ...initialProps.labels
     },
     components: {
+      Caption: Caption,
       Day: Day,
       Dropdown: Dropdown,
-      Head: Head,
-      Row: Row,
       Footer: Footer,
-      WeekNumber: WeekNumber,
+      Head: Head,
+      IconDropdown: IconDropdown,
       IconNext: IconNext,
       IconPrevious: IconPrevious,
+      Row: Row,
+      WeekNumber: WeekNumber,
       ...initialProps.components
     }
   };

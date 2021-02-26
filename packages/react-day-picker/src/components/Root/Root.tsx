@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Caption, Table } from '../../components';
+import { Table } from '../../components';
 import { useDayPicker, useNavigation } from '../../hooks';
 import { UIElement as UI } from '../../types';
 
@@ -18,7 +18,13 @@ export interface RootProps {
  */
 export function Root(props: RootProps): JSX.Element {
   const { className, style } = props;
-  const { dir, classNames, styles, numberOfMonths } = useDayPicker();
+  const {
+    dir,
+    classNames,
+    styles,
+    numberOfMonths,
+    components: { Caption }
+  } = useDayPicker();
 
   const { displayMonths } = useNavigation();
 
