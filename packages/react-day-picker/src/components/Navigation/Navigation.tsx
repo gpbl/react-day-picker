@@ -2,8 +2,6 @@ import React from 'react';
 
 import { useDayPicker } from '../../hooks';
 import { UIElement as UI } from '../../types';
-import { IconNext } from '../IconNext';
-import { IconPrev } from '../IconPrev';
 
 /** The props for the [[Navigation]] component. */
 export interface NavigationProps {
@@ -23,14 +21,15 @@ export interface NavigationProps {
   onPreviousClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-/** A component rendering the navigation buttons */
+/** A component rendering the navigation buttons or the drop-downs. */
 export function Navigation(props: NavigationProps): JSX.Element {
   const {
     dir,
     locale,
     classNames,
     styles,
-    labels: { labelPrevious, labelNext }
+    labels: { labelPrevious, labelNext },
+    components: { IconNext, IconPrevious }
   } = useDayPicker();
   let { onPreviousClick, onNextClick } = props;
   if (dir === 'rtl') {
@@ -57,7 +56,10 @@ export function Navigation(props: NavigationProps): JSX.Element {
       disabled={props.disablePrevious}
       onClick={onPreviousClick}
     >
-      <IconPrev className={classNames[UI.NavIcon]} style={styles[UI.NavIcon]} />
+      <IconPrevious
+        className={classNames[UI.NavIcon]}
+        style={styles[UI.NavIcon]}
+      />
     </button>
   );
 
