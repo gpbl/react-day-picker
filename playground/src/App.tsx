@@ -6,19 +6,19 @@ import { DayPicker, MonthChangeEventHandler } from 'react-day-picker';
 
 import { addMonths } from 'date-fns';
 
-function App() {
+function Example() {
   const [month, setMonth] = useState<Date>(addMonths(new Date(), 1));
   const handleMonthChange: MonthChangeEventHandler = (newMonth) =>
     setMonth(newMonth);
+  console.log(month);
+  return <DayPicker captionLayout="dropdown" numberOfMonths={4} />;
+}
 
-    console.log(month);
+function App() {
   return (
-    <>
-      <DayPicker month={month} onMonthChange={handleMonthChange} />
-      <p>
-        <button onClick={() => setMonth(new Date())}>Go to Today</button>
-      </p>
-    </>
+    <div className="App">
+      <Example />
+    </div>
   );
 }
 
