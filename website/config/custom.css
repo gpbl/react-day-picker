@@ -9,6 +9,8 @@
 
   --ifm-toc-border-color: transparent;
   --ifm-heading-font-weight: 500;
+  --ifm-code-border-radius: 4px;
+  --ifm-code-background: var(--ifm-color-emphasis-100);
 }
 
 /* a {
@@ -23,7 +25,7 @@
 }
 
 .menu {
-  background-color: #f3f3f3;
+  background-color: var(--ifm-color-emphasis-100);
   margin-right: 1em;
 }
 

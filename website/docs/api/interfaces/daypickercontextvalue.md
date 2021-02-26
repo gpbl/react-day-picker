@@ -26,7 +26,7 @@ ___
 
 ### components
 
-• **components**: [*Components*](../types/components.md)
+• **components**: [*Components*](components.md)
 
 ___
 

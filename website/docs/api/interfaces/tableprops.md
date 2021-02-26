@@ -16,4 +16,4 @@ The props for the [Table](../functions/table.md) component.
 
 • **displayMonth**: Date
 
-The month used to render the table
+The month where the table is displayed.

@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: Root
 
-▸ **Root**(`props`: [*RootProps*](../interfaces/rootprops.md)): JSX.Element
+▸ **Root**(`props`: [*StyledComponentProps*](../interfaces/styledcomponentprops.md)): JSX.Element
 
 Render the container with the months and their captions. The number of months
 rendered depends by the `numberOfMonths` prop.
@@ -17,6 +17,6 @@ rendered depends by the `numberOfMonths` prop.
 
 Name | Type |
 :------ | :------ |
-`props` | [*RootProps*](../interfaces/rootprops.md) |
+`props` | [*StyledComponentProps*](../interfaces/styledcomponentprops.md) |
 
 **Returns:** JSX.Element

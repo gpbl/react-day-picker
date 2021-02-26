@@ -86,7 +86,7 @@ ___
 
 ### components
 
-• `Optional` **components**: *undefined* \| *Partial*<[*Components*](../types/components.md)\>
+• `Optional` **components**: *undefined* \| *Partial*<[*Components*](components.md)\>
 
 A map of components used to create the layout.
 

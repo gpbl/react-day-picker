@@ -1,4 +1,4 @@
-/** Reference to KeyCodes used inside the app. */
+/** Reference to keyboard event codes used by DayPicker. */
 export enum KeyCode {
   ArrowLeft = 'ArrowLeft',
   ArrowRight = 'ArrowRight',

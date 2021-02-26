@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ **Navigation**(`props`: [*NavigationProps*](../interfaces/navigationprops.md)): JSX.Element
 
-A component rendering the navigation buttons
+A component rendering the navigation buttons or the drop-downs.
 
 #### Parameters:
 
