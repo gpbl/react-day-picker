@@ -89,6 +89,7 @@ button.rdp-weeknumber:hover:not([disabled]) {
   text-align: left;
 }
 .rdp[dir='rtl'] .rdp-caption {
+  /* Right-to-left caption formatting */
 }
 
 .rdp.rdp-multiple-months .rdp-caption {
