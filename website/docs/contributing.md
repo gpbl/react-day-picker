@@ -50,3 +50,9 @@ To build and start watching the source run the `develop` script:
 ```
 $ yarn workspace react-day-picker develop
 ```
+
+To run the unit tests in watch mode:
+
+```
+$ yarn workspace react-day-picker test --watch
+```

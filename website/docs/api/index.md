@@ -18,12 +18,14 @@ hide_title: true
 
 ### Interfaces
 
+- [CaptionLabelProps](interfaces/captionlabelprops.md)
 - [CaptionProps](interfaces/captionprops.md)
-- [DayPickerContext](interfaces/daypickercontext.md)
+- [DayPickerContextValue](interfaces/daypickercontextvalue.md)
 - [DayPickerProps](interfaces/daypickerprops.md)
 - [DayProps](interfaces/dayprops.md)
 - [DropdownProps](interfaces/dropdownprops.md)
 - [MonthsDropdownProps](interfaces/monthsdropdownprops.md)
+- [NavigationProps](interfaces/navigationprops.md)
 - [RootProps](interfaces/rootprops.md)
 - [RowProps](interfaces/rowprops.md)
 - [SelectEventHandler](interfaces/selecteventhandler.md)
@@ -79,6 +81,7 @@ hide_title: true
 ### Functions
 
 - [Caption](functions/caption.md)
+- [CaptionLabel](functions/captionlabel.md)
 - [Day](functions/day.md)
 - [DayPicker](functions/daypicker.md)
 - [DayPickerProvider](functions/daypickerprovider.md)
@@ -88,6 +91,7 @@ hide_title: true
 - [IconNext](functions/iconnext.md)
 - [IconPrev](functions/iconprev.md)
 - [MonthsDropdown](functions/monthsdropdown.md)
+- [Navigation](functions/navigation.md)
 - [NavigationProvider](functions/navigationprovider.md)
 - [Root](functions/root.md)
 - [Row](functions/row.md)

@@ -20,7 +20,6 @@ export default function App() {
       components={{ Row: OnlyFutureRow }}
       hidden={isPastDate}
       showOutsideDays
-      enableOutsideDaysClick
     />
   );
 }

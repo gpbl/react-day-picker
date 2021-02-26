@@ -21,7 +21,8 @@ Change the layout of the caption:
 - `buttons` (default): display prev/right buttons
 - `dropdown`: display drop-downs to change the month and the year
 
-**Note** `dropdown` is valid only when `fromDate` or `toDate` are set.
+**Note** `dropdown` is valid only when `fromDate/fromMonth/fromYear` and
+`toDate/toMonth/toYear` are set.
 
 **Example**
 
@@ -87,7 +88,7 @@ ___
 
 • `Optional` **components**: *undefined* \| *Partial*<[*Components*](../types/components.md)\>
 
-Customize the internal components.
+A map of components used to create the layout.
 
 ___
 
@@ -96,6 +97,9 @@ ___
 • `Optional` **defaultMonth**: *undefined* \| Date
 
 The initial month to show in the calendar. Default is the current month.
+
+As opposed to [month](daypickerprops.md#month), use this prop to let DayPicker control the current
+month.
 
 ___
 
@@ -161,21 +165,11 @@ function Example() {
 
 ___
 
-### enableOutsideDaysClick
-
-• `Optional` **enableOutsideDaysClick**: *undefined* \| *boolean*
-
-Enable the day click event for outside days when [showOutsideDays](daypickerprops.md#showoutsidedays) is set.
-Default to `false`.
-
-___
-
 ### fixedWeeks
 
 • `Optional` **fixedWeeks**: *undefined* \| *boolean*
 
 Display six weeks per months, regardless the month’s number of weeks.
-
 To use this prop, [showOutsideDays](daypickerprops.md#showoutsidedays) must be set. Default to `false`.
 
 **Example**
@@ -192,7 +186,7 @@ ___
 
 • `Optional` **formatters**: *undefined* \| *Partial*<[*Formatters*](../types/formatters.md)\>
 
-Change the default formatters.
+A map of formatters to change the default formatting functions.
 
 ___
 
@@ -250,14 +244,6 @@ ___
 • `Optional` **hideHead**: *undefined* \| *boolean*
 
 Hide the month’s head displaying the weekday names.
-
-**Example**
-
-```
-function Example() {
- return <DayPicker hideHead />
-};
-```
 
 ___
 
@@ -429,16 +415,7 @@ ___
 • `Optional` **numberOfMonths**: *undefined* \| *number*
 
 Change the number of months displayed by the component. Defaults to `1`.
-
 See also [pagedNavigation](daypickerprops.md#pagednavigation).
-
-**Example**
-
-```
-function Example() {
- return <DayPicker numberOfMonths={2} />
-};
-```
 
 ___
 
@@ -586,14 +563,6 @@ ___
 
 Paginate the month navigation displaying the [numberOfMonths](daypickerprops.md#numberofmonths) at time.
 
-**Example**
-
-```
-function Example() {
- return <DayPicker numberOfMonths={3} pagedNavigation />
-};
-```
-
 ___
 
 ### required
@@ -610,14 +579,6 @@ ___
 
 Render the months in reversed order (when [numberOfMonths](daypickerprops.md#numberofmonths) is greater
 than `1`) to display the most recent month first.
-
-**Example**
-
-```
-function Example() {
- return <DayPicker numberOfMonths={5} reverseMonths />
-};
-```
 
 ___
 
@@ -652,17 +613,6 @@ ___
 Show the outside days.  An outside day is a day falling in the next or the
 previous month. Default is `false`.
 
-Outside days are not interactive as default. Use [enableOutsideDaysClick](daypickerprops.md#enableoutsidedaysclick)
-to make them clickable.
-
-**Example**
-
-```
-function Example() {
- return <DayPicker showOutsideDays />
-};
-```
-
 ___
 
 ### showWeekNumber
@@ -670,14 +620,6 @@ ___
 • `Optional` **showWeekNumber**: *undefined* \| *boolean*
 
 Show the week numbers column. Default to `false`.
-
-**Example**
-
-```
-function Example() {
- return <DayPicker showWeekNumber />
-};
-```
 
 ___
 

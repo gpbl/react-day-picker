@@ -6,11 +6,34 @@
   --ifm-color-primary-lighter: #ff8c78;
   --ifm-color-primary-lightest: #ffb6a9;
   --ifm-color-primary: #ff6347;
+
+  --ifm-toc-border-color: transparent;
+  --ifm-heading-font-weight: 500;
 }
 
 /* a {
   transition: none;
 } */
+
+.pagination-nav {
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+.pagination-nav__link {
+  border: 0;
+}
+
+.menu {
+  background-color: #f3f3f3;
+  margin-right: 1em;
+}
+
+html[data-theme='dark'] .menu {
+  background-color: #010101;
+}
+
+html[data-theme='dark'] .prism-code > div {
+  background-color: transparent !important;
+}
 
 html[data-theme='dark'] {
   --rdp-accent-color-light: var(--rdp-accent-color-dark);
@@ -20,7 +43,6 @@ html[data-theme='dark'] {
 details summary {
   padding: var(--ifm-pre-padding) 0;
   cursor: pointer;
-  font-size: larger;
   font-weight: bold;
 }
 
