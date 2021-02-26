@@ -1,14 +1,14 @@
 ---
-id: "rootprops"
-title: "Interface: RootProps"
-sidebar_label: "RootProps"
+id: "styledcomponentprops"
+title: "Interface: StyledComponentProps"
+sidebar_label: "StyledComponentProps"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Interface: RootProps
+# Interface: StyledComponentProps
 
-The props for the [Root](../functions/root.md) component.
+Represent component props to style a component inline or via CSS.
 
 ## Properties
 

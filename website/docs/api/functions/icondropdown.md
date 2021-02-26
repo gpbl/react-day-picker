@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: IconDropdown
 
-▸ **IconDropdown**(`__namedParameters`: { `className?`: *string* ; `style?`: React.CSSProperties  }): JSX.Element
+▸ **IconDropdown**(`props`: [*StyledComponentProps*](../interfaces/styledcomponentprops.md)): JSX.Element
 
 Render the icon in the styled drop-down.
 
@@ -16,8 +16,6 @@ Render the icon in the styled drop-down.
 
 Name | Type |
 :------ | :------ |
-`__namedParameters` | *object* |
-`__namedParameters.className?` | *string* |
-`__namedParameters.style?` | React.CSSProperties |
+`props` | [*StyledComponentProps*](../interfaces/styledcomponentprops.md) |
 
 **Returns:** JSX.Element

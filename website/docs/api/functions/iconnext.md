@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: IconNext
 
-▸ **IconNext**(`__namedParameters`: { `className?`: *string* ; `style?`: React.CSSProperties  }): JSX.Element
+▸ **IconNext**(`props`: [*StyledComponentProps*](../interfaces/styledcomponentprops.md)): JSX.Element
 
 Render the "next month" button in the navigation.
 
@@ -16,8 +16,6 @@ Render the "next month" button in the navigation.
 
 Name | Type |
 :------ | :------ |
-`__namedParameters` | *object* |
-`__namedParameters.className?` | *string* |
-`__namedParameters.style?` | React.CSSProperties |
+`props` | [*StyledComponentProps*](../interfaces/styledcomponentprops.md) |
 
 **Returns:** JSX.Element

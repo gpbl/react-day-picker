@@ -9,7 +9,7 @@ import { getWeeks } from './utils/getWeeks';
  * The props for the [[Table]] component.
  */
 export interface TableProps {
-  /** The month used to render the table */
+  /** The month where the table is displayed. */
   displayMonth: Date;
 }
 

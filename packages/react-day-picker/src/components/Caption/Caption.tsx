@@ -9,7 +9,7 @@ import { CaptionLabel } from '../CaptionLabel/CaptionLabel';
 export interface CaptionProps {
   /** The month where the caption is displayed. */
   displayMonth: Date;
-  /** The index of the month being displayed (when `numberOfMonths` set). */
+  /** The index of the month being displayed (when `numberOfMonths` set can be greater than `0`). */
   displayIndex: number;
   /** Whether the caption belongs to the first table (when `numberOfMonths` set). */
   isFirst: boolean;

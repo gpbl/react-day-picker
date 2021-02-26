@@ -16,7 +16,7 @@ Represent the props of the [Caption](../functions/caption.md) component.
 
 • **displayIndex**: *number*
 
-The index of the month being displayed (when `numberOfMonths` set).
+The index of the month being displayed (when `numberOfMonths` set can be greater than `0`).
 
 ___
 
