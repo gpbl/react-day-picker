@@ -1,8 +1,9 @@
-module.exports = {
-  roots: ['<rootDir>/src'],
+export default {
+  roots: ['./src'],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.tsx?$': 'ts-jest'
   },
   moduleFileExtensions: ['ts', 'tsx', 'json', 'js', 'node'],
   coverageReporters: ['lcov', 'text', 'clover'],
+  setupFilesAfterEnv: ['./jest.setup.ts']
 };
