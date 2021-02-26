@@ -1,39 +1,35 @@
 import {
-  Caption,
-  Day,
-  Dropdown,
-  Footer,
-  Head,
-  IconDropdown,
-  IconNext,
-  IconPrevious,
-  Row,
-  WeekNumber
+  CaptionProps,
+  DayProps,
+  DropdownProps,
+  RowProps,
+  WeekNumberProps
 } from '../components';
+import { StyledComponentProps } from './StyledComponentProps';
 
 /**
  * Represent a map of the component that can be changed via the `components`
  * prop.
  */
-export type Components = {
+export interface Components {
   /** The component for the caption element. */
-  Caption: typeof Caption;
+  Caption: (props: CaptionProps) => JSX.Element | null;
   /** The component for the day element. */
-  Day: typeof Day;
+  Day: (props: DayProps) => JSX.Element | null;
   /** The component for the drop-down elements. */
-  Dropdown: typeof Dropdown;
+  Dropdown: (props: DropdownProps) => JSX.Element | null;
   /** The component for the table footer. */
-  Footer: typeof Footer;
+  Footer: () => JSX.Element | null;
   /** The component for the table’s head. */
-  Head: typeof Head;
+  Head: () => JSX.Element | null;
   /** The component for the small icon in the drop-downs. */
-  IconDropdown: typeof IconDropdown;
+  IconDropdown: (props: StyledComponentProps) => JSX.Element | null;
   /** The component for the "next month" button in the Navigation. */
-  IconNext: typeof IconNext;
+  IconNext: (props: StyledComponentProps) => JSX.Element | null;
   /** The component for the "previous month" button in the Navigation. */
-  IconPrevious: typeof IconPrevious;
+  IconPrevious: (props: StyledComponentProps) => JSX.Element | null;
   /** The component for the table rows. */
-  Row: typeof Row;
+  Row: (props: RowProps) => JSX.Element | null;
   /** The component for the week number in the table rows. */
-  WeekNumber: typeof WeekNumber;
-};
+  WeekNumber: (props: WeekNumberProps) => JSX.Element | null;
+}
