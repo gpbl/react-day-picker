@@ -8,7 +8,7 @@ hide_title: true
 
 # Enumeration: KeyCode
 
-Reference to KeyCodes used inside the app.
+Reference to keyboard event codes used by DayPicker.
 
 ## Enumeration members
 

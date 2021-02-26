@@ -33,6 +33,26 @@ Name | Type |
 
 ___
 
+### CaptionLabel
+
+• **CaptionLabel**: (`props`: [*CaptionLabelProps*](captionlabelprops.md)) => *null* \| *Element*
+
+The component for the caption element.
+
+#### Type declaration:
+
+▸ (`props`: [*CaptionLabelProps*](captionlabelprops.md)): *null* \| *Element*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`props` | [*CaptionLabelProps*](captionlabelprops.md) |
+
+**Returns:** *null* \| *Element*
+
+___
+
 ### Day
 
 • **Day**: (`props`: [*DayProps*](dayprops.md)) => *null* \| *Element*
