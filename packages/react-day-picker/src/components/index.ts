@@ -7,7 +7,7 @@ export * from './Footer';
 export * from './Head';
 export * from './IconDropdown';
 export * from './IconNext';
-export * from './IconPrev';
+export * from './IconPrevious';
 export * from './MonthsDropdown';
 export * from './Navigation';
 export * from './Root';

@@ -3,7 +3,7 @@ import * as React from 'react';
 /**
  * Render the "previous month" button in the navigation.
  */
-export function IconPrev({
+export function IconPrevious({
   className,
   style
 }: {

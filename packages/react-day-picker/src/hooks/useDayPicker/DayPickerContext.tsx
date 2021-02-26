@@ -3,7 +3,16 @@ import * as React from 'react';
 import { Locale } from 'date-fns';
 import english from 'date-fns/locale/en-US';
 
-import { Day, Dropdown, Footer, Head, Row, WeekNumber } from '../../components';
+import {
+  Day,
+  Dropdown,
+  Footer,
+  Head,
+  IconNext,
+  IconPrevious,
+  Row,
+  WeekNumber
+} from '../../components';
 import {
   CaptionLayout,
   ClassNames,
@@ -170,6 +179,8 @@ export const DayPickerProvider = ({
       Row: Row,
       Footer: Footer,
       WeekNumber: WeekNumber,
+      IconNext: IconNext,
+      IconPrevious: IconPrevious,
       ...initialProps.components
     }
   };
