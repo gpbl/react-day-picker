@@ -1,4 +1,5 @@
 import {
+  CaptionLabelProps,
   CaptionProps,
   DayProps,
   DropdownProps,
@@ -14,6 +15,8 @@ import { StyledComponentProps } from './StyledComponentProps';
 export interface Components {
   /** The component for the caption element. */
   Caption: (props: CaptionProps) => JSX.Element | null;
+  /** The component for the caption element. */
+  CaptionLabel: (props: CaptionLabelProps) => JSX.Element | null;
   /** The component for the day element. */
   Day: (props: DayProps) => JSX.Element | null;
   /** The component for the drop-down elements. */
