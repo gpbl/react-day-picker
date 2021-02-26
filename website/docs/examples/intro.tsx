@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DayPicker, SelectEventHandler } from 'react-day-picker';
+import { Day, DayPicker, SelectEventHandler } from 'react-day-picker';
 
 export default function App() {
   const [selected, setSelected] = React.useState<Date | undefined>();
@@ -8,5 +8,10 @@ export default function App() {
     setSelected(day);
   };
 
-  return <DayPicker onSelect={handleSelect} />;
+  return (
+    <DayPicker
+      onSelect={handleSelect}
+      footer={selected && <p>You selected {selected.toLocaleDateString()}</p>}
+    />
+  );
 }

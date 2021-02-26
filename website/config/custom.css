@@ -44,6 +44,7 @@ details summary {
   padding: var(--ifm-pre-padding) 0;
   cursor: pointer;
   font-weight: bold;
+  margin-left: 1em;
 }
 
 .container {

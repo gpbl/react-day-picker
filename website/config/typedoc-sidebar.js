@@ -89,6 +89,7 @@ module.exports = [
       "api/functions/daypicker",
       "api/functions/daypickerprovider",
       "api/functions/dropdown",
+      "api/functions/footer",
       "api/functions/head",
       "api/functions/icondropdown",
       "api/functions/iconnext",

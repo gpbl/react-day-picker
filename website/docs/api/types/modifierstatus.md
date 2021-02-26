@@ -13,14 +13,11 @@ hide_title: true
 Represent the status of a modifiers if matched against a day according to its
 [Matcher](matcher.md).
 
-For example, the following day has the `selected` modifiers, but not `today`
-or `custom`.
+For example, the following status represent a day with the `selected` modifier.
 
 ```js
 const modifiers: ModifiersStatus = {
- today: false,
  selected: true,
- custom: false,
 }
 ```
 

@@ -12,9 +12,19 @@ The props for the [Navigation](../functions/navigation.md) component.
 
 ## Properties
 
-### disabled
+### disableNext
 
-• `Optional` **disabled**: *undefined* \| [prevButton: boolean, nextButton: boolean]
+• **disableNext**: *boolean*
+
+Disable the next button.
+
+___
+
+### disablePrevious
+
+• **disablePrevious**: *boolean*
+
+Disable the previous button.
 
 ___
 
@@ -26,12 +36,56 @@ The month where the caption is displayed.
 
 ___
 
-### hide
+### hideNext
 
-• `Optional` **hide**: *undefined* \| [prevButton: boolean, nextButton: boolean]
+• **hideNext**: *boolean*
+
+Hide the next button.
 
 ___
 
-### onClick
+### hidePrevious
 
-• **onClick**: [onPrevClick: function, onNextClick: function]
+• **hidePrevious**: *boolean*
+
+Hide the previous button.
+
+___
+
+### onNextClick
+
+• **onNextClick**: (`event`: *MouseEvent*<HTMLButtonElement, MouseEvent\>) => *void*
+
+Event handler when the next button is clicked.
+
+#### Type declaration:
+
+▸ (`event`: *MouseEvent*<HTMLButtonElement, MouseEvent\>): *void*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`event` | *MouseEvent*<HTMLButtonElement, MouseEvent\> |
+
+**Returns:** *void*
+
+___
+
+### onPreviousClick
+
+• **onPreviousClick**: (`event`: *MouseEvent*<HTMLButtonElement, MouseEvent\>) => *void*
+
+Event handler when the previous button is clicked.
+
+#### Type declaration:
+
+▸ (`event`: *MouseEvent*<HTMLButtonElement, MouseEvent\>): *void*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`event` | *MouseEvent*<HTMLButtonElement, MouseEvent\> |
+
+**Returns:** *void*

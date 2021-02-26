@@ -86,6 +86,7 @@ hide_title: true
 - [DayPicker](functions/daypicker.md)
 - [DayPickerProvider](functions/daypickerprovider.md)
 - [Dropdown](functions/dropdown.md)
+- [Footer](functions/footer.md)
 - [Head](functions/head.md)
 - [IconDropdown](functions/icondropdown.md)
 - [IconNext](functions/iconnext.md)
