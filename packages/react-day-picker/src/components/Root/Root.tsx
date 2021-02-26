@@ -2,21 +2,13 @@ import * as React from 'react';
 
 import { Table } from '../../components';
 import { useDayPicker, useNavigation } from '../../hooks';
-import { UIElement as UI } from '../../types';
-
-/**
- * The props for the [[Root]] component.
- */
-export interface RootProps {
-  className?: string;
-  style?: React.CSSProperties;
-}
+import { StyledComponentProps, UIElement as UI } from '../../types';
 
 /**
  * Render the container with the months and their captions. The number of months
  * rendered depends by the `numberOfMonths` prop.
  */
-export function Root(props: RootProps): JSX.Element {
+export function Root(props: StyledComponentProps): JSX.Element {
   const { className, style } = props;
   const {
     dir,
