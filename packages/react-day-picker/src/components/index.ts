@@ -3,6 +3,7 @@ export * from './CaptionLabel';
 export * from './Day';
 export * from './DayPicker';
 export * from './Dropdown';
+export * from './Footer';
 export * from './Head';
 export * from './IconDropdown';
 export * from './IconNext';

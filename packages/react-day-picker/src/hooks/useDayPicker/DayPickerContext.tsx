@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Locale } from 'date-fns';
 import english from 'date-fns/locale/en-US';
 
-import { Day, Dropdown, Head, Row, WeekNumber } from '../../components';
+import { Day, Dropdown, Footer, Head, Row, WeekNumber } from '../../components';
 import {
   CaptionLayout,
   ClassNames,
@@ -81,6 +81,8 @@ export interface DayPickerContextValue {
   today: Date;
   /** The weekdays used for the head */
   weekdays: Date[];
+  /** The content of the Footer component */
+  footer?: React.ReactElement;
 }
 
 /**
@@ -133,6 +135,7 @@ export const DayPickerProvider = ({
   if (fromDate) modifiers.disabled.push({ before: fromDate });
   if (toDate) modifiers.disabled.push({ after: toDate });
 
+  console.log(initialProps.footer);
   const context: DayPickerContextValue = {
     ...initialProps,
     modifierPrefix: 'rdp-day_',
@@ -165,6 +168,7 @@ export const DayPickerProvider = ({
       Dropdown: Dropdown,
       Head: Head,
       Row: Row,
+      Footer: Footer,
       WeekNumber: WeekNumber,
       ...initialProps.components
     }
