@@ -1,4 +1,4 @@
-import { addMonths, differenceInMonths, startOfMonth } from 'date-fns';
+import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
 
 /**
  * Return the months to display in the component according to the number of
@@ -7,30 +7,23 @@ import { addMonths, differenceInMonths, startOfMonth } from 'date-fns';
 export function getDisplayMonths(
   month: Date,
   {
-    toDate,
-    fromDate,
     reverseMonths,
     numberOfMonths
   }: {
-    toDate?: Date;
-    fromDate?: Date;
-    numberOfMonths: number;
     reverseMonths?: boolean;
+    numberOfMonths: number;
   }
 ): Date[] {
   const start = startOfMonth(month);
   const end = startOfMonth(addMonths(start, numberOfMonths));
-  const monthsDiff = differenceInMonths(end, start);
-
+  const monthsDiff = differenceInCalendarMonths(end, start);
   let months = [];
+
   for (let i = 0; i < monthsDiff; i++) {
     const nextMonth = addMonths(start, i);
-    if (toDate && nextMonth > startOfMonth(toDate)) continue;
-    if (fromDate && nextMonth < startOfMonth(fromDate)) continue;
     months.push(nextMonth);
   }
 
   if (reverseMonths) months = months.reverse();
-
   return months;
 }

@@ -4,6 +4,9 @@ import { isSameMonth } from 'date-fns';
 
 import { useDayPicker } from '../useDayPicker';
 import { getDisplayMonths } from './utils/getDisplayMonths';
+import { getInitialMonth } from './utils/getInitialMonth';
+import { getNextMonth } from './utils/getNextMonth';
+import { getPreviousMonth } from './utils/getPreviousMonth';
 
 export type NavigationContextValue = {
   /** The current month. Note that when `numberOfMonths > 1` represent the first month in the displayed months. */
@@ -12,6 +15,10 @@ export type NavigationContextValue = {
   displayMonths: Date[];
   /** Navigate to the specified month. */
   setMonth: (month: Date) => void;
+  /** The next month to display. `undefined` if no months left */
+  nextMonth?: Date;
+  /** The previous month to display. `undefined` if no months left */
+  previousMonth?: Date;
 };
 
 /** The navigation context holds values and setters for navigating between the
@@ -27,9 +34,9 @@ export const NavigationProvider = ({
   children?: React.ReactNode;
 }): JSX.Element => {
   const context = useDayPicker();
-  const [month, setMonthInternal] = React.useState<Date>(
-    context.month || context.defaultMonth || context.today
-  );
+  const initialMonth = getInitialMonth(context);
+
+  const [month, setMonthInternal] = React.useState<Date>(initialMonth);
 
   const setMonth = (date: Date) => {
     if (context.disableNavigation) return;
@@ -43,8 +50,13 @@ export const NavigationProvider = ({
   }, [context.month]);
 
   const displayMonths = getDisplayMonths(month, context);
+  const nextMonth = getNextMonth(month, context);
+  const previousMonth = getPreviousMonth(month, context);
+
   return (
-    <NavigationContext.Provider value={{ month, displayMonths, setMonth }}>
+    <NavigationContext.Provider
+      value={{ month, displayMonths, setMonth, previousMonth, nextMonth }}
+    >
       {children}
     </NavigationContext.Provider>
   );
