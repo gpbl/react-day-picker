@@ -23,7 +23,7 @@ export function Table(props: TableProps): JSX.Element {
     styles,
     hideHead,
     fixedWeeks,
-    components: { Row }
+    components: { Row, Footer }
   } = useDayPicker();
   const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
   return (
@@ -45,6 +45,7 @@ export function Table(props: TableProps): JSX.Element {
           />
         ))}
       </tbody>
+      <Footer />
     </table>
   );
 }
