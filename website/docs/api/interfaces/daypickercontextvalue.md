@@ -1,12 +1,12 @@
 ---
-id: "daypickercontext"
-title: "Interface: DayPickerContext"
-sidebar_label: "DayPickerContext"
+id: "daypickercontextvalue"
+title: "Interface: DayPickerContextValue"
+sidebar_label: "DayPickerContextValue"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Interface: DayPickerContext
+# Interface: DayPickerContextValue
 
 Represent the value of the `DayPickerContext`.
 

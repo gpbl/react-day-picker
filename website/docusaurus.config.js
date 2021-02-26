@@ -43,8 +43,8 @@ module.exports = {
       trackingID: 'UA-68185118-1'
     },
     prism: {
-      theme: require('prism-react-renderer/themes/nightOwlLight'),
-      darkTheme: require('prism-react-renderer/themes/nightOwl')
+      theme: require('prism-react-renderer/themes/vsLight'),
+      darkTheme: require('prism-react-renderer/themes/vsDark')
     }
   },
   presets: [

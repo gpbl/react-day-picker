@@ -8,7 +8,7 @@ hide_title: true
 
 # Variable: DayPickerContext
 
-• **DayPickerContext**: *Context*<undefined \| [*DayPickerContext*](daypickercontext.md)\>
+• `Const` **DayPickerContext**: *Context*<undefined \| [*DayPickerContextValue*](../interfaces/daypickercontextvalue.md)\>
 
 The DayPickerContext is a context to share props and settings within the
 internal components. It set the defaults values, parses some props, and

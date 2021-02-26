@@ -8,11 +8,11 @@ hide_title: true
 
 # Function: useDayPicker
 
-▸ **useDayPicker**(): [*DayPickerContext*](../variables/daypickercontext.md)
+▸ **useDayPicker**(): [*DayPickerContextValue*](../interfaces/daypickercontextvalue.md)
 
 Return the [DayPickerContext](../variables/daypickercontext.md).
 
 Use the DayPickerContext to get the props and other values directly from the
 internal components.
 
-**Returns:** [*DayPickerContext*](../variables/daypickercontext.md)
+**Returns:** [*DayPickerContextValue*](../interfaces/daypickercontextvalue.md)
