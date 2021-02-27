@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Locale } from 'date-fns';
-import english from 'date-fns/locale/en-US';
+import { enUS } from 'date-fns/locale';
 
 import {
   Caption,
@@ -120,7 +120,7 @@ export const DayPickerProvider = ({
   children: React.ReactNode;
 }): JSX.Element => {
   const { fromDate, toDate } = parseFromToProps(initialProps);
-  const locale = initialProps.locale || english;
+  const locale = initialProps.locale || enUS;
   const numberOfMonths = initialProps.numberOfMonths ?? 1;
   const today = initialProps.today ?? new Date();
   const month = initialProps.month;

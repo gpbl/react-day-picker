@@ -12,18 +12,18 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
-  "main": "lib/index.js",
-  "type": "module",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "browser": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "develop": "tsc --watch",
+    "develop": "rollup -c -w",
     "lint": "eslint --ext .ts src",
     "test": "yarn jest",
     "coverage": "yarn test --coverage",
     "test:watch": "yarn test --watchAll --coverage",
-    "build-clean": "rm -rf lib && rm -rf dist",
-    "build-dist": "cross-env TS_NODE_PROJECT=tsconfig.dist.json webpack",
-    "build": "yarn build-clean && yarn build-dist && tsc"
+    "build-clean": "rm -rf dist",
+    "build": "yarn build-clean && tsc && yarn rollup -c"
   },
   "files": [
     "dist",
@@ -32,6 +32,9 @@
     "style.css"
   ],
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@rollup/plugin-typescript": "^8.2.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@types/jest": "^26.0.20",
@@ -52,13 +55,13 @@
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "rollup": "^2.40.0",
+    "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^26.5.1",
     "ts-loader": "^8.0.17",
     "ts-node": "^9.1.1",
     "tslib": "^2.1.0",
-    "typescript": "~4.1.0",
-    "webpack": "^5.22.0",
-    "webpack-cli": "^4.5.0"
+    "typescript": "~4.1.0"
   },
   "peerDependencies": {
     "date-fns": "^2.12.0",
