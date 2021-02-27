@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import { DateFormatter, ModifierStatus } from '../../types';
 
@@ -18,6 +18,10 @@ export interface DayContentProps {
   locale: Locale;
   /** Whether DayPicker should show the outside day. */
   showOutsideDays?: boolean;
+  /** The ARIA label for the content. */
+  'aria-label': HTMLAttributes<HTMLSpanElement>['aria-label'];
+  /** The class name for the aria-label (this element should stay not visible) */
+  hiddenClassName: string;
 }
 /**
  * Render the content of the day cell.
@@ -26,5 +30,12 @@ export function DayContent(props: DayContentProps): JSX.Element {
   if (props.outside && !props.showOutsideDays) return <></>;
   if (props.modifiers.hidden) return <></>;
 
-  return <>{props.format(props.date, { locale: props.locale })}</>;
+  return (
+    <>
+      <span className={props.hiddenClassName}>{props['aria-label']}</span>
+      <span aria-hidden="true">
+        {props.format(props.date, { locale: props.locale })}
+      </span>
+    </>
+  );
 }

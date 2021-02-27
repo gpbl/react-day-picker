@@ -22,6 +22,11 @@
   box-sizing: border-box;
 }
 
+/* Hide elements for devices that are not screen readers */
+.rdp-hidden {
+  display: none;
+}
+
 /** Reset buttons */
 button.rdp-day,
 button.rdp-weeknumber,

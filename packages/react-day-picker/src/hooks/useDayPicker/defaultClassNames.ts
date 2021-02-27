@@ -7,6 +7,7 @@ export const defaultClassNames: Required<ClassNames> = {
   /** Root element */
   [UIElement.Root]: 'rdp',
   [UIElement.RootMultipleMonths]: 'rdp-multiple-months',
+  [UIElement.Hidden]: 'rdp-hidden',
 
   [UIElement.Months]: 'rdp-months',
   [UIElement.CaptionFirst]: 'rdp-month_first',
