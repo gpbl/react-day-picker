@@ -35,14 +35,14 @@ export function Root(props: StyledComponentProps): JSX.Element {
 
     if (dir === 'rtl') [isLast, isFirst] = [isFirst, isLast];
 
-    const isBetween = numberOfMonths > 1 && !isFirst && !isLast;
+    const isMiddle = numberOfMonths > 1 && !isFirst && !isLast;
 
     if (isFirst) {
       className.push(classNames[UI.CaptionFirst]);
       Object.assign(style, styles[UI.CaptionFirst]);
     }
     if (isLast) className.push(classNames[UI.CaptionLast]);
-    if (isBetween) className.push(classNames[UI.CaptionMiddle]);
+    if (isMiddle) className.push(classNames[UI.CaptionMiddle]);
 
     return (
       <div key={displayIndex} className={className.join(' ')} style={style}>
@@ -51,7 +51,7 @@ export function Root(props: StyledComponentProps): JSX.Element {
           displayIndex={displayIndex}
           isFirst={isFirst}
           isLast={isLast}
-          isBetween={isBetween}
+          isMiddle={isMiddle}
         />
         isMiddle
         <Table displayMonth={displayMonth} />
