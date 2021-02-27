@@ -3,6 +3,7 @@ import * as React from 'react';
 import { isSameDay, isSameMonth } from 'date-fns';
 
 import { useDayPicker, useModifiers, useSelection } from '../../hooks';
+import { formatDay } from '../../hooks/useDayPicker/formatters';
 import { useFocus } from '../../hooks/useFocus';
 import { KeyCode, UIElement } from '../../types';
 import { createHandlers } from './utils/createHandlers';
@@ -25,7 +26,7 @@ export function Day(props: DayProps): JSX.Element | null {
   const { date, displayMonth } = props;
   const context = useDayPicker();
   const selection = useSelection();
-  const status = useModifiers(date);
+  const modifierStatus = useModifiers(date);
   const [
     focusedDay,
     { focusDayAfter, focusDayBefore, focusDayDown, focusDayUp, blur, focus }
@@ -33,8 +34,8 @@ export function Day(props: DayProps): JSX.Element | null {
 
   const {
     classNames,
-    formatters: { formatDay },
     labels: { labelDay },
+    components: { DayContent },
     locale,
     modifierClassNames,
     modifierPrefix,
@@ -52,16 +53,16 @@ export function Day(props: DayProps): JSX.Element | null {
     }
   }, [focusedDay]);
 
-  if (status.hidden) return <span />;
+  if (modifierStatus.hidden) return <span />;
 
-  const ariaLabel = labelDay(date, status, { locale });
-  const ariaPressed = status.selected;
+  const ariaLabel = labelDay(date, modifierStatus, { locale });
+  const ariaPressed = modifierStatus.selected;
 
   const handleClick: React.MouseEventHandler = (e) => {
     if (mode !== 'uncontrolled') {
-      selection[mode].onDayClick?.(date, status, e);
+      selection[mode].onDayClick?.(date, modifierStatus, e);
     }
-    onDayClick?.(date, status, e);
+    onDayClick?.(date, modifierStatus, e);
   };
 
   const handleFocus: React.FocusEventHandler = (e) => {
@@ -95,7 +96,7 @@ export function Day(props: DayProps): JSX.Element | null {
     }
   };
 
-  const otherEventHandlers = createHandlers(date, status, context);
+  const otherEventHandlers = createHandlers(date, modifierStatus, context);
   const buttonClassNames: (string | undefined)[] = [classNames[UIElement.Day]];
 
   const isOutside = !isSameMonth(date, displayMonth);
@@ -108,8 +109,8 @@ export function Day(props: DayProps): JSX.Element | null {
     buttonClassNames.push(classNames[UIElement.Today]);
   }
 
-  Object.keys(status)
-    .filter((modifier) => Boolean(status[modifier]))
+  Object.keys(modifierStatus)
+    .filter((modifier) => Boolean(modifierStatus[modifier]))
     .forEach((modifier) => {
       if (modifierClassNames[modifier]) {
         buttonClassNames.push(modifierClassNames[modifier]);
@@ -120,29 +121,39 @@ export function Day(props: DayProps): JSX.Element | null {
 
   let style = { ...styles[UIElement.Day] };
   if (styles) {
-    Object.keys(status).forEach(
+    Object.keys(modifierStatus).forEach(
       (modifier) => (style = { ...style, ...styles[modifier] })
     );
   }
   if (modifierStyles) {
-    Object.keys(status).forEach(
+    Object.keys(modifierStatus).forEach(
       (modifier) => (style = { ...style, ...modifierStyles[modifier] })
     );
   }
 
-  if (isOutside && !showOutsideDays) return <span />;
-  if (status.hidden) return <span />;
+  const dayContent = (
+    <DayContent
+      date={date}
+      modifiers={modifierStatus}
+      showOutsideDays={showOutsideDays}
+      outside={isOutside}
+      format={formatDay}
+      locale={locale}
+      displayMonth={displayMonth}
+    />
+  );
+  const className = buttonClassNames.join(' ');
 
-  const formattedDay = formatDay(date, { locale });
-  if (status.disabled || isOutside) {
+  if (modifierStatus.disabled || isOutside) {
     return (
-      <span style={style} className={buttonClassNames.join(' ')}>
-        {formattedDay}
+      <span style={style} className={className}>
+        {dayContent}
       </span>
     );
   }
 
   let tabIndex = 0;
+  // When a day is focused disable tab indexes in the other days
   if (focusedDay && !isSameDay(focusedDay, date)) tabIndex = -1;
 
   return (
@@ -151,7 +162,7 @@ export function Day(props: DayProps): JSX.Element | null {
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}
       style={style}
-      className={buttonClassNames.join(' ')}
+      className={className}
       tabIndex={tabIndex}
       onClick={handleClick}
       onFocus={handleFocus}
@@ -159,7 +170,7 @@ export function Day(props: DayProps): JSX.Element | null {
       onKeyDown={handleKeyDown}
       {...otherEventHandlers}
     >
-      {formattedDay}
+      {dayContent}
     </button>
   );
 }

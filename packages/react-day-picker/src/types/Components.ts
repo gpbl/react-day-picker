@@ -1,6 +1,7 @@
 import {
   CaptionLabelProps,
   CaptionProps,
+  DayContentProps,
   DayProps,
   DropdownProps,
   RowProps,
@@ -17,8 +18,10 @@ export interface Components {
   Caption: (props: CaptionProps) => JSX.Element | null;
   /** The component for the caption element. */
   CaptionLabel: (props: CaptionLabelProps) => JSX.Element | null;
-  /** The component for the day element. */
+  /** The component for the day element. This is a button or a span. */
   Day: (props: DayProps) => JSX.Element | null;
+  /** The component for the content of the day element. */
+  DayContent: (props: DayContentProps) => JSX.Element | null;
   /** The component for the drop-down elements. */
   Dropdown: (props: DropdownProps) => JSX.Element | null;
   /** The component for the table footer. */
