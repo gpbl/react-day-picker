@@ -16,7 +16,7 @@
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
   "main": "lib/index.js",
-  "types": "types/index.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "develop": "tsc --watch",
     "lint": "eslint --ext .ts src",
@@ -30,7 +30,6 @@
     "dist",
     "lib",
     "src",
-    "types",
     "style.css"
   ],
   "devDependencies": {
