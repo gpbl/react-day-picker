@@ -6,15 +6,21 @@ import pkg from './package.json';
 export default [
   {
     input: './src/index.ts',
-    external: ['react'],
+    external: ['date-fns', 'react', 'date-fns/locale'],
     output: {
       name: 'DayPicker',
       file: pkg.browser,
       format: 'umd',
       sourcemap: true,
-      globals: { react: 'React' }
+      globals: { react: 'React', 'date-fns': 'DateFns' }
     },
-    plugins: [resolve(), commonjs(), typescript()]
+    plugins: [
+      resolve(),
+      commonjs({
+        include: '../../node_modules/**'
+      }),
+      typescript()
+    ]
   },
   {
     input: 'src/index.ts',
