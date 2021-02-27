@@ -415,6 +415,18 @@ export interface DayPickerProps {
 
   /**
    * A map of components used to create the layout.
+   *
+   * **Example**
+   *
+   * ```
+   * <DayPicker component={{
+   *    DayContent: CustomDayContent,
+   *    IconNext: CustomIconNext,
+   *    IconPrevious: CustomIconPrevious
+   *    // etc
+   *  }}
+   * />
+   * ```
    */
   components?: Partial<Components>;
 

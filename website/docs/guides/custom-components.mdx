@@ -3,11 +3,20 @@ id: custom-components
 title: Custom Components
 ---
 
-Using the `components` prop it is possible to replace some of the [internal
-components](/api/interfaces/components). The
-[useNavigation](/api/functions/usenavigation) and
-[useDayPicker](/api/functions/usedaypicker) hooks returns values that can help to
-build the components.
+Using the `components` prop it is possible to swap most of the [internal
+components](/api/interfaces/components) used by DayPicker.
+
+The [useNavigation](/api/functions/usenavigation) and
+[useDayPicker](/api/functions/usedaypicker) hooks returns values that can help
+to build the components.
+
+### Example: add a time element to the day cell
+
+The following example wrap the `DayContent` element with a `time` HTML tag.
+
+```include
+examples/components-day-content.tsx
+```
 
 ### Example: disable rows in the past
 

@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ **DayContent**(`props`: [*DayContentProps*](../interfaces/daycontentprops.md)): JSX.Element
 
-Render the content of the day cell. The content is placed in a button or in a
+Render the content of the day cell.
 
 #### Parameters:
 
