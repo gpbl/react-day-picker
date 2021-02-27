@@ -1,6 +1,7 @@
 export * from './Caption';
 export * from './CaptionLabel';
 export * from './Day';
+export * from './DayContent';
 export * from './DayPicker';
 export * from './Dropdown';
 export * from './Footer';
