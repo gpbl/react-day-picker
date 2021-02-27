@@ -42,7 +42,7 @@ export function Root(props: StyledComponentProps): JSX.Element {
       Object.assign(style, styles[UI.CaptionFirst]);
     }
     if (isLast) className.push(classNames[UI.CaptionLast]);
-    if (isBetween) className.push(classNames[UI.CaptionBetween]);
+    if (isBetween) className.push(classNames[UI.CaptionMiddle]);
 
     return (
       <div key={displayIndex} className={className.join(' ')} style={style}>
@@ -53,6 +53,7 @@ export function Root(props: StyledComponentProps): JSX.Element {
           isLast={isLast}
           isBetween={isBetween}
         />
+        isMiddle
         <Table displayMonth={displayMonth} />
       </div>
     );
