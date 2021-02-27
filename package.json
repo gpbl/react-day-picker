@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": "12",
+    "node": "14",
     "yarn": "2"
   },
   "name": "@react-day-picker/monorepo",
