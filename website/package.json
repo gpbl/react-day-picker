@@ -14,7 +14,7 @@
     "@docusaurus/core": ">=2.0.0-alpha.70",
     "@docusaurus/preset-classic": ">=2.0.0-alpha.70",
     "date-fns": "^2.17.0",
-    "docusaurus-plugin-typedoc": "^0.9.0",
+    "docusaurus-plugin-typedoc": "^0.10.0",
     "raw-loader": "^4.0.2",
     "react": "^17.0.1",
     "react-day-picker": "workspace:packages/react-day-picker",
