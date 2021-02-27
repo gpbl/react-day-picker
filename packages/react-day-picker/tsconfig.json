@@ -15,7 +15,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     // Emit Location Options
-    "emitDeclarationOnly": true,
     "outDir": "lib",
     "rootDir": "src",
     
