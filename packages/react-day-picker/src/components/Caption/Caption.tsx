@@ -10,12 +10,12 @@ export interface CaptionProps {
   displayMonth: Date;
   /** The index of the month being displayed (when `numberOfMonths` set can be greater than `0`). */
   displayIndex: number;
-  /** Whether the caption belongs to the first table (when `numberOfMonths` set). */
+  /** When `numberOfMonths > 0`, whether the month is placed first. */
   isFirst: boolean;
-  /** Whether the caption belongs to the last table (when `numberOfMonths` set). */
+  /** When `numberOfMonths > 0`, whether the month is placed last. */
   isLast: boolean;
-  /** Whether the caption belongs to a table between others (when `numberOfMonths` set).. */
-  isBetween: boolean;
+  /**When `numberOfMonths > 0`, whether the month is placed in middle position. */
+  isMiddle: boolean;
 }
 
 /**

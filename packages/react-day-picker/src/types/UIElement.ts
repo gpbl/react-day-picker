@@ -21,12 +21,12 @@ export enum UIElement {
 
   /** The caption element (showing the calendar heading and the navigation) */
   Caption = 'caption',
-  /** The caption element when the first of multiple months */
+  /** The caption element when the first of a series of months. */
   CaptionFirst = 'captionFirst',
-  /** The caption element when the last of multiple months */
+  /** The caption element when the last of a series of months. */
   CaptionLast = 'captionLast',
-  /** The caption element is between */
-  CaptionBetween = 'captionBetween',
+  /** The caption element when in the middle of a series of months.. */
+  CaptionMiddle = 'captionMiddle',
   /** The container of the caption’s label (e.g. "September 2021"). */
   CaptionLabel = 'captionLabel',
   /** The container of the drop-downs. */

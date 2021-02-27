@@ -12,7 +12,7 @@ export const defaultClassNames: Required<ClassNames> = {
   [UIElement.Months]: 'rdp-months',
   [UIElement.CaptionFirst]: 'rdp-month_first',
   [UIElement.CaptionLast]: 'rdp-month_last',
-  [UIElement.CaptionBetween]: 'rdp-month_between',
+  [UIElement.CaptionMiddle]: 'rdp-month_middle',
 
   [UIElement.Caption]: 'rdp-caption',
   [UIElement.CaptionLabel]: 'rdp-caption-label',
