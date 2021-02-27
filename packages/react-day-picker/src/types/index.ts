@@ -14,7 +14,6 @@ export * from './DayMouseEventHandler';
 export * from './DayPickerProps';
 export * from './DayTouchEventHandler';
 export * from './Formatters';
-export * from './KeyCode';
 export * from './Labels';
 export * from './MatchDate';
 export * from './MatchDaysOfWeek';

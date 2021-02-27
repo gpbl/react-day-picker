@@ -5,7 +5,7 @@ import { isSameDay, isSameMonth } from 'date-fns';
 import { useDayPicker, useModifiers, useSelection } from '../../hooks';
 import { formatDay } from '../../hooks/useDayPicker/formatters';
 import { useFocus } from '../../hooks/useFocus';
-import { KeyCode, UIElement } from '../../types';
+import { UIElement } from '../../types';
 import { createHandlers } from './utils/createHandlers';
 
 /** Represent the props used by the [[Day]] component. */
@@ -73,22 +73,22 @@ export function Day(props: DayProps): JSX.Element | null {
   };
   const handleKeyDown: React.KeyboardEventHandler = (e) => {
     switch (e.key) {
-      case KeyCode.ArrowLeft:
+      case 'ArrowLeft':
         e.preventDefault();
         e.stopPropagation();
         focusDayBefore();
         break;
-      case KeyCode.ArrowRight:
+      case 'ArrowRight':
         e.preventDefault();
         e.stopPropagation();
         focusDayAfter();
         break;
-      case KeyCode.ArrowDown:
+      case 'ArrowDown':
         e.preventDefault();
         e.stopPropagation();
         focusDayDown();
         break;
-      case KeyCode.ArrowUp:
+      case 'ArrowUp':
         e.preventDefault();
         e.stopPropagation();
         focusDayUp();
