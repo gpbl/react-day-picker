@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Locale } from 'date-fns';
-import { enUS } from 'date-fns/locale';
+import enUS from 'date-fns/locale/en-US';
 
 import {
   Caption,
