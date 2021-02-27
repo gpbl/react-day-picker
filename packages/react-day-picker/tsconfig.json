@@ -8,13 +8,14 @@
     "sourceMap": true,
     "removeComments": false,
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "types",
     "pretty": true,
     // Module Resolution Options
     "baseUrl": "./src",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     // Emit Location Options
+    "emitDeclarationOnly": true,
     "outDir": "lib",
     "rootDir": "src",
     
