@@ -9,9 +9,9 @@ function Example() {
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <Example />
-    </div>
+    </main>
   );
 }
 

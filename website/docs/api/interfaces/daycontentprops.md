@@ -12,6 +12,14 @@ Represent the props for the [DayContent](../functions/daycontent.md) component.
 
 ## Properties
 
+### aria-label
+
+• **aria-label**: *undefined* \| *string*
+
+The ARIA label for the content.
+
+___
+
 ### date
 
 • **date**: Date
@@ -33,6 +41,14 @@ ___
 • **format**: [*DateFormatter*](../types/dateformatter.md)
 
 Function to format `date` according to the initial props.
+
+___
+
+### hiddenClassName
+
+• **hiddenClassName**: *string*
+
+The class name for the aria-label (this element should stay not visible)
 
 ___
 

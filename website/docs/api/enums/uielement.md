@@ -141,6 +141,14 @@ The row element of the head.
 
 ___
 
+### Hidden
+
+• **Hidden**: = "hidden"
+
+A UI element that should be hidden for non-screen readers users.
+
+___
+
 ### Month
 
 • **Month**: = "month"
