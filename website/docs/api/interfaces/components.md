@@ -57,7 +57,7 @@ ___
 
 • **Day**: (`props`: [*DayProps*](dayprops.md)) => *null* \| *Element*
 
-The component for the day element.
+The component for the day element. This is a button or a span.
 
 #### Type declaration:
 
@@ -68,6 +68,26 @@ The component for the day element.
 Name | Type |
 :------ | :------ |
 `props` | [*DayProps*](dayprops.md) |
+
+**Returns:** *null* \| *Element*
+
+___
+
+### DayContent
+
+• **DayContent**: (`props`: [*DayContentProps*](daycontentprops.md)) => *null* \| *Element*
+
+The component for the content of the day element.
+
+#### Type declaration:
+
+▸ (`props`: [*DayContentProps*](daycontentprops.md)): *null* \| *Element*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`props` | [*DayContentProps*](daycontentprops.md) |
 
 **Returns:** *null* \| *Element*
 
