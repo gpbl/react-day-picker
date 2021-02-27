@@ -4,7 +4,6 @@ module.exports = [
     "type": "category",
     "label": "Enumerations",
     "items": [
-      "api/enums/keycode",
       "api/enums/uielement"
     ]
   },
