@@ -2,13 +2,13 @@
   "compilerOptions": {
     // Code Emit Options
     "target": "ES5", // targets IE10
-    "module": "ES2015",
+    "module": "ES6",
     "esModuleInterop": true,
     "jsx": "react",
     "sourceMap": true,
     "removeComments": false,
     "declaration": true,
-    "declarationDir": "lib",
+    "declarationDir": "dist",
     "pretty": true,
     // Module Resolution Options
     "baseUrl": "./src",
@@ -17,6 +17,7 @@
     // Emit Location Options
     "outDir": "lib",
     "rootDir": "src",
+    
     // Library Options
     "lib": [
       "es5",
