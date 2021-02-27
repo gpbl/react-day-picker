@@ -133,6 +133,8 @@ export function Day(props: DayProps): JSX.Element | null {
 
   const dayContent = (
     <DayContent
+      aria-label={ariaLabel}
+      hiddenClassName={classNames[UIElement.Hidden]}
       date={date}
       modifiers={modifierStatus}
       showOutsideDays={showOutsideDays}
@@ -159,7 +161,6 @@ export function Day(props: DayProps): JSX.Element | null {
   return (
     <button
       ref={buttonRef}
-      aria-label={ariaLabel}
       aria-pressed={ariaPressed}
       style={style}
       className={className}

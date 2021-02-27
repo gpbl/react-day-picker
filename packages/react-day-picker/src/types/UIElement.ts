@@ -16,6 +16,9 @@ export enum UIElement {
   /** The container element when number of months is greater than 1. */
   RootMultipleMonths = 'rootMultipleMonths',
 
+  /** A UI element that should be hidden for non-screen readers users. */
+  Hidden = 'hidden',
+
   /** The caption element (showing the calendar heading and the navigation) */
   Caption = 'caption',
   /** The caption element when the first of multiple months */
