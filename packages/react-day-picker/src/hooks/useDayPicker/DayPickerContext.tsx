@@ -150,7 +150,6 @@ export const DayPickerProvider = ({
   if (fromDate) modifiers.disabled.push({ before: fromDate });
   if (toDate) modifiers.disabled.push({ after: toDate });
 
-  console.log(initialProps.footer);
   const context: DayPickerContextValue = {
     ...initialProps,
     modifierPrefix: 'rdp-day_',
