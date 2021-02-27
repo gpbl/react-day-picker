@@ -8,7 +8,7 @@
     "sourceMap": true,
     "removeComments": false,
     "declaration": true,
-    "declarationDir": "types",
+    "declarationDir": "lib",
     "pretty": true,
     // Module Resolution Options
     "baseUrl": "./src",
