@@ -17,6 +17,11 @@ See the preview website at https://react-day-picker-next.netlify.app.
 <details>
   <summary>Beta Changelog</summary>
 
+## [v8.0.0-beta.14](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.14)
+
+- Add “DayContent” component (12aed904)
+- Replace webpack with rollup (#1028) (13748058)
+
 ## [v8.0.0-beta.13](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.13)
 
 - Fix for today modifier not being added (6472e895)
