@@ -5,7 +5,7 @@ import { WeekNumberLabelFormatter } from './WeekNumberLabelFormatter';
 
 /**
  * Represent a map of formatters used to format ARIA labels for the relative
- * [[UIElements]].
+ * elements.
  */
 export type Labels = {
   labelNext: NavButtonLabelFormatter;

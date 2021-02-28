@@ -1,7 +1,7 @@
 import { ClassNames } from '../../types';
 
 /**
- * The name of the default CSS classes for the [[UIElements]].
+ * The name of the default CSS classes.
  */
 export const defaultClassNames: Required<ClassNames> = {
   root: 'rdp',
