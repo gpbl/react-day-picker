@@ -7,6 +7,7 @@ import { useDayPicker } from '../../hooks';
  */
 export function Footer(): JSX.Element {
   const { footer } = useDayPicker();
+  if (!footer) return <></>;
   return (
     <tfoot>
       <tr>
