@@ -8,6 +8,6 @@ hide_title: true
 
 # Type alias: Styles
 
-Ƭ **Styles**: { [element in UIElement]?: React.CSSProperties}
+Ƭ **Styles**: *Partial*<[*StyledElement*](styledelement.md)<CSSProperties\>\>
 
-Represent the inline styles used for each [UIElement](../enums/uielement.md).
+The inline-styles of each element.

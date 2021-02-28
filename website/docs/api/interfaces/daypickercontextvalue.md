@@ -20,7 +20,7 @@ ___
 
 ### classNames
 
-• **classNames**: [*ClassNames*](../types/classnames.md)
+• **classNames**: *Required*<Partial<[*StyledElement*](../types/styledelement.md)<string\>\>\>
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 ### styles
 
-• **styles**: [*Styles*](../types/styles.md)
+• **styles**: *Partial*<[*StyledElement*](../types/styledelement.md)<CSSProperties\>\>
 
 ___
 

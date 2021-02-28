@@ -11,10 +11,6 @@ hide_title: true
 
 ## Table of contents
 
-### Enumerations
-
-- [UIElement](enums/uielement.md)
-
 ### Interfaces
 
 - [CaptionLabelProps](interfaces/captionlabelprops.md)
@@ -65,6 +61,7 @@ hide_title: true
 - [SelectMultipleEventHandler](types/selectmultipleeventhandler.md)
 - [SelectRangeEventHandler](types/selectrangeeventhandler.md)
 - [SelectionContextValue](types/selectioncontextvalue.md)
+- [StyledElement](types/styledelement.md)
 - [Styles](types/styles.md)
 - [UseInput](types/useinput.md)
 - [WeekNumberClickEventHandler](types/weeknumberclickeventhandler.md)

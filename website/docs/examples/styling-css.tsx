@@ -3,14 +3,18 @@ import { DayPicker } from 'react-day-picker';
 
 export default function App() {
   const style = `
-    .aqua { color: aquamarine; font-weight: bold; font-size: larger }
+    .caption_aqua { 
+      color: aquamarine; 
+      font-weight: bold; 
+      font-size: largest; 
+    }
   `;
   return (
     <>
       <style>{style}</style>
       <DayPicker
         classNames={{
-          captionLabel: 'aqua'
+          caption_label: 'caption_aqua'
         }}
       />
     </>

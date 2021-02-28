@@ -2,13 +2,6 @@ module.exports = [
   "api/index",
   {
     "type": "category",
-    "label": "Enumerations",
-    "items": [
-      "api/enums/uielement"
-    ]
-  },
-  {
-    "type": "category",
     "label": "Interfaces",
     "items": [
       "api/interfaces/captionlabelprops",
@@ -62,6 +55,7 @@ module.exports = [
       "api/types/selectmultipleeventhandler",
       "api/types/selectrangeeventhandler",
       "api/types/selectioncontextvalue",
+      "api/types/styledelement",
       "api/types/styles",
       "api/types/useinput",
       "api/types/weeknumberclickeventhandler",
