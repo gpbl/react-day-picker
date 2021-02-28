@@ -9,7 +9,7 @@ export function useModifiers(date: Date): ModifierStatus {
   const selection = useSelection();
   const modifiers = Object.assign({}, context.modifiers);
 
-  modifiers.today = context.today;
+  modifiers.today = modifiers.today === false ? false : context.today;
 
   if (context.mode !== 'uncontrolled') {
     const { single, multiple, range } = selection ?? {};
