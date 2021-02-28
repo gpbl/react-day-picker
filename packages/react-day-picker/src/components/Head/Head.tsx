@@ -19,7 +19,11 @@ export function Head(): JSX.Element {
     <thead style={styles.head} className={classNames.head}>
       <tr style={styles.head_row} className={classNames.head_row}>
         {showWeekNumber && (
-          <th style={styles.head_cell} className={classNames.head_cell}></th>
+          <th
+            scope="col"
+            style={styles.head_cell}
+            className={classNames.head_cell}
+          ></th>
         )}
         {weekdays.map((weekday, i) => (
           <th
