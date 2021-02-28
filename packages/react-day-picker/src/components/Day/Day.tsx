@@ -52,7 +52,7 @@ export function Day(props: DayProps): JSX.Element | null {
     }
   }, [focusedDay]);
 
-  if (modifierStatus.hidden) return <span />;
+  if (modifierStatus.hidden) return <></>;
 
   const ariaLabel = labelDay(date, modifierStatus, { locale });
   const ariaPressed = modifierStatus.selected;
@@ -107,12 +107,6 @@ export function Day(props: DayProps): JSX.Element | null {
     cssClasses.push(classNames.day_outside);
   }
 
-  const isToday = isSameDay(date, context.today);
-  if (isToday) {
-    cssClasses.push(classNames.day_today);
-  }
-  const className = cssClasses.join(' ');
-
   Object.keys(modifierStatus)
     .filter((modifier) => Boolean(modifierStatus[modifier]))
     .forEach((modifier) => {
@@ -153,26 +147,21 @@ export function Day(props: DayProps): JSX.Element | null {
     />
   );
 
-  if (modifierStatus.disabled || isOutside) {
-    return (
-      <span style={style} className={className}>
-        {dayContent}
-      </span>
-    );
-  }
+  const isDisabled = modifierStatus.disabled || isOutside;
+  const isFocused = focusedDay && !isSameDay(focusedDay, date);
 
   let tabIndex = 0;
-  // When a day is focused disable tab indexes in the other days
-  if (focusedDay && !isSameDay(focusedDay, date)) tabIndex = -1;
+  if (isDisabled || isFocused) tabIndex = -1;
 
-  const buttonClassName = [classNames.button_reset, ...cssClasses];
+  const className = [classNames.button_reset, ...cssClasses].join(' ');
 
   return (
     <button
       ref={buttonRef}
       aria-pressed={ariaPressed}
       style={style}
-      className={buttonClassName.join(' ')}
+      disabled={isDisabled}
+      className={className}
       tabIndex={tabIndex}
       onClick={handleClick}
       onFocus={handleFocus}
