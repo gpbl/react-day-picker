@@ -26,7 +26,7 @@ export function Table(props: TableProps): JSX.Element {
   } = useDayPicker();
   const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
   return (
-    <table className={classNames.table} style={styles.table}>
+    <table className={classNames.table} style={styles.table} role="grid">
       {!hideHead && <Head />}
       <tbody className={classNames.tbody} style={styles.tbody}>
         {Object.keys(weeks).map((weekNumber) => (

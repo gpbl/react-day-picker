@@ -30,9 +30,9 @@ export function Row(props: RowProps): JSX.Element {
   let weekNumberCell;
   if (showWeekNumber) {
     weekNumberCell = (
-      <th className={classNames.row_head} style={styles.row_head}>
+      <td className={classNames.cell} style={styles.cell}>
         <WeekNumber number={props.weekNumber} dates={props.dates} />
-      </th>
+      </td>
     );
   }
 
