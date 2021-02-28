@@ -3,7 +3,6 @@ import * as React from 'react';
 import { getUnixTime } from 'date-fns';
 
 import { useDayPicker } from '../../hooks';
-import { UIElement as UI } from '../../types';
 
 /**
  * The props for the [[Row]] component.
@@ -31,19 +30,19 @@ export function Row(props: RowProps): JSX.Element {
   let weekNumberCell;
   if (showWeekNumber) {
     weekNumberCell = (
-      <th className={classNames[UI.RowHead]} style={styles[UI.RowHead]}>
+      <th className={classNames.row_head} style={styles.row_head}>
         <WeekNumber number={props.weekNumber} dates={props.dates} />
       </th>
     );
   }
 
   return (
-    <tr className={classNames[UI.Row]} style={styles[UI.Row]}>
+    <tr className={classNames.row} style={styles.row}>
       {weekNumberCell}
       {props.dates.map((date) => (
         <td
-          className={classNames[UI.Cell]}
-          style={styles[UI.Cell]}
+          className={classNames.cell}
+          style={styles.cell}
           key={getUnixTime(date)}
         >
           <Day displayMonth={props.displayMonth} date={date} />

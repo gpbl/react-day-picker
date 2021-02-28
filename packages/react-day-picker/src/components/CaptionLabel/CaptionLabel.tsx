@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { useDayPicker } from '../../hooks';
-import { UIElement as UI } from '../../types';
 
 /** The props for the [[CaptionLabel]] component. */
 export interface CaptionLabelProps {
@@ -19,8 +18,8 @@ export function CaptionLabel(props: CaptionLabelProps): JSX.Element {
   return (
     <div
       key="caption"
-      className={classNames[UI.CaptionLabel]}
-      style={styles[UI.CaptionLabel]}
+      className={classNames.caption_label}
+      style={styles.caption_label}
       aria-live="polite"
     >
       {formatCaption(props.displayMonth, { locale })}

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { MonthsDropdown, Navigation, YearsDropdown } from '../../components';
 import { useDayPicker, useNavigation } from '../../hooks';
-import { MonthChangeEventHandler, UIElement as UI } from '../../types';
+import { MonthChangeEventHandler } from '../../types';
 
 /** Represent the props of the [[Caption]] component. */
 export interface CaptionProps {
@@ -58,15 +58,15 @@ export function Caption(props: CaptionProps): JSX.Element {
   const captionLabel = <CaptionLabel displayMonth={displayMonth} />;
 
   return (
-    <div className={classNames[UI.Caption]} style={styles[UI.Caption]}>
+    <div className={classNames.caption} style={styles.caption}>
       {disableNavigation ? (
         captionLabel
       ) : (
         <>
           {captionLayout === 'dropdown' ? (
             <div
-              className={classNames[UI.CaptionDropdowns]}
-              style={styles[UI.CaptionDropdowns]}
+              className={classNames.caption_dropdowns}
+              style={styles.caption_dropdowns}
             >
               <MonthsDropdown
                 onChange={handleMonthChange}

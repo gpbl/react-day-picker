@@ -1,5 +1,5 @@
 export * from './CaptionLayout';
-export * from './ClassNames';
+export * from './StyledElement';
 export * from './Components';
 export * from './DateAfter';
 export * from './DateBefore';
@@ -29,9 +29,7 @@ export * from './SelectMode';
 export * from './SelectMultipleEventHandler';
 export * from './SelectRangeEventHandler';
 export * from './StyledComponentProps';
-export * from './Styles';
-export * from './UIElement';
+export * from './WeekdayLabelFormatter';
 export * from './WeekNumberClickEventHandler';
 export * from './WeekNumberFormatter';
 export * from './WeekNumberLabelFormatter';
-export * from './WeekdayLabelFormatter';

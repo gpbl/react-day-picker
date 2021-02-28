@@ -3,7 +3,7 @@ import * as React from 'react';
 import { isSameYear, setMonth as setDateMonth, startOfMonth } from 'date-fns';
 
 import { useDayPicker } from '../../hooks';
-import { MonthChangeEventHandler, UIElement } from '../../types';
+import { MonthChangeEventHandler } from '../../types';
 
 /**
  * The props for the [[MonthsDropdown]] component.
@@ -60,8 +60,8 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
 
   return (
     <Dropdown
-      className={classNames[UIElement.DropdownMonth]}
-      style={styles[UIElement.DropdownMonth]}
+      className={classNames.dropdown_month}
+      style={styles.dropdown_month}
       onChange={handleChange}
       value={displayMonth.getMonth()}
       caption={formatMonthCaption(displayMonth, { locale })}
