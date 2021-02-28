@@ -11,7 +11,7 @@ hide_title: true
 Ƭ **Labels**: *object*
 
 Represent a map of formatters used to format ARIA labels for the relative
-[[UIElements]].
+elements.
 
 #### Type declaration:
 
