@@ -21,8 +21,10 @@ export function useModifiers(date: Date): ModifierStatus {
           after: range.selected.from,
           before: range.selected.to
         };
-        modifiers.range_start = range.selected.from;
-        if (range.selected.to) modifiers.range_end = range.selected.to;
+        if (range.selected.to) {
+          modifiers.range_start = range.selected.from;
+          modifiers.range_end = range.selected.to;
+        }
         break;
       case 'multiple':
         if (!multiple.selected) break;
