@@ -8,6 +8,6 @@ hide_title: true
 
 # Type alias: ClassNames
 
-Ƭ **ClassNames**: { [element in UIElement]: string}
+Ƭ **ClassNames**: *Partial*<[*StyledElement*](styledelement.md)<string\>\>
 
-Represent the class names used for each [UIElement](../enums/uielement.md).
+The class names of each element.

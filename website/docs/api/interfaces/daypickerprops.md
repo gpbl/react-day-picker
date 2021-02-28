@@ -45,7 +45,7 @@ ___
 
 ### classNames
 
-• `Optional` **classNames**: *undefined* \| [*ClassNames*](../types/classnames.md)
+• `Optional` **classNames**: *undefined* \| *Partial*<[*StyledElement*](../types/styledelement.md)<string\>\>
 
 Change the class names.
 
@@ -653,9 +653,9 @@ ___
 
 ### styles
 
-• `Optional` **styles**: *undefined* \| [*Styles*](../types/styles.md)
+• `Optional` **styles**: *undefined* \| *Partial*<[*StyledElement*](../types/styledelement.md)<CSSProperties\>\>
 
-Change the inline styles for each [UIElement](../enums/uielement.md).
+Change the inline styles for each UIElement.
 
 ___
 

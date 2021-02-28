@@ -48,11 +48,6 @@ details summary {
   font-weight: bold;
 }
 
-div > div > details summary {
-  padding: 0;
-  margin-left: var(--ifm-pre-padding);
-}
-
 .container {
   margin: 0;
 }
@@ -73,22 +68,18 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 /* revert styles from docusaurus */
-.rdp,
-.rdp table,
-.rdp tbody,
-.rdp thead,
-.rdp tr,
-.rdp td,
-.rdp th {
-  all: revert;
+table {
+  margin: 0;
+}
+table th,
+table td,
+table tr {
+  background-color: transparent;
+  border: 0;
 }
 
 .rdp table tr:nth-child(2n) {
   background: none;
-}
-
-.prism-code > div {
-  /* background-color: var(--ifm-pre-background) !important; */
 }
 
 .table-of-contents code {

@@ -1,10 +1,23 @@
 import './App.css';
 import 'react-day-picker/style.css';
 
-import { DayPicker } from 'react-day-picker';
+import { ClassNames, DayPicker } from 'react-day-picker';
+
+import classNames from './style.module.css';
 
 function Example() {
-  return <DayPicker captionLayout="dropdown" numberOfMonths={4} />;
+  return (
+    <DayPicker
+      classNames={classNames as ClassNames}
+      mode="range"
+      fromYear={2010}
+      toYear={2020}
+      showOutsideDays
+      showWeekNumber
+      onWeekNumberClick={() => ({})}
+      numberOfMonths={1}
+    />
+  );
 }
 
 function App() {

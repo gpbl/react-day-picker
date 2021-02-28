@@ -28,19 +28,11 @@ The month where the caption is displayed.
 
 ___
 
-### isBetween
-
-• **isBetween**: *boolean*
-
-Whether the caption belongs to a table between others (when `numberOfMonths` set)..
-
-___
-
 ### isFirst
 
 • **isFirst**: *boolean*
 
-Whether the caption belongs to the first table (when `numberOfMonths` set).
+When `numberOfMonths > 0`, whether the month is placed first.
 
 ___
 
@@ -48,4 +40,12 @@ ___
 
 • **isLast**: *boolean*
 
-Whether the caption belongs to the last table (when `numberOfMonths` set).
+When `numberOfMonths > 0`, whether the month is placed last.
+
+___
+
+### isMiddle
+
+• **isMiddle**: *boolean*
+
+When `numberOfMonths > 0`, whether the month is placed in middle position.
