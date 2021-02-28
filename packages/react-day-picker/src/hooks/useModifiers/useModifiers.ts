@@ -17,12 +17,12 @@ export function useModifiers(date: Date): ModifierStatus {
       case 'range':
         if (!range.selected) break;
         modifiers.selected = range.selected;
-        modifiers['range-middle'] = {
+        modifiers.range_middle = {
           after: range.selected.from,
           before: range.selected.to
         };
-        modifiers['range-start'] = range.selected.from;
-        if (range.selected.to) modifiers['range-end'] = range.selected.to;
+        modifiers.range_start = range.selected.from;
+        if (range.selected.to) modifiers.range_end = range.selected.to;
         break;
       case 'multiple':
         if (!multiple.selected) break;
