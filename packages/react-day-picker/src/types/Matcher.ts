@@ -10,6 +10,7 @@ import { MatchDaysOfWeek } from './MatchDaysOfWeek';
  * determine if a day matches a modifier.
  */
 export type Matcher =
+  | boolean
   | Date
   | DateRange
   | DateBeforeAfter

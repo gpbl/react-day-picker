@@ -23,6 +23,7 @@ export function isMatch(day: Date, matcher: Matcher): boolean {
 
   return matchers.some((dayMatcher: Matcher) => {
     if (!dayMatcher) return false;
+    if (typeof dayMatcher === 'boolean') return dayMatcher;
     return (
       // Precedence shouldn't be important here
       matchDate(day, dayMatcher) ||

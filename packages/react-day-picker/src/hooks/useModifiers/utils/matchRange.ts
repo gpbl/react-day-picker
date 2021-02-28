@@ -3,6 +3,7 @@ import { differenceInCalendarDays, isSameDay } from 'date-fns';
 import { Matcher } from '../../../types';
 
 export function matchRange(day: Date, matcher: Matcher): boolean {
+  if (typeof matcher === 'boolean') return matcher;
   if (!('from' in matcher)) return false;
   if (!matcher.from) return false;
   let { from, to } = matcher;
