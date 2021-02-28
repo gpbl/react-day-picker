@@ -12,22 +12,6 @@ The props for the [Navigation](../functions/navigation.md) component.
 
 ## Properties
 
-### disableNext
-
-• **disableNext**: *boolean*
-
-Disable the next button.
-
-___
-
-### disablePrevious
-
-• **disablePrevious**: *boolean*
-
-Disable the previous button.
-
-___
-
 ### displayMonth
 
 • **displayMonth**: Date
@@ -49,6 +33,14 @@ ___
 • **hidePrevious**: *boolean*
 
 Hide the previous button.
+
+___
+
+### nextMonth
+
+• `Optional` **nextMonth**: *undefined* \| Date
+
+The next month.
 
 ___
 
@@ -89,3 +81,11 @@ Name | Type |
 `event` | *MouseEvent*<HTMLButtonElement, MouseEvent\> |
 
 **Returns:** *void*
+
+___
+
+### previousMonth
+
+• `Optional` **previousMonth**: *undefined* \| Date
+
+The previous month.

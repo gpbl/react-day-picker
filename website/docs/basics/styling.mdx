@@ -17,21 +17,14 @@ The CSS uses few variables to quickly override the colors and the cell size:
 
 ```css
 :root {
-  --rdp-font-family: inherit;
-  --rdp-accent-color: #4d21fc;
-  /* Default colors for light themes */
-  --rdp-accent-color-light: #8567fd;
-  --rdp-accent-color-lighter: #beaefe;
-  --rdp-accent-color-lightest: #f6f4ff;
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #0000ff;
+  --rdp-background-color: #e7edff;
   /* Switch to dark colors for dark themes */
   --rdp-accent-color-dark: #3003e1;
-  --rdp-accent-color-darker: #1e0097;
-  --rdp-accent-color-darkest: #180270;
-  --rdp-cell-size: 40px;
+  --rdp-background-color-dark: #180270;
   /* Outline border for focused elements */
   --rdp-outline: 2px solid var(--rdp-accent-color);
-  /* Opacity of disabled elements */
-  --rdp-disabled-opacity: 0.25;
 }
 ```
 
