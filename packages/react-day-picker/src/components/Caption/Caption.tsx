@@ -84,8 +84,8 @@ export function Caption(props: CaptionProps): JSX.Element {
                 displayMonth={displayMonth}
                 hideNext={numberOfMonths > 1 && !isLast}
                 hidePrevious={numberOfMonths > 1 && !isFirst}
-                disableNext={!nextMonth}
-                disablePrevious={!previousMonth}
+                nextMonth={nextMonth}
+                previousMonth={previousMonth}
                 onPreviousClick={handlePreviousClick}
                 onNextClick={handleNextClick}
               />

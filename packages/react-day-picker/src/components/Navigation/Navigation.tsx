@@ -6,10 +6,10 @@ import { useDayPicker } from '../../hooks';
 export interface NavigationProps {
   /** The month where the caption is displayed. */
   displayMonth: Date;
-  /** Disable the previous button. */
-  disablePrevious: boolean;
-  /** Disable the next button. */
-  disableNext: boolean;
+  /** The previous month. */
+  previousMonth?: Date;
+  /** The next month. */
+  nextMonth?: Date;
   /** Hide the previous button. */
   hidePrevious: boolean;
   /** Hide the next button. */
@@ -34,14 +34,19 @@ export function Navigation(props: NavigationProps): JSX.Element {
   if (dir === 'rtl') {
     [onNextClick, onPreviousClick] = [onPreviousClick, onNextClick];
   }
-  const previousLabel = labelPrevious(props.displayMonth, { locale });
+
+  const { previousMonth, nextMonth } = props;
+
+  const previousLabel = previousMonth
+    ? labelPrevious(previousMonth, { locale })
+    : '';
   const previousClassName = [
     classNames.button_reset,
     classNames.nav_button,
     classNames.nav_button_previous
   ].join(' ');
 
-  const nextLabel = labelNext(props.displayMonth, { locale });
+  const nextLabel = nextMonth ? labelNext(nextMonth, { locale }) : '';
   const nextClassName = [
     classNames.button_reset,
     classNames.nav_button,
@@ -54,7 +59,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
       aria-label={previousLabel}
       className={previousClassName}
       style={styles.nav_button_previous}
-      disabled={props.disablePrevious}
+      disabled={!previousMonth}
       onClick={onPreviousClick}
     >
       <IconPrevious className={classNames.nav_icon} style={styles.nav_icon} />
@@ -66,14 +71,14 @@ export function Navigation(props: NavigationProps): JSX.Element {
       key="next"
       aria-label={nextLabel}
       className={nextClassName}
-      disabled={props.disableNext}
+      disabled={!nextMonth}
       onClick={onNextClick}
       style={styles.nav_button_next}
     >
       <IconNext className={classNames.nav_icon} style={styles.nav_icon} />
     </button>
   );
-  if (props.disableNext && props.disablePrevious) {
+  if (!nextMonth && !previousMonth) {
     return <></>;
   }
   return (
