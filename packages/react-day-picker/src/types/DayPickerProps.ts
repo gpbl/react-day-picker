@@ -109,7 +109,7 @@ export interface DayPickerProps {
    */
   style?: React.CSSProperties;
   /**
-   * Change the inline styles for each [[UIElement]].
+   * Change the inline styles for each UIElement.
    */
   styles?: Styles;
   /**

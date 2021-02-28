@@ -1,54 +1,50 @@
-import { ClassNames, UIElement } from '../../types';
+import { ClassNames } from '../../types';
 
 /**
  * The name of the default CSS classes for the [[UIElements]].
  */
 export const defaultClassNames: Required<ClassNames> = {
-  /** Root element */
-  [UIElement.Root]: 'rdp',
-  [UIElement.RootMultipleMonths]: 'rdp-multiple-months',
-  [UIElement.Hidden]: 'rdp-hidden',
+  root: 'rdp',
+  multiple_month: 'rdp-multiple_months',
+  hidden: 'rdp-hidden',
+  button_reset: 'rdp-button_reset',
 
-  [UIElement.Months]: 'rdp-months',
-  [UIElement.CaptionFirst]: 'rdp-month_first',
-  [UIElement.CaptionLast]: 'rdp-month_last',
-  [UIElement.CaptionMiddle]: 'rdp-month_middle',
+  caption: 'rdp-caption',
 
-  [UIElement.Caption]: 'rdp-caption',
-  [UIElement.CaptionLabel]: 'rdp-caption-label',
-  [UIElement.CaptionDropdowns]: 'rdp-caption-dropdowns',
+  caption_first: 'rdp-caption_first',
+  caption_last: 'rdp-caption_last',
+  caption_middle: 'rdp-caption_middle',
+  caption_label: 'rdp-caption_label',
 
-  [UIElement.Dropdown]: 'rdp-dropdown',
-  [UIElement.DropdownMonth]: 'rdp-dropdown_month',
-  [UIElement.DropdownYear]: 'rdp-dropdown_year',
+  caption_dropdowns: 'rdp-caption_dropdowns',
 
-  // Day Component
-  [UIElement.Day]: 'rdp-day',
-  [UIElement.Outside]: 'rdp-day_outside',
-  [UIElement.Today]: 'rdp-day_today',
+  dropdown: 'rdp-dropdown',
+  dropdown_month: 'rdp-dropdown_month',
+  dropdown_year: 'rdp-dropdown_year',
+  dropdown_icon: 'rdp-dropdown_icon',
 
-  // Month Component
-  [UIElement.Month]: 'rdp-month',
-  [UIElement.Table]: 'rdp-table',
-  [UIElement.TBody]: 'rdp-body',
+  months: 'rdp-months',
+  month: 'rdp-month',
+  table: 'rdp-table',
+  tbody: 'rdp-tbody',
 
-  // Head Components
-  [UIElement.Head]: 'rdp-head',
-  [UIElement.HeadRow]: 'rdp-head-row',
-  [UIElement.HeadCell]: 'rdp-head-cell',
+  head: 'rdp-head',
+  head_row: 'rdp-head_row',
+  head_cell: 'rdp-head_cell',
 
-  // Navigation Component
-  [UIElement.Nav]: 'rdp-nav',
-  [UIElement.NavButton]: 'rdp-nav-button',
-  [UIElement.NavButtonPrev]: 'rdp-nav-button_prev',
-  [UIElement.NavButtonNext]: 'rdp-nav-button_next',
+  nav: 'rdp-nav',
+  nav_button: 'rdp-nav_button',
+  nav_button_previous: 'rdp-nav_button_previous',
+  nav_button_next: 'rdp-nav_button_next',
 
-  [UIElement.NavIcon]: 'rdp-nav-icon',
-  [UIElement.DropdownIcon]: 'rdp-dropdown-icon',
+  nav_icon: 'rdp-nav_icon',
 
-  // Week Component
-  [UIElement.Row]: 'rdp-row',
-  [UIElement.RowHead]: 'rdp-row-head',
-  [UIElement.WeekNumber]: 'rdp-weeknumber',
-  [UIElement.Cell]: 'rdp-cell'
+  row: 'rdp-row',
+  row_head: 'rdp-row_head',
+  weeknumber: 'rdp-weeknumber',
+  cell: 'rdp-cell',
+
+  day: 'rdp-day',
+  day_outside: 'rdp-day_outside',
+  day_today: 'rdp-day_today'
 };

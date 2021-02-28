@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { useDayPicker } from '../../hooks';
-import { UIElement as UI } from '../../types';
 
 /** The props for the [[Navigation]] component. */
 export interface NavigationProps {
@@ -37,14 +36,16 @@ export function Navigation(props: NavigationProps): JSX.Element {
   }
   const previousLabel = labelPrevious(props.displayMonth, { locale });
   const previousClassName = [
-    classNames[UI.NavButton],
-    classNames[UI.NavButtonPrev]
+    classNames.button_reset,
+    classNames.nav_button,
+    classNames.nav_button_previous
   ].join(' ');
 
   const nextLabel = labelNext(props.displayMonth, { locale });
   const nextClassName = [
-    classNames[UI.NavButton],
-    classNames[UI.NavButtonPrev]
+    classNames.button_reset,
+    classNames.nav_button,
+    classNames.nav_button_previous
   ].join(' ');
 
   const previousButton = (
@@ -52,14 +53,11 @@ export function Navigation(props: NavigationProps): JSX.Element {
       key="prev"
       aria-label={previousLabel}
       className={previousClassName}
-      style={styles[UI.NavButtonPrev]}
+      style={styles.nav_button_previous}
       disabled={props.disablePrevious}
       onClick={onPreviousClick}
     >
-      <IconPrevious
-        className={classNames[UI.NavIcon]}
-        style={styles[UI.NavIcon]}
-      />
+      <IconPrevious className={classNames.nav_icon} style={styles.nav_icon} />
     </button>
   );
 
@@ -70,16 +68,16 @@ export function Navigation(props: NavigationProps): JSX.Element {
       className={nextClassName}
       disabled={props.disableNext}
       onClick={onNextClick}
-      style={styles[UI.NavButtonNext]}
+      style={styles.nav_button_next}
     >
-      <IconNext className={classNames[UI.NavIcon]} style={styles[UI.NavIcon]} />
+      <IconNext className={classNames.nav_icon} style={styles.nav_icon} />
     </button>
   );
   if (props.disableNext && props.disablePrevious) {
     return <></>;
   }
   return (
-    <div className={classNames[UI.Nav]} style={styles[UI.Nav]}>
+    <div className={classNames.nav} style={styles.nav}>
       {!props.hidePrevious && previousButton}
       {!props.hideNext && nextButton}
     </div>

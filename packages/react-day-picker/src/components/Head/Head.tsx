@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { useDayPicker } from '../../hooks';
-import { UIElement } from '../../types';
 
 /**
  * Render the Head component - i.e. the table head with the weekday names.
@@ -17,26 +16,17 @@ export function Head(): JSX.Element {
     weekdays
   } = useDayPicker();
   return (
-    <thead
-      style={styles[UIElement.Head]}
-      className={classNames[UIElement.Head]}
-    >
-      <tr
-        style={styles[UIElement.HeadRow]}
-        className={classNames[UIElement.HeadRow]}
-      >
+    <thead style={styles.head} className={classNames.head}>
+      <tr style={styles.head_row} className={classNames.head_row}>
         {showWeekNumber && (
-          <th
-            style={styles[UIElement.HeadCell]}
-            className={classNames[UIElement.HeadCell]}
-          ></th>
+          <th style={styles.head_cell} className={classNames.head_cell}></th>
         )}
         {weekdays.map((weekday, i) => (
           <th
             key={i}
             scope="col"
-            className={classNames[UIElement.HeadCell]}
-            style={styles[UIElement.HeadCell]}
+            className={classNames.head_cell}
+            style={styles.head_cell}
             aria-label={labelWeekday(weekday, { locale })}
           >
             {formatWeekdayName(weekday, { locale })}

@@ -51,7 +51,7 @@ import { parseFromToProps } from './utils/parseFromToProps';
  */
 export interface DayPickerContextValue {
   captionLayout: CaptionLayout;
-  classNames: ClassNames;
+  classNames: Required<ClassNames>;
   components: Components;
   defaultMonth?: Date;
   defaultSelected?: Date | Date[] | DateRange;

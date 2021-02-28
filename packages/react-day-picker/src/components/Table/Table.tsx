@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { Head } from '../../components';
 import { useDayPicker } from '../../hooks';
-import { UIElement } from '../../types';
 import { getWeeks } from './utils/getWeeks';
 
 /**
@@ -27,15 +26,9 @@ export function Table(props: TableProps): JSX.Element {
   } = useDayPicker();
   const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
   return (
-    <table
-      className={classNames[UIElement.Table]}
-      style={styles[UIElement.Table]}
-    >
+    <table className={classNames.table} style={styles.table}>
       {!hideHead && <Head />}
-      <tbody
-        className={classNames[UIElement.TBody]}
-        style={styles[UIElement.TBody]}
-      >
+      <tbody className={classNames.tbody} style={styles.tbody}>
         {Object.keys(weeks).map((weekNumber) => (
           <Row
             displayMonth={props.displayMonth}

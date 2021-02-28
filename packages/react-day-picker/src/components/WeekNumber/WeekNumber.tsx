@@ -1,7 +1,6 @@
 import React, { MouseEventHandler } from 'react';
 
 import { useDayPicker } from '../../hooks';
-import { UIElement as UI } from '../../types';
 
 /**
  * The props for the [[WeekNumber]] component.
@@ -33,11 +32,12 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
 
   const Component = onWeekNumberClick ? 'button' : 'span';
 
+  const className = [classNames.weeknumber, classNames.button_reset];
   return (
     <Component
       aria-label={label}
-      className={classNames[UI.WeekNumber]}
-      style={styles[UI.WeekNumber]}
+      className={className.join(' ')}
+      style={styles.weeknumber}
       onClick={handleClick}
     >
       {formatWeekNumber(Number(weekNumber), { locale })}
