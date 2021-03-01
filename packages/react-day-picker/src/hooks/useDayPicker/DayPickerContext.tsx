@@ -110,16 +110,18 @@ export const DayPickerContext = React.createContext<
   DayPickerContextValue | undefined
 >(undefined);
 
+export type DayPickerProviderProps = {
+  initialProps: DayPickerProps;
+  children?: React.ReactNode;
+};
+
 /**
  * The provider for the [[DayPickerContext]]. Must wrap the DayPicker’s root.
  */
-export const DayPickerProvider = ({
-  initialProps,
-  children
-}: {
-  initialProps: DayPickerProps;
-  children: React.ReactNode;
-}): JSX.Element => {
+export const DayPickerProvider = (
+  props: DayPickerProviderProps
+): JSX.Element => {
+  const { children, initialProps } = props;
   const { fromDate, toDate } = parseFromToProps(initialProps);
   const locale = initialProps.locale || enUS;
   const numberOfMonths = initialProps.numberOfMonths ?? 1;
