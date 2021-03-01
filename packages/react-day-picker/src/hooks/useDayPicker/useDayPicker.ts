@@ -3,10 +3,7 @@ import React from 'react';
 import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
 
 /**
- * Return the [[DayPickerContext]].
- *
- * Use the DayPickerContext to get the props and other values directly from the
- * internal components.
+ * Hook to access the [[DayPickerContext]].
  */
 export function useDayPicker(): DayPickerContextValue {
   const context = React.useContext(DayPickerContext);
