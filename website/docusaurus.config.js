@@ -81,7 +81,6 @@ module.exports = {
         disableSources: true,
 
         // Markdown plugin settings
-        hideProjectName: true,
         hideBreadcrumbs: true,
         hideInPageTOC: true,
         indexTitle: 'API Reference'
