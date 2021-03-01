@@ -15,7 +15,7 @@ export const SelectionContext = React.createContext<
   SelectionContextValue | undefined
 >(undefined);
 
-type SelectionProviderProps = {
+export type SelectionProviderProps = {
   children: React.ReactNode;
 };
 

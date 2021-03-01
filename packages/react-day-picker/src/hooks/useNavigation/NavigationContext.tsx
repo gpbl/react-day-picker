@@ -27,12 +27,14 @@ export const NavigationContext = React.createContext<
   NavigationContextValue | undefined
 >(undefined);
 
-/** Provides the values for the [[NavigationContext]]. */
-export const NavigationProvider = ({
-  children
-}: {
+export type NavigationProviderProps = {
   children?: React.ReactNode;
-}): JSX.Element => {
+};
+
+/** Provides the values for the [[NavigationContext]]. */
+export const NavigationProvider = (
+  props: NavigationProviderProps
+): JSX.Element => {
   const context = useDayPicker();
   const initialMonth = getInitialMonth(context);
 
@@ -57,7 +59,7 @@ export const NavigationProvider = ({
     <NavigationContext.Provider
       value={{ month, displayMonths, setMonth, previousMonth, nextMonth }}
     >
-      {children}
+      {props.children}
     </NavigationContext.Provider>
   );
 };
