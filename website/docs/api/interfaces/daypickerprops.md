@@ -155,7 +155,7 @@ ___
 
 ### disabled
 
-• `Optional` **disabled**: *undefined* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **disabled**: *undefined* \| *boolean* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `disabled` modifier to the matching days.
 
@@ -236,7 +236,7 @@ ___
 
 ### hidden
 
-• `Optional` **hidden**: *undefined* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **hidden**: *undefined* \| *boolean* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `hidden` modifier to the matching days – to hide them from the
 calendar.
@@ -604,7 +604,7 @@ ___
 
 ### selected
 
-• `Optional` **selected**: *undefined* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **selected**: *undefined* \| *boolean* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `selected` modifier to the matching days.
 

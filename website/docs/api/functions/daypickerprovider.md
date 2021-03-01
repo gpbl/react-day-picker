@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: DayPickerProvider
 
-▸ `Const`**DayPickerProvider**(`__namedParameters`: { `children`: ReactNode ; `initialProps`: [*DayPickerProps*](../interfaces/daypickerprops.md)  }): *Element*
+▸ `Const`**DayPickerProvider**(`props`: [*DayPickerProviderProps*](../types/daypickerproviderprops.md)): *Element*
 
 The provider for the [DayPickerContext](../variables/daypickercontext.md). Must wrap the DayPicker’s root.
 
@@ -16,8 +16,6 @@ The provider for the [DayPickerContext](../variables/daypickercontext.md). Must 
 
 Name | Type |
 :------ | :------ |
-`__namedParameters` | *object* |
-`__namedParameters.children` | ReactNode |
-`__namedParameters.initialProps` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
+`props` | [*DayPickerProviderProps*](../types/daypickerproviderprops.md) |
 
 **Returns:** *Element*

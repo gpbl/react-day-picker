@@ -37,8 +37,8 @@ export default function CodeBlock(props) {
       <OriginalCodeBlock {...props} className="language-tsx">
         {src}
       </OriginalCodeBlock>
-      <details>
-        <summary>Show output</summary>
+      <details open>
+        <summary>Output</summary>
         <Component />
       </details>
     </>
