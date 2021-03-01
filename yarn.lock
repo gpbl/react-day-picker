@@ -13672,8 +13672,8 @@ fsevents@^1.2.7:
     react-day-picker: "workspace:packages/react-day-picker"
     react-dom: ^17.0.1
     react-scripts: 4.0.3
-    typescript: 4.1
-    web-vitals: ^1.0.1
+    typescript: 4.1.5
+    web-vitals: ^1.1.0
   languageName: unknown
   linkType: soft
 
@@ -15151,11 +15151,11 @@ fsevents@^1.2.7:
     react-dom: ^17.0.1
     rollup: ^2.40.0
     rollup-plugin-terser: ^7.0.2
-    ts-jest: ^26.5.1
+    ts-jest: ^26.5.2
     ts-loader: ^8.0.17
     ts-node: ^9.1.1
     tslib: ^2.1.0
-    typescript: ~4.1.0
+    typescript: ~4.1.5
   peerDependencies:
     date-fns: ^2.12.0
     react: ^16.8.0 || ^17.0.0
@@ -17910,7 +17910,7 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^26.5.1":
+"ts-jest@npm:^26.5.2":
   version: 26.5.2
   resolution: "ts-jest@npm:26.5.2"
   dependencies:
@@ -18148,18 +18148,18 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-markdown@npm:^3.5.0":
-  version: 3.5.0
-  resolution: "typedoc-plugin-markdown@npm:3.5.0"
+"typedoc-plugin-markdown@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "typedoc-plugin-markdown@npm:3.6.0"
   dependencies:
     handlebars: ^4.7.6
   peerDependencies:
     typedoc: ">=0.20.0"
-  checksum: 66cf320f9dbd2de2344f0d68970d774a0aff21434059ac93539be96baf343e984b7da4678d41a28687e0872664a074b31f231c8b50a2d579d84beb9ec74dbb2e
+  checksum: d13fa91c49a050534e349dd2f8d999c28f54dc4a4804075f1d8ed840dd64c18b7bbb49aa29782955a8b9d287d07c39e24f79d9c71dd2f667e977520a75f70f84
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.20.25":
+"typedoc@npm:^0.20.28":
   version: 0.20.28
   resolution: "typedoc@npm:0.20.28"
   dependencies:
@@ -18182,7 +18182,7 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"typescript@4.1, typescript@~4.1.0":
+"typescript@4.1.5, typescript@~4.1.5":
   version: 4.1.5
   resolution: "typescript@npm:4.1.5"
   bin:
@@ -18192,7 +18192,7 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.1#builtin<compat/typescript>, typescript@patch:typescript@~4.1.0#builtin<compat/typescript>":
+"typescript@patch:typescript@4.1.5#builtin<compat/typescript>, typescript@patch:typescript@~4.1.5#builtin<compat/typescript>":
   version: 4.1.5
   resolution: "typescript@patch:typescript@npm%3A4.1.5#builtin<compat/typescript>::version=4.1.5&hash=cc6730"
   bin:
@@ -18833,7 +18833,7 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"web-vitals@npm:^1.0.1":
+"web-vitals@npm:^1.1.0":
   version: 1.1.0
   resolution: "web-vitals@npm:1.1.0"
   checksum: b75f7929f0b0bbd055c67eab95024c16038dcc808873dd7406225318c79491f011d9c2cf7c8cf68109c21fb0e9fa292eee3977b9ac780626d17ad25b36cd2ffe
@@ -19072,7 +19072,7 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"webpack@npm:^4, webpack@npm:^4.44.1":
+"webpack@npm:^4.44.1, webpack@npm:^4.46.0":
   version: 4.46.0
   resolution: "webpack@npm:4.46.0"
   dependencies:
@@ -19140,10 +19140,10 @@ resolve@1.18.1:
     react: ^17.0.1
     react-day-picker: "workspace:packages/react-day-picker"
     react-dom: ^17.0.1
-    typedoc: ^0.20.25
-    typedoc-plugin-markdown: ^3.5.0
-    typescript: ~4.1.0
-    webpack: ^4
+    typedoc: ^0.20.28
+    typedoc-plugin-markdown: ^3.6.0
+    typescript: ~4.1.5
+    webpack: ^4.46.0
   languageName: unknown
   linkType: soft
 
