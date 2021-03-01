@@ -6,17 +6,44 @@
   --ifm-color-primary-lighter: #ff8c78;
   --ifm-color-primary-lightest: #ffb6a9;
   --ifm-color-primary: #ff6347;
-
   --ifm-toc-border-color: transparent;
   --ifm-heading-font-weight: 500;
   --ifm-code-border-radius: 4px;
   --ifm-code-background: var(--ifm-color-emphasis-100);
 }
 
-/* a {
-  transition: none;
-} */
+html[data-theme='dark'] {
+  --rdp-accent-color-light: var(--rdp-accent-color-dark);
+  --rdp-accent-color-lighter: var(--rdp-accent-color-darker);
+  --rdp-accent-color-lightest: var(--rdp-accent-color-darkest);
+  --rdp-background-color: var(--rdp-background-color-dark);
+}
 
+button:not(.rdp-button_reset) {
+  appearance: none;
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  cursor: pointer;
+  color: var(--ifm-font-color-base);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-button-border-radius);
+  background: transparent;
+  font: inherit;
+  font-size: smaller;
+}
+button:hover:not(.rdp-button_reset):not([disabled]) {
+  border-color: var(--ifm-color-emphasis-500);
+  box-shadow: 2px 2px 3px -3px;
+}
+button:not(.rdp-button_reset)[disabled] {
+  opacity: 0.25;
+  cursor: default;
+}
+button:active:not(.rdp-button_reset):not([disabled]) {
+  transform: translate(2px 1px);
+  border-color: var(--ifm-color-emphasis-500);
+  box-shadow: 2px 2px 0px -3px;
+}
 .pagination-nav {
   border-top: 1px solid var(--ifm-color-emphasis-300);
 }
@@ -25,8 +52,8 @@
 }
 
 .menu {
-  background-color: var(--ifm-color-emphasis-100);
   margin-right: 1em;
+  background-color: var(--ifm-color-emphasis-100);
 }
 
 html[data-theme='dark'] .menu {
@@ -37,9 +64,6 @@ html[data-theme='dark'] .prism-code > div {
   background-color: transparent !important;
 }
 
-html[data-theme='dark'] {
-  --rdp-background-color: var(--rdp-background-color-dark);
-}
 details summary {
   padding: var(--ifm-pre-padding) 0;
   cursor: pointer;
@@ -72,8 +96,8 @@ table {
 table th,
 table td,
 table tr {
-  background-color: transparent;
   border: 0;
+  background-color: transparent;
 }
 
 .rdp table tr:nth-child(2n) {

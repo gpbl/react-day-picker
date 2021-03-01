@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DayPicker, MonthChangeEventHandler } from 'react-day-picker';
 
-import { addMonths } from 'date-fns';
+import { addMonths, isSameMonth, isToday } from 'date-fns';
 
 export default function App() {
   const nextMonth = addMonths(new Date(), 1);
@@ -11,12 +11,20 @@ export default function App() {
     setMonth(newMonth);
   const handleTodayClick = () => setMonth(new Date());
 
+  const footer = (
+    <button
+      disabled={isSameMonth(new Date(), month)}
+      onClick={handleTodayClick}
+    >
+      Go to Today
+    </button>
+  );
+
   return (
-    <>
-      <DayPicker month={month} onMonthChange={handleMonthChange} />
-      <p>
-        <button onClick={handleTodayClick}>Go to Today</button>
-      </p>
-    </>
+    <DayPicker
+      month={month}
+      onMonthChange={handleMonthChange}
+      footer={footer}
+    />
   );
 }
