@@ -431,7 +431,7 @@ export interface DayPickerProps {
   components?: Partial<Components>;
 
   /** Content to add to the `tfoot` element. */
-  footer?: React.ReactElement;
+  footer?: React.ReactNode;
 
   // #region event handlers
 
