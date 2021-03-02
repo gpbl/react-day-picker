@@ -102,7 +102,7 @@ export interface DayPickerContextValue {
   /** The weekdays used for the head */
   weekdays: Date[];
   /** The content of the Footer component */
-  footer?: React.ReactElement;
+  footer?: React.ReactNode;
 }
 
 /**
