@@ -73,6 +73,12 @@
 
 .rdp-table {
   border-collapse: collapse;
+  max-width: calc(var(--rdp-cell-size) * 7);
+}
+
+.rdp-with_weeknumber .rdp-table {
+  border-collapse: collapse;
+  max-width: calc(var(--rdp-cell-size) * 8);
 }
 
 .rdp-caption {

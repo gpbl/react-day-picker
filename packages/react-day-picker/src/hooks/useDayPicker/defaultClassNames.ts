@@ -6,6 +6,7 @@ import { ClassNames } from '../../types';
 export const defaultClassNames: Required<ClassNames> = {
   root: 'rdp',
   multiple_month: 'rdp-multiple_months',
+  with_weeknumber: 'rdp-with_weeknumber',
   hidden: 'rdp-hidden',
   button_reset: 'rdp-button_reset',
 

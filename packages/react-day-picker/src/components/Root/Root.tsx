@@ -15,6 +15,7 @@ export function Root(props: StyledComponentProps): JSX.Element {
     classNames,
     styles,
     numberOfMonths,
+    showWeekNumber,
     components: { Caption }
   } = useDayPicker();
 
@@ -23,6 +24,9 @@ export function Root(props: StyledComponentProps): JSX.Element {
   const rootClassNames = [classNames.root];
   if (numberOfMonths > 1) {
     rootClassNames.push(classNames.multiple_month);
+  }
+  if (showWeekNumber) {
+    rootClassNames.push(classNames.with_weeknumber);
   }
   if (className) rootClassNames.concat(className.split(' '));
 

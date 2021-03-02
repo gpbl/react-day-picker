@@ -5,6 +5,8 @@ export type StyledElement<T = string | CSSProperties> = {
   readonly root: T;
   /** The style of the root element when `numberOfMonths > 1`. */
   readonly multiple_month: T;
+  /** The style of the root element when `showWeekNumber={true}`. */
+  readonly with_weeknumber: T;
   /** The style of an element hidden for NOT screen-reader devices. */
   readonly hidden: T;
   /** The style for resetting the buttons. */
