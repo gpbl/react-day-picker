@@ -53,3 +53,4 @@ Name | Type | Description |
 `table` | T | The style of table containing the monthly calendar.   |
 `tbody` | T | The style of the table body.   |
 `weeknumber` | T | The style of the weeknumber.   |
+`with_weeknumber` | T | The style of the root element when `showWeekNumber={true}`.   |

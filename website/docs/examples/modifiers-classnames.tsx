@@ -4,12 +4,7 @@ import { DayClickEventHandler, DayPicker } from 'react-day-picker';
 export default function App() {
   const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
 
-  const handleDayClick: DayClickEventHandler = (day, { booked, available }) => {
-    if (booked) alert('You clicked a booked day.');
-  };
-
-  const style = `.rdp .rdp-day.my-booked-class { color: tomato }`;
-
+  const style = `.my-booked-class { color: tomato }`;
   return (
     <>
       <head>
@@ -23,7 +18,6 @@ export default function App() {
         modifierClassNames={{
           booked: 'my-booked-class'
         }}
-        onDayClick={handleDayClick}
       />
     </>
   );
