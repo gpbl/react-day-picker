@@ -5,7 +5,7 @@ import { ModifierStatus } from './ModifierStatus';
  */
 export interface SelectEventHandler {
   (
-    /** The selected day (undefined when no days are selected) */
+    /** The selected day, `undefined` when `required={false}` (default) and the day is clicked again. */
     day: Date | undefined,
     /** The day that was selected (or clicked) triggering the event. */
     selectedDay: Date,
