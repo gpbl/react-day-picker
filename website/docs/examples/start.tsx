@@ -8,10 +8,9 @@ export default function App() {
     setSelected(day);
   };
 
-  return (
-    <DayPicker
-      onSelect={handleSelect}
-      footer={selected && <p>You selected {selected.toLocaleDateString()}</p>}
-    />
-  );
+  const footer = selected
+    ? `You selected ${selected.toLocaleDateString()}`
+    : 'Please pick a day';
+
+  return <DayPicker onSelect={handleSelect} footer={selected && <p></p>} />;
 }

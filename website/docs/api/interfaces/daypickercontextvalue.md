@@ -62,7 +62,7 @@ ___
 
 ### footer
 
-• `Optional` **footer**: *undefined* \| *ReactElement*<any, string \| (`props`: *any*) => *null* \| *ReactElement*<any, any\> \| (`props`: *any*) => *Component*<any, any, any\>\>
+• `Optional` **footer**: ReactNode
 
 The content of the Footer component
 
@@ -142,9 +142,27 @@ ___
 
 ___
 
+### onDayBlur
+
+• `Optional` **onDayBlur**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+
+___
+
 ### onDayClick
 
 • `Optional` **onDayClick**: *undefined* \| [*DayClickEventHandler*](../types/dayclickeventhandler.md)
+
+___
+
+### onDayFocus
+
+• `Optional` **onDayFocus**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+
+___
+
+### onDayKeyDown
+
+• `Optional` **onDayKeyDown**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 ___
 

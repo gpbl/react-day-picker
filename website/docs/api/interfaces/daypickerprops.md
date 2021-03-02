@@ -196,7 +196,7 @@ ___
 
 ### footer
 
-• `Optional` **footer**: *undefined* \| *ReactElement*<any, string \| (`props`: *any*) => *null* \| *ReactElement*<any, any\> \| (`props`: *any*) => *Component*<any, any, any\>\>
+• `Optional` **footer**: ReactNode
 
 Content to add to the `tfoot` element.
 
