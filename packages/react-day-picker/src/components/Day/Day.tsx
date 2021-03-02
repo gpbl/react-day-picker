@@ -42,6 +42,9 @@ export function Day(props: DayProps): JSX.Element | null {
     showOutsideDays,
     styles,
     onDayClick,
+    onDayFocus,
+    onDayBlur,
+    onDayKeyDown,
     mode
   } = context;
 
@@ -67,9 +70,11 @@ export function Day(props: DayProps): JSX.Element | null {
 
   const handleFocus: React.FocusEventHandler = (e) => {
     focus(date);
+    onDayFocus?.(date, modifierStatus, e);
   };
   const handleBlur: React.FocusEventHandler = (e) => {
     blur();
+    onDayBlur?.(date, modifierStatus, e);
   };
   const handleKeyDown: React.KeyboardEventHandler = (e) => {
     switch (e.key) {
@@ -94,6 +99,7 @@ export function Day(props: DayProps): JSX.Element | null {
         focusDayUp();
         break;
     }
+    onDayKeyDown?.(date, modifierStatus, e);
   };
 
   const otherEventHandlers = createHandlers(date, modifierStatus, context);
