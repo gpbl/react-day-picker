@@ -23,6 +23,7 @@ import {
   Components,
   DateRange,
   DayClickEventHandler,
+  DayFocusEventHandler,
   DayKeyboardEventHandler,
   DayMouseEventHandler,
   DayPickerProps,
@@ -73,6 +74,9 @@ export interface DayPickerContextValue {
   numberOfMonths: number;
 
   onDayClick?: DayClickEventHandler;
+  onDayFocus?: DayFocusEventHandler;
+  onDayBlur?: DayFocusEventHandler;
+  onDayKeyDown?: DayKeyboardEventHandler;
   onDayKeyUp?: DayKeyboardEventHandler;
   onDayMouseEnter?: DayMouseEventHandler;
   onDayMouseLeave?: DayMouseEventHandler;
