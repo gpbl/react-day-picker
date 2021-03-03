@@ -19,17 +19,21 @@ export default function App() {
 
   const handleResetClick = () => setSelectedDays([]);
 
+  const footer =
+    selectedDays.length === 0 ? (
+      'Please pick one or more days.'
+    ) : (
+      <p>
+        You selected {selectedDays.length} days.{' '}
+        <button onClick={handleResetClick}>Reset</button>
+      </p>
+    );
+
   return (
-    <div>
-      <DayPicker onDayClick={handleDayClick} selected={selectedDays} />
-      {selectedDays.length === 0 ? (
-        <p>Please pick one or more days.</p>
-      ) : (
-        <p>
-          You selected {selectedDays.length} days.{' '}
-          <button onClick={handleResetClick}>Reset</button>
-        </p>
-      )}
-    </div>
+    <DayPicker
+      onDayClick={handleDayClick}
+      selected={selectedDays}
+      footer={footer}
+    />
   );
 }

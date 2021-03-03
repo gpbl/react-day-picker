@@ -9,8 +9,8 @@ export default function App() {
   };
 
   const footer = selected
-    ? `You selected ${selected.toLocaleDateString()}`
-    : 'Please pick a day';
+    ? `You selected ${selected.toLocaleDateString()}.`
+    : 'Please pick a day.';
 
-  return <DayPicker onSelect={handleSelect} footer={selected && <p></p>} />;
+  return <DayPicker onSelect={handleSelect} footer={footer} />;
 }
