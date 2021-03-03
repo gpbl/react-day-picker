@@ -9,6 +9,7 @@ export default function App() {
 
   const handleMonthChange: MonthChangeEventHandler = (newMonth) =>
     setMonth(newMonth);
+
   const handleTodayClick = () => setMonth(new Date());
 
   const footer = (
