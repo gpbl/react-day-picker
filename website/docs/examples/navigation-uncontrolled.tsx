@@ -3,29 +3,20 @@ import { DayPicker, MonthChangeEventHandler } from 'react-day-picker';
 
 import { addMonths, isSameMonth, isToday } from 'date-fns';
 
+const today = new Date();
+const nextMonth = addMonths(new Date(), 1);
+
 export default function App() {
-  const nextMonth = addMonths(new Date(), 1);
   const [month, setMonth] = useState<Date>(nextMonth);
-
-  const handleMonthChange: MonthChangeEventHandler = (newMonth) =>
-    setMonth(newMonth);
-
-  const handleTodayClick = () => setMonth(new Date());
 
   const footer = (
     <button
-      disabled={isSameMonth(new Date(), month)}
-      onClick={handleTodayClick}
+      disabled={isSameMonth(today, month)}
+      onClick={() => setMonth(today)}
     >
       Go to Today
     </button>
   );
 
-  return (
-    <DayPicker
-      month={month}
-      onMonthChange={handleMonthChange}
-      footer={footer}
-    />
-  );
+  return <DayPicker month={month} onMonthChange={setMonth} footer={footer} />;
 }
