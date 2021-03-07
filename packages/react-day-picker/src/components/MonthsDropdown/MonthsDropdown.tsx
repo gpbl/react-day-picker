@@ -1,9 +1,8 @@
 import * as React from 'react';
 
 import { isSameYear, setMonth as setDateMonth, startOfMonth } from 'date-fns';
-
-import { useDayPicker } from '../../hooks';
-import { MonthChangeEventHandler } from '../../types';
+import { useDayPicker } from 'hooks';
+import { MonthChangeEventHandler } from 'types';
 
 /**
  * The props for the [[MonthsDropdown]] component.

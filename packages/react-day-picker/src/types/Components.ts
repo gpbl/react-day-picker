@@ -6,7 +6,8 @@ import {
   DropdownProps,
   RowProps,
   WeekNumberProps
-} from '../components';
+} from 'components';
+
 import { StyledComponentProps } from './StyledComponentProps';
 
 /**

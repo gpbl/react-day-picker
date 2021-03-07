@@ -1,6 +1,6 @@
-import { ModifiersArray, ModifierStatus } from '../../types';
-import { useDayPicker } from '../useDayPicker';
-import { useSelection } from '../useSelection';
+import { useDayPicker, useSelection } from 'hooks';
+import { ModifiersArray, ModifierStatus } from 'types';
+
 import { getModifierStatus } from './utils/getModifierStatus';
 
 /**

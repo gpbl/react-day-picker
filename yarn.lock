@@ -2606,6 +2606,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jfonx/console-utils@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@jfonx/console-utils@npm:1.0.3"
+  dependencies:
+    colors: ^1.3.3
+  checksum: a326320b628387303d7b5c01899015ade5390daba676c5f8452b633af0db705cb9abcf8974361b44e5f9f403231ea3d6ff7f4d82e53af8ac93922b718752e689
+  languageName: node
+  linkType: hard
+
+"@jfonx/file-utils@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@jfonx/file-utils@npm:3.0.1"
+  dependencies:
+    "@jfonx/console-utils": ^1.0.3
+    comment-json: ^4.1.0
+    find-up: ^4.1.0
+  checksum: 869102c4f846c24b7746bbdba3c43a0281a8d65839c1f24bd588959679320f2235e7a5eec7344dc26512a73a1bc3e11cc03c15415627b9a1cb36e2a326e08cfb
+  languageName: node
+  linkType: hard
+
 "@mdx-js/mdx@npm:^1.6.21":
   version: 1.6.22
   resolution: "@mdx-js/mdx@npm:1.6.22"
@@ -4232,6 +4252,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"array-timsort@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "array-timsort@npm:1.0.3"
+  checksum: 840f0a68e7de2e53cae55917532edb805f948e6b5ec5a887081950f0683ca0b04ebf87660c6a3ee2270644a43128bf8869f2964a7dc43a90a5b1b830cdb6dfdb
+  languageName: node
+  linkType: hard
+
 "array-union@npm:^1.0.1":
   version: 1.0.2
   resolution: "array-union@npm:1.0.2"
@@ -5557,7 +5584,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:^3.3.0, chokidar@npm:^3.4.1, chokidar@npm:^3.5.1":
+"chokidar@npm:^3.3.0, chokidar@npm:^3.4.1, chokidar@npm:^3.5.0, chokidar@npm:^3.5.1":
   version: 3.5.1
   resolution: "chokidar@npm:3.5.1"
   dependencies:
@@ -5845,7 +5872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colors@npm:^1.4.0":
+"colors@npm:^1.3.3, colors@npm:^1.4.0":
   version: 1.4.0
   resolution: "colors@npm:1.4.0"
   checksum: a0f266ac041a9774d92cc9624a984707678d2eeec125d54e8d8231075ce36c24c5352fb5d0f90c6ee420d0f63e354417cec716386ad341309334aad18e32b933
@@ -5882,10 +5909,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^6.2.0":
+"commander@npm:^6.2.0, commander@npm:^6.2.1":
   version: 6.2.1
   resolution: "commander@npm:6.2.1"
   checksum: 47856aae6f194404122e359d8463e5e1a18f7cbab26722ce69f1379be8514bd49a160ef81a983d3d2091e3240022643354101d1276c797dcdd0b5bfc3c3f04a3
+  languageName: node
+  linkType: hard
+
+"comment-json@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "comment-json@npm:4.1.0"
+  dependencies:
+    array-timsort: ^1.0.3
+    core-util-is: ^1.0.2
+    esprima: ^4.0.1
+    has-own-prop: ^2.0.0
+    repeat-string: ^1.6.1
+  checksum: afc5255a94f107809f2fe790f1561e683fc8647601280aeb65daeda7298d46adde8a3c0a087bb9ceb4f63635d900c728ba35a98871dfaab27b2741c08cd2821c
   languageName: node
   linkType: hard
 
@@ -6158,7 +6198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-util-is@npm:1.0.2, core-util-is@npm:~1.0.0":
+"core-util-is@npm:1.0.2, core-util-is@npm:^1.0.2, core-util-is@npm:~1.0.0":
   version: 1.0.2
   resolution: "core-util-is@npm:1.0.2"
   checksum: 089015ee3c462dfceba70faa1df83b42a7bb35db26dae6af283247b06fe3216c65fccd9f00eebcaf98300dc31e981d56aae9f90b624f8f6ff1153e235ff88b65
@@ -6973,6 +7013,13 @@ __metadata:
   dependencies:
     repeat-string: ^1.5.4
   checksum: 69b8834a48313830e71b43efe36b3654dc410d4ee419968a2a1ef018a949a636e7c1111eac2262ccce8dde0800410be92fd4fefbbdec199b595c907e7b1f7d8f
+  languageName: node
+  linkType: hard
+
+"detect-file@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "detect-file@npm:1.0.0"
+  checksum: 69717e5618370f31d3b266240289442d7c50f933834bbcffad187e73a6efaf3adc4ed283d8120a9ad77cbdcef3375c48acb4cdbb2df477695ed78d86c0d08c9c
   languageName: node
   linkType: hard
 
@@ -8121,6 +8168,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expand-tilde@npm:^2.0.0, expand-tilde@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "expand-tilde@npm:2.0.2"
+  dependencies:
+    homedir-polyfill: ^1.0.1
+  checksum: 502e8b04a22094575c68639e68e0a2c19ad23d78441e440e5164ad2f38bef05e4b2c2568acfcf4af37b90bbf49ea587c253753ba6d351229e5858b96cb136125
+  languageName: node
+  linkType: hard
+
 "expect@npm:^26.6.0, expect@npm:^26.6.2":
   version: 26.6.2
   resolution: "expect@npm:26.6.2"
@@ -8509,6 +8565,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"find-node-modules@npm:^2.1.0":
+  version: 2.1.2
+  resolution: "find-node-modules@npm:2.1.2"
+  dependencies:
+    findup-sync: ^4.0.0
+    merge: ^2.1.0
+  checksum: 289151b902242e147c9db674f2a0719de1a12d33de0e68a20cba0b114db8c1e93e7e3346d66da3c3b7e396ba775893aa0321f8c1792f0685b5dab478507d9771
+  languageName: node
+  linkType: hard
+
 "find-up@npm:4.1.0, find-up@npm:^4.0.0, find-up@npm:^4.1.0":
   version: 4.1.0
   resolution: "find-up@npm:4.1.0"
@@ -8534,6 +8600,18 @@ __metadata:
   dependencies:
     locate-path: ^3.0.0
   checksum: c5422fc7231820421cff6f6e3a5d00a11a79fd16625f2af779c6aedfbaad66764fd149c1b84017aa44e85f86395eb25c31188ad273fc468a981b529eaa59a424
+  languageName: node
+  linkType: hard
+
+"findup-sync@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "findup-sync@npm:4.0.0"
+  dependencies:
+    detect-file: ^1.0.0
+    is-glob: ^4.0.0
+    micromatch: ^4.0.2
+    resolve-dir: ^1.0.1
+  checksum: 77cae4d79cd46b00c3fe8dc8b4e06472e75351096a70de0ebd57f11b7efdb69e3bfe3097f54e7f219e385dd5e84e4f11029fbe6b003f0bf2140ebb6695ed13ea
   languageName: node
   linkType: hard
 
@@ -8952,6 +9030,30 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"global-modules@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "global-modules@npm:1.0.0"
+  dependencies:
+    global-prefix: ^1.0.1
+    is-windows: ^1.0.1
+    resolve-dir: ^1.0.0
+  checksum: 89fb699eee43823ce94e2dbcb5f7607e1de4f3e37b897a65b59720fa7284424b5f94b67f449a5f259e7a96e2bf851a1582ec31deb7f89b5336c9318ed95fcfe8
+  languageName: node
+  linkType: hard
+
+"global-prefix@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "global-prefix@npm:1.0.2"
+  dependencies:
+    expand-tilde: ^2.0.2
+    homedir-polyfill: ^1.0.1
+    ini: ^1.3.4
+    is-windows: ^1.0.1
+    which: ^1.2.14
+  checksum: 2353fc9bf5c3b688164356c08843b3f9cae6300836071d1250c06c70a0aa13ed643c5711399ec4a2027899977f1423f4d24e81e01a1da4c5239c4e195d80b024
+  languageName: node
+  linkType: hard
+
 "global-prefix@npm:^3.0.0":
   version: 3.0.0
   resolution: "global-prefix@npm:3.0.0"
@@ -9193,6 +9295,13 @@ fsevents@^1.2.7:
   version: 4.0.0
   resolution: "has-flag@npm:4.0.0"
   checksum: 2e5391139d3d287231ccb58659702392f6e3abeac3296fb4721afaff46493f3d9b99a9329ae015dfe973aa206ed5c75f43e86aec0267dce79aa5c2b6e811b3ad
+  languageName: node
+  linkType: hard
+
+"has-own-prop@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "has-own-prop@npm:2.0.0"
+  checksum: 8513ff905297afb7b65f4e22012a2c8e20ab006067841015bf338cfd23019b6c7cec89b5192b4cb7eaaa2a5370d2474dc9a0bcfdfd71100c45b8d3be9882f45b
   languageName: node
   linkType: hard
 
@@ -9438,6 +9547,15 @@ fsevents@^1.2.7:
   dependencies:
     react-is: ^16.7.0
   checksum: d3e3791d6e3a2741ce0ba38e878081dec49247ef22982a990c80941ee1f564ef16cd5a511bcc8c5e54f1ce8205535e0414ca5feea722c0690c80040be7ebf9df
+  languageName: node
+  linkType: hard
+
+"homedir-polyfill@npm:^1.0.1":
+  version: 1.0.3
+  resolution: "homedir-polyfill@npm:1.0.3"
+  dependencies:
+    parse-passwd: ^1.0.0
+  checksum: 86a4e544cac858c31bb776d65a6aebbd84efddd98a5b4ebc65846d86b6161083b52fee059b8f809e9593537d10c9aabb381906305a0ee4a52f2625d0339b015f
   languageName: node
   linkType: hard
 
@@ -9928,7 +10046,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ini@npm:^1.3.5, ini@npm:~1.3.0":
+"ini@npm:^1.3.4, ini@npm:^1.3.5, ini@npm:~1.3.0":
   version: 1.3.8
   resolution: "ini@npm:1.3.8"
   checksum: 62189ce7ea44c5778e757e4232c581212e838f3c39e79d931bb9152fd4b9275f09fb20b96afdd60ba9f5d7996b92486cad6cc617fcb84ff4beedd1b33b86221e
@@ -10521,7 +10639,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"is-windows@npm:^1.0.2":
+"is-windows@npm:^1.0.1, is-windows@npm:^1.0.2":
   version: 1.0.2
   resolution: "is-windows@npm:1.0.2"
   checksum: dd1ed8339a28c68fb52f05931c832488dafc90063e53b97a69ead219a5584d7f3e6e564731c2f983962ff5403afeb05365d88ce9af34c8dae76a14911020d73a
@@ -12182,6 +12300,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"merge@npm:^2.1.0":
+  version: 2.1.1
+  resolution: "merge@npm:2.1.1"
+  checksum: 5b66853a10df1fe86e2ea04b216b7b9a5911643617473d9ef499d6bf9bc5ed856dea27b6a6a1224bc091831c234e8be3bbf4964d11304dce82294558a11c3333
+  languageName: node
+  linkType: hard
+
 "methods@npm:~1.1.2":
   version: 1.1.2
   resolution: "methods@npm:1.1.2"
@@ -13393,6 +13518,13 @@ fsevents@^1.2.7:
   version: 1.2.0
   resolution: "parse-numeric-range@npm:1.2.0"
   checksum: 40557750b3bd855a912fb0ef0754eef21497b7093fdc5da7d19afdd2d2c8ed1dae7299dfc49288fb55942a1e6a05e27b7780a9d5345dc0718c3c2531ebae9548
+  languageName: node
+  linkType: hard
+
+"parse-passwd@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "parse-passwd@npm:1.0.0"
+  checksum: e196edc373f7cdeb07072c346aa22204f9bad6b4d4fde5186d83a770cc22c65388da1da941d6f147372986edab52732365ffe05a1d7f35cbc822a014622d8439
   languageName: node
   linkType: hard
 
@@ -15154,6 +15286,7 @@ fsevents@^1.2.7:
     ts-jest: ^26.5.2
     ts-loader: ^8.0.17
     ts-node: ^9.1.1
+    tsc-alias: ^1.2.6
     tslib: ^2.1.0
     typescript: ~4.1.5
   peerDependencies:
@@ -15983,6 +16116,16 @@ fsevents@^1.2.7:
   dependencies:
     resolve-from: ^5.0.0
   checksum: 97edfbbf83ade94e880c2e62d0faf76eb245ea5696fc70f59eaa2747773e19108a1fa0fba13f53d471d9f245454bb1592dc4f537c6dfd19b8016ef8639a9fadc
+  languageName: node
+  linkType: hard
+
+"resolve-dir@npm:^1.0.0, resolve-dir@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "resolve-dir@npm:1.0.1"
+  dependencies:
+    expand-tilde: ^2.0.0
+    global-modules: ^1.0.0
+  checksum: b07a0070083d04f6c3b50fe7b986514978eba5ab957b49cf2637b2e8ce69d81e063523d60360145a7e8b03ea878c68fb491da86fb18601458eaef640ae40fdf5
   languageName: node
   linkType: hard
 
@@ -17981,6 +18124,23 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
+"tsc-alias@npm:^1.2.6":
+  version: 1.2.6
+  resolution: "tsc-alias@npm:1.2.6"
+  dependencies:
+    "@jfonx/console-utils": ^1.0.3
+    "@jfonx/file-utils": ^3.0.1
+    chokidar: ^3.5.0
+    commander: ^6.2.1
+    find-node-modules: ^2.1.0
+    globby: ^11.0.2
+    normalize-path: ^3.0.0
+  bin:
+    tsc-alias: dist/bin/index.js
+  checksum: 7468b539dc1d75c6db96c0148a0e952459c72d9d3f42522f3de922eda2189bb885f3e9e3692faaa3772db46b7092e6b972a08f40b3041e65dbd064b259d4d721
+  languageName: node
+  linkType: hard
+
 "tsconfig-paths@npm:^3.9.0":
   version: 3.9.0
   resolution: "tsconfig-paths@npm:3.9.0"
@@ -19217,7 +19377,7 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"which@npm:^1.2.9, which@npm:^1.3.1":
+"which@npm:^1.2.14, which@npm:^1.2.9, which@npm:^1.3.1":
   version: 1.3.1
   resolution: "which@npm:1.3.1"
   dependencies:

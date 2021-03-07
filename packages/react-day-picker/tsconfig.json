@@ -11,21 +11,20 @@
     "declarationDir": "lib",
     "pretty": true,
     // Module Resolution Options
-    "baseUrl": "./src",
+    "baseUrl": "src",
+    "paths": {
+      "components": ["./components"],
+      "hooks": ["./hooks"],
+      "types": ["./types"]
+    },
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     // Emit Location Options
     "outDir": "lib",
     "rootDir": "src",
-    
+
     // Library Options
-    "lib": [
-      "es5",
-      "es6",
-      "es7",
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es5", "es6", "es7", "es2017", "dom"],
     // File Inclusion Options
     "allowJs": false,
     "forceConsistentCasingInFileNames": true,
@@ -40,8 +39,6 @@
     "noUnusedLocals": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "include": [
-    "src/**/*",
-    "types/**/*"
-  ]
+  "include": ["src/**/*", "types/**/*"],
+  "exclude": ["../../node_modules/**/*"]
 }

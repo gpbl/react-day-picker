@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useDayPicker } from '../../hooks';
+import { useDayPicker } from 'hooks';
 
 export interface DropdownProps {
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;

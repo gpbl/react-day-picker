@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useDayPicker } from '../../hooks';
+import { useDayPicker } from 'hooks';
 
 /**
  * Render the Head component - i.e. the table head with the weekday names.

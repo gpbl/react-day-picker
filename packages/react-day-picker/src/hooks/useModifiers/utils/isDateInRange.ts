@@ -1,6 +1,5 @@
 import { differenceInCalendarDays, isSameDay } from 'date-fns';
-
-import { DateRange } from '../../../types';
+import { DateRange } from 'types';
 
 export function isDateInRange(day: Date, range: DateRange): boolean {
   let { from, to } = range;

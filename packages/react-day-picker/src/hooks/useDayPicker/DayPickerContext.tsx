@@ -1,8 +1,5 @@
 import * as React from 'react';
 
-import { Locale } from 'date-fns';
-import enUS from 'date-fns/locale/en-US';
-
 import {
   Caption,
   CaptionLabel,
@@ -16,8 +13,9 @@ import {
   IconPrevious,
   Row,
   WeekNumber
-} from '../../components';
-
+} from 'components';
+import { Locale } from 'date-fns';
+import enUS from 'date-fns/locale/en-US';
 import {
   CaptionLayout,
   ClassNames,
@@ -41,7 +39,8 @@ import {
   SelectRangeEventHandler,
   Styles,
   WeekNumberClickEventHandler
-} from '../../types';
+} from 'types';
+
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';

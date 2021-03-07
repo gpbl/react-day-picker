@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Root } from '../../components';
+import { Root } from 'components';
 import {
   DayPickerProvider,
+  FocusProvider,
   NavigationProvider,
   SelectionProvider
-} from '../../hooks';
-import { FocusProvider } from '../../hooks/useFocus';
-import { DayPickerProps } from '../../types';
+} from 'hooks';
+import { DayPickerProps } from 'types';
 
 /**
  * Render the date picker component.

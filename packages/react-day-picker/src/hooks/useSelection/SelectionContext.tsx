@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { isSameDay } from 'date-fns';
-
+import { useDayPicker } from 'hooks';
 import {
   DayClickEventHandler,
   isArrayOfDates,
@@ -9,8 +9,8 @@ import {
   isSameDateMatcher,
   Matcher,
   Modifiers
-} from '../../types';
-import { useDayPicker } from '../useDayPicker';
+} from 'types';
+
 import { addToRange } from './utils/addToRange';
 
 // TODO: the following interface should extend some internal modifiers

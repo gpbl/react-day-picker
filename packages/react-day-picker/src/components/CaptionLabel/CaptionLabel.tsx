@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useDayPicker } from '../../hooks';
+import { useDayPicker } from 'hooks';
 
 /** The props for the [[CaptionLabel]] component. */
 export interface CaptionLabelProps {
