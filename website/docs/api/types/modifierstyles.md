@@ -8,8 +8,6 @@ hide_title: true
 
 # Type alias: ModifierStyles
 
-Ƭ **ModifierStyles**: *object*
+Ƭ **ModifierStyles**: *Record*<[*Modifier*](modifier.md), React.CSSProperties\>
 
 The inline-style to apply to the day matching `modifier`.
-
-#### Type declaration:

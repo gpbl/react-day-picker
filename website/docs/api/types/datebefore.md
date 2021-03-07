@@ -10,7 +10,8 @@ hide_title: true
 
 Ƭ **DateBefore**: *object*
 
-Matches a date before the specified date. The date is not included.
+Represent a matcher to match a day falling before the specified date, with
+the date not included.
 
 #### Type declaration:
 

@@ -10,6 +10,8 @@ hide_title: true
 
 Ƭ **DateFormatter**: (`date`: Date, `options?`: { `locale?`: Locale  }) => *string*
 
+Represents a function to format a date.
+
 #### Type declaration:
 
 ▸ (`date`: Date, `options?`: { `locale?`: Locale  }): *string*

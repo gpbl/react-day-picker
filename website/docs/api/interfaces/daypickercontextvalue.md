@@ -38,7 +38,7 @@ ___
 
 ### defaultSelected
 
-• `Optional` **defaultSelected**: *undefined* \| Date \| Date[] \| [*DateRange*](../types/daterange.md)
+• `Optional` **defaultSelected**: *undefined* \| Date \| Date[] \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateRange*](../types/daterange.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| (`date`: Date) => *boolean*
 
 ___
 
@@ -86,6 +86,14 @@ ___
 
 ___
 
+### hideToday
+
+• `Optional` **hideToday**: *undefined* \| *boolean*
+
+Whether to show the today modifier.
+
+___
+
 ### labels
 
 • **labels**: [*Labels*](../types/labels.md)
@@ -98,6 +106,18 @@ ___
 
 ___
 
+### max
+
+• `Optional` **max**: *undefined* \| *number*
+
+___
+
+### min
+
+• `Optional` **min**: *undefined* \| *number*
+
+___
+
 ### mode
 
 • **mode**: [*SelectMode*](../types/selectmode.md)
@@ -106,7 +126,7 @@ ___
 
 ### modifierClassNames
 
-• **modifierClassNames**: [*ModifierClassNames*](../types/modifierclassnames.md)
+• **modifierClassNames**: *Record*<string, string\>
 
 ___
 
@@ -118,13 +138,15 @@ ___
 
 ### modifierStyles
 
-• `Optional` **modifierStyles**: *undefined* \| [*ModifierStyles*](../types/modifierstyles.md)
+• `Optional` **modifierStyles**: *undefined* \| *Record*<string, CSSProperties\>
 
 ___
 
 ### modifiers
 
-• **modifiers**: [*ModifierMatchers*](../types/modifiermatchers.md)
+• **modifiers**: *Record*<string, [*Matcher*](../types/matcher.md)[]\>
+
+Modifiers are converted to array of day matchers so they are easy to access.
 
 ___
 
@@ -228,19 +250,13 @@ ___
 
 ### onSelectRange
 
-• `Optional` **onSelectRange**: *undefined* \| RangeSelectionHandler
+• `Optional` **onSelectRange**: *undefined* \| [*SelectRangeEventHandler*](../types/selectrangeeventhandler.md)
 
 ___
 
 ### onWeekNumberClick
 
 • `Optional` **onWeekNumberClick**: *undefined* \| [*WeekNumberClickEventHandler*](../types/weeknumberclickeventhandler.md)
-
-___
-
-### required
-
-• `Optional` **required**: *undefined* \| *boolean*
 
 ___
 

@@ -8,7 +8,7 @@ hide_title: true
 
 # Type alias: ModifierStatus
 
-Ƭ **ModifierStatus**: *object*
+Ƭ **ModifierStatus**: *Record*<[*Modifier*](modifier.md), boolean\>
 
 Represent the status of a modifiers if matched against a day according to its
 [Matcher](matcher.md).
@@ -20,5 +20,3 @@ const modifiers: ModifiersStatus = {
  selected: true,
 }
 ```
-
-#### Type declaration:

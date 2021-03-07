@@ -90,14 +90,12 @@ ___
 
 A map of components used to create the layout.
 
-**Example**
+For example, to use custom navigation icons:
 
 ```
 <DayPicker component={{
-   DayContent: CustomDayContent,
-   IconNext: CustomIconNext,
-   IconPrevious: CustomIconPrevious
-   // etc
+   IconNext: MyIconNext,
+   IconPrevious: MyIconPrev
  }}
 />
 ```
@@ -155,7 +153,7 @@ ___
 
 ### disabled
 
-• `Optional` **disabled**: *undefined* \| *boolean* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **disabled**: *undefined* \| Date \| Date[] \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateRange*](../types/daterange.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| (`date`: Date) => *boolean* \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `disabled` modifier to the matching days.
 
@@ -236,7 +234,7 @@ ___
 
 ### hidden
 
-• `Optional` **hidden**: *undefined* \| *boolean* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **hidden**: *undefined* \| Date \| Date[] \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateRange*](../types/daterange.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| (`date`: Date) => *boolean* \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `hidden` modifier to the matching days – to hide them from the
 calendar.
@@ -279,13 +277,11 @@ ___
 
 • `Optional` **locale**: *undefined* \| Locale
 
-The date-fns locale object to localize the user interface. Defaults to English.
+The date-fns locale object to localize the user interface. Defaults to EN-US.
 
-See also date-fns [Internationalization guide](https://date-fns.org/v2.17.0/docs/I18n).
+See also date-fns [Internationalization guide](https://date-fns.org/docs/I18n).
 
-**Example**
-
-Set the calendar to Spanish.
+For example, to the calendar to Spanish:
 
 ```
 import spanish from 'date-fns/locale/es';
@@ -297,36 +293,40 @@ function Example() {
 
 ___
 
+### max
+
+• `Optional` **max**: *undefined* \| *number*
+
+The maximum amount of days that can be selected (when `mode` is `multiple` or `range`).
+
+___
+
+### min
+
+• `Optional` **min**: *undefined* \| *number*
+
+The minimum amount of days that can be selected (when `mode` is `multiple` or `range`)
+
+___
+
 ### mode
 
 • `Optional` **mode**: *undefined* \| *uncontrolled* \| *single* \| *multiple* \| *range*
 
-The selection mode.
+The selection mode – the way DayPicker enables selection when clicking a
+day.
 
-- `single` (default) allows selecting only a single day
-- `multiple` allows selecting multiple days
-- `range` allows selecting a range of days
-- `uncontrolled`: set the selections using the `selected` prop
-
-**Example**
-
-When setting to `uncontrolled`, handle the selection in the parent
-component’ state:
-
-```
-function Example() {
- const [day, setDay] = useState(new Date());
- return (
-   <DayPicker mode="uncontrolled" selected={day} onDayClick={setDay} />
- )
-};
-```
+- `single` (default) enables the selection of a single day per time
+- `multiple` enables the selection of multiple days
+- `range` enables th selection of a range of days
+- `uncontrolled`: disable the controlled selection. Use `selected` and
+  `onDayClick` to implement a custom selection mode.
 
 ___
 
 ### modifierClassNames
 
-• `Optional` **modifierClassNames**: *undefined* \| [*ModifierClassNames*](../types/modifierclassnames.md)
+• `Optional` **modifierClassNames**: *undefined* \| *Record*<string, string\>
 
 Change the class name for the day matching the [modifiers](daypickerprops.md#modifiers).
 
@@ -368,7 +368,7 @@ ___
 
 ### modifierStyles
 
-• `Optional` **modifierStyles**: *undefined* \| [*ModifierStyles*](../types/modifierstyles.md)
+• `Optional` **modifierStyles**: *undefined* \| *Record*<string, CSSProperties\>
 
 Change the inline style for the day matching the [modifiers](daypickerprops.md#modifiers).
 
@@ -387,18 +387,14 @@ ___
 
 ### modifiers
 
-• `Optional` **modifiers**: *undefined* \| [*ModifierMatchers*](../types/modifiermatchers.md)
+• `Optional` **modifiers**: *undefined* \| *Record*<string, Date \| Date[] \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateRange*](../types/daterange.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| (`date`: Date) => *boolean* \| [*Matcher*](../types/matcher.md)[]\>
 
-Add a custom modifier to the matching days.
+Add modifiers to the matching days.
 
-**Example**
-
-Add a `booked` modifier to the current day.
+For example, to add a `booked` modifier to the current day:
 
 ```
-function Example() {
-   return <DayPicker modifiers={{ booked: new Date() }} />
-}
+<DayPicker modifiers={{ booked: new Date() }} />
 ```
 
 ___
@@ -434,8 +430,7 @@ ___
 
 • `Optional` **numberOfMonths**: *undefined* \| *number*
 
-Change the number of months displayed by the component. Defaults to `1`.
-See also [pagedNavigation](daypickerprops.md#pagednavigation).
+The number of displayed months. Defaults to `1`.
 
 ___
 
@@ -585,14 +580,6 @@ Paginate the month navigation displaying the [numberOfMonths](daypickerprops.md#
 
 ___
 
-### required
-
-• `Optional` **required**: *undefined* \| *boolean*
-
-When the selection type is controlled, require at least one day to be selected.
-
-___
-
 ### reverseMonths
 
 • `Optional` **reverseMonths**: *undefined* \| *boolean*
@@ -604,7 +591,7 @@ ___
 
 ### selected
 
-• `Optional` **selected**: *undefined* \| *boolean* \| Date \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateBeforeAfter*](../types/datebeforeafter.md) \| [*DateRange*](../types/daterange.md) \| [*MatchDate*](../types/matchdate.md) \| [*MatchDaysOfWeek*](../types/matchdaysofweek.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **selected**: *undefined* \| Date \| Date[] \| [*DateAfter*](../types/dateafter.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DateRange*](../types/daterange.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| (`date`: Date) => *boolean* \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `selected` modifier to the matching days.
 
@@ -685,7 +672,7 @@ ___
 
 ### today
 
-• `Optional` **today**: *undefined* \| Date
+• `Optional` **today**: *undefined* \| Date \| *off*
 
 The today’s date. Default is the current date.
 

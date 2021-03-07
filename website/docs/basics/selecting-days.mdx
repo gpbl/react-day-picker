@@ -11,10 +11,11 @@ Use `onSelect` to get the selected day.
 examples/selecting-days-single.tsx
 ```
 
-## Pre-selecting a day
+### Pre-selecting a day
 
-Use `defautSelected` to initialize DayPicker with a pre-selected day. In combination with
-`required`, DayPicker will always have a selected date.
+Use `defautSelected` to initialize DayPicker with a pre-selected day.
+
+In combination with `min={1}`, DayPicker will always have a selected date.
 
 For example, to set the default selected date to today:
 
@@ -24,10 +25,18 @@ examples/selecting-days-default.tsx
 
 ## Selecting multiple days
 
-Using `mode="multiple"` to allow the selection of multiple days:
+Use `mode="multiple"` to allow the selection of multiple days:
 
 ```include
 examples/selecting-days-multiple.tsx
+```
+
+### Limiting the amount of selectable days
+
+Use the `min` and `max` props to limit the amount of days that can be selected.
+
+```include
+examples/selecting-days-multiple-min-max.tsx
 ```
 
 ## Selecting a range of days
@@ -36,4 +45,12 @@ Use `mode="range"` and `onSelectRange` to allow the selection of multiple days.
 
 ```include
 examples/selecting-days-range.tsx
+```
+
+### Limiting the range size
+
+Use the `min` and `max` props to limit the amount of days in the range.
+
+```include
+examples/selecting-days-multiple-min-max.tsx
 ```

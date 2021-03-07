@@ -62,7 +62,7 @@ ___
 
 ### modifiers
 
-• **modifiers**: [*ModifierStatus*](../types/modifierstatus.md)
+• **modifiers**: *Record*<string, boolean\>
 
 The modifier status for `date`.
 

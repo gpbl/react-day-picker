@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ **useModifiers**(`date`: Date): [*ModifierStatus*](../types/modifierstatus.md)
 
-Return the status for the modifiers given the specified date
+Return the status for the modifiers given the specified date.
 
 #### Parameters:
 
