@@ -10,6 +10,7 @@ export interface SelectEventHandler {
     /** The day that was selected (or clicked) triggering the event. */
     selectedDay: Date,
     /** The modifiers of the selected day. */
-    modifiers: ModifierStatus
+    modifiers: ModifierStatus,
+    e: React.MouseEvent
   ): void;
 }

@@ -1,18 +1,18 @@
-import { ModifierMatchers, ModifierStatus } from '../../../types';
+import { ModifiersArray, ModifierStatus } from '../../../types';
 import { isMatch } from './isMatch';
 
 /**
- * Return the status of the modifiers for the given day,
+ * Return the status of the modifiers for the given date,
  */
 export function getModifierStatus(
-  day: Date,
-  /** The modifiers for the given day. */
-  modifiers: ModifierMatchers
+  date: Date,
+  /** The modifiers to match for the given date. */
+  modifiers: ModifiersArray
 ): ModifierStatus {
   const modifiersList = Object.keys(modifiers).reduce(
     (previousValue: string[], key: string): string[] => {
       const modifier = modifiers[key];
-      if (isMatch(day, modifier)) {
+      if (isMatch(date, modifier)) {
         previousValue.push(key);
       }
       return previousValue;

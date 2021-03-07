@@ -33,8 +33,8 @@ export function Day(props: DayProps): JSX.Element | null {
 
   const {
     classNames,
-    labels: { labelDay },
     components: { DayContent },
+    labels: { labelDay },
     locale,
     modifierClassNames,
     modifierPrefix,
@@ -44,8 +44,7 @@ export function Day(props: DayProps): JSX.Element | null {
     onDayClick,
     onDayFocus,
     onDayBlur,
-    onDayKeyDown,
-    mode
+    onDayKeyDown
   } = context;
 
   React.useEffect(() => {
@@ -62,9 +61,7 @@ export function Day(props: DayProps): JSX.Element | null {
 
   // #region Event handlers
   const handleClick: React.MouseEventHandler = (e) => {
-    if (mode !== 'uncontrolled') {
-      selection[mode].onDayClick?.(date, modifierStatus, e);
-    }
+    selection.handleDayClick?.(date, modifierStatus, e);
     onDayClick?.(date, modifierStatus, e);
   };
 
