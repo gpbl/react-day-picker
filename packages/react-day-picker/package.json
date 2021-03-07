@@ -15,13 +15,13 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "develop": "tsc --watch",
+    "develop": "concurrently 'yarn tsc -w --preserveWatchOutput' 'yarn tsc-alias -w'",
     "lint": "eslint --ext .ts src",
     "test": "yarn jest",
     "coverage": "yarn test --coverage",
     "test:watch": "yarn test --watchAll --coverage",
     "build-clean": "rm -rf dist && rm -rf lib",
-    "build": "yarn build-clean && tsc && rollup -c"
+    "build": "yarn build-clean && tsc && tsc-alias && rollup -c"
   },
   "files": [
     "dist",
@@ -58,6 +58,7 @@
     "ts-jest": "^26.5.2",
     "ts-loader": "^8.0.17",
     "ts-node": "^9.1.1",
+    "tsc-alias": "^1.2.6",
     "tslib": "^2.1.0",
     "typescript": "~4.1.5"
   },

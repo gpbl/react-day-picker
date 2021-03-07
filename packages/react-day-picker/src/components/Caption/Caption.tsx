@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { MonthsDropdown, Navigation, YearsDropdown } from '../../components';
-import { useDayPicker, useNavigation } from '../../hooks';
-import { MonthChangeEventHandler } from '../../types';
+import { MonthsDropdown, Navigation, YearsDropdown } from 'components';
+import { useDayPicker, useNavigation } from 'hooks';
+import { MonthChangeEventHandler } from 'types';
 
 /** Represent the props of the [[Caption]] component. */
 export interface CaptionProps {

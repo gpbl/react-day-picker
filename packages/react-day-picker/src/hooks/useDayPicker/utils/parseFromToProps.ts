@@ -1,6 +1,5 @@
 import { startOfMonth } from 'date-fns';
-
-import { DayPickerProps } from '../../../types';
+import { DayPickerProps } from 'types';
 
 /**
  * Build the `fromDate` and `toDate` context values, given the fromMonth/toMonth

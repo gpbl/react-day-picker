@@ -1,4 +1,4 @@
-import { Modifiers, ModifiersArray } from '../../../types';
+import { Modifiers, ModifiersArray } from 'types';
 
 export function convertModifierMatchersToArray(
   modifiers: Modifiers

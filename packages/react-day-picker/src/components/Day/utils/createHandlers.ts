@@ -1,5 +1,5 @@
-import { DayPickerContextValue } from '../../../hooks';
-import { ModifierStatus } from '../../../types';
+import { DayPickerContextValue } from 'hooks';
+import { ModifierStatus } from 'types';
 
 /** Create the default event handlers for the Day component. */
 export function createHandlers(

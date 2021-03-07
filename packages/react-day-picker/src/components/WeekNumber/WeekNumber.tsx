@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from 'react';
 
-import { useDayPicker } from '../../hooks';
+import { useDayPicker } from 'hooks';
 
 /**
  * The props for the [[WeekNumber]] component.

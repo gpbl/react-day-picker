@@ -1,4 +1,4 @@
-import { DayPickerProps, Modifiers } from '../../../types';
+import { DayPickerProps, Modifiers } from 'types';
 
 /**
  * Parse the modifiers from the "modifiers shortcuts" such as `hidden` or

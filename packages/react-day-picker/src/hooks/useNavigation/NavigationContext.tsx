@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import { isSameMonth } from 'date-fns';
+import { useDayPicker } from 'hooks';
 
-import { useDayPicker } from '../useDayPicker';
 import { getDisplayMonths } from './utils/getDisplayMonths';
 import { getInitialMonth } from './utils/getInitialMonth';
 import { getNextMonth } from './utils/getNextMonth';

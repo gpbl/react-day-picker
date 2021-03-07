@@ -1,8 +1,7 @@
 import * as React from 'react';
 
 import { getUnixTime } from 'date-fns';
-
-import { useDayPicker } from '../../hooks';
+import { useDayPicker } from 'hooks';
 
 /**
  * The props for the [[Row]] component.

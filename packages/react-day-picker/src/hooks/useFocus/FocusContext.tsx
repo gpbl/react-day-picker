@@ -1,10 +1,8 @@
 import * as React from 'react';
 
 import { addDays, addMonths, addWeeks, isSameMonth } from 'date-fns';
-
-import { useDayPicker } from '../useDayPicker';
-import { isMatch } from '../useModifiers/utils/isMatch';
-import { useNavigation } from '../useNavigation';
+import { useDayPicker, useNavigation } from 'hooks';
+import { isMatch } from 'hooks/useModifiers/utils/isMatch';
 
 export type FocusContextValue = [
   focusedDay: Date | undefined,

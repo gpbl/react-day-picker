@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 
-import { DateFormatter, ModifierStatus } from '../../types';
+import { DateFormatter, ModifierStatus } from 'types';
 
 /** Represent the props for the [[DayContent]] component. */
 export interface DayContentProps {
