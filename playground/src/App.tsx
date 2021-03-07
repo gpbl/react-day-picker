@@ -1,22 +1,79 @@
-import './App.css';
-import 'react-day-picker/style.css';
+import "./App.css";
+import "react-day-picker/style.css";
 
-import { DayPicker } from 'react-day-picker';
+import { DateRange, DayPicker, isDateRangeMatcher } from "react-day-picker";
 
-import { addYears } from 'date-fns';
+import { addDays, addYears } from "date-fns";
 
 function App() {
   return (
     <main className="App">
+      <h1>Selections</h1>
+
+      <h2>Single selection mode</h2>
+      <p>DayPicker is in "single selection mode".</p>
+      <DayPicker onSelect={console.log} />
+      <h3>Limiting amount of selectable days</h3>
+      <p>Cannot select less than one. Default selected is today.</p>
+      <DayPicker
+        mode="single"
+        min={1}
+        defaultSelected={new Date()}
+        onSelect={console.log}
+      />
+
+      <hr />
+
+      <h2>Multiple selection mode </h2>
+      <p>Can select an infinite amount of days.</p>
+      <DayPicker mode="multiple" onSelectMultiple={console.log} />
+
+      <h2>Range selection mode </h2>
+      <p>Can select a range.</p>
+      <DayPicker
+        mode="range"
+        onSelectRange={(range) => {
+          console.log(range);
+        }}
+      />
+      {/* 
+      <h3>Limiting amount of selectable days</h3>
+      <p>
+        Cannot select more than 10 or less than 3. Days disabled when 10
+        reached.
+      </p>
+      <DayPicker
+        defaultSelected={[
+          new Date(),
+          addDays(new Date(), 2),
+          addDays(new Date(), 3),
+        ]}
+        mode="multiple"
+        min={3}
+        max={10}
+      />
+
+      <hr />
+
       <h1>Number of months</h1>
       <DayPicker showOutsideDays numberOfMonths={3} />
+
+      <h2>Select ranges</h2>
+      <DayPicker showOutsideDays numberOfMonths={3} />
+
+      <hr />
+
       <h1>Today</h1>
-      <h2>Today is in 10 years</h2>
-      <DayPicker today={addYears(new Date(), 10)} />
-      <h2>Today off</h2>
-      <DayPicker modifiers={{ today: false }} />
+      <p>Today is in 10 years</p>
+      <DayPicker today={addYears(new Date(), 10)} onSelect={console.log} />
+      <p>Today off</p>
+      <DayPicker today="off" mode="single" />
+
+      <hr />
+
       <h1>Week numbers</h1>
       <DayPicker showOutsideDays showWeekNumber numberOfMonths={3} />
+
       <h1>Dropdowns</h1>
       <DayPicker fromYear={2010} toYear={2020} captionLayout="dropdown" />
       <h1>Range selection</h1>
@@ -27,7 +84,7 @@ function App() {
         showOutsideDays
         showWeekNumber
         numberOfMonths={1}
-      />
+      /> */}
     </main>
   );
 }

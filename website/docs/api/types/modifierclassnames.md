@@ -8,8 +8,6 @@ hide_title: true
 
 # Type alias: ModifierClassNames
 
-Ƭ **ModifierClassNames**: *object*
+Ƭ **ModifierClassNames**: *Record*<[*Modifier*](modifier.md), string\>
 
 Represent the classnames to assign to each modifier.
-
-#### Type declaration:

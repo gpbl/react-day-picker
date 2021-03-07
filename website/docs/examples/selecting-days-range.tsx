@@ -5,7 +5,7 @@ import {
   SelectRangeEventHandler
 } from 'react-day-picker';
 
-import { addDays } from 'date-fns';
+import { addDays, format } from 'date-fns';
 
 export default function App() {
   const defaultSelected: DateRange = {
@@ -13,19 +13,18 @@ export default function App() {
     to: addDays(new Date(), 4)
   };
   const [range, setRange] = useState(defaultSelected);
-  const handleSelect: SelectRangeEventHandler = (range) => setRange(range);
+
+  let footer = 'Please pick the first day.';
+  if (range.from && !range.to) footer = 'Please pick the last day.';
+  if (range.from && range.to)
+    footer = `${format(range.from, 'PPP')}–${format(range.to, 'PPP')}`;
 
   return (
-    <>
-      <DayPicker
-        mode="range"
-        defaultSelected={defaultSelected}
-        onSelectRange={handleSelect}
-      />
-      <p>
-        You picked from {range && range.from && range.from.toLocaleDateString()}{' '}
-        to {range && range.to && range.to.toLocaleDateString()}
-      </p>
-    </>
+    <DayPicker
+      mode="range"
+      defaultSelected={defaultSelected}
+      footer={footer}
+      onSelectRange={setRange}
+    />
   );
 }

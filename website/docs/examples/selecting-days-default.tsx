@@ -14,9 +14,9 @@ export default function App() {
 
   return (
     <DayPicker
-      required
       defaultSelected={selectedDay}
       onSelect={setSelectedDay}
+      min={1}
       footer={footer}
     />
   );
