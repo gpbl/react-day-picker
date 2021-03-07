@@ -8,13 +8,13 @@ import {
   DayClickEventHandler,
   DayFocusEventHandler,
   DayKeyboardEventHandler,
+  Matcher,
   DayMouseEventHandler,
   DayTouchEventHandler,
   Formatters,
   Labels,
-  Matcher,
   ModifierClassNames,
-  ModifierMatchers,
+  Modifiers,
   ModifierStyles,
   MonthChangeEventHandler,
   SelectEventHandler,
@@ -23,7 +23,7 @@ import {
   SelectRangeEventHandler,
   Styles,
   WeekNumberClickEventHandler
-} from './';
+} from './index';
 
 /**
  * The props for the [[DayPicker]] component.
@@ -158,8 +158,7 @@ export interface DayPickerProps {
    */
   month?: Date;
   /**
-   * Change the number of months displayed by the component. Defaults to `1`.
-   * See also [[pagedNavigation]].
+   * The number of displayed months. Defaults to `1`.
    */
   numberOfMonths?: number;
   /**
@@ -248,35 +247,22 @@ export interface DayPickerProps {
   /**
    * The default selected day(s).
    */
-  defaultSelected?: Date | Date[] | DateRange | undefined;
+  defaultSelected?: Date | Date[] | DateRange;
   /**
-   * The selection mode.
+   * The selection mode – the way DayPicker enables selection when clicking a
+   * day.
    *
-   * - `single` (default) allows selecting only a single day
-   * - `multiple` allows selecting multiple days
-   * - `range` allows selecting a range of days
-   * - `uncontrolled`: set the selections using the `selected` prop
-   *
-   * **Example**
-   *
-   * When setting to `uncontrolled`, handle the selection in the parent
-   * component’ state:
-   *
-   * ```
-   * function Example() {
-   *  const [day, setDay] = useState(new Date());
-   *  return (
-   *    <DayPicker mode="uncontrolled" selected={day} onDayClick={setDay} />
-   *  )
-   * };
-   * ```
-   *
+   * - `single` (default) enables the selection of a single day per time
+   * - `multiple` enables the selection of multiple days
+   * - `range` enables th selection of a range of days
+   * - `uncontrolled`: disable the controlled selection. Use `selected` and
+   *   `onDayClick` to implement a custom selection mode.
    */
   mode?: SelectMode;
-  /**
-   * When the selection type is controlled, require at least one day to be selected.
-   */
-  required?: boolean;
+  /** The minimum amount of days that can be selected (when `mode` is `multiple` or `range`) */
+  min?: number;
+  /** The maximum amount of days that can be selected (when `mode` is `multiple` or `range`). */
+  max?: number;
   /**
    * Apply the `selected` modifier to the matching days.
    *
@@ -296,7 +282,7 @@ export interface DayPickerProps {
    * }
    * ```
    */
-  selected?: Matcher;
+  selected?: Matcher | Matcher[];
   /**
    * Apply the `disabled` modifier to the matching days.
    *
@@ -316,7 +302,7 @@ export interface DayPickerProps {
    * }
    * ```
    */
-  disabled?: Matcher;
+  disabled?: Matcher | Matcher[];
   /**
    * Apply the `hidden` modifier to the matching days – to hide them from the
    * calendar.
@@ -337,7 +323,7 @@ export interface DayPickerProps {
    * }
    * ```
    */
-  hidden?: Matcher;
+  hidden?: Matcher | Matcher[];
   /**
    * The today’s date. Default is the current date.
    *
@@ -349,30 +335,24 @@ export interface DayPickerProps {
    * }
    * ```
    */
-  today?: Date;
+  today?: Date | 'off';
   /**
-   * Add a custom modifier to the matching days.
+   * Add modifiers to the matching days.
    *
-   * **Example**
-   *
-   * Add a `booked` modifier to the current day.
+   * For example, to add a `booked` modifier to the current day:
    *
    * ```
-   * function Example() {
-   *    return <DayPicker modifiers={{ booked: new Date() }} />
-   * }
+   * <DayPicker modifiers={{ booked: new Date() }} />
    * ```
    */
-  modifiers?: ModifierMatchers;
+  modifiers?: Modifiers;
 
   /**
-   * The date-fns locale object to localize the user interface. Defaults to English.
+   * The date-fns locale object to localize the user interface. Defaults to EN-US.
    *
-   * See also date-fns [Internationalization guide](https://date-fns.org/v2.17.0/docs/I18n).
+   * See also date-fns [Internationalization guide](https://date-fns.org/docs/I18n).
    *
-   * **Example**
-   *
-   * Set the calendar to Spanish.
+   * For example, to the calendar to Spanish:
    *
    * ```
    * import spanish from 'date-fns/locale/es';
@@ -416,14 +396,12 @@ export interface DayPickerProps {
   /**
    * A map of components used to create the layout.
    *
-   * **Example**
+   * For example, to use custom navigation icons:
    *
    * ```
    * <DayPicker component={{
-   *    DayContent: CustomDayContent,
-   *    IconNext: CustomIconNext,
-   *    IconPrevious: CustomIconPrevious
-   *    // etc
+   *    IconNext: MyIconNext,
+   *    IconPrevious: MyIconPrev
    *  }}
    * />
    * ```

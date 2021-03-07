@@ -1,3 +1,5 @@
+import { Modifier } from './Modifier';
+
 /**
  * Represent the status of a modifiers if matched against a day according to its
  * [[Matcher]].
@@ -10,6 +12,4 @@
  * }
  * ```
  */
-export type ModifierStatus = {
-  [modifier: string]: boolean;
-};
+export type ModifierStatus = Record<Modifier, boolean>;

@@ -1,38 +1,51 @@
-import { Matcher } from '../../../types';
-import { matchAfter } from './matchAfter';
-import { matchBefore } from './matchBefore';
-import { matchBeforeAndAfter } from './matchBeforeAndAfter';
-import { matchDate } from './matchDate';
-import { matchDaysOfWeek } from './matchDaysOfWeek';
-import { matchFunction } from './matchFunction';
-import { matchRange } from './matchRange';
+import { differenceInCalendarDays, isSameDay } from 'date-fns';
+
+import {
+  isArrayOfDates,
+  isDateAfterMatcher,
+  isDateBeforeMatcher,
+  isDateIntervalMatcher,
+  isDateRange,
+  isDayOfWeekMatcher,
+  isSameDateMatcher,
+  Matcher
+} from '../../../types';
+import { isDateInRange } from './isDateInRange';
 
 /**
- * Returns true when the day matches against the given matcher. Supports few
- * basic matchers.
+ * Returns true whether the day matches against the given matchers.
  */
-export function isMatch(day: Date, matcher: Matcher): boolean {
-  if (!matcher) return false;
-  let matchers: Matcher[];
-
-  if (Array.isArray(matcher)) {
-    matchers = matcher;
-  } else {
-    matchers = [matcher];
-  }
-
-  return matchers.some((dayMatcher: Matcher) => {
-    if (!dayMatcher) return false;
-    if (typeof dayMatcher === 'boolean') return dayMatcher;
-    return (
-      // Precedence shouldn't be important here
-      matchDate(day, dayMatcher) ||
-      matchBeforeAndAfter(day, dayMatcher) ||
-      matchBefore(day, dayMatcher) ||
-      matchAfter(day, dayMatcher) ||
-      matchRange(day, dayMatcher) ||
-      matchDaysOfWeek(day, dayMatcher) ||
-      matchFunction(day, dayMatcher)
-    );
+export function isMatch(day: Date, matchers: Matcher[]): boolean {
+  return matchers.some((matcher: Matcher) => {
+    if (typeof matcher === 'boolean') {
+      return matcher;
+    }
+    if (isSameDateMatcher(matcher)) {
+      return isSameDay(day, matcher);
+    }
+    if (isArrayOfDates(matcher)) {
+      return matcher.includes(day);
+    }
+    if (isDateRange(matcher)) {
+      return isDateInRange(day, matcher);
+    }
+    if (isDayOfWeekMatcher(matcher)) {
+      return matcher.dayOfWeek.includes(day.getDay());
+    }
+    if (isDateIntervalMatcher(matcher)) {
+      const isBefore = differenceInCalendarDays(matcher.before, day) > 0;
+      const isAfter = differenceInCalendarDays(day, matcher.after) > 0;
+      return isBefore && isAfter;
+    }
+    if (isDateAfterMatcher(matcher)) {
+      return differenceInCalendarDays(day, matcher.after) > 0;
+    }
+    if (isDateBeforeMatcher(matcher)) {
+      return differenceInCalendarDays(matcher.before, day) > 0;
+    }
+    if (typeof matcher === 'function') {
+      return matcher(day);
+    }
+    return false;
   });
 }

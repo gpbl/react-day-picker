@@ -1,6 +1,6 @@
+import { Modifier } from './Modifier';
+
 /**
  * Represent the classnames to assign to each modifier.
  */
-export type ModifierClassNames = {
-  [modifier: string]: string;
-};
+export type ModifierClassNames = Record<Modifier, string>;

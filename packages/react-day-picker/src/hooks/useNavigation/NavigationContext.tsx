@@ -41,13 +41,19 @@ export const NavigationProvider = (
   const [month, setMonthInternal] = React.useState<Date>(initialMonth);
 
   const setMonth = (date: Date) => {
-    if (context.disableNavigation) return;
+    if (context.disableNavigation) {
+      return;
+    }
     setMonthInternal(date);
   };
 
   React.useEffect(() => {
-    if (!context.month) return;
-    if (isSameMonth(context.month, month)) return;
+    if (!context.month) {
+      return;
+    }
+    if (isSameMonth(context.month, month)) {
+      return;
+    }
     setMonth(context.month);
   }, [context.month]);
 

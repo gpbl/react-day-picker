@@ -17,11 +17,11 @@ import {
   Row,
   WeekNumber
 } from '../../components';
+
 import {
   CaptionLayout,
   ClassNames,
   Components,
-  DateRange,
   DayClickEventHandler,
   DayFocusEventHandler,
   DayKeyboardEventHandler,
@@ -30,22 +30,25 @@ import {
   DayTouchEventHandler,
   Formatters,
   Labels,
+  Matcher,
   ModifierClassNames,
-  ModifierMatchers,
+  ModifiersArray,
   ModifierStyles,
   MonthChangeEventHandler,
   SelectEventHandler,
   SelectMode,
   SelectMultipleEventHandler,
+  SelectRangeEventHandler,
   Styles,
   WeekNumberClickEventHandler
 } from '../../types';
-import { RangeSelectionHandler } from '../useSelection/useSelectRange';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';
+import { convertModifierMatchersToArray } from './utils/convertModifierMatchersToArray';
 import { getWeekdays } from './utils/getWeekdays';
 import { parseFromToProps } from './utils/parseFromToProps';
+import { parseModifierShortcuts } from './utils/parseModifierShortcuts';
 
 /**
  * Represent the value of the `DayPickerContext`.
@@ -55,7 +58,7 @@ export interface DayPickerContextValue {
   classNames: Required<ClassNames>;
   components: Components;
   defaultMonth?: Date;
-  defaultSelected?: Date | Date[] | DateRange;
+  defaultSelected?: Matcher;
   dir?: string;
   disableNavigation?: boolean;
   fixedWeeks?: boolean;
@@ -64,10 +67,15 @@ export interface DayPickerContextValue {
   labels: Labels;
   locale: Locale;
   hideHead?: boolean;
+  /** Whether to show the today modifier. */
+  hideToday?: boolean;
+  max?: DayPickerProps['max'];
+  min?: DayPickerProps['min'];
   mode: SelectMode;
   modifierClassNames: ModifierClassNames;
   modifierPrefix: string;
-  modifiers: ModifierMatchers;
+  /** Modifiers are converted to array of day matchers so they are easy to access. */
+  modifiers: ModifiersArray;
   modifierStyles?: ModifierStyles;
   /** This is the `month` from the initial props - use `useNavigation` hook for getting the current month. */
   month?: Date;
@@ -87,10 +95,9 @@ export interface DayPickerContextValue {
   onMonthChange?: MonthChangeEventHandler;
   onSelect?: SelectEventHandler;
   onSelectMultiple?: SelectMultipleEventHandler;
-  onSelectRange?: RangeSelectionHandler;
+  onSelectRange?: SelectRangeEventHandler;
   onWeekNumberClick?: WeekNumberClickEventHandler;
 
-  required?: boolean;
   showOutsideDays?: boolean;
   showWeekNumber?: boolean;
 
@@ -129,33 +136,35 @@ export const DayPickerProvider = (
   const { fromDate, toDate } = parseFromToProps(initialProps);
   const locale = initialProps.locale || enUS;
   const numberOfMonths = initialProps.numberOfMonths ?? 1;
-  const today = initialProps.today ?? new Date();
+  const today =
+    initialProps.today && initialProps.today !== 'off'
+      ? initialProps.today
+      : new Date();
   const month = initialProps.month;
   const weekdays = getWeekdays(locale);
 
-  // Default selection mode. If using `selected` prop, it is uncontrolled
+  // Default selection mode
   let mode = initialProps.mode ?? 'single';
-  if (initialProps.selected) mode = 'uncontrolled';
+  if (initialProps.selected) {
+    // When `selected` is passed to the props, switch to uncontrolled mode.
+    mode = 'uncontrolled';
+  }
 
-  // Default caption layout. If calendar navigation is unlimited it must be
-  // always `buttons` as we cannot display infinite options in the dropdown.
+  // Default caption layout. If calendar navigation is unlimited, it must be
+  // always `buttons` – as we cannot display infinite options in the dropdown.
   let captionLayout = initialProps.captionLayout ?? 'buttons';
   if (!fromDate && !toDate) captionLayout = 'buttons';
 
-  // Set defaults from modifiers shortcuts props
-  const modifiers = initialProps.modifiers || {};
-  if (initialProps.selected) modifiers.selected = initialProps.selected;
-  if (initialProps.hidden) modifiers.hidden = initialProps.hidden;
-
-  modifiers.disabled = [];
-  if (initialProps.disabled) {
-    if (Array.isArray(initialProps.disabled))
-      modifiers.disabled = [...initialProps.disabled];
-    else modifiers.disabled = [initialProps.disabled];
-  }
+  const modifiers = parseModifierShortcuts(initialProps);
+  const modifiersAsArray = convertModifierMatchersToArray(modifiers);
+  modifiersAsArray.disabled = [];
   // Disable days before/after from/toDate
-  if (fromDate) modifiers.disabled.push({ before: fromDate });
-  if (toDate) modifiers.disabled.push({ after: toDate });
+  if (fromDate) {
+    modifiersAsArray.disabled.push({ before: fromDate });
+  }
+  if (toDate) {
+    modifiersAsArray.disabled.push({ after: toDate });
+  }
 
   const context: DayPickerContextValue = {
     ...initialProps,
@@ -167,11 +176,12 @@ export const DayPickerProvider = (
     mode,
     month,
     today,
+    hideToday: initialProps.today === 'off',
     locale,
     weekdays,
     modifierClassNames: initialProps.modifierClassNames ?? {},
     styles: initialProps.styles ?? {},
-    modifiers,
+    modifiers: modifiersAsArray,
     classNames: {
       ...defaultClassNames,
       ...initialProps.classNames
@@ -200,7 +210,6 @@ export const DayPickerProvider = (
       ...initialProps.components
     }
   };
-
   return (
     <DayPickerContext.Provider value={context}>
       {children}

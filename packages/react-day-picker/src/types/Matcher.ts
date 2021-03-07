@@ -1,21 +1,19 @@
-import { DateAfter } from './DateAfter';
-import { DateBefore } from './DateBefore';
-import { DateBeforeAfter } from './DateBeforeAfter';
 import { DateRange } from './DateRange';
-import { MatchDate } from './MatchDate';
-import { MatchDaysOfWeek } from './MatchDaysOfWeek';
+import { DayOfWeekMatcher } from './DayOfWeekMatcher';
+import { DateBefore } from './DateBefore';
+import { DateAfter } from './DateAfter';
+import { DateInterval } from './DateInterval';
 
 /**
- * The matcher is a function, a date, an object or an array of them used to
+ * A `Matcher` is a function, a date, an object, or an array of them used to
  * determine if a day matches a modifier.
  */
 export type Matcher =
-  | boolean
+  | ((date: Date) => boolean)
   | Date
+  | Date[]
   | DateRange
-  | DateBeforeAfter
   | DateBefore
   | DateAfter
-  | MatchDate
-  | MatchDaysOfWeek
-  | Matcher[];
+  | DateInterval
+  | DayOfWeekMatcher;
