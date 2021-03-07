@@ -3,7 +3,6 @@ import * as React from 'react';
 import { isSameDay, isSameMonth } from 'date-fns';
 
 import { useDayPicker, useModifiers, useSelection } from '../../hooks';
-import { formatDay } from '../../hooks/useDayPicker/formatters';
 import { useFocus } from '../../hooks/useFocus';
 import { createHandlers } from './utils/createHandlers';
 
@@ -34,6 +33,7 @@ export function Day(props: DayProps): JSX.Element | null {
   const {
     classNames,
     components: { DayContent },
+    formatters: { formatDay },
     labels: { labelDay },
     locale,
     modifierClassNames,
