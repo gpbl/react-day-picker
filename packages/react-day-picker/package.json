@@ -15,7 +15,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "develop": "concurrently 'yarn tsc -w --preserveWatchOutput' 'yarn tsc-alias -w'",
+    "develop": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w'",
     "lint": "eslint --ext .ts src",
     "test": "yarn jest",
     "coverage": "yarn test --coverage",
@@ -41,6 +41,7 @@
     "@types/webpack": "^4.41.26",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
+    "concurrently": "^6.0.0",
     "cross-env": "^7.0.3",
     "date-fns": "^2.17.0",
     "debug": "^4.3.2",
