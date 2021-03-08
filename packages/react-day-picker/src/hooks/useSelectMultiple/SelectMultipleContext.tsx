@@ -78,7 +78,6 @@ export function SelectMultipleProvider({
   const modifiers: ModifiersArray = {};
   if (selectedDays && initialProps.mode === 'multiple') {
     modifiers.selected = selectedDays;
-    console.log('here', 'selected');
     modifiers.disabled = [
       function XY(day: Date) {
         const isMaxSelected =
@@ -86,8 +85,6 @@ export function SelectMultipleProvider({
         const isSelected = selectedDays.some((selectedDay) =>
           isSameDay(selectedDay, day)
         );
-        console.log('isSelected', isSelected);
-        console.log('isMaxSelected', isMaxSelected);
         return Boolean(isMaxSelected && !isSelected);
       }
     ];
