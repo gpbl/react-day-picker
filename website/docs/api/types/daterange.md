@@ -18,4 +18,4 @@ Differently from [DateInterval](dateinterval.md), the dates here are included.
 Name | Type |
 :------ | :------ |
 `from` | Date \| *undefined* |
-`to`? | Date \| *undefined* |
+`to`? | Date |

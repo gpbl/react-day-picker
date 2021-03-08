@@ -24,8 +24,8 @@ ___
 
 Name | Type |
 :------ | :------ |
-`disabled`? | *undefined* \| [*Matcher*](../types/matcher.md)[] |
-`selected`? | *undefined* \| [*Matcher*](../types/matcher.md)[] |
+`disabled`? | [*Matcher*](../types/matcher.md)[] |
+`selected`? | [*Matcher*](../types/matcher.md)[] |
 
 ___
 

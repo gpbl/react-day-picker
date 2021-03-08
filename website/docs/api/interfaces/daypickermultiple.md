@@ -20,7 +20,7 @@ The props for the [DayPicker](../functions/daypicker.md) component when using mu
 
 ### captionLayout
 
-• `Optional` **captionLayout**: *undefined* \| *dropdown* \| *buttons*
+• `Optional` **captionLayout**: *dropdown* \| *buttons*
 
 Change the layout of the caption:
 
@@ -45,7 +45,7 @@ ___
 
 ### className
 
-• `Optional` **className**: *undefined* \| *string*
+• `Optional` **className**: *string*
 
 CSS class to add to the root UI element.
 
@@ -55,7 +55,7 @@ ___
 
 ### classNames
 
-• `Optional` **classNames**: *undefined* \| *Partial*<[*StyledElement*](../types/styledelement.md)<string\>\>
+• `Optional` **classNames**: *Partial*<[*StyledElement*](../types/styledelement.md)<string\>\>
 
 Change the class names.
 
@@ -98,7 +98,7 @@ ___
 
 ### components
 
-• `Optional` **components**: *undefined* \| *Partial*<[*Components*](components.md)\>
+• `Optional` **components**: *Partial*<[*Components*](components.md)\>
 
 A map of components used to create the layout.
 
@@ -118,7 +118,7 @@ ___
 
 ### defaultMonth
 
-• `Optional` **defaultMonth**: *undefined* \| Date
+• `Optional` **defaultMonth**: Date
 
 The initial month to show in the calendar. Default is the current month.
 
@@ -131,7 +131,7 @@ ___
 
 ### defaultSelected
 
-• `Optional` **defaultSelected**: *undefined* \| Date[]
+• `Optional` **defaultSelected**: Date[]
 
 The default selected dates.
 
@@ -139,7 +139,7 @@ ___
 
 ### dir
 
-• `Optional` **dir**: *undefined* \| *string*
+• `Optional` **dir**: *string*
 
 The text direction of the calendar. Use `ltr` for left-to-right (default)
 or `rtl` for right-to-left.
@@ -163,7 +163,7 @@ ___
 
 ### disableNavigation
 
-• `Optional` **disableNavigation**: *undefined* \| *boolean*
+• `Optional` **disableNavigation**: *boolean*
 
 Disable the navigation between months.
 
@@ -173,7 +173,7 @@ ___
 
 ### disabled
 
-• `Optional` **disabled**: *undefined* \| Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **disabled**: Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `disabled` modifier to the matching days.
 
@@ -199,7 +199,7 @@ ___
 
 ### fixedWeeks
 
-• `Optional` **fixedWeeks**: *undefined* \| *boolean*
+• `Optional` **fixedWeeks**: *boolean*
 
 Display six weeks per months, regardless the month’s number of weeks.
 To use this prop, [showOutsideDays](daypickermultiple.md#showoutsidedays) must be set. Default to `false`.
@@ -228,7 +228,7 @@ ___
 
 ### formatters
 
-• `Optional` **formatters**: *undefined* \| *Partial*<[*Formatters*](../types/formatters.md)\>
+• `Optional` **formatters**: *Partial*<[*Formatters*](../types/formatters.md)\>
 
 A map of formatters to change the default formatting functions.
 
@@ -238,7 +238,7 @@ ___
 
 ### fromDate
 
-• `Optional` **fromDate**: *undefined* \| Date
+• `Optional` **fromDate**: Date
 
 The earliest day to start the month navigation.
 
@@ -248,7 +248,7 @@ ___
 
 ### fromMonth
 
-• `Optional` **fromMonth**: *undefined* \| Date
+• `Optional` **fromMonth**: Date
 
 The earliest month to start the month navigation.
 
@@ -258,7 +258,7 @@ ___
 
 ### fromYear
 
-• `Optional` **fromYear**: *undefined* \| *number*
+• `Optional` **fromYear**: *number*
 
 The earliest year to start the month navigation.
 
@@ -268,7 +268,7 @@ ___
 
 ### hidden
 
-• `Optional` **hidden**: *undefined* \| Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **hidden**: Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `hidden` modifier to the matching days – to hide them from the
 calendar.
@@ -295,7 +295,7 @@ ___
 
 ### hideHead
 
-• `Optional` **hideHead**: *undefined* \| *boolean*
+• `Optional` **hideHead**: *boolean*
 
 Hide the month’s head displaying the weekday names.
 
@@ -305,7 +305,7 @@ ___
 
 ### labels
 
-• `Optional` **labels**: *undefined* \| *Partial*<[*Labels*](../types/labels.md)\>
+• `Optional` **labels**: *Partial*<[*Labels*](../types/labels.md)\>
 
 A map of labels creators used for the ARIA labels attributes.
 
@@ -315,7 +315,7 @@ ___
 
 ### locale
 
-• `Optional` **locale**: *undefined* \| Locale
+• `Optional` **locale**: Locale
 
 The date-fns locale object to localize the user interface. Defaults to EN-US.
 
@@ -337,7 +337,7 @@ ___
 
 ### max
 
-• `Optional` **max**: *undefined* \| *number*
+• `Optional` **max**: *number*
 
 The maximum amount of days that can be selected.
 
@@ -345,7 +345,7 @@ ___
 
 ### min
 
-• `Optional` **min**: *undefined* \| *number*
+• `Optional` **min**: *number*
 
 The minimum amount of days that can be selected.
 
@@ -370,7 +370,7 @@ ___
 
 ### modifierClassNames
 
-• `Optional` **modifierClassNames**: *undefined* \| *Record*<string, string\>
+• `Optional` **modifierClassNames**: *Record*<string, string\>
 
 Change the class name for the day matching the [modifiers](daypickermultiple.md#modifiers).
 
@@ -391,7 +391,7 @@ ___
 
 ### modifierPrefix
 
-• `Optional` **modifierPrefix**: *undefined* \| *string*
+• `Optional` **modifierPrefix**: *string*
 
 The prefix to add to the modifiers class names. Default is `rdp-day_`.
 
@@ -416,7 +416,7 @@ ___
 
 ### modifierStyles
 
-• `Optional` **modifierStyles**: *undefined* \| *Record*<string, CSSProperties\>
+• `Optional` **modifierStyles**: *Record*<string, CSSProperties\>
 
 Change the inline style for the day matching the [modifiers](daypickermultiple.md#modifiers).
 
@@ -437,7 +437,7 @@ ___
 
 ### modifiers
 
-• `Optional` **modifiers**: *undefined* \| *Record*<string, Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]\>
+• `Optional` **modifiers**: *Record*<string, Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]\>
 
 Add modifiers to the matching days.
 
@@ -453,7 +453,7 @@ ___
 
 ### month
 
-• `Optional` **month**: *undefined* \| Date
+• `Optional` **month**: Date
 
 The month to display in the calendar.
 
@@ -482,7 +482,7 @@ ___
 
 ### numberOfMonths
 
-• `Optional` **numberOfMonths**: *undefined* \| *number*
+• `Optional` **numberOfMonths**: *number*
 
 The number of displayed months. Defaults to `1`.
 
@@ -492,7 +492,7 @@ ___
 
 ### onDayBlur
 
-• `Optional` **onDayBlur**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+• `Optional` **onDayBlur**: [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayBlur](daypickerbase.md#ondayblur)
 
@@ -500,7 +500,7 @@ ___
 
 ### onDayClick
 
-• `Optional` **onDayClick**: *undefined* \| [*DayClickEventHandler*](../types/dayclickeventhandler.md)
+• `Optional` **onDayClick**: [*DayClickEventHandler*](../types/dayclickeventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayClick](daypickerbase.md#ondayclick)
 
@@ -508,7 +508,7 @@ ___
 
 ### onDayFocus
 
-• `Optional` **onDayFocus**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+• `Optional` **onDayFocus**: [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayFocus](daypickerbase.md#ondayfocus)
 
@@ -516,7 +516,7 @@ ___
 
 ### onDayKeyDown
 
-• `Optional` **onDayKeyDown**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
+• `Optional` **onDayKeyDown**: [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayKeyDown](daypickerbase.md#ondaykeydown)
 
@@ -524,7 +524,7 @@ ___
 
 ### onDayKeyPress
 
-• `Optional` **onDayKeyPress**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
+• `Optional` **onDayKeyPress**: [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayKeyPress](daypickerbase.md#ondaykeypress)
 
@@ -532,7 +532,7 @@ ___
 
 ### onDayKeyUp
 
-• `Optional` **onDayKeyUp**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
+• `Optional` **onDayKeyUp**: [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayKeyUp](daypickerbase.md#ondaykeyup)
 
@@ -540,7 +540,7 @@ ___
 
 ### onDayMouseEnter
 
-• `Optional` **onDayMouseEnter**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
+• `Optional` **onDayMouseEnter**: [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayMouseEnter](daypickerbase.md#ondaymouseenter)
 
@@ -548,7 +548,7 @@ ___
 
 ### onDayMouseLeave
 
-• `Optional` **onDayMouseLeave**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
+• `Optional` **onDayMouseLeave**: [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayMouseLeave](daypickerbase.md#ondaymouseleave)
 
@@ -556,7 +556,7 @@ ___
 
 ### onDayTouchCancel
 
-• `Optional` **onDayTouchCancel**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchCancel**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayTouchCancel](daypickerbase.md#ondaytouchcancel)
 
@@ -564,7 +564,7 @@ ___
 
 ### onDayTouchEnd
 
-• `Optional` **onDayTouchEnd**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchEnd**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayTouchEnd](daypickerbase.md#ondaytouchend)
 
@@ -572,7 +572,7 @@ ___
 
 ### onDayTouchMove
 
-• `Optional` **onDayTouchMove**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchMove**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayTouchMove](daypickerbase.md#ondaytouchmove)
 
@@ -580,7 +580,7 @@ ___
 
 ### onDayTouchStart
 
-• `Optional` **onDayTouchStart**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchStart**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onDayTouchStart](daypickerbase.md#ondaytouchstart)
 
@@ -588,7 +588,7 @@ ___
 
 ### onMonthChange
 
-• `Optional` **onMonthChange**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
+• `Optional` **onMonthChange**: [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
 
 Event fired when the user navigates between months.
 
@@ -598,7 +598,7 @@ ___
 
 ### onNextClick
 
-• `Optional` **onNextClick**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
+• `Optional` **onNextClick**: [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onNextClick](daypickerbase.md#onnextclick)
 
@@ -606,7 +606,7 @@ ___
 
 ### onPrevClick
 
-• `Optional` **onPrevClick**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
+• `Optional` **onPrevClick**: [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onPrevClick](daypickerbase.md#onprevclick)
 
@@ -614,7 +614,7 @@ ___
 
 ### onSelect
 
-• `Optional` **onSelect**: *undefined* \| [*SelectMultipleEventHandler*](../types/selectmultipleeventhandler.md)
+• `Optional` **onSelect**: [*SelectMultipleEventHandler*](../types/selectmultipleeventhandler.md)
 
 Event fired when a days added or removed to the selection.
 
@@ -622,7 +622,7 @@ ___
 
 ### onWeekNumberClick
 
-• `Optional` **onWeekNumberClick**: *undefined* \| [*WeekNumberClickEventHandler*](../types/weeknumberclickeventhandler.md)
+• `Optional` **onWeekNumberClick**: [*WeekNumberClickEventHandler*](../types/weeknumberclickeventhandler.md)
 
 Inherited from: [DayPickerBase](daypickerbase.md).[onWeekNumberClick](daypickerbase.md#onweeknumberclick)
 
@@ -630,7 +630,7 @@ ___
 
 ### pagedNavigation
 
-• `Optional` **pagedNavigation**: *undefined* \| *boolean*
+• `Optional` **pagedNavigation**: *boolean*
 
 Paginate the month navigation displaying the [numberOfMonths](daypickermultiple.md#numberofmonths) at time.
 
@@ -640,7 +640,7 @@ ___
 
 ### reverseMonths
 
-• `Optional` **reverseMonths**: *undefined* \| *boolean*
+• `Optional` **reverseMonths**: *boolean*
 
 Render the months in reversed order (when [numberOfMonths](daypickermultiple.md#numberofmonths) is greater
 than `1`) to display the most recent month first.
@@ -651,7 +651,7 @@ ___
 
 ### selected
 
-• `Optional` **selected**: *undefined* \| Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **selected**: Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `selected` modifier to the matching days.
 
@@ -677,7 +677,7 @@ ___
 
 ### showOutsideDays
 
-• `Optional` **showOutsideDays**: *undefined* \| *boolean*
+• `Optional` **showOutsideDays**: *boolean*
 
 Show the outside days.  An outside day is a day falling in the next or the
 previous month. Default is `false`.
@@ -688,7 +688,7 @@ ___
 
 ### showWeekNumber
 
-• `Optional` **showWeekNumber**: *undefined* \| *boolean*
+• `Optional` **showWeekNumber**: *boolean*
 
 Show the week numbers column. Default to `false`.
 
@@ -698,7 +698,7 @@ ___
 
 ### style
 
-• `Optional` **style**: *undefined* \| *CSSProperties*
+• `Optional` **style**: *CSSProperties*
 
 Style to apply to the container element.
 
@@ -708,7 +708,7 @@ ___
 
 ### styles
 
-• `Optional` **styles**: *undefined* \| *Partial*<[*StyledElement*](../types/styledelement.md)<CSSProperties\>\>
+• `Optional` **styles**: *Partial*<[*StyledElement*](../types/styledelement.md)<CSSProperties\>\>
 
 Change the inline styles for each UIElement.
 
@@ -718,7 +718,7 @@ ___
 
 ### toDate
 
-• `Optional` **toDate**: *undefined* \| Date
+• `Optional` **toDate**: Date
 
 The latest day to end the month navigation.
 
@@ -728,7 +728,7 @@ ___
 
 ### toMonth
 
-• `Optional` **toMonth**: *undefined* \| Date
+• `Optional` **toMonth**: Date
 
 The latest month to end the month navigation.
 
@@ -738,7 +738,7 @@ ___
 
 ### toYear
 
-• `Optional` **toYear**: *undefined* \| *number*
+• `Optional` **toYear**: *number*
 
 The latest year to end the month navigation.
 
@@ -748,7 +748,7 @@ ___
 
 ### today
 
-• `Optional` **today**: *undefined* \| Date \| *off*
+• `Optional` **today**: Date \| *off*
 
 The today’s date. Default is the current date.
 

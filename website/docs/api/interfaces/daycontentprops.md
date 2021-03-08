@@ -78,6 +78,6 @@ ___
 
 ### showOutsideDays
 
-• `Optional` **showOutsideDays**: *undefined* \| *boolean*
+• `Optional` **showOutsideDays**: *boolean*
 
 Whether DayPicker should show the outside day.

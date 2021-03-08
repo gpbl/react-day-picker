@@ -18,28 +18,40 @@ ___
 
 ### children
 
-• `Optional` **children**: *undefined* \| *Element* \| *Element*[]
+• `Optional` **children**: *Element* \| *Element*[]
 
 ___
 
 ### className
 
-• `Optional` **className**: *undefined* \| *string*
+• `Optional` **className**: *string*
 
 ___
 
 ### onChange
 
-• `Optional` **onChange**: *undefined* \| (`event`: *ChangeEvent*<HTMLSelectElement\>) => *void*
+• `Optional` **onChange**: (`event`: *ChangeEvent*<HTMLSelectElement\>) => *void*
+
+#### Type declaration:
+
+▸ (`event`: *ChangeEvent*<HTMLSelectElement\>): *void*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`event` | *ChangeEvent*<HTMLSelectElement\> |
+
+**Returns:** *void*
 
 ___
 
 ### style
 
-• `Optional` **style**: *undefined* \| *CSSProperties*
+• `Optional` **style**: *CSSProperties*
 
 ___
 
 ### value
 
-• `Optional` **value**: *undefined* \| *string* \| *number* \| readonly *string*[]
+• `Optional` **value**: *string* \| *number* \| readonly *string*[]
