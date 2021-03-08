@@ -82,8 +82,6 @@ ___
 
 • `Optional` **footer**: ReactNode
 
-The content of the Footer component
-
 Inherited from: [ContextBase](contextbase.md).[footer](contextbase.md#footer)
 
 ___
@@ -115,8 +113,6 @@ ___
 ### hideToday
 
 • `Optional` **hideToday**: *undefined* \| *boolean*
-
-Whether to show the today modifier.
 
 Inherited from: [ContextBase](contextbase.md).[hideToday](contextbase.md#hidetoday)
 
@@ -184,8 +180,6 @@ ___
 
 • **modifiers**: *Record*<string, [*Matcher*](../types/matcher.md)[]\>
 
-Modifiers are converted to array of day matchers so they are easy to access.
-
 Inherited from: [ContextBase](contextbase.md).[modifiers](contextbase.md#modifiers)
 
 ___
@@ -193,8 +187,6 @@ ___
 ### month
 
 • `Optional` **month**: *undefined* \| Date
-
-This is the `month` from the initial props - use `useNavigation` hook for getting the current month.
 
 Inherited from: [ContextBase](contextbase.md).[month](contextbase.md#month)
 
@@ -346,8 +338,6 @@ ___
 
 • `Optional` **toDate**: *undefined* \| Date
 
-Limit the navigation up to this date. Includes a parsed value from the `toMonth` and `toYear` props.
-
 Inherited from: [ContextBase](contextbase.md).[toDate](contextbase.md#todate)
 
 ___
@@ -356,8 +346,6 @@ ___
 
 • **today**: Date
 
-The today’s date used for calculations.
-
 Inherited from: [ContextBase](contextbase.md).[today](contextbase.md#today)
 
 ___
@@ -365,7 +353,5 @@ ___
 ### weekdays
 
 • **weekdays**: Date[]
-
-The weekdays used for the head
 
 Inherited from: [ContextBase](contextbase.md).[weekdays](contextbase.md#weekdays)

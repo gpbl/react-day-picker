@@ -8,7 +8,7 @@ hide_title: true
 
 # Interface: ContextBase
 
-Represent the value of the `DayPickerContext`.
+Represent the value of the daypicker context.
 
 ## Hierarchy
 
@@ -70,8 +70,6 @@ ___
 
 • `Optional` **footer**: ReactNode
 
-The content of the Footer component
-
 ___
 
 ### formatters
@@ -95,8 +93,6 @@ ___
 ### hideToday
 
 • `Optional` **hideToday**: *undefined* \| *boolean*
-
-Whether to show the today modifier.
 
 ___
 
@@ -134,15 +130,11 @@ ___
 
 • **modifiers**: *Record*<string, [*Matcher*](../types/matcher.md)[]\>
 
-Modifiers are converted to array of day matchers so they are easy to access.
-
 ___
 
 ### month
 
 • `Optional` **month**: *undefined* \| Date
-
-This is the `month` from the initial props - use `useNavigation` hook for getting the current month.
 
 ___
 
@@ -252,20 +244,14 @@ ___
 
 • `Optional` **toDate**: *undefined* \| Date
 
-Limit the navigation up to this date. Includes a parsed value from the `toMonth` and `toYear` props.
-
 ___
 
 ### today
 
 • **today**: Date
 
-The today’s date used for calculations.
-
 ___
 
 ### weekdays
 
 • **weekdays**: Date[]
-
-The weekdays used for the head
