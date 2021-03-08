@@ -83,8 +83,8 @@ export function Navigation(props: NavigationProps): JSX.Element {
   }
   return (
     <div className={classNames.nav} style={styles.nav}>
-      {!props.hidePrevious && previousButton}
-      {!props.hideNext && nextButton}
+      {!props.hidePrevious && (dir === 'rtl' ? nextButton : previousButton)}
+      {!props.hideNext && (dir === 'rtl' ? previousButton : nextButton)}
     </div>
   );
 }

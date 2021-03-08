@@ -1,7 +1,14 @@
 import * as React from 'react';
 
 import { isSameDay, isSameMonth } from 'date-fns';
-import { useDayPicker, useFocus, useModifiers, useSelection } from 'hooks';
+import {
+  useDayPicker,
+  useFocus,
+  useModifiers,
+  useSelectMultiple,
+  useSelectRange,
+  useSelectSingle
+} from 'hooks';
 
 import { createHandlers } from './utils/createHandlers';
 
@@ -22,7 +29,9 @@ export function Day(props: DayProps): JSX.Element | null {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const { date, displayMonth } = props;
   const context = useDayPicker();
-  const selection = useSelection();
+  const single = useSelectSingle();
+  const multiple = useSelectMultiple();
+  const range = useSelectRange();
   const modifierStatus = useModifiers(date);
   const [
     focusedDay,
@@ -40,6 +49,7 @@ export function Day(props: DayProps): JSX.Element | null {
     modifierStyles,
     showOutsideDays,
     styles,
+    mode = 'uncontrolled',
     onDayClick,
     onDayFocus,
     onDayBlur,
@@ -60,8 +70,18 @@ export function Day(props: DayProps): JSX.Element | null {
 
   // #region Event handlers
   const handleClick: React.MouseEventHandler = (e) => {
-    selection.handleDayClick?.(date, modifierStatus, e);
     onDayClick?.(date, modifierStatus, e);
+    switch (context.mode) {
+      case 'single':
+        single.handleDayClick?.(date, modifierStatus, e);
+        break;
+      case 'multiple':
+        multiple.handleDayClick?.(date, modifierStatus, e);
+        break;
+      case 'range':
+        range.handleDayClick?.(date, modifierStatus, e);
+        break;
+    }
   };
 
   const handleFocus: React.FocusEventHandler = (e) => {
@@ -153,9 +173,20 @@ export function Day(props: DayProps): JSX.Element | null {
   const isFocused = focusedDay && !isSameDay(focusedDay, date);
 
   let tabIndex = 0;
-  if (isDisabled || isFocused) tabIndex = -1;
+  if (isDisabled || isFocused || mode === 'uncontrolled') {
+    tabIndex = -1;
+  }
 
-  const className = [classNames.button_reset, ...cssClasses].join(' ');
+  const className = [...cssClasses].join(' ');
+
+  if (mode === 'uncontrolled' && !onDayClick) {
+    return (
+      <div style={style} className={className}>
+        {dayContent}
+      </div>
+    );
+  }
+  const buttonClassName = [classNames.button_reset, ...cssClasses].join(' ');
 
   return (
     <button
@@ -163,7 +194,7 @@ export function Day(props: DayProps): JSX.Element | null {
       aria-pressed={ariaPressed}
       style={style}
       disabled={isDisabled}
-      className={className}
+      className={buttonClassName}
       tabIndex={tabIndex}
       onClick={handleClick}
       onFocus={handleFocus}

@@ -3,7 +3,7 @@ import {
   isArrayOfDates,
   isDateAfterMatcher,
   isDateBeforeMatcher,
-  isDateIntervalMatcher,
+  isDateInterval,
   isDateRange,
   isDayOfWeekMatcher,
   isSameDateMatcher,
@@ -32,7 +32,7 @@ export function isMatch(day: Date, matchers: Matcher[]): boolean {
     if (isDayOfWeekMatcher(matcher)) {
       return matcher.dayOfWeek.includes(day.getDay());
     }
-    if (isDateIntervalMatcher(matcher)) {
+    if (isDateInterval(matcher)) {
       const isBefore = differenceInCalendarDays(matcher.before, day) > 0;
       const isAfter = differenceInCalendarDays(day, matcher.after) > 0;
       return isBefore && isAfter;

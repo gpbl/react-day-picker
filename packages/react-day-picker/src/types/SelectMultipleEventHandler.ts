@@ -6,7 +6,7 @@ import { ModifierStatus } from './ModifierStatus';
  */
 export type SelectMultipleEventHandler = (
   /** The selected days */
-  days: Date[],
+  days: Date[] | undefined,
   /** The day that was selected (or clicked) triggering the event. */
   selectedDay: Date,
   /** The day that was clicked */

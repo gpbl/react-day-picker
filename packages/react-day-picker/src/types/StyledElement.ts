@@ -77,9 +77,3 @@ export type StyledElement<T = string | CSSProperties> = {
   /** The style of today button. */
   readonly day_today: T;
 };
-
-/** The class names of each element. */
-export type ClassNames = Partial<StyledElement<string>>;
-
-/** The inline-styles of each element. */
-export type Styles = Partial<StyledElement<CSSProperties>>;

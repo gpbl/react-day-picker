@@ -9,14 +9,13 @@ import { DateRange } from 'types';
  */
 export function addToRange(
   day: Date,
-  range?: DateRange,
-  required = false
+  range?: DateRange
 ): DateRange | undefined {
   const { from, to } = range || {};
   if (!from) {
-    return { from: day };
+    return { from: day, to: day };
   }
-  if (!required && !to && isSameDay(from, day)) {
+  if (!to && isSameDay(from, day)) {
     return { from: undefined, to: undefined };
   }
   if (!to && isBefore(day, from)) {
@@ -25,8 +24,14 @@ export function addToRange(
   if (!to) {
     return { from, to: day };
   }
+  if (isSameDay(to, day) && isSameDay(from, day)) {
+    return { from: undefined, to: undefined };
+  }
   if (isSameDay(to, day)) {
-    return { from: to };
+    return { from: to, to: to };
+  }
+  if (isSameDay(from, day)) {
+    return { from: undefined, to: undefined };
   }
   if (isAfter(from, day)) {
     return { from: day, to };
