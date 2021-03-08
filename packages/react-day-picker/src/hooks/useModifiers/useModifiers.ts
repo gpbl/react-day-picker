@@ -1,6 +1,8 @@
-import { useDayPicker, useSelection } from 'hooks';
+import { useDayPicker, useSelectSingle } from 'hooks';
 import { ModifiersArray, ModifierStatus } from 'types';
 
+import { useSelectMultiple } from '../useSelectMultiple';
+import { useSelectRange } from '../useSelectRange';
 import { getModifierStatus } from './utils/getModifierStatus';
 
 /**
@@ -8,32 +10,54 @@ import { getModifierStatus } from './utils/getModifierStatus';
  */
 export function useModifiers(date: Date): ModifierStatus {
   const context = useDayPicker();
-  const selection = useSelection();
+  const single = useSelectSingle();
+  const multiple = useSelectMultiple();
+  const range = useSelectRange();
+
   const today = !context.hideToday ? context.today : undefined;
 
   // Add to the modifiers in context those coming from selection
   const modifiers: ModifiersArray = {
     ...context.modifiers,
-    today: context.modifiers.today ?? [today]
+    today: context.modifiers.today ?? [today],
+    disabled: context.modifiers.disabled
   };
 
-  if (selection.modifiers.selected) {
-    modifiers.selected = selection.modifiers.selected;
-  }
-  if (selection.modifiers.disabled) {
-    modifiers.disabled = [
-      ...context.modifiers.disabled,
-      selection.modifiers.disabled
-    ];
-  }
-  if (selection.modifiers.range_start) {
-    modifiers.range_start = [selection.modifiers.range_start];
-  }
-  if (selection.modifiers.range_middle) {
-    modifiers.range_middle = [selection.modifiers.range_middle];
-  }
-  if (selection.modifiers.range_end) {
-    modifiers.range_end = [selection.modifiers.range_end];
+  switch (context.mode) {
+    case 'single':
+      if (single.modifiers.selected) {
+        modifiers.selected = single.modifiers.selected;
+      }
+      break;
+    case 'multiple':
+      if (multiple.modifiers.selected) {
+        modifiers.selected = multiple.modifiers.selected;
+      }
+      if (multiple.modifiers.disabled) {
+        modifiers.disabled = modifiers.disabled.concat(
+          multiple.modifiers.disabled
+        );
+      }
+      break;
+    case 'range':
+      if (range.modifiers.selected) {
+        modifiers.selected = range.modifiers.selected;
+      }
+      if (range.modifiers.range_start) {
+        modifiers.range_start = range.modifiers.range_start;
+      }
+      if (range.modifiers.range_middle) {
+        modifiers.range_middle = range.modifiers.range_middle;
+      }
+      if (range.modifiers.range_end) {
+        modifiers.range_end = range.modifiers.range_end;
+      }
+      if (range.modifiers.disabled) {
+        modifiers.disabled = modifiers.disabled.concat(
+          range.modifiers.disabled
+        );
+      }
+      break;
   }
 
   const status = getModifierStatus(date, modifiers);

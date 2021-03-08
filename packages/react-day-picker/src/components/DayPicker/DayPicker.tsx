@@ -5,7 +5,9 @@ import {
   DayPickerProvider,
   FocusProvider,
   NavigationProvider,
-  SelectionProvider
+  SelectMultipleProvider,
+  SelectRangeProvider,
+  SelectSingleProvider
 } from 'hooks';
 import { DayPickerProps } from 'types';
 
@@ -16,11 +18,15 @@ export function DayPicker(props: DayPickerProps): JSX.Element {
   return (
     <DayPickerProvider initialProps={props}>
       <NavigationProvider>
-        <SelectionProvider>
-          <FocusProvider>
-            <Root />
-          </FocusProvider>
-        </SelectionProvider>
+        <SelectRangeProvider initialProps={props}>
+          <SelectMultipleProvider initialProps={props}>
+            <SelectSingleProvider initialProps={props}>
+              <FocusProvider>
+                <Root />
+              </FocusProvider>
+            </SelectSingleProvider>
+          </SelectMultipleProvider>
+        </SelectRangeProvider>
       </NavigationProvider>
     </DayPickerProvider>
   );

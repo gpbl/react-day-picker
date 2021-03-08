@@ -117,8 +117,7 @@ export function useInput(
       month,
       selected,
       onDayClick,
-      onMonthChange,
-      mode: 'uncontrolled'
+      onMonthChange
     },
     inputProps: {
       value,

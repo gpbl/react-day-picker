@@ -14,32 +14,8 @@ import {
   Row,
   WeekNumber
 } from 'components';
-import { Locale } from 'date-fns';
 import enUS from 'date-fns/locale/en-US';
-import {
-  CaptionLayout,
-  ClassNames,
-  Components,
-  DayClickEventHandler,
-  DayFocusEventHandler,
-  DayKeyboardEventHandler,
-  DayMouseEventHandler,
-  DayPickerProps,
-  DayTouchEventHandler,
-  Formatters,
-  Labels,
-  Matcher,
-  ModifierClassNames,
-  ModifiersArray,
-  ModifierStyles,
-  MonthChangeEventHandler,
-  SelectEventHandler,
-  SelectMode,
-  SelectMultipleEventHandler,
-  SelectRangeEventHandler,
-  Styles,
-  WeekNumberClickEventHandler
-} from 'types';
+import { ContextValue, DayPickerProps } from 'types';
 
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
@@ -50,78 +26,16 @@ import { parseFromToProps } from './utils/parseFromToProps';
 import { parseModifierShortcuts } from './utils/parseModifierShortcuts';
 
 /**
- * Represent the value of the `DayPickerContext`.
- */
-export interface DayPickerContextValue {
-  captionLayout: CaptionLayout;
-  classNames: Required<ClassNames>;
-  components: Components;
-  defaultMonth?: Date;
-  defaultSelected?: Matcher;
-  dir?: string;
-  disableNavigation?: boolean;
-  fixedWeeks?: boolean;
-  formatters: Formatters;
-  fromDate?: Date;
-  labels: Labels;
-  locale: Locale;
-  hideHead?: boolean;
-  /** Whether to show the today modifier. */
-  hideToday?: boolean;
-  max?: DayPickerProps['max'];
-  min?: DayPickerProps['min'];
-  mode: SelectMode;
-  modifierClassNames: ModifierClassNames;
-  modifierPrefix: string;
-  /** Modifiers are converted to array of day matchers so they are easy to access. */
-  modifiers: ModifiersArray;
-  modifierStyles?: ModifierStyles;
-  /** This is the `month` from the initial props - use `useNavigation` hook for getting the current month. */
-  month?: Date;
-  numberOfMonths: number;
-
-  onDayClick?: DayClickEventHandler;
-  onDayFocus?: DayFocusEventHandler;
-  onDayBlur?: DayFocusEventHandler;
-  onDayKeyDown?: DayKeyboardEventHandler;
-  onDayKeyUp?: DayKeyboardEventHandler;
-  onDayMouseEnter?: DayMouseEventHandler;
-  onDayMouseLeave?: DayMouseEventHandler;
-  onDayTouchCancel?: DayTouchEventHandler;
-  onDayTouchEnd?: DayTouchEventHandler;
-  onDayTouchMove?: DayTouchEventHandler;
-  onDayTouchStart?: DayTouchEventHandler;
-  onMonthChange?: MonthChangeEventHandler;
-  onSelect?: SelectEventHandler;
-  onSelectMultiple?: SelectMultipleEventHandler;
-  onSelectRange?: SelectRangeEventHandler;
-  onWeekNumberClick?: WeekNumberClickEventHandler;
-
-  showOutsideDays?: boolean;
-  showWeekNumber?: boolean;
-
-  styles: Styles;
-  /** Limit the navigation up to this date. Includes a parsed value from the `toMonth` and `toYear` props. */
-  toDate?: Date;
-  /** The today’s date used for calculations. */
-  today: Date;
-  /** The weekdays used for the head */
-  weekdays: Date[];
-  /** The content of the Footer component */
-  footer?: React.ReactNode;
-}
-
-/**
  * This context shares props and settings within the internal components. It set
  * the defaults values, parses some props, and perform one-time calculation
  * required to render the days.
  */
-export const DayPickerContext = React.createContext<
-  DayPickerContextValue | undefined
->(undefined);
+export const DayPickerContext = React.createContext<ContextValue | undefined>(
+  undefined
+);
 
 export type DayPickerProviderProps = {
-  initialProps: DayPickerProps;
+  initialProps: Omit<DayPickerProps, 'onSelect'>;
   children?: React.ReactNode;
 };
 
@@ -142,13 +56,6 @@ export const DayPickerProvider = (
   const month = initialProps.month;
   const weekdays = getWeekdays(locale);
 
-  // Default selection mode
-  let mode = initialProps.mode ?? 'single';
-  if (initialProps.selected) {
-    // When `selected` is passed to the props, switch to uncontrolled mode.
-    mode = 'uncontrolled';
-  }
-
   // Default caption layout. If calendar navigation is unlimited, it must be
   // always `buttons` – as we cannot display infinite options in the dropdown.
   let captionLayout = initialProps.captionLayout ?? 'buttons';
@@ -156,7 +63,6 @@ export const DayPickerProvider = (
 
   const modifiers = parseModifierShortcuts(initialProps);
   const modifiersAsArray = convertModifierMatchersToArray(modifiers);
-  modifiersAsArray.disabled = [];
   // Disable days before/after from/toDate
   if (fromDate) {
     modifiersAsArray.disabled.push({ before: fromDate });
@@ -165,22 +71,66 @@ export const DayPickerProvider = (
     modifiersAsArray.disabled.push({ after: toDate });
   }
 
-  const context: DayPickerContextValue = {
-    ...initialProps,
-    modifierPrefix: 'rdp-day_',
-    numberOfMonths,
-    fromDate,
-    toDate,
-    captionLayout,
+  const {
+    dir,
+    defaultMonth,
+    disableNavigation,
+    fixedWeeks,
+    hideHead,
     mode,
-    month,
-    today,
+    modifierStyles,
+    onDayClick,
+    onDayFocus,
+    onDayBlur,
+    onDayKeyDown,
+    onDayKeyUp,
+    onDayMouseEnter,
+    onDayMouseLeave,
+    onDayTouchCancel,
+    onDayTouchStart,
+    onMonthChange,
+    onWeekNumberClick,
+    showOutsideDays,
+    showWeekNumber,
+    footer
+  } = initialProps;
+
+  const context: ContextValue = {
+    dir,
+    disableNavigation,
+    defaultMonth,
+    fixedWeeks,
+    hideHead,
+    mode,
+    modifierStyles,
+    onDayClick,
+    onDayFocus,
+    onDayBlur,
+    onDayKeyDown,
+    onDayKeyUp,
+    onDayMouseEnter,
+    onDayMouseLeave,
+    onDayTouchCancel,
+    onDayTouchStart,
+    onMonthChange,
+    onWeekNumberClick,
+    showOutsideDays,
+    showWeekNumber,
+    footer,
+
+    captionLayout,
+    fromDate,
     hideToday: initialProps.today === 'off',
     locale,
-    weekdays,
     modifierClassNames: initialProps.modifierClassNames ?? {},
-    styles: initialProps.styles ?? {},
+    modifierPrefix: 'rdp-day_',
     modifiers: modifiersAsArray,
+    month,
+    numberOfMonths,
+    styles: initialProps.styles ?? {},
+    toDate,
+    today,
+    weekdays,
     classNames: {
       ...defaultClassNames,
       ...initialProps.classNames
@@ -209,6 +159,7 @@ export const DayPickerProvider = (
       ...initialProps.components
     }
   };
+
   return (
     <DayPickerContext.Provider value={context}>
       {children}

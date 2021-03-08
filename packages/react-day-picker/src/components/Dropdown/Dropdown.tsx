@@ -6,7 +6,7 @@ export interface DropdownProps {
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   value?: React.SelectHTMLAttributes<HTMLSelectElement>['value'];
   children?: JSX.Element | JSX.Element[];
-  caption?: string;
+  caption?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
 }

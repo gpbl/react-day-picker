@@ -3,7 +3,7 @@ import { ModifierStatus } from './ModifierStatus';
 /**
  * Represent the event handler when a day is selected (undefined when the day is unselected).
  */
-export interface SelectEventHandler {
+export interface SelectSingleEventHandler {
   (
     /** The selected day, `undefined` when `required={false}` (default) and the day is clicked again. */
     day: Date | undefined,
