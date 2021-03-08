@@ -24,11 +24,11 @@ ___
 
 Name | Type |
 :------ | :------ |
-`disabled`? | *undefined* \| [*Matcher*](../types/matcher.md)[] |
-`range_end`? | *undefined* \| [*Matcher*](../types/matcher.md)[] |
-`range_middle`? | *undefined* \| [*Matcher*](../types/matcher.md)[] |
-`range_start`? | *undefined* \| [*Matcher*](../types/matcher.md)[] |
-`selected`? | *undefined* \| [*Matcher*](../types/matcher.md)[] |
+`disabled`? | [*Matcher*](../types/matcher.md)[] |
+`range_end`? | [*Matcher*](../types/matcher.md)[] |
+`range_middle`? | [*Matcher*](../types/matcher.md)[] |
+`range_start`? | [*Matcher*](../types/matcher.md)[] |
+`selected`? | [*Matcher*](../types/matcher.md)[] |
 
 ___
 

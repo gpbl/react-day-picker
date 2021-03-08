@@ -42,7 +42,7 @@ ___
 
 ### defaultMonth
 
-• `Optional` **defaultMonth**: *undefined* \| Date
+• `Optional` **defaultMonth**: Date
 
 Inherited from: [ContextBase](contextbase.md).[defaultMonth](contextbase.md#defaultmonth)
 
@@ -50,13 +50,13 @@ ___
 
 ### defaultSelected
 
-• `Optional` **defaultSelected**: *undefined* \| Date
+• `Optional` **defaultSelected**: Date
 
 ___
 
 ### dir
 
-• `Optional` **dir**: *undefined* \| *string*
+• `Optional` **dir**: *string*
 
 Inherited from: [ContextBase](contextbase.md).[dir](contextbase.md#dir)
 
@@ -64,7 +64,7 @@ ___
 
 ### disableNavigation
 
-• `Optional` **disableNavigation**: *undefined* \| *boolean*
+• `Optional` **disableNavigation**: *boolean*
 
 Inherited from: [ContextBase](contextbase.md).[disableNavigation](contextbase.md#disablenavigation)
 
@@ -72,7 +72,7 @@ ___
 
 ### fixedWeeks
 
-• `Optional` **fixedWeeks**: *undefined* \| *boolean*
+• `Optional` **fixedWeeks**: *boolean*
 
 Inherited from: [ContextBase](contextbase.md).[fixedWeeks](contextbase.md#fixedweeks)
 
@@ -96,7 +96,7 @@ ___
 
 ### fromDate
 
-• `Optional` **fromDate**: *undefined* \| Date
+• `Optional` **fromDate**: Date
 
 Inherited from: [ContextBase](contextbase.md).[fromDate](contextbase.md#fromdate)
 
@@ -104,7 +104,7 @@ ___
 
 ### hideHead
 
-• `Optional` **hideHead**: *undefined* \| *boolean*
+• `Optional` **hideHead**: *boolean*
 
 Inherited from: [ContextBase](contextbase.md).[hideHead](contextbase.md#hidehead)
 
@@ -112,7 +112,7 @@ ___
 
 ### hideToday
 
-• `Optional` **hideToday**: *undefined* \| *boolean*
+• `Optional` **hideToday**: *boolean*
 
 Inherited from: [ContextBase](contextbase.md).[hideToday](contextbase.md#hidetoday)
 
@@ -136,7 +136,7 @@ ___
 
 ### min
 
-• `Optional` **min**: *undefined* \| *number*
+• `Optional` **min**: *number*
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 ### modifierStyles
 
-• `Optional` **modifierStyles**: *undefined* \| *Record*<string, CSSProperties\>
+• `Optional` **modifierStyles**: *Record*<string, CSSProperties\>
 
 Inherited from: [ContextBase](contextbase.md).[modifierStyles](contextbase.md#modifierstyles)
 
@@ -180,7 +180,7 @@ ___
 
 ### month
 
-• `Optional` **month**: *undefined* \| Date
+• `Optional` **month**: Date
 
 Inherited from: [ContextBase](contextbase.md).[month](contextbase.md#month)
 
@@ -196,7 +196,7 @@ ___
 
 ### onDayBlur
 
-• `Optional` **onDayBlur**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+• `Optional` **onDayBlur**: [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayBlur](contextbase.md#ondayblur)
 
@@ -204,7 +204,7 @@ ___
 
 ### onDayClick
 
-• `Optional` **onDayClick**: *undefined* \| [*DayClickEventHandler*](../types/dayclickeventhandler.md)
+• `Optional` **onDayClick**: [*DayClickEventHandler*](../types/dayclickeventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayClick](contextbase.md#ondayclick)
 
@@ -212,7 +212,7 @@ ___
 
 ### onDayFocus
 
-• `Optional` **onDayFocus**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+• `Optional` **onDayFocus**: [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayFocus](contextbase.md#ondayfocus)
 
@@ -220,7 +220,7 @@ ___
 
 ### onDayKeyDown
 
-• `Optional` **onDayKeyDown**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
+• `Optional` **onDayKeyDown**: [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayKeyDown](contextbase.md#ondaykeydown)
 
@@ -228,7 +228,7 @@ ___
 
 ### onDayKeyUp
 
-• `Optional` **onDayKeyUp**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
+• `Optional` **onDayKeyUp**: [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayKeyUp](contextbase.md#ondaykeyup)
 
@@ -236,7 +236,7 @@ ___
 
 ### onDayMouseEnter
 
-• `Optional` **onDayMouseEnter**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
+• `Optional` **onDayMouseEnter**: [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayMouseEnter](contextbase.md#ondaymouseenter)
 
@@ -244,7 +244,7 @@ ___
 
 ### onDayMouseLeave
 
-• `Optional` **onDayMouseLeave**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
+• `Optional` **onDayMouseLeave**: [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayMouseLeave](contextbase.md#ondaymouseleave)
 
@@ -252,7 +252,7 @@ ___
 
 ### onDayTouchCancel
 
-• `Optional` **onDayTouchCancel**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchCancel**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayTouchCancel](contextbase.md#ondaytouchcancel)
 
@@ -260,7 +260,7 @@ ___
 
 ### onDayTouchEnd
 
-• `Optional` **onDayTouchEnd**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchEnd**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayTouchEnd](contextbase.md#ondaytouchend)
 
@@ -268,7 +268,7 @@ ___
 
 ### onDayTouchMove
 
-• `Optional` **onDayTouchMove**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchMove**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayTouchMove](contextbase.md#ondaytouchmove)
 
@@ -276,7 +276,7 @@ ___
 
 ### onDayTouchStart
 
-• `Optional` **onDayTouchStart**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchStart**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onDayTouchStart](contextbase.md#ondaytouchstart)
 
@@ -284,7 +284,7 @@ ___
 
 ### onMonthChange
 
-• `Optional` **onMonthChange**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
+• `Optional` **onMonthChange**: [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onMonthChange](contextbase.md#onmonthchange)
 
@@ -292,13 +292,13 @@ ___
 
 ### onSelect
 
-• `Optional` **onSelect**: *undefined* \| [*SelectSingleEventHandler*](selectsingleeventhandler.md)
+• `Optional` **onSelect**: [*SelectSingleEventHandler*](selectsingleeventhandler.md)
 
 ___
 
 ### onWeekNumberClick
 
-• `Optional` **onWeekNumberClick**: *undefined* \| [*WeekNumberClickEventHandler*](../types/weeknumberclickeventhandler.md)
+• `Optional` **onWeekNumberClick**: [*WeekNumberClickEventHandler*](../types/weeknumberclickeventhandler.md)
 
 Inherited from: [ContextBase](contextbase.md).[onWeekNumberClick](contextbase.md#onweeknumberclick)
 
@@ -306,7 +306,7 @@ ___
 
 ### showOutsideDays
 
-• `Optional` **showOutsideDays**: *undefined* \| *boolean*
+• `Optional` **showOutsideDays**: *boolean*
 
 Inherited from: [ContextBase](contextbase.md).[showOutsideDays](contextbase.md#showoutsidedays)
 
@@ -314,7 +314,7 @@ ___
 
 ### showWeekNumber
 
-• `Optional` **showWeekNumber**: *undefined* \| *boolean*
+• `Optional` **showWeekNumber**: *boolean*
 
 Inherited from: [ContextBase](contextbase.md).[showWeekNumber](contextbase.md#showweeknumber)
 
@@ -330,7 +330,7 @@ ___
 
 ### toDate
 
-• `Optional` **toDate**: *undefined* \| Date
+• `Optional` **toDate**: Date
 
 Inherited from: [ContextBase](contextbase.md).[toDate](contextbase.md#todate)
 

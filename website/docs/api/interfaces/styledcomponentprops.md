@@ -14,10 +14,10 @@ Represent component props to style a component inline or via CSS.
 
 ### className
 
-• `Optional` **className**: *undefined* \| *string*
+• `Optional` **className**: *string*
 
 ___
 
 ### style
 
-• `Optional` **style**: *undefined* \| *CSSProperties*
+• `Optional` **style**: *CSSProperties*

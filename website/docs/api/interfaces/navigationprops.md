@@ -38,7 +38,7 @@ ___
 
 ### nextMonth
 
-• `Optional` **nextMonth**: *undefined* \| Date
+• `Optional` **nextMonth**: Date
 
 The next month.
 
@@ -86,6 +86,6 @@ ___
 
 ### previousMonth
 
-• `Optional` **previousMonth**: *undefined* \| Date
+• `Optional` **previousMonth**: Date
 
 The previous month.

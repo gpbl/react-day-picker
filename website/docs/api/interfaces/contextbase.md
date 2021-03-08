@@ -44,25 +44,25 @@ ___
 
 ### defaultMonth
 
-• `Optional` **defaultMonth**: *undefined* \| Date
+• `Optional` **defaultMonth**: Date
 
 ___
 
 ### dir
 
-• `Optional` **dir**: *undefined* \| *string*
+• `Optional` **dir**: *string*
 
 ___
 
 ### disableNavigation
 
-• `Optional` **disableNavigation**: *undefined* \| *boolean*
+• `Optional` **disableNavigation**: *boolean*
 
 ___
 
 ### fixedWeeks
 
-• `Optional` **fixedWeeks**: *undefined* \| *boolean*
+• `Optional` **fixedWeeks**: *boolean*
 
 ___
 
@@ -80,19 +80,19 @@ ___
 
 ### fromDate
 
-• `Optional` **fromDate**: *undefined* \| Date
+• `Optional` **fromDate**: Date
 
 ___
 
 ### hideHead
 
-• `Optional` **hideHead**: *undefined* \| *boolean*
+• `Optional` **hideHead**: *boolean*
 
 ___
 
 ### hideToday
 
-• `Optional` **hideToday**: *undefined* \| *boolean*
+• `Optional` **hideToday**: *boolean*
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 ### modifierStyles
 
-• `Optional` **modifierStyles**: *undefined* \| *Record*<string, CSSProperties\>
+• `Optional` **modifierStyles**: *Record*<string, CSSProperties\>
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 ### month
 
-• `Optional` **month**: *undefined* \| Date
+• `Optional` **month**: Date
 
 ___
 
@@ -146,91 +146,91 @@ ___
 
 ### onDayBlur
 
-• `Optional` **onDayBlur**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+• `Optional` **onDayBlur**: [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
 
 ___
 
 ### onDayClick
 
-• `Optional` **onDayClick**: *undefined* \| [*DayClickEventHandler*](../types/dayclickeventhandler.md)
+• `Optional` **onDayClick**: [*DayClickEventHandler*](../types/dayclickeventhandler.md)
 
 ___
 
 ### onDayFocus
 
-• `Optional` **onDayFocus**: *undefined* \| [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
+• `Optional` **onDayFocus**: [*DayFocusEventHandler*](../types/dayfocuseventhandler.md)
 
 ___
 
 ### onDayKeyDown
 
-• `Optional` **onDayKeyDown**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
+• `Optional` **onDayKeyDown**: [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 ___
 
 ### onDayKeyUp
 
-• `Optional` **onDayKeyUp**: *undefined* \| [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
+• `Optional` **onDayKeyUp**: [*DayKeyboardEventHandler*](../types/daykeyboardeventhandler.md)
 
 ___
 
 ### onDayMouseEnter
 
-• `Optional` **onDayMouseEnter**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
+• `Optional` **onDayMouseEnter**: [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
 
 ___
 
 ### onDayMouseLeave
 
-• `Optional` **onDayMouseLeave**: *undefined* \| [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
+• `Optional` **onDayMouseLeave**: [*DayMouseEventHandler*](../types/daymouseeventhandler.md)
 
 ___
 
 ### onDayTouchCancel
 
-• `Optional` **onDayTouchCancel**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchCancel**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 ___
 
 ### onDayTouchEnd
 
-• `Optional` **onDayTouchEnd**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchEnd**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 ___
 
 ### onDayTouchMove
 
-• `Optional` **onDayTouchMove**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchMove**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 ___
 
 ### onDayTouchStart
 
-• `Optional` **onDayTouchStart**: *undefined* \| [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
+• `Optional` **onDayTouchStart**: [*DayTouchEventHandler*](../types/daytoucheventhandler.md)
 
 ___
 
 ### onMonthChange
 
-• `Optional` **onMonthChange**: *undefined* \| [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
+• `Optional` **onMonthChange**: [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
 
 ___
 
 ### onWeekNumberClick
 
-• `Optional` **onWeekNumberClick**: *undefined* \| [*WeekNumberClickEventHandler*](../types/weeknumberclickeventhandler.md)
+• `Optional` **onWeekNumberClick**: [*WeekNumberClickEventHandler*](../types/weeknumberclickeventhandler.md)
 
 ___
 
 ### showOutsideDays
 
-• `Optional` **showOutsideDays**: *undefined* \| *boolean*
+• `Optional` **showOutsideDays**: *boolean*
 
 ___
 
 ### showWeekNumber
 
-• `Optional` **showWeekNumber**: *undefined* \| *boolean*
+• `Optional` **showWeekNumber**: *boolean*
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 ### toDate
 
-• `Optional` **toDate**: *undefined* \| Date
+• `Optional` **toDate**: Date
 
 ___
 

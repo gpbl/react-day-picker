@@ -11,6 +11,7 @@
   --ifm-code-border-radius: 4px;
   --ifm-code-background: var(--ifm-color-emphasis-100);
   --menu-background: var(--ifm-color-emphasis-100);
+  --ifm-list-paragraph-margin: 0;
 }
 
 html[data-theme='dark'] {
@@ -181,4 +182,8 @@ hr {
   padding: 0.5em;
   font-family: inherit;
   font-size: inherit;
+}
+
+.markdown li > p {
+  margin: 0;
 }
