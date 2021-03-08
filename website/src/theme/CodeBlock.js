@@ -39,7 +39,9 @@ export default function CodeBlock(props) {
       </OriginalCodeBlock>
       <details open>
         <summary>Output</summary>
-        <Component />
+        <div>
+          <Component />
+        </div>
       </details>
     </>
   );

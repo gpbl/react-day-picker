@@ -14,7 +14,7 @@ hide_title: true
 
 Name | Type |
 :------ | :------ |
-`dayPickerProps` | *Partial*<[*DayPickerProps*](../interfaces/daypickerprops.md)\> |
+`dayPickerProps` | *Partial*<[*DayPickerProps*](daypickerprops.md)\> |
 `inputProps` | *Partial*<JSX.IntrinsicElements[*input*]\> |
 `setMonth` | *React.Dispatch*<React.SetStateAction<Date\>\> |
 `setValue` | *React.Dispatch*<React.SetStateAction<string\>\> |

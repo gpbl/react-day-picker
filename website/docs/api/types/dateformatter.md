@@ -8,13 +8,13 @@ hide_title: true
 
 # Type alias: DateFormatter
 
-Ƭ **DateFormatter**: (`date`: Date, `options?`: { `locale?`: Locale  }) => *string*
+Ƭ **DateFormatter**: (`date`: Date, `options?`: { `locale?`: Locale  }) => React.ReactNode
 
 Represents a function to format a date.
 
 #### Type declaration:
 
-▸ (`date`: Date, `options?`: { `locale?`: Locale  }): *string*
+▸ (`date`: Date, `options?`: { `locale?`: Locale  }): React.ReactNode
 
 #### Parameters:
 
@@ -24,4 +24,4 @@ Name | Type |
 `options?` | *object* |
 `options.locale?` | Locale |
 
-**Returns:** *string*
+**Returns:** React.ReactNode

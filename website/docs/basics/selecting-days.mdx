@@ -3,24 +3,30 @@ id: selecting-days
 title: Selecting Days
 ---
 
-## Getting the selected day
+DayPicker supports four selection modes:
 
-Use `onSelect` to get the selected day.
+- single mode: only a single day can be selected
+- multiple mode: allow selection of multiple days
+- range mode: allow the selection of range of days
+- uncontrolled: let the parent component handle the selection
+
+## Single selection mode
+
+To enable single day selection, set `mode="single"` and use `onSelect` to get
+the selected day.
 
 ```include
-examples/selecting-days-single.tsx
+basics/selecting-days-single.tsx
 ```
 
-### Pre-selecting a day
+### Making a selection required
 
-Use `defautSelected` to initialize DayPicker with a pre-selected day.
-
-In combination with `min={1}`, DayPicker will always have a selected date.
+To make a selection required, use `defautSelected` with `min={1}`.
 
 For example, to set the default selected date to today:
 
 ```include
-examples/selecting-days-default.tsx
+basics/selecting-days-single-min.tsx
 ```
 
 ## Selecting multiple days
@@ -28,7 +34,7 @@ examples/selecting-days-default.tsx
 Use `mode="multiple"` to allow the selection of multiple days:
 
 ```include
-examples/selecting-days-multiple.tsx
+basics/selecting-days-multiple.tsx
 ```
 
 ### Limiting the amount of selectable days
@@ -36,7 +42,7 @@ examples/selecting-days-multiple.tsx
 Use the `min` and `max` props to limit the amount of days that can be selected.
 
 ```include
-examples/selecting-days-multiple-min-max.tsx
+basics/selecting-days-multiple-min-max.tsx
 ```
 
 ## Selecting a range of days
@@ -44,7 +50,7 @@ examples/selecting-days-multiple-min-max.tsx
 Use `mode="range"` and `onSelectRange` to allow the selection of multiple days.
 
 ```include
-examples/selecting-days-range.tsx
+basics/selecting-days-range.tsx
 ```
 
 ### Limiting the range size
@@ -52,5 +58,5 @@ examples/selecting-days-range.tsx
 Use the `min` and `max` props to limit the amount of days in the range.
 
 ```include
-examples/selecting-days-multiple-min-max.tsx
+basics/selecting-days-range-min-max.tsx
 ```

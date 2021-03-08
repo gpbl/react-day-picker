@@ -15,4 +15,4 @@ hide_title: true
 Name | Type |
 :------ | :------ |
 `children`? | React.ReactNode |
-`initialProps` | [*DayPickerProps*](../interfaces/daypickerprops.md) |
+`initialProps` | *Omit*<[*DayPickerProps*](daypickerprops.md), *onSelect*\> |

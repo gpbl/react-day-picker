@@ -8,13 +8,13 @@ hide_title: true
 
 # Type alias: WeekNumberFormatter
 
-Ƭ **WeekNumberFormatter**: (`weekNumber`: *number*, `options?`: { `locale?`: Locale  }) => *string*
+Ƭ **WeekNumberFormatter**: (`weekNumber`: *number*, `options?`: { `locale?`: Locale  }) => React.ReactNode
 
 Represent a function to format the week number.
 
 #### Type declaration:
 
-▸ (`weekNumber`: *number*, `options?`: { `locale?`: Locale  }): *string*
+▸ (`weekNumber`: *number*, `options?`: { `locale?`: Locale  }): React.ReactNode
 
 #### Parameters:
 
@@ -24,4 +24,4 @@ Name | Type |
 `options?` | *object* |
 `options.locale?` | Locale |
 
-**Returns:** *string*
+**Returns:** React.ReactNode
