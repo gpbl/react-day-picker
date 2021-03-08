@@ -11,7 +11,7 @@ hide_title: true
 Ƭ **DateRange**: *object*
 
 Represent a matcher to match a range of dates. The range can be open.
-Differently from [[DateIntervalMatcher]], the dates here are included.
+Differently from [DateInterval](dateinterval.md), the dates here are included.
 
 #### Type declaration:
 

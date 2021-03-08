@@ -1,9 +1,9 @@
-import "./App.css";
-import "react-day-picker/style.css";
+import './App.css';
+import 'react-day-picker/style.css';
 
-import { DateRange, DayPicker, isDateRangeMatcher } from "react-day-picker";
+import { DayPicker } from 'react-day-picker';
 
-import { addDays, addYears } from "date-fns";
+import { addDays, addYears } from 'date-fns';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
 
       <h2>Single selection mode</h2>
       <p>DayPicker is in "single selection mode".</p>
-      <DayPicker onSelect={console.log} />
+      <DayPicker mode="single" />
       <h3>Limiting amount of selectable days</h3>
       <p>Cannot select less than one. Default selected is today.</p>
       <DayPicker
@@ -26,17 +26,8 @@ function App() {
 
       <h2>Multiple selection mode </h2>
       <p>Can select an infinite amount of days.</p>
-      <DayPicker mode="multiple" onSelectMultiple={console.log} />
+      <DayPicker mode="multiple" onSelect={console.log} />
 
-      <h2>Range selection mode </h2>
-      <p>Can select a range.</p>
-      <DayPicker
-        mode="range"
-        onSelectRange={(range) => {
-          console.log(range);
-        }}
-      />
-      {/* 
       <h3>Limiting amount of selectable days</h3>
       <p>
         Cannot select more than 10 or less than 3. Days disabled when 10
@@ -55,11 +46,21 @@ function App() {
 
       <hr />
 
+      <h2>Range selection mode </h2>
+
+      <p>Can select a range.</p>
+      <DayPicker mode="range" onSelect={console.log} />
+
+      <p>Can select a range (min, max).</p>
+      <DayPicker mode="range" max={5} onSelect={console.log} />
+
+      <hr />
+
       <h1>Number of months</h1>
       <DayPicker showOutsideDays numberOfMonths={3} />
 
       <h2>Select ranges</h2>
-      <DayPicker showOutsideDays numberOfMonths={3} />
+      <DayPicker showOutsideDays mode="range" numberOfMonths={3} />
 
       <hr />
 
@@ -84,7 +85,7 @@ function App() {
         showOutsideDays
         showWeekNumber
         numberOfMonths={1}
-      /> */}
+      />
     </main>
   );
 }

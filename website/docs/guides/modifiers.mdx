@@ -3,15 +3,25 @@ id: modifiers
 title: Modifiers
 ---
 
-A **modifier** is a property that changes the appearance and the behavior of a
-day in DayPicker.
+A **modifier** represents different state or style for the days displayed in
+the calendar. DayPicker comes with some built in modifiers: `disabled`,
+`hidden`, `today`. It is possible to add new modifiers to define custom styles
+or states.
 
 ## Disabling days
 
 The `disabled` modifier disables the interaction with a day. It is set using the `disabled` prop.
 
 ```include
-examples/modifiers-disabled.tsx
+guides/modifiers-disabled.tsx
+```
+
+## Hidden days
+
+The `hidden` modifier disables the interaction with a day. It is set using the `hidden` prop.
+
+```include
+guides/modifiers-hidden.tsx
 ```
 
 ## The `today` modifier
@@ -19,52 +29,20 @@ examples/modifiers-disabled.tsx
 The `today` modifier is added to the current date.
 
 ```include
-examples/modifiers-today.tsx
+guides/modifiers-today.tsx
 ```
 
 Change the current date with the `today` prop:
 
 ```include
-examples/modifiers-today-change.tsx
+guides/modifiers-today-change.tsx
 ```
 
 It is possible to toggle off the `today` modifier:
 
 ```include
-examples/modifiers-today-off.tsx
+guides/modifiers-today-off.tsx
 ```
-
-## The `selected` modifier
-
-In the [Selecting Days tutorial](/basics/selecting-days). we have set different
-ways to control the selected days. Under the hood, DayPicker handles the
-interaction with the days and assigns a `selected` modifier to them.
-
-Customize the selection behavior by letting the parent component’s handling the
-interaction with the days. To control the selected days, use the `selected` and
-`onDayClick` props and add the dates to the component’s state:
-
-```include
-examples/modifiers-selected.tsx
-```
-
-When using the `select` prop, DayPicker will switch to uncontrolled selection and let you
-define with more granularity how the selections work.
-
-For example, to select an array of days:
-
-```include
-examples/modifiers-selected-multiple.tsx
-```
-
-:::info About using uncontrolled selection
-
-For a basic use of a date picker, you usually won’t need to change the selection
-behavior. Use [onSelect](/api/interfaces/daypickerprops#onselect) and the
-[selection mode](/api/interfaces/daypickerprops#mode) prop to let DayPicker control the
-selection.
-
-:::
 
 ## Custom modifiers
 
@@ -75,7 +53,7 @@ Use the `modifiers` prop to pass an object with custom modifiers. Change the
 inline-style of the cell with `modifierStyles`.
 
 ```include
-examples/modifiers-custom.tsx
+guides/modifiers-custom.tsx
 ```
 
 ## Styling days with modifiers
@@ -85,22 +63,28 @@ styles.
 
 ### Styling via class names
 
-- The modifier is added in the class name of the Day element: `.rdp-day_disabled`,
-  `.rdp-day_booked`, `.rdp-day_selected`, etc.
-- Change the `.rdp-day_` prefix via
-  [modifierPrefix](/api/interfaces/daypickerprops#modifierPrefix) prop.
-- Or, use [`modifierClassNames`](/api/interfaces/daypickerprops#modifiersclassnames) to change the whole class name.
+A modifier is added in the class name of the Day element: for example, a disabled day will get the `.rdp-day_disabled` class name,
+a "booked" day `.rdp-day_booked`, etc.
+
+You can change which class name get each modifier via
+[modifierClassNames](/api/interfaces/daypickerbase#modifiersclassnames). Is also
+possible to just the class name prefix via
+[modifierPrefix](/api/interfaces/daypickerbase#modifierPrefix).
+
+The following example adds `.my-booked-class` to the day with a `booked` modifier – applying a custom class name to it.
 
 ```include
-examples/modifiers-classnames.tsx
+guides/modifiers-classnames.tsx
 ```
 
 ### Styling via inline styles
 
 Another practical way is using inline styles. Use
-[`modifierStyles`](/api/interfaces/daypickerprops#modifierstyles) to change the
+[modifierStyles](/api/interfaces/daypickerbase#modifierstyles) to change the
 style of a day matching the specified modifier.
 
+In the following example, the available days are styled via inline styles.
+
 ```include
-examples/modifiers-style.tsx
+guides/modifiers-style.tsx
 ```

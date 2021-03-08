@@ -10,6 +10,7 @@
   --ifm-heading-font-weight: 500;
   --ifm-code-border-radius: 4px;
   --ifm-code-background: var(--ifm-color-emphasis-100);
+  --menu-background: var(--ifm-color-emphasis-100);
 }
 
 html[data-theme='dark'] {
@@ -17,6 +18,7 @@ html[data-theme='dark'] {
   --rdp-accent-color-lighter: var(--rdp-accent-color-darker);
   --rdp-accent-color-lightest: var(--rdp-accent-color-darkest);
   --rdp-background-color: var(--rdp-background-color-dark);
+  --menu-background: #010101;
 }
 
 button:not(.rdp-button_reset) {
@@ -53,11 +55,7 @@ button:active:not(.rdp-button_reset):not([disabled]) {
 
 .menu {
   margin-right: 1em;
-  background-color: var(--ifm-color-emphasis-100);
-}
-
-html[data-theme='dark'] .menu {
-  background-color: #010101;
+  background-color: var(--menu-background);
 }
 
 html[data-theme='dark'] .prism-code > div {
@@ -68,6 +66,12 @@ details summary {
   padding: var(--ifm-pre-padding) 0;
   cursor: pointer;
   font-weight: bold;
+}
+
+details > div {
+  padding: 1em;
+  border-radius: var(--ifm-code-border-radius);
+  background-color: var(--ifm-color-emphasis-100);
 }
 
 .container {

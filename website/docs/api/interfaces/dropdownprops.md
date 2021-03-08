@@ -12,7 +12,7 @@ hide_title: true
 
 ### caption
 
-• `Optional` **caption**: *undefined* \| *string*
+• `Optional` **caption**: ReactNode
 
 ___
 

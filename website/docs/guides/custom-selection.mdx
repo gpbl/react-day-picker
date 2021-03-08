@@ -1,0 +1,31 @@
+---
+id: custom-selection
+title: Custom Selection
+---
+
+In the [Selecting Days tutorial](/basics/selecting-days). we have set different
+modes to change the selection behavior. Under the hood, DayPicker uses some
+hooks for handling the interaction with the days, assigning a `selected`
+modifier.
+
+To implement a selection behavior different from the built-ins, handle the interaction
+in the parent component’s. Use the `selected` and `onDayClick` props and add
+the selected dates to the component’s state.
+
+## Example: single select
+
+The following example reproduces a simplified version of the [useSingleSelect
+hook](/api/functions/usesingleselect), used internally when `mode="single"`.
+
+```include
+guides/custom-selection-single.tsx
+```
+
+## Example: multiple select
+
+This example shows how the [useMultipleSelect
+hook](/api/functions/usemultipleselect) works internally when `mode="multiple"`.
+
+```include
+guides/custom-selection-multiple.tsx
+```
