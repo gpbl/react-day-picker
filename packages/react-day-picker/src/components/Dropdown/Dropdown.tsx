@@ -2,17 +2,19 @@ import * as React from 'react';
 
 import { useDayPicker } from 'hooks';
 
+/** The props for the [[Dropdown]] component. */
 export interface DropdownProps {
-  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
-  value?: React.SelectHTMLAttributes<HTMLSelectElement>['value'];
-  children?: JSX.Element | JSX.Element[];
   caption?: React.ReactNode;
+  children?: React.SelectHTMLAttributes<HTMLSelectElement>['children'];
   className?: string;
   style?: React.CSSProperties;
+  value?: React.SelectHTMLAttributes<HTMLSelectElement>['value'];
+  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
 }
 
 /**
- * Render a dropdown component (basically, a styled HTMLSelectElement).
+ * Render a styled select component – displaying a caption and a custom
+ * drop-down icon.
  */
 export function Dropdown(props: DropdownProps): JSX.Element {
   const { onChange, value, children, caption, className, style } = props;

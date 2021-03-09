@@ -1,14 +1,19 @@
 import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
+import { DayPickerContextBase } from 'types';
 
-export function getInitialMonth(context: {
-  numberOfMonths?: number;
-  month?: Date;
-  defaultMonth?: Date;
-  today?: Date;
-  toDate?: Date;
-  fromDate?: Date;
-}): Date {
-  const { month, defaultMonth, today = new Date() } = context;
+/** Return the initial month according to the given options. */
+export function getInitialMonth(
+  context: Pick<
+    DayPickerContextBase,
+    | 'numberOfMonths'
+    | 'month'
+    | 'defaultMonth'
+    | 'today'
+    | 'toDate'
+    | 'fromDate'
+  >
+): Date {
+  const { month, defaultMonth, today } = context;
   let initialMonth = month || defaultMonth || today;
 
   const { toDate, fromDate, numberOfMonths = 1 } = context;

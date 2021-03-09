@@ -25,7 +25,6 @@ export interface CaptionProps {
 export function Caption(props: CaptionProps): JSX.Element {
   const { displayMonth, isFirst, isLast } = props;
 
-  const context = useDayPicker();
   const {
     classNames,
     numberOfMonths,
@@ -34,7 +33,7 @@ export function Caption(props: CaptionProps): JSX.Element {
     captionLayout,
     onMonthChange,
     components: { CaptionLabel }
-  } = context;
+  } = useDayPicker();
 
   const { previousMonth, nextMonth, setMonth } = useNavigation();
 
