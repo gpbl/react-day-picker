@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import { format, parse } from 'date-fns';
-import { DayPickerSingle, SelectSingleEventHandler } from 'types';
+import { DayClickEventHandler, DayPickerUncontrolled } from 'types';
 
 export type UseInput = {
   setMonth: React.Dispatch<React.SetStateAction<Date>>;
   setValue: React.Dispatch<React.SetStateAction<string>>;
-  dayPickerProps: DayPickerSingle;
+  dayPickerProps: DayPickerUncontrolled;
   inputProps: Partial<JSX.IntrinsicElements['input']>;
 };
 
@@ -61,7 +61,7 @@ export function useInput(
   const [value, setValue] = React.useState(initialValue);
   const [month, setMonth] = React.useState(initialDay ?? new Date());
 
-  const onSelect: SelectSingleEventHandler = (day?: Date) => {
+  const onDayClick: DayClickEventHandler = (day?: Date) => {
     setSelected(day);
     setValue(day ? formatDay(day) : '');
   };
@@ -110,21 +110,25 @@ export function useInput(
     setValue(initialValue ?? '');
   };
 
+  const dayPickerProps: DayPickerUncontrolled = {
+    mode: 'uncontrolled',
+    month,
+    selected,
+    onDayClick,
+    onMonthChange
+  };
+
+  const inputProps: Partial<JSX.IntrinsicElements['input']> = {
+    value,
+    onChange,
+    onFocus,
+    onBlur
+  };
+
   return {
     setMonth,
     setValue,
-    dayPickerProps: {
-      mode: 'single',
-      month,
-      selected,
-      onSelect,
-      onMonthChange
-    },
-    inputProps: {
-      value,
-      onChange,
-      onFocus,
-      onBlur
-    }
+    dayPickerProps,
+    inputProps
   };
 }
