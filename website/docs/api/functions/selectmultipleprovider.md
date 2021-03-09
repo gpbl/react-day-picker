@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ **SelectMultipleProvider**(`__namedParameters`: { `children`: React.ReactNode ; `initialProps`: [*DayPickerProps*](../types/daypickerprops.md)  }): JSX.Element
 
-Return the context for the controlled mode selection.
+Return the context for the multiple selection mode.
 
 #### Parameters:
 

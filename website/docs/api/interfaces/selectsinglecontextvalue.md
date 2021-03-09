@@ -1,12 +1,14 @@
 ---
-id: "selectsingle"
-title: "Interface: SelectSingle"
-sidebar_label: "SelectSingle"
+id: "selectsinglecontextvalue"
+title: "Interface: SelectSingleContextValue"
+sidebar_label: "SelectSingleContextValue"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Interface: SelectSingle
+# Interface: SelectSingleContextValue
+
+Represents the value of a [[SelectSingleContext]].
 
 ## Properties
 
@@ -14,11 +16,15 @@ hide_title: true
 
 • **handleDayClick**: [*DayClickEventHandler*](../types/dayclickeventhandler.md)
 
+Event handler to attach to the day button to enable the single select.
+
 ___
 
 ### modifiers
 
 • **modifiers**: *object*
+
+The modifiers for the corresponding selection.
 
 #### Type declaration:
 
@@ -32,3 +38,5 @@ ___
 ### selected
 
 • **selected**: *undefined* \| Date
+
+The day that has been selected.

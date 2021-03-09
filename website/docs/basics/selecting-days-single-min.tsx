@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { DayPicker } from 'react-day-picker';
 
 import { format } from 'date-fns';
@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 const today = new Date();
 
 export default function App() {
-  const [selectedDay, setSelectedDay] = useState(today);
+  const [selectedDay, setSelectedDay] = React.useState(today);
 
   const footer = selectedDay
     ? `You selected ${format(selectedDay, 'PPP')}.`

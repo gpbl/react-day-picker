@@ -39,8 +39,8 @@ button:hover:not(.rdp-button_reset):not([disabled]) {
   box-shadow: 2px 2px 3px -3px;
 }
 button:not(.rdp-button_reset)[disabled] {
-  opacity: 0.25;
   cursor: default;
+  opacity: 0.25;
 }
 button:active:not(.rdp-button_reset):not([disabled]) {
   transform: translate(2px 1px);
@@ -179,9 +179,18 @@ hr {
 }
 
 .markdown form input {
-  padding: 0.5em;
+  padding: 0.25em 0.75em;
+  color: var(--ifm-font-color-base);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-button-border-radius);
+  font: inherit;
   font-family: inherit;
   font-size: inherit;
+  background-color: #fff;
+}
+
+[data-theme='dark'] .markdown form input {
+  background-color: #010101;
 }
 
 .markdown li > p {

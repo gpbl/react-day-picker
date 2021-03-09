@@ -8,8 +8,8 @@ hide_title: true
 
 # Function: useSelectSingle
 
-▸ **useSelectSingle**(): [*SelectSingle*](../interfaces/selectsingle.md)
+▸ **useSelectSingle**(): [*SelectSingleContextValue*](../interfaces/selectsinglecontextvalue.md)
 
 Return the context for controlling the selections in the single selection mode.
 
-**Returns:** [*SelectSingle*](../interfaces/selectsingle.md)
+**Returns:** [*SelectSingleContextValue*](../interfaces/selectsinglecontextvalue.md)

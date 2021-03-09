@@ -1,26 +1,26 @@
 ---
-id: "contextbase"
-title: "Interface: ContextBase"
-sidebar_label: "ContextBase"
+id: "daypickercontextbase"
+title: "Interface: DayPickerContextBase"
+sidebar_label: "DayPickerContextBase"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Interface: ContextBase
+# Interface: DayPickerContextBase
 
-Represent the value of the daypicker context.
+Represent the base value of the DayPicker context.
 
 ## Hierarchy
 
-* **ContextBase**
+* **DayPickerContextBase**
 
-  ↳ [*ContextMultiple*](contextmultiple.md)
+  ↳ [*DayPickerContextMultiple*](daypickercontextmultiple.md)
 
-  ↳ [*ContextRange*](contextrange.md)
+  ↳ [*DayPickerContextRange*](daypickercontextrange.md)
 
-  ↳ [*ContextSingle*](contextsingle.md)
+  ↳ [*DayPickerContextSingle*](daypickercontextsingle.md)
 
-  ↳ [*ContextUncontrolled*](contextuncontrolled.md)
+  ↳ [*DayPickerContextUncontrolled*](daypickercontextuncontrolled.md)
 
 ## Properties
 

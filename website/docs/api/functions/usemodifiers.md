@@ -8,9 +8,9 @@ hide_title: true
 
 # Function: useModifiers
 
-▸ **useModifiers**(`date`: Date): [*ModifierStatus*](../types/modifierstatus.md)
+▸ **useModifiers**(`date`: Date): [*UseModifiers*](../types/usemodifiers.md)
 
-Return the status for the modifiers given the specified date.
+Return the modifiers, their style and classes given the specified date.
 
 #### Parameters:
 
@@ -18,4 +18,4 @@ Name | Type |
 :------ | :------ |
 `date` | Date |
 
-**Returns:** [*ModifierStatus*](../types/modifierstatus.md)
+**Returns:** [*UseModifiers*](../types/usemodifiers.md)

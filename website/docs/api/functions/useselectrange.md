@@ -8,8 +8,8 @@ hide_title: true
 
 # Function: useSelectRange
 
-▸ **useSelectRange**(): [*SelectRange*](../interfaces/selectrange.md)
+▸ **useSelectRange**(): [*SelectRangeContextValue*](../interfaces/selectrangecontextvalue.md)
 
 Return the context for controlling the selections in the single selection mode.
 
-**Returns:** [*SelectRange*](../interfaces/selectrange.md)
+**Returns:** [*SelectRangeContextValue*](../interfaces/selectrangecontextvalue.md)

@@ -30,15 +30,6 @@ Change the layout of the caption:
 **Note** `dropdown` is valid only when `fromDate/fromMonth/fromYear` and
 `toDate/toMonth/toYear` are set.
 
-**Example**
-
-```
-function Example() {
- return (
-   <DayPicker fromYear={2020} toYear={2025} captionLayout="dropdown" />
-)};
-```
-
 Inherited from: [DayPickerBase](daypickerbase.md).[captionLayout](daypickerbase.md#captionlayout)
 
 ___
@@ -67,7 +58,7 @@ when using CSS modules.
 Use of custom class names for the head and the caption elements:
 
 ```
- function Example() {
+ function App() {
    const css = `
      .salmon-head {
        color: salmon;
@@ -152,7 +143,7 @@ direction.
 ```
 import arabic from 'date-fns/locale/ar-SA';
 
-function Example() {
+function App() {
   return <DayPicker locale={arabic} dir="rtl" />;
 }
 ```
@@ -173,14 +164,14 @@ ___
 
 ### disabled
 
-• `Optional` **disabled**: Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **disabled**: Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeek*](../types/dayofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `disabled` modifier to the matching days.
 
 **Example**
 
 ```
-function Example() {
+function App() {
   return (
     <DayPicker
       defaultMonth={new Date(2021, 11)}
@@ -203,14 +194,6 @@ ___
 
 Display six weeks per months, regardless the month’s number of weeks.
 To use this prop, [showOutsideDays](daypickerrange.md#showoutsidedays) must be set. Default to `false`.
-
-**Example**
-
-```
-function Example() {
- return <DayPicker showOutsideDays fixedWeeks />
-};
-```
 
 Inherited from: [DayPickerBase](daypickerbase.md).[fixedWeeks](daypickerbase.md#fixedweeks)
 
@@ -268,26 +251,10 @@ ___
 
 ### hidden
 
-• `Optional` **hidden**: Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **hidden**: Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeek*](../types/dayofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
-Apply the `hidden` modifier to the matching days – to hide them from the
+Apply the `hidden` modifier to the matching days. Will hide them from the
 calendar.
-
-**Example**
-
-```
-function Example() {
-  return (
-    <DayPicker
-      defaultMonth={new Date(2021, 11)}
-      hidden={{
-        from: new Date(2021, 11, 14),
-        to: new Date(2021, 11, 24)
-      }}
-    />
-  );
-}
-```
 
 Inherited from: [DayPickerBase](daypickerbase.md).[hidden](daypickerbase.md#hidden)
 
@@ -317,19 +284,21 @@ ___
 
 • `Optional` **locale**: Locale
 
-The date-fns locale object to localize the user interface. Defaults to EN-US.
-
-See also date-fns [Internationalization guide](https://date-fns.org/docs/I18n).
+The date-fns locale object to localize the user interface. Defaults to
+`en-US`.
 
 For example, to the calendar to Spanish:
 
 ```
 import spanish from 'date-fns/locale/es';
 
-function Example() {
+function App() {
   return <DayPicker locale={spanish} />;
 }
 ```
+
+See also date-fns [Internationalization
+guide](https://date-fns.org/docs/I18n).
 
 Inherited from: [DayPickerBase](daypickerbase.md).[locale](daypickerbase.md#locale)
 
@@ -437,7 +406,7 @@ ___
 
 ### modifiers
 
-• `Optional` **modifiers**: *Record*<string, Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]\>
+• `Optional` **modifiers**: *Record*<string, Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeek*](../types/dayofweek.md) \| [*Matcher*](../types/matcher.md)[]\>
 
 Add modifiers to the matching days.
 
@@ -459,22 +428,6 @@ The month to display in the calendar.
 
 As opposed to [defaultMonth](daypickerrange.md#defaultmonth), use this prop with [onMonthChange](daypickerrange.md#onmonthchange) to
 change the month programmatically.
-
-**Example**
-
-Implement a button to go to today.
-
-```
-function Example() {
-  const [month, setMonth] = useState();
-  return (
-    <>
-      <DayPicker month={month} onMonthChange={setMonth} />
-      <button onClick={() => setMonth(new Date())}>Go to Today</button>
-    </>
-  );
-}
-```
 
 Inherited from: [DayPickerBase](daypickerbase.md).[month](daypickerbase.md#month)
 
@@ -651,14 +604,14 @@ ___
 
 ### selected
 
-• `Optional` **selected**: Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeekMatcher*](../types/dayofweekmatcher.md) \| [*Matcher*](../types/matcher.md)[]
+• `Optional` **selected**: Date \| Date[] \| (`date`: Date) => *boolean* \| [*DateRange*](../types/daterange.md) \| [*DateBefore*](../types/datebefore.md) \| [*DateAfter*](../types/dateafter.md) \| [*DateInterval*](../types/dateinterval.md) \| [*DayOfWeek*](../types/dayofweek.md) \| [*Matcher*](../types/matcher.md)[]
 
 Apply the `selected` modifier to the matching days.
 
 **Example**
 
 ```
-function Example() {
+function App() {
   return (
     <DayPicker
       defaultMonth={new Date(2021, 11)}
@@ -752,12 +705,7 @@ ___
 
 The today’s date. Default is the current date.
 
-**Example**
-
-```
-function Example() {
-  return <DayPicker today={new Date(2022, 2, 18)} />;
-}
-```
+This Date will get the `today` modifier to style the day. Set it to `off`
+to disable it.
 
 Inherited from: [DayPickerBase](daypickerbase.md).[today](daypickerbase.md#today)

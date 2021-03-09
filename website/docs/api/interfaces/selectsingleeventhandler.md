@@ -8,13 +8,13 @@ hide_title: true
 
 # Interface: SelectSingleEventHandler
 
-Represent the event handler when a day is selected (undefined when the day is unselected).
+Represent the event handler when selecting a single day.
 
 ## Callable
 
-▸ **SelectSingleEventHandler**(`day`: *undefined* \| Date, `selectedDay`: Date, `modifiers`: *Record*<string, boolean\>, `e`: *MouseEvent*<Element, MouseEvent\>): *void*
+▸ **SelectSingleEventHandler**(`day`: *undefined* \| Date, `selectedDay`: Date, `modifiers`: *Record*<string, *true*\>, `e`: *MouseEvent*<Element, MouseEvent\>): *void*
 
-Represent the event handler when a day is selected (undefined when the day is unselected).
+Represent the event handler when selecting a single day.
 
 #### Parameters:
 
@@ -22,7 +22,7 @@ Name | Type |
 :------ | :------ |
 `day` | *undefined* \| Date |
 `selectedDay` | Date |
-`modifiers` | *Record*<string, boolean\> |
+`modifiers` | *Record*<string, *true*\> |
 `e` | *MouseEvent*<Element, MouseEvent\> |
 
 **Returns:** *void*

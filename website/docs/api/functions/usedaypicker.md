@@ -8,8 +8,8 @@ hide_title: true
 
 # Function: useDayPicker
 
-▸ **useDayPicker**(): [*ContextValue*](../types/contextvalue.md)
+▸ **useDayPicker**(): [*DayPickerContextValue*](../types/daypickercontextvalue.md)
 
 Hook to access the [DayPickerContext](../variables/daypickercontext.md).
 
-**Returns:** [*ContextValue*](../types/contextvalue.md)
+**Returns:** [*DayPickerContextValue*](../types/daypickercontextvalue.md)

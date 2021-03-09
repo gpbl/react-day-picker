@@ -2,7 +2,7 @@ const sidebar = [
   'intro',
   'start',
   {
-    'DayPicker Basics': [
+    Basics: [
       'basics/navigation',
       'basics/customization',
       'basics/selecting-days',
@@ -15,7 +15,7 @@ const sidebar = [
       'guides/custom-selection',
       'guides/formatters',
       'guides/localization',
-      'guides/input',
+      'guides/form-fields',
       'guides/custom-components'
     ]
   },

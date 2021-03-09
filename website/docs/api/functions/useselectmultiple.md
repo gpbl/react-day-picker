@@ -8,8 +8,8 @@ hide_title: true
 
 # Function: useSelectMultiple
 
-▸ **useSelectMultiple**(): [*SelectMultiple*](../interfaces/selectmultiple.md)
+▸ **useSelectMultiple**(): [*SelectMultipleContextValue*](../interfaces/selectmultiplecontextvalue.md)
 
 Return the context for controlling the selections in the multiple selection mode.
 
-**Returns:** [*SelectMultiple*](../interfaces/selectmultiple.md)
+**Returns:** [*SelectMultipleContextValue*](../interfaces/selectmultiplecontextvalue.md)

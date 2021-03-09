@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import {
   DateRange,
   DayPicker,
@@ -12,7 +12,7 @@ export default function App() {
     from: new Date(),
     to: addDays(new Date(), 4)
   };
-  const [range, setRange] = useState(defaultSelected);
+  const [range, setRange] = React.useState(defaultSelected);
 
   let footer = 'Please pick the first day.';
   if (range.from && !range.to) footer = 'Please pick the last day.';

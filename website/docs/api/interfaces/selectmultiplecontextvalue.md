@@ -1,12 +1,14 @@
 ---
-id: "selectmultiple"
-title: "Interface: SelectMultiple"
-sidebar_label: "SelectMultiple"
+id: "selectmultiplecontextvalue"
+title: "Interface: SelectMultipleContextValue"
+sidebar_label: "SelectMultipleContextValue"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Interface: SelectMultiple
+# Interface: SelectMultipleContextValue
+
+Represents the value of a [[SelectMultipleContext]].
 
 ## Properties
 
@@ -14,11 +16,15 @@ hide_title: true
 
 • **handleDayClick**: [*DayClickEventHandler*](../types/dayclickeventhandler.md)
 
+Event handler to attach to the day button to enable the multiple select.
+
 ___
 
 ### modifiers
 
 • **modifiers**: *object*
+
+The modifiers for the corresponding selection.
 
 #### Type declaration:
 
@@ -32,3 +38,5 @@ ___
 ### selected
 
 • **selected**: *undefined* \| Date[]
+
+The days that have been selected.

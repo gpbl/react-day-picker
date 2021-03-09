@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { DayPicker } from 'react-day-picker';
 
 import { addMonths, isSameMonth, isToday } from 'date-fns';
@@ -7,7 +7,7 @@ const today = new Date();
 const nextMonth = addMonths(new Date(), 1);
 
 export default function App() {
-  const [month, setMonth] = useState<Date>(nextMonth);
+  const [month, setMonth] = React.useState<Date>(nextMonth);
 
   const footer = (
     <button

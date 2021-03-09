@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { DayPicker } from 'react-day-picker';
 
 import { format } from 'date-fns';
 
 export default function App() {
   const defaultSelected: Date[] = [];
-  const [days, setDays] = useState(defaultSelected);
+  const [days, setDays] = React.useState(defaultSelected);
 
   const footer =
     days.length > 0

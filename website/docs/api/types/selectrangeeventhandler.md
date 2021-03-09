@@ -10,6 +10,8 @@ hide_title: true
 
 Ƭ **SelectRangeEventHandler**: (`range`: [*DateRange*](daterange.md) \| *undefined*, `selectedDay`: Date, `modifiers`: [*ModifierStatus*](modifierstatus.md), `e`: React.MouseEvent) => *void*
 
+Represent the event handler when selecting a range of days.
+
 #### Type declaration:
 
 ▸ (`range`: [*DateRange*](daterange.md) \| *undefined*, `selectedDay`: Date, `modifiers`: [*ModifierStatus*](modifierstatus.md), `e`: React.MouseEvent): *void*

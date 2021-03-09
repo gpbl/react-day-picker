@@ -10,11 +10,13 @@ hide_title: true
 
 Ƭ **StyledElement**<T\>: *object*
 
+Represent the style (either via class names or via in-line styles) of an element.
+
 #### Type parameters:
 
 Name | Default |
 :------ | :------ |
-`T` | *string* \| CSSProperties |
+`T` | *string* \| React.CSSProperties |
 
 #### Type declaration:
 

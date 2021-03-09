@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { DayPicker, WeekNumberClickEventHandler } from 'react-day-picker';
 
 export default function App() {
-  const [weekNumber, setWeekNumber] = useState<number>();
+  const [weekNumber, setWeekNumber] = React.useState<number>();
   const handleWeekNumberClick: WeekNumberClickEventHandler = (n) =>
     setWeekNumber(n);
 

@@ -8,14 +8,14 @@ hide_title: true
 
 # Function: isArrayOfDates
 
-▸ **isArrayOfDates**(`matcher`: *unknown*): matcher is Date[]
+▸ **isArrayOfDates**(`value`: *unknown*): value is Date[]
 
-Returns true if `matcher` is an array of valid dates.
+Returns true if `value` is an array of valid dates.
 
 #### Parameters:
 
 Name | Type |
 :------ | :------ |
-`matcher` | *unknown* |
+`value` | *unknown* |
 
-**Returns:** matcher is Date[]
+**Returns:** value is Date[]

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { DayClickEventHandler, DayPicker } from 'react-day-picker';
 
 export default function App() {
-  const [selectedDays, setSelectedDays] = useState([]);
+  const [selectedDays, setSelectedDays] = React.useState([]);
 
   const handleDayClick: DayClickEventHandler = (day, { selected }) => {
     // Use a callback to clone and add / remove days to the array

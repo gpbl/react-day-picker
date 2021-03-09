@@ -16,8 +16,12 @@ The props for the [YearsDropdown](../functions/yearsdropdown.md) component.
 
 • **displayMonth**: Date
 
+The month where the drop-down is displayed.
+
 ___
 
 ### onChange
 
 • **onChange**: [*MonthChangeEventHandler*](../types/monthchangeeventhandler.md)
+
+Callback to handle the `change` event.

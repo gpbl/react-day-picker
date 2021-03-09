@@ -10,6 +10,8 @@ hide_title: true
 
 ▸ **CaptionLabel**(`props`: [*CaptionLabelProps*](../interfaces/captionlabelprops.md)): JSX.Element
 
+Render the caption for the displayed month. This component is used when `captionLayout="buttons"`.
+
 #### Parameters:
 
 Name | Type |

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { DateRange, DayPicker } from 'react-day-picker';
 
 import { format } from 'date-fns';
 
 export default function App() {
-  const [range, setRange] = useState<DateRange | undefined>();
+  const [range, setRange] = React.useState<DateRange | undefined>();
 
   let footer = 'Please pick the first day.';
   if (range && range.from && !range.to) footer = 'Please pick the last day.';
