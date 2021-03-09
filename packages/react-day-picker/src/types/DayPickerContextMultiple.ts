@@ -1,8 +1,8 @@
 import { SelectMultipleEventHandler } from 'types';
 
-import { ContextBase } from './ContextBase';
+import { DayPickerContextBase } from './DayPickerContextBase';
 
-export interface ContextMultiple extends ContextBase {
+export interface DayPickerContextMultiple extends DayPickerContextBase {
   mode: 'multiple';
   onSelect?: SelectMultipleEventHandler;
   defaultSelected?: Date[];

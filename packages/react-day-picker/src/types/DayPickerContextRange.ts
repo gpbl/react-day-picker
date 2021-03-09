@@ -1,8 +1,8 @@
 import { DateRange, SelectRangeEventHandler } from 'types';
 
-import { ContextBase } from './ContextBase';
+import { DayPickerContextBase } from './DayPickerContextBase';
 
-export interface ContextRange extends ContextBase {
+export interface DayPickerContextRange extends DayPickerContextBase {
   mode: 'range';
   onSelect?: SelectRangeEventHandler;
   defaultSelected?: DateRange;

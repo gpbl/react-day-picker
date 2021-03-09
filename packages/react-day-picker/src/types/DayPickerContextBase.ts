@@ -21,9 +21,9 @@ import {
 } from 'types';
 
 /**
- * Represent the value of the daypicker context.
+ * Represent the base value of the DayPicker context.
  */
-export interface ContextBase {
+export interface DayPickerContextBase {
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;
   components: Components;

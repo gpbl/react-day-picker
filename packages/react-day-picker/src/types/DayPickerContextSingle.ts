@@ -1,8 +1,8 @@
 import { SelectSingleEventHandler } from 'types';
 
-import { ContextBase } from './ContextBase';
+import { DayPickerContextBase } from './DayPickerContextBase';
 
-export interface ContextSingle extends ContextBase {
+export interface DayPickerContextSingle extends DayPickerContextBase {
   mode: 'single';
   onSelect?: SelectSingleEventHandler;
   defaultSelected?: Date;
