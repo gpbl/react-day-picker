@@ -46,7 +46,7 @@ export interface DayPickerBase {
    * Use of custom class names for the head and the caption elements:
    *
    * ```
-   *  function Example() {
+   *  function App() {
    *    const css = `
    *      .salmon-head {
    *        color: salmon;
@@ -141,22 +141,6 @@ export interface DayPickerBase {
    *
    * As opposed to [[defaultMonth]], use this prop with [[onMonthChange]] to
    * change the month programmatically.
-   *
-   * **Example**
-   *
-   * Implement a button to go to today.
-   *
-   * ```
-   * function Example() {
-   *   const [month, setMonth] = useState();
-   *   return (
-   *     <>
-   *       <DayPicker month={month} onMonthChange={setMonth} />
-   *       <button onClick={() => setMonth(new Date())}>Go to Today</button>
-   *     </>
-   *   );
-   * }
-   * ```
    */
   month?: Date;
   /**
@@ -199,15 +183,6 @@ export interface DayPickerBase {
    *
    * **Note** `dropdown` is valid only when `fromDate/fromMonth/fromYear` and
    * `toDate/toMonth/toYear` are set.
-   *
-   * **Example**
-   *
-   * ```
-   * function Example() {
-   *  return (
-   *    <DayPicker fromYear={2020} toYear={2025} captionLayout="dropdown" />
-   * )};
-   * ```
    */
   captionLayout?: CaptionLayout;
 
@@ -223,14 +198,6 @@ export interface DayPickerBase {
   /**
    * Display six weeks per months, regardless the month’s number of weeks.
    * To use this prop, [[showOutsideDays]] must be set. Default to `false`.
-   *
-   * **Example**
-   *
-   * ```
-   * function Example() {
-   *  return <DayPicker showOutsideDays fixedWeeks />
-   * };
-   * ```
    */
   fixedWeeks?: boolean;
   /**
@@ -263,7 +230,7 @@ export interface DayPickerBase {
    * **Example**
    *
    * ```
-   * function Example() {
+   * function App() {
    *   return (
    *     <DayPicker
    *       defaultMonth={new Date(2021, 11)}
@@ -283,7 +250,7 @@ export interface DayPickerBase {
    * **Example**
    *
    * ```
-   * function Example() {
+   * function App() {
    *   return (
    *     <DayPicker
    *       defaultMonth={new Date(2021, 11)}
@@ -298,38 +265,19 @@ export interface DayPickerBase {
    */
   disabled?: Matcher | Matcher[];
   /**
-   * Apply the `hidden` modifier to the matching days – to hide them from the
+   * Apply the `hidden` modifier to the matching days. Will hide them from the
    * calendar.
-   *
-   * **Example**
-   *
-   * ```
-   * function Example() {
-   *   return (
-   *     <DayPicker
-   *       defaultMonth={new Date(2021, 11)}
-   *       hidden={{
-   *         from: new Date(2021, 11, 14),
-   *         to: new Date(2021, 11, 24)
-   *       }}
-   *     />
-   *   );
-   * }
-   * ```
    */
   hidden?: Matcher | Matcher[];
+
   /**
    * The today’s date. Default is the current date.
    *
-   * **Example**
-   *
-   * ```
-   * function Example() {
-   *   return <DayPicker today={new Date(2022, 2, 18)} />;
-   * }
-   * ```
+   * This Date will get the `today` modifier to style the day. Set it to `off`
+   * to disable it.
    */
   today?: Date | 'off';
+
   /**
    * Add modifiers to the matching days.
    *
@@ -342,19 +290,22 @@ export interface DayPickerBase {
   modifiers?: Modifiers;
 
   /**
-   * The date-fns locale object to localize the user interface. Defaults to EN-US.
-   *
-   * See also date-fns [Internationalization guide](https://date-fns.org/docs/I18n).
+   * The date-fns locale object to localize the user interface. Defaults to
+   * `en-US`.
    *
    * For example, to the calendar to Spanish:
    *
    * ```
    * import spanish from 'date-fns/locale/es';
    *
-   * function Example() {
+   * function App() {
    *   return <DayPicker locale={spanish} />;
    * }
    * ```
+   *
+   * See also date-fns [Internationalization
+   * guide](https://date-fns.org/docs/I18n).
+   *
    */
   locale?: Locale;
 
@@ -375,7 +326,7 @@ export interface DayPickerBase {
    * ```
    * import arabic from 'date-fns/locale/ar-SA';
    *
-   * function Example() {
+   * function App() {
    *   return <DayPicker locale={arabic} dir="rtl" />;
    * }
    * ```
@@ -405,7 +356,6 @@ export interface DayPickerBase {
   /** Content to add to the `tfoot` element. */
   footer?: React.ReactNode;
 
-  // #region event handlers
   /**
    * Event fired when the user navigates between months.
    */

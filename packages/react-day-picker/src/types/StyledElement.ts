@@ -1,6 +1,7 @@
-import { CSSProperties } from 'react';
+import * as React from 'react';
 
-export type StyledElement<T = string | CSSProperties> = {
+/** Represent the style (either via class names or via in-line styles) of an element. */
+export type StyledElement<T = string | React.CSSProperties> = {
   /** The style of the root element. */
   readonly root: T;
   /** The style of the root element when `numberOfMonths > 1`. */
