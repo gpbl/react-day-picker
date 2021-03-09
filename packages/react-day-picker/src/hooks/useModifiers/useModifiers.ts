@@ -5,10 +5,19 @@ import { useSelectMultiple } from '../useSelectMultiple';
 import { useSelectRange } from '../useSelectRange';
 import { getModifierStatus } from './utils/getModifierStatus';
 
+export type UseModifiers = {
+  /** The status of the modifiers */
+  modifiers: ModifierStatus;
+  /** The class names based on modifiers. */
+  modifierClassNames: string[];
+  /** The style based on modifiers. */
+  modifierStyle: React.CSSProperties;
+};
+
 /**
- * Return the status for the modifiers given the specified date.
+ * Return the modifiers, their style and classes given the specified date.
  */
-export function useModifiers(date: Date): ModifierStatus {
+export function useModifiers(date: Date): UseModifiers {
   const context = useDayPicker();
   const single = useSelectSingle();
   const multiple = useSelectMultiple();
@@ -62,5 +71,32 @@ export function useModifiers(date: Date): ModifierStatus {
 
   const status = getModifierStatus(date, modifiers);
 
-  return status;
+  const modifierClassNames: string[] = [];
+
+  Object.keys(status)
+    .filter((modifier) => Boolean(status[modifier]))
+    .forEach((modifier) => {
+      const customClassName = context.modifierClassNames[modifier];
+      if (customClassName) {
+        modifierClassNames.push(customClassName);
+      } else {
+        modifierClassNames.push(`${context.modifierPrefix}${modifier}`);
+      }
+    });
+
+  let modifierStyle = {};
+  if (context.modifierStyles) {
+    Object.keys(status).forEach((modifier) => {
+      modifierStyle = {
+        ...modifierStyle,
+        ...context.modifierStyles?.[modifier]
+      };
+    });
+  }
+
+  return {
+    modifiers: status,
+    modifierClassNames: modifierClassNames,
+    modifierStyle
+  };
 }

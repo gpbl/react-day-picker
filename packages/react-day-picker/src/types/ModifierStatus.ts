@@ -1,15 +1,6 @@
 import { Modifier } from './Modifier';
 
 /**
- * Represent the status of a modifiers if matched against a day according to its
- * [[Matcher]].
- *
- * For example, the following status represent a day with the `selected` modifier.
- *
- * ```js
- * const modifiers: ModifiersStatus = {
- *  selected: true,
- * }
- * ```
+ * Represent the status of a modifiers when matched a day.
  */
-export type ModifierStatus = Record<Modifier, boolean>;
+export type ModifierStatus = Record<Modifier, true>;
