@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import { format, parse } from 'date-fns';
-import { DayPickerProps } from 'types';
+import { DayPickerSingle, SelectSingleEventHandler } from 'types';
 
 export type UseInput = {
   setMonth: React.Dispatch<React.SetStateAction<Date>>;
   setValue: React.Dispatch<React.SetStateAction<string>>;
-  dayPickerProps: Partial<DayPickerProps>;
+  dayPickerProps: DayPickerSingle;
   inputProps: Partial<JSX.IntrinsicElements['input']>;
 };
 
@@ -61,9 +61,9 @@ export function useInput(
   const [value, setValue] = React.useState(initialValue);
   const [month, setMonth] = React.useState(initialDay ?? new Date());
 
-  const onDayClick = (day: Date) => {
+  const onSelect: SelectSingleEventHandler = (day?: Date) => {
     setSelected(day);
-    setValue(formatDay(day));
+    setValue(day ? formatDay(day) : '');
   };
   const onMonthChange = (month: React.SetStateAction<Date>) => {
     setMonth(month);
@@ -114,9 +114,10 @@ export function useInput(
     setMonth,
     setValue,
     dayPickerProps: {
+      mode: 'single',
       month,
       selected,
-      onDayClick,
+      onSelect,
       onMonthChange
     },
     inputProps: {
