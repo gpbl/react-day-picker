@@ -3,24 +3,16 @@ import React from 'react';
 import {
   DayClickEventHandler,
   DayPickerProps,
-  Matcher,
-  ModifiersArray
+  ModifiersArray,
+  SelectSingleContextValue
 } from 'types';
 
-export interface SelectSingle {
-  selected: Date | undefined;
-  modifiers: {
-    selected?: Matcher[];
-    disabled?: Matcher[];
-  };
-  handleDayClick: DayClickEventHandler;
-}
-
+/** A context holding the selection for the single selection mode. */
 export const SelectSingleContext = React.createContext<
-  SelectSingle | undefined
+  SelectSingleContextValue | undefined
 >(undefined);
 
-/** Return the context for the controlled mode selection. */
+/** Return the context for the single selection mode. */
 export function SelectSingleProvider({
   initialProps,
   children

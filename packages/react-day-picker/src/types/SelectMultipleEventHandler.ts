@@ -1,15 +1,13 @@
 import { ModifierStatus } from './ModifierStatus';
 
-/**
- * Represent the event handler when multiple days are selected (empty array when
- * the no days are selected).
- */
+/** Represent the event handler when selecting multiple days. */
 export type SelectMultipleEventHandler = (
   /** The selected days */
   days: Date[] | undefined,
-  /** The day that was selected (or clicked) triggering the event. */
+  /** The day that was clicked triggering the event. */
   selectedDay: Date,
   /** The day that was clicked */
   modifiers: ModifierStatus,
+  /** The mouse event that triggered this event. */
   e: React.MouseEvent
 ) => void;

@@ -1,5 +1,2 @@
 export * from './useSelectMultiple';
-export {
-  SelectMultiple,
-  SelectMultipleProvider
-} from './SelectMultipleContext';
+export { SelectMultipleProvider } from './SelectMultipleContext';

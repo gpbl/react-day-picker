@@ -4,24 +4,16 @@ import { isSameDay } from 'date-fns';
 import {
   DayClickEventHandler,
   DayPickerProps,
-  Matcher,
-  ModifiersArray
+  ModifiersArray,
+  SelectMultipleContextValue
 } from 'types';
 
-export interface SelectMultiple {
-  selected: Date[] | undefined;
-  handleDayClick: DayClickEventHandler;
-  modifiers: {
-    selected?: Matcher[];
-    disabled?: Matcher[];
-  };
-}
-
+/** A context holding the selection for the multiple selection mode. */
 export const SelectMultipleContext = React.createContext<
-  SelectMultiple | undefined
+  SelectMultipleContextValue | undefined
 >(undefined);
 
-/** Return the context for the controlled mode selection. */
+/** Return the context for the multiple selection mode. */
 export function SelectMultipleProvider({
   initialProps,
   children
@@ -79,7 +71,7 @@ export function SelectMultipleProvider({
   if (selectedDays && initialProps.mode === 'multiple') {
     modifiers.selected = selectedDays;
     modifiers.disabled = [
-      function XY(day: Date) {
+      function disableDay(day: Date) {
         const isMaxSelected =
           initialProps.max && selectedDays.length > initialProps.max - 1;
         const isSelected = selectedDays.some((selectedDay) =>

@@ -5,29 +5,18 @@ import {
   DateRange,
   DayClickEventHandler,
   DayPickerProps,
-  Matcher,
-  ModifiersArray
+  ModifiersArray,
+  SelectRangeContextValue
 } from 'types';
 
 import { addToRange } from './utils/addToRange';
 
-export interface SelectRange {
-  selected: DateRange | undefined;
-  handleDayClick: DayClickEventHandler;
-  modifiers: {
-    selected?: Matcher[];
-    disabled?: Matcher[];
-    range_start?: Matcher[];
-    range_middle?: Matcher[];
-    range_end?: Matcher[];
-  };
-}
+/** A context holding the selection for the range selection mode. */
+export const SelectRangeContext = React.createContext<
+  SelectRangeContextValue | undefined
+>(undefined);
 
-export const SelectRangeContext = React.createContext<SelectRange | undefined>(
-  undefined
-);
-
-/** Return the context for the controlled mode selection. */
+/** Return the context for the range selection mode. */
 export function SelectRangeProvider({
   initialProps,
   children
