@@ -8,8 +8,10 @@ import { MonthChangeEventHandler } from 'types';
  * The props for the [[YearsDropdown]] component.
  */
 export interface YearsDropdownProps {
-  onChange: MonthChangeEventHandler;
+  /** The month where the drop-down is displayed. */
   displayMonth: Date;
+  /** Callback to handle the `change` event. */
+  onChange: MonthChangeEventHandler;
 }
 
 /**

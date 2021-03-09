@@ -1,6 +1,6 @@
 import { isDate } from 'date-fns';
 
-/** Returns true if `matcher` is an array of valid dates. */
-export function isArrayOfDates(matcher: unknown): matcher is Date[] {
-  return Array.isArray(matcher) && matcher.every(isDate);
+/** Returns true if `value` is an array of valid dates. */
+export function isArrayOfDates(value: unknown): value is Date[] {
+  return Array.isArray(value) && value.every(isDate);
 }

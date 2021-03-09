@@ -1,26 +1,26 @@
 import { differenceInCalendarDays, isSameDay } from 'date-fns';
 import {
   isArrayOfDates,
-  isDateAfterMatcher,
-  isDateBeforeMatcher,
+  isDateAfterType,
+  isDateBeforeType,
   isDateInterval,
   isDateRange,
-  isDayOfWeekMatcher,
-  isSameDateMatcher,
+  isDateType,
+  isDayOfWeekType,
   Matcher
 } from 'types';
 
 import { isDateInRange } from './isDateInRange';
 
 /**
- * Returns true whether the day matches against the given matchers.
+ * Returns `true` whether the day matches against the given matchers.
  */
 export function isMatch(day: Date, matchers: Matcher[]): boolean {
   return matchers.some((matcher: Matcher) => {
     if (typeof matcher === 'boolean') {
       return matcher;
     }
-    if (isSameDateMatcher(matcher)) {
+    if (isDateType(matcher)) {
       return isSameDay(day, matcher);
     }
     if (isArrayOfDates(matcher)) {
@@ -29,7 +29,7 @@ export function isMatch(day: Date, matchers: Matcher[]): boolean {
     if (isDateRange(matcher)) {
       return isDateInRange(day, matcher);
     }
-    if (isDayOfWeekMatcher(matcher)) {
+    if (isDayOfWeekType(matcher)) {
       return matcher.dayOfWeek.includes(day.getDay());
     }
     if (isDateInterval(matcher)) {
@@ -37,10 +37,10 @@ export function isMatch(day: Date, matchers: Matcher[]): boolean {
       const isAfter = differenceInCalendarDays(day, matcher.after) > 0;
       return isBefore && isAfter;
     }
-    if (isDateAfterMatcher(matcher)) {
+    if (isDateAfterType(matcher)) {
       return differenceInCalendarDays(day, matcher.after) > 0;
     }
-    if (isDateBeforeMatcher(matcher)) {
+    if (isDateBeforeType(matcher)) {
       return differenceInCalendarDays(matcher.before, day) > 0;
     }
     if (typeof matcher === 'function') {

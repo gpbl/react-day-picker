@@ -1,12 +1,13 @@
 import { differenceInCalendarDays, isSameDay } from 'date-fns';
 import { DateRange } from 'types';
 
-export function isDateInRange(day: Date, range: DateRange): boolean {
+/** Return `true` whether the given date is inside the range. */
+export function isDateInRange(date: Date, range: DateRange): boolean {
   let { from, to } = range;
   if (!from) {
     return false;
   }
-  if (!to && isSameDay(from, day)) {
+  if (!to && isSameDay(from, date)) {
     return true;
   }
   if (!to) {
@@ -17,7 +18,7 @@ export function isDateInRange(day: Date, range: DateRange): boolean {
     [from, to] = [to, from];
   }
   return (
-    differenceInCalendarDays(day, from) >= 0 &&
-    differenceInCalendarDays(to, day) >= 0
+    differenceInCalendarDays(date, from) >= 0 &&
+    differenceInCalendarDays(to, date) >= 0
   );
 }

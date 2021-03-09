@@ -3,7 +3,7 @@ import { ModifiersArray, ModifierStatus } from 'types';
 import { isMatch } from './isMatch';
 
 /**
- * Return the status of the modifiers for the given date,
+ * Return the status of the modifiers that matches the given date.
  */
 export function getModifierStatus(
   date: Date,
