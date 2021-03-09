@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 
 import { DateFormatter, ModifierStatus } from 'types';
 
@@ -19,7 +19,7 @@ export interface DayContentProps {
   /** Whether DayPicker should show the outside day. */
   showOutsideDays?: boolean;
   /** The ARIA label for the content. */
-  'aria-label': HTMLAttributes<HTMLSpanElement>['aria-label'];
+  'aria-label': string;
   /** The class name for the aria-label (this element should stay not visible) */
   hiddenClassName: string;
 }

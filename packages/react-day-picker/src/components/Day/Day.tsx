@@ -1,16 +1,15 @@
 import * as React from 'react';
 
-import { isSameDay, isSameMonth } from 'date-fns';
+import { isSameMonth } from 'date-fns';
 import {
   useDayPicker,
-  useFocus,
   useModifiers,
   useSelectMultiple,
   useSelectRange,
   useSelectSingle
 } from 'hooks';
 
-import { createHandlers } from './utils/createHandlers';
+import { useDayFocus } from './hooks/useDayFocus';
 
 /** Represent the props used by the [[Day]] component. */
 export interface DayProps {
@@ -21,172 +20,139 @@ export interface DayProps {
 }
 
 /**
- * Render the content of a date cell, as a button or span element according to
- * its modifiers. Attaches the event handlers from DayPicker context, and manage the
- * focused date.
+ * The content of a day cell – as a button or span element according to its
+ * modifiers.
  */
 export function Day(props: DayProps): JSX.Element | null {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const { date, displayMonth } = props;
-  const context = useDayPicker();
+
+  const { mode = 'uncontrolled', ...context } = useDayPicker();
+
   const single = useSelectSingle();
   const multiple = useSelectMultiple();
   const range = useSelectRange();
-  const modifierStatus = useModifiers(date);
-  const [
-    focusedDay,
-    { focusDayAfter, focusDayBefore, focusDayDown, focusDayUp, blur, focus }
-  ] = useFocus();
+
+  const { focus, blur, focusOnKeyDown, isFocused } = useDayFocus(
+    date,
+    buttonRef
+  );
+  const {
+    modifiers,
+    modifierClassNames: modifierClassNames,
+    modifierStyle
+  } = useModifiers(date);
 
   const {
-    classNames,
     components: { DayContent },
     formatters: { formatDay },
     labels: { labelDay },
     locale,
-    modifierClassNames,
-    modifierPrefix,
-    modifierStyles,
-    showOutsideDays,
-    styles,
-    mode = 'uncontrolled',
-    onDayClick,
-    onDayFocus,
-    onDayBlur,
-    onDayKeyDown
+    showOutsideDays
   } = context;
 
-  React.useEffect(() => {
-    if (!focusedDay) return;
-    if (isSameDay(focusedDay, date)) {
-      buttonRef.current?.focus();
-    }
-  }, [focusedDay]);
+  if (modifiers.hidden) return <></>;
 
-  if (modifierStatus.hidden) return <></>;
-
-  const ariaLabel = labelDay(date, modifierStatus, { locale });
-  const ariaPressed = modifierStatus.selected;
+  const ariaLabel = labelDay(date, modifiers, { locale });
+  const ariaPressed = modifiers.selected;
 
   // #region Event handlers
   const handleClick: React.MouseEventHandler = (e) => {
-    onDayClick?.(date, modifierStatus, e);
-    switch (context.mode) {
+    switch (mode) {
       case 'single':
-        single.handleDayClick?.(date, modifierStatus, e);
+        single.handleDayClick?.(date, modifiers, e);
         break;
       case 'multiple':
-        multiple.handleDayClick?.(date, modifierStatus, e);
+        multiple.handleDayClick?.(date, modifiers, e);
         break;
       case 'range':
-        range.handleDayClick?.(date, modifierStatus, e);
+        range.handleDayClick?.(date, modifiers, e);
         break;
     }
+    context.onDayClick?.(date, modifiers, e);
   };
 
   const handleFocus: React.FocusEventHandler = (e) => {
     focus(date);
-    onDayFocus?.(date, modifierStatus, e);
+    context.onDayFocus?.(date, modifiers, e);
   };
+
   const handleBlur: React.FocusEventHandler = (e) => {
     blur();
-    onDayBlur?.(date, modifierStatus, e);
-  };
-  const handleKeyDown: React.KeyboardEventHandler = (e) => {
-    switch (e.key) {
-      case 'ArrowLeft':
-        e.preventDefault();
-        e.stopPropagation();
-        focusDayBefore();
-        break;
-      case 'ArrowRight':
-        e.preventDefault();
-        e.stopPropagation();
-        focusDayAfter();
-        break;
-      case 'ArrowDown':
-        e.preventDefault();
-        e.stopPropagation();
-        focusDayDown();
-        break;
-      case 'ArrowUp':
-        e.preventDefault();
-        e.stopPropagation();
-        focusDayUp();
-        break;
-    }
-    onDayKeyDown?.(date, modifierStatus, e);
+    context.onDayBlur?.(date, modifiers, e);
   };
 
-  const otherEventHandlers = createHandlers(date, modifierStatus, context);
+  const handleKeyDown: React.KeyboardEventHandler = (e) => {
+    focusOnKeyDown(e);
+    context.onDayKeyDown?.(date, modifiers, e);
+  };
+
+  const handleKeyUp: React.KeyboardEventHandler = (e) => {
+    context.onDayKeyUp?.(date, modifiers, e);
+  };
+  const handleMouseEnter: React.MouseEventHandler = (e) => {
+    context.onDayMouseEnter?.(date, modifiers, e);
+  };
+  const handleMouseLeave: React.MouseEventHandler = (e) => {
+    context.onDayMouseLeave?.(date, modifiers, e);
+  };
+  const handleTouchCancel: React.TouchEventHandler = (e) => {
+    context.onDayTouchCancel?.(date, modifiers, e);
+  };
+  const handleTouchEnd: React.TouchEventHandler = (e) => {
+    context.onDayTouchEnd?.(date, modifiers, e);
+  };
+  const handleTouchMove: React.TouchEventHandler = (e) => {
+    context.onDayTouchMove?.(date, modifiers, e);
+  };
+  const handleTouchStart: React.TouchEventHandler = (e) => {
+    context.onDayTouchStart?.(date, modifiers, e);
+  };
 
   // #endregion
-  // #region Create the class name for the button
-  const cssClasses: (string | undefined)[] = [classNames.day];
+
+  const classNames = [context.classNames.day].concat(modifierClassNames);
+  const style = { ...context.styles.day, ...modifierStyle };
 
   const isOutside = !isSameMonth(date, displayMonth);
   if (isOutside) {
-    cssClasses.push(classNames.day_outside);
+    classNames.push(context.classNames.day_outside);
   }
-
-  Object.keys(modifierStatus)
-    .filter((modifier) => Boolean(modifierStatus[modifier]))
-    .forEach((modifier) => {
-      if (modifierClassNames[modifier]) {
-        cssClasses.push(modifierClassNames[modifier]);
-      } else {
-        cssClasses.push(`${modifierPrefix}${modifier}`);
-      }
-    });
-
-  //#endregion
-  // #region Create the inline-styles
-  let style = { ...styles.day };
-  if (styles) {
-    Object.keys(modifierStatus).forEach(
-      (modifier) => (style = { ...style, ...styles[modifier] })
-    );
-  }
-  if (modifierStyles) {
-    Object.keys(modifierStatus).forEach(
-      (modifier) => (style = { ...style, ...modifierStyles[modifier] })
-    );
-  }
-
-  // #endregion
 
   const dayContent = (
     <DayContent
       aria-label={ariaLabel}
-      hiddenClassName={classNames.hidden}
       date={date}
-      modifiers={modifierStatus}
-      showOutsideDays={showOutsideDays}
-      outside={isOutside}
-      format={formatDay}
-      locale={locale}
       displayMonth={displayMonth}
+      format={formatDay}
+      hiddenClassName={context.classNames.hidden}
+      locale={locale}
+      modifiers={modifiers}
+      outside={isOutside}
+      showOutsideDays={showOutsideDays}
     />
   );
 
-  const isDisabled = modifierStatus.disabled || isOutside;
-  const isFocused = focusedDay && !isSameDay(focusedDay, date);
+  const isDisabled = modifiers.disabled || isOutside;
 
   let tabIndex = 0;
   if (isDisabled || isFocused || mode === 'uncontrolled') {
     tabIndex = -1;
   }
 
-  const className = [...cssClasses].join(' ');
+  const className = [...classNames].join(' ');
 
-  if (mode === 'uncontrolled' && !onDayClick) {
+  if (mode === 'uncontrolled' && !context.onDayClick) {
     return (
       <div style={style} className={className}>
         {dayContent}
       </div>
     );
   }
-  const buttonClassName = [classNames.button_reset, ...cssClasses].join(' ');
+
+  const buttonClassName = [context.classNames.button_reset, ...classNames].join(
+    ' '
+  );
 
   return (
     <button
@@ -200,7 +166,13 @@ export function Day(props: DayProps): JSX.Element | null {
       onFocus={handleFocus}
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
-      {...otherEventHandlers}
+      onKeyUp={handleKeyUp}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onTouchCancel={handleTouchCancel}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
     >
       {dayContent}
     </button>
