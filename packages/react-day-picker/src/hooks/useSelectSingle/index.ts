@@ -1,2 +1,2 @@
 export * from './useSelectSingle';
-export { SelectSingle, SelectSingleProvider } from './SelectSingleContext';
+export { SelectSingleProvider } from './SelectSingleContext';
