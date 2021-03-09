@@ -15,7 +15,7 @@ import {
   WeekNumber
 } from 'components';
 import enUS from 'date-fns/locale/en-US';
-import { ContextValue, DayPickerProps } from 'types';
+import { DayPickerContextValue, DayPickerProps } from 'types';
 
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
@@ -30,21 +30,17 @@ import { parseModifierShortcuts } from './utils/parseModifierShortcuts';
  * the defaults values, parses some props, and perform one-time calculation
  * required to render the days.
  */
-export const DayPickerContext = React.createContext<ContextValue | undefined>(
-  undefined
-);
-
-export type DayPickerProviderProps = {
-  initialProps: Omit<DayPickerProps, 'onSelect'>;
-  children?: React.ReactNode;
-};
+export const DayPickerContext = React.createContext<
+  DayPickerContextValue | undefined
+>(undefined);
 
 /**
  * The provider for the [[DayPickerContext]]. Must wrap the DayPicker’s root.
  */
-export const DayPickerProvider = (
-  props: DayPickerProviderProps
-): JSX.Element => {
+export const DayPickerProvider = (props: {
+  initialProps: Omit<DayPickerProps, 'onSelect' | 'defaultSelected'>;
+  children?: React.ReactNode;
+}): JSX.Element => {
   const { children, initialProps } = props;
   const { fromDate, toDate } = parseFromToProps(initialProps);
   const locale = initialProps.locale || enUS;
@@ -95,7 +91,7 @@ export const DayPickerProvider = (
     footer
   } = initialProps;
 
-  const context: ContextValue = {
+  const context: DayPickerContextValue = {
     dir,
     disableNavigation,
     defaultMonth,
