@@ -10,8 +10,7 @@ hide_title: true
 
 Ƭ **SelectMultipleEventHandler**: (`days`: Date[] \| *undefined*, `selectedDay`: Date, `modifiers`: [*ModifierStatus*](modifierstatus.md), `e`: React.MouseEvent) => *void*
 
-Represent the event handler when multiple days are selected (empty array when
-the no days are selected).
+Represent the event handler when selecting multiple days.
 
 #### Type declaration:
 

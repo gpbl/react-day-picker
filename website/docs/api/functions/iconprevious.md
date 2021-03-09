@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: IconPrevious
 
-▸ **IconPrevious**(`props`: [*StyledComponentProps*](../interfaces/styledcomponentprops.md)): JSX.Element
+▸ **IconPrevious**(`props`: [*StyledComponentProps*](../types/styledcomponentprops.md)): JSX.Element
 
 Render the "previous month" button in the navigation.
 
@@ -16,6 +16,6 @@ Render the "previous month" button in the navigation.
 
 Name | Type |
 :------ | :------ |
-`props` | [*StyledComponentProps*](../interfaces/styledcomponentprops.md) |
+`props` | [*StyledComponentProps*](../types/styledcomponentprops.md) |
 
 **Returns:** JSX.Element

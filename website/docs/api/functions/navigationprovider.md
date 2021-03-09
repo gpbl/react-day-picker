@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: NavigationProvider
 
-▸ `Const`**NavigationProvider**(`props`: [*NavigationProviderProps*](../types/navigationproviderprops.md)): *Element*
+▸ `Const`**NavigationProvider**(`props`: { `children?`: ReactNode  }): *Element*
 
 Provides the values for the [NavigationContext](../variables/navigationcontext.md).
 
@@ -16,6 +16,7 @@ Provides the values for the [NavigationContext](../variables/navigationcontext.m
 
 Name | Type |
 :------ | :------ |
-`props` | [*NavigationProviderProps*](../types/navigationproviderprops.md) |
+`props` | *object* |
+`props.children?` | ReactNode |
 
 **Returns:** *Element*

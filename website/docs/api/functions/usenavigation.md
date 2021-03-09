@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: useNavigation
 
-▸ **useNavigation**(`currentMonth?`: Date): [*NavigationContextValue*](../types/navigationcontextvalue.md)
+▸ **useNavigation**(`currentMonth?`: Date): [*NavigationContextValue*](../interfaces/navigationcontextvalue.md)
 
 Return the values for handing the navigation between months.
 
@@ -18,4 +18,4 @@ Name | Type |
 :------ | :------ |
 `currentMonth?` | Date |
 
-**Returns:** [*NavigationContextValue*](../types/navigationcontextvalue.md)
+**Returns:** [*NavigationContextValue*](../interfaces/navigationcontextvalue.md)

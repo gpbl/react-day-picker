@@ -8,14 +8,14 @@ hide_title: true
 
 # Function: isDateRange
 
-▸ **isDateRange**(`matcher`: *unknown*): matcher is DateRange
+▸ **isDateRange**(`value`: *unknown*): value is DateRange
 
-Returns true if `matcher` is a [DateRange](../types/daterange.md) matcher.
+Returns true if `value` is a [DateRange](../types/daterange.md) type.
 
 #### Parameters:
 
 Name | Type |
 :------ | :------ |
-`matcher` | *unknown* |
+`value` | *unknown* |
 
-**Returns:** matcher is DateRange
+**Returns:** value is DateRange

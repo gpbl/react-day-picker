@@ -16,8 +16,12 @@ The props for the [WeekNumber](../functions/weeknumber.md) component.
 
 • **dates**: Date[]
 
+The dates in the week.
+
 ___
 
 ### number
 
 • **number**: *number*
+
+The number of the week.

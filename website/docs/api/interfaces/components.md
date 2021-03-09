@@ -143,19 +143,19 @@ ___
 
 ### IconDropdown
 
-• **IconDropdown**: (`props`: [*StyledComponentProps*](styledcomponentprops.md)) => *null* \| *Element*
+• **IconDropdown**: (`props`: [*StyledComponentProps*](../types/styledcomponentprops.md)) => *null* \| *Element*
 
 The component for the small icon in the drop-downs.
 
 #### Type declaration:
 
-▸ (`props`: [*StyledComponentProps*](styledcomponentprops.md)): *null* \| *Element*
+▸ (`props`: [*StyledComponentProps*](../types/styledcomponentprops.md)): *null* \| *Element*
 
 #### Parameters:
 
 Name | Type |
 :------ | :------ |
-`props` | [*StyledComponentProps*](styledcomponentprops.md) |
+`props` | [*StyledComponentProps*](../types/styledcomponentprops.md) |
 
 **Returns:** *null* \| *Element*
 
@@ -163,19 +163,19 @@ ___
 
 ### IconNext
 
-• **IconNext**: (`props`: [*StyledComponentProps*](styledcomponentprops.md)) => *null* \| *Element*
+• **IconNext**: (`props`: [*StyledComponentProps*](../types/styledcomponentprops.md)) => *null* \| *Element*
 
 The component for the "next month" button in the Navigation.
 
 #### Type declaration:
 
-▸ (`props`: [*StyledComponentProps*](styledcomponentprops.md)): *null* \| *Element*
+▸ (`props`: [*StyledComponentProps*](../types/styledcomponentprops.md)): *null* \| *Element*
 
 #### Parameters:
 
 Name | Type |
 :------ | :------ |
-`props` | [*StyledComponentProps*](styledcomponentprops.md) |
+`props` | [*StyledComponentProps*](../types/styledcomponentprops.md) |
 
 **Returns:** *null* \| *Element*
 
@@ -183,19 +183,19 @@ ___
 
 ### IconPrevious
 
-• **IconPrevious**: (`props`: [*StyledComponentProps*](styledcomponentprops.md)) => *null* \| *Element*
+• **IconPrevious**: (`props`: [*StyledComponentProps*](../types/styledcomponentprops.md)) => *null* \| *Element*
 
 The component for the "previous month" button in the Navigation.
 
 #### Type declaration:
 
-▸ (`props`: [*StyledComponentProps*](styledcomponentprops.md)): *null* \| *Element*
+▸ (`props`: [*StyledComponentProps*](../types/styledcomponentprops.md)): *null* \| *Element*
 
 #### Parameters:
 
 Name | Type |
 :------ | :------ |
-`props` | [*StyledComponentProps*](styledcomponentprops.md) |
+`props` | [*StyledComponentProps*](../types/styledcomponentprops.md) |
 
 **Returns:** *null* \| *Element*
 

@@ -1,14 +1,14 @@
 ---
-id: "dayofweekmatcher"
-title: "Type alias: DayOfWeekMatcher"
-sidebar_label: "DayOfWeekMatcher"
+id: "dayofweek"
+title: "Type alias: DayOfWeek"
+sidebar_label: "DayOfWeek"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Type alias: DayOfWeekMatcher
+# Type alias: DayOfWeek
 
-Ƭ **DayOfWeekMatcher**: *object*
+Ƭ **DayOfWeek**: *object*
 
 Represent a matcher to match a date being one of the specified days of the week (`0-7`, where `0`
 is Sunday).

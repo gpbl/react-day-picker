@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: IconNext
 
-▸ **IconNext**(`props`: [*StyledComponentProps*](../interfaces/styledcomponentprops.md)): JSX.Element
+▸ **IconNext**(`props`: [*StyledComponentProps*](../types/styledcomponentprops.md)): JSX.Element
 
 Render the "next month" button in the navigation.
 
@@ -16,6 +16,6 @@ Render the "next month" button in the navigation.
 
 Name | Type |
 :------ | :------ |
-`props` | [*StyledComponentProps*](../interfaces/styledcomponentprops.md) |
+`props` | [*StyledComponentProps*](../types/styledcomponentprops.md) |
 
 **Returns:** JSX.Element

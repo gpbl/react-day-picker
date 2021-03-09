@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { DayPicker, SelectSingleEventHandler } from 'react-day-picker';
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
   ];
   const bookedStyle = { border: '2px solid currentColor' };
 
-  const [alreadyBooked, setAlreadyBooked] = useState<boolean>(false);
+  const [alreadyBooked, setAlreadyBooked] = React.useState<boolean>(false);
 
   const handleSelect: SelectSingleEventHandler = (day, _, modifiers) => {
     if (day && modifiers.booked) {

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { DayClickEventHandler, DayPicker } from 'react-day-picker';
 
 export default function App() {
-  const [selectedDay, setSelectedDay] = useState<Date>();
+  const [selectedDay, setSelectedDay] = React.useState<Date>();
   const handleDayClick: DayClickEventHandler = (day) => setSelectedDay(day);
 
   const footer = selectedDay

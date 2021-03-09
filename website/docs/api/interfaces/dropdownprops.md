@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: DropdownProps
 
+The props for the [Dropdown](../functions/dropdown.md) component.
+
 ## Properties
 
 ### caption
@@ -18,7 +20,7 @@ ___
 
 ### children
 
-• `Optional` **children**: *Element* \| *Element*[]
+• `Optional` **children**: ReactNode
 
 ___
 

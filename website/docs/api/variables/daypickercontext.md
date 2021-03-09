@@ -8,7 +8,7 @@ hide_title: true
 
 # Variable: DayPickerContext
 
-• `Const` **DayPickerContext**: *Context*<undefined \| [*ContextMultiple*](../interfaces/contextmultiple.md) \| [*ContextRange*](../interfaces/contextrange.md) \| [*ContextSingle*](../interfaces/contextsingle.md) \| [*ContextUncontrolled*](../interfaces/contextuncontrolled.md)\>
+• `Const` **DayPickerContext**: *Context*<undefined \| [*DayPickerContextMultiple*](../interfaces/daypickercontextmultiple.md) \| [*DayPickerContextRange*](../interfaces/daypickercontextrange.md) \| [*DayPickerContextSingle*](../interfaces/daypickercontextsingle.md) \| [*DayPickerContextUncontrolled*](../interfaces/daypickercontextuncontrolled.md)\>
 
 This context shares props and settings within the internal components. It set
 the defaults values, parses some props, and perform one-time calculation

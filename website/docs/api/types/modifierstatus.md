@@ -8,15 +8,6 @@ hide_title: true
 
 # Type alias: ModifierStatus
 
-Ƭ **ModifierStatus**: *Record*<[*Modifier*](modifier.md), boolean\>
+Ƭ **ModifierStatus**: *Record*<[*Modifier*](modifier.md), *true*\>
 
-Represent the status of a modifiers if matched against a day according to its
-[Matcher](matcher.md).
-
-For example, the following status represent a day with the `selected` modifier.
-
-```js
-const modifiers: ModifiersStatus = {
- selected: true,
-}
-```
+Represent the status of a modifiers when matched a day.

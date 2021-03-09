@@ -10,7 +10,8 @@ hide_title: true
 
 ▸ **Dropdown**(`props`: [*DropdownProps*](../interfaces/dropdownprops.md)): JSX.Element
 
-Render a dropdown component (basically, a styled HTMLSelectElement).
+Render a styled select component – displaying a caption and a custom
+drop-down icon.
 
 #### Parameters:
 

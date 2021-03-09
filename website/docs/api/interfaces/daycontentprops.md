@@ -14,7 +14,7 @@ Represent the props for the [DayContent](../functions/daycontent.md) component.
 
 ### aria-label
 
-• **aria-label**: *undefined* \| *string*
+• **aria-label**: *string*
 
 The ARIA label for the content.
 
@@ -62,7 +62,7 @@ ___
 
 ### modifiers
 
-• **modifiers**: *Record*<string, boolean\>
+• **modifiers**: *Record*<string, *true*\>
 
 The modifier status for `date`.
 

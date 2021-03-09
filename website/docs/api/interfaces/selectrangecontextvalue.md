@@ -1,12 +1,14 @@
 ---
-id: "selectrange"
-title: "Interface: SelectRange"
-sidebar_label: "SelectRange"
+id: "selectrangecontextvalue"
+title: "Interface: SelectRangeContextValue"
+sidebar_label: "SelectRangeContextValue"
 custom_edit_url: null
 hide_title: true
 ---
 
-# Interface: SelectRange
+# Interface: SelectRangeContextValue
+
+Represents the value of a [[SelectRangeContext]].
 
 ## Properties
 
@@ -14,11 +16,15 @@ hide_title: true
 
 • **handleDayClick**: [*DayClickEventHandler*](../types/dayclickeventhandler.md)
 
+Event handler to attach to the day button to enable the range select.
+
 ___
 
 ### modifiers
 
 • **modifiers**: *object*
+
+The modifiers for the corresponding selection.
 
 #### Type declaration:
 
@@ -35,3 +41,5 @@ ___
 ### selected
 
 • **selected**: *undefined* \| [*DateRange*](../types/daterange.md)
+
+The range of days that has been selected.

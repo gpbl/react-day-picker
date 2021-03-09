@@ -8,7 +8,6 @@ hide_title: true
 
 # Variable: NavigationContext
 
-• `Const` **NavigationContext**: *Context*<undefined \| [*NavigationContextValue*](../types/navigationcontextvalue.md)\>
+• `Const` **NavigationContext**: *Context*<undefined \| [*NavigationContextValue*](../interfaces/navigationcontextvalue.md)\>
 
-The navigation context holds values and setters for navigating between the
-calendars.
+The navigation context holds values and setters for navigating between the calendars.

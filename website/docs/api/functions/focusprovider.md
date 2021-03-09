@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ `Const`**FocusProvider**(`__namedParameters`: { `children`: ReactNode  }): *Element*
 
-Enable the FocusContext to handle the focus when navigating via keyboard.
+Enable the `FocusContext` to handle the focus when navigating via keyboard.
 
 #### Parameters:
 
