@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { NavigationContext, NavigationContextValue } from './NavigationContext';
+import { NavigationContextValue } from 'types';
+
+import { NavigationContext } from './NavigationContext';
 
 /** Return the values for handing the navigation between months. */
 export function useNavigation(currentMonth?: Date): NavigationContextValue {
