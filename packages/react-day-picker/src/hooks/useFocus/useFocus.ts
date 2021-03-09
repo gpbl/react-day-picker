@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { FocusContext, FocusContextValue } from './FocusContext';
+import { FocusContextValue } from 'types';
+
+import { FocusContext } from './FocusContext';
 
 /** Return the context for handling focus via keyboard. */
 export function useFocus(): FocusContextValue {
