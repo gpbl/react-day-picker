@@ -4,15 +4,15 @@
   "license": "MIT",
   "scripts": {
     "copy-docs": "./scripts/copy-docs.sh",
-    "develop": "yarn run start --no-open",
+    "develop": "TYPEDOC_WATCH=true yarn run start --no-open",
     "start": "yarn run copy-docs && docusaurus start",
     "build": "yarn run copy-docs && docusaurus build",
     "serve": "docusaurus serve",
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": ">=2.0.0-alpha.70",
-    "@docusaurus/preset-classic": ">=2.0.0-alpha.70",
+    "@docusaurus/core": ">=2.0.0-alpha.71",
+    "@docusaurus/preset-classic": ">=2.0.0-alpha.71",
     "date-fns": "^2.19.0",
     "docusaurus-plugin-typedoc": "^0.10.0",
     "raw-loader": "^4.0.2",
