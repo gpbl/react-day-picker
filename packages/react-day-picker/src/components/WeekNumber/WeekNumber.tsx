@@ -27,22 +27,30 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
     formatters: { formatWeekNumber }
   } = useDayPicker();
 
-  const label = labelWeekNumber(Number(weekNumber), { locale });
   const handleClick: React.MouseEventHandler = function (e) {
     onWeekNumberClick?.(weekNumber, dates, e);
   };
 
-  const Component = onWeekNumberClick ? 'button' : 'span';
+  const content = formatWeekNumber(Number(weekNumber), { locale });
 
-  const className = [classNames.weeknumber, classNames.button_reset];
+  if (!onWeekNumberClick) {
+    return (
+      <span className={classNames.weeknumber} style={styles.weeknumber}>
+        {content}
+      </span>
+    );
+  }
+
+  const label = labelWeekNumber(Number(weekNumber), { locale });
+
   return (
-    <Component
+    <button
       aria-label={label}
-      className={className.join(' ')}
+      className={[classNames.button_reset, classNames.weeknumber].join(' ')}
       style={styles.weeknumber}
       onClick={handleClick}
     >
-      {formatWeekNumber(Number(weekNumber), { locale })}
-    </Component>
+      {content}
+    </button>
   );
 }
