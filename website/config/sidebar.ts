@@ -19,7 +19,7 @@ const sidebar = [
       'guides/custom-components'
     ]
   },
-  { 'API Reference': require('./typedoc-sidebar.js') },
+  { 'API Reference': require('./typedoc-sidebar.ts') },
   'changelog',
   'contributing',
   'license'
