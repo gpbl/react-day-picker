@@ -24,6 +24,7 @@ import { convertModifierMatchersToArray } from './utils/convertModifierMatchersT
 import { getWeekdays } from './utils/getWeekdays';
 import { parseFromToProps } from './utils/parseFromToProps';
 import { parseModifierShortcuts } from './utils/parseModifierShortcuts';
+import { parseToday } from './utils/parseToday';
 
 /**
  * This context shares props and settings within the internal components. It set
@@ -45,10 +46,7 @@ export const DayPickerProvider = (props: {
   const { fromDate, toDate } = parseFromToProps(initialProps);
   const locale = initialProps.locale || enUS;
   const numberOfMonths = initialProps.numberOfMonths ?? 1;
-  const today =
-    initialProps.today && initialProps.today !== 'off'
-      ? initialProps.today
-      : new Date();
+  const today = parseToday(initialProps);
   const month = initialProps.month;
   const weekdays = getWeekdays(locale);
 
