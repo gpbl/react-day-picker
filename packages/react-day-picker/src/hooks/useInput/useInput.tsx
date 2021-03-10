@@ -14,9 +14,9 @@ import { isValidDate } from './utils/isValidDate';
  * Return props for binding an input field to DayPicker.
  */
 export function useInput(
-  /** The format string for formatting the input field. See https://date-fns.org/docs/format for a list of format strings */
+  /** The format string for formatting the input field. See https://date-fns.org/docs/format for a list of format strings. */
   formatStr: string,
-  /** The default day being selected */
+  /** The default day being selected. */
   options?: UseInputOptions
 ): {
   /** The props to pass to a DayPicker component. */
