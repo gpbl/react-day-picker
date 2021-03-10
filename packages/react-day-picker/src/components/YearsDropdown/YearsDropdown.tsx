@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { setYear, startOfYear } from 'date-fns';
+
 import { useDayPicker } from 'hooks';
 import { MonthChangeEventHandler } from 'types';
 

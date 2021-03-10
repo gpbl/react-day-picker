@@ -1,7 +1,6 @@
 import { DayClickEventHandler, MonthChangeEventHandler } from 'types';
 
 /** Represent the props to attach to DayPicker component. */
-
 export interface UseInputDayPickerProps {
   fromDate?: Date;
   locale: Locale;

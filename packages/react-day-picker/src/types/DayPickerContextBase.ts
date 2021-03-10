@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { Locale } from 'date-fns';
+
 import {
   CaptionLayout,
   ClassNames,
