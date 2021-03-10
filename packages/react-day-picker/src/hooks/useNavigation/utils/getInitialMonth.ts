@@ -1,4 +1,5 @@
 import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
+
 import { DayPickerContextBase } from 'types';
 
 /** Return the initial month according to the given options. */

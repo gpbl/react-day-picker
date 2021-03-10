@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { isSameDay } from 'date-fns';
+
 import { useFocus } from 'hooks';
 
 /** Handle the focus for the day element. */

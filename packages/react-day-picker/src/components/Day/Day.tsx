@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { isSameMonth } from 'date-fns';
+
 import {
   useDayPicker,
   useModifiers,
@@ -8,7 +9,6 @@ import {
   useSelectRange,
   useSelectSingle
 } from 'hooks';
-
 import { useDayFocus } from './hooks/useDayFocus';
 
 /** Represent the props used by the [[Day]] component. */

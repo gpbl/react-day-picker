@@ -1,4 +1,5 @@
 import { differenceInCalendarDays, isSameDay } from 'date-fns';
+
 import { DateRange } from 'types';
 
 /** Return `true` whether the given date is inside the range. */

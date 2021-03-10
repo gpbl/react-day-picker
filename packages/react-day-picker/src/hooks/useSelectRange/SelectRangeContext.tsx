@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
+
 import {
   DateRange,
   DayClickEventHandler,

@@ -1,4 +1,5 @@
 import { differenceInCalendarDays, isSameDay } from 'date-fns';
+
 import {
   isArrayOfDates,
   isDateAfterType,
