@@ -293,7 +293,7 @@ export interface DayPickerBase {
    * The date-fns locale object to localize the user interface. Defaults to
    * `en-US`.
    *
-   * For example, to the calendar to Spanish:
+   * For example, to set the calendar to Spanish:
    *
    * ```
    * import spanish from 'date-fns/locale/es';

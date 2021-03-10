@@ -17,7 +17,7 @@ import { getOutsideStartDays } from './getOutsideStartDays';
  * The weeks belonging to a month. Each key of the returned object is the
  * week number of the year.
  */
-type MonthWeeks = { [weeknumber: string]: Date[] };
+export type MonthWeeks = { [weeknumber: string]: Date[] };
 
 /**
  * Return the weeks belonging to the given month.
