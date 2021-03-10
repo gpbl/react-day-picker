@@ -134,11 +134,8 @@ export function Day(props: DayProps): JSX.Element | null {
   );
 
   const isDisabled = modifiers.disabled || isOutside;
-
-  let tabIndex = 0;
-  if (isDisabled || isFocused || mode === 'uncontrolled') {
-    tabIndex = -1;
-  }
+  const isNotInteractive = mode === 'uncontrolled' && !context.onDayClick;
+  const tabIndex = isDisabled || isFocused || !isNotInteractive ? -1 : 0;
 
   const className = [...classNames].join(' ');
 
