@@ -8,35 +8,22 @@ hide_title: true
 
 # Function: useInput
 
-▸ **useInput**(`initialDay`: Date, `formatStr`: *string*, `options?`: { `locale?`: Locale ; `required`: *boolean*  }): [*UseInput*](../types/useinput.md)
+▸ **useInput**(`formatStr`: *string*, `options?`: UseInputOptions): *object*
 
-Return the props for binding an input field with DayPicker.
-
-**Example**
-
-```
-function Example() {
-  const { dayPickerProps, inputProps } = useInput(new Date(), 'yyyy-MM-dd');
-  return (
-    <>
-      <p>
-        Type a day or pick one from the calendar:
-        <input {...inputProps} placeholder="YYYY-MM-DD" />
-      </p>
-      <DayPicker {...dayPickerProps} />
-    </>
-  );
-}
-```
+Return props for binding an input field to DayPicker.
 
 #### Parameters:
 
 Name | Type |
 :------ | :------ |
-`initialDay` | Date |
 `formatStr` | *string* |
-`options?` | *object* |
-`options.locale?` | Locale |
-`options.required` | *boolean* |
+`options?` | UseInputOptions |
 
-**Returns:** [*UseInput*](../types/useinput.md)
+**Returns:** *object*
+
+Name | Type | Description |
+:------ | :------ | :------ |
+`dayPickerProps` | UseInputDayPickerProps | The props to pass to a DayPicker component.   |
+`fieldProps` | UseInputFieldProps | The props to pass to an input field.   |
+`reset` | () => *void* | A function to reset to the initial state.   |
+`setSelected` | (`day`: Date) => *void* | A function to set the selected day.   |

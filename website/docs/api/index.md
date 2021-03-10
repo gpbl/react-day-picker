@@ -77,7 +77,6 @@ hide_title: true
 - [StyledComponentProps](types/styledcomponentprops.md)
 - [StyledElement](types/styledelement.md)
 - [Styles](types/styles.md)
-- [UseInput](types/useinput.md)
 - [UseModifiers](types/usemodifiers.md)
 - [WeekNumberClickEventHandler](types/weeknumberclickeventhandler.md)
 - [WeekNumberFormatter](types/weeknumberformatter.md)

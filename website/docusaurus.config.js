@@ -1,15 +1,19 @@
 const pkg = require('react-day-picker/package.json');
 const pkgPath = '../packages/react-day-picker';
 
-module.exports = {
+const config = {
   title: 'React DayPicker',
-  tagline: 'Date picker component for React',
+  tagline: 'Customizable date picker component for React',
   url: 'https://react-day-picker.js.org',
   baseUrl: '/',
   favicon: 'images/favicon.ico',
   organizationName: 'gpbl',
   projectName: 'react-day-picker',
   themeConfig: {
+    defaultMode: 'light',
+    disableSwitch: false,
+    respectPrefersColorScheme: true,
+    image: 'images/favicon.png',
     navbar: {
       title: 'DayPicker',
       logo: {
@@ -52,7 +56,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve('./config/sidebar.js'),
+          sidebarPath: require.resolve('./config/sidebar.ts'),
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
           routeBasePath: '/'
@@ -70,7 +74,7 @@ module.exports = {
       {
         // Plugin settings
         sidebar: {
-          sidebarFile: './config/typedoc-sidebar.js'
+          sidebarFile: './config/typedoc-sidebar.ts'
         },
 
         // Typedoc settings
@@ -79,7 +83,7 @@ module.exports = {
         allReflectionsHaveOwnDocument: true,
         readme: 'none',
         disableSources: true,
-
+        watch: process.env.TYPEDOC_WATCH,
         // Markdown plugin settings
         hideBreadcrumbs: true,
         hideInPageTOC: true,
@@ -88,3 +92,5 @@ module.exports = {
     ]
   ]
 };
+
+module.exports = config;

@@ -1,17 +1,30 @@
 import * as React from 'react';
-import { DayPicker, useInput } from 'react-day-picker';
+import { DayPicker, useInput, UseInputOptions } from 'react-day-picker';
+
+import { format } from 'date-fns';
 
 export default function App() {
-  const { dayPickerProps, inputProps } = useInput(new Date(), 'yyyy-MM-dd');
+  // Props to pass to `useInput`
+  const options: UseInputOptions = {
+    // Select today as default
+    defaultSelected: new Date(),
+    // Limit the valid dates
+    fromYear: 2020,
+    toYear: 2022,
+    // Make the selection mandatory.
+    required: true
+  };
+  const input = useInput('PP', options);
+
+  const footer = (
+    <form>
+      <input {...input.fieldProps} placeholder={format(new Date(), 'PP')} />
+    </form>
+  );
   return (
     <>
       <p>Type a day or pick one from the calendar.</p>
-      <form>
-        <label>
-          <input {...inputProps} placeholder="YYYY-MM-DD" />
-        </label>
-      </form>
-      <DayPicker {...dayPickerProps} />
+      <DayPicker {...input.dayPickerProps} showWeekNumber footer={footer} />
     </>
   );
 }
