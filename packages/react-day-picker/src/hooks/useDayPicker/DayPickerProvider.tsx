@@ -1,22 +1,11 @@
 import * as React from 'react';
 
-import {
-  Caption,
-  CaptionLabel,
-  Day,
-  DayContent,
-  Dropdown,
-  Footer,
-  Head,
-  IconDropdown,
-  IconNext,
-  IconPrevious,
-  Row,
-  WeekNumber
-} from 'components';
 import enUS from 'date-fns/locale/en-US';
-import { DayPickerContextValue, DayPickerProps } from 'types';
 
+import * as Components from 'components';
+import { DayPickerBase, DayPickerContextValue } from 'types';
+
+import { DayPickerContext } from './DayPickerContext';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';
@@ -26,36 +15,30 @@ import { parseFromToProps } from './utils/parseFromToProps';
 import { parseModifierShortcuts } from './utils/parseModifierShortcuts';
 import { parseToday } from './utils/parseToday';
 
-/**
- * This context shares props and settings within the internal components. It set
- * the defaults values, parses some props, and perform one-time calculation
- * required to render the days.
- */
-export const DayPickerContext = React.createContext<
-  DayPickerContextValue | undefined
->(undefined);
-
+/** Represent the props for the [[DayPickerProvider]]. */
+export interface DayPickerProviderProps {
+  /** The props passed to the DayPicker component. */
+  baseProps: DayPickerBase;
+  children?: React.ReactNode;
+}
 /**
  * The provider for the [[DayPickerContext]]. Must wrap the DayPicker’s root.
  */
-export const DayPickerProvider = (props: {
-  initialProps: Omit<DayPickerProps, 'onSelect' | 'defaultSelected'>;
-  children?: React.ReactNode;
-}): JSX.Element => {
-  const { children, initialProps } = props;
-  const { fromDate, toDate } = parseFromToProps(initialProps);
-  const locale = initialProps.locale || enUS;
-  const numberOfMonths = initialProps.numberOfMonths ?? 1;
-  const today = parseToday(initialProps);
-  const month = initialProps.month;
+export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
+  const { children, baseProps } = props;
+  const { fromDate, toDate } = parseFromToProps(baseProps);
+  const locale = baseProps.locale || enUS;
+  const numberOfMonths = baseProps.numberOfMonths ?? 1;
+  const today = parseToday(baseProps);
+  const month = baseProps.month;
   const weekdays = getWeekdays(locale);
 
   // Default caption layout. If calendar navigation is unlimited, it must be
   // always `buttons` – as we cannot display infinite options in the dropdown.
-  let captionLayout = initialProps.captionLayout ?? 'buttons';
+  let captionLayout = baseProps.captionLayout ?? 'buttons';
   if (!fromDate && !toDate) captionLayout = 'buttons';
 
-  const modifiers = parseModifierShortcuts(initialProps);
+  const modifiers = parseModifierShortcuts(baseProps);
   const modifiersAsArray = convertModifierMatchersToArray(modifiers);
   // Disable days before/after from/toDate
   if (fromDate) {
@@ -87,7 +70,7 @@ export const DayPickerProvider = (props: {
     showOutsideDays,
     showWeekNumber,
     footer
-  } = initialProps;
+  } = baseProps;
 
   const context: DayPickerContextValue = {
     dir,
@@ -114,43 +97,43 @@ export const DayPickerProvider = (props: {
 
     captionLayout,
     fromDate,
-    hideToday: initialProps.today === 'off',
+    hideToday: baseProps.today === 'off',
     locale,
-    modifierClassNames: initialProps.modifierClassNames ?? {},
+    modifierClassNames: baseProps.modifierClassNames ?? {},
     modifierPrefix: 'rdp-day_',
     modifiers: modifiersAsArray,
     month,
     numberOfMonths,
-    styles: initialProps.styles ?? {},
+    styles: baseProps.styles ?? {},
     toDate,
     today,
     weekdays,
     classNames: {
       ...defaultClassNames,
-      ...initialProps.classNames
+      ...baseProps.classNames
     },
     formatters: {
       ...formatters,
-      ...initialProps.formatters
+      ...baseProps.formatters
     },
     labels: {
       ...labels,
-      ...initialProps.labels
+      ...baseProps.labels
     },
     components: {
-      Caption: Caption,
-      CaptionLabel: CaptionLabel,
-      Day: Day,
-      DayContent: DayContent,
-      Dropdown: Dropdown,
-      Footer: Footer,
-      Head: Head,
-      IconDropdown: IconDropdown,
-      IconNext: IconNext,
-      IconPrevious: IconPrevious,
-      Row: Row,
-      WeekNumber: WeekNumber,
-      ...initialProps.components
+      Caption: Components.Caption,
+      CaptionLabel: Components.CaptionLabel,
+      Day: Components.Day,
+      DayContent: Components.DayContent,
+      Dropdown: Components.Dropdown,
+      Footer: Components.Footer,
+      Head: Components.Head,
+      IconDropdown: Components.IconDropdown,
+      IconNext: Components.IconNext,
+      IconPrevious: Components.IconPrevious,
+      Row: Components.Row,
+      WeekNumber: Components.WeekNumber,
+      ...baseProps.components
     }
   };
 
@@ -159,4 +142,4 @@ export const DayPickerProvider = (props: {
       {children}
     </DayPickerContext.Provider>
   );
-};
+}
