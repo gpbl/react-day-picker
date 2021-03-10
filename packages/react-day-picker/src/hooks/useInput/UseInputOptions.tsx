@@ -12,6 +12,8 @@ export interface UseInputOptions {
    *
    */
   locale?: Locale;
+  /** The format string for formatting the input field. See https://date-fns.org/docs/format for a list of format strings. Default to `PP`. */
+  format?: string;
   /** The earliest day to start the month navigation. */
   fromDate?: Date;
   /** The latest day to end the month navigation. */

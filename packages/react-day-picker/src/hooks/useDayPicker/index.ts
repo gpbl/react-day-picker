@@ -1,2 +1,3 @@
-export * from './useDayPicker';
 export * from './DayPickerContext';
+export * from './DayPickerProvider';
+export * from './useDayPicker';

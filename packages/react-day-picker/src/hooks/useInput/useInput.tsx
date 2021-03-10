@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { differenceInCalendarDays, format, parse } from 'date-fns';
+import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import { enUS } from 'date-fns/locale';
+
 import { parseFromToProps } from 'hooks/useDayPicker/utils/parseFromToProps';
 import { DayClickEventHandler, MonthChangeEventHandler } from 'types';
 
@@ -10,15 +11,8 @@ import { UseInputFieldProps } from './UseInputFieldProps';
 import { UseInputOptions } from './UseInputOptions';
 import { isValidDate } from './utils/isValidDate';
 
-/**
- * Return props for binding an input field to DayPicker.
- */
-export function useInput(
-  /** The format string for formatting the input field. See https://date-fns.org/docs/format for a list of format strings. */
-  formatStr: string,
-  /** The default day being selected. */
-  options?: UseInputOptions
-): {
+/** Represent the value returned by [[useInput]]. */
+export interface UseInput {
   /** The props to pass to a DayPicker component. */
   dayPickerProps: UseInputDayPickerProps;
   /** The props to pass to an input field. */
@@ -27,21 +21,25 @@ export function useInput(
   reset: () => void;
   /** A function to set the selected day. */
   setSelected: (day: Date) => void;
-} {
-  const props = options || {};
+}
+
+/**
+ * Return props for binding an input field to DayPicker.
+ */
+export function useInput(options: UseInputOptions = {}): UseInput {
   const {
     locale = enUS,
     required,
+    format = 'PP',
     defaultSelected,
     today = new Date()
-  } = props;
-  const { fromDate, toDate } = parseFromToProps(props);
+  } = options;
+  const { fromDate, toDate } = parseFromToProps(options);
 
   const min = required ? 1 : 0;
 
   // Shortcut to the DateFns functions
-  const parseValue = (value: string) =>
-    parse(value, formatStr, today, { locale });
+  const parseValue = (value: string) => parse(value, format, today, { locale });
 
   // Initialize states
   const [month, setMonth] = React.useState(defaultSelected ?? today);
@@ -49,7 +47,7 @@ export function useInput(
     defaultSelected
   );
   const defaultInputValue = defaultSelected
-    ? format(defaultSelected, formatStr, { locale })
+    ? _format(defaultSelected, format, { locale })
     : '';
   const [inputValue, setInputValue] = React.useState(defaultInputValue);
 
@@ -62,7 +60,7 @@ export function useInput(
   const setSelected = (date: Date | undefined) => {
     setSelectedDay(date);
     setMonth(date ?? today);
-    setInputValue(date ? format(date, formatStr, { locale }) : '');
+    setInputValue(date ? _format(date, format, { locale }) : '');
   };
 
   const handleDayClick: DayClickEventHandler = (day, { selected }) => {
@@ -72,7 +70,7 @@ export function useInput(
       return;
     }
     setSelectedDay(day);
-    setInputValue(day ? format(day, formatStr, { locale }) : '');
+    setInputValue(day ? _format(day, format, { locale }) : '');
   };
 
   const handleMonthChange: MonthChangeEventHandler = (month) => {
