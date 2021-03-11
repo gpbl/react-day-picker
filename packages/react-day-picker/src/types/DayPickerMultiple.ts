@@ -1,3 +1,5 @@
+import { Matcher } from 'types';
+
 import { DayPickerBase } from './DayPickerBase';
 import { SelectMultipleEventHandler } from './SelectMultipleEventHandler';
 
@@ -14,4 +16,6 @@ export interface DayPickerMultiple extends DayPickerBase {
   min?: number;
   /** The maximum amount of days that can be selected. */
   max?: number;
+  /** The selected days. */
+  selected?: Matcher | Matcher[];
 }

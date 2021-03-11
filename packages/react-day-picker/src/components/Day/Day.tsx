@@ -21,11 +21,11 @@ export function Day(props: DayProps): JSX.Element | null {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const { date, displayMonth } = props;
 
-  const { mode = 'uncontrolled', ...context } = useDayPicker();
+  const { ...context } = useDayPicker();
 
-  const single = useSelectSingle();
-  const multiple = useSelectMultiple();
-  const range = useSelectRange();
+  const { isSingleMode, ...single } = useSelectSingle();
+  const { isMultipleMode, ...multiple } = useSelectMultiple();
+  const { isRangeMode, ...range } = useSelectRange();
 
   const { focus, blur, focusOnKeyDown, isFocused } = useDayFocus(
     date,
@@ -52,16 +52,12 @@ export function Day(props: DayProps): JSX.Element | null {
 
   // #region Event handlers
   const handleClick: React.MouseEventHandler = (e) => {
-    switch (mode) {
-      case 'single':
-        single.handleDayClick?.(date, modifiers, e);
-        break;
-      case 'multiple':
-        multiple.handleDayClick?.(date, modifiers, e);
-        break;
-      case 'range':
-        range.handleDayClick?.(date, modifiers, e);
-        break;
+    if (isSingleMode) {
+      single.handleDayClick?.(date, modifiers, e);
+    } else if (isMultipleMode) {
+      multiple.handleDayClick?.(date, modifiers, e);
+    } else if (isRangeMode) {
+      range.handleDayClick?.(date, modifiers, e);
     }
     context.onDayClick?.(date, modifiers, e);
   };
@@ -128,22 +124,20 @@ export function Day(props: DayProps): JSX.Element | null {
   );
 
   const isDisabled = modifiers.disabled || isOutside;
-  const isNotInteractive = mode === 'uncontrolled' && !context.onDayClick;
+  const isNotInteractive =
+    !isSingleMode && !isMultipleMode && !isRangeMode && !context.onDayClick;
+
   const tabIndex = isDisabled || isFocused || !isNotInteractive ? -1 : 0;
 
-  const className = [...classNames].join(' ');
-
-  if (mode === 'uncontrolled' && !context.onDayClick) {
+  if (isNotInteractive) {
     return (
-      <div style={style} className={className}>
+      <div style={style} className={classNames.join(' ')}>
         {dayContent}
       </div>
     );
   }
 
-  const buttonClassName = [context.classNames.button_reset, ...classNames].join(
-    ' '
-  );
+  const buttonClassNames = [context.classNames.button_reset, ...classNames];
 
   return (
     <button
@@ -151,7 +145,7 @@ export function Day(props: DayProps): JSX.Element | null {
       aria-pressed={ariaPressed}
       style={style}
       disabled={isDisabled}
-      className={buttonClassName}
+      className={buttonClassNames.join(' ')}
       tabIndex={tabIndex}
       onClick={handleClick}
       onFocus={handleFocus}

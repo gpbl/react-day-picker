@@ -1,3 +1,4 @@
+import { DayPickerBase } from './DayPickerBase';
 import { DayPickerMultiple } from './DayPickerMultiple';
 import { DayPickerRange } from './DayPickerRange';
 import { DayPickerSingle } from './DayPickerSingle';
@@ -14,6 +15,7 @@ import { DayPickerUncontrolled } from './DayPickerUncontrolled';
  * - see [[DayPickerRange]] when using `mode="range"`
  */
 export type DayPickerProps =
+  | DayPickerBase
   | DayPickerUncontrolled
   | DayPickerSingle
   | DayPickerMultiple

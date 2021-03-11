@@ -9,6 +9,8 @@ export interface SelectSingleContextValue {
     selected?: Matcher[];
     disabled?: Matcher[];
   };
+  /** Whether DayPicker is in single selection mode. */
+  isSingleMode: boolean;
   /** Event handler to attach to the day button to enable the single select. */
   handleDayClick: DayClickEventHandler;
 }

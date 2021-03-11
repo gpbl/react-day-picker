@@ -6,6 +6,7 @@ import {
   DateRange,
   DayClickEventHandler,
   DayPickerProps,
+  isDayPickerRange,
   ModifiersArray
 } from 'types';
 
@@ -21,8 +22,10 @@ export function SelectRangeProvider({
   children: React.ReactNode;
 }): JSX.Element {
   let initialSelected;
+  let isRangeMode = false;
   let min: number | undefined, max: number | undefined;
-  if (initialProps.mode === 'range') {
+  if (isDayPickerRange(initialProps)) {
+    isRangeMode = true;
     initialSelected = initialProps.defaultSelected;
     min = initialProps.min;
     max = initialProps.max;
@@ -33,7 +36,7 @@ export function SelectRangeProvider({
 
   const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
     initialProps.onDayClick?.(day, modifiers, e);
-    if (initialProps.mode !== 'range') {
+    if (!isDayPickerRange(initialProps)) {
       return;
     }
     const newValue = addToRange(day, selected);
@@ -125,7 +128,7 @@ export function SelectRangeProvider({
 
   return (
     <SelectRangeContext.Provider
-      value={{ selected, handleDayClick, modifiers }}
+      value={{ selected, handleDayClick, modifiers, isRangeMode }}
     >
       {children}
     </SelectRangeContext.Provider>

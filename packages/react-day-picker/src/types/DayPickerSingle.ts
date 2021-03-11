@@ -1,4 +1,5 @@
 import { DayPickerBase } from './DayPickerBase';
+import { Matcher } from './Matcher';
 import { SelectSingleEventHandler } from './SelectSingleEventHandler';
 
 /**
@@ -12,4 +13,6 @@ export interface DayPickerSingle extends DayPickerBase {
   onSelect?: SelectSingleEventHandler;
   /** When set, user cannot unselect days. */
   required?: boolean;
+  /** The selected days. */
+  selected?: Matcher | Matcher[];
 }

@@ -3,13 +3,13 @@ import * as React from 'react';
 import enUS from 'date-fns/locale/en-US';
 
 import * as Components from 'components';
-import { DayPickerBase } from 'types';
-import { DayPickerContextValue } from './types';
+import { DayPickerProps } from 'types';
 
 import { DayPickerContext } from './DayPickerContext';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';
+import { DayPickerContextValue } from './types';
 import { convertModifierMatchersToArray } from './utils/convertModifierMatchersToArray';
 import { getWeekdays } from './utils/getWeekdays';
 import { parseFromToProps } from './utils/parseFromToProps';
@@ -19,27 +19,27 @@ import { parseToday } from './utils/parseToday';
 /** Represent the props for the [[DayPickerProvider]]. */
 export interface DayPickerProviderProps {
   /** The props passed to the DayPicker component. */
-  baseProps: DayPickerBase;
+  initialProps: DayPickerProps;
   children?: React.ReactNode;
 }
 /**
  * The provider for the [[DayPickerContext]]. Must wrap the DayPicker root.
  */
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
-  const { children, baseProps } = props;
-  const { fromDate, toDate } = parseFromToProps(baseProps);
-  const locale = baseProps.locale || enUS;
-  const numberOfMonths = baseProps.numberOfMonths ?? 1;
-  const today = parseToday(baseProps);
-  const month = baseProps.month;
+  const { children, initialProps } = props;
+  const { fromDate, toDate } = parseFromToProps(initialProps);
+  const locale = initialProps.locale || enUS;
+  const numberOfMonths = initialProps.numberOfMonths ?? 1;
+  const today = parseToday(initialProps);
+  const month = initialProps.month;
   const weekdays = getWeekdays(locale);
 
   // Default caption layout. If calendar navigation is unlimited, it must be
   // always `buttons` – as we cannot display infinite options in the dropdown.
-  let captionLayout = baseProps.captionLayout ?? 'buttons';
+  let captionLayout = initialProps.captionLayout ?? 'buttons';
   if (!fromDate && !toDate) captionLayout = 'buttons';
 
-  const modifiers = parseModifierShortcuts(baseProps);
+  const modifiers = parseModifierShortcuts(initialProps);
   const modifiersAsArray = convertModifierMatchersToArray(modifiers);
   // Disable days before/after from/toDate
   if (fromDate) {
@@ -55,7 +55,6 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     disableNavigation,
     fixedWeeks,
     hideHead,
-    mode,
     modifierStyles,
     onDayClick,
     onDayFocus,
@@ -71,7 +70,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     showOutsideDays,
     showWeekNumber,
     footer
-  } = baseProps;
+  } = initialProps;
 
   const context: DayPickerContextValue = {
     dir,
@@ -79,7 +78,6 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     defaultMonth,
     fixedWeeks,
     hideHead,
-    mode,
     modifierStyles,
     onDayClick,
     onDayFocus,
@@ -98,28 +96,28 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
 
     captionLayout,
     fromDate,
-    hideToday: baseProps.today === 'off',
+    hideToday: initialProps.today === 'off',
     locale,
-    modifierClassNames: baseProps.modifierClassNames ?? {},
+    modifierClassNames: initialProps.modifierClassNames ?? {},
     modifierPrefix: 'rdp-day_',
     modifiers: modifiersAsArray,
     month,
     numberOfMonths,
-    styles: baseProps.styles ?? {},
+    styles: initialProps.styles ?? {},
     toDate,
     today,
     weekdays,
     classNames: {
       ...defaultClassNames,
-      ...baseProps.classNames
+      ...initialProps.classNames
     },
     formatters: {
       ...formatters,
-      ...baseProps.formatters
+      ...initialProps.formatters
     },
     labels: {
       ...labels,
-      ...baseProps.labels
+      ...initialProps.labels
     },
     components: {
       Caption: Components.Caption,
@@ -134,7 +132,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
       IconPrevious: Components.IconPrevious,
       Row: Components.Row,
       WeekNumber: Components.WeekNumber,
-      ...baseProps.components
+      ...initialProps.components
     }
   };
 

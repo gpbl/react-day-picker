@@ -16,7 +16,6 @@ import {
   Modifiers,
   ModifierStyles,
   MonthChangeEventHandler,
-  SelectionMode,
   Styles,
   WeekNumberClickEventHandler
 } from './index';
@@ -90,13 +89,12 @@ export interface DayPickerBase {
   /**
    * The prefix to add to the modifiers class names. Default is `rdp-day_`.
    *
-   * #### Usage
-   *
    * Each day will get a `${modifierPrefix}${modifier}` class name when matching
    * a modifier.
    *
    * ```
    * const today = new Date();
+   * // ...
    * <DayPicker
    *  modifierPrefix="calendar-day_" // use this prefix instead of default
    *  selected={today} // Today element has `.calendar-day_selected`
@@ -213,37 +211,6 @@ export interface DayPickerBase {
    * Show the week numbers column. Default to `false`.
    */
   showWeekNumber?: boolean;
-  /**
-   * The selection mode – the way DayPicker enables selection when clicking a
-   * day.
-   *
-   * - `single` (default) enables the selection of a single day per time
-   * - `multiple` enables the selection of multiple days
-   * - `range` enables th selection of a range of days
-   * - `uncontrolled`: disable the controlled selection. Use `selected` and
-   *   `onDayClick` to implement a custom selection mode.
-   */
-  mode?: SelectionMode;
-  /**
-   * Apply the `selected` modifier to the matching days.
-   *
-   * **Example**
-   *
-   * ```
-   * function App() {
-   *   return (
-   *     <DayPicker
-   *       defaultMonth={new Date(2021, 11)}
-   *       selected={{
-   *         from: new Date(2021, 11, 14),
-   *         to: new Date(2021, 11, 24)
-   *       }}
-   *     />
-   *   );
-   * }
-   * ```
-   */
-  selected?: Matcher | Matcher[];
   /**
    * Apply the `disabled` modifier to the matching days.
    *
