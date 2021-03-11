@@ -13,4 +13,4 @@ hide_title: true
 The SelectRange context shares details about the selected days when in
 range selection mode.
 
-Access this context via the [useSelectRange](../functions/useselectrange.md) hook.
+Access this context from the [useSelectRange](../functions/useselectrange.md) hook.

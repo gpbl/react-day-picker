@@ -30,6 +30,12 @@ ___
 
 ___
 
+### mode
+
+• **mode**: *uncontrolled*
+
+___
+
 ### month
 
 • **month**: Date

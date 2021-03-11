@@ -13,4 +13,4 @@ hide_title: true
 The SelectSingle context shares details about the selected days when in
 single selection mode.
 
-Access this context via the [useSelectSingle](../functions/useselectsingle.md) hook.
+Access this context from the [useSelectSingle](../functions/useselectsingle.md) hook.

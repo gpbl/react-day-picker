@@ -12,4 +12,4 @@ hide_title: true
 
 The Navigation context shares details about the months being navigated in DayPicker.
 
-Access this context via the [useNavigation](../functions/usenavigation.md) hook.
+Access this context from the [useNavigation](../functions/usenavigation.md) hook.

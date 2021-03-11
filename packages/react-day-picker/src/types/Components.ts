@@ -31,9 +31,9 @@ export interface Components {
   Head: () => JSX.Element | null;
   /** The component for the small icon in the drop-downs. */
   IconDropdown: (props: StyledComponentProps) => JSX.Element | null;
-  /** The component for the "next month" button in the Navigation. */
+  /** The icon for the "next month" button in Navigation. */
   IconNext: (props: StyledComponentProps) => JSX.Element | null;
-  /** The component for the "previous month" button in the Navigation. */
+  /** icon for the "previous month" button in the Navigation. */
   IconPrevious: (props: StyledComponentProps) => JSX.Element | null;
   /** The component for the table rows. */
   Row: (props: RowProps) => JSX.Element | null;
