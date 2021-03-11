@@ -12,4 +12,4 @@ hide_title: true
 
 The Focus context shares details about the focused day for the keyboard navigation.
 
-Access this context via the [useFocus](../functions/usefocus.md) hook.
+Access this context from the [useFocus](../functions/usefocus.md) hook.

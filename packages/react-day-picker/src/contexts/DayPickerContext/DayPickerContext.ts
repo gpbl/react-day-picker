@@ -7,7 +7,7 @@ import { DayPickerContextValue } from './types';
  * internal components. It is used to set the default values and  perform
  * one-time calculations required to render the days.
  *
- * Access this context via the [[useDayPicker]] hook when using custom
+ * Access this context from the [[useDayPicker]] hook when using custom
  * components.
  */
 export const DayPickerContext = React.createContext<

@@ -165,7 +165,7 @@ ___
 
 • **IconNext**: (`props`: [*StyledComponentProps*](../types/styledcomponentprops.md)) => *null* \| *Element*
 
-The component for the "next month" button in the Navigation.
+The icon for the "next month" button in Navigation.
 
 #### Type declaration:
 
@@ -185,7 +185,7 @@ ___
 
 • **IconPrevious**: (`props`: [*StyledComponentProps*](../types/styledcomponentprops.md)) => *null* \| *Element*
 
-The component for the "previous month" button in the Navigation.
+icon for the "previous month" button in the Navigation.
 
 #### Type declaration:
 
