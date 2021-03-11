@@ -15,7 +15,7 @@ export function FocusProvider({
   children: React.ReactNode;
 }): JSX.Element {
   const [focusedDay, setDay] = React.useState<Date | undefined>();
-  const { setMonth, displayMonths } = useNavigation();
+  const { goToMonth, displayMonths } = useNavigation();
   const { numberOfMonths } = useDayPicker();
 
   const blur = () => setDay(undefined);
@@ -24,9 +24,9 @@ export function FocusProvider({
   const switchMonth = (date: Date, offset: number) => {
     if (displayMonths.some((m) => isSameMonth(date, m))) return;
     if (offset < 0) {
-      setMonth(addMonths(date, 1 + offset));
+      goToMonth(addMonths(date, 1 + offset));
     } else {
-      setMonth(date);
+      goToMonth(date);
     }
   };
 

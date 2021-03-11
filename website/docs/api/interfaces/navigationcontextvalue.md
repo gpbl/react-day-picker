@@ -20,6 +20,26 @@ The months to display, according to `numberOfMonths`.
 
 ___
 
+### goToMonth
+
+• **goToMonth**: (`month`: Date) => *void*
+
+Navigate to the specified month.
+
+#### Type declaration:
+
+▸ (`month`: Date): *void*
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`month` | Date |
+
+**Returns:** *void*
+
+___
+
 ### month
 
 • **month**: Date
@@ -41,23 +61,3 @@ ___
 • `Optional` **previousMonth**: Date
 
 The previous month to display. `undefined` if no months left
-
-___
-
-### setMonth
-
-• **setMonth**: (`month`: Date) => *void*
-
-Navigate to the specified month.
-
-#### Type declaration:
-
-▸ (`month`: Date): *void*
-
-#### Parameters:
-
-Name | Type |
-:------ | :------ |
-`month` | Date |
-
-**Returns:** *void*
