@@ -23,22 +23,22 @@ export function Caption(props: CaptionProps): JSX.Element {
     components: { CaptionLabel }
   } = useDayPicker();
 
-  const { previousMonth, nextMonth, goToMonth: setMonth } = useNavigation();
+  const { previousMonth, nextMonth, goToMonth } = useNavigation();
 
   const handlePreviousClick: React.MouseEventHandler = (e) => {
     if (!previousMonth) return;
-    setMonth(previousMonth);
+    goToMonth(previousMonth);
     onMonthChange?.(previousMonth);
   };
 
   const handleNextClick: React.MouseEventHandler = (e) => {
     if (!nextMonth) return;
-    setMonth(nextMonth);
+    goToMonth(nextMonth);
     onMonthChange?.(nextMonth);
   };
 
   const handleMonthChange: MonthChangeEventHandler = (newMonth) => {
-    setMonth(newMonth);
+    goToMonth(newMonth);
     onMonthChange?.(newMonth);
   };
 
