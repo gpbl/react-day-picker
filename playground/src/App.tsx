@@ -17,7 +17,7 @@ function App() {
       <p>Cannot select less than one. Default selected is today.</p>
       <DayPicker
         mode="single"
-        min={1}
+        required
         defaultSelected={new Date()}
         onSelect={console.log}
       />
