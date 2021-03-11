@@ -1,0 +1,11 @@
+test.todo('should apply the class name to the container');
+test.todo('should apply the style to the container');
+test.todo('should render a select element');
+test.todo('should apply the `dropdown` class name to the select element');
+test.todo('should apply the `dropdown` to the select element');
+test.todo('should render the caption');
+test.todo('should apply the `caption_label` className to the caption');
+test.todo('should apply the `caption_label` style to the caption');
+test.todo('should render the dropdown icon');
+test.todo('should apply the `dropdown_icon` class name to the icon');
+test.todo('should apply the `dropdown_icon` styleto the icon');
