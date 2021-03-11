@@ -1,22 +1,10 @@
 import * as React from 'react';
 
 import { MonthsDropdown, Navigation, YearsDropdown } from 'components';
-import { useDayPicker, useNavigation } from 'hooks';
+import { useDayPicker, useNavigation } from 'contexts';
 import { MonthChangeEventHandler } from 'types';
 
-/** Represent the props of the [[Caption]] component. */
-export interface CaptionProps {
-  /** The month where the caption is displayed. */
-  displayMonth: Date;
-  /** The index of the month being displayed (when `numberOfMonths` set can be greater than `0`). */
-  displayIndex: number;
-  /** When `numberOfMonths > 0`, whether the month is placed first. */
-  isFirst: boolean;
-  /** When `numberOfMonths > 0`, whether the month is placed last. */
-  isLast: boolean;
-  /**When `numberOfMonths > 0`, whether the month is placed in middle position. */
-  isMiddle: boolean;
-}
+import { CaptionProps } from './CaptionProps';
 
 /**
  * Render the caption of a month, which includes title and navigation buttons.
@@ -58,9 +46,8 @@ export function Caption(props: CaptionProps): JSX.Element {
 
   return (
     <div className={classNames.caption} style={styles.caption}>
-      {disableNavigation ? (
-        captionLabel
-      ) : (
+      {disableNavigation && captionLabel}
+      {!disableNavigation && (
         <>
           {captionLayout === 'dropdown' ? (
             <div

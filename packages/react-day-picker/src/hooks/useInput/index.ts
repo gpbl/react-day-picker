@@ -1,2 +1,2 @@
-export * from './UseInputOptions';
+export * from './types';
 export * from './useInput';

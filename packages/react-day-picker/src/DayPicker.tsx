@@ -8,7 +8,7 @@ import {
   SelectMultipleProvider,
   SelectRangeProvider,
   SelectSingleProvider
-} from 'hooks';
+} from 'contexts';
 import { DayPickerProps } from 'types';
 
 /**

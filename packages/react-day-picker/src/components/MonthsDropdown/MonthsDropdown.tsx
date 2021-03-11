@@ -2,17 +2,9 @@ import * as React from 'react';
 
 import { isSameYear, setMonth as setDateMonth, startOfMonth } from 'date-fns';
 
-import { useDayPicker } from 'hooks';
-import { MonthChangeEventHandler } from 'types';
+import { useDayPicker } from 'contexts';
 
-/**
- * The props for the [[MonthsDropdown]] component.
- */
-export interface MonthsDropdownProps {
-  onChange: MonthChangeEventHandler;
-  /** The month where the dropdown is displayed. */
-  displayMonth: Date;
-}
+import { MonthsDropdownProps } from './MonthsDropdownProps';
 
 /**
  * Render the dropdown to navigate between months.

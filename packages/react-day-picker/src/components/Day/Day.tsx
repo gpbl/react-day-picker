@@ -4,20 +4,14 @@ import { isSameMonth } from 'date-fns';
 
 import {
   useDayPicker,
-  useModifiers,
   useSelectMultiple,
   useSelectRange,
   useSelectSingle
-} from 'hooks';
-import { useDayFocus } from './hooks/useDayFocus';
+} from 'contexts';
+import { useModifiers } from 'hooks';
 
-/** Represent the props used by the [[Day]] component. */
-export interface DayProps {
-  /** The month where the date is displayed. */
-  displayMonth: Date;
-  /** The date to render. */
-  date: Date;
-}
+import { DayProps } from './DayProps';
+import { useDayFocus } from './hooks/useDayFocus';
 
 /**
  * The content of a day cell – as a button or span element according to its
