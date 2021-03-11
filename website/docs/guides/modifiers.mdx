@@ -3,14 +3,19 @@ id: modifiers
 title: Modifiers
 ---
 
-A **modifier** represents different state or style for the days displayed in
-the calendar. DayPicker comes with some built in modifiers: `disabled`, `selected`,
-`hidden`, `today`. It is possible to add new modifiers and define custom styles
-or states.
+A **modifier** represents different state or style of a days shown in the
+calendar.
+
+DayPicker comes with some built in modifiers: `disabled`, `selected`, `hidden`,
+`today`, that are assigned to the matching days by using the corrispective
+props. It is also possible to add new modifiers to add different styles or
+states for the days.
 
 ## Disabling days
 
-The `disabled` modifier disables the interaction with a day. It is set using the `disabled` prop.
+The `disabled` modifier disables the interaction with a day. It is set using the
+`disabled` prop. Pass a [`Matcher`](/api/types/matcher) or an array of Matchers
+to choose the disabled days.
 
 ```include
 guides/modifiers-disabled.tsx

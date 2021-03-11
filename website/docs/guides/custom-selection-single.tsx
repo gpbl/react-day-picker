@@ -10,8 +10,9 @@ export default function App() {
     : 'Please pick a day.';
   return (
     <DayPicker
-      onDayClick={handleDayClick}
+      mode="uncontrolled"
       selected={selectedDay}
+      onDayClick={handleDayClick}
       footer={footer}
     />
   );

@@ -20,6 +20,14 @@ Event handler to attach to the day button to enable the multiple select.
 
 ___
 
+### isMultipleMode
+
+• **isMultipleMode**: *boolean*
+
+Whether DayPicker is in multiple selection mode.
+
+___
+
 ### modifiers
 
 • **modifiers**: *object*

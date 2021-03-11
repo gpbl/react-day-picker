@@ -20,6 +20,14 @@ Event handler to attach to the day button to enable the range select.
 
 ___
 
+### isRangeMode
+
+• **isRangeMode**: *boolean*
+
+Whether DayPicker is in range selection mode.
+
+___
+
 ### modifiers
 
 • **modifiers**: *object*

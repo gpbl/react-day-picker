@@ -12,14 +12,14 @@ Represent the props for the [DayPickerProvider](../functions/daypickerprovider.m
 
 ## Properties
 
-### baseProps
-
-• **baseProps**: [*DayPickerBase*](daypickerbase.md)
-
-The props passed to the DayPicker component.
-
-___
-
 ### children
 
 • `Optional` **children**: ReactNode
+
+___
+
+### initialProps
+
+• **initialProps**: [*DayPickerProps*](../types/daypickerprops.md)
+
+The props passed to the DayPicker component.
