@@ -11,7 +11,6 @@ import * as formatters from './formatters';
 import * as labels from './labels';
 import { DayPickerContextValue } from './types';
 import { convertModifierMatchersToArray } from './utils/convertModifierMatchersToArray';
-import { getWeekdays } from './utils/getWeekdays';
 import { parseFromToProps } from './utils/parseFromToProps';
 import { parseModifierShortcuts } from './utils/parseModifierShortcuts';
 import { parseToday } from './utils/parseToday';
@@ -32,7 +31,6 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const numberOfMonths = initialProps.numberOfMonths ?? 1;
   const today = parseToday(initialProps);
   const month = initialProps.month;
-  const weekdays = getWeekdays(locale);
 
   // Default caption layout. If calendar navigation is unlimited, it must be
   // always `buttons` – as we cannot display infinite options in the dropdown.
@@ -106,7 +104,6 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     styles: initialProps.styles ?? {},
     toDate,
     today,
-    weekdays,
     classNames: {
       ...defaultClassNames,
       ...initialProps.classNames

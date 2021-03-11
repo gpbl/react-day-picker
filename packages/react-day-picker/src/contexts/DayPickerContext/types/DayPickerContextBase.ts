@@ -66,6 +66,5 @@ export interface DayPickerContextBase {
 
   toDate?: Date;
   today: Date;
-  weekdays: Date[];
   footer?: React.ReactNode;
 }
