@@ -15,6 +15,7 @@ module.exports = [
       "api/interfaces/daypickercontextsingle",
       "api/interfaces/daypickercontextuncontrolled",
       "api/interfaces/daypickermultiple",
+      "api/interfaces/daypickerproviderprops",
       "api/interfaces/daypickerrange",
       "api/interfaces/daypickersingle",
       "api/interfaces/daypickeruncontrolled",
@@ -29,6 +30,10 @@ module.exports = [
       "api/interfaces/selectsinglecontextvalue",
       "api/interfaces/selectsingleeventhandler",
       "api/interfaces/tableprops",
+      "api/interfaces/useinput",
+      "api/interfaces/useinputdaypickerprops",
+      "api/interfaces/useinputfieldprops",
+      "api/interfaces/useinputoptions",
       "api/interfaces/weeknumberprops",
       "api/interfaces/yearsdropdownprops"
     ]
@@ -71,7 +76,6 @@ module.exports = [
       "api/types/styledcomponentprops",
       "api/types/styledelement",
       "api/types/styles",
-      "api/types/usemodifiers",
       "api/types/weeknumberclickeventhandler",
       "api/types/weeknumberformatter",
       "api/types/weeknumberlabelformatter",
@@ -84,7 +88,10 @@ module.exports = [
     "items": [
       "api/variables/daypickercontext",
       "api/variables/focuscontext",
-      "api/variables/navigationcontext"
+      "api/variables/navigationcontext",
+      "api/variables/selectmultiplecontext",
+      "api/variables/selectrangecontext",
+      "api/variables/selectsinglecontext"
     ]
   },
   {

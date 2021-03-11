@@ -33,6 +33,10 @@ button:not(.rdp-button_reset) {
   background: transparent;
   font: inherit;
   font-size: smaller;
+  background: white;
+}
+[data-theme='dark'] button:not(.rdp-button_reset) {
+  background-color: #010101;
 }
 button:hover:not(.rdp-button_reset):not([disabled]) {
   border-color: var(--ifm-color-emphasis-500);

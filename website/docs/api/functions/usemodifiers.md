@@ -8,9 +8,9 @@ hide_title: true
 
 # Function: useModifiers
 
-▸ **useModifiers**(`date`: Date): [*UseModifiers*](../types/usemodifiers.md)
+▸ **useModifiers**(`date`: Date): UseModifiers
 
-Return the modifiers, their style and classes given the specified date.
+Return the modifiers and its styles for the specified date.
 
 #### Parameters:
 
@@ -18,4 +18,4 @@ Name | Type |
 :------ | :------ |
 `date` | Date |
 
-**Returns:** [*UseModifiers*](../types/usemodifiers.md)
+**Returns:** UseModifiers

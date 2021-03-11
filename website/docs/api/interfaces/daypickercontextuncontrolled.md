@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: DayPickerContextUncontrolled
 
+Represent the value of the DayPicker context when `mode="uncontrolled"`.
+
 ## Hierarchy
 
 * [*DayPickerContextBase*](daypickercontextbase.md)

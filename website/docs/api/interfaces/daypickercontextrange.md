@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: DayPickerContextRange
 
+Represent the value of the DayPicker context when `mode="range"`.
+
 ## Hierarchy
 
 * [*DayPickerContextBase*](daypickercontextbase.md)

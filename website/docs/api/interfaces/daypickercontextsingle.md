@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: DayPickerContextSingle
 
+Represent the value of the DayPicker context when `mode="single"`.
+
 ## Hierarchy
 
 * [*DayPickerContextBase*](daypickercontextbase.md)

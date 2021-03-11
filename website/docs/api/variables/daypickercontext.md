@@ -8,8 +8,11 @@ hide_title: true
 
 # Variable: DayPickerContext
 
-• `Const` **DayPickerContext**: *Context*<undefined \| [*DayPickerContextMultiple*](../interfaces/daypickercontextmultiple.md) \| [*DayPickerContextRange*](../interfaces/daypickercontextrange.md) \| [*DayPickerContextSingle*](../interfaces/daypickercontextsingle.md) \| [*DayPickerContextUncontrolled*](../interfaces/daypickercontextuncontrolled.md)\>
+• `Const` **DayPickerContext**: *Context*<undefined \| [*DayPickerContextUncontrolled*](../interfaces/daypickercontextuncontrolled.md) \| [*DayPickerContextSingle*](../interfaces/daypickercontextsingle.md) \| [*DayPickerContextMultiple*](../interfaces/daypickercontextmultiple.md) \| [*DayPickerContextRange*](../interfaces/daypickercontextrange.md)\>
 
-This context shares props and settings within the internal components. It set
-the defaults values, parses some props, and perform one-time calculation
-required to render the days.
+The DayPicker context shares the props passed to DayPicker within the
+internal components. It is used to set the default values and  perform
+one-time calculations required to render the days.
+
+Access this context via the [useDayPicker](../functions/usedaypicker.md) hook when using custom
+components.

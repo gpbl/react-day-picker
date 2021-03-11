@@ -10,6 +10,6 @@ hide_title: true
 
 ▸ **useSelectMultiple**(): [*SelectMultipleContextValue*](../interfaces/selectmultiplecontextvalue.md)
 
-Return the context for controlling the selections in the multiple selection mode.
+Hook to access the [SelectMultipleContext](../variables/selectmultiplecontext.md).
 
 **Returns:** [*SelectMultipleContextValue*](../interfaces/selectmultiplecontextvalue.md)
