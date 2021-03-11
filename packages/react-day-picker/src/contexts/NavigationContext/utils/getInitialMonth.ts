@@ -4,18 +4,20 @@ import { DayPickerContextBase } from 'contexts';
 
 /** Return the initial month according to the given options. */
 export function getInitialMonth(
-  context: Pick<
-    DayPickerContextBase,
-    | 'numberOfMonths'
-    | 'month'
-    | 'defaultMonth'
-    | 'today'
-    | 'toDate'
-    | 'fromDate'
+  context: Partial<
+    Pick<
+      DayPickerContextBase,
+      | 'numberOfMonths'
+      | 'month'
+      | 'defaultMonth'
+      | 'today'
+      | 'toDate'
+      | 'fromDate'
+    >
   >
 ): Date {
   const { month, defaultMonth, today } = context;
-  let initialMonth = month || defaultMonth || today;
+  let initialMonth = month || defaultMonth || today || new Date();
 
   const { toDate, fromDate, numberOfMonths = 1 } = context;
 
