@@ -1,5 +1,4 @@
-import { DateRange } from './DateRange';
-import { ModifierStatus } from './ModifierStatus';
+import { DateRange, ModifierStatus } from 'types';
 
 /** Represent the event handler when selecting a range of days. */
 export type SelectRangeEventHandler = (

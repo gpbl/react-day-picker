@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { useDayPicker } from 'hooks';
+import { useDayPicker } from 'contexts';
 
-/**
- * Render the Footer component (empty as default).
- */
+/** Render the Footer component (empty as default).*/
 export function Footer(): JSX.Element {
   const { footer } = useDayPicker();
   if (!footer) return <></>;

@@ -1,22 +1,15 @@
-import { useDayPicker, useSelectSingle } from 'hooks';
-import { ModifiersArray, ModifierStatus } from 'types';
+import {
+  useDayPicker,
+  useSelectMultiple,
+  useSelectRange,
+  useSelectSingle
+} from 'contexts';
+import { ModifiersArray } from 'types';
 
-import { useSelectMultiple } from '../useSelectMultiple';
-import { useSelectRange } from '../useSelectRange';
+import { UseModifiers } from './types';
 import { getModifierStatus } from './utils/getModifierStatus';
 
-export type UseModifiers = {
-  /** The status of the modifiers */
-  modifiers: ModifierStatus;
-  /** The class names based on modifiers. */
-  modifierClassNames: string[];
-  /** The style based on modifiers. */
-  modifierStyle: React.CSSProperties;
-};
-
-/**
- * Return the modifiers, their style and classes given the specified date.
- */
+/** Return the modifiers and its styles for the specified date. */
 export function useModifiers(date: Date): UseModifiers {
   const context = useDayPicker();
   const single = useSelectSingle();

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Table } from 'components';
-import { useDayPicker, useNavigation } from 'hooks';
+import { useDayPicker, useNavigation } from 'contexts';
 import { StyledComponentProps } from 'types';
 
 /**
