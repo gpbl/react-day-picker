@@ -10,6 +10,6 @@ hide_title: true
 
 ▸ **useSelectRange**(): [*SelectRangeContextValue*](../interfaces/selectrangecontextvalue.md)
 
-Return the context for controlling the selections in the single selection mode.
+Hook to access the [SelectRangeContext](../variables/selectrangecontext.md).
 
 **Returns:** [*SelectRangeContextValue*](../interfaces/selectrangecontextvalue.md)

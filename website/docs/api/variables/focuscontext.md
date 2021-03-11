@@ -10,5 +10,6 @@ hide_title: true
 
 • `Const` **FocusContext**: *Context*<undefined \| [*FocusContextValue*](../types/focuscontextvalue.md)\>
 
-The focus context holds values and method to handle the focused day via
-keyboard navigation.
+The Focus context shares details about the focused day for the keyboard navigation.
+
+Access this context via the [useFocus](../functions/usefocus.md) hook.

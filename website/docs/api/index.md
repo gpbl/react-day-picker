@@ -24,6 +24,7 @@ hide_title: true
 - [DayPickerContextSingle](interfaces/daypickercontextsingle.md)
 - [DayPickerContextUncontrolled](interfaces/daypickercontextuncontrolled.md)
 - [DayPickerMultiple](interfaces/daypickermultiple.md)
+- [DayPickerProviderProps](interfaces/daypickerproviderprops.md)
 - [DayPickerRange](interfaces/daypickerrange.md)
 - [DayPickerSingle](interfaces/daypickersingle.md)
 - [DayPickerUncontrolled](interfaces/daypickeruncontrolled.md)
@@ -38,6 +39,10 @@ hide_title: true
 - [SelectSingleContextValue](interfaces/selectsinglecontextvalue.md)
 - [SelectSingleEventHandler](interfaces/selectsingleeventhandler.md)
 - [TableProps](interfaces/tableprops.md)
+- [UseInput](interfaces/useinput.md)
+- [UseInputDayPickerProps](interfaces/useinputdaypickerprops.md)
+- [UseInputFieldProps](interfaces/useinputfieldprops.md)
+- [UseInputOptions](interfaces/useinputoptions.md)
 - [WeekNumberProps](interfaces/weeknumberprops.md)
 - [YearsDropdownProps](interfaces/yearsdropdownprops.md)
 
@@ -77,7 +82,6 @@ hide_title: true
 - [StyledComponentProps](types/styledcomponentprops.md)
 - [StyledElement](types/styledelement.md)
 - [Styles](types/styles.md)
-- [UseModifiers](types/usemodifiers.md)
 - [WeekNumberClickEventHandler](types/weeknumberclickeventhandler.md)
 - [WeekNumberFormatter](types/weeknumberformatter.md)
 - [WeekNumberLabelFormatter](types/weeknumberlabelformatter.md)
@@ -88,6 +92,9 @@ hide_title: true
 - [DayPickerContext](variables/daypickercontext.md)
 - [FocusContext](variables/focuscontext.md)
 - [NavigationContext](variables/navigationcontext.md)
+- [SelectMultipleContext](variables/selectmultiplecontext.md)
+- [SelectRangeContext](variables/selectrangecontext.md)
+- [SelectSingleContext](variables/selectsinglecontext.md)
 
 ### Functions
 

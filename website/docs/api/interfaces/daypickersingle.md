@@ -304,14 +304,6 @@ Inherited from: [DayPickerBase](daypickerbase.md).[locale](daypickerbase.md#loca
 
 ___
 
-### min
-
-• `Optional` **min**: *number*
-
-The minimum amount of days that can be selected.
-
-___
-
 ### mode
 
 • **mode**: *single*
@@ -580,6 +572,14 @@ ___
 Paginate the month navigation displaying the [numberOfMonths](daypickersingle.md#numberofmonths) at time.
 
 Inherited from: [DayPickerBase](daypickerbase.md).[pagedNavigation](daypickerbase.md#pagednavigation)
+
+___
+
+### required
+
+• `Optional` **required**: *boolean*
+
+When set, user cannot unselect days.
 
 ___
 

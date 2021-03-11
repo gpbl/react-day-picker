@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ **SelectSingleProvider**(`__namedParameters`: { `children`: React.ReactNode ; `initialProps`: [*DayPickerProps*](../types/daypickerprops.md)  }): JSX.Element
 
-Return the context for the single selection mode.
+Provides the values for the [[SelectSingleProvider]].
 
 #### Parameters:
 

@@ -38,7 +38,7 @@ To limit the months the user can navigate to, use
 DayPicker supports different selection mode that can be toggled using the
 `mode` prop:
 
-- `mode="single"`: only one day can be selected. Use `min={1}` to make the
+- `mode="single"`: only one day can be selected. Use `required` to make the
   selection required. Use the `onSelect` event handler to get the selected
   days.
 - `mode="multiple"`: users can select one or more days. Limit the amount of

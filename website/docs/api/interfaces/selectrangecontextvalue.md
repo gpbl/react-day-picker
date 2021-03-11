@@ -8,7 +8,7 @@ hide_title: true
 
 # Interface: SelectRangeContextValue
 
-Represents the value of a [[SelectRangeContext]].
+Represents the value of a [SelectRangeContext](../variables/selectrangecontext.md).
 
 ## Properties
 

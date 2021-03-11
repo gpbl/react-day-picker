@@ -9,3 +9,5 @@ hide_title: true
 # Type alias: DayPickerContextValue
 
 Ƭ **DayPickerContextValue**: [*DayPickerContextUncontrolled*](../interfaces/daypickercontextuncontrolled.md) \| [*DayPickerContextSingle*](../interfaces/daypickercontextsingle.md) \| [*DayPickerContextMultiple*](../interfaces/daypickercontextmultiple.md) \| [*DayPickerContextRange*](../interfaces/daypickercontextrange.md)
+
+Represent the value of the [DayPickerContext](../variables/daypickercontext.md).

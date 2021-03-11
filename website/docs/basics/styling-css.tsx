@@ -6,7 +6,7 @@ export default function App() {
     .caption_aqua { 
       color: aquamarine; 
       font-weight: bold; 
-      font-size: largest; 
+      font-size: 140%; 
     }
   `;
   return (

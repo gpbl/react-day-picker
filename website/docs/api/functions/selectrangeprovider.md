@@ -10,7 +10,7 @@ hide_title: true
 
 ▸ **SelectRangeProvider**(`__namedParameters`: { `children`: React.ReactNode ; `initialProps`: [*DayPickerProps*](../types/daypickerprops.md)  }): JSX.Element
 
-Return the context for the range selection mode.
+Provides the values for the [[SelectRangeProvider]].
 
 #### Parameters:
 

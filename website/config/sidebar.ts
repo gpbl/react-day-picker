@@ -15,7 +15,7 @@ const sidebar = [
       'guides/custom-selection',
       'guides/formatters',
       'guides/localization',
-      'guides/form-fields',
+      'guides/input-fields',
       'guides/custom-components'
     ]
   },

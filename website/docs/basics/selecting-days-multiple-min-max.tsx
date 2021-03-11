@@ -12,7 +12,7 @@ export default function App() {
 
   const footer =
     days.length > 0
-      ? `You picked ${days.map((day) => format(day, 'PPP')).join(', ')}`
+      ? `You picked ${days.length} day(s).`
       : `Please pick one or more days.`;
 
   return (

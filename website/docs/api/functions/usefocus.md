@@ -10,6 +10,6 @@ hide_title: true
 
 ▸ **useFocus**(): [*FocusContextValue*](../types/focuscontextvalue.md)
 
-Return the context for handling focus via keyboard.
+Hook to access the [FocusContext](../variables/focuscontext.md).
 
 **Returns:** [*FocusContextValue*](../types/focuscontextvalue.md)

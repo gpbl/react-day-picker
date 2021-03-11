@@ -8,6 +8,8 @@ hide_title: true
 
 # Interface: DayPickerContextMultiple
 
+Represent the value of the DayPicker context when `mode="multiple"`.
+
 ## Hierarchy
 
 * [*DayPickerContextBase*](daypickercontextbase.md)

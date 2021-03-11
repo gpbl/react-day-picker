@@ -3,13 +3,15 @@ id: navigation
 title: Navigating Months
 ---
 
-## Change the initial month
+## Change the default month
 
 DayPicker displays the month of the current day. To change the
-initial month, set the `defaultMonth` prop:
+default month, set the `defaultMonth` prop.
+
+For example, to set the default month to September 1979:
 
 ```include
-basics/navigation-initialmonth.tsx
+basics/navigation-default-month.tsx
 ```
 
 ## Controlling the current month
@@ -25,15 +27,24 @@ To control the current month, use `month` (as opposed to `defaultMonth`) and
 basics/navigation-uncontrolled.tsx
 ```
 
-## Limiting the navigable months
+## Limiting the month navigation
 
 As default, DayPicker can navigate indefinitely in the past or in the future.
 
-To limit the navigable months between certain dates, use `fromDate` and `toDate`, `fromMonth`
-and `toMonth`, or `fromYear` and `toYear`.
+To limit the navigable months between two years, use `fromYear` or `toYear`.
 
 ```include
-basics/navigation-from-to.tsx
+basics/navigation-from-to-year.tsx
+```
+
+### Between months or dates
+
+You can also limit the navigation with `fromDate`/`toDate` and `fromMonth` and
+`toMonth`. For example, to limit the calendar between June 2015 and the 20th
+Nov, 2015:
+
+```include
+basics/navigation-from-to-month.tsx
 ```
 
 ## Using a drop-down to change the month

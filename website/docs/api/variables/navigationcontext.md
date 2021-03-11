@@ -10,4 +10,6 @@ hide_title: true
 
 • `Const` **NavigationContext**: *Context*<undefined \| [*NavigationContextValue*](../interfaces/navigationcontextvalue.md)\>
 
-The navigation context holds values and setters for navigating between the calendars.
+The Navigation context shares details about the months being navigated in DayPicker.
+
+Access this context via the [useNavigation](../functions/usenavigation.md) hook.

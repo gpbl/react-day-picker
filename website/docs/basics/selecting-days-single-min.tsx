@@ -15,7 +15,7 @@ export default function App() {
   return (
     <DayPicker
       mode="single"
-      min={1}
+      required
       defaultSelected={selectedDay}
       onSelect={setSelectedDay}
       footer={footer}

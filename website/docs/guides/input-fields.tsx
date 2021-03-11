@@ -11,14 +11,18 @@ export default function App() {
     // Limit the valid dates
     fromYear: 2020,
     toYear: 2022,
+    format: 'PP',
     // Make the selection mandatory.
     required: true
   };
-  const input = useInput('PP', options);
+  const input = useInput(options);
 
   const footer = (
     <form>
-      <input {...input.fieldProps} placeholder={format(new Date(), 'PP')} />
+      <input
+        {...input.fieldProps}
+        placeholder={format(new Date(), options.format)}
+      />
     </form>
   );
   return (

@@ -10,6 +10,6 @@ hide_title: true
 
 ▸ **useSelectSingle**(): [*SelectSingleContextValue*](../interfaces/selectsinglecontextvalue.md)
 
-Return the context for controlling the selections in the single selection mode.
+Hook to access the [SelectSingleContext](../variables/selectsinglecontext.md).
 
 **Returns:** [*SelectSingleContextValue*](../interfaces/selectsinglecontextvalue.md)

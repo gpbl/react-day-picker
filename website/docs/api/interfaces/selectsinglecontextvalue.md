@@ -8,7 +8,7 @@ hide_title: true
 
 # Interface: SelectSingleContextValue
 
-Represents the value of a [[SelectSingleContext]].
+Represents the value of a [SelectSingleContext](../variables/selectsinglecontext.md).
 
 ## Properties
 

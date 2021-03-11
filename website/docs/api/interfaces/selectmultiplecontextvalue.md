@@ -8,7 +8,7 @@ hide_title: true
 
 # Interface: SelectMultipleContextValue
 
-Represents the value of a [[SelectMultipleContext]].
+Represents the value of a [SelectMultipleContext](../variables/selectmultiplecontext.md).
 
 ## Properties
 

@@ -8,15 +8,15 @@ hide_title: true
 
 # Function: FocusProvider
 
-▸ `Const`**FocusProvider**(`__namedParameters`: { `children`: ReactNode  }): *Element*
+▸ **FocusProvider**(`__namedParameters`: { `children`: React.ReactNode  }): JSX.Element
 
-Enable the `FocusContext` to handle the focus when navigating via keyboard.
+The provider for the [FocusContext](../variables/focuscontext.md). Must wrap the DayPicker root.
 
 #### Parameters:
 
 Name | Type |
 :------ | :------ |
 `__namedParameters` | *object* |
-`__namedParameters.children` | ReactNode |
+`__namedParameters.children` | React.ReactNode |
 
-**Returns:** *Element*
+**Returns:** JSX.Element

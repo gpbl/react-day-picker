@@ -8,7 +8,7 @@ hide_title: true
 
 # Function: useInput
 
-▸ **useInput**(`formatStr`: *string*, `options?`: UseInputOptions): *object*
+▸ **useInput**(`options?`: [*UseInputOptions*](../interfaces/useinputoptions.md)): [*UseInput*](../interfaces/useinput.md)
 
 Return props for binding an input field to DayPicker.
 
@@ -16,14 +16,6 @@ Return props for binding an input field to DayPicker.
 
 Name | Type |
 :------ | :------ |
-`formatStr` | *string* |
-`options?` | UseInputOptions |
+`options` | [*UseInputOptions*](../interfaces/useinputoptions.md) |
 
-**Returns:** *object*
-
-Name | Type | Description |
-:------ | :------ | :------ |
-`dayPickerProps` | UseInputDayPickerProps | The props to pass to a DayPicker component.   |
-`fieldProps` | UseInputFieldProps | The props to pass to an input field.   |
-`reset` | () => *void* | A function to reset to the initial state.   |
-`setSelected` | (`day`: Date) => *void* | A function to set the selected day.   |
+**Returns:** [*UseInput*](../interfaces/useinput.md)
