@@ -107,6 +107,7 @@ export function useInput(options: UseInputOptions = {}): UseInput {
   };
 
   const dayPickerProps: UseInputDayPickerProps = {
+    mode: 'uncontrolled',
     month: month,
     onDayClick: handleDayClick,
     onMonthChange: handleMonthChange,
