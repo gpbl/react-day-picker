@@ -124,12 +124,15 @@ export function Day(props: DayProps): JSX.Element | null {
   );
 
   const isDisabled = modifiers.disabled || isOutside;
-  const isNotInteractive =
-    !isSingleMode && !isMultipleMode && !isRangeMode && !context.onDayClick;
+  const isInteractive =
+    isSingleMode ||
+    isMultipleMode ||
+    isRangeMode ||
+    context.onDayClick !== undefined;
 
-  const tabIndex = isDisabled || isFocused || !isNotInteractive ? -1 : 0;
+  const tabIndex = isDisabled || isFocused || !isInteractive ? -1 : 0;
 
-  if (isNotInteractive) {
+  if (!isInteractive) {
     return (
       <div style={style} className={classNames.join(' ')}>
         {dayContent}
