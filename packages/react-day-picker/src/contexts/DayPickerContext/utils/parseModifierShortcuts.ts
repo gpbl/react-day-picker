@@ -1,4 +1,4 @@
-import { DayPickerProps, Modifiers } from 'types';
+import { DayPickerProps, isDayPickerUncontrolled, Modifiers } from 'types';
 
 /**
  * Parse the modifiers from the "modifiers shortcuts" such as `hidden` or
@@ -8,7 +8,9 @@ export function parseModifierShortcuts(
   initialProps: DayPickerProps
 ): Modifiers {
   const modifiers: Modifiers = initialProps.modifiers || {};
-  modifiers.selected = initialProps.selected ?? [];
+  if (isDayPickerUncontrolled(initialProps)) {
+    modifiers.selected = initialProps.selected ?? [];
+  }
   modifiers.hidden = initialProps.hidden ?? [];
   modifiers.disabled = initialProps.disabled ?? [];
   return modifiers;

@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { DayClickEventHandler, DayPickerProps, ModifiersArray } from 'types';
+import {
+  DayClickEventHandler,
+  DayPickerProps,
+  isDayPickerSingle,
+  ModifiersArray
+} from 'types';
 
 import { SelectSingleContext } from './SelectSingleContext';
 
@@ -13,8 +18,10 @@ export function SelectSingleProvider({
   children: React.ReactNode;
 }): JSX.Element {
   let initialSelected;
-  if (initialProps.mode === 'single') {
+  let isSingleMode = false;
+  if (isDayPickerSingle(initialProps)) {
     initialSelected = initialProps.defaultSelected;
+    isSingleMode = true;
   }
 
   const [selected, setSelected] = React.useState<Date | undefined>(
@@ -22,7 +29,7 @@ export function SelectSingleProvider({
   );
 
   const handleDayClick: DayClickEventHandler = (day, dayModifiers, e) => {
-    if (initialProps.mode !== 'single') {
+    if (!isDayPickerSingle(initialProps)) {
       return;
     }
     if (dayModifiers.selected && !initialProps.required) {
@@ -41,7 +48,7 @@ export function SelectSingleProvider({
 
   return (
     <SelectSingleContext.Provider
-      value={{ selected, handleDayClick, modifiers }}
+      value={{ selected, handleDayClick, modifiers, isSingleMode }}
     >
       {children}
     </SelectSingleContext.Provider>

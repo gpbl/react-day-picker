@@ -4,6 +4,7 @@ import { isSameDay } from 'date-fns';
 
 import { DayClickEventHandler, DayPickerProps, ModifiersArray } from 'types';
 
+import { isDayPickerMultiple } from '../../types';
 import { SelectMultipleContext } from './SelectMultipleContext';
 
 /** Provides the values for the [[SelectMultipleContext]]. */
@@ -15,15 +16,17 @@ export function SelectMultipleProvider({
   children: React.ReactNode;
 }): JSX.Element {
   let initialSelected;
-  if (initialProps.mode === 'multiple') {
+  let isMultipleMode = false;
+  if (isDayPickerMultiple(initialProps)) {
     initialSelected = initialProps.defaultSelected;
+    isMultipleMode = true;
   }
   const [selectedDays, setSelectedDays] = React.useState<Date[] | undefined>(
     initialSelected || undefined
   );
 
   const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
-    if (initialProps.mode !== 'multiple') {
+    if (!isDayPickerMultiple(initialProps)) {
       return;
     }
     initialProps.onDayClick?.(day, modifiers, e);
@@ -61,7 +64,7 @@ export function SelectMultipleProvider({
   };
 
   const modifiers: ModifiersArray = {};
-  if (selectedDays && initialProps.mode === 'multiple') {
+  if (selectedDays && isDayPickerMultiple(initialProps)) {
     modifiers.selected = selectedDays;
     modifiers.disabled = [
       function disableDay(day: Date) {
@@ -77,7 +80,12 @@ export function SelectMultipleProvider({
 
   return (
     <SelectMultipleContext.Provider
-      value={{ selected: selectedDays, handleDayClick, modifiers }}
+      value={{
+        selected: selectedDays,
+        handleDayClick,
+        modifiers,
+        isMultipleMode
+      }}
     >
       {children}
     </SelectMultipleContext.Provider>

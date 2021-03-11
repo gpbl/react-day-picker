@@ -14,4 +14,6 @@ export interface SelectRangeContextValue {
   };
   /** Event handler to attach to the day button to enable the range select. */
   handleDayClick: DayClickEventHandler;
+  /** Whether DayPicker is in range selection mode.  */
+  isRangeMode: boolean;
 }

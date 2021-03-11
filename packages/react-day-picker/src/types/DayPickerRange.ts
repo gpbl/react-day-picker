@@ -1,5 +1,6 @@
+import { DateRange } from './DateRange';
 import { DayPickerBase } from './DayPickerBase';
-import { DateRange } from './index';
+import { Matcher } from './Matcher';
 import { SelectRangeEventHandler } from './SelectRangeEventHandler';
 
 /**
@@ -15,4 +16,6 @@ export interface DayPickerRange extends DayPickerBase {
   min?: number;
   /** The maximum amount of days that can be selected. */
   max?: number;
+  /** The selected days. */
+  selected?: Matcher | Matcher[];
 }

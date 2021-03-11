@@ -98,7 +98,7 @@ import { DayPickerProps } from 'types';
  */
 export function DayPicker(props: DayPickerProps): JSX.Element {
   return (
-    <DayPickerProvider baseProps={props}>
+    <DayPickerProvider initialProps={props}>
       <NavigationProvider>
         <SelectRangeProvider initialProps={props}>
           <SelectMultipleProvider initialProps={props}>
