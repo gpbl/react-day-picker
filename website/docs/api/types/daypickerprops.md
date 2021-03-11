@@ -8,7 +8,7 @@ hide_title: true
 
 # Type alias: DayPickerProps
 
-Ƭ **DayPickerProps**: [*DayPickerUncontrolled*](../interfaces/daypickeruncontrolled.md) \| [*DayPickerSingle*](../interfaces/daypickersingle.md) \| [*DayPickerMultiple*](../interfaces/daypickermultiple.md) \| [*DayPickerRange*](../interfaces/daypickerrange.md)
+Ƭ **DayPickerProps**: [*DayPickerBase*](../interfaces/daypickerbase.md) \| [*DayPickerUncontrolled*](../interfaces/daypickeruncontrolled.md) \| [*DayPickerSingle*](../interfaces/daypickersingle.md) \| [*DayPickerMultiple*](../interfaces/daypickermultiple.md) \| [*DayPickerRange*](../interfaces/daypickerrange.md)
 
 The props for the [DayPicker](../functions/daypicker.md) component.
 

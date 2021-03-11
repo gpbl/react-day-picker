@@ -20,6 +20,14 @@ Event handler to attach to the day button to enable the single select.
 
 ___
 
+### isSingleMode
+
+• **isSingleMode**: *boolean*
+
+Whether DayPicker is in single selection mode.
+
+___
+
 ### modifiers
 
 • **modifiers**: *object*
