@@ -17,13 +17,13 @@ export function NavigationProvider(props: {
   const context = useDayPicker();
   const initialMonth = getInitialMonth(context);
 
-  const [month, setMonthInternal] = React.useState<Date>(initialMonth);
+  const [month, setMonth] = React.useState<Date>(initialMonth);
 
-  const setMonth = (date: Date) => {
+  const goToMonth = (date: Date) => {
     if (context.disableNavigation) {
       return;
     }
-    setMonthInternal(date);
+    setMonth(date);
   };
 
   React.useEffect(() => {
@@ -42,7 +42,13 @@ export function NavigationProvider(props: {
 
   return (
     <NavigationContext.Provider
-      value={{ month, displayMonths, setMonth, previousMonth, nextMonth }}
+      value={{
+        month,
+        displayMonths,
+        goToMonth,
+        previousMonth,
+        nextMonth
+      }}
     >
       {props.children}
     </NavigationContext.Provider>

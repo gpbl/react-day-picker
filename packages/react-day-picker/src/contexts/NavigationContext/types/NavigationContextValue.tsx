@@ -5,7 +5,7 @@ export interface NavigationContextValue {
   /** The months to display, according to `numberOfMonths`. */
   displayMonths: Date[];
   /** Navigate to the specified month. */
-  setMonth: (month: Date) => void;
+  goToMonth: (month: Date) => void;
   /** The next month to display. `undefined` if no months left */
   nextMonth?: Date;
   /** The previous month to display. `undefined` if no months left */
