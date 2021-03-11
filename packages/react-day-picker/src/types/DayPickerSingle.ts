@@ -10,6 +10,6 @@ export interface DayPickerSingle extends DayPickerBase {
   defaultSelected?: Date;
   /** Event fired when a day is selected. */
   onSelect?: SelectSingleEventHandler;
-  /** The minimum amount of days that can be selected. */
-  min?: number;
+  /** When set, user cannot unselect days. */
+  required?: boolean;
 }

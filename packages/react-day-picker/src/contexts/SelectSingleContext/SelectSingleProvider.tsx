@@ -25,7 +25,7 @@ export function SelectSingleProvider({
     if (initialProps.mode !== 'single') {
       return;
     }
-    if (dayModifiers.selected && initialProps.min !== 1) {
+    if (dayModifiers.selected && !initialProps.required) {
       setSelected(undefined);
       initialProps.onSelect?.(undefined, day, dayModifiers, e);
       return;
