@@ -30,6 +30,7 @@
   "files": [
     "dist",
     "esm",
+    "css",
     "style.css"
   ],
   "devDependencies": {
