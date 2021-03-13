@@ -12,6 +12,7 @@ import { useModifiers } from 'hooks';
 
 import { DayProps } from './DayProps';
 import { useDayFocus } from './hooks/useDayFocus';
+import { Button } from 'components';
 
 /**
  * The content of a day cell – as a button or span element according to its
@@ -108,6 +109,7 @@ export function Day(props: DayProps): JSX.Element | null {
   if (isOutside) {
     classNames.push(context.classNames.day_outside);
   }
+  const className = classNames.join(' ');
 
   const dayContent = (
     <DayContent
@@ -134,21 +136,19 @@ export function Day(props: DayProps): JSX.Element | null {
 
   if (!isInteractive) {
     return (
-      <div style={style} className={classNames.join(' ')}>
+      <div style={style} className={className}>
         {dayContent}
       </div>
     );
   }
 
-  const buttonClassNames = [context.classNames.button_reset, ...classNames];
-
   return (
-    <button
+    <Button
       ref={buttonRef}
       aria-pressed={ariaPressed}
       style={style}
       disabled={isDisabled}
-      className={buttonClassNames.join(' ')}
+      className={className}
       tabIndex={tabIndex}
       onClick={handleClick}
       onFocus={handleFocus}
@@ -163,6 +163,6 @@ export function Day(props: DayProps): JSX.Element | null {
       onTouchStart={handleTouchStart}
     >
       {dayContent}
-    </button>
+    </Button>
   );
 }
