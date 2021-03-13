@@ -1,9 +1,9 @@
-import './App.css';
-import 'react-day-picker/style.css';
+import "./App.css";
+import "react-day-picker/style";
 
-import { DayPicker } from 'react-day-picker';
+import { DayPicker } from "react-day-picker";
 
-import { addDays, addYears } from 'date-fns';
+import { addDays, addYears } from "date-fns";
 
 function App() {
   return (

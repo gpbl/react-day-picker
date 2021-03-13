@@ -1,5 +1,5 @@
 import React from 'react';
-import 'react-day-picker/style.css';
+import 'react-day-picker/style';
 
 // Default implementation, that you can customize
 function Root({ children }) {
