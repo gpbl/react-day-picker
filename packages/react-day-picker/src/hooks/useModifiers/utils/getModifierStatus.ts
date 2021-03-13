@@ -20,7 +20,7 @@ export function getModifierStatus(
     },
     []
   );
-  const modifiersStatus = {};
+  const modifiersStatus: ModifierStatus = {};
   modifiersList.forEach((modifier) => (modifiersStatus[modifier] = true));
   return modifiersStatus;
 }
