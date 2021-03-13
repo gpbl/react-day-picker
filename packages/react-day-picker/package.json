@@ -30,8 +30,7 @@
   "files": [
     "dist",
     "esm",
-    "css",
-    "style.css"
+    "css"
   ],
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",
