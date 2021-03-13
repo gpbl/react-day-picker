@@ -59,5 +59,9 @@
   "peerDependencies": {
     "date-fns": "^2.10.0",
     "react": "^16.8.0 || ^17.0.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/gpbl"
   }
 }
