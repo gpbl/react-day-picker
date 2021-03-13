@@ -19,7 +19,7 @@
   display: none;
 }
 
-/* Reset the buttons */
+/* Buttons */
 .rdp-button_reset {
   appearance: none;
   position: relative;
@@ -27,7 +27,6 @@
   padding: 0;
   cursor: default;
   color: inherit;
-  border: 2px solid transparent;
   outline: none;
   background: none;
   font: inherit;
@@ -36,22 +35,26 @@
   -webkit-appearance: none;
 }
 
-.rdp-button_reset[disabled] {
+.rdp-button {
+  border: 2px solid transparent;
+}
+
+.rdp-button[disabled] {
   opacity: 0.25;
 }
 
-.rdp-button_reset:not([disabled]) {
+.rdp-button:not([disabled]) {
   cursor: pointer;
 }
 
-.rdp-button_reset:focus:not([disabled]),
-.rdp-button_reset:active:not([disabled]) {
+.rdp-button:focus:not([disabled]),
+.rdp-button:active:not([disabled]) {
   color: inherit;
   border: var(--rdp-outline);
   background-color: var(--rdp-background-color);
 }
 
-.rdp-button_reset:hover:not([disabled]) {
+.rdp-button:hover:not([disabled]) {
   background-color: var(--rdp-background-color);
 }
 

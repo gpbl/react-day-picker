@@ -12,6 +12,8 @@ export type StyledElement<T = string | React.CSSProperties> = {
   readonly hidden: T;
   /** The style for resetting the buttons. */
   readonly button_reset: T;
+  /** The style of the buttons. */
+  readonly button: T;
 
   /** The style of the caption (showing the calendar heading and the navigation) */
   readonly caption: T;
