@@ -75,13 +75,13 @@
 }
 
 .rdp-table {
-  border-collapse: collapse;
   max-width: calc(var(--rdp-cell-size) * 7);
+  border-collapse: collapse;
 }
 
 .rdp-with_weeknumber .rdp-table {
-  border-collapse: collapse;
   max-width: calc(var(--rdp-cell-size) * 8);
+  border-collapse: collapse;
 }
 
 .rdp-caption {
