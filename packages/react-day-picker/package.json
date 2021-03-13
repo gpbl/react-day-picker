@@ -17,12 +17,12 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "develop": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w'",
-    "lint": "eslint --ext .ts src",
-    "test": "yarn jest",
-    "coverage": "yarn test --coverage",
-    "test:watch": "yarn test --watchAll --coverage",
+    "lint": "eslint --ext .ts,.tsx src",
     "build:clean": "rimraf dist",
-    "build": "yarn build:clean && tsc && tsc-alias"
+    "build": "yarn build:clean && tsc && tsc-alias",
+    "test": "yarn jest",
+    "test:watch": "yarn test --watchAll",
+    "coverage": "yarn test --coverage"
   },
   "files": [
     "dist",
