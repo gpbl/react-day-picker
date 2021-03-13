@@ -1,5 +1,5 @@
 import React from 'react';
-import 'react-day-picker/style';
+import 'react-day-picker/style.css';
 import OriginalCodeBlock from '@theme-original/CodeBlock';
 
 // Default implementation, that you can customize

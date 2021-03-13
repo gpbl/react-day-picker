@@ -1,5 +1,5 @@
 import "./App.css";
-import "react-day-picker/style";
+import "react-day-picker/style.css";
 
 import { DayPicker } from "react-day-picker";
 
