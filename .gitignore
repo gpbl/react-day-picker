@@ -1,11 +1,5 @@
-.docusaurus
 .DS_Store
 .vscode
-
-build
-coverage
-dist
-lib
 
 node_modules
 yarn-debug.log*
