@@ -2,14 +2,12 @@
   "compilerOptions": {
     // Code Emit Options
     "target": "ES5", // targets IE10
-    "module": "commonjs",
+    "module": "ES2015",
     "esModuleInterop": true,
     "jsx": "react",
     "sourceMap": true,
     "removeComments": false,
     "declaration": true,
-    "declarationDir": "dist",
-    "pretty": true,
     // Module Resolution Options
     "baseUrl": "src",
     "paths": {
@@ -21,8 +19,9 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     // Emit Location Options
-    "outDir": "dist",
     "rootDir": "src",
+    "outDir": "esm",
+    "declarationDir": "esm",
 
     // Library Options
     "lib": ["es5", "es6", "es7", "es2017", "dom"],

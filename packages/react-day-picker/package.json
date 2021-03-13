@@ -12,21 +12,24 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
-  "type": "commonjs",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./esm/index.js",
+  "types": "./esm/index.d.ts",
   "scripts": {
     "develop": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w'",
     "lint": "eslint --ext .ts,.tsx src",
-    "build:clean": "rimraf dist",
-    "build": "yarn build:clean && tsc && tsc-alias",
+    "build:clean": "rimraf esm && rimraf \"dist/**/{*.,!(package.json)}\"",
+    "build:dist": "tsc --project tsconfig.dist.json && tsc-alias -p tsconfig.dist.json",
+    "build:esm": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "build": "yarn build:clean && yarn build:esm && yarn build:dist",
     "test": "yarn jest",
     "test:watch": "yarn test --watchAll",
     "coverage": "yarn test --coverage"
   },
   "files": [
     "dist",
-    "src",
+    "esm",
     "style.css"
   ],
   "devDependencies": {
