@@ -12,16 +12,17 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "develop": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w'",
     "lint": "eslint --ext .ts src",
     "test": "yarn jest",
     "coverage": "yarn test --coverage",
     "test:watch": "yarn test --watchAll --coverage",
-    "build-clean": "rm -rf dist && rm -rf lib",
-    "build": "yarn build-clean && tsc && tsc-alias && rollup -c"
+    "build:clean": "rm -rf dist && rm -rf dist",
+    "build": "yarn build:clean && tsc && tsc-alias"
   },
   "files": [
     "dist",

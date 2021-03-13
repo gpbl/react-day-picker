@@ -2,13 +2,13 @@
   "compilerOptions": {
     // Code Emit Options
     "target": "ES5", // targets IE10
-    "module": "ES6",
+    "module": "commonjs",
     "esModuleInterop": true,
     "jsx": "react",
     "sourceMap": true,
     "removeComments": false,
     "declaration": true,
-    "declarationDir": "lib",
+    "declarationDir": "dist",
     "pretty": true,
     // Module Resolution Options
     "baseUrl": "src",
@@ -21,7 +21,7 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     // Emit Location Options
-    "outDir": "lib",
+    "outDir": "dist",
     "rootDir": "src",
 
     // Library Options
