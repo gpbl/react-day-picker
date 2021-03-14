@@ -1,1 +1,1 @@
-test.todo('should render 7 days');
+test.todo('should return a week');

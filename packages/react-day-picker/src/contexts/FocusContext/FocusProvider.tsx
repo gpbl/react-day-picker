@@ -7,7 +7,7 @@ import { useDayPicker, useNavigation } from 'contexts';
 import { FocusContext } from './FocusContext';
 
 /**
- * The provider for the [[FocusContext]]. Must wrap the DayPicker root.
+ * The provider for the [[FocusContext]].
  */
 export function FocusProvider({
   children

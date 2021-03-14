@@ -3,7 +3,7 @@ import * as React from 'react';
 import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 
-import { parseFromToProps } from 'contexts/DayPickerContext/utils';
+import { parseFromToProps } from 'contexts';
 import { DayClickEventHandler, MonthChangeEventHandler } from 'types';
 
 import {

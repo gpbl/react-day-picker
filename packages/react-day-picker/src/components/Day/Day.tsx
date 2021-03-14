@@ -32,11 +32,7 @@ export function Day(props: DayProps): JSX.Element | null {
     date,
     buttonRef
   );
-  const {
-    modifiers,
-    modifierClassNames: modifierClassNames,
-    modifierStyle
-  } = useModifiers(date);
+  const { modifiers, modifierClassNames, modifierStyle } = useModifiers(date);
 
   const {
     components: { DayContent },
@@ -47,9 +43,6 @@ export function Day(props: DayProps): JSX.Element | null {
   } = context;
 
   if (modifiers.hidden) return <></>;
-
-  const ariaLabel = labelDay(date, modifiers, { locale });
-  const ariaPressed = modifiers.selected;
 
   // #region Event handlers
   const handleClick: React.MouseEventHandler = (e) => {
@@ -103,13 +96,20 @@ export function Day(props: DayProps): JSX.Element | null {
   // #endregion
 
   const classNames = [context.classNames.day].concat(modifierClassNames);
-  const style = { ...context.styles.day, ...modifierStyle };
+  const style = Object.assign(context.styles.day, modifierStyle);
 
   const isOutside = !isSameMonth(date, displayMonth);
+
+  if (isOutside && !showOutsideDays) {
+    return <></>;
+  }
+
   if (isOutside) {
     classNames.push(context.classNames.day_outside);
+    Object.assign(context.styles, context.styles.day_outside);
   }
-  const className = classNames.join(' ');
+
+  const ariaLabel = labelDay(date, modifiers, { locale });
 
   const dayContent = (
     <DayContent
@@ -125,22 +125,22 @@ export function Day(props: DayProps): JSX.Element | null {
     />
   );
 
-  const isDisabled = modifiers.disabled || isOutside;
-  const isInteractive =
-    isSingleMode ||
-    isMultipleMode ||
-    isRangeMode ||
-    context.onDayClick !== undefined;
+  const isControlled = isSingleMode || isMultipleMode || isRangeMode;
+  const isSelectable = !isControlled && context.onDayClick !== undefined;
 
-  const tabIndex = isDisabled || isFocused || !isInteractive ? -1 : 0;
+  const className = classNames.join(' ');
 
-  if (!isInteractive) {
+  if (isOutside || !isSelectable) {
     return (
       <div style={style} className={className}>
         {dayContent}
       </div>
     );
   }
+
+  const ariaPressed = modifiers.selected;
+  const isDisabled = modifiers.disabled;
+  const tabIndex = isDisabled || isFocused ? -1 : 0;
 
   return (
     <Button

@@ -18,14 +18,14 @@ import { parseToday } from './utils/parseToday';
 /** Represent the props for the [[DayPickerProvider]]. */
 export interface DayPickerProviderProps {
   /** The props passed to the DayPicker component. */
-  initialProps: DayPickerProps;
+  initialProps: DayPickerProps | undefined;
   children?: React.ReactNode;
 }
 /**
- * The provider for the [[DayPickerContext]]. Must wrap the DayPicker root.
+ * The provider for the [[DayPickerContext]].
  */
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
-  const { children, initialProps } = props;
+  const { children, initialProps = {} } = props;
   const { fromDate, toDate } = parseFromToProps(initialProps);
   const locale = initialProps.locale || enUS;
   const numberOfMonths = initialProps.numberOfMonths ?? 1;
