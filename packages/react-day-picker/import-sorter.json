@@ -1,0 +1,31 @@
+{
+  "generalConfiguration.sortOnBeforeSave": true,
+  "sortConfiguration.customOrderingRules.rules": [
+    {
+      "disableSort": true,
+      "orderLevel": 5,
+      "regex": "^$",
+      "type": "importMember"
+    },
+    {
+      "orderLevel": 7,
+      "regex": "react"
+    },
+    {
+      "orderLevel": 10,
+      "regex": "^(contexts|components|hooks|types)"
+    },
+    {
+      "orderLevel": 8,
+      "regex": "^[^.@]"
+    },
+    {
+      "orderLevel": 15,
+      "regex": "^[@]"
+    },
+    {
+      "orderLevel": 30,
+      "regex": "^[.]"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "folders": [
+    {
+      "name": "react-day-picker 📆",
+      "path": "./packages/react-day-picker"
+    },
+    {
+      "name": "playground",
+      "path": "./playground"
+    },
+    {
+      "name": "website",
+      "path": "./website"
+    },
+    {
+      "name": "root",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "files.exclude": "{packages,playground,website}",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "jest.disabledWorkspaceFolders": ["playground", "website", "root"],
+    "jest.restartJestOnSnapshotUpdate": true,
+    "npm.packageManager": "yarn",
+    "typescript.preferences.quoteStyle": "single"
+  }
+}

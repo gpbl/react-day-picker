@@ -17,7 +17,7 @@
   "module": "./esm/index.js",
   "types": "./esm/index.d.ts",
   "scripts": {
-    "develop": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w'",
+    "develop": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w --pretty'",
     "lint": "eslint --ext .ts,.tsx src",
     "build:clean": "rimraf esm && rimraf \"dist/**/{*.,!(package.json)}\"",
     "build:dist": "tsc --project tsconfig.dist.json && tsc-alias -p tsconfig.dist.json",
