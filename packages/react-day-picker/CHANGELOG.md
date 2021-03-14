@@ -6,8 +6,8 @@ with the previous versions.
 
 Main changes:
 
-- depends on date-fns library
-- completely rewritten in Typescript
+- now depends on date-fns library
+- rewritten in Typescript
 - improved ARIA support
 - replace the `DayPickerInput` component with an hook
 - new features and tons of improvements
@@ -16,6 +16,12 @@ See the preview website at https://react-day-picker-next.netlify.app.
 
 <details>
   <summary>Beta Changelog</summary>
+
+## [v8.0.0-beta.24](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.20)
+
+- reintroduced CommonJS
+- added `required` prop for single select mode
+- fixed `useInput` bugs
 
 ## [v8.0.0-beta.18](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.18)
 

@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { useDayPicker } from 'contexts';
+import { Button } from 'components/Button';
 
 /**
  * The props for the [[WeekNumber]] component.
@@ -44,13 +45,13 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
   const label = labelWeekNumber(Number(weekNumber), { locale });
 
   return (
-    <button
+    <Button
       aria-label={label}
-      className={[classNames.button_reset, classNames.weeknumber].join(' ')}
+      className={classNames.weeknumber}
       style={styles.weeknumber}
       onClick={handleClick}
     >
       {content}
-    </button>
+    </Button>
   );
 }

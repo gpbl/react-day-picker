@@ -1,3 +1,4 @@
+export * from './Button';
 export * from './Caption';
 export * from './CaptionLabel';
 export * from './Day';

@@ -70,7 +70,7 @@ import { DayPickerProps } from 'types';
  *
  * ### Styling
  *
- * DayPicker comes with a default, basic style in `react-day-picker/style.css` –
+ * DayPicker comes with a default, basic style in `react-day-picker/style` –
  * use it as template for your own style.
  *
  * If you are using CSS modules, pass the imported styles object the

@@ -3,6 +3,7 @@ import React from 'react';
 import { useDayPicker } from 'contexts';
 
 import { NavigationProps } from './NavigationProps';
+import { Button } from 'components';
 
 /** A component rendering the navigation buttons or the drop-downs. */
 export function Navigation(props: NavigationProps): JSX.Element {
@@ -25,20 +26,18 @@ export function Navigation(props: NavigationProps): JSX.Element {
     ? labelPrevious(previousMonth, { locale })
     : '';
   const previousClassName = [
-    classNames.button_reset,
     classNames.nav_button,
     classNames.nav_button_previous
   ].join(' ');
 
   const nextLabel = nextMonth ? labelNext(nextMonth, { locale }) : '';
   const nextClassName = [
-    classNames.button_reset,
     classNames.nav_button,
     classNames.nav_button_previous
   ].join(' ');
 
   const previousButton = (
-    <button
+    <Button
       key="prev"
       aria-label={previousLabel}
       className={previousClassName}
@@ -47,11 +46,11 @@ export function Navigation(props: NavigationProps): JSX.Element {
       onClick={onPreviousClick}
     >
       <IconPrevious className={classNames.nav_icon} style={styles.nav_icon} />
-    </button>
+    </Button>
   );
 
   const nextButton = (
-    <button
+    <Button
       key="next"
       aria-label={nextLabel}
       className={nextClassName}
@@ -60,7 +59,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
       style={styles.nav_button_next}
     >
       <IconNext className={classNames.nav_icon} style={styles.nav_icon} />
-    </button>
+    </Button>
   );
   if (!nextMonth && !previousMonth) {
     return <></>;
