@@ -21,6 +21,11 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     classNames,
     components: { Dropdown }
   } = useDayPicker();
+
+  if (!fromDate && !toDate) {
+    // TODO: use type guards
+    return <></>;
+  }
   const dropdownMonths: Date[] = [];
 
   if (fromDate && toDate) {

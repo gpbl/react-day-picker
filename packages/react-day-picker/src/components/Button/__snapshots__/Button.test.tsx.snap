@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should add the class name from props 1`] = `
+<button
+  class="rdp-button_reset rdp-button foo"
+  type="button"
+/>
+`;
+
+exports[`should add the inline style from props 1`] = `
+<button
+  class="rdp-button_reset rdp-button"
+  style="color: red;"
+  type="button"
+/>
+`;
+
+exports[`should render correctly 1`] = `
+<button
+  class="rdp-button_reset rdp-button"
+  type="button"
+/>
+`;

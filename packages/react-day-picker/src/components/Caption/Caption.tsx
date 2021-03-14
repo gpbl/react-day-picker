@@ -11,7 +11,7 @@ import { CaptionProps } from './CaptionProps';
  * The caption has a different layout when setting the `numberOfMonths` prop.
  */
 export function Caption(props: CaptionProps): JSX.Element {
-  const { displayMonth, isFirst, isLast } = props;
+  const { displayMonth, isFirst = false, isLast = false } = props;
 
   const {
     classNames,
@@ -45,7 +45,7 @@ export function Caption(props: CaptionProps): JSX.Element {
   const captionLabel = <CaptionLabel displayMonth={displayMonth} />;
 
   return (
-    <div className={classNames.caption} style={styles.caption}>
+    <div role="caption" className={classNames.caption} style={styles.caption}>
       {disableNavigation && captionLabel}
       {!disableNavigation && (
         <>
