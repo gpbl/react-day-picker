@@ -1,8 +1,9 @@
-import { RenderResult } from '@testing-library/react';
 import React from 'react';
 
-import { customRender } from 'test';
+import { RenderResult } from '@testing-library/react';
 import tk from 'timekeeper';
+
+import { customRender } from 'test';
 
 import { CaptionLabel } from './CaptionLabel';
 import { CaptionLabelProps } from './CaptionLabelProps';

@@ -1,10 +1,10 @@
-import { RenderResult } from '@testing-library/react';
 import React from 'react';
 
-import { customRender } from 'test';
+import { RenderResult } from '@testing-library/react';
 import tk from 'timekeeper';
 
 import { Caption, CaptionProps } from 'components';
+import { customRender } from 'test';
 
 const FrozenDate = new Date(2020, 5);
 

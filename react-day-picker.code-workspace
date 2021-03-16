@@ -31,6 +31,24 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.importStringConfiguration.tabSize": 2,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+    "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 20,
+    "importSorter.sortConfiguration.customOrderingRules.rules": [
+      {
+        "orderLevel": 40,
+        "regex": "^(contexts|components|hooks|types|test)$"
+      },
+      {
+        "orderLevel": 50,
+        "regex": "^[.]"
+      },
+      {
+        "orderLevel": 10,
+        "regex": "^react$"
+      }
+    ],
     "jest.disabledWorkspaceFolders": ["playground", "website", "root"],
     "jest.pathToJest": "yarn run test",
     "npm.packageManager": "yarn",

@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { Button } from 'components';
 import { useDayPicker } from 'contexts';
 
 import { NavigationProps } from './NavigationProps';
-import { Button } from 'components';
 
 /** A component rendering the navigation buttons or the drop-downs. */
 export function Navigation(props: NavigationProps): JSX.Element {
