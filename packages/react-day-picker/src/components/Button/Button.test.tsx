@@ -1,28 +1,36 @@
-import { RenderResult } from '@testing-library/react';
 import React from 'react';
 
-import { customRender } from 'test';
+import { screen } from '@testing-library/react';
 
 import { Button } from 'components';
+import { customRender } from 'test';
 
-import { ButtonProps } from './ButtonProps';
+test('should render a button with type "button"', () => {
+  customRender(<Button />);
+  const button = screen.getByRole('button');
+  expect(button).toHaveAttribute('type', 'button');
+});
 
-const setup = (
-  props?: ButtonProps & React.RefAttributes<HTMLButtonElement>
-): RenderResult => {
-  return customRender(<Button {...props} />);
-};
-test('should render correctly', () => {
-  const { container } = setup();
-  expect(container.firstChild).toMatchSnapshot();
+test('should render a button with the button class name', () => {
+  customRender(<Button />);
+  const button = screen.getByRole('button');
+  expect(button.classList).toContain('rdp-button');
+});
+
+test('should render a button with the reset class name', () => {
+  customRender(<Button />);
+  const button = screen.getByRole('button');
+  expect(button.classList).toContain('rdp-button_reset');
 });
 
 test('should add the class name from props', () => {
-  const { container } = setup({ className: 'foo' });
-  expect(container.firstChild).toMatchSnapshot();
+  customRender(<Button className="foo" />);
+  const button = screen.getByRole('button');
+  expect(button.classList).toContain('foo');
 });
 
 test('should add the inline style from props', () => {
-  const { container } = setup({ style: { color: 'red' } });
-  expect(container.firstChild).toMatchSnapshot();
+  customRender(<Button style={{ color: 'red' }} />);
+  const button = screen.getByRole('button');
+  expect(button.style.color).toBe('red');
 });
