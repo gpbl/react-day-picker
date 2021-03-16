@@ -30,8 +30,9 @@
     "files.exclude": "{packages,playground,website}",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
     "jest.disabledWorkspaceFolders": ["playground", "website", "root"],
-    "jest.restartJestOnSnapshotUpdate": true,
+    "jest.pathToJest": "yarn run test",
     "npm.packageManager": "yarn",
     "typescript.preferences.quoteStyle": "single"
   }
