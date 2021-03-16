@@ -1,8 +1,8 @@
-import { RenderResult } from '@testing-library/react';
 import React from 'react';
 
-import { customRender } from 'test';
+import { RenderResult } from '@testing-library/react';
 
+import { customRender } from 'test';
 import { StyledComponentProps } from 'types';
 
 import { IconPrevious } from './IconPrevious';

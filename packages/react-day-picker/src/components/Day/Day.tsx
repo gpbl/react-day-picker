@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { isSameMonth } from 'date-fns';
 
+import { Button } from 'components';
 import {
   useDayPicker,
   useSelectMultiple,
@@ -12,7 +13,6 @@ import { useModifiers } from 'hooks';
 
 import { DayProps } from './DayProps';
 import { useDayFocus } from './hooks/useDayFocus';
-import { Button } from 'components';
 
 /**
  * The content of a day cell – as a button or span element according to its
