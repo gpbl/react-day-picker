@@ -7,13 +7,13 @@
     "sourceMap": true,
     "removeComments": false,
     "declaration": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
 
     "paths": {
-      "components": ["./src/components"],
-      "contexts": ["./src/contexts"],
-      "hooks": ["./src/hooks"],
-      "types": ["./src/types"],
+      "components": ["./components"],
+      "contexts": ["./contexts"],
+      "hooks": ["./hooks"],
+      "types": ["./types"],
       "test": ["./test"]
     },
 

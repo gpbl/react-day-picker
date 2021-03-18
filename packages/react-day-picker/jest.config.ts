@@ -9,8 +9,8 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'json', 'js', 'node'],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: `<rootDir>/`
+    prefix: `<rootDir>/src/`
   }),
   coverageReporters: ['lcov', 'text', 'clover'],
-  setupFilesAfterEnv: ['./test/setup.ts']
+  setupFilesAfterEnv: ['./src/test/setup.ts']
 };
