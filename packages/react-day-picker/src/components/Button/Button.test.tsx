@@ -1,36 +1,84 @@
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
-import { Button } from 'components';
-import { customRender } from 'test';
+import { ContextProvider as DayPicker } from 'contexts';
 
-test('should render a button with type "button"', () => {
-  customRender(<Button />);
-  const button = screen.getByRole('button');
-  expect(button).toHaveAttribute('type', 'button');
+import { Button } from './Button';
+
+let button: HTMLElement;
+describe('when rendered without props', () => {
+  beforeEach(() => {
+    render(
+      <DayPicker>
+        <Button />
+      </DayPicker>
+    );
+    button = screen.getByRole('button');
+  });
+  test('should render a button with type "button"', () => {
+    expect(button).toHaveAttribute('type', 'button');
+  });
+  test('should render a button with the button class name', () => {
+    expect(button.classList).toContain('rdp-button');
+  });
+  test('should render a button with the reset class name', () => {
+    expect(button.classList).toContain('rdp-button_reset');
+  });
 });
 
-test('should render a button with the button class name', () => {
-  customRender(<Button />);
-  const button = screen.getByRole('button');
-  expect(button.classList).toContain('rdp-button');
+describe('when using a class name from props', () => {
+  beforeEach(() => {
+    render(
+      <DayPicker>
+        <Button className="foo" />
+      </DayPicker>
+    );
+    button = screen.getByRole('button');
+  });
+  test('should add the class name', () => {
+    expect(button.classList).toContain('foo');
+  });
 });
 
-test('should render a button with the reset class name', () => {
-  customRender(<Button />);
-  const button = screen.getByRole('button');
-  expect(button.classList).toContain('rdp-button_reset');
+describe('when using custom class names from DayPicker props', () => {
+  beforeEach(() => {
+    render(
+      <DayPicker classNames={{ button: 'foo-from-props' }}>
+        <Button />
+      </DayPicker>
+    );
+    button = screen.getByRole('button');
+  });
+  test('should add the class name', () => {
+    expect(button.classList).toContain('foo-from-props');
+  });
 });
 
-test('should add the class name from props', () => {
-  customRender(<Button className="foo" />);
-  const button = screen.getByRole('button');
-  expect(button.classList).toContain('foo');
+describe('when using a inline style from props', () => {
+  beforeEach(() => {
+    render(
+      <DayPicker>
+        <Button style={{ color: 'red' }} />
+      </DayPicker>
+    );
+    button = screen.getByRole('button');
+  });
+  test('should apply the style', () => {
+    expect(button.style.color).toBe('red');
+  });
 });
 
-test('should add the inline style from props', () => {
-  customRender(<Button style={{ color: 'red' }} />);
-  const button = screen.getByRole('button');
-  expect(button.style.color).toBe('red');
+describe('when using a inline style from DayPicker props', () => {
+  beforeEach(() => {
+    render(
+      <DayPicker styles={{ button: { color: 'blue' } }}>
+        <Button />
+      </DayPicker>
+    );
+    button = screen.getByRole('button');
+  });
+  test('should apply the style', () => {
+    expect(button.style.color).toBe('blue');
+  });
 });

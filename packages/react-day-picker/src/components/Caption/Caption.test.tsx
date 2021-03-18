@@ -1,26 +1,9 @@
-import React from 'react';
-
-import { RenderResult } from '@testing-library/react';
 import tk from 'timekeeper';
 
-import { Caption, CaptionProps } from 'components';
-import { customRender } from 'test';
-
-const FrozenDate = new Date(2020, 5);
+const FrozenDate = new Date(1979, 8);
 
 beforeEach(() => tk.freeze(FrozenDate));
 afterEach(() => tk.reset());
-
-const setup = (props?: CaptionProps): RenderResult => {
-  return customRender(
-    <Caption displayMonth={new Date()} displayIndex={1} {...props} />
-  );
-};
-
-test('should render correctly', () => {
-  const { container } = setup();
-  expect(container.firstChild).toMatchSnapshot();
-});
 
 describe('when navigation is disabled', () => {
   test.todo('should display the caption label');

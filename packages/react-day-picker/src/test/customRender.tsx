@@ -1,12 +1,13 @@
-import { render, RenderResult } from '@testing-library/react';
 import React from 'react';
+
+import { render, RenderResult } from '@testing-library/react';
 
 import { DayPickerProvider, NavigationProvider } from 'contexts';
 import { DayPickerProps } from 'types';
 
 // import { Button } from './Button';
 type CustomRenderOptions = {
-  props?: DayPickerProps;
+  dayPickerProps?: DayPickerProps;
 };
 
 export const customRender = (
@@ -14,7 +15,7 @@ export const customRender = (
   renderOptions?: CustomRenderOptions
 ): RenderResult => {
   return render(
-    <DayPickerProvider initialProps={renderOptions?.props}>
+    <DayPickerProvider initialProps={renderOptions?.dayPickerProps}>
       <NavigationProvider>{element}</NavigationProvider>
     </DayPickerProvider>
   );
