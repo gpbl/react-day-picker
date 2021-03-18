@@ -1,3 +1,4 @@
+export * from './ContextProvider';
 export * from './DayPickerContext';
 export * from './FocusContext';
 export * from './NavigationContext';

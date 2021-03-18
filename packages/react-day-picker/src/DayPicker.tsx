@@ -1,15 +1,9 @@
 import React from 'react';
 
 import { Root } from 'components';
-import {
-  DayPickerProvider,
-  FocusProvider,
-  NavigationProvider,
-  SelectMultipleProvider,
-  SelectRangeProvider,
-  SelectSingleProvider
-} from 'contexts';
 import { DayPickerProps } from 'types';
+
+import { ContextProvider } from './contexts/ContextProvider';
 
 /**
  * DayPicker render a date picker component to let users pick dates from a
@@ -98,18 +92,8 @@ import { DayPickerProps } from 'types';
  */
 export function DayPicker(props: DayPickerProps): JSX.Element {
   return (
-    <DayPickerProvider initialProps={props}>
-      <NavigationProvider>
-        <SelectRangeProvider initialProps={props}>
-          <SelectMultipleProvider initialProps={props}>
-            <SelectSingleProvider initialProps={props}>
-              <FocusProvider>
-                <Root />
-              </FocusProvider>
-            </SelectSingleProvider>
-          </SelectMultipleProvider>
-        </SelectRangeProvider>
-      </NavigationProvider>
-    </DayPickerProvider>
+    <ContextProvider {...props}>
+      <Root />
+    </ContextProvider>
   );
 }
