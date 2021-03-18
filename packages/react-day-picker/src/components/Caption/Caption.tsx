@@ -45,7 +45,7 @@ export function Caption(props: CaptionProps): JSX.Element {
   const captionLabel = <CaptionLabel displayMonth={displayMonth} />;
 
   return (
-    <div role="caption" className={classNames.caption} style={styles.caption}>
+    <div className={classNames.caption} style={styles.caption}>
       {disableNavigation && captionLabel}
       {!disableNavigation && (
         <>
