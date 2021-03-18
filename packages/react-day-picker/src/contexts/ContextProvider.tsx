@@ -1,14 +1,13 @@
 import React from 'react';
 
-import {
-  DayPickerProvider,
-  FocusProvider,
-  NavigationProvider,
-  SelectMultipleProvider,
-  SelectRangeProvider,
-  SelectSingleProvider
-} from 'contexts';
 import { DayPickerProps } from 'types';
+
+import { DayPickerProvider } from './DayPickerContext';
+import { FocusProvider } from './FocusContext';
+import { NavigationProvider } from './NavigationContext';
+import { SelectMultipleProvider } from './SelectMultipleContext';
+import { SelectRangeProvider } from './SelectRangeContext';
+import { SelectSingleProvider } from './SelectSingleContext';
 
 /** The props of the [[ContextProvider]] provider. */
 export type ContextProviderProps = DayPickerProps & {
