@@ -1,25 +1,24 @@
 import React from 'react';
 
-import { render, RenderResult } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { ContextProvider as DayPicker } from 'contexts';
 
 import { IconDropdown } from './IconDropdown';
 
-let icon: Element | null;
-let result: RenderResult;
+let icon: HTMLElement;
 
 describe('when rendered without props', () => {
   beforeEach(() => {
-    result = render(
+    render(
       <DayPicker>
         <IconDropdown />
       </DayPicker>
     );
-    icon = result.container.firstElementChild;
+    icon = screen.getByRole('img');
   });
   test('should render a svg element', () => {
-    expect(icon?.tagName).toBe('svg');
+    expect(icon.tagName).toBe('svg');
   });
 });
 
@@ -30,9 +29,9 @@ describe('when using a class name from props', () => {
         <IconDropdown className="foo" />
       </DayPicker>
     );
-    icon = result.container.firstElementChild;
+    icon = screen.getByRole('img');
   });
   test('should add the class name', () => {
-    expect(icon?.classList).toContain('foo');
+    expect(icon.classList).toContain('foo');
   });
 });
