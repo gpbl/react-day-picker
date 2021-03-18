@@ -1,11 +1,10 @@
 import { format } from 'date-fns';
 
+import { WeekdayLabelFormatter } from 'types';
+
 /**
  * The default ARIA label for the Weekday element.
  */
-export const labelWeekday = (
-  day: Date,
-  options?: { locale?: Locale }
-): string => {
+export const labelWeekday: WeekdayLabelFormatter = (day, options): string => {
   return format(day, 'ccc', options);
 };

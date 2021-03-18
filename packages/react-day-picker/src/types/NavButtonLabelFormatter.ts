@@ -3,6 +3,6 @@
  * month" buttons in the navigation.
  */
 export type NavButtonLabelFormatter = (
-  month: Date,
+  month?: Date,
   options?: { locale?: Locale }
 ) => string;

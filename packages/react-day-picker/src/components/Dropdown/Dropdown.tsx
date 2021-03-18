@@ -18,6 +18,7 @@ export function Dropdown(props: DropdownProps): JSX.Element {
   return (
     <div className={className} style={style}>
       <select
+        aria-label={props['aria-label']}
         className={classNames.dropdown}
         style={styles.dropdown}
         value={value}

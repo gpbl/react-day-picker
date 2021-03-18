@@ -28,7 +28,8 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     styles,
     classNames,
     components: { Dropdown },
-    formatters: { formatYearCaption }
+    formatters: { formatYearCaption },
+    labels: { labelYearDropdown }
   } = useDayPicker();
 
   const years: Date[] = [];
@@ -47,6 +48,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
 
   return (
     <Dropdown
+      aria-label={labelYearDropdown()}
       className={classNames.dropdown_month}
       style={styles.dropdown_month}
       onChange={handleChange}

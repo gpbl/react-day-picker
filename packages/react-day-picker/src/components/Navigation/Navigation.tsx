@@ -22,15 +22,13 @@ export function Navigation(props: NavigationProps): JSX.Element {
 
   const { previousMonth, nextMonth } = props;
 
-  const previousLabel = previousMonth
-    ? labelPrevious(previousMonth, { locale })
-    : '';
+  const previousLabel = labelPrevious(previousMonth, { locale });
   const previousClassName = [
     classNames.nav_button,
     classNames.nav_button_previous
   ].join(' ');
 
-  const nextLabel = nextMonth ? labelNext(nextMonth, { locale }) : '';
+  const nextLabel = labelNext(nextMonth, { locale });
   const nextClassName = [
     classNames.nav_button,
     classNames.nav_button_previous
@@ -45,7 +43,14 @@ export function Navigation(props: NavigationProps): JSX.Element {
       disabled={!previousMonth}
       onClick={onPreviousClick}
     >
-      <IconPrevious className={classNames.nav_icon} style={styles.nav_icon} />
+      <IconPrevious
+        aria-hidden
+        className={classNames.nav_icon}
+        style={styles.nav_icon}
+      />
+      <span className={classNames.hidden} style={styles.hidden}>
+        {previousLabel}
+      </span>
     </Button>
   );
 
@@ -58,7 +63,14 @@ export function Navigation(props: NavigationProps): JSX.Element {
       onClick={onNextClick}
       style={styles.nav_button_next}
     >
-      <IconNext className={classNames.nav_icon} style={styles.nav_icon} />
+      <IconNext
+        aria-hidden
+        className={classNames.nav_icon}
+        style={styles.nav_icon}
+      />
+      <span className={classNames.hidden} style={styles.hidden}>
+        {nextLabel}
+      </span>
     </Button>
   );
   if (!nextMonth && !previousMonth) {
