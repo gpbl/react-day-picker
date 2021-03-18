@@ -71,6 +71,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   } = initialProps;
 
   const context: DayPickerContextValue = {
+    className: initialProps.className,
     dir,
     disableNavigation,
     defaultMonth,
@@ -101,6 +102,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     modifiers: modifiersAsArray,
     month,
     numberOfMonths,
+    style: initialProps.style,
     styles: initialProps.styles ?? {},
     toDate,
     today,
