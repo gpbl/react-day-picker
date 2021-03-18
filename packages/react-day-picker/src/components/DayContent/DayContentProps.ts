@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { DateFormatter, ModifierStatus } from 'types';
 
 /** Represent the props for the [[DayContent]] component. */
@@ -20,4 +22,6 @@ export interface DayContentProps {
   'aria-label': string;
   /** The class name for the aria-label (this element should stay not visible) */
   hiddenClassName: string;
+  /** The style for the aria-label (this element should stay not visible) */
+  hiddenStyle?: React.CSSProperties;
 }
