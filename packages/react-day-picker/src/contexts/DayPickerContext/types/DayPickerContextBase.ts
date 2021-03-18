@@ -26,6 +26,7 @@ import {
  */
 export interface DayPickerContextBase {
   captionLayout: CaptionLayout;
+  className?: string;
   classNames: Required<ClassNames>;
   components: Components;
   defaultMonth?: Date;
@@ -63,6 +64,7 @@ export interface DayPickerContextBase {
   showWeekNumber?: boolean;
 
   styles: Styles;
+  style?: React.CSSProperties;
 
   toDate?: Date;
   today: Date;

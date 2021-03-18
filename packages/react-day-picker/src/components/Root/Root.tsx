@@ -2,17 +2,17 @@ import * as React from 'react';
 
 import { Table } from 'components';
 import { useDayPicker, useNavigation } from 'contexts';
-import { StyledComponentProps } from 'types';
 
 /**
  * Render the container with the months and their captions. The number of months
  * rendered depends by the `numberOfMonths` prop.
  */
-export function Root(props: StyledComponentProps): JSX.Element {
-  const { className, style } = props;
+export function Root(): JSX.Element {
   const {
     dir,
+    className,
     classNames,
+    style,
     styles,
     numberOfMonths,
     showWeekNumber,
@@ -21,7 +21,7 @@ export function Root(props: StyledComponentProps): JSX.Element {
 
   const { displayMonths } = useNavigation();
 
-  const rootClassNames = [classNames.root];
+  const rootClassNames = [className ?? classNames.root];
   if (numberOfMonths > 1) {
     rootClassNames.push(classNames.multiple_month);
   }
