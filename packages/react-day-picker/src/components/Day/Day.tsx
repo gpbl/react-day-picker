@@ -22,7 +22,7 @@ export function Day(props: DayProps): JSX.Element | null {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const { date, displayMonth } = props;
 
-  const { ...context } = useDayPicker();
+  const context = useDayPicker();
 
   const { isSingleMode, ...single } = useSelectSingle();
   const { isMultipleMode, ...multiple } = useSelectMultiple();
