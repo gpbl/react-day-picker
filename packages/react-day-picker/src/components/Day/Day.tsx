@@ -127,11 +127,10 @@ export function Day(props: DayProps): JSX.Element | null {
   );
 
   const isControlled = isSingleMode || isMultipleMode || isRangeMode;
-  const isSelectable = !isControlled && context.onDayClick !== undefined;
 
   const className = classNames.join(' ');
 
-  if (isOutside || !isSelectable) {
+  if (isOutside || (!isControlled && !context.onDayClick)) {
     return (
       <div style={style} className={className}>
         {dayContent}
