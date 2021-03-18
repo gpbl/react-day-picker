@@ -22,7 +22,7 @@ html[data-theme='dark'] {
   --menu-background: #010101;
 }
 
-button:not(.rdp-button_reset) {
+article button:not(.rdp-button_reset) {
   appearance: none;
   display: inline-block;
   padding: 0.25em 0.75em;
@@ -35,22 +35,23 @@ button:not(.rdp-button_reset) {
   font-size: smaller;
   background: white;
 }
-[data-theme='dark'] button:not(.rdp-button_reset) {
+[data-theme='dark'] article button:not(.rdp-button_reset) {
   background-color: #010101;
 }
-button:hover:not(.rdp-button_reset):not([disabled]) {
+article button:hover:not(.rdp-button_reset):not([disabled]) {
   border-color: var(--ifm-color-emphasis-500);
   box-shadow: 2px 2px 3px -3px;
 }
-button:not(.rdp-button_reset)[disabled] {
+article button:not(.rdp-button_reset)[disabled] {
   cursor: default;
   opacity: 0.25;
 }
-button:active:not(.rdp-button_reset):not([disabled]) {
+article button:active:not(.rdp-button_reset):not([disabled]) {
   transform: translate(2px 1px);
   border-color: var(--ifm-color-emphasis-500);
   box-shadow: 2px 2px 0px -3px;
 }
+
 .pagination-nav {
   border-top: 1px solid var(--ifm-color-emphasis-300);
 }
