@@ -1,16 +1,38 @@
 import React from 'react';
 
-import { RenderResult } from '@testing-library/react';
+import { render, RenderResult } from '@testing-library/react';
 
-import { customRender } from 'test';
-import { StyledComponentProps } from 'types';
+import { ContextProvider as DayPicker } from 'contexts';
 
 import { IconDropdown } from './IconDropdown';
 
-const setup = (props?: StyledComponentProps): RenderResult => {
-  return customRender(<IconDropdown {...props} />);
-};
-test('should render correctly', () => {
-  const { container } = setup({ className: 'foo', style: { color: 'red' } });
-  expect(container.firstChild).toMatchSnapshot();
+let icon: Element | null;
+let result: RenderResult;
+
+describe('when rendered without props', () => {
+  beforeEach(() => {
+    result = render(
+      <DayPicker>
+        <IconDropdown />
+      </DayPicker>
+    );
+    icon = result.container.firstElementChild;
+  });
+  test('should render a svg element', () => {
+    expect(icon?.tagName).toBe('svg');
+  });
+});
+
+describe('when using a class name from props', () => {
+  beforeEach(() => {
+    render(
+      <DayPicker>
+        <IconDropdown className="foo" />
+      </DayPicker>
+    );
+    icon = result.container.firstElementChild;
+  });
+  test('should add the class name', () => {
+    expect(icon?.classList).toContain('foo');
+  });
 });

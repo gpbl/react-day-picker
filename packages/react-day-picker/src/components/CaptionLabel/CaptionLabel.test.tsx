@@ -1,22 +1,33 @@
 import React from 'react';
 
-import { RenderResult } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import tk from 'timekeeper';
 
-import { customRender } from 'test';
+import { ContextProvider as DayPicker } from 'contexts';
 
 import { CaptionLabel } from './CaptionLabel';
-import { CaptionLabelProps } from './CaptionLabelProps';
 
-const FrozenDate = new Date(2020, 5);
+const FrozenDate = new Date(1979, 8);
 
 beforeEach(() => tk.freeze(FrozenDate));
 afterEach(() => tk.reset());
 
-const setup = (props?: CaptionLabelProps): RenderResult => {
-  return customRender(<CaptionLabel displayMonth={new Date()} {...props} />);
-};
-test('should render correctly', () => {
-  const { container } = setup();
-  expect(container.firstChild).toMatchSnapshot();
+test('should render the formatted display month', () => {
+  render(
+    <DayPicker>
+      <CaptionLabel displayMonth={FrozenDate} />
+    </DayPicker>
+  );
+  const label = screen.getByText(/september 1979/i);
+  expect(label).toBeInTheDocument();
+});
+
+test('should apply the `caption_label` class name', () => {
+  render(
+    <DayPicker classNames={{ caption_label: 'foo' }}>
+      <CaptionLabel displayMonth={FrozenDate} />
+    </DayPicker>
+  );
+  const label = screen.getByText(/september 1979/i);
+  expect(label).toBeInTheDocument();
 });

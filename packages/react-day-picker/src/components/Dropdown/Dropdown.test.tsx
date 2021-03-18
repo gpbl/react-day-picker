@@ -8,4 +8,4 @@ test.todo('should apply the `caption_label` class name to the caption');
 test.todo('should apply the `caption_label` style to the caption');
 test.todo('should render the drop-down icon');
 test.todo('should apply the `drop-down_icon` class name to the icon');
-test.todo('should apply the `drop-down_icon` styleto the icon');
+test.todo('should apply the `drop-down_icon` style to the icon');
