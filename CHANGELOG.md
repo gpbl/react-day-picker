@@ -1,3 +1,11 @@
+### [v7.4.9](https://github.com/gpbl/react-day-picker/tree/v7.4.9) (2021-03-18)
+
+- Re-add `transform-react-remove-prop-types` to `.babelrc` ([#1165](https://github.com/gpbl/react-day-picker/issues/1165))
+- Add `null` to `RangeModifier` ([#1037](https://github.com/gpbl/react-day-picker/issues/1037))
+- Corrected typing for `RangerModifier` ([#1065](https://github.com/gpbl/react-day-picker/issues/1065))
+- Add React 17 as peer dependency ([#1075](https://github.com/gpbl/react-day-picker/issues/1075))
+- Add `aria-polite` to announce month change during navigation ([#1033](https://github.com/gpbl/react-day-picker/issues/1033))
+
 ### [v7.4.8](https://github.com/gpbl/react-day-picker/tree/v7.4.8) (2020-04-19)
 
 - Fixed uncontrolled `DayPickerInput` causing the field not being cleared (#990 by @ntlf)
