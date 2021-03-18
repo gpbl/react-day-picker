@@ -19,7 +19,8 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     locale,
     formatters: { formatMonthCaption },
     classNames,
-    components: { Dropdown }
+    components: { Dropdown },
+    labels: { labelMonthDropdown }
   } = useDayPicker();
 
   if (!fromDate && !toDate) {
@@ -57,6 +58,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
 
   return (
     <Dropdown
+      aria-label={labelMonthDropdown()}
       className={classNames.dropdown_month}
       style={styles.dropdown_month}
       onChange={handleChange}

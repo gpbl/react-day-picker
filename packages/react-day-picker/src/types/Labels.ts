@@ -8,6 +8,8 @@ import { WeekNumberLabelFormatter } from './WeekNumberLabelFormatter';
  * elements.
  */
 export type Labels = {
+  labelMonthDropdown: () => string;
+  labelYearDropdown: () => string;
   labelNext: NavButtonLabelFormatter;
   labelPrevious: NavButtonLabelFormatter;
   labelDay: DayLabelFormatter;

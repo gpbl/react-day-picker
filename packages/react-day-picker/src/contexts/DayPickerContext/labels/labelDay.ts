@@ -1,8 +1,10 @@
 import { format } from 'date-fns';
 
+import { DayLabelFormatter } from 'types';
+
 /**
  * The default ARIA label for the day button.
  */
-export const labelDay = (day: Date, options?: { locale?: Locale }): string => {
+export const labelDay: DayLabelFormatter = (day, options): string => {
   return format(day, 'PPPP', options);
 };
