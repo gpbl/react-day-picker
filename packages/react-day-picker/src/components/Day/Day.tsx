@@ -96,7 +96,7 @@ export function Day(props: DayProps): JSX.Element | null {
   // #endregion
 
   const classNames = [context.classNames.day].concat(modifierClassNames);
-  const style = Object.assign(context.styles.day, modifierStyle);
+  let style: React.CSSProperties = { ...context.styles.day, ...modifierStyle };
 
   const isOutside = !isSameMonth(date, displayMonth);
 
@@ -106,7 +106,7 @@ export function Day(props: DayProps): JSX.Element | null {
 
   if (isOutside) {
     classNames.push(context.classNames.day_outside);
-    Object.assign(context.styles, context.styles.day_outside);
+    style = { ...context.styles, ...context.styles.day_outside };
   }
 
   const ariaLabel = labelDay(date, modifiers, { locale });
