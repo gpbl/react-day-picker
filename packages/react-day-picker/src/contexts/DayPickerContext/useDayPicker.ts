@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { DayPickerContext } from './DayPickerContext';
 import { DayPickerContextValue } from './types';
