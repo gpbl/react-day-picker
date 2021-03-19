@@ -17,18 +17,24 @@ See the preview website at https://react-day-picker-next.netlify.app.
 <details>
   <summary>Beta Changelog</summary>
 
-## [v8.0.0-beta.24](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.20)
+## [v8.0.0-beta.25](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.25)
 
-- reintroduced CommonJS
-- added `required` prop for single select mode
-- fixed `useInput` bugs
+- Added a global `ContextProvider`
+- ARIA improvements
+- Fix `className` and `style` not being applied to root
+
+## [v8.0.0-beta.24](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.24)
+
+- Reintroduced CommonJS
+- Added `required` prop for single select mode
+- Fixed `useInput` bugs
 
 ## [v8.0.0-beta.18](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.18)
 
-- removed `onSelectMultiple`, `onSelectRange` (use `onSelect`)
-- added `min`, `max` props to limit selections
-- set the selection mode disabled as default
-- bug fixes
+- Removed `onSelectMultiple`, `onSelectRange` (use `onSelect`)
+- Added `min`, `max` props to limit selections
+- Set the selection mode disabled as default
+- Bug fixes
 
 ## [v8.0.0-beta.17](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.17)
 
