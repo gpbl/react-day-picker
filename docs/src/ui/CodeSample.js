@@ -25,18 +25,22 @@ export default function CodeSamples({ name, lines, vertical = false }) {
               'react-day-picker': 'latest',
               'react-helmet': 'latest',
               moment: 'latest',
-              'date-fns': 'next',
+              'date-fns': 'latest',
             }}
             gitInfo={{
               account: 'gpbl',
+              branch: 'v7',
               repository: 'react-day-picker',
               host: 'github',
             }}
             name={`react-day-picker ${name}`}
-            description="boh"
             examplePath={`docs/src/code-samples/${name}.js`}
           >
-            {() => <button type="submit">↗ CodeSandbox</button>}
+            {() => (
+              <button type="submit" style={{ backgroundColor: 'transparent' }}>
+                ↗ CodeSandbox
+              </button>
+            )}
           </CodeSandboxer>
         </h4>
         <hr />
