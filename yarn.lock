@@ -5718,6 +5718,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"codesandboxer@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "codesandboxer@npm:1.0.3"
+  dependencies:
+    babel-runtime: ^6.26.0
+    form-data: ^2.3.2
+    isomorphic-unfetch: ^2.0.0
+    lz-string: ^1.4.4
+    path-browserify: ^1.0.0
+  checksum: 4072c7e57ecd3c17e8c05b7891d87ffdc6071365fd81bd0fac409989bf8dd4ed101142142fe3e42fc9c4cc7dad3d487e0c922a784d56928720d2852aa02dd6ff
+  languageName: node
+  linkType: hard
+
 "collapse-white-space@npm:^1.0.2":
   version: 1.0.6
   resolution: "collapse-white-space@npm:1.0.6"
@@ -8576,6 +8589,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"form-data@npm:^2.3.2":
+  version: 2.5.1
+  resolution: "form-data@npm:2.5.1"
+  dependencies:
+    asynckit: ^0.4.0
+    combined-stream: ^1.0.6
+    mime-types: ^2.1.12
+  checksum: c46ee9a14a8678b6e0dfafabc96e25237d9f11ced9c51cd371a2b3448f6a3f2fa684b3bbbb35911bae8f5448b3f3c48c73f7f2be791a4ae5aee0eb0ab3cdfec2
+  languageName: node
+  linkType: hard
+
 "form-data@npm:~2.3.2":
   version: 2.3.3
   resolution: "form-data@npm:2.3.3"
@@ -10556,6 +10580,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"isomorphic-unfetch@npm:^2.0.0":
+  version: 2.1.1
+  resolution: "isomorphic-unfetch@npm:2.1.1"
+  dependencies:
+    node-fetch: ^2.1.2
+    unfetch: ^3.1.0
+  checksum: 93f8fbd0fb20e8d1f0b3c59a8b06b69dfce408a78bd493b3669eb988ab3fafb09890ec60933eaad50b818db3aeacd3f4360f89774a3b9454d4170c003127d13b
+  languageName: node
+  linkType: hard
+
 "isstream@npm:~0.1.2":
   version: 0.1.2
   resolution: "isstream@npm:0.1.2"
@@ -11698,6 +11732,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"lodash.isequal@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.isequal@npm:4.5.0"
+  checksum: 5b47e094641c18a915497343894c66f7da6aebb9aaa2a3fcc5643455aaf29d19df60ebbed664c8374fb959c8b4ce96810ee6becd8a71ac58c6c2ca8d29762947
+  languageName: node
+  linkType: hard
+
 "lodash.map@npm:^4.4.0":
   version: 4.6.0
   resolution: "lodash.map@npm:4.6.0"
@@ -11719,7 +11760,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash.pick@npm:^4.2.1":
+"lodash.pick@npm:^4.2.1, lodash.pick@npm:^4.4.0":
   version: 4.4.0
   resolution: "lodash.pick@npm:4.4.0"
   checksum: 3cf24484b1bd36652bfbe1e925e6955ee0332f1612919331a2d6115d5617bcaaf559e4fb21f4160d51eb2359f7a8dc0e478773da516b4ccc15ef261327064aab
@@ -12534,7 +12575,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:2.6.1":
+"node-fetch@npm:2.6.1, node-fetch@npm:^2.1.2":
   version: 2.6.1
   resolution: "node-fetch@npm:2.6.1"
   checksum: cbb171635e538162b977eac5dfe7a1e07a9a02e991924377a6435502291e2f823d306b95aabc455caebf4a118ccf836868462bc70ccc3095af02bb9da61fda37
@@ -13322,6 +13363,13 @@ fsevents@^1.2.7:
   version: 0.0.1
   resolution: "path-browserify@npm:0.0.1"
   checksum: b7be4bcc030b6cca2f2093d776af57d508a781afb7a72bb2214e93559a57d9265c23f5ded45ae74f25ffe1dfaed98281685f86e1210cd3b68b85a3a217c45922
+  languageName: node
+  linkType: hard
+
+"path-browserify@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "path-browserify@npm:1.0.1"
+  checksum: 45bb7389177dfe5cba5d1ee9589e578c8272ac330c00d388343845199c1d30227ca8d59bb3a15618e478673fcfa2fb7a5ad2bfcc1083d442a61a3a71aecd7dd6
   languageName: node
   linkType: hard
 
@@ -14991,6 +15039,18 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-codesandboxer@npm:^3.1.5":
+  version: 3.1.5
+  resolution: "react-codesandboxer@npm:3.1.5"
+  dependencies:
+    codesandboxer: ^1.0.3
+    lodash.isequal: ^4.5.0
+    lodash.pick: ^4.4.0
+    react-node-resolver: ^1.0.1
+  checksum: fa289d5c07e3c9f5c7a7b2a8595caa2f0ecfdbaa7577eada755ed1c5da17df28d5e653fb1ffe86e1957cb00e0096f396b39c10deaa6b7fb05c2397765811a921
+  languageName: node
+  linkType: hard
+
 "react-day-picker@workspace:packages/react-day-picker":
   version: 0.0.0-use.local
   resolution: "react-day-picker@workspace:packages/react-day-picker"
@@ -15156,6 +15216,13 @@ fsevents@^1.2.7:
   peerDependencies:
     react: "*"
   checksum: fb14650fe86f20c2554e3645482ed67eb4ce0e46d72e06f91a7f57739e90b1b42c31e8597d7d415ee69bc16f85211bafec7b24ddadd7f3fe72c176f45931158d
+  languageName: node
+  linkType: hard
+
+"react-node-resolver@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "react-node-resolver@npm:1.0.1"
+  checksum: 8fa999ed1733ba806353686da79d2f3dc1ac4832fd60bae3aa1f90c6c0720013ae4bd3dbd5b39eb80a06eadc6d5a58262af407a21460ca581c42d646e4aeb1db
   languageName: node
   linkType: hard
 
@@ -18047,6 +18114,13 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
+"unfetch@npm:^3.1.0":
+  version: 3.1.2
+  resolution: "unfetch@npm:3.1.2"
+  checksum: 214875d6fa3f3ba6c09ce60c5597e91dbab32de819a5f39f458ca6775c2a043082cf197e137252f08b3f49cadba06e70ee6b072a9b10dc39e2a121898c8335b2
+  languageName: node
+  linkType: hard
+
 "unherit@npm:^1.0.4":
   version: 1.1.3
   resolution: "unherit@npm:1.1.3"
@@ -18997,6 +19071,7 @@ resolve@1.18.1:
     docusaurus-plugin-typedoc: ^0.11.0
     raw-loader: ^4.0.2
     react: ^17.0.1
+    react-codesandboxer: ^3.1.5
     react-day-picker: "workspace:packages/react-day-picker"
     react-dom: ^17.0.1
     typedoc: ^0.20.30
