@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": "10"
+    "node": "12"
   },
   "name": "react-day-picker-website",
   "description": "",
