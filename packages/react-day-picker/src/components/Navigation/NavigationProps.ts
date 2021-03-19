@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 /** The props for the [[Navigation]] component. */
 export interface NavigationProps {
