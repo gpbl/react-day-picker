@@ -3,6 +3,6 @@ import * as React from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/style.css';
 
-export default function App() {
+export default function Example() {
   return <DayPicker fromYear={2015} toYear={2025} captionLayout="dropdown" />;
 }

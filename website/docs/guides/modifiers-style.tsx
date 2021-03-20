@@ -3,7 +3,7 @@ import React, { CSSProperties } from 'react';
 import { DayClickEventHandler, DayPicker } from 'react-day-picker';
 import 'react-day-picker/style.css';
 
-export default function App() {
+export default function Example() {
   const availableDays = [new Date(2021, 5, 23), new Date(2021, 5, 24)];
   const availableStyle: CSSProperties = {
     fontWeight: 900,

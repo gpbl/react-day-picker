@@ -3,7 +3,7 @@ import * as React from 'react';
 import { DayClickEventHandler, DayPicker } from 'react-day-picker';
 import 'react-day-picker/style.css';
 
-export default function App() {
+export default function Example() {
   const handleDayClick: DayClickEventHandler = (day, { today }) => {
     if (today) {
       alert('You clicked the today’s date!');

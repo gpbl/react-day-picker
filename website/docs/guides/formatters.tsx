@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { format } from 'date-fns';
+
 import { DateFormatter, DayPicker } from 'react-day-picker';
 import 'react-day-picker/style.css';
 
@@ -27,7 +28,7 @@ const seasonEmoji = {
   )
 };
 
-export default function App() {
+export default function Example() {
   // Remove year from the caption
   const formatCaption: DateFormatter = (month, { locale }) => {
     let season = '';

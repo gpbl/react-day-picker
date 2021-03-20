@@ -1,10 +1,11 @@
 import * as React from 'react';
 
 import { addDays } from 'date-fns';
+
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/style.css';
 
-export default function App() {
+export default function Example() {
   const defaultSelected: Date[] = [
     addDays(new Date(), 1),
     addDays(new Date(), 2)
