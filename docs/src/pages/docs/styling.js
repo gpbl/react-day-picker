@@ -12,7 +12,7 @@ export default () => (
   <DocPage title="Styling">
     <p>
       To style the component, use{' '}
-      <a href="https://github.com/gpbl/react-day-picker/blob/master/src/style.css">
+      <a href="https://github.com/gpbl/react-day-picker/blob/v7/src/style.css">
         src/style.css
       </a>{' '}
       as template and update it to fit the desired style. Then, just include it
