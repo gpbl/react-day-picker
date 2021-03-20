@@ -7,6 +7,13 @@
       "problemMatcher": [],
       "label": "Run DayPicker build in watch mode",
       "detail": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w --pretty'"
+    },
+    {
+      "type": "npm",
+      "script": "css:types",
+      "problemMatcher": [],
+      "label": "Build CSS types",
+      "detail": "yarn tcm -p style.css"
     }
   ]
 }
