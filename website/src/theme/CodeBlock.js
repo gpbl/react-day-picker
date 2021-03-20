@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import 'react-day-picker/style.css';
 
 import CodeSandboxer from 'react-codesandboxer';
