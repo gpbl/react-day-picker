@@ -82,8 +82,6 @@ See the preview website at https://react-day-picker-next.netlify.app.
 - Bug fixes
 - Style and layout improvements
 
-</details>
-
 ## Older changelog
 
 See [/v7/CHANGELOG.md](https://github.com/gpbl/react-day-picker/blob/v7/CHANGELOG.md) for the changelog of versions before 8.
