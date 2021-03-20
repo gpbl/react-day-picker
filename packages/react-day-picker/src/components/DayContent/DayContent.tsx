@@ -11,11 +11,11 @@ export function DayContent(props: DayContentProps): JSX.Element {
 
   return (
     <>
-      <span className={props.hiddenClassName} style={props.hiddenStyle}>
-        {props['aria-label']}
-      </span>
       <span aria-hidden="true">
         {props.format(props.date, { locale: props.locale })}
+      </span>
+      <span className={props.hiddenClassName} style={props.hiddenStyle}>
+        {props['aria-label']}
       </span>
     </>
   );

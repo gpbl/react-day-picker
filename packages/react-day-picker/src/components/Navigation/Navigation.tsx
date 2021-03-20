@@ -43,14 +43,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
       disabled={!previousMonth}
       onClick={onPreviousClick}
     >
-      <IconPrevious
-        aria-hidden
-        className={classNames.nav_icon}
-        style={styles.nav_icon}
-      />
-      <span className={classNames.hidden} style={styles.hidden}>
-        {previousLabel}
-      </span>
+      <IconPrevious className={classNames.nav_icon} style={styles.nav_icon} />
     </Button>
   );
 
@@ -63,14 +56,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
       onClick={onNextClick}
       style={styles.nav_button_next}
     >
-      <IconNext
-        aria-hidden
-        className={classNames.nav_icon}
-        style={styles.nav_icon}
-      />
-      <span className={classNames.hidden} style={styles.hidden}>
-        {nextLabel}
-      </span>
+      <IconNext className={classNames.nav_icon} style={styles.nav_icon} />
     </Button>
   );
   if (!nextMonth && !previousMonth) {

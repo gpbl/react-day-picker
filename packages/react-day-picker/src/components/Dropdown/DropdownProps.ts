@@ -3,7 +3,6 @@ import * as React from 'react';
 /** The props for the [[Dropdown]] component. */
 
 export interface DropdownProps {
-  'aria-label': string;
   caption?: React.ReactNode;
   children?: React.SelectHTMLAttributes<HTMLSelectElement>['children'];
   className?: string;

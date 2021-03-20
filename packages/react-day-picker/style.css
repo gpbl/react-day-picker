@@ -15,8 +15,15 @@
 }
 
 /* Hide elements for devices that are not screen readers */
-.rdp-hidden {
-  display: none;
+.rdp-vhidden {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 1px;
 }
 
 /* Buttons */

@@ -117,8 +117,8 @@ export function Day(props: DayProps): JSX.Element | null {
       date={date}
       displayMonth={displayMonth}
       format={formatDay}
-      hiddenClassName={context.classNames.hidden}
-      hiddenStyle={context.styles.hidden}
+      hiddenClassName={context.classNames.vhidden}
+      hiddenStyle={context.styles.vhidden}
       locale={locale}
       modifiers={modifiers}
       outside={isOutside}

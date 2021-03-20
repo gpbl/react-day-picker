@@ -8,8 +8,8 @@ export type StyledElement<T = string | React.CSSProperties> = {
   readonly multiple_month: T;
   /** The style of the root element when `showWeekNumber={true}`. */
   readonly with_weeknumber: T;
-  /** The style of an element hidden for NOT screen-reader devices. */
-  readonly hidden: T;
+  /** The style of an element visually hidden. */
+  readonly vhidden: T;
   /** The style for resetting the buttons. */
   readonly button_reset: T;
   /** The style of the buttons. */
