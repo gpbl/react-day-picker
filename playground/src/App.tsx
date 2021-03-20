@@ -1,9 +1,9 @@
-import "./App.css";
-import "react-day-picker/style.css";
+import { addDays, addYears } from 'date-fns';
 
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/style.css';
 
-import { addDays, addYears } from "date-fns";
+import './App.css';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
 
       <h2>Single selection mode</h2>
       <p>DayPicker is in "single selection mode".</p>
-      <DayPicker mode="single" />
+      <DayPicker mode="single" showOutsideDays />
       <h3>Limiting amount of selectable days</h3>
       <p>Cannot select less than one. Default selected is today.</p>
       <DayPicker
@@ -77,6 +77,7 @@ function App() {
 
       <h1>Dropdowns</h1>
       <DayPicker fromYear={2010} toYear={2020} captionLayout="dropdown" />
+
       <h1>Range selection</h1>
       <DayPicker
         mode="range"
