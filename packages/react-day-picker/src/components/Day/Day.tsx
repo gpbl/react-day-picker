@@ -130,7 +130,7 @@ export function Day(props: DayProps): JSX.Element | null {
 
   const className = classNames.join(' ');
 
-  if (isOutside || (!isControlled && !context.onDayClick)) {
+  if (!isControlled && !context.onDayClick) {
     return (
       <div style={style} className={className}>
         {dayContent}
