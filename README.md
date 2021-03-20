@@ -1,1 +1,1 @@
-packages/react-day-picker/README.md
+./packages/react-day-picker/README.md
