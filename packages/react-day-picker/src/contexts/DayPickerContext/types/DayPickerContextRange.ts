@@ -1,5 +1,4 @@
 import { DateRange, SelectRangeEventHandler } from 'types';
-
 import { DayPickerContextBase } from './DayPickerContextBase';
 
 /** Represent the value of the DayPicker context when `mode="range"`. */

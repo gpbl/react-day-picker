@@ -5,7 +5,6 @@ import {
   useSelectSingle
 } from 'contexts';
 import { ModifiersArray } from 'types';
-
 import { UseModifiers } from './types';
 import { getModifierStatus } from './utils/getModifierStatus';
 

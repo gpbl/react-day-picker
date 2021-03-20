@@ -1,6 +1,5 @@
-import * as React from 'react';
-
 import { render, RenderResult } from '@testing-library/react';
+import * as React from 'react';
 
 import { ContextProvider, ContextProviderProps } from 'contexts';
 

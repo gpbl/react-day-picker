@@ -3,7 +3,6 @@ import * as React from 'react';
 import { isSameMonth } from 'date-fns';
 
 import { useDayPicker } from 'contexts';
-
 import { NavigationContext } from './NavigationContext';
 import { getDisplayMonths } from './utils/getDisplayMonths';
 import { getInitialMonth } from './utils/getInitialMonth';

@@ -1,9 +1,7 @@
+import { screen } from '@testing-library/react';
 import * as React from 'react';
 
-import { screen } from '@testing-library/react';
-
 import { customRender } from 'test';
-
 import { Button } from './Button';
 
 let button: HTMLElement;

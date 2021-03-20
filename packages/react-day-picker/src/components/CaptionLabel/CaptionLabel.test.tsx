@@ -1,10 +1,9 @@
+import { screen } from '@testing-library/react';
 import * as React from 'react';
 
-import { screen } from '@testing-library/react';
 import tk from 'timekeeper';
 
 import { customRender } from 'test';
-
 import { CaptionLabel } from './CaptionLabel';
 
 const FrozenDate = new Date(1979, 8);

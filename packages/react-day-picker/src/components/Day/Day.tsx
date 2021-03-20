@@ -10,7 +10,6 @@ import {
   useSelectSingle
 } from 'contexts';
 import { useModifiers } from 'hooks';
-
 import { DayProps } from './DayProps';
 import { useDayFocus } from './hooks/useDayFocus';
 

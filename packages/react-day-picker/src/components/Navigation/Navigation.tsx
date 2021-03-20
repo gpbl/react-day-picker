@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { Button } from 'components';
 import { useDayPicker } from 'contexts';
-
 import { NavigationProps } from './NavigationProps';
 
 /** A component rendering the navigation buttons or the drop-downs. */

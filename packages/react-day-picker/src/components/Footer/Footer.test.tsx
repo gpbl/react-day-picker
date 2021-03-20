@@ -1,9 +1,7 @@
+import { screen } from '@testing-library/react';
 import React from 'react';
 
-import { screen } from '@testing-library/react';
-
 import { customRender } from 'test';
-
 import { Footer } from './Footer';
 
 test('should not render anything as default', () => {

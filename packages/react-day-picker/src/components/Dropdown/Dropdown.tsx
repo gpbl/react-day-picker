@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { useDayPicker } from 'contexts';
-
 import { DropdownProps } from './DropdownProps';
 
 /**

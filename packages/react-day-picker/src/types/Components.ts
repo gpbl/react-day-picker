@@ -7,7 +7,6 @@ import {
   RowProps,
   WeekNumberProps
 } from 'components';
-
 import { StyledComponentProps } from './StyledComponentProps';
 
 /**

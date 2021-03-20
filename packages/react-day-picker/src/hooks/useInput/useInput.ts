@@ -5,7 +5,6 @@ import { enUS } from 'date-fns/locale';
 
 import { parseFromToProps } from 'contexts';
 import { DayClickEventHandler, MonthChangeEventHandler } from 'types';
-
 import {
   UseInputDayPickerProps,
   UseInputFieldProps,
