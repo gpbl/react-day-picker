@@ -41,6 +41,15 @@
         "regex": "^[.]"
       },
       {
+        "orderLevel": 30,
+        "regex": "^react-day-picker"
+      },
+      {
+        "orderLevel": 20,
+        "regex": "^date-fns"
+      },
+
+      {
         "orderLevel": 10,
         "regex": "^(react|react-dom)$"
       }
