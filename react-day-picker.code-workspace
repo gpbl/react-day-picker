@@ -33,7 +33,7 @@
     "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 20,
     "importSorter.sortConfiguration.customOrderingRules.rules": [
       {
-        "orderLevel": 40,
+        "orderLevel": 50,
         "regex": "^(contexts|components|hooks|types|test)$"
       },
       {
@@ -45,13 +45,8 @@
         "regex": "^react-day-picker"
       },
       {
-        "orderLevel": 20,
-        "regex": "^date-fns"
-      },
-
-      {
         "orderLevel": 10,
-        "regex": "^(react|react-dom)$"
+        "regex": "^(react|react-dom|@testing-library/react)$"
       }
     ],
     "jest.disabledWorkspaceFolders": ["playground", "website", "root"],

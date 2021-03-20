@@ -3,7 +3,6 @@ import * as React from 'react';
 import { MonthsDropdown, Navigation, YearsDropdown } from 'components';
 import { useDayPicker, useNavigation } from 'contexts';
 import { MonthChangeEventHandler } from 'types';
-
 import { CaptionProps } from './CaptionProps';
 
 /**

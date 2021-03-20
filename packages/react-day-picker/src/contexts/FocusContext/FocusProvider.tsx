@@ -3,7 +3,6 @@ import * as React from 'react';
 import { addDays, addMonths, addWeeks, isSameMonth } from 'date-fns';
 
 import { useDayPicker, useNavigation } from 'contexts';
-
 import { FocusContext } from './FocusContext';
 
 /**

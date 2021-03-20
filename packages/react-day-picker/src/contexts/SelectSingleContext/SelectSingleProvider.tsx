@@ -6,7 +6,6 @@ import {
   isDayPickerSingle,
   ModifiersArray
 } from 'types';
-
 import { SelectSingleContext } from './SelectSingleContext';
 
 /** Provides the values for the [[SelectSingleProvider]]. */

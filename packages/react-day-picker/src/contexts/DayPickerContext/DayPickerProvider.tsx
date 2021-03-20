@@ -4,7 +4,6 @@ import enUS from 'date-fns/locale/en-US';
 
 import * as Components from 'components';
 import { DayPickerProps } from 'types';
-
 import { DayPickerContext } from './DayPickerContext';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';

@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { DayPickerProps } from 'types';
-
 import { DayPickerProvider } from './DayPickerContext';
 import { FocusProvider } from './FocusContext';
 import { NavigationProvider } from './NavigationContext';

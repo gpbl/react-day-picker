@@ -3,7 +3,6 @@ import * as React from 'react';
 import { isSameDay } from 'date-fns';
 
 import { DayClickEventHandler, DayPickerProps, ModifiersArray } from 'types';
-
 import { isDayPickerMultiple } from '../../types';
 import { SelectMultipleContext } from './SelectMultipleContext';
 

@@ -9,7 +9,6 @@ import {
   isDayPickerRange,
   ModifiersArray
 } from 'types';
-
 import { SelectRangeContext } from './SelectRangeContext';
 import { addToRange } from './utils/addToRange';
 

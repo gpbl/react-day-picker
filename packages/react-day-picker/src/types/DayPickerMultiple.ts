@@ -1,5 +1,4 @@
 import { Matcher } from 'types';
-
 import { DayPickerBase } from './DayPickerBase';
 import { SelectMultipleEventHandler } from './SelectMultipleEventHandler';
 

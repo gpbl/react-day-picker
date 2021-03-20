@@ -1,9 +1,7 @@
+import { render, RenderResult } from '@testing-library/react';
 import * as React from 'react';
 
-import { render, RenderResult } from '@testing-library/react';
-
 import { ContextProvider } from 'contexts';
-
 import { IconNext } from './IconNext';
 
 let icon: Element;
