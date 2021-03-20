@@ -1,11 +1,7 @@
 import * as React from 'react';
-import 'react-day-picker/style.css';
 
-import CodeSandboxer from 'react-codesandboxer';
 import OriginalCodeBlock from '@theme-original/CodeBlock';
-
-import pkg from 'react-day-picker/package.json';
-
+import { CodeSandboxButton } from '../CodeSandboxButton';
 // Default implementation, that you can customize
 /**
  * Very basic CodeBlock to run an app and show its source.
@@ -41,30 +37,7 @@ export default function CodeBlock(props) {
       <OriginalCodeBlock {...props} title="test" className="language-tsx">
         {src}
       </OriginalCodeBlock>
-      <CodeSandboxer
-        examplePath={`website/docs/${fileName}`}
-        dependencies={{
-          'react-day-picker': pkg.version,
-          'date-fns': '2.19.0',
-          '@babel/runtime': '7.13.10',
-          react: '17.0.1',
-          'react-dom': '17.0.1'
-        }}
-        gitInfo={{
-          account: 'gpbl',
-          branch: 'master',
-          repository: 'react-day-picker',
-          host: 'github'
-        }}
-        name={`react-day-picker: ${fileName}`}
-      >
-        {() => (
-          <button type="submit" style={{ padding: '.4em .8em' }}>
-            ↗ CodeSandbox
-          </button>
-        )}
-      </CodeSandboxer>
-
+      <CodeSandboxButton fileName={fileName} />
       <details open>
         <summary>Output</summary>
         <div>
