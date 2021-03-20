@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { DayPicker, Row, RowProps } from 'react-day-picker';
 
 import { differenceInCalendarDays } from 'date-fns';
+import { DayPicker, Row, RowProps } from 'react-day-picker';
+import 'react-day-picker/style.css';
 
 function isPastDate(date) {
   return differenceInCalendarDays(date, new Date()) < 0;

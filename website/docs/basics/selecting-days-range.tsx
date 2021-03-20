@@ -1,11 +1,8 @@
 import * as React from 'react';
-import {
-  DateRange,
-  DayPicker,
-  SelectRangeEventHandler
-} from 'react-day-picker';
 
 import { addDays, format } from 'date-fns';
+import { DateRange, DayPicker } from 'react-day-picker';
+import 'react-day-picker/style.css';
 
 export default function App() {
   const defaultSelected: DateRange = {
