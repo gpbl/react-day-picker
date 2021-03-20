@@ -11,10 +11,6 @@
     {
       "name": "website",
       "path": "./website"
-    },
-    {
-      "name": "root",
-      "path": "."
     }
   ],
   "settings": {
@@ -46,7 +42,7 @@
       },
       {
         "orderLevel": 10,
-        "regex": "^react$"
+        "regex": "^(react|react-dom)$"
       }
     ],
     "jest.disabledWorkspaceFolders": ["playground", "website", "root"],

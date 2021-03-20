@@ -5,7 +5,7 @@
       "type": "npm",
       "script": "start",
       "problemMatcher": [],
-      "label": "Start Playground app",
+      "label": "Run Playground",
       "detail": "react-scripts start"
     }
   ]
