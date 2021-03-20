@@ -4,7 +4,7 @@ import { render, RenderResult } from '@testing-library/react';
 
 import { ContextProvider } from 'contexts';
 
-import { IconDropdown } from './IconDropdown';
+import { IconNext } from './IconNext';
 
 let icon: Element;
 let result: RenderResult;
@@ -12,7 +12,7 @@ describe('when rendered without props', () => {
   beforeEach(() => {
     result = render(
       <ContextProvider>
-        <IconDropdown />
+        <IconNext />
       </ContextProvider>
     );
     icon = result.container.children[0];
@@ -26,7 +26,7 @@ describe('when using a class name from props', () => {
   beforeEach(() => {
     result = render(
       <ContextProvider>
-        <IconDropdown className="foo" />
+        <IconNext className="foo" />
       </ContextProvider>
     );
     icon = result.container.children[0];
@@ -40,7 +40,7 @@ describe('when using a style from props', () => {
   beforeEach(() => {
     result = render(
       <ContextProvider>
-        <IconDropdown style={{ color: 'red' }} />
+        <IconNext style={{ color: 'red' }} />
       </ContextProvider>
     );
     icon = result.container.children[0];
