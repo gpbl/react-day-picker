@@ -4,16 +4,25 @@
     {
       "type": "npm",
       "script": "develop",
-      "problemMatcher": [],
-      "label": "Run DayPicker build in watch mode",
+      "problemMatcher": ["$msCompile"],
+      "label": "Build DayPicker (watch mode)",
       "detail": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w --pretty'"
     },
     {
       "type": "npm",
       "script": "css:types",
       "problemMatcher": [],
+      "group": "build",
       "label": "Build CSS types",
       "detail": "yarn tcm -p style.css"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": ["$msCompile"],
+      "group": "build",
+      "label": "Build DayPicker",
+      "detail": "yarn build:clean && yarn build:esm && yarn build:dist"
     }
   ]
 }
