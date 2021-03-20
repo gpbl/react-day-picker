@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import { DayClickEventHandler, DayPicker } from 'react-day-picker';
+import 'react-day-picker/style.css';
 
 export default function App() {
   const [selectedDay, setSelectedDay] = React.useState<Date>();

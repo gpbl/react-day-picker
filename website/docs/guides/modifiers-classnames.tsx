@@ -1,5 +1,7 @@
-import React, { CSSProperties } from 'react';
-import { DayClickEventHandler, DayPicker } from 'react-day-picker';
+import * as React from 'react';
+
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/style.css';
 
 export default function App() {
   const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
