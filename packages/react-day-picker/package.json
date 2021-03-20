@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "8.0.0-beta.25",
+  "version": "8.0.0-beta.26",
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "http://react-day-picker.js.org",
@@ -31,7 +31,8 @@
   "files": [
     "dist",
     "esm",
-    "style.css"
+    "style.css",
+    "style.css.d.ts"
   ],
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",
