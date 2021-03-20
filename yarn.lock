@@ -165,6 +165,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atlaskit/css-reset@npm:^6.0.5":
+  version: 6.0.5
+  resolution: "@atlaskit/css-reset@npm:6.0.5"
+  dependencies:
+    "@atlaskit/theme": ^11.0.0
+    "@babel/runtime": ^7.0.0
+    fbjs: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0
+  checksum: 626a6b46edc69c6c0e12f2088ae64253ca973fd6d9b1c931030401e64cdd39e3bc655881f8dcde8e8213b9a96c5b27869e6cc729c037a1f44d91675ad959415f
+  languageName: node
+  linkType: hard
+
+"@atlaskit/theme@npm:^11.0.0":
+  version: 11.0.2
+  resolution: "@atlaskit/theme@npm:11.0.2"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+    exenv: ^1.2.2
+    prop-types: ^15.5.10
+  peerDependencies:
+    react: ^16.8.0
+    styled-components: ^3.2.6
+  checksum: d135b5cd55c45de6a4578c9fe30b7f5479b7ef2e13cb9e34772d62c97404938e455ccdb0da707262b356227cb86f8cfee62517d6d824ca86d9327cb2dda0f32a
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:7.10.4":
   version: 7.10.4
   resolution: "@babel/code-frame@npm:7.10.4"
@@ -1778,7 +1805,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.13.10
   resolution: "@babel/runtime@npm:7.13.10"
   dependencies:
@@ -3064,6 +3091,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/docusaurus@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@tsconfig/docusaurus@npm:1.0.2"
+  checksum: 94edb244f8c1b4a1ce99f7092749c15dd96473d326b5638d54316f39b98bdb6862b8ff64df45e966229d00c1b2ccbef662ac0d1702d2147b6925385b0ffab493
+  languageName: node
+  linkType: hard
+
 "@types/anymatch@npm:*":
   version: 1.3.1
   resolution: "@types/anymatch@npm:1.3.1"
@@ -3324,6 +3358,15 @@ __metadata:
   version: 1.5.4
   resolution: "@types/q@npm:1.5.4"
   checksum: 1a19cf2c41648b862bd25a4c26ba33dc7206f14fcf50c5b78031b59090d21176e703cd10aff8af409eafbefcebb288607d30af765ee3859637cf3fae6e875648
+  languageName: node
+  linkType: hard
+
+"@types/react-codesandboxer@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@types/react-codesandboxer@npm:3.1.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: 964402b04e9deebd3d2246db931dfeae6d46c7509a248d376b6a924e78e6d18b76fdf8c98575a2bf64a6a4e58476036709191dd5daf614b6c189af3293435674
   languageName: node
   linkType: hard
 
@@ -8117,6 +8160,13 @@ __metadata:
     signal-exit: ^3.0.3
     strip-final-newline: ^2.0.0
   checksum: bf9664702c981ae922ce465bc60d9bfd583e9ad47ab1a89168665e1fb330cc72f7080fda606bac85454bdc341198f454072018e616f0d03aa1e4b671ef04b94e
+  languageName: node
+  linkType: hard
+
+"exenv@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "exenv@npm:1.2.2"
+  checksum: 09fd080c0478739f0154916b73dea07f30f97972e1b3be3368d2b96d282d889b509f05e163d830e323c9ab1e94b0a293a9947b410651325df467c404f37f32f1
   languageName: node
   linkType: hard
 
@@ -13664,6 +13714,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "playground@workspace:playground"
   dependencies:
+    "@atlaskit/css-reset": ^6.0.5
     "@testing-library/dom": ^7.30.0
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.2.5
@@ -14881,7 +14932,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.5.0, prop-types@npm:^15.5.10, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -19243,6 +19294,8 @@ resolve@1.18.1:
   dependencies:
     "@docusaurus/core": ">=2.0.0-alpha.71"
     "@docusaurus/preset-classic": ">=2.0.0-alpha.71"
+    "@tsconfig/docusaurus": ^1.0.2
+    "@types/react-codesandboxer": ^3.1.0
     date-fns: ^2.19.0
     docusaurus-plugin-typedoc: ^0.11.0
     raw-loader: ^4.0.2
