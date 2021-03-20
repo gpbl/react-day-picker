@@ -2,21 +2,12 @@ import * as React from 'react';
 
 import { render, RenderResult } from '@testing-library/react';
 
-import { DayPickerProvider, NavigationProvider } from 'contexts';
-import { DayPickerProps } from 'types';
+import { ContextProvider, ContextProviderProps } from 'contexts';
 
-// import { Button } from './Button';
-type CustomRenderOptions = {
-  dayPickerProps?: DayPickerProps;
-};
-
+/** Render an element by wrapping it with the ContextProvider. */
 export const customRender = (
   element: React.ReactElement,
-  renderOptions?: CustomRenderOptions
+  contextValue?: Partial<ContextProviderProps>
 ): RenderResult => {
-  return render(
-    <DayPickerProvider initialProps={renderOptions?.dayPickerProps}>
-      <NavigationProvider>{element}</NavigationProvider>
-    </DayPickerProvider>
-  );
+  return render(<ContextProvider {...contextValue}>{element}</ContextProvider>);
 };
