@@ -1,26 +1,18 @@
 import React from 'react';
 
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
-import { ContextProvider } from 'contexts';
+import { customRender } from 'test';
 
 import { Footer } from './Footer';
 
 test('should not render anything as default', () => {
-  const { container } = render(
-    <ContextProvider>
-      <Footer />
-    </ContextProvider>
-  );
+  const { container } = customRender(<Footer />);
   expect(container).toBeEmptyDOMElement();
 });
 
 test('should render a table footer when using the `footer` props', () => {
-  render(
-    <ContextProvider footer="footer_foo">
-      <Footer />
-    </ContextProvider>
-  );
+  customRender(<Footer />, { footer: 'footer_foo' });
   const label = screen.getByText(/footer_foo/i);
   expect(label).toBeInTheDocument();
 });
