@@ -23,6 +23,7 @@
     "build:dist": "tsc --project tsconfig.dist.json && tsc-alias -p tsconfig.dist.json",
     "build:esm": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "build": "yarn build:clean && yarn build:esm && yarn build:dist",
+    "css:types": "yarn tcm -p style.css",
     "test": "yarn jest",
     "test:watch": "yarn test --watchAll",
     "coverage": "yarn test --coverage"
@@ -58,6 +59,7 @@
     "ts-node": "^9.1.1",
     "tsc-alias": "^1.2.8",
     "tslib": "^2.1.0",
+    "typed-css-modules": "^0.6.5",
     "typescript": "~4.1.5"
   },
   "peerDependencies": {
