@@ -24,7 +24,7 @@
     "date-fns": "^2.19.0",
     "docusaurus-plugin-typedoc": "^0.11.0",
     "raw-loader": "^4.0.2",
-    "typedoc": "^0.20.30",
+    "typedoc": "^0.20.32",
     "typedoc-plugin-markdown": "^3.6.0",
     "typescript": "~4.1.0",
     "webpack": "^4.46.0"

@@ -3235,7 +3235,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*, @types/jest@npm:^26.0.20":
+"@types/jest@npm:*, @types/jest@npm:^26.0.21":
   version: 26.0.21
   resolution: "@types/jest@npm:26.0.21"
   dependencies:
@@ -3284,7 +3284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^14.14.28, @types/node@npm:^14.14.33":
+"@types/node@npm:*, @types/node@npm:^14.14.28, @types/node@npm:^14.14.35":
   version: 14.14.35
   resolution: "@types/node@npm:14.14.35"
   checksum: 0f6320bf5370d1ff82105fb7f26aa0658499c97d3ec78561e65b65724280244f281602541182b63470d2c8a98db22fbb4f91409c5c7c97da8c3bb8f97fbc5dbc
@@ -3492,7 +3492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^4.17.0, @typescript-eslint/eslint-plugin@npm:^4.5.0":
+"@typescript-eslint/eslint-plugin@npm:^4.18.0, @typescript-eslint/eslint-plugin@npm:^4.5.0":
   version: 4.18.0
   resolution: "@typescript-eslint/eslint-plugin@npm:4.18.0"
   dependencies:
@@ -3545,7 +3545,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^4.17.0, @typescript-eslint/parser@npm:^4.5.0":
+"@typescript-eslint/parser@npm:^4.18.0, @typescript-eslint/parser@npm:^4.5.0":
   version: 4.18.0
   resolution: "@typescript-eslint/parser@npm:4.18.0"
   dependencies:
@@ -7743,7 +7743,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^24.1.0, eslint-plugin-jest@npm:^24.2.1":
+"eslint-plugin-jest@npm:^24.1.0, eslint-plugin-jest@npm:^24.3.2":
   version: 24.3.2
   resolution: "eslint-plugin-jest@npm:24.3.2"
   dependencies:
@@ -7894,7 +7894,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.11.0, eslint@npm:^7.21.0":
+"eslint@npm:^7.11.0, eslint@npm:^7.22.0":
   version: 7.22.0
   resolution: "eslint@npm:7.22.0"
   dependencies:
@@ -13669,8 +13669,8 @@ fsevents@^1.2.7:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.2.5
     "@testing-library/user-event": ^12.8.3
-    "@types/jest": ^26.0.20
-    "@types/node": ^14.14.33
+    "@types/jest": ^26.0.21
+    "@types/node": ^14.14.35
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.2
     babel-loader: ^8.2.2
@@ -15198,17 +15198,17 @@ fsevents@^1.2.7:
   dependencies:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.2.5
-    "@types/jest": ^26.0.20
-    "@types/node": ^14.14.33
+    "@types/jest": ^26.0.21
+    "@types/node": ^14.14.35
     "@types/react": ^17.0.3
-    "@typescript-eslint/eslint-plugin": ^4.17.0
-    "@typescript-eslint/parser": ^4.17.0
+    "@typescript-eslint/eslint-plugin": ^4.18.0
+    "@typescript-eslint/parser": ^4.18.0
     concurrently: ^6.0.0
     date-fns: ^2.19.0
     debug: ^4.3.2
-    eslint: ^7.21.0
+    eslint: ^7.22.0
     eslint-config-prettier: ^8.1.0
-    eslint-plugin-jest: ^24.2.1
+    eslint-plugin-jest: ^24.3.2
     eslint-plugin-prettier: ^3.3.1
     jest: ^26.6.3
     jest-date: ^1.1.4
@@ -15217,7 +15217,7 @@ fsevents@^1.2.7:
     react-dom: ^17.0.1
     rimraf: ^3.0.2
     timekeeper: ^2.2.0
-    ts-jest: ^26.5.3
+    ts-jest: ^26.5.4
     ts-node: ^9.1.1
     tsc-alias: ^1.2.8
     tslib: ^2.1.0
@@ -17952,7 +17952,7 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^26.5.3":
+"ts-jest@npm:^26.5.4":
   version: 26.5.4
   resolution: "ts-jest@npm:26.5.4"
   dependencies:
@@ -18220,7 +18220,7 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.20.30":
+"typedoc@npm:^0.20.32":
   version: 0.20.32
   resolution: "typedoc@npm:0.20.32"
   dependencies:
@@ -19253,7 +19253,7 @@ resolve@1.18.1:
     react-codesandboxer: ^3.1.5
     react-day-picker: "workspace:packages/react-day-picker"
     react-dom: ^17.0.1
-    typedoc: ^0.20.30
+    typedoc: ^0.20.32
     typedoc-plugin-markdown: ^3.6.0
     typescript: ~4.1.0
     webpack: ^4.46.0
