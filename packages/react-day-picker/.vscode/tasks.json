@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "develop",
+      "problemMatcher": [],
+      "label": "Start DayPicker in development mode",
+      "detail": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w --pretty'"
+    }
+  ]
+}
