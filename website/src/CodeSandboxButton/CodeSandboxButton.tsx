@@ -1,9 +1,8 @@
 import * as React from 'react';
 
 import CodeSandboxer, { GitInfo } from 'react-codesandboxer';
-import pkg from 'react-day-picker/package.json';
 
-import dependencies from './files/dependencies.json';
+import { dependencies } from './files/dependencies';
 
 const providedFiles = {
   'index.tsx': {
@@ -11,6 +10,9 @@ const providedFiles = {
   },
   'index.html': {
     content: require('!!raw-loader!./files/index.html').default
+  },
+  'style.css': {
+    content: require('!!raw-loader!./files/style.css').default
   }
 };
 
@@ -26,7 +28,7 @@ export function CodeSandboxButton({
 }: {
   fileName: string;
 }): JSX.Element {
-  const name = `DayPicker v${pkg.version}: ${fileName.replace('.tsx', '')}`;
+  const name = `DayPicker: ${fileName.replace('.tsx', '')} example`;
   return (
     <CodeSandboxer
       examplePath={`website/docs/${fileName}`}

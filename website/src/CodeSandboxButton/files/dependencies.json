@@ -1,7 +1,0 @@
-{
-  "@babel/runtime": "latest",
-  "date-fns": "latest",
-  "react-day-picker": "next",
-  "react-dom": "latest",
-  "react": "latest"
-}
