@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { differenceInCalendarDays } from 'date-fns';
+
 import { DayPicker, Row, RowProps } from 'react-day-picker';
 import 'react-day-picker/style.css';
 
@@ -14,7 +15,7 @@ function OnlyFutureRow(props: RowProps) {
   return <Row {...props} />;
 }
 
-export default function App() {
+export default function Example() {
   return (
     <DayPicker
       fromDate={new Date()}

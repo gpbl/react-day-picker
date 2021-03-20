@@ -3,7 +3,7 @@ import * as React from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/style.css';
 
-export default function App() {
+export default function Example() {
   const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
 
   const style = `.my-booked-class { color: tomato }`;

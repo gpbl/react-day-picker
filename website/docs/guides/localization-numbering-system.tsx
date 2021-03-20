@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { format } from 'date-fns';
 import arabic from 'date-fns/locale/ar-SA';
+
 import {
   DateFormatter,
   DayPicker,
@@ -9,7 +10,7 @@ import {
 } from 'react-day-picker';
 import 'react-day-picker/style.css';
 
-export default function App() {
+export default function Example() {
   const nuLocale = 'ar-u-nu-arab';
 
   const formatDay: DateFormatter = (day) =>
