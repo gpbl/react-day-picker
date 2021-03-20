@@ -18,6 +18,7 @@ export function CaptionLabel(props: CaptionLabelProps): JSX.Element {
       className={classNames.caption_label}
       style={styles.caption_label}
       aria-live="polite"
+      aria-atomic="true"
     >
       {formatCaption(props.displayMonth, { locale })}
     </div>

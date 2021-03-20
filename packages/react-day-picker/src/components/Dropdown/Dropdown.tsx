@@ -17,8 +17,8 @@ export function Dropdown(props: DropdownProps): JSX.Element {
   } = useDayPicker();
   return (
     <div className={className} style={style}>
+      <span className={classNames.vhidden}>{props['aria-label']}</span>
       <select
-        aria-label={props['aria-label']}
         className={classNames.dropdown}
         style={styles.dropdown}
         value={value}

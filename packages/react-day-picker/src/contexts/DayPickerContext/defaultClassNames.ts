@@ -7,7 +7,7 @@ export const defaultClassNames: Required<ClassNames> = {
   root: 'rdp',
   multiple_month: 'rdp-multiple_months',
   with_weeknumber: 'rdp-with_weeknumber',
-  hidden: 'rdp-hidden',
+  vhidden: 'rdp-vhidden',
   button_reset: 'rdp-button_reset',
   button: 'rdp-button',
 
