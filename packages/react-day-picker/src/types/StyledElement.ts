@@ -45,6 +45,8 @@ export type StyledElement<T = string | React.CSSProperties> = {
   readonly table: T;
   /** The style of the table body. */
   readonly tbody: T;
+  /** The style of the table footer. */
+  readonly tfoot: T;
 
   /** The style of the table’s head. */
   readonly head: T;
