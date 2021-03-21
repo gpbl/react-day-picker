@@ -29,6 +29,7 @@ export const defaultClassNames: Required<ClassNames> = {
   month: 'rdp-month',
   table: 'rdp-table',
   tbody: 'rdp-tbody',
+  tfoot: 'rdp-tfoot',
 
   head: 'rdp-head',
   head_row: 'rdp-head_row',
