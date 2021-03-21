@@ -1,67 +1,196 @@
+import * as React from 'react';
+
+import { addMonths, setMonth, setYear } from 'date-fns';
 import tk from 'timekeeper';
 
-const FrozenDate = new Date(1979, 8);
+import { ContextProviderProps } from 'contexts';
+import { customRender, PageObjects } from 'test';
+import { Caption } from './Caption';
 
-beforeEach(() => tk.freeze(FrozenDate));
+const today = new Date(2021, 8);
+const po = new PageObjects(today);
+const fromYear = 2020;
+const toYear = 2025;
+
+beforeEach(() => tk.freeze(today));
 afterEach(() => tk.reset());
 
 describe('when navigation is disabled', () => {
-  test.todo('should display the caption label');
-  test.todo('should not render the drop-downs');
-  test.todo('should not render the navigation');
-});
-
-describe('when navigation is enabled', () => {
-  describe('when the caption layout is "drop-down"', () => {
-    test.todo('should apply the `caption_drop-downs` class name');
-    test.todo('should apply the `caption_drop-downs` style');
-    test.todo('should render the months drop-down');
-    test.todo('should render the years drop-down');
-    describe('when a month is selected from the month drop-down', () => {
-      test.todo('should go to the selected month');
-      test.todo('should cal the `onMonthChange` callback');
-    });
-    describe('when a year is selected from the year drop-down', () => {
-      test.todo('should go to the selected month');
-      test.todo('should cal the `onMonthChange` callback');
+  beforeEach(() => {
+    customRender(<Caption displayMonth={today} />, {
+      disableNavigation: true
     });
   });
-  describe('when the caption layout is "buttons"', () => {
-    test.todo('should display the caption label');
-    test.todo('should display the navigation');
-    describe('when rendering multiple months', () => {
-      describe('if is not the last month', () => {
-        test.todo('should hide the next button');
-      });
-      describe('if is not the first month', () => {
-        test.todo('should hide the previous button');
-      });
-    });
-    describe('when clicking the previous button', () => {
-      test.todo('should go to the previous month');
-      test.todo('should call the `onMonthChange` callback');
-      describe('if no previous month to navigate', () => {
-        test.todo('should not change the month');
-        test.todo('should not call the `onMonthChange` callback');
-      });
-      describe('if no next month to navigate', () => {
-        test.todo('should not change the month');
-        test.todo('should not call the `onMonthChange` callback');
-      });
-    });
-    describe('when clicking the next button', () => {
-      test.todo('should go to the next month');
-      test.todo('should call the `onMonthChange` callback');
-      describe('if no next month to navigate', () => {
-        test.todo('should not change the month');
-        test.todo('should not call the `onMonthChange` callback');
-      });
-      describe('if no next month to navigate', () => {
-        test.todo('should not change the month');
-        test.todo('should not call the `onMonthChange` callback');
-      });
-    });
+  test('should display the caption label', () => {
+    expect(po.captionLabel).toBeInTheDocument();
+  });
+  test('should not render the drop-downs', () => {
+    expect(po.monthDropdown).toBeNull();
+    expect(po.yearDropdown).toBeNull();
+  });
+  test('should not render the navigation', () => {
+    expect(po.previousButton).toBeNull();
+    expect(po.nextButton).toBeNull();
   });
 });
 
-tk.reset();
+describe('when the caption layout is "dropdown"', () => {
+  let container: HTMLElement;
+
+  beforeEach(() => {
+    const context: Partial<ContextProviderProps> = {
+      captionLayout: 'dropdown',
+      fromYear,
+      toYear,
+      classNames: { caption_dropdowns: 'foo_dropdowns' },
+      styles: { caption_dropdowns: { color: 'red' } }
+    };
+    const result = customRender(<Caption displayMonth={today} />, context);
+    container = result.container;
+  });
+  test('should use the `caption_dropdowns` class name', () => {
+    expect(container.firstChild?.firstChild).toHaveClass('foo_dropdowns');
+  });
+  test('should use the `caption_dropdowns` style', () => {
+    expect(container.firstChild?.firstChild).toHaveStyle({ color: 'red' });
+  });
+  test('should render the month drop-down', () => {
+    expect(po.monthDropdown).toBeInTheDocument();
+  });
+  test('should render the year drop-down', () => {
+    expect(po.yearDropdown).toBeInTheDocument();
+  });
+});
+
+describe('when a month is selected', () => {
+  let context: Partial<ContextProviderProps>;
+  beforeEach(() => {
+    context = {
+      captionLayout: 'dropdown',
+      fromYear,
+      toYear,
+      onMonthChange: jest.fn()
+    };
+    customRender(<Caption displayMonth={today} />, context);
+  });
+  describe('from the months drop-down', () => {
+    const newMonth = setMonth(today, 0);
+    beforeEach(() => po.runSelectMonth(newMonth));
+    test('should call the `onMonthChange` callback', () => {
+      expect(context.onMonthChange).toHaveBeenCalledWith(newMonth);
+    });
+  });
+  describe('from the years drop-down', () => {
+    const newMonth = setYear(today, 2022);
+    beforeEach(() => po.runSelectYear(newMonth));
+    test('should call the `onMonthChange` callback', () => {
+      expect(context.onMonthChange).toHaveBeenCalledWith(newMonth);
+    });
+  });
+});
+
+describe('when the caption layout is "dropdown" but no date limits are set', () => {
+  beforeEach(() => {
+    const context: Partial<ContextProviderProps> = {
+      captionLayout: 'dropdown'
+    };
+    customRender(<Caption displayMonth={today} />, context);
+  });
+  test('should not render the drop-downs', () => {
+    expect(po.monthDropdown).toBeNull();
+    expect(po.yearDropdown).toBeNull();
+  });
+});
+
+describe('when the caption layout is "buttons"', () => {
+  const context: Partial<ContextProviderProps> = {
+    captionLayout: 'buttons'
+  };
+  test('should render the caption label', () => {
+    customRender(<Caption displayMonth={today} />, context);
+    expect(po.captionLabel).toBeInTheDocument();
+  });
+  test('should render the next month button', () => {
+    customRender(<Caption displayMonth={today} />, context);
+    expect(po.nextButton).toBeInTheDocument();
+  });
+  test('should render the previous month button', () => {
+    customRender(<Caption displayMonth={today} />, context);
+    expect(po.previousButton).toBeInTheDocument();
+  });
+
+  describe('when displaying the first of multiple months', () => {
+    const numberOfMonths = 3;
+    beforeEach(() => {
+      customRender(<Caption displayMonth={today} />, {
+        ...context,
+        numberOfMonths
+      });
+    });
+    test('should hide the next month button', () => {
+      expect(po.nextButton).toBeNull();
+    });
+    test('should show the previous month button', () => {
+      expect(po.previousButton).toBeInTheDocument();
+    });
+  });
+
+  describe('when displaying the last of multiple months', () => {
+    const numberOfMonths = 3;
+    beforeEach(() => {
+      const lastMonth = addMonths(today, numberOfMonths - 1);
+      customRender(<Caption displayMonth={lastMonth} />, {
+        ...context,
+        numberOfMonths
+      });
+    });
+    test('should hide the previous month button', () => {
+      expect(po.previousButton).toBeNull();
+    });
+    test('should show the next month button', () => {
+      expect(po.nextButton).toBeInTheDocument();
+    });
+  });
+
+  describe('when displaying a month in the middle of multiple months', () => {
+    const numberOfMonths = 3;
+    beforeEach(() => {
+      const lastMonth = addMonths(today, numberOfMonths - 2);
+      customRender(<Caption displayMonth={lastMonth} />, {
+        ...context,
+        numberOfMonths
+      });
+    });
+    test('should not render the previous month button', () => {
+      expect(po.previousButton).toBeNull();
+    });
+    test('should not render the next month button', () => {
+      expect(po.nextButton).toBeNull();
+    });
+  });
+
+  describe('when clicking the previous button', () => {
+    test.todo('should go to the previous month');
+    test.todo('should call the `onMonthChange` callback');
+    describe('if no previous month to navigate', () => {
+      test.todo('should not change the month');
+      test.todo('should not call the `onMonthChange` callback');
+    });
+    describe('if no next month to navigate', () => {
+      test.todo('should not change the month');
+      test.todo('should not call the `onMonthChange` callback');
+    });
+  });
+  describe('when clicking the next button', () => {
+    test.todo('should go to the next month');
+    test.todo('should call the `onMonthChange` callback');
+    describe('if no next month to navigate', () => {
+      test.todo('should not change the month');
+      test.todo('should not call the `onMonthChange` callback');
+    });
+    describe('if no next month to navigate', () => {
+      test.todo('should not change the month');
+      test.todo('should not call the `onMonthChange` callback');
+    });
+  });
+});

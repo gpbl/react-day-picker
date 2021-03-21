@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { isSameMonth } from 'date-fns';
+
 import { MonthsDropdown, Navigation, YearsDropdown } from 'components';
 import { useDayPicker, useNavigation } from 'contexts';
 import { MonthChangeEventHandler } from 'types';
@@ -10,7 +12,7 @@ import { CaptionProps } from './CaptionProps';
  * The caption has a different layout when setting the `numberOfMonths` prop.
  */
 export function Caption(props: CaptionProps): JSX.Element {
-  const { displayMonth, isFirst = false, isLast = false } = props;
+  const { displayMonth } = props;
 
   const {
     classNames,
@@ -19,10 +21,16 @@ export function Caption(props: CaptionProps): JSX.Element {
     styles,
     captionLayout,
     onMonthChange,
+    dir,
     components: { CaptionLabel }
   } = useDayPicker();
 
-  const { previousMonth, nextMonth, goToMonth } = useNavigation();
+  const {
+    previousMonth,
+    nextMonth,
+    goToMonth,
+    displayMonths
+  } = useNavigation();
 
   const handlePreviousClick: React.MouseEventHandler = (e) => {
     if (!previousMonth) return;
@@ -41,7 +49,18 @@ export function Caption(props: CaptionProps): JSX.Element {
     onMonthChange?.(newMonth);
   };
 
+  const displayIndex = displayMonths.findIndex((month) =>
+    isSameMonth(displayMonth, month)
+  );
+  let isFirst = displayIndex === 0;
+  let isLast = displayIndex === displayMonths.length - 1;
+  if (dir === 'rtl') {
+    [isLast, isFirst] = [isFirst, isLast];
+  }
+
   const captionLabel = <CaptionLabel displayMonth={displayMonth} />;
+  const hideNext = numberOfMonths > 1 && (isFirst || !isLast);
+  const hidePrevious = numberOfMonths > 1 && (isLast || !isFirst);
 
   return (
     <div className={classNames.caption} style={styles.caption}>
@@ -67,8 +86,8 @@ export function Caption(props: CaptionProps): JSX.Element {
               <CaptionLabel displayMonth={displayMonth} />
               <Navigation
                 displayMonth={displayMonth}
-                hideNext={numberOfMonths > 1 && !isLast}
-                hidePrevious={numberOfMonths > 1 && !isFirst}
+                hideNext={hideNext}
+                hidePrevious={hidePrevious}
                 nextMonth={nextMonth}
                 previousMonth={previousMonth}
                 onPreviousClick={handlePreviousClick}

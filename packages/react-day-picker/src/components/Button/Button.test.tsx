@@ -7,7 +7,7 @@ const po = new PageObjects(new Date());
 
 describe('when rendered without props', () => {
   beforeEach(() => {
-    customRender(<Button />);
+    customRender(<Button className="foo" style={{ color: 'blue' }} />);
   });
   test('should render a button with type "button"', () => {
     expect(po.button).toHaveAttribute('type', 'button');
@@ -18,40 +18,25 @@ describe('when rendered without props', () => {
   test('should render a button with the reset class name', () => {
     expect(po.button).toHaveClass('rdp-button_reset');
   });
-});
-
-describe('when using a class name from props', () => {
-  beforeEach(() => {
-    customRender(<Button className="foo" />);
-  });
   test('should add the class name', () => {
     expect(po.button).toHaveClass('foo');
-  });
-});
-
-describe('when using custom class names from ContextProvider props', () => {
-  beforeEach(() => {
-    customRender(<Button />, { classNames: { button: 'foo' } });
-  });
-  test('should add the class name', () => {
-    expect(po.button).toHaveClass('foo');
-  });
-});
-
-describe('when using a inline style from props', () => {
-  beforeEach(() => {
-    customRender(<Button style={{ color: 'blue' }} />);
   });
   test('should apply the style', () => {
     expect(po.button).toHaveStyle({ color: 'blue' });
   });
 });
 
-describe('when using a inline style from ContextProvider props', () => {
+describe('when using class names and styles from context', () => {
   beforeEach(() => {
-    customRender(<Button />, { styles: { button: { color: 'blue' } } });
+    customRender(<Button />, {
+      classNames: { button: 'foo' },
+      styles: { button: { color: 'red' } }
+    });
   });
   test('should apply the style', () => {
-    expect(po.button).toHaveStyle({ color: 'blue' });
+    expect(po.button).toHaveStyle({ color: 'red' });
+  });
+  test('should apply the class name', () => {
+    expect(po.button).toHaveClass('foo');
   });
 });

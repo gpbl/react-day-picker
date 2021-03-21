@@ -1,34 +1,31 @@
-import { screen } from '@testing-library/react';
 import * as React from 'react';
 
 import tk from 'timekeeper';
 
-import { customRender } from 'test';
+import { customRender, PageObjects } from 'test';
 import { CaptionLabel } from './CaptionLabel';
 
-const FrozenDate = new Date(1979, 8);
+const today = new Date(1979, 8);
+const po = new PageObjects(today);
 
-beforeEach(() => tk.freeze(FrozenDate));
+beforeEach(() => tk.freeze(today));
 afterEach(() => tk.reset());
 
 test('should render the formatted display month', () => {
-  customRender(<CaptionLabel displayMonth={FrozenDate} />);
-  const label = screen.getByText(/september 1979/i);
-  expect(label).toBeInTheDocument();
+  customRender(<CaptionLabel displayMonth={today} />);
+  expect(po.captionLabel).toBeInTheDocument();
 });
 
 test('should apply the `caption_label` class name', () => {
-  customRender(<CaptionLabel displayMonth={FrozenDate} />, {
+  customRender(<CaptionLabel displayMonth={today} />, {
     classNames: { caption_label: 'foo' }
   });
-  const label = screen.getByText(/september 1979/i);
-  expect(label).toHaveClass('foo');
+  expect(po.captionLabel).toHaveClass('foo');
 });
 
 test('should apply the `caption_label` style', () => {
-  customRender(<CaptionLabel displayMonth={FrozenDate} />, {
+  customRender(<CaptionLabel displayMonth={today} />, {
     styles: { caption_label: { color: 'red' } }
   });
-  const label = screen.getByText(/september 1979/i);
-  expect(label).toHaveStyle({ color: 'red' });
+  expect(po.captionLabel).toHaveStyle({ color: 'red' });
 });
