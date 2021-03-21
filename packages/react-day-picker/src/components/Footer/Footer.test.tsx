@@ -1,16 +1,29 @@
-import { screen } from '@testing-library/react';
 import React from 'react';
 
-import { customRender } from 'test';
+import { customRender, PageObjects } from 'test';
 import { Footer } from './Footer';
 
+const po = new PageObjects(new Date());
+
 test('should not render anything as default', () => {
-  const { container } = customRender(<Footer />);
-  expect(container).toBeEmptyDOMElement();
+  customRender(
+    <table>
+      <Footer />
+    </table>
+  );
+  expect(po.footer).toBeNull();
 });
 
-test('should render a table footer when using the `footer` props', () => {
-  customRender(<Footer />, { footer: 'footer_foo' });
-  const label = screen.getByText(/footer_foo/i);
-  expect(label).toBeInTheDocument();
+describe('when using the `footer` prop', () => {
+  beforeEach(() => {
+    customRender(
+      <table>
+        <Footer />
+      </table>,
+      { footer: 'footer_foo' }
+    );
+  });
+  test('should render the table footer', () => {
+    expect(po.footer).toHaveTextContent('footer_foo');
+  });
 });

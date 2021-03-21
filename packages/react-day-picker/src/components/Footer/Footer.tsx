@@ -4,10 +4,14 @@ import { useDayPicker } from 'contexts';
 
 /** Render the Footer component (empty as default).*/
 export function Footer(): JSX.Element {
-  const { footer } = useDayPicker();
+  const {
+    footer,
+    styles,
+    classNames: { tfoot }
+  } = useDayPicker();
   if (!footer) return <></>;
   return (
-    <tfoot>
+    <tfoot className={tfoot} style={styles.tfoot}>
       <tr>
         <td colSpan={8}>{footer}</td>
       </tr>
