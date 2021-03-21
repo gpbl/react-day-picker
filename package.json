@@ -10,6 +10,7 @@
   "homepage": "http://react-day-picker.js.org",
   "license": "MIT",
   "scripts": {
+    "test": "yarn workspace react-day-picker run test",
     "build": "yarn workspace react-day-picker run build && yarn workspace website run build"
   },
   "repository": {

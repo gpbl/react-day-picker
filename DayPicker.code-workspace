@@ -1,7 +1,7 @@
 {
   "folders": [
     {
-      "name": "react-day-picker 📆",
+      "name": "react-day-picker",
       "path": "./packages/react-day-picker"
     },
     {
@@ -11,6 +11,10 @@
     {
       "name": "website",
       "path": "./website"
+    },
+    {
+      "name": "root",
+      "path": "."
     }
   ],
   "settings": {
@@ -27,9 +31,9 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "importSorter.generalConfiguration.sortOnBeforeSave": true,
-    "importSorter.importStringConfiguration.tabSize": 2,
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+    "importSorter.importStringConfiguration.tabSize": 2,
     "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 20,
     "importSorter.sortConfiguration.customOrderingRules.rules": [
       {
@@ -49,9 +53,11 @@
         "regex": "^(react|react-dom|@testing-library/react)$"
       }
     ],
+    "jest.coverageFormatter": "GutterFormatter",
     "jest.disabledWorkspaceFolders": ["playground", "website", "root"],
-    "jest.pathToJest": "yarn run test",
+    "jest.pathToJest": "yarn workspace react-day-picker run test",
     "npm.packageManager": "yarn",
-    "typescript.preferences.quoteStyle": "single"
+    "typescript.preferences.quoteStyle": "single",
+    "jest.showCoverageOnLoad": true
   }
 }
