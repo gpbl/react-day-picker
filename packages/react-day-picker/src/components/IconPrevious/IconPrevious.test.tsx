@@ -1,49 +1,19 @@
-import { render, RenderResult } from '@testing-library/react';
 import * as React from 'react';
 
-import { ContextProvider } from 'contexts';
+import { customRender, PageObjects } from 'test';
 import { IconPrevious } from './IconPrevious';
 
-let icon: Element;
-let result: RenderResult;
-describe('when rendered without props', () => {
-  beforeEach(() => {
-    result = render(
-      <ContextProvider>
-        <IconPrevious />
-      </ContextProvider>
-    );
-    icon = result.container.children[0];
-  });
-  test('should render a svg element', () => {
-    expect(icon.tagName).toBe('svg');
-  });
-});
+const po = new PageObjects(new Date());
 
-describe('when using a class name from props', () => {
-  beforeEach(() => {
-    result = render(
-      <ContextProvider>
-        <IconPrevious className="foo" />
-      </ContextProvider>
-    );
-    icon = result.container.children[0];
-  });
-  test('should add the class name', () => {
-    expect(icon).toHaveClass('foo');
-  });
+beforeEach(() => {
+  customRender(<IconPrevious className="foo" style={{ color: 'red' }} />);
 });
-
-describe('when using a style from props', () => {
-  beforeEach(() => {
-    result = render(
-      <ContextProvider>
-        <IconPrevious style={{ color: 'red' }} />
-      </ContextProvider>
-    );
-    icon = result.container.children[0];
-  });
-  test('should apply the style', () => {
-    expect(icon).toHaveStyle({ color: 'red' });
-  });
+test('should render the icon', () => {
+  expect(po.iconPrevious).toBeInTheDocument();
+});
+test('should add the class name', () => {
+  expect(po.iconPrevious).toHaveClass('foo');
+});
+test('should apply the style', () => {
+  expect(po.iconPrevious).toHaveStyle({ color: 'red' });
 });
