@@ -4,7 +4,6 @@ import { formatCaption } from '../contexts/DayPickerContext/formatters';
 
 export class PageObjects {
   today: Date;
-
   /**
    * Initialize the page objects for the DayPicker elements. Use the objects in
    * this class to access to the elements to test.
@@ -16,22 +15,27 @@ export class PageObjects {
     this.today = today;
   }
 
+  /** The icon for the previous button. */
   get iconPrevious(): HTMLElement {
     return screen.getByTestId('iconPrevious');
   }
 
+  /** The icon for the dropdown. */
   get iconDropdown(): HTMLElement {
     return screen.getByTestId('iconDropdown');
   }
 
+  /** The icon for the next button. */
   get iconNext(): HTMLElement {
     return screen.getByTestId('iconNext');
   }
 
+  /** Get the table element. */
   get table(): HTMLTableElement {
     return screen.getByRole('table') as HTMLTableElement;
   }
 
+  /** Get the content of the footer. */
   get footer(): ChildNode | null {
     return this.table.querySelector('tfoot')?.children[0].firstChild ?? null;
   }
@@ -55,8 +59,8 @@ export class PageObjects {
   }
 
   /** The label of the caption element. */
-  get captionLabel(): HTMLSpanElement {
-    return screen.getByText(formatCaption(this.today)) as HTMLSpanElement;
+  getCaptionLabel(date: Date): HTMLSpanElement {
+    return screen.getByText(formatCaption(date)) as HTMLSpanElement;
   }
 
   /** The previous month button in the navigation. */
@@ -73,15 +77,27 @@ export class PageObjects {
     }) as HTMLButtonElement;
   }
 
-  runSelectMonth(newMonth: Date): void {
+  /** Select the month from the drop-down. */
+  runSelectMonth(month: Date): void {
     fireEvent.change(this.monthDropdown, {
-      target: { value: newMonth.getMonth() }
+      target: { value: month.getMonth() }
     });
   }
 
-  runSelectYear(newMonth: Date): void {
+  /** Click the previous month button. */
+  runPreviousClick(): boolean {
+    return fireEvent.click(this.previousButton);
+  }
+
+  /** Click the next month button. */
+  runNextClick(): boolean {
+    return fireEvent.click(this.nextButton);
+  }
+
+  /** Select the year from the drop-down. */
+  runSelectYear(year: Date): void {
     fireEvent.change(this.yearDropdown, {
-      target: { value: newMonth.getFullYear() }
+      target: { value: year.getFullYear() }
     });
   }
 }
