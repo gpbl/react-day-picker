@@ -150,16 +150,6 @@ export interface DayPickerBase {
   showWeekNumber?: boolean;
   /**
    * A map of components used to create the layout.
-   *
-   * For example, to use custom navigation icons:
-   *
-   * ```
-   * <DayPicker component={{
-   *    IconNext: MyIconNext,
-   *    IconPrevious: MyIconPrev
-   *  }}
-   * />
-   * ```
    */
   components?: Partial<Components>;
 
@@ -189,12 +179,6 @@ export interface DayPickerBase {
   today?: Date;
   /**
    * Add modifiers to the matching days.
-   *
-   * For example, to add a `booked` modifier to the current day:
-   *
-   * ```
-   * <DayPicker modifiers={{ booked: new Date() }} />
-   * ```
    */
   modifiers?: CustomModifiers;
   /**
@@ -247,20 +231,6 @@ export interface DayPickerBase {
   /**
    * The date-fns locale object to localize the user interface. Defaults to
    * `en-US`.
-   *
-   * For example, to set the calendar to Spanish:
-   *
-   * ```
-   * import spanish from 'date-fns/locale/es';
-   *
-   * function App() {
-   *   return <DayPicker locale={spanish} />;
-   * }
-   * ```
-   *
-   * See also date-fns [Internationalization
-   * guide](https://date-fns.org/docs/I18n).
-   *
    */
   locale?: Locale;
 
