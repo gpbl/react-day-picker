@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { FocusContextValue } from './types';
+import { FocusContextValue } from './FocusContextValue';
 
 /**
  * The Focus context shares details about the focused day for the keyboard navigation.

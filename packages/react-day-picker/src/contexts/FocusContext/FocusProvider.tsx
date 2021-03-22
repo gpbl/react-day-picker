@@ -5,9 +5,7 @@ import { addDays, addMonths, addWeeks, isSameMonth } from 'date-fns';
 import { useDayPicker, useNavigation } from 'contexts';
 import { FocusContext } from './FocusContext';
 
-/**
- * The provider for the [[FocusContext]].
- */
+/** The provider for the [[FocusContext]]. */
 export function FocusProvider({
   children
 }: {
@@ -41,13 +39,13 @@ export function FocusProvider({
     setDay(after);
     switchMonth(after, numberOfMonths);
   };
-  const focusDayUp = () => {
+  const focusWeekBeforeDay = () => {
     if (!focusedDay) return;
     const up = addWeeks(focusedDay, -1);
     setDay(up);
     switchMonth(up, numberOfMonths * -1);
   };
-  const focusDayDown = () => {
+  const focusWeekAfterDay = () => {
     if (!focusedDay) return;
     const down = addWeeks(focusedDay, 1);
     setDay(down);
@@ -59,8 +57,8 @@ export function FocusProvider({
     focus,
     focusDayAfter,
     focusDayBefore,
-    focusDayUp,
-    focusDayDown
+    focusWeekAfterDay,
+    focusWeekBeforeDay
   };
 
   return (

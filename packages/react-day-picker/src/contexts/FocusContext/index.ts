@@ -1,4 +1,4 @@
 export * from './FocusContext';
+export * from './FocusContextValue';
 export * from './FocusProvider';
-export * from './types';
 export * from './useFocus';
