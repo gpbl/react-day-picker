@@ -16,9 +16,8 @@ function App() {
       <h3>Limiting amount of selectable days</h3>
       <p>Cannot select less than one. Default selected is today.</p>
       <DayPicker
-        mode="single"
-        required
-        defaultSelected={new Date()}
+        mode="multiple"
+        defaultSelected={[new Date()]}
         onSelect={console.log}
       />
 
@@ -67,8 +66,6 @@ function App() {
       <h1>Today</h1>
       <p>Today is in 10 years</p>
       <DayPicker today={addYears(new Date(), 10)} onSelect={console.log} />
-      <p>Today off</p>
-      <DayPicker today="off" mode="single" />
 
       <hr />
 
