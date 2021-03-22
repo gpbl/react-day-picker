@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { SelectSingleContext } from './SelectSingleContext';
-import { SelectSingleContextValue } from './types';
+import { SelectSingleContextValue } from './SelectSingleContextValue';
 
 /** Hook to access the [[SelectSingleContext]]. */
 export function useSelectSingle(): SelectSingleContextValue {
