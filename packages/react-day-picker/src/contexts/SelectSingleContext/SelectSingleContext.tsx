@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { SelectSingleContextValue } from './types';
+import { SelectSingleContextValue } from './SelectSingleContextValue';
 
 /**
  * The SelectSingle context shares details about the selected days when in

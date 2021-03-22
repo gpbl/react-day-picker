@@ -1,4 +1,4 @@
 export * from './SelectSingleContext';
+export * from './SelectSingleContextValue';
 export * from './SelectSingleProvider';
-export * from './types';
 export * from './useSelectSingle';
