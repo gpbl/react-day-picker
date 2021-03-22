@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { DayPickerContextValue } from './types';
+import { DayPickerContextValue } from './DayPickerContextValue';
 
 /**
  * The DayPicker context shares the props passed to DayPicker within the

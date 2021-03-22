@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { DayPickerContext } from './DayPickerContext';
-import { DayPickerContextValue } from './types';
+import { DayPickerContextValue } from './DayPickerContextValue';
 
 /**
  * Hook to access the [[DayPickerContext]].
