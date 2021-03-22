@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { NavigationContextValue } from './types';
+import { NavigationContextValue } from './NavigationContextValue';
 
 /**
  * The Navigation context shares details about the months being navigated in DayPicker.

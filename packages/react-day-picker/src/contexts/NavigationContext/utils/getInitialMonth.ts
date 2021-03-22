@@ -1,21 +1,9 @@
 import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
 
-import { DayPickerContextBase } from 'contexts';
+import { DayPickerContextValue } from 'contexts';
 
 /** Return the initial month according to the given options. */
-export function getInitialMonth(
-  context: Partial<
-    Pick<
-      DayPickerContextBase,
-      | 'numberOfMonths'
-      | 'month'
-      | 'defaultMonth'
-      | 'today'
-      | 'toDate'
-      | 'fromDate'
-    >
-  >
-): Date {
+export function getInitialMonth(context: Partial<DayPickerContextValue>): Date {
   const { month, defaultMonth, today } = context;
   let initialMonth = month || defaultMonth || today || new Date();
 

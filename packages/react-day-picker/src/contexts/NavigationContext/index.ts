@@ -1,4 +1,4 @@
 export * from './NavigationContext';
+export * from './NavigationContextValue';
 export * from './NavigationProvider';
-export * from './types';
 export * from './useNavigation';
