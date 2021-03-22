@@ -459,4 +459,17 @@ describe('Day.shouldComponentUpdate', () => {
     const newProps = Object.assign({}, day.props, { onKeyDown: () => {} });
     expect(day.shouldComponentUpdate(newProps)).toBeTruthy();
   });
+
+  it('should have an accessible caption', () => {
+    const dayPicker = mount(<DayPicker initialMonth={new Date(2020, 10)} />);
+    const captionId = 'react-day-picker-caption-10';
+
+    const monthCaption = dayPicker.find(`#${captionId}`);
+    const calendarContainer = dayPicker.find(
+      `div[aria-describedby="${captionId}"]`
+    );
+
+    expect(monthCaption).toHaveLength(1);
+    expect(calendarContainer).toHaveLength(1);
+  });
 });
