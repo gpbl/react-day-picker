@@ -7171,13 +7171,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"docusaurus-plugin-typedoc@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "docusaurus-plugin-typedoc@npm:0.11.0"
+"docusaurus-plugin-typedoc@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "docusaurus-plugin-typedoc@npm:0.12.0"
   peerDependencies:
     typedoc: ">=0.20.19"
     typedoc-plugin-markdown: ">=3.6.0"
-  checksum: 1e60c52698a8b93a698c7cf138187f3f44bb1140f2213ed22b6cd176fa11328ea104b39aa4087e9f7b18ec6a97329b288fcef618c8a81ecd385d2f78f8326ec8
+  checksum: b828e2a02217e09779417af254c021fa91aa7625e77b37092341175ae304ded9fe36a26879e287bbb02ef65737a7a9ccaa20a44e140561fecc1fe78cb64407ab
   languageName: node
   linkType: hard
 
@@ -19247,7 +19247,7 @@ resolve@1.18.1:
     "@tsconfig/docusaurus": ^1.0.2
     "@types/react-codesandboxer": ^3.1.0
     date-fns: ^2.19.0
-    docusaurus-plugin-typedoc: ^0.11.0
+    docusaurus-plugin-typedoc: ^0.12.0
     raw-loader: ^4.0.2
     react: ^17.0.1
     react-codesandboxer: ^3.1.5
