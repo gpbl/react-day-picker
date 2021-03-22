@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { SelectMultipleContextValue } from './types';
+import { SelectMultipleContextValue } from './SelectMultipleContextValue';
 
 /**
  * The SelectMultiple context shares details about the selected days when in
