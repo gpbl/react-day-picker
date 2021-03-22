@@ -6,7 +6,7 @@ import {
   Formatters,
   Labels,
   ModifierClassNames,
-  ModifiersArray,
+  Modifiers,
   Styles
 } from 'types';
 
@@ -20,7 +20,7 @@ export type DayPickerContextValue = DayPickerProps & {
   locale: Locale;
   modifierClassNames: ModifierClassNames;
   modifierPrefix: string;
-  modifiers: ModifiersArray;
+  modifiers: Modifiers;
   numberOfMonths: number;
   styles: Styles;
   today: Date;

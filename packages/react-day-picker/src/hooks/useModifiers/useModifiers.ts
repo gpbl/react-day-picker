@@ -8,7 +8,7 @@ import {
   isDayPickerMultiple,
   isDayPickerRange,
   isDayPickerSingle,
-  ModifiersArray
+  Modifiers
 } from 'types';
 import { UseModifiers } from './types';
 import { getModifierStatus } from './utils/getModifierStatus';
@@ -22,20 +22,30 @@ export function useModifiers(date: Date): UseModifiers {
   const rangeSelect = useSelectRange();
 
   // TODO: modifiers from context should not be overridden
-  const modifiers: ModifiersArray = {
+  const modifiers: Modifiers = {
     ...context.modifiers,
     today: context.modifiers.today ?? [context.today],
     disabled: context.modifiers.disabled
   };
 
   if (isDayPickerSingle(context)) {
-    modifiers.selected = singleSelect.modifiers.selected ?? [];
+    modifiers.selected = (modifiers.selected ?? []).concat(
+      singleSelect.modifiers.selected ?? []
+    );
   } else if (isDayPickerMultiple(context)) {
-    modifiers.selected = multipleSelect.modifiers.selected ?? [];
-    modifiers.disabled = modifiers.disabled.concat(
+    modifiers.selected = (modifiers.selected ?? []).concat(
+      multipleSelect.modifiers.selected ?? []
+    );
+    modifiers.disabled = (modifiers.disabled ?? []).concat(
       multipleSelect.modifiers.disabled ?? []
     );
   } else if (isDayPickerRange(context)) {
+    modifiers.selected = (modifiers.selected ?? []).concat(
+      multipleSelect.modifiers.selected ?? []
+    );
+    modifiers.disabled = (modifiers.disabled ?? []).concat(
+      multipleSelect.modifiers.disabled ?? []
+    );
     modifiers.selected = rangeSelect.modifiers.selected ?? [];
     modifiers.range_start = rangeSelect.modifiers.range_start ?? [];
     modifiers.range_middle = rangeSelect.modifiers.range_middle ?? [];

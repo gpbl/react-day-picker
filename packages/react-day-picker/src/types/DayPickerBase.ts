@@ -3,6 +3,7 @@ import { Locale } from 'date-fns';
 import { CaptionLayout } from './CaptionLayout';
 import { ClassNames } from './ClassNames';
 import { Components } from './Components';
+import { CustomModifiers } from './CustomModifiers';
 import { DayClickEventHandler } from './DayClickEventHandler';
 import { DayFocusEventHandler } from './DayFocusEventHandler';
 import { DayKeyboardEventHandler } from './DayKeyboardEventHandler';
@@ -12,7 +13,6 @@ import { Formatters } from './Formatters';
 import { Labels } from './Labels';
 import { Matcher } from './Matcher';
 import { ModifierClassNames } from './ModifierClassNames';
-import { Modifiers } from './Modifiers';
 import { ModifierStyles } from './ModifierStyles';
 import { MonthChangeEventHandler } from './MonthChangeEventHandler';
 import { SelectMultipleEventHandler } from './SelectMultipleEventHandler';
@@ -196,7 +196,7 @@ export interface DayPickerBase {
    * <DayPicker modifiers={{ booked: new Date() }} />
    * ```
    */
-  modifiers?: Modifiers;
+  modifiers?: CustomModifiers;
   /**
    * The prefix to add to the modifiers class names. Default is `rdp-day_`.
    *
