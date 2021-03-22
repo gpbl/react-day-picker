@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { SelectMultipleContext } from './SelectMultipleContext';
-import { SelectMultipleContextValue } from './types';
+import { SelectMultipleContextValue } from './SelectMultipleContextValue';
 
 /** Hook to access the [[SelectMultipleContext]]. */
 export function useSelectMultiple(): SelectMultipleContextValue {
