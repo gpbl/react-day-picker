@@ -131,14 +131,15 @@
 .rdp-nav {
   white-space: nowrap;
 }
-.rdp-caption_first .rdp-nav {
+
+.rdp-multiple_months .rdp-caption_first .rdp-nav {
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
 }
 
-.rdp-caption_last .rdp-nav {
+.rdp-multiple_months .rdp-caption_last .rdp-nav {
   position: absolute;
   top: 50%;
   right: 0;
@@ -223,6 +224,10 @@
 
 .rdp-tbody {
   border: 0;
+}
+
+.rdp-foot {
+  margin: 0.5em;
 }
 
 .rdp-cell {
