@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "copy-docs": "./scripts/copy-docs.sh",
-    "develop": "TYPEDOC_WATCH=true yarn run start --no-open",
+    "develop": "yarn workspace react-day-picker run build && TYPEDOC_WATCH=true yarn run start --no-open",
     "start": "yarn run copy-docs && docusaurus start",
     "build": "yarn run copy-docs && docusaurus build",
     "serve": "docusaurus serve",
