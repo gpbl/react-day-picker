@@ -22,7 +22,7 @@ describe('when navigation is disabled', () => {
     });
   });
   test('should display the caption label', () => {
-    expect(po.captionLabel).toBeInTheDocument();
+    expect(po.getCaptionLabel(today)).toBeInTheDocument();
   });
   test('should not render the drop-downs', () => {
     expect(po.monthDropdown).toBeNull();
@@ -108,7 +108,7 @@ describe('when the caption layout is "buttons"', () => {
   };
   test('should render the caption label', () => {
     customRender(<Caption displayMonth={today} />, context);
-    expect(po.captionLabel).toBeInTheDocument();
+    expect(po.getCaptionLabel(today)).toBeInTheDocument();
   });
   test('should render the next month button', () => {
     customRender(<Caption displayMonth={today} />, context);
@@ -170,27 +170,63 @@ describe('when the caption layout is "buttons"', () => {
   });
 
   describe('when clicking the previous button', () => {
-    test.todo('should go to the previous month');
-    test.todo('should call the `onMonthChange` callback');
-    describe('if no previous month to navigate', () => {
-      test.todo('should not change the month');
-      test.todo('should not call the `onMonthChange` callback');
+    describe('and a previous month is defined', () => {
+      const testContext = {
+        ...context,
+        onMonthChange: jest.fn()
+      };
+      const previousMonth = addMonths(today, -1);
+      beforeEach(() => {
+        customRender(<Caption displayMonth={today} />, testContext);
+        po.runPreviousClick();
+      });
+      test('should call the `onMonthChange` callback', () => {
+        expect(testContext.onMonthChange).toHaveBeenCalledWith(previousMonth);
+      });
     });
-    describe('if no next month to navigate', () => {
-      test.todo('should not change the month');
-      test.todo('should not call the `onMonthChange` callback');
+    describe('and the previous month is not defined', () => {
+      const testContext = {
+        ...context,
+        fromDate: today,
+        onMonthChange: jest.fn()
+      };
+      beforeEach(() => {
+        customRender(<Caption displayMonth={today} />, testContext);
+        po.runPreviousClick();
+      });
+      test('should call the `onMonthChange` callback', () => {
+        expect(testContext.onMonthChange).not.toHaveBeenCalled();
+      });
     });
   });
-  describe('when clicking the next button', () => {
-    test.todo('should go to the next month');
-    test.todo('should call the `onMonthChange` callback');
-    describe('if no next month to navigate', () => {
-      test.todo('should not change the month');
-      test.todo('should not call the `onMonthChange` callback');
+  describe('when clicking the next month button', () => {
+    describe('and the next month is defined', () => {
+      const testContext = {
+        ...context,
+        onMonthChange: jest.fn()
+      };
+      const nextMonth = addMonths(today, 1);
+      beforeEach(() => {
+        customRender(<Caption displayMonth={today} />, testContext);
+        po.runNextClick();
+      });
+      test('should call the `onMonthChange` callback', () => {
+        expect(testContext.onMonthChange).toHaveBeenCalledWith(nextMonth);
+      });
     });
-    describe('if no next month to navigate', () => {
-      test.todo('should not change the month');
-      test.todo('should not call the `onMonthChange` callback');
+    describe('and the next month is not defined', () => {
+      const testContext = {
+        ...context,
+        toDate: today,
+        onMonthChange: jest.fn()
+      };
+      beforeEach(() => {
+        customRender(<Caption displayMonth={today} />, testContext);
+        po.runNextClick();
+      });
+      test('should call the `onMonthChange` callback', () => {
+        expect(testContext.onMonthChange).not.toHaveBeenCalled();
+      });
     });
   });
 });

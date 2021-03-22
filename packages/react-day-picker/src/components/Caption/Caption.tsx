@@ -13,7 +13,7 @@ import { CaptionProps } from './CaptionProps';
  */
 export function Caption(props: CaptionProps): JSX.Element {
   const { displayMonth } = props;
-
+  const context = useDayPicker();
   const {
     classNames,
     numberOfMonths,
@@ -23,7 +23,7 @@ export function Caption(props: CaptionProps): JSX.Element {
     onMonthChange,
     dir,
     components: { CaptionLabel }
-  } = useDayPicker();
+  } = context;
 
   const {
     previousMonth,
