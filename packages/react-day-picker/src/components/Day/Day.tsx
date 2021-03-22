@@ -10,6 +10,11 @@ import {
   useSelectSingle
 } from 'contexts';
 import { useModifiers } from 'hooks';
+import {
+  isDayPickerMultiple,
+  isDayPickerRange,
+  isDayPickerSingle
+} from 'types';
 import { DayProps } from './DayProps';
 import { useDayFocus } from './hooks/useDayFocus';
 
@@ -22,10 +27,9 @@ export function Day(props: DayProps): JSX.Element | null {
   const { date, displayMonth } = props;
 
   const context = useDayPicker();
-
-  const { isSingleMode, ...single } = useSelectSingle();
-  const { isMultipleMode, ...multiple } = useSelectMultiple();
-  const { isRangeMode, ...range } = useSelectRange();
+  const single = useSelectSingle();
+  const multiple = useSelectMultiple();
+  const range = useSelectRange();
 
   const { focus, blur, focusOnKeyDown, isFocused } = useDayFocus(
     date,
@@ -42,11 +46,11 @@ export function Day(props: DayProps): JSX.Element | null {
 
   // #region Event handlers
   const handleClick: React.MouseEventHandler = (e) => {
-    if (isSingleMode) {
+    if (isDayPickerSingle(context)) {
       single.handleDayClick?.(date, modifiers, e);
-    } else if (isMultipleMode) {
+    } else if (isDayPickerMultiple(context)) {
       multiple.handleDayClick?.(date, modifiers, e);
-    } else if (isRangeMode) {
+    } else if (isDayPickerRange(context)) {
       range.handleDayClick?.(date, modifiers, e);
     }
     context.onDayClick?.(date, modifiers, e);
@@ -108,7 +112,10 @@ export function Day(props: DayProps): JSX.Element | null {
 
   const className = classNames.join(' ');
 
-  const isControlled = isSingleMode || isMultipleMode || isRangeMode;
+  const isControlled =
+    isDayPickerSingle(context) ||
+    isDayPickerMultiple(context) ||
+    isDayPickerRange(context);
 
   if (!isControlled && !context.onDayClick) {
     return (
