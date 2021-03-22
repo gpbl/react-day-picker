@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { SelectRangeContext } from './SelectRangeContext';
-import { SelectRangeContextValue } from './types';
+import { SelectRangeContextValue } from './SelectRangeContextValue';
 
 /** Hook to access the [[SelectRangeContext]]. */
 export function useSelectRange(): SelectRangeContextValue {
