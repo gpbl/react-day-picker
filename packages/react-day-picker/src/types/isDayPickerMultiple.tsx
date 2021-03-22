@@ -5,5 +5,5 @@ import { DayPickerProps } from './DayPickerProps';
 export function isDayPickerMultiple(
   props: DayPickerProps
 ): props is DayPickerMultiple {
-  return 'mode' in props && props.mode === 'multiple';
+  return props.mode === 'multiple';
 }

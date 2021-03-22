@@ -5,5 +5,5 @@ import { DayPickerSingle } from './DayPickerSingle';
 export function isDayPickerSingle(
   props: DayPickerProps
 ): props is DayPickerSingle {
-  return 'mode' in props && props.mode === 'single';
+  return props.mode === 'single';
 }

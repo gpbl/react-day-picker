@@ -1,9 +1,9 @@
 import { DayPickerProps } from './DayPickerProps';
 import { DayPickerUncontrolled } from './DayPickerUncontrolled';
 
-/** Returns true when the props are of type [[DayPickerMultiple]]. */
+/** Returns true when the props are of type [[DayPickerUncontrolled]]. */
 export function isDayPickerUncontrolled(
   props: DayPickerProps
 ): props is DayPickerUncontrolled {
-  return 'mode' in props && props.mode === 'uncontrolled';
+  return props.mode === 'uncontrolled';
 }

@@ -5,5 +5,5 @@ import { DayPickerRange } from './DayPickerRange';
 export function isDayPickerRange(
   props: DayPickerProps
 ): props is DayPickerRange {
-  return 'mode' in props && props.mode === 'range';
+  return props.mode === 'range';
 }
