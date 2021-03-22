@@ -16,7 +16,14 @@ export function useDayFocus(
 } {
   const [
     focusedDay,
-    { focusDayAfter, focusDayBefore, focusDayDown, focusDayUp, blur, focus }
+    {
+      focusDayAfter,
+      focusDayBefore,
+      focusWeekAfterDay,
+      focusWeekBeforeDay,
+      blur,
+      focus
+    }
   ] = useFocus();
 
   // Focus the HTML element if this is the focused day.
@@ -42,12 +49,12 @@ export function useDayFocus(
       case 'ArrowDown':
         e.preventDefault();
         e.stopPropagation();
-        focusDayDown();
+        focusWeekAfterDay();
         break;
       case 'ArrowUp':
         e.preventDefault();
         e.stopPropagation();
-        focusDayUp();
+        focusWeekBeforeDay();
         break;
     }
   };
