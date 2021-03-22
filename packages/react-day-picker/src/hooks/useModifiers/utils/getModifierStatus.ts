@@ -1,4 +1,4 @@
-import { ModifiersArray, ModifierStatus } from 'types';
+import { Modifiers, ModifierStatus } from 'types';
 import { isMatch } from './isMatch';
 
 /**
@@ -7,7 +7,7 @@ import { isMatch } from './isMatch';
 export function getModifierStatus(
   date: Date,
   /** The modifiers to match for the given date. */
-  modifiers: ModifiersArray
+  modifiers: Modifiers
 ): ModifierStatus {
   const modifiersList = Object.keys(modifiers).reduce(
     (previousValue: string[], key: string): string[] => {

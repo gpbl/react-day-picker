@@ -1,12 +1,8 @@
 import * as React from 'react';
 
-import {
-  DayClickEventHandler,
-  DayPickerProps,
-  isDayPickerSingle,
-  ModifiersArray
-} from 'types';
+import { DayClickEventHandler, DayPickerProps, isDayPickerSingle } from 'types';
 import { SelectSingleContext } from './SelectSingleContext';
+import { SelectSingleModifiers } from './SelectSingleModifiers';
 
 /** Provides the values for the [[SelectSingleProvider]]. */
 export function SelectSingleProvider({
@@ -37,7 +33,7 @@ export function SelectSingleProvider({
     initialProps.onSelect?.(day, day, dayModifiers, e);
   };
 
-  const modifiers: ModifiersArray = {};
+  const modifiers: SelectSingleModifiers = { selected: [] };
   if (selected) modifiers.selected = [selected];
 
   return (

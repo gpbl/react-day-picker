@@ -6,10 +6,10 @@ import {
   DateRange,
   DayClickEventHandler,
   DayPickerProps,
-  isDayPickerRange,
-  ModifiersArray
+  isDayPickerRange
 } from 'types';
 import { SelectRangeContext } from './SelectRangeContext';
+import { SelectRangeModifiers } from './SelectRangeModifiers';
 import { addToRange } from './utils/addToRange';
 
 /** Provides the values for the [[SelectRangeProvider]]. */
@@ -60,7 +60,13 @@ export function SelectRangeProvider({
     initialProps.onSelect?.(newValue, day, modifiers, e);
   };
 
-  const modifiers: ModifiersArray = {};
+  const modifiers: SelectRangeModifiers = {
+    selected: [],
+    range_start: [],
+    range_end: [],
+    range_middle: [],
+    disabled: []
+  };
   if (selected) {
     modifiers.selected = [selected];
     if (selected.from) {

@@ -9,9 +9,7 @@ import { DayPickerContextValue } from './DayPickerContextValue';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';
-import { convertModifierMatchersToArray } from './utils/convertModifierMatchersToArray';
-import { parseFromToProps } from './utils/parseFromToProps';
-import { parseModifierShortcuts } from './utils/parseModifierShortcuts';
+import { parseFromToProps, parseModifierProps } from './utils';
 
 /** Represent the props for the [[DayPickerProvider]]. */
 export interface DayPickerProviderProps {
@@ -37,15 +35,14 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   let captionLayout = initialProps.captionLayout ?? 'buttons';
   if (!fromDate && !toDate) captionLayout = 'buttons';
 
-  const modifiers = parseModifierShortcuts(initialProps);
-  const modifiersAsArray = convertModifierMatchersToArray(modifiers);
+  const modifiers = parseModifierProps(initialProps);
 
   // Disable days before/after from/toDate
   if (fromDate) {
-    modifiersAsArray.disabled.push({ before: fromDate });
+    modifiers.disabled.push({ before: fromDate });
   }
   if (toDate) {
-    modifiersAsArray.disabled.push({ after: toDate });
+    modifiers.disabled.push({ after: toDate });
   }
 
   const {
@@ -69,7 +66,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
 
     modifierClassNames: initialProps.modifierClassNames ?? {},
     modifierPrefix: 'rdp-day_',
-    modifiers: modifiersAsArray,
+    modifiers: modifiers,
     numberOfMonths,
 
     styles: initialProps.styles ?? {},

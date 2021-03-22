@@ -2,9 +2,10 @@ import * as React from 'react';
 
 import { isSameDay } from 'date-fns';
 
-import { DayClickEventHandler, DayPickerProps, ModifiersArray } from 'types';
+import { DayClickEventHandler, DayPickerProps } from 'types';
 import { isDayPickerMultiple } from '../../types';
 import { SelectMultipleContext } from './SelectMultipleContext';
+import { SelectMultipleModifiers } from './SelectMultipleModifiers';
 
 /** Provides the values for the [[SelectMultipleContext]]. */
 export function SelectMultipleProvider({
@@ -62,7 +63,11 @@ export function SelectMultipleProvider({
     initialProps.onSelect?.(days, day, modifiers, e);
   };
 
-  const modifiers: ModifiersArray = {};
+  const modifiers: SelectMultipleModifiers = {
+    selected: [],
+    disabled: []
+  };
+
   if (selectedDays && isDayPickerMultiple(initialProps)) {
     modifiers.selected = selectedDays;
     modifiers.disabled = [
