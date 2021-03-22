@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { SelectRangeContextValue } from './types';
+import { SelectRangeContextValue } from './SelectRangeContextValue';
 
 /**
  * The SelectRange context shares details about the selected days when in
