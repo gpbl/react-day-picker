@@ -33,15 +33,12 @@ export function Day(props: DayProps): JSX.Element | null {
   );
   const { modifiers, modifierClassNames, modifierStyle } = useModifiers(date);
 
+  if (modifiers.hidden) return <></>;
+
   const {
     components: { DayContent },
-    formatters: { formatDay },
-    labels: { labelDay },
-    locale,
     showOutsideDays
   } = context;
-
-  if (modifiers.hidden) return <></>;
 
   // #region Event handlers
   const handleClick: React.MouseEventHandler = (e) => {
@@ -94,40 +91,24 @@ export function Day(props: DayProps): JSX.Element | null {
 
   // #endregion
 
+  const isOutside = !isSameMonth(date, displayMonth);
+  if (isOutside && !showOutsideDays) return <></>;
+
   const classNames = [context.classNames.day].concat(modifierClassNames);
   let style: React.CSSProperties = { ...context.styles.day, ...modifierStyle };
-
-  const isOutside = !isSameMonth(date, displayMonth);
-
-  if (isOutside && !showOutsideDays) {
-    return <></>;
-  }
 
   if (isOutside) {
     classNames.push(context.classNames.day_outside);
     style = { ...context.styles, ...context.styles.day_outside };
   }
 
-  const ariaLabel = labelDay(date, modifiers, { locale });
-
   const dayContent = (
-    <DayContent
-      aria-label={ariaLabel}
-      date={date}
-      displayMonth={displayMonth}
-      format={formatDay}
-      hiddenClassName={context.classNames.vhidden}
-      hiddenStyle={context.styles.vhidden}
-      locale={locale}
-      modifiers={modifiers}
-      outside={isOutside}
-      showOutsideDays={showOutsideDays}
-    />
+    <DayContent date={date} displayMonth={displayMonth} modifiers={modifiers} />
   );
 
-  const isControlled = isSingleMode || isMultipleMode || isRangeMode;
-
   const className = classNames.join(' ');
+
+  const isControlled = isSingleMode || isMultipleMode || isRangeMode;
 
   if (!isControlled && !context.onDayClick) {
     return (
@@ -137,16 +118,16 @@ export function Day(props: DayProps): JSX.Element | null {
     );
   }
 
-  const ariaPressed = modifiers.selected;
-  const isDisabled = modifiers.disabled;
-  const tabIndex = isDisabled || isFocused ? -1 : 0;
+  const { selected, disabled } = modifiers;
+
+  const tabIndex = disabled || isFocused ? -1 : 0;
 
   return (
     <Button
       ref={buttonRef}
-      aria-pressed={ariaPressed}
+      aria-pressed={selected}
       style={style}
-      disabled={isDisabled}
+      disabled={disabled}
       className={className}
       tabIndex={tabIndex}
       onClick={handleClick}
