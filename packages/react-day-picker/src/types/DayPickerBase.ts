@@ -1,109 +1,47 @@
 import { Locale } from 'date-fns';
 
-import {
-  CaptionLayout,
-  ClassNames,
-  Components,
-  DayClickEventHandler,
-  DayFocusEventHandler,
-  DayKeyboardEventHandler,
-  DayMouseEventHandler,
-  DayTouchEventHandler,
-  Formatters,
-  Labels,
-  Matcher,
-  ModifierClassNames,
-  Modifiers,
-  ModifierStyles,
-  MonthChangeEventHandler,
-  Styles,
-  WeekNumberClickEventHandler
-} from './index';
+import { CaptionLayout } from './CaptionLayout';
+import { ClassNames } from './ClassNames';
+import { Components } from './Components';
+import { DayClickEventHandler } from './DayClickEventHandler';
+import { DayFocusEventHandler } from './DayFocusEventHandler';
+import { DayKeyboardEventHandler } from './DayKeyboardEventHandler';
+import { DayMouseEventHandler } from './DayMouseEventHandler';
+import { DayTouchEventHandler } from './DayTouchEventHandler';
+import { Formatters } from './Formatters';
+import { Labels } from './Labels';
+import { Matcher } from './Matcher';
+import { ModifierClassNames } from './ModifierClassNames';
+import { Modifiers } from './Modifiers';
+import { ModifierStyles } from './ModifierStyles';
+import { MonthChangeEventHandler } from './MonthChangeEventHandler';
+import { SelectMultipleEventHandler } from './SelectMultipleEventHandler';
+import { SelectRangeEventHandler } from './SelectRangeEventHandler';
+import { SelectSingleEventHandler } from './SelectSingleEventHandler';
+import { Styles } from './Styles';
+import { WeekNumberClickEventHandler } from './WeekNumberClickEventHandler';
 
 /**
- * The base props for the [[DayPicker]] component.
- *
- * This interface extends other props according to the selection mode:
- *
- * - see [[DayPickerSingle]] when using `mode="single"`
- * - see [[DayPickerMultiple]] when using `mode="multiple"`
- * - see [[DayPickerRange]] when using `mode="range"`
+ * The shared props for the [[DayPicker]] component.
  */
 export interface DayPickerBase {
-  /**
-   * CSS class to add to the root UI element.
-   */
+  // #region class names
+  /** CSS class to add to the root UI element. */
   className?: string;
   /**
    * Change the class names.
    *
    * Use this prop when you need to change the default class names — for example
    * when using CSS modules.
-   *
-   * **Example**
-   *
-   * Use of custom class names for the head and the caption elements:
-   *
-   * ```
-   *  function App() {
-   *    const css = `
-   *      .salmon-head {
-   *        color: salmon;
-   *      }
-   *      .purple-caption {
-   *        font-weight: bold;
-   *        color: purple;
-   *        padding: 3px 0 6px 0;
-   *      }
-   *    `;
-   *    return (
-   *      <>
-   *        <style>{css}</style>
-   *        <DayPicker
-   *          classNames={{
-   *            head: 'salmon-head',
-   *            caption: 'purple-caption'
-   *          }}
-   *        />
-   *      </>
-   *    );
-   *  }
-   * ```
    */
   classNames?: ClassNames;
   /**
    * Change the class name for the day matching the [[modifiers]].
-   *
-   * **Example**
-   *
-   * Add the `.with-circle` class of the days matching the `isToday` modifier.
-   *
-   * ```
-   * <DayPicker
-   *  modifiers={{ isToday: new Date() }}
-   *  modifierClassNames={{ isToday: 'with-circle' }}
-   * />
-   * ```
    */
   modifierClassNames?: ModifierClassNames;
-  /**
-   * The prefix to add to the modifiers class names. Default is `rdp-day_`.
-   *
-   * Each day will get a `${modifierPrefix}${modifier}` class name when matching
-   * a modifier.
-   *
-   * ```
-   * const today = new Date();
-   * // ...
-   * <DayPicker
-   *  modifierPrefix="calendar-day_" // use this prefix instead of default
-   *  selected={today} // Today element has `.calendar-day_selected`
-   *  hidden={today} // `.calendar-day_hidden`
-   *  modifiers={{ today }} // `.calendar-day_today`
-   * />
-   * ```
-   */
-  modifierPrefix?: string;
+  // #endregion
+
+  // #region styles
   /**
    * Style to apply to the container element.
    */
@@ -114,19 +52,12 @@ export interface DayPickerBase {
   styles?: Styles;
   /**
    * Change the inline style for the day matching the [[modifiers]].
-   *
-   * **Example**
-   *
-   * Change the background color of the days matching the `isToday` modifier.
-   *
-   * ```
-   * <DayPicker
-   *  modifiers={{ isToday: new Date() }}
-   *  modifierStyles={{ isToday: { backgroundColor: 'purple' } }}
-   * />
    * ```
    */
   modifierStyles?: ModifierStyles;
+  // #endregion
+
+  // #region month navigation
   /**
    * The initial month to show in the calendar. Default is the current month.
    *
@@ -141,6 +72,10 @@ export interface DayPickerBase {
    * change the month programmatically.
    */
   month?: Date;
+  /**
+   * Event fired when the user navigates between months.
+   */
+  onMonthChange?: MonthChangeEventHandler;
   /**
    * The number of displayed months. Defaults to `1`.
    */
@@ -174,6 +109,18 @@ export interface DayPickerBase {
    */
   disableNavigation?: boolean;
   /**
+   * Paginate the month navigation displaying the [[numberOfMonths]] at time.
+   */
+  pagedNavigation?: boolean;
+  /**
+   * Render the months in reversed order (when [[numberOfMonths]] is greater
+   * than `1`) to display the most recent month first.
+   */
+  reverseMonths?: boolean;
+  // #endregion
+
+  // #region customization props
+  /**
    * Change the layout of the caption:
    *
    * - `buttons` (default): display prev/right buttons
@@ -183,16 +130,6 @@ export interface DayPickerBase {
    * `toDate/toMonth/toYear` are set.
    */
   captionLayout?: CaptionLayout;
-
-  /**
-   * Paginate the month navigation displaying the [[numberOfMonths]] at time.
-   */
-  pagedNavigation?: boolean;
-  /**
-   * Render the months in reversed order (when [[numberOfMonths]] is greater
-   * than `1`) to display the most recent month first.
-   */
-  reverseMonths?: boolean;
   /**
    * Display six weeks per months, regardless the month’s number of weeks.
    * To use this prop, [[showOutsideDays]] must be set. Default to `false`.
@@ -212,39 +149,44 @@ export interface DayPickerBase {
    */
   showWeekNumber?: boolean;
   /**
-   * Apply the `disabled` modifier to the matching days.
+   * A map of components used to create the layout.
    *
-   * **Example**
+   * For example, to use custom navigation icons:
    *
    * ```
-   * function App() {
-   *   return (
-   *     <DayPicker
-   *       defaultMonth={new Date(2021, 11)}
-   *       disabled={{
-   *         from: new Date(2021, 11, 14),
-   *         to: new Date(2021, 11, 24)
-   *       }}
-   *     />
-   *   );
-   * }
+   * <DayPicker component={{
+   *    IconNext: MyIconNext,
+   *    IconPrevious: MyIconPrev
+   *  }}
+   * />
    * ```
    */
+  components?: Partial<Components>;
+
+  /** Content to add to the `tfoot` element. */
+  footer?: React.ReactNode;
+  // #endregion
+
+  // #region modifiers props
+
+  /**
+   * Apply the `disabled` modifier to the matching days.
+   */
   disabled?: Matcher | Matcher[];
+  /**
+   * Apply the `selected` modifier to the matching days.
+   */
+  selected?: Matcher | Matcher[];
   /**
    * Apply the `hidden` modifier to the matching days. Will hide them from the
    * calendar.
    */
   hidden?: Matcher | Matcher[];
-
   /**
-   * The today’s date. Default is the current date.
-   *
-   * This Date will get the `today` modifier to style the day. Set it to `off`
-   * to disable it.
+   * The today’s date. Default is the current date. This Date will get the
+   * `today` modifier to style the day.
    */
-  today?: Date | 'off';
-
+  today?: Date;
   /**
    * Add modifiers to the matching days.
    *
@@ -255,7 +197,53 @@ export interface DayPickerBase {
    * ```
    */
   modifiers?: Modifiers;
+  /**
+   * The prefix to add to the modifiers class names. Default is `rdp-day_`.
+   *
+   * Each day will get a `${modifierPrefix}${modifier}` class name when matching
+   * a modifier.
+   */
+  modifierPrefix?: string;
+  // #endregion
 
+  // #region selection props
+  /**
+   * Toggle the controlled selection mode.
+   *
+   * - `uncontrolled`: disable the controlled selection mode
+   * - `single`: control the selection of single days
+   * - `multiple`: control the selection of multiple days
+   * - `range`: control the selection of a range of days
+   */
+  mode?: 'uncontrolled' | 'single' | 'multiple' | 'range';
+  /**
+   * The default selected days when the `mode` is `single`, `multiple` or `range`.
+   */
+  defaultSelected?: Matcher | Matcher[];
+  /**
+   * When in single selection mode, make the selection required.
+   */
+  required?: boolean;
+  /**
+   * When in multiple or range selection mode, the minimum amount of days that
+   * can be selected.
+   */
+  min?: number;
+  /**
+   * When in multiple or range selection mode, the maximum amount of days that
+   * can be selected.
+   */
+  max?: number;
+  /**
+   * Event handler when a day is selected (valid only in controlled selection mode).
+   */
+  onSelect?:
+    | SelectSingleEventHandler
+    | SelectMultipleEventHandler
+    | SelectRangeEventHandler;
+  // #endregion
+
+  // #region localization props
   /**
    * The date-fns locale object to localize the user interface. Defaults to
    * `en-US`.
@@ -284,19 +272,6 @@ export interface DayPickerBase {
   /**
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
-   *
-   * **Example**
-   *
-   * When setting the calendar to Arabic, using `dir` to enable right-to-left
-   * direction.
-   *
-   * ```
-   * import arabic from 'date-fns/locale/ar-SA';
-   *
-   * function App() {
-   *   return <DayPicker locale={arabic} dir="rtl" />;
-   * }
-   * ```
    */
   dir?: string;
 
@@ -304,29 +279,9 @@ export interface DayPickerBase {
    * A map of formatters to change the default formatting functions.
    */
   formatters?: Partial<Formatters>;
+  // #endregion
 
-  /**
-   * A map of components used to create the layout.
-   *
-   * For example, to use custom navigation icons:
-   *
-   * ```
-   * <DayPicker component={{
-   *    IconNext: MyIconNext,
-   *    IconPrevious: MyIconPrev
-   *  }}
-   * />
-   * ```
-   */
-  components?: Partial<Components>;
-
-  /** Content to add to the `tfoot` element. */
-  footer?: React.ReactNode;
-
-  /**
-   * Event fired when the user navigates between months.
-   */
-  onMonthChange?: MonthChangeEventHandler;
+  // #region event handlers
   onDayClick?: DayClickEventHandler;
   onDayFocus?: DayFocusEventHandler;
   onDayBlur?: DayFocusEventHandler;
@@ -342,4 +297,5 @@ export interface DayPickerBase {
   onNextClick?: MonthChangeEventHandler;
   onPrevClick?: MonthChangeEventHandler;
   onWeekNumberClick?: WeekNumberClickEventHandler;
+  // #endregion
 }
