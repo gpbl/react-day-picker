@@ -39,7 +39,7 @@ export function CodeSandboxButton({
     >
       {({ isLoading }) => (
         <button type="submit" style={{ padding: '.4em .8em' }}>
-          ↗ {isLoading ? 'Uploading...' : 'CodeSandbox'}
+          ↗ {isLoading ? 'Opening pop-up window…' : 'CodeSandbox'}
         </button>
       )}
     </CodeSandboxer>
