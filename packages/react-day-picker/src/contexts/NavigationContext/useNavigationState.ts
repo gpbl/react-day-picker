@@ -23,7 +23,7 @@ export function useNavigationState(): [
 
   // Update month if updated from context.
   React.useEffect(() => {
-    // TODO: return also if `context.defaultMonth`?
+    // TODO: return void also if `context.defaultMonth`?
     if (!context.month) return;
     if (isSameMonth(context.month, month)) return;
     setMonth(context.month);
