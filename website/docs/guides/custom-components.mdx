@@ -6,9 +6,9 @@ title: Custom Components
 Use the `components` prop to to swap the [internal
 components](/api/interfaces/components) used by DayPicker.
 
-The [useNavigation](/api/functions/usenavigation) and
-[useDayPicker](/api/functions/usedaypicker) hooks returns values that can help
-to build the components.
+The [useNavigation](/api/functions/usenavigation),
+[useDayPicker](/api/functions/usedaypicker) and [useDay](/api/functions/useday)
+hooks returns values that can help to build the components.
 
 ### Example: wrap the day
 
@@ -24,4 +24,12 @@ Implement a custom component to hide the rows of past weeks.
 
 ```include
 guides/custom-components-disable-row.tsx
+```
+
+### Example: extend selection mode
+
+Implement a `Day` component to select ranges only when the shift key is pressed:
+
+```include
+guides/custom-selection-useday.tsx
 ```

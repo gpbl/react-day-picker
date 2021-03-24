@@ -12,7 +12,7 @@ const sidebar = [
   {
     Guides: [
       'guides/modifiers',
-      'guides/custom-selection',
+      'guides/custom-selections',
       'guides/formatters',
       'guides/localization',
       'guides/input-fields',
