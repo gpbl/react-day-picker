@@ -16,6 +16,10 @@ with the previous versions.
 
 See the preview website at https://react-day-picker-next.netlify.app.
 
+### [v8.0.0-beta.29](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.29)
+
+- Added `useDay` hook
+
 ### [v8.0.0-beta.27](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.27)
 
 - Better typings
