@@ -6,4 +6,6 @@ export type StyledComponentProps = {
   className?: string;
   /** The inline style of the container element. */
   style?: React.CSSProperties;
+  /** The content of the element. */
+  children?: React.ReactNode;
 };
