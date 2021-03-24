@@ -1,155 +1,24 @@
 import * as React from 'react';
 
-import { isSameMonth } from 'date-fns';
-
 import { Button } from 'components';
-import {
-  useDayPicker,
-  useSelectMultiple,
-  useSelectRange,
-  useSelectSingle
-} from 'contexts';
-import { useModifiers } from 'hooks';
-import {
-  isDayPickerMultiple,
-  isDayPickerRange,
-  isDayPickerSingle
-} from 'types';
 import { DayProps } from './DayProps';
-import { useDayFocus } from './hooks/useDayFocus';
+import { useDay } from './hooks/useDay';
 
 /**
  * The content of a day cell – as a button or span element according to its
  * modifiers.
  */
-export function Day(props: DayProps): JSX.Element | null {
+export function Day(props: DayProps): JSX.Element {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
-  const { date, displayMonth } = props;
 
-  const context = useDayPicker();
-  const single = useSelectSingle();
-  const multiple = useSelectMultiple();
-  const range = useSelectRange();
+  const day = useDay(props.date, props.displayMonth, buttonRef);
+  const { buttonProps, nonInteractiveProps } = day;
 
-  const { focus, blur, focusOnKeyDown, isFocused } = useDayFocus(
-    date,
-    buttonRef
-  );
-  const { modifiers, modifierClassNames, modifierStyle } = useModifiers(date);
-
-  if (modifiers.hidden) return <></>;
-
-  const {
-    components: { DayContent },
-    showOutsideDays
-  } = context;
-
-  // #region Event handlers
-  const handleClick: React.MouseEventHandler = (e) => {
-    if (isDayPickerSingle(context)) {
-      single.handleDayClick?.(date, modifiers, e);
-    } else if (isDayPickerMultiple(context)) {
-      multiple.handleDayClick?.(date, modifiers, e);
-    } else if (isDayPickerRange(context)) {
-      range.handleDayClick?.(date, modifiers, e);
-    }
-    context.onDayClick?.(date, modifiers, e);
-  };
-
-  const handleFocus: React.FocusEventHandler = (e) => {
-    focus(date);
-    context.onDayFocus?.(date, modifiers, e);
-  };
-
-  const handleBlur: React.FocusEventHandler = (e) => {
-    blur();
-    context.onDayBlur?.(date, modifiers, e);
-  };
-
-  const handleKeyDown: React.KeyboardEventHandler = (e) => {
-    focusOnKeyDown(e);
-    context.onDayKeyDown?.(date, modifiers, e);
-  };
-
-  const handleKeyUp: React.KeyboardEventHandler = (e) => {
-    context.onDayKeyUp?.(date, modifiers, e);
-  };
-  const handleMouseEnter: React.MouseEventHandler = (e) => {
-    context.onDayMouseEnter?.(date, modifiers, e);
-  };
-  const handleMouseLeave: React.MouseEventHandler = (e) => {
-    context.onDayMouseLeave?.(date, modifiers, e);
-  };
-  const handleTouchCancel: React.TouchEventHandler = (e) => {
-    context.onDayTouchCancel?.(date, modifiers, e);
-  };
-  const handleTouchEnd: React.TouchEventHandler = (e) => {
-    context.onDayTouchEnd?.(date, modifiers, e);
-  };
-  const handleTouchMove: React.TouchEventHandler = (e) => {
-    context.onDayTouchMove?.(date, modifiers, e);
-  };
-  const handleTouchStart: React.TouchEventHandler = (e) => {
-    context.onDayTouchStart?.(date, modifiers, e);
-  };
-
-  // #endregion
-
-  const isOutside = !isSameMonth(date, displayMonth);
-  if (isOutside && !showOutsideDays) return <></>;
-
-  const classNames = [context.classNames.day].concat(modifierClassNames);
-  let style: React.CSSProperties = { ...context.styles.day, ...modifierStyle };
-
-  if (isOutside) {
-    classNames.push(context.classNames.day_outside);
-    style = { ...context.styles, ...context.styles.day_outside };
+  if (!buttonProps && !nonInteractiveProps) {
+    return <></>;
   }
-
-  const dayContent = (
-    <DayContent date={date} displayMonth={displayMonth} modifiers={modifiers} />
-  );
-
-  const className = classNames.join(' ');
-
-  const isControlled =
-    isDayPickerSingle(context) ||
-    isDayPickerMultiple(context) ||
-    isDayPickerRange(context);
-
-  if (!isControlled && !context.onDayClick) {
-    return (
-      <div style={style} className={className}>
-        {dayContent}
-      </div>
-    );
+  if (nonInteractiveProps) {
+    return <div {...nonInteractiveProps} />;
   }
-
-  const { selected, disabled } = modifiers;
-
-  const tabIndex = disabled || isFocused ? -1 : 0;
-
-  return (
-    <Button
-      ref={buttonRef}
-      aria-pressed={selected}
-      style={style}
-      disabled={disabled}
-      className={className}
-      tabIndex={tabIndex}
-      onClick={handleClick}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      onKeyDown={handleKeyDown}
-      onKeyUp={handleKeyUp}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onTouchCancel={handleTouchCancel}
-      onTouchEnd={handleTouchEnd}
-      onTouchMove={handleTouchMove}
-      onTouchStart={handleTouchStart}
-    >
-      {dayContent}
-    </Button>
-  );
+  return <Button ref={buttonRef} {...buttonProps} />;
 }
