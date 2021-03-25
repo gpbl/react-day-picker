@@ -29,24 +29,23 @@ export function useModifiers(date: Date): UseModifiers {
   };
 
   if (isDayPickerSingle(context)) {
-    modifiers.selected = (modifiers.selected ?? []).concat(
+    modifiers.selected = modifiers.selected.concat(
       singleSelect.modifiers.selected ?? []
     );
   } else if (isDayPickerMultiple(context)) {
-    modifiers.selected = (modifiers.selected ?? []).concat(
+    modifiers.selected = modifiers.selected.concat(
       multipleSelect.modifiers.selected ?? []
     );
-    modifiers.disabled = (modifiers.disabled ?? []).concat(
+    modifiers.disabled = modifiers.disabled.concat(
       multipleSelect.modifiers.disabled ?? []
     );
   } else if (isDayPickerRange(context)) {
-    modifiers.selected = (modifiers.selected ?? []).concat(
+    modifiers.selected = modifiers.selected.concat(
       multipleSelect.modifiers.selected ?? []
     );
-    modifiers.disabled = (modifiers.disabled ?? []).concat(
+    modifiers.disabled = modifiers.disabled.concat(
       multipleSelect.modifiers.disabled ?? []
     );
-    modifiers.selected = rangeSelect.modifiers.selected ?? [];
     modifiers.range_start = rangeSelect.modifiers.range_start ?? [];
     modifiers.range_middle = rangeSelect.modifiers.range_middle ?? [];
     modifiers.range_end = rangeSelect.modifiers.range_end ?? [];
