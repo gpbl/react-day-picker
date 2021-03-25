@@ -114,12 +114,6 @@ export function useDay(
 
   let className = classNames.join(' ');
 
-  const isControlled =
-    isDayPickerSingle(context) ||
-    isDayPickerMultiple(context) ||
-    isDayPickerRange(context);
-
-  if (!isControlled && !context.onDayClick) {
     return {
       ...returnValue,
       nonInteractiveProps: {
