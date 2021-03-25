@@ -21,10 +21,8 @@ export function SelectRangeProvider({
   children: React.ReactNode;
 }): JSX.Element {
   let initialSelected;
-  let isRangeMode = false;
   let min: number | undefined, max: number | undefined;
   if (isDayPickerRange(initialProps)) {
-    isRangeMode = true;
     initialSelected = initialProps.defaultSelected;
     min = initialProps.min;
     max = initialProps.max;
@@ -133,7 +131,7 @@ export function SelectRangeProvider({
 
   return (
     <SelectRangeContext.Provider
-      value={{ selected, handleDayClick, modifiers, isRangeMode }}
+      value={{ selected, handleDayClick, modifiers }}
     >
       {children}
     </SelectRangeContext.Provider>

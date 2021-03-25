@@ -16,10 +16,8 @@ export function SelectMultipleProvider({
   children: React.ReactNode;
 }): JSX.Element {
   let initialSelected;
-  let isMultipleMode = false;
   if (isDayPickerMultiple(initialProps)) {
     initialSelected = initialProps.defaultSelected;
-    isMultipleMode = true;
   }
   const [selectedDays, setSelectedDays] = React.useState<Date[] | undefined>(
     initialSelected || undefined
@@ -87,8 +85,7 @@ export function SelectMultipleProvider({
       value={{
         selected: selectedDays,
         handleDayClick,
-        modifiers,
-        isMultipleMode
+        modifiers
       }}
     >
       {children}
