@@ -3,6 +3,9 @@ import React from 'react';
 import { isSameMonth } from 'date-fns';
 
 import {
+  SelectMultipleContextValue,
+  SelectRangeContextValue,
+  SelectSingleContextValue,
   useDayPicker,
   useSelectMultiple,
   useSelectRange,
@@ -18,6 +21,31 @@ import {
   StyledComponentProps
 } from 'types';
 import { useDayFocus } from './useDayFocus';
+
+export type UseDay = {
+  /** Whether the date is outside the display month/ */
+  isOutside: boolean;
+  /** The modifiers for the given date. */
+  modifiers: ModifierStatus;
+  /** The days in DayPicker currently selected. */
+  selected: Date | Date[] | DateRange | undefined;
+  /**
+   * The props for rendering the day as interactive element.
+   *
+   * When `undefined`, DayPicker should render a non interactive element with non-interactive
+   * props.
+   */
+  buttonProps?: Omit<React.HTMLProps<HTMLButtonElement>, 'ref'>;
+  /**
+   * The props for rendering the day as not interactive element.
+   *
+   * When both this value and `buttonProps` are `undefined`, DayPicker should not render anything.
+   */
+  nonInteractiveProps?: StyledComponentProps;
+  single: SelectSingleContextValue;
+  multiple: SelectMultipleContextValue;
+  range: SelectRangeContextValue;
+};
 
 /**
  * This hook returns details about the content to render in the day cell.
@@ -48,27 +76,7 @@ export function useDay(
   displayMonth: Date,
   /** A ref to the button element. */
   buttonRef: React.RefObject<HTMLButtonElement>
-): {
-  /** Whether the date is outside the display month/ */
-  isOutside: boolean;
-  /** The modifiers for the given date. */
-  modifiers: ModifierStatus;
-  /** The days in DayPicker currently selected. */
-  selected: Date | Date[] | DateRange | undefined;
-  /**
-   * The props for rendering the day as interactive element.
-   *
-   * When `undefined`, DayPicker should render a non interactive element with non-interactive
-   * props.
-   */
-  buttonProps?: Omit<React.HTMLProps<HTMLButtonElement>, 'ref'>;
-  /**
-   * The props for rendering the day as not interactive element.
-   *
-   * When both this value and `buttonProps` are `undefined`, DayPicker should not render anything.
-   */
-  nonInteractiveProps?: StyledComponentProps;
-} {
+): UseDay {
   const context = useDayPicker();
   const single = useSelectSingle();
   const multiple = useSelectMultiple();
@@ -90,7 +98,10 @@ export function useDay(
       ? multiple.selected
       : isDayPickerRange(context)
       ? range.selected
-      : undefined
+      : undefined,
+    single,
+    multiple,
+    range
   };
   if (isOutside && !context.showOutsideDays) {
     return returnValue;
@@ -114,6 +125,7 @@ export function useDay(
 
   let className = classNames.join(' ');
 
+  if (!context.mode) {
     return {
       ...returnValue,
       nonInteractiveProps: {
