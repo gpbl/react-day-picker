@@ -9,6 +9,4 @@ export interface SelectMultipleContextValue {
   modifiers: SelectMultipleModifiers;
   /** Event handler to attach to the day button to enable the multiple select. */
   handleDayClick: DayClickEventHandler;
-  /** Whether DayPicker is in multiple selection mode.  */
-  isMultipleMode: boolean;
 }
