@@ -62,7 +62,7 @@ export interface DayPickerProps {
   labels?: { previousMonth: string; nextMonth: string };
   locale?: string;
   localeUtils?: LocaleUtils;
-  modifiers?: Partial<Modifiers>;
+  modifiers?: any;
   modifiersStyles?: object;
   month?: Date;
   months?: string[];
