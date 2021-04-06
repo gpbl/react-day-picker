@@ -4,6 +4,7 @@
   "description": "Flexible date picker component for React",
   "browser": "lib/react-day-picker.min.js",
   "main": "build/index.js",
+  "module": "build/index.js",
   "types": "types/index.d.ts",
   "style": "lib/style.css",
   "files": [
