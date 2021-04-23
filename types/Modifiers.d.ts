@@ -30,6 +30,7 @@ export type Modifier =
   | BeforeAfterModifier
   | DaysOfWeekModifier
   | FunctionModifier
+  | null
   | undefined;
 
 export interface Modifiers {
