@@ -1,7 +1,7 @@
 import { RangeModifier } from './Modifiers';
 
 export const DateUtils: {
-  addDayToRange(day: Date, range: RangeModifier): RangeModifier;
+  addDayToRange(day: Date, range?: RangeModifier): RangeModifier;
   addMonths(d: Date, n: number): Date;
   clone(d: Date): Date;
   isDate(d: Date): boolean;
