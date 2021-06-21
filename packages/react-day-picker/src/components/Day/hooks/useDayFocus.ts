@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { isSameDay } from 'date-fns';
 
-import { useFocus } from 'contexts';
+import { useFocus } from 'contexts/Focus';
 
 /** Handle the focus for the day element. */
 export function useDayFocus(

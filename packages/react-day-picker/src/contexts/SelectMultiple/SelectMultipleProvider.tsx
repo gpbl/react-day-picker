@@ -2,8 +2,12 @@ import * as React from 'react';
 
 import { isSameDay } from 'date-fns';
 
-import { DayClickEventHandler, DayPickerProps } from 'types';
-import { isDayPickerMultiple } from '../../types';
+import {
+  DayClickEventHandler,
+  DayPickerProps,
+  isDayPickerMultiple
+} from 'types';
+
 import { SelectMultipleContext } from './SelectMultipleContext';
 import { SelectMultipleModifiers } from './SelectMultipleModifiers';
 

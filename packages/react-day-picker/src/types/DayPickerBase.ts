@@ -52,7 +52,6 @@ export interface DayPickerBase {
   styles?: Styles;
   /**
    * Change the inline style for the day matching the [[modifiers]].
-   * ```
    */
   modifierStyles?: ModifierStyles;
   // #endregion

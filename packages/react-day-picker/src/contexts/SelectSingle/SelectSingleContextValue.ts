@@ -1,4 +1,5 @@
 import { DayClickEventHandler } from 'types';
+
 import { SelectSingleModifiers } from './SelectSingleModifiers';
 
 /** Represents the value of a [[SelectSingleContext]]. */

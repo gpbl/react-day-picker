@@ -2,7 +2,9 @@ import * as React from 'react';
 
 import { addDays, addMonths, addWeeks, isSameMonth } from 'date-fns';
 
-import { useDayPicker, useNavigation } from 'contexts';
+import { useDayPicker } from 'contexts/DayPicker';
+import { useNavigation } from 'contexts/Navigation';
+
 import { FocusContext } from './FocusContext';
 
 /** The provider for the [[FocusContext]]. */

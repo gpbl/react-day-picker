@@ -1,4 +1,5 @@
 import { DateRange, DayClickEventHandler } from 'types';
+
 import { SelectRangeModifiers } from './SelectRangeModifiers';
 
 /** Represents the value of a [[SelectRangeContext]]. */

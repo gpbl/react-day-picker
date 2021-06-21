@@ -2,9 +2,14 @@ import * as React from 'react';
 
 import { isSameMonth } from 'date-fns';
 
-import { MonthsDropdown, Navigation, YearsDropdown } from 'components';
-import { useDayPicker, useNavigation } from 'contexts';
 import { MonthChangeEventHandler } from 'types';
+
+import { MonthsDropdown } from 'components/MonthsDropdown';
+import { Navigation } from 'components/Navigation';
+import { YearsDropdown } from 'components/YearsDropdown';
+import { useDayPicker } from 'contexts/DayPicker';
+import { useNavigation } from 'contexts/Navigation';
+
 import { CaptionProps } from './CaptionProps';
 
 /**
@@ -25,12 +30,8 @@ export function Caption(props: CaptionProps): JSX.Element {
     components: { CaptionLabel }
   } = context;
 
-  const {
-    previousMonth,
-    nextMonth,
-    goToMonth,
-    displayMonths
-  } = useNavigation();
+  const { previousMonth, nextMonth, goToMonth, displayMonths } =
+    useNavigation();
 
   const handlePreviousClick: React.MouseEventHandler = (e) => {
     if (!previousMonth) return;

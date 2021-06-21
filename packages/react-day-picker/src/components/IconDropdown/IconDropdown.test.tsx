@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { customRender, PageObjects } from 'test';
+
 import { IconDropdown } from './IconDropdown';
 
 const po = new PageObjects(new Date());

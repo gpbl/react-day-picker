@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { Table } from 'components';
-import { useDayPicker, useNavigation } from 'contexts';
+import { Table } from 'components/Table';
+import { useDayPicker } from 'contexts/DayPicker';
+import { useNavigation } from 'contexts/Navigation';
 
 /**
  * Render the container with the months and their captions. The number of months

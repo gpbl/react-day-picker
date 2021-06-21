@@ -2,8 +2,21 @@ import * as React from 'react';
 
 import enUS from 'date-fns/locale/en-US';
 
-import * as Components from 'components';
 import { DayPickerProps } from 'types';
+
+import { Caption } from 'components/Caption';
+import { CaptionLabel } from 'components/CaptionLabel';
+import { Day } from 'components/Day';
+import { DayContent } from 'components/DayContent';
+import { Dropdown } from 'components/Dropdown';
+import { Footer } from 'components/Footer';
+import { Head } from 'components/Head';
+import { IconDropdown } from 'components/IconDropdown';
+import { IconNext } from 'components/IconNext';
+import { IconPrevious } from 'components/IconPrevious';
+import { Row } from 'components/Row';
+import { WeekNumber } from 'components/WeekNumber';
+
 import { DayPickerContext } from './DayPickerContext';
 import { DayPickerContextValue } from './DayPickerContextValue';
 import { defaultClassNames } from './defaultClassNames';
@@ -45,13 +58,8 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     modifiers.disabled.push({ after: toDate });
   }
 
-  const {
-    toYear,
-    fromYear,
-    toMonth,
-    fromMonth,
-    ...contextProps
-  } = initialProps;
+  const { toYear, fromYear, toMonth, fromMonth, ...contextProps } =
+    initialProps;
 
   const context: DayPickerContextValue = {
     ...contextProps,
@@ -83,18 +91,18 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
       ...initialProps.labels
     },
     components: {
-      Caption: Components.Caption,
-      CaptionLabel: Components.CaptionLabel,
-      Day: Components.Day,
-      DayContent: Components.DayContent,
-      Dropdown: Components.Dropdown,
-      Footer: Components.Footer,
-      Head: Components.Head,
-      IconDropdown: Components.IconDropdown,
-      IconNext: Components.IconNext,
-      IconPrevious: Components.IconPrevious,
-      Row: Components.Row,
-      WeekNumber: Components.WeekNumber,
+      Caption: Caption,
+      CaptionLabel: CaptionLabel,
+      Day: Day,
+      DayContent: DayContent,
+      Dropdown: Dropdown,
+      Footer: Footer,
+      Head: Head,
+      IconDropdown: IconDropdown,
+      IconNext: IconNext,
+      IconPrevious: IconPrevious,
+      Row: Row,
+      WeekNumber: WeekNumber,
       ...initialProps.components
     }
   };

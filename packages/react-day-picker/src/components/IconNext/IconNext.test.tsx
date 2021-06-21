@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { customRender, PageObjects } from 'test';
+
 import { IconNext } from './IconNext';
 
 const po = new PageObjects(new Date());

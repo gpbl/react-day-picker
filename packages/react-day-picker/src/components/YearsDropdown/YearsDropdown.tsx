@@ -2,8 +2,9 @@ import * as React from 'react';
 
 import { setYear, startOfYear } from 'date-fns';
 
-import { useDayPicker } from 'contexts';
 import { MonthChangeEventHandler } from 'types';
+
+import { useDayPicker } from 'contexts/DayPicker';
 
 /**
  * The props for the [[YearsDropdown]] component.

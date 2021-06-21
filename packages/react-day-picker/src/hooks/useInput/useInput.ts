@@ -1,10 +1,12 @@
 import * as React from 'react';
 
 import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
-import { enUS } from 'date-fns/locale';
+import enUS from 'date-fns/locale/en-US';
 
-import { parseFromToProps } from 'contexts';
 import { DayClickEventHandler, MonthChangeEventHandler } from 'types';
+
+import { parseFromToProps } from 'contexts/DayPicker/utils';
+
 import {
   UseInputDayPickerProps,
   UseInputFieldProps,
