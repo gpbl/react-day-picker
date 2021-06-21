@@ -8,7 +8,7 @@
     "removeComments": false,
     "declaration": true,
     "baseUrl": "./src",
-
+    "noEmit": true,
     "paths": {
       "components": ["./components"],
       "contexts": ["./contexts"],

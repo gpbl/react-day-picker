@@ -12,25 +12,21 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
-  "type": "module",
-  "main": "./dist/index.js",
-  "module": "./esm/index.js",
-  "types": "./esm/index.d.ts",
+  "main": "build/index.js",
+  "module": "build/index.esm.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "develop": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w --pretty'",
-    "lint": "eslint --ext .ts,.tsx src",
-    "build:clean": "rimraf esm && rimraf \"dist/**/{*.,!(package.json)}\"",
-    "build:dist": "tsc --project tsconfig.dist.json && tsc-alias -p tsconfig.dist.json",
-    "build:esm": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
-    "build": "yarn build:clean && yarn build:esm && yarn build:dist",
+    "develop": "concurrently --names='tsc-alias,rollup' 'yarn tsc-alias --dir build -w' 'yarn rollup -cw'",
+    "build": "yarn build:clean && yarn rollup -c && yarn tsc-alias --dir build",
+    "build:clean": "rimraf build",
     "css:types": "yarn tcm -p style.css",
+    "lint": "eslint --ext .ts,.tsx src",
     "test": "yarn jest",
     "test:watch": "yarn test --watchAll",
     "coverage": "yarn test --coverage"
   },
   "files": [
-    "dist",
-    "esm",
+    "build",
     "style.css",
     "style.css.d.ts"
   ],
@@ -55,6 +51,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
+    "rollup": "^2.52.1",
+    "rollup-plugin-typescript2": "^0.30.0",
     "timekeeper": "^2.2.0",
     "ts-jest": "^26.5.4",
     "ts-node": "^9.1.1",
