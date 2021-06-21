@@ -1,7 +1,3 @@
-.DS_Store
-
-dist/*
-!dist/package.json
-esm
+build/*
 coverage
 node_modules
