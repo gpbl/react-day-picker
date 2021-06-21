@@ -1,10 +1,10 @@
 import { render, RenderResult } from '@testing-library/react';
 import * as React from 'react';
 
-import { ContextProvider } from 'contexts';
 import { DayPickerProps } from 'types';
 
-/** Render an element by wrapping it with the ContextProvider. */
+import { ContextProvider } from '../contexts/ContextProvider';
+
 export const customRender = (
   element: React.ReactElement,
   contextValue: DayPickerProps = {}
