@@ -8,6 +8,7 @@ import {
   DayPickerProps,
   isDayPickerRange
 } from 'types';
+
 import { SelectRangeContext } from './SelectRangeContext';
 import { SelectRangeModifiers } from './SelectRangeModifiers';
 import { addToRange } from './utils/addToRange';

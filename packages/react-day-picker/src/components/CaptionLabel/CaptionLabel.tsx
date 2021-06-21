@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { useDayPicker } from 'contexts';
+import { useDayPicker } from 'contexts/DayPicker';
+
 import { CaptionLabelProps } from './CaptionLabelProps';
 
 /** Render the caption for the displayed month. This component is used when `captionLayout="buttons"`. */

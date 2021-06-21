@@ -2,7 +2,8 @@ import * as React from 'react';
 
 import { isSameMonth } from 'date-fns';
 
-import { useDayPicker } from 'contexts';
+import { useDayPicker } from 'contexts/DayPicker';
+
 import { getInitialMonth } from './utils/getInitialMonth';
 
 /** Controls the navigation state. */

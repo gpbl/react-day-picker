@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { customRender, PageObjects } from 'test';
+
 import { Footer } from './Footer';
 
 const po = new PageObjects(new Date());

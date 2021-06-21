@@ -1,12 +1,11 @@
-import {
-  CaptionLabelProps,
-  CaptionProps,
-  DayContentProps,
-  DayProps,
-  DropdownProps,
-  RowProps,
-  WeekNumberProps
-} from 'components';
+import { CaptionProps } from 'components/Caption';
+import { CaptionLabelProps } from 'components/CaptionLabel';
+import { DayProps } from 'components/Day';
+import { DayContentProps } from 'components/DayContent';
+import { DropdownProps } from 'components/Dropdown';
+import { RowProps } from 'components/Row';
+import { WeekNumberProps } from 'components/WeekNumber';
+
 import { StyledComponentProps } from './StyledComponentProps';
 
 /**

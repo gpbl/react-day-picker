@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { useDayPicker } from 'contexts';
+import { useDayPicker } from 'contexts/DayPicker';
+
 import { NavigationContext } from './NavigationContext';
 import { useNavigationState } from './useNavigationState';
 import { getDisplayMonths } from './utils/getDisplayMonths';

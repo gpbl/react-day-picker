@@ -1,4 +1,5 @@
 import { DayClickEventHandler } from 'types';
+
 import { SelectMultipleModifiers } from './SelectMultipleModifiers';
 
 /** Represents the value of a [[SelectMultipleContext]]. */

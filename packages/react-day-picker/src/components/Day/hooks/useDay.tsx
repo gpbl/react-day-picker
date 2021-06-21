@@ -3,16 +3,6 @@ import React from 'react';
 import { isSameMonth } from 'date-fns';
 
 import {
-  SelectMultipleContextValue,
-  SelectRangeContextValue,
-  SelectSingleContextValue,
-  useDayPicker,
-  useSelectMultiple,
-  useSelectRange,
-  useSelectSingle
-} from 'contexts';
-import { useModifiers } from 'hooks';
-import {
   DateRange,
   isDayPickerMultiple,
   isDayPickerRange,
@@ -20,6 +10,19 @@ import {
   ModifierStatus,
   StyledComponentProps
 } from 'types';
+
+import { useDayPicker } from 'contexts/DayPicker';
+import {
+  SelectMultipleContextValue,
+  useSelectMultiple
+} from 'contexts/SelectMultiple';
+import { SelectRangeContextValue, useSelectRange } from 'contexts/SelectRange';
+import {
+  SelectSingleContextValue,
+  useSelectSingle
+} from 'contexts/SelectSingle';
+import { useModifiers } from 'hooks';
+
 import { useDayFocus } from './useDayFocus';
 
 export type UseDay = {

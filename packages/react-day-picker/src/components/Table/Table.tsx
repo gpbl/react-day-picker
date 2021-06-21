@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { Head } from 'components';
-import { useDayPicker } from 'contexts';
+import { Head } from 'components/Head';
+import { useDayPicker } from 'contexts/DayPicker';
+
 import { getWeeks } from './utils/getWeeks';
 
 /**
