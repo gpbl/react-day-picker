@@ -5,8 +5,8 @@
       "type": "npm",
       "script": "develop",
       "problemMatcher": [],
-      "label": "Run website (development)",
-      "detail": "TYPEDOC_WATCH=true yarn run start --no-open"
+      "label": "develop",
+      "detail": "Start the website in development mode."
     }
   ]
 }

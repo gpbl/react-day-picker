@@ -5,24 +5,40 @@
       "type": "npm",
       "script": "develop",
       "problemMatcher": ["$msCompile"],
-      "label": "Build DayPicker (watch mode)",
-      "detail": "concurrently --names='tsc-alias,tsc' 'yarn tsc-alias -w' 'yarn tsc -w --pretty'"
+      "label": "develop",
+      "detail": "Build DayPicker in developent mode."
     },
     {
       "type": "npm",
       "script": "css:types",
       "problemMatcher": [],
       "group": "build",
-      "label": "Build CSS types",
-      "detail": "yarn tcm -p style.css"
+      "label": "build css",
+      "detail": "Build and create the types for the CSS file."
     },
     {
       "type": "npm",
       "script": "build",
       "problemMatcher": ["$msCompile"],
       "group": "build",
-      "label": "Build DayPicker",
-      "detail": "yarn build:clean && yarn build:esm && yarn build:dist"
+      "label": "build",
+      "detail": "Build DayPikcer with rollup for distribution and publishing."
+    },
+    {
+      "type": "npm",
+      "script": "test",
+      "group": "test",
+      "problemMatcher": [],
+      "label": "test",
+      "detail": "Run the test suites."
+    },
+    {
+      "type": "npm",
+      "script": "test:watch",
+      "group": "test",
+      "problemMatcher": [],
+      "label": "test --watch",
+      "detail": "Run the test suites in watch mode."
     }
   ]
 }

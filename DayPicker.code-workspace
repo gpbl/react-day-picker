@@ -1,19 +1,15 @@
 {
   "folders": [
     {
-      "name": "react-day-picker",
-      "path": "./packages/react-day-picker"
+      "path": "packages/react-day-picker"
     },
     {
-      "name": "playground",
-      "path": "./playground"
+      "path": "playground"
     },
     {
-      "name": "website",
-      "path": "./website"
+      "path": "website"
     },
     {
-      "name": "root",
       "path": "."
     }
   ],
@@ -37,16 +33,24 @@
     "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 20,
     "importSorter.sortConfiguration.customOrderingRules.rules": [
       {
-        "orderLevel": 50,
-        "regex": "^(contexts|components|hooks|types|test)$"
+        "orderLevel": 60,
+        "regex": "^[.]"
       },
       {
         "orderLevel": 50,
-        "regex": "^[.]"
+        "regex": "^(contexts|components|hooks|test)"
       },
       {
         "orderLevel": 30,
         "regex": "^react-day-picker"
+      },
+      {
+        "orderLevel": 15,
+        "regex": "^types$"
+      },
+      {
+        "orderLevel": 11,
+        "regex": "^date-fns"
       },
       {
         "orderLevel": 10,
@@ -54,10 +58,14 @@
       }
     ],
     "jest.coverageFormatter": "GutterFormatter",
-    "jest.disabledWorkspaceFolders": ["playground", "website", "root"],
-    "jest.pathToJest": "yarn workspace react-day-picker run test",
+    // "jest.disabledWorkspaceFolders": ["playground", "website", "root"],
+    "jest.jestCommandLine": "yarn workspace react-day-picker test",
+
     "npm.packageManager": "yarn",
     "typescript.preferences.quoteStyle": "single",
-    "jest.showCoverageOnLoad": true
+    "jest.showCoverageOnLoad": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.lintTask.enable": true,
+    "javascript.preferences.importModuleSpecifier": "relative"
   }
 }
