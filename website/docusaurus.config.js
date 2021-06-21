@@ -72,11 +72,9 @@ const config = {
     [
       'docusaurus-plugin-typedoc',
       {
-        // Plugin settings
         sidebar: {
-          sidebarFile: './config/typedoc-sidebar.ts'
+          sidebarFile: null
         },
-
         // Typedoc settings
         entryPoints: [`${pkgPath}/src/index.ts`],
         tsconfig: `${pkgPath}/tsconfig.json`,
@@ -84,6 +82,8 @@ const config = {
         readme: 'none',
         disableSources: true,
         watch: process.env.TYPEDOC_WATCH,
+        out: 'api',
+
         // Markdown plugin settings
         hideBreadcrumbs: true,
         hideInPageTOC: true,

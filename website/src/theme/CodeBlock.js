@@ -35,7 +35,7 @@ export default function CodeBlock(props) {
 
   return (
     <div className="rdp-codeblock" style={{ position: 'relative' }}>
-      <OriginalCodeBlock {...props} title="test" className="language-tsx">
+      <OriginalCodeBlock {...props} className="language-tsx">
         {src}
       </OriginalCodeBlock>
       <CodeSandboxButton fileName={fileName} />
