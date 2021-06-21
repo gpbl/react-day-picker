@@ -14,41 +14,20 @@ export type ContextProviderProps = DayPickerProps & {
   children: React.ReactNode;
 };
 
-const SelectUncontrolledProvider = ({
-  initialProps,
-  children
-}: {
-  initialProps: DayPickerProps;
-  children: React.ReactNode;
-}) => <>{children}</>;
-
 /** Provide the value for all the context providers. */
 export function ContextProvider(props: ContextProviderProps): JSX.Element {
   const { children, ...initialProps } = props;
 
-  let SelectProvider;
-
-  switch (props.mode) {
-    case 'single': {
-      SelectProvider = SelectSingleProvider;
-      break;
-    }
-    case 'multiple':
-      SelectProvider = SelectMultipleProvider;
-      break;
-    case 'range':
-      SelectProvider = SelectRangeProvider;
-      break;
-    default:
-      SelectProvider = SelectUncontrolledProvider;
-  }
-
   return (
     <DayPickerProvider initialProps={initialProps}>
       <NavigationProvider>
-        <SelectProvider initialProps={initialProps}>
-          <FocusProvider>{children}</FocusProvider>
-        </SelectProvider>
+        <SelectSingleProvider initialProps={initialProps}>
+          <SelectMultipleProvider initialProps={initialProps}>
+            <SelectRangeProvider initialProps={initialProps}>
+              <FocusProvider>{children}</FocusProvider>
+            </SelectRangeProvider>
+          </SelectMultipleProvider>
+        </SelectSingleProvider>
       </NavigationProvider>
     </DayPickerProvider>
   );
