@@ -31,7 +31,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
   const nextLabel = labelNext(nextMonth, { locale });
   const nextClassName = [
     classNames.nav_button,
-    classNames.nav_button_previous
+    classNames.nav_button_next
   ].join(' ');
 
   const previousButton = (
