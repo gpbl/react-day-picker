@@ -22,7 +22,7 @@ branch**](https://github.com/gpbl/react-day-picker/tree/v7).
 - 🎨 easy to style and customize
 - 🤖 native Typescript support
 - 📄 easy integration with input elements
-- 🧘‍♀️ using [date-fns](http://date-fns.org) as date libray
+- 🧘‍♀️ using [date-fns](http://date-fns.org) as date library
 
 ## Documentation
 
