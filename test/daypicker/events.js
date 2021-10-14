@@ -347,4 +347,34 @@ describe('DayPicker’s events handlers', () => {
       .simulate('keyUp', { keyCode: keys.SPACE });
     expect(handleWeekClick).toHaveBeenCalledTimes(0);
   });
+  it('should call `onWeekMouseEnter` when hovering a week number', () => {
+    const handleWeekMouseEnter = jest.fn();
+    const wrapper = mount(
+      <DayPicker
+        showWeekNumbers
+        onWeekMouseEnter={handleWeekMouseEnter}
+        initialMonth={new Date(2015, 1)}
+      />
+    );
+    wrapper
+      .find('.DayPicker-WeekNumber')
+      .at(1)
+      .simulate('mouseEnter');
+    expect(handleWeekMouseEnter).toHaveBeenCalledTimes(1);
+  });
+  it('should call `onWeekMouseLeave` when stopping hovering a week number', () => {
+    const handleWeekMouseLeave = jest.fn();
+    const wrapper = mount(
+      <DayPicker
+        showWeekNumbers
+        onWeekMouseLeave={handleWeekMouseLeave}
+        initialMonth={new Date(2015, 1)}
+      />
+    );
+    wrapper
+      .find('.DayPicker-WeekNumber')
+      .at(1)
+      .simulate('mouseLeave');
+    expect(handleWeekMouseLeave).toHaveBeenCalledTimes(1);
+  });
 });

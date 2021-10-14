@@ -7,6 +7,8 @@ export default function Example() {
     <DayPicker
       showWeekNumbers
       onWeekClick={(week, days) => console.log(week, days)}
+      onWeekMouseEnter={(week, days) => console.log(week, days)}
+      onWeekMouseLeave={(week, days) => console.log(week, days)}
     />
   );
 }

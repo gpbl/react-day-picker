@@ -81,6 +81,8 @@ export default () => (
       <a href="#onMonthChange">onMonthChange</a>,{' '}
       <a href="#onTodayButtonClick">onTodayButtonClick</a>,{' '}
       <a href="#onWeekClick">onWeekClick</a>
+      <a href="#onWeekMouseEnter">onWeekMouseEnter</a>
+      <a href="#onWeekMouseLeave">onWeekMouseLeave</a>
     </p>
 
     <h4>Public Methods</h4>
@@ -631,6 +633,33 @@ export default () => (
         <a href="#showWeekNumbers">showWeekNumbers</a> is set to{' '}
         <code>true</code>).
       </p>
+
+      <h3>
+        <Anchor id="onWeekMouseEnter" />
+        onWeekMouseEnter{' '}
+        <code>
+          (weekNumber: number, days: date[], e: SyntheticEvent) ⇒ void
+        </code>
+      </h3>
+      <p>
+        Event handler when the mouse hovers a week number (when{' '}
+        <a href="#showWeekNumbers">showWeekNumbers</a> is set to{' '}
+        <code>true</code>).
+      </p>
+
+      <h3>
+        <Anchor id="onWeekMouseLeave" />
+        onWeekMouseLeave{' '}
+        <code>
+          (weekNumber: number, days: date[], e: SyntheticEvent) ⇒ void
+        </code>
+      </h3>
+      <p>
+        Event handler when the mouse stops hovering a week number (when{' '}
+        <a href="#showWeekNumbers">showWeekNumbers</a> is set to{' '}
+        <code>true</code>).
+      </p>
+
       <h3>
         <Anchor id="onTodayButtonClick" />
         onTodayButtonClick{' '}

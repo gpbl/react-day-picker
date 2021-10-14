@@ -65,6 +65,8 @@ export default class Month extends Component {
     onDayTouchEnd: PropTypes.func,
     onDayTouchStart: PropTypes.func,
     onWeekClick: PropTypes.func,
+    onWeekMouseEnter: PropTypes.func,
+    onWeekMouseLeave: PropTypes.func,
   };
 
   renderDay = day => {
@@ -149,6 +151,8 @@ export default class Month extends Component {
       showWeekNumbers,
       showWeekDays,
       onWeekClick,
+      onWeekMouseEnter,
+      onWeekMouseLeave,
     } = this.props;
 
     const captionProps = {
@@ -199,6 +203,16 @@ export default class Month extends Component {
                     onClick={
                       onWeekClick
                         ? e => onWeekClick(weekNumber, week, e)
+                        : undefined
+                    }
+                    onMouseEnter={
+                      onWeekMouseEnter
+                        ? e => onWeekMouseEnter(weekNumber, week, e)
+                        : undefined
+                    }
+                    onMouseLeave={
+                      onWeekMouseLeave
+                        ? e => onWeekMouseLeave(weekNumber, week, e)
                         : undefined
                     }
                     onKeyUp={

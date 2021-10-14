@@ -57,6 +57,18 @@ export default class Example extends React.Component {
     });
   };
 
+  handleWeekMouseEnter = (weekNumber, days, e) => {
+    this.setState({
+      hoverRange: getWeekRange(days[0])
+    });
+  };
+
+  handleWeekMouseLeave = (weekNumber, days, e) => {
+    this.setState({
+      hoverRange: undefined,
+    });
+  };
+
   render() {
     const { hoverRange, selectedDays } = this.state;
 
@@ -85,6 +97,8 @@ export default class Example extends React.Component {
           onDayMouseEnter={this.handleDayEnter}
           onDayMouseLeave={this.handleDayLeave}
           onWeekClick={this.handleWeekClick}
+          onWeekMouseEnter={this.handleWeekMouseLeave}
+          onWeekMouseLeave={this.handleWeekMouseEnter}
         />
         {selectedDays.length === 7 && (
           <div>

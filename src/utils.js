@@ -1,3 +1,3 @@
-export { localeUtils } from '../build/LocaleUtils';
-export { dateUtils } from '../build/DateUtils';
-export { modifiersUtils } from '../build/ModifiersUtils';
+export { localeUtils } from './LocaleUtils';
+export { dateUtils } from './DateUtils';
+export { modifiersUtils } from './ModifiersUtils';

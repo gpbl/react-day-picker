@@ -126,6 +126,16 @@ export interface DayPickerProps {
     days: Date[],
     e: React.MouseEvent<HTMLDivElement>
   ) => void;
+  onWeekMouseEnter?: (
+    weekNumber: number,
+    days: Date[],
+    e: React.MouseEvent<HTMLDivElement>
+  ) => void;
+  onWeekMouseLeave?: (
+    weekNumber: number,
+    days: Date[],
+    e: React.MouseEvent<HTMLDivElement>
+  ) => void;
   pagedNavigation?: boolean;
   renderDay?: (date: Date, modifiers: DayModifiers) => React.ReactNode;
   renderWeek?: (
