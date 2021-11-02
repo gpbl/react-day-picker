@@ -35,6 +35,10 @@ export class PageObjects {
     return screen.getByRole('table') as HTMLTableElement;
   }
 
+  get weeks(): NodeListOf<HTMLTableCellElement> {
+    return this.table.querySelectorAll<HTMLTableCellElement>('tbody tr');
+  }
+
   /** Get the content of the footer. */
   get footer(): ChildNode | null {
     return this.table.querySelector('tfoot')?.children[0].firstChild ?? null;
