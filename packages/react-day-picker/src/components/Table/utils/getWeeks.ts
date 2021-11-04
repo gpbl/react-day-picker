@@ -29,10 +29,9 @@ export function getWeeks(
   const diff = differenceInCalendarDays(monthEnd, monthStart);
 
   const weeks: MonthWeek[] = [];
-  let lastWeek: MonthWeek = { weekNumber: -1, dates: [] };
+  let lastWeek: MonthWeek = { weekNumber: 0, dates: [] };
   for (let i = 0; i <= diff; i++) {
     const date = addDays(monthStart, i);
-    // const year = getYear(date, { locale })
     const week = getWeek(date, { locale });
 
     if (lastWeek.weekNumber !== week) {
@@ -62,7 +61,6 @@ export function getWeeks(
         const week = getWeek(date, { locale });
 
         if (lastWeek.weekNumber !== week) {
-          // Create a new week by adding outside start days
           lastWeek = { weekNumber: week, dates: [] };
           weeks.push(lastWeek);
         }

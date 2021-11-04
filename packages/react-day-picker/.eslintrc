@@ -4,9 +4,6 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "env": {
-    "jest": true
-  },
   "plugins": ["@typescript-eslint"],
   "extends": [
     "eslint:recommended",
