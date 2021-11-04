@@ -41,10 +41,10 @@ export function useModifiers(date: Date): UseModifiers {
     );
   } else if (isDayPickerRange(context)) {
     modifiers.selected = modifiers.selected.concat(
-      multipleSelect.modifiers.selected ?? []
+      rangeSelect.modifiers.selected ?? []
     );
     modifiers.disabled = modifiers.disabled.concat(
-      multipleSelect.modifiers.disabled ?? []
+      rangeSelect.modifiers.disabled ?? []
     );
     modifiers.range_start = rangeSelect.modifiers.range_start ?? [];
     modifiers.range_middle = rangeSelect.modifiers.range_middle ?? [];

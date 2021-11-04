@@ -7,6 +7,7 @@
   --rdp-background-color-dark: #180270;
   /* Outline border for focused elements */
   --rdp-outline: 2px solid var(--rdp-accent-color);
+  --rdp-outline-selected: 2px solid rgba(0,0,0,0.75);
 }
 
 .rdp {
@@ -266,6 +267,10 @@
 .rdp-day_selected:hover:not([disabled]) {
   color: white;
   background-color: var(--rdp-accent-color);
+}
+
+.rdp-day_selected:focus:not([disabled]) {
+  border: var(--rdp-outline-selected);
 }
 
 .rdp-day_range_start {
