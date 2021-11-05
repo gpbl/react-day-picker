@@ -3,7 +3,6 @@ import {
   addWeeks,
   differenceInCalendarDays,
   endOfMonth,
-  getMonth,
   getWeek,
   getWeeksInMonth,
   Locale,
@@ -14,51 +13,43 @@ import { getOutsideEndDays } from './getOutsideEndDays';
 import { getOutsideStartDays } from './getOutsideStartDays';
 
 /**
- * The weeks belonging to a month. Each key of the returned object is the
- * week number of the year.
+ * The date-fns week and the dates for that week
  */
-export type MonthWeeks = { [weeknumber: string]: Date[] };
-
+export type MonthWeek = { weekNumber: number; dates: Date[] };
 /**
  * Return the weeks belonging to the given month.
  */
 export function getWeeks(
   month: Date,
   { locale, fixedWeeks }: { locale: Locale; fixedWeeks?: boolean }
-): MonthWeeks {
+): MonthWeek[] {
   const monthStart = startOfMonth(month);
   const monthEnd = endOfMonth(month);
 
   const diff = differenceInCalendarDays(monthEnd, monthStart);
 
-  const weeks: MonthWeeks = {};
-  let lastWeekStr = '';
+  const weeks: MonthWeek[] = [];
+  let lastWeek: MonthWeek = { weekNumber: 0, dates: [] };
   for (let i = 0; i <= diff; i++) {
     const date = addDays(monthStart, i);
-    let week = getWeek(date, { locale });
-    if (week === 1 && getMonth(date) === 11) {
-      week = 53;
-    }
-    const weekStr: string = week.toString();
+    const week = getWeek(date, { locale });
 
-    if (!weeks[weekStr]) {
-      const startDays = getOutsideStartDays(date, { locale });
+    if (lastWeek.weekNumber !== week) {
       // Create a new week by adding outside start days
-      weeks[weekStr] = startDays;
+      const startDays = getOutsideStartDays(date, { locale });
+      lastWeek = { weekNumber: week, dates: startDays };
+      weeks.push(lastWeek);
     }
-    weeks[weekStr].push(date);
-    lastWeekStr = weekStr;
+    lastWeek.dates.push(date);
   }
 
-  let lastWeek = weeks[lastWeekStr];
-  const lastDay = lastWeek[lastWeek.length - 1];
+  const lastDay = lastWeek.dates[lastWeek.dates.length - 1];
   const endDays = getOutsideEndDays(lastDay, { locale });
-  weeks[lastWeekStr] = lastWeek.concat(endDays);
+  lastWeek.dates = lastWeek.dates.concat(endDays);
 
   // Add extra weeks to the month, up to 6 weeks
   if (fixedWeeks) {
-    lastWeek = weeks[lastWeekStr];
-    const lastWeekDate = lastWeek[lastWeek.length - 1];
+    const lastWeekDate = lastWeek.dates[lastWeek.dates.length - 1];
     const weeksInMonth = getWeeksInMonth(month, { locale });
     if (weeksInMonth < 6) {
       const diffDays = differenceInCalendarDays(
@@ -67,14 +58,13 @@ export function getWeeks(
       );
       for (let i = 0; i < diffDays; i++) {
         const date = addDays(lastWeekDate, i + 1);
-        let week = getWeek(date, { locale });
-        if (week === 1 && getMonth(month) === 11) {
-          week = 53;
+        const week = getWeek(date, { locale });
+
+        if (lastWeek.weekNumber !== week) {
+          lastWeek = { weekNumber: week, dates: [] };
+          weeks.push(lastWeek);
         }
-        if (!weeks[week]) {
-          weeks[week] = [];
-        }
-        weeks[week.toString()].push(date);
+        lastWeek.dates.push(date);
       }
     }
   }
