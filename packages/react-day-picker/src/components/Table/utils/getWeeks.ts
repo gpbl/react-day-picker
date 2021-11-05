@@ -13,9 +13,14 @@ import { getOutsideEndDays } from './getOutsideEndDays';
 import { getOutsideStartDays } from './getOutsideStartDays';
 
 /**
- * The date-fns week and the dates for that week
+ * Represents a week in the month.
  */
-export type MonthWeek = { weekNumber: number; dates: Date[] };
+export type MonthWeek = {
+  /** The week number from the start of the year. */
+  weekNumber: number;
+  /** The dates in the week. */
+  dates: Date[];
+};
 /**
  * Return the weeks belonging to the given month.
  */
