@@ -49,9 +49,6 @@ export function useModifiers(date: Date): UseModifiers {
     modifiers.range_start = rangeSelect.modifiers.range_start ?? [];
     modifiers.range_middle = rangeSelect.modifiers.range_middle ?? [];
     modifiers.range_end = rangeSelect.modifiers.range_end ?? [];
-    modifiers.disabled = modifiers.disabled.concat(
-      rangeSelect.modifiers.disabled ?? []
-    );
   }
 
   const status = getModifierStatus(date, modifiers);
