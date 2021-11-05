@@ -31,7 +31,7 @@ describe('for January 2022 in enGB locale', () => {
     expect(weeks[0].dates.map((date) => date.getDate())).toEqual([
       27, 28, 29, 30, 31, 1, 2
     ]);
-  })
+  });
 });
 describe('for December 2021 in enUS locale', () => {
   const weeks = getWeeks(new Date(2021, 11), { locale: enUS });
