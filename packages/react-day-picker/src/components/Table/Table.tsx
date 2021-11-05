@@ -30,12 +30,12 @@ export function Table(props: TableProps): JSX.Element {
     <table className={classNames.table} style={styles.table}>
       {!hideHead && <Head />}
       <tbody className={classNames.tbody} style={styles.tbody}>
-        {Object.keys(weeks).map((weekNumber) => (
+        {weeks.map((week) => (
           <Row
             displayMonth={props.displayMonth}
-            key={weekNumber}
-            dates={weeks[weekNumber]}
-            weekNumber={Number(weekNumber)}
+            key={week.weekNumber}
+            dates={week.dates}
+            weekNumber={week.weekNumber}
           />
         ))}
       </tbody>
