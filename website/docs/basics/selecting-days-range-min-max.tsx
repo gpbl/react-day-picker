@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { format } from 'date-fns';
+import { format, isSameDay } from 'date-fns';
 
 import { DateRange, DayPicker } from 'react-day-picker';
 import 'react-day-picker/style.css';
@@ -9,9 +9,11 @@ export default function Example() {
   const [range, setRange] = React.useState<DateRange | undefined>();
 
   let footer = 'Please pick the first day.';
-  if (range && range.from && !range.to) footer = 'Please pick the last day.';
-  if (range && range.from && range.to)
+  if (range && range.from && (!range.to || isSameDay(range.from, range.to))) {
+    footer = format(range.from, 'PPP');
+  } else if (range && range.from && range.to) {
     footer = `${format(range.from, 'PPP')}–${format(range.to, 'PPP')}`;
+  }
 
   return (
     <DayPicker
