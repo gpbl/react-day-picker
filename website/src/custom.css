@@ -1,0 +1,163 @@
+:root {
+  --ifm-color-primary-dark: #ff4726;
+  --ifm-color-primary-darker: #ff3a16;
+  --ifm-color-primary-darkest: #e42300;
+  --ifm-color-primary-light: #ff7f68;
+  --ifm-color-primary-lighter: #ff8c78;
+  --ifm-color-primary-lightest: #ffb6a9;
+  --ifm-color-primary: #ff6347;
+  --ifm-toc-border-color: transparent;
+  --ifm-heading-font-weight: 500;
+  --ifm-code-border-radius: 4px;
+  --ifm-code-background: var(--ifm-color-emphasis-100);
+  --menu-background: var(--ifm-color-emphasis-100);
+}
+
+html[data-theme='dark'] {
+  --rdp-accent-color-light: var(--rdp-accent-color-dark);
+  --rdp-accent-color-lighter: var(--rdp-accent-color-darker);
+  --rdp-accent-color-lightest: var(--rdp-accent-color-darkest);
+  --rdp-background-color: var(--rdp-background-color-dark);
+  --menu-background: #010101;
+}
+
+.menu {
+  margin-right: 1em;
+  background-color: var(--menu-background);
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.docusaurus-highlight-code-line {
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: var(--ifm-code-background);
+}
+
+.menu {
+  font-weight: inherit;
+}
+
+/* revert styles from docusaurus */
+table {
+  margin: 0;
+}
+table th,
+table td,
+table tr {
+  border: 0;
+  background-color: transparent;
+}
+
+.rdp table tr:nth-child(2n) {
+  background: none;
+}
+
+.table-of-contents code {
+  all: inherit;
+}
+
+.navbar__title {
+  font-weight: 700;
+}
+
+hr {
+  all: revert;
+}
+
+.markdown hr {
+  height: 1px;
+  border: none;
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.markdown h4 {
+  font-weight: bold;
+}
+
+.markdown .anchor {
+  top: calc(var(--ifm-navbar-height) * -1 - 1em);
+}
+
+.markdown > table {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.markdown > table td:last-child {
+  width: 100%;
+}
+
+.markdown > table,
+.markdown > table thead tr {
+  border: 0;
+}
+.markdown > table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.markdown > table tr:nth-child(2n) {
+  background-color: inherit;
+}
+
+.markdown > table thead tr th {
+  text-align: left;
+  color: var(--ifm-color-emphasis-500);
+  border-top: 0;
+  border-bottom: 0;
+  font-size: 0.875em;
+}
+
+.markdown > table th,
+.markdown > table td {
+  padding: calc(var(--ifm-table-cell-padding) / 2) var(--ifm-table-cell-padding);
+}
+
+.markdown > table th:first-child,
+.markdown > table td:first-child {
+  border-left: 0;
+}
+.markdown > table th:last-child,
+.markdown > table td:last-child {
+  border-right: 0;
+}
+
+.markdown form input {
+  padding: 0.25em 0.75em;
+  color: var(--ifm-font-color-base);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-button-border-radius);
+  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #fff;
+}
+
+[data-theme='dark'] .markdown form input {
+  background-color: #010101;
+}
+
+.markdown li > p {
+  margin: 0;
+}
+
+.Render * {
+  all: revert;
+}
+
+.codeBlockIframe {
+  height: 360px;
+  width: 100%;
+}
+
+[class^='copyButton'].codesandboxbutton {
+  right: 70px;
+}

@@ -47,6 +47,3 @@ To run the unit tests in watch mode:
 ```
 $ yarn workspace react-day-picker test --watch
 ```
-
-If you use [vscode](https://code.visualstudio.com) you can open the included
-workspace for a better developer experience.

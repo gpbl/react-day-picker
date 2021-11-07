@@ -24,22 +24,24 @@ const gitInfo: GitInfo = {
 };
 
 export function CodeSandboxButton({
-  fileName
+  fileName,
+  className
 }: {
+  className: string;
   fileName: string;
 }): JSX.Element {
   const name = `DayPicker: ${fileName.replace('.tsx', '')} example`;
   return (
     <CodeSandboxer
-      examplePath={`website/docs/${fileName}`}
+      examplePath={`website/examples/${fileName}`}
       dependencies={dependencies}
       gitInfo={gitInfo}
       providedFiles={providedFiles}
       name={name}
     >
-      {({ isLoading }) => (
-        <button type="submit" style={{ padding: '.4em .8em' }}>
-          ↗ {isLoading ? 'Opening pop-up window…' : 'CodeSandbox'}
+      {() => (
+        <button type="submit" className={className}>
+          Open in CodeSandbox
         </button>
       )}
     </CodeSandboxer>
