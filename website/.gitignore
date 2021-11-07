@@ -1,14 +1,13 @@
 # Dependencies
 /node_modules
 
-# Production
+# Built
 /build
 
 # Generated files
 .docusaurus
 .cache-loader
-config/typedoc-sidebar.ts
-docs/api
+/docs/api
 
 # Misc
 .DS_Store
