@@ -1,7 +1,4 @@
----
-id: selecting-days
-title: Selecting Days
----
+# Selecting Days
 
 DayPicker supports four selection modes:
 
@@ -16,7 +13,7 @@ To enable single day selection, set `mode="single"` and use `onSelect` to get
 the selected day.
 
 ```include
-basics/selecting-days-single.tsx
+selecting-days-single.tsx
 ```
 
 ### Making a selection required
@@ -26,7 +23,7 @@ To make a selection required, use `defautSelected` with `required`.
 For example, to set the default selected date to today:
 
 ```include
-basics/selecting-days-single-min.tsx
+selecting-days-single-min.tsx
 ```
 
 ## Selecting multiple days
@@ -34,7 +31,7 @@ basics/selecting-days-single-min.tsx
 Use `mode="multiple"` to allow the selection of multiple days:
 
 ```include
-basics/selecting-days-multiple.tsx
+selecting-days-multiple.tsx
 ```
 
 ### Limiting the amount of selectable days
@@ -42,7 +39,7 @@ basics/selecting-days-multiple.tsx
 Use the `min` and `max` props to limit the amount of days that can be selected.
 
 ```include
-basics/selecting-days-multiple-min-max.tsx
+selecting-days-multiple-min-max.tsx
 ```
 
 ## Selecting a range of days
@@ -50,7 +47,7 @@ basics/selecting-days-multiple-min-max.tsx
 Use `mode="range"` and `onSelectRange` to allow the selection of multiple days.
 
 ```include
-basics/selecting-days-range.tsx
+selecting-days-range.tsx
 ```
 
 ### Limiting the range size
@@ -58,7 +55,7 @@ basics/selecting-days-range.tsx
 Use the `min` and `max` props to limit the amount of days in the range.
 
 ```include
-basics/selecting-days-range-min-max.tsx
+selecting-days-range-min-max.tsx
 ```
 
 ## Uncontrolled selection mode

@@ -1,6 +1,6 @@
 # React DayPicker
 
-DayPicker is a reusable date picker component for [React](https://reactjs.org).
+DayPicker is a date picker component for [React](https://reactjs.org).
 
 ```bash
 $ npm install react-day-picker@next
@@ -8,9 +8,8 @@ $ npm install react-day-picker@next
 
 ### Beta version ⚠️
 
-This branch is for the next major version 8 – which is currently in development
-and not ready for production. For the stable version see the [**v7
-branch**](https://github.com/gpbl/react-day-picker/tree/v7).
+The [**master branch**](https://github.com/gpbl/react-day-picker/tree/master) is for the next major version 8 – which is currently in development
+and not ready for production. For the stable version see the [**v7 branch**](https://github.com/gpbl/react-day-picker/tree/v7).
 
 ## Main features
 
