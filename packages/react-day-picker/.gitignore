@@ -1,3 +1,7 @@
-build/*
-coverage
 node_modules
+
+# Generated
+build
+coverage
+dist
+types

@@ -10,11 +10,11 @@
     "baseUrl": "./src",
     "noEmit": true,
     "paths": {
-      "components": ["./components"],
-      "contexts": ["./contexts"],
-      "hooks": ["./hooks"],
-      "types": ["./types"],
-      "test": ["./test"]
+      "components": ["./components", "./build/components"],
+      "contexts": ["./contexts", "./build/contexts"],
+      "hooks": ["./hooks", "./build/hooks"],
+      "types": ["./types", "./build/types"],
+      "test": ["./test", "./build/test"]
     },
 
     "moduleResolution": "node",
@@ -22,7 +22,6 @@
     "allowSyntheticDefaultImports": true,
 
     "outDir": "esm",
-    "declarationDir": "esm",
 
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
 
@@ -39,6 +38,6 @@
     "noUnusedLocals": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "include": ["src/**/*", "types/**/*", "test/**/*"],
+  "include": ["./src/**/*", "./test/**/*"],
   "exclude": ["../../node_modules/**/*"]
 }

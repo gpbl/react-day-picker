@@ -1,7 +1,7 @@
 const pkgPath = '../packages/react-day-picker';
 const typedoc = {
   // Typedoc settings
-  entryPoints: [`${pkgPath}/src/index.ts`],
+  entryPoints: [`${pkgPath}/src/main.ts`],
   tsconfig: `${pkgPath}/tsconfig.json`,
   allReflectionsHaveOwnDocument: true,
   readme: 'none',

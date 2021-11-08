@@ -12,21 +12,20 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
-  "main": "build/index.js",
-  "module": "build/index.esm.js",
-  "types": "build/index.d.ts",
+  "module": "build/main.js",
+  "types": "build/main.d.ts",
   "scripts": {
-    "develop": "concurrently --names='tsc-alias,rollup' 'yarn tsc-alias --dir build -w' 'yarn rollup -cw'",
-    "build": "yarn build:clean && yarn rollup -c && yarn tsc-alias --dir build",
-    "build:clean": "rimraf build",
-    "css:types": "yarn tcm -p style.css",
+    "develop": "yarn prebuild && yarn rollup -cw",
+    "prebuild": "rimraf dist && rimraf build && yarn css-types",
+    "build": "yarn prebuild && yarn rollup -c",
+    "css-types": "yarn tcm -p style.css",
     "lint": "eslint --ext .ts,.tsx src",
     "test": "yarn jest",
-    "test:watch": "yarn test --watchAll",
     "coverage": "yarn test --coverage"
   },
   "files": [
     "build",
+    "dist",
     "style.css",
     "style.css.d.ts"
   ],
@@ -39,9 +38,7 @@
     "@types/react": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
-    "concurrently": "^6.2.0",
     "date-fns": "^2.22.1",
-    "debug": "^4.3.2",
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
@@ -57,9 +54,6 @@
     "rollup-plugin-typescript2": "^0.30.0",
     "timekeeper": "^2.2.0",
     "ts-jest": "^26.5.4",
-    "ts-node": "^9.1.1",
-    "tsc-alias": "^1.3.3",
-    "tsconfig-paths": "^3.9.0",
     "tslib": "^2.3.0",
     "typed-css-modules": "^0.6.8",
     "typescript": "~4.1"
