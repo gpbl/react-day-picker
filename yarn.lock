@@ -13170,7 +13170,7 @@ fsevents@^1.2.7:
     ts-jest: ^26.5.4
     tslib: ^2.3.1
     typed-css-modules: ^0.7.0
-    typescript: ~4.2.2
+    typescript: ~4.2.4
   peerDependencies:
     date-fns: ^2.10.0
     react: ^16.8.0 || ^17.0.0
@@ -15670,7 +15670,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"typescript@npm:~4.2.2":
+"typescript@npm:~4.2.4":
   version: 4.2.4
   resolution: "typescript@npm:4.2.4"
   bin:
@@ -15680,33 +15680,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@~4.1#~builtin<compat/typescript>":
-  version: 4.1.6
-  resolution: "typescript@patch:typescript@npm%3A4.1.6#~builtin<compat/typescript>::version=4.1.6&hash=ddd1e8"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 3bd9915f236817e4e2d32dd0d90e8902875929f014bb87a478000e32adda91d12f0425931ee6f9d6a2bc7d0c9242588fcee1050ac294497dfabf27d3d73b335c
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@~4.2.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@~4.2.4#~builtin<compat/typescript>":
   version: 4.2.4
   resolution: "typescript@patch:typescript@npm%3A4.2.4#~builtin<compat/typescript>::version=4.2.4&hash=ddd1e8"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: bafcad6990f5d8ea9ccff09e440ce42630b2e42a5752dde5455b55c806ae43f8726a03770577d4fc6c2aa624597f796725cc6fe2c173f558a753a2f23a5198a4
-  languageName: node
-  linkType: hard
-
-typescript@~4.1:
-  version: 4.1.6
-  resolution: "typescript@npm:4.1.6"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 54aed909f94b16178c8a8d8911871b4e1c04454a3e6c82166715e28083e7ce6271e4d1df6f82c89544a4759b07aec780785032534e9c93b254e2107a18712c05
   languageName: node
   linkType: hard
 
@@ -16608,7 +16588,7 @@ typescript@~4.1:
     react-dom: ^17.0.2
     typedoc: ^0.22.8
     typedoc-plugin-markdown: ^3.11.3
-    typescript: ~4.1
+    typescript: ~4.2.4
   languageName: unknown
   linkType: soft
 
