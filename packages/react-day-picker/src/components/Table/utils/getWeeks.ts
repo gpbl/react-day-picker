@@ -21,6 +21,7 @@ export type MonthWeek = {
   /** The dates in the week. */
   dates: Date[];
 };
+
 /**
  * Return the weeks belonging to the given month.
  */
