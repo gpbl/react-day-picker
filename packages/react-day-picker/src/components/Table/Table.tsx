@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { Head } from 'components/Head';
 import { useDayPicker } from 'contexts/DayPicker';
 
 import { getWeeks } from './utils/getWeeks';
@@ -23,7 +22,7 @@ export function Table(props: TableProps): JSX.Element {
     styles,
     hideHead,
     fixedWeeks,
-    components: { Row, Footer }
+    components: { Head, Row, Footer }
   } = useDayPicker();
   const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
   return (
