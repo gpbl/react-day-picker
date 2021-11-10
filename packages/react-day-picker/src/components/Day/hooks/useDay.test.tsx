@@ -1,49 +1,50 @@
 import * as React from 'react';
 
 import tk from 'timekeeper';
+import { addMonths } from 'date-fns';
 
-import { useDay, UseDay } from './useDay';
-import { enUS } from 'date-fns/locale';
 import { customRenderHook } from 'test';
 import { DayPickerProps } from 'types';
 
-const insideDay = new Date(2021, 8, 1);
-const displayMonth = insideDay;
-// A date that is not in the current month:
-const outsideDay = new Date(2021, 7, 31);
+import { useDay, UseDay } from './useDay';
 
-beforeEach(() => {
-  tk.freeze(insideDay);
-});
-afterEach(() => tk.reset());
+const displayMonth = new Date(2021, 8, 1);
 
-const runUseDayTest = (
+function setup(
   date: Date,
-  month: Date,
-  contextValue: DayPickerProps = {}
-): UseDay => {
+  displayMonth: Date,
+  contextValue: DayPickerProps
+): UseDay {
   const { result } = customRenderHook(() => {
     const buttonRef = React.useRef<HTMLButtonElement>(null);
-    return useDay(date, month, buttonRef);
+    return useDay(date, displayMonth, buttonRef);
   }, contextValue);
   return result.current;
-};
+}
 
-describe('when we use a day in the current month', () => {
-  const day = runUseDayTest(insideDay, displayMonth, {
-    showOutsideDays: true,
-    locale: enUS
-  });
-  test('isOutside should be set to false', () => {
-    expect(day.isOutside).toBeFalsy();
-  });
+beforeEach(() => {
+  tk.freeze(displayMonth);
 });
-describe('when we use a day outside the current month', () => {
-  test('isOutside should be set to true', () => {
-    const day = runUseDayTest(outsideDay, displayMonth, {
-      showOutsideDays: true,
-      locale: enUS
+afterEach(() => {
+  tk.reset();
+});
+
+describe('when showing the outside days', () => {
+  const context: DayPickerProps = { showOutsideDays: true };
+
+  describe('when the date is inside the display month', () => {
+    const date = displayMonth;
+    const day = setup(date, displayMonth, context);
+    test('"isOutside" should be false', () => {
+      expect(day.isOutside).toBe(false);
     });
-    expect(day.isOutside).toBeTruthy();
+  });
+
+  describe('when the date is outside the display month', () => {
+    const date = addMonths(displayMonth, 1);
+    const day = setup(date, displayMonth, context);
+    test('"isOutside" should be true', () => {
+      expect(day.isOutside).toBe(true);
+    });
   });
 });
