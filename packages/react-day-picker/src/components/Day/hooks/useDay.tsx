@@ -93,7 +93,7 @@ export function useDay(
   const isOutside = !isSameMonth(date, displayMonth);
 
   const returnValue = {
-    isOutside: true,
+    isOutside,
     modifiers,
     selected: isDayPickerSingle(context)
       ? single.selected
