@@ -1,7 +1,7 @@
 node_modules
 
 # Generated
-build
-coverage
-dist
-types
+/build
+/coverage
+/dist
+/types
