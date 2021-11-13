@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyledComponentProps } from 'types';
+import { StyledComponentProps } from '../../types';
 
 /**
  * Render the "previous month" button in the navigation.

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { DayPickerProps } from 'types';
+import { DayPickerProps } from './types';
 
-import { Root } from 'components/Root';
-import { ContextProvider } from 'contexts/ContextProvider';
+import { Root } from './components/Root';
+import { ContextProvider } from './contexts/ContextProvider';
 
 /**
  * DayPicker render a date picker component to let users pick dates from a

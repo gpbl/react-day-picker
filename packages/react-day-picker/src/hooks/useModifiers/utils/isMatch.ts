@@ -9,7 +9,7 @@ import {
   isDateType,
   isDayOfWeekType,
   Matcher
-} from 'types';
+} from '../../../types';
 
 import { isDateInRange } from './isDateInRange';
 

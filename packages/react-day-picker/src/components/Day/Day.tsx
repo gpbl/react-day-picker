@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button } from 'components/Button';
+import { Button } from '../Button';
 
 import { DayProps } from './DayProps';
 import { useDay } from './hooks/useDay';

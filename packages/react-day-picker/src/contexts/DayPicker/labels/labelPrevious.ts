@@ -1,4 +1,4 @@
-import { NavButtonLabelFormatter } from 'types';
+import { NavButtonLabelFormatter } from '../../../types';
 
 /**
  * The default ARIA label for previous month button in navigation

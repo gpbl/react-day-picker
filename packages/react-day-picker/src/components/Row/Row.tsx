@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { getUnixTime } from 'date-fns';
 
-import { useDayPicker } from 'contexts/DayPicker';
+import { useDayPicker } from '../../contexts/DayPicker';
 
 import { RowProps } from './RowProps';
 

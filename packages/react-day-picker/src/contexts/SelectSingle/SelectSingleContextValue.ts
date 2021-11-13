@@ -1,4 +1,4 @@
-import { DayClickEventHandler } from 'types';
+import { DayClickEventHandler } from '../../types';
 
 import { SelectSingleModifiers } from './SelectSingleModifiers';
 

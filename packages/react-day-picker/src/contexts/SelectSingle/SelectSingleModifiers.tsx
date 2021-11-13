@@ -1,4 +1,4 @@
-import { Modifiers } from 'types';
+import { Modifiers } from '../../types';
 
 /** Represent the modifiers that are changed by the single selection. */
 

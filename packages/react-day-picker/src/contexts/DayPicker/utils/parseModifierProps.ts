@@ -1,6 +1,4 @@
-import { DayPickerProps, Modifiers } from 'types';
-
-import { InternalModifier } from 'types/InternalModifier';
+import { DayPickerProps, InternalModifier, Modifiers } from '../../../types';
 
 /** Props that will merge into the modifiers. */
 const modifierShortcuts: InternalModifier[] = [
@@ -39,10 +37,11 @@ export function parseModifierProps(initialProps: DayPickerProps): Modifiers {
   });
 
   modifierShortcuts.forEach((modifier) => {
-    if (Array.isArray(initialProps[modifier])) {
-      modifiers[modifier] = initialProps[modifier];
-    } else if (initialProps[modifier]) {
-      modifiers[modifier] = [initialProps[modifier]];
+    const modifierFromProp = initialProps[modifier];
+    if (Array.isArray(modifierFromProp)) {
+      modifiers[modifier] = modifierFromProp;
+    } else if (modifierFromProp !== undefined) {
+      modifiers[modifier] = [modifierFromProp];
     } else {
       modifiers[modifier] = [];
     }

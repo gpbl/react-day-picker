@@ -6,7 +6,7 @@ import {
   DayClickEventHandler,
   DayPickerProps,
   isDayPickerMultiple
-} from 'types';
+} from '../../types';
 
 import { SelectMultipleContext } from './SelectMultipleContext';
 import { SelectMultipleModifiers } from './SelectMultipleModifiers';
