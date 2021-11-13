@@ -9,7 +9,7 @@ import {
   isDayPickerSingle,
   ModifierStatus,
   StyledComponentProps
-} from 'types';
+} from '../../types';
 
 import { useDayPicker } from 'contexts/DayPicker';
 import {
