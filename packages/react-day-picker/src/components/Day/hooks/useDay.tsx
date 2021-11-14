@@ -9,7 +9,7 @@ import {
   isDayPickerSingle,
   ModifierStatus,
   StyledComponentProps
-} from 'types';
+} from '../../../types';
 
 import { useDayPicker } from '../../../contexts/DayPicker';
 import {
@@ -24,7 +24,7 @@ import {
   SelectSingleContextValue,
   useSelectSingle
 } from '../../../contexts/SelectSingle';
-import { useModifiers } from 'hooks';
+import { useModifiers } from '../../../hooks';
 
 import { useDayFocus } from './useDayFocus';
 

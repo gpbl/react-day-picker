@@ -1,20 +1,35 @@
 import typescript from 'rollup-plugin-typescript2';
-import pkg from './package.json';
 
-export default {
-  input: './src/index.ts',
-  output: [
-    {
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: true
-    },
-    {
-      file: pkg.module,
-      format: 'esm',
-      sourcemap: true
-    }
-  ],
-  plugins: [typescript()],
-  external: ['react', 'date-fns', 'date-fns/locale/en-US']
-};
+/** @type {import('rollup').RollupOptions} */
+const config = [
+  {
+    input: './src/main.ts',
+    output: [
+      {
+        dir: './build',
+        format: 'es',
+        preserveModules: true,
+        sourcemap: true
+      }
+    ],
+    plugins: [
+      typescript({
+        tsconfig: './tsconfig.build.json'
+      })
+    ],
+    external: ['react', 'date-fns', 'date-fns/locale/en-US']
+  },
+  {
+    input: './build/main.js',
+    output: [
+      {
+        file: './dist/main.js',
+        format: 'commonjs',
+        sourcemap: true
+      }
+    ],
+    external: ['react', 'date-fns', 'date-fns/locale/en-US']
+  }
+];
+
+export default config;

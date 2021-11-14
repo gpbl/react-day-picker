@@ -24,6 +24,7 @@ declare const styles: {
   readonly 'rdp-row': string;
   readonly 'rdp-head_cell': string;
   readonly 'rdp-tbody': string;
+  readonly 'rdp-foot': string;
   readonly 'rdp-cell': string;
   readonly 'rdp-weeknumber': string;
   readonly 'rdp-day': string;
