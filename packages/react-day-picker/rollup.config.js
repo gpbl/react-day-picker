@@ -1,5 +1,4 @@
 import typescript from 'rollup-plugin-typescript2';
-import pkg from './package.json';
 
 /** @type {import('rollup').RollupOptions} */
 const config = [
@@ -13,7 +12,11 @@ const config = [
         sourcemap: true
       }
     ],
-    plugins: [typescript()],
+    plugins: [
+      typescript({
+        tsconfig: './tsconfig.build.json'
+      })
+    ],
     external: ['react', 'date-fns', 'date-fns/locale/en-US']
   },
   {
