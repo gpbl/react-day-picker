@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { customRender, PageObjects } from 'test';
+import { customRender, PageObjects } from '../../test';
 
 import { Button } from './Button';
 

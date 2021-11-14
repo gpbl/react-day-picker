@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import tk from 'timekeeper';
 
-import { customRender, PageObjects } from 'test';
+import { customRender, PageObjects } from '../../test';
 
 import { CaptionLabel } from './CaptionLabel';
 

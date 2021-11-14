@@ -4,8 +4,8 @@ import { addMonths, setMonth, setYear } from 'date-fns';
 
 import tk from 'timekeeper';
 
-import { ContextProviderProps } from 'contexts/ContextProvider';
-import { customRender, PageObjects } from 'test';
+import { ContextProviderProps } from '../../contexts/ContextProvider';
+import { customRender, PageObjects } from '../../test';
 
 import { Caption } from './Caption';
 
