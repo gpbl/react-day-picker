@@ -28,30 +28,14 @@
   },
   "extensions": {
     "recommendations": [
-      "apollographql.vscode-apollo",
       "aaron-bond.better-comments",
-      "ms-azuretools.vscode-docker",
-      "sleistner.vscode-fileutils",
       "dbaeumer.vscode-eslint",
-      "wmaurer.change-case",
       "orta.vscode-jest",
-      "graphql.vscode-graphql",
-      "eamodio.gitlens",
-      "github.vscode-pull-request-github",
       "andys8.jest-snippets",
-      "tyriar.lorem-ipsum",
       "esbenp.prettier-vscode",
-      "richie5um2.vscode-sort-json",
-      "yatki.vscode-surround",
       "mike-co.import-sorter",
-      "redhat.vscode-yaml",
       "streetsidesoftware.code-spell-checker",
-      "donjayamanne.githistory",
-      "zainchen.json",
-      "ibm.output-colorizer",
-      "christian-kohler.path-intellisense",
-      "stkb.rewrap",
-      "mscolnick.export-typescript"
+      "stkb.rewrap"
     ]
   }
 }
