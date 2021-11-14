@@ -1,4 +1,4 @@
-import { DateRange, DayClickEventHandler } from 'types';
+import { DateRange, DayClickEventHandler } from '../../types';
 
 import { SelectRangeModifiers } from './SelectRangeModifiers';
 

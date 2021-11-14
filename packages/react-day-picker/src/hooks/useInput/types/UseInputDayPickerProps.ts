@@ -1,4 +1,4 @@
-import { DayClickEventHandler, MonthChangeEventHandler } from 'types';
+import { DayClickEventHandler, MonthChangeEventHandler } from '../../../types';
 
 /** Represent the props to attach to DayPicker component. */
 export interface UseInputDayPickerProps {

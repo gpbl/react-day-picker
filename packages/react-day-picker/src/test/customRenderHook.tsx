@@ -4,7 +4,7 @@ import {
   Renderer,
   RenderHookResult
 } from '@testing-library/react-hooks';
-import { DayPickerProps } from 'types';
+import { DayPickerProps } from '../types';
 import { ContextProvider } from '../contexts/ContextProvider';
 
 export function customRenderHook<TProps, TResult>(

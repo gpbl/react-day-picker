@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { addDays, addMonths, addWeeks, isSameMonth } from 'date-fns';
 
-import { useDayPicker } from 'contexts/DayPicker';
-import { useNavigation } from 'contexts/Navigation';
+import { useDayPicker } from '../../contexts/DayPicker';
+import { useNavigation } from '../../contexts/Navigation';
 
 import { FocusContext } from './FocusContext';
 

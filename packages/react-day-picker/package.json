@@ -16,8 +16,8 @@
   "module": "build/index.esm.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "develop": "concurrently --names='tsc-alias,rollup' 'yarn tsc-alias --dir build -w' 'yarn rollup -cw'",
-    "build": "yarn build:clean && yarn rollup -c && yarn tsc-alias --dir build",
+    "develop": "yarn rollup -cw",
+    "build": "yarn build:clean && yarn rollup -c",
     "build:clean": "rimraf build",
     "css:types": "yarn tcm -p style.css",
     "lint": "eslint --ext .ts,.tsx src",
@@ -58,7 +58,6 @@
     "timekeeper": "^2.2.0",
     "ts-jest": "^26.5.4",
     "ts-node": "^9.1.1",
-    "tsc-alias": "^1.3.3",
     "tsconfig-paths": "^3.9.0",
     "tslib": "^2.3.0",
     "typed-css-modules": "^0.6.8",

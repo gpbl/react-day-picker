@@ -1,4 +1,4 @@
-import { ModifierStatus } from 'types';
+import { ModifierStatus } from '../types';
 
 /**
  * Represent a function to format the ARIA label for the [[Day]] component.

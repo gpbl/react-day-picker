@@ -1,4 +1,4 @@
-import { WeekNumberLabelFormatter } from 'types';
+import { WeekNumberLabelFormatter } from '../../../types';
 
 /**
  * The default ARIA label for the WeekNumber element.

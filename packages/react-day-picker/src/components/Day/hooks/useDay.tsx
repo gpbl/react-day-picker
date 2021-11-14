@@ -11,16 +11,19 @@ import {
   StyledComponentProps
 } from 'types';
 
-import { useDayPicker } from 'contexts/DayPicker';
+import { useDayPicker } from '../../../contexts/DayPicker';
 import {
   SelectMultipleContextValue,
   useSelectMultiple
-} from 'contexts/SelectMultiple';
-import { SelectRangeContextValue, useSelectRange } from 'contexts/SelectRange';
+} from '../../../contexts/SelectMultiple';
+import {
+  SelectRangeContextValue,
+  useSelectRange
+} from '../../../contexts/SelectRange';
 import {
   SelectSingleContextValue,
   useSelectSingle
-} from 'contexts/SelectSingle';
+} from '../../../contexts/SelectSingle';
 import { useModifiers } from 'hooks';
 
 import { useDayFocus } from './useDayFocus';
