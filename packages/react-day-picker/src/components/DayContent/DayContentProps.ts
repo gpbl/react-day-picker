@@ -1,4 +1,4 @@
-import { ModifierStatus } from 'types';
+import { ModifierStatus } from '../../types';
 
 /** Represent the props for the [[DayContent]] component. */
 export interface DayContentProps {

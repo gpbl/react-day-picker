@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-import { DayClickEventHandler, DayPickerProps, isDayPickerSingle } from 'types';
+import {
+  DayClickEventHandler,
+  DayPickerProps,
+  isDayPickerSingle
+} from '../../types';
 
 import { SelectSingleContext } from './SelectSingleContext';
 import { SelectSingleModifiers } from './SelectSingleModifiers';

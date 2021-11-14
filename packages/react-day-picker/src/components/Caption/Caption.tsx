@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import { isSameMonth } from 'date-fns';
 
-import { MonthChangeEventHandler } from 'types';
+import { MonthChangeEventHandler } from '../../types';
 
-import { MonthsDropdown } from 'components/MonthsDropdown';
-import { Navigation } from 'components/Navigation';
-import { YearsDropdown } from 'components/YearsDropdown';
-import { useDayPicker } from 'contexts/DayPicker';
-import { useNavigation } from 'contexts/Navigation';
+import { MonthsDropdown } from '../MonthsDropdown';
+import { Navigation } from '../Navigation';
+import { YearsDropdown } from '../YearsDropdown';
+import { useDayPicker } from '../../contexts/DayPicker';
+import { useNavigation } from '../../contexts/Navigation';
 
 import { CaptionProps } from './CaptionProps';
 

@@ -1,4 +1,4 @@
-import { ModifierStatus } from 'types';
+import { ModifierStatus } from '../../../types';
 
 export type UseModifiers = {
   /** The status of the modifiers */

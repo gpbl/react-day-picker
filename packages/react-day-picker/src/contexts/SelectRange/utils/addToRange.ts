@@ -1,6 +1,6 @@
 import { isAfter, isBefore, isSameDay } from 'date-fns';
 
-import { DateRange } from 'types';
+import { DateRange } from '../../../types';
 
 /**
  * Add a day to an existing range.

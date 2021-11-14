@@ -8,7 +8,7 @@ import {
   ModifierClassNames,
   Modifiers,
   Styles
-} from 'types';
+} from '../../types';
 
 /** Represent the value of the [[DayPickerContext]]. */
 export type DayPickerContextValue = DayPickerProps & {

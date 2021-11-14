@@ -1,4 +1,4 @@
-import { MonthChangeEventHandler } from 'types';
+import { MonthChangeEventHandler } from '../../types';
 
 /** The props for the [[MonthsDropdown]] component. */
 export interface MonthsDropdownProps {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button } from 'components/Button';
-import { useDayPicker } from 'contexts/DayPicker';
+import { Button } from '../Button';
+import { useDayPicker } from '../../contexts/DayPicker';
 
 import { NavigationProps } from './NavigationProps';
 
