@@ -1,6 +1,4 @@
-import { DayPickerProps, Modifiers } from 'types';
-
-import { InternalModifier } from 'types/InternalModifier';
+import { DayPickerProps, InternalModifier, Modifiers } from '../../../types';
 
 /** Props that will merge into the modifiers. */
 const modifierShortcuts: InternalModifier[] = [

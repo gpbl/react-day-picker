@@ -7,7 +7,7 @@ import {
   DayClickEventHandler,
   DayPickerProps,
   isDayPickerRange
-} from 'types';
+} from '../../types';
 
 import { SelectRangeContext } from './SelectRangeContext';
 import { SelectRangeModifiers } from './SelectRangeModifiers';
