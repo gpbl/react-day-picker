@@ -3,8 +3,8 @@ import * as React from 'react';
 import tk from 'timekeeper';
 import { addMonths } from 'date-fns';
 
-import { customRenderHook } from 'test';
-import { DayPickerProps } from 'types';
+import { customRenderHook } from '../../../test';
+import { DayPickerProps } from '../../../types';
 
 import { useDay, UseDay } from './useDay';
 
