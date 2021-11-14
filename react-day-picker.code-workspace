@@ -1,0 +1,41 @@
+{
+  "folders": [
+    {
+      "name": "react-day-picker",
+      "path": "packages/react-day-picker"
+    },
+    {
+      "name": "website",
+      "path": "website"
+    },
+    {
+      "name": "root",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "packages/": true
+    },
+    "jest.disabledWorkspaceFolders": ["root", "website"],
+    "jest.autoRun": {
+      "watch": false,
+      "onSave": "test-file"
+    },
+    "npm.packageManager": "yarn",
+    "eslint.packageManager": "yarn",
+    "jest.jestCommandLine": "yarn test"
+  },
+  "extensions": {
+    "recommendations": [
+      "aaron-bond.better-comments",
+      "dbaeumer.vscode-eslint",
+      "orta.vscode-jest",
+      "andys8.jest-snippets",
+      "esbenp.prettier-vscode",
+      "mike-co.import-sorter",
+      "streetsidesoftware.code-spell-checker",
+      "stkb.rewrap"
+    ]
+  }
+}
