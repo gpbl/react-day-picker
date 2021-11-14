@@ -9,13 +9,6 @@
     "declaration": true,
     "baseUrl": "./src",
     "noEmit": true,
-    "paths": {
-      "components": ["./components"],
-      "contexts": ["./contexts"],
-      "hooks": ["./hooks"],
-      "types": ["./types"],
-      "test": ["./test"]
-    },
 
     "moduleResolution": "node",
     "resolveJsonModule": true,
