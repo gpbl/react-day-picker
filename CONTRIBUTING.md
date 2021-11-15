@@ -24,10 +24,9 @@ in our discussions page to present yourself, or write the maintainer directly at
 
 ## Working with the source code
 
-This repository works with [Yarn 2 workspaces](https://yarnpkg.com/features/workspaces) to enable hot module reloading during development.
+This repository works with [Yarn 2](https://yarnpkg.com/features/workspaces)
 
 - `./package/react-day-picker`: this workspace contains the DayPicker source code and the development tools
-- `./playground`: a React app useful to live testing. In the future should contains enough use cases for running integration tests.
 - `./website`: the [Docusaurus](http://v2.docusaurus.io) app for [the documentation website](http://react-day-picker-next.netlify.app)
 
 ```
@@ -35,6 +34,8 @@ $ git clone git@github.com:gpbl/react-day-picker.git
 $ cd react-day-picker
 $ yarn install
 ```
+
+### Developing
 
 To build and start watching the source run the `develop` script:
 
