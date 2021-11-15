@@ -37,10 +37,12 @@ export function parseModifierProps(initialProps: DayPickerProps): Modifiers {
   });
 
   modifierShortcuts.forEach((modifier) => {
-    if (Array.isArray(initialProps[modifier])) {
-      modifiers[modifier] = initialProps[modifier];
-    } else if (initialProps[modifier]) {
-      modifiers[modifier] = [initialProps[modifier]];
+    // @ts-expect-error TOFIX: initial props do not have some modifiers
+    const modifierFromProp = initialProps[modifier];
+    if (Array.isArray(modifierFromProp)) {
+      modifiers[modifier] = modifierFromProp;
+    } else if (modifierFromProp !== undefined) {
+      modifiers[modifier] = [modifierFromProp];
     } else {
       modifiers[modifier] = [];
     }
