@@ -24,7 +24,7 @@ export function SelectSingleProvider({
           value: initialProps.selected,
           defaultValue: initialProps.defaultSelected
         }
-      : {}
+      : { defaultValue: undefined }
   );
 
   const handleDayClick: DayClickEventHandler = (day, dayModifiers, e) => {

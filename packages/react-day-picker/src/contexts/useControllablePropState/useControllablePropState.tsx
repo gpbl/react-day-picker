@@ -30,15 +30,13 @@ export type ControllableProp<T> = {
   /** The 'controlled' property. */
   value?: T;
   /** The default (initial) value for the uncontrolled behavior. */
-  defaultValue?: T;
+  defaultValue: T;
 };
 
 export function useControllablePropState<T>(
   props: ControllableProp<T>
-): [T | undefined, React.Dispatch<React.SetStateAction<T | undefined>>] {
-  const [uncontrolledValue, setValue] = React.useState<T | undefined>(
-    props.defaultValue
-  );
+): [T, React.Dispatch<React.SetStateAction<T>>] {
+  const [uncontrolledValue, setValue] = React.useState<T>(props.defaultValue);
   const controlledValue = props.value;
   const value: T | undefined =
     controlledValue === undefined ? uncontrolledValue : controlledValue;

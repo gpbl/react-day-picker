@@ -26,7 +26,7 @@ export function SelectMultipleProvider({
           value: initialProps.selected,
           defaultValue: initialProps.defaultSelected
         }
-      : {}
+      : { defaultValue: undefined }
   );
 
   const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
