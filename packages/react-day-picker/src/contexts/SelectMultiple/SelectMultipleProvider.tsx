@@ -10,6 +10,7 @@ import {
 
 import { SelectMultipleContext } from './SelectMultipleContext';
 import { SelectMultipleModifiers } from './SelectMultipleModifiers';
+import { useControllablePropState } from '../useControllablePropState/useControllablePropState';
 
 /** Provides the values for the [[SelectMultipleContext]]. */
 export function SelectMultipleProvider({
@@ -19,7 +20,14 @@ export function SelectMultipleProvider({
   initialProps: DayPickerProps;
   children: React.ReactNode;
 }): JSX.Element {
-  const [selectedDays, setSelectedDays] = useSelected(initialProps);
+  const [selectedDays, setSelectedDays] = useControllablePropState(
+    isDayPickerMultiple(initialProps)
+      ? {
+          value: initialProps.selected,
+          defaultValue: initialProps.defaultSelected
+        }
+      : {}
+  );
 
   const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
     if (!isDayPickerMultiple(initialProps)) {
@@ -90,27 +98,3 @@ export function SelectMultipleProvider({
     </SelectMultipleContext.Provider>
   );
 }
-
-const useSelected = (
-  initialProps: DayPickerProps
-): [
-  Date[] | undefined,
-  React.Dispatch<React.SetStateAction<Date[] | undefined>>
-] => {
-  let controlledSelectedDays;
-  let initialSelected;
-  if (isDayPickerMultiple(initialProps)) {
-    initialSelected = initialProps.defaultSelected;
-    controlledSelectedDays = initialProps.selected;
-  }
-  const [uncontrolledSelectedDays, setSelectedDays] = React.useState<
-    Date[] | undefined
-  >(initialSelected || undefined);
-
-  const selectedDays =
-    controlledSelectedDays === undefined
-      ? uncontrolledSelectedDays
-      : controlledSelectedDays;
-
-  return [selectedDays, setSelectedDays];
-};

@@ -18,9 +18,9 @@ export function Example() {
   }
 
   return (
-    <div>
+    <div style={{display: 'flex', flexWrap: 'wrap'}}>
       <DayPicker mode="multiple" selected={days} onSelect={setDays} footer={footer} />
-      <div style={{display: 'flex', flexDirection: 'column', width: '300px'}}>
+      <div style={{display: 'flex', flexDirection: 'column', width: '232px'}}>
         <button disabled={days.length === 0} onClick={removeLastSelected}>Remove most recent selection</button>
         <div style={{height: '10px', width: '100%'}}></div>
         <button disabled={days.length === 0} onClick={clearSelection}>Clear selection</button>
