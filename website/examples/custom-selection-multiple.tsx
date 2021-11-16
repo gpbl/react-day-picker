@@ -31,7 +31,7 @@ export function Example() {
 
   return (
     <DayPicker
-      mode="uncontrolled"
+      mode="custom"
       onDayClick={handleDayClick}
       selected={selectedDays}
       footer={footer}

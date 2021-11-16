@@ -21,16 +21,12 @@ export function SelectRangeProvider({
   initialProps: DayPickerProps;
   children: React.ReactNode;
 }): JSX.Element {
-  let initialSelected;
   let min: number | undefined, max: number | undefined;
   if (isDayPickerRange(initialProps)) {
-    initialSelected = initialProps.defaultSelected;
     min = initialProps.min;
     max = initialProps.max;
   }
-  const [selected, setSelected] = React.useState<DateRange | undefined>(
-    initialSelected
-  );
+  const [selected, setSelected] = useSelected(initialProps);
 
   const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
     initialProps.onDayClick?.(day, modifiers, e);
@@ -138,3 +134,27 @@ export function SelectRangeProvider({
     </SelectRangeContext.Provider>
   );
 }
+
+const useSelected = (
+  initialProps: DayPickerProps
+): [
+  DateRange | undefined,
+  React.Dispatch<React.SetStateAction<DateRange | undefined>>
+] => {
+  let controlledSelected;
+  let initialSelected;
+  if (isDayPickerRange(initialProps)) {
+    initialSelected = initialProps.defaultSelected;
+    controlledSelected = initialProps.selected;
+  }
+  const [uncontrolledSelected, setSelected] = React.useState<
+    DateRange | undefined
+  >(initialSelected);
+
+  const selected: DateRange | undefined =
+    controlledSelected === undefined
+      ? uncontrolledSelected
+      : controlledSelected;
+
+  return [selected, setSelected];
+};

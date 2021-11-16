@@ -5,7 +5,9 @@ import { SelectSingleEventHandler } from './SelectSingleEventHandler';
  */
 export interface DayPickerSingle {
   mode?: 'single';
-  /** The default selected day. */
+  /** The selected day when using controlled behavior. */
+  selected?: Date;
+  /** The default selected day when using uncontrolled (not using selected). */
   defaultSelected?: Date;
   /** Event fired when a day is selected. */
   onSelect?: SelectSingleEventHandler;

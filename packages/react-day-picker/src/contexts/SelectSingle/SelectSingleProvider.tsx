@@ -17,14 +17,7 @@ export function SelectSingleProvider({
   initialProps: DayPickerProps;
   children: React.ReactNode;
 }): JSX.Element {
-  let initialSelected;
-  if (isDayPickerSingle(initialProps)) {
-    initialSelected = initialProps.defaultSelected;
-  }
-
-  const [selected, setSelected] = React.useState<Date | undefined>(
-    initialSelected
-  );
+  const [selected, setSelected] = useSelected(initialProps);
 
   const handleDayClick: DayClickEventHandler = (day, dayModifiers, e) => {
     if (!isDayPickerSingle(initialProps)) return;
@@ -49,3 +42,28 @@ export function SelectSingleProvider({
     </SelectSingleContext.Provider>
   );
 }
+
+const useSelected = (
+  initialProps: DayPickerProps
+): [
+  Date | undefined,
+  React.Dispatch<React.SetStateAction<Date | undefined>>
+] => {
+  let controlledSelected;
+  let initialSelected;
+  if (isDayPickerSingle(initialProps)) {
+    initialSelected = initialProps.defaultSelected;
+    controlledSelected = initialProps.selected;
+  }
+
+  const [uncontrolledSelected, setSelected] = React.useState<Date | undefined>(
+    initialSelected
+  );
+
+  const selected =
+    controlledSelected === undefined
+      ? uncontrolledSelected
+      : controlledSelected;
+
+  return [selected, setSelected];
+};
