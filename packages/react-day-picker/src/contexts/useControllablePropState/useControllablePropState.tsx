@@ -7,11 +7,11 @@ import React from 'react';
  *
  * A component must choose to be controlled or
  * uncontrolled for the lifetime of the component.
- * 
- * For a controlled component, the state is managed externally 
+ *
+ * For a controlled component, the state is managed externally
  * and passed into the component, allowing the user of the
  * component to control the state.
- * 
+ *
  * For an uncontrolled component, the state is managed internally.
  * The user of the component can pass in an initial default value,
  * and receive the state when it changes, but cannot control
