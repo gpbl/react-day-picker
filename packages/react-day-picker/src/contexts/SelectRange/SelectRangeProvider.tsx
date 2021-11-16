@@ -12,7 +12,7 @@ import {
 import { SelectRangeContext } from './SelectRangeContext';
 import { SelectRangeModifiers } from './SelectRangeModifiers';
 import { addToRange } from './utils/addToRange';
-import { useControllablePropState } from '../useControllablePropState/useControllablePropState';
+import { useControllablePropState } from '../useControllablePropState';
 
 /** Provides the values for the [[SelectRangeProvider]]. */
 export function SelectRangeProvider({

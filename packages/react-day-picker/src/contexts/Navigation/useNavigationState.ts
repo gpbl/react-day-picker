@@ -5,7 +5,7 @@ import { isSameMonth } from 'date-fns';
 import { useDayPicker } from '../../contexts/DayPicker';
 
 import { getInitialMonth } from './utils/getInitialMonth';
-import { useControllablePropState } from '../useControllablePropState/useControllablePropState';
+import { useControllablePropState } from '../useControllablePropState';
 
 /** Controls the navigation state. */
 export function useNavigationState(): [
