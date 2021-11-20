@@ -28,7 +28,7 @@ export function useNavigationState(): [
     if (!context.month) return;
     if (isSameMonth(context.month, month)) return;
     setMonth(context.month);
-  }, [context.month]);
+  }, [context.month, month]);
 
   return [month, goToMonth];
 }

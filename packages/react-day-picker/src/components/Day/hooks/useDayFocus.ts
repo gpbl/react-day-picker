@@ -32,7 +32,7 @@ export function useDayFocus(
     if (isSameDay(focusedDay, date)) {
       buttonRef.current?.focus();
     }
-  }, [focusedDay]);
+  }, [focusedDay, date, buttonRef]);
 
   const focusOnKeyDown: React.KeyboardEventHandler = (e) => {
     switch (e.key) {
