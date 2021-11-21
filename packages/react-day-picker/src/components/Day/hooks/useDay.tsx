@@ -62,7 +62,7 @@ export type UseDay = {
  * - render nothing: when the day is outside the month or has matched the
  *   "hidden" modifier.
  * - render a button. When a selection mode is set, DayPicker renders a button
- *   to allow the focus and the selection. In case of `uncontrolled` selection
+ *   to allow the focus and the selection. In case of `custom` selection
  *   mode, DayPicker expects a `onDayClick` prop to render a button.
  * - render a non-interactive element: when no selection mode is set, the day
  *   cell shouldn’t respond to any interaction. DayPicker should render a `div`

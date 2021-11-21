@@ -5,7 +5,9 @@ import { SelectMultipleEventHandler } from './SelectMultipleEventHandler';
  */
 export interface DayPickerMultiple {
   mode?: 'multiple';
-  /** The default selected dates. */
+  /** The selected dates when using controlled behavior. */
+  selected?: Date[];
+  /** The default selected dates when using uncontrolled behavior (not using selected). */
   defaultSelected?: Date[];
   /** Event fired when a days added or removed to the selection. */
   onSelect?: SelectMultipleEventHandler;

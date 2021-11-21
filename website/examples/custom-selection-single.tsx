@@ -10,7 +10,7 @@ export function Example() {
     : 'Please pick a day.';
   return (
     <DayPicker
-      mode="uncontrolled"
+      mode="custom"
       selected={selectedDay}
       onDayClick={handleDayClick}
       footer={footer}

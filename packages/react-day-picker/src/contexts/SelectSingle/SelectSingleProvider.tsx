@@ -5,6 +5,7 @@ import {
   DayPickerProps,
   isDayPickerSingle
 } from '../../types';
+import { useControllablePropState } from '../../hooks/useControllablePropState';
 
 import { SelectSingleContext } from './SelectSingleContext';
 import { SelectSingleModifiers } from './SelectSingleModifiers';
@@ -17,13 +18,13 @@ export function SelectSingleProvider({
   initialProps: DayPickerProps;
   children: React.ReactNode;
 }): JSX.Element {
-  let initialSelected;
-  if (isDayPickerSingle(initialProps)) {
-    initialSelected = initialProps.defaultSelected;
-  }
-
-  const [selected, setSelected] = React.useState<Date | undefined>(
-    initialSelected
+  const [selected, setSelected] = useControllablePropState(
+    isDayPickerSingle(initialProps)
+      ? {
+          value: initialProps.selected,
+          defaultValue: initialProps.defaultSelected
+        }
+      : { defaultValue: undefined }
   );
 
   const handleDayClick: DayClickEventHandler = (day, dayModifiers, e) => {

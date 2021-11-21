@@ -5,7 +5,7 @@ DayPicker supports four selection modes:
 - single mode: only a single day can be selected
 - multiple mode: allow selection of multiple days
 - range mode: allow the selection of range of days
-- uncontrolled: let the parent component handle the selection
+- custom: let the parent component handle the selection
 
 ## Single selection mode
 
@@ -34,6 +34,19 @@ Use `mode="multiple"` to allow the selection of multiple days:
 selecting-days-multiple.tsx
 ```
 
+
+## Selecting multiple days - controlled
+
+If you like the behavior of mode="multiple" but need the ability to sometimes
+programmatically update the selected dates, you can control them.
+
+Use `selected` instead of `defaultSelected`, and be sure to use `null` and 
+never use `undefined` for the value of the `selected` property.
+
+```include
+selecting-days-multiple-controlled.tsx
+```
+
 ### Limiting the amount of selectable days
 
 Use the `min` and `max` props to limit the amount of days that can be selected.
@@ -50,6 +63,19 @@ Use `mode="range"` and `onSelectRange` to allow the selection of multiple days.
 selecting-days-range.tsx
 ```
 
+## Selecting a range of days - controlled
+
+If you like the behavior of mode="range" but need the ability to sometimes
+programmatically update the selected range, you can control the selected range.
+
+Use `selected` instead of `defaultSelected`, and be sure to use `null` and 
+never use `undefined` for the value of the `selected` property.
+
+```include
+selecting-days-range-controlled.tsx
+```
+
+
 ### Limiting the range size
 
 Use the `min` and `max` props to limit the amount of days in the range.
@@ -58,8 +84,8 @@ Use the `min` and `max` props to limit the amount of days in the range.
 selecting-days-range-min-max.tsx
 ```
 
-## Uncontrolled selection mode
+## Custom selection mode
 
 If the built-in selection modes are not enough for your app’s requirements, you
-can control the selection behavior using `mode="uncontrolled"`. See the [Custom
+can control the selection behavior using `mode="custom"`. See the [Custom
 Selections guide](/guides/custom-selections) for more details.
