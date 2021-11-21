@@ -13200,7 +13200,7 @@ __metadata:
     ts-node: ^10.4.0
     tslib: ^2.3.1
     typed-css-modules: ^0.7.0
-    typescript: ~4.2.4
+    typescript: ~4.4.0
   peerDependencies:
     date-fns: ^2.10.0
     react: ^16.8.0 || ^17.0.0
@@ -15644,23 +15644,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~4.2.4":
-  version: 4.2.4
-  resolution: "typescript@npm:4.2.4"
+"typescript@npm:~4.4.0":
+  version: 4.4.4
+  resolution: "typescript@npm:4.4.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 89c397df192f239359ad798b96d8e8d552e12c0c189ac5676cec4c20c410d6eec636b8e59a88f2aef0a56d961a9678d99c400099be9b7cae2f7b062eb4b7b171
+  checksum: 89ecb8436bb48ef5594d49289f5f89103071716b6e4844278f4fb3362856e31203e187a9c76d205c3f0b674d221a058fd28310dbcbcf5d95e9a57229bb5203f1
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@~4.2.4#~builtin<compat/typescript>":
-  version: 4.2.4
-  resolution: "typescript@patch:typescript@npm%3A4.2.4#~builtin<compat/typescript>::version=4.2.4&hash=ddd1e8"
+"typescript@patch:typescript@~4.4.0#~builtin<compat/typescript>":
+  version: 4.4.4
+  resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=ddd1e8"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: bafcad6990f5d8ea9ccff09e440ce42630b2e42a5752dde5455b55c806ae43f8726a03770577d4fc6c2aa624597f796725cc6fe2c173f558a753a2f23a5198a4
+  checksum: bd629ad0da4a15d79aaad56baf3ee7d96f6a181760d430ae77f8c5325df7bffd9edee57544a3970e3651e8b796fe03a5838a7eb39c6d46cc3866c0b23d36a0dd
   languageName: node
   linkType: hard
 
@@ -16557,7 +16557,7 @@ __metadata:
     react-dom: ^17.0.2
     typedoc: ^0.22.9
     typedoc-plugin-markdown: ^3.11.7
-    typescript: ~4.2.4
+    typescript: ~4.4.0
   languageName: unknown
   linkType: soft
 
