@@ -8,8 +8,10 @@ import {
   isDayPickerMultiple
 } from '../../types';
 
-import { SelectMultipleContext } from './SelectMultipleContext';
-import { SelectMultipleModifiers } from './SelectMultipleModifiers';
+import {
+  SelectMultipleContext,
+  SelectMultipleModifiers
+} from './SelectMultipleContext';
 import { useControllablePropState } from '../../hooks/useControllablePropState';
 
 /** Provides the values for the [[SelectMultipleContext]]. */

@@ -17,8 +17,7 @@ import { IconPrevious } from '../../components/IconPrevious';
 import { Row } from '../../components/Row';
 import { WeekNumber } from '../../components/WeekNumber';
 
-import { DayPickerContext } from './DayPickerContext';
-import { DayPickerContextValue } from './DayPickerContextValue';
+import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';

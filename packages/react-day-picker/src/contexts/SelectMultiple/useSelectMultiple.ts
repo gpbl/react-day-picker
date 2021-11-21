@@ -1,7 +1,9 @@
 import * as React from 'react';
 
-import { SelectMultipleContext } from './SelectMultipleContext';
-import { SelectMultipleContextValue } from './SelectMultipleContextValue';
+import {
+  SelectMultipleContext,
+  SelectMultipleContextValue
+} from './SelectMultipleContext';
 
 /** Hook to access the [[SelectMultipleContext]]. */
 export function useSelectMultiple(): SelectMultipleContextValue {
