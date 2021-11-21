@@ -7,8 +7,11 @@ import {
   DayPickerProps,
   isDayPickerMultiple
 } from '../../types';
-import { SelectMultipleContext } from './SelectMultipleContext';
-import { SelectMultipleModifiers } from './SelectMultipleModifiers';
+
+import {
+  SelectMultipleContext,
+  SelectMultipleModifiers
+} from './SelectMultipleContext';
 
 /** Provides the values for the [[SelectMultipleContext]]. */
 export function SelectMultipleProvider({

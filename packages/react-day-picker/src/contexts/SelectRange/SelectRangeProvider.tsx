@@ -9,8 +9,8 @@ import {
   DayPickerProps,
   isDayPickerRange
 } from '../../types';
-import { SelectRangeContext } from './SelectRangeContext';
-import { SelectRangeModifiers } from './SelectRangeModifiers';
+
+import { SelectRangeContext, SelectRangeModifiers } from './SelectRangeContext';
 import { addToRange } from './utils/addToRange';
 
 /** Provides the values for the [[SelectRangeProvider]]. */
