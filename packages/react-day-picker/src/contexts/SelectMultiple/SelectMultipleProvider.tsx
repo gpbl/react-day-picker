@@ -10,7 +10,7 @@ import {
 
 import { SelectMultipleContext } from './SelectMultipleContext';
 import { SelectMultipleModifiers } from './SelectMultipleModifiers';
-import { useControllablePropState } from '../useControllablePropState';
+import { useControllablePropState } from '../../hooks/useControllablePropState';
 
 /** Provides the values for the [[SelectMultipleContext]]. */
 export function SelectMultipleProvider({

@@ -5,7 +5,7 @@ import {
   DayPickerProps,
   isDayPickerSingle
 } from '../../types';
-import { useControllablePropState } from '../useControllablePropState';
+import { useControllablePropState } from '../../hooks/useControllablePropState';
 
 import { SelectSingleContext } from './SelectSingleContext';
 import { SelectSingleModifiers } from './SelectSingleModifiers';
