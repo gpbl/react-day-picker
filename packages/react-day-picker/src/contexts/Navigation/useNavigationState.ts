@@ -17,8 +17,8 @@ export function useNavigationState(): [
   const context = useDayPicker();
   const initialMonth = getInitialMonth(context);
   const [month, setMonth] = useControlledValue<Date>(
-    context.month || initialMonth,
-    initialMonth
+    initialMonth,
+    context.month
   );
 
   const goToMonth = (date: Date) => {
