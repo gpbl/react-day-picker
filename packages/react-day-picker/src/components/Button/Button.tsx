@@ -2,7 +2,8 @@ import * as React from 'react';
 
 import { useDayPicker } from '../../contexts/DayPicker';
 
-import { ButtonProps } from './ButtonProps';
+/** The props for the [[Button]] component. */
+export type ButtonProps = React.HTMLProps<HTMLButtonElement>;
 
 /**
  * Render a button HTML element applying the reset class name.
