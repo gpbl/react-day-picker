@@ -1,6 +1,5 @@
 import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
-
-import { DayPickerContextValue } from '../../../contexts/DayPicker/DayPickerContextValue';
+import { DayPickerContextValue } from '../../DayPicker/DayPickerContext';
 
 /** Return the initial month according to the given options. */
 export function getInitialMonth(context: Partial<DayPickerContextValue>): Date {

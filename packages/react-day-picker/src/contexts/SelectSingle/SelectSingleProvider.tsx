@@ -7,8 +7,10 @@ import {
 } from '../../types';
 import { useControllablePropState } from '../../hooks/useControllablePropState';
 
-import { SelectSingleContext } from './SelectSingleContext';
-import { SelectSingleModifiers } from './SelectSingleModifiers';
+import {
+  SelectSingleContext,
+  SelectSingleModifiers
+} from './SelectSingleContext';
 
 /** Provides the values for the [[SelectSingleProvider]]. */
 export function SelectSingleProvider({

@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import { NavigationContext } from './NavigationContext';
-import { NavigationContextValue } from './NavigationContextValue';
+import { NavigationContext, NavigationContextValue } from './NavigationContext';
 
 /** Hook to access the [[NavigationContext]]. */
 export function useNavigation(): NavigationContextValue {
