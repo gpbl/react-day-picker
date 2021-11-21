@@ -3,6 +3,7 @@ export default {
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },
+  testEnvironment: 'jsdom',
   moduleNameMapper: {
     '^test$': '<rootDir>/src/test',
     '^types$': '<rootDir>/src/types',
