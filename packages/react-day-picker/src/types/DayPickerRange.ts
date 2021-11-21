@@ -6,6 +6,10 @@ import { SelectRangeEventHandler } from './SelectRangeEventHandler';
  */
 export interface DayPickerRange {
   mode?: 'range';
+  /**
+   * Apply the `selected` modifier to the matching days.
+   */
+  selected?: DateRange;
   /** The default selected range. */
   defaultSelected?: DateRange;
   /** Event fired when a range or a part of the range is selected. */

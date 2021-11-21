@@ -12,6 +12,7 @@ import {
 import { SelectRangeContext } from './SelectRangeContext';
 import { SelectRangeModifiers } from './SelectRangeModifiers';
 import { addToRange } from './utils/addToRange';
+import { useControllablePropState } from '../../hooks/useControllablePropState';
 
 /** Provides the values for the [[SelectRangeProvider]]. */
 export function SelectRangeProvider({
@@ -21,15 +22,19 @@ export function SelectRangeProvider({
   initialProps: DayPickerProps;
   children: React.ReactNode;
 }): JSX.Element {
-  let initialSelected;
   let min: number | undefined, max: number | undefined;
   if (isDayPickerRange(initialProps)) {
-    initialSelected = initialProps.defaultSelected;
     min = initialProps.min;
     max = initialProps.max;
   }
-  const [selected, setSelected] = React.useState<DateRange | undefined>(
-    initialSelected
+
+  const [selected, setSelected] = useControllablePropState(
+    isDayPickerRange(initialProps)
+      ? {
+          value: initialProps.selected,
+          defaultValue: initialProps.defaultSelected
+        }
+      : { defaultValue: undefined }
   );
 
   const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {

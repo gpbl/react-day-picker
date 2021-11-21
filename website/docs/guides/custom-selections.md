@@ -5,11 +5,11 @@ modes to change the selection behavior. Under the hood, DayPicker handles the
 interaction with the days, assigning them the `selected` modifier.
 
 To implement a selection behavior by yourself, you can either switch
-to uncontrolled selection mode or – to keep the built-in modes – use a custom Day component.
+to custom selection mode or – to keep the built-in modes – use a custom Day component.
 
-## Switching to the uncontrolled mode
+## Switching to the custom mode
 
-1. set the selection mode to `mode="uncontrolled"`
+1. set the selection mode to `mode="custom"`
 2. store the selected dates in the parent’s state
 3. use the `selected` and `onDayClick` props
 

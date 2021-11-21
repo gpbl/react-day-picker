@@ -43,7 +43,7 @@ import { ContextProvider } from './contexts/ContextProvider';
  *   in the range with the `min` or the `max` props.
  *
  * These selection modes should cover the most common use cases. In case you
- * need a more refined way of selecting days, use `mode="uncontrolled"`. Use the
+ * need a more refined way of selecting days, use `mode="custom"`. Use the
  * `selected` props and add the day event handlers to add/remove days from the
  * selection.
  *

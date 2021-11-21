@@ -193,12 +193,12 @@ export interface DayPickerBase {
   /**
    * Toggle the controlled selection mode.
    *
-   * - `uncontrolled`: disable the controlled selection mode
+   * - `custom`: customize what is selected
    * - `single`: control the selection of single days
    * - `multiple`: control the selection of multiple days
    * - `range`: control the selection of a range of days
    */
-  mode?: 'uncontrolled' | 'single' | 'multiple' | 'range';
+  mode?: 'custom' | 'single' | 'multiple' | 'range';
   /**
    * The default selected days when the `mode` is `single`, `multiple` or `range`.
    */
