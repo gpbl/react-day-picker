@@ -2,17 +2,16 @@ import * as React from 'react';
 
 import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
 
+import { useControlledValue } from '../../hooks/useControlledValue';
 import {
   DateRange,
   DayClickEventHandler,
   DayPickerProps,
   isDayPickerRange
 } from '../../types';
-
 import { SelectRangeContext } from './SelectRangeContext';
 import { SelectRangeModifiers } from './SelectRangeModifiers';
 import { addToRange } from './utils/addToRange';
-import { useControllablePropState } from '../../hooks/useControllablePropState';
 
 /** Provides the values for the [[SelectRangeProvider]]. */
 export function SelectRangeProvider({
@@ -22,26 +21,33 @@ export function SelectRangeProvider({
   initialProps: DayPickerProps;
   children: React.ReactNode;
 }): JSX.Element {
-  let min: number | undefined, max: number | undefined;
-  if (isDayPickerRange(initialProps)) {
-    min = initialProps.min;
-    max = initialProps.max;
+  const [selected, setSelected] = useControlledValue<DateRange | undefined>(
+    initialProps.defaultSelected,
+    initialProps.selected
+  );
+
+  const modifiers: SelectRangeModifiers = {
+    selected: [],
+    range_start: [],
+    range_end: [],
+    range_middle: [],
+    disabled: []
+  };
+
+  if (!isDayPickerRange(initialProps)) {
+    const contextValue = { selected: undefined, modifiers };
+    return (
+      <SelectRangeContext.Provider value={contextValue}>
+        {children}
+      </SelectRangeContext.Provider>
+    );
   }
 
-  const [selected, setSelected] = useControllablePropState(
-    isDayPickerRange(initialProps)
-      ? {
-          value: initialProps.selected,
-          defaultValue: initialProps.defaultSelected
-        }
-      : { defaultValue: undefined }
-  );
+  const min = initialProps.min;
+  const max = initialProps.max;
 
   const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
     initialProps.onDayClick?.(day, modifiers, e);
-    if (!isDayPickerRange(initialProps)) {
-      return;
-    }
     const newValue = addToRange(day, selected);
     if (
       (min || max) &&
@@ -64,13 +70,6 @@ export function SelectRangeProvider({
     initialProps.onSelect?.(newValue, day, modifiers, e);
   };
 
-  const modifiers: SelectRangeModifiers = {
-    selected: [],
-    range_start: [],
-    range_end: [],
-    range_middle: [],
-    disabled: []
-  };
   if (selected) {
     modifiers.selected = [selected];
     if (selected.from) {
@@ -134,11 +133,9 @@ export function SelectRangeProvider({
       }
     }
   }
-
+  const contextValue = { selected, handleDayClick, modifiers };
   return (
-    <SelectRangeContext.Provider
-      value={{ selected, handleDayClick, modifiers }}
-    >
+    <SelectRangeContext.Provider value={contextValue}>
       {children}
     </SelectRangeContext.Provider>
   );

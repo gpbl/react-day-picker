@@ -9,5 +9,5 @@ export interface SelectSingleContextValue {
   /** The modifiers for the corresponding selection. */
   modifiers: SelectSingleModifiers;
   /** Event handler to attach to the day button to enable the single select. */
-  handleDayClick: DayClickEventHandler;
+  handleDayClick?: DayClickEventHandler;
 }

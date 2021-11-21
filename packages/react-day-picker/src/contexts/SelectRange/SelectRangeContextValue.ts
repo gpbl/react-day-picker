@@ -9,5 +9,5 @@ export interface SelectRangeContextValue {
   /** The modifiers for the corresponding selection. */
   modifiers: SelectRangeModifiers;
   /** Event handler to attach to the day button to enable the range select. */
-  handleDayClick: DayClickEventHandler;
+  handleDayClick?: DayClickEventHandler;
 }
