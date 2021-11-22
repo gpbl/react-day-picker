@@ -6,7 +6,9 @@ import { useControlledValue } from '../../hooks/useControlledValue';
 import {
   DateRange,
   DayClickEventHandler,
+  DayPickerBase,
   DayPickerProps,
+  DayPickerRange,
   isDayPickerRange
 } from '../../types';
 
@@ -21,27 +23,43 @@ export function SelectRangeProvider({
   initialProps: DayPickerProps;
   children: React.ReactNode;
 }): JSX.Element {
-  const [selected, setSelected] = useControlledValue<DateRange | undefined>(
-    initialProps.defaultSelected,
-    initialProps.selected
+  if (!isDayPickerRange(initialProps)) {
+    return (
+      <SelectRangeContext.Provider value={EMPTY_SELECT_RANGE_CONTEXT}>
+        {children}
+      </SelectRangeContext.Provider>
+    );
+  }
+  return (
+    <SelectRangeProviderInternal
+      initialProps={initialProps}
+      children={children}
+    />
   );
+}
 
-  const modifiers: SelectRangeModifiers = {
+const EMPTY_SELECT_RANGE_CONTEXT = {
+  selected: undefined,
+  modifiers: {
     selected: [],
     range_start: [],
     range_end: [],
     range_middle: [],
     disabled: []
-  };
-
-  if (!isDayPickerRange(initialProps)) {
-    const contextValue = { selected: undefined, modifiers };
-    return (
-      <SelectRangeContext.Provider value={contextValue}>
-        {children}
-      </SelectRangeContext.Provider>
-    );
   }
+};
+
+export function SelectRangeProviderInternal({
+  initialProps,
+  children
+}: {
+  initialProps: DayPickerBase & DayPickerRange;
+  children: React.ReactNode;
+}): JSX.Element {
+  const [selected, setSelected] = useControlledValue(
+    initialProps.defaultSelected,
+    initialProps.selected
+  );
 
   const min = initialProps.min;
   const max = initialProps.max;
@@ -68,6 +86,14 @@ export function SelectRangeProvider({
     }
     setSelected(newValue);
     initialProps.onSelect?.(newValue, day, modifiers, e);
+  };
+
+  const modifiers: SelectRangeModifiers = {
+    selected: [],
+    range_start: [],
+    range_end: [],
+    range_middle: [],
+    disabled: []
   };
 
   if (selected) {
@@ -133,9 +159,10 @@ export function SelectRangeProvider({
       }
     }
   }
-  const contextValue = { selected, handleDayClick, modifiers };
   return (
-    <SelectRangeContext.Provider value={contextValue}>
+    <SelectRangeContext.Provider
+      value={{ selected, handleDayClick, modifiers }}
+    >
       {children}
     </SelectRangeContext.Provider>
   );

@@ -9,8 +9,8 @@ export type DispatchStateAction<T> = React.Dispatch<React.SetStateAction<T>>;
  * returned setter to update it.
  */
 export function useControlledValue<T>(
-  defaultValue: unknown,
-  controlledValue: unknown | undefined
+  defaultValue: T,
+  controlledValue: T | undefined
 ): [T, DispatchStateAction<T>] {
   const [uncontrolledValue, setUncontrolledValue] =
     React.useState(defaultValue);

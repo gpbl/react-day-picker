@@ -16,10 +16,7 @@ export function useNavigationState(): [
 ] {
   const context = useDayPicker();
   const initialMonth = getInitialMonth(context);
-  const [month, setMonth] = useControlledValue<Date>(
-    initialMonth,
-    context.month
-  );
+  const [month, setMonth] = useControlledValue(initialMonth, context.month);
 
   const goToMonth = (date: Date) => {
     if (context.disableNavigation) return;

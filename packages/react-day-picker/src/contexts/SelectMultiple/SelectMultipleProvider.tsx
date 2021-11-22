@@ -4,6 +4,8 @@ import { isSameDay } from 'date-fns';
 import { useControlledValue } from '../../hooks/useControlledValue';
 import {
   DayClickEventHandler,
+  DayPickerBase,
+  DayPickerMultiple,
   DayPickerProps,
   isDayPickerMultiple
 } from '../../types';
@@ -21,28 +23,42 @@ export function SelectMultipleProvider({
   initialProps: DayPickerProps;
   children: React.ReactNode;
 }): JSX.Element {
-  const [selectedDays, setSelectedDays] = useControlledValue<
-    Date[] | undefined
-  >(initialProps.defaultSelected, initialProps.selected);
-
-  const modifiers: SelectMultipleModifiers = {
-    selected: [],
-    disabled: []
-  };
-
   if (!isDayPickerMultiple(initialProps)) {
-    const contextValue = { selected: undefined, modifiers };
     return (
-      <SelectMultipleContext.Provider value={contextValue}>
+      <SelectMultipleContext.Provider value={EMPTY_SELECT_MULTIPLE_CONTEXT}>
         {children}
       </SelectMultipleContext.Provider>
     );
   }
+  return (
+    <SelectMultipleProviderInternal
+      initialProps={initialProps}
+      children={children}
+    />
+  );
+}
+
+const EMPTY_SELECT_MULTIPLE_CONTEXT = {
+  selected: undefined,
+  modifiers: {
+    selected: [],
+    disabled: []
+  }
+};
+
+function SelectMultipleProviderInternal({
+  initialProps,
+  children
+}: {
+  initialProps: DayPickerBase & DayPickerMultiple;
+  children: React.ReactNode;
+}): JSX.Element {
+  const [selectedDays, setSelectedDays] = useControlledValue(
+    initialProps.defaultSelected,
+    initialProps.selected
+  );
 
   const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
-    if (!isDayPickerMultiple(initialProps)) {
-      return;
-    }
     initialProps.onDayClick?.(day, modifiers, e);
 
     const isMinSelected = Boolean(
@@ -77,7 +93,12 @@ export function SelectMultipleProvider({
     initialProps.onSelect?.(days, day, modifiers, e);
   };
 
-  if (selectedDays && isDayPickerMultiple(initialProps)) {
+  const modifiers: SelectMultipleModifiers = {
+    selected: [],
+    disabled: []
+  };
+
+  if (selectedDays) {
     modifiers.selected = selectedDays;
     modifiers.disabled = [
       function disableDay(day: Date) {
@@ -91,9 +112,14 @@ export function SelectMultipleProvider({
     ];
   }
 
-  const contextValue = { selected: selectedDays, handleDayClick, modifiers };
   return (
-    <SelectMultipleContext.Provider value={contextValue}>
+    <SelectMultipleContext.Provider
+      value={{ 
+        selected: selectedDays, 
+        handleDayClick, 
+        modifiers 
+      }}
+    >
       {children}
     </SelectMultipleContext.Provider>
   );

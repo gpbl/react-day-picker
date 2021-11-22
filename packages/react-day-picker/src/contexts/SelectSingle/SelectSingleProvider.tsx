@@ -2,7 +2,9 @@ import * as React from 'react';
 
 import {
   DayClickEventHandler,
+  DayPickerBase,
   DayPickerProps,
+  DayPickerSingle,
   isDayPickerSingle
 } from '../../types';
 import { useControlledValue } from '../../hooks/useControlledValue';
@@ -20,29 +22,39 @@ export function SelectSingleProvider({
   initialProps: DayPickerProps;
   children: React.ReactNode;
 }): JSX.Element {
-  const [selected, setSelected] = useControlledValue<Date | undefined>(
-    initialProps.defaultSelected,
-    initialProps.selected
-  );
-
-  const modifiers: SelectSingleModifiers = { selected: [] };
-
   if (!isDayPickerSingle(initialProps)) {
-    const contextValue = { selected: undefined, modifiers };
     return (
-      <SelectSingleContext.Provider value={contextValue}>
+      <SelectSingleContext.Provider value={EMPTY_SELECT_SINGLE_CONTEXT}>
         {children}
       </SelectSingleContext.Provider>
     );
   }
+  return (
+    <SelectSingleProviderInternal
+      initialProps={initialProps}
+      children={children}
+    />
+  );
+}
 
-  if (selected) {
-    modifiers.selected = [selected];
-  }
+const EMPTY_SELECT_SINGLE_CONTEXT = {
+  selected: undefined,
+  modifiers: { selected: [] }
+};
+
+export function SelectSingleProviderInternal({
+  initialProps,
+  children
+}: {
+  initialProps: DayPickerBase & DayPickerSingle;
+  children: React.ReactNode;
+}): JSX.Element {
+  const [selected, setSelected] = useControlledValue(
+    initialProps.defaultSelected,
+    initialProps.selected
+  );
 
   const handleDayClick: DayClickEventHandler = (day, dayModifiers, e) => {
-    if (!isDayPickerSingle(initialProps)) return;
-
     if (dayModifiers.selected && !initialProps.required) {
       setSelected(undefined);
       initialProps.onSelect?.(undefined, day, dayModifiers, e);
@@ -52,9 +64,16 @@ export function SelectSingleProvider({
     initialProps.onSelect?.(day, day, dayModifiers, e);
   };
 
-  const contextValue = { selected, handleDayClick, modifiers };
+  const modifiers: SelectSingleModifiers = { selected: [] };
+
+  if (selected) {
+    modifiers.selected = [selected];
+  }
+
   return (
-    <SelectSingleContext.Provider value={contextValue}>
+    <SelectSingleContext.Provider
+      value={{ selected, handleDayClick, modifiers }}
+    >
       {children}
     </SelectSingleContext.Provider>
   );
