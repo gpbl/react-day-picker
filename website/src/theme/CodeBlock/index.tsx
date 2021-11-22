@@ -1,5 +1,8 @@
 import * as React from 'react';
 
+import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs';
+
 import OriginalCodeBlock from '../OriginalCodeBlock';
 
 // Default implementation, that you can customize
@@ -31,21 +34,32 @@ export default function CodeBlock(props) {
   }
   const src = require(`!!raw-loader!../../../examples/${fileName}`).default;
   const iframeSrc = `/render?component=${fileName}`;
+  try {
+    require(`../../../examples/${fileName}`).Example;
+  } catch (e) {
+    console.error('Error requiring %s', `../../../examples/${fileName}`, e);
+    return <pre>{e.message}</pre>;
+  }
+  const Component = require(`../../../examples/${fileName}`).Example;
 
   return (
     <div className="codeBlock">
-      <OriginalCodeBlock
-        {...props}
-        className="language-tsx"
-        codeSandboxFilename={fileName}
-      >
-        {src.replace(`import React from 'react';\n`, '')}
-      </OriginalCodeBlock>
-
-      <details open>
-        <summary>Output</summary>
-        <iframe ref={iframe} className="codeBlockIframe" src={iframeSrc} />
-      </details>
+      <Tabs>
+        <TabItem value="output" label="Example">
+          <div className="Render">
+            <Component />
+          </div>
+        </TabItem>
+        <TabItem label="Code" value="code">
+          <OriginalCodeBlock
+            {...props}
+            className="language-tsx"
+            codeSandboxFilename={fileName}
+          >
+            {src.replace(`import React from 'react';\n`, '')}
+          </OriginalCodeBlock>
+        </TabItem>
+      </Tabs>
     </div>
   );
 }

@@ -22,10 +22,6 @@ export function MyApp() {
 }
 ```
 
-<DayPicker />
-
-## Example
-
 ```include
 start.tsx
 ```
