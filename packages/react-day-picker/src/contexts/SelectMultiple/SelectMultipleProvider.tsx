@@ -114,10 +114,10 @@ function SelectMultipleProviderInternal({
 
   return (
     <SelectMultipleContext.Provider
-      value={{ 
-        selected: selectedDays, 
-        handleDayClick, 
-        modifiers 
+      value={{
+        selected: selectedDays,
+        handleDayClick,
+        modifiers
       }}
     >
       {children}
