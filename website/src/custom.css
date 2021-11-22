@@ -11,6 +11,7 @@
   --ifm-code-border-radius: 4px;
   --ifm-code-background: var(--ifm-color-emphasis-100);
   --menu-background: var(--ifm-color-emphasis-100);
+  --ifm-tabs-padding-vertical: 8px;
 }
 
 html[data-theme='dark'] {
@@ -149,7 +150,7 @@ hr {
   margin: 0;
 }
 
-.Render * {
+.Render table thead tr {
   all: revert;
 }
 
