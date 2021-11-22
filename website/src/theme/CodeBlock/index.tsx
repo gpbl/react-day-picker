@@ -44,13 +44,13 @@ export default function CodeBlock(props) {
 
   return (
     <div className="codeBlock">
-      <Tabs>
-        <TabItem value="output" label="Example">
+      <Tabs className="unique-tabs">
+        <TabItem value="Example">
           <div className="Render">
             <Component />
           </div>
         </TabItem>
-        <TabItem label="Code" value="code">
+        <TabItem value="Code">
           <OriginalCodeBlock
             {...props}
             className="language-tsx"
