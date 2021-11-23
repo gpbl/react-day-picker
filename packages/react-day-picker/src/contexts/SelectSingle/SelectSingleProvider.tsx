@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { useControlledValue } from '../../hooks/useControlledValue';
 import {
   DayClickEventHandler,
   DayPickerBase,
@@ -7,40 +8,11 @@ import {
   DayPickerSingle,
   isDayPickerSingle
 } from '../../types';
-import { useControlledValue } from '../../hooks/useControlledValue';
-
+import { SelectSingleContextValue } from './';
 import {
   SelectSingleContext,
   SelectSingleModifiers
 } from './SelectSingleContext';
-
-/** Provides the values for the [[SelectSingleProvider]]. */
-export function SelectSingleProvider({
-  initialProps,
-  children
-}: {
-  initialProps: DayPickerProps;
-  children: React.ReactNode;
-}): JSX.Element {
-  if (!isDayPickerSingle(initialProps)) {
-    return (
-      <SelectSingleContext.Provider value={EMPTY_SELECT_SINGLE_CONTEXT}>
-        {children}
-      </SelectSingleContext.Provider>
-    );
-  }
-  return (
-    <SelectSingleProviderInternal
-      initialProps={initialProps}
-      children={children}
-    />
-  );
-}
-
-const EMPTY_SELECT_SINGLE_CONTEXT = {
-  selected: undefined,
-  modifiers: { selected: [] }
-};
 
 export function SelectSingleProviderInternal({
   initialProps,
@@ -70,11 +42,42 @@ export function SelectSingleProviderInternal({
     modifiers.selected = [selected];
   }
 
+  const contextValue: SelectSingleContextValue = {
+    selected,
+    handleDayClick,
+    modifiers
+  };
   return (
-    <SelectSingleContext.Provider
-      value={{ selected, handleDayClick, modifiers }}
-    >
+    <SelectSingleContext.Provider value={contextValue}>
       {children}
     </SelectSingleContext.Provider>
+  );
+}
+
+type SelectSingleProviderProps = {
+  initialProps: DayPickerProps;
+  children: React.ReactNode;
+};
+
+/** Provides the values for the [[SelectSingleProvider]]. */
+export function SelectSingleProvider(
+  props: SelectSingleProviderProps
+): JSX.Element {
+  if (!isDayPickerSingle(props.initialProps)) {
+    const emptyContextValue: SelectSingleContextValue = {
+      selected: undefined,
+      modifiers: { selected: [] }
+    };
+    return (
+      <SelectSingleContext.Provider value={emptyContextValue}>
+        {props.children}
+      </SelectSingleContext.Provider>
+    );
+  }
+  return (
+    <SelectSingleProviderInternal
+      initialProps={props.initialProps}
+      children={props.children}
+    />
   );
 }

@@ -4,7 +4,6 @@ import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
 
 import { useControlledValue } from '../../hooks/useControlledValue';
 import {
-  DateRange,
   DayClickEventHandler,
   DayPickerBase,
   DayPickerProps,
@@ -14,40 +13,7 @@ import {
 
 import { SelectRangeContext, SelectRangeModifiers } from './SelectRangeContext';
 import { addToRange } from './utils/addToRange';
-
-/** Provides the values for the [[SelectRangeProvider]]. */
-export function SelectRangeProvider({
-  initialProps,
-  children
-}: {
-  initialProps: DayPickerProps;
-  children: React.ReactNode;
-}): JSX.Element {
-  if (!isDayPickerRange(initialProps)) {
-    return (
-      <SelectRangeContext.Provider value={EMPTY_SELECT_RANGE_CONTEXT}>
-        {children}
-      </SelectRangeContext.Provider>
-    );
-  }
-  return (
-    <SelectRangeProviderInternal
-      initialProps={initialProps}
-      children={children}
-    />
-  );
-}
-
-const EMPTY_SELECT_RANGE_CONTEXT = {
-  selected: undefined,
-  modifiers: {
-    selected: [],
-    range_start: [],
-    range_end: [],
-    range_middle: [],
-    disabled: []
-  }
-};
+import { SelectRangeContextValue } from '.';
 
 export function SelectRangeProviderInternal({
   initialProps,
@@ -165,5 +131,39 @@ export function SelectRangeProviderInternal({
     >
       {children}
     </SelectRangeContext.Provider>
+  );
+}
+
+type SelectRangeProviderProps = {
+  initialProps: DayPickerProps;
+  children: React.ReactNode;
+};
+
+/** Provides the values for the [[SelectRangeProvider]]. */
+export function SelectRangeProvider(
+  props: SelectRangeProviderProps
+): JSX.Element {
+  if (!isDayPickerRange(props.initialProps)) {
+    const emptyContextValue: SelectRangeContextValue = {
+      selected: undefined,
+      modifiers: {
+        selected: [],
+        range_start: [],
+        range_end: [],
+        range_middle: [],
+        disabled: []
+      }
+    };
+    return (
+      <SelectRangeContext.Provider value={emptyContextValue}>
+        {props.children}
+      </SelectRangeContext.Provider>
+    );
+  }
+  return (
+    <SelectRangeProviderInternal
+      initialProps={props.initialProps}
+      children={props.children}
+    />
   );
 }
