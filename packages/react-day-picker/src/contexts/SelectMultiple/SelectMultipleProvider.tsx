@@ -1,48 +1,34 @@
 import * as React from 'react';
+
 import { isSameDay } from 'date-fns';
 
 import { useControlledValue } from '../../hooks/useControlledValue';
 import {
   DayClickEventHandler,
+  DayPickerBase,
+  DayPickerMultiple,
   DayPickerProps,
   isDayPickerMultiple
 } from '../../types';
-
 import {
   SelectMultipleContext,
+  SelectMultipleContextValue,
   SelectMultipleModifiers
 } from './SelectMultipleContext';
 
-/** Provides the values for the [[SelectMultipleContext]]. */
-export function SelectMultipleProvider({
+function SelectMultipleProviderInternal({
   initialProps,
   children
 }: {
-  initialProps: DayPickerProps;
+  initialProps: DayPickerBase & DayPickerMultiple;
   children: React.ReactNode;
 }): JSX.Element {
-  const [selectedDays, setSelectedDays] = useControlledValue<
-    Date[] | undefined
-  >(initialProps.defaultSelected, initialProps.selected);
-
-  const modifiers: SelectMultipleModifiers = {
-    selected: [],
-    disabled: []
-  };
-
-  if (!isDayPickerMultiple(initialProps)) {
-    const contextValue = { selected: undefined, modifiers };
-    return (
-      <SelectMultipleContext.Provider value={contextValue}>
-        {children}
-      </SelectMultipleContext.Provider>
-    );
-  }
+  const [selectedDays, setSelectedDays] = useControlledValue(
+    initialProps.defaultSelected,
+    initialProps.selected
+  );
 
   const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
-    if (!isDayPickerMultiple(initialProps)) {
-      return;
-    }
     initialProps.onDayClick?.(day, modifiers, e);
 
     const isMinSelected = Boolean(
@@ -77,7 +63,12 @@ export function SelectMultipleProvider({
     initialProps.onSelect?.(days, day, modifiers, e);
   };
 
-  if (selectedDays && isDayPickerMultiple(initialProps)) {
+  const modifiers: SelectMultipleModifiers = {
+    selected: [],
+    disabled: []
+  };
+
+  if (selectedDays) {
     modifiers.selected = selectedDays;
     modifiers.disabled = [
       function disableDay(day: Date) {
@@ -92,9 +83,41 @@ export function SelectMultipleProvider({
   }
 
   const contextValue = { selected: selectedDays, handleDayClick, modifiers };
+
   return (
     <SelectMultipleContext.Provider value={contextValue}>
       {children}
     </SelectMultipleContext.Provider>
+  );
+}
+
+type SelectMultipleProviderProps = {
+  initialProps: DayPickerProps;
+  children: React.ReactNode;
+};
+
+/** Provides the values for the [[SelectMultipleContext]]. */
+export function SelectMultipleProvider(
+  props: SelectMultipleProviderProps
+): JSX.Element {
+  if (!isDayPickerMultiple(props.initialProps)) {
+    const emptyContextValue: SelectMultipleContextValue = {
+      selected: undefined,
+      modifiers: {
+        selected: [],
+        disabled: []
+      }
+    };
+    return (
+      <SelectMultipleContext.Provider value={emptyContextValue}>
+        {props.children}
+      </SelectMultipleContext.Provider>
+    );
+  }
+  return (
+    <SelectMultipleProviderInternal
+      initialProps={props.initialProps}
+      children={props.children}
+    />
   );
 }
