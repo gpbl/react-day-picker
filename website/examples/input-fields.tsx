@@ -1,7 +1,11 @@
-import React from 'react';
-import { DayPicker, useInput, UseInputOptions } from 'react-day-picker';
+import React from "react";
+import {
+  DayPicker,
+  useInput,
+  UseInputOptions,
+} from "react-day-picker";
 
-import { format } from 'date-fns';
+import { format } from "date-fns";
 
 export function Example() {
   // Props to pass to `useInput`
@@ -11,9 +15,9 @@ export function Example() {
     // Limit the valid dates
     fromYear: 2020,
     toYear: 2022,
-    format: 'PP',
+    format: "PP",
     // Make the selection mandatory.
-    required: true
+    required: true,
   };
   const input = useInput(options);
 
@@ -28,7 +32,11 @@ export function Example() {
   return (
     <>
       <p>Type a day or pick one from the calendar.</p>
-      <DayPicker {...input.dayPickerProps} showWeekNumber footer={footer} />
+      <DayPicker
+        {...input.dayPickerProps}
+        showWeekNumber
+        footer={footer}
+      />
     </>
   );
 }

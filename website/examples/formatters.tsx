@@ -1,7 +1,7 @@
-import React from 'react';
-import { DateFormatter, DayPicker } from 'react-day-picker';
+import React from "react";
+import { DateFormatter, DayPicker } from "react-day-picker";
 
-import { format } from 'date-fns';
+import { format } from "date-fns";
 
 const seasonEmoji = {
   winter: (
@@ -23,26 +23,26 @@ const seasonEmoji = {
     <span role="img" aria-label="Autumn Leafs">
       🍂
     </span>
-  )
+  ),
 };
 
 export function Example() {
   // Remove year from the caption
   const formatCaption: DateFormatter = (month, { locale }) => {
-    let season = '';
+    let season = "";
     if (month.getMonth() >= 0 && month.getMonth() < 3) {
-      season = 'winter';
+      season = "winter";
     } else if (month.getMonth() >= 3 && month.getMonth() < 6) {
-      season = 'spring';
+      season = "spring";
     } else if (month.getMonth() >= 6 && month.getMonth() < 9) {
-      season = 'summer';
+      season = "summer";
     } else if (month.getMonth() >= 9 && month.getMonth() < 12) {
-      season = 'autumn';
+      season = "autumn";
     }
 
     return (
       <>
-        {seasonEmoji[season]} {format(month, 'LLLL', { locale })}
+        {seasonEmoji[season]} {format(month, "LLLL", { locale })}
       </>
     );
   };

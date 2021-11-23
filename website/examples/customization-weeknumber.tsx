@@ -1,5 +1,8 @@
-import React from 'react';
-import { DayPicker, WeekNumberClickEventHandler } from 'react-day-picker';
+import React from "react";
+import {
+  DayPicker,
+  WeekNumberClickEventHandler,
+} from "react-day-picker";
 
 export function Example() {
   const [weekNumber, setWeekNumber] = React.useState<number>();
@@ -8,7 +11,7 @@ export function Example() {
 
   const footer = weekNumber
     ? `You clicked the week n. ${weekNumber}.`
-    : 'Try clicking a week number.';
+    : "Try clicking a week number.";
 
   return (
     <>

@@ -1,11 +1,8 @@
 import * as React from 'react';
-
-import TabItem from '@theme/TabItem';
-import Tabs from '@theme/Tabs';
-
 import OriginalCodeBlock from '../OriginalCodeBlock';
 
-// Default implementation, that you can customize
+import styles from './styles.module.css';
+
 /**
  * Very basic CodeBlock to run an app and show its source.
  *
@@ -14,18 +11,15 @@ import OriginalCodeBlock from '../OriginalCodeBlock';
  * ```
  */
 export default function CodeBlock(props) {
-  const iframe = React.useRef<HTMLIFrameElement>();
-  const { children, className } = props;
-
-  if (className !== 'language-include') {
+  if (props.className !== 'language-include') {
     return (
       <OriginalCodeBlock className="language-jsx" {...props}>
-        {children}
+        {props.children}
       </OriginalCodeBlock>
     );
   }
 
-  const fileName = children.replace(/\n*/gi, '');
+  const fileName = props.children.replace(/\n*/gi, '');
   try {
     require(`../../../examples/${fileName}`).Example;
   } catch (e) {
@@ -33,7 +27,6 @@ export default function CodeBlock(props) {
     return <OriginalCodeBlock {...props}>{e.message}</OriginalCodeBlock>;
   }
   const src = require(`!!raw-loader!../../../examples/${fileName}`).default;
-  const iframeSrc = `/render?component=${fileName}`;
   try {
     require(`../../../examples/${fileName}`).Example;
   } catch (e) {
@@ -43,23 +36,17 @@ export default function CodeBlock(props) {
   const Component = require(`../../../examples/${fileName}`).Example;
 
   return (
-    <div className="codeBlock">
-      <Tabs className="unique-tabs">
-        <TabItem value="Example">
-          <div className="Render">
-            <Component />
-          </div>
-        </TabItem>
-        <TabItem value="Code">
-          <OriginalCodeBlock
-            {...props}
-            className="language-tsx"
-            codeSandboxFilename={fileName}
-          >
-            {src.replace(`import React from 'react';\n`, '')}
-          </OriginalCodeBlock>
-        </TabItem>
-      </Tabs>
+    <div className={styles.root}>
+      <div className={styles.code}>
+        <OriginalCodeBlock {...props} className="language-tsx">
+          {src}
+        </OriginalCodeBlock>
+      </div>
+      <div className={styles.output}>
+        <div>
+          <Component />
+        </div>
+      </div>
     </div>
   );
 }

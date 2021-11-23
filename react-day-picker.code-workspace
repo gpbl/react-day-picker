@@ -15,7 +15,8 @@
   ],
   "settings": {
     "files.exclude": {
-      "packages/": true
+      "packages/": true,
+      "website/": true
     },
     "jest.disabledWorkspaceFolders": ["root", "website"],
     "jest.autoRun": {
