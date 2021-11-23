@@ -1,10 +1,13 @@
-import React from 'react';
-import { DayClickEventHandler, DayPicker } from 'react-day-picker';
+import React from "react";
+import { DayClickEventHandler, DayPicker } from "react-day-picker";
 
 export function Example() {
   const [selectedDays, setSelectedDays] = React.useState([]);
 
-  const handleDayClick: DayClickEventHandler = (day, { selected }) => {
+  const handleDayClick: DayClickEventHandler = (
+    day,
+    { selected }
+  ) => {
     // Use a callback to clone and add / remove days to the array
     setSelectedDays((currentlySelectedDays) => {
       const days = [...currentlySelectedDays];
@@ -21,10 +24,10 @@ export function Example() {
 
   const footer =
     selectedDays.length === 0 ? (
-      'Please pick one or more days.'
+      "Please pick one or more days."
     ) : (
       <p>
-        You selected {selectedDays.length} days.{' '}
+        You selected {selectedDays.length} days.{" "}
         <button onClick={handleResetClick}>Reset</button>
       </p>
     );

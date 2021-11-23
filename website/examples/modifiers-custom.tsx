@@ -1,17 +1,25 @@
-import React from 'react';
-import { DayPicker, SelectSingleEventHandler } from 'react-day-picker';
+import React from "react";
+import {
+  DayPicker,
+  SelectSingleEventHandler,
+} from "react-day-picker";
 
 export function Example() {
   const bookedDays = [
     new Date(2021, 5, 8),
     new Date(2021, 5, 9),
-    { from: new Date(2021, 5, 14), to: new Date(2021, 5, 19) }
+    { from: new Date(2021, 5, 14), to: new Date(2021, 5, 19) },
   ];
-  const bookedStyle = { border: '2px solid currentColor' };
+  const bookedStyle = { border: "2px solid currentColor" };
 
-  const [alreadyBooked, setAlreadyBooked] = React.useState<boolean>(false);
+  const [alreadyBooked, setAlreadyBooked] =
+    React.useState<boolean>(false);
 
-  const handleSelect: SelectSingleEventHandler = (day, _, modifiers) => {
+  const handleSelect: SelectSingleEventHandler = (
+    day,
+    _,
+    modifiers
+  ) => {
     if (day && modifiers.booked) {
       setAlreadyBooked(true);
     } else {
@@ -20,17 +28,17 @@ export function Example() {
   };
 
   const footer = alreadyBooked
-    ? 'This day is already booked!'
-    : 'Try to pick a booked day.';
+    ? "This day is already booked!"
+    : "Try to pick a booked day.";
 
   return (
     <DayPicker
       defaultMonth={new Date(2021, 5, 8)}
       modifiers={{
-        booked: bookedDays
+        booked: bookedDays,
       }}
       modifierStyles={{
-        booked: bookedStyle
+        booked: bookedStyle,
       }}
       mode="single"
       onSelect={handleSelect}

@@ -1,65 +1,54 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
 
-.codeBlockContainer {
-  margin-bottom: var(--ifm-leading);
+
+.root {
+  justify-content: center;
+  background-color: var(--menu-background);
+  align-items: stretch;
   border-radius: var(--ifm-global-radius);
-  box-shadow: var(--ifm-global-shadow-lw);
+  display: flex;
+  flex-wrap: wrap;
   overflow: hidden;
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(158, 123, 123, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
 }
 
-.codeBlockContent {
-  position: relative;
-  /*rtl:ignore*/
-  direction: ltr;
+.code {
+  padding: .65rem 0;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 434px;
+  background-color: var(--ifm-background-color) !important;
 }
 
-.codeBlockTitle {
-  border-bottom: 1px solid var(--ifm-color-emphasis-300);
-  font-size: var(--ifm-code-font-size);
-  font-weight: 500;
-  padding: 0.75rem var(--ifm-pre-padding);
+.output {
+  flex-basis: 340px;
+  flex-grow: 0;
+  flex-shrink: 1;
 }
 
-.codeBlock {
+.code [class^='codeBlockContainer'] {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  border-radius: 0;
 }
 
-.copyButton {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: var(--ifm-global-radius);
-  color: var(--ifm-color-white);
-  opacity: 0;
-  user-select: none;
-  padding: 0.4rem 0.5rem;
-  position: absolute;
-  right: calc(var(--ifm-pre-padding) / 2);
-  top: calc(var(--ifm-pre-padding) / 2);
-  transition: opacity 200ms ease-in-out;
+.code [class^='codeBlockContainer']>div,
+.code [class^='codeBlockContainer']>div>div,
+.code [class^='codeBlockContainer']>div>div>div {
+  height: 100%;
+  background-color: transparent !important;
 }
 
-.codeBlockTitle:hover + .codeBlockContent .copyButton,
-.codeBlockContent:hover > .copyButton,
-.copyButton:focus {
-  opacity: 1;
+.output {
+  padding: 1.4em;
+  background-color: var(--menu-background);
 }
 
-.codeBlockLines {
-  font: inherit;
-  /*rtl:ignore*/
-  float: left;
-  min-width: 100%;
-  padding: var(--ifm-pre-padding);
-}
-
-@media print {
-  .codeBlockLines {
-    white-space: pre-wrap;
-  }
+.output>div {
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--ifm-background-color);
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }

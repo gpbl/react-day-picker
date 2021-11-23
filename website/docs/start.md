@@ -12,26 +12,8 @@ import {DayPicker} from 'react-day-picker'
 npm install react-day-picker@next
 ```
 
-2. Import DayPicker and include the DayPicker CSS in your App / Component:
-
-```ts
-import { DayPicker } from 'react-day-picker';
-
-export function MyApp() {
-  return <DayPicker />;
-}
-```
+2. Import DayPicker and include the DayPicker CSS in your component:
 
 ```include
 start.tsx
 ```
-
-## Next
-
-Continue with the tutorial and see [how to navigate months](/basics/navigation).
-
-You can also:
-
-- try DayPicker by forking this [DayPicker sandbox](https://codesandbox.io/s/react-day-picker-v8-eg8mw).
-- see the [DayPicker Props](/api/interfaces/daypickerbase) for a list of the
-  available props, or continue with the tutorial.
