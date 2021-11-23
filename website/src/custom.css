@@ -6,7 +6,8 @@
   --ifm-color-primary-light: #dc515e;
   --ifm-color-primary-lighter: #de5c68;
   --ifm-color-primary-lightest: #e57e88;
-
+  --ifm-transition-fast: 120ms;
+  --ifm-leading: 0.5em;
   --ifm-toc-border-color: transparent;
   --ifm-heading-font-weight: 700;
   --ifm-code-font-size: 0.8rem;
@@ -38,6 +39,10 @@ html[data-theme='dark'] {
   background-color: var(--menu-background);
   padding: 1rem 0;
   margin-right: 0.75rem;
+}
+
+.menu__list {
+  transition-duration: var(--ifm-transition-fast) !important;
 }
 
 @media (min-width: 997px) {
@@ -146,6 +151,9 @@ hr {
   max-width: 800px;
 }
 
+.menu__link {
+  font-weight: var(--ifm-font-weight-semibold);
+}
 .markdown h1:first-child {
   --ifm-h1-font-size: 2rem;
 }
@@ -235,4 +243,8 @@ hr {
 
 [class^='copyButton'].codesandboxbutton {
   right: 70px;
+}
+
+.Render .rdp-caption_label {
+  font-size: 1.25rem;
 }
