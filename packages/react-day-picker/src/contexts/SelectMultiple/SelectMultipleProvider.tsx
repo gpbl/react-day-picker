@@ -1,7 +1,7 @@
 import * as React from 'react';
-
 import { isSameDay } from 'date-fns';
 
+import { useControlledValue } from '../../hooks/useControlledValue';
 import {
   DayClickEventHandler,
   DayPickerProps,
@@ -12,7 +12,6 @@ import {
   SelectMultipleContext,
   SelectMultipleModifiers
 } from './SelectMultipleContext';
-import { useControllablePropState } from '../../hooks/useControllablePropState';
 
 /** Provides the values for the [[SelectMultipleContext]]. */
 export function SelectMultipleProvider({
@@ -22,14 +21,23 @@ export function SelectMultipleProvider({
   initialProps: DayPickerProps;
   children: React.ReactNode;
 }): JSX.Element {
-  const [selectedDays, setSelectedDays] = useControllablePropState(
-    isDayPickerMultiple(initialProps)
-      ? {
-          value: initialProps.selected,
-          defaultValue: initialProps.defaultSelected
-        }
-      : { defaultValue: undefined }
-  );
+  const [selectedDays, setSelectedDays] = useControlledValue<
+    Date[] | undefined
+  >(initialProps.defaultSelected, initialProps.selected);
+
+  const modifiers: SelectMultipleModifiers = {
+    selected: [],
+    disabled: []
+  };
+
+  if (!isDayPickerMultiple(initialProps)) {
+    const contextValue = { selected: undefined, modifiers };
+    return (
+      <SelectMultipleContext.Provider value={contextValue}>
+        {children}
+      </SelectMultipleContext.Provider>
+    );
+  }
 
   const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
     if (!isDayPickerMultiple(initialProps)) {
@@ -69,11 +77,6 @@ export function SelectMultipleProvider({
     initialProps.onSelect?.(days, day, modifiers, e);
   };
 
-  const modifiers: SelectMultipleModifiers = {
-    selected: [],
-    disabled: []
-  };
-
   if (selectedDays && isDayPickerMultiple(initialProps)) {
     modifiers.selected = selectedDays;
     modifiers.disabled = [
@@ -88,14 +91,9 @@ export function SelectMultipleProvider({
     ];
   }
 
+  const contextValue = { selected: selectedDays, handleDayClick, modifiers };
   return (
-    <SelectMultipleContext.Provider
-      value={{
-        selected: selectedDays,
-        handleDayClick,
-        modifiers
-      }}
-    >
+    <SelectMultipleContext.Provider value={contextValue}>
       {children}
     </SelectMultipleContext.Provider>
   );
