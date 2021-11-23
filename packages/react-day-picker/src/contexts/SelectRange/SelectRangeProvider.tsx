@@ -4,44 +4,28 @@ import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
 
 import { useControlledValue } from '../../hooks/useControlledValue';
 import {
-  DateRange,
   DayClickEventHandler,
+  DayPickerBase,
   DayPickerProps,
+  DayPickerRange,
   isDayPickerRange
 } from '../../types';
 
 import { SelectRangeContext, SelectRangeModifiers } from './SelectRangeContext';
 import { addToRange } from './utils/addToRange';
+import { SelectRangeContextValue } from '.';
 
-/** Provides the values for the [[SelectRangeProvider]]. */
-export function SelectRangeProvider({
+export function SelectRangeProviderInternal({
   initialProps,
   children
 }: {
-  initialProps: DayPickerProps;
+  initialProps: DayPickerBase & DayPickerRange;
   children: React.ReactNode;
 }): JSX.Element {
-  const [selected, setSelected] = useControlledValue<DateRange | undefined>(
+  const [selected, setSelected] = useControlledValue(
     initialProps.defaultSelected,
     initialProps.selected
   );
-
-  const modifiers: SelectRangeModifiers = {
-    selected: [],
-    range_start: [],
-    range_end: [],
-    range_middle: [],
-    disabled: []
-  };
-
-  if (!isDayPickerRange(initialProps)) {
-    const contextValue = { selected: undefined, modifiers };
-    return (
-      <SelectRangeContext.Provider value={contextValue}>
-        {children}
-      </SelectRangeContext.Provider>
-    );
-  }
 
   const min = initialProps.min;
   const max = initialProps.max;
@@ -68,6 +52,14 @@ export function SelectRangeProvider({
     }
     setSelected(newValue);
     initialProps.onSelect?.(newValue, day, modifiers, e);
+  };
+
+  const modifiers: SelectRangeModifiers = {
+    selected: [],
+    range_start: [],
+    range_end: [],
+    range_middle: [],
+    disabled: []
   };
 
   if (selected) {
@@ -133,10 +125,45 @@ export function SelectRangeProvider({
       }
     }
   }
-  const contextValue = { selected, handleDayClick, modifiers };
   return (
-    <SelectRangeContext.Provider value={contextValue}>
+    <SelectRangeContext.Provider
+      value={{ selected, handleDayClick, modifiers }}
+    >
       {children}
     </SelectRangeContext.Provider>
+  );
+}
+
+type SelectRangeProviderProps = {
+  initialProps: DayPickerProps;
+  children: React.ReactNode;
+};
+
+/** Provides the values for the [[SelectRangeProvider]]. */
+export function SelectRangeProvider(
+  props: SelectRangeProviderProps
+): JSX.Element {
+  if (!isDayPickerRange(props.initialProps)) {
+    const emptyContextValue: SelectRangeContextValue = {
+      selected: undefined,
+      modifiers: {
+        selected: [],
+        range_start: [],
+        range_end: [],
+        range_middle: [],
+        disabled: []
+      }
+    };
+    return (
+      <SelectRangeContext.Provider value={emptyContextValue}>
+        {props.children}
+      </SelectRangeContext.Provider>
+    );
+  }
+  return (
+    <SelectRangeProviderInternal
+      initialProps={props.initialProps}
+      children={props.children}
+    />
   );
 }

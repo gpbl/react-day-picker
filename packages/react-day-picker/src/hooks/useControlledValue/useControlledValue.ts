@@ -12,8 +12,8 @@ export type DispatchStateAction<T> = React.Dispatch<React.SetStateAction<T>>;
  * argument, which will be always returned as `value`.
  */
 export function useControlledValue<T>(
-  defaultValue: unknown,
-  controlledValue: unknown | undefined
+  defaultValue: T,
+  controlledValue: T | undefined
 ): [T, DispatchStateAction<T>] {
   const [uncontrolledValue, setValue] = React.useState(defaultValue);
 
