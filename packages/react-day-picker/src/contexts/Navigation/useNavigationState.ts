@@ -1,7 +1,3 @@
-import * as React from 'react';
-
-import { isSameMonth } from 'date-fns';
-
 import { useDayPicker } from '../../contexts/DayPicker';
 
 import { getInitialMonth } from './utils/getInitialMonth';
@@ -22,13 +18,6 @@ export function useNavigationState(): [
     if (context.disableNavigation) return;
     setMonth(date);
   };
-
-  // Update month if updated from context.
-  React.useEffect(() => {
-    if (!context.month) return;
-    if (isSameMonth(context.month, month)) return;
-    setMonth(context.month);
-  }, [context.month, month, setMonth]);
 
   return [month, goToMonth];
 }

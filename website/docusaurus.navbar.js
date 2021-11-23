@@ -9,6 +9,7 @@ const navbar = {
     alt: 'DayPicker Logo',
     src: 'images/logo.png'
   },
+  hideOnScroll: true,
   items: [
     {
       to: 'start',

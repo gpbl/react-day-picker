@@ -1,16 +1,29 @@
 :root {
-  --ifm-color-primary-dark: #ff4726;
-  --ifm-color-primary-darker: #ff3a16;
-  --ifm-color-primary-darkest: #e42300;
-  --ifm-color-primary-light: #ff7f68;
-  --ifm-color-primary-lighter: #ff8c78;
-  --ifm-color-primary-lightest: #ffb6a9;
-  --ifm-color-primary: #ff6347;
+  --ifm-color-primary: #d73a49;
+  --ifm-color-primary-dark: #cc2939;
+  --ifm-color-primary-darker: #c12736;
+  --ifm-color-primary-darkest: #9f202c;
+  --ifm-color-primary-light: #dc515e;
+  --ifm-color-primary-lighter: #de5c68;
+  --ifm-color-primary-lightest: #e57e88;
+  --ifm-transition-fast: 120ms;
+  --ifm-leading: 0.5em;
   --ifm-toc-border-color: transparent;
-  --ifm-heading-font-weight: 500;
+  --ifm-heading-font-weight: 700;
+  --ifm-code-font-size: 0.8rem;
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-height: 75px;
   --ifm-code-border-radius: 4px;
+  --ifm-global-radius: 1rem;
   --ifm-code-background: var(--ifm-color-emphasis-100);
   --menu-background: var(--ifm-color-emphasis-100);
+  --ifm-tabs-padding-vertical: 8px;
+  --ifm-menu-color: inherit;
+  --ifm-menu-color-background-active: inherit;
+  --ifm-menu-color-background-hover: inherit;
+  --ifm-menu-link-sublist-icon: url('/images/sublist-icon.svg');
+  --ifm-navbar-background-color: var(--menu-background);
+  --doc-sidebar-width: 260px !important;
 }
 
 html[data-theme='dark'] {
@@ -18,17 +31,58 @@ html[data-theme='dark'] {
   --rdp-accent-color-lighter: var(--rdp-accent-color-darker);
   --rdp-accent-color-lightest: var(--rdp-accent-color-darkest);
   --rdp-background-color: var(--rdp-background-color-dark);
-  --menu-background: #010101;
 }
 
 .menu {
-  margin-right: 1em;
+  font-weight: inherit;
+  border-radius: var(--ifm-global-radius);
   background-color: var(--menu-background);
+  padding: 1rem 0;
+  margin-right: 0.75rem;
 }
 
-details summary {
-  cursor: pointer;
-  font-weight: bold;
+.menu__list {
+  transition-duration: var(--ifm-transition-fast) !important;
+}
+
+@media (min-width: 997px) {
+  .menu {
+    padding-top: 1rem !important;
+    margin: 0.5rem 0.75rem 1rem 1rem !important;
+  }
+  .navbar {
+    /* position: relative; */
+    background-color: var(--ifm-background-color);
+  }
+  .navbar__inner {
+    background-color: var(--menu-background);
+    padding: 0.75rem 1rem;
+    border-radius: var(--ifm-global-radius);
+  }
+  .navbar__brand {
+    width: calc(var(--doc-sidebar-width) - 2.75rem);
+  }
+  [class^='sidebarLogo'] {
+    background: var(--menu-background);
+    border-radius: var(--ifm-global-radius);
+    /* justify-content: center; */
+    padding-left: 1rem;
+    margin: 0.75rem 0.75rem 0 1rem !important;
+    min-height: calc(var(--ifm-navbar-height) - 20px) !important;
+  }
+}
+
+.navbar__brand b,
+[class^='sidebarLogo'] b {
+  /* font-weight: 400 !important; */
+  font-size: 1.3rem;
+}
+
+[class^='codeBlockLines'] {
+  background: var(--menu-background) !important;
+}
+.container {
+  max-width: 100% !important;
 }
 
 .docusaurus-highlight-code-line {
@@ -40,10 +94,6 @@ details summary {
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: var(--ifm-code-background);
-}
-
-.menu {
-  font-weight: inherit;
 }
 
 /* revert styles from docusaurus */
@@ -61,12 +111,30 @@ table tr {
   background: none;
 }
 
+@media (min-width: 997px) {
+  .table-of-contents:before {
+    display: block;
+    color: var(--ifm-color-emphasis-500);
+    content: 'On this page';
+    text-transform: uppercase;
+    /* color: currentColor; */
+    font-weight: bold;
+    padding-bottom: 0.5em;
+  }
+}
+
+.table-of-contents {
+  --ifm-toc-border-color: var(--ifm-color-emphasis-200);
+  padding-left: 1rem;
+}
+
 .table-of-contents code {
   all: inherit;
 }
 
-.navbar__title {
-  font-weight: 700;
+.table-of-contents li {
+  margin: 0.625rem 0;
+  line-height: 1.1rem;
 }
 
 hr {
@@ -79,12 +147,23 @@ hr {
   background-color: var(--ifm-color-emphasis-200);
 }
 
-.markdown h4 {
-  font-weight: bold;
+[class^='docItemContainer'] {
+  max-width: 800px;
 }
 
-.markdown .anchor {
-  top: calc(var(--ifm-navbar-height) * -1 - 1em);
+.menu__link {
+  font-weight: var(--ifm-font-weight-semibold);
+}
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2rem;
+}
+
+.markdown > h2 {
+  --ifm-h2-font-size: 1.5rem;
+}
+
+.markdown > h3 {
+  --ifm-h3-font-size: 1.25rem;
 }
 
 .markdown > table {
@@ -149,7 +228,11 @@ hr {
   margin: 0;
 }
 
-.Render * {
+.Render {
+  overflow: auto;
+}
+
+.Render table thead tr {
   all: revert;
 }
 
@@ -160,4 +243,8 @@ hr {
 
 [class^='copyButton'].codesandboxbutton {
   right: 70px;
+}
+
+.Render .rdp-caption_label {
+  font-size: 1.25rem;
 }

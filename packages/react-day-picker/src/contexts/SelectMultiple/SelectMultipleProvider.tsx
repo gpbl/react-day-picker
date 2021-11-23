@@ -112,14 +112,9 @@ function SelectMultipleProviderInternal({
     ];
   }
 
+  const contextValue = { selected: selectedDays, handleDayClick, modifiers };
   return (
-    <SelectMultipleContext.Provider
-      value={{
-        selected: selectedDays,
-        handleDayClick,
-        modifiers
-      }}
-    >
+    <SelectMultipleContext.Provider value={contextValue}>
       {children}
     </SelectMultipleContext.Provider>
   );
