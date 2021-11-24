@@ -3,15 +3,13 @@ import { DayPickerProps } from './DayPickerProps';
 import { SelectRangeEventHandler } from './SelectRangeEventHandler';
 
 /**
- * The props for the [[DayPicker]] component when using range selection mode.
+ * The props for the [[DayPicker]] component when using `mode="range"`.
  */
 export interface DayPickerRangeProps extends DayPickerProps {
   mode: 'range';
-  /**
-   * Apply the `selected` modifier to the matching days.
-   */
+  /** The selected range of days. */
   selected?: DateRange;
-  /** Event fired when a range or a part of the range is selected. */
+  /** Event fired when a range (or a part of the range) is selected. */
   onSelect?: SelectRangeEventHandler;
   /** The minimum amount of days that can be selected. */
   min?: number;

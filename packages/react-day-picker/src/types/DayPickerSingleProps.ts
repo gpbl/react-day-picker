@@ -2,14 +2,14 @@ import { DayPickerProps } from './DayPickerProps';
 import { SelectSingleEventHandler } from './SelectSingleEventHandler';
 
 /**
- * The props for the [[DayPicker]] component when using single selection mode.
+ * The props for the [[DayPicker]] component when using `mode="single"`.
  */
 export interface DayPickerSingleProps extends DayPickerProps {
   mode: 'single';
-  /** The selected day when using controlled behavior. */
+  /** The selected day. */
   selected?: Date | undefined;
   /** Event fired when a day is selected. */
   onSelect?: SelectSingleEventHandler;
-  /** When set, user cannot unselect days. */
+  /** Make the selection required. */
   required?: boolean;
 }

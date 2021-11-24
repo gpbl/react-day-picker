@@ -2,11 +2,11 @@ import { DayPickerProps } from '.';
 import { SelectMultipleEventHandler } from './SelectMultipleEventHandler';
 
 /**
- * The props for the [[DayPicker]] component when using multiple selection mode.
+ * The props for the [[DayPicker]] component when using `mode="multiple"`.
  */
 export interface DayPickerMultipleProps extends DayPickerProps {
   mode: 'multiple';
-  /** The selected dates when using controlled behavior. */
+  /** The selected days. */
   selected?: Date[];
   /** Event fired when a days added or removed to the selection. */
   onSelect?: SelectMultipleEventHandler;
