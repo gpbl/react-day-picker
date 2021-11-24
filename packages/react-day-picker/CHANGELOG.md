@@ -16,81 +16,14 @@ with the previous versions.
 
 See the preview website at https://react-day-picker-next.netlify.app.
 
-### [v8.0.0-beta.30](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.30)
+### v8.0.0-beta.30
 
+- Switched to rollup as module bundler
+- Added `custom` selection mode
 - Added `useDay` hook
+- Fixed `classNames.nav_button_next` in Navigation.tsx (#1238)
+- Fixed week numbers breaking at end/begin of the years (#1270)
 - Fixed overwritten modifiers in range selections
-
-### [v8.0.0-beta.27](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.27)
-
-- Better typings
-- Do not override the modifiers when selection is controlled
-
-### [v8.0.0-beta.26](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.26)
-
-- Outside days are clickable
-- ARIA improvements
-- Updated class name `.rdp-hidden` to `.rdp-vhidden`
-- Added types for `style.css`
-
-### [v8.0.0-beta.25](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.25)
-
-- Added a global `ContextProvider`
-- ARIA improvements
-- Fix `className` and `style` not being applied to root
-
-### [v8.0.0-beta.24](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.24)
-
-- Reintroduced CommonJS
-- Added `required` prop for single select mode
-- Fixed `useInput` bugs
-
-### [v8.0.0-beta.18](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.18)
-
-- Removed `onSelectMultiple`, `onSelectRange` (use `onSelect`)
-- Added `min`, `max` props to limit selections
-- Set the selection mode disabled as default
-- Bug fixes
-
-### [v8.0.0-beta.17](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.17)
-
-- Simplified class names system
-- Fixed class names for ranges
-- Improved ARIA for table elements
-- Skip footer if `undefined`
-- Use a button for outside days
-- Pass next month, previous month to Navigation
-- Fixed range modifier names
-- Updated the props for caption
-- Renamed “middle” → “between” when used in ranges
-
-### [v8.0.0-beta.14](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.14)
-
-- Add “DayContent” component (12aed904)
-- Replace webpack with rollup (#1028) (13748058)
-
-### [v8.0.0-beta.13](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.13)
-
-- Fix for today modifier not being added (6472e895)
-- Move `Components` to interface type (6cdc16fe)
-- Use a generic `StyledComponentProps` interface (0a75fb14)
-- Add more customizable components (5e7947a8, f4a16bbd)
-- Add new `footer` prop (92e61ffd)
-- Add some tests (da809623)
-- Make `Caption` easier to extend (69ba4515)
-
-### [v8.0.0-beta.6](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.6)
-
-- Improved selection typings: added new selection props
-- Style fixes
-
-### [v8.0.0-beta.4](https://github.com/gpbl/react-day-picker/tree/v8.0.0-beta.4)
-
-- Updated API
-- New Selection behavior hook based
-- Added `captionLayout` prop: choose between drop-downs or buttons for navigation
-- Bug fixes
-- Style and layout improvements
 
 ## Older changelog
 
