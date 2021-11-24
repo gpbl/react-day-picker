@@ -46,11 +46,10 @@ html[data-theme='dark'] {
   border-radius: 8px;;
   display: inline-block;
   font-size: .875em;
-  line-height: 1.5;
   padding: .3rem .8rem;
   text-align: center;
   user-select: none;
-  vertical-align: middle;
+  vertical-align: baseline;
   white-space: nowrap;
 }
 .rdp table thead tr {

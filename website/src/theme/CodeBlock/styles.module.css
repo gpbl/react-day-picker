@@ -18,6 +18,7 @@
   flex-grow: 1;
   flex-shrink: 1;
   min-width: 434px;
+  max-height: 600px;
   background-color: var(--ifm-background-color) !important;
 }
 

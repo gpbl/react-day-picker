@@ -60,9 +60,9 @@ A modifier is added in the class name of the Day element: for example, a disable
 a "booked" day `.rdp-day_booked`, etc.
 
 You can change which class name get each modifier via
-[modifierClassNames](/api/interfaces/daypickerbase#modifiersclassnames). Is also
+[modifierClassNames](/api/interfaces/daypickerprops#modifiersclassnames). Is also
 possible to just the class name prefix via
-[modifierPrefix](/api/interfaces/daypickerbase#modifierPrefix).
+[modifierPrefix](/api/interfaces/daypickerprops#modifierPrefix).
 
 The following example adds `.my-booked-class` to the day with a `booked` modifier – applying a custom class name to it.
 
@@ -73,7 +73,7 @@ modifiers-classnames.tsx
 ### Styling via inline styles
 
 Another practical way is using inline styles. Use
-[modifierStyles](/api/interfaces/daypickerbase#modifierstyles) to change the
+[modifierStyles](/api/interfaces/daypickerprops#modifierstyles) to change the
 style of a day matching the specified modifier.
 
 In the following example, the available days are styled via inline styles.

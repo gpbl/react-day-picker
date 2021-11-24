@@ -1,5 +1,5 @@
-import React from 'react';
-import { DayPicker } from 'react-day-picker';
+import React from "react";
+import { DayPicker } from "react-day-picker";
 
 export function Example() {
   const style = `
@@ -14,7 +14,7 @@ export function Example() {
       <style>{style}</style>
       <DayPicker
         classNames={{
-          caption_label: 'caption_aqua'
+          caption_label: "caption_aqua",
         }}
       />
     </>
