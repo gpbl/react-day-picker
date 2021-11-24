@@ -11,6 +11,7 @@ type SelectMultipleProviderInternalProps = {
   initialProps: DayPickerMultipleProps;
   children: React.ReactNode;
 };
+
 export function SelectMultipleProviderInternal({
   initialProps,
   children
@@ -71,11 +72,7 @@ export function SelectMultipleProviderInternal({
     ];
   }
 
-  const contextValue = {
-    selected: selected,
-    handleDayClick,
-    modifiers
-  };
+  const contextValue = { selected, handleDayClick, modifiers };
 
   return (
     <SelectMultipleContext.Provider value={contextValue}>
