@@ -24,7 +24,7 @@ in our discussions page to present yourself, or write the maintainer directly at
 
 ## Working with the source code
 
-This repository works with [Yarn 2](https://yarnpkg.com/features/workspaces)
+This repository works with [Yarn workspaces](https://yarnpkg.com/features/workspaces) enabled.
 
 - `./package/react-day-picker`: this workspace contains the DayPicker source code and the development tools
 - `./website`: the [Docusaurus](http://v2.docusaurus.io) app for [the documentation website](http://react-day-picker-next.netlify.app)

@@ -2,7 +2,7 @@ blank_issues_enabled: false
 contact_links:
   - name: Get Help and Technical Support
     url: https://github.com/gpbl/react-day-picker/discussions
-    about: Please ask and answer questions **here**. Thanks for keeping the issues list clean!
-  - name: Propose a New Feature
-    url: https://github.com/gpbl/react-day-picker/discussions
-    about: Share your idea and help add it to the next version.
+    about: Please ask and answer questions here instead of adding issues.
+  - name: Search for answers on Stack Overflow
+    url: https://stackoverflow.com/questions/tagged/react-day-picker?sort=newest
+    about: Search on Stack Overflow for question tagged `react-day-picker`.
