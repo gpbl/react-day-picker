@@ -10,16 +10,16 @@ const today = new Date(2021, 8);
 beforeEach(() => tk.freeze(today));
 afterEach(() => tk.reset());
 
-describe('when mode="range" and defaultSelected includes the current date', () => {
+describe('when mode="range" and selected includes the current date', () => {
   const { result } = customRenderHook(() => useModifiers(today), {
     mode: 'range',
-    defaultSelected: { from: today, to: today }
+    selected: { from: today, to: today }
   });
   test('useModifiers should return the selected modifier as true', () => {
     expect(result.current.modifiers.selected).toBeTruthy();
   });
 });
-describe('when mode="range" and defaultSelected is undefined', () => {
+describe('when mode="range" and selected is undefined', () => {
   const { result } = customRenderHook(() => useModifiers(today), {
     mode: 'range'
   });
@@ -27,11 +27,11 @@ describe('when mode="range" and defaultSelected is undefined', () => {
     expect(result.current.modifiers.selected).toBeFalsy();
   });
 });
-describe('when mode="range" and defaultSelected does not span the current date', () => {
+describe('when mode="range" and selected does not span the current date', () => {
   const tomorrow = addDays(today, 1);
   const { result } = customRenderHook(() => useModifiers(today), {
-    mode: 'range',
-    defaultSelected: { from: tomorrow, to: tomorrow }
+    mode: 'range'
+    // selected: { from: tomorrow, to: tomorrow }
   });
   test('useModifiers should return the selected modifier as false', () => {
     expect(result.current.modifiers.selected).toBeFalsy();

@@ -1,6 +1,12 @@
 import * as React from 'react';
 
-import { DayPickerProps } from './types';
+import {
+  DayPickerCustomProps,
+  DayPickerMultipleProps,
+  DayPickerProps,
+  DayPickerRangeProps,
+  DayPickerSingleProps
+} from './types';
 
 import { Root } from './components/Root';
 import { ContextProvider } from './contexts/ContextProvider';
@@ -90,7 +96,14 @@ import { ContextProvider } from './contexts/ContextProvider';
  * <DayPicker locale={es} />
  * ```
  */
-export function DayPicker(props: DayPickerProps): JSX.Element {
+export function DayPicker(
+  props:
+    | DayPickerProps
+    | DayPickerSingleProps
+    | DayPickerMultipleProps
+    | DayPickerRangeProps
+    | DayPickerCustomProps
+): JSX.Element {
   return (
     <ContextProvider {...props}>
       <Root />
