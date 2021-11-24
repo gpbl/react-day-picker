@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve DayPicker
-title: ''
+title: "(bug) "
 labels: 'Type: Bug'
 assignees: ''
 
@@ -11,14 +11,7 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 **To Reproduce**
-Clone [this CodeSandbox](https://codesandbox.io/s/XDAE3x0W8) to reproduce the bug.
-
-Steps to reproduce the behavior:
-
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+Clone https://codesandbox.io/s/react-day-picker-8-vl4ry to reproduce the bug.
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
