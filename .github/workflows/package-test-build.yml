@@ -1,12 +1,16 @@
-name: Test and build (v8)
+name: "react-day-picker: test and build"
 
 on:
-  pull_request:
-    branches:
-      - master
   push:
-    branches:
-      - master
+    paths:
+      - ./packages/react-day-picker
+  pull_request:
+    paths:
+      - ./packages/react-day-picker
+
+defaults:
+  run:
+    working-directory: ./packages/react-day-picker
 
 jobs:
   lint:
@@ -19,7 +23,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Lint files
-        run: yarn workspace react-day-picker lint
+        run: yarn lint
 
   test:
     runs-on: ubuntu-latest
@@ -30,8 +34,8 @@ jobs:
           node-version: "14"
       - name: Install Dependencies
         run: yarn install
-      - name: Run Unit Tests
-        run: yarn workspace react-day-picker coverage
+      - name: Run Tests
+        run: yarn test --coverage
 
   build:
     runs-on: ubuntu-latest
@@ -47,4 +51,4 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Build
-        run: yarn workspace react-day-picker build
+        run: yarn build
