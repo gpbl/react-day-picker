@@ -3,10 +3,10 @@ name: Test and build (v8)
 on:
   pull_request:
     branches:
-      - master
+      - *
   push:
     branches:
-      - master
+      - *
 
 jobs:
   lint:
@@ -19,7 +19,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Lint files
-        run: yarn workspace react-day-picker lint
+        run: yarn lint
 
   test:
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Run Unit Tests
-        run: yarn workspace react-day-picker coverage
+        run: yarn workspace react-day-picker test --coverage
 
   build:
     runs-on: ubuntu-latest
