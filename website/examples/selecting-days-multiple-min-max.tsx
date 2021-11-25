@@ -1,14 +1,15 @@
-import React from 'react';
-import { DayPicker } from 'react-day-picker';
+import React from "react";
+import { DayPicker } from "react-day-picker";
 
-import { addDays } from 'date-fns';
+import { addDays } from "date-fns";
+
+const initialDays: Date[] = [
+  addDays(new Date(), 1),
+  addDays(new Date(), 2),
+];
 
 export function Example() {
-  const defaultSelected: Date[] = [
-    addDays(new Date(), 1),
-    addDays(new Date(), 2)
-  ];
-  const [days, setDays] = React.useState(defaultSelected);
+  const [days, setDays] = React.useState(initialDays);
 
   const footer =
     days.length > 0
@@ -20,7 +21,7 @@ export function Example() {
       mode="multiple"
       min={2}
       max={5}
-      defaultSelected={defaultSelected}
+      selected={days}
       onSelect={setDays}
       footer={footer}
     />

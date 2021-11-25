@@ -1,0 +1,18 @@
+.root {
+  position: relative;
+}
+
+.root .tools {
+  display: none;
+}
+.root:hover .tools {
+  display: block;
+}
+
+.tools {
+  font-size: small;
+  top: 0;
+  right: 0;
+  transform: translateY(-20px);
+  position: absolute;
+}

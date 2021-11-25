@@ -1,28 +1,25 @@
-import React from "react";
+import React, { MouseEventHandler, useState } from "react";
 import {
   Button,
+  DateRange,
   DayPicker,
   DayProps,
   useDay,
 } from "react-day-picker";
 
-/**
- * A custom `Day` component that will enable a range selection only when the
- * shift key is pressed.
- */
 function Day(props: DayProps) {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
-
   const { buttonProps, nonInteractiveProps, selected, modifiers } =
     useDay(props.date, props.displayMonth, buttonRef);
 
-  if (!buttonProps && !nonInteractiveProps) return <></>;
+  if (!buttonProps && !nonInteractiveProps) {
+    return <></>;
+  }
+  if (nonInteractiveProps) {
+    return <div {...nonInteractiveProps} />;
+  }
 
-  if (nonInteractiveProps) return <div {...nonInteractiveProps} />;
-
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (
-    e
-  ) => {
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     if (!selected || modifiers.selected || e.shiftKey) {
       buttonProps.onClick(e);
     }
@@ -34,5 +31,13 @@ function Day(props: DayProps) {
 }
 
 export function Example() {
-  return <DayPicker components={{ Day }} mode="range" />;
+  const [range, setRange] = useState<DateRange>();
+  return (
+    <DayPicker
+      components={{ Day }}
+      mode="range"
+      onSelect={setRange}
+      selected={range}
+    />
+  );
 }

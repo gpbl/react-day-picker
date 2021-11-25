@@ -1,58 +1,9 @@
 import * as React from 'react';
 
-import { useControlledValue } from '../../hooks/useControlledValue';
-import {
-  DayClickEventHandler,
-  DayPickerBase,
-  DayPickerProps,
-  DayPickerSingle,
-  isDayPickerSingle
-} from '../../types';
+import { DayPickerProps, isDayPickerSingle } from '../../types';
 import { SelectSingleContextValue } from './';
-import {
-  SelectSingleContext,
-  SelectSingleModifiers
-} from './SelectSingleContext';
-
-export function SelectSingleProviderInternal({
-  initialProps,
-  children
-}: {
-  initialProps: DayPickerBase & DayPickerSingle;
-  children: React.ReactNode;
-}): JSX.Element {
-  const [selected, setSelected] = useControlledValue(
-    initialProps.defaultSelected,
-    initialProps.selected
-  );
-
-  const handleDayClick: DayClickEventHandler = (day, dayModifiers, e) => {
-    if (dayModifiers.selected && !initialProps.required) {
-      setSelected(undefined);
-      initialProps.onSelect?.(undefined, day, dayModifiers, e);
-      return;
-    }
-    setSelected(day);
-    initialProps.onSelect?.(day, day, dayModifiers, e);
-  };
-
-  const modifiers: SelectSingleModifiers = { selected: [] };
-
-  if (selected) {
-    modifiers.selected = [selected];
-  }
-
-  const contextValue: SelectSingleContextValue = {
-    selected,
-    handleDayClick,
-    modifiers
-  };
-  return (
-    <SelectSingleContext.Provider value={contextValue}>
-      {children}
-    </SelectSingleContext.Provider>
-  );
-}
+import { SelectSingleContext } from './SelectSingleContext';
+import { SelectSingleProviderInternal } from './SelectSingleProviderInternal';
 
 type SelectSingleProviderProps = {
   initialProps: DayPickerProps;

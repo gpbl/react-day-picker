@@ -131,7 +131,7 @@ export function useDay(
 
   let className = classNames.join(' ');
 
-  if (!context.mode) {
+  if (!context.mode && !context.onDayClick) {
     return {
       ...returnValue,
       nonInteractiveProps: {
