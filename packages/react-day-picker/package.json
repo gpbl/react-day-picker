@@ -12,6 +12,7 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
+  "main": "dist/main.js",
   "module": "build/main.js",
   "types": "build/main.d.ts",
   "scripts": {
