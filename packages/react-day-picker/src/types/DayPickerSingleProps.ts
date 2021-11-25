@@ -9,7 +9,7 @@ export interface DayPickerSingleProps extends DayPickerProps {
   /** The selected day. */
   selected?: Date | undefined;
   /** Event fired when a day is selected. */
-  onSelect?: SelectSingleEventHandler;
+  onSelect: SelectSingleEventHandler;
   /** Make the selection required. */
   required?: boolean;
 }

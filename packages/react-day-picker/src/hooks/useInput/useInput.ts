@@ -3,26 +3,90 @@ import * as React from 'react';
 import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import enUS from 'date-fns/locale/en-US';
 
-import { DayClickEventHandler, MonthChangeEventHandler } from '../../types';
-
 import { parseFromToProps } from '../../contexts/DayPicker/utils';
-
-import {
-  UseInputDayPickerProps,
-  UseInputFieldProps,
-  UseInputOptions
-} from './types';
-import { UseInput } from './types/UseInput';
+import { DayClickEventHandler, MonthChangeEventHandler } from '../../types';
 import { isValidDate } from './utils/isValidDate';
 
-const DefaultFormat = 'PP';
+/** Represent the props to attach to the input field. */
+export interface UseInputFieldProps {
+  /** Event handler for the blur event. */
+  onBlur: React.FocusEventHandler;
+  /** Event handler for the change event. */
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  /** Event handler for the focus event. */
+  onFocus: React.FocusEventHandler;
+  /** The value of the input field */
+  value: string;
+  /** The input field placeholder */
+  placeholder?: string;
+}
 
-/** Return props for binding an input field to DayPicker. */
+/** Represent the props to attach to DayPicker component. */
+export interface UseInputDayPickerProps {
+  mode: 'custom';
+  fromDate?: Date;
+  locale: Locale;
+  min: number;
+  month: Date;
+  onDayClick: DayClickEventHandler;
+  onMonthChange: MonthChangeEventHandler;
+  selected: Date | undefined;
+  toDate?: Date;
+  today: Date;
+}
+
+export interface UseInputOptions {
+  /**
+   * The date-fns locale object to localize the user interface. Defaults to `en-US`.
+   *
+   * ```
+   * import es from 'date-fns/locale/es';
+   * ```
+   *
+   * See also date-fns [Internationalization guide](https://date-fns.org/docs/I18n).
+   *
+   */
+  locale?: Locale;
+  /** The format string for formatting the input field. See https://date-fns.org/docs/format for a list of format strings. Default to `PP`. */
+  format?: string;
+  /** The earliest day to start the month navigation. */
+  fromDate?: Date;
+  /** The latest day to end the month navigation. */
+  toDate?: Date;
+  /** The earliest month to start the month navigation. */
+  fromMonth?: Date;
+  /** The latest month to end the month navigation. */
+  toMonth?: Date;
+  /** The earliest year to start the month navigation. */
+  fromYear?: number;
+  /** The latest year to end the month navigation. */
+  toYear?: number;
+  /** The date to use as "today". */
+  today?: Date;
+  /** Make the selection required. */
+  required?: boolean;
+  /** The initially selected day. */
+  defaultSelected?: Date;
+}
+
+/** Represent the value returned by [[useInput]]. */
+export interface UseInput {
+  /** The props to pass to a DayPicker component: `<DayPicker {...dayPickerProps} />` */
+  dayPickerProps: UseInputDayPickerProps;
+  /** The props to pass to an input field: `<input {...inputProps} />` */
+  inputProps: UseInputFieldProps;
+  /** A function to reset to the initial state. */
+  reset: () => void;
+  /** A function to set the selected day. */
+  setSelected: (day: Date) => void;
+}
+
+/** Return props and setters for binding an input field to DayPicker. */
 export function useInput(options: UseInputOptions = {}): UseInput {
   const {
     locale = enUS,
     required,
-    format = DefaultFormat,
+    format = 'PP',
     defaultSelected,
     today = new Date()
   } = options;
@@ -120,12 +184,13 @@ export function useInput(options: UseInputOptions = {}): UseInput {
     min
   };
 
-  const fieldProps: UseInputFieldProps = {
+  const inputProps: UseInputFieldProps = {
     onBlur: handleBlur,
     onChange: handleChange,
     onFocus: handleFocus,
-    value: inputValue
+    value: inputValue,
+    placeholder: _format(new Date(), format, { locale })
   };
 
-  return { dayPickerProps, fieldProps, reset, setSelected };
+  return { dayPickerProps, inputProps, reset, setSelected };
 }
