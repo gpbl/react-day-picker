@@ -2,8 +2,8 @@ import React from "react";
 import { DayClickEventHandler, DayPicker } from "react-day-picker";
 
 export function Example() {
-  const handleDayClick: DayClickEventHandler = (day, { today }) => {
-    if (today) {
+  const handleDayClick: DayClickEventHandler = (day, modifiers) => {
+    if (modifiers.today) {
       alert("You clicked the today’s date!");
     } else {
       alert(`You clicked ${day.toLocaleDateString()}.`);
@@ -11,7 +11,6 @@ export function Example() {
   };
   return (
     <DayPicker
-      mode="single"
       onDayClick={handleDayClick}
       footer="Try clicking the today’s date."
     />

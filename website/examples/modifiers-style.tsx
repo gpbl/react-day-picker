@@ -20,7 +20,6 @@ export function Example() {
 
   return (
     <DayPicker
-      mode="single"
       defaultMonth={availableDays[0]}
       modifiers={{
         available: availableDays,

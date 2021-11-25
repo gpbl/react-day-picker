@@ -8,7 +8,5 @@ export function Example() {
     new Date(2022, 5, 11),
   ];
 
-  return (
-    <DayPicker defaultMonth={new Date(2022, 5)} hidden={hiddenDays} />
-  );
+  return <DayPicker month={hiddenDays[0]} hidden={hiddenDays} />;
 }
