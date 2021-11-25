@@ -8,7 +8,7 @@ selection mode or – to keep the built-in modes – use a custom Day component.
 
 ## Switching to the custom mode
 
-To switch to custom selection, the `mode` propo to `custom`:
+To switch to custom selection, set the `mode` prop to `custom`:
 
 ### Example: multiple select
 
