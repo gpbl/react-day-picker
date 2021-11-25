@@ -3,14 +3,29 @@ name: "react-day-picker: test and build"
 on:
   push:
     branches:
-      - *
+      - main
     paths:
-      - ./packages/react-day-picker
+      - "packages/react-day-picker"
+      - ".yarnrc.yml"
+      - ".prettier*.*"
+      - "*.base.json"
+      - "*.base.js"
+      - ".prettier*.*"
+      - ".github/workflows/**"
+
   pull_request:
-    branches:
-      - *
+    types:
+      - opened
+      - synchronize
+      - reopened
     paths:
-      - ./packages/react-day-picker
+      - "packages/react-day-picker"
+      - ".yarnrc.yml"
+      - ".prettier*.*"
+      - "*.base.json"
+      - "*.base.js"
+      - ".prettier*.*"
+      - ".github/workflows/**"
 
 defaults:
   run:
@@ -25,9 +40,11 @@ jobs:
         with:
           node-version: "14"
       - name: Install Dependencies
-        run: yarn install
+        run: |
+          yarn install
       - name: Lint files
-        run: yarn lint
+        run: |
+          yarn lint
 
   test:
     runs-on: ubuntu-latest
@@ -37,9 +54,11 @@ jobs:
         with:
           node-version: "14"
       - name: Install Dependencies
-        run: yarn install
+        run: |
+          yarn install
       - name: Run Tests
-        run: yarn test --coverage
+        run: |
+          yarn test --coverage
 
   build:
     runs-on: ubuntu-latest
@@ -53,6 +72,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
-        run: yarn install
+        run: |
+          yarn install
       - name: Build
-        run: yarn build
+        run: |
+          yarn build
