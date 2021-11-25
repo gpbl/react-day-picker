@@ -18,7 +18,7 @@
       "packages/": true,
       "website/": true
     },
-    "jest.disabledWorkspaceFolders": ["root", "website"],
+    "jest.disabledWorkspaceFolders": ["root"],
     "jest.autoRun": {
       "watch": false,
       "onSave": "test-file"
