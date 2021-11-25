@@ -4,7 +4,11 @@ import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import enUS from 'date-fns/locale/en-US';
 
 import { parseFromToProps } from '../../contexts/DayPicker/utils';
-import { DayClickEventHandler, MonthChangeEventHandler } from '../../types';
+import {
+  DayClickEventHandler,
+  DayPickerProps,
+  MonthChangeEventHandler
+} from '../../types';
 import { isValidDate } from './utils/isValidDate';
 
 /** Represent the props to attach to the input field. */
@@ -35,38 +39,24 @@ export interface UseInputDayPickerProps {
   today: Date;
 }
 
-export interface UseInputOptions {
-  /**
-   * The date-fns locale object to localize the user interface. Defaults to `en-US`.
-   *
-   * ```
-   * import es from 'date-fns/locale/es';
-   * ```
-   *
-   * See also date-fns [Internationalization guide](https://date-fns.org/docs/I18n).
-   *
-   */
-  locale?: Locale;
+export interface UseInputOptions
+  extends Pick<
+    DayPickerProps,
+    | 'locale'
+    | 'fromDate'
+    | 'toDate'
+    | 'fromMonth'
+    | 'toMonth'
+    | 'fromYear'
+    | 'toYear'
+    | 'today'
+  > {
+  /** The initially selected date */
+  defaultSelected?: Date;
   /** The format string for formatting the input field. See https://date-fns.org/docs/format for a list of format strings. Default to `PP`. */
   format?: string;
-  /** The earliest day to start the month navigation. */
-  fromDate?: Date;
-  /** The latest day to end the month navigation. */
-  toDate?: Date;
-  /** The earliest month to start the month navigation. */
-  fromMonth?: Date;
-  /** The latest month to end the month navigation. */
-  toMonth?: Date;
-  /** The earliest year to start the month navigation. */
-  fromYear?: number;
-  /** The latest year to end the month navigation. */
-  toYear?: number;
-  /** The date to use as "today". */
-  today?: Date;
   /** Make the selection required. */
   required?: boolean;
-  /** The initially selected day. */
-  defaultSelected?: Date;
 }
 
 /** Represent the value returned by [[useInput]]. */
@@ -99,9 +89,7 @@ export function useInput(options: UseInputOptions = {}): UseInput {
 
   // Initialize states
   const [month, setMonth] = React.useState(defaultSelected ?? today);
-  const [selectedDay, setSelectedDay] = React.useState<Date | undefined>(
-    defaultSelected
-  );
+  const [selectedDay, setSelectedDay] = React.useState(defaultSelected);
   const defaultInputValue = defaultSelected
     ? _format(defaultSelected, format, { locale })
     : '';
