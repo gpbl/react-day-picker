@@ -1,13 +1,18 @@
+import { RenderExample } from '@site/src/components';
 import * as React from 'react';
 import OriginalCodeBlock from '../OriginalCodeBlock';
 
 import styles from './styles.module.css';
 
 /**
- * Very basic CodeBlock to run an app and show its source.
+ * This CodeBlock component will display code _and_ rendering result when using the `include` tag:
  *
+ * Example:
+ *
+ * ```
  * ```include
- * filename
+ * filename.tsx
+ * ```
  * ```
  */
 export default function CodeBlock(props) {
@@ -20,20 +25,8 @@ export default function CodeBlock(props) {
   }
 
   const fileName = props.children.replace(/\n*/gi, '');
-  try {
-    require(`../../../examples/${fileName}`).Example;
-  } catch (e) {
-    console.error('Error requiring %s', `../../../examples/${fileName}`, e);
-    return <OriginalCodeBlock {...props}>{e.message}</OriginalCodeBlock>;
-  }
+
   const src = require(`!!raw-loader!../../../examples/${fileName}`).default;
-  try {
-    require(`../../../examples/${fileName}`).Example;
-  } catch (e) {
-    console.error('Error requiring %s', `../../../examples/${fileName}`, e);
-    return <pre>{e.message}</pre>;
-  }
-  const Component = require(`../../../examples/${fileName}`).Example;
 
   return (
     <div className={styles.root}>
@@ -43,9 +36,7 @@ export default function CodeBlock(props) {
         </OriginalCodeBlock>
       </div>
       <div className={styles.output}>
-        <div>
-          <Component />
-        </div>
+        <RenderExample fileName={fileName} />
       </div>
     </div>
   );

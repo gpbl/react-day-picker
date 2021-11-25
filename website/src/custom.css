@@ -11,7 +11,7 @@
   /* --ifm-leading: calc(15 * 1em); */
   --ifm-toc-border-color: transparent;
   --ifm-heading-font-weight: 700;
-  --ifm-code-font-size: 0.8rem;
+  --ifm-code-font-size: 0.8em;
   --ifm-navbar-shadow: none;
   --ifm-navbar-height: 75px;
   --ifm-code-border-radius: 4px;
