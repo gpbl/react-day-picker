@@ -14,7 +14,7 @@ export function Example() {
     <DayPicker
       mode="custom"
       selected={selectedDay}
-      onSelect={handleDayClick}
+      onDayClick={handleDayClick}
       footer={footer}
     />
   );
