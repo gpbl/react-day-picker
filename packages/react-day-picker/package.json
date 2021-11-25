@@ -21,7 +21,8 @@
     "build": "yarn prebuild && yarn rollup -c",
     "css-types": "yarn tcm -p style.css",
     "lint": "eslint --ext .ts,.tsx src",
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "files": [
     "build",

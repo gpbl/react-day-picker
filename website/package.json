@@ -9,7 +9,8 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "lint": "eslint --ext .ts,.tsx src examples",
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
     "react": "^17.0.2",
