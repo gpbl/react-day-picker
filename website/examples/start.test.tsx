@@ -1,0 +1,34 @@
+import React from "react";
+
+import { fireEvent, render, screen } from "@testing-library/react";
+import tk from "timekeeper";
+
+import { Example } from "./start";
+import { getDayButton, getTableFooter } from "../src/test";
+
+const today = new Date(2021, 10, 25);
+
+beforeAll(() => tk.freeze(today));
+afterAll(() => tk.reset());
+
+beforeEach(() => {
+  render(<Example />);
+});
+
+describe("when a day is selected", () => {
+  const selectedDay = new Date(2021, 10, 1);
+  beforeEach(() => {
+    fireEvent.click(getDayButton(selectedDay));
+  });
+  test("should appear as selected", () => {
+    expect(getDayButton(selectedDay)).toHaveAttribute(
+      "aria-pressed",
+      "true"
+    );
+  });
+  test("should update the footer", () => {
+    expect(getTableFooter()).toHaveTextContent(
+      "You picked 11/1/2021."
+    );
+  });
+});
