@@ -2,9 +2,13 @@ name: "react-day-picker: test and build"
 
 on:
   push:
+    branches:
+      - *
     paths:
       - ./packages/react-day-picker
   pull_request:
+    branches:
+      - *
     paths:
       - ./packages/react-day-picker
 
