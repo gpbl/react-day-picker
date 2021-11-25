@@ -37,11 +37,21 @@ $ yarn install
 
 ### Developing
 
-To build and start watching the source run the `develop` script:
+To build and start watching the source run the `develop` script from the repository root:
 
+```bash
+$ cd react-day-picker
+$ yarn develop
 ```
-$ yarn workspace react-day-picker develop
+
+The `develop` script will run both website and the package build in compile mode. You can run these also singularly:
+
+```bash
+$ yarn workspace react-day-picker develop # start the build in watch mode
+$ yarn workspace website start # start the website in watch mode
 ```
+
+#### Testing
 
 To run the unit tests in watch mode:
 

@@ -40,6 +40,10 @@ html[data-theme='dark'] {
   padding-top: 1rem;
 }
 
+.rdp-tfoot form {
+  text-align: center;
+}
+
 .rdp-tfoot button {
   border-style: solid;
   border-width: 1px;
