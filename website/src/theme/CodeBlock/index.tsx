@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { RenderExample } from '@site/src/components';
 import * as React from 'react';
 import OriginalCodeBlock from '../OriginalCodeBlock';
