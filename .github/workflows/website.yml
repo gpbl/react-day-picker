@@ -70,7 +70,7 @@ jobs:
 
       - name: Type-check
         run: |
-          yarn workspaces website run typecheck
+          yarn workspace website run typecheck
 
       - name: Linter
         run: |

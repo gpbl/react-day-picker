@@ -28,7 +28,8 @@ on:
       - ".github/workflows/**"
 
 jobs:
-  test:
+  test-build:
+    name: "Test and Build"
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -70,7 +71,7 @@ jobs:
 
       - name: Type-check
         run: |
-          yarn workspaces react-day-picker run typecheck
+          yarn workspace react-day-picker run typecheck
 
       - name: Linter
         run: |
