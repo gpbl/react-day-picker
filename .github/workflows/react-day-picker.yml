@@ -28,8 +28,7 @@ on:
       - ".github/workflows/**"
 
 jobs:
-  test-build:
-    name: "Test and Build"
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
