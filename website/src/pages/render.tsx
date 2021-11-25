@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
 import { useLocation } from '@docusaurus/router';
 import BrowserOnly from '@docusaurus/BrowserOnly';
@@ -21,10 +22,11 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
  * ```
  * */
 export default function Render(): JSX.Element {
+  const location = useLocation();
   return (
     <BrowserOnly>
       {() => {
-        const params = new URLSearchParams(useLocation().search);
+        const params = new URLSearchParams(location.search);
         const component = params.get('component');
         try {
           require(`../../examples/${component}`).Example;

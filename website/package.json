@@ -7,7 +7,9 @@
     "build": "docusaurus build",
     "serve": "docusaurus serve",
     "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear"
+    "clear": "docusaurus clear",
+    "lint": "eslint --ext .ts,.tsx src",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -22,6 +24,7 @@
     "@tsconfig/docusaurus": "^1.0.4",
     "date-fns": "^2.22.1",
     "docusaurus-plugin-typedoc": "^0.16.4",
+    "eslint": "^8.3.0",
     "raw-loader": "^4.0.2",
     "typedoc": "^0.22.9",
     "typedoc-plugin-markdown": "^3.11.7",

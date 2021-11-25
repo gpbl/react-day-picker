@@ -11,8 +11,9 @@
   "license": "MIT",
   "scripts": {
     "develop": "concurrently -n website,package \"yarn workspace website start\" \"yarn workspace react-day-picker develop\"",
-    "test": "yarn workspace react-day-picker run test",
-    "build": "yarn workspace react-day-picker run build && yarn workspace website run build"
+    "build": "yarn workspace react-day-picker run build && yarn workspace website run build",
+    "lint-all": "concurrently -n website,package \"yarn workspace website lint\" \"yarn workspace react-day-picker lint\"",
+    "test-all": "concurrently -n website,package \"yarn workspace website test\" \"yarn workspace react-day-picker test\""
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,21 @@
     "packages/*"
   ],
   "devDependencies": {
-    "concurrently": "^6.4.0"
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^27.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "concurrently": "^6.4.0",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^25.2.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.4.1",
+    "timekeeper": "^2.2.0",
+    "ts-jest": "^27.0.7"
   }
 }
