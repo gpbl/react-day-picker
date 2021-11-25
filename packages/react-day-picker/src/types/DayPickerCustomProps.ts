@@ -7,6 +7,6 @@ export interface DayPickerCustomProps extends DayPickerProps {
   mode: 'custom';
   /** The selected day(s). */
   selected?: unknown;
-  /** Event fired when a day is selected. */
-  onSelect?: (...args: unknown[]) => unknown;
+  /** Use `onDayClick` and related event instead. */
+  onSelect: never;
 }

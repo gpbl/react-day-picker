@@ -10,6 +10,12 @@ selection mode or – to keep the built-in modes – use a custom Day component.
 
 To switch to custom selection, set the `mode` prop to `custom`:
 
+### Example: single select
+
+```include
+custom-selection-single.tsx
+```
+
 ### Example: multiple select
 
 ```include
