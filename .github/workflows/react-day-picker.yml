@@ -72,4 +72,4 @@ jobs:
 
       - name: Build
         run: |
-          yarn workspace react-day-picker run build --cache
+          yarn workspace react-day-picker run build

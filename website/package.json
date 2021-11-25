@@ -27,6 +27,7 @@
     "date-fns": "^2.22.1",
     "docusaurus-plugin-typedoc": "^0.16.4",
     "eslint": "^8.3.0",
+    "jest": "^27.3.1",
     "raw-loader": "^4.0.2",
     "typedoc": "^0.22.9",
     "typedoc-plugin-markdown": "^3.11.7",

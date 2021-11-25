@@ -69,8 +69,8 @@ jobs:
 
       - name: Unit tests
         run: |
-          yarn workspace website run test
+          yarn workspace website run test --passWithNoTests
 
       - name: Build
         run: |
-          yarn workspace website run build --cache
+          yarn workspace website run build
