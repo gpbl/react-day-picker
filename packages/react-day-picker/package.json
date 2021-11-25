@@ -13,6 +13,7 @@
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
   "module": "build/main.js",
+  "main": "dist/main.js",
   "types": "build/main.d.ts",
   "scripts": {
     "develop": "yarn prebuild && yarn rollup -cw",
