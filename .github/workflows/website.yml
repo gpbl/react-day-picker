@@ -3,7 +3,7 @@ name: "CI: website"
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - "website"
       - ".yarnrc.yml"
@@ -14,10 +14,6 @@ on:
       - ".github/workflows/**"
 
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
     paths:
       - "website"
       - ".yarnrc.yml"
