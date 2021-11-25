@@ -8,7 +8,7 @@
     "serve": "docusaurus serve",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
-    "lint": "eslint --ext .ts,.tsx src",
+    "lint": "eslint --ext .ts,.tsx src examples",
     "test": "jest"
   },
   "dependencies": {
