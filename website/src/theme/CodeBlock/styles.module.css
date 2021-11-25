@@ -30,7 +30,7 @@
 }
 
 .output>div {
-  min-height: 360px;
+  min-height: 310px;
   display: flex;
   justify-content: center;
   background-color: var(--ifm-background-color);
