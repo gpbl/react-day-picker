@@ -15,11 +15,11 @@ const sidebars = {
     {
       Guides: [
         'guides/modifiers',
-        'guides/custom-selections',
         'guides/formatters',
         'guides/localization',
         'guides/input-fields',
-        'guides/custom-components'
+        'guides/custom-components',
+        'guides/custom-selections'
       ]
     },
     'changelog',
