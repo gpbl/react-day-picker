@@ -2,6 +2,8 @@ name: "CI: react-day-picker"
 
 on:
   push:
+    branches:
+      - master
     paths:
       - "packages/react-day-picker"
       - ".yarnrc.yml"
