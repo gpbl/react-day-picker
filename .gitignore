@@ -1,6 +1,9 @@
 .DS_Store
 
 node_modules
+coverage
+build
+dist
 yarn-debug.log*
 yarn-error.log*
 /.yarn/cache
