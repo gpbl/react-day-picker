@@ -3,10 +3,10 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import tk from "timekeeper";
 
-import Example from "./custom-selection-single";
+import Example from "./selecting-days-single-required";
 import { getDayButton, getTableFooter } from "../src/test";
 
-const today = new Date(2021, 10, 25); // 25th November
+const today = new Date(2021, 10, 25);
 
 beforeAll(() => tk.freeze(today));
 afterAll(() => tk.reset());
@@ -16,7 +16,7 @@ beforeEach(() => {
 });
 
 describe("when a day is clicked", () => {
-  const selectedDay = new Date(2021, 10, 1); // 1st November
+  const selectedDay = new Date(2021, 10, 1);
   beforeEach(() => {
     fireEvent.click(getDayButton(selectedDay));
   });
@@ -28,7 +28,18 @@ describe("when a day is clicked", () => {
   });
   test("should update the footer", () => {
     expect(getTableFooter()).toHaveTextContent(
-      "You selected 11/1/2021."
+      "You selected November 1st, 2021."
     );
+  });
+  describe("when the day is clicked again", () => {
+    beforeEach(() => {
+      fireEvent.click(getDayButton(selectedDay));
+    });
+    test("should appear as selected", () => {
+      expect(getDayButton(selectedDay)).toHaveAttribute(
+        "aria-pressed",
+        "true"
+      );
+    });
   });
 });

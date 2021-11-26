@@ -9,7 +9,6 @@ export default function App() {
       const days = [...currentValue];
       if (modifiers.selected) {
         days.splice(currentValue.indexOf(day), 1);
-        return;
       } else {
         days.push(day);
       }

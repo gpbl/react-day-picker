@@ -15,7 +15,7 @@ beforeEach(() => {
   render(<Example />);
 });
 
-describe("when a day is selected", () => {
+describe("when a day is clicked", () => {
   const selectedDay = new Date(2021, 10, 1); // 1st November
   beforeEach(() => {
     fireEvent.click(getDayButton(selectedDay));

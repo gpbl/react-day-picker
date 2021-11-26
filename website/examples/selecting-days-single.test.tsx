@@ -15,7 +15,7 @@ beforeEach(() => {
   render(<Example />);
 });
 
-describe("when a day is selected", () => {
+describe("when a day is clicked", () => {
   const selectedDay = new Date(2021, 10, 1);
   beforeEach(() => {
     fireEvent.click(getDayButton(selectedDay));
@@ -30,5 +30,15 @@ describe("when a day is selected", () => {
     expect(getTableFooter()).toHaveTextContent(
       "You selected November 1st, 2021."
     );
+  });
+  describe("when the day is clicked again", () => {
+    beforeEach(() => {
+      fireEvent.click(getDayButton(selectedDay));
+    });
+    test("should appear as not selected", () => {
+      expect(getDayButton(selectedDay)).not.toHaveAttribute(
+        "aria-pressed"
+      );
+    });
   });
 });

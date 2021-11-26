@@ -3,7 +3,7 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import tk from "timekeeper";
 
-import Example from "./custom-selection-multiple";
+import Example from "./selecting-days-multiple";
 import { getDayButton, getTableFooter } from "../src/test";
 
 const today = new Date(2021, 10, 25); // 25th November
