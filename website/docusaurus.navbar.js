@@ -19,6 +19,10 @@ const navbar = {
       to: 'api',
       label: 'API Reference'
     },
+    {
+      to: 'development',
+      label: 'Development'
+    },
     { to: 'changelog', label: `v${pkg.version}`, position: 'right' },
     {
       href: 'https://github.com/gpbl/react-day-picker',

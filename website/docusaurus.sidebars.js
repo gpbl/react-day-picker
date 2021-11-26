@@ -23,8 +23,13 @@ const sidebars = {
       ]
     },
     'changelog',
-    'contributing',
     'license'
+  ],
+  developmentSidebar: [
+    'development/index',
+    'development/source',
+    'development/docs',
+    'development/code-of-conduct'
   ],
   apiSidebar: [
     {

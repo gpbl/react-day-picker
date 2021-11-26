@@ -12,21 +12,15 @@ export default function Render(): JSX.Element {
   return (
     <BrowserOnly>
       {() => {
-        const params = new URLSearchParams(location.search);
-        const component = params.get('file');
+        const fileName = new URLSearchParams(location.search).get('example');
         try {
-          require(`../../examples/${component}`).default;
+          require(`../../examples/${fileName}`).default;
         } catch (e) {
-          console.error('Error requiring %s', `../../examples/${component}`, e);
+          console.error('Error requiring %s', `../../examples/${fileName}`, e);
           return <pre>{e.message}</pre>;
         }
-        const Component = require(`../../examples/${component}`).default;
-
-        return (
-          <div className="Render">
-            <Component />
-          </div>
-        );
+        const Component = require(`../../examples/${fileName}`).default;
+        return <Component />;
       }}
     </BrowserOnly>
   );

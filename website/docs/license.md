@@ -7,7 +7,7 @@ pagination_prev: null
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 Giampaolo Bellavite <io@gpbl.dev> and contributors
+Copyright (c) 2014-2021 gpbl <io@gpbl.dev> and contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

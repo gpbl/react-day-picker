@@ -22,19 +22,12 @@ const index = require(`!!raw-loader!./sandbox/index.tsx`).default;
 const styles = require(`!!raw-loader!./sandbox/styles.css`).default;
 
 /**
- * This CodeBlock component will display code _and_ rendering result when using the `include` tag:
- *
- * Example:
- *
- * ```
- * ```include
- * filename.tsx
- * ```
- * ```
+ * This CodeBlock component will display a Sandpack using the example filename.
  */
 export default function CodeBlock(props) {
   const { isDarkTheme } = useThemeContext();
   const windowSize = useWindowSize();
+
   if (props.className !== 'language-include') {
     return (
       <OriginalCodeBlock className="language-jsx" {...props}>
