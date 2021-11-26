@@ -8,7 +8,7 @@ const initialDays: Date[] = [
   addDays(new Date(), 2),
 ];
 
-export function Example() {
+export default function App() {
   const [days, setDays] = React.useState(initialDays);
 
   const footer =

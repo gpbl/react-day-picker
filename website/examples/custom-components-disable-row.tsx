@@ -13,7 +13,7 @@ function OnlyFutureRow(props: RowProps) {
   return <Row {...props} />;
 }
 
-export function Example() {
+export default function App() {
   return (
     <DayPicker
       fromDate={new Date()}

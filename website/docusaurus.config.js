@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const typedocConfig = require('./docusaurus.typedoc');
 const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -11,7 +14,10 @@ const config = {
   favicon: 'images/favicon.png',
   organizationName: 'gpbl',
   projectName: 'react-day-picker',
-  clientModules: [require.resolve('react-day-picker/style.css')],
+  clientModules: [
+    require.resolve('react-day-picker/style.css'),
+    require.resolve('@codesandbox/sandpack-react/dist/index.css')
+  ],
   themeConfig: {
     image: 'images/favicon.png',
     navbar: require('./docusaurus.navbar.js'),

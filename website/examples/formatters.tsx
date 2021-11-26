@@ -26,7 +26,7 @@ const seasonEmoji = {
   ),
 };
 
-export function Example() {
+export default function App() {
   // Remove year from the caption
   const formatCaption: DateFormatter = (month, { locale }) => {
     let season = "";

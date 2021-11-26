@@ -1,0 +1,51 @@
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";  
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+.rdp-tfoot td {
+  padding-top: 1em;
+}
+
+.rdp-tfoot form {
+  text-align: center;
+}
+
+button {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;;
+  display: inline-block;
+  font-size: .875em;
+  padding: .3rem .8rem;
+  text-align: center;
+  user-select: none;
+  vertical-align: baseline;
+  white-space: nowrap;
+  color: currentColor;
+  background-color: transparent;
+}
+
+input {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;;
+  display: inline-block;
+  font-size: 1em;
+  padding: .4em .8em;
+  vertical-align: baseline;
+  white-space: nowrap;
+  color: currentColor;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: .5;
+}

@@ -48,24 +48,19 @@ jobs:
           key: yarn-cache-${{ hashFiles('./yarn.lock') }}
           restore-keys: |
             yarn-cache-${{ hashFiles('./yarn.lock') }}
-
       - name: Install dependencies
         run: |
           yarn install --immutable
-
       - name: Type-check
         continue-on-error: true # Typechecking is buggy for website
         run: |
           yarn workspace website run typecheck
-
       - name: Linter
         run: |
           yarn workspace website run lint --cache
-
       - name: Unit tests
         run: |
           yarn workspace website run test --passWithNoTests
-
       - name: Build
         run: |
           yarn workspace website run build

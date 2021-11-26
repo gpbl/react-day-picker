@@ -48,23 +48,18 @@ jobs:
           key: yarn-cache-${{ hashFiles('./yarn.lock') }}
           restore-keys: |
             yarn-cache-${{ hashFiles('./yarn.lock') }}
-
       - name: Install dependencies
         run: |
           yarn install --immutable
-
       - name: Type-check
         run: |
           yarn workspace react-day-picker run typecheck
-
       - name: Linter
         run: |
           yarn workspace react-day-picker run lint --cache
-
       - name: Unit tests
         run: |
           yarn workspace react-day-picker run test
-
       - name: Build
         run: |
           yarn workspace react-day-picker run build

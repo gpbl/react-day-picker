@@ -1,7 +1,7 @@
-import React from 'react';
-import { DayPicker } from 'react-day-picker';
+import React from "react";
+import { DayPicker } from "react-day-picker";
 
-export function Example() {
+export default function App() {
   const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
 
   const style = `.my-booked-class { color: tomato }`;

@@ -3,7 +3,7 @@ import { DateRange, DayPicker } from "react-day-picker";
 
 import { format, isSameDay } from "date-fns";
 
-export function Example() {
+export default function App() {
   const [range, setRange] = React.useState<DateRange | undefined>();
 
   let footer = "Please pick the first day.";
