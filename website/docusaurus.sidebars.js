@@ -18,8 +18,7 @@ const sidebars = {
         'guides/formatters',
         'guides/localization',
         'guides/input-fields',
-        'guides/custom-components',
-        'guides/custom-selections'
+        'guides/custom-components'
       ]
     }
   ],

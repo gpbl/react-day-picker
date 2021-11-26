@@ -4,7 +4,7 @@ import { getDayButton } from "@site/src/test";
 import { fireEvent, render } from "@testing-library/react";
 import tk from "timekeeper";
 
-import Example from "./custom-selection-useday";
+import Example from "./custom-components-shift-key";
 
 describe("when today is the 25th of november 2021", () => {
   const today = new Date(2021, 10, 25);

@@ -1,17 +1,20 @@
----
-pagination_next: null
----
-
 # Custom Components
 
-Use the `components` prop to to swap the [internal
-components](/api/interfaces/components) used by DayPicker.
+Use the `components` prop to swap the [internal components](/api/interfaces/components) used by DayPicker.
 
-The [useNavigation](/api/functions/usenavigation),
-[useDayPicker](/api/functions/usedaypicker) and [useDay](/api/functions/useday)
-hooks returns values that can help to build the components.
+## Custom Day
 
-### Example: wrap the day
+You can further refine the interaction with the day cells by using a custom `Day` component and the [useDay hook](/api/functions/useDay).
+
+### Range selections with Shift key
+
+The following example implements a date picker to select ranges while pressing the <kbd>Shift</kbd> key.
+
+```include
+custom-components-shift-key.tsx
+```
+
+### Wrapping the day
 
 Wrap the `DayContent` element with a `time` HTML tag.
 
@@ -19,18 +22,12 @@ Wrap the `DayContent` element with a `time` HTML tag.
 custom-components-day.tsx
 ```
 
+## Custom Row
+
 ### Example: disable rows in the past
 
 Implement a custom component to hide the rows of past weeks.
 
 ```include
 custom-components-disable-row.tsx
-```
-
-### Example: extend selection mode
-
-Implement a `Day` component to select ranges only when the shift key is pressed:
-
-```include
-custom-selection-useday.tsx
 ```

@@ -1,18 +1,15 @@
 import React from "react";
-import { DayClickEventHandler, DayPicker } from "react-day-picker";
+import { DayPicker, ModifierStatus } from "react-day-picker";
 
 export default function App() {
   const [selectedDays, setSelectedDays] = React.useState([]);
 
-  const handleDayClick: DayClickEventHandler = (
-    day,
-    { selected }
-  ) => {
-    // Use a callback to clone and add / remove days to the array
-    setSelectedDays((currentlySelectedDays) => {
-      const days = [...currentlySelectedDays];
-      if (selected) {
-        days.splice(currentlySelectedDays.indexOf(day), 1);
+  const handleDayClick = (day: Date, modifiers: ModifierStatus) => {
+    setSelectedDays((currentValue) => {
+      const days = [...currentValue];
+      if (modifiers.selected) {
+        days.splice(currentValue.indexOf(day), 1);
+        return;
       } else {
         days.push(day);
       }
@@ -22,10 +19,10 @@ export default function App() {
 
   const handleResetClick = () => setSelectedDays([]);
 
-  const footer =
-    selectedDays.length === 0 ? (
-      "Please pick one or more days."
-    ) : (
+  let footer = <p>Please pick one or more days.</p>;
+
+  if (selectedDays.length > 0)
+    footer = (
       <p>
         You selected {selectedDays.length} days.{" "}
         <button onClick={handleResetClick}>Reset</button>

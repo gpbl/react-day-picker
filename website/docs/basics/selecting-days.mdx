@@ -63,5 +63,18 @@ selecting-days-range-min-max.tsx
 If the built-in selection modes are not enough for your app’s requirements, you
 can control the selection behavior using `mode="custom"`.
 
-See the [Custom
-Selections guide](/guides/custom-selections) for more details.
+### Example: custom single select
+
+The following example use the custom selection mode to implement the "single selection" behavior. It is like when `mode="single"`, we place it here to show how the custom selection works.
+
+```include
+custom-selection-single.tsx
+```
+
+### Example: custom multiple select
+
+The case of a multi-days select is a bit more complex as it deals with an array. The following example replicates the `mode="multiple"` selection mode.
+
+```include
+custom-selection-multiple.tsx
+```
