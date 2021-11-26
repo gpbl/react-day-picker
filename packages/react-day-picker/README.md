@@ -1,4 +1,4 @@
-# React DayPicker
+# React DayPicker (beta)
 
 DayPicker is a date picker component for [React](https://reactjs.org).
 
