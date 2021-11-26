@@ -16,6 +16,6 @@ function DateTime(props: DayContentProps) {
   );
 }
 
-export function Example() {
+export default function App() {
   return <DayPicker components={{ DayContent: DateTime }} />;
 }

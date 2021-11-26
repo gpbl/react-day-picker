@@ -6,7 +6,7 @@ import { addMonths, isSameMonth } from "date-fns";
 const today = new Date();
 const nextMonth = addMonths(new Date(), 1);
 
-export function Example() {
+export default function App() {
   const [month, setMonth] = React.useState<Date>(nextMonth);
 
   const footer = (

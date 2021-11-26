@@ -30,7 +30,7 @@ function Day(props: DayProps) {
   );
 }
 
-export function Example() {
+export default function App() {
   const [range, setRange] = useState<DateRange>();
   return (
     <DayPicker

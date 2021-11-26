@@ -4,54 +4,54 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, {useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import clsx from 'clsx';
-import Highlight, {defaultProps} from 'prism-react-renderer';
+import Highlight, { defaultProps } from 'prism-react-renderer';
 import copy from 'copy-text-to-clipboard';
 import rangeParser from 'parse-numeric-range';
 import usePrismTheme from '@theme/hooks/usePrismTheme';
-import Translate, {translate} from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 import styles from './styles.module.css';
-import {useThemeConfig, parseCodeBlockTitle} from '@docusaurus/theme-common';
+import { useThemeConfig, parseCodeBlockTitle } from '@docusaurus/theme-common';
 const highlightLinesRangeRegex = /{([\d,-]+)}/;
 
 const getHighlightDirectiveRegex = (
-  languages = ['js', 'jsBlock', 'jsx', 'python', 'html'],
+  languages = ['js', 'jsBlock', 'jsx', 'python', 'html']
 ) => {
   // supported types of comments
   const comments = {
     js: {
       start: '\\/\\/',
-      end: '',
+      end: ''
     },
     jsBlock: {
       start: '\\/\\*',
-      end: '\\*\\/',
+      end: '\\*\\/'
     },
     jsx: {
       start: '\\{\\s*\\/\\*',
-      end: '\\*\\/\\s*\\}',
+      end: '\\*\\/\\s*\\}'
     },
     python: {
       start: '#',
-      end: '',
+      end: ''
     },
     html: {
       start: '<!--',
-      end: '-->',
-    },
+      end: '-->'
+    }
   }; // supported directives
 
   const directives = [
     'highlight-next-line',
     'highlight-start',
-    'highlight-end',
+    'highlight-end'
   ].join('|'); // to be more reliable, the opening and closing comment must match
 
   const commentPattern = languages
     .map(
       (lang) =>
-        `(?:${comments[lang].start}\\s*(${directives})\\s*${comments[lang].end})`,
+        `(?:${comments[lang].start}\\s*(${directives})\\s*${comments[lang].end})`
     )
     .join('|'); // white space is allowed, but otherwise it should be on it's own line
 
@@ -87,9 +87,9 @@ export default function CodeBlock({
   children,
   className: languageClassName,
   metastring,
-  title,
+  title
 }) {
-  const {prism} = useThemeConfig();
+  const { prism } = useThemeConfig();
   const [showCopied, setShowCopied] = useState(false);
   const [mounted, setMounted] = useState(false); // The Prism theme on SSR is always the default theme but the site theme
   // can be in a different mode. React hydration doesn't update DOM styles
@@ -188,8 +188,9 @@ export default function CodeBlock({
       key={String(mounted)}
       theme={prismTheme}
       code={code}
-      language={language}>
-      {({className, style, tokens, getLineProps, getTokenProps}) => (
+      language={language}
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className={styles.codeBlockContainer}>
           {codeBlockTitle && (
             <div style={style} className={styles.codeBlockTitle}>
@@ -201,8 +202,9 @@ export default function CodeBlock({
               /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
               tabIndex={0}
               className={clsx(className, styles.codeBlock, 'thin-scrollbar', {
-                [styles.codeBlockWithTitle]: codeBlockTitle,
-              })}>
+                [styles.codeBlockWithTitle]: codeBlockTitle
+              })}
+            >
               <div className={styles.codeBlockLines} style={style}>
                 {tokens.map((line, i) => {
                   if (line.length === 1 && line[0].content === '') {
@@ -211,7 +213,7 @@ export default function CodeBlock({
 
                   const lineProps = getLineProps({
                     line,
-                    key: i,
+                    key: i
                   });
 
                   if (highlightLines.includes(i + 1)) {
@@ -225,7 +227,7 @@ export default function CodeBlock({
                           key={key}
                           {...getTokenProps({
                             token,
-                            key,
+                            key
                           })}
                         />
                       ))}
@@ -241,20 +243,23 @@ export default function CodeBlock({
               aria-label={translate({
                 id: 'theme.CodeBlock.copyButtonAriaLabel',
                 message: 'Copy code to clipboard',
-                description: 'The ARIA label for copy code blocks button',
+                description: 'The ARIA label for copy code blocks button'
               })}
               className={clsx(styles.copyButton)}
-              onClick={handleCopyCode}>
+              onClick={handleCopyCode}
+            >
               {showCopied ? (
                 <Translate
                   id="theme.CodeBlock.copied"
-                  description="The copied button label on code blocks">
+                  description="The copied button label on code blocks"
+                >
                   Copied
                 </Translate>
               ) : (
                 <Translate
                   id="theme.CodeBlock.copy"
-                  description="The copy button label on code blocks">
+                  description="The copy button label on code blocks"
+                >
                   Copy
                 </Translate>
               )}

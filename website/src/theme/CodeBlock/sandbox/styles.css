@@ -1,0 +1,55 @@
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";  
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  /* margin:  */
+}
+
+
+.rdp-tfoot td {
+  padding-top: 1em;
+}
+
+.rdp-tfoot form {
+  text-align: center;
+}
+
+button {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;;
+  display: inline-block;
+  font-size: .875em;
+  padding: .3rem .8rem;
+  text-align: center;
+  user-select: none;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+input {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;;
+  display: inline-block;
+  font-size: .875em;
+  padding: .3rem .8rem;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.rdp-tfoot button:not(:disabled) {
+  cursor: pointer;
+  background-color: var(--ifm-color-secondary-light);
+  border-color: var(--ifm-color-secondary-darkest);
+}
+
+
+.rdp-tfoot button:disabled {
+  background-color: var(--ifm-color-secondary-lighter);
+  border-color: var(--ifm-color-secondary-light);
+}

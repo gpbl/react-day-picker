@@ -5,7 +5,7 @@ import { format } from "date-fns";
 
 const today = new Date();
 
-export function Example() {
+export default function App() {
   const [selectedDay, setSelectedDay] = React.useState(today);
 
   const footer = selectedDay

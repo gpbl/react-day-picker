@@ -11,7 +11,10 @@ const config = {
   favicon: 'images/favicon.png',
   organizationName: 'gpbl',
   projectName: 'react-day-picker',
-  clientModules: [require.resolve('react-day-picker/style.css')],
+  clientModules: [
+    require.resolve('react-day-picker/style.css'),
+    require.resolve('@codesandbox/sandpack-react/dist/index.css')
+  ],
   themeConfig: {
     image: 'images/favicon.png',
     navbar: require('./docusaurus.navbar.js'),
