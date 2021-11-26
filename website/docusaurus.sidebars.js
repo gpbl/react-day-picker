@@ -21,15 +21,15 @@ const sidebars = {
         'guides/custom-components',
         'guides/custom-selections'
       ]
-    },
-    'changelog',
-    'license'
+    }
   ],
   developmentSidebar: [
     'development/index',
     'development/source',
     'development/docs',
-    'development/code-of-conduct'
+    'development/code-of-conduct',
+    'changelog',
+    'license'
   ],
   apiSidebar: [
     {
