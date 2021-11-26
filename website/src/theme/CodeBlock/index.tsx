@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import '@codesandbox/sandpack-react/dist/index.css';
 import React from 'react';
-import pkg from 'react-day-picker/package.json';
 
 import {
   monokaiProTheme as defaultDark,

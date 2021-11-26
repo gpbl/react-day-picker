@@ -1,7 +1,7 @@
 ---
 slug: /development
 hide_title: true
-sidebar_label: How to contribute
+sidebar_label: Contributing
 ---
 
 import Contributing, {
