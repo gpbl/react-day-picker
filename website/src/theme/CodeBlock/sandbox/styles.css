@@ -6,9 +6,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-  /* margin:  */
 }
-
 
 .rdp-tfoot td {
   padding-top: 1em;
@@ -29,6 +27,8 @@ button {
   user-select: none;
   vertical-align: baseline;
   white-space: nowrap;
+  color: currentColor;
+  background-color: transparent;
 }
 
 input {
@@ -36,20 +36,16 @@ input {
   border-width: 1px;
   border-radius: 8px;;
   display: inline-block;
-  font-size: .875em;
-  padding: .3rem .8rem;
+  font-size: 1em;
+  padding: .4em .8em;
   vertical-align: baseline;
   white-space: nowrap;
+  color: currentColor;
 }
 
-.rdp-tfoot button:not(:disabled) {
+button:not(:disabled) {
   cursor: pointer;
-  background-color: var(--ifm-color-secondary-light);
-  border-color: var(--ifm-color-secondary-darkest);
 }
-
-
-.rdp-tfoot button:disabled {
-  background-color: var(--ifm-color-secondary-lighter);
-  border-color: var(--ifm-color-secondary-light);
+button:disabled {
+  opacity: .5;
 }
