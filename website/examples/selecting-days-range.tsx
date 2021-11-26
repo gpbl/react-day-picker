@@ -3,7 +3,7 @@ import { DateRange, DayPicker } from "react-day-picker";
 
 import { addDays, format, isSameDay } from "date-fns";
 
-export function Example() {
+export default function App() {
   const defaultSelected: DateRange = {
     from: new Date(),
     to: addDays(new Date(), 4),

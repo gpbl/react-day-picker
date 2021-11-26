@@ -12,7 +12,7 @@ const bookedDays = [
 ];
 const bookedStyle = { border: "2px solid currentColor" };
 
-export function Example() {
+export default function App() {
   const [booked, setBooked] = React.useState(false);
 
   const handleDayClick: DayClickEventHandler = (day, modifiers) => {

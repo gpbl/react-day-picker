@@ -3,6 +3,6 @@ import { DayPicker } from "react-day-picker";
 
 import arabic from "date-fns/locale/ar-SA";
 
-export function Example() {
+export default function App() {
   return <DayPicker dir="rtl" locale={arabic} />;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { DayClickEventHandler, DayPicker } from "react-day-picker";
 
-export function Example() {
+export default function App() {
   const handleDayClick: DayClickEventHandler = (day, modifiers) => {
     if (modifiers.today) {
       alert("You clicked the today’s date!");

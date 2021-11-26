@@ -8,7 +8,7 @@ import {
 import { format } from "date-fns";
 import arabic from "date-fns/locale/ar-SA";
 
-export function Example() {
+export default function App() {
   const nuLocale = "ar-u-nu-arab";
 
   const formatDay: DateFormatter = (day) =>

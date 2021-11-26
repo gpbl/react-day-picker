@@ -14,6 +14,7 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^0.9.1",
     "react": "^17.0.2",
     "react-day-picker": "workspace:^",
     "react-dom": "^17.0.2"
