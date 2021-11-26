@@ -242,17 +242,27 @@ hr {
 div[class*='docItemCol'] {
   max-width: 100% !important;
 }
+.theme-doc-sidebar-item-category {
+  margin: 1em 0 !important;
+}
+
+.theme-doc-sidebar-item-category > a {
+  /* font-weight: 500; */
+}
 
 .markdown h1:first-child {
-  --ifm-h1-font-size: 2rem;
+  --ifm-h1-font-size: 2.5rem;
+  font-weight: 500;
 }
 
 .markdown > h2 {
+  font-weight: 700;
   --ifm-h2-font-size: 1.5rem;
 }
 
 .markdown > h3 {
-  --ifm-h3-font-size: 1.25rem;
+  --ifm-h3-font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .markdown > table {

@@ -5,7 +5,7 @@ const sidebars = {
     'index',
     'start',
     {
-      Basics: [
+      Guides: [
         'basics/navigation',
         'basics/customization',
         'basics/selecting-days',
@@ -13,7 +13,7 @@ const sidebars = {
       ]
     },
     {
-      Guides: [
+      'Advanced Guides': [
         'guides/modifiers',
         'guides/formatters',
         'guides/localization',
