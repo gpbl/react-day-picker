@@ -4,8 +4,8 @@ import React from 'react';
 import pkg from 'react-day-picker/package.json';
 
 import {
-  defaultDark,
-  defaultLight,
+  monokaiProTheme as defaultDark,
+  githubLightTheme as defaultLight,
   Sandpack,
   SandpackProps,
   SandpackTheme
@@ -20,6 +20,7 @@ const editorWidthPercentage = 60;
 const html = require(`!!raw-loader!./sandbox/index.html`).default;
 const index = require(`!!raw-loader!./sandbox/index.tsx`).default;
 const styles = require(`!!raw-loader!./sandbox/styles.css`).default;
+const stylesDark = require(`!!raw-loader!./sandbox/styles-dark.css`).default;
 
 /**
  * This CodeBlock component will display a Sandpack using the example filename.
@@ -38,14 +39,15 @@ export default function CodeBlock(props) {
   const fileName = props.children.replace(/\n*/gi, '');
 
   const src = require(`!!raw-loader!../../../examples/${fileName}`).default;
+
+  // Include the dark theme in the css, if needed
+  const css = `${isDarkTheme ? stylesDark : ''}\n${styles}`;
+
   const files = {
-    '/public/index.html': html.replace(
-      '${theme}',
-      isDarkTheme ? 'dark' : 'light'
-    ),
+    '/public/index.html': html,
     '/src/App.tsx': src,
     '/src/index.tsx': index,
-    '/src/styles.css': styles
+    '/src/styles.css': css
   };
   const dependencies = {
     react: '^17.0.2',
