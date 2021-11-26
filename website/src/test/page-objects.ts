@@ -6,6 +6,11 @@ export function getDayButton(day: Date) {
     name: format(day, 'do MMMM (EEEE)')
   });
 }
+export function getWeekButton(week: number) {
+  return screen.getByRole('button', {
+    name: `Week n. ${week}`
+  });
+}
 
 export function getTableFooter() {
   return screen.getByRole('table').querySelector('tfoot');

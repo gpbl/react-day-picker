@@ -20,7 +20,11 @@ export default function Render(): JSX.Element {
           return <pre>{e.message}</pre>;
         }
         const Component = require(`../../examples/${fileName}`).default;
-        return <Component />;
+        return (
+          <main>
+            <Component />
+          </main>
+        );
       }}
     </BrowserOnly>
   );

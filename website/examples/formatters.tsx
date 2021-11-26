@@ -4,66 +4,38 @@ import { DateFormatter, DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 
 const seasonEmoji = {
-  winter: (
-    <span role="img" aria-label="A snowman">
-      ⛄️
-    </span>
-  ),
-  spring: (
-    <span role="img" aria-label="A spring flower">
-      🌸
-    </span>
-  ),
-  summer: (
-    <span role="img" aria-label="A summer flower">
-      🌻
-    </span>
-  ),
-  autumn: (
-    <span role="img" aria-label="Autumn Leafs">
-      🍂
-    </span>
-  ),
+  winter: "⛄️",
+  spring: "🌸",
+  summer: "🌻",
+  autumn: "🍂",
+};
+
+const getSeason = (month: Date): string => {
+  const monthNumber = month.getMonth();
+  if (monthNumber >= 0 && monthNumber < 3) return "winter";
+  if (monthNumber >= 3 && monthNumber < 6) return "spring";
+  if (monthNumber >= 6 && monthNumber < 9) return "summer";
+  if (monthNumber >= 9 && monthNumber < 12) return "autumn";
+};
+
+const formatCaption: DateFormatter = (month, { locale }) => {
+  const season = getSeason(month);
+  return (
+    <>
+      <span role="img" aria-label={season}>
+        {seasonEmoji[season]}
+      </span>{" "}
+      {format(month, "LLLL", { locale })}
+    </>
+  );
 };
 
 export default function App() {
-  // Remove year from the caption
-  const formatCaption: DateFormatter = (month, { locale }) => {
-    let season = "";
-    if (month.getMonth() >= 0 && month.getMonth() < 3) {
-      season = "winter";
-    } else if (month.getMonth() >= 3 && month.getMonth() < 6) {
-      season = "spring";
-    } else if (month.getMonth() >= 6 && month.getMonth() < 9) {
-      season = "summer";
-    } else if (month.getMonth() >= 9 && month.getMonth() < 12) {
-      season = "autumn";
-    }
-
-    return (
-      <>
-        {seasonEmoji[season]} {format(month, "LLLL", { locale })}
-      </>
-    );
-  };
-
-  const formatDay: DateFormatter = (day) => {
-    const date = day.getDate();
-    if (date === 12 || date === 17) {
-      return (
-        <span role="img" aria-label="Present">
-          🎁
-        </span>
-      );
-    }
-    return `${date}`;
-  };
-
   return (
     <DayPicker
       fromYear={2020}
       toYear={2025}
-      formatters={{ formatDay, formatCaption }}
+      formatters={{ formatCaption }}
     />
   );
 }

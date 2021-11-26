@@ -5,7 +5,7 @@ import tk from "timekeeper";
 
 import Example from "./custom-components-disable-row";
 
-describe("when the 25th of November 2021", () => {
+describe("when displaying November 2021", () => {
   const today = new Date(2021, 10, 25); // 25th November
   beforeAll(() => tk.freeze(today));
   afterAll(() => tk.reset());
