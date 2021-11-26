@@ -3,10 +3,10 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import tk from "timekeeper";
 
-import { Example } from "./start";
+import Example from "./start";
 import { getDayButton, getTableFooter } from "../src/test";
 
-const today = new Date(2021, 10, 25);
+const today = new Date(2021, 10, 25); // 25th November
 
 beforeAll(() => tk.freeze(today));
 afterAll(() => tk.reset());
@@ -16,7 +16,7 @@ beforeEach(() => {
 });
 
 describe("when a day is selected", () => {
-  const selectedDay = new Date(2021, 10, 1);
+  const selectedDay = new Date(2021, 10, 1); // 1st November
   beforeEach(() => {
     fireEvent.click(getDayButton(selectedDay));
   });

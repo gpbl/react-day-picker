@@ -12,12 +12,8 @@ function Day(props: DayProps) {
   const { buttonProps, nonInteractiveProps, selected, modifiers } =
     useDay(props.date, props.displayMonth, buttonRef);
 
-  if (!buttonProps && !nonInteractiveProps) {
-    return <></>;
-  }
-  if (nonInteractiveProps) {
-    return <div {...nonInteractiveProps} />;
-  }
+  if (!buttonProps && !nonInteractiveProps) return <></>;
+  if (nonInteractiveProps) return <div {...nonInteractiveProps} />;
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     if (!selected || modifiers.selected || e.shiftKey) {
