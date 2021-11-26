@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Readme
 hide_title: true
 slug: /
 hide_table_of_contents: true

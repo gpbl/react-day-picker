@@ -246,10 +246,6 @@ div[class*='docItemCol'] {
   margin: 1em 0 !important;
 }
 
-.theme-doc-sidebar-item-category > a {
-  /* font-weight: 500; */
-}
-
 .markdown h1:first-child {
   --ifm-h1-font-size: 2.5rem;
   font-weight: 500;
