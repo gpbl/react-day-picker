@@ -20,7 +20,7 @@ localization-rtl.tsx
 
 ## Adopting another numbering system
 
-Use [formatters](formatters) to change the numbering system used in the calendar.
+Use [formatters](/guides/formatters) to change the numbering system used in the calendar.
 
 For example, to switch to hindu-arabic using [toLocaleString](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
 
