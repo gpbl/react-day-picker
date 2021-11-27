@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { customRender, PageObjects } from '../../test';
 import { IconLeft } from './IconLeft';
 
