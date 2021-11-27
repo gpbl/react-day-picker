@@ -42,17 +42,16 @@ Use the `modifiers` prop to pass an object with custom modifiers. Change the inl
 modifiers-custom.tsx
 ```
 
-## Styling days with modifiers
+## Styling modifiers
 
 A day can be styled according to its modifiers – using CSS or inline styles.
 
-### Styling via class names
+### Via class names
 
-A modifier is added in the class name of the Day element: for example, a disabled day will get the `.rdp-day_disabled` class name, a "booked" day
+A modifier is added in the class of the Day element. Assign classes to modifiers via the `modifierClassNames` prop.
+
+For example, a disabled day will get the `.rdp-day_disabled` class name, a "booked" day
 `.rdp-day_booked`, etc.
-
-You can change which class name get each modifier via [modifierClassNames](/api/interfaces/daypickerprops#modifiersclassnames). Is also possible to
-just the class name prefix via [modifierPrefix](/api/interfaces/daypickerprops#modifierPrefix).
 
 The following example adds `.my-booked-class` to the day with a `booked` modifier – applying a custom class name to it.
 
@@ -60,7 +59,7 @@ The following example adds `.my-booked-class` to the day with a `booked` modifie
 modifiers-classnames.tsx
 ```
 
-### Styling via inline styles
+### Via inline styles
 
 Another practical way is using inline styles. Use [modifierStyles](/api/interfaces/daypickerprops#modifierstyles) to change the style of a day
 matching the specified modifier.

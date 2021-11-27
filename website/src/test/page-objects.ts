@@ -7,6 +7,12 @@ export function getDayButton(day: Date) {
   });
 }
 
+export function queryDayButton(day: Date) {
+  return screen.queryByRole('button', {
+    name: format(day, 'do MMMM (EEEE)')
+  });
+}
+
 export function getDayCell(day: Date) {
   return screen.getByRole('cell', {
     name: format(day, 'do MMMM (EEEE)')
