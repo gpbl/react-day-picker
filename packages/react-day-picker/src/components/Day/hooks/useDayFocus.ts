@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { isSameDay } from 'date-fns';
 
+import { useDayPicker } from '../../../contexts';
 import { useFocus } from '../../../contexts/Focus';
 
 /** Handle the focus for the day element. */
@@ -25,6 +26,7 @@ export function useDayFocus(
       focus
     }
   ] = useFocus();
+  const { dir } = useDayPicker();
 
   // Focus the HTML element if this is the focused day.
   React.useEffect(() => {
@@ -39,12 +41,12 @@ export function useDayFocus(
       case 'ArrowLeft':
         e.preventDefault();
         e.stopPropagation();
-        focusDayBefore();
+        dir === 'rtl' ? focusDayAfter() : focusDayBefore();
         break;
       case 'ArrowRight':
         e.preventDefault();
         e.stopPropagation();
-        focusDayAfter();
+        dir === 'rtl' ? focusDayBefore() : focusDayAfter();
         break;
       case 'ArrowDown':
         e.preventDefault();
