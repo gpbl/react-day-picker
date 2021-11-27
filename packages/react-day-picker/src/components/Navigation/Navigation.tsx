@@ -56,32 +56,42 @@ export function Navigation(props: NavigationProps): JSX.Element {
 
   return (
     <div className={classNames.nav} style={styles.nav}>
-      <Button
-        aria-label={previousLabel}
-        className={previousClassName}
-        style={styles.nav_button_next}
-        disabled={!previousMonth}
-        onClick={dir === 'rtl' ? onNextClick : onPreviousClick}
-      >
-        {dir === 'rtl' ? (
-          <IconRight className={classNames.nav_icon} style={styles.nav_icon} />
-        ) : (
-          <IconLeft className={classNames.nav_icon} style={styles.nav_icon} />
-        )}
-      </Button>
-      <Button
-        aria-label={nextLabel}
-        className={nextClassName}
-        style={styles.nav_button_next}
-        disabled={!nextMonth}
-        onClick={dir === 'rtl' ? onPreviousClick : onNextClick}
-      >
-        {dir === 'rtl' ? (
-          <IconLeft className={classNames.nav_icon} style={styles.nav_icon} />
-        ) : (
-          <IconRight className={classNames.nav_icon} style={styles.nav_icon} />
-        )}
-      </Button>
+      {!props.hidePrevious && (
+        <Button
+          aria-label={previousLabel}
+          className={previousClassName}
+          style={styles.nav_button_next}
+          disabled={!previousMonth}
+          onClick={dir === 'rtl' ? onNextClick : onPreviousClick}
+        >
+          {dir === 'rtl' ? (
+            <IconRight
+              className={classNames.nav_icon}
+              style={styles.nav_icon}
+            />
+          ) : (
+            <IconLeft className={classNames.nav_icon} style={styles.nav_icon} />
+          )}
+        </Button>
+      )}
+      {!props.hideNext && (
+        <Button
+          aria-label={nextLabel}
+          className={nextClassName}
+          style={styles.nav_button_next}
+          disabled={!nextMonth}
+          onClick={dir === 'rtl' ? onPreviousClick : onNextClick}
+        >
+          {dir === 'rtl' ? (
+            <IconLeft className={classNames.nav_icon} style={styles.nav_icon} />
+          ) : (
+            <IconRight
+              className={classNames.nav_icon}
+              style={styles.nav_icon}
+            />
+          )}
+        </Button>
+      )}
     </div>
   );
 }
