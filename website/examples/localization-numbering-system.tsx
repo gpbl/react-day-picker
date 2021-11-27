@@ -8,19 +8,21 @@ import {
 import { format } from "date-fns";
 import arabic from "date-fns/locale/ar-SA";
 
+const NU_LOCALE = "ar-u-nu-arab";
+
+const formatDay: DateFormatter = (day) =>
+  day.getDate().toLocaleString(NU_LOCALE);
+
+const formatWeekNumber: WeekNumberFormatter = (weekNumber) =>
+  weekNumber.toLocaleString(NU_LOCALE);
+
+const formatCaption: DateFormatter = (date, { locale }) => {
+  const y = date.getFullYear().toLocaleString(NU_LOCALE);
+  const m = format(date, "LLLL", { locale });
+  return `${m} ${y}`;
+};
+
 export default function App() {
-  const nuLocale = "ar-u-nu-arab";
-
-  const formatDay: DateFormatter = (day) =>
-    day.getDate().toLocaleString(nuLocale);
-  const formatWeekNumber: WeekNumberFormatter = (weekNumber) =>
-    weekNumber.toLocaleString(nuLocale);
-  const formatCaption: DateFormatter = (date, { locale }) => {
-    const y = date.getFullYear().toLocaleString(nuLocale);
-    const m = format(date, "LLLL", { locale });
-    return `${m} ${y}`;
-  };
-
   return (
     <DayPicker
       locale={arabic}

@@ -16,10 +16,18 @@ export function getTableFooter() {
   return screen.getByRole('table').querySelector('tfoot');
 }
 
-export function getGoToPreviousButton() {
+export function getPrevButton() {
   return screen.getByRole('button', { name: 'Go to previous month' });
 }
 
-export function getGoToNextButton() {
+export function getNextButton() {
   return screen.getByRole('button', { name: 'Go to next month' });
+}
+
+export function getMonthCaption(container: HTMLElement, index = 0) {
+  return container.getElementsByClassName('rdp-caption_label')[index];
+}
+
+export function getMonthTable(index = 0) {
+  return screen.getAllByRole('table')[index];
 }

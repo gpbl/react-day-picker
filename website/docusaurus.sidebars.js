@@ -9,14 +9,14 @@ const sidebars = {
         'basics/navigation',
         'basics/customization',
         'basics/selecting-days',
-        'basics/styling'
+        'basics/styling',
+        'basics/localization'
       ]
     },
     {
       'Advanced Guides': [
         'guides/modifiers',
         'guides/formatters',
-        'guides/localization',
         'guides/input-fields',
         'guides/custom-components'
       ]
