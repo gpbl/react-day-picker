@@ -6,6 +6,12 @@ export function getDayButton(day: Date) {
     name: format(day, 'do MMMM (EEEE)')
   });
 }
+
+export function getDayCell(day: Date) {
+  return screen.getByRole('cell', {
+    name: format(day, 'do MMMM (EEEE)')
+  });
+}
 export function getWeekButton(week: number) {
   return screen.getByRole('button', {
     name: `Week n. ${week}`

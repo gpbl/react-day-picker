@@ -4,7 +4,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import tk from 'timekeeper';
 
 import Example from './localization-rtl';
-import { getDayButton, getMonthCaption, getPrevButton } from '@site/src/test';
+import { getMonthCaption, getPrevButton, getDayCell } from '@site/src/test';
 import { addDays } from 'date-fns';
 
 let container: HTMLElement;
@@ -39,30 +39,30 @@ describe('when displaying November 2021', () => {
     const previousDay = addDays(day, -1);
     const nextDay = addDays(day, 1);
     beforeEach(() => {
-      fireEvent.focus(getDayButton(day));
+      fireEvent.focus(getDayCell(day));
     });
     describe('when pressing left key on the 13th day', () => {
       beforeEach(() => {
         act(() => {
-          fireEvent.keyDown(getDayButton(day), {
+          fireEvent.keyDown(getDayCell(day), {
             e: { key: 'ArrowRight' }
           });
         });
       });
       // TODO: unskip. See #1289.
       test.skip('should focus the previous day', () => {
-        expect(document.activeElement).toBe(getDayButton(previousDay));
+        expect(document.activeElement).toBe(getDayCell(previousDay));
       });
     });
     describe('when pressing right key on the 13th day', () => {
       beforeEach(() => {
-        fireEvent.keyDown(getDayButton(day), {
+        fireEvent.keyDown(getDayCell(day), {
           e: { key: 'ArrowRight' }
         });
       });
       // TODO: unskip. See #1289.
       test.skip('should focus the next day', () => {
-        expect(document.activeElement).toBe(getDayButton(nextDay));
+        expect(document.activeElement).toBe(getDayCell(nextDay));
       });
     });
   });
