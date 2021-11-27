@@ -18,7 +18,7 @@ To add right-to-left text direction, set the `dir` prop to `rtl`.
 localization-rtl.tsx
 ```
 
-## Adopting another numbering system
+## Adopting other numbering systems
 
 Use [formatters](/guides/formatters) to change the numbering system used in the calendar.
 

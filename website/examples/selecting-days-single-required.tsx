@@ -3,9 +3,8 @@ import { DayPicker } from 'react-day-picker';
 
 import { format } from 'date-fns';
 
-const today = new Date();
-
 export default function App() {
+  const today = new Date();
   const [selectedDay, setSelectedDay] = React.useState(today);
 
   const footer = selectedDay
