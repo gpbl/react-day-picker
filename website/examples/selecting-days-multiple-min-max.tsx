@@ -1,16 +1,12 @@
 import React from 'react';
 import { DayPicker } from 'react-day-picker';
 
-import { addDays } from 'date-fns';
-
-const initialDays: Date[] = [addDays(new Date(), 1), addDays(new Date(), 2)];
-
 export default function App() {
-  const [days, setDays] = React.useState(initialDays);
+  const [days, setDays] = React.useState([]);
 
   const footer =
     days.length > 0
-      ? `You picked ${days.length} day(s).`
+      ? `You selected ${days.length} day(s).`
       : `Please pick one or more days.`;
 
   return (

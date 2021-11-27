@@ -3,7 +3,6 @@ import React from 'react';
 import { clickDay, getDayButton, getTableFooter } from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
-import tk from 'timekeeper';
 
 import Example from './start';
 
