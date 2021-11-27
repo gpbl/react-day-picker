@@ -1,5 +1,5 @@
-import React from "react";
-import { DayPicker, ModifierStatus } from "react-day-picker";
+import React from 'react';
+import { DayPicker, ModifierStatus } from 'react-day-picker';
 
 export default function App() {
   const [selectedDays, setSelectedDays] = React.useState([]);
@@ -23,7 +23,7 @@ export default function App() {
   if (selectedDays.length > 0)
     footer = (
       <p>
-        You selected {selectedDays.length} days.{" "}
+        You selected {selectedDays.length} days.{' '}
         <button onClick={handleResetClick}>Reset</button>
       </p>
     );

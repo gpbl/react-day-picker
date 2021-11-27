@@ -1,12 +1,9 @@
-import React from "react";
-import { DayPicker } from "react-day-picker";
+import React from 'react';
+import { DayPicker } from 'react-day-picker';
 
-import { addDays } from "date-fns";
+import { addDays } from 'date-fns';
 
-const initialDays: Date[] = [
-  addDays(new Date(), 1),
-  addDays(new Date(), 2),
-];
+const initialDays: Date[] = [addDays(new Date(), 1), addDays(new Date(), 2)];
 
 export default function App() {
   const [days, setDays] = React.useState(initialDays);

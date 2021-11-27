@@ -1,7 +1,7 @@
-import React from "react";
-import { DayPicker } from "react-day-picker";
+import React from 'react';
+import { DayPicker } from 'react-day-picker';
 
-import { addMonths, isSameMonth } from "date-fns";
+import { addMonths, isSameMonth } from 'date-fns';
 
 const today = new Date();
 const nextMonth = addMonths(new Date(), 1);
@@ -18,11 +18,5 @@ export default function App() {
     </button>
   );
 
-  return (
-    <DayPicker
-      month={month}
-      onMonthChange={setMonth}
-      footer={footer}
-    />
-  );
+  return <DayPicker month={month} onMonthChange={setMonth} footer={footer} />;
 }
