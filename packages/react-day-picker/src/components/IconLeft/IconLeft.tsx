@@ -1,17 +1,17 @@
-import * as React from 'react';
+import React from 'react';
 
 import { StyledComponentProps } from '../../types';
 
 /**
  * Render the "previous month" button in the navigation.
  */
-export function IconPrevious(props: StyledComponentProps): JSX.Element {
+export function IconLeft(props: StyledComponentProps): JSX.Element {
   return (
     <svg
       width="16px"
       height="16px"
       viewBox="0 0 120 120"
-      data-testid="iconPrevious"
+      data-testid="iconLeft"
       {...props}
     >
       <path

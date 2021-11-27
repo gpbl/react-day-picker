@@ -1,6 +1,7 @@
 /** Page Objects */
 
 import { fireEvent, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { format } from 'date-fns';
 
 export function getDayButton(day: Date) {
@@ -34,8 +35,16 @@ export function getPrevButton() {
   return screen.getByRole('button', { name: 'Go to previous month' });
 }
 
+export function queryPrevButton() {
+  return screen.queryByRole('button', { name: 'Go to previous month' });
+}
+
 export function getNextButton() {
   return screen.getByRole('button', { name: 'Go to next month' });
+}
+
+export function queryNextButton() {
+  return screen.queryByRole('button', { name: 'Go to next month' });
 }
 
 export function getMonthCaption(container: HTMLElement, index = 0) {
@@ -54,6 +63,34 @@ export function clickPrevMonth(options = {}) {
   fireEvent.click(getPrevButton(), options);
 }
 
+export function clickNextMonth(options = {}) {
+  fireEvent.click(getNextButton(), options);
+}
+
 export function clickWeek(weekNumber: number) {
   fireEvent.click(getWeekButton(weekNumber));
+}
+
+export function pressArrowLeft() {
+  userEvent.type(getFocusedElement(), '{arrowleft}');
+}
+
+export function pressArrowRight() {
+  userEvent.type(getFocusedElement(), '{arrowright}');
+}
+
+export function pressArrowUp() {
+  userEvent.type(getFocusedElement(), '{arrowup}');
+}
+
+export function pressArrowDown() {
+  userEvent.type(getFocusedElement(), '{arrowdown}');
+}
+
+export function focusDay(day: Date) {
+  getDayButton(day).focus();
+}
+
+export function getFocusedElement() {
+  return document.activeElement;
 }

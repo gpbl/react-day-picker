@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import enUS from 'date-fns/locale/en-US';
 
-import { DayPickerProps } from '../../types';
-
 import { Caption } from '../../components/Caption';
 import { CaptionLabel } from '../../components/CaptionLabel';
 import { Day } from '../../components/Day';
@@ -12,11 +10,11 @@ import { Dropdown } from '../../components/Dropdown';
 import { Footer } from '../../components/Footer';
 import { Head } from '../../components/Head';
 import { IconDropdown } from '../../components/IconDropdown';
-import { IconNext } from '../../components/IconNext';
-import { IconPrevious } from '../../components/IconPrevious';
+import { IconLeft } from '../../components/IconLeft';
+import { IconRight } from '../../components/IconRight';
 import { Row } from '../../components/Row';
 import { WeekNumber } from '../../components/WeekNumber';
-
+import { DayPickerProps } from '../../types';
 import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
@@ -98,8 +96,8 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
       Footer: Footer,
       Head: Head,
       IconDropdown: IconDropdown,
-      IconNext: IconNext,
-      IconPrevious: IconPrevious,
+      IconRight: IconRight,
+      IconLeft: IconLeft,
       Row: Row,
       WeekNumber: WeekNumber,
       ...initialProps.components
