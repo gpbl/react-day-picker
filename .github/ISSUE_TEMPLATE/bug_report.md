@@ -1,23 +1,33 @@
 ---
 name: Bug report
 about: Create a report to help us improve DayPicker
-title: "(bug) "
+title: ''
 labels: 'Type: Bug'
 assignees: ''
 
 ---
 
-**Describe the bug**
+### Bug description
+
 A clear and concise description of what the bug is.
 
-**To Reproduce**
-Clone https://codesandbox.io/s/react-day-picker-8-vl4ry to reproduce the bug.
+### To reproduce 
 
-**Expected behavior**
+Code sandbox: https://codesandbox.io/s/react-day-picker-8-vl4ry
+
+#### Steps
+
+1. Do this
+2. Do that
+
+### Expected behavior
+
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
+### Screenshots
+
 If applicable, add screenshots to help explain your problem.
 
-**Additional context**
+### Additional context
+
 Add any other context about the problem here.
