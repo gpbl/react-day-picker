@@ -1,18 +1,20 @@
 import React from 'react';
 
+import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
-import tk from 'timekeeper';
-
-import Example from './custom-components-day';
 import { getDaysInMonth } from 'date-fns';
 
-const today = new Date(2021, 10, 25); // 25th November
+import Example from './custom-components-day';
 
-beforeAll(() => tk.freeze(today));
-afterAll(() => tk.reset());
+const today = new Date(2021, 10, 25);
+freezeBeforeAll(today);
+
+let container: HTMLElement;
+beforeEach(() => {
+  container = render(<Example />).container;
+});
 
 test('should render time elements', () => {
-  const { container } = render(<Example />);
   const timeElements = container.getElementsByTagName('time');
   expect(timeElements).toHaveLength(getDaysInMonth(today));
 });

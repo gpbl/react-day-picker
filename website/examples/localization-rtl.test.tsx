@@ -1,30 +1,23 @@
 import React from 'react';
 
-import { act, fireEvent, render, screen } from '@testing-library/react';
-import tk from 'timekeeper';
-
-import Example from './localization-rtl';
-import { getMonthCaption, getPrevButton, getDayCell } from '@site/src/test';
+import { clickPrevMonth, getDayCell, getMonthCaption } from '@site/src/test/po';
+import { freezeBeforeAll } from '@site/src/test/utils';
+import { act, fireEvent, render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 
-let container: HTMLElement;
+import Example from './localization-rtl';
 
+const today = new Date(2021, 10, 25);
+freezeBeforeAll(today);
+
+let container: HTMLElement;
 beforeEach(() => {
-  const renderResult = render(<Example />);
-  container = renderResult.container;
+  container = render(<Example />).container;
 });
 
-test.todo('should set the "dir" attribute');
-
 describe('when displaying November 2021', () => {
-  const today = new Date(2021, 10, 25);
-  beforeAll(() => tk.freeze(today));
-  afterAll(() => tk.reset());
-
   describe('when clicking the previous month button', () => {
-    beforeEach(() => {
-      fireEvent.click(getPrevButton());
-    });
+    beforeEach(() => clickPrevMonth());
     test('should display October 2021', () => {
       expect(getMonthCaption(container)).toHaveTextContent('ديسمبر 2021');
     });

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
-import { useLocation } from '@docusaurus/router';
+import { useLocation } from 'react-router-dom';
+
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
 /**

@@ -1,27 +1,24 @@
 import React from 'react';
 
-import { fireEvent, render, screen } from '@testing-library/react';
-import tk from 'timekeeper';
+import { clickDay, getDayButton, getTableFooter } from '@site/src/test/po';
+import { freezeBeforeAll } from '@site/src/test/utils';
+import { render } from '@testing-library/react';
 
 import Example from './custom-selection-single';
-import { getDayButton, getTableFooter } from '../src/test';
 
-const today = new Date(2021, 10, 25); // 25th November
+const today = new Date(2021, 10, 25);
+freezeBeforeAll(today);
 
-beforeAll(() => tk.freeze(today));
-afterAll(() => tk.reset());
-
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
 });
 
 describe('when a day is clicked', () => {
-  const selectedDay = new Date(2021, 10, 1); // 1st November
-  beforeEach(() => {
-    fireEvent.click(getDayButton(selectedDay));
-  });
+  const day = new Date(2021, 10, 1);
+  beforeEach(() => clickDay(day));
   test('should appear as selected', () => {
-    expect(getDayButton(selectedDay)).toHaveAttribute('aria-pressed', 'true');
+    expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
   });
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent('You selected 11/1/2021.');

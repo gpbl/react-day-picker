@@ -1,27 +1,21 @@
 import React from 'react';
 
-import { render, fireEvent, act } from '@testing-library/react';
-import tk from 'timekeeper';
-
-import Example from './modifiers-today';
-import { getDayButton, getTableFooter } from '@site/src/test';
+import { clickDay, getTableFooter } from '@site/src/test/po';
+import { freezeBeforeAll } from '@site/src/test/utils';
+import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 
-const today = new Date(2022, 5, 10);
+import Example from './modifiers-today';
 
-beforeAll(() => tk.freeze(today));
-afterAll(() => tk.reset());
+const today = new Date(2022, 5, 10);
+freezeBeforeAll(today);
 
 beforeEach(() => {
   render(<Example />);
 });
 
 describe('when the today date is clicked', () => {
-  beforeEach(() => {
-    act(() => {
-      fireEvent.click(getDayButton(today));
-    });
-  });
+  beforeEach(() => clickDay(today));
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent('You clicked the today’s date');
   });
@@ -29,9 +23,7 @@ describe('when the today date is clicked', () => {
 
 describe('when another date is clicked', () => {
   const date = addDays(today, 1);
-  beforeEach(() => {
-    fireEvent.click(getDayButton(date));
-  });
+  beforeEach(() => clickDay(date));
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent(
       'Try clicking the today’s date.'

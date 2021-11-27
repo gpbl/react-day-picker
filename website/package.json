@@ -11,7 +11,8 @@
     "clear": "docusaurus clear",
     "lint": "eslint --ext .ts,.tsx src examples",
     "test": "jest",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+    "typecheck": "tsc --project ./tsconfig.json --noEmit --skipLibCheck",
+    "typecheck:watch": "tsc --project ./tsconfig.json --noEmit --skipLibCheck --watch"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^0.9.1",

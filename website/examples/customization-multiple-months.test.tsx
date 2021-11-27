@@ -1,21 +1,21 @@
 import React from 'react';
 
-import { fireEvent, render } from '@testing-library/react';
-import tk from 'timekeeper';
+import {
+  clickPrevMonth,
+  getMonthCaption,
+  getMonthTable
+} from '@site/src/test/po';
+import { freezeBeforeAll } from '@site/src/test/utils';
+import { render } from '@testing-library/react';
 
 import Example from './customization-multiple-months';
-import { getMonthCaption, getPrevButton, getMonthTable } from '@site/src/test';
 
 const today = new Date(2021, 10, 25);
-
-beforeAll(() => tk.freeze(today));
-afterAll(() => tk.reset());
+freezeBeforeAll(today);
 
 let container: HTMLElement;
-
 beforeEach(() => {
-  const renderResult = render(<Example />);
-  container = renderResult.container;
+  container = render(<Example />).container;
 });
 
 describe('when rendering November 2021', () => {
@@ -33,9 +33,7 @@ describe('when rendering November 2021', () => {
   });
   // Test pagination
   describe('when the previous month button is clicked', () => {
-    beforeEach(() => {
-      fireEvent.click(getPrevButton());
-    });
+    beforeEach(clickPrevMonth);
     test('the first month should be October', () => {
       expect(getMonthCaption(container, 0)).toHaveTextContent('October 2021');
     });

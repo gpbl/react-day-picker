@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  DayClickEventHandler,
-  DayPicker,
-  SelectSingleEventHandler
-} from 'react-day-picker';
+import { DayClickEventHandler, DayPicker } from 'react-day-picker';
 
 const bookedDays = [
   new Date(2021, 5, 8),

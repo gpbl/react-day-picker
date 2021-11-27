@@ -1,5 +1,7 @@
+/** Page Objects */
+
+import { fireEvent, screen } from '@testing-library/react';
 import { format } from 'date-fns';
-import { screen } from '@testing-library/react';
 
 export function getDayButton(day: Date) {
   return screen.getByRole('button', {
@@ -42,4 +44,16 @@ export function getMonthCaption(container: HTMLElement, index = 0) {
 
 export function getMonthTable(index = 0) {
   return screen.getAllByRole('table')[index];
+}
+
+export function clickDay(date: Date, options = {}) {
+  fireEvent.click(getDayButton(date), options);
+}
+
+export function clickPrevMonth(options = {}) {
+  fireEvent.click(getPrevButton(), options);
+}
+
+export function clickWeek(weekNumber: number) {
+  fireEvent.click(getWeekButton(weekNumber));
 }

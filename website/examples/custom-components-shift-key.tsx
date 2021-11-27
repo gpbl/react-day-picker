@@ -1,4 +1,3 @@
-import { isSameDay } from 'date-fns';
 import React, { MouseEventHandler, useState } from 'react';
 import {
   Button,
@@ -7,6 +6,8 @@ import {
   DayProps,
   useDay
 } from 'react-day-picker';
+
+import { isSameDay } from 'date-fns';
 
 function DayWithShiftKey(props: DayProps) {
   const buttonRef = React.useRef<HTMLButtonElement>(null);

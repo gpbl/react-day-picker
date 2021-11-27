@@ -1,18 +1,19 @@
 import React from 'react';
 
+import { freezeBeforeAll } from '@site/src/test/utils';
 import { render, screen } from '@testing-library/react';
-import tk from 'timekeeper';
 
 import Example from './localization-numbering-system';
 
+const today = new Date(2021, 10, 25);
+freezeBeforeAll(today);
+
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
 });
 
 describe('when displaying November 2021', () => {
-  const today = new Date(2021, 10, 25);
-  beforeAll(() => tk.freeze(today));
-  afterAll(() => tk.reset());
   test('should localize the year', () => {
     expect(screen.getByText('نوفمبر ٢٬٠٢١')).toBeInTheDocument();
   });

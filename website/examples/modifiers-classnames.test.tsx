@@ -1,12 +1,10 @@
 import React from 'react';
 
-import { render, screen } from '@testing-library/react';
-import tk from 'timekeeper';
+import { getDayCell } from '@site/src/test/po';
+import { freezeBeforeAll } from '@site/src/test/utils';
+import { render } from '@testing-library/react';
 
 import Example from './modifiers-classnames';
-import { getDayCell } from '@site/src/test';
-
-const today = new Date(2021, 5, 1);
 
 const days = [
   new Date(2021, 5, 8),
@@ -14,11 +12,12 @@ const days = [
   new Date(2021, 5, 11)
 ];
 
-beforeAll(() => tk.freeze(today));
-afterAll(() => tk.reset());
+const today = new Date(2021, 10, 25);
+freezeBeforeAll(today);
 
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
 });
 
 test.each(days)('the day %s should have the `my-booked-class` class', (day) => {
