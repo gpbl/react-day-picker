@@ -10,7 +10,7 @@ import Example from './selecting-days-multiple-min-max';
 const today = new Date(2021, 10, 10);
 freezeBeforeAll(today);
 beforeEach(() => {
-  render(<Example />).container;
+  render(<Example />);
 });
 const days = [
   today,

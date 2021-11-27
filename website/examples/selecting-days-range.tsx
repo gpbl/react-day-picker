@@ -3,10 +3,12 @@ import { DateRange, DayPicker } from 'react-day-picker';
 
 import { addDays, format, isSameDay } from 'date-fns';
 
+const pastMonth = new Date(2020, 10, 15);
+
 export default function App() {
   const defaultSelected: DateRange = {
-    from: new Date(),
-    to: addDays(new Date(), 4)
+    from: pastMonth,
+    to: addDays(pastMonth, 4)
   };
   const [range, setRange] = React.useState<DateRange>(defaultSelected);
 
@@ -20,6 +22,7 @@ export default function App() {
   return (
     <DayPicker
       mode="range"
+      defaultMonth={pastMonth}
       selected={range}
       footer={footer}
       onSelect={setRange}

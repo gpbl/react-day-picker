@@ -10,6 +10,32 @@ export function getDayButton(day: Date) {
   });
 }
 
+export function getAllSelectedDays() {
+  const buttons = screen
+    .getByRole('table')
+    .getElementsByTagName('tbody')[0]
+    .getElementsByTagName('button');
+
+  return Array.from(buttons).filter(
+    (button) => button.getAttribute('aria-pressed') === 'true'
+  );
+}
+
+export function getAllEnabledDays() {
+  const buttons = screen
+    .getByRole('table')
+    .getElementsByTagName('tbody')[0]
+    .getElementsByTagName('button');
+
+  return Array.from(buttons).filter((button) => !button.disabled);
+}
+
+export function getDayButtons(day: Date) {
+  return screen.getByRole('button', {
+    name: format(day, 'do MMMM (EEEE)')
+  });
+}
+
 export function queryDayButton(day: Date) {
   return screen.queryByRole('button', {
     name: format(day, 'do MMMM (EEEE)')
