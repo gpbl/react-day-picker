@@ -28,7 +28,7 @@ describe("when a day is clicked", () => {
   });
   test("should update the footer", () => {
     expect(getTableFooter()).toHaveTextContent(
-      "You selected 1 days."
+      "You selected 1 day(s)."
     );
   });
   describe("when a second day is clicked", () => {
@@ -50,7 +50,7 @@ describe("when a day is clicked", () => {
     });
     test("should update the footer", () => {
       expect(getTableFooter()).toHaveTextContent(
-        "You selected 2 days."
+        "You selected 2 day(s)."
       );
     });
   });

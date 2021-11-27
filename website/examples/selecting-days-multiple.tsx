@@ -7,7 +7,7 @@ export default function App() {
 
   const footer =
     days.length > 0
-      ? `You picked ${days.length} day(s).`
+      ? `You selected ${days.length} day(s).`
       : `Please pick one or more days.`;
 
   return (
