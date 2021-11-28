@@ -1,11 +1,9 @@
 import React from 'react';
+import { isDayPickerMultiple } from '../../types/DayPickerMultiple';
+import { DayPickerProps } from '../../types/DayPicker';
 
-import {
-  DayClickEventHandler,
-  DayPickerProps,
-  isDayPickerMultiple,
-  Modifiers
-} from '../../types';
+import { DayClickEventHandler } from '../../types/EventHandlers';
+import { Modifiers } from '../../types/Modifiers';
 import { SelectMultipleProviderInternal } from './SelectMultipleProviderInternal';
 
 /** Represent the modifiers that are changed by the multiple selection. */

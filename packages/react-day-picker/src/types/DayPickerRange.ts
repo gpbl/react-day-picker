@@ -1,10 +1,8 @@
-import { DayPickerProps } from './DayPickerProps';
+import { DayPickerProps } from './DayPicker';
+import { SelectRangeEventHandler } from './EventHandlers';
 import { DateRange } from './Matchers';
-import { SelectRangeEventHandler } from './SelectRangeEventHandler';
 
-/**
- * The props for the [[DayPicker]] component when using `mode="range"`.
- */
+/** The props for the [[DayPicker]] component when using `mode="range"`. */
 export interface DayPickerRangeProps extends DayPickerProps {
   mode: 'range';
   /** The selected range of days. */

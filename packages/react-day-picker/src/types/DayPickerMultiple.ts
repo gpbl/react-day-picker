@@ -1,9 +1,7 @@
-import { DayPickerProps } from './DayPickerProps';
-import { SelectMultipleEventHandler } from './SelectMultipleEventHandler';
+import { DayPickerProps } from './DayPicker';
+import { SelectMultipleEventHandler } from './EventHandlers';
 
-/**
- * The props for the [[DayPicker]] component when using `mode="multiple"`.
- */
+/** The props for the [[DayPicker]] component when using `mode="multiple"`. */
 export interface DayPickerMultipleProps extends DayPickerProps {
   mode: 'multiple';
   /** The selected days. */

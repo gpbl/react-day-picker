@@ -1,6 +1,6 @@
-/**
- * The props for the [[DayPicker]] component when using `mode="custom"`.
- */
+import { DayPickerProps } from './DayPicker';
+
+/** The props for the [[DayPicker]] component when using `mode="custom"`. */
 export interface DayPickerCustomProps extends DayPickerProps {
   mode: 'custom';
   /** The selected day(s). */
@@ -8,8 +8,6 @@ export interface DayPickerCustomProps extends DayPickerProps {
   /** Use `onDayClick` and related event instead. */
   onSelect: never;
 }
-
-import { DayPickerProps } from './DayPickerProps';
 
 /** Returns true when the props are of type [[DayPickerCustom]]. */
 export function isDayPickerCustom(

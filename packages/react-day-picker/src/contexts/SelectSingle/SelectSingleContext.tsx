@@ -1,12 +1,9 @@
 import React from 'react';
 
-import {
-  DayClickEventHandler,
-  DayPickerProps,
-  isDayPickerSingle,
-  Modifiers
-} from '../../types';
-
+import { DayPickerProps } from '../../types/DayPicker';
+import { isDayPickerSingle } from '../../types/DayPickerSingle';
+import { DayClickEventHandler } from '../../types/EventHandlers';
+import { Modifiers } from '../../types/Modifiers';
 import { SelectSingleProviderInternal } from './SelectSingleProviderInternal';
 
 /** Represent the modifiers that are changed by the single selection. */

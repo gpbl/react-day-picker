@@ -2,11 +2,11 @@ import React from 'react';
 
 import {
   DateRange,
-  DayClickEventHandler,
   DayPickerProps,
   isDayPickerRange,
   Modifiers
 } from '../../types';
+import { DayClickEventHandler } from '../../types/EventHandlers';
 import { SelectRangeProviderInternal } from './SelectRangeProviderInternal';
 
 /** Represent the modifiers that are changed by the range selection. */

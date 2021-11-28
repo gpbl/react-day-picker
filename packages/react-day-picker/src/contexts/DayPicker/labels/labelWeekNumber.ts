@@ -1,8 +1,8 @@
-import { WeekNumberLabelFormatter } from '../../../types';
+import { WeekNumberLabel } from '../../../types';
 
 /**
  * The default ARIA label for the WeekNumber element.
  */
-export const labelWeekNumber: WeekNumberLabelFormatter = (n): string => {
+export const labelWeekNumber: WeekNumberLabel = (n): string => {
   return `Week n. ${n}`;
 };

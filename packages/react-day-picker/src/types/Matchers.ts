@@ -1,7 +1,4 @@
-/**
- * A `Matcher` is a function, a date, an object, or an array of them used to
- * determine if a day matches a modifier.
- */
+/** A `Matcher` is a function, a date, an object, or an array of them used to determine if a day matches a modifier. */
 export type Matcher =
   | ((date: Date) => boolean)
   | Date
@@ -12,34 +9,19 @@ export type Matcher =
   | DateInterval
   | DayOfWeek;
 
-/**
- * Represent a matcher to match a day falling after the specified date, with the
- * date not included.
- */
+/** A matcher to match a day falling after the specified date, with the date not included. */
 export type DateAfter = { after: Date };
 
-/**
- * Represent a matcher to match a day falling before the specified date, with
- * the date not included.
- */
+/** A matcher to match a day falling before the specified date, with the date not included. */
 export type DateBefore = { before: Date };
 
-/**
- * Represent a matcher to match a day falling before and after two dates, where
- * the dates are not included.
- */
+/** A matcher to match a day falling before and after two dates, where the dates are not included. */
 export type DateInterval = { before: Date; after: Date };
 
-/**
- * Represent a matcher to match a range of dates. The range can be open.
- * Differently from [[DateInterval]], the dates here are included.
- */
+/** A matcher to match a range of dates. The range can be open. Differently from [[DateInterval]], the dates here are included. */
 export type DateRange = { from: Date | undefined; to?: Date | undefined };
 
-/**
- * Represent a matcher to match a date being one of the specified days of the week (`0-7`, where `0`
- * is Sunday).
- */
+/** A matcher to match a date being one of the specified days of the week (`0-7`, where `0` is Sunday). */
 export type DayOfWeek = { dayOfWeek: number[] };
 
 /** Returns true if `matcher` is of type [[DateInterval]]. */

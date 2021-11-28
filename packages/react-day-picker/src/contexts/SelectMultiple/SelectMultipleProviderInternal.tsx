@@ -1,10 +1,11 @@
 import React from 'react';
 import { isSameDay } from 'date-fns';
-import { DayClickEventHandler, DayPickerMultipleProps } from '../../types';
 import {
   SelectMultipleContext,
   SelectMultipleModifiers
 } from './SelectMultipleContext';
+import { DayClickEventHandler } from '../../types/EventHandlers';
+import { DayPickerMultipleProps } from '../../types/DayPickerMultiple';
 
 type SelectMultipleProviderInternalProps = {
   initialProps: DayPickerMultipleProps;
