@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
 import { DayClickEventHandler, DayPickerRangeProps } from '../../types';
 import { SelectRangeContext, SelectRangeModifiers } from './SelectRangeContext';

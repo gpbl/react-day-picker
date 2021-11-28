@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import enUS from 'date-fns/locale/en-US';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { useDayPicker } from '../../contexts/DayPicker';
 import { Button } from '../Button';

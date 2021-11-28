@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 /** Represent the style (either via class names or via in-line styles) of an element. */
 export type StyledElement<T = string | React.CSSProperties> = {

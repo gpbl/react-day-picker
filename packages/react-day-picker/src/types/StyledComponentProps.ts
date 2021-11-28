@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 /** Represent component props to style a component inline or via CSS. */
 export type StyledComponentProps = {

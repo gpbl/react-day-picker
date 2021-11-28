@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { DayClickEventHandler, DayPickerSingleProps } from '../../types';
 import { SelectSingleContextValue } from './';
 import {

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { isSameYear, setMonth as setDateMonth, startOfMonth } from 'date-fns';
 
