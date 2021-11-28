@@ -1,12 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 
 import { addMonths, setMonth, setYear } from 'date-fns';
-
 import tk from 'timekeeper';
 
 import { ContextProviderProps } from '../../contexts/ContextProvider';
 import { customRender, PageObjects } from '../../test';
-
 import { Caption } from './Caption';
 
 const today = new Date(2021, 8);
@@ -31,6 +29,7 @@ describe('when navigation is disabled', () => {
     expect(po.yearDropdown).toBeNull();
   });
   test('should not render the navigation', () => {
+    screen.debug(null, Infinity);
     expect(po.previousButton).toBeNull();
     expect(po.nextButton).toBeNull();
   });
