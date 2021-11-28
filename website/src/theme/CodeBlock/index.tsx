@@ -85,7 +85,7 @@ export default function CodeBlock(props) {
       <a
         className={style.externalIcon}
         href={`/render?example=${fileName}`}
-        target="_blank"
+        target="render"
         style={{
           left: `calc(${editorWidthPercentage}% - .5rem)`
         }}
