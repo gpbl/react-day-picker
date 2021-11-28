@@ -3,7 +3,7 @@ import React from 'react';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
-import Example from './customization-outside-days';
+import Example from './outside-days';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

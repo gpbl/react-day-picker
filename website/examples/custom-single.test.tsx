@@ -4,7 +4,7 @@ import { clickDay, getDayButton, getTableFooter } from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
-import Example from './custom-selection-single';
+import Example from './custom-single';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

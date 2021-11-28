@@ -4,7 +4,7 @@ import { clickDay, getAllSelectedDays, getDayButton } from '@site/src/test/po';
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 
-import Example from './selecting-days-range';
+import Example from './range';
 
 const pastMonth = new Date(2020, 10, 15);
 

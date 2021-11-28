@@ -3,7 +3,7 @@ import React from 'react';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render, screen } from '@testing-library/react';
 
-import Example from './localization-numbering-system';
+import Example from './numbering-system';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

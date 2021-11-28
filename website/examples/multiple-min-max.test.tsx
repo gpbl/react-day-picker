@@ -5,7 +5,7 @@ import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 
-import Example from './selecting-days-multiple-min-max';
+import Example from './multiple-min-max';
 
 const today = new Date(2021, 10, 10);
 freezeBeforeAll(today);

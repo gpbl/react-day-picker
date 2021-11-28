@@ -15,9 +15,6 @@ import { Matcher } from './Matcher';
 import { ModifierClassNames } from './ModifierClassNames';
 import { ModifierStyles } from './ModifierStyles';
 import { MonthChangeEventHandler } from './MonthChangeEventHandler';
-import { SelectMultipleEventHandler } from './SelectMultipleEventHandler';
-import { SelectRangeEventHandler } from './SelectRangeEventHandler';
-import { SelectSingleEventHandler } from './SelectSingleEventHandler';
 import { Styles } from './Styles';
 import { WeekNumberClickEventHandler } from './WeekNumberClickEventHandler';
 
@@ -196,7 +193,7 @@ export interface DayPickerProps {
    */
   mode?: 'custom' | 'single' | 'multiple' | 'range';
 
-  // #region localization props
+  // #region  props
   /**
    * The date-fns locale object to localize the user interface. Defaults to
    * `en-US`.

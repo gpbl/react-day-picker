@@ -4,7 +4,7 @@ import { clickWeek, getTableFooter, getWeekButton } from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
-import Example from './customization-weeknumber';
+import Example from './weeknumber';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

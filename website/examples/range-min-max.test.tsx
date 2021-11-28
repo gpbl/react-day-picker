@@ -4,7 +4,7 @@ import { clickDay, getAllEnabledDays, getDayButton } from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
-import Example from './selecting-days-range-min-max';
+import Example from './range-min-max';
 
 const today = new Date(2021, 10, 15);
 

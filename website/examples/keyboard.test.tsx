@@ -16,7 +16,7 @@ import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 import { addDays, addWeeks, lastDayOfMonth, setDate } from 'date-fns';
 
-import Example from './navigation-keyboard';
+import Example from './keyboard';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

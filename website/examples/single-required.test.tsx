@@ -4,13 +4,14 @@ import { clickDay, getDayButton, getTableFooter } from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
-import Example from './selecting-days-single';
+import Example from './single-required';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
 });
 
 describe('when a day is clicked', () => {
@@ -26,8 +27,8 @@ describe('when a day is clicked', () => {
   });
   describe('when the day is clicked again', () => {
     beforeEach(() => clickDay(day));
-    test('should appear as not selected', () => {
-      expect(getDayButton(day)).not.toHaveAttribute('aria-pressed');
+    test('should appear as selected', () => {
+      expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
     });
   });
 });

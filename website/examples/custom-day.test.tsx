@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { getMonthCaption } from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
+import { getDaysInMonth } from 'date-fns';
 
-import Example from './localization-spanish';
+import Example from './custom-day';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
@@ -14,6 +14,7 @@ beforeEach(() => {
   container = render(<Example />).container;
 });
 
-test('should localize the caption in Spanish', () => {
-  expect(getMonthCaption(container)).toHaveTextContent('noviembre 2021');
+test('should render time elements', () => {
+  const timeElements = container.getElementsByTagName('time');
+  expect(timeElements).toHaveLength(getDaysInMonth(today));
 });

@@ -3,7 +3,7 @@ import React from 'react';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
-import Example from './custom-components-disable-row';
+import Example from './rtl';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
@@ -13,7 +13,9 @@ beforeEach(() => {
   container = render(<Example />).container;
 });
 
-test('should render only 3 rows', () => {
-  const rowElements = container.getElementsByTagName('tr');
-  expect(rowElements).toHaveLength(3);
+test('should have the rtl attribute', () => {
+  expect(container.getElementsByClassName('rdp')[0]).toHaveAttribute(
+    'dir',
+    'rtl'
+  );
 });

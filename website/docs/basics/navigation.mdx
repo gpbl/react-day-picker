@@ -8,7 +8,7 @@ default month, set the `defaultMonth` prop.
 For example, to set the default month to September 1979:
 
 ```include
-navigation-default-month.tsx
+default-month.tsx
 ```
 
 ## Controlling the current month
@@ -21,7 +21,7 @@ To control the current month, use `month` (as opposed to `defaultMonth`) and
 `onMonthChange` to handle the current month.
 
 ```include
-navigation-controlled.tsx
+controlled.tsx
 ```
 
 ## Limiting the month navigation
@@ -31,7 +31,7 @@ As default, DayPicker can navigate indefinitely in the past or in the future.
 To limit the navigable months between two years, use `fromYear` or `toYear`.
 
 ```include
-navigation-from-to-year.tsx
+from-to-year.tsx
 ```
 
 ### Between months or dates
@@ -41,7 +41,7 @@ You can also limit the navigation with `fromDate`/`toDate` and `fromMonth` and
 Nov, 2015:
 
 ```include
-navigation-from-to-month.tsx
+from-to-month.tsx
 ```
 
 ## Using a drop-down to change the month
@@ -51,7 +51,7 @@ When limiting the navigable months, use `captionLayout` to display a drop-down
 / next buttons.
 
 ```include
-navigation-dropdown.tsx
+dropdown.tsx
 ```
 
 ## Disabling navigation
@@ -59,5 +59,5 @@ navigation-dropdown.tsx
 To disable the navigation between months, use `disableNavigation`.
 
 ```include
-navigation-disabled.tsx
+disabled.tsx
 ```

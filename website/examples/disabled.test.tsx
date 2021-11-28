@@ -10,7 +10,7 @@ import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 import { setDate } from 'date-fns';
 
-import Example from './navigation-disabled';
+import Example from './disabled';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
