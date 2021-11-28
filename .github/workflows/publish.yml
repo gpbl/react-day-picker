@@ -38,7 +38,7 @@ jobs:
         run: yarn install
 
       - name: Lint Files
-        run: yarn coverage
+        run: yarn lint --coverage
         working-directory: ./packages/react-day-picker
 
       - name: Run Unit Tests
