@@ -4,7 +4,7 @@ import { WeekdayLabelFormatter } from './WeekdayLabelFormatter';
 import { WeekNumberLabelFormatter } from './WeekNumberLabelFormatter';
 
 /**
- * Represent a map of functions to translate ARIA labels for the relative elements.
+ * Map of functions to translate ARIA labels for the relative elements.
  */
 export type Labels = {
   labelMonthDropdown: () => string;
