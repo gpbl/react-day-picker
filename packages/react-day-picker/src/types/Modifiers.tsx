@@ -1,5 +1,5 @@
 import { InternalModifier } from './InternalModifier';
-import { Matcher } from './Matcher';
+import { Matcher } from './Matchers';
 import { Modifier } from './Modifier';
 
 /** Represent the map of modifiers with an array of matcher. */

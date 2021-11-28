@@ -1,5 +1,5 @@
-import { DateRange } from './DateRange';
 import { DayPickerProps } from './DayPickerProps';
+import { DateRange } from './Matchers';
 import { SelectRangeEventHandler } from './SelectRangeEventHandler';
 
 /**

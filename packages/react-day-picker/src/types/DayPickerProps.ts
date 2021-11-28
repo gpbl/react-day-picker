@@ -11,7 +11,7 @@ import { DayMouseEventHandler } from './DayMouseEventHandler';
 import { DayTouchEventHandler } from './DayTouchEventHandler';
 import { Formatters } from './Formatters';
 import { Labels } from './Labels';
-import { Matcher } from './Matcher';
+import { Matcher } from './Matchers';
 import { ModifierClassNames } from './ModifierClassNames';
 import { ModifierStyles } from './ModifierStyles';
 import { MonthChangeEventHandler } from './MonthChangeEventHandler';
