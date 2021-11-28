@@ -2,27 +2,13 @@ name: "CI: react-day-picker"
 
 on:
   push:
-    branches:
-      - master
     paths:
       - "packages/react-day-picker"
-      - ".yarnrc.yml"
-      - ".prettier*.*"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
       - ".github/workflows/**"
 
   pull_request:
-    branches:
-      - master
     paths:
       - "packages/react-day-picker"
-      - ".yarnrc.yml"
-      - ".prettier*.*"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
       - ".github/workflows/**"
 
 jobs:

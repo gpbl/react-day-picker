@@ -1,13 +1,13 @@
-import React from "react";
-import { DayPicker, useInput } from "react-day-picker";
+import React from 'react';
+import { DayPicker, useInput } from 'react-day-picker';
 
 export default function App() {
   const { inputProps, dayPickerProps } = useInput({
     defaultSelected: new Date(),
     fromYear: 2020,
     toYear: 2022,
-    format: "PP",
-    required: true,
+    format: 'PP',
+    required: true
   });
 
   const footer = (

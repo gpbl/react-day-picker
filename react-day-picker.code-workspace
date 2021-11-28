@@ -25,7 +25,8 @@
     },
     "npm.packageManager": "yarn",
     "eslint.packageManager": "yarn",
-    "jest.jestCommandLine": "yarn test"
+    "jest.jestCommandLine": "yarn test",
+    "importSorter.sortConfiguration.removeUnusedImports": true
   },
   "extensions": {
     "recommendations": [

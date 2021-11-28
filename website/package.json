@@ -11,7 +11,8 @@
     "clear": "docusaurus clear",
     "lint": "eslint --ext .ts,.tsx src examples",
     "test": "jest",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+    "typecheck": "tsc --project ./tsconfig.json --noEmit --skipLibCheck",
+    "typecheck:watch": "tsc --project ./tsconfig.json --noEmit --skipLibCheck --watch"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^0.9.1",
@@ -27,6 +28,7 @@
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/user-event": "^13.5.0",
     "@tsconfig/docusaurus": "^1.0.4",
     "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.4.0",

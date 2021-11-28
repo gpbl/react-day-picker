@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button } from '../Button';
 import { useDayPicker } from '../../contexts/DayPicker';
+import { Button } from '../Button';
 
 /** The props for the [[Navigation]] component. */
 export interface NavigationProps {
@@ -29,7 +29,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
     classNames,
     styles,
     labels: { labelPrevious, labelNext },
-    components: { IconNext, IconPrevious }
+    components: { IconRight, IconLeft }
   } = useDayPicker();
   let { onPreviousClick, onNextClick } = props;
   if (dir === 'rtl') {
@@ -50,38 +50,48 @@ export function Navigation(props: NavigationProps): JSX.Element {
     classNames.nav_button_next
   ].join(' ');
 
-  const previousButton = (
-    <Button
-      key="prev"
-      aria-label={previousLabel}
-      className={previousClassName}
-      style={styles.nav_button_previous}
-      disabled={!previousMonth}
-      onClick={onPreviousClick}
-    >
-      <IconPrevious className={classNames.nav_icon} style={styles.nav_icon} />
-    </Button>
-  );
-
-  const nextButton = (
-    <Button
-      key="next"
-      aria-label={nextLabel}
-      className={nextClassName}
-      disabled={!nextMonth}
-      onClick={onNextClick}
-      style={styles.nav_button_next}
-    >
-      <IconNext className={classNames.nav_icon} style={styles.nav_icon} />
-    </Button>
-  );
   if (!nextMonth && !previousMonth) {
     return <></>;
   }
+
   return (
     <div className={classNames.nav} style={styles.nav}>
-      {!props.hidePrevious && (dir === 'rtl' ? nextButton : previousButton)}
-      {!props.hideNext && (dir === 'rtl' ? previousButton : nextButton)}
+      {!props.hidePrevious && (
+        <Button
+          aria-label={previousLabel}
+          className={previousClassName}
+          style={styles.nav_button_next}
+          disabled={!previousMonth}
+          onClick={dir === 'rtl' ? onNextClick : onPreviousClick}
+        >
+          {dir === 'rtl' ? (
+            <IconRight
+              className={classNames.nav_icon}
+              style={styles.nav_icon}
+            />
+          ) : (
+            <IconLeft className={classNames.nav_icon} style={styles.nav_icon} />
+          )}
+        </Button>
+      )}
+      {!props.hideNext && (
+        <Button
+          aria-label={nextLabel}
+          className={nextClassName}
+          style={styles.nav_button_next}
+          disabled={!nextMonth}
+          onClick={dir === 'rtl' ? onPreviousClick : onNextClick}
+        >
+          {dir === 'rtl' ? (
+            <IconLeft className={classNames.nav_icon} style={styles.nav_icon} />
+          ) : (
+            <IconRight
+              className={classNames.nav_icon}
+              style={styles.nav_icon}
+            />
+          )}
+        </Button>
+      )}
     </div>
   );
 }

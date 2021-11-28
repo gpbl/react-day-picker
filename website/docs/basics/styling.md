@@ -1,0 +1,86 @@
+# Styling DayPicker
+
+## Style via CSS
+
+DayPicker includes a [CSS
+file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/style)
+to import, or to copy as template.
+
+```js
+import 'react-day-picker/style.css';
+```
+
+The CSS uses few variables to quickly override the colors and the cell size:
+
+```css
+:root {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #0000ff;
+  --rdp-background-color: #e7edff;
+  /* Switch to dark colors for dark themes */
+  --rdp-accent-color-dark: #3003e1;
+  --rdp-background-color-dark: #180270;
+  /* Outline border for focused elements */
+  --rdp-outline: 2px solid var(--rdp-accent-color);
+  /* Outline border for focused and selected elements */
+  --rdp-outline-selected: 2px solid rgba(0, 0, 0, 0.75);
+}
+```
+
+## Inline styles
+
+To change the appearance of any DayPicker element via inline-styles use the
+`styles` prop.
+
+```include
+styling-inline
+```
+
+## Custom CSS classes
+
+To use custom classes, use [`classNames`](/api/types/classnames).
+
+```include
+styling-css
+```
+
+### CSS Modules
+
+Replacing the default class names is useful with [CSS
+Modules](https://github.com/css-modules/css-modules).
+
+1. Create a CSS module using the class names listed in [StyledElements](/api/types/styledelement). Or use [this CSS
+   file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/style/index.css),
+   remove the `rdp-` prefix from the selectors.
+
+```css
+/* my-css.module.css */
+.root {
+  /* ... */
+}
+.caption_label {
+  /* ... */
+}
+.day_today {
+  /* ... */
+}
+/* etc.. */
+```
+
+2. Pass the imported CSS module to the `classNames` prop
+
+```tsx
+import * as React from 'react';
+import { DayPicker } from 'react-day-picker';
+
+import * as classNames from './my-css.module.css';
+
+export default function App() {
+  return (
+    <>
+      <style>{style}</style>
+      <DayPicker classNames={classNames} />
+    </>
+  );
+}
+```

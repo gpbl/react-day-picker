@@ -1,55 +1,28 @@
 .root {
-  justify-content: center;
-  background-color: var(--menu-background);
-  align-items: stretch;
-  border-radius: var(--ifm-global-radius);
-  display: flex;
-  flex-wrap: wrap;
-  overflow: hidden;
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
-    0px 3px 4px 0px rgba(158, 123, 123, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-  margin-bottom: var(--ifm-paragraph-margin-bottom);
+  max-width: 1000px;
+  position: relative;
+  bottom: 0;
 }
 
-.code {
-  padding: .65rem 0;
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-shrink: 1;
-  min-width: 434px;
-  max-height: 600px;
-  background-color: var(--ifm-background-color) !important;
-}
-
-.output {
-  flex-basis: 340px;
-  flex-grow: 0;
-  flex-shrink: 1;
-  padding: 1.4em;
-  background-color: var(--menu-background);
-}
-
-.output>div {
-  min-height: 310px;
-  display: flex;
-  justify-content: center;
+.externalIcon {
+  border-radius: 50%;
+  position: absolute;
+  bottom: .5rem;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  padding: 4px;
+  text-align: center;
+  color: currentcolor;
+  margin-right: 1rem;
   background-color: var(--ifm-background-color);
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  transform: translateX(-40px);
 }
 
-.code [class^='codeBlock'] {
-  --ifm-scrollbar-size: 0;
+.externalIcon svg {
+  opacity: .5;
 }
 
-.code [class^='codeBlockContainer'] {
-  height: 100%;
-  margin: 0;
-}
-
-.code [class^='codeBlockContainer']>div,
-.code [class^='codeBlockContainer']>div>div,
-.code [class^='codeBlockContainer']>div>div>div {
-  height: 100%;
-  background-color: transparent !important;
+.externalIcon:hover svg {
+  opacity: 1;
 }
