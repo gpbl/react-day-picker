@@ -1,4 +1,4 @@
-import { ModifierStatus } from './ModifierStatus';
+import { ModifierStatus } from './Modifiers';
 
 /** Represent the event handler when selecting a single day. */
 export interface SelectSingleEventHandler {

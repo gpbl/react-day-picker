@@ -16,3 +16,10 @@ export interface DayPickerRangeProps extends DayPickerProps {
   /** The maximum amount of days that can be selected. */
   max?: number;
 }
+
+/** Returns true when the props are of type [[DayPickerRange]]. */
+export function isDayPickerRange(
+  props: DayPickerProps
+): props is DayPickerRangeProps {
+  return props.mode === 'range';
+}

@@ -13,3 +13,9 @@ export interface DayPickerSingleProps extends DayPickerProps {
   /** Make the selection required. */
   required?: boolean;
 }
+/** Returns true when the props are of type [[DayPickerSingle]]. */
+export function isDayPickerSingle(
+  props: DayPickerProps
+): props is DayPickerSingleProps {
+  return props.mode === 'single';
+}

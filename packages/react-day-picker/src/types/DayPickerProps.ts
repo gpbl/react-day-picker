@@ -1,9 +1,8 @@
 import { Locale } from 'date-fns';
 
-import { CaptionLayout } from './CaptionLayout';
+import { CaptionLayout } from '../components';
 import { ClassNames } from './ClassNames';
 import { Components } from './Components';
-import { CustomModifiers } from './CustomModifiers';
 import { DayClickEventHandler } from './DayClickEventHandler';
 import { DayFocusEventHandler } from './DayFocusEventHandler';
 import { DayKeyboardEventHandler } from './DayKeyboardEventHandler';
@@ -12,8 +11,11 @@ import { DayTouchEventHandler } from './DayTouchEventHandler';
 import { Formatters } from './Formatters';
 import { Labels } from './Labels';
 import { Matcher } from './Matchers';
-import { ModifierClassNames } from './ModifierClassNames';
-import { ModifierStyles } from './ModifierStyles';
+import {
+  CustomModifiers,
+  ModifierClassNames,
+  ModifierStyles
+} from './Modifiers';
 import { MonthChangeEventHandler } from './MonthChangeEventHandler';
 import { Styles } from './Styles';
 import { WeekNumberClickEventHandler } from './WeekNumberClickEventHandler';

@@ -16,6 +16,14 @@ export interface CaptionProps {
 }
 
 /**
+ * The layout of the caption:
+ *
+ * - `dropdown` - display a month / year dropdown
+ * - `buttons` - display previous / next month button.
+ */
+export type CaptionLayout = 'dropdown' | 'buttons';
+
+/**
  * Render the caption of a month, which includes title and navigation buttons.
  * The caption has a different layout when setting the `numberOfMonths` prop.
  */
