@@ -6,7 +6,7 @@ import {
   RenderHookResult
 } from '@testing-library/react-hooks';
 
-import { ContextProvider } from '../contexts/ContextProvider';
+import { RootProvider } from '../contexts/RootProvider';
 import {
   DayPickerCustomProps,
   DayPickerMultipleProps,
@@ -25,7 +25,7 @@ export function customRenderHook<TProps, TResult>(
     | DayPickerRangeProps
 ): RenderHookResult<TProps, TResult, Renderer<TProps>> {
   const wrapper = ({ children }: { children?: React.ReactNode }) => (
-    <ContextProvider {...contextValue}>{children}</ContextProvider>
+    <RootProvider {...contextValue}>{children}</RootProvider>
   );
   return renderHook<TProps, TResult>(callback, { wrapper });
 }

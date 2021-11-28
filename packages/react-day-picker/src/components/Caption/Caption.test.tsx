@@ -3,7 +3,7 @@ import React from 'react';
 import { addMonths, setMonth, setYear } from 'date-fns';
 import tk from 'timekeeper';
 
-import { ContextProviderProps } from '../../contexts/ContextProvider';
+import { RootProvider, RootContext } from '../../contexts/RootProvider';
 import { customRender, PageObjects } from '../../test';
 import { Caption } from './Caption';
 
@@ -38,7 +38,7 @@ describe('when the caption layout is "dropdown"', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
-    const context: Partial<ContextProviderProps> = {
+    const context: Partial<RootContext> = {
       captionLayout: 'dropdown',
       fromYear,
       toYear,
@@ -63,7 +63,7 @@ describe('when the caption layout is "dropdown"', () => {
 });
 
 describe('when a month is selected', () => {
-  let context: Partial<ContextProviderProps>;
+  let context: Partial<RootContext>;
   beforeEach(() => {
     context = {
       captionLayout: 'dropdown',
@@ -91,7 +91,7 @@ describe('when a month is selected', () => {
 
 describe('when the caption layout is "dropdown" but no date limits are set', () => {
   beforeEach(() => {
-    const context: Partial<ContextProviderProps> = {
+    const context: Partial<RootContext> = {
       captionLayout: 'dropdown'
     };
     customRender(<Caption displayMonth={today} />, context);
@@ -103,7 +103,7 @@ describe('when the caption layout is "dropdown" but no date limits are set', () 
 });
 
 describe('when the caption layout is "buttons"', () => {
-  const context: Partial<ContextProviderProps> = {
+  const context: Partial<RootContext> = {
     captionLayout: 'buttons'
   };
   test('should render the caption label', () => {
