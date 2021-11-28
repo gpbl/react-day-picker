@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React from 'react';
+
 import { render, RenderResult } from '@testing-library/react';
 
-import { DayPickerProps } from '../types';
-
 import { ContextProvider } from '../contexts/ContextProvider';
+import { DayPickerProps } from '../types';
 
 export const customRender = (
   element: React.ReactElement,

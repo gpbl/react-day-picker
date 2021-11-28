@@ -15,9 +15,9 @@ export class PageObjects {
     this.today = today;
   }
 
-  /** The icon for the previous button. */
-  get iconPrevious(): HTMLElement {
-    return screen.getByTestId('iconPrevious');
+  /** The icon for the left button. */
+  get iconLeft(): HTMLElement {
+    return screen.getByTestId('iconLeft');
   }
 
   /** The icon for the dropdown. */
@@ -25,9 +25,9 @@ export class PageObjects {
     return screen.getByTestId('iconDropdown');
   }
 
-  /** The icon for the next button. */
-  get iconNext(): HTMLElement {
-    return screen.getByTestId('iconNext');
+  /** The icon for the right button. */
+  get iconRight(): HTMLElement {
+    return screen.getByTestId('iconRight');
   }
 
   /** Get the table element. */

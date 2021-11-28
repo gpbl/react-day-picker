@@ -9,7 +9,7 @@ DayPicker comes with some built in modifiers: `disabled`, `selected`, `hidden`, 
 When in selection mode, use the `disabled` modifier to disable one or more days. Pass a [`Matcher`](/api/types/matcher) or an array of `Matchers` to choose the disabled days.
 
 ```include
-modifiers-disabled.tsx
+modifiers-disabled
 ```
 
 ## Hidden days
@@ -17,7 +17,7 @@ modifiers-disabled.tsx
 The `hidden` modifier removes the day from the calendar. Set the hidden days using the `hidden` prop.
 
 ```include
-modifiers-hidden.tsx
+modifiers-hidden
 ```
 
 ## The `today` modifier
@@ -25,7 +25,7 @@ modifiers-hidden.tsx
 The `today` modifier is added to the current date.
 
 ```include
-modifiers-today.tsx
+modifiers-today
 ```
 
 :::info
@@ -39,28 +39,27 @@ Add new modifiers according to your app’s requirements. For example, a booking
 Use the `modifiers` prop to pass an object with custom modifiers. Change the inline-style of the cell with `modifierStyles`.
 
 ```include
-modifiers-custom.tsx
+modifiers-custom
 ```
 
-## Styling days with modifiers
+## Styling modifiers
 
 A day can be styled according to its modifiers – using CSS or inline styles.
 
-### Styling via class names
+### Via class names
 
-A modifier is added in the class name of the Day element: for example, a disabled day will get the `.rdp-day_disabled` class name, a "booked" day
+A modifier is added in the class of the Day element. Assign classes to modifiers via the `modifierClassNames` prop.
+
+For example, a disabled day will get the `.rdp-day_disabled` class name, a "booked" day
 `.rdp-day_booked`, etc.
-
-You can change which class name get each modifier via [modifierClassNames](/api/interfaces/daypickerprops#modifiersclassnames). Is also possible to
-just the class name prefix via [modifierPrefix](/api/interfaces/daypickerprops#modifierPrefix).
 
 The following example adds `.my-booked-class` to the day with a `booked` modifier – applying a custom class name to it.
 
 ```include
-modifiers-classnames.tsx
+modifiers-classnames
 ```
 
-### Styling via inline styles
+### Via inline styles
 
 Another practical way is using inline styles. Use [modifierStyles](/api/interfaces/daypickerprops#modifierstyles) to change the style of a day
 matching the specified modifier.
@@ -68,5 +67,5 @@ matching the specified modifier.
 In the following example, the available days are styled via inline styles.
 
 ```include
-modifiers-style.tsx
+modifiers-style
 ```

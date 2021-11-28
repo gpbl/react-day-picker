@@ -1,0 +1,80 @@
+# Selecting Days
+
+DayPicker supports four selection modes:
+
+- single: only a single day can be selected
+- multiple: allow selection of multiple days
+- range: allow the selection of range of days
+- custom: let the parent component handle the selection
+
+## Single selection mode
+
+To enable single day selection, set `mode="single"` and use `onSelect` to get
+the selected day.
+
+```include
+single
+```
+
+### Making a selection required
+
+To make a selection required, use `defautSelected` with `required`.
+
+For example, to set the default selected date to today:
+
+```include
+single-required
+```
+
+## Selecting multiple days
+
+Use `mode="multiple"` to allow the selection of multiple days:
+
+```include
+multiple
+```
+
+### Limiting the selectable days
+
+Use the `min` and `max` props to limit the amount of days that can be selected.
+
+```include
+multiple-min-max
+```
+
+## Selecting a range of days
+
+Use `mode="range"` and `onSelectRange` to allow the selection of multiple days.
+
+```include
+range
+```
+
+### Limiting the range size
+
+Use the `min` and `max` props to limit the amount of days in the range.
+
+```include
+range-min-max
+```
+
+## Custom selection mode
+
+If the built-in selection modes are not enough for your app’s requirements, you
+can control the selection behavior using `mode="custom"`.
+
+### Example: custom single select
+
+The following example use the custom selection mode to implement the "single selection" behavior. It is like when `mode="single"`, we place it here to show how the custom selection works.
+
+```include
+custom-single
+```
+
+### Example: custom multiple select
+
+The case of a multi-days select is a bit more complex as it deals with an array. The following example replicates the `mode="multiple"` selection mode.
+
+```include
+custom-multiple
+```

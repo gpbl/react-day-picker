@@ -1,33 +1,26 @@
-import React, { CSSProperties } from "react";
-import { DayClickEventHandler, DayPicker } from "react-day-picker";
+import React from 'react';
+import { DayPicker } from 'react-day-picker';
+
+const availableDays = [
+  new Date(2021, 5, 23),
+  new Date(2021, 5, 24)
+];
+
+const availableStyle = {
+  fontWeight: 900,
+  color: 'lightgreen'
+};
 
 export default function App() {
-  const availableDays = [
-    new Date(2021, 5, 23),
-    new Date(2021, 5, 24),
-  ];
-  const availableStyle: CSSProperties = {
-    fontWeight: 900,
-    color: "lightgreen",
-  };
-
-  const handleDayClick: DayClickEventHandler = (
-    day,
-    { available }
-  ) => {
-    if (available) alert("You clicked an available day.");
-  };
-
   return (
     <DayPicker
       defaultMonth={availableDays[0]}
       modifiers={{
-        available: availableDays,
+        available: availableDays
       }}
       modifierStyles={{
-        available: availableStyle,
+        available: availableStyle
       }}
-      onDayClick={handleDayClick}
     />
   );
 }

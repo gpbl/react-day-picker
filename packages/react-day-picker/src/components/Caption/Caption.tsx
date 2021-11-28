@@ -1,14 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 
 import { isSameMonth } from 'date-fns';
 
+import { useDayPicker } from '../../contexts/DayPicker';
+import { useNavigation } from '../../contexts/Navigation';
 import { MonthChangeEventHandler } from '../../types';
-
 import { MonthsDropdown } from '../MonthsDropdown';
 import { Navigation } from '../Navigation';
 import { YearsDropdown } from '../YearsDropdown';
-import { useDayPicker } from '../../contexts/DayPicker';
-import { useNavigation } from '../../contexts/Navigation';
 
 /** Represent the props of the [[Caption]] component. */
 export interface CaptionProps {
