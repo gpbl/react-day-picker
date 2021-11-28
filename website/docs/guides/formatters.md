@@ -9,5 +9,5 @@ Formatters can be useful for a custom [localization](/basics/localization).
 The following example add some emoji to the caption and to the day cells.
 
 ```include
-formatters.tsx
+formatters
 ```

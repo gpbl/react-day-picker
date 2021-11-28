@@ -37,7 +37,7 @@ They can be included into a markdown doc using a code block with `include`:
 
 ````
 ```include
-start.tsx
+start
 ```
 ````
 

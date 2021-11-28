@@ -11,7 +11,7 @@ You can further refine the interaction with the day cells by using a custom `Day
 The following example implements a date picker to select ranges while pressing the <kbd>Shift</kbd> key.
 
 ```include
-range-shift-key.tsx
+range-shift-key
 ```
 
 ### Wrapping the day
@@ -19,7 +19,7 @@ range-shift-key.tsx
 Wrap the `DayContent` element with a `time` HTML tag.
 
 ```include
-custom-day.tsx
+custom-day
 ```
 
 ## Custom Row
@@ -29,5 +29,5 @@ custom-day.tsx
 Implement a custom component to hide the rows of past weeks.
 
 ```include
-custom-disable-row.tsx
+custom-disable-row
 ```

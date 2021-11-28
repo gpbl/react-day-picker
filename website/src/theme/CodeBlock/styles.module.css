@@ -16,7 +16,7 @@
   color: currentcolor;
   margin-right: 1rem;
   background-color: var(--ifm-background-color);
-  transform: translateX(-32px);
+  transform: translateX(-40px);
 }
 
 .externalIcon svg {

@@ -9,7 +9,7 @@ DayPicker comes with some built in modifiers: `disabled`, `selected`, `hidden`, 
 When in selection mode, use the `disabled` modifier to disable one or more days. Pass a [`Matcher`](/api/types/matcher) or an array of `Matchers` to choose the disabled days.
 
 ```include
-modifiers-disabled.tsx
+modifiers-disabled
 ```
 
 ## Hidden days
@@ -17,7 +17,7 @@ modifiers-disabled.tsx
 The `hidden` modifier removes the day from the calendar. Set the hidden days using the `hidden` prop.
 
 ```include
-modifiers-hidden.tsx
+modifiers-hidden
 ```
 
 ## The `today` modifier
@@ -25,7 +25,7 @@ modifiers-hidden.tsx
 The `today` modifier is added to the current date.
 
 ```include
-modifiers-today.tsx
+modifiers-today
 ```
 
 :::info
@@ -39,7 +39,7 @@ Add new modifiers according to your app’s requirements. For example, a booking
 Use the `modifiers` prop to pass an object with custom modifiers. Change the inline-style of the cell with `modifierStyles`.
 
 ```include
-modifiers-custom.tsx
+modifiers-custom
 ```
 
 ## Styling modifiers
@@ -56,7 +56,7 @@ For example, a disabled day will get the `.rdp-day_disabled` class name, a "book
 The following example adds `.my-booked-class` to the day with a `booked` modifier – applying a custom class name to it.
 
 ```include
-modifiers-classnames.tsx
+modifiers-classnames
 ```
 
 ### Via inline styles
@@ -67,5 +67,5 @@ matching the specified modifier.
 In the following example, the available days are styled via inline styles.
 
 ```include
-modifiers-style.tsx
+modifiers-style
 ```

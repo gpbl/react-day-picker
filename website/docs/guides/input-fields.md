@@ -11,5 +11,5 @@ Should you need something more sophisticated, give a look to the [useInput](api/
 To bind a DayPicker to an input field, pass the `useInput` returned values to a `DayPicker` and an `input` component:
 
 ```include
-input-fields.tsx
+input-fields
 ```
