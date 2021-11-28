@@ -8,13 +8,14 @@ import {
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
-import Example from './start';
+import Example from './custom-single';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
 });
 
 describe('when a day is clicked', () => {
@@ -28,7 +29,7 @@ describe('when a day is clicked', () => {
   });
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent(
-      'You picked 11/1/2021.'
+      'You selected 11/1/2021.'
     );
   });
 });

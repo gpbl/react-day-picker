@@ -81,6 +81,14 @@ export function getMonthTable(index = 0) {
   return screen.getAllByRole('table')[index];
 }
 
+export function getYearDropdown() {
+  return screen.getByRole('combobox', { name: 'Year:' });
+}
+
+export function getMonthDropdown() {
+  return screen.getByRole('combobox', { name: 'Month:' });
+}
+
 export function clickDay(date: Date, options = {}) {
   fireEvent.click(getDayButton(date), options);
 }

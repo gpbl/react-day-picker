@@ -8,7 +8,7 @@ import {
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
-import Example from './start';
+import Example from './single';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
@@ -28,7 +28,15 @@ describe('when a day is clicked', () => {
   });
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent(
-      'You picked 11/1/2021.'
+      'You selected November 1st, 2021.'
     );
+  });
+  describe('when the day is clicked again', () => {
+    beforeEach(() => clickDay(day));
+    test('should appear as not selected', () => {
+      expect(getDayButton(day)).not.toHaveAttribute(
+        'aria-pressed'
+      );
+    });
   });
 });
