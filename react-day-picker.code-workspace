@@ -26,7 +26,6 @@
     "npm.packageManager": "yarn",
     "eslint.packageManager": "yarn",
     "jest.jestCommandLine": "yarn test",
-    "importSorter.generalConfiguration.sortOnBeforeSave": true,
     "importSorter.sortConfiguration.removeUnusedImports": true
   },
   "extensions": {

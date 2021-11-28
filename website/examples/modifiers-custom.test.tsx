@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { clickDay, getDayButton, getTableFooter } from '@site/src/test/po';
+import {
+  clickDay,
+  getDayButton,
+  getTableFooter
+} from '@site/src/test/po';
 import { render } from '@testing-library/react';
 
 import Example from './modifiers-custom';
