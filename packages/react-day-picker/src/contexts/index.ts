@@ -1,4 +1,4 @@
-export * from './ContextProvider';
+export * from './RootProvider';
 export * from './DayPicker';
 export * from './Focus';
 export * from './Navigation';

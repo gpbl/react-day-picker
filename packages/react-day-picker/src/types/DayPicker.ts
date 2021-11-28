@@ -1,22 +1,33 @@
 import { Locale } from 'date-fns';
 
-import { CaptionLayout } from './CaptionLayout';
-import { ClassNames } from './ClassNames';
-import { Components } from './Components';
-import { CustomModifiers } from './CustomModifiers';
-import { DayClickEventHandler } from './DayClickEventHandler';
-import { DayFocusEventHandler } from './DayFocusEventHandler';
-import { DayKeyboardEventHandler } from './DayKeyboardEventHandler';
-import { DayMouseEventHandler } from './DayMouseEventHandler';
-import { DayTouchEventHandler } from './DayTouchEventHandler';
+import {
+  CaptionLabelProps,
+  CaptionLayout,
+  CaptionProps,
+  DayContentProps,
+  DayProps,
+  DropdownProps,
+  RowProps,
+  WeekNumberProps
+} from '../components';
+import {
+  DayClickEventHandler,
+  DayFocusEventHandler,
+  DayKeyboardEventHandler,
+  DayMouseEventHandler,
+  DayTouchEventHandler,
+  MonthChangeEventHandler,
+  WeekNumberClickEventHandler
+} from './EventHandlers';
 import { Formatters } from './Formatters';
 import { Labels } from './Labels';
-import { Matcher } from './Matcher';
-import { ModifierClassNames } from './ModifierClassNames';
-import { ModifierStyles } from './ModifierStyles';
-import { MonthChangeEventHandler } from './MonthChangeEventHandler';
-import { Styles } from './Styles';
-import { WeekNumberClickEventHandler } from './WeekNumberClickEventHandler';
+import { Matcher } from './Matchers';
+import {
+  CustomModifiers,
+  ModifierClassNames,
+  ModifierStyles
+} from './Modifiers';
+import { ClassNames, StyledComponent, Styles } from './Styles';
 
 /**
  * The props for the [[DayPicker]] component.
@@ -234,4 +245,32 @@ export interface DayPickerProps {
   onPrevClick?: MonthChangeEventHandler;
   onWeekNumberClick?: WeekNumberClickEventHandler;
   // #endregion
+}
+
+/** A map of the component that can be changed via the `components` prop. */
+export interface Components {
+  /** The component for the caption element. */
+  Caption: (props: CaptionProps) => JSX.Element | null;
+  /** The component for the caption element. */
+  CaptionLabel: (props: CaptionLabelProps) => JSX.Element | null;
+  /** The component for the day element. This is a button or a span. */
+  Day: (props: DayProps) => JSX.Element | null;
+  /** The component for the content of the day element. */
+  DayContent: (props: DayContentProps) => JSX.Element | null;
+  /** The component for the drop-down elements. */
+  Dropdown: (props: DropdownProps) => JSX.Element | null;
+  /** The component for the table footer. */
+  Footer: () => JSX.Element | null;
+  /** The component for the table’s head. */
+  Head: () => JSX.Element | null;
+  /** The component for the small icon in the drop-downs. */
+  IconDropdown: (props: StyledComponent) => JSX.Element | null;
+  /** The arrow right icon (used for the Navigation buttons). */
+  IconRight: (props: StyledComponent) => JSX.Element | null;
+  /** The arrow left icon (used for the Navigation buttons). */
+  IconLeft: (props: StyledComponent) => JSX.Element | null;
+  /** The component for the table rows. */
+  Row: (props: RowProps) => JSX.Element | null;
+  /** The component for the week number in the table rows. */
+  WeekNumber: (props: WeekNumberProps) => JSX.Element | null;
 }

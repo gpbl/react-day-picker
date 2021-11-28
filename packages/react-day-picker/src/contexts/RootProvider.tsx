@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { DayPickerProps } from '../types';
 
@@ -9,13 +9,13 @@ import { SelectMultipleProvider } from './SelectMultiple';
 import { SelectRangeProvider } from './SelectRange';
 import { SelectSingleProvider } from './SelectSingle';
 
-/** The props of the [[ContextProvider]] provider. */
-export type ContextProviderProps = DayPickerProps & {
+/** The props of [[RootProvider]]. */
+export type RootContext = DayPickerProps & {
   children: React.ReactNode;
 };
 
 /** Provide the value for all the context providers. */
-export function ContextProvider(props: ContextProviderProps): JSX.Element {
+export function RootProvider(props: RootContext): JSX.Element {
   const { children, ...initialProps } = props;
 
   return (

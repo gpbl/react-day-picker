@@ -1,9 +1,7 @@
-import { DayPickerProps } from '.';
-import { SelectMultipleEventHandler } from './SelectMultipleEventHandler';
+import { DayPickerProps } from './DayPicker';
+import { SelectMultipleEventHandler } from './EventHandlers';
 
-/**
- * The props for the [[DayPicker]] component when using `mode="multiple"`.
- */
+/** The props for the [[DayPicker]] component when using `mode="multiple"`. */
 export interface DayPickerMultipleProps extends DayPickerProps {
   mode: 'multiple';
   /** The selected days. */
@@ -14,4 +12,11 @@ export interface DayPickerMultipleProps extends DayPickerProps {
   min?: number;
   /** The maximum amount of days that can be selected. */
   max?: number;
+}
+
+/** Returns true when the props are of type [[DayPickerMultiple]]. */
+export function isDayPickerMultiple(
+  props: DayPickerProps
+): props is DayPickerMultipleProps {
+  return props.mode === 'multiple';
 }

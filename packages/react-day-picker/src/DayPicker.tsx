@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import {
   DayPickerCustomProps,
@@ -9,7 +9,7 @@ import {
 } from './types';
 
 import { Root } from './components/Root';
-import { ContextProvider } from './contexts/ContextProvider';
+import { RootProvider } from './contexts/RootProvider';
 
 /**
  * DayPicker render a date picker component to let users pick dates from a
@@ -105,8 +105,8 @@ export function DayPicker(
     | DayPickerCustomProps
 ): JSX.Element {
   return (
-    <ContextProvider {...props}>
+    <RootProvider {...props}>
       <Root />
-    </ContextProvider>
+    </RootProvider>
   );
 }

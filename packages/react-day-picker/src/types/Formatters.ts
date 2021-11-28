@@ -1,9 +1,12 @@
-import { DateFormatter } from './DateFormatter';
-import { WeekNumberFormatter } from './WeekNumberFormatter';
+import React from 'react';
 
-/**
- * Represent a map of formatters used to render localized content.
- */
+/** Represents a function to format a date. */
+export type DateFormatter = (
+  date: Date,
+  options?: { locale?: Locale }
+) => React.ReactNode;
+
+/** Represent a map of formatters used to render localized content. */
 export type Formatters = {
   /** Format the month in the caption when `captionLayout` is `buttons`. */
   formatCaption: DateFormatter;
@@ -18,3 +21,9 @@ export type Formatters = {
   /** Format the week day name in the header */
   formatWeekdayName: DateFormatter;
 };
+
+/** Represent a function to format the week number. */
+export type WeekNumberFormatter = (
+  weekNumber: number,
+  options?: { locale?: Locale }
+) => React.ReactNode;

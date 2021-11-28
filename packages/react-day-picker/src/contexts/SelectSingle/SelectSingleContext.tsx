@@ -1,8 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 
-import { DayClickEventHandler } from '../../types';
-
-import { Modifiers } from '../../types';
+import { DayPickerProps } from '../../types/DayPicker';
+import { isDayPickerSingle } from '../../types/DayPickerSingle';
+import { DayClickEventHandler } from '../../types/EventHandlers';
+import { Modifiers } from '../../types/Modifiers';
+import { SelectSingleProviderInternal } from './SelectSingleProviderInternal';
 
 /** Represent the modifiers that are changed by the single selection. */
 
@@ -27,3 +29,31 @@ export interface SelectSingleContextValue {
 export const SelectSingleContext = React.createContext<
   SelectSingleContextValue | undefined
 >(undefined);
+
+type SelectSingleProviderProps = {
+  initialProps: DayPickerProps;
+  children: React.ReactNode;
+};
+
+/** Provides the values for the [[SelectSingleProvider]]. */
+export function SelectSingleProvider(
+  props: SelectSingleProviderProps
+): JSX.Element {
+  if (!isDayPickerSingle(props.initialProps)) {
+    const emptyContextValue: SelectSingleContextValue = {
+      selected: undefined,
+      modifiers: { selected: [] }
+    };
+    return (
+      <SelectSingleContext.Provider value={emptyContextValue}>
+        {props.children}
+      </SelectSingleContext.Provider>
+    );
+  }
+  return (
+    <SelectSingleProviderInternal
+      initialProps={props.initialProps}
+      children={props.children}
+    />
+  );
+}

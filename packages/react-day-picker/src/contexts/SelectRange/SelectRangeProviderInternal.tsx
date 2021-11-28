@@ -1,8 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
-import { DayClickEventHandler, DayPickerRangeProps } from '../../types';
 import { SelectRangeContext, SelectRangeModifiers } from './SelectRangeContext';
 import { addToRange } from './utils/addToRange';
+import { DayClickEventHandler } from '../../types/EventHandlers';
+import { DayPickerRangeProps } from '../../types/DayPickerRange';
 
 type SelectRangeProviderInternalProps = {
   initialProps: DayPickerRangeProps;

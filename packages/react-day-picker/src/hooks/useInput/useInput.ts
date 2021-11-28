@@ -1,15 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 
 import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import enUS from 'date-fns/locale/en-US';
 
 import { parseFromToProps } from '../../contexts/DayPicker/utils';
+import { isValidDate } from './utils/isValidDate';
 import {
   DayClickEventHandler,
-  DayPickerProps,
   MonthChangeEventHandler
-} from '../../types';
-import { isValidDate } from './utils/isValidDate';
+} from '../../types/EventHandlers';
+import { DayPickerProps } from '../../types/DayPicker';
 
 /** Represent the props to attach to the input field. */
 export interface UseInputFieldProps {
