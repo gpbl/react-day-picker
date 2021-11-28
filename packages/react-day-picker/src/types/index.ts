@@ -1,7 +1,6 @@
 export * from './DayPicker';
 export * from './DayPickerCustom';
 export * from './DayPickerMultiple';
-export * from './DayPicker';
 export * from './DayPickerRange';
 export * from './DayPickerSingle';
 export * from './Formatters';
