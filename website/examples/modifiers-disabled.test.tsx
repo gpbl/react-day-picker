@@ -3,7 +3,6 @@ import React from 'react';
 import { getDayButton } from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
-import tk from 'timekeeper';
 
 import Example from './modifiers-disabled';
 

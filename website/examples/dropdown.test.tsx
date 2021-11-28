@@ -3,7 +3,8 @@ import React from 'react';
 import {
   getMonthCaption,
   getMonthDropdown,
-  getYearDropdown
+  getYearDropdown,
+  selectMonth
 } from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
@@ -27,11 +28,11 @@ test('should display the month dropdown', () => {
 });
 
 describe('when choosing a month', () => {
-  const month = 'January';
-  beforeEach(() =>
-    userEvent.selectOptions(getMonthDropdown(), month)
-  );
+  const monthName = 'January';
+  beforeEach(() => selectMonth(monthName));
   test('the month should be displayed', () => {
-    expect(getMonthCaption(container)).toHaveTextContent(month);
+    expect(getMonthCaption(container)).toHaveTextContent(
+      monthName
+    );
   });
 });

@@ -128,3 +128,11 @@ export function focusDay(day: Date) {
 export function getFocusedElement() {
   return document.activeElement;
 }
+
+export function selectMonth(monthName: string) {
+  userEvent.selectOptions(getMonthDropdown(), monthName);
+}
+
+export function selectYear(year: string | number) {
+  userEvent.selectOptions(getYearDropdown(), String(year));
+}
