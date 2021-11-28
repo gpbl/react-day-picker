@@ -22,7 +22,8 @@
     "css-types": "yarn tcm -p style.css",
     "lint": "eslint --ext .ts,.tsx src",
     "test": "jest",
-    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+    "typecheck": "tsc --project ./tsconfig.json --noEmit",
+    "typecheck:watch": "tsc --project ./tsconfig.json --noEmit --skipLibCheck --watch"
   },
   "files": [
     "build",
