@@ -29,7 +29,6 @@ describe('when navigation is disabled', () => {
     expect(po.yearDropdown).toBeNull();
   });
   test('should not render the navigation', () => {
-    screen.debug(null, Infinity);
     expect(po.previousButton).toBeNull();
     expect(po.nextButton).toBeNull();
   });
