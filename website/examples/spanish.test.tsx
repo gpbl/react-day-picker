@@ -15,5 +15,7 @@ beforeEach(() => {
 });
 
 test('should localize the caption in Spanish', () => {
-  expect(getMonthCaption(container)).toHaveTextContent('noviembre 2021');
+  expect(getMonthCaption(container)).toHaveTextContent(
+    'noviembre 2021'
+  );
 });

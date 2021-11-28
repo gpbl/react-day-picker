@@ -32,7 +32,9 @@ describe('when the first day is focused', () => {
   describe('when the Arrow Left is pressed', () => {
     beforeEach(pressArrowLeft);
     test('should still display the same month', () => {
-      expect(getMonthCaption(container)).toHaveTextContent('June 2022');
+      expect(getMonthCaption(container)).toHaveTextContent(
+        'June 2022'
+      );
     });
   });
 });
@@ -40,7 +42,9 @@ describe('when the last day is focused', () => {
   describe('when the Arrow Right is pressed', () => {
     beforeEach(pressArrowLeft);
     test('should still display the same month', () => {
-      expect(getMonthCaption(container)).toHaveTextContent('June 2022');
+      expect(getMonthCaption(container)).toHaveTextContent(
+        'June 2022'
+      );
     });
   });
 });

@@ -14,8 +14,7 @@ beforeEach(() => {
 });
 
 test('should have the rtl attribute', () => {
-  expect(container.getElementsByClassName('rdp')[0]).toHaveAttribute(
-    'dir',
-    'rtl'
-  );
+  expect(
+    container.getElementsByClassName('rdp')[0]
+  ).toHaveAttribute('dir', 'rtl');
 });

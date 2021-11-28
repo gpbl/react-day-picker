@@ -2,7 +2,11 @@ import React from 'react';
 
 import { getMonthCaption } from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
-import { fireEvent, render, screen } from '@testing-library/react';
+import {
+  fireEvent,
+  render,
+  screen
+} from '@testing-library/react';
 
 import Example from './controlled';
 
@@ -28,6 +32,8 @@ describe('when the "Go to today" button is clicked', () => {
     expect(getTodayButton()).toBeDisabled();
   });
   test('should display the current month', () => {
-    expect(getMonthCaption(container)).toHaveTextContent('June 2022');
+    expect(getMonthCaption(container)).toHaveTextContent(
+      'June 2022'
+    );
   });
 });

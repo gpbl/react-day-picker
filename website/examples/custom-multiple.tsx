@@ -4,7 +4,10 @@ import { DayPicker, ModifierStatus } from 'react-day-picker';
 export default function App() {
   const [selectedDays, setSelectedDays] = React.useState([]);
 
-  const handleDayClick = (day: Date, modifiers: ModifierStatus) => {
+  const handleDayClick = (
+    day: Date,
+    modifiers: ModifierStatus
+  ) => {
     setSelectedDays((currentValue) => {
       const days = [...currentValue];
       if (modifiers.selected) {

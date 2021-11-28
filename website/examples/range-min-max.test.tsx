@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { clickDay, getAllEnabledDays, getDayButton } from '@site/src/test/po';
+import {
+  clickDay,
+  getAllEnabledDays,
+  getDayButton
+} from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
@@ -28,7 +32,9 @@ describe('when the first day is clicked', () => {
   });
   test('should disable after the allowed range', () => {
     const enabledDays = getAllEnabledDays();
-    expect(enabledDays[enabledDays.length - 1]).toHaveTextContent('19th');
+    expect(
+      enabledDays[enabledDays.length - 1]
+    ).toHaveTextContent('19th');
   });
   describe('when clicking a day after the from date', () => {
     const toDay = new Date(2021, 10, 17);
@@ -38,12 +44,20 @@ describe('when the first day is clicked', () => {
       new Date(2021, 10, 17)
     ];
     beforeEach(() => clickDay(toDay));
-    test.each(expectedSelectedDays)('%s should be selected', (day) => {
-      expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
-    });
+    test.each(expectedSelectedDays)(
+      '%s should be selected',
+      (day) => {
+        expect(getDayButton(day)).toHaveAttribute(
+          'aria-pressed',
+          'true'
+        );
+      }
+    );
     test('should enable the days up to the clicked day', () => {
       const enabledDays = getAllEnabledDays();
-      expect(enabledDays[enabledDays.length - 1]).toHaveTextContent('19th');
+      expect(
+        enabledDays[enabledDays.length - 1]
+      ).toHaveTextContent('19th');
     });
   });
   describe('when clicking a day before the from date', () => {
@@ -56,8 +70,14 @@ describe('when the first day is clicked', () => {
       new Date(2021, 10, 15)
     ];
     beforeEach(() => clickDay(toDay));
-    test.each(expectedSelectedDays)('%s should be selected', (day) => {
-      expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
-    });
+    test.each(expectedSelectedDays)(
+      '%s should be selected',
+      (day) => {
+        expect(getDayButton(day)).toHaveAttribute(
+          'aria-pressed',
+          'true'
+        );
+      }
+    );
   });
 });

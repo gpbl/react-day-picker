@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { clickDay, getAllSelectedDays, getDayButton } from '@site/src/test/po';
+import {
+  clickDay,
+  getAllSelectedDays,
+  getDayButton
+} from '@site/src/test/po';
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 
@@ -22,7 +26,10 @@ const days = [
 ];
 
 test.each(days)('%s should be selected', (day) => {
-  expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+  expect(getDayButton(day)).toHaveAttribute(
+    'aria-pressed',
+    'true'
+  );
 });
 
 describe('when the third day is clicked', () => {
@@ -30,12 +37,23 @@ describe('when the third day is clicked', () => {
   beforeEach(() => {
     clickDay(day);
   });
-  test.each([days[0], days[1], day])('%s should be selected', (day) => {
-    expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
-  });
-  test.each([days[3], days[4]])('%s should not be selected', (day) => {
-    expect(getDayButton(day)).not.toHaveAttribute('aria-pressed');
-  });
+  test.each([days[0], days[1], day])(
+    '%s should be selected',
+    (day) => {
+      expect(getDayButton(day)).toHaveAttribute(
+        'aria-pressed',
+        'true'
+      );
+    }
+  );
+  test.each([days[3], days[4]])(
+    '%s should not be selected',
+    (day) => {
+      expect(getDayButton(day)).not.toHaveAttribute(
+        'aria-pressed'
+      );
+    }
+  );
   describe('when the third day is clicked again', () => {
     const day = days[2];
     beforeEach(() => clickDay(day));
@@ -43,7 +61,10 @@ describe('when the third day is clicked', () => {
       expect(getAllSelectedDays()).toHaveLength(1);
     });
     test('only the third day should be selected', () => {
-      expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+      expect(getDayButton(day)).toHaveAttribute(
+        'aria-pressed',
+        'true'
+      );
     });
 
     describe('when the third day is clicked again', () => {

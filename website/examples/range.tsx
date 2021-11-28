@@ -10,13 +10,21 @@ export default function App() {
     from: pastMonth,
     to: addDays(pastMonth, 4)
   };
-  const [range, setRange] = React.useState<DateRange>(defaultSelected);
+  const [range, setRange] =
+    React.useState<DateRange>(defaultSelected);
 
   let footer = 'Please pick the first day.';
-  if (range && range.from && (!range.to || isSameDay(range.from, range.to))) {
+  if (
+    range &&
+    range.from &&
+    (!range.to || isSameDay(range.from, range.to))
+  ) {
     footer = format(range.from, 'PPP');
   } else if (range && range.from && range.to) {
-    footer = `${format(range.from, 'PPP')}–${format(range.to, 'PPP')}`;
+    footer = `${format(range.from, 'PPP')}–${format(
+      range.to,
+      'PPP'
+    )}`;
   }
 
   return (

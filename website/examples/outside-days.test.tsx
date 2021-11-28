@@ -18,6 +18,8 @@ describe('when displaying November 2021', () => {
     const firstDayElement = container
       .getElementsByTagName('tr')[1]
       .getElementsByTagName('td')[0];
-    expect(firstDayElement).toHaveAccessibleName('31st October (Sunday)');
+    expect(firstDayElement).toHaveAccessibleName(
+      '31st October (Sunday)'
+    );
   });
 });

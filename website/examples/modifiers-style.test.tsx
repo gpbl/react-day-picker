@@ -19,6 +19,9 @@ const style = {
   fontWeight: 900,
   color: 'lightgreen'
 };
-test.each(days)('The day %s should have the proper inline style', (day) => {
-  expect(getDayCell(day).firstChild).toHaveStyle(style);
-});
+test.each(days)(
+  'The day %s should have the proper inline style',
+  (day) => {
+    expect(getDayCell(day).firstChild).toHaveStyle(style);
+  }
+);

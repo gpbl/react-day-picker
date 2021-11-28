@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { clickWeek, getTableFooter, getWeekButton } from '@site/src/test/po';
+import {
+  clickWeek,
+  getTableFooter,
+  getWeekButton
+} from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
@@ -21,7 +25,9 @@ describe('when displaying November 2021', () => {
   describe('when the week button is clicked', () => {
     beforeEach(() => clickWeek(45));
     test('should update the footer', () => {
-      expect(getTableFooter()).toHaveTextContent('You clicked the week n. 45.');
+      expect(getTableFooter()).toHaveTextContent(
+        'You clicked the week n. 45.'
+      );
     });
   });
 });

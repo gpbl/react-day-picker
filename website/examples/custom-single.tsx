@@ -1,9 +1,13 @@
 import React from 'react';
-import { DayClickEventHandler, DayPicker } from 'react-day-picker';
+import {
+  DayClickEventHandler,
+  DayPicker
+} from 'react-day-picker';
 
 export default function App() {
   const [selectedDay, setSelectedDay] = React.useState<Date>();
-  const handleDayClick: DayClickEventHandler = (day) => setSelectedDay(day);
+  const handleDayClick: DayClickEventHandler = (day) =>
+    setSelectedDay(day);
 
   const footer = selectedDay
     ? `You selected ${selectedDay.toLocaleDateString()}.`

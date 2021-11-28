@@ -20,6 +20,11 @@ beforeEach(() => {
   container = render(<Example />).container;
 });
 
-test.each(days)('the day %s should have the `my-booked-class` class', (day) => {
-  expect(getDayCell(day).firstChild).toHaveClass('my-booked-class');
-});
+test.each(days)(
+  'the day %s should have the `my-booked-class` class',
+  (day) => {
+    expect(getDayCell(day).firstChild).toHaveClass(
+      'my-booked-class'
+    );
+  }
+);

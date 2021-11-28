@@ -25,21 +25,29 @@ describe('when rendering November 2021', () => {
   });
 
   test('the first month should be November', () => {
-    expect(getMonthCaption(container, 0)).toHaveTextContent('November 2021');
+    expect(getMonthCaption(container, 0)).toHaveTextContent(
+      'November 2021'
+    );
   });
 
   test('the first month should be December', () => {
-    expect(getMonthCaption(container, 1)).toHaveTextContent('December 2021');
+    expect(getMonthCaption(container, 1)).toHaveTextContent(
+      'December 2021'
+    );
   });
   // Test pagination
   describe('when the previous month button is clicked', () => {
     beforeEach(clickPrevMonth);
     test('the first month should be October', () => {
-      expect(getMonthCaption(container, 0)).toHaveTextContent('October 2021');
+      expect(getMonthCaption(container, 0)).toHaveTextContent(
+        'October 2021'
+      );
     });
 
     test('the first month should be November', () => {
-      expect(getMonthCaption(container, 1)).toHaveTextContent('November 2021');
+      expect(getMonthCaption(container, 1)).toHaveTextContent(
+        'November 2021'
+      );
     });
   });
 });

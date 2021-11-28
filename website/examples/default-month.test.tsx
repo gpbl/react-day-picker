@@ -15,5 +15,7 @@ beforeEach(() => {
 });
 
 test('should display September 1979', () => {
-  expect(getMonthCaption(container)).toHaveTextContent('September 1979');
+  expect(getMonthCaption(container)).toHaveTextContent(
+    'September 1979'
+  );
 });

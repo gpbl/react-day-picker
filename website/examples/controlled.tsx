@@ -17,5 +17,11 @@ export default function App() {
     </button>
   );
 
-  return <DayPicker month={month} onMonthChange={setMonth} footer={footer} />;
+  return (
+    <DayPicker
+      month={month}
+      onMonthChange={setMonth}
+      footer={footer}
+    />
+  );
 }
