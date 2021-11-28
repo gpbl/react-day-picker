@@ -5,7 +5,7 @@ export default function App() {
   return (
     <DayPicker
       styles={{
-        caption_label: { color: 'red' }
+        caption: { color: 'red' }
       }}
     />
   );
