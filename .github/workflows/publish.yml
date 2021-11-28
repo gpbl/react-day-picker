@@ -38,11 +38,11 @@ jobs:
         run: yarn install
 
       - name: Lint Files
-        run: yarn lint --coverage
+        run: yarn lint
         working-directory: ./packages/react-day-picker
 
       - name: Run Unit Tests
-        run: yarn test
+        run: yarn test --coverage
         working-directory: ./packages/react-day-picker
 
       - name: Build
