@@ -4,16 +4,24 @@ import { isSameMonth } from 'date-fns';
 
 import { useDayPicker } from '../../contexts/DayPicker';
 import { useNavigation } from '../../contexts/Navigation';
-import { MonthChangeEventHandler } from '../../types';
 import { MonthsDropdown } from '../MonthsDropdown';
 import { Navigation } from '../Navigation';
 import { YearsDropdown } from '../YearsDropdown';
+import { MonthChangeEventHandler } from '../../types/EventHandlers';
 
 /** Represent the props of the [[Caption]] component. */
 export interface CaptionProps {
   /** The month where the caption is displayed. */
   displayMonth: Date;
 }
+
+/**
+ * The layout of the caption:
+ *
+ * - `dropdown` - display a month / year dropdown
+ * - `buttons` - display previous / next month button.
+ */
+export type CaptionLayout = 'dropdown' | 'buttons';
 
 /**
  * Render the caption of a month, which includes title and navigation buttons.

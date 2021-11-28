@@ -1,17 +1,24 @@
-import { differenceInCalendarDays, isSameDay } from 'date-fns';
-
+import { differenceInCalendarDays, isDate, isSameDay } from 'date-fns';
 import {
-  isArrayOfDates,
   isDateAfterType,
   isDateBeforeType,
   isDateInterval,
   isDateRange,
-  isDateType,
   isDayOfWeekType,
   Matcher
-} from '../../../types';
+} from '../../../types/Matchers';
 
 import { isDateInRange } from './isDateInRange';
+
+/** Returns true if `value` is a Date type. */
+function isDateType(value: unknown): value is Date {
+  return isDate(value);
+}
+
+/** Returns true if `value` is an array of valid dates. */
+function isArrayOfDates(value: unknown): value is Date[] {
+  return Array.isArray(value) && value.every(isDate);
+}
 
 /**
  * Returns `true` whether the day matches against the given matchers.

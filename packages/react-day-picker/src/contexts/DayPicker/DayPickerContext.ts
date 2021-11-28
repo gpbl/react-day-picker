@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
+import { CaptionLayout } from '../../components';
 
 import {
-  CaptionLayout,
   ClassNames,
   Components,
   DayPickerProps,

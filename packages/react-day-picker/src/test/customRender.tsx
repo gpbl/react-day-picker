@@ -2,12 +2,12 @@ import React from 'react';
 
 import { render, RenderResult } from '@testing-library/react';
 
-import { ContextProvider } from '../contexts/ContextProvider';
+import { RootProvider } from '../contexts/RootProvider';
 import { DayPickerProps } from '../types';
 
 export const customRender = (
   element: React.ReactElement,
   contextValue: DayPickerProps = {}
 ): RenderResult => {
-  return render(<ContextProvider {...contextValue}>{element}</ContextProvider>);
+  return render(<RootProvider {...contextValue}>{element}</RootProvider>);
 };

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import tk from 'timekeeper';
 import { addMonths } from 'date-fns';

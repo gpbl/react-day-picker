@@ -70,7 +70,7 @@ Modules](https://github.com/css-modules/css-modules).
 2. Pass the imported CSS module to the `classNames` prop
 
 ```tsx
-import * as React from 'react';
+import React from 'react';
 import { DayPicker } from 'react-day-picker';
 
 import * as classNames from './my-css.module.css';

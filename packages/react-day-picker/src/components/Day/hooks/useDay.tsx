@@ -8,7 +8,7 @@ import {
   isDayPickerRange,
   isDayPickerSingle,
   ModifierStatus,
-  StyledComponentProps
+  StyledComponent
 } from '../../../types';
 
 import { useDayPicker } from '../../../contexts/DayPicker';
@@ -47,7 +47,7 @@ export type UseDay = {
    *
    * When both this value and `buttonProps` are `undefined`, DayPicker should not render anything.
    */
-  nonInteractiveProps?: StyledComponentProps;
+  nonInteractiveProps?: StyledComponent;
   single: SelectSingleContextValue;
   multiple: SelectMultipleContextValue;
   range: SelectRangeContextValue;

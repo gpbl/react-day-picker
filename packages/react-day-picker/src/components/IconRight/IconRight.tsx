@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { StyledComponentProps } from '../../types';
+import { StyledComponent } from '../../types';
 
 /**
  * Render the "next month" button in the navigation.
  */
-export function IconRight(props: StyledComponentProps): JSX.Element {
+export function IconRight(props: StyledComponent): JSX.Element {
   return (
     <svg
       width="16px"
