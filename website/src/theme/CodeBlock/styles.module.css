@@ -1,9 +1,28 @@
 .root {
-  --sp-colors-fg-active: #24292e;
-  --sp-colors-fg-default: #959da5;
-  --sp-colors-bg-active: #e4e7eb;
-  --sp-colors-bg-default: #ffffff;
-  --sp-colors-bg-default-overlay: rgba(255, 255, 255, 0.8);
-  --sp-font-size: 13px;
-  --sp-font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  max-width: 1000px;
+  position: relative;
+  bottom: 0;
+}
+
+.externalIcon {
+  border-radius: 50%;
+  position: absolute;
+  bottom: .5rem;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  padding: 4px;
+  text-align: center;
+  color: currentcolor;
+  margin-right: 1rem;
+  background-color: var(--ifm-background-color);
+  transform: translateX(-32px);
+}
+
+.externalIcon svg {
+  opacity: .5;
+}
+
+.externalIcon:hover svg {
+  opacity: 1;
 }
