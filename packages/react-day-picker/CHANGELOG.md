@@ -16,7 +16,13 @@ with the previous versions.
 
 See the preview website at https://react-day-picker-next.netlify.app.
 
-### v8.0.0-beta.30
+### v8.0.0-beta.32
+
+- Fixed previous/next month navigation with RTL direction (68ad0adf7fb6935eb6d9809a6e72646e6194d51e)
+- Updated `useInput` API (#1293)
+- Removed `defaultSelected` prop (cd4f57906d98eb15b0b5a498112e74c2f6770c45)
+
+### v8.0.0-beta.31
 
 - Switched to rollup as module bundler
 - Added `custom` selection mode
