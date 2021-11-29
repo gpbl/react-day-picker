@@ -16,7 +16,7 @@ const navbar = {
       label: 'Documentation'
     },
     {
-      to: 'api',
+      to: 'reference',
       label: 'API Reference'
     },
     {
