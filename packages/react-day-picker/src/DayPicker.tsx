@@ -47,6 +47,7 @@ import { RootProvider } from './contexts/RootProvider';
  *   days that can be selected with the `min` or the `max` props.
  * - `mode="range"`: users can select a range of days. Limit the amount of days
  *   in the range with the `min` or the `max` props.
+ * - `mode="custom"`: implement your own selection mode with `onDayClick`.
  *
  * These selection modes should cover the most common use cases. In case you
  * need a more refined way of selecting days, use `mode="custom"`. Use the
@@ -70,8 +71,8 @@ import { RootProvider } from './contexts/RootProvider';
  *
  * ### Styling
  *
- * DayPicker comes with a default, basic style in `react-day-picker/style` –
- * use it as template for your own style.
+ * DayPicker comes with a default, basic style in `react-day-picker/style` – use
+ * it as template for your own style.
  *
  * If you are using CSS modules, pass the imported styles object the
  * `classNames` props.
