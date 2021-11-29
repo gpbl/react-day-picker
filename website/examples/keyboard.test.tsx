@@ -68,10 +68,6 @@ describe.each(['ltr', 'rtl'])(
 
       beforeEach(() => focusDay(day));
       test('the day button should be focused', () => {
-        expect(getFocusedElement()).toBe(getDayButton(day));
-      });
-      describe('when the Arrow Left is pressed', () => {
-        beforeEach(pressArrowLeft);
         if (dir === 'rtl') {
           test('should focus the next day', () => {
             expect(getDayButton(nextDay)).toHaveFocus();
@@ -203,37 +199,35 @@ describe.each(['ltr', 'rtl'])(
         });
       });
     });
+
+    describe('when Page Up is pressed', () => {
+      beforeEach(pressPageUp);
+      test.todo('Should display the previous month');
+    });
+
+    describe('when Page Down is pressed', () => {
+      beforeEach(pressPageDown);
+      test.todo('Should display the next month');
+    });
+
+    describe('when Shift + Page Up is pressed', () => {
+      beforeEach(pressShiftPageUp);
+      test.todo('Should display the previous year');
+    });
+
+    describe('when Shift + Page Down is pressed', () => {
+      beforeEach(pressShiftPageDown);
+      test.todo('should display the next year');
+    });
+
+    describe('when Home is pressed', () => {
+      beforeEach(pressHome);
+      test.todo('should select the first day of week');
+    });
+
+    describe('when End is pressed', () => {
+      beforeEach(pressEnd);
+      test.todo('should select the last day of week');
+    });
   }
 );
-
-describe('keyboard actions', () => {
-  describe('when the Page Up is pressed', () => {
-    beforeEach(pressPageUp);
-    test.todo('Should display the previous month');
-  });
-
-  describe('when the Page Down is pressed', () => {
-    beforeEach(pressPageDown);
-    test.todo('Should display the next month');
-  });
-
-  describe('when the combination Shift + Page Up is pressed', () => {
-    beforeEach(pressShiftPageUp);
-    test.todo('Should display the previous year');
-  });
-
-  describe('when the combination shift + page down is pressed', () => {
-    beforeEach(pressShiftpageDown);
-    test.todo('should display the next year');
-  });
-
-  describe('when the Home is pressed', () => {
-    beforeEach(pressHome);
-    test.todo('should select the first day of week');
-  });
-
-  describe('when the End is pressed', () => {
-    beforeEach(pressEnd);
-    test.todo('should select the last day of week');
-  });
-});
