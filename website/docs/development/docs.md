@@ -8,7 +8,7 @@ Make sure the source code is properly documented: each function, type or interfa
 
 ### Generating docs from source
 
-The website app includes a the [typedoc plugin](https://www.npmjs.com/package/docusaurus-plugin-typedoc) to generate docs from source. These docs are stored in `website/docs/api` and shown in the [API reference](/api).
+The website app includes a the [typedoc plugin](https://www.npmjs.com/package/docusaurus-plugin-typedoc) to generate docs from source. These docs are stored in `website/docs/api` and shown in the [API reference](/reference).
 
 To generate docs from source, simply start the development environment from both the package and website.
 
