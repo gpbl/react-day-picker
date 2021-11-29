@@ -121,6 +121,18 @@ export function pressArrowDown() {
   userEvent.type(getFocusedElement(), '{arrowdown}');
 }
 
+export function pressPageUp() {}
+
+export function pressPageDown() {}
+
+export function pressShiftPageUp() {}
+
+export function pressShiftPageDown() {}
+
+export function pressHome() {}
+
+export function pressEnd() {}
+
 export function focusDay(day: Date) {
   getDayButton(day).focus();
 }

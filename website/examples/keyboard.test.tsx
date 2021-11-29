@@ -10,7 +10,13 @@ import {
   pressArrowDown,
   pressArrowLeft,
   pressArrowRight,
-  pressArrowUp
+  pressArrowUp,
+  pressPageUp,
+  pressPageDown,
+  pressShiftPageUp,
+  pressShiftPageDown,
+  pressHome,
+  pressEnd
 } from '@site/src/test/po';
 import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
@@ -199,3 +205,35 @@ describe.each(['ltr', 'rtl'])(
     });
   }
 );
+
+describe('keyboard actions', () => {
+  describe('when the Page Up is pressed', () => {
+    beforeEach(pressPageUp);
+    test.todo('Should display the previous month');
+  });
+
+  describe('when the Page Down is pressed', () => {
+    beforeEach(pressPageDown);
+    test.todo('Should display the next month');
+  });
+
+  describe('when the combination Shift + Page Up is pressed', () => {
+    beforeEach(pressShiftPageUp);
+    test.todo('Should display the previous year');
+  });
+
+  describe('when the combination shift + page down is pressed', () => {
+    beforeEach(pressShiftpageDown);
+    test.todo('should display the next year');
+  });
+
+  describe('when the Home is pressed', () => {
+    beforeEach(pressHome);
+    test.todo('should select the first day of week');
+  });
+
+  describe('when the End is pressed', () => {
+    beforeEach(pressEnd);
+    test.todo('should select the last day of week');
+  });
+});
