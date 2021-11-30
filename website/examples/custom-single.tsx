@@ -6,7 +6,7 @@ export default function App() {
   const handleDayClick = (day) => setSelectedDay(day);
 
   const footer = selectedDay
-    ? `You selected ${selectedDay.toLocaleDateString()}.`
+    ? `You selected ${selectedDay.toDateString()}.`
     : 'Please pick a day.';
 
   return (
