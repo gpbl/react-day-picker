@@ -7,6 +7,8 @@ on:
       - ".github/workflows/**"
 
   pull_request:
+    branches:
+      - master
     paths:
       - "packages/react-day-picker/**"
       - ".github/workflows/**"
