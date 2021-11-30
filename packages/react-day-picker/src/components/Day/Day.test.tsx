@@ -1,3 +1,35 @@
+import React from 'react';
+import { es, enUS } from 'date-fns/locale';
+import { Day } from './Day';
+import { customRender } from '../../test';
+import { DayPickerProps } from '../../types';
+
+const renderNovember182021 = (contextValue: DayPickerProps) => {
+  return customRender(
+    <Day displayMonth={new Date(2021, 10)} date={new Date(2021, 10, 18)} />,
+    contextValue
+  );
+};
+
+describe('when the locale is enUS', () => {
+  const locale = enUS;
+  test('the day should have aria text content in english', () => {
+    const { container } = renderNovember182021({
+      locale
+    });
+    expect(container).toHaveTextContent('18th November (Thursday)');
+  });
+});
+describe('when the locale is es', () => {
+  const locale = es;
+  test('the day should have aria text content in spanish', () => {
+    const { container } = renderNovember182021({
+      locale
+    });
+    expect(container).toHaveTextContent('18º noviembre (jueves)');
+  });
+});
+
 describe('when matches the `hidden` modifier', () => {
   test.todo('should not render anything');
 });
