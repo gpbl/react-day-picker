@@ -29,7 +29,7 @@ describe('when a day is clicked', () => {
   });
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent(
-      'You selected 11/1/2021.'
+      'You selected Mon Nov 01 2021.'
     );
   });
 });

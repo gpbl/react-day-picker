@@ -31,6 +31,8 @@
     "@testing-library/user-event": "^13.5.0",
     "@tsconfig/docusaurus": "^1.0.4",
     "@types/jest": "^27.0.3",
+    "@types/react-helmet": "^6.1.4",
+    "@types/react-router-dom": "^5.3.2",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "date-fns": "^2.22.1",

@@ -3,12 +3,12 @@ name: "CI: react-day-picker"
 on:
   push:
     paths:
-      - "packages/react-day-picker"
+      - "packages/react-day-picker/**"
       - ".github/workflows/**"
 
   pull_request:
     paths:
-      - "packages/react-day-picker"
+      - "packages/react-day-picker/**"
       - ".github/workflows/**"
 
 jobs:

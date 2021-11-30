@@ -6,5 +6,6 @@
     "lib": ["es2019"],
     "resolveJsonModule": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["src/"]
 }
