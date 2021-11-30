@@ -3,6 +3,7 @@ export * from './DayPickerCustom';
 export * from './DayPickerMultiple';
 export * from './DayPickerRange';
 export * from './DayPickerSingle';
+export * from './EventHandlers';
 export * from './Formatters';
 export * from './Labels';
 export * from './Matchers';
