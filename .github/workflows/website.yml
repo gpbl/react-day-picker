@@ -2,25 +2,13 @@ name: "CI: website"
 
 on:
   push:
-    branches:
-      - master
     paths:
-      - "website"
-      - ".yarnrc.yml"
-      - ".prettier*.*"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
+      - "website/**"
       - ".github/workflows/**"
 
   pull_request:
     paths:
-      - "website"
-      - ".yarnrc.yml"
-      - ".prettier*.*"
-      - "*.base.json"
-      - "*.base.js"
-      - ".prettier*.*"
+      - "website/**"
       - ".github/workflows/**"
 
 jobs:
