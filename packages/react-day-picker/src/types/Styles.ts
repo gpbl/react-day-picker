@@ -69,8 +69,6 @@ export type StyledElement<T = string | React.CSSProperties> = {
 
   /** A style of the table’s row. */
   readonly row: T;
-  /** The style of the row’s head (displaying the week numbers). */
-  readonly row_head: T;
   /** The style of the weeknumber. */
   readonly weeknumber: T;
   /** The style of the table cell containing the day element. */
@@ -79,8 +77,6 @@ export type StyledElement<T = string | React.CSSProperties> = {
   readonly day: T;
   /** The style of a day when outside the month. */
   readonly day_outside: T;
-  /** The style of today button. */
-  readonly day_today: T;
 };
 
 /** The class names of each element. */
