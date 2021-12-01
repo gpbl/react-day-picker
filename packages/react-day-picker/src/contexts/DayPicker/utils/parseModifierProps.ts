@@ -21,6 +21,7 @@ export function parseModifierProps(initialProps: DayPickerProps): Modifiers {
     selected: [],
     disabled: [],
     hidden: [],
+    today: [],
     range_end: [],
     range_middle: [],
     range_start: []
