@@ -5,6 +5,6 @@ import { DayLabel } from '../../../types';
 /**
  * The default ARIA label for the day button.
  */
-export const labelDay: DayLabel = (day, options): string => {
+export const labelDay: DayLabel = (day, modifers, options): string => {
   return format(day, 'do MMMM (EEEE)', options);
 };
