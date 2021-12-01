@@ -10,34 +10,27 @@ import {
   MonthChangeEventHandler
 } from '../../types/EventHandlers';
 import { DayPickerProps } from '../../types/DayPicker';
+import { DayPickerCustomProps } from '../../types';
 
-/** Represent the props to attach to the input field. */
-export interface UseInputFieldProps {
-  /** Event handler for the blur event. */
-  onBlur: React.FocusEventHandler;
-  /** Event handler for the change event. */
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  /** Event handler for the focus event. */
-  onFocus: React.FocusEventHandler;
-  /** The value of the input field */
-  value: string;
-  /** The input field placeholder */
-  placeholder?: string;
-}
+/** The props to attach to the input field when using [[useInput]]. */
+export type InputHTMLAttributes = Pick<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'onBlur' | 'onChange' | 'onFocus' | 'value' | 'placeholder'
+>;
 
-/** Represent the props to attach to DayPicker component. */
-export interface UseInputDayPickerProps {
-  mode: 'custom';
-  fromDate?: Date;
-  locale: Locale;
-  min: number;
-  month: Date;
-  onDayClick: DayClickEventHandler;
-  onMonthChange: MonthChangeEventHandler;
-  selected: Date | undefined;
-  toDate?: Date;
-  today: Date;
-}
+/** The props to attach to the DayPicker component when using [[useInput]]. */
+export type InputDayPickerProps = Pick<
+  DayPickerCustomProps,
+  | 'mode'
+  | 'fromDate'
+  | 'toDate'
+  | 'locale'
+  | 'month'
+  | 'onDayClick'
+  | 'onMonthChange'
+  | 'selected'
+  | 'today'
+>;
 
 export interface UseInputOptions
   extends Pick<
@@ -61,10 +54,10 @@ export interface UseInputOptions
 
 /** Represent the value returned by [[useInput]]. */
 export interface UseInput {
-  /** The props to pass to a DayPicker component: `<DayPicker {...dayPickerProps} />` */
-  dayPickerProps: UseInputDayPickerProps;
-  /** The props to pass to an input field: `<input {...inputProps} />` */
-  inputProps: UseInputFieldProps;
+  /** The props to pass to a DayPicker component. */
+  dayPickerProps: InputDayPickerProps;
+  /** The props to pass to an input field. */
+  inputProps: InputHTMLAttributes;
   /** A function to reset to the initial state. */
   reset: () => void;
   /** A function to set the selected day. */
@@ -159,7 +152,7 @@ export function useInput(options: UseInputOptions = {}): UseInput {
     }
   };
 
-  const dayPickerProps: UseInputDayPickerProps = {
+  const dayPickerProps: InputDayPickerProps = {
     mode: 'custom',
     month: month,
     onDayClick: handleDayClick,
@@ -168,11 +161,10 @@ export function useInput(options: UseInputOptions = {}): UseInput {
     locale,
     fromDate: options?.fromDate,
     toDate: options?.toDate,
-    today,
-    min
+    today
   };
 
-  const inputProps: UseInputFieldProps = {
+  const inputProps: InputHTMLAttributes = {
     onBlur: handleBlur,
     onChange: handleChange,
     onFocus: handleFocus,
