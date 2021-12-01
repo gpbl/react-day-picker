@@ -1,13 +1,9 @@
 import React from 'react';
 
-import {
-  clickNextMonth,
-  getNextButton,
-  getPrevButton
-} from '@site/src/test/po';
 import { render } from '@testing-library/react';
 import { differenceInMonths } from 'date-fns';
 
+import { clickNextMonth, getNextButton, getPrevButton } from '../src/test/po';
 import Example from './from-to-month';
 
 const fromDate = new Date(2015, 5);

@@ -1,13 +1,9 @@
 import React from 'react';
 
-import { getMonthCaption } from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
-import {
-  fireEvent,
-  render,
-  screen
-} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
+import { getMonthCaption } from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
 import Example from './controlled';
 
 let container: HTMLElement;

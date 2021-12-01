@@ -1,12 +1,8 @@
 import React from 'react';
 
-import {
-  clickDay,
-  getDayButton,
-  getTableFooter
-} from '@site/src/test/po';
 import { render } from '@testing-library/react';
 
+import { clickDay, getDayButton, getTableFooter } from '../src/test/po';
 import Example from './modifiers-custom';
 
 const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];

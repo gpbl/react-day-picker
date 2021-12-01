@@ -1,13 +1,9 @@
 import React from 'react';
 
-import {
-  clickDay,
-  getDayButton,
-  getTableFooter
-} from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
+import { clickDay, getDayButton, getTableFooter } from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
 import Example from './single-required';
 
 const today = new Date(2021, 10, 25);

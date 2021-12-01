@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { render } from '@testing-library/react';
+import { addDays, addWeeks, lastDayOfMonth, setDate } from 'date-fns';
+
 import {
   clickNextMonth,
   clickPrevMonth,
@@ -11,16 +14,8 @@ import {
   pressArrowLeft,
   pressArrowRight,
   pressArrowUp
-} from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
-import { render } from '@testing-library/react';
-import {
-  addDays,
-  addWeeks,
-  lastDayOfMonth,
-  setDate
-} from 'date-fns';
-
+} from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
 import Example from './keyboard';
 
 const today = new Date(2022, 5, 10);

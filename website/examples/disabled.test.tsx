@@ -1,15 +1,15 @@
 import React from 'react';
 
+import { render } from '@testing-library/react';
+import { setDate } from 'date-fns';
+
 import {
   focusDay,
   getMonthCaption,
   pressArrowLeft,
   queryPrevButton
-} from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
-import { render } from '@testing-library/react';
-import { setDate } from 'date-fns';
-
+} from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
 import Example from './disabled';
 
 const today = new Date(2022, 5, 10);

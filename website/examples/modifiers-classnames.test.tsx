@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { getDayCell } from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
+import { getDayCell } from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
 import Example from './modifiers-classnames';
 
 const days = [
