@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "docusaurus clear && TYPEDOC_WATCH=true docusaurus start --hot-only",
+    "start": "yarn workspace react-day-picker build && docusaurus clear && TYPEDOC_WATCH=true docusaurus start --hot-only",
     "build": "docusaurus build",
     "serve": "docusaurus serve",
     "deploy": "docusaurus deploy",
