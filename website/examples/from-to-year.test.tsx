@@ -1,14 +1,10 @@
 import React from 'react';
 
-import {
-  clickNextMonth,
-  getNextButton,
-  getPrevButton
-} from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 import { differenceInMonths } from 'date-fns';
 
+import { clickNextMonth, getNextButton, getPrevButton } from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
 import Example from './from-to-year';
 
 const fromDate = new Date(2015, 0);

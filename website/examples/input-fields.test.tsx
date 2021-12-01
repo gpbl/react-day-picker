@@ -1,19 +1,12 @@
 import React from 'react';
 
-import {
-  clickDay,
-  clickNextMonth,
-  getAllSelectedDays,
-  getDayButton,
-  getNextButton,
-  getPrevButton
-} from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
-import { act, render, screen } from '@testing-library/react';
-import { addDays, differenceInMonths, format } from 'date-fns';
-
-import Example from './input-fields';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { addDays, format } from 'date-fns';
+
+import { clickDay, getAllSelectedDays, getDayButton } from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
+import Example from './input-fields';
 
 const today = new Date(2021, 10, 15);
 freezeBeforeAll(today);

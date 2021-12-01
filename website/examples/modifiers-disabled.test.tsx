@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { getDayButton } from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
+import { getDayButton } from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
 import Example from './modifiers-disabled';
 
 const days = [

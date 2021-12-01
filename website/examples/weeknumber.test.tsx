@@ -1,13 +1,9 @@
 import React from 'react';
 
-import {
-  clickWeek,
-  getTableFooter,
-  getWeekButton
-} from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 
+import { clickWeek, getTableFooter, getWeekButton } from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
 import Example from './weeknumber';
 
 const today = new Date(2021, 10, 25);

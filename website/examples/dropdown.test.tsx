@@ -1,15 +1,15 @@
 import React from 'react';
 
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import {
   getMonthCaption,
   getMonthDropdown,
   getYearDropdown,
   selectMonth
-} from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
-import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
+} from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
 import Example from './dropdown';
 
 const today = new Date(2022, 5, 10);

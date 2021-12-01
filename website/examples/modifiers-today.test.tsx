@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { clickDay, getTableFooter } from '@site/src/test/po';
-import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 
+import { clickDay, getTableFooter } from '../src/test/po';
+import { freezeBeforeAll } from '../src/test/utils';
 import Example from './modifiers-today';
 
 const today = new Date(2022, 5, 10);
@@ -18,7 +18,7 @@ describe('when the today date is clicked', () => {
   beforeEach(() => clickDay(today));
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent(
-      'You clicked the today’s date'
+      'Try clicking the today’s date'
     );
   });
 });
