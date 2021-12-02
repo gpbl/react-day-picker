@@ -1,7 +1,12 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
-import { addDays, addWeeks, lastDayOfMonth, setDate } from 'date-fns';
+import {
+  addDays,
+  addWeeks,
+  lastDayOfMonth,
+  setDate
+} from 'date-fns';
 
 import {
   clickNextMonth,
