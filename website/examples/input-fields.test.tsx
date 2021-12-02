@@ -4,7 +4,11 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, format } from 'date-fns';
 
-import { clickDay, getAllSelectedDays, getDayButton } from '../src/test/po';
+import {
+  clickDay,
+  getAllSelectedDays,
+  getDayButton
+} from '../src/test/po';
 import { freezeBeforeAll } from '../src/test/utils';
 import Example from './input-fields';
 

@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { fireEvent, render, screen } from '@testing-library/react';
+import {
+  fireEvent,
+  render,
+  screen
+} from '@testing-library/react';
 
 import { getMonthCaption } from '../src/test/po';
 import { freezeBeforeAll } from '../src/test/utils';

@@ -2,7 +2,11 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import { clickDay, getAllEnabledDays, getDayButton } from '../src/test/po';
+import {
+  clickDay,
+  getAllEnabledDays,
+  getDayButton
+} from '../src/test/po';
 import { freezeBeforeAll } from '../src/test/utils';
 import Example from './range-min-max';
 

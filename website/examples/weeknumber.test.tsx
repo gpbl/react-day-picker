@@ -2,7 +2,11 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import { clickWeek, getTableFooter, getWeekButton } from '../src/test/po';
+import {
+  clickWeek,
+  getTableFooter,
+  getWeekButton
+} from '../src/test/po';
 import { freezeBeforeAll } from '../src/test/utils';
 import Example from './weeknumber';
 
