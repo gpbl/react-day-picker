@@ -3,7 +3,11 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { differenceInMonths } from 'date-fns';
 
-import { clickNextMonth, getNextButton, getPrevButton } from '../src/test/po';
+import {
+  clickNextMonth,
+  getNextButton,
+  getPrevButton
+} from '../src/test/po';
 import { freezeBeforeAll } from '../src/test/utils';
 import Example from './from-to-year';
 

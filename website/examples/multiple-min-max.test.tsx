@@ -3,7 +3,11 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 
-import { clickDay, getDayButton, getTableFooter } from '../src/test/po';
+import {
+  clickDay,
+  getDayButton,
+  getTableFooter
+} from '../src/test/po';
 import { freezeBeforeAll } from '../src/test/utils';
 import Example from './multiple-min-max';
 

@@ -3,7 +3,11 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 
-import { clickDay, getAllSelectedDays, getDayButton } from '../src/test/po';
+import {
+  clickDay,
+  getAllSelectedDays,
+  getDayButton
+} from '../src/test/po';
 import Example from './range';
 
 const pastMonth = new Date(2020, 10, 15);
