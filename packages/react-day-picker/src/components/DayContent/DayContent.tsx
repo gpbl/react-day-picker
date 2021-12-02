@@ -25,6 +25,7 @@ export function DayContent(props: DayContentProps): JSX.Element {
     labels: { labelDay },
     formatters: { formatDay }
   } = useDayPicker();
+
   return (
     <>
       <span aria-hidden="true">{formatDay(props.date, { locale })}</span>
