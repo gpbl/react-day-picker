@@ -14,10 +14,6 @@ export default function App() {
   };
 
   return (
-    <DayPicker
-      mode="custom"
-      onDayClick={handleDayClick}
-      footer={footer}
-    />
+    <DayPicker onDayClick={handleDayClick} footer={footer} />
   );
 }
