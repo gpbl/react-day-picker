@@ -3,7 +3,7 @@ import { DayPicker, Row, RowProps } from 'react-day-picker';
 
 import { differenceInCalendarDays } from 'date-fns';
 
-function isPastDate(date) {
+function isPastDate(date: Date) {
   return differenceInCalendarDays(date, new Date()) < 0;
 }
 

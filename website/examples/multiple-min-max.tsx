@@ -2,10 +2,11 @@ import React from 'react';
 import { DayPicker } from 'react-day-picker';
 
 export default function App() {
-  const [days, setDays] = React.useState([]);
+  // TODO: remove the `undefined` type (see #1312)
+  const [days, setDays] = React.useState<Date[] | undefined>();
 
   const footer =
-    days.length > 0
+    days && days.length > 0
       ? `You selected ${days.length} day(s).`
       : `Please pick one or more days.`;
 

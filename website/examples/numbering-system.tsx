@@ -16,9 +16,9 @@ const formatDay: DateFormatter = (day) =>
 const formatWeekNumber: WeekNumberFormatter = (weekNumber) =>
   weekNumber.toLocaleString(NU_LOCALE);
 
-const formatCaption: DateFormatter = (date, { locale }) => {
+const formatCaption: DateFormatter = (date, options) => {
   const y = date.getFullYear().toLocaleString(NU_LOCALE);
-  const m = format(date, 'LLLL', { locale });
+  const m = format(date, 'LLLL', { locale: options?.locale });
   return `${m} ${y}`;
 };
 
