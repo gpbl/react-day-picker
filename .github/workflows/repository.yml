@@ -103,6 +103,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Unit tests
+      - name: Run jest
         run: |
           yarn test --coverage

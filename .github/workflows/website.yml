@@ -1,4 +1,4 @@
-name: "CI: build website"
+name: "CI: website"
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - ".github/workflows/**"
 
 jobs:
-  lint-build:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -37,10 +37,6 @@ jobs:
       - name: Build react-day-picker
         run: |
           yarn workspace react-day-picker build
-      - name: Type-check
-        continue-on-error: true # Typechecking is buggy for website
-        run: |
-          yarn workspace website run typecheck
       - name: Build docusaurus
         run: |
           yarn workspace website run build

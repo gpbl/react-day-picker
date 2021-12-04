@@ -1,4 +1,4 @@
-name: "CI: build react-day-picker"
+name: "CI: react-day-picker"
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - ".github/workflows/**"
 
 jobs:
-  lint-build:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -34,9 +34,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Type-check
-        run: |
-          yarn workspace react-day-picker run typecheck
-      - name: Build
+      - name: Run rollupjs
         run: |
           yarn workspace react-day-picker run build
