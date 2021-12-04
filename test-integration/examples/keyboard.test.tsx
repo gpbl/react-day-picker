@@ -44,19 +44,19 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     setup(dir);
   });
 
-  describe('when clicking the previous month button', () => {
-    beforeEach(clickPrevMonth);
-    test('should display the previous month', () => {
-      expect(getMonthCaption(container)).toHaveTextContent('May 2022');
-    });
-  });
-  describe('when clicking the next month button', () => {
-    beforeEach(clickNextMonth);
+  // describe('when clicking the previous month button', () => {
+  //   beforeEach(clickPrevMonth);
+  //   test('should display the previous month', () => {
+  //     expect(getMonthCaption(container)).toHaveTextContent('May 2022');
+  //   });
+  // });
+  // describe('when clicking the next month button', () => {
+  //   beforeEach(clickNextMonth);
 
-    test('should display the next month', () => {
-      expect(getMonthCaption(container)).toHaveTextContent('July 2022');
-    });
-  });
+  //   test('should display the next month', () => {
+  //     expect(getMonthCaption(container)).toHaveTextContent('July 2022');
+  //   });
+  // });
   describe('when the first day is focused', () => {
     const day = setDate(today, 1);
     const nextDay = addDays(day, 1);
