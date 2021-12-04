@@ -152,7 +152,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         expect(getDayButton(subMonths(day, -12))).toHaveFocus();
       });
     });
-    describe('whe Home is pressed', () => {
+    describe('when Home is pressed', () => {
       beforeEach(pressHome);
       it('should focus the first day of week', () => {
         expect(getDayButton(addDays(startOfWeek(day), 1))).toHaveFocus();
