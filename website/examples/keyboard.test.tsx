@@ -24,7 +24,10 @@ import {
   addDays,
   addWeeks,
   lastDayOfMonth,
-  setDate
+  setDate,
+  startOfWeek,
+  endOfWeek,
+  subMonths
 } from 'date-fns';
 
 import Example from './keyboard';
@@ -72,7 +75,6 @@ describe.each(['ltr', 'rtl'])(
       });
       describe('when the Arrow Left is pressed', () => {
         beforeEach(pressArrowLeft);
-
         if (dir === 'rtl') {
           test('should focus the next day', () => {
             expect(getDayButton(nextDay)).toHaveFocus();
@@ -129,6 +131,68 @@ describe.each(['ltr', 'rtl'])(
           expect(getDayButton(nextWeekDay)).toHaveFocus();
         });
       });
+      describe('when Page Up is pressed', () => {
+        beforeEach(pressPageUp);
+        it('should display the previous month', () => {
+          expect(getMonthCaption(container)).toHaveTextContent(
+            'May 2022'
+          );
+        });
+        it('should focus on the same day as the initial month', () => {
+          expect(getDayButton(subMonths(day, 1))).toHaveFocus();
+        });
+      });
+      describe('when Page Down is pressed', () => {
+        beforeEach(pressPageDown);
+        it('should display the next month', () => {
+          expect(getMonthCaption(container)).toHaveTextContent(
+            'July 2022'
+          );
+        });
+        it('should focus on the same day as the initial month', () => {
+          expect(getDayButton(subMonths(day, -1))).toHaveFocus();
+        });
+      });
+      describe('when Shift + Page Up is pressed', () => {
+        beforeEach(pressShiftPageUp);
+        it('should display the previous year', () => {
+          expect(getMonthCaption(container)).toHaveTextContent(
+            'June 2021'
+          );
+        });
+        it('should focus on the same day as the initial month', () => {
+          expect(getDayButton(subMonths(day, 12))).toHaveFocus();
+        });
+      });
+      describe('when Shift + Page Down is pressed', () => {
+        beforeEach(pressShiftPageDown);
+        it('should display the following year', () => {
+          expect(getMonthCaption(container)).toHaveTextContent(
+            'June 2023'
+          );
+        });
+        it('should focus on the same day as the initial month', () => {
+          expect(
+            getDayButton(subMonths(day, -12))
+          ).toHaveFocus();
+        });
+      });
+      describe('whe Home is pressed', () => {
+        beforeEach(pressHome);
+        it('should focus the first day of week', () => {
+          expect(
+            getDayButton(addDays(startOfWeek(day), 1))
+          ).toHaveFocus();
+        });
+      });
+      describe('when End is pressed', () => {
+        beforeEach(pressEnd);
+        it('should focus the last day of week', () => {
+          expect(
+            getDayButton(addDays(endOfWeek(day), 1))
+          ).toHaveFocus();
+        });
+      });
     });
 
     describe('when the last day is focused', () => {
@@ -150,7 +214,6 @@ describe.each(['ltr', 'rtl'])(
             );
           });
           test('should focus the next day', () => {
-            const nextDay = addDays(day, 1);
             expect(getDayButton(nextDay)).toHaveFocus();
           });
         }
@@ -203,36 +266,6 @@ describe.each(['ltr', 'rtl'])(
           expect(getDayButton(nextDay)).toHaveFocus();
         });
       });
-    });
-
-    describe('when Page Up is pressed', () => {
-      beforeEach(pressPageUp);
-      test.todo('Should display the previous month');
-    });
-
-    describe('when Page Down is pressed', () => {
-      beforeEach(pressPageDown);
-      test.todo('Should display the next month');
-    });
-
-    describe('when Shift + Page Up is pressed', () => {
-      beforeEach(pressShiftPageUp);
-      test.todo('Should display the previous year');
-    });
-
-    describe('when Shift + Page Down is pressed', () => {
-      beforeEach(pressShiftPageDown);
-      test.todo('should display the next year');
-    });
-
-    describe('whe Home is pressed', () => {
-      beforeEach(pressHome);
-      test.todo('should select the first day of week');
-    });
-
-    describe('when End is pressed', () => {
-      beforeEach(pressEnd);
-      test.todo('should select the last day of week');
     });
   }
 );
