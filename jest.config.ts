@@ -3,11 +3,7 @@ import { pathsToModuleNameMapper } from 'ts-jest/utils';
 import { compilerOptions } from './tsconfig.json';
 
 const config: Config.InitialOptions = {
-  roots: [
-    './website/examples',
-    './website/src',
-    './packages/react-day-picker/src'
-  ],
+  roots: ['./test-integration', './packages/react-day-picker/src'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },

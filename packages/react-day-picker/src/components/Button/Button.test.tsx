@@ -1,6 +1,6 @@
+import { customRender } from '@test/customRender';
+import { PageObjects } from '@test/PageObjects';
 import React from 'react';
-
-import { customRender, PageObjects } from '../../test';
 
 import { Button } from './Button';
 

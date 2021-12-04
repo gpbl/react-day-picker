@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
-  DayPicker,
-  DayClickEventHandler
+  DayClickEventHandler,
+  DayPicker
 } from 'react-day-picker';
 
 export default function App() {

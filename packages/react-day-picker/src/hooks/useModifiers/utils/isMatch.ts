@@ -1,4 +1,5 @@
 import { differenceInCalendarDays, isDate, isSameDay } from 'date-fns';
+
 import {
   isDateAfterType,
   isDateBeforeType,
@@ -7,7 +8,6 @@ import {
   isDayOfWeekType,
   Matcher
 } from '../../../types/Matchers';
-
 import { isDateInRange } from './isDateInRange';
 
 /** Returns true if `value` is a Date type. */

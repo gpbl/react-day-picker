@@ -1,5 +1,7 @@
 import { act } from 'react-dom/test-utils';
+
 import { renderHook, RenderHookResult } from '@testing-library/react-hooks';
+
 import { DispatchStateAction, useControlledValue } from './useControlledValue';
 
 type RenderHookProps = {
