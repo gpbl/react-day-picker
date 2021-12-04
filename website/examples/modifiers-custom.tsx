@@ -1,13 +1,18 @@
 import React from 'react';
 import { DayPicker } from 'react-day-picker';
 
+import { DayClickEventHandler } from '../../packages/react-day-picker/src/types';
+
 const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
 const bookedStyle = { border: '2px solid currentColor' };
 
 export default function App() {
   const [booked, setBooked] = React.useState(false);
 
-  const handleDayClick = (day, modifiers) => {
+  const handleDayClick: DayClickEventHandler = (
+    day,
+    modifiers
+  ) => {
     setBooked(day && modifiers.booked);
   };
 

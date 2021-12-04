@@ -3,7 +3,7 @@ import { DateFormatter, DayPicker } from 'react-day-picker';
 
 import { format } from 'date-fns';
 
-const seasonEmoji = {
+const seasonEmoji: Record<string, string> = {
   winter: '⛄️',
   spring: '🌸',
   summer: '🌻',
@@ -15,17 +15,17 @@ const getSeason = (month: Date): string => {
   if (monthNumber >= 0 && monthNumber < 3) return 'winter';
   if (monthNumber >= 3 && monthNumber < 6) return 'spring';
   if (monthNumber >= 6 && monthNumber < 9) return 'summer';
-  if (monthNumber >= 9 && monthNumber < 12) return 'autumn';
+  else return 'autumn';
 };
 
-const formatCaption: DateFormatter = (month, { locale }) => {
+const formatCaption: DateFormatter = (month, options) => {
   const season = getSeason(month);
   return (
     <>
       <span role="img" aria-label={season}>
         {seasonEmoji[season]}
       </span>{' '}
-      {format(month, 'LLLL', { locale })}
+      {format(month, 'LLLL', { locale: options?.locale })}
     </>
   );
 };

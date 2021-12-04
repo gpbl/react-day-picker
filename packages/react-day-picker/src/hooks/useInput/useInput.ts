@@ -4,13 +4,13 @@ import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import enUS from 'date-fns/locale/en-US';
 
 import { parseFromToProps } from '../../contexts/DayPicker/utils';
-import { isValidDate } from './utils/isValidDate';
+import { DayPickerCustomProps } from '../../types';
+import { DayPickerProps } from '../../types/DayPicker';
 import {
   DayClickEventHandler,
   MonthChangeEventHandler
 } from '../../types/EventHandlers';
-import { DayPickerProps } from '../../types/DayPicker';
-import { DayPickerCustomProps } from '../../types';
+import { isValidDate } from './utils/isValidDate';
 
 /** The props to attach to the input field when using [[useInput]]. */
 export type InputHTMLAttributes = Pick<

@@ -1,15 +1,13 @@
+import { useDayPicker } from '../../contexts/DayPicker';
+import { useSelectMultiple } from '../../contexts/SelectMultiple';
+import { useSelectRange } from '../../contexts/SelectRange';
+import { useSelectSingle } from '../../contexts/SelectSingle';
 import {
   isDayPickerMultiple,
   isDayPickerRange,
   isDayPickerSingle,
   Modifiers
 } from '../../types';
-
-import { useDayPicker } from '../../contexts/DayPicker';
-import { useSelectMultiple } from '../../contexts/SelectMultiple';
-import { useSelectRange } from '../../contexts/SelectRange';
-import { useSelectSingle } from '../../contexts/SelectSingle';
-
 import { UseModifiers } from './types';
 import { getModifierStatus } from './utils/getModifierStatus';
 
