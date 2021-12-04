@@ -1,13 +1,12 @@
-name: "CI: build website"
+name: "CI: lint"
 
 on:
   push:
-    paths:
-      - "website/**"
-      - ".github/workflows/**"
+    branches:
+      - "**"
 
 jobs:
-  lint-build:
+  lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -34,13 +33,9 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Build react-day-picker
+      - name: Lint react-day-picker
         run: |
-          yarn workspace react-day-picker build
-      - name: Type-check
-        continue-on-error: true # Typechecking is buggy for website
+          yarn workspace react-day-picker lint
+      - name: Lint website
         run: |
-          yarn workspace website run typecheck
-      - name: Build docusaurus
-        run: |
-          yarn workspace website run build
+          yarn workspace website lint

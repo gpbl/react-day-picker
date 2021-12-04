@@ -1,4 +1,4 @@
-name: "CI: react-day-picker"
+name: "CI: build react-day-picker"
 
 on:
   push:
@@ -37,9 +37,6 @@ jobs:
       - name: Type-check
         run: |
           yarn workspace react-day-picker run typecheck
-      - name: Linter
-        run: |
-          yarn workspace react-day-picker run lint --cache
       - name: Build
         run: |
           yarn workspace react-day-picker run build
