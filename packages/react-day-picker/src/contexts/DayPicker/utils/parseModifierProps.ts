@@ -8,8 +8,7 @@ const modifierShortcuts: InternalModifier[] = [
 ];
 
 /**
- * Parse the modifiers from the props and return them as a map of array of
- * matcher.
+ * Parse the modifiers from the props.
  *
  * Internally we want modifiers as an array of matchers – as opposite of the
  * props which can accept also a matcher.
