@@ -197,8 +197,6 @@ export interface DayPickerProps {
   /**
    * Toggle the controlled selection mode.
    *
-   * As default, no selection mode is set and the days are not interactive.
-   *
    * - `single`: control the selection of single days
    * - `multiple`: control the selection of multiple days
    * - `range`: control the selection of a range of days
