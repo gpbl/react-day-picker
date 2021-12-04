@@ -1,6 +1,9 @@
 name: "CI: website"
 
 on:
+  pull_request:
+    branches:
+      - master
   push:
     paths:
       - "website/**"
