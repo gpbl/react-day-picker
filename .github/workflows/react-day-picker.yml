@@ -14,7 +14,7 @@ on:
       - ".github/workflows/**"
 
 jobs:
-  test:
+  lint-build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -47,9 +47,6 @@ jobs:
       - name: Linter
         run: |
           yarn workspace react-day-picker run lint --cache
-      - name: Unit tests
-        run: |
-          yarn workspace react-day-picker run test
       - name: Build
         run: |
           yarn workspace react-day-picker run build
