@@ -68,6 +68,18 @@ export interface SelectSingleEventHandler {
   ): void;
 }
 
+export interface SelectSingleRequiredEventHandler {
+  (
+    /** The selected day, `undefined` when `required={false}` (default) and the day is clicked again. */
+    day: Date,
+    /** The day that was selected (or clicked) triggering the event. */
+    selectedDay: Date,
+    /** The modifiers of the selected day. */
+    modifiers: ModifierStatus,
+    e: React.MouseEvent
+  ): void;
+}
+
 /**The event handler when the week number is clicked. */
 export type WeekNumberClickEventHandler = (
   /** The week number that has been clicked. */
