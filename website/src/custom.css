@@ -42,93 +42,27 @@ html[data-theme='dark'] {
   --rdp-background-color: var(--rdp-background-color-dark);
 }
 
-
-/* #region: Sandpack styles */
-.sp-wrapper {
-  box-shadow: 0px 0.8px 2px rgba(0, 0, 0, 0.032),
-    0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08) !important;
-  border-radius: var(--ifm-global-radius) !important;
-  max-width: 1000px !important;
-}
-.sp-layout {
-  --sp-border-radius: var(--ifm-global-radius);
-  margin-bottom: var(--ifm-leading);
-  border: 0 !important;
-}
-
-.sp-overlay {
-  --sp-colors-bg-default: var(--ifm-background-color);
-}
-
-.sp-code-editor,
-.cm-editor,
-.cm-gutter {
-  --sp-colors-bg-default: var(--menu-background);
-  background-color: var(--sp-colors-bg-default);
-}
-
-.sp-stack:last-child {
-  border: 0 !important;
-}
-
-.sp-preview-container,
-.sp-loading {
-  background-color: var(--menu-background) !important;
-  /* box-shadow: 0px 0.8px 2px rgba(0,0,0,0.032),0px 12px 30px rgba(0,0,0,0.08) !important; */
-  /* border-radius: var(--ifm-global-radius); */
-}
-
-/* #endregion */
-
 body {
   text-rendering: optimizeLegibility;
 }
 
+/* #region: override general styles */
+
 .container {
   max-width: unset !important;
 }
-
-.rdp {
-  margin: 1rem;
+table {
+  margin: 0;
 }
-.rdp table .rdp-tfoot td {
-  padding-top: 1rem;
-}
-
-.rdp-tfoot form {
-  text-align: center;
+table th,
+table td,
+table tr {
+  border: 0;
+  background-color: transparent;
 }
 
-.rdp-tfoot button {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 8px;
-  display: inline-block;
-  font-size: 0.875em;
-  padding: 0.3rem 0.8rem;
-  text-align: center;
-  user-select: none;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-
-.rdp table thead tr {
-  /* remove docusaurus styling */
-  all: revert;
-}
-.rdp table td {
-  /* remove docusaurus styling */
-  all: revert;
-}
-.rdp-tfoot button:not(:disabled) {
-  cursor: pointer;
-  background-color: var(--ifm-color-secondary-light);
-  border-color: var(--ifm-color-secondary-darkest);
-}
-
-.rdp-tfoot button:disabled {
-  background-color: var(--ifm-color-secondary-lighter);
-  border-color: var(--ifm-color-secondary-light);
+.rdp table tr:nth-child(2n) {
+  background: none;
 }
 
 .menu {
@@ -196,21 +130,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: var(--ifm-code-background);
 }
 
-/* revert styles from docusaurus */
-table {
-  margin: 0;
-}
-table th,
-table td,
-table tr {
-  border: 0;
-  background-color: transparent;
-}
-
-.rdp table tr:nth-child(2n) {
-  background: none;
-}
-
 @media (min-width: 997px) {
   .table-of-contents:before {
     display: block;
@@ -253,10 +172,109 @@ hr {
 div[class*='docItemCol'] {
   max-width: 100% !important;
 }
+
 .theme-doc-sidebar-item-category {
   margin: 1em 0 !important;
 }
 
+.header-github-link:before {
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+  content: '';
+  display: flex;
+  height: 24px;
+  width: 24px;
+}
+
+[class*='tocCollapsibleButton'] {
+ padding-left: 0 !important;
+}
+
+/* #endregion */
+
+/* #region: sandpack styles */
+.sp-wrapper {
+  box-shadow: 0px 0.8px 2px rgba(0, 0, 0, 0.032),
+    0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08) !important;
+  border-radius: var(--ifm-global-radius) !important;
+  max-width: 1000px !important;
+}
+.sp-layout {
+  --sp-border-radius: var(--ifm-global-radius);
+  margin-bottom: var(--ifm-leading);
+  border: 0 !important;
+}
+
+.sp-overlay {
+  --sp-colors-bg-default: var(--ifm-background-color);
+}
+
+.sp-code-editor,
+.cm-editor,
+.cm-gutter {
+  --sp-colors-bg-default: var(--menu-background);
+  background-color: var(--sp-colors-bg-default);
+}
+
+.sp-stack:last-child {
+  border: 0 !important;
+}
+
+.sp-preview-container,
+.sp-loading {
+  background-color: var(--menu-background) !important;
+  /* box-shadow: 0px 0.8px 2px rgba(0,0,0,0.032),0px 12px 30px rgba(0,0,0,0.08) !important; */
+  /* border-radius: var(--ifm-global-radius); */
+}
+
+/* #endregion */
+
+/* #region: rdp */
+.rdp {
+  margin: 1rem;
+}
+.rdp table .rdp-tfoot td {
+  padding-top: 1rem;
+}
+
+.rdp-tfoot form {
+  text-align: center;
+}
+
+.rdp-tfoot button {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 0.875em;
+  padding: 0.3rem 0.8rem;
+  text-align: center;
+  user-select: none;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.rdp table thead tr {
+  /* remove docusaurus styling */
+  all: revert;
+}
+.rdp table td {
+  /* remove docusaurus styling */
+  all: revert;
+}
+.rdp-tfoot button:not(:disabled) {
+  cursor: pointer;
+  background-color: var(--ifm-color-secondary-light);
+  border-color: var(--ifm-color-secondary-darkest);
+}
+
+.rdp-tfoot button:disabled {
+  background-color: var(--ifm-color-secondary-lighter);
+  border-color: var(--ifm-color-secondary-light);
+}
+/* #endregion */
+
+/* #region: markdown docs  */
 .markdown h1:first-child {
   --ifm-h1-font-size: 2.5rem;
   font-weight: 500;
@@ -336,11 +354,75 @@ div[class*='docItemCol'] {
   background-color: var(--ifm-color-emphasis-200);
 }
 
-.header-github-link:before {
-  background: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
-    no-repeat;
-  content: '';
-  display: flex;
-  height: 24px;
-  width: 24px;
+/* #endregion */
+
+/* #region markdown api */
+
+[id^=defined-in], [id^=inherited-from] {
+  display: inline-block;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
 }
+[id^=defined-in],
+[id^=defined-in] + *,
+[id^=inherited-from],
+[id^=inherited-from] + * {
+  font-size: small;
+  margin-bottom: .5em !important;
+}
+[id^=defined-in] + * {
+  margin-bottom: 2em !important;
+}
+
+#hierarchy {
+  font-size: 1rem;
+}
+
+#hierarchy + ul {
+  /* list-style: none; */
+}
+
+#hierarchy + ul p {
+  margin: 0
+}
+
+#hierarchy + ul code {
+  background-color: transparent;
+}
+
+#properties, #methods {
+  padding-bottom: .5em;
+  border-bottom: .1em solid currentColor;
+}
+
+#properties ~ h3, #methods ~ h3 {
+  display: inline-block;
+  padding-bottom: .5em;
+  border-bottom: 0.1em solid currentColor;
+}
+
+
+#properties ~ hr, #methods ~ hr, #hierarchy ~ hr {
+  display: none;
+}
+
+#properties ~ h3 + p, #methods ~ h3 + p, #hierarchy ~ h3 + p {
+  font-family: var(--ifm-font-family-monospace);
+}
+
+#properties ~ h3 + p code, #methods ~ h3 + p code, #hierarchy ~ h3 + p code {
+  --ifm-code-font-size: inherits;
+  opacity: .9;
+  border: 0;
+  font-family: var(--ifm-font-family-monospace);
+  background-color: transparent;
+}
+
+#parameters + table td,
+#parameters + table th {
+  padding-left: 0;
+  border: 1px solid var(--ifm-toc-border-color);
+}
+
+/* #endregion */
