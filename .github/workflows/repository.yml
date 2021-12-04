@@ -106,6 +106,9 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
+      - name: Build react-day-picker
+        run: |
+          yarn workspace react-day-picker build
       - name: Run jest
         run: |
           yarn test --coverage
