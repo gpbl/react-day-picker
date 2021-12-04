@@ -87,10 +87,8 @@ export function useDay(
   const single = useSelectSingle();
   const multiple = useSelectMultiple();
   const range = useSelectRange();
-  const { focus, blur, focusOnKeyDown, isFocused } = useDayFocus(
-    date,
-    buttonRef
-  );
+  const { focus, blur, focusOnKeyDown, isFocused, changeInitialFocus } =
+    useDayFocus(date, buttonRef);
 
   const { modifiers, modifierClassNames, modifierStyle } = useModifiers(date);
   const isOutside = !isSameMonth(date, displayMonth);
@@ -152,6 +150,7 @@ export function useDay(
       range.handleDayClick?.(date, modifiers, e);
     }
     context.onDayClick?.(date, modifiers, e);
+    changeInitialFocus(date);
   };
 
   const handleFocus: React.FocusEventHandler = (e) => {

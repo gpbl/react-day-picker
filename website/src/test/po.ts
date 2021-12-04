@@ -121,17 +121,37 @@ export function pressArrowDown() {
   userEvent.type(getFocusedElement(), '{arrowdown}');
 }
 
-export function pressPageUp() {}
+export function pressPageUp() {
+  fireEvent.keyDown(getFocusedElement(), { key: 'PageUp', charCode: 33 });
+}
 
-export function pressPageDown() {}
+export function pressPageDown() {
+  fireEvent.keyDown(getFocusedElement(), { key: 'PageDown', charCode: 34 });
+}
 
-export function pressShiftPageUp() {}
+export function pressShiftPageUp() {
+  fireEvent.keyDown(getFocusedElement(), {
+    key: 'PageUp',
+    charCode: 33,
+    shiftKey: true
+  });
+}
 
-export function pressShiftPageDown() {}
+export function pressShiftPageDown() {
+  fireEvent.keyDown(getFocusedElement(), {
+    key: 'PageDown',
+    charCode: 34,
+    shiftKey: true
+  });
+}
 
-export function pressHome() {}
+export function pressHome() {
+  userEvent.type(getFocusedElement(), '{home}');
+}
 
-export function pressEnd() {}
+export function pressEnd() {
+  userEvent.type(getFocusedElement(), '{end}');
+}
 
 export function focusDay(day: Date) {
   getDayButton(day).focus();

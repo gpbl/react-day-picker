@@ -14,6 +14,7 @@ export function useDayFocus(
   blur: () => void;
   focusOnKeyDown: React.KeyboardEventHandler;
   isFocused: boolean;
+  changeInitialFocus: (date: Date) => void;
 } {
   const [
     focusedDay,
@@ -23,7 +24,14 @@ export function useDayFocus(
       focusWeekAfterDay,
       focusWeekBeforeDay,
       blur,
-      focus
+      focus,
+      changeInitialFocus,
+      focusMonthBefore,
+      focusMonthAfter,
+      focusYearBefore,
+      focusYearAfter,
+      focusFirstDayOfWeek,
+      focusLastDayOfWeek
     }
   ] = useFocus();
   const { dir } = useDayPicker();
@@ -58,10 +66,30 @@ export function useDayFocus(
         e.stopPropagation();
         focusWeekBeforeDay();
         break;
+      case 'PageUp':
+        e.preventDefault();
+        e.stopPropagation();
+        e.shiftKey ? focusYearBefore() : focusMonthBefore();
+        break;
+      case 'PageDown':
+        e.preventDefault();
+        e.stopPropagation();
+        e.shiftKey ? focusYearAfter() : focusMonthAfter();
+        break;
+      case 'Home':
+        e.preventDefault();
+        e.stopPropagation();
+        focusFirstDayOfWeek();
+        break;
+      case 'End':
+        e.preventDefault();
+        e.stopPropagation();
+        focusLastDayOfWeek();
+        break;
     }
   };
 
   const isFocused = Boolean(focusedDay && !isSameDay(focusedDay, date));
 
-  return { focus, blur, focusOnKeyDown, isFocused };
+  return { focus, changeInitialFocus, blur, focusOnKeyDown, isFocused };
 }
