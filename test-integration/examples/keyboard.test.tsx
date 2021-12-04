@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Example from '@examples/keyboard';
 import {
   clickNextMonth,
   clickPrevMonth,
@@ -11,11 +10,27 @@ import {
   pressArrowDown,
   pressArrowLeft,
   pressArrowRight,
-  pressArrowUp
-} from '@test/po';
-import { freezeBeforeAll } from '@test/utils';
+  pressArrowUp,
+  pressPageUp,
+  pressPageDown,
+  pressShiftPageUp,
+  pressShiftPageDown,
+  pressHome,
+  pressEnd
+} from '@site/src/test/po';
+import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
-import { addDays, addWeeks, lastDayOfMonth, setDate } from 'date-fns';
+import {
+  addDays,
+  addWeeks,
+  lastDayOfMonth,
+  setDate,
+  startOfWeek,
+  endOfWeek,
+  subMonths
+} from 'date-fns';
+
+import Example from './keyboard';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
@@ -31,13 +46,13 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   });
 
   describe('when clicking the previous month button', () => {
-    beforeEach(() => clickPrevMonth());
+    beforeEach(clickPrevMonth);
     test('should display the previous month', () => {
       expect(getMonthCaption(container)).toHaveTextContent('May 2022');
     });
   });
   describe('when clicking the next month button', () => {
-    beforeEach(() => clickNextMonth());
+    beforeEach(clickNextMonth);
 
     test('should display the next month', () => {
       expect(getMonthCaption(container)).toHaveTextContent('July 2022');
@@ -102,6 +117,54 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         expect(getDayButton(nextWeekDay)).toHaveFocus();
       });
     });
+    describe('when Page Up is pressed', () => {
+      beforeEach(pressPageUp);
+      it('should display the previous month', () => {
+        expect(getMonthCaption(container)).toHaveTextContent('May 2022');
+      });
+      it('should focus on the same day as the initial month', () => {
+        expect(getDayButton(subMonths(day, 1))).toHaveFocus();
+      });
+    });
+    describe('when Page Down is pressed', () => {
+      beforeEach(pressPageDown);
+      it('should display the next month', () => {
+        expect(getMonthCaption(container)).toHaveTextContent('July 2022');
+      });
+      it('should focus on the same day as the initial month', () => {
+        expect(getDayButton(subMonths(day, -1))).toHaveFocus();
+      });
+    });
+    describe('when Shift + Page Up is pressed', () => {
+      beforeEach(pressShiftPageUp);
+      it('should display the previous year', () => {
+        expect(getMonthCaption(container)).toHaveTextContent('June 2021');
+      });
+      it('should focus on the same day as the initial month', () => {
+        expect(getDayButton(subMonths(day, 12))).toHaveFocus();
+      });
+    });
+    describe('when Shift + Page Down is pressed', () => {
+      beforeEach(pressShiftPageDown);
+      it('should display the following year', () => {
+        expect(getMonthCaption(container)).toHaveTextContent('June 2023');
+      });
+      it('should focus on the same day as the initial month', () => {
+        expect(getDayButton(subMonths(day, -12))).toHaveFocus();
+      });
+    });
+    describe('whe Home is pressed', () => {
+      beforeEach(pressHome);
+      it('should focus the first day of week', () => {
+        expect(getDayButton(addDays(startOfWeek(day), 1))).toHaveFocus();
+      });
+    });
+    describe('when End is pressed', () => {
+      beforeEach(pressEnd);
+      it('should focus the last day of week', () => {
+        expect(getDayButton(addDays(endOfWeek(day), 1))).toHaveFocus();
+      });
+    });
   });
 
   describe('when the last day is focused', () => {
@@ -121,7 +184,6 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
           expect(getMonthCaption(container)).toHaveTextContent('July 2022');
         });
         test('should focus the next day', () => {
-          const nextDay = addDays(day, 1);
           expect(getDayButton(nextDay)).toHaveFocus();
         });
       }
