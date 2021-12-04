@@ -18,7 +18,7 @@ export interface SelectSingleContextValue {
   /** The modifiers for the corresponding selection. */
   modifiers: SelectSingleModifiers;
   /** Event handler to attach to the day button to enable the single select. */
-  handleDayClick?: DayClickEventHandler;
+  onDayClick?: DayClickEventHandler;
 }
 
 /**
@@ -68,7 +68,7 @@ export function SelectSingleProviderInternal({
   initialProps,
   children
 }: SelectSingleProviderInternal): JSX.Element {
-  const handleDayClick: DayClickEventHandler = (day, dayModifiers, e) => {
+  const onDayClick: DayClickEventHandler = (day, dayModifiers, e) => {
     if (dayModifiers.selected && !initialProps.required) {
       initialProps.onSelect?.(undefined, day, dayModifiers, e);
       return;
@@ -84,7 +84,7 @@ export function SelectSingleProviderInternal({
 
   const contextValue: SelectSingleContextValue = {
     selected: initialProps.selected,
-    handleDayClick,
+    onDayClick,
     modifiers
   };
   return (
