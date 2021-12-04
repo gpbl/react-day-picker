@@ -126,6 +126,9 @@ export function focusDay(day: Date) {
 }
 
 export function getFocusedElement() {
+  if (!document.activeElement) {
+    throw new Error('Could not find any focused element');
+  }
   return document.activeElement;
 }
 
