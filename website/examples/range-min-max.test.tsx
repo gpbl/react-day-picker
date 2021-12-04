@@ -6,8 +6,8 @@ import {
   clickDay,
   getAllEnabledDays,
   getDayButton
-} from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+} from '@test/po';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './range-min-max';
 
 const today = new Date(2021, 10, 15);

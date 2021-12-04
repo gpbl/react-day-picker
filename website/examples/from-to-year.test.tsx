@@ -7,8 +7,8 @@ import {
   clickNextMonth,
   getNextButton,
   getPrevButton
-} from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+} from '@test/po';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './from-to-year';
 
 const fromDate = new Date(2015, 0);

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, screen } from '@testing-library/react';
 
-import { freezeBeforeAll } from '../src/test/utils';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './numbering-system';
 
 const today = new Date(2021, 10, 25);

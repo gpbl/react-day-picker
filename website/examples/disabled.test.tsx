@@ -8,8 +8,8 @@ import {
   getMonthCaption,
   pressArrowLeft,
   queryPrevButton
-} from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+} from '@test/po';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './disabled';
 
 const today = new Date(2022, 5, 10);

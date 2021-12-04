@@ -2,8 +2,8 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import { getMonthCaption } from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+import { getMonthCaption } from '@test/po';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './spanish';
 
 const today = new Date(2021, 10, 25);

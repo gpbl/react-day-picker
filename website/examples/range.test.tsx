@@ -7,7 +7,7 @@ import {
   clickDay,
   getAllSelectedDays,
   getDayButton
-} from '../src/test/po';
+} from '@test/po';
 import Example from './range';
 
 const pastMonth = new Date(2020, 10, 15);

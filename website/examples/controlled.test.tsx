@@ -6,9 +6,10 @@ import {
   screen
 } from '@testing-library/react';
 
-import { getMonthCaption } from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
 import Example from './controlled';
+
+import { freezeBeforeAll } from '@test/utils';
+import { getMonthCaption } from '@test/po';
 
 let container: HTMLElement;
 const today = new Date(2022, 5, 10);

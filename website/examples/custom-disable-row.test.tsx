@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import { freezeBeforeAll } from '../src/test/utils';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './custom-disable-row';
 
 const today = new Date(2021, 10, 25);

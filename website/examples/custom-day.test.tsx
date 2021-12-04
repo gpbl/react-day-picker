@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { getDaysInMonth } from 'date-fns';
 
-import { freezeBeforeAll } from '../src/test/utils';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './custom-day';
 
 const today = new Date(2021, 10, 25);

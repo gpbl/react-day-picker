@@ -19,8 +19,8 @@ import {
   pressArrowLeft,
   pressArrowRight,
   pressArrowUp
-} from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+} from '@test/po';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './keyboard';
 
 const today = new Date(2022, 5, 10);
@@ -39,7 +39,7 @@ describe.each(['ltr', 'rtl'])(
     });
 
     describe('when clicking the previous month button', () => {
-      beforeEach(clickPrevMonth);
+      beforeEach(() => clickPrevMonth());
       test('should display the previous month', () => {
         expect(getMonthCaption(container)).toHaveTextContent(
           'May 2022'
@@ -47,7 +47,7 @@ describe.each(['ltr', 'rtl'])(
       });
     });
     describe('when clicking the next month button', () => {
-      beforeEach(clickNextMonth);
+      beforeEach(() => clickNextMonth());
 
       test('should display the next month', () => {
         expect(getMonthCaption(container)).toHaveTextContent(

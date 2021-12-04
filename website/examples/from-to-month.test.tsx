@@ -7,7 +7,7 @@ import {
   clickNextMonth,
   getNextButton,
   getPrevButton
-} from '../src/test/po';
+} from '@test/po';
 import Example from './from-to-month';
 
 const fromDate = new Date(2015, 5);

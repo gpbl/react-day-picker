@@ -3,8 +3,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 
-import { clickDay, getTableFooter } from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+import { clickDay, getTableFooter } from '@test/po';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './modifiers-today';
 
 const today = new Date(2022, 5, 10);

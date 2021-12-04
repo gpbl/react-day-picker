@@ -2,8 +2,8 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import { clickDay, getDayButton } from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+import { clickDay, getDayButton } from '@test/po';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './range-shift-key';
 
 const today = new Date(2021, 10, 25);

@@ -6,7 +6,7 @@ import {
   clickDay,
   getDayButton,
   getTableFooter
-} from '../src/test/po';
+} from '@test/po';
 import Example from './modifiers-custom';
 
 const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];

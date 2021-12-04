@@ -6,8 +6,8 @@ import {
   clickWeek,
   getTableFooter,
   getWeekButton
-} from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+} from '@test/po';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './weeknumber';
 
 const today = new Date(2021, 10, 25);

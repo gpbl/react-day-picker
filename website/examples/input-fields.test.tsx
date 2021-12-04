@@ -8,8 +8,8 @@ import {
   clickDay,
   getAllSelectedDays,
   getDayButton
-} from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+} from '@test/po';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './input-fields';
 
 const today = new Date(2021, 10, 15);

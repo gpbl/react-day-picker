@@ -6,8 +6,8 @@ import {
   clickPrevMonth,
   getMonthCaption,
   getMonthTable
-} from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+} from '@test/po';
+import { freezeBeforeAll } from '@test/utils';
 import Example from './multiple-months';
 
 const today = new Date(2021, 10, 25);
@@ -37,7 +37,7 @@ describe('when rendering November 2021', () => {
   });
   // Test pagination
   describe('when the previous month button is clicked', () => {
-    beforeEach(clickPrevMonth);
+    beforeEach(() => clickPrevMonth());
     test('the first month should be October', () => {
       expect(getMonthCaption(container, 0)).toHaveTextContent(
         'October 2021'
