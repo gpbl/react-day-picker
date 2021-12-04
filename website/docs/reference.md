@@ -1,7 +1,3 @@
-# DayPicker Props
+# API Reference
 
-import DayPickerProps, { toc as DayPickerPropsTOC } from '@site/docs/api/interfaces/DayPickerProps.md';
-
-<DayPickerProps />
-
-export const toc = DayPickerPropsTOC;
+_Looking for the props of DayPicker? See the [DayPickerProps interface](/api/interfaces/DayPickerProps)._

@@ -25,7 +25,7 @@ function DayWithShiftKey(props: DayProps) {
     e
   ) => {
     if (!day.selected || day.modifiers.selected || e.shiftKey) {
-      day.buttonProps.onClick(e);
+      day.buttonProps?.onClick?.(e);
     }
   };
 
@@ -42,7 +42,7 @@ export default function App() {
   const [range, setRange] = useState<DateRange>();
 
   let footer = 'Please pick a day.';
-  if (range) {
+  if (range?.from && range?.to) {
     if (isSameDay(range.from, range.to)) {
       footer = 'Press Shift to choose more days.';
     } else {

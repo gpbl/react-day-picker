@@ -3,10 +3,10 @@ import React from 'react';
 import tk from 'timekeeper';
 import { addMonths } from 'date-fns';
 
-import { customRenderHook } from '../../../test';
 import { DayPickerProps } from '../../../types';
 
 import { useDay, UseDay } from './useDay';
+import { customRenderHook } from '@test/customRenderHook';
 
 const displayMonth = new Date(2021, 8, 1);
 

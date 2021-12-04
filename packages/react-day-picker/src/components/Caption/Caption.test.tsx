@@ -1,10 +1,11 @@
 import React from 'react';
 
+import { customRender } from '@test/customRender';
+import { PageObjects } from '@test/PageObjects';
 import { addMonths, setMonth, setYear } from 'date-fns';
 import tk from 'timekeeper';
 
-import { RootProvider, RootContext } from '../../contexts/RootProvider';
-import { customRender, PageObjects } from '../../test';
+import { RootContext } from '../../contexts/RootProvider';
 import { Caption } from './Caption';
 
 const today = new Date(2021, 8);

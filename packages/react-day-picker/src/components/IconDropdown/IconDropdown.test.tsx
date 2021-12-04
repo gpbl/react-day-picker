@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { customRender, PageObjects } from '../../test';
+import { customRender } from '@test/customRender';
+import { PageObjects } from '@test/PageObjects';
 
 import { IconDropdown } from './IconDropdown';
 

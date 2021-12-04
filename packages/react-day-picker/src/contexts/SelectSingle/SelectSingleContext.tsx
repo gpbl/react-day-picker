@@ -1,13 +1,14 @@
 import React from 'react';
 
 import { DayPickerProps } from '../../types/DayPicker';
-import { isDayPickerSingle } from '../../types/DayPickerSingle';
+import {
+  DayPickerSingleProps,
+  isDayPickerSingle
+} from '../../types/DayPickerSingle';
 import { DayClickEventHandler } from '../../types/EventHandlers';
 import { Modifiers } from '../../types/Modifiers';
-import { SelectSingleProviderInternal } from './SelectSingleProviderInternal';
 
 /** Represent the modifiers that are changed by the single selection. */
-
 export type SelectSingleModifiers = Pick<Modifiers, 'selected'>;
 
 /** Represents the value of a [[SelectSingleContext]]. */
@@ -17,7 +18,7 @@ export interface SelectSingleContextValue {
   /** The modifiers for the corresponding selection. */
   modifiers: SelectSingleModifiers;
   /** Event handler to attach to the day button to enable the single select. */
-  handleDayClick?: DayClickEventHandler;
+  onDayClick?: DayClickEventHandler;
 }
 
 /**
@@ -55,5 +56,40 @@ export function SelectSingleProvider(
       initialProps={props.initialProps}
       children={props.children}
     />
+  );
+}
+
+type SelectSingleProviderInternal = {
+  initialProps: DayPickerSingleProps;
+  children: React.ReactNode;
+};
+
+export function SelectSingleProviderInternal({
+  initialProps,
+  children
+}: SelectSingleProviderInternal): JSX.Element {
+  const onDayClick: DayClickEventHandler = (day, dayModifiers, e) => {
+    if (dayModifiers.selected && !initialProps.required) {
+      initialProps.onSelect?.(undefined, day, dayModifiers, e);
+      return;
+    }
+    initialProps.onSelect?.(day, day, dayModifiers, e);
+  };
+
+  const modifiers: SelectSingleModifiers = { selected: [] };
+
+  if (initialProps.selected) {
+    modifiers.selected = [initialProps.selected];
+  }
+
+  const contextValue: SelectSingleContextValue = {
+    selected: initialProps.selected,
+    onDayClick,
+    modifiers
+  };
+  return (
+    <SelectSingleContext.Provider value={contextValue}>
+      {children}
+    </SelectSingleContext.Provider>
   );
 }

@@ -1,0 +1,114 @@
+name: "CI: repository"
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  lint-source:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-${{ hashFiles('./yarn.lock') }}
+          restore-keys: |
+            yarn-cache-${{ hashFiles('./yarn.lock') }}
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
+      - name: Lint react-day-picker
+        run: |
+          yarn workspace react-day-picker lint
+      - name: Lint website
+        run: |
+          yarn workspace website lint
+  check-types:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-${{ hashFiles('./yarn.lock') }}
+          restore-keys: |
+            yarn-cache-${{ hashFiles('./yarn.lock') }}
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
+      - name: Build react-day-picker
+        run: |
+          yarn workspace react-day-picker build
+      - name: Typecheck react-day-picker
+        run: |
+          yarn workspace react-day-picker typecheck
+      - name: Typecheck tests
+        run: |
+          yarn typecheck-tests
+      - name: Typecheck website
+        run: |
+          yarn workspace website typecheck
+
+  run-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-${{ hashFiles('./yarn.lock') }}
+          restore-keys: |
+            yarn-cache-${{ hashFiles('./yarn.lock') }}
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
+      - name: Build react-day-picker
+        run: |
+          yarn workspace react-day-picker build
+      - name: Run jest
+        run: |
+          yarn test --coverage

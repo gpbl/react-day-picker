@@ -1,7 +1,6 @@
-import tk from 'timekeeper';
+import { customRenderHook } from '@test/customRenderHook';
 import { addDays } from 'date-fns';
-
-import { customRenderHook } from '../../test';
+import tk from 'timekeeper';
 
 import { useModifiers } from './useModifiers';
 

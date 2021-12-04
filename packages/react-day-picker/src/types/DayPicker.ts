@@ -34,10 +34,10 @@ import { ClassNames, StyledComponent, Styles } from './Styles';
  */
 export interface DayPickerProps {
   // #region class names
-  /** CSS class to add to the root UI element. */
+  /** The CSS class to add to the container element. */
   className?: string;
   /**
-   * Change the class names.
+   * Change the class names of the HTML elements.
    *
    * Use this prop when you need to change the default class names — for example
    * when using CSS modules.
@@ -68,8 +68,7 @@ export interface DayPickerProps {
   /**
    * The initial month to show in the calendar. Default is the current month.
    *
-   * As opposed to [[month]], use this prop to let DayPicker control the current
-   * month.
+   * Use this prop to let DayPicker control the current month. If you need to set the month programmatically, use [[month]] and [[onMonthChange]].
    */
   defaultMonth?: Date;
   /**
@@ -133,8 +132,8 @@ export interface DayPickerProps {
    * - `buttons` (default): display prev/right buttons
    * - `dropdown`: display drop-downs to change the month and the year
    *
-   * **Note** `dropdown` is valid only when `fromDate/fromMonth/fromYear` and
-   * `toDate/toMonth/toYear` are set.
+   * **Note:** the `dropdown` layout is available only when `fromDate`,
+   * `fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
    */
   captionLayout?: CaptionLayout;
   /**
@@ -196,8 +195,6 @@ export interface DayPickerProps {
   // #region selection props
   /**
    * Toggle the controlled selection mode.
-   *
-   * As default, no selection mode is set and the days are not interactive.
    *
    * - `single`: control the selection of single days
    * - `multiple`: control the selection of multiple days
