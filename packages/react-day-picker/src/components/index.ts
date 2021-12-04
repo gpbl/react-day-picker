@@ -1,5 +1,4 @@
-/* Export only components customizable via the `components` prop. */
-
+export * from './Button';
 export * from './Caption';
 export * from './CaptionLabel';
 export * from './Day';
