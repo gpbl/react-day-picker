@@ -24,8 +24,6 @@ export type FocusContextValue = [
   setters: {
     /** Focus the specified day. */
     focus: (day: Date) => void;
-    /* Save the initially focused day separately from the focusedDay state */
-    changeInitialFocus: (date: Date) => void;
     /** Blur the focused day */
     blur: () => void;
     /** Focus the day after the focused day. */
@@ -67,22 +65,12 @@ export function FocusProvider({
   children: React.ReactNode;
 }): JSX.Element {
   const [focusedDay, setDay] = React.useState<Date | undefined>();
-  const [tempoFocusedDay, setTempo] = React.useState<Date | undefined>();
-  const initialFocusChanged = React.useRef(false);
   const { goToMonth, displayMonths, previousMonth, nextMonth } =
     useNavigation();
   const { numberOfMonths } = useDayPicker();
 
   const blur = () => setDay(undefined);
-  const tempoFocusDay = (date: Date) => setTempo(date);
-  const focus = (date: Date) => {
-    setDay(date);
-  };
-
-  const changeInitialFocus = (date: Date): void => {
-    setDay(date);
-    setTempo(date);
-  };
+  const focus = (date: Date) => setDay(date);
 
   const switchMonth = (date: Date, offset: number) => {
     if (displayMonths.some((m) => isSameMonth(date, m))) return;
@@ -96,25 +84,25 @@ export function FocusProvider({
   const focusDayBefore = () => {
     if (!focusedDay) return;
     const before = addDays(focusedDay, -1);
-    changeInitialFocus(before);
+    focus(before);
     switchMonth(before, numberOfMonths * -1);
   };
   const focusDayAfter = () => {
     if (!focusedDay) return;
     const after = addDays(focusedDay, 1);
-    changeInitialFocus(after);
+    focus(after);
     switchMonth(after, numberOfMonths);
   };
   const focusWeekBeforeDay = () => {
     if (!focusedDay) return;
     const up = addWeeks(focusedDay, -1);
-    changeInitialFocus(up);
+    focus(up);
     switchMonth(up, numberOfMonths * -1);
   };
   const focusWeekAfterDay = () => {
     if (!focusedDay) return;
     const down = addWeeks(focusedDay, 1);
-    changeInitialFocus(down);
+    focus(down);
     switchMonth(down, numberOfMonths);
   };
 
@@ -127,7 +115,7 @@ export function FocusProvider({
       1
     );
     goToMonth(dayToFocus);
-    changeInitialFocus(dayToFocus);
+    focus(dayToFocus);
   };
 
   const focusLastDayOfWeek = (): void => {
@@ -139,7 +127,7 @@ export function FocusProvider({
       1
     );
     goToMonth(dayToFocus);
-    changeInitialFocus(dayToFocus);
+    focus(dayToFocus);
   };
 
   interface FocusOptions {
@@ -149,7 +137,6 @@ export function FocusProvider({
 
   const focusByUnit = (opts: FocusOptions): void => {
     if (!focusedDay) return;
-    if (!tempoFocusedDay) tempoFocusDay(focusedDay);
 
     const { unit, direction } = opts;
     let navigationFunction: (date: Date | number, amount: number) => Date;
@@ -179,18 +166,14 @@ export function FocusProvider({
     const month = navigationFunction(focusedDay, 1);
     goToMonth(month);
 
-    initialFocusChanged.current = Boolean(
-      tempoFocusedDay && getDaysInMonth(month) < tempoFocusedDay.getDate()
-    );
+    const switchDay = Boolean(getDaysInMonth(month) < focusedDay.getDate());
 
     focus(
-      !initialFocusChanged.current
-        ? tempoFocusedDay
-          ? addDays(startOfMonth(month), tempoFocusedDay.getDate() - 1)
-          : month
+      !switchDay
+        ? month
         : addDays(
             startOfWeek(addWeeks(startOfMonth(month), 3)),
-            tempoFocusedDay ? tempoFocusedDay.getDay() : focusedDay.getDay()
+            focusedDay.getDay()
           )
     );
   };
@@ -226,7 +209,6 @@ export function FocusProvider({
   const setters = {
     blur,
     focus,
-    changeInitialFocus,
     focusDayAfter,
     focusDayBefore,
     focusWeekAfterDay,

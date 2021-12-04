@@ -14,7 +14,6 @@ export function useDayFocus(
   blur: () => void;
   focusOnKeyDown: React.KeyboardEventHandler;
   isFocused: boolean;
-  changeInitialFocus: (date: Date) => void;
 } {
   const [
     focusedDay,
@@ -25,7 +24,6 @@ export function useDayFocus(
       focusWeekBeforeDay,
       blur,
       focus,
-      changeInitialFocus,
       focusMonthBefore,
       focusMonthAfter,
       focusYearBefore,
@@ -91,5 +89,5 @@ export function useDayFocus(
 
   const isFocused = Boolean(focusedDay && !isSameDay(focusedDay, date));
 
-  return { focus, changeInitialFocus, blur, focusOnKeyDown, isFocused };
+  return { focus, blur, focusOnKeyDown, isFocused };
 }
