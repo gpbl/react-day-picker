@@ -1,6 +1,9 @@
 name: "CI: react-day-picker"
 
 on:
+  pull_request:
+    branches:
+      - master
   push:
     paths:
       - "packages/react-day-picker/**"
