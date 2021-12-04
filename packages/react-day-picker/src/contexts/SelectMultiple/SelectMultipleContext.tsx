@@ -20,7 +20,7 @@ export interface SelectMultipleContextValue {
   /** The modifiers for the corresponding selection. */
   modifiers: SelectMultipleModifiers;
   /** Event handler to attach to the day button to enable the multiple select. */
-  handleDayClick?: DayClickEventHandler;
+  onDayClick?: DayClickEventHandler;
 }
 
 /**
@@ -74,7 +74,7 @@ export function SelectMultipleProviderInternal({
   children
 }: SelectMultipleProviderInternalProps): JSX.Element {
   const { selected } = initialProps;
-  const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
+  const onDayClick: DayClickEventHandler = (day, modifiers, e) => {
     initialProps.onDayClick?.(day, modifiers, e);
 
     const isMinSelected = Boolean(
@@ -129,7 +129,7 @@ export function SelectMultipleProviderInternal({
     ];
   }
 
-  const contextValue = { selected, handleDayClick, modifiers };
+  const contextValue = { selected, onDayClick, modifiers };
 
   return (
     <SelectMultipleContext.Provider value={contextValue}>

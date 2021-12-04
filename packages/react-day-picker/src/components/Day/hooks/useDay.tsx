@@ -139,11 +139,11 @@ export function useDay(
   // #region Event handlers
   const handleClick: React.MouseEventHandler = (e) => {
     if (isDayPickerSingle(context)) {
-      single.handleDayClick?.(date, modifiers, e);
+      single.onDayClick?.(date, modifiers, e);
     } else if (isDayPickerMultiple(context)) {
-      multiple.handleDayClick?.(date, modifiers, e);
+      multiple.onDayClick?.(date, modifiers, e);
     } else if (isDayPickerRange(context)) {
-      range.handleDayClick?.(date, modifiers, e);
+      range.onDayClick?.(date, modifiers, e);
     }
     context.onDayClick?.(date, modifiers, e);
   };

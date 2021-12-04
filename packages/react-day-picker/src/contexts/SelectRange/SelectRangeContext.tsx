@@ -25,7 +25,7 @@ export interface SelectRangeContextValue {
   /** The modifiers for the corresponding selection. */
   modifiers: SelectRangeModifiers;
   /** Event handler to attach to the day button to enable the range select. */
-  handleDayClick?: DayClickEventHandler;
+  onDayClick?: DayClickEventHandler;
 }
 
 /**
@@ -85,7 +85,7 @@ export function SelectRangeProviderInternal({
   const min = initialProps.min;
   const max = initialProps.max;
 
-  const handleDayClick: DayClickEventHandler = (day, modifiers, e) => {
+  const onDayClick: DayClickEventHandler = (day, modifiers, e) => {
     initialProps.onDayClick?.(day, modifiers, e);
     const newValue = addToRange(day, selected);
     if (
@@ -180,9 +180,7 @@ export function SelectRangeProviderInternal({
     }
   }
   return (
-    <SelectRangeContext.Provider
-      value={{ selected, handleDayClick, modifiers }}
-    >
+    <SelectRangeContext.Provider value={{ selected, onDayClick, modifiers }}>
       {children}
     </SelectRangeContext.Provider>
   );
