@@ -5,9 +5,7 @@ import { format } from 'date-fns';
 
 export default function App() {
   const today = new Date();
-  const [selectedDay, setSelectedDay] = React.useState<
-    Date | undefined
-  >(today);
+  const [selectedDay, setSelectedDay] = React.useState(today);
 
   const footer = selectedDay
     ? `You selected ${format(selectedDay, 'PPP')}.`
