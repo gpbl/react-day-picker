@@ -6,11 +6,6 @@ on:
       - "website/**"
       - ".github/workflows/**"
 
-  pull_request:
-    paths:
-      - "website/**"
-      - ".github/workflows/**"
-
 jobs:
   lint-build:
     runs-on: ubuntu-latest
