@@ -23,7 +23,7 @@ export type FocusContextValue = [
   focusedDay: Date | undefined,
   setters: {
     /** Focus the specified day. */
-    focus: (day: Date, keepInitial?: boolean) => void;
+    focus: (day: Date) => void;
     /* Save the initially focused day separately from the focusedDay state */
     changeInitialFocus: (date: Date) => void;
     /** Blur the focused day */
@@ -75,7 +75,7 @@ export function FocusProvider({
 
   const blur = () => setDay(undefined);
   const tempoFocusDay = (date: Date) => setTempo(date);
-  const focus = (date: Date, keepInitial: boolean = false) => {
+  const focus = (date: Date) => {
     setDay(date);
   };
 
@@ -191,8 +191,7 @@ export function FocusProvider({
         : addDays(
             startOfWeek(addWeeks(startOfMonth(month), 3)),
             tempoFocusedDay ? tempoFocusedDay.getDay() : focusedDay.getDay()
-          ),
-      true
+          )
     );
   };
 
