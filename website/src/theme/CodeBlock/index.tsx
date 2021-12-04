@@ -66,7 +66,7 @@ export default function CodeBlock(props) {
   };
 
   const options: SandpackProps['options'] = {
-    editorHeight: windowSize === 'desktop' ? 400 : 'auto',
+    editorHeight: 400,
     showNavigator: false,
     showTabs: false,
     showLineNumbers: true,

@@ -3,7 +3,7 @@ import { DayPicker } from 'react-day-picker';
 
 export default function App() {
   const [selectedDay, setSelectedDay] = React.useState<Date>();
-  const handleDayClick = (day) => setSelectedDay(day);
+  const handleDayClick = (day: Date) => setSelectedDay(day);
 
   const footer = selectedDay
     ? `You selected ${selectedDay.toDateString()}.`

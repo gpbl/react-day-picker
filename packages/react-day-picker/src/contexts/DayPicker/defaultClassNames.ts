@@ -43,11 +43,9 @@ export const defaultClassNames: Required<ClassNames> = {
   nav_icon: 'rdp-nav_icon',
 
   row: 'rdp-row',
-  row_head: 'rdp-row_head',
   weeknumber: 'rdp-weeknumber',
   cell: 'rdp-cell',
 
   day: 'rdp-day',
-  day_outside: 'rdp-day_outside',
-  day_today: 'rdp-day_today'
+  day_outside: 'rdp-day_outside'
 };

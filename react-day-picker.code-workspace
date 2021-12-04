@@ -18,7 +18,7 @@
       "packages/": true,
       "website/": true
     },
-    "jest.disabledWorkspaceFolders": ["root"],
+    "jest.disabledWorkspaceFolders": ["website", "react-day-picker"],
     "jest.autoRun": {
       "watch": false,
       "onSave": "test-file"

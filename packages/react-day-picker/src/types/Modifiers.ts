@@ -9,6 +9,7 @@ export type InternalModifier =
   | 'selected'
   | 'disabled'
   | 'hidden'
+  | 'today'
   | 'range_start'
   | 'range_end'
   | 'range_middle';
@@ -17,13 +18,16 @@ export type InternalModifier =
 export type Modifier = string;
 
 /** The status of a modifiers when matched a day. */
-export type ModifierStatus = Record<Modifier, true>;
+export type ModifierStatus = Record<Modifier, true> &
+  Partial<Record<InternalModifier, true>>;
 
 /** The inline-style to apply to the day matching `modifier`. */
-export type ModifierStyles = Record<Modifier, React.CSSProperties>;
+export type ModifierStyles = Record<Modifier, React.CSSProperties> &
+  Partial<Record<InternalModifier, React.CSSProperties>>;
 
 /** The classnames to assign to each modifier. */
-export type ModifierClassNames = Record<Modifier, string>;
+export type ModifierClassNames = Record<Modifier, string> &
+  Partial<Record<InternalModifier, string>>;
 
 /** A map of matchers to use as custom modifiers.*/
 export type CustomModifiers = Record<Modifier, Matcher | Matcher[]>;

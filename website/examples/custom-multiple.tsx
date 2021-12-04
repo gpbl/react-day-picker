@@ -1,12 +1,15 @@
+import { DayClickEventHandler } from '@src/types';
 import React from 'react';
-import { DayPicker, ModifierStatus } from 'react-day-picker';
+import { DayPicker } from 'react-day-picker';
 
 export default function App() {
-  const [selectedDays, setSelectedDays] = React.useState([]);
+  const [selectedDays, setSelectedDays] = React.useState<Date[]>(
+    []
+  );
 
-  const handleDayClick = (
-    day: Date,
-    modifiers: ModifierStatus
+  const handleDayClick: DayClickEventHandler = (
+    day,
+    modifiers
   ) => {
     setSelectedDays((currentValue) => {
       const days = [...currentValue];

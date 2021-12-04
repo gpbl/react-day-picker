@@ -1,18 +1,16 @@
 name: "CI: website"
 
 on:
+  pull_request:
+    branches:
+      - master
   push:
     paths:
       - "website/**"
       - ".github/workflows/**"
 
-  pull_request:
-    paths:
-      - "website/**"
-      - ".github/workflows/**"
-
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -42,16 +40,6 @@ jobs:
       - name: Build react-day-picker
         run: |
           yarn workspace react-day-picker build
-      - name: Type-check
-        continue-on-error: true # Typechecking is buggy for website
-        run: |
-          yarn workspace website run typecheck
-      - name: Linter
-        run: |
-          yarn workspace website run lint --cache
-      - name: Unit tests
-        run: |
-          yarn workspace website run test --passWithNoTests
-      - name: Build
+      - name: Build docusaurus
         run: |
           yarn workspace website run build

@@ -1,20 +1,16 @@
 name: "CI: react-day-picker"
 
 on:
+  pull_request:
+    branches:
+      - master
   push:
     paths:
       - "packages/react-day-picker/**"
       - ".github/workflows/**"
 
-  pull_request:
-    branches:
-      - master
-    paths:
-      - "packages/react-day-picker/**"
-      - ".github/workflows/**"
-
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -41,15 +37,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Type-check
-        run: |
-          yarn workspace react-day-picker run typecheck
-      - name: Linter
-        run: |
-          yarn workspace react-day-picker run lint --cache
-      - name: Unit tests
-        run: |
-          yarn workspace react-day-picker run test
-      - name: Build
+      - name: Run rollupjs
         run: |
           yarn workspace react-day-picker run build

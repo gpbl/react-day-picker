@@ -12,21 +12,15 @@ import {
 } from '../../../types';
 
 import { useDayPicker } from '../../../contexts/DayPicker';
-import {
-  SelectMultipleContextValue,
-  useSelectMultiple
-} from '../../../contexts/SelectMultiple';
-import {
-  SelectRangeContextValue,
-  useSelectRange
-} from '../../../contexts/SelectRange';
-import {
-  SelectSingleContextValue,
-  useSelectSingle
-} from '../../../contexts/SelectSingle';
-import { useModifiers } from '../../../hooks';
+import { useSelectMultiple } from '../../../contexts/SelectMultiple';
+import { useSelectRange } from '../../../contexts/SelectRange';
+import { useSelectSingle } from '../../../contexts/SelectSingle';
 
 import { useDayFocus } from './useDayFocus';
+import { SelectMultipleContextValue } from '../../../contexts/SelectMultiple/SelectMultipleContext';
+import { SelectRangeContextValue } from '../../../contexts/SelectRange/SelectRangeContext';
+import { SelectSingleContextValue } from '../../../contexts/SelectSingle/SelectSingleContext';
+import { useModifiers } from '../../../hooks/useModifiers';
 
 export type UseDay = {
   /** Whether the date is outside the display month/ */
@@ -143,11 +137,11 @@ export function useDay(
   // #region Event handlers
   const handleClick: React.MouseEventHandler = (e) => {
     if (isDayPickerSingle(context)) {
-      single.handleDayClick?.(date, modifiers, e);
+      single.onDayClick?.(date, modifiers, e);
     } else if (isDayPickerMultiple(context)) {
-      multiple.handleDayClick?.(date, modifiers, e);
+      multiple.onDayClick?.(date, modifiers, e);
     } else if (isDayPickerRange(context)) {
-      range.handleDayClick?.(date, modifiers, e);
+      range.onDayClick?.(date, modifiers, e);
     }
     context.onDayClick?.(date, modifiers, e);
     changeInitialFocus(date);

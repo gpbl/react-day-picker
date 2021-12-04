@@ -1,0 +1,30 @@
+import React from 'react';
+
+import { RootProvider } from '@src/contexts';
+import {
+  DayPickerCustomProps,
+  DayPickerMultipleProps,
+  DayPickerProps,
+  DayPickerRangeProps,
+  DayPickerSingleProps
+} from '@src/types';
+import {
+  Renderer,
+  renderHook,
+  RenderHookResult
+} from '@testing-library/react-hooks';
+
+export function customRenderHook<TProps, TResult>(
+  callback: (props: TProps) => TResult,
+  contextValue:
+    | DayPickerProps
+    | DayPickerMultipleProps
+    | DayPickerSingleProps
+    | DayPickerCustomProps
+    | DayPickerRangeProps
+): RenderHookResult<TProps, TResult, Renderer<TProps>> {
+  const wrapper = ({ children }: { children?: React.ReactNode }) => (
+    <RootProvider {...contextValue}>{children}</RootProvider>
+  );
+  return renderHook<TProps, TResult>(callback, { wrapper });
+}

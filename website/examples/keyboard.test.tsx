@@ -17,8 +17,8 @@ import {
   pressShiftPageDown,
   pressHome,
   pressEnd
-} from '../src/test/po';
-import { freezeBeforeAll } from '../src/test/utils';
+} from '@site/src/test/po';
+import { freezeBeforeAll } from '@site/src/test/utils';
 import { render } from '@testing-library/react';
 import {
   addDays,
