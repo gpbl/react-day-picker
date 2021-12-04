@@ -1,6 +1,9 @@
 name: "CI: repository"
 
 on:
+  pull_request:
+    branches:
+      - master
   push:
     branches:
       - "**"
