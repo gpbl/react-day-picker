@@ -75,8 +75,6 @@ export function useInput(options: UseInputOptions = {}): UseInput {
   } = options;
   const { fromDate, toDate } = parseFromToProps(options);
 
-  const min = required ? 1 : 0;
-
   // Shortcut to the DateFns functions
   const parseValue = (value: string) => parse(value, format, today, { locale });
 

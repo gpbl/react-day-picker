@@ -55,6 +55,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     modifiers.disabled.push({ after: toDate });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { toYear, fromYear, toMonth, fromMonth, ...contextProps } =
     initialProps;
 

@@ -10,7 +10,6 @@ import {
   SandpackTheme
 } from '@codesandbox/sandpack-react';
 import useThemeContext from '@theme/hooks/useThemeContext';
-import useWindowSize from '@theme/hooks/useWindowSize';
 
 import OriginalCodeBlock from '../OriginalCodeBlock';
 import style from './styles.module.css';
@@ -27,8 +26,6 @@ const stylesDark = require(`!!raw-loader!./sandbox/styles-dark.css`).default;
  */
 export default function CodeBlock(props) {
   const { isDarkTheme } = useThemeContext();
-  const windowSize = useWindowSize();
-
   if (props.className !== 'language-include') {
     return (
       <OriginalCodeBlock className="language-jsx" {...props}>

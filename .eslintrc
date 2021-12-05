@@ -12,9 +12,6 @@
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "rules": {
-    "@typescript-eslint/no-unused-vars": "off"
-  },
   "overrides": [
     {
       "files": ["**/*.test.ts"],
