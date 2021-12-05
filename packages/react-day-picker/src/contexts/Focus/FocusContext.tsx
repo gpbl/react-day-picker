@@ -1,6 +1,14 @@
 import React from 'react';
 
-import { addDays, addMonths, addWeeks, isSameMonth } from 'date-fns';
+import {
+  addDays,
+  addMonths,
+  addWeeks,
+  addYears,
+  endOfWeek,
+  isSameMonth,
+  startOfWeek
+} from 'date-fns';
 
 import { useDayPicker } from '../DayPicker';
 import { useNavigation } from '../Navigation';
@@ -22,6 +30,18 @@ export type FocusContextValue = [
     focusWeekBeforeDay: () => void;
     /** Focus the day in the week after the focused day. */
     focusWeekAfterDay: () => void;
+    /* Focus the day in the previous month. */
+    focusMonthBefore: () => void;
+    /* Focus the day in the next month. */
+    focusMonthAfter: () => void;
+    /* Focus the day in the previous year. */
+    focusYearBefore: () => void;
+    /* Focus the day in the next year. */
+    focusYearAfter: () => void;
+    /* Focus the day at the start of the week. */
+    focusStartOfWeek: () => void;
+    /* Focus the day at the end of the week. */
+    focusEndOfWeek: () => void;
   }
 ];
 
@@ -59,26 +79,71 @@ export function FocusProvider({
   const focusDayBefore = () => {
     if (!focusedDay) return;
     const before = addDays(focusedDay, -1);
-    setDay(before);
+    focus(before);
     switchMonth(before, numberOfMonths * -1);
   };
   const focusDayAfter = () => {
     if (!focusedDay) return;
     const after = addDays(focusedDay, 1);
-    setDay(after);
+    focus(after);
     switchMonth(after, numberOfMonths);
   };
   const focusWeekBeforeDay = () => {
     if (!focusedDay) return;
     const up = addWeeks(focusedDay, -1);
-    setDay(up);
+    focus(up);
     switchMonth(up, numberOfMonths * -1);
   };
   const focusWeekAfterDay = () => {
     if (!focusedDay) return;
     const down = addWeeks(focusedDay, 1);
-    setDay(down);
+    focus(down);
     switchMonth(down, numberOfMonths);
+  };
+
+  const focusStartOfWeek = (): void => {
+    if (!focusedDay) return;
+    const dayToFocus = startOfWeek(focusedDay);
+    switchMonth(dayToFocus, numberOfMonths);
+    focus(dayToFocus);
+  };
+
+  const focusEndOfWeek = (): void => {
+    if (!focusedDay) return;
+    const dayToFocus = endOfWeek(focusedDay);
+    switchMonth(dayToFocus, numberOfMonths);
+    focus(dayToFocus);
+  };
+
+  const focusMonthBefore = (): void => {
+    if (!focusedDay) return;
+
+    const monthBefore = addMonths(focusedDay, -1);
+    switchMonth(monthBefore, numberOfMonths);
+    focus(monthBefore);
+  };
+
+  const focusMonthAfter = () => {
+    if (!focusedDay) return;
+    const monthAfter = addMonths(focusedDay, 1);
+    switchMonth(monthAfter, numberOfMonths);
+    focus(monthAfter);
+  };
+
+  const focusYearBefore = () => {
+    if (!focusedDay) return;
+
+    const yearBefore = addYears(focusedDay, -1);
+    switchMonth(yearBefore, numberOfMonths);
+    focus(yearBefore);
+  };
+
+  const focusYearAfter = () => {
+    if (!focusedDay) return;
+
+    const yearAfter = addYears(focusedDay, 1);
+    switchMonth(yearAfter, numberOfMonths);
+    focus(yearAfter);
   };
 
   const setters = {
@@ -87,7 +152,13 @@ export function FocusProvider({
     focusDayAfter,
     focusDayBefore,
     focusWeekAfterDay,
-    focusWeekBeforeDay
+    focusWeekBeforeDay,
+    focusMonthBefore,
+    focusMonthAfter,
+    focusYearBefore,
+    focusYearAfter,
+    focusStartOfWeek,
+    focusEndOfWeek
   };
 
   return (
