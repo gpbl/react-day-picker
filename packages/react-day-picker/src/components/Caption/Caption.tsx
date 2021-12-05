@@ -44,13 +44,13 @@ export function Caption(props: CaptionProps): JSX.Element {
   const { previousMonth, nextMonth, goToMonth, displayMonths } =
     useNavigation();
 
-  const handlePreviousClick: React.MouseEventHandler = (e) => {
+  const handlePreviousClick: React.MouseEventHandler = () => {
     if (!previousMonth) return;
     goToMonth(previousMonth);
     onMonthChange?.(previousMonth);
   };
 
-  const handleNextClick: React.MouseEventHandler = (e) => {
+  const handleNextClick: React.MouseEventHandler = () => {
     if (!nextMonth) return;
     goToMonth(nextMonth);
     onMonthChange?.(nextMonth);

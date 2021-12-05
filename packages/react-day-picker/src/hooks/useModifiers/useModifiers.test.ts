@@ -29,8 +29,8 @@ describe('when mode="range" and selected is undefined', () => {
 describe('when mode="range" and selected does not span the current date', () => {
   const tomorrow = addDays(today, 1);
   const { result } = customRenderHook(() => useModifiers(today), {
-    mode: 'range'
-    // selected: { from: tomorrow, to: tomorrow }
+    mode: 'range',
+    selected: { from: tomorrow, to: tomorrow }
   });
   test('useModifiers should return the selected modifier as false', () => {
     expect(result.current.modifiers.selected).toBeFalsy();
