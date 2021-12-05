@@ -38,16 +38,13 @@ jobs:
         run: yarn install
 
       - name: Lint Files
-        run: yarn lint
-        working-directory: ./packages/react-day-picker
+        run: yarn workspace react-day-picker lint
 
       - name: Run Unit Tests
         run: yarn test --coverage
-        working-directory: ./packages/react-day-picker
 
-      - name: Build
-        run: yarn build
-        working-directory: ./packages/react-day-picker
+      - name: Build react-day-picker
+        run: yarn workspace react-day-picker build
 
       - name: Publish on npm
         run: npm publish --tag next
