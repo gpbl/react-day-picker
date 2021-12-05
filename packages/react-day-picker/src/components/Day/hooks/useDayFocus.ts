@@ -28,8 +28,8 @@ export function useDayFocus(
       focusMonthAfter,
       focusYearBefore,
       focusYearAfter,
-      focusFirstDayOfWeek,
-      focusLastDayOfWeek
+      focusStartOfWeek,
+      focusEndOfWeek
     }
   ] = useFocus();
   const { dir } = useDayPicker();
@@ -77,12 +77,12 @@ export function useDayFocus(
       case 'Home':
         e.preventDefault();
         e.stopPropagation();
-        focusFirstDayOfWeek();
+        focusStartOfWeek();
         break;
       case 'End':
         e.preventDefault();
         e.stopPropagation();
-        focusLastDayOfWeek();
+        focusEndOfWeek();
         break;
     }
   };

@@ -25,10 +25,11 @@ import {
   addDays,
   addWeeks,
   endOfWeek,
+  addMonths,
   lastDayOfMonth,
   setDate,
   startOfWeek,
-  subMonths
+  addYears
 } from 'date-fns';
 
 const today = new Date(2022, 5, 10);
@@ -61,6 +62,14 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     const day = setDate(today, 1);
     const nextDay = addDays(day, 1);
     const prevDay = addDays(day, -1);
+    const nextMonth = addMonths(day, 1);
+    const prevMonth = addMonths(day, -1);
+    const nextYear = addYears(day, 1);
+    const prevYear = addYears(day, -1);
+    const prevWeekDay = addWeeks(day, -1);
+    const nextWeekDay = addWeeks(day, 1);
+    const startOfWeekDay = startOfWeek(day);
+    const endOfWeekDay = endOfWeek(day);
 
     beforeEach(() => focusDay(day));
     test('the day button should be focused', () => {
@@ -102,7 +111,6 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         expect(getMonthCaption(container)).toHaveTextContent('May 2022');
       });
       test('should focus the day in the previous week', () => {
-        const prevWeekDay = addWeeks(day, -1);
         expect(getDayButton(prevWeekDay)).toHaveFocus();
       });
     });
@@ -112,7 +120,6 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         expect(getMonthCaption(container)).toHaveTextContent('June 2022');
       });
       test('should focus the day in the next week', () => {
-        const nextWeekDay = addWeeks(day, 1);
         expect(getDayButton(nextWeekDay)).toHaveFocus();
       });
     });
@@ -121,8 +128,8 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       it('should display the previous month', () => {
         expect(getMonthCaption(container)).toHaveTextContent('May 2022');
       });
-      it('should focus on the same day as the initial month', () => {
-        expect(getDayButton(subMonths(day, 1))).toHaveFocus();
+      it('should focus the day in the previous month', () => {
+        expect(getDayButton(prevMonth)).toHaveFocus();
       });
     });
     describe('when Page Down is pressed', () => {
@@ -130,8 +137,8 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       it('should display the next month', () => {
         expect(getMonthCaption(container)).toHaveTextContent('July 2022');
       });
-      it('should focus on the same day as the initial month', () => {
-        expect(getDayButton(subMonths(day, -1))).toHaveFocus();
+      it('should focus the day in the next month', () => {
+        expect(getDayButton(nextMonth)).toHaveFocus();
       });
     });
     describe('when Shift + Page Up is pressed', () => {
@@ -139,29 +146,29 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       it('should display the previous year', () => {
         expect(getMonthCaption(container)).toHaveTextContent('June 2021');
       });
-      it('should focus on the same day as the initial month', () => {
-        expect(getDayButton(subMonths(day, 12))).toHaveFocus();
+      it('should focus the day in the previous year', () => {
+        expect(getDayButton(prevYear)).toHaveFocus();
       });
     });
     describe('when Shift + Page Down is pressed', () => {
       beforeEach(pressShiftPageDown);
-      it('should display the following year', () => {
+      it('should display the next year', () => {
         expect(getMonthCaption(container)).toHaveTextContent('June 2023');
       });
-      it('should focus on the same day as the initial month', () => {
-        expect(getDayButton(subMonths(day, -12))).toHaveFocus();
+      it('should focus the day in the next yeaer', () => {
+        expect(getDayButton(nextYear)).toHaveFocus();
       });
     });
     describe('when Home is pressed', () => {
       beforeEach(pressHome);
-      it('should focus the first day of week', () => {
-        expect(getDayButton(addDays(startOfWeek(day), 1))).toHaveFocus();
+      it('should focus the start of the week', () => {
+        expect(getDayButton(startOfWeekDay)).toHaveFocus();
       });
     });
     describe('when End is pressed', () => {
       beforeEach(pressEnd);
-      it('should focus the last day of week', () => {
-        expect(getDayButton(addDays(endOfWeek(day), 1))).toHaveFocus();
+      it('should focus the end of the week', () => {
+        expect(getDayButton(endOfWeekDay)).toHaveFocus();
       });
     });
   });
