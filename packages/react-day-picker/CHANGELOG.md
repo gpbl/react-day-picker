@@ -18,6 +18,14 @@ See the preview website at https://react-day-picker-next.netlify.app.
 
 ---
 
+### v8.0.0-beta.34
+
+- feat: add extended keyboard navigation (#1300) (2a098719)
+- chore: export missing Button component (5ba65841)
+- chore: rename `handleDayClick` to `onDayClick` (3d1678b2)
+- chore: limit documented exports (c2fbd576)
+- build: fix circular dependency (5cd0c2c8)
+
 ### v8.0.0-beta.33
 
 - chore: unify context files (#1303) (d66b3981)
