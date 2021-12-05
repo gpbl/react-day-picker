@@ -114,7 +114,7 @@ export function FocusProvider({
       }),
       1
     );
-    goToMonth(dayToFocus);
+    switchMonth(dayToFocus, numberOfMonths);
     focus(dayToFocus);
   };
 
@@ -126,46 +126,15 @@ export function FocusProvider({
       }),
       1
     );
-    goToMonth(dayToFocus);
+    switchMonth(dayToFocus, numberOfMonths);
     focus(dayToFocus);
   };
 
-  interface FocusOptions {
-    unit: 'month' | 'year';
-    direction: 'backwards' | 'forward';
-  }
-
-  const focusByUnit = (opts: FocusOptions): void => {
+  const focusMonthBefore = (): void => {
     if (!focusedDay) return;
 
-    const { unit, direction } = opts;
-    let navigationFunction: (date: Date | number, amount: number) => Date;
-
-    switch (unit) {
-      case 'month':
-        switch (direction) {
-          case 'forward':
-            navigationFunction = addMonths;
-            break;
-          case 'backwards':
-            navigationFunction = subMonths;
-            break;
-        }
-        break;
-      case 'year':
-        switch (direction) {
-          case 'forward':
-            navigationFunction = addYears;
-            break;
-          case 'backwards':
-            navigationFunction = subYears;
-            break;
-        }
-    }
-
-    const month = navigationFunction(focusedDay, 1);
-    goToMonth(month);
-
+    const month = subMonths(focusedDay, 1);
+    switchMonth(month, numberOfMonths);
     const switchDay = Boolean(getDaysInMonth(month) < focusedDay.getDate());
 
     focus(
@@ -178,32 +147,55 @@ export function FocusProvider({
     );
   };
 
-  const focusMonthBefore = () => {
-    focusByUnit({
-      direction: 'backwards',
-      unit: 'month'
-    });
-  };
-
   const focusMonthAfter = () => {
-    focusByUnit({
-      direction: 'forward',
-      unit: 'month'
-    });
+    if (!focusedDay) return;
+
+    const month = addMonths(focusedDay, 1);
+    switchMonth(month, numberOfMonths);
+    const switchDay = Boolean(getDaysInMonth(month) < focusedDay.getDate());
+
+    focus(
+      !switchDay
+        ? month
+        : addDays(
+            startOfWeek(addWeeks(startOfMonth(month), 3)),
+            focusedDay.getDay()
+          )
+    );
   };
 
   const focusYearBefore = () => {
-    focusByUnit({
-      direction: 'backwards',
-      unit: 'year'
-    });
+    if (!focusedDay) return;
+
+    const month = subMonths(focusedDay, 12);
+    switchMonth(month, numberOfMonths);
+    const switchDay = Boolean(getDaysInMonth(month) < focusedDay.getDate());
+
+    focus(
+      !switchDay
+        ? month
+        : addDays(
+            startOfWeek(addWeeks(startOfMonth(month), 3)),
+            focusedDay.getDay()
+          )
+    );
   };
 
   const focusYearAfter = () => {
-    focusByUnit({
-      direction: 'forward',
-      unit: 'year'
-    });
+    if (!focusedDay) return;
+
+    const month = addMonths(focusedDay, 12);
+    switchMonth(month, numberOfMonths);
+    const switchDay = Boolean(getDaysInMonth(month) < focusedDay.getDate());
+
+    focus(
+      !switchDay
+        ? month
+        : addDays(
+            startOfWeek(addWeeks(startOfMonth(month), 3)),
+            focusedDay.getDay()
+          )
+    );
   };
 
   const setters = {

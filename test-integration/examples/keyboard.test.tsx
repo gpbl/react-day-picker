@@ -45,13 +45,13 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   });
 
   describe('when clicking the previous month button', () => {
-    beforeEach(clickPrevMonth);
+    beforeEach(() => clickPrevMonth());
     test('should display the previous month', () => {
       expect(getMonthCaption(container)).toHaveTextContent('May 2022');
     });
   });
   describe('when clicking the next month button', () => {
-    beforeEach(clickNextMonth);
+    beforeEach(() => clickNextMonth());
 
     test('should display the next month', () => {
       expect(getMonthCaption(container)).toHaveTextContent('July 2022');
@@ -152,7 +152,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         expect(getDayButton(subMonths(day, -12))).toHaveFocus();
       });
     });
-    describe('when Home is pressed', () => {
+    describe('whe Home is pressed', () => {
       beforeEach(pressHome);
       it('should focus the first day of week', () => {
         expect(getDayButton(addDays(startOfWeek(day), 1))).toHaveFocus();
@@ -183,6 +183,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
           expect(getMonthCaption(container)).toHaveTextContent('July 2022');
         });
         test('should focus the next day', () => {
+          const nextDay = addDays(day, 1);
           expect(getDayButton(nextDay)).toHaveFocus();
         });
       }
