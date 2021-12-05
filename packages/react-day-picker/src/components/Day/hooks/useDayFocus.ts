@@ -23,7 +23,13 @@ export function useDayFocus(
       focusWeekAfterDay,
       focusWeekBeforeDay,
       blur,
-      focus
+      focus,
+      focusMonthBefore,
+      focusMonthAfter,
+      focusYearBefore,
+      focusYearAfter,
+      focusStartOfWeek,
+      focusEndOfWeek
     }
   ] = useFocus();
   const { dir } = useDayPicker();
@@ -57,6 +63,26 @@ export function useDayFocus(
         e.preventDefault();
         e.stopPropagation();
         focusWeekBeforeDay();
+        break;
+      case 'PageUp':
+        e.preventDefault();
+        e.stopPropagation();
+        e.shiftKey ? focusYearBefore() : focusMonthBefore();
+        break;
+      case 'PageDown':
+        e.preventDefault();
+        e.stopPropagation();
+        e.shiftKey ? focusYearAfter() : focusMonthAfter();
+        break;
+      case 'Home':
+        e.preventDefault();
+        e.stopPropagation();
+        focusStartOfWeek();
+        break;
+      case 'End':
+        e.preventDefault();
+        e.stopPropagation();
+        focusEndOfWeek();
         break;
     }
   };
