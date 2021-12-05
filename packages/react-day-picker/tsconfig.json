@@ -25,18 +25,14 @@
 
     /* Modules */
     "module": "es6" /* Specify what module code is generated. */,
-    // "rootDir": "./src" /* Specify the root folder within your source files. */,
+    "rootDir": "./src" /* Specify the root folder within your source files. */,
     "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
     // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
       "@test/*": ["../../test/*"],
-      "@examples/*": ["../../website/examples/*"],
       "@src/*": ["./src/*"]
     },
-    "rootDirs": [
-      "../../test",
-      "./src"
-    ] /* Allow multiple folders to be treated as one when resolving modules. */,
+    // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
@@ -103,6 +99,5 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
-  },
-  "include": ["../../test"]
+  }
 }
