@@ -18,7 +18,7 @@ See the preview website at https://react-day-picker-next.netlify.app.
 
 ---
 
-### v8.0.0-beta.34
+### v8.0.0-beta.35
 
 - feat: add extended keyboard navigation (#1300) (2a098719)
 - chore: export missing Button component (5ba65841)
