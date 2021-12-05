@@ -10,7 +10,8 @@ const sidebars = {
         'basics/customization',
         'basics/selecting-days',
         'basics/styling',
-        'basics/localization'
+        'basics/localization',
+        'basics/keyboard'
       ]
     },
     {
