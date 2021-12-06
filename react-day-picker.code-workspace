@@ -21,7 +21,12 @@
     "jest.disabledWorkspaceFolders": ["website", "react-day-picker"],
     "jest.autoRun": {
       "watch": false,
-      "onSave": "test-file"
+      "onSave": "test-src-file"
+    },
+    "jest.testExplorer": {
+      "enabled": true,
+      "showClassicStatus": true,
+      "showInlineError": false
     },
     "npm.packageManager": "yarn",
     "eslint.packageManager": "yarn",
