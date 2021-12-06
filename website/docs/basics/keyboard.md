@@ -1,6 +1,6 @@
 # Keyboard Navigation
 
-When DayPicker is focused, use the following keyboard shortucts to navigate the calendar:
+When DayPicker is focused, use the following keyboard shortcuts to navigate the calendar:
 
 - <kbd>Arrow Top</kbd> - move to the previous week
 - <kbd>Arrow Right</kbd> - move to the next day
@@ -15,7 +15,7 @@ When DayPicker is focused, use the following keyboard shortucts to navigate the 
 
 ## Example
 
-Press <kbd>Tab</kbd> to focus a day and try the keyboard shortucts above.
+Press <kbd>Tab</kbd> to focus a day and try the keyboard shortcuts above.
 
 import { DayPicker } from 'react-day-picker';
 
