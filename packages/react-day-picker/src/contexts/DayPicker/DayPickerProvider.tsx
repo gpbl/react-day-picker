@@ -54,6 +54,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   if (toDate) {
     modifiers.disabled.push({ after: toDate });
   }
+  modifiers.today = [today];
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { toYear, fromYear, toMonth, fromMonth, ...contextProps } =
