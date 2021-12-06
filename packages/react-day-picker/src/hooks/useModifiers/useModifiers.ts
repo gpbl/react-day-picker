@@ -22,7 +22,7 @@ export function useModifiers(date: Date): UseModifiers {
   // TODO: modifiers from context should not be overridden
   const modifiers: Modifiers = {
     ...context.modifiers,
-    today: context.modifiers.today ?? [context.today],
+    today: [context.today],
     disabled: context.modifiers.disabled
   };
 

@@ -1,3 +1,23 @@
+import React from 'react';
+import { render } from '@testing-library/react';
+import { freezeBeforeAll } from '@test/utils';
+import { getDayButton } from '@test/po';
+import { DayPicker } from './DayPicker';
+
+const today = new Date(2022, 5, 10);
+const tomorrow = new Date(2022, 5, 11);
+freezeBeforeAll(today);
+
+describe('when rendering a month that contains today', () => {
+  beforeEach(() => render(<DayPicker month={today} mode="single" />));
+  test('it should add the default class name for today', () => {
+    expect(getDayButton(today)).toHaveClass('rdp-day_today');
+  });
+  test('it should not add the default class name for tomorrow', () => {
+    expect(getDayButton(tomorrow)).not.toHaveClass('rdp-day_today');
+  });
+});
+
 describe('when the first day of the month is focused', () => {
   describe('when the arrow up key is pressed', () => {
     test.todo('should focus a day in the previous month');
