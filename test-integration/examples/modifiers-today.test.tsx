@@ -16,7 +16,7 @@ beforeEach(() => {
 describe('when the today date is clicked', () => {
   beforeEach(() => clickDay(today));
   test('should update the footer', () => {
-    expect(getTableFooter()).toHaveTextContent('Try clicking the today’s date');
+    expect(getTableFooter()).toHaveTextContent('You clicked the today’s date');
   });
 });
 
