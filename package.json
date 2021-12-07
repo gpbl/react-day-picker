@@ -14,7 +14,8 @@
     "build": "yarn workspace react-day-picker run build && yarn workspace website run build",
     "lint": "concurrently -n website,package \"yarn workspace website lint\" \"yarn workspace react-day-picker lint\"",
     "test": "yarn jest",
-    "test:watch": "yarn jest --watch",
+    "clean": "yarn workspace react-day-picker clean",
+    "test:watch": "yarn clean && yarn jest --watch",
     "typecheck-tests": "tsc --noEmit",
     "typecheck-tests:watch": "tsc --noEmit --watch"
   },
