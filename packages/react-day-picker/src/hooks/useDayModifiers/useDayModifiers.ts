@@ -16,26 +16,26 @@ export type DayModifiers = {
 export function useDayModifiers(date: Date): DayModifiers {
   const context = useDayPicker();
 
-  const modifiers = useModifiers();
+  // TODO: Rename this hook useModifiersContext?
+  const modifiersContext = useModifiers();
 
-  const status = getModifierStatus(date, modifiers);
+  // TODO: Is there a better name for the type ModifierStatus?
+  const modifiers = getModifierStatus(date, modifiersContext);
 
   const modifierClassNames: string[] = [];
 
-  Object.keys(status)
-    .filter((modifier) => Boolean(status[modifier]))
-    .forEach((modifier) => {
-      const customClassName = context.modifierClassNames[modifier];
-      if (customClassName) {
-        modifierClassNames.push(customClassName);
-      } else {
-        modifierClassNames.push(`${context.modifierPrefix}${modifier}`);
-      }
-    });
+  Object.keys(modifiers).forEach((modifier) => {
+    const customClassName = context.modifierClassNames[modifier];
+    if (customClassName) {
+      modifierClassNames.push(customClassName);
+    } else {
+      modifierClassNames.push(`${context.modifierPrefix}${modifier}`);
+    }
+  });
 
   let modifierStyle = {};
   if (context.modifierStyles) {
-    Object.keys(status).forEach((modifier) => {
+    Object.keys(modifiers).forEach((modifier) => {
       modifierStyle = {
         ...modifierStyle,
         ...context.modifierStyles?.[modifier]
@@ -44,8 +44,8 @@ export function useDayModifiers(date: Date): DayModifiers {
   }
 
   return {
-    modifiers: status,
-    modifierClassNames: modifierClassNames,
+    modifiers,
+    modifierClassNames,
     modifierStyle
   };
 }

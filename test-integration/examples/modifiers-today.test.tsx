@@ -18,7 +18,7 @@ describe('when rendering a month that contains today', () => {
   test('it should add the default class name for today', () => {
     expect(getDayButton(today)).toHaveClass('rdp-day_today');
   });
-  test('it should have exatct one ".rdp-day_today" class', () => {
+  test('it should have exactly one ".rdp-day_today" class', () => {
     const todays = container.querySelectorAll('.rdp-day_today');
     expect(todays).toHaveLength(1);
   });
