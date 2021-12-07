@@ -9,17 +9,18 @@ import { addDays } from 'date-fns';
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
 });
 
 describe('when rendering a month that contains today', () => {
   test('it should add the default class name for today', () => {
     expect(getDayButton(today)).toHaveClass('rdp-day_today');
   });
-  test('it should not add this class name for any day that is not today', () => {
-    const notToday = addDays(today, 1);
-    expect(getDayButton(notToday)).not.toHaveClass('rdp-day_today');
+  test('it should have exatct one ".rdp-day_today" class', () => {
+    const todays = container.querySelectorAll('.rdp-day_today');
+    expect(todays).toHaveLength(1);
   });
 });
 

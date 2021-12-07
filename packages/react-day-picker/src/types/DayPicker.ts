@@ -174,6 +174,10 @@ export interface DayPickerProps {
    * calendar.
    */
   hidden?: Matcher | Matcher[];
+
+  /** Apply the `selected` modifier to the matching days. */
+  selected?: Matcher | Matcher[];
+
   /**
    * The today’s date. Default is the current date. This Date will get the
    * `today` modifier to style the day.

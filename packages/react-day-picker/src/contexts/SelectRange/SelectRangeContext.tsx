@@ -15,7 +15,7 @@ import { addToRange } from './utils/addToRange';
 /** Represent the modifiers that are changed by the range selection. */
 export type SelectRangeModifiers = Pick<
   Modifiers,
-  'selected' | 'range_start' | 'range_end' | 'range_middle' | 'disabled'
+  'range_start' | 'range_end' | 'range_middle' | 'disabled'
 >;
 
 /** Represents the value of a [[SelectRangeContext]]. */
@@ -51,7 +51,6 @@ export function SelectRangeProvider(
     const emptyContextValue: SelectRangeContextValue = {
       selected: undefined,
       modifiers: {
-        selected: [],
         range_start: [],
         range_end: [],
         range_middle: [],
@@ -109,7 +108,6 @@ export function SelectRangeProviderInternal({
   };
 
   const modifiers: SelectRangeModifiers = {
-    selected: [],
     range_start: [],
     range_end: [],
     range_middle: [],
@@ -117,7 +115,6 @@ export function SelectRangeProviderInternal({
   };
 
   if (selected) {
-    modifiers.selected = [selected];
     if (selected.from) {
       modifiers.range_start = [selected.from];
       if (selected.to) {

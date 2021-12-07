@@ -19,7 +19,7 @@ import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';
-import { parseFromToProps, parseModifierProps } from './utils';
+import { parseFromToProps } from './utils';
 
 /** Represent the props for the [[DayPickerProvider]]. */
 export interface DayPickerProviderProps {
@@ -45,17 +45,6 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   let captionLayout = initialProps.captionLayout ?? 'buttons';
   if (!fromDate && !toDate) captionLayout = 'buttons';
 
-  const modifiers = parseModifierProps(initialProps);
-
-  // Disable days before/after from/toDate
-  if (fromDate) {
-    modifiers.disabled.push({ before: fromDate });
-  }
-  if (toDate) {
-    modifiers.disabled.push({ after: toDate });
-  }
-  modifiers.today = [today];
-
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { toYear, fromYear, toMonth, fromMonth, ...contextProps } =
     initialProps;
@@ -72,8 +61,9 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     locale,
 
     modifierClassNames: initialProps.modifierClassNames ?? {},
+    // TODO: Should this be initialProps.modifierPrefix ?? 'rdp-day_'?
     modifierPrefix: 'rdp-day_',
-    modifiers: modifiers,
+    modifiers: initialProps.modifiers ?? {},
     numberOfMonths,
 
     styles: initialProps.styles ?? {},
