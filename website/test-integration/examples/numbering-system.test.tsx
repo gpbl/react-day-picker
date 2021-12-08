@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/numbering-system';
+import Example from '@examples/numbering-system';
 import { freezeBeforeAll } from '@test/utils';
 import { render, screen } from '@testing-library/react';
 

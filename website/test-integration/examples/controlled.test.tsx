@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { getMonthCaption } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 
-import Example from '../../examples/controlled';
+import Example from '@examples/controlled';
 
 let container: HTMLElement;
 const today = new Date(2022, 5, 10);

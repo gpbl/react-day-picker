@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/disabled';
+import Example from '@examples/disabled';
 import {
   focusDay,
   getMonthCaption,

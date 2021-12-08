@@ -8,10 +8,11 @@
     "serve": "docusaurus serve",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
-    "test": "yarn jest",
+    "test": "jest",
+    "test-watch": "jest --watch --ci",
     "lint": "eslint --ext .ts,.tsx src examples",
     "typecheck": "tsc --project ./tsconfig.json --noEmit --skipLibCheck",
-    "typecheck:watch": "tsc --project ./tsconfig.json --noEmit --skipLibCheck --watch"
+    "typecheck-watch": "yarn typecheck --watch"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^0.9.10",
@@ -42,7 +43,6 @@
     "jest": "^27.4.3",
     "prettier": "^2.5.0",
     "raw-loader": "^4.0.2",
-    "testing-tools": "workspace:^",
     "ts-jest": "^27.1.1",
     "typedoc": "^0.22.10",
     "typedoc-plugin-markdown": "^3.11.7",

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/from-to-year';
+import Example from '@examples/from-to-year';
 import { clickNextMonth, getNextButton, getPrevButton } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';

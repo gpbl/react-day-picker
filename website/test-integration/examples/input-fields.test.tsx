@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/input-fields';
+import Example from '@examples/input-fields';
 import { clickDay, getAllSelectedDays, getDayButton } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 import { render, screen } from '@testing-library/react';

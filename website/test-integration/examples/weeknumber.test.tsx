@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/weeknumber';
+import Example from '@examples/weeknumber';
 import { clickWeek, getTableFooter, getWeekButton } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';

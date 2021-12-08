@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/range';
+import Example from '@examples/range';
 import { clickDay, getAllSelectedDays, getDayButton } from '@test/po';
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';

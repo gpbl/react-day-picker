@@ -1,6 +1,5 @@
+import { formatCaption } from '@src/contexts/DayPicker/formatters';
 import { fireEvent, screen } from '@testing-library/react';
-
-import { formatCaption } from 'react-day-picker/src/contexts/DayPicker/formatters';
 
 /**
  * @deprecated Use po.ts instead.

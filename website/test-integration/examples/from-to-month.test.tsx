@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/from-to-month';
+import Example from '@examples/from-to-month';
 import { clickNextMonth, getNextButton, getPrevButton } from '@test/po';
 import { render } from '@testing-library/react';
 import { differenceInMonths } from 'date-fns';

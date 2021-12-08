@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/outside-days';
+import Example from '@examples/outside-days';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/default-month';
+import Example from '@examples/default-month';
 import { getMonthCaption } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';

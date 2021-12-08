@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/formatters';
+import Example from '@examples/formatters';
 import { freezeBeforeAll } from '@test/utils';
 import { render, screen } from '@testing-library/react';
 

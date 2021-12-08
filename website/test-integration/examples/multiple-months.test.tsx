@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/multiple-months';
+import Example from '@examples/multiple-months';
 import { clickPrevMonth, getMonthCaption, getMonthTable } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';

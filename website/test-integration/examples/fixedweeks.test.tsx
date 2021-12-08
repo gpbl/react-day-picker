@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/fixedweeks';
+import Example from '@examples/fixedweeks';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/dropdown';
+import Example from '@examples/dropdown';
 import {
   getMonthCaption,
   getMonthDropdown,
@@ -9,7 +9,6 @@ import {
 } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

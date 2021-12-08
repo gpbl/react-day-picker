@@ -12,18 +12,20 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
-  "module": "build/main.js",
+  "module": "build/index.js",
   "main": "dist/main.js",
-  "types": "build/main.d.ts",
+  "types": "build/index.d.ts",
   "scripts": {
     "develop": "yarn prebuild && yarn rollup -cw",
     "prebuild": "rimraf dist && rimraf build && yarn css-types",
     "build": "yarn prebuild && yarn rollup -c",
+    "build-watch": "yarn prebuild && yarn rollup -cw",
     "css-types": "yarn tcm -p style.css",
     "lint": "eslint --ext .ts,.tsx src",
     "test": "jest",
+    "test-watch": "jest --watch",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
-    "typecheck:watch": "tsc --project ./tsconfig.json --noEmit --skipLibCheck --watch"
+    "typecheck-watch": "tsc --project ./tsconfig.json --noEmit --skipLibCheck --watch"
   },
   "files": [
     "build",
@@ -32,6 +34,9 @@
     "style.css.d.ts"
   ],
   "devDependencies": {
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.0.3",
     "@types/node": "^14.17.34",
     "@types/react": "^17.0.37",

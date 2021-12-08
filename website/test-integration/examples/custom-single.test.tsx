@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/custom-single';
+import Example from '@examples/custom-single';
 import { clickDay, getDayButton, getTableFooter } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';

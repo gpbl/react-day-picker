@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/range-min-max';
+import Example from '@examples/range-min-max';
 import { clickDay, getAllEnabledDays, getDayButton } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/modifiers-today';
+import Example from '@examples/modifiers-today';
 import { clickDay, getTableFooter } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';

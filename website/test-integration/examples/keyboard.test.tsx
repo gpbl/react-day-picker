@@ -31,7 +31,7 @@ import {
 } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
 
-import Example from '../../examples/keyboard';
+import Example from '@examples/keyboard';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

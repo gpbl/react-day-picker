@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/rtl';
+import Example from '@examples/rtl';
 import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';
 

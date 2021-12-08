@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Example from '../../examples/modifiers-custom';
+import Example from '@examples/modifiers-custom';
 import { clickDay, getDayButton, getTableFooter } from '@test/po';
 import { render } from '@testing-library/react';
 

@@ -11,12 +11,11 @@
   "homepage": "http://react-day-picker.js.org",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace react-day-picker run build && yarn workspace website run build",
-    "lint": "concurrently -n website,package \"yarn workspace website lint\" \"yarn workspace react-day-picker lint\"",
-    "test": "yarn jest",
-    "test:watch": "yarn jest --watch",
-    "typecheck-tests": "tsc --noEmit",
-    "typecheck-tests:watch": "tsc --noEmit --watch"
+    "develop-all": "concurrently -n \"rdp-typecheck,rdp-build,website-typecheck\" \"yarn workspace react-day-picker typecheck-watch --preserveWatchOutput\" \"yarn workspace react-day-picker build-watch\"  \"yarn workspace website typecheck-watch --preserveWatchOutput\"",
+    "build-all": "yarn workspaces foreach run build",
+    "lint-all": "yarn workspaces foreach -pt run lint",
+    "test-all": "yarn workspaces foreach run test",
+    "typecheck-all": "yarn workspaces foreach run typecheck"
   },
   "repository": {
     "type": "git",
@@ -28,5 +27,8 @@
   "workspaces": [
     "website",
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^6.4.0"
+  }
 }
