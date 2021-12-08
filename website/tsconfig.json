@@ -9,8 +9,7 @@
     "paths": {
       "@examples/*": ["./examples/*"],
       "@test/*": ["../packages/react-day-picker/test/*"],
-      "@src/*": ["../packages/react-day-picker/src/*"],
-      "react-day-picker": ["../packages/react-day-picker/src"]
+      "@src/*": ["../packages/react-day-picker/src/*"]
     }
   }
 }
