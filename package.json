@@ -11,7 +11,7 @@
   "homepage": "http://react-day-picker.js.org",
   "license": "MIT",
   "scripts": {
-    "develop-all": "concurrently -n \"rdp-typecheck,rdp-build,website-typecheck\" \"yarn workspace react-day-picker typecheck-watch --preserveWatchOutput\" \"yarn workspace react-day-picker build-watch\"  \"yarn workspace website typecheck-watch --preserveWatchOutput\"",
+    "develop-all": "concurrently -n \"rdp-typecheck,rdp-build,website-typecheck,website\" \"yarn workspace react-day-picker typecheck-watch --preserveWatchOutput\" \"yarn workspace react-day-picker build-watch --no-watch.clearScreen\"  \"yarn workspace website typecheck-watch --preserveWatchOutput\" \"yarn workspace website start\"",
     "build-all": "yarn workspaces foreach run build",
     "lint-all": "yarn workspaces foreach -pt run lint",
     "test-all": "yarn workspaces foreach run test",

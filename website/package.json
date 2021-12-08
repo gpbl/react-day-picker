@@ -4,12 +4,14 @@
   "license": "MIT",
   "scripts": {
     "start": "TYPEDOC_WATCH=true docusaurus start --hot-only",
+    "prestart": "yarn build-rdp",
     "build": "docusaurus build",
+    "build-rdp": "yarn workspace react-day-picker build",
     "serve": "docusaurus serve",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
-    "test": "jest",
-    "test-watch": "jest --watch --ci",
+    "test": "yarn build-rdp && jest",
+    "test-watch": "yarn build-rdp && jest --watch --ci",
     "lint": "eslint --ext .ts,.tsx src examples",
     "typecheck": "tsc --project ./tsconfig.json --noEmit --skipLibCheck",
     "typecheck-watch": "yarn typecheck --watch"

@@ -47,6 +47,13 @@
       "problemMatcher": ["$tsc-watch"],
       "label": "typecheck-watch",
       "isBackground": true
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "problemMatcher": [],
+      "label": "start",
+      "isBackground": true
     }
   ]
 }
