@@ -11,12 +11,11 @@
   "homepage": "http://react-day-picker.js.org",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace react-day-picker run build && yarn workspace website run build",
-    "lint": "concurrently -n website,package \"yarn workspace website lint\" \"yarn workspace react-day-picker lint\"",
-    "test": "yarn jest",
-    "test:watch": "yarn jest --watch",
-    "typecheck-tests": "tsc --noEmit",
-    "typecheck-tests:watch": "tsc --noEmit --watch"
+    "develop-all": "concurrently -n \"rdp-typecheck,rdp-build,website-typecheck,website\" \"yarn workspace react-day-picker typecheck-watch --preserveWatchOutput\" \"yarn workspace react-day-picker build-watch --no-watch.clearScreen\"  \"yarn workspace website typecheck-watch --preserveWatchOutput\" \"yarn workspace website start\"",
+    "build-all": "yarn workspaces foreach run build",
+    "lint-all": "yarn workspaces foreach -pt run lint",
+    "test-all": "yarn workspaces foreach run test",
+    "typecheck-all": "yarn workspaces foreach run typecheck"
   },
   "repository": {
     "type": "git",
@@ -30,20 +29,6 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.0",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.5.0",
-    "concurrently": "^6.4.0",
-    "jest": "^27.4.3",
-    "jest-date": "^1.1.4",
-    "react": "^17.0.2",
-    "react-day-picker": "workspace:^",
-    "react-dom": "^17.0.2",
-    "timekeeper": "^2.2.0",
-    "ts-jest": "^27.0.7",
-    "ts-node": "^10.4.0",
-    "tslib": "^2.3.1",
-    "typescript": "~4.4.4"
+    "concurrently": "^6.4.0"
   }
 }

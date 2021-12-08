@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { customRender } from '@test/customRender';
-import { PageObjects } from '@test/PageObjects';
+import { PageObjects } from '@test/po/PageObjects';
+import { customRender } from '@test/render';
+import { freezeBeforeAll } from '@test/utils';
+
 import { addMonths, setMonth, setYear } from 'date-fns';
-import tk from 'timekeeper';
 
 import { RootContext } from '../../contexts/RootProvider';
 import { Caption } from './Caption';
@@ -13,8 +14,7 @@ const po = new PageObjects(today);
 const fromYear = 2020;
 const toYear = 2025;
 
-beforeEach(() => tk.freeze(today));
-afterEach(() => tk.reset());
+freezeBeforeAll(today);
 
 describe('when navigation is disabled', () => {
   beforeEach(() => {

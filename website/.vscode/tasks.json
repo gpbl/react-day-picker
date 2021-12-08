@@ -3,10 +3,56 @@
   "tasks": [
     {
       "type": "npm",
+      "script": "test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "test"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "build"
+    },
+    {
+      "type": "npm",
+      "script": "test-watch",
+      "problemMatcher": [],
+      "label": "test-watch",
+      "isBackground": true
+    },
+    {
+      "type": "npm",
+      "script": "build-watch",
+      "problemMatcher": [],
+      "label": "build-watch",
+      "isBackground": true
+    },
+    {
+      "type": "npm",
       "script": "typecheck",
+      "problemMatcher": ["$tsc"],
+      "label": "typecheck"
+    },
+    {
+      "type": "npm",
+      "script": "typecheck-watch",
       "problemMatcher": ["$tsc-watch"],
-      "label": "npm: typecheck",
-      "detail": "tsc --project ./tsconfig.json --noEmit --skipLibCheck",
+      "label": "typecheck-watch",
+      "isBackground": true
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "problemMatcher": [],
+      "label": "start",
       "isBackground": true
     }
   ]

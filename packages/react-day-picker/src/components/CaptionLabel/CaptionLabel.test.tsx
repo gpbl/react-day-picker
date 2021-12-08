@@ -2,8 +2,8 @@ import React from 'react';
 
 import tk from 'timekeeper';
 
-import { customRender } from '@test/customRender';
-import { PageObjects } from '@test/PageObjects';
+import { customRender } from '@test/render';
+import { PageObjects } from '@test/po/PageObjects';
 
 import { CaptionLabel } from './CaptionLabel';
 

@@ -3,7 +3,7 @@ import typescript from 'rollup-plugin-typescript2';
 /** @type {import('rollup').RollupOptions} */
 const config = [
   {
-    input: './src/main.ts',
+    input: './src/index.ts',
     output: [
       {
         dir: './build',
@@ -20,7 +20,7 @@ const config = [
     external: ['react', 'date-fns', 'date-fns/locale/en-US']
   },
   {
-    input: './build/main.js',
+    input: './build/index.js',
     output: [
       {
         file: './dist/main.js',

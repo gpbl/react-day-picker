@@ -4,11 +4,11 @@
     "jsx": "react",
     "module": "es6",
     "moduleResolution": "node",
+    "rootDir": "./",
     "paths": {
-      "@test/*": ["../../test/*"],
+      "@test/*": ["./test/*"],
       "@src/*": ["./src/*"]
     },
-    "rootDirs": ["./src", "../../test/*"],
     "declaration": true,
     "sourceMap": true,
     "outDir": "./build",
@@ -16,6 +16,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": ["test", "src"]
 }

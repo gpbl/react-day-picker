@@ -23,13 +23,13 @@ import { freezeBeforeAll } from '@test/utils';
 import { render } from '@testing-library/react';
 import {
   addDays,
-  addWeeks,
-  endOfWeek,
   addMonths,
+  addWeeks,
+  addYears,
+  endOfWeek,
   lastDayOfMonth,
   setDate,
-  startOfWeek,
-  addYears
+  startOfWeek
 } from 'date-fns';
 
 const today = new Date(2022, 5, 10);

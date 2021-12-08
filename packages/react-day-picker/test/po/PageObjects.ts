@@ -1,15 +1,13 @@
+import { formatCaption } from '@src/contexts/DayPicker/formatters';
 import { fireEvent, screen } from '@testing-library/react';
 
-import { formatCaption } from 'react-day-picker/src/contexts/DayPicker/formatters';
-
-/**
- * @deprecated Use po.ts instead.
- */
 export class PageObjects {
   today: Date;
   /**
    * Initialize the page objects for the DayPicker elements. Use the objects in
    * this class to access to the elements to test.
+   *
+   * @deprecated Use po.ts instead.
    *
    * @param today The date to use as today. Usually the one froze with
    * timekeeper.
