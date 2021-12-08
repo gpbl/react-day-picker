@@ -39,6 +39,10 @@
     "importSorter.importStringConfiguration.quoteMark": "single",
     "importSorter.sortConfiguration.customOrderingRules.rules": [
       {
+        "regex": "^[.]",
+        "orderLevel": 40
+      },
+      {
         "regex": "^@test/",
         "orderLevel": 10
       },
