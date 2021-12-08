@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import Example from '@examples/modifiers-classnames';
 import { getDayCell } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
-
-import Example from '@examples/modifiers-classnames';
+import { render } from '@testing-library/react';
 
 const days = [
   new Date(2021, 5, 8),

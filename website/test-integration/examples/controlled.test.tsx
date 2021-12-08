@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { fireEvent, render, screen } from '@testing-library/react';
+import Example from '@examples/controlled';
 import { getMonthCaption } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
-
-import Example from '@examples/controlled';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 let container: HTMLElement;
 const today = new Date(2022, 5, 10);

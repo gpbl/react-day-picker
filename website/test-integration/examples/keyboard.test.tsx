@@ -1,16 +1,6 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
-import {
-  addDays,
-  addMonths,
-  addWeeks,
-  addYears,
-  endOfWeek,
-  lastDayOfMonth,
-  setDate,
-  startOfWeek
-} from 'date-fns';
+import Example from '@examples/keyboard';
 import {
   clickNextMonth,
   clickPrevMonth,
@@ -30,8 +20,17 @@ import {
   pressShiftPageUp
 } from '@test/po';
 import { freezeBeforeAll } from '@test/utils';
-
-import Example from '@examples/keyboard';
+import { render } from '@testing-library/react';
+import {
+  addDays,
+  addMonths,
+  addWeeks,
+  addYears,
+  endOfWeek,
+  lastDayOfMonth,
+  setDate,
+  startOfWeek
+} from 'date-fns';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

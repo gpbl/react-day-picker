@@ -31,7 +31,26 @@
     "npm.packageManager": "yarn",
     "eslint.packageManager": "yarn",
     "jest.jestCommandLine": "yarn test",
-    "importSorter.sortConfiguration.removeUnusedImports": true
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.sortConfiguration.removeUnusedImports": true,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
+    "importSorter.importStringConfiguration.tabSize": 2,
+    "importSorter.importStringConfiguration.quoteMark": "single",
+    "importSorter.sortConfiguration.customOrderingRules.rules": [
+      {
+        "regex": "^@test/",
+        "orderLevel": 10
+      },
+      {
+        "regex": "^@examples/",
+        "orderLevel": 9
+      },
+      {
+        "regex": "^react",
+        "orderLevel": 8
+      }
+    ]
   },
   "extensions": {
     "recommendations": [
