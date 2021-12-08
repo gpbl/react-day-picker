@@ -6,7 +6,7 @@ import { addMonths } from 'date-fns';
 import { DayPickerProps } from '../../../types';
 
 import { useDay, UseDay } from './useDay';
-import { customRenderHook } from '@test/customRenderHook';
+import { customRenderHook } from '@test/render';
 
 const displayMonth = new Date(2021, 8, 1);
 

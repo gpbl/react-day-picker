@@ -18,14 +18,14 @@
       "packages/": true,
       "website/": true
     },
-    "jest.disabledWorkspaceFolders": ["website", "react-day-picker"],
+    "jest.disabledWorkspaceFolders": ["website", "root"],
     "jest.autoRun": {
       "watch": false,
       "onSave": "test-src-file"
     },
     "jest.testExplorer": {
       "enabled": true,
-      "showClassicStatus": true,
+      "showClassicStatus": false,
       "showInlineError": false
     },
     "npm.packageManager": "yarn",

@@ -5,7 +5,12 @@
     "baseUrl": ".",
     "lib": ["es2019"],
     "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@test/*": ["../packages/react-day-picker/test/*"],
+      "@src/*": ["../packages/react-day-picker/src/*"]
+    }
   },
-  "include": ["src/"]
+  "include": ["src/"],
+  "exclude": ["examples"]
 }
