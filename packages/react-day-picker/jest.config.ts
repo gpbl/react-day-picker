@@ -1,9 +1,10 @@
 import type { Config } from '@jest/types';
-import { pathsToModuleNameMapper } from 'ts-jest/utils';
+import { pathsToModuleNameMapper } from 'ts-jest';
 import { compilerOptions } from './tsconfig.json';
 
 const config: Config.InitialOptions = {
-  roots: ['./test-integration', './packages/react-day-picker/src'],
+  preset: 'ts-jest',
+  roots: ['./src'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },
@@ -12,12 +13,7 @@ const config: Config.InitialOptions = {
   }),
   testEnvironment: 'jsdom',
   coverageReporters: ['lcov', 'text', 'clover'],
-  setupFilesAfterEnv: ['./test/setup.ts'],
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.json'
-    }
-  }
+  setupFilesAfterEnv: ['./test/setup.ts']
 };
 
 export default config;

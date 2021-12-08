@@ -1,6 +1,6 @@
 const typedoc = {
   // Typedoc settings
-  entryPoints: [`../packages/react-day-picker/src/main.ts`],
+  entryPoints: [`../packages/react-day-picker/src/index.ts`],
   tsconfig: `../packages/react-day-picker/tsconfig.json`,
   allReflectionsHaveOwnDocument: true,
   entryDocument: 'reference',

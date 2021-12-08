@@ -1,4 +1,4 @@
-import { customRenderHook } from '@test/customRenderHook';
+import { customRenderHook } from '@test/render';
 import { addDays } from 'date-fns';
 import tk from 'timekeeper';
 

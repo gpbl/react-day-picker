@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { customRender } from '@test/customRender';
-import { PageObjects } from '@test/PageObjects';
+import { customRender } from '@test/render';
+import { PageObjects } from '@test/po/PageObjects';
 
 import { IconDropdown } from './IconDropdown';
 
