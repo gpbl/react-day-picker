@@ -16,13 +16,13 @@ const displayMonth = new Date(2022, 10, 4);
 const testStyles: Record<string, any> = {
   caption_start: { color: 'red' },
   caption_end: { background: 'blue' },
-  caption_center: { fontSize: 19 }
+  caption_between: { fontSize: 19 }
 };
 
 const testClassNames: Record<string, string> = {
   caption_start: 'caption_start',
   caption_end: 'caption_end',
-  caption_center: 'caption_center'
+  caption_between: 'caption_between'
 };
 
 type Test = {
@@ -44,7 +44,7 @@ const tests: Test[] = [
       classNames: testClassNames
     },
     expectedElements: ['caption_start', 'caption_end'],
-    notExpectedElements: ['caption_center']
+    notExpectedElements: ['caption_between']
   },
   {
     monthProps: {
@@ -57,7 +57,7 @@ const tests: Test[] = [
       classNames: testClassNames
     },
     expectedElements: ['caption_start'],
-    notExpectedElements: ['caption_center', 'caption_end']
+    notExpectedElements: ['caption_between', 'caption_end']
   },
   {
     monthProps: {
@@ -70,7 +70,7 @@ const tests: Test[] = [
       classNames: testClassNames
     },
     expectedElements: ['caption_end'],
-    notExpectedElements: ['caption_start', 'caption_center']
+    notExpectedElements: ['caption_start', 'caption_between']
   },
   {
     monthProps: {
@@ -82,7 +82,7 @@ const tests: Test[] = [
       styles: testStyles,
       classNames: testClassNames
     },
-    expectedElements: ['caption_center'],
+    expectedElements: ['caption_between'],
     notExpectedElements: ['caption_start', 'caption_end']
   }
 ];

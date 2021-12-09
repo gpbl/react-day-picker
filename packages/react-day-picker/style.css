@@ -139,7 +139,7 @@
   transform: translateY(-50%);
 }
 
-.rdp-multiple_months .rdp-caption_last .rdp-nav {
+.rdp-multiple_months .rdp-caption_end .rdp-nav {
   position: absolute;
   top: 50%;
   right: 0;

@@ -40,8 +40,8 @@ export function Month(props: MonthProps) {
     style = { ...style, ...styles.caption_end };
   }
   if (isCenter) {
-    className.push(classNames.caption_center);
-    style = { ...style, ...styles.caption_center };
+    className.push(classNames.caption_between);
+    style = { ...style, ...styles.caption_between };
   }
 
   return (
