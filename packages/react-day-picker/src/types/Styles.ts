@@ -17,13 +17,13 @@ export type StyledElement<T = string | React.CSSProperties> = {
 
   /** The style of the caption (showing the calendar heading and the navigation) */
   readonly caption: T;
-  /** The style of the caption when the first of a series of months. */
-  readonly caption_first: T;
-  /** The style of the caption when the last of a series of months. */
-  readonly caption_last: T;
-  /** The style of the caption when in the middle of a series of months.. */
-  readonly caption_middle: T;
-  /** The style of the caption label (e.g. "September 2021"). */
+  /** The style of the caption when at the start of a series of months. */
+  readonly caption_start: T;
+  /** The style of the caption when at the end of a series of months. */
+  readonly caption_end: T;
+  /** The style of the caption when between two months (when `multipleMonths > 2`). */
+  readonly caption_between: T;
+  /** The style of the caption label. */
   readonly caption_label: T;
   /** The style of the drop-downs container. */
   readonly caption_dropdowns: T;
