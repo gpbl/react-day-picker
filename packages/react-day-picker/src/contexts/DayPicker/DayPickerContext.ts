@@ -1,6 +1,6 @@
 import React from 'react';
-import { CaptionLayout } from '../../components';
 
+import { CaptionLayout } from '../../components';
 import {
   ClassNames,
   Components,
@@ -12,8 +12,8 @@ import {
   Styles
 } from '../../types';
 
-/** Represent the value of the [[DayPickerContext]]. */
-export type DayPickerContextValue = DayPickerProps & {
+/** The value of the [[DayPickerContext]] */
+export interface DayPickerContextValue extends DayPickerProps {
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;
   components: Components;
@@ -27,16 +27,16 @@ export type DayPickerContextValue = DayPickerProps & {
   styles: Styles;
   today: Date;
 
-  // Internally we handle only fromDate/Todate
+  // Internally we handle only fromDate/toDate
   toYear?: never;
   fromYear?: never;
   toMonth?: never;
   fromMonth?: never;
-};
+}
 
 /**
- * The DayPicker context shares the props passed to DayPicker within the
- * internal components. It is used to set the default values and  perform
+ * The DayPicker Context shares the props passed to DayPicker within the
+ * internal components. It is used to set the default values and perform
  * one-time calculations required to render the days.
  *
  * Access this context from the [[useDayPicker]] hook when using custom
