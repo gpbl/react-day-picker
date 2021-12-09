@@ -54,7 +54,8 @@
         "regex": "^react",
         "orderLevel": 8
       }
-    ]
+    ],
+    "typescript.preferences.importModuleSpecifier": "relative"
   },
   "extensions": {
     "recommendations": [
