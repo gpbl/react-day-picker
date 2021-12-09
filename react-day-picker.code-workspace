@@ -31,7 +31,7 @@
     "npm.packageManager": "yarn",
     "eslint.packageManager": "yarn",
     "jest.jestCommandLine": "yarn test",
-    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.generalConfiguration.sortOnBeforeSave": false,
     "importSorter.sortConfiguration.removeUnusedImports": true,
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
