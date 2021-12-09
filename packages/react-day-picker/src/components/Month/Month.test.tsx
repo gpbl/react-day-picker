@@ -33,75 +33,156 @@ type Test = {
   notExpected: string[];
 };
 
-const testStylesAndClassNames: Test[] = [
-  {
-    monthProps: {
-      displayIndex: 0,
-      displayMonth
+describe('when dir is ltr', () => {
+  const testLtr: Test[] = [
+    {
+      monthProps: {
+        displayIndex: 0,
+        displayMonth
+      },
+      dayPickerProps: {
+        numberOfMonths: 1,
+        styles: testStyles,
+        classNames: testClassNames
+      },
+      expected: ['caption_start', 'caption_end'],
+      notExpected: ['caption_between']
     },
-    dayPickerProps: {
-      numberOfMonths: 1,
-      styles: testStyles,
-      classNames: testClassNames
+    {
+      monthProps: {
+        displayIndex: 0,
+        displayMonth
+      },
+      dayPickerProps: {
+        numberOfMonths: 2,
+        styles: testStyles,
+        classNames: testClassNames
+      },
+      expected: ['caption_start'],
+      notExpected: ['caption_between', 'caption_end']
     },
-    expected: ['caption_start', 'caption_end'],
-    notExpected: ['caption_between']
-  },
-  {
-    monthProps: {
-      displayIndex: 0,
-      displayMonth
+    {
+      monthProps: {
+        displayIndex: 1,
+        displayMonth
+      },
+      dayPickerProps: {
+        numberOfMonths: 2,
+        styles: testStyles,
+        classNames: testClassNames
+      },
+      expected: ['caption_end'],
+      notExpected: ['caption_start', 'caption_between']
     },
-    dayPickerProps: {
-      numberOfMonths: 2,
-      styles: testStyles,
-      classNames: testClassNames
-    },
-    expected: ['caption_start'],
-    notExpected: ['caption_between', 'caption_end']
-  },
-  {
-    monthProps: {
-      displayIndex: 1,
-      displayMonth
-    },
-    dayPickerProps: {
-      numberOfMonths: 2,
-      styles: testStyles,
-      classNames: testClassNames
-    },
-    expected: ['caption_end'],
-    notExpected: ['caption_start', 'caption_between']
-  },
-  {
-    monthProps: {
-      displayIndex: 1,
-      displayMonth
-    },
-    dayPickerProps: {
-      numberOfMonths: 3,
-      styles: testStyles,
-      classNames: testClassNames
-    },
-    expected: ['caption_between'],
-    notExpected: ['caption_start', 'caption_end']
-  }
-];
+    {
+      monthProps: {
+        displayIndex: 1,
+        displayMonth
+      },
+      dayPickerProps: {
+        numberOfMonths: 3,
+        styles: testStyles,
+        classNames: testClassNames
+      },
+      expected: ['caption_between'],
+      notExpected: ['caption_start', 'caption_end']
+    }
+  ];
 
-describe.each(testStylesAndClassNames)(
-  'when displayIndex is $monthProps.displayIndex and numberOfMonths is $dayPickerProps.numberOfMonths',
-  ({ monthProps, dayPickerProps, expected, notExpected }) => {
-    beforeEach(() => {
-      setup(monthProps, dayPickerProps);
-    });
-    test.each(expected)(`the root should have the %s class`, (name) =>
-      expect(root).toHaveClass(testClassNames[name])
-    );
-    test.each(expected)(`the root should have the %s style`, (name) =>
-      expect(root).toHaveStyle(testStyles[name])
-    );
-    test.each(notExpected)(`the root should not have the %s class`, (name) =>
-      expect(root).not.toHaveClass(testClassNames[name])
-    );
-  }
-);
+  describe.each(testLtr)(
+    'when displayIndex is $monthProps.displayIndex and numberOfMonths is $dayPickerProps.numberOfMonths',
+    ({ monthProps, dayPickerProps, expected, notExpected }) => {
+      beforeEach(() => {
+        setup(monthProps, dayPickerProps);
+      });
+      test.each(expected)(`the root should have the %s class`, (name) =>
+        expect(root).toHaveClass(testClassNames[name])
+      );
+      test.each(expected)(`the root should have the %s style`, (name) =>
+        expect(root).toHaveStyle(testStyles[name])
+      );
+      test.each(notExpected)(`the root should not have the %s class`, (name) =>
+        expect(root).not.toHaveClass(testClassNames[name])
+      );
+    }
+  );
+});
+
+describe('when dir is rtl', () => {
+  const testRtl: Test[] = [
+    {
+      monthProps: {
+        displayIndex: 0,
+        displayMonth
+      },
+      dayPickerProps: {
+        dir: 'rtl',
+        numberOfMonths: 1,
+        styles: testStyles,
+        classNames: testClassNames
+      },
+      expected: ['caption_start', 'caption_end'],
+      notExpected: ['caption_between']
+    },
+    {
+      monthProps: {
+        displayIndex: 0,
+        displayMonth
+      },
+      dayPickerProps: {
+        dir: 'rtl',
+        numberOfMonths: 2,
+        styles: testStyles,
+        classNames: testClassNames
+      },
+      expected: ['caption_end'],
+      notExpected: ['caption_between', 'caption_start']
+    },
+    {
+      monthProps: {
+        displayIndex: 1,
+        displayMonth
+      },
+      dayPickerProps: {
+        dir: 'rtl',
+        numberOfMonths: 2,
+        styles: testStyles,
+        classNames: testClassNames
+      },
+      expected: ['caption_start'],
+      notExpected: ['caption_end', 'caption_between']
+    },
+    {
+      monthProps: {
+        displayIndex: 1,
+        displayMonth
+      },
+      dayPickerProps: {
+        dir: 'rtl',
+        numberOfMonths: 3,
+        styles: testStyles,
+        classNames: testClassNames
+      },
+      expected: ['caption_between'],
+      notExpected: ['caption_start', 'caption_end']
+    }
+  ];
+
+  describe.each(testRtl)(
+    'when displayIndex is $monthProps.displayIndex and numberOfMonths is $dayPickerProps.numberOfMonths',
+    ({ monthProps, dayPickerProps, expected, notExpected }) => {
+      beforeEach(() => {
+        setup(monthProps, dayPickerProps);
+      });
+      test.each(expected)(`the root should have the %s class`, (name) =>
+        expect(root).toHaveClass(testClassNames[name])
+      );
+      test.each(expected)(`the root should have the %s style`, (name) =>
+        expect(root).toHaveStyle(testStyles[name])
+      );
+      test.each(notExpected)(`the root should not have the %s class`, (name) =>
+        expect(root).not.toHaveClass(testClassNames[name])
+      );
+    }
+  );
+});
