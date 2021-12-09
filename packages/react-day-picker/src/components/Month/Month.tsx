@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useId } from '@reach/auto-id';
-
 import { useDayPicker, useNavigation } from '../../contexts';
 import { Table } from '../Table';
 
@@ -19,7 +17,6 @@ export function Month(props: MonthProps) {
     styles,
     components: { Caption }
   } = useDayPicker();
-  const captionId = useId();
   const { displayMonths } = useNavigation();
 
   const className = [classNames.month];
