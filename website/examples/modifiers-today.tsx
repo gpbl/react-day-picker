@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { DayClickEventHandler, DayPicker } from 'react-day-picker';
+import {
+  DayClickEventHandler,
+  DayPicker
+} from 'react-day-picker';
 
 export default function App() {
   const initialFooter = 'Try clicking the today’s date.';

@@ -1,5 +1,9 @@
 import React from 'react';
-import { DayContent, DayContentProps, DayPicker } from 'react-day-picker';
+import {
+  DayContent,
+  DayContentProps,
+  DayPicker
+} from 'react-day-picker';
 
 import { format } from 'date-fns';
 
