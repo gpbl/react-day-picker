@@ -30,6 +30,7 @@ const config = [
         sourcemap: true
       }
     ],
+    plugins: [nodeResolve()],
     external: ['react', 'date-fns', 'date-fns/locale/en-US']
   }
 ];

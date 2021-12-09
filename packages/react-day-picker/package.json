@@ -71,5 +71,8 @@
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/gpbl"
+  },
+  "dependencies": {
+    "@reach/auto-id": "^0.16.0"
   }
 }

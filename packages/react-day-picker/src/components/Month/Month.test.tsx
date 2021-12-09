@@ -9,6 +9,7 @@ let root: HTMLDivElement;
 function setup(props: MonthProps, dayPickerProps: DayPickerProps) {
   const renderResult = customRender(<Month {...props} />, dayPickerProps);
   root = renderResult.container.firstChild as HTMLDivElement;
+  console.log(root.style);
 }
 
 const displayMonth = new Date(2022, 10, 4);
@@ -16,7 +17,7 @@ const displayMonth = new Date(2022, 10, 4);
 const testStyles: Record<string, any> = {
   caption_start: { color: 'red' },
   caption_end: { background: 'blue' },
-  caption_between: { fontSize: 19 }
+  caption_between: { fontSize: 20 }
 };
 
 const testClassNames: Record<string, string> = {
@@ -28,11 +29,11 @@ const testClassNames: Record<string, string> = {
 type Test = {
   monthProps: MonthProps;
   dayPickerProps: DayPickerProps;
-  expectedElements: string[];
-  notExpectedElements: string[];
+  expected: string[];
+  notExpected: string[];
 };
 
-const tests: Test[] = [
+const testStylesAndClassNames: Test[] = [
   {
     monthProps: {
       displayIndex: 0,
@@ -43,8 +44,8 @@ const tests: Test[] = [
       styles: testStyles,
       classNames: testClassNames
     },
-    expectedElements: ['caption_start', 'caption_end'],
-    notExpectedElements: ['caption_between']
+    expected: ['caption_start', 'caption_end'],
+    notExpected: ['caption_between']
   },
   {
     monthProps: {
@@ -56,8 +57,8 @@ const tests: Test[] = [
       styles: testStyles,
       classNames: testClassNames
     },
-    expectedElements: ['caption_start'],
-    notExpectedElements: ['caption_between', 'caption_end']
+    expected: ['caption_start'],
+    notExpected: ['caption_between', 'caption_end']
   },
   {
     monthProps: {
@@ -69,8 +70,8 @@ const tests: Test[] = [
       styles: testStyles,
       classNames: testClassNames
     },
-    expectedElements: ['caption_end'],
-    notExpectedElements: ['caption_start', 'caption_between']
+    expected: ['caption_end'],
+    notExpected: ['caption_start', 'caption_between']
   },
   {
     monthProps: {
@@ -82,40 +83,25 @@ const tests: Test[] = [
       styles: testStyles,
       classNames: testClassNames
     },
-    expectedElements: ['caption_between'],
-    notExpectedElements: ['caption_start', 'caption_end']
+    expected: ['caption_between'],
+    notExpected: ['caption_start', 'caption_end']
   }
 ];
 
-describe.each(tests)(
+describe.each(testStylesAndClassNames)(
   'when displayIndex is $monthProps.displayIndex and numberOfMonths is $dayPickerProps.numberOfMonths',
-  ({ monthProps, dayPickerProps, expectedElements, notExpectedElements }) => {
+  ({ monthProps, dayPickerProps, expected, notExpected }) => {
     beforeEach(() => {
       setup(monthProps, dayPickerProps);
     });
-    test.each(expectedElements)(
-      `the root element should have the %s class`,
-      (element) => {
-        expect(root).toHaveClass(testClassNames[element]);
-      }
+    test.each(expected)(`the root should have the %s class`, (name) =>
+      expect(root).toHaveClass(testClassNames[name])
     );
-    test.each(expectedElements)(
-      `the root element should have the %s style`,
-      (element) => {
-        expect(root).toHaveStyle(testStyles[element]);
-      }
+    test.each(expected)(`the root should have the %s style`, (name) =>
+      expect(root).toHaveStyle(testStyles[name])
     );
-    test.each(notExpectedElements)(
-      `the root element should not have the %s class`,
-      (element) => {
-        expect(root).not.toHaveClass(testClassNames[element]);
-      }
-    );
-    test.skip.each(notExpectedElements)(
-      `the root element should not have the %s style`,
-      (element) => {
-        expect(root).not.toHaveStyle(testStyles[element]);
-      }
+    test.each(notExpected)(`the root should not have the %s class`, (name) =>
+      expect(root).not.toHaveClass(testClassNames[name])
     );
   }
 );

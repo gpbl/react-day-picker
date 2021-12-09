@@ -3144,6 +3144,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reach/auto-id@npm:^0.16.0":
+  version: 0.16.0
+  resolution: "@reach/auto-id@npm:0.16.0"
+  dependencies:
+    "@reach/utils": 0.16.0
+    tslib: ^2.3.0
+  peerDependencies:
+    react: ^16.8.0 || 17.x
+    react-dom: ^16.8.0 || 17.x
+  checksum: 80211f7db1c0e3b107e2c1d3fe8055e7e41d7399b51ff0da5f0c9df43d90b77aa4a31a896545c699f9629b3fbc3c762ee0518de70faf8112098886c6759d3f15
+  languageName: node
+  linkType: hard
+
+"@reach/utils@npm:0.16.0":
+  version: 0.16.0
+  resolution: "@reach/utils@npm:0.16.0"
+  dependencies:
+    tiny-warning: ^1.0.3
+    tslib: ^2.3.0
+  peerDependencies:
+    react: ^16.8.0 || 17.x
+    react-dom: ^16.8.0 || 17.x
+  checksum: 36bc0eb41a71798eb6186b23de265ba709e51dae5bf214fb8505c66bb3f2e6a41bb2401457350436ba89ca9e3a50f93a04fe7c33d15648ce11e568a85622d770
+  languageName: node
+  linkType: hard
+
 "@react-day-picker/monorepo@workspace:.":
   version: 0.0.0-use.local
   resolution: "@react-day-picker/monorepo@workspace:."
@@ -13450,6 +13476,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-day-picker@workspace:packages/react-day-picker"
   dependencies:
+    "@reach/auto-id": ^0.16.0
     "@testing-library/react": ^12.1.2
     "@testing-library/react-hooks": ^7.0.2
     "@testing-library/user-event": ^13.5.0
@@ -15834,7 +15861,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.2.0, tslib@npm:^2.3.1":
+"tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.2.0, tslib@npm:^2.3.0, tslib@npm:^2.3.1":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
