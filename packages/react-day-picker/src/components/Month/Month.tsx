@@ -46,8 +46,8 @@ export function Month(props: MonthProps) {
 
   return (
     <div key={props.displayIndex} className={className.join(' ')} style={style}>
-      <Caption id={captionId} displayMonth={props.displayMonth} />
-      <Table captionId={captionId} displayMonth={props.displayMonth} />
+      <Caption displayMonth={props.displayMonth} />
+      <Table displayMonth={props.displayMonth} />
     </div>
   );
 }
