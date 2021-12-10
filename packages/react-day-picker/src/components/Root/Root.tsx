@@ -28,7 +28,9 @@ export function Root(): JSX.Element {
   if (showWeekNumber) {
     rootClassNames.push(classNames.with_weeknumber);
   }
-  if (className) rootClassNames.concat(className.split(' '));
+  if (className) {
+    rootClassNames.concat(className.split(' '));
+  }
 
   return (
     <div

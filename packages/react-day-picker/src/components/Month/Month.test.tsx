@@ -2,8 +2,8 @@ import React from 'react';
 
 import { customRender } from '@test/render';
 
-import { DayPickerProps } from '../..';
 import { Month, MonthProps } from './Month';
+import { DayPickerProps } from '../../types';
 
 let root: HTMLDivElement;
 function setup(props: MonthProps, dayPickerProps: DayPickerProps) {
