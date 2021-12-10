@@ -1,13 +1,12 @@
 import React from 'react';
-import {
-  isDayPickerMultiple,
-  isDayPickerRange,
-  Modifiers,
-  Matcher
-} from '../../types';
-import { useDayPicker } from '../DayPicker';
-import { useSelectMultiple } from '../SelectMultiple';
-import { useSelectRange } from '../SelectRange';
+
+import { useDayPicker } from 'contexts/DayPicker';
+import { useSelectMultiple } from 'contexts/SelectMultiple';
+import { useSelectRange } from 'contexts/SelectRange';
+import { isDayPickerMultiple } from 'types/DayPickerMultiple';
+import { isDayPickerRange } from 'types/DayPickerRange';
+import { Matcher } from 'types/Matchers';
+import { Modifiers } from 'types/Modifiers';
 
 export const ModifiersContext = React.createContext<Modifiers | undefined>(
   undefined

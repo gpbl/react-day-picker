@@ -5,10 +5,10 @@
     "module": "es6",
     "moduleResolution": "node",
     "rootDir": "./",
+    "baseUrl": "./src",
+    "noEmit": true,
     "paths": {
-      "@contexts/*": ["./src/contexts/*"],
-      "@test/*": ["./test/*"],
-      "@src/*": ["./src/*"]
+      "test/*": ["../test/*"]
     },
     "declaration": true,
     "sourceMap": true,

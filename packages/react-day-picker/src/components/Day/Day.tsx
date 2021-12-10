@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Button } from '../Button';
-
 import { useDay } from './hooks/useDay';
 
 /** Represent the props used by the [[Day]] component. */

@@ -2,19 +2,20 @@ import React from 'react';
 
 import enUS from 'date-fns/locale/en-US';
 
-import { Caption } from '../../components/Caption';
-import { CaptionLabel } from '../../components/CaptionLabel';
-import { Day } from '../../components/Day';
-import { DayContent } from '../../components/DayContent';
-import { Dropdown } from '../../components/Dropdown';
-import { Footer } from '../../components/Footer';
-import { Head } from '../../components/Head';
-import { IconDropdown } from '../../components/IconDropdown';
-import { IconLeft } from '../../components/IconLeft';
-import { IconRight } from '../../components/IconRight';
-import { Row } from '../../components/Row';
-import { WeekNumber } from '../../components/WeekNumber';
-import { DayPickerProps } from '../../types';
+import { Caption } from 'components/Caption';
+import { CaptionLabel } from 'components/CaptionLabel';
+import { Day } from 'components/Day';
+import { DayContent } from 'components/DayContent';
+import { Dropdown } from 'components/Dropdown';
+import { Footer } from 'components/Footer';
+import { Head } from 'components/Head';
+import { IconDropdown } from 'components/IconDropdown';
+import { IconLeft } from 'components/IconLeft';
+import { IconRight } from 'components/IconRight';
+import { Row } from 'components/Row';
+import { WeekNumber } from 'components/WeekNumber';
+import { DayPickerProps } from 'types/DayPicker';
+
 import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';

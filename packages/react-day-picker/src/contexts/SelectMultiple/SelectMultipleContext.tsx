@@ -2,13 +2,13 @@ import React from 'react';
 
 import { isSameDay } from 'date-fns';
 
+import { DayPickerProps } from 'types/DayPicker';
 import {
-  DayClickEventHandler,
   DayPickerMultipleProps,
-  DayPickerProps,
-  isDayPickerMultiple,
-  Modifiers
-} from '../../types';
+  isDayPickerMultiple
+} from 'types/DayPickerMultiple';
+import { DayClickEventHandler } from 'types/EventHandlers';
+import { Modifiers } from 'types/Modifiers';
 
 /** Represent the modifiers that are changed by the multiple selection. */
 export type SelectMultipleModifiers = Pick<Modifiers, 'disabled'>;

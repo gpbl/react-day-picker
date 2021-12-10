@@ -1,8 +1,12 @@
 import React from 'react';
 
 import Example from '@examples/input-fields';
-import { clickDay, getAllSelectedDays, getDayButton } from '@test/po';
-import { freezeBeforeAll } from '@test/utils';
+import {
+  clickDay,
+  getAllSelectedDays,
+  getDayButton
+} from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, format } from 'date-fns';

@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { useDayPicker } from '@contexts/DayPicker';
-import { useNavigation } from '@contexts/Navigation';
+import { useDayPicker } from 'contexts/DayPicker';
+import { useNavigation } from 'contexts/Navigation';
+
 import { Table } from '../Table';
 
 /**

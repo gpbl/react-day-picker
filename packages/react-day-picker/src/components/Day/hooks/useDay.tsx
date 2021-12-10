@@ -2,25 +2,25 @@ import React from 'react';
 
 import { isSameMonth } from 'date-fns';
 
+import { useDayPicker } from 'contexts/DayPicker';
 import {
-  DateRange,
-  isDayPickerMultiple,
-  isDayPickerRange,
-  isDayPickerSingle,
-  ModifierStatus,
-  StyledComponent
-} from '../../../types';
-
-import { useDayPicker } from '@contexts/DayPicker';
-import { useSelectMultiple } from '@contexts/SelectMultiple';
-import { useSelectRange } from '@contexts/SelectRange';
-import { useSelectSingle } from '@contexts/SelectSingle';
+  SelectMultipleContextValue,
+  useSelectMultiple
+} from 'contexts/SelectMultiple';
+import { SelectRangeContextValue, useSelectRange } from 'contexts/SelectRange';
+import {
+  SelectSingleContextValue,
+  useSelectSingle
+} from 'contexts/SelectSingle';
+import { useDayModifiers } from 'hooks/useDayModifiers';
+import { isDayPickerMultiple } from 'types/DayPickerMultiple';
+import { isDayPickerRange } from 'types/DayPickerRange';
+import { isDayPickerSingle } from 'types/DayPickerSingle';
+import { DateRange } from 'types/Matchers';
+import { ModifierStatus } from 'types/Modifiers';
+import { StyledComponent } from 'types/Styles';
 
 import { useDayFocus } from './useDayFocus';
-import { SelectMultipleContextValue } from '@contexts/SelectMultiple/SelectMultipleContext';
-import { SelectRangeContextValue } from '@contexts/SelectRange/SelectRangeContext';
-import { SelectSingleContextValue } from '@contexts/SelectSingle/SelectSingleContext';
-import { useDayModifiers } from '../../../hooks/useDayModifiers';
 
 export type UseDay = {
   /** Whether the date is outside the display month/ */

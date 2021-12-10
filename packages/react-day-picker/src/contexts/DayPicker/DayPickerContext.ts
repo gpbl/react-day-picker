@@ -1,16 +1,11 @@
 import React from 'react';
 
-import { CaptionLayout } from '../../components';
-import {
-  ClassNames,
-  Components,
-  CustomModifiers,
-  DayPickerProps,
-  Formatters,
-  Labels,
-  ModifierClassNames,
-  Styles
-} from '../../types';
+import { CaptionLayout } from 'components/Caption';
+import { Components, DayPickerProps } from 'types/DayPicker';
+import { Formatters } from 'types/Formatters';
+import { Labels } from 'types/Labels';
+import { CustomModifiers, ModifierClassNames } from 'types/Modifiers';
+import { ClassNames, Styles } from 'types/Styles';
 
 /** The value of the [[DayPickerContext]] */
 export interface DayPickerContextValue extends DayPickerProps {

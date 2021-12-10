@@ -2,7 +2,7 @@ import React from 'react';
 
 import { getUnixTime } from 'date-fns';
 
-import { useDayPicker } from '@contexts/DayPicker';
+import { useDayPicker } from 'contexts/DayPicker';
 
 /**
  * The props for the [[Row]] component.

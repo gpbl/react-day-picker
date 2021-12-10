@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledComponent } from '../../types';
+import { StyledComponent } from 'types/Styles';
 
 /**
  * Render the "next month" button in the navigation.

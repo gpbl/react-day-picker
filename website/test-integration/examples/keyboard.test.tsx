@@ -18,8 +18,8 @@ import {
   pressPageUp,
   pressShiftPageDown,
   pressShiftPageUp
-} from '@test/po';
-import { freezeBeforeAll } from '@test/utils';
+} from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 import { render } from '@testing-library/react';
 import {
   addDays,

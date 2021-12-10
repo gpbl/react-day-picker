@@ -2,12 +2,12 @@ import React from 'react';
 
 import { isSameMonth } from 'date-fns';
 
-import { useDayPicker } from '@contexts/DayPicker';
-import { useNavigation } from '@contexts/Navigation';
-import { MonthsDropdown } from '../MonthsDropdown';
-import { Navigation } from '../Navigation';
-import { YearsDropdown } from '../YearsDropdown';
-import { MonthChangeEventHandler } from '../../types/EventHandlers';
+import { MonthsDropdown } from 'components/MonthsDropdown';
+import { Navigation } from 'components/Navigation';
+import { YearsDropdown } from 'components/YearsDropdown';
+import { useDayPicker } from 'contexts/DayPicker';
+import { useNavigation } from 'contexts/Navigation';
+import { MonthChangeEventHandler } from 'types/EventHandlers';
 
 /** Represent the props of the [[Caption]] component. */
 export interface CaptionProps {

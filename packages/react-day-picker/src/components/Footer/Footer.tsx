@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useDayPicker } from '@contexts/DayPicker';
+import { useDayPicker } from 'contexts/DayPicker';
 
 /** Render the Footer component (empty as default).*/
 export function Footer(): JSX.Element {

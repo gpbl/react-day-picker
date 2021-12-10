@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { useDayPicker } from '@contexts/DayPicker';
-
-import { ModifierStatus } from '../../types';
+import { useDayPicker } from 'contexts/DayPicker';
+import { ModifierStatus } from 'types/Modifiers';
 
 /** Represent the props for the [[DayContent]] component. */
 export interface DayContentProps {

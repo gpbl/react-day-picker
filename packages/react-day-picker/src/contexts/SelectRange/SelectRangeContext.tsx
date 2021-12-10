@@ -2,14 +2,12 @@ import React from 'react';
 
 import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
 
-import {
-  DateRange,
-  DayClickEventHandler,
-  DayPickerProps,
-  DayPickerRangeProps,
-  isDayPickerRange,
-  Modifiers
-} from '../../types';
+import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';
+import { DayClickEventHandler } from 'types/EventHandlers';
+import { DateRange } from 'types/Matchers';
+import { Modifiers } from 'types/Modifiers';
+
 import { addToRange } from './utils/addToRange';
 
 /** Represent the modifiers that are changed by the range selection. */

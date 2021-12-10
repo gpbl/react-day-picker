@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Example from '@examples/modifiers-style';
-import { getDayCell } from '@test/po';
-import { freezeBeforeAll } from '@test/utils';
+import { getDayCell } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 import { render } from '@testing-library/react';
 
 const today = new Date(2021, 10, 25);

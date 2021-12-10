@@ -31,7 +31,7 @@
     "npm.packageManager": "yarn",
     "eslint.packageManager": "yarn",
     "jest.jestCommandLine": "yarn test",
-    "importSorter.generalConfiguration.sortOnBeforeSave": false,
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
     "importSorter.sortConfiguration.removeUnusedImports": true,
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
@@ -43,8 +43,12 @@
         "orderLevel": 40
       },
       {
-        "regex": "^@test/",
-        "orderLevel": 10
+        "regex": "^test/",
+        "orderLevel": 35
+      },
+      {
+        "regex": "^(contexts|components|hooks|types)/",
+        "orderLevel": 30
       },
       {
         "regex": "^@examples/",
@@ -55,7 +59,8 @@
         "orderLevel": 8
       }
     ],
-    "typescript.preferences.importModuleSpecifier": "relative"
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "javascript.preferences.importModuleSpecifier": "non-relative"
   },
   "extensions": {
     "recommendations": [
