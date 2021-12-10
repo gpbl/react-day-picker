@@ -2,7 +2,7 @@ import React from 'react';
 
 import { isSameYear, setMonth as setDateMonth, startOfMonth } from 'date-fns';
 
-import { useDayPicker } from '../../contexts/DayPicker';
+import { useDayPicker } from '@contexts/DayPicker';
 import { MonthChangeEventHandler } from '../../types/EventHandlers';
 
 /** The props for the [[MonthsDropdown]] component. */

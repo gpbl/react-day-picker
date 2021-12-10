@@ -6,7 +6,7 @@ import { freezeBeforeAll } from '@test/utils';
 
 import { addMonths, setMonth, setYear } from 'date-fns';
 
-import { RootContext } from '../../contexts/RootProvider';
+import { RootContext } from '@contexts/RootProvider';
 import { Caption } from './Caption';
 
 const today = new Date(2021, 8);

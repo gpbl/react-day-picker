@@ -11,15 +11,15 @@ import {
   StyledComponent
 } from '../../../types';
 
-import { useDayPicker } from '../../../contexts/DayPicker';
-import { useSelectMultiple } from '../../../contexts/SelectMultiple';
-import { useSelectRange } from '../../../contexts/SelectRange';
-import { useSelectSingle } from '../../../contexts/SelectSingle';
+import { useDayPicker } from '@contexts/DayPicker';
+import { useSelectMultiple } from '@contexts/SelectMultiple';
+import { useSelectRange } from '@contexts/SelectRange';
+import { useSelectSingle } from '@contexts/SelectSingle';
 
 import { useDayFocus } from './useDayFocus';
-import { SelectMultipleContextValue } from '../../../contexts/SelectMultiple/SelectMultipleContext';
-import { SelectRangeContextValue } from '../../../contexts/SelectRange/SelectRangeContext';
-import { SelectSingleContextValue } from '../../../contexts/SelectSingle/SelectSingleContext';
+import { SelectMultipleContextValue } from '@contexts/SelectMultiple/SelectMultipleContext';
+import { SelectRangeContextValue } from '@contexts/SelectRange/SelectRangeContext';
+import { SelectSingleContextValue } from '@contexts/SelectSingle/SelectSingleContext';
 import { useDayModifiers } from '../../../hooks/useDayModifiers';
 
 export type UseDay = {

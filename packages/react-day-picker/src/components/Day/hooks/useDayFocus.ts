@@ -2,8 +2,8 @@ import React from 'react';
 
 import { isSameDay } from 'date-fns';
 
-import { useDayPicker } from '../../../contexts/DayPicker';
-import { useFocus } from '../../../contexts/Focus';
+import { useDayPicker } from '@contexts/DayPicker';
+import { useFocus } from '@contexts/Focus';
 
 /** Handle the focus for the day element. */
 export function useDayFocus(

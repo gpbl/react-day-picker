@@ -1,4 +1,4 @@
-import { useDayPicker } from '../../contexts/DayPicker';
+import { useDayPicker } from '@contexts/DayPicker';
 
 import { getInitialMonth } from './utils/getInitialMonth';
 import { useControlledValue } from '../../hooks/useControlledValue';

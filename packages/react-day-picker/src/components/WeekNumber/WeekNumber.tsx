@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button } from '../Button';
-import { useDayPicker } from '../../contexts/DayPicker';
+import { useDayPicker } from '@contexts/DayPicker';
 
 /**
  * The props for the [[WeekNumber]] component.

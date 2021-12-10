@@ -2,8 +2,8 @@ import React from 'react';
 
 import { isSameMonth } from 'date-fns';
 
-import { useDayPicker } from '../../contexts/DayPicker';
-import { useNavigation } from '../../contexts/Navigation';
+import { useDayPicker } from '@contexts/DayPicker';
+import { useNavigation } from '@contexts/Navigation';
 import { MonthsDropdown } from '../MonthsDropdown';
 import { Navigation } from '../Navigation';
 import { YearsDropdown } from '../YearsDropdown';

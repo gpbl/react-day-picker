@@ -6,6 +6,7 @@
     "moduleResolution": "node",
     "rootDir": "./",
     "paths": {
+      "@contexts/*": ["./src/contexts/*"],
       "@test/*": ["./test/*"],
       "@src/*": ["./src/*"]
     },
