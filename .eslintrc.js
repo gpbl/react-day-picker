@@ -14,6 +14,9 @@ const config = {
     'prettier',
     'plugin:prettier/recommended'
   ],
+  rules: {
+    'no-console': 'warn'
+  },
   overrides: [
     {
       files: ['**/*.test.ts'],
