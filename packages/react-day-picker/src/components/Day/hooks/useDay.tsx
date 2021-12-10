@@ -20,7 +20,7 @@ import { useDayFocus } from './useDayFocus';
 import { SelectMultipleContextValue } from '../../../contexts/SelectMultiple/SelectMultipleContext';
 import { SelectRangeContextValue } from '../../../contexts/SelectRange/SelectRangeContext';
 import { SelectSingleContextValue } from '../../../contexts/SelectSingle/SelectSingleContext';
-import { useModifiers } from '../../../hooks/useModifiers';
+import { useDayModifiers } from '../../../hooks/useDayModifiers';
 
 export type UseDay = {
   /** Whether the date is outside the display month/ */
@@ -86,7 +86,8 @@ export function useDay(
     buttonRef
   );
 
-  const { modifiers, modifierClassNames, modifierStyle } = useModifiers(date);
+  const { modifiers, modifierClassNames, modifierStyle } =
+    useDayModifiers(date);
   const isOutside = !isSameMonth(date, displayMonth);
 
   const returnValue = {

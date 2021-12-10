@@ -11,7 +11,7 @@ import {
 } from '../../types';
 
 /** Represent the modifiers that are changed by the multiple selection. */
-export type SelectMultipleModifiers = Pick<Modifiers, 'selected' | 'disabled'>;
+export type SelectMultipleModifiers = Pick<Modifiers, 'disabled'>;
 
 /** Represents the value of a [[SelectMultipleContext]]. */
 export interface SelectMultipleContextValue {
@@ -46,7 +46,6 @@ export function SelectMultipleProvider(
     const emptyContextValue: SelectMultipleContextValue = {
       selected: undefined,
       modifiers: {
-        selected: [],
         disabled: []
       }
     };
@@ -109,12 +108,10 @@ export function SelectMultipleProviderInternal({
   };
 
   const modifiers: SelectMultipleModifiers = {
-    selected: [],
     disabled: []
   };
 
   if (selected) {
-    modifiers.selected = selected;
     modifiers.disabled = [
       function disableDay(day: Date) {
         const isMaxSelected =
