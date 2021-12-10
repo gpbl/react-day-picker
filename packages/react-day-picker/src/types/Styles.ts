@@ -5,7 +5,7 @@ export type StyledElement<T = string | React.CSSProperties> = {
   /** The style of the root element. */
   readonly root: T;
   /** The style of the root element when `numberOfMonths > 1`. */
-  readonly multiple_month: T;
+  readonly multiple_months: T;
   /** The style of the root element when `showWeekNumber={true}`. */
   readonly with_weeknumber: T;
   /** The style of an element visually hidden. */
