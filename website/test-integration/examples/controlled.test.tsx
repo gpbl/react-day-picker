@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Example from '@examples/controlled';
-import { getMonthCaption } from '@test/po';
-import { freezeBeforeAll } from '@test/utils';
+import { getMonthCaption } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 let container: HTMLElement;

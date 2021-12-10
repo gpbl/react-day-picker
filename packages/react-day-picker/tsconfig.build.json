@@ -1,5 +1,9 @@
-// Used in rollup.config.js
 {
   "extends": "./tsconfig.json",
-  "exclude": ["**/*.test.*", "build", "jest.config.ts"]
+  "compilerOptions": {
+    "rootDir": "./src",
+    "noEmit": false
+  },
+  "exclude": ["**/*.test.*"],
+  "include": ["./src/**/*"]
 }

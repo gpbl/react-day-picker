@@ -1,5 +1,6 @@
-import { formatCaption } from '@src/contexts/DayPicker/formatters';
 import { fireEvent, screen } from '@testing-library/react';
+
+import { formatCaption } from 'contexts/DayPicker/formatters';
 
 export class PageObjects {
   today: Date;

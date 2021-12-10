@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 
-import { WeekdayLabel } from '../../../types';
+import { WeekdayLabel } from 'types/Labels';
 
 /**
  * The default ARIA label for the Weekday element.

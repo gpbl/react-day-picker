@@ -1,5 +1,7 @@
 import React from 'react';
-import { Modifiers } from '../../types/Modifiers';
+
+import { Modifiers } from 'types/Modifiers';
+
 import { ModifiersContext } from './ModifiersContext';
 
 /** Hook to access the [[ModifiersContext]]. */

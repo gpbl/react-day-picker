@@ -1,8 +1,12 @@
 import React from 'react';
 
 import Example from '@examples/from-to-year';
-import { clickNextMonth, getNextButton, getPrevButton } from '@test/po';
-import { freezeBeforeAll } from '@test/utils';
+import {
+  clickNextMonth,
+  getNextButton,
+  getPrevButton
+} from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 import { render } from '@testing-library/react';
 import { differenceInMonths } from 'date-fns';
 

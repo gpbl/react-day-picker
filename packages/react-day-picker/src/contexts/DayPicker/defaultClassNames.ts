@@ -1,4 +1,4 @@
-import { ClassNames } from '../../types';
+import { ClassNames } from 'types/Styles';
 
 /**
  * The name of the default CSS classes.

@@ -1,7 +1,7 @@
-import { useDayPicker } from '../../contexts/DayPicker';
+import { useDayPicker } from 'contexts/DayPicker';
+import { useControlledValue } from 'hooks/useControlledValue';
 
 import { getInitialMonth } from './utils/getInitialMonth';
-import { useControlledValue } from '../../hooks/useControlledValue';
 
 /** Controls the navigation state. */
 export function useNavigationState(): [
