@@ -4,11 +4,11 @@ import { CaptionLayout } from '../../components';
 import {
   ClassNames,
   Components,
+  CustomModifiers,
   DayPickerProps,
   Formatters,
   Labels,
   ModifierClassNames,
-  Modifiers,
   Styles
 } from '../../types';
 
@@ -22,7 +22,7 @@ export interface DayPickerContextValue extends DayPickerProps {
   locale: Locale;
   modifierClassNames: ModifierClassNames;
   modifierPrefix: string;
-  modifiers: Modifiers;
+  modifiers: CustomModifiers;
   numberOfMonths: number;
   styles: Styles;
   today: Date;

@@ -2,11 +2,12 @@ import React from 'react';
 
 import { DayPickerProps } from '../types';
 import { DayPickerProvider } from './DayPicker/DayPickerProvider';
-import { FocusProvider } from './Focus/FocusContext';
-import { NavigationProvider } from './Navigation/NavigationContext';
-import { SelectMultipleProvider } from './SelectMultiple/SelectMultipleContext';
-import { SelectRangeProvider } from './SelectRange/SelectRangeContext';
-import { SelectSingleProvider } from './SelectSingle/SelectSingleContext';
+import { FocusProvider } from './Focus';
+import { ModifiersProvider } from './Modifiers';
+import { NavigationProvider } from './Navigation';
+import { SelectMultipleProvider } from './SelectMultiple';
+import { SelectRangeProvider } from './SelectRange';
+import { SelectSingleProvider } from './SelectSingle';
 
 /** The props of [[RootProvider]]. */
 export type RootContext = DayPickerProps & {
@@ -23,7 +24,9 @@ export function RootProvider(props: RootContext): JSX.Element {
         <SelectSingleProvider initialProps={initialProps}>
           <SelectMultipleProvider initialProps={initialProps}>
             <SelectRangeProvider initialProps={initialProps}>
-              <FocusProvider>{children}</FocusProvider>
+              <ModifiersProvider>
+                <FocusProvider>{children}</FocusProvider>
+              </ModifiersProvider>
             </SelectRangeProvider>
           </SelectMultipleProvider>
         </SelectSingleProvider>

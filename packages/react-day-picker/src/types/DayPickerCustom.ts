@@ -3,9 +3,7 @@ import { DayPickerProps } from './DayPicker';
 /** The props for the [[DayPicker]] component when using `mode="custom"`. */
 export interface DayPickerCustomProps extends DayPickerProps {
   mode: 'custom';
-  /** The selected day(s). */
-  selected?: unknown;
-  /** Use `onDayClick` and related event instead. */
+  /** Use `onDayClick` and related events instead. */
   onSelect: never;
 }
 
