@@ -1,16 +1,11 @@
 import React from 'react';
 
-import { CaptionLayout } from '../../components';
-import {
-  ClassNames,
-  Components,
-  DayPickerProps,
-  Formatters,
-  Labels,
-  ModifierClassNames,
-  Modifiers,
-  Styles
-} from '../../types';
+import { CaptionLayout } from 'components/Caption';
+import { Components, DayPickerProps } from 'types/DayPicker';
+import { Formatters } from 'types/Formatters';
+import { Labels } from 'types/Labels';
+import { CustomModifiers, ModifierClassNames } from 'types/Modifiers';
+import { ClassNames, Styles } from 'types/Styles';
 
 /** The value of the [[DayPickerContext]] */
 export interface DayPickerContextValue extends DayPickerProps {
@@ -22,7 +17,7 @@ export interface DayPickerContextValue extends DayPickerProps {
   locale: Locale;
   modifierClassNames: ModifierClassNames;
   modifierPrefix: string;
-  modifiers: Modifiers;
+  modifiers: CustomModifiers;
   numberOfMonths: number;
   styles: Styles;
   today: Date;

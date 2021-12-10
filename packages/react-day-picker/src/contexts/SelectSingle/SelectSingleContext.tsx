@@ -1,22 +1,13 @@
 import React from 'react';
 
-import { DayPickerProps } from '../../types/DayPicker';
-import {
-  DayPickerSingleProps,
-  isDayPickerSingle
-} from '../../types/DayPickerSingle';
-import { DayClickEventHandler } from '../../types/EventHandlers';
-import { Modifiers } from '../../types/Modifiers';
-
-/** Represent the modifiers that are changed by the single selection. */
-export type SelectSingleModifiers = Pick<Modifiers, 'selected'>;
+import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
+import { DayClickEventHandler } from 'types/EventHandlers';
 
 /** Represents the value of a [[SelectSingleContext]]. */
 export interface SelectSingleContextValue {
   /** The day that has been selected. */
   selected: Date | undefined;
-  /** The modifiers for the corresponding selection. */
-  modifiers: SelectSingleModifiers;
   /** Event handler to attach to the day button to enable the single select. */
   onDayClick?: DayClickEventHandler;
 }
@@ -42,8 +33,7 @@ export function SelectSingleProvider(
 ): JSX.Element {
   if (!isDayPickerSingle(props.initialProps)) {
     const emptyContextValue: SelectSingleContextValue = {
-      selected: undefined,
-      modifiers: { selected: [] }
+      selected: undefined
     };
     return (
       <SelectSingleContext.Provider value={emptyContextValue}>
@@ -76,16 +66,9 @@ export function SelectSingleProviderInternal({
     initialProps.onSelect?.(day, day, dayModifiers, e);
   };
 
-  const modifiers: SelectSingleModifiers = { selected: [] };
-
-  if (initialProps.selected) {
-    modifiers.selected = [initialProps.selected];
-  }
-
   const contextValue: SelectSingleContextValue = {
     selected: initialProps.selected,
-    onDayClick,
-    modifiers
+    onDayClick
   };
   return (
     <SelectSingleContext.Provider value={contextValue}>

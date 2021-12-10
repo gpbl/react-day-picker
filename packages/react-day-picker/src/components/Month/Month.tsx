@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { useDayPicker, useNavigation } from '../../contexts';
-import { Table } from '../Table';
+import { Table } from 'components/Table';
+import { useDayPicker } from 'contexts/DayPicker';
+import { useNavigation } from 'contexts/Navigation';
 
 /** The props for the [[Month]] component. */
 export interface MonthProps {

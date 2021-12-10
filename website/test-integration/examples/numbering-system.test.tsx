@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Example from '@examples/numbering-system';
-import { freezeBeforeAll } from '@test/utils';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 import { render, screen } from '@testing-library/react';
 
 const today = new Date(2021, 10, 25);

@@ -2,20 +2,18 @@ import React from 'react';
 
 import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
 
-import {
-  DateRange,
-  DayClickEventHandler,
-  DayPickerProps,
-  DayPickerRangeProps,
-  isDayPickerRange,
-  Modifiers
-} from '../../types';
+import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';
+import { DayClickEventHandler } from 'types/EventHandlers';
+import { DateRange } from 'types/Matchers';
+import { Modifiers } from 'types/Modifiers';
+
 import { addToRange } from './utils/addToRange';
 
 /** Represent the modifiers that are changed by the range selection. */
 export type SelectRangeModifiers = Pick<
   Modifiers,
-  'selected' | 'range_start' | 'range_end' | 'range_middle' | 'disabled'
+  'range_start' | 'range_end' | 'range_middle' | 'disabled'
 >;
 
 /** Represents the value of a [[SelectRangeContext]]. */
@@ -51,7 +49,6 @@ export function SelectRangeProvider(
     const emptyContextValue: SelectRangeContextValue = {
       selected: undefined,
       modifiers: {
-        selected: [],
         range_start: [],
         range_end: [],
         range_middle: [],
@@ -109,7 +106,6 @@ export function SelectRangeProviderInternal({
   };
 
   const modifiers: SelectRangeModifiers = {
-    selected: [],
     range_start: [],
     range_end: [],
     range_middle: [],
@@ -117,7 +113,6 @@ export function SelectRangeProviderInternal({
   };
 
   if (selected) {
-    modifiers.selected = [selected];
     if (selected.from) {
       modifiers.range_start = [selected.from];
       if (selected.to) {

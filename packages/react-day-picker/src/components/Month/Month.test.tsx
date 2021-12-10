@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { customRender } from '@test/render';
+import { DayPickerProps } from 'types/DayPicker';
+
+import { customRender } from 'test/render';
 
 import { Month, MonthProps } from './Month';
-import { DayPickerProps } from '../../types';
 
 let root: HTMLDivElement;
 function setup(props: MonthProps, dayPickerProps: DayPickerProps) {
   const renderResult = customRender(<Month {...props} />, dayPickerProps);
   root = renderResult.container.firstChild as HTMLDivElement;
-  console.log(root.style);
 }
 
 const displayMonth = new Date(2022, 10, 4);

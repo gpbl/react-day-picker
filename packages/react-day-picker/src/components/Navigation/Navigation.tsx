@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { useDayPicker } from '../../contexts/DayPicker';
+import { useDayPicker } from 'contexts/DayPicker';
+
 import { Button } from '../Button';
 
 /** The props for the [[Navigation]] component. */

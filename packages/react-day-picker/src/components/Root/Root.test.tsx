@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { customRender } from '@test/render';
+import { DayPickerProps } from 'types/DayPicker';
 
-import { DayPickerProps } from '../../types';
+import { customRender } from 'test/render';
+
 import { Root } from './Root';
 
 function setup(dayPickerProps: DayPickerProps = {}) {

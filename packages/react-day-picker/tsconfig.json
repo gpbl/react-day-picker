@@ -5,9 +5,10 @@
     "module": "es6",
     "moduleResolution": "node",
     "rootDir": "./",
+    "baseUrl": "./src",
+    "noEmit": true,
     "paths": {
-      "@test/*": ["./test/*"],
-      "@src/*": ["./src/*"]
+      "test/*": ["../test/*"]
     },
     "declaration": true,
     "sourceMap": true,

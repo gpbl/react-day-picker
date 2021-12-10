@@ -1,15 +1,13 @@
 import { Locale } from 'date-fns';
 
-import {
-  CaptionLabelProps,
-  CaptionLayout,
-  CaptionProps,
-  DayContentProps,
-  DayProps,
-  DropdownProps,
-  RowProps,
-  WeekNumberProps
-} from '../components';
+import { CaptionLayout, CaptionProps } from 'components/Caption';
+import { CaptionLabelProps } from 'components/CaptionLabel';
+import { DayProps } from 'components/Day';
+import { DayContentProps } from 'components/DayContent';
+import { DropdownProps } from 'components/Dropdown';
+import { RowProps } from 'components/Row';
+import { WeekNumberProps } from 'components/WeekNumber';
+
 import {
   DayClickEventHandler,
   DayFocusEventHandler,
@@ -174,6 +172,10 @@ export interface DayPickerProps {
    * calendar.
    */
   hidden?: Matcher | Matcher[];
+
+  /** Apply the `selected` modifier to the matching days. */
+  selected?: Matcher | Matcher[];
+
   /**
    * The today’s date. Default is the current date. This Date will get the
    * `today` modifier to style the day.

@@ -1,4 +1,5 @@
-import { Modifiers, ModifierStatus } from '../../../types';
+import { Modifiers, ModifierStatus } from 'types/Modifiers';
+
 import { isMatch } from './isMatch';
 
 /**

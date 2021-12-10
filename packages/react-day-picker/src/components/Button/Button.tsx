@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useDayPicker } from '../../contexts/DayPicker';
+import { useDayPicker } from 'contexts/DayPicker';
 
 /** The props for the [[Button]] component. */
 export type ButtonProps = React.HTMLProps<HTMLButtonElement>;

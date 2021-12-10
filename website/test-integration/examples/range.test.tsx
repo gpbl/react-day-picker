@@ -1,7 +1,11 @@
 import React from 'react';
 
 import Example from '@examples/range';
-import { clickDay, getAllSelectedDays, getDayButton } from '@test/po';
+import {
+  clickDay,
+  getAllSelectedDays,
+  getDayButton
+} from 'react-day-picker/test/po';
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 

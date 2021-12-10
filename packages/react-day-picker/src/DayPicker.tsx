@@ -1,12 +1,10 @@
 import React from 'react';
 
-import {
-  DayPickerCustomProps,
-  DayPickerMultipleProps,
-  DayPickerProps,
-  DayPickerRangeProps,
-  DayPickerSingleProps
-} from './types';
+import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerCustomProps } from 'types/DayPickerCustom';
+import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
+import { DayPickerRangeProps } from 'types/DayPickerRange';
+import { DayPickerSingleProps } from 'types/DayPickerSingle';
 
 import { Root } from './components/Root';
 import { RootProvider } from './contexts/RootProvider';

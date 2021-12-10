@@ -2,15 +2,11 @@
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDirs": [".", "../packages/react-day-picker/test"],
     "lib": ["es2019"],
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "paths": {
-      "@examples/*": ["./examples/*"],
-      "@test/*": ["../packages/react-day-picker/test/*"],
-      "@src/*": ["../packages/react-day-picker/src/*"],
-      "react-day-picker": ["../packages/react-day-picker/src"]
+      "@examples/*": ["./examples/*"]
     }
   }
 }

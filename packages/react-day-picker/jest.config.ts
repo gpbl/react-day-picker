@@ -1,6 +1,4 @@
 import type { Config } from '@jest/types';
-import { pathsToModuleNameMapper } from 'ts-jest';
-import { compilerOptions } from './tsconfig.json';
 
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
@@ -8,9 +6,13 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>'
-  }),
+  moduleNameMapper: {
+    '^test/(.*)': ['<rootDir>/test/$1'],
+    '^components(.*)': ['<rootDir>/src/components$1'],
+    '^contexts(.*)': ['<rootDir>/src/contexts$1'],
+    '^hooks(.*)': ['<rootDir>/src/hooks$1'],
+    '^types(.*)': ['<rootDir>/src/types$1']
+  },
   testEnvironment: 'jsdom',
   coverageReporters: ['lcov', 'text', 'clover'],
   setupFilesAfterEnv: ['./test/setup.ts']

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useDayPicker } from '../../contexts/DayPicker';
-import { useNavigation } from '../../contexts/Navigation';
-import { Month } from '../Month';
+import { Month } from 'components/Month';
+import { useDayPicker } from 'contexts/DayPicker';
+import { useNavigation } from 'contexts/Navigation';
 
 /**
  * Render the container with the months and their captions. The number of months
