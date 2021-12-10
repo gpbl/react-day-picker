@@ -16,7 +16,6 @@ export type DayModifiers = {
 export function useDayModifiers(date: Date): DayModifiers {
   const context = useDayPicker();
 
-  // TODO: Rename this hook useModifiersContext?
   const modifiersContext = useModifiers();
 
   // TODO: Is there a better name for the type ModifierStatus?
