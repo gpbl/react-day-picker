@@ -24,7 +24,7 @@ export function Root(): JSX.Element {
 
   const rootClassNames = [className ?? classNames.root];
   if (numberOfMonths > 1) {
-    rootClassNames.push(classNames.multiple_month);
+    rootClassNames.push(classNames.multiple_months);
   }
   if (showWeekNumber) {
     rootClassNames.push(classNames.with_weeknumber);
