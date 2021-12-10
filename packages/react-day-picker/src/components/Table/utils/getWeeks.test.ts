@@ -1,4 +1,5 @@
 import { enGB, enUS } from 'date-fns/locale';
+
 import { getWeeks } from './getWeeks';
 
 describe('for December 2022 in enUS locale with fixedWeeks', () => {

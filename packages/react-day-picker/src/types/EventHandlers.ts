@@ -1,4 +1,5 @@
-import { DateRange } from '../types';
+import { DateRange } from 'types/Matchers';
+
 import { ModifierStatus } from './Modifiers';
 
 /** The event handler when a day is clicked. */

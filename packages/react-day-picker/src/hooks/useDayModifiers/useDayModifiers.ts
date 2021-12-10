@@ -1,6 +1,7 @@
-import { ModifierStatus } from '../../types/Modifiers';
-import { useDayPicker } from '../../contexts/DayPicker';
-import { useModifiers } from '../../contexts/Modifiers';
+import { useDayPicker } from 'contexts/DayPicker';
+import { useModifiers } from 'contexts/Modifiers';
+import { ModifierStatus } from 'types/Modifiers';
+
 import { getModifierStatus } from './utils/getModifierStatus';
 
 export type DayModifiers = {

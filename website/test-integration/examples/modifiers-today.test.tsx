@@ -1,8 +1,12 @@
 import React from 'react';
 
 import Example from '@examples/modifiers-today';
-import { clickDay, getDayButton, getTableFooter } from '@test/po';
-import { freezeBeforeAll } from '@test/utils';
+import {
+  clickDay,
+  getDayButton,
+  getTableFooter
+} from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
 

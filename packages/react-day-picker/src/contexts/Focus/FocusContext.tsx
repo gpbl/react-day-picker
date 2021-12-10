@@ -11,7 +11,7 @@ import {
 } from 'date-fns';
 
 import { useDayPicker } from '../DayPicker';
-import { useNavigation } from '../Navigation';
+import { useNavigation } from '../Navigation/useNavigation';
 
 /** Represents the value of the [[NavigationContext]]. */
 export type FocusContextValue = [

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Example from '@examples/modifiers-hidden';
-import { queryDayButton } from '@test/po';
-import { freezeBeforeAll } from '@test/utils';
+import { queryDayButton } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 import { render } from '@testing-library/react';
 
 const days = [

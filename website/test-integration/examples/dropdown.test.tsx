@@ -6,8 +6,8 @@ import {
   getMonthDropdown,
   getYearDropdown,
   selectMonth
-} from '@test/po';
-import { freezeBeforeAll } from '@test/utils';
+} from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 import { render } from '@testing-library/react';
 
 const today = new Date(2022, 5, 10);

@@ -1,6 +1,6 @@
 import { differenceInCalendarDays, isSameDay } from 'date-fns';
 
-import { DateRange } from '../../../types/Matchers';
+import { DateRange } from 'types/Matchers';
 
 /** Return `true` whether the given date is inside the range. */
 export function isDateInRange(date: Date, range: DateRange): boolean {
