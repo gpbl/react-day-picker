@@ -28,8 +28,9 @@ export interface DayPickerProviderProps {
   children?: React.ReactNode;
 }
 /**
- * The provider for the [[DayPickerContext]].
- */
+ * The provider for the [[DayPickerContext]]. Set the context value by
+ * assigning the defaults from the DayPicker props.
+ * */
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { children, initialProps } = props;
 

@@ -10,6 +10,43 @@ on:
       - ".github/workflows/**"
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-${{ hashFiles('./yarn.lock') }}
+          restore-keys: |
+            yarn-cache-${{ hashFiles('./yarn.lock') }}
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
+      - name: Run typecheck
+        run: |
+          yarn workspace react-day-picker run typecheck
+      - name: Run linter
+        run: |
+          yarn workspace react-day-picker run lint
+      - name: Run tests
+        run: |
+          yarn workspace react-day-picker run test
+
   build:
     runs-on: ubuntu-latest
     strategy:

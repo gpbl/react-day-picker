@@ -18,15 +18,44 @@
       "packages/": true,
       "website/": true
     },
-    "jest.disabledWorkspaceFolders": ["website", "react-day-picker"],
+    "jest.disabledWorkspaceFolders": ["root"],
     "jest.autoRun": {
       "watch": false,
-      "onSave": "test-file"
+      "onSave": "test-src-file"
+    },
+    "jest.testExplorer": {
+      "enabled": true,
+      "showClassicStatus": false,
+      "showInlineError": false
     },
     "npm.packageManager": "yarn",
     "eslint.packageManager": "yarn",
     "jest.jestCommandLine": "yarn test",
-    "importSorter.sortConfiguration.removeUnusedImports": true
+    "importSorter.generalConfiguration.sortOnBeforeSave": false,
+    "importSorter.sortConfiguration.removeUnusedImports": true,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
+    "importSorter.importStringConfiguration.tabSize": 2,
+    "importSorter.importStringConfiguration.quoteMark": "single",
+    "importSorter.sortConfiguration.customOrderingRules.rules": [
+      {
+        "regex": "^[.]",
+        "orderLevel": 40
+      },
+      {
+        "regex": "^@test/",
+        "orderLevel": 10
+      },
+      {
+        "regex": "^@examples/",
+        "orderLevel": 9
+      },
+      {
+        "regex": "^react",
+        "orderLevel": 8
+      }
+    ],
+    "typescript.preferences.importModuleSpecifier": "relative"
   },
   "extensions": {
     "recommendations": [

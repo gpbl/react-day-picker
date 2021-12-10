@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { customRender } from '@test/customRender';
-import { PageObjects } from '@test/PageObjects';
+import { PageObjects } from '@test/po/PageObjects';
+import { customRender } from '@test/render';
 
 import { Footer } from './Footer';
 

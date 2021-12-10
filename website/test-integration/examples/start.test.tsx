@@ -19,6 +19,6 @@ describe('when a day is clicked', () => {
     expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
   });
   test('should update the footer', () => {
-    expect(getTableFooter()).toHaveTextContent('You picked 11/1/2021.');
+    expect(getTableFooter()).toHaveTextContent(`You picked Nov 1, 2021.`);
   });
 });

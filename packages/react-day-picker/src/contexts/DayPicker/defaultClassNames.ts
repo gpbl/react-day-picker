@@ -5,7 +5,7 @@ import { ClassNames } from '../../types';
  */
 export const defaultClassNames: Required<ClassNames> = {
   root: 'rdp',
-  multiple_month: 'rdp-multiple_months',
+  multiple_months: 'rdp-multiple_months',
   with_weeknumber: 'rdp-with_weeknumber',
   vhidden: 'rdp-vhidden',
   button_reset: 'rdp-button_reset',
@@ -13,9 +13,9 @@ export const defaultClassNames: Required<ClassNames> = {
 
   caption: 'rdp-caption',
 
-  caption_first: 'rdp-caption_first',
-  caption_last: 'rdp-caption_last',
-  caption_middle: 'rdp-caption_middle',
+  caption_start: 'rdp-caption_first',
+  caption_end: 'rdp-caption_end',
+  caption_between: 'rdp-caption_between',
   caption_label: 'rdp-caption_label',
 
   caption_dropdowns: 'rdp-caption_dropdowns',

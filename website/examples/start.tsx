@@ -1,12 +1,14 @@
 import React from 'react';
 import { DayPicker } from 'react-day-picker';
 
+import { format } from 'date-fns';
+
 export default function Example() {
   const [selected, setSelected] = React.useState<Date>();
 
   let footer = 'Please pick a day.';
   if (selected) {
-    footer = `You picked ${selected.toLocaleDateString()}.`;
+    footer = `You picked ${format(selected, 'PP')}.`;
   }
   return (
     <DayPicker
