@@ -4,6 +4,7 @@ import { useDayPicker } from 'contexts/DayPicker';
 
 /** The props for the [[CaptionLabel]] component. */
 export interface CaptionLabelProps {
+  id: string | undefined;
   /** The month where the caption is displayed. */
   displayMonth: Date;
 }
@@ -17,14 +18,14 @@ export function CaptionLabel(props: CaptionLabelProps): JSX.Element {
     formatters: { formatCaption }
   } = useDayPicker();
   return (
-    <div
-      key="caption"
+    <h2
       className={classNames.caption_label}
       style={styles.caption_label}
       aria-live="polite"
       aria-atomic="true"
+      id={props.id}
     >
       {formatCaption(props.displayMonth, { locale })}
-    </div>
+    </h2>
   );
 }

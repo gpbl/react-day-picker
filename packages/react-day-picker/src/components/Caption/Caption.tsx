@@ -11,6 +11,7 @@ import { MonthChangeEventHandler } from 'types/EventHandlers';
 
 /** Represent the props of the [[Caption]] component. */
 export interface CaptionProps {
+  id: string | undefined;
   /** The month where the caption is displayed. */
   displayMonth: Date;
 }
@@ -70,13 +71,14 @@ export function Caption(props: CaptionProps): JSX.Element {
     [isLast, isFirst] = [isFirst, isLast];
   }
 
-  const captionLabel = <CaptionLabel displayMonth={displayMonth} />;
   const hideNext = numberOfMonths > 1 && (isFirst || !isLast);
   const hidePrevious = numberOfMonths > 1 && (isLast || !isFirst);
 
   return (
     <div className={classNames.caption} style={styles.caption}>
-      {disableNavigation && captionLabel}
+      {disableNavigation && (
+        <CaptionLabel id={props.id} displayMonth={displayMonth} />
+      )}
       {!disableNavigation && (
         <>
           {captionLayout === 'dropdown' ? (
@@ -95,7 +97,7 @@ export function Caption(props: CaptionProps): JSX.Element {
             </div>
           ) : (
             <>
-              <CaptionLabel displayMonth={displayMonth} />
+              <CaptionLabel id={props.id} displayMonth={displayMonth} />
               <Navigation
                 displayMonth={displayMonth}
                 hideNext={hideNext}

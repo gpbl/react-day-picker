@@ -7,7 +7,7 @@ import { DayPickerProps } from 'types/DayPicker';
 
 export const customRender = (
   element: React.ReactElement,
-  contextValue: DayPickerProps = {}
+  dayPickerProps: DayPickerProps = {}
 ): RenderResult => {
-  return render(<RootProvider {...contextValue}>{element}</RootProvider>);
+  return render(<RootProvider {...dayPickerProps}>{element}</RootProvider>);
 };
