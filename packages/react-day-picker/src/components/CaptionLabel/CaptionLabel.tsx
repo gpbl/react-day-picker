@@ -17,14 +17,13 @@ export function CaptionLabel(props: CaptionLabelProps): JSX.Element {
     formatters: { formatCaption }
   } = useDayPicker();
   return (
-    <div
-      key="caption"
+    <h2
       className={classNames.caption_label}
       style={styles.caption_label}
       aria-live="polite"
       aria-atomic="true"
     >
       {formatCaption(props.displayMonth, { locale })}
-    </div>
+    </h2>
   );
 }
