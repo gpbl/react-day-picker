@@ -11,6 +11,8 @@ import { MonthChangeEventHandler } from 'types/EventHandlers';
 
 /** Represent the props of the [[Caption]] component. */
 export interface CaptionProps {
+  /** The ID for the heading element. Must be the same as the labelled-by in Table. */
+  id?: string;
   /** The month where the caption is displayed. */
   displayMonth: Date;
 }
