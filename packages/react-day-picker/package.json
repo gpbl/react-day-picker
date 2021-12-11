@@ -49,6 +49,7 @@
     "eslint-plugin-jest": "^25.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "faker": "^5.5.3",
     "jest": "^27.4.3",
     "prettier": "^2.5.0",
     "react": "^17.0.2",
