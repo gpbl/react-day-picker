@@ -14,19 +14,19 @@ beforeEach(() => tk.freeze(today));
 afterEach(() => tk.reset());
 
 test('should render the formatted display month', () => {
-  customRender(<CaptionLabel displayMonth={today} />);
+  customRender(<CaptionLabel id="1" displayMonth={today} />);
   expect(po.getCaptionLabel(today)).toBeInTheDocument();
 });
 
 test('should apply the `caption_label` class name', () => {
-  customRender(<CaptionLabel displayMonth={today} />, {
+  customRender(<CaptionLabel id="1" displayMonth={today} />, {
     classNames: { caption_label: 'foo' }
   });
   expect(po.getCaptionLabel(today)).toHaveClass('foo');
 });
 
 test('should apply the `caption_label` style', () => {
-  customRender(<CaptionLabel displayMonth={today} />, {
+  customRender(<CaptionLabel id="1" displayMonth={today} />, {
     styles: { caption_label: { color: 'red' } }
   });
   expect(po.getCaptionLabel(today)).toHaveStyle({ color: 'red' });

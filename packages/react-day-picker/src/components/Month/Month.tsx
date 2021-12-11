@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useId } from '@reach/auto-id';
+
 import { Table } from 'components/Table';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useNavigation } from 'contexts/Navigation';
@@ -19,7 +21,7 @@ export function Month(props: MonthProps) {
     components: { Caption }
   } = useDayPicker();
   const { displayMonths } = useNavigation();
-
+  const captionId = useId();
   const className = [classNames.month];
   let style = { ...styles.month };
   let isStart = props.displayIndex === 0;
@@ -44,8 +46,8 @@ export function Month(props: MonthProps) {
 
   return (
     <div key={props.displayIndex} className={className.join(' ')} style={style}>
-      <Caption displayMonth={props.displayMonth} />
-      <Table displayMonth={props.displayMonth} />
+      <Caption id={captionId} displayMonth={props.displayMonth} />
+      <Table aria-labelledby={captionId} displayMonth={props.displayMonth} />
     </div>
   );
 }
