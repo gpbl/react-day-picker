@@ -1,5 +1,4 @@
 import typescript from 'rollup-plugin-typescript2';
-import nodeResolve from 'rollup-plugin-node-resolve';
 
 /** @type {import('rollup').RollupOptions} */
 const config = [
@@ -16,8 +15,7 @@ const config = [
     plugins: [
       typescript({
         tsconfig: './tsconfig.build.json'
-      }),
-      nodeResolve()
+      })
     ],
     external: ['react', 'date-fns', 'date-fns/locale/en-US']
   },
@@ -30,7 +28,6 @@ const config = [
         sourcemap: true
       }
     ],
-    plugins: [nodeResolve()],
     external: ['react', 'date-fns', 'date-fns/locale/en-US']
   }
 ];
