@@ -30,13 +30,6 @@
     },
     {
       "type": "npm",
-      "script": "build-watch",
-      "problemMatcher": [],
-      "label": "build-watch",
-      "isBackground": true
-    },
-    {
-      "type": "npm",
       "script": "typecheck",
       "problemMatcher": ["$tsc"],
       "label": "typecheck"
@@ -46,14 +39,16 @@
       "script": "typecheck-watch",
       "problemMatcher": ["$tsc-watch"],
       "label": "typecheck-watch",
-      "isBackground": true
+      "isBackground": true,
+      "runOptions": { "runOn": "folderOpen" }
     },
     {
       "type": "npm",
       "script": "start",
       "problemMatcher": [],
       "label": "start",
-      "isBackground": true
+      "isBackground": true,
+      "runOptions": { "runOn": "folderOpen" }
     }
   ]
 }
