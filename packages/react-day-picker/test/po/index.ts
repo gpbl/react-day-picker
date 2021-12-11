@@ -23,7 +23,7 @@ export function getAllSelectedDays() {
 
 export function getAllEnabledDays() {
   const buttons = screen
-    .getByRole('table')
+    .getByRole('grid')
     .getElementsByTagName('tbody')[0]
     .getElementsByTagName('button');
 
