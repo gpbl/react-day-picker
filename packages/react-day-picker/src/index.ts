@@ -1,3 +1,4 @@
+/* Note: this file is excluded from tsconfig.json and reintroduced in tsconfig.build.json for a better dev experience. */
 export * from './DayPicker';
 
 export * from './components/Button';
