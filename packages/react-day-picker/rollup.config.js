@@ -1,5 +1,6 @@
 import typescript from 'rollup-plugin-typescript2';
 import nodeResolve from 'rollup-plugin-node-resolve';
+import { replaceTscAliasPaths } from 'tsc-alias';
 
 /** @type {import('rollup').RollupOptions} */
 const config = [
@@ -17,7 +18,12 @@ const config = [
       typescript({
         tsconfig: './tsconfig.build.json'
       }),
-      nodeResolve()
+      nodeResolve(),
+      {
+        writeBundle: () => {
+          replaceTscAliasPaths();
+        }
+      }
     ],
     external: ['react', 'date-fns', 'date-fns/locale/en-US']
   },
