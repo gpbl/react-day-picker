@@ -8,6 +8,8 @@ import { getWeeks } from './utils/getWeeks';
  * The props for the [[Table]] component.
  */
 export interface TableProps {
+  /** The ID of the label of the table (the same given to the Caption). */
+  ['aria-labelled-by']?: string;
   /** The month where the table is displayed. */
   displayMonth: Date;
 }
@@ -26,7 +28,12 @@ export function Table(props: TableProps): JSX.Element {
   } = useDayPicker();
   const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
   return (
-    <table role="grid" className={classNames.table} style={styles.table}>
+    <table
+      className={classNames.table}
+      style={styles.table}
+      role="grid"
+      aria-labelledby={props['aria-labelled-by']}
+    >
       {!hideHead && <Head />}
       <tbody className={classNames.tbody} style={styles.tbody}>
         {weeks.map((week) => (
