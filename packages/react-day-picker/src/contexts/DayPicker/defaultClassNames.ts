@@ -13,7 +13,7 @@ export const defaultClassNames: Required<ClassNames> = {
 
   caption: 'rdp-caption',
 
-  caption_start: 'rdp-caption_first',
+  caption_start: 'rdp-caption_start',
   caption_end: 'rdp-caption_end',
   caption_between: 'rdp-caption_between',
   caption_label: 'rdp-caption_label',
