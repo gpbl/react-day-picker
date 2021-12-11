@@ -54,7 +54,7 @@ export function getWeekButton(week: number) {
 }
 
 export function getTableFooter() {
-  return screen.getByRole('table').querySelector('tfoot');
+  return screen.getByRole('grid').querySelector('tfoot');
 }
 
 export function getPrevButton() {
