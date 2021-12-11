@@ -1,6 +1,4 @@
 import React from 'react';
-
-import Example from '@examples/dropdown';
 import {
   getMonthCaption,
   getMonthDropdown,
@@ -8,6 +6,9 @@ import {
   selectMonth
 } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/dropdown';
+
 import { render } from '@testing-library/react';
 
 const today = new Date(2022, 5, 10);
@@ -29,6 +30,6 @@ describe('when choosing a month', () => {
   const monthName = 'January';
   beforeEach(() => selectMonth(monthName));
   test('the month should be displayed', () => {
-    expect(getMonthCaption(container)).toHaveTextContent(monthName);
+    expect(getMonthCaption()).toHaveTextContent(monthName);
   });
 });

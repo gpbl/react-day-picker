@@ -1,8 +1,9 @@
 import React from 'react';
-
-import Example from '@examples/controlled';
 import { getMonthCaption } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/controlled';
+
 import { fireEvent, render, screen } from '@testing-library/react';
 
 let container: HTMLElement;
@@ -27,6 +28,6 @@ describe('when the "Go to today" button is clicked', () => {
     expect(getTodayButton()).toBeDisabled();
   });
   test('should display the current month', () => {
-    expect(getMonthCaption(container)).toHaveTextContent('June 2022');
+    expect(getMonthCaption()).toHaveTextContent('June 2022');
   });
 });
