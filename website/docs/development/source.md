@@ -28,11 +28,7 @@ $ yarn workspace website start                    # start the website in watch m
 $ yarn workspace website typecheck-watch          # start the typecheck in watch mode for website
 ```
 
-These can be also started all together using the `develop-all` script:
-
-```bash
-$ yarn run develop-all  # runs from the repository root
-```
+Some These are configured to start when opening the vscode project.
 
 ## Testing
 
