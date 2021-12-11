@@ -132,7 +132,7 @@
   white-space: nowrap;
 }
 
-.rdp-multiple_months .rdp-caption_first .rdp-nav {
+.rdp-multiple_months .rdp-caption_start .rdp-nav {
   position: absolute;
   top: 50%;
   left: 0;
