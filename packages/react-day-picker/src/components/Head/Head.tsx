@@ -35,13 +35,9 @@ export function Head(): JSX.Element {
             scope="col"
             className={classNames.head_cell}
             style={styles.head_cell}
+            abbr={labelWeekday(weekday, { locale })}
           >
-            <span className={classNames.vhidden} aria-label="">
-              {labelWeekday(weekday, { locale })}
-            </span>
-            <span aria-hidden={true}>
-              {formatWeekdayName(weekday, { locale })}
-            </span>
+            {formatWeekdayName(weekday, { locale })}
           </th>
         ))}
       </tr>
