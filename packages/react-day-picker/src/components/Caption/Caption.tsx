@@ -87,6 +87,9 @@ export function Caption(props: CaptionProps): JSX.Element {
               className={classNames.caption_dropdowns}
               style={styles.caption_dropdowns}
             >
+              <div className={classNames.vhidden}>
+                <CaptionLabel id={props.id} displayMonth={displayMonth} />
+              </div>
               <MonthsDropdown
                 onChange={handleMonthChange}
                 displayMonth={displayMonth}
