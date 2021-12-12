@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^0.9.10",
+    "@reach/auto-id": "^0.16.0",
     "react": "^17.0.2",
     "react-day-picker": "workspace:^",
     "react-dom": "^17.0.2"
