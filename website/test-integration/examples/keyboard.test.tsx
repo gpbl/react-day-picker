@@ -36,9 +36,8 @@ import {
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
-let container: HTMLElement;
 function setup(dir?: string) {
-  container = render(<Example dir={dir} />).container;
+  render(<Example dir={dir} />);
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
