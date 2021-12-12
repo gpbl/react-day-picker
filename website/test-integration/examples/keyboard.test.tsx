@@ -191,7 +191,6 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
           expect(getMonthCaption()).toHaveTextContent('July 2022');
         });
         test('should focus the next day', () => {
-          const nextDay = addDays(day, 1);
           expect(getDayButton(nextDay)).toHaveFocus();
         });
       }
