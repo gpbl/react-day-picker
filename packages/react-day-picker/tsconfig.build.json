@@ -18,5 +18,5 @@
     "resolveJsonModule": true
   },
   "exclude": ["**/*.test.*"],
-  "include": ["src/**"]
+  "include": ["src"]
 }
