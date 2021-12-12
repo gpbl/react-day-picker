@@ -34,7 +34,7 @@ export class PageObjects {
 
   /** Get the table element. */
   get table(): HTMLTableElement {
-    return screen.getByRole('grid') as HTMLTableElement;
+    return screen.getByRole('table') as HTMLTableElement;
   }
 
   /** Get the content of the footer. */
