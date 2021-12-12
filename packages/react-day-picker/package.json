@@ -34,6 +34,7 @@
     "style.css.d.ts"
   ],
   "devDependencies": {
+    "@reach/auto-id": "^0.16.0",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
