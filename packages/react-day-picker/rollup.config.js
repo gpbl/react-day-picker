@@ -36,7 +36,7 @@ const config = [
         sourcemap: true
       }
     ],
-    external: ['react', 'date-fns', 'date-fns/locale/en-US']
+    external: ['react', 'date-fns', 'date-fns/locale/en-US', '@reach/auto-id']
   }
 ];
 
