@@ -77,8 +77,8 @@ export function getMonthCaption(container: HTMLElement, index = 0) {
   return container.getElementsByClassName('rdp-caption_label')[index];
 }
 
-export function getMonthTable(index = 0) {
-  return screen.getAllByRole('table')[index];
+export function getMonthGrid(index = 0) {
+  return screen.getAllByRole('grid')[index];
 }
 
 export function getYearDropdown() {
