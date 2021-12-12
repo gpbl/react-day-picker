@@ -67,7 +67,6 @@
     "typescript": "~4.4.4"
   },
   "peerDependencies": {
-    "@reach/auto-id": "^0.16.0",
     "date-fns": "^2.10.0",
     "react": "^16.8.0 || ^17.0.0"
   },

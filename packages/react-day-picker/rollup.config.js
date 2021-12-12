@@ -1,6 +1,6 @@
 import typescript from 'rollup-plugin-typescript2';
 import { replaceTscAliasPaths } from 'tsc-alias';
-
+import nodeResolve from '@rollup/plugin-node-resolve';
 /** @type {import('rollup').RollupOptions} */
 const config = [
   {
@@ -14,6 +14,7 @@ const config = [
       }
     ],
     plugins: [
+      nodeResolve(),
       typescript({
         tsconfig: './tsconfig.build.json',
         verbosity: 2,
@@ -25,7 +26,7 @@ const config = [
         }
       }
     ],
-    external: ['react', 'date-fns', 'date-fns/locale/en-US', '@reach/auto-id']
+    external: ['react', 'date-fns', 'date-fns/locale/en-US']
   },
   {
     input: './build/index.js',

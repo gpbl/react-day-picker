@@ -1,9 +1,22 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
+    "target": "es5",
+    "jsx": "react",
+    "module": "es6",
+    "moduleResolution": "node",
     "rootDir": "./src",
-    "noEmit": false
+    "baseUrl": "./src",
+    "noEmit": false,
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./build",
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
   "exclude": ["**/*.test.*"],
-  "include": ["./src/**/*"]
+  "include": ["src/**"]
 }
