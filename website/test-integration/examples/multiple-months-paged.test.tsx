@@ -1,12 +1,13 @@
 import React from 'react';
-
-import Example from '@examples/multiple-months-paged';
 import {
   clickPrevMonth,
   getMonthCaption,
-  getMonthTable
+  getMonthGrid
 } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/multiple-months-paged';
+
 import { render } from '@testing-library/react';
 
 const today = new Date(2021, 10, 25);
@@ -19,8 +20,8 @@ beforeEach(() => {
 
 describe('when rendering November 2021', () => {
   test('should render 2 tables', () => {
-    expect(getMonthTable(0)).toBeInTheDocument();
-    expect(getMonthTable(1)).toBeInTheDocument();
+    expect(getMonthGrid(0)).toBeInTheDocument();
+    expect(getMonthGrid(1)).toBeInTheDocument();
   });
   test('the first month should be November', () => {
     expect(getMonthCaption(container)).toHaveTextContent('November 2021');
