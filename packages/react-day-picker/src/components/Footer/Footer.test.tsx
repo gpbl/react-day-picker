@@ -9,7 +9,7 @@ const po = new PageObjects(new Date());
 
 test('should not render anything as default', () => {
   customRender(
-    <table>
+    <table role="grid">
       <Footer />
     </table>
   );
@@ -19,7 +19,7 @@ test('should not render anything as default', () => {
 describe('when using the `footer` prop', () => {
   beforeEach(() => {
     customRender(
-      <table>
+      <table role="grid">
         <Footer />
       </table>,
       { footer: 'footer_foo' }
