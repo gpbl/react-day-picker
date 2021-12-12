@@ -14,8 +14,9 @@ import { addDays } from 'date-fns';
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
 });
 
 describe('when rendering a month that contains today', () => {

@@ -8,12 +8,13 @@ import { render } from '@testing-library/react';
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
 });
 
 test('the caption should apply the custom style', () => {
-  expect(container.getElementsByClassName('rdp-caption')[0]).toHaveStyle({
+  expect(container.getElementsByClassName('rdp-caption')).toHaveStyle({
     color: 'red'
   });
 });

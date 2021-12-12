@@ -9,8 +9,9 @@ import { getDaysInMonth } from 'date-fns';
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
 });
 
 test('should render time elements', () => {

@@ -36,6 +36,7 @@ import {
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 function setup(dir?: string) {
   container = render(<Example dir={dir} />).container;
 }
@@ -190,6 +191,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
           expect(getMonthCaption()).toHaveTextContent('July 2022');
         });
         test('should focus the next day', () => {
+          const nextDay = addDays(day, 1);
           expect(getDayButton(nextDay)).toHaveFocus();
         });
       }
