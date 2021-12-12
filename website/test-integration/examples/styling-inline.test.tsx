@@ -14,7 +14,7 @@ beforeEach(() => {
 });
 
 test('the caption should apply the custom style', () => {
-  expect(container.getElementsByClassName('rdp-caption')).toHaveStyle({
+  expect(container.getElementsByClassName('rdp-caption')[0]).toHaveStyle({
     color: 'red'
   });
 });
