@@ -9,9 +9,8 @@ import { render } from '@testing-library/react';
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
-let container: HTMLElement;
 beforeEach(() => {
-  container = render(<Example />).container;
+  render(<Example />);
 });
 
 test('should display September 1979', () => {

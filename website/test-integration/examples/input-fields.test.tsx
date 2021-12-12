@@ -1,12 +1,13 @@
 import React from 'react';
-
-import Example from '@examples/input-fields';
 import {
   clickDay,
   getAllSelectedDays,
   getDayButton
 } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/input-fields';
+
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, format } from 'date-fns';
@@ -16,9 +17,8 @@ freezeBeforeAll(today);
 
 const yday = addDays(today, -1);
 
-let container: HTMLElement;
 beforeEach(() => {
-  container = render(<Example />).container;
+  render(<Example />);
 });
 
 function getInput(): HTMLInputElement {

@@ -12,7 +12,7 @@
     "clear": "docusaurus clear",
     "test": "yarn build-rdp && jest",
     "test-watch": "yarn build-rdp && jest --watch --ci",
-    "lint": "eslint --ext .ts,.tsx src examples",
+    "lint": "eslint --ext .ts,.tsx src examples test-integration",
     "typecheck": "tsc --project ./tsconfig.json --noEmit --skipLibCheck",
     "typecheck-watch": "yarn typecheck --watch"
   },

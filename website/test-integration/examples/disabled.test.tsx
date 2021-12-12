@@ -16,7 +16,7 @@ const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
 beforeEach(() => {
-  render(<Example />).container;
+  render(<Example />);
 });
 
 test('should not display the previous button', () => {
