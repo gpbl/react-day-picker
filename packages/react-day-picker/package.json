@@ -18,7 +18,7 @@
   "scripts": {
     "build": "yarn build-esm && yarn build-cjs",
     "build-esm": "rimraf build && yarn css-types && tsc --project tsconfig.esm.json && tsc-alias -p tsconfig.esm.json",
-    "build-cjs": "rimraf dist && tsc --project tsconfig.cjs.json && tsc-alias -p tsconfig.cjs.json -w",
+    "build-cjs": "rimraf dist && tsc --project tsconfig.cjs.json && tsc-alias -p tsconfig.cjs.json",
     "build-watch": "rimraf build && rimraf dist && yarn css-types && tsc --project tsconfig.cjs.json -w & tsc-alias -p tsconfig.cjs.json -w",
     "css-types": "yarn tcm -p style.css",
     "lint": "eslint --ext .ts,.tsx src",
