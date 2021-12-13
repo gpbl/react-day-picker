@@ -16,7 +16,7 @@
   "main": "dist/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "build": "yarn build-esm & yarn build-cjs",
+    "build": "yarn build-esm && yarn build-cjs",
     "build-esm": "rimraf build && yarn css-types && tsc --project tsconfig.esm.json && tsc-alias -p tsconfig.esm.json",
     "build-cjs": "rimraf dist && tsc --project tsconfig.cjs.json",
     "build-watch": "rimraf build && rimraf dist && yarn css-types && tsc --project tsconfig.cjs.json -w & tsc-alias -p tsconfig.cjs.json -w",
