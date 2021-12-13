@@ -7,9 +7,8 @@ const config = [
     input: './src/index.ts',
     output: [
       {
-        dir: './build',
-        format: 'es',
-        preserveModules: true,
+        dir: './dist',
+        format: 'commonjs',
         sourcemap: true
       }
     ],
@@ -17,27 +16,18 @@ const config = [
       nodeResolve(),
       typescript({
         tsconfig: './tsconfig.build.json',
-        verbosity: 2,
-        clean: true
+        verbosity: 2
       }),
       {
         writeBundle: () => {
-          replaceTscAliasPaths();
+          replaceTscAliasPaths({
+            configFile: './tsconfig.build.json',
+            outDir: './dist'
+          });
         }
       }
     ],
     external: ['react', 'date-fns', 'date-fns/locale/en-US']
-  },
-  {
-    input: './build/index.js',
-    output: [
-      {
-        file: './dist/main.js',
-        format: 'commonjs',
-        sourcemap: true
-      }
-    ],
-    external: ['react', 'date-fns', 'date-fns/locale/en-US', '@reach/auto-id']
   }
 ];
 

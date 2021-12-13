@@ -17,9 +17,10 @@
   "types": "build/index.d.ts",
   "scripts": {
     "develop": "yarn prebuild && yarn rollup -cw",
-    "prebuild": "rimraf dist && rimraf build && yarn css-types",
-    "build": "yarn prebuild && tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
-    "build-watch": "yarn prebuild && yarn rollup -cw",
+    "build": "yarn build-esm && yarn build-cjs",
+    "build-esm": "rimraf build && yarn css-types && tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "build-cjs": "rimraf dist && tsc --project tsconfig.dist.json && tsc-alias -p tsconfig.dist.json",
+    "build-watch": "rimraf build && rimraf dist && yarn css-types && tsc --project tsconfig.build.json -w & tsc-alias -p tsconfig.build.json -w",
     "css-types": "yarn tcm -p style.css",
     "lint": "eslint --ext .ts,.tsx src",
     "test": "jest",
