@@ -62,7 +62,7 @@ export interface UseInput {
   /** A function to reset to the initial state. */
   reset: () => void;
   /** A function to set the selected day. */
-  setSelected: (day: Date) => void;
+  setSelected: (day: Date | undefined) => void;
 }
 
 /** Return props and setters for binding an input field to DayPicker. */
