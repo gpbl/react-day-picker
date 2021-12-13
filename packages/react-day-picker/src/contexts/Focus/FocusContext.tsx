@@ -11,12 +11,16 @@ import {
 } from 'date-fns';
 
 import { useDayPicker } from '../DayPicker';
+import { useModifiers } from '../Modifiers';
 import { useNavigation } from '../Navigation/useNavigation';
+import { getInitialTargetFocusedDay } from './getInitialTargetFocusedDay';
 
 /** Represents the value of the [[NavigationContext]]. */
 export type FocusContextValue = [
   /** The day currently focused */
   focusedDay: Date | undefined,
+  /** The day that is the target of focus in the day grid (tabIndex = 0) */
+  targetFocusedDay: Date | undefined,
   setters: {
     /** Focus the specified day. */
     focus: (day: Date) => void;
@@ -64,7 +68,30 @@ export function FocusProvider({
   const { goToMonth, displayMonths } = useNavigation();
   const { numberOfMonths } = useDayPicker();
 
-  const blur = () => setDay(undefined);
+  const modifiersContext = useModifiers();
+
+  const initialTarget = getInitialTargetFocusedDay(
+    displayMonths,
+    modifiersContext
+  );
+
+  const [lastFocusedDay, setLastFocusedDay] = React.useState<
+    Date | undefined
+  >();
+
+  const targetFocusedDay =
+    focusedDay ??
+    (lastFocusedDay &&
+      displayMonths.some((displayMonth) =>
+        isSameMonth(lastFocusedDay, displayMonth)
+      ))
+      ? lastFocusedDay
+      : initialTarget;
+
+  const blur = () => {
+    setLastFocusedDay(focusedDay);
+    setDay(undefined);
+  };
   const focus = (date: Date) => setDay(date);
 
   const switchMonth = (date: Date, offset: number) => {
@@ -162,7 +189,7 @@ export function FocusProvider({
   };
 
   return (
-    <FocusContext.Provider value={[focusedDay, setters]}>
+    <FocusContext.Provider value={[focusedDay, targetFocusedDay, setters]}>
       {children}
     </FocusContext.Provider>
   );
