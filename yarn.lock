@@ -13542,7 +13542,6 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     rimraf: ^3.0.2
-    rollup: ^2.60.2
     rollup-plugin-node-resolve: ^5.2.0
     rollup-plugin-typescript2: ^0.31.1
     timekeeper: ^2.2.0
@@ -14384,6 +14383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< Updated upstream
 "rollup@npm:^2.60.2":
   version: 2.60.2
   resolution: "rollup@npm:2.60.2"
@@ -14398,6 +14398,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> Stashed changes
 "rtl-detect@npm:^1.0.3, rtl-detect@npm:^1.0.4":
   version: 1.0.4
   resolution: "rtl-detect@npm:1.0.4"
