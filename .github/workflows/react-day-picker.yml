@@ -76,6 +76,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Run rollupjs
+      - name: Build react-day-picker
         run: |
           yarn workspace react-day-picker run build

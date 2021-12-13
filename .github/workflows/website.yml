@@ -82,6 +82,6 @@ jobs:
       - name: Build react-day-picker
         run: |
           yarn workspace react-day-picker build
-      - name: Build docusaurus
+      - name: Build website
         run: |
           yarn workspace website run build
