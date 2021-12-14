@@ -1,7 +1,4 @@
 import React from 'react';
-
-import Example from '@examples/single-required';
-
 import {
   clickDay,
   getDayButton,
@@ -9,14 +6,15 @@ import {
 } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
+import Example from '@examples/single-required';
+
 import { render } from '@testing-library/react';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
-let container: HTMLElement;
 beforeEach(() => {
-  container = render(<Example />).container;
+  render(<Example />);
 });
 
 describe('when a day is clicked', () => {

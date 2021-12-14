@@ -1,8 +1,9 @@
 import React from 'react';
-
-import Example from '@examples/modifiers-disabled';
 import { getDayButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/modifiers-disabled';
+
 import { render } from '@testing-library/react';
 
 const days = [
@@ -13,9 +14,8 @@ const days = [
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
-let container: HTMLElement;
 beforeEach(() => {
-  container = render(<Example />).container;
+  render(<Example />);
 });
 
 test.each(days)('the day %s should be disabled', (day) => {
