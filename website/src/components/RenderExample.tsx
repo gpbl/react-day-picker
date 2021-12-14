@@ -6,6 +6,7 @@ export function RenderExample(props: { fileName: string }) {
   try {
     require(`../../examples/${props.fileName}`).default;
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error('Error requiring %s', `../../examples/${props.fileName}`, e);
     return <pre>{e.message}</pre>;
   }
