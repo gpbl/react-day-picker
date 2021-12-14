@@ -1,12 +1,13 @@
 import React from 'react';
-
-import Example from '@examples/range-min-max';
 import {
   clickDay,
   getAllEnabledDays,
   getDayButton
 } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/range-min-max';
+
 import { render } from '@testing-library/react';
 
 const today = new Date(2021, 10, 15);
@@ -16,13 +17,6 @@ beforeEach(() => {
   render(<Example />);
 });
 
-const days = [
-  new Date(2021, 10, 16),
-  new Date(2021, 10, 17),
-  new Date(2021, 10, 18),
-  new Date(2021, 10, 19),
-  new Date(2021, 10, 20)
-];
 describe('when the first day is clicked', () => {
   const fromDay = new Date(2021, 10, 15);
   beforeEach(() => clickDay(fromDay));

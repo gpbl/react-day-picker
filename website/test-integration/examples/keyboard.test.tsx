@@ -1,6 +1,4 @@
 import React from 'react';
-
-import Example from '@examples/keyboard';
 import {
   clickNextMonth,
   clickPrevMonth,
@@ -20,6 +18,9 @@ import {
   pressShiftPageUp
 } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/keyboard';
+
 import { render } from '@testing-library/react';
 import {
   addDays,
@@ -202,7 +203,6 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
           expect(getMonthCaption(container)).toHaveTextContent('July 2022');
         });
         test('should focus the next day', () => {
-          const nextDay = addDays(day, 1);
           expect(getDayButton(nextDay)).toHaveFocus();
         });
       } else {
