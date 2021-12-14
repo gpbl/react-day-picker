@@ -17,7 +17,7 @@ export function useDayFocus(
 } {
   const [
     focusedDay,
-    targetFocusedDay,
+    focusTarget,
     {
       focusDayAfter,
       focusDayBefore,
@@ -88,9 +88,7 @@ export function useDayFocus(
     }
   };
 
-  const isFocusTarget = Boolean(
-    targetFocusedDay && isSameDay(targetFocusedDay, date)
-  );
+  const isFocusTarget = Boolean(focusTarget && isSameDay(focusTarget, date));
 
   return { focus, blur, focusOnKeyDown, isFocusTarget };
 }
