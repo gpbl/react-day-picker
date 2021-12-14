@@ -1,20 +1,20 @@
 import React from 'react';
-
-import Example from '@examples/from-to-month';
 import {
   clickNextMonth,
   getNextButton,
   getPrevButton
 } from 'react-day-picker/test/po';
+
+import Example from '@examples/from-to-month';
+
 import { render } from '@testing-library/react';
 import { differenceInMonths } from 'date-fns';
 
 const fromDate = new Date(2015, 5);
 const toDate = new Date(2015, 10);
 
-let container: HTMLElement;
 beforeEach(() => {
-  container = render(<Example />).container;
+  render(<Example />);
 });
 
 test('the previous month button should be disabled', () => {

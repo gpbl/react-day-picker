@@ -17,6 +17,7 @@ export default function Render(): JSX.Element {
         try {
           require(`../../examples/${fileName}`).default;
         } catch (e) {
+          // eslint-disable-next-line no-console
           console.error('Error requiring %s', `../../examples/${fileName}`, e);
           return <pre>{e.message}</pre>;
         }
