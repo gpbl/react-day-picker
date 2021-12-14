@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Month } from 'components/Month';
 import { useDayPicker } from 'contexts/DayPicker';
+import { useFocus } from 'contexts/Focus';
 import { useNavigation } from 'contexts/Navigation';
 
 /**
@@ -16,9 +17,12 @@ export function Root(): JSX.Element {
     style,
     styles,
     numberOfMonths,
-    showWeekNumber
+    showWeekNumber,
+    initialFocusOnDay
   } = useDayPicker();
 
+  const [, focusTarget, { focus }] = useFocus();
+  const [initialFocus, setInitialFocus] = React.useState(false);
   const { displayMonths } = useNavigation();
 
   const rootClassNames = [className ?? classNames.root];
@@ -28,6 +32,13 @@ export function Root(): JSX.Element {
   if (showWeekNumber) {
     rootClassNames.push(classNames.with_weeknumber);
   }
+
+  React.useEffect(() => {
+    if (initialFocusOnDay && !initialFocus && focusTarget) {
+      focus(focusTarget);
+      setInitialFocus(true);
+    }
+  }, [initialFocusOnDay, initialFocus, focus, focusTarget]);
 
   return (
     <div

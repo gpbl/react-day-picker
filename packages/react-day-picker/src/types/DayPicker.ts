@@ -229,6 +229,8 @@ export interface DayPickerProps {
   formatters?: Partial<Formatters>;
   // #endregion
 
+  initialFocusOnDay?: boolean;
+
   // #region event handlers
   onDayClick?: DayClickEventHandler;
   onDayFocus?: DayFocusEventHandler;
