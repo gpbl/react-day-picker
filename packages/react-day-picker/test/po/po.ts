@@ -121,6 +121,18 @@ export function pressArrowDown() {
   userEvent.type(getFocusedElement(), '{arrowdown}');
 }
 
+export function pressTab() {
+  userEvent.tab();
+}
+
+export function pressShiftTab() {
+  userEvent.tab({ shift: true });
+}
+
+export function pressEnter() {
+  userEvent.keyboard('{enter}');
+}
+
 export function pressPageUp() {
   fireEvent.keyDown(getFocusedElement(), { key: 'PageUp', charCode: 33 });
 }
