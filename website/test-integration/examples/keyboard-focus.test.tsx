@@ -1,5 +1,4 @@
 import React from 'react';
-import { DayPickerProps } from 'react-day-picker/src';
 import {
   getDayButton,
   getFocusedElement,
@@ -22,7 +21,7 @@ const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
 
-function renderDayPicker({ ...props }: DayPickerProps) {
+function renderDayPicker(props) {
   render(<Example {...props} />);
 }
 
