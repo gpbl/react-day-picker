@@ -118,13 +118,8 @@ export default function Example() {
         >
           <div
             tabIndex={-1}
-            style={{
-              background: 'white',
-              borderRadius: '4px',
-              boxShadow:
-                '0px 1px 10px rgba(0, 0, 0, 0.04), 0px 4px 5px rgba(0, 0, 0, 0.06), 0px 2px 4px -1px rgba(0, 0, 0, 0.09)',
-              ...styles.popper
-            }}
+            style={styles.popper}
+            className="dialog-sheet"
             {...attributes.popper}
             ref={popperElSet}
             role="dialog"
