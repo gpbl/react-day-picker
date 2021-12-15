@@ -83,6 +83,23 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     });
   });
 
+  describe('when configured to put initial focus on the day grid', () => {
+    beforeEach(() => {
+      renderDayPicker({ dir, defaultMonth: today, initialFocusOnDay: true });
+    });
+    test('the target focus day should have focus', () => {
+      expect(getDayButton(today)).toHaveFocus();
+    });
+    describe('when attempting to move focus out of the day grid', () => {
+      beforeEach(() => {
+        pressShiftTab();
+      });
+      test('the focus should not be trapped in the day grid', () => {
+        expect(getNextButton()).toHaveFocus();
+      });
+    });
+  });
+
   describe('when there is a selected day', () => {
     beforeEach(() => {
       renderDayPicker({ dir, defaultMonth: today, selected: tomorrow });
