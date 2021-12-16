@@ -18,11 +18,11 @@ export function Root(): JSX.Element {
     styles,
     numberOfMonths,
     showWeekNumber,
-    initialFocusOnDay
+    initialFocus
   } = useDayPicker();
 
-  const [, focusTarget, { focus }] = useFocus();
-  const [initialFocus, setInitialFocus] = React.useState(false);
+  const { focusTarget, focus } = useFocus();
+  const [hasInitialFocus, setHasInitialFocus] = React.useState(false);
   const { displayMonths } = useNavigation();
 
   const rootClassNames = [className ?? classNames.root];
@@ -34,11 +34,11 @@ export function Root(): JSX.Element {
   }
 
   React.useEffect(() => {
-    if (initialFocusOnDay && !initialFocus && focusTarget) {
+    if (initialFocus && !hasInitialFocus && focusTarget) {
       focus(focusTarget);
-      setInitialFocus(true);
+      setHasInitialFocus(true);
     }
-  }, [initialFocusOnDay, initialFocus, focus, focusTarget]);
+  }, [initialFocus, hasInitialFocus, focus, focusTarget]);
 
   return (
     <div

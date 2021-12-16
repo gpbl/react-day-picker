@@ -60,9 +60,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
           });
           test('the last focused day should be remembered and receive the focus', () => {
             const lastFocusedDay = getFocusedElement();
-            getNextButton().focus();
-            (lastFocusedDay as HTMLButtonElement).onblur;
-            expect(lastFocusedDay).toHaveBeenCalled;
+            pressShiftTab(); // Back to next month button
             expect(lastFocusedDay).not.toHaveFocus();
             pressTab();
             expect(lastFocusedDay).toHaveFocus();
@@ -83,11 +81,11 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     });
   });
 
-  describe('when configured to put initial focus on the day grid', () => {
+  describe('when "initialFocus" is true', () => {
     beforeEach(() => {
-      renderDayPicker({ dir, defaultMonth: today, initialFocusOnDay: true });
+      renderDayPicker({ dir, defaultMonth: today, initialFocus: true });
     });
-    test('the target focus day should have focus', () => {
+    test('the today button should have focus', () => {
       expect(getDayButton(today)).toHaveFocus();
     });
     describe('when attempting to move focus out of the day grid', () => {
@@ -100,7 +98,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     });
   });
 
-  describe('when there is a selected day', () => {
+  describe('when a day is selected', () => {
     beforeEach(() => {
       renderDayPicker({ dir, defaultMonth: today, selected: tomorrow });
       tabToDayGrid();
