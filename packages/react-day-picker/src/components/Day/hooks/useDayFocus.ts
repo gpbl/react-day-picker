@@ -15,24 +15,22 @@ export function useDayFocus(
   focusOnKeyDown: React.KeyboardEventHandler;
   isFocusTarget: boolean;
 } {
-  const [
+  const {
     focusedDay,
     focusTarget,
-    {
-      focusDayAfter,
-      focusDayBefore,
-      focusWeekAfterDay,
-      focusWeekBeforeDay,
-      blur,
-      focus,
-      focusMonthBefore,
-      focusMonthAfter,
-      focusYearBefore,
-      focusYearAfter,
-      focusStartOfWeek,
-      focusEndOfWeek
-    }
-  ] = useFocus();
+    focusDayAfter,
+    focusDayBefore,
+    focusWeekAfterDay,
+    focusWeekBeforeDay,
+    blur,
+    focus,
+    focusMonthBefore,
+    focusMonthAfter,
+    focusYearBefore,
+    focusYearAfter,
+    focusStartOfWeek,
+    focusEndOfWeek
+  } = useFocus();
   const { dir } = useDayPicker();
 
   // Focus the HTML element if this is the focused day.

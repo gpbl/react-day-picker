@@ -16,38 +16,36 @@ import { useNavigation } from '../Navigation/useNavigation';
 import { getInitialFocusTarget } from './getInitialFocusTarget';
 
 /** Represents the value of the [[NavigationContext]]. */
-export type FocusContextValue = [
+export type FocusContextValue = {
   /** The day currently focused */
-  focusedDay: Date | undefined,
+  focusedDay: Date | undefined;
   /** The day that is the target of focus in the day grid (tabIndex = 0) */
-  focusTarget: Date | undefined,
-  setters: {
-    /** Focus the specified day. */
-    focus: (day: Date) => void;
-    /** Blur the focused day */
-    blur: () => void;
-    /** Focus the day after the focused day. */
-    focusDayAfter: () => void;
-    /** Focus the day before the focused day. */
-    focusDayBefore: () => void;
-    /** Focus the day in the week before the focused day. */
-    focusWeekBeforeDay: () => void;
-    /** Focus the day in the week after the focused day. */
-    focusWeekAfterDay: () => void;
-    /* Focus the day in the previous month. */
-    focusMonthBefore: () => void;
-    /* Focus the day in the next month. */
-    focusMonthAfter: () => void;
-    /* Focus the day in the previous year. */
-    focusYearBefore: () => void;
-    /* Focus the day in the next year. */
-    focusYearAfter: () => void;
-    /* Focus the day at the start of the week. */
-    focusStartOfWeek: () => void;
-    /* Focus the day at the end of the week. */
-    focusEndOfWeek: () => void;
-  }
-];
+  focusTarget: Date | undefined;
+  /** Focus the specified day. */
+  focus: (day: Date) => void;
+  /** Blur the focused day */
+  blur: () => void;
+  /** Focus the day after the focused day. */
+  focusDayAfter: () => void;
+  /** Focus the day before the focused day. */
+  focusDayBefore: () => void;
+  /** Focus the day in the week before the focused day. */
+  focusWeekBeforeDay: () => void;
+  /** Focus the day in the week after the focused day. */
+  focusWeekAfterDay: () => void;
+  /* Focus the day in the previous month. */
+  focusMonthBefore: () => void;
+  /* Focus the day in the next month. */
+  focusMonthAfter: () => void;
+  /* Focus the day in the previous year. */
+  focusYearBefore: () => void;
+  /* Focus the day in the next year. */
+  focusYearAfter: () => void;
+  /* Focus the day at the start of the week. */
+  focusStartOfWeek: () => void;
+  /* Focus the day at the end of the week. */
+  focusEndOfWeek: () => void;
+};
 
 /**
  * The Focus context shares details about the focused day for the keyboard navigation.
@@ -172,7 +170,9 @@ export function FocusProvider({
     focus(yearAfter);
   };
 
-  const setters = {
+  const value = {
+    focusedDay,
+    focusTarget,
     blur,
     focus,
     focusDayAfter,
@@ -188,8 +188,6 @@ export function FocusProvider({
   };
 
   return (
-    <FocusContext.Provider value={[focusedDay, focusTarget, setters]}>
-      {children}
-    </FocusContext.Provider>
+    <FocusContext.Provider value={value}>{children}</FocusContext.Provider>
   );
 }
