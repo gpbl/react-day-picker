@@ -8,35 +8,34 @@ import FocusTrap from 'focus-trap-react';
 export default function Example() {
   const [selected, setSelected] = React.useState<Date>();
   const [inputValue, setInputValue] = React.useState<string>('');
-  const [isOpen, isOpenSet] = React.useState(false);
+  const [isPopperOpen, setIsPopperOpen] = React.useState(false);
 
-  const refEl = React.useRef<HTMLDivElement>(null);
+  const popperReference = React.useRef<HTMLDivElement>(null);
   const buttonRef = React.useRef<HTMLButtonElement>(null);
-  const [popperEl, popperElSet] =
+  const [popperElement, setPopperElement] =
     React.useState<HTMLDivElement | null>(null);
 
   const closePopper = () => {
-    isOpenSet(false);
+    setIsPopperOpen(false);
     buttonRef?.current?.focus();
   };
 
-  const { styles, attributes } = usePopper(
-    refEl.current,
-    popperEl,
+  const popper = usePopper(
+    popperReference.current,
+    popperElement,
     {
       placement: 'bottom-start'
     }
   );
 
-  const dateFormat = 'P';
-  const formatDate = (date: Date) => format(date, dateFormat);
+  const formatDate = (date: Date) => format(date, 'P');
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const text = event.currentTarget.value;
-    setInputValue(text);
-    const date = parse(text, dateFormat, new Date());
+    const { value } = event.currentTarget;
+    setInputValue(value);
+    const date = parse(value, 'P', new Date());
     if (isValid(date)) {
       setSelected(date);
     } else {
@@ -44,7 +43,11 @@ export default function Example() {
     }
   };
 
-  const handleDaySelected = (date: Date | undefined) => {
+  const handleButtonClick = () => {
+    setIsPopperOpen(true);
+  };
+
+  const handleDaySelect = (date: Date | undefined) => {
     setSelected(date);
     if (date) {
       setInputValue(formatDate(date));
@@ -54,10 +57,14 @@ export default function Example() {
     }
   };
 
+  const ariaLabel = selected
+    ? `Choose date. Selected date is ${formatDate(selected)}`
+    : 'Choose date';
+
   return (
     <div style={{ position: 'relative' }}>
       <div
-        ref={refEl}
+        ref={popperReference}
         style={{
           padding: '4px 0',
           display: 'flex',
@@ -81,29 +88,21 @@ export default function Example() {
         <button
           ref={buttonRef}
           type="button"
-          onClick={() => {
-            isOpenSet(true);
-          }}
+          onClick={handleButtonClick}
           style={{
             fontSize: '28px',
             lineHeight: '28px',
             marginLeft: '4px',
             padding: '4px',
             height: '40px',
-            pointerEvents: isOpen ? 'none' : 'all'
+            pointerEvents: isPopperOpen ? 'none' : 'all'
           }}
-          aria-label={
-            selected
-              ? `Choose date. Selected date is ${formatDate(
-                  selected
-                )}`
-              : 'Choose date'
-          }
+          aria-label={ariaLabel}
         >
           🗓
         </button>
       </div>
-      {isOpen ? (
+      {isPopperOpen && (
         <FocusTrap
           active
           focusTrapOptions={{
@@ -118,22 +117,22 @@ export default function Example() {
         >
           <div
             tabIndex={-1}
-            style={styles.popper}
+            style={popper.styles.popper}
             className="dialog-sheet"
-            {...attributes.popper}
-            ref={popperElSet}
+            {...popper.attributes.popper}
+            ref={setPopperElement}
             role="dialog"
           >
             <DayPicker
-              initialFocusOnDay={isOpen}
+              initialFocusOnDay={isPopperOpen}
               mode="single"
               defaultMonth={selected}
               selected={selected}
-              onSelect={handleDaySelected}
+              onSelect={handleDaySelect}
             />
           </div>
         </FocusTrap>
-      ) : null}
+      )}
     </div>
   );
 }
