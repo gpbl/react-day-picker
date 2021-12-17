@@ -66,7 +66,7 @@ export default function Example() {
       <div
         ref={popperReference}
         style={{
-          padding: '4px 0',
+          padding: '8px 0',
           display: 'flex',
           alignItems: 'center'
         }}
@@ -75,11 +75,7 @@ export default function Example() {
         <input
           type="text"
           style={{
-            marginLeft: '4px',
-            padding: '6px 4px',
-            lineHeight: '24px',
-            fontSize: '16px',
-            height: '40px'
+            marginLeft: '4px'
           }}
           placeholder="mm/dd/yyyy"
           value={inputValue}
@@ -89,17 +85,16 @@ export default function Example() {
           ref={buttonRef}
           type="button"
           onClick={handleButtonClick}
+          className="clean-btn"
           style={{
-            fontSize: '28px',
-            lineHeight: '28px',
             marginLeft: '4px',
-            padding: '4px',
             height: '40px',
+            width: '40px',
             pointerEvents: isPopperOpen ? 'none' : 'all'
           }}
           aria-label={ariaLabel}
         >
-          🗓
+          <img src="/images/logo.png" alt="DayPicker Logo" />
         </button>
       </div>
       {isPopperOpen && (
