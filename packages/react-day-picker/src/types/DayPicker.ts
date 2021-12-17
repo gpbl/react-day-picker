@@ -229,6 +229,15 @@ export interface DayPickerProps {
   formatters?: Partial<Formatters>;
   // #endregion
 
+  /**
+   * When set, DayPicker will focus on today,
+   * or the first selected day if set.
+   * This can be used for implementing a dialog
+   * pattern, for focusing on the day grid when
+   * the dialog opens.
+   **/
+  initialFocus?: boolean;
+
   // #region event handlers
   onDayClick?: DayClickEventHandler;
   onDayFocus?: DayFocusEventHandler;
