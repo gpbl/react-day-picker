@@ -41,10 +41,13 @@ jobs:
         run: yarn workspace react-day-picker lint
 
       - name: Run Unit Tests
-        run: yarn test --coverage
+        run: yarn workspace react-day-picker test --coverage
 
       - name: Build react-day-picker
         run: yarn workspace react-day-picker build
+
+      - name: Run Website Integration Tests
+        run: yarn workspace website test
 
       - name: Publish on npm
         run: npm publish --tag next
