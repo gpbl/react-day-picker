@@ -27,7 +27,6 @@ const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
 
 function setup(props: DayPickerProps) {
-  // A selection mode is required to test this feature
   render(<Example {...props} />);
 }
 
@@ -41,16 +40,12 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       expect(getPrevButton()).toHaveFocus();
     });
     describe('when pressing Tab a second time', () => {
-      beforeEach(() => {
-        pressTab();
-      });
+      beforeEach(() => pressTab());
       test('should focus on the Next Month button', () => {
         expect(getNextButton()).toHaveFocus();
       });
       describe('when pressing Tab a third time', () => {
-        beforeEach(() => {
-          pressTab();
-        });
+        beforeEach(() => pressTab());
         test('should have the current day selected', () => {
           expect(getDayButton(today)).toHaveFocus();
         });
@@ -68,16 +63,12 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
             focusedElement = getFocusedElement();
           });
           describe('when the next button is focused', () => {
-            beforeEach(() => {
-              getNextButton().focus();
-            });
+            beforeEach(() => getNextButton().focus());
             test(`the element focused with ${key} should have lost the focus`, () => {
               expect(focusedElement).not.toHaveFocus();
             });
-            describe('when Tab is pressed', () => {
-              beforeEach(() => {
-                pressTab();
-              });
+            describe('when pressing Tab', () => {
+              beforeEach(() => pressTab());
               test(`the element focused with ${key} should have focus again`, () => {
                 expect(focusedElement).toHaveFocus();
               });
