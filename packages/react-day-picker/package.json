@@ -33,6 +33,9 @@
     "style.css",
     "style.css.d.ts"
   ],
+  "dependencies": {
+    "@reach/auto-id": "^0.16.0"
+  },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
@@ -63,7 +66,6 @@
     "typescript": "~4.4.4"
   },
   "peerDependencies": {
-    "@reach/auto-id": "^0.16.0",
     "date-fns": "^2.10.0",
     "react": "^16.8.0 || ^17.0.0"
   },
