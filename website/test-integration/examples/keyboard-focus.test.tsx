@@ -1,5 +1,7 @@
 import React from 'react';
+import { DayPickerProps } from 'react-day-picker';
 import {
+  focusDaysGrid,
   getDayButton,
   getFocusedElement,
   getNextButton,
@@ -24,21 +26,15 @@ const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
 
-function renderDayPicker(props) {
+function setup(props: DayPickerProps) {
   // A selection mode is required to test this feature
-  render(<Example mode="single" {...props} />);
-}
-
-function tabToDayGrid() {
-  pressTab();
-  pressTab();
-  pressTab();
+  render(<Example {...props} />);
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   describe('when pressing Tab', () => {
     beforeEach(() => {
-      renderDayPicker({ dir, defaultMonth: today });
+      setup({ dir });
       pressTab();
     });
     test('should focus on the Previous Month button', () => {
@@ -104,58 +100,64 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   });
 
   describe('when a day is selected', () => {
+    const selected = tomorrow;
     beforeEach(() => {
-      renderDayPicker({ dir, defaultMonth: today, selected: tomorrow });
-      tabToDayGrid();
+      setup({ dir, selected });
     });
-    test('the selected day should have focus', () => {
-      expect(getDayButton(tomorrow)).toHaveFocus();
+    describe('when focusing the days grid', () => {
+      beforeEach(() => focusDaysGrid());
+      test('the selected day should have focus', () => {
+        expect(getDayButton(tomorrow)).toHaveFocus();
+      });
     });
   });
 
-  describe('when there are multiple selected days', () => {
+  describe('when multiple days are selected', () => {
+    const mode = 'multiple';
+    const selected = [yesterday, tomorrow];
     beforeEach(() => {
-      renderDayPicker({
-        dir,
-        defaultMonth: today,
-        mode: 'multiple',
-        selected: [yesterday, tomorrow]
-      });
-      tabToDayGrid();
+      setup({ dir, selected, mode });
     });
-    test('the first selected day should have focus', () => {
-      expect(getDayButton(yesterday)).toHaveFocus();
+    describe('when focusing the days grid', () => {
+      beforeEach(() => focusDaysGrid());
+
+      test('the first selected day should have focus', () => {
+        expect(getDayButton(yesterday)).toHaveFocus();
+      });
     });
   });
 
-  describe('when there are multiple months', () => {
-    beforeEach(() => {
-      renderDayPicker({
-        dir,
-        defaultMonth: addMonths(today, -2),
-        numberOfMonths: 3
+  describe('when showing multiple months', () => {
+    const numberOfMonths = 3;
+    describe('when today falls into the last month', () => {
+      const defaultMonth = addMonths(today, -numberOfMonths + 1);
+      beforeEach(() => {
+        setup({ dir, defaultMonth, numberOfMonths });
       });
-      tabToDayGrid();
-    });
-    test('it should be possible for a day in the last month to be the focus target', () => {
-      expect(getDayButton(today)).toHaveFocus();
+      describe('when focusing the days grid', () => {
+        beforeEach(() => focusDaysGrid());
+        test('the today button should have focus', () => {
+          expect(getDayButton(today)).toHaveFocus();
+        });
+      });
     });
   });
 
-  describe('when there are disabled or hidden days and no selected days', () => {
-    const firstDay = startOfMonth(today);
-    const secondDay = addDays(firstDay, 1);
-    const thirdDay = addDays(firstDay, 2);
+  describe('with disabled and hidden days, when no days are selected', () => {
+    const firstDayOfMonth = startOfMonth(today);
+    const secondDayOfMonth = addDays(firstDayOfMonth, 1);
+    const notDisabled = addDays(firstDayOfMonth, 2);
+    const disabled = [firstDayOfMonth, today];
+    const hidden = secondDayOfMonth;
+    const selected = undefined;
     beforeEach(() => {
-      renderDayPicker({
-        dir,
-        disabled: [firstDay, today],
-        hidden: secondDay
-      });
-      tabToDayGrid();
+      setup({ dir, disabled, hidden, selected });
     });
-    test('the first non-disabled day should receive the focus', () => {
-      expect(getDayButton(thirdDay)).toHaveFocus();
+    describe('when focusing the days grid', () => {
+      beforeEach(() => focusDaysGrid());
+      test('the first not disabled day should have focus', () => {
+        expect(getDayButton(notDisabled)).toHaveFocus();
+      });
     });
   });
 });
