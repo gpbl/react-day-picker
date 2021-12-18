@@ -81,7 +81,7 @@ export function useDay(
   const single = useSelectSingle();
   const multiple = useSelectMultiple();
   const range = useSelectRange();
-  const { focus, blur, focusOnKeyDown, isFocused } = useDayFocus(
+  const { focus, blur, focusOnKeyDown, isFocusTarget } = useDayFocus(
     date,
     buttonRef
   );
@@ -195,7 +195,7 @@ export function useDay(
 
   const { selected, disabled } = modifiers;
 
-  const tabIndex = disabled || isFocused ? -1 : 0;
+  const tabIndex = isFocusTarget ? 0 : -1;
 
   return {
     ...returnValue,

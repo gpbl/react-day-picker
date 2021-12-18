@@ -5,6 +5,8 @@ on:
     branches:
       - master
   push:
+    branches:
+      - master
     paths:
       - "website/**"
       - ".github/workflows/**"
@@ -37,6 +39,9 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
+      - name: Build react-day-picker
+        run: |
+          yarn workspace react-day-picker run build
       - name: Run typecheck
         run: |
           yarn workspace website run typecheck
@@ -77,6 +82,6 @@ jobs:
       - name: Build react-day-picker
         run: |
           yarn workspace react-day-picker build
-      - name: Build docusaurus
+      - name: Build website
         run: |
           yarn workspace website run build

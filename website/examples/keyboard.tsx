@@ -1,14 +1,10 @@
 import React from 'react';
-import { DayPicker } from 'react-day-picker';
+import { DayPicker, DayPickerProps } from 'react-day-picker';
 
-export default function Example({ dir = 'ltr' }) {
-  const [selected, setSelected] = React.useState<Date>();
-  return (
-    <DayPicker
-      dir={dir}
-      mode="single"
-      selected={selected}
-      onSelect={setSelected}
-    />
-  );
+export default function Example({
+  dir = 'ltr',
+  mode = 'single',
+  ...props
+}: DayPickerProps) {
+  return <DayPicker dir={dir} mode={mode} {...props} />;
 }
