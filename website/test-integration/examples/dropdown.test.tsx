@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  getMonthCaption,
   getMonthDropdown,
+  getMonthGrid,
   getYearDropdown,
   selectMonth
 } from 'react-day-picker/test/po';
@@ -29,7 +29,7 @@ test('should display the month dropdown', () => {
 describe('when choosing a month', () => {
   const monthName = 'January';
   beforeEach(() => selectMonth(monthName));
-  test('the month should be displayed', () => {
-    expect(getMonthCaption()).toHaveTextContent(monthName);
+  test('should display the month', () => {
+    expect(getMonthGrid()).toHaveAccessibleName(`${monthName} 2022`);
   });
 });
