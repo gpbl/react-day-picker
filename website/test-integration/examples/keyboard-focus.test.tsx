@@ -5,6 +5,9 @@ import {
   getNextButton,
   getPrevButton,
   pressArrowDown,
+  pressArrowLeft,
+  pressArrowRight,
+  pressArrowUp,
   pressEnter,
   pressShiftTab,
   pressTab
@@ -22,7 +25,8 @@ const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
 
 function renderDayPicker(props) {
-  render(<Example {...props} />);
+  // A selection mode is required to test this feature
+  render(<Example mode="single" {...props} />);
 }
 
 function tabToDayGrid() {
@@ -32,48 +36,64 @@ function tabToDayGrid() {
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
-  describe('pressing tab once', () => {
+  describe('when pressing Tab', () => {
     beforeEach(() => {
       renderDayPicker({ dir, defaultMonth: today });
       pressTab();
     });
-    test('should focus on the previous month button', () => {
+    test('should focus on the Previous Month button', () => {
       expect(getPrevButton()).toHaveFocus();
     });
-    describe('pressing tab again (twice)', () => {
+    describe('when pressing Tab a second time', () => {
       beforeEach(() => {
         pressTab();
       });
-      test('should focus on the next month button', () => {
+      test('should focus on the Next Month button', () => {
         expect(getNextButton()).toHaveFocus();
       });
-      describe('pressing tab again (three times)', () => {
+      describe('when pressing Tab a third time', () => {
         beforeEach(() => {
           pressTab();
         });
         test('should have the current day selected', () => {
           expect(getDayButton(today)).toHaveFocus();
         });
-        describe('when using the arrow keys', () => {
+
+        const tests: [key: string, handler: () => void][] = [
+          ['ArrowDown', pressArrowDown],
+          ['ArrowUp', pressArrowUp],
+          ['ArrowLeft', pressArrowLeft],
+          ['ArrowRight', pressArrowRight]
+        ];
+        describe.each(tests)(`when pressing %s`, (key, handler) => {
+          let focusedElement: Element;
           beforeEach(() => {
-            pressArrowDown();
+            handler();
+            focusedElement = getFocusedElement();
           });
-          test('the last focused day should be remembered and receive the focus', () => {
-            const lastFocusedDay = getFocusedElement();
-            getNextButton().focus();
-            (lastFocusedDay as HTMLButtonElement).onblur;
-            expect(lastFocusedDay).toHaveBeenCalled;
-            expect(lastFocusedDay).not.toHaveFocus();
-            pressTab();
-            expect(lastFocusedDay).toHaveFocus();
+          describe('when the next button is focused', () => {
+            beforeEach(() => {
+              getNextButton().focus();
+            });
+            test(`the element focused with ${key} should have lost the focus`, () => {
+              expect(focusedElement).not.toHaveFocus();
+            });
+            describe('when Tab is pressed', () => {
+              beforeEach(() => {
+                pressTab();
+              });
+              test(`the element focused with ${key} should have focus again`, () => {
+                expect(focusedElement).toHaveFocus();
+              });
+            });
           });
-          describe('when the last focused day is no longer in the day grid', () => {
+          describe('when navigating to the next month', () => {
             beforeEach(() => {
               pressShiftTab(); // Back to next month button
               pressEnter(); // go to the next month
               pressTab(); // back to day grid
             });
-            test('the first active day of the month should receive focus', () => {
+            test('the first active day of the next month should have focus', () => {
               const startOfNextMonth = startOfMonth(addMonths(today, 1));
               expect(getDayButton(startOfNextMonth)).toHaveFocus();
             });
@@ -83,7 +103,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     });
   });
 
-  describe('when there is a selected day', () => {
+  describe('when a day is selected', () => {
     beforeEach(() => {
       renderDayPicker({ dir, defaultMonth: today, selected: tomorrow });
       tabToDayGrid();
