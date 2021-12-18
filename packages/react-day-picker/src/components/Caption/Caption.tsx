@@ -20,14 +20,14 @@ export interface CaptionProps {
 /**
  * The layout of the caption:
  *
- * - `dropdown` - display a month / year dropdown
- * - `buttons` - display previous / next month button.
+ * - `dropdown`: display dropdowns for choosing the month and the year.
+ * - `buttons`: display previous month / next month buttons.
  */
 export type CaptionLayout = 'dropdown' | 'buttons';
 
 /**
  * Render the caption of a month, which includes title and navigation buttons.
- * The caption has a different layout when setting the `numberOfMonths` prop.
+ * The caption has a different layout when setting the [[DayPickerProps.captionLayout]] prop.
  */
 export function Caption(props: CaptionProps): JSX.Element {
   const { displayMonth } = props;
@@ -75,43 +75,51 @@ export function Caption(props: CaptionProps): JSX.Element {
   const hideNext = numberOfMonths > 1 && (isFirst || !isLast);
   const hidePrevious = numberOfMonths > 1 && (isLast || !isFirst);
 
+  const captionLabel = (
+    <CaptionLabel id={props.id} displayMonth={displayMonth} />
+  );
+
+  let captionContent;
+  if (disableNavigation) {
+    captionContent = captionLabel;
+  } else if (captionLayout === 'dropdown') {
+    captionContent = (
+      <div
+        className={classNames.caption_dropdowns}
+        style={styles.caption_dropdowns}
+      >
+        {/* Caption label is visually hidden but for a11y. */}
+        <div className={classNames.vhidden}>{captionLabel}</div>
+        <MonthsDropdown
+          onChange={handleMonthChange}
+          displayMonth={displayMonth}
+        />
+        <YearsDropdown
+          onChange={handleMonthChange}
+          displayMonth={displayMonth}
+        />
+      </div>
+    );
+  } else {
+    captionContent = (
+      <>
+        {captionLabel}
+        <Navigation
+          displayMonth={displayMonth}
+          hideNext={hideNext}
+          hidePrevious={hidePrevious}
+          nextMonth={nextMonth}
+          previousMonth={previousMonth}
+          onPreviousClick={handlePreviousClick}
+          onNextClick={handleNextClick}
+        />
+      </>
+    );
+  }
+
   return (
     <div className={classNames.caption} style={styles.caption}>
-      {disableNavigation && (
-        <CaptionLabel id={props.id} displayMonth={displayMonth} />
-      )}
-      {!disableNavigation && (
-        <>
-          {captionLayout === 'dropdown' ? (
-            <div
-              className={classNames.caption_dropdowns}
-              style={styles.caption_dropdowns}
-            >
-              <MonthsDropdown
-                onChange={handleMonthChange}
-                displayMonth={displayMonth}
-              />
-              <YearsDropdown
-                onChange={handleMonthChange}
-                displayMonth={displayMonth}
-              />
-            </div>
-          ) : (
-            <>
-              <CaptionLabel id={props.id} displayMonth={displayMonth} />
-              <Navigation
-                displayMonth={displayMonth}
-                hideNext={hideNext}
-                hidePrevious={hidePrevious}
-                nextMonth={nextMonth}
-                previousMonth={previousMonth}
-                onPreviousClick={handlePreviousClick}
-                onNextClick={handleNextClick}
-              />
-            </>
-          )}
-        </>
-      )}
+      {captionContent}
     </div>
   );
 }
