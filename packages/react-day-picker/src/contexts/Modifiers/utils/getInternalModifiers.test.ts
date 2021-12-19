@@ -26,8 +26,8 @@ const defaultSelectRangeContext = {
 const { Selected, Disabled, Hidden, Today, RangeEnd, RangeMiddle, RangeStart } =
   InternalModifier;
 
-const internalModifiersTest = [Selected, Disabled, Hidden, Today];
-test.each(internalModifiersTest)(
+const internalModifiers = [Selected, Disabled, Hidden, Today];
+test.each(internalModifiers)(
   'should transform to array the modifiers from the "%s" prop',
   (propName) => {
     const value = new Date();
