@@ -1,4 +1,5 @@
 import React from 'react';
+import { DayPickerProps } from 'react-day-picker';
 import {
   clickNextMonth,
   clickPrevMonth,
@@ -37,13 +38,13 @@ const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
 let container: HTMLElement;
-function setup(dir?: string) {
-  container = render(<Example dir={dir} />).container;
+function setup(props: DayPickerProps) {
+  container = render(<Example {...props} />).container;
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   beforeEach(() => {
-    setup(dir);
+    setup({ dir });
   });
 
   describe('when clicking the previous month button', () => {

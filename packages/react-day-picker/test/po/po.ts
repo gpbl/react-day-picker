@@ -183,3 +183,12 @@ export function selectMonth(monthName: string) {
 export function selectYear(year: string | number) {
   userEvent.selectOptions(getYearDropdown(), String(year));
 }
+
+export function focusDaysGrid() {
+  // Make sure nothing is focused
+  fireEvent.blur(getFocusedElement());
+  // By pressing tab 3 times 
+  pressTab();
+  pressTab();
+  pressTab();
+}

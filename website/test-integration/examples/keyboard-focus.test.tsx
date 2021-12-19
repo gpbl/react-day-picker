@@ -1,10 +1,15 @@
 import React from 'react';
+import { DayPickerProps } from 'react-day-picker';
 import {
+  focusDaysGrid,
   getDayButton,
   getFocusedElement,
   getNextButton,
   getPrevButton,
   pressArrowDown,
+  pressArrowLeft,
+  pressArrowRight,
+  pressArrowUp,
   pressEnter,
   pressShiftTab,
   pressTab
@@ -21,57 +26,61 @@ const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
 
-function renderDayPicker(props) {
+function setup(props: DayPickerProps) {
   render(<Example {...props} />);
 }
 
-function tabToDayGrid() {
-  pressTab();
-  pressTab();
-  pressTab();
-}
-
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
-  describe('pressing tab once', () => {
+  describe('when pressing Tab', () => {
     beforeEach(() => {
-      renderDayPicker({ dir, defaultMonth: today });
+      setup({ dir });
       pressTab();
     });
-    test('should focus on the previous month button', () => {
+    test('should focus on the Previous Month button', () => {
       expect(getPrevButton()).toHaveFocus();
     });
-    describe('pressing tab again (twice)', () => {
-      beforeEach(() => {
-        pressTab();
-      });
-      test('should focus on the next month button', () => {
+    describe('when pressing Tab a second time', () => {
+      beforeEach(() => pressTab());
+      test('should focus on the Next Month button', () => {
         expect(getNextButton()).toHaveFocus();
       });
-      describe('pressing tab again (three times)', () => {
-        beforeEach(() => {
-          pressTab();
-        });
+      describe('when pressing Tab a third time', () => {
+        beforeEach(() => pressTab());
         test('should have the current day selected', () => {
           expect(getDayButton(today)).toHaveFocus();
         });
-        describe('when using the arrow keys', () => {
+
+        const tests: [key: string, handler: () => void][] = [
+          ['ArrowDown', pressArrowDown],
+          ['ArrowUp', pressArrowUp],
+          ['ArrowLeft', pressArrowLeft],
+          ['ArrowRight', pressArrowRight]
+        ];
+        describe.each(tests)(`when pressing %s`, (key, handler) => {
+          let focusedElement: Element;
           beforeEach(() => {
-            pressArrowDown();
+            handler();
+            focusedElement = getFocusedElement();
           });
-          test('the last focused day should be remembered and receive the focus', () => {
-            const lastFocusedDay = getFocusedElement();
-            pressShiftTab(); // Back to next month button
-            expect(lastFocusedDay).not.toHaveFocus();
-            pressTab();
-            expect(lastFocusedDay).toHaveFocus();
+          describe('when the next button is focused', () => {
+            beforeEach(() => getNextButton().focus());
+            test(`the element focused with ${key} should have lost the focus`, () => {
+              expect(focusedElement).not.toHaveFocus();
+            });
+            describe('when pressing Tab', () => {
+              beforeEach(() => pressTab());
+              test(`the element focused with ${key} should have focus again`, () => {
+                expect(focusedElement).toHaveFocus();
+              });
+            });
           });
-          describe('when the last focused day is no longer in the day grid', () => {
+          describe('when navigating to the next month', () => {
             beforeEach(() => {
               pressShiftTab(); // Back to next month button
               pressEnter(); // go to the next month
               pressTab(); // back to day grid
             });
-            test('the first active day of the month should receive focus', () => {
+            test('the first active day of the next month should have focus', () => {
               const startOfNextMonth = startOfMonth(addMonths(today, 1));
               expect(getDayButton(startOfNextMonth)).toHaveFocus();
             });
@@ -81,76 +90,65 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     });
   });
 
-  describe('when "initialFocus" is true', () => {
-    beforeEach(() => {
-      renderDayPicker({ dir, defaultMonth: today, initialFocus: true });
-    });
-    test('the today button should have focus', () => {
-      expect(getDayButton(today)).toHaveFocus();
-    });
-    describe('when attempting to move focus out of the day grid', () => {
-      beforeEach(() => {
-        pressShiftTab();
-      });
-      test('the focus should not be trapped in the day grid', () => {
-        expect(getNextButton()).toHaveFocus();
-      });
-    });
-  });
-
   describe('when a day is selected', () => {
+    const selected = tomorrow;
     beforeEach(() => {
-      renderDayPicker({ dir, defaultMonth: today, selected: tomorrow });
-      tabToDayGrid();
+      setup({ dir, selected });
     });
-    test('the selected day should have focus', () => {
-      expect(getDayButton(tomorrow)).toHaveFocus();
+    describe('when focusing the days grid', () => {
+      beforeEach(() => focusDaysGrid());
+      test('the selected day should have focus', () => {
+        expect(getDayButton(tomorrow)).toHaveFocus();
+      });
     });
   });
 
-  describe('when there are multiple selected days', () => {
+  describe('when multiple days are selected', () => {
+    const mode = 'multiple';
+    const selected = [yesterday, tomorrow];
     beforeEach(() => {
-      renderDayPicker({
-        dir,
-        defaultMonth: today,
-        mode: 'multiple',
-        selected: [yesterday, tomorrow]
-      });
-      tabToDayGrid();
+      setup({ dir, selected, mode });
     });
-    test('the first selected day should have focus', () => {
-      expect(getDayButton(yesterday)).toHaveFocus();
+    describe('when focusing the days grid', () => {
+      beforeEach(() => focusDaysGrid());
+
+      test('the first selected day should have focus', () => {
+        expect(getDayButton(yesterday)).toHaveFocus();
+      });
     });
   });
 
-  describe('when there are multiple months', () => {
-    beforeEach(() => {
-      renderDayPicker({
-        dir,
-        defaultMonth: addMonths(today, -2),
-        numberOfMonths: 3
+  describe('when showing multiple months', () => {
+    const numberOfMonths = 3;
+    describe('when today falls into the last month', () => {
+      const defaultMonth = addMonths(today, -numberOfMonths + 1);
+      beforeEach(() => {
+        setup({ dir, defaultMonth, numberOfMonths });
       });
-      tabToDayGrid();
-    });
-    test('it should be possible for a day in the last month to be the focus target', () => {
-      expect(getDayButton(today)).toHaveFocus();
+      describe('when focusing the days grid', () => {
+        beforeEach(() => focusDaysGrid());
+        test('the today button should have focus', () => {
+          expect(getDayButton(today)).toHaveFocus();
+        });
+      });
     });
   });
 
-  describe('when there are disabled or hidden days and no selected days', () => {
-    const firstDay = startOfMonth(today);
-    const secondDay = addDays(firstDay, 1);
-    const thirdDay = addDays(firstDay, 2);
+  describe('with disabled and hidden days, when no days are selected', () => {
+    const firstDayOfMonth = startOfMonth(today);
+    const secondDayOfMonth = addDays(firstDayOfMonth, 1);
+    const notDisabled = addDays(firstDayOfMonth, 2);
+    const disabled = [firstDayOfMonth, today];
+    const hidden = secondDayOfMonth;
+    const selected = undefined;
     beforeEach(() => {
-      renderDayPicker({
-        dir,
-        disabled: [firstDay, today],
-        hidden: secondDay
-      });
-      tabToDayGrid();
+      setup({ dir, disabled, hidden, selected });
     });
-    test('the first non-disabled day should receive the focus', () => {
-      expect(getDayButton(thirdDay)).toHaveFocus();
+    describe('when focusing the days grid', () => {
+      beforeEach(() => focusDaysGrid());
+      test('the first not disabled day should have focus', () => {
+        expect(getDayButton(notDisabled)).toHaveFocus();
+      });
     });
   });
 });
