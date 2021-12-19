@@ -159,6 +159,15 @@ export interface DayPickerProps {
 
   /** Content to add to the `tfoot` element. */
   footer?: React.ReactNode;
+
+  /**
+   * By setting this prop, DayPicker will focus the first selected day (if set)
+   * or the today's date (if not disabled).
+   *
+   * Use this prop if you need to focus DayPicker when initially rendered, like
+   * when rendering it after a user actions, for improved accessibility.
+   **/
+  initialFocus?: boolean;
   // #endregion
 
   // #region modifiers props
@@ -228,15 +237,6 @@ export interface DayPickerProps {
    */
   formatters?: Partial<Formatters>;
   // #endregion
-
-  /**
-   * When set, DayPicker will focus on today,
-   * or the first selected day if set.
-   * This can be used for implementing a dialog
-   * pattern, for focusing on the day grid when
-   * the dialog opens.
-   **/
-  initialFocus?: boolean;
 
   // #region event handlers
   onDayClick?: DayClickEventHandler;
