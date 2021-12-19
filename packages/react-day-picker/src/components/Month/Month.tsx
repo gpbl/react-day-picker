@@ -23,7 +23,8 @@ export function Month(props: MonthProps) {
   const { displayMonths } = useNavigation();
   const captionId = useId();
   const className = [classNames.month];
-  let style = { ...styles.month };
+  let style = styles.month;
+
   let isStart = props.displayIndex === 0;
   let isEnd = props.displayIndex === displayMonths.length - 1;
   const isCenter = !isStart && !isEnd;
@@ -47,7 +48,7 @@ export function Month(props: MonthProps) {
   return (
     <div key={props.displayIndex} className={className.join(' ')} style={style}>
       <Caption id={captionId} displayMonth={props.displayMonth} />
-      <Table aria-labelled-by={captionId} displayMonth={props.displayMonth} />
+      <Table aria-labelledby={captionId} displayMonth={props.displayMonth} />
     </div>
   );
 }

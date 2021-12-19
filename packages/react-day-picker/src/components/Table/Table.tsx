@@ -9,7 +9,7 @@ import { getWeeks } from './utils/getWeeks';
  */
 export interface TableProps {
   /** The ID of the label of the table (the same given to the Caption). */
-  ['aria-labelled-by']?: string;
+  ['aria-labelledby']?: string;
   /** The month where the table is displayed. */
   displayMonth: Date;
 }
@@ -32,7 +32,7 @@ export function Table(props: TableProps): JSX.Element {
       className={classNames.table}
       style={styles.table}
       role="grid"
-      aria-labelledby={props['aria-labelled-by']}
+      aria-labelledby={props['aria-labelledby']}
     >
       {!hideHead && <Head />}
       <tbody className={classNames.tbody} style={styles.tbody}>
