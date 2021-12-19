@@ -6,7 +6,6 @@ import Example from '@examples/controlled';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 
-let container: HTMLElement;
 const today = new Date(2022, 5, 10);
 
 function getTodayButton() {
@@ -16,8 +15,7 @@ function getTodayButton() {
 freezeBeforeAll(today);
 
 beforeEach(() => {
-  const renderResult = render(<Example />);
-  container = renderResult.container;
+  render(<Example />);
 });
 
 describe('when the "Go to today" button is clicked', () => {
