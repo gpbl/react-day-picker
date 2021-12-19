@@ -1,8 +1,8 @@
 import React from 'react';
 
-import enUS from 'date-fns/locale/en-US';
+import { enUS } from 'date-fns/locale';
 
-import { Caption } from 'components/Caption';
+import { Caption, CaptionLayout } from 'components/Caption';
 import { CaptionLabel } from 'components/CaptionLabel';
 import { Day } from 'components/Day';
 import { DayContent } from 'components/DayContent';
@@ -14,13 +14,50 @@ import { IconLeft } from 'components/IconLeft';
 import { IconRight } from 'components/IconRight';
 import { Row } from 'components/Row';
 import { WeekNumber } from 'components/WeekNumber';
-import { DayPickerProps } from 'types/DayPicker';
+import { Components, DayPickerProps } from 'types/DayPicker';
+import { Formatters } from 'types/Formatters';
+import { Labels } from 'types/Labels';
+import { CustomModifiers, ModifierClassNames } from 'types/Modifiers';
+import { ClassNames, Styles } from 'types/Styles';
 
-import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';
 import { parseFromToProps } from './utils';
+
+/** The value of the [[DayPickerContext]] */
+export interface DayPickerContextValue extends DayPickerProps {
+  captionLayout: CaptionLayout;
+  classNames: Required<ClassNames>;
+  components: Components;
+  formatters: Formatters;
+  labels: Labels;
+  locale: Locale;
+  modifierClassNames: ModifierClassNames;
+  modifierPrefix: string;
+  modifiers: CustomModifiers;
+  numberOfMonths: number;
+  styles: Styles;
+  today: Date;
+
+  // Internally we handle only fromDate/toDate
+  toYear?: never;
+  fromYear?: never;
+  toMonth?: never;
+  fromMonth?: never;
+}
+
+/**
+ * The DayPicker Context shares the props passed to DayPicker within the
+ * internal components. It is used to set the default values and perform
+ * one-time calculations required to render the days.
+ *
+ * Access this context from the [[useDayPicker]] hook when using custom
+ * components.
+ */
+export const DayPickerContext = React.createContext<
+  DayPickerContextValue | undefined
+>(undefined);
 
 /** Represent the props for the [[DayPickerProvider]]. */
 export interface DayPickerProviderProps {
