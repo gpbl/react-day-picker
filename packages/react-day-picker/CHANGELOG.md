@@ -18,6 +18,18 @@ See the preview website at https://react-day-picker-next.netlify.app.
 
 ---
 
+### v8.0.0-beta.36
+
+- feat: added caption ARIA labels. This change introduce `@reach/auto-id` dependency (#1358) (b8bbf419)
+- feat: caption element has now an heading role (uses `h2`) (#1335) (bfb77869)
+- feat: improved focus support (#1343) (9d09587d)
+- feat: added `initialFocus` focus prop (#1351) (8f6d979d)
+- feat: table uses `grid` role (#1337) (4ae64022)
+- chore: added Month component (#1327) (fc9d9136)
+- chore: rename styles and elements (#1336, #1329, #1325)
+- fix: fixed type `useInput`'s `setSelected` (#1344) (c8f64fdf)
+- fix: missing today modifier (#1319) (c4445a4c)
+
 ### v8.0.0-beta.35
 
 - feat: add extended keyboard navigation (#1300) (2a098719)
