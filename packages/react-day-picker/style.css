@@ -17,14 +17,22 @@
 
 /* Hide elements for devices that are not screen readers */
 .rdp-vhidden {
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
+  box-sizing: border-box;
   padding: 0;
-  position: absolute;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute !important;
   top: 0;
-  width: 1px;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  border: 0 !important
 }
 
 /* Buttons */
@@ -191,8 +199,8 @@
   color: unset;
 }
 
-.rdp-dropdown:focus:not([disabled]) + .rdp-caption_label,
-.rdp-dropdown:active:not([disabled]) + .rdp-caption_label {
+.rdp-dropdown:focus:not([disabled])+.rdp-caption_label,
+.rdp-dropdown:active:not([disabled])+.rdp-caption_label {
   border: var(--rdp-outline);
   border-radius: 6px;
   background-color: var(--rdp-background-color);
@@ -260,6 +268,7 @@
 .rdp-day_today:not(.rdp-day_outside) {
   font-weight: bold;
 }
+
 .rdp-day_selected:not([disabled]),
 .rdp-day_selected:focus:not([disabled]),
 .rdp-day_selected:active:not([disabled]),
@@ -276,6 +285,7 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+
 .rdp:not([dir='rtl']) .rdp-day_range_end:not(.rdp-day_range_start) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -294,6 +304,7 @@
 .rdp-day_range_end.rdp-day_range_start {
   border-radius: 100%;
 }
+
 .rdp-day_range_middle {
   border-radius: 0;
 }
