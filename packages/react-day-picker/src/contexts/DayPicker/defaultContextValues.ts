@@ -18,6 +18,10 @@ import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';
 
+/**
+ * Returns the default values to use in the DayPickerContext, in case they are
+ * not passed down with the DayPicker initial props.
+ */
 export function getDefaultContextValues(): DayPickerContextValue {
   const captionLayout: CaptionLayout = 'buttons';
   const classNames = defaultClassNames;
