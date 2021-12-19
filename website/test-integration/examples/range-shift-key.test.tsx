@@ -1,16 +1,16 @@
 import React from 'react';
-
-import Example from '@examples/range-shift-key';
 import { clickDay, getDayButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/range-shift-key';
+
 import { render } from '@testing-library/react';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
-let container: HTMLElement;
 beforeEach(() => {
-  container = render(<Example />).container;
+  render(<Example />);
 });
 
 describe('when displaying November 2021', () => {

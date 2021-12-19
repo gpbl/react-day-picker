@@ -12,7 +12,7 @@ declare const styles: {
   readonly "rdp-caption_dropdowns": string;
   readonly "rdp-caption_label": string;
   readonly "rdp-nav": string;
-  readonly "rdp-caption_first": string;
+  readonly "rdp-caption_start": string;
   readonly "rdp-caption_end": string;
   readonly "rdp-nav_button": string;
   readonly "rdp-dropdown_year": string;

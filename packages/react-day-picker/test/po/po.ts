@@ -12,7 +12,7 @@ export function getDayButton(day: Date) {
 
 export function getAllSelectedDays() {
   const buttons = screen
-    .getByRole('table')
+    .getByRole('grid')
     .getElementsByTagName('tbody')[0]
     .getElementsByTagName('button');
 
@@ -23,7 +23,7 @@ export function getAllSelectedDays() {
 
 export function getAllEnabledDays() {
   const buttons = screen
-    .getByRole('table')
+    .getByRole('grid')
     .getElementsByTagName('tbody')[0]
     .getElementsByTagName('button');
 
@@ -54,7 +54,7 @@ export function getWeekButton(week: number) {
 }
 
 export function getTableFooter() {
-  return screen.getByRole('table').querySelector('tfoot');
+  return screen.getByRole('grid').querySelector('tfoot');
 }
 
 export function getPrevButton() {
@@ -77,8 +77,8 @@ export function getMonthCaption(container: HTMLElement, index = 0) {
   return container.getElementsByClassName('rdp-caption_label')[index];
 }
 
-export function getMonthTable(index = 0) {
-  return screen.getAllByRole('table')[index];
+export function getMonthGrid(index = 0) {
+  return screen.getAllByRole('grid')[index];
 }
 
 export function getYearDropdown() {
@@ -119,6 +119,18 @@ export function pressArrowUp() {
 
 export function pressArrowDown() {
   userEvent.type(getFocusedElement(), '{arrowdown}');
+}
+
+export function pressTab() {
+  userEvent.tab();
+}
+
+export function pressShiftTab() {
+  userEvent.tab({ shift: true });
+}
+
+export function pressEnter() {
+  userEvent.keyboard('{enter}');
 }
 
 export function pressPageUp() {
@@ -170,4 +182,13 @@ export function selectMonth(monthName: string) {
 
 export function selectYear(year: string | number) {
   userEvent.selectOptions(getYearDropdown(), String(year));
+}
+
+export function focusDaysGrid() {
+  // Make sure nothing is focused
+  fireEvent.blur(getFocusedElement());
+  // By pressing tab 3 times 
+  pressTab();
+  pressTab();
+  pressTab();
 }
