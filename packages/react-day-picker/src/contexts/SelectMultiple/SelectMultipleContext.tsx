@@ -8,10 +8,13 @@ import {
   isDayPickerMultiple
 } from 'types/DayPickerMultiple';
 import { DayClickEventHandler } from 'types/EventHandlers';
-import { Modifiers } from 'types/Modifiers';
+import { InternalModifier, Modifiers } from 'types/Modifiers';
 
 /** Represent the modifiers that are changed by the multiple selection. */
-export type SelectMultipleModifiers = Pick<Modifiers, 'disabled'>;
+export type SelectMultipleModifiers = Pick<
+  Modifiers,
+  InternalModifier.Disabled
+>;
 
 /** Represents the value of a [[SelectMultipleContext]]. */
 export interface SelectMultipleContextValue {

@@ -5,7 +5,10 @@ import { isDayPickerMultiple } from 'types/DayPickerMultiple';
 import { isDayPickerRange } from 'types/DayPickerRange';
 import { InternalModifier, InternalModifiers } from 'types/Modifiers';
 
-import { toMatcherArray } from './toMatcherArray';
+import { matcherToArray } from './matcherToArray';
+
+const { Selected, Disabled, Hidden, Today, RangeEnd, RangeMiddle, RangeStart } =
+  InternalModifier;
 
 /** Return the [[InternalModifiers]] from the DayPicker and select contexts. */
 export function getInternalModifiers(
@@ -14,33 +17,33 @@ export function getInternalModifiers(
   selectRange: SelectRangeContextValue
 ) {
   const internalModifiers: InternalModifiers = {
-    [InternalModifier.Selected]: toMatcherArray(dayPicker.selected),
-    [InternalModifier.Disabled]: toMatcherArray(dayPicker.disabled),
-    [InternalModifier.Hidden]: toMatcherArray(dayPicker.hidden),
-    [InternalModifier.Today]: [dayPicker.today],
-    [InternalModifier.RangeEnd]: [],
-    [InternalModifier.RangeMiddle]: [],
-    [InternalModifier.RangeStart]: []
+    [Selected]: matcherToArray(dayPicker.selected),
+    [Disabled]: matcherToArray(dayPicker.disabled),
+    [Hidden]: matcherToArray(dayPicker.hidden),
+    [Today]: [dayPicker.today],
+    [RangeEnd]: [],
+    [RangeMiddle]: [],
+    [RangeStart]: []
   };
 
   if (dayPicker.fromDate) {
-    internalModifiers.disabled.push({ before: dayPicker.fromDate });
+    internalModifiers[Disabled].push({ before: dayPicker.fromDate });
   }
   if (dayPicker.toDate) {
-    internalModifiers.disabled.push({ after: dayPicker.toDate });
+    internalModifiers[Disabled].push({ after: dayPicker.toDate });
   }
 
   if (isDayPickerMultiple(dayPicker)) {
-    internalModifiers.disabled = internalModifiers.disabled.concat(
-      selectMultiple.modifiers.disabled
+    internalModifiers[Disabled] = internalModifiers[Disabled].concat(
+      selectMultiple.modifiers[Disabled]
     );
   } else if (isDayPickerRange(dayPicker)) {
-    internalModifiers.disabled = internalModifiers.disabled.concat(
-      selectRange.modifiers.disabled
+    internalModifiers[Disabled] = internalModifiers[Disabled].concat(
+      selectRange.modifiers[Disabled]
     );
-    internalModifiers.range_start = selectRange.modifiers.range_start;
-    internalModifiers.range_middle = selectRange.modifiers.range_middle;
-    internalModifiers.range_end = selectRange.modifiers.range_end;
+    internalModifiers[RangeStart] = selectRange.modifiers[RangeStart];
+    internalModifiers[RangeMiddle] = selectRange.modifiers[RangeMiddle];
+    internalModifiers[RangeEnd] = selectRange.modifiers[RangeEnd];
   }
   return internalModifiers;
 }

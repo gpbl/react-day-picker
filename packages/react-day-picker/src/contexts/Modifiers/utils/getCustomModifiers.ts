@@ -1,7 +1,7 @@
 import { DayPickerContextValue } from 'contexts/DayPicker';
 import { CustomModifiers } from 'types/Modifiers';
 
-import { toMatcherArray } from './toMatcherArray';
+import { matcherToArray } from './matcherToArray';
 
 /** Return the [[CustomModifiers]] from the DayPicker context. */
 export function getCustomModifiers(
@@ -9,7 +9,7 @@ export function getCustomModifiers(
 ): CustomModifiers {
   const customModifiers: CustomModifiers = {};
   Object.entries(dayPicker.modifiers).forEach(([modifier, matcher]) => {
-    customModifiers[modifier] = toMatcherArray(matcher);
+    customModifiers[modifier] = matcherToArray(matcher);
   });
   return customModifiers;
 }
