@@ -48,26 +48,28 @@ export interface DayPickerContextValue extends DayPickerProps {
 }
 
 /**
- * The DayPicker Context shares the props passed to DayPicker within the
- * internal components. It is used to set the default values and perform
+ * The DayPicker Context shares the props passed to DayPicker within internal
+ * and custom components. It is used to set the default values and perform
  * one-time calculations required to render the days.
  *
- * Access this context from the [[useDayPicker]] hook when using custom
- * components.
+ * Developers may access to this context from the [[useDayPicker]] hook when
+ * using custom components.
  */
 export const DayPickerContext = React.createContext<
   DayPickerContextValue | undefined
 >(undefined);
 
-/** Represent the props for the [[DayPickerProvider]]. */
+/** The props for the [[DayPickerProvider]]. */
 export interface DayPickerProviderProps {
-  /** The props passed to the DayPicker component. */
+  /** The initial props from the DayPicker component. */
   initialProps: DayPickerProps;
   children?: React.ReactNode;
 }
 /**
- * The provider for the [[DayPickerContext]]. Set the context value by
- * assigning the defaults from the DayPicker props.
+ * The provider for the [[DayPickerContext]].
+ *
+ * The context value is set by assigning defaults from the initial DayPicker
+ * props.
  * */
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { children, initialProps } = props;
@@ -80,7 +82,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { fromDate, toDate } = parseFromToProps(initialProps);
 
   // Default caption layout. If calendar navigation is unlimited, it must be
-  // always `buttons` – as we cannot display infinite options in the dropdown.
+  // always `buttons` – as we cannot display yet infinite options in the dropdown.
   let captionLayout = initialProps.captionLayout ?? 'buttons';
   if (!fromDate && !toDate) captionLayout = 'buttons';
 
