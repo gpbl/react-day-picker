@@ -3,12 +3,13 @@ import React from 'react';
 import { addMonths, setMonth, setYear } from 'date-fns';
 
 import { RootContext } from 'contexts/RootProvider';
+import { DayPickerProps } from 'types/DayPicker';
 
 import { PageObjects } from 'test/po/PageObjects';
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
-import { Caption } from './Caption';
+import { Caption, CaptionProps } from './Caption';
 
 const today = new Date(2021, 8);
 const po = new PageObjects(today);
@@ -17,12 +18,14 @@ const toYear = 2025;
 
 freezeBeforeAll(today);
 
+function setup(props: CaptionProps, context?: DayPickerProps) {
+  customRender(<Caption {...props} />, context);
+}
+
 describe('when navigation is disabled', () => {
-  beforeEach(() => {
-    customRender(<Caption displayMonth={today} />, {
-      disableNavigation: true
-    });
-  });
+  const props = { displayMonth: today };
+  const context = { disableNavigation: true };
+  beforeEach(() => setup(props, context));
   test('should display the caption label', () => {
     expect(po.getCaptionLabel(today)).toBeInTheDocument();
   });

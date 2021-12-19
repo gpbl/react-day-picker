@@ -73,8 +73,8 @@ export function queryNextButton() {
   return screen.queryByRole('button', { name: 'Go to next month' });
 }
 
-export function getMonthCaption(container: HTMLElement, index = 0) {
-  return container.getElementsByClassName('rdp-caption_label')[index];
+export function getMonthCaption(displayIndex = 0) {
+  return screen.getAllByRole('heading', { level: 2 })[displayIndex];
 }
 
 export function getMonthGrid(index = 0) {
@@ -182,4 +182,13 @@ export function selectMonth(monthName: string) {
 
 export function selectYear(year: string | number) {
   userEvent.selectOptions(getYearDropdown(), String(year));
+}
+
+export function focusDaysGrid() {
+  // Make sure nothing is focused
+  fireEvent.blur(getFocusedElement());
+  // By pressing tab 3 times 
+  pressTab();
+  pressTab();
+  pressTab();
 }
