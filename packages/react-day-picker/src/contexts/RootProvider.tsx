@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DayPickerProps } from 'types/DayPicker';
 
-import { DayPickerProvider } from './DayPicker/DayPickerProvider';
+import { DayPickerProvider } from './DayPicker';
 import { FocusProvider } from './Focus';
 import { ModifiersProvider } from './Modifiers';
 import { NavigationProvider } from './Navigation';
