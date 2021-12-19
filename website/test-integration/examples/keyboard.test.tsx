@@ -37,9 +37,8 @@ import {
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
-let container: HTMLElement;
 function setup(props: DayPickerProps) {
-  container = render(<Example {...props} />).container;
+  render(<Example {...props} />);
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
@@ -50,14 +49,14 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   describe('when clicking the previous month button', () => {
     beforeEach(() => clickPrevMonth());
     test('should display the previous month', () => {
-      expect(getMonthCaption(container)).toHaveTextContent('May 2022');
+      expect(getMonthCaption()).toHaveTextContent('May 2022');
     });
   });
   describe('when clicking the next month button', () => {
     beforeEach(() => clickNextMonth());
 
     test('should display the next month', () => {
-      expect(getMonthCaption(container)).toHaveTextContent('July 2022');
+      expect(getMonthCaption()).toHaveTextContent('July 2022');
     });
   });
   describe('when the first day is focused', () => {
@@ -85,7 +84,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         });
       } else {
         test('should display the previous month', () => {
-          expect(getMonthCaption(container)).toHaveTextContent('May 2022');
+          expect(getMonthCaption()).toHaveTextContent('May 2022');
         });
         test('should focus the previous day', () => {
           expect(getDayButton(prevDay)).toHaveFocus();
@@ -96,7 +95,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       beforeEach(pressArrowRight);
       if (dir === 'rtl') {
         test('should display the previous month', () => {
-          expect(getMonthCaption(container)).toHaveTextContent('May 2022');
+          expect(getMonthCaption()).toHaveTextContent('May 2022');
         });
         test('should focus the previous day', () => {
           expect(getDayButton(prevDay)).toHaveFocus();
@@ -110,7 +109,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     describe('when the Arrow Up is pressed', () => {
       beforeEach(pressArrowUp);
       test('should display the previous month', () => {
-        expect(getMonthCaption(container)).toHaveTextContent('May 2022');
+        expect(getMonthCaption()).toHaveTextContent('May 2022');
       });
       test('should focus the day in the previous week', () => {
         expect(getDayButton(prevWeekDay)).toHaveFocus();
@@ -119,7 +118,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     describe('when the Arrow Down is pressed', () => {
       beforeEach(pressArrowDown);
       test('should display the same month', () => {
-        expect(getMonthCaption(container)).toHaveTextContent('June 2022');
+        expect(getMonthCaption()).toHaveTextContent('June 2022');
       });
       test('should focus the day in the next week', () => {
         expect(getDayButton(nextWeekDay)).toHaveFocus();
@@ -128,7 +127,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     describe('when Page Up is pressed', () => {
       beforeEach(pressPageUp);
       it('should display the previous month', () => {
-        expect(getMonthCaption(container)).toHaveTextContent('May 2022');
+        expect(getMonthCaption()).toHaveTextContent('May 2022');
       });
       it('should focus the day in the previous month', () => {
         expect(getDayButton(prevMonth)).toHaveFocus();
@@ -137,7 +136,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     describe('when Page Down is pressed', () => {
       beforeEach(pressPageDown);
       it('should display the next month', () => {
-        expect(getMonthCaption(container)).toHaveTextContent('July 2022');
+        expect(getMonthCaption()).toHaveTextContent('July 2022');
       });
       it('should focus the day in the next month', () => {
         expect(getDayButton(nextMonth)).toHaveFocus();
@@ -146,7 +145,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     describe('when Shift + Page Up is pressed', () => {
       beforeEach(pressShiftPageUp);
       it('should display the previous year', () => {
-        expect(getMonthCaption(container)).toHaveTextContent('June 2021');
+        expect(getMonthCaption()).toHaveTextContent('June 2021');
       });
       it('should focus the day in the previous year', () => {
         expect(getDayButton(prevYear)).toHaveFocus();
@@ -155,7 +154,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     describe('when Shift + Page Down is pressed', () => {
       beforeEach(pressShiftPageDown);
       it('should display the next year', () => {
-        expect(getMonthCaption(container)).toHaveTextContent('June 2023');
+        expect(getMonthCaption()).toHaveTextContent('June 2023');
       });
       it('should focus the day in the next yeaer', () => {
         expect(getDayButton(nextYear)).toHaveFocus();
@@ -189,7 +188,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         });
       } else {
         test('should display the next month', () => {
-          expect(getMonthCaption(container)).toHaveTextContent('July 2022');
+          expect(getMonthCaption()).toHaveTextContent('July 2022');
         });
         test('should focus the next day', () => {
           const nextDay = addDays(day, 1);
@@ -201,14 +200,14 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       beforeEach(pressArrowLeft);
       if (dir === 'rtl') {
         test('should display the next month', () => {
-          expect(getMonthCaption(container)).toHaveTextContent('July 2022');
+          expect(getMonthCaption()).toHaveTextContent('July 2022');
         });
         test('should focus the next day', () => {
           expect(getDayButton(nextDay)).toHaveFocus();
         });
       } else {
         test('should display the same month', () => {
-          expect(getMonthCaption(container)).toHaveTextContent('June 2022');
+          expect(getMonthCaption()).toHaveTextContent('June 2022');
         });
         test('should focus the previous day', () => {
           const prevDay = addDays(day, -1);
@@ -219,7 +218,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     describe('when the Arrow Up is pressed', () => {
       beforeEach(pressArrowUp);
       test('should display the same month', () => {
-        expect(getMonthCaption(container)).toHaveTextContent('June 2022');
+        expect(getMonthCaption()).toHaveTextContent('June 2022');
       });
       test('should focus the day in the previous week', () => {
         const prevDay = addWeeks(day, -1);
@@ -229,7 +228,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     describe('when the Arrow Down is pressed', () => {
       beforeEach(pressArrowDown);
       test('should display the next month', () => {
-        expect(getMonthCaption(container)).toHaveTextContent('July 2022');
+        expect(getMonthCaption()).toHaveTextContent('July 2022');
       });
       test('should focus the day in the next week', () => {
         const nextDay = addWeeks(day, 1);

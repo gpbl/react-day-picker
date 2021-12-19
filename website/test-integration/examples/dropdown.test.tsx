@@ -1,21 +1,21 @@
 import React from 'react';
-
-import Example from '@examples/dropdown';
 import {
-  getMonthCaption,
   getMonthDropdown,
+  getMonthGrid,
   getYearDropdown,
   selectMonth
 } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/dropdown';
+
 import { render } from '@testing-library/react';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
-let container: HTMLElement;
 beforeEach(() => {
-  container = render(<Example />).container;
+  render(<Example />);
 });
 
 test('should display the year dropdown', () => {
@@ -28,7 +28,7 @@ test('should display the month dropdown', () => {
 describe('when choosing a month', () => {
   const monthName = 'January';
   beforeEach(() => selectMonth(monthName));
-  test('the month should be displayed', () => {
-    expect(getMonthCaption(container)).toHaveTextContent(monthName);
+  test('should display the month', () => {
+    expect(getMonthGrid()).toHaveAccessibleName(`${monthName} 2022`);
   });
 });
