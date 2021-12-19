@@ -17,7 +17,7 @@ import { WeekNumber } from 'components/WeekNumber';
 import { Components, DayPickerProps } from 'types/DayPicker';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
-import { CustomModifiers, ModifierClassNames } from 'types/Modifiers';
+import { DayModifiers, ModifierClassNames } from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
 
 import { defaultClassNames } from './defaultClassNames';
@@ -35,7 +35,7 @@ export interface DayPickerContextValue extends DayPickerProps {
   locale: Locale;
   modifierClassNames: ModifierClassNames;
   modifierPrefix: string;
-  modifiers: CustomModifiers;
+  modifiers: DayModifiers;
   numberOfMonths: number;
   styles: Styles;
   today: Date;
