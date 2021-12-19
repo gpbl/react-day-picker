@@ -2,15 +2,12 @@ import React from 'react';
 
 import { DayPickerProps } from 'types/DayPicker';
 
+import { getMonthCaption, getMonthGrid } from 'test/po';
 import { customRender } from 'test/render';
 
 import { Month, MonthProps } from './Month';
 
 let root: HTMLDivElement;
-function setup(props: MonthProps, dayPickerProps: DayPickerProps) {
-  const renderResult = customRender(<Month {...props} />, dayPickerProps);
-  root = renderResult.container.firstChild as HTMLDivElement;
-}
 
 const displayMonth = new Date(2022, 10, 4);
 
@@ -32,6 +29,21 @@ type Test = {
   expected: string[];
   notExpected: string[];
 };
+
+function setup(props: MonthProps, dayPickerProps?: DayPickerProps) {
+  const renderResult = customRender(<Month {...props} />, dayPickerProps);
+  root = renderResult.container.firstChild as HTMLDivElement;
+}
+describe('when rendered', () => {
+  beforeEach(() => {
+    setup({ displayIndex: 0, displayMonth });
+  });
+  test('the caption id should be the aria-labelledby of the grid', () => {
+    const captionId = getMonthCaption().getAttribute('id');
+    const gridLabelledBy = getMonthGrid().getAttribute('aria-labelledby');
+    expect(captionId).toEqual(gridLabelledBy);
+  });
+});
 
 describe('when dir is ltr', () => {
   const testLtr: Test[] = [
