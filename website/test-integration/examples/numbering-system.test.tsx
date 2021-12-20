@@ -19,7 +19,7 @@ describe('when displaying November 2021', () => {
   test('should localize the days', () => {
     expect(screen.getByText('أحد')).toBeInTheDocument();
   });
-  test.skip('should localize the week numbers', () => {
+  test('should localize the week numbers', () => {
     expect(screen.getByText('٤٥')).toBeInTheDocument();
   });
 });
