@@ -20,11 +20,7 @@ import {
 import { Formatters } from './Formatters';
 import { Labels } from './Labels';
 import { Matcher } from './Matchers';
-import {
-  CustomModifiers,
-  ModifierClassNames,
-  ModifierStyles
-} from './Modifiers';
+import { DayModifiers, ModifierClassNames, ModifierStyles } from './Modifiers';
 import { ClassNames, StyledComponent, Styles } from './Styles';
 
 /**
@@ -193,7 +189,7 @@ export interface DayPickerProps {
   /**
    * Add modifiers to the matching days.
    */
-  modifiers?: CustomModifiers;
+  modifiers?: DayModifiers;
   /**
    * The prefix to add to the modifiers class names. Default is `rdp-day_`.
    *

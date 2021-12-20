@@ -1,28 +1,13 @@
 import React from 'react';
 
-import { enUS } from 'date-fns/locale';
-
-import { Caption, CaptionLayout } from 'components/Caption';
-import { CaptionLabel } from 'components/CaptionLabel';
-import { Day } from 'components/Day';
-import { DayContent } from 'components/DayContent';
-import { Dropdown } from 'components/Dropdown';
-import { Footer } from 'components/Footer';
-import { Head } from 'components/Head';
-import { IconDropdown } from 'components/IconDropdown';
-import { IconLeft } from 'components/IconLeft';
-import { IconRight } from 'components/IconRight';
-import { Row } from 'components/Row';
-import { WeekNumber } from 'components/WeekNumber';
+import { CaptionLayout } from 'components/Caption';
 import { Components, DayPickerProps } from 'types/DayPicker';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
-import { CustomModifiers, ModifierClassNames } from 'types/Modifiers';
+import { DayModifiers, ModifierClassNames } from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
 
-import { defaultClassNames } from './defaultClassNames';
-import * as formatters from './formatters';
-import * as labels from './labels';
+import { getDefaultContextValues } from './defaultContextValues';
 import { parseFromToProps } from './utils';
 
 /** The value of the [[DayPickerContext]] */
@@ -35,7 +20,7 @@ export interface DayPickerContextValue extends DayPickerProps {
   locale: Locale;
   modifierClassNames: ModifierClassNames;
   modifierPrefix: string;
-  modifiers: CustomModifiers;
+  modifiers: DayModifiers;
   numberOfMonths: number;
   styles: Styles;
   today: Date;
@@ -48,41 +33,46 @@ export interface DayPickerContextValue extends DayPickerProps {
 }
 
 /**
- * The DayPicker Context shares the props passed to DayPicker within the
- * internal components. It is used to set the default values and perform
+ * The DayPicker Context shares the props passed to DayPicker within internal
+ * and custom components. It is used to set the default values and perform
  * one-time calculations required to render the days.
  *
- * Access this context from the [[useDayPicker]] hook when using custom
- * components.
+ * Developers may access this context from the [[useDayPicker]] hook when
+ * using custom components.
  */
 export const DayPickerContext = React.createContext<
   DayPickerContextValue | undefined
 >(undefined);
 
-/** Represent the props for the [[DayPickerProvider]]. */
+/** The props for the [[DayPickerProvider]]. */
 export interface DayPickerProviderProps {
-  /** The props passed to the DayPicker component. */
+  /** The initial props from the DayPicker component. */
   initialProps: DayPickerProps;
   children?: React.ReactNode;
 }
 /**
- * The provider for the [[DayPickerContext]]. Set the context value by
- * assigning the defaults from the DayPicker props.
+ * The provider for the [[DayPickerContext]].
+ *
+ * The context value is set by assigning defaults from the initial DayPicker
+ * props.
  * */
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { children, initialProps } = props;
-
-  const locale = initialProps.locale ?? enUS;
-  const numberOfMonths = initialProps.numberOfMonths ?? 1;
-  const today = initialProps.today ?? new Date();
+  const defaults = getDefaultContextValues();
+  const locale = initialProps.locale ?? defaults.locale;
+  const numberOfMonths = initialProps.numberOfMonths ?? defaults.numberOfMonths;
+  const today = initialProps.today ?? defaults.today;
 
   // Limit navigation
   const { fromDate, toDate } = parseFromToProps(initialProps);
 
-  // Default caption layout. If calendar navigation is unlimited, it must be
-  // always `buttons` – as we cannot display infinite options in the dropdown.
-  let captionLayout = initialProps.captionLayout ?? 'buttons';
-  if (!fromDate && !toDate) captionLayout = 'buttons';
+  let captionLayout = initialProps.captionLayout ?? defaults.captionLayout;
+
+  // If calendar navigation is unlimited, it must be
+  // always `buttons` – as we cannot display yet infinite options in the dropdown.
+  if (!fromDate && !toDate) {
+    captionLayout = 'buttons';
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { toYear, fromYear, toMonth, fromMonth, ...contextProps } =
@@ -99,38 +89,27 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
 
     locale,
 
-    modifierClassNames: initialProps.modifierClassNames ?? {},
-    // TODO: Should this be initialProps.modifierPrefix ?? 'rdp-day_'?
-    modifierPrefix: 'rdp-day_',
-    modifiers: initialProps.modifiers ?? {},
+    modifierClassNames:
+      initialProps.modifierClassNames ?? defaults.modifierClassNames,
+    modifierPrefix: initialProps.modifierPrefix ?? defaults.modifierPrefix,
+    modifiers: initialProps.modifiers ?? defaults.modifiers,
     numberOfMonths,
 
-    styles: initialProps.styles ?? {},
+    styles: initialProps.styles ?? defaults.styles,
     classNames: {
-      ...defaultClassNames,
+      ...defaults.classNames,
       ...initialProps.classNames
     },
     formatters: {
-      ...formatters,
+      ...defaults.formatters,
       ...initialProps.formatters
     },
     labels: {
-      ...labels,
+      ...defaults.labels,
       ...initialProps.labels
     },
     components: {
-      Caption: Caption,
-      CaptionLabel: CaptionLabel,
-      Day: Day,
-      DayContent: DayContent,
-      Dropdown: Dropdown,
-      Footer: Footer,
-      Head: Head,
-      IconDropdown: IconDropdown,
-      IconRight: IconRight,
-      IconLeft: IconLeft,
-      Row: Row,
-      WeekNumber: WeekNumber,
+      ...defaults.components,
       ...initialProps.components
     }
   };

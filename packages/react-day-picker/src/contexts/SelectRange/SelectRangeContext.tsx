@@ -6,14 +6,17 @@ import { DayPickerProps } from 'types/DayPicker';
 import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';
 import { DayClickEventHandler } from 'types/EventHandlers';
 import { DateRange } from 'types/Matchers';
-import { Modifiers } from 'types/Modifiers';
+import { InternalModifier, Modifiers } from 'types/Modifiers';
 
 import { addToRange } from './utils/addToRange';
 
 /** Represent the modifiers that are changed by the range selection. */
 export type SelectRangeModifiers = Pick<
   Modifiers,
-  'range_start' | 'range_end' | 'range_middle' | 'disabled'
+  | InternalModifier.Disabled
+  | InternalModifier.RangeEnd
+  | InternalModifier.RangeMiddle
+  | InternalModifier.RangeStart
 >;
 
 /** Represents the value of a [[SelectRangeContext]]. */
