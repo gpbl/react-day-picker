@@ -14,7 +14,6 @@ const formatDay: DateFormatter = (day) =>
   day.getDate().toLocaleString(NU_LOCALE);
 
 const formatWeekNumber: WeekNumberFormatter = (weekNumber) => {
-  console.log(weekNumber, weekNumber.toLocaleString(NU_LOCALE));
   return weekNumber.toLocaleString(NU_LOCALE);
 };
 
