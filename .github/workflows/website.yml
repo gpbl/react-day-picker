@@ -7,9 +7,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - "website/**"
-      - ".github/workflows/**"
 
 jobs:
   test:
