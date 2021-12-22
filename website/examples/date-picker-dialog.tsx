@@ -2,10 +2,20 @@ import React from 'react';
 import { DayPicker } from 'react-day-picker';
 import { usePopper } from 'react-popper';
 
+import { Placement } from '@popperjs/core';
 import { format, isValid, parse } from 'date-fns';
 import FocusTrap from 'focus-trap-react';
+// This import is to get prop-types included into the code sandbox, because it's a dependency of focus-trap-react
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import PropTypes from 'prop-types';
 
 export default function Example() {
+  const formatString = 'P';
+  // In your code, you may want to find a way to localize this
+  const placeholder = 'mm/dd/yyyy';
+  // popper js is a popper positioning library
+  const placement: Placement = 'bottom-start';
+
   const [selected, setSelected] = React.useState<Date>();
   const [inputValue, setInputValue] = React.useState<string>('');
   const [isPopperOpen, setIsPopperOpen] = React.useState(false);
@@ -24,18 +34,16 @@ export default function Example() {
     popperReference.current,
     popperElement,
     {
-      placement: 'bottom-start'
+      placement
     }
   );
-
-  const formatDate = (date: Date) => format(date, 'P');
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { value } = event.currentTarget;
     setInputValue(value);
-    const date = parse(value, 'P', new Date());
+    const date = parse(value, formatString, new Date());
     if (isValid(date)) {
       setSelected(date);
     } else {
@@ -50,7 +58,7 @@ export default function Example() {
   const handleDaySelect = (date: Date | undefined) => {
     setSelected(date);
     if (date) {
-      setInputValue(formatDate(date));
+      setInputValue(format(date, formatString));
       closePopper();
     } else {
       setInputValue('');
@@ -58,7 +66,10 @@ export default function Example() {
   };
 
   const ariaLabel = selected
-    ? `Choose date. Selected date is ${formatDate(selected)}`
+    ? `Choose date. Selected date is ${format(
+        selected,
+        formatString
+      )}`
     : 'Choose date';
 
   return (
@@ -77,7 +88,7 @@ export default function Example() {
           style={{
             marginLeft: '4px'
           }}
-          placeholder="mm/dd/yyyy"
+          placeholder={placeholder}
           value={inputValue}
           onChange={handleInputChange}
         />
@@ -94,7 +105,9 @@ export default function Example() {
           }}
           aria-label={ariaLabel}
         >
-          <img src="/images/logo.png" alt="DayPicker Logo" />
+          <span role="img" aria-label="calendar icon">
+            📅
+          </span>
         </button>
       </div>
       {isPopperOpen && (
@@ -104,7 +117,6 @@ export default function Example() {
             initialFocus: false,
             allowOutsideClick: true,
             clickOutsideDeactivates: true,
-            setReturnFocus: () => buttonRef.current,
             onDeactivate: () => {
               closePopper();
             }
@@ -119,7 +131,7 @@ export default function Example() {
             role="dialog"
           >
             <DayPicker
-              initialFocusOnDay={isPopperOpen}
+              initialFocus={isPopperOpen}
               mode="single"
               defaultMonth={selected}
               selected={selected}
