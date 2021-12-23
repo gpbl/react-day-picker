@@ -3164,6 +3164,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@popperjs/core@npm:^2.11.0":
+  version: 2.11.0
+  resolution: "@popperjs/core@npm:2.11.0"
+  checksum: 84d6f197d3ddfd8a5b05c7276c3692d8404c96128a946ab0a800b25567d8fc231928319c1f97a67e0817e76ce2a1b735589ef0f38f8e8835692408660a2395a1
+  languageName: node
+  linkType: hard
+
 "@reach/auto-id@npm:^0.16.0":
   version: 0.16.0
   resolution: "@reach/auto-id@npm:0.16.0"
@@ -8034,6 +8041,28 @@ __metadata:
   peerDependencies:
     react: ^15.0.2 || ^16.0.0 || ^17.0.0
   checksum: 6b3f5150bcce481ce5bc09e54dbe4bf2a052f9fbc04c1de64f8d816adc4f90ad7955d9aed0022c7b6a2ed11b809ac40527bb50c2cd89c23d42f56694abe20748
+  languageName: node
+  linkType: hard
+
+"focus-trap-react@npm:8.9.0":
+  version: 8.9.0
+  resolution: "focus-trap-react@npm:8.9.0"
+  dependencies:
+    focus-trap: ^6.7.1
+  peerDependencies:
+    prop-types: ^15.7.2
+    react: ">=16.0.0"
+    react-dom: ">=16.0.0"
+  checksum: 94fd2f55b5622256ff9b65650af4dff4615b61cc41efa60fc073670ef5f38c9044130b5c83cdee291d21b7c90ff0595d19103a8e7490be9fd7ddb841cc2ae689
+  languageName: node
+  linkType: hard
+
+"focus-trap@npm:^6.7.1":
+  version: 6.7.1
+  resolution: "focus-trap@npm:6.7.1"
+  dependencies:
+    tabbable: ^5.2.1
+  checksum: b96c54a6a2976f8509ed8447ce3a8b76db3801b9c170f278f60b0c878478f2bb2ebc6dbe3ccd7157006b9a7ad9a86c18283efff0f3e387e29ba3ea89d8687b9c
   languageName: node
   linkType: hard
 
@@ -13542,7 +13571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-fast-compare@npm:^3.1.1":
+"react-fast-compare@npm:^3.0.1, react-fast-compare@npm:^3.1.1":
   version: 3.2.0
   resolution: "react-fast-compare@npm:3.2.0"
   checksum: 8ef272c825ae329f61633ce4ce7f15aa5b84e5214d88bc0823880236e03e985a13195befa2c7a4eda7db3b017dc7985729152d88445823f652403cf36c2b86aa
@@ -13619,6 +13648,19 @@ __metadata:
   peerDependencies:
     react: "*"
   checksum: 72329cfd2f2c8b3d4666acf97c36e9d653a3620970d2702d22282b1eb4bcb3c709695d06489f2844da2d541e42e45bcf43fe89eeedb508680f071984cee0eddd
+  languageName: node
+  linkType: hard
+
+"react-popper@npm:^2.2.5":
+  version: 2.2.5
+  resolution: "react-popper@npm:2.2.5"
+  dependencies:
+    react-fast-compare: ^3.0.1
+    warning: ^4.0.2
+  peerDependencies:
+    "@popperjs/core": ^2.0.0
+    react: ^16.8.0 || ^17
+  checksum: 915fcf08e1da4fd48a200074fcdd936f601ee2173f1e730cfed8a54fd47716aa8bf9cce2392463e3bcbe64a096d0baf463809ed2874b94d3a9d430ae6d817b5d
   languageName: node
   linkType: hard
 
@@ -15337,6 +15379,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tabbable@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "tabbable@npm:5.2.1"
+  checksum: d26e9eeb880c4c78b59244bac2c931ad46f6c64a01e5c15ba6da348dc86442222912733846a9e63373342a81fa15d4afb31267606b38431510d10b0fb9ec9bba
+  languageName: node
+  linkType: hard
+
 "tapable@npm:^1.0.0":
   version: 1.1.3
   resolution: "tapable@npm:1.1.3"
@@ -16463,6 +16512,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"warning@npm:^4.0.2":
+  version: 4.0.3
+  resolution: "warning@npm:4.0.3"
+  dependencies:
+    loose-envify: ^1.0.0
+  checksum: 4f2cb6a9575e4faf71ddad9ad1ae7a00d0a75d24521c193fa464f30e6b04027bd97aa5d9546b0e13d3a150ab402eda216d59c1d0f2d6ca60124d96cd40dfa35c
+  languageName: node
+  linkType: hard
+
 "watchpack@npm:^2.3.1":
   version: 2.3.1
   resolution: "watchpack@npm:2.3.1"
@@ -16737,6 +16795,7 @@ __metadata:
     "@docusaurus/module-type-aliases": ^2.0.0-beta.9
     "@docusaurus/preset-classic": 2.0.0-beta.9
     "@docusaurus/theme-classic": ^2.0.0-beta.9
+    "@popperjs/core": ^2.11.0
     "@testing-library/jest-dom": ^5.16.1
     "@tsconfig/docusaurus": ^1.0.4
     "@types/jest": ^27.0.3
@@ -16752,12 +16811,14 @@ __metadata:
     eslint-plugin-jest: ^25.3.0
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-react-hooks: ^4.3.0
+    focus-trap-react: 8.9.0
     jest: ^27.4.3
     prettier: ^2.5.0
     raw-loader: ^4.0.2
     react: ^17.0.2
     react-day-picker: "workspace:^"
     react-dom: ^17.0.2
+    react-popper: ^2.2.5
     ts-jest: ^27.1.1
     typedoc: ^0.22.10
     typedoc-plugin-markdown: ^3.11.7

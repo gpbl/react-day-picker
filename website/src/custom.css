@@ -190,6 +190,18 @@ div[class*='docItemCol'] {
  padding-left: 0 !important;
 }
 
+.dialog-sheet {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04), 0px 4px 5px rgba(0, 0, 0, 0.06), 0px 2px 4px -1px rgba(0, 0, 0, 0.09);
+}
+
+html[data-theme='dark'] .dialog-sheet {
+  background: #191c1f;
+  border-radius: 4px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.20), 0px 4px 5px rgba(0, 0, 0, 0.30), 0px 2px 4px -1px rgba(0, 0, 0, 0.40);
+}
+
 /* #endregion */
 
 /* #region: sandpack styles */
