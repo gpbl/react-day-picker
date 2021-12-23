@@ -9,7 +9,11 @@ import FocusTrap from 'focus-trap-react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import PropTypes from 'prop-types';
 
-export default function Example() {
+export default function Example({
+  today = new Date()
+}: {
+  today?: Date;
+}) {
   const formatString = 'P';
   // In your code, you may want to find a way to localize this
   const placeholder = 'mm/dd/yyyy';
@@ -131,6 +135,7 @@ export default function Example() {
             role="dialog"
           >
             <DayPicker
+              today={today}
               initialFocus={isPopperOpen}
               mode="single"
               defaultMonth={selected}
