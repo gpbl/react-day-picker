@@ -19,7 +19,8 @@ const sidebars = {
         'guides/modifiers',
         'guides/formatters',
         'guides/input-fields',
-        'guides/custom-components'
+        'guides/custom-components',
+        'guides/date-picker-dialog'
       ]
     }
   ],

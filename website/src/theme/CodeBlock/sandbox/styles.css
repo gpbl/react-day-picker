@@ -41,7 +41,6 @@ input {
   padding: .4em .8em;
   vertical-align: baseline;
   white-space: nowrap;
-  color: currentColor;
 }
 
 button:not(:disabled) {
@@ -49,4 +48,11 @@ button:not(:disabled) {
 }
 button:disabled {
   opacity: .5;
+}
+
+
+.dialog-sheet {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04), 0px 4px 5px rgba(0, 0, 0, 0.06), 0px 2px 4px -1px rgba(0, 0, 0, 0.09);
 }
