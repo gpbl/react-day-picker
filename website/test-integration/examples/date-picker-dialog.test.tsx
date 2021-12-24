@@ -35,9 +35,9 @@ describe('when clicking the dialog button', () => {
     expect(getDayButton(today)).toHaveFocus();
   });
   describe('when clicking a day', () => {
-    const day = today;
+    const date = today;
     beforeEach(() => {
-      clickDay(day);
+      clickDay(date);
     });
     test('the dialog should be closed', () => {
       expect(screen.queryByRole('dialog')).toBeNull();
