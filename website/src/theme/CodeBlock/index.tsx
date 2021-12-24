@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
 
 import {
@@ -7,11 +8,9 @@ import {
   SandpackProps,
   SandpackTheme
 } from '@codesandbox/sandpack-react';
-/* eslint-disable @typescript-eslint/no-var-requires */
 import '@codesandbox/sandpack-react/dist/index.css';
 import useThemeContext from '@theme/hooks/useThemeContext';
 
-import websitePackage from '../../../package.json';
 import OriginalCodeBlock from '../OriginalCodeBlock';
 import style from './styles.module.css';
 
@@ -21,19 +20,6 @@ const html = require(`!!raw-loader!./sandbox/index.html`).default;
 const index = require(`!!raw-loader!./sandbox/index.tsx`).default;
 const styles = require(`!!raw-loader!./sandbox/styles.css`).default;
 const stylesDark = require(`!!raw-loader!./sandbox/styles-dark.css`).default;
-
-const findImportDependencies = (src: string) => {
-  const imports = {};
-  src.split('\n').forEach((line) => {
-    const match = line.match(/^import .* from '(.*)';$/);
-    if (match) {
-      const packageName = match[1];
-      imports[packageName] =
-        websitePackage.devDependencies[packageName] || 'next';
-    }
-  });
-  return imports;
-};
 
 /**
  * This CodeBlock component will display a Sandpack using the example filename.
@@ -48,10 +34,14 @@ export default function CodeBlock(props) {
     );
   }
   const fileName = props.children.replace(/\n*/gi, '');
-
   const src = require(`!!raw-loader!../../../examples/${fileName}`).default;
 
-  const srcDependencies = findImportDependencies(src);
+  const includeDependencies = props.dependencies
+    ?.split(',')
+    .reduce((deps, dep) => {
+      deps[dep] = 'latest';
+      return deps;
+    }, {});
 
   // Include the dark theme in the css, if needed
   const css = `${styles}
@@ -64,7 +54,7 @@ export default function CodeBlock(props) {
     '/src/styles.css': css
   };
   const dependencies = {
-    ...srcDependencies,
+    ...includeDependencies,
     react: '^17.0.2',
     'date-fns': '^2.10.0',
     'react-dom': '^17.0.2',
