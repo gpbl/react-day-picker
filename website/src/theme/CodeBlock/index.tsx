@@ -34,10 +34,8 @@ export default function CodeBlock(props) {
     );
   }
   const fileName = props.children.replace(/\n*/gi, '');
-
   const src = require(`!!raw-loader!../../../examples/${fileName}`).default;
 
-  //
   const includeDependencies = props.dependencies
     ?.split(',')
     .reduce((deps, dep) => {
