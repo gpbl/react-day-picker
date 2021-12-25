@@ -1,10 +1,10 @@
-import React from 'react';
+import { useContext } from 'react';
 
 import { NavigationContext, NavigationContextValue } from './NavigationContext';
 
 /** Hook to access the [[NavigationContext]]. */
 export function useNavigation(): NavigationContextValue {
-  const context = React.useContext(NavigationContext);
+  const context = useContext(NavigationContext);
   if (!context) {
     throw new Error('useNavigation must be used within a NavigationProvider');
   }

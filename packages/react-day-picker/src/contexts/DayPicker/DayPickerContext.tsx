@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, ReactNode } from 'react';
 
 import { CaptionLayout } from 'components/Caption';
 import { Components, DayPickerProps } from 'types/DayPicker';
@@ -40,7 +40,7 @@ export interface DayPickerContextValue extends DayPickerProps {
  * Developers may access this context from the [[useDayPicker]] hook when
  * using custom components.
  */
-export const DayPickerContext = React.createContext<
+export const DayPickerContext = createContext<
   DayPickerContextValue | undefined
 >(undefined);
 
@@ -48,7 +48,7 @@ export const DayPickerContext = React.createContext<
 export interface DayPickerProviderProps {
   /** The initial props from the DayPicker component. */
   initialProps: DayPickerProps;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 /**
  * The provider for the [[DayPickerContext]].

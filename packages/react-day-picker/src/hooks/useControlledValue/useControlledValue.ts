@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export type DispatchStateAction<T> = React.Dispatch<React.SetStateAction<T>>;
 
@@ -15,7 +15,7 @@ export function useControlledValue<T>(
   defaultValue: T,
   controlledValue: T | undefined
 ): [T, DispatchStateAction<T>] {
-  const [uncontrolledValue, setValue] = React.useState(defaultValue);
+  const [uncontrolledValue, setValue] = useState(defaultValue);
 
   const value =
     controlledValue === undefined ? uncontrolledValue : controlledValue;

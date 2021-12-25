@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, ReactNode } from 'react';
 
 import { useDayPicker } from '../DayPicker';
 import { useNavigationState } from './useNavigationState';
@@ -25,13 +25,13 @@ export interface NavigationContextValue {
  *
  * Access this context from the [[useNavigation]] hook.
  */
-export const NavigationContext = React.createContext<
+export const NavigationContext = createContext<
   NavigationContextValue | undefined
 >(undefined);
 
 /** Provides the values for the [[NavigationContext]]. */
 export function NavigationProvider(props: {
-  children?: React.ReactNode;
+  children?: ReactNode;
 }): JSX.Element {
   const context = useDayPicker();
   const [month, goToMonth] = useNavigationState();

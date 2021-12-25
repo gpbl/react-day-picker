@@ -18,11 +18,11 @@
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^0.9.10",
+    "@popperjs/core": "^2.11.0",
+    "focus-trap-react": "8.9.0",
     "react": "^17.0.2",
     "react-day-picker": "workspace:^",
     "react-dom": "^17.0.2",
-    "@popperjs/core": "^2.11.0",
-    "focus-trap-react": "8.9.0",
     "react-popper": "^2.2.5"
   },
   "devDependencies": {

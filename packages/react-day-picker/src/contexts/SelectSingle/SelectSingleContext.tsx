@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 
 import { DayPickerProps } from 'types/DayPicker';
 import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
@@ -18,7 +18,7 @@ export interface SelectSingleContextValue {
  *
  * Access this context from the [[useSelectSingle]] hook.
  */
-export const SelectSingleContext = React.createContext<
+export const SelectSingleContext = createContext<
   SelectSingleContextValue | undefined
 >(undefined);
 

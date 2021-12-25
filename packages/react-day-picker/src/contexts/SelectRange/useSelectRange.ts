@@ -1,4 +1,4 @@
-import React from 'react';
+import { useContext } from 'react';
 
 import {
   SelectRangeContext,
@@ -7,7 +7,7 @@ import {
 
 /** Hook to access the [[SelectRangeContext]]. */
 export function useSelectRange(): SelectRangeContextValue {
-  const context = React.useContext(SelectRangeContext);
+  const context = useContext(SelectRangeContext);
   if (!context) {
     throw new Error('useSelectRange must be used within a SelectRangeProvider');
   }

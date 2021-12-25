@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, ReactNode, useState } from 'react';
 
 import {
   addDays,
@@ -52,7 +52,7 @@ export type FocusContextValue = {
  *
  * Access this context from the [[useFocus]] hook.
  */
-export const FocusContext = React.createContext<FocusContextValue | undefined>(
+export const FocusContext = createContext<FocusContextValue | undefined>(
   undefined
 );
 
@@ -60,9 +60,9 @@ export const FocusContext = React.createContext<FocusContextValue | undefined>(
 export function FocusProvider({
   children
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }): JSX.Element {
-  const [focusedDay, setDay] = React.useState<Date | undefined>();
+  const [focusedDay, setDay] = useState<Date | undefined>();
   const { goToMonth, displayMonths } = useNavigation();
   const { numberOfMonths } = useDayPicker();
 
@@ -73,9 +73,7 @@ export function FocusProvider({
     modifiersContext
   );
 
-  const [lastFocusedDay, setLastFocusedDay] = React.useState<
-    Date | undefined
-  >();
+  const [lastFocusedDay, setLastFocusedDay] = useState<Date | undefined>();
 
   const isWithinDisplayMonths = (date: Date) =>
     displayMonths.some((displayMonth) => isSameMonth(date, displayMonth));
