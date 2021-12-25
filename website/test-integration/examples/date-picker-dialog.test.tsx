@@ -13,59 +13,55 @@ const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
 
 beforeEach(() => {
-  render(<Example today={today} />);
+  render(<Example />);
 });
 
 const getDialogButton = () => {
-  return screen.getByRole('button', { name: /^Choose date/ });
+  return screen.getByRole('button', { name: 'Pick a date' });
 };
 
 const getInput = () => {
   return screen.getByRole('textbox');
 };
 
-const openDialog = () => {
-  userEvent.click(getDialogButton());
-};
-
-describe('when the user clicks the button to open the dialog', () => {
+describe('when clicking the dialog button', () => {
   beforeEach(() => {
-    openDialog();
+    userEvent.click(getDialogButton());
   });
-  test('the dialog should be open', () => {
+  test('the dialog should be visible', () => {
     expect(screen.getByRole('dialog')).toBeVisible();
   });
-  test('the current day button should be focused', () => {
+  test('the today button should have focus', () => {
     expect(getDayButton(today)).toHaveFocus();
   });
-  describe('when clicking the current day', () => {
+  describe('when clicking a day', () => {
+    const date = today;
     beforeEach(() => {
-      clickDay(today);
+      clickDay(date);
     });
     test('the dialog should be closed', () => {
       expect(screen.queryByRole('dialog')).toBeNull();
     });
-    test('the selected date should be written to the input', () => {
-      expect(getInput()).toHaveValue(format(today, 'P'));
+    test('the input should have the selected date as value', () => {
+      expect(getInput()).toHaveValue(format(today, 'y-MM-dd'));
     });
     describe('when typing a new date into the input', () => {
       const newDate = tomorrow;
       beforeEach(() => {
-        const input = getInput();
-        userEvent.clear(input);
-        userEvent.type(input, format(newDate, 'P'));
+        userEvent.clear(getInput());
+        userEvent.type(getInput(), format(newDate, 'y-MM-dd'));
       });
-      describe('and then opening the dialog', () => {
+      test('the input should have the new date', () => {
+        expect(getInput()).toHaveValue(format(newDate, 'y-MM-dd'));
+      });
+      describe('when clicking the dialog button', () => {
         beforeEach(() => {
-          openDialog();
-        });
-        test('the input should have the new date', () => {
-          expect(getInput()).toHaveValue(format(newDate, 'P'));
+          userEvent.click(getDialogButton());
         });
         test('the new date should be selected', () => {
-          expect(getDayButton(newDate)).toHaveClass('rdp-day_selected');
+          expect(getDayButton(newDate)).toHaveAttribute('aria-pressed', 'true');
         });
-        test('the new date should be focused', () => {
+        test('the new date button should have focus', () => {
           expect(getDayButton(newDate)).toHaveFocus();
         });
       });
