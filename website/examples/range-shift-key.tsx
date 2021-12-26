@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useState } from 'react';
+import React, { MouseEventHandler, useRef, useState } from 'react';
 import {
   Button,
   DateRange,
@@ -10,7 +10,7 @@ import {
 import { isSameDay } from 'date-fns';
 
 function DayWithShiftKey(props: DayProps) {
-  const buttonRef = React.useRef<HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const day = useDay(props.date, props.displayMonth, buttonRef);
 
@@ -21,21 +21,13 @@ function DayWithShiftKey(props: DayProps) {
     return <div {...day.nonInteractiveProps} />;
   }
 
-  const handleClick: MouseEventHandler<HTMLButtonElement> = (
-    e
-  ) => {
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     if (!day.selected || day.modifiers.selected || e.shiftKey) {
       day.buttonProps?.onClick?.(e);
     }
   };
 
-  return (
-    <Button
-      {...day.buttonProps}
-      ref={buttonRef}
-      onClick={handleClick}
-    />
-  );
+  return <Button {...day.buttonProps} ref={buttonRef} onClick={handleClick} />;
 }
 
 export default function App() {

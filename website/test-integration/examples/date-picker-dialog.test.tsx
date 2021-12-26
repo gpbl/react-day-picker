@@ -1,6 +1,7 @@
 import React from 'react';
 import { clickDay, getDayButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+import { act } from 'react-dom/test-utils';
 
 import Example from '@examples/date-picker-dialog';
 
@@ -26,7 +27,7 @@ const getInput = () => {
 
 describe('when clicking the dialog button', () => {
   beforeEach(() => {
-    userEvent.click(getDialogButton());
+    act(() => userEvent.click(getDialogButton()));
   });
   test('the dialog should be visible', () => {
     expect(screen.getByRole('dialog')).toBeVisible();
@@ -37,7 +38,7 @@ describe('when clicking the dialog button', () => {
   describe('when clicking a day', () => {
     const date = today;
     beforeEach(() => {
-      clickDay(date);
+      act(() => clickDay(date));
     });
     test('the dialog should be closed', () => {
       expect(screen.queryByRole('dialog')).toBeNull();

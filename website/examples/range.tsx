@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DateRange, DayPicker } from 'react-day-picker';
 
 import { addDays, format, isSameDay } from 'date-fns';
@@ -10,22 +10,13 @@ export default function App() {
     from: pastMonth,
     to: addDays(pastMonth, 4)
   };
-  const [range, setRange] = React.useState<
-    DateRange | undefined
-  >(defaultSelected);
+  const [range, setRange] = useState<DateRange | undefined>(defaultSelected);
 
   let footer = 'Please pick the first day.';
-  if (
-    range &&
-    range.from &&
-    (!range.to || isSameDay(range.from, range.to))
-  ) {
+  if (range && range.from && (!range.to || isSameDay(range.from, range.to))) {
     footer = format(range.from, 'PPP');
   } else if (range && range.from && range.to) {
-    footer = `${format(range.from, 'PPP')}–${format(
-      range.to,
-      'PPP'
-    )}`;
+    footer = `${format(range.from, 'PPP')}–${format(range.to, 'PPP')}`;
   }
 
   return (

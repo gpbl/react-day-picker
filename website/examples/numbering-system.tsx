@@ -5,7 +5,8 @@ import {
   WeekNumberFormatter
 } from 'react-day-picker';
 
-import arabic, { format } from 'date-fns';
+import { format } from 'date-fns';
+import arSA from 'date-fns/locale/ar-SA';
 
 const NU_LOCALE = 'ar-u-nu-arab';
 
@@ -25,7 +26,7 @@ const formatCaption: DateFormatter = (date, options) => {
 export default function App() {
   return (
     <DayPicker
-      locale={arabic}
+      locale={arSA}
       dir="rtl"
       showWeekNumber
       formatters={{ formatDay, formatCaption, formatWeekNumber }}

@@ -19,14 +19,11 @@ const config = {
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx']
-    },
-    'import/resolver': {
-      typescript: {
-        alwaysTryTypes: true
-      }
     }
   },
   rules: {
+    'import/no-unresolved': 'off',
+    'prettier/prettier': 'warn',
     'no-console': 'warn'
   },
   overrides: [

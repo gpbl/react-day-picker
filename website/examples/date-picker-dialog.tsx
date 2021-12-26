@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from 'react';
+import React, { ChangeEventHandler, useRef, useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import { usePopper } from 'react-popper';
 
@@ -6,14 +6,15 @@ import { format, isValid, parse } from 'date-fns';
 import FocusTrap from 'focus-trap-react';
 
 export default function Example() {
-  const [selected, setSelected] = React.useState<Date>();
-  const [inputValue, setInputValue] = React.useState<string>('');
-  const [isPopperOpen, setIsPopperOpen] = React.useState(false);
+  const [selected, setSelected] = useState<Date>();
+  const [inputValue, setInputValue] = useState<string>('');
+  const [isPopperOpen, setIsPopperOpen] = useState(false);
 
-  const popperRef = React.useRef<HTMLDivElement>(null);
-  const buttonRef = React.useRef<HTMLButtonElement>(null);
-  const [popperElement, setPopperElement] =
-    React.useState<HTMLDivElement | null>(null);
+  const popperRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  );
 
   const popper = usePopper(popperRef.current, popperElement, {
     placement: 'bottom-start'
@@ -24,9 +25,7 @@ export default function Example() {
     buttonRef?.current?.focus();
   };
 
-  const handleInputChange: ChangeEventHandler<
-    HTMLInputElement
-  > = (e) => {
+  const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const { value } = e.currentTarget;
     setInputValue(value);
     const date = parse(value, 'y-MM-dd', new Date());
