@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 
 export default function App() {
-  const [weekNumber, setWeekNumber] = React.useState<number>();
+  const [weekNumber, setWeekNumber] = useState<number>();
 
   const footer = weekNumber
     ? `You clicked the week n. ${weekNumber}.`

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import enUS from 'date-fns/locale/en-US';
@@ -80,12 +80,12 @@ export function useInput(options: UseInputOptions = {}): UseInput {
   const parseValue = (value: string) => parse(value, format, today, { locale });
 
   // Initialize states
-  const [month, setMonth] = React.useState(defaultSelected ?? today);
-  const [selectedDay, setSelectedDay] = React.useState(defaultSelected);
+  const [month, setMonth] = useState(defaultSelected ?? today);
+  const [selectedDay, setSelectedDay] = useState(defaultSelected);
   const defaultInputValue = defaultSelected
     ? _format(defaultSelected, format, { locale })
     : '';
-  const [inputValue, setInputValue] = React.useState(defaultInputValue);
+  const [inputValue, setInputValue] = useState(defaultInputValue);
 
   const reset = () => {
     setSelectedDay(defaultSelected);

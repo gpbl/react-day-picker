@@ -11,6 +11,7 @@ let root: HTMLDivElement;
 
 const displayMonth = new Date(2022, 10, 4);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const testStyles: Record<string, any> = {
   caption_start: { color: 'red' },
   caption_end: { background: 'blue' },

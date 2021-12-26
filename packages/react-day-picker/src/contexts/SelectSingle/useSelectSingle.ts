@@ -1,4 +1,4 @@
-import React from 'react';
+import { useContext } from 'react';
 
 import {
   SelectSingleContext,
@@ -7,7 +7,7 @@ import {
 
 /** Hook to access the [[SelectSingleContext]]. */
 export function useSelectSingle(): SelectSingleContextValue {
-  const context = React.useContext(SelectSingleContext);
+  const context = useContext(SelectSingleContext);
   if (!context) {
     throw new Error(
       'useSelectSingle must be used within a SelectSingleProvider'

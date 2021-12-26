@@ -32,10 +32,6 @@ const formatCaption: DateFormatter = (month, options) => {
 
 export default function App() {
   return (
-    <DayPicker
-      fromYear={2020}
-      toYear={2025}
-      formatters={{ formatCaption }}
-    />
+    <DayPicker fromYear={2020} toYear={2025} formatters={{ formatCaption }} />
   );
 }

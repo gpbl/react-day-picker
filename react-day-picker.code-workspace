@@ -14,10 +14,10 @@
     }
   ],
   "settings": {
-    "files.exclude": {
-      "packages/": true,
-      "website/": true
-    },
+    // "files.exclude": {
+    //   "packages/": true,
+    //   "website/": true
+    // },
     "jest.disabledWorkspaceFolders": ["root"],
     "jest.autoRun": {
       "watch": false,

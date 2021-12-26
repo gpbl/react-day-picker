@@ -8,10 +8,5 @@ export default function App() {
     new Date(2022, 5, 11)
   ];
 
-  return (
-    <DayPicker
-      defaultMonth={hiddenDays[0]}
-      hidden={hiddenDays}
-    />
-  );
+  return <DayPicker defaultMonth={hiddenDays[0]} hidden={hiddenDays} />;
 }

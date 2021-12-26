@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, ReactNode } from 'react';
 
 import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
 
@@ -35,13 +35,13 @@ export interface SelectRangeContextValue {
  *
  * Access this context from the [[useSelectRange]] hook.
  */
-export const SelectRangeContext = React.createContext<
+export const SelectRangeContext = createContext<
   SelectRangeContextValue | undefined
 >(undefined);
 
 type SelectRangeProviderProps = {
   initialProps: DayPickerProps;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 /** Provides the values for the [[SelectRangeProvider]]. */
@@ -74,7 +74,7 @@ export function SelectRangeProvider(
 
 type SelectRangeProviderInternalProps = {
   initialProps: DayPickerRangeProps;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export function SelectRangeProviderInternal({

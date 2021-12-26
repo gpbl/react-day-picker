@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Month } from 'components/Month';
 import { useDayPicker } from 'contexts/DayPicker';
@@ -22,7 +22,7 @@ export function Root(): JSX.Element {
   } = useDayPicker();
 
   const { focusTarget, focus } = useFocus();
-  const [hasInitialFocus, setHasInitialFocus] = React.useState(false);
+  const [hasInitialFocus, setHasInitialFocus] = useState(false);
   const { displayMonths } = useNavigation();
 
   const rootClassNames = [className ?? classNames.root];
@@ -33,7 +33,7 @@ export function Root(): JSX.Element {
     rootClassNames.push(classNames.with_weeknumber);
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (initialFocus && !hasInitialFocus && focusTarget) {
       focus(focusTarget);
       setHasInitialFocus(true);

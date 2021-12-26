@@ -12,9 +12,18 @@ const config = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'prettier',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript'
   ],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    }
+  },
   rules: {
+    'import/no-unresolved': 'off',
+    'prettier/prettier': 'warn',
     'no-console': 'warn'
   },
   overrides: [
