@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef } from 'react';
 
 import { addMonths } from 'date-fns';
 import tk from 'timekeeper';
@@ -17,7 +17,7 @@ function setup(
   contextValue: DayPickerProps
 ): UseDay {
   const { result } = customRenderHook(() => {
-    const buttonRef = React.useRef<HTMLButtonElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
     return useDay(date, displayMonth, buttonRef);
   }, contextValue);
   return result.current;

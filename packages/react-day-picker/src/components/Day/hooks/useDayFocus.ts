@@ -1,4 +1,4 @@
-import React from 'react';
+import { KeyboardEventHandler, RefObject, useEffect } from 'react';
 
 import { isSameDay } from 'date-fns';
 
@@ -8,11 +8,11 @@ import { useFocus } from 'contexts/Focus';
 /** Handle the focus for the day element. */
 export function useDayFocus(
   date: Date,
-  buttonRef: React.RefObject<HTMLButtonElement>
+  buttonRef: RefObject<HTMLButtonElement>
 ): {
   focus: (date: Date) => void;
   blur: () => void;
-  focusOnKeyDown: React.KeyboardEventHandler;
+  focusOnKeyDown: KeyboardEventHandler;
   isFocusTarget: boolean;
 } {
   const {
@@ -34,14 +34,14 @@ export function useDayFocus(
   const { dir } = useDayPicker();
 
   // Focus the HTML element if this is the focused day.
-  React.useEffect(() => {
+  useEffect(() => {
     if (!focusedDay) return;
     if (isSameDay(focusedDay, date)) {
       buttonRef.current?.focus();
     }
   }, [focusedDay, date, buttonRef]);
 
-  const focusOnKeyDown: React.KeyboardEventHandler = (e) => {
+  const focusOnKeyDown: KeyboardEventHandler = (e) => {
     switch (e.key) {
       case 'ArrowLeft':
         e.preventDefault();

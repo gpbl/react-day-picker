@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, ReactNode } from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
 import { useSelectMultiple } from 'contexts/SelectMultiple';
@@ -9,12 +9,10 @@ import { getCustomModifiers } from './utils/getCustomModifiers';
 import { getInternalModifiers } from './utils/getInternalModifiers';
 
 /** The Modifiers context store the modifiers used in DayPicker. To access the value of this context, use [[useModifiers]]. */
-export const ModifiersContext = React.createContext<Modifiers | undefined>(
-  undefined
-);
+export const ModifiersContext = createContext<Modifiers | undefined>(undefined);
 
 export type ModifiersProviderProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 /** Provide the value for the [[ModifiersContext]]. */

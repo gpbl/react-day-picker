@@ -1,4 +1,4 @@
-import { enUS } from 'date-fns/locale';
+import enUS from 'date-fns/locale/en-US';
 
 import { Caption, CaptionLayout } from 'components/Caption';
 import { CaptionLabel } from 'components/CaptionLabel';

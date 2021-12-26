@@ -3,9 +3,7 @@ import { DayPicker } from 'react-day-picker';
 
 export default function App() {
   const initialDays: Date[] = [];
-  const [days, setDays] = React.useState<Date[] | undefined>(
-    initialDays
-  );
+  const [days, setDays] = React.useState<Date[] | undefined>(initialDays);
 
   const footer =
     days && days.length > 0

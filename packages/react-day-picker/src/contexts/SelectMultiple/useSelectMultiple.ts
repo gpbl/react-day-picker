@@ -1,4 +1,4 @@
-import React from 'react';
+import { useContext } from 'react';
 
 import {
   SelectMultipleContext,
@@ -7,7 +7,7 @@ import {
 
 /** Hook to access the [[SelectMultipleContext]]. */
 export function useSelectMultiple(): SelectMultipleContextValue {
-  const context = React.useContext(SelectMultipleContext);
+  const context = useContext(SelectMultipleContext);
   if (!context) {
     throw new Error(
       'useSelectMultiple must be used within a SelectMultipleProvider'

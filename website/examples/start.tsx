@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 
 import { format } from 'date-fns';
 
 export default function Example() {
-  const [selected, setSelected] = React.useState<Date>();
+  const [selected, setSelected] = useState<Date>();
 
   let footer = 'Please pick a day.';
   if (selected) {

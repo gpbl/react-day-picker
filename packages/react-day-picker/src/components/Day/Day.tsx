@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { Button } from '../Button';
 import { useDay } from './hooks/useDay';
@@ -16,7 +16,7 @@ export interface DayProps {
  * modifiers.
  */
 export function Day(props: DayProps): JSX.Element {
-  const buttonRef = React.useRef<HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const day = useDay(props.date, props.displayMonth, buttonRef);
   const { buttonProps, nonInteractiveProps } = day;

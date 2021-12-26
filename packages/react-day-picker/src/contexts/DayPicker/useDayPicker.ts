@@ -1,4 +1,4 @@
-import React from 'react';
+import { useContext } from 'react';
 
 import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
 
@@ -9,7 +9,7 @@ import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
  * [[DayPickerProvider]].
  * */
 export function useDayPicker(): DayPickerContextValue {
-  const context = React.useContext(DayPickerContext);
+  const context = useContext(DayPickerContext);
   if (!context) {
     throw new Error(
       `Context is not defined. useDayPicker must be used within a DayPickerProvider with a valid values.`
