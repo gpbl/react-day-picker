@@ -2,17 +2,11 @@ import { Locale } from 'date-fns';
 
 import { CaptionLayout, CaptionProps } from 'components/Caption';
 import { CaptionLabelProps } from 'components/CaptionLabel';
+import { DayProps } from 'components/Day';
 import { DayContentProps } from 'components/DayContent';
 import { DropdownProps } from 'components/Dropdown';
 import { RowProps } from 'components/Row';
 import { WeekNumberProps } from 'components/WeekNumber';
-import { DayProps } from 'components/Day';
-
-import { DayModifiers, ModifierClassNames, ModifierStyles } from './Modifiers';
-import { ClassNames, StyledComponent, Styles } from './Styles';
-import { Matcher } from './Matchers';
-import { Labels } from './Labels';
-import { Formatters } from './Formatters';
 
 import {
   DayClickEventHandler,
@@ -23,6 +17,11 @@ import {
   MonthChangeEventHandler,
   WeekNumberClickEventHandler
 } from './EventHandlers';
+import { Formatters } from './Formatters';
+import { Labels } from './Labels';
+import { Matcher } from './Matchers';
+import { DayModifiers, ModifierClassNames, ModifierStyles } from './Modifiers';
+import { ClassNames, StyledComponent, Styles } from './Styles';
 
 /**
  * The props for the [[DayPicker]] component.

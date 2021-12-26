@@ -13,6 +13,7 @@ import {
   DayClickEventHandler,
   MonthChangeEventHandler
 } from 'types/EventHandlers';
+
 import { isValidDate } from './utils/isValidDate';
 
 /** The props to attach to the input field when using [[useInput]]. */

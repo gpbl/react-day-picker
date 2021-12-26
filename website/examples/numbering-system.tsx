@@ -5,8 +5,7 @@ import {
   WeekNumberFormatter
 } from 'react-day-picker';
 
-import { format } from 'date-fns';
-import arabic from 'date-fns/locale/ar-SA';
+import arabic, { format } from 'date-fns';
 
 const NU_LOCALE = 'ar-u-nu-arab';
 

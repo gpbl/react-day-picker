@@ -37,6 +37,7 @@
     "@reach/auto-id": "^0.16.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.11.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
@@ -48,12 +49,12 @@
     "date-fns": "^2.22.1",
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-config-rdp": "workspace:^",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jest": "^25.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
     "jest": "^27.4.3",
     "prettier": "^2.5.0",
     "react": "^17.0.2",

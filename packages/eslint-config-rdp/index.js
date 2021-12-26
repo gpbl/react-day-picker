@@ -6,7 +6,7 @@ const config = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['@typescript-eslint', 'simple-import-sort'],
+  plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -27,9 +27,7 @@ const config = {
     }
   },
   rules: {
-    'no-console': 'warn',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error'
+    'no-console': 'warn'
   },
   overrides: [
     {

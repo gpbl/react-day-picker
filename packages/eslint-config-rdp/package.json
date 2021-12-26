@@ -1,0 +1,19 @@
+{
+  "name": "eslint-config-rdp",
+  "packageManager": "yarn@3.1.0",
+  "version": "1.0.0",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^25.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1"
+  },
+  "peerDependencies": {
+    "eslint": "^8.3.0"
+  }
+}

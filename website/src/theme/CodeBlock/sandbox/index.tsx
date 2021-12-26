@@ -1,12 +1,11 @@
 import React, { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
 import 'react-day-picker/style.css';
-
-import './styles.css';
+import { render } from 'react-dom';
 
 import App from './App';
+import './styles.css';
 
-ReactDOM.render(
+render(
   <StrictMode>
     <App />
   </StrictMode>,
