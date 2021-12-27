@@ -12,7 +12,7 @@ import {
 
 import { useDayPicker } from '../DayPicker';
 import { useModifiers } from '../Modifiers';
-import { useNavigation } from '../Navigation/useNavigation';
+import { useNavigation } from '../Navigation';
 import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
 
 /** Represents the value of the [[NavigationContext]]. */
@@ -57,13 +57,8 @@ export const FocusContext = createContext<FocusContextValue | undefined>(
 );
 
 /** The provider for the [[FocusContext]]. */
-export function FocusProvider({
-  children
-}: {
-  children: ReactNode;
-}): JSX.Element {
-  const { goToMonth, displayMonths } = useNavigation();
-  const { numberOfMonths } = useDayPicker();
+export function FocusProvider(props: { children: ReactNode }): JSX.Element {
+  const navigation = useNavigation();
   const modifiers = useModifiers();
 
   const [focusedDay, setDay] = useState<Date | undefined>();
@@ -182,6 +177,8 @@ export function FocusProvider({
   };
 
   return (
-    <FocusContext.Provider value={value}>{children}</FocusContext.Provider>
+    <FocusContext.Provider value={value}>
+      {props.children}
+    </FocusContext.Provider>
   );
 }
