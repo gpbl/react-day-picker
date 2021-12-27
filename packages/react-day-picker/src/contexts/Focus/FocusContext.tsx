@@ -13,7 +13,7 @@ import {
 import { useDayPicker } from '../DayPicker';
 import { useModifiers } from '../Modifiers';
 import { useNavigation } from '../Navigation/useNavigation';
-import { getInitialFocusTarget } from './getInitialFocusTarget';
+import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
 
 /** Represents the value of the [[NavigationContext]]. */
 export type FocusContextValue = {
@@ -62,18 +62,14 @@ export function FocusProvider({
 }: {
   children: ReactNode;
 }): JSX.Element {
-  const [focusedDay, setDay] = useState<Date | undefined>();
   const { goToMonth, displayMonths } = useNavigation();
   const { numberOfMonths } = useDayPicker();
+  const modifiers = useModifiers();
 
-  const modifiersContext = useModifiers();
-
-  const initialFocusTarget = getInitialFocusTarget(
-    displayMonths,
-    modifiersContext
-  );
-
+  const [focusedDay, setDay] = useState<Date | undefined>();
   const [lastFocusedDay, setLastFocusedDay] = useState<Date | undefined>();
+
+  const initialFocusTarget = getInitialFocusTarget(displayMonths, modifiers);
 
   const isWithinDisplayMonths = (date: Date) =>
     displayMonths.some((displayMonth) => isSameMonth(date, displayMonth));
