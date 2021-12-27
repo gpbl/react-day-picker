@@ -2,7 +2,7 @@ import { useDayPicker } from 'contexts/DayPicker';
 import { useModifiers } from 'contexts/Modifiers';
 import { ModifierStatus } from 'types/Modifiers';
 
-import { getModifierStatus } from './utils/getModifierStatus';
+import { getModifiersStatus } from './utils/getModifiersStatus';
 
 export type DayModifiers = {
   /** The status of the modifiers */
@@ -20,7 +20,7 @@ export function useDayModifiers(date: Date): DayModifiers {
   const modifiersContext = useModifiers();
 
   // TODO: Is there a better name for the type ModifierStatus?
-  const modifiers = getModifierStatus(date, modifiersContext);
+  const modifiers = getModifiersStatus(date, modifiersContext);
 
   const modifierClassNames: string[] = [];
 

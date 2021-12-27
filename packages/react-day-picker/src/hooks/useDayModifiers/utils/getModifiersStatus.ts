@@ -5,7 +5,7 @@ import { isMatch } from './isMatch';
 /**
  * Return the status of the modifiers that matches the given date.
  */
-export function getModifierStatus(
+export function getModifiersStatus(
   date: Date,
   /** The modifiers to match for the given date. */
   modifiers: Modifiers
