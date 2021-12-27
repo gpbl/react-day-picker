@@ -1,6 +1,6 @@
 import { addDays, endOfMonth, startOfMonth } from 'date-fns';
 
-import { getModifierStatus } from 'hooks/useDayModifiers/utils/getModifierStatus';
+import { getModifiersStatus } from 'hooks/useDayModifiers/utils/getModifiersStatus';
 import { Modifiers, ModifierStatus } from 'types/Modifiers';
 
 const isFocusable = (modifiers: ModifierStatus) =>
@@ -9,7 +9,7 @@ const isFocusable = (modifiers: ModifierStatus) =>
 /** Returns the day that should be the target of the focus when DayPicker is rendered the first time. */
 export function getInitialFocusTarget(
   displayMonths: Date[],
-  modifiersContext: Modifiers
+  modifiers: Modifiers
 ) {
   const firstDayInMonth = startOfMonth(displayMonths[0]);
   const lastDayInMonth = endOfMonth(displayMonths[displayMonths.length - 1]);
@@ -20,15 +20,15 @@ export function getInitialFocusTarget(
   let date = firstDayInMonth;
 
   while (date <= lastDayInMonth) {
-    const modifiers = getModifierStatus(date, modifiersContext);
-    if (!isFocusable(modifiers)) {
+    const modifiersStatus = getModifiersStatus(date, modifiers);
+    if (!isFocusable(modifiersStatus)) {
       date = addDays(date, 1);
       continue;
     }
-    if (modifiers.selected) {
+    if (modifiersStatus.selected) {
       return date;
     }
-    if (modifiers.today && !today) {
+    if (modifiersStatus.today && !today) {
       today = date;
     }
     if (!firstFocusableDay) {
