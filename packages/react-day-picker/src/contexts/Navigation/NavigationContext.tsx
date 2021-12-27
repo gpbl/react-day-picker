@@ -10,7 +10,7 @@ import { getPreviousMonth } from './utils/getPreviousMonth';
 export interface NavigationContextValue {
   /** The current month. Note that when `numberOfMonths > 1` represent the first month in the displayed months. */
   month: Date;
-  /** The months to display, according to `numberOfMonths`. */
+  /** The months rendered by DayPicker. DayPicker can render one than one month via `numberOfMonths`. */
   displayMonths: Date[];
   /** Navigate to the specified month. */
   goToMonth: (month: Date) => void;
