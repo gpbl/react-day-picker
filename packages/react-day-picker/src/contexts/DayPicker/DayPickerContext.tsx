@@ -70,7 +70,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
 
   // If calendar navigation is unlimited, it must be
   // always `buttons` – as we cannot display yet infinite options in the dropdown.
-  if (!fromDate && !toDate) {
+  if (captionLayout !== 'buttons' && !fromDate && !toDate) {
     captionLayout = 'buttons';
   }
 
