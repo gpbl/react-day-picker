@@ -15,13 +15,13 @@ import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
 
 /** Represents the value of the [[NavigationContext]]. */
 export type FocusContextValue = {
-  /** The day currently focused */
+  /** The day currently focused. */
   focusedDay: Date | undefined;
-  /** Day that will be focused  */
+  /** Day that will be focused.  */
   focusTarget: Date | undefined;
-  /** Focus the specified day. */
+  /** Focus a day. */
   focus: (day: Date) => void;
-  /** Blur the focused day */
+  /** Blur the focused day. */
   blur: () => void;
   /** Focus the day after the focused day. */
   focusDayAfter: () => void;
@@ -31,17 +31,17 @@ export type FocusContextValue = {
   focusWeekBefore: () => void;
   /** Focus the day in the week after the focused day. */
   focusWeekAfter: () => void;
-  /* Focus the day in the previous month. */
+  /* Focus the day in the month before the focused day. */
   focusMonthBefore: () => void;
-  /* Focus the day in the next month. */
+  /* Focus the day in the month after the focused day. */
   focusMonthAfter: () => void;
-  /* Focus the day in the previous year. */
+  /* Focus the day in the year before the focused day. */
   focusYearBefore: () => void;
-  /* Focus the day in the next year. */
+  /* Focus the day in the year after the focused day. */
   focusYearAfter: () => void;
-  /* Focus the day at the start of the week. */
+  /* Focus the day at the start of the week of the focused day. */
   focusStartOfWeek: () => void;
-  /* Focus the day at the end of the week. */
+  /* Focus the day at the end of the week of focused day. */
   focusEndOfWeek: () => void;
 };
 
