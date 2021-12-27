@@ -29,15 +29,15 @@ export type InternalModifiers = Record<InternalModifier, Matcher[]>;
 export type Modifier = string;
 
 /** The status of a modifiers when matched a day. */
-export type ModifierStatus = Record<Modifier, true> &
+export type ModifiersStatus = Record<Modifier, true> &
   Partial<Record<InternalModifier, true>>;
 
 /** The inline-style to apply to the day matching `modifier`. */
-export type ModifierStyles = Record<Modifier, React.CSSProperties> &
+export type ModifiersStyles = Record<Modifier, React.CSSProperties> &
   Partial<Record<InternalModifier, React.CSSProperties>>;
 
 /** The classnames to assign to each modifier. */
-export type ModifierClassNames = Record<Modifier, string> &
+export type ModifiersClassNames = Record<Modifier, string> &
   Partial<Record<InternalModifier, string>>;
 
 /** The custom modifiers passed to the [[DayPickerProps.modifiers]]. */

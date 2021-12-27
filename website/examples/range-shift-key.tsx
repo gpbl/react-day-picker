@@ -22,7 +22,7 @@ function DayWithShiftKey(props: DayProps) {
   }
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    if (!day.selected || day.modifiers.selected || e.shiftKey) {
+    if (!day.selected || day.modifiersStatus.selected || e.shiftKey) {
       day.buttonProps?.onClick?.(e);
     }
   };

@@ -59,7 +59,8 @@
         "orderLevel": 8
       }
     ],
-    "typescript.preferences.importModuleSpecifier": "non-relative"
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "cSpell.words": ["vhidden"]
   },
   "extensions": {
     "recommendations": [

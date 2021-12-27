@@ -26,7 +26,7 @@ export function getDefaultContextValues(): DayPickerContextValue {
   const captionLayout: CaptionLayout = 'buttons';
   const classNames = defaultClassNames;
   const locale = enUS;
-  const modifierClassNames = {};
+  const modifiersClassNames = {};
   const modifierPrefix = 'rdp-day_';
   const modifiers = {};
   const numberOfMonths = 1;
@@ -55,7 +55,7 @@ export function getDefaultContextValues(): DayPickerContextValue {
     formatters,
     labels,
     locale,
-    modifierClassNames,
+    modifiersClassNames,
     modifierPrefix,
     modifiers,
     numberOfMonths,

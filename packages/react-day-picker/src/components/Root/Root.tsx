@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Month } from 'components/Month';
 import { useDayPicker } from 'contexts/DayPicker';
-import { useFocus } from 'contexts/Focus';
+import { useFocusContext } from 'contexts/Focus';
 import { useNavigation } from 'contexts/Navigation';
 
 /**
@@ -21,7 +21,7 @@ export function Root(): JSX.Element {
     initialFocus
   } = useDayPicker();
 
-  const { focusTarget, focus } = useFocus();
+  const { focusTarget, focus } = useFocusContext();
   const [hasInitialFocus, setHasInitialFocus] = useState(false);
   const { displayMonths } = useNavigation();
 

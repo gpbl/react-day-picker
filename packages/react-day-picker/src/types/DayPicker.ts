@@ -20,7 +20,11 @@ import {
 import { Formatters } from './Formatters';
 import { Labels } from './Labels';
 import { Matcher } from './Matchers';
-import { DayModifiers, ModifierClassNames, ModifierStyles } from './Modifiers';
+import {
+  DayModifiers,
+  ModifiersClassNames,
+  ModifiersStyles
+} from './Modifiers';
 import { ClassNames, StyledComponent, Styles } from './Styles';
 
 /**
@@ -40,7 +44,7 @@ export interface DayPickerProps {
   /**
    * Change the class name for the day matching the [[modifiers]].
    */
-  modifierClassNames?: ModifierClassNames;
+  modifiersClassNames?: ModifiersClassNames;
   // #endregion
 
   // #region styles
@@ -55,7 +59,7 @@ export interface DayPickerProps {
   /**
    * Change the inline style for the day matching the [[modifiers]].
    */
-  modifierStyles?: ModifierStyles;
+  modifiersStyles?: ModifiersStyles;
   // #endregion
 
   // #region month navigation
