@@ -84,38 +84,38 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     if (!focusedDay) return;
     const before = addDays(focusedDay, -1);
     focus(before);
-    navigation.goToDate(before, -1);
+    navigation.goToDate(before, focusedDay);
   };
   const focusDayAfter = () => {
     if (!focusedDay) return;
     const after = addDays(focusedDay, 1);
     focus(after);
-    navigation.goToDate(after, 1);
+    navigation.goToDate(after, focusedDay);
   };
   const focusWeekBefore = () => {
     if (!focusedDay) return;
     const up = addWeeks(focusedDay, -1);
     focus(up);
-    navigation.goToDate(up, -1);
+    navigation.goToDate(up, focusedDay);
   };
   const focusWeekAfter = () => {
     if (!focusedDay) return;
     const down = addWeeks(focusedDay, 1);
     focus(down);
-    navigation.goToDate(down, 1);
+    navigation.goToDate(down, focusedDay);
   };
 
   const focusStartOfWeek = (): void => {
     if (!focusedDay) return;
     const dayToFocus = startOfWeek(focusedDay);
-    navigation.goToDate(dayToFocus, 1);
+    navigation.goToDate(dayToFocus, focusedDay);
     focus(dayToFocus);
   };
 
   const focusEndOfWeek = (): void => {
     if (!focusedDay) return;
     const dayToFocus = endOfWeek(focusedDay);
-    navigation.goToDate(dayToFocus, 1);
+    navigation.goToDate(dayToFocus, focusedDay);
     focus(dayToFocus);
   };
 
@@ -123,14 +123,14 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     if (!focusedDay) return;
 
     const monthBefore = addMonths(focusedDay, -1);
-    navigation.goToDate(monthBefore, -1);
+    navigation.goToDate(monthBefore, focusedDay);
     focus(monthBefore);
   };
 
   const focusMonthAfter = () => {
     if (!focusedDay) return;
     const monthAfter = addMonths(focusedDay, 1);
-    navigation.goToDate(monthAfter, 1);
+    navigation.goToDate(monthAfter, focusedDay);
     focus(monthAfter);
   };
 
@@ -138,7 +138,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     if (!focusedDay) return;
 
     const yearBefore = addYears(focusedDay, -1);
-    navigation.goToDate(yearBefore, -1);
+    navigation.goToDate(yearBefore, focusedDay);
     focus(yearBefore);
   };
 
@@ -146,7 +146,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     if (!focusedDay) return;
 
     const yearAfter = addYears(focusedDay, 1);
-    navigation.goToDate(yearAfter, 1);
+    navigation.goToDate(yearAfter, focusedDay);
     focus(yearAfter);
   };
 

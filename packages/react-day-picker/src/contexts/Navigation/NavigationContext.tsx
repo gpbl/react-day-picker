@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode } from 'react';
 
-import { addMonths, isSameMonth } from 'date-fns';
+import { addMonths, isBefore, isSameMonth } from 'date-fns';
 
 import { useDayPicker } from '../DayPicker';
 import { useNavigationState } from './useNavigationState';
@@ -17,7 +17,7 @@ export interface NavigationContextValue {
   /** Navigate to the specified month. */
   goToMonth: (month: Date) => void;
   /** Navigate to the specified date. */
-  goToDate: (date: Date, dir: 1 | -1) => void;
+  goToDate: (date: Date, refDate?: Date) => void;
   /** The next month to display. `undefined` if no months left */
   nextMonth?: Date;
   /** The previous month to display. `undefined` if no months left */
@@ -52,12 +52,13 @@ export function NavigationProvider(props: {
     );
   };
 
-  const goToDate = (date: Date, dir: 1 | -1 = -1) => {
+  const goToDate = (date: Date, refDate?: Date) => {
     if (isDateDisplayed(date)) {
       return;
     }
-    if (dir < 0) {
-      goToMonth(addMonths(date, 1 + dayPicker.numberOfMonths * dir));
+
+    if (refDate && isBefore(date, refDate)) {
+      goToMonth(addMonths(date, 1 + dayPicker.numberOfMonths * -1));
     } else {
       goToMonth(date);
     }
