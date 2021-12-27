@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "yarn prestart && TYPEDOC_WATCH=true docusaurus start",
-    "prestart": "yarn build-rdp",
+    "start": "yarn build-rdp && TYPEDOC_WATCH=true docusaurus start",
     "build": "docusaurus build",
     "build-rdp": "yarn workspace react-day-picker build",
     "serve": "docusaurus serve",
