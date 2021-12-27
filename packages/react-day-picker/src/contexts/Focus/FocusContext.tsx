@@ -6,7 +6,6 @@ import {
   addWeeks,
   addYears,
   endOfWeek,
-  isSameMonth,
   startOfWeek
 } from 'date-fns';
 
@@ -58,30 +57,32 @@ export const FocusContext = createContext<FocusContextValue | undefined>(
 
 /** The provider for the [[FocusContext]]. */
 export function FocusProvider(props: { children: ReactNode }): JSX.Element {
-  const navigation = useNavigation();
+  const { displayMonths, goToMonth, isDateDisplayed } = useNavigation();
+  const { numberOfMonths } = useDayPicker();
   const modifiers = useModifiers();
 
-  const [focusedDay, setDay] = useState<Date | undefined>();
-  const [lastFocusedDay, setLastFocusedDay] = useState<Date | undefined>();
+  const [focusedDay, setFocusedDay] = useState<Date | undefined>();
+  const [lastFocused, setLastFocused] = useState<Date | undefined>();
 
   const initialFocusTarget = getInitialFocusTarget(displayMonths, modifiers);
 
-  const isWithinDisplayMonths = (date: Date) =>
-    displayMonths.some((displayMonth) => isSameMonth(date, displayMonth));
-
   const focusTarget =
-    focusedDay ?? (lastFocusedDay && isWithinDisplayMonths(lastFocusedDay))
-      ? lastFocusedDay
+    focusedDay ?? (lastFocused && isDateDisplayed(lastFocused))
+      ? lastFocused
       : initialFocusTarget;
 
   const blur = () => {
-    setLastFocusedDay(focusedDay);
-    setDay(undefined);
+    setLastFocused(focusedDay);
+    setFocusedDay(undefined);
   };
-  const focus = (date: Date) => setDay(date);
+  const focus = (date: Date) => {
+    setFocusedDay(date);
+  };
 
   const switchMonth = (date: Date, offset: number) => {
-    if (displayMonths.some((m) => isSameMonth(date, m))) return;
+    if (isDateDisplayed(date)) {
+      return;
+    }
     if (offset < 0) {
       goToMonth(addMonths(date, 1 + offset));
     } else {
@@ -159,7 +160,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     focus(yearAfter);
   };
 
-  const value = {
+  const value: FocusContextValue = {
     focusedDay,
     focusTarget,
     blur,
