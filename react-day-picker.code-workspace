@@ -70,7 +70,8 @@
       "esbenp.prettier-vscode",
       "mike-co.import-sorter",
       "streetsidesoftware.code-spell-checker",
-      "stkb.rewrap"
+      "stkb.rewrap",
+      "paul-mannino.vscode-create-test-file"
     ]
   }
 }
