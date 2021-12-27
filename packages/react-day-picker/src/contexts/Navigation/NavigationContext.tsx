@@ -17,7 +17,7 @@ export interface NavigationContextValue {
   /** Navigate to the specified month. */
   goToMonth: (month: Date) => void;
   /** Navigate to the specified date. */
-  goToDate: (date: Date, dir?: number) => void;
+  goToDate: (date: Date, dir: 1 | -1) => void;
   /** The next month to display. `undefined` if no months left */
   nextMonth?: Date;
   /** The previous month to display. `undefined` if no months left */
@@ -52,8 +52,10 @@ export function NavigationProvider(props: {
     );
   };
 
-  const goToDate = (date: Date, dir = 1) => {
-    if (isDateDisplayed(date)) return;
+  const goToDate = (date: Date, dir: 1 | -1 = -1) => {
+    if (isDateDisplayed(date)) {
+      return;
+    }
     if (dir < 0) {
       goToMonth(addMonths(date, 1 + dayPicker.numberOfMonths * dir));
     } else {

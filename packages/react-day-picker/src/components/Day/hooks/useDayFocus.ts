@@ -20,8 +20,8 @@ export function useDayFocus(
     focusTarget,
     focusDayAfter,
     focusDayBefore,
-    focusWeekAfterDay,
-    focusWeekBeforeDay,
+    focusWeekAfter,
+    focusWeekBefore,
     blur,
     focus,
     focusMonthBefore,
@@ -56,12 +56,12 @@ export function useDayFocus(
       case 'ArrowDown':
         e.preventDefault();
         e.stopPropagation();
-        focusWeekAfterDay();
+        focusWeekAfter();
         break;
       case 'ArrowUp':
         e.preventDefault();
         e.stopPropagation();
-        focusWeekBeforeDay();
+        focusWeekBefore();
         break;
       case 'PageUp':
         e.preventDefault();

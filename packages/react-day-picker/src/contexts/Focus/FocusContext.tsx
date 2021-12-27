@@ -9,7 +9,6 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import { useDayPicker } from '../DayPicker';
 import { useModifiers } from '../Modifiers';
 import { useNavigation } from '../Navigation';
 import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
@@ -18,7 +17,7 @@ import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
 export type FocusContextValue = {
   /** The day currently focused */
   focusedDay: Date | undefined;
-  /** The day that is the target of focus in the day grid (tabIndex = 0) */
+  /** Day that will be focused  */
   focusTarget: Date | undefined;
   /** Focus the specified day. */
   focus: (day: Date) => void;
@@ -29,9 +28,9 @@ export type FocusContextValue = {
   /** Focus the day before the focused day. */
   focusDayBefore: () => void;
   /** Focus the day in the week before the focused day. */
-  focusWeekBeforeDay: () => void;
+  focusWeekBefore: () => void;
   /** Focus the day in the week after the focused day. */
-  focusWeekAfterDay: () => void;
+  focusWeekAfter: () => void;
   /* Focus the day in the previous month. */
   focusMonthBefore: () => void;
   /* Focus the day in the next month. */
@@ -47,7 +46,7 @@ export type FocusContextValue = {
 };
 
 /**
- * The Focus context shares details about the focused day for the keyboard navigation.
+ * The Focus context shares details about the focused day for the keyboard
  *
  * Access this context from the [[useFocus]] hook.
  */
@@ -57,17 +56,19 @@ export const FocusContext = createContext<FocusContextValue | undefined>(
 
 /** The provider for the [[FocusContext]]. */
 export function FocusProvider(props: { children: ReactNode }): JSX.Element {
-  const { displayMonths, goToMonth, isDateDisplayed } = useNavigation();
-  const { numberOfMonths } = useDayPicker();
+  const navigation = useNavigation();
   const modifiers = useModifiers();
 
   const [focusedDay, setFocusedDay] = useState<Date | undefined>();
   const [lastFocused, setLastFocused] = useState<Date | undefined>();
 
-  const initialFocusTarget = getInitialFocusTarget(displayMonths, modifiers);
+  const initialFocusTarget = getInitialFocusTarget(
+    navigation.displayMonths,
+    modifiers
+  );
 
   const focusTarget =
-    focusedDay ?? (lastFocused && isDateDisplayed(lastFocused))
+    focusedDay ?? (lastFocused && navigation.isDateDisplayed(lastFocused))
       ? lastFocused
       : initialFocusTarget;
 
@@ -79,53 +80,42 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     setFocusedDay(date);
   };
 
-  const switchMonth = (date: Date, offset: number) => {
-    if (isDateDisplayed(date)) {
-      return;
-    }
-    if (offset < 0) {
-      goToMonth(addMonths(date, 1 + offset));
-    } else {
-      goToMonth(date);
-    }
-  };
-
   const focusDayBefore = () => {
     if (!focusedDay) return;
     const before = addDays(focusedDay, -1);
     focus(before);
-    switchMonth(before, numberOfMonths * -1);
+    navigation.goToDate(before, -1);
   };
   const focusDayAfter = () => {
     if (!focusedDay) return;
     const after = addDays(focusedDay, 1);
     focus(after);
-    switchMonth(after, numberOfMonths);
+    navigation.goToDate(after, 1);
   };
-  const focusWeekBeforeDay = () => {
+  const focusWeekBefore = () => {
     if (!focusedDay) return;
     const up = addWeeks(focusedDay, -1);
     focus(up);
-    switchMonth(up, numberOfMonths * -1);
+    navigation.goToDate(up, -1);
   };
-  const focusWeekAfterDay = () => {
+  const focusWeekAfter = () => {
     if (!focusedDay) return;
     const down = addWeeks(focusedDay, 1);
     focus(down);
-    switchMonth(down, numberOfMonths);
+    navigation.goToDate(down, 1);
   };
 
   const focusStartOfWeek = (): void => {
     if (!focusedDay) return;
     const dayToFocus = startOfWeek(focusedDay);
-    switchMonth(dayToFocus, numberOfMonths);
+    navigation.goToDate(dayToFocus, 1);
     focus(dayToFocus);
   };
 
   const focusEndOfWeek = (): void => {
     if (!focusedDay) return;
     const dayToFocus = endOfWeek(focusedDay);
-    switchMonth(dayToFocus, numberOfMonths);
+    navigation.goToDate(dayToFocus, 1);
     focus(dayToFocus);
   };
 
@@ -133,14 +123,14 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     if (!focusedDay) return;
 
     const monthBefore = addMonths(focusedDay, -1);
-    switchMonth(monthBefore, numberOfMonths);
+    navigation.goToDate(monthBefore, -1);
     focus(monthBefore);
   };
 
   const focusMonthAfter = () => {
     if (!focusedDay) return;
     const monthAfter = addMonths(focusedDay, 1);
-    switchMonth(monthAfter, numberOfMonths);
+    navigation.goToDate(monthAfter, 1);
     focus(monthAfter);
   };
 
@@ -148,7 +138,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     if (!focusedDay) return;
 
     const yearBefore = addYears(focusedDay, -1);
-    switchMonth(yearBefore, numberOfMonths);
+    navigation.goToDate(yearBefore, -1);
     focus(yearBefore);
   };
 
@@ -156,7 +146,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     if (!focusedDay) return;
 
     const yearAfter = addYears(focusedDay, 1);
-    switchMonth(yearAfter, numberOfMonths);
+    navigation.goToDate(yearAfter, 1);
     focus(yearAfter);
   };
 
@@ -167,8 +157,8 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     focus,
     focusDayAfter,
     focusDayBefore,
-    focusWeekAfterDay,
-    focusWeekBeforeDay,
+    focusWeekAfter,
+    focusWeekBefore,
     focusMonthBefore,
     focusMonthAfter,
     focusYearBefore,
