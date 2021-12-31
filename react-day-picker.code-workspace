@@ -1,4 +1,16 @@
 {
+  "extensions": {
+    "recommendations": [
+      "aaron-bond.better-comments",
+      "dbaeumer.vscode-eslint",
+      "orta.vscode-jest",
+      "andys8.jest-snippets",
+      "esbenp.prettier-vscode",
+      "mike-co.import-sorter",
+      "streetsidesoftware.code-spell-checker",
+      "stkb.rewrap"
+    ]
+  },
   "folders": [
     {
       "name": "react-day-picker",
@@ -14,65 +26,58 @@
     }
   ],
   "settings": {
-    // "files.exclude": {
-    //   "packages/": true,
-    //   "website/": true
-    // },
-    "jest.disabledWorkspaceFolders": ["root"],
-    "jest.autoRun": {
-      "watch": false,
-      "onSave": "test-src-file"
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[typescript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.enabled": true,
+    "cSpell.words": ["vhidden"],
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "eslint.packageManager": "yarn",
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+    "importSorter.importStringConfiguration.quoteMark": "single",
+    "importSorter.importStringConfiguration.tabSize": 2,
+    "importSorter.sortConfiguration.customOrderingRules.rules": [
+      {
+        "orderLevel": 40,
+        "regex": "^[.]"
+      },
+      {
+        "orderLevel": 35,
+        "regex": "^test/"
+      },
+      {
+        "orderLevel": 9,
+        "regex": "^@examples/"
+      },
+      {
+        "orderLevel": 8,
+        "regex": "^react"
+      }
+    ],
+    "importSorter.sortConfiguration.removeUnusedImports": true,
+    "jest.autoRun": {
+      "onSave": "test-src-file",
+      "watch": false
+    },
+    "jest.disabledWorkspaceFolders": ["root"],
+    "jest.jestCommandLine": "yarn test",
     "jest.testExplorer": {
       "enabled": true,
       "showClassicStatus": false,
       "showInlineError": false
     },
     "npm.packageManager": "yarn",
-    "eslint.packageManager": "yarn",
-    "jest.jestCommandLine": "yarn test",
-    "importSorter.generalConfiguration.sortOnBeforeSave": true,
-    "importSorter.sortConfiguration.removeUnusedImports": true,
-    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
-    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
-    "importSorter.importStringConfiguration.tabSize": 2,
-    "importSorter.importStringConfiguration.quoteMark": "single",
-    "importSorter.sortConfiguration.customOrderingRules.rules": [
-      {
-        "regex": "^[.]",
-        "orderLevel": 40
-      },
-      {
-        "regex": "^test/",
-        "orderLevel": 35
-      },
-      {
-        "regex": "^(contexts|components|hooks|types)/",
-        "orderLevel": 30
-      },
-      {
-        "regex": "^@examples/",
-        "orderLevel": 9
-      },
-      {
-        "regex": "^react",
-        "orderLevel": 8
-      }
-    ],
-    "typescript.preferences.importModuleSpecifier": "non-relative",
-    "cSpell.words": ["vhidden"]
-  },
-  "extensions": {
-    "recommendations": [
-      "aaron-bond.better-comments",
-      "dbaeumer.vscode-eslint",
-      "orta.vscode-jest",
-      "andys8.jest-snippets",
-      "esbenp.prettier-vscode",
-      "mike-co.import-sorter",
-      "streetsidesoftware.code-spell-checker",
-      "stkb.rewrap",
-      "paul-mannino.vscode-create-test-file"
-    ]
+    "typescript.preferences.importModuleSpecifier": "non-relative"
   }
 }
