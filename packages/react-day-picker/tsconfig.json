@@ -20,6 +20,5 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "exclude": ["src/index.ts"],
   "include": ["test", "src"]
 }
