@@ -15,7 +15,7 @@ export default function App() {
       modifiers={{
         available: availableDays
       }}
-      modifierStyles={{
+      modifiersStyles={{
         available: availableStyle
       }}
     />
