@@ -1,5 +1,3 @@
-import { Locale } from 'date-fns';
-
 import { CaptionLayout, CaptionProps } from 'components/Caption';
 import { CaptionLabelProps } from 'components/CaptionLabel';
 import { DayProps } from 'components/Day';
@@ -7,6 +5,7 @@ import { DayContentProps } from 'components/DayContent';
 import { DropdownProps } from 'components/Dropdown';
 import { RowProps } from 'components/Row';
 import { WeekNumberProps } from 'components/WeekNumber';
+import { Locale } from 'date-fns';
 
 import {
   DayClickEventHandler,
@@ -164,9 +163,9 @@ export interface DayPickerProps {
    * By setting this prop, DayPicker will focus the first selected day (if set)
    * or the today's date (if not disabled).
    *
-   * Use this prop if you need to focus DayPicker when initially rendered, like
-   * when rendering it after a user actions, for improved accessibility.
-   **/
+   * Use this prop when you need to focus DayPicker after a user actions, for
+   * improved accessibility.
+   */
   initialFocus?: boolean;
   // #endregion
 

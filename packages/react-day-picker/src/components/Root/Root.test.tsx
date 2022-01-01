@@ -17,7 +17,7 @@ describe('when the number of months is 1', () => {
   test.todo('should display one month');
 });
 
-describe('when the number of months is 3', () => {
+describe('when the number of months is greater than 1', () => {
   const dayPickerProps: DayPickerProps = { numberOfMonths: 3 };
   beforeEach(() => {
     setup(dayPickerProps);
@@ -55,4 +55,8 @@ describe('when showing the week numbers', () => {
     setup(dayPickerProps);
   });
   test.todo('should have the "with_weeknumber" class name');
+});
+
+describe('when "initialFocus" is set', () => {
+  test.todo('should focus the focus target');
 });

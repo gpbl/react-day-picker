@@ -46,5 +46,5 @@ export type DayModifiers = Record<Modifier, Matcher | Matcher[]>;
 /**
  * A map of matchers used as custom modifiers by DayPicker component. This is
  * the same as [[DayModifiers]], but it accepts only array of [[Matcher]]s.
- **/
+ */
 export type CustomModifiers = Record<Modifier, Matcher[]>;
