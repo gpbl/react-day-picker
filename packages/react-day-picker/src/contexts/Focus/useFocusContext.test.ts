@@ -21,7 +21,7 @@ function setup() {
   renderResult = result;
 }
 
-type Method =
+type HookFunction =
   | 'focusDayAfter'
   | 'focusDayBefore'
   | 'focusWeekAfter'
@@ -41,7 +41,7 @@ test('`focusedDay` should be undefined', () => {
   expect(renderResult.current.focusedDay).toBeUndefined();
 });
 
-const tests: Array<Method> = [
+const tests: Array<HookFunction> = [
   'focusDayAfter',
   'focusDayBefore',
   'focusWeekAfter',
@@ -53,7 +53,7 @@ const tests: Array<Method> = [
   'focusStartOfWeek',
   'focusEndOfWeek'
 ];
-describe.each(tests)('when calling %s', (fn: Method) => {
+describe.each(tests)('when calling %s', (fn: HookFunction) => {
   beforeEach(() => {
     renderResult.current[fn];
   });
@@ -62,7 +62,7 @@ describe.each(tests)('when calling %s', (fn: Method) => {
   });
 });
 
-describe('when focus is called', () => {
+describe('when a day is focused', () => {
   const day = today;
   beforeEach(() => {
     act(() => renderResult.current.focus(day));

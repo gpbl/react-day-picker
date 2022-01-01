@@ -67,6 +67,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     modifiers
   );
 
+  // TODO: cleanup and test obscure code below
   const focusTarget =
     focusedDay ?? (lastFocused && navigation.isDateDisplayed(lastFocused))
       ? lastFocused
