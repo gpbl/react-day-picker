@@ -16,7 +16,7 @@ describe('when mode="range" and selected includes the current date', () => {
     selected: { from: today, to: today }
   });
   test('useDayModifiers should return the selected modifier as true', () => {
-    expect(result.current.modifiers.selected).toBeTruthy();
+    expect(result.current.status.selected).toBeTruthy();
   });
 });
 describe('when mode="range" and selected is undefined', () => {
@@ -24,7 +24,7 @@ describe('when mode="range" and selected is undefined', () => {
     mode: 'range'
   });
   test('useDayModifiers should return the selected modifier as false', () => {
-    expect(result.current.modifiers.selected).toBeFalsy();
+    expect(result.current.status.selected).toBeFalsy();
   });
 });
 describe('when mode="range" and selected does not span the current date', () => {
@@ -34,6 +34,6 @@ describe('when mode="range" and selected does not span the current date', () => 
     selected: { from: tomorrow, to: tomorrow }
   });
   test('useDayModifiers should return the selected modifier as false', () => {
-    expect(result.current.modifiers.selected).toBeFalsy();
+    expect(result.current.status.selected).toBeFalsy();
   });
 });

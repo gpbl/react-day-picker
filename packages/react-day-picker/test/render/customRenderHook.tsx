@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { renderHook } from '@testing-library/react-hooks';
-
 import { RootProvider } from 'contexts/RootProvider';
 import { DayPickerProps } from 'types/DayPicker';
 import { DayPickerCustomProps } from 'types/DayPickerCustom';
@@ -11,8 +10,8 @@ import { DayPickerSingleProps } from 'types/DayPickerSingle';
 
 /** Render a hook wrapped with the Root Provider. */
 export function customRenderHook<TProps, TResult>(
-  callback: (props: TProps) => TResult,
-  dayPickerProps:
+  callback: (props?: TProps) => TResult,
+  dayPickerProps?:
     | DayPickerProps
     | DayPickerMultipleProps
     | DayPickerSingleProps

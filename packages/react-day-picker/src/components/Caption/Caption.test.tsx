@@ -18,8 +18,8 @@ const toYear = 2025;
 
 freezeBeforeAll(today);
 
-function setup(props: CaptionProps, context?: DayPickerProps) {
-  customRender(<Caption {...props} />, context);
+function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
+  customRender(<Caption {...props} />, dayPickerProps);
 }
 
 describe('when navigation is disabled', () => {

@@ -1,6 +1,6 @@
 import { Locale } from 'date-fns';
 
-import { ModifierStatus } from 'types/Modifiers';
+import { ModifiersStatus } from 'types/Modifiers';
 
 /** Map of functions to translate ARIA labels for the relative elements. */
 export type Labels = {
@@ -16,7 +16,7 @@ export type Labels = {
 /** Return the ARIA label for the [[Day]] component. */
 export type DayLabel = (
   day: Date,
-  modifiers: ModifierStatus,
+  modifiersStatus: ModifiersStatus,
   options?: { locale?: Locale }
 ) => string;
 

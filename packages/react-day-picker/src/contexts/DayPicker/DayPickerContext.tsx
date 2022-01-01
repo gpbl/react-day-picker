@@ -4,7 +4,7 @@ import { CaptionLayout } from 'components/Caption';
 import { Components, DayPickerProps } from 'types/DayPicker';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
-import { DayModifiers, ModifierClassNames } from 'types/Modifiers';
+import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
 
 import { getDefaultContextValues } from './defaultContextValues';
@@ -18,7 +18,7 @@ export interface DayPickerContextValue extends DayPickerProps {
   formatters: Formatters;
   labels: Labels;
   locale: Locale;
-  modifierClassNames: ModifierClassNames;
+  modifiersClassNames: ModifiersClassNames;
   modifierPrefix: string;
   modifiers: DayModifiers;
   numberOfMonths: number;
@@ -89,8 +89,8 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
 
     locale,
 
-    modifierClassNames:
-      initialProps.modifierClassNames ?? defaults.modifierClassNames,
+    modifiersClassNames:
+      initialProps.modifiersClassNames ?? defaults.modifiersClassNames,
     modifierPrefix: initialProps.modifierPrefix ?? defaults.modifierPrefix,
     modifiers: initialProps.modifiers ?? defaults.modifiers,
     numberOfMonths,

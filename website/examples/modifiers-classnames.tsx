@@ -22,7 +22,7 @@ export default function App() {
         modifiers={{
           booked: bookedDays
         }}
-        modifierClassNames={{
+        modifiersClassNames={{
           booked: 'my-booked-class'
         }}
       />

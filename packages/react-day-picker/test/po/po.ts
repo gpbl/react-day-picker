@@ -81,6 +81,9 @@ export function getMonthGrid(index = 0) {
   return screen.getAllByRole('grid')[index];
 }
 
+export function queryMonthGrids() {
+  return screen.getAllByRole('grid');
+}
 export function getYearDropdown() {
   return screen.getByRole('combobox', { name: 'Year:' });
 }
@@ -187,7 +190,7 @@ export function selectYear(year: string | number) {
 export function focusDaysGrid() {
   // Make sure nothing is focused
   fireEvent.blur(getFocusedElement());
-  // By pressing tab 3 times 
+  // By pressing tab 3 times
   pressTab();
   pressTab();
   pressTab();

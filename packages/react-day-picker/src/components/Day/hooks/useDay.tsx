@@ -17,7 +17,7 @@ import { isDayPickerMultiple } from 'types/DayPickerMultiple';
 import { isDayPickerRange } from 'types/DayPickerRange';
 import { isDayPickerSingle } from 'types/DayPickerSingle';
 import { DateRange } from 'types/Matchers';
-import { ModifierStatus } from 'types/Modifiers';
+import { ModifiersStatus } from 'types/Modifiers';
 import { StyledComponent } from 'types/Styles';
 
 import { useDayFocus } from './useDayFocus';
@@ -26,7 +26,7 @@ export type UseDay = {
   /** Whether the date is outside the display month/ */
   isOutside: boolean;
   /** The modifiers for the given date. */
-  modifiers: ModifierStatus;
+  modifiersStatus: ModifiersStatus;
   /** The days in DayPicker currently selected. */
   selected: Date | Date[] | DateRange | undefined;
   /**
@@ -77,56 +77,61 @@ export function useDay(
   /** A ref to the button element. */
   buttonRef: React.RefObject<HTMLButtonElement>
 ): UseDay {
-  const context = useDayPicker();
+  const dayPicker = useDayPicker();
   const single = useSelectSingle();
   const multiple = useSelectMultiple();
   const range = useSelectRange();
-  const { focus, blur, focusOnKeyDown, isFocusTarget } = useDayFocus(
-    date,
-    buttonRef
-  );
-
-  const { modifiers, modifierClassNames, modifierStyle } =
-    useDayModifiers(date);
+  const dayFocus = useDayFocus(date, buttonRef);
+  const dayModifiers = useDayModifiers(date);
   const isOutside = !isSameMonth(date, displayMonth);
 
-  const returnValue = {
+  const selected = isDayPickerSingle(dayPicker)
+    ? single.selected
+    : isDayPickerMultiple(dayPicker)
+    ? multiple.selected
+    : isDayPickerRange(dayPicker)
+    ? range.selected
+    : undefined;
+
+  const returnValue: UseDay = {
     isOutside,
-    modifiers,
-    selected: isDayPickerSingle(context)
-      ? single.selected
-      : isDayPickerMultiple(context)
-      ? multiple.selected
-      : isDayPickerRange(context)
-      ? range.selected
-      : undefined,
+    modifiersStatus: dayModifiers.status,
+    selected,
     single,
     multiple,
     range
   };
-  if (isOutside && !context.showOutsideDays) {
+
+  if (isOutside && !dayPicker.showOutsideDays) {
     return returnValue;
   }
-  if (modifiers.hidden) {
+  if (dayModifiers.status.hidden) {
     return returnValue;
   }
 
-  const classNames = [context.classNames.day].concat(modifierClassNames);
-  let style: React.CSSProperties = { ...context.styles.day, ...modifierStyle };
+  const classNames = [dayPicker.classNames.day].concat(dayModifiers.classNames);
+  let style: React.CSSProperties = {
+    ...dayPicker.styles.day,
+    ...dayModifiers.style
+  };
 
   if (isOutside) {
-    classNames.push(context.classNames.day_outside);
-    style = { ...context.styles, ...context.styles.day_outside };
+    classNames.push(dayPicker.classNames.day_outside);
+    style = { ...dayPicker.styles, ...dayPicker.styles.day_outside };
   }
 
-  const { DayContent } = context.components;
+  const { DayContent } = dayPicker.components;
   const children = (
-    <DayContent date={date} displayMonth={displayMonth} modifiers={modifiers} />
+    <DayContent
+      date={date}
+      displayMonth={displayMonth}
+      modifiersStatus={dayModifiers.status}
+    />
   );
 
   let className = classNames.join(' ');
 
-  if (!context.mode && !context.onDayClick) {
+  if (!dayPicker.mode && !dayPicker.onDayClick) {
     return {
       ...returnValue,
       nonInteractiveProps: {
@@ -138,85 +143,84 @@ export function useDay(
   }
 
   // #region Event handlers
-  const handleClick: React.MouseEventHandler = (e) => {
-    if (isDayPickerSingle(context)) {
-      single.onDayClick?.(date, modifiers, e);
-    } else if (isDayPickerMultiple(context)) {
-      multiple.onDayClick?.(date, modifiers, e);
-    } else if (isDayPickerRange(context)) {
-      range.onDayClick?.(date, modifiers, e);
+  const onClick: React.MouseEventHandler = (e) => {
+    if (isDayPickerSingle(dayPicker)) {
+      single.onDayClick?.(date, dayModifiers.status, e);
+    } else if (isDayPickerMultiple(dayPicker)) {
+      multiple.onDayClick?.(date, dayModifiers.status, e);
+    } else if (isDayPickerRange(dayPicker)) {
+      range.onDayClick?.(date, dayModifiers.status, e);
     }
-    context.onDayClick?.(date, modifiers, e);
+    dayPicker.onDayClick?.(date, dayModifiers.status, e);
   };
 
-  const handleFocus: React.FocusEventHandler = (e) => {
-    focus(date);
-    context.onDayFocus?.(date, modifiers, e);
+  const onFocus: React.FocusEventHandler = (e) => {
+    dayFocus.focus(date);
+    dayPicker.onDayFocus?.(date, dayModifiers.status, e);
   };
 
-  const handleBlur: React.FocusEventHandler = (e) => {
-    blur();
-    context.onDayBlur?.(date, modifiers, e);
+  const onBlur: React.FocusEventHandler = (e) => {
+    dayFocus.blur();
+    dayPicker.onDayBlur?.(date, dayModifiers.status, e);
   };
 
-  const handleKeyDown: React.KeyboardEventHandler = (e) => {
-    focusOnKeyDown(e);
-    context.onDayKeyDown?.(date, modifiers, e);
+  const onKeyDown: React.KeyboardEventHandler = (e) => {
+    dayFocus.onKeyDown(e);
+    dayPicker.onDayKeyDown?.(date, dayModifiers.status, e);
   };
 
-  const handleKeyUp: React.KeyboardEventHandler = (e) => {
-    context.onDayKeyUp?.(date, modifiers, e);
+  const onKeyUp: React.KeyboardEventHandler = (e) => {
+    dayPicker.onDayKeyUp?.(date, dayModifiers.status, e);
   };
-  const handleMouseEnter: React.MouseEventHandler = (e) => {
-    context.onDayMouseEnter?.(date, modifiers, e);
+  const onMouseEnter: React.MouseEventHandler = (e) => {
+    dayPicker.onDayMouseEnter?.(date, dayModifiers.status, e);
   };
-  const handleMouseLeave: React.MouseEventHandler = (e) => {
-    context.onDayMouseLeave?.(date, modifiers, e);
+  const onMouseLeave: React.MouseEventHandler = (e) => {
+    dayPicker.onDayMouseLeave?.(date, dayModifiers.status, e);
   };
-  const handleTouchCancel: React.TouchEventHandler = (e) => {
-    context.onDayTouchCancel?.(date, modifiers, e);
+  const onTouchCancel: React.TouchEventHandler = (e) => {
+    dayPicker.onDayTouchCancel?.(date, dayModifiers.status, e);
   };
-  const handleTouchEnd: React.TouchEventHandler = (e) => {
-    context.onDayTouchEnd?.(date, modifiers, e);
+  const onTouchEnd: React.TouchEventHandler = (e) => {
+    dayPicker.onDayTouchEnd?.(date, dayModifiers.status, e);
   };
-  const handleTouchMove: React.TouchEventHandler = (e) => {
-    context.onDayTouchMove?.(date, modifiers, e);
+  const onTouchMove: React.TouchEventHandler = (e) => {
+    dayPicker.onDayTouchMove?.(date, dayModifiers.status, e);
   };
-  const handleTouchStart: React.TouchEventHandler = (e) => {
-    context.onDayTouchStart?.(date, modifiers, e);
+  const onTouchStart: React.TouchEventHandler = (e) => {
+    dayPicker.onDayTouchStart?.(date, dayModifiers.status, e);
   };
 
   if (isOutside) {
-    classNames.push(context.classNames.day_outside);
-    style = { ...context.styles, ...context.styles.day_outside };
+    classNames.push(dayPicker.classNames.day_outside);
+    style = {
+      ...dayPicker.styles,
+      ...dayPicker.styles.day_outside
+    };
   }
 
   className = classNames.join(' ');
-
-  const { selected, disabled } = modifiers;
-
-  const tabIndex = isFocusTarget ? 0 : -1;
 
   return {
     ...returnValue,
     buttonProps: {
       children,
-      'aria-pressed': selected,
+      'aria-pressed': dayModifiers.status.selected,
       style: style,
-      disabled: disabled,
+      disabled: dayModifiers.status.disabled,
       className: className,
-      tabIndex: tabIndex,
-      onClick: handleClick,
-      onFocus: handleFocus,
-      onBlur: handleBlur,
-      onKeyDown: handleKeyDown,
-      onKeyUp: handleKeyUp,
-      onMouseEnter: handleMouseEnter,
-      onMouseLeave: handleMouseLeave,
-      onTouchCancel: handleTouchCancel,
-      onTouchEnd: handleTouchEnd,
-      onTouchMove: handleTouchMove,
-      onTouchStart: handleTouchStart
+      tabIndex: dayFocus.isFocusTarget ? 0 : -1,
+      onClick,
+      onFocus,
+      onBlur,
+      onKeyDown,
+      onKeyUp,
+      onMouseEnter,
+      onMouseLeave,
+      onTouchCancel,
+      onTouchEnd,
+      onTouchMove,
+      onTouchStart
     }
   };
 }
