@@ -160,8 +160,8 @@ export interface DayPickerProps {
   footer?: React.ReactNode;
 
   /**
-   * By setting this prop, DayPicker will focus the first selected day (if set)
-   * or the today's date (if not disabled).
+   * When a selection mode is set, DayPicker will focus the first selected day
+   * (if set) or the today's date (if not disabled).
    *
    * Use this prop when you need to focus DayPicker after a user actions, for
    * improved accessibility.
