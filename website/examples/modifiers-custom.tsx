@@ -19,7 +19,7 @@ export default function App() {
     <DayPicker
       defaultMonth={new Date(2021, 5, 8)}
       modifiers={{ booked: bookedDays }}
-      modifierStyles={{ booked: bookedStyle }}
+      modifiersStyles={{ booked: bookedStyle }}
       onDayClick={handleDayClick}
       footer={footer}
     />

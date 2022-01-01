@@ -1,5 +1,3 @@
-import { Locale } from 'date-fns';
-
 import { CaptionLayout, CaptionProps } from 'components/Caption';
 import { CaptionLabelProps } from 'components/CaptionLabel';
 import { DayProps } from 'components/Day';
@@ -7,6 +5,7 @@ import { DayContentProps } from 'components/DayContent';
 import { DropdownProps } from 'components/Dropdown';
 import { RowProps } from 'components/Row';
 import { WeekNumberProps } from 'components/WeekNumber';
+import { Locale } from 'date-fns';
 
 import {
   DayClickEventHandler,
@@ -20,7 +19,11 @@ import {
 import { Formatters } from './Formatters';
 import { Labels } from './Labels';
 import { Matcher } from './Matchers';
-import { DayModifiers, ModifierClassNames, ModifierStyles } from './Modifiers';
+import {
+  DayModifiers,
+  ModifiersClassNames,
+  ModifiersStyles
+} from './Modifiers';
 import { ClassNames, StyledComponent, Styles } from './Styles';
 
 /**
@@ -40,7 +43,7 @@ export interface DayPickerProps {
   /**
    * Change the class name for the day matching the [[modifiers]].
    */
-  modifierClassNames?: ModifierClassNames;
+  modifiersClassNames?: ModifiersClassNames;
   // #endregion
 
   // #region styles
@@ -55,7 +58,7 @@ export interface DayPickerProps {
   /**
    * Change the inline style for the day matching the [[modifiers]].
    */
-  modifierStyles?: ModifierStyles;
+  modifiersStyles?: ModifiersStyles;
   // #endregion
 
   // #region month navigation
@@ -157,12 +160,12 @@ export interface DayPickerProps {
   footer?: React.ReactNode;
 
   /**
-   * By setting this prop, DayPicker will focus the first selected day (if set)
-   * or the today's date (if not disabled).
+   * When a selection mode is set, DayPicker will focus the first selected day
+   * (if set) or the today's date (if not disabled).
    *
-   * Use this prop if you need to focus DayPicker when initially rendered, like
-   * when rendering it after a user actions, for improved accessibility.
-   **/
+   * Use this prop when you need to focus DayPicker after a user actions, for
+   * improved accessibility.
+   */
   initialFocus?: boolean;
   // #endregion
 
