@@ -7,7 +7,7 @@ import { Labels } from 'types/Labels';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
 
-import { getDefaultContextValues } from './defaultContextValues';
+import { getDefaultContextValue } from './defaultContextValue';
 import { parseFromToProps } from './utils';
 
 /** The value of the [[DayPickerContext]] */
@@ -58,18 +58,15 @@ export interface DayPickerProviderProps {
  */
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { children, initialProps } = props;
-  const defaults = getDefaultContextValues();
+  const defaults = getDefaultContextValue();
   const locale = initialProps.locale ?? defaults.locale;
   const numberOfMonths = initialProps.numberOfMonths ?? defaults.numberOfMonths;
   const today = initialProps.today ?? defaults.today;
 
-  // Limit navigation
   const { fromDate, toDate } = parseFromToProps(initialProps);
 
   let captionLayout = initialProps.captionLayout ?? defaults.captionLayout;
 
-  // If calendar navigation is unlimited, it must be
-  // always `buttons` – as we cannot display yet infinite options in the dropdown.
   if (captionLayout !== 'buttons' && !fromDate && !toDate) {
     captionLayout = 'buttons';
   }
