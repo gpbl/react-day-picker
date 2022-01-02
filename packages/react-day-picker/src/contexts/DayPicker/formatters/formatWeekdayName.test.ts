@@ -1,5 +1,15 @@
-test.todo('should return the formatted weekday name');
+import es from 'date-fns/locale/es';
+
+import { formatWeekdayName } from './formatWeekdayName';
+
+const date = new Date(2022, 10, 21);
+
+test('should return the formatted weekday name', () => {
+  expect(formatWeekdayName(date)).toEqual('Mo');
+});
 
 describe('when a locale is passed in', () => {
-  test.todo('should apply the locale');
+  test('should format using the locale', () => {
+    expect(formatWeekdayName(date, { locale: es })).toEqual('lu');
+  });
 });
