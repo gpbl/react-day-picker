@@ -51,13 +51,11 @@ export interface DayPickerProviderProps {
   children?: ReactNode;
 }
 /**
- * The provider for the [[DayPickerContext]].
- *
- * The context value is set by assigning defaults from the initial DayPicker
- * props.
+ * The provider for the [[DayPickerContext]], assigning the defaults from the
+ * initial DayPicker props.
  */
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
-  const { children, initialProps } = props;
+  const { initialProps } = props;
   const defaults = getDefaultContextValue();
   const locale = initialProps.locale ?? defaults.locale;
   const numberOfMonths = initialProps.numberOfMonths ?? defaults.numberOfMonths;
@@ -67,13 +65,51 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
 
   let captionLayout = initialProps.captionLayout ?? defaults.captionLayout;
 
-  if (captionLayout !== 'buttons' && !fromDate && !toDate) {
+  if (captionLayout !== 'buttons' && (!fromDate || !toDate)) {
     captionLayout = 'buttons';
   }
 
+  // TODO: remove eslint disable, move to external utils
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { toYear, fromYear, toMonth, fromMonth, ...contextProps } =
     initialProps;
+
+  const modifierPrefix = initialProps.modifierPrefix ?? defaults.modifierPrefix;
+
+  const modifiers = {
+    ...defaults.modifiers,
+    ...initialProps.modifiers
+  };
+
+  const modifiersClassNames = {
+    ...defaults.modifiersClassNames,
+    ...initialProps.modifiersClassNames
+  };
+
+  const styles = {
+    ...defaults.styles,
+    ...initialProps.styles
+  };
+
+  const classNames = {
+    ...defaults.classNames,
+    ...initialProps.classNames
+  };
+
+  const formatters = {
+    ...defaults.formatters,
+    ...initialProps.formatters
+  };
+
+  const labels = {
+    ...defaults.labels,
+    ...initialProps.labels
+  };
+
+  const components = {
+    ...defaults.components,
+    ...initialProps.components
+  };
 
   const context: DayPickerContextValue = {
     ...contextProps,
@@ -86,34 +122,21 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
 
     locale,
 
-    modifiersClassNames:
-      initialProps.modifiersClassNames ?? defaults.modifiersClassNames,
-    modifierPrefix: initialProps.modifierPrefix ?? defaults.modifierPrefix,
-    modifiers: initialProps.modifiers ?? defaults.modifiers,
+    modifiersClassNames,
+    modifierPrefix,
+    modifiers,
     numberOfMonths,
 
-    styles: initialProps.styles ?? defaults.styles,
-    classNames: {
-      ...defaults.classNames,
-      ...initialProps.classNames
-    },
-    formatters: {
-      ...defaults.formatters,
-      ...initialProps.formatters
-    },
-    labels: {
-      ...defaults.labels,
-      ...initialProps.labels
-    },
-    components: {
-      ...defaults.components,
-      ...initialProps.components
-    }
+    styles,
+    classNames,
+    formatters,
+    labels,
+    components
   };
 
   return (
     <DayPickerContext.Provider value={context}>
-      {children}
+      {props.children}
     </DayPickerContext.Provider>
   );
 }
