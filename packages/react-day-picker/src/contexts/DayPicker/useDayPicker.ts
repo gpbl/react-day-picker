@@ -7,7 +7,7 @@ import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
  *
  * To use this hook make sure to wrap the components with a one
  * [[DayPickerProvider]].
- * */
+ */
 export function useDayPicker(): DayPickerContextValue {
   const context = useContext(DayPickerContext);
   if (!context) {
