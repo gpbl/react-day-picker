@@ -1,14 +1,12 @@
-import { addDays } from 'date-fns';
-
 import { DayPickerContextValue } from 'contexts/DayPicker';
-import { getDefaultContextValues } from 'contexts/DayPicker/defaultContextValues';
+import { getDefaultContextValue } from 'contexts/DayPicker/defaultContextValue';
 import { SelectRangeContextValue } from 'contexts/SelectRange';
+import { addDays } from 'date-fns';
 import { InternalModifier, InternalModifiers } from 'types/Modifiers';
 
 import { getInternalModifiers } from './getInternalModifiers';
 
-const defaultDayPickerContext: DayPickerContextValue =
-  getDefaultContextValues();
+const defaultDayPickerContext: DayPickerContextValue = getDefaultContextValue();
 const defaultSelectMultipleContext = {
   selected: undefined,
   modifiers: { disabled: [] }
