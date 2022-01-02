@@ -4,21 +4,15 @@
     {
       "type": "npm",
       "script": "test",
-      "group": {
-        "kind": "test",
-        "isDefault": true
-      },
+      "group": "test",
       "problemMatcher": [],
       "label": "test"
     },
     {
       "type": "npm",
       "script": "build",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": [],
+      "group": "build",
+      "problemMatcher": ["$tsc"],
       "label": "build"
     },
     {

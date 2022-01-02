@@ -21,6 +21,10 @@
       "path": "website"
     },
     {
+      "name": "eslint-config-rdp",
+      "path": "packages/eslint-config-rdp"
+    },
+    {
       "name": "root",
       "path": "."
     }
@@ -63,6 +67,14 @@
       {
         "orderLevel": 8,
         "regex": "^react"
+      },
+      {
+        "orderLevel": 10,
+        "regex": "^(contexts|components|hooks|types)"
+      },
+      {
+        "orderLevel": 8,
+        "regex": "^[^.@]"
       }
     ],
     "importSorter.sortConfiguration.removeUnusedImports": true,

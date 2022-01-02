@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn build-rdp && TYPEDOC_WATCH=true docusaurus start",
-    "build": "yarn build-rdp && docusaurus build",
+    "build": "docusaurus build",
     "build-rdp": "yarn workspace react-day-picker build",
     "serve": "docusaurus serve",
     "deploy": "docusaurus deploy",
