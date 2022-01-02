@@ -1,1 +1,5 @@
-test.todo('should return the formatted month dropdown label');
+import { labelMonthDropdown } from './labelMonthDropdown';
+
+test('should return the label', () => {
+  expect(labelMonthDropdown()).toEqual('Month: ');
+});

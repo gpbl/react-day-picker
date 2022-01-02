@@ -1,1 +1,5 @@
-test.todo('should return the year dropdown label');
+import { labelYearDropdown } from './labelYearDropdown';
+
+test('should return the label', () => {
+  expect(labelYearDropdown()).toEqual('Year: ');
+});
