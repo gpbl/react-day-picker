@@ -1,5 +1,7 @@
-test.todo('should return the formatted year caption');
+import { formatYearCaption } from './formatYearCaption';
 
-describe('when a locale is passed in', () => {
-  test.todo('should apply the locale');
+const date = new Date(2022, 10, 21);
+
+test('should return the formatted weekday name', () => {
+  expect(formatYearCaption(date)).toEqual('2022');
 });
