@@ -25,10 +25,10 @@
     "react-popper": "^2.2.5"
   },
   "devDependencies": {
-    "@docusaurus/core": "2.0.0-beta.9",
-    "@docusaurus/module-type-aliases": "^2.0.0-beta.9",
-    "@docusaurus/preset-classic": "2.0.0-beta.9",
-    "@docusaurus/theme-classic": "^2.0.0-beta.9",
+    "@docusaurus/core": "latest",
+    "@docusaurus/module-type-aliases": "latest",
+    "@docusaurus/preset-classic": "latest",
+    "@docusaurus/theme-classic": "latest",
     "@testing-library/jest-dom": "^5.16.1",
     "@tsconfig/docusaurus": "^1.0.4",
     "@types/jest": "^27.0.3",
