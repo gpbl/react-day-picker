@@ -25,6 +25,7 @@ const getInput = () => {
   return screen.getByRole('textbox');
 };
 
+// TODO: fix act warnings
 describe('when clicking the dialog button', () => {
   beforeEach(() => {
     act(() => userEvent.click(getDialogButton()));
@@ -57,7 +58,7 @@ describe('when clicking the dialog button', () => {
       });
       describe('when clicking the dialog button', () => {
         beforeEach(() => {
-          userEvent.click(getDialogButton());
+          act(() => userEvent.click(getDialogButton()));
         });
         test('the new date should be selected', () => {
           expect(getDayButton(newDate)).toHaveAttribute('aria-pressed', 'true');
