@@ -7,7 +7,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 /**
  * Create a page at `/render` URL that renders the examples from the examples
  * `directory`.
- * */
+ */
 export default function Render(): JSX.Element {
   const location = useLocation();
   return (

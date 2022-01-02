@@ -55,7 +55,7 @@ export interface DayPickerProviderProps {
  *
  * The context value is set by assigning defaults from the initial DayPicker
  * props.
- * */
+ */
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { children, initialProps } = props;
   const defaults = getDefaultContextValues();

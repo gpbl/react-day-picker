@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { isSameMonth } from 'date-fns';
-
 import { useDayPicker } from 'contexts/DayPicker';
 import {
   SelectMultipleContextValue,
@@ -12,6 +10,7 @@ import {
   SelectSingleContextValue,
   useSelectSingle
 } from 'contexts/SelectSingle';
+import { isSameMonth } from 'date-fns';
 import { useDayModifiers } from 'hooks/useDayModifiers';
 import { isDayPickerMultiple } from 'types/DayPickerMultiple';
 import { isDayPickerRange } from 'types/DayPickerRange';
@@ -68,7 +67,7 @@ export type UseDay = {
  * new `Day` component using this hook and pass it to the `components` prop.
  * The source of [[Day]] can be a good starting point.
  *
- * */
+ */
 export function useDay(
   /** The day rendered in the month. */
   date: Date,
