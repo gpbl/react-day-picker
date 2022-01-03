@@ -1,3 +1,4 @@
+import { isSameMonth } from 'date-fns';
 import React from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
@@ -10,7 +11,6 @@ import {
   SelectSingleContextValue,
   useSelectSingle
 } from 'contexts/SelectSingle';
-import { isSameMonth } from 'date-fns';
 import { useDayModifiers } from 'hooks/useDayModifiers';
 import { isDayPickerMultiple } from 'types/DayPickerMultiple';
 import { isDayPickerRange } from 'types/DayPickerRange';
@@ -19,7 +19,7 @@ import { DateRange } from 'types/Matchers';
 import { ModifiersStatus } from 'types/Modifiers';
 import { StyledComponent } from 'types/Styles';
 
-import { useDayFocus } from './useDayFocus';
+import { useDayFocus } from '../useDayFocus/useDayFocus';
 
 export type UseDay = {
   /** Whether the date is outside the display month/ */

@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 
+import { useDay } from 'hooks/useDay';
+
 import { Button } from '../Button';
-import { useDay } from './hooks/useDay';
 
 /** Represent the props used by the [[Day]] component. */
 export interface DayProps {
