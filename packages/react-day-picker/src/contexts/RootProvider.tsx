@@ -1,10 +1,10 @@
 import React from 'react';
 
+import { ModifiersProvider } from 'contexts/Modifiers/ModifiersContext';
 import { DayPickerProps } from 'types/DayPicker';
 
 import { DayPickerProvider } from './DayPicker';
 import { FocusProvider } from './Focus';
-import { ModifiersProvider } from './Modifiers';
 import { NavigationProvider } from './Navigation';
 import { SelectMultipleProvider } from './SelectMultiple';
 import { SelectRangeProvider } from './SelectRange';

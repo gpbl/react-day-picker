@@ -1,9 +1,10 @@
 import React from 'react';
+
+import { render } from '@testing-library/react';
+
 import { clickDay } from 'react-day-picker/test/actions';
 import { getDayButton, getTableFooter } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
-
-import { render } from '@testing-library/react';
 
 import Example from '@examples/custom-multiple';
 

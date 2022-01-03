@@ -1,4 +1,3 @@
-/* Note: this file is excluded from tsconfig.json and reintroduced in tsconfig.build.json for a better dev experience. */
 export * from './DayPicker';
 
 export * from './components/Button';
@@ -16,7 +15,6 @@ export * from './components/Row';
 export * from './components/WeekNumber';
 
 export * from './hooks/useInput';
-export * from './hooks/useDay';
 
 export * from './contexts/DayPicker';
 export * from './contexts/Focus';

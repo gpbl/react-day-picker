@@ -1,11 +1,14 @@
 import { Matcher } from './Matchers';
 
-/** Map of modifiers and an array of matcher. */
-export type Modifiers = Record<Modifier, Matcher[]> &
-  Record<InternalModifier, Matcher[]>;
+/** A _modifier_ represents different styles or states of a day displayed in the calendar. */
+export type Modifier = string;
 
-/** The modifiers that are used internally by DayPicker. */
+/** The modifiers used by DayPicker. */
+export type Modifiers = CustomModifiers & InternalModifiers;
+
+/** The name of the modifiers that are used internally by DayPicker. */
 export enum InternalModifier {
+  Outside = 'outside',
   /** Name of the modifier applied to the disabled days, using the `disabled` prop. */
   Disabled = 'disabled',
   /** Name of the modifier applied to the selected days using the `selected` prop). */
@@ -25,18 +28,15 @@ export enum InternalModifier {
 /** Map of matchers used for the internal modifiers. */
 export type InternalModifiers = Record<InternalModifier, Matcher[]>;
 
-/** A _modifier_ represents different styles or states of a day displayed in the calendar. */
-export type Modifier = string;
-
 /** The status of a modifiers when matched a day. */
 export type ModifiersStatus = Record<Modifier, true> &
   Partial<Record<InternalModifier, true>>;
 
-/** The inline-style to apply to the day matching `modifier`. */
+/** The style to apply to each day element matching a modifier. */
 export type ModifiersStyles = Record<Modifier, React.CSSProperties> &
   Partial<Record<InternalModifier, React.CSSProperties>>;
 
-/** The classnames to assign to each modifier. */
+/** The classnames to assign to each day element matching a modifier. */
 export type ModifiersClassNames = Record<Modifier, string> &
   Partial<Record<InternalModifier, string>>;
 
