@@ -324,7 +324,7 @@ function MyDayPickerInput() {
         <Anchor id="onDayPickerShow" />
         onDayPickerShow <code>() ⇒ void</code>
       </h3>
-      <p>Handler function called when the overlay is hidden.</p>
+      <p>Handler function called when the overlay is shown.</p>
 
       <hr />
       <h2>Public methods</h2>
