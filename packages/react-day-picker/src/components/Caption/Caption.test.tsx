@@ -1,11 +1,10 @@
-import React from 'react';
-
 import { addMonths, setMonth, setYear } from 'date-fns';
+import React from 'react';
 
 import { RootContext } from 'contexts/RootProvider';
 import { DayPickerProps } from 'types/DayPicker';
 
-import { PageObjects } from 'test/po/PageObjects';
+import { PageObjects } from 'test/PageObjects';
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 

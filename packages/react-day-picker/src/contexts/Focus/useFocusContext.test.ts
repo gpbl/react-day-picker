@@ -1,5 +1,3 @@
-import { act, RenderResult } from '@testing-library/react-hooks';
-import { FocusContextValue, useFocusContext } from 'contexts/Focus';
 import {
   addDays,
   addMonths,
@@ -9,6 +7,10 @@ import {
   startOfWeek
 } from 'date-fns';
 
+import { FocusContextValue, useFocusContext } from 'contexts/Focus';
+
+import { act, RenderResult } from '@testing-library/react-hooks';
+
 import { customRenderHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
@@ -16,6 +18,7 @@ let renderResult: RenderResult<FocusContextValue>;
 
 const today = new Date(2021, 11, 8); // make sure is in the middle of the week for the complete test
 freezeBeforeAll(today);
+
 function setup() {
   const { result } = customRenderHook(() => useFocusContext());
   renderResult = result;
