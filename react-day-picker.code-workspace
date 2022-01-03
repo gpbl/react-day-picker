@@ -82,7 +82,7 @@
       "onSave": "test-src-file",
       "watch": false
     },
-    "jest.disabledWorkspaceFolders": ["root"],
+    "jest.disabledWorkspaceFolders": ["root", "eslint-config-rdp"],
     "jest.jestCommandLine": "yarn test",
     "jest.testExplorer": {
       "enabled": true,
