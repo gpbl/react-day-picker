@@ -16,6 +16,7 @@ export * from './components/Row';
 export * from './components/WeekNumber';
 
 export * from './hooks/useInput';
+export * from './hooks/useDay';
 
 export * from './contexts/DayPicker';
 export * from './contexts/Focus';
