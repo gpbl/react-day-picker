@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { DayPickerProps } from 'types/DayPicker';
-
 import { getMonthCaption, getMonthGrid } from 'test/po';
 import { customRender } from 'test/render';
+
+import { DayPickerProps } from 'types/DayPicker';
 
 import { Month, MonthProps } from './Month';
 

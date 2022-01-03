@@ -3,9 +3,9 @@ import { useRef } from 'react';
 import { addMonths } from 'date-fns';
 import tk from 'timekeeper';
 
-import { DayPickerProps } from 'types/DayPicker';
-
 import { customRenderHook } from 'test/render';
+
+import { DayPickerProps } from 'types/DayPicker';
 
 import { useDay, UseDay } from './useDay';
 

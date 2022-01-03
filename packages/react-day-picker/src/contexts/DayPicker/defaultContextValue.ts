@@ -1,3 +1,5 @@
+import enUS from 'date-fns/locale/en-US';
+
 import { Caption, CaptionLayout } from 'components/Caption';
 import { CaptionLabel } from 'components/CaptionLabel';
 import { Day } from 'components/Day';
@@ -11,7 +13,6 @@ import { IconRight } from 'components/IconRight';
 import { Row } from 'components/Row';
 import { WeekNumber } from 'components/WeekNumber';
 import { DayPickerContextValue } from 'contexts/DayPicker';
-import enUS from 'date-fns/locale/en-US';
 
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
