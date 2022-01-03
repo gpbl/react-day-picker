@@ -54,7 +54,7 @@
     "importSorter.sortConfiguration.customOrderingRules.rules": [
       {
         "orderLevel": 1,
-        "regex": "^react"
+        "regex": "^react$"
       },
       {
         "orderLevel": 30,
@@ -62,7 +62,7 @@
       },
       {
         "orderLevel": 25,
-        "regex": "^test"
+        "regex": "^(test|react-day-picker/test)"
       },
       {
         "orderLevel": 40,

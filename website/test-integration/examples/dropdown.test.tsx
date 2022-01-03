@@ -1,15 +1,16 @@
 import React from 'react';
+
+import { render } from '@testing-library/react';
+
+import { selectMonth } from 'react-day-picker/test/actions';
 import {
   getMonthDropdown,
   getMonthGrid,
-  getYearDropdown,
-  selectMonth
+  getYearDropdown
 } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/dropdown';
-
-import { render } from '@testing-library/react';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

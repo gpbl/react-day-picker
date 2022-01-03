@@ -2,9 +2,9 @@ import React from 'react';
 import { getMonthCaption } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
-import Example from '@examples/controlled';
-
 import { fireEvent, render, screen } from '@testing-library/react';
+
+import Example from '@examples/controlled';
 
 const today = new Date(2022, 5, 10);
 

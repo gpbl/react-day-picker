@@ -1,16 +1,14 @@
 import React from 'react';
-import {
-  clickDay,
-  getAllSelectedDays,
-  getDayButton
-} from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
-
-import Example from '@examples/input-fields';
 
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, format } from 'date-fns';
+
+import { clickDay } from 'react-day-picker/test/actions';
+import { getAllSelectedDays, getDayButton } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/input-fields';
 
 const today = new Date(2021, 10, 15);
 freezeBeforeAll(today);

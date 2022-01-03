@@ -1,14 +1,12 @@
 import React from 'react';
-import {
-  clickDay,
-  getAllEnabledDays,
-  getDayButton
-} from 'react-day-picker/test/po';
+
+import { render } from '@testing-library/react';
+
+import { clickDay } from 'react-day-picker/test/actions';
+import { getAllEnabledDays, getDayButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/range-min-max';
-
-import { render } from '@testing-library/react';
 
 const today = new Date(2021, 10, 15);
 

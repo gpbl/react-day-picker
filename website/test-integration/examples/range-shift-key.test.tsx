@@ -1,10 +1,12 @@
 import React from 'react';
-import { clickDay, getDayButton } from 'react-day-picker/test/po';
+
+import { render } from '@testing-library/react';
+
+import { clickDay } from 'react-day-picker/test/actions';
+import { getDayButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/range-shift-key';
-
-import { render } from '@testing-library/react';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

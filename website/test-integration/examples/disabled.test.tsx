@@ -1,16 +1,13 @@
 import React from 'react';
-import {
-  focusDay,
-  getMonthCaption,
-  pressArrowLeft,
-  queryPrevButton
-} from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
-
-import Example from '@examples/disabled';
 
 import { render } from '@testing-library/react';
 import { setDate } from 'date-fns';
+
+import { focusDay, pressArrowLeft } from 'react-day-picker/test/actions';
+import { getMonthCaption, queryPrevButton } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/disabled';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

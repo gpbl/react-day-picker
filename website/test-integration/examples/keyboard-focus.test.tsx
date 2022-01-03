@@ -1,11 +1,11 @@
 import React from 'react';
+
+import { render } from '@testing-library/react';
+import { addDays, addMonths, startOfMonth } from 'date-fns';
 import { DayPickerProps } from 'react-day-picker';
+
 import {
   focusDaysGrid,
-  getDayButton,
-  getFocusedElement,
-  getNextButton,
-  getPrevButton,
   pressArrowDown,
   pressArrowLeft,
   pressArrowRight,
@@ -13,13 +13,16 @@ import {
   pressEnter,
   pressShiftTab,
   pressTab
+} from 'react-day-picker/test/actions';
+import {
+  getDayButton,
+  getFocusedElement,
+  getNextButton,
+  getPrevButton
 } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/keyboard';
-
-import { render } from '@testing-library/react';
-import { addDays, addMonths, startOfMonth } from 'date-fns';
 
 const yesterday = new Date(2022, 5, 9);
 const today = new Date(2022, 5, 10);

@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-  clickNextMonth,
-  getNextButton,
-  getPrevButton
-} from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
-
-import Example from '@examples/from-to-year';
 
 import { render } from '@testing-library/react';
 import { differenceInMonths } from 'date-fns';
+
+import { clickNextMonth } from 'react-day-picker/test/actions';
+import { getNextButton, getPrevButton } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/from-to-year';
 
 const fromDate = new Date(2015, 0);
 const toDate = new Date(2018, 11);

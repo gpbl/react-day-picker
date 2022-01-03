@@ -5,8 +5,27 @@ import {
   getDayButton,
   getFocusedElement,
   getMonthDropdown,
+  getNextButton,
+  getPrevButton,
+  getWeekButton,
   getYearDropdown
-} from 'test/po';
+} from './po';
+
+export function clickDay(date: Date, options = {}) {
+  fireEvent.click(getDayButton(date), options);
+}
+
+export function clickPrevMonth(options = {}) {
+  fireEvent.click(getPrevButton(), options);
+}
+
+export function clickNextMonth(options = {}) {
+  fireEvent.click(getNextButton(), options);
+}
+
+export function clickWeek(weekNumber: number) {
+  fireEvent.click(getWeekButton(weekNumber));
+}
 
 export function pressShiftTab() {
   userEvent.tab({ shift: true });
@@ -14,6 +33,22 @@ export function pressShiftTab() {
 
 export function pressEnter() {
   userEvent.keyboard('{enter}');
+}
+
+export function pressArrowLeft() {
+  userEvent.type(getFocusedElement(), '{arrowleft}');
+}
+
+export function pressArrowRight() {
+  userEvent.type(getFocusedElement(), '{arrowright}');
+}
+
+export function pressArrowUp() {
+  userEvent.type(getFocusedElement(), '{arrowup}');
+}
+
+export function pressArrowDown() {
+  userEvent.type(getFocusedElement(), '{arrowdown}');
 }
 
 export function pressPageUp() {

@@ -1,26 +1,4 @@
 import React from 'react';
-import { DayPickerProps } from 'react-day-picker';
-import {
-  clickNextMonth,
-  clickPrevMonth,
-  focusDay,
-  getDayButton,
-  getFocusedElement,
-  getMonthCaption,
-  pressArrowDown,
-  pressArrowLeft,
-  pressArrowRight,
-  pressArrowUp,
-  pressEnd,
-  pressHome,
-  pressPageDown,
-  pressPageUp,
-  pressShiftPageDown,
-  pressShiftPageUp
-} from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
-
-import Example from '@examples/keyboard';
 
 import { render } from '@testing-library/react';
 import {
@@ -33,6 +11,31 @@ import {
   setDate,
   startOfWeek
 } from 'date-fns';
+import { DayPickerProps } from 'react-day-picker';
+
+import {
+  clickNextMonth,
+  clickPrevMonth,
+  focusDay,
+  pressArrowDown,
+  pressArrowLeft,
+  pressArrowRight,
+  pressArrowUp,
+  pressEnd,
+  pressHome,
+  pressPageDown,
+  pressPageUp,
+  pressShiftPageDown,
+  pressShiftPageUp
+} from 'react-day-picker/test/actions';
+import {
+  getDayButton,
+  getFocusedElement,
+  getMonthCaption
+} from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/keyboard';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { renderHook } from '@testing-library/react-hooks';
+
 import { RootProvider } from 'contexts/RootProvider';
 import { DayPickerProps } from 'types/DayPicker';
 import { DayPickerCustomProps } from 'types/DayPickerCustom';

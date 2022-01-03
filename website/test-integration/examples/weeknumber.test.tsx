@@ -1,14 +1,11 @@
 import React from 'react';
-import {
-  clickWeek,
-  getTableFooter,
-  getWeekButton
-} from 'react-day-picker/test/po';
+import { clickWeek } from 'react-day-picker/test/actions';
+import { getTableFooter, getWeekButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
-import Example from '@examples/weeknumber';
-
 import { render } from '@testing-library/react';
+
+import Example from '@examples/weeknumber';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

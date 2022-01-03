@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-  clickDay,
-  getDayButton,
-  getTableFooter
-} from 'react-day-picker/test/po';
-
-import Example from '@examples/modifiers-custom';
 
 import { render } from '@testing-library/react';
+
+import { clickDay } from 'react-day-picker/test/actions';
+import { getDayButton, getTableFooter } from 'react-day-picker/test/po';
+
+import Example from '@examples/modifiers-custom';
 
 const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
 const bookedStyle = {

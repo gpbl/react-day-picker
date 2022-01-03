@@ -1,14 +1,12 @@
 import React from 'react';
-import {
-  clickNextMonth,
-  getNextButton,
-  getPrevButton
-} from 'react-day-picker/test/po';
-
-import Example from '@examples/from-to-month';
 
 import { render } from '@testing-library/react';
 import { differenceInMonths } from 'date-fns';
+
+import { clickNextMonth } from 'react-day-picker/test/actions';
+import { getNextButton, getPrevButton } from 'react-day-picker/test/po';
+
+import Example from '@examples/from-to-month';
 
 const fromDate = new Date(2015, 5);
 const toDate = new Date(2015, 10);

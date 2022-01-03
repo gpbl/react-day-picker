@@ -1,14 +1,12 @@
 import React from 'react';
-import {
-  clickDay,
-  getAllSelectedDays,
-  getDayButton
-} from 'react-day-picker/test/po';
-
-import Example from '@examples/range';
 
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
+
+import { clickDay } from 'react-day-picker/test/actions';
+import { getAllSelectedDays, getDayButton } from 'react-day-picker/test/po';
+
+import Example from '@examples/range';
 
 const pastMonth = new Date(2020, 10, 15);
 
