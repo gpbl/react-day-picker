@@ -1,16 +1,17 @@
 import { RenderResult } from '@testing-library/react-hooks';
+import es from 'date-fns/locale/es';
+
+import { customRenderHook } from 'test/render';
+import { freezeBeforeAll } from 'test/utils';
+
 import { CaptionLayout } from 'components/Caption';
 import { DayPickerContextValue, useDayPicker } from 'contexts/DayPicker';
 import { getDefaultContextValue } from 'contexts/DayPicker/defaultContextValue';
-import es from 'date-fns/locale/es';
 import { Components, DayPickerProps } from 'types/DayPicker';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
-
-import { customRenderHook } from 'test/render';
-import { freezeBeforeAll } from 'test/utils';
 
 const today = new Date(2022, 5, 13);
 const defaults = getDefaultContextValue();

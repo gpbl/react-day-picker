@@ -53,28 +53,24 @@
     "importSorter.importStringConfiguration.tabSize": 2,
     "importSorter.sortConfiguration.customOrderingRules.rules": [
       {
+        "orderLevel": 1,
+        "regex": "^react"
+      },
+      {
+        "orderLevel": 30,
+        "regex": "^(contexts|components|hooks|types)"
+      },
+      {
+        "orderLevel": 25,
+        "regex": "^test"
+      },
+      {
         "orderLevel": 40,
         "regex": "^[.]"
       },
       {
-        "orderLevel": 35,
-        "regex": "^test/"
-      },
-      {
-        "orderLevel": 9,
+        "orderLevel": 30,
         "regex": "^@examples/"
-      },
-      {
-        "orderLevel": 8,
-        "regex": "^react"
-      },
-      {
-        "orderLevel": 10,
-        "regex": "^(contexts|components|hooks|types)"
-      },
-      {
-        "orderLevel": 8,
-        "regex": "^[^.@]"
       }
     ],
     "importSorter.sortConfiguration.removeUnusedImports": true,

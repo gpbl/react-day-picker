@@ -1,12 +1,12 @@
 import React from 'react';
 
+import { RenderResult } from '@testing-library/react';
+import { addDays } from 'date-fns';
+
 import { focusDay } from 'test/actions';
 import { getDayButton, queryMonthGrids } from 'test/po';
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
-
-import { RenderResult } from '@testing-library/react';
-import { addDays } from 'date-fns';
 
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { DayPickerProps } from 'types/DayPicker';

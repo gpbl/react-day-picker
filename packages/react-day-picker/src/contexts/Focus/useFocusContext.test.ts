@@ -1,3 +1,4 @@
+import { act, RenderResult } from '@testing-library/react-hooks';
 import {
   addDays,
   addMonths,
@@ -7,12 +8,10 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import { FocusContextValue, useFocusContext } from 'contexts/Focus';
-
-import { act, RenderResult } from '@testing-library/react-hooks';
-
 import { customRenderHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
+
+import { FocusContextValue, useFocusContext } from 'contexts/Focus';
 
 let renderResult: RenderResult<FocusContextValue>;
 

@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+
 import { DayLabel } from 'types/Labels';
 
 /**
