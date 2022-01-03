@@ -2,9 +2,9 @@ import React from 'react';
 import { queryDayButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
-import Example from '@examples/modifiers-hidden';
-
 import { render } from '@testing-library/react';
+
+import Example from '@examples/modifiers-hidden';
 
 const days = [
   new Date(2022, 5, 10),

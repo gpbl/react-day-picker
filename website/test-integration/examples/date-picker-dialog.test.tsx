@@ -1,13 +1,15 @@
 import React from 'react';
-import { clickDay, getDayButton } from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
-import { act } from 'react-dom/test-utils';
-
-import Example from '@examples/date-picker-dialog';
 
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { format } from 'date-fns';
+import { act } from 'react-dom/test-utils';
+
+import { clickDay } from 'react-day-picker/test/actions';
+import { getDayButton } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/date-picker-dialog';
 
 const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);

@@ -1,14 +1,12 @@
 import React from 'react';
-import {
-  clickPrevMonth,
-  getMonthCaption,
-  getMonthGrid
-} from 'react-day-picker/test/po';
+
+import { render } from '@testing-library/react';
+
+import { clickPrevMonth } from 'react-day-picker/test/actions';
+import { getMonthCaption, getMonthGrid } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/multiple-months';
-
-import { render } from '@testing-library/react';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

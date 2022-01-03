@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-  clickDay,
-  getDayButton,
-  getTableFooter
-} from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
-
-import Example from '@examples/multiple-min-max';
 
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
+
+import { clickDay } from 'react-day-picker/test/actions';
+import { getDayButton, getTableFooter } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/multiple-min-max';
 
 const today = new Date(2021, 10, 10);
 freezeBeforeAll(today);

@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-  clickDay,
-  getDayButton,
-  getTableFooter
-} from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
-
-import Example from '@examples/modifiers-today';
 
 import { render } from '@testing-library/react';
 import { addDays } from 'date-fns';
+
+import { clickDay } from 'react-day-picker/test/actions';
+import { getDayButton, getTableFooter } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import Example from '@examples/modifiers-today';
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

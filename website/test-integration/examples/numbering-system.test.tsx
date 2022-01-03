@@ -1,9 +1,9 @@
 import React from 'react';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
-import Example from '@examples/numbering-system';
-
 import { render, screen } from '@testing-library/react';
+
+import Example from '@examples/numbering-system';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

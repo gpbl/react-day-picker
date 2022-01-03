@@ -1,6 +1,5 @@
-import { format } from 'date-fns';
-
 import { screen } from '@testing-library/react';
+import { format } from 'date-fns';
 
 export function getDayButton(day: Date) {
   return screen.getByRole('button', {
