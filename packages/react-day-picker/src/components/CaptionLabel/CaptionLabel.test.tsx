@@ -1,8 +1,7 @@
 import React from 'react';
-
 import tk from 'timekeeper';
 
-import { PageObjects } from 'test/po/PageObjects';
+import { PageObjects } from 'test/PageObjects';
 import { customRender } from 'test/render';
 
 import { CaptionLabel } from './CaptionLabel';
