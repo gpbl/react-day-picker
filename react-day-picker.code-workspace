@@ -86,6 +86,7 @@
       "showInlineError": false
     },
     "npm.packageManager": "yarn",
-    "typescript.preferences.importModuleSpecifier": "non-relative"
+    "editor.foldingImportsByDefault": true,
+    "typescript.preferences.importModuleSpecifier": "relative"
   }
 }
