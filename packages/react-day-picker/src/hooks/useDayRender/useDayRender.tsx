@@ -13,8 +13,8 @@ import { useModifiersStatus } from 'hooks/useModifiersStatus';
 import { ModifiersStatus } from 'types/Modifiers';
 import { StyledComponent } from 'types/Styles';
 
-import { getClassNames } from './utils/getClassNames';
-import { getStyle } from './utils/getStyle';
+import { getDayClassNames } from './utils/getDayClassNames';
+import { getDayStyle } from './utils/getDayStyle';
 
 export type DayRender = {
   /** Whether the day should be rendered a `button` instead of a `div` */
@@ -60,26 +60,19 @@ export function useDayRender(
   const modifiersStatus = useModifiersStatus(day, displayMonth);
   const eventHandlers = useDayEventHandlers(day, modifiersStatus);
 
+  const isButton = Boolean(dayPicker.mode || dayPicker.onDayClick);
+
   // Focus the button if the day is focused according to the focus context
   useEffect(() => {
-    if (!focusContext.focusedDay) {
-      return;
-    }
+    if (!focusContext.focusedDay) return;
+    if (!isButton) return;
     if (isSameDay(focusContext.focusedDay, day)) {
       buttonRef.current?.focus();
     }
-  }, [focusContext.focusedDay, day, buttonRef]);
+  }, [focusContext.focusedDay, day, buttonRef, isButton]);
 
-  const className = getClassNames(modifiersStatus, dayPicker).join(' ');
-
-  const style =
-    dayPicker.modifiersStyles &&
-    getStyle(modifiersStatus, dayPicker.modifiersStyles);
-
-  const isButton = Boolean(dayPicker.mode || dayPicker.onDayClick);
-  const isFocusTarget = Boolean(
-    focusContext.focusTarget && isSameDay(focusContext.focusTarget, day)
-  );
+  const className = getDayClassNames(dayPicker, modifiersStatus).join(' ');
+  const style = getDayStyle(dayPicker, modifiersStatus);
 
   const isHidden = Boolean(
     (modifiersStatus.outside && !dayPicker.showOutsideDays) ||
@@ -100,6 +93,9 @@ export function useDayRender(
     children
   };
 
+  const isFocusTarget = Boolean(
+    focusContext.focusTarget && isSameDay(focusContext.focusTarget, day)
+  );
   const buttonProps = {
     ...divProps,
     disabled: modifiersStatus.disabled,

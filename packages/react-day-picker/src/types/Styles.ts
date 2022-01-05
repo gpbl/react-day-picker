@@ -85,12 +85,9 @@ export type ClassNames = Partial<StyledElement<string>>;
 /** The inline-styles of each element. */
 export type Styles = Partial<StyledElement<React.CSSProperties>>;
 
-/** Represent component props to style a component inline or via CSS. */
+/** Props of a component that can be styled via classNames or inline-styles. */
 export type StyledComponent = {
-  /** The class name to apply to the container element. */
   className?: string;
-  /** The inline style of the container element. */
   style?: React.CSSProperties;
-  /** The content of the element. */
   children?: React.ReactNode;
 };
