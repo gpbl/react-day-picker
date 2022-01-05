@@ -18,6 +18,9 @@ function setup(dayPickerProps?: DayPickerProps) {
 }
 
 describe('when rendered', () => {
+  beforeEach(() => {
+    setup();
+  });
   test.todo('the div should include the default class name');
   test.todo('the button should include the default class name');
   test.todo('the div should include the default style');

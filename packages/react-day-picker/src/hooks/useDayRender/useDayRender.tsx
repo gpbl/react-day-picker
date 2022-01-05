@@ -10,6 +10,7 @@ import {
   useDayEventHandlers
 } from 'hooks/useDayEventHandlers';
 import { useModifiersStatus } from 'hooks/useModifiersStatus';
+import { SelectedDays, useSelectedDays } from 'hooks/useSelectedDays';
 import { ModifiersStatus } from 'types/Modifiers';
 import { StyledComponent } from 'types/Styles';
 
@@ -29,6 +30,7 @@ export type DayRender = {
     DayEventHandlers;
   /** The props to apply to the div element (when `isButton` is false). */
   divProps: StyledComponent;
+  selectedDays: SelectedDays;
 };
 
 /**
@@ -59,7 +61,7 @@ export function useDayRender(
   const focusContext = useFocusContext();
   const modifiersStatus = useModifiersStatus(day, displayMonth);
   const eventHandlers = useDayEventHandlers(day, modifiersStatus);
-
+  const selectedDays = useSelectedDays();
   const isButton = Boolean(dayPicker.mode || dayPicker.onDayClick);
 
   // Focus the button if the day is focused according to the focus context
@@ -108,6 +110,7 @@ export function useDayRender(
     isButton,
     isHidden,
     modifiersStatus,
+    selectedDays,
     buttonProps,
     divProps
   };
