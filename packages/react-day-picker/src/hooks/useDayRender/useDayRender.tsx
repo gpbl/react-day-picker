@@ -5,13 +5,13 @@ import { isSameDay } from 'date-fns';
 import { ButtonProps } from 'components/Button';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useFocusContext } from 'contexts/Focus';
+import { useActiveModifiers } from 'hooks/useActiveModifiers';
 import {
   DayEventHandlers,
   useDayEventHandlers
 } from 'hooks/useDayEventHandlers';
-import { useModifiersStatus } from 'hooks/useModifiersStatus';
 import { SelectedDays, useSelectedDays } from 'hooks/useSelectedDays';
-import { ModifiersStatus } from 'types/Modifiers';
+import { ActiveModifiers } from 'types/Modifiers';
 import { StyledComponent } from 'types/Styles';
 
 import { getDayClassNames } from './utils/getDayClassNames';
@@ -22,8 +22,8 @@ export type DayRender = {
   isButton: boolean;
   /** Whether the day should be hidden. */
   isHidden: boolean;
-  /** The status for the modifiers for the given day. */
-  modifiersStatus: ModifiersStatus;
+  /** The modifiers active for the given day. */
+  activeModifiers: ActiveModifiers;
   /** The props to apply to the button element (when `isButton` is true). */
   buttonProps: StyledComponent &
     Pick<ButtonProps, 'disabled' | 'aria-pressed' | 'tabIndex'> &
@@ -59,8 +59,8 @@ export function useDayRender(
 ): DayRender {
   const dayPicker = useDayPicker();
   const focusContext = useFocusContext();
-  const modifiersStatus = useModifiersStatus(day, displayMonth);
-  const eventHandlers = useDayEventHandlers(day, modifiersStatus);
+  const activeModifiers = useActiveModifiers(day, displayMonth);
+  const eventHandlers = useDayEventHandlers(day, activeModifiers);
   const selectedDays = useSelectedDays();
   const isButton = Boolean(dayPicker.mode || dayPicker.onDayClick);
 
@@ -73,19 +73,19 @@ export function useDayRender(
     }
   }, [focusContext.focusedDay, day, buttonRef, isButton]);
 
-  const className = getDayClassNames(dayPicker, modifiersStatus).join(' ');
-  const style = getDayStyle(dayPicker, modifiersStatus);
+  const className = getDayClassNames(dayPicker, activeModifiers).join(' ');
+  const style = getDayStyle(dayPicker, activeModifiers);
 
   const isHidden = Boolean(
-    (modifiersStatus.outside && !dayPicker.showOutsideDays) ||
-      modifiersStatus.hidden
+    (activeModifiers.outside && !dayPicker.showOutsideDays) ||
+      activeModifiers.hidden
   );
 
   const children = (
     <dayPicker.components.DayContent
       date={day}
       displayMonth={displayMonth}
-      modifiersStatus={modifiersStatus}
+      activeModifiers={activeModifiers}
     />
   );
 
@@ -100,8 +100,8 @@ export function useDayRender(
   );
   const buttonProps = {
     ...divProps,
-    disabled: modifiersStatus.disabled,
-    ['aria-pressed']: modifiersStatus.selected,
+    disabled: activeModifiers.disabled,
+    ['aria-pressed']: activeModifiers.selected,
     tabIndex: isFocusTarget ? 0 : -1,
     ...eventHandlers
   };
@@ -109,7 +109,7 @@ export function useDayRender(
   const dayRender: DayRender = {
     isButton,
     isHidden,
-    modifiersStatus,
+    activeModifiers: activeModifiers,
     selectedDays,
     buttonProps,
     divProps

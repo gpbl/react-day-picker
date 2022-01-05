@@ -28,7 +28,7 @@ describe('when rendered', () => {
   test.todo('the button should not have "aria-pressed"');
   test.todo('the button should have -1 as "tabIndex"');
   test.todo('the button should have the event handlers attached');
-  test.todo('should return the days modifiers status');
+  test.todo('should return the day active modifiers');
 });
 
 describe('when "modifierPrefix" is passed in', () => {

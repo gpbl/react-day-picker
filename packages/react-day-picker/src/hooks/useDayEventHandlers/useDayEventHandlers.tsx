@@ -8,7 +8,7 @@ import { useSelectSingle } from 'contexts/SelectSingle';
 import { isDayPickerMultiple } from 'types/DayPickerMultiple';
 import { isDayPickerRange } from 'types/DayPickerRange';
 import { isDayPickerSingle } from 'types/DayPickerSingle';
-import { ModifiersStatus } from 'types/Modifiers';
+import { ActiveModifiers } from 'types/Modifiers';
 
 type EventHandlers =
   | 'onClick'
@@ -52,7 +52,7 @@ export type DayEventHandlers = Pick<
  */
 export function useDayEventHandlers(
   date: Date,
-  modifiersStatus: ModifiersStatus
+  activeModifiers: ActiveModifiers
 ): DayEventHandlers {
   const dayPicker = useDayPicker();
   const single = useSelectSingle();
@@ -75,46 +75,46 @@ export function useDayEventHandlers(
 
   const onClick: React.MouseEventHandler = (e) => {
     if (isDayPickerSingle(dayPicker)) {
-      single.onDayClick?.(date, modifiersStatus, e);
+      single.onDayClick?.(date, activeModifiers, e);
     } else if (isDayPickerMultiple(dayPicker)) {
-      multiple.onDayClick?.(date, modifiersStatus, e);
+      multiple.onDayClick?.(date, activeModifiers, e);
     } else if (isDayPickerRange(dayPicker)) {
-      range.onDayClick?.(date, modifiersStatus, e);
+      range.onDayClick?.(date, activeModifiers, e);
     }
-    dayPicker.onDayClick?.(date, modifiersStatus, e);
+    dayPicker.onDayClick?.(date, activeModifiers, e);
   };
 
   const onFocus: React.FocusEventHandler = (e) => {
     focus(date);
-    dayPicker.onDayFocus?.(date, modifiersStatus, e);
+    dayPicker.onDayFocus?.(date, activeModifiers, e);
   };
 
   const onBlur: React.FocusEventHandler = (e) => {
     blur();
-    dayPicker.onDayBlur?.(date, modifiersStatus, e);
+    dayPicker.onDayBlur?.(date, activeModifiers, e);
   };
 
   const onMouseEnter: React.MouseEventHandler = (e) => {
-    dayPicker.onDayMouseEnter?.(date, modifiersStatus, e);
+    dayPicker.onDayMouseEnter?.(date, activeModifiers, e);
   };
   const onMouseLeave: React.MouseEventHandler = (e) => {
-    dayPicker.onDayMouseLeave?.(date, modifiersStatus, e);
+    dayPicker.onDayMouseLeave?.(date, activeModifiers, e);
   };
   const onTouchCancel: React.TouchEventHandler = (e) => {
-    dayPicker.onDayTouchCancel?.(date, modifiersStatus, e);
+    dayPicker.onDayTouchCancel?.(date, activeModifiers, e);
   };
   const onTouchEnd: React.TouchEventHandler = (e) => {
-    dayPicker.onDayTouchEnd?.(date, modifiersStatus, e);
+    dayPicker.onDayTouchEnd?.(date, activeModifiers, e);
   };
   const onTouchMove: React.TouchEventHandler = (e) => {
-    dayPicker.onDayTouchMove?.(date, modifiersStatus, e);
+    dayPicker.onDayTouchMove?.(date, activeModifiers, e);
   };
   const onTouchStart: React.TouchEventHandler = (e) => {
-    dayPicker.onDayTouchStart?.(date, modifiersStatus, e);
+    dayPicker.onDayTouchStart?.(date, activeModifiers, e);
   };
 
   const onKeyUp: React.KeyboardEventHandler = (e) => {
-    dayPicker.onDayKeyUp?.(date, modifiersStatus, e);
+    dayPicker.onDayKeyUp?.(date, activeModifiers, e);
   };
 
   const onKeyDown: KeyboardEventHandler = (e) => {
@@ -160,7 +160,7 @@ export function useDayEventHandlers(
         focusEndOfWeek();
         break;
     }
-    dayPicker.onDayKeyDown?.(date, modifiersStatus, e);
+    dayPicker.onDayKeyDown?.(date, activeModifiers, e);
   };
 
   const eventHandlers: DayEventHandlers = {

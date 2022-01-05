@@ -1,16 +1,16 @@
 import { DayPickerContextValue } from 'contexts/DayPicker';
-import { ModifiersStatus } from 'types/Modifiers';
+import { ActiveModifiers } from 'types/Modifiers';
 
-/** Return the class names for the Day element, according to the given modifiers status. */
+/** Return the class names for the Day element, according to the given active modifiers. */
 export function getDayClassNames(
   dayPicker: Pick<
     DayPickerContextValue,
     'modifiersClassNames' | 'classNames' | 'modifierPrefix'
   >,
-  modifiersStatus: ModifiersStatus
+  activeModifiers: ActiveModifiers
 ) {
   const classNames: string[] = [dayPicker.classNames.day];
-  Object.keys(modifiersStatus).forEach((modifier) => {
+  Object.keys(activeModifiers).forEach((modifier) => {
     const customClassName = dayPicker.modifiersClassNames[modifier];
     if (customClassName) {
       classNames.push(customClassName);

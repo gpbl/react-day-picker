@@ -1,18 +1,18 @@
 import { matchModifiers, useModifiers } from 'contexts/Modifiers';
-import { ModifiersStatus } from 'types/Modifiers';
+import { ActiveModifiers } from 'types/Modifiers';
 
 /**
- * Return the status of the modifiers for the specified day.
+ * Return the active modifiers for the specified day.
  *
  * @param day
  * @param displayMonth The month where the date is displayed. If not the same as
  * `date`, the day is an "outside day".
  */
-export function useModifiersStatus(
+export function useActiveModifiers(
   day: Date,
   displayMonth?: Date
-): ModifiersStatus {
+): ActiveModifiers {
   const modifiers = useModifiers();
-  const modifiersStatus = matchModifiers(day, modifiers, displayMonth);
-  return modifiersStatus;
+  const activeModifiers = matchModifiers(day, modifiers, displayMonth);
+  return activeModifiers;
 }

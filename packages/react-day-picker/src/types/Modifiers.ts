@@ -28,8 +28,20 @@ export enum InternalModifier {
 /** Map of matchers used for the internal modifiers. */
 export type InternalModifiers = Record<InternalModifier, Matcher[]>;
 
-/** The status of a modifiers when matched a day. */
-export type ModifiersStatus = Record<Modifier, true> &
+/**
+ * Active modifiers are those Modifiers matching a specific day.
+ *
+ * @example
+ *
+ * ```
+ * const activeModifiers: ActiveModifiers = {
+ *  selected: true,
+ *  customModifier: true
+ * }
+ * ```
+ *
+ * */
+export type ActiveModifiers = Record<Modifier, true> &
   Partial<Record<InternalModifier, true>>;
 
 /** The style to apply to each day element matching a modifier. */

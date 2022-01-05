@@ -16,7 +16,7 @@ export * from './components/WeekNumber';
 
 export * from './hooks/useInput';
 export * from './hooks/useDayRender';
-export * from './hooks/useModifiersStatus';
+export * from './hooks/useActiveModifiers';
 
 export * from './contexts/DayPicker';
 export * from './contexts/Focus';
