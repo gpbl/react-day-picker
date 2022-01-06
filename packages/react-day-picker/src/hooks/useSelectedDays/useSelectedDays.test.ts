@@ -1,21 +1,71 @@
+import { RenderResult } from '@testing-library/react-hooks';
+
+import { customRenderHook } from 'test/render';
+
+import { SelectMultipleContextValue } from 'contexts/SelectMultiple';
+import { SelectRangeContextValue } from 'contexts/SelectRange';
+import { SelectSingleContextValue } from 'contexts/SelectSingle';
+import { DayPickerProps } from 'types/DayPicker';
+
+import { SelectedDays, useSelectedDays } from './useSelectedDays';
+
+const today = new Date(2021, 11, 8);
+
+const single: SelectSingleContextValue = {
+  selected: today
+};
+
+const multiple: SelectMultipleContextValue = {
+  selected: [today],
+  modifiers: { disabled: [] }
+};
+
+const range: SelectRangeContextValue = {
+  selected: undefined,
+  modifiers: {
+    disabled: [],
+    range_start: [],
+    range_end: [],
+    range_middle: []
+  }
+};
+
+let renderResult: RenderResult<SelectedDays>;
+function setup(dayPickerProps: DayPickerProps) {
+  const hookResult = customRenderHook(() => useSelectedDays(), dayPickerProps, {
+    single,
+    multiple,
+    range
+  });
+  renderResult = hookResult.result;
+}
+
 describe('when in single selection mode', () => {
-  describe('when a day is selected', () => {
-    test.todo('should return the selected day');
+  const mode = 'single';
+  beforeEach(() => {
+    setup({ mode });
+  });
+  test('should return the selection from the single context', () => {
+    expect(renderResult.current).toBe(single.selected);
   });
 });
 
 describe('when in multiple selection mode', () => {
-  describe('when some days are selected', () => {
-    test.todo('should return the selected days');
+  const mode = 'multiple';
+  beforeEach(() => {
+    setup({ mode });
+  });
+  test('should return the selection from the multiple context', () => {
+    expect(renderResult.current).toBe(multiple.selected);
   });
 });
 
 describe('when in range selection mode', () => {
-  describe('when a range is selected', () => {
-    test.todo('should return the selected range');
+  const mode = 'multiple';
+  beforeEach(() => {
+    setup({ mode });
   });
-});
-
-describe('when not in selection mode', () => {
-  test.todo('should return undefined');
+  test('should return the selection from the range context', () => {
+    expect(renderResult.current).toBe(range.selected);
+  });
 });
