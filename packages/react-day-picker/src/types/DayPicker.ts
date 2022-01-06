@@ -27,6 +27,8 @@ import {
 } from './Modifiers';
 import { ClassNames, StyledComponent, Styles } from './Styles';
 
+export type DaySelectionMode = 'custom' | 'single' | 'multiple' | 'range';
+
 /**
  * The props for the [[DayPicker]] component.
  */
@@ -212,7 +214,7 @@ export interface DayPickerProps {
    * - `range`: control the selection of a range of days
    * - `custom`: customize what is selected by using `onDayClick`
    */
-  mode?: 'custom' | 'single' | 'multiple' | 'range';
+  mode?: DaySelectionMode;
 
   // #region  props
   /**

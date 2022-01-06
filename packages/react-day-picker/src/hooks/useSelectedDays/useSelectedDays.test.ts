@@ -29,14 +29,15 @@ const range: SelectRangeContextValue = {
     range_middle: []
   }
 };
+const selectionContext = { single, multiple, range };
 
 let renderResult: RenderResult<SelectedDays>;
 function setup(dayPickerProps: DayPickerProps) {
-  const hookResult = customRenderHook(() => useSelectedDays(), dayPickerProps, {
-    single,
-    multiple,
-    range
-  });
+  const hookResult = customRenderHook(
+    useSelectedDays,
+    dayPickerProps,
+    selectionContext
+  );
   renderResult = hookResult.result;
 }
 
@@ -61,7 +62,7 @@ describe('when in multiple selection mode', () => {
 });
 
 describe('when in range selection mode', () => {
-  const mode = 'multiple';
+  const mode = 'range';
   beforeEach(() => {
     setup({ mode });
   });

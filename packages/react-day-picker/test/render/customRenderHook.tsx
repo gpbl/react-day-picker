@@ -31,23 +31,35 @@ export function customRenderHook<TProps, TResult>(
     | DayPickerSingleProps
     | DayPickerCustomProps
     | DayPickerRangeProps,
-  /** Override the selection contexts. (TODO: make those optional) */
+  /** Override the selection contexts. */
   selection?: {
-    single: SelectSingleContextValue;
-    multiple: SelectMultipleContextValue;
-    range: SelectRangeContextValue;
+    single?: SelectSingleContextValue;
+    multiple?: SelectMultipleContextValue;
+    range?: SelectRangeContextValue;
   }
 ) {
-  const wrapper = ({ children }: { children?: React.ReactNode }) => (
-    <RootProvider {...dayPickerProps}>
-      <SelectSingleContext.Provider value={selection?.single}>
-        <SelectRangeContext.Provider value={selection?.range}>
-          <SelectMultipleContext.Provider value={selection?.multiple}>
-            {children}
-          </SelectMultipleContext.Provider>
-        </SelectRangeContext.Provider>
-      </SelectSingleContext.Provider>
-    </RootProvider>
-  );
+  const wrapper = ({ children }: { children?: React.ReactNode }) => {
+    const MockSingleProvider = selection?.single
+      ? SelectSingleContext.Provider
+      : React.Fragment;
+    const MockMultipleProvider = selection?.single
+      ? SelectMultipleContext.Provider
+      : React.Fragment;
+    const MockRangeProvider = selection?.single
+      ? SelectRangeContext.Provider
+      : React.Fragment;
+    return (
+      <RootProvider {...dayPickerProps}>
+        <MockSingleProvider value={selection?.single}>
+          <MockMultipleProvider value={selection?.multiple}>
+            <MockRangeProvider value={selection?.range}>
+              {children}
+            </MockRangeProvider>
+          </MockMultipleProvider>
+        </MockSingleProvider>
+      </RootProvider>
+    );
+  };
+
   return renderHook<TProps, TResult>(callback, { wrapper });
 }

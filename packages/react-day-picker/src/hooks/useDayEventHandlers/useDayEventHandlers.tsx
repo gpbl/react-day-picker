@@ -10,7 +10,7 @@ import { isDayPickerRange } from 'types/DayPickerRange';
 import { isDayPickerSingle } from 'types/DayPickerSingle';
 import { ActiveModifiers } from 'types/Modifiers';
 
-type EventHandlers =
+export type EventName =
   | 'onClick'
   | 'onFocus'
   | 'onBlur'
@@ -23,9 +23,22 @@ type EventHandlers =
   | 'onTouchMove'
   | 'onTouchStart';
 
+export type DayEventName =
+  | 'onDayClick'
+  | 'onDayFocus'
+  | 'onDayBlur'
+  | 'onDayKeyDown'
+  | 'onDayKeyUp'
+  | 'onDayMouseEnter'
+  | 'onDayMouseLeave'
+  | 'onDayTouchCancel'
+  | 'onDayTouchEnd'
+  | 'onDayTouchMove'
+  | 'onDayTouchStart';
+
 export type DayEventHandlers = Pick<
   React.HTMLProps<HTMLButtonElement>,
-  EventHandlers
+  EventName
 >;
 
 /**
