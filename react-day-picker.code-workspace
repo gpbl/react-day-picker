@@ -85,7 +85,6 @@
       "showClassicStatus": false,
       "showInlineError": false
     },
-    "npm.packageManager": "yarn",
-    "editor.foldingImportsByDefault": true
+    "npm.packageManager": "yarn"
   }
 }
