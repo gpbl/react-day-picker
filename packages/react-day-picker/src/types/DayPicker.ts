@@ -28,10 +28,19 @@ import {
 import { ClassNames, StyledComponent, Styles } from './Styles';
 
 /**
+ * Selection modes supported by DayPicker.
+ *
+ * - `single`: use DayPicker to select single days.
+ * - `multiple`: allow selecting multiple days.
+ * - `range`: use DayPicker to select a range of days
+ * - `custom`: customize what is selected by using `onDayClick`
+ */
+export type DaySelectionMode = 'custom' | 'single' | 'multiple' | 'range';
+
+/**
  * The props for the [[DayPicker]] component.
  */
 export interface DayPickerProps {
-  // #region class names
   /** The CSS class to add to the container element. */
   className?: string;
   /**
@@ -45,9 +54,7 @@ export interface DayPickerProps {
    * Change the class name for the day matching the [[modifiers]].
    */
   modifiersClassNames?: ModifiersClassNames;
-  // #endregion
 
-  // #region styles
   /**
    * Style to apply to the container element.
    */
@@ -60,9 +67,7 @@ export interface DayPickerProps {
    * Change the inline style for the day matching the [[modifiers]].
    */
   modifiersStyles?: ModifiersStyles;
-  // #endregion
 
-  // #region month navigation
   /**
    * The initial month to show in the calendar. Default is the current month.
    *
@@ -121,9 +126,7 @@ export interface DayPickerProps {
    * than `1`) to display the most recent month first.
    */
   reverseMonths?: boolean;
-  // #endregion
 
-  // #region customization props
   /**
    * Change the layout of the caption:
    *
@@ -168,9 +171,6 @@ export interface DayPickerProps {
    * improved accessibility.
    */
   initialFocus?: boolean;
-  // #endregion
-
-  // #region modifiers props
 
   /**
    * Apply the `disabled` modifier to the matching days.
@@ -201,28 +201,23 @@ export interface DayPickerProps {
    * a modifier.
    */
   modifierPrefix?: string;
-  // #endregion
 
-  // #region selection props
   /**
-   * Toggle the controlled selection mode.
+   * Toggle the selection mode.
    *
-   * - `single`: control the selection of single days
-   * - `multiple`: control the selection of multiple days
-   * - `range`: control the selection of a range of days
+   * - `single`: use DayPicker to select single days.
+   * - `multiple`: allow selecting multiple days.
+   * - `range`: use DayPicker to select a range of days
    * - `custom`: customize what is selected by using `onDayClick`
    */
-  mode?: 'custom' | 'single' | 'multiple' | 'range';
+  mode?: DaySelectionMode;
 
-  // #region  props
-  /**
-   * The date-fns locale object to localize the user interface. Defaults to
-   * `en-US`.
-   */
+  /** The date-fns locale object used to localize dates. Defaults to* `en-US`. */
   locale?: Locale;
 
   /**
-   * A map of labels creators used for the ARIA labels attributes.
+   * Labels creators to override the defaults. Use this prop to customize the
+   * ARIA labels attributes.
    */
   labels?: Partial<Labels>;
 
@@ -233,12 +228,11 @@ export interface DayPickerProps {
   dir?: string;
 
   /**
-   * A map of formatters to change the default formatting functions.
+   * A map of formatters. Use the formatters to override the default formatting
+   * functions.
    */
   formatters?: Partial<Formatters>;
-  // #endregion
 
-  // #region event handlers
   onDayClick?: DayClickEventHandler;
   onDayFocus?: DayFocusEventHandler;
   onDayBlur?: DayFocusEventHandler;
@@ -254,7 +248,6 @@ export interface DayPickerProps {
   onNextClick?: MonthChangeEventHandler;
   onPrevClick?: MonthChangeEventHandler;
   onWeekNumberClick?: WeekNumberClickEventHandler;
-  // #endregion
 }
 
 /** A map of the component that can be changed via the `components` prop. */

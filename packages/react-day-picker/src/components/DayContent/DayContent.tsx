@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
-import { ModifiersStatus } from 'types/Modifiers';
+import { ActiveModifiers } from 'types/Modifiers';
 
 /** Represent the props for the [[DayContent]] component. */
 export interface DayContentProps {
@@ -9,8 +9,8 @@ export interface DayContentProps {
   date: Date;
   /** The month where the day is displayed. */
   displayMonth: Date;
-  /** The modifier status for the date. */
-  modifiersStatus: ModifiersStatus;
+  /** The active modifiers for the given date. */
+  activeModifiers: ActiveModifiers;
 }
 
 /**
@@ -29,7 +29,7 @@ export function DayContent(props: DayContentProps): JSX.Element {
     <>
       <span aria-hidden="true">{formatDay(props.date, { locale })}</span>
       <span className={classNames.vhidden} style={styles.vhidden}>
-        {labelDay(props.date, props.modifiersStatus, { locale })}
+        {labelDay(props.date, props.activeModifiers, { locale })}
       </span>
     </>
   );

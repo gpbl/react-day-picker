@@ -7,8 +7,16 @@ import { InternalModifier, InternalModifiers } from 'types/Modifiers';
 
 import { matcherToArray } from './matcherToArray';
 
-const { Selected, Disabled, Hidden, Today, RangeEnd, RangeMiddle, RangeStart } =
-  InternalModifier;
+const {
+  Selected,
+  Disabled,
+  Hidden,
+  Today,
+  RangeEnd,
+  RangeMiddle,
+  RangeStart,
+  Outside
+} = InternalModifier;
 
 /** Return the [[InternalModifiers]] from the DayPicker and select contexts. */
 export function getInternalModifiers(
@@ -23,7 +31,8 @@ export function getInternalModifiers(
     [Today]: [dayPicker.today],
     [RangeEnd]: [],
     [RangeMiddle]: [],
-    [RangeStart]: []
+    [RangeStart]: [],
+    [Outside]: []
   };
 
   if (dayPicker.fromDate) {

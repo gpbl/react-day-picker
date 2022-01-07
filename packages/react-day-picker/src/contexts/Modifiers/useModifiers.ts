@@ -4,7 +4,10 @@ import { Modifiers } from 'types/Modifiers';
 
 import { ModifiersContext } from './ModifiersContext';
 
-/** Hook to access the [[ModifiersContext]]. */
+/**
+ * Return the modifiers used by DayPicker.
+ *
+ * Requires to be wrapped into [[ModifiersProvider]]. */
 export function useModifiers(): Modifiers {
   const context = useContext(ModifiersContext);
   if (!context) {

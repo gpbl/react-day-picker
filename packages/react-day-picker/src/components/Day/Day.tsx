@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { useDay } from 'hooks/useDay';
+import { useDayRender } from 'hooks/useDayRender';
 
 import { Button } from '../Button';
 
@@ -18,13 +18,13 @@ export interface DayProps {
  */
 export function Day(props: DayProps): JSX.Element {
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const day = useDay(props.date, props.displayMonth, buttonRef);
+  const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
 
-  if (!day.buttonProps && !day.nonInteractiveProps) {
+  if (dayRender.isHidden) {
     return <></>;
   }
-  if (day.nonInteractiveProps) {
-    return <div {...day.nonInteractiveProps} />;
+  if (!dayRender.isButton) {
+    return <div {...dayRender.divProps} />;
   }
-  return <Button ref={buttonRef} {...day.buttonProps} />;
+  return <Button ref={buttonRef} {...dayRender.buttonProps} />;
 }

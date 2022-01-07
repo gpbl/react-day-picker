@@ -40,7 +40,7 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "cSpell.enabled": true,
-    "cSpell.words": ["vhidden"],
+    "cSpell.words": ["TOFIX", "vhidden"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -85,7 +85,6 @@
       "showClassicStatus": false,
       "showInlineError": false
     },
-    "npm.packageManager": "yarn",
-    "typescript.preferences.importModuleSpecifier": "non-relative"
+    "npm.packageManager": "yarn"
   }
 }

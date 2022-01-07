@@ -1,1 +1,1 @@
-test.todo('the internal modifiers should override the custom modifiers');
+test.todo('the custom modifiers should override the internal modifiers');
