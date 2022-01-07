@@ -28,6 +28,11 @@ export type CustomRenderHookContexts = {
   range?: SelectRangeContextValue;
   focus?: FocusContextValue;
 };
+
+const EmptyComponent = ({ children }: { children: React.ReactNode }) => (
+  <>{children}</>
+);
+
 /** Render a hook wrapped with the Root Provider. */
 export function customRenderHook<TProps, TResult>(
   callback: (props?: TProps) => TResult,
@@ -42,29 +47,27 @@ export function customRenderHook<TProps, TResult>(
   contexts?: CustomRenderHookContexts
 ) {
   const wrapper = ({ children }: { children?: React.ReactNode }) => {
-    const MockSingleProvider = contexts?.single
+    const SelectSingleProvider = contexts?.single
       ? SelectSingleContext.Provider
-      : React.Fragment;
-    const MockMultipleProvider = contexts?.single
+      : EmptyComponent;
+    const SelectMultipleProvider = contexts?.single
       ? SelectMultipleContext.Provider
-      : React.Fragment;
-    const MockRangeProvider = contexts?.single
+      : EmptyComponent;
+    const SelectRangeProvider = contexts?.single
       ? SelectRangeContext.Provider
-      : React.Fragment;
-    const MockFocusProvider = contexts?.single
+      : EmptyComponent;
+    const FocusProvider = contexts?.single
       ? FocusContext.Provider
-      : React.Fragment;
+      : EmptyComponent;
     return (
       <RootProvider {...dayPickerProps}>
-        <MockSingleProvider value={contexts?.single}>
-          <MockMultipleProvider value={contexts?.multiple}>
-            <MockRangeProvider value={contexts?.range}>
-              <MockFocusProvider value={contexts?.focus}>
-                {children}
-              </MockFocusProvider>
-            </MockRangeProvider>
-          </MockMultipleProvider>
-        </MockSingleProvider>
+        <SelectSingleProvider value={contexts?.single}>
+          <SelectMultipleProvider value={contexts?.multiple}>
+            <SelectRangeProvider value={contexts?.range}>
+              <FocusProvider value={contexts?.focus}>{children}</FocusProvider>
+            </SelectRangeProvider>
+          </SelectMultipleProvider>
+        </SelectSingleProvider>
       </RootProvider>
     );
   };
