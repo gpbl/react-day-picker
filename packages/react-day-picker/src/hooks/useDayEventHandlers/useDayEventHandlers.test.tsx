@@ -2,6 +2,7 @@ import { RenderResult } from '@testing-library/react-hooks';
 
 import { customRenderHook } from 'test/render';
 
+import { FocusContextValue } from 'contexts/Focus';
 import { SelectMultipleContextValue } from 'contexts/SelectMultiple';
 import { SelectRangeContextValue } from 'contexts/SelectRange';
 import { SelectSingleContextValue } from 'contexts/SelectSingle';
@@ -16,18 +17,18 @@ import { ActiveModifiers } from 'types/Modifiers';
 
 const today = new Date(2010, 5, 23);
 
-const single: SelectSingleContextValue = {
+const singleContext: SelectSingleContextValue = {
   selected: today,
   onDayClick: jest.fn()
 };
 
-const multiple: SelectMultipleContextValue = {
+const multipleContext: SelectMultipleContextValue = {
   selected: [today],
   modifiers: { disabled: [] },
   onDayClick: jest.fn()
 };
 
-const range: SelectRangeContextValue = {
+const rangeContext: SelectRangeContextValue = {
   selected: undefined,
   modifiers: {
     disabled: [],
@@ -37,23 +38,42 @@ const range: SelectRangeContextValue = {
   },
   onDayClick: jest.fn()
 };
-const selectionContext: Record<DaySelectionMode, any> = {
-  single,
-  multiple,
-  range,
-  custom: undefined
+
+const focusContext: FocusContextValue = {
+  focus: jest.fn(),
+  focusedDay: undefined,
+  focusTarget: undefined,
+  blur: jest.fn(),
+  focusDayAfter: jest.fn(),
+  focusDayBefore: jest.fn(),
+  focusWeekBefore: jest.fn(),
+  focusWeekAfter: jest.fn(),
+  focusMonthBefore: jest.fn(),
+  focusMonthAfter: jest.fn(),
+  focusYearBefore: jest.fn(),
+  focusYearAfter: jest.fn(),
+  focusStartOfWeek: jest.fn(),
+  focusEndOfWeek: jest.fn()
+};
+
+const mockedContexts = {
+  single: singleContext,
+  multiple: multipleContext,
+  range: rangeContext,
+  custom: undefined,
+  focus: focusContext
 };
 
 let renderResult: RenderResult<DayEventHandlers>;
 function setup(
   date: Date,
   activeModifiers: ActiveModifiers,
-  dayPickerProps: DayPickerProps
+  dayPickerProps?: DayPickerProps
 ) {
   const hookResult = customRenderHook(
     () => useDayEventHandlers(date, activeModifiers),
     dayPickerProps,
-    selectionContext
+    mockedContexts
   );
   renderResult = hookResult.result;
 }
@@ -104,7 +124,91 @@ describe.each<DaySelectionMode>(['single', 'multiple', 'range'])(
       renderResult.current.onClick?.(mouseEvent);
     });
     test(`should have called "onDayClick" from the ${mode} selection context`, () => {
-      expect(selectionContext[mode].onDayClick).toHaveBeenCalled();
+      expect(mockedContexts[mode]?.onDayClick).toHaveBeenCalled();
     });
   }
 );
+
+describe('when calling "onFocus"', () => {
+  const date = today;
+  const activeModifiers: ActiveModifiers = {};
+  const mouseEvent = {} as React.FocusEvent<HTMLButtonElement, Element>;
+  beforeEach(() => {
+    setup(date, activeModifiers);
+    renderResult.current.onFocus?.(mouseEvent);
+  });
+  test('should focus the date in the context', () => {
+    expect(focusContext.focus).toHaveBeenCalledWith(date);
+  });
+});
+
+describe('when calling "onBlur"', () => {
+  const date = today;
+  const activeModifiers: ActiveModifiers = {};
+  const mouseEvent = {} as React.FocusEvent<HTMLButtonElement, Element>;
+  beforeEach(() => {
+    setup(date, activeModifiers);
+    renderResult.current.onBlur?.(mouseEvent);
+  });
+  test('should blur the date in the context', () => {
+    expect(focusContext.blur).toHaveBeenCalled();
+  });
+});
+
+describe('when calling "onKeyDown"', () => {
+  const date = today;
+  const activeModifiers: ActiveModifiers = {};
+
+  const tests: [
+    key: string,
+    dir: string,
+    shiftKey: boolean,
+    expectedMethod: keyof FocusContextValue
+  ][] = [
+    ['ArrowLeft', 'ltr', false, 'focusDayBefore'],
+    ['ArrowLeft', 'rtl', false, 'focusDayAfter'],
+    ['ArrowRight', 'ltr', false, 'focusDayAfter'],
+    ['ArrowRight', 'ltr', false, 'focusDayBefore'],
+    ['ArrowRight', 'ltr', false, 'focusDayAfter'],
+    ['ArrowDown', 'ltr', false, 'focusWeekAfter'],
+    ['ArrowUp', 'ltr', false, 'focusWeekBefore'],
+    ['PageUp', 'ltr', true, 'focusYearBefore'],
+    ['PageUp', 'ltr', false, 'focusMonthBefore'],
+    ['PageDown', 'ltr', true, 'focusYearAfter'],
+    ['PageDown', 'ltr', false, 'focusMonthAfter'],
+    ['Home', 'ltr', false, 'focusStartOfWeek'],
+    ['End', 'ltr', false, 'focusEndOfWeek']
+  ];
+
+  describe.each(tests)(
+    'when key is %s',
+    (key, dir, shiftKey, expectedMethod) => {
+      describe(`when text direction is "${dir.toUpperCase()}"`, () => {
+        describe(`when the shiftKey is ${
+          shiftKey ? '' : 'not'
+        } pressed`, () => {
+          const keyboardEvent = {
+            key,
+            shiftKey
+          } as React.KeyboardEvent<HTMLButtonElement>;
+          keyboardEvent.preventDefault = jest.fn();
+          keyboardEvent.stopPropagation = jest.fn();
+
+          beforeEach(() => {
+            setup(date, activeModifiers, { dir });
+            renderResult.current.onKeyDown?.(keyboardEvent);
+          });
+          test(`should call ${expectedMethod}`, () => {
+            expect(focusContext[expectedMethod]).toHaveBeenCalledWith();
+          });
+          test(`should prevent the default event`, () => {
+            expect(keyboardEvent.preventDefault).toHaveBeenCalledWith();
+          });
+          test(`should stop the event propagation`, () => {
+            expect(keyboardEvent.preventDefault).toHaveBeenCalledWith();
+          });
+        });
+      });
+    }
+  );
+});

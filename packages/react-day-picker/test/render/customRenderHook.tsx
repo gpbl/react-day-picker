@@ -2,6 +2,7 @@ import React from 'react';
 
 import { renderHook } from '@testing-library/react-hooks';
 
+import { FocusContext, FocusContextValue } from 'contexts/Focus';
 import { RootProvider } from 'contexts/RootProvider';
 import {
   SelectMultipleContext,
@@ -21,6 +22,12 @@ import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
 import { DayPickerRangeProps } from 'types/DayPickerRange';
 import { DayPickerSingleProps } from 'types/DayPickerSingle';
 
+export type CustomRenderHookContexts = {
+  single?: SelectSingleContextValue;
+  multiple?: SelectMultipleContextValue;
+  range?: SelectRangeContextValue;
+  focus?: FocusContextValue;
+};
 /** Render a hook wrapped with the Root Provider. */
 export function customRenderHook<TProps, TResult>(
   callback: (props?: TProps) => TResult,
@@ -31,29 +38,30 @@ export function customRenderHook<TProps, TResult>(
     | DayPickerSingleProps
     | DayPickerCustomProps
     | DayPickerRangeProps,
-  /** Override the selection contexts. */
-  selection?: {
-    single?: SelectSingleContextValue;
-    multiple?: SelectMultipleContextValue;
-    range?: SelectRangeContextValue;
-  }
+  /** Override the single contexts. */
+  contexts?: CustomRenderHookContexts
 ) {
   const wrapper = ({ children }: { children?: React.ReactNode }) => {
-    const MockSingleProvider = selection?.single
+    const MockSingleProvider = contexts?.single
       ? SelectSingleContext.Provider
       : React.Fragment;
-    const MockMultipleProvider = selection?.single
+    const MockMultipleProvider = contexts?.single
       ? SelectMultipleContext.Provider
       : React.Fragment;
-    const MockRangeProvider = selection?.single
+    const MockRangeProvider = contexts?.single
       ? SelectRangeContext.Provider
+      : React.Fragment;
+    const MockFocusProvider = contexts?.single
+      ? FocusContext.Provider
       : React.Fragment;
     return (
       <RootProvider {...dayPickerProps}>
-        <MockSingleProvider value={selection?.single}>
-          <MockMultipleProvider value={selection?.multiple}>
-            <MockRangeProvider value={selection?.range}>
-              {children}
+        <MockSingleProvider value={contexts?.single}>
+          <MockMultipleProvider value={contexts?.multiple}>
+            <MockRangeProvider value={contexts?.range}>
+              <MockFocusProvider value={contexts?.focus}>
+                {children}
+              </MockFocusProvider>
             </MockRangeProvider>
           </MockMultipleProvider>
         </MockSingleProvider>

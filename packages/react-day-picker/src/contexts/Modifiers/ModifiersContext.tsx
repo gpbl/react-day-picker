@@ -30,8 +30,8 @@ export function ModifiersProvider(props: ModifiersProviderProps): JSX.Element {
   const customModifiers: CustomModifiers = getCustomModifiers(dayPicker);
 
   const modifiers: Modifiers = {
-    ...customModifiers,
-    ...internalModifiers
+    ...internalModifiers,
+    ...customModifiers
   };
 
   return (

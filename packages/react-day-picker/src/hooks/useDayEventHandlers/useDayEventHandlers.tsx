@@ -1,4 +1,10 @@
-import React, { KeyboardEventHandler } from 'react';
+import {
+  FocusEventHandler,
+  HTMLProps,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  TouchEventHandler
+} from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
 import { useFocusContext } from 'contexts/Focus';
@@ -36,10 +42,7 @@ export type DayEventName =
   | 'onDayTouchMove'
   | 'onDayTouchStart';
 
-export type DayEventHandlers = Pick<
-  React.HTMLProps<HTMLButtonElement>,
-  EventName
->;
+export type DayEventHandlers = Pick<HTMLProps<HTMLButtonElement>, EventName>;
 
 /**
  * This hook returns details about the content to render in the day cell.
@@ -86,7 +89,7 @@ export function useDayEventHandlers(
     focusEndOfWeek
   } = useFocusContext();
 
-  const onClick: React.MouseEventHandler = (e) => {
+  const onClick: MouseEventHandler = (e) => {
     if (isDayPickerSingle(dayPicker)) {
       single.onDayClick?.(date, activeModifiers, e);
     } else if (isDayPickerMultiple(dayPicker)) {
@@ -97,36 +100,36 @@ export function useDayEventHandlers(
     dayPicker.onDayClick?.(date, activeModifiers, e);
   };
 
-  const onFocus: React.FocusEventHandler = (e) => {
+  const onFocus: FocusEventHandler = (e) => {
     focus(date);
     dayPicker.onDayFocus?.(date, activeModifiers, e);
   };
 
-  const onBlur: React.FocusEventHandler = (e) => {
+  const onBlur: FocusEventHandler = (e) => {
     blur();
     dayPicker.onDayBlur?.(date, activeModifiers, e);
   };
 
-  const onMouseEnter: React.MouseEventHandler = (e) => {
+  const onMouseEnter: MouseEventHandler = (e) => {
     dayPicker.onDayMouseEnter?.(date, activeModifiers, e);
   };
-  const onMouseLeave: React.MouseEventHandler = (e) => {
+  const onMouseLeave: MouseEventHandler = (e) => {
     dayPicker.onDayMouseLeave?.(date, activeModifiers, e);
   };
-  const onTouchCancel: React.TouchEventHandler = (e) => {
+  const onTouchCancel: TouchEventHandler = (e) => {
     dayPicker.onDayTouchCancel?.(date, activeModifiers, e);
   };
-  const onTouchEnd: React.TouchEventHandler = (e) => {
+  const onTouchEnd: TouchEventHandler = (e) => {
     dayPicker.onDayTouchEnd?.(date, activeModifiers, e);
   };
-  const onTouchMove: React.TouchEventHandler = (e) => {
+  const onTouchMove: TouchEventHandler = (e) => {
     dayPicker.onDayTouchMove?.(date, activeModifiers, e);
   };
-  const onTouchStart: React.TouchEventHandler = (e) => {
+  const onTouchStart: TouchEventHandler = (e) => {
     dayPicker.onDayTouchStart?.(date, activeModifiers, e);
   };
 
-  const onKeyUp: React.KeyboardEventHandler = (e) => {
+  const onKeyUp: KeyboardEventHandler = (e) => {
     dayPicker.onDayKeyUp?.(date, activeModifiers, e);
   };
 
