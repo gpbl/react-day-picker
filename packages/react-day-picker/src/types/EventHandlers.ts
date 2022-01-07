@@ -1,32 +1,32 @@
 import { DateRange } from 'types/Matchers';
 
-import { ModifiersStatus } from './Modifiers';
+import { ActiveModifiers } from './Modifiers';
 
 /** The event handler when a day is clicked. */
 export type DayClickEventHandler = (
   day: Date,
-  modifiersStatus: ModifiersStatus,
+  activeModifiers: ActiveModifiers,
   e: React.MouseEvent
 ) => void;
 
 /** The event handler when a day is focused. */
 export type DayFocusEventHandler = (
   day: Date,
-  modifiersStatus: ModifiersStatus,
+  activeModifiers: ActiveModifiers,
   e: React.FocusEvent | React.KeyboardEvent
 ) => void;
 
 /** The event handler when a day gets a keyboard event. */
 export type DayKeyboardEventHandler = (
   day: Date,
-  modifiersStatus: ModifiersStatus,
+  activeModifiers: ActiveModifiers,
   e: React.KeyboardEvent
 ) => void;
 
 /** The event handler when a day gets a mouse event. */
 export type DayMouseEventHandler = (
   day: Date,
-  modifiersStatus: ModifiersStatus,
+  activeModifiers: ActiveModifiers,
   e: React.MouseEvent
 ) => void;
 
@@ -40,7 +40,7 @@ export type SelectMultipleEventHandler = (
   /** The day that was clicked triggering the event. */
   selectedDay: Date,
   /** The day that was clicked */
-  modifiersStatus: ModifiersStatus,
+  activeModifiers: ActiveModifiers,
   /** The mouse event that triggered this event. */
   e: React.MouseEvent
 ) => void;
@@ -52,7 +52,7 @@ export type SelectRangeEventHandler = (
   /** The day that was selected (or clicked) triggering the event. */
   selectedDay: Date,
   /** The modifiers of the selected day. */
-  modifiersStatus: ModifiersStatus,
+  activeModifiers: ActiveModifiers,
   e: React.MouseEvent
 ) => void;
 
@@ -64,7 +64,7 @@ export interface SelectSingleEventHandler {
     /** The day that was selected (or clicked) triggering the event. */
     selectedDay: Date,
     /** The modifiers of the selected day. */
-    modifiersStatus: ModifiersStatus,
+    activeModifiers: ActiveModifiers,
     e: React.MouseEvent
   ): void;
 }
@@ -82,6 +82,6 @@ export type WeekNumberClickEventHandler = (
 /** The event handler when a day gets a touch event. */
 export type DayTouchEventHandler = (
   day: Date,
-  modifiersStatus: ModifiersStatus,
+  activeModifiers: ActiveModifiers,
   e: React.TouchEvent
 ) => void;

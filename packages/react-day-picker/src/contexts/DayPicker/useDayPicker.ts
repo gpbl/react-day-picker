@@ -11,9 +11,7 @@ import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
 export function useDayPicker(): DayPickerContextValue {
   const context = useContext(DayPickerContext);
   if (!context) {
-    throw new Error(
-      `Context is not defined. useDayPicker must be used within a DayPickerProvider with a valid values.`
-    );
+    throw new Error(`useDayPicker must be used within a DayPickerProvider.`);
   }
   return context;
 }

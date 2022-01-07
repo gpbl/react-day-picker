@@ -1,39 +1,45 @@
 import React, { MouseEventHandler, useRef, useState } from 'react';
+
+import { isSameDay } from 'date-fns';
 import {
   Button,
   DateRange,
   DayPicker,
   DayProps,
-  useDay
+  useDayRender
 } from 'react-day-picker';
-
-import { isSameDay } from 'date-fns';
 
 function DayWithShiftKey(props: DayProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
 
-  const day = useDay(props.date, props.displayMonth, buttonRef);
-
-  if (!day.buttonProps && !day.nonInteractiveProps) {
+  if (dayRender.isHidden) {
     return <></>;
   }
-  if (day.nonInteractiveProps) {
-    return <div {...day.nonInteractiveProps} />;
+  if (!dayRender.isButton) {
+    return <div {...dayRender.divProps} />;
   }
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    if (!day.selected || day.modifiersStatus.selected || e.shiftKey) {
-      day.buttonProps?.onClick?.(e);
+    if (
+      !dayRender.selectedDays ||
+      dayRender.activeModifiers.selected ||
+      e.shiftKey
+    ) {
+      dayRender.buttonProps?.onClick?.(e);
     }
   };
 
-  return <Button {...day.buttonProps} ref={buttonRef} onClick={handleClick} />;
+  return (
+    <Button {...dayRender.buttonProps} ref={buttonRef} onClick={handleClick} />
+  );
 }
 
 export default function App() {
   const [range, setRange] = useState<DateRange>();
 
   let footer = 'Please pick a day.';
+
   if (range?.from && range?.to) {
     if (isSameDay(range.from, range.to)) {
       footer = 'Press Shift to choose more days.';
