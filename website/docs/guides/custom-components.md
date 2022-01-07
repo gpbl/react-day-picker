@@ -4,7 +4,7 @@ Use the `components` prop to swap the [internal components](/api/interfaces/comp
 
 ## Custom Day
 
-You can further refine the interaction with the day cells by using a custom `Day` component and the [useDay hook](/api/functions/useDay).
+You can further refine the interaction with the day cells by using a custom `Day` component and the [useDayRender hook](/api/functions/useDayRender).
 
 ### Range selections with Shift key
 
