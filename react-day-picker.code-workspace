@@ -40,7 +40,7 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "cSpell.enabled": true,
-    "cSpell.words": ["TOFIX", "vhidden"],
+    "cSpell.words": ["miércoles", "septiembre", "TOFIX", "vhidden"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
