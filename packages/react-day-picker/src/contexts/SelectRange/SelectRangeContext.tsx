@@ -118,33 +118,23 @@ export function SelectRangeProviderInternal({
   if (selected) {
     if (selected.from) {
       modifiers.range_start = [selected.from];
-      selected.to = !selected.to ? selected.from : selected.to;
+      const to = selected.to ? selected.to : selected.from;
       modifiers.range_middle = [
         {
           after: selected.from,
-          before: selected.to
+          before: to
         }
       ];
       if (max || min) {
         modifiers.disabled = [
           (date: Date) => {
-            if (
-              max &&
-              selected.to &&
-              selected.from &&
-              isBefore(date, selected.from)
-            ) {
-              const diff = differenceInCalendarDays(selected.to, date);
+            if (max && to && selected.from && isBefore(date, selected.from)) {
+              const diff = differenceInCalendarDays(to, date);
               if (diff >= max) {
                 return true;
               }
             }
-            if (
-              max &&
-              selected.to &&
-              selected.from &&
-              isAfter(date, selected.to)
-            ) {
+            if (max && to && selected.from && isAfter(date, to)) {
               const diff = differenceInCalendarDays(date, selected.from);
               if (diff >= max) {
                 return true;
@@ -156,12 +146,7 @@ export function SelectRangeProviderInternal({
                 return true;
               }
             }
-            if (
-              min &&
-              selected.to &&
-              selected.from &&
-              isAfter(date, selected.to)
-            ) {
+            if (min && to && selected.from && isAfter(date, to)) {
               const diff = differenceInCalendarDays(date, selected.from);
               if (diff < min) {
                 return true;
@@ -171,7 +156,7 @@ export function SelectRangeProviderInternal({
           }
         ];
       }
-      modifiers.range_end = [selected.to];
+      modifiers.range_end = [to];
     }
   }
   return (
