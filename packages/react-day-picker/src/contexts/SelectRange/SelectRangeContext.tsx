@@ -118,63 +118,60 @@ export function SelectRangeProviderInternal({
   if (selected) {
     if (selected.from) {
       modifiers.range_start = [selected.from];
-      if (selected.to) {
-        modifiers.range_middle = [
-          {
-            after: selected.from,
-            before: selected.to
+      selected.to = !selected.to ? selected.from : selected.to;
+      modifiers.range_middle = [
+        {
+          after: selected.from,
+          before: selected.to
+        }
+      ];
+      if (max || min) {
+        modifiers.disabled = [
+          (date: Date) => {
+            if (
+              max &&
+              selected.to &&
+              selected.from &&
+              isBefore(date, selected.from)
+            ) {
+              const diff = differenceInCalendarDays(selected.to, date);
+              if (diff >= max) {
+                return true;
+              }
+            }
+            if (
+              max &&
+              selected.to &&
+              selected.from &&
+              isAfter(date, selected.to)
+            ) {
+              const diff = differenceInCalendarDays(date, selected.from);
+              if (diff >= max) {
+                return true;
+              }
+            }
+            if (min && selected.from && isBefore(date, selected.from)) {
+              const diff = differenceInCalendarDays(selected.from, date);
+              if (diff < min) {
+                return true;
+              }
+            }
+            if (
+              min &&
+              selected.to &&
+              selected.from &&
+              isAfter(date, selected.to)
+            ) {
+              const diff = differenceInCalendarDays(date, selected.from);
+              if (diff < min) {
+                return true;
+              }
+            }
+            return false;
           }
         ];
-        if (max || min) {
-          modifiers.disabled = [
-            (date: Date) => {
-              if (
-                max &&
-                selected.to &&
-                selected.from &&
-                isBefore(date, selected.from)
-              ) {
-                const diff = differenceInCalendarDays(selected.to, date);
-                if (diff >= max) {
-                  return true;
-                }
-              }
-              if (
-                max &&
-                selected.to &&
-                selected.from &&
-                isAfter(date, selected.to)
-              ) {
-                const diff = differenceInCalendarDays(date, selected.from);
-                if (diff >= max) {
-                  return true;
-                }
-              }
-              if (min && selected.from && isBefore(date, selected.from)) {
-                const diff = differenceInCalendarDays(selected.from, date);
-                if (diff < min) {
-                  return true;
-                }
-              }
-              if (
-                min &&
-                selected.to &&
-                selected.from &&
-                isAfter(date, selected.to)
-              ) {
-                const diff = differenceInCalendarDays(date, selected.from);
-                if (diff < min) {
-                  return true;
-                }
-              }
-              return false;
-            }
-          ];
-        }
-        modifiers.range_end = [selected.to];
-      } else {
-        modifiers.range_end = [selected.from];
       }
+      modifiers.range_end = [selected.to];
     }
   }
   return (
