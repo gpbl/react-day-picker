@@ -72,22 +72,17 @@ export function SelectRangeProvider(
   );
 }
 
-type SelectRangeProviderInternalProps = {
-  initialProps: DayPickerRangeProps;
-  children: ReactNode;
-};
-
-export function SelectRangeProviderInternal({
-  initialProps,
-  children
-}: SelectRangeProviderInternalProps): JSX.Element {
-  const { selected } = initialProps;
-  const min = initialProps.min;
-  const max = initialProps.max;
-
-  const onDayClick: DayClickEventHandler = (day, modifiers, e) => {
+const createOnDayClick =
+  (
+    initialProps: DayPickerRangeProps,
+    selected?: DateRange
+  ): DayClickEventHandler =>
+  (day, modifiers, e) => {
     initialProps.onDayClick?.(day, modifiers, e);
     const newValue = addToRange(day, selected);
+    const min = initialProps.min;
+    const max = initialProps.max;
+
     if (
       (min || max) &&
       selected &&
@@ -108,6 +103,57 @@ export function SelectRangeProviderInternal({
     initialProps.onSelect?.(newValue, day, modifiers, e);
   };
 
+const createDisabled =
+  (to: Date, from: Date, min?: number, max?: number) => (date: Date) => {
+    if (max && isBefore(date, from)) {
+      const diff = differenceInCalendarDays(to, date);
+      if (diff >= max) {
+        return true;
+      }
+    }
+    if (max && isAfter(date, to)) {
+      const diff = differenceInCalendarDays(date, from);
+      if (diff >= max) {
+        return true;
+      }
+    }
+    if (min && isBefore(date, to)) {
+      const diff = differenceInCalendarDays(to, date);
+      if (diff < min) {
+        return true;
+      }
+    }
+    if (min && isAfter(date, from)) {
+      const diff = differenceInCalendarDays(date, from);
+      if (diff < min) {
+        return true;
+      }
+    }
+    if (min && isAfter(date, to)) {
+      const diff = differenceInCalendarDays(date, from);
+      if (diff < min) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+type SelectRangeProviderInternalProps = {
+  initialProps: DayPickerRangeProps;
+  children: ReactNode;
+};
+
+export function SelectRangeProviderInternal({
+  initialProps,
+  children
+}: SelectRangeProviderInternalProps): JSX.Element {
+  const { selected, min, max } = initialProps;
+
+  const onDayClick: DayClickEventHandler = createOnDayClick(
+    initialProps,
+    selected
+  );
+
   const modifiers: SelectRangeModifiers = {
     range_start: [],
     range_end: [],
@@ -117,44 +163,17 @@ export function SelectRangeProviderInternal({
 
   if (selected) {
     if (selected.from) {
-      modifiers.range_start = [selected.from];
-      const to = selected.to ? selected.to : selected.from;
+      const from = selected.from;
+      const to = selected.to || selected.from;
+      modifiers.range_start = [from];
       modifiers.range_middle = [
         {
-          after: selected.from,
+          after: from,
           before: to
         }
       ];
       if (max || min) {
-        modifiers.disabled = [
-          (date: Date) => {
-            if (max && to && selected.from && isBefore(date, selected.from)) {
-              const diff = differenceInCalendarDays(to, date);
-              if (diff >= max) {
-                return true;
-              }
-            }
-            if (max && to && selected.from && isAfter(date, to)) {
-              const diff = differenceInCalendarDays(date, selected.from);
-              if (diff >= max) {
-                return true;
-              }
-            }
-            if (min && selected.from && isBefore(date, selected.from)) {
-              const diff = differenceInCalendarDays(selected.from, date);
-              if (diff < min) {
-                return true;
-              }
-            }
-            if (min && to && selected.from && isAfter(date, to)) {
-              const diff = differenceInCalendarDays(date, selected.from);
-              if (diff < min) {
-                return true;
-              }
-            }
-            return false;
-          }
-        ];
+        modifiers.disabled = [createDisabled(to, from, min, max)];
       }
       modifiers.range_end = [to];
     }
