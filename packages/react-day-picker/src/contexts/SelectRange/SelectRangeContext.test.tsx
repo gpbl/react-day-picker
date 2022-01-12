@@ -8,7 +8,6 @@ import { DayPickerRangeProps } from 'types/DayPickerRange';
 import { DateRange } from 'types/Matchers';
 
 import {
-  createDisabled,
   SelectRangeModifiers,
   SelectRangeProvider
 } from './SelectRangeContext';
@@ -22,40 +21,6 @@ describe('SelectRangeProvider', () => {
       </SelectRangeProvider>
     );
     expect(screen.getByTestId('test')).toBeInTheDocument();
-  });
-});
-
-describe('disabled', () => {
-  const fromDate = new Date(2021, 10, 15);
-  const toDate = addDays(fromDate, 3);
-
-  describe('with max', () => {
-    it('handles dates outside max limit', async () => {
-      const disabled = createDisabled(fromDate, toDate, undefined, 5);
-      expect(disabled(subDays(fromDate, 1))).toEqual(false); // Inside lower range
-      expect(disabled(subDays(fromDate, 2))).toEqual(true); // Outside lower range
-      expect(disabled(addDays(toDate, 1))).toEqual(false); // Inside upper range
-      expect(disabled(addDays(toDate, 2))).toEqual(true); // Outside upper range
-    });
-  });
-
-  describe('with min', () => {
-    it('handles dates inside min limit with two dates selected', () => {
-      const disabled = createDisabled(fromDate, toDate, 2);
-      expect(disabled(addDays(fromDate, 1))).toEqual(true); // Inside min limit
-      expect(disabled(subDays(fromDate, 1))).toEqual(false); // Outside min limit
-      expect(disabled(subDays(toDate, 2))).toEqual(true); // Inside min limit
-      expect(disabled(subDays(toDate, 1))).toEqual(false); // Outside min limit
-      expect(disabled(addDays(toDate, 1))).toEqual(false); // Outside min limit
-    });
-
-    it('handles dates inside min limit starting with one date selected', async () => {
-      const disabled = createDisabled(fromDate, fromDate, 2);
-      expect(disabled(subDays(fromDate, 1))).toEqual(true); // Within min range
-      expect(disabled(addDays(fromDate, 1))).toEqual(true); // Within min range
-      expect(disabled(addDays(fromDate, 2))).toEqual(false); // Outside min range
-      expect(disabled(subDays(fromDate, 2))).toEqual(false); // Outside min range
-    });
   });
 });
 
@@ -89,6 +54,7 @@ describe('useSelectRange', () => {
   describe('when given "from" and "to" date', () => {
     let selected: DateRange | undefined,
       modifiers: SelectRangeModifiers,
+      disabled: (date: Date) => boolean,
       onDayClick: (date: Date) => void;
     const fromDate = new Date(2021, 10, 15);
     const toDate = addDays(fromDate, 3);
@@ -112,6 +78,7 @@ describe('useSelectRange', () => {
 
       selected = current.selected;
       modifiers = current.modifiers;
+      disabled = modifiers.disabled[0] as (date: Date) => boolean;
       onDayClick = current.onDayClick as (date: Date) => void;
     });
 
@@ -127,35 +94,41 @@ describe('useSelectRange', () => {
       expect(modifiers.range_end).toEqual([toDate]);
     });
 
-    describe('when given no "to" date', () => {
-      it('should return correct modifier when given undefined "to" date', async () => {
-        const fromDate = new Date(2021, 10, 15);
-        const toDate = undefined;
+    describe('disabled', () => {
+      it('handles dates outside max limit', async () => {
+        expect(disabled(subDays(fromDate, 1))).toEqual(false); // Inside lower range
+        expect(disabled(subDays(fromDate, 2))).toEqual(true); // Outside lower range
+        expect(disabled(addDays(toDate, 1))).toEqual(false); // Inside upper range
+        expect(disabled(addDays(toDate, 2))).toEqual(true); // Outside upper range
+      });
 
-        const { result } = await waitFor(() =>
+      it('handles dates inside min limit with two dates selected', () => {
+        expect(disabled(addDays(fromDate, 1))).toEqual(true); // Inside min limit
+        expect(disabled(subDays(fromDate, 1))).toEqual(false); // Outside min limit
+        expect(disabled(subDays(toDate, 1))).toEqual(true); // Inside min limit
+        expect(disabled(addDays(toDate, 1))).toEqual(false); // Outside min limit
+      });
+
+      it('handles dates inside min limit starting with one day selected', async () => {
+        const {
+          result: { current }
+        } = await waitFor(() =>
           renderSelectRangeHook({
             mode: 'range',
             selected: {
               from: fromDate,
-              to: toDate
+              to: fromDate
             },
-            min: 1,
-            max: 5
+            min: 2,
+            onSelect
           })
         );
 
-        expect(result.current.selected).toEqual({
-          from: fromDate,
-          to: undefined
-        });
-        expect(result.current.modifiers.range_start).toEqual([fromDate]);
-        expect(result.current.modifiers.range_middle).toEqual([
-          {
-            after: fromDate,
-            before: fromDate
-          }
-        ]);
-        expect(result.current.modifiers.range_end).toEqual([fromDate]);
+        disabled = current.modifiers.disabled[0] as (date: Date) => boolean;
+        expect(disabled(subDays(fromDate, 1))).toEqual(true); // Within min range
+        expect(disabled(addDays(fromDate, 1))).toEqual(true); // Within min range
+        expect(disabled(addDays(fromDate, 2))).toEqual(false); // Outside min range
+        expect(disabled(subDays(fromDate, 2))).toEqual(false); // Outside min range
       });
     });
 
@@ -190,6 +163,38 @@ describe('useSelectRange', () => {
         onDayClick(addDays(fromDate, 1));
         expect(onSelect).toHaveBeenCalled();
       });
+    });
+  });
+
+  describe('when given no "to" date', () => {
+    it('should return correct modifier when given undefined "to" date', async () => {
+      const fromDate = new Date(2021, 10, 15);
+      const toDate = undefined;
+
+      const { result } = await waitFor(() =>
+        renderSelectRangeHook({
+          mode: 'range',
+          selected: {
+            from: fromDate,
+            to: toDate
+          },
+          min: 1,
+          max: 5
+        })
+      );
+
+      expect(result.current.selected).toEqual({
+        from: fromDate,
+        to: undefined
+      });
+      expect(result.current.modifiers.range_start).toEqual([fromDate]);
+      expect(result.current.modifiers.range_middle).toEqual([
+        {
+          after: fromDate,
+          before: fromDate
+        }
+      ]);
+      expect(result.current.modifiers.range_end).toEqual([fromDate]);
     });
   });
 });

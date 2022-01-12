@@ -103,8 +103,8 @@ const createOnDayClick =
     initialProps.onSelect?.(newValue, day, modifiers, e);
   };
 
-export const createDisabled =
-  (from: Date, to: Date, min?: number, max?: number) => (date: Date) => {
+const createDisabled =
+  (to: Date, from: Date, min?: number, max?: number) => (date: Date) => {
     if (max && isBefore(date, from)) {
       const diff = differenceInCalendarDays(to, date);
       if (diff >= max) {
@@ -117,14 +117,14 @@ export const createDisabled =
         return true;
       }
     }
-    if (min && isBefore(date, to) && isAfter(date, from)) {
-      const diff = differenceInCalendarDays(date, from);
+    if (min && isBefore(date, to)) {
+      const diff = differenceInCalendarDays(to, date);
       if (diff < min) {
         return true;
       }
     }
-    if (min && isBefore(date, from)) {
-      const diff = differenceInCalendarDays(to, date);
+    if (min && isAfter(date, from)) {
+      const diff = differenceInCalendarDays(date, from);
       if (diff < min) {
         return true;
       }
@@ -173,7 +173,7 @@ export function SelectRangeProviderInternal({
         }
       ];
       if (max || min) {
-        modifiers.disabled = [createDisabled(from, to, min, max)];
+        modifiers.disabled = [createDisabled(to, from, min, max)];
       }
       modifiers.range_end = [to];
     }
