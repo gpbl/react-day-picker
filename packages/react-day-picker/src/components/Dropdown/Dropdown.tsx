@@ -9,7 +9,7 @@ export interface DropdownProps {
   className?: string;
   ['aria-label']?: string;
   style?: React.CSSProperties;
-  value?: React.SelectHTMLAttributes<HTMLSelectElement>['value'];
+  value?: string | number;
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
 }
 
@@ -19,33 +19,31 @@ export interface DropdownProps {
  */
 export function Dropdown(props: DropdownProps): JSX.Element {
   const { onChange, value, children, caption, className, style } = props;
-  const {
-    classNames,
-    styles,
-    components: { IconDropdown }
-  } = useDayPicker();
+  const dayPickerProps = useDayPicker();
   return (
     <div className={className} style={style}>
-      <span className={classNames.vhidden}>{props['aria-label']}</span>
+      <span className={dayPickerProps.classNames.vhidden}>
+        {props['aria-label']}
+      </span>
       <select
         aria-label={props['aria-label']}
-        className={classNames.dropdown}
-        style={styles.dropdown}
+        className={dayPickerProps.classNames.dropdown}
+        style={dayPickerProps.styles.dropdown}
         value={value}
         onChange={onChange}
       >
         {children}
       </select>
       <div
-        className={classNames.caption_label}
-        style={styles.caption_label}
+        className={dayPickerProps.classNames.caption_label}
+        style={dayPickerProps.styles.caption_label}
         aria-hidden="true"
       >
         {caption}
         {
-          <IconDropdown
-            className={classNames.dropdown_icon}
-            style={styles.dropdown_icon}
+          <dayPickerProps.components.IconDropdown
+            className={dayPickerProps.classNames.dropdown_icon}
+            style={dayPickerProps.styles.dropdown_icon}
           />
         }
       </div>
