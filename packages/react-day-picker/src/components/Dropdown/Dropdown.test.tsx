@@ -1,11 +1,57 @@
-test.todo('should apply the class name to the container');
-test.todo('should apply the style to the container');
-test.todo('should render a select element');
-test.todo('should apply the `drop-down` class name to the select element');
-test.todo('should apply the `drop-down` to the select element');
-test.todo('should render the caption');
-test.todo('should apply the `caption_label` class name to the caption');
-test.todo('should apply the `caption_label` style to the caption');
-test.todo('should render the drop-down icon');
-test.todo('should apply the `drop-down_icon` class name to the icon');
-test.todo('should apply the `drop-down_icon` style to the icon');
+import React from 'react';
+
+import { fireEvent, screen } from '@testing-library/react';
+
+import { customRender } from 'test/render';
+import { freezeBeforeAll } from 'test/utils';
+
+import { Dropdown, DropdownProps } from 'components/Dropdown';
+import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
+import { DayPickerProps } from 'types/DayPicker';
+
+const today = new Date(2021, 8);
+
+freezeBeforeAll(today);
+function setup(props: DropdownProps, dayPickerProps?: DayPickerProps) {
+  customRender(<Dropdown {...props} />, dayPickerProps);
+}
+
+const props: Required<DropdownProps> = {
+  'aria-label': 'foo',
+  onChange: jest.fn(),
+  caption: 'Some caption',
+  className: 'test',
+  value: 'bar',
+  children: <option value={'bar'} />,
+  style: {}
+};
+
+let combobox: HTMLElement;
+let label: HTMLElement;
+
+beforeEach(() => {
+  setup(props);
+  combobox = screen.getByRole('combobox');
+  label = screen.getByText(props['aria-label']);
+});
+
+test('should render the vhidden aria label', () => {
+  expect(label).toHaveClass(defaultClassNames.vhidden);
+});
+
+test('should render the combobox', () => {
+  expect(combobox).toBeInTheDocument();
+});
+
+describe('when the combobox changes', () => {
+  beforeEach(() => {
+    fireEvent.change(combobox);
+  });
+  test('should call the "onChange" eve, nt handler', () => {
+    expect(props.onChange).toHaveBeenCalled();
+  });
+});
+
+test('should render the combobox with the given value', () => {
+  expect(combobox).toHaveValue(props.value);
+});
