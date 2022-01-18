@@ -1,17 +1,8 @@
+
+
 import enUS from 'date-fns/locale/en-US';
 
-import { Caption, CaptionLayout } from 'components/Caption';
-import { CaptionLabel } from 'components/CaptionLabel';
-import { Day } from 'components/Day';
-import { DayContent } from 'components/DayContent';
-import { Dropdown } from 'components/Dropdown';
-import { Footer } from 'components/Footer';
-import { Head } from 'components/Head';
-import { IconDropdown } from 'components/IconDropdown';
-import { IconLeft } from 'components/IconLeft';
-import { IconRight } from 'components/IconRight';
-import { Row } from 'components/Row';
-import { WeekNumber } from 'components/WeekNumber';
+import { CaptionLayout } from 'components/Caption';
 import { DayPickerContextValue } from 'contexts/DayPicker';
 
 import { defaultClassNames } from './defaultClassNames';
@@ -33,25 +24,10 @@ export function getDefaultContextValue(): DayPickerContextValue {
   const styles = {};
   const today = new Date();
 
-  const components = {
-    Caption: Caption,
-    CaptionLabel: CaptionLabel,
-    Day: Day,
-    DayContent: DayContent,
-    Dropdown: Dropdown,
-    Footer: Footer,
-    Head: Head,
-    IconDropdown: IconDropdown,
-    IconRight: IconRight,
-    IconLeft: IconLeft,
-    Row: Row,
-    WeekNumber: WeekNumber
-  };
 
   return {
     captionLayout,
     classNames,
-    components,
     formatters,
     labels,
     locale,

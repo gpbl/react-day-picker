@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { IconLeft } from 'components/IconLeft';
+import { IconRight } from 'components/IconRight';
 import { useDayPicker } from 'contexts/DayPicker';
 
 import { Button } from '../Button';
@@ -30,7 +32,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
     classNames,
     styles,
     labels: { labelPrevious, labelNext },
-    components: { IconRight, IconLeft }
+    components
   } = useDayPicker();
   let { onPreviousClick, onNextClick } = props;
   if (dir === 'rtl') {
@@ -55,6 +57,8 @@ export function Navigation(props: NavigationProps): JSX.Element {
     return <></>;
   }
 
+  const IconRightComponent = components?.IconRight ?? IconRight;
+  const IconLeftComponent = components?.IconLeft ?? IconLeft;
   return (
     <div className={classNames.nav} style={styles.nav}>
       {!props.hidePrevious && (
@@ -66,12 +70,15 @@ export function Navigation(props: NavigationProps): JSX.Element {
           onClick={dir === 'rtl' ? onNextClick : onPreviousClick}
         >
           {dir === 'rtl' ? (
-            <IconRight
+            <IconRightComponent
               className={classNames.nav_icon}
               style={styles.nav_icon}
             />
           ) : (
-            <IconLeft className={classNames.nav_icon} style={styles.nav_icon} />
+            <IconLeftComponent
+              className={classNames.nav_icon}
+              style={styles.nav_icon}
+            />
           )}
         </Button>
       )}
@@ -84,9 +91,12 @@ export function Navigation(props: NavigationProps): JSX.Element {
           onClick={dir === 'rtl' ? onPreviousClick : onNextClick}
         >
           {dir === 'rtl' ? (
-            <IconLeft className={classNames.nav_icon} style={styles.nav_icon} />
+            <IconLeftComponent
+              className={classNames.nav_icon}
+              style={styles.nav_icon}
+            />
           ) : (
-            <IconRight
+            <IconRightComponent
               className={classNames.nav_icon}
               style={styles.nav_icon}
             />

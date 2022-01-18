@@ -1,12 +1,13 @@
 import React from 'react';
 
+import { Footer } from 'components/Footer';
+import { Head } from 'components/Head';
+import { Row } from 'components/Row';
 import { useDayPicker } from 'contexts/DayPicker';
 
 import { getWeeks } from './utils/getWeeks';
 
-/**
- * The props for the [[Table]] component.
- */
+/** The props for the [[Table]] component. */
 export interface TableProps {
   /** The ID of the label of the table (the same given to the Caption). */
   ['aria-labelledby']?: string;
@@ -14,19 +15,15 @@ export interface TableProps {
   displayMonth: Date;
 }
 
-/**
- * Render the table with the calendar.
- */
+/** Render the table with the calendar. */
 export function Table(props: TableProps): JSX.Element {
-  const {
-    locale,
-    classNames,
-    styles,
-    hideHead,
-    fixedWeeks,
-    components: { Head, Row, Footer }
-  } = useDayPicker();
+  const { locale, classNames, styles, hideHead, fixedWeeks, components } =
+    useDayPicker();
   const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
+
+  const HeadComponent = components?.Head ?? Head;
+  const RowComponent = components?.Row ?? Row;
+  const FooterComponent = components?.Footer ?? Footer;
   return (
     <table
       className={classNames.table}
@@ -34,10 +31,10 @@ export function Table(props: TableProps): JSX.Element {
       role="grid"
       aria-labelledby={props['aria-labelledby']}
     >
-      {!hideHead && <Head />}
+      {!hideHead && <HeadComponent />}
       <tbody className={classNames.tbody} style={styles.tbody}>
         {weeks.map((week) => (
-          <Row
+          <RowComponent
             displayMonth={props.displayMonth}
             key={week.weekNumber}
             dates={week.dates}
@@ -45,7 +42,7 @@ export function Table(props: TableProps): JSX.Element {
           />
         ))}
       </tbody>
-      <Footer />
+      <FooterComponent />
     </table>
   );
 }

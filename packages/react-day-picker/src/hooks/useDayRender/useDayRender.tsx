@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { isSameDay } from 'date-fns';
 
 import { ButtonProps } from 'components/Button';
+import { DayContent } from 'components/DayContent';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useFocusContext } from 'contexts/Focus';
 import { useActiveModifiers } from 'hooks/useActiveModifiers';
@@ -81,8 +82,9 @@ export function useDayRender(
       activeModifiers.hidden
   );
 
+  const DayContentComponent = dayPicker.components?.DayContent ?? DayContent;
   const children = (
-    <dayPicker.components.DayContent
+    <DayContentComponent
       date={day}
       displayMonth={displayMonth}
       activeModifiers={activeModifiers}

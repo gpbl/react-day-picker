@@ -2,6 +2,7 @@ import React from 'react';
 
 import { isSameMonth } from 'date-fns';
 
+import { CaptionLabel } from 'components/CaptionLabel';
 import { MonthsDropdown } from 'components/MonthsDropdown';
 import { Navigation } from 'components/Navigation';
 import { YearsDropdown } from 'components/YearsDropdown';
@@ -30,8 +31,6 @@ export type CaptionLayout = 'dropdown' | 'buttons';
  * The caption has a different layout when setting the [[DayPickerProps.captionLayout]] prop.
  */
 export function Caption(props: CaptionProps): JSX.Element {
-  const { displayMonth } = props;
-  const context = useDayPicker();
   const {
     classNames,
     numberOfMonths,
@@ -40,8 +39,8 @@ export function Caption(props: CaptionProps): JSX.Element {
     captionLayout,
     onMonthChange,
     dir,
-    components: { CaptionLabel }
-  } = context;
+    components
+  } = useDayPicker();
 
   const { previousMonth, nextMonth, goToMonth, displayMonths } =
     useNavigation();
@@ -64,7 +63,7 @@ export function Caption(props: CaptionProps): JSX.Element {
   };
 
   const displayIndex = displayMonths.findIndex((month) =>
-    isSameMonth(displayMonth, month)
+    isSameMonth(props.displayMonth, month)
   );
   let isFirst = displayIndex === 0;
   let isLast = displayIndex === displayMonths.length - 1;
@@ -75,8 +74,9 @@ export function Caption(props: CaptionProps): JSX.Element {
   const hideNext = numberOfMonths > 1 && (isFirst || !isLast);
   const hidePrevious = numberOfMonths > 1 && (isLast || !isFirst);
 
+  const CaptionLabelComponent = components?.CaptionLabel ?? CaptionLabel;
   const captionLabel = (
-    <CaptionLabel id={props.id} displayMonth={displayMonth} />
+    <CaptionLabelComponent id={props.id} displayMonth={props.displayMonth} />
   );
 
   let captionContent;
@@ -92,11 +92,11 @@ export function Caption(props: CaptionProps): JSX.Element {
         <div className={classNames.vhidden}>{captionLabel}</div>
         <MonthsDropdown
           onChange={handleMonthChange}
-          displayMonth={displayMonth}
+          displayMonth={props.displayMonth}
         />
         <YearsDropdown
           onChange={handleMonthChange}
-          displayMonth={displayMonth}
+          displayMonth={props.displayMonth}
         />
       </div>
     );
@@ -105,7 +105,7 @@ export function Caption(props: CaptionProps): JSX.Element {
       <>
         {captionLabel}
         <Navigation
-          displayMonth={displayMonth}
+          displayMonth={props.displayMonth}
           hideNext={hideNext}
           hidePrevious={hidePrevious}
           nextMonth={nextMonth}
