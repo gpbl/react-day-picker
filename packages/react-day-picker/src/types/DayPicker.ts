@@ -158,7 +158,7 @@ export interface DayPickerProps {
   /**
    * A map of components used to create the layout.
    */
-  components?: Partial<Components>;
+  components?: CustomComponents;
 
   /** Content to add to the `tfoot` element. */
   footer?: React.ReactNode;
@@ -251,29 +251,29 @@ export interface DayPickerProps {
 }
 
 /** A map of the component that can be changed via the `components` prop. */
-export interface Components {
+export interface CustomComponents {
   /** The component for the caption element. */
-  Caption: (props: CaptionProps) => JSX.Element | null;
+  Caption?: (props: CaptionProps) => JSX.Element | null;
   /** The component for the caption element. */
-  CaptionLabel: (props: CaptionLabelProps) => JSX.Element | null;
+  CaptionLabel?: (props: CaptionLabelProps) => JSX.Element | null;
   /** The component for the day element. This is a button or a span. */
-  Day: (props: DayProps) => JSX.Element | null;
+  Day?: (props: DayProps) => JSX.Element | null;
   /** The component for the content of the day element. */
-  DayContent: (props: DayContentProps) => JSX.Element | null;
+  DayContent?: (props: DayContentProps) => JSX.Element | null;
   /** The component for the drop-down elements. */
-  Dropdown: (props: DropdownProps) => JSX.Element | null;
+  Dropdown?: (props: DropdownProps) => JSX.Element | null;
   /** The component for the table footer. */
-  Footer: () => JSX.Element | null;
+  Footer?: () => JSX.Element | null;
   /** The component for the table’s head. */
-  Head: () => JSX.Element | null;
+  Head?: () => JSX.Element | null;
   /** The component for the small icon in the drop-downs. */
-  IconDropdown: (props: StyledComponent) => JSX.Element | null;
+  IconDropdown?: (props: StyledComponent) => JSX.Element | null;
   /** The arrow right icon (used for the Navigation buttons). */
-  IconRight: (props: StyledComponent) => JSX.Element | null;
+  IconRight?: (props: StyledComponent) => JSX.Element | null;
   /** The arrow left icon (used for the Navigation buttons). */
-  IconLeft: (props: StyledComponent) => JSX.Element | null;
+  IconLeft?: (props: StyledComponent) => JSX.Element | null;
   /** The component for the table rows. */
-  Row: (props: RowProps) => JSX.Element | null;
+  Row?: (props: RowProps) => JSX.Element | null;
   /** The component for the week number in the table rows. */
-  WeekNumber: (props: WeekNumberProps) => JSX.Element | null;
+  WeekNumber?: (props: WeekNumberProps) => JSX.Element | null;
 }

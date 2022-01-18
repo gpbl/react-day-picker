@@ -2,7 +2,7 @@
 const typedoc = {
   // Typedoc settings
   entryPoints: [`../packages/react-day-picker/src/index.ts`],
-  tsconfig: `../packages/react-day-picker/tsconfig.esm.json`,
+  tsconfig: `../packages/react-day-picker/tsconfig.build.json`,
   allReflectionsHaveOwnDocument: true,
   entryDocument: 'reference',
   watch: process.env.TYPEDOC_WATCH,
