@@ -14,12 +14,9 @@
     {
       "type": "npm",
       "script": "build",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+      "group": "build",
       "problemMatcher": ["$tsc"],
-      "label": "build all"
+      "label": "build-all"
     }
   ]
 }
