@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useId } from '@reach/auto-id';
 
+import { Caption } from 'components/Caption';
 import { Table } from 'components/Table';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useNavigation } from 'contexts/Navigation';
@@ -14,12 +15,8 @@ export interface MonthProps {
 
 /** Render a month. */
 export function Month(props: MonthProps) {
-  const {
-    dir,
-    classNames,
-    styles,
-    components: { Caption }
-  } = useDayPicker();
+  const dayPicker = useDayPicker();
+  const { dir, classNames, styles } = dayPicker;
   const { displayMonths } = useNavigation();
   const captionId = useId();
   const className = [classNames.month];

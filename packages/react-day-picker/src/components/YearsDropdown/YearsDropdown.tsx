@@ -2,6 +2,7 @@ import React from 'react';
 
 import { setYear, startOfYear } from 'date-fns';
 
+import { Dropdown } from 'components/Dropdown';
 import { useDayPicker } from 'contexts/DayPicker';
 import { MonthChangeEventHandler } from 'types/EventHandlers';
 
@@ -27,7 +28,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     locale,
     styles,
     classNames,
-    components: { Dropdown },
+    components,
     formatters: { formatYearCaption },
     labels: { labelYearDropdown }
   } = useDayPicker();
@@ -46,8 +47,10 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     props.onChange(newMonth);
   };
 
+  const DropdownComponent = components?.Dropdown ?? Dropdown;
+
   return (
-    <Dropdown
+    <DropdownComponent
       aria-label={labelYearDropdown()}
       className={classNames.dropdown_month}
       style={styles.dropdown_month}
@@ -60,6 +63,6 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
           {formatYearCaption(year, { locale })}
         </option>
       ))}
-    </Dropdown>
+    </DropdownComponent>
   );
 }

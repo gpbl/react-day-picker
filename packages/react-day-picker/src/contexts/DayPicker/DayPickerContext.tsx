@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode } from 'react';
 
 import { CaptionLayout } from 'components/Caption';
-import { Components, DayPickerProps } from 'types/DayPicker';
+import { DayPickerProps } from 'types/DayPicker';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
@@ -14,7 +14,6 @@ import { parseFromToProps } from './utils';
 export interface DayPickerContextValue extends DayPickerProps {
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;
-  components: Components;
   formatters: Formatters;
   labels: Labels;
   locale: Locale;

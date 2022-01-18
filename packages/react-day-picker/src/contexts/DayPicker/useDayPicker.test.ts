@@ -7,7 +7,7 @@ import { freezeBeforeAll } from 'test/utils';
 import { CaptionLayout } from 'components/Caption';
 import { DayPickerContextValue, useDayPicker } from 'contexts/DayPicker';
 import { getDefaultContextValue } from 'contexts/DayPicker/defaultContextValue';
-import { Components, DayPickerProps } from 'types/DayPicker';
+import { CustomComponents, DayPickerProps } from 'types/DayPicker';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
@@ -28,7 +28,6 @@ describe('when passing rendered without props', () => {
   type PropName =
     | 'captionLayout'
     | 'classNames'
-    | 'components'
     | 'formatters'
     | 'labels'
     | 'locale'
@@ -42,7 +41,6 @@ describe('when passing rendered without props', () => {
   const testPropNames: PropName[] = [
     'captionLayout',
     'classNames',
-    'components',
     'formatters',
     'labels',
     'locale',
@@ -299,7 +297,7 @@ describe('when passing "labels" from props', () => {
 });
 
 describe('when passing "components" from props', () => {
-  const components: Partial<Components> = { Day: jest.fn() };
+  const components: CustomComponents = { Day: jest.fn() };
   const dayPickerProps: DayPickerProps = { components };
   beforeEach(() => {
     setup(dayPickerProps);

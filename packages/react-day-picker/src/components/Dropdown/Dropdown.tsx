@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { IconDropdown } from 'components/IconDropdown';
 import { useDayPicker } from 'contexts/DayPicker';
 
 /** The props for the [[Dropdown]] component. */
@@ -19,31 +20,34 @@ export interface DropdownProps {
  */
 export function Dropdown(props: DropdownProps): JSX.Element {
   const { onChange, value, children, caption, className, style } = props;
-  const dayPickerProps = useDayPicker();
+  const dayPicker = useDayPicker();
+
+  const IconDropdownComponent =
+    dayPicker.components?.IconDropdown ?? IconDropdown;
   return (
     <div className={className} style={style}>
-      <span className={dayPickerProps.classNames.vhidden}>
+      <span className={dayPicker.classNames.vhidden}>
         {props['aria-label']}
       </span>
       <select
         aria-label={props['aria-label']}
-        className={dayPickerProps.classNames.dropdown}
-        style={dayPickerProps.styles.dropdown}
+        className={dayPicker.classNames.dropdown}
+        style={dayPicker.styles.dropdown}
         value={value}
         onChange={onChange}
       >
         {children}
       </select>
       <div
-        className={dayPickerProps.classNames.caption_label}
-        style={dayPickerProps.styles.caption_label}
+        className={dayPicker.classNames.caption_label}
+        style={dayPicker.styles.caption_label}
         aria-hidden="true"
       >
         {caption}
         {
-          <dayPickerProps.components.IconDropdown
-            className={dayPickerProps.classNames.dropdown_icon}
-            style={dayPickerProps.styles.dropdown_icon}
+          <IconDropdownComponent
+            className={dayPicker.classNames.dropdown_icon}
+            style={dayPicker.styles.dropdown_icon}
           />
         }
       </div>

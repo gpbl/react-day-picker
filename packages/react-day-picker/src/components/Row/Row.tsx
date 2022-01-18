@@ -2,6 +2,8 @@ import React from 'react';
 
 import { getUnixTime } from 'date-fns';
 
+import { Day } from 'components/Day';
+import { WeekNumber } from 'components/WeekNumber';
 import { useDayPicker } from 'contexts/DayPicker';
 
 /**
@@ -20,18 +22,16 @@ export interface RowProps {
  * Render a row in the calendar, with the days and optionally the week number.
  */
 export function Row(props: RowProps): JSX.Element {
-  const {
-    styles,
-    classNames,
-    showWeekNumber,
-    components: { Day, WeekNumber }
-  } = useDayPicker();
+  const { styles, classNames, showWeekNumber, components } = useDayPicker();
+
+  const DayComponent = components?.Day ?? Day;
+  const WeeknumberComponent = components?.WeekNumber ?? WeekNumber;
 
   let weekNumberCell;
   if (showWeekNumber) {
     weekNumberCell = (
       <td className={classNames.cell} style={styles.cell}>
-        <WeekNumber number={props.weekNumber} dates={props.dates} />
+        <WeeknumberComponent number={props.weekNumber} dates={props.dates} />
       </td>
     );
   }
@@ -45,7 +45,7 @@ export function Row(props: RowProps): JSX.Element {
           style={styles.cell}
           key={getUnixTime(date)}
         >
-          <Day displayMonth={props.displayMonth} date={date} />
+          <DayComponent displayMonth={props.displayMonth} date={date} />
         </td>
       ))}
     </tr>
