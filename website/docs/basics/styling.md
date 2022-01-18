@@ -7,7 +7,7 @@ file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-pi
 to import, or to copy as template.
 
 ```js
-import 'react-day-picker/style.css';
+import 'react-day-picker/dist/style.css';
 ```
 
 The CSS uses few variables to quickly override the colors and the cell size:

@@ -15,7 +15,7 @@ const config = {
   organizationName: 'gpbl',
   projectName: 'react-day-picker',
   clientModules: [
-    require.resolve('react-day-picker/style.css'),
+    require.resolve('react-day-picker/dist/style.css'),
     require.resolve('@codesandbox/sandpack-react/dist/index.css')
   ],
   themeConfig: {

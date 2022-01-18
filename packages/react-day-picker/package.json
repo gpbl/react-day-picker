@@ -12,15 +12,16 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
-  "module": "build/index.js",
   "main": "dist/index.js",
-  "types": "build/index.d.ts",
+  "module": "dist/index.esm.js",
+  "browser": "dist/react-day-picker.min.js",
+  "unpkg": "dist/react-day-picker.min.js",
+  "types": "dist/index.d.ts",
+  "style": "dist/style.css",
   "scripts": {
-    "build": "yarn build-esm && yarn build-cjs",
-    "build-esm": "rimraf build && yarn css-types && tsc --project tsconfig.esm.json && tsc-alias -p tsconfig.esm.json",
-    "build-cjs": "rimraf dist && tsc --project tsconfig.cjs.json && tsc-alias -p tsconfig.cjs.json",
-    "build-watch": "rimraf build && rimraf dist && yarn css-types && tsc --project tsconfig.cjs.json -w & tsc-alias -p tsconfig.cjs.json -w",
-    "css-types": "yarn tcm -p style.css",
+    "build": "rimraf dist && rollup -c",
+    "build-watch": "rimraf dist && rollup -c -w --no-watch.clearScreen",
+    "css-types": "yarn tcm -p src/style.css",
     "lint": "eslint --ext .ts,.tsx src",
     "test": "jest",
     "test-watch": "jest --watch",
@@ -28,15 +29,15 @@
     "typecheck-watch": "tsc --project ./tsconfig.json --noEmit --skipLibCheck --watch"
   },
   "files": [
-    "build",
-    "dist",
-    "style.css",
-    "style.css.d.ts"
+    "dist"
   ],
   "dependencies": {
     "@reach/auto-id": "^0.16.0"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-typescript": "^8.3.0",
     "@testing-library/dom": "^8.11.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
@@ -60,6 +61,12 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
+    "rollup": "^2.64.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-local-resolve": "^1.0.7",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
     "timekeeper": "^2.2.0",
     "ts-jest": "^27.1.1",
     "ts-node": "^10.4.0",
