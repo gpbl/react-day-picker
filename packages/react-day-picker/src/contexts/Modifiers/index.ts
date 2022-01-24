@@ -1,2 +1,2 @@
 export * from './useModifiers';
-export * from './utils/matchModifiers';
+export * from './utils/getActiveModifiers';

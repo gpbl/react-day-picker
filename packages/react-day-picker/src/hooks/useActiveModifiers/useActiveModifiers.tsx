@@ -1,4 +1,4 @@
-import { matchModifiers, useModifiers } from 'contexts/Modifiers';
+import { getActiveModifiers, useModifiers } from 'contexts/Modifiers';
 import { ActiveModifiers } from 'types/Modifiers';
 
 /**
@@ -13,6 +13,6 @@ export function useActiveModifiers(
   displayMonth?: Date
 ): ActiveModifiers {
   const modifiers = useModifiers();
-  const activeModifiers = matchModifiers(day, modifiers, displayMonth);
+  const activeModifiers = getActiveModifiers(day, modifiers, displayMonth);
   return activeModifiers;
 }
