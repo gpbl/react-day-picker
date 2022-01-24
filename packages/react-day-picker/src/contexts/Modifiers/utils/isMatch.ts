@@ -21,9 +21,7 @@ function isArrayOfDates(value: unknown): value is Date[] {
   return Array.isArray(value) && value.every(isDate);
 }
 
-/**
- * Returns `true` whether the day matches against the given matchers.
- */
+/** Returns `true` whether the day matches against the given matchers. */
 export function isMatch(day: Date, matchers: Matcher[]): boolean {
   return matchers.some((matcher: Matcher) => {
     if (typeof matcher === 'boolean') {
