@@ -27,7 +27,9 @@ export function ModifiersProvider(props: ModifiersProviderProps): JSX.Element {
     selectRange
   );
 
-  const customModifiers: CustomModifiers = getCustomModifiers(dayPicker);
+  const customModifiers: CustomModifiers = getCustomModifiers(
+    dayPicker.modifiers
+  );
 
   const modifiers: Modifiers = {
     ...internalModifiers,
