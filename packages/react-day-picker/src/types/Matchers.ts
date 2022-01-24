@@ -1,5 +1,6 @@
 /** A `Matcher` is a function, a date, an object, or an array of them used to determine if a day matches a modifier. */
 export type Matcher =
+  | boolean
   | ((date: Date) => boolean)
   | Date
   | Date[]
