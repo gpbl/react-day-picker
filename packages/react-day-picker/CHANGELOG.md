@@ -18,6 +18,15 @@ See the preview website at https://react-day-picker-next.netlify.app.
 
 ---
 
+### v8.0.0-beta.37
+
+- build: moved to rollupjs
+- feat: new `useDayRender` hook
+- chore: added `DaySelectionMode` enum
+- refactor: `modifiersStatus` is now `ActiveModifiers`
+- refactor: `modifierClassNames` props is now `modifiersClassNames`
+- refactor: `modifierStyles` is now `modifiersStyles`
+
 ### v8.0.0-beta.36
 
 - feat: added caption ARIA labels. This change introduce `@reach/auto-id` dependency (#1358) (b8bbf419)
