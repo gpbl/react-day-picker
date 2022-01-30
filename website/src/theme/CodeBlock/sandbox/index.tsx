@@ -1,5 +1,5 @@
 import React, { StrictMode } from 'react';
-import 'react-day-picker/style.css';
+import 'react-day-picker/dist/style.css';
 import { render } from 'react-dom';
 
 import App from './App';
