@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { screen } from '@testing-library/react';
+
 import { getMonthCaption, getMonthGrid } from 'test/po';
 import { customRender } from 'test/render';
 
-import { DayPickerProps } from 'types/DayPicker';
+import { CustomComponents, DayPickerProps } from 'types/DayPicker';
 
 import { Month, MonthProps } from './Month';
 
@@ -43,6 +45,18 @@ describe('when rendered', () => {
     const captionId = getMonthCaption().getAttribute('id');
     const gridLabelledBy = getMonthGrid().getAttribute('aria-labelledby');
     expect(captionId).toEqual(gridLabelledBy);
+  });
+});
+
+describe('when using a custom Caption component', () => {
+  const components: CustomComponents = {
+    Caption: () => <>custom caption foo</>
+  };
+  beforeEach(() => {
+    setup({ displayIndex: 0, displayMonth }, { components });
+  });
+  test('it should render the custom component instead', () => {
+    expect(screen.getByText('custom caption foo')).toBeInTheDocument();
   });
 });
 
