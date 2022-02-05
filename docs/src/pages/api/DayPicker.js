@@ -149,7 +149,7 @@ export default () => (
       </h3>
       <p>
         The CSS class names used when rendering the component.{' '}
-        <a href="https://github.com/gpbl/react-day-picker/blob/master/src/classNames.js">
+        <a href="https://github.com/gpbl/react-day-picker/blob/v7/src/classNames.js">
           See defaults
         </a>{' '}
         on GitHub.
