@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { screen } from '@testing-library/react';
 import { addMonths, setMonth, setYear } from 'date-fns';
 
 import { PageObjects } from 'test/PageObjects';
@@ -7,7 +8,7 @@ import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { RootContext } from 'contexts/RootProvider';
-import { DayPickerProps } from 'types/DayPicker';
+import { CustomComponents, DayPickerProps } from 'types/DayPicker';
 
 import { Caption, CaptionProps } from './Caption';
 
@@ -36,6 +37,19 @@ describe('when navigation is disabled', () => {
   test('should not render the navigation', () => {
     expect(po.previousButton).toBeNull();
     expect(po.nextButton).toBeNull();
+  });
+});
+
+describe('when using a custom CaptionLabel component', () => {
+  const components: CustomComponents = {
+    CaptionLabel: () => <>custom label foo</>
+  };
+  const props = { displayMonth: today };
+  beforeEach(() => {
+    setup(props, { components });
+  });
+  test('it should render the custom component instead', () => {
+    expect(screen.getByText('custom label foo')).toBeInTheDocument();
   });
 });
 

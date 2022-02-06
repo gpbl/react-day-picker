@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { screen } from '@testing-library/react';
+
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
-import { DayPickerProps } from 'types/DayPicker';
+import { CustomComponents, DayPickerProps } from 'types/DayPicker';
 
 import { Day, DayProps } from './Day';
 
@@ -65,5 +67,17 @@ describe('when "onDayClick" is present', () => {
   });
   test('should render a button', () => {
     expect(container.firstChild?.nodeName).toBe('BUTTON');
+  });
+});
+
+describe('when using a custom DayContent component', () => {
+  const components: CustomComponents = {
+    DayContent: () => <>Custom DayContent</>
+  };
+  beforeEach(() => {
+    setup(props, { components });
+  });
+  test('it should render the custom component instead', () => {
+    expect(screen.getByText('Custom DayContent')).toBeInTheDocument();
   });
 });
