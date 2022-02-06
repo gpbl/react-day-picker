@@ -15,10 +15,6 @@ const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
 
-beforeEach(() => {
-  render(<Example />);
-});
-
 const getDialogButton = () => {
   return screen.getByRole('button', { name: 'Pick a date' });
 };
@@ -27,10 +23,19 @@ const getInput = () => {
   return screen.getByRole('textbox');
 };
 
-// TODO: fix act warnings
+/** Fixes popper warnings, see https://github.com/floating-ui/floating-ui/issues/1520. */
+async function waitPopper() {
+  await act(async () => await null);
+}
+
+beforeEach(() => {
+  render(<Example />);
+});
+
 describe('when clicking the dialog button', () => {
-  beforeEach(() => {
-    act(() => userEvent.click(getDialogButton()));
+  beforeEach(async () => {
+    userEvent.click(getDialogButton());
+    await waitPopper();
   });
   test('the dialog should be visible', () => {
     expect(screen.getByRole('dialog')).toBeVisible();
@@ -40,8 +45,9 @@ describe('when clicking the dialog button', () => {
   });
   describe('when clicking a day', () => {
     const date = today;
-    beforeEach(() => {
-      act(() => clickDay(date));
+    beforeEach(async () => {
+      clickDay(date);
+      await waitPopper();
     });
     test('the dialog should be closed', () => {
       expect(screen.queryByRole('dialog')).toBeNull();
@@ -51,16 +57,18 @@ describe('when clicking the dialog button', () => {
     });
     describe('when typing a new date into the input', () => {
       const newDate = tomorrow;
-      beforeEach(() => {
+      beforeEach(async () => {
         userEvent.clear(getInput());
         userEvent.type(getInput(), format(newDate, 'y-MM-dd'));
+        await waitPopper();
       });
       test('the input should have the new date', () => {
         expect(getInput()).toHaveValue(format(newDate, 'y-MM-dd'));
       });
       describe('when clicking the dialog button', () => {
-        beforeEach(() => {
-          act(() => userEvent.click(getDialogButton()));
+        beforeEach(async () => {
+          userEvent.click(getDialogButton());
+          await waitPopper();
         });
         test('the new date should be selected', () => {
           expect(getDayButton(newDate)).toHaveAttribute('aria-pressed', 'true');
