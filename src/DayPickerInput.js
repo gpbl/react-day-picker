@@ -196,6 +196,7 @@ export default class DayPickerInput extends React.Component {
         newState.value = formatDate(value, format, dayPickerProps.locale);
       } else {
         newState.value = value;
+        newState.typedValue = value;
       }
     }
 
@@ -423,7 +424,8 @@ export default class DayPickerInput extends React.Component {
     }
     const { value } = e.target;
     const day = parseDate(value, format, dayPickerProps.locale);
-    if (value.trim() === '' || !day) {
+    if (!day || value.trim() === '') {
+      // Day is invalid: we save the value in the typedValue state
       this.setState({ value, typedValue: value });
       if (onDayChange) onDayChange(value, {}, this);
       return;
@@ -580,8 +582,8 @@ export default class DayPickerInput extends React.Component {
         <Input
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}
-          value={this.state.value}
           {...inputProps}
+          value={this.state.value || this.state.typedValue}
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
