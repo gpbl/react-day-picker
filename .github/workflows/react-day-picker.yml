@@ -12,7 +12,7 @@ on:
       - ".github/workflows/**"
 
 jobs:
-  test:
+  react-day-picker_test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -49,7 +49,7 @@ jobs:
         run: |
           yarn workspace react-day-picker run test
 
-  build:
+  react-day-picker_build:
     runs-on: ubuntu-latest
     strategy:
       matrix:

@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  test:
+  website_test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -49,7 +49,7 @@ jobs:
         run: |
           yarn workspace website run test
 
-  build:
+  website_build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
