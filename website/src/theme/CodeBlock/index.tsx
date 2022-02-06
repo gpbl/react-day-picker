@@ -9,9 +9,9 @@ import {
   SandpackTheme
 } from '@codesandbox/sandpack-react';
 import '@codesandbox/sandpack-react/dist/index.css';
-import useThemeContext from '@theme/hooks/useThemeContext';
+import OriginalCodeBlock from '@docusaurus/theme-classic/lib-next/theme/CodeBlock';
+import { useColorMode } from '@docusaurus/theme-common';
 
-import OriginalCodeBlock from '../OriginalCodeBlock';
 import style from './styles.module.css';
 
 const editorWidthPercentage = 60;
@@ -24,8 +24,8 @@ const stylesDark = require(`!!raw-loader!./sandbox/styles-dark.css`).default;
 /**
  * This CodeBlock component will display a Sandpack using the example filename.
  */
-export default function CodeBlock(props) {
-  const { isDarkTheme } = useThemeContext();
+export default function CodeBlock2(props) {
+  const { isDarkTheme } = useColorMode();
   if (props.className !== 'language-include') {
     return (
       <OriginalCodeBlock className="language-jsx" {...props}>
@@ -35,7 +35,6 @@ export default function CodeBlock(props) {
   }
   const fileName = props.children.replace(/\n*/gi, '');
   const src = require(`!!raw-loader!../../../examples/${fileName}`).default;
-
   const includeDependencies = props.dependencies
     ?.split(',')
     .reduce((deps, dep) => {
@@ -49,9 +48,9 @@ export default function CodeBlock(props) {
 
   const files = {
     '/public/index.html': html,
-    '/src/App.tsx': src,
-    '/src/index.tsx': index,
-    '/src/styles.css': css
+    '/App.tsx': src,
+    '/index.tsx': index,
+    '/styles.css': css
   };
   const dependencies = {
     ...includeDependencies,

@@ -22,7 +22,6 @@ const config = {
     image: 'images/favicon.png',
     navbar: require('./docusaurus.navbar.js'),
     editUrl: 'https://github.com/gpbl/react-day-picker/edit/master/website/',
-    gtag: { trackingID: 'UA-68185118-1' },
     prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme }
   },
   presets: [
@@ -33,6 +32,7 @@ const config = {
           sidebarPath: require.resolve('./docusaurus.sidebars.js'),
           routeBasePath: '/'
         },
+        gtag: { trackingID: 'UA-68185118-1' },
         theme: { customCss: require.resolve('./src/custom.css') }
       }
     ]
