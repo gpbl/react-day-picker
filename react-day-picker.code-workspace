@@ -73,7 +73,6 @@
         "regex": "^@examples/"
       }
     ],
-    "importSorter.sortConfiguration.removeUnusedImports": true,
     "jest.autoRun": {
       "onSave": "test-src-file",
       "watch": false
