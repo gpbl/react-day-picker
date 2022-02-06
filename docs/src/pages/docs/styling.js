@@ -93,7 +93,7 @@ export default () => (
       {`import React from 'react';
 import DayPicker from 'react-day-picker';
 
-import styles from '../styles/cssmodules.css';
+import styles from '../styles/your_css_module.css';
 
 export default function CSSModules() {
   return <DayPicker classNames={ styles } />
@@ -111,7 +111,7 @@ export default function CSSModules() {
     <CodeBlock>
       {`import React from 'react';
 import DayPicker from 'react-day-picker';
-import styles from '../styles/cssmodules.css';
+import styles from '../styles/your_css_module.css';
 
 export default function CSSModules() {
   return (
