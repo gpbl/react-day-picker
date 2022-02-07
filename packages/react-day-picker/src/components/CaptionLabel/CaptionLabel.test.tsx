@@ -1,33 +1,29 @@
 import React from 'react';
 
-import tk from 'timekeeper';
-
-import { PageObjects } from 'test/PageObjects';
+import { getMonthCaption } from 'test/po';
 import { customRender } from 'test/render';
+import { freezeBeforeAll } from 'test/utils';
 
 import { CaptionLabel } from './CaptionLabel';
 
 const today = new Date(1979, 8);
-const po = new PageObjects(today);
-
-beforeEach(() => tk.freeze(today));
-afterEach(() => tk.reset());
+freezeBeforeAll(today);
 
 test('should render the formatted display month', () => {
   customRender(<CaptionLabel displayMonth={today} />);
-  expect(po.getCaptionLabel(today)).toBeInTheDocument();
+  expect(getMonthCaption()).toHaveTextContent('September 1979');
 });
 
 test('should apply the `caption_label` class name', () => {
   customRender(<CaptionLabel displayMonth={today} />, {
     classNames: { caption_label: 'foo' }
   });
-  expect(po.getCaptionLabel(today)).toHaveClass('foo');
+  expect(getMonthCaption()).toHaveClass('foo');
 });
 
 test('should apply the `caption_label` style', () => {
   customRender(<CaptionLabel displayMonth={today} />, {
     styles: { caption_label: { color: 'red' } }
   });
-  expect(po.getCaptionLabel(today)).toHaveStyle({ color: 'red' });
+  expect(getMonthCaption()).toHaveStyle({ color: 'red' });
 });
