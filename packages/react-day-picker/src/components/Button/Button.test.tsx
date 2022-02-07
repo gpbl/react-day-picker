@@ -1,30 +1,32 @@
 import React from 'react';
 
-import { PageObjects } from 'test/PageObjects';
+import { screen } from '@testing-library/react';
+
 import { customRender } from 'test/render';
 
 import { Button } from './Button';
 
-const po = new PageObjects(new Date());
+let button: HTMLButtonElement;
 
 describe('when rendered without props', () => {
   beforeEach(() => {
     customRender(<Button className="foo" style={{ color: 'blue' }} />);
+    button = screen.getByRole('button');
   });
   test('should render a button with type "button"', () => {
-    expect(po.button).toHaveAttribute('type', 'button');
+    expect(button).toHaveAttribute('type', 'button');
   });
   test('should render a button with the button class name', () => {
-    expect(po.button).toHaveClass('rdp-button');
+    expect(button).toHaveClass('rdp-button');
   });
   test('should render a button with the reset class name', () => {
-    expect(po.button).toHaveClass('rdp-button_reset');
+    expect(button).toHaveClass('rdp-button_reset');
   });
   test('should add the class name', () => {
-    expect(po.button).toHaveClass('foo');
+    expect(button).toHaveClass('foo');
   });
   test('should apply the style', () => {
-    expect(po.button).toHaveStyle({ color: 'blue' });
+    expect(button).toHaveStyle({ color: 'blue' });
   });
 });
 
@@ -34,11 +36,12 @@ describe('when using class names and styles from context', () => {
       classNames: { button: 'foo' },
       styles: { button: { color: 'red' } }
     });
+    button = screen.getByRole('button');
   });
   test('should apply the style', () => {
-    expect(po.button).toHaveStyle({ color: 'red' });
+    expect(button).toHaveStyle({ color: 'red' });
   });
   test('should apply the class name', () => {
-    expect(po.button).toHaveClass('foo');
+    expect(button).toHaveClass('foo');
   });
 });

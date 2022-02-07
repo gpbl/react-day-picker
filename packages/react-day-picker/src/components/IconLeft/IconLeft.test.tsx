@@ -1,21 +1,20 @@
 import React from 'react';
 
-import { PageObjects } from 'test/PageObjects';
 import { customRender } from 'test/render';
 
 import { IconLeft } from './IconLeft';
 
-const po = new PageObjects(new Date());
+let root: HTMLElement;
 
 beforeEach(() => {
-  customRender(<IconLeft className="foo" style={{ color: 'red' }} />);
-});
-test('should render the icon', () => {
-  expect(po.iconLeft).toBeInTheDocument();
+  const renderResult = customRender(
+    <IconLeft className="foo" style={{ color: 'red' }} />
+  );
+  root = renderResult.container.firstChild as HTMLElement;
 });
 test('should add the class name', () => {
-  expect(po.iconLeft).toHaveClass('foo');
+  expect(root).toHaveClass('foo');
 });
 test('should apply the style', () => {
-  expect(po.iconLeft).toHaveStyle({ color: 'red' });
+  expect(root).toHaveStyle({ color: 'red' });
 });
