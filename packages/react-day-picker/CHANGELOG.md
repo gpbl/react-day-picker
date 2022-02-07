@@ -18,6 +18,10 @@ See the preview website at https://react-day-picker-next.netlify.app.
 
 ---
 
+### v8.0.0-beta.38
+
+- fix(regression): restore missing `Caption` component
+
 ### v8.0.0-beta.37
 
 - build: moved to rollupjs
