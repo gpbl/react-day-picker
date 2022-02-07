@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { setYear, startOfYear } from 'date-fns';
+import { setYear, startOfMonth, startOfYear } from 'date-fns';
 
 import { Dropdown } from 'components/Dropdown';
 import { useDayPicker } from 'contexts/DayPicker';
@@ -34,16 +34,22 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   } = useDayPicker();
 
   const years: Date[] = [];
-  if (fromDate && toDate) {
-    const fromYear = fromDate.getFullYear();
-    const toYear = toDate.getFullYear();
-    for (let year = fromYear; year <= toYear; year++) {
-      years.push(setYear(startOfYear(new Date()), year));
-    }
+
+  // Dropdown should appear only when both from/toDate is set
+  if (!fromDate) return <></>;
+  if (!toDate) return <></>;
+
+  const fromYear = fromDate.getFullYear();
+  const toYear = toDate.getFullYear();
+  for (let year = fromYear; year <= toYear; year++) {
+    years.push(setYear(startOfYear(new Date()), year));
   }
 
   const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-    const newMonth = setYear(new Date(displayMonth), Number(e.target.value));
+    const newMonth = setYear(
+      startOfMonth(displayMonth),
+      Number(e.target.value)
+    );
     props.onChange(newMonth);
   };
 
