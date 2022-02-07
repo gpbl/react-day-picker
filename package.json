@@ -26,5 +26,8 @@
   "workspaces": [
     "website",
     "packages/*"
-  ]
+  ],
+  "resolutions": {
+    "trim": "0.0.3"
+  }
 }
