@@ -13,12 +13,8 @@ export interface MonthsDropdownProps {
   onChange: MonthChangeEventHandler;
 }
 
-/**
- * Render the dropdown to navigate between months.
- */
+/** Render the dropdown to navigate between months. */
 export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
-  const { displayMonth } = props;
-
   const {
     fromDate,
     toDate,
@@ -30,35 +26,31 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     labels: { labelMonthDropdown }
   } = useDayPicker();
 
-  if (!fromDate && !toDate) {
-    // TODO: use type guards
-    return <></>;
-  }
+  // Dropdown should appear only when both from/toDate is set
+  if (!fromDate) return <></>;
+  if (!toDate) return <></>;
+
   const dropdownMonths: Date[] = [];
 
-  if (fromDate && toDate) {
-    if (isSameYear(fromDate, toDate)) {
-      // only display the months included in the range
-      for (
-        let month = fromDate.getMonth();
-        month <= toDate.getMonth();
-        month++
-      ) {
-        dropdownMonths.push(setDateMonth(startOfMonth(fromDate), month));
-      }
-    } else {
-      // display all the 12 months
-      for (let month = 0; month <= 11; month++) {
-        const anyDate = new Date(); // any date is OK, we just need the year
-        dropdownMonths.push(setDateMonth(startOfMonth(anyDate), month));
-      }
+  if (isSameYear(fromDate, toDate)) {
+    // only display the months included in the range
+    const date = startOfMonth(fromDate);
+    for (let month = fromDate.getMonth(); month <= toDate.getMonth(); month++) {
+      dropdownMonths.push(setDateMonth(date, month));
+    }
+  } else {
+    // display all the 12 months
+    const date = startOfMonth(new Date()); // Any date should be OK, as we just need the year
+    for (let month = 0; month <= 11; month++) {
+      dropdownMonths.push(setDateMonth(date, month));
     }
   }
 
   const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+    const selectedMonth = Number(e.target.value);
     const newMonth = setDateMonth(
-      new Date(displayMonth),
-      Number(e.target.value)
+      startOfMonth(props.displayMonth),
+      selectedMonth
     );
     props.onChange(newMonth);
   };
@@ -71,8 +63,8 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
       className={classNames.dropdown_month}
       style={styles.dropdown_month}
       onChange={handleChange}
-      value={displayMonth.getMonth()}
-      caption={formatMonthCaption(displayMonth, { locale })}
+      value={props.displayMonth.getMonth()}
+      caption={formatMonthCaption(props.displayMonth, { locale })}
     >
       {dropdownMonths.map((m) => (
         <option key={m.getMonth()} value={m.getMonth()}>
