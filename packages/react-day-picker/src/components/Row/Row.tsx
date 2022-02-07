@@ -18,9 +18,7 @@ export interface RowProps {
   dates: Date[];
 }
 
-/**
- * Render a row in the calendar, with the days and optionally the week number.
- */
+/** Render a row in the calendar, with the days and the week number. */
 export function Row(props: RowProps): JSX.Element {
   const { styles, classNames, showWeekNumber, components } = useDayPicker();
 
