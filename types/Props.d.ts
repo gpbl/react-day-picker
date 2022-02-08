@@ -24,6 +24,7 @@ export interface NavbarElementProps {
   showNextButton: boolean;
   onPreviousClick(callback?: () => void): void;
   onNextClick(callback?: () => void): void;
+  setDate(d:Date,callback?: () => void): void;
   dir?: string;
   labels: { previousMonth: string; nextMonth: string };
   localeUtils: LocaleUtils;

@@ -147,8 +147,8 @@ export class DayPicker extends Component {
     pagedNavigation: false,
     showWeekNumbers: false,
     showWeekDays: true,
-    renderDay: day => day.getDate(),
-    renderWeek: weekNumber => weekNumber,
+    renderDay: (day) => day.getDate(),
+    renderWeek: (weekNumber) => weekNumber,
     weekdayElement: <Weekday />,
     navbarElement: <Navbar classNames={classNames} />,
     captionElement: <Caption classNames={classNames} />,
@@ -158,6 +158,8 @@ export class DayPicker extends Component {
     super(props);
 
     const currentMonth = this.getCurrentMonthFromProps(props);
+    //Binding so when passed to <Navbar /> it keeps the this context
+    this.showMonth = this.showMonth.bind(this);
     this.state = { currentMonth };
   }
 
@@ -263,7 +265,7 @@ export class DayPicker extends Component {
     });
   }
 
-  showNextMonth = callback => {
+  showNextMonth = (callback) => {
     if (!this.allowNextMonth()) {
       return;
     }
@@ -274,7 +276,7 @@ export class DayPicker extends Component {
     this.showMonth(nextMonth, callback);
   };
 
-  showPreviousMonth = callback => {
+  showPreviousMonth = (callback) => {
     if (!this.allowPreviousMonth()) {
       return;
     }
@@ -379,7 +381,7 @@ export class DayPicker extends Component {
 
   // Event handlers
 
-  handleKeyDown = e => {
+  handleKeyDown = (e) => {
     e.persist();
 
     switch (e.keyCode) {
@@ -484,7 +486,7 @@ export class DayPicker extends Component {
     }
   }
 
-  handleTodayButtonClick = e => {
+  handleTodayButtonClick = (e) => {
     const today = new Date();
     const month = new Date(today.getFullYear(), today.getMonth());
     this.showMonth(month);
@@ -521,6 +523,7 @@ export class DayPicker extends Component {
       showNextButton: this.allowNextMonth(),
       onNextClick: this.showNextMonth,
       onPreviousClick: this.showPreviousMonth,
+      setDate: this.showMonth,
       dir: attributes.dir,
       labels,
       locale,
@@ -592,12 +595,12 @@ export class DayPicker extends Component {
       <div
         {...this.props.containerProps}
         className={className}
-        ref={el => (this.dayPicker = el)}
+        ref={(el) => (this.dayPicker = el)}
         lang={this.props.locale}
       >
         <div
           className={this.props.classNames.wrapper}
-          ref={el => (this.wrapper = el)}
+          ref={(el) => (this.wrapper = el)}
           tabIndex={
             this.props.canChangeMonth &&
             typeof this.props.tabIndex !== 'undefined'
