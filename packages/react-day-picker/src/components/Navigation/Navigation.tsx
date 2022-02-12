@@ -34,28 +34,27 @@ export function Navigation(props: NavigationProps): JSX.Element {
     labels: { labelPrevious, labelNext },
     components
   } = useDayPicker();
+
+  if (!props.nextMonth && !props.previousMonth) {
+    return <></>;
+  }
+
   let { onPreviousClick, onNextClick } = props;
   if (dir === 'rtl') {
     [onNextClick, onPreviousClick] = [onPreviousClick, onNextClick];
   }
 
-  const { previousMonth, nextMonth } = props;
-
-  const previousLabel = labelPrevious(previousMonth, { locale });
+  const previousLabel = labelPrevious(props.previousMonth, { locale });
   const previousClassName = [
     classNames.nav_button,
     classNames.nav_button_previous
   ].join(' ');
 
-  const nextLabel = labelNext(nextMonth, { locale });
+  const nextLabel = labelNext(props.nextMonth, { locale });
   const nextClassName = [
     classNames.nav_button,
     classNames.nav_button_next
   ].join(' ');
-
-  if (!nextMonth && !previousMonth) {
-    return <></>;
-  }
 
   const IconRightComponent = components?.IconRight ?? IconRight;
   const IconLeftComponent = components?.IconLeft ?? IconLeft;
@@ -65,8 +64,8 @@ export function Navigation(props: NavigationProps): JSX.Element {
         <Button
           aria-label={previousLabel}
           className={previousClassName}
-          style={styles.nav_button_next}
-          disabled={!previousMonth}
+          style={styles.nav_button_previous}
+          disabled={!props.previousMonth}
           onClick={dir === 'rtl' ? onNextClick : onPreviousClick}
         >
           {dir === 'rtl' ? (
@@ -87,7 +86,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
           aria-label={nextLabel}
           className={nextClassName}
           style={styles.nav_button_next}
-          disabled={!nextMonth}
+          disabled={!props.nextMonth}
           onClick={dir === 'rtl' ? onPreviousClick : onNextClick}
         >
           {dir === 'rtl' ? (
