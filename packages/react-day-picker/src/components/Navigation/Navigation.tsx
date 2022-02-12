@@ -39,11 +39,6 @@ export function Navigation(props: NavigationProps): JSX.Element {
     return <></>;
   }
 
-  let { onPreviousClick, onNextClick } = props;
-  if (dir === 'rtl') {
-    [onNextClick, onPreviousClick] = [onPreviousClick, onNextClick];
-  }
-
   const previousLabel = labelPrevious(props.previousMonth, { locale });
   const previousClassName = [
     classNames.nav_button,
@@ -66,7 +61,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
           className={previousClassName}
           style={styles.nav_button_previous}
           disabled={!props.previousMonth}
-          onClick={dir === 'rtl' ? onNextClick : onPreviousClick}
+          onClick={props.onPreviousClick}
         >
           {dir === 'rtl' ? (
             <IconRightComponent
@@ -87,7 +82,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
           className={nextClassName}
           style={styles.nav_button_next}
           disabled={!props.nextMonth}
-          onClick={dir === 'rtl' ? onPreviousClick : onNextClick}
+          onClick={props.onNextClick}
         >
           {dir === 'rtl' ? (
             <IconLeftComponent
