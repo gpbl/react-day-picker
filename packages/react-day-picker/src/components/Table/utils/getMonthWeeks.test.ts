@@ -1,12 +1,9 @@
 import { enGB, enUS } from 'date-fns/locale';
 
-import { getWeeks } from './getWeeks';
+import { getMonthWeeks } from './getMonthWeeks';
 
 describe('for December 2022 in enUS locale with fixedWeeks', () => {
-  const weeks = getWeeks(new Date(2022, 11), {
-    locale: enUS,
-    fixedWeeks: true
-  });
+  const weeks = getMonthWeeks(new Date(2022, 11), true, enUS);
   test('week 1 should be rendered on the 6th row after 49 - 53', () => {
     expect(weeks.map((week) => week.weekNumber)).toEqual([
       49, 50, 51, 52, 53, 1
@@ -24,7 +21,7 @@ describe('for December 2022 in enUS locale with fixedWeeks', () => {
   });
 });
 describe('for January 2022 in enGB locale', () => {
-  const weeks = getWeeks(new Date(2022, 0), { locale: enGB });
+  const weeks = getMonthWeeks(new Date(2022, 0), false, enGB);
   test('week 52 should be rendered before week 1 through 5', () => {
     expect(weeks.map((week) => week.weekNumber)).toEqual([52, 1, 2, 3, 4, 5]);
   });
@@ -35,7 +32,7 @@ describe('for January 2022 in enGB locale', () => {
   });
 });
 describe('for December 2021 in enUS locale', () => {
-  const weeks = getWeeks(new Date(2021, 11), { locale: enUS });
+  const weeks = getMonthWeeks(new Date(2021, 11), false, enGB);
   test('the last days in December are in week 1, which should be after weeks 49 - 52', () => {
     expect(weeks.map((week) => week.weekNumber)).toEqual([49, 50, 51, 52, 1]);
   });

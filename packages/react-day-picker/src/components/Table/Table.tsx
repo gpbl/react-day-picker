@@ -5,7 +5,7 @@ import { Head } from 'components/Head';
 import { Row } from 'components/Row';
 import { useDayPicker } from 'contexts/DayPicker';
 
-import { getWeeks } from './utils/getWeeks';
+import { getMonthWeeks } from './utils/getMonthWeeks';
 
 /** The props for the [[Table]] component. */
 export interface TableProps {
@@ -19,7 +19,7 @@ export interface TableProps {
 export function Table(props: TableProps): JSX.Element {
   const { locale, classNames, styles, hideHead, fixedWeeks, components } =
     useDayPicker();
-  const weeks = getWeeks(props.displayMonth, { locale, fixedWeeks });
+  const weeks = getMonthWeeks(props.displayMonth, Boolean(fixedWeeks), locale);
 
   const HeadComponent = components?.Head ?? Head;
   const RowComponent = components?.Row ?? Row;
