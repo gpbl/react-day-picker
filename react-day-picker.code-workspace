@@ -79,11 +79,6 @@
     },
     "jest.disabledWorkspaceFolders": ["root", "eslint-config-rdp"],
     "jest.jestCommandLine": "yarn test",
-    "jest.testExplorer": {
-      "enabled": true,
-      "showClassicStatus": false,
-      "showInlineError": false
-    },
     "npm.packageManager": "yarn"
   }
 }

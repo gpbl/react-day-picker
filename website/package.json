@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "yarn build-rdp && TYPEDOC_WATCH=true docusaurus start",
+    "start": "TYPEDOC_WATCH=true docusaurus start",
     "build": "docusaurus build",
     "build-rdp": "yarn workspace react-day-picker build",
     "serve": "docusaurus serve",
@@ -20,7 +20,7 @@
     "@popperjs/core": "^2.11.2",
     "focus-trap-react": "8.9.1",
     "react": "^17.0.2",
-    "react-day-picker": "workspace:^",
+    "react-day-picker": "workspace:*",
     "react-dom": "^17.0.2",
     "react-popper": "^2.2.5"
   },
