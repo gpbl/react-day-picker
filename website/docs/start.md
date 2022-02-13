@@ -2,8 +2,6 @@
 hide_table_of_contents: true
 ---
 
-import {DayPicker} from 'react-day-picker'
-
 # Getting Started
 
 1. Add `react-day-picker` to your dependencies:
@@ -12,7 +10,18 @@ import {DayPicker} from 'react-day-picker'
 npm install react-day-picker@next
 ```
 
-2. Import DayPicker and include the DayPicker CSS in your component:
+2. When importing, include the DayPicker CSS in your component:
+
+```tsx
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
+
+function Component() {
+  return <DayPicker />;
+}
+```
+
+## Example
 
 ```include
 start
