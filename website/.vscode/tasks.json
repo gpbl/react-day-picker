@@ -17,6 +17,13 @@
     },
     {
       "type": "npm",
+      "script": "build-rdp",
+      "group": "build",
+      "problemMatcher": ["$tsc"],
+      "label": "prebuild react-day-picker"
+    },
+    {
+      "type": "npm",
       "script": "test-watch",
       "problemMatcher": [],
       "label": "test-watch",
@@ -34,6 +41,7 @@
       "problemMatcher": ["$tsc-watch"],
       "label": "typecheck-watch",
       "isBackground": true,
+      "dependsOn": ["prebuild react-day-picker"],
       "runOptions": { "runOn": "folderOpen" }
     },
     {
@@ -42,6 +50,7 @@
       "problemMatcher": [],
       "label": "start",
       "isBackground": true,
+      "dependsOn": ["prebuild react-day-picker"],
       "runOptions": { "runOn": "folderOpen" }
     }
   ]

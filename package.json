@@ -11,9 +11,9 @@
   "homepage": "http://react-day-picker.js.org",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspaces foreach run build",
-    "lint": "yarn workspaces foreach -pt run lint",
-    "test": "yarn workspaces foreach run test",
+    "build-all": "yarn workspaces foreach run build",
+    "lint-all": "yarn workspaces foreach -pt run lint",
+    "test-all": "yarn workspaces foreach run test",
     "typecheck": "yarn workspaces foreach run typecheck"
   },
   "repository": {
