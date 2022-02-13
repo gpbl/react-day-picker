@@ -20,7 +20,7 @@
   "style": "dist/style.css",
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "build-watch": "rimraf dist && rollup -c -w --no-watch.clearScreen",
+    "build-watch": "rollup -c -w --no-watch.clearScreen",
     "css-types": "yarn tcm -p src/style.css",
     "lint": "eslint --ext .ts,.tsx src",
     "test": "jest",
