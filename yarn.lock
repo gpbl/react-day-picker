@@ -12295,7 +12295,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-day-picker@workspace:^, react-day-picker@workspace:packages/react-day-picker":
+"react-day-picker@workspace:*, react-day-picker@workspace:packages/react-day-picker":
   version: 0.0.0-use.local
   resolution: "react-day-picker@workspace:packages/react-day-picker"
   dependencies:
@@ -15285,7 +15285,7 @@ __metadata:
     prop-types: ^15.8.1
     raw-loader: ^4.0.2
     react: ^17.0.2
-    react-day-picker: "workspace:^"
+    react-day-picker: "workspace:*"
     react-dom: ^17.0.2
     react-popper: ^2.2.5
     ts-jest: ^27.1.3
