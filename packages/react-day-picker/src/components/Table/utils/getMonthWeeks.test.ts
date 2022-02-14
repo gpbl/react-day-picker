@@ -4,6 +4,7 @@ import { getMonthWeeks } from './getMonthWeeks';
 
 describe('for December 2022 in enUS locale with fixedWeeks', () => {
   const weeks = getMonthWeeks(new Date(2022, 11), true, enUS);
+
   test('week 1 should be rendered on the 6th row after 49 - 53', () => {
     expect(weeks.map((week) => week.weekNumber)).toEqual([
       49, 50, 51, 52, 53, 1

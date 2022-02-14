@@ -29,34 +29,25 @@ export function getMonthWeeks(
   fixedWeeks: boolean,
   locale: Locale
 ): MonthWeek[] {
-  const monthStart = startOfMonth(month);
-  const nrOfDaysInMonth = differenceInCalendarDays(
+  const weeksInMonth: MonthWeek[] = daysToMonthWeeks(
+    startOfMonth(month),
     endOfMonth(month),
-    monthStart
+    locale
   );
-  const daysInMonth: Date[] = [];
-  for (let i = 0; i <= nrOfDaysInMonth; i++) {
-    daysInMonth.push(addDays(monthStart, i));
-  }
-
-  const weeksInMonth: MonthWeek[] = daysToMonthWeeks(daysInMonth, locale);
 
   // Add extra weeks to the month, up to 6 weeks
   if (fixedWeeks) {
     const nrOfMonthWeeks = getWeeksInMonth(month, { locale });
     if (nrOfMonthWeeks < 6) {
       const lastWeek = weeksInMonth[weeksInMonth.length - 1];
-      const lastDay = lastWeek.dates[lastWeek.dates.length - 1];
-      const nrOfExtraDays = differenceInCalendarDays(
-        addWeeks(lastDay, 6 - nrOfMonthWeeks),
-        lastDay
+      const lastDate = lastWeek.dates[lastWeek.dates.length - 1];
+      const toDate = addWeeks(lastDate, 6 - nrOfMonthWeeks);
+      const extraWeeks = daysToMonthWeeks(
+        addWeeks(lastDate, 1),
+        toDate,
+        locale
       );
-      const extraDays: Date[] = [];
-      for (let i = 0; i <= nrOfExtraDays; i++) {
-        extraDays.push(addDays(lastDay, i));
-      }
-      const extraWeeks = daysToMonthWeeks(extraDays, locale);
-      weeksInMonth.concat(extraWeeks);
+      weeksInMonth.push(...extraWeeks);
     }
   }
   return weeksInMonth;
