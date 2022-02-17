@@ -33,7 +33,7 @@ describe('for January 2022 in enGB locale', () => {
   });
 });
 describe('for December 2021 in enUS locale', () => {
-  const weeks = getMonthWeeks(new Date(2021, 11), false, enGB);
+  const weeks = getMonthWeeks(new Date(2021, 11), false, enUS);
   test('the last days in December are in week 1, which should be after weeks 49 - 52', () => {
     expect(weeks.map((week) => week.weekNumber)).toEqual([49, 50, 51, 52, 1]);
   });
