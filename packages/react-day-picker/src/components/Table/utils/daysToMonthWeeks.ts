@@ -8,7 +8,11 @@ import { getOutsideStartDays } from './getOutsideStartDays';
 export function daysToMonthWeeks(
   earlierDate: Date,
   laterDate: Date,
-  locale: Locale
+  options?: {
+    locale?: Locale;
+    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  }
 ): MonthWeek[] {
   const nOfDays = differenceInCalendarDays(laterDate, earlierDate);
   const days: Date[] = [];
@@ -17,7 +21,7 @@ export function daysToMonthWeeks(
   }
 
   const weeksInMonth = days.reduce((result: MonthWeek[], date) => {
-    const weekNumber = getWeek(date, { locale });
+    const weekNumber = getWeek(date, options);
     const existingWeek = result.find(
       (value) => value.weekNumber === weekNumber
     );
@@ -26,7 +30,7 @@ export function daysToMonthWeeks(
       return result;
     }
     // Add start days to the first week
-    const startDays = getOutsideStartDays(date, { locale });
+    const startDays = getOutsideStartDays(date, options);
     result.push({
       weekNumber,
       dates: [...startDays, date]
@@ -41,7 +45,7 @@ export function daysToMonthWeeks(
 
   const lastWeek = weeksInMonth[weeksInMonth.length - 1];
   const lastDay = lastWeek.dates[lastWeek.dates.length - 1];
-  const endDays = getOutsideEndDays(lastDay, { locale });
+  const endDays = getOutsideEndDays(lastDay, options);
   lastWeek.dates = [...lastWeek.dates, ...endDays];
 
   return weeksInMonth;

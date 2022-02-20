@@ -19,7 +19,10 @@ export interface TableProps {
 export function Table(props: TableProps): JSX.Element {
   const { locale, classNames, styles, hideHead, fixedWeeks, components } =
     useDayPicker();
-  const weeks = getMonthWeeks(props.displayMonth, Boolean(fixedWeeks), locale);
+  const weeks = getMonthWeeks(props.displayMonth, {
+    useFixedWeeks: Boolean(fixedWeeks),
+    locale
+  });
 
   const HeadComponent = components?.Head ?? Head;
   const RowComponent = components?.Row ?? Row;
