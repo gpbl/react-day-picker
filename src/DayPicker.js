@@ -304,6 +304,13 @@ export class DayPicker extends Component {
     this.showMonth(nextMonth);
   }
 
+  showSelectedMonth = (selectedMonth) => {
+    if(!this.allowMonth(selectedMonth)){
+      return;
+    }
+    this.showMonth(selectedMonth);
+  };
+
   focus() {
     this.wrapper.focus();
   }
@@ -519,6 +526,7 @@ export class DayPicker extends Component {
       previousMonth: this.getPreviousNavigableMonth(),
       showPreviousButton: this.allowPreviousMonth(),
       showNextButton: this.allowNextMonth(),
+      onSelectMonth: this.showSelectedMonth,
       onNextClick: this.showNextMonth,
       onPreviousClick: this.showPreviousMonth,
       dir: attributes.dir,
