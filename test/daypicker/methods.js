@@ -178,6 +178,57 @@ describe('DayPicker’s methods', () => {
     });
   });
 
+  describe('showSelectedMonth()', () => {
+    it('should show selected month', () => {
+      const instance = shallow(
+        <DayPicker initialMonth={new Date(2015, 7)} />
+      ).instance();
+      instance.showSelectedMonth(new Date(2016, 7));
+      expect(instance.state.currentMonth.getFullYear()).toBe(2016);
+      expect(instance.state.currentMonth.getMonth()).toBe(7);
+      expect(instance.state.currentMonth.getDate()).toBe(1);
+    });
+
+    it('should not change the month when canChangeMonth is set to false', () => {
+      const instance = shallow(
+        <DayPicker
+          initialMonth={new Date(2015, 7)}
+          canChangeMonth={false}
+        />
+      ).instance();
+      instance.showSelectedMonth(new Date(2016, 7));
+      expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+      expect(instance.state.currentMonth.getMonth()).toBe(7);
+      expect(instance.state.currentMonth.getDate()).toBe(1);
+    });
+
+    it('should not change the month when selected date is later than toMonth', () => {
+      const instance = shallow(
+        <DayPicker
+          initialMonth={new Date(2015, 7)}
+          toMonth={new Date(2015, 9)}
+        />
+      ).instance();
+      instance.showSelectedMonth(new Date(2016, 7));
+      expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+      expect(instance.state.currentMonth.getMonth()).toBe(7);
+      expect(instance.state.currentMonth.getDate()).toBe(1);
+    });
+
+    it('should not change the month when selected date is earlier than fromMonth', () => {
+      const instance = shallow(
+        <DayPicker
+          initialMonth={new Date(2015, 7)}
+          fromMonth={new Date(2015, 5)}
+        />
+      ).instance();
+      instance.showSelectedMonth(new Date(2015, 3));
+      expect(instance.state.currentMonth.getFullYear()).toBe(2015);
+      expect(instance.state.currentMonth.getMonth()).toBe(7);
+      expect(instance.state.currentMonth.getDate()).toBe(1);
+    });
+  });
+
   describe('showMonth()', () => {
     it('should show the specified month', () => {
       const instance = shallow(
