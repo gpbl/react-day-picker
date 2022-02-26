@@ -6131,7 +6131,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^2.22.1":
+"date-fns@npm:^2.22.1, date-fns@npm:^2.28.0":
   version: 2.28.0
   resolution: "date-fns@npm:2.28.0"
   checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
@@ -8113,6 +8113,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"harmony-reflect@npm:^1.4.6":
+  version: 1.6.2
+  resolution: "harmony-reflect@npm:1.6.2"
+  checksum: 2e5bae414cd2bfae5476147f9935dc69ee9b9a413206994dcb94c5b3208d4555da3d4313aff6fd14bd9991c1e3ef69cdda5c8fac1eb1d7afc064925839339b8c
+  languageName: node
+  linkType: hard
+
 "has-ansi@npm:^2.0.0":
   version: 2.0.0
   resolution: "has-ansi@npm:2.0.0"
@@ -8582,6 +8589,15 @@ __metadata:
   peerDependencies:
     postcss: ^8.1.0
   checksum: 5c324d283552b1269cfc13a503aaaa172a280f914e5b81544f3803bc6f06a3b585fb79f66f7c771a2c052db7982c18bf92d001e3b47282e3abbbb4c4cc488d68
+  languageName: node
+  linkType: hard
+
+"identity-obj-proxy@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "identity-obj-proxy@npm:3.0.0"
+  dependencies:
+    harmony-reflect: ^1.4.6
+  checksum: 97559f8ea2aeaa1a880d279d8c49550dce01148321e00a2102cda5ddf9ce622fa1d7f3efc7bed63458af78889de888fdaebaf31c816312298bb3fdd0ef8aaf2c
   languageName: node
   linkType: hard
 
@@ -12312,7 +12328,7 @@ __metadata:
     "@types/react": ^17.0.39
     "@typescript-eslint/eslint-plugin": ^5.10.2
     "@typescript-eslint/parser": ^5.10.2
-    date-fns: ^2.22.1
+    date-fns: ^2.28.0
     eslint: ^8.8.0
     eslint-config-prettier: ^8.3.0
     eslint-config-rdp: "workspace:^"
@@ -12340,7 +12356,7 @@ __metadata:
     typed-css-modules: ^0.7.0
     typescript: ~4.5.5
   peerDependencies:
-    date-fns: ^2.10.0
+    date-fns: ^2.28.0
     react: ^16.8.0 || ^17.0.0
   languageName: unknown
   linkType: soft
@@ -15280,6 +15296,7 @@ __metadata:
     docusaurus-plugin-typedoc: ^0.16.9
     eslint: ^8.8.0
     focus-trap-react: 8.9.1
+    identity-obj-proxy: ^3.0.0
     jest: ^27.5.0
     prettier: ^2.5.1
     prop-types: ^15.8.1
