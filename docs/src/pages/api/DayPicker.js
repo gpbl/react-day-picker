@@ -363,6 +363,9 @@ export default () => (
         <li>
           <code>onNextClick: () ⇒ void</code>
         </li>
+        <li>
+          <code>onSelectMonth: (selectedMonth: Date) ⇒ void</code>
+        </li>
       </ul>
       <h3>
         <Anchor id="numberOfMonths" />
