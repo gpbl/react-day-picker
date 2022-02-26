@@ -12328,7 +12328,7 @@ __metadata:
     "@types/react": ^17.0.39
     "@typescript-eslint/eslint-plugin": ^5.10.2
     "@typescript-eslint/parser": ^5.10.2
-    date-fns: ^2.28.0
+    date-fns: ^2.22.1
     eslint: ^8.8.0
     eslint-config-prettier: ^8.3.0
     eslint-config-rdp: "workspace:^"
@@ -12356,7 +12356,7 @@ __metadata:
     typed-css-modules: ^0.7.0
     typescript: ~4.5.5
   peerDependencies:
-    date-fns: ^2.28.0
+    date-fns: ^2.10.0
     react: ^16.8.0 || ^17.0.0
   languageName: unknown
   linkType: soft
@@ -15292,7 +15292,7 @@ __metadata:
     "@types/jest": ^27.4.0
     "@types/react-helmet": ^6.1.5
     "@types/react-router-dom": ^5.3.3
-    date-fns: ^2.22.1
+    date-fns: ^2.28.0
     docusaurus-plugin-typedoc: ^0.16.9
     eslint: ^8.8.0
     focus-trap-react: 8.9.1
