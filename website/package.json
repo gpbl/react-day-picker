@@ -5,7 +5,7 @@
   "scripts": {
     "start": "TYPEDOC_WATCH=true docusaurus start",
     "build": "docusaurus build",
-    "build-rdp": "yarn workspace react-day-picker build",
+    "postinstall": "yarn workspace react-day-picker build",
     "serve": "docusaurus serve",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
