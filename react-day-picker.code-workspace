@@ -25,7 +25,7 @@
       "path": "packages/eslint-config-rdp"
     },
     {
-      "name": "root",
+      "name": "project",
       "path": "."
     }
   ],
@@ -77,7 +77,7 @@
       "onSave": "test-src-file",
       "watch": false
     },
-    "jest.disabledWorkspaceFolders": ["root", "eslint-config-rdp"],
+    "jest.disabledWorkspaceFolders": ["project", "eslint-config-rdp"],
     "jest.jestCommandLine": "yarn test",
     "npm.packageManager": "yarn"
   }

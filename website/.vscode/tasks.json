@@ -2,55 +2,44 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "npm",
-      "script": "test",
-      "group": "test",
+      "label": "yarn install",
+      "command": "yarn install", // This will also build rdp on postinstall
+      "isBackground": false,
+      "type": "shell",
       "problemMatcher": [],
-      "label": "test"
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      },
+      "presentation": {
+        "close": true,
+        "panel": "dedicated"
+      }
     },
     {
-      "type": "npm",
-      "script": "build",
-      "group": "build",
-      "problemMatcher": ["$tsc"],
-      "label": "build"
-    },
-    {
-      "type": "npm",
-      "script": "build-rdp",
-      "group": "build",
-      "problemMatcher": ["$tsc"],
-      "label": "prebuild react-day-picker"
-    },
-    {
-      "type": "npm",
-      "script": "test-watch",
-      "problemMatcher": [],
-      "label": "test-watch",
-      "isBackground": true
-    },
-    {
-      "type": "npm",
-      "script": "typecheck",
-      "problemMatcher": ["$tsc"],
-      "label": "typecheck"
-    },
-    {
-      "type": "npm",
-      "script": "typecheck-watch",
-      "problemMatcher": ["$tsc-watch"],
-      "label": "typecheck-watch",
-      "isBackground": true,
-      "dependsOn": ["prebuild react-day-picker"],
-      "runOptions": { "runOn": "folderOpen" }
-    },
-    {
+      "label": "website-start",
       "type": "npm",
       "script": "start",
-      "problemMatcher": [],
-      "label": "start",
       "isBackground": true,
-      "dependsOn": ["prebuild react-day-picker"],
+      "problemMatcher": [],
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      },
+      "dependsOn": ["yarn install"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "typecheck-watch",
+      "type": "npm",
+      "script": "typecheck-watch",
+      "group": "build",
+      "problemMatcher": ["$tsc-watch"],
+      "isBackground": true,
+      "dependsOn": ["yarn install"],
       "runOptions": { "runOn": "folderOpen" }
     }
   ]
