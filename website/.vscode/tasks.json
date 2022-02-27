@@ -3,7 +3,7 @@
   "tasks": [
     {
       "label": "yarn install",
-      "command": "yarn install", // This will also build rdp on postinstall
+      "command": "yarn install",
       "isBackground": false,
       "type": "shell",
       "problemMatcher": [],
@@ -17,7 +17,7 @@
       }
     },
     {
-      "label": "website-start",
+      "label": "start",
       "type": "npm",
       "script": "start",
       "isBackground": true,
@@ -33,14 +33,16 @@
       }
     },
     {
-      "label": "typecheck-watch",
+      "label": "typecheck",
       "type": "npm",
       "script": "typecheck-watch",
       "group": "build",
       "problemMatcher": ["$tsc-watch"],
       "isBackground": true,
       "dependsOn": ["yarn install"],
-      "runOptions": { "runOn": "folderOpen" }
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
     }
   ]
 }

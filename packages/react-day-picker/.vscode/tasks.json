@@ -12,14 +12,15 @@
         "instanceLimit": 1
       },
       "presentation": {
-        "close": true
+        "close": true,
+        "panel": "dedicated"
       }
     },
     {
-      "label": "build-watch",
+      "label": "build",
       "type": "npm",
       "script": "build-watch",
-      "problemMatcher": ["$tsc-watch"],
+      "problemMatcher": [],
       "isBackground": true,
       "dependsOn": ["yarn install"],
       "runOptions": {
@@ -32,11 +33,12 @@
       }
     },
     {
+      "label": "typecheck",
       "type": "npm",
-      "script": "typecheck",
+      "script": "typecheck-watch",
       "group": "build",
       "problemMatcher": ["$tsc-watch"],
-      "label": "typecheck-watch",
+      "dependsOn": ["yarn install"],
       "isBackground": true,
       "runOptions": { "runOn": "folderOpen" }
     }
