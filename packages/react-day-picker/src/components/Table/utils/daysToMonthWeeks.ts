@@ -50,10 +50,5 @@ export function daysToMonthWeeks(
     throw new Error('No weeks found between the given dates');
   }
 
-  // const lastWeek = weeksInMonth[weeksInMonth.length - 1];
-  // const lastDay = lastWeek.dates[lastWeek.dates.length - 1];
-  // const endDays = getOutsideEndDays(lastDay, options);
-  // lastWeek.dates = [...lastWeek.dates, ...endDays];
-
   return weeksInMonth;
 }
