@@ -2,46 +2,38 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "npm",
-      "script": "test",
-      "group": "test",
+      "label": "yarn install",
+      "command": "yarn install",
+      "isBackground": false,
+      "type": "shell",
       "problemMatcher": [],
-      "label": "test"
-    },
-    {
-      "type": "npm",
-      "script": "build",
-      "group": {
-        "kind": "build",
-        "isDefault": true
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
       },
-      "problemMatcher": ["$tsc"],
-      "label": "build"
+      "presentation": {
+        "close": true
+      }
     },
     {
-      "type": "npm",
-      "script": "test-watch",
-      "problemMatcher": [],
-      "label": "test-watch",
-      "isBackground": true
-    },
-    {
+      "label": "build-watch",
       "type": "npm",
       "script": "build-watch",
-      "problemMatcher": [],
-      "label": "build-watch",
+      "problemMatcher": ["$tsc-watch"],
       "isBackground": true,
-      "runOptions": { "runOn": "folderOpen" }
+      "dependsOn": ["yarn install"],
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated"
+      }
     },
     {
       "type": "npm",
       "script": "typecheck",
-      "problemMatcher": ["$tsc"],
-      "label": "typecheck"
-    },
-    {
-      "type": "npm",
-      "script": "typecheck-watch",
       "group": "build",
       "problemMatcher": ["$tsc-watch"],
       "label": "typecheck-watch",
