@@ -1,5 +1,3 @@
-
-
 import enUS from 'date-fns/locale/en-US';
 
 import { CaptionLayout } from 'components/Caption';
@@ -23,7 +21,6 @@ export function getDefaultContextValue(): DayPickerContextValue {
   const numberOfMonths = 1;
   const styles = {};
   const today = new Date();
-
 
   return {
     captionLayout,

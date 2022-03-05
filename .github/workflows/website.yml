@@ -36,15 +36,12 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Build react-day-picker
-        run: |
-          yarn workspace react-day-picker run build
       - name: Run typecheck
         run: |
           yarn workspace website run typecheck
       - name: Run linter
         run: |
-          yarn workspace website run lint
+          yarn workspace website run lint --max-warnings 0
       - name: Run integration tests
         run: |
           yarn workspace website run test

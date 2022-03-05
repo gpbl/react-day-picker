@@ -44,7 +44,7 @@ jobs:
           yarn workspace react-day-picker run typecheck
       - name: Run linter
         run: |
-          yarn workspace react-day-picker run lint
+          yarn workspace react-day-picker run lint --max-warnings 0
       - name: Run tests
         run: |
           yarn workspace react-day-picker run test
