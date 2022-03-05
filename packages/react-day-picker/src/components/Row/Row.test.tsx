@@ -8,11 +8,8 @@ import { CustomComponents, DayPickerProps } from 'types/DayPicker';
 
 import { Row, RowProps } from './Row';
 
-let root: HTMLDivElement;
-
 function setup(props: RowProps, dayPickerProps?: DayPickerProps) {
-  const renderResult = customRender(<Row {...props} />, dayPickerProps);
-  root = renderResult.container.firstChild as HTMLDivElement;
+  customRender(<Row {...props} />, dayPickerProps);
 }
 
 const props: RowProps = {
