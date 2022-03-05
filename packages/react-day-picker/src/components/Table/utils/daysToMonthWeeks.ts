@@ -9,22 +9,23 @@ import {
 
 import { MonthWeek } from './getMonthWeeks';
 
-/** Return the weeks including the given days.  */
+/** Return the weeks between two dates.  */
 export function daysToMonthWeeks(
-  earlierDate: Date,
-  laterDate: Date,
+  fromDate: Date,
+  toDate: Date,
   options?: {
     locale?: Locale;
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   }
 ): MonthWeek[] {
-  const dateLeft = endOfWeek(laterDate, options);
-  const dateRight = startOfWeek(earlierDate, options);
-  const nOfDays = differenceInCalendarDays(dateLeft, dateRight);
+  const toWeek = endOfWeek(toDate, options);
+  const fromWeek = startOfWeek(fromDate, options);
+  const nOfDays = differenceInCalendarDays(toWeek, fromWeek);
   const days: Date[] = [];
+
   for (let i = 0; i <= nOfDays; i++) {
-    days.push(addDays(dateRight, i));
+    days.push(addDays(fromWeek, i));
   }
 
   const weeksInMonth = days.reduce((result: MonthWeek[], date) => {
@@ -36,19 +37,12 @@ export function daysToMonthWeeks(
       existingWeek.dates.push(date);
       return result;
     }
-    // Add start days to the first week
-    // const startDays = getOutsideStartDays(date, options);
     result.push({
       weekNumber,
       dates: [date]
     });
     return result;
   }, []);
-
-  // Add outside days to the last week
-  if (weeksInMonth.length === 0) {
-    throw new Error('No weeks found between the given dates');
-  }
 
   return weeksInMonth;
 }

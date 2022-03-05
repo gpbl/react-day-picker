@@ -26,7 +26,7 @@ export function getMonthWeeks(
   options: {
     locale: Locale;
     /** Add extra weeks up to 6 weeks */
-    useFixedWeeks: boolean;
+    useFixedWeeks?: boolean;
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   }
