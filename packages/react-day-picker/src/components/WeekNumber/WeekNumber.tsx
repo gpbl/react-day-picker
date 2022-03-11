@@ -29,10 +29,6 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
     formatters: { formatWeekNumber }
   } = useDayPicker();
 
-  const handleClick: React.MouseEventHandler = function (e) {
-    onWeekNumberClick?.(weekNumber, dates, e);
-  };
-
   const content = formatWeekNumber(Number(weekNumber), { locale });
 
   if (!onWeekNumberClick) {
@@ -44,6 +40,10 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
   }
 
   const label = labelWeekNumber(Number(weekNumber), { locale });
+
+  const handleClick: React.MouseEventHandler = function (e) {
+    onWeekNumberClick(weekNumber, dates, e);
+  };
 
   return (
     <Button
