@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with "onWeekNumberClick" prop it should return a button element 1`] = `null`;
+
+exports[`without "onWeekNumberClick" prop it should return a span element 1`] = `
+<span
+  class="rdp-weeknumber"
+>
+  10
+</span>
+`;
