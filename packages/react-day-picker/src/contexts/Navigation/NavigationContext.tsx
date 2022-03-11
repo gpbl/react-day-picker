@@ -10,8 +10,8 @@ import { getPreviousMonth } from './utils/getPreviousMonth';
 
 /** Represents the value of the [[NavigationContext]]. */
 export interface NavigationContextValue {
-  /** The current month. Note that when `numberOfMonths > 1` represent the first month in the displayed months. */
-  month: Date;
+  /** The month to display in the calendar. Note that when `numberOfMonths > 1` represent the first month in the displayed months. */
+  currentMonth: Date;
   /** The months rendered by DayPicker. DayPicker can render one than one month via `numberOfMonths`. */
   displayMonths: Date[];
   /** Navigate to the specified month. */
@@ -22,7 +22,7 @@ export interface NavigationContextValue {
   nextMonth?: Date;
   /** The previous month to display. `undefined` if no months left */
   previousMonth?: Date;
-  /** Return true if the day is displayed in the calendar. */
+  /** Return true if the day is currently included in the months displayed in the calendar. */
   isDateDisplayed: (day: Date) => boolean;
 }
 
@@ -40,11 +40,11 @@ export function NavigationProvider(props: {
   children?: ReactNode;
 }): JSX.Element {
   const dayPicker = useDayPicker();
-  const [month, goToMonth] = useNavigationState();
+  const [currentMonth, goToMonth] = useNavigationState();
 
-  const displayMonths = getDisplayMonths(month, dayPicker);
-  const nextMonth = getNextMonth(month, dayPicker);
-  const previousMonth = getPreviousMonth(month, dayPicker);
+  const displayMonths = getDisplayMonths(currentMonth, dayPicker);
+  const nextMonth = getNextMonth(currentMonth, dayPicker);
+  const previousMonth = getPreviousMonth(currentMonth, dayPicker);
 
   const isDateDisplayed = (date: Date) => {
     return displayMonths.some((displayMonth) =>
@@ -65,7 +65,7 @@ export function NavigationProvider(props: {
   };
 
   const value: NavigationContextValue = {
-    month,
+    currentMonth,
     displayMonths,
     goToMonth,
     goToDate,

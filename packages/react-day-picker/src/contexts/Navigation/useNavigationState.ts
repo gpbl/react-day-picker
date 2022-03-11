@@ -1,3 +1,5 @@
+import { startOfMonth } from 'date-fns';
+
 import { useDayPicker } from 'contexts/DayPicker';
 import { useControlledValue } from 'hooks/useControlledValue';
 
@@ -16,7 +18,7 @@ export function useNavigationState(): [
 
   const goToMonth = (date: Date) => {
     if (context.disableNavigation) return;
-    setMonth(date);
+    setMonth(startOfMonth(date));
   };
 
   return [month, goToMonth];
