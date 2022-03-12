@@ -75,61 +75,67 @@ export function SelectMultipleProviderInternal({
   initialProps,
   children
 }: SelectMultipleProviderInternalProps): JSX.Element {
-  const { selected } = initialProps;
-  const onDayClick: DayClickEventHandler = (day, modifiers, e) => {
-    initialProps.onDayClick?.(day, modifiers, e);
+  const onDayClick: DayClickEventHandler = (day, activeModifiers, e) => {
+    initialProps.onDayClick?.(day, activeModifiers, e);
 
     const isMinSelected = Boolean(
-      initialProps.min &&
-        modifiers.selected &&
-        selected &&
-        selected.length === initialProps.min
+      activeModifiers.selected &&
+        initialProps.min &&
+        initialProps.selected &&
+        initialProps.selected.length === initialProps.min
     );
     if (isMinSelected) {
       return;
     }
+
     const isMaxSelected = Boolean(
-      initialProps.max &&
-        !modifiers.selected &&
-        selected &&
-        selected.length === initialProps.max
+      !activeModifiers.selected &&
+        initialProps.max &&
+        initialProps.selected &&
+        initialProps.selected.length === initialProps.max
     );
     if (isMaxSelected) {
       return;
     }
 
-    const days = selected ? [...selected] : [];
-    if (modifiers.selected) {
-      const index = days.findIndex((selectedDay) =>
+    const selectedDays = initialProps.selected
+      ? [...initialProps.selected]
+      : [];
+
+    if (activeModifiers.selected) {
+      const index = selectedDays.findIndex((selectedDay) =>
         isSameDay(day, selectedDay)
       );
-      days.splice(index, 1);
+      selectedDays.splice(index, 1);
     } else {
-      days.push(day);
+      selectedDays.push(day);
     }
-    initialProps.onSelect?.(days, day, modifiers, e);
+    initialProps.onSelect?.(selectedDays, day, activeModifiers, e);
   };
 
   const modifiers: SelectMultipleModifiers = {
     disabled: []
   };
 
-  if (selected) {
-    modifiers.disabled = [
-      function disableDay(day: Date) {
-        const isMaxSelected =
-          initialProps.max &&
-          selected &&
-          selected.length > initialProps.max - 1;
-        const isSelected = selected?.some((selectedDay) =>
-          isSameDay(selectedDay, day)
-        );
-        return Boolean(isMaxSelected && !isSelected);
-      }
-    ];
+  if (initialProps.selected) {
+    const disableDay = (day: Date) => {
+      const isMaxSelected =
+        initialProps.max &&
+        initialProps.selected &&
+        initialProps.selected.length > initialProps.max - 1;
+      const isSelected = initialProps.selected?.some((selectedDay) =>
+        isSameDay(selectedDay, day)
+      );
+      return Boolean(isMaxSelected && !isSelected);
+    };
+    modifiers.disabled = [disableDay];
   }
 
-  const contextValue = { selected, onDayClick, modifiers };
+  const contextValue = {
+    selected: initialProps.selected,
+    onDayClick,
+    modifiers
+  };
 
   return (
     <SelectMultipleContext.Provider value={contextValue}>
