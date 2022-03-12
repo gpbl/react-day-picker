@@ -58,12 +58,14 @@ export function SelectSingleProviderInternal({
   initialProps,
   children
 }: SelectSingleProviderInternal): JSX.Element {
-  const onDayClick: DayClickEventHandler = (day, dayModifiers, e) => {
-    if (dayModifiers.selected && !initialProps.required) {
-      initialProps.onSelect?.(undefined, day, dayModifiers, e);
+  const onDayClick: DayClickEventHandler = (day, activeModifiers, e) => {
+    initialProps.onDayClick?.(day, activeModifiers, e);
+
+    if (activeModifiers.selected && !initialProps.required) {
+      initialProps.onSelect?.(undefined, day, activeModifiers, e);
       return;
     }
-    initialProps.onSelect?.(day, day, dayModifiers, e);
+    initialProps.onSelect?.(day, day, activeModifiers, e);
   };
 
   const contextValue: SelectSingleContextValue = {
