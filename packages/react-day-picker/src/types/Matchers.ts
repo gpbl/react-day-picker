@@ -1,4 +1,54 @@
-/** A `Matcher` is a function, a date, an object, or an array of them used to determine if a day matches a modifier. */
+/**
+ * A value or a function that matches a specific day.
+ *
+ *
+ * Matchers are passed to DayPicker via [[DayPickerProps.disabled]],
+ * [[DayPickerProps.hidden]] or [[DayPickerProps.selected]] and are used to
+ * determine if a day should get a [[Modifier]].
+ *
+ * Matchers can be of different types:
+ *
+ * ```
+ * // will always match the day
+ * const booleanMatcher: Matcher = true;
+ *
+ *  // will match the today's date
+ * const dateMatcher: Matcher = new Date();
+ *
+ * // will match the days in the array
+ * const arrayMatcher: Matcher = [new Date(2019, 1, 2);, new Date(2019, 1, 4)];
+ *
+ * // will match days after the 2nd of February 2019
+ * const afterMatcher: DateAfter = { after: new Date(2019, 1, 2); };
+ *  // will match days before the 2nd of February 2019 }
+ * const beforeMatcher: DateBefore = { before: : new Date(2019, 1, 2); };
+ *
+ * // will match Sundays
+ * const dayOfWeekMatcher: DayOfWeek = {
+ *  dayOfWeek: 0
+ * };
+ *
+ * // will match the included days, except the two dates
+ * const intervalMatcher: DateInterval = {
+ *    after: new Date(2019, 1, 2);,
+ *    before: new Date(2019, 1, 5)
+ * };
+ *
+ * // will match the included days, including the two dates
+ * const rangeMatcher: DateRange = {
+ *    from: new Date(2019, 1, 2);,
+ *    to: new Date(2019, 1, 5)
+ * };
+ *
+ * // will match when the function return true
+ * const functionMatcher: Matcher = (day: Date) => {
+ *  return (new Date()).getMonth() === 2 // match when month is March
+ * };
+ * ```
+ *
+ * @see [[isMatch]]
+ *
+ * */
 export type Matcher =
   | boolean
   | ((date: Date) => boolean)
