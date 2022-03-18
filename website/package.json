@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^0.13.10",
-    "@docusaurus/core": "2.0.0-beta.16",
-    "@docusaurus/preset-classic": "2.0.0-beta.16",
+    "@docusaurus/core": "2.0.0-beta.17",
+    "@docusaurus/preset-classic": "2.0.0-beta.17",
     "@mdx-js/react": "^1.6.22",
     "@popperjs/core": "^2.11.2",
     "clsx": "^1.1.1",
@@ -30,7 +30,7 @@
     "react-popper": "^2.2.5"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.0-beta.16",
+    "@docusaurus/module-type-aliases": "2.0.0-beta.17",
     "@testing-library/jest-dom": "^5.16.2",
     "@tsconfig/docusaurus": "^1.0.4",
     "@types/jest": "^27.4.0",
