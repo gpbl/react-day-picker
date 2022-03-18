@@ -75,32 +75,26 @@ export function SelectMultipleProviderInternal({
   initialProps,
   children
 }: SelectMultipleProviderInternalProps): JSX.Element {
+  const { selected, min, max } = initialProps;
+
   const onDayClick: DayClickEventHandler = (day, activeModifiers, e) => {
     initialProps.onDayClick?.(day, activeModifiers, e);
 
     const isMinSelected = Boolean(
-      activeModifiers.selected &&
-        initialProps.min &&
-        initialProps.selected &&
-        initialProps.selected.length === initialProps.min
+      activeModifiers.selected && min && selected?.length === min
     );
     if (isMinSelected) {
       return;
     }
 
     const isMaxSelected = Boolean(
-      !activeModifiers.selected &&
-        initialProps.max &&
-        initialProps.selected &&
-        initialProps.selected.length === initialProps.max
+      !activeModifiers.selected && max && selected?.length === max
     );
     if (isMaxSelected) {
       return;
     }
 
-    const selectedDays = initialProps.selected
-      ? [...initialProps.selected]
-      : [];
+    const selectedDays = selected ? [...selected] : [];
 
     if (activeModifiers.selected) {
       const index = selectedDays.findIndex((selectedDay) =>
@@ -117,22 +111,18 @@ export function SelectMultipleProviderInternal({
     disabled: []
   };
 
-  if (initialProps.selected) {
-    const disableDay = (day: Date) => {
-      const isMaxSelected =
-        initialProps.max &&
-        initialProps.selected &&
-        initialProps.selected.length > initialProps.max - 1;
-      const isSelected = initialProps.selected?.some((selectedDay) =>
+  if (selected) {
+    modifiers.disabled.push((day: Date) => {
+      const isMaxSelected = max && selected.length > max - 1;
+      const isSelected = selected.some((selectedDay) =>
         isSameDay(selectedDay, day)
       );
       return Boolean(isMaxSelected && !isSelected);
-    };
-    modifiers.disabled = [disableDay];
+    });
   }
 
   const contextValue = {
-    selected: initialProps.selected,
+    selected,
     onDayClick,
     modifiers
   };
