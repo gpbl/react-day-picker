@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "yarn install",
+      "command": "yarn install",
+      "isBackground": false,
+      "type": "shell",
+      "problemMatcher": [],
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      },
+      "presentation": {
+        "close": true,
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "build",
+      "type": "npm",
+      "script": "build-watch",
+      "problemMatcher": [],
+      "isBackground": true,
+      "dependsOn": ["yarn install"],
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "typecheck",
+      "type": "npm",
+      "script": "typecheck-watch",
+      "group": "build",
+      "problemMatcher": ["$tsc-watch"],
+      "dependsOn": ["yarn install"],
+      "isBackground": true,
+      "runOptions": { "runOn": "folderOpen" }
+    }
+  ]
+}
