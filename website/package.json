@@ -16,7 +16,7 @@
     "typecheck-watch": "yarn typecheck --watch"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^0.13.10",
+    "@codesandbox/sandpack-react": "^0.15.2",
     "@docusaurus/core": "2.0.0-beta.17",
     "@docusaurus/preset-classic": "2.0.0-beta.17",
     "@mdx-js/react": "^1.6.22",

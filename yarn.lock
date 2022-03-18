@@ -1969,19 +1969,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-client@npm:^0.13.7":
-  version: 0.13.7
-  resolution: "@codesandbox/sandpack-client@npm:0.13.7"
+"@codesandbox/sandpack-client@npm:^0.15.2":
+  version: 0.15.2
+  resolution: "@codesandbox/sandpack-client@npm:0.15.2"
   dependencies:
     codesandbox-import-utils: ^1.2.3
     lodash.isequal: ^4.5.0
-  checksum: 706899ef04e77572da85888e96fa7041c266f716606edf9cf5a98ece2e892f13b0546616c9daf8ab1eaf2684fc4aee14b12ba0010061a98750bb7ae89b876e56
+  checksum: 52668f1359bfc944875d986d19b6f4455d31d61e9fc98c4d863f88833be85895365ceff5586d8e0611451788c3297f7da7389b5632f0a39d71a5cb6ec51522a4
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-react@npm:^0.13.10":
-  version: 0.13.10
-  resolution: "@codesandbox/sandpack-react@npm:0.13.10"
+"@codesandbox/sandpack-react@npm:^0.15.2":
+  version: 0.15.2
+  resolution: "@codesandbox/sandpack-react@npm:0.15.2"
   dependencies:
     "@code-hike/classer": ^0.0.0-aa6efee
     "@codemirror/closebrackets": ^0.19.0
@@ -1997,7 +1997,7 @@ __metadata:
     "@codemirror/matchbrackets": ^0.19.3
     "@codemirror/state": ^0.19.6
     "@codemirror/view": ^0.19.32
-    "@codesandbox/sandpack-client": ^0.13.7
+    "@codesandbox/sandpack-client": ^0.15.2
     "@react-hook/intersection-observer": ^3.1.1
     codesandbox-import-util-types: ^2.2.3
     codesandbox-import-utils: ^2.2.3
@@ -2007,7 +2007,7 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17
     react-dom: ^16.8.0 || ^17
-  checksum: df727840862b5d73fd7290d6a913bed0527bd75d6feddb8a7cfa011571f6ea64ec6656643949e135a0258ba5df91666eef1a9eb59d3009cb6ac5caef89879613
+  checksum: f823505e7c2bf53cae8afed63b81d83a7a82af549e6423bb22ffefc0837ac97703de738ac78ce0ea0dc9ea7514f00aa8eacd453af46118bc6fcfbf3f9caf3e3b
   languageName: node
   linkType: hard
 
@@ -15780,7 +15780,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "website@workspace:website"
   dependencies:
-    "@codesandbox/sandpack-react": ^0.13.10
+    "@codesandbox/sandpack-react": ^0.15.2
     "@docusaurus/core": 2.0.0-beta.17
     "@docusaurus/module-type-aliases": 2.0.0-beta.17
     "@docusaurus/preset-classic": 2.0.0-beta.17
