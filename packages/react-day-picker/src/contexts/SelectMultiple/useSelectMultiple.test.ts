@@ -1,5 +1,5 @@
 import { RenderResult } from '@testing-library/react-hooks';
-import { addDays, addMonths, subDays } from 'date-fns';
+import { addDays, addMonths } from 'date-fns';
 
 import { customRenderHook } from 'test/render/customRenderHook';
 import { freezeBeforeAll } from 'test/utils';
