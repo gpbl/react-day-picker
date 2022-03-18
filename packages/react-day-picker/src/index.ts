@@ -37,3 +37,5 @@ export * from 'types/Labels';
 export * from 'types/Matchers';
 export * from 'types/Modifiers';
 export * from 'types/Styles';
+
+export * from 'contexts/Modifiers/utils/isMatch';
