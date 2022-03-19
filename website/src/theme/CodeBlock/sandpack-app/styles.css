@@ -1,5 +1,7 @@
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";  
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell,
+    'Noto Sans', sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
@@ -20,10 +22,10 @@ body {
 button {
   border-style: solid;
   border-width: 1px;
-  border-radius: 8px;;
+  border-radius: 8px;
   display: inline-block;
-  font-size: .875em;
-  padding: .3rem .8rem;
+  font-size: 0.875em;
+  padding: 0.3rem 0.8rem;
   text-align: center;
   user-select: none;
   vertical-align: baseline;
@@ -35,10 +37,10 @@ button {
 input {
   border-style: solid;
   border-width: 1px;
-  border-radius: 8px;;
+  border-radius: 8px;
   display: inline-block;
   font-size: 1em;
-  padding: .4em .8em;
+  padding: 0.4em 0.8em;
   vertical-align: baseline;
   white-space: nowrap;
 }
@@ -47,12 +49,12 @@ button:not(:disabled) {
   cursor: pointer;
 }
 button:disabled {
-  opacity: .5;
+  opacity: 0.5;
 }
-
 
 .dialog-sheet {
   background: white;
   border-radius: 4px;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04), 0px 4px 5px rgba(0, 0, 0, 0.06), 0px 2px 4px -1px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04), 0px 4px 5px rgba(0, 0, 0, 0.06),
+    0px 2px 4px -1px rgba(0, 0, 0, 0.09);
 }

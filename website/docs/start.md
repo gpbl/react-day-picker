@@ -23,6 +23,6 @@ function Component() {
 
 ## Example
 
-```include
+```include-example
 start
 ```

@@ -36,7 +36,7 @@ Documentation examples are placed in the `/examples` directory.
 They can be included into a markdown doc using a code block with `include`:
 
 ````
-```include
+```include-example
 start
 ```
 ````

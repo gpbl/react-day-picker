@@ -7,7 +7,7 @@ default month, set the `defaultMonth` prop.
 
 For example, to set the default month to September 1979:
 
-```include
+```include-example
 default-month
 ```
 
@@ -20,7 +20,7 @@ set the month in the parent component’s state.
 To control the current month, use `month` (as opposed to `defaultMonth`) and
 `onMonthChange` to handle the current month.
 
-```include
+```include-example
 controlled
 ```
 
@@ -30,7 +30,7 @@ As default, DayPicker can navigate indefinitely in the past or in the future.
 
 To limit the navigable months between two years, use `fromYear` or `toYear`.
 
-```include
+```include-example
 from-to-year
 ```
 
@@ -40,7 +40,7 @@ You can also limit the navigation with `fromDate`/`toDate` and `fromMonth` and
 `toMonth`. For example, to limit the calendar between June 2015 and the 20th
 Nov, 2015:
 
-```include
+```include-example
 from-to-month
 ```
 
@@ -50,7 +50,7 @@ When limiting the navigable months, use `captionLayout` to display a drop-down
 (a select HTML element) for navigating between months – instead of the previous
 / next buttons.
 
-```include
+```include-example
 dropdown
 ```
 
@@ -58,6 +58,6 @@ dropdown
 
 To disable the navigation between months, use `disableNavigation`.
 
-```include
+```include-example
 disabled
 ```

@@ -4,7 +4,7 @@
 
 Use the `numberOfMonths` to render more than one calendar.
 
-```include
+```include-example
 multiple-months
 ```
 
@@ -13,7 +13,7 @@ multiple-months
 When rendering multiple months, use `pagedNavigation` to navigate the number of
 months per time.
 
-```include
+```include-example
 multiple-months-paged
 ```
 
@@ -21,7 +21,7 @@ multiple-months-paged
 
 Use `showOutsideDays` to display the days falling out the current month.
 
-```include
+```include-example
 outside-days
 ```
 
@@ -30,7 +30,7 @@ outside-days
 When `showOutsideDays` is turned on, use `fixedWeeks` to display six weeks per
 months. This will prevent the calendar to change its height when navigating.
 
-```include
+```include-example
 fixedweeks
 ```
 
@@ -38,6 +38,6 @@ fixedweeks
 
 Use `showWeekNumber` to display the week numbers.
 
-```include
+```include-example
 weeknumber
 ```
