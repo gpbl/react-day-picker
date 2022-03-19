@@ -18,6 +18,13 @@ See the preview website at https://react-day-picker-next.netlify.app.
 
 ---
 
+### v8.0.0-beta.39
+
+- chore: cleaned up icon components
+- chore: exported `isMatch` function
+- fix: useNavigation not setting the start of the month
+- chore: completed unit tests
+
 ### v8.0.0-beta.38
 
 - fix(regression): restore missing `Caption` component
