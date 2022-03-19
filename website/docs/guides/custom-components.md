@@ -10,7 +10,7 @@ You can further refine the interaction with the day cells by using a custom `Day
 
 The following example implements a date picker to select ranges while pressing the <kbd>Shift</kbd> key.
 
-```include
+```include-example
 range-shift-key
 ```
 
@@ -18,7 +18,7 @@ range-shift-key
 
 Wrap the `DayContent` element with a `time` HTML tag.
 
-```include
+```include-example
 custom-day
 ```
 
@@ -28,6 +28,6 @@ custom-day
 
 Implement a custom component to hide the rows of past weeks.
 
-```include
+```include-example
 custom-disable-row
 ```

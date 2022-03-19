@@ -12,7 +12,7 @@ DayPicker supports four selection modes:
 To enable single day selection, set `mode="single"` and use `onSelect` to get
 the selected day.
 
-```include
+```include-example
 single
 ```
 
@@ -22,7 +22,7 @@ To make a selection required, use `defautSelected` with `required`.
 
 For example, to set the default selected date to today:
 
-```include
+```include-example
 single-required
 ```
 
@@ -30,7 +30,7 @@ single-required
 
 Use `mode="multiple"` to allow the selection of multiple days:
 
-```include
+```include-example
 multiple
 ```
 
@@ -38,7 +38,7 @@ multiple
 
 Use the `min` and `max` props to limit the amount of days that can be selected.
 
-```include
+```include-example
 multiple-min-max
 ```
 
@@ -46,7 +46,7 @@ multiple-min-max
 
 Use `mode="range"` and `onSelectRange` to allow the selection of multiple days.
 
-```include
+```include-example
 range
 ```
 
@@ -54,7 +54,7 @@ range
 
 Use the `min` and `max` props to limit the amount of days in the range.
 
-```include
+```include-example
 range-min-max
 ```
 
@@ -67,7 +67,7 @@ can control the selection behavior using `mode="custom"`.
 
 The following example use the custom selection mode to implement the "single selection" behavior. It is like when `mode="single"`, we place it here to show how the custom selection works.
 
-```include
+```include-example
 custom-single
 ```
 
@@ -75,6 +75,6 @@ custom-single
 
 The case of a multi-days select is a bit more complex as it deals with an array. The following example replicates the `mode="multiple"` selection mode.
 
-```include
+```include-example
 custom-multiple
 ```

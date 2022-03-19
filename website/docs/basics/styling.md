@@ -32,7 +32,7 @@ The CSS uses few variables to quickly override the colors and the cell size:
 To change the appearance of any DayPicker element via inline-styles use the
 `styles` prop.
 
-```include
+```include-example
 styling-inline
 ```
 
@@ -40,7 +40,7 @@ styling-inline
 
 To use custom classes, use [`classNames`](/api/types/classnames).
 
-```include
+```include-example
 styling-css
 ```
 

@@ -3,7 +3,6 @@
   --rdp-accent-color-lighter: var(--rdp-accent-color-darker);
   --rdp-accent-color-lightest: var(--rdp-accent-color-darkest);
   --rdp-background-color: var(--rdp-background-color-dark);
-  
 }
 
 body {
@@ -11,9 +10,9 @@ body {
   color: #f5f6f7;
 }
 
-
 .dialog-sheet {
   background: #191c1f;
   border-radius: 4px;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.20), 0px 4px 5px rgba(0, 0, 0, 0.30), 0px 2px 4px -1px rgba(0, 0, 0, 0.40);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.3),
+    0px 2px 4px -1px rgba(0, 0, 0, 0.4);
 }

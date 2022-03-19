@@ -26,9 +26,11 @@ const navbar = {
     { to: 'changelog', label: `v${pkg.version}`, position: 'right' },
     {
       href: 'https://github.com/gpbl/react-day-picker',
-      label: 'GitHub',
-      position: 'right'
+      position: 'right',
+      className: 'header-github-link',
+      'aria-label': 'GitHub repository'
     }
   ]
 };
+
 module.exports = navbar;

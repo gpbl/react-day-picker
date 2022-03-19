@@ -31,7 +31,7 @@ const config = {
     require.resolve('@codesandbox/sandpack-react/dist/index.css')
   ],
   themeConfig: {
-    hideableSidebar: true,
+    hideableSidebar: false,
     image: 'images/favicon.png',
     navbar: require('./docusaurus.navbar.js'),
     editUrl: 'https://github.com/gpbl/react-day-picker/edit/master/website/',
