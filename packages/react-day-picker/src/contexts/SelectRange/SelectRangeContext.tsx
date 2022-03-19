@@ -82,30 +82,26 @@ export function SelectRangeProviderInternal({
   children
 }: SelectRangeProviderInternalProps): JSX.Element {
   const { selected } = initialProps;
+  const { from: selectedFrom, to: selectedTo } = selected || {};
   const min = initialProps.min;
   const max = initialProps.max;
 
-  const onDayClick: DayClickEventHandler = (day, modifiers, e) => {
-    initialProps.onDayClick?.(day, modifiers, e);
-    const newValue = addToRange(day, selected);
+  const onDayClick: DayClickEventHandler = (day, activeModifiers, e) => {
+    initialProps.onDayClick?.(day, activeModifiers, e);
+    const range = addToRange(day, selected);
     if (
       (min || max) &&
       selected &&
-      newValue?.to &&
-      newValue.from &&
-      newValue.from !== newValue.to
+      range?.to &&
+      range.from &&
+      range.from !== range.to
     ) {
-      const diff = Math.abs(
-        differenceInCalendarDays(newValue?.to, newValue?.from)
-      );
-      if (min && diff < min) {
-        return;
-      }
-      if (max && diff >= max) {
+      const diff = Math.abs(differenceInCalendarDays(range?.to, range?.from));
+      if ((min && diff < min) || (max && diff >= max)) {
         return;
       }
     }
-    initialProps.onSelect?.(newValue, day, modifiers, e);
+    initialProps.onSelect?.(range, day, activeModifiers, e);
   };
 
   const modifiers: SelectRangeModifiers = {
@@ -115,68 +111,43 @@ export function SelectRangeProviderInternal({
     disabled: []
   };
 
-  if (selected) {
-    if (selected.from) {
-      modifiers.range_start = [selected.from];
-      if (selected.to) {
-        modifiers.range_middle = [
-          {
-            after: selected.from,
-            before: selected.to
-          }
-        ];
-        if (max || min) {
-          modifiers.disabled = [
-            (date: Date) => {
-              if (
-                max &&
-                selected.to &&
-                selected.from &&
-                isBefore(date, selected.from)
-              ) {
-                const diff = differenceInCalendarDays(selected.to, date);
-                if (diff >= max) {
-                  return true;
-                }
-              }
-              if (
-                max &&
-                selected.to &&
-                selected.from &&
-                isAfter(date, selected.to)
-              ) {
-                const diff = differenceInCalendarDays(date, selected.from);
-                if (diff >= max) {
-                  return true;
-                }
-              }
-              if (min && selected.from && isBefore(date, selected.from)) {
-                const diff = differenceInCalendarDays(selected.from, date);
-                if (diff < min) {
-                  return true;
-                }
-              }
-              if (
-                min &&
-                selected.to &&
-                selected.from &&
-                isAfter(date, selected.to)
-              ) {
-                const diff = differenceInCalendarDays(date, selected.from);
-                if (diff < min) {
-                  return true;
-                }
-              }
-              return false;
-            }
-          ];
+  if (selectedFrom) {
+    modifiers.range_start = [selectedFrom];
+    if (!selectedTo) {
+      modifiers.range_end = [selectedFrom];
+    } else {
+      modifiers.range_end = [selectedTo];
+      modifiers.range_middle = [
+        {
+          after: selectedFrom,
+          before: selectedTo
         }
-        modifiers.range_end = [selected.to];
-      } else {
-        modifiers.range_end = [selected.from];
-      }
+      ];
     }
   }
+
+  if (min && selectedFrom && selectedTo) {
+    modifiers.disabled.push((date: Date) => {
+      return (
+        (isBefore(date, selectedFrom) &&
+          differenceInCalendarDays(selectedFrom, date) < min) ||
+        (isAfter(date, selectedTo) &&
+          differenceInCalendarDays(date, selectedFrom) < min)
+      );
+    });
+  }
+
+  if (max && selectedFrom && selectedTo) {
+    modifiers.disabled.push((date: Date) => {
+      return (
+        (isBefore(date, selectedFrom) &&
+          differenceInCalendarDays(selectedTo, date) >= max) ||
+        (isAfter(date, selectedTo) &&
+          differenceInCalendarDays(date, selectedFrom) >= max)
+      );
+    });
+  }
+
   return (
     <SelectRangeContext.Provider value={{ selected, onDayClick, modifiers }}>
       {children}

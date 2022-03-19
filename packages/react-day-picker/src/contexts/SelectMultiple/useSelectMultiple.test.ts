@@ -43,7 +43,7 @@ const selectedDay1 = today;
 const selectedDay2 = addDays(today, 1);
 const selectedDay3 = addDays(today, 4);
 
-describe('when days are selected from DayPicker props', () => {
+describe('when days are selected', () => {
   const selected = [selectedDay1, selectedDay2, selectedDay3];
   const dayPickerProps: DayPickerMultipleProps = {
     ...initialProps,
@@ -58,14 +58,15 @@ describe('when days are selected from DayPicker props', () => {
   });
   describe('when `onDayClick` is called with a not selected day', () => {
     const clickedDay = addDays(selectedDay1, -1);
+    const activeModifiers = {};
+    const event = {} as React.MouseEvent;
     beforeAll(() => {
       result.current.onDayClick?.(clickedDay, activeModifiers, event);
     });
     afterAll(() => {
       jest.resetAllMocks();
     });
-    const activeModifiers = {};
-    const event = {} as React.MouseEvent;
+
     test('should call the `onDayClick` from the DayPicker props', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         clickedDay,
@@ -111,7 +112,7 @@ describe('when days are selected from DayPicker props', () => {
   });
 });
 
-describe('when the maximum number of days are selected from DayPicker props', () => {
+describe('when the maximum number of days are selected', () => {
   const selected = [selectedDay1, selectedDay2, selectedDay3];
   const dayPickerProps: DayPickerMultipleProps = {
     ...initialProps,
@@ -156,7 +157,7 @@ describe('when the maximum number of days are selected from DayPicker props', ()
   });
 });
 
-describe('when the minimum number of days are selected from DayPicker props', () => {
+describe('when the minimum number of days are selected', () => {
   const selected = [selectedDay1, selectedDay2, selectedDay3];
   const dayPickerProps: DayPickerMultipleProps = {
     ...initialProps,
