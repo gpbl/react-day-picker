@@ -19,11 +19,13 @@ describe('when the first day is clicked', () => {
   const fromDay = new Date(2021, 10, 15);
   beforeEach(() => clickDay(fromDay));
   test('should disable before the allowed range', () => {
-    expect(getAllEnabledDays()[0]).toHaveTextContent('11th');
+    expect(getAllEnabledDays()[0]).toHaveTextContent('11st November (Monday)');
   });
   test('should disable after the allowed range', () => {
     const enabledDays = getAllEnabledDays();
-    expect(enabledDays[enabledDays.length - 1]).toHaveTextContent('19th');
+    expect(enabledDays[enabledDays.length - 1]).toHaveTextContent(
+      '30th November (Tuesday)'
+    );
   });
   describe('when clicking a day after the from date', () => {
     const toDay = new Date(2021, 10, 17);
