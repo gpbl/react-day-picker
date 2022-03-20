@@ -18,8 +18,9 @@ See the preview website at https://react-day-picker-next.netlify.app.
 
 ---
 
-### v8.0.0-beta.39
+### v8.0.0-beta.40
 
+- chore: updated behavior of range mode (see #1408)
 - chore: cleaned up icon components
 - chore: exported `isMatch` function
 - fix: useNavigation not setting the start of the month
