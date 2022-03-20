@@ -17,7 +17,7 @@ export function addToRange(
     return { from: day, to: undefined };
   }
   if (!to && isSameDay(from, day)) {
-    return undefined;
+    return { from: from, to: day };
   }
   if (!to && isBefore(day, from)) {
     return { from: day, to: from };
@@ -29,7 +29,7 @@ export function addToRange(
     return undefined;
   }
   if (isSameDay(to, day)) {
-    return { from: to, to: to };
+    return { from: to, to: undefined };
   }
   if (isSameDay(from, day)) {
     return undefined;

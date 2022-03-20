@@ -24,8 +24,8 @@ describe('when no "to" is the range', () => {
     beforeAll(() => {
       result = addToRange(day, range);
     });
-    test('should return an undefined range', () => {
-      expect(result).toBeUndefined();
+    test('should return it in the range', () => {
+      expect(result).toEqual({ from: day, to: day });
     });
   });
   describe('and the day is before "from" day', () => {
@@ -71,8 +71,8 @@ describe('when "to" and "day" are the same', () => {
   beforeAll(() => {
     result = addToRange(day, range);
   });
-  test('should set both "to" and "from" as the same day', () => {
-    expect(result).toEqual({ from: to, to: to });
+  test('should set "to" to undefined', () => {
+    expect(result).toEqual({ from: to, to: undefined });
   });
 });
 

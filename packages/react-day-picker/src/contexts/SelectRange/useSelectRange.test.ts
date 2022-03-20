@@ -255,9 +255,9 @@ describe('when the minimum number of days are selected', () => {
       jest.resetAllMocks();
     });
 
-    test('should call "onSelect" with the same range', () => {
+    test('should call "onSelect" without the "to" in the range', () => {
       expect(dayPickerProps.onSelect).toHaveBeenCalledWith(
-        { from: day, to },
+        { from: day, to: undefined },
         day,
         activeModifiers,
         stubEvent
