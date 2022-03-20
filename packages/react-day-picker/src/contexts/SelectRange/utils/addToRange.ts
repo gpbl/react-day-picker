@@ -14,7 +14,7 @@ export function addToRange(
 ): DateRange | undefined {
   const { from, to } = range || {};
   if (!from) {
-    return { from: day, to: day };
+    return { from: day, to: undefined };
   }
   if (!to && isSameDay(from, day)) {
     return undefined;

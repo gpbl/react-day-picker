@@ -11,8 +11,8 @@ describe('when no "from" is the range', () => {
   beforeAll(() => {
     result = addToRange(day, range);
   });
-  test('should set both "from" and "to" as the given day', () => {
-    expect(result).toEqual({ from: day, to: day });
+  test('should set "from" as the given day', () => {
+    expect(result).toEqual({ from: day, to: undefined });
   });
 });
 

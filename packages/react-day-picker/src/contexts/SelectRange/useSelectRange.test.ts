@@ -70,7 +70,7 @@ describe('when no days are selected', () => {
     });
     test('should call "onSelect" with the clicked day as the "from" propx', () => {
       expect(initialProps.onSelect).toHaveBeenCalledWith(
-        { from: day, to: day },
+        { from: day, to: undefined },
         day,
         activeModifiers,
         stubEvent
