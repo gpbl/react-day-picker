@@ -32,18 +32,22 @@ export function CustomSandPack(props: {
 }) {
   const { isDarkTheme } = useColorMode();
 
-  const files = {
+  let files = {
     '/public/index.html': htmlIndex.default,
     '/App.tsx': props.src,
     '/index.tsx': index.default,
-    '/styles.css': `${styles.default}\n${
-      isDarkTheme ? stylesDark.default : ''
-    }`,
-    // Create the fake package
+    '/styles.css': `${styles.default}\n${isDarkTheme ? stylesDark.default : ''}`
+  };
+
+  const fakePkg = {
     '/node_modules/react-day-picker/package.json': rdpJson,
     '/node_modules/react-day-picker/index.js': rdpBuild.default,
     '/node_modules/react-day-picker/dist/style.css': rdpStyles.default
   };
+
+  if (process.env.NODE_ENV !== 'development') {
+    files = { ...files, ...fakePkg };
+  }
 
   const options: SandpackProps['options'] = {
     editorHeight: 400,
@@ -54,9 +58,9 @@ export function CustomSandPack(props: {
   };
 
   const dependencies = {
+    'react-day-picker': 'next',
     ...pkg.peerDependencies
   };
-
   const theme = isDarkTheme ? defaultDark : defaultLight;
 
   return (
