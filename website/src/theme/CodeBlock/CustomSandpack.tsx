@@ -45,7 +45,7 @@ export function CustomSandPack(props: {
     '/node_modules/react-day-picker/dist/style.css': rdpStyles.default
   };
 
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV === 'development') {
     files = { ...files, ...fakePkg };
   }
 
