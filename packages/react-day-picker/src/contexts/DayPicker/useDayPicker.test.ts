@@ -32,7 +32,6 @@ describe('when passing rendered without props', () => {
     | 'labels'
     | 'locale'
     | 'modifiersClassNames'
-    | 'modifierPrefix'
     | 'modifiers'
     | 'numberOfMonths'
     | 'styles'
@@ -45,7 +44,6 @@ describe('when passing rendered without props', () => {
     'labels',
     'locale',
     'modifiersClassNames',
-    'modifierPrefix',
     'modifiers',
     'numberOfMonths',
     'styles'
@@ -177,22 +175,6 @@ describe('when using "dropdown" as "captionLayout"', () => {
   });
   test('should return the custom "captionLayout"', () => {
     expect(renderResult.current.captionLayout).toBe(captionLayout);
-  });
-});
-
-describe('when passing "modifierPrefix" from props', () => {
-  const modifierPrefix = 'foo-';
-  const dayPickerProps: DayPickerProps = { modifierPrefix };
-  beforeEach(() => {
-    setup(dayPickerProps);
-  });
-  test('should override the default "modifierPrefix"', () => {
-    expect(renderResult.current.modifierPrefix).not.toBe(
-      defaults.modifierPrefix
-    );
-  });
-  test('should return the custom "modifierPrefix"', () => {
-    expect(renderResult.current.modifierPrefix).toBe(modifierPrefix);
   });
 });
 

@@ -99,21 +99,6 @@ describe('when rendering the today’s date', () => {
   });
 });
 
-describe('when "modifierPrefix" is passed in', () => {
-  const date = today;
-  const displayMonth = date;
-  const dayPickerProps = { modifierPrefix: 'foo_' };
-  beforeEach(() => {
-    setup(date, displayMonth, dayPickerProps);
-  });
-  test('should use the modifier prefix in the div class name', () => {
-    expect(result.current.divProps.className).toContain('foo_');
-  });
-  test('should use the modifier prefix in the button class name', () => {
-    expect(result.current.buttonProps.className).toContain('foo_');
-  });
-});
-
 describe('when not in selection mode', () => {
   const dayPickerProps = { mode: undefined };
   beforeEach(() => {

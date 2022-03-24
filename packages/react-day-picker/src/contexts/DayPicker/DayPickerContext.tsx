@@ -18,7 +18,6 @@ export interface DayPickerContextValue extends DayPickerProps {
   labels: Labels;
   locale: Locale;
   modifiersClassNames: ModifiersClassNames;
-  modifierPrefix: string;
   modifiers: DayModifiers;
   numberOfMonths: number;
   styles: Styles;
@@ -73,8 +72,6 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { toYear, fromYear, toMonth, fromMonth, ...contextProps } =
     initialProps;
 
-  const modifierPrefix = initialProps.modifierPrefix ?? defaults.modifierPrefix;
-
   const modifiers = {
     ...defaults.modifiers,
     ...initialProps.modifiers
@@ -122,7 +119,6 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     locale,
 
     modifiersClassNames,
-    modifierPrefix,
     modifiers,
     numberOfMonths,
 
