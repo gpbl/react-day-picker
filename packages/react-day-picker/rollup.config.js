@@ -61,7 +61,22 @@ const buildConfig = {
     tscAliasPlugin(),
     copy({
       targets: [
-        { src: ['./src/style.css', './src/style.css.d.ts'], dest: './dist' }
+        {
+          src: ['./src/style.css', './src/style.css.d.ts'],
+          dest: './dist'
+        },
+        {
+          src: './src/style.css',
+          dest: './dist',
+          rename: 'style.module.css',
+          transform: (contents) => contents.toString().replace(/\.rdp-/g, '.')
+        },
+        {
+          src: './src/style.css.d.ts',
+          dest: './dist',
+          rename: 'style.module.css.d.ts',
+          transform: (contents) => contents.toString().replace(/rdp-/g, '')
+        }
       ]
     })
   ]
