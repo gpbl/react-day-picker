@@ -194,13 +194,6 @@ export interface DayPickerProps {
    * Add modifiers to the matching days.
    */
   modifiers?: DayModifiers;
-  /**
-   * The prefix to add to the modifiers class names. Default is `rdp-day_`.
-   *
-   * Each day will get a `${modifierPrefix}${modifier}` class name when matching
-   * a modifier.
-   */
-  modifierPrefix?: string;
 
   /**
    * Toggle the selection mode.
