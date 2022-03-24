@@ -32,7 +32,7 @@
   padding: 0 !important;
   overflow: hidden !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
-  border: 0 !important
+  border: 0 !important;
 }
 
 /* Buttons */
@@ -199,8 +199,8 @@
   color: unset;
 }
 
-.rdp-dropdown:focus:not([disabled])+.rdp-caption_label,
-.rdp-dropdown:active:not([disabled])+.rdp-caption_label {
+.rdp-dropdown:focus:not([disabled]) + .rdp-caption_label,
+.rdp-dropdown:active:not([disabled]) + .rdp-caption_label {
   border: var(--rdp-outline);
   border-radius: 6px;
   background-color: var(--rdp-background-color);
@@ -234,7 +234,7 @@
   border: 0;
 }
 
-.rdp-foot {
+.rdp-tfoot {
   margin: 0.5em;
 }
 
