@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { DayPickerProps } from 'types/DayPicker';
-import { DayPickerCustomProps } from 'types/DayPickerCustom';
+import { DayPickerDefaultProps } from 'types/DayPickerDefault';
 import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
 import { DayPickerRangeProps } from 'types/DayPickerRange';
 import { DayPickerSingleProps } from 'types/DayPickerSingle';
@@ -95,14 +94,14 @@ import { RootProvider } from './contexts/RootProvider';
  * <DayPicker locale={es} />
  * ```
  */
-export function DayPicker(
-  props:
-    | DayPickerProps
-    | DayPickerSingleProps
-    | DayPickerMultipleProps
-    | DayPickerRangeProps
-    | DayPickerCustomProps
-): JSX.Element {
+
+export type DayPickerProps =
+  | DayPickerDefaultProps
+  | DayPickerSingleProps
+  | DayPickerMultipleProps
+  | DayPickerRangeProps;
+
+export function DayPicker(props: DayPickerProps): JSX.Element {
   return (
     <RootProvider {...props}>
       <Root />

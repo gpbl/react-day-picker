@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
 import { DayClickEventHandler } from 'types/EventHandlers';
 
@@ -23,7 +23,7 @@ export const SelectSingleContext = createContext<
 >(undefined);
 
 type SelectSingleProviderProps = {
-  initialProps: DayPickerProps;
+  initialProps: DayPickerBase;
   children: React.ReactNode;
 };
 

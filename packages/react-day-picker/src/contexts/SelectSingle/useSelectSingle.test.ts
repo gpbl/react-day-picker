@@ -3,7 +3,7 @@ import React from 'react';
 import { customRenderHook } from 'test/render/customRenderHook';
 import { freezeBeforeAll } from 'test/utils';
 
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerSingleProps } from 'types/DayPickerSingle';
 import { ActiveModifiers } from 'types/Modifiers';
 
@@ -12,7 +12,7 @@ import { useSelectSingle } from './useSelectSingle';
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
 
-function setup(dayPickerProps?: DayPickerProps) {
+function setup(dayPickerProps?: DayPickerBase) {
   const { result } = customRenderHook(() => useSelectSingle(), dayPickerProps);
   return result;
 }

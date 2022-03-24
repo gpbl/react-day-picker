@@ -18,7 +18,7 @@ import {
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
-import { CustomComponents, DayPickerProps } from 'types/DayPicker';
+import { CustomComponents, DayPickerBase } from 'types/DayPickerBase';
 
 import { Caption, CaptionProps } from './Caption';
 
@@ -28,7 +28,7 @@ const toYear = 2025;
 
 freezeBeforeAll(today);
 
-function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
+function setup(props: CaptionProps, dayPickerProps?: DayPickerBase) {
   customRender(<Caption {...props} />, dayPickerProps);
 }
 
@@ -62,7 +62,7 @@ describe('when the caption layout is "dropdown"', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
-    const dayPickerProps: DayPickerProps = {
+    const dayPickerProps: DayPickerBase = {
       captionLayout: 'dropdown',
       fromYear,
       toYear,
@@ -90,7 +90,7 @@ describe('when the caption layout is "dropdown"', () => {
 });
 
 describe('when a month is selected', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: DayPickerBase = {
     captionLayout: 'dropdown',
     fromYear,
     toYear,
@@ -126,7 +126,7 @@ describe('when a month is selected', () => {
 });
 
 describe('when the caption layout is "dropdown" but no date limits are set', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: DayPickerBase = {
     captionLayout: 'dropdown'
   };
   beforeEach(() => {
@@ -139,7 +139,7 @@ describe('when the caption layout is "dropdown" but no date limits are set', () 
 });
 
 describe('when the caption layout is "buttons"', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: DayPickerBase = {
     captionLayout: 'buttons'
   };
   test('should render the caption label', () => {

@@ -7,7 +7,7 @@ import { freezeBeforeAll } from 'test/utils';
 import { CaptionLayout } from 'components/Caption';
 import { DayPickerContextValue, useDayPicker } from 'contexts/DayPicker';
 import { getDefaultContextValue } from 'contexts/DayPicker/defaultContextValue';
-import { CustomComponents, DayPickerProps } from 'types/DayPicker';
+import { CustomComponents, DayPickerBase } from 'types/DayPickerBase';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
@@ -19,7 +19,7 @@ const defaults = getDefaultContextValue();
 freezeBeforeAll(today);
 
 let renderResult: RenderResult<DayPickerContextValue>;
-function setup(dayPickerProps?: DayPickerProps) {
+function setup(dayPickerProps?: DayPickerBase) {
   const { result } = customRenderHook(() => useDayPicker(), dayPickerProps);
   renderResult = result;
 }
@@ -59,7 +59,7 @@ describe('when passing rendered without props', () => {
 
 describe('when passing "locale" from props', () => {
   const locale = es;
-  const dayPickerProps: DayPickerProps = { locale };
+  const dayPickerProps: DayPickerBase = { locale };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -73,7 +73,7 @@ describe('when passing "locale" from props', () => {
 
 describe('when passing "numberOfMonths" from props', () => {
   const numberOfMonths = 4;
-  const dayPickerProps: DayPickerProps = { numberOfMonths };
+  const dayPickerProps: DayPickerBase = { numberOfMonths };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -89,7 +89,7 @@ describe('when passing "numberOfMonths" from props', () => {
 
 describe('when passing "today" from props', () => {
   const today = new Date(2010, 9, 11);
-  const dayPickerProps: DayPickerProps = { today };
+  const dayPickerProps: DayPickerBase = { today };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -105,7 +105,7 @@ describe('when passing "captionLayout" from props', () => {
   const captionLayout: CaptionLayout = 'dropdown';
   const fromYear = 2000;
   const toYear = 2010;
-  const dayPickerProps: DayPickerProps = { captionLayout, fromYear, toYear };
+  const dayPickerProps: DayPickerBase = { captionLayout, fromYear, toYear };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -166,7 +166,7 @@ describe('when using "dropdown" as "captionLayout"', () => {
   const captionLayout: CaptionLayout = 'dropdown';
   const fromYear = 2000;
   const toYear = 2010;
-  const dayPickerProps: DayPickerProps = { captionLayout, fromYear, toYear };
+  const dayPickerProps: DayPickerBase = { captionLayout, fromYear, toYear };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -180,7 +180,7 @@ describe('when using "dropdown" as "captionLayout"', () => {
 
 describe('when passing "modifiers" from props', () => {
   const modifiers: DayModifiers = { foo: new Date() };
-  const dayPickerProps: DayPickerProps = { modifiers };
+  const dayPickerProps: DayPickerBase = { modifiers };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -194,7 +194,7 @@ describe('when passing "modifiers" from props', () => {
 
 describe('when passing "modifiersClassNames" from props', () => {
   const modifiersClassNames: ModifiersClassNames = { foo: 'bar' };
-  const dayPickerProps: DayPickerProps = { modifiersClassNames };
+  const dayPickerProps: DayPickerBase = { modifiersClassNames };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -212,7 +212,7 @@ describe('when passing "modifiersClassNames" from props', () => {
 
 describe('when passing "styles" from props', () => {
   const styles: Styles = { caption: { color: 'red ' } };
-  const dayPickerProps: DayPickerProps = { styles };
+  const dayPickerProps: DayPickerBase = { styles };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -229,7 +229,7 @@ describe('when passing "styles" from props', () => {
 
 describe('when passing "classNames" from props', () => {
   const classNames: ClassNames = { caption: 'foo' };
-  const dayPickerProps: DayPickerProps = { classNames };
+  const dayPickerProps: DayPickerBase = { classNames };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -246,7 +246,7 @@ describe('when passing "classNames" from props', () => {
 
 describe('when passing "formatters" from props', () => {
   const formatters: Partial<Formatters> = { formatCaption: jest.fn() };
-  const dayPickerProps: DayPickerProps = { formatters };
+  const dayPickerProps: DayPickerBase = { formatters };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -263,7 +263,7 @@ describe('when passing "formatters" from props', () => {
 
 describe('when passing "labels" from props', () => {
   const labels: Partial<Labels> = { labelDay: jest.fn() };
-  const dayPickerProps: DayPickerProps = { labels };
+  const dayPickerProps: DayPickerBase = { labels };
   beforeEach(() => {
     setup(dayPickerProps);
   });
@@ -280,7 +280,7 @@ describe('when passing "labels" from props', () => {
 
 describe('when passing "components" from props', () => {
   const components: CustomComponents = { Day: jest.fn() };
-  const dayPickerProps: DayPickerProps = { components };
+  const dayPickerProps: DayPickerBase = { components };
   beforeEach(() => {
     setup(dayPickerProps);
   });

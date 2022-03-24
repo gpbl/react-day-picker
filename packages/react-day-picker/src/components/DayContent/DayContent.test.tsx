@@ -7,13 +7,13 @@ import { freezeBeforeAll } from 'test/utils';
 
 import { DayContent, DayContentProps } from 'components/DayContent';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 
 const today = new Date(2021, 8);
 
 freezeBeforeAll(today);
 let container: HTMLElement;
-function setup(props: DayContentProps, dayPickerProps?: DayPickerProps) {
+function setup(props: DayContentProps, dayPickerProps?: DayPickerBase) {
   const result = customRender(<DayContent {...props} />, dayPickerProps);
   container = result.container;
 }
@@ -26,7 +26,7 @@ const props: DayContentProps = {
   activeModifiers: {}
 };
 
-const dayPickerProps: DayPickerProps = {
+const dayPickerProps: DayPickerBase = {
   locale: es
 };
 

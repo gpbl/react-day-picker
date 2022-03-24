@@ -31,6 +31,7 @@ export function getDefaultContextValue(): DayPickerContextValue {
     modifiers,
     numberOfMonths,
     styles,
-    today
+    today,
+    mode: 'default'
   };
 }

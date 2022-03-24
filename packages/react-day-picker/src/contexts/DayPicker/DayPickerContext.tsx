@@ -1,7 +1,8 @@
 import React, { createContext, ReactNode } from 'react';
 
+import { DayPickerProps } from 'DayPicker';
+
 import { CaptionLayout } from 'components/Caption';
-import { DayPickerProps } from 'types/DayPicker';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
@@ -11,7 +12,7 @@ import { getDefaultContextValue } from './defaultContextValue';
 import { parseFromToProps } from './utils';
 
 /** The value of the [[DayPickerContext]] */
-export interface DayPickerContextValue extends DayPickerProps {
+export type DayPickerContextValue = DayPickerProps & {
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;
   formatters: Formatters;
@@ -28,7 +29,7 @@ export interface DayPickerContextValue extends DayPickerProps {
   fromYear?: never;
   toMonth?: never;
   fromMonth?: never;
-}
+};
 
 /**
  * The DayPicker Context shares the props passed to DayPicker within internal
@@ -109,7 +110,6 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
 
   const context: DayPickerContextValue = {
     ...contextProps,
-
     captionLayout,
 
     fromDate,

@@ -35,12 +35,17 @@ import { ClassNames, StyledComponent, Styles } from './Styles';
  * - `range`: use DayPicker to select a range of days
  * - `custom`: customize what is selected by using `onDayClick`
  */
-export type DaySelectionMode = 'custom' | 'single' | 'multiple' | 'range';
+export type DaySelectionMode =
+  | 'custom'
+  | 'single'
+  | 'multiple'
+  | 'range'
+  | 'default';
 
 /**
  * The props for the [[DayPicker]] component.
  */
-export interface DayPickerProps {
+export interface DayPickerBase {
   /** The CSS class to add to the container element. */
   className?: string;
   /**
@@ -195,15 +200,15 @@ export interface DayPickerProps {
    */
   modifiers?: DayModifiers;
 
-  /**
-   * Toggle the selection mode.
-   *
-   * - `single`: use DayPicker to select single days.
-   * - `multiple`: allow selecting multiple days.
-   * - `range`: use DayPicker to select a range of days
-   * - `custom`: customize what is selected by using `onDayClick`
-   */
-  mode?: DaySelectionMode;
+  // /**
+  //  * Toggle the selection mode.
+  //  *
+  //  * - `single`: use DayPicker to select single days.
+  //  * - `multiple`: allow selecting multiple days.
+  //  * - `range`: use DayPicker to select a range of days
+  //  * - `custom`: customize what is selected by using `onDayClick`
+  //  */
+  // mode?: DaySelectionMode;
 
   /** The date-fns locale object used to localize dates. Defaults to* `en-US`. */
   locale?: Locale;

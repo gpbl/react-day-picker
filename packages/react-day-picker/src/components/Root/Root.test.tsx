@@ -9,7 +9,7 @@ import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 import { ClassNames } from 'types/Styles';
 
 import { Root } from './Root';
@@ -20,13 +20,13 @@ freezeBeforeAll(today);
 let container: HTMLElement;
 let renderResult: RenderResult;
 
-function setup(dayPickerProps: DayPickerProps = {}) {
+function setup(dayPickerProps: DayPickerBase = {}) {
   renderResult = customRender(<Root />, dayPickerProps);
   container = renderResult.container;
 }
 
 describe('when the number of months is 1', () => {
-  const props: DayPickerProps = { numberOfMonths: 1 };
+  const props: DayPickerBase = { numberOfMonths: 1 };
   beforeEach(() => {
     setup(props);
   });
@@ -36,7 +36,7 @@ describe('when the number of months is 1', () => {
 });
 
 describe('when the number of months is greater than 1', () => {
-  const props: DayPickerProps = { numberOfMonths: 3 };
+  const props: DayPickerBase = { numberOfMonths: 3 };
   beforeEach(() => {
     setup(props);
   });
@@ -58,7 +58,7 @@ describe('when using the "classNames" prop', () => {
 });
 
 describe('when using the "className" prop', () => {
-  const props: DayPickerProps = { className: 'foo' };
+  const props: DayPickerBase = { className: 'foo' };
   beforeEach(() => {
     setup(props);
   });
@@ -68,7 +68,7 @@ describe('when using the "className" prop', () => {
 });
 
 describe('when the "numberOfMonths" is greater than 1', () => {
-  const props: DayPickerProps = { numberOfMonths: 3 };
+  const props: DayPickerBase = { numberOfMonths: 3 };
   const expectedClassName = defaultClassNames.multiple_months;
   beforeEach(() => {
     setup(props);
@@ -79,7 +79,7 @@ describe('when the "numberOfMonths" is greater than 1', () => {
 });
 
 describe('when showing the week numbers', () => {
-  const props: DayPickerProps = { showWeekNumber: true };
+  const props: DayPickerBase = { showWeekNumber: true };
   const expectedClassName = defaultClassNames.with_weeknumber;
   beforeEach(() => {
     setup(props);
@@ -90,7 +90,7 @@ describe('when showing the week numbers', () => {
 });
 
 describe('when "initialFocus" is set', () => {
-  const baseProps: DayPickerProps = {
+  const baseProps: DayPickerBase = {
     initialFocus: true,
     mode: 'single'
   };
@@ -112,7 +112,7 @@ describe('when "initialFocus" is set', () => {
   });
   describe('when a day is selected', () => {
     const selected = addDays(today, 1);
-    const props: DayPickerProps = { ...baseProps, selected };
+    const props: DayPickerBase = { ...baseProps, selected };
     beforeEach(() => {
       setup(props);
     });

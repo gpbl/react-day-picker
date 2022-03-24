@@ -12,7 +12,7 @@ import {
   EventName,
   useDayEventHandlers
 } from 'hooks/useDayEventHandlers';
-import { DayPickerProps, DaySelectionMode } from 'types/DayPicker';
+import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
 import { ActiveModifiers } from 'types/Modifiers';
 
 const today = new Date(2010, 5, 23);
@@ -68,7 +68,7 @@ let renderResult: RenderResult<DayEventHandlers>;
 function setup(
   date: Date,
   activeModifiers: ActiveModifiers,
-  dayPickerProps?: DayPickerProps
+  dayPickerProps?: DayPickerBase
 ) {
   const hookResult = customRenderHook(
     () => useDayEventHandlers(date, activeModifiers),

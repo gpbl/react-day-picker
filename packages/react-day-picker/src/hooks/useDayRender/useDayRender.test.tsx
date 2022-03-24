@@ -9,7 +9,7 @@ import { freezeBeforeAll } from 'test/utils';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { FocusContextValue } from 'contexts/Focus';
 import { EventName } from 'hooks/useDayEventHandlers';
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 
 import { DayRender } from './';
 import { useDayRender } from './useDayRender';
@@ -40,7 +40,7 @@ const mockedFocusContext: FocusContextValue = {
 function setup(
   date: Date,
   displayMonth: Date,
-  dayPickerProps?: DayPickerProps,
+  dayPickerProps?: DayPickerBase,
   contexts?: CustomRenderHookContexts
 ) {
   const buttonRef = createRef<HTMLButtonElement>();
@@ -118,7 +118,7 @@ describe('when "onDayClick" is not passed in', () => {
   });
 });
 describe('when in selection mode', () => {
-  const dayPickerProps: DayPickerProps = { mode: 'single' };
+  const dayPickerProps: DayPickerBase = { mode: 'single' };
   beforeEach(() => {
     setup(today, today, dayPickerProps);
   });
@@ -128,7 +128,7 @@ describe('when in selection mode', () => {
 });
 
 describe('when "onDayClick" is passed in', () => {
-  const dayPickerProps: DayPickerProps = { onDayClick: jest.fn() };
+  const dayPickerProps: DayPickerBase = { onDayClick: jest.fn() };
   beforeEach(() => {
     setup(today, today, dayPickerProps);
   });
@@ -138,7 +138,7 @@ describe('when "onDayClick" is passed in', () => {
 });
 
 describe('when showing the outside days', () => {
-  const dayPickerProps: DayPickerProps = { showOutsideDays: false };
+  const dayPickerProps: DayPickerBase = { showOutsideDays: false };
   describe('when the day is outside', () => {
     const day = today;
     const displayMonth = addMonths(today, 1);
@@ -153,7 +153,7 @@ describe('when showing the outside days', () => {
 
 describe('when the day has the "hidden" modifier active', () => {
   const date = today;
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: DayPickerBase = {
     modifiers: { hidden: date }
   };
   beforeEach(() => {

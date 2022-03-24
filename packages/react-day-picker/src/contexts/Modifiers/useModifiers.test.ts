@@ -3,12 +3,12 @@ import { RenderResult } from '@testing-library/react-hooks';
 import { customRenderHook } from 'test/render';
 
 import { useModifiers } from 'contexts/Modifiers';
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 import { DayModifiers, InternalModifier, Modifiers } from 'types/Modifiers';
 
 let renderResult: RenderResult<Modifiers>;
 
-function setup(dayPickerProps: DayPickerProps) {
+function setup(dayPickerProps: DayPickerBase) {
   const { result } = customRenderHook(() => useModifiers(), dayPickerProps);
   renderResult = result;
 }

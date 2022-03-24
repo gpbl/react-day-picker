@@ -5,7 +5,7 @@ import { screen } from '@testing-library/react';
 import { getMonthCaption, getMonthGrid } from 'test/po';
 import { customRender } from 'test/render';
 
-import { CustomComponents, DayPickerProps } from 'types/DayPicker';
+import { CustomComponents, DayPickerBase } from 'types/DayPickerBase';
 
 import { Month, MonthProps } from './Month';
 
@@ -28,12 +28,12 @@ const testClassNames: Record<string, string> = {
 
 type Test = {
   monthProps: MonthProps;
-  dayPickerProps: DayPickerProps;
+  dayPickerProps: DayPickerBase;
   expected: string[];
   notExpected: string[];
 };
 
-function setup(props: MonthProps, dayPickerProps?: DayPickerProps) {
+function setup(props: MonthProps, dayPickerProps?: DayPickerBase) {
   const renderResult = customRender(<Month {...props} />, dayPickerProps);
   root = renderResult.container.firstChild as HTMLDivElement;
 }

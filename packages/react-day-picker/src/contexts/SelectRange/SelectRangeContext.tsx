@@ -2,7 +2,7 @@ import React, { createContext, ReactNode } from 'react';
 
 import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
 
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';
 import { DayClickEventHandler } from 'types/EventHandlers';
 import { DateRange } from 'types/Matchers';
@@ -40,7 +40,7 @@ export const SelectRangeContext = createContext<
 >(undefined);
 
 type SelectRangeProviderProps = {
-  initialProps: DayPickerProps;
+  initialProps: DayPickerBase;
   children: ReactNode;
 };
 

@@ -7,7 +7,7 @@ import { customRender } from 'test/render';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { formatWeekdayName } from 'contexts/DayPicker/formatters';
 import { labelWeekday } from 'contexts/DayPicker/labels';
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 
 import { Head } from './Head';
 import { getWeekdays } from './utils/getWeekdays';
@@ -17,7 +17,7 @@ let renderResult: RenderResult;
 
 let thElements: HTMLTableCellElement[];
 
-function setup(dayPickerProps: DayPickerProps = {}) {
+function setup(dayPickerProps: DayPickerBase = {}) {
   renderResult = customRender(
     <table>
       <Head />

@@ -4,7 +4,7 @@ import { addMonths, startOfMonth, subMonths } from 'date-fns';
 import { customRenderHook } from 'test/render/customRenderHook';
 import { freezeBeforeAll } from 'test/utils';
 
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 
 import { NavigationContextValue } from './NavigationContext';
 import { useNavigation } from './useNavigation';
@@ -15,7 +15,7 @@ freezeBeforeAll(today);
 
 let result: RenderResult<NavigationContextValue>;
 
-function setup(dayPickerProps?: DayPickerProps) {
+function setup(dayPickerProps?: DayPickerBase) {
   const renderResult = customRenderHook(() => useNavigation(), dayPickerProps);
   result = renderResult.result;
   return result;

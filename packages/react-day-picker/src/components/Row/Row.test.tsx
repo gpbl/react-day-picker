@@ -4,11 +4,11 @@ import { screen } from '@testing-library/dom';
 
 import { customRender } from 'test/render/customRender';
 
-import { CustomComponents, DayPickerProps } from 'types/DayPicker';
+import { CustomComponents, DayPickerBase } from 'types/DayPickerBase';
 
 import { Row, RowProps } from './Row';
 
-function setup(props: RowProps, dayPickerProps?: DayPickerProps) {
+function setup(props: RowProps, dayPickerProps?: DayPickerBase) {
   customRender(<Row {...props} />, dayPickerProps);
 }
 
@@ -58,7 +58,7 @@ describe('when using a custom WeekNumber component', () => {
   const components: CustomComponents = {
     WeekNumber: () => <div>WeekNumber</div>
   };
-  const dayPickerProps: DayPickerProps = { components, showWeekNumber: true };
+  const dayPickerProps: DayPickerBase = { components, showWeekNumber: true };
   beforeEach(() => {
     setup(props, dayPickerProps);
   });

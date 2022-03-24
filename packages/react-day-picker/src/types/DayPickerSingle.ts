@@ -1,8 +1,10 @@
-import { DayPickerProps } from './DayPicker';
+import { DayPickerProps } from 'DayPicker';
+
+import { DayPickerBase } from './DayPickerBase';
 import { SelectSingleEventHandler } from './EventHandlers';
 
 /** The props for the [[DayPicker]] component when using `mode="single"`. */
-export interface DayPickerSingleProps extends DayPickerProps {
+export interface DayPickerSingleProps extends DayPickerBase {
   mode: 'single';
   /** The selected day. */
   selected?: Date | undefined;

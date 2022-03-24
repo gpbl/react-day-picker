@@ -16,7 +16,7 @@ import {
   SelectSingleContext,
   SelectSingleContextValue
 } from 'contexts/SelectSingle';
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerCustomProps } from 'types/DayPickerCustom';
 import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
 import { DayPickerRangeProps } from 'types/DayPickerRange';
@@ -38,7 +38,7 @@ export function customRenderHook<TProps, TResult>(
   callback: (props?: TProps) => TResult,
   /** The props passed to DayPicker. */
   dayPickerProps?:
-    | DayPickerProps
+    | DayPickerBase
     | DayPickerMultipleProps
     | DayPickerSingleProps
     | DayPickerCustomProps

@@ -7,7 +7,7 @@ import { differenceInMonths } from 'date-fns';
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 
 import { MonthsDropdown, MonthsDropdownProps } from './MonthsDropdown';
 
@@ -19,7 +19,7 @@ let root: HTMLDivElement;
 let options: HTMLCollectionOf<HTMLOptionElement> | undefined;
 let select: HTMLSelectElement | null;
 
-function setup(props: MonthsDropdownProps, dayPickerProps?: DayPickerProps) {
+function setup(props: MonthsDropdownProps, dayPickerProps?: DayPickerBase) {
   const renderResult = customRender(
     <MonthsDropdown {...props} />,
     dayPickerProps

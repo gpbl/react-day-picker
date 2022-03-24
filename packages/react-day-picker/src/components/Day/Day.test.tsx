@@ -5,7 +5,7 @@ import { screen } from '@testing-library/react';
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
-import { CustomComponents, DayPickerProps } from 'types/DayPicker';
+import { CustomComponents, DayPickerBase } from 'types/DayPickerBase';
 
 import { Day, DayProps } from './Day';
 
@@ -13,7 +13,7 @@ const today = new Date(2021, 8);
 
 freezeBeforeAll(today);
 let container: HTMLElement;
-function setup(props: DayProps, dayPickerProps?: DayPickerProps) {
+function setup(props: DayProps, dayPickerProps?: DayPickerBase) {
   const result = customRender(<Day {...props} />, dayPickerProps);
   container = result.container;
 }
@@ -26,7 +26,7 @@ const props: DayProps = {
 };
 
 describe('when the day to render has an hidden modifier', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: DayPickerBase = {
     modifiers: { hidden: date }
   };
   beforeEach(() => {
@@ -37,7 +37,7 @@ describe('when the day to render has an hidden modifier', () => {
   });
 });
 describe('when a no selection mode and no "onDayClick"', () => {
-  const dayPickerProps: DayPickerProps = {};
+  const dayPickerProps: DayPickerBase = {};
   beforeEach(() => {
     setup(props, dayPickerProps);
   });
@@ -47,7 +47,7 @@ describe('when a no selection mode and no "onDayClick"', () => {
 });
 
 describe('when a selection mode is set', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: DayPickerBase = {
     mode: 'single'
   };
   beforeEach(() => {
@@ -59,7 +59,7 @@ describe('when a selection mode is set', () => {
 });
 
 describe('when "onDayClick" is present', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: DayPickerBase = {
     onDayClick: jest.fn()
   };
   beforeEach(() => {
