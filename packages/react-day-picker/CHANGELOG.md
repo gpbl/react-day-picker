@@ -18,6 +18,13 @@ See the preview website at https://react-day-picker-next.netlify.app.
 
 ---
 
+### v8.0.0-beta.41
+
+- improved behavior of `modifiersClassNames` and `classNames` prop
+- removed `modifierPrefix` prop. Use `modifiersClassNames` instead.
+- renamed `.rdp-foot` selector to `.rdp-tfoot`
+- added style.module.css to the build for importing styles as CSS module
+
 ### v8.0.0-beta.40
 
 - chore: updated behavior of range mode (see #1408)
