@@ -1,16 +1,19 @@
 # Selecting Days
 
-DayPicker supports four selection modes:
+DayPicker supports **4 selection modes** to display days as selected. Enable a selection mode by setting the `mode` prop.
 
-- single: only a single day can be selected
-- multiple: allow selection of multiple days
-- range: allow the selection of range of days
-- custom: let the parent component handle the selection
+```tsx
+<DayPicker mode="single" />
+```
 
-## Single selection mode
+- **Single mode** `mode="single"`: only a single day can be selected
+- **Multiple mode** `mode="multiple"`: allow selection of multiple days
+- **Range mode** `mode="range"`: allow the selection of range of days
+- **Custom mode** `mode="custom"`: let the parent component handle the selection
 
-To enable single day selection, set `mode="single"` and use `onSelect` to get
-the selected day.
+## Single Selections
+
+To enable single day selection, set `mode="single"` and use `onSelect` to get the selected day.
 
 ```include-example
 single
@@ -26,7 +29,7 @@ For example, to set the default selected date to today:
 single-required
 ```
 
-## Selecting multiple days
+## Selecting Multiple Days
 
 Use `mode="multiple"` to allow the selection of multiple days:
 
@@ -42,7 +45,7 @@ Use the `min` and `max` props to limit the amount of days that can be selected.
 multiple-min-max
 ```
 
-## Selecting a range of days
+## Selecting a Range of days
 
 Use `mode="range"` and `onSelectRange` to allow the selection of multiple days.
 
@@ -58,14 +61,11 @@ Use the `min` and `max` props to limit the amount of days in the range.
 range-min-max
 ```
 
-## Custom selection mode
+## Custom Selection Mode
 
-If the built-in selection modes are not enough for your app’s requirements, you
-can control the selection behavior using `mode="custom"`.
+If the built-in selection modes are not enough for your app’s requirements, you can control the selection behavior using `mode="custom"` and `onDayClick`.
 
-### Example: custom single select
-
-The following example use the custom selection mode to implement the "single selection" behavior. It is like when `mode="single"`, we place it here to show how the custom selection works.
+For example, to implement the "single selection" behavior (like when `mode="single"`):
 
 ```include-example
 custom-single
@@ -73,7 +73,8 @@ custom-single
 
 ### Example: custom multiple select
 
-The case of a multi-days select is a bit more complex as it deals with an array. The following example replicates the `mode="multiple"` selection mode.
+The case of a multi-days select is a bit more complex as it deals with an array. The following example replicates the `mode="multiple"`
+selection mode.
 
 ```include-example
 custom-multiple

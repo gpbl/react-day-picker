@@ -1,9 +1,9 @@
 import React, { ChangeEventHandler, useRef, useState } from 'react';
-import { DayPicker } from 'react-day-picker';
-import { usePopper } from 'react-popper';
 
 import { format, isValid, parse } from 'date-fns';
 import FocusTrap from 'focus-trap-react';
+import { DayPicker } from 'react-day-picker';
+import { usePopper } from 'react-popper';
 
 export default function Example() {
   const [selected, setSelected] = useState<Date>();
@@ -58,10 +58,12 @@ export default function Example() {
           placeholder={format(new Date(), 'y-MM-dd')}
           value={inputValue}
           onChange={handleInputChange}
+          className="input-reset ba b--black-20 pa2 ma2"
         />
         <button
           ref={buttonRef}
           type="button"
+          className="pa2"
           aria-label="Pick a date"
           onClick={handleButtonClick}
         >

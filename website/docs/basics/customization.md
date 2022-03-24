@@ -2,7 +2,7 @@
 
 ## Multiple months
 
-Use the `numberOfMonths` to render more than one calendar.
+Use `numberOfMonths` to render more than one calendar.
 
 ```include-example
 multiple-months
