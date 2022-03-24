@@ -11,6 +11,7 @@ import { CustomSandPack } from './CustomSandpack';
 export default function CodeBlockWithSandpack(props: {
   children: string;
   className: string;
+  dependencies: string;
 }) {
   if (props.className !== 'language-include-example') {
     return (
@@ -23,5 +24,12 @@ export default function CodeBlockWithSandpack(props: {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const src = require(`!!raw-loader!../../../examples/${fileName}`)
     .default as string;
-  return <CustomSandPack src={src} />;
+
+  const dependencies: Record<string, string> = props.dependencies
+    ?.split(',')
+    .reduce(
+      (result, dependency) => ({ ...result, [dependency]: 'latest' }),
+      {}
+    );
+  return <CustomSandPack dependencies={dependencies} src={src} />;
 }
