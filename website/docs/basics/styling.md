@@ -1,16 +1,13 @@
 # Styling DayPicker
 
-## Style via CSS
+DayPicker comes with for a minimal, lightweight appearance: import `react-day-picker/dist/style.css` into your root component, or bundle it within your build pipeline.
 
-DayPicker includes a [CSS
-file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/style)
-to import, or to copy as template.
-
-```js
+```tsx
+// Your App.tsx file
 import 'react-day-picker/dist/style.css';
 ```
 
-The CSS uses few variables to quickly override the colors and the cell size:
+This will add the [DayPicker stylesheet](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css#L29) into your app. The stylesheet includes some CSS global variables, to override colors and sizes:
 
 ```css
 :root {
@@ -27,60 +24,74 @@ The CSS uses few variables to quickly override the colors and the cell size:
 }
 ```
 
-## Inline styles
+## Styling Modifiers
+
+To customize the style of days with active modifiers, such as `selected`, `hidden`, `today`... use [modifiersClassNames](/api/interfaces/DayPickerProps#modifiersclassnames) prop to assign those days a custom class name. You can also use [modifiersStyles](/api/interfaces/DayPickerProps#modifiersstyles) to set the inline style.
+
+```include-example
+styling-modifiers
+```
+
+With CSS modules, pass the generated class name instead:
+
+```tsx
+import style from './day-picker.module.css';
+
+function App() {
+  return (
+    <DayPicker
+      mode="multiple"
+      modifiersClassNames={{
+        selected: style.selected,
+        today: style.today
+      }}
+    />
+  );
+}
+```
+
+## Styling DayPicker elements
+
+You can override the appearance of the HTML elements composing DayPicker, such as heading, cells, buttons. The elements that can be styled are listed in the [StyledElement type](/api/types/StyledElement).
+
+### Pure CSS solution
+
+This approach involves just CSS and works well if you need the same style across your app.
+
+1. create a new CSS file to import after the default style, e.g. `day-picker.css`
+
+   ```tsx
+   // Your App.tsx file
+   import 'react-day-picker/dist/style.css';
+   import './day-picker.css';
+   ```
+
+2. change the appearance of DayPicker overriding the original selectors in the new CSS file. Refer to the [stylesheet source](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css) to find the right selectors to override.
+   ```css
+   /* day-picker.css */
+   /* Paint the today's date in red */
+   .rdp-day_today:not(.rdp-day_outside) {
+     color: red;
+   }
+   ```
+
+:::note
+Keep in mind that the selectors may be a bit complex, and they may break in future style updates.
+:::
+
+### Using CSS Modules
+
+With CSS modules, import instead `react-day-picker/dist/style.module.css` (not `style.css`) and pass the generated class names to the `classNames` prop.
+
+```include-example
+styling-css-modules
+```
+
+### Using Inline Styles
 
 To change the appearance of any DayPicker element via inline-styles use the
 `styles` prop.
 
 ```include-example
 styling-inline
-```
-
-## Custom CSS classes
-
-To use custom classes, use [`classNames`](/api/types/classnames).
-
-```include-example
-styling-css
-```
-
-### CSS Modules
-
-Replacing the default class names is useful with [CSS
-Modules](https://github.com/css-modules/css-modules).
-
-1. Create a CSS module using the class names listed in [StyledElements](/api/types/styledelement). Or use [this CSS
-   file](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/style/index.css),
-   remove the `rdp-` prefix from the selectors.
-
-```css
-/* my-css.module.css */
-.root {
-  /* ... */
-}
-.caption_label {
-  /* ... */
-}
-.day_today {
-  /* ... */
-}
-/* etc.. */
-```
-
-2. Pass the imported CSS module to the `classNames` prop
-
-```tsx
-import React from 'react';
-import { DayPicker } from 'react-day-picker';
-
-import * as classNames from './my-css.module.css';
-
-export default function App() {
-  return (
-    <>
-      <style>{style}</style>
-      <DayPicker classNames={classNames} />
-    </>
-  );
-}
 ```
