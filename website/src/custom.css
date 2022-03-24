@@ -7,16 +7,16 @@
   --ifm-color-primary-light: #dc515e;
   --ifm-color-primary-lighter: #de5c68;
   --ifm-color-primary-lightest: #e57e88;
+  --ifm-font-family-monospace: 'SFMono', Menlo, Monaco, 'Fira Mono',
+    'DejaVu Sans Mono', Menlo, Consolas, 'Liberation Mono', Monaco,
+    'Lucida Console', monospace;
   --ifm-transition-fast: 120ms;
-  /* --ifm-leading: calc(15 * 1em); */
+  --ifm-code-border-radius: 4px;
   --ifm-toc-border-color: transparent;
   --ifm-heading-font-weight: 700;
-  --ifm-code-font-size: 0.8em;
   --ifm-navbar-shadow: none;
   --ifm-navbar-height: 75px;
-  --ifm-code-border-radius: 4px;
   --ifm-global-radius: 1rem;
-  /* --ifm-code-background: transparent; */
   --menu-background: var(--ifm-color-emphasis-100);
   --ifm-tabs-padding-vertical: 8px;
   --ifm-menu-color: inherit;
@@ -24,6 +24,7 @@
   --ifm-menu-color-background-hover: inherit;
   --ifm-menu-link-sublist-icon: url('/images/sublist-icon.svg');
   --ifm-navbar-background-color: var(--menu-background);
+
   --doc-sidebar-width: 260px !important;
 }
 
@@ -150,19 +151,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 hr {
   all: revert;
 }
-[class^='docItemContainer'] p,
-[class^='docItemContainer'] blockquote,
-[class^='docItemContainer'] table {
-  max-width: 800px;
-}
-
-[class*='codeBlockContainer'] {
-  max-width: 1000px;
-}
-
-div[class*='docItemCol'] {
-  max-width: 100% !important;
-}
 
 .theme-doc-sidebar-item-category {
   margin: 1em 0 !important;
@@ -207,7 +195,6 @@ html[data-theme='dark'] .dialog-sheet {
   box-shadow: 0px 0.8px 2px rgba(0, 0, 0, 0.032),
     0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08) !important;
   border-radius: var(--ifm-global-radius) !important;
-  max-width: 1000px !important;
 }
 .sp-layout {
   --sp-border-radius: var(--ifm-global-radius);

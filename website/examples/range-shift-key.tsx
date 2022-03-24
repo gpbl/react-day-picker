@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useRef, useState } from 'react';
+import React from 'react';
 
 import { isSameDay } from 'date-fns';
 import {
@@ -10,7 +10,7 @@ import {
 } from 'react-day-picker';
 
 function DayWithShiftKey(props: DayProps) {
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
   const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
 
   if (dayRender.isHidden) {
@@ -20,7 +20,7 @@ function DayWithShiftKey(props: DayProps) {
     return <div {...dayRender.divProps} />;
   }
 
-  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     if (
       !dayRender.selectedDays ||
       dayRender.activeModifiers.selected ||
@@ -36,20 +36,26 @@ function DayWithShiftKey(props: DayProps) {
 }
 
 export default function App() {
-  const [range, setRange] = useState<DateRange>();
+  const [range, setRange] = React.useState<DateRange>();
 
-  let footer = 'Please pick a day.';
+  let footer = <p>Please pick a day.</p>;
 
   if (range?.from && range?.to) {
     if (isSameDay(range.from, range.to)) {
-      footer = 'Press Shift to choose more days.';
+      footer = <p>Press Shift to choose more days.</p>;
     } else {
-      footer = `${range.from.toLocaleDateString()}—${range.to.toLocaleDateString()}.`;
+      footer = (
+        <p>
+          {range.from.toLocaleDateString()}—${range.to.toLocaleDateString()}.
+        </p>
+      );
     }
   }
   return (
     <DayPicker
-      components={{ Day: DayWithShiftKey }}
+      components={{
+        Day: DayWithShiftKey
+      }}
       mode="range"
       onSelect={setRange}
       selected={range}
