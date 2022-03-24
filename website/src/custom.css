@@ -48,9 +48,6 @@ body {
 
 /* #region: override general styles */
 
-.container {
-  max-width: unset !important;
-}
 table {
   margin: 0;
 }
@@ -75,12 +72,6 @@ table tr {
 
 .menu__list {
   transition-duration: var(--ifm-transition-fast) !important;
-}
-
-@media (max-width: 1450px) {
-  .row .col.col--3 {
-    display: none;
-  }
 }
 
 @media (min-width: 997px) {
