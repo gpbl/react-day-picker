@@ -42,5 +42,8 @@ body {
   color: #cccccc;
 }
 .bg-white {
-  background-color: #eeeeee;
+  background-color: #111111;
+}
+.ba {
+  border-color: #333;
 }
