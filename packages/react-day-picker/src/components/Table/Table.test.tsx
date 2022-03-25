@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { customRender } from 'test/render/customRender';
+import { DayPickerProps } from 'DayPicker';
 
-import { DayPickerProps } from 'types/DayPicker';
+import { customRender } from 'test/render/customRender';
 
 import { Table, TableProps } from './Table';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { DayPicker, useInput } from 'react-day-picker';
 
 export default function App() {
@@ -13,7 +14,10 @@ export default function App() {
   const footer = (
     <form>
       <label>
-        Please type a day: <input {...inputProps} />
+        <input
+          {...inputProps}
+          className="input-reset pa2 ma2 bg-white black ba"
+        />
       </label>
     </form>
   );

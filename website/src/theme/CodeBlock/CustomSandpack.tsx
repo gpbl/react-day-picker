@@ -12,7 +12,6 @@ import '@codesandbox/sandpack-react/dist/index.css';
 import { useColorMode } from '@docusaurus/theme-common';
 import pkg from 'react-day-picker/package.json';
 
-const htmlIndex = require(`!!raw-loader!./sandpack-app/index.html`);
 const index = require(`!!raw-loader!./sandpack-app/index.tsx`);
 const stylesDark = require(`!!raw-loader!./sandpack-app/dark.css`);
 const styles = require(`!!raw-loader!./sandpack-app/light.css`);
@@ -35,7 +34,6 @@ export function CustomSandPack(props: {
   const { isDarkTheme } = useColorMode();
 
   let files = {
-    '/public/index.html': htmlIndex.default,
     '/App.tsx': props.src,
     '/index.tsx': index.default,
     '/styles.css': isDarkTheme ? stylesDark.default : styles.default
@@ -59,7 +57,10 @@ export function CustomSandPack(props: {
     showNavigator: false,
     showTabs: false,
     showLineNumbers: true,
-    wrapContent: false
+    wrapContent: false,
+    externalResources: [
+      'https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css'
+    ]
   };
 
   const dependencies = {

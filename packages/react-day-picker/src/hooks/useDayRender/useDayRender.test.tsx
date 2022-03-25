@@ -2,6 +2,7 @@ import { createRef } from 'react';
 
 import { RenderResult } from '@testing-library/react-hooks';
 import { addDays, addMonths } from 'date-fns';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRenderHook, CustomRenderHookContexts } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
@@ -9,7 +10,6 @@ import { freezeBeforeAll } from 'test/utils';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { FocusContextValue } from 'contexts/Focus';
 import { EventName } from 'hooks/useDayEventHandlers';
-import { DayPickerProps } from 'types/DayPicker';
 
 import { DayRender } from './';
 import { useDayRender } from './useDayRender';
