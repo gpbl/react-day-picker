@@ -25,3 +25,22 @@ body {
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.3),
     0px 2px 4px -1px rgba(0, 0, 0, 0.4);
 }
+
+.bg-near-black {
+  background-color: #eeeeee;
+}
+.bg-near-white {
+  background-color: #111111;
+}
+.black {
+  color: #ffffff;
+}
+.white {
+  color: #eeeeee;
+}
+.dark-gray {
+  color: #cccccc;
+}
+.bg-white {
+  background-color: #eeeeee;
+}
