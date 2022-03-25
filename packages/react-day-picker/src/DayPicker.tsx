@@ -45,10 +45,11 @@ import { RootProvider } from './contexts/RootProvider';
  *   days that can be selected with the `min` or the `max` props.
  * - `mode="range"`: users can select a range of days. Limit the amount of days
  *   in the range with the `min` or the `max` props.
- * - `mode="custom"`: implement your own selection mode with `onDayClick`.
+ * - `mode="default"` (default): the built-in selections are disabled. Implement
+ *   your own selection mode with `onDayClick`.
  *
- * These selection modes should cover the most common use cases. In case you
- * need a more refined way of selecting days, use `mode="custom"`. Use the
+ * The selection modes should cover the most common use cases. In case you
+ * need a more refined way of selecting days, use `mode="default"`. Use the
  * `selected` props and add the day event handlers to add/remove days from the
  * selection.
  *

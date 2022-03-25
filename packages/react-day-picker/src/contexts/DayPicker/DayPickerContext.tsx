@@ -7,22 +7,17 @@ import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
 import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
 import { DayPickerRangeProps } from 'types/DayPickerRange';
 import { DayPickerSingleProps } from 'types/DayPickerSingle';
-import {
-  SelectMultipleEventHandler,
-  SelectRangeEventHandler,
-  SelectSingleEventHandler
-} from 'types/EventHandlers';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
-import { DateRange, Matcher } from 'types/Matchers';
+import { Matcher } from 'types/Matchers';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
 
 import { getDefaultContextValue } from './defaultContextValue';
 import { parseFromToProps } from './utils';
 
-/** The value of the [[DayPickerContext]] */
-export type DayPickerContextValue = DayPickerBase & {
+/** The value of the [[DayPickerContext]]. */
+export interface DayPickerContextValue extends DayPickerBase {
   mode: DaySelectionMode;
   onSelect?:
     | DayPickerSingleProps['onSelect']
@@ -31,13 +26,7 @@ export type DayPickerContextValue = DayPickerBase & {
   required?: boolean;
   min?: number;
   max?: number;
-  selected?:
-    | Matcher
-    | Matcher[]
-    | undefined
-    | DayPickerSingleProps['selected']
-    | DayPickerMultipleProps['selected']
-    | DayPickerRangeProps['selected'];
+  selected?: Matcher | Matcher[];
 
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;
@@ -49,13 +38,7 @@ export type DayPickerContextValue = DayPickerBase & {
   numberOfMonths: number;
   styles: Styles;
   today: Date;
-
-  // Internally we handle only fromDate/toDate
-  toYear?: never;
-  fromYear?: never;
-  toMonth?: never;
-  fromMonth?: never;
-};
+}
 
 /**
  * The DayPicker Context shares the props passed to DayPicker within internal
@@ -81,10 +64,8 @@ export interface DayPickerProviderProps {
  */
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { initialProps } = props;
+
   const defaults = getDefaultContextValue();
-  const locale = initialProps.locale ?? defaults.locale;
-  const numberOfMonths = initialProps.numberOfMonths ?? defaults.numberOfMonths;
-  const today = initialProps.today ?? defaults.today;
 
   const { fromDate, toDate } = parseFromToProps(initialProps);
 
@@ -94,67 +75,48 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     captionLayout = 'buttons';
   }
 
-  // TODO: remove eslint disable, move to external utils
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const modifiers = {
-    ...defaults.modifiers,
-    ...initialProps.modifiers
-  };
-
-  const modifiersClassNames = {
-    ...defaults.modifiersClassNames,
-    ...initialProps.modifiersClassNames
-  };
-
-  const styles = {
-    ...defaults.styles,
-    ...initialProps.styles
-  };
-
-  const classNames = {
-    ...defaults.classNames,
-    ...initialProps.classNames
-  };
-
-  const formatters = {
-    ...defaults.formatters,
-    ...initialProps.formatters
-  };
-
-  const labels = {
-    ...defaults.labels,
-    ...initialProps.labels
-  };
-
-  const components = {
-    ...defaults.components,
-    ...initialProps.components
-  };
-
-  const context: DayPickerContextValue = {
+  const value: DayPickerContextValue = {
     captionLayout,
     className: initialProps.className,
-    classNames,
-    components,
+    classNames: {
+      ...defaults.classNames,
+      ...initialProps.classNames
+    },
+    components: {
+      ...defaults.components,
+      ...initialProps.components
+    },
     defaultMonth: initialProps.defaultMonth,
     dir: initialProps.dir,
     disabled: initialProps.disabled,
     disableNavigation: initialProps.disableNavigation,
     fixedWeeks: initialProps.fixedWeeks,
     footer: initialProps.footer,
-    formatters,
+    formatters: {
+      ...defaults.formatters,
+      ...initialProps.formatters
+    },
     fromDate,
     hidden: initialProps.hidden,
     hideHead: initialProps.hideHead,
     initialFocus: initialProps.initialFocus,
-    labels,
-    locale,
+    labels: {
+      ...defaults.labels,
+      ...initialProps.labels
+    },
+    locale: initialProps.locale ?? defaults.locale,
     mode: initialProps.mode || 'default',
-    modifiers,
-    modifiersClassNames,
+    modifiers: {
+      ...defaults.modifiers,
+      ...initialProps.modifiers
+    },
+    modifiersClassNames: {
+      ...defaults.modifiersClassNames,
+      ...initialProps.modifiersClassNames
+    },
     modifiersStyles: initialProps.modifiersStyles,
     month: initialProps.month,
-    numberOfMonths,
+    numberOfMonths: initialProps.numberOfMonths ?? defaults.numberOfMonths,
     onDayBlur: initialProps.onDayBlur,
     onDayClick: initialProps.onDayClick,
     onDayFocus: initialProps.onDayFocus,
@@ -177,13 +139,16 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     showOutsideDays: initialProps.showOutsideDays,
     showWeekNumber: initialProps.showWeekNumber,
     style: initialProps.style,
-    styles,
+    styles: {
+      ...defaults.styles,
+      ...initialProps.styles
+    },
     toDate,
-    today
+    today: initialProps.today ?? defaults.today
   };
 
   return (
-    <DayPickerContext.Provider value={context}>
+    <DayPickerContext.Provider value={value}>
       {props.children}
     </DayPickerContext.Provider>
   );
