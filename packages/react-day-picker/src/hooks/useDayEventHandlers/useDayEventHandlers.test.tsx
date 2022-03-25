@@ -13,7 +13,6 @@ import {
   EventName,
   useDayEventHandlers
 } from 'hooks/useDayEventHandlers';
-import { DaySelectionMode } from 'types/DayPickerBase';
 import { ActiveModifiers } from 'types/Modifiers';
 
 const today = new Date(2010, 5, 23);

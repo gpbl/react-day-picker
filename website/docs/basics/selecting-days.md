@@ -1,15 +1,10 @@
 # Selecting Days
 
-DayPicker supports **4 selection modes** to display days as selected. Enable a selection mode by setting the `mode` prop.
-
-```tsx
-<DayPicker mode="single" />
-```
+DayPicker supports **3 built-in selection modes** to display days as selected. Enable a selection mode by setting the `mode` prop.
 
 - **Single mode** `mode="single"`: only a single day can be selected
 - **Multiple mode** `mode="multiple"`: allow selection of multiple days
 - **Range mode** `mode="range"`: allow the selection of range of days
-- **Custom mode** `mode="custom"`: let the parent component handle the selection
 
 ## Single Selections
 
@@ -61,9 +56,9 @@ Use the `min` and `max` props to limit the amount of days in the range.
 range-min-max
 ```
 
-## Custom Selection Mode
+## Custom Selections
 
-If the built-in selection modes are not enough for your app’s requirements, you can control the selection behavior using `mode="custom"` and `onDayClick`.
+If the built-in selection modes are not enough for your app’s requirements, you can control the selection behavior using `onDayClick`.
 
 For example, to implement the "single selection" behavior (like when `mode="single"`):
 

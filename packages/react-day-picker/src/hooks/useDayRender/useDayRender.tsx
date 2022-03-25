@@ -12,9 +12,6 @@ import {
   useDayEventHandlers
 } from 'hooks/useDayEventHandlers';
 import { SelectedDays, useSelectedDays } from 'hooks/useSelectedDays';
-import { isDayPickerMultiple } from 'types/DayPickerMultiple';
-import { isDayPickerRange } from 'types/DayPickerRange';
-import { isDayPickerSingle } from 'types/DayPickerSingle';
 import { ActiveModifiers } from 'types/Modifiers';
 import { StyledComponent } from 'types/Styles';
 

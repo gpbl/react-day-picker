@@ -26,7 +26,7 @@ This will add the [DayPicker stylesheet](https://github.com/gpbl/react-day-picke
 
 ## Styling Modifiers
 
-To customize the style of days with active modifiers, such as `selected`, `hidden`, `today`... use [modifiersClassNames](/api/interfaces/DayPickerProps#modifiersclassnames) prop to assign those days a custom class name. You can also use [modifiersStyles](/api/interfaces/DayPickerProps#modifiersstyles) to set the inline style.
+To customize the style of days with active modifiers, such as `selected`, `hidden`, `today`... use [modifiersClassNames](/api/types/daypickerprops#modifiersclassnames) prop to assign those days a custom class name. You can also use [modifiersStyles](/api/types/daypickerprops#modifiersstyles) to set the inline style.
 
 ```include-example
 styling-modifiers
