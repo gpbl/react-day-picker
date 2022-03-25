@@ -18,6 +18,11 @@ See the preview website at https://react-day-picker-next.netlify.app.
 
 ---
 
+### v8.0.0-rc.0
+
+- updated `DayPickerProps`
+- removed the "custom" selection mode
+
 ### v8.0.0-beta.41
 
 - improved behavior of `modifiersClassNames` and `classNames` prop
