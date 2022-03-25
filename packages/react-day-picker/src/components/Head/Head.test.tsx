@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { RenderResult, screen } from '@testing-library/react';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { formatWeekdayName } from 'contexts/DayPicker/formatters';
 import { labelWeekday } from 'contexts/DayPicker/labels';
-import { DayPickerBase } from 'types/DayPickerBase';
 
 import { Head } from './Head';
 import { getWeekdays } from './utils/getWeekdays';
@@ -17,7 +17,7 @@ let renderResult: RenderResult;
 
 let thElements: HTMLTableCellElement[];
 
-function setup(dayPickerProps: DayPickerBase = {}) {
+function setup(dayPickerProps: DayPickerProps = {}) {
   renderResult = customRender(
     <table>
       <Head />

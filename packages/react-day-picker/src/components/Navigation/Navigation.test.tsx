@@ -1,17 +1,16 @@
 import React from 'react';
 
 import userEvent from '@testing-library/user-event';
-import { DayPickerBase } from 'index';
+import { DayPickerProps } from 'DayPicker';
 
 import { getNextButton, getPrevButton } from 'test/po';
 import { customRender } from 'test/render';
 
-import { NavigationProps } from './';
-import { Navigation } from './Navigation';
+import { Navigation, NavigationProps } from './Navigation';
 
 let root: HTMLElement;
 
-function setup(props: NavigationProps, dayPickerProps?: DayPickerBase) {
+function setup(props: NavigationProps, dayPickerProps?: DayPickerProps) {
   const renderResult = customRender(<Navigation {...props} />, dayPickerProps);
   root = renderResult.container.firstChild as HTMLElement;
 }

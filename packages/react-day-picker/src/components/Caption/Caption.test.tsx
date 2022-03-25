@@ -3,6 +3,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addMonths, setMonth, setYear } from 'date-fns';
+import { DayPickerProps } from 'DayPicker';
 
 import {
   getMonthCaption,
@@ -18,7 +19,7 @@ import {
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
-import { CustomComponents, DayPickerBase } from 'types/DayPickerBase';
+import { CustomComponents } from 'types/DayPickerBase';
 
 import { Caption, CaptionProps } from './Caption';
 
@@ -28,7 +29,7 @@ const toYear = 2025;
 
 freezeBeforeAll(today);
 
-function setup(props: CaptionProps, dayPickerProps?: DayPickerBase) {
+function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
   customRender(<Caption {...props} />, dayPickerProps);
 }
 
@@ -62,7 +63,7 @@ describe('when the caption layout is "dropdown"', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
-    const dayPickerProps: DayPickerBase = {
+    const dayPickerProps: DayPickerProps = {
       captionLayout: 'dropdown',
       fromYear,
       toYear,
@@ -90,7 +91,7 @@ describe('when the caption layout is "dropdown"', () => {
 });
 
 describe('when a month is selected', () => {
-  const dayPickerProps: DayPickerBase = {
+  const dayPickerProps: DayPickerProps = {
     captionLayout: 'dropdown',
     fromYear,
     toYear,
@@ -126,7 +127,7 @@ describe('when a month is selected', () => {
 });
 
 describe('when the caption layout is "dropdown" but no date limits are set', () => {
-  const dayPickerProps: DayPickerBase = {
+  const dayPickerProps: DayPickerProps = {
     captionLayout: 'dropdown'
   };
   beforeEach(() => {
@@ -139,7 +140,7 @@ describe('when the caption layout is "dropdown" but no date limits are set', () 
 });
 
 describe('when the caption layout is "buttons"', () => {
-  const dayPickerProps: DayPickerBase = {
+  const dayPickerProps: DayPickerProps = {
     captionLayout: 'buttons'
   };
   test('should render the caption label', () => {

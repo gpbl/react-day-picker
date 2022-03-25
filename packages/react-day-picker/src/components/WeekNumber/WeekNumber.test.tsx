@@ -2,6 +2,7 @@ import React from 'react';
 
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render/customRender';
 
@@ -9,7 +10,7 @@ import { DayPickerBase } from 'types/DayPickerBase';
 
 import { WeekNumber, WeekNumberProps } from './WeekNumber';
 
-function setup(props: WeekNumberProps, dayPickerProps?: DayPickerBase) {
+function setup(props: WeekNumberProps, dayPickerProps?: DayPickerProps) {
   return customRender(<WeekNumber {...props} />, dayPickerProps);
 }
 

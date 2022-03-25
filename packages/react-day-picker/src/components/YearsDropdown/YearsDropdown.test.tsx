@@ -3,11 +3,10 @@ import React from 'react';
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { differenceInYears } from 'date-fns';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
-
-import { DayPickerBase } from 'types/DayPickerBase';
 
 import { YearsDropdown, YearsDropdownProps } from './YearsDropdown';
 
@@ -19,7 +18,7 @@ let root: HTMLDivElement;
 let options: HTMLCollectionOf<HTMLOptionElement> | undefined;
 let select: HTMLSelectElement | null;
 
-function setup(props: YearsDropdownProps, dayPickerProps?: DayPickerBase) {
+function setup(props: YearsDropdownProps, dayPickerProps?: DayPickerProps) {
   const renderResult = customRender(
     <YearsDropdown {...props} />,
     dayPickerProps

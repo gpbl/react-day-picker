@@ -3,11 +3,10 @@ import React from 'react';
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { differenceInMonths } from 'date-fns';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
-
-import { DayPickerBase } from 'types/DayPickerBase';
 
 import { MonthsDropdown, MonthsDropdownProps } from './MonthsDropdown';
 
@@ -19,7 +18,7 @@ let root: HTMLDivElement;
 let options: HTMLCollectionOf<HTMLOptionElement> | undefined;
 let select: HTMLSelectElement | null;
 
-function setup(props: MonthsDropdownProps, dayPickerProps?: DayPickerBase) {
+function setup(props: MonthsDropdownProps, dayPickerProps?: DayPickerProps) {
   const renderResult = customRender(
     <MonthsDropdown {...props} />,
     dayPickerProps

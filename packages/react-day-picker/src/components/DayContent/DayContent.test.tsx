@@ -1,19 +1,19 @@
 import React from 'react';
 
 import es from 'date-fns/locale/es';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { DayContent, DayContentProps } from 'components/DayContent';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
-import { DayPickerBase } from 'types/DayPickerBase';
 
 const today = new Date(2021, 8);
 
 freezeBeforeAll(today);
 let container: HTMLElement;
-function setup(props: DayContentProps, dayPickerProps?: DayPickerBase) {
+function setup(props: DayContentProps, dayPickerProps?: DayPickerProps) {
   const result = customRender(<DayContent {...props} />, dayPickerProps);
   container = result.container;
 }
@@ -26,7 +26,7 @@ const props: DayContentProps = {
   activeModifiers: {}
 };
 
-const dayPickerProps: DayPickerBase = {
+const dayPickerProps: DayPickerProps = {
   locale: es
 };
 

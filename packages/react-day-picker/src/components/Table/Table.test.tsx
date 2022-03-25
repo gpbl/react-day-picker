@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { customRender } from 'test/render/customRender';
+import { DayPickerProps } from 'DayPicker';
 
-import { DayPickerBase } from 'types/DayPickerBase';
+import { customRender } from 'test/render/customRender';
 
 import { Table, TableProps } from './Table';
 
-function setup(props: TableProps, dayPickerProps?: DayPickerBase) {
+function setup(props: TableProps, dayPickerProps?: DayPickerProps) {
   return customRender(<Table {...props} />, dayPickerProps);
 }
 
@@ -28,7 +28,7 @@ describe('when showing the week numbers', () => {
 });
 
 describe('when using custom components', () => {
-  const dayPickerProps: DayPickerBase = {
+  const dayPickerProps: DayPickerProps = {
     components: {
       Head: () => <div>CustomHead </div>,
       Row: () => <div>CustomRow </div>,
