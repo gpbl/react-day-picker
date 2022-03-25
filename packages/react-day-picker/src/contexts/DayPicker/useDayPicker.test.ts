@@ -1,5 +1,6 @@
 import { RenderResult } from '@testing-library/react-hooks';
 import es from 'date-fns/locale/es';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRenderHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
@@ -7,7 +8,7 @@ import { freezeBeforeAll } from 'test/utils';
 import { CaptionLayout } from 'components/Caption';
 import { DayPickerContextValue, useDayPicker } from 'contexts/DayPicker';
 import { getDefaultContextValue } from 'contexts/DayPicker/defaultContextValue';
-import { CustomComponents, DayPickerProps } from 'types/DayPicker';
+import { CustomComponents } from 'types/DayPickerBase';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';

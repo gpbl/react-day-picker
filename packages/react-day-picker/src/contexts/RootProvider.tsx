@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ModifiersProvider } from 'contexts/Modifiers/ModifiersContext';
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 
 import { DayPickerProvider } from './DayPicker';
 import { FocusProvider } from './Focus';
@@ -11,7 +11,7 @@ import { SelectRangeProvider } from './SelectRange';
 import { SelectSingleProvider } from './SelectSingle';
 
 /** The props of [[RootProvider]]. */
-export type RootContext = DayPickerProps & {
+export type RootContext = DayPickerBase & {
   children: React.ReactNode;
 };
 

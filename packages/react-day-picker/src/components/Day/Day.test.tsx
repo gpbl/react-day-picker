@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { screen } from '@testing-library/react';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
-import { CustomComponents, DayPickerProps } from 'types/DayPicker';
+import { CustomComponents } from 'types/DayPickerBase';
 
 import { Day, DayProps } from './Day';
 
@@ -37,7 +38,7 @@ describe('when the day to render has an hidden modifier', () => {
   });
 });
 describe('when a no selection mode and no "onDayClick"', () => {
-  const dayPickerProps: DayPickerProps = {};
+  const dayPickerProps: DayPickerProps = { mode: 'default' };
   beforeEach(() => {
     setup(props, dayPickerProps);
   });

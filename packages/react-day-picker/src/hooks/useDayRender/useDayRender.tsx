@@ -63,7 +63,9 @@ export function useDayRender(
   const activeModifiers = useActiveModifiers(day, displayMonth);
   const eventHandlers = useDayEventHandlers(day, activeModifiers);
   const selectedDays = useSelectedDays();
-  const isButton = Boolean(dayPicker.mode || dayPicker.onDayClick);
+  const isButton = Boolean(
+    dayPicker.onDayClick || dayPicker.mode !== 'default'
+  );
 
   // Focus the button if the day is focused according to the focus context
   useEffect(() => {

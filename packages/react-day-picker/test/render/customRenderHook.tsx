@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { renderHook } from '@testing-library/react-hooks';
+import { DayPickerProps } from 'DayPicker';
 
 import { FocusContext, FocusContextValue } from 'contexts/Focus';
 import { RootProvider } from 'contexts/RootProvider';
@@ -16,11 +17,6 @@ import {
   SelectSingleContext,
   SelectSingleContextValue
 } from 'contexts/SelectSingle';
-import { DayPickerProps } from 'types/DayPicker';
-import { DayPickerCustomProps } from 'types/DayPickerCustom';
-import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
-import { DayPickerRangeProps } from 'types/DayPickerRange';
-import { DayPickerSingleProps } from 'types/DayPickerSingle';
 
 export type CustomRenderHookContexts = {
   single?: SelectSingleContextValue;
@@ -37,12 +33,7 @@ const EmptyComponent = ({ children }: { children: React.ReactNode }) => (
 export function customRenderHook<TProps, TResult>(
   callback: (props?: TProps) => TResult,
   /** The props passed to DayPicker. */
-  dayPickerProps?:
-    | DayPickerProps
-    | DayPickerMultipleProps
-    | DayPickerSingleProps
-    | DayPickerCustomProps
-    | DayPickerRangeProps,
+  dayPickerProps?: DayPickerProps,
   /** Override the single contexts. */
   contexts?: CustomRenderHookContexts
 ) {

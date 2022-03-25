@@ -10,7 +10,7 @@ import { customRenderHook } from 'test/render/customRenderHook';
 import { freezeBeforeAll } from 'test/utils';
 
 import { isMatch } from 'contexts/Modifiers/utils/isMatch';
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerRangeProps } from 'types/DayPickerRange';
 import { ActiveModifiers } from 'types/Modifiers';
 
@@ -21,7 +21,7 @@ const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
 
 let result: RenderResult<SelectRangeContextValue>;
-function setup(dayPickerProps?: DayPickerProps) {
+function setup(dayPickerProps?: DayPickerBase) {
   const rendered = customRenderHook(useSelectRange, dayPickerProps);
   result = rendered.result;
 }
