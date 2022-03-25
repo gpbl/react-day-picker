@@ -3,6 +3,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addMonths, setMonth, setYear } from 'date-fns';
+import { DayPickerProps } from 'DayPicker';
 
 import {
   getMonthCaption,
@@ -18,7 +19,7 @@ import {
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
-import { CustomComponents, DayPickerProps } from 'types/DayPicker';
+import { CustomComponents } from 'types/DayPickerBase';
 
 import { Caption, CaptionProps } from './Caption';
 

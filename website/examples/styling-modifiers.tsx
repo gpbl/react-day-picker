@@ -19,7 +19,7 @@ const css = `
 `;
 
 export default function App() {
-  const [selectedDay, setSelectedDay] = useState<Date>();
+  const [selectedDay, setSelectedDay] = useState<Date[]>();
   return (
     <>
       <style>{css}</style>

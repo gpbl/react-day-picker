@@ -2,7 +2,7 @@ import React, { createContext, ReactNode } from 'react';
 
 import { isSameDay } from 'date-fns';
 
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 import {
   DayPickerMultipleProps,
   isDayPickerMultiple
@@ -37,7 +37,7 @@ export const SelectMultipleContext = createContext<
 >(undefined);
 
 export type SelectMultipleProviderProps = {
-  initialProps: DayPickerProps;
+  initialProps: DayPickerBase;
   children: ReactNode;
 };
 

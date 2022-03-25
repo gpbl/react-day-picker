@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { DayPicker } from 'react-day-picker';
 
 export default function App() {
@@ -13,7 +14,7 @@ export default function App() {
   return (
     <DayPicker
       mode="multiple"
-      required
+      min={1}
       selected={days}
       onSelect={setDays}
       footer={footer}

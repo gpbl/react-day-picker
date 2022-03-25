@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { DayClickEventHandler, DayPicker } from 'react-day-picker';
 
 export default function App() {
@@ -30,7 +31,6 @@ export default function App() {
 
   return (
     <DayPicker
-      mode="custom"
       onDayClick={handleDayClick}
       selected={selectedDays}
       footer={footer}

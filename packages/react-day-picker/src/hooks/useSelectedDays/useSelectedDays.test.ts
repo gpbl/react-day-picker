@@ -1,11 +1,11 @@
 import { RenderResult } from '@testing-library/react-hooks';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRenderHook } from 'test/render';
 
 import { SelectMultipleContextValue } from 'contexts/SelectMultiple';
 import { SelectRangeContextValue } from 'contexts/SelectRange';
 import { SelectSingleContextValue } from 'contexts/SelectSingle';
-import { DayPickerProps } from 'types/DayPicker';
 
 import { SelectedDays, useSelectedDays } from './useSelectedDays';
 

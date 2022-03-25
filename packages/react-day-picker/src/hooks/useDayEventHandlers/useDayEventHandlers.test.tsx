@@ -1,4 +1,5 @@
 import { RenderResult } from '@testing-library/react-hooks';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRenderHook } from 'test/render';
 
@@ -12,7 +13,6 @@ import {
   EventName,
   useDayEventHandlers
 } from 'hooks/useDayEventHandlers';
-import { DayPickerProps, DaySelectionMode } from 'types/DayPicker';
 import { ActiveModifiers } from 'types/Modifiers';
 
 const today = new Date(2010, 5, 23);
@@ -60,7 +60,6 @@ const mockedContexts = {
   single: singleContext,
   multiple: multipleContext,
   range: rangeContext,
-  custom: undefined,
   focus: focusContext
 };
 
@@ -112,19 +111,19 @@ describe.each(tests)('when calling "%s"', (eventName, dayEventName) => {
   });
 });
 
-describe.each<DaySelectionMode>(['single', 'multiple', 'range'])(
+describe.each<'single' | 'multiple' | 'range'>(['single', 'multiple', 'range'])(
   'when calling "onClick" in "%s" selection mode',
   (mode) => {
     const activeModifiers: ActiveModifiers = {};
-    const dayPickerProps = { mode };
+    const dayPickerProps = { mode, onDayClick: jest.fn() };
     const mouseEvent = {} as React.MouseEvent<HTMLButtonElement, MouseEvent>;
     const date = today;
     beforeEach(() => {
       setup(date, activeModifiers, dayPickerProps);
       renderResult.current.onClick?.(mouseEvent);
     });
-    test(`should have called "onDayClick" from the ${mode} selection context`, () => {
-      expect(mockedContexts[mode]?.onDayClick).toHaveBeenCalled();
+    test(`should have called "onDayClick" from the day picker props`, () => {
+      expect(dayPickerProps.onDayClick).toHaveBeenCalled();
     });
   }
 );

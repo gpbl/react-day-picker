@@ -36,7 +36,7 @@ function setup(props: DayPickerProps) {
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   describe('when pressing Tab', () => {
     beforeEach(() => {
-      setup({ dir });
+      setup({ mode: 'single', dir });
       pressTab();
     });
     test('should focus on the Previous Month button', () => {
@@ -96,7 +96,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   describe('when a day is selected', () => {
     const selected = tomorrow;
     beforeEach(() => {
-      setup({ dir, selected });
+      setup({ mode: 'single', dir, selected });
     });
     describe('when focusing the days grid', () => {
       beforeEach(() => focusDaysGrid());
@@ -126,7 +126,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     describe('when today falls into the last month', () => {
       const defaultMonth = addMonths(today, -numberOfMonths + 1);
       beforeEach(() => {
-        setup({ dir, defaultMonth, numberOfMonths });
+        setup({ mode: 'single', dir, defaultMonth, numberOfMonths });
       });
       describe('when focusing the days grid', () => {
         beforeEach(() => focusDaysGrid());
@@ -145,7 +145,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     const hidden = secondDayOfMonth;
     const selected = undefined;
     beforeEach(() => {
-      setup({ dir, disabled, hidden, selected });
+      setup({ mode: 'single', dir, disabled, hidden, selected });
     });
     describe('when focusing the days grid', () => {
       beforeEach(() => focusDaysGrid());

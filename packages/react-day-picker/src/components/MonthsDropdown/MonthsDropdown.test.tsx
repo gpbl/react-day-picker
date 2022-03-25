@@ -3,11 +3,10 @@ import React from 'react';
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { differenceInMonths } from 'date-fns';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
-
-import { DayPickerProps } from 'types/DayPicker';
 
 import { MonthsDropdown, MonthsDropdownProps } from './MonthsDropdown';
 
