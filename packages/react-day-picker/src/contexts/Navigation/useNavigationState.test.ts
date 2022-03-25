@@ -3,14 +3,14 @@ import { addMonths, startOfMonth } from 'date-fns';
 import { customRenderHook } from 'test/render/customRenderHook';
 import { freezeBeforeAll } from 'test/utils';
 
-import { DayPickerProps } from 'types/DayPicker';
+import { DayPickerBase } from 'types/DayPickerBase';
 
 import { useNavigationState } from './useNavigationState';
 
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
 
-function setup(dayPickerProps?: DayPickerProps) {
+function setup(dayPickerProps?: DayPickerBase) {
   const { result } = customRenderHook(
     () => useNavigationState(),
     dayPickerProps

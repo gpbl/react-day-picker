@@ -1,13 +1,12 @@
 import React from 'react';
 
 import userEvent from '@testing-library/user-event';
-import { DayPickerProps } from 'index';
+import { DayPickerProps } from 'DayPicker';
 
 import { getNextButton, getPrevButton } from 'test/po';
 import { customRender } from 'test/render';
 
-import { NavigationProps } from './';
-import { Navigation } from './Navigation';
+import { Navigation, NavigationProps } from './Navigation';
 
 let root: HTMLElement;
 

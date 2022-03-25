@@ -1,13 +1,14 @@
 import React from 'react';
 
 import { fireEvent, screen } from '@testing-library/react';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { Dropdown, DropdownProps } from 'components/Dropdown';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
-import { CustomComponents, DayPickerProps } from 'types/DayPicker';
+import { CustomComponents } from 'types/DayPickerBase';
 
 const today = new Date(2021, 8);
 

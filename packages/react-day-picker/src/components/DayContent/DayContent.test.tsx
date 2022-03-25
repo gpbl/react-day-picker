@@ -1,13 +1,13 @@
 import React from 'react';
 
 import es from 'date-fns/locale/es';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { DayContent, DayContentProps } from 'components/DayContent';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
-import { DayPickerProps } from 'types/DayPicker';
 
 const today = new Date(2021, 8);
 

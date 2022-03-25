@@ -58,12 +58,12 @@ export default function Example() {
           placeholder={format(new Date(), 'y-MM-dd')}
           value={inputValue}
           onChange={handleInputChange}
-          className="input-reset ba b--black-20 pa2 ma2"
+          className="input-reset pa2 ma2 bg-white black ba"
         />
         <button
           ref={buttonRef}
           type="button"
-          className="pa2"
+          className="pa2 bg-white button-reset ba"
           aria-label="Pick a date"
           onClick={handleButtonClick}
         >
