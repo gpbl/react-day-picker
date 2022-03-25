@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { DaySelectionMode } from 'types/DayPickerBase';
 import { DayPickerDefaultProps } from 'types/DayPickerDefault';
 import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
 import { DayPickerRangeProps } from 'types/DayPickerRange';
@@ -95,11 +96,12 @@ import { RootProvider } from './contexts/RootProvider';
  * ```
  */
 
-export type DayPickerProps =
+export type DayPickerProps = { mode?: DaySelectionMode } & (
   | DayPickerDefaultProps
   | DayPickerSingleProps
   | DayPickerMultipleProps
-  | DayPickerRangeProps;
+  | DayPickerRangeProps
+);
 
 export function DayPicker(props: DayPickerProps): JSX.Element {
   return (

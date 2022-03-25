@@ -46,7 +46,7 @@ function setup(props: DayPickerProps) {
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   beforeEach(() => {
-    setup({ dir });
+    setup({ mode: 'single', dir });
   });
 
   describe('when clicking the previous month button', () => {

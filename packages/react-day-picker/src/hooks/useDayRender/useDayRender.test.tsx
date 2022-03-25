@@ -2,6 +2,7 @@ import { createRef } from 'react';
 
 import { RenderResult } from '@testing-library/react-hooks';
 import { addDays, addMonths } from 'date-fns';
+import { DayPickerProps } from 'DayPicker';
 
 import { customRenderHook, CustomRenderHookContexts } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
@@ -9,7 +10,6 @@ import { freezeBeforeAll } from 'test/utils';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { FocusContextValue } from 'contexts/Focus';
 import { EventName } from 'hooks/useDayEventHandlers';
-import { DayPickerBase } from 'types/DayPickerBase';
 
 import { DayRender } from './';
 import { useDayRender } from './useDayRender';
@@ -40,7 +40,7 @@ const mockedFocusContext: FocusContextValue = {
 function setup(
   date: Date,
   displayMonth: Date,
-  dayPickerProps?: DayPickerBase,
+  dayPickerProps?: DayPickerProps,
   contexts?: CustomRenderHookContexts
 ) {
   const buttonRef = createRef<HTMLButtonElement>();
@@ -118,7 +118,7 @@ describe('when "onDayClick" is not passed in', () => {
   });
 });
 describe('when in selection mode', () => {
-  const dayPickerProps: DayPickerBase = { mode: 'single' };
+  const dayPickerProps: DayPickerProps = { mode: 'single' };
   beforeEach(() => {
     setup(today, today, dayPickerProps);
   });
@@ -128,7 +128,7 @@ describe('when in selection mode', () => {
 });
 
 describe('when "onDayClick" is passed in', () => {
-  const dayPickerProps: DayPickerBase = { onDayClick: jest.fn() };
+  const dayPickerProps: DayPickerProps = { onDayClick: jest.fn() };
   beforeEach(() => {
     setup(today, today, dayPickerProps);
   });
@@ -138,7 +138,7 @@ describe('when "onDayClick" is passed in', () => {
 });
 
 describe('when showing the outside days', () => {
-  const dayPickerProps: DayPickerBase = { showOutsideDays: false };
+  const dayPickerProps: DayPickerProps = { showOutsideDays: false };
   describe('when the day is outside', () => {
     const day = today;
     const displayMonth = addMonths(today, 1);
@@ -153,7 +153,7 @@ describe('when showing the outside days', () => {
 
 describe('when the day has the "hidden" modifier active', () => {
   const date = today;
-  const dayPickerProps: DayPickerBase = {
+  const dayPickerProps: DayPickerProps = {
     modifiers: { hidden: date }
   };
   beforeEach(() => {

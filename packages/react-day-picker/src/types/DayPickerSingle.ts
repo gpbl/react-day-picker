@@ -1,5 +1,7 @@
 import { DayPickerProps } from 'DayPicker';
 
+import { DayPickerContextValue } from 'contexts/DayPicker';
+
 import { DayPickerBase } from './DayPickerBase';
 import { SelectSingleEventHandler } from './EventHandlers';
 
@@ -16,7 +18,7 @@ export interface DayPickerSingleProps extends DayPickerBase {
 
 /** Returns true when the props are of type [[DayPickerSingle]]. */
 export function isDayPickerSingle(
-  props: DayPickerProps
+  props: DayPickerProps | DayPickerContextValue
 ): props is DayPickerSingleProps {
   return props.mode === 'single';
 }

@@ -1,5 +1,7 @@
 import { DayPickerProps } from 'DayPicker';
 
+import { DayPickerContextValue } from 'contexts/DayPicker';
+
 import { DayPickerBase } from './DayPickerBase';
 import { SelectRangeEventHandler } from './EventHandlers';
 import { DateRange } from './Matchers';
@@ -19,7 +21,7 @@ export interface DayPickerRangeProps extends DayPickerBase {
 
 /** Returns true when the props are of type [[DayPickerRange]]. */
 export function isDayPickerRange(
-  props: DayPickerProps
+  props: DayPickerProps | DayPickerContextValue
 ): props is DayPickerRangeProps {
   return props.mode === 'range';
 }

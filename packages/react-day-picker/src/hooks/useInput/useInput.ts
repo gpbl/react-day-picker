@@ -5,7 +5,7 @@ import enUS from 'date-fns/locale/en-US';
 
 import { parseFromToProps } from 'contexts/DayPicker/utils';
 import { DayPickerBase } from 'types/DayPickerBase';
-import { DayPickerCustomProps } from 'types/DayPickerCustom';
+import { DayPickerDefaultProps } from 'types/DayPickerDefault';
 import {
   DayClickEventHandler,
   MonthChangeEventHandler
@@ -21,7 +21,7 @@ export type InputHTMLAttributes = Pick<
 
 /** The props to attach to the DayPicker component when using [[useInput]]. */
 export type InputDayPickerProps = Pick<
-  DayPickerCustomProps,
+  DayPickerDefaultProps,
   | 'fromDate'
   | 'toDate'
   | 'locale'

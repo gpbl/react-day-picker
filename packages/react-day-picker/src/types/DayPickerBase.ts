@@ -35,12 +35,7 @@ import { ClassNames, StyledComponent, Styles } from './Styles';
  * - `range`: use DayPicker to select a range of days
  * - `custom`: customize what is selected by using `onDayClick`
  */
-export type DaySelectionMode =
-  | 'custom'
-  | 'single'
-  | 'multiple'
-  | 'range'
-  | 'default';
+export type DaySelectionMode = 'single' | 'multiple' | 'range' | 'default';
 
 /**
  * The props for the [[DayPicker]] component.

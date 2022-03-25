@@ -12,6 +12,9 @@ import {
   useDayEventHandlers
 } from 'hooks/useDayEventHandlers';
 import { SelectedDays, useSelectedDays } from 'hooks/useSelectedDays';
+import { isDayPickerMultiple } from 'types/DayPickerMultiple';
+import { isDayPickerRange } from 'types/DayPickerRange';
+import { isDayPickerSingle } from 'types/DayPickerSingle';
 import { ActiveModifiers } from 'types/Modifiers';
 import { StyledComponent } from 'types/Styles';
 
@@ -63,7 +66,9 @@ export function useDayRender(
   const activeModifiers = useActiveModifiers(day, displayMonth);
   const eventHandlers = useDayEventHandlers(day, activeModifiers);
   const selectedDays = useSelectedDays();
-  const isButton = Boolean(dayPicker.mode || dayPicker.onDayClick);
+  const isButton = Boolean(
+    dayPicker.onDayClick || dayPicker.mode !== 'default'
+  );
 
   // Focus the button if the day is focused according to the focus context
   useEffect(() => {

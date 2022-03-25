@@ -27,7 +27,7 @@ export * from 'contexts/SelectRange';
 export * from 'contexts/SelectSingle';
 
 export * from 'types/DayPickerBase';
-export * from 'types/DayPickerCustom';
+export * from 'types/DayPickerDefault';
 export * from 'types/DayPickerMultiple';
 export * from 'types/DayPickerRange';
 export * from 'types/DayPickerSingle';
