@@ -8,7 +8,7 @@ export default function Example() {
 
   let footer = <p>Please pick a day.</p>;
   if (selected) {
-    footer = <p>You picked{format(selected, 'PP')}.</p>;
+    footer = <p>You picked {format(selected, 'PP')}.</p>;
   }
   return (
     <DayPicker
