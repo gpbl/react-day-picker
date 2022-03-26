@@ -20,7 +20,8 @@ const sidebars = {
         'guides/formatters',
         'guides/input-fields',
         'guides/custom-components',
-        'guides/date-picker-dialog'
+        'guides/date-picker-dialog',
+        'guides/upgrading'
       ]
     }
   ],
