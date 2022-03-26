@@ -3,7 +3,7 @@ name: "CI: publish"
 on:
   push:
     tags:
-      - v8.*
+      - v*
 
 jobs:
   test-build-publish:
@@ -50,7 +50,15 @@ jobs:
         run: yarn workspace website test
 
       - name: Publish on npm
-        run: npm publish --tag next
+        run: npm publish
         working-directory: ./packages/react-day-picker
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
