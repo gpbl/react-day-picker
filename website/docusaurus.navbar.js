@@ -30,7 +30,7 @@ const navbar = {
       dropdownItemsBefore: [{ to: 'changelog', label: 'Changelog' }],
       dropdownItemsAfter: [
         {
-          href: '/v7',
+          href: 'https://react-day-picker-v7.netlify.app',
           label: 'v7 (older version)'
         }
       ]
