@@ -7,10 +7,10 @@ hide_table_of_contents: true
 1. Add `react-day-picker` and [date-fns](https://date-fns.org) to your dependencies:
 
 ```bash
-$ npm install react-day-picker@next date-fns
+$ npm install react-day-picker date-fns
 
 # when using yarn:
-$ yarn add react-day-picker@next date-fns
+$ yarn add react-day-picker date-fns
 ```
 
 2. When importing, include the DayPicker CSS in your component:
