@@ -66,7 +66,7 @@ export function CustomSandPack(props: {
   };
 
   const dependencies = {
-    'react-day-picker': 'next',
+    'react-day-picker': pkg.version,
     ...pkg.peerDependencies,
     ...props.dependencies
   };
