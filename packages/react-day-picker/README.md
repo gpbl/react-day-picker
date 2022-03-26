@@ -18,11 +18,11 @@ $ npm install react-day-picker@next
 - 📄 easy integration with input elements
 - 🧘‍♀️ using [date-fns](http://date-fns.org) as date library
 
-### Development version
-
-The [**master branch**](https://github.com/gpbl/react-day-picker/tree/master) is for the version 8, which is currently in development. For the stable version see the [**v7 branch**](https://github.com/gpbl/react-day-picker/tree/v7).
-
 ## Documentation
 
-- [v7 website (current version)](http://react-day-picker.js.org)
-- [v8 website (in development)](http://react-day-picker-next.netlify.app)
+- [v7 website (stable version)](https://react-day-picker-v7.netlify.app)
+- [v8 website (in development)](http://react-day-picker.js.org)
+
+The [**master branch**](https://github.com/gpbl/react-day-picker/tree/master) is
+for version 8, which is currently in development. For the stable version see the
+[**v7 branch**](https://github.com/gpbl/react-day-picker/tree/v7).
