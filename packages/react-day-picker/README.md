@@ -31,9 +31,6 @@ $ yarn add react-day-picker date-fns    # using yarn
 
 ## Documentation
 
-- [v7 website (stable version)](https://react-day-picker-v7.netlify.app)
-- [v8 website (in development)](http://react-day-picker.js.org)
+- See ➡️ **[react-day-picker.js.org](http://react-day-picker.js.org)** for guides, examples and API reference.
 
-The [**master branch**](https://github.com/gpbl/react-day-picker/tree/master) is
-for version 8, which is currently in development. For the stable version see the
-[**v7 branch**](https://github.com/gpbl/react-day-picker/tree/v7).
+<small>Looking for v7 docs? Go to <a href="https://react-day-picker-v7.netlify.app" target="_blank">react-day-picker-v7.netlify.app</a>.</small>
