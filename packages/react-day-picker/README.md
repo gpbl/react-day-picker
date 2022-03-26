@@ -8,15 +8,15 @@ $ npm install react-day-picker@next
 
 ## Main features
 
-- ☀️ select days, ranges or whatever
-- 🗓 create multiple calendars
-- ♿️ complete [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) support
-- ➡️ keyboard navigation
-- 🌎 localizable in any language
-- 🎨 easy to style and customize
-- 🤖 native Typescript support
-- 📄 easy integration with input elements
+- ☀️ Select days, ranges or whatever
+- 🌎 Localizable into any language
+- ➡️ Keyboard navigation
+- ♿️ [WAII-ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) support
+- 🤖 Native TypeScript support
 - 🧘‍♀️ using [date-fns](http://date-fns.org) as date library
+- 🗓 Create multiple calendars
+- 🎨 Easy to style and customize
+- 📄 Native integration with input elements
 
 ## Documentation
 

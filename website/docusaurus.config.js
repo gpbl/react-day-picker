@@ -38,6 +38,14 @@ const config = {
     require.resolve('@codesandbox/sandpack-react/dist/index.css')
   ],
   themeConfig: {
+    announcementBar: {
+      id: '1',
+      content:
+        '👋📆 This documentation is for <b>DayPicker v8</b>. For the previous version, see <a href="https://react-day-picker-v7.netlify.app">react-day-picker-v7.netlify.app</a>.',
+      // backgroundColor: '#fafbfc',
+      // textColor: '#091E42',
+      isCloseable: true
+    },
     hideableSidebar: false,
     image: 'images/favicon.png',
     navbar: require('./docusaurus.navbar.js'),

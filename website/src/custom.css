@@ -48,7 +48,7 @@ body {
 }
 
 /* #region: override general styles */
-
+/* 
 table {
   margin: 0;
 }
@@ -57,7 +57,7 @@ table td,
 table tr {
   border: 0;
   background-color: transparent;
-}
+} */
 
 .rdp table tr:nth-child(2n) {
   background: none;
@@ -128,19 +128,9 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
     color: var(--ifm-color-emphasis-500);
     content: 'On this page';
     text-transform: uppercase;
-    /* color: currentColor; */
     font-weight: bold;
     padding-bottom: 0.5em;
   }
-}
-
-.table-of-contents {
-  --ifm-toc-border-color: var(--ifm-color-emphasis-200);
-  padding-left: 1rem;
-}
-
-.table-of-contents code {
-  all: inherit;
 }
 
 .table-of-contents li {
@@ -287,7 +277,7 @@ html[data-theme='dark'] .dialog-sheet {
   font-weight: 700;
 }
 
-.markdown > table {
+/* .markdown > table {
   width: 100%;
   margin-bottom: 2em;
 }
@@ -343,7 +333,7 @@ html[data-theme='dark'] .dialog-sheet {
 
 [data-theme='dark'] .markdown form input {
   background-color: #010101;
-}
+} */
 
 .markdown hr {
   height: 1px;
@@ -420,11 +410,16 @@ html[data-theme='dark'] .dialog-sheet {
   font-family: var(--ifm-font-family-monospace);
   background-color: transparent;
 }
-
+/* 
+#parameters + table thead {
+  background-color: transparent;
+  color: currentColor;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+}
 #parameters + table td,
 #parameters + table th {
   padding-left: 0;
-  border: 1px solid var(--ifm-toc-border-color);
-}
+  border: 1px solid var(--ifm-color-emphasis-100);
+} */
 
 /* #endregion */
