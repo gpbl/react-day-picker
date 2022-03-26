@@ -5,7 +5,7 @@ const sidebars = {
     'index',
     'start',
     {
-      Guides: [
+      'DayPicker Basics': [
         'basics/navigation',
         'basics/customization',
         'basics/selecting-days',
@@ -16,11 +16,12 @@ const sidebars = {
       ]
     },
     {
-      'Advanced Guides': [
+      Guides: [
         'guides/formatters',
         'guides/input-fields',
         'guides/custom-components',
-        'guides/date-picker-dialog'
+        'guides/date-picker-dialog',
+        'guides/utc'
       ]
     }
   ],

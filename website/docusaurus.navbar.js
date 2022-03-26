@@ -23,7 +23,18 @@ const navbar = {
       to: 'development',
       label: 'Development'
     },
-    { to: 'changelog', label: `v${pkg.version}`, position: 'right' },
+    {
+      type: 'docsVersionDropdown',
+      position: 'right',
+      dropdownActiveClassDisabled: true,
+      dropdownItemsBefore: [{ to: 'changelog', label: 'Changelog' }],
+      dropdownItemsAfter: [
+        {
+          href: '/v7',
+          label: 'v7 (older version)'
+        }
+      ]
+    },
     {
       href: 'https://github.com/gpbl/react-day-picker',
       position: 'right',

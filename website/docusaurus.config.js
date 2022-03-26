@@ -11,7 +11,14 @@ const presetClassicConfig = {
   docs: {
     sidebarPath: require.resolve('./docusaurus.sidebars.js'),
     routeBasePath: '/',
-    breadcrumbs: false
+    breadcrumbs: false,
+    lastVersion: 'current',
+    versions: {
+      current: {
+        label: 'v8.0.0-rc.0',
+        path: '/'
+      }
+    }
   },
   gtag: { trackingID: 'UA-68185118-1' },
   theme: { customCss: require.resolve('./src/custom.css') }
