@@ -3,8 +3,19 @@
 DayPicker is a date picker component for [React](https://reactjs.org).
 
 ```bash
-$ npm install react-day-picker@next
+$ npm install react-day-picker date-fns # using npm
+$ yarn add react-day-picker date-fns    # using yarn
 ```
+
+<a href="https://www.npmjs.com/package/react-day-picker">
+  <img src="https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square" alt="npm version"/>
+</a> <a href="http://npm-stat.com/charts.html?package=react-day-picker">
+  <img src="https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square" alt="npm downloads"/>
+</a> <a href="https://github.com/gpbl/react-day-picker/stargazers">
+<img src="https://img.shields.io/github/stars/gpbl/react-day-picker?style=flat-square" alt="stars"/>
+</a> <a href="https://github.com/sponsors/gpbl">
+  <img src="https://img.shields.io/github/sponsors/gpbl?style=flat-square" alt="sponsors"/>
+</a>
 
 ## Main features
 
