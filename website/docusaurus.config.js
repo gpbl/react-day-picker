@@ -15,7 +15,7 @@ const presetClassicConfig = {
     lastVersion: 'current',
     versions: {
       current: {
-        label: 'v8.0.0-rc.0',
+        label: 'v8.0.0',
         path: '/'
       }
     }
