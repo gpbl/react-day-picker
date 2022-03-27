@@ -11,10 +11,8 @@ const date = new Date(2010, 5, 23);
 
 let renderResult: RenderResult<ActiveModifiers>;
 function setup(day: Date, displayMonth?: Date) {
-  const hookResult = customRenderHook(() =>
-    useActiveModifiers(day, displayMonth)
-  );
-  renderResult = hookResult.result;
+  const view = customRenderHook(() => useActiveModifiers(day, displayMonth));
+  renderResult = view.result;
 }
 
 describe('when in the same month', () => {

@@ -14,7 +14,7 @@ beforeEach(() => {
 });
 
 describe('when displaying November 2021', () => {
-  test('should display the 31st October ', () => {
+  test('should display the 31st October', () => {
     const firstDayElement = container
       .getElementsByTagName('tr')[1]
       .getElementsByTagName('td')[0];

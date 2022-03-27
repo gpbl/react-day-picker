@@ -13,18 +13,18 @@ import { Head } from './Head';
 import { getWeekdays } from './utils/getWeekdays';
 
 let container: HTMLElement;
-let renderResult: RenderResult;
+let view: RenderResult;
 
 let thElements: HTMLTableCellElement[];
 
 function setup(dayPickerProps: DayPickerProps = {}) {
-  renderResult = customRender(
+  view = customRender(
     <table>
       <Head />
     </table>,
     dayPickerProps
   );
-  container = renderResult.container.firstChild as HTMLTableCellElement;
+  container = view.container.firstChild as HTMLTableCellElement;
   thElements = Array.from(container.getElementsByTagName('th'));
 }
 
@@ -98,11 +98,6 @@ describe('when showing the week numbers', () => {
   });
   test('the first head element should be empty', () => {
     expect(thElements[0]).toHaveTextContent('');
-  });
-  test('should render the head elements with the "head_cell" class name', () => {
-    thElements.forEach((el) => {
-      expect(el).toHaveClass(dayPickerProps.classNames.head_cell);
-    });
   });
   test('should render the head elements with the "head_cell" class name', () => {
     thElements.forEach((el) => {

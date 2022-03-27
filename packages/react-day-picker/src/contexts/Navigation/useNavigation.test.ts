@@ -16,8 +16,8 @@ freezeBeforeAll(today);
 let result: RenderResult<NavigationContextValue>;
 
 function setup(dayPickerProps?: DayPickerBase) {
-  const renderResult = customRenderHook(() => useNavigation(), dayPickerProps);
-  result = renderResult.result;
+  const view = customRenderHook(() => useNavigation(), dayPickerProps);
+  result = view.result;
   return result;
 }
 

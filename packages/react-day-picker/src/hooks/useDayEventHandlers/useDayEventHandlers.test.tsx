@@ -69,12 +69,12 @@ function setup(
   activeModifiers: ActiveModifiers,
   dayPickerProps?: DayPickerProps
 ) {
-  const hookResult = customRenderHook(
+  const view = customRenderHook(
     () => useDayEventHandlers(date, activeModifiers),
     dayPickerProps,
     mockedContexts
   );
-  renderResult = hookResult.result;
+  renderResult = view.result;
 }
 
 const tests: [EventName, DayEventName][] = [

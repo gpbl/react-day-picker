@@ -7,10 +7,10 @@ import { IconLeft } from './IconLeft';
 let root: HTMLElement;
 
 beforeEach(() => {
-  const renderResult = customRender(
+  const view = customRender(
     <IconLeft className="foo" style={{ color: 'red' }} />
   );
-  root = renderResult.container.firstChild as HTMLElement;
+  root = view.container.firstChild as HTMLElement;
 });
 test('should add the class name', () => {
   expect(root).toHaveClass('foo');

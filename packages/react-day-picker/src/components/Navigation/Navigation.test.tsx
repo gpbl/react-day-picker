@@ -11,8 +11,8 @@ import { Navigation, NavigationProps } from './Navigation';
 let root: HTMLElement;
 
 function setup(props: NavigationProps, dayPickerProps?: DayPickerProps) {
-  const renderResult = customRender(<Navigation {...props} />, dayPickerProps);
-  root = renderResult.container.firstChild as HTMLElement;
+  const view = customRender(<Navigation {...props} />, dayPickerProps);
+  root = view.container.firstChild as HTMLElement;
 }
 
 const props: NavigationProps = {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { screen } from '@testing-library/dom';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { differenceInMonths } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
@@ -19,11 +19,8 @@ let options: HTMLCollectionOf<HTMLOptionElement> | undefined;
 let select: HTMLSelectElement | null;
 
 function setup(props: MonthsDropdownProps, dayPickerProps?: DayPickerProps) {
-  const renderResult = customRender(
-    <MonthsDropdown {...props} />,
-    dayPickerProps
-  );
-  root = renderResult.container.firstChild as HTMLDivElement;
+  const view = customRender(<MonthsDropdown {...props} />, dayPickerProps);
+  root = view.container.firstChild as HTMLDivElement;
   select = screen.queryByRole('combobox', { name: 'Month:' });
   options = select?.getElementsByTagName('option');
 }
@@ -94,7 +91,7 @@ describe('when "fromDate" and "toDate" are not in the same year', () => {
     beforeEach(() => {
       if (select) userEvent.selectOptions(select, 'February');
     });
-    test('should fire the "onChange" event handler ', () => {
+    test('should fire the "onChange" event handler', () => {
       const expectedMonth = new Date(2015, 1, 1);
       expect(props.onChange).toHaveBeenCalledWith(expectedMonth);
     });

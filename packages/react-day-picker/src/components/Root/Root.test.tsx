@@ -18,11 +18,11 @@ const today = new Date(2020, 10, 4);
 freezeBeforeAll(today);
 
 let container: HTMLElement;
-let renderResult: RenderResult;
+let view: RenderResult;
 
 function setup(dayPickerProps: DayPickerProps = {}) {
-  renderResult = customRender(<Root />, dayPickerProps);
-  container = renderResult.container;
+  view = customRender(<Root />, dayPickerProps);
+  container = view.container;
 }
 
 describe('when the number of months is 1', () => {

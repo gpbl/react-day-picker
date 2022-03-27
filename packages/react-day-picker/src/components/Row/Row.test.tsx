@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { screen } from '@testing-library/dom';
+import { screen } from '@testing-library/react';
 import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render/customRender';
