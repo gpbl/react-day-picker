@@ -27,7 +27,7 @@ const presetClassicConfig = {
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'React DayPicker',
-  tagline: 'Customizable date picker component for React',
+  tagline: 'Date Picker Component for React',
   url: 'https://react-day-picker.js.org',
   baseUrl: '/',
   favicon: 'images/favicon.png',
@@ -46,6 +46,18 @@ const config = {
       isCloseable: true
     },
     metadata: [
+      { name: 'twitter:site', content: '@gpblv' },
+      { name: 'twitter:title', content: 'React DayPicker' },
+      {
+        name: 'twitter:description',
+        content:
+          'DayPicker is a date picker component for React, written in TypeScript.'
+      },
+      {
+        name: 'og:description',
+        content:
+          'DayPicker is a date picker component for React, written in TypeScript.'
+      },
       {
         name: 'description',
         content:
@@ -58,7 +70,7 @@ const config = {
       }
     ],
     hideableSidebar: false,
-    image: 'images/soc.png',
+    image: 'images/og-image.png',
     navbar: require('./docusaurus.navbar.js'),
     editUrl: 'https://github.com/gpbl/react-day-picker/edit/master/website/',
     prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme }

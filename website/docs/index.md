@@ -1,5 +1,5 @@
 ---
-title: React DayPicker - date picker component
+title: Date Picker Component
 hide_title: true
 sidebar_label: Welcome
 slug: /
