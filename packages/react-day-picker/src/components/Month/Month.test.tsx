@@ -35,8 +35,8 @@ type Test = {
 };
 
 function setup(props: MonthProps, dayPickerProps?: DayPickerProps) {
-  const renderResult = customRender(<Month {...props} />, dayPickerProps);
-  root = renderResult.container.firstChild as HTMLDivElement;
+  const view = customRender(<Month {...props} />, dayPickerProps);
+  root = view.container.firstChild as HTMLDivElement;
 }
 describe('when rendered', () => {
   beforeEach(() => {

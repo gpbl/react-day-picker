@@ -44,12 +44,12 @@ function setup(
   contexts?: CustomRenderHookContexts
 ) {
   const buttonRef = createRef<HTMLButtonElement>();
-  const renderResult = customRenderHook(
+  const view = customRenderHook(
     () => useDayRender(date, displayMonth, buttonRef),
     dayPickerProps,
     contexts
   );
-  result = renderResult.result;
+  result = view.result;
 }
 
 describe('when rendering the today’s date', () => {

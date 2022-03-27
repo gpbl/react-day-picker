@@ -33,12 +33,12 @@ const selectionContext = { single, multiple, range };
 
 let renderResult: RenderResult<SelectedDays>;
 function setup(dayPickerProps: DayPickerProps) {
-  const hookResult = customRenderHook(
+  const view = customRenderHook(
     useSelectedDays,
     dayPickerProps,
     selectionContext
   );
-  renderResult = hookResult.result;
+  renderResult = view.result;
 }
 
 describe('when in single selection mode', () => {

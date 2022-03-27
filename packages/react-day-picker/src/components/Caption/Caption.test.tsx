@@ -70,11 +70,8 @@ describe('when the caption layout is "dropdown"', () => {
       classNames: { caption_dropdowns: 'foo_dropdowns' },
       styles: { caption_dropdowns: { color: 'red' } }
     };
-    const result = customRender(
-      <Caption displayMonth={today} />,
-      dayPickerProps
-    );
-    container = result.container;
+    const view = customRender(<Caption displayMonth={today} />, dayPickerProps);
+    container = view.container;
   });
   test('should use the `caption_dropdowns` class name', () => {
     expect(container.firstChild?.firstChild).toHaveClass('foo_dropdowns');

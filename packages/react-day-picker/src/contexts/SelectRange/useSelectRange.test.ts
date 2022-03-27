@@ -22,8 +22,8 @@ freezeBeforeAll(today);
 
 let result: RenderResult<SelectRangeContextValue>;
 function setup(dayPickerProps?: DayPickerBase) {
-  const rendered = customRenderHook(useSelectRange, dayPickerProps);
-  result = rendered.result;
+  const view = customRenderHook(useSelectRange, dayPickerProps);
+  result = view.result;
 }
 
 describe('when is not a multiple select DayPicker', () => {

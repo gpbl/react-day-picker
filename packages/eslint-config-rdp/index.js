@@ -6,8 +6,9 @@ const config = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'jest'],
   extends: [
+    'plugin:jest/recommended',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
@@ -28,12 +29,15 @@ const config = {
   },
   overrides: [
     {
-      files: ['**/*.test.ts'],
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
       env: {
         jest: true
       },
-      plugins: ['jest'],
-      extends: ['plugin:jest/recommended']
+      extends: ['plugin:jest/recommended', 'plugin:testing-library/react'],
+      rules: {
+        'testing-library/no-render-in-setup': 'off',
+        'testing-library/no-node-access': 'off'
+      }
     }
   ]
 };

@@ -14,8 +14,8 @@ const today = new Date(2021, 8);
 freezeBeforeAll(today);
 let container: HTMLElement;
 function setup(props: DayContentProps, dayPickerProps?: DayPickerProps) {
-  const result = customRender(<DayContent {...props} />, dayPickerProps);
-  container = result.container;
+  const view = customRender(<DayContent {...props} />, dayPickerProps);
+  container = view.container;
 }
 
 const date = today;
