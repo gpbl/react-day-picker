@@ -43,12 +43,22 @@ const config = {
       id: '1',
       content:
         '👋📆 This documentation is for <b>DayPicker v8</b>. For the previous version, see <a href="https://react-day-picker-v7.netlify.app">react-day-picker-v7.netlify.app</a>.',
-      // backgroundColor: '#fafbfc',
-      // textColor: '#091E42',
       isCloseable: true
     },
+    metadata: [
+      {
+        name: 'description',
+        content:
+          'DayPicker is a date picker component for React, written in TypeScript.'
+      },
+      {
+        name: 'keywords',
+        content:
+          'date picker, react component, calendar component, react datepicker, daypicker, react day picker, date-fns date picker, typescript date picker'
+      }
+    ],
     hideableSidebar: false,
-    image: 'images/favicon.png',
+    image: 'images/soc.png',
     navbar: require('./docusaurus.navbar.js'),
     editUrl: 'https://github.com/gpbl/react-day-picker/edit/master/website/',
     prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme }

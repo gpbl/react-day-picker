@@ -1,6 +1,7 @@
 ---
-title: README
+title: React DayPicker - date picker component
 hide_title: true
+sidebar_label: Welcome
 slug: /
 hide_table_of_contents: true
 ---
