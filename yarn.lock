@@ -13223,7 +13223,7 @@ __metadata:
     typescript: ~4.5.5
   peerDependencies:
     date-fns: ^2.28.0
-    react: ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
