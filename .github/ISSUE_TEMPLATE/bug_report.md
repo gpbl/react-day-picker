@@ -1,17 +1,19 @@
 ---
-name: Bug report
-about: Create a report to help us improve DayPicker
-title: ''
+name: 🐛 Bug report
+about: Create a reproducible bug report or a regression
+title: 'Bug: '
 labels: 'Type: Bug'
 assignees: ''
-
 ---
+
+DayPicker version:
+React version:
 
 ### Bug description
 
 A clear and concise description of what the bug is.
 
-### To reproduce 
+### To reproduce
 
 Code sandbox: https://codesandbox.io/s/react-day-picker-8-vl4ry
 
