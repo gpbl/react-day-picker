@@ -73,7 +73,14 @@ const config = {
     image: 'images/og-image.png',
     navbar: require('./docusaurus.navbar.js'),
     editUrl: 'https://github.com/gpbl/react-day-picker/edit/master/website/',
-    prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme }
+    prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme },
+    algolia: {
+      appId: 'N44150BS2A',
+      apiKey: '42c559dd71da40a168be6f6d81d2bbbc',
+      indexName: 'react-day-picker-js',
+      contextualSearch: true,
+      searchPagePath: 'search'
+    }
   },
   presets: [['@docusaurus/preset-classic', presetClassicConfig]],
   plugins: [['docusaurus-plugin-typedoc', typedocConfig]]
