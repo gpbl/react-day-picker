@@ -1,5 +1,9 @@
 # Changelog
 
+### v8.0.1
+
+- added React 18 to the peerDependencies
+
 ## v8.0
 
 Introduce mayor breaking changes and is mostly incompatible with v7. Head over the [redesigned website](https://react-day-picker.js.org) for more details.

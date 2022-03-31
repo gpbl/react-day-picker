@@ -1,11 +1,12 @@
-// @ts-check */
+// @ts-check
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const pkg = require('react-day-picker/package.json');
+
 const typedocConfig = require('./docusaurus.typedoc');
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl');
-
 /** @type {import('@docusaurus/preset-classic').Options} */
 const presetClassicConfig = {
   docs: {
@@ -15,7 +16,7 @@ const presetClassicConfig = {
     lastVersion: 'current',
     versions: {
       current: {
-        label: 'v8.0.0',
+        label: `v${pkg.version}`,
         path: '/'
       }
     }
