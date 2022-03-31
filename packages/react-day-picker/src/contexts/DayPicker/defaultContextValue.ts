@@ -20,6 +20,7 @@ export function getDefaultContextValue(): DayPickerContextValue {
   const numberOfMonths = 1;
   const styles = {};
   const today = new Date();
+  const weekStartsOn = 0; // Sunday
 
   return {
     captionLayout,
@@ -32,6 +33,7 @@ export function getDefaultContextValue(): DayPickerContextValue {
     numberOfMonths,
     styles,
     today,
-    mode: 'default'
+    mode: 'default',
+    weekStartsOn
   };
 }
