@@ -144,7 +144,8 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
       ...initialProps.styles
     },
     toDate,
-    today: initialProps.today ?? defaults.today
+    today: initialProps.today ?? defaults.today,
+    weekStartsOn: initialProps.weekStartsOn
   };
 
   return (
