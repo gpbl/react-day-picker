@@ -6,16 +6,13 @@ labels: 'Type: Bug'
 assignees: ''
 ---
 
-DayPicker version:
-React version:
-
 ### Bug description
 
-A clear and concise description of what the bug is.
+Please write a clear and concise description of what the bug is.
 
 ### To reproduce
 
-Code sandbox: https://codesandbox.io/s/react-day-picker-8-vl4ry
+Fork this CodeSandbox: https://codesandbox.io/s/react-day-picker-8-vl4ry with the code to reproduce the issue.
 
 #### Steps
 
