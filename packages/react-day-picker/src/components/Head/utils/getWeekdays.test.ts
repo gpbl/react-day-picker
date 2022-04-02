@@ -1,3 +1,5 @@
+import es from 'date-fns/locale/es';
+
 import { freezeBeforeAll } from 'test/utils';
 
 import { getWeekdays } from './getWeekdays';
@@ -20,3 +22,15 @@ describe('when rendered without a locale', () => {
     expect(result[0]).toEqual(prevSunday);
   });
 });
+
+describe.each<0 | 1 | 2 | 3 | 4 | 5 | 6>([0, 1, 2, 3, 4, 5, 6])(
+  'when week start on %s',
+  (weekStartsOn) => {
+    beforeEach(() => {
+      result = getWeekdays(es, weekStartsOn);
+    });
+    test('the first date should be weekStartsOn', () => {
+      expect(result[0].getDay()).toBe(weekStartsOn);
+    });
+  }
+);
