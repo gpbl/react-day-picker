@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import { getMonthCaption, getMonthGrid } from 'react-day-picker/test/po';
+import { getMonthGrid } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/spanish-week-starts-on';
