@@ -6,6 +6,7 @@ import { addDays, Locale, startOfWeek } from 'date-fns';
  */
 export function getWeekdays(
   locale?: Locale,
+  /** The index of the first day of the week (0 - Sunday) */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
 ): Date[] {
   const start = startOfWeek(new Date(), { locale, weekStartsOn });

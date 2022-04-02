@@ -217,7 +217,7 @@ export interface DayPickerBase {
   formatters?: Partial<Formatters>;
 
   /**
-   * The first day of the week. Defaults to `0` (Sunday).
+   * The index of the first day of the week (0 - Sunday)
    */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
 
