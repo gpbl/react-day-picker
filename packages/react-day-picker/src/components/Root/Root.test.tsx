@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RenderResult, screen } from '@testing-library/react';
+import { RenderResult } from '@testing-library/react';
 import { addDays } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
@@ -119,33 +119,5 @@ describe('when "initialFocus" is set', () => {
     test('should focus the selected day', () => {
       expect(getDayButton(selected)).toHaveFocus();
     });
-  });
-});
-
-describe('when using weekStartsOn prop', () => {
-  test('should start a week from Monday', () => {
-    const props: DayPickerProps = { weekStartsOn: 1 };
-
-    setup(props);
-
-    const firstDayOfTheWeek = screen
-      .getByRole('grid')
-      .getElementsByTagName('span')[1].textContent;
-
-    const expectedDay = 'Monday';
-    expect(firstDayOfTheWeek).toEqual(expectedDay);
-  });
-
-  test('should start a week from Sunday by default', () => {
-    const props: DayPickerProps = {};
-
-    setup(props);
-
-    const firstDayOfTheWeek = screen
-      .getByRole('grid')
-      .getElementsByTagName('span')[1].textContent;
-
-    const expectedDay = 'Sunday';
-    expect(firstDayOfTheWeek).toEqual(expectedDay);
   });
 });
