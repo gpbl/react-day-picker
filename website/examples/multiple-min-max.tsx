@@ -1,9 +1,9 @@
 import React from 'react';
+
 import { DayPicker } from 'react-day-picker';
 
 export default function App() {
-  // TODO: remove the `undefined` type (see #1312)
-  const [days, setDays] = React.useState<Date[] | undefined>();
+  const [days, setDays] = React.useState<Date[]>();
 
   const footer =
     days && days.length > 0
