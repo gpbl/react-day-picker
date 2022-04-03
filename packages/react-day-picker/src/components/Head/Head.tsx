@@ -13,11 +13,12 @@ export function Head(): JSX.Element {
     styles,
     showWeekNumber,
     locale,
+    weekStartsOn,
     formatters: { formatWeekdayName },
     labels: { labelWeekday }
   } = useDayPicker();
 
-  const weekdays = getWeekdays(locale);
+  const weekdays = getWeekdays(locale, weekStartsOn);
 
   return (
     <thead style={styles.head} className={classNames.head}>

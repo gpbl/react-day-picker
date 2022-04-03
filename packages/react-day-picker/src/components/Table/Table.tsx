@@ -17,11 +17,20 @@ export interface TableProps {
 
 /** Render the table with the calendar. */
 export function Table(props: TableProps): JSX.Element {
-  const { locale, classNames, styles, hideHead, fixedWeeks, components } =
-    useDayPicker();
+  const {
+    locale,
+    classNames,
+    styles,
+    hideHead,
+    fixedWeeks,
+    components,
+    weekStartsOn
+  } = useDayPicker();
+
   const weeks = getMonthWeeks(props.displayMonth, {
     useFixedWeeks: Boolean(fixedWeeks),
-    locale
+    locale,
+    weekStartsOn
   });
 
   const HeadComponent = components?.Head ?? Head;
