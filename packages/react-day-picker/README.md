@@ -3,8 +3,9 @@
 DayPicker is a date picker component for [React](https://reactjs.org).
 
 ```bash
-$ npm install react-day-picker date-fns # using npm
-$ yarn add react-day-picker date-fns    # using yarn
+$ npm install react-day-picker date-fns  # using npm
+$ pnpm install react-day-picker date-fns # using pnpm
+$ yarn add react-day-picker date-fns     # using yarn
 ```
 
 <a href="https://www.npmjs.com/package/react-day-picker">
