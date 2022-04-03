@@ -55,5 +55,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: Deploy website
+      - name: Deploy Website
         run: yarn workspace website docusaurus deploy
