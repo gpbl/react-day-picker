@@ -10,6 +10,14 @@ For example, to localize the calendar in Spanish, import the locale object from 
 spanish
 ```
 
+### Overriding the first day of the week
+
+Use the `weekStartsOn` prop to change the first day of the week:
+
+```include-example
+spanish-week-starts-on
+```
+
 ## Switching to right-to-left direction
 
 To add right-to-left text direction, set the `dir` prop to `rtl`.
