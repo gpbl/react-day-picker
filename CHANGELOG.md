@@ -1,1 +1,0 @@
-./packages/react-day-picker/CHANGELOG.md
