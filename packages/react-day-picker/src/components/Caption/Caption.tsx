@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CaptionDropdowns } from 'components/CaptionDropdowns';
 import { CaptionLabel } from 'components/CaptionLabel';
-import { CaptionNavigation } from 'components/CaptionNavigation/CaptionNavigation';
+import { CaptionNavigation } from 'components/CaptionNavigation';
 import { useDayPicker } from 'contexts/DayPicker';
 
 /** Represent the props of the [[Caption]] component. */
