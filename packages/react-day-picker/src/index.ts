@@ -2,7 +2,9 @@ export * from './DayPicker';
 
 export * from 'components/Button';
 export * from 'components/Caption';
+export * from 'components/CaptionDropdowns';
 export * from 'components/CaptionLabel';
+export * from 'components/CaptionNavigation';
 export * from 'components/Day';
 export * from 'components/DayContent';
 export * from 'components/Dropdown';
