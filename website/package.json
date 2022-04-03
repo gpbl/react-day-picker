@@ -16,7 +16,7 @@
     "typecheck-watch": "yarn typecheck --watch"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^0.15.2",
+    "@codesandbox/sandpack-react": "^0.18.0",
     "@docusaurus/core": "2.0.0-beta.18",
     "@docusaurus/preset-classic": "2.0.0-beta.18",
     "@mdx-js/react": "^1.6.22",
@@ -41,13 +41,13 @@
     "eslint": "^8.12.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
-    "prettier": "^2.6.1",
+    "prettier": "^2.6.2",
     "prop-types": "^15.8.1",
     "raw-loader": "^4.0.2",
     "ts-jest": "^27.1.4",
     "typedoc": "^0.22.13",
     "typedoc-plugin-markdown": "^3.11.14",
     "typescript": "~4.5.5",
-    "webpack": "^5.70.0"
+    "webpack": "^5.71.0"
   }
 }
