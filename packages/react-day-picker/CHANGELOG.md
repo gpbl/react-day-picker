@@ -1,21 +1,25 @@
 # Changelog
 
+### v8.0.2
+
+- new: added `weekStartsOn` prop ([#1422](https://github.com/gpbl/react-day-picker/pull/1422))
+- new: split the `Caption` components into `CaptionDropdowns` and `CaptionNavigation` components. This change should make easier to customize the caption. ([#1426](https://github.com/gpbl/react-day-picker/pull/1426))
+
 ### v8.0.1
 
-- added React 18 to the peerDependencies
+- changed: added React 18 to the peer dependencies
 
 ## v8.0
 
-Introduce mayor breaking changes and is mostly incompatible with v7. Head over the [redesigned website](https://react-day-picker.js.org) for more details.
+This version introduces breaking changes and it is mostly incompatible with v7. See the [redesigned website](https://react-day-picker.js.org) for more details.
 
 ### Notable changes
 
-- added [date-fns](http://date-fns.org) library as peer dependecy
 - native TypeScript support
 - selection modes: single, multiple, range
-- improved ARIA support
+- added [date-fns](http://date-fns.org) library as peer dependecy
 - replaced `DayPickerInput` component with `useInput` hook
-- new features and tons of improvements
+- improved ARIA support
 
 See also: ➡️ **[Upgrading from v7](https://react-day-picker.js.org/guides/upgrading)**.
 
