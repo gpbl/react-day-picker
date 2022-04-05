@@ -58,7 +58,7 @@ export function isMatch(day: Date, matchers: Matcher[]): boolean {
     if (isDateInterval(matcher)) {
       const isBefore = differenceInCalendarDays(matcher.before, day) > 0;
       const isAfter = differenceInCalendarDays(day, matcher.after) > 0;
-      return isBefore && isAfter;
+      return isBefore || isAfter;
     }
     if (isDateAfterType(matcher)) {
       return differenceInCalendarDays(day, matcher.after) > 0;
