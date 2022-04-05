@@ -27,6 +27,17 @@ describe('when matching an array of dates including the day', () => {
   });
 });
 
+describe('when matching date range', () => {
+  const matcher = {
+    from: testDay,
+    to: addDays(testDay, 1)
+  };
+  const result = isMatch(testDay, [matcher]);
+  test('should return true', () => {
+    expect(result).toBe(true);
+  });
+});
+
 describe('when matching the day of week', () => {
   const matcher = {
     dayOfWeek: [testDay.getDay()]
@@ -40,6 +51,17 @@ describe('when matching the day of week', () => {
 describe('when matching date interval', () => {
   const matcher = {
     after: addDays(testDay, -1),
+    before: addDays(testDay, 1)
+  };
+  const result = isMatch(testDay, [matcher]);
+  test('should return true', () => {
+    expect(result).toBe(true);
+  });
+});
+
+describe('when matching only one part of date interval', () => {
+  const matcher = {
+    after: addDays(testDay, 3),
     before: addDays(testDay, 1)
   };
   const result = isMatch(testDay, [matcher]);
