@@ -1,13 +1,11 @@
 import React, { createContext, ReactNode, useState } from 'react';
 
-import {
-  addDays,
-  addMonths,
-  addWeeks,
-  addYears,
-  endOfWeek,
-  startOfWeek
-} from 'date-fns';
+import addDays from 'date-fns/addDays';
+import addMonths from 'date-fns/addMonths';
+import addWeeks from 'date-fns/addWeeks';
+import addYears from 'date-fns/addYears';
+import endOfWeek from 'date-fns/endOfWeek';
+import startOfWeek from 'date-fns/startOfWeek';
 
 import { useModifiers } from '../Modifiers';
 import { useNavigation } from '../Navigation';

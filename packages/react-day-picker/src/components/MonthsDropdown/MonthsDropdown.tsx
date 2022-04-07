@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { isSameYear, setMonth as setDateMonth, startOfMonth } from 'date-fns';
+import isSameYear from 'date-fns/isSameYear';
+import setMonth from 'date-fns/setMonth';
+import startOfMonth from 'date-fns/startOfMonth';
 
 import { Dropdown } from 'components/Dropdown';
 import { useDayPicker } from 'contexts/DayPicker';
@@ -36,22 +38,19 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     // only display the months included in the range
     const date = startOfMonth(fromDate);
     for (let month = fromDate.getMonth(); month <= toDate.getMonth(); month++) {
-      dropdownMonths.push(setDateMonth(date, month));
+      dropdownMonths.push(setMonth(date, month));
     }
   } else {
     // display all the 12 months
     const date = startOfMonth(new Date()); // Any date should be OK, as we just need the year
     for (let month = 0; month <= 11; month++) {
-      dropdownMonths.push(setDateMonth(date, month));
+      dropdownMonths.push(setMonth(date, month));
     }
   }
 
   const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
     const selectedMonth = Number(e.target.value);
-    const newMonth = setDateMonth(
-      startOfMonth(props.displayMonth),
-      selectedMonth
-    );
+    const newMonth = setMonth(startOfMonth(props.displayMonth), selectedMonth);
     props.onChange(newMonth);
   };
 

@@ -1,4 +1,4 @@
-import { Locale } from 'date-fns';
+import type { Locale } from 'date-fns';
 
 import { ActiveModifiers } from 'types/Modifiers';
 
