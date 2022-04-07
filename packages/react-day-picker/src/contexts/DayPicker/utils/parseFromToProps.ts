@@ -1,4 +1,4 @@
-import { startOfDay, startOfMonth } from 'date-fns';
+import { startOfDay, startOfMonth, endOfMonth } from 'date-fns';
 
 import { DayPickerBase } from 'types/DayPickerBase';
 
@@ -18,7 +18,7 @@ export function parseFromToProps(
     fromDate = new Date(fromYear, 0, 1);
   }
   if (toMonth) {
-    toDate = startOfMonth(toMonth);
+    toDate = endOfMonth(toMonth);
   } else if (toYear) {
     toDate = new Date(toYear, 11, 31);
   }
