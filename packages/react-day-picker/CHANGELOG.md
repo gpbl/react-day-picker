@@ -1,5 +1,11 @@
 # Changelog
 
+### v8.0.3
+
+- fix: `toMonth` prop to include the full month ([#1429](https://github.com/gpbl/react-day-picker/pull/1429))
+- changed: better date-fns import should improve tree-shaking ([#1436](https://github.com/gpbl/react-day-picker/pull/1436))
+- changed: removed `browser` entry in `package.json` ([#1436](https://github.com/gpbl/react-day-picker/pull/1436))
+
 ### v8.0.2
 
 - new: added `weekStartsOn` prop ([#1422](https://github.com/gpbl/react-day-picker/pull/1422))
