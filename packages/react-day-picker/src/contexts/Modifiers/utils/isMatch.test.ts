@@ -1,5 +1,13 @@
 import { addDays } from 'date-fns';
 
+import {
+  DateAfter,
+  DateBefore,
+  DateInterval,
+  DateRange,
+  DayOfWeek
+} from 'types/Matchers';
+
 import { isMatch } from './isMatch';
 
 const testDay = new Date();
@@ -27,8 +35,19 @@ describe('when matching an array of dates including the day', () => {
   });
 });
 
+describe('when matching date range', () => {
+  const matcher: DateRange = {
+    from: testDay,
+    to: addDays(testDay, 1)
+  };
+  const result = isMatch(testDay, [matcher]);
+  test('should return true', () => {
+    expect(result).toBe(true);
+  });
+});
+
 describe('when matching the day of week', () => {
-  const matcher = {
+  const matcher: DayOfWeek = {
     dayOfWeek: [testDay.getDay()]
   };
   const result = isMatch(testDay, [matcher]);
@@ -38,7 +57,7 @@ describe('when matching the day of week', () => {
 });
 
 describe('when matching date interval', () => {
-  const matcher = {
+  const matcher: DateInterval = {
     after: addDays(testDay, -1),
     before: addDays(testDay, 1)
   };
@@ -48,16 +67,16 @@ describe('when matching date interval', () => {
   });
 });
 
-describe('when the date is after', () => {
-  const matcher = { after: addDays(testDay, -1) };
+describe('when matching the date after', () => {
+  const matcher: DateAfter = { after: addDays(testDay, -1) };
   const result = isMatch(testDay, [matcher]);
   test('should return true', () => {
     expect(result).toBe(true);
   });
 });
 
-describe('when the date is before', () => {
-  const matcher = { before: addDays(testDay, +1) };
+describe('when matching the date before', () => {
+  const matcher: DateBefore = { before: addDays(testDay, +1) };
   const result = isMatch(testDay, [matcher]);
   test('should return true', () => {
     expect(result).toBe(true);
