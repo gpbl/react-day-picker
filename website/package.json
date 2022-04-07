@@ -7,7 +7,7 @@
     "build": "docusaurus build",
     "postinstall": "yarn workspace react-day-picker build",
     "serve": "docusaurus serve",
-    "deploy": "docusaurus deploy",
+    "deploy": "USE_SSH=true docusaurus deploy",
     "clear": "docusaurus clear",
     "test": "jest",
     "test-watch": "jest --watch --ci",
