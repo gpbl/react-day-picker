@@ -12,12 +12,16 @@ export default function App() {
   };
   const [range, setRange] = useState<DateRange | undefined>(defaultSelected);
 
-  let footer = 'Please pick the first day.';
+  let footer = <p>Please pick the first day.</p>;
   if (range?.from) {
     if (!range.to) {
-      footer = format(range.from, 'PPP');
+      footer = <p>{format(range.from, 'PPP')}</p>;
     } else if (range.to) {
-      footer = `${format(range.from, 'PPP')}–${format(range.to, 'PPP')}`;
+      footer = (
+        <p>
+          {format(range.from, 'PPP')}–${format(range.to, 'PPP')}`
+        </p>
+      );
     }
   }
 
