@@ -14,7 +14,6 @@
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "browser": "dist/react-day-picker.min.js",
   "unpkg": "dist/react-day-picker.min.js",
   "types": "dist/index.d.ts",
   "style": "dist/style.css",

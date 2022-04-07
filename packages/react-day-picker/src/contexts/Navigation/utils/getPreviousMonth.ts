@@ -1,4 +1,6 @@
-import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
+import addMonths from 'date-fns/addMonths';
+import differenceInCalendarMonths from 'date-fns/differenceInCalendarMonths';
+import startOfMonth from 'date-fns/startOfMonth';
 
 /**
  * Returns the next previous the user can navigate to, according to the given

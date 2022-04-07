@@ -7,7 +7,7 @@ export default function App() {
   const handleDayClick = (day: Date) => setSelectedDay(day);
 
   const footer = selectedDay ? (
-    <p>You selected ${selectedDay.toDateString()}</p>
+    <p>You selected {selectedDay.toDateString()}.</p>
   ) : (
     <p>Please pick a day.</p>
   );

@@ -1,6 +1,8 @@
 import React, { createContext, ReactNode } from 'react';
 
-import { differenceInCalendarDays, isAfter, isBefore } from 'date-fns';
+import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
+import isAfter from 'date-fns/isAfter';
+import isBefore from 'date-fns/isBefore';
 
 import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';

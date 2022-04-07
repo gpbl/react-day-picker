@@ -1,4 +1,6 @@
-import { differenceInCalendarDays, isDate, isSameDay } from 'date-fns';
+import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
+import isDate from 'date-fns/isDate';
+import isSameDay from 'date-fns/isSameDay';
 
 import {
   isDateAfterType,

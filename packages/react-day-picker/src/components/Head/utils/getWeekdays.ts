@@ -1,4 +1,7 @@
-import { addDays, Locale, startOfWeek } from 'date-fns';
+import addDays from 'date-fns/addDays';
+import startOfWeek from 'date-fns/startOfWeek';
+
+import type { Locale } from 'date-fns';
 
 /**
  * Generate a series of 7 days, starting from the week, to use for formatting
