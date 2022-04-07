@@ -25,13 +25,13 @@ describe('when "fromYear" is passed in', () => {
 
 describe('when "toMonth" is passed in', () => {
   const toMonth = new Date(2021, 4, 3);
-  const expectedToDate = new Date(2021, 4, 1);
+  const expectedToDate = new Date(2021, 4, 31);
   const { toDate } = parseFromToProps({ toMonth });
-  test('"toDate" should be the start of that month', () => {
+  test('"toDate" should be the end of that month', () => {
     expect(toDate).toEqual(expectedToDate);
   });
   describe('when "fromYear" is passed in', () => {
-    test('"toDate" should be the start of that month', () => {
+    test('"toDate" should be the end of that month', () => {
       expect(toDate).toEqual(expectedToDate);
     });
   });
