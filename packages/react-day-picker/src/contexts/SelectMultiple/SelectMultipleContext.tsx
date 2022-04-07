@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode } from 'react';
 
-import { isSameDay } from 'date-fns';
+import isSameDay from 'date-fns/isSameDay';
 
 import { DayPickerBase } from 'types/DayPickerBase';
 import {

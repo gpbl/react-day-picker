@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getUnixTime } from 'date-fns';
+import getUnixTime from 'date-fns/getUnixTime';
 
 import { Day } from 'components/Day';
 import { WeekNumber } from 'components/WeekNumber';

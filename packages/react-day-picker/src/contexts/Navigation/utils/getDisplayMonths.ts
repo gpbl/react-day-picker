@@ -1,4 +1,6 @@
-import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
+import addMonths from 'date-fns/addMonths';
+import differenceInCalendarMonths from 'date-fns/differenceInCalendarMonths';
+import startOfMonth from 'date-fns/startOfMonth';
 
 /**
  * Return the months to display in the component according to the number of
