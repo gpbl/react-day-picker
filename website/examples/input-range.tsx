@@ -61,7 +61,7 @@ export default function App() {
       selected={selectedRange}
       onSelect={handleRangeSelect}
       footer={
-        <form>
+        <form className="ma2">
           <input
             size={10}
             placeholder="From Date"
