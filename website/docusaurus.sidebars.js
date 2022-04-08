@@ -18,9 +18,8 @@ const sidebars = {
     {
       Guides: [
         'guides/formatters',
-        'guides/input-fields',
         'guides/custom-components',
-        'guides/date-picker-dialog',
+        'guides/input-fields',
         'guides/upgrading'
       ]
     }

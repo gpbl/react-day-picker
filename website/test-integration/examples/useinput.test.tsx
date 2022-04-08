@@ -8,7 +8,7 @@ import { clickDay } from 'react-day-picker/test/actions';
 import { getAllSelectedDays, getDayButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
-import Example from '@examples/input-fields';
+import Example from '@examples/useinput';
 
 const today = new Date(2021, 10, 15);
 freezeBeforeAll(today);

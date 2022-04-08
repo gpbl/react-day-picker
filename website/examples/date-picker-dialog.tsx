@@ -5,7 +5,7 @@ import FocusTrap from 'focus-trap-react';
 import { DayPicker } from 'react-day-picker';
 import { usePopper } from 'react-popper';
 
-export default function Example() {
+export default function DatePickerDialog() {
   const [selected, setSelected] = useState<Date>();
   const [inputValue, setInputValue] = useState<string>('');
   const [isPopperOpen, setIsPopperOpen] = useState(false);
@@ -26,9 +26,8 @@ export default function Example() {
   };
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    const { value } = e.currentTarget;
-    setInputValue(value);
-    const date = parse(value, 'y-MM-dd', new Date());
+    setInputValue(e.currentTarget.value);
+    const date = parse(e.currentTarget.value, 'y-MM-dd', new Date());
     if (isValid(date)) {
       setSelected(date);
     } else {
