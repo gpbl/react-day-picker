@@ -7683,9 +7683,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.12.0":
-  version: 8.12.0
-  resolution: "eslint@npm:8.12.0"
+"eslint@npm:^8.13.0":
+  version: 8.13.0
+  resolution: "eslint@npm:8.13.0"
   dependencies:
     "@eslint/eslintrc": ^1.2.1
     "@humanwhocodes/config-array": ^0.9.2
@@ -7724,7 +7724,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: 111bf9046b7a463049788dd00d7f4cd91e024029982352dff4811ce5dfa8cb1136aa127cd8a7a91508234d3e1b4fb6f638a1f5ef9ea08b1af93a18703a4a8dc1
+  checksum: bc7d2fc9a046d42cb2c8987573ecaf534c1fae14747c4695e32388e179c5f21b83eefdb3e4f35924bf76152e226d7cc9dfb21f12348baf12c803109005b17439
   languageName: node
   linkType: hard
 
@@ -13265,7 +13265,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.18.0
     "@typescript-eslint/parser": ^5.18.0
     date-fns: ^2.28.0
-    eslint: ^8.12.0
+    eslint: ^8.13.0
     eslint-config-prettier: ^8.5.0
     eslint-config-rdp: "workspace:^"
     eslint-import-resolver-typescript: ^2.7.1
@@ -16148,9 +16148,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5.71.0":
-  version: 5.71.0
-  resolution: "webpack@npm:5.71.0"
+"webpack@npm:^5.72.0":
+  version: 5.72.0
+  resolution: "webpack@npm:5.72.0"
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^0.0.51
@@ -16181,7 +16181,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 84b273a15180d45dafe4fc4a3ccccba2f72210f327a1af39713b3ef78148768afb0e18fa0cddaea4af5dd54ace199fbbdfcef9aec8da7e9c248f8b1b7cc413e1
+  checksum: 8365f1466d0f7adbf80ebc9b780f263a28eeeabcd5fb515249bfd9a56ab7fe8d29ea53df3d9364d0732ab39ae774445eb28abce694ed375b13882a6b2fe93ffc
   languageName: node
   linkType: hard
 
@@ -16217,7 +16217,7 @@ __metadata:
     clsx: ^1.1.1
     date-fns: ^2.28.0
     docusaurus-plugin-typedoc: ^0.17.2
-    eslint: ^8.12.0
+    eslint: ^8.13.0
     focus-trap-react: 8.9.2
     identity-obj-proxy: ^3.0.0
     jest: ^27.5.1
@@ -16233,7 +16233,7 @@ __metadata:
     typedoc: ^0.22.14
     typedoc-plugin-markdown: ^3.11.14
     typescript: ~4.5.5
-    webpack: ^5.71.0
+    webpack: ^5.72.0
   languageName: unknown
   linkType: soft
 
