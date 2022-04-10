@@ -19,7 +19,7 @@ export default function App() {
     } else if (range.to) {
       footer = (
         <p>
-          {format(range.from, 'PPP')}–${format(range.to, 'PPP')}`
+          {format(range.from, 'PPP')}–{format(range.to, 'PPP')}
         </p>
       );
     }
