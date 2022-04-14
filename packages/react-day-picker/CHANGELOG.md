@@ -1,5 +1,9 @@
 # Changelog
 
+### v8.0.4
+
+- changed: add src directory to the package for better source maps
+
 ### v8.0.3
 
 - fix: `toMonth` prop to include the full month ([#1429](https://github.com/gpbl/react-day-picker/pull/1429))
