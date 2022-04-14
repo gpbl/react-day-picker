@@ -28,7 +28,9 @@
     "typecheck-watch": "tsc --project ./tsconfig.json --noEmit --skipLibCheck --watch"
   },
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "tsconfig.json"
   ],
   "dependencies": {
     "@reach/auto-id": "^0.16.0"
