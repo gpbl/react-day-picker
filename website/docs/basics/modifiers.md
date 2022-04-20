@@ -54,7 +54,7 @@ You can change the current date using the `today` prop.
 
 Add new modifiers according to your app’s requirements. For example, a booking app may use a `booked` modifier to mark days as already booked.
 
-Use the `modifiers` prop to pass an object with custom modifiers and their matcher. Change the inline-style of the cell with `modifiersStyles` or with `modifiersClassName`.
+Use the `modifiers` prop to pass an object with custom modifiers and their matcher. Change the inline-style of the cell with `modifiersStyles` or with `modifiersClassNames`.
 
 ```include-example
 modifiers-custom
