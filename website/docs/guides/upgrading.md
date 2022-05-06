@@ -40,4 +40,4 @@ v7 is frozen and there are no plans for updating it. If you have bugs or feature
 The `DayPickerInput` component has been removed. If you upgrade to v8, you will need to rewrite your implementation:
 
 - Try with [useInput](https://react-day-picker.js.org/guides/input-fields) hook.
-- See [this example](https://react-day-picker.js.org/guides/date-picker-dialog) to build a date picker with v8 in a dialog.
+- See [this example](https://react-day-picker.js.org/guides/input-fields#example-date-picker-dialog) to build a date picker with v8 in a dialog.
