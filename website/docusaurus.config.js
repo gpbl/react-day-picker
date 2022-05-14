@@ -70,7 +70,11 @@ const config = {
           'date picker, react component, calendar component, react datepicker, daypicker, react day picker, date-fns date picker, typescript date picker'
       }
     ],
-    hideableSidebar: false,
+    docs: {
+      sidebar: {
+        hideable: false
+      }
+    },
     image: 'images/og-image.png',
     navbar: require('./docusaurus.navbar.js'),
     editUrl: 'https://github.com/gpbl/react-day-picker/edit/master/website/',
