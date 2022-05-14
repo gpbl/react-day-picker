@@ -7,10 +7,6 @@
       "isBackground": false,
       "type": "shell",
       "problemMatcher": [],
-      "runOptions": {
-        "runOn": "folderOpen",
-        "instanceLimit": 1
-      },
       "presentation": {
         "close": true,
         "panel": "dedicated"
@@ -26,7 +22,6 @@
         "runOn": "folderOpen",
         "instanceLimit": 1
       },
-      "dependsOn": ["yarn install"],
       "presentation": {
         "reveal": "always",
         "panel": "dedicated"
@@ -39,7 +34,6 @@
       "group": "build",
       "problemMatcher": ["$tsc-watch"],
       "isBackground": true,
-      "dependsOn": ["yarn install"],
       "runOptions": {
         "runOn": "folderOpen"
       }
