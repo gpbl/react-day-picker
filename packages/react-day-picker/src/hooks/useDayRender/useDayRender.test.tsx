@@ -286,7 +286,7 @@ describe('when the day is disabled', () => {
     setup(date, date, dayPickerProps);
   });
   test('the button should be disabled', () => {
-    expect(result.current.buttonProps.disabled).toBe(true);
+    expect(result.current.buttonProps['aria-disabled']).toBe(true);
   });
 });
 
