@@ -108,11 +108,11 @@ describe('when the previous month is undefined', () => {
   beforeEach(() => {
     setup({ ...props, previousMonth: undefined }, dayPickerProps);
   });
-  test('the previous button should be disabled', () => {
-    expect(getPrevButton()).toBeDisabled();
+  test('the previous button should be aria-disabled', () => {
+    expect(getPrevButton()).toHaveAttribute('aria-disabled', 'true');
   });
-  test('the next button should be enabled', () => {
-    expect(getNextButton()).toBeEnabled();
+  test('the next button should not be aria-disabled', () => {
+    expect(getNextButton()).not.toHaveAttribute('aria-disabled', 'true');
   });
 });
 
@@ -121,9 +121,9 @@ describe('when the next month is undefined', () => {
     setup({ ...props, nextMonth: undefined }, dayPickerProps);
   });
   test('the previous button should be enabled', () => {
-    expect(getPrevButton()).toBeEnabled();
+    expect(getPrevButton()).not.toHaveAttribute('aria-disabled', 'true');
   });
   test('the next button should be disabled', () => {
-    expect(getNextButton()).toBeDisabled();
+    expect(getNextButton()).toHaveAttribute('aria-disabled', 'true');
   });
 });
