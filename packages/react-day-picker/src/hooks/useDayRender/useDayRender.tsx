@@ -27,7 +27,7 @@ export type DayRender = {
   activeModifiers: ActiveModifiers;
   /** The props to apply to the button element (when `isButton` is true). */
   buttonProps: StyledComponent &
-    Pick<ButtonProps, 'disabled' | 'aria-pressed' | 'tabIndex'> &
+    Pick<ButtonProps, 'aria-disabled' | 'aria-pressed' | 'tabIndex'> &
     DayEventHandlers;
   /** The props to apply to the div element (when `isButton` is false). */
   divProps: StyledComponent;
@@ -104,7 +104,7 @@ export function useDayRender(
   );
   const buttonProps = {
     ...divProps,
-    disabled: activeModifiers.disabled,
+    ['aria-disabled']: activeModifiers.disabled,
     ['aria-pressed']: activeModifiers.selected,
     tabIndex: isFocusTarget ? 0 : -1,
     ...eventHandlers
