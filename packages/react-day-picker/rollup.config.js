@@ -87,7 +87,7 @@ const browserConfig = {
   input: 'dist/index.js',
   output: [
     {
-      file: pkg.browser,
+      file: pkg.unpkg,
       format: 'umd',
       name: 'DatePicker',
       globals
