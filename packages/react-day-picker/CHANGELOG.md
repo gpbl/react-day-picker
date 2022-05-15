@@ -1,5 +1,10 @@
 # Changelog
 
+### v8.0.5
+
+- changed: use `aria-disabled` instead of `disabled` attribute in buttons ([#1451](https://github.com/gpbl/react-day-picker/pull/1451))
+- fixed: focus navigation breaks with disabled days ([#1451](https://github.com/gpbl/react-day-picker/pull/1451))
+
 ### v8.0.4
 
 - changed: add src directory to the package for better source maps
