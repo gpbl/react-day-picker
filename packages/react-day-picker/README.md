@@ -23,7 +23,7 @@ $ yarn add react-day-picker date-fns     # using yarn
 - ☀️ Select days, ranges or whatever
 - 🌎 Localizable into any language
 - ➡️ Keyboard navigation
-- ♿️ [WAII-ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) support
+- ♿️ [WAI-ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) support
 - 🤖 Native TypeScript support
 - 🧘‍♀️ using [date-fns](http://date-fns.org) as date library
 - 🗓 Create multiple calendars
