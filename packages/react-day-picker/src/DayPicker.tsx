@@ -97,7 +97,7 @@ import { RootProvider } from './contexts/RootProvider';
  * ```
  */
 
-export type DayPickerProps = { mode?: DaySelectionMode } & (
+export type DayPickerProps = { mode?: DaySelectionMode | undefined } & (
   | DayPickerDefaultProps
   | DayPickerSingleProps
   | DayPickerMultipleProps

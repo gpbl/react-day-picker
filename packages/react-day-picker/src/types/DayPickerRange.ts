@@ -8,7 +8,7 @@ import { DateRange } from './Matchers';
 
 /** The props for the [[DayPicker]] component when using `mode="range"`. */
 export interface DayPickerRangeProps extends DayPickerBase {
-  mode: 'range';
+  mode: 'range' | undefined;
   /** The selected range of days. */
   selected?: DateRange;
   /** Event fired when a range (or a part of the range) is selected. */

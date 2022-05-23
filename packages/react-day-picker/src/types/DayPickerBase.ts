@@ -42,7 +42,7 @@ export type DaySelectionMode = 'single' | 'multiple' | 'range' | 'default';
  */
 export interface DayPickerBase {
   /** The CSS class to add to the container element. */
-  className?: string;
+  className?: string | undefined;
   /**
    * Change the class names of the HTML elements.
    *
@@ -58,7 +58,7 @@ export interface DayPickerBase {
   /**
    * Style to apply to the container element.
    */
-  style?: React.CSSProperties;
+  style?: React.CSSProperties | undefined;
   /**
    * Change the inline styles for each UIElement.
    */
@@ -66,25 +66,25 @@ export interface DayPickerBase {
   /**
    * Change the inline style for the day matching the [[modifiers]].
    */
-  modifiersStyles?: ModifiersStyles;
+  modifiersStyles?: ModifiersStyles | undefined;
 
   /**
    * The initial month to show in the calendar. Default is the current month.
    *
    * Use this prop to let DayPicker control the current month. If you need to set the month programmatically, use [[month]] and [[onMonthChange]].
    */
-  defaultMonth?: Date;
+  defaultMonth?: Date | undefined;
   /**
    * The month to display in the calendar.
    *
    * As opposed to [[defaultMonth]], use this prop with [[onMonthChange]] to
    * change the month programmatically.
    */
-  month?: Date;
+  month?: Date | undefined;
   /**
    * Event fired when the user navigates between months.
    */
-  onMonthChange?: MonthChangeEventHandler;
+  onMonthChange?: MonthChangeEventHandler | undefined;
   /**
    * The number of displayed months. Defaults to `1`.
    */
@@ -92,40 +92,40 @@ export interface DayPickerBase {
   /**
    * The earliest day to start the month navigation.
    */
-  fromDate?: Date;
+  fromDate?: Date | undefined;
   /**
    * The latest day to end the month navigation.
    */
-  toDate?: Date;
+  toDate?: Date | undefined;
   /**
    * The earliest month to start the month navigation.
    */
-  fromMonth?: Date;
+  fromMonth?: Date | undefined;
   /**
    * The latest month to end the month navigation.
    */
-  toMonth?: Date;
+  toMonth?: Date | undefined;
   /**
    * The earliest year to start the month navigation.
    */
-  fromYear?: number;
+  fromYear?: number | undefined;
   /**
    * The latest year to end the month navigation.
    */
-  toYear?: number;
+  toYear?: number | undefined;
   /**
    * Disable the navigation between months.
    */
-  disableNavigation?: boolean;
+  disableNavigation?: boolean | undefined;
   /**
    * Paginate the month navigation displaying the [[numberOfMonths]] at time.
    */
-  pagedNavigation?: boolean;
+  pagedNavigation?: boolean | undefined;
   /**
    * Render the months in reversed order (when [[numberOfMonths]] is greater
    * than `1`) to display the most recent month first.
    */
-  reverseMonths?: boolean;
+  reverseMonths?: boolean | undefined;
 
   /**
    * Change the layout of the caption:
@@ -141,24 +141,24 @@ export interface DayPickerBase {
    * Display six weeks per months, regardless the month’s number of weeks.
    * To use this prop, [[showOutsideDays]] must be set. Default to `false`.
    */
-  fixedWeeks?: boolean;
+  fixedWeeks?: boolean | undefined;
   /**
    * Hide the month’s head displaying the weekday names.
    */
-  hideHead?: boolean;
+  hideHead?: boolean | undefined;
   /**
    * Show the outside days.  An outside day is a day falling in the next or the
    * previous month. Default is `false`.
    */
-  showOutsideDays?: boolean;
+  showOutsideDays?: boolean | undefined;
   /**
    * Show the week numbers column. Default to `false`.
    */
-  showWeekNumber?: boolean;
+  showWeekNumber?: boolean | undefined;
   /**
    * A map of components used to create the layout.
    */
-  components?: CustomComponents;
+  components?: CustomComponents | undefined;
 
   /** Content to add to the `tfoot` element. */
   footer?: React.ReactNode;
@@ -170,17 +170,17 @@ export interface DayPickerBase {
    * Use this prop when you need to focus DayPicker after a user actions, for
    * improved accessibility.
    */
-  initialFocus?: boolean;
+  initialFocus?: boolean | undefined;
 
   /**
    * Apply the `disabled` modifier to the matching days.
    */
-  disabled?: Matcher | Matcher[];
+  disabled?: Matcher | Matcher[] | undefined;
   /**
    * Apply the `hidden` modifier to the matching days. Will hide them from the
    * calendar.
    */
-  hidden?: Matcher | Matcher[];
+  hidden?: Matcher | Matcher[] | undefined;
 
   /** Apply the `selected` modifier to the matching days. */
   selected?: Matcher | Matcher[] | undefined;
@@ -208,7 +208,7 @@ export interface DayPickerBase {
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
    */
-  dir?: string;
+  dir?: string | undefined;
 
   /**
    * A map of formatters. Use the formatters to override the default formatting
@@ -219,23 +219,23 @@ export interface DayPickerBase {
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's one.
    */
-  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
 
-  onDayClick?: DayClickEventHandler;
-  onDayFocus?: DayFocusEventHandler;
-  onDayBlur?: DayFocusEventHandler;
-  onDayMouseEnter?: DayMouseEventHandler;
-  onDayMouseLeave?: DayMouseEventHandler;
-  onDayKeyDown?: DayKeyboardEventHandler;
-  onDayKeyUp?: DayKeyboardEventHandler;
-  onDayKeyPress?: DayKeyboardEventHandler;
-  onDayTouchCancel?: DayTouchEventHandler;
-  onDayTouchEnd?: DayTouchEventHandler;
-  onDayTouchMove?: DayTouchEventHandler;
-  onDayTouchStart?: DayTouchEventHandler;
-  onNextClick?: MonthChangeEventHandler;
-  onPrevClick?: MonthChangeEventHandler;
-  onWeekNumberClick?: WeekNumberClickEventHandler;
+  onDayClick?: DayClickEventHandler | undefined;
+  onDayFocus?: DayFocusEventHandler | undefined;
+  onDayBlur?: DayFocusEventHandler | undefined;
+  onDayMouseEnter?: DayMouseEventHandler | undefined;
+  onDayMouseLeave?: DayMouseEventHandler | undefined;
+  onDayKeyDown?: DayKeyboardEventHandler | undefined;
+  onDayKeyUp?: DayKeyboardEventHandler | undefined;
+  onDayKeyPress?: DayKeyboardEventHandler | undefined;
+  onDayTouchCancel?: DayTouchEventHandler | undefined;
+  onDayTouchEnd?: DayTouchEventHandler | undefined;
+  onDayTouchMove?: DayTouchEventHandler | undefined;
+  onDayTouchStart?: DayTouchEventHandler | undefined;
+  onNextClick?: MonthChangeEventHandler | undefined;
+  onPrevClick?: MonthChangeEventHandler | undefined;
+  onWeekNumberClick?: WeekNumberClickEventHandler | undefined;
 }
 
 /** A map of the component that can be changed via the `components` prop. */

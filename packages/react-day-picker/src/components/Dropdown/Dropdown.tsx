@@ -9,7 +9,7 @@ export interface DropdownProps {
   children?: React.SelectHTMLAttributes<HTMLSelectElement>['children'];
   className?: string;
   ['aria-label']?: string;
-  style?: React.CSSProperties;
+  style?: React.CSSProperties | undefined;
   value?: string | number;
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
 }

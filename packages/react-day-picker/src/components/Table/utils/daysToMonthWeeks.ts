@@ -14,7 +14,7 @@ export function daysToMonthWeeks(
   toDate: Date,
   options?: {
     locale?: Locale;
-    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   }
 ): MonthWeek[] {

@@ -12,7 +12,10 @@ export function getWeekdays(
   /** The index of the first day of the week (0 - Sunday) */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
 ): Date[] {
-  const start = startOfWeek(new Date(), { locale, weekStartsOn });
+  const start = startOfWeek(new Date(), {
+    ...(locale && { locale }),
+    ...(weekStartsOn && { weekStartsOn })
+  });
   const days = [];
   for (let i = 0; i < 7; i++) {
     const day = addDays(start, i);

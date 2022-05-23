@@ -22,11 +22,12 @@ export interface DayPickerContextValue extends DayPickerBase {
   onSelect?:
     | DayPickerSingleProps['onSelect']
     | DayPickerMultipleProps['onSelect']
-    | DayPickerRangeProps['onSelect'];
-  required?: boolean;
-  min?: number;
-  max?: number;
-  selected?: Matcher | Matcher[];
+    | DayPickerRangeProps['onSelect']
+    | undefined;
+  required?: boolean | undefined;
+  min?: number | undefined;
+  max?: number | undefined;
+  selected?: Matcher | Matcher[] | undefined;
 
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;

@@ -11,9 +11,9 @@ export interface NavigationProps {
   /** The month where the caption is displayed. */
   displayMonth: Date;
   /** The previous month. */
-  previousMonth?: Date;
+  previousMonth?: Date | undefined;
   /** The next month. */
-  nextMonth?: Date;
+  nextMonth?: Date | undefined;
   /** Hide the previous button. */
   hidePrevious: boolean;
   /** Hide the next button. */

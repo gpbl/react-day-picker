@@ -12,7 +12,7 @@ export function getDisplayMonths(
     reverseMonths,
     numberOfMonths
   }: {
-    reverseMonths?: boolean;
+    reverseMonths?: boolean | undefined;
     numberOfMonths: number;
   }
 ): Date[] {

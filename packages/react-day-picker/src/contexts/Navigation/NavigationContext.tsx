@@ -21,9 +21,9 @@ export interface NavigationContextValue {
   /** Navigate to the specified date. */
   goToDate: (date: Date, refDate?: Date) => void;
   /** The next month to display. `undefined` if no months left */
-  nextMonth?: Date;
+  nextMonth?: Date | undefined;
   /** The previous month to display. `undefined` if no months left */
-  previousMonth?: Date;
+  previousMonth?: Date | undefined;
   /** Return true if the day is currently included in the months displayed in the calendar. */
   isDateDisplayed: (day: Date) => boolean;
 }

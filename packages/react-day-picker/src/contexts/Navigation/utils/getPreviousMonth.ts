@@ -17,11 +17,11 @@ export function getPreviousMonth(
   startingMonth: Date,
   options: {
     numberOfMonths?: number;
-    fromDate?: Date;
-    toDate?: Date;
-    pagedNavigation?: boolean;
+    fromDate?: Date | undefined;
+    toDate?: Date | undefined;
+    pagedNavigation?: boolean | undefined;
     today?: Date;
-    disableNavigation?: boolean;
+    disableNavigation?: boolean | undefined;
   }
 ): Date | undefined {
   if (options.disableNavigation) {
