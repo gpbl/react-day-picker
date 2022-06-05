@@ -94,11 +94,28 @@ export type StyledElement<T = string | React.CSSProperties> = {
   readonly day_today: T;
 };
 
+/** These elements must not be in the `styles` or `classNames` records as they are styled via the `modifiersStyles` or `modifiersClassNames` pop */
+export type InternalModifiersElement =
+  | 'day_outside'
+  | 'day_selected'
+  | 'day_disabled'
+  | 'day_hidden'
+  | 'day_range_start'
+  | 'day_range_end'
+  | 'day_range_middle'
+  | 'day_today';
+
 /** The class names of each element. */
 export type ClassNames = Partial<StyledElement<string>>;
 
-/** The inline-styles of each element. */
-export type Styles = Partial<StyledElement<React.CSSProperties>>;
+/**
+ * The inline-styles of each styled element, to use with the `styles` prop. Day
+ * modifiers, such as `today` or `hidden`, should be styled using the
+ * `modifiersStyles` prop.
+ */
+export type Styles = Partial<
+  Omit<StyledElement<React.CSSProperties>, InternalModifiersElement>
+>;
 
 /** Props of a component that can be styled via classNames or inline-styles. */
 export type StyledComponent = {
