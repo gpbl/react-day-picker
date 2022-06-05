@@ -2,10 +2,10 @@
 
 ### v8.0.6
 
-In the rare cases you are using an invalid key to the `styles` prop, you may get type errors when upgrading to this release. Just remove the invalid lines from the value of `styles`, as they weren't working anyway. See issue [#1464](https://github.com/gpbl/react-day-picker/issues/1464).
+- fixed: exclude internal modifiers from the `styles` props (`modifiersStyles` should be used instead) by @gpbl in e1449eaa
+- fixed: better typings for the props returned by `useInput` by @gpbl in 3ea6728b
 
-- fixed (types): exclude internal modifiers elements from styles ([e1449eaa](https://github.com/gpbl/react-day-picker/commit/e1449eaa))
-- fixed (types): use `DayPickerSingleProps` for `useInput` ([e1449eaa](https://github.com/gpbl/react-day-picker/commit/3ea6728b))
+In the rare cases you are using an invalid key to the `styles` prop, you may get type errors when upgrading to this release. Just remove the invalid lines from the value of `styles`, as they weren't working anyway. See issue [#1464](https://github.com/gpbl/react-day-picker/issues/1464).
 
 ### v8.0.5
 
