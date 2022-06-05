@@ -1,5 +1,12 @@
 # Changelog
 
+### v8.0.6
+
+In the rare cases you are using an invalid key to the `styles` prop, you may get type errors when upgrading to this release. Just remove the invalid lines from the value of `styles`, as they weren't working anyway. See issue [#1464](https://github.com/gpbl/react-day-picker/issues/1464).
+
+- fixed (types): exclude internal modifiers elements from styles ([e1449eaa](https://github.com/gpbl/react-day-picker/commit/e1449eaa))
+- fixed (types): use `DayPickerSingleProps` for `useInput` ([e1449eaa](https://github.com/gpbl/react-day-picker/commit/3ea6728b))
+
 ### v8.0.5
 
 - changed: use `aria-disabled` instead of `disabled` attribute in buttons ([#1451](https://github.com/gpbl/react-day-picker/pull/1451))
