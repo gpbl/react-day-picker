@@ -6,10 +6,14 @@ import addWeeks from 'date-fns/addWeeks';
 import addYears from 'date-fns/addYears';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
+import max from 'date-fns/max';
+import min from 'date-fns/min';
+import isSameDay from 'date-fns/isSameDay';
 
 import { useModifiers } from '../Modifiers';
 import { useNavigation } from '../Navigation';
 import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
+import { useDayPicker } from '../DayPicker';
 
 /** Represents the value of the [[NavigationContext]]. */
 export type FocusContextValue = {
@@ -56,6 +60,7 @@ export const FocusContext = createContext<FocusContextValue | undefined>(
 export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const navigation = useNavigation();
   const modifiers = useModifiers();
+  const { fromDate, toDate } = useDayPicker();
 
   const [focusedDay, setFocusedDay] = useState<Date | undefined>();
   const [lastFocused, setLastFocused] = useState<Date | undefined>();
@@ -79,75 +84,30 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     setFocusedDay(date);
   };
 
-  const focusDayBefore = () => {
+  const moveFocus = (addFn: typeof addDays, after: boolean) => {
     if (!focusedDay) return;
-    const before = addDays(focusedDay, -1);
-    focus(before);
-    navigation.goToDate(before, focusedDay);
-  };
-  const focusDayAfter = () => {
-    if (!focusedDay) return;
-    const after = addDays(focusedDay, 1);
-    focus(after);
-    navigation.goToDate(after, focusedDay);
-  };
-  const focusWeekBefore = () => {
-    if (!focusedDay) return;
-    const up = addWeeks(focusedDay, -1);
-    focus(up);
-    navigation.goToDate(up, focusedDay);
-  };
-  const focusWeekAfter = () => {
-    if (!focusedDay) return;
-    const down = addWeeks(focusedDay, 1);
-    focus(down);
-    navigation.goToDate(down, focusedDay);
+    let newFocusedDay = addFn(focusedDay, after ? 1 : -1);
+    if (!after && fromDate) {
+      newFocusedDay = max([fromDate, newFocusedDay]);
+    }
+    if (after && toDate) {
+      newFocusedDay = min([toDate, newFocusedDay]);
+    }
+    if (isSameDay(focusedDay, newFocusedDay)) return;
+    navigation.goToDate(newFocusedDay, focusedDay);
+    focus(newFocusedDay);
   };
 
-  const focusStartOfWeek = (): void => {
-    if (!focusedDay) return;
-    const dayToFocus = startOfWeek(focusedDay);
-    navigation.goToDate(dayToFocus, focusedDay);
-    focus(dayToFocus);
-  };
-
-  const focusEndOfWeek = (): void => {
-    if (!focusedDay) return;
-    const dayToFocus = endOfWeek(focusedDay);
-    navigation.goToDate(dayToFocus, focusedDay);
-    focus(dayToFocus);
-  };
-
-  const focusMonthBefore = (): void => {
-    if (!focusedDay) return;
-
-    const monthBefore = addMonths(focusedDay, -1);
-    navigation.goToDate(monthBefore, focusedDay);
-    focus(monthBefore);
-  };
-
-  const focusMonthAfter = () => {
-    if (!focusedDay) return;
-    const monthAfter = addMonths(focusedDay, 1);
-    navigation.goToDate(monthAfter, focusedDay);
-    focus(monthAfter);
-  };
-
-  const focusYearBefore = () => {
-    if (!focusedDay) return;
-
-    const yearBefore = addYears(focusedDay, -1);
-    navigation.goToDate(yearBefore, focusedDay);
-    focus(yearBefore);
-  };
-
-  const focusYearAfter = () => {
-    if (!focusedDay) return;
-
-    const yearAfter = addYears(focusedDay, 1);
-    navigation.goToDate(yearAfter, focusedDay);
-    focus(yearAfter);
-  };
+  const focusDayBefore = () => moveFocus(addDays, false);
+  const focusDayAfter = () => moveFocus(addDays, true);
+  const focusWeekBefore = () => moveFocus(addWeeks, false);
+  const focusWeekAfter = () => moveFocus(addWeeks, true);
+  const focusStartOfWeek = () => moveFocus((date) => startOfWeek(date), false);
+  const focusEndOfWeek = () => moveFocus((date) => endOfWeek(date), true);
+  const focusMonthBefore = () => moveFocus(addMonths, false);
+  const focusMonthAfter = () => moveFocus(addMonths, true);
+  const focusYearBefore = () => moveFocus(addYears, false);
+  const focusYearAfter = () => moveFocus(addYears, true);
 
   const value: FocusContextValue = {
     focusedDay,
