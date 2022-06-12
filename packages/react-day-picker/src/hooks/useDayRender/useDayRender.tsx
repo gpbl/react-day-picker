@@ -69,12 +69,19 @@ export function useDayRender(
 
   // Focus the button if the day is focused according to the focus context
   useEffect(() => {
+    if (activeModifiers.outside) return;
     if (!focusContext.focusedDay) return;
     if (!isButton) return;
     if (isSameDay(focusContext.focusedDay, day)) {
       buttonRef.current?.focus();
     }
-  }, [focusContext.focusedDay, day, buttonRef, isButton]);
+  }, [
+    focusContext.focusedDay,
+    day,
+    buttonRef,
+    isButton,
+    activeModifiers.outside
+  ]);
 
   const className = getDayClassNames(dayPicker, activeModifiers).join(' ');
   const style = getDayStyle(dayPicker, activeModifiers);
