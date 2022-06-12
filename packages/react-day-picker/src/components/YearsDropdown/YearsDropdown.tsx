@@ -60,8 +60,8 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   return (
     <DropdownComponent
       aria-label={labelYearDropdown()}
-      className={classNames.dropdown_month}
-      style={styles.dropdown_month}
+      className={classNames.dropdown_year}
+      style={styles.dropdown_year}
       onChange={handleChange}
       value={displayMonth.getFullYear()}
       caption={formatYearCaption(displayMonth, { locale })}
