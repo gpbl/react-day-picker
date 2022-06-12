@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CodeBlock from '@docusaurus/theme-classic/lib-next/theme/CodeBlock';
+import CodeBlock from '@theme-original/CodeBlock';
 
 import { CustomSandPack } from './CustomSandpack';
 
