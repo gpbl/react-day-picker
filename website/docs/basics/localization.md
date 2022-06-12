@@ -38,4 +38,4 @@ numbering-system
 
 ## ARIA labels translations
 
-Use the [labels prop](/api/interfaces/daypickerprops#labels) to translate the labels used for ARIA.
+Use the [labels prop](/api/interfaces/daypickerdefaultprops#labels) to translate the labels used for ARIA.
