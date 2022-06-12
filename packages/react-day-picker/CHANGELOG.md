@@ -1,5 +1,10 @@
 # Changelog
 
+### v8.0.7
+
+- fixed: missing `dropdown_year` CSS class in `YearsDropdown` by @pwolfert in [#1466](https://github.com/gpbl/react-day-picker/pull/1466)
+- fixed: Maximum update depth exceeded when select the range date by @gpbl in [#1470](https://github.com/gpbl/react-day-picker/pull/1470)
+
 ### v8.0.6
 
 - fixed: exclude internal modifiers from the `styles` props (`modifiersStyles` should be used instead) by @gpbl in e1449eaa
