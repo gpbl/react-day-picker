@@ -60,7 +60,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
           aria-label={previousLabel}
           className={previousClassName}
           style={styles.nav_button_previous}
-          aria-disabled={!props.previousMonth}
+          disabled={!props.previousMonth}
           onClick={props.onPreviousClick}
         >
           {dir === 'rtl' ? (
@@ -81,7 +81,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
           aria-label={nextLabel}
           className={nextClassName}
           style={styles.nav_button_next}
-          aria-disabled={!props.nextMonth}
+          disabled={!props.nextMonth}
           onClick={props.onNextClick}
         >
           {dir === 'rtl' ? (
