@@ -24,9 +24,7 @@ export function getAllEnabledDays() {
     .getElementsByTagName('tbody')[0]
     .getElementsByTagName('button');
 
-  return Array.from(buttons).filter(
-    (button) => !button.getAttribute('aria-disabled')
-  );
+  return Array.from(buttons).filter((button) => !button.disabled);
 }
 
 export function getDayButtons(day: Date) {

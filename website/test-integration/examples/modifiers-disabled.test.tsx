@@ -1,9 +1,8 @@
 import React from 'react';
-
-import { render } from '@testing-library/react';
-
 import { getDayButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
+
+import { render } from '@testing-library/react';
 
 import Example from '@examples/modifiers-disabled';
 
@@ -19,6 +18,6 @@ beforeEach(() => {
   render(<Example />);
 });
 
-test.each(days)('the day %s should be aria-disabled', (day) => {
-  expect(getDayButton(day)).toHaveAttribute('aria-disabled', 'true');
+test.each(days)('the day %s should be disabled', (day) => {
+  expect(getDayButton(day)).toBeDisabled();
 });
