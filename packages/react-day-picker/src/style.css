@@ -55,23 +55,22 @@
   border: 2px solid transparent;
 }
 
-.rdp-button[aria-disabled='true'] {
+.rdp-button[disabled] {
   opacity: 0.25;
-  pointer-events: none;
 }
 
-.rdp-button:not([aria-disabled='true']) {
+.rdp-button:not([disabled]) {
   cursor: pointer;
 }
 
-.rdp-button:focus,
-.rdp-button:active {
+.rdp-button:focus:not([disabled]),
+.rdp-button:active:not([disabled]) {
   color: inherit;
   border: var(--rdp-outline);
   background-color: var(--rdp-background-color);
 }
 
-.rdp-button:hover:not([aria-disabled='true']) {
+.rdp-button:hover:not([disabled]) {
   background-color: var(--rdp-background-color);
 }
 
@@ -270,15 +269,15 @@
   font-weight: bold;
 }
 
-.rdp-day_selected:not([aria-disabled='true']),
-.rdp-day_selected:focus:not([aria-disabled='true']),
-.rdp-day_selected:active:not([aria-disabled='true']),
-.rdp-day_selected:hover:not([aria-disabled='true']) {
+.rdp-day_selected:not([disabled]),
+.rdp-day_selected:focus:not([disabled]),
+.rdp-day_selected:active:not([disabled]),
+.rdp-day_selected:hover:not([disabled]) {
   color: white;
   background-color: var(--rdp-accent-color);
 }
 
-.rdp-day_selected:focus:not([aria-disabled='true']) {
+.rdp-day_selected:focus:not([disabled]) {
   border: var(--rdp-outline-selected);
 }
 
