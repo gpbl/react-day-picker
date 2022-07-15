@@ -1,6 +1,6 @@
 {
-  "name": "@andyschulzz/react-day-picker",
-  "version": "0.0.1",
+  "name": "react-day-picker",
+  "version": "8.0.7",
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "http://react-day-picker.js.org",

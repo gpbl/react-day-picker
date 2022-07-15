@@ -1,5 +1,8 @@
 .rdp {
   margin: 1em;
+}
+
+.rdp:root {
   --rdp-cell-size: 40px;
   --rdp-accent-color: #0000ff;
   --rdp-background-color: #e7edff;
