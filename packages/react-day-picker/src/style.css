@@ -1,8 +1,4 @@
-.rdp {
-  margin: 1em;
-}
-
-.rdp:root {
+:root {
   --rdp-cell-size: 40px;
   --rdp-accent-color: #0000ff;
   --rdp-background-color: #e7edff;
@@ -13,6 +9,10 @@
   --rdp-outline: 2px solid var(--rdp-accent-color);
   /* Outline border for focused and selected elements */
   --rdp-outline-selected: 2px solid rgba(0, 0, 0, 0.75);
+}
+
+.rdp {
+  margin: 1em;
 }
 
 /* Hide elements for devices that are not screen readers */
