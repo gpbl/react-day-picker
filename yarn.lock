@@ -2847,19 +2847,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-client@npm:^0.19.1":
-  version: 0.19.1
-  resolution: "@codesandbox/sandpack-client@npm:0.19.1"
+"@codesandbox/sandpack-client@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "@codesandbox/sandpack-client@npm:1.2.2"
   dependencies:
     codesandbox-import-utils: ^1.2.3
     lodash.isequal: ^4.5.0
-  checksum: 757635e0b9425f77e45012719a6d3d2a1f25d91260b57287cfc11957ef277225b799a28f97db5a18a3abacd8c49b78239afc855b181946fff1503be83b714432
+  checksum: c43d3829007c82984d3a404e4f507f682edf6d54817a3e488dec9d2c93e740f1fbf9b3ae2785004049cf4fd88e773398f7ad16015ce48c69368f244195f4721a
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-react@npm:^0.19.6":
-  version: 0.19.6
-  resolution: "@codesandbox/sandpack-react@npm:0.19.6"
+"@codesandbox/sandpack-react@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "@codesandbox/sandpack-react@npm:1.2.4"
   dependencies:
     "@code-hike/classer": ^0.0.0-aa6efee
     "@codemirror/closebrackets": ^0.19.0
@@ -2875,17 +2875,18 @@ __metadata:
     "@codemirror/matchbrackets": ^0.19.3
     "@codemirror/state": ^0.19.6
     "@codemirror/view": ^0.19.32
-    "@codesandbox/sandpack-client": ^0.19.1
+    "@codesandbox/sandpack-client": ^1.2.2
     "@react-hook/intersection-observer": ^3.1.1
+    "@stitches/core": ^1.2.6
     codesandbox-import-util-types: ^2.2.3
     lodash.isequal: ^4.5.0
     lz-string: ^1.4.4
     react-devtools-inline: 4.4.0
     react-is: ^17.0.2
   peerDependencies:
-    react: ^16.8.0 || ^17
-    react-dom: ^16.8.0 || ^17
-  checksum: fccd44291d730ae1b3b405c1e8a35e6207bc640f20878c509808b038cb77f481164a1e99b491f40353ba638eee2f99a2867a6394dfb4dfe7e554f746c33d2cc2
+    react: ^16.8.0 || ^17 || ^18
+    react-dom: ^16.8.0 || ^17 || ^18
+  checksum: 6d603a277ded8780716b968236e02cabc70227ed8d973b43e1f0d3a9428bafece3e26f0f7fae6fc52f541f4e75b24924bf56eef0497d98a9b84c4fc7cab0b2f4
   languageName: node
   linkType: hard
 
@@ -4067,6 +4068,13 @@ __metadata:
     eval: ^0.1.8
     webpack-sources: ^1.4.3
   checksum: b6005e5fb306347d18d6823a070f50c59f690f4814fc928b048c8cbd56d00bb19332a4f18ad5824c1af1e9d19ec8b6deb365bd4a63cfcfb062020bda65ae0319
+  languageName: node
+  linkType: hard
+
+"@stitches/core@npm:^1.2.6":
+  version: 1.2.8
+  resolution: "@stitches/core@npm:1.2.8"
+  checksum: 3a76a697b1d71ffb212e8b166f923c8f66ef99de93689dd417571f90fbba5692abb9a92220acd102baf5298896f0fdfeaa721da2d61adee1247531a26f67a15f
   languageName: node
   linkType: hard
 
@@ -16664,7 +16672,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "website@workspace:website"
   dependencies:
-    "@codesandbox/sandpack-react": ^0.19.6
+    "@codesandbox/sandpack-react": ^1.2.4
     "@docusaurus/core": 2.0.0-beta.21
     "@docusaurus/module-type-aliases": 2.0.0-beta.21
     "@docusaurus/preset-classic": 2.0.0-beta.21

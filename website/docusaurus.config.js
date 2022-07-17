@@ -36,8 +36,8 @@ const config = {
   projectName: 'react-day-picker',
   trailingSlash: false,
   clientModules: [
-    require.resolve('react-day-picker/dist/style.css'),
-    require.resolve('@codesandbox/sandpack-react/dist/index.css')
+    require.resolve('react-day-picker/dist/style.css')
+    // require.resolve('@codesandbox/sandpack-react/dist/index.css')
   ],
   themeConfig: {
     announcementBar: {

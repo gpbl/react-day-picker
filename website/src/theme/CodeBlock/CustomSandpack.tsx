@@ -2,13 +2,7 @@
 
 import React from 'react';
 
-import {
-  githubLightTheme as defaultLight,
-  nightOwlTheme as defaultDark,
-  Sandpack,
-  SandpackProps
-} from '@codesandbox/sandpack-react';
-import '@codesandbox/sandpack-react/dist/index.css';
+import { Sandpack } from '@codesandbox/sandpack-react';
 import { useColorMode } from '@docusaurus/theme-common';
 import pkg from 'react-day-picker/package.json';
 
@@ -53,32 +47,24 @@ export function CustomSandPack(props: {
     files = { ...files, ...fakePkg };
   }
 
-  const options: SandpackProps['options'] = {
-    editorHeight: 400,
-    editorWidthPercentage: 60,
-    showNavigator: false,
-    showTabs: false,
-    showLineNumbers: true,
-    wrapContent: false,
-    externalResources: [
-      'https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css'
-    ]
-  };
-
   const dependencies = {
     'react-day-picker': pkg.version,
     ...pkg.peerDependencies,
     ...props.dependencies
   };
-  const theme = isDarkTheme ? defaultDark : defaultLight;
 
   return (
     <Sandpack
       template="react-ts"
-      theme={{ ...theme, typography: { fontSize: '13px' } }}
       files={files}
+      theme={isDarkTheme ? 'dark' : 'light'}
       customSetup={{ dependencies }}
-      options={options}
+      options={{
+        showTabs: false,
+        externalResources: [
+          'https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css'
+        ]
+      }}
     />
   );
 }

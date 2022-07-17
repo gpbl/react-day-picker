@@ -31,5 +31,7 @@ export default function CodeBlockWithSandpack(props: {
       (result, dependency) => ({ ...result, [dependency]: 'latest' }),
       {}
     );
+
+  console.log(dependencies);
   return <CustomSandPack dependencies={dependencies} src={src} />;
 }

@@ -33,7 +33,7 @@
     "tsconfig.json"
   ],
   "dependencies": {
-    "@reach/auto-id": "0.16.0"
+    "@accessible/use-id": "0.16.0"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^3.1.9",
