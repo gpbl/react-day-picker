@@ -2,14 +2,16 @@ import React, { StrictMode } from 'react';
 
 /** Root file used by the Sandpack */
 import 'react-day-picker/dist/style.css';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import App from './App';
 import './styles.css';
 
-render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
   <StrictMode>
     <App />
-  </StrictMode>,
-  document.getElementById('root')
+  </StrictMode>
 );

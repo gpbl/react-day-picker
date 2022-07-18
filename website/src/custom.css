@@ -24,7 +24,6 @@
   --ifm-menu-color-background-hover: inherit;
   --ifm-menu-link-sublist-icon: url('/images/sublist-icon.svg');
   --ifm-navbar-background-color: var(--menu-background);
-
   --doc-sidebar-width: 260px !important;
 }
 
@@ -36,6 +35,7 @@ html[data-theme='dark'] {
   --ifm-color-primary-light: #ffe18a;
   --ifm-color-primary-lighter: #ffe69c;
   --ifm-color-primary-lightest: #fff3d1;
+  --ifm-toc-border-color: transparent;
 
   --rdp-accent-color-light: var(--rdp-accent-color-dark);
   --rdp-accent-color-lighter: var(--rdp-accent-color-darker);
