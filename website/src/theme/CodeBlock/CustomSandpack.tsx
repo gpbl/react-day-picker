@@ -49,7 +49,8 @@ export function CustomSandPack(props: {
 
   const dependencies = {
     'react-day-picker': pkg.version,
-    ...pkg.peerDependencies,
+    'date-fns': '^2.28.0',
+    react: '^18.0.0',
     ...props.dependencies
   };
 
@@ -60,7 +61,9 @@ export function CustomSandPack(props: {
       theme={isDarkTheme ? 'dark' : 'light'}
       customSetup={{ dependencies }}
       options={{
+        showRefreshButton: true,
         showTabs: false,
+        editorHeight: 450,
         externalResources: [
           'https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css'
         ]
