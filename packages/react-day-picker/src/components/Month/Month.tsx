@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { useId } from '@reach/auto-id';
-
 import { Caption } from 'components/Caption';
 import { Table } from 'components/Table';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useNavigation } from 'contexts/Navigation';
+import { useId } from 'hooks/useId';
 
 /** The props for the [[Month]] component. */
 export interface MonthProps {
