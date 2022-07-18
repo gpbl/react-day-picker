@@ -32,6 +32,5 @@ export default function CodeBlockWithSandpack(props: {
       {}
     );
 
-  console.log(dependencies);
   return <CustomSandPack dependencies={dependencies} src={src} />;
 }

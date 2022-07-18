@@ -3,6 +3,7 @@
 import React from 'react';
 
 import { Sandpack } from '@codesandbox/sandpack-react';
+import { githubLight, nightOwl } from '@codesandbox/sandpack-themes';
 import { useColorMode } from '@docusaurus/theme-common';
 import pkg from 'react-day-picker/package.json';
 
@@ -58,7 +59,7 @@ export function CustomSandPack(props: {
     <Sandpack
       template="react-ts"
       files={files}
-      theme={isDarkTheme ? 'dark' : 'light'}
+      theme={isDarkTheme ? nightOwl : githubLight}
       customSetup={{ dependencies }}
       options={{
         showRefreshButton: true,

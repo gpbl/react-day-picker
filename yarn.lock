@@ -2890,6 +2890,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@codesandbox/sandpack-themes@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@codesandbox/sandpack-themes@npm:1.0.0"
+  checksum: ca90676f6663aef5f52e5c02efbd5d6f5846c4a6be943dce922ea8187a8c9f87edb8c91def165a5bab73d5d866b879650a3696d5ea246f737b80e6a56d7807ef
+  languageName: node
+  linkType: hard
+
 "@colors/colors@npm:1.5.0":
   version: 1.5.0
   resolution: "@colors/colors@npm:1.5.0"
@@ -16646,6 +16653,7 @@ __metadata:
   resolution: "website@workspace:website"
   dependencies:
     "@codesandbox/sandpack-react": ^1.2.4
+    "@codesandbox/sandpack-themes": ^1.0.0
     "@docusaurus/core": 2.0.0-beta.21
     "@docusaurus/module-type-aliases": 2.0.0-beta.21
     "@docusaurus/preset-classic": 2.0.0-beta.21
