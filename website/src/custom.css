@@ -47,22 +47,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* #region: override general styles */
-/* 
-table {
-  margin: 0;
-}
-table th,
-table td,
-table tr {
-  border: 0;
-  background-color: transparent;
-} */
-
-.rdp table tr:nth-child(2n) {
-  background: none;
-}
-
 .menu {
   border-radius: var(--ifm-global-radius);
   background-color: var(--menu-background);
@@ -86,7 +70,7 @@ table tr {
   }
   .navbar__inner {
     background-color: var(--menu-background);
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem 1rem 0.75rem;
     border-radius: var(--ifm-global-radius);
   }
   .navbar__brand {
