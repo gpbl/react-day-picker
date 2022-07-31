@@ -8,14 +8,14 @@ import { CustomModifiers, InternalModifiers, Modifiers } from 'types/Modifiers';
 import { getCustomModifiers } from './utils/getCustomModifiers';
 import { getInternalModifiers } from './utils/getInternalModifiers';
 
-/** The Modifiers context store the modifiers used in DayPicker. To access the value of this context, use [[useModifiers]]. */
+/** The Modifiers context store the modifiers used in DayPicker. To access the value of this context, use {@link useModifiers}. */
 export const ModifiersContext = createContext<Modifiers | undefined>(undefined);
 
 export type ModifiersProviderProps = {
   children: ReactNode;
 };
 
-/** Provide the value for the [[ModifiersContext]]. */
+/** Provide the value for the {@link ModifiersContext}. */
 export function ModifiersProvider(props: ModifiersProviderProps): JSX.Element {
   const dayPicker = useDayPicker();
   const selectMultiple = useSelectMultiple();

@@ -16,7 +16,7 @@ import { ClassNames, Styles } from 'types/Styles';
 import { getDefaultContextValue } from './defaultContextValue';
 import { parseFromToProps } from './utils';
 
-/** The value of the [[DayPickerContext]]. */
+/** The value of the {@link DayPickerContext}. */
 export interface DayPickerContextValue extends DayPickerBase {
   mode: DaySelectionMode;
   onSelect?:
@@ -45,21 +45,21 @@ export interface DayPickerContextValue extends DayPickerBase {
  * and custom components. It is used to set the default values and perform
  * one-time calculations required to render the days.
  *
- * Developers may access this context from the [[useDayPicker]] hook when
+ * Developers may access this context from the {@link useDayPicker} hook when
  * using custom components.
  */
 export const DayPickerContext = createContext<
   DayPickerContextValue | undefined
 >(undefined);
 
-/** The props for the [[DayPickerProvider]]. */
+/** The props for the {@link DayPickerProvider}. */
 export interface DayPickerProviderProps {
   /** The initial props from the DayPicker component. */
   initialProps: DayPickerProps;
   children?: ReactNode;
 }
 /**
- * The provider for the [[DayPickerContext]], assigning the defaults from the
+ * The provider for the {@link DayPickerContext}, assigning the defaults from the
  * initial DayPicker props.
  */
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {

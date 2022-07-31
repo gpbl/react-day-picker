@@ -52,11 +52,11 @@ export type ModifiersStyles = Record<Modifier, React.CSSProperties> &
 export type ModifiersClassNames = Record<Modifier, string> &
   Partial<Record<InternalModifier, string>>;
 
-/** The custom modifiers passed to the [[DayPickerProps.modifiers]]. */
+/** The custom modifiers passed to the {@link DayPickerBase.modifiers}. */
 export type DayModifiers = Record<Modifier, Matcher | Matcher[]>;
 
 /**
  * A map of matchers used as custom modifiers by DayPicker component. This is
- * the same as [[DayModifiers]], but it accepts only array of [[Matcher]]s.
+ * the same as {@link DayModifiers]], but it accepts only array of [[Matcher}s.
  */
 export type CustomModifiers = Record<Modifier, Matcher[]>;

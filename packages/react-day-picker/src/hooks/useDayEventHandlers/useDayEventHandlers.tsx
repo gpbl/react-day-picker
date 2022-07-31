@@ -59,9 +59,9 @@ export type DayEventHandlers = Pick<HTMLProps<HTMLButtonElement>, EventName>;
  *
  * ### Usage
  *
- * Use this hook to customize the behavior of the [[Day]] component. Create a
+ * Use this hook to customize the behavior of the {@link Day} component. Create a
  * new `Day` component using this hook and pass it to the `components` prop.
- * The source of [[Day]] can be a good starting point.
+ * The source of {@link Day} can be a good starting point.
  *
  */
 export function useDayEventHandlers(

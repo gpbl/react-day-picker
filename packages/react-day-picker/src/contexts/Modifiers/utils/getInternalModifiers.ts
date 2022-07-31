@@ -18,7 +18,7 @@ const {
   Outside
 } = InternalModifier;
 
-/** Return the [[InternalModifiers]] from the DayPicker and select contexts. */
+/** Return the {@link InternalModifiers} from the DayPicker and select contexts. */
 export function getInternalModifiers(
   dayPicker: DayPickerContextValue,
   selectMultiple: SelectMultipleContextValue,

@@ -7,7 +7,7 @@ import { ModifiersContext } from './ModifiersContext';
 /**
  * Return the modifiers used by DayPicker.
  *
- * Requires to be wrapped into [[ModifiersProvider]]. */
+ * Requires to be wrapped into {@link ModifiersProvider}. */
 export function useModifiers(): Modifiers {
   const context = useContext(ModifiersContext);
   if (!context) {

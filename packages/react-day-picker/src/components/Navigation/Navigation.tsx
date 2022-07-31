@@ -6,7 +6,7 @@ import { useDayPicker } from 'contexts/DayPicker';
 
 import { Button } from '../Button';
 
-/** The props for the [[Navigation]] component. */
+/** The props for the {@link Navigation} component. */
 export interface NavigationProps {
   /** The month where the caption is displayed. */
   displayMonth: Date;
