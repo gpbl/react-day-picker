@@ -86,12 +86,6 @@ body {
   }
 }
 
-.navbar__brand b,
-[class^='sidebarLogo'] b {
-  /* font-weight: 400 !important; */
-  /* font-size: 1.3rem; */
-}
-
 [class*='codeBlockLines'] {
   background-color: var(--menu-background) !important;
 }
@@ -261,64 +255,6 @@ html[data-theme='dark'] .dialog-sheet {
   font-weight: 700;
 }
 
-/* .markdown > table {
-  width: 100%;
-  margin-bottom: 2em;
-}
-
-.markdown > table td:last-child {
-  width: 100%;
-}
-
-.markdown > table,
-.markdown > table thead tr {
-  border: 0;
-}
-.markdown > table tbody tr:last-child td {
-  border-bottom: 0;
-}
-
-.markdown > table tr:nth-child(2n) {
-  background-color: inherit;
-}
-
-.markdown > table thead tr th {
-  text-align: left;
-  color: var(--ifm-color-emphasis-500);
-  border-top: 0;
-  border-bottom: 0;
-  font-size: 0.875em;
-}
-
-.markdown > table th,
-.markdown > table td {
-  padding: calc(var(--ifm-table-cell-padding) / 2) var(--ifm-table-cell-padding);
-}
-
-.markdown > table th:first-child,
-.markdown > table td:first-child {
-  border-left: 0;
-}
-.markdown > table th:last-child,
-.markdown > table td:last-child {
-  border-right: 0;
-}
-
-.markdown form input {
-  padding: 0.25em 0.75em;
-  color: var(--ifm-font-color-base);
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: var(--ifm-button-border-radius);
-  font: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  background-color: #fff;
-}
-
-[data-theme='dark'] .markdown form input {
-  background-color: #010101;
-} */
-
 .markdown hr {
   height: 1px;
   border: none;
@@ -394,16 +330,5 @@ html[data-theme='dark'] .dialog-sheet {
   font-family: var(--ifm-font-family-monospace);
   background-color: transparent;
 }
-/* 
-#parameters + table thead {
-  background-color: transparent;
-  color: currentColor;
-  border-bottom: 1px solid var(--ifm-color-emphasis-100);
-}
-#parameters + table td,
-#parameters + table th {
-  padding-left: 0;
-  border: 1px solid var(--ifm-color-emphasis-100);
-} */
 
 /* #endregion */
