@@ -4687,10 +4687,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/docusaurus@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "@tsconfig/docusaurus@npm:1.0.5"
-  checksum: 3089de4a1ae9444c97caaee52dc5e429cc5e719fa596fb8862c19695259818d7e0b86c0eea15f6abe0749757cdc4048771d4b9332059f1b0bd8d4a80b32d51e9
+"@tsconfig/docusaurus@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "@tsconfig/docusaurus@npm:1.0.6"
+  checksum: fb0d7965c01fe64fc6369a72695b903d654bd5fb145f373d707c2bae3c2d828703517d812cef1c041ae44b108f44e52778b9d9837a54fdf782e68e6619a90a4d
   languageName: node
   linkType: hard
 
@@ -16123,20 +16123,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-markdown@npm:^3.13.3":
-  version: 3.13.3
-  resolution: "typedoc-plugin-markdown@npm:3.13.3"
+"typedoc-plugin-markdown@npm:^3.13.4":
+  version: 3.13.4
+  resolution: "typedoc-plugin-markdown@npm:3.13.4"
   dependencies:
     handlebars: ^4.7.7
   peerDependencies:
     typedoc: ">=0.23.0"
-  checksum: e3e738eade153fc38b557a9526f31dd30fdfbc1e5663636868c1631f28df95df1fb2d39dce711cf4b52649cc9a62866cb632b329a14467b13a9925b30179b3f3
+  checksum: b4edc0147694b8669a05695ef67b6a1f645c10179930fa86759374347f4e8cbb6bd29b58929abce62ab6a3e165de36711ab22eaad240785b1235c06bba4574e4
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.23.8":
-  version: 0.23.8
-  resolution: "typedoc@npm:0.23.8"
+"typedoc@npm:^0.23.9":
+  version: 0.23.9
+  resolution: "typedoc@npm:0.23.9"
   dependencies:
     lunr: ^2.3.9
     marked: ^4.0.16
@@ -16146,7 +16146,7 @@ __metadata:
     typescript: 4.6.x || 4.7.x
   bin:
     typedoc: bin/typedoc
-  checksum: 99568e5df15781def0761d9876a86883bb58cb5318c258be965628626cc33737cd605640de2a9397f6722bccaed70aeb1e68c5f390b03ac7e8a17da9f091f906
+  checksum: 3b1eac3c4acfe7390f23ff35bea3cd694762b465c53605b159cf4abbb8e50b22f835d52a7f20c71b9219c79b6ab093346d671ebba67b922782f8658375a65347
   languageName: node
   linkType: hard
 
@@ -16903,7 +16903,7 @@ __metadata:
     "@mdx-js/react": ^1.6.22
     "@popperjs/core": ^2.11.5
     "@testing-library/jest-dom": ^5.16.4
-    "@tsconfig/docusaurus": ^1.0.5
+    "@tsconfig/docusaurus": ^1.0.6
     "@types/jest": ^27.4.1
     "@types/react-helmet": ^6.1.5
     "@types/react-router-dom": ^5.3.3
@@ -16923,8 +16923,8 @@ __metadata:
     react-dom: ^18.2.0
     react-popper: ^2.3.0
     ts-jest: ^27.1.4
-    typedoc: ^0.23.8
-    typedoc-plugin-markdown: ^3.13.3
+    typedoc: ^0.23.9
+    typedoc-plugin-markdown: ^3.13.4
     typescript: ~4.7.4
     webpack: ^5.72.0
   languageName: unknown
