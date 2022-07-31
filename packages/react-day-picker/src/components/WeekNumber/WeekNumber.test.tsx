@@ -6,8 +6,6 @@ import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render/customRender';
 
-import { DayPickerBase } from 'types/DayPickerBase';
-
 import { WeekNumber, WeekNumberProps } from './WeekNumber';
 
 function setup(props: WeekNumberProps, dayPickerProps?: DayPickerProps) {
