@@ -7,6 +7,7 @@ import addYears from 'date-fns/addYears';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 
+import { useDayPicker } from 'contexts/DayPicker';
 import { useModifiers } from '../Modifiers';
 import { useNavigation } from '../Navigation';
 import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
@@ -65,6 +66,8 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     modifiers
   );
 
+  const { weekStartsOn } = useDayPicker();
+
   // TODO: cleanup and test obscure code below
   const focusTarget =
     focusedDay ?? (lastFocused && navigation.isDateDisplayed(lastFocused))
@@ -106,14 +109,14 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
 
   const focusStartOfWeek = (): void => {
     if (!focusedDay) return;
-    const dayToFocus = startOfWeek(focusedDay);
+    const dayToFocus = startOfWeek(focusedDay, { weekStartsOn });
     navigation.goToDate(dayToFocus, focusedDay);
     focus(dayToFocus);
   };
 
   const focusEndOfWeek = (): void => {
     if (!focusedDay) return;
-    const dayToFocus = endOfWeek(focusedDay);
+    const dayToFocus = endOfWeek(focusedDay, { weekStartsOn });
     navigation.goToDate(dayToFocus, focusedDay);
     focus(dayToFocus);
   };

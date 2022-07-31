@@ -240,3 +240,28 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     });
   });
 });
+
+describe('when week is set to start on a Monday', () => {
+  const day = setDate(today, 10);
+  const startOfWeekDay = startOfWeek(day, { weekStartsOn: 1 });
+  const endOfWeekDay = endOfWeek(day, { weekStartsOn: 1 });
+
+  beforeEach(() => {
+    setup({ mode: 'single', weekStartsOn: 1 });
+  });
+
+  beforeEach(() => focusDay(day));
+
+  describe('when Home is pressed', () => {
+    beforeEach(pressHome);
+    it('should focus the start of the week being Monday', () => {
+      expect(getDayButton(startOfWeekDay)).toHaveFocus();
+    });
+  });
+  describe('when End is pressed', () => {
+    beforeEach(pressEnd);
+    it('should focus the end of the week being Sunday', () => {
+      expect(getDayButton(endOfWeekDay)).toHaveFocus();
+    });
+  });
+});
