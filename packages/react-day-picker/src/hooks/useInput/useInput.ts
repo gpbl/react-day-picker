@@ -55,7 +55,7 @@ export interface UseInputOptions
 }
 
 /** Represent the value returned by {@link useInput}. */
-export interface UseInput {
+export interface UseInputValue {
   /** The props to pass to a DayPicker component. */
   dayPickerProps: InputDayPickerProps;
   /** The props to pass to an input field. */
@@ -67,7 +67,7 @@ export interface UseInput {
 }
 
 /** Return props and setters for binding an input field to DayPicker. */
-export function useInput(options: UseInputOptions = {}): UseInput {
+export function useInput(options: UseInputOptions = {}): UseInputValue {
   const {
     locale = enUS,
     required,
