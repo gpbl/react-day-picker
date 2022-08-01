@@ -8,11 +8,12 @@ import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 
 import { useDayPicker } from 'contexts/DayPicker';
+
 import { useModifiers } from '../Modifiers';
 import { useNavigation } from '../Navigation';
 import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
 
-/** Represents the value of the [[NavigationContext]]. */
+/** Represents the value of the {@link NavigationContext}. */
 export type FocusContextValue = {
   /** The day currently focused. */
   focusedDay: Date | undefined;
@@ -47,13 +48,13 @@ export type FocusContextValue = {
 /**
  * The Focus context shares details about the focused day for the keyboard
  *
- * Access this context from the [[useFocus]] hook.
+ * Access this context from the {@link useFocusContext} hook.
  */
 export const FocusContext = createContext<FocusContextValue | undefined>(
   undefined
 );
 
-/** The provider for the [[FocusContext]]. */
+/** The provider for the {@link FocusContext}. */
 export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const navigation = useNavigation();
   const modifiers = useModifiers();

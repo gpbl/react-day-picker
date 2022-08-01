@@ -15,13 +15,13 @@ import {
 
 import { isValidDate } from './utils/isValidDate';
 
-/** The props to attach to the input field when using [[useInput]]. */
+/** The props to attach to the input field when using {@link useInput}. */
 export type InputHTMLAttributes = Pick<
   React.InputHTMLAttributes<HTMLInputElement>,
   'onBlur' | 'onChange' | 'onFocus' | 'value' | 'placeholder'
 >;
 
-/** The props to attach to the DayPicker component when using [[useInput]]. */
+/** The props to attach to the DayPicker component when using {@link useInput}. */
 export type InputDayPickerProps = Pick<
   DayPickerSingleProps,
   | 'fromDate'
@@ -54,8 +54,8 @@ export interface UseInputOptions
   required?: boolean;
 }
 
-/** Represent the value returned by [[useInput]]. */
-export interface UseInput {
+/** Represent the value returned by {@link useInput}. */
+export interface UseInputValue {
   /** The props to pass to a DayPicker component. */
   dayPickerProps: InputDayPickerProps;
   /** The props to pass to an input field. */
@@ -67,7 +67,7 @@ export interface UseInput {
 }
 
 /** Return props and setters for binding an input field to DayPicker. */
-export function useInput(options: UseInputOptions = {}): UseInput {
+export function useInput(options: UseInputOptions = {}): UseInputValue {
   const {
     locale = enUS,
     required,

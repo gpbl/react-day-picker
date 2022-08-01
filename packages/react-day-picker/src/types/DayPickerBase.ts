@@ -33,12 +33,12 @@ import { ClassNames, StyledComponent, Styles } from './Styles';
  * - `single`: use DayPicker to select single days.
  * - `multiple`: allow selecting multiple days.
  * - `range`: use DayPicker to select a range of days
- * - `default`: disable the built-in selection behavior. Customize what is selected by using [[onDayClick]].
+ * - `default`: disable the built-in selection behavior. Customize what is selected by using {@link DayPickerBase.onDayClick}.
  */
 export type DaySelectionMode = 'single' | 'multiple' | 'range' | 'default';
 
 /**
- * The base props for the [[DayPicker]] component.
+ * The base props for the {@link DayPicker} component and the {@link DayPickerContext}.
  */
 export interface DayPickerBase {
   /** The CSS class to add to the container element. */
@@ -51,7 +51,7 @@ export interface DayPickerBase {
    */
   classNames?: ClassNames;
   /**
-   * Change the class name for the day matching the [[modifiers]].
+   * Change the class name for the day matching the {@link modifiers}.
    */
   modifiersClassNames?: ModifiersClassNames;
 
@@ -64,20 +64,20 @@ export interface DayPickerBase {
    */
   styles?: Styles;
   /**
-   * Change the inline style for the day matching the [[modifiers]].
+   * Change the inline style for the day matching the {@link modifiers}.
    */
   modifiersStyles?: ModifiersStyles;
 
   /**
    * The initial month to show in the calendar. Default is the current month.
    *
-   * Use this prop to let DayPicker control the current month. If you need to set the month programmatically, use [[month]] and [[onMonthChange]].
+   * Use this prop to let DayPicker control the current month. If you need to set the month programmatically, use {@link month]] and [[onMonthChange}.
    */
   defaultMonth?: Date;
   /**
    * The month to display in the calendar.
    *
-   * As opposed to [[defaultMonth]], use this prop with [[onMonthChange]] to
+   * As opposed to {@link defaultMonth]], use this prop with [[onMonthChange} to
    * change the month programmatically.
    */
   month?: Date;
@@ -118,11 +118,11 @@ export interface DayPickerBase {
    */
   disableNavigation?: boolean;
   /**
-   * Paginate the month navigation displaying the [[numberOfMonths]] at time.
+   * Paginate the month navigation displaying the {@link numberOfMonths} at time.
    */
   pagedNavigation?: boolean;
   /**
-   * Render the months in reversed order (when [[numberOfMonths]] is greater
+   * Render the months in reversed order (when {@link numberOfMonths} is greater
    * than `1`) to display the most recent month first.
    */
   reverseMonths?: boolean;
@@ -139,7 +139,7 @@ export interface DayPickerBase {
   captionLayout?: CaptionLayout;
   /**
    * Display six weeks per months, regardless the month’s number of weeks.
-   * To use this prop, [[showOutsideDays]] must be set. Default to `false`.
+   * To use this prop, {@link showOutsideDays} must be set. Default to `false`.
    */
   fixedWeeks?: boolean;
   /**

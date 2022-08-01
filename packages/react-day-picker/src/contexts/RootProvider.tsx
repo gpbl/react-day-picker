@@ -10,7 +10,7 @@ import { SelectMultipleProvider } from './SelectMultiple';
 import { SelectRangeProvider } from './SelectRange';
 import { SelectSingleProvider } from './SelectSingle';
 
-/** The props of [[RootProvider]]. */
+/** The props of {@link RootProvider}. */
 export type RootContext = DayPickerBase & {
   children: React.ReactNode;
 };

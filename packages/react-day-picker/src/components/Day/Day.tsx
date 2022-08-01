@@ -4,7 +4,7 @@ import { useDayRender } from 'hooks/useDayRender';
 
 import { Button } from '../Button';
 
-/** Represent the props used by the [[Day]] component. */
+/** Represent the props used by the {@link Day} component. */
 export interface DayProps {
   /** The month where the date is displayed. */
   displayMonth: Date;

@@ -4,7 +4,7 @@ import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
 import { DayClickEventHandler } from 'types/EventHandlers';
 
-/** Represents the value of a [[SelectSingleContext]]. */
+/** Represents the value of a {@link SelectSingleContext}. */
 export interface SelectSingleContextValue {
   /** The day that has been selected. */
   selected: Date | undefined;
@@ -16,7 +16,7 @@ export interface SelectSingleContextValue {
  * The SelectSingle context shares details about the selected days when in
  * single selection mode.
  *
- * Access this context from the [[useSelectSingle]] hook.
+ * Access this context from the {@link useSelectSingle} hook.
  */
 export const SelectSingleContext = createContext<
   SelectSingleContextValue | undefined
@@ -27,7 +27,7 @@ type SelectSingleProviderProps = {
   children: React.ReactNode;
 };
 
-/** Provides the values for the [[SelectSingleProvider]]. */
+/** Provides the values for the {@link SelectSingleProvider}. */
 export function SelectSingleProvider(
   props: SelectSingleProviderProps
 ): JSX.Element {

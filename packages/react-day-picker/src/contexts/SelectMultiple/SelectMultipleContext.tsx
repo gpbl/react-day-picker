@@ -16,7 +16,7 @@ export type SelectMultipleModifiers = Pick<
   InternalModifier.Disabled
 >;
 
-/** Represents the value of a [[SelectMultipleContext]]. */
+/** Represents the value of a {@link SelectMultipleContext}. */
 export interface SelectMultipleContextValue {
   /** The days that have been selected. */
   selected: Date[] | undefined;
@@ -30,7 +30,7 @@ export interface SelectMultipleContextValue {
  * The SelectMultiple context shares details about the selected days when in
  * multiple selection mode.
  *
- * Access this context from the [[useSelectMultiple]] hook.
+ * Access this context from the {@link useSelectMultiple} hook.
  */
 export const SelectMultipleContext = createContext<
   SelectMultipleContextValue | undefined
@@ -41,7 +41,7 @@ export type SelectMultipleProviderProps = {
   children: ReactNode;
 };
 
-/** Provides the values for the [[SelectMultipleContext]]. */
+/** Provides the values for the {@link SelectMultipleContext}. */
 export function SelectMultipleProvider(
   props: SelectMultipleProviderProps
 ): JSX.Element {

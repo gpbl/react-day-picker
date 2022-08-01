@@ -8,7 +8,7 @@ import { Dropdown } from 'components/Dropdown';
 import { useDayPicker } from 'contexts/DayPicker';
 import { MonthChangeEventHandler } from 'types/EventHandlers';
 
-/** The props for the [[MonthsDropdown]] component. */
+/** The props for the {@link MonthsDropdown} component. */
 export interface MonthsDropdownProps {
   /** The month where the dropdown is displayed. */
   displayMonth: Date;

@@ -6,7 +6,7 @@ import { useDayPicker } from 'contexts/DayPicker';
 import { useNavigation } from 'contexts/Navigation';
 import { useId } from 'hooks/useId';
 
-/** The props for the [[Month]] component. */
+/** The props for the {@link Month} component. */
 export interface MonthProps {
   displayIndex: number;
   displayMonth: Date;

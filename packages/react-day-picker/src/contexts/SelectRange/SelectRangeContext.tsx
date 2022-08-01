@@ -21,7 +21,7 @@ export type SelectRangeModifiers = Pick<
   | InternalModifier.RangeStart
 >;
 
-/** Represents the value of a [[SelectRangeContext]]. */
+/** Represents the value of a {@link SelectRangeContext}. */
 export interface SelectRangeContextValue {
   /** The range of days that has been selected. */
   selected: DateRange | undefined;
@@ -35,7 +35,7 @@ export interface SelectRangeContextValue {
  * The SelectRange context shares details about the selected days when in
  * range selection mode.
  *
- * Access this context from the [[useSelectRange]] hook.
+ * Access this context from the {@link useSelectRange} hook.
  */
 export const SelectRangeContext = createContext<
   SelectRangeContextValue | undefined
@@ -46,7 +46,7 @@ type SelectRangeProviderProps = {
   children: ReactNode;
 };
 
-/** Provides the values for the [[SelectRangeProvider]]. */
+/** Provides the values for the {@link SelectRangeProvider}. */
 export function SelectRangeProvider(
   props: SelectRangeProviderProps
 ): JSX.Element {

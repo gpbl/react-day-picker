@@ -35,7 +35,7 @@ export type DayRender = {
 };
 
 /**
- * Return props and data used to render the [[Day]] component.
+ * Return props and data used to render the {@link Day} component.
  *
  * Use this hook when creating a component to replace the built-in `Day`
  * component.
