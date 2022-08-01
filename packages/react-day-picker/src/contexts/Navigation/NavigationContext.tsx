@@ -10,7 +10,7 @@ import { getDisplayMonths } from './utils/getDisplayMonths';
 import { getNextMonth } from './utils/getNextMonth';
 import { getPreviousMonth } from './utils/getPreviousMonth';
 
-/** Represents the value of the [[NavigationContext]]. */
+/** Represents the value of the {@link NavigationContext}. */
 export interface NavigationContextValue {
   /** The month to display in the calendar. Note that when `numberOfMonths > 1` represent the first month in the displayed months. */
   currentMonth: Date;
@@ -31,13 +31,13 @@ export interface NavigationContextValue {
 /**
  * The Navigation context shares details about the months being navigated in DayPicker.
  *
- * Access this context from the [[useNavigation]] hook.
+ * Access this context from the {@link useNavigation} hook.
  */
 export const NavigationContext = createContext<
   NavigationContextValue | undefined
 >(undefined);
 
-/** Provides the values for the [[NavigationContext]]. */
+/** Provides the values for the {@link NavigationContext}. */
 export function NavigationProvider(props: {
   children?: ReactNode;
 }): JSX.Element {

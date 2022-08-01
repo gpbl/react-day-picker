@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { FocusContext, FocusContextValue } from './FocusContext';
 
-/** Hook to access the [[FocusContext]]. */
+/** Hook to access the {@link FocusContext}. */
 export function useFocusContext(): FocusContextValue {
   const context = useContext(FocusContext);
   if (!context) {

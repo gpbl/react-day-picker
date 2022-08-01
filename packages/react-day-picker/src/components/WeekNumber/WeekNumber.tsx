@@ -5,7 +5,7 @@ import { useDayPicker } from 'contexts/DayPicker';
 import { Button } from '../Button';
 
 /**
- * The props for the [[WeekNumber]] component.
+ * The props for the {@link WeekNumber} component.
  */
 export interface WeekNumberProps {
   /** The number of the week. */

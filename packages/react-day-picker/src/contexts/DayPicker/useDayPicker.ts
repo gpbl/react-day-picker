@@ -3,10 +3,10 @@ import { useContext } from 'react';
 import { DayPickerContext, DayPickerContextValue } from './DayPickerContext';
 
 /**
- * Hook to access the [[DayPickerContext]].
+ * Hook to access the {@link DayPickerContext}.
  *
  * To use this hook make sure to wrap the components with a one
- * [[DayPickerProvider]].
+ * {@link DayPickerProvider}.
  */
 export function useDayPicker(): DayPickerContextValue {
   const context = useContext(DayPickerContext);

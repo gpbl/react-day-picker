@@ -6,8 +6,6 @@ import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render/customRender';
 
-import { DayPickerBase } from 'types/DayPickerBase';
-
 import { WeekNumber, WeekNumberProps } from './WeekNumber';
 
 function setup(props: WeekNumberProps, dayPickerProps?: DayPickerProps) {
@@ -20,7 +18,7 @@ const props: WeekNumberProps = {
 };
 
 describe('without "onWeekNumberClick" prop', () => {
-  const dayPickerProps: DayPickerBase = { onWeekNumberClick: undefined };
+  const dayPickerProps: DayPickerProps = { onWeekNumberClick: undefined };
   test('it should return a span element', () => {
     const { container } = setup(props, dayPickerProps);
     expect(container.firstChild).toMatchSnapshot();
@@ -28,7 +26,7 @@ describe('without "onWeekNumberClick" prop', () => {
 });
 
 describe('with "onWeekNumberClick" prop', () => {
-  const dayPickerProps: DayPickerBase = { onWeekNumberClick: jest.fn() };
+  const dayPickerProps: DayPickerProps = { onWeekNumberClick: jest.fn() };
   const { container } = setup(props, dayPickerProps);
   test('it should return a button element', () => {
     expect(container.firstChild).toMatchSnapshot();

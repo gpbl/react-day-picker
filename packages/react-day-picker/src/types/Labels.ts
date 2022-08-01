@@ -13,7 +13,7 @@ export type Labels = {
   labelWeekNumber: WeekNumberLabel;
 };
 
-/** Return the ARIA label for the [[Day]] component. */
+/** Return the ARIA label for the {@link Day} component. */
 export type DayLabel = (
   day: Date,
   activeModifiers: ActiveModifiers,

@@ -3,7 +3,7 @@ import React from 'react';
 import { IconDropdown } from 'components/IconDropdown';
 import { useDayPicker } from 'contexts/DayPicker';
 
-/** The props for the [[Dropdown]] component. */
+/** The props for the {@link Dropdown} component. */
 export interface DropdownProps {
   caption?: React.ReactNode;
   children?: React.SelectHTMLAttributes<HTMLSelectElement>['children'];
