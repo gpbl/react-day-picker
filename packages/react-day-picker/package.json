@@ -47,7 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "date-fns": "^2.28.0",
-    "eslint": "^8.20.0",
+    "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-rdp": "workspace:^",
     "eslint-import-resolver-typescript": "^3.3.0",
