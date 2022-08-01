@@ -25,7 +25,7 @@ input-range
 
 ## Using the `useInput` Hook
 
-To bind DayPicker to an input field, DayPicker includes the [useInput hook](/api/functions/useinput), returning props to bind DayPicker with a single input field. Should you need something more sophisticated, give a look to the [useInput](/api/functions/useInput) source to implement your own hook.
+To bind DayPicker to an input field, DayPicker includes the [useInput hook](/api/functions/useInput), returning props to bind DayPicker with a single input field. Should you need something more sophisticated, give a look to the [useInput](/api/functions/useInput) source to implement your own hook.
 
 ```include-example
 useinput.tsx
