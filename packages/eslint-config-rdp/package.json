@@ -11,7 +11,7 @@
     "eslint-plugin-jest": "^26.7.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.6.2"
+    "prettier": "^2.7.1"
   },
   "peerDependencies": {
     "eslint": "^8.3.0"
