@@ -14124,7 +14124,7 @@ __metadata:
     ts-jest: ^27.1.4
     ts-node: ^10.9.1
     tsc-alias: ^1.7.0
-    tslib: ^2.3.1
+    tslib: ^2.4.0
     typed-css-modules: ^0.7.2
     typescript: ~4.7.4
   peerDependencies:
@@ -16186,7 +16186,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.1":
+"tslib@npm:^2.0.3, tslib@npm:^2.1.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
