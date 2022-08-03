@@ -107,7 +107,7 @@ const useIsomorphicLayoutEffect = canUseDOM()
 let serverHandoffComplete = false;
 let id = 0;
 function genId() {
-  return ++id;
+  return `react-day-picker-${++id}`;
 }
 
 /* eslint-disable react-hooks/rules-of-hooks */
