@@ -3230,9 +3230,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-react@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "@codesandbox/sandpack-react@npm:1.3.2"
+"@codesandbox/sandpack-react@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "@codesandbox/sandpack-react@npm:1.3.4"
   dependencies:
     "@code-hike/classer": ^0.0.0-aa6efee
     "@codemirror/closebrackets": ^0.19.0
@@ -3260,14 +3260,14 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
     react-dom: ^16.8.0 || ^17 || ^18
-  checksum: 9804468958f4ac5212ddf5c176433b16f8ea19424db62ccbe35746978e1edcff18c999476f68fd7c189a0c36d3bbb8f28b44281f04d89061fa4be7c0d40cb1a0
+  checksum: e31f9ba17dbfcba959b753c80ad2215ef4ce56480f0db8ee2ea5459685619b12be55a0405917181973ab5f3b209e9302c7d25f9c2de9ea4cfec196ba474cd6ba
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-themes@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@codesandbox/sandpack-themes@npm:1.0.0"
-  checksum: ca90676f6663aef5f52e5c02efbd5d6f5846c4a6be943dce922ea8187a8c9f87edb8c91def165a5bab73d5d866b879650a3696d5ea246f737b80e6a56d7807ef
+"@codesandbox/sandpack-themes@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "@codesandbox/sandpack-themes@npm:1.3.4"
+  checksum: ebf6f8d547bb55bb21dbe9d1a1a5a915329dedd4d22885bf1bef5faa169639a28ca0088dc67bb3f35c6832235c3e4022dcdce4ab7aac005884ab7503d1bf0018
   languageName: node
   linkType: hard
 
@@ -4383,9 +4383,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:^22.0.1":
-  version: 22.0.1
-  resolution: "@rollup/plugin-commonjs@npm:22.0.1"
+"@rollup/plugin-commonjs@npm:^22.0.2":
+  version: 22.0.2
+  resolution: "@rollup/plugin-commonjs@npm:22.0.2"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     commondir: ^1.0.1
@@ -4396,7 +4396,7 @@ __metadata:
     resolve: ^1.17.0
   peerDependencies:
     rollup: ^2.68.0
-  checksum: 6326227b688d1069ab2146b6f08c3d189da94bb77388691d7496001148041388542ddcbc6ffa7e9e97419c67e9cf3256a2414d770b4539998b4bc5d807404198
+  checksum: 70098a4b91afe3f164f5d27cba65edf148c5ed146ee0e07a964b66940681553ac77391083114cdcf9427e7f2706bf0d61eab310b3a2caeab83b7452c0292fcae
   languageName: node
   linkType: hard
 
@@ -8656,9 +8656,9 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.31.0
     "@typescript-eslint/parser": ^5.31.0
     eslint-config-prettier: ^8.5.0
-    eslint-import-resolver-typescript: ^3.3.0
+    eslint-import-resolver-typescript: ^3.4.0
     eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^26.7.0
+    eslint-plugin-jest: ^26.8.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-testing-library: ^5.6.0
@@ -8678,9 +8678,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:^3.3.0":
-  version: 3.3.0
-  resolution: "eslint-import-resolver-typescript@npm:3.3.0"
+"eslint-import-resolver-typescript@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "eslint-import-resolver-typescript@npm:3.4.0"
   dependencies:
     debug: ^4.3.4
     enhanced-resolve: ^5.10.0
@@ -8692,7 +8692,7 @@ __metadata:
   peerDependencies:
     eslint: "*"
     eslint-plugin-import: "*"
-  checksum: c5ccb5c15dbf7a7cddcb5daca9d7a412d523f8009a82e5869ef131f3e8717d501fddd1707528f516d9e54aef2936ea2d1e0f39ae7bfc62efa35ed7e329590c05
+  checksum: 42fa7fbf7a2144d27152567a2f2a6e6847d964a87ef7da29f559d09be44d0328a1894ea5186cf0824cecf3c9aec95bbb481d8ecbc129a3dd21614fbf3eb9a3b6
   languageName: node
   linkType: hard
 
@@ -8729,9 +8729,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^26.7.0":
-  version: 26.7.0
-  resolution: "eslint-plugin-jest@npm:26.7.0"
+"eslint-plugin-jest@npm:^26.8.0":
+  version: 26.8.0
+  resolution: "eslint-plugin-jest@npm:26.8.0"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -8742,7 +8742,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 21dbeb3820a1640185e0bd3847f65feba98b479812bcaa3f353e725bd0538618b16544b4dfc74ac147b5150afed9cf28760d7aaad54158611403810776fe6353
+  checksum: 5dceef6c58422d912e29346be86940ad24602026517a92ce61ddb29814c2185609887a1ea0b6061080ca19d9ee6749549d3424102b28620088e53ec45aefa915
   languageName: node
   linkType: hard
 
@@ -14119,7 +14119,7 @@ __metadata:
   resolution: "react-day-picker@workspace:packages/react-day-picker"
   dependencies:
     "@rollup/plugin-alias": ^3.1.9
-    "@rollup/plugin-commonjs": ^22.0.1
+    "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-node-resolve": ^13.3.0
     "@rollup/plugin-typescript": ^8.3.4
     "@testing-library/jest-dom": ^5.16.4
@@ -14135,9 +14135,9 @@ __metadata:
     eslint: ^8.21.0
     eslint-config-prettier: ^8.5.0
     eslint-config-rdp: "workspace:^"
-    eslint-import-resolver-typescript: ^3.3.0
+    eslint-import-resolver-typescript: ^3.4.0
     eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^26.7.0
+    eslint-plugin-jest: ^26.8.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react-hooks: ^4.6.0
     jest: ^27.5.1
@@ -17119,8 +17119,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "website@workspace:website"
   dependencies:
-    "@codesandbox/sandpack-react": ^1.3.2
-    "@codesandbox/sandpack-themes": ^1.0.0
+    "@codesandbox/sandpack-react": ^1.3.4
+    "@codesandbox/sandpack-themes": ^1.3.4
     "@docusaurus/core": ^2.0.1
     "@docusaurus/module-type-aliases": ^2.0.1
     "@docusaurus/preset-classic": ^2.0.1
