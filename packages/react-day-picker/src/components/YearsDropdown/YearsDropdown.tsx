@@ -9,7 +9,7 @@ import { useDayPicker } from 'contexts/DayPicker';
 import { MonthChangeEventHandler } from 'types/EventHandlers';
 
 /**
- * The props for the [[YearsDropdown]] component.
+ * The props for the {@link YearsDropdown} component.
  */
 export interface YearsDropdownProps {
   /** The month where the drop-down is displayed. */
@@ -60,8 +60,8 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   return (
     <DropdownComponent
       aria-label={labelYearDropdown()}
-      className={classNames.dropdown_month}
-      style={styles.dropdown_month}
+      className={classNames.dropdown_year}
+      style={styles.dropdown_year}
       onChange={handleChange}
       value={displayMonth.getFullYear()}
       caption={formatYearCaption(displayMonth, { locale })}

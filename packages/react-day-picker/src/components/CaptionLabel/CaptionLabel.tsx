@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
 
-/** The props for the [[CaptionLabel]] component. */
+/** The props for the {@link CaptionLabel} component. */
 export interface CaptionLabelProps {
   /** The ID for the heading element. Must be the same as the labelled-by in Table. */
   id?: string;

@@ -6,7 +6,7 @@ import { DayPickerBase } from './DayPickerBase';
 import { SelectRangeEventHandler } from './EventHandlers';
 import { DateRange } from './Matchers';
 
-/** The props for the [[DayPicker]] component when using `mode="range"`. */
+/** The props for the {@link DayPicker} component when using `mode="range"`. */
 export interface DayPickerRangeProps extends DayPickerBase {
   mode: 'range';
   /** The selected range of days. */
@@ -19,7 +19,7 @@ export interface DayPickerRangeProps extends DayPickerBase {
   max?: number;
 }
 
-/** Returns true when the props are of type [[DayPickerRange]]. */
+/** Returns true when the props are of type {@link DayPickerRangeProps}. */
 export function isDayPickerRange(
   props: DayPickerProps | DayPickerContextValue
 ): props is DayPickerRangeProps {

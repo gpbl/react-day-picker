@@ -35,10 +35,7 @@ const config = {
   organizationName: 'gpbl',
   projectName: 'react-day-picker',
   trailingSlash: false,
-  clientModules: [
-    require.resolve('react-day-picker/dist/style.css'),
-    require.resolve('@codesandbox/sandpack-react/dist/index.css')
-  ],
+  clientModules: [require.resolve('react-day-picker/dist/style.css')],
   themeConfig: {
     announcementBar: {
       id: '1',

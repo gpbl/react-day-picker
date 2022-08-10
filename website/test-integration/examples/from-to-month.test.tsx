@@ -16,11 +16,11 @@ beforeEach(() => {
 });
 
 test('the previous month button should be disabled', () => {
-  expect(getPrevButton()).toHaveAttribute('aria-disabled', 'true');
+  expect(getPrevButton()).toBeDisabled();
 });
 
 test('the next month button should not be disabled', () => {
-  expect(getNextButton()).not.toHaveAttribute('aria-disabled', 'true');
+  expect(getNextButton()).not.toBeDisabled();
 });
 
 describe('when navigating to the last month', () => {
@@ -32,10 +32,10 @@ describe('when navigating to the last month', () => {
   });
 
   test('the previous month button should not be disabled', () => {
-    expect(getPrevButton()).not.toHaveAttribute('aria-disabled', 'true');
+    expect(getPrevButton()).not.toBeDisabled();
   });
 
   test('the next month button should be disabled', () => {
-    expect(getNextButton()).toHaveAttribute('aria-disabled', 'true');
+    expect(getNextButton()).toBeDisabled();
   });
 });

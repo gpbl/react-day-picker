@@ -78,7 +78,8 @@ export default function DatePickerDialog() {
             initialFocus: false,
             allowOutsideClick: true,
             clickOutsideDeactivates: true,
-            onDeactivate: closePopper
+            onDeactivate: closePopper,
+            fallbackFocus: buttonRef.current
           }}
         >
           <div

@@ -5,7 +5,7 @@ import {
   SelectRangeContextValue
 } from './SelectRangeContext';
 
-/** Hook to access the [[SelectRangeContext]]. */
+/** Hook to access the {@link SelectRangeContext}. */
 export function useSelectRange(): SelectRangeContextValue {
   const context = useContext(SelectRangeContext);
   if (!context) {

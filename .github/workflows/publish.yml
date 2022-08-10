@@ -56,4 +56,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Deploy Website
+        env:
+          GIT_USER: gpbl
         run: yarn workspace website docusaurus deploy

@@ -7,7 +7,7 @@ import { WeekNumber } from 'components/WeekNumber';
 import { useDayPicker } from 'contexts/DayPicker';
 
 /**
- * The props for the [[Row]] component.
+ * The props for the {@link Row} component.
  */
 export interface RowProps {
   /** The month where the row is displayed. */

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CodeBlock from '@docusaurus/theme-classic/lib-next/theme/CodeBlock';
+import CodeBlock from '@theme-original/CodeBlock';
 
 import { CustomSandPack } from './CustomSandpack';
 
@@ -31,5 +31,6 @@ export default function CodeBlockWithSandpack(props: {
       (result, dependency) => ({ ...result, [dependency]: 'latest' }),
       {}
     );
+
   return <CustomSandPack dependencies={dependencies} src={src} />;
 }

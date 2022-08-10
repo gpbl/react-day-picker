@@ -3,7 +3,7 @@ import React from 'react';
 import { useDayPicker } from 'contexts/DayPicker';
 import { ActiveModifiers } from 'types/Modifiers';
 
-/** Represent the props for the [[DayContent]] component. */
+/** Represent the props for the {@link DayContent} component. */
 export interface DayContentProps {
   /** The date representing the day. */
   date: Date;

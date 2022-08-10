@@ -10,12 +10,13 @@ import max from 'date-fns/max';
 import min from 'date-fns/min';
 import isSameDay from 'date-fns/isSameDay';
 
+import { useDayPicker } from 'contexts/DayPicker';
+
 import { useModifiers } from '../Modifiers';
 import { useNavigation } from '../Navigation';
 import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
-import { useDayPicker } from '../DayPicker';
 
-/** Represents the value of the [[NavigationContext]]. */
+/** Represents the value of the {@link NavigationContext}. */
 export type FocusContextValue = {
   /** The day currently focused. */
   focusedDay: Date | undefined;
@@ -50,17 +51,16 @@ export type FocusContextValue = {
 /**
  * The Focus context shares details about the focused day for the keyboard
  *
- * Access this context from the [[useFocus]] hook.
+ * Access this context from the {@link useFocusContext} hook.
  */
 export const FocusContext = createContext<FocusContextValue | undefined>(
   undefined
 );
 
-/** The provider for the [[FocusContext]]. */
+/** The provider for the {@link FocusContext}. */
 export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const navigation = useNavigation();
   const modifiers = useModifiers();
-  const { fromDate, toDate } = useDayPicker();
 
   const [focusedDay, setFocusedDay] = useState<Date | undefined>();
   const [lastFocused, setLastFocused] = useState<Date | undefined>();
@@ -69,6 +69,8 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     navigation.displayMonths,
     modifiers
   );
+
+  const { fromDate, toDate, weekStartsOn } = useDayPicker();
 
   // TODO: cleanup and test obscure code below
   const focusTarget =
@@ -102,8 +104,10 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const focusDayAfter = () => moveFocus(addDays, true);
   const focusWeekBefore = () => moveFocus(addWeeks, false);
   const focusWeekAfter = () => moveFocus(addWeeks, true);
-  const focusStartOfWeek = () => moveFocus((date) => startOfWeek(date), false);
-  const focusEndOfWeek = () => moveFocus((date) => endOfWeek(date), true);
+  const focusStartOfWeek = () =>
+    moveFocus((date) => startOfWeek(date, { weekStartsOn }), false);
+  const focusEndOfWeek = () =>
+    moveFocus((date) => endOfWeek(date, { weekStartsOn }), true);
   const focusMonthBefore = () => moveFocus(addMonths, false);
   const focusMonthAfter = () => moveFocus(addMonths, true);
   const focusYearBefore = () => moveFocus(addYears, false);

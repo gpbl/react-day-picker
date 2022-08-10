@@ -27,7 +27,7 @@ export type DayRender = {
   activeModifiers: ActiveModifiers;
   /** The props to apply to the button element (when `isButton` is true). */
   buttonProps: StyledComponent &
-    Pick<ButtonProps, 'aria-disabled' | 'aria-pressed' | 'tabIndex'> &
+    Pick<ButtonProps, 'disabled' | 'aria-pressed' | 'tabIndex'> &
     DayEventHandlers;
   /** The props to apply to the div element (when `isButton` is false). */
   divProps: StyledComponent;
@@ -35,7 +35,7 @@ export type DayRender = {
 };
 
 /**
- * Return props and data used to render the [[Day]] component.
+ * Return props and data used to render the {@link Day} component.
  *
  * Use this hook when creating a component to replace the built-in `Day`
  * component.
@@ -69,12 +69,19 @@ export function useDayRender(
 
   // Focus the button if the day is focused according to the focus context
   useEffect(() => {
+    if (activeModifiers.outside) return;
     if (!focusContext.focusedDay) return;
     if (!isButton) return;
     if (isSameDay(focusContext.focusedDay, day)) {
       buttonRef.current?.focus();
     }
-  }, [focusContext.focusedDay, day, buttonRef, isButton]);
+  }, [
+    focusContext.focusedDay,
+    day,
+    buttonRef,
+    isButton,
+    activeModifiers.outside
+  ]);
 
   const className = getDayClassNames(dayPicker, activeModifiers).join(' ');
   const style = getDayStyle(dayPicker, activeModifiers);
@@ -104,7 +111,7 @@ export function useDayRender(
   );
   const buttonProps = {
     ...divProps,
-    ['aria-disabled']: activeModifiers.disabled,
+    disabled: activeModifiers.disabled,
     ['aria-pressed']: activeModifiers.selected,
     tabIndex: isFocusTarget ? 0 : -1,
     ...eventHandlers

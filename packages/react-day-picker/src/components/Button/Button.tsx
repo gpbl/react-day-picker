@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
 
-/** The props for the [[Button]] component. */
+/** The props for the {@link Button} component. */
 export type ButtonProps = React.HTMLProps<HTMLButtonElement>;
 
 /**
