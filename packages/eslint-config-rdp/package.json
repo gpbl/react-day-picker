@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-rdp",
-  "packageManager": "yarn@3.1.0",
+  "packageManager": "yarn@3.2.1",
   "version": "1.0.0",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.31.0",
