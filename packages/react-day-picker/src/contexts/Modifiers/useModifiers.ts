@@ -7,7 +7,10 @@ import { ModifiersContext } from './ModifiersContext';
 /**
  * Return the modifiers used by DayPicker.
  *
- * Requires to be wrapped into {@link ModifiersProvider}. */
+ * This hook is meant to be used inside internal or custom components.
+ * Requires to be wrapped into {@link ModifiersProvider}.
+ *
+ */
 export function useModifiers(): Modifiers {
   const context = useContext(ModifiersContext);
   if (!context) {

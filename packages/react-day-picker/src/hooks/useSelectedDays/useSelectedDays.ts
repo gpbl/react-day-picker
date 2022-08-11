@@ -10,9 +10,11 @@ import { DateRange } from 'types/Matchers';
 export type SelectedDays = Date | Date[] | DateRange | undefined;
 
 /**
- * Return the current selected days when DayPicker is in selection mode.
+ * Return the current selected days when DayPicker is in selection mode. Days
+ * selected by the custom selection mode are not returned.
  *
- * Days selected by the custom selection mode are not returned.
+ * This hook is meant to be used inside internal or custom components.
+ *
  */
 export function useSelectedDays(): SelectedDays {
   const dayPicker = useDayPicker();

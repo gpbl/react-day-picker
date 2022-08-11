@@ -13,7 +13,7 @@ import { useModifiers } from '../Modifiers';
 import { useNavigation } from '../Navigation';
 import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
 
-/** Represents the value of the {@link NavigationContext}. */
+/** Represents the value of the {@link FocusContext}. */
 export type FocusContextValue = {
   /** The day currently focused. */
   focusedDay: Date | undefined;

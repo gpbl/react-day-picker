@@ -1,30 +1,52 @@
 # Custom Components
 
-Use the `components` prop to customize the [components](/api/interfaces/customcomponents) used by DayPicker.
+Use the `components` prop to replace some of the internal components used by DayPicker with a custom implementation.
 
-## Custom Day
+Components that can be changed are described in the [CustomComponents interface](/api/interfaces/CustomComponents).
 
-You can further refine the interaction with the day cells by using a custom `Day` component and the [useDayRender hook](/api/functions/useDayRender).
+:::note
 
-### Range selections with Shift key
+Custom components are an advanced feature. Look at the [**components source**](https://github.com/gpbl/react-day-picker/tree/master/packages/react-day-picker/src/components) to understand how the internal components are built.
 
-The following example implements a date picker to select ranges while pressing the <kbd>Shift</kbd> key.
+:::
+
+## DayPicker hooks
+
+When creating custom components, you will find useful the DayPicker hooks:
+
+- [useDayPicker](/api/functions/useDayPicker) - to get the props passed to DayPicker.
+- [useNavigation](/api/functions/useNavigation) - to navigate between months and years.
+- [useDayRender](/api/functions/useDayRender) - useful to render the day cell from a custom `Day` component.
+- [useFocusContext](/api/functions/useFocusContext) - handle the focus between elements.
+- [useActiveModifiers](/api/functions/useActiveModifiers) - to get the modifiers applied to a day.
+
+## Examples
+
+### Custom Caption
+
+Implement a custom `Caption` component with next/previous buttons. Note the use of the [useNavigation hook](/api/functions/useNavigation) to navigate between months.
 
 ```include-example
-range-shift-key
+custom-caption
 ```
 
 ### Wrapping the day
 
-Wrap the `DayContent` element with a `time` HTML tag.
+Implement a custom `DayContent` component
 
 ```include-example
 custom-day
 ```
 
-## Custom Row
+### Range selections with Shift key
 
-### Example: disable rows in the past
+Implement a custom `Day` component to select ranges while pressing the <kbd>Shift</kbd> key.
+
+```include-example
+range-shift-key
+```
+
+### Disable rows in the past
 
 Implement a custom component to hide the rows of past weeks.
 

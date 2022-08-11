@@ -13,10 +13,10 @@ When DayPicker is focused, use the following keyboard shortcuts to navigate the 
 - <kbd>Home</kbd> - move to the start of the week
 - <kbd>End</kbd> - move to the end of the week
 
-## Example
+## Playground
 
-Press <kbd>Tab</kbd> to focus a day and try the keyboard shortcuts above.
+Press <kbd>Tab</kbd> to focus DayPicker and try the keyboard shortcuts above.
 
-import { DayPicker } from 'react-day-picker';
+import { RenderExample } from '@site/src/components/RenderExample';
 
-<DayPicker mode="single" />
+<RenderExample name="single" />

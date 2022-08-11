@@ -5,7 +5,11 @@ import {
   SelectRangeContextValue
 } from './SelectRangeContext';
 
-/** Hook to access the {@link SelectRangeContext}. */
+/**
+ * Hook to access the {@link SelectRangeContextValue}.
+ *
+ * This hook is meant to be used inside internal or custom components.
+ */
 export function useSelectRange(): SelectRangeContextValue {
   const context = useContext(SelectRangeContext);
   if (!context) {

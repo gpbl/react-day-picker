@@ -41,12 +41,11 @@ export interface DayPickerContextValue extends DayPickerBase {
 }
 
 /**
- * The DayPicker Context shares the props passed to DayPicker within internal
+ * The DayPicker context shares the props passed to DayPicker within internal
  * and custom components. It is used to set the default values and perform
  * one-time calculations required to render the days.
  *
- * Developers may access this context from the {@link useDayPicker} hook when
- * using custom components.
+ * Access to this context from the {@link useDayPicker} hook.
  */
 export const DayPickerContext = createContext<
   DayPickerContextValue | undefined

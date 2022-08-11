@@ -39,23 +39,13 @@ export type DayRender = {
  *
  * Use this hook when creating a component to replace the built-in `Day`
  * component.
- *
- * Each Day in DayPicker should render one of the following, according to the return
- * value:
- *
- * - an empty `React.Fragment`, to render if `isHidden` is true
- * - a `button` element, when the day is interactive, e.g. is selectable
- * - a `div` element, whe the day is not interactive
- *
- * @param day The date to render
- * @param displayMonth The month where the date is displayed (if not the same as
- * `date`, it means it is an "outside" day)
- * @param buttonRef A ref to the button element that will be target of focus
- * when rendered (if required).
  */
 export function useDayRender(
+  /** The date to render. */
   day: Date,
+  /** The month where the date is displayed (if not the same as `date`, it means it is an "outside" day). */
   displayMonth: Date,
+  /** A ref to the button element that will be target of focus when rendered (if required). */
   buttonRef: React.RefObject<HTMLButtonElement>
 ): DayRender {
   const dayPicker = useDayPicker();

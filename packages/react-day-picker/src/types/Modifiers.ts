@@ -29,9 +29,7 @@ export enum InternalModifier {
 export type InternalModifiers = Record<InternalModifier, Matcher[]>;
 
 /**
- * Active modifiers are those Modifiers matching a specific day.
- *
- * @example
+ * The modifiers that are matching a day in the calendar. Use the {@link useActiveModifiers} hook to get the modifiers for a day.
  *
  * ```
  * const activeModifiers: ActiveModifiers = {
