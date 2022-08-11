@@ -50,7 +50,7 @@ export default function CodeBlockWithSandpack(props: {
   return (
     <div className={styles.root}>
       {props['toolbar'] !== 'false' && (
-        <div className={styles.nav}>
+        <div className={styles.toolbar}>
           <button onClick={() => toggleEdit(!edit)}>
             {edit ? 'Toggle Preview' : 'Toggle Editor'}
           </button>

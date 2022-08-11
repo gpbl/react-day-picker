@@ -4,13 +4,14 @@
   margin-top: -1em;
 }
 
-.nav {
+/* Toolbar */
+.toolbar {
   padding: 0.5em 0;
   font-size: small;
   text-align: right;
 }
 
-.nav button {
+.toolbar button {
   box-sizing: border-box;
   appearance: none;
   position: relative;
@@ -30,11 +31,11 @@
 
   color: var(--ifm-link-hover-color);
 }
-.nav button:hover {
+.toolbar button:hover {
   text-decoration: var(--ifm-link-hover-decoration);
 }
-.nav button:disabled,
-.nav button[aria-disabled='true'] {
+.toolbar button:disabled,
+.toolbar button[aria-disabled='true'] {
   cursor: default;
   pointer-events: none;
 }
