@@ -1,0 +1,14 @@
+.shadowRoot {
+  background-color: white;
+  overflow: auto;
+}
+
+html[data-theme='dark'] .shadowRoot {
+  color: white;
+}
+
+code {
+  font-size: small;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+}

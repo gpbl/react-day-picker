@@ -1,0 +1,57 @@
+.root {
+  margin: 2.5rem 0;
+  position: relative;
+  margin-top: -1em;
+}
+
+.nav {
+  padding: 0.5em 0;
+  font-size: small;
+  text-align: right;
+}
+
+.nav button {
+  box-sizing: border-box;
+  appearance: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  display: inline-block;
+  color: inherit;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  color: var(--ifm-link-hover-color);
+}
+.nav button:hover {
+  text-decoration: var(--ifm-link-hover-decoration);
+}
+.nav button:disabled,
+.nav button[aria-disabled='true'] {
+  cursor: default;
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container > div:first-child {
+  flex-grow: 50;
+  flex-shrink: 50;
+  min-width: 350px;
+}
+
+.container > div:last-child {
+  flex-grow: 50;
+  flex-shrink: 50;
+  min-height: 400px;
+}
