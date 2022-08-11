@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
 
-import { useHistory } from '@docusaurus/router';
 import { RenderExample } from '@site/src/components/RenderExample';
 import CodeBlock from '@theme-original/CodeBlock';
 
@@ -24,7 +23,6 @@ export default function CodeBlockWithSandpack(props: {
   toolbar: 'true' | 'false';
 }) {
   const [edit, toggleEdit] = React.useState(props.show === 'editor');
-  const history = useHistory();
   if (props.className !== 'language-include-example') {
     return (
       <CodeBlock
