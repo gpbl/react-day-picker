@@ -4,7 +4,9 @@ import { NavigationContext, NavigationContextValue } from './NavigationContext';
 
 /**
  * Hook to access the {@link NavigationContextValue}. Use this hook to navigate
- * between months or years in a custom component.
+ * between months or years in DayPicker.
+ *
+ * This hook is meant to be used inside internal or custom components.
  */
 export function useNavigation(): NavigationContextValue {
   const context = useContext(NavigationContext);

@@ -37,20 +37,15 @@ export type DayRender = {
 /**
  * Return props and data used to render the {@link Day} component.
  *
- * ### Usage
- *
  * Use this hook when creating a component to replace the built-in `Day`
  * component.
- *
- * @param day The date to render
- * @param displayMonth The month where the date is displayed (if not the same as
- * `date`, it means it is an "outside" day)
- * @param buttonRef A ref to the button element that will be target of focus
- * when rendered (if required).
  */
 export function useDayRender(
+  /** The date to render. */
   day: Date,
+  /** The month where the date is displayed (if not the same as `date`, it means it is an "outside" day). */
   displayMonth: Date,
+  /** A ref to the button element that will be target of focus when rendered (if required). */
   buttonRef: React.RefObject<HTMLButtonElement>
 ): DayRender {
   const dayPicker = useDayPicker();
