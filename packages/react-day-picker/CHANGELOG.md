@@ -1,5 +1,15 @@
 # Changelog
 
+### v8.0.8
+
+- new: add prefix to auto generated ids by @mihkeleidast in https://github.com/gpbl/react-day-picker/pull/1493
+- new: `addedToRange` to the exported utilities by @stopr29 in https://github.com/gpbl/react-day-picker/pull/1495
+- new: revert to use disabled attribute instead of `aria-disabled` (reverts by @gpbl in https://github.com/gpbl/react-day-picker/pull/1451). See ongoing discussion in https://github.com/gpbl/react-day-picker/pull/1468.
+- new(css): use pure selector for CSS variables by @andyschulzz in https://github.com/gpbl/react-day-picker/pull/1481, https://github.com/gpbl/react-day-picker/pull/1499
+- fix: `@reach/auto-id` warnings by removing the dependency by @gpbl in https://github.com/gpbl/react-day-picker/pull/1484
+- fix: home/end buttons behavior with `startOfWeek` by @apdrsn in https://github.com/gpbl/react-day-picker/pull/1492
+- package: upgraded dependencies by @gpbl in https://github.com/gpbl/react-day-picker/pull/1497
+
 ### v8.0.7
 
 - fixed: missing `dropdown_year` CSS class in `YearsDropdown` by @pwolfert in [#1466](https://github.com/gpbl/react-day-picker/pull/1466)
