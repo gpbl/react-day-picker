@@ -41,3 +41,4 @@ export * from 'types/Modifiers';
 export * from 'types/Styles';
 
 export * from 'contexts/Modifiers/utils/isMatch';
+export * from 'contexts/SelectRange/utils/addToRange';
