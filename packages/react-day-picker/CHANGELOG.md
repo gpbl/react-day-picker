@@ -1,6 +1,6 @@
 # Changelog
 
-### v8.0.8
+## v8.1.0
 
 - new: add prefix to auto generated ids by @mihkeleidast in https://github.com/gpbl/react-day-picker/pull/1493
 - new: `addedToRange` to the exported utilities by @stopr29 in https://github.com/gpbl/react-day-picker/pull/1495
