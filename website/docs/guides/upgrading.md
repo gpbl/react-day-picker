@@ -10,21 +10,23 @@ v7 is frozen and there are no plans for updating it. If you have bugs or feature
 
 ## How to upgrade to v8
 
-1. **upgrade the dependency**
+1. **Upgrade the dependency**. DayPicker now has [date-fns](https://date-fns.org/) as peer dependency.
    ```bash
-   npm install react-day-picker@latest
+   npm install react-day-picker@latest date-fns
    ```
-2. **remove the types package** if you were using it
+2. **Remove the types package**, if you were using it:
    ```bash
    npm uninstall @types/react-day-picker
    ```
-3. **update the CSS import**: the stylesheet has been moved to `/dist`. For example:
+3. **Update the CSS import**: the stylesheet has been moved to `/dist`. For example:
    ```diff
    - import `react-day-picker/lib/style.css`
    + import `react-day-picker/dist/style.css`
    ```
-4. **update your custom styles**. See [Styling DayPicker](https://react-day-picker.js.org/basics/styling) for more information.
-5. **update the changed props**. See the list below.
+4. **Update your custom styles**. See [Styling DayPicker](https://react-day-picker.js.org/basics/styling) for more information.
+5. **Update the changed props**. See the list below.
+6. **Replace `DateUtils` with date-fns**. Use [date-fns](https://date-fns.org/) instead of [DateUtils](https://react-day-picker-v7.netlify.app/api/DateUtils) to handle dates.
+   - Replace `addDayToRange` with [addToRange](/api/functions/addToRange), which is still exported in v8
 
 ## Updated Props
 
