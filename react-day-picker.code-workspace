@@ -48,7 +48,14 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "cSpell.enabled": true,
-    "cSpell.words": ["miércoles", "septiembre", "TOFIX", "vhidden"],
+    "cSpell.words": [
+      "codesandbox",
+      "miércoles",
+      "Sandpack",
+      "septiembre",
+      "TOFIX",
+      "vhidden"
+    ],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,

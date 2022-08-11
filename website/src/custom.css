@@ -7,9 +7,8 @@
   --ifm-color-primary-light: #dc515e;
   --ifm-color-primary-lighter: #de5c68;
   --ifm-color-primary-lightest: #e57e88;
-  --ifm-font-family-monospace: 'SFMono', Menlo, Monaco, 'Fira Mono',
-    'DejaVu Sans Mono', Menlo, Consolas, 'Liberation Mono', Monaco,
-    'Lucida Console', monospace;
+  --ifm-font-family-monospace: 'Fira Mono', 'DejaVu Sans Mono', Menlo, Consolas,
+    'Liberation Mono', Monaco, 'Lucida Console', monospace;
   --ifm-transition-fast: 120ms;
   --ifm-code-border-radius: 4px;
   --ifm-toc-border-color: transparent;
@@ -17,6 +16,7 @@
   --ifm-navbar-shadow: none;
   --ifm-navbar-height: 75px;
   --ifm-global-radius: 1rem;
+  --ifm-code-font-size: 13px;
   --menu-background: var(--ifm-color-emphasis-100);
   --ifm-tabs-padding-vertical: 8px;
   --ifm-menu-color: inherit;
@@ -89,6 +89,12 @@ body {
 [class*='codeBlockLines'] {
   background-color: var(--menu-background) !important;
 }
+
+div[class*='codeBlockContainer'] {
+  box-shadow: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
 .docusaurus-highlight-code-line {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
@@ -160,12 +166,9 @@ html[data-theme='dark'] .dialog-sheet {
 
 /* #region: sandpack styles */
 .sp-wrapper {
-  box-shadow: 0px 0.8px 2px rgba(0, 0, 0, 0.032),
-    0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08) !important;
   border-radius: var(--ifm-global-radius) !important;
 }
 .sp-layout {
-  --sp-border-radius: var(--ifm-global-radius);
   margin-bottom: var(--ifm-leading);
   border: 0 !important;
 }
@@ -188,55 +191,8 @@ html[data-theme='dark'] .dialog-sheet {
 .sp-preview-container,
 .sp-loading {
   background-color: var(--menu-background) !important;
-  /* box-shadow: 0px 0.8px 2px rgba(0,0,0,0.032),0px 12px 30px rgba(0,0,0,0.08) !important; */
-  /* border-radius: var(--ifm-global-radius); */
 }
 
-/* #endregion */
-
-/* #region: rdp */
-.rdp {
-  margin: 1rem;
-}
-.rdp table .rdp-tfoot td {
-  padding-top: 1rem;
-}
-
-.rdp-tfoot form {
-  text-align: center;
-}
-
-.rdp-tfoot button {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 8px;
-  display: inline-block;
-  font-size: 0.875em;
-  padding: 0.3rem 0.8rem;
-  text-align: center;
-  user-select: none;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-
-.rdp table thead tr {
-  /* remove docusaurus styling */
-  all: revert;
-}
-.rdp table td {
-  /* remove docusaurus styling */
-  all: revert;
-}
-.rdp-tfoot button:not(:disabled) {
-  cursor: pointer;
-  background-color: var(--ifm-color-secondary-light);
-  border-color: var(--ifm-color-secondary-darkest);
-}
-
-.rdp-tfoot button:disabled {
-  background-color: var(--ifm-color-secondary-lighter);
-  border-color: var(--ifm-color-secondary-light);
-}
 /* #endregion */
 
 /* #region: markdown docs  */
@@ -259,76 +215,6 @@ html[data-theme='dark'] .dialog-sheet {
   height: 1px;
   border: none;
   background-color: var(--ifm-color-emphasis-200);
-}
-
-/* #endregion */
-
-/* #region markdown api */
-
-[id^='defined-in'],
-[id^='inherited-from'] {
-  display: inline-block;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-[id^='defined-in'],
-[id^='defined-in'] + *,
-[id^='inherited-from'],
-[id^='inherited-from'] + * {
-  font-size: small;
-  margin-bottom: 0.5em !important;
-}
-[id^='defined-in'] + * {
-  margin-bottom: 2em !important;
-}
-
-#hierarchy {
-  font-size: 1rem;
-}
-
-#hierarchy + ul {
-  /* list-style: none; */
-}
-
-#hierarchy + ul p {
-  margin: 0;
-}
-
-#hierarchy + ul code {
-  background-color: transparent;
-}
-
-#properties,
-#methods {
-  padding-bottom: 0.5em;
-}
-
-#properties ~ h3,
-#methods ~ h3 {
-  display: inline-block;
-  padding-bottom: 0.5em;
-}
-
-#properties ~ hr,
-#methods ~ hr,
-#hierarchy ~ hr {
-  display: none;
-}
-
-#properties ~ h3 + p,
-#methods ~ h3 + p,
-#hierarchy ~ h3 + p {
-  font-family: var(--ifm-font-family-monospace);
-}
-
-#properties ~ h3 + p code,
-#methods ~ h3 + p code,
-#hierarchy ~ h3 + p code {
-  --ifm-code-font-size: inherits;
-  opacity: 0.9;
-  border: 0;
-  font-family: var(--ifm-font-family-monospace);
-  background-color: transparent;
 }
 
 /* #endregion */

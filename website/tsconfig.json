@@ -7,7 +7,8 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "paths": {
-      "@examples/*": ["./examples/*"]
+      "@examples/*": ["./examples/*"],
+      "@site/*": ["./*"]
     }
   }
 }
