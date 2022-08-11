@@ -10,11 +10,14 @@ function CustomCaption(props: CaptionProps) {
       {format(props.displayMonth, 'MMM yyy')}
       <button
         disabled={!previousMonth}
-        onClick={() => goToMonth(previousMonth)}
+        onClick={() => previousMonth && goToMonth(previousMonth)}
       >
         Previous
       </button>
-      <button disabled={!nextMonth} onClick={() => goToMonth(nextMonth)}>
+      <button
+        disabled={!nextMonth}
+        onClick={() => nextMonth && goToMonth(nextMonth)}
+      >
         Next
       </button>
     </h2>

@@ -27,7 +27,7 @@ When creating custom components, you will find useful the DayPicker hooks:
 Implement a custom `Caption` component with next/previous buttons. Note the use of the [useNavigation hook](/api/functions/useNavigation) to navigate between months.
 
 ```include-example
-custom-components
+custom-caption
 ```
 
 ### Wrapping the day
