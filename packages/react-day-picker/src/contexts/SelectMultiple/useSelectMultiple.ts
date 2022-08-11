@@ -5,7 +5,7 @@ import {
   SelectMultipleContextValue
 } from './SelectMultipleContext';
 
-/** Hook to access the {@link SelectMultipleContext}. */
+/** Hook to access the {@link SelectMultipleContextValue}. */
 export function useSelectMultiple(): SelectMultipleContextValue {
   const context = useContext(SelectMultipleContext);
   if (!context) {

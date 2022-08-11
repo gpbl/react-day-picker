@@ -2,7 +2,10 @@ import { useContext } from 'react';
 
 import { NavigationContext, NavigationContextValue } from './NavigationContext';
 
-/** Hook to access the {@link NavigationContext}. */
+/**
+ * Hook to access the {@link NavigationContextValue}. Use this hook to navigate
+ * between months or years in a custom component.
+ */
 export function useNavigation(): NavigationContextValue {
   const context = useContext(NavigationContext);
   if (!context) {

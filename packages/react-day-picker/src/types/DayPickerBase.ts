@@ -75,9 +75,9 @@ export interface DayPickerBase {
    */
   defaultMonth?: Date;
   /**
-   * The month to display in the calendar.
+   * The month displayed in the calendar.
    *
-   * As opposed to {@link defaultMonth]], use this prop with [[onMonthChange} to
+   * As opposed to {@link DayPickerBase.defaultMonth}, use this prop with {@link DayPickerBase.onMonthChange} to
    * change the month programmatically.
    */
   month?: Date;
@@ -156,7 +156,7 @@ export interface DayPickerBase {
    */
   showWeekNumber?: boolean;
   /**
-   * A map of components used to create the layout.
+   * Map of components used to create the layout. Look at the [components source](https://github.com/gpbl/react-day-picker/tree/master/packages/react-day-picker/src/components) to understand how internal components are built.
    */
   components?: CustomComponents;
 
@@ -238,13 +238,29 @@ export interface DayPickerBase {
   onWeekNumberClick?: WeekNumberClickEventHandler;
 }
 
-/** A map of the component that can be changed via the `components` prop. */
+/**
+ * Map of the components that can be changed using the `components` prop.
+ *
+ * Look at the [components
+ * source](https://github.com/gpbl/react-day-picker/tree/master/packages/react-day-picker/src/components)
+ * to understand how internal components are built.
+ */
 export interface CustomComponents {
   /** The component for the caption element. */
   Caption?: (props: CaptionProps) => JSX.Element | null;
   /** The component for the caption element. */
   CaptionLabel?: (props: CaptionLabelProps) => JSX.Element | null;
-  /** The component for the day element. This is a button or a span. */
+  /**
+   * The component for the day element.
+   *
+   * Each `Day` in DayPicker should render one of the following, according to
+   * the return value of {@link useDayRender}.
+   *
+   * - an empty `React.Fragment`, to render if `isHidden` is true
+   * - a `button` element, when the day is interactive, e.g. is selectable
+   * - a `div` or a `span` element, when the day is not interactive
+   *
+   */
   Day?: (props: DayProps) => JSX.Element | null;
   /** The component for the content of the day element. */
   DayContent?: (props: DayContentProps) => JSX.Element | null;

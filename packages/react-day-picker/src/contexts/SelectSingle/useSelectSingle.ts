@@ -5,7 +5,7 @@ import {
   SelectSingleContextValue
 } from './SelectSingleContext';
 
-/** Hook to access the {@link SelectSingleContext}. */
+/** Hook to access the {@link SelectSingleContextValue}. */
 export function useSelectSingle(): SelectSingleContextValue {
   const context = useContext(SelectSingleContext);
   if (!context) {

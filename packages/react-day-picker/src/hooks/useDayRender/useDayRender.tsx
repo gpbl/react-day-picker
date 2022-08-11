@@ -37,15 +37,10 @@ export type DayRender = {
 /**
  * Return props and data used to render the {@link Day} component.
  *
+ * ### Usage
+ *
  * Use this hook when creating a component to replace the built-in `Day`
  * component.
- *
- * Each Day in DayPicker should render one of the following, according to the return
- * value:
- *
- * - an empty `React.Fragment`, to render if `isHidden` is true
- * - a `button` element, when the day is interactive, e.g. is selectable
- * - a `div` element, whe the day is not interactive
  *
  * @param day The date to render
  * @param displayMonth The month where the date is displayed (if not the same as

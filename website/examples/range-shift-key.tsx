@@ -46,7 +46,7 @@ export default function App() {
     } else {
       footer = (
         <p>
-          {range.from.toLocaleDateString()}—${range.to.toLocaleDateString()}.
+          {range.from.toLocaleDateString()}—{range.to.toLocaleDateString()}.
         </p>
       );
     }
