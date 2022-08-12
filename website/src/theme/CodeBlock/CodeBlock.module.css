@@ -90,7 +90,6 @@ div[class*='codeBlockContainer'] {
   flex-grow: 50;
   flex-shrink: 50;
   display: flex;
-  justify-content: center;
   min-height: 380px;
   overflow: auto;
 }
