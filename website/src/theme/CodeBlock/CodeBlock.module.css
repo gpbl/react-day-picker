@@ -92,4 +92,5 @@ div[class*='codeBlockContainer'] {
   display: flex;
   justify-content: center;
   min-height: 380px;
+  overflow: auto;
 }
