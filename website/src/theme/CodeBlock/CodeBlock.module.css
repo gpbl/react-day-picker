@@ -1,11 +1,32 @@
 .root {
-  margin: 2.5rem 0;
+  padding-top: 2rem;
+  margin-top: -0.5rem;
+  margin-bottom: 2rem;
   position: relative;
-  margin-top: -1em;
+}
+
+.root .toolbar {
+  display: none;
+}
+
+.root:hover .toolbar {
+  display: block;
+}
+
+[class*='codeBlockLines'] {
+  background-color: var(--menu-background) !important;
+}
+
+div[class*='codeBlockContainer'] {
+  box-shadow: none;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 /* Toolbar */
 .toolbar {
+  position: absolute;
+  right: 0;
+  top: 0;
   padding: 0.5em 0;
   font-size: small;
   text-align: right;
@@ -46,13 +67,29 @@
 }
 
 .container > div:first-child {
-  flex-grow: 50;
-  flex-shrink: 50;
+  flex: 1 0 60%;
   min-width: 350px;
+  margin-bottom: 0;
+  display: flex;
+  position: relative;
+  background-color: var(--menu-background) !important;
+}
+
+.container > div:first-child > div {
+  display: flex;
+  overflow: auto;
+  min-width: 100%;
+  background-color: var(--menu-background) !important;
+}
+
+.container > div:first-child pre {
+  background-color: var(--menu-background) !important;
 }
 
 .container > div:last-child {
   flex-grow: 50;
   flex-shrink: 50;
-  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  min-height: 380px;
 }

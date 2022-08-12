@@ -88,15 +88,6 @@ body {
   }
 }
 
-[class*='codeBlockLines'] {
-  background-color: var(--menu-background) !important;
-}
-
-div[class*='codeBlockContainer'] {
-  box-shadow: none;
-  -webkit-font-smoothing: subpixel-antialiased;
-}
-
 .docusaurus-highlight-code-line {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
