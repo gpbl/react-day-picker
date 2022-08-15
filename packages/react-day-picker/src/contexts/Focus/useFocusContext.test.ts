@@ -12,6 +12,7 @@ import { customRenderHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { FocusContextValue, useFocusContext } from 'contexts/Focus';
+import isSameDay from 'date-fns/isSameDay';
 
 let renderResult: RenderResult<FocusContextValue>;
 
@@ -80,6 +81,16 @@ describe('when a day is focused', () => {
     test('should focus the day before', () => {
       expect(renderResult.current.focusedDay).toEqual(dayBefore);
     });
+    test('should not focus the day before if the day is disabled', async () => {
+      const { result } = customRenderHook(() => useFocusContext(), {
+        fromDate: day
+      });
+      await act(async () => {
+        await result.current.focus(day);
+        await result.current.focusDayBefore();
+      });
+      expect(result.current.focusedDay).toEqual(day);
+    });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusDayAfter" is called', () => {
@@ -89,6 +100,16 @@ describe('when a day is focused', () => {
     test('should focus the day after', () => {
       const dayAfter = addDays(day, 1);
       expect(renderResult.current.focusedDay).toEqual(dayAfter);
+    });
+    test('should not focus the day after if the day is disabled', async () => {
+      const { result } = customRenderHook(() => useFocusContext(), {
+        toDate: day
+      });
+      await act(async () => {
+        await result.current.focus(day);
+        await result.current.focusDayAfter();
+      });
+      expect(result.current.focusedDay).toEqual(day);
     });
     test.todo('should call the navigation goToDate');
   });
@@ -100,6 +121,17 @@ describe('when a day is focused', () => {
       const prevWeek = addWeeks(day, -1);
       expect(renderResult.current.focusedDay).toEqual(prevWeek);
     });
+    test('should not focus the day in the previous week if the day is disabled', async () => {
+      const fromDate = addDays(day, -3);
+      const { result } = customRenderHook(() => useFocusContext(), {
+        fromDate
+      });
+      await act(async () => {
+        await result.current.focus(day);
+        await result.current.focusWeekBefore();
+      });
+      expect(result.current.focusedDay).toEqual(fromDate);
+    });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusWeekAfter" is called', () => {
@@ -109,6 +141,17 @@ describe('when a day is focused', () => {
     test('should focus the day in the next week', () => {
       const nextWeek = addWeeks(day, 1);
       expect(renderResult.current.focusedDay).toEqual(nextWeek);
+    });
+    test('should not focus the day in the next week if the day is disabled', async () => {
+      const toDate = addDays(day, 4);
+      const { result } = customRenderHook(() => useFocusContext(), {
+        toDate
+      });
+      await act(async () => {
+        await result.current.focus(day);
+        await result.current.focusWeekAfter();
+      });
+      expect(result.current.focusedDay).toEqual(toDate);
     });
     test.todo('should call the navigation goToDate');
   });
@@ -120,6 +163,17 @@ describe('when a day is focused', () => {
       const firstDayOfWeek = startOfWeek(day);
       expect(renderResult.current.focusedDay).toEqual(firstDayOfWeek);
     });
+    test('should not focus the first day of the week if the day is disabled', async () => {
+      const fromDate = addDays(startOfWeek(day), 1);
+      const { result } = customRenderHook(() => useFocusContext(), {
+        fromDate
+      });
+      await act(async () => {
+        await result.current.focus(day);
+        await result.current.focusStartOfWeek();
+      });
+      expect(result.current.focusedDay).toEqual(fromDate);
+    });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusEndOfWeek" is called', () => {
@@ -129,6 +183,20 @@ describe('when a day is focused', () => {
     test('should focus the last day of the week', () => {
       const lastDayOfWeek = endOfWeek(day);
       expect(renderResult.current.focusedDay).toEqual(lastDayOfWeek);
+    });
+    test('should not focus the last day of the week if the day is disabled', async () => {
+      const toDate = addDays(endOfWeek(day), -1);
+      const { result } = customRenderHook(() => useFocusContext(), {
+        toDate
+      });
+      await act(async () => {
+        await result.current.focus(day);
+        await result.current.focusEndOfWeek();
+      });
+      expect(
+        result.current.focusedDay &&
+          isSameDay(result.current.focusedDay, toDate)
+      ).toBe(true);
     });
     test.todo('should call the navigation goToDate');
   });
@@ -140,6 +208,17 @@ describe('when a day is focused', () => {
       const monthBefore = addMonths(day, -1);
       expect(renderResult.current.focusedDay).toEqual(monthBefore);
     });
+    test('should not focus the day in the month before if the day is disabled', async () => {
+      const fromDate = addDays(day, -10);
+      const { result } = customRenderHook(() => useFocusContext(), {
+        fromDate
+      });
+      await act(async () => {
+        await result.current.focus(day);
+        await result.current.focusMonthBefore();
+      });
+      expect(result.current.focusedDay).toEqual(fromDate);
+    });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusMonthAfter" is called', () => {
@@ -149,6 +228,17 @@ describe('when a day is focused', () => {
     test('should focus the day in the month after', () => {
       const monthAfter = addMonths(day, 1);
       expect(renderResult.current.focusedDay).toEqual(monthAfter);
+    });
+    test('should not focus the day in the month after if the day is disabled', async () => {
+      const toDate = addDays(day, 10);
+      const { result } = customRenderHook(() => useFocusContext(), {
+        toDate
+      });
+      await act(async () => {
+        await result.current.focus(day);
+        await result.current.focusMonthAfter();
+      });
+      expect(result.current.focusedDay).toEqual(toDate);
     });
     test.todo('should call the navigation goToDate');
   });
@@ -160,6 +250,17 @@ describe('when a day is focused', () => {
       const prevYear = addYears(day, -1);
       expect(renderResult.current.focusedDay).toEqual(prevYear);
     });
+    test('should not focus the day in the year before if the day is disabled', async () => {
+      const fromDate = addMonths(day, -10);
+      const { result } = customRenderHook(() => useFocusContext(), {
+        fromDate
+      });
+      await act(async () => {
+        await result.current.focus(day);
+        await result.current.focusYearBefore();
+      });
+      expect(result.current.focusedDay).toEqual(fromDate);
+    });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusYearAfter" is called', () => {
@@ -169,6 +270,17 @@ describe('when a day is focused', () => {
     test('should focus the day in the year after', () => {
       const nextYear = addYears(day, 1);
       expect(renderResult.current.focusedDay).toEqual(nextYear);
+    });
+    test('should not focus the day in the year after if the day is disabled', async () => {
+      const toDate = addMonths(day, 10);
+      const { result } = customRenderHook(() => useFocusContext(), {
+        toDate
+      });
+      await act(async () => {
+        await result.current.focus(day);
+        await result.current.focusYearAfter();
+      });
+      expect(result.current.focusedDay).toEqual(toDate);
     });
     test.todo('should call the navigation goToDate');
   });
