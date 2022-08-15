@@ -7,12 +7,12 @@ import {
   endOfWeek,
   startOfWeek
 } from 'date-fns';
+import isSameDay from 'date-fns/isSameDay';
 
 import { customRenderHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { FocusContextValue, useFocusContext } from 'contexts/Focus';
-import isSameDay from 'date-fns/isSameDay';
 
 let renderResult: RenderResult<FocusContextValue>;
 
