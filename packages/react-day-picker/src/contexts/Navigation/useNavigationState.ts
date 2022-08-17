@@ -18,7 +18,9 @@ export function useNavigationState(): [
 
   const goToMonth = (date: Date) => {
     if (context.disableNavigation) return;
-    setMonth(startOfMonth(date));
+    const month = startOfMonth(date);
+    setMonth(month);
+    context.onMonthChange?.(month);
   };
 
   return [month, goToMonth];

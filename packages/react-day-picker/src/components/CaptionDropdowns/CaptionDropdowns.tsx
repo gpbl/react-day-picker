@@ -12,12 +12,11 @@ import { MonthChangeEventHandler } from 'types/EventHandlers';
  * Render a caption with the dropdowns to navigate between months and years.
  */
 export function CaptionDropdowns(props: CaptionProps): JSX.Element {
-  const { classNames, styles, onMonthChange, components } = useDayPicker();
+  const { classNames, styles, components } = useDayPicker();
   const { goToMonth } = useNavigation();
 
   const handleMonthChange: MonthChangeEventHandler = (newMonth) => {
     goToMonth(newMonth);
-    onMonthChange?.(newMonth);
   };
   const CaptionLabelComponent = components?.CaptionLabel ?? CaptionLabel;
   const captionLabel = (

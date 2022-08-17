@@ -57,11 +57,15 @@ describe('when rendered', () => {
   });
   describe('when goToDate is called with a date from another month', () => {
     const newDate = addMonths(today, 10);
+    const onMonthChange = jest.fn();
     beforeEach(() => {
+      setup({ onMonthChange });
       result.current.goToDate(newDate);
     });
     test('should go to the specified month', () => {
-      expect(result.current.currentMonth).toEqual(startOfMonth(newDate));
+      const date = startOfMonth(newDate);
+      expect(result.current.currentMonth).toEqual(date);
+      expect(onMonthChange).toBeCalledWith(date);
     });
   });
   describe('when isDateDisplayed is called', () => {

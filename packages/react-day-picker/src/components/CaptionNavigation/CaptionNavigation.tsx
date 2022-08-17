@@ -12,7 +12,7 @@ import { useNavigation } from 'contexts/Navigation';
  * Render a caption with a button-based navigation.
  */
 export function CaptionNavigation(props: CaptionProps): JSX.Element {
-  const { numberOfMonths, onMonthChange, dir, components } = useDayPicker();
+  const { numberOfMonths, dir, components } = useDayPicker();
   const { previousMonth, nextMonth, goToMonth, displayMonths } =
     useNavigation();
 
@@ -32,13 +32,11 @@ export function CaptionNavigation(props: CaptionProps): JSX.Element {
   const handlePreviousClick: React.MouseEventHandler = () => {
     if (!previousMonth) return;
     goToMonth(previousMonth);
-    onMonthChange?.(previousMonth);
   };
 
   const handleNextClick: React.MouseEventHandler = () => {
     if (!nextMonth) return;
     goToMonth(nextMonth);
-    onMonthChange?.(nextMonth);
   };
 
   const CaptionLabelComponent = components?.CaptionLabel ?? CaptionLabel;
