@@ -8707,7 +8707,7 @@ __metadata:
     eslint-config-prettier: ^8.5.0
     eslint-import-resolver-typescript: ^3.4.0
     eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^26.8.3
+    eslint-plugin-jest: ^26.8.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-testing-library: ^5.6.0
@@ -8778,9 +8778,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^26.8.3":
-  version: 26.8.3
-  resolution: "eslint-plugin-jest@npm:26.8.3"
+"eslint-plugin-jest@npm:^26.8.0":
+  version: 26.8.0
+  resolution: "eslint-plugin-jest@npm:26.8.0"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -8791,7 +8791,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 3fd8dd06e4b293caf9a06a8767731e7f9fd0e74cae2f5f820484ab01a7435cab340bdcc41295bff71c0448fc92345830a399848acb4aec481e3abbfeebe14e2d
+  checksum: 5dceef6c58422d912e29346be86940ad24602026517a92ce61ddb29814c2185609887a1ea0b6061080ca19d9ee6749549d3424102b28620088e53ec45aefa915
   languageName: node
   linkType: hard
 
@@ -14249,7 +14249,7 @@ __metadata:
     eslint-config-rdp: "workspace:^"
     eslint-import-resolver-typescript: ^3.4.0
     eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^26.8.3
+    eslint-plugin-jest: ^26.8.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react-hooks: ^4.6.0
     jest: ^27.5.1
