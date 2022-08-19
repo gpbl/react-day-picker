@@ -8,7 +8,7 @@ import { freezeBeforeAll } from 'test/utils';
 import { CaptionLayout } from 'components/Caption';
 import { DayPickerContextValue, useDayPicker } from 'contexts/DayPicker';
 import { getDefaultContextValue } from 'contexts/DayPicker/defaultContextValue';
-import { CustomComponents } from 'types/DayPickerBase';
+import { CustomComponents, DaySelectionMode } from 'types/DayPickerBase';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
@@ -293,5 +293,17 @@ describe('when passing "components" from props', () => {
       ...defaults.components,
       ...components
     });
+  });
+});
+
+describe('when in selection mode', () => {
+  const mode: DaySelectionMode = 'multiple';
+  const onSelect = jest.fn();
+  const dayPickerProps: DayPickerProps = { mode, onSelect };
+  beforeEach(() => {
+    setup(dayPickerProps);
+  });
+  test('should return the "onSelect" event handler', () => {
+    expect(renderResult.current.onSelect).toBe(onSelect);
   });
 });
