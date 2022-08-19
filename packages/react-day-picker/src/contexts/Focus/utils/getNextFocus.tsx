@@ -10,29 +10,33 @@ import startOfWeek from 'date-fns/startOfWeek';
 import { DayPickerContextValue } from 'contexts/DayPicker';
 
 export type MoveFocusBy =
-  | 'days'
-  | 'weeks'
+  | 'day'
+  | 'week'
   | 'startOfWeek'
   | 'endOfWeek'
-  | 'months'
-  | 'years';
+  | 'month'
+  | 'year';
+
 export type MoveFocusDirection = 'after' | 'before';
 
+export type MoveFocusOptions = Partial<
+  Pick<DayPickerContextValue, 'weekStartsOn' | 'fromDate' | 'toDate' | 'locale'>
+>;
 /** Return the next date to be focused. */
 export function getNextFocus(
   /** The day that is focused. */
   focusedDay: Date,
   moveBy: MoveFocusBy,
   direction: MoveFocusDirection,
-  dayPicker: DayPickerContextValue
+  options: MoveFocusOptions
 ): Date {
-  const { weekStartsOn, fromDate, toDate, locale } = dayPicker;
+  const { weekStartsOn, fromDate, toDate, locale } = options;
 
   const moveFns = {
-    days: addDays,
-    weeks: addWeeks,
-    months: addMonths,
-    years: addYears,
+    day: addDays,
+    week: addWeeks,
+    month: addMonths,
+    year: addYears,
     startOfWeek: (date: Date) => startOfWeek(date, { locale, weekStartsOn }),
     endOfWeek: (date: Date) => endOfWeek(date, { locale, weekStartsOn })
   };
