@@ -1,24 +1,31 @@
 # Changelog
 
+### v8.1.1
+
+- fix: prevent focus from moving beyond `toDate` and `fromDate`, by [@kimamula](https://github.com/kimamula) in [#1468](https://github.com/gpbl/react-day-picker/pull/1468)
+- fix: page keys not working when using `setMonth`, by [@kimamula](https://github.com/kimamula) in [#1510](https://github.com/gpbl/react-day-picker/pull/1510)
+- fix: add `onSelect` to the `DayPickerContextValue`, by [@gpbl](https://github.com/gpbl) in [#1515](https://github.com/gpbl/react-day-picker/pull/1515)
+- fix: `rdp` class not added to root element when using `className` prop, by [@gpbl](https://github.com/gpbl) in [#1517](https://github.com/gpbl/react-day-picker/pull/1517)
+
 ## v8.1.0
 
-- new: add prefix to auto generated ids by @mihkeleidast in https://github.com/gpbl/react-day-picker/pull/1493
-- new: `addedToRange` to the exported utilities by @stopr29 in https://github.com/gpbl/react-day-picker/pull/1495
-- new: revert to use disabled attribute instead of `aria-disabled` (reverts by @gpbl in https://github.com/gpbl/react-day-picker/pull/1451). See ongoing discussion in https://github.com/gpbl/react-day-picker/pull/1468.
-- new(css): use pure selector for CSS variables by @andyschulzz in https://github.com/gpbl/react-day-picker/pull/1481, https://github.com/gpbl/react-day-picker/pull/1499
-- fix: `@reach/auto-id` warnings by removing the dependency by @gpbl in https://github.com/gpbl/react-day-picker/pull/1484
-- fix: home/end buttons behavior with `startOfWeek` by @apdrsn in https://github.com/gpbl/react-day-picker/pull/1492
-- package: upgraded dependencies by @gpbl in https://github.com/gpbl/react-day-picker/pull/1497
+- new: add prefix to auto generated ids, by [@mihkeleidast](https://github.com/mihkeleidast) in [#1493](https://github.com/gpbl/react-day-picker/pull/1493)
+- new: `addedToRange` to the exported utilities, by [@stopr29](https://github.com/stopr29) in [#1495](https://github.com/gpbl/react-day-picker/pull/1495)
+- new: revert to use disabled attribute instead of `aria-disabled` (reverts, by [@gpbl](https://github.com/gpbl) in [#1451](https://github.com/gpbl/react-day-picker/pull/1451))See ongoing discussion in [#1468](https://github.com/gpbl/react-day-picker/pull/1468)
+- new(css): use pure selector for CSS variables, by [@andyschulzz](https://github.com/andyschulzz) in [#1481](https://github.com/gpbl/react-day-picker/pull/1481), [#1499](https://github.com/gpbl/react-day-picker/pull/1499)
+- fix: `@reach/auto-id` warnings, by removing the dependency, by [@gpbl](https://github.com/gpbl) in [#1484](https://github.com/gpbl/react-day-picker/pull/1484)
+- fix: home/end buttons behavior with `startOfWeek`, by [@apdrsn](https://github.com/apdrsn) in [#1492](https://github.com/gpbl/react-day-picker/pull/1492)
+- package: upgraded dependencies, by [@gpbl](https://github.com/gpbl) in [#1497](https://github.com/gpbl/react-day-picker/pull/1497)
 
 ### v8.0.7
 
-- fixed: missing `dropdown_year` CSS class in `YearsDropdown` by @pwolfert in [#1466](https://github.com/gpbl/react-day-picker/pull/1466)
-- fixed: Maximum update depth exceeded when select the range date by @gpbl in [#1470](https://github.com/gpbl/react-day-picker/pull/1470)
+- fixed: missing `dropdown_year` CSS class in `YearsDropdown`, by [@pwolfert](https://github.com/pwolfert) in [#1466](https://github.com/gpbl/react-day-picker/pull/1466)
+- fixed: Maximum update depth exceeded when select the range date, by [@gpbl](https://github.com/gpbl) in [#1470](https://github.com/gpbl/react-day-picker/pull/1470)
 
 ### v8.0.6
 
-- fixed: exclude internal modifiers from the `styles` props (`modifiersStyles` should be used instead) by @gpbl in e1449eaa
-- fixed: better typings for the props returned by `useInput` by @gpbl in 3ea6728b
+- fixed: exclude internal modifiers from the `styles` props (`modifiersStyles` should be used instead), by [@gpbl](https://github.com/gpbl) in e1449eaa
+- fixed: better typings for the props returned by `useInput`, by [@gpbl](https://github.com/gpbl) in 3ea6728b
 
 In the rare cases you are using an invalid key to the `styles` prop, you may get type errors when upgrading to this release. Just remove the invalid lines from the value of `styles`, as they weren't working anyway. See issue [#1464](https://github.com/gpbl/react-day-picker/issues/1464).
 
