@@ -63,7 +63,7 @@ describe('when using the "className" prop', () => {
     setup(props);
   });
   test('should append the class name to the root element', () => {
-    expect(container.firstChild).toHaveClass('foo');
+    expect(container.firstChild).toHaveClass('rdp foo');
   });
 });
 
