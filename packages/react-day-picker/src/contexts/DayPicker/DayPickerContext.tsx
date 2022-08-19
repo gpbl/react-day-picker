@@ -4,9 +4,12 @@ import { DayPickerProps } from 'DayPicker';
 
 import { CaptionLayout } from 'components/Caption';
 import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
-import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
-import { DayPickerRangeProps } from 'types/DayPickerRange';
-import { DayPickerSingleProps } from 'types/DayPickerSingle';
+import {
+  DayPickerMultipleProps,
+  isDayPickerMultiple
+} from 'types/DayPickerMultiple';
+import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';
+import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
 import { Matcher } from 'types/Matchers';
@@ -69,9 +72,17 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { fromDate, toDate } = parseFromToProps(initialProps);
 
   let captionLayout = initialProps.captionLayout ?? defaults.captionLayout;
-
   if (captionLayout !== 'buttons' && (!fromDate || !toDate)) {
     captionLayout = 'buttons';
+  }
+
+  let onSelect;
+  if (
+    isDayPickerSingle(initialProps) ||
+    isDayPickerMultiple(initialProps) ||
+    isDayPickerRange(initialProps)
+  ) {
+    onSelect = initialProps.onSelect;
   }
 
   const value: DayPickerContextValue = {
@@ -131,6 +142,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     onMonthChange: initialProps.onMonthChange,
     onNextClick: initialProps.onNextClick,
     onPrevClick: initialProps.onPrevClick,
+    onSelect,
     onWeekNumberClick: initialProps.onWeekNumberClick,
     pagedNavigation: initialProps.pagedNavigation,
     reverseMonths: initialProps.reverseMonths,
