@@ -41,7 +41,7 @@ export type DaySelectionMode = 'single' | 'multiple' | 'range' | 'default';
  * The base props for the {@link DayPicker} component and the {@link DayPickerContext}.
  */
 export interface DayPickerBase {
-  /** The CSS class to add to the container element. */
+  /** The CSS class to add to the container element. To change the name of the class instead, use `classNames.root`. */
   className?: string;
   /**
    * Change the class names of the HTML elements.
