@@ -30,7 +30,7 @@ export function Root(): JSX.Element {
   ]);
 
   // Apply classnames according to props
-  const classNames = [dayPicker.className ?? dayPicker.classNames.root];
+  const classNames = [dayPicker.classNames.root, dayPicker.className];
   if (dayPicker.numberOfMonths > 1) {
     classNames.push(dayPicker.classNames.multiple_months);
   }
