@@ -1,5 +1,9 @@
 # Changelog
 
+### v8.1.2
+
+- fix: do not focus disabled or hidden days by [@gpbl](https://github.com/gpbl) in [#1519](https://github.com/gpbl/react-day-picker/pull/1519)
+
 ### v8.1.1
 
 - fix: prevent focus from moving beyond `toDate` and `fromDate`, by [@kimamula](https://github.com/kimamula) in [#1468](https://github.com/gpbl/react-day-picker/pull/1468)
