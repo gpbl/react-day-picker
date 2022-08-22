@@ -85,7 +85,13 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
 
   const moveFocus = (moveBy: MoveFocusBy, direction: MoveFocusDirection) => {
     if (!focusedDay) return;
-    const nextFocused = getNextFocus(focusedDay, moveBy, direction, dayPicker);
+    const nextFocused = getNextFocus(
+      focusedDay,
+      moveBy,
+      direction,
+      dayPicker,
+      modifiers
+    );
     if (isSameDay(focusedDay, nextFocused)) return undefined;
     navigation.goToDate(nextFocused, focusedDay);
     focus(nextFocused);

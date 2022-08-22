@@ -8,6 +8,8 @@ import min from 'date-fns/min';
 import startOfWeek from 'date-fns/startOfWeek';
 
 import { DayPickerContextValue } from 'contexts/DayPicker';
+import { getActiveModifiers } from 'contexts/Modifiers';
+import { Modifiers } from 'types/Modifiers';
 
 export type MoveFocusBy =
   | 'day'
@@ -28,7 +30,8 @@ export function getNextFocus(
   focusedDay: Date,
   moveBy: MoveFocusBy,
   direction: MoveFocusDirection,
-  options: MoveFocusOptions
+  options: MoveFocusOptions,
+  modifiers?: Modifiers
 ): Date {
   const { weekStartsOn, fromDate, toDate, locale } = options;
 
@@ -50,6 +53,14 @@ export function getNextFocus(
     newFocusedDay = max([fromDate, newFocusedDay]);
   } else if (direction === 'after' && toDate) {
     newFocusedDay = min([toDate, newFocusedDay]);
+  }
+  if (modifiers) {
+    const activeModifiers = getActiveModifiers(newFocusedDay, modifiers);
+    const isFocusable = !activeModifiers.disabled && !activeModifiers.hidden;
+
+    if (!isFocusable) {
+      return getNextFocus(newFocusedDay, moveBy, direction, options, modifiers);
+    }
   }
 
   return newFocusedDay;
