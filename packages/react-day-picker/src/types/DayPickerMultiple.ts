@@ -9,7 +9,7 @@ import { SelectMultipleEventHandler } from './EventHandlers';
 export interface DayPickerMultipleProps extends DayPickerBase {
   mode: 'multiple';
   /** The selected days. */
-  selected?: Date[];
+  selected?: Date[] | undefined;
   /** Event fired when a days added or removed to the selection. */
   onSelect?: SelectMultipleEventHandler;
   /** The minimum amount of days that can be selected. */

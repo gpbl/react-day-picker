@@ -10,7 +10,7 @@ import { DateRange } from './Matchers';
 export interface DayPickerRangeProps extends DayPickerBase {
   mode: 'range';
   /** The selected range of days. */
-  selected?: DateRange;
+  selected?: DateRange | undefined;
   /** Event fired when a range (or a part of the range) is selected. */
   onSelect?: SelectRangeEventHandler;
   /** The minimum amount of days that can be selected. */
