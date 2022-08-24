@@ -57,6 +57,6 @@ jobs:
 
       - name: Deploy Website
         env:
-          GIT_USER: ${{ secrets.GIT_USER }}
-          GIT_PASS: ${{ secrets.GIT_PASS }}
+          GIT_USER: gpbl
+          GIT_PASS: ${{ secrets.GITHUB_TOKEN }}
         run: yarn workspace website docusaurus deploy
