@@ -3,6 +3,7 @@ import React from 'react';
 
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import { useLocation } from '@docusaurus/router';
+import Layout from '@theme/Layout/Provider';
 
 import { RenderExample } from '../components/RenderExample';
 
@@ -13,16 +14,18 @@ import { RenderExample } from '../components/RenderExample';
 export default function Render(): JSX.Element {
   const location = useLocation();
   return (
-    <BrowserOnly>
-      {() => {
-        const name = new URLSearchParams(location.search).get('example');
-        return (
-          <RenderExample
-            rootStyle={{ padding: 0, borderRadius: 0, minHeight: '100vh' }}
-            name={name}
-          />
-        );
-      }}
-    </BrowserOnly>
+    <Layout>
+      <BrowserOnly>
+        {() => {
+          const name = new URLSearchParams(location.search).get('example');
+          return (
+            <RenderExample
+              rootStyle={{ padding: 0, borderRadius: 0, minHeight: '100vh' }}
+              name={name}
+            />
+          );
+        }}
+      </BrowserOnly>
+    </Layout>
   );
 }
