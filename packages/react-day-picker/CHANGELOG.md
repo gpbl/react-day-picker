@@ -1,8 +1,12 @@
 # Changelog
 
+### v8.1.3
+
+- fix: `onDayClick` called twice in selection mode, by [@gpbl](https://github.com/gpbl) in [#1520](https://github.com/gpbl/react-day-picker/pull/1520)
+
 ### v8.1.2
 
-- fix: do not focus disabled or hidden days by [@gpbl](https://github.com/gpbl) in [#1519](https://github.com/gpbl/react-day-picker/pull/1519)
+- fix: do not focus disabled or hidden days, by [@gpbl](https://github.com/gpbl) in [#1519](https://github.com/gpbl/react-day-picker/pull/1519)
 
 ### v8.1.1
 
