@@ -175,12 +175,12 @@ export interface DayPickerBase {
   /**
    * Apply the `disabled` modifier to the matching days.
    */
-  disabled?: Matcher | Matcher[];
+  disabled?: Matcher | Matcher[] | undefined;
   /**
    * Apply the `hidden` modifier to the matching days. Will hide them from the
    * calendar.
    */
-  hidden?: Matcher | Matcher[];
+  hidden?: Matcher | Matcher[] | undefined;
 
   /** Apply the `selected` modifier to the matching days. */
   selected?: Matcher | Matcher[] | undefined;
