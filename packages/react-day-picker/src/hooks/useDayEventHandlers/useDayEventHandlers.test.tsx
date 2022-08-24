@@ -122,8 +122,8 @@ describe.each<'single' | 'multiple' | 'range'>(['single', 'multiple', 'range'])(
       setup(date, activeModifiers, dayPickerProps);
       renderResult.current.onClick?.(mouseEvent);
     });
-    test(`should have called "onDayClick" from the day picker props`, () => {
-      expect(dayPickerProps.onDayClick).toHaveBeenCalled();
+    test(`should have called "onDayClick" from the ${mode} context`, () => {
+      expect(mockedContexts[mode].onDayClick).toHaveBeenCalledTimes(1);
     });
   }
 );
