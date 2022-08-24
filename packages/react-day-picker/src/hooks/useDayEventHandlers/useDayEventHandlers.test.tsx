@@ -115,15 +115,18 @@ describe.each<'single' | 'multiple' | 'range'>(['single', 'multiple', 'range'])(
   'when calling "onClick" in "%s" selection mode',
   (mode) => {
     const activeModifiers: ActiveModifiers = {};
-    const dayPickerProps = { mode, onDayClick: jest.fn() };
+    const dayPickerProps = {
+      mode,
+      onDayClick: mockedContexts[mode].onDayClick
+    };
     const mouseEvent = {} as React.MouseEvent<HTMLButtonElement, MouseEvent>;
     const date = today;
     beforeEach(() => {
       setup(date, activeModifiers, dayPickerProps);
       renderResult.current.onClick?.(mouseEvent);
     });
-    test(`should have called "onDayClick" from the day picker props`, () => {
-      expect(dayPickerProps.onDayClick).toHaveBeenCalled();
+    test(`should have called "onDayClick" from the ${mode} context`, () => {
+      expect(dayPickerProps.onDayClick).toHaveBeenCalledTimes(1);
     });
   }
 );
