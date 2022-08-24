@@ -94,8 +94,9 @@ export function useDayEventHandlers(
       multiple.onDayClick?.(date, activeModifiers, e);
     } else if (isDayPickerRange(dayPicker)) {
       range.onDayClick?.(date, activeModifiers, e);
+    } else {
+      dayPicker.onDayClick?.(date, activeModifiers, e);
     }
-    dayPicker.onDayClick?.(date, activeModifiers, e);
   };
 
   const onFocus: FocusEventHandler = (e) => {
