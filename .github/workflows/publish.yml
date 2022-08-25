@@ -10,7 +10,12 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Get version name
+        id: get-tag-name
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.get-tag-name.outputs.VERSION }}
       - name: Setup node
         uses: actions/setup-node@v3
         with:
@@ -19,13 +24,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-
-      - name: Get version name
-        id: get-tag-name
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ steps.get-tag-name.outputs.VERSION }}
 
       - name: Run build (react-day-picker)
         run: |
