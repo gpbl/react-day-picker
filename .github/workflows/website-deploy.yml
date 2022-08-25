@@ -9,7 +9,7 @@ on:
       - "!packages/**"
 
 jobs:
-  lint-test-typecheck:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -17,21 +17,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: bahmutov/npm-install@HEAD
-      - name: Run typecheck
+      - name: Run typecheck (website)
         run: |
           yarn workspace website run typecheck
-      - name: Run linter
+      - name: Run linter (website)
         run: |
           yarn workspace website run lint --max-warnings 0
-      - name: Run integration tests
+      - name: Run tests (website)
         run: |
           yarn workspace website run test
-      - name: Deploy website
-        run: |
-          yarn workspace website run Deploy
   deploy:
     runs-on: ubuntu-latest
-    needs: lint-test-typecheck
+    needs: test
     strategy:
       matrix:
         node-version: [16.14]
