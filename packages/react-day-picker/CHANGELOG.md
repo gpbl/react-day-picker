@@ -3,7 +3,7 @@
 ### v8.1.3
 
 - fix: `onDayClick` called twice in selection mode, by [@gpbl](https://github.com/gpbl) in [#1520](https://github.com/gpbl/react-day-picker/pull/1520)
-- changed: accept `undefined` for the modifier props [@gpbl](https://github.com/gpbl) in [#1521](https://github.com/gpbl/react-day-picker/pull/1521)
+- changed: accept `undefined` for the modifier props, by [@gpbl](https://github.com/gpbl) in [#1521](https://github.com/gpbl/react-day-picker/pull/1521)
 
 ### v8.1.2
 

@@ -6,7 +6,6 @@ on:
       - master
     paths:
       - "website/**"
-
   workflow_dispatch:
 
 jobs:
