@@ -1,4 +1,4 @@
-name: Test and Deploy Website
+name: test-deploy-website"
 
 on:
   push:

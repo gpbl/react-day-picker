@@ -1,4 +1,4 @@
-name: "Publish react-day-picker"
+name: npm-publish
 
 on:
   workflow_dispatch:
