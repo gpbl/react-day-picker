@@ -8,7 +8,7 @@ on:
     branches:
       - master
     paths:
-      - "packages/react-day-picker/**"
+      - "packages/**"
       - ".github/workflows/**"
 
 jobs:
@@ -39,15 +39,15 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Run typecheck
+      - name: Run typechecks
         run: |
-          yarn workspace react-day-picker run typecheck
-      - name: Run linter
+          yarn workspaces foreach run typecheck
+      - name: Run linters
         run: |
-          yarn workspace react-day-picker run lint --max-warnings 0
+          yarn workspaces foreach run lint --max-warnings 0
       - name: Run tests
         run: |
-          yarn workspace react-day-picker run test
+          yarn workspaces foreach run test
 
   build:
     runs-on: ubuntu-latest
@@ -76,6 +76,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Build react-day-picker
+      - name: Run builds
         run: |
-          yarn workspace react-day-picker run build
+          yarn workspaces foreach run build

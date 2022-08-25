@@ -5,6 +5,9 @@ on:
     branches:
       - master
   push:
+    paths:
+      - "sub-project/**"
+      - "!sub-project/docs/**"
     branches:
       - master
 
