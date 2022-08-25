@@ -1,19 +1,24 @@
 name: "Publish react-day-picker"
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - v*
 
 jobs:
-  test-build-release:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.14
-          registry-url: https://registry.npmjs.org/
+          node-version: 18
+          cache: yarn
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
 
       - name: Get version name
         id: get-tag-name
@@ -22,32 +27,9 @@ jobs:
         with:
           ref: ${{ steps.get-tag-name.outputs.VERSION }}
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v1
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-${{ hashFiles('./yarn.lock') }}
-          restore-keys: |
-            yarn-cache-${{ hashFiles('./yarn.lock') }}
-
-      - name: Install Dependencies
-        run: yarn install
-
-      - name: Lint Files
-        run: yarn workspace react-day-picker lint
-
-      - name: Run Unit Tests
-        run: yarn workspace react-day-picker test --coverage
-
-      - name: Build react-day-picker
-        run: yarn workspace react-day-picker build
-
-      - name: Run Website Integration Tests
-        run: yarn workspace website test
+      - name: Run build (react-day-picker)
+        run: |
+          yarn workspace react-day-picker run build
 
       - name: Publish on npm
         run: npm publish
@@ -55,8 +37,28 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: Deploy Website
-        env:
-          GIT_USER: gpbl
-          GIT_PASS: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn workspace website docusaurus deploy
+  deploy-website:
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
+          yarn add react-day-picker@latest
+      - name: Build website
+        run: |
+          yarn workspace website build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website/build
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
