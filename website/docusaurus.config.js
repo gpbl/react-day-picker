@@ -7,6 +7,7 @@ const pkg = require('react-day-picker/package.json');
 const typedocConfig = require('./docusaurus.typedoc');
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl');
+
 /** @type {import('@docusaurus/preset-classic').Options} */
 const presetClassicConfig = {
   docs: {
@@ -14,6 +15,7 @@ const presetClassicConfig = {
     routeBasePath: '/',
     breadcrumbs: false,
     lastVersion: 'current',
+    editUrl: 'https://github.com/gpbl/react-day-picker/edit/master/website/',
     versions: {
       current: {
         label: `v${pkg.version}`,
@@ -74,7 +76,6 @@ const config = {
     },
     image: 'images/og-image.png',
     navbar: require('./docusaurus.navbar.js'),
-    editUrl: 'https://github.com/gpbl/react-day-picker/edit/master/website/',
     prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme },
     algolia: {
       appId: 'N44150BS2A',
