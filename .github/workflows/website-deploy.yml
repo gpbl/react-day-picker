@@ -46,6 +46,9 @@ jobs:
         run: |
           yarn install --immutable
           yarn add react-day-picker@latest
+      - name: Build website
+        run: |
+          yarn workspace website build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
