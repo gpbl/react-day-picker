@@ -3220,19 +3220,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-client@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "@codesandbox/sandpack-client@npm:1.3.2"
+"@codesandbox/sandpack-client@npm:^1.5.4":
+  version: 1.5.4
+  resolution: "@codesandbox/sandpack-client@npm:1.5.4"
   dependencies:
     codesandbox-import-utils: ^1.2.3
     lodash.isequal: ^4.5.0
-  checksum: 3dd99c55fd0cd0a482fc6743a2898de529a575ea1927eda8f5d95ab4b8657eba7e9b12360bae69cad3e2fae97f3a6613359bae4840a093502f692af824db2beb
+  checksum: d99367308af8d1f2b5fd9609a219a8bc3de09b3c9395b424d2c3bf6229245f85ae8979078a1178cf49b556d962545fb337db4df2d85fa393462906f08ef53a49
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-react@npm:^1.3.4":
-  version: 1.3.4
-  resolution: "@codesandbox/sandpack-react@npm:1.3.4"
+"@codesandbox/sandpack-react@npm:^1.5.5":
+  version: 1.5.5
+  resolution: "@codesandbox/sandpack-react@npm:1.5.5"
   dependencies:
     "@code-hike/classer": ^0.0.0-aa6efee
     "@codemirror/closebrackets": ^0.19.0
@@ -3249,7 +3249,7 @@ __metadata:
     "@codemirror/matchbrackets": ^0.19.3
     "@codemirror/state": ^0.19.6
     "@codemirror/view": ^0.19.32
-    "@codesandbox/sandpack-client": ^1.3.2
+    "@codesandbox/sandpack-client": ^1.5.4
     "@react-hook/intersection-observer": ^3.1.1
     "@stitches/core": ^1.2.6
     codesandbox-import-util-types: ^2.2.3
@@ -3260,14 +3260,14 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
     react-dom: ^16.8.0 || ^17 || ^18
-  checksum: e31f9ba17dbfcba959b753c80ad2215ef4ce56480f0db8ee2ea5459685619b12be55a0405917181973ab5f3b209e9302c7d25f9c2de9ea4cfec196ba474cd6ba
+  checksum: 37b96ebf349f3943731aeae1b1626bce5917cbacdf6c23294e0196ff6527c99f4157b9b654abf75f6441dcd95d518bc04d35574c6891fa92bc42dc9eb23c097b
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-themes@npm:^1.3.4":
-  version: 1.3.4
-  resolution: "@codesandbox/sandpack-themes@npm:1.3.4"
-  checksum: ebf6f8d547bb55bb21dbe9d1a1a5a915329dedd4d22885bf1bef5faa169639a28ca0088dc67bb3f35c6832235c3e4022dcdce4ab7aac005884ab7503d1bf0018
+"@codesandbox/sandpack-themes@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "@codesandbox/sandpack-themes@npm:1.5.0"
+  checksum: 3c04370b32a9b214ff1ad30553eabcf5fcf58dbcd112149bc332eb39f917b6da1244b77e74425b2908677a4e90f45258fab31d4285ac9c0d32901d31b0e35c05
   languageName: node
   linkType: hard
 
@@ -4338,10 +4338,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.11.5":
-  version: 2.11.5
-  resolution: "@popperjs/core@npm:2.11.5"
-  checksum: fd7f9dca3fb716d7426332b6ee283f88d2724c0ab342fb678865a640bad403dfb9eeebd8204a406986162f7e2b33394f104320008b74d0e9066d7322f70ea35d
+"@popperjs/core@npm:^2.11.6":
+  version: 2.11.6
+  resolution: "@popperjs/core@npm:2.11.6"
+  checksum: 47fb328cec1924559d759b48235c78574f2d71a8a6c4c03edb6de5d7074078371633b91e39bbf3f901b32aa8af9b9d8f82834856d2f5737a23475036b16817f0
   languageName: node
   linkType: hard
 
@@ -9422,26 +9422,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"focus-trap-react@npm:9.0.2":
-  version: 9.0.2
-  resolution: "focus-trap-react@npm:9.0.2"
+"focus-trap-react@npm:10.0.0":
+  version: 10.0.0
+  resolution: "focus-trap-react@npm:10.0.0"
   dependencies:
-    focus-trap: ^6.9.4
-    tabbable: ^5.3.3
+    focus-trap: ^7.0.0
+    tabbable: ^6.0.0
   peerDependencies:
     prop-types: ^15.8.1
     react: ">=16.3.0"
     react-dom: ">=16.3.0"
-  checksum: 984a7f1ea831a73018d4dc3af3c2e05611935846ca1c9afad2de08286df566000468786c87bd03e023ff5fff1cf36c2094bd2d0c03c6318bfa54ee3004d42c63
+  checksum: 44e98f61fbeb49b94f4d89bcc3c6833b31a07cdd742b74999c4dead54d3b7b06b6f094da76151575e7a052215eb305898b7bee5e3e759238302d45d78f85da1c
   languageName: node
   linkType: hard
 
-"focus-trap@npm:^6.9.4":
-  version: 6.9.4
-  resolution: "focus-trap@npm:6.9.4"
+"focus-trap@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "focus-trap@npm:7.0.0"
   dependencies:
-    tabbable: ^5.3.3
-  checksum: 0b4cebcc11010bd9397731092bd59a981e838c710c6497374ba70571875a14ab27c0db7d60f36005ec01bdabc3b9cfeda11d30ddf5b8874596dcc95e18913b3b
+    tabbable: ^6.0.0
+  checksum: 36812c880a5262478d5d8a678cae0a0576b3c801a7c00010d44154d5526aeaeaab5cd05aaf3199ceee97ff9be8defe47809f3712c8211bc829bde6c0614d7bb9
   languageName: node
   linkType: hard
 
@@ -16082,10 +16082,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tabbable@npm:^5.3.3":
-  version: 5.3.3
-  resolution: "tabbable@npm:5.3.3"
-  checksum: 1aa56e1bb617cc10616c407f4e756f0607f3e2d30f9803664d70b85db037ca27e75918ed1c71443f3dc902e21dc9f991ce4b52d63a538c9b69b3218d3babcd70
+"tabbable@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "tabbable@npm:6.0.0"
+  checksum: a6bd253035b91b6ed280c77e07880f35d337509c2d49f6eef9e9d80a006bf6bddb42cdc5772f7a33a2a6625f47d2faa47b50398dda4bb83157a078c3002884ba
   languageName: node
   linkType: hard
 
@@ -17382,14 +17382,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "website@workspace:website"
   dependencies:
-    "@codesandbox/sandpack-react": ^1.3.4
-    "@codesandbox/sandpack-themes": ^1.3.4
+    "@codesandbox/sandpack-react": ^1.5.5
+    "@codesandbox/sandpack-themes": ^1.5.0
     "@docusaurus/core": ^2.0.1
     "@docusaurus/module-type-aliases": ^2.0.1
     "@docusaurus/preset-classic": ^2.0.1
     "@docusaurus/types": ^2.0.1
     "@mdx-js/react": ^1.6.22
-    "@popperjs/core": ^2.11.5
+    "@popperjs/core": ^2.11.6
     "@testing-library/jest-dom": ^5.16.4
     "@tsconfig/docusaurus": ^1.0.6
     "@types/jest": ^27.4.1
@@ -17399,7 +17399,7 @@ __metadata:
     date-fns: ^2.28.0
     docusaurus-plugin-typedoc: ^0.17.5
     eslint: ^8.21.0
-    focus-trap-react: 9.0.2
+    focus-trap-react: 10.0.0
     identity-obj-proxy: ^3.0.0
     jest: ^27.5.1
     prettier: ^2.7.1

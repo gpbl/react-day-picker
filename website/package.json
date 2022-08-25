@@ -16,14 +16,14 @@
     "typecheck-watch": "yarn typecheck --watch"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^1.3.4",
-    "@codesandbox/sandpack-themes": "^1.3.4",
+    "@codesandbox/sandpack-react": "^1.5.5",
+    "@codesandbox/sandpack-themes": "^1.5.0",
     "@docusaurus/core": "^2.0.1",
     "@docusaurus/preset-classic": "^2.0.1",
     "@mdx-js/react": "^1.6.22",
-    "@popperjs/core": "^2.11.5",
+    "@popperjs/core": "^2.11.6",
     "clsx": "^1.2.1",
-    "focus-trap-react": "9.0.2",
+    "focus-trap-react": "10.0.0",
     "prism-react-renderer": "^1.3.5",
     "react": "^17.0.2",
     "react-day-picker": "workspace:*",
