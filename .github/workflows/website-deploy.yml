@@ -40,4 +40,4 @@ jobs:
       - uses: bahmutov/npm-install@HEAD
       - name: Deploy website
         run: |
-          yarn workspace website run Deploy
+          yarn workspace website run deploy
