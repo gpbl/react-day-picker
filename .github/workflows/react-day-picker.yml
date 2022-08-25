@@ -1,4 +1,4 @@
-name: "react-day-picker"
+name: "Test react-day-picker"
 
 on:
   pull_request:

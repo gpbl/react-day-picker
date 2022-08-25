@@ -1,4 +1,4 @@
-name: "CI: publish"
+name: "Publish react-day-picker"
 
 on:
   push:
