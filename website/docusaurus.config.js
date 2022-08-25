@@ -18,8 +18,8 @@ const presetClassicConfig = {
     editUrl: 'https://github.com/gpbl/react-day-picker/edit/master/website/',
     versions: {
       current: {
-        path: '/',
-        label: `v${pkg.version}`
+        label: `v${pkg.version}`,
+        path: '/'
       }
     }
   },
