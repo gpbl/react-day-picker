@@ -1,80 +1,53 @@
-name: "CI: react-day-picker"
+name: "react-day-picker"
 
 on:
   pull_request:
     branches:
       - master
+    paths:
+      - "packages/**"
   push:
     branches:
       - master
     paths:
       - "packages/**"
+  workflow_dispatch:
 
 jobs:
-  lint-typecheck-test:
+  test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.14]
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v1
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-${{ hashFiles('./yarn.lock') }}
-          restore-keys: |
-            yarn-cache-${{ hashFiles('./yarn.lock') }}
+          node-version: 18
+          cache: yarn
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Run typechecks
+      - name: Run typecheck (workspaces)
         run: |
           yarn workspaces foreach run typecheck
-      - name: Run linters
+      - name: Run lint (workspaces)
         run: |
           yarn workspaces foreach run lint --max-warnings 0
-      - name: Run tests
+      - name: Run test (workspaces)
         run: |
           yarn workspaces foreach run test
-
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.14]
+    needs: test
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v1
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-${{ hashFiles('./yarn.lock') }}
-          restore-keys: |
-            yarn-cache-${{ hashFiles('./yarn.lock') }}
+          node-version: 18
+          cache: yarn
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Run builds
+      - name: Run build (workspaces)
         run: |
           yarn workspaces foreach run build

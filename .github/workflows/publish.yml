@@ -18,7 +18,7 @@ jobs:
       - name: Get version name
         id: get-tag-name
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         with:
           ref: ${{ steps.get-tag-name.outputs.VERSION }}
 
