@@ -1,12 +1,12 @@
 name: "CI: website-deploy"
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - master
     paths:
       - "!packages/**"
+  workflow_dispatch:
 
 jobs:
   test:
@@ -19,7 +19,9 @@ jobs:
           node-version: 18
           cache: yarn
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn install --immutable
+          yarn add react-day-picker@latest
       - name: Run typecheck (website)
         run: |
           yarn workspace website run typecheck
@@ -42,7 +44,8 @@ jobs:
           cache-dependency-path: yarn.lock
       - name: Install dependencies
         run: |
-          yarn install --frozen-lockfile
+          yarn install --immutable
+          yarn add react-day-picker@latest
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
