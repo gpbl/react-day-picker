@@ -1,6 +1,7 @@
 name: "CI: website"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -44,9 +45,6 @@ jobs:
       - name: Run integration tests
         run: |
           yarn workspace website run test
-      - name: Build website
+      - name: Deploy website
         run: |
-          yarn workspace website run build
-      # - name: Deploy website
-      #   run: |
-      #     yarn workspace website run deploy
+          yarn workspace website run Deploy
