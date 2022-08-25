@@ -1,84 +1,59 @@
-name: "CI: website"
+name: "website"
 
 on:
-  pull_request:
-    branches:
-      - master
   push:
-    paths:
-      - "sub-project/**"
-      - "!sub-project/docs/**"
     branches:
       - master
+    paths:
+      - "website/**"
+  workflow_dispatch:
 
 jobs:
-  lint-typecheck-test:
+  test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.14]
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v1
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-${{ hashFiles('./yarn.lock') }}
-          restore-keys: |
-            yarn-cache-${{ hashFiles('./yarn.lock') }}
+          node-version: 18
+          cache: yarn
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Run typecheck
+          yarn add react-day-picker@latest
+      - name: Run typecheck (website)
         run: |
           yarn workspace website run typecheck
-      - name: Run linter
+      - name: Run linter (website)
         run: |
           yarn workspace website run lint --max-warnings 0
-      - name: Run integration tests
+      - name: Run tests (website)
         run: |
           yarn workspace website run test
-
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.14]
+    needs: test
+    if: ${{ github.event_name == 'push' && github.event_name == 'workflow_dispatch' }}
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v1
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-${{ hashFiles('./yarn.lock') }}
-          restore-keys: |
-            yarn-cache-${{ hashFiles('./yarn.lock') }}
+          node-version: 18
+          cache: yarn
+          cache-dependency-path: yarn.lock
       - name: Install dependencies
         run: |
           yarn install --immutable
-      - name: Build react-day-picker
-        run: |
-          yarn workspace react-day-picker build
+          yarn add react-day-picker@latest
       - name: Build website
         run: |
-          yarn workspace website run build
+          yarn workspace website build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
