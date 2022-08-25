@@ -9,7 +9,6 @@ on:
       - master
     paths:
       - "packages/**"
-      - ".github/workflows/**"
 
 jobs:
   lint-typecheck-test:
