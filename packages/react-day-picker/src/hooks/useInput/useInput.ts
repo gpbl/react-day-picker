@@ -158,8 +158,8 @@ export function useInput(options: UseInputOptions = {}): UseInputValue {
     onMonthChange: handleMonthChange,
     selected: selectedDay,
     locale,
-    fromDate: options?.fromDate,
-    toDate: options?.toDate,
+    fromDate,
+    toDate,
     today
   };
 
