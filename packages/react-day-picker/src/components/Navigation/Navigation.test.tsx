@@ -60,7 +60,7 @@ describe('when rendered', () => {
     expect(getPrevButton()).toHaveAttribute('name', 'previous-month');
   });
   test('the next button should be named "next-month"', () => {
-    expect(getPrevButton()).toHaveAttribute('name', 'next-month');
+    expect(getNextButton()).toHaveAttribute('name', 'next-month');
   });
   beforeEach(() => {
     userEvent.click(getPrevButton());
