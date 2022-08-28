@@ -279,7 +279,7 @@
   background-color: var(--rdp-accent-color);
 }
 
-.rdp-day_selected:focus-visible:not([disabled]) {
+.rdp-day_selected:focus:not([disabled]) {
   /* Since the background is the same use again the outline */
   outline: var(--rdp-outline);
   outline-offset: 2px;
