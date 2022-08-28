@@ -66,9 +66,6 @@
 .rdp-button:active:not([disabled]) {
   color: inherit;
   background-color: var(--rdp-background-color);
-}
-
-.rdp-button:focus-visible:not([disabled]) {
   border: var(--rdp-outline);
 }
 
