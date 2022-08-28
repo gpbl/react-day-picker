@@ -5,7 +5,7 @@
   --rdp-accent-color-dark: #3003e1;
   --rdp-background-color-dark: #180270;
   --rdp-outline: 2px solid var(--rdp-accent-color); /* Outline border for focused elements */
-  --rdp-outline-selected: 2px solid rgba(0, 0, 0, 0.75); /* Outline border for focused _and_ selected elements */
+  --rdp-outline-selected: 3px solid var(--rdp-accent-color); /* Outline border for focused _and_ selected elements */
 
   margin: 1em;
 }
@@ -38,12 +38,16 @@
   padding: 0;
   cursor: default;
   color: inherit;
-  outline: none;
   background: none;
   font: inherit;
 
   -moz-appearance: none;
   -webkit-appearance: none;
+}
+
+.rdp-button_reset:focus-visible {
+  /* Make sure to reset outline only when :focus-visible is supported */
+  outline: none;
 }
 
 .rdp-button {
@@ -58,11 +62,14 @@
   cursor: pointer;
 }
 
-.rdp-button:focus:not([disabled]),
+.rdp-button:focus-visible:not([disabled]),
 .rdp-button:active:not([disabled]) {
   color: inherit;
-  border: var(--rdp-outline);
   background-color: var(--rdp-background-color);
+}
+
+.rdp-button:focus-visible:not([disabled]) {
+  border: var(--rdp-outline);
 }
 
 .rdp-button:hover:not([disabled]) {
@@ -196,9 +203,12 @@
 
 .rdp-dropdown:focus:not([disabled]) + .rdp-caption_label,
 .rdp-dropdown:active:not([disabled]) + .rdp-caption_label {
+  background-color: var(--rdp-background-color);
+}
+
+.rdp-dropdown:focus-visible:not([disabled]) {
   border: var(--rdp-outline);
   border-radius: 6px;
-  background-color: var(--rdp-background-color);
 }
 
 .rdp-dropdown_icon {
@@ -272,8 +282,10 @@
   background-color: var(--rdp-accent-color);
 }
 
-.rdp-day_selected:focus:not([disabled]) {
-  border: var(--rdp-outline-selected);
+.rdp-day_selected:focus-visible:not([disabled]) {
+  /* Since the background is the same use again the outline */
+  outline: var(--rdp-outline);
+  outline-offset: 2px;
 }
 
 .rdp:not([dir='rtl']) .rdp-day_range_start:not(.rdp-day_range_end) {
