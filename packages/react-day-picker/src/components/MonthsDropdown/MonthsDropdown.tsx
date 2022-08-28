@@ -58,6 +58,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
 
   return (
     <DropdownComponent
+      name="months"
       aria-label={labelMonthDropdown()}
       className={classNames.dropdown_month}
       style={styles.dropdown_month}

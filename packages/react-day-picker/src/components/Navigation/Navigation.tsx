@@ -57,6 +57,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
     <div className={classNames.nav} style={styles.nav}>
       {!props.hidePrevious && (
         <Button
+          name="previous-month"
           aria-label={previousLabel}
           className={previousClassName}
           style={styles.nav_button_previous}
@@ -78,6 +79,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
       )}
       {!props.hideNext && (
         <Button
+          name="next-month"
           aria-label={nextLabel}
           className={nextClassName}
           style={styles.nav_button_next}

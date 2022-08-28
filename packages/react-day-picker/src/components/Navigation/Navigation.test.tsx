@@ -56,6 +56,12 @@ describe('when rendered', () => {
     const icons = root.getElementsByTagName('svg');
     expect(icons[1]).toHaveTextContent('IconRight');
   });
+  test('the previous button should be named "previous-month"', () => {
+    expect(getPrevButton()).toHaveAttribute('name', 'previous-month');
+  });
+  test('the next button should be named "next-month"', () => {
+    expect(getNextButton()).toHaveAttribute('name', 'next-month');
+  });
   beforeEach(() => {
     userEvent.click(getPrevButton());
   });

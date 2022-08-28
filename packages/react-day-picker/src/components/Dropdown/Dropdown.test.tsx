@@ -19,6 +19,7 @@ function setup(props: DropdownProps, dayPickerProps?: DayPickerProps) {
 }
 
 const props: Required<DropdownProps> = {
+  name: 'dropdown',
   'aria-label': 'foo',
   onChange: jest.fn(),
   caption: 'Some caption',

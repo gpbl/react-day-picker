@@ -2,7 +2,7 @@ import React from 'react';
 
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { differenceInMonths } from 'date-fns';
+import { addMonths, differenceInMonths } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
@@ -29,6 +29,16 @@ const props: MonthsDropdownProps = {
   displayMonth: today,
   onChange: jest.fn()
 };
+
+describe('when fromDate and toDate are passed in', () => {
+  beforeEach(() => {
+    setup(props, { fromDate: new Date(), toDate: addMonths(new Date(), 1) });
+  });
+  test('should render the dropdown element', () => {
+    expect(root).toMatchSnapshot();
+    expect(select).toHaveAttribute('name', 'months');
+  });
+});
 
 describe('when "fromDate" is not set', () => {
   beforeEach(() => {

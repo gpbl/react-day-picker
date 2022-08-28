@@ -54,8 +54,9 @@ describe('when a selection mode is set', () => {
   beforeEach(() => {
     setup(props, dayPickerProps);
   });
-  test('should render a button', () => {
+  test('should render a button named "day"', () => {
     expect(container.firstChild?.nodeName).toBe('BUTTON');
+    expect(container.firstChild).toHaveAttribute('name', 'day');
   });
 });
 

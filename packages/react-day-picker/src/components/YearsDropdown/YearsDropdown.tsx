@@ -59,6 +59,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
 
   return (
     <DropdownComponent
+      name="years"
       aria-label={labelYearDropdown()}
       className={classNames.dropdown_year}
       style={styles.dropdown_year}

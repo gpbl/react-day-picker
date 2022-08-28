@@ -27,12 +27,19 @@ describe('without "onWeekNumberClick" prop', () => {
 
 describe('with "onWeekNumberClick" prop', () => {
   const dayPickerProps: DayPickerProps = { onWeekNumberClick: jest.fn() };
-  const { container } = setup(props, dayPickerProps);
+  let container: HTMLElement;
+  beforeEach(() => {
+    container = setup(props, dayPickerProps).container;
+  });
   test('it should return a button element', () => {
+    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(container.firstChild).toHaveAttribute('name', 'week-number');
     expect(container.firstChild).toMatchSnapshot();
   });
   describe('when the button element is clicked', () => {
-    userEvent.click(screen.getByRole('button'));
+    beforeEach(async () => {
+      await userEvent.click(screen.getByRole('button'));
+    });
     test('should call onWeekNumberClick', () => {
       expect(dayPickerProps.onWeekNumberClick).toHaveBeenCalledWith(
         props.number,

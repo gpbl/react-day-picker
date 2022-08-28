@@ -5,6 +5,7 @@ import { useDayPicker } from 'contexts/DayPicker';
 
 /** The props for the {@link Dropdown} component. */
 export interface DropdownProps {
+  name?: string;
   caption?: React.ReactNode;
   children?: React.SelectHTMLAttributes<HTMLSelectElement>['children'];
   className?: string;
@@ -30,6 +31,7 @@ export function Dropdown(props: DropdownProps): JSX.Element {
         {props['aria-label']}
       </span>
       <select
+        name={props.name}
         aria-label={props['aria-label']}
         className={dayPicker.classNames.dropdown}
         style={dayPicker.styles.dropdown}
