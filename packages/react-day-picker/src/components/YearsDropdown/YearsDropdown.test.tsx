@@ -36,7 +36,7 @@ describe('when fromDate and toDate are passed in', () => {
   });
   test('should render the dropdown element', () => {
     expect(root).toMatchSnapshot();
-    expect(select).toHaveAttribute('name', 'months');
+    expect(select).toHaveAttribute('name', 'years');
   });
 });
 
