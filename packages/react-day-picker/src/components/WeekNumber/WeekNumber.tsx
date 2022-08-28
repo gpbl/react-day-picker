@@ -47,6 +47,7 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
 
   return (
     <Button
+      name="week-number"
       aria-label={label}
       className={classNames.weeknumber}
       style={styles.weeknumber}
