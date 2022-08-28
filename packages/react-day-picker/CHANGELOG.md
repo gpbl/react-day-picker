@@ -1,5 +1,11 @@
 # Changelog
 
+### v8.1.4
+
+- fix: use parsed `fromDate`/`toDate` in `useInput` by @hypergeometric in [#1524](https://github.com/gpbl/react-day-picker/pull/1524)
+- changed: add names to fields and buttons by [@gpbl](https://github.com/gpbl) in [#1530](https://github.com/gpbl/react-day-picker/pull/1530)
+- changed: focus vs focus-visible styles by [@gpbl](https://github.com/gpbl) in [#1531](https://github.com/gpbl/react-day-picker/pull/1531)
+
 ### v8.1.3
 
 - fix: `onDayClick` called twice in selection mode, by [@gpbl](https://github.com/gpbl) in [#1520](https://github.com/gpbl/react-day-picker/pull/1520)
