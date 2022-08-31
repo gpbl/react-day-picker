@@ -270,6 +270,8 @@ export interface CustomComponents {
   Footer?: () => JSX.Element | null;
   /** The component for the table’s head. */
   Head?: () => JSX.Element | null;
+  /** The component for the table’s head row. */
+  HeadRow?: () => JSX.Element | null;
   /** The component for the small icon in the drop-downs. */
   IconDropdown?: (props: StyledComponent) => JSX.Element | null;
   /** The arrow right icon (used for the Navigation buttons). */
