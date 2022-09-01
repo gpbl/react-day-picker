@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RenderResult } from '@testing-library/react';
+import { RenderResult, screen } from '@testing-library/react';
 import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
@@ -44,5 +44,24 @@ describe('when rendered', () => {
 
   test('thead should have the `head` class', () => {
     expect(container.firstChild).toHaveClass(dayPickerProps.classNames.head);
+  });
+});
+
+describe('when using a custom HeadRow component', () => {
+  beforeEach(() => {
+    setup({
+      ...dayPickerProps,
+      components: {
+        HeadRow: () => (
+          <tr>
+            <td>custom head</td>
+          </tr>
+        )
+      }
+    });
+  });
+
+  test('should render the custom component', () => {
+    expect(screen.getByText('custom head')).toBeInTheDocument();
   });
 });
