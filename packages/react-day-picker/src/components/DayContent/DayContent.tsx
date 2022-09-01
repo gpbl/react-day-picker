@@ -13,24 +13,12 @@ export interface DayContentProps {
   activeModifiers: ActiveModifiers;
 }
 
-/**
- * Render the content of the day cell.
- */
+/** Render the content of the day cell. */
 export function DayContent(props: DayContentProps): JSX.Element {
   const {
     locale,
-    classNames,
-    styles,
-    labels: { labelDay },
     formatters: { formatDay }
   } = useDayPicker();
 
-  return (
-    <>
-      <span aria-hidden="true">{formatDay(props.date, { locale })}</span>
-      <span className={classNames.vhidden} style={styles.vhidden}>
-        {labelDay(props.date, props.activeModifiers, { locale })}
-      </span>
-    </>
-  );
+  return <>{formatDay(props.date, { locale })}</>;
 }

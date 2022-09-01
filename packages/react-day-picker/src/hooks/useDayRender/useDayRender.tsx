@@ -75,7 +75,9 @@ export function useDayRender(
 
   const className = getDayClassNames(dayPicker, activeModifiers).join(' ');
   const style = getDayStyle(dayPicker, activeModifiers);
-
+  const ariaLabel = dayPicker.labels.labelDay(day, activeModifiers, {
+    locale: dayPicker.locale
+  });
   const isHidden = Boolean(
     (activeModifiers.outside && !dayPicker.showOutsideDays) ||
       activeModifiers.hidden
@@ -93,7 +95,8 @@ export function useDayRender(
   const divProps = {
     style,
     className,
-    children
+    children,
+    'aria-label': ariaLabel
   };
 
   const isFocusTarget = Boolean(
@@ -103,6 +106,7 @@ export function useDayRender(
     ...divProps,
     disabled: activeModifiers.disabled,
     ['aria-pressed']: activeModifiers.selected,
+    ['aria-label']: ariaLabel,
     tabIndex: isFocusTarget ? 0 : -1,
     ...eventHandlers
   };
