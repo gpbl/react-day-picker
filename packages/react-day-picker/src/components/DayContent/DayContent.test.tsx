@@ -7,7 +7,6 @@ import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { DayContent, DayContentProps } from 'components/DayContent';
-import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 
 const today = new Date(2021, 8);
 
@@ -34,18 +33,7 @@ describe('when rendered', () => {
   beforeEach(() => {
     setup(props, dayPickerProps);
   });
-  test('the first element is an aria-hidden element with the formatted day', () => {
-    expect(container.firstChild).toHaveAttribute('aria-hidden', 'true');
-  });
-  test('the first element contains the formatted day', () => {
+  test('contains the formatted day', () => {
     expect(container.firstChild).toHaveTextContent('1');
-  });
-  test('the second element is visually hidden', () => {
-    expect(container.childNodes[1]).toHaveClass(defaultClassNames.vhidden);
-  });
-  test('the second element contains the formatted day', () => {
-    expect(container.childNodes[1]).toHaveTextContent(
-      '1º septiembre (miércoles)'
-    );
   });
 });

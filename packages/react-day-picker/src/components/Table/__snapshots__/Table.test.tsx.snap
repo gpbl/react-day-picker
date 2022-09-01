@@ -146,18 +146,10 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
+          aria-label="1st February (Saturday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            1
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            1st February (Saturday)
-          </span>
+          1
         </div>
       </td>
     </tr>
@@ -168,126 +160,70 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
+          aria-label="2nd February (Sunday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            2
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            2nd February (Sunday)
-          </span>
+          2
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="3rd February (Monday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            3
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            3rd February (Monday)
-          </span>
+          3
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="4th February (Tuesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            4
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            4th February (Tuesday)
-          </span>
+          4
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="5th February (Wednesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            5
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            5th February (Wednesday)
-          </span>
+          5
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="6th February (Thursday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            6
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            6th February (Thursday)
-          </span>
+          6
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="7th February (Friday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            7
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            7th February (Friday)
-          </span>
+          7
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="8th February (Saturday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            8
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            8th February (Saturday)
-          </span>
+          8
         </div>
       </td>
     </tr>
@@ -298,126 +234,70 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
+          aria-label="9th February (Sunday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            9
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            9th February (Sunday)
-          </span>
+          9
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="10th February (Monday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            10
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            10th February (Monday)
-          </span>
+          10
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="11th February (Tuesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            11
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            11th February (Tuesday)
-          </span>
+          11
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="12th February (Wednesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            12
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            12th February (Wednesday)
-          </span>
+          12
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="13th February (Thursday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            13
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            13th February (Thursday)
-          </span>
+          13
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="14th February (Friday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            14
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            14th February (Friday)
-          </span>
+          14
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="15th February (Saturday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            15
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            15th February (Saturday)
-          </span>
+          15
         </div>
       </td>
     </tr>
@@ -428,126 +308,70 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
+          aria-label="16th February (Sunday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            16
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            16th February (Sunday)
-          </span>
+          16
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="17th February (Monday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            17
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            17th February (Monday)
-          </span>
+          17
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="18th February (Tuesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            18
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            18th February (Tuesday)
-          </span>
+          18
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="19th February (Wednesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            19
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            19th February (Wednesday)
-          </span>
+          19
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="20th February (Thursday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            20
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            20th February (Thursday)
-          </span>
+          20
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="21st February (Friday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            21
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            21st February (Friday)
-          </span>
+          21
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="22nd February (Saturday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            22
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            22nd February (Saturday)
-          </span>
+          22
         </div>
       </td>
     </tr>
@@ -558,126 +382,70 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
+          aria-label="23rd February (Sunday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            23
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            23rd February (Sunday)
-          </span>
+          23
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="24th February (Monday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            24
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            24th February (Monday)
-          </span>
+          24
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="25th February (Tuesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            25
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            25th February (Tuesday)
-          </span>
+          25
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="26th February (Wednesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            26
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            26th February (Wednesday)
-          </span>
+          26
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="27th February (Thursday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            27
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            27th February (Thursday)
-          </span>
+          27
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="28th February (Friday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            28
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            28th February (Friday)
-          </span>
+          28
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="29th February (Saturday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            29
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            29th February (Saturday)
-          </span>
+          29
         </div>
       </td>
     </tr>
@@ -844,18 +612,10 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
+          aria-label="1st February (Saturday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            1
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            1st February (Saturday)
-          </span>
+          1
         </div>
       </td>
     </tr>
@@ -875,126 +635,70 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
+          aria-label="2nd February (Sunday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            2
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            2nd February (Sunday)
-          </span>
+          2
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="3rd February (Monday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            3
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            3rd February (Monday)
-          </span>
+          3
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="4th February (Tuesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            4
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            4th February (Tuesday)
-          </span>
+          4
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="5th February (Wednesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            5
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            5th February (Wednesday)
-          </span>
+          5
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="6th February (Thursday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            6
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            6th February (Thursday)
-          </span>
+          6
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="7th February (Friday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            7
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            7th February (Friday)
-          </span>
+          7
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="8th February (Saturday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            8
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            8th February (Saturday)
-          </span>
+          8
         </div>
       </td>
     </tr>
@@ -1014,126 +718,70 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
+          aria-label="9th February (Sunday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            9
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            9th February (Sunday)
-          </span>
+          9
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="10th February (Monday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            10
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            10th February (Monday)
-          </span>
+          10
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="11th February (Tuesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            11
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            11th February (Tuesday)
-          </span>
+          11
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="12th February (Wednesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            12
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            12th February (Wednesday)
-          </span>
+          12
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="13th February (Thursday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            13
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            13th February (Thursday)
-          </span>
+          13
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="14th February (Friday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            14
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            14th February (Friday)
-          </span>
+          14
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="15th February (Saturday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            15
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            15th February (Saturday)
-          </span>
+          15
         </div>
       </td>
     </tr>
@@ -1153,126 +801,70 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
+          aria-label="16th February (Sunday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            16
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            16th February (Sunday)
-          </span>
+          16
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="17th February (Monday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            17
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            17th February (Monday)
-          </span>
+          17
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="18th February (Tuesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            18
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            18th February (Tuesday)
-          </span>
+          18
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="19th February (Wednesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            19
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            19th February (Wednesday)
-          </span>
+          19
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="20th February (Thursday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            20
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            20th February (Thursday)
-          </span>
+          20
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="21st February (Friday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            21
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            21st February (Friday)
-          </span>
+          21
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="22nd February (Saturday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            22
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            22nd February (Saturday)
-          </span>
+          22
         </div>
       </td>
     </tr>
@@ -1292,126 +884,70 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
+          aria-label="23rd February (Sunday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            23
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            23rd February (Sunday)
-          </span>
+          23
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="24th February (Monday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            24
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            24th February (Monday)
-          </span>
+          24
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="25th February (Tuesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            25
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            25th February (Tuesday)
-          </span>
+          25
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="26th February (Wednesday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            26
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            26th February (Wednesday)
-          </span>
+          26
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="27th February (Thursday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            27
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            27th February (Thursday)
-          </span>
+          27
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="28th February (Friday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            28
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            28th February (Friday)
-          </span>
+          28
         </div>
       </td>
       <td
         class="rdp-cell"
       >
         <div
+          aria-label="29th February (Saturday)"
           class="rdp-day"
         >
-          <span
-            aria-hidden="true"
-          >
-            29
-          </span>
-          <span
-            class="rdp-vhidden"
-          >
-            29th February (Saturday)
-          </span>
+          29
         </div>
       </td>
     </tr>
