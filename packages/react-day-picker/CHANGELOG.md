@@ -1,10 +1,18 @@
 # Changelog
 
+### v8.2.0
+
+- new: custom `HeadRow` component, by [@gpbl](https://github.com/gpbl) in [#1534](https://github.com/gpbl/react-day-picker/pull/1534)
+- changed: add `HeadRow` component, by @KonradLinkowski in [#1533](https://github.com/gpbl/react-day-picker/pull/1533)
+- fixed: selected day outlines in chrome, by [@gpbl](https://github.com/gpbl) in [#1536](https://github.com/gpbl/react-day-picker/pull/1536)
+- fixed: dropdown focus-visible style, by [@gpbl](https://github.com/gpbl) in [#1535](https://github.com/gpbl/react-day-picker/pull/1535)
+- fix: use aria-label for days buttons, by [@gpbl](https://github.com/gpbl) in [#1537](https://github.com/gpbl/react-day-picker/pull/1537)
+
 ### v8.1.4
 
 - fix: use parsed `fromDate`/`toDate` in `useInput` by @hypergeometric in [#1524](https://github.com/gpbl/react-day-picker/pull/1524)
-- changed: add names to fields and buttons by [@gpbl](https://github.com/gpbl) in [#1530](https://github.com/gpbl/react-day-picker/pull/1530)
-- changed: focus vs focus-visible styles by [@gpbl](https://github.com/gpbl) in [#1531](https://github.com/gpbl/react-day-picker/pull/1531)
+- changed: add names to fields and buttons, by [@gpbl](https://github.com/gpbl) in [#1530](https://github.com/gpbl/react-day-picker/pull/1530)
+- changed: focus vs focus-visible styles, by [@gpbl](https://github.com/gpbl) in [#1531](https://github.com/gpbl/react-day-picker/pull/1531)
 
 ### v8.1.3
 
