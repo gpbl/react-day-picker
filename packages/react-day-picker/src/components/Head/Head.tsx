@@ -1,12 +1,9 @@
 import React from 'react';
 
+import { HeadRow } from 'components/HeadRow';
 import { useDayPicker } from 'contexts/DayPicker';
 
-import { HeadRow } from 'components/HeadRow';
-
-/**
- * Render the Head component - i.e. the table head with the weekday names.
- */
+/** Render the table head. */
 export function Head(): JSX.Element {
   const { classNames, styles } = useDayPicker();
 

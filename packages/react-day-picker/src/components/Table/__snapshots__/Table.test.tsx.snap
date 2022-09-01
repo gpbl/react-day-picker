@@ -1425,25 +1425,25 @@ exports[`when using custom components should render correctly 1`] = `
   role="grid"
 >
   <div>
-    CustomHead 
+    CustomHead
   </div>
   <tbody
     class="rdp-tbody"
   >
     <div>
-      CustomRow 
+      CustomRow
     </div>
     <div>
-      CustomRow 
+      CustomRow
     </div>
     <div>
-      CustomRow 
+      CustomRow
     </div>
     <div>
-      CustomRow 
+      CustomRow
     </div>
     <div>
-      CustomRow 
+      CustomRow
     </div>
   </tbody>
   <div>

@@ -30,8 +30,8 @@ describe('when showing the week numbers', () => {
 describe('when using custom components', () => {
   const dayPickerProps: DayPickerProps = {
     components: {
-      Head: () => <div>CustomHead </div>,
-      Row: () => <div>CustomRow </div>,
+      Head: () => <div>CustomHead</div>,
+      Row: () => <div>CustomRow</div>,
       Footer: () => <div>CustomFooter</div>
     }
   };
