@@ -198,12 +198,9 @@
   color: unset;
 }
 
-.rdp-dropdown:focus:not([disabled]) + .rdp-caption_label,
+.rdp-dropdown:focus-visible:not([disabled]) + .rdp-caption_label,
 .rdp-dropdown:active:not([disabled]) + .rdp-caption_label {
   background-color: var(--rdp-background-color);
-}
-
-.rdp-dropdown:focus-visible:not([disabled]) {
   border: var(--rdp-outline);
   border-radius: 6px;
 }
