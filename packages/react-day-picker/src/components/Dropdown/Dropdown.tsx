@@ -5,12 +5,15 @@ import { useDayPicker } from 'contexts/DayPicker';
 
 /** The props for the {@link Dropdown} component. */
 export interface DropdownProps {
+  /** The name attribute of the element. */
   name?: string;
+  /** The caption displayed to replace the hidden select. */
   caption?: React.ReactNode;
   children?: React.SelectHTMLAttributes<HTMLSelectElement>['children'];
   className?: string;
   ['aria-label']?: string;
   style?: React.CSSProperties;
+  /** The selected value. */
   value?: string | number;
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
 }
