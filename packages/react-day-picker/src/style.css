@@ -283,6 +283,7 @@
   /* Since the background is the same use again the outline */
   outline: var(--rdp-outline);
   outline-offset: 2px;
+  z-index: 1;
 }
 
 .rdp:not([dir='rtl']) .rdp-day_range_start:not(.rdp-day_range_end) {
