@@ -99,6 +99,7 @@
       "examples"
     ],
     "jest.jestCommandLine": "yarn test",
-    "npm.packageManager": "yarn"
+    "npm.packageManager": "yarn",
+    "task.allowAutomaticTasks": "on"
   }
 }
