@@ -25,12 +25,7 @@ export default function CodeBlockWithSandpack(props: {
   const [edit, toggleEdit] = React.useState(props.show === 'editor');
   if (props.className !== 'language-include-example') {
     return (
-      <CodeBlock
-        metastring={undefined}
-        title={props.title}
-        language="jsx"
-        {...props}
-      >
+      <CodeBlock metastring={undefined} title={props.title} {...props}>
         {props.children}
       </CodeBlock>
     );

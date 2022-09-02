@@ -20,7 +20,12 @@ export default function Render(): JSX.Element {
           const name = new URLSearchParams(location.search).get('example');
           return (
             <RenderExample
-              rootStyle={{ padding: 0, borderRadius: 0, minHeight: '100vh' }}
+              rootStyle={{
+                margin: '0 0 0 auto',
+                borderRadius: 0,
+                display: 'inline-block',
+                padding: '1em'
+              }}
               name={name}
             />
           );

@@ -83,6 +83,11 @@ const config = {
       indexName: 'react-day-picker-js',
       contextualSearch: true,
       searchPagePath: 'search'
+    },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true
     }
   },
   presets: [['@docusaurus/preset-classic', presetClassicConfig]],
