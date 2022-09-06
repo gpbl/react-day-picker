@@ -4,7 +4,7 @@ When DayPicker is focused, use the following keyboard shortcuts to navigate the 
 
 - <kbd>Arrow Top</kbd> - move to the previous week
 - <kbd>Arrow Right</kbd> - move to the next day
-- <kbd>Arrow Bottom</kbd> - move to the previous week
+- <kbd>Arrow Bottom</kbd> - move to the next week
 - <kbd>Arrow Left</kbd> - move to the previous day
 - <kbd>Page Up</kbd> - move to the previous month
 - <kbd>Page Down</kbd> - move to the next month
