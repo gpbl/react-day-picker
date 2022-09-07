@@ -42,7 +42,7 @@
  *
  * // will match when the function return true
  * const functionMatcher: Matcher = (day: Date) => {
- *  return (new Date()).getMonth() === 2 // match when month is March
+ *  return day.getMonth() === 2 // match when month is March
  * };
  * ```
  *
