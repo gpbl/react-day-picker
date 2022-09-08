@@ -1,5 +1,9 @@
 # Changelog
 
+### v8.2.1
+
+- fix: CSS module doesn't include the root class, by [@gpbl](https://github.com/gpbl) in [#1548](https://github.com/gpbl/react-day-picker/pull/1548)
+
 ### v8.2.0
 
 - new: custom `HeadRow` component, by [@gpbl](https://github.com/gpbl) in [#1534](https://github.com/gpbl/react-day-picker/pull/1534)
