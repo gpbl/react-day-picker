@@ -21,7 +21,7 @@ export default function Render(): JSX.Element {
           return (
             <RenderExample
               rootStyle={{
-                margin: '0 0 0 auto',
+                margin: '0 auto 0 auto',
                 borderRadius: 0,
                 display: 'inline-block',
                 padding: '1em'
