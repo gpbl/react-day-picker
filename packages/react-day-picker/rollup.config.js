@@ -67,13 +67,21 @@ const buildConfig = {
           src: './src/style.css',
           dest: './dist',
           rename: 'style.module.css',
-          transform: (contents) => contents.toString().replace(/\.rdp-/g, '.')
+          transform: (contents) =>
+            contents
+              .toString()
+              .replace(/\.rdp-/g, '.')
+              .replace(/\.rdp/g, '.root')
         },
         {
           src: './src/style.css.d.ts',
           dest: './dist',
           rename: 'style.module.css.d.ts',
-          transform: (contents) => contents.toString().replace(/rdp-/g, '')
+          transform: (contents) =>
+            contents
+              .toString()
+              .replace(/\.rdp-/g, '.')
+              .replace(/\.rdp/g, '.root')
         }
       ]
     })
