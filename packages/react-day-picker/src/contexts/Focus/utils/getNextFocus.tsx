@@ -12,7 +12,7 @@ import { getActiveModifiers } from 'contexts/Modifiers';
 import { Modifiers } from 'types/Modifiers';
 import { format } from 'date-fns';
 
-export const DEFAULT_RETRY_ATTEMPTS = 30;
+export const DEFAULT_RETRY_ATTEMPTS = 365;
 
 export type MoveFocusBy =
   | 'day'
