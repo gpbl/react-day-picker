@@ -92,7 +92,6 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
       dayPicker,
       modifiers
     );
-    if (nextFocused === undefined) return undefined;
     if (isSameDay(focusedDay, nextFocused)) return undefined;
     navigation.goToDate(nextFocused, focusedDay);
     focus(nextFocused);
