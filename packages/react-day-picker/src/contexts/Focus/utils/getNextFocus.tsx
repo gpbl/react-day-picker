@@ -10,6 +10,9 @@ import startOfWeek from 'date-fns/startOfWeek';
 import { DayPickerContextValue } from 'contexts/DayPicker';
 import { getActiveModifiers } from 'contexts/Modifiers';
 import { Modifiers } from 'types/Modifiers';
+import { format } from 'date-fns';
+
+export const DEFAULT_RETRY_ATTEMPTS = 30;
 
 export type MoveFocusBy =
   | 'day'
@@ -24,6 +27,12 @@ export type MoveFocusDirection = 'after' | 'before';
 export type MoveFocusOptions = Partial<
   Pick<DayPickerContextValue, 'weekStartsOn' | 'fromDate' | 'toDate' | 'locale'>
 >;
+
+export type RetryOptions = {
+  originalDay: Date;
+  attemptLimit: number;
+  attempt: number;
+};
 /** Return the next date to be focused. */
 export function getNextFocus(
   /** The day that is focused. */
@@ -31,7 +40,12 @@ export function getNextFocus(
   moveBy: MoveFocusBy,
   direction: MoveFocusDirection,
   options: MoveFocusOptions,
-  modifiers?: Modifiers
+  modifiers?: Modifiers,
+  retryOptions: RetryOptions = {
+    originalDay: focusedDay,
+    attempt: 0,
+    attemptLimit: DEFAULT_RETRY_ATTEMPTS
+  }
 ): Date {
   const { weekStartsOn, fromDate, toDate, locale } = options;
 
@@ -59,7 +73,22 @@ export function getNextFocus(
     const isFocusable = !activeModifiers.disabled && !activeModifiers.hidden;
 
     if (!isFocusable) {
-      return getNextFocus(newFocusedDay, moveBy, direction, options, modifiers);
+      if (retryOptions.attempt >= retryOptions.attemptLimit) {
+        const origDayString = format(retryOptions.originalDay, 'P');
+        const warning = `Unable to select day within ${retryOptions.attemptLimit} days of ${origDayString}`;
+        // eslint-disable-next-line no-console
+        console.warn(warning);
+        return retryOptions.originalDay;
+      }
+
+      return getNextFocus(
+        newFocusedDay,
+        moveBy,
+        direction,
+        options,
+        modifiers,
+        { ...retryOptions, attempt: retryOptions.attempt + 1 }
+      );
     }
   }
 
