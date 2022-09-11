@@ -17,8 +17,8 @@
   "dependencies": {
     "@codesandbox/sandpack-react": "^1.5.5",
     "@codesandbox/sandpack-themes": "^1.5.0",
-    "@docusaurus/core": "^2.0.1",
-    "@docusaurus/preset-classic": "^2.0.1",
+    "@docusaurus/core": "latest",
+    "@docusaurus/preset-classic": "latest",
     "@mdx-js/react": "^1.6.22",
     "@popperjs/core": "^2.11.6",
     "clsx": "^1.2.1",
@@ -31,8 +31,8 @@
     "react-shadow": "^19.0.3"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.1",
-    "@docusaurus/types": "^2.0.1",
+    "@docusaurus/module-type-aliases": "latest",
+    "@docusaurus/types": "latest",
     "@testing-library/jest-dom": "^5.16.4",
     "@tsconfig/docusaurus": "^1.0.6",
     "@types/jest": "^27.4.1",
