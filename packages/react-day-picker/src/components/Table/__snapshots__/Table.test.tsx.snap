@@ -72,33 +72,56 @@ exports[`should render correctly 1`] = `
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
       >
         <div
-          aria-label="1"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -115,7 +138,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="2"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -128,7 +150,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="3"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -141,7 +162,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="4"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -154,7 +174,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="5"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -167,7 +186,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="6"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -180,7 +198,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="7"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -193,7 +210,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="8"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -210,7 +226,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="9"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -223,7 +238,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="10"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -236,7 +250,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="11"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -249,7 +262,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="12"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -262,7 +274,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="13"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -275,7 +286,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="14"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -288,7 +298,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="15"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -305,7 +314,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="16"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -318,7 +326,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="17"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -331,7 +338,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="18"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -344,7 +350,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="19"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -357,7 +362,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="20"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -370,7 +374,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="21"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -383,7 +386,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="22"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -400,7 +402,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="23"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -413,7 +414,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="24"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -426,7 +426,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="25"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -439,7 +438,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="26"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -452,7 +450,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="27"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -465,7 +462,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="28"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -478,7 +474,6 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="29"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -576,33 +571,56 @@ exports[`when showing the week numbers should render correctly 1`] = `
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
-      />
+      >
+        <span
+          role="gridcell"
+        />
+      </td>
       <td
         class="rdp-cell"
         role="presentation"
       >
         <div
-          aria-label="1"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -628,7 +646,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="2"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -641,7 +658,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="3"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -654,7 +670,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="4"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -667,7 +682,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="5"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -680,7 +694,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="6"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -693,7 +706,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="7"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -706,7 +718,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="8"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -732,7 +743,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="9"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -745,7 +755,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="10"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -758,7 +767,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="11"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -771,7 +779,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="12"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -784,7 +791,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="13"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -797,7 +803,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="14"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -810,7 +815,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="15"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -836,7 +840,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="16"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -849,7 +852,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="17"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -862,7 +864,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="18"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -875,7 +876,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="19"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -888,7 +888,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="20"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -901,7 +900,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="21"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -914,7 +912,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="22"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -940,7 +937,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="23"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -953,7 +949,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="24"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -966,7 +961,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="25"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -979,7 +973,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="26"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -992,7 +985,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="27"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -1005,7 +997,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="28"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
@@ -1018,7 +1009,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
-          aria-label="29"
           aria-selected="false"
           class="rdp-day"
           role="gridcell"
