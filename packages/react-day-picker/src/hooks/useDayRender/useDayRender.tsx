@@ -69,9 +69,6 @@ export function useDayRender(
 
   const className = getDayClassNames(dayPicker, activeModifiers).join(' ');
   const style = getDayStyle(dayPicker, activeModifiers);
-  const ariaLabel = dayPicker.labels.labelDay(day, activeModifiers, {
-    locale: dayPicker.locale
-  });
   const isHidden = Boolean(
     (activeModifiers.outside && !dayPicker.showOutsideDays) ||
       activeModifiers.hidden
@@ -91,7 +88,6 @@ export function useDayRender(
     className,
     children,
     role: 'gridcell',
-    'aria-label': ariaLabel,
     'aria-selected': Boolean(activeModifiers.selected)
   };
 

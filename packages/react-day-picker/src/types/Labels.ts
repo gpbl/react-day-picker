@@ -8,6 +8,7 @@ export type Labels = {
   labelYearDropdown: () => string;
   labelNext: NavButtonLabel;
   labelPrevious: NavButtonLabel;
+  /** @deprecated Not used anymore */
   labelDay: DayLabel;
   labelWeekday: WeekdayLabel;
   labelWeekNumber: WeekNumberLabel;

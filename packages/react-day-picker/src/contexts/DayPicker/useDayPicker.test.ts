@@ -263,7 +263,7 @@ describe('when passing "formatters" from props', () => {
 });
 
 describe('when passing "labels" from props', () => {
-  const labels: Partial<Labels> = { labelDay: jest.fn() };
+  const labels: Partial<Labels> = { labelMonthDropdown: jest.fn() };
   const dayPickerProps: DayPickerProps = { labels };
   beforeEach(() => {
     setup(dayPickerProps);
