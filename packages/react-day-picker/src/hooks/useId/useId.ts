@@ -107,7 +107,7 @@ const useIsomorphicLayoutEffect = canUseDOM()
 let serverHandoffComplete = false;
 let id = 0;
 function genId() {
-  return `react-day-picker-${++id}`;
+  return `rdp-grid-label-${++id}`;
 }
 
 /* eslint-disable react-hooks/rules-of-hooks */
