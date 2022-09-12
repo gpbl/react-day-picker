@@ -1,16 +1,11 @@
 import React from 'react';
 
-import { RenderResult, screen } from '@testing-library/react';
+import { RenderResult } from '@testing-library/react';
 import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 
-import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
-import { formatWeekdayName } from 'contexts/DayPicker/formatters';
-import { labelWeekday } from 'contexts/DayPicker/labels';
-
 import { HeadRow } from './HeadRow';
-import { getWeekdays } from './utils/getWeekdays';
 
 let container: HTMLElement;
 let view: RenderResult;
