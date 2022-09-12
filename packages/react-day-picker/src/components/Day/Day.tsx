@@ -21,7 +21,7 @@ export function Day(props: DayProps): JSX.Element {
   const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
 
   if (dayRender.isHidden) {
-    return <></>;
+    return <span role="gridcell" />;
   }
   if (!dayRender.isButton) {
     return <div {...dayRender.divProps} />;
