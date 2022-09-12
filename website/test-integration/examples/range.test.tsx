@@ -23,7 +23,7 @@ const days = [
 ];
 
 test.each(days)('%s should be selected', (day) => {
-  expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+  expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
 });
 
 describe('when a day in the range is clicked', () => {
@@ -32,10 +32,10 @@ describe('when a day in the range is clicked', () => {
     clickDay(day);
   });
   test.each([days[0], days[1], day])('%s should be selected', (day) => {
-    expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+    expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
   });
   test.each([days[3], days[4]])('%s should not be selected', (day) => {
-    expect(getDayButton(day)).not.toHaveAttribute('aria-pressed');
+    expect(getDayButton(day)).toHaveAttribute('aria-selected', 'false');
   });
   describe('when the day is clicked again', () => {
     const day = days[2];
@@ -44,7 +44,7 @@ describe('when a day in the range is clicked', () => {
       expect(getAllSelectedDays()).toHaveLength(1);
     });
     test('only a day in the range should be selected', () => {
-      expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+      expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
     });
 
     describe('when a day in the range is clicked again', () => {

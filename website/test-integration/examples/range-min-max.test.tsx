@@ -19,16 +19,13 @@ describe('when the first day is clicked', () => {
   const fromDay = new Date(2021, 10, 15);
   beforeEach(() => clickDay(fromDay));
   test('should disable before the allowed range', () => {
-    expect(getAllEnabledDays()[0]).toHaveAttribute(
-      'aria-label',
-      '1st November (Monday)'
-    );
+    expect(getAllEnabledDays()[0]).toHaveAttribute('aria-label', '1');
   });
   test('should disable after the allowed range', () => {
     const enabledDays = getAllEnabledDays();
     expect(enabledDays[enabledDays.length - 1]).toHaveAttribute(
       'aria-label',
-      '30th November (Tuesday)'
+      '30'
     );
   });
   describe('when clicking a day after the from date', () => {
@@ -40,13 +37,13 @@ describe('when the first day is clicked', () => {
     ];
     beforeEach(() => clickDay(toDay));
     test.each(expectedSelectedDays)('%s should be selected', (day) => {
-      expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+      expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
     });
     test('should enable the days up to the clicked day', () => {
       const enabledDays = getAllEnabledDays();
       expect(enabledDays[enabledDays.length - 1]).toHaveAttribute(
         'aria-label',
-        '19th November (Friday)'
+        '19'
       );
     });
   });
@@ -61,7 +58,7 @@ describe('when the first day is clicked', () => {
     ];
     beforeEach(() => clickDay(toDay));
     test.each(expectedSelectedDays)('%s should be selected', (day) => {
-      expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+      expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
     });
   });
 });

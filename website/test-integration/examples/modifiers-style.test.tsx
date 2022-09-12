@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import { getDayCell } from 'react-day-picker/test/po';
+import { getDayButton, getDayCell } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/modifiers-style';
@@ -20,5 +20,5 @@ const style = {
   color: 'lightgreen'
 };
 test.each(days)('The day %s should have the proper inline style', (day) => {
-  expect(getDayCell(day).firstChild).toHaveStyle(style);
+  expect(getDayButton(day)).toHaveStyle(style);
 });

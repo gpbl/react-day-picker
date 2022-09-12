@@ -24,7 +24,7 @@ function getInput(): HTMLInputElement {
 }
 
 test('today should be selected', () => {
-  expect(getDayButton(today)).toHaveAttribute('aria-pressed', 'true');
+  expect(getDayButton(today)).toHaveAttribute('aria-selected', 'true');
 });
 
 test('the input field should display today', () => {
@@ -43,7 +43,7 @@ describe('when yesterday is clicked', () => {
       userEvent.type(getInput(), `{selectall}{del}${format(today, 'PP')}`);
     });
     test('today should be selected', () => {
-      expect(getDayButton(today)).toHaveAttribute('aria-pressed', 'true');
+      expect(getDayButton(today)).toHaveAttribute('aria-selected', 'true');
     });
   });
   describe('when the input is emptied', () => {

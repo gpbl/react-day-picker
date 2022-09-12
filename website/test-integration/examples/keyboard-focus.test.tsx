@@ -131,7 +131,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       describe('when focusing the days grid', () => {
         beforeEach(() => focusDaysGrid());
         test('the today button should have focus', () => {
-          expect(getDayButton(today)).toHaveFocus();
+          expect(getDayButton(today, 2)).toHaveFocus();
         });
       });
     });

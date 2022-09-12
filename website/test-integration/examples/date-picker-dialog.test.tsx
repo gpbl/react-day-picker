@@ -71,7 +71,10 @@ describe('when clicking the dialog button', () => {
           await waitPopper();
         });
         test('the new date should be selected', () => {
-          expect(getDayButton(newDate)).toHaveAttribute('aria-pressed', 'true');
+          expect(getDayButton(newDate)).toHaveAttribute(
+            'aria-selected',
+            'true'
+          );
         });
         test('the new date button should have focus', () => {
           expect(getDayButton(newDate)).toHaveFocus();

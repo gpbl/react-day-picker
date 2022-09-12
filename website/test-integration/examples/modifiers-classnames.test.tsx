@@ -1,8 +1,9 @@
 import React from 'react';
-import { getDayCell } from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import { render } from '@testing-library/react';
+
+import { getDayButton } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/modifiers-classnames';
 
@@ -20,5 +21,5 @@ beforeEach(() => {
 });
 
 test.each(days)('the day %s should have the `my-booked-class` class', (day) => {
-  expect(getDayCell(day).firstChild).toHaveClass('my-booked-class');
+  expect(getDayButton(day)).toHaveClass('my-booked-class');
 });
