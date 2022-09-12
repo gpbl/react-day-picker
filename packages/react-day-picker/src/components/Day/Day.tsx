@@ -26,5 +26,5 @@ export function Day(props: DayProps): JSX.Element {
   if (!dayRender.isButton) {
     return <div {...dayRender.divProps} />;
   }
-  return <Button name="day" ref={buttonRef} {...dayRender.buttonProps} />;
+  return <Button ref={buttonRef} {...dayRender.buttonProps} />;
 }

@@ -65,20 +65,6 @@ describe('when rendered', () => {
       expect(el).toHaveClass(dayPickerProps.classNames.head_cell);
     });
   });
-  test('the formatted weekday name should be ARIA-hidden', () => {
-    const weekdays = getWeekdays();
-    weekdays.forEach((weekday) => {
-      const text = formatWeekdayName(weekday);
-      expect(screen.getByText(text)).toHaveAttribute('aria-hidden', 'true');
-    });
-  });
-  test('the label should not be visible', () => {
-    const weekdays = getWeekdays();
-    weekdays.forEach((weekday) => {
-      const text = labelWeekday(weekday);
-      expect(screen.getByText(text)).toHaveClass(defaultClassNames.vhidden);
-    });
-  });
 });
 
 describe('when showing the week numbers', () => {
