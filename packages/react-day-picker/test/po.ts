@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
 import { format } from 'date-fns';
 
-export function getDayButton(day: Date) {
-  return screen.getByRole('button', {
-    name: format(day, 'do MMMM (EEEE)')
-  });
+export function getDayButton(day: Date, index = 0): HTMLElement {
+  return screen.getAllByRole('gridcell', {
+    name: format(day, 'd')
+  })[index];
 }
 
 export function getAllSelectedDays() {
@@ -14,7 +14,7 @@ export function getAllSelectedDays() {
     .getElementsByTagName('button');
 
   return Array.from(buttons).filter(
-    (button) => button.getAttribute('aria-pressed') === 'true'
+    (button) => button.getAttribute('aria-selected') === 'true'
   );
 }
 
@@ -28,21 +28,19 @@ export function getAllEnabledDays() {
 }
 
 export function getDayButtons(day: Date) {
-  return screen.getByRole('button', {
-    name: format(day, 'do MMMM (EEEE)')
+  return screen.getByRole('gridcell', {
+    name: format(day, 'd')
   });
 }
 
 export function queryDayButton(day: Date) {
-  return screen.queryByRole('button', {
-    name: format(day, 'do MMMM (EEEE)')
+  return screen.queryByRole('gridcell', {
+    name: format(day, 'd')
   });
 }
 
 export function getDayCell(day: Date) {
-  return screen.getByRole('cell', {
-    name: format(day, 'do MMMM (EEEE)')
-  });
+  return getDayButton(day).parentElement;
 }
 export function getWeekButton(week: number) {
   return screen.getByRole('button', {
@@ -59,19 +57,19 @@ export function queryTableFooter() {
 }
 
 export function getPrevButton() {
-  return screen.getByRole('button', { name: 'Go to previous month' });
+  return screen.getByRole('button', { name: 'Previous month' });
 }
 
 export function queryPrevButton() {
-  return screen.queryByRole('button', { name: 'Go to previous month' });
+  return screen.queryByRole('button', { name: 'Previous month' });
 }
 
 export function getNextButton() {
-  return screen.getByRole('button', { name: 'Go to next month' });
+  return screen.getByRole('button', { name: 'Next month' });
 }
 
 export function queryNextButton() {
-  return screen.queryByRole('button', { name: 'Go to next month' });
+  return screen.queryByRole('button', { name: 'Next month' });
 }
 
 export function getMonthCaption(displayIndex = 0) {

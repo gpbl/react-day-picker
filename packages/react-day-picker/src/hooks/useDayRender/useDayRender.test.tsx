@@ -68,8 +68,8 @@ describe('when rendering the today’s date', () => {
       defaultClassNames.day
     );
   });
-  test('the button should not have "aria-pressed"', () => {
-    expect(result.current.buttonProps['aria-pressed']).toBeUndefined();
+  test('the button should have "aria-selected" to `false`', () => {
+    expect(result.current.buttonProps['aria-selected']).toBe(false);
   });
   test('the button should have 0 as "tabIndex"', () => {
     expect(result.current.buttonProps.tabIndex).toBe(0);
@@ -298,7 +298,7 @@ describe('when the day is selected', () => {
   beforeEach(() => {
     setup(date, date, dayPickerProps);
   });
-  test('the button should have "aria-pressed"', () => {
-    expect(result.current.buttonProps['aria-pressed']).toBe(true);
+  test('the button should have "aria-selected"', () => {
+    expect(result.current.buttonProps['aria-selected']).toBe(true);
   });
 });

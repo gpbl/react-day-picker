@@ -7,13 +7,9 @@ import { DayContent } from 'components/DayContent';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useFocusContext } from 'contexts/Focus';
 import { useActiveModifiers } from 'hooks/useActiveModifiers';
-import {
-  DayEventHandlers,
-  useDayEventHandlers
-} from 'hooks/useDayEventHandlers';
+import { useDayEventHandlers } from 'hooks/useDayEventHandlers';
 import { SelectedDays, useSelectedDays } from 'hooks/useSelectedDays';
 import { ActiveModifiers } from 'types/Modifiers';
-import { StyledComponent } from 'types/Styles';
 
 import { getDayClassNames } from './utils/getDayClassNames';
 import { getDayStyle } from './utils/getDayStyle';
@@ -26,11 +22,9 @@ export type DayRender = {
   /** The modifiers active for the given day. */
   activeModifiers: ActiveModifiers;
   /** The props to apply to the button element (when `isButton` is true). */
-  buttonProps: StyledComponent &
-    Pick<ButtonProps, 'disabled' | 'aria-pressed' | 'tabIndex'> &
-    DayEventHandlers;
+  buttonProps: ButtonProps;
   /** The props to apply to the div element (when `isButton` is false). */
-  divProps: StyledComponent;
+  divProps: JSX.IntrinsicElements['div'];
   selectedDays: SelectedDays;
 };
 
@@ -96,17 +90,18 @@ export function useDayRender(
     style,
     className,
     children,
-    'aria-label': ariaLabel
+    role: 'gridcell',
+    'aria-label': ariaLabel,
+    'aria-selected': Boolean(activeModifiers.selected)
   };
 
   const isFocusTarget = Boolean(
     focusContext.focusTarget && isSameDay(focusContext.focusTarget, day)
   );
-  const buttonProps = {
+  const buttonProps: ButtonProps = {
     ...divProps,
+    name: 'day',
     disabled: activeModifiers.disabled,
-    ['aria-pressed']: activeModifiers.selected,
-    ['aria-label']: ariaLabel,
     tabIndex: isFocusTarget ? 0 : -1,
     ...eventHandlers
   };
