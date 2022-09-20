@@ -57,17 +57,15 @@ export type SelectRangeEventHandler = (
 ) => void;
 
 /** The event handler when selecting a single day. */
-export interface SelectSingleEventHandler {
-  (
-    /** The selected day, `undefined` when `required={false}` (default) and the day is clicked again. */
-    day: Date | undefined,
-    /** The day that was selected (or clicked) triggering the event. */
-    selectedDay: Date,
-    /** The modifiers of the selected day. */
-    activeModifiers: ActiveModifiers,
-    e: React.MouseEvent
-  ): void;
-}
+export type SelectSingleEventHandler = (
+  /** The selected day, `undefined` when `required={false}` (default) and the day is clicked again. */
+  day: Date | undefined,
+  /** The day that was selected (or clicked) triggering the event. */
+  selectedDay: Date,
+  /** The modifiers of the selected day. */
+  activeModifiers: ActiveModifiers,
+  e: React.MouseEvent
+) => void;
 
 /**The event handler when the week number is clicked. */
 export type WeekNumberClickEventHandler = (
