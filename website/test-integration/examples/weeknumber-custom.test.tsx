@@ -2,8 +2,6 @@ import React from 'react';
 
 import { render, screen } from '@testing-library/react';
 
-import { clickWeek } from 'react-day-picker/test/actions';
-import { getTableFooter, getWeekButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/weeknumber-custom';
