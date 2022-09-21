@@ -221,6 +221,15 @@ export interface DayPickerBase {
    */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
 
+  /**
+   * The day of January, which is always in the first week of the year.
+   *
+   * This overrides the `date-fns` function to get the first week of the year.
+   * See also https://date-fns.org/docs/getWeek and
+   * https://en.wikipedia.org/wiki/Week#Numbering
+   */
+  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
   onDayClick?: DayClickEventHandler;
   onDayFocus?: DayFocusEventHandler;
   onDayBlur?: DayFocusEventHandler;
