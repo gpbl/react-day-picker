@@ -65,4 +65,12 @@ describe('when using the "enGB" locale', () => {
       expect(weekNumbers[weekNumbers.length - 1]).toEqual(5);
     });
   });
+  describe('when setting a 3 as first day of year', () => {
+    const date = new Date(2022, 0);
+    const weeks = getMonthWeeks(date, { locale, firstWeekContainsDate: 3 });
+    test('the number of week should be 53', () => {
+      const weekNumbers = weeks.map((week) => week.weekNumber);
+      expect(weekNumbers[0]).toEqual(53);
+    });
+  });
 });
