@@ -2,7 +2,7 @@ import { enGB, enUS } from 'date-fns/locale';
 
 import { getMonthWeeks } from './getMonthWeeks';
 
-describe.skip('when using the "enUS" locale', () => {
+describe('when using the "enUS" locale', () => {
   const locale = enUS;
   describe('when using fixed weeks', () => {
     const useFixedWeeks = true;
