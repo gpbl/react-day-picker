@@ -18,6 +18,23 @@ Use the `weekStartsOn` prop to change the first day of the week:
 spanish-week-starts-on
 ```
 
+### First week of the year
+
+To override the date in the first week of the year, use `firstWeekContainsDate`. Use this prop to change the week number calculation.
+See also https://date-fns.org/docs/getWeek and https://en.wikipedia.org/wiki/Week#Week_numbering.
+
+```include-example
+weeknumber-custom
+```
+
+## Switching to ISO week dates
+
+Weeks and week days are calculated according to the locale. To use ISO week dates instead, use the `ISOWeek` prop. See also https://en.wikipedia.org/wiki/ISO_week_date.
+
+```include-example
+week-iso
+```
+
 ## Switching to right-to-left direction
 
 To add right-to-left text direction, set the `dir` prop to `rtl`.

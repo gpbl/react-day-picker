@@ -41,24 +41,3 @@ Use `showWeekNumber` to display the week numbers.
 ```include-example
 weeknumber
 ```
-
-## Switching to ISO week dates
-
-Weeks and week days are calculated according to the locale. To use ISO week dates instead, use the `ISOWeek` prop. See also https://en.wikipedia.org/wiki/ISO_week_date.
-
-```include-example
-week-iso
-```
-
-## Advanced weeks settings
-
-- To customize the week number format, pass a `weekNumberFormat` formatter to the `formatters` prop.
-- To change the first day of the week, use `firstDayOfWeek`.
-- To override the date in the first week of the year, use
-  `firstWeekContainsDate`. Use this prop to change the week number calculation.
-  See also https://date-fns.org/docs/getWeek and
-  https://en.wikipedia.org/wiki/Week#Week_numbering.
-
-```include-example
-weeknumber-custom
-```
