@@ -140,6 +140,7 @@ export interface DayPickerBase {
    *
    * **Note:** the `dropdown` layout is available only when `fromDate`,
    * `fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
+   *
    */
   captionLayout?: CaptionLayout;
   /**
@@ -157,9 +158,30 @@ export interface DayPickerBase {
    */
   showOutsideDays?: boolean;
   /**
-   * Show the week numbers column. Default to `false`.
+   * Show the week numbers column. Weeks are numbered according to the local
+   * week index. To use ISO week numbering, use the {@link ISOWeek} prop.
+   *
+   * @defaultValue false
    */
   showWeekNumber?: boolean;
+  /**
+   * The index of the first day of the week (0 - Sunday). Overrides the locale's one.
+   */
+  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  /**
+   * The day of January, which is always in the first week of the year. See also
+   * https://date-fns.org/docs/getWeek and
+   * https://en.wikipedia.org/wiki/Week#Numbering
+   */
+  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  /**
+   * Use ISO week dates instead of the locale setting. See also
+   * https://en.wikipedia.org/wiki/ISO_week_date.
+   *
+   * Setting this prop will ignore {@link weekStartsOn} and {@link firstWeekContainsDate}.
+   */
+  ISOWeek?: boolean;
+
   /**
    * Map of components used to create the layout. Look at the [components source](https://github.com/gpbl/react-day-picker/tree/master/packages/react-day-picker/src/components) to understand how internal components are built.
    */
@@ -220,20 +242,6 @@ export interface DayPickerBase {
    * functions.
    */
   formatters?: Partial<Formatters>;
-
-  /**
-   * The index of the first day of the week (0 - Sunday). Overrides the locale's one.
-   */
-  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-
-  /**
-   * The day of January, which is always in the first week of the year.
-   *
-   * This overrides the `date-fns` function to get the first week of the year.
-   * See also https://date-fns.org/docs/getWeek and
-   * https://en.wikipedia.org/wiki/Week#Numbering
-   */
-  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
   onDayClick?: DayClickEventHandler;
   onDayFocus?: DayFocusEventHandler;
