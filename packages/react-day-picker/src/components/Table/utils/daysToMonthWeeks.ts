@@ -2,8 +2,11 @@ import type { Locale } from 'date-fns';
 
 import addDays from 'date-fns/addDays';
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
+import endOfISOWeek from 'date-fns/endOfISOWeek';
 import endOfWeek from 'date-fns/endOfWeek';
+import getISOWeek from 'date-fns/getISOWeek';
 import getWeek from 'date-fns/getWeek';
+import startOfISOWeek from 'date-fns/startOfISOWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 
 import { MonthWeek } from './getMonthWeeks';
@@ -13,13 +16,19 @@ export function daysToMonthWeeks(
   fromDate: Date,
   toDate: Date,
   options?: {
+    ISOWeek?: boolean;
     locale?: Locale;
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   }
 ): MonthWeek[] {
-  const toWeek = endOfWeek(toDate, options);
-  const fromWeek = startOfWeek(fromDate, options);
+  const toWeek = options?.ISOWeek
+    ? endOfISOWeek(toDate)
+    : endOfWeek(toDate, options);
+  const fromWeek = options?.ISOWeek
+    ? startOfISOWeek(fromDate)
+    : startOfWeek(fromDate, options);
+
   const nOfDays = differenceInCalendarDays(toWeek, fromWeek);
   const days: Date[] = [];
 
@@ -28,7 +37,10 @@ export function daysToMonthWeeks(
   }
 
   const weeksInMonth = days.reduce((result: MonthWeek[], date) => {
-    const weekNumber = getWeek(date, options);
+    const weekNumber = options?.ISOWeek
+      ? getISOWeek(date)
+      : getWeek(date, options);
+
     const existingWeek = result.find(
       (value) => value.weekNumber === weekNumber
     );

@@ -24,13 +24,17 @@ export function Table(props: TableProps): JSX.Element {
     hideHead,
     fixedWeeks,
     components,
-    weekStartsOn
+    weekStartsOn,
+    firstWeekContainsDate,
+    ISOWeek
   } = useDayPicker();
 
   const weeks = getMonthWeeks(props.displayMonth, {
     useFixedWeeks: Boolean(fixedWeeks),
+    ISOWeek,
     locale,
-    weekStartsOn
+    weekStartsOn,
+    firstWeekContainsDate
   });
 
   const HeadComponent = components?.Head ?? Head;
