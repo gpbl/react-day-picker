@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Caption } from 'components/Caption';
 import { Table } from 'components/Table';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useNavigation } from 'contexts/Navigation';
