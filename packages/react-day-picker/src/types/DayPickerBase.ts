@@ -69,6 +69,11 @@ export interface DayPickerBase {
   modifiersStyles?: ModifiersStyles;
 
   /**
+   * An unique id to replace the random generated id, used by DayPicker for accessibility.
+   */
+  id?: string;
+
+  /**
    * The initial month to show in the calendar. Default is the current month.
    *
    * Use this prop to let DayPicker control the current month. If you need to set the month programmatically, use {@link month]] and [[onMonthChange}.

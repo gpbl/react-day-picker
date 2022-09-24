@@ -279,6 +279,16 @@ describe('when passing "labels" from props', () => {
   });
 });
 
+describe('when passing an "id" from props', () => {
+  const dayPickerProps: DayPickerProps = { id: 'foo' };
+  beforeEach(() => {
+    setup(dayPickerProps);
+  });
+  test('should return the id', () => {
+    expect(renderResult.current.id).toBe('foo');
+  });
+});
+
 describe('when passing "components" from props', () => {
   const components: CustomComponents = { Day: jest.fn() };
   const dayPickerProps: DayPickerProps = { components };

@@ -17,7 +17,11 @@ export function Month(props: MonthProps) {
   const dayPicker = useDayPicker();
   const { dir, classNames, styles, components } = dayPicker;
   const { displayMonths } = useNavigation();
-  const captionId = useId();
+
+  const captionId = useId(
+    dayPicker.id ? `${dayPicker.id}-${props.displayIndex}` : undefined
+  );
+
   const className = [classNames.month];
   let style = styles.month;
 
