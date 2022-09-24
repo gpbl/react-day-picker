@@ -109,6 +109,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     fromDate,
     hidden: initialProps.hidden,
     hideHead: initialProps.hideHead,
+    id: initialProps.id,
     initialFocus: initialProps.initialFocus,
     labels: {
       ...defaults.labels,
