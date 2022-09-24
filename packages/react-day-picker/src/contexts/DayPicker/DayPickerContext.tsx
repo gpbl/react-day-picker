@@ -70,11 +70,12 @@ export interface DayPickerProviderProps {
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { initialProps } = props;
 
-  const defaults = getDefaultContextValues();
+  const defaultContextValues = getDefaultContextValues();
 
   const { fromDate, toDate } = parseFromToProps(initialProps);
 
-  let captionLayout = initialProps.captionLayout ?? defaults.captionLayout;
+  let captionLayout =
+    initialProps.captionLayout ?? defaultContextValues.captionLayout;
   if (captionLayout !== 'buttons' && (!fromDate || !toDate)) {
     // When no from/to dates are set, the caption is always buttons
     captionLayout = 'buttons';
@@ -90,42 +91,40 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   }
 
   const value: DayPickerContextValue = {
+    ...defaultContextValues,
     ...initialProps,
     captionLayout,
     classNames: {
-      ...defaults.classNames,
+      ...defaultContextValues.classNames,
       ...initialProps.classNames
     },
     components: {
       ...initialProps.components
     },
     formatters: {
-      ...defaults.formatters,
+      ...defaultContextValues.formatters,
       ...initialProps.formatters
     },
     fromDate,
     labels: {
-      ...defaults.labels,
+      ...defaultContextValues.labels,
       ...initialProps.labels
     },
-    locale: initialProps.locale ?? defaults.locale,
-    mode: initialProps.mode || defaults.mode,
+    mode: initialProps.mode || defaultContextValues.mode,
     modifiers: {
-      ...defaults.modifiers,
+      ...defaultContextValues.modifiers,
       ...initialProps.modifiers
     },
     modifiersClassNames: {
-      ...defaults.modifiersClassNames,
+      ...defaultContextValues.modifiersClassNames,
       ...initialProps.modifiersClassNames
     },
-    numberOfMonths: initialProps.numberOfMonths ?? defaults.numberOfMonths,
     onSelect,
     styles: {
-      ...defaults.styles,
+      ...defaultContextValues.styles,
       ...initialProps.styles
     },
-    toDate,
-    today: initialProps.today ?? defaults.today
+    toDate
   };
 
   return (
