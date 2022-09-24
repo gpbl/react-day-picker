@@ -305,3 +305,8 @@ export interface CustomComponents {
   /** The component for the week number in the table rows. */
   WeekNumber?: (props: WeekNumberProps) => JSX.Element | null;
 }
+
+/**
+ * All the components in use by DayPicker that can be customized via the {@link components} prop.
+ */
+export type Components = Required<CustomComponents>;

@@ -3,7 +3,11 @@ import React, { createContext, ReactNode } from 'react';
 import { DayPickerProps } from 'DayPicker';
 
 import { CaptionLayout } from 'components/Caption';
-import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
+import {
+  Components,
+  DayPickerBase,
+  DaySelectionMode
+} from 'types/DayPickerBase';
 import {
   DayPickerMultipleProps,
   isDayPickerMultiple
@@ -35,6 +39,7 @@ export interface DayPickerContextValue extends DayPickerBase {
   selected?: Matcher | Matcher[];
 
   captionLayout: CaptionLayout;
+  components: Components;
   classNames: Required<ClassNames>;
   formatters: Formatters;
   labels: Labels;
@@ -99,6 +104,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
       ...initialProps.classNames
     },
     components: {
+      ...defaultContextValues.components,
       ...initialProps.components
     },
     formatters: {
