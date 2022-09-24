@@ -20,8 +20,7 @@ spanish-week-starts-on
 
 ### First week of the year
 
-To override the date in the first week of the year, use `firstWeekContainsDate`. Use this prop to change the week number calculation.
-See also https://date-fns.org/docs/getWeek and https://en.wikipedia.org/wiki/Week#Week_numbering.
+To override the date in the first week of the year, use `firstWeekContainsDate`. Use this prop to change the week number calculation according to [date-fns getWeek](https://date-fns.org/docs/getWeek) function.
 
 ```include-example
 weeknumber-custom
@@ -29,7 +28,7 @@ weeknumber-custom
 
 ## Switching to ISO week dates
 
-Weeks and week days are calculated according to the locale. To use ISO week dates instead, use the `ISOWeek` prop. See also https://en.wikipedia.org/wiki/ISO_week_date.
+By default, week numbers and week days follow the DayPicker's locale. Use the `ISOWeek` prop to switch to [ISO week dates](https://en.wikipedia.org/wiki/ISO_week_date).
 
 ```include-example
 week-iso
@@ -43,7 +42,7 @@ To add right-to-left text direction, set the `dir` prop to `rtl`.
 rtl
 ```
 
-## Adopting other numbering systems
+## Other numbering systems
 
 Use [formatters](/guides/formatters) to change the numbering system used in the calendar.
 
