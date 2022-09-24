@@ -10,7 +10,7 @@ import 'react-day-picker/dist/style.css';
 This will add the [DayPicker stylesheet](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css#L29) into your app. The stylesheet includes some CSS global variables, to override colors and sizes:
 
 ```css
-:root {
+.rdp {
   --rdp-cell-size: 40px;
   --rdp-accent-color: #0000ff;
   --rdp-background-color: #e7edff;
