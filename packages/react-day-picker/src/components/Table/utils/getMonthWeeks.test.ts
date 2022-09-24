@@ -68,7 +68,7 @@ describe('when using the "enGB" locale', () => {
   describe('when setting a 3 as first day of year', () => {
     const date = new Date(2022, 0);
     const weeks = getMonthWeeks(date, { locale, firstWeekContainsDate: 3 });
-    test('the number of week should be 53', () => {
+    test('the number of week should have number 53', () => {
       const weekNumbers = weeks.map((week) => week.weekNumber);
       expect(weekNumbers[0]).toEqual(53);
     });
@@ -80,7 +80,7 @@ describe('when using the ISOWeek numbers', () => {
   describe('when getting the weeks for September 2022', () => {
     const date = new Date(2022, 8);
     const weeks = getMonthWeeks(date, { locale, ISOWeek: true });
-    test('the last week should be 39', () => {
+    test('the last week should have number 39', () => {
       const weekNumbers = weeks.map((week) => week.weekNumber);
       expect(weekNumbers[weekNumbers.length - 1]).toEqual(39);
     });
@@ -92,7 +92,7 @@ describe('when not using the ISOWeek numbers', () => {
   describe('when getting the weeks for September 2022', () => {
     const date = new Date(2022, 8);
     const weeks = getMonthWeeks(date, { locale, ISOWeek: false });
-    test('the last week should be 40', () => {
+    test('the last week should have number 40', () => {
       const weekNumbers = weeks.map((week) => week.weekNumber);
       expect(weekNumbers[weekNumbers.length - 1]).toEqual(40);
     });
