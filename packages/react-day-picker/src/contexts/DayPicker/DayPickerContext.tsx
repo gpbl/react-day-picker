@@ -16,10 +16,13 @@ import { Matcher } from 'types/Matchers';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
 
-import { getDefaultContextValue } from './defaultContextValue';
+import { getDefaultContextValues } from './defaultContextValues';
 import { parseFromToProps } from './utils';
 
-/** The value of the {@link DayPickerContext}. */
+/**
+ * The value of the {@link DayPickerContext} extends the props from DayPicker
+ * with default and cleaned up values.
+ */
 export interface DayPickerContextValue extends DayPickerBase {
   mode: DaySelectionMode;
   onSelect?:
@@ -67,12 +70,13 @@ export interface DayPickerProviderProps {
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { initialProps } = props;
 
-  const defaults = getDefaultContextValue();
+  const defaults = getDefaultContextValues();
 
   const { fromDate, toDate } = parseFromToProps(initialProps);
 
   let captionLayout = initialProps.captionLayout ?? defaults.captionLayout;
   if (captionLayout !== 'buttons' && (!fromDate || !toDate)) {
+    // When no from/to dates are set, the caption is always buttons
     captionLayout = 'buttons';
   }
 
@@ -86,37 +90,26 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   }
 
   const value: DayPickerContextValue = {
+    ...initialProps,
     captionLayout,
-    className: initialProps.className,
     classNames: {
       ...defaults.classNames,
       ...initialProps.classNames
     },
     components: {
-      ...defaults.components,
       ...initialProps.components
     },
-    defaultMonth: initialProps.defaultMonth,
-    dir: initialProps.dir,
-    disabled: initialProps.disabled,
-    disableNavigation: initialProps.disableNavigation,
-    fixedWeeks: initialProps.fixedWeeks,
-    footer: initialProps.footer,
     formatters: {
       ...defaults.formatters,
       ...initialProps.formatters
     },
     fromDate,
-    hidden: initialProps.hidden,
-    hideHead: initialProps.hideHead,
-    id: initialProps.id,
-    initialFocus: initialProps.initialFocus,
     labels: {
       ...defaults.labels,
       ...initialProps.labels
     },
     locale: initialProps.locale ?? defaults.locale,
-    mode: initialProps.mode || 'default',
+    mode: initialProps.mode || defaults.mode,
     modifiers: {
       ...defaults.modifiers,
       ...initialProps.modifiers
@@ -125,39 +118,14 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
       ...defaults.modifiersClassNames,
       ...initialProps.modifiersClassNames
     },
-    modifiersStyles: initialProps.modifiersStyles,
-    month: initialProps.month,
     numberOfMonths: initialProps.numberOfMonths ?? defaults.numberOfMonths,
-    onDayBlur: initialProps.onDayBlur,
-    onDayClick: initialProps.onDayClick,
-    onDayFocus: initialProps.onDayFocus,
-    onDayKeyDown: initialProps.onDayKeyDown,
-    onDayKeyPress: initialProps.onDayKeyPress,
-    onDayKeyUp: initialProps.onDayKeyUp,
-    onDayMouseEnter: initialProps.onDayMouseEnter,
-    onDayMouseLeave: initialProps.onDayMouseLeave,
-    onDayTouchCancel: initialProps.onDayTouchCancel,
-    onDayTouchEnd: initialProps.onDayTouchEnd,
-    onDayTouchMove: initialProps.onDayTouchMove,
-    onDayTouchStart: initialProps.onDayTouchStart,
-    onMonthChange: initialProps.onMonthChange,
-    onNextClick: initialProps.onNextClick,
-    onPrevClick: initialProps.onPrevClick,
     onSelect,
-    onWeekNumberClick: initialProps.onWeekNumberClick,
-    pagedNavigation: initialProps.pagedNavigation,
-    reverseMonths: initialProps.reverseMonths,
-    selected: initialProps.selected,
-    showOutsideDays: initialProps.showOutsideDays,
-    showWeekNumber: initialProps.showWeekNumber,
-    style: initialProps.style,
     styles: {
       ...defaults.styles,
       ...initialProps.styles
     },
     toDate,
-    today: initialProps.today ?? defaults.today,
-    weekStartsOn: initialProps.weekStartsOn
+    today: initialProps.today ?? defaults.today
   };
 
   return (

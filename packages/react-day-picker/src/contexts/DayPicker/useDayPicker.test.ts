@@ -7,15 +7,18 @@ import { freezeBeforeAll } from 'test/utils';
 
 import { CaptionLayout } from 'components/Caption';
 import { DayPickerContextValue, useDayPicker } from 'contexts/DayPicker';
-import { getDefaultContextValue } from 'contexts/DayPicker/defaultContextValue';
-import { CustomComponents, DaySelectionMode } from 'types/DayPickerBase';
+import {
+  DefaultContextProps,
+  getDefaultContextValues
+} from 'contexts/DayPicker/defaultContextValues';
+import { DaySelectionMode } from 'types/DayPickerBase';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
 
 const today = new Date(2022, 5, 13);
-const defaults = getDefaultContextValue();
+const defaults = getDefaultContextValues();
 
 freezeBeforeAll(today);
 
@@ -25,20 +28,8 @@ function setup(dayPickerProps?: DayPickerProps) {
   renderResult = result;
 }
 
-describe('when passing rendered without props', () => {
-  type PropName =
-    | 'captionLayout'
-    | 'classNames'
-    | 'formatters'
-    | 'labels'
-    | 'locale'
-    | 'modifiersClassNames'
-    | 'modifiers'
-    | 'numberOfMonths'
-    | 'styles'
-    | 'today';
-
-  const testPropNames: PropName[] = [
+describe('when rendered without props', () => {
+  const testPropNames: DefaultContextProps[] = [
     'captionLayout',
     'classNames',
     'formatters',
@@ -48,7 +39,7 @@ describe('when passing rendered without props', () => {
     'modifiers',
     'numberOfMonths',
     'styles'
-    // 'today' SKIPPED: this test doesn't pass
+    // 'today' // SKIPPED: this test doesn't pass
   ];
   beforeAll(() => {
     setup();
@@ -286,23 +277,6 @@ describe('when passing an "id" from props', () => {
   });
   test('should return the id', () => {
     expect(renderResult.current.id).toBe('foo');
-  });
-});
-
-describe('when passing "components" from props', () => {
-  const components: CustomComponents = { Day: jest.fn() };
-  const dayPickerProps: DayPickerProps = { components };
-  beforeEach(() => {
-    setup(dayPickerProps);
-  });
-  test('should override the default "components"', () => {
-    expect(renderResult.current.components).not.toBe(defaults.components);
-  });
-  test('should include the custom "components"', () => {
-    expect(renderResult.current.components).toStrictEqual({
-      ...defaults.components,
-      ...components
-    });
   });
 });
 
