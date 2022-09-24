@@ -37,6 +37,10 @@ v7 is frozen and there are no plans for updating it. If you have bugs or feature
 - `selectedDays` has been renamed to `selected`. See also: [Selecting Days guide](https://react-day-picker.js.org/basics/selecting-days).
 - `disabledDays` has been renamed to `disabled`. See also: [Disabling days](https://react-day-picker.js.org/basics/modifiers#disabling-days).
 
+## ISO weeks
+
+This version use the locale setting to calculate the week days and numbers. The previous versions were using [ISO week dates](https://en.wikipedia.org/wiki/ISO_week_date). To toggle the ISO week dates, use the `ISOWeek` prop.
+
 ## DayPickerInput
 
 The `DayPickerInput` component has been removed. If you upgrade to v8, you will need to rewrite your implementation:

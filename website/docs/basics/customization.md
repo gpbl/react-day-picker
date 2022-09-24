@@ -42,6 +42,14 @@ Use `showWeekNumber` to display the week numbers.
 weeknumber
 ```
 
+## Switching to ISO week dates
+
+Weeks and week days are calculated according to the locale. To use ISO week dates instead, use the `ISOWeek` prop. See also https://en.wikipedia.org/wiki/ISO_week_date.
+
+```include-example
+week-iso
+```
+
 ## Advanced weeks settings
 
 - To customize the week number format, pass a `weekNumberFormat` formatter to the `formatters` prop.
