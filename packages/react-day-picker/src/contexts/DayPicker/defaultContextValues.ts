@@ -7,11 +7,28 @@ import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';
 
+export type DefaultContextProps =
+  | 'captionLayout'
+  | 'classNames'
+  | 'formatters'
+  | 'locale'
+  | 'labels'
+  | 'modifiersClassNames'
+  | 'modifiers'
+  | 'numberOfMonths'
+  | 'styles'
+  | 'today'
+  | 'mode';
+
+export type DefaultContextValues = Pick<
+  DayPickerContextValue,
+  DefaultContextProps
+>;
 /**
  * Returns the default values to use in the DayPickerContext, in case they are
  * not passed down with the DayPicker initial props.
  */
-export function getDefaultContextValue(): DayPickerContextValue {
+export function getDefaultContextValues(): DefaultContextValues {
   const captionLayout: CaptionLayout = 'buttons';
   const classNames = defaultClassNames;
   const locale = enUS;
