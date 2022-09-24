@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import isSameDay from 'date-fns/isSameDay';
 
 import { ButtonProps } from 'components/Button';
-import { DayContent } from 'components/DayContent';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useFocusContext } from 'contexts/Focus';
 import { useActiveModifiers } from 'hooks/useActiveModifiers';
@@ -48,7 +47,10 @@ export function useDayRender(
   /** A ref to the button element that will be target of focus when rendered (if required). */
   buttonRef: React.RefObject<HTMLButtonElement>
 ): DayRender {
-  const dayPicker = useDayPicker();
+  const {
+    components: { DayContent },
+    ...dayPicker
+  } = useDayPicker();
   const focusContext = useFocusContext();
   const activeModifiers = useActiveModifiers(day, displayMonth);
   const eventHandlers = useDayEventHandlers(day, activeModifiers);
@@ -83,9 +85,8 @@ export function useDayRender(
       activeModifiers.hidden
   );
 
-  const DayContentComponent = dayPicker.components?.DayContent ?? DayContent;
   const children = (
-    <DayContentComponent
+    <DayContent
       date={day}
       displayMonth={displayMonth}
       activeModifiers={activeModifiers}

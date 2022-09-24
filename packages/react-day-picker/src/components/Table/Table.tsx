@@ -1,8 +1,5 @@
 import React from 'react';
 
-import { Footer } from 'components/Footer';
-import { Head } from 'components/Head';
-import { Row } from 'components/Row';
 import { useDayPicker } from 'contexts/DayPicker';
 
 import { getMonthWeeks } from './utils/getMonthWeeks';
@@ -23,7 +20,7 @@ export function Table(props: TableProps): JSX.Element {
     styles,
     hideHead,
     fixedWeeks,
-    components,
+    components: { Head, Row, Footer },
     weekStartsOn,
     firstWeekContainsDate,
     ISOWeek
@@ -37,9 +34,6 @@ export function Table(props: TableProps): JSX.Element {
     firstWeekContainsDate
   });
 
-  const HeadComponent = components?.Head ?? Head;
-  const RowComponent = components?.Row ?? Row;
-  const FooterComponent = components?.Footer ?? Footer;
   return (
     <table
       className={classNames.table}
@@ -47,10 +41,10 @@ export function Table(props: TableProps): JSX.Element {
       role="grid"
       aria-labelledby={props['aria-labelledby']}
     >
-      {!hideHead && <HeadComponent />}
+      {!hideHead && <Head />}
       <tbody className={classNames.tbody} style={styles.tbody}>
         {weeks.map((week) => (
-          <RowComponent
+          <Row
             displayMonth={props.displayMonth}
             key={week.weekNumber}
             dates={week.dates}
@@ -58,7 +52,7 @@ export function Table(props: TableProps): JSX.Element {
           />
         ))}
       </tbody>
-      <FooterComponent />
+      <Footer />
     </table>
   );
 }
