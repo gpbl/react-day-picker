@@ -2,9 +2,11 @@ import addDays from 'date-fns/addDays';
 import addMonths from 'date-fns/addMonths';
 import addWeeks from 'date-fns/addWeeks';
 import addYears from 'date-fns/addYears';
+import endOfISOWeek from 'date-fns/endOfISOWeek';
 import endOfWeek from 'date-fns/endOfWeek';
 import max from 'date-fns/max';
 import min from 'date-fns/min';
+import startOfISOWeek from 'date-fns/startOfISOWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 
 import { DayPickerContextValue } from 'contexts/DayPicker';
@@ -22,7 +24,10 @@ export type MoveFocusBy =
 export type MoveFocusDirection = 'after' | 'before';
 
 export type MoveFocusOptions = Partial<
-  Pick<DayPickerContextValue, 'weekStartsOn' | 'fromDate' | 'toDate' | 'locale'>
+  Pick<
+    DayPickerContextValue,
+    'ISOWeek' | 'weekStartsOn' | 'fromDate' | 'toDate' | 'locale'
+  >
 >;
 /** Return the next date to be focused. */
 export function getNextFocus(
@@ -40,8 +45,14 @@ export function getNextFocus(
     week: addWeeks,
     month: addMonths,
     year: addYears,
-    startOfWeek: (date: Date) => startOfWeek(date, { locale, weekStartsOn }),
-    endOfWeek: (date: Date) => endOfWeek(date, { locale, weekStartsOn })
+    startOfWeek: (date: Date) =>
+      options.ISOWeek
+        ? startOfISOWeek(date)
+        : startOfWeek(date, { locale, weekStartsOn }),
+    endOfWeek: (date: Date) =>
+      options.ISOWeek
+        ? endOfISOWeek(date)
+        : endOfWeek(date, { locale, weekStartsOn })
   };
 
   let newFocusedDay = moveFns[moveBy](

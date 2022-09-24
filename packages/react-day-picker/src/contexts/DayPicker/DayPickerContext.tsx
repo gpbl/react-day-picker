@@ -3,7 +3,11 @@ import React, { createContext, ReactNode } from 'react';
 import { DayPickerProps } from 'DayPicker';
 
 import { CaptionLayout } from 'components/Caption';
-import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
+import {
+  Components,
+  DayPickerBase,
+  DaySelectionMode
+} from 'types/DayPickerBase';
 import {
   DayPickerMultipleProps,
   isDayPickerMultiple
@@ -16,10 +20,13 @@ import { Matcher } from 'types/Matchers';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
 
-import { getDefaultContextValue } from './defaultContextValue';
+import { getDefaultContextValues } from './defaultContextValues';
 import { parseFromToProps } from './utils';
 
-/** The value of the {@link DayPickerContext}. */
+/**
+ * The value of the {@link DayPickerContext} extends the props from DayPicker
+ * with default and cleaned up values.
+ */
 export interface DayPickerContextValue extends DayPickerBase {
   mode: DaySelectionMode;
   onSelect?:
@@ -32,6 +39,7 @@ export interface DayPickerContextValue extends DayPickerBase {
   selected?: Matcher | Matcher[];
 
   captionLayout: CaptionLayout;
+  components: Components;
   classNames: Required<ClassNames>;
   formatters: Formatters;
   labels: Labels;
@@ -67,12 +75,14 @@ export interface DayPickerProviderProps {
 export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const { initialProps } = props;
 
-  const defaults = getDefaultContextValue();
+  const defaultContextValues = getDefaultContextValues();
 
   const { fromDate, toDate } = parseFromToProps(initialProps);
 
-  let captionLayout = initialProps.captionLayout ?? defaults.captionLayout;
+  let captionLayout =
+    initialProps.captionLayout ?? defaultContextValues.captionLayout;
   if (captionLayout !== 'buttons' && (!fromDate || !toDate)) {
+    // When no from/to dates are set, the caption is always buttons
     captionLayout = 'buttons';
   }
 
@@ -86,77 +96,41 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   }
 
   const value: DayPickerContextValue = {
+    ...defaultContextValues,
+    ...initialProps,
     captionLayout,
-    className: initialProps.className,
     classNames: {
-      ...defaults.classNames,
+      ...defaultContextValues.classNames,
       ...initialProps.classNames
     },
     components: {
-      ...defaults.components,
+      ...defaultContextValues.components,
       ...initialProps.components
     },
-    defaultMonth: initialProps.defaultMonth,
-    dir: initialProps.dir,
-    disabled: initialProps.disabled,
-    disableNavigation: initialProps.disableNavigation,
-    fixedWeeks: initialProps.fixedWeeks,
-    footer: initialProps.footer,
     formatters: {
-      ...defaults.formatters,
+      ...defaultContextValues.formatters,
       ...initialProps.formatters
     },
     fromDate,
-    hidden: initialProps.hidden,
-    hideHead: initialProps.hideHead,
-    initialFocus: initialProps.initialFocus,
     labels: {
-      ...defaults.labels,
+      ...defaultContextValues.labels,
       ...initialProps.labels
     },
-    locale: initialProps.locale ?? defaults.locale,
-    mode: initialProps.mode || 'default',
+    mode: initialProps.mode || defaultContextValues.mode,
     modifiers: {
-      ...defaults.modifiers,
+      ...defaultContextValues.modifiers,
       ...initialProps.modifiers
     },
     modifiersClassNames: {
-      ...defaults.modifiersClassNames,
+      ...defaultContextValues.modifiersClassNames,
       ...initialProps.modifiersClassNames
     },
-    modifiersStyles: initialProps.modifiersStyles,
-    month: initialProps.month,
-    numberOfMonths: initialProps.numberOfMonths ?? defaults.numberOfMonths,
-    onDayBlur: initialProps.onDayBlur,
-    onDayClick: initialProps.onDayClick,
-    onDayFocus: initialProps.onDayFocus,
-    onDayKeyDown: initialProps.onDayKeyDown,
-    onDayKeyPress: initialProps.onDayKeyPress,
-    onDayKeyUp: initialProps.onDayKeyUp,
-    onDayMouseEnter: initialProps.onDayMouseEnter,
-    onDayMouseLeave: initialProps.onDayMouseLeave,
-    onDayTouchCancel: initialProps.onDayTouchCancel,
-    onDayTouchEnd: initialProps.onDayTouchEnd,
-    onDayTouchMove: initialProps.onDayTouchMove,
-    onDayTouchStart: initialProps.onDayTouchStart,
-    onMonthChange: initialProps.onMonthChange,
-    onNextClick: initialProps.onNextClick,
-    onPrevClick: initialProps.onPrevClick,
     onSelect,
-    onWeekNumberClick: initialProps.onWeekNumberClick,
-    pagedNavigation: initialProps.pagedNavigation,
-    reverseMonths: initialProps.reverseMonths,
-    selected: initialProps.selected,
-    showOutsideDays: initialProps.showOutsideDays,
-    showWeekNumber: initialProps.showWeekNumber,
-    style: initialProps.style,
     styles: {
-      ...defaults.styles,
+      ...defaultContextValues.styles,
       ...initialProps.styles
     },
-    toDate,
-    today: initialProps.today ?? defaults.today,
-    weekStartsOn: initialProps.weekStartsOn
+    toDate
   };
 
   return (

@@ -49,6 +49,17 @@ describe('when rendered', () => {
   });
 });
 
+describe('when rendered with a custom id', () => {
+  const id = 'custom-id';
+  beforeEach(() => {
+    setup({ displayIndex: 0, displayMonth }, { id });
+  });
+  test('the caption id should include the display index', () => {
+    const captionId = getMonthCaption().getAttribute('id');
+    expect(captionId).toEqual('custom-id-0');
+  });
+});
+
 describe('when using a custom Caption component', () => {
   const components: CustomComponents = {
     Caption: () => <>custom caption foo</>

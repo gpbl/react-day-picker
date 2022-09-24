@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { IconDropdown } from 'components/IconDropdown';
 import { useDayPicker } from 'contexts/DayPicker';
 
 /** The props for the {@link Dropdown} component. */
@@ -24,10 +23,11 @@ export interface DropdownProps {
  */
 export function Dropdown(props: DropdownProps): JSX.Element {
   const { onChange, value, children, caption, className, style } = props;
-  const dayPicker = useDayPicker();
+  const {
+    components: { IconDropdown },
+    ...dayPicker
+  } = useDayPicker();
 
-  const IconDropdownComponent =
-    dayPicker.components?.IconDropdown ?? IconDropdown;
   return (
     <div className={className} style={style}>
       <span className={dayPicker.classNames.vhidden}>
@@ -50,7 +50,7 @@ export function Dropdown(props: DropdownProps): JSX.Element {
       >
         {caption}
         {
-          <IconDropdownComponent
+          <IconDropdown
             className={dayPicker.classNames.dropdown_icon}
             style={dayPicker.styles.dropdown_icon}
           />

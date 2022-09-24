@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { IconLeft } from 'components/IconLeft';
-import { IconRight } from 'components/IconRight';
 import { useDayPicker } from 'contexts/DayPicker';
 
 import { Button } from '../Button';
@@ -32,7 +30,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
     classNames,
     styles,
     labels: { labelPrevious, labelNext },
-    components
+    components: { IconRight, IconLeft }
   } = useDayPicker();
 
   if (!props.nextMonth && !props.previousMonth) {
@@ -51,8 +49,6 @@ export function Navigation(props: NavigationProps): JSX.Element {
     classNames.nav_button_next
   ].join(' ');
 
-  const IconRightComponent = components?.IconRight ?? IconRight;
-  const IconLeftComponent = components?.IconLeft ?? IconLeft;
   return (
     <div className={classNames.nav} style={styles.nav}>
       {!props.hidePrevious && (
@@ -65,15 +61,12 @@ export function Navigation(props: NavigationProps): JSX.Element {
           onClick={props.onPreviousClick}
         >
           {dir === 'rtl' ? (
-            <IconRightComponent
+            <IconRight
               className={classNames.nav_icon}
               style={styles.nav_icon}
             />
           ) : (
-            <IconLeftComponent
-              className={classNames.nav_icon}
-              style={styles.nav_icon}
-            />
+            <IconLeft className={classNames.nav_icon} style={styles.nav_icon} />
           )}
         </Button>
       )}
@@ -87,12 +80,9 @@ export function Navigation(props: NavigationProps): JSX.Element {
           onClick={props.onNextClick}
         >
           {dir === 'rtl' ? (
-            <IconLeftComponent
-              className={classNames.nav_icon}
-              style={styles.nav_icon}
-            />
+            <IconLeft className={classNames.nav_icon} style={styles.nav_icon} />
           ) : (
-            <IconRightComponent
+            <IconRight
               className={classNames.nav_icon}
               style={styles.nav_icon}
             />
