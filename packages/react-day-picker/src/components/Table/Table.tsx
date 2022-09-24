@@ -25,11 +25,13 @@ export function Table(props: TableProps): JSX.Element {
     fixedWeeks,
     components,
     weekStartsOn,
-    firstWeekContainsDate
+    firstWeekContainsDate,
+    ISOWeek
   } = useDayPicker();
 
   const weeks = getMonthWeeks(props.displayMonth, {
     useFixedWeeks: Boolean(fixedWeeks),
+    ISOWeek,
     locale,
     weekStartsOn,
     firstWeekContainsDate

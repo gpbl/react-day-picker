@@ -14,11 +14,12 @@ export function HeadRow(): JSX.Element {
     showWeekNumber,
     locale,
     weekStartsOn,
+    ISOWeek,
     formatters: { formatWeekdayName },
     labels: { labelWeekday }
   } = useDayPicker();
 
-  const weekdays = getWeekdays(locale, weekStartsOn);
+  const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);
 
   return (
     <tr style={styles.head_row} className={classNames.head_row}>
