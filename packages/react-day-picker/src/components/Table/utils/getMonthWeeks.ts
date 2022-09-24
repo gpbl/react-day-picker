@@ -20,14 +20,13 @@ export type MonthWeek = {
  * the first and last week.
  */
 export function getMonthWeeks(
-  /** The month to get the weeks from */
   month: Date,
   options: {
     locale: Locale;
-    /** Add extra weeks up to 6 weeks */
     useFixedWeeks?: boolean;
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+    ISOWeek?: boolean;
   }
 ): MonthWeek[] {
   const weeksInMonth: MonthWeek[] = daysToMonthWeeks(
@@ -36,8 +35,8 @@ export function getMonthWeeks(
     options
   );
 
-  // Add extra weeks to the month, up to 6 weeks
   if (options?.useFixedWeeks) {
+    // Add extra weeks to the month, up to 6 weeks
     const nrOfMonthWeeks = getWeeksInMonth(month, options);
     if (nrOfMonthWeeks < 6) {
       const lastWeek = weeksInMonth[weeksInMonth.length - 1];
