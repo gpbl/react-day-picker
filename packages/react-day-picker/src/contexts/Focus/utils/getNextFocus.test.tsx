@@ -8,14 +8,11 @@ import {
 } from 'types/Modifiers';
 
 import {
-  DEFAULT_RETRY_ATTEMPTS,
   getNextFocus,
   MoveFocusBy,
   MoveFocusDirection,
-  MoveFocusOptions,
-  RetryOptions
+  MoveFocusOptions
 } from './getNextFocus';
-import { Matcher } from '../../../types/Matchers';
 
 type test = {
   focusedDay: string;
@@ -152,15 +149,13 @@ const emptyModifiers: Modifiers = {
 
 type ModifiersTest = {
   focusedDay: string;
-  skippedDay: string | Matcher;
+  skippedDay: string;
   moveBy: MoveFocusBy;
   moveDirection: MoveFocusDirection;
   modifierName: InternalModifier;
   expectedNextFocus: string;
-  expectedWarning?: string;
   fromDate?: string;
   toDate?: string;
-  attemptLimit?: RetryOptions['attemptLimit'];
 };
 
 const modifiersTest: ModifiersTest[] = [
@@ -213,61 +208,6 @@ const modifiersTest: ModifiersTest[] = [
     moveDirection: 'after',
     modifierName: InternalModifier.Disabled,
     expectedNextFocus: '2022-08-31'
-  },
-  {
-    focusedDay: '2022-09-08',
-    skippedDay: (d) => d < parseISO('2022-09-08'),
-    moveBy: 'day',
-    moveDirection: 'before',
-    modifierName: InternalModifier.Disabled,
-    expectedNextFocus: '2022-09-08',
-    expectedWarning: `Unable to select day within ${DEFAULT_RETRY_ATTEMPTS} days of 09/08/2022`
-  },
-  {
-    focusedDay: '2022-09-08',
-    skippedDay: (d) => d > parseISO('2022-09-08'),
-    moveBy: 'day',
-    moveDirection: 'after',
-    modifierName: InternalModifier.Disabled,
-    expectedNextFocus: '2022-09-08',
-    expectedWarning: `Unable to select day within ${DEFAULT_RETRY_ATTEMPTS} days of 09/08/2022`
-  },
-  {
-    focusedDay: '2022-09-08',
-    skippedDay: (d) => d < parseISO('2022-09-08'),
-    moveBy: 'day',
-    moveDirection: 'before',
-    modifierName: InternalModifier.Hidden,
-    expectedNextFocus: '2022-09-08',
-    expectedWarning: `Unable to select day within ${DEFAULT_RETRY_ATTEMPTS} days of 09/08/2022`
-  },
-  {
-    focusedDay: '2022-09-08',
-    skippedDay: (d) => d > parseISO('2022-09-08'),
-    moveBy: 'day',
-    moveDirection: 'after',
-    modifierName: InternalModifier.Hidden,
-    expectedNextFocus: '2022-09-08',
-    expectedWarning: `Unable to select day within ${DEFAULT_RETRY_ATTEMPTS} days of 09/08/2022`
-  },
-  {
-    focusedDay: '2022-09-08',
-    skippedDay: (d) => d > parseISO('2022-09-08'),
-    moveBy: 'day',
-    moveDirection: 'after',
-    modifierName: InternalModifier.Disabled,
-    expectedNextFocus: '2022-09-08',
-    expectedWarning: `Unable to select day within 5 days of 09/08/2022`,
-    attemptLimit: 5
-  },
-  {
-    focusedDay: '2022-09-08',
-    skippedDay: (d) => d > parseISO('2022-09-08'),
-    moveBy: 'year',
-    moveDirection: 'after',
-    modifierName: InternalModifier.Disabled,
-    expectedNextFocus: '2022-09-08',
-    expectedWarning: `Unable to select day within ${DEFAULT_RETRY_ATTEMPTS} days of 09/08/2022`
   }
 ];
 describe.each(modifiersTest)(
@@ -275,11 +215,7 @@ describe.each(modifiersTest)(
   (modifierTest) => {
     const modifiers: InternalModifiers = {
       ...emptyModifiers,
-      [modifierTest.modifierName]: [
-        typeof modifierTest.skippedDay === 'string'
-          ? parseISO(modifierTest.skippedDay)
-          : modifierTest.skippedDay
-      ]
+      [modifierTest.modifierName]: [parseISO(modifierTest.skippedDay)]
     };
     const options = {
       fromDate: modifierTest.fromDate
@@ -287,42 +223,17 @@ describe.each(modifiersTest)(
         : undefined,
       toDate: modifierTest.toDate ? parseISO(modifierTest.toDate) : undefined
     };
-
-    test(
-      modifierTest.expectedWarning
-        ? `should warn with message: "${modifierTest.expectedWarning}"`
-        : `should skip the ${modifierTest.modifierName} day`,
-      () => {
-        // spy on console.warn to see if we get the expected warning
-        const warnSpy = jest.spyOn(global.console, 'warn').mockImplementation();
-
-        const nextFocus = getNextFocus(
-          parseISO(modifierTest.focusedDay),
-          modifierTest.moveBy,
-          modifierTest.moveDirection,
-          options,
-          modifiers,
-          modifierTest.attemptLimit
-            ? {
-                originalDay: parseISO(modifierTest.focusedDay),
-                attemptLimit: modifierTest.attemptLimit,
-                attempt: 0
-              }
-            : undefined
-        );
-        expect(format(nextFocus, 'yyyy-MM-dd')).toBe(
-          modifierTest.expectedNextFocus
-        );
-
-        if (modifierTest.expectedWarning) {
-          expect(warnSpy).toHaveBeenLastCalledWith(
-            modifierTest.expectedWarning
-          );
-          expect(warnSpy).toHaveBeenCalledTimes(1);
-        }
-        // restore the console.warn implementation and remove the spy
-        warnSpy.mockRestore();
-      }
-    );
+    test(`should skip the ${modifierTest.modifierName} day`, () => {
+      const nextFocus = getNextFocus(
+        parseISO(modifierTest.focusedDay),
+        modifierTest.moveBy,
+        modifierTest.moveDirection,
+        options,
+        modifiers
+      );
+      expect(format(nextFocus, 'yyyy-MM-dd')).toBe(
+        modifierTest.expectedNextFocus
+      );
+    });
   }
 );
