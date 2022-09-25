@@ -1,8 +1,8 @@
 import React, { createContext, ReactNode, useContext } from 'react';
 
+import addDays from 'date-fns/addDays';
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
-import isAfter from 'date-fns/isAfter';
-import isBefore from 'date-fns/isBefore';
+import subDays from 'date-fns/subDays';
 
 import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';
@@ -90,20 +90,8 @@ export function SelectRangeProviderInternal({
 
   const onDayClick: DayClickEventHandler = (day, activeModifiers, e) => {
     initialProps.onDayClick?.(day, activeModifiers, e);
-    const range = addToRange(day, selected);
-    if (
-      (min || max) &&
-      selected &&
-      range?.to &&
-      range.from &&
-      range.from !== range.to
-    ) {
-      const diff = Math.abs(differenceInCalendarDays(range?.to, range?.from));
-      if ((min && diff < min) || (max && diff >= max)) {
-        return;
-      }
-    }
-    initialProps.onSelect?.(range, day, activeModifiers, e);
+    const newRange = addToRange(day, selected);
+    initialProps.onSelect?.(newRange, day, activeModifiers, e);
   };
 
   const modifiers: SelectRangeModifiers = {
@@ -128,26 +116,40 @@ export function SelectRangeProviderInternal({
     }
   }
 
-  if (min && selectedFrom && selectedTo) {
-    modifiers.disabled.push((date: Date) => {
-      return (
-        (isBefore(date, selectedFrom) &&
-          differenceInCalendarDays(selectedFrom, date) < min) ||
-        (isAfter(date, selectedTo) &&
-          differenceInCalendarDays(date, selectedFrom) < min)
-      );
-    });
+  if (min) {
+    if (selectedFrom && !selectedTo) {
+      modifiers.disabled.push({
+        after: subDays(selectedFrom, min - 1),
+        before: addDays(selectedFrom, min - 1)
+      });
+    }
+    if (selectedFrom && selectedTo) {
+      modifiers.disabled.push({
+        after: selectedFrom,
+        before: addDays(selectedFrom, min - 1)
+      });
+    }
   }
-
-  if (max && selectedFrom && selectedTo) {
-    modifiers.disabled.push((date: Date) => {
-      return (
-        (isBefore(date, selectedFrom) &&
-          differenceInCalendarDays(selectedTo, date) >= max) ||
-        (isAfter(date, selectedTo) &&
-          differenceInCalendarDays(date, selectedFrom) >= max)
-      );
-    });
+  if (max) {
+    if (selectedFrom && !selectedTo) {
+      modifiers.disabled.push({
+        before: addDays(selectedFrom, -max + 1)
+      });
+      modifiers.disabled.push({
+        after: addDays(selectedFrom, max - 1)
+      });
+    }
+    if (selectedFrom && selectedTo) {
+      const selectedCount =
+        differenceInCalendarDays(selectedTo, selectedFrom) + 1;
+      const offset = max - selectedCount;
+      modifiers.disabled.push({
+        before: subDays(selectedFrom, offset)
+      });
+      modifiers.disabled.push({
+        after: addDays(selectedTo, offset)
+      });
+    }
   }
 
   return (
