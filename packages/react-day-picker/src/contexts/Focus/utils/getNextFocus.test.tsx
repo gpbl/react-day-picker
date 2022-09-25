@@ -8,17 +8,17 @@ import {
 } from 'types/Modifiers';
 
 import {
+  FocusDayPickerContext,
   getNextFocus,
   MoveFocusBy,
-  MoveFocusDirection,
-  MoveFocusOptions
+  MoveFocusDirection
 } from './getNextFocus';
 
 type test = {
   focusedDay: string;
   moveBy: MoveFocusBy;
-  moveDirection: MoveFocusDirection;
-  options: MoveFocusOptions;
+  direction: MoveFocusDirection;
+  context: FocusDayPickerContext;
   expectedNextFocus: string;
 };
 
@@ -26,43 +26,43 @@ const tests: test[] = [
   {
     focusedDay: '2022-08-17',
     moveBy: 'day',
-    moveDirection: 'after',
-    options: {},
+    direction: 'after',
+    context: {},
     expectedNextFocus: '2022-08-18'
   },
   {
     focusedDay: '2022-08-17',
     moveBy: 'day',
-    moveDirection: 'before',
-    options: {},
+    direction: 'before',
+    context: {},
     expectedNextFocus: '2022-08-16'
   },
   {
     focusedDay: '2022-08-17',
     moveBy: 'week',
-    moveDirection: 'after',
-    options: {},
+    direction: 'after',
+    context: {},
     expectedNextFocus: '2022-08-24'
   },
   {
     focusedDay: '2022-08-17',
     moveBy: 'week',
-    moveDirection: 'before',
-    options: {},
+    direction: 'before',
+    context: {},
     expectedNextFocus: '2022-08-10'
   },
   {
     focusedDay: '2022-08-17',
     moveBy: 'month',
-    moveDirection: 'after',
-    options: {},
+    direction: 'after',
+    context: {},
     expectedNextFocus: '2022-09-17'
   },
   {
     focusedDay: '2022-08-17',
     moveBy: 'startOfWeek',
-    moveDirection: 'before',
-    options: {
+    direction: 'before',
+    context: {
       weekStartsOn: 1
     },
     expectedNextFocus: '2022-08-15'
@@ -70,8 +70,8 @@ const tests: test[] = [
   {
     focusedDay: '2022-08-17',
     moveBy: 'endOfWeek',
-    moveDirection: 'before',
-    options: {
+    direction: 'before',
+    context: {
       weekStartsOn: 1
     },
     expectedNextFocus: '2022-08-21'
@@ -79,36 +79,35 @@ const tests: test[] = [
   {
     focusedDay: '2022-08-17',
     moveBy: 'month',
-    moveDirection: 'after',
-    options: {},
+    direction: 'after',
+    context: {},
     expectedNextFocus: '2022-09-17'
   },
   {
     focusedDay: '2022-08-17',
     moveBy: 'year',
-    moveDirection: 'before',
-    options: {},
+    direction: 'before',
+    context: {},
     expectedNextFocus: '2021-08-17'
   },
   {
     focusedDay: '2022-08-17',
     moveBy: 'year',
-    moveDirection: 'after',
-    options: {},
+    direction: 'after',
+    context: {},
     expectedNextFocus: '2023-08-17'
   }
 ];
 
 describe.each(tests)(
-  'when focusing the $moveBy $moveDirection $focusedDay',
-  ({ focusedDay, moveBy, moveDirection, options, expectedNextFocus }) => {
+  'when focusing the $moveBy $direction $focusedDay',
+  ({ focusedDay, moveBy, direction, context, expectedNextFocus }) => {
     test(`should return ${expectedNextFocus}`, () => {
-      const nextFocus = getNextFocus(
-        parseISO(focusedDay),
+      const nextFocus = getNextFocus(parseISO(focusedDay), {
         moveBy,
-        moveDirection,
-        options
-      );
+        direction,
+        context
+      });
       expect(format(nextFocus, 'yyyy-MM-dd')).toBe(expectedNextFocus);
     });
   }
@@ -118,8 +117,10 @@ describe('when reaching the "fromDate"', () => {
   const focusedDay = new Date();
   const fromDate = addDays(focusedDay, -1);
   test('next focus should be "fromDate"', () => {
-    const nextFocus = getNextFocus(focusedDay, 'day', 'before', {
-      fromDate
+    const nextFocus = getNextFocus(focusedDay, {
+      moveBy: 'day',
+      direction: 'before',
+      context: { fromDate }
     });
     expect(nextFocus).toStrictEqual(fromDate);
   });
@@ -129,8 +130,10 @@ describe('when reaching the "toDate"', () => {
   const focusedDay = new Date();
   const toDate = addDays(focusedDay, 1);
   test('next focus should be "toDate"', () => {
-    const nextFocus = getNextFocus(focusedDay, 'day', 'after', {
-      toDate
+    const nextFocus = getNextFocus(focusedDay, {
+      moveBy: 'day',
+      direction: 'after',
+      context: { toDate }
     });
     expect(nextFocus).toStrictEqual(toDate);
   });
@@ -151,7 +154,7 @@ type ModifiersTest = {
   focusedDay: string;
   skippedDay: string;
   moveBy: MoveFocusBy;
-  moveDirection: MoveFocusDirection;
+  direction: MoveFocusDirection;
   modifierName: InternalModifier;
   expectedNextFocus: string;
   fromDate?: string;
@@ -163,7 +166,7 @@ const modifiersTest: ModifiersTest[] = [
     focusedDay: '2022-08-17',
     skippedDay: '2022-08-18',
     moveBy: 'day',
-    moveDirection: 'after',
+    direction: 'after',
     modifierName: InternalModifier.Hidden,
     expectedNextFocus: '2022-08-19'
   },
@@ -171,7 +174,7 @@ const modifiersTest: ModifiersTest[] = [
     focusedDay: '2022-08-17',
     skippedDay: '2022-08-18',
     moveBy: 'day',
-    moveDirection: 'after',
+    direction: 'after',
     modifierName: InternalModifier.Disabled,
     expectedNextFocus: '2022-08-19'
   },
@@ -179,7 +182,7 @@ const modifiersTest: ModifiersTest[] = [
     focusedDay: '2022-08-17',
     skippedDay: '2022-08-16',
     moveBy: 'day',
-    moveDirection: 'before',
+    direction: 'before',
     modifierName: InternalModifier.Hidden,
     expectedNextFocus: '2022-08-15'
   },
@@ -187,7 +190,7 @@ const modifiersTest: ModifiersTest[] = [
     focusedDay: '2022-08-17',
     skippedDay: '2022-08-16',
     moveBy: 'day',
-    moveDirection: 'before',
+    direction: 'before',
     modifierName: InternalModifier.Disabled,
     expectedNextFocus: '2022-08-15'
   },
@@ -196,7 +199,7 @@ const modifiersTest: ModifiersTest[] = [
     skippedDay: '2022-08-16',
     fromDate: '2022-08-01',
     moveBy: 'month',
-    moveDirection: 'before',
+    direction: 'before',
     modifierName: InternalModifier.Disabled,
     expectedNextFocus: '2022-08-01'
   },
@@ -205,35 +208,57 @@ const modifiersTest: ModifiersTest[] = [
     skippedDay: '2022-08-16',
     toDate: '2022-08-31',
     moveBy: 'month',
-    moveDirection: 'after',
+    direction: 'after',
     modifierName: InternalModifier.Disabled,
     expectedNextFocus: '2022-08-31'
   }
 ];
 describe.each(modifiersTest)(
-  'when focusing the $moveBy $moveDirection $focusedDay with $modifierName modifier',
+  'when focusing the $moveBy $direction $focusedDay with $modifierName modifier',
   (modifierTest) => {
     const modifiers: InternalModifiers = {
       ...emptyModifiers,
       [modifierTest.modifierName]: [parseISO(modifierTest.skippedDay)]
     };
-    const options = {
+    const context = {
       fromDate: modifierTest.fromDate
         ? parseISO(modifierTest.fromDate)
         : undefined,
       toDate: modifierTest.toDate ? parseISO(modifierTest.toDate) : undefined
     };
     test(`should skip the ${modifierTest.modifierName} day`, () => {
-      const nextFocus = getNextFocus(
-        parseISO(modifierTest.focusedDay),
-        modifierTest.moveBy,
-        modifierTest.moveDirection,
-        options,
+      const nextFocus = getNextFocus(parseISO(modifierTest.focusedDay), {
+        moveBy: modifierTest.moveBy,
+        direction: modifierTest.direction,
+        context,
         modifiers
-      );
+      });
       expect(format(nextFocus, 'yyyy-MM-dd')).toBe(
         modifierTest.expectedNextFocus
       );
     });
   }
 );
+
+test('should avoid infinite recursion', () => {
+  const focusedDay = new Date(2022, 7, 17);
+  const modifiers: Modifiers = {
+    outside: [],
+    disabled: [{ after: focusedDay }],
+    selected: [],
+    hidden: [],
+    today: [],
+    range_start: [],
+    range_end: [],
+    range_middle: []
+  };
+
+  const nextFocus = getNextFocus(focusedDay, {
+    moveBy: 'day',
+    direction: 'after',
+    modifiers,
+    context: {}
+  });
+
+  expect(nextFocus).toStrictEqual(focusedDay);
+});

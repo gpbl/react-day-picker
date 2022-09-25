@@ -17,7 +17,6 @@ export function getInitialFocusTarget(
   let firstFocusableDay;
   let today;
   let date = firstDayInMonth;
-
   while (date <= lastDayInMonth) {
     const activeModifiers = getActiveModifiers(date, modifiers);
     const isFocusable = !activeModifiers.disabled && !activeModifiers.hidden;
