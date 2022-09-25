@@ -6,8 +6,7 @@ import { freezeBeforeAll } from 'test/utils';
 
 import { DayPickerBase } from 'types/DayPickerBase';
 
-import { NavigationContextValue } from './NavigationContext';
-import { useNavigation } from './useNavigation';
+import { NavigationContextValue, useNavigation } from './NavigationContext';
 
 const today = new Date(2021, 11, 8);
 const todaysMonth = startOfMonth(today);

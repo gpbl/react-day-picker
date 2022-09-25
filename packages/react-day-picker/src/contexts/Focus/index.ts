@@ -1,2 +1,2 @@
 export * from './FocusContext';
-export * from './useFocusContext';
+export * from './FocusContext';

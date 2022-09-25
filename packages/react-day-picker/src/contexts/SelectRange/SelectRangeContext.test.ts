@@ -14,8 +14,7 @@ import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerRangeProps } from 'types/DayPickerRange';
 import { ActiveModifiers } from 'types/Modifiers';
 
-import { SelectRangeContextValue } from './SelectRangeContext';
-import { useSelectRange } from './useSelectRange';
+import { SelectRangeContextValue, useSelectRange } from './SelectRangeContext';
 
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);

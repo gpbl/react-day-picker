@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode } from 'react';
+import React, { createContext, ReactNode, useContext } from 'react';
 
 import isSameDay from 'date-fns/isSameDay';
 
@@ -132,4 +132,19 @@ export function SelectMultipleProviderInternal({
       {children}
     </SelectMultipleContext.Provider>
   );
+}
+
+/**
+ * Hook to access the {@link SelectMultipleContextValue}.
+ *
+ * This hook is meant to be used inside internal or custom components.
+ */
+export function useSelectMultiple(): SelectMultipleContextValue {
+  const context = useContext(SelectMultipleContext);
+  if (!context) {
+    throw new Error(
+      'useSelectMultiple must be used within a SelectMultipleProvider'
+    );
+  }
+  return context;
 }
