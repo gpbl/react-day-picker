@@ -5,8 +5,6 @@ import startOfMonth from 'date-fns/startOfMonth';
 import { getActiveModifiers } from 'contexts/Modifiers';
 import { Modifiers } from 'types/Modifiers';
 
-const MAX_RETRY = 365;
-
 /** Returns the day that should be the target of the focus when DayPicker is rendered the first time. */
 export function getInitialFocusTarget(
   displayMonths: Date[],
@@ -19,9 +17,7 @@ export function getInitialFocusTarget(
   let firstFocusableDay;
   let today;
   let date = firstDayInMonth;
-  let count = 0;
-  while (date <= lastDayInMonth && count < MAX_RETRY) {
-    count++;
+  while (date <= lastDayInMonth) {
     const activeModifiers = getActiveModifiers(date, modifiers);
     const isFocusable = !activeModifiers.disabled && !activeModifiers.hidden;
     if (!isFocusable) {
