@@ -54,7 +54,7 @@
   border: 2px solid transparent;
 }
 
-.rdp-button[disabled] {
+.rdp-button[disabled]:not(.rdp-day_selected) {
   opacity: 0.25;
 }
 
@@ -62,14 +62,13 @@
   cursor: pointer;
 }
 
-.rdp-button:focus-visible:not([disabled]),
-.rdp-button:active:not([disabled]) {
+.rdp-button:focus-visible:not([disabled]) {
   color: inherit;
   background-color: var(--rdp-background-color);
   border: var(--rdp-outline);
 }
 
-.rdp-button:hover:not([disabled]) {
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
   background-color: var(--rdp-background-color);
 }
 
@@ -198,8 +197,7 @@
   color: unset;
 }
 
-.rdp-dropdown:focus-visible:not([disabled]) + .rdp-caption_label,
-.rdp-dropdown:active:not([disabled]) + .rdp-caption_label {
+.rdp-dropdown:focus-visible:not([disabled]) + .rdp-caption_label {
   background-color: var(--rdp-background-color);
   border: var(--rdp-outline);
   border-radius: 6px;
@@ -268,15 +266,15 @@
   font-weight: bold;
 }
 
-.rdp-day_selected:not([disabled]),
-.rdp-day_selected:focus:not([disabled]),
-.rdp-day_selected:active:not([disabled]),
-.rdp-day_selected:hover:not([disabled]) {
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
   color: white;
+  opacity: 1;
   background-color: var(--rdp-accent-color);
 }
 
-.rdp-day_selected:focus:not([disabled]) {
+.rdp-day_selected:focus-visible {
   /* Since the background is the same use again the outline */
   outline: var(--rdp-outline);
   outline-offset: 2px;
