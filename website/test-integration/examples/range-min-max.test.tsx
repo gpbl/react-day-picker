@@ -1,14 +1,15 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
+import { setDate } from 'date-fns';
 
 import { clickDay } from 'react-day-picker/test/actions';
-import { getAllEnabledDays, getDayButton } from 'react-day-picker/test/po';
+import { getDayButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/range-min-max';
 
-const today = new Date(2021, 10, 15);
+const today = new Date(2022, 8, 25);
 
 freezeBeforeAll(today);
 beforeEach(() => {
@@ -16,52 +17,30 @@ beforeEach(() => {
 });
 
 describe('when the first day is clicked', () => {
-  const fromDay = new Date(2021, 10, 15);
+  const fromDay = setDate(today, 14);
   beforeEach(() => clickDay(fromDay));
-  test('should disable before the allowed range', () => {
-    expect(getAllEnabledDays()[0]).toHaveAttribute(
-      'aria-label',
-      '1st November (Monday)'
-    );
+  test('the clicked day should be selected', () => {
+    expect(getDayButton(fromDay)).toHaveAttribute('aria-pressed', 'true');
   });
-  test('should disable after the allowed range', () => {
-    const enabledDays = getAllEnabledDays();
-    expect(enabledDays[enabledDays.length - 1]).toHaveAttribute(
-      'aria-label',
-      '30th November (Tuesday)'
-    );
+  test('the days below the min value should be disabled', () => {
+    expect(getDayButton(setDate(today, 13))).toBeDisabled();
+    expect(getDayButton(setDate(today, 14))).toBeDisabled();
+    expect(getDayButton(setDate(today, 15))).toBeDisabled();
   });
-  describe('when clicking a day after the from date', () => {
-    const toDay = new Date(2021, 10, 17);
-    const expectedSelectedDays = [
-      new Date(2021, 10, 15),
-      new Date(2021, 10, 16),
-      new Date(2021, 10, 17)
-    ];
-    beforeEach(() => clickDay(toDay));
-    test.each(expectedSelectedDays)('%s should be selected', (day) => {
-      expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
-    });
-    test('should enable the days up to the clicked day', () => {
-      const enabledDays = getAllEnabledDays();
-      expect(enabledDays[enabledDays.length - 1]).toHaveAttribute(
-        'aria-label',
-        '19th November (Friday)'
-      );
-    });
+  test('the days between max and min should be enabled', () => {
+    expect(getDayButton(setDate(today, 9))).not.toBeDisabled();
+    expect(getDayButton(setDate(today, 10))).not.toBeDisabled();
+    expect(getDayButton(setDate(today, 11))).not.toBeDisabled();
+    expect(getDayButton(setDate(today, 12))).not.toBeDisabled();
+    expect(getDayButton(setDate(today, 16))).not.toBeDisabled();
+    expect(getDayButton(setDate(today, 17))).not.toBeDisabled();
+    expect(getDayButton(setDate(today, 18))).not.toBeDisabled();
+    expect(getDayButton(setDate(today, 19))).not.toBeDisabled();
   });
-  describe('when clicking a day before the from date', () => {
-    const toDay = new Date(2021, 10, 11);
-    const expectedSelectedDays = [
-      new Date(2021, 10, 11),
-      new Date(2021, 10, 12),
-      new Date(2021, 10, 13),
-      new Date(2021, 10, 14),
-      new Date(2021, 10, 15)
-    ];
-    beforeEach(() => clickDay(toDay));
-    test.each(expectedSelectedDays)('%s should be selected', (day) => {
-      expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
-    });
+  test('the days above the max value should be disabled', () => {
+    expect(getDayButton(setDate(today, 7))).toBeDisabled();
+    expect(getDayButton(setDate(today, 8))).toBeDisabled();
+    expect(getDayButton(setDate(today, 20))).toBeDisabled();
+    expect(getDayButton(setDate(today, 21))).toBeDisabled();
   });
 });
