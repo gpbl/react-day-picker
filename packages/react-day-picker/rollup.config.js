@@ -1,7 +1,7 @@
 import { exec } from 'child_process';
 
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import resolve from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-ts';
 import { terser } from 'rollup-plugin-terser';
@@ -50,7 +50,7 @@ const buildConfig = {
   ],
   plugins: [
     peerDepsExternal(),
-    resolve(),
+    nodeResolve(),
     commonjs(),
     typescript({
       tsconfig: './tsconfig.build.json',
