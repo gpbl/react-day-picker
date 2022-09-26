@@ -7,7 +7,7 @@ import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerSingleProps } from 'types/DayPickerSingle';
 import { ActiveModifiers } from 'types/Modifiers';
 
-import { useSelectSingle } from './useSelectSingle';
+import { useSelectSingle } from './SelectSingleContext';
 
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);

@@ -8,8 +8,10 @@ import { isMatch } from 'contexts/Modifiers/utils/isMatch';
 import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
 import { ActiveModifiers } from 'types/Modifiers';
 
-import { SelectMultipleContextValue } from './SelectMultipleContext';
-import { useSelectMultiple } from './useSelectMultiple';
+import {
+  SelectMultipleContextValue,
+  useSelectMultiple
+} from './SelectMultipleContext';
 
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);

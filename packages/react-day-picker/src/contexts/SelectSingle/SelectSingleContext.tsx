@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useContext } from 'react';
 
 import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
@@ -77,4 +77,19 @@ export function SelectSingleProviderInternal({
       {children}
     </SelectSingleContext.Provider>
   );
+}
+
+/**
+ * Hook to access the {@link SelectSingleContextValue}.
+ *
+ * This hook is meant to be used inside internal or custom components.
+ */
+export function useSelectSingle(): SelectSingleContextValue {
+  const context = useContext(SelectSingleContext);
+  if (!context) {
+    throw new Error(
+      'useSelectSingle must be used within a SelectSingleProvider'
+    );
+  }
+  return context;
 }

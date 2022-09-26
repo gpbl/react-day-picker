@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode } from 'react';
+import React, { createContext, ReactNode, useContext } from 'react';
 
 import { DayPickerProps } from 'DayPicker';
 
@@ -138,4 +138,18 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
       {props.children}
     </DayPickerContext.Provider>
   );
+}
+
+/**
+ * Hook to access the {@link DayPickerContextValue}.
+ *
+ * Use the DayPicker context to access to the props passed to DayPicker inside
+ * internal or custom components.
+ */
+export function useDayPicker(): DayPickerContextValue {
+  const context = useContext(DayPickerContext);
+  if (!context) {
+    throw new Error(`useDayPicker must be used within a DayPickerProvider.`);
+  }
+  return context;
 }
