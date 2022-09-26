@@ -13,10 +13,18 @@
       }
     },
     {
+      "label": "build",
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": ["$tsc"],
+      "isBackground": false,
+      "group": "build"
+    },
+    {
       "label": "build-watch",
       "type": "npm",
       "script": "build-watch",
-      "problemMatcher": [],
+      "problemMatcher": ["$tsc-watch"],
       "isBackground": true,
       "runOptions": {
         "runOn": "folderOpen",
@@ -31,7 +39,6 @@
       "label": "typecheck",
       "type": "npm",
       "script": "typecheck-watch",
-      "group": "build",
       "problemMatcher": ["$tsc-watch"],
       "isBackground": true,
       "runOptions": { "runOn": "folderOpen" }

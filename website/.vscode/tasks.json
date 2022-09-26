@@ -31,7 +31,6 @@
       "label": "typecheck",
       "type": "npm",
       "script": "typecheck-watch",
-      "group": "build",
       "problemMatcher": ["$tsc-watch"],
       "isBackground": true,
       "runOptions": {
