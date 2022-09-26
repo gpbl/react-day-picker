@@ -1,5 +1,18 @@
 # Changelog
 
+## 8.3.0
+
+- feat: add new `id` prop by [@gpbl](https://github.com/gpbl) in https://github.com/gpbl/react-day-picker/pull/1556
+- feat: week localization props: `ISOWeek`, `firstWeekContainsDate` by [@gpbl](https://github.com/gpbl) in https://github.com/gpbl/react-day-picker/pull/1558
+- fix: infinite recursion when focusing next days by [@eXamadeus](https://github.com/eXamadeus) in https://github.com/gpbl/react-day-picker/pull/1549
+- fix: disabled modifiers with min/max range selections by [@gpbl](https://github.com/gpbl) in https://github.com/gpbl/react-day-picker/pull/1566
+- fix: improved CSS `focus-visible` and disabled styles by [@gpbl](https://github.com/gpbl) in https://github.com/gpbl/react-day-picker/pull/1565
+- chore: updated `SelectSingleEventHandler` interface to type by [@gpbl](https://github.com/gpbl) in https://github.com/gpbl/react-day-picker/pull/1555
+- chore: cleanup context types and defaults by [@gpbl](https://github.com/gpbl) in https://github.com/gpbl/react-day-picker/pull/1561
+- chore: use [rollup-plugin-ts](https://www.npmjs.com/package/rollup-plugin-ts) to compile typescript by [@gpbl](https://github.com/gpbl) in https://github.com/gpbl/react-day-picker/pull/1562
+- chore: add new `Components` type by [@gpbl](https://github.com/gpbl) in https://github.com/gpbl/react-day-picker/pull/1563
+- chore: reorganize contexts files by [@gpbl](https://github.com/gpbl) in https://github.com/gpbl/react-day-picker/pull/1564
+
 ### v8.2.1
 
 - fix: CSS module doesn't include the root class, by [@gpbl](https://github.com/gpbl) in [#1548](https://github.com/gpbl/react-day-picker/pull/1548)
