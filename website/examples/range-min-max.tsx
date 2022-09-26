@@ -21,9 +21,10 @@ export default function App() {
 
   return (
     <DayPicker
+      defaultMonth={new Date(2022, 8)}
       mode="range"
-      min={1}
-      max={5}
+      min={3}
+      max={6}
       selected={range}
       onSelect={setRange}
       footer={footer}

@@ -147,11 +147,13 @@ describe('when a complete range of days is selected', () => {
 });
 
 describe('when the max number of the selected days is reached', () => {
+  const from = today;
+  const to = addDays(today, 6);
   const selected = { from, to };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
     selected,
-    max: Math.abs(differenceInCalendarDays(to, from))
+    max: 7
   };
   beforeAll(() => {
     setup(dayPickerProps);
@@ -181,9 +183,6 @@ describe('when the max number of the selected days is reached', () => {
         activeModifiers,
         stubEvent
       );
-    });
-    test('should not call onSelect', () => {
-      expect(dayPickerProps.onSelect).not.toHaveBeenCalled();
     });
   });
 });
@@ -261,21 +260,6 @@ describe('when the minimum number of days are selected', () => {
         activeModifiers,
         stubEvent
       );
-    });
-  });
-
-  describe('when "onDayClick" is called with a day before "to"', () => {
-    const day = subDays(to, 1);
-    const activeModifiers: ActiveModifiers = { selected: true };
-
-    beforeAll(() => {
-      result.current.onDayClick?.(day, activeModifiers, stubEvent);
-    });
-    afterAll(() => {
-      jest.resetAllMocks();
-    });
-    test('should not call "onSelect"', () => {
-      expect(dayPickerProps.onSelect).not.toHaveBeenCalled();
     });
   });
 });
