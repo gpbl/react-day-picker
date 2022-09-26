@@ -4,6 +4,7 @@ import isSameYear from 'date-fns/isSameYear';
 import setMonth from 'date-fns/setMonth';
 import startOfMonth from 'date-fns/startOfMonth';
 
+import { Dropdown } from 'components/Dropdown';
 import { useDayPicker } from 'contexts/DayPicker';
 import { MonthChangeEventHandler } from 'types/EventHandlers';
 
@@ -23,7 +24,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     locale,
     formatters: { formatMonthCaption },
     classNames,
-    components: { Dropdown },
+    components,
     labels: { labelMonthDropdown }
   } = useDayPicker();
 
@@ -53,8 +54,10 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     props.onChange(newMonth);
   };
 
+  const DropdownComponent = components?.Dropdown ?? Dropdown;
+
   return (
-    <Dropdown
+    <DropdownComponent
       name="months"
       aria-label={labelMonthDropdown()}
       className={classNames.dropdown_month}
@@ -68,6 +71,6 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
           {formatMonthCaption(m, { locale })}
         </option>
       ))}
-    </Dropdown>
+    </DropdownComponent>
   );
 }

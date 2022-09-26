@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { CaptionProps } from 'components/Caption/Caption';
+import { CaptionLabel } from 'components/CaptionLabel';
 import { MonthsDropdown } from 'components/MonthsDropdown';
 import { YearsDropdown } from 'components/YearsDropdown';
 import { useDayPicker } from 'contexts/DayPicker';
@@ -11,18 +12,15 @@ import { MonthChangeEventHandler } from 'types/EventHandlers';
  * Render a caption with the dropdowns to navigate between months and years.
  */
 export function CaptionDropdowns(props: CaptionProps): JSX.Element {
-  const {
-    classNames,
-    styles,
-    components: { CaptionLabel }
-  } = useDayPicker();
+  const { classNames, styles, components } = useDayPicker();
   const { goToMonth } = useNavigation();
 
   const handleMonthChange: MonthChangeEventHandler = (newMonth) => {
     goToMonth(newMonth);
   };
+  const CaptionLabelComponent = components?.CaptionLabel ?? CaptionLabel;
   const captionLabel = (
-    <CaptionLabel id={props.id} displayMonth={props.displayMonth} />
+    <CaptionLabelComponent id={props.id} displayMonth={props.displayMonth} />
   );
   return (
     <div
