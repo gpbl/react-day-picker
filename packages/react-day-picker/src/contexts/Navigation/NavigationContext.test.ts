@@ -1,4 +1,4 @@
-import { RenderResult } from '@testing-library/react-hooks';
+import { act, RenderResult } from '@testing-library/react-hooks';
 import { addMonths, startOfMonth, subMonths } from 'date-fns';
 
 import { customRenderHook } from 'test/render/customRenderHook';
@@ -39,7 +39,9 @@ describe('when rendered', () => {
   describe('when goToMonth is called', () => {
     const newMonth = addMonths(todaysMonth, 10);
     beforeEach(() => {
-      result.current.goToMonth(newMonth);
+      act(() => {
+        result.current.goToMonth(newMonth);
+      });
     });
     test('should go to the specified month', () => {
       expect(result.current.currentMonth).toEqual(newMonth);
@@ -59,7 +61,7 @@ describe('when rendered', () => {
     const onMonthChange = jest.fn();
     beforeEach(() => {
       setup({ onMonthChange });
-      result.current.goToDate(newDate);
+      act(() => result.current.goToDate(newDate));
     });
     test('should go to the specified month', () => {
       const date = startOfMonth(newDate);

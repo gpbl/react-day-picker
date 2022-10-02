@@ -1,3 +1,4 @@
+import { act } from '@testing-library/react-hooks';
 import { addMonths, startOfMonth } from 'date-fns';
 
 import { customRenderHook } from 'test/render/customRenderHook';
@@ -23,7 +24,9 @@ describe('when goToMonth is called', () => {
     const onMonthChange = jest.fn();
     const result = setup({ onMonthChange });
     const month = addMonths(today, 2);
-    result.current[1](month);
+    act(() => {
+      result.current[1](month);
+    });
     expect(result.current[0]).toEqual(startOfMonth(month));
     expect(onMonthChange).toBeCalledWith(startOfMonth(month));
   });

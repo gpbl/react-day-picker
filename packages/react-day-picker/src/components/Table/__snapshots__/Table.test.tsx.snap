@@ -960,30 +960,48 @@ exports[`when using custom components should render correctly 1`] = `
   class="rdp-table"
   role="grid"
 >
-  <div>
-    CustomHead
-  </div>
+  <thead>
+    <tr>
+      <td>
+        CustomHead
+      </td>
+    </tr>
+  </thead>
   <tbody
     class="rdp-tbody"
   >
-    <div>
-      CustomRow
-    </div>
-    <div>
-      CustomRow
-    </div>
-    <div>
-      CustomRow
-    </div>
-    <div>
-      CustomRow
-    </div>
-    <div>
-      CustomRow
-    </div>
+    <tr>
+      <td>
+        CustomRow
+      </td>
+    </tr>
+    <tr>
+      <td>
+        CustomRow
+      </td>
+    </tr>
+    <tr>
+      <td>
+        CustomRow
+      </td>
+    </tr>
+    <tr>
+      <td>
+        CustomRow
+      </td>
+    </tr>
+    <tr>
+      <td>
+        CustomRow
+      </td>
+    </tr>
   </tbody>
-  <div>
-    CustomFooter
-  </div>
+  <tfoot>
+    <tr>
+      <td>
+        CustomFooter
+      </td>
+    </tr>
+  </tfoot>
 </table>
 `;
