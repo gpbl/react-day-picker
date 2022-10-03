@@ -64,11 +64,11 @@ jobs:
         run: yarn install --immutable
       - name: Run build (react-day-picker)
         run: yarn workspace react-day-picker run build
-      - name: Publish package
+      - name: Publish package (@next)
         working-directory: packages/react-day-picker
-        run: yarn publish --tag next
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo ${{ secrets.NPM_TOKEN }} >> .npmrc
+          yarn publish --tag next
 
   release:
     runs-on: ubuntu-latest
@@ -94,9 +94,9 @@ jobs:
 
       - name: Publish package
         working-directory: packages/react-day-picker
-        run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo ${{ secrets.NPM_TOKEN }} >> .npmrc
+          yarn publish
 
   deploy-website:
     runs-on: ubuntu-latest
