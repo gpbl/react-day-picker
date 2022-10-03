@@ -68,7 +68,7 @@ jobs:
         working-directory: packages/react-day-picker
         run: |
           echo ${{ secrets.NPM_TOKEN }} >> .npmrc
-          yarn publish --tag next
+          npm publish --tag next
 
   release:
     runs-on: ubuntu-latest
@@ -96,7 +96,7 @@ jobs:
         working-directory: packages/react-day-picker
         run: |
           echo ${{ secrets.NPM_TOKEN }} >> .npmrc
-          yarn publish
+          npm publish
 
   deploy-website:
     runs-on: ubuntu-latest
