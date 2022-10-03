@@ -29,11 +29,11 @@ jobs:
         run: |
           yarn workspace react-day-picker run build
 
-      - name: Publish on npm
-        run: npm publish --registry=https://npm.pkg.github.com/
-        working-directory: ./packages/react-day-picker
+      - name: Publish package
+        uses: mikeal/merge-release@master
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   deploy-website:
     runs-on: ubuntu-latest
