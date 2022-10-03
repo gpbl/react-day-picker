@@ -30,7 +30,7 @@ jobs:
           yarn workspace react-day-picker run build
 
       - name: Publish on npm
-        run: npm publish
+        run: npm publish --registry=https://npm.pkg.github.com/
         working-directory: ./packages/react-day-picker
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
