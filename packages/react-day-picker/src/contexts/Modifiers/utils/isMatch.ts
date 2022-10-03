@@ -1,3 +1,4 @@
+import { isAfter } from 'date-fns';
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
 import isDate from 'date-fns/isDate';
 import isSameDay from 'date-fns/isSameDay';
@@ -58,9 +59,16 @@ export function isMatch(day: Date, matchers: Matcher[]): boolean {
       return matcher.dayOfWeek.includes(day.getDay());
     }
     if (isDateInterval(matcher)) {
-      const isBefore = differenceInCalendarDays(matcher.before, day) > 0;
-      const isAfter = differenceInCalendarDays(day, matcher.after) > 0;
-      return isBefore && isAfter;
+      const diffBefore = differenceInCalendarDays(matcher.before, day);
+      const diffAfter = differenceInCalendarDays(matcher.after, day);
+      const isDayBefore = diffBefore > 0;
+      const isDayAfter = diffAfter < 0;
+      const isClosedInterval = isAfter(matcher.before, matcher.after);
+      if (isClosedInterval) {
+        return isDayAfter && isDayBefore;
+      } else {
+        return isDayBefore || isDayAfter;
+      }
     }
     if (isDateAfterType(matcher)) {
       return differenceInCalendarDays(day, matcher.after) > 0;

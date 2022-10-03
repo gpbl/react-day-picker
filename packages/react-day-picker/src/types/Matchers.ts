@@ -66,7 +66,7 @@ export type DateAfter = { after: Date };
 /** A matcher to match a day falling before the specified date, with the date not included. */
 export type DateBefore = { before: Date };
 
-/** A matcher to match a day falling before and after two dates, where the dates are not included. */
+/** A matcher to match a day falling before and/or after two dates, where the dates are not included. */
 export type DateInterval = { before: Date; after: Date };
 
 /** A matcher to match a range of dates. The range can be open. Differently from {@link DateInterval}, the dates here are included. */
