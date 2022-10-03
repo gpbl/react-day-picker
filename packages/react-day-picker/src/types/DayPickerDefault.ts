@@ -1,10 +1,10 @@
 import { DayPickerProps } from 'DayPicker';
 
-import { DayPickerBase, DaySelectionMode } from './DayPickerBase';
+import { DayPickerBase } from './DayPickerBase';
 
 /** The props for the {@link DayPicker} component when using `mode="default"` or `undefined`. */
 export interface DayPickerDefaultProps extends DayPickerBase {
-  mode?: DaySelectionMode;
+  mode?: undefined | 'default';
 }
 
 /** Returns true when the props are of type {@link DayPickerDefaultProps}. */
