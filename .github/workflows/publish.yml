@@ -1,10 +1,8 @@
 name: npm-publish
 
 on:
-  workflow_dispatch:
-  push:
-    tags:
-      - v*
+  release:
+    types: [created]
 
 jobs:
   publish:
@@ -30,10 +28,9 @@ jobs:
           yarn workspace react-day-picker run build
 
       - name: Publish package
-        uses: mikeal/merge-release@master
+        run: yarn publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   deploy-website:
     runs-on: ubuntu-latest
