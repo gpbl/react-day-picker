@@ -65,7 +65,8 @@ jobs:
       - name: Run build (react-day-picker)
         run: yarn workspace react-day-picker run build
       - name: Publish package
-        run: yarn workspace react-day-picker run publish --tag next
+        working-directory: packages/react-day-picker
+        run: npm publish --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -86,16 +87,14 @@ jobs:
           node-version: 18
           cache: yarn
       - name: Install dependencies
-        run: |
-          yarn install --immutable
+        run: yarn install --immutable
 
       - name: Run build (react-day-picker)
-        run: |
-          yarn workspace react-day-picker run build
+        run: yarn workspace react-day-picker run build
 
       - name: Publish package
-        run: |
-          yarn workspace react-day-picker publish
+        working-directory: packages/react-day-picker
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
