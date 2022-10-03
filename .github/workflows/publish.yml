@@ -66,7 +66,7 @@ jobs:
         run: yarn workspace react-day-picker run build
       - name: Publish package
         working-directory: packages/react-day-picker
-        run: npm publish --tag next
+        run: yarn publish --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -94,7 +94,7 @@ jobs:
 
       - name: Publish package
         working-directory: packages/react-day-picker
-        run: npm publish
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
