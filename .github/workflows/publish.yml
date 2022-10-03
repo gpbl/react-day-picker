@@ -67,7 +67,7 @@ jobs:
       - name: Publish package (@next)
         working-directory: packages/react-day-picker
         run: |
-          echo ${{ secrets.NPM_TOKEN }} >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           npm publish --tag next
 
   release:
@@ -95,7 +95,7 @@ jobs:
       - name: Publish package
         working-directory: packages/react-day-picker
         run: |
-          echo ${{ secrets.NPM_TOKEN }} >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           npm publish
 
   deploy-website:
