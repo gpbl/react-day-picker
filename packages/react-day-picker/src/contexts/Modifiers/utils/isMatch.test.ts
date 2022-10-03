@@ -1,4 +1,4 @@
-import { addDays } from 'date-fns';
+import { addDays, subDays } from 'date-fns';
 
 import {
   DateAfter,
@@ -56,13 +56,32 @@ describe('when matching the day of week', () => {
   });
 });
 
-describe('when matching date interval', () => {
+describe('when matching date interval (closed)', () => {
   const matcher: DateInterval = {
-    after: addDays(testDay, -1),
-    before: addDays(testDay, 1)
+    before: addDays(testDay, 5),
+    after: subDays(testDay, 3)
   };
   const result = isMatch(testDay, [matcher]);
-  test('should return true', () => {
+  test('should return true for the included day', () => {
+    expect(result).toBe(true);
+  });
+});
+
+describe('when matching date interval (open)', () => {
+  const matcher: DateInterval = {
+    before: subDays(testDay, 4),
+    after: addDays(testDay, 5)
+  };
+  test('should return false', () => {
+    const result = isMatch(testDay, [matcher]);
+    expect(result).toBe(false);
+  });
+  test('should return true for the days before', () => {
+    const result = isMatch(subDays(testDay, 8), [matcher]);
+    expect(result).toBe(true);
+  });
+  test('should return true for the days after', () => {
+    const result = isMatch(addDays(testDay, 8), [matcher]);
     expect(result).toBe(true);
   });
 });
