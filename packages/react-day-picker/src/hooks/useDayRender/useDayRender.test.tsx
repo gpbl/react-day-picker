@@ -302,3 +302,20 @@ describe('when the day is selected', () => {
     expect(result.current.buttonProps['aria-pressed']).toBe(true);
   });
 });
+
+describe('when the day is target of focus and both selected and outside', () => {
+  const date = today;
+  const focusContext: FocusContextValue = {
+    ...mockedFocusContext,
+    focusTarget: date
+  };
+  const dayPickerProps = {
+    selected: date
+  };
+  beforeEach(() => {
+    setup(date, addMonths(date, 1), dayPickerProps, { focus: focusContext });
+  });
+  test('the button should have tabIndex -1', () => {
+    expect(result.current.buttonProps.tabIndex).toBe(-1);
+  });
+});

@@ -99,8 +99,17 @@ export function useDayRender(
     'aria-label': ariaLabel
   };
 
+  const isOutsideAndSelected = Boolean(
+    activeModifiers.selected && activeModifiers.outside
+  );
+
+  // If a day is both outside and selected, the equivalent "inside" day must also be present on one
+  // of the displayed calendars, and we do not want to have multiple days with tabIndex="0" because
+  // it can break tabbed navigation (https://github.com/gpbl/react-day-picker/issues/1567)
   const isFocusTarget = Boolean(
-    focusContext.focusTarget && isSameDay(focusContext.focusTarget, day)
+    focusContext.focusTarget &&
+      isSameDay(focusContext.focusTarget, day) &&
+      !isOutsideAndSelected
   );
   const buttonProps = {
     ...divProps,
