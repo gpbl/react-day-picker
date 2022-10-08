@@ -10,10 +10,10 @@ import { freezeBeforeAll } from 'test/utils';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { FocusContextValue } from 'contexts/Focus';
 import { EventName } from 'hooks/useDayEventHandlers';
+import { SelectRangeContextValue } from 'contexts/SelectRange';
 
 import { DayRender } from './';
 import { useDayRender } from './useDayRender';
-import { SelectRangeContextValue } from 'contexts/SelectRange';
 
 const today = new Date(2022, 5, 13);
 
