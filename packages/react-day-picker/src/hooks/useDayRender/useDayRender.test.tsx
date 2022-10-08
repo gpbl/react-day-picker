@@ -13,6 +13,7 @@ import { EventName } from 'hooks/useDayEventHandlers';
 
 import { DayRender } from './';
 import { useDayRender } from './useDayRender';
+import { SelectRangeContextValue } from 'contexts/SelectRange';
 
 const today = new Date(2022, 5, 13);
 
@@ -303,17 +304,29 @@ describe('when the day is selected', () => {
   });
 });
 
-describe('when the day is target of focus and both selected and outside', () => {
-  const date = today;
+describe('when the day is target of focus and both displayed and outside', () => {
+  const date = new Date(2022, 8, 25);
   const focusContext: FocusContextValue = {
     ...mockedFocusContext,
     focusTarget: date
   };
+  const rangeContext: SelectRangeContextValue = {
+    selected: { from: new Date(2022, 8, 25), to: new Date(2022, 9, 1) },
+    modifiers: {
+      range_start: [],
+      range_end: [],
+      range_middle: [],
+      disabled: []
+    }
+  };
   const dayPickerProps = {
-    selected: date
+    numberOfMonths: 2
   };
   beforeEach(() => {
-    setup(date, addMonths(date, 1), dayPickerProps, { focus: focusContext });
+    setup(date, new Date(2022, 9), dayPickerProps, {
+      focus: focusContext,
+      range: rangeContext
+    });
   });
   test('the button should have tabIndex -1', () => {
     expect(result.current.buttonProps.tabIndex).toBe(-1);

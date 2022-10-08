@@ -6,6 +6,7 @@ import { ButtonProps } from 'components/Button';
 import { DayContent } from 'components/DayContent';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useFocusContext } from 'contexts/Focus';
+import { useNavigation } from 'contexts/Navigation';
 import { useActiveModifiers } from 'hooks/useActiveModifiers';
 import {
   DayEventHandlers,
@@ -53,6 +54,7 @@ export function useDayRender(
   const activeModifiers = useActiveModifiers(day, displayMonth);
   const eventHandlers = useDayEventHandlers(day, activeModifiers);
   const selectedDays = useSelectedDays();
+  const navigation = useNavigation();
   const isButton = Boolean(
     dayPicker.onDayClick || dayPicker.mode !== 'default'
   );
@@ -99,17 +101,16 @@ export function useDayRender(
     'aria-label': ariaLabel
   };
 
-  const isOutsideAndSelected = Boolean(
-    activeModifiers.selected && activeModifiers.outside
-  );
+  const isOutsideAndDisplayed =
+    activeModifiers.outside && navigation.isDateDisplayed(day);
 
-  // If a day is both outside and selected, the equivalent "inside" day must also be present on one
+  // If a day is both outside and displayed, the equivalent "inside" day must also be present on one
   // of the displayed calendars, and we do not want to have multiple days with tabIndex="0" because
   // it can break tabbed navigation (https://github.com/gpbl/react-day-picker/issues/1567)
   const isFocusTarget = Boolean(
     focusContext.focusTarget &&
       isSameDay(focusContext.focusTarget, day) &&
-      !isOutsideAndSelected
+      !isOutsideAndDisplayed
   );
   const buttonProps = {
     ...divProps,
