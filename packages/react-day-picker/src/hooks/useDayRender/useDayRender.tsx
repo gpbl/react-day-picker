@@ -100,7 +100,9 @@ export function useDayRender(
   };
 
   const isFocusTarget = Boolean(
-    focusContext.focusTarget && isSameDay(focusContext.focusTarget, day)
+    focusContext.focusTarget &&
+      isSameDay(focusContext.focusTarget, day) &&
+      !activeModifiers.outside
   );
   const buttonProps = {
     ...divProps,
