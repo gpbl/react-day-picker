@@ -6,6 +6,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-ts';
 import { terser } from 'rollup-plugin-terser';
 import copy from 'rollup-plugin-copy';
+import glob from 'glob';
+import path from 'path';
 
 import pkg from './package.json';
 
@@ -33,6 +35,25 @@ function tscAliasPlugin() {
   };
 }
 
+/**
+ * Plugin to watch extra files in rollup.js
+ *
+ * @param globs string[]
+ */
+function watcher(globs) {
+  /** @type {import('rollup').Plugin} */
+  const hook = {
+    buildStart() {
+      for (const item of globs) {
+        glob.sync(path.resolve(item)).forEach((filename) => {
+          this.addWatchFile(filename);
+        });
+      }
+    }
+  };
+  return hook;
+}
+
 /** @type {import('rollup').RollupOptions} */
 const buildConfig = {
   input: 'src/index.ts',
@@ -49,6 +70,7 @@ const buildConfig = {
     }
   ],
   plugins: [
+    watcher(['./src/style.css']),
     peerDepsExternal(),
     nodeResolve(),
     commonjs(),
