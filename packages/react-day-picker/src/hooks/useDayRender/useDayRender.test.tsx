@@ -10,7 +10,6 @@ import { freezeBeforeAll } from 'test/utils';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { FocusContextValue } from 'contexts/Focus';
 import { EventName } from 'hooks/useDayEventHandlers';
-import { SelectRangeContextValue } from 'contexts/SelectRange';
 
 import { DayRender } from './';
 import { useDayRender } from './useDayRender';
@@ -278,6 +277,25 @@ describe('when the day is target of focus', () => {
   });
 });
 
+describe('when the day is target of focus but outside', () => {
+  const date = today;
+  const focusContext: FocusContextValue = {
+    ...mockedFocusContext,
+    focusTarget: date
+  };
+  beforeEach(() => {
+    setup(
+      date,
+      date,
+      { modifiers: { outside: date } },
+      { focus: focusContext }
+    );
+  });
+  test('the button should have tabIndex -1', () => {
+    expect(result.current.buttonProps.tabIndex).toBe(-1);
+  });
+});
+
 describe('when the day is disabled', () => {
   const date = today;
   const dayPickerProps = {
@@ -301,34 +319,5 @@ describe('when the day is selected', () => {
   });
   test('the button should have "aria-pressed"', () => {
     expect(result.current.buttonProps['aria-pressed']).toBe(true);
-  });
-});
-
-describe('when the day is target of focus and both displayed and outside', () => {
-  const date = new Date(2022, 8, 25);
-  const focusContext: FocusContextValue = {
-    ...mockedFocusContext,
-    focusTarget: date
-  };
-  const rangeContext: SelectRangeContextValue = {
-    selected: { from: new Date(2022, 8, 25), to: new Date(2022, 9, 1) },
-    modifiers: {
-      range_start: [],
-      range_end: [],
-      range_middle: [],
-      disabled: []
-    }
-  };
-  const dayPickerProps = {
-    numberOfMonths: 2
-  };
-  beforeEach(() => {
-    setup(date, new Date(2022, 9), dayPickerProps, {
-      focus: focusContext,
-      range: rangeContext
-    });
-  });
-  test('the button should have tabIndex -1', () => {
-    expect(result.current.buttonProps.tabIndex).toBe(-1);
   });
 });
