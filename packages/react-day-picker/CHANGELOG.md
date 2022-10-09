@@ -1,6 +1,6 @@
 # Changelog
 
-### 8.3.3
+### 8.3.4
 
 - build: fix CSS module types by [@gpbl](https://github.com/gpbl) in [#1578](https://github.com/gpbl/react-day-picker/pull/1578)
 - fix: disable tab for outside days (#1567) by [@DanielJKelly](https://github.com/DanielJKelly) in [#1576](https://github.com/gpbl/react-day-picker/pull/1576)
