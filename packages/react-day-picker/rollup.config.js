@@ -100,10 +100,7 @@ const buildConfig = {
           dest: './dist',
           rename: 'style.module.css.d.ts',
           transform: (contents) =>
-            contents
-              .toString()
-              .replace(/\.rdp-/g, '.')
-              .replace(/\.rdp/g, '.root')
+            contents.toString().replace(/rdp-/g, '').replace(/rdp/g, "'root'")
         }
       ]
     })
