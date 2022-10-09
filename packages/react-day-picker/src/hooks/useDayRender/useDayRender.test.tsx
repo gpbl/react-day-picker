@@ -277,6 +277,25 @@ describe('when the day is target of focus', () => {
   });
 });
 
+describe('when the day is target of focus but outside', () => {
+  const date = today;
+  const focusContext: FocusContextValue = {
+    ...mockedFocusContext,
+    focusTarget: date
+  };
+  beforeEach(() => {
+    setup(
+      date,
+      date,
+      { modifiers: { outside: date } },
+      { focus: focusContext }
+    );
+  });
+  test('the button should have tabIndex -1', () => {
+    expect(result.current.buttonProps.tabIndex).toBe(-1);
+  });
+});
+
 describe('when the day is disabled', () => {
   const date = today;
   const dayPickerProps = {

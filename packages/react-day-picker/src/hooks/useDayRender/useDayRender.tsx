@@ -99,9 +99,11 @@ export function useDayRender(
     'aria-label': ariaLabel
   };
 
-  const isFocusTarget = Boolean(
-    focusContext.focusTarget && isSameDay(focusContext.focusTarget, day)
-  );
+  const isFocusTarget =
+    focusContext.focusTarget &&
+    isSameDay(focusContext.focusTarget, day) &&
+    !activeModifiers.outside;
+
   const buttonProps = {
     ...divProps,
     disabled: activeModifiers.disabled,
