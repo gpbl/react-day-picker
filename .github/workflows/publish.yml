@@ -47,29 +47,6 @@ jobs:
       - name: Run test (website)
         run: yarn workspace website run test
 
-  pre-release:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && ( github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'))
-    needs: [test-website, test]
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ steps.get-tag-name.outputs.VERSION }}
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: yarn
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Run build (react-day-picker)
-        run: yarn workspace react-day-picker run build
-      - name: Publish package (@next)
-        working-directory: packages/react-day-picker
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-          npm publish --tag next
-
   release:
     runs-on: ubuntu-latest
     if: github.event_name == 'release'
