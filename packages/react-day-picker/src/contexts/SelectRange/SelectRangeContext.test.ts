@@ -67,7 +67,7 @@ describe('when no days are selected', () => {
         stubEvent
       );
     });
-    test('should call "onSelect" with the clicked day as the "from" propx', () => {
+    test('should call "onSelect" with the clicked day as the "from" prop', () => {
       expect(initialProps.onSelect).toHaveBeenCalledWith(
         { from: day, to: undefined },
         day,
@@ -143,6 +143,27 @@ describe('when a complete range of days is selected', () => {
         stubEvent
       );
     });
+  });
+});
+
+describe('when "from" and "to" are the same', () => {
+  const date = new Date();
+  const selected = { from: date, to: date };
+  const dayPickerProps: DayPickerRangeProps = {
+    ...initialProps,
+    selected
+  };
+  beforeAll(() => {
+    setup(dayPickerProps);
+  });
+  test('should return the "range_start" modifier with the date', () => {
+    expect(result.current.modifiers.range_start).toEqual([date]);
+  });
+  test('should return the "range_end" modifier with the date', () => {
+    expect(result.current.modifiers.range_end).toEqual([date]);
+  });
+  test('should return an empty "range_middle"', () => {
+    expect(result.current.modifiers.range_middle).toEqual([]);
   });
 });
 

@@ -15,13 +15,12 @@ export function isDateInRange(date: Date, range: DateRange): boolean {
   if (!to) {
     return false;
   }
-  const isToBeforeFrom = differenceInCalendarDays(to, from) < 0;
-  if (to && isToBeforeFrom) {
+  const isRangeInverted = differenceInCalendarDays(to, from) < 0;
+  if (isRangeInverted) {
     [from, to] = [to, from];
   }
-
-  return (
+  const isInRange =
     differenceInCalendarDays(date, from) >= 0 &&
-    differenceInCalendarDays(to, date) >= 0
-  );
+    differenceInCalendarDays(to, date) >= 0;
+  return isInRange;
 }
