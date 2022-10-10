@@ -67,7 +67,7 @@ describe('when no days are selected', () => {
         stubEvent
       );
     });
-    test('should call "onSelect" with the clicked day as the "from" propx', () => {
+    test('should call "onSelect" with the clicked day as the "from" prop', () => {
       expect(initialProps.onSelect).toHaveBeenCalledWith(
         { from: day, to: undefined },
         day,
@@ -114,9 +114,7 @@ describe('when a complete range of days is selected', () => {
     expect(result.current.modifiers.range_end).toEqual([to]);
   });
   test('should return the "range_middle" range modifiers', () => {
-    expect(result.current.modifiers.range_middle).toEqual([
-      { after: from, before: to }
-    ]);
+    expect(result.current.modifiers.range_middle).toEqual([{ from, to }]);
   });
   describe('when "onDayClick" is called with the day before the from day', () => {
     const day = addDays(from, -1);

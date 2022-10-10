@@ -109,8 +109,8 @@ export function SelectRangeProviderInternal({
       modifiers.range_end = [selectedTo];
       modifiers.range_middle = [
         {
-          after: selectedFrom,
-          before: selectedTo
+          from: selectedFrom,
+          to: selectedTo
         }
       ];
     }
