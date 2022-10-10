@@ -1,5 +1,9 @@
 # Changelog
 
+### 8.3.5
+
+- fix: `range_middle` class is added to days not in the selected range by [@gpbl](https://github.com/gpbl) in [1581](https://github.com/gpbl/react-day-picker/pull/1581)
+
 ### 8.3.4
 
 - build: fix CSS module types by [@gpbl](https://github.com/gpbl) in [#1578](https://github.com/gpbl/react-day-picker/pull/1578)

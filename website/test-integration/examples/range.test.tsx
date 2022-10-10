@@ -10,8 +10,9 @@ import Example from '@examples/range';
 
 const pastMonth = new Date(2020, 10, 15);
 
+let firstChild: ChildNode;
 beforeEach(() => {
-  render(<Example />);
+  firstChild = render(<Example />).container.firstChild;
 });
 
 const days = [
@@ -22,6 +23,9 @@ const days = [
   addDays(pastMonth, 4)
 ];
 
+test('should match the snapshot', () => {
+  expect(firstChild).toMatchSnapshot();
+});
 test.each(days)('%s should be selected', (day) => {
   expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
 });
@@ -52,6 +56,9 @@ describe('when a day in the range is clicked', () => {
       beforeEach(() => clickDay(day));
       test('only one day should be selected', () => {
         expect(getAllSelectedDays()).toHaveLength(1);
+      });
+      test('should match the snapshot', () => {
+        expect(firstChild).toMatchSnapshot();
       });
     });
   });
