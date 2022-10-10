@@ -1,5 +1,6 @@
 import React, { createContext, ReactNode, useContext } from 'react';
 
+import { isSameDay } from 'date-fns';
 import addDays from 'date-fns/addDays';
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
 import subDays from 'date-fns/subDays';
@@ -107,12 +108,14 @@ export function SelectRangeProviderInternal({
       modifiers.range_end = [selectedFrom];
     } else {
       modifiers.range_end = [selectedTo];
-      modifiers.range_middle = [
-        {
-          from: selectedFrom,
-          to: selectedTo
-        }
-      ];
+      if (!isSameDay(selectedFrom, selectedTo)) {
+        modifiers.range_middle = [
+          {
+            after: selectedFrom,
+            before: selectedTo
+          }
+        ];
+      }
     }
   }
 

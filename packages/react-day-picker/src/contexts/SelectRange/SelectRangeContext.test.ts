@@ -114,7 +114,9 @@ describe('when a complete range of days is selected', () => {
     expect(result.current.modifiers.range_end).toEqual([to]);
   });
   test('should return the "range_middle" range modifiers', () => {
-    expect(result.current.modifiers.range_middle).toEqual([{ from, to }]);
+    expect(result.current.modifiers.range_middle).toEqual([
+      { after: from, before: to }
+    ]);
   });
   describe('when "onDayClick" is called with the day before the from day', () => {
     const day = addDays(from, -1);
@@ -141,6 +143,27 @@ describe('when a complete range of days is selected', () => {
         stubEvent
       );
     });
+  });
+});
+
+describe('when "from" and "to" are the same', () => {
+  const date = new Date();
+  const selected = { from: date, to: date };
+  const dayPickerProps: DayPickerRangeProps = {
+    ...initialProps,
+    selected
+  };
+  beforeAll(() => {
+    setup(dayPickerProps);
+  });
+  test('should return the "range_start" modifier with the date', () => {
+    expect(result.current.modifiers.range_start).toEqual([date]);
+  });
+  test('should return the "range_end" modifier with the date', () => {
+    expect(result.current.modifiers.range_end).toEqual([date]);
+  });
+  test('should return an empty "range_middle"', () => {
+    expect(result.current.modifiers.range_middle).toEqual([]);
   });
 });
 
