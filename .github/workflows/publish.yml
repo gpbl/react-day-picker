@@ -49,7 +49,7 @@ jobs:
 
   release:
     runs-on: ubuntu-latest
-    if: github.event_name == 'release'
+    if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
     needs: [test-website, test]
     steps:
       - name: Get version name
