@@ -146,7 +146,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="1st February (Saturday)"
+          aria-label="1st February 2020 (Saturday)"
           class="rdp-day"
         >
           1
@@ -160,7 +160,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="2nd February (Sunday)"
+          aria-label="2nd February 2020 (Sunday)"
           class="rdp-day"
         >
           2
@@ -170,7 +170,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="3rd February (Monday)"
+          aria-label="3rd February 2020 (Monday)"
           class="rdp-day"
         >
           3
@@ -180,7 +180,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="4th February (Tuesday)"
+          aria-label="4th February 2020 (Tuesday)"
           class="rdp-day"
         >
           4
@@ -190,7 +190,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="5th February (Wednesday)"
+          aria-label="5th February 2020 (Wednesday)"
           class="rdp-day"
         >
           5
@@ -200,7 +200,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="6th February (Thursday)"
+          aria-label="6th February 2020 (Thursday)"
           class="rdp-day"
         >
           6
@@ -210,7 +210,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="7th February (Friday)"
+          aria-label="7th February 2020 (Friday)"
           class="rdp-day"
         >
           7
@@ -220,7 +220,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="8th February (Saturday)"
+          aria-label="8th February 2020 (Saturday)"
           class="rdp-day"
         >
           8
@@ -234,7 +234,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="9th February (Sunday)"
+          aria-label="9th February 2020 (Sunday)"
           class="rdp-day"
         >
           9
@@ -244,7 +244,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="10th February (Monday)"
+          aria-label="10th February 2020 (Monday)"
           class="rdp-day"
         >
           10
@@ -254,7 +254,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="11th February (Tuesday)"
+          aria-label="11th February 2020 (Tuesday)"
           class="rdp-day"
         >
           11
@@ -264,7 +264,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="12th February (Wednesday)"
+          aria-label="12th February 2020 (Wednesday)"
           class="rdp-day"
         >
           12
@@ -274,7 +274,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="13th February (Thursday)"
+          aria-label="13th February 2020 (Thursday)"
           class="rdp-day"
         >
           13
@@ -284,7 +284,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="14th February (Friday)"
+          aria-label="14th February 2020 (Friday)"
           class="rdp-day"
         >
           14
@@ -294,7 +294,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="15th February (Saturday)"
+          aria-label="15th February 2020 (Saturday)"
           class="rdp-day"
         >
           15
@@ -308,7 +308,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="16th February (Sunday)"
+          aria-label="16th February 2020 (Sunday)"
           class="rdp-day"
         >
           16
@@ -318,7 +318,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="17th February (Monday)"
+          aria-label="17th February 2020 (Monday)"
           class="rdp-day"
         >
           17
@@ -328,7 +328,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="18th February (Tuesday)"
+          aria-label="18th February 2020 (Tuesday)"
           class="rdp-day"
         >
           18
@@ -338,7 +338,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="19th February (Wednesday)"
+          aria-label="19th February 2020 (Wednesday)"
           class="rdp-day"
         >
           19
@@ -348,7 +348,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="20th February (Thursday)"
+          aria-label="20th February 2020 (Thursday)"
           class="rdp-day"
         >
           20
@@ -358,7 +358,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="21st February (Friday)"
+          aria-label="21st February 2020 (Friday)"
           class="rdp-day"
         >
           21
@@ -368,7 +368,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="22nd February (Saturday)"
+          aria-label="22nd February 2020 (Saturday)"
           class="rdp-day"
         >
           22
@@ -382,7 +382,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="23rd February (Sunday)"
+          aria-label="23rd February 2020 (Sunday)"
           class="rdp-day"
         >
           23
@@ -392,7 +392,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="24th February (Monday)"
+          aria-label="24th February 2020 (Monday)"
           class="rdp-day"
         >
           24
@@ -402,7 +402,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="25th February (Tuesday)"
+          aria-label="25th February 2020 (Tuesday)"
           class="rdp-day"
         >
           25
@@ -412,7 +412,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="26th February (Wednesday)"
+          aria-label="26th February 2020 (Wednesday)"
           class="rdp-day"
         >
           26
@@ -422,7 +422,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="27th February (Thursday)"
+          aria-label="27th February 2020 (Thursday)"
           class="rdp-day"
         >
           27
@@ -432,7 +432,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="28th February (Friday)"
+          aria-label="28th February 2020 (Friday)"
           class="rdp-day"
         >
           28
@@ -442,7 +442,7 @@ exports[`should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="29th February (Saturday)"
+          aria-label="29th February 2020 (Saturday)"
           class="rdp-day"
         >
           29
@@ -612,7 +612,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="1st February (Saturday)"
+          aria-label="1st February 2020 (Saturday)"
           class="rdp-day"
         >
           1
@@ -635,7 +635,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="2nd February (Sunday)"
+          aria-label="2nd February 2020 (Sunday)"
           class="rdp-day"
         >
           2
@@ -645,7 +645,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="3rd February (Monday)"
+          aria-label="3rd February 2020 (Monday)"
           class="rdp-day"
         >
           3
@@ -655,7 +655,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="4th February (Tuesday)"
+          aria-label="4th February 2020 (Tuesday)"
           class="rdp-day"
         >
           4
@@ -665,7 +665,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="5th February (Wednesday)"
+          aria-label="5th February 2020 (Wednesday)"
           class="rdp-day"
         >
           5
@@ -675,7 +675,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="6th February (Thursday)"
+          aria-label="6th February 2020 (Thursday)"
           class="rdp-day"
         >
           6
@@ -685,7 +685,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="7th February (Friday)"
+          aria-label="7th February 2020 (Friday)"
           class="rdp-day"
         >
           7
@@ -695,7 +695,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="8th February (Saturday)"
+          aria-label="8th February 2020 (Saturday)"
           class="rdp-day"
         >
           8
@@ -718,7 +718,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="9th February (Sunday)"
+          aria-label="9th February 2020 (Sunday)"
           class="rdp-day"
         >
           9
@@ -728,7 +728,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="10th February (Monday)"
+          aria-label="10th February 2020 (Monday)"
           class="rdp-day"
         >
           10
@@ -738,7 +738,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="11th February (Tuesday)"
+          aria-label="11th February 2020 (Tuesday)"
           class="rdp-day"
         >
           11
@@ -748,7 +748,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="12th February (Wednesday)"
+          aria-label="12th February 2020 (Wednesday)"
           class="rdp-day"
         >
           12
@@ -758,7 +758,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="13th February (Thursday)"
+          aria-label="13th February 2020 (Thursday)"
           class="rdp-day"
         >
           13
@@ -768,7 +768,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="14th February (Friday)"
+          aria-label="14th February 2020 (Friday)"
           class="rdp-day"
         >
           14
@@ -778,7 +778,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="15th February (Saturday)"
+          aria-label="15th February 2020 (Saturday)"
           class="rdp-day"
         >
           15
@@ -801,7 +801,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="16th February (Sunday)"
+          aria-label="16th February 2020 (Sunday)"
           class="rdp-day"
         >
           16
@@ -811,7 +811,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="17th February (Monday)"
+          aria-label="17th February 2020 (Monday)"
           class="rdp-day"
         >
           17
@@ -821,7 +821,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="18th February (Tuesday)"
+          aria-label="18th February 2020 (Tuesday)"
           class="rdp-day"
         >
           18
@@ -831,7 +831,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="19th February (Wednesday)"
+          aria-label="19th February 2020 (Wednesday)"
           class="rdp-day"
         >
           19
@@ -841,7 +841,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="20th February (Thursday)"
+          aria-label="20th February 2020 (Thursday)"
           class="rdp-day"
         >
           20
@@ -851,7 +851,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="21st February (Friday)"
+          aria-label="21st February 2020 (Friday)"
           class="rdp-day"
         >
           21
@@ -861,7 +861,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="22nd February (Saturday)"
+          aria-label="22nd February 2020 (Saturday)"
           class="rdp-day"
         >
           22
@@ -884,7 +884,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="23rd February (Sunday)"
+          aria-label="23rd February 2020 (Sunday)"
           class="rdp-day"
         >
           23
@@ -894,7 +894,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="24th February (Monday)"
+          aria-label="24th February 2020 (Monday)"
           class="rdp-day"
         >
           24
@@ -904,7 +904,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="25th February (Tuesday)"
+          aria-label="25th February 2020 (Tuesday)"
           class="rdp-day"
         >
           25
@@ -914,7 +914,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="26th February (Wednesday)"
+          aria-label="26th February 2020 (Wednesday)"
           class="rdp-day"
         >
           26
@@ -924,7 +924,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="27th February (Thursday)"
+          aria-label="27th February 2020 (Thursday)"
           class="rdp-day"
         >
           27
@@ -934,7 +934,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="28th February (Friday)"
+          aria-label="28th February 2020 (Friday)"
           class="rdp-day"
         >
           28
@@ -944,7 +944,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-cell"
       >
         <div
-          aria-label="29th February (Saturday)"
+          aria-label="29th February 2020 (Saturday)"
           class="rdp-day"
         >
           29

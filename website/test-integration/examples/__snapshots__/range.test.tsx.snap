@@ -191,7 +191,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="1st November (Sunday)"
+                aria-label="1st November 2020 (Sunday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -204,7 +204,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="2nd November (Monday)"
+                aria-label="2nd November 2020 (Monday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -217,7 +217,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="3rd November (Tuesday)"
+                aria-label="3rd November 2020 (Tuesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -230,7 +230,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="4th November (Wednesday)"
+                aria-label="4th November 2020 (Wednesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -243,7 +243,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="5th November (Thursday)"
+                aria-label="5th November 2020 (Thursday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -256,7 +256,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="6th November (Friday)"
+                aria-label="6th November 2020 (Friday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -269,7 +269,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="7th November (Saturday)"
+                aria-label="7th November 2020 (Saturday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -286,7 +286,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="8th November (Sunday)"
+                aria-label="8th November 2020 (Sunday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -299,7 +299,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="9th November (Monday)"
+                aria-label="9th November 2020 (Monday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -312,7 +312,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="10th November (Tuesday)"
+                aria-label="10th November 2020 (Tuesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -325,7 +325,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="11th November (Wednesday)"
+                aria-label="11th November 2020 (Wednesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -338,7 +338,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="12th November (Thursday)"
+                aria-label="12th November 2020 (Thursday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -351,7 +351,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="13th November (Friday)"
+                aria-label="13th November 2020 (Friday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -364,7 +364,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="14th November (Saturday)"
+                aria-label="14th November 2020 (Saturday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -381,7 +381,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="15th November (Sunday)"
+                aria-label="15th November 2020 (Sunday)"
                 aria-pressed="true"
                 class="rdp-button_reset rdp-button rdp-day rdp-day_selected rdp-day_range_start"
                 name="day"
@@ -395,7 +395,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="16th November (Monday)"
+                aria-label="16th November 2020 (Monday)"
                 aria-pressed="true"
                 class="rdp-button_reset rdp-button rdp-day rdp-day_selected rdp-day_range_middle"
                 name="day"
@@ -409,7 +409,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="17th November (Tuesday)"
+                aria-label="17th November 2020 (Tuesday)"
                 aria-pressed="true"
                 class="rdp-button_reset rdp-button rdp-day rdp-day_selected rdp-day_range_middle"
                 name="day"
@@ -423,7 +423,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="18th November (Wednesday)"
+                aria-label="18th November 2020 (Wednesday)"
                 aria-pressed="true"
                 class="rdp-button_reset rdp-button rdp-day rdp-day_selected rdp-day_range_middle"
                 name="day"
@@ -437,7 +437,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="19th November (Thursday)"
+                aria-label="19th November 2020 (Thursday)"
                 aria-pressed="true"
                 class="rdp-button_reset rdp-button rdp-day rdp-day_selected rdp-day_range_end"
                 name="day"
@@ -451,7 +451,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="20th November (Friday)"
+                aria-label="20th November 2020 (Friday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -464,7 +464,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="21st November (Saturday)"
+                aria-label="21st November 2020 (Saturday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -481,7 +481,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="22nd November (Sunday)"
+                aria-label="22nd November 2020 (Sunday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -494,7 +494,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="23rd November (Monday)"
+                aria-label="23rd November 2020 (Monday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -507,7 +507,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="24th November (Tuesday)"
+                aria-label="24th November 2020 (Tuesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -520,7 +520,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="25th November (Wednesday)"
+                aria-label="25th November 2020 (Wednesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -533,7 +533,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="26th November (Thursday)"
+                aria-label="26th November 2020 (Thursday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -546,7 +546,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="27th November (Friday)"
+                aria-label="27th November 2020 (Friday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -559,7 +559,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="28th November (Saturday)"
+                aria-label="28th November 2020 (Saturday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -576,7 +576,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="29th November (Sunday)"
+                aria-label="29th November 2020 (Sunday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -589,7 +589,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-cell"
             >
               <button
-                aria-label="30th November (Monday)"
+                aria-label="30th November 2020 (Monday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -827,7 +827,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="1st November (Sunday)"
+                aria-label="1st November 2020 (Sunday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -840,7 +840,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="2nd November (Monday)"
+                aria-label="2nd November 2020 (Monday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -853,7 +853,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="3rd November (Tuesday)"
+                aria-label="3rd November 2020 (Tuesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -866,7 +866,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="4th November (Wednesday)"
+                aria-label="4th November 2020 (Wednesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -879,7 +879,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="5th November (Thursday)"
+                aria-label="5th November 2020 (Thursday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -892,7 +892,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="6th November (Friday)"
+                aria-label="6th November 2020 (Friday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -905,7 +905,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="7th November (Saturday)"
+                aria-label="7th November 2020 (Saturday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -922,7 +922,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="8th November (Sunday)"
+                aria-label="8th November 2020 (Sunday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -935,7 +935,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="9th November (Monday)"
+                aria-label="9th November 2020 (Monday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -948,7 +948,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="10th November (Tuesday)"
+                aria-label="10th November 2020 (Tuesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -961,7 +961,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="11th November (Wednesday)"
+                aria-label="11th November 2020 (Wednesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -974,7 +974,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="12th November (Thursday)"
+                aria-label="12th November 2020 (Thursday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -987,7 +987,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="13th November (Friday)"
+                aria-label="13th November 2020 (Friday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1000,7 +1000,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="14th November (Saturday)"
+                aria-label="14th November 2020 (Saturday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1017,7 +1017,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="15th November (Sunday)"
+                aria-label="15th November 2020 (Sunday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1030,7 +1030,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="16th November (Monday)"
+                aria-label="16th November 2020 (Monday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1043,7 +1043,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="17th November (Tuesday)"
+                aria-label="17th November 2020 (Tuesday)"
                 aria-pressed="true"
                 class="rdp-button_reset rdp-button rdp-day rdp-day_selected rdp-day_range_end rdp-day_range_start"
                 name="day"
@@ -1057,7 +1057,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="18th November (Wednesday)"
+                aria-label="18th November 2020 (Wednesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1070,7 +1070,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="19th November (Thursday)"
+                aria-label="19th November 2020 (Thursday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1083,7 +1083,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="20th November (Friday)"
+                aria-label="20th November 2020 (Friday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1096,7 +1096,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="21st November (Saturday)"
+                aria-label="21st November 2020 (Saturday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1113,7 +1113,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="22nd November (Sunday)"
+                aria-label="22nd November 2020 (Sunday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1126,7 +1126,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="23rd November (Monday)"
+                aria-label="23rd November 2020 (Monday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1139,7 +1139,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="24th November (Tuesday)"
+                aria-label="24th November 2020 (Tuesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1152,7 +1152,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="25th November (Wednesday)"
+                aria-label="25th November 2020 (Wednesday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1165,7 +1165,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="26th November (Thursday)"
+                aria-label="26th November 2020 (Thursday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1178,7 +1178,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="27th November (Friday)"
+                aria-label="27th November 2020 (Friday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1191,7 +1191,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="28th November (Saturday)"
+                aria-label="28th November 2020 (Saturday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1208,7 +1208,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="29th November (Sunday)"
+                aria-label="29th November 2020 (Sunday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
@@ -1221,7 +1221,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-cell"
             >
               <button
-                aria-label="30th November (Monday)"
+                aria-label="30th November 2020 (Monday)"
                 class="rdp-button_reset rdp-button rdp-day"
                 name="day"
                 tabindex="-1"
