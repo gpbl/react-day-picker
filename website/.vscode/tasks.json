@@ -23,7 +23,7 @@
         "instanceLimit": 1
       },
       "presentation": {
-        "reveal": "always",
+        "reveal": "silent",
         "panel": "dedicated"
       }
     },
@@ -35,6 +35,10 @@
       "isBackground": true,
       "runOptions": {
         "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "never",
+        "panel": "dedicated"
       }
     }
   ]
