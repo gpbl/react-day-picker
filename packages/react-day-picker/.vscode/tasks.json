@@ -41,7 +41,11 @@
       "script": "typecheck-watch",
       "problemMatcher": ["$tsc-watch"],
       "isBackground": true,
-      "runOptions": { "runOn": "folderOpen" }
+      "runOptions": { "runOn": "folderOpen", "instanceLimit": 1 },
+      "presentation": {
+        "reveal": "never",
+        "panel": "dedicated"
+      }
     }
   ]
 }
