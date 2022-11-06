@@ -66,7 +66,7 @@ describe('when rendered', () => {
     test('should go to the specified month', () => {
       const date = startOfMonth(newDate);
       expect(result.current.currentMonth).toEqual(date);
-      expect(onMonthChange).toBeCalledWith(date);
+      expect(onMonthChange).toHaveBeenCalledWith(date);
     });
   });
   describe('when isDateDisplayed is called', () => {
