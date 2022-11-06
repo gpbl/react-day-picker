@@ -104,12 +104,15 @@ export function useDayRender(
     isSameDay(focusContext.focusTarget, day) &&
     !activeModifiers.outside;
 
+  const isFocused =
+    focusContext.focusedDay && isSameDay(focusContext.focusedDay, day);
+
   const buttonProps = {
     ...divProps,
     disabled: activeModifiers.disabled,
     ['aria-pressed']: activeModifiers.selected,
     ['aria-label']: ariaLabel,
-    tabIndex: isFocusTarget ? 0 : -1,
+    tabIndex: isFocused || isFocusTarget ? 0 : -1,
     ...eventHandlers
   };
 
