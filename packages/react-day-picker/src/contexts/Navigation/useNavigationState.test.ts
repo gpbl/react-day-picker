@@ -28,7 +28,7 @@ describe('when goToMonth is called', () => {
       result.current[1](month);
     });
     expect(result.current[0]).toEqual(startOfMonth(month));
-    expect(onMonthChange).toBeCalledWith(startOfMonth(month));
+    expect(onMonthChange).toHaveBeenCalledWith(startOfMonth(month));
   });
   describe('when navigation is disabled', () => {
     test('should not set the month in state', () => {
@@ -37,7 +37,7 @@ describe('when goToMonth is called', () => {
       const month = addMonths(today, 2);
       result.current[1](month);
       expect(result.current[0]).toEqual(startOfMonth(today));
-      expect(onMonthChange).not.toBeCalled();
+      expect(onMonthChange).not.toHaveBeenCalled();
     });
   });
 });
