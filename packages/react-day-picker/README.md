@@ -6,8 +6,8 @@
 
 <a href="http://react-day-picker.js.org">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/120693/188241991-19d0e8a1-230a-48c8-8477-3c90d4e36197.png"/>
-    <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/120693/188238076-311ec6d1-503d-4c21-8ffe-d89faa60e40f.png"/>
+    <source media="(prefers-color-scheme: dark)" srcSet="https://user-images.githubusercontent.com/120693/188241991-19d0e8a1-230a-48c8-8477-3c90d4e36197.png"/>
+    <source media="(prefers-color-scheme: light)" srcSet="https://user-images.githubusercontent.com/120693/188238076-311ec6d1-503d-4c21-8ffe-d89faa60e40f.png"/>
     <img alt="Shows a screenshot of the React DayPicker component in a browser’s window." width="900" />
   </picture>
 </a>
