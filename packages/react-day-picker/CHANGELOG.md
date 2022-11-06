@@ -1,20 +1,6 @@
 # Changelog
 
-### 8.3.5
-
-- fix: `range_middle` class is added to days not in the selected range by [@gpbl](https://github.com/gpbl) in [1581](https://github.com/gpbl/react-day-picker/pull/1581)
-
-### 8.3.4
-
-- build: fix CSS module types by [@gpbl](https://github.com/gpbl) in [#1578](https://github.com/gpbl/react-day-picker/pull/1578)
-- fix: disable tab for outside days (#1567) by [@DanielJKelly](https://github.com/DanielJKelly) in [#1576](https://github.com/gpbl/react-day-picker/pull/1576)
-
-### 8.3.1
-
-- fix: discrimination types for selection modes not being correctly set by [@gpbl](https://github.com/gpbl) in [#1571](https://github.com/gpbl/react-day-picker/pull/1571)
-- fix: isMatch to match open `DateInterval`s by [@gpbl](https://github.com/gpbl) in [#1572](https://github.com/gpbl/react-day-picker/pull/1572)
-
-**Full Changelog**: https://github.com/gpbl/react-day-picker/compare/v8.3.0...v8.3.1
+Full release notes at https://github.com/gpbl/react-day-picker/releases
 
 ## 8.3.0
 
@@ -29,17 +15,49 @@
 - chore: add new `Components` type by [@gpbl](https://github.com/gpbl) in [#1563](https://github.com/gpbl/react-day-picker/pull/1563)
 - chore: reorganize contexts files by [@gpbl](https://github.com/gpbl) in [#1564](https://github.com/gpbl/react-day-picker/pull/1564)
 
-### v8.2.1
+### 8.3.6
 
-- fix: CSS module doesn't include the root class, by [@gpbl](https://github.com/gpbl) in [#1548](https://github.com/gpbl/react-day-picker/pull/1548)
+- fix: set tab-index to 0 when day is focused by [@gpbl](https://github.com/gpbl) in [1581](https://github.com/gpbl/react-day-picker/pull/1601)
 
-### v8.2.0
+### 8.3.5
+
+- fix: `range_middle` class is added to days not in the selected range by [@gpbl](https://github.com/gpbl) in [1581](https://github.com/gpbl/react-day-picker/pull/1581)
+
+### 8.3.4
+
+- build: fix CSS module types by [@gpbl](https://github.com/gpbl) in [#1578](https://github.com/gpbl/react-day-picker/pull/1578)
+- fix: disable tab for outside days (#1567) by [@DanielJKelly](https://github.com/DanielJKelly) in [#1576](https://github.com/gpbl/react-day-picker/pull/1576)
+
+### 8.3.1
+
+- fix: discrimination types for selection modes not being correctly set by [@gpbl](https://github.com/gpbl) in [#1571](https://github.com/gpbl/react-day-picker/pull/1571)
+- fix: isMatch to match open `DateInterval`s by [@gpbl](https://github.com/gpbl) in [#1572](https://github.com/gpbl/react-day-picker/pull/1572)
+
+---
+
+## v8.2.0
 
 - new: custom `HeadRow` component, by [@gpbl](https://github.com/gpbl) in [#1534](https://github.com/gpbl/react-day-picker/pull/1534)
 - changed: add `HeadRow` component, by @KonradLinkowski in [#1533](https://github.com/gpbl/react-day-picker/pull/1533)
 - fixed: selected day outlines in chrome, by [@gpbl](https://github.com/gpbl) in [#1536](https://github.com/gpbl/react-day-picker/pull/1536)
 - fixed: dropdown focus-visible style, by [@gpbl](https://github.com/gpbl) in [#1535](https://github.com/gpbl/react-day-picker/pull/1535)
 - fix: use aria-label for days buttons, by [@gpbl](https://github.com/gpbl) in [#1537](https://github.com/gpbl/react-day-picker/pull/1537)
+
+### v8.2.1
+
+- fix: CSS module doesn't include the root class, by [@gpbl](https://github.com/gpbl) in [#1548](https://github.com/gpbl/react-day-picker/pull/1548)
+
+---
+
+## v8.1.0
+
+- new: add prefix to auto generated ids, by [@mihkeleidast](https://github.com/mihkeleidast) in [#1493](https://github.com/gpbl/react-day-picker/pull/1493)
+- new: `addedToRange` to the exported utilities, by [@stopr29](https://github.com/stopr29) in [#1495](https://github.com/gpbl/react-day-picker/pull/1495)
+- new: revert to use disabled attribute instead of `aria-disabled` (reverts, by [@gpbl](https://github.com/gpbl) in [#1451](https://github.com/gpbl/react-day-picker/pull/1451))See ongoing discussion in [#1468](https://github.com/gpbl/react-day-picker/pull/1468)
+- new(css): use pure selector for CSS variables, by [@andyschulzz](https://github.com/andyschulzz) in [#1481](https://github.com/gpbl/react-day-picker/pull/1481), [#1499](https://github.com/gpbl/react-day-picker/pull/1499)
+- fix: `@reach/auto-id` warnings, by removing the dependency, by [@gpbl](https://github.com/gpbl) in [#1484](https://github.com/gpbl/react-day-picker/pull/1484)
+- fix: home/end buttons behavior with `startOfWeek`, by [@apdrsn](https://github.com/apdrsn) in [#1492](https://github.com/gpbl/react-day-picker/pull/1492)
+- package: upgraded dependencies, by [@gpbl](https://github.com/gpbl) in [#1497](https://github.com/gpbl/react-day-picker/pull/1497)
 
 ### v8.1.4
 
@@ -63,15 +81,21 @@
 - fix: add `onSelect` to the `DayPickerContextValue`, by [@gpbl](https://github.com/gpbl) in [#1515](https://github.com/gpbl/react-day-picker/pull/1515)
 - fix: `rdp` class not added to root element when using `className` prop, by [@gpbl](https://github.com/gpbl) in [#1517](https://github.com/gpbl/react-day-picker/pull/1517)
 
-## v8.1.0
+---
 
-- new: add prefix to auto generated ids, by [@mihkeleidast](https://github.com/mihkeleidast) in [#1493](https://github.com/gpbl/react-day-picker/pull/1493)
-- new: `addedToRange` to the exported utilities, by [@stopr29](https://github.com/stopr29) in [#1495](https://github.com/gpbl/react-day-picker/pull/1495)
-- new: revert to use disabled attribute instead of `aria-disabled` (reverts, by [@gpbl](https://github.com/gpbl) in [#1451](https://github.com/gpbl/react-day-picker/pull/1451))See ongoing discussion in [#1468](https://github.com/gpbl/react-day-picker/pull/1468)
-- new(css): use pure selector for CSS variables, by [@andyschulzz](https://github.com/andyschulzz) in [#1481](https://github.com/gpbl/react-day-picker/pull/1481), [#1499](https://github.com/gpbl/react-day-picker/pull/1499)
-- fix: `@reach/auto-id` warnings, by removing the dependency, by [@gpbl](https://github.com/gpbl) in [#1484](https://github.com/gpbl/react-day-picker/pull/1484)
-- fix: home/end buttons behavior with `startOfWeek`, by [@apdrsn](https://github.com/apdrsn) in [#1492](https://github.com/gpbl/react-day-picker/pull/1492)
-- package: upgraded dependencies, by [@gpbl](https://github.com/gpbl) in [#1497](https://github.com/gpbl/react-day-picker/pull/1497)
+## v8.0
+
+This version introduces breaking changes and it is mostly incompatible with v7. See the [redesigned website](https://react-day-picker.js.org) for more details.
+
+**Notable changes**
+
+- native TypeScript support
+- selection modes: single, multiple, range
+- added [date-fns](http://date-fns.org) library as peer dependecy
+- replaced `DayPickerInput` component with `useInput` hook
+- improved ARIA support
+
+See also: ➡️ **[Upgrading from v7](https://react-day-picker.js.org/guides/upgrading)**.
 
 ### v8.0.7
 
@@ -108,20 +132,6 @@ In the rare cases you are using an invalid key to the `styles` prop, you may get
 ### v8.0.1
 
 - changed: added React 18 to the peer dependencies
-
-## v8.0
-
-This version introduces breaking changes and it is mostly incompatible with v7. See the [redesigned website](https://react-day-picker.js.org) for more details.
-
-### Notable changes
-
-- native TypeScript support
-- selection modes: single, multiple, range
-- added [date-fns](http://date-fns.org) library as peer dependecy
-- replaced `DayPickerInput` component with `useInput` hook
-- improved ARIA support
-
-See also: ➡️ **[Upgrading from v7](https://react-day-picker.js.org/guides/upgrading)**.
 
 ---
 
