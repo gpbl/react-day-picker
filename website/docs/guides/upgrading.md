@@ -1,6 +1,6 @@
 # Upgrading from v7
 
-v8 is a mayor upgrade for DayPicker with new props and styles. We include here a quick reference for helping the upgrade from v7.
+v8 is a major upgrade for DayPicker with new props and styles. We include here a quick reference for helping the upgrade from v7.
 
 :::note v7 is frozen
 
