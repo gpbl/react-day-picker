@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": "10"
+    "node": "12"
   },
   "name": "react-day-picker-website",
   "description": "",
@@ -27,7 +27,7 @@
     "moment": "^2.22.1",
     "prismjs": "^1.14.0",
     "prop-types": "^15.6.1",
-    "react-codesandboxer": "^2.1.3",
+    "react-codesandboxer": "^3.1.5",
     "react-day-picker": "../",
     "react-helmet": "^5.2.0",
     "react-markdown": "^3.3.0",

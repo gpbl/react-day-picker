@@ -12,7 +12,7 @@ export default () => (
   <DocPage title="Styling">
     <p>
       To style the component, use{' '}
-      <a href="https://github.com/gpbl/react-day-picker/blob/master/src/style.css">
+      <a href="https://github.com/gpbl/react-day-picker/blob/v7/src/style.css">
         src/style.css
       </a>{' '}
       as template and update it to fit the desired style. Then, just include it
@@ -93,7 +93,7 @@ export default () => (
       {`import React from 'react';
 import DayPicker from 'react-day-picker';
 
-import styles from '../styles/cssmodules.css';
+import styles from '../styles/your_css_module.css';
 
 export default function CSSModules() {
   return <DayPicker classNames={ styles } />
@@ -111,7 +111,7 @@ export default function CSSModules() {
     <CodeBlock>
       {`import React from 'react';
 import DayPicker from 'react-day-picker';
-import styles from '../styles/cssmodules.css';
+import styles from '../styles/your_css_module.css';
 
 export default function CSSModules() {
   return (
