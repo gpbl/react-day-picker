@@ -5,7 +5,7 @@ export function matcherToArray(
   matcher: Matcher | Matcher[] | undefined
 ): Matcher[] {
   if (Array.isArray(matcher)) {
-    return matcher;
+    return [...matcher];
   } else if (matcher !== undefined) {
     return [matcher];
   } else {

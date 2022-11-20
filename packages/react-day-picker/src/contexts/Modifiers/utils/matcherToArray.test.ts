@@ -10,8 +10,11 @@ describe('when a Matcher is passed in', () => {
 });
 
 describe('when an array of Matchers is passed in', () => {
-  test('should return the array', () => {
-    expect(matcherToArray([matcher])).toStrictEqual([matcher]);
+  test('should return a copy of the array', () => {
+    const value = [matcher, matcher];
+    const result = matcherToArray(value);
+    expect(result).toStrictEqual(value);
+    expect(result).not.toBe(value);
   });
 });
 
