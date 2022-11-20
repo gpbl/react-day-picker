@@ -274,6 +274,10 @@
   background-color: var(--rdp-accent-color);
 }
 
+.rdp-day_outside {
+  opacity: 0.5;
+}
+
 .rdp-day_selected:focus-visible {
   /* Since the background is the same use again the outline */
   outline: var(--rdp-outline);
