@@ -30,6 +30,13 @@ export type DayMouseEventHandler = (
   e: React.MouseEvent
 ) => void;
 
+/** The event handler when a day gets a pointer event. */
+export type DayPointerEventHandler = (
+  day: Date,
+  activeModifiers: ActiveModifiers,
+  e: React.PointerEvent
+) => void;
+
 /** The event handler when a month is changed in the calendar. */
 export type MonthChangeEventHandler = (month: Date) => void;
 

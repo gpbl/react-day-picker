@@ -3,6 +3,7 @@ import {
   HTMLProps,
   KeyboardEventHandler,
   MouseEventHandler,
+  PointerEventHandler,
   TouchEventHandler
 } from 'react';
 
@@ -24,6 +25,8 @@ export type EventName =
   | 'onKeyUp'
   | 'onMouseEnter'
   | 'onMouseLeave'
+  | 'onPointerEnter'
+  | 'onPointerLeave'
   | 'onTouchCancel'
   | 'onTouchEnd'
   | 'onTouchMove'
@@ -37,6 +40,8 @@ export type DayEventName =
   | 'onDayKeyUp'
   | 'onDayMouseEnter'
   | 'onDayMouseLeave'
+  | 'onDayPointerEnter'
+  | 'onDayPointerLeave'
   | 'onDayTouchCancel'
   | 'onDayTouchEnd'
   | 'onDayTouchMove'
@@ -115,6 +120,12 @@ export function useDayEventHandlers(
   const onMouseLeave: MouseEventHandler = (e) => {
     dayPicker.onDayMouseLeave?.(date, activeModifiers, e);
   };
+  const onPointerEnter: PointerEventHandler = (e) => {
+    dayPicker.onDayPointerEnter?.(date, activeModifiers, e);
+  };
+  const onPointerLeave: PointerEventHandler = (e) => {
+    dayPicker.onDayPointerLeave?.(date, activeModifiers, e);
+  };
   const onTouchCancel: TouchEventHandler = (e) => {
     dayPicker.onDayTouchCancel?.(date, activeModifiers, e);
   };
@@ -186,6 +197,8 @@ export function useDayEventHandlers(
     onKeyUp,
     onMouseEnter,
     onMouseLeave,
+    onPointerEnter,
+    onPointerLeave,
     onTouchCancel,
     onTouchEnd,
     onTouchMove,

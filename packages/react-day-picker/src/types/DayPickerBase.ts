@@ -13,6 +13,7 @@ import {
   DayFocusEventHandler,
   DayKeyboardEventHandler,
   DayMouseEventHandler,
+  DayPointerEventHandler,
   DayTouchEventHandler,
   MonthChangeEventHandler,
   WeekNumberClickEventHandler
@@ -251,6 +252,8 @@ export interface DayPickerBase {
   onDayKeyDown?: DayKeyboardEventHandler;
   onDayKeyUp?: DayKeyboardEventHandler;
   onDayKeyPress?: DayKeyboardEventHandler;
+  onDayPointerEnter?: DayPointerEventHandler;
+  onDayPointerLeave?: DayPointerEventHandler;
   onDayTouchCancel?: DayTouchEventHandler;
   onDayTouchEnd?: DayTouchEventHandler;
   onDayTouchMove?: DayTouchEventHandler;
