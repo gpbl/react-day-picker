@@ -83,6 +83,8 @@ const tests: [EventName, DayEventName][] = [
   ['onBlur', 'onDayBlur'],
   ['onMouseEnter', 'onDayMouseEnter'],
   ['onMouseLeave', 'onDayMouseLeave'],
+  ['onPointerEnter', 'onDayPointerEnter'],
+  ['onPointerLeave', 'onDayPointerLeave'],
   ['onTouchEnd', 'onDayTouchEnd'],
   ['onTouchCancel', 'onDayTouchCancel'],
   ['onTouchMove', 'onDayTouchMove'],
