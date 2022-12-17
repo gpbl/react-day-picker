@@ -3,15 +3,15 @@
   "packageManager": "yarn@3.2.1",
   "version": "1.0.0",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
-    "@typescript-eslint/parser": "^5.42.0",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^27.1.4",
+    "eslint-plugin-jest": "^27.1.7",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.1"
   },
   "peerDependencies": {
     "eslint": "^8.3.0"
