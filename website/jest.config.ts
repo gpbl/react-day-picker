@@ -13,7 +13,8 @@ const config: Config.InitialOptions = {
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>'
     }),
-    '\\.css$': 'identity-obj-proxy'
+    '\\.css$': 'identity-obj-proxy',
+    '@generated/(.*)': 'identity-obj-proxy'
   },
   testEnvironment: 'jsdom',
   coverageReporters: ['lcov', 'text', 'clover'],
