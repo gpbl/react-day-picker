@@ -35,7 +35,7 @@
     "@docusaurus/types": "^2.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@tsconfig/docusaurus": "^1.0.6",
-    "@types/jest": "^27.5.2",
+    "@types/jest": "^29.2.4",
     "@types/react-helmet": "^6.1.6",
     "@types/react-router-dom": "^5.3.3",
     "date-fns": "^2.29.3",

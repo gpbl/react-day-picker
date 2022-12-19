@@ -41,7 +41,7 @@
     "@testing-library/react": "^12.1.5",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
+    "@types/jest": "^29.2.4",
     "@types/node": "^18.11.16",
     "@types/react": "^17.0.52",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
