@@ -15,7 +15,7 @@
     "typecheck-watch": "yarn typecheck --watch"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^1.18.3",
+    "@codesandbox/sandpack-react": "^1.18.4",
     "@codesandbox/sandpack-themes": "^1.17.0",
     "@docusaurus/core": "^2.2.0",
     "@docusaurus/preset-classic": "^2.2.0",
@@ -28,7 +28,7 @@
     "react-day-picker": "workspace:*",
     "react-dom": "^17.0.2",
     "react-popper": "^2.3.0",
-    "react-shadow": "^19.0.3"
+    "react-shadow": "^20.0.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.2.0",
@@ -48,7 +48,7 @@
     "prop-types": "^15.8.1",
     "raw-loader": "^4.0.2",
     "ts-jest": "^29.0.3",
-    "typedoc": "^0.23.22",
+    "typedoc": "^0.23.23",
     "typedoc-plugin-markdown": "^3.14.0",
     "typescript": "~4.7.4",
     "webpack": "^5.75.0"
