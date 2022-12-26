@@ -24,9 +24,9 @@
     "clsx": "^1.2.1",
     "focus-trap-react": "10.0.2",
     "prism-react-renderer": "^1.3.5",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-day-picker": "workspace:*",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.2.0",
     "react-popper": "^2.3.0",
     "react-shadow": "^20.0.0"
   },
@@ -35,7 +35,7 @@
     "@docusaurus/types": "^2.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@tsconfig/docusaurus": "^1.0.6",
-    "@types/jest": "^27.5.2",
+    "@types/jest": "^29.2.4",
     "@types/react-helmet": "^6.1.6",
     "@types/react-router-dom": "^5.3.3",
     "date-fns": "^2.29.3",
@@ -50,7 +50,7 @@
     "ts-jest": "^29.0.3",
     "typedoc": "^0.23.23",
     "typedoc-plugin-markdown": "^3.14.0",
-    "typescript": "~4.7.4",
+    "typescript": "~4.9.4",
     "webpack": "^5.75.0"
   }
 }
