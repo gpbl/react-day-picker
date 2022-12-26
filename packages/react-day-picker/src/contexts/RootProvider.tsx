@@ -13,12 +13,6 @@ import { SelectSingleProvider } from './SelectSingle';
 /** The props of {@link RootProvider}. */
 export type RootContext = DayPickerBase & {
   children: React.ReactNode;
-  initialContexts?: {
-    single?: SelectSingleContextValue;
-    multiple?: SelectMultipleContextValue;
-    range?: SelectRangeContextValue;
-    focus?: FocusContextValue;
-  };
 };
 
 /** Provide the value for all the context providers. */
