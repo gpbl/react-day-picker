@@ -18,24 +18,25 @@ import {
   SelectSingleContextValue
 } from 'contexts/SelectSingle';
 
-export type CustomRenderHookContexts = {
-  single?: SelectSingleContextValue;
-  multiple?: SelectMultipleContextValue;
-  range?: SelectRangeContextValue;
-  focus?: FocusContextValue;
-};
-
 const EmptyComponent = ({ children }: { children: React.ReactNode }) => (
   <>{children}</>
 );
 
 /** Render a hook wrapped with the Root Provider. */
-export function customRenderHook<TProps, TResult>(
+export function customRenderHook<
+  TProps extends { children?: React.ReactNode },
+  TResult
+>(
   callback: (props?: TProps) => TResult,
   /** The props passed to DayPicker. */
   dayPickerProps?: DayPickerProps,
   /** Override the single contexts. */
-  contexts?: CustomRenderHookContexts
+  contexts?: {
+    single?: SelectSingleContextValue;
+    multiple?: SelectMultipleContextValue;
+    range?: SelectRangeContextValue;
+    focus?: FocusContextValue;
+  }
 ) {
   const wrapper = ({ children }: { children?: React.ReactNode }) => {
     const SelectSingleProvider = contexts?.single

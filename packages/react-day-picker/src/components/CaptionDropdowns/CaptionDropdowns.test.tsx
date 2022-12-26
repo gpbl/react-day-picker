@@ -25,6 +25,7 @@ const toYear = 2025;
 
 freezeBeforeAll(today);
 
+const user = userEvent.setup();
 function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
   customRender(<CaptionDropdowns {...props} />, dayPickerProps);
 }
@@ -85,8 +86,8 @@ describe('when a month is selected', () => {
   });
   describe('from the months drop-down', () => {
     const newMonth = setMonth(today, 0);
-    beforeEach(() => {
-      userEvent.selectOptions(
+    beforeEach(async () => {
+      await user.selectOptions(
         getMonthDropdown(),
         newMonth.getMonth().toString()
       );
@@ -97,8 +98,8 @@ describe('when a month is selected', () => {
   });
   describe('from the years drop-down', () => {
     const newYear = setYear(today, 2022);
-    beforeEach(() => {
-      userEvent.selectOptions(
+    beforeEach(async () => {
+      await user.selectOptions(
         getYearDropdown(),
         newYear.getFullYear().toString()
       );

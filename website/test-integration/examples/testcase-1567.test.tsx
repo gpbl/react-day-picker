@@ -1,17 +1,18 @@
 import React from 'react';
 
 import { render, screen } from '@testing-library/react';
-
-import { pressTab } from 'react-day-picker/test/actions';
+import userEvent from '@testing-library/user-event';
 
 import Example from '@examples/testcase-1567';
 
-beforeEach(() => {
+const user = userEvent.setup();
+
+beforeEach(async () => {
   render(<Example />);
-  pressTab();
-  pressTab();
-  pressTab();
-  pressTab();
+  await user.tab();
+  await user.tab();
+  await user.tab();
+  await user.tab();
 });
 
 test('the button should have focus', () => {

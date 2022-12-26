@@ -24,6 +24,7 @@ const today = new Date(2021, 8);
 
 freezeBeforeAll(today);
 
+const user = userEvent.setup();
 function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
   customRender(<CaptionNavigation {...props} />, dayPickerProps);
 }
@@ -115,9 +116,9 @@ describe('when rendered', () => {
         onMonthChange: jest.fn()
       };
       const previousMonth = addMonths(today, -1);
-      beforeEach(() => {
+      beforeEach(async () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
-        userEvent.click(getPrevButton());
+        await user.click(getPrevButton());
       });
       test('should call the `onMonthChange` callback', () => {
         expect(testContext.onMonthChange).toHaveBeenCalledWith(previousMonth);
@@ -129,9 +130,9 @@ describe('when rendered', () => {
         fromDate: today,
         onMonthChange: jest.fn()
       };
-      beforeEach(() => {
+      beforeEach(async () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
-        userEvent.click(getPrevButton());
+        await user.click(getPrevButton());
       });
       test('should call the `onMonthChange` callback', () => {
         expect(testContext.onMonthChange).not.toHaveBeenCalled();
@@ -146,9 +147,9 @@ describe('when rendered', () => {
         onMonthChange: jest.fn()
       };
       const nextMonth = addMonths(today, 1);
-      beforeEach(() => {
+      beforeEach(async () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
-        userEvent.click(getNextButton());
+        await user.click(getNextButton());
       });
       test('should call the `onMonthChange` callback', () => {
         expect(testContext.onMonthChange).toHaveBeenCalledWith(nextMonth);
@@ -160,9 +161,9 @@ describe('when rendered', () => {
         toDate: today,
         onMonthChange: jest.fn()
       };
-      beforeEach(() => {
+      beforeEach(async () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
-        userEvent.click(getNextButton());
+        await user.click(getNextButton());
       });
       test('should call the `onMonthChange` callback', () => {
         expect(testContext.onMonthChange).not.toHaveBeenCalled();

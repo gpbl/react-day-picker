@@ -1,14 +1,15 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { addDays } from 'date-fns';
 
-import { clickDay } from 'react-day-picker/test/actions';
 import { getDayButton, getTableFooter } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/modifiers-today';
 
+const user = userEvent.setup();
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
@@ -28,7 +29,7 @@ describe('when rendering a month that contains today', () => {
 });
 
 describe('when the today date is clicked', () => {
-  beforeEach(() => clickDay(today));
+  beforeEach(async () => user.click(getDayButton(today)));
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent('You clicked the today’s date');
   });
@@ -36,7 +37,7 @@ describe('when the today date is clicked', () => {
 
 describe('when another date is clicked', () => {
   const date = addDays(today, 1);
-  beforeEach(() => clickDay(date));
+  beforeEach(async () => user.click(getDayButton(date)));
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent(
       'Try clicking the today’s date.'

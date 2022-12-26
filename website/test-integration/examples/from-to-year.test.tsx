@@ -1,14 +1,15 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { differenceInMonths } from 'date-fns';
 
-import { clickNextMonth } from 'react-day-picker/test/actions';
 import { getNextButton, getPrevButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/from-to-year';
 
+const user = userEvent.setup();
 const fromDate = new Date(2015, 0);
 const toDate = new Date(2018, 11);
 const today = new Date(2021, 10, 25);
@@ -28,9 +29,9 @@ test('the next month button should not be disabled', () => {
 
 describe('when navigating to the last month', () => {
   const nOfMonths = differenceInMonths(toDate, fromDate);
-  beforeEach(() => {
+  beforeEach(async () => {
     for (let i = 0; i < nOfMonths; i++) {
-      clickNextMonth();
+      await user.click(getNextButton());
     }
   });
 

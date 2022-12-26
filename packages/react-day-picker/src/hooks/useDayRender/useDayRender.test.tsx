@@ -4,11 +4,14 @@ import { RenderResult } from '@testing-library/react-hooks';
 import { addDays, addMonths } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
-import { customRenderHook, CustomRenderHookContexts } from 'test/render';
+import { customRenderHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { FocusContextValue } from 'contexts/Focus';
+import { SelectMultipleContextValue } from 'contexts/SelectMultiple';
+import { SelectRangeContextValue } from 'contexts/SelectRange';
+import { SelectSingleContextValue } from 'contexts/SelectSingle';
 import { EventName } from 'hooks/useDayEventHandlers';
 
 import { DayRender } from './';
@@ -41,7 +44,12 @@ function setup(
   date: Date,
   displayMonth: Date,
   dayPickerProps?: DayPickerProps,
-  contexts?: CustomRenderHookContexts
+  contexts?: {
+    single?: SelectSingleContextValue;
+    multiple?: SelectMultipleContextValue;
+    range?: SelectRangeContextValue;
+    focus?: FocusContextValue;
+  }
 ) {
   const buttonRef = createRef<HTMLButtonElement>();
   const view = customRenderHook(

@@ -1,8 +1,9 @@
 import React from 'react';
-import { getMonthCaption } from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import { render } from '@testing-library/react';
+
+import { getMonthCaption } from 'react-day-picker/test/po';
+import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/default-month';
 

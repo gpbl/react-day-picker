@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { setDate } from 'date-fns';
 
-import { clickDay } from 'react-day-picker/test/actions';
 import { getDayButton } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/range-min-max';
 
 const today = new Date(2022, 8, 25);
-
+const user = userEvent.setup();
 freezeBeforeAll(today);
 beforeEach(() => {
   render(<Example />);
@@ -18,7 +18,7 @@ beforeEach(() => {
 
 describe('when the first day is clicked', () => {
   const fromDay = setDate(today, 14);
-  beforeEach(() => clickDay(fromDay));
+  beforeEach(async () => user.click(getDayButton(fromDay)));
   test('the clicked day should be selected', () => {
     expect(getDayButton(fromDay)).toHaveAttribute('aria-pressed', 'true');
   });

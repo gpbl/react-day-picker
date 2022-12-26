@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import { clickDay } from 'react-day-picker/test/actions';
 import { getDayButton, getTableFooter } from 'react-day-picker/test/po';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
@@ -10,6 +10,7 @@ import Example from '@examples/single-required';
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
+const user = userEvent.setup();
 
 beforeEach(() => {
   render(<Example />);
@@ -17,7 +18,7 @@ beforeEach(() => {
 
 describe('when a day is clicked', () => {
   const day = new Date(2021, 10, 1);
-  beforeEach(() => clickDay(day));
+  beforeEach(async () => user.click(getDayButton(day)));
   test('should appear as selected', () => {
     expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
   });
@@ -27,7 +28,7 @@ describe('when a day is clicked', () => {
     );
   });
   describe('when the day is clicked again', () => {
-    beforeEach(() => clickDay(day));
+    beforeEach(async () => user.click(getDayButton(day)));
     test('should appear as selected', () => {
       expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
     });

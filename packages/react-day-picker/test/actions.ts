@@ -1,109 +1,90 @@
+// import userEvent from '@testing-library/user-event';
+
 import { fireEvent } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
+import { UserEvent } from '@testing-library/user-event/dist/types/setup/setup';
+import { getFocusedElement } from './po';
 
-import {
-  getDayButton,
-  getFocusedElement,
-  getMonthDropdown,
-  getNextButton,
-  getPrevButton,
-  getWeekButton,
-  getYearDropdown
-} from './po';
+// const user = userEvent.setup();
 
-export function clickDay(date: Date, options = {}) {
-  fireEvent.click(getDayButton(date), options);
-}
+// import {
+//   getDayButton,
+//   getFocusedElement,
+//   getMonthDropdown,
+//   getNextButton,
+//   getPrevButton,
+//   getWeekButton,
+//   getYearDropdown
+// } from './po';
 
-export function clickPrevMonth(options = {}) {
-  fireEvent.click(getPrevButton(), options);
-}
+// export async function clickPrevMonth(options = {}) {
+//   await user.click(getPrevButton(), options);
+// }
 
-export function clickNextMonth(options = {}) {
-  fireEvent.click(getNextButton(), options);
-}
+// export async function clickNextMonth(options = {}) {
+//   await user.click(getNextButton(), options);
+// }
 
-export function clickWeek(weekNumber: number) {
-  fireEvent.click(getWeekButton(weekNumber));
-}
+// export async function clickWeek(weekNumber: number) {
+//   await user.click(getWeekButton(weekNumber));
+// }
 
-export function pressShiftTab() {
-  userEvent.tab({ shift: true });
-}
+// export async function pressShiftTab() {
+//   userEvent.tab({ shift: true });
+// }
 
-export function pressEnter() {
-  userEvent.keyboard('{enter}');
-}
+// export async function pressEnter() {
+//   userEvent.keyboard('{enter}');
+// }
 
-export function pressArrowLeft() {
-  userEvent.type(getFocusedElement(), '{arrowleft}');
-}
+// export async function pressArrowLeft() {
+//   userEvent.type(getFocusedElement(), '{arrowleft}');
+// }
 
-export function pressArrowRight() {
-  userEvent.type(getFocusedElement(), '{arrowright}');
-}
+// export async function pressArrowRight() {
+//   userEvent.type(getFocusedElement(), '{arrowright}');
+// }
 
-export function pressArrowUp() {
-  userEvent.type(getFocusedElement(), '{arrowup}');
-}
+// export async function pressArrowUp() {
+//   userEvent.type(getFocusedElement(), '{arrowup}');
+// }
 
-export function pressArrowDown() {
-  userEvent.type(getFocusedElement(), '{arrowdown}');
-}
+// export async function pressArrowDown() {
+//   userEvent.type(getFocusedElement(), '{arrowdown}');
+// }
 
-export function pressPageUp() {
-  fireEvent.keyDown(getFocusedElement(), { key: 'PageUp', charCode: 33 });
-}
+// export async function pressPageUp() {
+//   await user.keyDown(getFocusedElement(), { key: 'PageUp', charCode: 33 });
+// }
 
-export function pressPageDown() {
-  fireEvent.keyDown(getFocusedElement(), { key: 'PageDown', charCode: 34 });
-}
+// export async function pressPageDown() {
+//   await user.keyDown(getFocusedElement(), { key: 'PageDown', charCode: 34 });
+// }
 
-export function pressShiftPageUp() {
-  fireEvent.keyDown(getFocusedElement(), {
-    key: 'PageUp',
-    charCode: 33,
-    shiftKey: true
-  });
-}
+// export async function pressShiftPageUp() {
+//   await user.keyDown(getFocusedElement(), {
+//     key: 'PageUp',
+//     charCode: 33,
+//     shiftKey: true
+//   });
+// }
 
-export function pressShiftPageDown() {
-  fireEvent.keyDown(getFocusedElement(), {
-    key: 'PageDown',
-    charCode: 34,
-    shiftKey: true
-  });
-}
+// export async function pressShiftPageDown() {
+//   await user.keyDown(getFocusedElement(), {
+//     key: 'PageDown',
+//     charCode: 34,
+//     shiftKey: true
+//   });
+// }
 
-export function pressHome() {
-  userEvent.type(getFocusedElement(), '{home}');
-}
+// export async function pressHome() {
+//   userEvent.type(getFocusedElement(), '{home}');
+// }
 
-export function pressEnd() {
-  userEvent.type(getFocusedElement(), '{end}');
-}
-
-export function focusDay(day: Date) {
-  getDayButton(day).focus();
-}
-
-export function selectMonth(monthName: string) {
-  userEvent.selectOptions(getMonthDropdown(), monthName);
-}
-
-export function selectYear(year: string | number) {
-  userEvent.selectOptions(getYearDropdown(), String(year));
-}
-
-export function pressTab() {
-  userEvent.tab();
-}
-
-export function focusDaysGrid() {
+export async function focusDaysGrid(user: UserEvent) {
   // Make sure nothing is focused
-  fireEvent.blur(getFocusedElement());
+  await fireEvent.blur(getFocusedElement());
   // By pressing tab 3 times
-  pressTab();
-  pressTab();
-  pressTab();
+  await user.tab();
+  await user.tab();
+  await user.tab();
 }

@@ -10,6 +10,7 @@ import { Navigation, NavigationProps } from './Navigation';
 
 let root: HTMLElement;
 
+const user = userEvent.setup();
 function setup(props: NavigationProps, dayPickerProps?: DayPickerProps) {
   const view = customRender(<Navigation {...props} />, dayPickerProps);
   root = view.container.firstChild as HTMLElement;
@@ -62,16 +63,16 @@ describe('when rendered', () => {
   test('the next button should be named "next-month"', () => {
     expect(getNextButton()).toHaveAttribute('name', 'next-month');
   });
-  beforeEach(() => {
-    userEvent.click(getPrevButton());
+  beforeEach(async () => {
+    await user.click(getPrevButton());
   });
   test('should call "onPreviousClick"', () => {
     expect(props.onPreviousClick).toHaveBeenCalled();
   });
 
   describe('when clicking the next button', () => {
-    beforeEach(() => {
-      userEvent.click(getNextButton());
+    beforeEach(async () => {
+      await user.click(getNextButton());
     });
     test('should call "onNextClick"', () => {
       expect(props.onNextClick).toHaveBeenCalled();
@@ -93,16 +94,16 @@ describe('when in right-to-left direction', () => {
   });
 
   describe('when clicking the previous button', () => {
-    beforeEach(() => {
-      userEvent.click(getPrevButton());
+    beforeEach(async () => {
+      await user.click(getPrevButton());
     });
     test('should call "onPreviousClick"', () => {
       expect(props.onPreviousClick).toHaveBeenCalled();
     });
   });
   describe('when clicking the next button', () => {
-    beforeEach(() => {
-      userEvent.click(getNextButton());
+    beforeEach(async () => {
+      await user.click(getNextButton());
     });
     test('should call "onNextClick"', () => {
       expect(props.onNextClick).toHaveBeenCalled();
