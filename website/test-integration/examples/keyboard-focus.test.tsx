@@ -5,14 +5,13 @@ import userEvent from '@testing-library/user-event';
 import { addDays, addMonths, startOfMonth } from 'date-fns';
 import { DayPickerProps } from 'react-day-picker';
 
-import { focusDaysGrid } from 'react-day-picker/test/actions';
 import {
   getDayButton,
   getFocusedElement,
   getNextButton,
   getPrevButton
 } from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
+import { focusDaysGrid, freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/keyboard';
 
