@@ -5,13 +5,13 @@ import userEvent from '@testing-library/user-event';
 import { setMonth, setYear } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
+import { customRender } from 'test/render';
 import {
   getMonthDropdown,
   getYearDropdown,
   queryMonthDropdown,
   queryYearDropdown
-} from 'test/po';
-import { customRender } from 'test/render';
+} from 'test/selectors';
 import { freezeBeforeAll } from 'test/utils';
 
 import { CaptionProps } from 'components/Caption';

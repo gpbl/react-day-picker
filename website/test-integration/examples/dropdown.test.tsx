@@ -7,7 +7,7 @@ import {
   getMonthDropdown,
   getMonthGrid,
   getYearDropdown
-} from 'react-day-picker/test/po';
+} from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/dropdown';

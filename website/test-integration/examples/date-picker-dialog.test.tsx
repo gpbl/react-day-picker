@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { format } from 'date-fns';
 import { act } from 'react-dom/test-utils';
 
-import { getDayButton } from 'react-day-picker/test/po';
+import { getDayButton } from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/date-picker-dialog';

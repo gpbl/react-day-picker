@@ -3,8 +3,8 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { DayPickerProps } from 'DayPicker';
 
-import { getNextButton, getPrevButton } from 'test/po';
 import { customRender } from 'test/render';
+import { getNextButton, getPrevButton } from 'test/selectors';
 
 import { Navigation, NavigationProps } from './Navigation';
 

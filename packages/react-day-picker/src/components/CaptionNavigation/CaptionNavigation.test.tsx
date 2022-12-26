@@ -5,14 +5,14 @@ import userEvent from '@testing-library/user-event';
 import { addMonths } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
+import { customRender } from 'test/render';
 import {
   getMonthCaption,
   getNextButton,
   getPrevButton,
   queryNextButton,
   queryPrevButton
-} from 'test/po';
-import { customRender } from 'test/render';
+} from 'test/selectors';
 import { freezeBeforeAll } from 'test/utils';
 
 import { CaptionProps } from 'components/Caption';

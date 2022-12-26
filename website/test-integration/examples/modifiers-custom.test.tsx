@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { getDayButton, getTableFooter } from 'react-day-picker/test/po';
+import { getDayButton, getTableFooter } from 'react-day-picker/test/selectors';
 
 import Example from '@examples/modifiers-custom';
 

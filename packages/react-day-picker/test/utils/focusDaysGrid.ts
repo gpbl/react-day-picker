@@ -1,7 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 import { UserEvent } from '@testing-library/user-event/dist/types/setup/setup';
 
-import { getFocusedElement } from '../po';
+import { getFocusedElement } from '../selectors';
 
 export async function focusDaysGrid(user: UserEvent) {
   // Make sure nothing is focused

@@ -4,7 +4,10 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, format } from 'date-fns';
 
-import { getAllSelectedDays, getDayButton } from 'react-day-picker/test/po';
+import {
+  getAllSelectedDays,
+  getDayButton
+} from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/useinput';

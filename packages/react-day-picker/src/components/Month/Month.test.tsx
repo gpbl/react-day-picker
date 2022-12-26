@@ -3,8 +3,8 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import { DayPickerProps } from 'DayPicker';
 
-import { getMonthCaption, getMonthGrid } from 'test/po';
 import { customRender } from 'test/render';
+import { getMonthCaption, getMonthGrid } from 'test/selectors';
 
 import { CustomComponents } from 'types/DayPickerBase';
 
