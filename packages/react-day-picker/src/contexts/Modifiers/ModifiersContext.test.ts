@@ -24,17 +24,15 @@ describe('when rendered with custom modifiers', () => {
     range_end: modifier,
     range_middle: modifier
   };
-  let result: Modifiers;
-  beforeEach(() => {
-    result = renderHook({ modifiers: dayModifiers });
-  });
   test('should return the custom modifiers', () => {
-    expect(result.foo).toEqual([dayModifiers.foo]);
+    const result = renderHook({ modifiers: dayModifiers });
+    expect(result.current.foo).toEqual([dayModifiers.foo]);
   });
   test.each(internalModifiers)(
     'should override the %s internal modifier',
     (internalModifier) => {
-      expect(result[internalModifier]).toEqual([
+      const result = renderHook({ modifiers: dayModifiers });
+      expect(result.current[internalModifier]).toEqual([
         dayModifiers[internalModifier]
       ]);
     }

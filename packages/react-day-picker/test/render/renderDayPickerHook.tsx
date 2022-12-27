@@ -19,6 +19,9 @@ import {
 } from 'contexts/SelectSingle';
 
 /** Render a DayPicker hook inside the {@link RootProvider}. */
+export type RenderHookResult<TResult> = {
+  current: TResult;
+};
 export function renderDayPickerHook<TResult>(
   hook: () => TResult,
   dayPickerProps?: DayPickerProps,
@@ -29,14 +32,13 @@ export function renderDayPickerHook<TResult>(
     range: SelectRangeContextValue;
     focus: FocusContextValue;
   }
-) {
-  const returnVal = {};
+): RenderHookResult<TResult> {
+  const returnVal = { current: undefined as TResult };
   function Test(): JSX.Element {
     const hookResult: TResult = hook();
-    Object.assign(returnVal, hookResult);
+    returnVal.current = hookResult;
     return <></>;
   }
-
   render(
     <RootProvider {...dayPickerProps}>
       {contexts ? (
@@ -54,5 +56,5 @@ export function renderDayPickerHook<TResult>(
       )}
     </RootProvider>
   );
-  return returnVal as TResult;
+  return returnVal;
 }

@@ -19,8 +19,8 @@ describe('when goToMonth is called', () => {
     const onMonthChange = jest.fn();
     const result = renderHook({ onMonthChange });
     const month = addMonths(today, 2);
-    act(() => result[1](month));
-    expect(result[0]).toEqual(startOfMonth(month));
+    act(() => result.current[1](month));
+    expect(result.current[0]).toEqual(startOfMonth(month));
     expect(onMonthChange).toHaveBeenCalledWith(startOfMonth(month));
   });
   describe('when navigation is disabled', () => {
@@ -28,8 +28,8 @@ describe('when goToMonth is called', () => {
       const onMonthChange = jest.fn();
       const result = renderHook({ disableNavigation: true, onMonthChange });
       const month = addMonths(today, 2);
-      result[1](month);
-      expect(result[0]).toEqual(startOfMonth(today));
+      result.current[1](month);
+      expect(result.current[0]).toEqual(startOfMonth(today));
       expect(onMonthChange).not.toHaveBeenCalled();
     });
   });

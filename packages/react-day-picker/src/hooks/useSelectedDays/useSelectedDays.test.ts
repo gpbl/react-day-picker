@@ -14,17 +14,18 @@ function renderHook(
   dayPickerProps: DayPickerProps,
   contexts?: Partial<{ single: SelectSingleContextValue }>
 ) {
-  return renderDayPickerHook(() => useSelectedDays(), dayPickerProps, {
-    ...mockedContexts,
-    ...contexts
-  });
+  return renderDayPickerHook(
+    () => useSelectedDays(),
+    dayPickerProps,
+    mockedContexts
+  );
 }
 
 describe('when in single selection mode', () => {
   const mode = 'single';
   test('should return the selection from the single context', () => {
     const result = renderHook({ mode, selected: today });
-    expect(result).toBe(mockedContexts.single.selected);
+    expect(result.current).toBe(mockedContexts.single.selected);
   });
 });
 
@@ -32,7 +33,7 @@ describe('when in multiple selection mode', () => {
   const mode = 'multiple';
   test('should return the selection from the multiple context', () => {
     const result = renderHook({ mode });
-    expect(result).toBe(mockedContexts.multiple.selected);
+    expect(result.current).toBe(mockedContexts.multiple.selected);
   });
 });
 
@@ -40,6 +41,6 @@ describe('when in range selection mode', () => {
   const mode = 'range';
   test('should return the selection from the range context', () => {
     const result = renderHook({ mode });
-    expect(result).toBe(mockedContexts.range.selected);
+    expect(result.current).toBe(mockedContexts.range.selected);
   });
 });
