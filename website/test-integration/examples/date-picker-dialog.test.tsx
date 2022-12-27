@@ -5,8 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { format } from 'date-fns';
 import { act } from 'react-dom/test-utils';
 
-import { clickDay } from 'react-day-picker/test/actions';
-import { getDayButton } from 'react-day-picker/test/po';
+import { getDayButton } from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/date-picker-dialog';
@@ -14,6 +13,8 @@ import Example from '@examples/date-picker-dialog';
 const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
+
+const user = userEvent.setup();
 
 const getDialogButton = () => {
   return screen.getByRole('button', { name: 'Pick a date' });
@@ -34,7 +35,7 @@ beforeEach(() => {
 
 describe('when clicking the dialog button', () => {
   beforeEach(async () => {
-    userEvent.click(getDialogButton());
+    await user.click(getDialogButton());
     await waitPopper();
   });
   test('the dialog should be visible', () => {
@@ -46,7 +47,7 @@ describe('when clicking the dialog button', () => {
   describe('when clicking a day', () => {
     const date = today;
     beforeEach(async () => {
-      clickDay(date);
+      await user.click(getDayButton(date));
       await waitPopper();
     });
     test('the dialog should be closed', () => {
@@ -58,8 +59,8 @@ describe('when clicking the dialog button', () => {
     describe('when typing a new date into the input', () => {
       const newDate = tomorrow;
       beforeEach(async () => {
-        userEvent.clear(getInput());
-        userEvent.type(getInput(), format(newDate, 'y-MM-dd'));
+        await user.clear(getInput());
+        await user.type(getInput(), format(newDate, 'y-MM-dd'));
         await waitPopper();
       });
       test('the input should have the new date', () => {
@@ -67,7 +68,7 @@ describe('when clicking the dialog button', () => {
       });
       describe('when clicking the dialog button', () => {
         beforeEach(async () => {
-          userEvent.click(getDialogButton());
+          await user.click(getDialogButton());
           await waitPopper();
         });
         test('the new date should be selected', () => {

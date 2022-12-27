@@ -1,14 +1,15 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { addDays } from 'date-fns';
 
-import { clickDay } from 'react-day-picker/test/actions';
-import { getDayButton, getTableFooter } from 'react-day-picker/test/po';
+import { getDayButton, getTableFooter } from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/multiple-min-max';
 
+const user = userEvent.setup();
 const today = new Date(2021, 10, 10);
 freezeBeforeAll(today);
 beforeEach(() => {
@@ -23,7 +24,7 @@ const days = [
 ];
 
 describe('when a day is clicked', () => {
-  beforeEach(() => clickDay(days[0]));
+  beforeEach(async () => user.click(getDayButton(days[0])));
   test('should appear as selected', () => {
     expect(getDayButton(days[0])).toHaveAttribute('aria-pressed', 'true');
   });
@@ -31,7 +32,7 @@ describe('when a day is clicked', () => {
     expect(getTableFooter()).toHaveTextContent('You selected 1 day(s).');
   });
   describe('when a second day is clicked', () => {
-    beforeEach(() => clickDay(days[1]));
+    beforeEach(async () => user.click(getDayButton(days[1])));
     test('the first day should appear as selected', () => {
       expect(getDayButton(days[0])).toHaveAttribute('aria-pressed', 'true');
     });
@@ -42,7 +43,7 @@ describe('when a day is clicked', () => {
       expect(getTableFooter()).toHaveTextContent('You selected 2 day(s).');
     });
     describe('when clicked again', () => {
-      beforeEach(() => clickDay(days[1]));
+      beforeEach(async () => user.click(getDayButton(days[1])));
       test('the first day should still appear as selected', () => {
         expect(getDayButton(days[0])).toHaveAttribute('aria-pressed', 'true');
       });
@@ -57,7 +58,11 @@ describe('when a day is clicked', () => {
 });
 
 describe('when the first 5 days are clicked', () => {
-  beforeEach(() => days.forEach(clickDay));
+  beforeEach(async () => {
+    const promises = [];
+    days.forEach((day) => promises.push(user.click(getDayButton(day))));
+    await Promise.all(promises);
+  });
   test.each(days)('the %s day should appear as selected', (day) => {
     expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
   });

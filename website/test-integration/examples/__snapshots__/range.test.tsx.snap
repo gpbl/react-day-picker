@@ -653,7 +653,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
           aria-atomic="true"
           aria-live="polite"
           class="rdp-caption_label"
-          id="react-day-picker-28"
+          id="react-day-picker-36"
         >
           November 2020
         </h2>
@@ -700,7 +700,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
         </div>
       </div>
       <table
-        aria-labelledby="react-day-picker-28"
+        aria-labelledby="react-day-picker-36"
         class="rdp-table"
         role="grid"
       >

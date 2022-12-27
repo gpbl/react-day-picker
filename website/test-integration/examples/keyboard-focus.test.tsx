@@ -1,26 +1,17 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { addDays, addMonths, startOfMonth } from 'date-fns';
 import { DayPickerProps } from 'react-day-picker';
 
-import {
-  focusDaysGrid,
-  pressArrowDown,
-  pressArrowLeft,
-  pressArrowRight,
-  pressArrowUp,
-  pressEnter,
-  pressShiftTab,
-  pressTab
-} from 'react-day-picker/test/actions';
 import {
   getDayButton,
   getFocusedElement,
   getNextButton,
   getPrevButton
-} from 'react-day-picker/test/po';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
+} from 'react-day-picker/test/selectors';
+import { focusDaysGrid, freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/keyboard';
 
@@ -29,35 +20,37 @@ const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
 
+const user = userEvent.setup();
+
 function setup(props: DayPickerProps) {
   render(<Example {...props} />);
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   describe('when pressing Tab', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       setup({ mode: 'single', dir });
-      pressTab();
+      await user.tab();
     });
     test('should focus on the Previous Month button', () => {
       expect(getPrevButton()).toHaveFocus();
     });
     describe('when pressing Tab a second time', () => {
-      beforeEach(() => pressTab());
+      beforeEach(async () => user.tab());
       test('should focus on the Next Month button', () => {
         expect(getNextButton()).toHaveFocus();
       });
       describe('when pressing Tab a third time', () => {
-        beforeEach(() => pressTab());
+        beforeEach(async () => user.tab());
         test('should have the current day selected', () => {
           expect(getDayButton(today)).toHaveFocus();
         });
 
         const tests: [key: string, handler: () => void][] = [
-          ['ArrowDown', pressArrowDown],
-          ['ArrowUp', pressArrowUp],
-          ['ArrowLeft', pressArrowLeft],
-          ['ArrowRight', pressArrowRight]
+          ['ArrowDown', () => user.type(getFocusedElement(), '{arrowdown}')],
+          ['ArrowUp', () => user.type(getFocusedElement(), '{arrowup}')],
+          ['ArrowLeft', () => user.type(getFocusedElement(), '{arrowleft}')],
+          ['ArrowRight', () => user.type(getFocusedElement(), '{arrowright}')]
         ];
         describe.each(tests)(`when pressing %s`, (key, handler) => {
           let focusedElement: Element;
@@ -71,17 +64,17 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
               expect(focusedElement).not.toHaveFocus();
             });
             describe('when pressing Tab', () => {
-              beforeEach(() => pressTab());
+              beforeEach(async () => user.tab());
               test(`the element focused with ${key} should have focus again`, () => {
                 expect(focusedElement).toHaveFocus();
               });
             });
           });
           describe('when navigating to the next month', () => {
-            beforeEach(() => {
-              pressShiftTab(); // Back to next month button
-              pressEnter(); // go to the next month
-              pressTab(); // back to day grid
+            beforeEach(async () => {
+              await user.tab({ shift: true });
+              await user.keyboard('{enter}');
+              await user.tab();
             });
             test('the first active day of the next month should have focus', () => {
               const startOfNextMonth = startOfMonth(addMonths(today, 1));
@@ -99,7 +92,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       setup({ mode: 'single', dir, selected });
     });
     describe('when focusing the days grid', () => {
-      beforeEach(() => focusDaysGrid());
+      beforeEach(() => focusDaysGrid(user));
       test('the selected day should have focus', () => {
         expect(getDayButton(tomorrow)).toHaveFocus();
       });
@@ -113,7 +106,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       setup({ dir, selected, mode });
     });
     describe('when focusing the days grid', () => {
-      beforeEach(() => focusDaysGrid());
+      beforeEach(() => focusDaysGrid(user));
 
       test('the first selected day should have focus', () => {
         expect(getDayButton(yesterday)).toHaveFocus();
@@ -129,7 +122,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         setup({ mode: 'single', dir, defaultMonth, numberOfMonths });
       });
       describe('when focusing the days grid', () => {
-        beforeEach(() => focusDaysGrid());
+        beforeEach(() => focusDaysGrid(user));
         test('the today button should have focus', () => {
           expect(getDayButton(today)).toHaveFocus();
         });
@@ -148,7 +141,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       setup({ mode: 'single', dir, disabled, hidden, selected });
     });
     describe('when focusing the days grid', () => {
-      beforeEach(() => focusDaysGrid());
+      beforeEach(() => focusDaysGrid(user));
       test('the first not disabled day should have focus', () => {
         expect(getDayButton(notDisabled)).toHaveFocus();
       });

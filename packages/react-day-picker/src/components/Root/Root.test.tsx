@@ -4,9 +4,8 @@ import { RenderResult } from '@testing-library/react';
 import { addDays } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
-import { focusDay } from 'test/actions';
-import { getDayButton, queryMonthGrids } from 'test/po';
 import { customRender } from 'test/render';
+import { getDayButton, queryMonthGrids } from 'test/selectors';
 import { freezeBeforeAll } from 'test/utils';
 
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
@@ -103,7 +102,7 @@ describe('when "initialFocus" is set', () => {
     });
     describe('when a new day is focused', () => {
       beforeEach(() => {
-        focusDay(addDays(today, 1));
+        getDayButton(addDays(today, 1)).focus();
       });
       describe('and the calendar is rerendered', () => {
         test.todo('should focus the new day');

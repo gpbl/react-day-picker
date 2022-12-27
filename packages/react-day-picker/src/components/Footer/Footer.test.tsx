@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { getTableFooter, queryTableFooter } from 'test/po';
 import { customRender } from 'test/render';
+import { getTableFooter, queryTableFooter } from 'test/selectors';
 
 import { Footer } from './Footer';
 

@@ -1,14 +1,19 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import { clickPrevMonth } from 'react-day-picker/test/actions';
-import { getMonthCaption, getMonthGrid } from 'react-day-picker/test/po';
+import {
+  getMonthCaption,
+  getMonthGrid,
+  getPrevButton
+} from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/multiple-months-paged';
 
 const today = new Date(2021, 10, 25);
+const user = userEvent.setup();
 freezeBeforeAll(today);
 
 beforeEach(() => {
@@ -28,7 +33,7 @@ describe('when rendering November 2021', () => {
   });
   // Test pagination
   describe('when the previous month button is clicked', () => {
-    beforeEach(() => clickPrevMonth());
+    beforeEach(async () => user.click(getPrevButton()));
     test('the first month should be October', () => {
       expect(getMonthCaption()).toHaveTextContent('September 2021');
     });

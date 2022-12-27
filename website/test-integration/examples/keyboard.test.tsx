@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {
   addDays,
   addMonths,
@@ -14,28 +15,17 @@ import {
 import { DayPickerProps } from 'react-day-picker';
 
 import {
-  clickNextMonth,
-  clickPrevMonth,
-  focusDay,
-  pressArrowDown,
-  pressArrowLeft,
-  pressArrowRight,
-  pressArrowUp,
-  pressEnd,
-  pressHome,
-  pressPageDown,
-  pressPageUp,
-  pressShiftPageDown,
-  pressShiftPageUp
-} from 'react-day-picker/test/actions';
-import {
   getDayButton,
   getFocusedElement,
-  getMonthCaption
-} from 'react-day-picker/test/po';
+  getMonthCaption,
+  getNextButton,
+  getPrevButton
+} from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/keyboard';
+
+const user = userEvent.setup();
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
@@ -45,23 +35,22 @@ function setup(props: DayPickerProps) {
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
-  beforeEach(() => {
-    setup({ mode: 'single', dir });
-  });
+  beforeEach(() => setup({ mode: 'single', dir }));
 
   describe('when clicking the previous month button', () => {
-    beforeEach(() => clickPrevMonth());
+    beforeEach(async () => user.click(getPrevButton()));
     test('should display the previous month', () => {
       expect(getMonthCaption()).toHaveTextContent('May 2022');
     });
   });
   describe('when clicking the next month button', () => {
-    beforeEach(() => clickNextMonth());
+    beforeEach(async () => user.click(getNextButton()));
 
     test('should display the next month', () => {
       expect(getMonthCaption()).toHaveTextContent('July 2022');
     });
   });
+
   describe('when the first day is focused', () => {
     const day = setDate(today, 1);
     const nextDay = addDays(day, 1);
@@ -75,12 +64,12 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     const startOfWeekDay = startOfWeek(day);
     const endOfWeekDay = endOfWeek(day);
 
-    beforeEach(() => focusDay(day));
+    beforeEach(() => getDayButton(day).focus());
     test('the day button should be focused', () => {
       expect(getFocusedElement()).toBe(getDayButton(day));
     });
     describe('when the Arrow Left is pressed', () => {
-      beforeEach(pressArrowLeft);
+      beforeEach(async () => user.type(getFocusedElement(), '{arrowleft}'));
       if (dir === 'rtl') {
         test('should focus the next day', () => {
           expect(getDayButton(nextDay)).toHaveFocus();
@@ -95,7 +84,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       }
     });
     describe('when the Arrow Right is pressed', () => {
-      beforeEach(pressArrowRight);
+      beforeEach(async () => user.type(getFocusedElement(), '{arrowright}'));
       if (dir === 'rtl') {
         test('should display the previous month', () => {
           expect(getMonthCaption()).toHaveTextContent('May 2022');
@@ -110,7 +99,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       }
     });
     describe('when the Arrow Up is pressed', () => {
-      beforeEach(pressArrowUp);
+      beforeEach(async () => user.type(getFocusedElement(), '{arrowup}'));
       test('should display the previous month', () => {
         expect(getMonthCaption()).toHaveTextContent('May 2022');
       });
@@ -119,7 +108,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       });
     });
     describe('when the Arrow Down is pressed', () => {
-      beforeEach(pressArrowDown);
+      beforeEach(async () => user.type(getFocusedElement(), '{arrowdown}'));
       test('should display the same month', () => {
         expect(getMonthCaption()).toHaveTextContent('June 2022');
       });
@@ -128,7 +117,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       });
     });
     describe('when Page Up is pressed', () => {
-      beforeEach(pressPageUp);
+      beforeEach(async () => user.type(getFocusedElement(), '{pageup}'));
       it('should display the previous month', () => {
         expect(getMonthCaption()).toHaveTextContent('May 2022');
       });
@@ -137,7 +126,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       });
     });
     describe('when Page Down is pressed', () => {
-      beforeEach(pressPageDown);
+      beforeEach(async () => user.type(getFocusedElement(), '{pagedown}'));
       it('should display the next month', () => {
         expect(getMonthCaption()).toHaveTextContent('July 2022');
       });
@@ -146,7 +135,9 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       });
     });
     describe('when Shift + Page Up is pressed', () => {
-      beforeEach(pressShiftPageUp);
+      beforeEach(async () =>
+        user.type(getFocusedElement(), '{shift>}{pageup}')
+      );
       it('should display the previous year', () => {
         expect(getMonthCaption()).toHaveTextContent('June 2021');
       });
@@ -155,7 +146,9 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       });
     });
     describe('when Shift + Page Down is pressed', () => {
-      beforeEach(pressShiftPageDown);
+      beforeEach(async () =>
+        user.type(getFocusedElement(), '{shift>}{pagedown}')
+      );
       it('should display the next year', () => {
         expect(getMonthCaption()).toHaveTextContent('June 2023');
       });
@@ -164,13 +157,13 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       });
     });
     describe('when Home is pressed', () => {
-      beforeEach(pressHome);
+      beforeEach(async () => user.type(getFocusedElement(), '{home}'));
       it('should focus the start of the week', () => {
         expect(getDayButton(startOfWeekDay)).toHaveFocus();
       });
     });
     describe('when End is pressed', () => {
-      beforeEach(pressEnd);
+      beforeEach(async () => user.type(getFocusedElement(), '{end}'));
       it('should focus the end of the week', () => {
         expect(getDayButton(endOfWeekDay)).toHaveFocus();
       });
@@ -182,9 +175,9 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     const nextDay = addDays(day, 1);
     const prevDay = addDays(day, -1);
 
-    beforeEach(() => focusDay(day));
+    beforeEach(() => getDayButton(day).focus());
     describe('when the Arrow Right is pressed', () => {
-      beforeEach(pressArrowRight);
+      beforeEach(async () => user.type(getFocusedElement(), '{arrowright}'));
       if (dir === 'rtl') {
         test('should focus the previous day', () => {
           expect(getDayButton(prevDay)).toHaveFocus();
@@ -200,7 +193,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       }
     });
     describe('when the Arrow Left is pressed', () => {
-      beforeEach(pressArrowLeft);
+      beforeEach(async () => user.type(getFocusedElement(), '{arrowleft}'));
       if (dir === 'rtl') {
         test('should display the next month', () => {
           expect(getMonthCaption()).toHaveTextContent('July 2022');
@@ -219,7 +212,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       }
     });
     describe('when the Arrow Up is pressed', () => {
-      beforeEach(pressArrowUp);
+      beforeEach(async () => user.type(getFocusedElement(), '{arrowup}'));
       test('should display the same month', () => {
         expect(getMonthCaption()).toHaveTextContent('June 2022');
       });
@@ -229,7 +222,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       });
     });
     describe('when the Arrow Down is pressed', () => {
-      beforeEach(pressArrowDown);
+      beforeEach(async () => user.type(getFocusedElement(), '{arrowdown}'));
       test('should display the next month', () => {
         expect(getMonthCaption()).toHaveTextContent('July 2022');
       });
@@ -250,16 +243,18 @@ describe('when week is set to start on a Monday', () => {
     setup({ mode: 'single', weekStartsOn: 1 });
   });
 
-  beforeEach(() => focusDay(day));
+  beforeEach(() => getDayButton(day).focus());
 
   describe('when Home is pressed', () => {
-    beforeEach(pressHome);
+    beforeEach(async () => user.type(getFocusedElement(), '{home}'));
     it('should focus the start of the week being Monday', () => {
       expect(getDayButton(startOfWeekDay)).toHaveFocus();
     });
   });
   describe('when End is pressed', () => {
-    beforeEach(pressEnd);
+    beforeEach(async () => {
+      await user.type(getFocusedElement(), '{end}');
+    });
     it('should focus the end of the week being Sunday', () => {
       expect(getDayButton(endOfWeekDay)).toHaveFocus();
     });

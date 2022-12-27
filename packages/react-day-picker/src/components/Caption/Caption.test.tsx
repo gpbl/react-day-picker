@@ -3,6 +3,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import { DayPickerProps } from 'DayPicker';
 
+import { customRender } from 'test/render';
 import {
   getMonthCaption,
   getMonthDropdown,
@@ -11,8 +12,7 @@ import {
   getYearDropdown,
   queryNextButton,
   queryPrevButton
-} from 'test/po';
-import { customRender } from 'test/render';
+} from 'test/selectors';
 import { freezeBeforeAll } from 'test/utils';
 
 import { CustomComponents } from 'types/DayPickerBase';

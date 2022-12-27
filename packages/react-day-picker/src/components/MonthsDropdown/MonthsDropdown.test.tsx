@@ -18,6 +18,7 @@ let root: HTMLDivElement;
 let options: HTMLCollectionOf<HTMLOptionElement> | undefined;
 let select: HTMLSelectElement | null;
 
+const user = userEvent.setup();
 function setup(props: MonthsDropdownProps, dayPickerProps?: DayPickerProps) {
   const view = customRender(<MonthsDropdown {...props} />, dayPickerProps);
   root = view.container.firstChild as HTMLDivElement;
@@ -98,8 +99,8 @@ describe('when "fromDate" and "toDate" are not in the same year', () => {
   });
 
   describe('when the dropdown changes', () => {
-    beforeEach(() => {
-      if (select) userEvent.selectOptions(select, 'February');
+    beforeEach(async () => {
+      if (select) await user.selectOptions(select, 'February');
     });
     test('should fire the "onChange" event handler', () => {
       const expectedMonth = new Date(2015, 1, 1);
