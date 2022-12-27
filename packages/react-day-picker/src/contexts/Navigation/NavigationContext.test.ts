@@ -37,7 +37,6 @@ describe('when rendered', () => {
     beforeEach(() => {
       result = renderHook();
       act(() => result.goToMonth(newMonth));
-      new Promise<void>((resolve, reject) => {});
     });
     test('should go to the specified month', () => {
       expect(result.currentMonth).toEqual(newMonth);
