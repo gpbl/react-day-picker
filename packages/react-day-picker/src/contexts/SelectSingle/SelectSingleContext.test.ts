@@ -1,26 +1,28 @@
 import React from 'react';
 
-import { customRenderHook } from 'test/render/customRenderHook';
+import { DayPickerProps } from 'DayPicker';
+
+import { renderDayPickerHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
-import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerSingleProps } from 'types/DayPickerSingle';
 import { ActiveModifiers } from 'types/Modifiers';
 
-import { useSelectSingle } from './SelectSingleContext';
+import {
+  SelectSingleContextValue,
+  useSelectSingle
+} from './SelectSingleContext';
 
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
 
-function setup(dayPickerProps?: DayPickerBase) {
-  const { result } = customRenderHook(() => useSelectSingle(), dayPickerProps);
-  return result;
+function renderHook(props?: Partial<DayPickerProps>) {
+  return renderDayPickerHook<SelectSingleContextValue>(useSelectSingle, props);
 }
-
 describe('when is not a single select DayPicker', () => {
-  const result = setup();
   test('the selected day should be undefined', () => {
-    expect(result.current.selected).toBeUndefined();
+    const result = renderHook();
+    expect(result.selected).toBeUndefined();
   });
 });
 
@@ -30,8 +32,8 @@ describe('when a day is selected from DayPicker props', () => {
       mode: 'single',
       selected: today
     };
-    const result = setup(dayPickerProps);
-    expect(result.current.selected).toBe(today);
+    const result = renderHook(dayPickerProps);
+    expect(result.selected).toBe(today);
   });
 });
 describe('when onDayClick is called', () => {
@@ -40,11 +42,11 @@ describe('when onDayClick is called', () => {
     onSelect: jest.fn(),
     onDayClick: jest.fn()
   };
-  const result = setup(dayPickerProps);
+  const result = renderHook(dayPickerProps);
   const activeModifiers = {};
   const event = {} as React.MouseEvent;
-  result.current.onDayClick?.(today, activeModifiers, event);
   test('should call the `onSelect` event handler', () => {
+    result.onDayClick?.(today, activeModifiers, event);
     expect(dayPickerProps.onSelect).toHaveBeenCalledWith(
       today,
       today,
@@ -53,6 +55,7 @@ describe('when onDayClick is called', () => {
     );
   });
   test('should call the `onDayClick` event handler', () => {
+    result.onDayClick?.(today, activeModifiers, event);
     expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
       today,
       activeModifiers,
@@ -66,11 +69,11 @@ describe('if a selected day is not required', () => {
     onSelect: jest.fn(),
     required: false
   };
-  const result = setup(dayPickerProps);
-  const activeModifiers: ActiveModifiers = { selected: true };
-  const event = {} as React.MouseEvent;
-  result.current.onDayClick?.(today, activeModifiers, event);
   test('should call the `onSelect` event handler with an undefined day', () => {
+    const result = renderHook(dayPickerProps);
+    const activeModifiers: ActiveModifiers = { selected: true };
+    const event = {} as React.MouseEvent;
+    result.onDayClick?.(today, activeModifiers, event);
     expect(dayPickerProps.onSelect).toHaveBeenCalledWith(
       undefined,
       today,

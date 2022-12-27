@@ -36,7 +36,8 @@ const config = {
       extends: ['plugin:jest/recommended', 'plugin:testing-library/react'],
       rules: {
         'testing-library/no-render-in-setup': 'off',
-        'testing-library/no-node-access': 'off'
+        'testing-library/no-node-access': 'off',
+        'testing-library/render-result-naming-convention': 'off'
       }
     }
   ]

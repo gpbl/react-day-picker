@@ -5,13 +5,15 @@ import { useControlledValue } from 'hooks/useControlledValue';
 
 import { getInitialMonth } from './utils/getInitialMonth';
 
-/** Controls the navigation state. */
-export function useNavigationState(): [
+export type NavigationState = [
   /** The month DayPicker is navigating at */
   month: Date,
   /** Go to the specified month. */
   goToMonth: (month: Date) => void
-] {
+];
+
+/** Controls the navigation state. */
+export function useNavigationState(): NavigationState {
   const context = useDayPicker();
   const initialMonth = getInitialMonth(context);
   const [month, setMonth] = useControlledValue(initialMonth, context.month);

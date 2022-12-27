@@ -1,4 +1,4 @@
-import { act, RenderResult } from '@testing-library/react-hooks';
+import { act } from '@testing-library/react';
 import {
   addDays,
   addMonths,
@@ -8,19 +8,16 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import { customRenderHook } from 'test/render';
+import { renderDayPickerHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { FocusContextValue, useFocusContext } from 'contexts/Focus';
 
-let renderResult: RenderResult<FocusContextValue>;
-
 const today = new Date(2021, 11, 8); // make sure is in the middle of the week for the complete test
 freezeBeforeAll(today);
 
-function setup() {
-  const { result } = customRenderHook(() => useFocusContext());
-  renderResult = result;
+function renderHook() {
+  return renderDayPickerHook<FocusContextValue>(useFocusContext);
 }
 
 type HookFunction =
@@ -35,12 +32,13 @@ type HookFunction =
   | 'focusStartOfWeek'
   | 'focusEndOfWeek';
 
+let result: FocusContextValue;
 beforeEach(() => {
-  setup();
+  result = renderHook();
 });
 
 test('`focusedDay` should be undefined', () => {
-  expect(renderResult.current.focusedDay).toBeUndefined();
+  expect(result.focusedDay).toBeUndefined();
 });
 
 const tests: Array<HookFunction> = [
@@ -57,127 +55,105 @@ const tests: Array<HookFunction> = [
 ];
 describe.each(tests)('when calling %s', (fn: HookFunction) => {
   beforeEach(() => {
-    renderResult.current[fn];
+    result[fn];
   });
   test('`focusedDay` should be undefined', () => {
-    expect(renderResult.current.focusedDay).toBeUndefined();
+    expect(result.focusedDay).toBeUndefined();
   });
 });
 
 describe('when a day is focused', () => {
   const day = today;
   beforeEach(() => {
-    act(() => renderResult.current.focus(day));
+    act(() => result.focus(day));
   });
   test('should set the focused day', () => {
-    expect(renderResult.current.focusedDay).toEqual(day);
+    expect(result.focusedDay).toEqual(day);
   });
   describe('when "focusDayBefore" is called', () => {
     const dayBefore = addDays(day, -1);
-    beforeEach(() => {
-      act(() => renderResult.current.focusDayBefore());
-    });
+    beforeEach(() => act(() => result.focusDayBefore()));
     test('should focus the day before', () => {
-      expect(renderResult.current.focusedDay).toEqual(dayBefore);
+      expect(result.focusedDay).toEqual(dayBefore);
     });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusDayAfter" is called', () => {
-    beforeEach(() => {
-      act(() => renderResult.current.focusDayAfter());
-    });
+    beforeEach(() => act(() => result.focusDayAfter()));
     test('should focus the day after', () => {
       const dayAfter = addDays(day, 1);
-      expect(renderResult.current.focusedDay).toEqual(dayAfter);
+      expect(result.focusedDay).toEqual(dayAfter);
     });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusWeekBefore" is called', () => {
-    beforeEach(() => {
-      act(() => renderResult.current.focusWeekBefore());
-    });
+    beforeEach(() => act(() => result.focusWeekBefore()));
     test('should focus the day in the previous week', () => {
       const prevWeek = addWeeks(day, -1);
-      expect(renderResult.current.focusedDay).toEqual(prevWeek);
+      expect(result.focusedDay).toEqual(prevWeek);
     });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusWeekAfter" is called', () => {
-    beforeEach(() => {
-      act(() => renderResult.current.focusWeekAfter());
-    });
+    beforeEach(() => act(() => result.focusWeekAfter()));
     test('should focus the day in the next week', () => {
       const nextWeek = addWeeks(day, 1);
-      expect(renderResult.current.focusedDay).toEqual(nextWeek);
+      expect(result.focusedDay).toEqual(nextWeek);
     });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusStartOfWeek" is called', () => {
-    beforeEach(() => {
-      act(() => renderResult.current.focusStartOfWeek());
-    });
+    beforeEach(() => act(() => result.focusStartOfWeek()));
     test('should focus the first day of the week', () => {
       const firstDayOfWeek = startOfWeek(day);
-      expect(renderResult.current.focusedDay).toEqual(firstDayOfWeek);
+      expect(result.focusedDay).toEqual(firstDayOfWeek);
     });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusEndOfWeek" is called', () => {
-    beforeEach(() => {
-      act(() => renderResult.current.focusEndOfWeek());
-    });
+    beforeEach(() => act(() => result.focusEndOfWeek()));
     test('should focus the last day of the week', () => {
       const lastDayOfWeek = endOfWeek(day);
-      expect(renderResult.current.focusedDay).toEqual(lastDayOfWeek);
+      expect(result.focusedDay).toEqual(lastDayOfWeek);
     });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusMonthBefore" is called', () => {
-    beforeEach(() => {
-      act(() => renderResult.current.focusMonthBefore());
-    });
+    beforeEach(() => act(() => result.focusMonthBefore()));
     test('should focus the day in the month before', () => {
       const monthBefore = addMonths(day, -1);
-      expect(renderResult.current.focusedDay).toEqual(monthBefore);
+      expect(result.focusedDay).toEqual(monthBefore);
     });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusMonthAfter" is called', () => {
-    beforeEach(() => {
-      act(() => renderResult.current.focusMonthAfter());
-    });
+    beforeEach(() => act(() => result.focusMonthAfter()));
     test('should focus the day in the month after', () => {
       const monthAfter = addMonths(day, 1);
-      expect(renderResult.current.focusedDay).toEqual(monthAfter);
+      expect(result.focusedDay).toEqual(monthAfter);
     });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusYearBefore" is called', () => {
-    beforeEach(() => {
-      act(() => renderResult.current.focusYearBefore());
-    });
+    beforeEach(() => act(() => result.focusYearBefore()));
     test('should focus the day in the year before', () => {
       const prevYear = addYears(day, -1);
-      expect(renderResult.current.focusedDay).toEqual(prevYear);
+      expect(result.focusedDay).toEqual(prevYear);
     });
     test.todo('should call the navigation goToDate');
   });
   describe('when "focusYearAfter" is called', () => {
-    beforeEach(() => {
-      act(() => renderResult.current.focusYearAfter());
-    });
+    beforeEach(() => act(() => result.focusYearAfter()));
     test('should focus the day in the year after', () => {
       const nextYear = addYears(day, 1);
-      expect(renderResult.current.focusedDay).toEqual(nextYear);
+      expect(result.focusedDay).toEqual(nextYear);
     });
     test.todo('should call the navigation goToDate');
   });
   describe('when blur is called', () => {
-    beforeEach(() => {
-      act(() => renderResult.current.blur());
-    });
+    beforeEach(() => act(() => result.blur()));
     test('`focusedDay` should be undefined', () => {
-      expect(renderResult.current.focusedDay).toBeUndefined();
+      expect(result.focusedDay).toBeUndefined();
     });
   });
 });
