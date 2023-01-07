@@ -3,17 +3,12 @@ import { DayPickerProps } from 'DayPicker';
 import { renderDayPickerHook } from 'test/render';
 import { freezeBeforeAll, mockedContexts } from 'test/utils';
 
-import { SelectSingleContextValue } from 'contexts/SelectSingle';
-
 import { useSelectedDays } from './useSelectedDays';
 
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
 
-function renderHook(
-  dayPickerProps: DayPickerProps,
-  contexts?: Partial<{ single: SelectSingleContextValue }>
-) {
+function renderHook(dayPickerProps: DayPickerProps) {
   return renderDayPickerHook(
     () => useSelectedDays(),
     dayPickerProps,
