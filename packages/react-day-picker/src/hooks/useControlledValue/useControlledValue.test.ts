@@ -15,14 +15,14 @@ describe('when the value is controlled', () => {
   const controlledValue = 'bar'; // now controlled
   test('should return the controlled value', () => {
     const result = renderHook(defaultValue, controlledValue);
-    expect(result[0]).toBe(controlledValue);
+    expect(result.current[0]).toBe(controlledValue);
   });
   describe('when setting a new value', () => {
     const newValue = 'taz';
     test('should return the controlled value instead', () => {
       const result = renderHook(defaultValue, controlledValue);
-      act(() => result[1](newValue));
-      expect(result[0]).toBe(controlledValue);
+      act(() => result.current[1](newValue));
+      expect(result.current[0]).toBe(controlledValue);
     });
   });
 });
@@ -32,14 +32,14 @@ describe('when the value is not controlled', () => {
   const controlledValue = undefined;
   test('should return the value', () => {
     const result = renderHook(defaultValue, controlledValue);
-    expect(result[0]).toBe(defaultValue);
+    expect(result.current[0]).toBe(defaultValue);
   });
   describe('when setting a new value', () => {
     const newValue = 'bar';
     test('should return the new value', async () => {
       const result = renderHook(defaultValue, controlledValue);
-      await act(() => result[1](newValue));
-      expect(result[0]).toBe(newValue);
+      await act(() => result.current[1](newValue));
+      expect(result.current[0]).toBe(newValue);
     });
   });
 });

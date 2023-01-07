@@ -24,6 +24,6 @@ describe('when not in the same display month', () => {
     const result = renderDayPickerHook<ActiveModifiers>(() =>
       useActiveModifiers(date, displayMonth)
     );
-    expect(result.outside).toBe(true);
+    expect(result.current.outside).toBe(true);
   });
 });

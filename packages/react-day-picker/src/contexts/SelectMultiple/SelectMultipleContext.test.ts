@@ -26,10 +26,10 @@ function renderHook(props?: Partial<DayPickerProps>) {
 describe('when is not a multiple select DayPicker', () => {
   const result = renderHook();
   test('the selected day should be undefined', () => {
-    expect(result.selected).toBeUndefined();
+    expect(result.current.selected).toBeUndefined();
   });
   test('the disabled modifiers should be empty', () => {
-    expect(result.selected).toBeUndefined();
+    expect(result.current.selected).toBeUndefined();
   });
 });
 
@@ -52,7 +52,7 @@ describe('when days are selected', () => {
 
   test('it should return the days as selected', () => {
     const result = renderHook(dayPickerProps);
-    expect(result.selected).toStrictEqual(selected);
+    expect(result.current.selected).toStrictEqual(selected);
   });
   describe('when `onDayClick` is called with a not selected day', () => {
     const clickedDay = addDays(selectedDay1, -1);
@@ -60,7 +60,7 @@ describe('when days are selected', () => {
     const event = {} as React.MouseEvent;
     beforeAll(() => {
       const result = renderHook(dayPickerProps);
-      result.onDayClick?.(clickedDay, activeModifiers, event);
+      result.current.onDayClick?.(clickedDay, activeModifiers, event);
     });
     afterAll(() => {
       jest.resetAllMocks();
@@ -87,7 +87,7 @@ describe('when days are selected', () => {
     const activeModifiers: ActiveModifiers = { selected: true };
     beforeAll(() => {
       const result = renderHook(dayPickerProps);
-      result.onDayClick?.(clickedDay, activeModifiers, event);
+      result.current.onDayClick?.(clickedDay, activeModifiers, event);
     });
     afterAll(() => {
       jest.resetAllMocks();
@@ -121,14 +121,14 @@ describe('when the maximum number of days are selected', () => {
   };
   test('the selected days should not be disabled', () => {
     const result = renderHook(dayPickerProps);
-    const { disabled } = result.modifiers;
+    const { disabled } = result.current.modifiers;
     expect(isMatch(selectedDay1, disabled)).toBe(false);
     expect(isMatch(selectedDay2, disabled)).toBe(false);
     expect(isMatch(selectedDay3, disabled)).toBe(false);
   });
   test('the other days should be disabled', () => {
     const result = renderHook(dayPickerProps);
-    const { disabled } = result.modifiers;
+    const { disabled } = result.current.modifiers;
     expect(isMatch(addMonths(selectedDay1, 1), disabled)).toBe(true);
     expect(isMatch(addMonths(selectedDay2, 1), disabled)).toBe(true);
   });
@@ -137,7 +137,7 @@ describe('when the maximum number of days are selected', () => {
     const activeModifiers: ActiveModifiers = {};
     beforeAll(() => {
       const result = renderHook(dayPickerProps);
-      result.onDayClick?.(clickedDay, activeModifiers, event);
+      result.current.onDayClick?.(clickedDay, activeModifiers, event);
     });
     afterAll(() => {
       jest.resetAllMocks();
@@ -168,7 +168,7 @@ describe('when the minimum number of days are selected', () => {
     const activeModifiers: ActiveModifiers = { selected: true };
     beforeAll(() => {
       const result = renderHook(dayPickerProps);
-      result.onDayClick?.(clickedDay, activeModifiers, event);
+      result.current.onDayClick?.(clickedDay, activeModifiers, event);
     });
     afterAll(() => {
       jest.resetAllMocks();

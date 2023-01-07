@@ -24,7 +24,7 @@ function renderHook(props?: Partial<DayPickerProps>) {
 describe('when is not a multiple select DayPicker', () => {
   test('the selected day should be undefined', () => {
     const result = renderHook();
-    expect(result.selected).toBeUndefined();
+    expect(result.current.selected).toBeUndefined();
   });
 });
 
@@ -41,14 +41,14 @@ const stubEvent = {} as React.MouseEvent;
 describe('when no days are selected', () => {
   test('the selected days should be undefined', () => {
     const result = renderHook();
-    expect(result.selected).toBeUndefined();
+    expect(result.current.selected).toBeUndefined();
   });
   describe('when "onDayClick" is called', () => {
     const day = from;
     const activeModifiers = {};
     beforeAll(() => {
       const result = renderHook(initialProps);
-      result.onDayClick?.(day, activeModifiers, stubEvent);
+      result.current.onDayClick?.(day, activeModifiers, stubEvent);
     });
     afterAll(() => {
       jest.resetAllMocks();
@@ -79,15 +79,15 @@ describe('when only the "from" day is selected', () => {
   };
   test('should return the "range_start" modifiers with the "from" day', () => {
     const result = renderHook(dayPickerProps);
-    expect(result.modifiers.range_start).toEqual([from]);
+    expect(result.current.modifiers.range_start).toEqual([from]);
   });
   test('should return the "range_end" modifiers with the "from" day', () => {
     const result = renderHook(dayPickerProps);
-    expect(result.modifiers.range_end).toEqual([from]);
+    expect(result.current.modifiers.range_end).toEqual([from]);
   });
   test('should not return any "range_middle" modifiers', () => {
     const result = renderHook(dayPickerProps);
-    expect(result.modifiers.range_middle).toEqual([]);
+    expect(result.current.modifiers.range_middle).toEqual([]);
   });
 });
 
@@ -99,15 +99,15 @@ describe('when a complete range of days is selected', () => {
   };
   test('should return the "range_start" modifiers with the "from" day', () => {
     const result = renderHook(dayPickerProps);
-    expect(result.modifiers.range_start).toEqual([from]);
+    expect(result.current.modifiers.range_start).toEqual([from]);
   });
   test('should return the "range_end" modifiers with the "to" day', () => {
     const result = renderHook(dayPickerProps);
-    expect(result.modifiers.range_end).toEqual([to]);
+    expect(result.current.modifiers.range_end).toEqual([to]);
   });
   test('should return the "range_middle" range modifiers', () => {
     const result = renderHook(dayPickerProps);
-    expect(result.modifiers.range_middle).toEqual([
+    expect(result.current.modifiers.range_middle).toEqual([
       { after: from, before: to }
     ]);
   });
@@ -117,7 +117,7 @@ describe('when a complete range of days is selected', () => {
 
     beforeAll(() => {
       const result = renderHook(dayPickerProps);
-      result.onDayClick?.(day, activeModifiers, stubEvent);
+      result.current.onDayClick?.(day, activeModifiers, stubEvent);
     });
     afterAll(() => {
       jest.resetAllMocks();
@@ -149,15 +149,15 @@ describe('when "from" and "to" are the same', () => {
   };
   test('should return the "range_start" modifier with the date', () => {
     const result = renderHook(dayPickerProps);
-    expect(result.modifiers.range_start).toEqual([date]);
+    expect(result.current.modifiers.range_start).toEqual([date]);
   });
   test('should return the "range_end" modifier with the date', () => {
     const result = renderHook(dayPickerProps);
-    expect(result.modifiers.range_end).toEqual([date]);
+    expect(result.current.modifiers.range_end).toEqual([date]);
   });
   test('should return an empty "range_middle"', () => {
     const result = renderHook(dayPickerProps);
-    expect(result.modifiers.range_middle).toEqual([]);
+    expect(result.current.modifiers.range_middle).toEqual([]);
   });
 });
 
@@ -172,13 +172,13 @@ describe('when the max number of the selected days is reached', () => {
   };
   test('the days in the range should not be disabled', () => {
     const result = renderHook(dayPickerProps);
-    const { disabled } = result.modifiers;
+    const { disabled } = result.current.modifiers;
     expect(isMatch(from, disabled)).toBe(false);
     expect(isMatch(to, disabled)).toBe(false);
   });
   test('the other days should be disabled', () => {
     const result = renderHook(dayPickerProps);
-    const { disabled } = result.modifiers;
+    const { disabled } = result.current.modifiers;
     expect(isMatch(addMonths(from, 1), disabled)).toBe(true);
   });
   describe('when "onDayClick" is called with a new day', () => {
@@ -187,7 +187,7 @@ describe('when the max number of the selected days is reached', () => {
 
     beforeAll(() => {
       const result = renderHook(dayPickerProps);
-      result.onDayClick?.(day, activeModifiers, stubEvent);
+      result.current.onDayClick?.(day, activeModifiers, stubEvent);
     });
     afterAll(() => {
       jest.resetAllMocks();
@@ -215,7 +215,7 @@ describe('when the minimum number of days are selected', () => {
 
     beforeAll(() => {
       const result = renderHook(dayPickerProps);
-      result.onDayClick?.(day, activeModifiers, stubEvent);
+      result.current.onDayClick?.(day, activeModifiers, stubEvent);
     });
     afterAll(() => {
       jest.resetAllMocks();
@@ -234,7 +234,7 @@ describe('when the minimum number of days are selected', () => {
     const activeModifiers: ActiveModifiers = { selected: true };
     beforeAll(() => {
       const result = renderHook(dayPickerProps);
-      result.onDayClick?.(day, activeModifiers, stubEvent);
+      result.current.onDayClick?.(day, activeModifiers, stubEvent);
     });
     afterAll(() => {
       jest.resetAllMocks();
@@ -262,7 +262,7 @@ describe('when the minimum number of days are selected', () => {
     const activeModifiers: ActiveModifiers = { selected: true };
     beforeAll(() => {
       const result = renderHook(dayPickerProps);
-      result.onDayClick?.(day, activeModifiers, stubEvent);
+      result.current.onDayClick?.(day, activeModifiers, stubEvent);
     });
     afterAll(() => {
       jest.resetAllMocks();

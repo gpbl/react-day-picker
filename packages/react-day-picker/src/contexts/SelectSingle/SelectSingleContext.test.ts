@@ -22,7 +22,7 @@ function renderHook(props?: Partial<DayPickerProps>) {
 describe('when is not a single select DayPicker', () => {
   test('the selected day should be undefined', () => {
     const result = renderHook();
-    expect(result.selected).toBeUndefined();
+    expect(result.current.selected).toBeUndefined();
   });
 });
 
@@ -33,7 +33,7 @@ describe('when a day is selected from DayPicker props', () => {
       selected: today
     };
     const result = renderHook(dayPickerProps);
-    expect(result.selected).toBe(today);
+    expect(result.current.selected).toBe(today);
   });
 });
 describe('when onDayClick is called', () => {
@@ -46,7 +46,7 @@ describe('when onDayClick is called', () => {
   const activeModifiers = {};
   const event = {} as React.MouseEvent;
   test('should call the `onSelect` event handler', () => {
-    result.onDayClick?.(today, activeModifiers, event);
+    result.current.onDayClick?.(today, activeModifiers, event);
     expect(dayPickerProps.onSelect).toHaveBeenCalledWith(
       today,
       today,
@@ -55,7 +55,7 @@ describe('when onDayClick is called', () => {
     );
   });
   test('should call the `onDayClick` event handler', () => {
-    result.onDayClick?.(today, activeModifiers, event);
+    result.current.onDayClick?.(today, activeModifiers, event);
     expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
       today,
       activeModifiers,
@@ -73,7 +73,7 @@ describe('if a selected day is not required', () => {
     const result = renderHook(dayPickerProps);
     const activeModifiers: ActiveModifiers = { selected: true };
     const event = {} as React.MouseEvent;
-    result.onDayClick?.(today, activeModifiers, event);
+    result.current.onDayClick?.(today, activeModifiers, event);
     expect(dayPickerProps.onSelect).toHaveBeenCalledWith(
       undefined,
       today,

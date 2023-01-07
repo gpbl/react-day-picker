@@ -50,7 +50,7 @@ describe.each(tests)('when calling "%s"', (eventName, dayEventName) => {
   test(`${dayEventName} should have been called`, () => {
     const result = renderHook(date, activeModifiers, dayPickerProps);
     //@ts-expect-error TOFIX: How to mock mouse event here?
-    result[eventName]?.(mouseEvent);
+    result.current[eventName]?.(mouseEvent);
     expect(dayPickerProps[dayEventName]).toHaveBeenCalledWith(
       date,
       activeModifiers,
@@ -71,7 +71,7 @@ describe.each<'single' | 'multiple' | 'range'>(['single', 'multiple', 'range'])(
     const date = today;
     test(`should have called "onDayClick" from the ${mode} context`, () => {
       const result = renderHook(date, activeModifiers, dayPickerProps);
-      result.onClick?.(mouseEvent);
+      result.current.onClick?.(mouseEvent);
       expect(dayPickerProps.onDayClick).toHaveBeenCalledTimes(1);
     });
   }
@@ -83,7 +83,7 @@ describe('when calling "onFocus"', () => {
   const mouseEvent = {} as React.FocusEvent<HTMLButtonElement, Element>;
   test('should focus the date in the context', () => {
     const result = renderHook(date, activeModifiers);
-    result.onFocus?.(mouseEvent);
+    result.current.onFocus?.(mouseEvent);
     expect(mockedContexts.focus.focus).toHaveBeenCalledWith(date);
   });
 });
@@ -94,7 +94,7 @@ describe('when calling "onBlur"', () => {
   const mouseEvent = {} as React.FocusEvent<HTMLButtonElement, Element>;
   test('should blur the date in the context', () => {
     const result = renderHook(date, activeModifiers);
-    result.onBlur?.(mouseEvent);
+    result.current.onBlur?.(mouseEvent);
     expect(mockedContexts.focus.blur).toHaveBeenCalled();
   });
 });
@@ -140,7 +140,7 @@ describe('when calling "onKeyDown"', () => {
 
           beforeEach(() => {
             const result = renderHook(date, activeModifiers, { dir });
-            result.onKeyDown?.(keyboardEvent);
+            result.current.onKeyDown?.(keyboardEvent);
           });
           test(`should call ${expectedMethod}`, () => {
             expect(mockedContexts.focus[expectedMethod]).toHaveBeenCalledWith();
