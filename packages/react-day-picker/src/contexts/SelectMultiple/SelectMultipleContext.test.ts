@@ -1,7 +1,7 @@
-import { RenderResult } from '@testing-library/react-hooks';
 import { addDays, addMonths } from 'date-fns';
+import { DayPickerProps } from 'DayPicker';
 
-import { customRenderHook } from 'test/render/customRenderHook';
+import { renderDayPickerHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
 
 import { isMatch } from 'contexts/Modifiers/utils/isMatch';
@@ -16,17 +16,15 @@ import {
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
 
-let result: RenderResult<SelectMultipleContextValue>;
-
-function setup(dayPickerProps?: DayPickerMultipleProps) {
-  const view = customRenderHook(useSelectMultiple, dayPickerProps);
-  result = view.result;
+function renderHook(props?: Partial<DayPickerProps>) {
+  return renderDayPickerHook<SelectMultipleContextValue>(
+    useSelectMultiple,
+    props
+  );
 }
 
 describe('when is not a multiple select DayPicker', () => {
-  beforeAll(() => {
-    setup();
-  });
+  const result = renderHook();
   test('the selected day should be undefined', () => {
     expect(result.current.selected).toBeUndefined();
   });
@@ -52,10 +50,8 @@ describe('when days are selected', () => {
     selected
   };
 
-  beforeAll(() => {
-    setup(dayPickerProps);
-  });
   test('it should return the days as selected', () => {
+    const result = renderHook(dayPickerProps);
     expect(result.current.selected).toStrictEqual(selected);
   });
   describe('when `onDayClick` is called with a not selected day', () => {
@@ -63,6 +59,7 @@ describe('when days are selected', () => {
     const activeModifiers = {};
     const event = {} as React.MouseEvent;
     beforeAll(() => {
+      const result = renderHook(dayPickerProps);
       result.current.onDayClick?.(clickedDay, activeModifiers, event);
     });
     afterAll(() => {
@@ -89,6 +86,7 @@ describe('when days are selected', () => {
     const clickedDay = selectedDay1;
     const activeModifiers: ActiveModifiers = { selected: true };
     beforeAll(() => {
+      const result = renderHook(dayPickerProps);
       result.current.onDayClick?.(clickedDay, activeModifiers, event);
     });
     afterAll(() => {
@@ -121,17 +119,15 @@ describe('when the maximum number of days are selected', () => {
     selected,
     max: selected.length
   };
-  beforeAll(() => {
-    setup(dayPickerProps);
-  });
-
   test('the selected days should not be disabled', () => {
+    const result = renderHook(dayPickerProps);
     const { disabled } = result.current.modifiers;
     expect(isMatch(selectedDay1, disabled)).toBe(false);
     expect(isMatch(selectedDay2, disabled)).toBe(false);
     expect(isMatch(selectedDay3, disabled)).toBe(false);
   });
   test('the other days should be disabled', () => {
+    const result = renderHook(dayPickerProps);
     const { disabled } = result.current.modifiers;
     expect(isMatch(addMonths(selectedDay1, 1), disabled)).toBe(true);
     expect(isMatch(addMonths(selectedDay2, 1), disabled)).toBe(true);
@@ -140,6 +136,7 @@ describe('when the maximum number of days are selected', () => {
     const clickedDay = addMonths(selectedDay1, 1);
     const activeModifiers: ActiveModifiers = {};
     beforeAll(() => {
+      const result = renderHook(dayPickerProps);
       result.current.onDayClick?.(clickedDay, activeModifiers, event);
     });
     afterAll(() => {
@@ -166,13 +163,11 @@ describe('when the minimum number of days are selected', () => {
     selected,
     min: selected.length
   };
-  beforeAll(() => {
-    setup(dayPickerProps);
-  });
   describe('when `onDayClick` is called with one of the selected days', () => {
     const clickedDay = selected[0];
     const activeModifiers: ActiveModifiers = { selected: true };
     beforeAll(() => {
+      const result = renderHook(dayPickerProps);
       result.current.onDayClick?.(clickedDay, activeModifiers, event);
     });
     afterAll(() => {

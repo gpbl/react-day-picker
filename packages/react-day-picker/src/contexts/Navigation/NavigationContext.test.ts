@@ -1,10 +1,9 @@
-import { act, RenderResult } from '@testing-library/react-hooks';
+import { act } from '@testing-library/react';
 import { addMonths, startOfMonth, subMonths } from 'date-fns';
+import { DayPickerProps } from 'DayPicker';
 
-import { customRenderHook } from 'test/render/customRenderHook';
+import { renderDayPickerHook, RenderHookResult } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
-
-import { DayPickerBase } from 'types/DayPickerBase';
 
 import { NavigationContextValue, useNavigation } from './NavigationContext';
 
@@ -12,17 +11,14 @@ const today = new Date(2021, 11, 8);
 const todaysMonth = startOfMonth(today);
 freezeBeforeAll(today);
 
-let result: RenderResult<NavigationContextValue>;
-
-function setup(dayPickerProps?: DayPickerBase) {
-  const view = customRenderHook(() => useNavigation(), dayPickerProps);
-  result = view.result;
-  return result;
+function renderHook(props: Partial<DayPickerProps> = {}) {
+  return renderDayPickerHook<NavigationContextValue>(useNavigation, props);
 }
 
+let result: RenderHookResult<NavigationContextValue>;
 describe('when rendered', () => {
   beforeEach(() => {
-    setup();
+    result = renderHook();
   });
   test('the current month should be the today`s month', () => {
     expect(result.current.currentMonth).toEqual(todaysMonth);
@@ -39,9 +35,8 @@ describe('when rendered', () => {
   describe('when goToMonth is called', () => {
     const newMonth = addMonths(todaysMonth, 10);
     beforeEach(() => {
-      act(() => {
-        result.current.goToMonth(newMonth);
-      });
+      result = renderHook();
+      act(() => result.current.goToMonth(newMonth));
     });
     test('should go to the specified month', () => {
       expect(result.current.currentMonth).toEqual(newMonth);
@@ -60,7 +55,7 @@ describe('when rendered', () => {
     const newDate = addMonths(today, 10);
     const onMonthChange = jest.fn();
     beforeEach(() => {
-      setup({ onMonthChange });
+      result = renderHook({ onMonthChange });
       act(() => result.current.goToDate(newDate));
     });
     test('should go to the specified month', () => {
@@ -86,7 +81,7 @@ describe('when rendered', () => {
 const numberOfMonths = 2;
 describe('when the number of months is ${numberOfMonths}', () => {
   beforeEach(() => {
-    setup({ numberOfMonths: 2 });
+    result = renderHook({ numberOfMonths: 2 });
   });
   test('the current month should be the today`s month', () => {
     expect(result.current.currentMonth).toEqual(todaysMonth);
@@ -107,7 +102,7 @@ describe('when the number of months is ${numberOfMonths}', () => {
 
 describe(`when the number of months is ${numberOfMonths} and the navigation is paged`, () => {
   beforeEach(() => {
-    setup({ numberOfMonths, pagedNavigation: true });
+    result = renderHook({ numberOfMonths, pagedNavigation: true });
   });
   test('the current month should be the today`s month', () => {
     expect(result.current.currentMonth).toEqual(todaysMonth);
