@@ -3,7 +3,7 @@ import {
   SelectMultipleContextValue,
   SelectRangeContextValue,
   SelectSingleContextValue
-} from 'react-day-picker';
+} from 'index';
 
 const singleContext: SelectSingleContextValue = {
   selected: new Date(),
