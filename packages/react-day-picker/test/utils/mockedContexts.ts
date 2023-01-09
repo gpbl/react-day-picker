@@ -1,7 +1,9 @@
-import { FocusContextValue } from '../../src/contexts/Focus';
-import { SelectMultipleContextValue } from '../../src/contexts/SelectMultiple';
-import { SelectRangeContextValue } from '../../src/contexts/SelectRange';
-import { SelectSingleContextValue } from '../../src/contexts/SelectSingle';
+import {
+  FocusContextValue,
+  SelectMultipleContextValue,
+  SelectRangeContextValue,
+  SelectSingleContextValue
+} from 'react-day-picker';
 
 const singleContext: SelectSingleContextValue = {
   selected: new Date(),
