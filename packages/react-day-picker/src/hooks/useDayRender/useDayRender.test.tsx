@@ -3,8 +3,9 @@ import { createRef } from 'react';
 import { addDays, addMonths } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
+import { mockedContexts } from 'test/mockedContexts';
 import { renderDayPickerHook } from 'test/render';
-import { freezeBeforeAll, mockedContexts } from 'test/utils';
+import { freezeBeforeAll } from 'test/utils';
 
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { FocusContextValue } from 'contexts/Focus';
