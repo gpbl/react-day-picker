@@ -77,7 +77,8 @@ const buildConfig = {
     commonjs(),
     typescript({
       tsconfig: './tsconfig.build.json',
-      sourceMap: true
+      sourceMap: true,
+      declaration: false
     }),
     tscAliasPlugin(),
     copy({
