@@ -1,11 +1,12 @@
 import { exec } from 'child_process';
-
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescript from 'rollup-plugin-ts';
+import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import copy from 'rollup-plugin-copy';
+import dts from 'rollup-plugin-dts';
+
 import glob from 'glob';
 import path from 'path';
 
@@ -107,6 +108,15 @@ const buildConfig = {
   ]
 };
 
+const typeConfig = {
+  input: 'src/index.ts',
+  output: [{ file: 'dist/index.d.ts', format: 'es' }],
+  plugins: [
+    tscAliasPlugin(),
+    dts.default({ tsconfig: './tsconfig.build.json' })
+  ]
+};
+
 /** @type {import('rollup').RollupOptions} */
 const browserConfig = {
   input: 'dist/index.js',
@@ -118,7 +128,7 @@ const browserConfig = {
       globals
     }
   ],
-  plugins: [terser()]
+  plugins: [tscAliasPlugin(), terser()]
 };
 
-export default [buildConfig, browserConfig];
+export default [buildConfig, browserConfig, typeConfig];
