@@ -7,6 +7,7 @@ const pkg = require('react-day-picker/package.json');
 const typedocConfig = require('./docusaurus.typedoc');
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl');
+const sourceMapPlugin = require('./plugins/source-map');
 
 /** @type {import('@docusaurus/preset-classic').Options} */
 const presetClassicConfig = {
@@ -91,7 +92,7 @@ const config = {
     }
   },
   presets: [['@docusaurus/preset-classic', presetClassicConfig]],
-  plugins: [['docusaurus-plugin-typedoc', typedocConfig]]
+  plugins: [['docusaurus-plugin-typedoc', typedocConfig], sourceMapPlugin]
 };
 
 module.exports = config;

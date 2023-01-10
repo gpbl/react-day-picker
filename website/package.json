@@ -47,6 +47,7 @@
     "prettier": "^2.8.2",
     "prop-types": "^15.8.1",
     "raw-loader": "^4.0.2",
+    "source-map-loader": "^4.0.1",
     "ts-jest": "^29.0.3",
     "typedoc": "^0.23.24",
     "typedoc-plugin-markdown": "^3.14.0",
