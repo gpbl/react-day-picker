@@ -10,7 +10,8 @@
     "paths": {
       "test/*": ["../test/*"]
     },
-    "declaration": true,
+    "declaration": false,
+    "declarationMap": false,
     "sourceMap": true,
     "outDir": "./dist",
     "importHelpers": true,
