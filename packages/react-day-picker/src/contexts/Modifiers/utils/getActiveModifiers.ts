@@ -1,4 +1,4 @@
-import isSameMonth from 'date-fns/isSameMonth';
+import { isSameMonth } from 'date-fns';
 
 import { ActiveModifiers, Modifiers } from 'types/Modifiers';
 
