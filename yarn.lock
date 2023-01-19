@@ -3393,10 +3393,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-themes@npm:^1.17.0":
-  version: 1.17.0
-  resolution: "@codesandbox/sandpack-themes@npm:1.17.0"
-  checksum: e4ed29d15c4f17d3f6cff6428c9b7300b960f7a9005f40d785c8bd42b6180e5e3c03f6f5c4494f2ff3b301959f861eed55cc6cde2c6d4844a39ab5238d4e2c36
+"@codesandbox/sandpack-themes@npm:^1.19.0":
+  version: 1.19.0
+  resolution: "@codesandbox/sandpack-themes@npm:1.19.0"
+  checksum: 2c29ff1f0b46e03dbb194d90a58d088989a261b35888fdaaceaaec331b05fe8cc7faacaf0bd7b16898b453b00d8b4a96bdbf24df8530bea3442e6255e1a86274
   languageName: node
   linkType: hard
 
@@ -17781,7 +17781,7 @@ __metadata:
   resolution: "website@workspace:website"
   dependencies:
     "@codesandbox/sandpack-react": ^1.18.4
-    "@codesandbox/sandpack-themes": ^1.17.0
+    "@codesandbox/sandpack-themes": ^1.19.0
     "@docusaurus/core": ^2.2.0
     "@docusaurus/module-type-aliases": ^2.2.0
     "@docusaurus/preset-classic": ^2.2.0
