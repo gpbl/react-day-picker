@@ -1,4 +1,4 @@
-import format from 'date-fns/format';
+import { format } from 'date-fns';
 
 /**
  * The default formatter for the Year caption.

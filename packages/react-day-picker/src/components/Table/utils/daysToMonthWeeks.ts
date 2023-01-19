@@ -1,13 +1,14 @@
-import type { Locale } from 'date-fns';
-
-import addDays from 'date-fns/addDays';
-import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
-import endOfISOWeek from 'date-fns/endOfISOWeek';
-import endOfWeek from 'date-fns/endOfWeek';
-import getISOWeek from 'date-fns/getISOWeek';
-import getWeek from 'date-fns/getWeek';
-import startOfISOWeek from 'date-fns/startOfISOWeek';
-import startOfWeek from 'date-fns/startOfWeek';
+import {
+  addDays,
+  differenceInCalendarDays,
+  endOfISOWeek,
+  endOfWeek,
+  getISOWeek,
+  getWeek,
+  Locale,
+  startOfISOWeek,
+  startOfWeek
+} from 'date-fns';
 
 import { MonthWeek } from './getMonthWeeks';
 

@@ -1,8 +1,6 @@
 import React from 'react';
 
-import isSameYear from 'date-fns/isSameYear';
-import setMonth from 'date-fns/setMonth';
-import startOfMonth from 'date-fns/startOfMonth';
+import { isSameYear, setMonth, startOfMonth } from 'date-fns';
 
 import { Dropdown } from 'components/Dropdown';
 import { useDayPicker } from 'contexts/DayPicker';

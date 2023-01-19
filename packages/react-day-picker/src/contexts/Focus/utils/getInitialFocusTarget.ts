@@ -1,6 +1,4 @@
-import addDays from 'date-fns/addDays';
-import endOfMonth from 'date-fns/endOfMonth';
-import startOfMonth from 'date-fns/startOfMonth';
+import { addDays, endOfMonth, startOfMonth } from 'date-fns';
 
 import { getActiveModifiers } from 'contexts/Modifiers';
 import { Modifiers } from 'types/Modifiers';

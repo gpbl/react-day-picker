@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import isSameDay from 'date-fns/isSameDay';
+import { isSameDay } from 'date-fns';
 
 import { ButtonProps } from 'components/Button';
 import { DayContent } from 'components/DayContent';

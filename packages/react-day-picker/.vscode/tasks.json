@@ -18,7 +18,11 @@
       "script": "build",
       "problemMatcher": ["$tsc"],
       "isBackground": false,
-      "group": "build"
+      "group": "build",
+      "presentation": {
+        "clear": true,
+        "panel": "dedicated"
+      }
     },
     {
       "label": "build-watch",

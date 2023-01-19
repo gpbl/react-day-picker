@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/render-result-naming-convention */
 
-import es from 'date-fns/locale/es';
+import { es } from 'date-fns/locale';
 import { DayPickerProps } from 'DayPicker';
 
 import { renderDayPickerHook } from 'test/render';

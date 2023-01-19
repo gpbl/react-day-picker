@@ -1,9 +1,10 @@
-import type { Locale } from 'date-fns';
-
-import addWeeks from 'date-fns/addWeeks';
-import endOfMonth from 'date-fns/endOfMonth';
-import getWeeksInMonth from 'date-fns/getWeeksInMonth';
-import startOfMonth from 'date-fns/startOfMonth';
+import {
+  addWeeks,
+  endOfMonth,
+  getWeeksInMonth,
+  Locale,
+  startOfMonth
+} from 'date-fns';
 
 import { daysToMonthWeeks } from './daysToMonthWeeks';
 

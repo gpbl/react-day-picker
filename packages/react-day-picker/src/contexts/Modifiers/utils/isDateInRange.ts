@@ -1,5 +1,4 @@
-import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
-import isSameDay from 'date-fns/isSameDay';
+import { differenceInCalendarDays, isSameDay } from 'date-fns';
 
 import { DateRange } from 'types/Matchers';
 

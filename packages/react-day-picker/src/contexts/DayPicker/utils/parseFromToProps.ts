@@ -1,6 +1,4 @@
-import endOfMonth from 'date-fns/endOfMonth';
-import startOfDay from 'date-fns/startOfDay';
-import startOfMonth from 'date-fns/startOfMonth';
+import { endOfMonth, startOfDay, startOfMonth } from 'date-fns';
 
 import { DayPickerBase } from 'types/DayPickerBase';
 
