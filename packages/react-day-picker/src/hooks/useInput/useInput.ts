@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 
-import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
-import _format from 'date-fns/format';
-import enUS from 'date-fns/locale/en-US';
-import parse from 'date-fns/parse';
+import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
+import { enUS } from 'date-fns/locale';
 
 import { parseFromToProps } from 'contexts/DayPicker/utils';
 import { DayPickerBase } from 'types/DayPickerBase';

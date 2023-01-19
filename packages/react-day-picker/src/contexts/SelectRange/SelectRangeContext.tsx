@@ -1,9 +1,11 @@
 import React, { createContext, ReactNode, useContext } from 'react';
 
-import { isSameDay } from 'date-fns';
-import addDays from 'date-fns/addDays';
-import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
-import subDays from 'date-fns/subDays';
+import {
+  addDays,
+  differenceInCalendarDays,
+  isSameDay,
+  subDays
+} from 'date-fns';
 
 import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';

@@ -1,4 +1,4 @@
-import es from 'date-fns/locale/es';
+import { es } from 'date-fns/locale';
 
 import { formatWeekdayName } from './formatWeekdayName';
 

@@ -1,6 +1,4 @@
-import addMonths from 'date-fns/addMonths';
-import differenceInCalendarMonths from 'date-fns/differenceInCalendarMonths';
-import startOfMonth from 'date-fns/startOfMonth';
+import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
 
 import { DayPickerContextValue } from 'contexts/DayPicker';
 

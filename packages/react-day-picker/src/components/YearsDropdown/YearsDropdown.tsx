@@ -1,8 +1,6 @@
 import React from 'react';
 
-import setYear from 'date-fns/setYear';
-import startOfMonth from 'date-fns/startOfMonth';
-import startOfYear from 'date-fns/startOfYear';
+import { setYear, startOfMonth, startOfYear } from 'date-fns';
 
 import { Dropdown } from 'components/Dropdown';
 import { useDayPicker } from 'contexts/DayPicker';

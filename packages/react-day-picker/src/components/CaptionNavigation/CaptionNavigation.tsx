@@ -1,6 +1,6 @@
 import React from 'react';
 
-import isSameMonth from 'date-fns/isSameMonth';
+import { isSameMonth } from 'date-fns';
 
 import { CaptionProps } from 'components/Caption/Caption';
 import { CaptionLabel } from 'components/CaptionLabel';

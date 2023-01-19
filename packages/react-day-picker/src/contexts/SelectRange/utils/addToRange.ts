@@ -1,6 +1,4 @@
-import isAfter from 'date-fns/isAfter';
-import isBefore from 'date-fns/isBefore';
-import isSameDay from 'date-fns/isSameDay';
+import { isAfter, isBefore, isSameDay } from 'date-fns';
 
 import { DateRange } from 'types/Matchers';
 

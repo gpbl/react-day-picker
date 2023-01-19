@@ -1,4 +1,4 @@
-import startOfMonth from 'date-fns/startOfMonth';
+import { startOfMonth } from 'date-fns';
 
 import { useDayPicker } from 'contexts/DayPicker';
 import { useControlledValue } from 'hooks/useControlledValue';

@@ -97,7 +97,7 @@ export type DayPickerProps =
  * For example, to use Spanish locale:
  *
  * ```
- * import es from 'date-fns/locale/es';
+ * import { es } from 'date-fns/locale';
  * <DayPicker locale={es} />
  * ```
  */
