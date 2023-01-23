@@ -27,7 +27,7 @@ export type DayRender = {
   activeModifiers: ActiveModifiers;
   /** The props to apply to the button element (when `isButton` is true). */
   buttonProps: StyledComponent &
-    Pick<ButtonProps, 'disabled' | 'aria-pressed' | 'tabIndex'> &
+    Pick<ButtonProps, 'disabled' | 'aria-selected' | 'tabIndex'> &
     DayEventHandlers;
   /** The props to apply to the div element (when `isButton` is false). */
   divProps: StyledComponent;
@@ -75,9 +75,6 @@ export function useDayRender(
 
   const className = getDayClassNames(dayPicker, activeModifiers).join(' ');
   const style = getDayStyle(dayPicker, activeModifiers);
-  const ariaLabel = dayPicker.labels.labelDay(day, activeModifiers, {
-    locale: dayPicker.locale
-  });
   const isHidden = Boolean(
     (activeModifiers.outside && !dayPicker.showOutsideDays) ||
       activeModifiers.hidden
@@ -96,7 +93,7 @@ export function useDayRender(
     style,
     className,
     children,
-    'aria-label': ariaLabel
+    role: 'gridcell'
   };
 
   const isFocusTarget =
@@ -110,8 +107,8 @@ export function useDayRender(
   const buttonProps = {
     ...divProps,
     disabled: activeModifiers.disabled,
-    ['aria-pressed']: activeModifiers.selected,
-    ['aria-label']: ariaLabel,
+    role: 'gridcell',
+    ['aria-selected']: activeModifiers.selected,
     tabIndex: isFocused || isFocusTarget ? 0 : -1,
     ...eventHandlers
   };

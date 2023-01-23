@@ -13,11 +13,6 @@ import { Day, DayProps } from './Day';
 const today = new Date(2021, 8);
 
 freezeBeforeAll(today);
-let container: HTMLElement;
-function setup(props: DayProps, dayPickerProps?: DayPickerProps) {
-  const view = customRender(<Day {...props} />, dayPickerProps);
-  container = view.container;
-}
 
 const date = today;
 const displayMonth = today;
@@ -31,19 +26,21 @@ describe('when the day to render has an hidden modifier', () => {
     modifiers: { hidden: date }
   };
   beforeEach(() => {
-    setup(props, dayPickerProps);
+    customRender(<Day {...props} />, dayPickerProps);
   });
-  test('should render an empty element', () => {
-    expect(container).toBeEmptyDOMElement();
+  test('should render an empty grid cell', () => {
+    const cell = screen.getByRole('gridcell');
+    expect(cell).toBeEmptyDOMElement();
   });
 });
 describe('when a no selection mode and no "onDayClick"', () => {
   const dayPickerProps: DayPickerProps = { mode: 'default' };
   beforeEach(() => {
-    setup(props, dayPickerProps);
+    customRender(<Day {...props} />, dayPickerProps);
   });
   test('should render a div', () => {
-    expect(container.firstChild?.nodeName).toBe('DIV');
+    const cell = screen.getByRole('gridcell');
+    expect(cell.nodeName).toBe('DIV');
   });
 });
 
@@ -52,11 +49,12 @@ describe('when a selection mode is set', () => {
     mode: 'single'
   };
   beforeEach(() => {
-    setup(props, dayPickerProps);
+    customRender(<Day {...props} />, dayPickerProps);
   });
   test('should render a button named "day"', () => {
-    expect(container.firstChild?.nodeName).toBe('BUTTON');
-    expect(container.firstChild).toHaveAttribute('name', 'day');
+    const cell = screen.getByRole('gridcell');
+    expect(cell.nodeName).toBe('BUTTON');
+    expect(cell).toHaveAttribute('name', 'day');
   });
 });
 
@@ -65,10 +63,11 @@ describe('when "onDayClick" is present', () => {
     onDayClick: jest.fn()
   };
   beforeEach(() => {
-    setup(props, dayPickerProps);
+    customRender(<Day {...props} />, dayPickerProps);
   });
   test('should render a button', () => {
-    expect(container.firstChild?.nodeName).toBe('BUTTON');
+    const cell = screen.getByRole('gridcell');
+    expect(cell.nodeName).toBe('BUTTON');
   });
 });
 
@@ -77,7 +76,7 @@ describe('when using a custom DayContent component', () => {
     DayContent: () => <>Custom DayContent</>
   };
   beforeEach(() => {
-    setup(props, { components });
+    customRender(<Day {...props} />, { components });
   });
   test('it should render the custom component instead', () => {
     expect(screen.getByText('Custom DayContent')).toBeInTheDocument();

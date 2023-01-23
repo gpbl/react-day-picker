@@ -54,9 +54,9 @@ describe('when rendering the today’s date', () => {
       defaultClassNames.day
     );
   });
-  test('the button should not have "aria-pressed"', () => {
+  test('the button should not have "aria-selected"', () => {
     const result = renderHook(date, displayMonth);
-    expect(result.current.buttonProps['aria-pressed']).toBeUndefined();
+    expect(result.current.buttonProps['aria-selected']).toBeUndefined();
   });
   test('the button should have 0 as "tabIndex"', () => {
     const result = renderHook(date, displayMonth);
@@ -305,6 +305,6 @@ describe('when the day is selected', () => {
   const dayPickerProps = { selected: date };
   const result = renderHook(date, date, dayPickerProps);
   test('the button should have "aria-pressed"', () => {
-    expect(result.current.buttonProps['aria-pressed']).toBe(true);
+    expect(result.current.buttonProps['aria-selected']).toBe(true);
   });
 });
