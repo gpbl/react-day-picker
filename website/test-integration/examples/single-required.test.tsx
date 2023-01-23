@@ -20,7 +20,7 @@ describe('when a day is clicked', () => {
   const day = new Date(2021, 10, 1);
   beforeEach(async () => user.click(getDayButton(day)));
   test('should appear as selected', () => {
-    expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+    expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
   });
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent(
@@ -30,7 +30,7 @@ describe('when a day is clicked', () => {
   describe('when the day is clicked again', () => {
     beforeEach(async () => user.click(getDayButton(day)));
     test('should appear as selected', () => {
-      expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+      expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
     });
   });
 });

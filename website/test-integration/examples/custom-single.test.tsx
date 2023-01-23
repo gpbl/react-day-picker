@@ -20,7 +20,7 @@ describe('when a day is clicked', () => {
   const day = new Date(2021, 10, 1);
   beforeEach(() => user.click(getDayButton(day)));
   test('should appear as selected', () => {
-    expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+    expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
   });
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent('You selected Mon Nov 01 2021.');
