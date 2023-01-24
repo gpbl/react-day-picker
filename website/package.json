@@ -15,7 +15,7 @@
     "typecheck-watch": "yarn typecheck --watch"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^1.18.4",
+    "@codesandbox/sandpack-react": "^1.20.5",
     "@codesandbox/sandpack-themes": "^1.19.0",
     "@docusaurus/core": "^2.2.0",
     "@docusaurus/preset-classic": "^2.2.0",
