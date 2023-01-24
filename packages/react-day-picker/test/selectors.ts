@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
 import { format } from 'date-fns';
 
-export function getDayButton(day: Date) {
-  return screen.getByRole('button', {
-    name: format(day, 'do MMMM (EEEE)')
-  });
+export function getDayButton(day: Date, index = 0) {
+  return screen.getAllByRole('gridcell', {
+    name: day.getDate().toString()
+  })[index];
 }
 
 export function getAllSelectedDays() {
@@ -14,7 +14,7 @@ export function getAllSelectedDays() {
     .getElementsByTagName('button');
 
   return Array.from(buttons).filter(
-    (button) => button.getAttribute('aria-pressed') === 'true'
+    (button) => button.getAttribute('aria-selected') === 'true'
   );
 }
 
@@ -40,9 +40,7 @@ export function queryDayButton(day: Date) {
 }
 
 export function getDayCell(day: Date) {
-  return screen.getByRole('cell', {
-    name: format(day, 'do MMMM (EEEE)')
-  });
+  return getDayButton(day);
 }
 export function getWeekButton(week: number) {
   return screen.getByRole('button', {
@@ -75,7 +73,7 @@ export function queryNextButton() {
 }
 
 export function getMonthCaption(displayIndex = 0) {
-  return screen.getAllByRole('heading', { level: 2 })[displayIndex];
+  return screen.getAllByRole('presentation')[displayIndex];
 }
 
 export function getMonthGrid(index = 0) {

@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "8.4.1",
+  "version": "8.5.0",
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "http://react-day-picker.js.org",
@@ -47,7 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
     "date-fns": "^2.29.3",
-    "eslint": "^8.31.0",
+    "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-rdp": "workspace:^",
     "eslint-import-resolver-typescript": "^3.5.3",

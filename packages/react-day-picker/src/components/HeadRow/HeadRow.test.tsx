@@ -1,16 +1,11 @@
 import React from 'react';
 
-import { RenderResult, screen } from '@testing-library/react';
+import { RenderResult } from '@testing-library/react';
 import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 
-import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
-import { formatWeekdayName } from 'contexts/DayPicker/formatters';
-import { labelWeekday } from 'contexts/DayPicker/labels';
-
 import { HeadRow } from './HeadRow';
-import { getWeekdays } from './utils/getWeekdays';
 
 let container: HTMLElement;
 let view: RenderResult;
@@ -63,20 +58,6 @@ describe('when rendered', () => {
   test('should render the head elements with the "head_cell" class name', () => {
     thElements.forEach((el) => {
       expect(el).toHaveClass(dayPickerProps.classNames.head_cell);
-    });
-  });
-  test('the formatted weekday name should be ARIA-hidden', () => {
-    const weekdays = getWeekdays();
-    weekdays.forEach((weekday) => {
-      const text = formatWeekdayName(weekday);
-      expect(screen.getByText(text)).toHaveAttribute('aria-hidden', 'true');
-    });
-  });
-  test('the label should not be visible', () => {
-    const weekdays = getWeekdays();
-    weekdays.forEach((weekday) => {
-      const text = labelWeekday(weekday);
-      expect(screen.getByText(text)).toHaveClass(defaultClassNames.vhidden);
     });
   });
 });

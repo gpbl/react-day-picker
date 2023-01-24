@@ -26,7 +26,7 @@ const days = [
 describe('when a day is clicked', () => {
   beforeEach(async () => user.click(getDayButton(days[0])));
   test('should appear as selected', () => {
-    expect(getDayButton(days[0])).toHaveAttribute('aria-pressed', 'true');
+    expect(getDayButton(days[0])).toHaveAttribute('aria-selected', 'true');
   });
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent('You selected 1 day(s).');
@@ -34,10 +34,10 @@ describe('when a day is clicked', () => {
   describe('when a second day is clicked', () => {
     beforeEach(async () => user.click(getDayButton(days[1])));
     test('the first day should appear as selected', () => {
-      expect(getDayButton(days[0])).toHaveAttribute('aria-pressed', 'true');
+      expect(getDayButton(days[0])).toHaveAttribute('aria-selected', 'true');
     });
     test('the second day should appear as selected', () => {
-      expect(getDayButton(days[1])).toHaveAttribute('aria-pressed', 'true');
+      expect(getDayButton(days[1])).toHaveAttribute('aria-selected', 'true');
     });
     test('should update the footer', () => {
       expect(getTableFooter()).toHaveTextContent('You selected 2 day(s).');
@@ -45,10 +45,10 @@ describe('when a day is clicked', () => {
     describe('when clicked again', () => {
       beforeEach(async () => user.click(getDayButton(days[1])));
       test('the first day should still appear as selected', () => {
-        expect(getDayButton(days[0])).toHaveAttribute('aria-pressed', 'true');
+        expect(getDayButton(days[0])).toHaveAttribute('aria-selected', 'true');
       });
       test('the second day should still appear as selected', () => {
-        expect(getDayButton(days[1])).toHaveAttribute('aria-pressed', 'true');
+        expect(getDayButton(days[1])).toHaveAttribute('aria-selected', 'true');
       });
       test('should update the footer', () => {
         expect(getTableFooter()).toHaveTextContent('You selected 2 day(s).');
@@ -64,12 +64,12 @@ describe('when the first 5 days are clicked', () => {
     await Promise.all(promises);
   });
   test.each(days)('the %s day should appear as selected', (day) => {
-    expect(getDayButton(day)).toHaveAttribute('aria-pressed', 'true');
+    expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
   });
   describe('when a sixth day is clicked', () => {
     const day6 = addDays(today, 5);
     test('it should not appear as selected', () => {
-      expect(getDayButton(day6)).not.toHaveAttribute('aria-pressed');
+      expect(getDayButton(day6)).not.toHaveAttribute('aria-selected');
     });
   });
 });

@@ -19,18 +19,18 @@ describe('when displaying November 2021', () => {
   describe('when clicking on the 11th', () => {
     const day1 = new Date(2021, 10, 11);
     beforeEach(async () => user.click(getDayButton(day1)));
-    test('the 11th day should have aria-pressed true', () => {
-      expect(getDayButton(day1)).toHaveAttribute('aria-pressed', 'true');
+    test('the 11th day should have aria-selected true', () => {
+      expect(getDayButton(day1)).toHaveAttribute('aria-selected', 'true');
     });
     describe('when clicking on the 13th', () => {
       const day2 = new Date(2021, 10, 13);
       beforeEach(async () => user.click(getDayButton(day2)));
 
-      test('the 11th day should still have aria-pressed true', () => {
-        expect(getDayButton(day1)).toHaveAttribute('aria-pressed', 'true');
+      test('the 11th day should still have aria-selected true', () => {
+        expect(getDayButton(day1)).toHaveAttribute('aria-selected', 'true');
       });
-      test('the 13th day not should not have aria-pressed', () => {
-        expect(getDayButton(day2)).not.toHaveAttribute('aria-pressed');
+      test('the 13th day not should not have aria-selected', () => {
+        expect(getDayButton(day2)).not.toHaveAttribute('aria-selected');
       });
     });
     describe('when pressing the Shift key', () => {
@@ -39,8 +39,8 @@ describe('when displaying November 2021', () => {
         user.keyboard('{Shift>}');
         await user.click(getDayButton(day2));
       });
-      test('the 13th day should have aria-pressed true', () => {
-        expect(getDayButton(day2)).toHaveAttribute('aria-pressed', 'true');
+      test('the 13th day should have aria-selected true', () => {
+        expect(getDayButton(day2)).toHaveAttribute('aria-selected', 'true');
       });
     });
   });

@@ -20,7 +20,7 @@ describe('when the first day is clicked', () => {
   const fromDay = setDate(today, 14);
   beforeEach(async () => user.click(getDayButton(fromDay)));
   test('the clicked day should be selected', () => {
-    expect(getDayButton(fromDay)).toHaveAttribute('aria-pressed', 'true');
+    expect(getDayButton(fromDay)).toHaveAttribute('aria-selected', 'true');
   });
   test('the days below the min value should be disabled', () => {
     expect(getDayButton(setDate(today, 13))).toBeDisabled();

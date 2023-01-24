@@ -36,13 +36,9 @@ export function HeadRow(): JSX.Element {
           scope="col"
           className={classNames.head_cell}
           style={styles.head_cell}
+          aria-label={labelWeekday(weekday, { locale })}
         >
-          <span aria-hidden={true}>
-            {formatWeekdayName(weekday, { locale })}
-          </span>
-          <span className={classNames.vhidden}>
-            {labelWeekday(weekday, { locale })}
-          </span>
+          {formatWeekdayName(weekday, { locale })}
         </th>
       ))}
     </tr>
