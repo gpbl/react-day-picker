@@ -3,7 +3,7 @@
   "packageManager": "yarn@3.2.1",
   "version": "1.0.0",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.48.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.3",
