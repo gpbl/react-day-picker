@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 
+import { isSameDay } from 'date-fns';
 import { DayClickEventHandler, DayPicker } from 'react-day-picker';
 
 export default function App() {
   const [selectedDays, setSelectedDays] = useState<Date[]>([]);
 
   const handleDayClick: DayClickEventHandler = (day, modifiers) => {
-    setSelectedDays((currentValue) => {
-      const days = [...currentValue];
-      if (modifiers.selected) {
-        days.splice(currentValue.indexOf(day), 1);
-      } else {
-        days.push(day);
-      }
-      return days;
-    });
+    const newSelectedDays = [...selectedDays];
+    if (modifiers.selected) {
+      const index = selectedDays.findIndex((selectedDay) =>
+        isSameDay(day, selectedDay)
+      );
+      newSelectedDays.splice(index, 1);
+    } else {
+      newSelectedDays.push(day);
+    }
+    setSelectedDays(newSelectedDays);
   };
 
   const handleResetClick = () => setSelectedDays([]);
