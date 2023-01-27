@@ -91,7 +91,7 @@ jobs:
           path: website/build
 
   deploy-website:
-    needs: [build-website, test-website]
+    needs: [build-website, test-website, publish-npm]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
