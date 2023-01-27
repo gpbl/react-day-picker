@@ -16,20 +16,24 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Run typecheck (react-day-picker)
-        run: yarn workspace react-day-picker run typecheck
-      - name: Run lint (react-day-picker)
-        run: yarn workspace react-day-picker run lint --max-warnings 0
-      - name: Run test (react-day-picker)
-        run: yarn workspace react-day-picker run test
-      - name: Run typecheck (website)
-        run: yarn workspace website run typecheck
-      - name: Run lint (website)
-        run: yarn workspace website run lint --max-warnings 0
-      - name: Run test (website)
-        run: yarn workspace react-day-picker run test
+          cache: yarn
+      - run: yarn install --immutable
+      - run: yarn workspace react-day-picker run typecheck
+      - run: yarn workspace react-day-picker run lint --max-warnings 0
+      - run: yarn workspace react-day-picker run test
+
+  test-website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - run: yarn install --immutable
+      - run: yarn workspace website run typecheck
+      - run: yarn workspace website run lint --max-warnings 0
+      - run: yarn workspace react-day-picker run test
 
   build:
     runs-on: ubuntu-latest
@@ -38,15 +42,28 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Build (react-day-picker)
-        run: yarn workspace react-day-picker run build
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
+          cache: yarn
+      - run: yarn install --immutable
+      - run: yarn workspace react-day-picker run build
+      - uses: actions/upload-artifact@v3
         with:
           name: dist
           path: packages/react-day-picker/dist
+
+  build-website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - run: yarn install --immutable
+      - run: yarn workspace react-day-picker run build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build-website
+          path: website/build
 
   publish-npm:
     needs: [build, test]
@@ -57,8 +74,23 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
-      - name: Download dist artifact
-        uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+  deploy-website:
+    needs: [build-website, test-website, publish-npm]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - uses: actions/download-artifact@v3
         with:
           name: dist
       - run: npm publish
