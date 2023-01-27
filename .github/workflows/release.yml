@@ -18,9 +18,9 @@ jobs:
           node-version: 18
           cache: yarn
       - run: yarn install --immutable
-      - run: yarn workspace react-day-picker run typecheck
-      - run: yarn workspace react-day-picker run lint --max-warnings 0
-      - run: yarn workspace react-day-picker run test
+      - run: yarn workspaces foreach run typecheck
+      - run: yarn workspaces foreach run lint
+      - run: yarn workspaces foreach run test
 
   build:
     runs-on: ubuntu-latest
@@ -31,13 +31,17 @@ jobs:
           node-version: 18
           cache: yarn
       - run: yarn install --immutable
-      - run: yarn workspace react-day-picker run build
+      - run: yarn workspaces foreach run build
       - uses: actions/upload-artifact@v3
         with:
-          name: dist
+          name: rdp-dist
           path: packages/react-day-picker/dist
+      - uses: actions/upload-artifact@v3
+        with:
+          name: website-build
+          path: website/build
 
-  publish-npm:
+  publish:
     needs: [build, test]
     runs-on: ubuntu-latest
     steps:
@@ -48,50 +52,14 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - uses: actions/download-artifact@v3
         with:
-          name: dist
+          name: rdp-dist
       - run: npm publish
+        working-directory: packages/react-day-picker
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
-  test-website:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: yarn
-      - run: yarn install
-        working-directory: website
-      - run: yarn typecheck
-        working-directory: website
-      - run: yarn run lint --max-warnings 0
-        working-directory: website
-      - run: yarn run test-website
-        working-directory: website
-
-  build-website:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: yarn
-      - uses: actions/download-artifact@v3
-        with:
-          name: dist
-      - run: yarn install
-      - run: yarn workspace website run build
-      - uses: actions/upload-artifact@v3
-        with:
-          name: build-website
-          path: website/build
-
-  deploy-website:
-    needs: [build-website, test-website, publish-npm]
+  deploy:
+    needs: [build, test, publish]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -101,7 +69,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - uses: actions/download-artifact@v3
         with:
-          name: dist
-      - run: npm publish
+          name: website-build
+      - run: yarn deploy
+        working-directory: website
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
