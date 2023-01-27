@@ -9,13 +9,15 @@ on:
     types: [created]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Run typecheck (react-day-picker)
         run: yarn workspace react-day-picker run typecheck
       - name: Run lint (react-day-picker)
@@ -29,8 +31,25 @@ jobs:
       - name: Run test (website)
         run: yarn workspace react-day-picker run test
 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Build (react-day-picker)
+        run: yarn workspace react-day-picker run build
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: packages/react-day-picker/dist
+
   publish-npm:
-    needs: build
+    needs: [build, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -38,6 +57,10 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
+      - name: Download dist artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
