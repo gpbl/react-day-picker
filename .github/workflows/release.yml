@@ -1,7 +1,7 @@
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
-name: Node.js Package
+name: Release
 
 on:
   workflow_dispatch:
@@ -22,19 +22,6 @@ jobs:
       - run: yarn workspace react-day-picker run lint --max-warnings 0
       - run: yarn workspace react-day-picker run test
 
-  test-website:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: yarn
-      - run: yarn install --immutable
-      - run: yarn workspace website run typecheck
-      - run: yarn workspace website run lint --max-warnings 0
-      - run: yarn workspace react-day-picker run test
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -49,21 +36,6 @@ jobs:
         with:
           name: dist
           path: packages/react-day-picker/dist
-
-  build-website:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: yarn
-      - run: yarn install --immutable
-      - run: yarn workspace react-day-picker run build
-      - uses: actions/upload-artifact@v3
-        with:
-          name: build-website
-          path: website/build
 
   publish-npm:
     needs: [build, test]
@@ -81,8 +53,45 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
+  test-website:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - run: yarn install
+        working-directory: website
+      - run: yarn typecheck
+        working-directory: website
+      - run: yarn run lint --max-warnings 0
+        working-directory: website
+      - run: yarn run test-website
+        working-directory: website
+
+  build-website:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+      - run: yarn install
+      - run: yarn workspace website run build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build-website
+          path: website/build
+
   deploy-website:
-    needs: [build-website, test-website, publish-npm]
+    needs: [build-website, test-website]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
