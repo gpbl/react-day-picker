@@ -46,9 +46,11 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
+          always-auth: false
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
+      - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
       - run: npm publish
         working-directory: packages/react-day-picker
         env:
