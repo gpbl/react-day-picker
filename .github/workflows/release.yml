@@ -38,7 +38,7 @@ jobs:
           path: packages/react-day-picker/dist
 
   publish:
-    needs: [build]
+    needs: [build, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -50,11 +50,12 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
-      - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > "$NPM_CONFIG_USERCONFIG"
-      - run: npm publish
-        working-directory: packages/react-day-picker
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          package: packages/react-day-picker/package.json
+          access: public
+          check-version: false
+          token: ${{ secrets.NPM_TOKEN }}
 
   test-website:
     needs: publish
