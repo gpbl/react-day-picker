@@ -50,12 +50,11 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          package: packages/react-day-picker/package.json
-          access: public
-          check-version: false
-          token: ${{ secrets.NPM_TOKEN }}
+      - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > "$NPM_CONFIG_USERCONFIG"
+      - run: npm publish
+        working-directory: packages/react-day-picker
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   test-website:
     needs: publish
