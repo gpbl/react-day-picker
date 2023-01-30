@@ -51,7 +51,7 @@ jobs:
         with:
           name: rdp-dist
       - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
-      - run: npm publish
+      - run: npm publish --dry-run
         working-directory: packages/react-day-picker
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
