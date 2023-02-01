@@ -14,17 +14,18 @@ jobs:
     # Map a step output to a job output
     outputs:
       package-changed: ${{ steps.changed-files-package.outputs.any_changed }}
+      website-changed: ${{ steps.changed-files-website.outputs.any_changed }}
     steps:
       - uses: actions/checkout@v3
-      - name: Get changed files in the package folder
-        id: changed-files-package
+      - id: changed-files-package
         uses: tj-actions/changed-files@v35
         with:
           files: packages/**
-      - name: Get changed files
-        id: changes
-        run: |
-          echo "::set-output name=package::${{ steps.changed-files-package.outputs.any_changed }}"
+      - id: changed-files-website
+        uses: tj-actions/changed-files@v35
+        with:
+          files: website/**
+
   test:
     needs: [changes]
     runs-on: ubuntu-latest
@@ -35,13 +36,6 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - uses: dorny/paths-filter@v2
-        id: changes
-        with:
-          filters: |
-            src:
-              - 'src/**'
-
       - run: yarn install --frozen-lockfile
       - run: yarn workspace react-day-picker run typecheck
       - run: yarn workspace react-day-picker run lint
@@ -82,7 +76,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   test-website:
-    needs: publish
+    needs: [changes, publish]
+    if: ${{needs.changes.outputs.website-changed}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
