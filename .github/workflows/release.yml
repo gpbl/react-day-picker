@@ -26,6 +26,7 @@ jobs:
         run: |
           echo "::set-output name=package::${{ steps.changed-files-package.outputs.any_changed }}"
   test:
+    needs: [changes]
     runs-on: ubuntu-latest
     if: ${{needs.changes.outputs.package-changed}}
     steps:
