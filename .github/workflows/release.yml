@@ -9,35 +9,8 @@ on:
     types: [created]
 
 jobs:
-  changes:
-    runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      package-changed: ${{ steps.changed-files-package.outputs.any_changed }}
-      website-changed: ${{ steps.changed-files-website.outputs.any_changed }}
-    steps:
-      - uses: actions/checkout@v3
-      - id: changed-files-package
-        uses: tj-actions/changed-files@v35
-        with:
-          files: packages/**
-      - id: changed-files-website
-        uses: tj-actions/changed-files@v35
-        with:
-          files: website/**
-      - if: steps.changed-files-package.outputs.any_changed == 'true'
-        run: echo "${{ steps.changed-files-website.outputs.all_changed_files }}"
-      - if: steps.changed-files-package.outputs.any_changed == 'false'
-        run: echo "No files changed in the packages dir"
-      - if: steps.changed-files-website.outputs.any_changed == 'true'
-        run: echo "${{ steps.changed-files-website.outputs.all_changed_files }}"
-      - if: steps.changed-files-website.outputs.any_changed == 'false'
-        run: echo "No files changed in the website dir"
-
   test:
-    needs: changes
     runs-on: ubuntu-latest
-    if: ${{ needs.changes.outputs.package-changed == 'true' }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -85,8 +58,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   test-website:
-    needs: [changes, publish]
-    if: ${{ needs.changes.outputs.website-changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -94,16 +65,13 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-          install: true
-      - run: yarn install
-      - run: yarn add react-day-picker --latest
-        working-directory: website
+      - run: yarn install --frozen-lockfile
       - run: yarn workspace website run typecheck
       - run: yarn workspace website run lint
       - run: yarn workspace website run test
 
   build-website:
-    needs: publish
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -111,14 +79,15 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - run: yarn install
-      - run: yarn add react-day-picker --latest
-        working-directory: website
+      - uses: actions/download-artifact@v3
+        with:
+          name: rdp-dist
+      - run: yarn install --frozen-lockfile
       - run: yarn workspace website run build
       - uses: actions/upload-artifact@v3
         with:
-          name: rdp-dist
-          path: packages/react-day-picker/dist
+          name: website-build
+          path: website/build
 
   deploy-website:
     needs: [build-website, test-website]
