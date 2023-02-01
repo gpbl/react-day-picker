@@ -25,9 +25,17 @@ jobs:
         uses: tj-actions/changed-files@v35
         with:
           files: website/**
+      - if: steps.changed-files-package.outputs.any_changed == 'true'
+        run: echo "${{ steps.changed-files-website.outputs.all_changed_files }}"
+      - if: steps.changed-files-package.outputs.any_changed == 'false'
+        run: echo "No files changed in the packages dir"
+      - if: steps.changed-files-website.outputs.any_changed == 'true'
+        run: echo "${{ steps.changed-files-website.outputs.all_changed_files }}"
+      - if: steps.changed-files-website.outputs.any_changed == 'false'
+        run: echo "No files changed in the website dir"
 
   test:
-    needs: [changes]
+    needs: changes
     runs-on: ubuntu-latest
     if: ${{needs.changes.outputs.package-changed}}
     steps:
