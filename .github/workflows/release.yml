@@ -63,11 +63,11 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - run: yarn install --frozen-lockfile
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
+      - run: yarn install --frozen-lockfile
       - run: yarn workspace website run typecheck
       - run: yarn workspace website run lint
       - run: yarn workspace website run test
@@ -81,11 +81,11 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - run: yarn install --frozen-lockfile
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
+      - run: yarn install --frozen-lockfile
       - run: yarn workspace website run build
       - uses: actions/upload-artifact@v3
         with:
@@ -101,11 +101,11 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
-      - run: yarn install --frozen-lockfile
       - uses: actions/download-artifact@v3
         with:
           name: website-build
           path: website/build
+      - run: yarn install --frozen-lockfile
       - run: yarn deploy
         working-directory: website
         env:

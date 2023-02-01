@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  build-package:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,21 +16,44 @@ jobs:
           node-version: 18
           cache: yarn
       - run: yarn install --frozen-lockfile
-      - run: yarn workspace website add react-day-picker@latest
+      - run: yarn workspace react-day-picker run build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: rdp-dist
+          path: packages/react-day-picker/dist
+
+  test:
+    runs-on: ubuntu-latest
+    needs: [build-package]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - uses: actions/download-artifact@v3
+        with:
+          name: rdp-dist
+          path: packages/react-day-picker/dist
+      - run: yarn install --frozen-lockfile
       - run: yarn workspace website run typecheck
       - run: yarn workspace website run lint
       - run: yarn workspace website run test
 
   build:
     runs-on: ubuntu-latest
+    needs: [build-package]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: yarn
+      - uses: actions/download-artifact@v3
+        with:
+          name: rdp-dist
+          path: packages/react-day-picker/dist
       - run: yarn install --frozen-lockfile
-      - run: yarn workspace website add react-day-picker@latest
       - run: yarn workspace website build
       - uses: actions/upload-artifact@v3
         with:
@@ -47,12 +70,11 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn workspace website add react-day-picker@latest
       - uses: actions/download-artifact@v3
         with:
           name: website-build
           path: website/build
+      - run: yarn install --frozen-lockfile
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
