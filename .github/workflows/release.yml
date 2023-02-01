@@ -67,7 +67,7 @@ jobs:
           cache: yarn
           install: true
       - run: yarn install --frozen-lockfile --immutable
-      - run: yarn install react-day-picker --latest
+      - run: yarn add react-day-picker --latest
         working-directory: website
       - run: yarn workspace website run typecheck
       - run: yarn workspace website run lint
