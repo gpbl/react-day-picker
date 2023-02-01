@@ -37,7 +37,7 @@ jobs:
   test:
     needs: changes
     runs-on: ubuntu-latest
-    if: ${{ needs.changes.outputs.package-changed === 'true' }}
+    if: ${{ needs.changes.outputs.package-changed == 'true' }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -86,7 +86,7 @@ jobs:
 
   test-website:
     needs: [changes, publish]
-    if: ${{ needs.changes.outputs.website-changed === 'true' }}
+    if: ${{ needs.changes.outputs.website-changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
