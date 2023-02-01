@@ -81,7 +81,7 @@ export type DayPickerProps =
  * If you are using CSS modules, pass the imported styles object the
  * `classNames` props.
  *
- * You can also style the elements via inline-styles using the `styles` prop.
+ * You can also style the elements via inline styles using the `styles` prop.
  *
  * ### Form fields
  *

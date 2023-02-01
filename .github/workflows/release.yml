@@ -90,7 +90,7 @@ jobs:
           node-version: 18
           cache: yarn
           install: true
-      - run: yarn install --frozen-lockfile
+      - run: yarn install
       - run: yarn add react-day-picker --latest
         working-directory: website
       - run: yarn workspace website run typecheck
@@ -106,7 +106,7 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - run: yarn install --frozen-lockfile
+      - run: yarn install
       - run: yarn add react-day-picker --latest
         working-directory: website
       - run: yarn workspace website run build
