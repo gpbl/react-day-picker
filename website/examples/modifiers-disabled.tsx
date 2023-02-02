@@ -13,6 +13,7 @@ export default function App() {
   return (
     <DayPicker
       defaultMonth={new Date(2022, 5, 10)}
+      mode="single"
       disabled={disabledDays}
     />
   );
