@@ -46,7 +46,12 @@ export interface UseInputOptions
   > {
   /** The initially selected date */
   defaultSelected?: Date;
-  /** The format string for formatting the input field. See https://date-fns.org/docs/format for a list of format strings. Default to `PP`. */
+  /**
+   * The format string for formatting the input field. See
+   * https://date-fns.org/docs/format for a list of format strings.
+   *
+   * @defaultValue PP
+   */
   format?: string;
   /** Make the selection required. */
   required?: boolean;

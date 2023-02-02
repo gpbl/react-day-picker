@@ -34,7 +34,8 @@ import { ClassNames, StyledComponent, Styles } from './Styles';
  * - `single`: use DayPicker to select single days.
  * - `multiple`: allow selecting multiple days.
  * - `range`: use DayPicker to select a range of days
- * - `default`: disable the built-in selection behavior. Customize what is selected by using {@link DayPickerBase.onDayClick}.
+ * - `default`: disable the built-in selection behavior. Customize what is
+ *   selected by using {@link DayPickerBase.onDayClick}.
  */
 export type DaySelectionMode = 'single' | 'multiple' | 'range' | 'default';
 
@@ -42,7 +43,10 @@ export type DaySelectionMode = 'single' | 'multiple' | 'range' | 'default';
  * The base props for the {@link DayPicker} component and the {@link DayPickerContext}.
  */
 export interface DayPickerBase {
-  /** The CSS class to add to the container element. To change the name of the class instead, use `classNames.root`. */
+  /**
+   * The CSS class to add to the container element. To change the name of the
+   * class instead, use `classNames.root`.
+   */
   className?: string;
   /**
    * Change the class names of the HTML elements.
@@ -61,7 +65,7 @@ export interface DayPickerBase {
    */
   style?: React.CSSProperties;
   /**
-   * Change the inline styles for each UIElement.
+   * Change the inline styles of the HTML elements.
    */
   styles?: Styles;
   /**
@@ -70,21 +74,24 @@ export interface DayPickerBase {
   modifiersStyles?: ModifiersStyles;
 
   /**
-   * An unique id to replace the random generated id, used by DayPicker for accessibility.
+   * A unique id to replace the random generated id – used by DayPicker for
+   * accessibility.
    */
   id?: string;
 
   /**
-   * The initial month to show in the calendar. Default is the current month.
+   * The initial month to show in the calendar. Use this prop to let DayPicker
+   * control the current month. If you need to set the month programmatically,
+   * use {@link month]] and [[onMonthChange}.
    *
-   * Use this prop to let DayPicker control the current month. If you need to set the month programmatically, use {@link month]] and [[onMonthChange}.
+   * @defaultValue The current month
    */
   defaultMonth?: Date;
   /**
    * The month displayed in the calendar.
    *
-   * As opposed to {@link DayPickerBase.defaultMonth}, use this prop with {@link DayPickerBase.onMonthChange} to
-   * change the month programmatically.
+   * As opposed to {@link DayPickerBase.defaultMonth}, use this prop with
+   * {@link DayPickerBase.onMonthChange} to change the month programmatically.
    */
   month?: Date;
   /**
@@ -92,7 +99,9 @@ export interface DayPickerBase {
    */
   onMonthChange?: MonthChangeEventHandler;
   /**
-   * The number of displayed months. Defaults to `1`.
+   * The number of displayed months.
+   *
+   * @defaultValue 1
    */
   numberOfMonths?: number;
   /**
@@ -121,41 +130,55 @@ export interface DayPickerBase {
   toYear?: number;
   /**
    * Disable the navigation between months.
+   *
+   * @defaultValue false
    */
   disableNavigation?: boolean;
   /**
-   * Paginate the month navigation displaying the {@link numberOfMonths} at time.
+   * Paginate the month navigation displaying the {@link numberOfMonths} at
+   * time.
+   *
+   * @defaultValue false
    */
   pagedNavigation?: boolean;
   /**
    * Render the months in reversed order (when {@link numberOfMonths} is greater
    * than `1`) to display the most recent month first.
+   *
+   * @defaultValue false
    */
   reverseMonths?: boolean;
 
   /**
    * Change the layout of the caption:
    *
-   * - `buttons` (default): display prev/right buttons
+   * - `buttons`: display prev/right buttons
    * - `dropdown`: display drop-downs to change the month and the year
    *
    * **Note:** the `dropdown` layout is available only when `fromDate`,
    * `fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
    *
+   * @defaultValue buttons
    */
   captionLayout?: CaptionLayout;
   /**
    * Display six weeks per months, regardless the month’s number of weeks.
-   * To use this prop, {@link showOutsideDays} must be set. Default to `false`.
+   * To use this prop, {@link showOutsideDays} must be set.
+   *
+   * @defaultValue false
    */
   fixedWeeks?: boolean;
   /**
    * Hide the month’s head displaying the weekday names.
+   *
+   * @defaultValue false
    */
   hideHead?: boolean;
   /**
    * Show the outside days.  An outside day is a day falling in the next or the
-   * previous month. Default is `false`.
+   * previous month.
+   *
+   * @defaultValue false
    */
   showOutsideDays?: boolean;
   /**
@@ -184,11 +207,15 @@ export interface DayPickerBase {
   ISOWeek?: boolean;
 
   /**
-   * Map of components used to create the layout. Look at the [components source](https://github.com/gpbl/react-day-picker/tree/master/packages/react-day-picker/src/components) to understand how internal components are built.
+   * Map of components used to create the layout. Look at the [components
+   * source](https://github.com/gpbl/react-day-picker/tree/master/packages/react-day-picker/src/components)
+   * to understand how internal components are built and provide your custom components.
    */
   components?: CustomComponents;
 
-  /** Content to add to the `tfoot` element. */
+  /**
+   * Content to add to the table footer element.
+   */
   footer?: React.ReactNode;
 
   /**
@@ -210,7 +237,9 @@ export interface DayPickerBase {
    */
   hidden?: Matcher | Matcher[] | undefined;
 
-  /** Apply the `selected` modifier to the matching days. */
+  /**
+   * Apply the `selected` modifier to the matching days.
+   */
   selected?: Matcher | Matcher[] | undefined;
 
   /**
@@ -223,7 +252,11 @@ export interface DayPickerBase {
    */
   modifiers?: DayModifiers;
 
-  /** The date-fns locale object used to localize dates. Defaults to* `en-US`. */
+  /**
+   * The date-fns locale object used to localize dates.
+   *
+   * @defaultValue en-US
+   */
   locale?: Locale;
 
   /**
