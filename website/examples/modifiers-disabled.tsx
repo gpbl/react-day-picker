@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { DayPicker } from 'react-day-picker';
 
 export default function App() {
@@ -13,7 +14,6 @@ export default function App() {
     <DayPicker
       defaultMonth={new Date(2022, 5, 10)}
       disabled={disabledDays}
-      mode="single"
     />
   );
 }
