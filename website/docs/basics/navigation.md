@@ -54,6 +54,15 @@ When limiting the navigable months, use `captionLayout` to display a drop-down
 dropdown
 ```
 
+## Using both drop-down and buttons to change the month
+
+When limiting the navigable months, use `captionLayout` to display both a drop-down
+(a select HTML element) and the previous / next buttons for navigating between months.
+
+```include-example
+dropdown-buttons
+```
+
 ## Disabling navigation
 
 To disable the navigation between months, use `disableNavigation`.

@@ -46,7 +46,7 @@ export function CaptionNavigation(props: CaptionProps): JSX.Element {
 
   return (
     <>
-      {captionLabel}
+      {props.hideLabel ? null : captionLabel}
       <Navigation
         displayMonth={props.displayMonth}
         hideNext={hideNext}

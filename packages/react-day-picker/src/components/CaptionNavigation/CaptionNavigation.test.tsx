@@ -42,6 +42,19 @@ describe('when using a custom CaptionLabel component', () => {
   });
 });
 
+describe('when caption label is hidden', () => {
+  const dayPickerProps: DayPickerProps = {
+    captionLayout: 'buttons'
+  };
+  test('should not display the caption label', () => {
+    customRender(
+      <CaptionNavigation displayMonth={today} hideLabel={true} />,
+      dayPickerProps
+    );
+    expect(screen.queryByRole('presentation')).not.toBeInTheDocument();
+  });
+});
+
 describe('when rendered', () => {
   const dayPickerProps: DayPickerProps = {
     captionLayout: 'buttons'
