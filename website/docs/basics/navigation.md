@@ -44,9 +44,9 @@ Nov, 2015:
 from-to-month
 ```
 
-## Using a drop-down to change the month
+## Choosing a caption layout
 
-When limiting the navigable months, use `captionLayout` to display a drop-down
+When limiting the navigable months, use `captionLayout="dropdown"` to display a drop-down
 (a select HTML element) for navigating between months – instead of the previous
 / next buttons.
 
@@ -54,10 +54,7 @@ When limiting the navigable months, use `captionLayout` to display a drop-down
 dropdown
 ```
 
-## Using both drop-down and buttons to change the month
-
-When limiting the navigable months, use `captionLayout` to display both a drop-down
-(a select HTML element) and the previous / next buttons for navigating between months.
+Use `captionLayout="dropdown-buttons"` to display both.
 
 ```include-example
 dropdown-buttons
