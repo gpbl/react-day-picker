@@ -1,22 +1,17 @@
 import React from 'react';
 
-import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addMonths } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import {
-  getMonthCaption,
   getNextButton,
   getPrevButton,
   queryNextButton,
   queryPrevButton
 } from 'test/selectors';
 import { freezeBeforeAll } from 'test/utils';
-
-import { CaptionProps } from 'components/Caption';
-import { CustomComponents } from 'types/DayPickerBase';
 
 import { CaptionNavigation } from './CaptionNavigation';
 
@@ -25,44 +20,11 @@ const today = new Date(2021, 8);
 freezeBeforeAll(today);
 
 const user = userEvent.setup();
-function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
-  customRender(<CaptionNavigation {...props} />, dayPickerProps);
-}
-
-describe('when using a custom CaptionLabel component', () => {
-  const components: CustomComponents = {
-    CaptionLabel: () => <>custom label foo</>
-  };
-  const props = { displayMonth: today };
-  beforeEach(() => {
-    setup(props, { components });
-  });
-  test('it should render the custom component instead', () => {
-    expect(screen.getByText('custom label foo')).toBeInTheDocument();
-  });
-});
-
-describe('when caption label is hidden', () => {
-  const dayPickerProps: DayPickerProps = {
-    captionLayout: 'buttons'
-  };
-  test('should not display the caption label', () => {
-    customRender(
-      <CaptionNavigation displayMonth={today} hideLabel={true} />,
-      dayPickerProps
-    );
-    expect(screen.queryByRole('presentation')).not.toBeInTheDocument();
-  });
-});
 
 describe('when rendered', () => {
   const dayPickerProps: DayPickerProps = {
     captionLayout: 'buttons'
   };
-  test('should render the caption label', () => {
-    customRender(<CaptionNavigation displayMonth={today} />, dayPickerProps);
-    expect(getMonthCaption()).toHaveTextContent('September 2021');
-  });
   test('should render the next month button', () => {
     customRender(<CaptionNavigation displayMonth={today} />, dayPickerProps);
     expect(getNextButton()).toBeInTheDocument();

@@ -3,7 +3,6 @@ import React from 'react';
 import { isSameMonth } from 'date-fns';
 
 import { CaptionProps } from 'components/Caption/Caption';
-import { CaptionLabel } from 'components/CaptionLabel';
 import { Navigation } from 'components/Navigation';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useNavigation } from 'contexts/Navigation';
@@ -12,7 +11,7 @@ import { useNavigation } from 'contexts/Navigation';
  * Render a caption with a button-based navigation.
  */
 export function CaptionNavigation(props: CaptionProps): JSX.Element {
-  const { numberOfMonths, dir, components } = useDayPicker();
+  const { numberOfMonths, dir } = useDayPicker();
   const { previousMonth, nextMonth, goToMonth, displayMonths } =
     useNavigation();
 
@@ -39,23 +38,15 @@ export function CaptionNavigation(props: CaptionProps): JSX.Element {
     goToMonth(nextMonth);
   };
 
-  const CaptionLabelComponent = components?.CaptionLabel ?? CaptionLabel;
-  const captionLabel = (
-    <CaptionLabelComponent id={props.id} displayMonth={props.displayMonth} />
-  );
-
   return (
-    <>
-      {props.hideLabel ? null : captionLabel}
-      <Navigation
-        displayMonth={props.displayMonth}
-        hideNext={hideNext}
-        hidePrevious={hidePrevious}
-        nextMonth={nextMonth}
-        previousMonth={previousMonth}
-        onPreviousClick={handlePreviousClick}
-        onNextClick={handleNextClick}
-      />
-    </>
+    <Navigation
+      displayMonth={props.displayMonth}
+      hideNext={hideNext}
+      hidePrevious={hidePrevious}
+      nextMonth={nextMonth}
+      previousMonth={previousMonth}
+      onPreviousClick={handlePreviousClick}
+      onNextClick={handleNextClick}
+    />
   );
 }

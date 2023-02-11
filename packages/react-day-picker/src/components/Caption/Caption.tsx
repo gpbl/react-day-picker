@@ -11,8 +11,6 @@ export interface CaptionProps {
   id?: string;
   /** The month where the caption is displayed. */
   displayMonth: Date;
-  /** Hide the caption label. */
-  hideLabel?: boolean;
 }
 
 /**
@@ -47,16 +45,18 @@ export function Caption(props: CaptionProps): JSX.Element {
     caption = (
       <>
         <CaptionDropdowns displayMonth={props.displayMonth} id={props.id} />
-        <CaptionNavigation
-          displayMonth={props.displayMonth}
-          hideLabel={true}
-          id={props.id}
-        />
+        <CaptionNavigation displayMonth={props.displayMonth} id={props.id} />
       </>
     );
   } else {
     caption = (
-      <CaptionNavigation displayMonth={props.displayMonth} id={props.id} />
+      <>
+        <CaptionLabelComponent
+          id={props.id}
+          displayMonth={props.displayMonth}
+        />
+        <CaptionNavigation displayMonth={props.displayMonth} id={props.id} />
+      </>
     );
   }
 
