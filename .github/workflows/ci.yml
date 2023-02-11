@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
       - run: yarn workspace react-day-picker run typecheck
       - run: yarn workspace react-day-picker run lint
       - run: yarn workspace react-day-picker run test
@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
       - run: yarn workspace react-day-picker run build
       - uses: actions/upload-artifact@v3
         with:
@@ -74,7 +74,7 @@ jobs:
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
       - run: yarn workspace website run typecheck
       - run: yarn workspace website run lint
       - run: yarn workspace website run test
@@ -92,7 +92,7 @@ jobs:
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
       - run: yarn workspace website run build
       - uses: actions/upload-artifact@v3
         with:
@@ -113,7 +113,7 @@ jobs:
         with:
           name: website-build
           path: website/build
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
       - run: yarn deploy
         working-directory: website
         env:
