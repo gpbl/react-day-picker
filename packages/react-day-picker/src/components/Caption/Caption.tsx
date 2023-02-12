@@ -18,8 +18,9 @@ export interface CaptionProps {
  *
  * - `dropdown`: display dropdowns for choosing the month and the year.
  * - `buttons`: display previous month / next month buttons.
+ * - `dropdown-buttons`: display both month / year dropdowns and previous month / next month buttons.
  */
-export type CaptionLayout = 'dropdown' | 'buttons';
+export type CaptionLayout = 'dropdown' | 'buttons' | 'dropdown-buttons';
 
 /**
  * Render the caption of a month. The caption has a different layout when
@@ -40,9 +41,22 @@ export function Caption(props: CaptionProps): JSX.Element {
     caption = (
       <CaptionDropdowns displayMonth={props.displayMonth} id={props.id} />
     );
+  } else if (captionLayout === 'dropdown-buttons') {
+    caption = (
+      <>
+        <CaptionDropdowns displayMonth={props.displayMonth} id={props.id} />
+        <CaptionNavigation displayMonth={props.displayMonth} id={props.id} />
+      </>
+    );
   } else {
     caption = (
-      <CaptionNavigation displayMonth={props.displayMonth} id={props.id} />
+      <>
+        <CaptionLabelComponent
+          id={props.id}
+          displayMonth={props.displayMonth}
+        />
+        <CaptionNavigation displayMonth={props.displayMonth} id={props.id} />
+      </>
     );
   }
 
