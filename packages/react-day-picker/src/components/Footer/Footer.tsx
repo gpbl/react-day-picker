@@ -2,8 +2,13 @@ import React from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
 
+export interface FooterProps {
+  /** The month where the footer is displayed. */
+  displayMonth?: Date;
+}
 /** Render the Footer component (empty as default).*/
-export function Footer(): JSX.Element {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function Footer(props: FooterProps): JSX.Element {
   const {
     footer,
     styles,

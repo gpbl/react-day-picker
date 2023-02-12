@@ -3,12 +3,18 @@ import React from 'react';
 import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render/customRender';
+import { freezeBeforeAll } from 'test/utils';
+
+import { FooterProps } from 'components/Footer';
 
 import { Table, TableProps } from './Table';
 
 function setup(props: TableProps, dayPickerProps?: DayPickerProps) {
   return customRender(<Table {...props} />, dayPickerProps);
 }
+
+const today = new Date(2021, 11, 8);
+freezeBeforeAll(today);
 
 const props: TableProps = {
   displayMonth: new Date(2020, 1)
@@ -42,10 +48,10 @@ describe('when using custom components', () => {
           <td>CustomRow</td>
         </tr>
       ),
-      Footer: () => (
+      Footer: (props: FooterProps) => (
         <tfoot>
           <tr>
-            <td>CustomFooter</td>
+            <td>{props.displayMonth?.toDateString()}</td>
           </tr>
         </tfoot>
       )

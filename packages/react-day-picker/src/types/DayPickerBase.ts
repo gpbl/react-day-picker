@@ -5,6 +5,7 @@ import { CaptionLabelProps } from 'components/CaptionLabel';
 import { DayProps } from 'components/Day';
 import { DayContentProps } from 'components/DayContent';
 import { DropdownProps } from 'components/Dropdown';
+import { FooterProps } from 'components/Footer';
 import { RowProps } from 'components/Row';
 import { WeekNumberProps } from 'components/WeekNumber';
 
@@ -325,7 +326,7 @@ export interface CustomComponents {
   /** The component for the drop-down elements. */
   Dropdown?: (props: DropdownProps) => JSX.Element | null;
   /** The component for the table footer. */
-  Footer?: () => JSX.Element | null;
+  Footer?: (props: FooterProps) => JSX.Element | null;
   /** The component for the table’s head. */
   Head?: () => JSX.Element | null;
   /** The component for the table’s head row. */

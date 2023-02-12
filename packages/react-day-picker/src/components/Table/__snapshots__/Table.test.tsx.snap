@@ -1008,7 +1008,7 @@ exports[`when using custom components should render correctly 1`] = `
   <tfoot>
     <tr>
       <td>
-        CustomFooter
+        Sat Feb 01 2020
       </td>
     </tr>
   </tfoot>
