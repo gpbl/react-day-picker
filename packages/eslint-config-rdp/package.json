@@ -17,6 +17,6 @@
     "eslint": "^8.3.0"
   },
   "devDependencies": {
-    "eslint-plugin-testing-library": "^5.10.0"
+    "eslint-plugin-testing-library": "^5.10.1"
   }
 }
