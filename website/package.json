@@ -44,7 +44,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.4",
     "prop-types": "^15.8.1",
     "raw-loader": "^4.0.2",
     "source-map-loader": "^4.0.1",
