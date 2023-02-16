@@ -5,8 +5,8 @@ import { DayPicker, useInput } from 'react-day-picker';
 export default function App() {
   const { inputProps, dayPickerProps } = useInput({
     defaultSelected: new Date(),
-    fromYear: 2020,
-    toYear: 2022,
+    fromYear: 2021,
+    toYear: 2023,
     format: 'PP',
     required: true
   });
