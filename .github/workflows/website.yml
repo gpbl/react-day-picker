@@ -1,12 +1,14 @@
-name: website
+name: Website
 
 on:
-  workflow_call:
-    inputs:
-      deploy:
-        required: false
-        type: boolean
-        default: false
+  release:
+    types: [published]
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
   workflow_dispatch:
     inputs:
       deploy:
@@ -79,7 +81,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [build-website, test-website]
-    if: ${{ github.event.inputs.deploy }}
+    if: ${{ github.event_name == 'release' || github.event.inputs.deploy }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
