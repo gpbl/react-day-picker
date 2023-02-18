@@ -9,7 +9,7 @@ on:
       - master
   workflow_dispatch:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   test:
