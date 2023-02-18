@@ -14,10 +14,12 @@ on:
 jobs:
   react-day-picker:
     uses: ./.github/workflows/react-day-picker.yml
+    secrets: inherit
     with:
       publish: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
 
   website:
     uses: ./.github/workflows/website.yml
+    secrets: inherit
     with:
       deploy: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
