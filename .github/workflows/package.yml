@@ -1,4 +1,4 @@
-name: react-day-picker Deployment
+name: DayPicker Package
 
 on:
   release:
