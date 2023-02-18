@@ -1,18 +1,16 @@
-name: CI
+name: react-day-picker
 
 on:
-  pull_request:
-    branches:
-      - master
-  push:
-    branches:
-      - master
+  workflow_call:
+    inputs:
+      publish:
+        required: false
+        type: boolean
+        default: false
   workflow_dispatch:
-  release:
-    types: [published]
 
 jobs:
-  test:
+  typecheck:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +20,28 @@ jobs:
           cache: yarn
       - run: yarn install
       - run: yarn workspace react-day-picker run typecheck
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - run: yarn install
       - run: yarn workspace react-day-picker run lint
+
+  test:
+    needs: [lint, typecheck]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - run: yarn install
       - run: yarn workspace react-day-picker run test
 
   build:
@@ -43,7 +62,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     needs: [build, test]
-    if: ${{ github.event_name == 'release' }}
+    if: ${{ inputs.publish == true }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -60,8 +79,3 @@ jobs:
         working-directory: packages/react-day-picker
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
-  website:
-    uses: ./.github/workflows/website.yml
-    with:
-      publish: ${{ github.event_name == 'release' }}

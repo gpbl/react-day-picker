@@ -1,9 +1,9 @@
-name: website-ci
+name: website
 
 on:
   workflow_call:
     inputs:
-      publish:
+      deploy:
         required: false
         type: boolean
         default: false
@@ -67,11 +67,11 @@ jobs:
           name: website-build
           path: website/build
 
-  deploy-website:
+  deploy:
     name: Deploy website
     runs-on: ubuntu-latest
     needs: [build-website, test-website]
-    if: ${{ github.event_name == 'workflow_dispatch' || inputs.publish == true }}
+    if: ${{ github.event_name == 'workflow_dispatch' || inputs.deploy == true }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3

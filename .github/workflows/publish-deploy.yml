@@ -1,0 +1,23 @@
+name: publish-deploy
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  react-day-picker:
+    uses: ./.github/workflows/react-day-picker.yml
+    with:
+      deploy: ${{ github.event_name == 'release' }}
+
+  website:
+    uses: ./.github/workflows/website.yml
+    with:
+      deploy: ${{ github.event_name == 'release' }}
