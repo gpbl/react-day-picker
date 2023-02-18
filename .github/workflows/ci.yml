@@ -33,4 +33,4 @@ jobs:
     uses: ./.github/workflows/website.yml
     secrets: inherit
     with:
-      deploy: ${{ github.event_name == 'release' || github.event.input.deploy == true }}
+      deploy: ${{ github.event_name == 'release' || github.event.inputs.deploy == true }}
