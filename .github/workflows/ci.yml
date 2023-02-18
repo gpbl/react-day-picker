@@ -26,10 +26,10 @@ jobs:
     uses: ./.github/workflows/package.yml
     secrets: inherit
     with:
-      publish: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
+      publish: ${{ github.event_name == 'release' || github.event.inputs.publish == true }}
 
   website:
     uses: ./.github/workflows/website.yml
     secrets: inherit
     with:
-      deploy: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
+      deploy: ${{ github.event_name == 'release' || github.event.input.deploy == true }}
