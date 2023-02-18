@@ -12,8 +12,8 @@ on:
     types: [published]
 
 jobs:
-  react-day-picker:
-    uses: ./.github/workflows/react-day-picker.yml
+  package:
+    uses: ./.github/workflows/package.yml
     secrets: inherit
     with:
       publish: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
