@@ -8,16 +8,17 @@ on:
     branches:
       - master
   workflow_dispatch:
-    publish:
-      description: Publish on npm
-      required: false
-      default: false
-      type: boolean
-    deploy:
-      description: Deploy website
-      required: false
-      default: true
-      type: boolean
+    inputs:
+      publish:
+        description: Publish on npm
+        required: false
+        default: false
+        type: boolean
+      deploy:
+        description: Deploy website
+        required: false
+        default: true
+        type: boolean
   release:
     types: [published]
 
