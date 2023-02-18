@@ -7,10 +7,13 @@ on:
         required: false
         type: boolean
         default: false
-    secrets:
-      npm_token:
-        required: true
   workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish on npm
+        required: false
+        default: true
+        type: boolean
 
 jobs:
   typecheck:
