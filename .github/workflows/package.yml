@@ -1,4 +1,4 @@
-name: react-day-picker
+name: package
 
 on:
   workflow_call:
@@ -62,7 +62,7 @@ jobs:
           name: rdp-dist
           path: packages/react-day-picker/dist
 
-  publish:
+  publish-on-npm:
     runs-on: ubuntu-latest
     needs: [build, test]
     if: ${{ inputs.publish == true }}

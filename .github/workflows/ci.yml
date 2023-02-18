@@ -1,4 +1,4 @@
-name: publish-deploy
+name: ci
 
 on:
   pull_request:
