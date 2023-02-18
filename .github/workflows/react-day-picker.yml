@@ -7,6 +7,9 @@ on:
         required: false
         type: boolean
         default: false
+    secrets:
+      npm_token:
+        required: true
   workflow_dispatch:
 
 jobs:
@@ -78,4 +81,4 @@ jobs:
       - run: npm publish --dry-run
         working-directory: packages/react-day-picker
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}

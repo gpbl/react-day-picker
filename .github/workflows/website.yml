@@ -10,8 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build react-day-picker
+  build-package:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,8 +26,7 @@ jobs:
           path: packages/react-day-picker/dist
 
   test-website:
-    name: Test website
-    needs: [build]
+    needs: [build-package]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -46,9 +44,7 @@ jobs:
       - run: yarn workspace website run test
 
   build-website:
-    name: Build website
-
-    needs: [build]
+    needs: [build-package]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -68,7 +64,6 @@ jobs:
           path: website/build
 
   deploy:
-    name: Deploy website
     runs-on: ubuntu-latest
     needs: [build-website, test-website]
     if: ${{ github.event_name == 'workflow_dispatch' || inputs.deploy == true }}

@@ -15,7 +15,7 @@ jobs:
   react-day-picker:
     uses: ./.github/workflows/react-day-picker.yml
     with:
-      deploy: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
+      publish: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
 
   website:
     uses: ./.github/workflows/website.yml
