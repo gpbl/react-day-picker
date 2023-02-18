@@ -65,7 +65,7 @@ jobs:
   publish-on-npm:
     runs-on: ubuntu-latest
     needs: [build, test]
-    if: ${{ inputs.publish == true }}
+    if: ${{ github.events.inputs.publish == true }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
