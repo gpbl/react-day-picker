@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-react-day-picker:
+  build:
     name: Build react-day-picker
     runs-on: ubuntu-latest
     steps:
@@ -43,7 +43,7 @@ jobs:
   build-website:
     name: Build website
 
-    needs: [build-react-day-picker]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
