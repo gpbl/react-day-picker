@@ -1,6 +1,6 @@
 # React DayPicker
 
-[React DayPicker](http://react-day-picker.js.org) is a date picker component for [React](https://reactjs.org). Renders a calendar where the user can browse months to select days. DayPicker is customizable, works great with input fields and can be styled to match any design.
+[DayPicker](http://react-day-picker.js.org) is a date picker component for [React](https://reactjs.org). Renders a monthly calendar to select days. DayPicker is customizable, works great with input fields and can be styled to match any design.
 
 ➡️ **[react-day-picker.js.org](http://react-day-picker.js.org)** for guides, examples and API reference.
 
