@@ -23,14 +23,21 @@ on:
     types: [published]
 
 jobs:
+  print-env:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Publish: ${{ github.event.inputs.publish }}"
+          echo "Deploy:  ${{ github.event.inputs.deploy }}"
+
   package:
     uses: ./.github/workflows/package.yml
     secrets: inherit
     with:
-      publish: ${{ github.event_name == 'release' || github.event.inputs.publish == true }}
+      publish: ${{ github.event_name == 'release' || github.event.inputs.publish }}
 
   website:
     uses: ./.github/workflows/website.yml
     secrets: inherit
     with:
-      deploy: ${{ github.event_name == 'release' || github.event.inputs.deploy == true }}
+      deploy: ${{ github.event_name == 'release' || github.event.inputs.deploy }}

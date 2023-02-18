@@ -16,6 +16,13 @@ on:
         type: boolean
 
 jobs:
+  print-env:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Publish: ${{ github.event.inputs.publish }}"
+          echo "Deploy:  ${{ github.event.inputs.deploy }}"
+
   typecheck:
     runs-on: ubuntu-latest
     steps:
