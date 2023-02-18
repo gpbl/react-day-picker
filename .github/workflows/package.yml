@@ -1,6 +1,14 @@
 name: react-day-picker Deployment
 
 on:
+  release:
+    types: [published]
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
   workflow_dispatch:
     inputs:
       publish:
