@@ -61,5 +61,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
-  website-publish:
+  website:
+    name: Website
     uses: ./.github/workflows/website-publish.yml
