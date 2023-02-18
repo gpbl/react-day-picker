@@ -1,4 +1,4 @@
-name: Publish Website
+name: Publish website
 
 on:
   workflow_call:
@@ -41,9 +41,9 @@ jobs:
       - run: yarn workspace website run test
 
   build-website:
-    name: Test website
+    name: Build website
 
-    needs: [build]
+    needs: [build-react-day-picker]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -63,6 +63,7 @@ jobs:
           path: website/build
 
   deploy-website:
+    name: Deploy website
     runs-on: ubuntu-latest
     needs: [build-website, test-website]
     if: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
