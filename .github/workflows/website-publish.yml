@@ -1,11 +1,12 @@
-name: CI
+name: Publish Website
 
 on:
   workflow_call:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-react-day-picker:
+    name: Build react-day-picker
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,6 +22,7 @@ jobs:
           path: packages/react-day-picker/dist
 
   test-website:
+    name: Test website
     needs: [build]
     runs-on: ubuntu-latest
     steps:
@@ -39,6 +41,8 @@ jobs:
       - run: yarn workspace website run test
 
   build-website:
+    name: Test website
+
     needs: [build]
     runs-on: ubuntu-latest
     steps:
@@ -61,7 +65,7 @@ jobs:
   deploy-website:
     runs-on: ubuntu-latest
     needs: [build-website, test-website]
-    if: ${{ github.event_name == 'release'  }}
+    if: ${{ github.event_name == 'release' | github.event_name == 'workflow_dispatch' }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
