@@ -1,18 +1,12 @@
 name: react-day-picker Deployment
 
 on:
-  workflow_call:
-    inputs:
-      publish:
-        required: false
-        type: boolean
-        default: false
   workflow_dispatch:
     inputs:
       publish:
         description: Publish on npm
         required: false
-        default: true
+        default: false
         type: boolean
 
 jobs:
@@ -87,7 +81,7 @@ jobs:
           name: rdp-dist
           path: packages/react-day-picker/dist
       - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
-      - run: npm publish --dry-run
+      - run: npm publish
         working-directory: packages/react-day-picker
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
