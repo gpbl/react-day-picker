@@ -1,4 +1,4 @@
-name: Website
+name: Website Deployment
 
 on:
   release:
@@ -22,8 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Publish: ${{ github.event.inputs.publish }}"
-          echo "Deploy:  ${{ github.event.inputs.deploy }}"
+          echo "deploy=${{ github.event.inputs.deploy || false }}"
 
   build-package:
     runs-on: ubuntu-latest
@@ -97,8 +96,5 @@ jobs:
           name: rdp-dist
           path: packages/react-day-picker/dist
       - run: yarn install
-      - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
       - run: yarn deploy
         working-directory: website
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}

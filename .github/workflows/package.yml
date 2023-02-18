@@ -1,4 +1,4 @@
-name: DayPicker package
+name: react-day-picker Deployment
 
 on:
   workflow_call:
@@ -20,8 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Publish: ${{ github.event.inputs.publish }}"
-          echo "Deploy:  ${{ github.event.inputs.deploy }}"
+          echo "publish=${{ github.event.inputs.publish || false }}"
 
   typecheck:
     runs-on: ubuntu-latest
