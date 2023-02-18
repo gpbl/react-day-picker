@@ -62,6 +62,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   website:
-    uses: ./.github/workflows/website-publish.yml
+    uses: ./.github/workflows/website.yml
     with:
       publish: ${{ github.event_name == 'release' }}

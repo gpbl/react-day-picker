@@ -1,3 +1,5 @@
+name: Website
+
 on:
   workflow_call:
     inputs:
