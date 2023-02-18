@@ -1,4 +1,4 @@
-name: Website
+name: website-ci
 
 on:
   workflow_call:
@@ -82,6 +82,10 @@ jobs:
         with:
           name: website-build
           path: website/build
+      - uses: actions/download-artifact@v3
+        with:
+          name: rdp-dist
+          path: packages/react-day-picker/dist
       - run: yarn install
       - run: yarn deploy
         working-directory: website
