@@ -42,7 +42,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.4.0",
-    "@types/node": "^18.11.19",
+    "@types/node": "^18.14.0",
     "@types/react": "^18.0.27",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.50.0",
