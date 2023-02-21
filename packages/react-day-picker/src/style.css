@@ -1,5 +1,6 @@
 .rdp {
   --rdp-cell-size: 40px;
+  --rdp-caption-font-size: 18px;
   --rdp-accent-color: #0000ff;
   --rdp-background-color: #e7edff;
   --rdp-accent-color-dark: #3003e1;
@@ -130,7 +131,7 @@
   border: 0;
   border: 2px solid transparent;
   font-family: inherit;
-  font-size: 140%;
+  font-size: var(--rdp-caption-font-size);
   font-weight: bold;
 }
 
