@@ -29,7 +29,7 @@ describe('when the day to render has an hidden modifier', () => {
     customRender(<Day {...props} />, dayPickerProps);
   });
   test('should render an empty grid cell', () => {
-    const cell = screen.getByRole('gridcell');
+    const cell = screen.getByRole('gridcell', { hidden: true });
     expect(cell).toBeEmptyDOMElement();
   });
 });
@@ -52,7 +52,7 @@ describe('when a selection mode is set', () => {
     customRender(<Day {...props} />, dayPickerProps);
   });
   test('should render a button named "day"', () => {
-    const cell = screen.getByRole('gridcell');
+    const cell = screen.getByRole('button');
     expect(cell.nodeName).toBe('BUTTON');
     expect(cell).toHaveAttribute('name', 'day');
   });
@@ -66,7 +66,7 @@ describe('when "onDayClick" is present', () => {
     customRender(<Day {...props} />, dayPickerProps);
   });
   test('should render a button', () => {
-    const cell = screen.getByRole('gridcell');
+    const cell = screen.getByRole('button');
     expect(cell.nodeName).toBe('BUTTON');
   });
 });
