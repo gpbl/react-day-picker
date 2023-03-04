@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DayPickerProps } from 'DayPicker';
+import { DayPickerProps } from 'components/DayPicker/DayPicker';
 
 import { customRender } from 'test/render/customRender';
 import { freezeBeforeAll } from 'test/utils';

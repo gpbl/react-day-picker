@@ -1,14 +1,11 @@
 import React, { createContext, ReactNode, useContext } from 'react';
 
-import { addMonths, isBefore, isSameMonth } from 'date-fns';
+import { useCalendar } from 'contexts/Calendar';
 
-import { useDayPicker } from '../DayPicker';
-import { useNavigationState } from './useNavigationState';
-import { getDisplayMonths } from './utils/getDisplayMonths';
-import { getNextMonth } from './utils/getNextMonth';
-import { getPreviousMonth } from './utils/getPreviousMonth';
-
-/** Represents the value of the {@link NavigationContext}. */
+/**
+ * Represents the value of the {@link NavigationContext}.
+ * @deprecated Use the {@link CalendarContext} instead.
+ */
 export interface NavigationContextValue {
   /** The month to display in the calendar. When `numberOfMonths` is greater than one, is the first of the displayed months. */
   currentMonth: Date;
@@ -29,6 +26,7 @@ export interface NavigationContextValue {
 /**
  * The Navigation context shares details and methods to navigate the months in DayPicker.
  * Access this context from the {@link useNavigation} hook.
+ * @deprecated Use the {@link CalendarContext} instead.
  */
 export const NavigationContext = createContext<
   NavigationContextValue | undefined
@@ -38,39 +36,15 @@ export const NavigationContext = createContext<
 export function NavigationProvider(props: {
   children?: ReactNode;
 }): JSX.Element {
-  const dayPicker = useDayPicker();
-  const [currentMonth, goToMonth] = useNavigationState();
+  const calendar = useCalendar();
 
-  const displayMonths = getDisplayMonths(currentMonth, dayPicker);
-  const nextMonth = getNextMonth(currentMonth, dayPicker);
-  const previousMonth = getPreviousMonth(currentMonth, dayPicker);
-
-  const isDateDisplayed = (date: Date) => {
-    return displayMonths.some((displayMonth) =>
-      isSameMonth(date, displayMonth)
-    );
-  };
-
-  const goToDate = (date: Date, refDate?: Date) => {
-    if (isDateDisplayed(date)) {
-      return;
-    }
-
-    if (refDate && isBefore(date, refDate)) {
-      goToMonth(addMonths(date, 1 + dayPicker.numberOfMonths * -1));
-    } else {
-      goToMonth(date);
-    }
-  };
+  const displayMonths = calendar.months.map((month) => month.month);
 
   const value: NavigationContextValue = {
-    currentMonth,
+    ...calendar,
+    currentMonth: calendar.currentMonth,
     displayMonths,
-    goToMonth,
-    goToDate,
-    previousMonth,
-    nextMonth,
-    isDateDisplayed
+    goToMonth: calendar.goToMonth
   };
 
   return (
@@ -85,6 +59,8 @@ export function NavigationProvider(props: {
  * between months or years in DayPicker.
  *
  * This hook is meant to be used inside internal or custom components.
+ *
+ * @deprecated Use the {@link useCalendar} hook instead.
  */
 export function useNavigation(): NavigationContextValue {
   const context = useContext(NavigationContext);

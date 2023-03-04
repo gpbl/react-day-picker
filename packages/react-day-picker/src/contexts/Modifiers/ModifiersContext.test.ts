@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'DayPicker';
+import { DayPickerProps } from 'components/DayPicker/DayPicker';
 
 import { renderDayPickerHook } from 'test/render';
 

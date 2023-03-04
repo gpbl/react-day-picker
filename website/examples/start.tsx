@@ -16,6 +16,7 @@ export default function Example() {
       selected={selected}
       onSelect={setSelected}
       footer={footer}
+      showWeekNumber
     />
   );
 }

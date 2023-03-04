@@ -1,6 +1,6 @@
 import { act } from '@testing-library/react';
 import { addMonths, startOfMonth, subMonths } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { DayPickerProps } from 'components/DayPicker/DayPicker';
 
 import { renderDayPickerHook, RenderHookResult } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';

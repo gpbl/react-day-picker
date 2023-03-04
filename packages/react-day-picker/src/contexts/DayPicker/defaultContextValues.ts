@@ -3,9 +3,9 @@ import { enUS } from 'date-fns/locale';
 import { CaptionLayout } from 'components/Caption';
 import { DayPickerContextValue } from 'contexts/DayPicker';
 
-import { defaultClassNames } from './defaultClassNames';
-import * as formatters from './formatters';
-import * as labels from './labels';
+import { defaultClassNames } from '../../components/DayPicker/defaultClassNames';
+import * as formatters from 'formatters';
+import * as labels from 'labels';
 
 export type DefaultContextProps =
   | 'captionLayout'
@@ -27,6 +27,8 @@ export type DefaultContextValues = Pick<
 /**
  * Returns the default values to use in the DayPickerContext, in case they are
  * not passed down with the DayPicker initial props.
+ *
+ * @deprecated Use {@link defaultProps} instead.
  */
 export function getDefaultContextValues(): DefaultContextValues {
   const captionLayout: CaptionLayout = 'buttons';

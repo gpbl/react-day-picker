@@ -1,7 +1,7 @@
 import React from 'react';
 
 import userEvent from '@testing-library/user-event';
-import { DayPickerProps } from 'DayPicker';
+import { DayPickerProps } from 'components/DayPicker/DayPicker';
 
 import { customRender } from 'test/render';
 import { getNextButton, getPrevButton } from 'test/selectors';

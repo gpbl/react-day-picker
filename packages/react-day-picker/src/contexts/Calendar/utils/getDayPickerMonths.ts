@@ -6,23 +6,26 @@ import {
   startOfISOWeek,
   endOfISOWeek
 } from 'date-fns';
-import {
-  DayPickerCalendarOptions,
-  DayPickerMonth,
-  DayPickerWeek,
-  DayPickerDay
-} from '../types';
+import { DayPickerMonth, DayPickerWeek, DayPickerDay } from 'contexts/Calendar';
 
+/** Return the {@link DayPickerMonth | DayPickerMonths} to display in the calendar. */
 export function getDayPickerMonths(
   months: Date[],
   dates: Date[],
-  options: DayPickerCalendarOptions
+  options?: {
+    fixedWeeks?: boolean | undefined;
+    reverseMonths?: boolean | undefined;
+    ISOWeek?: boolean | undefined;
+    locale?: Locale | undefined;
+    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
+    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | undefined;
+  }
 ) {
   const dayPickerMonths = months.reduce<DayPickerMonth[]>((months, month) => {
-    const firstDateOfFirstWeek = options.ISOWeek
+    const firstDateOfFirstWeek = options?.ISOWeek
       ? startOfISOWeek(month)
       : startOfWeek(month, options);
-    const lastDateOfLastWeek = options.ISOWeek
+    const lastDateOfLastWeek = options?.ISOWeek
       ? endOfISOWeek(endOfMonth(month))
       : endOfWeek(endOfMonth(month), options);
 
@@ -49,6 +52,6 @@ export function getDayPickerMonths(
     months.push(dayPickerMonth);
     return months;
   }, []);
-  if (options.reverseMonths) dayPickerMonths.reverse();
+  if (options?.reverseMonths) dayPickerMonths.reverse();
   return dayPickerMonths;
 }

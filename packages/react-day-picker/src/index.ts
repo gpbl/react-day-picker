@@ -1,5 +1,6 @@
-export * from './DayPicker';
 import './style.css';
+
+export * from 'components/DayPicker';
 
 export * from 'components/Button';
 export * from 'components/Caption';

@@ -1,5 +1,4 @@
 import { isSameMonth } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
 
 /** Represent a day displayed in a month. */
 export class DayPickerDay {
@@ -37,18 +36,3 @@ export type DayPickerCalendar = {
   months: DayPickerMonth[];
   dates: Date[];
 };
-
-export type DayPickerCalendarOptions = Pick<
-  DayPickerProps,
-  | 'numberOfMonths'
-  | 'today'
-  | 'fromDate'
-  | 'toDate'
-  | 'fromYear'
-  | 'toYear'
-  | 'fixedWeeks'
-  | 'locale'
-  | 'weekStartsOn'
-  | 'ISOWeek'
-  | 'reverseMonths'
->;

@@ -5,7 +5,7 @@ const today = new Date(2023, 3, 16);
 freezeBeforeAll(today);
 
 describe('when using the default props', () => {
-  const calendar = getCalendar();
+  const calendar = getCalendar(new Date());
   test('should match the snapshot', () => {
     expect(calendar).toMatchInlineSnapshot(`
       {

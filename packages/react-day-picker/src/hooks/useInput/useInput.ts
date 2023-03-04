@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 
-import { parseFromToProps } from 'contexts/DayPicker/utils';
 import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerSingleProps } from 'types/DayPickerSingle';
 import {
@@ -12,6 +11,7 @@ import {
 } from 'types/EventHandlers';
 
 import { isValidDate } from './utils/isValidDate';
+import { parseFromToProps } from 'components/DayPicker/utils/parseFromToProps';
 
 /** The props to attach to the input field when using {@link useInput}. */
 export type InputHTMLAttributes = Pick<

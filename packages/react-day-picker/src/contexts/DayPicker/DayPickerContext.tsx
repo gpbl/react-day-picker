@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useContext } from 'react';
 
-import { DayPickerProps } from 'DayPicker';
+import { DayPickerProps } from 'components/DayPicker/DayPicker';
 
 import { CaptionLayout } from 'components/Caption';
 import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
@@ -17,7 +17,7 @@ import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
 
 import { getDefaultContextValues } from './defaultContextValues';
-import { parseFromToProps } from './utils';
+import { parseFromToProps } from '../../components/DayPicker/utils/parseFromToProps';
 
 /**
  * The value of the {@link DayPickerContext} extends the props from DayPicker

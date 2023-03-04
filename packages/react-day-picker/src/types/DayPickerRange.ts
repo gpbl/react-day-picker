@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'DayPicker';
+import { DayPickerProps } from 'components/DayPicker/DayPicker';
 
 import { DayPickerContextValue } from 'contexts/DayPicker';
 

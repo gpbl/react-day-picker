@@ -1,5 +1,6 @@
 import { addMonths } from 'date-fns';
 
+/** Return the months to display in the calendar. */
 export function getDisplayMonths(
   firstMonth: Date,
   numberOfMonths: number,

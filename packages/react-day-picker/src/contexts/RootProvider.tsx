@@ -21,7 +21,7 @@ export function RootProvider(props: RootContext): JSX.Element {
   const { children, ...initialProps } = props;
 
   return (
-    <CalendarProvider initialProps={initialProps}>
+    <CalendarProvider dayPickerProps={initialProps}>
       <DayPickerProvider initialProps={initialProps}>
         <NavigationProvider>
           <SelectSingleProvider initialProps={initialProps}>

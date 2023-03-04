@@ -49,6 +49,7 @@
     "cSpell.enabled": true,
     "cSpell.words": [
       "codesandbox",
+      "lcov",
       "miércoles",
       "Sandpack",
       "septiembre",
@@ -72,7 +73,7 @@
       },
       {
         "orderLevel": 30,
-        "regex": "^(contexts|components|hooks|types)"
+        "regex": "^(contexts|components|hooks|types|formatters|labels)"
       },
       {
         "orderLevel": 25,

@@ -1,5 +1,5 @@
 import { DayPickerContextValue } from 'contexts/DayPicker';
-import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
+import { defaultClassNames } from 'components/DayPicker/defaultClassNames';
 import { ActiveModifiers, InternalModifier } from 'types/Modifiers';
 
 import { getDayClassNames } from './getDayClassNames';

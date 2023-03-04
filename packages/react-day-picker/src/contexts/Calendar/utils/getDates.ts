@@ -7,19 +7,23 @@ import {
   endOfISOWeek,
   differenceInCalendarDays
 } from 'date-fns';
-import { DayPickerCalendarOptions } from '../types';
 
+/** Return all the dates to display in the calendar. */
 export function getDates(
   firstMonth: Date,
   lastMonth: Date,
   toDate?: Date,
-  options: DayPickerCalendarOptions = {}
+  options?: {
+    ISOWeek?: boolean;
+    locale?: Locale;
+    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  }
 ): Date[] {
-  const firstDateOfFirstWeek = options.ISOWeek
+  const firstDateOfFirstWeek = options?.ISOWeek
     ? startOfISOWeek(firstMonth)
     : startOfWeek(firstMonth, options);
 
-  const lastDateOfLastWeek = options.ISOWeek
+  const lastDateOfLastWeek = options?.ISOWeek
     ? endOfISOWeek(endOfMonth(lastMonth))
     : endOfWeek(endOfMonth(lastMonth), options);
 
