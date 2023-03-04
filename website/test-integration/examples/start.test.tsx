@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { axe } from '@site/test/axe';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -12,10 +13,12 @@ const user = userEvent.setup();
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
-beforeEach(() => {
-  render(<Example />);
-});
+let container: HTMLElement;
+beforeEach(() => (container = render(<Example />).container));
 
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
+});
 describe('when a day is clicked', () => {
   const day = new Date(2021, 10, 1);
   beforeEach(async () => user.click(getDayButton(day)));
@@ -24,5 +27,8 @@ describe('when a day is clicked', () => {
   });
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent(`You picked Nov 1, 2021.`);
+  });
+  test('should not have AXE violations', async () => {
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

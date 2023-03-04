@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { axe } from '@site/test/axe';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -11,8 +12,12 @@ import Example from '@examples/multiple';
 const user = userEvent.setup();
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
-beforeEach(() => {
-  render(<Example />);
+
+let container: HTMLElement;
+beforeEach(() => (container = render(<Example />).container));
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
 });
 
 describe('when a day is clicked', () => {

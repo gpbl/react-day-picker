@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { axe } from '@site/test/axe';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -15,8 +16,10 @@ const today = new Date(2022, 5, 10);
 const user = userEvent.setup();
 freezeBeforeAll(today);
 
+let container: HTMLElement;
+
 beforeEach(async () => {
-  render(<Example />);
+  container = render(<Example />).container;
   await user.tab();
   await user.tab();
   await user.tab();
@@ -28,4 +31,8 @@ beforeEach(async () => {
 
 test('the first selected day should have focus', () => {
   expect(getDayButton(new Date(2022, 5, 22))).toHaveFocus();
+});
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
 });
