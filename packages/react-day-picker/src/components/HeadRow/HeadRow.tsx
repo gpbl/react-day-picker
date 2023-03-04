@@ -24,11 +24,7 @@ export function HeadRow(): JSX.Element {
   return (
     <tr style={styles.head_row} className={classNames.head_row}>
       {showWeekNumber && (
-        <th
-          scope="col"
-          style={styles.head_cell}
-          className={classNames.head_cell}
-        ></th>
+        <td style={styles.head_cell} className={classNames.head_cell}></td>
       )}
       {weekdays.map((weekday, i) => (
         <th
