@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays } from 'date-fns';
+import { axe } from 'jest-axe';
 
 import { getDayButton, getTableFooter } from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
@@ -12,9 +13,7 @@ import Example from '@examples/multiple-min-max';
 const user = userEvent.setup();
 const today = new Date(2021, 10, 10);
 freezeBeforeAll(today);
-beforeEach(() => {
-  render(<Example />);
-});
+
 const days = [
   today,
   addDays(today, 1),
@@ -23,6 +22,13 @@ const days = [
   addDays(today, 4)
 ];
 
+let container: HTMLElement;
+beforeEach(() => (container = render(<Example />).container));
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
+});
+
 describe('when a day is clicked', () => {
   beforeEach(async () => user.click(getDayButton(days[0])));
   test('should appear as selected', () => {
@@ -30,6 +36,9 @@ describe('when a day is clicked', () => {
   });
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent('You selected 1 day(s).');
+  });
+  test('should not have AXE violations', async () => {
+    expect(await axe(container)).toHaveNoViolations();
   });
   describe('when a second day is clicked', () => {
     beforeEach(async () => user.click(getDayButton(days[1])));
@@ -42,6 +51,9 @@ describe('when a day is clicked', () => {
     test('should update the footer', () => {
       expect(getTableFooter()).toHaveTextContent('You selected 2 day(s).');
     });
+    test('should not have AXE violations', async () => {
+      expect(await axe(container)).toHaveNoViolations();
+    });
     describe('when clicked again', () => {
       beforeEach(async () => user.click(getDayButton(days[1])));
       test('the first day should still appear as selected', () => {
@@ -52,6 +64,9 @@ describe('when a day is clicked', () => {
       });
       test('should update the footer', () => {
         expect(getTableFooter()).toHaveTextContent('You selected 2 day(s).');
+      });
+      test('should not have AXE violations', async () => {
+        expect(await axe(container)).toHaveNoViolations();
       });
     });
   });

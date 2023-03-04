@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { setDate } from 'date-fns';
+import { axe } from 'jest-axe';
 
 import {
   getDayButton,
@@ -18,8 +19,13 @@ const today = new Date(2022, 5, 10);
 const user = userEvent.setup();
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />).container;
+  container = render(<Example />).container;
+});
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
 });
 
 test('should not display the previous button', () => {
@@ -38,6 +44,10 @@ describe('when the first day is focused', () => {
     test('should still display the same month', () => {
       expect(getMonthCaption()).toHaveTextContent('June 2022');
     });
+
+    test('should not have AXE violations', async () => {
+      expect(await axe(container)).toHaveNoViolations();
+    });
   });
 });
 describe('when the last day is focused', () => {
@@ -47,6 +57,9 @@ describe('when the last day is focused', () => {
     });
     test('should still display the same month', () => {
       expect(getMonthCaption()).toHaveTextContent('June 2022');
+    });
+    test('should not have AXE violations', async () => {
+      expect(await axe(container)).toHaveNoViolations();
     });
   });
 });

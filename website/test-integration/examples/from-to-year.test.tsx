@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { differenceInMonths } from 'date-fns';
+import { axe } from 'jest-axe';
 
 import { getNextButton, getPrevButton } from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
@@ -15,14 +16,15 @@ const toDate = new Date(2018, 11);
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
-beforeEach(() => {
-  render(<Example />);
-});
+let container: HTMLElement;
+beforeEach(() => (container = render(<Example />).container));
 
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
+});
 test('the previous month button should be disabled', () => {
   expect(getPrevButton()).toBeDisabled();
 });
-
 test('the next month button should not be disabled', () => {
   expect(getNextButton()).not.toBeDisabled();
 });
@@ -34,11 +36,12 @@ describe('when navigating to the last month', () => {
       await user.click(getNextButton());
     }
   });
-
+  test('should not have AXE violations', async () => {
+    expect(await axe(container)).toHaveNoViolations();
+  });
   test('the previous month button should not be disabled', () => {
     expect(getPrevButton()).not.toBeDisabled();
   });
-
   test('the next month button should be disabled', () => {
     expect(getNextButton()).toBeDisabled();
   });

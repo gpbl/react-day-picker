@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, addMonths, startOfMonth } from 'date-fns';
+import { axe } from 'jest-axe';
 import { DayPickerProps } from 'react-day-picker';
 
 import {
@@ -22,8 +23,9 @@ freezeBeforeAll(today);
 
 const user = userEvent.setup();
 
+let container: HTMLElement;
 function setup(props: DayPickerProps) {
-  render(<Example {...props} />);
+  container = render(<Example {...props} />).container;
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
@@ -31,6 +33,9 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     beforeEach(async () => {
       setup({ mode: 'single', dir });
       await user.tab();
+    });
+    test('should not have AXE violations', async () => {
+      expect(await axe(container)).toHaveNoViolations();
     });
     test('should focus on the Previous Month button', () => {
       expect(getPrevButton()).toHaveFocus();

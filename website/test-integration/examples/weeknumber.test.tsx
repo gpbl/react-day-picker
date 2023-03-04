@@ -13,9 +13,7 @@ freezeBeforeAll(today);
 
 const user = userEvent.setup();
 
-beforeEach(() => {
-  render(<Example />);
-});
+beforeEach(() => render(<Example />));
 
 describe('when displaying November 2021', () => {
   test('should display the 45th week number', () => {

@@ -12,6 +12,7 @@ import {
   setDate,
   startOfWeek
 } from 'date-fns';
+import { axe } from 'jest-axe';
 import { DayPickerProps } from 'react-day-picker';
 
 import {
@@ -30,13 +31,16 @@ const user = userEvent.setup();
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 function setup(props: DayPickerProps) {
-  render(<Example {...props} />);
+  container = render(<Example {...props} />).container;
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   beforeEach(() => setup({ mode: 'single', dir }));
-
+  test('should not have AXE violations', async () => {
+    expect(await axe(container)).toHaveNoViolations();
+  });
   describe('when clicking the previous month button', () => {
     beforeEach(async () => user.click(getPrevButton()));
     test('should display the previous month', () => {

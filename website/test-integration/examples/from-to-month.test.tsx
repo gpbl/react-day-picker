@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { differenceInMonths } from 'date-fns';
+import { axe } from 'jest-axe';
 
 import { getNextButton, getPrevButton } from 'react-day-picker/test/selectors';
 
@@ -12,8 +13,11 @@ const fromDate = new Date(2015, 5);
 const toDate = new Date(2015, 10);
 const user = userEvent.setup();
 
-beforeEach(() => {
-  render(<Example />);
+let container: HTMLElement;
+beforeEach(() => (container = render(<Example />).container));
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
 });
 
 test('the previous month button should be disabled', () => {

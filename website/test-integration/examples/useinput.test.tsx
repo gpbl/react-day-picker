@@ -3,6 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, format } from 'date-fns';
+import { axe } from 'jest-axe';
 
 import {
   getAllSelectedDays,
@@ -17,13 +18,16 @@ freezeBeforeAll(today);
 
 const yday = addDays(today, -1);
 const user = userEvent.setup();
-beforeEach(() => {
-  render(<Example />);
-});
+let container: HTMLElement;
 
 function getInput(): HTMLInputElement {
   return screen.getByRole('textbox');
 }
+beforeEach(() => (container = render(<Example />).container));
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
+});
 
 test('today should be selected', () => {
   expect(getDayButton(today)).toHaveAttribute('aria-selected', 'true');
@@ -43,6 +47,9 @@ describe('when yesterday is clicked', () => {
       await user.clear(getInput());
       await user.type(getInput(), format(today, 'PP'));
     });
+    test('should not have AXE violations', async () => {
+      expect(await axe(container)).toHaveNoViolations();
+    });
     test('today should be selected', () => {
       expect(getDayButton(today)).toHaveAttribute('aria-selected', 'true');
     });
@@ -51,6 +58,9 @@ describe('when yesterday is clicked', () => {
     beforeEach(async () => user.clear(getInput()));
     test('no day should be selected', () => {
       expect(getAllSelectedDays()).toHaveLength(0);
+    });
+    test('should not have AXE violations', async () => {
+      expect(await axe(container)).toHaveNoViolations();
     });
   });
 });

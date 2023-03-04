@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
@@ -12,6 +13,10 @@ freezeBeforeAll(today);
 let container: HTMLElement;
 beforeEach(() => {
   container = render(<Example />).container;
+});
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
 });
 
 test('should render 7 rows', () => {

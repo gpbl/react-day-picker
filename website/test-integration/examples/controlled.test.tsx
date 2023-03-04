@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 
 import { getMonthCaption } from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
@@ -14,16 +16,19 @@ function getTodayButton() {
 }
 
 freezeBeforeAll(today);
+const user = userEvent.setup();
 
-beforeEach(() => {
-  render(<Example />);
+test('should not have AXE violations', async () => {
+  const html = render(<Example />).container;
+  expect(await axe(html)).toHaveNoViolations();
 });
 
 describe('when the "Go to today" button is clicked', () => {
-  beforeEach(() => {
-    fireEvent.click(getTodayButton());
+  beforeEach(async () => {
+    render(<Example />);
+    await user.click(getTodayButton());
   });
-  test('the button should be disabled', () => {
+  test('the button should be disabled', async () => {
     expect(getTodayButton()).toBeDisabled();
   });
   test('should display the current month', () => {

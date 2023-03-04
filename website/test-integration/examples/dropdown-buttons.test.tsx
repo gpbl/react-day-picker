@@ -2,13 +2,14 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 
 import {
   getMonthDropdown,
   getMonthGrid,
-  getYearDropdown,
   getNextButton,
-  getPrevButton
+  getPrevButton,
+  getYearDropdown
 } from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
@@ -18,8 +19,13 @@ const user = userEvent.setup();
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
+});
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
 });
 
 test('should display the year dropdown', () => {
@@ -38,6 +44,9 @@ test('should render the previous month button', () => {
 describe('when choosing a month', () => {
   const monthName = 'January';
   beforeEach(() => user.selectOptions(getMonthDropdown(), monthName));
+  test('should not have AXE violations', async () => {
+    expect(await axe(container)).toHaveNoViolations();
+  });
   test('should display the month', () => {
     expect(getMonthGrid()).toHaveAccessibleName(`${monthName} 2022`);
   });
