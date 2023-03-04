@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { axe } from '@site/test/axe';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays } from 'date-fns';
@@ -13,11 +14,7 @@ import Example from '@examples/range';
 
 const pastMonth = new Date(2020, 10, 15);
 const user = userEvent.setup();
-let firstChild: ChildNode;
-beforeEach(() => {
-  firstChild = render(<Example />).container.firstChild;
-});
-
+let container: HTMLElement;
 const days = [
   pastMonth,
   addDays(pastMonth, 1),
@@ -26,8 +23,14 @@ const days = [
   addDays(pastMonth, 4)
 ];
 
+beforeEach(() => (container = render(<Example />).container));
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
+});
+
 test('should match the snapshot', () => {
-  expect(firstChild).toMatchSnapshot();
+  expect(container).toMatchSnapshot();
 });
 test.each(days)('%s should be selected', (day) => {
   expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
@@ -59,7 +62,7 @@ describe('when a day in the range is clicked', () => {
         expect(getAllSelectedDays()).toHaveLength(1);
       });
       test('should match the snapshot', () => {
-        expect(firstChild).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
       });
     });
   });
