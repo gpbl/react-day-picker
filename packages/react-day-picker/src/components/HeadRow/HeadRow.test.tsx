@@ -67,10 +67,7 @@ describe('when showing the week numbers', () => {
     setup({ ...dayPickerProps, showWeekNumber: true });
   });
   test('should render 8 head elements', () => {
-    expect(thElements).toHaveLength(8);
-  });
-  test('the first head element should be empty', () => {
-    expect(thElements[0]).toHaveTextContent('');
+    expect(thElements).toHaveLength(7);
   });
   test('should render the head elements with the "head_cell" class name', () => {
     thElements.forEach((el) => {
