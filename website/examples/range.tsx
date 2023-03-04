@@ -27,6 +27,7 @@ export default function App() {
 
   return (
     <DayPicker
+      id="test"
       mode="range"
       defaultMonth={pastMonth}
       selected={range}

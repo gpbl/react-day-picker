@@ -17,7 +17,7 @@ exports[`should match the snapshot 1`] = `
           <div
             aria-live="polite"
             class="rdp-caption_label"
-            id="react-day-picker-1"
+            id="test-0"
             role="presentation"
           >
             November 2020
@@ -65,7 +65,7 @@ exports[`should match the snapshot 1`] = `
           </div>
         </div>
         <table
-          aria-labelledby="react-day-picker-1"
+          aria-labelledby="test-0"
           class="rdp-table"
           role="grid"
         >
@@ -655,7 +655,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
           <div
             aria-live="polite"
             class="rdp-caption_label"
-            id="react-day-picker-3"
+            id="test-0"
             role="presentation"
           >
             November 2020
@@ -703,7 +703,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
           </div>
         </div>
         <table
-          aria-labelledby="react-day-picker-3"
+          aria-labelledby="test-0"
           class="rdp-table"
           role="grid"
         >
