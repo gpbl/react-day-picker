@@ -474,9 +474,8 @@ exports[`when showing the week numbers should render correctly 1`] = `
     <tr
       class="rdp-head_row"
     >
-      <th
+      <td
         class="rdp-head_cell"
-        scope="col"
       />
       <th
         aria-label="Sunday"
