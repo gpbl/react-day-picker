@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { axe } from '@site/test/axe';
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 

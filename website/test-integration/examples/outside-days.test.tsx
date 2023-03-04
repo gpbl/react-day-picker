@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { getDayButton } from '@site/../packages/react-day-picker/test/selectors';
+import { axe } from '@site/test/axe';
 import { render } from '@testing-library/react';
-import { axe } from 'jest-axe';
 
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
 

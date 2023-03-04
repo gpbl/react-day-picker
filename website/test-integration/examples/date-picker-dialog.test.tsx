@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { axe } from '@site/test/axe';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { format } from 'date-fns';
-import { axe } from 'jest-axe';
 import { act } from 'react-dom/test-utils';
 
 import { getDayButton } from 'react-day-picker/test/selectors';

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { axe } from '@site/test/axe';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {
@@ -12,7 +13,6 @@ import {
   setDate,
   startOfWeek
 } from 'date-fns';
-import { axe } from 'jest-axe';
 import { DayPickerProps } from 'react-day-picker';
 
 import {

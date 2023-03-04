@@ -89,6 +89,7 @@ export default function DatePickerDialog() {
             {...popper.attributes.popper}
             ref={setPopperElement}
             role="dialog"
+            aria-label="DayPicker calendar"
           >
             <DayPicker
               initialFocus={isPopperOpen}
