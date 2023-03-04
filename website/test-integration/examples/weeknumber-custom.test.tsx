@@ -9,9 +9,7 @@ import Example from '@examples/weeknumber-custom';
 const today = new Date(2022, 0, 1);
 freezeBeforeAll(today);
 
-beforeEach(() => {
-  render(<Example />);
-});
+beforeEach(() => render(<Example />));
 
 describe('when displaying January 2022', () => {
   test('should display the 53th week', () => {
