@@ -3246,21 +3246,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-client@npm:^2.0.26":
-  version: 2.0.26
-  resolution: "@codesandbox/sandpack-client@npm:2.0.26"
+"@codesandbox/sandpack-client@npm:^2.0.29":
+  version: 2.0.29
+  resolution: "@codesandbox/sandpack-client@npm:2.0.29"
   dependencies:
     "@codesandbox/nodebox": 0.1.4
     buffer: ^6.0.3
     dequal: ^2.0.2
     outvariant: 1.3.0
-  checksum: 7733627cc04a6370a3a618d6adc5d65a98c76ca8dfc668d0371a025aab7dc710440aa993875ab12fab921eb518dd16a849574c2923ef006bbea7c0bb4cc525bd
+  checksum: 97b6649656ff1a70f7ed0ad13de42d5739c983b46ba8a1a5a43a0b08e4f89878d9908cc9b2b6c12334f522a5b5fac5b42def2ece72e70682a9300b4f480300db
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-react@npm:^2.0.27":
-  version: 2.0.27
-  resolution: "@codesandbox/sandpack-react@npm:2.0.27"
+"@codesandbox/sandpack-react@npm:^2.0.29":
+  version: 2.0.29
+  resolution: "@codesandbox/sandpack-react@npm:2.0.29"
   dependencies:
     "@code-hike/classer": ^0.0.0-aa6efee
     "@codemirror/autocomplete": ^6.4.0
@@ -3271,7 +3271,7 @@ __metadata:
     "@codemirror/language": ^6.3.2
     "@codemirror/state": ^6.2.0
     "@codemirror/view": ^6.7.1
-    "@codesandbox/sandpack-client": ^2.0.26
+    "@codesandbox/sandpack-client": ^2.0.29
     "@lezer/highlight": ^1.1.3
     "@react-hook/intersection-observer": ^3.1.1
     "@stitches/core": ^1.2.6
@@ -3285,7 +3285,7 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
     react-dom: ^16.8.0 || ^17 || ^18
-  checksum: 2be84672f92fb81325f7bd05416ed1cb501bb954170629ad52e77ed62a4b80ec577502d6d3118aec093720fa3a8923890e41769cb6ffb536a8e7f28c7ddf5b42
+  checksum: 94b9f172d21f86a9045ad9acda13033b0490378678555979843be7490ce4ff23c039e27432cae18678d76e12f45c6522cc3adffb74e6862dea29bf63737bd5cc
   languageName: node
   linkType: hard
 
@@ -18293,7 +18293,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "website@workspace:website"
   dependencies:
-    "@codesandbox/sandpack-react": ^2.0.27
+    "@codesandbox/sandpack-react": ^2.0.29
     "@codesandbox/sandpack-themes": ^2.0.21
     "@docusaurus/core": ^2.3.1
     "@docusaurus/module-type-aliases": ^2.3.1
