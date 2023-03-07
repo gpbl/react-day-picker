@@ -42,7 +42,7 @@ multiple-min-max
 
 ## Selecting a Range of days
 
-Use `mode="range"` and `onSelectRange` to allow the selection of multiple days.
+Use `mode="range"` and `onSelect` to allow the selection of multiple days.
 
 ```include-example
 range
