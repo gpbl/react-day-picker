@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
 import { DayPickerDefaultProps } from 'types/DayPickerDefault';
 import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
 import { DayPickerRangeProps } from 'types/DayPickerRange';
@@ -8,11 +9,35 @@ import { DayPickerSingleProps } from 'types/DayPickerSingle';
 import { Root } from './components/Root';
 import { RootProvider } from './contexts/RootProvider';
 
-export type DayPickerProps =
-  | DayPickerDefaultProps
-  | DayPickerSingleProps
-  | DayPickerMultipleProps
-  | DayPickerRangeProps;
+export interface DayPickerProps<T extends DaySelectionMode = DaySelectionMode>
+  extends DayPickerBase {
+  mode?: T;
+  selected?: T extends 'single'
+    ? DayPickerSingleProps['selected']
+    : T extends 'multiple'
+    ? DayPickerMultipleProps['selected']
+    : T extends 'range'
+    ? DayPickerRangeProps['selected']
+    : DayPickerDefaultProps['selected'];
+  onSelect?: T extends 'single'
+    ? DayPickerSingleProps['onSelect']
+    : T extends 'multiple'
+    ? DayPickerMultipleProps['onSelect']
+    : T extends 'range'
+    ? DayPickerRangeProps['onSelect']
+    : never;
+  required?: T extends 'single' ? DayPickerSingleProps['required'] : never;
+  min?: T extends 'multiple'
+    ? DayPickerMultipleProps['min']
+    : T extends 'range'
+    ? DayPickerRangeProps['min']
+    : never;
+  max?: T extends 'multiple'
+    ? DayPickerMultipleProps['max']
+    : T extends 'range'
+    ? DayPickerRangeProps['max']
+    : never;
+}
 
 /**
  * DayPicker render a date picker component to let users pick dates from a
@@ -101,12 +126,8 @@ export type DayPickerProps =
  * <DayPicker locale={es} />
  * ```
  */
-export function DayPicker(
-  props:
-    | DayPickerDefaultProps
-    | DayPickerSingleProps
-    | DayPickerMultipleProps
-    | DayPickerRangeProps
+export function DayPicker<T extends DaySelectionMode = 'default'>(
+  props: DayPickerProps<T>
 ): JSX.Element {
   return (
     <RootProvider {...props}>
