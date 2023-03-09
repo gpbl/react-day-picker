@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { differenceInMonths } from 'date-fns';
 
@@ -32,7 +32,7 @@ describe('when navigating to the last month', () => {
   const nOfMonths = differenceInMonths(toDate, fromDate);
   beforeEach(async () => {
     for (let i = 0; i < nOfMonths; i++) {
-      await user.click(getNextButton());
+      await act(() => user.click(getNextButton()));
     }
   });
 
