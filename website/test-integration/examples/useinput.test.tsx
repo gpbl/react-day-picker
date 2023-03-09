@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, format } from 'date-fns';
 
@@ -38,14 +38,14 @@ test('the input field should display today', () => {
 });
 
 describe('when yesterday is clicked', () => {
-  beforeEach(async () => user.click(getDayButton(yday)));
+  beforeEach(async () => act(() => user.click(getDayButton(yday))));
   test('the input field should display yesterday', () => {
     expect(getInput()).toHaveValue(format(yday, 'PP'));
   });
   describe('when today is typed in', () => {
     beforeEach(async () => {
-      await user.clear(getInput());
-      await user.type(getInput(), format(today, 'PP'));
+      await act(() => user.clear(getInput()));
+      await act(() => user.type(getInput(), format(today, 'PP')));
     });
     test('should not have AXE violations', async () => {
       expect(await axe(container)).toHaveNoViolations();
@@ -55,7 +55,7 @@ describe('when yesterday is clicked', () => {
     });
   });
   describe('when the input is cleared', () => {
-    beforeEach(async () => user.clear(getInput()));
+    beforeEach(async () => act(() => user.clear(getInput())));
     test('no day should be selected', () => {
       expect(getAllSelectedDays()).toHaveLength(0);
     });

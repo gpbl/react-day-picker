@@ -13,8 +13,6 @@ beforeEach(() => {
   render(<Example />);
 });
 
-describe('when displaying November 2021', () => {
-  test('should display the autumn emoji', () => {
-    expect(screen.getByRole('img', { name: 'autumn' })).toBeInTheDocument();
-  });
+test('should display the autumn emoji', () => {
+  expect(screen.getByRole('img', { name: 'autumn' })).toBeInTheDocument();
 });
