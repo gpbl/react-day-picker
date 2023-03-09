@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays } from 'date-fns';
 
@@ -38,7 +38,7 @@ test.each(days)('%s should be selected', (day) => {
 
 describe('when a day in the range is clicked', () => {
   const day = days[2];
-  beforeEach(async () => user.click(getDayButton(day)));
+  beforeEach(async () => act(() => user.click(getDayButton(day))));
   test.each([days[0], days[1], day])('%s should be selected', (day) => {
     expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
   });
@@ -47,7 +47,7 @@ describe('when a day in the range is clicked', () => {
   });
   describe('when the day is clicked again', () => {
     const day = days[2];
-    beforeEach(async () => user.click(getDayButton(day)));
+    beforeEach(async () => act(() => user.click(getDayButton(day))));
     test('only one day should be selected', () => {
       expect(getAllSelectedDays()).toHaveLength(1);
     });
@@ -57,7 +57,7 @@ describe('when a day in the range is clicked', () => {
 
     describe('when a day in the range is clicked again', () => {
       const day = days[2];
-      beforeEach(async () => user.click(getDayButton(day)));
+      beforeEach(async () => act(() => user.click(getDayButton(day))));
       test('only one day should be selected', () => {
         expect(getAllSelectedDays()).toHaveLength(1);
       });

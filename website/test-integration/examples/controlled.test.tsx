@@ -3,6 +3,7 @@ import React from 'react';
 import { axe } from '@site/test/axe';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import { getMonthCaption } from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
@@ -26,7 +27,7 @@ test('should not have AXE violations', async () => {
 describe('when the "Go to today" button is clicked', () => {
   beforeEach(async () => {
     render(<Example />);
-    await user.click(getTodayButton());
+    await act(() => user.click(getTodayButton()));
   });
   test('the button should be disabled', async () => {
     expect(getTodayButton()).toBeDisabled();

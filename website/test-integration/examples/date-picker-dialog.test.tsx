@@ -41,7 +41,7 @@ test('should not have AXE violations', async () => {
 
 describe('when clicking the dialog button', () => {
   beforeEach(async () => {
-    await user.click(getDialogButton());
+    await act(() => user.click(getDialogButton()));
     await waitPopper();
   });
   test('should not have AXE violations', async () => {
@@ -56,7 +56,7 @@ describe('when clicking the dialog button', () => {
   describe('when clicking a day', () => {
     const date = today;
     beforeEach(async () => {
-      await user.click(getDayButton(date));
+      await act(() => user.click(getDayButton(date)));
       await waitPopper();
     });
     test('should not have AXE violations', async () => {
@@ -71,8 +71,8 @@ describe('when clicking the dialog button', () => {
     describe('when typing a new date into the input', () => {
       const newDate = tomorrow;
       beforeEach(async () => {
-        await user.clear(getInput());
-        await user.type(getInput(), format(newDate, 'y-MM-dd'));
+        await act(() => user.clear(getInput()));
+        await act(() => user.type(getInput(), format(newDate, 'y-MM-dd')));
         await waitPopper();
       });
       test('should not have AXE violations', async () => {
@@ -83,7 +83,7 @@ describe('when clicking the dialog button', () => {
       });
       describe('when clicking the dialog button', () => {
         beforeEach(async () => {
-          await user.click(getDialogButton());
+          await act(() => user.click(getDialogButton()));
           await waitPopper();
         });
         test('the new date should be selected', () => {

@@ -3,6 +3,7 @@ import React from 'react';
 import { axe } from '@site/test/axe';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import { getDayButton, getTableFooter } from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
@@ -24,7 +25,7 @@ test('should not have AXE violations', async () => {
 
 describe('when a day is clicked', () => {
   const day = new Date(2021, 10, 1);
-  beforeEach(() => user.click(getDayButton(day)));
+  beforeEach(() => act(() => user.click(getDayButton(day))));
   test('should appear as selected', () => {
     expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
   });
