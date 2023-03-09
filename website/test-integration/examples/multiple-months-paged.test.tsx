@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { getPrevButton } from 'react-day-picker/test/selectors';
@@ -35,7 +35,7 @@ describe('when rendering November 2021', () => {
   });
   // Test pagination
   describe('when the previous month button is clicked', () => {
-    beforeEach(async () => user.click(getPrevButton()));
+    beforeEach(async () => act(() => user.click(getPrevButton())));
     test('the first month should be October', () => {
       const grids = screen.getAllByRole('grid');
       expect(grids[0]).toHaveAccessibleName('September 2021');

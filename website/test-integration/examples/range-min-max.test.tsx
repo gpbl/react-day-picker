@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { setDate } from 'date-fns';
 
@@ -22,7 +22,7 @@ test('should not have AXE violations', async () => {
 
 describe('when the first day is clicked', () => {
   const fromDay = setDate(today, 14);
-  beforeEach(async () => user.click(getDayButton(fromDay)));
+  beforeEach(async () => act(() => user.click(getDayButton(fromDay))));
   test('the clicked day should be selected', () => {
     expect(getDayButton(fromDay)).toHaveAttribute('aria-selected', 'true');
   });

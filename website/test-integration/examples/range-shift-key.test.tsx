@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { getDayButton } from 'react-day-picker/test/selectors';
@@ -23,7 +23,7 @@ test('should not have AXE violations', async () => {
 describe('when displaying November 2021', () => {
   describe('when clicking on the 11th', () => {
     const day1 = new Date(2021, 10, 11);
-    beforeEach(async () => user.click(getDayButton(day1)));
+    beforeEach(async () => act(() => user.click(getDayButton(day1))));
     test('the 11th day should have aria-selected true', () => {
       expect(getDayButton(day1)).toHaveAttribute('aria-selected', 'true');
     });
@@ -32,7 +32,7 @@ describe('when displaying November 2021', () => {
     });
     describe('when clicking on the 13th', () => {
       const day2 = new Date(2021, 10, 13);
-      beforeEach(async () => user.click(getDayButton(day2)));
+      beforeEach(async () => act(() => user.click(getDayButton(day2))));
 
       test('the 11th day should still have aria-selected true', () => {
         expect(getDayButton(day1)).toHaveAttribute('aria-selected', 'true');
@@ -48,7 +48,7 @@ describe('when displaying November 2021', () => {
       const day2 = new Date(2021, 10, 13);
       beforeEach(async () => {
         user.keyboard('{Shift>}');
-        await user.click(getDayButton(day2));
+        await act(() => user.click(getDayButton(day2)));
       });
       test('the 13th day should have aria-selected true', () => {
         expect(getDayButton(day2)).toHaveAttribute('aria-selected', 'true');
