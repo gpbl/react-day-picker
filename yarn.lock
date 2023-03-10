@@ -15060,6 +15060,7 @@ __metadata:
     ts-node: ^10.9.1
     tsc-alias: ^1.8.2
     tslib: ^2.5.0
+    type-fest: ^3.6.1
     typescript: ~4.9.5
   peerDependencies:
     date-fns: ^2.28.0
@@ -17436,6 +17437,13 @@ __metadata:
   version: 2.12.0
   resolution: "type-fest@npm:2.12.0"
   checksum: 3ebe6529db84c7ceb579a0c693b92c4bf83fa5a78b5d6a1d3c2138696ad69e0a1ebc7e1b707ee0a2a6bd5aef71bf2bf4fc6fc81a6c752330e10faf0deea80f05
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^3.6.1":
+  version: 3.6.1
+  resolution: "type-fest@npm:3.6.1"
+  checksum: f7e39bf6b74a883661ec8642707f49c33cfcdc6221e1ba36b1d329c1cf301d87351b3ca0839b894cbfe47dc62140c0ce47e69c88f76800b678e0b67b7fe826e6
   languageName: node
   linkType: hard
 
