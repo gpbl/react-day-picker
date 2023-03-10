@@ -1,10 +1,13 @@
 import React from 'react';
 
+import { UnionToIntersection } from 'type-fest';
+
 import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
 import { DayPickerDefaultProps } from 'types/DayPickerDefault';
 import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
 import { DayPickerRangeProps } from 'types/DayPickerRange';
 import { DayPickerSingleProps } from 'types/DayPickerSingle';
+import { SelectEventHandler } from 'types/EventHandlers';
 
 import { Root } from './components/Root';
 import { RootProvider } from './contexts/RootProvider';
@@ -19,13 +22,7 @@ export interface DayPickerProps<T extends DaySelectionMode = DaySelectionMode>
     : T extends 'range'
     ? DayPickerRangeProps['selected']
     : DayPickerDefaultProps['selected'];
-  onSelect?: T extends 'single'
-    ? DayPickerSingleProps['onSelect']
-    : T extends 'multiple'
-    ? DayPickerMultipleProps['onSelect']
-    : T extends 'range'
-    ? DayPickerRangeProps['onSelect']
-    : never;
+  onSelect?: SelectEventHandler<T>;
   required?: T extends 'single' ? DayPickerSingleProps['required'] : never;
   min?: T extends 'multiple'
     ? DayPickerMultipleProps['min']
@@ -127,7 +124,9 @@ export interface DayPickerProps<T extends DaySelectionMode = DaySelectionMode>
  * ```
  */
 export function DayPicker<T extends DaySelectionMode = 'default'>(
-  props: DayPickerProps<T>
+  props: Omit<DayPickerProps<T>, 'onSelect'> & {
+    onSelect: UnionToIntersection<SelectEventHandler<T>>;
+  }
 ): JSX.Element {
   return (
     <RootProvider {...props}>

@@ -1,5 +1,6 @@
 import { DateRange } from 'types/Matchers';
 
+import { DaySelectionMode } from './DayPickerBase';
 import { ActiveModifiers } from './Modifiers';
 
 /** The event handler when a day is clicked. */
@@ -73,6 +74,16 @@ export type SelectSingleEventHandler = (
   activeModifiers: ActiveModifiers,
   e: React.MouseEvent
 ) => void;
+
+/** The event handler when selecting a single day, multiple days or range of days. */
+export type SelectEventHandler<T extends DaySelectionMode = DaySelectionMode> =
+  T extends 'single'
+    ? SelectSingleEventHandler
+    : T extends 'multiple'
+    ? SelectMultipleEventHandler
+    : T extends 'range'
+    ? SelectRangeEventHandler
+    : never;
 
 /**The event handler when the week number is clicked. */
 export type WeekNumberClickEventHandler = (
