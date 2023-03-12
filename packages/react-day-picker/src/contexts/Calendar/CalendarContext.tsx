@@ -1,15 +1,18 @@
 import React, { createContext, ReactNode, useContext } from 'react';
 
-import { DayPickerProps, defaultProps } from 'components/DayPicker';
 import { addMonths, isBefore, isSameMonth, startOfMonth } from 'date-fns';
+
+import { DayPickerProps, defaultProps } from 'components/DayPicker';
+import { DayPickerCalendar } from 'contexts/Calendar';
 import { useControlledValue } from 'hooks/useControlledValue';
+
 import { getCalendar } from './getCalendar';
 import { getFirstLastMonths } from './utils/getFirstLastMonths';
 import { getNextMonth } from './utils/getNextMonth';
 import { getPreviousMonth } from './utils/getPreviousMonth';
-import { DayPickerCalendar } from 'contexts/Calendar';
 
-export interface CalendarContextValue extends DayPickerCalendar {
+export interface CalendarContextValue {
+  calendar: DayPickerCalendar;
   /** The month to display in the calendar. When `numberOfMonths` is greater than one, is the first of the displayed months. */
   currentMonth: Date;
   /** Navigate to the specified month. */
@@ -52,7 +55,13 @@ export function CalendarProvider(props: CalendarProviderProps) {
     dayPickerProps.onMonthChange?.(month);
   };
 
-  const calendar = getCalendar(currentMonth, lastMonth, dayPickerProps);
+  const calendar = getCalendar(currentMonth, lastMonth, {
+    numberOfMonths: dayPickerProps.numberOfMonths,
+    ISOWeek: dayPickerProps.ISOWeek,
+    locale: dayPickerProps.locale,
+    weekStartsOn: dayPickerProps.weekStartsOn
+  });
+
   const nextMonth = getNextMonth(currentMonth, dayPickerProps);
   const previousMonth = getPreviousMonth(currentMonth, dayPickerProps);
 
@@ -73,8 +82,9 @@ export function CalendarProvider(props: CalendarProviderProps) {
       goToMonth(date);
     }
   };
+
   const calendarContextValue: CalendarContextValue = {
-    ...calendar,
+    calendar,
     goToMonth,
     goToDate,
     currentMonth,
