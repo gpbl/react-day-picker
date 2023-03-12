@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { axe } from '@site/test/axe';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import { getDayButton, getTableFooter } from 'react-day-picker/test/selectors';
 import { freezeBeforeAll } from 'react-day-picker/test/utils';
@@ -12,13 +14,18 @@ const user = userEvent.setup();
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
+let container: HTMLElement;
 beforeEach(() => {
-  render(<Example />);
+  container = render(<Example />).container;
+});
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
 });
 
 describe('when a day is clicked', () => {
   const day = new Date(2021, 10, 1);
-  beforeEach(() => user.click(getDayButton(day)));
+  beforeEach(() => act(() => user.click(getDayButton(day))));
   test('should appear as selected', () => {
     expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
   });

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { axe } from '@site/test/axe';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, addMonths, startOfMonth } from 'date-fns';
 import { DayPickerProps } from 'react-day-picker';
@@ -22,31 +23,35 @@ freezeBeforeAll(today);
 
 const user = userEvent.setup();
 
+let container: HTMLElement;
 function setup(props: DayPickerProps) {
-  render(<Example {...props} />);
+  container = render(<Example {...props} />).container;
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   describe('when pressing Tab', () => {
     beforeEach(async () => {
       setup({ mode: 'single', dir });
-      await user.tab();
+      await act(() => user.tab());
+    });
+    test('should not have AXE violations', async () => {
+      expect(await axe(container)).toHaveNoViolations();
     });
     test('should focus on the Previous Month button', () => {
       expect(getPrevButton()).toHaveFocus();
     });
     describe('when pressing Tab a second time', () => {
-      beforeEach(async () => user.tab());
+      beforeEach(async () => act(() => user.tab()));
       test('should focus on the Next Month button', () => {
         expect(getNextButton()).toHaveFocus();
       });
       describe('when pressing Tab a third time', () => {
-        beforeEach(async () => user.tab());
+        beforeEach(async () => act(() => user.tab()));
         test('should have the current day selected', () => {
           expect(getDayButton(today)).toHaveFocus();
         });
 
-        const tests: [key: string, handler: () => void][] = [
+        const tests: [key: string, handler: () => Promise<void>][] = [
           ['ArrowDown', () => user.type(getFocusedElement(), '{arrowdown}')],
           ['ArrowUp', () => user.type(getFocusedElement(), '{arrowup}')],
           ['ArrowLeft', () => user.type(getFocusedElement(), '{arrowleft}')],
@@ -54,17 +59,17 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         ];
         describe.each(tests)(`when pressing %s`, (key, handler) => {
           let focusedElement: Element;
-          beforeEach(() => {
-            handler();
+          beforeEach(async () => {
+            await act(() => handler());
             focusedElement = getFocusedElement();
           });
           describe('when the next button is focused', () => {
-            beforeEach(() => getNextButton().focus());
+            beforeEach(() => act(() => getNextButton().focus()));
             test(`the element focused with ${key} should have lost the focus`, () => {
               expect(focusedElement).not.toHaveFocus();
             });
             describe('when pressing Tab', () => {
-              beforeEach(async () => user.tab());
+              beforeEach(async () => act(() => user.tab()));
               test(`the element focused with ${key} should have focus again`, () => {
                 expect(focusedElement).toHaveFocus();
               });
@@ -72,9 +77,9 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
           });
           describe('when navigating to the next month', () => {
             beforeEach(async () => {
-              await user.tab({ shift: true });
-              await user.keyboard('{enter}');
-              await user.tab();
+              await act(() => user.tab({ shift: true }));
+              await act(() => user.keyboard('{enter}'));
+              await act(() => user.tab());
             });
             test('the first active day of the next month should have focus', () => {
               const startOfNextMonth = startOfMonth(addMonths(today, 1));

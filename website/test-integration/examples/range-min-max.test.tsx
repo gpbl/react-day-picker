@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { axe } from '@site/test/axe';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { setDate } from 'date-fns';
 
@@ -12,13 +13,16 @@ import Example from '@examples/range-min-max';
 const today = new Date(2022, 8, 25);
 const user = userEvent.setup();
 freezeBeforeAll(today);
-beforeEach(() => {
-  render(<Example />);
+
+let container: HTMLElement;
+beforeEach(() => (container = render(<Example />).container));
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
 });
 
 describe('when the first day is clicked', () => {
   const fromDay = setDate(today, 14);
-  beforeEach(async () => user.click(getDayButton(fromDay)));
+  beforeEach(async () => act(() => user.click(getDayButton(fromDay))));
   test('the clicked day should be selected', () => {
     expect(getDayButton(fromDay)).toHaveAttribute('aria-selected', 'true');
   });
@@ -42,5 +46,8 @@ describe('when the first day is clicked', () => {
     expect(getDayButton(setDate(today, 8))).toBeDisabled();
     expect(getDayButton(setDate(today, 20))).toBeDisabled();
     expect(getDayButton(setDate(today, 21))).toBeDisabled();
+  });
+  test('should not have AXE violations', async () => {
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

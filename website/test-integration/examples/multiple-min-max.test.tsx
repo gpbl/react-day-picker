@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { axe } from '@site/test/axe';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays } from 'date-fns';
 
@@ -12,9 +13,7 @@ import Example from '@examples/multiple-min-max';
 const user = userEvent.setup();
 const today = new Date(2021, 10, 10);
 freezeBeforeAll(today);
-beforeEach(() => {
-  render(<Example />);
-});
+
 const days = [
   today,
   addDays(today, 1),
@@ -23,16 +22,26 @@ const days = [
   addDays(today, 4)
 ];
 
+let container: HTMLElement;
+beforeEach(() => (container = render(<Example />).container));
+
+test('should not have AXE violations', async () => {
+  expect(await axe(container)).toHaveNoViolations();
+});
+
 describe('when a day is clicked', () => {
-  beforeEach(async () => user.click(getDayButton(days[0])));
+  beforeEach(async () => act(() => user.click(getDayButton(days[0]))));
   test('should appear as selected', () => {
     expect(getDayButton(days[0])).toHaveAttribute('aria-selected', 'true');
   });
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent('You selected 1 day(s).');
   });
+  test('should not have AXE violations', async () => {
+    expect(await axe(container)).toHaveNoViolations();
+  });
   describe('when a second day is clicked', () => {
-    beforeEach(async () => user.click(getDayButton(days[1])));
+    beforeEach(async () => act(() => user.click(getDayButton(days[1]))));
     test('the first day should appear as selected', () => {
       expect(getDayButton(days[0])).toHaveAttribute('aria-selected', 'true');
     });
@@ -42,8 +51,11 @@ describe('when a day is clicked', () => {
     test('should update the footer', () => {
       expect(getTableFooter()).toHaveTextContent('You selected 2 day(s).');
     });
+    test('should not have AXE violations', async () => {
+      expect(await axe(container)).toHaveNoViolations();
+    });
     describe('when clicked again', () => {
-      beforeEach(async () => user.click(getDayButton(days[1])));
+      beforeEach(async () => act(() => user.click(getDayButton(days[1]))));
       test('the first day should still appear as selected', () => {
         expect(getDayButton(days[0])).toHaveAttribute('aria-selected', 'true');
       });
@@ -53,23 +65,26 @@ describe('when a day is clicked', () => {
       test('should update the footer', () => {
         expect(getTableFooter()).toHaveTextContent('You selected 2 day(s).');
       });
+      test('should not have AXE violations', async () => {
+        expect(await axe(container)).toHaveNoViolations();
+      });
     });
   });
 });
 
 describe('when the first 5 days are clicked', () => {
   beforeEach(async () => {
-    const promises = [];
-    days.forEach((day) => promises.push(user.click(getDayButton(day))));
-    await Promise.all(promises);
+    await act(() => user.click(getDayButton(days[0])));
+    await act(() => user.click(getDayButton(days[1])));
+    await act(() => user.click(getDayButton(days[2])));
+    await act(() => user.click(getDayButton(days[3])));
+    await act(() => user.click(getDayButton(days[4])));
   });
   test.each(days)('the %s day should appear as selected', (day) => {
     expect(getDayButton(day)).toHaveAttribute('aria-selected', 'true');
   });
-  describe('when a sixth day is clicked', () => {
+  test('the sixth day should not appear as selected', () => {
     const day6 = addDays(today, 5);
-    test('it should not appear as selected', () => {
-      expect(getDayButton(day6)).not.toHaveAttribute('aria-selected');
-    });
+    expect(getDayButton(day6)).not.toHaveAttribute('aria-selected');
   });
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { getDayButton, getTableFooter } from 'react-day-picker/test/selectors';
@@ -22,7 +22,7 @@ test.each(bookedDays)('%s should have the booked style', (day) => {
 
 describe('when the booked day is clicked', () => {
   beforeEach(async () => {
-    await user.click(getDayButton(bookedDays[1]));
+    await act(() => user.click(getDayButton(bookedDays[1])));
   });
   test('the footer should be updated', () => {
     expect(getTableFooter()).toHaveTextContent('This day is already booked!');
