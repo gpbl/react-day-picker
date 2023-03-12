@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { UnionToIntersection } from 'type-fest';
-
 import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
 import { DayPickerDefaultProps } from 'types/DayPickerDefault';
 import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
