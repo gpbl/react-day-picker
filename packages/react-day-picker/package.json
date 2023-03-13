@@ -65,7 +65,7 @@
     "react-classnaming": "^0.16.4",
     "react-dom": "^18.2.0",
     "rimraf": "^4.3.0",
-    "rollup": "^3.18.0",
+    "rollup": "^3.19.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-dts": "^5.2.0",
     "rollup-plugin-postcss": "^4.0.2",
