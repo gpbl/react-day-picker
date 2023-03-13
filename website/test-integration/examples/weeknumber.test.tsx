@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { getTableFooter, getWeekButton } from 'react-day-picker/test/selectors';
@@ -26,7 +26,7 @@ describe('when displaying November 2021', () => {
     expect(getWeekButton(45)).toBeInTheDocument();
   });
   describe('when the week button is clicked', () => {
-    beforeEach(async () => user.click(getWeekButton(45)));
+    beforeEach(async () => act(() => user.click(getWeekButton(45))));
     test('should update the footer', () => {
       expect(getTableFooter()).toHaveTextContent('You clicked the week n. 45.');
     });

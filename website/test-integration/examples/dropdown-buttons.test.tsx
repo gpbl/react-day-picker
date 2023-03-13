@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {
@@ -43,7 +43,9 @@ test('should render the previous month button', () => {
 
 describe('when choosing a month', () => {
   const monthName = 'January';
-  beforeEach(() => user.selectOptions(getMonthDropdown(), monthName));
+  beforeEach(() =>
+    act(() => user.selectOptions(getMonthDropdown(), monthName))
+  );
   test('should not have AXE violations', async () => {
     expect(await axe(container)).toHaveNoViolations();
   });

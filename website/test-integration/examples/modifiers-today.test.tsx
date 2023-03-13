@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays } from 'date-fns';
 
@@ -29,7 +29,7 @@ describe('when rendering a month that contains today', () => {
 });
 
 describe('when the today date is clicked', () => {
-  beforeEach(async () => user.click(getDayButton(today)));
+  beforeEach(async () => act(() => user.click(getDayButton(today))));
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent('You clicked the today’s date');
   });
@@ -37,7 +37,7 @@ describe('when the today date is clicked', () => {
 
 describe('when another date is clicked', () => {
   const date = addDays(today, 1);
-  beforeEach(async () => user.click(getDayButton(date)));
+  beforeEach(async () => act(() => user.click(getDayButton(date))));
   test('should update the footer', () => {
     expect(getTableFooter()).toHaveTextContent(
       'Try clicking the today’s date.'
