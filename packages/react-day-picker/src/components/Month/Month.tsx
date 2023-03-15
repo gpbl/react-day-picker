@@ -22,6 +22,17 @@ export function Month(props: MonthProps) {
     dayPicker.id ? `${dayPicker.id}-${props.displayIndex}` : undefined
   );
 
+  /**
+   * Adding an id to the `role="grid"` element allows consumers to reference this element through
+   * `aria-controls` when implementing a `combobox`
+   * 
+   * @example
+   *  <input role="combobox" aria-haspopup="grid" aria-controls="daypicker-id-0-grid"/>
+   */
+  const tableId = useId(
+    dayPicker.id ? `${dayPicker.id}-${props.displayIndex}-grid` : undefined
+  )
+
   const className = [classNames.month];
   let style = styles.month;
 
@@ -50,7 +61,7 @@ export function Month(props: MonthProps) {
   return (
     <div key={props.displayIndex} className={className.join(' ')} style={style}>
       <CaptionComponent id={captionId} displayMonth={props.displayMonth} />
-      <Table aria-labelledby={captionId} displayMonth={props.displayMonth} />
+      <Table id={tableId} aria-labelledby={captionId} displayMonth={props.displayMonth} />
     </div>
   );
 }
