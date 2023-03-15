@@ -9,7 +9,7 @@ import { getMonthWeeks } from './utils/getMonthWeeks';
 
 /** The props for the {@link Table} component. */
 export interface TableProps {
-  /** ID if table element */
+  /** ID of table element */
   id?: string,
   /** The ID of the label of the table (the same given to the Caption). */
   ['aria-labelledby']?: string;
