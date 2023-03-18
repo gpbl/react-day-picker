@@ -125,33 +125,12 @@ export interface DayPickerProps<T extends DaySelectionMode = DaySelectionMode>
  */
 export function DayPicker<T extends DaySelectionMode = 'default'>(
   props: Omit<DayPickerProps<T>, 'onSelect'> & {
-    onSelect: UnionToIntersection<SelectEventHandler<T>>;
+    onSelect?: UnionToIntersection<SelectEventHandler<T>> | undefined;
   }
 ): JSX.Element {
   return (
     <RootProvider {...props}>
       <Root />
     </RootProvider>
-  );
-}
-
-/**
- * In this example we test the selection mode is correctly inferred from the mode prop.
- * If it does not, this file should throw a type error. See https://github.com/gpbl/react-day-picker/pull/1718
- */
-export function Example({ index }: { index: number }) {
-  const modes: DaySelectionMode[] = ['single', 'multiple', 'range'];
-  const selectedValues = [
-    new Date(),
-    [new Date()],
-    { from: new Date(), to: new Date() }
-  ];
-
-  return (
-    <DayPicker
-      mode={modes[0]}
-      selected={selectedValues[index]}
-      onSelect={(selected) => console.log(selected)}
-    />
   );
 }
