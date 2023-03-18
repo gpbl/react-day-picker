@@ -1,5 +1,5 @@
 import { addDays, addMonths } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { renderDayPickerHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
@@ -16,7 +16,7 @@ import {
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
 
-function renderHook(props?: Partial<DayPickerProps>) {
+function renderHook(props?: Partial<InternalDayPickerProps>) {
   return renderDayPickerHook<SelectMultipleContextValue>(
     useSelectMultiple,
     props

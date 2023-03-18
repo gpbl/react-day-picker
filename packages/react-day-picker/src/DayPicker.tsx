@@ -12,6 +12,12 @@ import { SelectEventHandler } from 'types/EventHandlers';
 import { Root } from './components/Root';
 import { RootProvider } from './contexts/RootProvider';
 
+export type InternalDayPickerProps =
+  | DayPickerDefaultProps
+  | DayPickerSingleProps
+  | DayPickerMultipleProps
+  | DayPickerRangeProps;
+
 export interface DayPickerProps<T extends DaySelectionMode = DaySelectionMode>
   extends DayPickerBase {
   mode?: T;
@@ -22,7 +28,7 @@ export interface DayPickerProps<T extends DaySelectionMode = DaySelectionMode>
     : T extends 'range'
     ? DayPickerRangeProps['selected']
     : DayPickerDefaultProps['selected'];
-  onSelect?: SelectEventHandler<T>;
+  onSelect?: UnionToIntersection<SelectEventHandler<T>>;
   required?: T extends 'single' ? DayPickerSingleProps['required'] : never;
   min?: T extends 'multiple'
     ? DayPickerMultipleProps['min']
@@ -124,9 +130,7 @@ export interface DayPickerProps<T extends DaySelectionMode = DaySelectionMode>
  * ```
  */
 export function DayPicker<T extends DaySelectionMode = 'default'>(
-  props: Omit<DayPickerProps<T>, 'onSelect'> & {
-    onSelect?: UnionToIntersection<SelectEventHandler<T>> | undefined;
-  }
+  props: DayPickerProps<T>
 ): JSX.Element {
   return (
     <RootProvider {...props}>

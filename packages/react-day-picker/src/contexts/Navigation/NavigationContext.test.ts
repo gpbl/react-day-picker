@@ -1,6 +1,6 @@
 import { act } from '@testing-library/react';
 import { addMonths, startOfMonth, subMonths } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { renderDayPickerHook, RenderHookResult } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
@@ -11,7 +11,7 @@ const today = new Date(2021, 11, 8);
 const todaysMonth = startOfMonth(today);
 freezeBeforeAll(today);
 
-function renderHook(props: Partial<DayPickerProps> = {}) {
+function renderHook(props: Partial<InternalDayPickerProps> = {}) {
   return renderDayPickerHook<NavigationContextValue>(useNavigation, props);
 }
 

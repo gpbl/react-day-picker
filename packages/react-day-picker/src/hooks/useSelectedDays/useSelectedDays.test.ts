@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { mockedContexts } from 'test/mockedContexts';
 import { renderDayPickerHook } from 'test/render';
@@ -9,7 +9,7 @@ import { useSelectedDays } from './useSelectedDays';
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
 
-function renderHook(dayPickerProps: DayPickerProps) {
+function renderHook(dayPickerProps: InternalDayPickerProps) {
   return renderDayPickerHook(
     () => useSelectedDays(),
     dayPickerProps,

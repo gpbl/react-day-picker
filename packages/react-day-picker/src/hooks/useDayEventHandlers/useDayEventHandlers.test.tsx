@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { mockedContexts } from 'test/mockedContexts';
 import { renderDayPickerHook } from 'test/render';
@@ -16,7 +16,7 @@ const today = new Date(2010, 5, 23);
 function renderHook(
   date: Date,
   activeModifiers: ActiveModifiers,
-  dayPickerProps?: DayPickerProps
+  dayPickerProps?: InternalDayPickerProps
 ) {
   return renderDayPickerHook(
     () => useDayEventHandlers(date, activeModifiers),
