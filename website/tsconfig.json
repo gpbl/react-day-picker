@@ -3,7 +3,6 @@
   "compilerOptions": {
     "jsx": "react",
     "baseUrl": ".",
-    "strict": true,
     "lib": ["es2019", "DOM"],
     "resolveJsonModule": true,
     "skipLibCheck": true,
