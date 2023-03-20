@@ -15142,7 +15142,7 @@ __metadata:
     react: ^18.2.0
     react-classnaming: ^0.16.4
     react-dom: ^18.2.0
-    rimraf: ^4.3.0
+    rimraf: ^4.4.0
     rollup: ^3.19.1
     rollup-plugin-copy: ^3.4.0
     rollup-plugin-dts: ^5.2.0
@@ -15900,14 +15900,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "rimraf@npm:4.3.0"
+"rimraf@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "rimraf@npm:4.4.0"
   dependencies:
     glob: ^9.2.0
   bin:
     rimraf: dist/cjs/src/bin.js
-  checksum: 48498f1eeb9b6b848605d93fa79e7bf3c57bb47807500ee636848dc0fd3b69b6b532f1ce9d4e46c4feeb4c3ff0e8ab85cd177cbbbd65f635f8bc8cb88aee151c
+  checksum: 0cedaf9d138589d1bb0ab851f05804c6d30827aa66563472b04ab76245f83537e23e7b94f1f79ea6c368c0d84a18fcde6a756fca3a44c967e08792671b3a0a6e
   languageName: node
   linkType: hard
 
