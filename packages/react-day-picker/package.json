@@ -44,7 +44,7 @@
     "@types/jest": "^29.4.0",
     "@types/node": "^18.15.1",
     "@types/react": "^18.0.28",
-    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.55.0",
     "date-fns": "^2.29.3",
     "eslint": "^8.35.0",
