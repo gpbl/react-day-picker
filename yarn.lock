@@ -4541,10 +4541,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.11.6":
-  version: 2.11.6
-  resolution: "@popperjs/core@npm:2.11.6"
-  checksum: 47fb328cec1924559d759b48235c78574f2d71a8a6c4c03edb6de5d7074078371633b91e39bbf3f901b32aa8af9b9d8f82834856d2f5737a23475036b16817f0
+"@popperjs/core@npm:^2.11.7":
+  version: 2.11.7
+  resolution: "@popperjs/core@npm:2.11.7"
+  checksum: 5b6553747899683452a1d28898c1b39173a4efd780e74360bfcda8eb42f1c5e819602769c81a10920fc68c881d07fb40429604517d499567eac079cfa6470f19
   languageName: node
   linkType: hard
 
@@ -18438,7 +18438,7 @@ __metadata:
     "@docusaurus/preset-classic": ^2.3.1
     "@docusaurus/types": ^2.3.1
     "@mdx-js/react": ^1.6.22
-    "@popperjs/core": ^2.11.6
+    "@popperjs/core": ^2.11.7
     "@testing-library/jest-dom": ^5.16.5
     "@tsconfig/docusaurus": ^1.0.6
     "@types/jest": ^29.4.0
