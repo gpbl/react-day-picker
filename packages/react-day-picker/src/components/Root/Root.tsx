@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { AriaAttributes, useEffect, useState } from 'react';
 
 import { Month } from 'components/Month';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useFocusContext } from 'contexts/Focus';
 import { useNavigation } from 'contexts/Navigation';
+import { DataAttributes } from 'types/DayPickerBase';
 
 /** Render the container with the months according to the number of months to display. */
 export function Root(): JSX.Element {
@@ -43,8 +44,29 @@ export function Root(): JSX.Element {
     ...dayPicker.style
   };
 
+  const dataAttributes = (Object.keys(dayPicker) as Array<keyof DataAttributes>)
+    .filter((key) => key.startsWith('data-'))
+    .reduce(
+      (attrs, key) => ({ ...attrs, [key]: dayPicker[key] }),
+      {} as DataAttributes
+    );
+
+  const ariaAttributes = (Object.keys(dayPicker) as Array<keyof AriaAttributes>)
+    .filter((key) => key.startsWith('aria-'))
+    .reduce(
+      (attrs, key) => ({ ...attrs, [key]: dayPicker[key] }),
+      {} as AriaAttributes
+    );
+
   return (
-    <div className={classNames.join(' ')} style={style} dir={dayPicker.dir}>
+    <div
+      className={classNames.join(' ')}
+      style={style}
+      dir={dayPicker.dir}
+      id={dayPicker.id}
+      {...dataAttributes}
+      {...ariaAttributes}
+    >
       <div
         className={dayPicker.classNames.months}
         style={dayPicker.styles.months}
