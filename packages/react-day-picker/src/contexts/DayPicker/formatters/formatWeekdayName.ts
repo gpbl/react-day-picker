@@ -8,5 +8,5 @@ export function formatWeekdayName(
   weekday: Date,
   options?: { locale?: Locale }
 ): string {
-  return format(weekday, 'cccccc', options).toUpperCase();
+  return format(weekday, 'cccccc', options);
 }
