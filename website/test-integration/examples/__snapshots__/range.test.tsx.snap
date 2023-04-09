@@ -4,6 +4,7 @@ exports[`should match the snapshot 1`] = `
 <div>
   <div
     class="rdp "
+    id="test"
   >
     <div
       class="rdp-months"
@@ -642,6 +643,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
 <div>
   <div
     class="rdp "
+    id="test"
   >
     <div
       class="rdp-months"
