@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/render-result-naming-convention */
 
 import { es } from 'date-fns/locale';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { renderDayPickerHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
@@ -23,7 +23,7 @@ const defaults = getDefaultContextValues();
 
 freezeBeforeAll(today);
 
-function renderHook(props?: DayPickerProps) {
+function renderHook(props?: InternalDayPickerProps) {
   return renderDayPickerHook<DayPickerContextValue>(useDayPicker, props);
 }
 
@@ -64,7 +64,11 @@ describe('when passing "captionLayout" from props', () => {
   const captionLayout: CaptionLayout = 'dropdown';
   const fromYear = 2000;
   const toYear = 2010;
-  const dayPickerProps: DayPickerProps = { captionLayout, fromYear, toYear };
+  const dayPickerProps: InternalDayPickerProps = {
+    captionLayout,
+    fromYear,
+    toYear
+  };
   test('should return the custom "captionLayout"', () => {
     const result = renderHook(dayPickerProps);
     expect(result.current.captionLayout).toBe(captionLayout);

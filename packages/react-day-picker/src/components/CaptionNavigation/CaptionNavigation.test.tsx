@@ -2,7 +2,7 @@ import React from 'react';
 
 import userEvent from '@testing-library/user-event';
 import { addMonths } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import {
@@ -22,7 +22,7 @@ freezeBeforeAll(today);
 const user = userEvent.setup();
 
 describe('when rendered', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: InternalDayPickerProps = {
     captionLayout: 'buttons'
   };
   test('should render the next month button', () => {

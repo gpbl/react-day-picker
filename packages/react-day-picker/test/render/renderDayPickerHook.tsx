@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render } from '@testing-library/react';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { FocusContext, FocusContextValue } from 'contexts/Focus';
 import { RootProvider } from 'contexts/RootProvider';
@@ -24,7 +24,7 @@ export type RenderHookResult<TResult> = {
 };
 export function renderDayPickerHook<TResult>(
   hook: () => TResult,
-  dayPickerProps?: DayPickerProps,
+  dayPickerProps?: InternalDayPickerProps,
   /** Pass the mocked contexts. */
   contexts?: {
     single: SelectSingleContextValue;

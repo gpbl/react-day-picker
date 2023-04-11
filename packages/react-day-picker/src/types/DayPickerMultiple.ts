@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { DayPickerContextValue } from 'contexts/DayPicker';
 
@@ -20,7 +20,7 @@ export interface DayPickerMultipleProps extends DayPickerBase {
 
 /** Returns true when the props are of type {@link DayPickerMultipleProps}. */
 export function isDayPickerMultiple(
-  props: DayPickerProps | DayPickerContextValue
+  props: InternalDayPickerProps | DayPickerContextValue
 ): props is DayPickerMultipleProps {
   return props.mode === 'multiple';
 }

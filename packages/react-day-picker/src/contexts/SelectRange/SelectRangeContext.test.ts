@@ -4,7 +4,7 @@ import {
   differenceInCalendarDays,
   subDays
 } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { renderDayPickerHook } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
@@ -18,7 +18,7 @@ import { SelectRangeContextValue, useSelectRange } from './SelectRangeContext';
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
 
-function renderHook(props?: Partial<DayPickerProps>) {
+function renderHook(props?: Partial<InternalDayPickerProps>) {
   return renderDayPickerHook<SelectRangeContextValue>(useSelectRange, props);
 }
 describe('when is not a multiple select DayPicker', () => {

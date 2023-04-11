@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useContext } from 'react';
 
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { CaptionLayout } from 'components/Caption';
 import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
@@ -60,7 +60,7 @@ export const DayPickerContext = createContext<
 /** The props for the {@link DayPickerProvider}. */
 export interface DayPickerProviderProps {
   /** The initial props from the DayPicker component. */
-  initialProps: DayPickerProps;
+  initialProps: InternalDayPickerProps;
   children?: ReactNode;
 }
 /**

@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { DayPickerBase } from './DayPickerBase';
 
@@ -9,7 +9,7 @@ export interface DayPickerDefaultProps extends DayPickerBase {
 
 /** Returns true when the props are of type {@link DayPickerDefaultProps}. */
 export function isDayPickerDefault(
-  props: DayPickerProps
+  props: InternalDayPickerProps
 ): props is DayPickerDefaultProps {
   return props.mode === undefined || props.mode === 'default';
 }

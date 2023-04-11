@@ -3,7 +3,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { setMonth, setYear } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import {
@@ -26,7 +26,7 @@ const toYear = 2025;
 freezeBeforeAll(today);
 
 const user = userEvent.setup();
-function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
+function setup(props: CaptionProps, dayPickerProps?: InternalDayPickerProps) {
   customRender(<CaptionDropdowns {...props} />, dayPickerProps);
 }
 
@@ -47,7 +47,7 @@ describe('when rendered with custom styles or classnames', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
-    const dayPickerProps: DayPickerProps = {
+    const dayPickerProps: InternalDayPickerProps = {
       captionLayout: 'dropdown',
       fromYear,
       toYear,
@@ -75,7 +75,7 @@ describe('when rendered with custom styles or classnames', () => {
 });
 
 describe('when a month is selected', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: InternalDayPickerProps = {
     captionLayout: 'dropdown',
     fromYear,
     toYear,
@@ -111,7 +111,7 @@ describe('when a month is selected', () => {
 });
 
 describe('when no date limits are set', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: InternalDayPickerProps = {
     captionLayout: 'dropdown'
   };
   beforeEach(() => {

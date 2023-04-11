@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render/customRender';
 import { freezeBeforeAll } from 'test/utils';
@@ -9,7 +9,7 @@ import { FooterProps } from 'components/Footer';
 
 import { Table, TableProps } from './Table';
 
-function setup(props: TableProps, dayPickerProps?: DayPickerProps) {
+function setup(props: TableProps, dayPickerProps?: InternalDayPickerProps) {
   return customRender(<Table {...props} />, dayPickerProps);
 }
 
@@ -34,7 +34,7 @@ describe('when showing the week numbers', () => {
 });
 
 describe('when using custom components', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: InternalDayPickerProps = {
     components: {
       Head: () => (
         <thead>

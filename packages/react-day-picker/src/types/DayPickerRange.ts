@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { DayPickerContextValue } from 'contexts/DayPicker';
 
@@ -21,7 +21,7 @@ export interface DayPickerRangeProps extends DayPickerBase {
 
 /** Returns true when the props are of type {@link DayPickerRangeProps}. */
 export function isDayPickerRange(
-  props: DayPickerProps | DayPickerContextValue
+  props: InternalDayPickerProps | DayPickerContextValue
 ): props is DayPickerRangeProps {
   return props.mode === 'range';
 }

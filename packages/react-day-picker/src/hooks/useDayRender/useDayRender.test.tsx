@@ -1,7 +1,7 @@
 import { createRef } from 'react';
 
 import { addDays, addMonths } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { mockedContexts } from 'test/mockedContexts';
 import { renderDayPickerHook } from 'test/render';
@@ -23,7 +23,7 @@ freezeBeforeAll(today);
 function renderHook(
   date: Date,
   displayMonth: Date,
-  dayPickerProps?: DayPickerProps,
+  dayPickerProps?: InternalDayPickerProps,
   contexts?: {
     single: SelectSingleContextValue;
     multiple: SelectMultipleContextValue;
@@ -104,7 +104,7 @@ describe('when "onDayClick" is not passed in', () => {
   });
 });
 describe('when in selection mode', () => {
-  const dayPickerProps: DayPickerProps = { mode: 'single' };
+  const dayPickerProps: InternalDayPickerProps = { mode: 'single' };
   test('should be a button', () => {
     const result = renderHook(today, today, dayPickerProps);
     expect(result.current.isButton).toBe(true);
@@ -112,7 +112,7 @@ describe('when in selection mode', () => {
 });
 
 describe('when "onDayClick" is passed in', () => {
-  const dayPickerProps: DayPickerProps = { onDayClick: jest.fn() };
+  const dayPickerProps: InternalDayPickerProps = { onDayClick: jest.fn() };
   test('should be a button', () => {
     const result = renderHook(today, today, dayPickerProps);
     expect(result.current.isButton).toBe(true);
@@ -120,7 +120,7 @@ describe('when "onDayClick" is passed in', () => {
 });
 
 describe('when showing the outside days', () => {
-  const dayPickerProps: DayPickerProps = { showOutsideDays: false };
+  const dayPickerProps: InternalDayPickerProps = { showOutsideDays: false };
   describe('when the day is outside', () => {
     const day = today;
     const displayMonth = addMonths(today, 1);
@@ -133,7 +133,7 @@ describe('when showing the outside days', () => {
 
 describe('when the day has the "hidden" modifier active', () => {
   const date = today;
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: InternalDayPickerProps = {
     modifiers: { hidden: date }
   };
   test('should have the hidden modifier active', () => {

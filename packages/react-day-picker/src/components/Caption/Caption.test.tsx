@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { screen } from '@testing-library/react';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import {
@@ -23,7 +23,7 @@ const today = new Date(2021, 8);
 
 freezeBeforeAll(today);
 
-function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
+function setup(props: CaptionProps, dayPickerProps?: InternalDayPickerProps) {
   customRender(<Caption {...props} />, dayPickerProps);
 }
 
@@ -54,7 +54,7 @@ describe('when using a custom CaptionLabel component', () => {
 });
 
 describe('when the caption layout is "dropdown"', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: InternalDayPickerProps = {
     captionLayout: 'dropdown',
     fromYear: 2020,
     toYear: 2025
@@ -72,7 +72,7 @@ describe('when the caption layout is "dropdown"', () => {
 });
 
 describe('when the caption layout is "buttons"', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: InternalDayPickerProps = {
     captionLayout: 'buttons'
   };
   test('should render the next month button', () => {
@@ -86,7 +86,7 @@ describe('when the caption layout is "buttons"', () => {
 });
 
 describe('when the caption layout is "dropdown-buttons"', () => {
-  const dayPickerProps: DayPickerProps = {
+  const dayPickerProps: InternalDayPickerProps = {
     captionLayout: 'dropdown-buttons',
     fromYear: 2020,
     toYear: 2025

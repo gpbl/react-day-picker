@@ -3,7 +3,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addMonths, differenceInYears } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
@@ -19,7 +19,10 @@ let options: HTMLCollectionOf<HTMLOptionElement> | undefined;
 let select: HTMLSelectElement | null;
 
 const user = userEvent.setup();
-function setup(props: YearsDropdownProps, dayPickerProps?: DayPickerProps) {
+function setup(
+  props: YearsDropdownProps,
+  dayPickerProps?: InternalDayPickerProps
+) {
   const view = customRender(<YearsDropdown {...props} />, dayPickerProps);
   root = view.container.firstChild as HTMLDivElement;
   select = screen.queryByRole('combobox', { name: 'Year:' });

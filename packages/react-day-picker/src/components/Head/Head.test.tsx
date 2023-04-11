@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { RenderResult, screen } from '@testing-library/react';
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';
 
@@ -10,7 +10,7 @@ import { Head } from './Head';
 let container: HTMLElement;
 let view: RenderResult;
 
-function setup(dayPickerProps: DayPickerProps = {}) {
+function setup(dayPickerProps: InternalDayPickerProps = {}) {
   view = customRender(
     <table>
       <Head />

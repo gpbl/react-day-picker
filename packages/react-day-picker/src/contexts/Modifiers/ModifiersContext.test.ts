@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { renderDayPickerHook } from 'test/render';
 
@@ -7,7 +7,7 @@ import { DayModifiers, InternalModifier, Modifiers } from 'types/Modifiers';
 
 const internalModifiers = Object.values(InternalModifier);
 
-function renderHook(dayPickerProps: Partial<DayPickerProps> = {}) {
+function renderHook(dayPickerProps: Partial<InternalDayPickerProps> = {}) {
   return renderDayPickerHook<Modifiers>(useModifiers, dayPickerProps);
 }
 

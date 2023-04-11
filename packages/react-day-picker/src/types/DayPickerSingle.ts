@@ -1,4 +1,4 @@
-import { DayPickerProps } from 'DayPicker';
+import { InternalDayPickerProps } from 'DayPicker';
 
 import { DayPickerContextValue } from 'contexts/DayPicker';
 
@@ -18,7 +18,7 @@ export interface DayPickerSingleProps extends DayPickerBase {
 
 /** Returns true when the props are of type {@link DayPickerSingleProps}. */
 export function isDayPickerSingle(
-  props: DayPickerProps | DayPickerContextValue
+  props: InternalDayPickerProps | DayPickerContextValue
 ): props is DayPickerSingleProps {
   return props.mode === 'single';
 }
