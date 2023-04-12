@@ -10,7 +10,7 @@ import { useNavigation } from 'contexts/Navigation';
 function isDataAttributes(attrs: DayPickerProps): attrs is {
   [key: string]: string | boolean | number | undefined;
 } {
-  return Object.keys(attrs).every((key) => key.startsWith('data-'));
+  return true;
 }
 
 export interface RootProps {
