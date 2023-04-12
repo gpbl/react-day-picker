@@ -1,7 +1,5 @@
 import type { Locale } from 'date-fns';
 
-import { AriaAttributes } from 'react';
-
 import { CaptionLayout, CaptionProps } from 'components/Caption';
 import { CaptionLabelProps } from 'components/CaptionLabel';
 import { DayProps } from 'components/Day';
@@ -31,11 +29,6 @@ import {
 } from './Modifiers';
 import { ClassNames, StyledComponent, Styles } from './Styles';
 
-/** A type with all the attributes starting with data- */
-export type DataAttributes = {
-  [key: `data-${string}`]: string | boolean | number | undefined;
-};
-
 /**
  * Selection modes supported by DayPicker.
  *
@@ -50,7 +43,7 @@ export type DaySelectionMode = 'single' | 'multiple' | 'range' | 'default';
 /**
  * The base props for the {@link DayPicker} component and the {@link DayPickerContext}.
  */
-export interface DayPickerBase extends DataAttributes, AriaAttributes {
+export interface DayPickerBase {
   /**
    * The CSS class to add to the container element. To change the name of the
    * class instead, use `classNames.root`.
