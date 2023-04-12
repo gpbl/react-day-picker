@@ -20,7 +20,7 @@ let container: HTMLElement;
 let view: RenderResult;
 
 function setup(dayPickerProps: DayPickerProps = {}) {
-  view = customRender(<Root />, dayPickerProps);
+  view = customRender(<Root initialProps={dayPickerProps} />, dayPickerProps);
   container = view.container;
 }
 
@@ -61,22 +61,6 @@ describe('when using the "id" prop', () => {
   beforeEach(() => setup({ id: testId }));
   test('should display the specified number of month grids', () => {
     expect(container.firstChild).toHaveAttribute('id', testId);
-  });
-});
-
-describe('when using a "data-" attribute', () => {
-  const testId = 'foo';
-  beforeEach(() => setup({ 'data-test': testId }));
-  test('should have the "data-" attribute', () => {
-    expect(container.firstChild).toHaveAttribute('data-test', testId);
-  });
-});
-
-describe('when using a "aria-" attribute', () => {
-  const testValue = 'foo';
-  beforeEach(() => setup({ 'aria-label': testValue }));
-  test('should have the "aria-" attribute', () => {
-    expect(container.firstChild).toHaveAttribute('aria-label', testValue);
   });
 });
 

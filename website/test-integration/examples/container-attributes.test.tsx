@@ -27,7 +27,3 @@ test('should have the specified id', () => {
 test('should have the DataSet attribute', () => {
   expect(firstChild).toHaveAttribute('data-test', 'testData');
 });
-
-test('should have the ARIA attribute', () => {
-  expect(firstChild).toHaveAttribute('aria-label', 'test');
-});

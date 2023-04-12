@@ -110,7 +110,7 @@ export function DayPicker(
 ): JSX.Element {
   return (
     <RootProvider {...props}>
-      <Root />
+      <Root initialProps={props} />
     </RootProvider>
   );
 }
