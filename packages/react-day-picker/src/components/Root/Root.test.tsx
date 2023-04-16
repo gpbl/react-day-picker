@@ -20,7 +20,7 @@ let container: HTMLElement;
 let view: RenderResult;
 
 function setup(dayPickerProps: DayPickerProps = {}) {
-  view = customRender(<Root />, dayPickerProps);
+  view = customRender(<Root initialProps={dayPickerProps} />, dayPickerProps);
   container = view.container;
 }
 
@@ -53,6 +53,14 @@ describe('when using the "classNames" prop', () => {
   });
   test('should display the specified number of month grids', () => {
     expect(container.firstChild).toHaveClass('foo');
+  });
+});
+
+describe('when using the "id" prop', () => {
+  const testId = 'foo';
+  beforeEach(() => setup({ id: testId }));
+  test('should display the specified number of month grids', () => {
+    expect(container.firstChild).toHaveAttribute('id', testId);
   });
 });
 

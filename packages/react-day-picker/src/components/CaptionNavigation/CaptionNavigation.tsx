@@ -11,7 +11,7 @@ import { useNavigation } from 'contexts/Navigation';
  * Render a caption with a button-based navigation.
  */
 export function CaptionNavigation(props: CaptionProps): JSX.Element {
-  const { numberOfMonths, dir } = useDayPicker();
+  const { numberOfMonths } = useDayPicker();
   const { previousMonth, nextMonth, goToMonth, displayMonths } =
     useNavigation();
 
@@ -19,11 +19,8 @@ export function CaptionNavigation(props: CaptionProps): JSX.Element {
     isSameMonth(props.displayMonth, month)
   );
 
-  let isFirst = displayIndex === 0;
-  let isLast = displayIndex === displayMonths.length - 1;
-  if (dir === 'rtl') {
-    [isLast, isFirst] = [isFirst, isLast];
-  }
+  const isFirst = displayIndex === 0;
+  const isLast = displayIndex === displayMonths.length - 1;
 
   const hideNext = numberOfMonths > 1 && (isFirst || !isLast);
   const hidePrevious = numberOfMonths > 1 && (isLast || !isFirst);

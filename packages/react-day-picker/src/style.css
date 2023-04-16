@@ -225,6 +225,7 @@
   height: 100%;
   height: var(--rdp-cell-size);
   padding: 0;
+  text-transform: uppercase;
 }
 
 .rdp-tbody {
