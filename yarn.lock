@@ -12876,12 +12876,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.29.0":
-  version: 0.29.0
-  resolution: "magic-string@npm:0.29.0"
+"magic-string@npm:^0.30.0":
+  version: 0.30.0
+  resolution: "magic-string@npm:0.30.0"
   dependencies:
     "@jridgewell/sourcemap-codec": ^1.4.13
-  checksum: 19e5398fcfc44804917127c72ad622c68a19a0a10cbdb8d4f9f9417584a087fe9e117140bfb2463d86743cf1ed9cf4182ae0b0ad1a7536f7fdda257ee4449ffb
+  checksum: 7bdf22e27334d8a393858a16f5f840af63a7c05848c000fd714da5aa5eefa09a1bc01d8469362f25cc5c4a14ec01b46557b7fff8751365522acddf21e57c488d
   languageName: node
   linkType: hard
 
@@ -15208,7 +15208,7 @@ __metadata:
     rimraf: ^4.4.1
     rollup: ^3.19.1
     rollup-plugin-copy: ^3.4.0
-    rollup-plugin-dts: ^5.2.0
+    rollup-plugin-dts: ^5.3.0
     rollup-plugin-postcss: ^4.0.2
     rollup-plugin-terser: ^7.0.2
     timekeeper: ^2.2.0
@@ -15987,19 +15987,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-dts@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "rollup-plugin-dts@npm:5.2.0"
+"rollup-plugin-dts@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "rollup-plugin-dts@npm:5.3.0"
   dependencies:
     "@babel/code-frame": ^7.18.6
-    magic-string: ^0.29.0
+    magic-string: ^0.30.0
   peerDependencies:
     rollup: ^3.0.0
-    typescript: ^4.1
+    typescript: ^4.1 || ^5.0
   dependenciesMeta:
     "@babel/code-frame":
       optional: true
-  checksum: cb4a1ff5307efb9a89edd72b5bd1760d8dd3df7b7c5ea61615755669619ec1441e916fe1452068bc17dbae17efbd4cfe6f55478690eb809800f0ffdb76a52fc9
+  checksum: ba3a6065598586c52af60211877a234b8c829b8a7ecd6e6b426e52ec4dc2c8c8ac6e1fb9f47db6afd91858be0dcb09fd3d312c865e972fb72ae8c9ee00eb1d36
   languageName: node
   linkType: hard
 
