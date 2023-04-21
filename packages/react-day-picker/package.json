@@ -60,7 +60,7 @@
     "postcss": "^8.4.21",
     "postcss-d-ts": "^1.2.0",
     "postcss-typescript-d-ts": "^1.0.0",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.7",
     "react": "^18.2.0",
     "react-classnaming": "^0.16.4",
     "react-dom": "^18.2.0",
