@@ -97,7 +97,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       setup({ mode: 'single', dir, selected });
     });
     describe('when focusing the days grid', () => {
-      beforeEach(() => focusDaysGrid(user));
+      beforeEach(() => focusDaysGrid());
       test('the selected day should have focus', () => {
         expect(getDayButton(tomorrow)).toHaveFocus();
       });
@@ -111,7 +111,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       setup({ dir, selected, mode });
     });
     describe('when focusing the days grid', () => {
-      beforeEach(() => focusDaysGrid(user));
+      beforeEach(() => focusDaysGrid());
 
       test('the first selected day should have focus', () => {
         expect(getDayButton(yesterday)).toHaveFocus();
@@ -127,7 +127,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         setup({ mode: 'single', dir, defaultMonth, numberOfMonths });
       });
       describe('when focusing the days grid', () => {
-        beforeEach(() => focusDaysGrid(user));
+        beforeEach(() => focusDaysGrid());
         test('the today button should have focus', () => {
           expect(getDayButton(today, 2)).toHaveFocus();
         });
@@ -146,7 +146,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       setup({ mode: 'single', dir, disabled, hidden, selected });
     });
     describe('when focusing the days grid', () => {
-      beforeEach(() => focusDaysGrid(user));
+      beforeEach(() => focusDaysGrid());
       test('the first not disabled day should have focus', () => {
         expect(getDayButton(notDisabled)).toHaveFocus();
       });
