@@ -77,6 +77,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, test]
     if: ${{ github.event_name == 'release' || github.event.inputs.publish }}
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -89,7 +91,7 @@ jobs:
           name: rdp-dist
           path: packages/react-day-picker/dist
       - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
-      - run: npm publish
+      - run: npm publish --provenance
         working-directory: packages/react-day-picker
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
