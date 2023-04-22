@@ -28,11 +28,12 @@ export interface DayPickerContextValue extends DayPickerBase {
   onSelect?:
     | DayPickerSingleProps['onSelect']
     | DayPickerMultipleProps['onSelect']
-    | DayPickerRangeProps['onSelect'];
-  required?: boolean;
-  min?: number;
-  max?: number;
-  selected?: Matcher | Matcher[];
+    | DayPickerRangeProps['onSelect']
+    | undefined;
+  required?: boolean | undefined;
+  min?: number | undefined;
+  max?: number | undefined;
+  selected?: Matcher | Matcher[] | undefined;
 
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;
@@ -61,7 +62,7 @@ export const DayPickerContext = createContext<
 export interface DayPickerProviderProps {
   /** The initial props from the DayPicker component. */
   initialProps: DayPickerProps;
-  children?: ReactNode;
+  children?: ReactNode | undefined;
 }
 /**
  * The provider for the {@link DayPickerContext}, assigning the defaults from the
@@ -140,7 +141,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
  * Use the DayPicker context to access to the props passed to DayPicker inside
  * internal or custom components.
  */
-export function useDayPicker(): DayPickerContextValue {
+export function useDayPicker(): NonNullable<DayPickerContextValue> {
   const context = useContext(DayPickerContext);
   if (!context) {
     throw new Error(`useDayPicker must be used within a DayPickerProvider.`);

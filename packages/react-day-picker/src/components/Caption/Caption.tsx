@@ -8,7 +8,7 @@ import { useDayPicker } from 'contexts/DayPicker';
 /** Represent the props of the {@link Caption} component. */
 export interface CaptionProps {
   /** The ID for the heading element. Must be the same as the labelled-by in Table. */
-  id?: string;
+  id?: string | undefined;
   /** The month where the caption is displayed. */
   displayMonth: Date;
 }

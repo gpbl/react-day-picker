@@ -17,10 +17,10 @@ export function daysToMonthWeeks(
   fromDate: Date,
   toDate: Date,
   options?: {
-    ISOWeek?: boolean;
-    locale?: Locale;
-    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+    ISOWeek?: boolean | undefined;
+    locale?: Locale | undefined;
+    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
+    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | undefined;
   }
 ): MonthWeek[] {
   const toWeek = options?.ISOWeek

@@ -119,7 +119,7 @@ export type Styles = Partial<
 
 /** Props of a component that can be styled via classNames or inline-styles. */
 export type StyledComponent = {
-  className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
+  className?: string | undefined;
+  style?: React.CSSProperties | undefined;
+  children?: React.ReactNode | undefined;
 };

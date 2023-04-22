@@ -10,7 +10,7 @@ import { getMonthWeeks } from './utils/getMonthWeeks';
 /** The props for the {@link Table} component. */
 export interface TableProps {
   /** The ID of the label of the table (the same given to the Caption). */
-  ['aria-labelledby']?: string;
+  ['aria-labelledby']?: string | undefined;
   /** The month where the table is displayed. */
   displayMonth: Date;
 }

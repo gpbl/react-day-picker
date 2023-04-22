@@ -23,11 +23,11 @@ export type MonthWeek = {
 export function getMonthWeeks(
   month: Date,
   options: {
-    locale: Locale;
-    useFixedWeeks?: boolean;
-    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-    ISOWeek?: boolean;
+    locale: Locale | undefined;
+    useFixedWeeks?: boolean | undefined;
+    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
+    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | undefined;
+    ISOWeek?: boolean | undefined;
   }
 ): MonthWeek[] {
   const weeksInMonth: MonthWeek[] = daysToMonthWeeks(
