@@ -43,7 +43,19 @@ const tests: [EventName, DayEventName][] = [
 describe.each(tests)('when calling "%s"', (eventName, dayEventName) => {
   const activeModifiers: ActiveModifiers = {};
   const dayPickerProps = {
-    [dayEventName]: jest.fn()
+    onDayClick: jest.fn(),
+    onDayFocus: jest.fn(),
+    onDayBlur: jest.fn(),
+    onDayMouseEnter: jest.fn(),
+    onDayMouseLeave: jest.fn(),
+    onDayPointerEnter: jest.fn(),
+    onDayPointerLeave: jest.fn(),
+    onDayTouchEnd: jest.fn(),
+    onDayTouchCancel: jest.fn(),
+    onDayTouchMove: jest.fn(),
+    onDayTouchStart: jest.fn(),
+    onDayKeyUp: jest.fn(),
+    onDayKeyDown: jest.fn()
   };
   const mouseEvent = {} as React.MouseEvent<HTMLButtonElement, MouseEvent>;
   const date = today;
