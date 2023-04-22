@@ -36,15 +36,18 @@ export const NavigationContext = createContext<
 export function NavigationProvider(props: {
   children?: ReactNode;
 }): JSX.Element {
-  const calendar = useCalendar();
+  const { calendar, currentMonth, goToMonth, goToDate, isDateDisplayed } =
+    useCalendar();
 
   const displayMonths = calendar.months.map((month) => month.month);
 
   const value: NavigationContextValue = {
     ...calendar,
-    currentMonth: calendar.currentMonth,
+    currentMonth,
     displayMonths,
-    goToMonth: calendar.goToMonth
+    goToMonth,
+    goToDate,
+    isDateDisplayed
   };
 
   return (

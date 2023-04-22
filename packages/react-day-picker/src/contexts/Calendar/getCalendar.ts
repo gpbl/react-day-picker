@@ -3,6 +3,7 @@ import { DayPickerCalendar } from 'contexts/Calendar';
 import { getDates } from './utils/getDates';
 import { getDayPickerMonths } from './utils/getDayPickerMonths';
 import { getDisplayMonths } from './utils/getDisplayMonths';
+import { defaultProps } from 'components/DayPicker';
 
 export function getCalendar(
   firstMonth: Date,
@@ -14,7 +15,7 @@ export function getCalendar(
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   }
 ): DayPickerCalendar {
-  const { numberOfMonths = 1 } = options || {};
+  const { numberOfMonths = defaultProps.numberOfMonths } = options || {};
   const firstDayOfFirstMonth = startOfMonth(startOfDay(firstMonth));
   const displayMonths = getDisplayMonths(
     firstDayOfFirstMonth,

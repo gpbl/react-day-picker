@@ -1,8 +1,8 @@
-import { freezeBeforeAll } from 'test/utils';
 import { getCalendar } from './getCalendar';
 
-const today = new Date(2023, 3, 16);
-freezeBeforeAll(today);
+const today = new Date(2023, 1, 22);
+
+jest.setSystemTime(today);
 
 describe('when using the default props', () => {
   const calendar = getCalendar(new Date());
