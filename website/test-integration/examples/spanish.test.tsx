@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
+import { freezeBeforeAll } from '@site/test/utils';
 import { render } from '@testing-library/react';
 
 import { getMonthCaption } from 'react-day-picker/test/selectors';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/spanish';
 

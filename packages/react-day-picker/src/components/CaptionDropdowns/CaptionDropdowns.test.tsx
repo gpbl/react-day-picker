@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { setMonth, setYear } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
@@ -12,6 +11,7 @@ import {
   queryMonthDropdown,
   queryYearDropdown
 } from 'test/selectors';
+import { user } from 'test/user';
 import { freezeBeforeAll } from 'test/utils';
 
 import { CaptionProps } from 'components/Caption';
@@ -25,7 +25,6 @@ const toYear = 2025;
 
 freezeBeforeAll(today);
 
-const user = userEvent.setup();
 function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
   customRender(<CaptionDropdowns {...props} />, dayPickerProps);
 }
