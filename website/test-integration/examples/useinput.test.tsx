@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
+import { user } from '@site/test/user';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, format } from 'date-fns';
@@ -17,7 +18,6 @@ const today = new Date(2021, 10, 15);
 freezeBeforeAll(today);
 
 const yday = addDays(today, -1);
-const user = userEvent.setup();
 let container: HTMLElement;
 
 function getInput(): HTMLInputElement {

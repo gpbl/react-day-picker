@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
+import { user } from '@site/test/user';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { format } from 'date-fns';
@@ -14,8 +15,6 @@ import Example from '@examples/date-picker-dialog';
 const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
-
-const user = userEvent.setup();
 
 const getDialogButton = () => {
   return screen.getByRole('button', { name: 'Pick a date' });

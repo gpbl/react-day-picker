@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { user } from '@site/test/user';
 import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -7,7 +8,6 @@ import { getDayButton, getTableFooter } from 'react-day-picker/test/selectors';
 
 import Example from '@examples/modifiers-custom';
 
-const user = userEvent.setup();
 const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
 const bookedStyle = {
   border: '2px solid currentColor'

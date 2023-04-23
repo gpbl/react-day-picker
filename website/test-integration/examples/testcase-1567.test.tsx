@@ -1,11 +1,10 @@
 import React from 'react';
 
+import { user } from '@site/test/user';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Example from '@examples/testcase-1567';
-
-const user = userEvent.setup();
 
 beforeEach(async () => {
   render(<Example />);

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
+import { user } from '@site/test/user';
 import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -9,7 +10,6 @@ import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/start';
 
-const user = userEvent.setup();
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
 
