@@ -4,7 +4,6 @@ import { axe } from '@site/test/axe';
 import { user } from '@site/test/user';
 import { freezeBeforeAll } from '@site/test/utils';
 import { act, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { differenceInMonths } from 'date-fns';
 
 import { getNextButton, getPrevButton } from 'react-day-picker/test/selectors';

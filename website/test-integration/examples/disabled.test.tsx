@@ -4,7 +4,6 @@ import { axe } from '@site/test/axe';
 import { user } from '@site/test/user';
 import { freezeBeforeAll } from '@site/test/utils';
 import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { setDate } from 'date-fns';
 
 import {

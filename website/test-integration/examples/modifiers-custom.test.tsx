@@ -2,7 +2,6 @@ import React from 'react';
 
 import { user } from '@site/test/user';
 import { act, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 import { getDayButton, getTableFooter } from 'react-day-picker/test/selectors';
 

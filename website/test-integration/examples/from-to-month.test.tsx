@@ -3,7 +3,6 @@ import React from 'react';
 import { axe } from '@site/test/axe';
 import { user } from '@site/test/user';
 import { act, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { differenceInMonths } from 'date-fns';
 
 import { getNextButton, getPrevButton } from 'react-day-picker/test/selectors';
