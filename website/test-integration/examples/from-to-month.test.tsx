@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
+import { user } from '@site/test/user';
 import { act, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { differenceInMonths } from 'date-fns';
 
 import { getNextButton, getPrevButton } from 'react-day-picker/test/selectors';
@@ -11,8 +11,6 @@ import Example from '@examples/from-to-month';
 
 const fromDate = new Date(2015, 5);
 const toDate = new Date(2015, 10);
-const user = userEvent.setup();
-
 let container: HTMLElement;
 beforeEach(() => (container = render(<Example />).container));
 

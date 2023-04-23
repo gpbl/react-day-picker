@@ -40,12 +40,6 @@ const config = {
   trailingSlash: false,
   clientModules: [require.resolve('react-day-picker/dist/style.css')],
   themeConfig: {
-    announcementBar: {
-      id: '1',
-      content:
-        '👋📆 This documentation is for <b>DayPicker v8</b>. For the previous version, see <a href="https://react-day-picker-v7.netlify.app">react-day-picker-v7.netlify.app</a>.',
-      isCloseable: true
-    },
     metadata: [
       { name: 'twitter:site', content: '@gpblv' },
       { name: 'twitter:title', content: 'React DayPicker' },

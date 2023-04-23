@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
+import { user } from '@site/test/user';
+import { freezeBeforeAll } from '@site/test/utils';
 import { act, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 import {
   getMonthDropdown,
@@ -11,11 +12,9 @@ import {
   getPrevButton,
   getYearDropdown
 } from 'react-day-picker/test/selectors';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/dropdown-buttons';
 
-const user = userEvent.setup();
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);
 
