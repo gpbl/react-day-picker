@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
+import { user } from '@site/test/user';
 import { act, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { addDays, addMonths, startOfMonth } from 'date-fns';
 import { DayPickerProps } from 'react-day-picker';
 
@@ -20,8 +20,6 @@ const yesterday = new Date(2022, 5, 9);
 const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
-
-const user = userEvent.setup();
 
 let container: HTMLElement;
 function setup(props: DayPickerProps) {

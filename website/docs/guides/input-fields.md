@@ -23,6 +23,14 @@ date-picker-dialog
 input-range
 ```
 
+## Example: Time Selection
+
+DayPicker can also be used alongside a time input field. The time can be directly added to the selected Date.
+
+```include-example
+input-time
+```
+
 ## Using the `useInput` Hook
 
 To bind DayPicker to an input field, DayPicker includes the [useInput hook](/api/functions/useinput), returning props to bind DayPicker with a single input field. Should you need something more sophisticated, give a look to the [useInput](/api/functions/useinput) source to implement your own hook.
