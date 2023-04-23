@@ -47,6 +47,7 @@
     "jest": "^29.5.0",
     "jest-axe": "^7.0.1",
     "jest-environment-jsdom": "^29.5.0",
+    "mockdate": "^3.0.5",
     "prettier": "^2.8.7",
     "prop-types": "^15.8.1",
     "raw-loader": "^4.0.2",

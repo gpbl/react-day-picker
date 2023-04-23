@@ -1,9 +1,8 @@
 import React from 'react';
 
+import { freezeBeforeAll } from '@site/test/utils';
 import { render } from '@testing-library/react';
 import { getDaysInMonth } from 'date-fns';
-
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/custom-day';
 

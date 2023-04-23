@@ -1,6 +1,5 @@
 import React from 'react';
 
-import userEvent from '@testing-library/user-event';
 import { addMonths } from 'date-fns';
 import { DayPickerProps } from 'components/DayPicker';
 
@@ -11,6 +10,7 @@ import {
   queryNextButton,
   queryPrevButton
 } from 'test/selectors';
+import { user } from 'test/user';
 import { freezeBeforeAll } from 'test/utils';
 
 import { CaptionNavigation } from './CaptionNavigation';
@@ -18,8 +18,6 @@ import { CaptionNavigation } from './CaptionNavigation';
 const today = new Date(2021, 8);
 
 freezeBeforeAll(today);
-
-const user = userEvent.setup();
 
 describe('when rendered', () => {
   const dayPickerProps: DayPickerProps = {

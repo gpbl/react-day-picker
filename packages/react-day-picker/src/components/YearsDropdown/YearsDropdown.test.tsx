@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { addMonths, differenceInYears } from 'date-fns';
 import { DayPickerProps } from 'components/DayPicker/DayPicker';
 
 import { customRender } from 'test/render';
+import { user } from 'test/user';
 import { freezeBeforeAll } from 'test/utils';
 
 import { YearsDropdown, YearsDropdownProps } from './YearsDropdown';
@@ -18,7 +18,6 @@ let root: HTMLDivElement;
 let options: HTMLCollectionOf<HTMLOptionElement> | undefined;
 let select: HTMLSelectElement | null;
 
-const user = userEvent.setup();
 function setup(props: YearsDropdownProps, dayPickerProps?: DayPickerProps) {
   const view = customRender(<YearsDropdown {...props} />, dayPickerProps);
   root = view.container.firstChild as HTMLDivElement;

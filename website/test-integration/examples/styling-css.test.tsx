@@ -1,8 +1,7 @@
 import React from 'react';
 
+import { freezeBeforeAll } from '@site/test/utils';
 import { render } from '@testing-library/react';
-
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/styling-css';
 
