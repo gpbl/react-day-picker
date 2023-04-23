@@ -44,7 +44,7 @@ jobs:
           node-version: 18
           cache: yarn
       - run: yarn install
-      - run: yarn workspace react-day-picker run lint
+      - run: yarn workspace react-day-picker run lint --max-warnings=0
 
   test:
     needs: [lint, typecheck]
