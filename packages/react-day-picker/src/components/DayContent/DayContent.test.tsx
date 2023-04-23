@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { es } from 'date-fns/locale';
-import { DayPickerProps } from 'DayPicker';
+import { DayPickerProps } from 'components/DayPicker';
 
 import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';

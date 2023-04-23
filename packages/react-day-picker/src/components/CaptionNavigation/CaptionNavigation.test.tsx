@@ -2,7 +2,7 @@ import React from 'react';
 
 import userEvent from '@testing-library/user-event';
 import { addMonths } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { DayPickerProps } from 'components/DayPicker';
 
 import { customRender } from 'test/render';
 import {

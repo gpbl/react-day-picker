@@ -12,6 +12,6 @@ export type NavigationState = [
  * @deprecated Use the {@link CalendarContext} to access to the navigation state.
  */
 export function useNavigationState(): NavigationState {
-  const calendar = useCalendar();
-  return [calendar.months[0].month, calendar.goToMonth];
+  const { calendar, goToMonth } = useCalendar();
+  return [calendar.months[0].month, goToMonth];
 }

@@ -5,10 +5,10 @@ on:
     types: [published]
   pull_request:
     branches:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
     inputs:
       deploy:
