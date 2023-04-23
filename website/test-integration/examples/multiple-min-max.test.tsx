@@ -2,12 +2,12 @@ import React from 'react';
 
 import { axe } from '@site/test/axe';
 import { user } from '@site/test/user';
+import { freezeBeforeAll } from '@site/test/utils';
 import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays } from 'date-fns';
 
 import { getDayButton, getTableFooter } from 'react-day-picker/test/selectors';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/multiple-min-max';
 

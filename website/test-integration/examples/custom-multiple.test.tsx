@@ -2,12 +2,12 @@ import React from 'react';
 
 import { axe } from '@site/test/axe';
 import { user } from '@site/test/user';
+import { freezeBeforeAll } from '@site/test/utils';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import { getDayButton, getTableFooter } from 'react-day-picker/test/selectors';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/custom-multiple';
 

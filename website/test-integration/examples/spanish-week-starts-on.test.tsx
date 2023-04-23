@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { freezeBeforeAll } from '@site/test/utils';
 import { render } from '@testing-library/react';
 
 import { getMonthGrid } from 'react-day-picker/test/selectors';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/spanish-week-starts-on';
 
