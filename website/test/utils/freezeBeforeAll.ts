@@ -1,6 +1,6 @@
-import tk from 'timekeeper';
+import MockDate from 'mockdate';
 
 export function freezeBeforeAll(date: Date) {
-  beforeAll(() => tk.freeze(date));
-  afterAll(() => tk.reset());
+  beforeAll(() => MockDate.set(date));
+  afterAll(() => MockDate.reset());
 }
