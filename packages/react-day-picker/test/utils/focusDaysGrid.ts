@@ -1,7 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 import { act } from '@testing-library/react';
 
-import { user } from 'test/user';
+import { user } from 'react-day-picker/test/user';
 
 import { getFocusedElement } from '../selectors';
 
