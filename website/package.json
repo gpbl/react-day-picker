@@ -41,7 +41,7 @@
     "@types/react-helmet": "^6.1.6",
     "@types/react-router-dom": "^5.3.3",
     "date-fns": "^2.29.3",
-    "docusaurus-plugin-typedoc": "^0.19.1",
+    "docusaurus-plugin-typedoc": "^0.19.2",
     "eslint": "^8.39.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.5.0",

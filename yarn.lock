@@ -8591,13 +8591,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"docusaurus-plugin-typedoc@npm:^0.19.1":
-  version: 0.19.1
-  resolution: "docusaurus-plugin-typedoc@npm:0.19.1"
+"docusaurus-plugin-typedoc@npm:^0.19.2":
+  version: 0.19.2
+  resolution: "docusaurus-plugin-typedoc@npm:0.19.2"
   peerDependencies:
     typedoc: ">=0.24.0"
     typedoc-plugin-markdown: ">=3.15.0"
-  checksum: 12f0a035c616b3d8eb32584ccf17e68c53d05569c790b2e518ab061596a1423a08f1db3ab8d06257a5d19f0dc3773b9f6b67f4350a294542f5d711d7057ff27e
+  checksum: 347c1b6b509e14dabbb8b4d1224682ea2281995a60b4cf48e456dbbdbcecb4b73cf4fe3e031f1e01ae72dfb3bec935c6eaac7e4ddf3f63587fad2ac8ea028cec
   languageName: node
   linkType: hard
 
@@ -18610,7 +18610,7 @@ __metadata:
     "@types/react-router-dom": ^5.3.3
     clsx: ^1.2.1
     date-fns: ^2.29.3
-    docusaurus-plugin-typedoc: ^0.19.1
+    docusaurus-plugin-typedoc: ^0.19.2
     eslint: ^8.39.0
     focus-trap-react: 10.1.1
     identity-obj-proxy: ^3.0.0
