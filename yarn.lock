@@ -17794,9 +17794,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.24.4":
-  version: 0.24.4
-  resolution: "typedoc@npm:0.24.4"
+"typedoc@npm:^0.24.6":
+  version: 0.24.6
+  resolution: "typedoc@npm:0.24.6"
   dependencies:
     lunr: ^2.3.9
     marked: ^4.3.0
@@ -17806,7 +17806,7 @@ __metadata:
     typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x
   bin:
     typedoc: bin/typedoc
-  checksum: c6762aff2b40eb574fc348c82921471fa1c1dc8a83adc284457aab30ea61768770be469f424340ab646944472653290578fd8e6308d55ec2e611577472067dae
+  checksum: 3911ef6a7736ce6655a4b22fabc5be6df8812412e209d730fd168bfa7797847897f05fed797bc16558f11ce647b20746453748ff8afe85b1375c3efe2d7b57df
   languageName: node
   linkType: hard
 
@@ -18629,7 +18629,7 @@ __metadata:
     react-shadow: ^20.0.0
     source-map-loader: ^4.0.1
     ts-jest: ^29.1.0
-    typedoc: ^0.24.4
+    typedoc: ^0.24.6
     typedoc-plugin-markdown: ^3.15.2
     typescript: ~4.9.5
     webpack: ^5.80.0
