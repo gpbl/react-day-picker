@@ -16,7 +16,7 @@ const presetClassicConfig = {
     routeBasePath: '/',
     breadcrumbs: false,
     lastVersion: 'current',
-    editUrl: 'https://github.com/gpbl/react-day-picker/edit/main/website/',
+    editUrl: 'https://github.com/gpbl/react-day-picker/edit/r/website/',
     versions: {
       current: {
         path: '/',
