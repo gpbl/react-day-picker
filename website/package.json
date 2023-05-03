@@ -15,7 +15,7 @@
     "typecheck-watch": "pnpm run typecheck --watch"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^2.6.1",
+    "@codesandbox/sandpack-react": "^2.6.2",
     "@codesandbox/sandpack-themes": "^2.0.21",
     "@docusaurus/core": "^2.4.0",
     "@docusaurus/preset-classic": "^2.4.0",
@@ -36,13 +36,13 @@
     "@tsconfig/docusaurus": "^1.0.7",
     "@types/react-helmet": "^6.1.6",
     "@types/react-router-dom": "^5.3.3",
-    "docusaurus-plugin-typedoc": "^0.19.1",
+    "docusaurus-plugin-typedoc": "^0.19.2",
     "identity-obj-proxy": "^3.0.0",
     "prop-types": "^15.8.1",
     "raw-loader": "^4.0.2",
     "source-map-loader": "^4.0.1",
-    "typedoc-plugin-markdown": "^3.15.2",
-    "typedoc": "^0.24.4",
-    "webpack": "^5.80.0"
+    "typedoc": "^0.24.6",
+    "typedoc-plugin-markdown": "^3.15.3",
+    "webpack": "^5.82.0"
   }
 }
