@@ -1,6 +1,6 @@
 # Working with the source
 
-The DayPicker monorepo contains two workspaces setup with [Yarn](https://yarnpkg.com/features/workspaces):
+The DayPicker monorepo contains two workspaces setup with [pnpm](https://pnpm.io/installation):
 
 - `./package/react-day-picker`: this workspace contains the DayPicker source code and the development tools
 - `./website`: the [Docusaurus](http://v2.docusaurus.io) app for [the documentation website](http://react-day-picker-next.netlify.app)
@@ -9,11 +9,11 @@ The DayPicker monorepo contains two workspaces setup with [Yarn](https://yarnpkg
 
 ### Prerequisites
 
-- Node 16.10 and later. To set the version via [nvm](https://github.com/nvm-sh/nvm) run:
+- Node 18.15 and later. To set the version via [nvm](https://github.com/nvm-sh/nvm) run:
   ```bash
   $ nvm use
   ```
-- To enable yarn, make sure corepack is enabled (see [Yarn installation guide](https://yarnpkg.com/getting-started/install)):
+- To enable `pnpm`, make sure corepack is enabled:
   ```bash
   $ corepack enabled
   ```
