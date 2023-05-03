@@ -1,13 +1,13 @@
 {
   "engines": {
-    "node": ">=16",
-    "yarn": "3"
+    "node": ">=18.15.0",
+    "pnpm": ">=8.4.0"
   },
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "pnpm@8.4.0",
   "name": "@react-day-picker/monorepo",
   "private": true,
-  "description": "Monorepo of react-day-picker",
-  "author": "Giampaolo Bellavite <io@gpbl.org>",
+  "description": "Monorepo for react-day-picker",
+  "author": "gpbl <io@gpbl.org>",
   "homepage": "http://react-day-picker.js.org",
   "license": "MIT",
   "scripts": {

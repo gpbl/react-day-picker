@@ -60,7 +60,7 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
-    "eslint.packageManager": "yarn",
+    "eslint.packageManager": "pnpm",
     "importSorter.generalConfiguration.sortOnBeforeSave": true,
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
