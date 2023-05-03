@@ -31,9 +31,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run typecheck
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm --filter react-day-picker run typecheck
 
   lint:
     runs-on: ubuntu-latest
@@ -42,9 +42,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run lint --max-warnings=0
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm --filter react-day-picker run lint --max-warnings=0
 
   test:
     needs: [lint, typecheck]
@@ -54,9 +54,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run test
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm --filter react-day-picker run test
 
   build:
     runs-on: ubuntu-latest
@@ -65,9 +65,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run build
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm --filter react-day-picker run build
       - uses: actions/upload-artifact@v3
         with:
           name: rdp-dist

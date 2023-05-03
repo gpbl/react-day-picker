@@ -2,8 +2,8 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "yarn install",
-      "command": "yarn install",
+      "label": "pnpm install",
+      "command": "pnpm install",
       "isBackground": false,
       "type": "shell",
       "problemMatcher": [],

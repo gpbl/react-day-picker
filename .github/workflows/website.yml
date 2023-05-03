@@ -31,9 +31,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run build
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm --filter react-day-picker run build
       - uses: actions/upload-artifact@v3
         with:
           name: rdp-dist
@@ -47,15 +47,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
+          cache: pnpm
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install
-      - run: yarn workspace website run typecheck
-      - run: yarn workspace website run lint --max-warnings=0
-      - run: yarn workspace website run test
+      - run: pnpm install
+      - run: pnpm --filter website run typecheck
+      - run: pnpm --filter website run lint --max-warnings=0
+      - run: pnpm --filter website run test
 
   build-website:
     needs: [build-package]
@@ -65,13 +65,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
+          cache: pnpm
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install
-      - run: yarn workspace website run build
+      - run: pnpm install
+      - run: pnpm --filter website run build
       - uses: actions/upload-artifact@v3
         with:
           name: website-build
@@ -95,7 +95,7 @@ jobs:
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install
+      - run: pnpm install
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

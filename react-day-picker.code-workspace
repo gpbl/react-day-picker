@@ -98,8 +98,8 @@
       "docs",
       "examples"
     ],
-    "jest.jestCommandLine": "yarn test",
-    "npm.packageManager": "yarn",
+    "jest.jestCommandLine": "pnpm run test",
+    "npm.packageManager": "pnpm",
     "task.allowAutomaticTasks": "on"
   }
 }
