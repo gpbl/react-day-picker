@@ -28,11 +28,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.4.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: pnpm
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
       - run: pnpm --filter react-day-picker run build
       - uses: actions/upload-artifact@v3
         with:
@@ -44,6 +47,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.4.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -52,7 +58,7 @@ jobs:
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
       - run: pnpm --filter website run typecheck
       - run: pnpm --filter website run lint --max-warnings=0
       - run: pnpm --filter website run test
@@ -62,6 +68,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.4.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -70,7 +79,7 @@ jobs:
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
       - run: pnpm --filter website run build
       - uses: actions/upload-artifact@v3
         with:
@@ -83,6 +92,9 @@ jobs:
     if: ${{ github.event_name == 'release' || github.event.inputs.deploy }}
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.4.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -95,7 +107,7 @@ jobs:
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

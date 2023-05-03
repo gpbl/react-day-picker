@@ -28,22 +28,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.4.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: pnpm
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
       - run: pnpm --filter react-day-picker run typecheck
 
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.4.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: pnpm
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
       - run: pnpm --filter react-day-picker run lint --max-warnings=0
 
   test:
@@ -51,22 +57,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.4.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: pnpm
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
       - run: pnpm --filter react-day-picker run test
 
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.4.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: pnpm
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
       - run: pnpm --filter react-day-picker run build
       - uses: actions/upload-artifact@v3
         with:
@@ -81,6 +93,9 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.4.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
