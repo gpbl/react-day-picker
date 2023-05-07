@@ -10,6 +10,7 @@
     "paths": {
       "test/*": ["../test/*"]
     },
+    "lib": ["es2019", "DOM"],
     "declaration": true,
     "sourceMap": true,
     "outDir": "./dist",

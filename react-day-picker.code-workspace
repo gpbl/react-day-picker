@@ -16,14 +16,6 @@
       "path": "packages/react-day-picker"
     },
     {
-      "name": "docs",
-      "path": "website/docs"
-    },
-    {
-      "name": "examples",
-      "path": "website/examples"
-    },
-    {
       "name": "website",
       "path": "website"
     },

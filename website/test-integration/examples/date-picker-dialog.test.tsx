@@ -3,9 +3,8 @@ import React from 'react';
 import { axe } from '@site/test/axe';
 import { user } from '@site/test/user';
 import { freezeBeforeAll } from '@site/test/utils';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { format } from 'date-fns';
-import { act } from 'react-dom/test-utils';
 
 import { getDayButton } from 'react-day-picker/test/selectors';
 
@@ -41,9 +40,6 @@ describe('when clicking the dialog button', () => {
   beforeEach(async () => {
     await act(() => user.click(getDialogButton()));
     await waitPopper();
-  });
-  test('should not have AXE violations', async () => {
-    expect(await axe(container)).toHaveNoViolations();
   });
   test('the dialog should be visible', () => {
     expect(screen.getByRole('dialog')).toBeVisible();

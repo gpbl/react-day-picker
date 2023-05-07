@@ -1,9 +1,8 @@
+import { user } from '@site/test/user';
 import { fireEvent } from '@testing-library/dom';
 import { act } from '@testing-library/react';
 
-import { user } from 'test/user';
-
-import { getFocusedElement } from '../selectors';
+import { getFocusedElement } from 'react-day-picker/test/selectors';
 
 export async function focusDaysGrid() {
   // Make sure nothing is focused

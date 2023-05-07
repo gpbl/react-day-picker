@@ -4,36 +4,6 @@ importers:
 
   .:
     devDependencies:
-      '@jest/types':
-        specifier: ^29.5.0
-        version: 29.5.0
-      '@testing-library/dom':
-        specifier: ^9.2.0
-        version: 9.2.0
-      '@testing-library/jest-dom':
-        specifier: ^5.16.5
-        version: 5.16.5
-      '@testing-library/react':
-        specifier: ^14.0.0
-        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
-      '@testing-library/user-event':
-        specifier: ^14.4.3
-        version: 14.4.3(@testing-library/dom@9.2.0)
-      '@types/jest':
-        specifier: ^29.5.1
-        version: 29.5.1
-      '@types/jest-axe':
-        specifier: ^3.5.5
-        version: 3.5.5
-      '@types/node':
-        specifier: ^18.16.3
-        version: 18.16.3
-      '@types/react':
-        specifier: ^18.2.2
-        version: 18.2.2
-      '@types/testing-library__jest-dom':
-        specifier: ^5.14.5
-        version: 5.14.5
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
@@ -43,15 +13,6 @@ importers:
       eslint-config-rdp:
         specifier: workspace:*
         version: link:packages/eslint-config-rdp
-      jest:
-        specifier: ^29.5.0
-        version: 29.5.0(@types/node@18.16.3)(ts-node@10.9.1)
-      jest-axe:
-        specifier: ^7.0.1
-        version: 7.0.1
-      jest-environment-jsdom:
-        specifier: ^29.5.0
-        version: 29.5.0
       mockdate:
         specifier: ^3.0.5
         version: 3.0.5
@@ -60,7 +21,7 @@ importers:
         version: 2.8.8
       ts-jest:
         specifier: ^29.1.0
-        version: 29.1.0(@babel/core@7.21.8)(@jest/types@29.5.0)(jest@29.5.0)(typescript@4.9.5)
+        version: 29.1.0(@babel/core@7.21.8)(jest@29.5.0)(typescript@4.9.5)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.1(@types/node@18.16.3)(typescript@4.9.5)
@@ -111,6 +72,9 @@ importers:
         specifier: ^2.28.0
         version: 2.30.0
     devDependencies:
+      '@jest/types':
+        specifier: ^29.5.0
+        version: 29.5.0
       '@rollup/plugin-commonjs':
         specifier: ^24.1.0
         version: 24.1.0(rollup@3.21.4)
@@ -123,6 +87,39 @@ importers:
       '@rollup/plugin-typescript':
         specifier: ^11.1.0
         version: 11.1.0(rollup@3.21.4)(tslib@2.5.0)(typescript@4.9.5)
+      '@testing-library/dom':
+        specifier: ^9.2.0
+        version: 9.2.0
+      '@testing-library/jest-dom':
+        specifier: ^5.16.5
+        version: 5.16.5
+      '@testing-library/react':
+        specifier: ^14.0.0
+        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@testing-library/user-event':
+        specifier: ^14.4.3
+        version: 14.4.3(@testing-library/dom@9.2.0)
+      '@types/jest':
+        specifier: ^29.5.1
+        version: 29.5.1
+      '@types/jest-axe':
+        specifier: ^3.5.5
+        version: 3.5.5
+      '@types/react':
+        specifier: ^18.2.6
+        version: 18.2.6
+      '@types/testing-library__jest-dom':
+        specifier: ^5.14.5
+        version: 5.14.5
+      jest:
+        specifier: ^29.5.0
+        version: 29.5.0(@types/node@18.16.3)(ts-node@10.9.1)
+      jest-axe:
+        specifier: ^7.0.1
+        version: 7.0.1
+      jest-environment-jsdom:
+        specifier: ^29.5.0
+        version: 29.5.0
       postcss:
         specifier: ^8.4.23
         version: 8.4.23
@@ -137,7 +134,7 @@ importers:
         version: 18.2.0
       react-classnaming:
         specifier: ^0.16.4
-        version: 0.16.4(@types/react@18.2.2)(typescript@4.9.5)
+        version: 0.16.4(@types/react@18.2.6)(typescript@4.9.5)
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
@@ -173,7 +170,7 @@ importers:
         version: 2.4.0(@docusaurus/types@2.4.0)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/preset-classic':
         specifier: ^2.4.0
-        version: 2.4.0(@algolia/client-search@4.17.0)(@types/react@18.2.2)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
+        version: 2.4.0(@algolia/client-search@4.17.0)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/theme-classic':
         specifier: ^2.4.0
         version: 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
@@ -217,21 +214,54 @@ importers:
       '@docusaurus/types':
         specifier: ^2.4.0
         version: 2.4.0(react-dom@18.2.0)(react@18.2.0)
+      '@jest/types':
+        specifier: ^29.5.0
+        version: 29.5.0
+      '@testing-library/dom':
+        specifier: ^9.2.0
+        version: 9.2.0
+      '@testing-library/jest-dom':
+        specifier: ^5.16.5
+        version: 5.16.5
+      '@testing-library/react':
+        specifier: ^14.0.0
+        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@testing-library/user-event':
+        specifier: ^14.4.3
+        version: 14.4.3(@testing-library/dom@9.2.0)
       '@tsconfig/docusaurus':
         specifier: ^1.0.7
         version: 1.0.7
+      '@types/jest':
+        specifier: ^29.5.1
+        version: 29.5.1
+      '@types/jest-axe':
+        specifier: ^3.5.5
+        version: 3.5.5
       '@types/react-helmet':
         specifier: ^6.1.6
         version: 6.1.6
       '@types/react-router-dom':
         specifier: ^5.3.3
         version: 5.3.3
+      '@types/testing-library__jest-dom':
+        specifier: ^5.14.5
+        version: 5.14.5
       docusaurus-plugin-typedoc:
         specifier: ^0.19.2
         version: 0.19.2(typedoc-plugin-markdown@3.15.3)(typedoc@0.24.6)
       identity-obj-proxy:
         specifier: ^3.0.0
         version: 3.0.0
+      jest:
+        specifier: ^29.5.0
+        version: 29.5.0(@types/node@18.16.3)(ts-node@10.9.1)
+      jest-axe:
+        specifier: ^7.0.1
+        version: 7.0.1
+      jest-environment-jsdom:
+        specifier: ^29.5.0
+        version: 29.5.0
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
@@ -1884,7 +1914,7 @@ packages:
     resolution: {integrity: sha512-vDwCDoVXDgopw/hvr0zEADew2wWaGP8Qq0Bxhgii1Ewz2t4fQeyJwIRN/mWADeLFYPVkpz8TpEbxya/i6Tm0WA==}
     dev: false
 
-  /@docsearch/react@3.3.4(@algolia/client-search@4.17.0)(@types/react@18.2.2)(react-dom@18.2.0)(react@18.2.0):
+  /@docsearch/react@3.3.4(@algolia/client-search@4.17.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-aeOf1WC5zMzBEi2SI6WWznOmIo9rnpN4p7a3zHXxowVciqlI4HsZGtOR9nFOufLeolv7HibwLlaM0oyUqJxasw==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -1901,7 +1931,6 @@ packages:
       '@algolia/autocomplete-core': 1.8.2
       '@algolia/autocomplete-preset-algolia': 1.8.2(@algolia/client-search@4.17.0)(algoliasearch@4.17.0)
       '@docsearch/css': 3.3.4
-      '@types/react': 18.2.2
       algoliasearch: 4.17.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2071,7 +2100,7 @@ packages:
       '@docusaurus/react-loadable': 5.5.2(react@18.2.0)
       '@docusaurus/types': 2.4.0(react-dom@18.2.0)(react@18.2.0)
       '@types/history': 4.7.11
-      '@types/react': 18.2.2
+      '@types/react': 18.2.6
       '@types/react-router-config': 5.0.7
       '@types/react-router-dom': 5.3.3
       react: 18.2.0
@@ -2205,7 +2234,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-debug@2.4.0(@types/react@18.2.2)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
+  /@docusaurus/plugin-debug@2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
     resolution: {integrity: sha512-KC56DdYjYT7Txyux71vXHXGYZuP6yYtqwClvYpjKreWIHWus5Zt6VNi23rMZv3/QKhOCrN64zplUbdfQMvddBQ==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2218,7 +2247,7 @@ packages:
       fs-extra: 10.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-json-view: 1.21.3(@types/react@18.2.2)(react-dom@18.2.0)(react@18.2.0)
+      react-json-view: 1.21.3(react-dom@18.2.0)(react@18.2.0)
       tslib: 2.5.0
     transitivePeerDependencies:
       - '@parcel/css'
@@ -2369,7 +2398,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/preset-classic@2.4.0(@algolia/client-search@4.17.0)(@types/react@18.2.2)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
+  /@docusaurus/preset-classic@2.4.0(@algolia/client-search@4.17.0)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
     resolution: {integrity: sha512-/5z5o/9bc6+P5ool2y01PbJhoGddEGsC0ej1MF6mCoazk8A+kW4feoUd68l7Bnv01rCnG3xy7kHUQP97Y0grUA==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2380,14 +2409,14 @@ packages:
       '@docusaurus/plugin-content-blog': 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/plugin-content-docs': 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/plugin-content-pages': 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
-      '@docusaurus/plugin-debug': 2.4.0(@types/react@18.2.2)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
+      '@docusaurus/plugin-debug': 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/plugin-google-analytics': 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/plugin-google-gtag': 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/plugin-google-tag-manager': 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/plugin-sitemap': 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/theme-classic': 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/theme-common': 2.4.0(@docusaurus/types@2.4.0)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
-      '@docusaurus/theme-search-algolia': 2.4.0(@algolia/client-search@4.17.0)(@docusaurus/types@2.4.0)(@types/react@18.2.2)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
+      '@docusaurus/theme-search-algolia': 2.4.0(@algolia/client-search@4.17.0)(@docusaurus/types@2.4.0)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/types': 2.4.0(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2488,7 +2517,7 @@ packages:
       '@docusaurus/utils': 2.4.0(@docusaurus/types@2.4.0)
       '@docusaurus/utils-common': 2.4.0(@docusaurus/types@2.4.0)
       '@types/history': 4.7.11
-      '@types/react': 18.2.2
+      '@types/react': 18.2.6
       '@types/react-router-config': 5.0.7
       clsx: 1.2.1
       parse-numeric-range: 1.3.0
@@ -2517,14 +2546,14 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/theme-search-algolia@2.4.0(@algolia/client-search@4.17.0)(@docusaurus/types@2.4.0)(@types/react@18.2.2)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
+  /@docusaurus/theme-search-algolia@2.4.0(@algolia/client-search@4.17.0)(@docusaurus/types@2.4.0)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
     resolution: {integrity: sha512-pPCJSCL1Qt4pu/Z0uxBAuke0yEBbxh0s4fOvimna7TEcBLPq0x06/K78AaABXrTVQM6S0vdocFl9EoNgU17hqA==}
     engines: {node: '>=16.14'}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
-      '@docsearch/react': 3.3.4(@algolia/client-search@4.17.0)(@types/react@18.2.2)(react-dom@18.2.0)(react@18.2.0)
+      '@docsearch/react': 3.3.4(@algolia/client-search@4.17.0)(react-dom@18.2.0)(react@18.2.0)
       '@docusaurus/core': 2.4.0(@docusaurus/types@2.4.0)(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/logger': 2.4.0
       '@docusaurus/plugin-content-docs': 2.4.0(eslint@8.39.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
@@ -2578,7 +2607,7 @@ packages:
       react-dom: ^16.8.4 || ^17.0.0
     dependencies:
       '@types/history': 4.7.11
-      '@types/react': 18.2.2
+      '@types/react': 18.2.6
       commander: 5.1.0
       joi: 17.9.2
       react: 18.2.0
@@ -3724,34 +3753,34 @@ packages:
   /@types/react-dom@18.2.3:
     resolution: {integrity: sha512-hxXEXWxFJXbY0LMj/T69mznqOZJXNtQMqVxIiirVAZnnpeYiD4zt+lPsgcr/cfWg2VLsxZ1y26vigG03prYB+Q==}
     dependencies:
-      '@types/react': 18.2.2
+      '@types/react': 18.2.6
     dev: true
 
   /@types/react-helmet@6.1.6:
     resolution: {integrity: sha512-ZKcoOdW/Tg+kiUbkFCBtvDw0k3nD4HJ/h/B9yWxN4uDO8OkRksWTO+EL+z/Qu3aHTeTll3Ro0Cc/8UhwBCMG5A==}
     dependencies:
-      '@types/react': 18.2.2
+      '@types/react': 18.2.6
     dev: true
 
   /@types/react-router-config@5.0.7:
     resolution: {integrity: sha512-pFFVXUIydHlcJP6wJm7sDii5mD/bCmmAY0wQzq+M+uX7bqS95AQqHZWP1iNMKrWVQSuHIzj5qi9BvrtLX2/T4w==}
     dependencies:
       '@types/history': 4.7.11
-      '@types/react': 18.2.2
+      '@types/react': 18.2.6
       '@types/react-router': 5.1.20
 
   /@types/react-router-dom@5.3.3:
     resolution: {integrity: sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw==}
     dependencies:
       '@types/history': 4.7.11
-      '@types/react': 18.2.2
+      '@types/react': 18.2.6
       '@types/react-router': 5.1.20
 
   /@types/react-router@5.1.20:
     resolution: {integrity: sha512-jGjmu/ZqS7FjSH6owMcD5qpq19+1RS9DeVRqfl1FeBMxTDQAGwlMWOcs52NDoXaNKyG3d1cYQFMs9rCrb88o9Q==}
     dependencies:
       '@types/history': 4.7.11
-      '@types/react': 18.2.2
+      '@types/react': 18.2.6
 
   /@types/react@17.0.58:
     resolution: {integrity: sha512-c1GzVY97P0fGxwGxhYq989j4XwlcHQoto6wQISOC2v6wm3h0PORRWJFHlkRjfGsiG3y1609WdQ+J+tKxvrEd6A==}
@@ -3760,8 +3789,8 @@ packages:
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
 
-  /@types/react@18.2.2:
-    resolution: {integrity: sha512-4GZH3GLuqdZbDvOW5Pqqe7jgsDrKwkJfZMZLwFcgoz3CVDSvnMeG/Ihe44IbZ5Mqhh1fyTh5e44z6pNjIzzV8g==}
+  /@types/react@18.2.6:
+    resolution: {integrity: sha512-wRZClXn//zxCFW+ye/D2qY65UsYP1Fpex2YXorHc8awoNamkMZSvBxwxdYVInsHOZZd2Ppq8isnSzJL5Mpf8OA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -9317,7 +9346,7 @@ packages:
       react-classnaming: '*'
     dependencies:
       postcss: 8.4.23
-      react-classnaming: 0.16.4(@types/react@18.2.2)(typescript@4.9.5)
+      react-classnaming: 0.16.4(@types/react@18.2.6)(typescript@4.9.5)
     dev: true
 
   /postcss-discard-comments@5.1.2(postcss@8.4.23):
@@ -9931,13 +9960,13 @@ packages:
       pure-color: 1.3.0
     dev: false
 
-  /react-classnaming@0.16.4(@types/react@18.2.2)(typescript@4.9.5):
+  /react-classnaming@0.16.4(@types/react@18.2.6)(typescript@4.9.5):
     resolution: {integrity: sha512-5fv4X64/PIOcFIMV54I7ETLqGKNNGM6mItcEy3EkgwEvzyXNSqkvMQtrKh4XWNOzElTSInWQYJeMz3bqSj9IWA==}
     peerDependencies:
       '@types/react': '*'
       typescript: '>=4.2'
     dependencies:
-      '@types/react': 18.2.2
+      '@types/react': 18.2.6
       typescript: 4.9.5
     dev: true
 
@@ -10028,7 +10057,7 @@ packages:
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
 
-  /react-json-view@1.21.3(@types/react@18.2.2)(react-dom@18.2.0)(react@18.2.0):
+  /react-json-view@1.21.3(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-13p8IREj9/x/Ye4WI/JpjhoIwuzEgUAtgJZNBJckfzJt1qyh24BdTm6UQNGnyTq9dapQdrqvquZTo3dz1X6Cjw==}
     peerDependencies:
       react: ^17.0.0 || ^16.3.0 || ^15.5.4
@@ -10039,7 +10068,7 @@ packages:
       react-base16-styling: 0.6.0
       react-dom: 18.2.0(react@18.2.0)
       react-lifecycles-compat: 3.0.4
-      react-textarea-autosize: 8.4.1(@types/react@18.2.2)(react@18.2.0)
+      react-textarea-autosize: 8.4.1(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - encoding
@@ -10132,7 +10161,7 @@ packages:
       react-use: 17.4.0(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
-  /react-textarea-autosize@8.4.1(@types/react@18.2.2)(react@18.2.0):
+  /react-textarea-autosize@8.4.1(react@18.2.0):
     resolution: {integrity: sha512-aD2C+qK6QypknC+lCMzteOdIjoMbNlgSFmJjCV+DrfTPwp59i/it9mMNf2HDzvRjQgKAyBDPyLJhcrzElf2U4Q==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -10141,7 +10170,7 @@ packages:
       '@babel/runtime': 7.21.5
       react: 18.2.0
       use-composed-ref: 1.3.0(react@18.2.0)
-      use-latest: 1.2.1(@types/react@18.2.2)(react@18.2.0)
+      use-latest: 1.2.1(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
     dev: false
@@ -11387,7 +11416,7 @@ packages:
     resolution: {integrity: sha512-Z86EW+fFFh/IFB1fqQ3/+7Zpf9t2ebOAxNI/V6Wo7r5gqiqtxmgTlQ1qbqQcjLKYeSHPTsEmvlJUDg/EuL0uHQ==}
     dev: false
 
-  /ts-jest@29.1.0(@babel/core@7.21.8)(@jest/types@29.5.0)(jest@29.5.0)(typescript@4.9.5):
+  /ts-jest@29.1.0(@babel/core@7.21.8)(jest@29.5.0)(typescript@4.9.5):
     resolution: {integrity: sha512-ZhNr7Z4PcYa+JjMl62ir+zPiNJfXJN6E8hSLnaUKhOgqcn8vb3e537cpkd0FuAfRK3sR1LSqM1MOhliXNgOFPA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -11409,7 +11438,6 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.21.8
-      '@jest/types': 29.5.0
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 29.5.0(@types/node@18.16.3)(ts-node@10.9.1)
@@ -11806,7 +11834,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /use-isomorphic-layout-effect@1.1.2(@types/react@18.2.2)(react@18.2.0):
+  /use-isomorphic-layout-effect@1.1.2(react@18.2.0):
     resolution: {integrity: sha512-49L8yCO3iGT/ZF9QttjwLF/ZD9Iwto5LnH5LmEdk/6cFmXddqi2ulF0edxTwjj+7mqvpVVGQWvbXZdn32wRSHA==}
     peerDependencies:
       '@types/react': '*'
@@ -11815,11 +11843,10 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@types/react': 18.2.2
       react: 18.2.0
     dev: false
 
-  /use-latest@1.2.1(@types/react@18.2.2)(react@18.2.0):
+  /use-latest@1.2.1(react@18.2.0):
     resolution: {integrity: sha512-xA+AVm/Wlg3e2P/JiItTziwS7FK92LWrDB0p+hgXloIMuVCeJJ8v6f0eeHyPZaJrM+usM1FkFfbNCrJGs8A/zw==}
     peerDependencies:
       '@types/react': '*'
@@ -11828,9 +11855,8 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@types/react': 18.2.2
       react: 18.2.0
-      use-isomorphic-layout-effect: 1.1.2(@types/react@18.2.2)(react@18.2.0)
+      use-isomorphic-layout-effect: 1.1.2(react@18.2.0)
     dev: false
 
   /use-sync-external-store@1.2.0(react@18.2.0):
