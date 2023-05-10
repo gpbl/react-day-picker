@@ -64,6 +64,10 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
       onChange={handleChange}
       value={displayMonth.getFullYear()}
       caption={formatYearCaption(displayMonth, { locale })}
+      options={years.map((m) => ({
+        value: m.getMonth(),
+        name: formatYearCaption(m, {locale})
+      }))}
     >
       {years.map((year) => (
         <option key={year.getFullYear()} value={year.getFullYear()}>

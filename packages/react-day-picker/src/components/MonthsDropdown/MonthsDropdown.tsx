@@ -63,6 +63,10 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
       onChange={handleChange}
       value={props.displayMonth.getMonth()}
       caption={formatMonthCaption(props.displayMonth, { locale })}
+      options={dropdownMonths.map((m) => ({
+        value: m.getMonth(),
+        name: formatMonthCaption(m, {locale})
+      }))}
     >
       {dropdownMonths.map((m) => (
         <option key={m.getMonth()} value={m.getMonth()}>
