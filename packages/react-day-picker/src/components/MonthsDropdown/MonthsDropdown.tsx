@@ -21,6 +21,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     styles,
     locale,
     formatters: { formatMonthCaption },
+    stringFormatters: {formatMonthCaption: stringFormatMonthCaption},
     classNames,
     components,
     labels: { labelMonthDropdown }
@@ -65,7 +66,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
       caption={formatMonthCaption(props.displayMonth, { locale })}
       options={dropdownMonths.map((m) => ({
         value: m.getMonth(),
-        name: formatMonthCaption(m, {locale})
+        name: stringFormatMonthCaption(m, {locale})
       }))}
     >
       {dropdownMonths.map((m) => (

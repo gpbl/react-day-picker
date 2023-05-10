@@ -11,6 +11,7 @@ export type DefaultContextProps =
   | 'captionLayout'
   | 'classNames'
   | 'formatters'
+  | 'stringFormatters'
   | 'locale'
   | 'labels'
   | 'modifiersClassNames'
@@ -42,6 +43,7 @@ export function getDefaultContextValues(): DefaultContextValues {
     captionLayout,
     classNames,
     formatters,
+    stringFormatters: formatters,
     labels,
     locale,
     modifiersClassNames,

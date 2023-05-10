@@ -10,7 +10,7 @@ import {
 } from 'types/DayPickerMultiple';
 import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';
 import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
-import { Formatters } from 'types/Formatters';
+import { Formatters, StringFormatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
 import { Matcher } from 'types/Matchers';
 import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
@@ -37,6 +37,7 @@ export interface DayPickerContextValue extends DayPickerBase {
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;
   formatters: Formatters;
+  stringFormatters: StringFormatters;
   labels: Labels;
   locale: Locale;
   modifiersClassNames: ModifiersClassNames;
@@ -104,6 +105,10 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     formatters: {
       ...defaultContextValues.formatters,
       ...initialProps.formatters
+    },
+    stringFormatters: {
+      ...defaultContextValues.stringFormatters,
+      ...initialProps.stringFormatters,
     },
     fromDate,
     labels: {

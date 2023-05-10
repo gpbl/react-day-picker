@@ -19,7 +19,7 @@ import {
   MonthChangeEventHandler,
   WeekNumberClickEventHandler
 } from './EventHandlers';
-import { Formatters } from './Formatters';
+import { Formatters, StringFormatters } from './Formatters';
 import { Labels } from './Labels';
 import { Matcher } from './Matchers';
 import {
@@ -277,6 +277,12 @@ export interface DayPickerBase {
    * functions.
    */
   formatters?: Partial<Formatters>;
+
+  /**
+   * A map of string formatters. Use the formatters to override the default formatting
+   * functions for strings.
+   */
+  stringFormatters?: Partial<StringFormatters>;
 
   onDayClick?: DayClickEventHandler;
   onDayFocus?: DayFocusEventHandler;
