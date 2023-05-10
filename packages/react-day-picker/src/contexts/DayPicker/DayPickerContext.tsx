@@ -108,7 +108,7 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     },
     stringFormatters: {
       ...defaultContextValues.stringFormatters,
-      ...initialProps.stringFormatters,
+      ...initialProps.stringFormatters
     },
     fromDate,
     labels: {

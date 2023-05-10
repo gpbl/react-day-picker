@@ -4,9 +4,9 @@ import { IconDropdown } from 'components/IconDropdown';
 import { useDayPicker } from 'contexts/DayPicker';
 
 type DropdownOption = {
-  name: string
-  value: string | number
-}
+  name: string;
+  value: string | number;
+};
 
 /** The props for the {@link Dropdown} component. */
 export interface DropdownProps {
@@ -15,7 +15,7 @@ export interface DropdownProps {
   /** The caption displayed to replace the hidden select. */
   caption?: React.ReactNode;
   children?: React.SelectHTMLAttributes<HTMLSelectElement>['children'];
-  options: DropdownOption[]
+  options: DropdownOption[];
   className?: string;
   ['aria-label']?: string;
   style?: React.CSSProperties;

@@ -6,7 +6,7 @@ export type DateFormatter = (
   options?: { locale?: Locale }
 ) => React.ReactNode;
 
-export type StringDateFormatter  = (
+export type StringDateFormatter = (
   date: Date,
   options?: { locale?: Locale }
 ) => string;
@@ -41,7 +41,7 @@ export type StringFormatters = {
   formatWeekNumber: StringWeekNumberFormatter;
   /** Format the week day name in the header */
   formatWeekdayName: StringDateFormatter;
-}
+};
 
 /** Represent a function to format the week number. */
 export type WeekNumberFormatter = (

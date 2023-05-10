@@ -30,7 +30,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     classNames,
     components,
     formatters: { formatYearCaption },
-    stringFormatters: {formatYearCaption: stringFormatYearCaption},
+    stringFormatters: { formatYearCaption: stringFormatYearCaption },
     labels: { labelYearDropdown }
   } = useDayPicker();
 
@@ -67,7 +67,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
       caption={formatYearCaption(displayMonth, { locale })}
       options={years.map((m) => ({
         value: m.getMonth(),
-        name: stringFormatYearCaption(m, {locale})
+        name: stringFormatYearCaption(m, { locale })
       }))}
     >
       {years.map((year) => (
