@@ -4624,9 +4624,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-typescript@npm:^11.1.0":
-  version: 11.1.0
-  resolution: "@rollup/plugin-typescript@npm:11.1.0"
+"@rollup/plugin-typescript@npm:^11.1.1":
+  version: 11.1.1
+  resolution: "@rollup/plugin-typescript@npm:11.1.1"
   dependencies:
     "@rollup/pluginutils": ^5.0.1
     resolve: ^1.22.1
@@ -4639,7 +4639,7 @@ __metadata:
       optional: true
     tslib:
       optional: true
-  checksum: 64ed5abbae392032fb190a5d3a29beb73f968919aed964ed5545e2732de6a1670f97131785e9376c06f784ae61545c5ad47352c126f3830aaa16b669bee2e9b9
+  checksum: 0e82ef17ded026060bbc237ed2552e227d5b514cd58c1f624afeb65704a24048e38918e6242bcf29960612dc9925fbf1bb0625475ec691330cd144e4a84e3065
   languageName: node
   linkType: hard
 
@@ -15260,7 +15260,7 @@ __metadata:
     "@rollup/plugin-commonjs": ^24.1.0
     "@rollup/plugin-node-resolve": ^15.0.2
     "@rollup/plugin-terser": ^0.4.1
-    "@rollup/plugin-typescript": ^11.1.0
+    "@rollup/plugin-typescript": ^11.1.1
     "@testing-library/dom": ^9.3.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
