@@ -1,0 +1,61 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: test",
+      "detail": "jest"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "detail": "rimraf dist && rollup -c"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "docs",
+      "problemMatcher": [],
+      "label": "docs",
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      }
+    },
+    {
+      "type": "npm",
+      "script": "build:watch",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "build",
+      "detail": "build:watch",
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      }
+    },
+    {
+      "type": "npm",
+      "script": "typecheck:watch",
+      "group": "build",
+      "problemMatcher": ["$tsc-watch"],
+      "label": "typecheck",
+      "detail": "typecheck:watch",
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      }
+    }
+  ]
+}

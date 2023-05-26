@@ -1,0 +1,16 @@
+{
+  "index": "Introduction",
+  "start": "Getting Started",
+  "another": "Another Page",
+  "advanced": "Advanced (A Folder)",
+  "about": {
+    "title": "About",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Support ↗",
+    "type": "page",
+    "href": "https://github.com/gpbl/react-day-picker/discussions/categories/support",
+    "newWindow": true
+  }
+}
