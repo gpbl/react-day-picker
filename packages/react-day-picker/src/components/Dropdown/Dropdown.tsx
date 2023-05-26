@@ -3,9 +3,10 @@ import React from 'react';
 import { IconDropdown } from 'components/IconDropdown';
 import { useDayPicker } from 'contexts/DayPicker';
 
-type DropdownOption = {
-  name: string;
-  value: string | number;
+/** The raw dropdown option that you can use to create your own {@link Dropdown} options */
+export type DropdownOption = {
+  label: string;
+  value?: string | number;
 };
 
 /** The props for the {@link Dropdown} component. */

@@ -26,7 +26,7 @@ const props: Required<DropdownProps> = {
   className: 'test',
   value: 'bar',
   children: <option value={'bar'} />,
-  options: [{ name: 'bar', value: 'bar' }],
+  options: [{ label: 'bar', value: 'bar' }],
   style: {}
 };
 
