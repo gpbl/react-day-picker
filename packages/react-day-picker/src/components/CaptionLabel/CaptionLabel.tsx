@@ -16,13 +16,14 @@ export function CaptionLabel(props: CaptionLabelProps): JSX.Element {
     locale,
     classNames,
     styles,
-    formatters: { formatCaption }
+    formatters: { formatCaption },
+    shouldAnnounceMonthChange
   } = useDayPicker();
   return (
     <div
       className={classNames.caption_label}
       style={styles.caption_label}
-      aria-live="polite"
+      aria-live={shouldAnnounceMonthChange ? 'polite' : undefined}
       role="presentation"
       id={props.id}
     >

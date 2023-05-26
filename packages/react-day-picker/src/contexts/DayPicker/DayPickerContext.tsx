@@ -44,6 +44,7 @@ export interface DayPickerContextValue extends DayPickerBase {
   numberOfMonths: number;
   styles: Styles;
   today: Date;
+  shouldAnnounceMonthChange: boolean;
 }
 
 /**
@@ -63,6 +64,24 @@ export interface DayPickerProviderProps {
   initialProps: DayPickerProps;
   children?: ReactNode;
 }
+
+const useShouldAnnounceMonthChange = () => {
+  const [shouldAnnounce, setShouldAnnounce] = React.useState(false);
+  React.useEffect(() => {
+    let timeout;
+    if (shouldAnnounce) {
+      timeout = setTimeout(() => {
+        setShouldAnnounce(false);
+      }, 1000);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [shouldAnnounce]);
+
+  const allowAnnouncementsTempoorarily = () => setShouldAnnounce(true);
+
+  return [shouldAnnounce, allowAnnouncementsTempoorarily] as const;
+};
 /**
  * The provider for the {@link DayPickerContext}, assigning the defaults from the
  * initial DayPicker props.
@@ -73,6 +92,20 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
   const defaultContextValues = getDefaultContextValues();
 
   const { fromDate, toDate } = parseFromToProps(initialProps);
+  const [shouldAnnounceMonthChange, allowMonthChangeAnnouncements] =
+    useShouldAnnounceMonthChange();
+
+  const onMonthChange = React.useCallback(
+    (month) => {
+      const originalMonthChange = initialProps.onMonthChange;
+
+      allowMonthChangeAnnouncements();
+      if (typeof originalMonthChange === 'function') {
+        originalMonthChange(month);
+      }
+    },
+    [innitialProps.onMonthChange]
+  );
 
   let captionLayout =
     initialProps.captionLayout ?? defaultContextValues.captionLayout;
@@ -124,7 +157,9 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
       ...defaultContextValues.styles,
       ...initialProps.styles
     },
-    toDate
+    toDate,
+    shouldAnnounceMonthChange,
+    onMonthChange
   };
 
   return (
