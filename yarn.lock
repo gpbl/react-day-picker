@@ -4570,9 +4570,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:^24.1.0":
-  version: 24.1.0
-  resolution: "@rollup/plugin-commonjs@npm:24.1.0"
+"@rollup/plugin-commonjs@npm:^25.0.0":
+  version: 25.0.0
+  resolution: "@rollup/plugin-commonjs@npm:25.0.0"
   dependencies:
     "@rollup/pluginutils": ^5.0.1
     commondir: ^1.0.1
@@ -4585,7 +4585,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 42faafc9bc8e04d75c86bb50d693ebb9c5eee19bf9ab3c09780b872547d12ff5ea85cfec7da75f5176d0aa4b5233101f667f44b85b331450a7bb14c95180852e
+  checksum: f014f98f161ba4573e5101cf262c152bdcd8cfebf9cf4872f8bb657d20e20d8e2dc51af5339fe10772d19007e63044bd79881af0db4fe9babe9e96d0c0eeb328
   languageName: node
   linkType: hard
 
@@ -15257,7 +15257,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-day-picker@workspace:packages/react-day-picker"
   dependencies:
-    "@rollup/plugin-commonjs": ^24.1.0
+    "@rollup/plugin-commonjs": ^25.0.0
     "@rollup/plugin-node-resolve": ^15.0.2
     "@rollup/plugin-terser": ^0.4.1
     "@rollup/plugin-typescript": ^11.1.1
