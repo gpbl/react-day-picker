@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
+import { user } from '@site/test/user';
 import { act, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { addDays } from 'date-fns';
 
 import {
@@ -13,7 +13,6 @@ import {
 import Example from '@examples/range';
 
 const pastMonth = new Date(2020, 10, 15);
-const user = userEvent.setup();
 let container: HTMLElement;
 const days = [
   pastMonth,

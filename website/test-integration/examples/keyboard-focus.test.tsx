@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
+import { user } from '@site/test/user';
 import { act, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { addDays, addMonths, startOfMonth } from 'date-fns';
 import { DayPickerProps } from 'react-day-picker';
 
@@ -20,8 +20,6 @@ const yesterday = new Date(2022, 5, 9);
 const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);
 freezeBeforeAll(today);
-
-const user = userEvent.setup();
 
 let container: HTMLElement;
 function setup(props: DayPickerProps) {
@@ -97,7 +95,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       setup({ mode: 'single', dir, selected });
     });
     describe('when focusing the days grid', () => {
-      beforeEach(() => focusDaysGrid(user));
+      beforeEach(() => focusDaysGrid());
       test('the selected day should have focus', () => {
         expect(getDayButton(tomorrow)).toHaveFocus();
       });
@@ -111,7 +109,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       setup({ dir, selected, mode });
     });
     describe('when focusing the days grid', () => {
-      beforeEach(() => focusDaysGrid(user));
+      beforeEach(() => focusDaysGrid());
 
       test('the first selected day should have focus', () => {
         expect(getDayButton(yesterday)).toHaveFocus();
@@ -127,7 +125,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
         setup({ mode: 'single', dir, defaultMonth, numberOfMonths });
       });
       describe('when focusing the days grid', () => {
-        beforeEach(() => focusDaysGrid(user));
+        beforeEach(() => focusDaysGrid());
         test('the today button should have focus', () => {
           expect(getDayButton(today, 2)).toHaveFocus();
         });
@@ -146,7 +144,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
       setup({ mode: 'single', dir, disabled, hidden, selected });
     });
     describe('when focusing the days grid', () => {
-      beforeEach(() => focusDaysGrid(user));
+      beforeEach(() => focusDaysGrid());
       test('the first not disabled day should have focus', () => {
         expect(getDayButton(notDisabled)).toHaveFocus();
       });

@@ -16,49 +16,49 @@ exports[`should render correctly 1`] = `
         class="rdp-head_cell"
         scope="col"
       >
-        SU
+        Su
       </th>
       <th
         aria-label="Monday"
         class="rdp-head_cell"
         scope="col"
       >
-        MO
+        Mo
       </th>
       <th
         aria-label="Tuesday"
         class="rdp-head_cell"
         scope="col"
       >
-        TU
+        Tu
       </th>
       <th
         aria-label="Wednesday"
         class="rdp-head_cell"
         scope="col"
       >
-        WE
+        We
       </th>
       <th
         aria-label="Thursday"
         class="rdp-head_cell"
         scope="col"
       >
-        TH
+        Th
       </th>
       <th
         aria-label="Friday"
         class="rdp-head_cell"
         scope="col"
       >
-        FR
+        Fr
       </th>
       <th
         aria-label="Saturday"
         class="rdp-head_cell"
         scope="col"
       >
-        SA
+        Sa
       </th>
     </tr>
   </thead>
@@ -476,49 +476,49 @@ exports[`when showing the week numbers should render correctly 1`] = `
         class="rdp-head_cell"
         scope="col"
       >
-        SU
+        Su
       </th>
       <th
         aria-label="Monday"
         class="rdp-head_cell"
         scope="col"
       >
-        MO
+        Mo
       </th>
       <th
         aria-label="Tuesday"
         class="rdp-head_cell"
         scope="col"
       >
-        TU
+        Tu
       </th>
       <th
         aria-label="Wednesday"
         class="rdp-head_cell"
         scope="col"
       >
-        WE
+        We
       </th>
       <th
         aria-label="Thursday"
         class="rdp-head_cell"
         scope="col"
       >
-        TH
+        Th
       </th>
       <th
         aria-label="Friday"
         class="rdp-head_cell"
         scope="col"
       >
-        FR
+        Fr
       </th>
       <th
         aria-label="Saturday"
         class="rdp-head_cell"
         scope="col"
       >
-        SA
+        Sa
       </th>
     </tr>
   </thead>

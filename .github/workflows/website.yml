@@ -5,10 +5,10 @@ on:
     types: [published]
   pull_request:
     branches:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
     inputs:
       deploy:
@@ -54,7 +54,7 @@ jobs:
           path: packages/react-day-picker/dist
       - run: yarn install
       - run: yarn workspace website run typecheck
-      - run: yarn workspace website run lint
+      - run: yarn workspace website run lint --max-warnings=0
       - run: yarn workspace website run test
 
   build-website:

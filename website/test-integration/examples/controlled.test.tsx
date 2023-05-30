@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { axe } from '@site/test/axe';
+import { user } from '@site/test/user';
+import { freezeBeforeAll } from '@site/test/utils';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import { getMonthCaption } from 'react-day-picker/test/selectors';
-import { freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/controlled';
 
@@ -17,8 +17,6 @@ function getTodayButton() {
 }
 
 freezeBeforeAll(today);
-const user = userEvent.setup();
-
 test('should not have AXE violations', async () => {
   const html = render(<Example />).container;
   expect(await axe(html)).toHaveNoViolations();
