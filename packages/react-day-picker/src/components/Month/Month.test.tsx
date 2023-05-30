@@ -61,8 +61,8 @@ describe('when rendered with a custom id', () => {
 
   test('the table id should include the display index', () => {
     const tableId = getMonthGrid().getAttribute('id');
-    expect(tableId).toEqual('custom-id-0-grid');
-  })
+    expect(tableId).toEqual('custom-id-grid-0');
+  });
 });
 
 describe('when using a custom Caption component', () => {
