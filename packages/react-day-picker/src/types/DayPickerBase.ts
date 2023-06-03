@@ -5,6 +5,7 @@ import { CaptionLabelProps } from 'components/CaptionLabel';
 import { DayProps } from 'components/Day';
 import { DayContentProps } from 'components/DayContent';
 import { DropdownProps } from 'components/Dropdown';
+import { DropdownOptionProps } from 'components/DropdownOption';
 import { FooterProps } from 'components/Footer';
 import { RowProps } from 'components/Row';
 import { WeekNumberProps } from 'components/WeekNumber';
@@ -323,8 +324,10 @@ export interface CustomComponents {
   Day?: (props: DayProps) => JSX.Element | null;
   /** The component for the content of the day element. */
   DayContent?: (props: DayContentProps) => JSX.Element | null;
-  /** The component for the drop-down elements. */
+  /** The component for the drop-down elements used to change the month or the year. As default, a `select` element is used. */
   Dropdown?: (props: DropdownProps) => JSX.Element | null;
+  /** The component for the drop-down options.  */
+  DropdownOption?: (props: DropdownOptionProps) => JSX.Element | null;
   /** The component for the table footer. */
   Footer?: (props: FooterProps) => JSX.Element | null;
   /** The component for the table’s head. */

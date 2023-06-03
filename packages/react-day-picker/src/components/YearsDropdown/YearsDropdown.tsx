@@ -3,6 +3,7 @@ import React from 'react';
 import { setYear, startOfMonth, startOfYear } from 'date-fns';
 
 import { Dropdown } from 'components/Dropdown';
+import { DropdownOption } from 'components/DropdownOption';
 import { useDayPicker } from 'contexts/DayPicker';
 import { MonthChangeEventHandler } from 'types/EventHandlers';
 
@@ -54,6 +55,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   };
 
   const DropdownComponent = components?.Dropdown ?? Dropdown;
+  const OptionComponent = components?.DropdownOption ?? DropdownOption;
 
   return (
     <DropdownComponent
@@ -65,11 +67,19 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
       value={displayMonth.getFullYear()}
       caption={formatYearCaption(displayMonth, { locale })}
     >
-      {years.map((year) => (
-        <option key={year.getFullYear()} value={year.getFullYear()}>
-          {formatYearCaption(year, { locale })}
-        </option>
-      ))}
+      {years.map((year) => {
+        const label = formatYearCaption(m, { locale });
+        return (
+          <OptionComponent
+            key={year.getFullYear()}
+            value={year.getFullYear()}
+            label={typeof label === 'string' ? label : undefined}
+            date={year}
+          >
+            {label}
+          </OptionComponent>
+        );
+      })}
     </DropdownComponent>
   );
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import { isSameYear, setMonth, startOfMonth } from 'date-fns';
 
 import { Dropdown } from 'components/Dropdown';
+import { DropdownOption } from 'components/DropdownOption';
 import { useDayPicker } from 'contexts/DayPicker';
 import { MonthChangeEventHandler } from 'types/EventHandlers';
 
@@ -53,6 +54,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
   };
 
   const DropdownComponent = components?.Dropdown ?? Dropdown;
+  const OptionComponent = components?.DropdownOption ?? DropdownOption;
 
   return (
     <DropdownComponent
@@ -64,11 +66,19 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
       value={props.displayMonth.getMonth()}
       caption={formatMonthCaption(props.displayMonth, { locale })}
     >
-      {dropdownMonths.map((m) => (
-        <option key={m.getMonth()} value={m.getMonth()}>
-          {formatMonthCaption(m, { locale })}
-        </option>
-      ))}
+      {dropdownMonths.map((m) => {
+        const label = formatMonthCaption(m, { locale });
+        return (
+          <OptionComponent
+            key={m.getMonth()}
+            value={m.getMonth()}
+            label={typeof label === 'string' ? label : undefined}
+            date={m}
+          >
+            {label}
+          </OptionComponent>
+        );
+      })}
     </DropdownComponent>
   );
 }

@@ -4,7 +4,7 @@ import React from 'react';
 export type DateFormatter = (
   date: Date,
   options?: { locale?: Locale }
-) => React.ReactNode;
+) => string | React.ReactNode;
 
 /** Represent a map of formatters used to render localized content. */
 export type Formatters = {
