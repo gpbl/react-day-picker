@@ -70,6 +70,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
         const label = formatMonthCaption(m, { locale });
         return (
           <OptionComponent
+            type="month"
             key={m.getMonth()}
             value={m.getMonth()}
             label={typeof label === 'string' ? label : undefined}

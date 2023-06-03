@@ -71,6 +71,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
         const label = formatYearCaption(year, { locale });
         return (
           <OptionComponent
+            type="year"
             key={year.getFullYear()}
             value={year.getFullYear()}
             label={typeof label === 'string' ? label : undefined}
