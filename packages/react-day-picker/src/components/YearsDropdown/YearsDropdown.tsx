@@ -68,7 +68,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
       caption={formatYearCaption(displayMonth, { locale })}
     >
       {years.map((year) => {
-        const label = formatYearCaption(m, { locale });
+        const label = formatYearCaption(year, { locale });
         return (
           <OptionComponent
             key={year.getFullYear()}
