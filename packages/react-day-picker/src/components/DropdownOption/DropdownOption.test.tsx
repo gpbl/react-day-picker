@@ -1,14 +1,8 @@
 import React from 'react';
 
-import { fireEvent, render, screen } from '@testing-library/react';
-import { DayPickerProps } from 'DayPicker';
+import { render } from '@testing-library/react';
 
-import { customRender } from 'test/render';
 import { freezeBeforeAll } from 'test/utils';
-
-import { Dropdown, DropdownProps } from 'components/Dropdown';
-import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
-import { CustomComponents } from 'types/DayPickerBase';
 
 import { DropdownOption } from './DropdownOption';
 
@@ -16,13 +10,14 @@ const today = new Date(2021, 8);
 
 freezeBeforeAll(today);
 
-function setup(props: DropdownProps, dayPickerProps?: DayPickerProps) {
-  customRender(<Dropdown {...props} />, dayPickerProps);
-}
-
 test('should match the snapshot', () => {
   const result = render(
-    <DropdownOption date={today} value={7} label="label as prop" />
+    <DropdownOption
+      date={today}
+      value={7}
+      label="label as prop"
+      type={'month'}
+    />
   );
   expect(result.container.firstChild).toMatchInlineSnapshot(`
     <option
@@ -36,7 +31,7 @@ test('should match the snapshot', () => {
 describe('when rendered with children', () => {
   test('should match the snapshot', () => {
     const result = render(
-      <DropdownOption date={today} value={7} label="label">
+      <DropdownOption date={today} value={7} label="label" type={'month'}>
         label as children
       </DropdownOption>
     );

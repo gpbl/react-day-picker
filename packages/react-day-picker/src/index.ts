@@ -9,6 +9,7 @@ export * from 'components/CaptionNavigation';
 export * from 'components/Day';
 export * from 'components/DayContent';
 export * from 'components/Dropdown';
+export * from 'components/DropdownOption';
 export * from 'components/Footer';
 export * from 'components/Head';
 export * from 'components/HeadRow';
