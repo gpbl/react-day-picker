@@ -25,7 +25,7 @@ input-range
 
 ## Example: Time Selection
 
-DayPicker can also be used alongside a time input field. The time can be directly added to the selected Date.
+DayPicker can also be used alongside a time input field, by setting the time to the selected date.
 
 ```include-example
 input-time
