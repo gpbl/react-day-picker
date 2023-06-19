@@ -184,19 +184,28 @@ export interface DayPickerBase {
   showOutsideDays?: boolean;
   /**
    * Show the week numbers column. Weeks are numbered according to the local
-   * week index. To use ISO week numbering, use the {@link ISOWeek} prop.
+   * week index.
+   *
+   * - to use ISO week numbering, use the {@link ISOWeek} prop.
+   * - to change how the week numbers are displayed, use the {@link Formatters} prop.
+   *
+   * @see  {@link ISOWeek}, {@link weekStartsOn} and {@link firstWeekContainsDate}.
    *
    * @defaultValue false
    */
   showWeekNumber?: boolean;
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's one.
+   *
+   * See also {@link ISOWeek}.
    */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   /**
    * The day of January, which is always in the first week of the year. See also
    * https://date-fns.org/docs/getWeek and
    * https://en.wikipedia.org/wiki/Week#Numbering
+   *
+   * See also {@link ISOWeek}.
    */
   firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   /**
