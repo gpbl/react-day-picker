@@ -68,6 +68,7 @@ exports[`should match the snapshot 1`] = `
         <table
           aria-labelledby="test-0"
           class="rdp-table"
+          id="test-grid-0"
           role="grid"
         >
           <thead
@@ -707,6 +708,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
         <table
           aria-labelledby="test-0"
           class="rdp-table"
+          id="test-grid-0"
           role="grid"
         >
           <thead

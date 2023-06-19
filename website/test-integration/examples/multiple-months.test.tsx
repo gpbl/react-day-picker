@@ -5,7 +5,7 @@ import { user } from '@site/test/user';
 import { freezeBeforeAll } from '@site/test/utils';
 import { act, render, screen } from '@testing-library/react';
 
-import { getPrevButton } from 'react-day-picker/test/selectors';
+import { getMonthGrid, getPrevButton } from 'react-day-picker/test/selectors';
 
 import Example from '@examples/multiple-months';
 
@@ -20,6 +20,13 @@ test('should not have AXE violations', async () => {
 
 test('should render 2 grids', () => {
   expect(screen.getAllByRole('grid')).toHaveLength(2);
+});
+
+test('the table ids should include the display index', () => {
+  const tableId1 = getMonthGrid(0).getAttribute('id');
+  const tableId2 = getMonthGrid(1).getAttribute('id');
+  expect(tableId1).toEqual('example-grid-0');
+  expect(tableId2).toEqual('example-grid-1');
 });
 
 test('the first grid should be November', () => {
