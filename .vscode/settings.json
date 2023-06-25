@@ -1,0 +1,3 @@
+{
+  "jest.jestCommandLine": "pnpm -F ${workspaceFolderBasename} test"
+}
