@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "build-watch",
+      "group": "build",
+      "problemMatcher": ["$tsc-watch"],
+      "label": "npm: build-watch",
+      "detail": "rollup -c -w",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "typecheck-watch",
+      "group": "build",
+      "problemMatcher": ["$tsc-watch"],
+      "label": "npm: typecheck-watch",
+      "detail": "tsc --project ./tsconfig.json --noEmit --watch",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}
