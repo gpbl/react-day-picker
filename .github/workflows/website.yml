@@ -36,7 +36,7 @@ jobs:
           node-version: 18.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpnm -F react-day-picker build
+      - run: pnpm -F react-day-picker build
       - uses: actions/upload-artifact@v3
         with:
           name: rdp-dist
@@ -59,9 +59,9 @@ jobs:
           name: rdp-dist
           path: packages/react-day-picker/dist
       - run: pnpm install --frozen-lockfile
-      - run: pnpnm -F website typecheck
-      - run: pnpnm -F website lint --max-warnings=0
-      - run: pnpnm -F website test
+      - run: pnpm -F website typecheck
+      - run: pnpm -F website lint --max-warnings=0
+      - run: pnpm -F website test
 
   build-website:
     needs: [build-package]
@@ -80,7 +80,7 @@ jobs:
           name: rdp-dist
           path: packages/react-day-picker/dist
       - run: pnpm install --frozen-lockfile
-      - run: pnpnm -F website build
+      - run: pnpm -F website build
       - uses: actions/upload-artifact@v3
         with:
           name: website-build
