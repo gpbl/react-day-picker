@@ -1,6 +1,0 @@
-.rdp {
-  --rdp-background-color: var(--rdp-background-color-dark);
-  --rdp-accent-color-light: var(--rdp-accent-color-dark);
-  --rdp-accent-color-lighter: var(--rdp-accent-color-darker);
-  --rdp-accent-color-lightest: var(--rdp-accent-color-darkest);
-}
