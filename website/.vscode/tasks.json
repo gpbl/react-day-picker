@@ -1,16 +1,6 @@
 {
   "version": "2.0.0",
   "tasks": [
-    {
-      "label": "yarn install",
-      "command": "yarn install",
-      "isBackground": false,
-      "type": "shell",
-      "problemMatcher": [],
-      "presentation": {
-        "close": true,
-        "panel": "dedicated"
-      }
     },
     {
       "label": "start",

@@ -60,7 +60,7 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
-    "eslint.packageManager": "yarn",
+    "eslint.packageManager": "pnpm",
     "importSorter.generalConfiguration.sortOnBeforeSave": true,
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
@@ -98,8 +98,8 @@
       "docs",
       "examples"
     ],
-    "jest.jestCommandLine": "yarn test",
-    "npm.packageManager": "yarn",
+    "jest.jestCommandLine": "pnpm test",
+    "npm.packageManager": "pnpm",
     "task.allowAutomaticTasks": "on"
   }
 }

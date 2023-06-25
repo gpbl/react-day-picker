@@ -30,10 +30,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run build
+          node-version: 18.16
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpnm -F react-day-picker build
       - uses: actions/upload-artifact@v3
         with:
           name: rdp-dist
@@ -46,16 +46,16 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: yarn
+          node-version: 18.16
+          cache: pnpm
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install
-      - run: yarn workspace website run typecheck
-      - run: yarn workspace website run lint --max-warnings=0
-      - run: yarn workspace website run test
+      - run: pnpm install
+      - run: pnpnm -F website typecheck
+      - run: pnpnm -F website lint --max-warnings=0
+      - run: pnpnm -F website test
 
   build-website:
     needs: [build-package]
@@ -64,14 +64,14 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: yarn
+          node-version: 18.16
+          cache: pnpm
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install
-      - run: yarn workspace website run build
+      - run: pnpm install
+      - run: pnpnm -F website build
       - uses: actions/upload-artifact@v3
         with:
           name: website-build
@@ -85,7 +85,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 18.16
           registry-url: https://registry.npmjs.org/
       - uses: actions/download-artifact@v3
         with:
@@ -95,7 +95,7 @@ jobs:
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install
+      - run: pnpm install
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
