@@ -1,0 +1,15 @@
+.example {
+  padding: 1em;
+}
+.example input {
+  font-size: 1em;
+  padding: 0.4em 0.6em;
+}
+
+.example button {
+  font-size: 1em;
+  padding: 0.4em 0.6em;
+}
+.example input + button {
+  margin-left: 0.5em;
+}

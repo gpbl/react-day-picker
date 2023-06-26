@@ -1,4 +1,5 @@
 body {
+  margin: 1em;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell,
     'Noto Sans', sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
@@ -10,6 +11,18 @@ body {
   -webkit-touch-callout: none;
   background-color: #191c1f;
   color: #f5f6f7;
+}
+
+input {
+  font-size: 1em;
+  padding: 0.4em 0.6em;
+}
+button {
+  font-size: 1em;
+  padding: 0.4em 0.6em;
+}
+input + button {
+  margin-left: 0.5em;
 }
 
 .rdp {

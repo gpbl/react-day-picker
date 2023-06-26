@@ -53,22 +53,19 @@ export default function DatePickerDialog() {
     <div>
       <div ref={popperRef}>
         <input
+          size={12}
           type="text"
           placeholder={format(new Date(), 'y-MM-dd')}
           value={inputValue}
           onChange={handleInputChange}
-          className="input-reset pa2 ma2 bg-white black ba"
         />
         <button
           ref={buttonRef}
           type="button"
-          className="pa2 bg-white button-reset ba"
           aria-label="Pick a date"
           onClick={handleButtonClick}
         >
-          <span role="img" aria-label="calendar icon">
-            📅
-          </span>
+          Pick a date
         </button>
       </div>
       {isPopperOpen && (

@@ -14,10 +14,7 @@ export default function App() {
   const footer = (
     <form>
       <label>
-        <input
-          {...inputProps}
-          className="input-reset pa2 ma2 bg-white black ba"
-        />
+        <input {...inputProps} />
       </label>
     </form>
   );

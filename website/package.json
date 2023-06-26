@@ -28,8 +28,7 @@
     "react": "^18.2.0",
     "react-day-picker": "workspace:^",
     "react-dom": "^18.2.0",
-    "react-popper": "^2.3.0",
-    "react-shadow": "^20.0.0"
+    "react-popper": "^2.3.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.4.0",

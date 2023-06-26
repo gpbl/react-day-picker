@@ -211,3 +211,56 @@ html[data-theme='dark'] .dialog-sheet {
 }
 
 /* #endregion */
+
+/* Remove CSS pollution from docusaurus. See https://github.com/facebook/docusaurus/issues/6032 */
+.rdp {
+  box-sizing: revert;
+}
+.rdp-table {
+  border-collapse: revert;
+  display: revert;
+  margin-bottom: revert;
+  overflow: revert;
+}
+
+.rdp-table tr:nth-child(2n) {
+  background-color: revert;
+}
+
+.rdp-head {
+  background-color: revert;
+}
+.rdp-head_row {
+  border-bottom: revert;
+  background-color: revert;
+  border-top: revert;
+}
+
+.rdp-head_cell {
+  font: revert;
+  color: revert;
+  background-color: revert;
+  border: revert;
+}
+
+.rdp-table tr,
+.rdp-row {
+  background-color: revert;
+  border-top: revert;
+}
+
+.rdp-table td {
+  border: revert;
+  padding: revert;
+  color: revert;
+}
+
+.rdp p {
+  margin: revert;
+}
+
+.rdp-cell {
+  color: revert;
+  border: revert;
+  background-color: revert;
+}
