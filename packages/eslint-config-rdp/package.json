@@ -3,7 +3,7 @@
   "packageManager": "pnpm@8.6.2",
   "version": "1.0.0",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.59.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",
