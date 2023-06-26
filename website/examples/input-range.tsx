@@ -67,7 +67,6 @@ export default function App() {
             placeholder="From Date"
             value={fromValue}
             onChange={handleFromChange}
-            className="input-reset pa2 ma bg-white black ba"
           />
           {' – '}
           <input
@@ -75,7 +74,6 @@ export default function App() {
             placeholder="To Date"
             value={toValue}
             onChange={handleToChange}
-            className="input-reset pa2 bg-white black ba"
           />
         </form>
       }
