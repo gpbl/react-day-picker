@@ -2,6 +2,8 @@ import React from 'react';
 
 import { axe } from '@site/test/axe';
 import { user } from '@site/test/user';
+import { freezeBeforeAll } from '@site/test/utils';
+import { focusDaysGrid } from '@site/test/utils/focusDaysGrid';
 import { act, render } from '@testing-library/react';
 import { addDays, addMonths, startOfMonth } from 'date-fns';
 import { DayPickerProps } from 'react-day-picker';
@@ -12,7 +14,6 @@ import {
   getNextButton,
   getPrevButton
 } from 'react-day-picker/test/selectors';
-import { focusDaysGrid, freezeBeforeAll } from 'react-day-picker/test/utils';
 
 import Example from '@examples/keyboard';
 

@@ -28,46 +28,58 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run typecheck
+          node-version: 18.16
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -F react-day-picker typecheck
 
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run lint --max-warnings=0
+          node-version: 18.16
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -F react-day-picker lint --max-warnings=0
 
   test:
     needs: [lint, typecheck]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run test
+          node-version: 18.16
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -F react-day-picker test
 
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run build
+          node-version: 18.16
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -F react-day-picker build
       - uses: actions/upload-artifact@v3
         with:
           name: rdp-dist
@@ -81,9 +93,12 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 18.16
           registry-url: https://registry.npmjs.org/
           always-auth: false
       - uses: actions/download-artifact@v3

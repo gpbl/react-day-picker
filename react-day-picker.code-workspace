@@ -16,23 +16,11 @@
       "path": "packages/react-day-picker"
     },
     {
-      "name": "docs",
-      "path": "website/docs"
-    },
-    {
-      "name": "examples",
-      "path": "website/examples"
-    },
-    {
       "name": "website",
       "path": "website"
     },
     {
-      "name": "eslint-config-rdp",
-      "path": "packages/eslint-config-rdp"
-    },
-    {
-      "name": "project",
+      "name": "repository",
       "path": "."
     }
   ],
@@ -47,20 +35,10 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "cSpell.enabled": true,
-    "cSpell.words": [
-      "codesandbox",
-      "miércoles",
-      "mockdate",
-      "Sandpack",
-      "septiembre",
-      "TOFIX",
-      "vhidden"
-    ],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
-    "eslint.packageManager": "yarn",
     "importSorter.generalConfiguration.sortOnBeforeSave": true,
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
     "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
@@ -88,18 +66,8 @@
         "regex": "^@examples/"
       }
     ],
-    "jest.autoRun": {
-      "onSave": "test-src-file",
-      "watch": false
-    },
-    "jest.disabledWorkspaceFolders": [
-      "project",
-      "eslint-config-rdp",
-      "docs",
-      "examples"
-    ],
-    "jest.jestCommandLine": "yarn test",
-    "npm.packageManager": "yarn",
+    "jest.disabledWorkspaceFolders": ["repository"],
+    "npm.packageManager": "pnpm",
     "task.allowAutomaticTasks": "on"
   }
 }

@@ -1,33 +1,20 @@
 {
   "engines": {
-    "node": ">=16",
-    "yarn": "3"
+    "node": ">=18.16.0",
+    "pnpm": ">=8.6.2"
   },
-  "packageManager": "yarn@3.2.1",
-  "name": "@react-day-picker/monorepo",
+  "packageManager": "pnpm@8.6.2",
+  "name": "react-day-picker-monorepo",
   "private": true,
-  "description": "Monorepo of react-day-picker",
+  "description": "Monorepo for react-day-picker",
   "author": "Giampaolo Bellavite <io@gpbl.org>",
   "homepage": "http://react-day-picker.js.org",
   "license": "MIT",
-  "scripts": {
-    "build-all": "yarn workspaces foreach run build",
-    "lint-all": "yarn workspaces foreach -pt run lint",
-    "test-all": "yarn workspaces foreach run test",
-    "typecheck": "yarn workspaces foreach run typecheck"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gpbl/react-day-picker"
   },
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
-  },
-  "workspaces": [
-    "website",
-    "packages/*"
-  ],
-  "resolutions": {
-    "trim": "0.0.3"
   }
 }

@@ -28,12 +28,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: yarn
-      - run: yarn install
-      - run: yarn workspace react-day-picker run build
+          node-version: 18.16
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -F react-day-picker build
       - uses: actions/upload-artifact@v3
         with:
           name: rdp-dist
@@ -44,34 +47,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: yarn
+          node-version: 18.16
+          cache: pnpm
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install
-      - run: yarn workspace website run typecheck
-      - run: yarn workspace website run lint --max-warnings=0
-      - run: yarn workspace website run test
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -F website typecheck
+      - run: pnpm -F website lint --max-warnings=0
+      - run: pnpm -F website test
 
   build-website:
     needs: [build-package]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: yarn
+          node-version: 18.16
+          cache: pnpm
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install
-      - run: yarn workspace website run build
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -F website build
       - uses: actions/upload-artifact@v3
         with:
           name: website-build
@@ -83,9 +92,12 @@ jobs:
     if: ${{ github.event_name == 'release' || github.event.inputs.deploy }}
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 18.16
           registry-url: https://registry.npmjs.org/
       - uses: actions/download-artifact@v3
         with:
@@ -95,7 +107,7 @@ jobs:
         with:
           name: rdp-dist
           path: packages/react-day-picker/dist
-      - run: yarn install
+      - run: pnpm install --frozen-lockfile
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
