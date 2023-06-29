@@ -107,7 +107,7 @@ export function useDayRender(
   const buttonProps = {
     ...divProps,
     disabled: activeModifiers.disabled,
-    role: 'gridcell',
+    role: 'button',
     ['aria-selected']: activeModifiers.selected,
     tabIndex: isFocused || isFocusTarget ? 0 : -1,
     ...eventHandlers

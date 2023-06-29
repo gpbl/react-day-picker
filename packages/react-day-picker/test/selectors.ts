@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import { format } from 'date-fns';
 
 export function getDayButton(day: Date, index = 0) {
-  return screen.getAllByRole('gridcell', {
+  return screen.getAllByRole('button', {
     name: day.getDate().toString()
   })[index];
 }
@@ -81,7 +81,7 @@ export function getMonthGrid(index = 0) {
 }
 
 export function queryMonthGrids() {
-  return screen.queryAllByRole('grid');
+  return screen.queryAllByRole('grid', { hidden: true });
 }
 
 export function getYearDropdown() {

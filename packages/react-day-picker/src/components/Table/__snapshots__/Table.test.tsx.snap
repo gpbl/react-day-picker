@@ -74,6 +74,7 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -82,6 +83,7 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -90,6 +92,7 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -98,6 +101,7 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -106,6 +110,7 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -114,6 +119,7 @@ exports[`should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -543,6 +549,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -551,6 +558,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -559,6 +567,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -567,6 +576,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -575,6 +585,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
@@ -583,6 +594,7 @@ exports[`when showing the week numbers should render correctly 1`] = `
         role="presentation"
       >
         <div
+          aria-hidden="true"
           role="gridcell"
         />
       </td>
