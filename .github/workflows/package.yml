@@ -1,4 +1,4 @@
-name: DayPicker Package
+name: react-day-picker
 
 on:
   release:
@@ -18,11 +18,11 @@ on:
         type: boolean
 
 jobs:
-  print-env:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "publish=${{ github.event.inputs.publish || false }}"
+  # print-env:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: |
+  #         echo "publish=${{ github.event.inputs.publish || false }}"
 
   typecheck:
     runs-on: ubuntu-latest

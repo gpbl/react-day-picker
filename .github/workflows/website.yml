@@ -1,4 +1,4 @@
-name: Website Deployment
+name: website
 
 on:
   release:
@@ -18,11 +18,11 @@ on:
         type: boolean
 
 jobs:
-  print-env:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "deploy=${{ github.event.inputs.deploy || false }}"
+  # print-env:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: |
+  #         echo "deploy=${{ github.event.inputs.deploy || false }}"
 
   build-package:
     runs-on: ubuntu-latest
