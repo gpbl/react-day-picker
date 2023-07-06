@@ -40,7 +40,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: rdp-dist
-          path: packages/react-day-picker/dist
+          path: dist
 
   test-website:
     needs: [build-package]
@@ -57,7 +57,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
-          path: packages/react-day-picker/dist
+          path: dist
       - run: pnpm install --frozen-lockfile
       - run: pnpm -F website typecheck
       - run: pnpm -F website lint --max-warnings=0
@@ -78,7 +78,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
-          path: packages/react-day-picker/dist
+          path: dist
       - run: pnpm install --frozen-lockfile
       - run: pnpm -F website build
       - uses: actions/upload-artifact@v3
@@ -106,7 +106,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
-          path: packages/react-day-picker/dist
+          path: dist
       - run: pnpm install --frozen-lockfile
       - uses: peaceiris/actions-gh-pages@v3
         with:
