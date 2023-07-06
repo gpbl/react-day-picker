@@ -83,7 +83,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: rdp-dist
-          path: packages/react-day-picker/dist
+          path: dist
 
   publish-on-npm:
     runs-on: ubuntu-latest
@@ -104,9 +104,8 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
-          path: packages/react-day-picker/dist
+          path: dist
       - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
       - run: npm publish --provenance
-        working-directory: packages/react-day-picker
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
