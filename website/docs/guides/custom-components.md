@@ -6,7 +6,7 @@ Components that can be changed are described in the [CustomComponents interface]
 
 :::note
 
-Custom components are an advanced feature. Look at the [**components source**](https://github.com/gpbl/react-day-picker/tree/master/packages/react-day-picker/src/components) to understand how the internal components are built.
+Custom components are an advanced feature. Look at the [**components source**](https://github.com/gpbl/react-day-picker/tree/main/src/components) to understand how the internal components are built.
 
 :::
 

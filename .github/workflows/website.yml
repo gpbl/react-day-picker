@@ -1,4 +1,4 @@
-name: Website Deployment
+name: website
 
 on:
   release:
@@ -18,13 +18,13 @@ on:
         type: boolean
 
 jobs:
-  print-env:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "deploy=${{ github.event.inputs.deploy || false }}"
+  # print-env:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: |
+  #         echo "deploy=${{ github.event.inputs.deploy || false }}"
 
-  build-package:
+  build-react-day-picker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -36,14 +36,14 @@ jobs:
           node-version: 18.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm -F react-day-picker build
+      - run: pnpm build
       - uses: actions/upload-artifact@v3
         with:
           name: rdp-dist
-          path: packages/react-day-picker/dist
+          path: dist
 
   test-website:
-    needs: [build-package]
+    needs: [build-react-day-picker]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -57,14 +57,12 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
-          path: packages/react-day-picker/dist
+          path: dist
       - run: pnpm install --frozen-lockfile
-      - run: pnpm -F website typecheck
-      - run: pnpm -F website lint --max-warnings=0
       - run: pnpm -F website test
 
-  build-website:
-    needs: [build-package]
+  typecheck-website:
+    needs: [build-react-day-picker]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -78,7 +76,26 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
-          path: packages/react-day-picker/dist
+          path: dist
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -F website typecheck
+
+  build-website:
+    needs: [build-react-day-picker]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.16
+          cache: pnpm
+      - uses: actions/download-artifact@v3
+        with:
+          name: rdp-dist
+          path: dist
       - run: pnpm install --frozen-lockfile
       - run: pnpm -F website build
       - uses: actions/upload-artifact@v3
@@ -88,7 +105,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [build-website, test-website]
+    needs: [build-website, test-website, typecheck-website]
     if: ${{ github.event_name == 'release' || github.event.inputs.deploy }}
     steps:
       - uses: actions/checkout@v3
@@ -106,7 +123,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
-          path: packages/react-day-picker/dist
+          path: dist
       - run: pnpm install --frozen-lockfile
       - uses: peaceiris/actions-gh-pages@v3
         with:

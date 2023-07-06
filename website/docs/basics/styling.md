@@ -7,7 +7,7 @@ DayPicker comes with for a minimal, lightweight appearance: import `react-day-pi
 import 'react-day-picker/dist/style.css';
 ```
 
-This will add the [DayPicker stylesheet](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css#L29) into your app. The stylesheet includes some CSS global variables, to override colors and sizes:
+This will add the [DayPicker stylesheet](https://github.com/gpbl/react-day-picker/blob/main/src/style.css#L29) into your app. The stylesheet includes some CSS global variables, to override colors and sizes:
 
 ```css
 .rdp {
@@ -68,7 +68,7 @@ This approach involves just CSS and works well if you need the same style across
    import './day-picker.css';
    ```
 
-2. change the appearance of DayPicker overriding the original selectors in the new CSS file. Refer to the [stylesheet source](https://github.com/gpbl/react-day-picker/blob/master/packages/react-day-picker/src/style.css) to find the right selectors to override.
+2. change the appearance of DayPicker overriding the original selectors in the new CSS file. Refer to the [stylesheet source](https://github.com/gpbl/react-day-picker/blob/main/src/style.css) to find the right selectors to override.
    ```css
    /* day-picker.css */
    /* Paint the today's date in red */

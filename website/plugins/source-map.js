@@ -17,12 +17,12 @@ const sourceMapPlugin = () => {
             {
               test: /\.(jsx|js|ts|tsx)$/,
               enforce: 'pre',
-              use: ['source-map-loader'],
-            },
-          ],
-        },
+              use: ['source-map-loader']
+            }
+          ]
+        }
       };
-    },
+    }
   };
 };
 module.exports = sourceMapPlugin;

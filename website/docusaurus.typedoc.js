@@ -1,8 +1,8 @@
 /* eslint-env node */
 const typedoc = {
   // Typedoc settings
-  entryPoints: [`../packages/react-day-picker/src/index.ts`],
-  tsconfig: `../packages/react-day-picker/tsconfig.build.json`,
+  entryPoints: [`../src/index.ts`],
+  tsconfig: `../tsconfig.build.json`,
   allReflectionsHaveOwnDocument: true,
   entryDocument: 'reference',
   watch: process.env.TYPEDOC_WATCH,

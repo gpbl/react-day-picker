@@ -1,5 +1,4 @@
-const pkg = require('react-day-picker/package.json');
-
+/* eslint-env node */
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 /** @type {import('@docusaurus/preset-classic').ThemeConfig["navbar"]} */

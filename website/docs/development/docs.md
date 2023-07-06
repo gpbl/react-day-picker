@@ -41,7 +41,7 @@ start
 ```
 ````
 
-The `include` prism "language" is parsed by the custom [CodeBlock component](https://github.com/gpbl/react-day-picker/blob/master/website/src/theme/CodeBlock). It will load the [Sandpack](https://github.com/codesandbox/sandpack) with the specified files
+The `include` prism "language" is parsed by the custom [CodeBlock component](https://github.com/gpbl/react-day-picker/blob/main/website/src/theme/CodeBlock). It will load the [Sandpack](https://github.com/codesandbox/sandpack) with the specified files
 
 ### Rendering examples in the browser
 

@@ -218,7 +218,7 @@ export interface DayPickerBase {
 
   /**
    * Map of components used to create the layout. Look at the [components
-   * source](https://github.com/gpbl/react-day-picker/tree/master/packages/react-day-picker/src/components)
+   * source](https://github.com/gpbl/react-day-picker/tree/main/src/components)
    * to understand how internal components are built and provide your custom components.
    */
   components?: CustomComponents;
@@ -310,7 +310,7 @@ export interface DayPickerBase {
  * Map of the components that can be changed using the `components` prop.
  *
  * Look at the [components
- * source](https://github.com/gpbl/react-day-picker/tree/master/packages/react-day-picker/src/components)
+ * source](https://github.com/gpbl/react-day-picker/tree/main/src/components)
  * to understand how internal components are built.
  */
 export interface CustomComponents {
