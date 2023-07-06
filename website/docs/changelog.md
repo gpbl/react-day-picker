@@ -7,7 +7,7 @@ pagination_prev: null
 
 import ChangeLog, {
 toc as ChangeLogTOC
-} from '@site/../packages/react-day-picker/CHANGELOG.md';
+} from '@site/../CHANGELOG.md';
 
 <ChangeLog />
 

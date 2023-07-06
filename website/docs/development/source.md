@@ -28,7 +28,7 @@ $ cd react-day-picker
 $ pnpm
 ```
 
-If you use [Visual Studio Code](https://code.visualstudio.com/), open the [react-day-picker.code-workspace](https://github.com/gpbl/react-day-picker/blob/master/react-day-picker.code-workspace) with for the development environment.
+If you use [Visual Studio Code](https://code.visualstudio.com/), open the [react-day-picker.code-workspace](https://github.com/gpbl/react-day-picker/blob/main/react-day-picker.code-workspace) with for the development environment.
 
 ## Development scripts
 

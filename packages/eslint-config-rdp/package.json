@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-rdp",
+  "name": "eslint-config",
   "packageManager": "pnpm@8.6.2",
   "version": "1.0.0",
   "dependencies": {
