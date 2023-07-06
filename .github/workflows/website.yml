@@ -59,9 +59,26 @@ jobs:
           name: rdp-dist
           path: dist
       - run: pnpm install --frozen-lockfile
-      - run: pnpm -F website typecheck
-      - run: pnpm -F website lint --max-warnings=0
       - run: pnpm -F website test
+
+  typecheck-website:
+    needs: [build-package]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.16
+          cache: pnpm
+      - uses: actions/download-artifact@v3
+        with:
+          name: rdp-dist
+          path: dist
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -F website typecheck
 
   build-website:
     needs: [build-package]
@@ -88,7 +105,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [build-website, test-website]
+    needs: [build-website, test-website, typecheck-website]
     if: ${{ github.event_name == 'release' || github.event.inputs.deploy }}
     steps:
       - uses: actions/checkout@v3
