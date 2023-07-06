@@ -36,7 +36,7 @@ jobs:
           node-version: 18.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm -F react-day-picker build
+      - run: pnpm build
       - uses: actions/upload-artifact@v3
         with:
           name: rdp-dist
