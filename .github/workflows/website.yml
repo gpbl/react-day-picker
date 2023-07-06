@@ -24,7 +24,7 @@ jobs:
   #     - run: |
   #         echo "deploy=${{ github.event.inputs.deploy || false }}"
 
-  build-package:
+  build-react-day-picker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -43,7 +43,7 @@ jobs:
           path: dist
 
   test-website:
-    needs: [build-package]
+    needs: [build-react-day-picker]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -62,7 +62,7 @@ jobs:
       - run: pnpm -F website test
 
   typecheck-website:
-    needs: [build-package]
+    needs: [build-react-day-picker]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -81,7 +81,7 @@ jobs:
       - run: pnpm -F website typecheck
 
   build-website:
-    needs: [build-package]
+    needs: [build-react-day-picker]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
