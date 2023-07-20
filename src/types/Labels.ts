@@ -33,5 +33,5 @@ export type WeekdayLabel = (day: Date, options?: { locale?: Locale }) => string;
 /** Return the ARIA label of the week number.*/
 export type WeekNumberLabel = (
   n: number,
-  options?: { locale?: Locale }
+  options?: { locale?: Locale; dates?: Date[] }
 ) => string;
