@@ -29,7 +29,7 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
     formatters: { formatWeekNumber }
   } = useDayPicker();
 
-  const content = formatWeekNumber(Number(weekNumber), { locale });
+  const content = formatWeekNumber(Number(weekNumber), { locale, dates });
 
   if (!onWeekNumberClick) {
     return (
