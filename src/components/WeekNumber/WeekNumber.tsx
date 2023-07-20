@@ -39,7 +39,7 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
     );
   }
 
-  const label = labelWeekNumber(Number(weekNumber), { locale });
+  const label = labelWeekNumber(Number(weekNumber), { locale, dates });
 
   const handleClick: React.MouseEventHandler = function (e) {
     onWeekNumberClick(weekNumber, dates, e);
