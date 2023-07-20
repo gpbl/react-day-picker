@@ -25,5 +25,5 @@ export type Formatters = {
 /** Represent a function to format the week number. */
 export type WeekNumberFormatter = (
   weekNumber: number,
-  options?: { locale?: Locale }
+  options?: { locale?: Locale, dates: Date[] }
 ) => React.ReactNode;
