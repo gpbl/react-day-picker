@@ -253,8 +253,8 @@ importers:
         specifier: ^29.5.0
         version: 29.5.0(@types/node@18.15.13)(ts-node@10.9.1)
       jest-axe:
-        specifier: ^7.0.1
-        version: 7.0.1
+        specifier: ^8.0.0
+        version: 8.0.0
       jest-environment-jsdom:
         specifier: ^29.5.0
         version: 29.5.0
@@ -4481,8 +4481,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axe-core@4.5.1:
-    resolution: {integrity: sha512-1exVbW0X1O/HSr/WMwnaweyqcWOgZgLiVxdLG34pvSQk4NlYQr9OUy0JLwuhFfuVNQzzqgH57eYzkFBCb3bIsQ==}
+  /axe-core@4.7.2:
+    resolution: {integrity: sha512-zIURGIS1E1Q4pcrMjp+nnEh+16G56eG/MUllJH8yEvw7asDo7Ac9uhC9KIH5jzpITueEZolfYglnCGIuSBz39g==}
     engines: {node: '>=4'}
     dev: true
 
@@ -7619,11 +7619,11 @@ packages:
       '@pkgjs/parseargs': 0.11.0
     dev: true
 
-  /jest-axe@7.0.1:
-    resolution: {integrity: sha512-1JoEla6gL4rcsTxEWm+VBcWMwOhP3f9w4dH7/YW3H41nU08Dds3gUFqxgdAq/pzBNPpauC3QPr/BuO+0W8eamg==}
+  /jest-axe@8.0.0:
+    resolution: {integrity: sha512-4kNcNn7J0jPO4jANEYZOHeQ/tSBvkXS+MxTbX1CKbXGd0+ZbRGDn/v/8IYWI/MmYX15iLVyYRnRev9X3ksePWA==}
     engines: {node: '>= 14.0.0'}
     dependencies:
-      axe-core: 4.5.1
+      axe-core: 4.7.2
       chalk: 4.1.2
       jest-matcher-utils: 29.2.2
       lodash.merge: 4.6.2
