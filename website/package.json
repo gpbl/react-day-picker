@@ -51,7 +51,7 @@
     "docusaurus-plugin-typedoc": "^0.19.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.5.0",
-    "jest-axe": "^7.0.1",
+    "jest-axe": "^8.0.0",
     "jest-environment-jsdom": "^29.5.0",
     "mockdate": "^3.0.5",
     "prettier": "^2.8.8",
