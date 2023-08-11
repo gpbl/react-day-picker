@@ -91,6 +91,26 @@ describe('when only the "from" day is selected', () => {
   });
 });
 
+describe('when only the "to" day is selected', () => {
+  const selected = { from: undefined, to };
+  const dayPickerProps: DayPickerRangeProps = {
+    ...initialProps,
+    selected
+  };
+  test('should return the "range_start" modifiers with the "to" day', () => {
+    const result = renderHook(dayPickerProps);
+    expect(result.current.modifiers.range_start).toEqual([to]);
+  });
+  test('should return the "range_end" modifiers with the "to" day', () => {
+    const result = renderHook(dayPickerProps);
+    expect(result.current.modifiers.range_end).toEqual([to]);
+  });
+  test('should not return any "range_middle" modifiers', () => {
+    const result = renderHook(dayPickerProps);
+    expect(result.current.modifiers.range_middle).toEqual([]);
+  });
+});
+
 describe('when a complete range of days is selected', () => {
   const selected = { from, to };
   const dayPickerProps: DayPickerRangeProps = {
