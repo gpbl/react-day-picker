@@ -287,6 +287,12 @@ export interface DayPickerBase {
    */
   formatters?: Partial<Formatters>;
 
+  /**
+   * Disables other dates that cannot be consecutively selected within a range
+   * of non-disabled dates.
+   */
+  disableNonConsecutiveDates?: boolean;
+
   onDayClick?: DayClickEventHandler;
   onDayFocus?: DayFocusEventHandler;
   onDayBlur?: DayFocusEventHandler;
