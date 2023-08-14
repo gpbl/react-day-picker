@@ -13,7 +13,7 @@ importers:
         version: 29.5.0
       '@rollup/plugin-commonjs':
         specifier: ^25.0.0
-        version: 25.0.0(rollup@3.20.7)
+        version: 25.0.4(rollup@3.20.7)
       '@rollup/plugin-node-resolve':
         specifier: ^15.0.2
         version: 15.0.2(rollup@3.20.7)
@@ -3131,8 +3131,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@rollup/plugin-commonjs@25.0.0(rollup@3.20.7):
-    resolution: {integrity: sha512-hoho2Kay9TZrLu0bnDsTTCaj4Npa+THk9snajP/XDNb9a9mmjTjh52EQM9sKl3HD1LsnihX7js+eA2sd2uKAhw==}
+  /@rollup/plugin-commonjs@25.0.4(rollup@3.20.7):
+    resolution: {integrity: sha512-L92Vz9WUZXDnlQQl3EwbypJR4+DM2EbsO+/KOcEkP4Mc6Ct453EeDB2uH9lgRwj4w5yflgNpq9pHOiY8aoUXBQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0
@@ -8350,7 +8350,7 @@ packages:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.14
+      '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
   /magic-string@0.30.0:
