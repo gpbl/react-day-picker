@@ -1,6 +1,6 @@
 import { createDisabledNonConsecutiveDates } from './createDisabledNonConsecutiveDates';
 import { addDays } from 'date-fns';
-import { isDateAfterType, isDateBeforeType } from '../../../types/Matchers';
+import { isDateAfterType, isDateBeforeType } from 'types/Matchers';
 
 describe('when today is before disabled dates', () => {
   const disabledNonConsecutiveDates = createDisabledNonConsecutiveDates(
