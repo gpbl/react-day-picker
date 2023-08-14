@@ -18,7 +18,7 @@
   "types": "dist/index.d.ts",
   "style": "dist/style.css",
   "scripts": {
-    "prepublish": "onpm build",
+    "prepublish": "pnpm build",
     "build": "rimraf dist && rollup -c",
     "build-watch": "rollup -c -w",
     "lint": "eslint .",
