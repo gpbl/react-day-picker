@@ -56,6 +56,14 @@ Use the `min` and `max` props to limit the amount of days in the range.
 range-min-max
 ```
 
+### Disable days outside the selectable non-disabled days from the start date
+
+Use the `disableNonConsecutiveDates` prop to disable dates outside the range.
+
+```include-example
+non-consecutive-dates
+```
+
 ## Custom Selections
 
 If the built-in selection modes are not enough for your app’s requirements, you can control the selection behavior using `onDayClick`.
