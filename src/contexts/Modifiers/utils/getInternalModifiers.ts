@@ -6,7 +6,6 @@ import { isDayPickerRange } from 'types/DayPickerRange';
 import { InternalModifier, InternalModifiers } from 'types/Modifiers';
 
 import { matcherToArray } from './matcherToArray';
-import { createDisabledNonConsecutiveDates } from './createDisabledNonConsecutiveDates';
 
 const {
   Selected,
@@ -54,18 +53,6 @@ export function getInternalModifiers(
     internalModifiers[RangeStart] = selectRange.modifiers[RangeStart];
     internalModifiers[RangeMiddle] = selectRange.modifiers[RangeMiddle];
     internalModifiers[RangeEnd] = selectRange.modifiers[RangeEnd];
-
-    if (
-      dayPicker.disableNonConsecutiveDates &&
-      internalModifiers[RangeStart].length > 0
-    ) {
-      internalModifiers[Disabled] = internalModifiers[Disabled].concat(
-        createDisabledNonConsecutiveDates(
-          internalModifiers[Disabled],
-          internalModifiers[RangeStart][0] as Date
-        )
-      );
-    }
   }
   return internalModifiers;
 }
