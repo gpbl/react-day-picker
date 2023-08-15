@@ -19,7 +19,7 @@ export default function App() {
       mode="range"
       disabled={disabledDays}
       selected={range}
-      disableNonConsecutiveDates={true}
+      limitSelectRangeWithoutDisabledDays={true}
       onSelect={setRange}
     />
   );

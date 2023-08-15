@@ -6,7 +6,7 @@ import { SelectRangeContextValue } from 'contexts/SelectRange';
 import { InternalModifier, InternalModifiers } from 'types/Modifiers';
 
 import { getInternalModifiers } from './getInternalModifiers';
-import * as createDisabledNonConsecutiveDatesModule from './createDisabledNonConsecutiveDates';
+import * as mockModule from './createDateRangeWithoutDisabledDaysBasedFromStartDate';
 
 const defaultDayPickerContext: DayPickerContextValue =
   getDefaultContextValues();
@@ -169,13 +169,13 @@ describe('when disabledNonConsecutiveDates is set to true', () => {
     const dayPickerContext: DayPickerContextValue = {
       ...defaultDayPickerContext,
       mode: 'range',
-      disableNonConsecutiveDates: true
+      limitSelectRangeWithoutDisabledDays: true
     };
 
     test('should call createDisabledNonConsecutiveDates', () => {
       const spy = jest.spyOn(
-        createDisabledNonConsecutiveDatesModule,
-        'createDisabledNonConsecutiveDates'
+        mockModule,
+        'createDateRangeWithoutDisabledDaysBasedFromStartDate'
       );
 
       spy.mockReturnValue([]);
@@ -194,13 +194,13 @@ describe('when disabledNonConsecutiveDates is set to true', () => {
     const dayPickerContext: DayPickerContextValue = {
       ...defaultDayPickerContext,
       mode: 'single',
-      disableNonConsecutiveDates: true
+      limitSelectRangeWithoutDisabledDays: true
     };
 
     test('should not call createDisabledNonConsecutiveDates', () => {
       const spy = jest.spyOn(
-        createDisabledNonConsecutiveDatesModule,
-        'createDisabledNonConsecutiveDates'
+        mockModule,
+        'createDateRangeWithoutDisabledDaysBasedFromStartDate'
       );
 
       spy.mockReturnValue([]);

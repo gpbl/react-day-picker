@@ -56,12 +56,12 @@ Use the `min` and `max` props to limit the amount of days in the range.
 range-min-max
 ```
 
-### Disable days outside the selectable non-disabled days from the start date
+### Limit the select range without disabled days based on start date selection.
 
-Use the `disableNonConsecutiveDates` prop to disable dates outside the range.
+Use the `limitSelectRangeWithoutDisabledDays` prop to only allow non-disabled days to be selected.
 
 ```include-example
-non-consecutive-dates
+range-date-without-disabled-days
 ```
 
 ## Custom Selections
