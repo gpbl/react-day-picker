@@ -13,29 +13,32 @@ export function addToRange(
   range?: DateRange
 ): DateRange | undefined {
   const { from, to } = range || {};
-  if (!from) {
-    return { from: day, to: undefined };
-  }
-  if (!to && isSameDay(from, day)) {
-    return { from: from, to: day };
-  }
-  if (!to && isBefore(day, from)) {
-    return { from: day, to: from };
-  }
-  if (!to) {
+  if (from && to) {
+    if (isSameDay(to, day) && isSameDay(from, day)) {
+      return undefined;
+    }
+    if (isSameDay(to, day)) {
+      return { from: to, to: undefined };
+    }
+    if (isSameDay(from, day)) {
+      return undefined;
+    }
+    if (isAfter(from, day)) {
+      return { from: day, to };
+    }
     return { from, to: day };
   }
-  if (isSameDay(to, day) && isSameDay(from, day)) {
-    return undefined;
-  }
-  if (isSameDay(to, day)) {
-    return { from: to, to: undefined };
-  }
-  if (isSameDay(from, day)) {
-    return undefined;
-  }
-  if (isAfter(from, day)) {
+  if (to) {
+    if (isAfter(day, to)) {
+      return { from: to, to: day };
+    }
     return { from: day, to };
   }
-  return { from, to: day };
+  if (from) {
+    if (isBefore(day, from)) {
+      return { from: day, to: from };
+    }
+    return { from, to: day };
+  }
+  return { from: day, to: undefined };
 }

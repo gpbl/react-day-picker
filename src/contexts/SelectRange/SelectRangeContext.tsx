@@ -119,6 +119,9 @@ export function SelectRangeProviderInternal({
         ];
       }
     }
+  } else if (selectedTo) {
+    modifiers.range_start = [selectedTo];
+    modifiers.range_end = [selectedTo];
   }
 
   if (min) {
@@ -132,6 +135,12 @@ export function SelectRangeProviderInternal({
       modifiers.disabled.push({
         after: selectedFrom,
         before: addDays(selectedFrom, min - 1)
+      });
+    }
+    if (!selectedFrom && selectedTo) {
+      modifiers.disabled.push({
+        after: subDays(selectedTo, min - 1),
+        before: addDays(selectedTo, min - 1)
       });
     }
   }
@@ -153,6 +162,14 @@ export function SelectRangeProviderInternal({
       });
       modifiers.disabled.push({
         after: addDays(selectedTo, offset)
+      });
+    }
+    if (!selectedFrom && selectedTo) {
+      modifiers.disabled.push({
+        before: addDays(selectedTo, -max + 1)
+      });
+      modifiers.disabled.push({
+        after: addDays(selectedTo, max - 1)
       });
     }
   }
