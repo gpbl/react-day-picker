@@ -8,6 +8,8 @@ export interface CaptionLabelProps {
   id?: string;
   /** The month where the caption is displayed. */
   displayMonth: Date;
+  /** The index of the month where the caption is displayed. Older custom components may miss this prop. */
+  displayIndex?: number | undefined;
 }
 
 /** Render the caption for the displayed month. This component is used when `captionLayout="buttons"`. */

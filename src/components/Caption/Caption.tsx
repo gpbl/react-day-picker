@@ -11,6 +11,8 @@ export interface CaptionProps {
   id?: string;
   /** The month where the caption is displayed. */
   displayMonth: Date;
+  /** The index of the month where the caption is displayed. Older custom components may miss this prop. */
+  displayIndex?: number | undefined;
 }
 
 /**
@@ -44,8 +46,16 @@ export function Caption(props: CaptionProps): JSX.Element {
   } else if (captionLayout === 'dropdown-buttons') {
     caption = (
       <>
-        <CaptionDropdowns displayMonth={props.displayMonth} id={props.id} />
-        <CaptionNavigation displayMonth={props.displayMonth} id={props.id} />
+        <CaptionDropdowns
+          displayMonth={props.displayMonth}
+          displayIndex={props.displayIndex}
+          id={props.id}
+        />
+        <CaptionNavigation
+          displayMonth={props.displayMonth}
+          displayIndex={props.displayIndex}
+          id={props.id}
+        />
       </>
     );
   } else {
@@ -54,6 +64,7 @@ export function Caption(props: CaptionProps): JSX.Element {
         <CaptionLabelComponent
           id={props.id}
           displayMonth={props.displayMonth}
+          displayIndex={props.displayIndex}
         />
         <CaptionNavigation displayMonth={props.displayMonth} id={props.id} />
       </>

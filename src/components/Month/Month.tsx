@@ -53,7 +53,11 @@ export function Month(props: MonthProps) {
 
   return (
     <div key={props.displayIndex} className={className.join(' ')} style={style}>
-      <CaptionComponent id={captionId} displayMonth={props.displayMonth} />
+      <CaptionComponent
+        id={captionId}
+        displayMonth={props.displayMonth}
+        displayIndex={props.displayIndex}
+      />
       <Table
         id={tableId}
         aria-labelledby={captionId}
