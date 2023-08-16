@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { addMonths } from 'date-fns';
+
 import { CaptionProps } from 'components/Caption/Caption';
 import { CaptionLabel } from 'components/CaptionLabel';
 import { MonthsDropdown } from 'components/MonthsDropdown';
@@ -16,7 +18,9 @@ export function CaptionDropdowns(props: CaptionProps): JSX.Element {
   const { goToMonth } = useNavigation();
 
   const handleMonthChange: MonthChangeEventHandler = (newMonth) => {
-    goToMonth(newMonth);
+    goToMonth(
+      addMonths(newMonth, props.displayIndex ? -props.displayIndex : 0)
+    );
   };
   const CaptionLabelComponent = components?.CaptionLabel ?? CaptionLabel;
   const captionLabel = (
