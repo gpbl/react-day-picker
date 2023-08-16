@@ -5,10 +5,7 @@ import { user } from '@site/test/user';
 import { freezeBeforeAll } from '@site/test/utils';
 import { act, render, screen } from '@testing-library/react';
 
-import {
-  getMonthDropdown,
-  getMonthGrid
-} from 'react-day-picker/test/selectors';
+import { getMonthGrid } from 'react-day-picker/test/selectors';
 
 import Example from '@examples/dropdown-multiple-months';
 
