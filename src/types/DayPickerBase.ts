@@ -57,10 +57,30 @@ export interface DayPickerBase {
    */
   classNames?: ClassNames;
   /**
+   * Format class names of the HTML elements.
+   *
+   * Use this prop when you need to format class names - for example when using twMerge with TailwindCss
+   *
+   * @param classnames ClassNames
+   * @returns ClassNames
+   */
+  formatClassNames?: (classnames: Required<ClassNames>) => Required<ClassNames>;
+
+  /**
    * Change the class name for the day matching the {@link modifiers}.
    */
   modifiersClassNames?: ModifiersClassNames;
-
+  /**
+   * Format class names of the day matching the {@link modifiers}.
+   *
+   * Use this prop when you need to format class names - for example when using twMerge with TailwindCss
+   *
+   * @param classnames ModifiersClassNames
+   * @returns ModifiersClassNames
+   */
+  formatModifiersClassNames?: (
+    classnames: ModifiersClassNames
+  ) => ModifiersClassNames;
   /**
    * Style to apply to the container element.
    */

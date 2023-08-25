@@ -15,7 +15,11 @@ import {
 import { DaySelectionMode } from 'types/DayPickerBase';
 import { Formatters } from 'types/Formatters';
 import { Labels } from 'types/Labels';
-import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
+import {
+  DayModifiers,
+  InternalModifier,
+  ModifiersClassNames
+} from 'types/Modifiers';
 import { ClassNames, Styles } from 'types/Styles';
 
 const today = new Date(2022, 5, 13);
@@ -29,7 +33,8 @@ function renderHook(props?: DayPickerProps) {
 
 describe('when rendered without props', () => {
   const testPropNames = Object.keys(defaults).filter(
-    (key) => key !== 'today'
+    (key) =>
+      !['today', 'formatClassNames', 'formatModifiersClassNames'].includes(key)
   ) as DefaultContextProps[];
   test.each(testPropNames)('should use the %s default value', (propName) => {
     const result = renderHook();
@@ -149,6 +154,58 @@ describe('when passing "modifiersClassNames" from props', () => {
   });
 });
 
+describe('when passing "formatModifiersClassNames" from props', () => {
+  test('should call "formatClassNames" to "modifiersClassNames"', () => {
+    const formatModifiersClassNames = jest.fn();
+    const modifiersClassNames: ModifiersClassNames = { foo: 'bar' };
+    const result = renderHook({
+      formatModifiersClassNames,
+      modifiersClassNames
+    });
+    expect(result.current.formatModifiersClassNames).toHaveBeenCalledTimes(1);
+
+    expect(result.current.formatModifiersClassNames).toHaveBeenCalledWith({
+      ...defaults.modifiersClassNames,
+      ...modifiersClassNames
+    });
+  });
+
+  test('should format "modifiersClassNames" with "formatModifiersClassNames"', () => {
+    const prefix = 'custom_';
+    const formatModifiersClassNames = (
+      modifiersClassNames: ModifiersClassNames
+    ) =>
+      Object.keys(modifiersClassNames).reduce((obj, cur) => {
+        obj[cur] = prefix + modifiersClassNames[cur];
+        return obj;
+      }, {} as ModifiersClassNames);
+
+    const modifiersClassNames: ModifiersClassNames = {
+      foo: 'bar',
+      [InternalModifier.Disabled]: 'disabled'
+    };
+    const result = renderHook({
+      formatModifiersClassNames,
+      modifiersClassNames
+    });
+
+    expect(result.current.modifiersClassNames).toStrictEqual(
+      formatModifiersClassNames({
+        ...defaults.modifiersClassNames,
+        ...modifiersClassNames
+      })
+    );
+
+    expect(result.current.modifiersClassNames.disabled).toEqual(
+      prefix + modifiersClassNames.disabled
+    );
+
+    expect(result.current.modifiersClassNames.foo).toEqual(
+      prefix + modifiersClassNames.foo
+    );
+  });
+});
+
 describe('when passing "styles" from props', () => {
   const styles: Styles = { caption: { color: 'red ' } };
   test('should include the custom "styles"', () => {
@@ -168,6 +225,52 @@ describe('when passing "classNames" from props', () => {
       ...defaults.classNames,
       ...classNames
     });
+  });
+});
+
+describe('when passing "formatClassNames" from props', () => {
+  test('should call "formatClassNames" to "classNames"', () => {
+    const formatClassNames = jest.fn();
+    const classNames: ClassNames = { caption: 'foo' };
+    const result = renderHook({ formatClassNames, classNames });
+    expect(result.current.formatClassNames).toHaveBeenCalledTimes(1);
+
+    expect(result.current.formatClassNames).toHaveBeenCalledWith({
+      ...defaults.classNames,
+      ...classNames
+    });
+  });
+
+  test('should format "classNames" with "formatClassNames"', () => {
+    type Writeable<T> = {
+      -readonly [P in keyof T]: T[P];
+    };
+
+    const prefix = 'custom_';
+    const formatClassNames = (classNames: ClassNames) =>
+      Object.keys(classNames).reduce((obj, cur) => {
+        obj[cur as keyof ClassNames] =
+          prefix + classNames[cur as keyof ClassNames];
+        return obj;
+      }, {} as Writeable<Required<ClassNames>>);
+
+    const classNames: ClassNames = { caption: 'foo' };
+    const result = renderHook({ formatClassNames, classNames });
+
+    expect(result.current.classNames).toStrictEqual(
+      formatClassNames({
+        ...defaults.classNames,
+        ...classNames
+      })
+    );
+
+    expect(result.current.classNames.root).toEqual(
+      prefix + defaults.classNames.root
+    );
+
+    expect(result.current.classNames.caption).toEqual(
+      prefix + classNames.caption
+    );
   });
 });
 

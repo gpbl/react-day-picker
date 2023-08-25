@@ -6,14 +6,18 @@ import { DayPickerContextValue } from 'contexts/DayPicker';
 import { defaultClassNames } from './defaultClassNames';
 import * as formatters from './formatters';
 import * as labels from './labels';
+import { ClassNames } from 'types/Styles';
+import { ModifiersClassNames } from 'types/Modifiers';
 
 export type DefaultContextProps =
   | 'captionLayout'
   | 'classNames'
+  | 'formatClassNames'
   | 'formatters'
   | 'locale'
   | 'labels'
   | 'modifiersClassNames'
+  | 'formatModifiersClassNames'
   | 'modifiers'
   | 'numberOfMonths'
   | 'styles'
@@ -37,14 +41,19 @@ export function getDefaultContextValues(): DefaultContextValues {
   const numberOfMonths = 1;
   const styles = {};
   const today = new Date();
+  const formatClassNames = (classNames: Required<ClassNames>) => classNames;
+  const formatModifiersClassNames = (classNames: ModifiersClassNames) =>
+    classNames;
 
   return {
     captionLayout,
     classNames,
+    formatClassNames,
     formatters,
     labels,
     locale,
     modifiersClassNames,
+    formatModifiersClassNames,
     modifiers,
     numberOfMonths,
     styles,

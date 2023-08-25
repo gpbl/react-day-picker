@@ -36,10 +36,15 @@ export interface DayPickerContextValue extends DayPickerBase {
 
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;
+  formatClassNames: (classNames: Required<ClassNames>) => Required<ClassNames>;
+
   formatters: Formatters;
   labels: Labels;
   locale: Locale;
   modifiersClassNames: ModifiersClassNames;
+  formatModifiersClassNames: (
+    classNames: ModifiersClassNames
+  ) => ModifiersClassNames;
   modifiers: DayModifiers;
   numberOfMonths: number;
   styles: Styles;
@@ -94,10 +99,12 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     ...defaultContextValues,
     ...initialProps,
     captionLayout,
-    classNames: {
+    classNames: (
+      initialProps.formatClassNames || defaultContextValues.formatClassNames
+    )({
       ...defaultContextValues.classNames,
       ...initialProps.classNames
-    },
+    }),
     components: {
       ...initialProps.components
     },
@@ -115,10 +122,13 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
       ...defaultContextValues.modifiers,
       ...initialProps.modifiers
     },
-    modifiersClassNames: {
+    modifiersClassNames: (
+      initialProps.formatModifiersClassNames ||
+      defaultContextValues.formatModifiersClassNames
+    )({
       ...defaultContextValues.modifiersClassNames,
       ...initialProps.modifiersClassNames
-    },
+    }),
     onSelect,
     styles: {
       ...defaultContextValues.styles,
