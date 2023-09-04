@@ -21,7 +21,7 @@
  * // will match days after the 2nd of February 2019
  * const afterMatcher: DateAfter = { after: new Date(2019, 1, 2); };
  *  // will match days before the 2nd of February 2019 }
- * const beforeMatcher: DateBefore = { before: : new Date(2019, 1, 2); };
+ * const beforeMatcher: DateBefore = { before: new Date(2019, 1, 2); };
  *
  * // will match Sundays
  * const dayOfWeekMatcher: DayOfWeek = {
