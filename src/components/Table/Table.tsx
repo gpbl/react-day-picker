@@ -51,7 +51,7 @@ export function Table(props: TableProps): JSX.Element {
       aria-labelledby={props['aria-labelledby']}
     >
       {!hideHead && <HeadComponent />}
-      <tbody className={classNames.tbody} style={styles.tbody} role="rowgroup">
+      <tbody className={classNames.tbody} style={styles.tbody}>
         {weeks.map((week) => (
           <RowComponent
             displayMonth={props.displayMonth}

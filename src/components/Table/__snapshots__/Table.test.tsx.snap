@@ -64,7 +64,6 @@ exports[`should render correctly 1`] = `
   </thead>
   <tbody
     class="rdp-tbody"
-    role="rowgroup"
   >
     <tr
       class="rdp-row"
@@ -524,7 +523,6 @@ exports[`when showing the week numbers should render correctly 1`] = `
   </thead>
   <tbody
     class="rdp-tbody"
-    role="rowgroup"
   >
     <tr
       class="rdp-row"
@@ -976,7 +974,6 @@ exports[`when using custom components should render correctly 1`] = `
   </thead>
   <tbody
     class="rdp-tbody"
-    role="rowgroup"
   >
     <tr>
       <td>
