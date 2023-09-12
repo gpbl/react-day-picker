@@ -130,7 +130,6 @@ exports[`should match the snapshot 1`] = `
           </thead>
           <tbody
             class="rdp-tbody"
-            role="rowgroup"
           >
             <tr
               class="rdp-row"
@@ -770,7 +769,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
           </thead>
           <tbody
             class="rdp-tbody"
-            role="rowgroup"
           >
             <tr
               class="rdp-row"
