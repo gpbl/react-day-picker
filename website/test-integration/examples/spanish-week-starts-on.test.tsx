@@ -13,7 +13,7 @@ freezeBeforeAll(today);
 beforeEach(() => render(<Example />));
 
 test('should have "Domingo" as first day of week', () => {
-  expect(getMonthGrid().firstChild.firstChild.firstChild).toHaveAccessibleName(
-    'domingo'
-  );
+  expect(
+    getMonthGrid().firstChild?.firstChild?.firstChild
+  ).toHaveAccessibleName('domingo');
 });

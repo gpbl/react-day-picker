@@ -8,7 +8,7 @@ import { DateRange, DayPicker } from 'react-day-picker';
  * @see https://github.com/gpbl/react-day-picker/issues/1567
  */
 export default function App() {
-  const [selected, setSelected] = useState<DateRange>({
+  const [selected, setSelected] = useState<DateRange | undefined>({
     from: new Date(2022, 8, 25),
     to: new Date(2022, 9, 1)
   });

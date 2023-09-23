@@ -33,7 +33,7 @@ export default function CodeBlockWithSandpack(props: {
   const fileName = props.children.replace(/\n*/gi, '');
   const src = require(`!!raw-loader!@site/examples/${fileName}`)
     .default as string;
-  const dependencies: Record<string, string> = props.dependencies
+  const dependencies: Record<string, string> | undefined = props.dependencies
     ?.split(',')
     .reduce(
       (result, dependency) => ({ ...result, [dependency]: 'latest' }),
@@ -52,7 +52,7 @@ export default function CodeBlockWithSandpack(props: {
             title="Open the rendered example in a new window."
             onClick={() => {
               const win = window.open(`/render?example=${fileName}`, '_blank');
-              win.focus();
+              win?.focus();
             }}
           >
             New Window ↗

@@ -2,7 +2,7 @@ import React, { ChangeEventHandler, useRef, useState } from 'react';
 
 import { format, isValid, parse } from 'date-fns';
 import FocusTrap from 'focus-trap-react';
-import { DayPicker } from 'react-day-picker';
+import { DayPicker, SelectSingleEventHandler } from 'react-day-picker';
 import { usePopper } from 'react-popper';
 
 export default function DatePickerDialog() {
@@ -39,7 +39,7 @@ export default function DatePickerDialog() {
     setIsPopperOpen(true);
   };
 
-  const handleDaySelect = (date: Date) => {
+  const handleDaySelect: SelectSingleEventHandler = (date) => {
     setSelected(date);
     if (date) {
       setInputValue(format(date, 'y-MM-dd'));
@@ -76,7 +76,7 @@ export default function DatePickerDialog() {
             allowOutsideClick: true,
             clickOutsideDeactivates: true,
             onDeactivate: closePopper,
-            fallbackFocus: buttonRef.current
+            fallbackFocus: buttonRef.current || undefined
           }}
         >
           <div
