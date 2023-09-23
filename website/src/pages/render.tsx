@@ -26,7 +26,7 @@ export default function Render(): JSX.Element {
                 display: 'inline-block',
                 padding: '1em'
               }}
-              name={name}
+              name={name || 'date-picker'}
             />
           );
         }}
