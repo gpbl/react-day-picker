@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
-import { RenderResult } from '@testing-library/react';
+import { RenderResult, screen } from '@testing-library/react';
 import { addDays } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
@@ -53,6 +53,28 @@ describe('when using the "classNames" prop', () => {
   });
   test('should display the specified number of month grids', () => {
     expect(container.firstChild).toHaveClass('foo');
+  });
+});
+
+describe('when using custom component "months" prop', () => {
+  const TEST_MONTHS_COPY =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+  function TestMonths({ children }: PropsWithChildren) {
+    return (
+      <div>
+        <div>{TEST_MONTHS_COPY}</div>
+        {children}
+      </div>
+    );
+  }
+  beforeEach(() => {
+    setup({ numberOfMonths: 3, components: { Months: TestMonths } });
+  });
+  test('should display the specified number of month grids', () => {
+    expect(queryMonthGrids()).toHaveLength(3);
+  });
+  test('should have copy from custom "Months" component', () => {
+    expect(screen.getByText(TEST_MONTHS_COPY)).toBeInTheDocument();
   });
 });
 
