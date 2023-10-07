@@ -276,34 +276,103 @@ export interface DayPickerBase {
   labels?: Partial<Labels>;
 
   /**
-   * The text direction of the calendar. Use `ltr` for left-to-right (default)
-   * or `rtl` for right-to-left.
-   */
-  dir?: string;
-
-  /**
    * A map of formatters. Use the formatters to override the default formatting
    * functions.
    */
   formatters?: Partial<Formatters>;
 
-  onDayClick?: DayClickEventHandler;
-  onDayFocus?: DayFocusEventHandler;
-  onDayBlur?: DayFocusEventHandler;
-  onDayMouseEnter?: DayMouseEventHandler;
-  onDayMouseLeave?: DayMouseEventHandler;
-  onDayKeyDown?: DayKeyboardEventHandler;
-  onDayKeyUp?: DayKeyboardEventHandler;
-  onDayKeyPress?: DayKeyboardEventHandler;
-  onDayPointerEnter?: DayPointerEventHandler;
-  onDayPointerLeave?: DayPointerEventHandler;
-  onDayTouchCancel?: DayTouchEventHandler;
-  onDayTouchEnd?: DayTouchEventHandler;
-  onDayTouchMove?: DayTouchEventHandler;
-  onDayTouchStart?: DayTouchEventHandler;
+  /**
+   * The text direction of the calendar. Use `ltr` for left-to-right (default)
+   * or `rtl` for right-to-left.
+   */
+  dir?: HTMLDivElement['dir'];
+
+  /**
+   * A cryptographic nonce ("number used once") which can be used by Content
+   * Security Policy for the inline `style` attributes.
+   **/
+  nonce?: HTMLDivElement['nonce'];
+
+  /**
+   * Add a `title` attribute to the container element.
+   **/
+  title?: HTMLDivElement['title'];
+
+  /**
+   * Add the language tag to the container element.
+   **/
+  lang?: HTMLDivElement['lang'];
+
+  /**
+   * Event callback fired when the next month button is clicked.
+   */
   onNextClick?: MonthChangeEventHandler;
+  /**
+   * Event callback fired when the previous month button is clicked.
+   */
   onPrevClick?: MonthChangeEventHandler;
+  /**
+   * Event callback fired when the week number is clicked. Requires
+   * `showWeekNumbers` set.
+   */
   onWeekNumberClick?: WeekNumberClickEventHandler;
+
+  /**
+   * Event callback fired when the user clicks on a day.
+   */
+  onDayClick?: DayClickEventHandler;
+  /**
+   * Event callback fired when the user focuses on a day.
+   */
+  onDayFocus?: DayFocusEventHandler;
+  /**
+   * Event callback fired when the user blurs from a day.
+   */
+  onDayBlur?: DayFocusEventHandler;
+  /**
+   * Event callback fired when the user hovers on a day.
+   */
+  onDayMouseEnter?: DayMouseEventHandler;
+  /**
+   * Event callback fired when the user hovers away from a day.
+   */
+  onDayMouseLeave?: DayMouseEventHandler;
+  /**
+   * Event callback fired when the user presses a key on a day.
+   */
+  onDayKeyDown?: DayKeyboardEventHandler;
+  /**
+   * Event callback fired when the user presses a key on a day.
+   */
+  onDayKeyUp?: DayKeyboardEventHandler;
+  /**
+   * Event callback fired when the user presses a key on a day.
+   */
+  onDayKeyPress?: DayKeyboardEventHandler;
+  /**
+   * Event callback fired when the pointer enters a day.
+   */
+  onDayPointerEnter?: DayPointerEventHandler;
+  /**
+   * Event callback fired when the pointer leaves a day.
+   */
+  onDayPointerLeave?: DayPointerEventHandler;
+  /**
+   * Event callback when a day touch event is canceled.
+   */
+  onDayTouchCancel?: DayTouchEventHandler;
+  /**
+   * Event callback when a day touch event ends.
+   */
+  onDayTouchEnd?: DayTouchEventHandler;
+  /**
+   * Event callback when a day touch event moves.
+   */
+  onDayTouchMove?: DayTouchEventHandler;
+  /**
+   * Event callback when a day touch event starts.
+   */
+  onDayTouchStart?: DayTouchEventHandler;
 }
 
 /**
