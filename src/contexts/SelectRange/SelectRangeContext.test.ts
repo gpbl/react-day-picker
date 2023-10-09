@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react';
+
 import {
   addDays,
   addMonths,
@@ -36,7 +38,7 @@ const initialProps: DayPickerRangeProps = {
 
 const from = today;
 const to = addDays(today, 6);
-const stubEvent = {} as React.MouseEvent;
+const stubEvent = {} as MouseEvent;
 
 describe('when no days are selected', () => {
   test('the selected days should be undefined', () => {

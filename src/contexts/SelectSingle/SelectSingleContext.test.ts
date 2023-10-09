@@ -1,4 +1,4 @@
-import React from 'react';
+import { MouseEvent } from 'react';
 
 import { DayPickerProps } from 'DayPicker';
 
@@ -44,7 +44,7 @@ describe('when onDayClick is called', () => {
   };
   const result = renderHook(dayPickerProps);
   const activeModifiers = {};
-  const event = {} as React.MouseEvent;
+  const event = {} as MouseEvent;
   test('should call the `onSelect` event handler', () => {
     result.current.onDayClick?.(today, activeModifiers, event);
     expect(dayPickerProps.onSelect).toHaveBeenCalledWith(
@@ -72,7 +72,7 @@ describe('if a selected day is not required', () => {
   test('should call the `onSelect` event handler with an undefined day', () => {
     const result = renderHook(dayPickerProps);
     const activeModifiers: ActiveModifiers = { selected: true };
-    const event = {} as React.MouseEvent;
+    const event = {} as MouseEvent;
     result.current.onDayClick?.(today, activeModifiers, event);
     expect(dayPickerProps.onSelect).toHaveBeenCalledWith(
       undefined,

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { axe } from '@site/test/axe';
 import { freezeBeforeAll } from '@site/test/utils';
 import { render } from '@testing-library/react';

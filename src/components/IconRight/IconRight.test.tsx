@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { customRender } from 'test/render';
 
 import { IconRight } from './IconRight';

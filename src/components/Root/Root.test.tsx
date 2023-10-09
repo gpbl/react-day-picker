@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { RenderResult } from '@testing-library/react';
 import { addDays } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { getDayButton } from '@site/../test/selectors';
 import { axe } from '@site/test/axe';
 import { freezeBeforeAll } from '@site/test/utils';
