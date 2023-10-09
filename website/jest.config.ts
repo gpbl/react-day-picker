@@ -6,9 +6,7 @@ import { compilerOptions } from './tsconfig.json';
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
   roots: ['./test-integration'],
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest'
-  },
+  transform: {},
   moduleNameMapper: {
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>'
