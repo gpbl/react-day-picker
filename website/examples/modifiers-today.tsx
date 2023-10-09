@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { DayClickEventHandler, DayPicker } from 'react-day-picker';
 

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import React from 'react';
+import * as React from 'react';
 
 import { RenderExample } from '@site/src/components/RenderExample';
 import CodeBlock from '@theme-original/CodeBlock';

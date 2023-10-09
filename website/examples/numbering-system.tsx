@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { format } from 'date-fns';
 import { arSA } from 'date-fns/locale';

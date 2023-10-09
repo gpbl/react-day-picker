@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { addDays, format } from 'date-fns';
 import { DateRange, DayPicker } from 'react-day-picker';
