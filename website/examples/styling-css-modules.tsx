@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { ClassNames, DayPicker } from 'react-day-picker';
 import styles from 'react-day-picker/dist/style.module.css';

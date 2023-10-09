@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { axe } from '@site/test/axe';
 import { user } from '@site/test/user';
 import { freezeBeforeAll } from '@site/test/utils';

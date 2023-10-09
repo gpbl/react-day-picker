@@ -1,11 +1,9 @@
-import { ChangeEventHandler, useRef, useState } from 'react';
+import React, { ChangeEventHandler, useRef, useState } from 'react';
 
 import { format, isValid, parse } from 'date-fns';
+import FocusTrap from 'focus-trap-react';
 import { DayPicker, SelectSingleEventHandler } from 'react-day-picker';
 import { usePopper } from 'react-popper';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const FocusTrap = require('focus-trap-react');
 
 export default function DatePickerDialog() {
   const [selected, setSelected] = useState<Date>();

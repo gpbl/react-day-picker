@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { user } from '@site/test/user';
 import { act, render, screen } from '@testing-library/react';
 

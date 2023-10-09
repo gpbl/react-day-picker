@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { arSA } from 'date-fns/locale';
 import { DayPicker } from 'react-day-picker';

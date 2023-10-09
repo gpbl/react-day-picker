@@ -1,14 +1,13 @@
 {
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
+    "module": "Node16",
     "strict": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "baseUrl": ".",
-    "esModuleInterop": true,
     "lib": ["es2019", "DOM"],
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": false,
     "paths": {
       "@examples/*": ["./examples/*"],
       "@site/*": ["./*"]

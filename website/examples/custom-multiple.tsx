@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { isSameDay } from 'date-fns';
 import { DayClickEventHandler, DayPicker } from 'react-day-picker';

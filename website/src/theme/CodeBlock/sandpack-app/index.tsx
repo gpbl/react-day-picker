@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 
 /** Root file used by the Sandpack */
 import 'react-day-picker/dist/style.css';

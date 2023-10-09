@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { differenceInCalendarDays } from 'date-fns';
 import { DayPicker, Row, RowProps } from 'react-day-picker';
