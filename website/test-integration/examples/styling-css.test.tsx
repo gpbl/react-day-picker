@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { freezeBeforeAll } from '@site/test/utils';
 import { render } from '@testing-library/react';
 
