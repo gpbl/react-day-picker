@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 
 import { RenderResult, screen } from '@testing-library/react';
 import { addDays } from 'date-fns';
