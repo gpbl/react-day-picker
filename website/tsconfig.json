@@ -1,7 +1,6 @@
 {
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
-    "module": "Node16",
     "strict": true,
     "jsx": "react",
     "baseUrl": ".",
