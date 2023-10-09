@@ -1,19 +1,19 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
+
 import { useDayPicker } from 'contexts/DayPicker';
 
-export interface MonthsProps {
-  children: ReactNode;
-}
+/** The props for the {@link Months} component. */
+export type MonthsProps = PropsWithChildren;
 
-export function Months({ children }: MonthsProps): JSX.Element {
-  const dayPicker = useDayPicker();
+/**
+ * Render the wrapper for the mont grids.
+ */
+export function Months(props: MonthsProps): JSX.Element {
+  const { classNames, styles } = useDayPicker();
 
   return (
-    <div
-      className={dayPicker.classNames.months}
-      style={dayPicker.styles.months}
-    >
-      {children}
+    <div className={classNames.months} style={styles.months}>
+      {props.children}
     </div>
   );
 }

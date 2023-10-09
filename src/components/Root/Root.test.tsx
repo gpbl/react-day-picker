@@ -8,6 +8,7 @@ import { customRender } from 'test/render';
 import { getDayButton, queryMonthGrids } from 'test/selectors';
 import { freezeBeforeAll } from 'test/utils';
 
+import { MonthsProps } from 'components/Months';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { ClassNames } from 'types/Styles';
 
@@ -56,25 +57,23 @@ describe('when using the "classNames" prop', () => {
   });
 });
 
-describe('when using custom component "months" prop', () => {
-  const TEST_MONTHS_COPY =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-  function TestMonths({ children }: PropsWithChildren) {
+describe('when using a custom "Months" component', () => {
+  function CustomMonths(props: MonthsProps) {
     return (
       <div>
-        <div>{TEST_MONTHS_COPY}</div>
-        {children}
+        <div data-testid="foo" />
+        {props.children}
       </div>
     );
   }
   beforeEach(() => {
-    setup({ numberOfMonths: 3, components: { Months: TestMonths } });
+    setup({ numberOfMonths: 3, components: { Months: CustomMonths } });
   });
-  test('should display the specified number of month grids', () => {
+  test('should render the custom component', () => {
+    expect(screen.getByTestId('foo')).toBeInTheDocument();
+  });
+  test('should still display the specified number of months', () => {
     expect(queryMonthGrids()).toHaveLength(3);
-  });
-  test('should have copy from custom "Months" component', () => {
-    expect(screen.getByText(TEST_MONTHS_COPY)).toBeInTheDocument();
   });
 });
 

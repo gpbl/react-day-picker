@@ -347,7 +347,7 @@ export interface CustomComponents {
   IconRight?: (props: StyledComponent) => JSX.Element | null;
   /** The arrow left icon (used for the Navigation buttons). */
   IconLeft?: (props: StyledComponent) => JSX.Element | null;
-  /** The months wrapper */
+  /** The component wrapping the month grids. */
   Months?: (props: MonthsProps) => JSX.Element | null;
   /** The component for the table rows. */
   Row?: (props: RowProps) => JSX.Element | null;
