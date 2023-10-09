@@ -4,9 +4,11 @@
     "strict": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
+    "esModuleInterop": true,
     "lib": ["es2019", "DOM"],
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": false,
     "paths": {
       "@examples/*": ["./examples/*"],
       "@site/*": ["./*"]
