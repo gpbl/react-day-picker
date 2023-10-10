@@ -67,7 +67,7 @@ describe('when using a custom "Months" component', () => {
     );
   }
   beforeEach(() => {
-    setup({ numberOfMonths: 3, components: { Months: CustomMonths } });
+    render({ numberOfMonths: 3, components: { Months: CustomMonths } });
   });
   test('should render the custom component', () => {
     expect(screen.getByTestId('foo')).toBeInTheDocument();
