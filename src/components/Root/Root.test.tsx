@@ -20,7 +20,7 @@ freezeBeforeAll(today);
 let container: HTMLElement;
 let view: RenderResult;
 
-function setup(dayPickerProps: DayPickerProps = {}) {
+function render(dayPickerProps: DayPickerProps = {}) {
   view = customRender(<Root initialProps={dayPickerProps} />, dayPickerProps);
   container = view.container;
 }
@@ -28,7 +28,7 @@ function setup(dayPickerProps: DayPickerProps = {}) {
 describe('when the number of months is 1', () => {
   const props: DayPickerProps = { numberOfMonths: 1 };
   beforeEach(() => {
-    setup(props);
+    render(props);
   });
   test('should display one month grid', () => {
     expect(queryMonthGrids()).toHaveLength(1);
@@ -38,7 +38,7 @@ describe('when the number of months is 1', () => {
 describe('when the number of months is greater than 1', () => {
   const props: DayPickerProps = { numberOfMonths: 3 };
   beforeEach(() => {
-    setup(props);
+    render(props);
   });
   test('should display the specified number of month grids', () => {
     expect(queryMonthGrids()).toHaveLength(3);
@@ -50,9 +50,9 @@ describe('when using the "classNames" prop', () => {
     root: 'foo'
   };
   beforeEach(() => {
-    setup({ classNames });
+    render({ classNames });
   });
-  test('should display the specified number of month grids', () => {
+  test('should add the class to the container', () => {
     expect(container.firstChild).toHaveClass('foo');
   });
 });
@@ -79,16 +79,40 @@ describe('when using a custom "Months" component', () => {
 
 describe('when using the "id" prop', () => {
   const testId = 'foo';
-  beforeEach(() => setup({ id: testId }));
-  test('should display the specified number of month grids', () => {
+  beforeEach(() => render({ id: testId }));
+  test('should add the "id" attribute', () => {
     expect(container.firstChild).toHaveAttribute('id', testId);
+  });
+});
+
+describe('when using the "nonce" prop', () => {
+  const nonce = 'foo';
+  beforeEach(() => render({ nonce }));
+  test('should add the "nonce" attribute', () => {
+    expect(container.firstChild).toHaveAttribute('nonce', nonce);
+  });
+});
+
+describe('when using the "title" prop', () => {
+  const title = 'foo';
+  beforeEach(() => render({ title }));
+  test('should add the "title" attribute', () => {
+    expect(container.firstChild).toHaveAttribute('title', title);
+  });
+});
+
+describe('when using the "lang" prop', () => {
+  const lang = 'en-US';
+  beforeEach(() => render({ lang }));
+  test('should add the "lang" attribute', () => {
+    expect(container.firstChild).toHaveAttribute('lang', lang);
   });
 });
 
 describe('when using the "className" prop', () => {
   const props: DayPickerProps = { className: 'foo' };
   beforeEach(() => {
-    setup(props);
+    render(props);
   });
   test('should append the class name to the root element', () => {
     expect(container.firstChild).toHaveClass('rdp foo');
@@ -99,7 +123,7 @@ describe('when the "numberOfMonths" is greater than 1', () => {
   const props: DayPickerProps = { numberOfMonths: 3 };
   const expectedClassName = defaultClassNames.multiple_months;
   beforeEach(() => {
-    setup(props);
+    render(props);
   });
   test(`should have the ${expectedClassName} class name`, () => {
     expect(container.firstChild).toHaveClass(expectedClassName);
@@ -110,7 +134,7 @@ describe('when showing the week numbers', () => {
   const props: DayPickerProps = { showWeekNumber: true };
   const expectedClassName = defaultClassNames.with_weeknumber;
   beforeEach(() => {
-    setup(props);
+    render(props);
   });
   test(`should have the ${expectedClassName} class name`, () => {
     expect(container.firstChild).toHaveClass(expectedClassName);
@@ -124,7 +148,7 @@ describe('when "initialFocus" is set', () => {
   };
   describe('when a day is not selected', () => {
     beforeEach(() => {
-      setup(baseProps);
+      render(baseProps);
     });
     test('should focus today', () => {
       expect(getDayButton(today)).toHaveFocus();
@@ -142,7 +166,7 @@ describe('when "initialFocus" is set', () => {
     const selected = addDays(today, 1);
     const props: DayPickerProps = { ...baseProps, selected };
     beforeEach(() => {
-      setup(props);
+      render(props);
     });
     test('should focus the selected day', () => {
       expect(getDayButton(selected)).toHaveFocus();

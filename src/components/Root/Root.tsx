@@ -74,6 +74,9 @@ export function Root({ initialProps }: RootProps): JSX.Element {
       style={style}
       dir={dayPicker.dir}
       id={dayPicker.id}
+      nonce={initialProps.nonce}
+      title={initialProps.title}
+      lang={initialProps.lang}
       {...dataAttributes}
     >
       <MonthsComponent>
