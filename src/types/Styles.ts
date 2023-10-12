@@ -1,7 +1,7 @@
-import React from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 /** The style (either via class names or via in-line styles) of an element. */
-export type StyledElement<T = string | React.CSSProperties> = {
+export type StyledElement<T = string | CSSProperties> = {
   /** The root element. */
   readonly root: T;
   /** The root element when `numberOfMonths > 1`. */
@@ -114,12 +114,12 @@ export type ClassNames = Partial<StyledElement<string>>;
  * `modifiersStyles` prop.
  */
 export type Styles = Partial<
-  Omit<StyledElement<React.CSSProperties>, InternalModifiersElement>
+  Omit<StyledElement<CSSProperties>, InternalModifiersElement>
 >;
 
 /** Props of a component that can be styled via classNames or inline-styles. */
 export type StyledComponent = {
   className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
+  style?: CSSProperties;
+  children?: ReactNode;
 };

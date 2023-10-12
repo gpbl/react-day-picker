@@ -1,4 +1,4 @@
-import React from 'react';
+import { PropsWithChildren } from 'react';
 
 import { ModifiersProvider } from 'contexts/Modifiers/ModifiersContext';
 import { DayPickerBase } from 'types/DayPickerBase';
@@ -11,9 +11,7 @@ import { SelectRangeProvider } from './SelectRange';
 import { SelectSingleProvider } from './SelectSingle';
 
 /** The props of {@link RootProvider}. */
-export type RootContext = DayPickerBase & {
-  children: React.ReactNode;
-};
+export type RootContext = PropsWithChildren<DayPickerBase>;
 
 /** Provide the value for all the context providers. */
 export function RootProvider(props: RootContext): JSX.Element {

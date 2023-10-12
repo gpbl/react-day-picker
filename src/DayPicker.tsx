@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { DayPickerDefaultProps } from 'types/DayPickerDefault';
 import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
 import { DayPickerRangeProps } from 'types/DayPickerRange';

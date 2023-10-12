@@ -1,4 +1,9 @@
-import React, { useState } from 'react';
+import {
+  ChangeEventHandler,
+  FocusEventHandler,
+  InputHTMLAttributes,
+  useState
+} from 'react';
 
 import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import { enUS } from 'date-fns/locale';
@@ -14,8 +19,8 @@ import {
 import { isValidDate } from './utils/isValidDate';
 
 /** The props to attach to the input field when using {@link useInput}. */
-export type InputHTMLAttributes = Pick<
-  React.InputHTMLAttributes<HTMLInputElement>,
+export type InputProps = Pick<
+  InputHTMLAttributes<HTMLInputElement>,
   'onBlur' | 'onChange' | 'onFocus' | 'value' | 'placeholder'
 >;
 
@@ -62,7 +67,7 @@ export interface UseInputValue {
   /** The props to pass to a DayPicker component. */
   dayPickerProps: InputDayPickerProps;
   /** The props to pass to an input field. */
-  inputProps: InputHTMLAttributes;
+  inputProps: InputProps;
   /** A function to reset to the initial state. */
   reset: () => void;
   /** A function to set the selected day. */
@@ -120,7 +125,7 @@ export function useInput(options: UseInputOptions = {}): UseInputValue {
   // When changing the input field, save its value in state and check if the
   // string is a valid date. If it is a valid day, set it as selected and update
   // the calendar’s month.
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setInputValue(e.target.value);
     const day = parseValue(e.target.value);
     const isBefore = fromDate && differenceInCalendarDays(fromDate, day) > 0;
@@ -135,7 +140,7 @@ export function useInput(options: UseInputOptions = {}): UseInputValue {
 
   // Special case for _required_ fields: on blur, if the value of the input is not
   // a valid date, reset the calendar and the input value.
-  const handleBlur: React.FocusEventHandler<HTMLInputElement> = (e) => {
+  const handleBlur: FocusEventHandler<HTMLInputElement> = (e) => {
     const day = parseValue(e.target.value);
     if (!isValidDate(day)) {
       reset();
@@ -144,7 +149,7 @@ export function useInput(options: UseInputOptions = {}): UseInputValue {
 
   // When focusing, make sure DayPicker visualizes the month of the date in the
   // input field.
-  const handleFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
+  const handleFocus: FocusEventHandler<HTMLInputElement> = (e) => {
     if (!e.target.value) {
       reset();
       return;
@@ -166,7 +171,7 @@ export function useInput(options: UseInputOptions = {}): UseInputValue {
     today
   };
 
-  const inputProps: InputHTMLAttributes = {
+  const inputProps: InputProps = {
     onBlur: handleBlur,
     onChange: handleChange,
     onFocus: handleFocus,

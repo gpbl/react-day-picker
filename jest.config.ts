@@ -3,9 +3,6 @@ import type { Config } from '@jest/types';
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
   roots: ['./src'],
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest'
-  },
   moduleNameMapper: {
     '^test/(.*)': ['<rootDir>/test/$1'],
     '^components(.*)': ['<rootDir>/src/components$1'],

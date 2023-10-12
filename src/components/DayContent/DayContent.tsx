@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useDayPicker } from 'contexts/DayPicker';
 import { ActiveModifiers } from 'types/Modifiers';
 

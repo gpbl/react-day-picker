@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { StyledComponent } from 'types/Styles';
 
 /**

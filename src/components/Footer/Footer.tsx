@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useDayPicker } from 'contexts/DayPicker';
 
 export interface FooterProps {

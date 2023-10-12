@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { RefObject, useEffect } from 'react';
 
 import { isSameDay } from 'date-fns';
 
@@ -46,7 +46,7 @@ export function useDayRender(
   /** The month where the date is displayed (if not the same as `date`, it means it is an "outside" day). */
   displayMonth: Date,
   /** A ref to the button element that will be target of focus when rendered (if required). */
-  buttonRef: React.RefObject<HTMLButtonElement>
+  buttonRef: RefObject<HTMLButtonElement>
 ): DayRender {
   const dayPicker = useDayPicker();
   const focusContext = useFocusContext();

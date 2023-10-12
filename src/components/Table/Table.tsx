@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Footer } from 'components/Footer';
 import { Head } from 'components/Head';
 import { Row } from 'components/Row';

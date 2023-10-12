@@ -1,4 +1,4 @@
-import React from 'react';
+import { ChangeEventHandler } from 'react';
 
 import { isSameYear, setMonth, startOfMonth } from 'date-fns';
 
@@ -46,7 +46,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     }
   }
 
-  const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+  const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const selectedMonth = Number(e.target.value);
     const newMonth = setMonth(startOfMonth(props.displayMonth), selectedMonth);
     props.onChange(newMonth);

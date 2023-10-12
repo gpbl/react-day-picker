@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { HeadRow } from 'components/HeadRow';
 import { useDayPicker } from 'contexts/DayPicker';
 

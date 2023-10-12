@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { customRender } from 'test/render';
 import { getMonthCaption } from 'test/selectors';
 import { freezeBeforeAll } from 'test/utils';
