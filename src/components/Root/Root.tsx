@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { DayPickerProps } from 'DayPicker';
 
 import { Month } from 'components/Month';
+import { Months } from 'components/Months';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useFocusContext } from 'contexts/Focus';
 import { useNavigation } from 'contexts/Navigation';
@@ -65,6 +66,8 @@ export function Root({ initialProps }: RootProps): JSX.Element {
       };
     }, {});
 
+  const MonthsComponent = initialProps.components?.Months ?? Months;
+
   return (
     <div
       className={classNames.join(' ')}
@@ -76,14 +79,11 @@ export function Root({ initialProps }: RootProps): JSX.Element {
       lang={initialProps.lang}
       {...dataAttributes}
     >
-      <div
-        className={dayPicker.classNames.months}
-        style={dayPicker.styles.months}
-      >
+      <MonthsComponent>
         {navigation.displayMonths.map((month, i) => (
           <Month key={i} displayIndex={i} displayMonth={month} />
         ))}
-      </div>
+      </MonthsComponent>
     </div>
   );
 }

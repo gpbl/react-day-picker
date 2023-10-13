@@ -1,4 +1,4 @@
-import { RenderResult } from '@testing-library/react';
+import { RenderResult, screen } from '@testing-library/react';
 import { addDays } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
@@ -6,6 +6,7 @@ import { customRender } from 'test/render';
 import { getDayButton, queryMonthGrids } from 'test/selectors';
 import { freezeBeforeAll } from 'test/utils';
 
+import { MonthsProps } from 'components/Months';
 import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
 import { ClassNames } from 'types/Styles';
 
@@ -51,6 +52,26 @@ describe('when using the "classNames" prop', () => {
   });
   test('should add the class to the container', () => {
     expect(container.firstChild).toHaveClass('foo');
+  });
+});
+
+describe('when using a custom "Months" component', () => {
+  function CustomMonths(props: MonthsProps) {
+    return (
+      <div>
+        <div data-testid="foo" />
+        {props.children}
+      </div>
+    );
+  }
+  beforeEach(() => {
+    render({ numberOfMonths: 3, components: { Months: CustomMonths } });
+  });
+  test('should render the custom component', () => {
+    expect(screen.getByTestId('foo')).toBeInTheDocument();
+  });
+  test('should still display the specified number of months', () => {
+    expect(queryMonthGrids()).toHaveLength(3);
   });
 });
 

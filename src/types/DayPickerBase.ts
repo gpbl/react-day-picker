@@ -8,6 +8,7 @@ import { DayProps } from 'components/Day';
 import { DayContentProps } from 'components/DayContent';
 import { DropdownProps } from 'components/Dropdown';
 import { FooterProps } from 'components/Footer';
+import { MonthsProps } from 'components/Months';
 import { RowProps } from 'components/Row';
 import { WeekNumberProps } from 'components/WeekNumber';
 
@@ -417,6 +418,8 @@ export interface CustomComponents {
   IconRight?: (props: StyledComponent) => JSX.Element | null;
   /** The arrow left icon (used for the Navigation buttons). */
   IconLeft?: (props: StyledComponent) => JSX.Element | null;
+  /** The component wrapping the month grids. */
+  Months?: (props: MonthsProps) => JSX.Element | null;
   /** The component for the table rows. */
   Row?: (props: RowProps) => JSX.Element | null;
   /** The component for the week number in the table rows. */
