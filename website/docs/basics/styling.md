@@ -7,20 +7,19 @@ DayPicker comes with for a minimal, lightweight appearance: import `react-day-pi
 import 'react-day-picker/dist/style.css';
 ```
 
-This will add the [DayPicker stylesheet](https://github.com/gpbl/react-day-picker/blob/main/src/style.css#L29) into your app. The stylesheet includes some CSS global variables, to override colors and sizes:
+This will add the [DayPicker stylesheet](https://github.com/gpbl/react-day-picker/blob/main/src/style.css) into your app. The stylesheet includes some CSS global variables, to override colors and sizes:
 
 ```css
 .rdp {
-  --rdp-cell-size: 40px;
-  --rdp-accent-color: #0000ff;
-  --rdp-background-color: #e7edff;
-  /* Switch to dark colors for dark themes */
-  --rdp-accent-color-dark: #3003e1;
-  --rdp-background-color-dark: #180270;
-  /* Outline border for focused elements */
-  --rdp-outline: 2px solid var(--rdp-accent-color);
-  /* Outline border for focused and selected elements */
-  --rdp-outline-selected: 2px solid rgba(0, 0, 0, 0.75);
+  --rdp-cell-size: 40px; /* Size of the day cells. */
+  --rdp-caption-font-size: 18px; /* Font size for the caption labels. */
+  --rdp-accent-color: #0000ff; /* Accent color for the background of selected days. */
+  --rdp-background-color: #e7edff; /* Background color for the hovered/focused elements. */
+  --rdp-accent-color-dark: #3003e1; /* Accent color for the background of selected days (to use in dark-mode). */
+  --rdp-background-color-dark: #180270; /* Background color for the hovered/focused elements (to use in dark-mode). */
+  --rdp-outline: 2px solid var(--rdp-accent-color); /* Outline border for focused elements */
+  --rdp-outline-selected: 3px solid var(--rdp-accent-color); /* Outline border for focused _and_ selected elements */
+  --rdp-selected-color: #fff; /* Color of selected day text */
 }
 ```
 
