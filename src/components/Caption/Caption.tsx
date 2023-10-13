@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { CaptionDropdowns } from 'components/CaptionDropdowns';
 import { CaptionLabel } from 'components/CaptionLabel';
 import { CaptionNavigation } from 'components/CaptionNavigation';

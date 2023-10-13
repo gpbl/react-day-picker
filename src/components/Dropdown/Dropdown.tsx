@@ -1,4 +1,9 @@
-import React from 'react';
+import {
+  ChangeEventHandler,
+  CSSProperties,
+  ReactNode,
+  SelectHTMLAttributes
+} from 'react';
 
 import { IconDropdown } from 'components/IconDropdown';
 import { useDayPicker } from 'contexts/DayPicker';
@@ -8,14 +13,14 @@ export interface DropdownProps {
   /** The name attribute of the element. */
   name?: string;
   /** The caption displayed to replace the hidden select. */
-  caption?: React.ReactNode;
-  children?: React.SelectHTMLAttributes<HTMLSelectElement>['children'];
+  caption?: ReactNode;
+  children?: SelectHTMLAttributes<HTMLSelectElement>['children'];
   className?: string;
   ['aria-label']?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   /** The selected value. */
   value?: string | number;
-  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
+  onChange?: ChangeEventHandler<HTMLSelectElement>;
 }
 
 /**

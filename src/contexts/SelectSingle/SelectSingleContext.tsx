@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import { createContext, ReactNode, useContext } from 'react';
 
 import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
@@ -24,7 +24,7 @@ export const SelectSingleContext = createContext<
 
 type SelectSingleProviderProps = {
   initialProps: DayPickerBase;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 /** Provides the values for the {@link SelectSingleProvider}. */
@@ -51,7 +51,7 @@ export function SelectSingleProvider(
 
 type SelectSingleProviderInternal = {
   initialProps: DayPickerSingleProps;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export function SelectSingleProviderInternal({

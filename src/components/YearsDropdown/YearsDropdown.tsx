@@ -1,4 +1,4 @@
-import React from 'react';
+import { ChangeEventHandler } from 'react';
 
 import { setYear, startOfMonth, startOfYear } from 'date-fns';
 
@@ -45,7 +45,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     years.push(setYear(startOfYear(new Date()), year));
   }
 
-  const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+  const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const newMonth = setYear(
       startOfMonth(displayMonth),
       Number(e.target.value)

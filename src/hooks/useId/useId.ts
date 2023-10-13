@@ -67,7 +67,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  * server hydration and never again, SO BACK OFF ALRIGHT?
  */
 
-import * as React from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 function canUseDOM() {
   return !!(
@@ -100,9 +100,7 @@ function canUseDOM() {
  * @param effect
  * @param deps
  */
-const useIsomorphicLayoutEffect = canUseDOM()
-  ? React.useLayoutEffect
-  : React.useEffect;
+const useIsomorphicLayoutEffect = canUseDOM() ? useLayoutEffect : useEffect;
 
 let serverHandoffComplete = false;
 let id = 0;
@@ -140,7 +138,7 @@ function useId(providedId?: number | string | undefined | null) {
   // If this instance isn't part of the initial render, we don't have to do the
   // double render/patch-up dance. We can just generate the ID and return it.
   let initialId = providedId ?? (serverHandoffComplete ? genId() : null);
-  let [id, setId] = React.useState(initialId);
+  let [id, setId] = useState(initialId);
 
   useIsomorphicLayoutEffect(() => {
     if (id === null) {
@@ -153,7 +151,7 @@ function useId(providedId?: number | string | undefined | null) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (serverHandoffComplete === false) {
       // Flag all future uses of `useId` to skip the update dance. This is in
       // `useEffect` because it goes after `useLayoutEffect`, ensuring we don't
@@ -165,4 +163,4 @@ function useId(providedId?: number | string | undefined | null) {
   return providedId ?? id ?? undefined;
 }
 
-export { useId };
+export { useId, canUseDOM };

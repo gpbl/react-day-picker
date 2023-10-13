@@ -1,5 +1,7 @@
 import type { Locale } from 'date-fns';
 
+import { CSSProperties, ReactNode } from 'react';
+
 import { CaptionLayout, CaptionProps } from 'components/Caption';
 import { CaptionLabelProps } from 'components/CaptionLabel';
 import { DayProps } from 'components/Day';
@@ -65,7 +67,7 @@ export interface DayPickerBase {
   /**
    * Style to apply to the container element.
    */
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   /**
    * Change the inline styles of the HTML elements.
    */
@@ -227,7 +229,7 @@ export interface DayPickerBase {
   /**
    * Content to add to the table footer element.
    */
-  footer?: React.ReactNode;
+  footer?: ReactNode;
 
   /**
    * When a selection mode is set, DayPicker will focus the first selected day
@@ -394,7 +396,7 @@ export interface CustomComponents {
    * Each `Day` in DayPicker should render one of the following, according to
    * the return value of {@link useDayRender}.
    *
-   * - an empty `React.Fragment`, to render if `isHidden` is true
+   * - an empty `Fragment`, to render if `isHidden` is true
    * - a `button` element, when the day is interactive, e.g. is selectable
    * - a `div` or a `span` element, when the day is not interactive
    *

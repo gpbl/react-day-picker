@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { DayPickerProps } from 'DayPicker';
 
 import { customRender } from 'test/render';

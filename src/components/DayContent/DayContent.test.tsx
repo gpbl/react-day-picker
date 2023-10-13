@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { es } from 'date-fns/locale';
 import { DayPickerProps } from 'DayPicker';
 

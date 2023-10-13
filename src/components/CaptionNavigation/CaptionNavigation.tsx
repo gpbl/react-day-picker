@@ -1,4 +1,4 @@
-import React from 'react';
+import { MouseEventHandler } from 'react';
 
 import { isSameMonth } from 'date-fns';
 
@@ -25,12 +25,12 @@ export function CaptionNavigation(props: CaptionProps): JSX.Element {
   const hideNext = numberOfMonths > 1 && (isFirst || !isLast);
   const hidePrevious = numberOfMonths > 1 && (isLast || !isFirst);
 
-  const handlePreviousClick: React.MouseEventHandler = () => {
+  const handlePreviousClick: MouseEventHandler = () => {
     if (!previousMonth) return;
     goToMonth(previousMonth);
   };
 
-  const handleNextClick: React.MouseEventHandler = () => {
+  const handleNextClick: MouseEventHandler = () => {
     if (!nextMonth) return;
     goToMonth(nextMonth);
   };

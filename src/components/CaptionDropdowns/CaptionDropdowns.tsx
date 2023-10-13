@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { addMonths } from 'date-fns';
 
 import { CaptionProps } from 'components/Caption/Caption';

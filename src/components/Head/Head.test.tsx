@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { RenderResult, screen } from '@testing-library/react';
 import { DayPickerProps } from 'DayPicker';
 

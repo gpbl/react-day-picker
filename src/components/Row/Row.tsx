@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { getUnixTime } from 'date-fns';
 
 import { Day } from 'components/Day';

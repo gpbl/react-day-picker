@@ -1,10 +1,10 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 /** Represents a function to format a date. */
 export type DateFormatter = (
   date: Date,
   options?: { locale?: Locale }
-) => React.ReactNode;
+) => ReactNode;
 
 /** Represent a map of formatters used to render localized content. */
 export type Formatters = {
@@ -26,4 +26,4 @@ export type Formatters = {
 export type WeekNumberFormatter = (
   weekNumber: number,
   options?: { locale?: Locale }
-) => React.ReactNode;
+) => ReactNode;

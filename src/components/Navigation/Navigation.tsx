@@ -1,4 +1,4 @@
-import React from 'react';
+import { MouseEventHandler } from 'react';
 
 import { IconLeft } from 'components/IconLeft';
 import { IconRight } from 'components/IconRight';
@@ -19,9 +19,9 @@ export interface NavigationProps {
   /** Hide the next button. */
   hideNext: boolean;
   /** Event handler when the next button is clicked. */
-  onNextClick: React.MouseEventHandler<HTMLButtonElement>;
+  onNextClick: MouseEventHandler<HTMLButtonElement>;
   /** Event handler when the previous button is clicked. */
-  onPreviousClick: React.MouseEventHandler<HTMLButtonElement>;
+  onPreviousClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 /** A component rendering the navigation buttons or the drop-downs. */

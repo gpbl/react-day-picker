@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react';
+
 import { addDays, addMonths } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
 
@@ -57,7 +59,7 @@ describe('when days are selected', () => {
   describe('when `onDayClick` is called with a not selected day', () => {
     const clickedDay = addDays(selectedDay1, -1);
     const activeModifiers = {};
-    const event = {} as React.MouseEvent;
+    const event = {} as MouseEvent;
     beforeAll(() => {
       const result = renderHook(dayPickerProps);
       result.current.onDayClick?.(clickedDay, activeModifiers, event);
@@ -92,7 +94,7 @@ describe('when days are selected', () => {
     afterAll(() => {
       jest.resetAllMocks();
     });
-    const event = {} as React.MouseEvent;
+    const event = {} as MouseEvent;
     test('should call the `onDayClick` from the DayPicker props', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         clickedDay,
@@ -142,7 +144,7 @@ describe('when the maximum number of days are selected', () => {
     afterAll(() => {
       jest.resetAllMocks();
     });
-    const event = {} as React.MouseEvent;
+    const event = {} as MouseEvent;
     test('should call the `onDayClick` from the DayPicker props', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         clickedDay,
@@ -173,7 +175,7 @@ describe('when the minimum number of days are selected', () => {
     afterAll(() => {
       jest.resetAllMocks();
     });
-    const event = {} as React.MouseEvent;
+    const event = {} as MouseEvent;
     test('should call the `onDayClick` from the DayPicker props', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         clickedDay,

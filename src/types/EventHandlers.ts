@@ -1,3 +1,11 @@
+import {
+  FocusEvent,
+  KeyboardEvent,
+  MouseEvent,
+  PointerEvent,
+  TouchEvent
+} from 'react';
+
 import { DateRange } from 'types/Matchers';
 
 import { ActiveModifiers } from './Modifiers';
@@ -6,35 +14,35 @@ import { ActiveModifiers } from './Modifiers';
 export type DayClickEventHandler = (
   day: Date,
   activeModifiers: ActiveModifiers,
-  e: React.MouseEvent
+  e: MouseEvent
 ) => void;
 
 /** The event handler when a day is focused. */
 export type DayFocusEventHandler = (
   day: Date,
   activeModifiers: ActiveModifiers,
-  e: React.FocusEvent | React.KeyboardEvent
+  e: FocusEvent | KeyboardEvent
 ) => void;
 
 /** The event handler when a day gets a keyboard event. */
 export type DayKeyboardEventHandler = (
   day: Date,
   activeModifiers: ActiveModifiers,
-  e: React.KeyboardEvent
+  e: KeyboardEvent
 ) => void;
 
 /** The event handler when a day gets a mouse event. */
 export type DayMouseEventHandler = (
   day: Date,
   activeModifiers: ActiveModifiers,
-  e: React.MouseEvent
+  e: MouseEvent
 ) => void;
 
 /** The event handler when a day gets a pointer event. */
 export type DayPointerEventHandler = (
   day: Date,
   activeModifiers: ActiveModifiers,
-  e: React.PointerEvent
+  e: PointerEvent
 ) => void;
 
 /** The event handler when a month is changed in the calendar. */
@@ -49,7 +57,7 @@ export type SelectMultipleEventHandler = (
   /** The day that was clicked */
   activeModifiers: ActiveModifiers,
   /** The mouse event that triggered this event. */
-  e: React.MouseEvent
+  e: MouseEvent
 ) => void;
 
 /** The event handler when selecting a range of days. */
@@ -60,7 +68,7 @@ export type SelectRangeEventHandler = (
   selectedDay: Date,
   /** The modifiers of the selected day. */
   activeModifiers: ActiveModifiers,
-  e: React.MouseEvent
+  e: MouseEvent
 ) => void;
 
 /** The event handler when selecting a single day. */
@@ -71,7 +79,7 @@ export type SelectSingleEventHandler = (
   selectedDay: Date,
   /** The modifiers of the selected day. */
   activeModifiers: ActiveModifiers,
-  e: React.MouseEvent
+  e: MouseEvent
 ) => void;
 
 /**The event handler when the week number is clicked. */
@@ -81,12 +89,12 @@ export type WeekNumberClickEventHandler = (
   /** The dates in the clicked week. */
   dates: Date[],
   /** The mouse event that triggered this event. */
-  e: React.MouseEvent
+  e: MouseEvent
 ) => void;
 
 /** The event handler when a day gets a touch event. */
 export type DayTouchEventHandler = (
   day: Date,
   activeModifiers: ActiveModifiers,
-  e: React.TouchEvent
+  e: TouchEvent
 ) => void;

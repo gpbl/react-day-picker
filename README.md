@@ -45,14 +45,14 @@ yarn add react-day-picker date-fns     # using yarn
 ## Example
 
 ```tsx
-import React from 'react';
-
+import { useState } from 'react';
 import { format } from 'date-fns';
+
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
 export default function Example() {
-  const [selected, setSelected] = React.useState<Date>();
+  const [selected, setSelected] = useState<Date>();
 
   let footer = <p>Please pick a day.</p>;
   if (selected) {

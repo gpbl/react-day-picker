@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 import { Matcher } from './Matchers';
 
 /** A _modifier_ represents different styles or states of a day displayed in the calendar. */
@@ -43,8 +45,8 @@ export type ActiveModifiers = Record<Modifier, true> &
   Partial<Record<InternalModifier, true>>;
 
 /** The style to apply to each day element matching a modifier. */
-export type ModifiersStyles = Record<Modifier, React.CSSProperties> &
-  Partial<Record<InternalModifier, React.CSSProperties>>;
+export type ModifiersStyles = Record<Modifier, CSSProperties> &
+  Partial<Record<InternalModifier, CSSProperties>>;
 
 /** The classnames to assign to each day element matching a modifier. */
 export type ModifiersClassNames = Record<Modifier, string> &

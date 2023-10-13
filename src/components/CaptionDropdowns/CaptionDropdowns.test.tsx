@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { screen } from '@testing-library/react';
 import { setMonth, setYear } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
