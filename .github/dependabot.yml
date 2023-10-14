@@ -9,10 +9,12 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    versioning-strategy: increase
   - package-ecosystem: "npm"
     directory: "/website"
     schedule:
       interval: "weekly"
+    versioning-strategy: increase
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
