@@ -44,9 +44,9 @@ export const SelectRangeContext = createContext<
   SelectRangeContextValue | undefined
 >(undefined);
 
-type SelectRangeProviderProps = {
+type SelectRangeProviderProps = PropsWithChildren<{
   initialProps: DayPickerBase;
-} & PropsWithChildren;
+}>;
 
 /** Provides the values for the {@link SelectRangeProvider}. */
 export function SelectRangeProvider(
@@ -76,9 +76,9 @@ export function SelectRangeProvider(
   );
 }
 
-type SelectRangeProviderInternalProps = {
+type SelectRangeProviderInternalProps = PropsWithChildren<{
   initialProps: DayPickerRangeProps;
-} & PropsWithChildren;
+}>;
 
 export function SelectRangeProviderInternal({
   initialProps,
