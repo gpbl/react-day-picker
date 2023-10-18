@@ -38,7 +38,7 @@ export const SelectMultipleContext = createContext<
 
 export type SelectMultipleProviderProps = {
   initialProps: DayPickerBase;
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 /** Provides the values for the {@link SelectMultipleContext}. */
@@ -66,10 +66,11 @@ export function SelectMultipleProvider(
   );
 }
 
-type SelectMultipleProviderInternalProps = {
+/** @private */
+export interface SelectMultipleProviderInternalProps {
   initialProps: DayPickerMultipleProps;
-  children: ReactNode;
-};
+  children?: ReactNode;
+}
 
 export function SelectMultipleProviderInternal({
   initialProps,
