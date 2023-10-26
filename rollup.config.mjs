@@ -1,86 +1,128 @@
 // @ts-check
-
-/* eslint-env node */
+import { babel } from '@rollup/plugin-babel';
+import { dts } from 'rollup-plugin-dts';
 import commonjs from '@rollup/plugin-commonjs';
-import postcss from 'rollup-plugin-postcss';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
-import terser from '@rollup/plugin-terser';
-import dts from 'rollup-plugin-dts';
-import postcssDts from 'postcss-typescript-d-ts';
-import fs from 'fs';
-import path from 'path';
 import copy from 'rollup-plugin-copy';
+import fs from 'fs';
+import postcss from 'rollup-plugin-postcss';
+import postcssDts from 'postcss-typescript-d-ts';
+import replace from '@rollup/plugin-replace';
+import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
+import typescript from 'rollup-plugin-typescript2';
 
-const distDir = path.resolve('./dist');
-const srcDir = path.resolve('./src');
+import pkg from './package.json' assert { type: 'json' };
+
+const globals = {
+  react: 'React',
+  'date-fns': 'dateFns',
+  'date-fns/locale': 'Locale'
+};
 
 /**
- * Rollup configuration to build the main bundle.
+ * Rollup configuration to build the main bundles.
  * @type {import('rollup').RollupOptions}
  */
 const mainConfig = {
-  input: `src/index.ts`,
+  input: pkg.source,
   output: [
     {
-      file: `dist/index.esm.js`,
-      format: 'esm',
-      sourcemap: true
-    },
-    {
-      file: `dist/index.js`,
-      format: 'cjs',
-      sourcemap: true
-    },
-    {
-      file: `dist/index.min.js`,
+      file: pkg.browser,
       format: 'umd',
       name: 'DatePicker',
       plugins: [terser()],
-      sourcemap: true,
-      globals: {
-        react: 'React',
-        'date-fns': 'DateFns',
-        'date-fns/locale': 'DateFnsLocale'
-      }
+      globals
+    },
+    {
+      file: pkg.main,
+      format: 'cjs',
+      name: 'DatePicker',
+      sourcemap: true
+    },
+    {
+      file: pkg.module,
+      format: 'es',
+      sourcemap: true
     }
   ],
-  external: ['react', 'date-fns', 'date-fns/locale'],
   plugins: [
-    nodeResolve(),
-    commonjs(),
-    typescript({
-      tsconfig: './tsconfig.build.json',
-      declaration: false
+    resolve(),
+    typescript(),
+    babel({
+      babelHelpers: 'external',
+      exclude: 'node_modules/**',
+      presets: ['@babel/preset-react', '@babel/preset-env']
     }),
+    commonjs(),
+    replace({
+      preventAssignment: true,
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
+  ],
+  external: ['react', /date-fns/]
+};
+
+/**
+ * Rollup configuration to build the type declaration file.
+ * @type {import('rollup').RollupOptions}
+ */
+const dtsConfig = {
+  input: pkg.source,
+  output: {
+    file: pkg.types,
+    format: 'es'
+  },
+  plugins: [dts()]
+};
+
+/**
+ * Rollup configuration to build the type declaration file.
+ * @type {import('rollup').RollupOptions}
+ */
+const cssConfig = {
+  input: `src/style.css`,
+  output: {
+    file: 'dist/style.css.js',
+    format: 'es',
+    plugins: [terser()]
+  },
+  plugins: [
     postcss({
-      extract: 'style.css',
       sourceMap: true,
       plugins: [
         postcssDts({
           writeFile: ({ content }) => {
-            if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
-            fs.writeFileSync(`${srcDir}/style.css.d.ts`, content);
             fs.writeFileSync(`dist/style.css.d.ts`, content);
           }
         })
       ]
     }),
-    // Create module.css
     copy({
       targets: [
         {
-          src: './src/style.css',
+          src: 'src/style.css',
+          dest: './dist',
+          transform: (contents) => contents.toString()
+        },
+        {
+          src: 'src/style.css',
           dest: './dist',
           rename: 'style.module.css',
           transform: (contents) =>
             contents
               .toString()
               .replace(/\.rdp-/g, '.')
-              .replace(/\.rdp/g, '.root')
+              .replace(/\.rdp/g, '.rdp')
         },
         {
-          src: './src/style.css.d.ts',
+          src: './dist/style.css.d.ts',
+          dest: './dist',
+          rename: 'style.module.css.d.ts',
+          transform: (contents) =>
+            contents.toString().replace(/rdp-/g, '').replace(/rdp/g, 'root')
+        },
+        {
+          src: './dist/style.css.d.ts',
           dest: './dist',
           rename: 'style.module.css.d.ts',
           transform: (contents) =>
@@ -91,21 +133,4 @@ const mainConfig = {
   ]
 };
 
-/**
- * Rollup configuration to build the type declaration file.
- * @type {import('rollup').RollupOptions}
- */
-export const dtsConfig = {
-  input: `src/index.ts`,
-  output: [{ file: `dist/index.d.ts`, format: 'es' }],
-  plugins: [
-    dts({
-      tsconfig: './tsconfig.build.json',
-      compilerOptions: {
-        preserveSymlinks: false
-      }
-    })
-  ]
-};
-
-export default [mainConfig, dtsConfig];
+export default [mainConfig, dtsConfig, cssConfig];

@@ -1,16 +1,17 @@
-import { ReactElement } from 'react';
-
 import { render } from '@testing-library/react';
-import { DayPickerProps } from 'DayPicker';
-
-import { RootProvider } from 'contexts/RootProvider';
+import { ContextProviders } from '../../src/contexts/ContextProviders';
+import { DayPickerProps } from '../../src';
 
 /** Render a React Element wrapped with the Root Provider. */
 export function customRender(
   /** The element to render. */
-  element: ReactElement,
+  element: React.ReactElement,
   /** The initial DayPicker props to pass to the Root Provider. */
-  dayPickerProps: DayPickerProps = {}
+  dayPickerProps: DayPickerProps
 ) {
-  return render(<RootProvider {...dayPickerProps}>{element}</RootProvider>);
+  return render(
+    <ContextProviders dayPickerProps={dayPickerProps}>
+      {element}
+    </ContextProviders>
+  );
 }

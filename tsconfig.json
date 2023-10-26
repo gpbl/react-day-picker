@@ -1,26 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "jsx": "react-jsx",
-    "module": "es6",
+    "target": "ES5",
     "moduleResolution": "node",
-    "rootDir": "./",
-    "baseUrl": "./src",
-    "noEmit": true,
-    "paths": {
-      "test/*": ["../test/*"]
-    },
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "./dist",
-    "importHelpers": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": false,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": false,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "isolatedModules": false
+    "declaration": false,
+    "isolatedModules": false,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "include": ["test", "src"]
+  "exclude": ["node_modules", "test", "src/**/*.test.ts", "src/**/*.test.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/style.ts"]
 }

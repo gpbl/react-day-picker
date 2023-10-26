@@ -1,2 +1,2 @@
-export * from './freezeBeforeAll';
+export * from './freezeTime';
 export * from './focusDaysGrid';

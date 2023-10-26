@@ -1,0 +1,110 @@
+import {
+  SourceCode,
+  getSourceCodeStaticProps
+} from '../../components/SourceCode';
+import { RenderingBox } from '../../components/RenderingBox';
+
+import Single from 'react-day-picker/docs/examples/single.tsx';
+import SingleRequired from 'react-day-picker/docs/examples/single-required.tsx';
+import CustomMultiple from 'react-day-picker/docs/examples/custom-multiple.tsx';
+import Multiple from 'react-day-picker/docs/examples/multiple.tsx';
+import MultipleMinMax from 'react-day-picker/docs/examples/multiple-min-max.tsx';
+
+import 'react-day-picker/dist/style.css';
+
+export const getStaticProps = () =>
+  getSourceCodeStaticProps([
+    'single.tsx',
+    'single-required.tsx',
+    'multiple.tsx',
+    'multiple-min-max.tsx',
+    'custom-multiple.tsx'
+  ]);
+
+# Selecting Days
+
+DayPicker supports 3 built-in selection modes:
+
+- **Single mode**: only a single day can be selected. This is the default selection mode.
+- **Multi mode**: allow selection of multiple days. Set `mode="multi"` to toggle multi mode.
+- **Range mode** `mode="range"`: allow the selection of range of days. Set `mode="range"` to toggle range mode.
+- You can also implement a **custom selection mode** using the `onDayClick` props.
+
+To enable the built-in selections, you must use the `onSelect` prop and pass the selected days to the `selected` prop.
+
+## Single Selections
+
+<SourceCode source="single.tsx" />
+
+<RenderingBox>
+  <Single />
+</RenderingBox>
+
+### Making a selection required
+
+To make a selection required, use `selected` with `required`. For example, to set the default selected date to today:
+
+<SourceCode source="single-required.tsx" />
+
+<RenderingBox>
+  <SingleRequired />
+</RenderingBox>
+
+## Selecting Multiple Days
+
+Use `mode="multiple"` to allow the selection of multiple days:
+
+<SourceCode source="multiple.tsx" />
+
+<RenderingBox>
+  <Multiple />
+</RenderingBox>
+
+### Limiting the selectable days
+
+Use the `min` and `max` props to limit the amount of days that can be selected.
+
+<SourceCode source="multiple-min-max.tsx" />
+
+<RenderingBox>
+  <MultipleMinMax />
+</RenderingBox>
+
+## Selecting a Range of days
+
+Use `mode="range"` and `onSelect` to allow the selection of multiple days.
+
+```include-example
+range
+```
+
+### Limiting the range size
+
+Use the `min` and `max` props to limit the amount of days in the range.
+
+```include-example
+range-min-max
+```
+
+## Custom Selections
+
+If the built-in selection modes are not enough for your app’s requirements, you can control the selection behavior using `onDayClick`.
+
+For example, to implement the "single selection" behavior (like when ``):
+
+<SourceCode source="single.tsx" />
+
+<RenderingBox>
+  <Single />
+</RenderingBox>
+
+### Example: custom multiple select
+
+The case of a multi-days select is a bit more complex as it deals with an array. The following example replicates the `mode="multiple"`
+selection mode.
+
+<SourceCode source="custom-multiple.tsx" />
+
+<RenderingBox>
+  <CustomMultiple />
+</RenderingBox>
