@@ -1,0 +1,44 @@
+{
+  "*": {
+    "theme": {
+      "footer": true,
+      "sidebar": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "playground": {
+    "title": "🛝 Props Playground",
+    "type": "page",
+    "theme": {
+      "layout": "full",
+      "breadcrumbs": false
+    }
+  },
+  "reference": {
+    "title": "📖 API Reference",
+    "type": "page"
+  },
+  "index": "Welcome",
+  "basics": "Using DayPicker",
+  "guides": "Advanced Guides",
+  "upgrading": "",
+  "development": "Development",
+  "-- More": {
+    "type": "separator",
+    "title": "More"
+  },
+  "license": {
+    "title": "License",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "contributing": "",
+  "code-of-conduct": "",
+  "changelog-link": {
+    "title": "Changelog ↗",
+    "href": "https://github.com/gpbl/react-day-picker/releases",
+    "newWindow": true
+  }
+}

@@ -12,96 +12,12 @@
   },
   "folders": [
     {
-      "name": "react-day-picker",
       "path": "."
     },
     {
-      "name": "website",
-      "path": "website"
+      "path": "docs"
     }
   ],
-  "tasks": {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "type": "npm",
-        "script": "build",
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        },
-        "problemMatcher": [],
-        "label": "build",
-        "detail": "rimraf dist && rollup -c"
-      },
-      {
-        "type": "npm",
-        "script": "start",
-        "options": {
-          "cwd": "${workspaceFolder}/website",
-          "env": {
-            "TYPEDOC_WATCH": "true"
-          }
-        },
-        "problemMatcher": [],
-        "label": "website: start",
-        "detail": "docusaurus start",
-        "runOptions": {
-          "runOn": "folderOpen"
-        }
-      },
-      {
-        "type": "npm",
-        "script": "build-watch",
-        "group": "build",
-        "problemMatcher": [],
-        "label": "build-watch",
-        "detail": "rollup -c -w",
-        "runOptions": {
-          "runOn": "folderOpen"
-        }
-      },
-      {
-        "type": "npm",
-        "script": "typecheck-watch",
-        "group": "build",
-        "problemMatcher": ["$tsc-watch"],
-        "label": "typecheck-watch",
-        "detail": "tsc --project ./tsconfig.json --noEmit --watch",
-        "runOptions": {
-          "runOn": "folderOpen"
-        }
-      },
-      {
-        "path": "website",
-        "type": "npm",
-        "script": "typecheck-watch",
-        "group": "build",
-        "problemMatcher": ["$tsc-watch"],
-        "label": "website: typecheck-watch",
-        "detail": "tsc --project ./tsconfig.json --noEmit --watch",
-        "runOptions": {
-          "runOn": "folderOpen"
-        }
-      },
-      {
-        "type": "npm",
-        "script": "start",
-        "options": {
-          "cwd": "${workspaceFolder}/website",
-          "env": {
-            "TYPEDOC_WATCH": "true"
-          }
-        },
-        "problemMatcher": [],
-        "label": "website: start",
-        "detail": "docusaurus start",
-        "runOptions": {
-          "runOn": "folderOpen"
-        }
-      }
-    ]
-  },
   "settings": {
     "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -117,35 +33,39 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
-    "importSorter.generalConfiguration.sortOnBeforeSave": true,
-    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
-    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
-    "importSorter.importStringConfiguration.quoteMark": "single",
-    "importSorter.importStringConfiguration.tabSize": 2,
-    "importSorter.sortConfiguration.customOrderingRules.rules": [
+    "npm.packageManager": "pnpm",
+    "github-actions.workflows.pinned.workflows": [
+      "react-day-picker/.github/workflows/package.yml",
+      "react-day-picker/.github/workflows/website.yml"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
       {
-        "orderLevel": 1,
-        "regex": "^react$"
+        "name": "Next.js: debug server-side",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "pnpm --filter docs run dev"
       },
       {
-        "orderLevel": 30,
-        "regex": "^(contexts|components|hooks|types)"
+        "name": "Next.js: debug client-side",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:2001"
       },
       {
-        "orderLevel": 25,
-        "regex": "^(test|react-day-picker/test)"
-      },
-      {
-        "orderLevel": 40,
-        "regex": "^[.]"
-      },
-      {
-        "orderLevel": 30,
-        "regex": "^@examples/"
+        "name": "Next.js: debug full stack",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "pnpm --filter docs run dev",
+        "serverReadyAction": {
+          "pattern": "started server on .+, url: (https?://.+)",
+          "uriFormat": "%s",
+          "action": "debugWithChrome"
+        }
       }
     ],
-    "jest.disabledWorkspaceFolders": ["repository"],
-    "npm.packageManager": "pnpm",
-    "task.allowAutomaticTasks": "on"
+    "compounds": []
   }
 }

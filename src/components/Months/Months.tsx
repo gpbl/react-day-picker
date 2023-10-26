@@ -1,19 +1,16 @@
-import { ReactNode } from 'react';
-
-import { useDayPicker } from 'contexts/DayPicker';
-
-/** The props for the {@link Months} component. */
-export type MonthsProps = { children: ReactNode };
+import { HTMLProps } from 'react';
 
 /**
- * Render the wrapper for the month grids.
+ * The props for the {@link Months} component.
  */
-export function Months(props: MonthsProps): JSX.Element {
-  const { classNames, styles } = useDayPicker();
+export type MonthsProps = Pick<
+  HTMLProps<HTMLElement>,
+  'children' | 'className' | 'style'
+>;
 
-  return (
-    <div className={classNames.months} style={styles.months}>
-      {props.children}
-    </div>
-  );
+/**
+ * Component wrapping the month grids.
+ */
+export function Months(props: MonthsProps) {
+  return <div {...props}>{props.children}</div>;
 }
