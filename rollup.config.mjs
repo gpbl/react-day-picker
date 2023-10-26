@@ -108,11 +108,7 @@ const cssConfig = {
           src: 'src/style.css',
           dest: './dist',
           rename: 'style.module.css',
-          transform: (contents) =>
-            contents
-              .toString()
-              .replace(/\.rdp-/g, '.')
-              .replace(/\.rdp/g, '.rdp')
+          transform: (contents) => contents.toString().replace(/\.rdp-/g, '.')
         },
         {
           src: './dist/style.css.d.ts',
