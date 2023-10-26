@@ -19,10 +19,13 @@ export function Calendar(): JSX.Element {
     dir,
     footer,
     id,
+    lang,
+    nonce,
     numberOfMonths,
     showWeekNumber,
     style,
-    styles
+    styles,
+    title
   } = useDayPicker();
   const calendar = useCalendar();
 
@@ -77,6 +80,9 @@ export function Calendar(): JSX.Element {
       style={{ ...styles?.rdp, ...style }}
       dir={dir}
       id={id}
+      lang={lang}
+      nonce={nonce}
+      title={title}
       {...dataAttributes}
     >
       <Nav />

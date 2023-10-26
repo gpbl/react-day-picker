@@ -2,7 +2,7 @@ import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
 
 import { parseFromToProps } from '../../../contexts/DayPickerContext/utils/parseFromToProps';
 
-import type { DayPickerBase } from '../../../types/DayPickerBase';
+import type { PropsBase } from '../../../types/DayPickerBase';
 
 /**
  * Return the first and the last months according to the props passed to
@@ -11,7 +11,7 @@ import type { DayPickerBase } from '../../../types/DayPickerBase';
 export function getFirstLastMonths(
   props: Partial<
     Pick<
-      DayPickerBase,
+      PropsBase,
       | 'fromYear'
       | 'toYear'
       | 'fromDate'

@@ -23,12 +23,13 @@ export type CustomComponents = {
 
 /** The name of the color schemes. */
 export type DayPickerColorScheme = 'auto' | 'dark' | 'light';
+
 export type Mode = 'range' | 'single' | 'multi';
 
 /** The name of the contrast preferences. */
 export type DayPickerContrast = 'no-preference' | 'less' | 'more';
 
-export interface DayPickerBase extends FormatOptions {
+export interface PropsBase extends FormatOptions {
   /**
    * The CSS class to add to the container element. To change the name of the
    * class instead, use `classNames.root`.
@@ -79,8 +80,8 @@ export interface DayPickerBase extends FormatOptions {
   /**
    * The month displayed in the calendar.
    *
-   * As opposed to {@link DayPickerBase.defaultMonth}, use this prop with
-   * {@link DayPickerBase.onMonthChange} to change the month programmatically.
+   * As opposed to {@link PropsBase.defaultMonth}, use this prop with
+   * {@link PropsBase.onMonthChange} to change the month programmatically.
    */
   month?: Date;
   /**
@@ -236,16 +237,32 @@ export interface DayPickerBase extends FormatOptions {
   labels?: Partial<Labels>;
 
   /**
-   * The text direction of the calendar. Use `ltr` for left-to-right (default)
-   * or `rtl` for right-to-left.
-   */
-  dir?: string;
-
-  /**
    * A map of formatters. Use the formatters to override the default formatting
    * functions.
    */
   formatters?: Partial<Formatters>;
+
+  /**
+   * The text direction of the calendar. Use `ltr` for left-to-right (default)
+   * or `rtl` for right-to-left.
+   */
+  dir?: HTMLDivElement['dir'];
+
+  /**
+   * A cryptographic nonce ("number used once") which can be used by Content
+   * Security Policy for the inline `style` attributes.
+   **/
+  nonce?: HTMLDivElement['nonce'];
+
+  /**
+   * Add a `title` attribute to the container element.
+   **/
+  title?: HTMLDivElement['title'];
+
+  /**
+   * Add the language tag to the container element.
+   **/
+  lang?: HTMLDivElement['lang'];
 
   onDayClick?: DayMouseEventHandler;
   onDayFocus?: DayFocusEventHandler;

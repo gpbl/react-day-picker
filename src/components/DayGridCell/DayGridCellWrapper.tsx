@@ -64,17 +64,11 @@ export function DayGridCellWrapper(
   );
 
   const onClick: MouseEventHandler = (e) => {
-    selection?.setSelected(props.day.date, dayModifiers, e);
+    // selection?.setSelected(props.day.date, dayModifiers, e);
     onDayClick?.(props.day.date, dayModifiers, e);
   };
 
-  // const onFocus: FocusEventHandler = (e) => {
-  //   focus(props.day.date);
-  //   onDayFocus?.(props.day.date, matchingModifiers, e);
-  // };
-
   const onBlur: FocusEventHandler = (e) => {
-    // blur();
     onDayBlur?.(props.day.date, dayModifiers, e);
   };
 

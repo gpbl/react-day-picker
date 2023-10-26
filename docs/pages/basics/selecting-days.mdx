@@ -6,6 +6,7 @@ import { RenderingBox } from '../../components/RenderingBox';
 
 import Single from 'react-day-picker/docs/examples/single.tsx';
 import SingleRequired from 'react-day-picker/docs/examples/single-required.tsx';
+import CustomSingle from 'react-day-picker/docs/examples/custom-single.tsx';
 import CustomMultiple from 'react-day-picker/docs/examples/custom-multiple.tsx';
 import Multiple from 'react-day-picker/docs/examples/multiple.tsx';
 import MultipleMinMax from 'react-day-picker/docs/examples/multiple-min-max.tsx';
@@ -18,7 +19,8 @@ export const getStaticProps = () =>
     'single-required.tsx',
     'multiple.tsx',
     'multiple-min-max.tsx',
-    'custom-multiple.tsx'
+    'custom-multiple.tsx',
+    'custom-single.tsx'
   ]);
 
 # Selecting Days
@@ -92,10 +94,10 @@ If the built-in selection modes are not enough for your app’s requirements, yo
 
 For example, to implement the "single selection" behavior (like when ``):
 
-<SourceCode source="single.tsx" />
+<SourceCode source="custom-single.tsx" />
 
 <RenderingBox>
-  <Single />
+  <CustomSingle />
 </RenderingBox>
 
 ### Example: custom multiple select
