@@ -88,7 +88,11 @@ export default function DatePickerDialog() {
             role="dialog"
             aria-label="DayPicker calendar"
           >
-            <DayPicker mode="single" onSelect={handleDaySelect} />
+            <DayPicker
+              mode="single"
+              selected={selected}
+              onSelect={handleDaySelect}
+            />
           </div>
         </FocusTrap>
       )}

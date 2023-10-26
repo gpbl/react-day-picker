@@ -1,5 +1,4 @@
 import { DayPickerProps } from '../DayPicker';
-import { Mode } from 'types/DayPickerBase';
 import { CalendarProvider } from './CalendarContext';
 import { DayPickerProvider } from './DayPickerContext';
 import { ModifiersProvider } from './ModifiersContext';

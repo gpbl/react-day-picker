@@ -1,5 +1,6 @@
 import { screen } from '@testing-library/react';
-import { app, axe, freezeTime, grid, renderApp, user } from '../../test';
+import { app, axe, freezeTime, renderApp, user } from '../../test';
+import { grid } from '../../test/po';
 import Example from './dropdown-multiple-months';
 
 const today = new Date(2023, 9, 16);

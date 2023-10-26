@@ -1,8 +1,3 @@
-<<<<<<<< HEAD:website/examples/styling-inline.tsx
-import React from 'react';
-
-========
->>>>>>>> v9-latest:docs/examples/dropdown-multiple-months.tsx
 import { DayPicker } from 'react-day-picker';
 
 export default function App() {

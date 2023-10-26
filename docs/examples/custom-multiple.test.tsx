@@ -1,12 +1,6 @@
-import {
-  app,
-  axe,
-  freezeTime,
-  grid,
-  gridcell,
-  renderApp,
-  user
-} from '../../test';
+import { app, axe, freezeTime, renderApp, user } from '../../test';
+import { gridcell } from '../../test/po';
+
 import Example from './custom-multiple';
 
 const today = new Date(2021, 10, 25);
