@@ -2,7 +2,7 @@ import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
 
 import { parseFromToProps } from '../../../contexts/DayPickerContext/utils/parseFromToProps';
 
-import type { PropsBase } from '../../../types/DayPickerBase';
+import type { PropsBase } from '../../../types/PropsBase';
 
 /**
  * Return the first and the last months according to the props passed to

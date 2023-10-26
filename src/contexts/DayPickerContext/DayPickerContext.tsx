@@ -3,7 +3,7 @@ import { createContext, PropsWithChildren, useContext, useId } from 'react';
 
 import { CaptionLayout } from '../../components/Nav';
 import { DayPickerProps } from '../../DayPicker';
-import { Mode } from '../../types/DayPickerBase';
+import { Mode } from '../../types/PropsBase';
 import * as formatters from '../../formatters';
 import * as labels from '../../labels';
 import {

@@ -1,6 +1,6 @@
 import { Calendar } from './components/Calendar';
 import { ContextProviders } from './contexts/ContextProviders';
-import { DayPickerBase as PropsBase, Mode } from './types/DayPickerBase';
+import { PropsBase, Mode } from './types/PropsBase';
 import { DateRange, Matcher } from './types/matchers';
 import { Modifiers } from './types/modifiers';
 

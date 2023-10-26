@@ -1,6 +1,6 @@
 import {
   DayPicker,
-  DayPickerBase,
+  PropsBase,
   Mode,
   PropsMulti,
   PropsRange,
@@ -14,7 +14,7 @@ import { PlaygroundForm } from './PlaygroundForm';
 
 export function Playground() {
   const [mode, setMode] = useState<Mode>('single');
-  const [base, setBase] = useState<DayPickerBase>({});
+  const [base, setBase] = useState<PropsBase>({});
   const [single, setSingle] = useState<PropsSingle>({
     mode: 'single'
   });

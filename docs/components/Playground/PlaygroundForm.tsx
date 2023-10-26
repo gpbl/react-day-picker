@@ -1,7 +1,7 @@
 type LocaleString = keyof typeof locales;
 
 import {
-  DayPickerBase,
+  PropsBase,
   DayPickerColorScheme,
   DayPickerContrast,
   Mode,
@@ -28,11 +28,8 @@ export interface PlaygroundFormProps {
   onMultiChange: (props: PropsMulti) => void;
   range: PropsRange;
   onRangeChange: (props: PropsRange) => void;
-  base: DayPickerBase;
-  onBaseChange: (
-    key: keyof DayPickerBase | 'min' | 'max',
-    value: unknown
-  ) => void;
+  base: PropsBase;
+  onBaseChange: (key: keyof PropsBase | 'min' | 'max', value: unknown) => void;
 }
 export function PlaygroundForm(props: PlaygroundFormProps) {
   const { onBaseChange, mode, onModeChange } = props;
