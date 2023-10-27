@@ -8,8 +8,8 @@ import * as formatters from '../../formatters';
 import * as labels from '../../labels';
 import {
   ClassNames,
-  DayPickerColorScheme,
-  DayPickerContrast,
+  ColorScheme,
+  ContrastPreference,
   Formatters,
   Labels
 } from '../../types';
@@ -23,8 +23,8 @@ export type DataAttributes = Record<string, unknown>;
 export type DefaultProps = {
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;
-  colorScheme: DayPickerColorScheme;
-  contrastPreference: DayPickerContrast;
+  colorScheme: ColorScheme;
+  contrastPreference: ContrastPreference;
   formatters: Required<Formatters>;
   id: string;
   labels: Labels;

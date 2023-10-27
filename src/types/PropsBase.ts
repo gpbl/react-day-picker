@@ -22,12 +22,12 @@ export type CustomComponents = {
 };
 
 /** The name of the color schemes. */
-export type DayPickerColorScheme = 'auto' | 'dark' | 'light';
+export type ColorScheme = 'auto' | 'dark' | 'light';
 
 export type Mode = 'range' | 'single' | 'multi';
 
 /** The name of the contrast preferences. */
-export type DayPickerContrast = 'no-preference' | 'less' | 'more';
+export type ContrastPreference = 'no-preference' | 'less' | 'more';
 
 export interface PropsBase extends FormatOptions {
   /**
@@ -60,8 +60,8 @@ export interface PropsBase extends FormatOptions {
    */
   modifiersStyles?: ModifiersStyles;
 
-  colorScheme?: DayPickerColorScheme;
-  contrastPreference?: DayPickerContrast;
+  colorScheme?: ColorScheme;
+  contrast?: ContrastPreference;
 
   /**
    * A unique id to replace the random generated ids – used by DayPicker for
@@ -228,7 +228,7 @@ export interface PropsBase extends FormatOptions {
   /**
    * Add modifiers to the matching days.
    */
-  modifiers?: Record<string, Matcher | Matcher[]> | undefined;
+  modifiers?: Record<string, Matcher | Matcher[] | undefined> | undefined;
 
   /**
    * Labels creators to override the defaults. Use this prop to customize the

@@ -1,4 +1,4 @@
-import { RenderResult } from '@testing-library/react';
+import { RenderResult, screen } from '@testing-library/react';
 import { addDays } from 'date-fns';
 import React from 'react';
 
@@ -39,7 +39,7 @@ describe('when the number of months is greater than 1', () => {
     setup(props);
   });
   test('should display the specified number of month grids', () => {
-    expect(queryMonthGrids()).toHaveLength(3);
+    expect(screen.getAllByRole('grid')).toHaveLength(3);
   });
 });
 

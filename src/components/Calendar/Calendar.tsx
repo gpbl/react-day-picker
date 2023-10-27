@@ -13,7 +13,7 @@ export function Calendar(): JSX.Element {
     className,
     classNames,
     colorScheme,
-    contrastPreference,
+    contrast: contrastPreference,
     components,
     dataAttributes,
     dir,

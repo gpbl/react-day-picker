@@ -30,7 +30,8 @@ export const modifiersContext = createContext<ModifiersContext | undefined>(
  * The provider for the {@link modifiersContext}, storing the state of the day modifiers.
  */
 export function ModifiersProvider({ children }: { children: ReactNode }) {
-  const { disabled, hidden, showOutsideDays, today } = useDayPicker();
+  const { disabled, hidden, showOutsideDays, today, modifiers } =
+    useDayPicker();
   const calendarDays = useCalendar().getDays();
   const selection = useSelection();
 
@@ -59,6 +60,9 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
     const isDisabled = Boolean(disabled && dateMatchModifiers(date, disabled));
+    const isSelected = Boolean(
+      modifiers?.selected && dateMatchModifiers(date, modifiers.selected)
+    );
     const isHidden =
       Boolean(hidden && dateMatchModifiers(date, hidden)) ||
       (!showOutsideDays && isOutside);
@@ -72,7 +76,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     if (isHidden) {
       dayModifiers.hidden.push(day);
     }
-    if (selection?.isSelected(date)) {
+    if (selection?.isSelected(date) || isSelected) {
       dayModifiers.selected.push(day);
     }
     if (isSameDay(date, today)) {

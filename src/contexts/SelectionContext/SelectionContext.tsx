@@ -6,8 +6,8 @@ import { isSameDay } from 'date-fns';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import type { DayPickerProps, SelectHandler } from '../../DayPicker';
 import { isDateRange, type Modifiers } from '../../types';
-import { isDateInRange } from 'contexts/ModifiersContext/utils/isDateInRange';
 import { addToRange } from './utils/addToRange';
+import { isDateInRange } from '../../utils/isDateInRange';
 
 export type SelectionContext = {
   selected: DayPickerProps['selected'];

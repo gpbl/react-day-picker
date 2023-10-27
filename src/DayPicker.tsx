@@ -1,7 +1,7 @@
 import { Calendar } from './components/Calendar';
 import { ContextProviders } from './contexts/ContextProviders';
 import { PropsBase, Mode } from './types/PropsBase';
-import { DateRange, Matcher } from './types/matchers';
+import { DateRange } from './types/matchers';
 import { Modifiers } from './types/modifiers';
 
 export type Selected<T extends Mode> = T extends 'single'
@@ -12,22 +12,19 @@ export type Selected<T extends Mode> = T extends 'single'
   ? DateRange
   : Date;
 
+/** The callback called when the user select a days from the calendar. */
 export type SelectHandler<T extends Mode> = (
+  /** The new selected value. */
   selected: Selected<T> | undefined,
+  /** The day that triggered the selection. */
   day: Date,
-  modifiers: Modifiers,
-  e: React.MouseEvent
-) => void;
-
-export type SelectHandlerRequired<T extends Mode> = (
-  selected: Selected<T>,
-  day: Date,
+  /** The modifiers for the day that triggered the selection. */
   modifiers: Modifiers,
   e: React.MouseEvent
 ) => void;
 
 export interface PropsDefault {
-  selected?: Matcher | Matcher[] | undefined;
+  selected?: never;
   required?: never;
   mode?: never;
   onSelect?: never;

@@ -9,7 +9,7 @@ import {
   Matcher
 } from '../../../types/matchers';
 
-import { isDateInRange } from './isDateInRange';
+import { isDateInRange } from '../../../utils/isDateInRange';
 
 /** Returns true if `value` is a Date type. */
 function isDateType(value: unknown): value is Date {
