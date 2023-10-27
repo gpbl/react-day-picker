@@ -1,0 +1,70 @@
+import {
+  SourceCode,
+  getSourceCodeStaticProps
+} from '../../components/SourceCode';
+import { RenderingBox } from '../../components/RenderingBox';
+
+import CustomSingle from 'react-day-picker/docs/examples/custom-single.tsx';
+import CustomMultiple from 'react-day-picker/docs/examples/custom-multiple.tsx';
+
+import 'react-day-picker/dist/style.css';
+
+export const getStaticProps = () =>
+  getSourceCodeStaticProps(['custom-multiple.tsx', 'custom-single.tsx']);
+
+# Custom Selections
+
+import { Callout } from 'nextra/components';
+
+<Callout emoji="🚧">
+  This section is still under construction. If you need help, please reach out
+  the maintainers in the [discussion
+  page](https://github.com/gpbl/react-day-picker/discussions) on GitHub.
+</Callout>
+
+If the built-in selection modes are not enough for your app’s requirements, you can control the selection behavior using `onDayClick` and passing the a custom `selected` matcher to the `modifiers` prop:
+
+### Entering a Custom Selection Mode
+
+To implement a custom selection mode, pass to DayPicker a `selected` modifier and define the selection behavior using `onDayClick`:
+
+```tsx filename="App.tsx" showLineNumbers
+function App() {
+  /** A function returning if `date` is selected or not. */
+  const matcher = (date) => isDateSelected(date);
+
+  /** A function handling the day click. */
+  const handleDayClick = (date) => saveInState(date);
+
+  return (
+    <DayPicker
+      modifiers={{
+        selected: matcher
+      }}
+      onDayClick={(date) => handleDayClick(date)}
+    />
+  );
+}
+```
+
+## Examples
+
+### Custom Single Mode
+
+For example, to implement the "single selection" behavior – like when `mode="single"{:tsx}`:
+
+<SourceCode source="custom-single.tsx" />
+
+<RenderingBox>
+  <CustomSingle />
+</RenderingBox>
+
+### Custom Multi Selections
+
+The example below shows a custom selection mode that allows to select multiple days.
+
+<SourceCode source="custom-multiple.tsx" />
+
+<RenderingBox>
+  <CustomMultiple />
+</RenderingBox>

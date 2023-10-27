@@ -1,36 +1,59 @@
-# Modifiers
+import {
+  SourceCode,
+  getSourceCodeStaticProps
+} from '../../components/SourceCode';
+import { RenderingBox } from '../../components/RenderingBox';
 
-In DayPicker, a **modifier** is added to a day when the day matches a specific condition, called [`Matcher`](/api/types/matcher). For example, selected days have the `selected` modifiers, disabled days the `disabled` modifier, the today's date matches the `today` modifier, etc.
+import ModifiersSelected from 'react-day-picker/docs/examples/modifiers-selected.tsx';
+import ModifiersDisabled from 'react-day-picker/docs/examples/modifiers-disabled.tsx';
+import ModifiersHidden from 'react-day-picker/docs/examples/modifiers-hidden.tsx';
 
-```tsx
-<DayPicker selected={new Date()} />
-<DayPicker disabled={new Date()} />
-<DayPicker hidden={new Date()} />
-```
+import 'react-day-picker/dist/style.css';
 
-### Understanding modifiers
+export const getStaticProps = () =>
+  getSourceCodeStaticProps(['modifiers-selected.tsx', 'modifiers-hidden.tsx', 'modifiers-disabled.tsx']);
+  
+# Day Modifiers
 
-- Use modifiers to change the appearance of the days in the calendar or to inspect the days the user has interacted with (e.g. picking a day)
-- DayPicker comes with some pre-built modifiers, such as `disabled`, `selected`, `hidden`, `today`, `range_start`, etc. designed to cover the most common use cases. See the [InternalModifiers enum](/api/enums/InternalModifier) for a list of the internal modifiers.
-- It is possible to implement custom modifiers, extending the behavior of DayPicker: see [Custom Modifiers](#custom-modifiers) below for more details.
+Use Day Modifiers to change the appearance of the days in the calendar, or to
+inspect the days the user has interacted with.
 
-## The `selected` modifier
+## Understanding Modifiers
 
-```tsx
-<DayPicker selected={new Date()} />
-```
+In DayPicker, a **Modifier** is added to a day when it matches a specific
+condition. For example, selected days get a `selected` modifier; disabled
+days get a `disabled` modifier; the today's date uses the `today` modifier,
+etc.
 
-When in selection mode, use the `selected` prop to add the `selected` modifier to the selected dates, and style them accordingly. To see how to implement the `selected` modifier, see the [Selecting days guide](/basics/selecting-days).
+DayPicker comes with some built-in modifiers (`disabled`, `selected`, `hidden`,
+`today`, etc.). You can add your own modifiers too: for example, a date picker
+to book some hotel reservations may implement a `already-booked` custom
+modifier, to display them as "already booked".
 
-## Disabling days
+## The `selected` Modifier
 
-When in selection mode, use the `disabled` modifier to disable one or more days. Pass a [`Matcher`](/api/types/matcher) or an array of `Matchers` to choose the disabled days:
+When in [selection mode](/basics/selection-modes), use the `selected` prop to add
+the `selected` modifier to the selected dates, and style them accordingly.
+
+Inspect the day the user has clicked using the `onSelect` callback.
+
+<SourceCode source="modifiers-selected.tsx" />
+
+<RenderingBox>
+  <ModifiersSelected />
+</RenderingBox>
+
+## The `disabled` Modifier
+
+When in selection mode, use the `disabled` modifier to disable one or more days.
+Pass a [`Matcher`](/api/types/matcher) or an array of `Matchers` to choose the
+disabled days:
 
 ```include-example
 modifiers-disabled
 ```
 
-## Hidden days
+## The `hidden` Modifier
 
 The `hidden` modifier removes the day from the calendar. Set the hidden days using the `hidden` prop.
 

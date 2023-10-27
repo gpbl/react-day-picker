@@ -70,7 +70,7 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
             onChange={(e) => onModeChange(e.target.value as Mode)}
           />
         ))}
-        <hr className="border-neutral-500 my-2" />
+        <hr className="border-neutral-800 my-2" />
         {/* <Input
           name="required"
           label="required"

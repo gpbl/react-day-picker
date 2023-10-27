@@ -6,13 +6,13 @@ import { app, gridcell } from '../../test/po';
 
 import Example from './range';
 
-const pastMonth = new Date(2020, 10, 15);
+const day = new Date(2020, 10, 15);
 const days = [
-  pastMonth,
-  addDays(pastMonth, 1),
-  addDays(pastMonth, 2),
-  addDays(pastMonth, 3),
-  addDays(pastMonth, 4)
+  day,
+  addDays(day, 1),
+  addDays(day, 2),
+  addDays(day, 3),
+  addDays(day, 4)
 ];
 
 beforeEach(() => {
@@ -23,9 +23,6 @@ test('should be accessible', async () => {
   expect(await axe(app())).toHaveNoViolations();
 });
 
-test('should match the snapshot', () => {
-  expect(app()).toMatchSnapshot();
-});
 test.each(days)('%s should be selected', (day) => {
   expect(gridcell(day)).toHaveAttribute('aria-selected', 'true');
 });

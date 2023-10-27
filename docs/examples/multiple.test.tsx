@@ -20,9 +20,6 @@ describe('when a day is clicked', () => {
   test('should appear as selected', () => {
     expect(gridcell(day1)).toHaveAttribute('aria-selected', 'true');
   });
-  test('should update the footer', () => {
-    expect(app()).toHaveTextContent('You selected 1 day(s).');
-  });
   describe('when a second day is clicked', () => {
     const day2 = new Date(2021, 10, 2);
     beforeEach(async () => {
@@ -33,9 +30,6 @@ describe('when a day is clicked', () => {
     });
     test('the second day should appear as selected', () => {
       expect(gridcell(day2)).toHaveAttribute('aria-selected', 'true');
-    });
-    test('should update the footer', () => {
-      expect(app()).toHaveTextContent('You selected 2 day(s).');
     });
   });
 });

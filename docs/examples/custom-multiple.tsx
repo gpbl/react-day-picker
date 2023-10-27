@@ -4,37 +4,35 @@ import { isSameDay } from 'date-fns';
 import { useState } from 'react';
 
 export default function App() {
-  const [selectedDays, setSelectedDays] = useState<Date[]>([]);
+  const [value, setValue] = useState<Date[]>([]);
 
-  const handleDayClick: DayMouseEventHandler = (day, { selected }) => {
-    const newSelectedDays = [...selectedDays];
-    if (selected) {
-      const index = selectedDays.findIndex((selectedDay) =>
-        isSameDay(day, selectedDay)
-      );
-      newSelectedDays.splice(index, 1);
+  const handleDayClick: DayMouseEventHandler = (day, modifiers) => {
+    const newValue = [...value];
+    if (modifiers.selected) {
+      const index = value.findIndex((d) => isSameDay(day, d));
+      newValue.splice(index, 1);
     } else {
-      newSelectedDays.push(day);
+      newValue.push(day);
     }
-    setSelectedDays(newSelectedDays);
+    setValue(newValue);
   };
 
-  const handleResetClick = () => setSelectedDays([]);
+  const handleResetClick = () => setValue([]);
 
-  let footer = <p>Please pick one or more days.</p>;
+  let footer = <>Please pick one or more days.</>;
 
-  if (selectedDays.length > 0)
+  if (value.length > 0)
     footer = (
-      <p>
-        You selected {selectedDays.length} days.{' '}
+      <>
+        You selected {value.length} days.{' '}
         <button onClick={handleResetClick}>Reset</button>
-      </p>
+      </>
     );
 
   return (
     <DayPicker
       onDayClick={handleDayClick}
-      selected={selectedDays}
+      modifiers={{ selected: value }}
       footer={footer}
     />
   );

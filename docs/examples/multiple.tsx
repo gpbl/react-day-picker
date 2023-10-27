@@ -9,10 +9,8 @@ export default function App() {
   return (
     <DayPicker
       mode="multi"
-      required
       selected={days}
-      onSelect={(dates) => dates && setDays(dates)}
-      footer={days && days.length > 0 && `You selected ${days.length} day(s).`}
+      onSelect={(dates) => setDays(dates || [])}
     />
   );
 }

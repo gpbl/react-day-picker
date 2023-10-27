@@ -3,14 +3,21 @@ import { DayPicker } from 'react-day-picker';
 import { useState } from 'react';
 
 export default function App() {
-  const [selectedDay, setSelectedDay] = useState<Date>();
-  const handleDayClick = (day: Date) => setSelectedDay(day);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
 
   return (
     <DayPicker
-      selected={selectedDay}
-      onDayClick={handleDayClick}
-      footer={selectedDay && `You selected ${selectedDay.toDateString()}`}
+      modifiers={{
+        selected: selectedDate
+      }}
+      onDayClick={(day, modifiers) => {
+        if (modifiers.selected) {
+          setSelectedDate(undefined);
+        } else {
+          setSelectedDate(day);
+        }
+      }}
+      footer={selectedDate && `You selected ${selectedDate.toDateString()}`}
     />
   );
 }

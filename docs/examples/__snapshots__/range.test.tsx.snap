@@ -6,7 +6,7 @@ exports[`should match the snapshot 1`] = `
 >
   <div
     class="rdp  "
-    id="test"
+    id=":r0:"
   >
     <nav
       class="nav"
@@ -50,16 +50,16 @@ exports[`should match the snapshot 1`] = `
       >
         <div
           class="month_caption"
-          id="test-caption-0"
+          id=":r0:-caption-0"
         >
-          November 2020
+          October 2023
            
         </div>
         <div
-          aria-labelledby="test-caption-0"
+          aria-labelledby=":r0:-caption-0"
           aria-multiselectable="true"
           class="month_grid"
-          id="test-grid-0"
+          id=":r0:-grid-0"
           role="grid"
         >
           <div
@@ -353,7 +353,8 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="5"
-                class="day"
+                aria-selected="true"
+                class="day day_today day_selected"
                 role="gridcell"
                 tabindex="0"
               >
@@ -361,7 +362,8 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="6"
-                class="day"
+                aria-selected="true"
+                class="day day_selected"
                 role="gridcell"
                 tabindex="0"
               >
@@ -369,7 +371,8 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="7"
-                class="day"
+                aria-selected="true"
+                class="day day_selected"
                 role="gridcell"
                 tabindex="0"
               >
@@ -383,7 +386,8 @@ exports[`should match the snapshot 1`] = `
             >
               <div
                 aria-colindex="1"
-                class="day"
+                aria-selected="true"
+                class="day day_selected"
                 role="gridcell"
                 tabindex="0"
               >
@@ -391,7 +395,8 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="day"
+                aria-selected="true"
+                class="day day_selected"
                 role="gridcell"
                 tabindex="0"
               >
@@ -399,12 +404,11 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                aria-hidden="true"
-                class="day day_outside day_hidden"
+                class="day"
                 role="gridcell"
                 tabindex="0"
               >
-                1
+                31
               </div>
               <div
                 aria-colindex="4"
@@ -413,7 +417,7 @@ exports[`should match the snapshot 1`] = `
                 role="gridcell"
                 tabindex="0"
               >
-                2
+                1
               </div>
               <div
                 aria-colindex="5"
@@ -422,7 +426,7 @@ exports[`should match the snapshot 1`] = `
                 role="gridcell"
                 tabindex="0"
               >
-                3
+                2
               </div>
               <div
                 aria-colindex="6"
@@ -431,7 +435,7 @@ exports[`should match the snapshot 1`] = `
                 role="gridcell"
                 tabindex="0"
               >
-                4
+                3
               </div>
               <div
                 aria-colindex="7"
@@ -440,21 +444,12 @@ exports[`should match the snapshot 1`] = `
                 role="gridcell"
                 tabindex="0"
               >
-                5
+                4
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="footer"
-    >
-      <p>
-        November 15th, 2020
-        –
-        November 19th, 2020
-      </p>
     </div>
   </div>
 </div>

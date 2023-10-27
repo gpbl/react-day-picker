@@ -1,6 +1,6 @@
 import { Card, Cards } from 'nextra/components';
 
-# Advanced Usage
+# Advanced Guides
 
 import { Callout } from 'nextra/components';
 
@@ -14,11 +14,11 @@ Learn about more advanced features of DayPicker.
 
 <Cards>
   <Card
-    icon="🏷️"
+    icon="⌨️ "
     title={
       <div>
         Input field{' '}
-        <div className="pt-1 font-normal text-xs nx-text-gray-500">
+        <div className="pt-1 font-normal text-sm nx-text-gray-400">
           Some examples for integrating DayPicker with input fields.
         </div>
       </div>
@@ -26,24 +26,36 @@ Learn about more advanced features of DayPicker.
     href="/guides/custom-components"
   />
   <Card
-    icon="🧟‍♂️"
+    icon="🤹‍♂️ "
     title={
       <div>
         Custom Components{' '}
-        <div className="pt-1 font-normal text-xs nx-text-gray-500">
-          Replace the internal components with your own.
+        <div className="pt-1 font-normal text-sm nx-text-gray-400">
+          Replace the internal components.
         </div>
       </div>
     }
     href="/guides/custom-components"
   />
   <Card
-    icon="🔣"
+    icon="🔣 "
+    title={
+      <div>
+        Custom Selections{' '}
+        <div className="pt-1 font-normal text-sm nx-text-gray-400">
+          Extend the selection modes with custom behaviors.
+        </div>
+      </div>
+    }
+    href="/guides/custom-components"
+  />
+  <Card
+    icon="🔣 "
     title={
       <div>
         Formatters and Labels{' '}
-        <div className="pt-1 font-normal text-xs nx-text-gray-500">
-          More about the use of formatters and labels in DayPicker.
+        <div className="pt-1 font-normal text-sm nx-text-gray-400">
+          Configure formatted dates and ARIA labels.
         </div>
       </div>
     }

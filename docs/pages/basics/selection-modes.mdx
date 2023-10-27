@@ -1,0 +1,140 @@
+import {
+  SourceCode,
+  getSourceCodeStaticProps
+} from '../../components/SourceCode';
+import { RenderingBox } from '../../components/RenderingBox';
+import { Card, Cards, Callout } from 'nextra/components';
+
+import Single from 'react-day-picker/docs/examples/single.tsx';
+import SingleRequired from 'react-day-picker/docs/examples/single-required.tsx';
+import Multiple from 'react-day-picker/docs/examples/multiple.tsx';
+import MultipleMinMax from 'react-day-picker/docs/examples/multiple-min-max.tsx';
+
+import Range from 'react-day-picker/docs/examples/range.tsx';
+import RangeMinMax from 'react-day-picker/docs/examples/range-min-max.tsx';
+
+import 'react-day-picker/dist/style.css';
+
+export const getStaticProps = () =>
+  getSourceCodeStaticProps([
+    'single.tsx',
+    'single-required.tsx',
+    'multiple.tsx',
+    'multiple-min-max.tsx',
+    'range.tsx',
+    'range-min-max.tsx'
+  ]);
+
+# Selection Modes
+
+DayPicker supports 3 built-in selection modes, that fit the most common use-cases for a date picker:
+
+- **single mode**: only one day can be selected;
+- **multi mode**: allow selection of multiple days;
+- **range mode**: allow the selection of a range of days.
+
+You can also implement your own selection logic by setting up a **custom selection mode**.
+
+### Entering a Selection Mode
+
+- To use the built-in modes, use the `mode` prop.
+- To set a custom selection mode, use the `modifiers` and the `onDayClick` prop.
+
+```tsx
+// Enter the single selection mode
+<DayPicker mode="single" selected={/*...*/} onSelect={/*...*/} />
+
+// Enter the multi selection mode
+<DayPicker mode="multi"  selected={/*...*/} onSelect={/*...*/} />
+
+// Enter the range selection mode
+<DayPicker mode="range" selected={/*...*/} onSelect={/*...*/} />
+
+// Enter a custom selection mode
+<DayPicker modifiers={{ selected: /*...*/ }} onDayClick={/*...*/} />
+```
+
+## Single Selection Mode
+
+When using `mode="single"{:tsx}`, users can select only one day from the calendar:
+
+<SourceCode source="single.tsx" />
+
+<RenderingBox>
+  <Single />
+</RenderingBox>
+
+### Making a Selection Required
+
+To make a selection required, use the `required` prop. Setting this prop won't
+allow the user to unselect the selected day.
+
+<Callout emoji="📝 " type="info">
+  **Note about typings**: when `required` is set, the `selected` and `onSelect`
+  props will still allow undefined values.
+</Callout>
+
+<SourceCode source="single-required.tsx" />
+
+<RenderingBox>
+  <SingleRequired />
+</RenderingBox>
+
+## Selecting Multiple Days
+
+Use `mode="multiple"{:tsx}` to allow the selection of multiple days:
+
+<SourceCode source="multiple.tsx" />
+
+<RenderingBox>
+  <Multiple />
+</RenderingBox>
+
+### Limiting the Selectable Days
+
+Use `required` or the `min` and `max` props to limit the amount of days that can be selected.
+
+<SourceCode source="multiple-min-max.tsx" />
+
+<RenderingBox>
+  <MultipleMinMax />
+</RenderingBox>
+
+## Selecting a Range of days
+
+Use `mode="range"{:tsx}` and `onSelect` to allow the selection of multiple days.
+
+<SourceCode source="range.tsx" />
+
+<RenderingBox>
+  <Range />
+</RenderingBox>
+
+### Limiting the range size
+
+Use the `min` and `max` props to limit the amount of days in the range.
+
+<SourceCode source="range-min-max.tsx" />
+
+<RenderingBox>
+  <RangeMinMax />
+</RenderingBox>
+
+## Custom Selections
+
+If the built-in selections mode doesn't fit your application's requirements, implement custom selections as explained in the [Custom Selections](/guides/custom-selections) advanced guide.
+
+<Cards>
+  <Card
+    icon="🔣 "
+    title={
+      <div>
+        Custom Selections{' '}
+        <div className="pt-1 font-normal text-sm nx-text-gray-400">
+          Extend the selection modes with custom behaviors.
+        </div>
+      </div>
+    }
+    href="/guides/custom-selections"
+  />
+</Cards>

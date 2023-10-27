@@ -19,7 +19,7 @@ export function Input(props: InputProps) {
   const className = inputClassNames[type] ?? defaultClassName;
 
   const labelClassName = `flex items-center justify-between gap-2 text-sm${
-    props.disabled ? ' text-neutral-400' : ''
+    props.disabled ? ' opacity-600' : ''
   }`;
   return (
     <label className={labelClassName}>

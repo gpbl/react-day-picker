@@ -9,6 +9,9 @@ type SourceCodeProps = {
   source: string;
   filename?: string;
   theme?: Theme;
+  showLineNumbers: boolean;
+  /** The line numbers to highlight e.g highlightLines="1,3-4" */
+  highlightLines?: string;
 };
 
 /**
@@ -33,7 +36,12 @@ type SourceCodeProps = {
  */
 export function SourceCode(props: SourceCodeProps) {
   const lang = props.source.substr(-3);
-  const { source, theme, filename = `App.${lang}` } = props;
+  const {
+    source,
+    theme,
+    filename = `App.${lang}`,
+    showLineNumbers = true
+  } = props;
 
   const examples = useData();
 
@@ -66,6 +74,7 @@ export function SourceCode(props: SourceCodeProps) {
       <Code
         data-theme={theme}
         data-language={lang}
+        data-line-numbers={showLineNumbers}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </Pre>
@@ -103,4 +112,22 @@ export async function getSourceCodeStaticProps(sources: string[]) {
       ssg: highlightedExamples
     }
   };
+}
+
+function parseHighlightLines(value: string): number[] {
+  const parts = value.split(',');
+  let lines: number[] = [];
+
+  parts.forEach((part) => {
+    if (part.includes('-')) {
+      const [start, end] = part.split('-').map(Number);
+      lines = lines.concat(
+        Array.from({ length: end - start + 1 }, (_, i) => start + i)
+      );
+    } else {
+      lines.push(Number(part));
+    }
+  });
+
+  return lines;
 }

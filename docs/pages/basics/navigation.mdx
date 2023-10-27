@@ -20,7 +20,7 @@ export const getStaticProps = () =>
 
 Configure how users can navigate between months.
 
-### Change the Default Month
+## Change the Default Month
 
 DayPicker displays the month of the current day. To change the
 default month, set the `defaultMonth` prop.
@@ -35,7 +35,7 @@ import DefaultMonth from 'react-day-picker/docs/examples/default-month.tsx';
   <DefaultMonth />
 </RenderingBox>
 
-### Controlling the Current Month
+## Controlling the Current Month
 
 DayPicker controls the displayed month and stores it in its internal state. To
 control the current month – for example, to implement a "Go to today" button –
@@ -52,7 +52,7 @@ import Controlled from 'react-day-picker/docs/examples/controlled.tsx';
   <Controlled />
 </RenderingBox>
 
-### Limiting the Month Navigation
+## Limiting the Month Navigation
 
 As default, DayPicker can navigate indefinitely in the past or in the future. To limit the navigable months between two years, use `fromYear` or `toYear`.
 
@@ -64,7 +64,7 @@ import FromToYear from 'react-day-picker/docs/examples/from-to-year.tsx';
   <FromToYear />
 </RenderingBox>
 
-#### Navigating Between Months or Dates
+### Navigating Between Months or Dates
 
 You can also limit the navigation with `fromDate`/`toDate` and `fromMonth` and
 `toMonth`. For example, to limit the calendar between June 2015 and the 20th
@@ -78,7 +78,7 @@ import FromToMonth from 'react-day-picker/docs/examples/from-to-month.tsx';
   <FromToMonth />
 </RenderingBox>
 
-### Choosing a Caption Layout
+## Choosing a Caption Layout
 
 When limiting the navigable months, use `captionLayout="dropdown"` to display a drop-down
 (a select HTML element) for navigating between months – instead of the previous
@@ -102,7 +102,7 @@ import DrowpdownButtons from 'react-day-picker/docs/examples/dropdown-buttons.ts
   <DrowpdownButtons />
 </RenderingBox>
 
-### Disabling Navigation
+## Disabling Navigation
 
 To disable the navigation between months, use `disableNavigation`.
 

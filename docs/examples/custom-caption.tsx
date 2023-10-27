@@ -1,4 +1,8 @@
-import { DayPicker, MonthCaptionProps, useCalendar } from 'react-day-picker';
+import {
+  DayPicker,
+  useCalendar,
+  type MonthCaptionProps
+} from 'react-day-picker';
 
 import { format } from 'date-fns';
 
@@ -27,7 +31,7 @@ export default function App() {
   return (
     <DayPicker
       components={{
-        Caption: CustomMonthCaption
+        MonthCaption: CustomMonthCaption
       }}
     />
   );
