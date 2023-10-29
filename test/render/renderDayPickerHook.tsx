@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { ContextProviders } from '../../src/contexts/ContextProviders';
 import { DayPickerProps } from '../../src';
 
-/** Render a DayPicker hook inside the {@link RootProvider}. */
+/** Render a DayPicker hook inside the `RootProvider`. */
 export type RenderHookResult<TResult> = {
   current: TResult;
 };

@@ -27,7 +27,7 @@ const contextValue = {
 export const selectionContext = createContext<SelectionContext>(contextValue);
 
 /**
- * The provider for the {@link selectionContext}, storing the calendar state.
+ * The provider for the `selectionContext`, storing the calendar state.
  */
 export function SelectionProvider(providerProps: PropsWithChildren) {
   const { required, onSelect, mode, ...dayPicker } = useDayPicker();

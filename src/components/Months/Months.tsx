@@ -1,7 +1,7 @@
 import { HTMLProps } from 'react';
 
 /**
- * The props for the {@link Months} component.
+ * The props for the `Months` component.
  */
 export type MonthsProps = Pick<
   HTMLProps<HTMLElement>,

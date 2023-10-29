@@ -10,11 +10,11 @@ import { useSelection } from '../../contexts/SelectionContext';
 import type { InternalModifier, Modifiers } from '../../types';
 import { dateMatchModifiers } from './utils/dateMatchModifiers';
 
-/** A record with `data-*` attributes passed to {@link DayPicker}. */
+/** A record with `data-*` attributes passed to `DayPicker`. */
 export type DataAttributes = Record<string, unknown>;
 
 /**
- * The {@link DayPickerProps} with their default values. Use this type within
+ * The `DayPickerProps` with their default values. Use this type within
  * internal components to use safe props and avoid all conditionals.
  */
 export interface ModifiersContext {
@@ -27,7 +27,7 @@ export const modifiersContext = createContext<ModifiersContext | undefined>(
 );
 
 /**
- * The provider for the {@link modifiersContext}, storing the state of the day modifiers.
+ * The provider for the `modifiersContext`, storing the state of the day modifiers.
  */
 export function ModifiersProvider({ children }: { children: ReactNode }) {
   const { disabled, hidden, showOutsideDays, today, modifiers } =

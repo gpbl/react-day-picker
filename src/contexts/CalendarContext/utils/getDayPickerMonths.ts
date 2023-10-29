@@ -16,7 +16,7 @@ import {
 } from '../../../contexts/CalendarContext/DayPickerCalendar';
 import { FormatOptions } from '../../../types/FormatOptions';
 
-/** Return the {@link DayPickerMonth | DayPickerMonths} to display in the calendar. */
+/** Return the `DayPickerMonth | DayPickerMonths` to display in the calendar. */
 export function getDayPickerMonths(
   months: Date[],
   dates: Date[],

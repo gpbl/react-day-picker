@@ -6,7 +6,7 @@ import { DayGridCellWrapper } from '../DayGridCell/DayGridCellWrapper';
 import { WeekNumberRowHeader as DefaultWeekNumberRowHeader } from '../WeekNumberRowHeader';
 
 /**
- * The props for the {@link WeekRow} component.
+ * The props for the `WeekRow` component.
  */
 export interface WeekRowProps
   extends Pick<React.AriaAttributes, 'aria-rowindex'> {

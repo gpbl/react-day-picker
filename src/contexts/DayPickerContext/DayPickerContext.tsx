@@ -17,7 +17,7 @@ import {
 import { defaultClassNames } from './defaultClassNames';
 import { parseFromToProps } from './utils/parseFromToProps';
 
-/** A record with `data-*` attributes passed to {@link DayPicker}. */
+/** A record with `data-*` attributes passed to `DayPicker`. */
 export type DataAttributes = Record<string, unknown>;
 
 export type DefaultProps = {
@@ -38,7 +38,7 @@ export type DefaultProps = {
 };
 
 /**
- * The {@link DayPickerProps} with their default values. Use this type within
+ * The `DayPickerProps` with their default values. Use this type within
  * internal components to use safe props and avoid all conditionals.
  */
 export type DayPickerContext = DayPickerProps &
@@ -47,7 +47,7 @@ export type DayPickerContext = DayPickerProps &
 export const dayPickerContext = createContext<DayPickerContext | null>(null);
 
 /**
- * The provider for the {@link dayPickerContext}, storing the props and setting its defaults.
+ * The provider for the `dayPickerContext`, storing the props and setting its defaults.
  * Must be the root of all the providers.
  */
 export function DayPickerProvider(props: PropsWithChildren<DayPickerProps>) {

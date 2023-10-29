@@ -43,7 +43,7 @@ export interface PropsBase {
    */
   classNames?: Partial<ClassNames>;
   /**
-   * Change the class name for the day matching the {@link modifiers}.
+   * Change the class name for the day matching the `modifiers}.
    */
   modifiersClassNames?: ModifiersClassNames;
 
@@ -56,7 +56,7 @@ export interface PropsBase {
    */
   styles?: Styles;
   /**
-   * Change the inline style for the day matching the {@link modifiers}.
+   * Change the inline style for the day matching the `modifiers}.
    */
   modifiersStyles?: ModifiersStyles;
 
@@ -72,7 +72,7 @@ export interface PropsBase {
   /**
    * The initial month to show in the calendar. Use this prop to let DayPicker
    * control the current month. If you need to set the month programmatically,
-   * use {@link month} and {@link onMonthChange}.
+   * use `month` and `onMonthChange`.
    *
    * @defaultValue The current month
    */
@@ -80,8 +80,8 @@ export interface PropsBase {
   /**
    * The month displayed in the calendar.
    *
-   * As opposed to {@link PropsBase.defaultMonth}, use this prop with
-   * {@link PropsBase.onMonthChange} to change the month programmatically.
+   * As opposed to `PropsBase.defaultMonth}, use this prop with
+   * `PropsBase.onMonthChange} to change the month programmatically.
    */
   month?: Date;
   /**
@@ -125,14 +125,14 @@ export interface PropsBase {
    */
   disableNavigation?: boolean;
   /**
-   * Paginate the month navigation displaying the {@link numberOfMonths} at
+   * Paginate the month navigation displaying the `numberOfMonths} at
    * time.
    *
    * @defaultValue false
    */
   pagedNavigation?: boolean;
   /**
-   * Render the months in reversed order (when {@link numberOfMonths} is greater
+   * Render the months in reversed order (when `numberOfMonths} is greater
    * than `1`) to display the most recent month first.
    *
    * @defaultValue false
@@ -140,7 +140,7 @@ export interface PropsBase {
   reverseMonths?: boolean;
 
   /**
-   * Change the layout of the caption:
+   * Change the layout of the caption.
    *
    * - `buttons`: display prev/right buttons
    * - `dropdown`: display drop-downs to change the month and the year
@@ -173,10 +173,8 @@ export interface PropsBase {
    * Show the week numbers column. Weeks are numbered according to the local
    * week index.
    *
-   * - to use ISO week numbering, use the {@link ISOWeek} prop.
-   * - to change how the week numbers are displayed, use the {@link Formatters} prop.
-   *
-   * @see {@link ISOWeek}, {@link weekStartsOn} and {@link firstWeekContainsDate}.
+   * - to use ISO week numbering, use the `ISOWeek` prop.
+   * - to change how the week numbers are displayed, use the `Formatters` prop.
    *
    * @defaultValue false
    */
@@ -184,7 +182,7 @@ export interface PropsBase {
 
   /**
    * Use ISO week dates instead of the locale setting. Setting this prop will
-   * ignore {@link weekStartsOn} and {@link firstWeekContainsDate}.
+   * ignore `weekStartsOn` and `firstWeekContainsDate`.
    *
    * @see https://en.wikipedia.org/wiki/ISO_week_date
    */
@@ -278,7 +276,7 @@ export interface PropsBase {
   /**
    * The day of January, which is always in the first week of the year.
    *
-   * @see {@link ISOWeek}.
+   * @see `ISOWeek}.
    * @see https://date-fns.org/docs/getWeek
    * @see https://en.wikipedia.org/wiki/Week#Numbering
    */

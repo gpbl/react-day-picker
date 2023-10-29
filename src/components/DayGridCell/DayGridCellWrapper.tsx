@@ -21,7 +21,7 @@ export interface DayGridCellWrapperProps
 }
 
 /**
- * Provides a {@link DayGridCell} the day state and the html attributes.
+ * Provides a `DayGridCell` the day state and the html attributes.
  * Developers may use a `DayGridCell` component without the need to use hooks.
  */
 export function DayGridCellWrapper(

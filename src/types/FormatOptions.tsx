@@ -16,7 +16,7 @@ export interface FormatOptions {
   /**
    * The day of January, which is always in the first week of the year.
    *
-   * @see {@link ISOWeek}.
+   * @see `ISOWeek`.
    * @see https://date-fns.org/docs/getWeek
    * @see https://en.wikipedia.org/wiki/Week#Numbering
    */

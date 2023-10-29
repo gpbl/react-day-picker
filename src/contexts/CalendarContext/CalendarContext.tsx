@@ -18,7 +18,7 @@ export const calendarContext = createContext<DayPickerCalendar | undefined>(
 );
 
 /**
- * The provider for the {@link calendarContext}, storing the calendar state.
+ * The provider for the `calendarContext`, storing the calendar state.
  */
 export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const dayPicker = useDayPicker();

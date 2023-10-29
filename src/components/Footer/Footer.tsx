@@ -1,7 +1,7 @@
 import { HTMLProps } from 'react';
 
 /**
- * The props for the {@link Footer} component.
+ * The props for the `Footer` component.
  */
 export type FooterProps = Pick<
   HTMLProps<HTMLElement>,
