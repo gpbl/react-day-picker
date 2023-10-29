@@ -1,19 +1,21 @@
-import {
-  SourceCode,
-  getSourceCodeStaticProps
-} from '../../components/SourceCode';
-import { RenderingBox } from '../../components/RenderingBox';
+import { getExamples } from '@examples/getExamples';
 
-import ModifiersSelected from 'react-day-picker/docs/examples/modifiers-selected.tsx';
-import ModifiersDisabled from 'react-day-picker/docs/examples/modifiers-disabled.tsx';
-import ModifiersHidden from 'react-day-picker/docs/examples/modifiers-hidden.tsx';
-
-import 'react-day-picker/dist/style.css';
-
-export const getStaticProps = () =>
-  getSourceCodeStaticProps(['modifiers-selected.tsx', 'modifiers-hidden.tsx', 'modifiers-disabled.tsx']);
+export const getStaticProps = () => getExamples([
+  'ModifiersSelected.tsx',
+  'ModifiersDisabled.tsx', 
+  'ModifiersHidden.tsx', 
+  'ModifiersCustom.tsx'
+]);
   
 # Day Modifiers
+
+import { Callout } from 'nextra/components';
+
+<Callout emoji="🚧">
+  This section is still under construction. If you need help, please reach out
+  the maintainers in the [discussion
+  page](https://github.com/gpbl/react-day-picker/discussions) on GitHub.
+</Callout>
 
 Use Day Modifiers to change the appearance of the days in the calendar, or to
 inspect the days the user has interacted with.
@@ -21,9 +23,8 @@ inspect the days the user has interacted with.
 ## Understanding Modifiers
 
 In DayPicker, a **Modifier** is added to a day when it matches a specific
-condition. For example, selected days get a `selected` modifier; disabled
-days get a `disabled` modifier; the today's date uses the `today` modifier,
-etc.
+condition. For example, selected days get a `selected` modifier; disabled days
+get a `disabled` modifier; the today's date uses the `today` modifier, etc.
 
 DayPicker comes with some built-in modifiers (`disabled`, `selected`, `hidden`,
 `today`, etc.). You can add your own modifiers too: for example, a date picker
@@ -32,16 +33,14 @@ modifier, to display them as "already booked".
 
 ## The `selected` Modifier
 
-When in [selection mode](/basics/selection-modes), use the `selected` prop to add
-the `selected` modifier to the selected dates, and style them accordingly.
+When in [selection mode](/basics/selection-modes), use the `selected` prop to
+add the `selected` modifier to the selected dates, and style them accordingly.
 
 Inspect the day the user has clicked using the `onSelect` callback.
 
-<SourceCode source="modifiers-selected.tsx" />
+```include-example filename="ModifiersSelected.tsx"
 
-<RenderingBox>
-  <ModifiersSelected />
-</RenderingBox>
+```
 
 ## The `disabled` Modifier
 
@@ -49,40 +48,42 @@ When in selection mode, use the `disabled` modifier to disable one or more days.
 Pass a [`Matcher`](/api/types/matcher) or an array of `Matchers` to choose the
 disabled days:
 
-```include-example
-modifiers-disabled
+```include-example filename="ModifiersDisabled.tsx"
+
 ```
 
 ## The `hidden` Modifier
 
-The `hidden` modifier removes the day from the calendar. Set the hidden days using the `hidden` prop.
+The `hidden` modifier removes the day from the calendar. Set the hidden days
+using the `hidden` prop.
 
-```include-example
-modifiers-hidden
+```include-example filename="ModifiersHidden.tsx"
+
 ```
 
 ## The `today` modifier
 
-The `today` modifier is added to the current date:
+The `today` modifier is added to the current date. You can change the current
+date using the `today` prop.
 
-```include-example
-modifiers-today
+```include-example filename="ModifiersToday.tsx"
+
 ```
-
-:::info
-You can change the current date using the `today` prop.
-:::
 
 ## Custom modifiers
 
-Add new modifiers according to your app’s requirements. For example, a booking app may use a `booked` modifier to mark days as already booked.
+Add new modifiers according to your app’s requirements. For example, a booking
+app may use a `booked` modifier to mark days as already booked.
 
-Use the `modifiers` prop to pass an object with custom modifiers and their matcher. Change the inline-style of the cell with `modifiersStyles` or with `modifiersClassNames`.
+Use the `modifiers` prop to pass an object with custom modifiers and their
+matcher. Change the inline-style of the cell with `modifiersStyles` or with
+`modifiersClassNames`.
 
-```include-example
-modifiers-custom
+```include-example filename="ModifiersCustom.tsx"
+
 ```
 
 ## Styling modifiers
 
-A day can be styled according to its modifiers – using CSS or inline styles. See [Styling DayPicker](/basics/styling) for more details.
+A day can be styled according to its modifiers – using CSS or inline styles. See
+[Styling DayPicker](/basics/styling) for more details.

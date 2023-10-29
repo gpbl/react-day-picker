@@ -1,22 +1,11 @@
-import {
-  SourceCode,
-  getSourceCodeStaticProps
-} from '../../components/SourceCode';
-import { RenderingBox } from '../../components/RenderingBox';
-
-import CustomCaption from '@examples/custom-caption.tsx';
-import CustomDay from '@examples/custom-day.tsx';
-import RangeShiftKey from '@examples/range-shift-key.tsx';
-import CustomDisableRow from '@examples/custom-disable-row.tsx';
-
-import 'react-day-picker/dist/style.css';
+import { getExamples } from '@examples/getExamples';
 
 export const getStaticProps = () =>
-  getSourceCodeStaticProps([
-    'custom-caption.tsx',
-    'custom-day.tsx',
-    'range-shift-key.tsx',
-    'custom-disable-row.tsx'
+  getExamples([
+    'CustomCaption.tsx',
+    'CustomDay.tsx',
+    'RangeShiftKey.tsx',
+    'CustomDisableRow.tsx'
   ]);
 
 # Custom Components
@@ -41,36 +30,28 @@ When creating custom components, you will find useful the DayPicker hooks.
 
 Implement a custom `Caption` component with next/previous buttons. Note the use of the [useNavigation hook](/api/functions/useNavigation) to navigate between months.
 
-<SourceCode source="custom-caption.tsx" />
+```include-example filename="CustomCaption.tsx"
 
-<RenderingBox>
-  <CustomCaption />
-</RenderingBox>
+```
 
 ### Wrapping the day
 
-<SourceCode source="custom-day.tsx" />
+```include-example filename="CustomDay.tsx"
 
-<RenderingBox>
-  <CustomDay />
-</RenderingBox>
+```
 
 ### Range selections with Shift key
 
 Implement a custom `Day` component to select ranges while pressing the <kbd>Shift</kbd> key.
 
-<SourceCode source="range-shift-key.tsx" />
+```include-example filename="RangeShiftKey.tsx"
 
-<RenderingBox>
-  <RangeShiftKey />
-</RenderingBox>
+```
 
 ### Disable rows in the past
 
 Implement a custom component to hide the rows of past weeks.
 
-<SourceCode source="custom-disable-row.tsx" />
+```include-example filename="CustomDisableRow.tsx"
 
-<RenderingBox>
-  <CustomDisableRow />
-</RenderingBox>
+```

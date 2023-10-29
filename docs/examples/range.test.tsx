@@ -4,7 +4,7 @@ import { addDays } from 'date-fns';
 import { axe, renderApp, user } from '../../test';
 import { app, gridcell } from '../../test/po';
 
-import Example from './range';
+import { Range } from './Range';
 
 const day = new Date(2020, 10, 15);
 const days = [
@@ -16,7 +16,7 @@ const days = [
 ];
 
 beforeEach(() => {
-  renderApp(<Example />);
+  renderApp(<Range />);
 });
 
 test('should be accessible', async () => {

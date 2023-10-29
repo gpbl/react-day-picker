@@ -1,15 +1,6 @@
-import {
-  SourceCode,
-  getSourceCodeStaticProps
-} from '../../components/SourceCode';
-import { RenderingBox } from '../../components/RenderingBox';
+import { getExamples } from '@examples/getExamples';
 
-import Formatters from '@examples/formatters.tsx';
-
-import 'react-day-picker/dist/style.css';
-
-export const getStaticProps = () =>
-  getSourceCodeStaticProps(['formatters.tsx']);
+export const getStaticProps = () => getExamples(['Formatters.tsx']);
 
 # Formatters
 
@@ -29,8 +20,6 @@ import { Callout } from 'nextra/components';
 
 The following example add some emoji to the caption and to the day cells.
 
-<SourceCode source="formatters.tsx" />
+```include-example filename="Formatters.tsx"
 
-<RenderingBox>
-  <Formatters />
-</RenderingBox>
+```

@@ -27,7 +27,7 @@ const formatMonthCaption: Formatters['formatMonthCaption'] = (
   })}`;
 };
 
-export default function App() {
+export function Formatters() {
   return (
     <DayPicker
       fromYear={2020}

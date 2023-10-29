@@ -1,11 +1,11 @@
 import { app, axe, freezeTime, gridcell, renderApp, user } from '../../test';
-import Example from './single';
+import { Single } from './Single';
 
 const today = new Date(2021, 10, 25);
 freezeTime(today);
 
 beforeEach(() => {
-  renderApp(<Example />);
+  renderApp(<Single />);
 });
 
 test('should be accessible', async () => {

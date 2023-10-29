@@ -1,5 +1,5 @@
 import { DayPicker, DayPickerProps } from 'react-day-picker';
 
-export default function Example(props: DayPickerProps) {
+export function Keyboard(props: DayPickerProps) {
   return <DayPicker {...props} />;
 }

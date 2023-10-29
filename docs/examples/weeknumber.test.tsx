@@ -1,11 +1,11 @@
 import { app, axe, freezeTime, renderApp, rowheader, user } from '../../test';
-import Example from './weeknumber';
+import { Weeknumber } from './Weeknumber';
 
 const today = new Date(2021, 10, 25);
 freezeTime(today);
 
 beforeEach(() => {
-  renderApp(<Example />);
+  renderApp(<Weeknumber />);
 });
 
 test('should be accessible', async () => {

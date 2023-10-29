@@ -1,24 +1,14 @@
 import { Steps, Callout } from 'nextra/components';
-import 'react-day-picker/dist/style.css';
-
-import {
-  SourceCode,
-  getSourceCodeStaticProps
-} from '../../components/SourceCode';
-import { RenderingBox } from '../../components/RenderingBox';
-
-import StylingInline from 'react-day-picker/docs/examples/styling-inline.tsx';
-import StylingModifiers from 'react-day-picker/docs/examples/styling-modifiers.tsx';
-import CSSModules from 'react-day-picker/docs/examples/styling-css-modules.tsx';
-import CSSVariables from 'react-day-picker/docs/examples/css-variables.tsx';
+import { SourceCode } from '@components/SourceCode';
+import { getExamples } from '@examples/getExamples';
 
 export const getStaticProps = () =>
-  getSourceCodeStaticProps([
-    'css-variables.tsx',
+  getExamples([
+    'StylingInline.tsx',
+    'StylingModifiers.tsx',
+    'StylingCssModules.tsx',
+    'CssVariables.tsx',
     'css-variables.module.css',
-    'styling-inline.tsx',
-    'styling-modifiers.tsx',
-    'styling-css-modules.tsx',
     'styling-css-modules.module.css'
   ]);
 
@@ -69,15 +59,13 @@ function App() {
 You can also override the CSS variables using the `className` prop:
 
 <SourceCode
-  source="css-variables.module.css"
-  filename="css-variables.module.css"
+  fileName="css-variables.module.css"
+  title="css-variables.module.css"
 />
 
-<SourceCode source="css-variables.tsx" />
+```include-example filename="CssVariables.tsx"
 
-<RenderingBox>
-  <CSSVariables />
-</RenderingBox>
+```
 
 ### CSS Variables Playground
 
@@ -88,13 +76,13 @@ You can also override the CSS variables using the `className` prop:
 To further customize the styles, override the DayPicker CSS. For example, to
 change the background color of the day cells, add this style sheet:
 
-```css filename="App.css"
+```css showLineNumbers filename="App.css"
 .rdp-day {
   background-color: #f0f0f0;
 }
 ```
 
-```tsx filename=App.tsx {4}
+```tsx filename="App.tsx" {4}
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
@@ -110,14 +98,13 @@ function App() {
 When using CSS modules, override the class names with your custom CSS:
 
 <SourceCode
-  source="styling-css-modules.module.css"
-  filename="styling-css-modules.module.css"
+  title="styling-css-modules.module.css"
+  fileName="styling-css-modules.module.css"
 />
-<SourceCode source="styling-css-modules.tsx" />
 
-<RenderingBox>
-  <CSSModules />
-</RenderingBox>
+```include-example filename="StylingCssModules.tsx"
+
+```
 
 ### Using Inline Styles
 
@@ -127,11 +114,9 @@ To change the appearance of any DayPicker element via inline-styles use the
 Using inline styles won't override the default class names. Mouse hover effects
 cannot be styled inline.
 
-<SourceCode source="styling-inline.tsx" />
+```include-example filename="StylingInline.tsx"
 
-<RenderingBox>
-  <StylingInline />
-</RenderingBox>
+```
 
 ## Styling Modifiers
 
@@ -139,11 +124,9 @@ Change the style of [Modifiers](/basics/modifiers) with the
 `modifiersClassNames` or `modifiersStyles`. This will set the class name or the
 inline style for the days with the modifiers.
 
-<SourceCode source="styling-modifiers.tsx" />
+```include-example filename="StylingModifiers.tsx"
 
-<RenderingBox>
-  <StylingModifiers />
-</RenderingBox>
+```
 
 With CSS modules, pass the generated class name instead:
 

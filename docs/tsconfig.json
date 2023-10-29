@@ -14,7 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {
-      "@examples/*": ["./examples/*"]
+      "@examples/*": ["./examples/*"],
+      "@components/*": ["./components/*"]
     },
     "plugins": [
       {

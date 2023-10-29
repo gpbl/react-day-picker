@@ -1,28 +1,14 @@
-import {
-  SourceCode,
-  getSourceCodeStaticProps
-} from '../../components/SourceCode';
-import { RenderingBox } from '../../components/RenderingBox';
-
-import FixedWeeks from '@examples/fixedweeks.tsx';
-import MultipleMonths from '@examples/multiple-months.tsx';
-import MultipleMonthsPaged from '@examples/multiple-months-paged.tsx';
-import OutsideDays from '@examples/outside-days.tsx';
-import WeekNumber from '@examples/weeknumber.tsx';
-import WeekNumberCustom from '@examples/weeknumber-custom.tsx';
-import WeekNumberISO from '@examples/weeknumber-iso.tsx';
-
-import 'react-day-picker/dist/style.css';
+import { getExamples } from '@examples/getExamples';
 
 export const getStaticProps = () =>
-  getSourceCodeStaticProps([
-    'multiple-months.tsx',
-    'fixedweeks.tsx',
-    'weeknumber.tsx',
-    'weeknumber-iso.tsx',
-    'weeknumber-custom.tsx',
-    'outside-days.tsx',
-    'multiple-months-paged.tsx'
+  getExamples([
+    'Fixedweeks.tsx',
+    'MultipleMonths.tsx',
+    'MultipleMonthsPaged.tsx',
+    'OutsideDays.tsx',
+    'Weeknumber.tsx',
+    'WeeknumberCustom.tsx',
+    'WeeknumberIso.tsx'
   ]);
 
 # Customize DayPicker
@@ -33,68 +19,61 @@ Change months, weeks and days in the calendar.
 
 Use `showOutsideDays` to display the days falling out the current month.
 
-<SourceCode source="outside-days.tsx" />
+```include-example filename="OutsideDays.tsx"
 
-<RenderingBox>
-  <OutsideDays />
-</RenderingBox>
+```
 
 ## Render Multiple Months
 
 Use `numberOfMonths` to render more than one calendar.
 
-<SourceCode source="multiple-months.tsx" />
+```include-example filename="MultipleMonths.tsx"
 
-<RenderingBox>
-  <MultipleMonths />
-</RenderingBox>
+```
 
 Toggle `pagedNavigation` to navigate the number of months per time.
 
-<SourceCode source="multiple-months-paged.tsx" />
+```include-example filename="MultipleMonthsPaged.tsx"
 
-<RenderingBox>
-  <MultipleMonthsPaged />
-</RenderingBox>
+```
 
 ## Using Fixed Weeks
 
-Use `fixedWeeks` to display six weeks per months. This will prevent the calendar to change its height when navigating.
+Use `fixedWeeks` to display six weeks per months. This will prevent the calendar
+to change its height when navigating.
 
-<SourceCode source="fixedweeks.tsx" />
+```include-example filename="Fixedweeks.tsx"
 
-<RenderingBox>
-  <FixedWeeks />
-</RenderingBox>
+```
 
 ## Show the Week Numbers
 
-Use `showWeekNumber` to display the week numbers. When this prop is set, use `onWeekNumberClick` to handle the click on a week number.
+Use `showWeeknumber` to display the week numbers. When this prop is set, use
+`onWeeknumberClick` to handle the click on a week number.
 
-<SourceCode source="weeknumber.tsx" />
+```include-example filename="Weeknumber.tsx"
 
-<RenderingBox>
-  <WeekNumber />
-</RenderingBox>
+```
 
 ### Customize the Week Numbers
 
 - To set the first day of the week, use `weekStartsOn`.
-- To set the day of January in the first week of the year `firstWeekContainsDate`.
-- Use the `formatWeekNumber` formatter to change how week numbers are displayed.
+- To set the day of January in the first week of the year
+  `firstWeekContainsDate`.
+- Use the `formatWeeknumber` formatter to change how week numbers are displayed.
 
-<SourceCode source="weeknumber-custom.tsx" />
+```include-example filename="WeeknumberCustom.tsx"
 
-<RenderingBox>
-  <WeekNumberCustom />
-</RenderingBox>
+```
 
 ## Switch to ISO Week Dates
 
-DayPicker uses [date-fns getWeek](https://date-fns.org/docs/getWeek) to calculate the week number. By default, the week starts on Sunday and the first week of the year is the one that contains January 1st. Use `ISOWeek` to switch using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of the locale setting.
+DayPicker uses [date-fns getWeek](https://date-fns.org/docs/getWeek) to
+calculate the week number. By default, the week starts on Sunday and the first
+week of the year is the one that contains January 1st. Use `ISOWeek` to switch
+using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of
+the locale setting.
 
-<SourceCode source="weeknumber-iso.tsx" />
+```include-example filename="WeeknumberIso.tsx"
 
-<RenderingBox>
-  <WeekNumberISO />
-</RenderingBox>
+```

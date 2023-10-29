@@ -57,6 +57,11 @@ export interface PropsRange {
 export type DayPickerProps = PropsBase &
   (PropsDefault | PropsSingle | PropsMulti | PropsRange);
 
+/**
+ * Render a date picker component.
+ *
+ * @see https://react-day-picker.js.org
+ */
 export function DayPicker(props: DayPickerProps): JSX.Element {
   return (
     <ContextProviders {...props}>

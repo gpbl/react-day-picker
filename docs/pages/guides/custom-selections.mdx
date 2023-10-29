@@ -1,16 +1,7 @@
-import {
-  SourceCode,
-  getSourceCodeStaticProps
-} from '../../components/SourceCode';
-import { RenderingBox } from '../../components/RenderingBox';
-
-import CustomSingle from 'react-day-picker/docs/examples/custom-single.tsx';
-import CustomMultiple from 'react-day-picker/docs/examples/custom-multiple.tsx';
-
-import 'react-day-picker/dist/style.css';
+import { getExamples } from '@examples/getExamples';
 
 export const getStaticProps = () =>
-  getSourceCodeStaticProps(['custom-multiple.tsx', 'custom-single.tsx']);
+  getExamples(['CustomMultiple.tsx', 'CustomSingle.tsx']);
 
 # Custom Selections
 
@@ -53,18 +44,14 @@ function App() {
 
 For example, to implement the "single selection" behavior – like when `mode="single"{:tsx}`:
 
-<SourceCode source="custom-single.tsx" />
+```include-example filename="CustomSingle.tsx"
 
-<RenderingBox>
-  <CustomSingle />
-</RenderingBox>
+```
 
 ### Custom Multi Selections
 
 The example below shows a custom selection mode that allows to select multiple days.
 
-<SourceCode source="custom-multiple.tsx" />
+```include-example filename="CustomMultiple.tsx"
 
-<RenderingBox>
-  <CustomMultiple />
-</RenderingBox>
+```

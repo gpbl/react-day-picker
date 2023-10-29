@@ -5,6 +5,9 @@ import currentGitBranchName from 'current-git-branch';
 const withNextra = nextra({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.tsx',
+  experimental: {
+    largePageDataBytes: 400 * 100000
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /react-day-picker/,

@@ -35,7 +35,7 @@ When importing, include the DayPicker CSS in your component.
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
-export default function App() {
+export function App() {
   const [selected, setSelected] = React.useState<Date>();
   return <DayPicker mode="single" selected={selected} onSelect={setSelected} />;
 }

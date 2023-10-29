@@ -1,78 +1,79 @@
-import {
-  SourceCode,
-  getSourceCodeStaticProps
-} from '../../components/SourceCode';
-import { RenderingBox } from '../../components/RenderingBox';
-
-import Rtl from '@examples/rtl.tsx';
-import WeekIso from '@examples/week-iso.tsx';
-import NumberingSystem from '@examples/numbering-system.tsx';
-
-import 'react-day-picker/dist/style.css';
+import { getExamples } from '@examples/getExamples';
 
 export const getStaticProps = () =>
-  getSourceCodeStaticProps(['numbering-system.tsx', 'rtl.tsx', 'week-iso.tsx']);
+  getExamples([
+    'Spanish.tsx',
+    'SpanishWeekStartsOn.tsx',
+    'Rtl.tsx',
+    'WeekIso.tsx',
+    'WeeknumberCustom.tsx'
+  ]);
 
 # Localization
 
+Learn to localize DayPicker in any language.
+
 ## Changing locale
 
-To change the locale, pass to the `locale` prop a date-fns [Locale object](http://date-fns.org/docs/Locale).
+To change the locale, pass to the `locale` prop a date-fns [Locale
+object](http://date-fns.org/docs/Locale).
 
-For example, to localize the calendar in Spanish, import the locale object from date-fns and pass it to the component:
+For example, to localize the calendar in Spanish, import the locale object from
+date-fns and pass it to the component:
 
-```include-example
-spanish
+```include-example filename="Spanish.tsx"
+
 ```
 
 ### Overriding the first day of the week
 
 Use the `weekStartsOn` prop to change the first day of the week:
 
-```include-example
-spanish-week-starts-on
+```include-example filename="SpanishWeekStartsOn.tsx"
+
 ```
 
 ### First week of the year
 
-To override the date in the first week of the year, use `firstWeekContainsDate`. Use this prop to change the week number calculation according to [date-fns getWeek](https://date-fns.org/docs/getWeek) function.
+To override the date in the first week of the year, use `firstWeekContainsDate`.
+Use this prop to change the week number calculation according to [date-fns
+getWeek](https://date-fns.org/docs/getWeek) function.
 
-```include-example
-weeknumber-custom
+```include-example filename="WeeknumberCustom.tsx"
+
 ```
 
 ## Switching to ISO week dates
 
-By default, week numbers and week days follow the DayPicker's locale. Use the `ISOWeek` prop to switch to [ISO week dates](https://en.wikipedia.org/wiki/ISO_week_date).
+By default, week numbers and week days follow the DayPicker's locale. Use the
+`ISOWeek` prop to switch to [ISO week
+dates](https://en.wikipedia.org/wiki/ISO_week_date).
 
-<SourceCode source="week-iso.tsx" />
+```include-example filename="WeekIso.tsx"
 
-<RenderingBox>
-  <WeekIso />
-</RenderingBox>
+```
 
 ## Switching to right-to-left direction
 
 To add right-to-left text direction, set the `dir` prop to `rtl`.
 
-<SourceCode source="rtl.tsx" />
+```include-example filename="Rtl.tsx"
 
-<RenderingBox>
-  <Rtl />
-</RenderingBox>
+```
 
 ## Other numbering systems
 
-Use [formatters](/guides/formatters) to change the numbering system used in the calendar.
+Use [formatters](/guides/formatters) to change the numbering system used in the
+calendar.
 
-For example, to switch to hindu-arabic using [toLocaleString](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+For example, to switch to hindu-arabic using
+[toLocaleString](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
 
-<SourceCode source="numbering-system.tsx" />
+```include-example filename="NumberingSystem.tsx"
 
-<RenderingBox>
-  <NumberingSystem />
-</RenderingBox>
+```
 
 ## ARIA labels translations
 
-Use the [labels prop](/api/interfaces/daypickerdefaultprops#labels) to translate the labels used for ARIA.
+Use the [labels prop](/api/interfaces/daypickerdefaultprops#labels) to translate
+the labels used for ARIA.

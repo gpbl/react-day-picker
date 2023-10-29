@@ -1,12 +1,12 @@
 import { axe, freezeTime, renderApp, user } from '../../test';
 import { app, grid, monthDropdown, yearDropdown } from '../../test/po';
-import Example from './dropdown';
+import { Dropdown } from './Dropdown';
 
 const today = new Date(2022, 5, 10);
 freezeTime(today);
 
 beforeEach(() => {
-  renderApp(<Example />);
+  renderApp(<Dropdown />);
 });
 
 test('should be accessible', async () => {

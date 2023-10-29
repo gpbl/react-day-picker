@@ -1,12 +1,12 @@
 import { screen } from '@testing-library/react';
 import { app, axe, freezeTime, renderApp } from '../../test';
-import Example from './fixedweeks';
+import { Fixedweeks } from './Fixedweeks';
 
 const today = new Date(2021, 10, 25);
 freezeTime(today);
 
 beforeEach(() => {
-  renderApp(<Example />);
+  renderApp(<Fixedweeks />);
 });
 
 test('should be accessible', async () => {

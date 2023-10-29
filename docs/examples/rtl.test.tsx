@@ -8,13 +8,13 @@ import {
   renderApp,
   user
 } from '../../test';
-import Example from './rtl';
+import { Rtl } from './Rtl';
 
 const today = new Date(2021, 10, 25);
 freezeTime(today);
 
 beforeEach(() => {
-  renderApp(<Example />);
+  renderApp(<Rtl />);
 });
 
 test('should be accessible', async () => {

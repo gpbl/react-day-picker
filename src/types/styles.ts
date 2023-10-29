@@ -1,4 +1,4 @@
-declare const style: {
+export declare const style: {
   /** The root element. */
   rdp: string;
   'contrast_no-preference': string;

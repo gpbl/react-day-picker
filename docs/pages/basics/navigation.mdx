@@ -1,19 +1,14 @@
-import {
-  SourceCode,
-  getSourceCodeStaticProps
-} from '../../components/SourceCode';
-import { RenderingBox } from '../../components/RenderingBox';
-import 'react-day-picker/dist/style.css';
+import { getExamples } from '@examples/getExamples';
 
 export const getStaticProps = () =>
-  getSourceCodeStaticProps([
-    'default-month.tsx',
-    'controlled.tsx',
-    'from-to-year.tsx',
-    'from-to-month.tsx',
-    'dropdown.tsx',
-    'dropdown-buttons.tsx',
-    'disabled.tsx'
+  getExamples([
+    'Controlled.tsx',
+    'DefaultMonth.tsx',
+    'DisableNavigation.tsx',
+    'Dropdown.tsx',
+    'DropdownButtons.tsx',
+    'FromToMonth.tsx',
+    'FromToYear.tsx'
   ]);
 
 # Months Navigation
@@ -27,13 +22,9 @@ default month, set the `defaultMonth` prop.
 
 For example, to set the default month to September 1979:
 
-import DefaultMonth from 'react-day-picker/docs/examples/default-month.tsx';
+```include-example filename="DefaultMonth.tsx"
 
-<SourceCode source="default-month.tsx" />
-
-<RenderingBox>
-  <DefaultMonth />
-</RenderingBox>
+```
 
 ## Controlling the Current Month
 
@@ -44,25 +35,17 @@ set the month in the parent component’s state.
 To control the current month, use `month` (as opposed to `defaultMonth`) and
 `onMonthChange` to handle the current month.
 
-import Controlled from 'react-day-picker/docs/examples/controlled.tsx';
+```include-example filename="Controlled.tsx"
 
-<SourceCode source="controlled.tsx" />
-
-<RenderingBox>
-  <Controlled />
-</RenderingBox>
+```
 
 ## Limiting the Month Navigation
 
 As default, DayPicker can navigate indefinitely in the past or in the future. To limit the navigable months between two years, use `fromYear` or `toYear`.
 
-import FromToYear from 'react-day-picker/docs/examples/from-to-year.tsx';
+```include-example filename="FromToYear.tsx"
 
-<SourceCode source="from-to-year.tsx" />
-
-<RenderingBox>
-  <FromToYear />
-</RenderingBox>
+```
 
 ### Navigating Between Months or Dates
 
@@ -70,13 +53,9 @@ You can also limit the navigation with `fromDate`/`toDate` and `fromMonth` and
 `toMonth`. For example, to limit the calendar between June 2015 and the 20th
 Nov, 2015:
 
-import FromToMonth from 'react-day-picker/docs/examples/from-to-month.tsx';
+```include-example filename="FromToMonth.tsx"
 
-<SourceCode source="from-to-month.tsx" />
-
-<RenderingBox>
-  <FromToMonth />
-</RenderingBox>
+```
 
 ## Choosing a Caption Layout
 
@@ -84,32 +63,20 @@ When limiting the navigable months, use `captionLayout="dropdown"` to display a 
 (a select HTML element) for navigating between months – instead of the previous
 / next buttons.
 
-import Drowpdown from 'react-day-picker/docs/examples/dropdown.tsx';
+```include-example filename="Dropdown.tsx"
 
-<SourceCode source="dropdown.tsx" />
-
-<RenderingBox>
-  <Drowpdown />
-</RenderingBox>
+```
 
 Use `captionLayout="dropdown-buttons"` to display both.
 
-import DrowpdownButtons from 'react-day-picker/docs/examples/dropdown-buttons.tsx';
+```include-example filename="DropdownButtons.tsx"
 
-<SourceCode source="dropdown-buttons.tsx" />
-
-<RenderingBox>
-  <DrowpdownButtons />
-</RenderingBox>
+```
 
 ## Disabling Navigation
 
 To disable the navigation between months, use `disableNavigation`.
 
-import DisableNavigation from 'react-day-picker/docs/examples/disabled.tsx';
+```include-example filename="DisableNavigation.tsx"
 
-<SourceCode source="disabled.tsx" />
-
-<RenderingBox>
-  <DisableNavigation />
-</RenderingBox>
+```

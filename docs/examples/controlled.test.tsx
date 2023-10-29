@@ -1,12 +1,12 @@
 import { screen } from '@testing-library/react';
 import { axe, freezeTime, renderApp, user } from '../../test';
 import { app, grid } from '../../test/po';
-import Example from './controlled';
+import { Controlled } from './Controlled';
 
 freezeTime(new Date(2022, 5, 10));
 
 beforeEach(() => {
-  renderApp(<Example />);
+  renderApp(<Controlled />);
 });
 
 test('should be accessible', async () => {

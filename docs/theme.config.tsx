@@ -1,4 +1,6 @@
 import { DocsThemeConfig } from 'nextra-theme-docs';
+import { Pre as NextraPre } from 'nextra/components';
+import { SourceCode } from './components/SourceCode';
 
 const config: DocsThemeConfig = {
   logo: <strong>📆 React DayPicker v9</strong>,
@@ -12,6 +14,14 @@ const config: DocsThemeConfig = {
         siteName: 'React DayPicker'
       }
     };
+  },
+  components: {
+    pre: (props: any) => {
+      if (props['data-language'] === 'include-example') {
+        return <SourceCode fileName={props.filename} />;
+      }
+      return <NextraPre {...props} />;
+    }
   },
   sidebar: {
     titleComponent({ title, type }) {

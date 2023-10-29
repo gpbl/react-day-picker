@@ -3,7 +3,7 @@ import { DateRange, DayPicker } from 'react-day-picker';
 import { addDays } from 'date-fns';
 import { useState } from 'react';
 
-export default function App() {
+export function Range() {
   const defaultSelected: DateRange = {
     from: new Date(),
     to: addDays(new Date(), 4)

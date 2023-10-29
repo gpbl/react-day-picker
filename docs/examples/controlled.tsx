@@ -3,7 +3,7 @@ import { DayPicker } from 'react-day-picker';
 import { addMonths, isSameMonth } from 'date-fns';
 import { useState } from 'react';
 
-export default function App() {
+export function Controlled() {
   const today = new Date();
   const nextMonth = addMonths(new Date(), 1);
   const [month, setMonth] = useState<Date>(nextMonth);

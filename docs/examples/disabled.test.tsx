@@ -8,14 +8,14 @@ import {
   renderApp,
   user
 } from '../../test';
-import Example from './disabled';
+import { Disabled } from './Disabled';
 
 const today = new Date(2022, 5, 10);
 const firstOfMonth = new Date(2022, 5, 1);
 freezeTime(today);
 
 beforeEach(async () => {
-  renderApp(<Example />);
+  renderApp(<Disabled />);
   return gridcell(firstOfMonth).focus();
 });
 

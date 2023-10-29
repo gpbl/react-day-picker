@@ -17,14 +17,14 @@ import {
   startOfWeek
 } from 'date-fns';
 import { axe, freezeTime, nextButton, previousButton, user } from '../../test';
-import Example from './keyboard';
+import Keyboard from './Keyboard';
 
 const today = new Date(2022, 5, 10);
 freezeTime(today);
 
 let container: HTMLElement;
 function setup(props: DayPickerProps) {
-  container = render(<Example {...props} />).container;
+  container = render(<Keyboard {...props} />).container;
 }
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {

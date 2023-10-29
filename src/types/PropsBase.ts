@@ -10,7 +10,7 @@ import {
   MonthChangeEventHandler,
   WeekNumberClickEventHandler
 } from './events';
-import { FormatOptions } from './FormatOptions';
+
 import { Formatters } from './formatters';
 import { Labels } from './labels';
 import { Matcher } from './matchers';
@@ -29,7 +29,7 @@ export type Mode = 'range' | 'single' | 'multi';
 /** The name of the contrast preferences. */
 export type ContrastPreference = 'no-preference' | 'less' | 'more';
 
-export interface PropsBase extends FormatOptions {
+export interface PropsBase {
   /**
    * The CSS class to add to the container element. To change the name of the
    * class instead, use `classNames.root`.
@@ -263,6 +263,38 @@ export interface PropsBase extends FormatOptions {
    * Add the language tag to the container element.
    **/
   lang?: HTMLDivElement['lang'];
+
+  /**
+   * The date-fns locale object used to localize dates.
+   *
+   * @defaultValue en-US
+   * @see https://date-fns.org/docs/Locale
+   */
+  locale?: Locale | undefined;
+  /**
+   * The index of the first day of the week (0 - Sunday). Overrides the locale's one.
+   */
+  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
+  /**
+   * The day of January, which is always in the first week of the year.
+   *
+   * @see {@link ISOWeek}.
+   * @see https://date-fns.org/docs/getWeek
+   * @see https://en.wikipedia.org/wiki/Week#Numbering
+   */
+  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | undefined;
+  /**
+   * Enable `DD` and `DDDD` for week year tokens when formatting or parsing dates.
+   *
+   * @see https://date-fns.org/docs/Unicode-Tokens
+   */
+  useAdditionalWeekYearTokens?: boolean | undefined;
+  /**
+   * Enable `YY` and `YYYY` for day of year tokens when formatting or parsing dates.
+   *
+   * @see https://date-fns.org/docs/Unicode-Tokens
+   */
+  useAdditionalDayOfYearTokens?: boolean | undefined;
 
   onDayClick?: DayMouseEventHandler;
   onDayFocus?: DayFocusEventHandler;
