@@ -1,19 +1,20 @@
-import { getExamples } from '@examples/getExamples';
+import { getSrc } from '@utils/getSrc';
 
 export const getStaticProps = () =>
-  getExamples([
+  getSrc([
     'Spanish.tsx',
     'SpanishWeekStartsOn.tsx',
     'Rtl.tsx',
     'WeekIso.tsx',
-    'WeeknumberCustom.tsx'
+    'WeeknumberCustom.tsx',
+    'NumberingSystem.tsx'
   ]);
 
 # Localization
 
 Learn to localize DayPicker in any language.
 
-## Changing locale
+## Changing Locale
 
 To change the locale, pass to the `locale` prop a date-fns [Locale
 object](http://date-fns.org/docs/Locale).
@@ -25,7 +26,7 @@ date-fns and pass it to the component:
 
 ```
 
-### Overriding the first day of the week
+### Overriding the First Day of the Week
 
 Use the `weekStartsOn` prop to change the first day of the week:
 
@@ -33,7 +34,7 @@ Use the `weekStartsOn` prop to change the first day of the week:
 
 ```
 
-### First week of the year
+### First Week of the Year
 
 To override the date in the first week of the year, use `firstWeekContainsDate`.
 Use this prop to change the week number calculation according to [date-fns
@@ -43,7 +44,7 @@ getWeek](https://date-fns.org/docs/getWeek) function.
 
 ```
 
-## Switching to ISO week dates
+## Switching to ISO Week Dates
 
 By default, week numbers and week days follow the DayPicker's locale. Use the
 `ISOWeek` prop to switch to [ISO week
@@ -53,7 +54,7 @@ dates](https://en.wikipedia.org/wiki/ISO_week_date).
 
 ```
 
-## Switching to right-to-left direction
+## Right-To-Left Direction
 
 To add right-to-left text direction, set the `dir` prop to `rtl`.
 
@@ -61,9 +62,9 @@ To add right-to-left text direction, set the `dir` prop to `rtl`.
 
 ```
 
-## Other numbering systems
+## Numbering System
 
-Use [formatters](/guides/formatters) to change the numbering system used in the
+Use [formatters](/guides/formatters) to change the [numbering system](https://en.wikipedia.org/wiki/Numeral_system) used in the
 calendar.
 
 For example, to switch to hindu-arabic using
@@ -73,7 +74,7 @@ For example, to switch to hindu-arabic using
 
 ```
 
-## ARIA labels translations
+## Translating ARIA labels
 
 Use the [labels prop](/api/interfaces/daypickerdefaultprops#labels) to translate
 the labels used for ARIA.

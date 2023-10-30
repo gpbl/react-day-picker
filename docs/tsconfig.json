@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "paths": {
       "@examples/*": ["./examples/*"],
-      "@components/*": ["./components/*"]
+      "@components/*": ["./components/*"],
+      "@utils/*": ["./utils/*"]
     },
     "plugins": [
       {
@@ -29,6 +30,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "scripts",
+    "utils",
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],

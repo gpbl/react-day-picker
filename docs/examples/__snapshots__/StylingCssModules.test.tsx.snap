@@ -5,7 +5,7 @@ exports[`should match the snapshot 1`] = `
   role="application"
 >
   <div
-    class="rdp  "
+    class="rdp "
     id=":r0:"
   >
     <nav

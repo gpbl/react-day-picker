@@ -1,8 +1,8 @@
 import { Card, Cards, Callout } from 'nextra/components';
-import { getExamples } from '@examples/getExamples';
+import { getSrc } from '@utils/getSrc';
 
 export const getStaticProps = () =>
-  getExamples([
+  getSrc([
     'Single.tsx',
     'SingleRequired.tsx',
     'Multiple.tsx',

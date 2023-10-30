@@ -7,46 +7,77 @@ import * as examples from '@examples/index';
 
 import { RenderingBox } from '@components/RenderingBox';
 
-import type { Theme } from 'shiki';
+import type { Lang, Theme } from 'shiki';
 
 type SourceCodeProps = {
-  /** The name of the file in the `docs/example` directory. */
-  fileName: string;
-  title?: string;
-  'data-theme'?: Theme;
-  'data-line-numbers'?: string;
-  /** The line numbers to highlight e.g highlightLines="1,3-4" */
+  /**
+   * The name of the file in the `docs/example` directory to render.
+   * Must be added to to the static props via `getSrc`.
+   */
+  src: string;
+  /**
+   * Display a title in the source code block.
+   * @defaultValue App.tsx
+   */
+  filename?: string;
+  /**
+   * Display the line numbers.
+   * @defaultValue false
+   */
+  showLineNumbers?: boolean;
+  /**
+   * The line numbers to highlight e.g `highlightLines="1,3-4"`.
+   **/
   highlightLines?: string;
+  /**
+   * Set the lang of the syntax highlighter. Inferred from the `src` extension.
+   * @defaultValue tsx
+   */
+  lang?: Lang;
+  /**
+   * The shiki theme to apply.
+   */
+  theme?: Theme;
+  /**
+   * Displays a button to copy to code to the clipboard.
+   */
+  hasCopyCode?: boolean;
+  /**
+   * Skip the rendering of TSX examples.
+   */
+  skipRendering?: boolean;
 };
 
 /**
  * Render a code block with the source of `docs/example/${props.fileName}`,
- * highlighted using nextra code blocks.
+ * highlighted using nextra code blocks. If the file is a component, it will
+ * also render it.
+ *
  * @see https://github.com/shuding/nextra/discussions/2167
  */
 export function SourceCode(props: SourceCodeProps) {
-  const lang = props.fileName?.substr(-3) ?? 'tsx';
+  const lang = props.src?.substr(-3) ?? 'tsx';
   const {
-    fileName,
-    'data-theme': theme,
-    title: title = `App.${lang}`,
-    'data-line-numbers': showLineNumbers = true
+    src,
+    theme,
+    filename = `App.${lang}`,
+    showLineNumbers = true,
+    hasCopyCode,
+    skipRendering
   } = props;
 
   const sources = useData();
 
-  if (!sources[fileName]) {
+  if (!sources[src]) {
     return (
-      <>
-        <Pre>
-          Example {fileName} not found. Did you add it to
-          <code>getSourceCodeStaticProps</code>?
-        </Pre>
-      </>
+      <Pre>
+        Example "{src}"" not found. Did you add it to
+        <code>getSrc</code>?
+      </Pre>
     );
   }
 
-  const html: string = sources[fileName]
+  const html: string = sources[src]
     // Remove out HTML components we replace with nextra components
     .replaceAll('</code>', '')
     .replaceAll('<code>', '')
@@ -58,6 +89,7 @@ export function SourceCode(props: SourceCodeProps) {
       '<span class="line">\n</span>',
       'gi'
     );
+
   // Get the lines to highlight
   const linesToHighlight = props.highlightLines
     ? parseHighlightLines(props.highlightLines)
@@ -72,14 +104,22 @@ export function SourceCode(props: SourceCodeProps) {
       : match;
   });
 
-  let Example: () => JSX.Element = () => <></>;
+  let Example;
   if (lang === 'tsx') {
-    Example = (examples as Record<string, any>)[fileName.replace('.tsx', '')];
+    const exampleName = src.replace('.tsx', '') as keyof typeof examples;
+    if (examples[exampleName]) {
+      Example = examples[exampleName];
+    }
   }
 
   return (
     <div className="mt-6">
-      <Pre data-theme={theme} data-language={lang} hasCopyCode filename={title}>
+      <Pre
+        data-theme={theme}
+        data-language={lang}
+        hasCopyCode={hasCopyCode}
+        filename={filename}
+      >
         <Code
           data-theme={theme}
           data-language={lang}
@@ -87,7 +127,7 @@ export function SourceCode(props: SourceCodeProps) {
           dangerouslySetInnerHTML={{ __html: highlightedHtml }}
         />
       </Pre>
-      {lang === 'tsx' && (
+      {Example && !skipRendering && (
         <RenderingBox>
           <Example />
         </RenderingBox>

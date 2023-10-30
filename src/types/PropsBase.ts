@@ -17,18 +17,6 @@ import { Matcher } from './matchers';
 import { ModifiersClassNames, ModifiersStyles } from './modifiers';
 import { ClassNames, Styles } from './styles';
 
-export type CustomComponents = {
-  [key in keyof typeof components]?: (typeof components)[key];
-};
-
-/** The name of the color schemes. */
-export type ColorScheme = 'auto' | 'dark' | 'light';
-
-export type Mode = 'range' | 'single' | 'multi';
-
-/** The name of the contrast preferences. */
-export type ContrastPreference = 'no-preference' | 'less' | 'more';
-
 export interface PropsBase {
   /**
    * The CSS class to add to the container element. To change the name of the
@@ -312,3 +300,15 @@ export interface PropsBase {
   onPrevClick?: MonthChangeEventHandler;
   onWeekNumberClick?: WeekNumberClickEventHandler;
 }
+
+export type CustomComponents = {
+  [key in keyof typeof components]?: (typeof components)[key];
+};
+
+/** The name of the color schemes. */
+export type ColorScheme = 'auto' | 'dark' | 'light';
+
+export type Mode = 'range' | 'single' | 'multi';
+
+/** The name of the contrast preferences. */
+export type ContrastPreference = 'no-preference' | 'less' | 'more';

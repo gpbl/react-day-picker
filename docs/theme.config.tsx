@@ -3,7 +3,7 @@ import { Pre as NextraPre } from 'nextra/components';
 import { SourceCode } from './components/SourceCode';
 
 const config: DocsThemeConfig = {
-  logo: <strong>📆 React DayPicker v9</strong>,
+  logo: <strong>React DayPicker v9</strong>,
   docsRepositoryBase: `https://github.com/gpbl/react-day-picker/tree/${process.env.GIT_BRANCH}/docs`,
   // primaryHue: 43,
   useNextSeoProps() {
@@ -18,7 +18,17 @@ const config: DocsThemeConfig = {
   components: {
     pre: (props: any) => {
       if (props['data-language'] === 'include-example') {
-        return <SourceCode fileName={props.filename} />;
+        // Use props.filename to get the example to include
+        return (
+          <SourceCode
+            src={props.filename}
+            showLineNumbers={props.showLineNumbers}
+            hasCopyCode={props.hasCopyCode}
+            filename={undefined} // Use the default `App.tsx`
+            theme={props['data-theme']}
+            lang={props['data-lang']}
+          />
+        );
       }
       return <NextraPre {...props} />;
     }

@@ -1,9 +1,9 @@
 import { Steps, Callout } from 'nextra/components';
 import { SourceCode } from '@components/SourceCode';
-import { getExamples } from '@examples/getExamples';
+import { getSrc } from '@utils/getSrc';
 
 export const getStaticProps = () =>
-  getExamples([
+  getSrc([
     'StylingInline.tsx',
     'StylingModifiers.tsx',
     'StylingCssModules.tsx',
@@ -59,8 +59,8 @@ function App() {
 You can also override the CSS variables using the `className` prop:
 
 <SourceCode
-  fileName="css-variables.module.css"
-  title="css-variables.module.css"
+  src="css-variables.module.css"
+  filename="css-variables.module.css"
 />
 
 ```include-example filename="CssVariables.tsx"
@@ -98,8 +98,8 @@ function App() {
 When using CSS modules, override the class names with your custom CSS:
 
 <SourceCode
-  title="styling-css-modules.module.css"
-  fileName="styling-css-modules.module.css"
+  filename="styling-css-modules.module.css"
+  src="styling-css-modules.module.css"
 />
 
 ```include-example filename="StylingCssModules.tsx"
