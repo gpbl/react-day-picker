@@ -1,6 +1,6 @@
 # React DayPicker v9
 
-> 🚧 This is the branch for the next version of DayPicker, not released yet. 🚧
+> 🚧 This is the branch for the [next version](https://github.com/gpbl/react-day-picker/tree/next) of DayPicker, not released yet. 🚧
 
 [DayPicker](http://react-day-picker.js.org) is a customizable date picker component for [React](https://reactjs.org) that renders a calendar for selecting days.
 

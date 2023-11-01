@@ -3,8 +3,8 @@ import { Pre as NextraPre } from 'nextra/components';
 import { SourceCode } from './components/SourceCode';
 
 const config: DocsThemeConfig = {
-  logo: <strong>React DayPicker v9</strong>,
-  docsRepositoryBase: `https://github.com/gpbl/react-day-picker/tree/${process.env.GIT_BRANCH}/docs`,
+  logo: <strong>🚧 9️⃣ React DayPicker v9 </strong>,
+  docsRepositoryBase: `https://github.com/gpbl/react-day-picker/tree/next/docs`,
   // primaryHue: 43,
   useNextSeoProps() {
     return {
@@ -44,7 +44,7 @@ const config: DocsThemeConfig = {
     toggleButton: true
   },
   project: {
-    link: 'https://github.com/gpbl/react-day-picker'
+    link: 'https://github.com/gpbl/react-day-picker/tree/next'
   }
 };
 
