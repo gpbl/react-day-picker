@@ -2,8 +2,8 @@ type LocaleString = keyof typeof locales;
 
 import {
   PropsBase,
-  DayPickerColorScheme,
-  DayPickerContrast,
+  ColorScheme,
+  ContrastPreference,
   Mode,
   PropsMulti,
   PropsRange,
@@ -54,7 +54,7 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
     firstWeekContainsDate,
     today,
     colorScheme,
-    contrastPreference
+    contrast
   } = props.base;
   return (
     <Form>
@@ -331,9 +331,7 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
           onChange={(e) =>
             onBaseChange(
               'colorScheme',
-              e.target.value
-                ? (e.target.value as DayPickerColorScheme)
-                : undefined
+              e.target.value ? (e.target.value as ColorScheme) : undefined
             )
           }
         >
@@ -343,13 +341,15 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
           <option value={'dark'}>dark</option>
         </Select>
         <Select
-          label="contrastPreference"
-          name="contrastPreference"
-          value={contrastPreference}
+          label="contrast"
+          name="contrast"
+          value={contrast}
           onChange={(e) =>
             onBaseChange(
-              'contrastPreference',
-              e.target.value ? (e.target.value as DayPickerContrast) : undefined
+              'contrast',
+              e.target.value
+                ? (e.target.value as ContrastPreference)
+                : undefined
             )
           }
         >

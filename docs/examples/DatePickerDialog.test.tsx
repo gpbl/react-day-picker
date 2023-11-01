@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import { format } from 'date-fns';
 import { act } from 'react-dom/test-utils';
 import { app, axe, freezeTime, gridcell, renderApp, user } from '../../test';
-import DatePickerDialog from './DatePickerDialog';
+import { DatePickerDialog } from './DatePickerDialog';
 
 const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);

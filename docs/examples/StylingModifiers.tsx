@@ -9,6 +9,7 @@ const beforeYesterday = addDays(today, -2);
 export function StylingModifiers() {
   return (
     <DayPicker
+      mode="single"
       selected={new Date()}
       disabled={beforeYesterday}
       modifiersClassNames={{

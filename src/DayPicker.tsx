@@ -29,14 +29,19 @@ export interface PropsDefault {
   mode?: never;
   onSelect?: never;
 }
+
+/** The props for the single selection mode. */
 export interface PropsSingle {
+  /** Enable the single selection mode. */
   mode: 'single';
   required?: boolean;
   selected?: Selected<'single'> | undefined;
   onSelect?: SelectHandler<'single'> | undefined;
 }
 
+/** The props for the multi selection mode. */
 export interface PropsMulti {
+  /** Enable the multi selection mode. */
   mode: 'multi';
   required?: boolean;
   selected?: Selected<'multi'> | undefined;
@@ -45,7 +50,9 @@ export interface PropsMulti {
   max?: number;
 }
 
+/** The props for the range selection mode. */
 export interface PropsRange {
+  /** Enable the range selection mode. */
   mode: 'range';
   required?: boolean;
   selected?: Selected<'range'> | undefined;

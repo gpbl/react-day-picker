@@ -31,7 +31,7 @@ export interface PropsBase {
    */
   classNames?: Partial<ClassNames>;
   /**
-   * Change the class name for the day matching the `modifiers}.
+   * Change the class name for the day matching the `modifiers`.
    */
   modifiersClassNames?: ModifiersClassNames;
 
@@ -44,7 +44,7 @@ export interface PropsBase {
    */
   styles?: Styles;
   /**
-   * Change the inline style for the day matching the `modifiers}.
+   * Change the inline style for the day matching the `modifiers`.
    */
   modifiersStyles?: ModifiersStyles;
 
@@ -264,7 +264,7 @@ export interface PropsBase {
   /**
    * The day of January, which is always in the first week of the year.
    *
-   * @see `ISOWeek}.
+   * @see `ISOWeek`
    * @see https://date-fns.org/docs/getWeek
    * @see https://en.wikipedia.org/wiki/Week#Numbering
    */
@@ -301,6 +301,7 @@ export interface PropsBase {
   onWeekNumberClick?: WeekNumberClickEventHandler;
 }
 
+/** The components that can be changed using the `components` prop. */
 export type CustomComponents = {
   [key in keyof typeof components]?: (typeof components)[key];
 };

@@ -10,6 +10,7 @@ const availableStyle = {
 export function ModifiersStyle() {
   return (
     <DayPicker
+      mode="single"
       defaultMonth={availableDays[0]}
       modifiers={{
         available: availableDays
