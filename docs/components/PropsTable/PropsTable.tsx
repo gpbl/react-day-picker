@@ -9,6 +9,7 @@ type Reflection =
   | 'variables';
 
 function lookupByName(reflection: Reflection, name: string) {
+  // @ts-expect-error - I don't know how to type this
   return api[reflection].find((item) => item.name === name);
 }
 
