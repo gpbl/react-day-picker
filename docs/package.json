@@ -5,9 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "api": "pnpm typedoc && pnpm typedoc-json-parser --json generated/api-parsed.json && node scripts/api.mjs",
     "dev": "next dev -p 2001",
-    "build": "next build",
+    "api-docs": "pnpm typedoc && pnpm typedoc-json-parser --json generated/api-parsed.json && node scripts/api.mjs",
+    "prebuild": "pnpm run build:api-docs",
+    "build": "pnpm next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",

@@ -23,6 +23,7 @@
     "prepublish": "pnpm build",
     "prebuild": "rimraf dist/*",
     "build": "rollup -c",
+    "build-docs": "pnpm run build && pnpm --filter docs run build",
     "build-watch": "rollup -c -w",
     "lint": "eslint .",
     "test": "jest",
