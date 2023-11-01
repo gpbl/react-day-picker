@@ -1,6 +1,6 @@
 # DayPicker website
 
-This [Nextra app](http://nextra.site) is published in the DayPicker website at [react-day-picker.js.org](https://react-day-picker.js.org).
+This [Nextra app](http://nextra.site) is published in the DayPicker website at [react-day-picker.dev](https://react-day-picker.dev).
 
 ## Running the website locally
 
