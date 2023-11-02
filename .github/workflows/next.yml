@@ -14,6 +14,11 @@ on:
         required: false
         default: false
         type: boolean
+      run_tests:
+        description: Run tests
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   typecheck:
@@ -46,6 +51,7 @@ jobs:
 
   test:
     needs: [lint, typecheck]
+    if: ${{ github.event_name == 'pull_request' || github.event.inputs.run_tests }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
