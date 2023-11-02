@@ -1,6 +1,5 @@
-import { getMonthCaption } from 'react-day-picker/test/selectors';
-
 import { freezeTime, renderApp } from '../../test';
+import { grid } from '../../test/po';
 import { StylingInline } from './StylingInline';
 
 const today = new Date(2021, 10, 25);
@@ -11,7 +10,9 @@ beforeEach(() => {
 });
 
 test('the caption should apply the custom style', () => {
-  expect(getMonthCaption(0).parentElement).toHaveStyle({
-    color: 'red'
+  const captionId = grid().getAttribute('aria-labelledby');
+  const caption = captionId && document.getElementById(captionId);
+  expect(caption).toHaveStyle({
+    paddingBottom: '0.5em'
   });
 });
