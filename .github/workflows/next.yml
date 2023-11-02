@@ -1,4 +1,4 @@
-name: next
+name: react-day-picker@next
 
 on:
   push:

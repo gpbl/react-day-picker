@@ -28,13 +28,13 @@ export function Playground() {
       ? 'bg-white text-black'
       : 'bg-transparent';
 
-  const handleReset = () => {
-    setMode('single');
-    setBase({});
-    setSingle({ mode: 'single' });
-    setMulti({ mode: 'multi' });
-    setRange({ mode: 'range' });
-  };
+  // const handleReset = () => {
+  //   setMode('single');
+  //   setBase({});
+  //   setSingle({ mode: 'single' });
+  //   setMulti({ mode: 'multi' });
+  //   setRange({ mode: 'range' });
+  // };
   return (
     <div>
       <h1 className="text-3xl my-4 font-bold">DayPicker Playground</h1>

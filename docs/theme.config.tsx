@@ -22,6 +22,7 @@ const config: DocsThemeConfig = {
     };
   },
   components: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     pre: (props: any) => {
       if (props['data-language'] === 'include-example') {
         // Use props.filename to get the example to include

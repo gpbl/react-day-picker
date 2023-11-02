@@ -49,8 +49,6 @@ export function DatePickerDialog() {
     }
   };
 
-  console.log(isPopperOpen);
-
   return (
     <div>
       <div ref={popperRef}>

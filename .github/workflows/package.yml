@@ -1,4 +1,4 @@
-name: react-day-picker
+name: react-day-picker@v8
 
 on:
   release:

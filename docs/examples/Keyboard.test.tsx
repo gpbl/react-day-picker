@@ -17,7 +17,7 @@ import {
   startOfWeek
 } from 'date-fns';
 import { axe, freezeTime, nextButton, previousButton, user } from '../../test';
-import Keyboard from './Keyboard';
+import { Keyboard } from './Keyboard';
 
 const today = new Date(2022, 5, 10);
 freezeTime(today);
