@@ -110,6 +110,8 @@ jobs:
       - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
       - run: npm version prerelease --preid=next
       - run: git push origin `git describe --tags`
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm publish --provenance --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
