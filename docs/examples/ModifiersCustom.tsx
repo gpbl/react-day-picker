@@ -1,6 +1,6 @@
 import { DayMouseEventHandler, DayPicker } from 'react-day-picker';
 
-export const bookedDays = [
+const bookedDays = [
   new Date(2024, 5, 8),
   new Date(2024, 5, 9),
   new Date(2024, 5, 10),

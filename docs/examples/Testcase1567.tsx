@@ -1,6 +1,5 @@
-import { DateRange, DayPicker, SelectHandler } from 'react-day-picker';
-
 import { useState } from 'react';
+import { DateRange, DayPicker, SelectHandler } from 'react-day-picker';
 
 /**
  * Test case for issue #1567
