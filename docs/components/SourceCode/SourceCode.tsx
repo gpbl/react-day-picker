@@ -68,13 +68,8 @@ export function SourceCode(props: SourceCodeProps) {
 
   const sources = useData();
 
-  if (!sources[src]) {
-    return (
-      <Pre>
-        Example "{src}"" not found. Did you add it to
-        <code>getSrc</code>?
-      </Pre>
-    );
+  if (!sources || !sources[src]) {
+    return <Pre>Example "{src}" not found.</Pre>;
   }
 
   const html: string = sources[src]
@@ -108,7 +103,7 @@ export function SourceCode(props: SourceCodeProps) {
   if (lang === 'tsx') {
     const exampleName = src.replace('.tsx', '') as keyof typeof examples;
     if (examples[exampleName]) {
-      Example = examples[exampleName];
+      Example = examples[exampleName] as () => JSX.Element;
     }
   }
 

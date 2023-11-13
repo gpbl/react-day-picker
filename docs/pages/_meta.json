@@ -15,6 +15,14 @@
       "breadcrumb": false
     }
   },
+  "render": {
+    "title": "Examples",
+    "type": "page",
+    "theme": {
+      "layout": "full",
+      "breadcrumb": false
+    }
+  },
   "index": "Welcome",
   "basics": "DayPicker Basics",
   "guides": "Advanced Guides",
