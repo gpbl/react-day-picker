@@ -18,8 +18,8 @@ export type DataAttributes = Record<string, unknown>;
  * internal components to use safe props and avoid all conditionals.
  */
 export interface ModifiersContext {
-  getDayModifiers: (day: DayPickerDay) => Modifiers;
-  days: Record<InternalModifier, DayPickerDay[]>;
+  getModifiers: (day: DayPickerDay) => Modifiers;
+  modifiers: Record<string, DayPickerDay[]>;
 }
 
 export const modifiersContext = createContext<ModifiersContext | undefined>(
@@ -30,12 +30,12 @@ export const modifiersContext = createContext<ModifiersContext | undefined>(
  * The provider for the `modifiersContext`, storing the state of the day modifiers.
  */
 export function ModifiersProvider({ children }: { children: ReactNode }) {
-  const { disabled, hidden, showOutsideDays, today, modifiers } =
-    useDayPicker();
+  const dayPicker = useDayPicker();
   const calendarDays = useCalendar().getDays();
   const selection = useSelection();
 
-  const dayModifiers: Record<InternalModifier, DayPickerDay[]> = {
+  /** Modifiers that are set internally. */
+  const internal: Record<InternalModifier, DayPickerDay[]> = {
     outside: [],
     disabled: [],
     hidden: [],
@@ -45,47 +45,60 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     range_middle: [],
     range_end: []
   };
+
+  /** Custom modifiers that are coming from the `modifiers` props */
+  const custom: Record<string, DayPickerDay[]> = {};
+
   for (const day of calendarDays) {
     const { date, displayMonth } = day;
 
-    // TODO: custom styles
-    // const dayStateFromModifiers =
-    //   modifiers &&
-    //   Object.keys(modifiers).reduce((previousValue, modifier) => {
-    //     const modifierValue = modifiers?.[modifier];
-    //     previousValue[modifier] =
-    //       modifierValue && dateMatchModifiers(date, modifierValue);
-    //     return previousValue;
-    //   }, {} as Record<CustomModifier, boolean>);
-
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
-    const isDisabled = Boolean(disabled && dateMatchModifiers(date, disabled));
+    const isDisabled = Boolean(
+      dayPicker.disabled && dateMatchModifiers(date, dayPicker.disabled)
+    );
     const isSelected = Boolean(
-      modifiers?.selected && dateMatchModifiers(date, modifiers.selected)
+      dayPicker.modifiers?.selected &&
+        dateMatchModifiers(date, dayPicker.modifiers.selected)
     );
     const isHidden =
-      Boolean(hidden && dateMatchModifiers(date, hidden)) ||
-      (!showOutsideDays && isOutside);
+      Boolean(dayPicker.hidden && dateMatchModifiers(date, dayPicker.hidden)) ||
+      (!dayPicker.showOutsideDays && isOutside);
 
     if (isOutside) {
-      dayModifiers.outside.push(day);
+      internal.outside.push(day);
     }
     if (isDisabled) {
-      dayModifiers.disabled.push(day);
+      internal.disabled.push(day);
     }
     if (isHidden) {
-      dayModifiers.hidden.push(day);
+      internal.hidden.push(day);
     }
     if (selection?.isSelected(date) || isSelected) {
-      dayModifiers.selected.push(day);
+      internal.selected.push(day);
     }
-    if (isSameDay(date, today)) {
-      dayModifiers.today.push(day);
+    if (isSameDay(date, dayPicker.today)) {
+      internal.today.push(day);
+    }
+
+    // Custom modifiers
+    if (dayPicker.modifiers) {
+      Object.keys(dayPicker.modifiers).forEach((name) => {
+        const modifierValue = dayPicker.modifiers?.[name];
+        const isMatch = modifierValue
+          ? dateMatchModifiers(date, modifierValue)
+          : false;
+        if (!isMatch) return;
+        if (custom[name]) {
+          custom[name].push(day);
+        } else {
+          custom[name] = [day];
+        }
+      });
     }
   }
 
-  const getDayModifiers = (day: DayPickerDay) => {
-    const matchingModifiers: Modifiers = {
+  const getModifiers = (day: DayPickerDay) => {
+    const modifiers: Modifiers = {
       outside: false,
       disabled: false,
       hidden: false,
@@ -96,19 +109,25 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
       range_end: false
     };
 
-    for (const modifierName in dayModifiers) {
-      const daysWithModifier = dayModifiers[modifierName as InternalModifier];
-      if (daysWithModifier.find((d) => d === day)) {
-        matchingModifiers[modifierName] = true;
-      }
+    for (const name in internal) {
+      const daysWithModifier = internal[name as InternalModifier];
+      modifiers[name] = daysWithModifier.some((d) => d === day);
     }
 
-    return matchingModifiers;
+    for (const name in custom) {
+      // This will override the internal modifiers with the same name, as intended
+      modifiers[name] = custom[name].some((d) => d === day);
+    }
+
+    return modifiers;
   };
 
-  const context = { days: dayModifiers, getDayModifiers };
+  const modifiers = { ...internal, ...custom };
+
+  const value: ModifiersContext = { modifiers, getModifiers };
+
   return (
-    <modifiersContext.Provider value={context}>
+    <modifiersContext.Provider value={value}>
       {children}
     </modifiersContext.Provider>
   );

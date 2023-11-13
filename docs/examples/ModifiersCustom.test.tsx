@@ -1,24 +1,17 @@
-import { app, gridcell, renderApp, user } from '../../test';
+import { gridcell, renderApp } from '../../test';
 import { ModifiersCustom } from './ModifiersCustom';
-
-const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
-const bookedStyle = {
-  border: '2px solid currentColor'
-};
 
 beforeEach(() => {
   renderApp(<ModifiersCustom />);
 });
 
-test.each(bookedDays)('%s should have the booked style', (day) => {
-  expect(gridcell(day)).toHaveStyle(bookedStyle);
-});
+test.each([new Date(2024, 5, 8), new Date(2024, 5, 9), new Date(2021, 5, 10)])(
+  '%s should have the booked style',
+  (day) => {
+    expect(gridcell(day)).toHaveClass('booked');
+  }
+);
 
-describe('when the booked day is clicked', () => {
-  beforeEach(async () => {
-    await user.click(gridcell(bookedDays[1]));
-  });
-  test('the footer should be updated', () => {
-    expect(app()).toHaveTextContent('This day is already booked!');
-  });
+test.each([new Date(2024, 5, 1)])('%s should have the booked style', (day) => {
+  expect(gridcell(day)).not.toHaveClass('booked');
 });

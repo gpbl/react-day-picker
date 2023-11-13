@@ -54,55 +54,55 @@ export function DayGridCellWrapper(
   const isInteractive = Boolean(onSelect) || Boolean(onDayClick);
 
   const selection = useSelection();
-  const dayModifiers = useModifiers().getDayModifiers(props.day);
+  const modifiers = useModifiers().getModifiers(props.day);
 
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles, styles);
+  const style = getStyleForModifiers(modifiers, modifiersStyles, styles);
   const className = getClassNamesForModifiers(
-    dayModifiers,
+    modifiers,
     modifiersClassNames,
     classNames
   );
 
   const onClick: MouseEventHandler = (e) => {
-    selection?.setSelected(props.day.date, dayModifiers, e);
-    onDayClick?.(props.day.date, dayModifiers, e);
+    selection?.setSelected(props.day.date, modifiers, e);
+    onDayClick?.(props.day.date, modifiers, e);
   };
 
   const onBlur: FocusEventHandler = (e) => {
-    onDayBlur?.(props.day.date, dayModifiers, e);
+    onDayBlur?.(props.day.date, modifiers, e);
   };
 
   const onMouseEnter: MouseEventHandler = (e) => {
-    onDayMouseEnter?.(props.day.date, dayModifiers, e);
+    onDayMouseEnter?.(props.day.date, modifiers, e);
   };
   const onMouseLeave: MouseEventHandler = (e) => {
-    onDayMouseLeave?.(props.day.date, dayModifiers, e);
+    onDayMouseLeave?.(props.day.date, modifiers, e);
   };
   const onPointerEnter: PointerEventHandler = (e) => {
-    onDayPointerEnter?.(props.day.date, dayModifiers, e);
+    onDayPointerEnter?.(props.day.date, modifiers, e);
   };
   const onPointerLeave: PointerEventHandler = (e) => {
-    onDayPointerLeave?.(props.day.date, dayModifiers, e);
+    onDayPointerLeave?.(props.day.date, modifiers, e);
   };
   const onTouchCancel: TouchEventHandler = (e) => {
-    onDayTouchCancel?.(props.day.date, dayModifiers, e);
+    onDayTouchCancel?.(props.day.date, modifiers, e);
   };
   const onTouchEnd: TouchEventHandler = (e) => {
-    onDayTouchEnd?.(props.day.date, dayModifiers, e);
+    onDayTouchEnd?.(props.day.date, modifiers, e);
   };
   const onTouchMove: TouchEventHandler = (e) => {
-    onDayTouchMove?.(props.day.date, dayModifiers, e);
+    onDayTouchMove?.(props.day.date, modifiers, e);
   };
   const onTouchStart: TouchEventHandler = (e) => {
-    onDayTouchStart?.(props.day.date, dayModifiers, e);
+    onDayTouchStart?.(props.day.date, modifiers, e);
   };
 
   const onKeyUp: KeyboardEventHandler = (e) => {
-    onDayKeyUp?.(props.day.date, dayModifiers, e);
+    onDayKeyUp?.(props.day.date, modifiers, e);
   };
 
   const onKeyPress: KeyboardEventHandler = (e) => {
-    onDayKeyPress?.(props.day.date, dayModifiers, e);
+    onDayKeyPress?.(props.day.date, modifiers, e);
   };
 
   const onKeyDown: KeyboardEventHandler = (e) => {
@@ -148,7 +148,7 @@ export function DayGridCellWrapper(
     //     focusEndOfWeek();
     //     break;
     // }
-    onDayKeyDown?.(props.day.date, dayModifiers, e);
+    onDayKeyDown?.(props.day.date, modifiers, e);
   };
 
   const htmlAttributes: React.HTMLAttributes<HTMLDivElement> = {
@@ -157,9 +157,9 @@ export function DayGridCellWrapper(
     style,
     tabIndex: isInteractive ? 0 : -1,
     ['aria-colindex']: props['aria-colindex'],
-    ['aria-disabled']: dayModifiers.disabled || undefined,
-    ['aria-hidden']: dayModifiers.hidden || undefined,
-    ['aria-selected']: dayModifiers.selected || undefined,
+    ['aria-disabled']: modifiers.disabled || undefined,
+    ['aria-hidden']: modifiers.hidden || undefined,
+    ['aria-selected']: modifiers.selected || undefined,
     onClick: isInteractive ? onClick : undefined,
     onBlur,
     onKeyDown,
@@ -180,7 +180,7 @@ export function DayGridCellWrapper(
   return (
     <DayGridCell
       day={props.day}
-      modifiers={dayModifiers}
+      modifiers={modifiers}
       htmlAttributes={htmlAttributes}
     >
       {formatDay(props.day.date, { locale })}

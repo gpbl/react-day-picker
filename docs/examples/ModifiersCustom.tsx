@@ -1,28 +1,43 @@
 import { DayMouseEventHandler, DayPicker } from 'react-day-picker';
 
-import { useState } from 'react';
+export const bookedDays = [
+  new Date(2024, 5, 8),
+  new Date(2024, 5, 9),
+  new Date(2024, 5, 10),
+  { from: new Date(2024, 5, 15), to: new Date(2024, 5, 20) }
+];
 
-const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
-const bookedStyle = { border: '2px solid currentColor' };
+const css = `
+.booked {
+  position: relative;
+}
+/* Strikeout */
+.booked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  z-index: 1;
+  transform: rotate(-45deg);
+}`;
 
 export function ModifiersCustom() {
-  const [booked, setBooked] = useState(false);
-
   const handleDayClick: DayMouseEventHandler = (day, { booked }) => {
-    setBooked(day && booked);
+    alert(`Day ${day.toLocaleDateString()} is booked? ` + booked);
   };
 
-  const footer = booked
-    ? 'This day is already booked!'
-    : 'Try to pick a booked day.';
-
   return (
-    <DayPicker
-      defaultMonth={new Date(2021, 5, 8)}
-      modifiers={{ booked: bookedDays }}
-      modifiersStyles={{ booked: bookedStyle }}
-      onDayClick={handleDayClick}
-      footer={footer}
-    />
+    <>
+      <style>{css}</style>
+      <DayPicker
+        defaultMonth={new Date(2024, 5)}
+        modifiers={{ booked: bookedDays }}
+        modifiersClassNames={{ booked: 'booked' }}
+        onDayClick={handleDayClick}
+      />
+    </>
   );
 }
