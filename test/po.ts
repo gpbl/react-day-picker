@@ -38,3 +38,10 @@ export function yearDropdown() {
 export function monthDropdown() {
   return screen.getByRole('combobox', { name: 'Month:' });
 }
+
+export function activeElement() {
+  if (!document.activeElement) {
+    throw new Error('Could not find any focused element');
+  }
+  return document.activeElement;
+}

@@ -29,8 +29,8 @@ test.each(days)('%s should be selected', (day) => {
 
 describe('when a day in the range is clicked', () => {
   const day = days[2];
-  beforeEach(async () => {
-    await user.click(gridcell(day));
+  beforeEach(() => {
+    user.click(gridcell(day));
   });
   test.each([days[0], days[1], day])('%s should be selected', (day) => {
     expect(gridcell(day)).toHaveAttribute('aria-selected', 'true');

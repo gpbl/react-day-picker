@@ -52,7 +52,7 @@ describe('when the last day is focused', () => {
       expect(await axe(app())).toHaveNoViolations();
     });
     test('should still display the same month', () => {
-      expect(grid()).toHaveTextContent('June 2022');
+      expect(grid('June 2022')).toBeInTheDocument();
     });
   });
 });
