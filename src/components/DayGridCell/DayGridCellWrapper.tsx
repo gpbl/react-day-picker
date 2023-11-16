@@ -17,6 +17,7 @@ import { getStyleForModifiers } from './getStyleForModifiers';
 
 export interface DayGridCellWrapperProps
   extends Pick<React.AriaAttributes, 'aria-colindex'> {
+  /** The day to be rendered in the gridcell. */
   day: DayPickerDay;
 }
 
@@ -24,9 +25,7 @@ export interface DayGridCellWrapperProps
  * Provides a `DayGridCell` the day state and the html attributes.
  * Developers may use a `DayGridCell` component without the need to use hooks.
  */
-export function DayGridCellWrapper(
-  props: DayGridCellWrapperProps
-): JSX.Element {
+export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   const {
     classNames,
     components,

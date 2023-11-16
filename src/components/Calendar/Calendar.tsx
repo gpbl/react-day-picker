@@ -8,7 +8,7 @@ import { Nav as DefaultNav } from '../Nav';
 /**
  * Render the container with navigation and the month grids.
  */
-export function Calendar(): JSX.Element {
+export function Calendar() {
   const {
     className,
     classNames,
@@ -69,9 +69,9 @@ export function Calendar(): JSX.Element {
     cssClassNames.push(classNames.with_weeknumber);
   }
 
-  const MonthGrid = components?.MonthGrid ?? DefaultMonthGrid;
   const Nav = components?.Nav ?? DefaultNav;
   const Months = components?.Months ?? DefaultMonths;
+  const MonthGrid = components?.MonthGrid ?? DefaultMonthGrid;
   const Footer = components?.Footer ?? DefaultFooter;
 
   return (

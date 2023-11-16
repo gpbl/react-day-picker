@@ -6,6 +6,14 @@ import { getDates } from './utils/getDates';
 import { getDayPickerMonths } from './utils/getDayPickerMonths';
 import { getDisplayMonths } from './utils/getDisplayMonths';
 
+/**
+ * Gets the months and dates for a given date range.
+ *
+ * @param firstMonth The first month of the range.
+ * @param toDate The last month of the range.
+ * @param options Options for formatting the output.
+ * @returns An object containing the dates and months for the given range.
+ */
 export function getMonthsAndDates(
   firstMonth: Date,
   toDate: Date | undefined,

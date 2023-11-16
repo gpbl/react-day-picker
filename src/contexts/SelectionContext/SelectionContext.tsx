@@ -30,9 +30,10 @@ export const selectionContext = createContext<SelectionContext>(contextValue);
  * The provider for the `selectionContext`, storing the calendar state.
  */
 export function SelectionProvider(providerProps: PropsWithChildren) {
-  const { required, onSelect, mode, ...dayPicker } = useDayPicker();
+  const { required, min, max, onSelect, mode, ...dayPicker } = useDayPicker();
   const [selection, setSelection] = useState(dayPicker.selected);
 
+  /** Set the selected days when in "single" mode. */
   function setSingle(date: Date, modifiers: Modifiers, e: MouseEvent) {
     let selected: Date | undefined;
     if (modifiers.selected && !required) {
@@ -44,16 +45,34 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
     (onSelect as SelectHandler<'single'>)?.(selected, date, modifiers, e);
     return selected;
   }
+
+  /** Return `true` if the given day is selected in "single" mode. */
   function isSingleSelected(date: Date) {
     return Boolean(selection && isSameDay(selection as Date, date));
   }
 
+  /** Set the selected days when in "multi" mode. */
   function setMulti(date: Date, modifiers: Modifiers, e: MouseEvent) {
-    if (selection !== undefined && !Array.isArray(selection)) return;
+    if (selection !== undefined && !Array.isArray(selection)) {
+      // Not a multi select
+      return;
+    }
     let selected: Date[] | undefined = [];
-    if (modifiers.selected && !required) {
-      selected = selection?.filter((day) => !isSameDay(day, date));
+
+    if (modifiers.selected) {
+      // Date is already selected
+      if (min && selection && selection.length <= min) {
+        // Min value reached, do nothing
+        selected = selection;
+      } else {
+        // Remove the date from the selection
+        selected = selection?.filter((day) => !isSameDay(day, date));
+      }
+    } else if (max !== undefined && selection?.length === max) {
+      // Max value reached, reset the selection to date
+      selected = [date];
     } else {
+      // Add the date to the selection
       selected = [...(selection ?? []), date];
     }
     setSelection(selected);

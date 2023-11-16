@@ -41,9 +41,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const previousMonth = getPreviousMonth(currentMonth, dayPicker);
 
   const isDateDisplayed = (date: Date) => {
-    return calendar.months.some((dayPickerMonth) =>
-      isSameMonth(date, dayPickerMonth.date)
-    );
+    return calendar.months.some((month) => isSameMonth(date, month.date));
   };
 
   const goToDate = (date: Date, refDate?: Date) => {

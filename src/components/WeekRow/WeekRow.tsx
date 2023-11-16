@@ -14,7 +14,7 @@ export interface WeekRowProps
 }
 
 /** Render a row in the calendar, with the days and the week number. */
-export function WeekRow(props: WeekRowProps): JSX.Element {
+export function WeekRow(props: WeekRowProps) {
   const { styles, classNames, showWeekNumber, components } = useDayPicker();
 
   const WeekNumberRowHeader =

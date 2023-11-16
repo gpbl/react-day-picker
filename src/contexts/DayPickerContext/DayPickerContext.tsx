@@ -35,6 +35,8 @@ export type DefaultProps = {
   today: Date;
   fromDate: Date | undefined;
   toDate: Date | undefined;
+  min: number | undefined;
+  max: number | undefined;
 };
 
 /**
@@ -76,7 +78,9 @@ export function DayPickerProvider(props: PropsWithChildren<DayPickerProps>) {
     labels,
     locale: enUS,
     numberOfMonths: 1,
-    today: new Date()
+    today: new Date(),
+    min: undefined,
+    max: undefined
   };
 
   const context = {
