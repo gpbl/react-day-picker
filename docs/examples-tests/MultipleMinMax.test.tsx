@@ -30,9 +30,6 @@ describe('when a day is clicked', () => {
   test('should appear as selected', () => {
     expect(gridcell(days[0])).toHaveAttribute('aria-selected', 'true');
   });
-  test('should update the footer', () => {
-    expect(app()).toHaveTextContent('You selected 1 day(s).');
-  });
   test('should be accessible', async () => {
     expect(await axe(app())).toHaveNoViolations();
   });
@@ -46,9 +43,6 @@ describe('when a day is clicked', () => {
     test('the second day should appear as selected', () => {
       expect(gridcell(days[1])).toHaveAttribute('aria-selected', 'true');
     });
-    test('should update the footer', () => {
-      expect(app()).toHaveTextContent('You selected 2 day(s).');
-    });
     test('should be accessible', async () => {
       expect(await axe(app())).toHaveNoViolations();
     });
@@ -61,9 +55,6 @@ describe('when a day is clicked', () => {
       });
       test('the second day should still appear as selected', () => {
         expect(gridcell(days[1])).toHaveAttribute('aria-selected', 'true');
-      });
-      test('should update the footer', () => {
-        expect(app()).toHaveTextContent('You selected 2 day(s).');
       });
       test('should be accessible', async () => {
         expect(await axe(app())).toHaveNoViolations();

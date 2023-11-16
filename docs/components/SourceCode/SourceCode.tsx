@@ -1,13 +1,13 @@
 import { Code, Pre } from 'nextra/components';
 import { useData } from 'nextra/data';
 
-import { parseHighlightLines } from './parseHighlightLines';
-
 import * as examples from '@examples/index';
-
 import { RenderingBox } from '@components/RenderingBox';
 
+import { parseHighlightLines } from './parseHighlightLines';
+
 import type { Lang, Theme } from 'shiki';
+import type { ReactElement } from 'react';
 
 type SourceCodeProps = {
   /**
@@ -103,7 +103,7 @@ export function SourceCode(props: SourceCodeProps) {
   if (lang === 'tsx') {
     const exampleName = src.replace('.tsx', '') as keyof typeof examples;
     if (examples[exampleName]) {
-      Example = examples[exampleName] as () => JSX.Element;
+      Example = examples[exampleName] as () => ReactElement;
     }
   }
 

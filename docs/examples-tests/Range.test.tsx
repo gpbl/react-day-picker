@@ -1,18 +1,17 @@
 import { addDays } from 'date-fns';
-import { getAllSelectedDays } from 'react-day-picker/test/selectors';
-
+import { app, gridcell } from '../../test/po';
+import { axe, freezeTime, renderApp, user } from '../../test';
 import { Range } from '../examples/Range';
 
-import { axe, renderApp, user } from '../../test';
-import { app, gridcell } from '../../test/po';
+const today = new Date(2020, 10, 15);
+freezeTime(today);
 
-const day = new Date(2020, 10, 15);
 const days = [
-  day,
-  addDays(day, 1),
-  addDays(day, 2),
-  addDays(day, 3),
-  addDays(day, 4)
+  today,
+  addDays(today, 1),
+  addDays(today, 2),
+  addDays(today, 3),
+  addDays(today, 4)
 ];
 
 beforeEach(() => {
@@ -44,7 +43,8 @@ describe('when a day in the range is clicked', () => {
       await user.click(gridcell(day));
     });
     test('only one day should be selected', () => {
-      expect(getAllSelectedDays()).toHaveLength(1);
+      const selectedCells = app().querySelectorAll('[aria-selected="true"]');
+      expect(selectedCells).toHaveLength(1);
     });
     test('only a day in the range should be selected', () => {
       expect(gridcell(day)).toHaveAttribute('aria-selected', 'true');
@@ -56,7 +56,8 @@ describe('when a day in the range is clicked', () => {
         await user.click(gridcell(day));
       });
       test('only one day should be selected', () => {
-        expect(getAllSelectedDays()).toHaveLength(1);
+        const selectedCells = app().querySelectorAll('[aria-selected="true"]');
+        expect(selectedCells).toHaveLength(1);
       });
       test('should match the snapshot', () => {
         expect(app).toMatchSnapshot();
