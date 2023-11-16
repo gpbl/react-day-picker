@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { CalendarProvider } from './CalendarContext';
+import { renderWithContext } from '../../../test/render';
 
 it('should render the children', () => {
-  render(
+  renderWithContext(
     <CalendarProvider>
       <div>Test</div>
     </CalendarProvider>
