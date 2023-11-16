@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { ContextProviders } from '../../src/contexts/ContextProviders';
-import { DayPickerProps } from '../../src';
+import { type DayPickerProps } from '../../src';
 
 /** Render a DayPicker hook inside the `RootProvider`. */
 export type RenderHookResult<TResult> = {
@@ -12,16 +12,16 @@ export function renderDayPickerHook<TResult>(
   dayPickerProps: DayPickerProps
 ): RenderHookResult<TResult> {
   const returnVal = { current: undefined as TResult };
-  function Test(): JSX.Element {
+  function Test() {
     const hookResult: TResult = hook();
     returnVal.current = hookResult;
-    return <></>;
+    return null;
   }
   if (dayPickerProps === undefined) {
     render(<Test />);
   }
   render(
-    <ContextProviders dayPickerProps={dayPickerProps}>
+    <ContextProviders {...dayPickerProps}>
       <Test />
     </ContextProviders>
   );

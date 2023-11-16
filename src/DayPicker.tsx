@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { Calendar } from './components/Calendar';
 import { ContextProviders } from './contexts/ContextProviders';
 import { PropsBase, Mode } from './types/PropsBase';
@@ -69,7 +70,7 @@ export type DayPickerProps = PropsBase &
  *
  * @see https://react-day-picker.js.org
  */
-export function DayPicker(props: DayPickerProps): JSX.Element {
+export function DayPicker(props: DayPickerProps): ReactElement {
   return (
     <ContextProviders {...props}>
       <Calendar />

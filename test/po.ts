@@ -24,6 +24,10 @@ export function grid(name?: ByRoleOptions['name']) {
   return screen.getByRole('grid', name ? { name } : undefined);
 }
 
+export function nav(name?: ByRoleOptions['name']) {
+  return screen.getByRole('navigation', name ? { name } : undefined);
+}
+
 export function gridcell(date: Date) {
   return screen.getByRole('gridcell', { name: String(date.getDate()) });
 }
