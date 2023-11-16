@@ -1,5 +1,5 @@
 import * as examples from '@examples/index';
-import { ReactElement, use, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { RenderingBox } from './RenderingBox';
 import { SourceCode } from './SourceCode';
 import { useRouter } from 'next/router';
