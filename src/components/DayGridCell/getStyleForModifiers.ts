@@ -6,8 +6,8 @@ import type { Modifiers, ModifiersStyles } from '../../types/modifiers';
 export function getStyleForModifiers(
   modifiers: Modifiers,
   modifiersStyles: Partial<ModifiersStyles>,
-  styles: Styles
-) {
+  styles: Partial<Styles>
+): CSSProperties {
   let style: CSSProperties = { ...styles.day };
   Object.entries(modifiers)
     .filter(([, active]) => active === true)

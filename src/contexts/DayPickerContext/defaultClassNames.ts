@@ -1,66 +1,70 @@
-import type { ClassNames } from '../../types/styles';
+import { DayPickerElements, type ClassNames } from '../../types/styles';
 
 /**
  * The name of the default CSS classes.
  */
 export const defaultClassNames: Required<ClassNames> = {
-  rdp: 'rdp',
-  multiple_months: 'multiple_months',
-  with_weeknumber: 'with_weeknumber',
+  [DayPickerElements.root]: 'rdp',
+  [DayPickerElements.multiple_months]: 'multiple_months',
+  [DayPickerElements.with_weeknumber]: 'with_weeknumber',
 
-  month_caption: 'month_caption',
+  [DayPickerElements.month_caption]: 'month_caption',
 
-  caption_start: 'caption_start',
-  caption_end: 'caption_end',
-  caption_between: 'caption_between',
-  caption_label: 'caption_label',
+  [DayPickerElements.caption_start]: 'caption_start',
+  [DayPickerElements.caption_end]: 'caption_end',
+  [DayPickerElements.caption_between]: 'caption_between',
+  [DayPickerElements.caption_label]: 'caption_label',
 
-  caption_dropdowns: 'caption_dropdowns',
+  [DayPickerElements.caption_dropdowns]: 'caption_dropdowns',
 
-  dropdown: 'dropdown',
-  dropdown_month: 'dropdown_month',
-  dropdown_year: 'dropdown_year',
-  dropdown_icon: 'dropdown_icon',
+  [DayPickerElements.dropdown]: 'dropdown',
+  [DayPickerElements.dropdown_month]: 'dropdown_month',
+  [DayPickerElements.dropdown_year]: 'dropdown_year',
+  [DayPickerElements.dropdown_icon]: 'dropdown_icon',
 
-  months_wrapper: 'months_wrapper',
-  month_grid_wrapper: 'month_grid_wrapper',
-  month_grid: 'month_grid',
-  month_rowgroup: 'month_rowgroup',
+  [DayPickerElements.months_wrapper]: 'months_wrapper',
+  [DayPickerElements.month_grid_wrapper]: 'month_grid_wrapper',
+  [DayPickerElements.month_grid]: 'month_grid',
+  [DayPickerElements.month_rowgroup]: 'month_rowgroup',
 
-  weekdays_row: 'weekdays_row',
-  weekday_columnheader: 'weekday_columnheader',
+  [DayPickerElements.weekdays_row]: 'weekdays_row',
+  [DayPickerElements.weekday_columnheader]: 'weekday_columnheader',
 
-  week_row: 'week_row',
+  [DayPickerElements.week_row]: 'week_row',
 
-  weeknumber_rowheader: 'weeknumber_rowheader',
+  [DayPickerElements.weeknumber_rowheader]: 'weeknumber_rowheader',
 
-  nav: 'nav',
-  button_previous: 'button_previous',
-  button_next: 'button_next',
+  [DayPickerElements.nav]: 'nav',
+  [DayPickerElements.button_previous]: 'button_previous',
+  [DayPickerElements.button_next]: 'button_next',
 
-  button_icon: 'button_icon',
+  [DayPickerElements.button_icon]: 'button_icon',
 
-  day: 'day',
-  day_today: 'day_today',
-  day_outside: 'day_outside',
-  day_selected: 'day_selected',
-  day_disabled: 'day_disabled',
-  day_hidden: 'day_hidden',
-  day_range_start: 'day_range_start',
-  day_range_end: 'day_range_end',
-  day_range_middle: 'day_range_middle',
+  [DayPickerElements.day]: 'day',
+  [DayPickerElements.day_today]: 'day_today',
+  [DayPickerElements.day_outside]: 'day_outside',
+  [DayPickerElements.day_selected]: 'day_selected',
+  [DayPickerElements.day_disabled]: 'day_disabled',
+  [DayPickerElements.day_hidden]: 'day_hidden',
+  [DayPickerElements.day_range_start]: 'day_range_start',
+  [DayPickerElements.day_range_end]: 'day_range_end',
+  [DayPickerElements.day_range_middle]: 'day_range_middle',
 
-  caption: 'caption',
-  head: 'head',
-  head_row: 'head_row',
-  row: 'row',
-  head_cell: 'head_cell',
-  cell: 'cell',
-  footer: 'footer',
-  contrast_more: 'contrast_more',
-  contrast_less: 'contrast_less',
-  color_dark: 'dark',
-  color_light: 'light',
-  color_auto: '',
-  'contrast_no-preference': ''
+  [DayPickerElements.caption]: 'caption',
+  [DayPickerElements.head]: 'head',
+  [DayPickerElements.head_row]: 'head_row',
+  [DayPickerElements.row]: 'row',
+  [DayPickerElements.head_cell]: 'head_cell',
+  [DayPickerElements.cell]: 'cell',
+  [DayPickerElements.footer]: 'footer',
+  [DayPickerElements.contrast_more]: 'contrast_more',
+  [DayPickerElements.contrast_less]: 'contrast_less',
+  [DayPickerElements.color_dark]: 'dark',
+  [DayPickerElements.color_light]: 'light',
+  [DayPickerElements.color_auto]: '',
+  [DayPickerElements.dropdown_nav]: 'dropdowns',
+  [DayPickerElements.months_dropdown]: 'months_dropdown',
+  [DayPickerElements.contrast_no_preference]: '',
+  [DayPickerElements.select]: 'select',
+  [DayPickerElements.years_dropdown]: 'years_dropdown'
 };

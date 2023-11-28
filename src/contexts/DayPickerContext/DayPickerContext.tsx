@@ -15,11 +15,13 @@ import {
 } from '../../types';
 
 import { defaultClassNames } from './defaultClassNames';
-import { parseFromToProps } from './utils/parseFromToProps';
+import { getFromToDate } from './utils/getFromToDate';
+import { getClassNames } from './utils/getClassNames';
+import { getLabels } from './utils/getLabels';
+import { getFormatters } from './utils/getFormatters';
+import { getDataAttributes } from './utils/getDataAttributes';
 
-/** A record with `data-*` attributes passed to `DayPicker`. */
-export type DataAttributes = Record<string, unknown>;
-
+/** Represents the defaults internally used when not passed via props */
 export type DefaultProps = {
   captionLayout: CaptionLayout;
   classNames: Required<ClassNames>;
@@ -44,7 +46,7 @@ export type DefaultProps = {
  * internal components to use safe props and avoid all conditionals.
  */
 export type DayPickerContext = DayPickerProps &
-  DefaultProps & { dataAttributes: DataAttributes };
+  DefaultProps & { dataAttributes: Record<string, unknown> };
 
 export const dayPickerContext = createContext<DayPickerContext | null>(null);
 
@@ -53,52 +55,36 @@ export const dayPickerContext = createContext<DayPickerContext | null>(null);
  * Must be the root of all the providers.
  */
 export function DayPickerProvider(props: PropsWithChildren<DayPickerProps>) {
-  const dataAttributes: DataAttributes = {};
   const id = useId();
 
-  Object.entries(props).forEach(([key, val]) => {
-    if (key.startsWith('data-')) {
-      dataAttributes[key] = val;
-    }
-  });
-
-  const { fromDate, toDate } = parseFromToProps(props);
+  const { fromDate, toDate } = getFromToDate(props);
 
   const defaultProps: DefaultProps = {
-    mode: 'single',
-    required: false,
-    fromDate,
-    toDate,
     captionLayout: 'buttons',
     classNames: defaultClassNames,
     colorScheme: 'auto',
-    contrastPreference: 'no-preference',
+    contrastPreference: 'no_preference',
     formatters,
+    fromDate,
     id,
     labels,
     locale: enUS,
-    numberOfMonths: 1,
-    today: new Date(),
+    max: undefined,
     min: undefined,
-    max: undefined
+    mode: 'single',
+    numberOfMonths: 1,
+    required: false,
+    toDate,
+    today: new Date()
   };
 
   const context = {
     ...defaultProps,
     ...props,
-    classNames: {
-      ...defaultProps.classNames,
-      ...props.classNames
-    },
-    labels: {
-      ...defaultProps.labels,
-      ...props.labels
-    },
-    formatters: {
-      ...defaultProps.formatters,
-      ...props.formatters
-    },
-    dataAttributes
+    classNames: getClassNames(props),
+    labels: getLabels(props),
+    formatters: getFormatters(props),
+    dataAttributes: getDataAttributes(props)
   } as unknown as DayPickerContext;
 
   return (
@@ -109,11 +95,14 @@ export function DayPickerProvider(props: PropsWithChildren<DayPickerProps>) {
 }
 
 /**
- * Use this hook to access to the DayPicker context within custom components. */
+ * Use this hook to access to the DayPicker context within custom components.
+ */
 export function useDayPicker() {
   const context = useContext(dayPickerContext);
   if (!context)
-    throw new Error(`useProps must be used within a PropsProvider.`);
+    throw new Error(
+      'useDayPicker must be used within a `<dayPickerContext.Provider/>`.'
+    );
 
   return context;
 }

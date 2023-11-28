@@ -1,6 +1,6 @@
 import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
 
-import { parseFromToProps } from '../../../contexts/DayPickerContext/utils/parseFromToProps';
+import { getFromToDate } from '../../DayPickerContext/utils/getFromToDate';
 
 import type { PropsBase } from '../../../types/PropsBase';
 
@@ -27,7 +27,7 @@ export function getFirstLastMonths(
 ): [firstMonth: Date, lastMonth?: Date] {
   const { month, defaultMonth, today, numberOfMonths = 1 } = props;
   let initialMonth = month || defaultMonth || today || new Date();
-  const { fromDate, toDate } = parseFromToProps(props);
+  const { fromDate, toDate } = getFromToDate(props);
 
   // Fix the initialMonth if is after the to-date
   if (toDate && differenceInCalendarMonths(toDate, initialMonth) < 0) {

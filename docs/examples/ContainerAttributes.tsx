@@ -1,5 +1,6 @@
 import { DayPicker } from 'react-day-picker';
 
+/** Render a DayPicker adding extra HTML attribute to the root element. */
 export function ContainerAttributes() {
   return (
     <DayPicker

@@ -113,6 +113,10 @@ export interface PropsBase {
    */
   disableNavigation?: boolean;
   /**
+   *
+   */
+  showNavigation?: boolean;
+  /**
    * Paginate the month navigation displaying the `numberOfMonths} at
    * time.
    *
@@ -126,7 +130,6 @@ export interface PropsBase {
    * @defaultValue false
    */
   reverseMonths?: boolean;
-
   /**
    * Change the layout of the caption.
    *
@@ -137,8 +140,30 @@ export interface PropsBase {
    * `fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
    *
    * @defaultValue buttons
+   * @deprecated To show the drop-downs, use {@link dropdownNavigation}. To hide the navigation buttons, set {@link hideNavigation}.
    */
   captionLayout?: CaptionLayout;
+  /**
+   * Change the layout of the navigation.
+   *
+   * @default
+   */
+  hideNavigation?: boolean;
+  /**
+   * Show drop-downs to navigate between months or years.
+   *
+   * - `true`: display the drop-downs for both month and year.
+   * - `month`: display the drop-down for the month.
+   * - `year`: display the drop-down for the year.
+   * - `false`: hide the drop-downs.
+   *
+   * **Note:** showing the drop-down will default {@link fromYear} to the 100 years
+   * ago, and {@link toYear} to the current year.
+   *
+   * @defaultValue false
+   */
+  dropdownNavigation?: boolean | 'month' | 'year';
+
   /**
    * Display six weeks per months, regardless the month’s number of weeks.
    *
@@ -282,22 +307,89 @@ export interface PropsBase {
    */
   useAdditionalDayOfYearTokens?: boolean | undefined;
 
+  /**
+   * Event handler when a day is clicked.
+   */
   onDayClick?: DayMouseEventHandler;
+
+  /**
+   * Event handler when a day is focused.
+   */
   onDayFocus?: DayFocusEventHandler;
+
+  /**
+   * Event handler when a day is blurred.
+   */
   onDayBlur?: DayFocusEventHandler;
+
+  /**
+   * Event handler when the mouse enters a day.
+   */
   onDayMouseEnter?: DayMouseEventHandler;
+
+  /**
+   * Event handler when the mouse leaves a day.
+   */
   onDayMouseLeave?: DayMouseEventHandler;
+
+  /**
+   * Event handler when a key is pressed on a day.
+   */
   onDayKeyDown?: DayKeyboardEventHandler;
+
+  /**
+   * Event handler when a key is released on a day.
+   */
   onDayKeyUp?: DayKeyboardEventHandler;
+
+  /**
+   * Event handler when a key is pressed and released on a day.
+   */
   onDayKeyPress?: DayKeyboardEventHandler;
+
+  /**
+   * Event handler when a pointer enters a day.
+   */
   onDayPointerEnter?: DayPointerEventHandler;
+
+  /**
+   * Event handler when a pointer leaves a day.
+   */
   onDayPointerLeave?: DayPointerEventHandler;
+
+  /**
+   * Event handler when a touch is cancelled on a day.
+   */
   onDayTouchCancel?: DayTouchEventHandler;
+
+  /**
+   * Event handler when a touch ends on a day.
+   */
   onDayTouchEnd?: DayTouchEventHandler;
+
+  /**
+   * Event handler when a touch moves on a day.
+   */
   onDayTouchMove?: DayTouchEventHandler;
+
+  /**
+   * Event handler when a touch starts on a day.
+   */
   onDayTouchStart?: DayTouchEventHandler;
+
+  /**
+   * Event handler when the next month button is clicked.
+   */
   onNextClick?: MonthChangeEventHandler;
+
+  /**
+   * Event handler when the previous month button is clicked.
+   */
   onPrevClick?: MonthChangeEventHandler;
+
+  /**
+   * Event handler when a week number is clicked.
+   */
   onWeekNumberClick?: WeekNumberClickEventHandler;
 }
 
@@ -309,7 +401,13 @@ export type CustomComponents = {
 /** The name of the color schemes. */
 export type ColorScheme = 'auto' | 'dark' | 'light';
 
-export type Mode = 'range' | 'single' | 'multi';
+/** The available selection modes. */
+export type Mode =
+  | 'single'
+  | 'multi'
+  | 'range'
+  /** @deprecated Use `multi` instead. */
+  | 'multiple';
 
 /** The name of the contrast preferences. */
-export type ContrastPreference = 'no-preference' | 'less' | 'more';
+export type ContrastPreference = 'no_preference' | 'less' | 'more';

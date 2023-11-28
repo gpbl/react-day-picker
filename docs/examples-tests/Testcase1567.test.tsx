@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-disabled-tests */
 import { Testcase1567 } from '../examples/Testcase1567';
 import { screen } from '@testing-library/react';
 

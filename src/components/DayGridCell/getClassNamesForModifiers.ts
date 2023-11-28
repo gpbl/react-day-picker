@@ -9,7 +9,7 @@ export function getClassNamesForModifiers(
   modifiers: Modifiers,
   modifiersClassNames: ModifiersClassNames,
   classNames: ClassNames
-) {
+): string {
   const modifierClassNames = Object.entries(modifiers)
     .filter(([, active]) => active === true)
     .reduce((previousValue, [key]) => {

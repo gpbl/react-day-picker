@@ -1,11 +1,10 @@
 import { DayPicker, SelectHandler } from 'react-day-picker';
 
 import { format, isValid, parse } from 'date-fns';
-import FocusTrap from 'focus-trap-react';
 import { ChangeEventHandler, createRef, useState } from 'react';
 import { usePopper } from 'react-popper';
 
-export function DatePickerDialog() {
+export function Popover() {
   const [selected, setSelected] = useState<Date>();
   const [inputValue, setInputValue] = useState<string>('');
   const [isPopperOpen, setIsPopperOpen] = useState(false);
@@ -16,7 +15,7 @@ export function DatePickerDialog() {
     null
   );
 
-  const popper = usePopper(popperRef.current, popperElement, {
+  const popper = usePopper(buttonRef.current, popperElement, {
     placement: 'bottom-start'
   });
 
@@ -36,7 +35,7 @@ export function DatePickerDialog() {
   };
 
   const handleButtonClick = () => {
-    setIsPopperOpen(true);
+    setIsPopperOpen(!isPopperOpen);
   };
 
   const handleDaySelect: SelectHandler<'single'> = (date) => {
@@ -59,43 +58,30 @@ export function DatePickerDialog() {
           value={inputValue}
           onChange={handleInputChange}
         />
-        <button
-          ref={buttonRef}
-          type="button"
-          aria-label="Pick a date"
-          onClick={handleButtonClick}
-        >
+        <button ref={buttonRef} type="button" onClick={handleButtonClick}>
           Pick a date
         </button>
       </div>
-      {isPopperOpen && (
-        <FocusTrap
-          active
-          focusTrapOptions={{
-            initialFocus: false,
-            allowOutsideClick: true,
-            clickOutsideDeactivates: true,
-            onDeactivate: closePopper,
-            fallbackFocus: buttonRef.current ?? undefined
-          }}
+      <div
+        style={popper.styles.popper}
+        className="dialog-sheet"
+        hidden={!isPopperOpen}
+        {...popper.attributes.popper}
+      >
+        <div
+          tabIndex={0}
+          ref={setPopperElement}
+          role="dialog"
+          aria-label="DayPicker calendar"
         >
-          <div
-            tabIndex={-1}
-            style={popper.styles.popper}
-            className="dialog-sheet"
-            {...popper.attributes.popper}
-            ref={setPopperElement}
-            role="dialog"
-            aria-label="DayPicker calendar"
-          >
-            <DayPicker
-              mode="single"
-              selected={selected}
-              onSelect={handleDaySelect}
-            />
-          </div>
-        </FocusTrap>
-      )}
+          <DayPicker
+            mode="single"
+            selected={selected}
+            onSelect={handleDaySelect}
+          />
+          <button>Close</button>
+        </div>
+      </div>
     </div>
   );
 }

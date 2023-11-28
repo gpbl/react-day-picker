@@ -1,18 +1,28 @@
 import { formatCaption } from '../formatters/formatCaption';
 import { formatDay } from '../formatters/formatDay';
-import { formatMonthCaption } from '../formatters/formatMonthCaption';
+import {
+  formatYearDropdown,
+  formatYearCaption
+} from '../formatters/formatYearDropdown';
 import { formatWeekdayName } from '../formatters/formatWeekdayName';
 import { formatWeekNumber } from '../formatters/formatWeekNumber';
-import { formatYearCaption } from '../formatters/formatYearCaption';
+import {
+  formatMonthCaption,
+  formatMonthDropdown
+} from '../formatters/formatMonthDropdown';
 
 /** Represent a map of formatters used to render localized content. */
 export type Formatters = {
-  /** Format the month in the caption when `captionLayout` is `buttons`. */
+  /** Format the caption of a month grid. */
   formatCaption: typeof formatCaption;
-  /** Format the month in the navigation dropdown. */
+  /** @deprecated Use {@link Formatters.formatCaption} instead. */
   formatMonthCaption: typeof formatMonthCaption;
-  /** Format the year in the navigation dropdown. */
+  /** Format the label in the month drop-down. */
+  formatMonthDropdown: typeof formatMonthDropdown;
+  /** @deprecated Use {@link Formatters.formatYearDropdown} instead. */
   formatYearCaption: typeof formatYearCaption;
+  /** Format the label in the year drop-down. */
+  formatYearDropdown: typeof formatYearDropdown;
   /** Format the day in the day cell. */
   formatDay: typeof formatDay;
   /** Format the week number. */

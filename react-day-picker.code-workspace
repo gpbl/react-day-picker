@@ -37,7 +37,8 @@
     "github-actions.workflows.pinned.workflows": [
       "react-day-picker/.github/workflows/package.yml",
       "react-day-picker/.github/workflows/website.yml"
-    ]
+    ],
+    "editor.fontFamily": "Berkeley Mono, Menlo, Monaco, 'Courier New', monospace"
   },
   "launch": {
     "version": "0.2.0",

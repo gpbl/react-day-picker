@@ -17,9 +17,9 @@ export function Nav() {
     <nav className={classNames.nav} style={styles?.nav}>
       <button
         name="previous-month"
+        className={classNames.button_previous}
         disabled={!calendar.previousMonth}
         aria-label={labelPrevious(calendar.previousMonth, { locale })}
-        className={classNames.button_previous}
         onClick={calendar.goToPreviousMonth}
       >
         <svg width="24px" height="24px" viewBox="0 0 24 24">
@@ -28,9 +28,9 @@ export function Nav() {
       </button>
       <button
         name="next-month"
-        aria-label={labelNext(calendar.nextMonth, { locale })}
-        disabled={!calendar.nextMonth}
         className={classNames.button_next}
+        disabled={!calendar.nextMonth}
+        aria-label={labelNext(calendar.nextMonth, { locale })}
         onClick={calendar.goToNextMonth}
       >
         <svg width="24px" height="24px" viewBox="0 0 24 24">

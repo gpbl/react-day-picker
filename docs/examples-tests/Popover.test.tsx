@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import { act } from 'react-dom/test-utils';
 
-import { DatePickerDialog } from '../examples/DatePickerDialog';
+import { Popover } from '../examples/Popover';
 import { screen } from '@testing-library/react';
 
 import { app, axe, freezeTime, gridcell, renderApp, user } from '../../test';
@@ -24,7 +24,7 @@ async function waitPopper() {
 }
 
 beforeEach(() => {
-  renderApp(<DatePickerDialog />);
+  renderApp(<Popover />);
 });
 
 test('should be accessible', async () => {

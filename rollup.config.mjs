@@ -70,7 +70,8 @@ const dtsConfig = {
   input: pkg.source,
   output: {
     file: pkg.types,
-    format: 'es'
+    format: 'es',
+    sourcemap: true
   },
   plugins: [dts()]
 };

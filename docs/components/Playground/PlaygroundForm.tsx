@@ -354,7 +354,7 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
           }
         >
           <option></option>
-          <option value={'no-preference'}>no-preference</option>
+          <option value={'no_preference'}>no_preference</option>
           <option value={'less'}>less</option>
           <option value={'more'}>more</option>
         </Select>

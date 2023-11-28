@@ -47,7 +47,7 @@ As default, DayPicker can navigate indefinitely in the past or in the future. To
 
 ```
 
-### Navigating Between Months or Dates
+### Limiting Between Months or Dates
 
 You can also limit the navigation with `fromDate`/`toDate` and `fromMonth` and
 `toMonth`. For example, to limit the calendar between June 2015 and the 20th
@@ -57,19 +57,21 @@ Nov, 2015:
 
 ```
 
-## Choosing a Caption Layout
+## Using Drop-downs Navigation
 
-When limiting the navigable months, use `captionLayout="dropdown"` to display a drop-down
-(a select HTML element) for navigating between months – instead of the previous
-/ next buttons.
+Set the `dropdownNavigation` to display a combobox to change the month and/or the year.
 
-```include-example filename="Dropdown.tsx"
+```include-example filename="Combobox.tsx"
 
 ```
 
-Use `captionLayout="dropdown-buttons"` to display both.
+## Hiding the Navigation Buttons
 
-```include-example filename="DropdownButtons.tsx"
+Hide the navigation buttons with the `hideNavigation` prop. This will not disable the navigation.
+
+You may want to hide the navigation buttons to display instead a combobox.
+
+```include-example filename="HideNavigation.tsx"
 
 ```
 

@@ -24,7 +24,7 @@ export class DayPickerWeek {
 }
 
 /**
- * A month displayed in as month grid. Contains the week
+ * A month displayed in as month grid. Contains the weeks.
  */
 export class DayPickerMonth {
   constructor(month: Date, weeks: DayPickerWeek[]) {
@@ -41,9 +41,9 @@ export class DayPickerMonth {
 export interface DayPickerCalendar {
   /** The current month. When `numberOfMonths` is greater than one, is the first of the displayed months. */
   currentMonth: Date;
-  /** The months displayed in the calendar. */
+  /** All the months belonging to the calendar. */
   months: DayPickerMonth[];
-  /** All the dates displayed in the calendar. */
+  /** All the dates belonging to the calendar. */
   dates: Date[];
   getDays: () => DayPickerDay[];
   /** Navigate to the specified month. */
