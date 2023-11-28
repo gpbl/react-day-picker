@@ -1,5 +1,6 @@
 /* These exported components will be customizable with the `components` prop. */
 export * from './Calendar';
+export * from './Chevron';
 export * from './Dropdown';
 export * from './DayGridCell';
 export * from './deprecated';

@@ -1,5 +1,6 @@
 import { useCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
+import { Chevron as DefaultChevron } from '../Chevron/Chevron';
 
 export type CaptionLayout = 'dropdown' | 'buttons' | 'dropdown-buttons';
 
@@ -8,10 +9,12 @@ export function Nav() {
     classNames,
     styles,
     labels: { labelNext, labelPrevious },
-    locale
+    locale,
+    components
   } = useDayPicker();
 
   const calendar = useCalendar();
+  const Chevron = components?.Chevron ?? DefaultChevron;
 
   return (
     <nav className={classNames.nav} style={styles?.nav}>
@@ -22,9 +25,7 @@ export function Nav() {
         aria-label={labelPrevious(calendar.previousMonth, { locale })}
         onClick={calendar.goToPreviousMonth}
       >
-        <svg width="24px" height="24px" viewBox="0 0 24 24">
-          <polygon points="15 17.23 9.43 11.5 15 5.76 13.28 4 6 11.5 13.28 19" />
-        </svg>
+        <Chevron />
       </button>
       <button
         name="next-month"
@@ -33,9 +34,7 @@ export function Nav() {
         aria-label={labelNext(calendar.nextMonth, { locale })}
         onClick={calendar.goToNextMonth}
       >
-        <svg width="24px" height="24px" viewBox="0 0 24 24">
-          <polygon points="9 17.23 14.56 11.5 9 5.76 10.71 4 18 11.5 10.71 19" />
-        </svg>
+        <Chevron orientation="right" />
       </button>
     </nav>
   );

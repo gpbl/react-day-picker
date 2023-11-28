@@ -98,6 +98,10 @@
   border: 2px solid transparent;
 }
 
+.caption_label svg {
+  margin: 0 0 0 5px;
+}
+
 .nav {
   position: absolute;
   inset-inline-end: 0;
@@ -140,7 +144,8 @@
 }
 
 .button_next > svg,
-.button_previous > svg {
+.button_previous > svg,
+.caption_label > svg {
   fill: var(--rdp-accent-color);
 }
 
@@ -148,6 +153,12 @@
 .button_previous:disabled {
   opacity: var(--rdp-opacity);
   cursor: default;
+}
+
+.button_next:focus-visible,
+.button_previous:focus-visible {
+  outline: var(--rdp-outline);
+  background-color: var(--rdp-background-color);
 }
 
 .rdp[dir='rtl'] .button_next {
