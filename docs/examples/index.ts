@@ -8,7 +8,6 @@ export * from './CustomMultiple';
 export * from './CustomSingle';
 export * from './Popover';
 export * from './DefaultMonth';
-export * from './Combobox';
 export * from './Disabled';
 export * from './DisableNavigation';
 export * from './Dropdown';

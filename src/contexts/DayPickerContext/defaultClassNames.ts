@@ -62,9 +62,9 @@ export const defaultClassNames: Required<ClassNames> = {
   [DayPickerElements.color_dark]: 'dark',
   [DayPickerElements.color_light]: 'light',
   [DayPickerElements.color_auto]: '',
-  [DayPickerElements.dropdown_nav]: 'dropdowns',
+  [DayPickerElements.dropdown_nav]: 'dropdown_nav',
   [DayPickerElements.months_dropdown]: 'months_dropdown',
   [DayPickerElements.contrast_no_preference]: '',
   [DayPickerElements.select]: 'select',
-  [DayPickerElements.years_dropdown]: 'years_dropdown'
+  [DayPickerElements.dropdown_root]: 'dropdown_root'
 };

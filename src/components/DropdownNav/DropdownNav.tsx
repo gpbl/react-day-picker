@@ -13,7 +13,7 @@ export interface DropdownNavProps {
 }
 
 /**
- * Render the dropdowns to navigate between months.
+ * Render the drop-downs to navigate between months.
  */
 export function DropdownNav(props: DropdownNavProps) {
   const { classNames, styles } = useDayPicker();

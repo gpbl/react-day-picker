@@ -35,7 +35,9 @@ export function MonthCaption(props: MonthCaptionProps) {
           }
         />
       ) : (
-        formatCaption(props.month.date, { locale })
+        <span className={classNames.caption_label}>
+          {formatCaption(props.month.date, { locale })}
+        </span>
       )}
     </div>
   );

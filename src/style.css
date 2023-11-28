@@ -69,24 +69,14 @@
   text-align: center;
 }
 
-.caption_dropdowns {
+.caption_dropdowns,
+.dropdown_nav {
   position: relative;
   display: inline-flex;
 }
 
-.caption_dropdowns select {
-  background: transparent;
-  border: none;
-  color: inherit;
-  font: unset;
-  width: auto;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.caption_dropdowns::after {
+.caption_dropdowns::after,
+.dropdown_root::after {
   /* content: '\25BC'; */
   position: absolute;
   top: 50%;
@@ -112,6 +102,7 @@
   position: absolute;
   inset-inline-end: 0;
   white-space: nowrap;
+  padding: 0.25em;
 }
 
 .multiple_months .caption_start .nav {
@@ -172,15 +163,15 @@
 /* Dropdowns  */
 /* ---------- */
 
-.dropdown_year,
-.dropdown_month {
+.dropdown_year, /* Remove in v10 as .dropdown_root is added anyway */
+.dropdown_month, /* Remove in v10 as .dropdown_root is added anyway */
+.dropdown_root {
   position: relative;
   display: inline-flex;
   align-items: center;
 }
 
-.dropdown,
-.combobox {
+.dropdown {
   appearance: none;
   position: absolute;
   z-index: 2;
@@ -194,25 +185,24 @@
   opacity: 0;
   border: none;
   background-color: transparent;
-  font-family: inherit;
-  font-size: inherit;
   line-height: inherit;
+
+  font: revert;
+  font-size: revert;
+  font-size: 1rem;
 }
 
-.combobox[disabled],
 .dropdown[disabled] {
   opacity: unset;
   color: unset;
 }
 
-.combobox:focus-visible:not([disabled]) + .caption_label,
 .dropdown:focus-visible:not([disabled]) + .caption_label {
   background-color: var(--rdp-background-color);
   border: var(--rdp-outline);
   border-radius: 6px;
 }
 
-.combobox_icon,
 .dropdown_icon {
   margin: 0 0 0 5px;
 }

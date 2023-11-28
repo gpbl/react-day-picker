@@ -30,7 +30,7 @@ export function YearsDropdown(props: YearsDropdownProps) {
   return (
     <Dropdown
       name="year"
-      rootClassName={classNames.years_dropdown}
+      rootClassName={classNames.dropdown_year}
       options={options}
       value={formatYearDropdown(props.month.date, { locale })}
     />
