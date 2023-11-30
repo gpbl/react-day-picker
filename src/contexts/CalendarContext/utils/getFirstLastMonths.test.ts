@@ -2,7 +2,6 @@ import { addMonths, isSameMonth } from 'date-fns';
 
 import { getFirstLastMonths } from './getFirstLastMonths';
 
-// TODO: fix tests
 describe('when no toDate is given', () => {
   describe('when month is in context', () => {
     const month = new Date(2010, 11, 12);

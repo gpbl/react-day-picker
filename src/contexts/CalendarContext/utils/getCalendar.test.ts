@@ -1,4 +1,4 @@
-import { getMonthsAndDates } from './getMonthsAndDates';
+import { getCalendar } from './getCalendar';
 
 const today = new Date(2023, 9, 19);
 
@@ -8,7 +8,7 @@ const firstMonth = today;
 const toDate = undefined;
 
 describe('when using the default options', () => {
-  const calendar = getMonthsAndDates(firstMonth, toDate, {
+  const calendar = getCalendar(firstMonth, toDate, {
     numberOfMonths: 1,
     reverseMonths: false,
     ISOWeek: false,
@@ -35,7 +35,7 @@ describe('when using the default options', () => {
 });
 
 describe('when using fixed weeks', () => {
-  const calendar = getMonthsAndDates(today, toDate, {
+  const calendar = getCalendar(today, toDate, {
     numberOfMonths: 1,
     reverseMonths: false,
     ISOWeek: false,
@@ -53,7 +53,7 @@ describe('when using fixed weeks', () => {
 });
 
 describe('when using ISO week dates', () => {
-  const calendar = getMonthsAndDates(today, toDate, {
+  const calendar = getCalendar(today, toDate, {
     numberOfMonths: 1,
     reverseMonths: false,
     ISOWeek: true,

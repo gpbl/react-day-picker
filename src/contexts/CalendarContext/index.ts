@@ -1,2 +1,2 @@
-export * from './DayPickerCalendar';
+export * from './types';
 export * from './CalendarContext';

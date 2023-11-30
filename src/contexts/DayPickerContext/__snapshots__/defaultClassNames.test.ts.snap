@@ -30,7 +30,8 @@ exports[`should match the snapshot 1`] = `
   "dropdown": "dropdown",
   "dropdown_icon": "dropdown_icon",
   "dropdown_month": "dropdown_month",
-  "dropdown_nav": "dropdowns",
+  "dropdown_nav": "dropdown_nav",
+  "dropdown_root": "dropdown_root",
   "dropdown_year": "dropdown_year",
   "footer": "footer",
   "head": "head",
@@ -52,6 +53,5 @@ exports[`should match the snapshot 1`] = `
   "weekdays_row": "weekdays_row",
   "weeknumber_rowheader": "weeknumber_rowheader",
   "with_weeknumber": "with_weeknumber",
-  "years_dropdown": "years_dropdown",
 }
 `;

@@ -17,9 +17,10 @@ exports[`should match the snapshot 1`] = `
         name="previous-month"
       >
         <svg
-          height="24px"
+          height="24"
+          style="transform: rotate(0deg);"
           viewBox="0 0 24 24"
-          width="24px"
+          width="24"
         >
           <polygon
             points="15 17.23 9.43 11.5 15 5.76 13.28 4 6 11.5 13.28 19"
@@ -32,12 +33,13 @@ exports[`should match the snapshot 1`] = `
         name="next-month"
       >
         <svg
-          height="24px"
+          height="24"
+          style="transform: rotate(180deg);"
           viewBox="0 0 24 24"
-          width="24px"
+          width="24"
         >
           <polygon
-            points="9 17.23 14.56 11.5 9 5.76 10.71 4 18 11.5 10.71 19"
+            points="15 17.23 9.43 11.5 15 5.76 13.28 4 6 11.5 13.28 19"
           />
         </svg>
       </button>
@@ -52,8 +54,11 @@ exports[`should match the snapshot 1`] = `
           class="month_caption"
           id=":r0:-caption-0"
         >
-          November 2021
-           
+          <span
+            class="caption_label"
+          >
+            November 2021
+          </span>
         </div>
         <div
           aria-labelledby=":r0:-caption-0"

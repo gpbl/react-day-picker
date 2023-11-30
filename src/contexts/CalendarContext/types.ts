@@ -39,12 +39,13 @@ export class DayPickerMonth {
 
 /** The calendar displayed in DayPicker. */
 export interface DayPickerCalendar {
-  /** The current month. When `numberOfMonths` is greater than one, is the first of the displayed months. */
-  currentMonth: Date;
-  /** All the months belonging to the calendar. */
-  months: DayPickerMonth[];
   /** All the dates belonging to the calendar. */
   dates: Date[];
+  /** The {@link DayPickerMonth | DayPickerMonths} belonging to the calendar. */
+  months: DayPickerMonth[];
+  /** The current month. When `numberOfMonths` is greater than 1, it is the first of the displayed months. */
+  currentMonth: Date;
+  /** Return the days in the calendar. */
   getDays: () => DayPickerDay[];
   /** Navigate to the specified month. */
   goToMonth: (month: Date) => void;
@@ -58,6 +59,6 @@ export interface DayPickerCalendar {
   nextMonth?: Date;
   /** The previous month to display. */
   previousMonth?: Date;
-  /** Whether the given day is included in the displayed months. */
-  isDateDisplayed: (day: Date) => boolean;
+  /** Whether the given date is included in the displayed months. */
+  isDateDisplayed: (date: Date) => boolean;
 }

@@ -8,7 +8,7 @@ import {
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useControlledValue } from '../../utils/useControlledValue';
 
-import { getMonthsAndDates } from './getMonthsAndDates';
+import { getCalendar } from './utils/getCalendar';
 import { getFirstLastMonths } from './utils/getFirstLastMonths';
 import { getNextMonth } from './utils/getNextMonth';
 import { getPreviousMonth } from './utils/getPreviousMonth';
@@ -28,23 +28,23 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     dayPicker.month
   );
 
-  const goToMonth = (date: Date) => {
-    if (dayPicker.disableNavigation) return;
-    const month = startOfMonth(date);
-    setMonth(month);
-    dayPicker.onMonthChange?.(month);
-  };
-
-  const calendar = getMonthsAndDates(currentMonth, lastMonth, dayPicker);
+  const calendar = getCalendar(currentMonth, lastMonth, dayPicker);
 
   const nextMonth = getNextMonth(currentMonth, dayPicker);
   const previousMonth = getPreviousMonth(currentMonth, dayPicker);
 
-  const isDateDisplayed = (date: Date) => {
+  function isDateDisplayed(date: Date) {
     return calendar.months.some((month) => isSameMonth(date, month.date));
-  };
+  }
 
-  const goToDate = (date: Date, refDate?: Date) => {
+  function goToMonth(date: Date) {
+    if (dayPicker.disableNavigation) return;
+    const month = startOfMonth(date);
+    setMonth(month);
+    dayPicker.onMonthChange?.(month);
+  }
+
+  function goToDate(date: Date, refDate?: Date) {
     if (isDateDisplayed(date)) {
       return;
     }
@@ -54,9 +54,9 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     } else {
       goToMonth(date);
     }
-  };
+  }
 
-  const getDays = () => {
+  function getDays() {
     const initialDays: DayPickerDay[] = [];
     return calendar.months.reduce((days, month) => {
       const initialDays: DayPickerDay[] = [];
@@ -65,11 +65,14 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
       }, initialDays);
       return [...days, ...weekDays];
     }, initialDays);
-  };
+  }
 
-  const goToNextMonth = () => (nextMonth ? goToMonth(nextMonth) : undefined);
-  const goToPreviousMonth = () =>
-    previousMonth ? goToMonth(previousMonth) : undefined;
+  function goToNextMonth() {
+    return nextMonth ? goToMonth(nextMonth) : undefined;
+  }
+  function goToPreviousMonth() {
+    return previousMonth ? goToMonth(previousMonth) : undefined;
+  }
 
   const dayPickerCalendar: DayPickerCalendar = {
     ...calendar,
@@ -83,6 +86,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     nextMonth,
     isDateDisplayed
   };
+
   return (
     <calendarContext.Provider value={dayPickerCalendar}>
       {providerProps.children}
