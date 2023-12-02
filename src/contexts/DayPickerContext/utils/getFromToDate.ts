@@ -29,7 +29,7 @@ export function getFromToDate(
     fromDate = startOfMonth(fromMonth);
   } else if (fromYear) {
     fromDate = new Date(fromYear, 0, 1);
-  } else if (!fromDate && props.dropdownNavigation !== false) {
+  } else if (!fromDate && props.dropdownNavigation !== undefined) {
     fromDate = startOfYear(addYears(props.today ?? new Date(), -100));
   }
   if (toMonth) {
