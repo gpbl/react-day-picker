@@ -72,7 +72,7 @@ export type DateInterval = { before: Date; after: Date };
 /** A matcher to match a range of dates. The range can be open. Differently from {@link DateInterval}, the dates here are included. */
 export type DateRange = { from: Date | undefined; to?: Date | undefined };
 
-/** A matcher to match a date being one of the specified days of the week (`0-7`, where `0` is Sunday). */
+/** A matcher to match a date being one of the specified days of the week (`0-6`, where `0` is Sunday). */
 export type DayOfWeek = { dayOfWeek: number[] };
 
 /** Returns true if `matcher` is of type {@link DateInterval}. */
