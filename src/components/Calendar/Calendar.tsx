@@ -10,6 +10,7 @@ import { Nav as DefaultNav } from '../Nav';
  */
 export function Calendar() {
   const {
+    captionLayout,
     className,
     classNames,
     colorScheme,
@@ -18,6 +19,7 @@ export function Calendar() {
     dataAttributes,
     dir,
     footer,
+    hideNavigation,
     id,
     lang,
     nonce,
@@ -85,18 +87,13 @@ export function Calendar() {
       title={title}
       {...dataAttributes}
     >
-      <Nav />
+      {captionLayout !== 'dropdown' && !hideNavigation && <Nav />}
       <Months
         className={classNames.months_wrapper}
         style={styles?.months_wrapper}
       >
         {calendar.dayPickerMonths.map((month, i) => (
-          <MonthGrid
-            aria-labelledby={id}
-            key={i}
-            displayIndex={i}
-            month={month}
-          />
+          <MonthGrid aria-labelledby={id} key={i} index={i} month={month} />
         ))}
       </Months>
       {footer && (

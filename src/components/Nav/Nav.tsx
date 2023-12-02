@@ -1,7 +1,9 @@
 import { useCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { Chevron as DefaultChevron } from '../Chevron/Chevron';
+import type { PropsBase } from '../../types/PropsBase';
 
+/** @deprecated Replaced by {@link PropsBase.dropdownNavigation} and {@link PropsBase.hideNavigation}. */
 export type CaptionLayout = 'dropdown' | 'buttons' | 'dropdown-buttons';
 
 export function Nav() {
@@ -17,7 +19,7 @@ export function Nav() {
   const Chevron = components?.Chevron ?? DefaultChevron;
 
   return (
-    <nav className={classNames.nav} style={styles?.nav}>
+    <div className={classNames.nav} style={styles?.nav}>
       <button
         name="previous-month"
         className={classNames.button_previous}
@@ -36,6 +38,6 @@ export function Nav() {
       >
         <Chevron orientation="right" />
       </button>
-    </nav>
+    </div>
   );
 }

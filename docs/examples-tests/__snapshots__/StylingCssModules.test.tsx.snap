@@ -8,7 +8,7 @@ exports[`should match the snapshot 1`] = `
     class="rdp "
     id=":r0:"
   >
-    <nav
+    <div
       class="nav"
     >
       <button
@@ -43,7 +43,7 @@ exports[`should match the snapshot 1`] = `
           />
         </svg>
       </button>
-    </nav>
+    </div>
     <div
       class="months_wrapper"
     >

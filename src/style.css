@@ -91,7 +91,7 @@
   display: inline-flex;
   align-items: center;
   margin: 0;
-  padding: 0 0.25em;
+  padding: 0.125em 0.25em;
   white-space: nowrap;
   color: currentColor;
   border: 0;

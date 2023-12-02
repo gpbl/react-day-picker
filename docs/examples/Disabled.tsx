@@ -1,5 +1,5 @@
 import { DayPicker } from 'react-day-picker';
 
 export function Disabled() {
-  return <DayPicker disableNavigation />;
+  return <DayPicker disableNavigation hideNavigation />;
 }

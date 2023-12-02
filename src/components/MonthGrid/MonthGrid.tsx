@@ -11,7 +11,7 @@ export interface MonthGridProps
   /** The month where the grid is displayed. */
   month: DayPickerMonth;
   /** The index where this month is displayed. */
-  displayIndex: number;
+  index: number;
 }
 
 /**
@@ -22,8 +22,8 @@ export function MonthGrid(props: MonthGridProps) {
     useDayPicker();
 
   const reactId = useId();
-  const captionId = id ? `${id}-caption-${props.displayIndex}` : reactId;
-  const gridId = id ? `${id}-grid-${props.displayIndex}` : reactId;
+  const captionId = id ? `${id}-caption-${props.index}` : reactId;
+  const gridId = id ? `${id}-grid-${props.index}` : reactId;
 
   const WeekdaysRow = components?.WeekdaysRow ?? DefaultWeekdaysRow;
   const MonthCaption = components?.MonthCaption ?? DefaultMonthCaption;
@@ -34,7 +34,7 @@ export function MonthGrid(props: MonthGridProps) {
       className={classNames.month_grid_wrapper}
       style={styles?.month_grid_wrapper}
     >
-      <MonthCaption id={captionId} month={props.month} />
+      <MonthCaption id={captionId} month={props.month} index={props.index} />
       <div
         id={gridId}
         role="grid"

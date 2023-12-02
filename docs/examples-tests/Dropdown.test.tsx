@@ -14,11 +14,12 @@ test('should be accessible', async () => {
   expect(await axe(app())).toHaveNoViolations();
 });
 
-test('should display the year dropdown', () => {
-  expect(yearDropdown()).toBeInTheDocument();
-});
 test('should display the month dropdown', () => {
   expect(monthDropdown()).toBeInTheDocument();
+});
+
+test('should display the year dropdown', () => {
+  expect(yearDropdown()).toBeInTheDocument();
 });
 
 describe('when choosing a month', () => {

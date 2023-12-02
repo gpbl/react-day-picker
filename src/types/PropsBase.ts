@@ -19,12 +19,11 @@ import { ClassNames, Styles } from './styles';
 
 export interface PropsBase {
   /**
-   * The CSS class to add to the container element. To change the name of the
-   * class instead, use `classNames.root`.
+   * The CSS class to add to the container element.
    */
   className?: string;
   /**
-   * Change the class names of the HTML elements.
+   * Change the class names used by DayPicker.
    *
    * Use this prop when you need to change the default class names — for example
    * when using CSS modules.
@@ -72,10 +71,7 @@ export interface PropsBase {
    * `PropsBase.onMonthChange} to change the month programmatically.
    */
   month?: Date;
-  /**
-   * Event fired when the user navigates between months.
-   */
-  onMonthChange?: MonthChangeEventHandler;
+
   /**
    * The number of displayed months.
    *
@@ -107,48 +103,24 @@ export interface PropsBase {
    */
   toYear?: number;
   /**
-   * Disable the navigation between months.
-   *
-   * @defaultValue false
-   */
-  disableNavigation?: boolean;
-  /**
-   *
-   */
-  showNavigation?: boolean;
-  /**
-   * Paginate the month navigation displaying the `numberOfMonths} at
-   * time.
-   *
-   * @defaultValue false
+   * Paginate the month navigation displaying the `numberOfMonths} at time.
    */
   pagedNavigation?: boolean;
   /**
    * Render the months in reversed order (when `numberOfMonths} is greater
    * than `1`) to display the most recent month first.
-   *
-   * @defaultValue false
    */
   reverseMonths?: boolean;
   /**
-   * Change the layout of the caption.
-   *
-   * - `buttons`: display prev/right buttons
-   * - `dropdown`: display drop-downs to change the month and the year
-   *
-   * **Note:** the `dropdown` layout is available only when `fromDate`,
-   * `fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
-   *
-   * @defaultValue buttons
-   * @deprecated To show the drop-downs, use {@link dropdownNavigation}. To hide the navigation buttons, set {@link hideNavigation}.
-   */
-  captionLayout?: CaptionLayout;
-  /**
-   * Change the layout of the navigation.
-   *
-   * @default
+   * Hide the navigation buttons. This prop won't disable the navigation: to
+   * disable the navigation, use {@link disableNavigation}.
    */
   hideNavigation?: boolean;
+  /**
+   * Disable the navigation between months. This prop won't hide the navigation: to
+   * hide the navigation, use {@link hideNavigation}.
+   */
+  disableNavigation?: boolean;
   /**
    * Show drop-downs to navigate between months or years.
    *
@@ -159,27 +131,19 @@ export interface PropsBase {
    *
    * **Note:** showing the drop-down will default {@link fromYear} to the 100 years
    * ago, and {@link toYear} to the current year.
-   *
-   * @defaultValue false
    */
   dropdownNavigation?: boolean | 'month' | 'year';
 
   /**
    * Display six weeks per months, regardless the month’s number of weeks.
-   *
-   * @defaultValue false
    */
   fixedWeeks?: boolean;
   /**
    * Hide the row displaying the weekday row header.
-   *
-   * @defaultValue false
    */
   hideWeekdayRow?: boolean;
   /**
    * Show the outside days (days falling in the next or the previous month).
-   *
-   * @defaultValue false
    */
   showOutsideDays?: boolean;
   /**
@@ -188,8 +152,6 @@ export interface PropsBase {
    *
    * - to use ISO week numbering, use the `ISOWeek` prop.
    * - to change how the week numbers are displayed, use the `Formatters` prop.
-   *
-   * @defaultValue false
    */
   showWeekNumber?: boolean;
 
@@ -198,6 +160,7 @@ export interface PropsBase {
    * ignore `weekStartsOn` and `firstWeekContainsDate`.
    *
    * @see https://en.wikipedia.org/wiki/ISO_week_date
+   * @defaultValue false
    */
   ISOWeek?: boolean;
 
@@ -231,7 +194,7 @@ export interface PropsBase {
   hidden?: Matcher | Matcher[] | undefined;
 
   /**
-   * The today’s date. Default is the current date. This Date will get the
+   * The today’s date. Default is the current date. This date will get the
    * `today` modifier to style the day.
    */
   today?: Date;
@@ -243,13 +206,13 @@ export interface PropsBase {
 
   /**
    * Labels creators to override the defaults. Use this prop to customize the
-   * ARIA labels attributes.
+   * aria-label attributes in DayPicker.
    */
   labels?: Partial<Labels>;
 
   /**
-   * A map of formatters. Use the formatters to override the default formatting
-   * functions.
+   * Formatters used to format dates to strings. Use this prop to override the
+   * default functions.
    */
   formatters?: Partial<Formatters>;
 
@@ -306,6 +269,13 @@ export interface PropsBase {
    * @see https://date-fns.org/docs/Unicode-Tokens
    */
   useAdditionalDayOfYearTokens?: boolean | undefined;
+
+  /* EVENT HANDLERS */
+
+  /**
+   * Event fired when the user navigates between months.
+   */
+  onMonthChange?: MonthChangeEventHandler;
 
   /**
    * Event handler when a day is clicked.
@@ -388,9 +358,25 @@ export interface PropsBase {
   onPrevClick?: MonthChangeEventHandler;
 
   /**
-   * Event handler when a week number is clicked.
+   * Event handler when a week number is clicked. Requires {@link DayPickerProps.showWeekNumber} to be set.
    */
   onWeekNumberClick?: WeekNumberClickEventHandler;
+
+  /* DEPRECATED PROPS */
+
+  /**
+   * Change the layout of the caption.
+   *
+   * - `buttons`: display prev/right buttons
+   * - `dropdown`: display drop-downs to change the month and the year
+   *
+   * **Note:** the `dropdown` layout is available only when `fromDate`,
+   * `fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
+   *
+   * @defaultValue buttons
+   * @deprecated To show the drop-downs, use {@link dropdownNavigation}. To hide the navigation buttons, set {@link hideNavigation}.
+   */
+  captionLayout?: CaptionLayout;
 }
 
 /** The components that can be changed using the `components` prop. */

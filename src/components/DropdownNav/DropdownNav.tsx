@@ -10,6 +10,8 @@ export interface DropdownNavProps {
   showMonths?: boolean;
   /** Whether the user can change the year. */
   showYears?: boolean;
+  /** The index where this month is displayed. */
+  index: number;
 }
 
 /**
@@ -19,9 +21,9 @@ export function DropdownNav(props: DropdownNavProps) {
   const { classNames, styles } = useDayPicker();
 
   return (
-    <nav className={classNames?.dropdown_nav} style={styles?.dropdown_nav}>
+    <div className={classNames?.dropdown_nav} style={styles?.dropdown_nav}>
       {props.showMonths && <MonthsDropdown month={props.month} />}
       {props.showYears && <YearsDropdown month={props.month} />}
-    </nav>
+    </div>
   );
 }

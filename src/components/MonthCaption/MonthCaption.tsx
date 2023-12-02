@@ -3,8 +3,12 @@ import { useDayPicker } from '../../contexts/DayPickerContext';
 import { DropdownNav } from '../DropdownNav';
 
 export interface MonthCaptionProps {
-  id: string;
+  /** The month where the grid is displayed. */
   month: DayPickerMonth;
+  /** Used for the aria-label. */
+  id: string;
+  /** The index where this month is displayed. */
+  index: number;
 }
 export function MonthCaption(props: MonthCaptionProps) {
   const {
@@ -23,10 +27,16 @@ export function MonthCaption(props: MonthCaptionProps) {
       style={styles?.month_caption}
     >
       {captionLayout === 'dropdown' || captionLayout === 'dropdown-buttons' ? (
-        <DropdownNav month={props.month} showMonths showYears />
+        <DropdownNav
+          month={props.month}
+          index={props.index}
+          showMonths
+          showYears
+        />
       ) : dropdownNavigation ? (
         <DropdownNav
           month={props.month}
+          index={props.index}
           showMonths={
             dropdownNavigation === true || dropdownNavigation === 'month'
           }

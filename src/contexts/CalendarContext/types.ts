@@ -1,5 +1,8 @@
 import { isSameMonth } from 'date-fns';
 import { DropdownOption } from '../../components';
+import type { DayPickerProps } from '../../DayPicker';
+import type { Formatters } from '../../types/formatters';
+import type { DayPickerContext } from '../../contexts/DayPickerContext';
 
 /** Represent a day displayed in a month. */
 export class DayPickerDay {
@@ -41,12 +44,13 @@ export class DayPickerMonth {
 export interface DayPickerCalendar {
   /** All the unique dates belonging to the calendar. */
   dates: Date[];
-  /** The {@link DayPickerMonth | DayPickerMonths} belonging to the calendar. */
+  /** The {@link DayPickerMonth | DayPickerMonths} displayed in the calendar. */
   dayPickerMonths: DayPickerMonth[];
-  /** The current month. When `numberOfMonths` is greater than 1, it is the first of the displayed months. */
+  /**
+   * The current month. When {@link DayPickerProps.numberOfMonths} is greater than `1`, it is the first of the displayed months. */
   currentMonth: Date;
   /**
-   * Return all the days belonging to the calendar. As opposite from
+   * Return all the days displayed int the calendar. As opposite from
    * {@link DayPickerCalendar.dates}, it may return duplicated dates when
    * shown in the calendar outside the month.
    */
@@ -69,7 +73,8 @@ export interface DayPickerCalendar {
    * - To format the label, use {@link Formatters.formatYearDropdown}.
    */
   getDropdownYears: () => DropdownOption[] | undefined;
-  /** Navigate to the specified month. */
+  /**
+   * Navigate to the specified month. Will fire the {@link DayPickerProps.onMonthChange} callback. */
   goToMonth: (month: Date) => void;
   /** Navigate to the next month. */
   goToNextMonth: () => void;
