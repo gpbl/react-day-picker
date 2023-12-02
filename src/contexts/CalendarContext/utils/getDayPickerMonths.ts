@@ -9,7 +9,7 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import type { DayPickerDay, DayPickerMonth, DayPickerWeek } from '../types';
+import { DayPickerDay, DayPickerMonth, DayPickerWeek } from '../types';
 import type { FormatOptions } from '../../../types/FormatOptions';
 
 /** Return the months to display in the calendar. */

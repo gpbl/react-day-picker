@@ -6,3 +6,6 @@ import { FormatOptions } from '../types/FormatOptions';
 export function formatCaption(month: Date, options?: FormatOptions) {
   return format(month, 'LLLL y', options);
 }
+
+/** @deprecated Use {@link formatCaption} instead. */
+export const formatMonthCaption = formatCaption;

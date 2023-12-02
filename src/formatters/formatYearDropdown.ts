@@ -1,11 +1,7 @@
-import { format } from 'date-fns';
-
-import { FormatOptions } from '../types/FormatOptions';
-
 /** The default formatter for the Year caption. */
-export function formatYearDropdown(year: Date, options?: FormatOptions) {
-  return format(year, 'yyyy', options);
+export function formatYearDropdown(year: number): string {
+  return year.toString();
 }
 
-/** @deprecated Use `formatYearCombobox` instead. */
+/** @deprecated Use `formatYearDropdown` instead. */
 export const formatYearCaption = formatYearDropdown;

@@ -9,30 +9,18 @@ export interface YearsDropdownProps {
   month: DayPickerMonth;
 }
 export function YearsDropdown(props: YearsDropdownProps) {
-  const {
-    classNames,
-    locale,
-    formatters: { formatYearDropdown },
-    components
-  } = useDayPicker();
+  const { classNames, components } = useDayPicker();
 
-  const calendar = useCalendar();
+  const { getDropdownYears } = useCalendar();
 
   const Dropdown = components?.Dropdown ?? DefaultDropdown;
-
-  const options = calendar.months.map((month) => {
-    return {
-      value: month.date.toISOString(),
-      label: formatYearDropdown(month.date, { locale })
-    };
-  });
 
   return (
     <Dropdown
       name="year"
       rootClassName={classNames.dropdown_year}
-      options={options}
-      value={formatYearDropdown(props.month.date, { locale })}
+      options={getDropdownYears()}
+      value={props.month.date.getFullYear()}
     />
   );
 }

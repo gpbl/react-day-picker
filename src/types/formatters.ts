@@ -1,15 +1,12 @@
-import { formatCaption } from '../formatters/formatCaption';
+import { formatCaption, formatMonthCaption } from '../formatters/formatCaption';
 import { formatDay } from '../formatters/formatDay';
-import {
-  formatYearDropdown,
-  formatYearCaption
-} from '../formatters/formatYearDropdown';
+import { formatMonthDropdown } from '../formatters/formatMonthDropdown';
 import { formatWeekdayName } from '../formatters/formatWeekdayName';
 import { formatWeekNumber } from '../formatters/formatWeekNumber';
 import {
-  formatMonthCaption,
-  formatMonthDropdown
-} from '../formatters/formatMonthDropdown';
+  formatYearCaption,
+  formatYearDropdown
+} from '../formatters/formatYearDropdown';
 
 /** Represent a map of formatters used to render localized content. */
 export type Formatters = {

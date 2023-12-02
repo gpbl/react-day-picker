@@ -31,7 +31,7 @@ export const modifiersContext = createContext<ModifiersContext | undefined>(
  */
 export function ModifiersProvider({ children }: { children: ReactNode }) {
   const dayPicker = useDayPicker();
-  const calendarDays = useCalendar().getDays();
+  const calendarDays = useCalendar().getDayPickerDays();
   const selection = useSelection();
 
   /** Modifiers that are set internally. */

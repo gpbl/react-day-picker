@@ -4,8 +4,10 @@ import { Select as DefaultSelect, type SelectProps } from '../Select';
 import { Chevron as DefaultChevron } from '../Chevron';
 import { Option as DefaultOption } from '../Option';
 
-export interface DropdownProps extends SelectProps {
-  options?: Array<{ value: string; label: string }> | undefined;
+export type DropdownOption = [value: number, label: string];
+
+export interface DropdownProps extends Omit<SelectProps, 'children'> {
+  options?: DropdownOption[] | undefined;
   rootClassName?: string;
 }
 
@@ -23,17 +25,20 @@ export function Dropdown(props: DropdownProps) {
   const Option = components?.Option ?? DefaultOption;
   const Chevron = components?.Chevron ?? DefaultChevron;
 
+  const selectedOption = options?.find(
+    ([value]) => value === selectProps.value
+  );
   return (
     <span className={cssClassRoot}>
       <Select className={cssClassSelect} {...selectProps}>
-        {options?.map((option) => (
-          <Option key={option.value} value={option.value}>
-            {option.label}
+        {options?.map(([value, label]) => (
+          <Option key={value} value={value}>
+            {label}
           </Option>
         ))}
       </Select>
       <span className={classNames.caption_label} aria-hidden>
-        {props.value}
+        {selectedOption?.[1]}
         <Chevron orientation="down" size={18} />
       </span>
     </span>

@@ -26,7 +26,7 @@ export function getCalendar(
     weekStartsOn?: FormatOptions['weekStartsOn'];
     firstWeekContainsDate?: FormatOptions['firstWeekContainsDate'];
   }
-): Pick<DayPickerCalendar, 'dates' | 'months'> {
+): Pick<DayPickerCalendar, 'dates' | 'dayPickerMonths'> {
   const { numberOfMonths, reverseMonths, ISOWeek, fixedWeeks } = options;
 
   const firstDayOfFirstMonth = startOfMonth(startOfDay(firstMonth));
@@ -52,5 +52,5 @@ export function getCalendar(
     firstWeekContainsDate: options?.firstWeekContainsDate
   });
 
-  return { dates, months };
+  return { dates, dayPickerMonths: months };
 }

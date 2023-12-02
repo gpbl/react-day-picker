@@ -21,7 +21,7 @@ describe('when using the default options', () => {
     expect(calendar).toMatchSnapshot();
   });
   test('should return 1 month', () => {
-    expect(calendar.months).toHaveLength(1);
+    expect(calendar.dayPickerMonths).toHaveLength(1);
   });
   test('should return 42 dates', () => {
     expect(calendar.dates).toHaveLength(35);
@@ -70,9 +70,9 @@ describe('when using ISO week dates', () => {
     expect(calendar).toMatchSnapshot();
   });
   test('first week number should be 39', () => {
-    expect(calendar.months[0].weeks[0].weekNumber).toBe(39);
+    expect(calendar.dayPickerMonths[0].weeks[0].weekNumber).toBe(39);
   });
   test('last day of the first week should be 1', () => {
-    expect(calendar.months[0].weeks[0].days[6].date.getDate()).toBe(1);
+    expect(calendar.dayPickerMonths[0].weeks[0].days[6].date.getDate()).toBe(1);
   });
 });
