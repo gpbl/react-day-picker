@@ -8,7 +8,7 @@ export function getFormatters(props: DayPickerProps) {
     formatters.formatCaption = formatters.formatMonthCaption;
   }
   if (formatters?.formatYearCaption && !formatters.formatYearDropdown) {
-    formatters.formatCaption = formatters.formatYearCaption;
+    formatters.formatYearDropdown = formatters.formatYearCaption;
   }
   return {
     ...defaultFormatters,
