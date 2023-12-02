@@ -46,7 +46,7 @@ exports[`when using ISO week dates dates should match the snapshot 1`] = `
     2023-11-04T05:00:00.000Z,
     2023-11-05T05:00:00.000Z,
   ],
-  "months": [
+  "dayPickerMonths": [
     DayPickerMonth {
       "date": 2023-10-01T05:00:00.000Z,
       "weeks": [
@@ -340,7 +340,7 @@ exports[`when using the default options should match the snapshot 1`] = `
     2023-11-03T05:00:00.000Z,
     2023-11-04T05:00:00.000Z,
   ],
-  "months": [
+  "dayPickerMonths": [
     DayPickerMonth {
       "date": 2023-10-01T05:00:00.000Z,
       "weeks": [
