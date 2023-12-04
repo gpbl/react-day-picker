@@ -30,7 +30,7 @@ describe('when rendering a month that contains today', () => {
 describe('when the today date is clicked', () => {
   beforeEach(async () => act(() => user.click(getDayButton(today))));
   test('should update the footer', () => {
-    expect(getTableFooter()).toHaveTextContent('You clicked the today’s date');
+    expect(getTableFooter()).toHaveTextContent('You clicked today’s date');
   });
 });
 
@@ -38,8 +38,6 @@ describe('when another date is clicked', () => {
   const date = addDays(today, 1);
   beforeEach(async () => act(() => user.click(getDayButton(date))));
   test('should update the footer', () => {
-    expect(getTableFooter()).toHaveTextContent(
-      'Try clicking the today’s date.'
-    );
+    expect(getTableFooter()).toHaveTextContent('Try clicking today’s date.');
   });
 });
