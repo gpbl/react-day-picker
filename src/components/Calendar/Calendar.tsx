@@ -92,7 +92,7 @@ export function Calendar() {
         className={classNames.months_wrapper}
         style={styles?.months_wrapper}
       >
-        {calendar.dayPickerMonths.map((month, i) => (
+        {calendar.months.map((month, i) => (
           <MonthGrid aria-labelledby={id} key={i} index={i} month={month} />
         ))}
       </Months>

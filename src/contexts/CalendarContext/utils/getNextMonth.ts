@@ -6,12 +6,12 @@ import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
  *
  * Please note that the next month is not always the next calendar month:
  *
- * - if after the `toDate` range, is undefined;
- * - if the navigation is paged, is the number of months displayed ahead.
+ * - if after the `toDate` range, is `undefined`;
+ * - if the navigation is paged , is the number of months displayed ahead.
  *
  */
 export function getNextMonth(
-  startingMonth: Date,
+  firstMonth: Date,
   options: {
     numberOfMonths?: number;
     fromDate?: Date;
@@ -26,13 +26,13 @@ export function getNextMonth(
   }
   const { toDate, pagedNavigation, numberOfMonths = 1 } = options;
   const offset = pagedNavigation ? numberOfMonths : 1;
-  const month = startOfMonth(startingMonth);
+  const month = startOfMonth(firstMonth);
 
   if (!toDate) {
     return addMonths(month, offset);
   }
 
-  const monthsDiff = differenceInCalendarMonths(toDate, startingMonth);
+  const monthsDiff = differenceInCalendarMonths(toDate, firstMonth);
 
   if (monthsDiff < numberOfMonths) {
     return undefined;

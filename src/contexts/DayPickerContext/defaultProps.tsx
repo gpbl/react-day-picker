@@ -1,11 +1,11 @@
 import * as formatters from '../../formatters';
 import * as labels from '../../labels';
-import { CaptionLayout } from '../../components/Nav';
 import { DayPickerProps } from '../../DayPicker';
 import { enUS } from 'date-fns/locale';
 import { type Mode } from '../../types/PropsBase';
 
 import type {
+  CaptionLayout,
   ClassNames,
   ColorScheme,
   ContrastPreference,

@@ -1,6 +1,15 @@
 import { Start } from '../examples/Start';
 
-import { app, axe, freezeTime, gridcell, renderApp, user } from '../../test';
+import {
+  app,
+  axe,
+  freezeTime,
+  gridcell,
+  nextButton,
+  previousButton,
+  renderApp,
+  user
+} from '../../test';
 
 const today = new Date(2021, 10, 25);
 freezeTime(today);
@@ -11,6 +20,18 @@ beforeEach(async () => {
 
 test('should be accessible', async () => {
   expect(await axe(app())).toHaveNoViolations();
+});
+
+test('should display the next month button', async () => {
+  expect(nextButton()).toBeVisible();
+  expect(nextButton()).not.toHaveAttribute('aria-disabled');
+  expect(nextButton()).not.toHaveAttribute('aria-disabled', 'true');
+});
+
+test('should display the previous month buttons', async () => {
+  expect(previousButton()).toBeVisible();
+  expect(previousButton()).not.toHaveAttribute('aria-disabled');
+  expect(previousButton()).not.toHaveAttribute('aria-disabled', 'true');
 });
 
 const day = new Date(2021, 10, 1);

@@ -16,6 +16,7 @@ const withNextra = nextra({
 });
 
 export default withNextra({
+  productionBrowserSourceMaps: true,
   eslint: { ignoreDuringBuilds: true },
   output: 'export',
   distDir: 'dist',

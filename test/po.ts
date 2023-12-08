@@ -24,8 +24,8 @@ export function grid(name?: ByRoleOptions['name']) {
   return screen.getByRole('grid', name ? { name } : undefined);
 }
 
-export function nav(name?: ByRoleOptions['name']) {
-  return screen.getByRole('navigation', name ? { name } : undefined);
+export function nav() {
+  return nextButton().parentElement;
 }
 
 export function gridcell(date: Date) {

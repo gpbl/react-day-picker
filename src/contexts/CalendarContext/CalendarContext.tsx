@@ -1,26 +1,18 @@
-import {
-  addMonths,
-  addYears,
-  endOfYear,
-  isBefore,
-  isSameMonth,
-  isSameYear,
-  startOfMonth,
-  startOfYear
-} from 'date-fns';
-import { createContext, type ReactNode, useContext } from 'react';
-
-import {
-  DayPickerCalendar,
-  DayPickerDay
-} from '../../contexts/CalendarContext';
-import { useDayPicker } from '../../contexts/DayPickerContext';
-import { useControlledValue } from '../../utils/useControlledValue';
-
-import { getCalendar } from './utils/getCalendar';
-import { getFirstLastMonths } from './utils/getFirstLastMonths';
+import { addMonths, isBefore, isSameMonth, startOfMonth } from 'date-fns';
+import { DayPickerCalendar } from '../../contexts/CalendarContext';
+import { getDates } from './utils/getDates';
+import { getDayPickerDays } from './utils/getDayPickerDays';
+import { getMonths } from './utils/getMonths';
+import { getDayPickerWeeks } from './utils/getDayPickerWeeks';
+import { getDisplayMonths } from './utils/getDisplayMonths';
+import { getDropdownMonths } from './utils/getDropdownMonths';
+import { getDropdownYears } from './utils/getDropdownYears';
 import { getNextMonth } from './utils/getNextMonth';
 import { getPreviousMonth } from './utils/getPreviousMonth';
+import { getStartMonth } from './utils/getStartMonth';
+import { useControlledValue } from '../../utils/useControlledValue';
+import { useDayPicker } from '../../contexts/DayPickerContext';
+import { createContext, type ReactNode, useContext } from 'react';
 
 export const calendarContext = createContext<DayPickerCalendar | undefined>(
   undefined
@@ -31,21 +23,24 @@ export const calendarContext = createContext<DayPickerCalendar | undefined>(
  */
 export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const dayPicker = useDayPicker();
-  const [firstMonth, lastMonth] = getFirstLastMonths(dayPicker);
-  const [currentMonth, setMonth] = useControlledValue(
-    firstMonth,
+  const startMonth = getStartMonth(dayPicker);
+  const [firstMonth, setFirstMonth] = useControlledValue(
+    startMonth,
     dayPicker.month
   );
 
-  const calendar = getCalendar(currentMonth, lastMonth, dayPicker);
+  const displayMonths = getDisplayMonths(firstMonth, dayPicker);
+  const lastMonth = displayMonths[displayMonths.length - 1];
+  const dates = getDates(firstMonth, lastMonth, dayPicker.toDate, dayPicker);
+  const months = getMonths(displayMonths, dates, dayPicker);
+  const weeks = getDayPickerWeeks(months);
+  const days = getDayPickerDays(months);
 
-  const nextMonth = getNextMonth(currentMonth, dayPicker);
-  const previousMonth = getPreviousMonth(currentMonth, dayPicker);
+  const nextMonth = getNextMonth(firstMonth, dayPicker);
+  const previousMonth = getPreviousMonth(firstMonth, dayPicker);
 
   function isDateDisplayed(date: Date) {
-    return calendar.dayPickerMonths.some((month) =>
-      isSameMonth(date, month.date)
-    );
+    return months.some((month) => isSameMonth(date, month.date));
   }
 
   function goToMonth(date: Date) {
@@ -53,7 +48,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
       return;
     }
     const month = startOfMonth(date);
-    setMonth(month);
+    setFirstMonth(month);
     dayPicker.onMonthChange?.(month);
   }
 
@@ -69,17 +64,6 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     }
   }
 
-  function getDayPickerDays() {
-    const initialDays: DayPickerDay[] = [];
-    return calendar.dayPickerMonths.reduce((days, month) => {
-      const initialDays: DayPickerDay[] = [];
-      const weekDays: DayPickerDay[] = month.weeks.reduce((weekDays, week) => {
-        return [...weekDays, ...week.days];
-      }, initialDays);
-      return [...days, ...weekDays];
-    }, initialDays);
-  }
-
   function goToNextMonth() {
     return nextMonth ? goToMonth(nextMonth) : undefined;
   }
@@ -87,69 +71,31 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     return previousMonth ? goToMonth(previousMonth) : undefined;
   }
 
-  function getDropdownMonths():
-    | Array<[month: number, label: string]>
-    | undefined {
-    if (!dayPicker.fromDate) return undefined;
-    if (!dayPicker.toDate) return undefined;
-    const firstNavMonth = startOfMonth(dayPicker.fromDate);
-    const lastNavMonth = startOfMonth(dayPicker.toDate);
+  const calendar: DayPickerCalendar = {
+    dates,
+    months,
+    weeks,
+    days,
 
-    const months: number[] = [];
-    let month = firstNavMonth;
-    while (months.length < 12 && isBefore(month, addMonths(lastNavMonth, 1))) {
-      months.push(month.getMonth());
-      month = addMonths(month, 1);
-    }
-    const sortedMonths = months.sort((a, b) => {
-      return a - b;
-    });
-    const options = sortedMonths.map((m) => {
-      const label = dayPicker.formatters.formatMonthDropdown(
-        m,
-        dayPicker.locale
-      );
-      const option: [number, string] = [m, label];
-      return option;
-    });
-    return options;
-  }
+    firstMonth,
+    lastMonth,
+    previousMonth,
+    nextMonth,
 
-  function getDropdownYears(): [year: number, label: string][] | undefined {
-    if (!dayPicker.fromDate) return undefined;
-    if (!dayPicker.toDate) return undefined;
-    const firstNavYear = startOfYear(dayPicker.fromDate);
-    const lastNavYear = endOfYear(dayPicker.toDate);
-
-    const years: number[] = [];
-    let year = firstNavYear;
-    while (isBefore(year, lastNavYear) || isSameYear(year, lastNavYear)) {
-      years.push(year.getFullYear());
-      year = addYears(year, 1);
-    }
-    return years.map((year) => [
-      year,
-      dayPicker.formatters.formatYearDropdown(year)
-    ]);
-  }
-
-  const dayPickerCalendar: DayPickerCalendar = {
-    ...calendar,
-    getDayPickerDays,
-    getDropdownMonths: getDropdownMonths,
-    getDropdownYears: getDropdownYears,
     goToMonth,
     goToNextMonth,
     goToPreviousMonth,
     goToDate,
-    currentMonth,
-    previousMonth,
-    nextMonth,
-    isDateDisplayed
+    isDateDisplayed,
+
+    dropdown: {
+      months: getDropdownMonths(dayPicker),
+      years: getDropdownYears(dayPicker)
+    }
   };
 
   return (
-    <calendarContext.Provider value={dayPickerCalendar}>
+    <calendarContext.Provider value={calendar}>
       {providerProps.children}
     </calendarContext.Provider>
   );

@@ -1,16 +1,16 @@
 import { getUnixTime } from 'date-fns';
 
-import { DayPickerWeek } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { DayGridCellWrapper } from '../DayGridCell/DayGridCellWrapper';
 import { WeekNumberRowHeader as DefaultWeekNumberRowHeader } from '../WeekNumberRowHeader';
+import { Week } from '../../classes';
 
 /**
  * The props for the `WeekRow` component.
  */
 export interface WeekRowProps
   extends Pick<React.AriaAttributes, 'aria-rowindex'> {
-  week: DayPickerWeek;
+  week: Week;
 }
 
 /** Render a row in the calendar, with the days and the week number. */

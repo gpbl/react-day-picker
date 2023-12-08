@@ -1,15 +1,15 @@
 import { useId } from 'react';
 
-import { DayPickerMonth } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { MonthCaption as DefaultMonthCaption } from '../MonthCaption';
 import { WeekdaysRow as DefaultWeekdaysRow } from '../WeekdaysRow';
 import { WeekRow as DefaultWeekRow } from '../WeekRow';
+import { Month } from '../../classes';
 
 export interface MonthGridProps
   extends Pick<React.AriaAttributes, 'aria-labelledby'> {
   /** The month where the grid is displayed. */
-  month: DayPickerMonth;
+  month: Month;
   /** The index where this month is displayed. */
   index: number;
 }

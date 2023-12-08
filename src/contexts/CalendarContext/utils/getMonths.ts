@@ -9,47 +9,43 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import { DayPickerDay, DayPickerMonth, DayPickerWeek } from '../types';
 import type { FormatOptions } from '../../../types/FormatOptions';
+import { Month, Week, Day } from '../../../classes';
 
 /** Return the months to display in the calendar. */
-export function getDayPickerMonths(
-  months: Date[],
+export function getMonths(
+  /** The months (as dates) to display in the calendar. */
+  displayMonths: Date[],
+  /** The dates to display in the calendar. */
   dates: Date[],
   options: {
-    reverseMonths?: boolean;
     ISOWeek?: boolean;
     fixedWeeks?: boolean;
     locale?: FormatOptions['locale'];
     weekStartsOn?: FormatOptions['weekStartsOn'];
     firstWeekContainsDate?: FormatOptions['firstWeekContainsDate'];
-  }
-) {
-  const {
-    reverseMonths,
-    ISOWeek,
-    fixedWeeks,
-    locale,
-    weekStartsOn,
-    firstWeekContainsDate
-  } = options;
-
-  const dayPickerMonths = months.reduce<DayPickerMonth[]>((months, month) => {
-    const firstDateOfFirstWeek = ISOWeek
+  } = {}
+): Month[] {
+  const dayPickerMonths = displayMonths.reduce<Month[]>((months, month) => {
+    const firstDateOfFirstWeek = options.ISOWeek
       ? startOfISOWeek(month)
-      : startOfWeek(month, { locale, weekStartsOn });
-    const lastDateOfLastWeek = ISOWeek
+      : startOfWeek(month, {
+          locale: options.locale,
+          weekStartsOn: options.weekStartsOn
+        });
+
+    const lastDateOfLastWeek = options.ISOWeek
       ? endOfISOWeek(endOfMonth(month))
       : endOfWeek(endOfMonth(month), {
-          locale,
-          weekStartsOn
+          locale: options.locale,
+          weekStartsOn: options.weekStartsOn
         });
 
     const monthDates = dates.filter((date) => {
       return date >= firstDateOfFirstWeek && date <= lastDateOfLastWeek;
     });
 
-    if (fixedWeeks && monthDates.length < 42) {
+    if (options.fixedWeeks && monthDates.length < 42) {
       const extraDates = dates.filter((date) => {
         return (
           date > lastDateOfLastWeek && date <= addDays(lastDateOfLastWeek, 7)
@@ -58,34 +54,30 @@ export function getDayPickerMonths(
       monthDates.push(...extraDates);
     }
 
-    const dayPickerWeeks = monthDates.reduce<DayPickerWeek[]>((weeks, date) => {
-      const weekNumber = ISOWeek
+    const weeks: Week[] = monthDates.reduce<Week[]>((weeks, date) => {
+      const weekNumber = options.ISOWeek
         ? getISOWeek(date)
         : getWeek(date, {
-            locale,
-            weekStartsOn,
-            firstWeekContainsDate
+            locale: options.locale,
+            weekStartsOn: options.weekStartsOn,
+            firstWeekContainsDate: options.firstWeekContainsDate
           });
       const week = weeks.find((week) => week.weekNumber === weekNumber);
 
-      const day = new DayPickerDay(date, month);
+      const day = new Day(date, month);
       if (!week) {
-        weeks.push(new DayPickerWeek(weekNumber, [day]));
+        weeks.push(new Week(weekNumber, [day]));
       } else {
         week.days.push(day);
       }
       return weeks;
     }, []);
 
-    const dayPickerMonth = new DayPickerMonth(month, dayPickerWeeks);
+    const dayPickerMonth = new Month(month, weeks);
 
     months.push(dayPickerMonth);
     return months;
   }, []);
-
-  if (reverseMonths) {
-    dayPickerMonths.reverse();
-  }
 
   return dayPickerMonths;
 }

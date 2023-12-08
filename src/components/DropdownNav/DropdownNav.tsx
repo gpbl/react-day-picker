@@ -1,11 +1,11 @@
-import { DayPickerMonth } from '../../contexts/CalendarContext';
+import { Month } from '../../classes';
 import { MonthsDropdown } from '../MonthsDropdown';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { YearsDropdown } from '../YearsDropdown';
 
 export interface DropdownNavProps {
   /** The month where the dropdown navigation is displayed. */
-  month: DayPickerMonth;
+  month: Month;
   /** Whether the user can change the month. */
   showMonths?: boolean;
   /** Whether the user can change the year. */

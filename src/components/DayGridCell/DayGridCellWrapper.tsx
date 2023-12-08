@@ -6,7 +6,7 @@ import {
   TouchEventHandler
 } from 'react';
 
-import { DayPickerDay } from '../../contexts/CalendarContext';
+import { Day } from '../../classes';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useModifiers } from '../../contexts/ModifiersContext';
 import { useSelection } from '../../contexts/SelectionContext';
@@ -18,7 +18,7 @@ import { getStyleForModifiers } from './getStyleForModifiers';
 export interface DayGridCellWrapperProps
   extends Pick<React.AriaAttributes, 'aria-colindex'> {
   /** The day to be rendered in the gridcell. */
-  day: DayPickerDay;
+  day: Day;
 }
 
 /**

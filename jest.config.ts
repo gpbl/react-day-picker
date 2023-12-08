@@ -19,10 +19,13 @@ const config: Config.InitialOptions = {
     'react-day-picker': '<rootDir>/src',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
   },
-  roots: ['./src', './docs/examples-tests'],
+  roots: ['./src'],
   testEnvironment: 'jsdom',
   coverageReporters: ['lcov', 'text', 'clover'],
-  setupFilesAfterEnv: ['./test/setup.ts']
+  setupFilesAfterEnv: ['./test/setup.ts'],
+  fakeTimers: {
+    enableGlobally: true
+  }
 };
 
 export default config;

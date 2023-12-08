@@ -1,8 +1,8 @@
-import { DayPickerWeek } from '../../contexts/CalendarContext';
+import { Week } from '../../classes';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 
 export interface WeekNumberRowHeaderProps {
-  week: DayPickerWeek;
+  week: Week;
 }
 
 /** Render the cell with the number of the week. */

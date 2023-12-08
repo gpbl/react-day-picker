@@ -19,12 +19,12 @@ test('should be accessible', async () => {
   expect(await axe(app())).toHaveNoViolations();
 });
 
-test('the previous button should be disabled', () => {
-  expect(previousButton()).toBeDisabled();
+test('the previous button should be aria-disabled', () => {
+  expect(previousButton()).toHaveAttribute('aria-disabled', 'true');
 });
 
-test('the next button should not be disabled', () => {
-  expect(nextButton()).not.toBeDisabled();
+test('the next button should be aria-disabled', () => {
+  expect(nextButton()).not.toHaveAttribute('aria-disabled');
 });
 
 describe('when navigating to the last month', () => {
@@ -38,10 +38,10 @@ describe('when navigating to the last month', () => {
   });
 
   test('the previous button should not be disabled', () => {
-    expect(previousButton()).not.toBeDisabled();
+    expect(previousButton()).not.toHaveAttribute('aria-disabled');
   });
 
   test('the next button should be disabled', () => {
-    expect(nextButton()).toBeDisabled();
+    expect(nextButton()).toHaveAttribute('aria-disabled', 'true');
   });
 });

@@ -31,7 +31,7 @@ export function DayPickerProvider(props: PropsWithChildren<DayPickerProps>) {
     labels: getLabels(props),
     formatters: getFormatters(props),
     dataAttributes: getDataAttributes(props)
-  } as unknown as DayPickerContext;
+  } as DayPickerContext;
 
   return (
     <dayPickerContext.Provider value={context}>

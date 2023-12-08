@@ -12,6 +12,7 @@ import { DayPickerProps } from '../../../DayPicker';
 export function getFromToDate(
   props: Pick<
     DayPickerProps,
+    | 'id'
     | 'fromYear'
     | 'toYear'
     | 'fromDate'
@@ -36,7 +37,7 @@ export function getFromToDate(
     toDate = endOfMonth(toMonth);
   } else if (toYear) {
     toDate = new Date(toYear, 11, 31);
-  } else if (!toDate && props.dropdownNavigation !== false) {
+  } else if (!toDate && props.dropdownNavigation) {
     toDate = endOfYear(props.today ?? new Date());
   }
   return {

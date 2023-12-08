@@ -8,10 +8,10 @@ import { Modifiers } from './types/modifiers';
 export type Selected<T extends Mode> = T extends 'single'
   ? Date
   : T extends 'multi'
-  ? Date[]
-  : T extends 'range'
-  ? DateRange
-  : Date;
+    ? Date[]
+    : T extends 'range'
+      ? DateRange
+      : Date;
 
 /** The callback called when the user select a days from the calendar. */
 export type SelectHandler<T extends Mode> = (
@@ -24,7 +24,7 @@ export type SelectHandler<T extends Mode> = (
   e: React.MouseEvent
 ) => void;
 
-export interface PropsDefault {
+export interface PropsDefault extends PropsBase {
   selected?: never;
   required?: never;
   mode?: never;
@@ -32,7 +32,7 @@ export interface PropsDefault {
 }
 
 /** The props for the single selection mode. */
-export interface PropsSingle {
+export interface PropsSingle extends PropsBase {
   /** Enable the single selection mode. */
   mode: 'single';
   required?: boolean;
@@ -41,7 +41,7 @@ export interface PropsSingle {
 }
 
 /** The props for the multi selection mode. */
-export interface PropsMulti {
+export interface PropsMulti extends PropsBase {
   /** Enable the multi selection mode. */
   mode: 'multi';
   required?: boolean;
@@ -52,7 +52,7 @@ export interface PropsMulti {
 }
 
 /** The props for the range selection mode. */
-export interface PropsRange {
+export interface PropsRange extends PropsBase {
   /** Enable the range selection mode. */
   mode: 'range';
   required?: boolean;
@@ -62,8 +62,11 @@ export interface PropsRange {
   max?: number;
 }
 
-export type DayPickerProps = PropsBase &
-  (PropsDefault | PropsSingle | PropsMulti | PropsRange);
+export type DayPickerProps =
+  | PropsDefault
+  | PropsSingle
+  | PropsMulti
+  | PropsRange;
 
 /**
  * Render a date picker component.

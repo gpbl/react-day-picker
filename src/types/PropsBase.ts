@@ -1,5 +1,4 @@
 import * as components from '../components';
-import { CaptionLayout } from '../components/Nav';
 
 import {
   DayFocusEventHandler,
@@ -397,3 +396,8 @@ export type Mode =
 
 /** The name of the contrast preferences. */
 export type ContrastPreference = 'no_preference' | 'less' | 'more';
+
+/**
+ * @deprecated Replaced by {@link PropsBase.dropdownNavigation} and {@link PropsBase.hideNavigation}.
+ */
+export type CaptionLayout = 'dropdown' | 'buttons' | 'dropdown-buttons';

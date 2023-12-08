@@ -3,12 +3,12 @@ import { createContext, useContext } from 'react';
 
 import { isSameDay, isSameMonth } from 'date-fns';
 
-import type { DayPickerDay } from '../../contexts/CalendarContext';
 import { useCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useSelection } from '../../contexts/SelectionContext';
-import type { InternalModifier, Modifiers } from '../../types';
 import { dateMatchModifiers } from './utils/dateMatchModifiers';
+import { Day } from '../../classes';
+import type { InternalModifier, Modifiers } from '../../types';
 
 /** A record with `data-*` attributes passed to `DayPicker`. */
 export type DataAttributes = Record<string, unknown>;
@@ -18,8 +18,8 @@ export type DataAttributes = Record<string, unknown>;
  * internal components to use safe props and avoid all conditionals.
  */
 export interface ModifiersContext {
-  getModifiers: (day: DayPickerDay) => Modifiers;
-  modifiers: Record<string, DayPickerDay[]>;
+  getModifiers: (day: Day) => Modifiers;
+  modifiers: Record<string, Day[]>;
 }
 
 export const modifiersContext = createContext<ModifiersContext | undefined>(
@@ -31,11 +31,11 @@ export const modifiersContext = createContext<ModifiersContext | undefined>(
  */
 export function ModifiersProvider({ children }: { children: ReactNode }) {
   const dayPicker = useDayPicker();
-  const calendarDays = useCalendar().getDayPickerDays();
+  const calendar = useCalendar();
   const selection = useSelection();
 
   /** Modifiers that are set internally. */
-  const internal: Record<InternalModifier, DayPickerDay[]> = {
+  const internal: Record<InternalModifier, Day[]> = {
     outside: [],
     disabled: [],
     hidden: [],
@@ -47,11 +47,10 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
   };
 
   /** Custom modifiers that are coming from the `modifiers` props */
-  const custom: Record<string, DayPickerDay[]> = {};
+  const custom: Record<string, Day[]> = {};
 
-  for (const day of calendarDays) {
+  for (const day of calendar.days) {
     const { date, displayMonth } = day;
-
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
     const isDisabled = Boolean(
       dayPicker.disabled && dateMatchModifiers(date, dayPicker.disabled)
@@ -97,7 +96,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  const getModifiers = (day: DayPickerDay) => {
+  const getModifiers = (day: Day) => {
     const modifiers: Modifiers = {
       outside: false,
       disabled: false,
@@ -111,14 +110,13 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 
     for (const name in internal) {
       const daysWithModifier = internal[name as InternalModifier];
-      modifiers[name] = daysWithModifier.some((d) => d === day);
+      modifiers[name] = daysWithModifier.some((d) => d.date === day.date);
     }
 
     for (const name in custom) {
       // This will override the internal modifiers with the same name, as intended
       modifiers[name] = custom[name].some((d) => d === day);
     }
-
     return modifiers;
   };
 

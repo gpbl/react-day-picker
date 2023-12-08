@@ -1,11 +1,11 @@
 import { HTMLAttributes } from 'react';
 
-import { DayPickerDay } from '../../contexts/CalendarContext';
+import { Day } from '../../classes';
 import { Modifiers } from '../../types/modifiers';
 
 export interface DayGridCellProps {
   /** The day to be rendered in the gridcell. */
-  day: DayPickerDay;
+  day: Day;
   /** Modifiers for the day. */
   modifiers: Modifiers;
   /** HTML attributes for the gridcell. */

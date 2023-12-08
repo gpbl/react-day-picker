@@ -1,4 +1,5 @@
 /* These exported components will be customizable with the `components` prop. */
+export * from './Button';
 export * from './Calendar';
 export * from './Chevron';
 export * from './Dropdown';

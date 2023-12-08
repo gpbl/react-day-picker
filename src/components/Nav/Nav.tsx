@@ -1,10 +1,7 @@
 import { useCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
-import { Chevron as DefaultChevron } from '../Chevron/Chevron';
-import type { PropsBase } from '../../types/PropsBase';
-
-/** @deprecated Replaced by {@link PropsBase.dropdownNavigation} and {@link PropsBase.hideNavigation}. */
-export type CaptionLayout = 'dropdown' | 'buttons' | 'dropdown-buttons';
+import { Chevron as DefaultChevron } from '../Chevron';
+import { Button as DefaultButton } from '../Button';
 
 export function Nav() {
   const {
@@ -16,28 +13,30 @@ export function Nav() {
   } = useDayPicker();
 
   const calendar = useCalendar();
+
+  const Button = components?.Button ?? DefaultButton;
   const Chevron = components?.Chevron ?? DefaultChevron;
 
   return (
     <div className={classNames.nav} style={styles?.nav}>
-      <button
+      <Button
         name="previous-month"
         className={classNames.button_previous}
-        disabled={!calendar.previousMonth}
+        aria-disabled={calendar.previousMonth ? undefined : true}
         aria-label={labelPrevious(calendar.previousMonth, { locale })}
         onClick={calendar.goToPreviousMonth}
       >
         <Chevron />
-      </button>
-      <button
+      </Button>
+      <Button
         name="next-month"
         className={classNames.button_next}
-        disabled={!calendar.nextMonth}
+        aria-disabled={calendar.nextMonth ? undefined : true}
         aria-label={labelNext(calendar.nextMonth, { locale })}
         onClick={calendar.goToNextMonth}
       >
         <Chevron orientation="right" />
-      </button>
+      </Button>
     </div>
   );
 }

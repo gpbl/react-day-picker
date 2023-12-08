@@ -1,16 +1,18 @@
 import {
   addDays,
   differenceInCalendarDays,
-  differenceInMonths,
+  differenceInCalendarMonths,
   endOfISOWeek,
   endOfMonth,
   endOfWeek,
+  isAfter,
   startOfISOWeek,
   startOfWeek
 } from 'date-fns';
 
 import type { FormatOptions } from '../../../types/FormatOptions';
 
+/** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;
 
 /**
@@ -18,7 +20,7 @@ const NrOfDaysWithFixedWeeks = 42;
  *
  * @param firstMonth The first month of the calendar
  * @param lastMonth The last month of the calendar
- * @param toDate The date to end the calendar at
+ * @param maxDate The date to end the calendar at
  * @param options Options for the calendar
  * @param options.ISOWeek Whether or not to use ISOWeek
  * @param options.fixedWeeks Whether or not to use fixed weeks
@@ -28,45 +30,45 @@ const NrOfDaysWithFixedWeeks = 42;
 export function getDates(
   firstMonth: Date,
   lastMonth: Date,
-  toDate: Date | undefined,
-  options: {
+  maxDate?: Date | undefined,
+  options?: {
     ISOWeek?: boolean;
     fixedWeeks?: boolean;
-    locale: FormatOptions['locale'];
+    locale?: FormatOptions['locale'];
     weekStartsOn?: FormatOptions['weekStartsOn'];
   }
 ): Date[] {
-  const { ISOWeek, fixedWeeks, locale, weekStartsOn } = options;
-  const firstDateOfFirstWeek = ISOWeek
+  const { ISOWeek, fixedWeeks, locale, weekStartsOn } = options ?? {};
+
+  const startWeekFirstDate = ISOWeek
     ? startOfISOWeek(firstMonth)
     : startOfWeek(firstMonth, {
         weekStartsOn,
         locale
       });
 
-  const lastDateOfLastWeek = ISOWeek
+  const endWeekLastDate = ISOWeek
     ? endOfISOWeek(endOfMonth(lastMonth))
     : endOfWeek(endOfMonth(lastMonth), {
         weekStartsOn,
         locale
       });
 
-  const daysDiff = differenceInCalendarDays(
-    lastDateOfLastWeek,
-    firstDateOfFirstWeek
-  );
+  const nOfDays = differenceInCalendarDays(endWeekLastDate, startWeekFirstDate);
+  const nOfMonths = differenceInCalendarMonths(lastMonth, firstMonth) + 1;
 
   const dates: Date[] = [];
-
-  for (let i = 0; i <= daysDiff; i++) {
-    const date = addDays(firstDateOfFirstWeek, i);
-    if (toDate && date > toDate) break;
+  for (let i = 0; i <= nOfDays; i++) {
+    const date = addDays(startWeekFirstDate, i);
+    if (maxDate && isAfter(date, maxDate)) {
+      break;
+    }
     dates.push(new Date(date));
   }
-  const nOfMonths = differenceInMonths(firstMonth, lastMonth) + 1;
 
-  // If fixed weeks is enabled, add extra dates to the array
-  if (fixedWeeks && dates.length < NrOfDaysWithFixedWeeks * nOfMonths) {
+  // If fixed weeks is enabled, add the extra dates to the array
+  const extraDates = NrOfDaysWithFixedWeeks * nOfMonths;
+  if (fixedWeeks && dates.length < extraDates) {
     for (let i = 0; i < 7; i++) {
       const date = addDays(dates[dates.length - 1], 1);
       dates.push(new Date(date));

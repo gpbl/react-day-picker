@@ -1,15 +1,13 @@
 import { useDayPicker } from '../../contexts/DayPickerContext';
-import {
-  useCalendar,
-  type DayPickerMonth
-} from '../../contexts/CalendarContext';
+import { useCalendar } from '../../contexts/CalendarContext';
 import { Dropdown as DefaultDropdown } from '../Dropdown';
 import { setYear, startOfMonth } from 'date-fns';
 import { ChangeEventHandler } from 'react';
+import { Month } from '../../classes';
 
 export interface YearsDropdownProps {
   /** The month where the dropdown is displayed. */
-  month: DayPickerMonth;
+  month: Month;
 }
 export function YearsDropdown(props: YearsDropdownProps) {
   const {
@@ -18,7 +16,7 @@ export function YearsDropdown(props: YearsDropdownProps) {
     labels: { labelYearDropdown }
   } = useDayPicker();
 
-  const { getDropdownYears, goToMonth } = useCalendar();
+  const { dropdown, goToMonth } = useCalendar();
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const month = setYear(
@@ -34,7 +32,7 @@ export function YearsDropdown(props: YearsDropdownProps) {
       name="year"
       aria-label={labelYearDropdown()}
       rootClassName={classNames.dropdown_year}
-      options={getDropdownYears()}
+      options={dropdown.years}
       value={props.month.date.getFullYear()}
       onChange={handleChange}
     />

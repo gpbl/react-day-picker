@@ -1,25 +1,29 @@
-import { screen } from '@testing-library/react';
-import { CalendarProvider, useCalendar } from './CalendarContext';
-import { renderDayPickerHook, renderWithContext } from '../../../test/render';
+import { useCalendar } from './CalendarContext';
+import { renderDayPickerHook } from '../../../test/render';
 
-it('should render the children', () => {
-  renderWithContext(
-    <CalendarProvider>
-      <div>Test</div>
-    </CalendarProvider>
-  );
-  expect(screen.getByText('Test')).toBeInTheDocument();
+it('should return the next month', () => {
+  const result = renderDayPickerHook(useCalendar, {
+    month: new Date(2020, 0, 1)
+  });
+  expect(result.current.nextMonth).toEqual(new Date(2020, 1, 1));
 });
 
-describe('getNavigationMonths', () => {
+it('should return the previous month', () => {
+  const result = renderDayPickerHook(useCalendar, {
+    month: new Date(2020, 0, 1)
+  });
+  expect(result.current.previousMonth).toEqual(new Date(2019, 11, 1));
+});
+
+describe('dropdown', () => {
   it('should return undefined if no fromDate is provided', () => {
     const result = renderDayPickerHook(useCalendar, { fromDate: undefined });
-    expect(result.current.getDropdownMonths()).toBeUndefined();
+    expect(result.current.dropdown.months).toBeUndefined();
   });
 
   it('should return undefined if no toDate is provided', () => {
     const result = renderDayPickerHook(useCalendar, { toDate: undefined });
-    expect(result.current.getDropdownMonths()).toBeUndefined();
+    expect(result.current.dropdown.months).toBeUndefined();
   });
 
   it('should return an array of months between the fromDate and toDate', () => {
@@ -28,9 +32,9 @@ describe('getNavigationMonths', () => {
       toDate: new Date(2023, 2, 1)
     };
     const result = renderDayPickerHook(useCalendar, dayPicker);
-    const navMonths = result.current.getDropdownMonths();
-    expect(navMonths).toHaveLength(12);
-    expect(navMonths?.[0]).toEqual([0, 'January']);
-    expect(navMonths?.[navMonths.length - 1]).toEqual([11, 'December']);
+    const months = result.current.dropdown.months;
+    expect(months).toHaveLength(12);
+    expect(months?.[0]).toEqual([0, 'January']);
+    expect(months?.[months.length - 1]).toEqual([11, 'December']);
   });
 });
