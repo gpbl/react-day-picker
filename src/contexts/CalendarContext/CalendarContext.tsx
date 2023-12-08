@@ -1,9 +1,9 @@
 import { addMonths, isBefore, isSameMonth, startOfMonth } from 'date-fns';
 import { DayPickerCalendar } from '../../contexts/CalendarContext';
 import { getDates } from './utils/getDates';
-import { getDayPickerDays } from './utils/getDayPickerDays';
+import { getDays } from './utils/getDays';
 import { getMonths } from './utils/getMonths';
-import { getDayPickerWeeks } from './utils/getDayPickerWeeks';
+import { getWeeks } from './utils/getWeeks';
 import { getDisplayMonths } from './utils/getDisplayMonths';
 import { getDropdownMonths } from './utils/getDropdownMonths';
 import { getDropdownYears } from './utils/getDropdownYears';
@@ -33,8 +33,8 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const lastMonth = displayMonths[displayMonths.length - 1];
   const dates = getDates(firstMonth, lastMonth, dayPicker.toDate, dayPicker);
   const months = getMonths(displayMonths, dates, dayPicker);
-  const weeks = getDayPickerWeeks(months);
-  const days = getDayPickerDays(months);
+  const weeks = getWeeks(months);
+  const days = getDays(months);
 
   const nextMonth = getNextMonth(firstMonth, dayPicker);
   const previousMonth = getPreviousMonth(firstMonth, dayPicker);

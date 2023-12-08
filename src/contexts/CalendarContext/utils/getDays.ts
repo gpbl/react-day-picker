@@ -5,7 +5,7 @@ import { Day } from '../../../classes/Day';
  * Returns all the days belonging to the calendar by merging the days in the
  * weeks for each month.
  */
-export function getDayPickerDays(dayPickerMonths: Month[]) {
+export function getDays(dayPickerMonths: Month[]) {
   const initialDays: Day[] = [];
   return dayPickerMonths.reduce((days, month) => {
     const initialDays: Day[] = [];
