@@ -1,13 +1,20 @@
 import type { PropsWithChildren, MouseEvent } from 'react';
 import { createContext, useContext, useState } from 'react';
 
-import { isSameDay } from 'date-fns';
+import {
+  addDays,
+  differenceInCalendarDays,
+  isSameDay,
+  subDays
+} from 'date-fns';
 
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import type { DayPickerProps, SelectHandler } from '../../DayPicker';
-import { isDateRange, type Modifiers } from '../../types';
+import { isDateRange, Matcher, type Modifiers } from '../../types';
 import { addToRange } from './utils/addToRange';
 import { isDateInRange } from '../../utils/isDateInRange';
+import { dateMatchModifiers } from '../ModifiersContext/utils/dateMatchModifiers';
+import { useControlledValue } from '../../utils/useControlledValue';
 
 export type SelectionContext = {
   selected: DayPickerProps['selected'];
@@ -17,12 +24,16 @@ export type SelectionContext = {
     e: MouseEvent
   ) => DayPickerProps['selected'];
   isSelected: (date: Date) => boolean;
+  excluded: Matcher[];
+  isExcluded: (date: Date) => boolean;
 };
 
-const contextValue = {
+const contextValue: SelectionContext = {
   selected: undefined,
   setSelected: () => undefined,
-  isSelected: () => false
+  isSelected: () => false,
+  excluded: [],
+  isExcluded: () => false
 };
 export const selectionContext = createContext<SelectionContext>(contextValue);
 
@@ -31,7 +42,11 @@ export const selectionContext = createContext<SelectionContext>(contextValue);
  */
 export function SelectionProvider(providerProps: PropsWithChildren) {
   const { required, min, max, onSelect, mode, ...dayPicker } = useDayPicker();
-  const [selection, setSelection] = useState(dayPicker.selected);
+  const [selection, setSelection] = useControlledValue(
+    dayPicker.defaultSelected ?? dayPicker.selected,
+    dayPicker.selected
+  );
+  const [excluded, setExcluded] = useState<Matcher[]>([]);
 
   /** Set the selected days when in "single" mode. */
   function setSingle(date: Date, modifiers: Modifiers, e: MouseEvent) {
@@ -80,14 +95,56 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
     return selected;
   }
   function isMultiSelected(date: Date) {
-    if (selection !== undefined && !Array.isArray(selection)) return false;
+    if (!Array.isArray(selection)) return false;
 
-    return Boolean(selection && selection.some((day) => isSameDay(day, date)));
+    return Boolean(selection?.some((day) => isSameDay(day, date)));
   }
   function setRange(date: Date, modifiers: Modifiers, e: MouseEvent) {
-    if (selection !== undefined && !isDateRange(selection)) return;
+    if (selection !== undefined && !isDateRange(selection)) {
+      return;
+    }
     const selected = addToRange(date, selection);
+    const excluded = [] as Matcher[];
+
+    if (min) {
+      if (selected?.from && !selected.to) {
+        excluded.push({
+          after: subDays(selected?.from, min - 1),
+          before: addDays(selected?.from, min - 1)
+        });
+      }
+      if (
+        selected?.from &&
+        selected.to &&
+        differenceInCalendarDays(selected.to, selected.from) <= min
+      ) {
+        selected.from = date;
+        selected.to = undefined;
+      }
+    }
+
+    if (max) {
+      if (
+        selected?.from &&
+        selected.to &&
+        differenceInCalendarDays(selected.to, selected.from) + 1 > max
+      ) {
+        selected.from = date;
+        selected.to = undefined;
+      }
+      if (selected?.from && !selected.to) {
+        excluded.push({
+          before: addDays(selected?.from, -max + 1)
+        });
+        excluded.push({
+          after: addDays(selected?.from, max - 1)
+        });
+      }
+    }
+
+    setExcluded(excluded);
     setSelection(selected);
+
     (onSelect as SelectHandler<'range'>)?.(selected, date, modifiers, e);
     return selection;
   }
@@ -113,10 +170,17 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
     return isSingleSelected(date);
   }
 
+  function isExcluded(date: Date) {
+    return dateMatchModifiers(date, excluded);
+  }
+
   const value = {
     selected: selection,
     setSelected,
-    isSelected
+    excluded,
+    isSelected,
+    isExcluded,
+    setExcluded
   };
 
   return (

@@ -3,7 +3,7 @@ import { app, gridcell } from '../../test/po';
 import { axe, freezeTime, renderApp, user } from '../../test';
 import { Range } from '../examples/Range';
 
-const today = new Date(2020, 10, 15);
+const today = new Date(2023, 11, 9);
 freezeTime(today);
 
 const days = [
@@ -28,8 +28,8 @@ test.each(days)('%s should be selected', (day) => {
 
 describe('when a day in the range is clicked', () => {
   const day = days[2];
-  beforeEach(() => {
-    user.click(gridcell(day));
+  beforeEach(async () => {
+    await user.click(gridcell(day));
   });
   test.each([days[0], days[1], day])('%s should be selected', (day) => {
     expect(gridcell(day)).toHaveAttribute('aria-selected', 'true');
@@ -55,9 +55,9 @@ describe('when a day in the range is clicked', () => {
       beforeEach(async () => {
         await user.click(gridcell(day));
       });
-      test('only one day should be selected', () => {
+      test('no days should be selected', () => {
         const selectedCells = app().querySelectorAll('[aria-selected="true"]');
-        expect(selectedCells).toHaveLength(1);
+        expect(selectedCells).toHaveLength(0);
       });
       test('should match the snapshot', () => {
         expect(app).toMatchSnapshot();

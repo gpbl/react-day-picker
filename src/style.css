@@ -294,6 +294,11 @@
   opacity: var(--rdp-opacity);
 }
 
+.day_excluded:not(.day_selected) {
+  opacity: var(--rdp-opacity);
+  cursor: default;
+}
+
 .day_hidden {
   visibility: hidden;
 }

@@ -5,9 +5,9 @@ import { Modifiers } from '../types/modifiers';
 
 /** Return the default ARIA label for the day button. */
 export function labelDay(
-  day: Date,
+  date: Date,
   modifiers: Modifiers,
-  options?: FormatOptions
+  options: FormatOptions
 ) {
-  return format(day, 'do MMMM (EEEE)', options);
+  return format(date, 'do MMMM (EEEE)', options);
 }

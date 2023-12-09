@@ -26,14 +26,16 @@ export interface DayGridCellWrapperProps
  * Developers may use a `DayGridCell` component without the need to use hooks.
  */
 export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
+  const dayPicker = useDayPicker();
+
   const {
     classNames,
     components,
     formatters: { formatDay },
     locale,
+    mode,
     modifiersClassNames = {},
     modifiersStyles = {},
-    onSelect,
     onDayBlur,
     onDayClick,
     onDayKeyDown,
@@ -48,9 +50,9 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     onDayTouchMove,
     onDayTouchStart,
     styles = {}
-  } = useDayPicker();
+  } = dayPicker;
 
-  const isInteractive = Boolean(onSelect) || Boolean(onDayClick);
+  const isInteractive = mode || Boolean(onDayClick);
 
   const selection = useSelection();
   const modifiers = useModifiers().getModifiers(props.day);
@@ -63,7 +65,9 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   );
 
   const onClick: MouseEventHandler = (e) => {
-    selection?.setSelected(props.day.date, modifiers, e);
+    if (!selection.isExcluded(props.day.date)) {
+      selection?.setSelected(props.day.date, modifiers, e);
+    }
     onDayClick?.(props.day.date, modifiers, e);
   };
 
@@ -156,7 +160,7 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     style,
     tabIndex: isInteractive ? 0 : -1,
     ['aria-colindex']: props['aria-colindex'],
-    ['aria-disabled']: modifiers.disabled || undefined,
+    ['aria-disabled']: modifiers.disabled || modifiers.excluded || undefined,
     ['aria-hidden']: modifiers.hidden || undefined,
     ['aria-selected']: modifiers.selected || undefined,
     onClick: isInteractive ? onClick : undefined,
@@ -181,6 +185,8 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
       day={props.day}
       modifiers={modifiers}
       htmlAttributes={htmlAttributes}
+      dayPicker={dayPicker}
+      selection={selection}
     >
       {formatDay(props.day.date, { locale })}
     </DayGridCell>

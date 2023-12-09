@@ -5,6 +5,7 @@ export type InternalModifier =
   | 'outside'
   | 'disabled'
   | 'selected'
+  | 'excluded'
   | 'hidden'
   | 'today'
   | 'range_start'

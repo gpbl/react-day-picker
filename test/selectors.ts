@@ -3,9 +3,9 @@ import { format } from 'date-fns';
 import { grid } from './po';
 
 /** @deprecated */
-export function getDayButton(day: Date, index = 0) {
+export function getDayButton(date: Date, index = 0) {
   return screen.getAllByRole('gridcell', {
-    name: day.getDate().toString()
+    name: date.getDate().toString()
   })[index];
 }
 
@@ -32,22 +32,22 @@ export function getAllEnabledDays() {
 }
 
 /** @deprecated */
-export function getDayButtons(day: Date) {
+export function getDayButtons(date: Date) {
   return screen.getByRole('button', {
-    name: format(day, 'do MMMM (EEEE)')
+    name: format(date, 'do MMMM (EEEE)')
   });
 }
 
 /** @deprecated */
-export function queryDayButton(day: Date) {
+export function queryDayButton(date: Date) {
   return screen.queryByRole('button', {
-    name: format(day, 'do MMMM (EEEE)')
+    name: format(date, 'do MMMM (EEEE)')
   });
 }
 
 /** @deprecated */
-export function getDayCell(day: Date) {
-  return getDayButton(day);
+export function getDayCell(date: Date) {
+  return getDayButton(date);
 }
 /** @deprecated */
 export function getWeekButton(week: number) {

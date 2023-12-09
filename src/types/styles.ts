@@ -26,6 +26,7 @@ export enum DayPickerElements {
   day_range_middle = 'day_range_middle',
   day_range_start = 'day_range_start',
   day_selected = 'day_selected',
+  day_excluded = 'day_excluded',
   day_today = 'day_today',
   day = 'day',
   dropdown_icon = 'dropdown_icon',

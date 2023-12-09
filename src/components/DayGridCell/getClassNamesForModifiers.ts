@@ -22,5 +22,6 @@ export function getClassNamesForModifiers(
     }, [] as string[]);
 
   const className = [classNames.day, ...modifierClassNames].join(' ');
+
   return className;
 }

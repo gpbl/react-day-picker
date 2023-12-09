@@ -1,8 +1,11 @@
 import { Modifiers } from './modifiers';
 
 export type DayEventHandler<T> = (
-  day: Date,
+  /** The date that has triggered the event. */
+  date: Date,
+  /** The modifiers belonging to the date. */
   modifiers: Modifiers,
+  /** The DOM event that triggered this event. */
   e: T
 ) => void;
 

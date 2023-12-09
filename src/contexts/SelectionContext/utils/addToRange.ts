@@ -9,36 +9,39 @@ import { DateRange } from '../../../types/matchers';
  * day is already present in the range.
  */
 export function addToRange(
-  day: Date,
+  date: Date,
   range?: DateRange
 ): DateRange | undefined {
   const { from, to } = range || {};
   if (from && to) {
-    if (isSameDay(to, day) && isSameDay(from, day)) {
+    if (isSameDay(to, date) && isSameDay(from, date)) {
       return undefined;
     }
-    if (isSameDay(to, day)) {
+    if (isSameDay(to, date)) {
       return { from: to, to: undefined };
     }
-    if (isSameDay(from, day)) {
+    if (isSameDay(from, date)) {
       return undefined;
     }
-    if (isAfter(from, day)) {
-      return { from: day, to };
+    if (isAfter(from, date)) {
+      return { from: date, to };
     }
-    return { from, to: day };
+    return { from, to: date };
   }
   if (to) {
-    if (isAfter(day, to)) {
-      return { from: to, to: day };
+    if (isAfter(date, to)) {
+      return { from: to, to: date };
     }
-    return { from: day, to };
+    return { from: date, to };
   }
   if (from) {
-    if (isBefore(day, from)) {
-      return { from: day, to: from };
+    if (isBefore(date, from)) {
+      return { from: date, to: from };
     }
-    return { from, to: day };
+    if (isSameDay(date, from)) {
+      return { from: undefined, to: undefined };
+    }
+    return { from, to: date };
   }
-  return { from: day, to: undefined };
+  return { from: date, to: undefined };
 }

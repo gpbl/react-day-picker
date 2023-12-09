@@ -17,15 +17,17 @@ export type Selected<T extends Mode> = T extends 'single'
 export type SelectHandler<T extends Mode> = (
   /** The new selected value. */
   selected: Selected<T> | undefined,
-  /** The day that triggered the selection. */
-  day: Date,
+  /** The date that triggered the selection. */
+  date: Date,
   /** The modifiers for the day that triggered the selection. */
   modifiers: Modifiers,
+  /** The click event. */
   e: React.MouseEvent
 ) => void;
 
 export interface PropsDefault extends PropsBase {
   selected?: never;
+  defaultSelected?: never;
   required?: never;
   mode?: never;
   onSelect?: never;
@@ -35,8 +37,13 @@ export interface PropsDefault extends PropsBase {
 export interface PropsSingle extends PropsBase {
   /** Enable the single selection mode. */
   mode: 'single';
+  /** Makes the selection required */
   required?: boolean;
+  /** The initially selected value when not controlled. */
+  defaultSelected?: Selected<'single'> | undefined;
+  /** The selected value. */
   selected?: Selected<'single'> | undefined;
+  /** The callback called when the user selects a day. */
   onSelect?: SelectHandler<'single'> | undefined;
 }
 
@@ -45,6 +52,7 @@ export interface PropsMulti extends PropsBase {
   /** Enable the multi selection mode. */
   mode: 'multi';
   required?: boolean;
+  defaultSelected?: Selected<'multi'> | undefined;
   selected?: Selected<'multi'> | undefined;
   onSelect?: SelectHandler<'multi'> | undefined;
   min?: number;
@@ -56,6 +64,7 @@ export interface PropsRange extends PropsBase {
   /** Enable the range selection mode. */
   mode: 'range';
   required?: boolean;
+  defaultSelected?: Selected<'range'> | undefined;
   selected?: Selected<'range'> | undefined;
   onSelect?: SelectHandler<'range'> | undefined;
   min?: number;

@@ -66,5 +66,6 @@ export const defaultClassNames: Required<ClassNames> = {
   [DayPickerElements.months_dropdown]: 'months_dropdown',
   [DayPickerElements.contrast_no_preference]: '',
   [DayPickerElements.select]: 'select',
-  [DayPickerElements.dropdown_root]: 'dropdown_root'
+  [DayPickerElements.dropdown_root]: 'dropdown_root',
+  [DayPickerElements.day_excluded]: 'day_excluded'
 };

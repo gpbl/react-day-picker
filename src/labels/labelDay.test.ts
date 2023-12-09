@@ -9,6 +9,7 @@ const modifiers: Modifiers = {
   outside: false,
   disabled: false,
   selected: false,
+  excluded: false,
   hidden: false,
   today: false,
   range_start: false,

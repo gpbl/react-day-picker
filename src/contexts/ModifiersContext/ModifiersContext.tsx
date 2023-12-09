@@ -41,6 +41,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     hidden: [],
     today: [],
     selected: [],
+    excluded: [],
     range_start: [],
     range_middle: [],
     range_end: []
@@ -55,10 +56,12 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     const isDisabled = Boolean(
       dayPicker.disabled && dateMatchModifiers(date, dayPicker.disabled)
     );
+
     const isSelected = Boolean(
       dayPicker.modifiers?.selected &&
         dateMatchModifiers(date, dayPicker.modifiers.selected)
     );
+
     const isHidden =
       Boolean(dayPicker.hidden && dateMatchModifiers(date, dayPicker.hidden)) ||
       (!dayPicker.showOutsideDays && isOutside);
@@ -72,8 +75,11 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     if (isHidden) {
       internal.hidden.push(day);
     }
-    if (selection?.isSelected(date) || isSelected) {
+    if (selection.isSelected(date) || isSelected) {
       internal.selected.push(day);
+    }
+    if (selection.isExcluded(date)) {
+      internal.excluded.push(day);
     }
     if (isSameDay(date, dayPicker.today)) {
       internal.today.push(day);
@@ -103,6 +109,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
       hidden: false,
       today: false,
       selected: false,
+      excluded: false,
       range_start: false,
       range_middle: false,
       range_end: false

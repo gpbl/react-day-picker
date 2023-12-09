@@ -1,9 +1,10 @@
 import { HTMLAttributes } from 'react';
 
 import { Day } from '../../classes';
-import { Modifiers } from '../../types/modifiers';
+import { type Modifiers } from '../../types/modifiers';
+import { ContextsAsProps } from '../ContextsAsProps';
 
-export interface DayGridCellProps {
+export interface DayGridCellProps extends ContextsAsProps {
   /** The day to be rendered in the gridcell. */
   day: Day;
   /** Modifiers for the day. */
