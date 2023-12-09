@@ -388,6 +388,7 @@ export type ColorScheme = 'auto' | 'dark' | 'light';
 
 /** The available selection modes. */
 export type Mode =
+  | 'none'
   | 'single'
   | 'multi'
   | 'range'

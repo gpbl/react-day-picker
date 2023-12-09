@@ -14,29 +14,26 @@ export type Selected<T extends Mode> = T extends 'single'
       : Date;
 
 /** The callback called when the user select a days from the calendar. */
-export type SelectHandler<T extends Mode> = (
-  /** The new selected value. */
-  selected: Selected<T> | undefined,
-  /** The date that triggered the selection. */
-  date: Date,
-  /** The modifiers for the day that triggered the selection. */
-  modifiers: Modifiers,
-  /** The click event. */
-  e: React.MouseEvent
-) => void;
+export type SelectHandler<T extends 'single' | 'multi' | 'range' | 'multiple'> =
+  (
+    /** The new selected value. */
+    selected: Selected<T> | undefined,
+    /** The date that triggered the selection. */
+    date: Date,
+    /** The modifiers for the day that triggered the selection. */
+    modifiers: Modifiers,
+    /** The click event. */
+    e: React.MouseEvent
+  ) => void;
 
-export interface PropsDefault extends PropsBase {
-  selected?: never;
-  defaultSelected?: never;
-  required?: never;
-  mode?: never;
-  onSelect?: never;
+export interface PropsNone extends PropsBase {
+  mode: 'none';
 }
 
 /** The props for the single selection mode. */
 export interface PropsSingle extends PropsBase {
   /** Enable the single selection mode. */
-  mode: 'single';
+  mode?: 'single' | undefined;
   /** Makes the selection required */
   required?: boolean;
   /** The initially selected value when not controlled. */
@@ -50,7 +47,7 @@ export interface PropsSingle extends PropsBase {
 /** The props for the multi selection mode. */
 export interface PropsMulti extends PropsBase {
   /** Enable the multi selection mode. */
-  mode: 'multi';
+  mode: 'multi' | 'multiple';
   required?: boolean;
   defaultSelected?: Selected<'multi'> | undefined;
   selected?: Selected<'multi'> | undefined;
@@ -71,11 +68,7 @@ export interface PropsRange extends PropsBase {
   max?: number;
 }
 
-export type DayPickerProps =
-  | PropsDefault
-  | PropsSingle
-  | PropsMulti
-  | PropsRange;
+export type DayPickerProps = PropsNone | PropsSingle | PropsMulti | PropsRange;
 
 /**
  * Render a date picker component.

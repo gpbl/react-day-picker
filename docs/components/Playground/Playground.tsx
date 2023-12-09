@@ -25,8 +25,8 @@ export function Playground() {
     base?.colorScheme === 'dark'
       ? 'bg-black text-white'
       : base?.colorScheme === 'light'
-      ? 'bg-white text-black'
-      : 'bg-transparent';
+        ? 'bg-white text-black'
+        : 'bg-transparent';
 
   // const handleReset = () => {
   //   setMode('single');
@@ -78,10 +78,10 @@ export function Playground() {
                   {...(mode === 'multi'
                     ? multi
                     : mode === 'range'
-                    ? range
-                    : mode === 'single'
-                    ? single
-                    : single)}
+                      ? range
+                      : mode === 'single'
+                        ? single
+                        : single)}
                 />
               </Shadow>
             </RenderingBox>

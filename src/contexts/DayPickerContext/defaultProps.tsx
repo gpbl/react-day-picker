@@ -1,6 +1,6 @@
 import * as formatters from '../../formatters';
 import * as labels from '../../labels';
-import { DayPickerProps } from '../../DayPicker';
+import { DayPickerProps, SelectHandler, Selected } from '../../DayPicker';
 import { enUS } from 'date-fns/locale';
 import { type Mode } from '../../types/PropsBase';
 
@@ -34,6 +34,9 @@ export type DefaultProps = {
   toDate: Date | undefined;
   min: number | undefined;
   max: number | undefined;
+  onSelect: SelectHandler<any> | undefined;
+  selected: Selected<any> | undefined;
+  defaultSelected: Selected<any> | undefined;
 };
 
 export function getDefaultProps(
@@ -60,6 +63,9 @@ export function getDefaultProps(
     numberOfMonths: 1,
     required: false,
     toDate,
-    today: new Date()
+    today: new Date(),
+    onSelect: undefined,
+    selected: undefined,
+    defaultSelected: undefined
   };
 }

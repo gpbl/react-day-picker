@@ -8,7 +8,8 @@ export const getStaticProps = () =>
     'Multiple.tsx',
     'MultipleMinMax.tsx',
     'Range.tsx',
-    'RangeMinMax.tsx'
+    'RangeMinMax.tsx',
+    'None.tsx'
   ]);
 
 # Selection Modes
@@ -17,7 +18,8 @@ DayPicker supports 3 built-in selection modes, that fit the most common use-case
 
 - **single mode**: only one day can be selected;
 - **multi mode**: allow selection of multiple days;
-- **range mode**: allow the selection of a range of days.
+- **range mode**: allow the selection of a range of days;
+- **none mode**: do not allow any selection.
 
 You can also implement your own selection logic by setting up a **custom selection mode**.
 
@@ -91,6 +93,14 @@ Use `mode="range"{:tsx}` and `onSelect` to allow the selection of multiple days.
 Use the `min` and `max` props to limit the amount of days in the range.
 
 ```include-example filename="RangeMinMax.tsx"
+
+```
+
+## Turning off selection mode
+
+Use the `min` and `max` props to limit the amount of days in the range.
+
+```include-example filename="None.tsx"
 
 ```
 

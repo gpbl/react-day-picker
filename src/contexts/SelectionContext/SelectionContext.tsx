@@ -9,7 +9,13 @@ import {
 } from 'date-fns';
 
 import { useDayPicker } from '../../contexts/DayPickerContext';
-import type { DayPickerProps, SelectHandler } from '../../DayPicker';
+import type {
+  DayPickerProps,
+  PropsMulti,
+  PropsRange,
+  PropsSingle,
+  SelectHandler
+} from '../../DayPicker';
 import { isDateRange, Matcher, type Modifiers } from '../../types';
 import { addToRange } from './utils/addToRange';
 import { isDateInRange } from '../../utils/isDateInRange';
@@ -17,12 +23,18 @@ import { dateMatchModifiers } from '../ModifiersContext/utils/dateMatchModifiers
 import { useControlledValue } from '../../utils/useControlledValue';
 
 export type SelectionContext = {
-  selected: DayPickerProps['selected'];
+  selected:
+    | PropsSingle['selected']
+    | PropsMulti['selected']
+    | PropsRange['selected'];
   setSelected: (
     date: Date,
     modifiers: Modifiers,
     e: MouseEvent
-  ) => DayPickerProps['selected'];
+  ) =>
+    | PropsSingle['selected']
+    | PropsMulti['selected']
+    | PropsRange['selected'];
   isSelected: (date: Date) => boolean;
   excluded: Matcher[];
   isExcluded: (date: Date) => boolean;
@@ -42,6 +54,7 @@ export const selectionContext = createContext<SelectionContext>(contextValue);
  */
 export function SelectionProvider(providerProps: PropsWithChildren) {
   const { required, min, max, onSelect, mode, ...dayPicker } = useDayPicker();
+
   const [selection, setSelection] = useControlledValue(
     dayPicker.defaultSelected ?? dayPicker.selected,
     dayPicker.selected

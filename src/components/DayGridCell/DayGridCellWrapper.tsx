@@ -52,7 +52,7 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     styles = {}
   } = dayPicker;
 
-  const isInteractive = mode || Boolean(onDayClick);
+  const isInteractive = mode !== 'none' || Boolean(onDayClick);
 
   const selection = useSelection();
   const modifiers = useModifiers().getModifiers(props.day);
@@ -185,8 +185,6 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
       day={props.day}
       modifiers={modifiers}
       htmlAttributes={htmlAttributes}
-      dayPicker={dayPicker}
-      selection={selection}
     >
       {formatDay(props.day.date, { locale })}
     </DayGridCell>

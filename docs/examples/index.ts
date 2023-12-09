@@ -33,6 +33,7 @@ export * from './MultipleMinMax';
 export * from './MultipleMonths';
 export * from './MultipleMonthsId';
 export * from './MultipleMonthsPaged';
+export * from './None';
 export * from './NumberingSystem';
 export * from './OutsideDays';
 export * from './Range';
