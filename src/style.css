@@ -255,6 +255,7 @@
 }
 
 .day {
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -262,14 +263,7 @@
   height: var(--rdp-cell-size);
   border: 2px solid transparent;
   border-radius: 100%;
-}
-
-.day {
   font-size: var(--rdp-font-normal);
-}
-
-.day[tabindex='0'] {
-  cursor: pointer;
 }
 
 .day_today:not(.day_outside) {
@@ -292,6 +286,7 @@
 
 .day_disabled {
   opacity: var(--rdp-opacity);
+  cursor: default;
 }
 
 .day_excluded:not(.day_selected) {

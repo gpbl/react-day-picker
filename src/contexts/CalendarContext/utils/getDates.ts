@@ -28,8 +28,7 @@ const NrOfDaysWithFixedWeeks = 42;
  * @param options.weekStartsOn The day the week starts on
  */
 export function getDates(
-  firstMonth: Date,
-  lastMonth: Date,
+  displayMonths: Date[],
   maxDate?: Date | undefined,
   options?: {
     ISOWeek?: boolean;
@@ -38,6 +37,9 @@ export function getDates(
     weekStartsOn?: FormatOptions['weekStartsOn'];
   }
 ): Date[] {
+  const firstMonth = displayMonths[0];
+  const lastMonth = displayMonths[displayMonths.length - 1];
+
   const { ISOWeek, fixedWeeks, locale, weekStartsOn } = options ?? {};
 
   const startWeekFirstDate = ISOWeek

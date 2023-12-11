@@ -16,5 +16,3 @@ export * from './WeekdayColumnHeader';
 export * from './WeekdaysRow';
 export * from './WeekNumberRowHeader';
 export * from './WeekRow';
-
-export type * from './ContextsAsProps';

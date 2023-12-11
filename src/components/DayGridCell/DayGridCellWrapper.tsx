@@ -11,7 +11,7 @@ import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useModifiers } from '../../contexts/ModifiersContext';
 import { useSelection } from '../../contexts/SelectionContext';
 
-import { DayGridCell as _DayGridCell } from './DayGridCell';
+import { DayGridCell as DefaultGridCell } from './DayGridCell';
 import { getClassNamesForModifiers } from './getClassNamesForModifiers';
 import { getStyleForModifiers } from './getStyleForModifiers';
 
@@ -52,10 +52,11 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     styles = {}
   } = dayPicker;
 
-  const isInteractive = mode !== 'none' || Boolean(onDayClick);
-
   const selection = useSelection();
   const modifiers = useModifiers().getModifiers(props.day);
+
+  /** The day is interactive if it's not excluded and there is a `onDayClick` handler. */
+  const isInteractive = mode !== 'none' || Boolean(onDayClick);
 
   const style = getStyleForModifiers(modifiers, modifiersStyles, styles);
   const className = getClassNamesForModifiers(
@@ -65,6 +66,11 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   );
 
   const onClick: MouseEventHandler = (e) => {
+    if (modifiers.disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
     if (!selection.isExcluded(props.day.date)) {
       selection?.setSelected(props.day.date, modifiers, e);
     }
@@ -178,7 +184,7 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     onTouchStart
   };
 
-  const DayGridCell = components?.DayGridCell ?? _DayGridCell;
+  const DayGridCell = components?.DayGridCell ?? DefaultGridCell;
 
   return (
     <DayGridCell

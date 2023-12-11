@@ -5,15 +5,14 @@ export interface ChevronProps {
 export function Chevron(props: ChevronProps) {
   const { size = 24, orientation } = props;
   const style = {
-    transform: `rotate(${
+    transform:
       orientation === 'up'
-        ? 90
+        ? 'rotate(90deg)'
         : orientation === 'right'
-        ? 180
-        : orientation === 'down'
-        ? 270
-        : 0
-    }deg)`
+          ? 'rotate(180deg)'
+          : orientation === 'down'
+            ? 'rotate(270deg)'
+            : undefined
   };
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" style={style}>

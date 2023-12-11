@@ -1,6 +1,5 @@
 import { addMonths } from 'date-fns';
 
-/** Return the first days of the month that are displayed in the calendar. */
 export function getDisplayMonths(
   firstMonth: Date,
   options: {
@@ -17,9 +16,6 @@ export function getDisplayMonths(
       break;
     }
     months.push(month);
-  }
-  if (options.reverseMonths) {
-    months.reverse();
   }
   return months;
 }

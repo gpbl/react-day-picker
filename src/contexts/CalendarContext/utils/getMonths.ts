@@ -9,8 +9,8 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import type { FormatOptions } from '../../../types/FormatOptions';
 import { Month, Week, Day } from '../../../classes';
+import { DayPickerProps } from '../../../DayPicker';
 
 /** Return the months to display in the calendar. */
 export function getMonths(
@@ -18,13 +18,15 @@ export function getMonths(
   displayMonths: Date[],
   /** The dates to display in the calendar. */
   dates: Date[],
-  options: {
-    ISOWeek?: boolean;
-    fixedWeeks?: boolean;
-    locale?: FormatOptions['locale'];
-    weekStartsOn?: FormatOptions['weekStartsOn'];
-    firstWeekContainsDate?: FormatOptions['firstWeekContainsDate'];
-  } = {}
+  options: Pick<
+    DayPickerProps,
+    | 'fixedWeeks'
+    | 'ISOWeek'
+    | 'locale'
+    | 'weekStartsOn'
+    | 'reverseMonths'
+    | 'firstWeekContainsDate'
+  > = {}
 ): Month[] {
   const dayPickerMonths = displayMonths.reduce<Month[]>((months, month) => {
     const firstDateOfFirstWeek = options.ISOWeek
@@ -41,6 +43,7 @@ export function getMonths(
           weekStartsOn: options.weekStartsOn
         });
 
+    /** The dates to display in the month. */
     const monthDates = dates.filter((date) => {
       return date >= firstDateOfFirstWeek && date <= lastDateOfLastWeek;
     });
@@ -79,5 +82,9 @@ export function getMonths(
     return months;
   }, []);
 
-  return dayPickerMonths;
+  if (!options.reverseMonths) {
+    return dayPickerMonths;
+  } else {
+    return dayPickerMonths.reverse();
+  }
 }

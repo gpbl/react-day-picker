@@ -14,7 +14,7 @@ export function Calendar() {
     className,
     classNames,
     colorScheme,
-    contrast: contrastPreference,
+    contrast,
     components,
     dataAttributes,
     dir,
@@ -61,8 +61,8 @@ export function Calendar() {
   if (numberOfMonths > 1) {
     cssClassNames.push(classNames.multiple_months);
   }
-  if (contrastPreference) {
-    cssClassNames.push(classNames[`contrast_${contrastPreference}`]);
+  if (contrast) {
+    cssClassNames.push(classNames[`contrast_${contrast}`]);
   }
   if (colorScheme) {
     cssClassNames.push(classNames[`color_${colorScheme}`]);

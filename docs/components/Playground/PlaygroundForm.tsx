@@ -17,7 +17,7 @@ import { Form } from '../Form';
 import { Input } from '../Input';
 import { Select } from '../Select';
 
-const selectionModes: Mode[] = ['single', 'multi', 'range'];
+const selectionModes: Mode[] = ['single', 'multi', 'range', 'none'];
 
 export interface PlaygroundFormProps {
   mode: Mode;
@@ -45,6 +45,7 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
     pagedNavigation,
     reverseMonths,
     disableNavigation,
+    hideNavigation,
     disabled,
     hidden,
     locale,
@@ -66,19 +67,19 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
             type="radio"
             name="mode"
             value={selectionMode}
-            checked={mode === selectionMode || mode === undefined}
+            checked={mode === selectionMode}
             onChange={(e) => onModeChange(e.target.value as Mode)}
           />
         ))}
         <hr className="border-neutral-800 my-2" />
-        {/* <Input
+        <Input
           name="required"
           label="required"
           type="checkbox"
-          checked={required}
-          onChange={(e) => onBaseChange('required', e.target.checked)}
-        /> */}
-        {/* {(mode === 'multi' || mode === 'range') && (
+          checked={props.single.required}
+          onChange={(e) => props.onSingleChange({ required: e.target.checked })}
+        />
+        {(mode === 'multi' || mode === 'range') && (
           <>
             <Input
               name="min"
@@ -86,8 +87,13 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
               type="number"
               min="0"
               max="99"
-              value={min}
-              onChange={(e) => onBaseChange('min', Number(e.target.value))}
+              value={props.multi.min}
+              onChange={(e) =>
+                props.onMultiChange({
+                  min: Number(e.target.value),
+                  mode: 'multi'
+                })
+              }
             />
             <Input
               name="max"
@@ -95,11 +101,16 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
               type="number"
               min="0"
               max="99"
-              value={max}
-              onChange={(e) => onBaseChange('max', Number(e.target.value))}
+              value={props.multi.max}
+              onChange={(e) =>
+                props.onMultiChange({
+                  max: Number(e.target.value),
+                  mode: 'multi'
+                })
+              }
             />
           </>
-        )} */}
+        )}
       </Fieldset>
       <Fieldset legend="Calendar">
         <Input
@@ -194,6 +205,12 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
           onChange={(e) => onBaseChange('reverseMonths', e.target.checked)}
         />
         <Input
+          label="hideNavigation"
+          type="checkbox"
+          checked={hideNavigation}
+          onChange={(e) => onBaseChange('hideNavigation', e.target.checked)}
+        />
+        <Input
           label="disableNavigation"
           type="checkbox"
           checked={disableNavigation}
@@ -213,7 +230,7 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
           onChange={(e) => {
             const parsed = parse(e.target.value, 'yyyy-MM-dd', new Date());
             if (isValid(parsed)) {
-              onBaseChange('toDate', parsed);
+              onBaseChange('disabled', parsed);
             }
           }}
         />

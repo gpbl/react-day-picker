@@ -26,12 +26,12 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const startMonth = getStartMonth(dayPicker);
   const [firstMonth, setFirstMonth] = useControlledValue(
     startMonth,
-    dayPicker.month
+    dayPicker.month ? startOfMonth(dayPicker.month) : undefined
   );
 
   const displayMonths = getDisplayMonths(firstMonth, dayPicker);
   const lastMonth = displayMonths[displayMonths.length - 1];
-  const dates = getDates(firstMonth, lastMonth, dayPicker.toDate, dayPicker);
+  const dates = getDates(displayMonths, dayPicker.toDate, dayPicker);
   const months = getMonths(displayMonths, dates, dayPicker);
   const weeks = getWeeks(months);
   const days = getDays(months);

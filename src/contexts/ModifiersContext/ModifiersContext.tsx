@@ -117,7 +117,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 
     for (const name in internal) {
       const daysWithModifier = internal[name as InternalModifier];
-      modifiers[name] = daysWithModifier.some((d) => d.date === day.date);
+      modifiers[name] = daysWithModifier.some((d) => d === day);
     }
 
     for (const name in custom) {

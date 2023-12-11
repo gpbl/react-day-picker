@@ -28,32 +28,32 @@ export function Playground() {
         ? 'bg-white text-black'
         : 'bg-transparent';
 
-  // const handleReset = () => {
-  //   setMode('single');
-  //   setBase({});
-  //   setSingle({ mode: 'single' });
-  //   setMulti({ mode: 'multi' });
-  //   setRange({ mode: 'range' });
-  // };
+  const handleReset = () => {
+    setMode('single');
+    setBase({});
+    setSingle({ mode: 'single' });
+    setMulti({ mode: 'multi' });
+    setRange({ mode: 'range' });
+  };
   return (
     <div>
       <h1 className="text-3xl my-4 font-bold">DayPicker Playground</h1>
       <div className="flex flex-row gap-4">
         <div className="nx-bg-primary-400/5 nx-mb-4 nx-rounded-xl dark:nx-bg-primary-200/10">
-          {/* <button
+          <button
             type="button"
             className="border rounded-md px-2 text-left text-xs font-medium mx-4"
             onClick={handleReset}
           >
             Reset Props
-          </button> */}
+          </button>
           <PlaygroundForm
             base={base}
             single={single}
             multi={multi}
             range={range}
             onBaseChange={(key, value) => setBase({ ...base, [key]: value })}
-            mode={'range'}
+            mode={mode}
             onModeChange={setMode}
             onSingleChange={setSingle}
             onMultiChange={setMulti}
@@ -81,7 +81,7 @@ export function Playground() {
                       ? range
                       : mode === 'single'
                         ? single
-                        : single)}
+                        : undefined)}
                 />
               </Shadow>
             </RenderingBox>
