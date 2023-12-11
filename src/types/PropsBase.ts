@@ -1,3 +1,4 @@
+import { SelectHandler, Selected } from '../DayPicker';
 import * as components from '../components';
 
 import {
@@ -15,6 +16,15 @@ import { Labels } from './labels';
 import { Matcher } from './matchers';
 import { ModifiersClassNames, ModifiersStyles } from './modifiers';
 import { ClassNames, Styles } from './styles';
+
+export interface PropsSelection<T extends Mode> {
+  mode?: T | undefined;
+  selected?: Selected<T> | undefined;
+  /** The initially selected value when not controlled. */
+  defaultSelected?: Selected<T> | undefined;
+  /** The callback called when the user selects a day. */
+  onSelect?: SelectHandler<T> | undefined;
+}
 
 export interface PropsBase {
   /**
@@ -387,13 +397,7 @@ export type CustomComponents = {
 export type ColorScheme = 'auto' | 'dark' | 'light';
 
 /** The available selection modes. */
-export type Mode =
-  | 'none'
-  | 'single'
-  | 'multi'
-  | 'range'
-  /** @deprecated Use `multi` instead. */
-  | 'multiple';
+export type Mode = 'none' | 'single' | 'multi' | 'range';
 
 /** The name of the contrast preferences. */
 export type ContrastPreference = 'no_preference' | 'less' | 'more';

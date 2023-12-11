@@ -6,39 +6,69 @@ import { getClassNames } from './utils/getClassNames';
 import { getLabels } from './utils/getLabels';
 import { getFormatters } from './utils/getFormatters';
 import { getDataAttributes } from './utils/getDataAttributes';
-import { DefaultProps, getDefaultProps } from './defaultProps';
+import { ClassNames, Formatters, Labels, Mode } from '../../types';
+import { DataAttributes } from '../ModifiersContext';
 
 /**
  * The `DayPickerProps` with their default values. Use this type within
  * internal components to use safe props and avoid all conditionals.
  */
-export type DayPickerContext = DayPickerProps &
-  DefaultProps & { dataAttributes: Record<string, unknown> };
+export type DayPickerContext<T extends Mode> = DayPickerProps<T> & {
+  classNames: ClassNames;
+  dataAttributes: DataAttributes;
+  formatters: Formatters;
+  id: string;
+  labels: Labels;
+  numberOfMonths: number;
+  today: Date;
+  required: boolean;
+  min: number | undefined;
+  max: number | undefined;
+};
 
-export const dayPickerContext = createContext<DayPickerContext | null>(null);
+export const dayPickerContext = createContext<DayPickerContext<Mode> | null>(
+  null
+);
 
 /**
  * The provider for the `dayPickerContext`, storing the props and setting its defaults.
  * Must be the root of all the providers.
  */
-export function DayPickerProvider(props: PropsWithChildren<DayPickerProps>) {
-  const id = useId();
+export const DayPickerProvider = <T extends Mode>(
+  props: PropsWithChildren<DayPickerProps<T>>
+) => {
+  const reactId = useId();
+  const {
+    children,
+    classNames,
+    formatters,
+    id = reactId,
+    labels,
+    numberOfMonths = 1,
+    today = new Date(),
+    ...restProps
+  } = props;
 
   const context = {
-    ...getDefaultProps(id, props),
-    ...props,
-    classNames: getClassNames(props),
-    labels: getLabels(props),
-    formatters: getFormatters(props),
-    dataAttributes: getDataAttributes(props)
-  } as DayPickerContext;
+    ...restProps,
+    classNames: getClassNames(classNames),
+    dataAttributes: getDataAttributes(props),
+    formatters: getFormatters(formatters),
+    id,
+    labels: getLabels(labels),
+    numberOfMonths,
+    required: 'required' in props ? props.required ?? false : false,
+    min: 'min' in props ? props.min ?? undefined : undefined,
+    max: 'max' in props ? props.max ?? undefined : undefined,
+    today
+  };
 
   return (
     <dayPickerContext.Provider value={context}>
-      {props.children}
+      {children}
     </dayPickerContext.Provider>
   );
-}
+};
 
 /**
  * Use this hook to access to the DayPicker context within custom components.

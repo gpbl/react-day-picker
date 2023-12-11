@@ -11,7 +11,7 @@ import { Day } from '../../classes';
 import type { InternalModifier, Modifiers } from '../../types';
 
 /** A record with `data-*` attributes passed to `DayPicker`. */
-export type DataAttributes = Record<string, unknown>;
+export type DataAttributes = Record<`data-${string}`, unknown>;
 
 /**
  * The `DayPickerProps` with their default values. Use this type within

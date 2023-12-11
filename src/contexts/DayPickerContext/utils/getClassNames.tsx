@@ -1,13 +1,13 @@
-import { type DayPickerProps } from '../../../DayPicker';
+import { PropsBase } from '../../../types';
 import { defaultClassNames } from '../defaultClassNames';
 
 /**
  * Return the default class names and any custom class names passed in through
  * props.
  */
-export function getClassNames(props: DayPickerProps) {
+export function getClassNames(customClassNames: PropsBase['classNames']) {
   return {
     ...defaultClassNames,
-    ...props.classNames
+    ...customClassNames
   };
 }

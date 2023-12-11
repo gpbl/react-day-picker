@@ -5,7 +5,7 @@ describe('when the first month and the last month are the same', () => {
     const month = new Date(2023, 11, 1);
     describe('when not using fixed weeks', () => {
       it('should return 42 dates', () => {
-        const dates = getDates(month, month, undefined, {
+        const dates = getDates([month], undefined, {
           fixedWeeks: false
         });
         expect(dates).toHaveLength(42);
@@ -15,7 +15,7 @@ describe('when the first month and the last month are the same', () => {
     });
     describe('when using fixed weeks', () => {
       it('should return 42 dates', () => {
-        const dates = getDates(month, month, undefined, {
+        const dates = getDates([month], undefined, {
           fixedWeeks: true
         });
         expect(dates).toHaveLength(42);
@@ -28,7 +28,7 @@ describe('when the first month and the last month are the same', () => {
     const month = new Date(2023, 4, 1);
     describe('when not using fixed weeks', () => {
       it('should return 35 dates', () => {
-        const dates = getDates(month, month, undefined, {
+        const dates = getDates([month], undefined, {
           fixedWeeks: false
         });
         expect(dates).toHaveLength(35);
@@ -38,7 +38,7 @@ describe('when the first month and the last month are the same', () => {
     });
     describe('when using fixed weeks', () => {
       it('should return 42 dates', () => {
-        const dates = getDates(month, month, undefined, {
+        const dates = getDates([month], undefined, {
           fixedWeeks: true
         });
         expect(dates).toHaveLength(42);
@@ -50,7 +50,7 @@ describe('when the first month and the last month are the same', () => {
   describe('when using Monday as first day of the week', () => {
     const month = new Date(2023, 4, 1);
     it('the first day should be Monday', () => {
-      const dates = getDates(month, month, undefined, { weekStartsOn: 1 });
+      const dates = getDates([month], undefined, { weekStartsOn: 1 });
       expect(dates[0].getDay()).toEqual(1);
       expect(dates[0]).toEqual(new Date(2023, 4, 1));
       expect(dates[dates.length - 1]).toEqual(new Date(2023, 5, 4));
@@ -61,7 +61,7 @@ describe('when the first month and the last month are the same', () => {
     const maxDate = new Date(2023, 4, 15);
 
     it('the last day should be the max date', () => {
-      const dates = getDates(month, month, maxDate, { weekStartsOn: 1 });
+      const dates = getDates([month], maxDate, { weekStartsOn: 1 });
       expect(dates).toHaveLength(15);
       expect(dates[dates.length - 1]).toEqual(maxDate);
     });
@@ -69,7 +69,7 @@ describe('when the first month and the last month are the same', () => {
   describe('when using ISO weeks', () => {
     const month = new Date(2023, 4, 1);
     it('the first day should be Monday', () => {
-      const dates = getDates(month, month, undefined, { ISOWeek: true });
+      const dates = getDates([month], undefined, { ISOWeek: true });
       expect(dates[0].getDay()).toEqual(1);
       expect(dates[0]).toEqual(new Date(2023, 4, 1));
       expect(dates[dates.length - 1]).toEqual(new Date(2023, 5, 4));
@@ -82,7 +82,7 @@ describe('when the first month and the last month are different', () => {
   const lastMonth = new Date(2023, 11, 1);
   describe('when not using fixed weeks', () => {
     it('should return an array of dates', () => {
-      const dates = getDates(firstMonth, lastMonth, undefined, {
+      const dates = getDates([firstMonth, lastMonth], undefined, {
         fixedWeeks: false
       });
       expect(dates).toHaveLength(252);
@@ -96,7 +96,7 @@ describe('when the first month and the last month are different', () => {
     const maxDate = new Date(2023, 5, 15);
 
     it('the last day should be the max date', () => {
-      const dates = getDates(firstMonth, lastMonth, maxDate, {
+      const dates = getDates([firstMonth, lastMonth], maxDate, {
         weekStartsOn: 1
       });
       expect(dates).toHaveLength(46);
@@ -106,7 +106,7 @@ describe('when the first month and the last month are different', () => {
   describe('when using ISO weeks', () => {
     const month = new Date(2023, 4, 1);
     it('the first day should be Monday', () => {
-      const dates = getDates(month, month, undefined, { ISOWeek: true });
+      const dates = getDates([month], undefined, { ISOWeek: true });
       expect(dates[0].getDay()).toEqual(1);
       expect(dates[0]).toEqual(new Date(2023, 4, 1));
       expect(dates[dates.length - 1]).toEqual(new Date(2023, 5, 4));

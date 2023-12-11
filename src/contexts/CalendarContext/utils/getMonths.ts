@@ -11,6 +11,7 @@ import {
 
 import { Month, Week, Day } from '../../../classes';
 import { DayPickerProps } from '../../../DayPicker';
+import { Mode } from '../../../types';
 
 /** Return the months to display in the calendar. */
 export function getMonths(
@@ -19,7 +20,7 @@ export function getMonths(
   /** The dates to display in the calendar. */
   dates: Date[],
   options: Pick<
-    DayPickerProps,
+    DayPickerProps<Mode>,
     | 'fixedWeeks'
     | 'ISOWeek'
     | 'locale'

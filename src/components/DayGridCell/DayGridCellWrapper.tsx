@@ -72,7 +72,7 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
       return;
     }
     if (!selection.isExcluded(props.day.date)) {
-      selection?.setSelected(props.day.date, modifiers, e);
+      selection?.setSelected?.(props.day.date, modifiers, e);
     }
     onDayClick?.(props.day.date, modifiers, e);
   };

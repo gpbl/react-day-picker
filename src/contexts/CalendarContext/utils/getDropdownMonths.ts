@@ -1,10 +1,10 @@
 import { addMonths, isBefore, startOfMonth } from 'date-fns';
-import { DayPickerProps } from '../../../DayPicker';
 import { DayPickerContext } from '../../DayPickerContext';
 import { DropdownOption } from '../../../components';
+import { Mode } from '../../../types';
 
 export function getDropdownMonths(
-  dayPicker: DayPickerContext
+  dayPicker: DayPickerContext<Mode>
 ): DropdownOption[] | undefined {
   if (!dayPicker.fromDate) return undefined;
   if (!dayPicker.toDate) return undefined;

@@ -1,17 +1,19 @@
-import { type DayPickerProps } from '../../../DayPicker';
 import * as defaultFormatters from '../../../formatters';
+import { PropsBase } from '../../../types';
 
 /** Return the formatters from the props. */
-export function getFormatters(props: DayPickerProps) {
-  const { formatters } = props;
-  if (formatters?.formatMonthCaption && !formatters.formatCaption) {
-    formatters.formatCaption = formatters.formatMonthCaption;
+export function getFormatters(customFormatters: PropsBase['formatters']) {
+  if (customFormatters?.formatMonthCaption && !customFormatters.formatCaption) {
+    customFormatters.formatCaption = customFormatters.formatMonthCaption;
   }
-  if (formatters?.formatYearCaption && !formatters.formatYearDropdown) {
-    formatters.formatYearDropdown = formatters.formatYearCaption;
+  if (
+    customFormatters?.formatYearCaption &&
+    !customFormatters.formatYearDropdown
+  ) {
+    customFormatters.formatYearDropdown = customFormatters.formatYearCaption;
   }
   return {
     ...defaultFormatters,
-    ...formatters
+    ...customFormatters
   };
 }

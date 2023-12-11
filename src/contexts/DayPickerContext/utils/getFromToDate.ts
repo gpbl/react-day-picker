@@ -7,11 +7,12 @@ import {
   startOfYear
 } from 'date-fns';
 import { DayPickerProps } from '../../../DayPicker';
+import { Mode } from '../../../types';
 
 /** Return the `fromDate` and `toDate` prop values values parsing the DayPicker props. */
 export function getFromToDate(
   props: Pick<
-    DayPickerProps,
+    DayPickerProps<Mode>,
     | 'id'
     | 'fromYear'
     | 'toYear'
@@ -22,7 +23,7 @@ export function getFromToDate(
     | 'today'
     | 'dropdownNavigation'
   >
-): Pick<DayPickerProps, 'fromDate' | 'toDate'> {
+): Pick<DayPickerProps<Mode>, 'fromDate' | 'toDate'> {
   const { fromYear, toYear, fromMonth, toMonth } = props;
   let { fromDate, toDate } = props;
 

@@ -10,6 +10,10 @@ export function ContainerAttributes() {
       nonce="foo_nonce"
       title="foo_title"
       lang="it"
+      mode="multi"
+      onSelect={(days) => {
+        days.map(test);
+      }}
     />
   );
 }

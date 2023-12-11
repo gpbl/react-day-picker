@@ -9,32 +9,16 @@ import {
 } from 'date-fns';
 
 import { useDayPicker } from '../../contexts/DayPickerContext';
-import type {
-  DayPickerProps,
-  PropsMulti,
-  PropsRange,
-  PropsSingle,
-  SelectHandler
-} from '../../DayPicker';
-import { isDateRange, Matcher, type Modifiers } from '../../types';
+import type { Selected } from '../../DayPicker';
+import { isDateRange, Matcher, Mode, type Modifiers } from '../../types';
 import { addToRange } from './utils/addToRange';
 import { isDateInRange } from '../../utils/isDateInRange';
 import { dateMatchModifiers } from '../ModifiersContext/utils/dateMatchModifiers';
 import { useControlledValue } from '../../utils/useControlledValue';
 
 export type SelectionContext = {
-  selected:
-    | PropsSingle['selected']
-    | PropsMulti['selected']
-    | PropsRange['selected'];
-  setSelected: (
-    date: Date,
-    modifiers: Modifiers,
-    e: MouseEvent
-  ) =>
-    | PropsSingle['selected']
-    | PropsMulti['selected']
-    | PropsRange['selected'];
+  selected: Selected<Mode> | undefined;
+  setSelected: (date: Date, modifiers: Modifiers, e: MouseEvent) => void;
   isSelected: (date: Date) => boolean;
   excluded: Matcher[];
   isExcluded: (date: Date) => boolean;
@@ -70,7 +54,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
       selected = date;
     }
     setSelection(selected);
-    (onSelect as SelectHandler<'single'>)?.(selected, date, modifiers, e);
+    onSelect?.(selected, date, modifiers, e);
     return selected;
   }
 
@@ -104,7 +88,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
       selected = [...(selection ?? []), date];
     }
     setSelection(selected);
-    (onSelect as SelectHandler<'multi'>)?.(selected, date, modifiers, e);
+    onSelect?.(selected, date, modifiers, e);
     return selected;
   }
   function isMultiSelected(date: Date) {
@@ -158,7 +142,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
     setExcluded(excluded);
     setSelection(selected);
 
-    (onSelect as SelectHandler<'range'>)?.(selected, date, modifiers, e);
+    onSelect?.(selected, date, modifiers, e);
     return selection;
   }
   function isRangeSelected(date: Date) {
@@ -170,17 +154,16 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   }
 
   function setSelected(date: Date, modifiers: Modifiers, e: MouseEvent) {
-    if (mode === 'single') return setSingle(date, modifiers, e);
-    if (mode === 'multi') return setMulti(date, modifiers, e);
-    if (mode === 'range') return setRange(date, modifiers, e);
-    return setSingle(date, modifiers, e);
+    if (mode === 'single') setSingle(date, modifiers, e);
+    if (mode === 'multi') setMulti(date, modifiers, e);
+    if (mode === 'range') setRange(date, modifiers, e);
   }
 
   function isSelected(date: Date) {
     if (mode === 'single') return isSingleSelected(date);
     if (mode === 'multi') return isMultiSelected(date);
     if (mode === 'range') return isRangeSelected(date);
-    return isSingleSelected(date);
+    return false;
   }
 
   function isExcluded(date: Date) {
@@ -192,8 +175,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
     setSelected,
     excluded,
     isSelected,
-    isExcluded,
-    setExcluded
+    isExcluded
   };
 
   return (
