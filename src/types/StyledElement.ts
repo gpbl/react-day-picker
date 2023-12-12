@@ -28,12 +28,12 @@ export type StyledElement<T = string | React.CSSProperties> = {
   readonly caption_between: T;
   /** The caption label. */
   readonly caption_label: T;
-  /** The drop-downs container. */
+  /** The dropdowns container. */
   readonly dropdowns: T;
 
-  /** The drop-down (select) element. */
+  /** The dropdown (select) element. */
   readonly dropdown: T;
-  /** The drop-down icon. */
+  /** The dropdown icon. */
   readonly dropdown_icon: T;
   /** The dropdown showing the months. */
   readonly months_dropdown: T;
@@ -99,17 +99,17 @@ export type StyledElement<T = string | React.CSSProperties> = {
 
   /* DEPRECATED ELEMENTS */
   /**
-   * The drop-down to change the year.
+   * The dropdown to change the year.
    * @deprecated use {@link years_dropdown} instead.
    */
   readonly dropdown_year: T;
   /**
-   * The drop-down to change the month.
+   * The dropdown to change the month.
    * @deprecated use {@link months_dropdown} instead.
    */
   readonly dropdown_month: T;
   /**
-   * The drop-downs container.
+   * The dropdowns container.
    * @deprecated use {@link dropdowns} instead.
    */
   readonly caption_dropdowns: T;

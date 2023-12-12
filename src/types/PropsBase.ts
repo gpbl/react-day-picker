@@ -116,8 +116,8 @@ export interface PropsBase {
    */
   pagedNavigation?: boolean;
   /**
-   * Render the months in reversed order (when `numberOfMonths} is greater
-   * than `1`) to display the most recent month first.
+   * Render the months in reversed order (when {@link numberOfMonths} is set) to
+   * display the most recent month first.
    */
   reverseMonths?: boolean;
   /**
@@ -131,14 +131,14 @@ export interface PropsBase {
    */
   disableNavigation?: boolean;
   /**
-   * Show drop-downs to navigate between months or years.
+   * Show dropdowns to navigate between months or years.
    *
-   * - `true`: display the drop-downs for both month and year.
-   * - `month`: display the drop-down for the month.
-   * - `year`: display the drop-down for the year.
-   * - `false`: hide the drop-downs.
+   * - `true`: display the dropdowns for both month and year.
+   * - `month`: display the dropdown for the month.
+   * - `year`: display the dropdown for the year.
+   * - `false`: hide the dropdowns.
    *
-   * **Note:** showing the drop-down will default {@link fromYear} to the 100 years
+   * **Note:** showing the dropdown will default {@link fromYear} to the 100 years
    * ago, and {@link toYear} to the current year.
    */
   dropdownNavigation?: boolean | 'month' | 'year';
@@ -377,13 +377,13 @@ export interface PropsBase {
    * Change the layout of the caption.
    *
    * - `buttons`: display prev/right buttons
-   * - `dropdown`: display drop-downs to change the month and the year
+   * - `dropdown`: display dropdowns to change the month and the year
    *
    * **Note:** the `dropdown` layout is available only when `fromDate`,
    * `fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
    *
    * @defaultValue buttons
-   * @deprecated To show the drop-downs, use {@link dropdownNavigation}. To hide the navigation buttons, set {@link hideNavigation}.
+   * @deprecated To show the dropdowns, use {@link dropdownNavigation}. To hide the navigation buttons, set {@link hideNavigation}.
    */
   captionLayout?: CaptionLayout;
 }

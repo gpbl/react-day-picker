@@ -1,10 +1,12 @@
 import { addMonths, isBefore, startOfMonth } from 'date-fns';
-import { DayPickerContext } from '../../DayPickerContext';
-import { DropdownOption } from '../../../components';
-import { Mode } from '../../../types';
+import { type DayPickerContext } from '../../DayPickerContext';
+import { type DropdownOption } from '../../../components';
+import { type Formatters, Mode } from '../../../types';
 
 export function getDropdownMonths(
-  dayPicker: DayPickerContext<Mode>
+  dayPicker: Pick<DayPickerContext<Mode>, 'fromDate' | 'toDate' | 'locale'> & {
+    formatters: Pick<Formatters, 'formatMonthDropdown'>;
+  }
 ): DropdownOption[] | undefined {
   if (!dayPicker.fromDate) return undefined;
   if (!dayPicker.toDate) return undefined;

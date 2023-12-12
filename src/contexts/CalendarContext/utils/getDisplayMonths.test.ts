@@ -20,22 +20,6 @@ describe('when the number of months is greater than 1', () => {
     const result = getDisplayMonths(firstMonth, { numberOfMonths: 3 });
     expect(result).toEqual(expectedResult);
   });
-
-  describe('when reversing the months order', () => {
-    it('should return the months to display in the calendar', () => {
-      const firstMonth = new Date(2020, 0);
-      const expectedResult = [
-        new Date(2020, 2),
-        new Date(2020, 1),
-        new Date(2020, 0)
-      ];
-      const result = getDisplayMonths(firstMonth, {
-        numberOfMonths: 3,
-        reverseMonths: true
-      });
-      expect(result).toEqual(expectedResult);
-    });
-  });
 });
 
 describe('when passing a max date', () => {

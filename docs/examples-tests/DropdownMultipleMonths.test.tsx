@@ -15,7 +15,7 @@ test('should be accessible', async () => {
   expect(await axe(app())).toHaveNoViolations();
 });
 
-describe('when choosing a month from the first drop-down', () => {
+describe('when choosing a month from the first dropdown', () => {
   const monthName = 'January';
   beforeEach(async () => {
     const firstDropDown = screen.getAllByRole('combobox', {
@@ -28,7 +28,7 @@ describe('when choosing a month from the first drop-down', () => {
   });
 });
 
-describe('when choosing a month from the third drop-down', () => {
+describe('when choosing a month from the third dropdown', () => {
   const newMonthName = 'October';
   beforeEach(async () => {
     const thirdDropDown = screen.getAllByRole('combobox', {

@@ -14,11 +14,11 @@ export type Formatters = {
   formatCaption: typeof formatCaption;
   /** @deprecated Use {@link Formatters.formatCaption} instead. */
   formatMonthCaption: typeof formatMonthCaption;
-  /** Format the label in the month drop-down. */
+  /** Format the label in the month dropdown. */
   formatMonthDropdown: typeof formatMonthDropdown;
   /** @deprecated Use {@link Formatters.formatYearDropdown} instead. */
   formatYearCaption: typeof formatYearCaption;
-  /** Format the label in the year drop-down. */
+  /** Format the label in the year dropdown. */
   formatYearDropdown: typeof formatYearDropdown;
   /** Format the day in the day cell. */
   formatDay: typeof formatDay;

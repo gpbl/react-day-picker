@@ -65,12 +65,10 @@ export type DayPickerProps<T extends Mode = 'single'> = PropsBase &
  *
  * @see https://react-day-picker.js.org
  */
-export const DayPicker = <T extends Mode = 'single'>(
-  props: DayPickerProps<T>
-) => {
+export function DayPicker<T extends Mode = 'single'>(props: DayPickerProps<T>) {
   return (
     <ContextProviders {...props}>
       <Calendar />
     </ContextProviders>
   );
-};
+}

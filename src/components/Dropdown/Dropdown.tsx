@@ -4,6 +4,7 @@ import { Select as DefaultSelect, type SelectProps } from '../Select';
 import { Chevron as DefaultChevron } from '../Chevron';
 import { Option as DefaultOption } from '../Option';
 
+/** An option to use in the dropdown. Maps to the `<option>` HTML element. */
 export type DropdownOption = [value: number, label: string];
 
 export interface DropdownProps extends Omit<SelectProps, 'children'> {

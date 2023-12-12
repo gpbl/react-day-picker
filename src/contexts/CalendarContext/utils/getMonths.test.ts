@@ -79,3 +79,17 @@ describe('when first and last months are not the same', () => {
     );
   });
 });
+
+describe('when reversing the order of the months', () => {
+  it('should return the months to display in the calendar', () => {
+    const firstMonth = new Date(2024, 0, 1);
+    const lastMonth = new Date(2024, 2, 1);
+    const dates = getDates([firstMonth, lastMonth]);
+    const months = getMonths([firstMonth, lastMonth], dates, {
+      reverseMonths: true
+    });
+    expect(months).toHaveLength(2);
+    expect(months[0].date).toBe(lastMonth);
+    expect(months[months.length - 1].date).toBe(firstMonth);
+  });
+});

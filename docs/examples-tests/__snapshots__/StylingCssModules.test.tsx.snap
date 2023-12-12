@@ -5,7 +5,7 @@ exports[`should match the snapshot 1`] = `
   role="application"
 >
   <div
-    class="rdp "
+    class="rdp"
     id=":r0:"
   >
     <div
@@ -18,7 +18,6 @@ exports[`should match the snapshot 1`] = `
       >
         <svg
           height="24"
-          style="transform: rotate(0deg);"
           viewBox="0 0 24 24"
           width="24"
         >
@@ -453,5 +452,6 @@ exports[`should match the snapshot 1`] = `
       </div>
     </div>
   </div>
+   
 </div>
 `;

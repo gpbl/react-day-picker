@@ -7,10 +7,12 @@ import {
 } from 'date-fns';
 import { DayPickerContext } from '../../DayPickerContext';
 import { DropdownOption } from '../../../components';
-import { Mode } from '../../../types';
+import { Formatters, Mode } from '../../../types';
 
 export function getDropdownYears(
-  dayPicker: DayPickerContext<Mode>
+  dayPicker: Pick<DayPickerContext<Mode>, 'fromDate' | 'toDate'> & {
+    formatters: Pick<Formatters, 'formatYearDropdown'>;
+  }
 ): DropdownOption[] | undefined {
   if (!dayPicker.fromDate) return undefined;
   if (!dayPicker.toDate) return undefined;
