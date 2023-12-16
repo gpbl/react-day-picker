@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { MouseEvent, KeyboardEvent } from 'react';
 import { Calendar } from './components/Calendar';
 import { ContextProviders } from './contexts/ContextProviders';
 import { PropsBase, Mode, PropsSelection } from './types/PropsBase';
@@ -21,8 +21,8 @@ export type SelectHandler<T extends Mode> = (
   date: Date,
   /** The modifiers for the day that triggered the selection. */
   modifiers: Modifiers,
-  /** The click event. */
-  e: React.MouseEvent
+  /** The event that made the selection. */
+  e: MouseEvent | KeyboardEvent
 ) => void;
 
 export interface PropsNone {

@@ -2,6 +2,8 @@
 
 import { Callout } from 'nextra/components';
 import { Keyboard } from '../../examples/Keyboard.tsx';
+import { RenderingBox } from '../../components/RenderingBox';
+import { Shadow } from '../../components/Shadow';
 
 <Callout emoji="🚧">
   This section is still under construction. If you need help, please reach out
@@ -26,4 +28,8 @@ When DayPicker is focused, use the following keyboard shortcuts to navigate the 
 
 Press <kbd>Tab</kbd> to focus DayPicker and try the keyboard shortcuts above.
 
-<Keyboard />
+<RenderingBox>
+  <Shadow mode="open">
+    <Keyboard />
+  </Shadow>
+</RenderingBox>

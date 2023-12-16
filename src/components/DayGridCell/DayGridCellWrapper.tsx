@@ -56,7 +56,7 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     styles = {}
   } = dayPicker;
 
-  const selection = useSelection();
+  const { isExcluded, setSelected } = useSelection();
   const { getModifiers } = useModifiers();
   const {
     focusTarget,
@@ -92,8 +92,8 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
       e.stopPropagation();
       return;
     }
-    if (!selection.isExcluded(props.day.date)) {
-      selection?.setSelected?.(props.day.date, modifiers, e);
+    if (!isExcluded(props.day.date)) {
+      setSelected(props.day.date, modifiers, e);
     }
     onDayClick?.(props.day.date, modifiers, e);
   };
@@ -161,6 +161,12 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
         e.preventDefault();
         e.stopPropagation();
         focusWeekBefore();
+        break;
+      case ' ':
+      case 'Enter':
+        e.preventDefault();
+        e.stopPropagation();
+        setSelected(props.day.date, modifiers, e);
         break;
       case 'PageUp':
         e.preventDefault();

@@ -56,33 +56,24 @@ export const focusContext = createContext<FocusContext | undefined>(undefined);
 /** The provider for the {@link focusContext}. */
 export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const { days, goToDate, isDateDisplayed } = useCalendar();
-  const { getModifiers, modifiersMap } = useModifiers();
-  console.log({ modifiersMap });
+  const { getModifiers } = useModifiers();
+
   const dayPicker = useDayPicker();
 
   const initialFocused = days.find((day) => {
     const modifiers = getModifiers(day);
-    if (!modifiers.focusable) {
-      return false;
-    }
-    if (modifiers.selected) {
-      return true;
-    }
-    if (modifiers.today) {
-      return true;
-    }
-    return false;
+    if (!modifiers.focusable) return false;
+    if (modifiers.selected || modifiers.today) return true;
+    return modifiers.focusable;
   })?.date;
 
-  const [focused, setFocused] = useState<Date | undefined>(initialFocused);
+  const [focused, setFocused] = useState<Date | undefined>();
   const [lastFocused, setLastFocused] = useState<Date | undefined>(focused);
 
   const focusTarget =
     focused ?? (lastFocused && isDateDisplayed(lastFocused))
       ? lastFocused
       : initialFocused;
-
-  console.log({ initialFocused, focused, lastFocused, focusTarget });
 
   function blur() {
     setLastFocused(focused);

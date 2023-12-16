@@ -191,7 +191,6 @@ export interface PropsBase {
    * improved accessibility.
    */
   initialFocus?: boolean;
-
   /**
    * Apply the `disabled` modifier to the matching days.
    */

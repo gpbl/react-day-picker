@@ -1,4 +1,4 @@
-import type { PropsWithChildren, MouseEvent } from 'react';
+import type { PropsWithChildren, MouseEvent, KeyboardEvent } from 'react';
 import { createContext, useContext, useState } from 'react';
 
 import {
@@ -18,7 +18,11 @@ import { useControlledValue } from '../../utils/useControlledValue';
 
 export type SelectionContext = {
   selected: Selected<Mode> | undefined;
-  setSelected: (date: Date, modifiers: Modifiers, e: MouseEvent) => void;
+  setSelected: (
+    date: Date,
+    modifiers: Modifiers,
+    e: MouseEvent | KeyboardEvent
+  ) => void;
   isSelected: (date: Date) => boolean;
   excluded: Matcher[];
   isExcluded: (date: Date) => boolean;
@@ -46,7 +50,11 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   const [excluded, setExcluded] = useState<Matcher[]>([]);
 
   /** Set the selected days when in "single" mode. */
-  function setSingle(date: Date, modifiers: Modifiers, e: MouseEvent) {
+  function setSingle(
+    date: Date,
+    modifiers: Modifiers,
+    e: MouseEvent | KeyboardEvent
+  ) {
     let selected: Date | undefined;
     if (modifiers.selected && !required) {
       selected = undefined;
@@ -64,7 +72,11 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   }
 
   /** Set the selected days when in "multi" mode. */
-  function setMulti(date: Date, modifiers: Modifiers, e: MouseEvent) {
+  function setMulti(
+    date: Date,
+    modifiers: Modifiers,
+    e: MouseEvent | KeyboardEvent
+  ) {
     if (selection !== undefined && !Array.isArray(selection)) {
       // Not a multi select
       return;
@@ -96,7 +108,11 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
 
     return Boolean(selection?.some((day) => isSameDay(day, date)));
   }
-  function setRange(date: Date, modifiers: Modifiers, e: MouseEvent) {
+  function setRange(
+    date: Date,
+    modifiers: Modifiers,
+    e: MouseEvent | KeyboardEvent
+  ) {
     if (selection !== undefined && !isDateRange(selection)) {
       return;
     }
@@ -153,7 +169,11 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
     return Boolean(selection && isDateInRange(date, selection));
   }
 
-  function setSelected(date: Date, modifiers: Modifiers, e: MouseEvent) {
+  function setSelected(
+    date: Date,
+    modifiers: Modifiers,
+    e: MouseEvent | KeyboardEvent
+  ) {
     if (mode === 'single') setSingle(date, modifiers, e);
     if (mode === 'multi') setMulti(date, modifiers, e);
     if (mode === 'range') setRange(date, modifiers, e);
