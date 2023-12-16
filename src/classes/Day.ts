@@ -2,9 +2,9 @@ import { isSameMonth } from 'date-fns';
 
 /** A day displayed in a month grid. */
 export class Day {
-  constructor(date: Date, displayMonth: Date) {
+  constructor(date: Date, displayMonth?: Date) {
     this.date = date;
-    if (!isSameMonth(date, displayMonth)) {
+    if (displayMonth && !isSameMonth(date, displayMonth)) {
       this.displayMonth = displayMonth;
     }
   }

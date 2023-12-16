@@ -1,19 +1,21 @@
+import { Day } from '../../classes';
+import { DayGridCell as DefaultGridCell } from './DayGridCell';
 import {
   FocusEventHandler,
   KeyboardEventHandler,
   MouseEventHandler,
   PointerEventHandler,
-  TouchEventHandler
+  TouchEventHandler,
+  useEffect,
+  useRef
 } from 'react';
-
-import { Day } from '../../classes';
-import { useDayPicker } from '../../contexts/DayPickerContext';
-import { useModifiers } from '../../contexts/ModifiersContext';
-import { useSelection } from '../../contexts/SelectionContext';
-
-import { DayGridCell as DefaultGridCell } from './DayGridCell';
 import { getClassNamesForModifiers } from './getClassNamesForModifiers';
 import { getStyleForModifiers } from './getStyleForModifiers';
+import { isSameDay } from 'date-fns';
+import { useDayPicker } from '../../contexts/DayPickerContext';
+import { useFocus } from '../../contexts/FocusContext';
+import { useModifiers } from '../../contexts/ModifiersContext';
+import { useSelection } from '../../contexts/SelectionContext';
 
 export interface DayGridCellWrapperProps
   extends Pick<React.AriaAttributes, 'aria-colindex'> {
@@ -27,6 +29,8 @@ export interface DayGridCellWrapperProps
  */
 export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   const dayPicker = useDayPicker();
+
+  const cellRef = useRef<HTMLDivElement>(null);
 
   const {
     classNames,
@@ -53,7 +57,24 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   } = dayPicker;
 
   const selection = useSelection();
-  const modifiers = useModifiers().getModifiers(props.day);
+  const { getModifiers } = useModifiers();
+  const {
+    focusTarget,
+    focusedDate,
+    focus,
+    focusDayBefore,
+    focusDayAfter,
+    focusWeekBefore,
+    focusWeekAfter,
+    focusMonthBefore,
+    focusMonthAfter,
+    focusYearBefore,
+    focusYearAfter,
+    focusStartOfWeek,
+    focusEndOfWeek
+  } = useFocus();
+
+  const modifiers = getModifiers(props.day);
 
   /** The day is interactive if it's not excluded and there is a `onDayClick` handler. */
   const isInteractive = mode !== 'none' || Boolean(onDayClick);
@@ -75,6 +96,11 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
       selection?.setSelected?.(props.day.date, modifiers, e);
     }
     onDayClick?.(props.day.date, modifiers, e);
+  };
+
+  const onFocus: FocusEventHandler = (e) => {
+    focus(props.day.date);
+    dayPicker.onDayFocus?.(props.day.date, modifiers, e);
   };
 
   const onBlur: FocusEventHandler = (e) => {
@@ -115,62 +141,68 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   };
 
   const onKeyDown: KeyboardEventHandler = (e) => {
-    // switch (e.key) {
-    //   case 'ArrowLeft':
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     dir === 'rtl' ? focusDayAfter() : focusDayBefore();
-    //     break;
-    //   case 'ArrowRight':
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     dir === 'rtl' ? focusDayBefore() : focusDayAfter();
-    //     break;
-    //   case 'ArrowDown':
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     focusWeekAfter();
-    //     break;
-    //   case 'ArrowUp':
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     focusWeekBefore();
-    //     break;
-    //   case 'PageUp':
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     e.shiftKey ? focusYearBefore() : focusMonthBefore();
-    //     break;
-    //   case 'PageDown':
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     e.shiftKey ? focusYearAfter() : focusMonthAfter();
-    //     break;
-    //   case 'Home':
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     focusStartOfWeek();
-    //     break;
-    //   case 'End':
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     focusEndOfWeek();
-    //     break;
-    // }
+    switch (e.key) {
+      case 'ArrowLeft':
+        e.preventDefault();
+        e.stopPropagation();
+        dayPicker.dir === 'rtl' ? focusDayAfter() : focusDayBefore();
+        break;
+      case 'ArrowRight':
+        e.preventDefault();
+        e.stopPropagation();
+        dayPicker.dir === 'rtl' ? focusDayBefore() : focusDayAfter();
+        break;
+      case 'ArrowDown':
+        e.preventDefault();
+        e.stopPropagation();
+        focusWeekAfter();
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        e.stopPropagation();
+        focusWeekBefore();
+        break;
+      case 'PageUp':
+        e.preventDefault();
+        e.stopPropagation();
+        e.shiftKey ? focusYearBefore() : focusMonthBefore();
+        break;
+      case 'PageDown':
+        e.preventDefault();
+        e.stopPropagation();
+        e.shiftKey ? focusYearAfter() : focusMonthAfter();
+        break;
+      case 'Home':
+        e.preventDefault();
+        e.stopPropagation();
+        focusStartOfWeek();
+        break;
+      case 'End':
+        e.preventDefault();
+        e.stopPropagation();
+        focusEndOfWeek();
+        break;
+    }
     onDayKeyDown?.(props.day.date, modifiers, e);
   };
 
-  const htmlAttributes: React.HTMLAttributes<HTMLDivElement> = {
+  const isFocusTarget =
+    focusTarget && isSameDay(focusTarget, props.day.date) && !modifiers.outside;
+
+  const isFocused = focusedDate && isSameDay(focusedDate, props.day.date);
+
+  const htmlAttributes: JSX.IntrinsicElements['div'] = {
     role: 'gridcell',
     className,
     style,
-    tabIndex: isInteractive ? 0 : -1,
+    tabIndex: isFocused || isFocusTarget ? 0 : -1,
     ['aria-colindex']: props['aria-colindex'],
     ['aria-disabled']: modifiers.disabled || modifiers.excluded || undefined,
     ['aria-hidden']: modifiers.hidden || undefined,
     ['aria-selected']: modifiers.selected || undefined,
     onClick: isInteractive ? onClick : undefined,
     onBlur,
+    onFocus,
     onKeyDown,
     onKeyPress,
     onKeyUp,
@@ -181,8 +213,20 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     onTouchCancel,
     onTouchEnd,
     onTouchMove,
-    onTouchStart
+    onTouchStart,
+    ref: cellRef
   };
+
+  useEffect(() => {
+    if (
+      !modifiers.focusable ||
+      !focusedDate ||
+      !isSameDay(props.day.date, focusedDate)
+    ) {
+      return;
+    }
+    cellRef.current?.focus();
+  }, [focusedDate, modifiers.focusable, props.day]);
 
   const DayGridCell = components?.DayGridCell ?? DefaultGridCell;
 

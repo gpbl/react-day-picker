@@ -1,5 +1,6 @@
 import { DayPickerElements, type ClassNames } from '../../types/styles';
 
+// TODO: reduce amount of code or keep verbose?
 /**
  * The name of the default CSS classes.
  */
@@ -67,5 +68,6 @@ export const defaultClassNames: Required<ClassNames> = {
   [DayPickerElements.contrast_no_preference]: '',
   [DayPickerElements.select]: 'select',
   [DayPickerElements.dropdown_root]: 'dropdown_root',
-  [DayPickerElements.day_excluded]: 'day_excluded'
+  [DayPickerElements.day_excluded]: 'day_excluded',
+  [DayPickerElements.day_focusable]: 'day_focusable'
 };

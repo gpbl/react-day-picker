@@ -23,6 +23,7 @@ import {
   renderApp,
   user
 } from '../../test';
+import { act } from '@testing-library/react';
 
 const today = new Date(2022, 5, 10);
 freezeTime(today);
@@ -61,7 +62,7 @@ describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
     const startOfWeekDay = startOfWeek(day);
     const endOfWeekDay = endOfWeek(day);
 
-    beforeEach(() => gridcell(day).focus());
+    beforeEach(() => act(() => gridcell(day).focus()));
     test('the day button should be focused', () => {
       expect(activeElement()).toBe(gridcell(day));
     });

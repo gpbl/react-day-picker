@@ -31,28 +31,6 @@ export function Calendar() {
   } = useDayPicker();
   const calendar = useCalendar();
 
-  // const dayPicker = useDayPicker();
-  // const focusContext = useFocusContext();
-  // const navigation = useNavigation();
-
-  // const [hasInitialFocus, setHasInitialFocus] = useState(false);
-
-  // // Focus the focus target when initialFocus is passed in
-  // useEffect(() => {
-  //   if (!props.initialFocus) return;
-  //   if (!focusContext.focusTarget) return;
-  //   if (hasInitialFocus) return;
-
-  //   focusContext.focus(focusContext.focusTarget);
-  //   setHasInitialFocus(true);
-  // }, [
-  //   props.initialFocus,
-  //   hasInitialFocus,
-  //   focusContext.focus,
-  //   focusContext.focusTarget,
-  //   focusContext
-  // ]);
-
   // Apply classnames according to props
   const cssClassNames = [classNames.rdp];
   if (className) {

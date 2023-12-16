@@ -6,15 +6,16 @@ import type { Modifiers } from '../types';
 
 const day = new Date(2022, 10, 21);
 const modifiers: Modifiers = {
-  outside: false,
   disabled: false,
-  selected: false,
   excluded: false,
+  focusable: false,
   hidden: false,
-  today: false,
-  range_start: false,
+  outside: false,
   range_end: false,
-  range_middle: false
+  range_middle: false,
+  range_start: false,
+  selected: false,
+  today: false
 };
 test('should return the day label', () => {
   expect(labelDay(day, modifiers, { locale: es })).toEqual(

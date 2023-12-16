@@ -16,7 +16,6 @@ const config: Config.InitialOptions = {
     ]
   },
   moduleNameMapper: {
-    'react-day-picker': '<rootDir>/src',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
   },
   roots: ['./src'],

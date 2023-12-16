@@ -18,7 +18,6 @@ export function getDropdownYears(
   if (!dayPicker.toDate) return undefined;
   const firstNavYear = startOfYear(dayPicker.fromDate);
   const lastNavYear = endOfYear(dayPicker.toDate);
-
   const years: number[] = [];
   let year = firstNavYear;
   while (isBefore(year, lastNavYear) || isSameYear(year, lastNavYear)) {

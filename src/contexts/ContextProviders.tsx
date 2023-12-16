@@ -5,6 +5,7 @@ import { CalendarProvider } from './CalendarContext';
 import { DayPickerProvider } from './DayPickerContext';
 import { ModifiersProvider } from './ModifiersContext';
 import { SelectionProvider } from './SelectionContext';
+import { FocusProvider } from './FocusContext';
 
 /** Provide the value for all the contexts. */
 export const ContextProviders: FunctionComponent<
@@ -15,7 +16,9 @@ export const ContextProviders: FunctionComponent<
     <DayPickerProvider {...dayPickerProps} mode={mode}>
       <CalendarProvider>
         <SelectionProvider>
-          <ModifiersProvider>{children} </ModifiersProvider>
+          <ModifiersProvider>
+            <FocusProvider>{children}</FocusProvider>
+          </ModifiersProvider>
         </SelectionProvider>
       </CalendarProvider>
     </DayPickerProvider>

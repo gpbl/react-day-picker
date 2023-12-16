@@ -9,7 +9,7 @@ export type RenderHookResult<TResult> = {
 
 export function renderDayPickerHook<TResult>(
   hook: () => TResult,
-  dayPickerProps: DayPickerProps<Mode>
+  props: DayPickerProps<Mode>
 ): RenderHookResult<TResult> {
   const returnVal = { current: undefined as TResult };
   function Test() {
@@ -17,11 +17,11 @@ export function renderDayPickerHook<TResult>(
     returnVal.current = hookResult;
     return null;
   }
-  if (dayPickerProps === undefined) {
+  if (props === undefined) {
     render(<Test />);
   }
   render(
-    <ContextProviders {...dayPickerProps}>
+    <ContextProviders {...props}>
       <Test />
     </ContextProviders>
   );

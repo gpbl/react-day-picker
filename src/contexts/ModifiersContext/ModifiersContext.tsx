@@ -8,7 +8,7 @@ import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useSelection } from '../../contexts/SelectionContext';
 import { dateMatchModifiers } from './utils/dateMatchModifiers';
 import { Day } from '../../classes';
-import type { InternalModifier, Modifiers } from '../../types';
+import type { InternalModifier, Modifiers, ModifiersMap } from '../../types';
 
 /** A record with `data-*` attributes passed to `DayPicker`. */
 export type DataAttributes = Record<`data-${string}`, unknown>;
@@ -18,8 +18,9 @@ export type DataAttributes = Record<`data-${string}`, unknown>;
  * internal components to use safe props and avoid all conditionals.
  */
 export interface ModifiersContext {
+  /** Return the modifiers of the specified day. */
   getModifiers: (day: Day) => Modifiers;
-  modifiers: Record<string, Day[]>;
+  modifiersMap: ModifiersMap;
 }
 
 export const modifiersContext = createContext<ModifiersContext | undefined>(
@@ -40,6 +41,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     disabled: [],
     hidden: [],
     today: [],
+    focusable: [],
     selected: [],
     excluded: [],
     range_start: [],
@@ -52,40 +54,39 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 
   for (const day of calendar.days) {
     const { date, displayMonth } = day;
+
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
+
     const isDisabled = Boolean(
       dayPicker.disabled && dateMatchModifiers(date, dayPicker.disabled)
     );
 
-    const isSelected = Boolean(
-      dayPicker.modifiers?.selected &&
-        dateMatchModifiers(date, dayPicker.modifiers.selected)
-    );
+    const isSelected =
+      selection.isSelected(date) ||
+      Boolean(
+        dayPicker.modifiers?.selected &&
+          dateMatchModifiers(date, dayPicker.modifiers.selected)
+      );
 
     const isHidden =
       Boolean(dayPicker.hidden && dateMatchModifiers(date, dayPicker.hidden)) ||
       (!dayPicker.showOutsideDays && isOutside);
 
-    if (isOutside) {
-      internal.outside.push(day);
-    }
-    if (isDisabled) {
-      internal.disabled.push(day);
-    }
-    if (isHidden) {
-      internal.hidden.push(day);
-    }
-    if (selection.isSelected(date) || isSelected) {
-      internal.selected.push(day);
-    }
-    if (selection.isExcluded(date)) {
-      internal.excluded.push(day);
-    }
-    if (isSameDay(date, dayPicker.today)) {
-      internal.today.push(day);
-    }
+    const isExcluded = selection.isExcluded(date);
 
-    // Custom modifiers
+    const isFocusable = !isDisabled && !isHidden && !isExcluded && !isOutside;
+
+    const isToday = isSameDay(date, dayPicker.today);
+
+    if (isOutside) internal.outside.push(day);
+    if (isDisabled) internal.disabled.push(day);
+    if (isHidden) internal.hidden.push(day);
+    if (isFocusable) internal.focusable.push(day);
+    if (isSelected) internal.selected.push(day);
+    if (isExcluded) internal.excluded.push(day);
+    if (isToday) internal.today.push(day);
+
+    // Now add custom modifiers
     if (dayPicker.modifiers) {
       Object.keys(dayPicker.modifiers).forEach((name) => {
         const modifierValue = dayPicker.modifiers?.[name];
@@ -104,15 +105,16 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 
   const getModifiers = (day: Day) => {
     const modifiers: Modifiers = {
-      outside: false,
       disabled: false,
-      hidden: false,
-      today: false,
-      selected: false,
       excluded: false,
-      range_start: false,
+      focusable: false,
+      hidden: false,
+      outside: false,
+      range_end: false,
       range_middle: false,
-      range_end: false
+      range_start: false,
+      selected: false,
+      today: false
     };
 
     for (const name in internal) {
@@ -127,9 +129,9 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     return modifiers;
   };
 
-  const modifiers = { ...internal, ...custom };
+  const modifiersMap: ModifiersMap = { ...internal, ...custom };
 
-  const value: ModifiersContext = { modifiers, getModifiers };
+  const value: ModifiersContext = { modifiersMap, getModifiers };
 
   return (
     <modifiersContext.Provider value={value}>
