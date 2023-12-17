@@ -190,7 +190,7 @@ export interface PropsBase {
    * Use this prop when you need to focus DayPicker after a user actions, for
    * improved accessibility.
    */
-  initialFocus?: boolean;
+  autoFocus?: boolean;
   /**
    * Apply the `disabled` modifier to the matching days.
    */

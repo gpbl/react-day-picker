@@ -2,7 +2,7 @@
 export function debounce(func: Function, wait: number) {
   let timeout: NodeJS.Timeout;
 
-  return (...args: any[]) => {
+  return (...args: unknown[]) => {
     clearTimeout(timeout);
     timeout = setTimeout(() => func(...args), wait);
   };

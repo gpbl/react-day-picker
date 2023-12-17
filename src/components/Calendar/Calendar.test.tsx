@@ -9,12 +9,6 @@ it('should render the navigation and month grids', () => {
   expect(grid()).toBeInTheDocument();
 });
 
-// it('should focus the focus target when initialFocus is passed in', () => {
-//   const { getByTestId } = render(<Calendar initialFocus />);
-
-//   expect(getByTestId('focus-target')).toHaveFocus();
-// });
-
 it('should apply classnames and style according to props', () => {
   const { container } = renderWithContext(<Calendar />, {
     className: 'custom-class',

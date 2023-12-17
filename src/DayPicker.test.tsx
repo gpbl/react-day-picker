@@ -11,6 +11,7 @@ const Test = () => {
       <DayPicker
         mode="multi"
         // @ts-expect-error Wrong `onSelect`
+        // eslint-disable-next-line no-console
         onSelect={(date: Date) => console.log(date.getYear())}
       />
       {/** @ts-expect-error Missing required props */}

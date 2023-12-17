@@ -9,6 +9,7 @@
     "declaration": false,
     "isolatedModules": false,
     "outDir": "./dist",
+    "noEmit": true,
     // "baseUrl": "./src",
     "types": ["node", "jest", "@testing-library/jest-dom"],
     "lib": ["dom", "dom.iterable", "esnext"]

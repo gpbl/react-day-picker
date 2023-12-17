@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState
+} from 'react';
 
 import { useModifiers } from '../ModifiersContext';
 import { useCalendar } from '../CalendarContext';
@@ -61,14 +67,15 @@ export const focusContext = createContext<FocusContext | undefined>(undefined);
 export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const { goToDate, isDateDisplayed } = useCalendar();
 
-  const dayPicker = useDayPicker();
+  const { autoFocus = false, ...dayPicker } = useDayPicker();
 
   const [focused, setFocused] = useState<Date | undefined>();
   const [lastFocused, setLastFocused] = useState<Date | undefined>();
+  const [initiallyFocused, setInitiallyFocused] = useState(false);
 
   const { modifiersMap } = useModifiers();
 
-  const initialFocusTarget =
+  const autoFocusTarget =
     modifiersMap.selected[0]?.date ??
     modifiersMap.today[0]?.date ??
     modifiersMap.focusable[0]?.date;
@@ -76,7 +83,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const focusTarget =
     focused ?? (lastFocused && isDateDisplayed(lastFocused))
       ? lastFocused
-      : initialFocusTarget;
+      : autoFocusTarget;
 
   function blur() {
     setLastFocused(focused);
@@ -95,6 +102,13 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
       focus(nextFocus);
     }
   }
+
+  // Focus the focus target when autoFocus is passed in
+  useEffect(() => {
+    if (!autoFocus || !focusTarget || !initiallyFocused) return;
+    setInitiallyFocused(true);
+    focus(focusTarget);
+  }, [autoFocus, focusTarget, initiallyFocused]);
 
   const value: FocusContext = {
     focusTarget,

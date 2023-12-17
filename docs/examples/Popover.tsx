@@ -25,8 +25,8 @@ export function Popover() {
   };
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setInputValue(e.currentTarget.value);
-    const date = parse(e.currentTarget.value, 'y-MM-dd', new Date());
+    setInputValue(e.target.value);
+    const date = parse(e.target.value, 'y-MM-dd', new Date());
     if (isValid(date)) {
       setSelected(date);
     } else {
@@ -52,6 +52,7 @@ export function Popover() {
     <div>
       <div ref={popperRef}>
         <input
+          name="date"
           size={12}
           type="text"
           placeholder={format(new Date(), 'y-MM-dd')}
@@ -59,12 +60,12 @@ export function Popover() {
           onChange={handleInputChange}
         />
         <button ref={buttonRef} type="button" onClick={handleButtonClick}>
-          Pick a date
+          Pick a Date
         </button>
       </div>
       <div
         style={popper.styles.popper}
-        className="dialog-sheet"
+        className="dialog-sheet nx-bg-white nx-shadow-sm bg-white rounded-lg overflow-hidden"
         hidden={!isPopperOpen}
         {...popper.attributes.popper}
       >
@@ -75,11 +76,11 @@ export function Popover() {
           aria-label="DayPicker calendar"
         >
           <DayPicker
+            autoFocus
             mode="single"
             selected={selected}
             onSelect={handleDaySelect}
           />
-          <button>Close</button>
         </div>
       </div>
     </div>
