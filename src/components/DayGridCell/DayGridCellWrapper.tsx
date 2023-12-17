@@ -16,6 +16,7 @@ import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useFocus } from '../../contexts/FocusContext';
 import { useModifiers } from '../../contexts/ModifiersContext';
 import { useSelection } from '../../contexts/SelectionContext';
+import { debounce } from '../../utils/debounce';
 
 export interface DayGridCellWrapperProps
   extends Pick<React.AriaAttributes, 'aria-colindex'> {
@@ -210,7 +211,7 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     onBlur,
     onFocus,
     onKeyDown,
-    onKeyPress,
+    onKeyPress: debounce(onKeyPress, 300),
     onKeyUp,
     onMouseEnter,
     onMouseLeave,

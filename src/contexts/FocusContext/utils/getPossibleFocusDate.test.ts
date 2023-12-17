@@ -1,5 +1,7 @@
+import { Mode } from '../../../types';
+import { DayPickerContext } from '../../DayPickerContext';
 import type { MoveFocusBy, MoveFocusDir } from '../FocusContext';
-import { getPossibleFocusDate, type Options } from './getPossibleFocusDate'; // Adjust the import path
+import { getPossibleFocusDate } from './getPossibleFocusDate'; // Adjust the import path
 import {
   addDays,
   addWeeks,
@@ -12,8 +14,10 @@ import {
 } from 'date-fns';
 
 const baseDate = new Date(2023, 0, 1); // Jan 1, 2023
-const options: Options = {
-  modifiers: {},
+const options: Pick<
+  DayPickerContext<Mode>,
+  'locale' | 'ISOWeek' | 'weekStartsOn' | 'fromDate' | 'toDate'
+> = {
   locale: undefined,
   ISOWeek: false,
   weekStartsOn: 0, // Sunday

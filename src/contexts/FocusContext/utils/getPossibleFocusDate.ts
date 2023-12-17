@@ -15,17 +15,15 @@ import type { Mode } from '../../../types';
 import type { DayPickerContext } from '../../DayPickerContext';
 import type { MoveFocusBy, MoveFocusDir } from '../FocusContext';
 
-export type Options = Pick<
-  DayPickerContext<Mode>,
-  'modifiers' | 'locale' | 'ISOWeek' | 'weekStartsOn' | 'fromDate' | 'toDate'
->;
-
 /** Return the next date that should be focused. */
 export function getPossibleFocusDate(
   moveBy: MoveFocusBy,
   moveDir: MoveFocusDir,
   focusedDate: Date,
-  options: Options
+  options: Pick<
+    DayPickerContext<Mode>,
+    'locale' | 'ISOWeek' | 'weekStartsOn' | 'fromDate' | 'toDate'
+  >
 ): Date {
   const { weekStartsOn, fromDate, toDate, locale, ISOWeek } = options;
 

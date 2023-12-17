@@ -3,20 +3,22 @@ export interface ChevronProps {
   orientation?: 'up' | 'down' | 'left' | 'right';
 }
 export function Chevron(props: ChevronProps) {
-  const { size = 24, orientation } = props;
-  const style = {
-    transform:
-      orientation === 'up'
-        ? 'rotate(90deg)'
-        : orientation === 'right'
-          ? 'rotate(180deg)'
-          : orientation === 'down'
-            ? 'rotate(270deg)'
-            : undefined
-  };
+  const { size = 24, orientation = 'left' } = props;
+
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" style={style}>
-      <polygon points="15 17.23 9.43 11.5 15 5.76 13.28 4 6 11.5 13.28 19" />
+    <svg width={size} height={size} viewBox="0 0 24 24">
+      {orientation === 'up' && (
+        <polygon points="6.77 17 12.5 11.43 18.24 17 20 15.28 12.5 8 5 15.28" />
+      )}
+      {orientation === 'down' && (
+        <polygon points="6.77 8 12.5 13.57 18.24 8 20 9.72 12.5 17 5 9.72" />
+      )}
+      {orientation === 'left' && (
+        <polygon points="15 17.23 9.43 11.5 15 5.76 13.28 4 6 11.5 13.28 19" />
+      )}
+      {orientation === 'right' && (
+        <polygon points="8 18.23 13.57 12.5 8 6.76 9.72 5 17 12.5 9.72 20" />
+      )}
     </svg>
   );
 }

@@ -17,6 +17,7 @@ import { dateMatchModifiers } from '../ModifiersContext/utils/dateMatchModifiers
 import { useControlledValue } from '../../utils/useControlledValue';
 
 export type SelectionContext = {
+  /** The currently selected value. */
   selected: Selected<Mode> | undefined;
   setSelected: (
     date: Date,

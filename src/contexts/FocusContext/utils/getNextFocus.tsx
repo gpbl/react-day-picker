@@ -4,13 +4,26 @@ import { Mode } from '../../../types';
 import { dateMatchModifiers } from '../../ModifiersContext/utils/dateMatchModifiers';
 import type { MoveFocusBy, MoveFocusDir } from '../FocusContext';
 
+export type Options = Pick<
+  DayPickerContext<Mode>,
+  'modifiers' | 'locale' | 'ISOWeek' | 'weekStartsOn' | 'fromDate' | 'toDate'
+>;
+
 export function getNextFocus(
   moveBy: MoveFocusBy,
   moveDir: MoveFocusDir,
+  /** The date that is currently focused. */
   focusedDate: Date,
-  dayPicker: Pick<
+  options: Pick<
     DayPickerContext<Mode>,
-    'disabled' | 'hidden' | 'fromDate' | 'toDate'
+    | 'disabled'
+    | 'hidden'
+    | 'modifiers'
+    | 'locale'
+    | 'ISOWeek'
+    | 'weekStartsOn'
+    | 'fromDate'
+    | 'toDate'
   >,
   attempt: number = 0
 ): Date | undefined {
@@ -23,16 +36,15 @@ export function getNextFocus(
     moveBy,
     moveDir,
     focusedDate,
-    dayPicker
+    options
   );
 
   const isDisabled = Boolean(
-    dayPicker.disabled &&
-      dateMatchModifiers(possibleFocusDate, dayPicker.disabled)
+    options.disabled && dateMatchModifiers(possibleFocusDate, options.disabled)
   );
 
   const isHidden = Boolean(
-    dayPicker.hidden && dateMatchModifiers(possibleFocusDate, dayPicker.hidden)
+    options.hidden && dateMatchModifiers(possibleFocusDate, options.hidden)
   );
 
   if (!isDisabled && !isHidden) {
@@ -40,11 +52,5 @@ export function getNextFocus(
   }
 
   // Recursively attempt to find the next focusable date
-  return getNextFocus(
-    moveBy,
-    moveDir,
-    possibleFocusDate,
-    dayPicker,
-    attempt + 1
-  );
+  return getNextFocus(moveBy, moveDir, possibleFocusDate, options, attempt + 1);
 }
