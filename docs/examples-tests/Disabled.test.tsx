@@ -1,5 +1,5 @@
 import { Disabled } from '../examples/Disabled';
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 
 import {
   app,
@@ -17,7 +17,7 @@ freezeTime(today);
 
 beforeEach(async () => {
   renderApp(<Disabled />);
-  return gridcell(firstOfMonth).focus();
+  return act(() => gridcell(firstOfMonth).focus());
 });
 
 test('should be accessible', async () => {
@@ -33,7 +33,7 @@ test('should not display the previous button', () => {
 describe('when the first day is focused', () => {
   describe('when the Arrow Left is pressed', () => {
     beforeEach(async () => {
-      await user.type(app(), '{arrowleft}');
+      await act(() => user.type(app(), '{arrowleft}'));
     });
     test('should be accessible', async () => {
       expect(await axe(app())).toHaveNoViolations();
@@ -46,7 +46,7 @@ describe('when the first day is focused', () => {
 describe('when the last day is focused', () => {
   describe('when the Arrow Right is pressed', () => {
     beforeEach(async () => {
-      await user.type(app(), '{arrowleft}');
+      await act(() => user.type(app(), '{arrowleft}'));
     });
 
     test('should be accessible', async () => {
