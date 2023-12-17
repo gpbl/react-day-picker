@@ -6,7 +6,7 @@ import { Months as DefaultMonths } from '../Months';
 import { Nav as DefaultNav } from '../Nav';
 
 /**
- * Render the container with navigation and the month grids.
+ * Render the DayPicker Calendar with navigation and the month grids.
  */
 export function Calendar() {
   const {
@@ -29,6 +29,7 @@ export function Calendar() {
     styles,
     title
   } = useDayPicker();
+
   const calendar = useCalendar();
 
   // Apply classnames according to props
@@ -82,3 +83,6 @@ export function Calendar() {
     </div>
   );
 }
+
+/** @deprecated Use {@link Calendar} instead. */
+export const Root = Calendar;

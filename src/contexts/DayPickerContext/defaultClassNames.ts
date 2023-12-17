@@ -69,5 +69,5 @@ export const defaultClassNames: Required<ClassNames> = {
   [DayPickerElements.select]: 'select',
   [DayPickerElements.dropdown_root]: 'dropdown_root',
   [DayPickerElements.day_excluded]: 'day_excluded',
-  [DayPickerElements.day_focusable]: 'day_focusable'
+  [DayPickerElements.day_focusable]: ''
 };

@@ -43,8 +43,14 @@ export interface DayPickerCalendar {
    * The options to use in the years or months dropdowns.
    */
   dropdown: {
-    years: DropdownOption[] | undefined;
+    /**
+     * The options to use in the months dropdown.
+     */
     months: DropdownOption[] | undefined;
+    /**
+     * The options to use in the years dropdown.
+     */
+    years: DropdownOption[] | undefined;
   };
   /**
    * Navigate to the specified month. Will fire the

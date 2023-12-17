@@ -23,17 +23,31 @@ export const calendarContext = createContext<DayPickerCalendar | undefined>(
  */
 export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const dayPicker = useDayPicker();
+
   const startMonth = getStartMonth(dayPicker);
+
+  // The first month displayed in the calendar
   const [firstMonth, setFirstMonth] = useControlledValue(
     startMonth,
     dayPicker.month ? startOfMonth(dayPicker.month) : undefined
   );
 
+  /** An array of the months displayed in the calendar. */
   const displayMonths = getDisplayMonths(firstMonth, dayPicker);
+
+  /** The last month displayed in the calendar. */
   const lastMonth = displayMonths[displayMonths.length - 1];
+
+  /** An array of the dates displayed in the calendar. */
   const dates = getDates(displayMonths, dayPicker.toDate, dayPicker);
+
+  /** An array of the Months displayed in the calendar. */
   const months = getMonths(displayMonths, dates, dayPicker);
+
+  /** An array of the Weeks displayed in the calendar. */
   const weeks = getWeeks(months);
+
+  /** An array of the Days displayed in the calendar. */
   const days = getDays(months);
 
   const nextMonth = getNextMonth(firstMonth, dayPicker);
