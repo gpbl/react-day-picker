@@ -1,30 +1,19 @@
+// @ts-check
+/* eslint-env node */
 // eslint-disable-next-line import/default
 import nextra from 'nextra';
 import currentGitBranchName from 'current-git-branch';
-import path from 'path';
 
 const withNextra = nextra({
   theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx',
-  webpack: (config, { dev, isServer }) => {
-    // Only run this loader in development mode and on the client-side
-    if (dev && !isServer) {
-      config.module.rules.push({
-        test: /\.js$/, // Adjust the regex to match the files you want to target
-        use: ['source-map-loader'],
-        enforce: 'pre',
-        // Specify the directories or node modules here
-        include: [path.resolve(__dirname, 'node_modules/react-day-picker')]
-      });
-    }
-
-    return config;
-  }
+  themeConfig: './theme.config.tsx'
 });
 
-export default withNextra({
-  productionBrowserSourceMaps: true,
-  eslint: { ignoreDuringBuilds: true },
+/** @type {import('next').NextConfig}*/
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   output: 'export',
   distDir: 'dist',
   reactStrictMode: true,
@@ -32,6 +21,9 @@ export default withNextra({
     unoptimized: true
   },
   env: {
+    // @ts-expect-error wrong typings?
     GIT_BRANCH: currentGitBranchName()
   }
-});
+};
+
+export default withNextra(nextConfig);

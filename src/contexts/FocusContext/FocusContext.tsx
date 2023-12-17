@@ -147,3 +147,6 @@ export function useFocus(): FocusContext {
   }
   return context;
 }
+
+/** @deprecated Use {@link useFocus} instead. */
+export const useFocusContext = useFocus;
