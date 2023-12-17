@@ -1,5 +1,4 @@
-import type { SelectHandler } from '../DayPicker';
-
+import type { SelectHandler } from '../types/props';
 import { DayGridCell, DayGridCellProps } from './DayGridCell';
 import { MonthCaption, MonthCaptionProps } from './MonthCaption';
 import { WeekRow, WeekRowProps } from './WeekRow';

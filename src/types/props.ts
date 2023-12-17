@@ -1,4 +1,5 @@
-import { SelectHandler, Selected } from '../DayPicker';
+import type { MouseEvent, KeyboardEvent } from 'react';
+
 import * as components from '../components';
 
 import {
@@ -13,9 +14,9 @@ import {
 
 import { Formatters } from './formatters';
 import { Labels } from './labels';
-import { Matcher } from './matchers';
-import { ModifiersClassNames, ModifiersStyles } from './modifiers';
-import { ClassNames, Styles } from './styles';
+import { DateRange, Matcher } from './matchers';
+import { Modifiers, ModifiersClassNames, ModifiersStyles } from './modifiers';
+import { ClassNames, Styles } from './ui';
 
 export interface PropsSelection<T extends Mode> {
   mode?: T | undefined;
@@ -405,3 +406,48 @@ export type ContrastPreference = 'no_preference' | 'less' | 'more';
  * @deprecated Replaced by {@link PropsBase.dropdownNavigation} and {@link PropsBase.hideNavigation}.
  */
 export type CaptionLayout = 'dropdown' | 'buttons' | 'dropdown-buttons';
+
+export type Selected<T extends Mode> = T extends 'single'
+  ? Date
+  : T extends 'multi'
+    ? Date[]
+    : T extends 'range'
+      ? DateRange
+      : undefined;
+
+/** The callback called when the user select a days from the calendar. */
+export type SelectHandler<T extends Mode> = (
+  /** The new selected value. */
+  selected: Selected<T>,
+  /** The date that triggered the selection. */
+  date: Date,
+  /** The modifiers for the day that triggered the selection. */
+  modifiers: Modifiers,
+  /** The event that made the selection. */
+  e: MouseEvent | KeyboardEvent
+) => void;
+
+export interface PropsNone {
+  selected?: undefined;
+  onSelect?: undefined;
+}
+
+/** The props for the single selection mode. */
+export interface PropsSingle {
+  /** Makes the selection required */
+  required?: boolean;
+}
+
+/** The props for the multi selection mode. */
+export interface PropsMulti {
+  required?: boolean;
+  min?: number;
+  max?: number;
+}
+
+/** The props for the range selection mode. */
+export interface PropsRange {
+  required?: boolean;
+  min?: number;
+  max?: number;
+}

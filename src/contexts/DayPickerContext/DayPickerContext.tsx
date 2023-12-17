@@ -6,7 +6,7 @@ import { getClassNames } from './utils/getClassNames';
 import { getLabels } from './utils/getLabels';
 import { getFormatters } from './utils/getFormatters';
 import { getDataAttributes } from './utils/getDataAttributes';
-import { ClassNames, Formatters, Labels, Mode } from '../../types';
+import type { ClassNames, Formatters, Labels, Mode } from '../../types';
 import { DataAttributes } from '../ModifiersContext';
 import { getFromToDate } from './utils/getFromToDate';
 

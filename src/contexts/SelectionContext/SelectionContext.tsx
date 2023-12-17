@@ -1,20 +1,22 @@
-import type { PropsWithChildren, MouseEvent, KeyboardEvent } from 'react';
-import { createContext, useContext, useState } from 'react';
-
 import {
   addDays,
   differenceInCalendarDays,
   isSameDay,
   subDays
 } from 'date-fns';
+import { createContext, useContext, useState } from 'react';
 
-import { useDayPicker } from '../../contexts/DayPickerContext';
-import type { Selected } from '../../DayPicker';
-import { isDateRange, Matcher, Mode, type Modifiers } from '../../types';
 import { addToRange } from './utils/addToRange';
-import { isDateInRange } from '../../utils/isDateInRange';
 import { dateMatchModifiers } from '../ModifiersContext/utils/dateMatchModifiers';
+import { isDateInRange } from '../../utils/isDateInRange';
 import { useControlledValue } from '../../utils/useControlledValue';
+import { useDayPicker } from '../../contexts/DayPickerContext';
+
+import type { Matcher } from '../../types/matchers';
+import type { Mode, Selected } from '../../types/props';
+import type { Modifiers } from '../../types/modifiers';
+import type { PropsWithChildren, MouseEvent, KeyboardEvent } from 'react';
+import { isDateRange } from '../../utils/typeguards';
 
 export type SelectionContext = {
   /** The currently selected value. */

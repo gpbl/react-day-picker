@@ -1,6 +1,5 @@
-import { CSSProperties } from 'react';
-
-import { Day } from '../classes/Day';
+import type { CSSProperties } from 'react';
+import type { Day } from '../classes/Day';
 
 /** The name of the modifiers that are used internally by DayPicker. */
 export type InternalModifier =

@@ -4,5 +4,5 @@ export * from './FormatOptions';
 export * from './labels';
 export * from './matchers';
 export * from './modifiers';
-export * from './styles';
-export * from './PropsBase';
+export * from './ui';
+export * from './props';
