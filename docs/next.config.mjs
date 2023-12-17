@@ -2,7 +2,6 @@
 /* eslint-env node */
 // eslint-disable-next-line import/default
 import nextra from 'nextra';
-import currentGitBranchName from 'current-git-branch';
 
 const withNextra = nextra({
   theme: 'nextra-theme-docs',
@@ -19,10 +18,6 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true
-  },
-  env: {
-    // @ts-expect-error wrong typings?
-    GIT_BRANCH: currentGitBranchName()
   }
 };
 
