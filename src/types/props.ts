@@ -53,7 +53,7 @@ export interface PropsBase {
   /**
    * Change the inline styles of the HTML elements.
    */
-  styles?: Styles;
+  styles?: Partial<Styles>;
   /**
    * Change the inline style for the day matching the `modifiers`.
    */
@@ -369,7 +369,7 @@ export interface PropsBase {
   onPrevClick?: MonthChangeEventHandler;
 
   /**
-   * Event handler when a week number is clicked. Requires {@link DayPickerProps.showWeekNumber} to be set.
+   * Event handler when a week number is clicked. Requires {@link showWeekNumber} to be set.
    */
   onWeekNumberClick?: WeekNumberClickEventHandler;
 

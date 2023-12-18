@@ -1,13 +1,14 @@
+import { useState } from 'react';
+
 import {
   DayPicker,
-  PropsBase,
   Mode,
+  PropsBase,
   PropsMulti,
   PropsRange,
   PropsSingle
 } from 'react-day-picker';
 
-import { useState } from 'react';
 import { RenderingBox } from '../RenderingBox';
 import { Shadow } from '../Shadow';
 import { PlaygroundForm } from './PlaygroundForm';
@@ -15,11 +16,9 @@ import { PlaygroundForm } from './PlaygroundForm';
 export function Playground() {
   const [mode, setMode] = useState<Mode>('single');
   const [base, setBase] = useState<PropsBase>({});
-  const [single, setSingle] = useState<PropsSingle>({
-    mode: 'single'
-  });
-  const [multi, setMulti] = useState<PropsMulti>({ mode: 'multi' });
-  const [range, setRange] = useState<PropsRange>({ mode: 'range' });
+  const [single, setSingle] = useState<PropsSingle>({});
+  const [multi, setMulti] = useState<PropsMulti>({});
+  const [range, setRange] = useState<PropsRange>({});
 
   const renderClassName =
     base?.colorScheme === 'dark'
@@ -31,9 +30,9 @@ export function Playground() {
   const handleReset = () => {
     setMode('single');
     setBase({});
-    setSingle({ mode: 'single' });
-    setMulti({ mode: 'multi' });
-    setRange({ mode: 'range' });
+    setSingle({});
+    setMulti({});
+    setRange({});
   };
   return (
     <div>

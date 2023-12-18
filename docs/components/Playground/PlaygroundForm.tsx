@@ -1,21 +1,21 @@
-type LocaleString = keyof typeof locales;
-
+import { format, isValid, parse } from 'date-fns';
+import * as locales from 'date-fns/locale';
 import {
-  PropsBase,
   ColorScheme,
   ContrastPreference,
   Mode,
+  PropsBase,
   PropsMulti,
   PropsRange,
   PropsSingle
 } from 'react-day-picker';
 
-import { format, isValid, parse } from 'date-fns';
-import * as locales from 'date-fns/locale';
 import { Fieldset } from '../Fieldset';
 import { Form } from '../Form';
 import { Input } from '../Input';
 import { Select } from '../Select';
+
+type LocaleString = keyof typeof locales;
 
 const selectionModes: Mode[] = ['single', 'multi', 'range', 'none'];
 
@@ -90,8 +90,7 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
               value={props.multi.min}
               onChange={(e) =>
                 props.onMultiChange({
-                  min: Number(e.target.value),
-                  mode: 'multi'
+                  min: Number(e.target.value)
                 })
               }
             />
@@ -104,8 +103,7 @@ export function PlaygroundForm(props: PlaygroundFormProps) {
               value={props.multi.max}
               onChange={(e) =>
                 props.onMultiChange({
-                  max: Number(e.target.value),
-                  mode: 'multi'
+                  max: Number(e.target.value)
                 })
               }
             />

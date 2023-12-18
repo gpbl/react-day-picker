@@ -11,9 +11,6 @@ export function ContainerAttributes() {
       title="foo_title"
       lang="it"
       mode="multi"
-      onSelect={(days) => {
-        days.map(test);
-      }}
     />
   );
 }

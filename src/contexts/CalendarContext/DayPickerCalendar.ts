@@ -1,5 +1,7 @@
 import type { Day, Month, Week } from '../../classes';
 import type { DropdownOption } from '../../components/Dropdown';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { DayPickerProps } from '../../DayPicker';
 
 /** The calendar displayed in DayPicker. */
 export interface DayPickerCalendar {
