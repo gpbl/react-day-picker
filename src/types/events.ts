@@ -1,4 +1,4 @@
-import { Modifiers } from './modifiers';
+import type { Modifiers } from './modifiers';
 
 export type DayEventHandler<T> = (
   /** The date that has triggered the event. */

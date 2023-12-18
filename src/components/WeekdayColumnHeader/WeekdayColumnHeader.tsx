@@ -11,6 +11,7 @@ export function WeekdayColumnHeader(props: WeekdayColumnHeaderProps) {
     formatters: { formatWeekdayName },
     labels: { labelWeekday, labelWeekNumberHeader },
     locale,
+    hideWeekdayRow,
     styles
   } = useDayPicker();
   return (
@@ -25,7 +26,8 @@ export function WeekdayColumnHeader(props: WeekdayColumnHeaderProps) {
       className={classNames.weekday_columnheader}
       style={styles?.weekday_columnheader}
     >
-      {props.weekday ? formatWeekdayName(props.weekday, { locale }) : '#'}
+      {!hideWeekdayRow &&
+        (props.weekday ? formatWeekdayName(props.weekday, { locale }) : '#')}
     </span>
   );
 }

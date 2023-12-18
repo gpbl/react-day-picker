@@ -1,4 +1,4 @@
-import { OptionHTMLAttributes } from 'react';
+import type { OptionHTMLAttributes } from 'react';
 
 export type OptionProps = OptionHTMLAttributes<HTMLOptionElement>;
 

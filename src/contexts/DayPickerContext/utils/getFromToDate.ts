@@ -6,8 +6,9 @@ import {
   startOfMonth,
   startOfYear
 } from 'date-fns';
-import { DayPickerProps } from '../../../DayPicker';
-import { Mode } from '../../../types';
+
+import type { DayPickerProps } from '../../../DayPicker';
+import type { Mode } from '../../../types';
 
 /** Return the `fromDate` and `toDate` prop values values parsing the DayPicker props. */
 export function getFromToDate(

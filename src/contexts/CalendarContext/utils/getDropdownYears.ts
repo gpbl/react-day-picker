@@ -5,9 +5,11 @@ import {
   isSameYear,
   startOfYear
 } from 'date-fns';
-import { DayPickerContext } from '../../DayPickerContext';
+
 import { DropdownOption } from '../../../components';
-import { Formatters, Mode } from '../../../types';
+import { Formatters } from '../../../types/formatters';
+import { Mode } from '../../../types/props';
+import { DayPickerContext } from '../../DayPickerContext';
 
 export function getDropdownYears(
   dayPicker: Pick<DayPickerContext<Mode>, 'fromDate' | 'toDate'> & {

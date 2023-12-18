@@ -1,7 +1,6 @@
 import { act } from 'react-dom/test-utils';
 
 import { renderDayPickerHook } from '../../../test/render';
-
 import { useControlledValue } from './useControlledValue';
 
 function renderHook(defaultValue: string, controlledValue: string | undefined) {

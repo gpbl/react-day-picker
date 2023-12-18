@@ -1,4 +1,4 @@
-import { HTMLProps } from 'react';
+import type { HTMLProps } from 'react';
 
 /**
  * The props for the `Months` component.

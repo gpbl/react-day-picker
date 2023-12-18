@@ -1,4 +1,4 @@
-import { PropsBase } from '../../../types';
+import type { PropsBase } from '../../../types';
 import { defaultClassNames } from '../defaultClassNames';
 
 /**

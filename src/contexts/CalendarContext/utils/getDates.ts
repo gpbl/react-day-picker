@@ -10,8 +10,8 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import { Mode } from '../../../types';
 import { DayPickerProps } from '../../../DayPicker';
+import { Mode } from '../../../types';
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;

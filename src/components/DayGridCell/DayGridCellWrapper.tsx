@@ -1,5 +1,3 @@
-import { Day } from '../../classes';
-import { DayGridCell as DefaultGridCell } from './DayGridCell';
 import {
   FocusEventHandler,
   KeyboardEventHandler,
@@ -9,14 +7,18 @@ import {
   useEffect,
   useRef
 } from 'react';
-import { getClassNamesForModifiers } from './getClassNamesForModifiers';
-import { getStyleForModifiers } from './getStyleForModifiers';
+
 import { isSameDay } from 'date-fns';
+
+import { Day } from '../../classes';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useFocus } from '../../contexts/FocusContext';
 import { useModifiers } from '../../contexts/ModifiersContext';
 import { useSelection } from '../../contexts/SelectionContext';
 import { debounce } from '../../utils/debounce';
+import { DayGridCell as DefaultGridCell } from './DayGridCell';
+import { getClassNamesForModifiers } from './getClassNamesForModifiers';
+import { getStyleForModifiers } from './getStyleForModifiers';
 
 export interface DayGridCellWrapperProps
   extends Pick<React.AriaAttributes, 'aria-colindex'> {

@@ -1,7 +1,7 @@
-import { DayPickerContext } from '../../DayPickerContext';
 import type { Mode } from '../../../types';
-import { getNextFocus } from './getNextFocus';
+import type { DayPickerContext } from '../../DayPickerContext';
 import type { MoveFocusBy, MoveFocusDir } from '../FocusContext';
+import { getNextFocus } from './getNextFocus';
 
 const defaultDayPicker: Pick<
   DayPickerContext<Mode>,

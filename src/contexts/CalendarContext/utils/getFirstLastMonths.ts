@@ -1,8 +1,7 @@
 import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
 
-import { getFromToDate } from '../../DayPickerContext/utils/getFromToDate';
-
 import type { PropsBase } from '../../../types/props';
+import { getFromToDate } from '../../DayPickerContext/utils/getFromToDate';
 
 /**
  * Return the first and the last months according to the props passed to

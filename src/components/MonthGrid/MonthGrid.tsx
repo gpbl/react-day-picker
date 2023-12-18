@@ -1,10 +1,10 @@
 import { useId } from 'react';
 
+import { Month } from '../../classes/Month';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { MonthCaption as DefaultMonthCaption } from '../MonthCaption';
 import { WeekdaysRow as DefaultWeekdaysRow } from '../WeekdaysRow';
 import { WeekRow as DefaultWeekRow } from '../WeekRow';
-import { Month } from '../../classes';
 
 export interface MonthGridProps
   extends Pick<React.AriaAttributes, 'aria-labelledby'> {

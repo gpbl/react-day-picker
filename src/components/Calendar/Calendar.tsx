@@ -1,5 +1,6 @@
 import { useCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
+import { UI } from '../../types';
 import { Footer as DefaultFooter } from '../Footer';
 import { MonthGrid as DefaultMonthGrid } from '../MonthGrid';
 import { Months as DefaultMonths } from '../Months';
@@ -20,6 +21,7 @@ export function Calendar() {
     dir,
     footer,
     hideNavigation,
+    hideWeekdayRow,
     id,
     lang,
     nonce,
@@ -47,7 +49,10 @@ export function Calendar() {
     cssClassNames.push(classNames[`color_${colorScheme}`]);
   }
   if (showWeekNumber) {
-    cssClassNames.push(classNames.with_weeknumber);
+    cssClassNames.push(UI.WithWeekNumber);
+  }
+  if (hideWeekdayRow) {
+    cssClassNames.push(classNames[UI.HideWeekdays]);
   }
 
   const Nav = components?.Nav ?? DefaultNav;

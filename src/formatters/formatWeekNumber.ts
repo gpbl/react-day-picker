@@ -1,4 +1,5 @@
 import type { format } from 'date-fns';
+
 /** The default formatter for the week numbers. */
 export function formatWeekNumber(
   weekNumber: number,

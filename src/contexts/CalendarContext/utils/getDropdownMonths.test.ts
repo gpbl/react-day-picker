@@ -1,5 +1,5 @@
-import { getDropdownMonths } from './getDropdownMonths';
 import * as formatters from '../../../formatters';
+import { getDropdownMonths } from './getDropdownMonths';
 
 test('returns undefined if `fromDate` is not defined', () => {
   const result = getDropdownMonths({

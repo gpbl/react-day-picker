@@ -1,5 +1,5 @@
-import { useCalendar } from './CalendarContext';
 import { renderDayPickerHook } from '../../../test/render';
+import { useCalendar } from './CalendarContext';
 
 it('should return the next month', () => {
   const result = renderDayPickerHook(useCalendar, {

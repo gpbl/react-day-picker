@@ -1,5 +1,6 @@
 import * as defaultLabels from '../../../labels';
-import { PropsBase, type Labels } from '../../../types';
+import type { Labels } from '../../../types/labels';
+import type { PropsBase } from '../../../types/props';
 
 /** Return the labels from the props. */
 export function getLabels(customLabels: PropsBase['labels']): Labels {

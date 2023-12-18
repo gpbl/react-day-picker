@@ -1,4 +1,4 @@
-import { PropsBase } from '../../../types';
+import type { PropsBase } from '../../../types/props';
 
 /** Return the `data-` attributes from the props. */
 export function getDataAttributes(props: PropsBase): Record<string, unknown> {

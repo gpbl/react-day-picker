@@ -1,7 +1,7 @@
 import { useCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
-import { Chevron as DefaultChevron } from '../Chevron';
 import { Button as DefaultButton } from '../Button';
+import { Chevron as DefaultChevron } from '../Chevron';
 
 export function Nav() {
   const {

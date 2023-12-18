@@ -1,8 +1,7 @@
-import type { MouseEvent, KeyboardEvent } from 'react';
+import type { KeyboardEvent, MouseEvent } from 'react';
 
 import * as components from '../components';
-
-import {
+import type {
   DayFocusEventHandler,
   DayKeyboardEventHandler,
   DayMouseEventHandler,
@@ -11,12 +10,15 @@ import {
   MonthChangeEventHandler,
   WeekNumberClickEventHandler
 } from './events';
-
-import { Formatters } from './formatters';
-import { Labels } from './labels';
-import { DateRange, Matcher } from './matchers';
-import { Modifiers, ModifiersClassNames, ModifiersStyles } from './modifiers';
-import { ClassNames, Styles } from './ui';
+import type { Formatters } from './formatters';
+import type { Labels } from './labels';
+import type { DateRange, Matcher } from './matchers';
+import type {
+  Modifiers,
+  ModifiersClassNames,
+  ModifiersStyles
+} from './modifiers';
+import type { ClassNames, Styles } from './ui';
 
 export interface PropsSelection<T extends Mode> {
   mode?: T | undefined;

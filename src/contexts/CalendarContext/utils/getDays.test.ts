@@ -1,7 +1,7 @@
-import { Day } from '../../../classes/Day';
-import { getDays } from './getDays';
-import { Month } from '../../../classes/Month';
 import { Week } from '../../../classes';
+import { Day } from '../../../classes/Day';
+import { Month } from '../../../classes/Month';
+import { getDays } from './getDays';
 
 const days1 = [
   new Day(new Date(2023, 1, 12), new Date(2023, 1, 1)),

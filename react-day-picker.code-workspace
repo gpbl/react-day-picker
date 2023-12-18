@@ -5,7 +5,6 @@
       "orta.vscode-jest",
       "andys8.jest-snippets",
       "esbenp.prettier-vscode",
-      "mike-co.import-sorter",
       "streetsidesoftware.code-spell-checker",
       "stkb.rewrap"
     ]
@@ -38,7 +37,9 @@
       "react-day-picker/.github/workflows/package.yml",
       "react-day-picker/.github/workflows/website.yml"
     ],
-    "editor.fontFamily": "Berkeley Mono, Menlo, Monaco, 'Courier New', monospace"
+    "editor.fontFamily": "Berkeley Mono, Menlo, Monaco, 'Courier New', monospace",
+    "tsImportSorter.configuration.removeLastIndexInPath": true,
+    "tsImportSorter.configuration.removeLastSlashInPath": true
   },
   "launch": {
     "version": "0.2.0",

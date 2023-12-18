@@ -1,6 +1,6 @@
 import { Month } from '../../classes';
-import { MonthsDropdown } from '../MonthsDropdown';
 import { useDayPicker } from '../../contexts/DayPickerContext';
+import { MonthsDropdown } from '../MonthsDropdown';
 import { YearsDropdown } from '../YearsDropdown';
 
 export interface DropdownNavProps {

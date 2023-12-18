@@ -9,9 +9,11 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import { Month, Week, Day } from '../../../classes';
+import { Day } from '../../../classes/Day';
+import { Month } from '../../../classes/Month';
+import { Week } from '../../../classes/Week';
 import { DayPickerProps } from '../../../DayPicker';
-import { Mode } from '../../../types';
+import { Mode } from '../../../types/props';
 
 /** Return the months to display in the calendar. */
 export function getMonths(

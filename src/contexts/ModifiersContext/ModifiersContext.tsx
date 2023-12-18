@@ -3,12 +3,12 @@ import { createContext, useContext } from 'react';
 
 import { isSameDay, isSameMonth } from 'date-fns';
 
+import { Day } from '../../classes';
 import { useCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useSelection } from '../../contexts/SelectionContext';
-import { dateMatchModifiers } from './utils/dateMatchModifiers';
-import { Day } from '../../classes';
 import type { InternalModifier, Modifiers, ModifiersMap } from '../../types';
+import { dateMatchModifiers } from './utils/dateMatchModifiers';
 
 /** A record with `data-*` attributes passed to `DayPicker`. */
 export type DataAttributes = Record<`data-${string}`, unknown>;

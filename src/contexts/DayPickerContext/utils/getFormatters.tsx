@@ -1,5 +1,5 @@
 import * as defaultFormatters from '../../../formatters';
-import { PropsBase } from '../../../types';
+import type { PropsBase } from '../../../types/props';
 
 /** Return the formatters from the props. */
 export function getFormatters(customFormatters: PropsBase['formatters']) {

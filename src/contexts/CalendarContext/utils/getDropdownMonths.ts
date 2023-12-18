@@ -1,7 +1,8 @@
 import { addMonths, isBefore, startOfMonth } from 'date-fns';
-import { type DayPickerContext } from '../../DayPickerContext';
-import { type DropdownOption } from '../../../components';
-import { type Formatters, Mode } from '../../../types';
+
+import type { DropdownOption } from '../../../components';
+import type { Formatters, Mode } from '../../../types';
+import type { DayPickerContext } from '../../DayPickerContext';
 
 export function getDropdownMonths(
   dayPicker: Pick<DayPickerContext<Mode>, 'fromDate' | 'toDate' | 'locale'> & {

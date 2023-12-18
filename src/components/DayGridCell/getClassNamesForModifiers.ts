@@ -1,9 +1,9 @@
-import type { ClassNames } from '../../types/ui';
 import type {
   InternalModifier,
   Modifiers,
   ModifiersClassNames
 } from '../../types/modifiers';
+import type { ClassNames } from '../../types/ui';
 
 export function getClassNamesForModifiers(
   modifiers: Modifiers,

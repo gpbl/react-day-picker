@@ -378,6 +378,10 @@
   padding: 0.25rem 0 0.5rem;
 }
 
+.hide_weekdays .weekday_columnheader {
+  padding: 0;
+}
+
 .weekdays_row,
 .week_row {
   display: grid;

@@ -1,9 +1,9 @@
 import { getUnixTime } from 'date-fns';
 
+import { Week } from '../../classes';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { DayGridCellWrapper } from '../DayGridCell/DayGridCellWrapper';
 import { WeekNumberRowHeader as DefaultWeekNumberRowHeader } from '../WeekNumberRowHeader';
-import { Week } from '../../classes';
 
 /**
  * The props for the `WeekRow` component.

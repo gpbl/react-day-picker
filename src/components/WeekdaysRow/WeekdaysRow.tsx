@@ -1,6 +1,5 @@
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { WeekdayColumnHeader as DefaultWeekdayColumnHeader } from '../WeekdayColumnHeader';
-
 import { getWeekdays } from './utils/getWeekdays';
 
 export function WeekdaysRow() {

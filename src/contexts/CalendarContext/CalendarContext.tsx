@@ -1,18 +1,20 @@
+import { createContext, type ReactNode, useContext } from 'react';
+
 import { addMonths, isBefore, isSameMonth, startOfMonth } from 'date-fns';
+
 import { DayPickerCalendar } from '../../contexts/CalendarContext';
+import { useDayPicker } from '../../contexts/DayPickerContext';
+import { useControlledValue } from '../../utils/useControlledValue';
 import { getDates } from './utils/getDates';
 import { getDays } from './utils/getDays';
-import { getMonths } from './utils/getMonths';
-import { getWeeks } from './utils/getWeeks';
 import { getDisplayMonths } from './utils/getDisplayMonths';
 import { getDropdownMonths } from './utils/getDropdownMonths';
 import { getDropdownYears } from './utils/getDropdownYears';
+import { getMonths } from './utils/getMonths';
 import { getNextMonth } from './utils/getNextMonth';
 import { getPreviousMonth } from './utils/getPreviousMonth';
 import { getStartMonth } from './utils/getStartMonth';
-import { useControlledValue } from '../../utils/useControlledValue';
-import { useDayPicker } from '../../contexts/DayPickerContext';
-import { createContext, type ReactNode, useContext } from 'react';
+import { getWeeks } from './utils/getWeeks';
 
 export const calendarContext = createContext<DayPickerCalendar | undefined>(
   undefined

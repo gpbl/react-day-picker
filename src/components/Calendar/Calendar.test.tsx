@@ -1,6 +1,6 @@
 import { Calendar } from './Calendar';
-import { renderWithContext } from '../../../test/render';
 import { grid, nav } from '../../../test';
+import { renderWithContext } from '../../../test/render';
 
 it('should render the navigation and month grids', () => {
   renderWithContext(<Calendar />);

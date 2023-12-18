@@ -1,4 +1,5 @@
-import { Month, Week } from '../../../classes';
+import { Month } from '../../../classes/Month';
+import { Week } from '../../../classes/Week';
 
 /**
  * Returns all the days belonging to the calendar by merging the days in the

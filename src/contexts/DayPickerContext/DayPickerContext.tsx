@@ -1,14 +1,16 @@
 import { createContext, PropsWithChildren, useContext, useId } from 'react';
 
-import { DayPickerProps } from '../../DayPicker';
-
+import type { DayPickerProps } from '../../DayPicker';
+import type { Formatters } from '../../types/formatters';
+import type { Labels } from '../../types/labels';
+import type { Mode } from '../../types/props';
+import type { ClassNames } from '../../types/ui';
+import type { DataAttributes } from '../ModifiersContext';
 import { getClassNames } from './utils/getClassNames';
-import { getLabels } from './utils/getLabels';
-import { getFormatters } from './utils/getFormatters';
 import { getDataAttributes } from './utils/getDataAttributes';
-import type { ClassNames, Formatters, Labels, Mode } from '../../types';
-import { DataAttributes } from '../ModifiersContext';
+import { getFormatters } from './utils/getFormatters';
 import { getFromToDate } from './utils/getFromToDate';
+import { getLabels } from './utils/getLabels';
 
 export type DayPickerContext<T extends Mode> = DayPickerProps<T> & {
   classNames: ClassNames;

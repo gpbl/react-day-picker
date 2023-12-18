@@ -1,12 +1,12 @@
 import { Calendar } from './components/Calendar';
 import { ContextProviders } from './contexts/ContextProviders';
 import type {
-  PropsBase,
   Mode,
-  PropsSelection,
+  PropsBase,
   PropsMulti,
   PropsNone,
   PropsRange,
+  PropsSelection,
   PropsSingle
 } from './types/props';
 

@@ -1,13 +1,12 @@
 import { addDays, subDays } from 'date-fns';
 
-import {
+import type {
   DateAfter,
   DateBefore,
   DateInterval,
   DateRange,
   DayOfWeek
 } from '../../../types/matchers';
-
 import { dateMatchModifiers } from './dateMatchModifiers';
 
 const testDay = new Date();

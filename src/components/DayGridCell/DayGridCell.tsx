@@ -1,7 +1,7 @@
-import { type HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
-import { type Day } from '../../classes';
-import { type Modifiers } from '../../types/modifiers';
+import type { Day } from '../../classes';
+import type { Modifiers } from '../../types/modifiers';
 
 export interface DayGridCellProps {
   /** The day to be rendered in the gridcell. */

@@ -1,9 +1,11 @@
-import { Dropdown as DefaultDropdown } from '../Dropdown';
-import { useDayPicker } from '../../contexts/DayPickerContext';
-import { useCalendar } from '../../contexts/CalendarContext';
-import { ChangeEventHandler } from 'react';
+import type { ChangeEventHandler } from 'react';
+
 import { setMonth, startOfMonth } from 'date-fns';
+
 import { Month } from '../../classes';
+import { useCalendar } from '../../contexts/CalendarContext';
+import { useDayPicker } from '../../contexts/DayPickerContext';
+import { Dropdown as DefaultDropdown } from '../Dropdown';
 
 export interface MonthsDropdownProps {
   /** The month where the dropdown is displayed. */

@@ -1,7 +1,6 @@
 import { addDays, subDays } from 'date-fns';
 
-import { DateRange } from '../../../types/matchers';
-
+import type { DateRange } from '../../../types/matchers';
 import { addToRange } from './addToRange';
 
 describe('when no "from" is the range', () => {

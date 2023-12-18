@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 
-export enum UIElement {
+export enum UI {
   /** Represents the root element. */
   Root = 'rdp',
   ContrastNoPreference = 'contrast_no_preference',
@@ -60,12 +60,14 @@ export enum UIElement {
   WeekDayColumnHeader = 'weekday_columnheader',
   WeekDaysRow = 'weekdays_row',
   WeekNumberRowHeader = 'weeknumber_rowheader',
-  WithWeekNumber = 'with_weeknumber'
+  WithWeekNumber = 'with_weeknumber',
+  /** TTODO */
+  HideWeekdays = 'hide_weekdays'
 }
 
 export type Styles = {
-  [uiElement in UIElement]: CSSProperties | undefined;
+  [uiElement in UI]: CSSProperties | undefined;
 };
 export type ClassNames = {
-  [uiElement in UIElement]: string;
+  [uiElement in UI]: string;
 };

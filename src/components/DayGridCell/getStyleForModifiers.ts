@@ -1,7 +1,7 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
-import type { Styles } from '../../types/ui';
 import type { Modifiers, ModifiersStyles } from '../../types/modifiers';
+import type { Styles } from '../../types/ui';
 
 export function getStyleForModifiers(
   modifiers: Modifiers,
