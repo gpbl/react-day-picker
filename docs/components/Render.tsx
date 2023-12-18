@@ -3,6 +3,7 @@ import { ReactElement, useEffect, useState } from 'react';
 import { RenderingBox } from './RenderingBox';
 import { SourceCode } from './SourceCode';
 import { useRouter } from 'next/router';
+import { Shadow } from './Shadow';
 
 export function Render() {
   const { query, push } = useRouter();
@@ -47,7 +48,9 @@ export function Render() {
       </form>
       <RenderingBox>
         {Example ? (
-          <Example />
+          <Shadow>
+            <Example />
+          </Shadow>
         ) : !selected ? (
           <p>Please pick an example first.</p>
         ) : (

@@ -22,6 +22,7 @@ export function Nav() {
       <Button
         name="previous-month"
         className={classNames.button_previous}
+        tabIndex={calendar.previousMonth ? undefined : -1}
         aria-disabled={calendar.previousMonth ? undefined : true}
         aria-label={labelPrevious(calendar.previousMonth, { locale })}
         onClick={calendar.goToPreviousMonth}
@@ -31,6 +32,7 @@ export function Nav() {
       <Button
         name="next-month"
         className={classNames.button_next}
+        tabIndex={calendar.nextMonth ? undefined : -1}
         aria-disabled={calendar.nextMonth ? undefined : true}
         aria-label={labelNext(calendar.nextMonth, { locale })}
         onClick={calendar.goToNextMonth}

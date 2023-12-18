@@ -1,7 +1,7 @@
 import type { Locale } from 'date-fns';
 
 /** Options to format labels or dates.  */
-export interface FormatOptions {
+export interface xFormatOptions {
   /**
    * The date-fns locale object used to localize dates.
    *

@@ -10,7 +10,8 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import type { FormatOptions } from '../../../types/FormatOptions';
+import { Mode } from '../../../types';
+import { DayPickerProps } from '../../../DayPicker';
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;
@@ -30,12 +31,10 @@ const NrOfDaysWithFixedWeeks = 42;
 export function getDates(
   displayMonths: Date[],
   maxDate?: Date | undefined,
-  options?: {
-    ISOWeek?: boolean;
-    fixedWeeks?: boolean;
-    locale?: FormatOptions['locale'];
-    weekStartsOn?: FormatOptions['weekStartsOn'];
-  }
+  options?: Pick<
+    DayPickerProps<Mode>,
+    'ISOWeek' | 'fixedWeeks' | 'locale' | 'weekStartsOn'
+  >
 ): Date[] {
   const firstMonth = displayMonths[0];
   const lastMonth = displayMonths[displayMonths.length - 1];

@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { FormatOptions } from '../types/FormatOptions';
+import type { format } from 'date-fns';
 
 /** Return the default ARIA label for the WeekNumber element. */
-export function labelMonthDropdown(options?: FormatOptions) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function labelMonthDropdown(options?: Parameters<typeof format>[2]) {
   return 'Month: ';
 }

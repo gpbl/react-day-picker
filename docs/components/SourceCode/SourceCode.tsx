@@ -8,6 +8,7 @@ import { parseHighlightLines } from './parseHighlightLines';
 
 import type { Lang, Theme } from 'shiki';
 import type { ReactElement } from 'react';
+import { Shadow } from '@components/Shadow';
 
 type SourceCodeProps = {
   /**
@@ -124,7 +125,9 @@ export function SourceCode(props: SourceCodeProps) {
       </Pre>
       {Example && !skipRendering && (
         <RenderingBox>
-          <Example />
+          <Shadow>
+            <Example />
+          </Shadow>
         </RenderingBox>
       )}
     </div>

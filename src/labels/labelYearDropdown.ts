@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { FormatOptions } from '../types/FormatOptions';
+import type { format } from 'date-fns';
 
 /** The default ARIA label for the years dropdown. */
-export function labelYearDropdown(options?: FormatOptions) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function labelYearDropdown(options?: Parameters<typeof format>[2]) {
   return 'Year: ';
 }

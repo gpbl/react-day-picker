@@ -143,6 +143,25 @@
   position: relative;
 }
 
+.button_next:focus,
+.button_previous:focus {
+  outline: none;
+}
+
+.button_next:focus-visible,
+.button_previous:focus-visible {
+  outline-color: var(--rdp-accent-color);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 1px;
+  background-color: var(--rdp-background-color);
+}
+
+.button_next:focus-visible > svg,
+.button_previous:focus-visible > svg {
+  fill: currentColor;
+}
+
 .button_next > svg,
 .button_previous > svg,
 .caption_label > svg {
@@ -260,8 +279,14 @@
   font-size: var(--rdp-font-medium);
 }
 
+.day:focus {
+  outline: none;
+}
 .day:focus-visible {
+  outline-color: var(--rdp-accent-color);
+  outline-style: solid;
   outline-offset: -4px;
+  outline-width: 2px;
 }
 
 .day_today:not(.day_outside) {
@@ -271,7 +296,7 @@
 .day_selected {
   opacity: 1;
   /* outline: none; */
-  color: var(--rdp-accent-color);
+  /* color: var(--rdp-accent-color); */
   background-color: var(--rdp-background-color);
   font-size: var(--rdp-font-large);
   font-weight: 600;
@@ -279,7 +304,7 @@
 }
 
 .day_selected:focus-visible {
-  outline-offset: -2px;
+  outline-offset: -1px;
 }
 
 .day_outside {
@@ -300,7 +325,7 @@
   visibility: hidden;
 }
 
-.day_selected:focus-visible {
+.day_selected[tabindex]:not([tabindex='-1']):focus-visible {
   z-index: 1;
 }
 

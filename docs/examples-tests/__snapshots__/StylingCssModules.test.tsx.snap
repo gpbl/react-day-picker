@@ -147,7 +147,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -155,7 +155,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -163,7 +163,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="4"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -171,7 +171,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="5"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -179,7 +179,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="6"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -187,7 +187,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="7"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -201,7 +201,7 @@ exports[`should match the snapshot 1`] = `
             >
               <div
                 aria-colindex="1"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -209,7 +209,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -217,7 +217,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -225,7 +225,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="4"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -233,7 +233,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="5"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -241,7 +241,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="6"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -249,7 +249,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="7"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -263,7 +263,7 @@ exports[`should match the snapshot 1`] = `
             >
               <div
                 aria-colindex="1"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -271,7 +271,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -279,7 +279,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -287,7 +287,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="4"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -295,7 +295,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="5"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -303,7 +303,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="6"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -311,7 +311,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="7"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -325,7 +325,7 @@ exports[`should match the snapshot 1`] = `
             >
               <div
                 aria-colindex="1"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -333,7 +333,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -341,7 +341,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -349,7 +349,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="4"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -357,7 +357,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="5"
-                class="day day_focusable day_today"
+                class="day  day_today"
                 role="gridcell"
                 tabindex="0"
               >
@@ -365,7 +365,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="6"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -373,7 +373,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="7"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -387,7 +387,7 @@ exports[`should match the snapshot 1`] = `
             >
               <div
                 aria-colindex="1"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -395,7 +395,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >
@@ -403,7 +403,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                class="day day_focusable"
+                class="day "
                 role="gridcell"
                 tabindex="-1"
               >

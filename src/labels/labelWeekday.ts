@@ -1,8 +1,9 @@
 import { format } from 'date-fns';
 
-import { FormatOptions } from '../types/FormatOptions';
-
 /** Return he default ARIA label for the Weekday element. */
-export function labelWeekday(date: Date, options?: FormatOptions): string {
+export function labelWeekday(
+  date: Date,
+  options?: Parameters<typeof format>[2]
+): string {
   return format(date, 'cccc', options);
 }
