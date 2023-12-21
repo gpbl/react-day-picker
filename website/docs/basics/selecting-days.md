@@ -56,6 +56,14 @@ Use the `min` and `max` props to limit the amount of days in the range.
 range-min-max
 ```
 
+### Excluding disabled days in range
+
+Use `excludeDisabledDays` to disable selecting a disabled day in the range.
+
+```include-example
+exclude-disabled-days
+```
+
 ## Custom Selections
 
 If the built-in selection modes are not enough for your app’s requirements, you can control the selection behavior using `onDayClick`.

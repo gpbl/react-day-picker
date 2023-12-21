@@ -17,6 +17,8 @@ export interface DayPickerRangeProps extends DayPickerBase {
   min?: number;
   /** The maximum amount of days that can be selected. */
   max?: number;
+  /** Exclude disabled date from the range */
+  excludeDisabledDays?: boolean;
 }
 
 /** Returns true when the props are of type {@link DayPickerRangeProps}. */

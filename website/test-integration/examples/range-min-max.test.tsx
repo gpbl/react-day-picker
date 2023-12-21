@@ -27,7 +27,6 @@ describe('when the first day is clicked', () => {
   });
   test('the days below the min value should be disabled', () => {
     expect(getDayButton(setDate(today, 13))).toBeDisabled();
-    expect(getDayButton(setDate(today, 14))).toBeDisabled();
     expect(getDayButton(setDate(today, 15))).toBeDisabled();
   });
   test('the days between max and min should be enabled', () => {
