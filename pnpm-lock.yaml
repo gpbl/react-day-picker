@@ -12,8 +12,8 @@ importers:
         specifier: ^29.6.3
         version: 29.6.3
       '@rollup/plugin-commonjs':
-        specifier: ^25.0.0
-        version: 25.0.5(rollup@3.29.3)
+        specifier: ^25.0.7
+        version: 25.0.7(rollup@3.29.3)
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
         version: 15.2.3(rollup@3.29.3)
@@ -4432,8 +4432,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@rollup/plugin-commonjs@25.0.5(rollup@3.29.3):
-    resolution: {integrity: sha512-xY8r/A9oisSeSuLCTfhssyDjo9Vp/eDiRLXkg1MXCcEEgEjPmLU+ZyDB20OOD0NlyDa/8SGbK5uIggF5XTx77w==}
+  /@rollup/plugin-commonjs@25.0.7(rollup@3.29.3):
+    resolution: {integrity: sha512-nEvcR+LRjEjsaSsc4x3XZfCCvZIaSMenZu/OiwOKGN2UhQpAYI7ru7czFvyWbErlpoGjnSX3D5Ch5FcMA3kRWQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0||^4.0.0
@@ -4446,7 +4446,7 @@ packages:
       estree-walker: 2.0.2
       glob: 8.0.3
       is-reference: 1.2.1
-      magic-string: 0.27.0
+      magic-string: 0.30.3
       rollup: 3.29.3
     dev: true
 
@@ -10388,13 +10388,6 @@ packages:
   /lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
-
-  /magic-string@0.27.0:
-    resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
-    engines: {node: '>=12'}
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
 
   /magic-string@0.30.3:
     resolution: {integrity: sha512-B7xGbll2fG/VjP+SWg4sX3JynwIU0mjoTc6MPpKNuIvftk6u6vqhDnk1R80b8C2GBR6ywqy+1DcKBrevBg+bmw==}

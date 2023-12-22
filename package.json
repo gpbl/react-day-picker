@@ -34,7 +34,7 @@
   ],
   "devDependencies": {
     "@jest/types": "^29.6.3",
-    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.1",
     "@rollup/plugin-typescript": "^11.1.3",
