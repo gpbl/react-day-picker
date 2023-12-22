@@ -26,7 +26,7 @@ export function getMonthWeeks(
     locale: Locale;
     useFixedWeeks?: boolean;
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    firstWeekContainsDate?: 1 | 4;
+    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
     ISOWeek?: boolean;
   }
 ): MonthWeek[] {

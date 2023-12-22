@@ -210,7 +210,7 @@ export interface DayPickerBase {
    *
    * See also {@link ISOWeek}.
    */
-  firstWeekContainsDate?: 1 | 4;
+  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   /**
    * Use ISO week dates instead of the locale setting. See also
    * https://en.wikipedia.org/wiki/ISO_week_date.
