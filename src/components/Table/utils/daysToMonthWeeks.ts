@@ -20,7 +20,7 @@ export function daysToMonthWeeks(
     ISOWeek?: boolean;
     locale?: Locale;
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+    firstWeekContainsDate?: 1 | 4;
   }
 ): MonthWeek[] {
   const toWeek = options?.ISOWeek
