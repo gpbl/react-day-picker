@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useContext } from 'react';
+import { createContext, useContext, ReactNode } from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
 import { useSelectMultiple } from 'contexts/SelectMultiple';
@@ -11,7 +11,7 @@ import { getInternalModifiers } from './utils/getInternalModifiers';
 /** The Modifiers context store the modifiers used in DayPicker. To access the value of this context, use {@link useModifiers}. */
 export const ModifiersContext = createContext<Modifiers | undefined>(undefined);
 
-export type ModifiersProviderProps = PropsWithChildren;
+export type ModifiersProviderProps = { children: ReactNode };
 
 /** Provide the value for the {@link ModifiersContext}. */
 export function ModifiersProvider(props: ModifiersProviderProps): JSX.Element {

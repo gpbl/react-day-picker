@@ -22,10 +22,10 @@ export const SelectSingleContext = createContext<
   SelectSingleContextValue | undefined
 >(undefined);
 
-type SelectSingleProviderProps = {
+export interface SelectSingleProviderProps {
   initialProps: DayPickerBase;
-  children: ReactNode;
-};
+  children?: ReactNode;
+}
 
 /** Provides the values for the {@link SelectSingleProvider}. */
 export function SelectSingleProvider(
@@ -49,10 +49,11 @@ export function SelectSingleProvider(
   );
 }
 
-type SelectSingleProviderInternal = {
+/** @private */
+export interface SelectSingleProviderInternal {
   initialProps: DayPickerSingleProps;
-  children: ReactNode;
-};
+  children?: ReactNode;
+}
 
 export function SelectSingleProviderInternal({
   initialProps,

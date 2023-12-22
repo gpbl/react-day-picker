@@ -27,11 +27,11 @@ jobs:
   build-react-day-picker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
         with:
           version: 8.6.2
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18.16
           cache: pnpm
@@ -46,11 +46,11 @@ jobs:
     needs: [build-react-day-picker]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
         with:
           version: 8.6.2
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18.16
           cache: pnpm
@@ -65,11 +65,11 @@ jobs:
     needs: [build-react-day-picker]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
         with:
           version: 8.6.2
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18.16
           cache: pnpm
@@ -84,11 +84,11 @@ jobs:
     needs: [build-react-day-picker]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
         with:
           version: 8.6.2
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18.16
           cache: pnpm
@@ -108,11 +108,11 @@ jobs:
     needs: [build-website, test-website, typecheck-website]
     if: ${{ github.event_name == 'release' || github.event.inputs.deploy }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
         with:
           version: 8.6.2
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18.16
           registry-url: https://registry.npmjs.org/

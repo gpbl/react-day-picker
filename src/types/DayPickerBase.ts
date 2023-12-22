@@ -1,6 +1,6 @@
-import type { Locale } from 'date-fns';
-
 import { CSSProperties, ReactNode } from 'react';
+
+import { Locale } from 'date-fns';
 
 import { CaptionLayout, CaptionProps } from 'components/Caption';
 import { CaptionLabelProps } from 'components/CaptionLabel';
@@ -210,7 +210,7 @@ export interface DayPickerBase {
    *
    * See also {@link ISOWeek}.
    */
-  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  firstWeekContainsDate?: 1 | 4;
   /**
    * Use ISO week dates instead of the locale setting. See also
    * https://en.wikipedia.org/wiki/ISO_week_date.

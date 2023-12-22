@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useContext } from 'react';
+import { createContext, ReactNode, useContext } from 'react';
 
 import {
   addDays,
@@ -44,9 +44,10 @@ export const SelectRangeContext = createContext<
   SelectRangeContextValue | undefined
 >(undefined);
 
-type SelectRangeProviderProps = {
+export interface SelectRangeProviderProps {
   initialProps: DayPickerBase;
-} & PropsWithChildren;
+  children?: ReactNode;
+}
 
 /** Provides the values for the {@link SelectRangeProvider}. */
 export function SelectRangeProvider(
@@ -76,9 +77,11 @@ export function SelectRangeProvider(
   );
 }
 
-type SelectRangeProviderInternalProps = {
+/** @private */
+export interface SelectRangeProviderInternalProps {
   initialProps: DayPickerRangeProps;
-} & PropsWithChildren;
+  children?: ReactNode;
+}
 
 export function SelectRangeProviderInternal({
   initialProps,
