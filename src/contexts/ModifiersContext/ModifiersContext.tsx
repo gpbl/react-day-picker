@@ -74,7 +74,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 
     const isExcluded = selection.isExcluded(date);
 
-    const isFocusable = !isDisabled && !isHidden && !isExcluded && !isOutside;
+    const isFocusable = !isDisabled && !isHidden && !isExcluded;
 
     const isToday = isSameDay(date, dayPicker.today);
 

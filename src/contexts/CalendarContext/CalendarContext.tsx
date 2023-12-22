@@ -1,6 +1,12 @@
 import { createContext, type ReactNode, useContext } from 'react';
 
-import { addMonths, isBefore, isSameMonth, startOfMonth } from 'date-fns';
+import {
+  addMonths,
+  isBefore,
+  isSameDay,
+  isSameMonth,
+  startOfMonth
+} from 'date-fns';
 
 import { DayPickerCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
@@ -56,7 +62,11 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const previousMonth = getPreviousMonth(firstMonth, dayPicker);
 
   function isDateDisplayed(date: Date) {
-    return months.some((month) => isSameMonth(date, month.date));
+    return weeks.some((week) => {
+      return week.days.some((day) => {
+        return isSameDay(date, day.date);
+      });
+    });
   }
 
   function goToMonth(date: Date) {
@@ -69,13 +79,18 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   }
 
   function goToDate(date: Date, refDate?: Date) {
+    console.log('Going to date', date, refDate);
     if (isDateDisplayed(date)) {
+      console.log('date is already displayed');
       return;
     }
     if (refDate && isBefore(date, refDate)) {
+      console.log('date is before refDate');
       const month = addMonths(date, 1 + dayPicker.numberOfMonths * -1);
+      console.log('going to month', month);
       goToMonth(month);
     } else {
+      console.log('going to month', date);
       goToMonth(date);
     }
   }

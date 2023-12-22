@@ -293,7 +293,8 @@
   color: var(--rdp-accent-color);
 }
 
-.day_selected {
+.day_selected,
+.day_selected.day_outside {
   opacity: 1;
   /* outline: none; */
   /* color: var(--rdp-accent-color); */

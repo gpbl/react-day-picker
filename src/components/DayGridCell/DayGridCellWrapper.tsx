@@ -227,15 +227,12 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   };
 
   useEffect(() => {
-    if (
-      !modifiers.focusable ||
-      !focusedDate ||
-      !isSameDay(props.day.date, focusedDate)
-    ) {
-      return;
-    }
-    cellRef.current?.focus();
-  }, [focusedDate, modifiers.focusable, props.day]);
+    if (!cellRef.current) return;
+    if (!focusedDate) return;
+    if (!isSameDay(props.day.date, focusedDate)) return;
+    if (modifiers.disabled || modifiers.hidden) return;
+    cellRef.current.focus();
+  }, [focusedDate, modifiers.disabled, modifiers.hidden, props.day.date]);
 
   const DayGridCell = components?.DayGridCell ?? DefaultGridCell;
 
