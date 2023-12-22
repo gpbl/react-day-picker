@@ -200,22 +200,23 @@ export interface DayPickerBase {
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's one.
    *
-   * See also {@link ISOWeek}.
+   * @see {@link ISOWeek}.
    */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   /**
-   * The day of January, which is always in the first week of the year. See also
-   * https://date-fns.org/docs/getWeek and
-   * https://en.wikipedia.org/wiki/Week#Numbering
-   *
-   * See also {@link ISOWeek}.
+   * The day of January, which is always in the first week of the year. Can be
+   * either Monday (`1`) or Thursday (`4`).
+   * 
+   * @see https://date-fns.org/docs/getWeek
+   * @see https://en.wikipedia.org/wiki/Week#Numbering
+   * @see {@link ISOWeek}.
    */
   firstWeekContainsDate?: 1 | 4;
   /**
-   * Use ISO week dates instead of the locale setting. See also
-   * https://en.wikipedia.org/wiki/ISO_week_date.
+   * Use ISO week dates instead of the locale setting. Setting this prop will
+   * ignore {@link weekStartsOn} and {@link firstWeekContainsDate}.
    *
-   * Setting this prop will ignore {@link weekStartsOn} and {@link firstWeekContainsDate}.
+   * @see https://en.wikipedia.org/wiki/ISO_week_date
    */
   ISOWeek?: boolean;
 
@@ -380,10 +381,8 @@ export interface DayPickerBase {
 
 /**
  * Map of the components that can be changed using the `components` prop.
- *
- * Look at the [components
- * source](https://github.com/gpbl/react-day-picker/tree/main/src/components)
- * to understand how internal components are built.
+ * 
+ * @see https://github.com/gpbl/react-day-picker/tree/main/src/components
  */
 export interface CustomComponents {
   /** The component for the caption element. */
