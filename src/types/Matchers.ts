@@ -16,12 +16,12 @@
  * const dateMatcher: Matcher = new Date();
  *
  * // will match the days in the array
- * const arrayMatcher: Matcher = [new Date(2019, 1, 2);, new Date(2019, 1, 4)];
+ * const arrayMatcher: Matcher = [new Date(2019, 1, 2), new Date(2019, 1, 4)];
  *
  * // will match days after the 2nd of February 2019
- * const afterMatcher: DateAfter = { after: new Date(2019, 1, 2); };
+ * const afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };
  *  // will match days before the 2nd of February 2019 }
- * const beforeMatcher: DateBefore = { before: new Date(2019, 1, 2); };
+ * const beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };
  *
  * // will match Sundays
  * const dayOfWeekMatcher: DayOfWeek = {
@@ -30,13 +30,13 @@
  *
  * // will match the included days, except the two dates
  * const intervalMatcher: DateInterval = {
- *    after: new Date(2019, 1, 2);,
+ *    after: new Date(2019, 1, 2),
  *    before: new Date(2019, 1, 5)
  * };
  *
  * // will match the included days, including the two dates
  * const rangeMatcher: DateRange = {
- *    from: new Date(2019, 1, 2);,
+ *    from: new Date(2019, 1, 2),
  *    to: new Date(2019, 1, 5)
  * };
  *
@@ -72,7 +72,7 @@ export type DateInterval = { before: Date; after: Date };
 /** A matcher to match a range of dates. The range can be open. Differently from {@link DateInterval}, the dates here are included. */
 export type DateRange = { from: Date | undefined; to?: Date | undefined };
 
-/** A matcher to match a date being one of the specified days of the week (`0-7`, where `0` is Sunday). */
+/** A matcher to match a date being one of the specified days of the week (`0-6`, where `0` is Sunday). */
 export type DayOfWeek = { dayOfWeek: number[] };
 
 /** Returns true if `matcher` is of type {@link DateInterval}. */

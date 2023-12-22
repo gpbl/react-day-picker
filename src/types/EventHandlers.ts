@@ -6,7 +6,7 @@ import {
   TouchEvent
 } from 'react';
 
-import { DateRange } from 'types/Matchers';
+import { DateRange } from './Matchers';
 
 import { ActiveModifiers } from './Modifiers';
 
