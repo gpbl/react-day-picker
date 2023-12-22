@@ -15,7 +15,9 @@ const styles = require(`!!raw-loader!./sandpack-app/light.css`);
 const rdpBuild = require(`!!raw-loader!react-day-picker/dist/index.js`);
 const rdpBuildMap = require(`!!raw-loader!react-day-picker/dist/index.js.map`);
 const rdpStyles = require(`!!raw-loader!react-day-picker/dist/style.css`);
-const rdpStylesModule = require(`!!raw-loader!react-day-picker/dist/style.module.css`);
+const rdpStylesModule = require(
+  `!!raw-loader!react-day-picker/dist/style.module.css`
+);
 const rdpJson = JSON.stringify({
   name: 'react-day-picker',
   main: './index.js'
