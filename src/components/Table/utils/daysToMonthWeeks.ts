@@ -5,7 +5,8 @@ import {
   endOfWeek,
   getISOWeek,
   getWeek,
-  Locale,
+  GetWeekOptions,
+  isThisISOWeek,
   startOfISOWeek,
   startOfWeek
 } from 'date-fns';
@@ -16,17 +17,12 @@ import { MonthWeek } from './getMonthWeeks';
 export function daysToMonthWeeks(
   fromDate: Date,
   toDate: Date,
-  options?: {
-    ISOWeek?: boolean;
-    locale?: Locale;
-    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  }
+  options?: GetWeekOptions
 ): MonthWeek[] {
-  const toWeek = options?.ISOWeek
+  const toWeek = isThisISOWeek(toDate)
     ? endOfISOWeek(toDate)
     : endOfWeek(toDate, options);
-  const fromWeek = options?.ISOWeek
+  const fromWeek = isThisISOWeek(fromDate)
     ? startOfISOWeek(fromDate)
     : startOfWeek(fromDate, options);
 
@@ -38,7 +34,7 @@ export function daysToMonthWeeks(
   }
 
   const weeksInMonth = days.reduce((result: MonthWeek[], date) => {
-    const weekNumber = options?.ISOWeek
+    const weekNumber = isThisISOWeek(date)
       ? getISOWeek(date)
       : getWeek(date, options);
 
