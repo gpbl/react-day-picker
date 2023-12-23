@@ -7,9 +7,11 @@
     "lib": ["es2019", "DOM"],
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "module": "Node16",
     "paths": {
       "@examples/*": ["./examples/*"],
       "@site/*": ["./*"]
-    }
+    },
+    "types": ["jest", "node"]
   }
 }

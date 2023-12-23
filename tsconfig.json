@@ -20,7 +20,8 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "isolatedModules": false
+    "isolatedModules": false,
+    "types": ["jest", "node"]
   },
   "include": ["test", "src"]
 }

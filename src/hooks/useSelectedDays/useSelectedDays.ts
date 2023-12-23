@@ -25,10 +25,10 @@ export function useSelectedDays(): SelectedDays {
   const selectedDays = isDayPickerSingle(dayPicker)
     ? single.selected
     : isDayPickerMultiple(dayPicker)
-    ? multiple.selected
-    : isDayPickerRange(dayPicker)
-    ? range.selected
-    : undefined;
+      ? multiple.selected
+      : isDayPickerRange(dayPicker)
+        ? range.selected
+        : undefined;
 
   return selectedDays;
 }

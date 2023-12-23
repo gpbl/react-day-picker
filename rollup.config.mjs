@@ -13,7 +13,6 @@ import path from 'path';
 import copy from 'rollup-plugin-copy';
 
 const distDir = path.resolve('./dist');
-const srcDir = path.resolve('./src');
 
 /**
  * Rollup configuration to build the main bundle.
@@ -60,7 +59,6 @@ const mainConfig = {
         postcssDts({
           writeFile: ({ content }) => {
             if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
-            fs.writeFileSync(`${srcDir}/style.css.d.ts`, content);
             fs.writeFileSync(`dist/style.css.d.ts`, content);
           }
         })
