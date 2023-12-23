@@ -1,32 +1,39 @@
 ---
 name: 🐛 Bug report
 about: Create a reproducible bug report or a regression
-title: 'Bug: '
-labels: 'Type: Bug'
-assignees: ''
+assignees: 'gpbl'
 ---
 
-### Bug description
+## Description
 
-Please write a clear and concise description of what the bug is.
+Please provide a detailed description of the issue. Include any relevant context or steps to reproduce the problem.
 
-### To reproduce
+## Expected Behavior
 
-Fork this CodeSandbox: https://codesandbox.io/s/react-day-picker-8-vl4ry with the code to reproduce the issue.
+Describe what you expect to happen.
 
-#### Steps
+## Actual Behavior
 
-1. Do this
-2. Do that
+Describe what is actually happening.
 
-### Expected behavior
+## Steps to Reproduce
 
-A clear and concise description of what you expected to happen.
+1. Step one
+2. Step two
+3. Step three
+4. ...
 
-### Screenshots
+## Possible Solution
 
-If applicable, add screenshots to help explain your problem.
+If you have a suggestion on how to fix the issue, please include it here.
 
-### Additional context
+## Screenshots
 
-Add any other context about the problem here.
+If applicable, add screenshots or GIFs to help explain your problem.
+
+## Your Environment
+- React version:
+- Browser [e.g. chrome, safari]:
+- Version [e.g. 22]:
+- Operating System [e.g. iOS, Windows]:
+- Other relevant information:
