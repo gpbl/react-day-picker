@@ -57,7 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
     "canvas": "^2.11.2",
-    "date-fns": "^2.30.0",
+    "date-fns": "^3.0.0",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.0",
@@ -88,7 +88,7 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "date-fns": "^2.28.0",
+    "date-fns": "^3.0.0",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "funding": {
