@@ -1,12 +1,6 @@
 import { createContext, type ReactNode, useContext } from 'react';
 
-import {
-  addMonths,
-  isBefore,
-  isSameDay,
-  isSameMonth,
-  startOfMonth
-} from 'date-fns';
+import { addMonths, isBefore, startOfMonth } from 'date-fns';
 
 import { DayPickerCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
@@ -21,6 +15,8 @@ import { getNextMonth } from './utils/getNextMonth';
 import { getPreviousMonth } from './utils/getPreviousMonth';
 import { getStartMonth } from './utils/getStartMonth';
 import { getWeeks } from './utils/getWeeks';
+
+import type { Day } from '../../classes/Day';
 
 export const calendarContext = createContext<DayPickerCalendar | undefined>(
   undefined
@@ -61,10 +57,10 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const nextMonth = getNextMonth(firstMonth, dayPicker);
   const previousMonth = getPreviousMonth(firstMonth, dayPicker);
 
-  function isDateDisplayed(date: Date) {
+  function isDayDisplayed(day: Day) {
     return weeks.some((week) => {
-      return week.days.some((day) => {
-        return isSameDay(date, day.date);
+      return week.days.some((d) => {
+        return d.isEqualTo(day);
       });
     });
   }
@@ -78,21 +74,21 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     dayPicker.onMonthChange?.(month);
   }
 
-  function goToDate(date: Date, refDate?: Date) {
-    console.log('Going to date', date, refDate);
-    if (isDateDisplayed(date)) {
+  function goToDay(day: Day) {
+    console.log('Going to date', day);
+    if (isDayDisplayed(day)) {
       console.log('date is already displayed');
       return;
     }
-    if (refDate && isBefore(date, refDate)) {
-      console.log('date is before refDate');
-      const month = addMonths(date, 1 + dayPicker.numberOfMonths * -1);
-      console.log('going to month', month);
-      goToMonth(month);
-    } else {
-      console.log('going to month', date);
-      goToMonth(date);
-    }
+    // if (refDate && isBefore(date, refDate)) {
+    //   console.log('date is before refDate');
+    //   const month = addMonths(date, 1 + dayPicker.numberOfMonths * -1);
+    //   console.log('going to month', month);
+    //   goToMonth(month);
+    // } else {
+    //   console.log('going to month', date);
+    goToMonth(day.date);
+    // }
   }
 
   function goToNextMonth() {
@@ -116,8 +112,8 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     goToMonth,
     goToNextMonth,
     goToPreviousMonth,
-    goToDate,
-    isDateDisplayed,
+    goToDay,
+    isDayDisplayed,
 
     dropdown: {
       months: getDropdownMonths(dayPicker),

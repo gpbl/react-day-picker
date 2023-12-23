@@ -72,13 +72,13 @@ export interface DayPickerCalendar {
    * provided and the date is before the refDate, then the month is set to one
    * month before the date.
    *
-   * @param date - The date to navigate to.
+   * @param day - The date to navigate to.
    * @param dateToCompare - Optional. If `date` is before `dateToCompare`, the
    * month is set to one month before the date.
    */
-  goToDate: (date: Date, dateToCompare?: Date) => void;
+  goToDay: (day: Day) => void;
   /**
    * Whether the given date is included in the displayed months.
    */
-  isDateDisplayed: (date: Date) => boolean;
+  isDayDisplayed: (day: Day) => boolean;
 }

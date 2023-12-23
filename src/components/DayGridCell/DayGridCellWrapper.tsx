@@ -63,7 +63,7 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   const { getModifiers } = useModifiers();
   const {
     focusTarget,
-    focusedDate,
+    focusedDay,
     focus,
     focusDayBefore,
     focusDayAfter,
@@ -102,7 +102,7 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   };
 
   const onFocus: FocusEventHandler = (e) => {
-    focus(props.day.date);
+    focus(props.day);
     dayPicker.onDayFocus?.(props.day.date, modifiers, e);
   };
 
@@ -195,10 +195,8 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     onDayKeyDown?.(props.day.date, modifiers, e);
   };
 
-  const isFocusTarget =
-    focusTarget && isSameDay(focusTarget, props.day.date) && !modifiers.outside;
-
-  const isFocused = focusedDate && isSameDay(focusedDate, props.day.date);
+  const isFocusTarget = Boolean(focusTarget?.isEqualTo(props.day));
+  const isFocused = Boolean(focusedDay?.isEqualTo(props.day));
 
   const htmlAttributes: JSX.IntrinsicElements['div'] = {
     role: 'gridcell',
@@ -227,12 +225,12 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   };
 
   useEffect(() => {
-    if (!cellRef.current) return;
-    if (!focusedDate) return;
-    if (!isSameDay(props.day.date, focusedDate)) return;
-    if (modifiers.disabled || modifiers.hidden) return;
+    if (!cellRef.current) return; // no element to focus
+    if (!focusedDay) return; // no day to focus
+    if (props.day.isEqualTo(focusedDay)) return; // already focused
+    if (modifiers.disabled || modifiers.hidden) return; // cannot focus
     cellRef.current.focus();
-  }, [focusedDate, modifiers.disabled, modifiers.hidden, props.day.date]);
+  }, [focusedDay, modifiers.disabled, modifiers.hidden, props.day]);
 
   const DayGridCell = components?.DayGridCell ?? DefaultGridCell;
 

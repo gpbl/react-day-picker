@@ -5,11 +5,12 @@ import {
   useEffect,
   useState
 } from 'react';
-
-import { useModifiers } from '../ModifiersContext';
+import { getNextFocus } from './utils/getNextFocus';
 import { useCalendar } from '../CalendarContext';
 import { useDayPicker } from '../DayPickerContext';
-import { getNextFocus } from './utils/getNextFocus';
+import { useModifiers } from '../ModifiersContext';
+
+import type { Day } from '../../classes/Day';
 
 export type MoveFocusBy =
   | 'day'
@@ -23,15 +24,15 @@ export type MoveFocusDir = 'after' | 'before';
 
 export interface FocusContext {
   /** The date that is currently focused. */
-  focusedDate: Date | undefined;
+  focusedDay: Day | undefined;
   /**
    * The date that is target of the focus when tabbing into the month grid.
    * The focus target is the selected date first, then the today date, then the
    * first focusable date.
    */
-  focusTarget: Date | undefined;
+  focusTarget: Day | undefined;
   /** Focus a date. */
-  focus: (date: Date) => void;
+  focus: (day: Day) => void;
   /** Blur the focused day. */
   blur: () => void;
   /** Focus the day after the focused day. */
@@ -65,23 +66,23 @@ export const focusContext = createContext<FocusContext | undefined>(undefined);
 
 /** The provider for the {@link focusContext}. */
 export function FocusProvider(props: { children: ReactNode }): JSX.Element {
-  const { goToDate, isDateDisplayed } = useCalendar();
+  const { goToDay, isDayDisplayed } = useCalendar();
 
   const { autoFocus = false, ...dayPicker } = useDayPicker();
 
-  const [focused, setFocused] = useState<Date | undefined>();
-  const [lastFocused, setLastFocused] = useState<Date | undefined>();
+  const [focused, setFocused] = useState<Day | undefined>();
+  const [lastFocused, setLastFocused] = useState<Day | undefined>();
   const [initiallyFocused, setInitiallyFocused] = useState(false);
 
   const { modifiersMap } = useModifiers();
 
   const autoFocusTarget =
-    modifiersMap.selected[0]?.date ?? // autofocus the first selected day
-    modifiersMap.today[0]?.date ?? // autofocus today
-    modifiersMap.focusable[0]?.date; // otherwise autofocus the first focusable day
+    modifiersMap.selected[0] ?? // autofocus the first selected day
+    modifiersMap.today[0] ?? // autofocus today
+    modifiersMap.focusable[0]; // otherwise autofocus the first focusable day
 
   const focusTarget =
-    focused ?? (lastFocused && isDateDisplayed(lastFocused))
+    focused ?? (lastFocused && isDayDisplayed(lastFocused))
       ? lastFocused
       : autoFocusTarget;
 
@@ -90,8 +91,8 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     setFocused(undefined);
   }
 
-  function focus(date: Date) {
-    setFocused(date);
+  function focus(day: Day) {
+    setFocused(day);
   }
 
   function moveFocus(moveBy: MoveFocusBy, moveDir: MoveFocusDir) {
@@ -99,8 +100,8 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     const nextFocus = getNextFocus(moveBy, moveDir, focused, dayPicker);
     if (!nextFocus) return;
 
-    goToDate(nextFocus, focused);
-    focus(nextFocus);
+    goToDay(nextFocus);
+    // focus(nextFocus); // TODO: and here we get lost: should be a Day, but is a Date
   }
 
   // Focus the focus target when autoFocus is passed in
@@ -115,7 +116,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
 
   const value: FocusContext = {
     focusTarget,
-    focusedDate: focused,
+    focusedDay: focused,
     blur,
     focus,
     focusDayAfter: () => moveFocus('day', 'after'),

@@ -267,7 +267,7 @@ export interface PropsBase {
    * @see https://date-fns.org/docs/getWeek
    * @see https://en.wikipedia.org/wiki/Week#Numbering
    */
-  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | undefined;
+  firstWeekContainsDate?: 1 | 4;
   /**
    * Enable `DD` and `DDDD` for week year tokens when formatting or parsing dates.
    *
