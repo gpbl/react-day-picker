@@ -54,7 +54,7 @@ jobs:
         with:
           node-version: 18.16
           cache: pnpm
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: dist
@@ -73,7 +73,7 @@ jobs:
         with:
           node-version: 18.16
           cache: pnpm
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: dist
@@ -92,7 +92,7 @@ jobs:
         with:
           node-version: 18.16
           cache: pnpm
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: dist
@@ -116,11 +116,11 @@ jobs:
         with:
           node-version: 18.16
           registry-url: https://registry.npmjs.org/
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v3
         with:
           name: website-build
           path: website/build
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v3
         with:
           name: rdp-dist
           path: dist
