@@ -37,7 +37,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: rdp-dist
           path: dist
@@ -98,7 +98,7 @@ jobs:
           path: dist
       - run: pnpm install --frozen-lockfile
       - run: pnpm -F website build
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: website-build
           path: website/build
