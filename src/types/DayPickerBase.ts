@@ -206,7 +206,7 @@ export interface DayPickerBase {
   /**
    * The day of January, which is always in the first week of the year. Can be
    * either Monday (`1`) or Thursday (`4`).
-   * 
+   *
    * @see https://date-fns.org/docs/getWeek
    * @see https://en.wikipedia.org/wiki/Week#Numbering
    * @see {@link ISOWeek}.
@@ -381,7 +381,7 @@ export interface DayPickerBase {
 
 /**
  * Map of the components that can be changed using the `components` prop.
- * 
+ *
  * @see https://github.com/gpbl/react-day-picker/tree/main/src/components
  */
 export interface CustomComponents {
