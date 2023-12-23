@@ -1,7 +1,7 @@
 import { isSameDay, isSameMonth } from 'date-fns';
 
-/** A day displayed in a month grid. */
-export class Day {
+/** A day displayed in the calendar. */
+export class CalendarDay {
   constructor(date: Date, displayMonth: Date) {
     this.date = date;
     this.displayMonth = displayMonth;
@@ -22,7 +22,7 @@ export class Day {
   readonly date: Date;
 
   /** Whether the day is the same as the given day. */
-  isEqualTo(day: Day) {
+  isEqualTo(day: CalendarDay) {
     return (
       isSameDay(day.date, this.date) &&
       isSameMonth(day.displayMonth, this.displayMonth)

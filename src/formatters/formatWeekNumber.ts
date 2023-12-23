@@ -1,10 +1,7 @@
-import type { format } from 'date-fns';
+import type { FormatOptions } from 'date-fns';
 
 /** The default formatter for the week numbers. */
-export function formatWeekNumber(
-  weekNumber: number,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  options?: Parameters<typeof format>[2]
-) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function formatWeekNumber(weekNumber: number, _options?: FormatOptions) {
   return `${weekNumber}`;
 }

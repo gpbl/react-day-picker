@@ -1,10 +1,10 @@
-import type { format } from 'date-fns';
+import type { FormatOptions } from 'date-fns';
 
 /** Return the default ARIA label for the week number element. */
 export function labelWeekNumber(
   weekNumber: number,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  options?: Parameters<typeof format>[2]
+  _options?: FormatOptions
 ): string {
   return `Week ${weekNumber}`;
 }

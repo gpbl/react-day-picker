@@ -1,4 +1,5 @@
-import type { KeyboardEvent, MouseEvent } from 'react';
+import type { KeyboardEvent, MouseEvent, ReactNode } from 'react';
+import type { Day, FirstWeekContainsDate, Locale } from 'date-fns';
 
 import * as components from '../components';
 import type {
@@ -41,10 +42,6 @@ export interface PropsBase {
    * when using CSS modules.
    */
   classNames?: Partial<ClassNames>;
-  /**
-   * Change the class name for the day matching the `modifiers`.
-   */
-  modifiersClassNames?: ModifiersClassNames;
 
   /**
    * Style to apply to the container element.
@@ -54,10 +51,6 @@ export interface PropsBase {
    * Change the inline styles of the HTML elements.
    */
   styles?: Partial<Styles>;
-  /**
-   * Change the inline style for the day matching the `modifiers`.
-   */
-  modifiersStyles?: ModifiersStyles;
 
   colorScheme?: ColorScheme;
   contrast?: ContrastPreference;
@@ -184,7 +177,7 @@ export interface PropsBase {
   /**
    * Content to add to the table footer element.
    */
-  footer?: React.ReactNode;
+  footer?: ReactNode;
 
   /**
    * When a selection mode is set, DayPicker will focus the first selected day
@@ -214,6 +207,16 @@ export interface PropsBase {
    * Add modifiers to the matching days.
    */
   modifiers?: Record<string, Matcher | Matcher[] | undefined> | undefined;
+
+  /**
+   * Change the class name for the day matching the `modifiers`.
+   */
+  modifiersClassNames?: ModifiersClassNames | undefined;
+
+  /**
+   * Change the inline style for the day matching the `modifiers`.
+   */
+  modifiersStyles?: ModifiersStyles;
 
   /**
    * Labels creators to override the defaults. Use this prop to customize the
@@ -259,7 +262,7 @@ export interface PropsBase {
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's one.
    */
-  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
+  weekStartsOn?: Day | undefined;
   /**
    * The day of January, which is always in the first week of the year.
    *
@@ -267,7 +270,7 @@ export interface PropsBase {
    * @see https://date-fns.org/docs/getWeek
    * @see https://en.wikipedia.org/wiki/Week#Numbering
    */
-  firstWeekContainsDate?: 1 | 4;
+  firstWeekContainsDate?: FirstWeekContainsDate | undefined;
   /**
    * Enable `DD` and `DDDD` for week year tokens when formatting or parsing dates.
    *
