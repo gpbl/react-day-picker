@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "preserve",
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,26 +14,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {
-      "@examples/*": [
-        "./examples/*"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
-      "@utils/*": [
-        "./utils/*"
-      ]
+      "@components/*": ["./components/*"],
+      "@utils/*": ["./utils/*"]
     },
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "types": [
-      "node",
-      "jest",
-      "@testing-library/jest-dom"
-    ],
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "strictNullChecks": true
   },
   "include": [
@@ -49,7 +34,5 @@
     ".next/types/**/*.ts",
     "dist/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

@@ -10,7 +10,7 @@ import {
 
 import { isSameDay } from 'date-fns';
 
-import { Day } from '../../classes';
+import { CalendarDay } from '../../classes';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useFocus } from '../../contexts/FocusContext';
 import { useModifiers } from '../../contexts/ModifiersContext';
@@ -23,7 +23,7 @@ import { getStyleForModifiers } from './getStyleForModifiers';
 export interface DayGridCellWrapperProps
   extends Pick<React.AriaAttributes, 'aria-colindex'> {
   /** The day to be rendered in the gridcell. */
-  day: Day;
+  day: CalendarDay;
 }
 
 /**

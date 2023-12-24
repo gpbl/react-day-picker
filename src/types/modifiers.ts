@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 
-import type { Day } from '../classes/Day';
+import type { CalendarDay } from '../classes/CalendarDay';
 
 /** The name of the modifiers that are used internally by DayPicker. */
 export type InternalModifier =
@@ -16,8 +16,8 @@ export type InternalModifier =
   | 'today';
 
 /** A map of modifiers with the days. */
-export type ModifiersMap = Record<string, Day[]> &
-  Record<InternalModifier, Day[]>;
+export type ModifiersMap = Record<string, CalendarDay[]> &
+  Record<InternalModifier, CalendarDay[]>;
 
 /** The modifiers that are matching a day in the calendar. */
 export type Modifiers = Record<string, boolean> &

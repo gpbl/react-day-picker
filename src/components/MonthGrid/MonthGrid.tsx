@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-import { Month } from '../../classes/Month';
+import { Month } from '../../classes/CalendarMonth';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { MonthCaption as DefaultMonthCaption } from '../MonthCaption';
 import { WeekdaysRow as DefaultWeekdaysRow } from '../WeekdaysRow';

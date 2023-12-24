@@ -1,15 +1,15 @@
-import { Day } from '../../../classes/Day';
-import { Month } from '../../../classes/Month';
+import { CalendarDay } from '../../../classes/CalendarDay';
+import { Month } from '../../../classes/CalendarMonth';
 
 /**
  * Returns all the days belonging to the calendar by merging the days in the
  * weeks for each month.
  */
 export function getDays(dayPickerMonths: Month[]) {
-  const initialDays: Day[] = [];
+  const initialDays: CalendarDay[] = [];
   return dayPickerMonths.reduce((days, month) => {
-    const initialDays: Day[] = [];
-    const weekDays: Day[] = month.weeks.reduce((weekDays, week) => {
+    const initialDays: CalendarDay[] = [];
+    const weekDays: CalendarDay[] = month.weeks.reduce((weekDays, week) => {
       return [...weekDays, ...week.days];
     }, initialDays);
     return [...days, ...weekDays];

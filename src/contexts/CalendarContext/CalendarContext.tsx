@@ -16,7 +16,7 @@ import { getPreviousMonth } from './utils/getPreviousMonth';
 import { getStartMonth } from './utils/getStartMonth';
 import { getWeeks } from './utils/getWeeks';
 
-import type { Day } from '../../classes/Day';
+import type { CalendarDay } from '../../classes/CalendarDay';
 
 export const calendarContext = createContext<DayPickerCalendar | undefined>(
   undefined
@@ -57,7 +57,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const nextMonth = getNextMonth(firstMonth, dayPicker);
   const previousMonth = getPreviousMonth(firstMonth, dayPicker);
 
-  function isDayDisplayed(day: Day) {
+  function isDayDisplayed(day: CalendarDay) {
     return weeks.some((week) => {
       return week.days.some((d) => {
         return d.isEqualTo(day);
@@ -74,7 +74,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     dayPicker.onMonthChange?.(month);
   }
 
-  function goToDay(day: Day) {
+  function goToDay(day: CalendarDay) {
     console.log('Going to date', day);
     if (isDayDisplayed(day)) {
       console.log('date is already displayed');

@@ -1,7 +1,7 @@
 import { Code, Pre } from 'nextra/components';
 import { useData } from 'nextra/data';
 
-import * as examples from '@examples/index';
+import * as examples from 'react-day-picker/examples';
 import { RenderingBox } from '@components/RenderingBox';
 
 import { parseHighlightLines } from './parseHighlightLines';

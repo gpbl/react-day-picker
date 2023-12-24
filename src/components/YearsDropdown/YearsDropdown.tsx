@@ -2,7 +2,7 @@ import { ChangeEventHandler } from 'react';
 
 import { setYear, startOfMonth } from 'date-fns';
 
-import { Month } from '../../classes/Month';
+import { Month } from '../../classes/CalendarMonth';
 import { useCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { Dropdown as DefaultDropdown } from '../Dropdown';

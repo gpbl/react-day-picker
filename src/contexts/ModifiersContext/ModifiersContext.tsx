@@ -3,7 +3,7 @@ import { createContext, useContext } from 'react';
 
 import { isSameDay, isSameMonth } from 'date-fns';
 
-import { Day } from '../../classes';
+import { CalendarDay } from '../../classes';
 import { useCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useSelection } from '../../contexts/SelectionContext';
@@ -19,7 +19,7 @@ export type DataAttributes = Record<`data-${string}`, unknown>;
  */
 export interface ModifiersContext {
   /** Return the modifiers of the specified day. */
-  getModifiers: (day: Day) => Modifiers;
+  getModifiers: (day: CalendarDay) => Modifiers;
   modifiersMap: ModifiersMap;
 }
 
@@ -36,7 +36,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
   const selection = useSelection();
 
   /** Modifiers that are set internally. */
-  const internal: Record<InternalModifier, Day[]> = {
+  const internal: Record<InternalModifier, CalendarDay[]> = {
     outside: [],
     disabled: [],
     hidden: [],
@@ -50,7 +50,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
   };
 
   /** Custom modifiers that are coming from the `modifiers` props */
-  const custom: Record<string, Day[]> = {};
+  const custom: Record<string, CalendarDay[]> = {};
 
   for (const day of calendar.days) {
     const { date, displayMonth } = day;
@@ -103,7 +103,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  const getModifiers = (day: Day) => {
+  const getModifiers = (day: CalendarDay) => {
     const modifiers: Modifiers = {
       disabled: false,
       excluded: false,

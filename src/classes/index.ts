@@ -1,3 +1,3 @@
-export * from './Day';
-export * from './Month';
-export * from './Week';
+export * from './CalendarDay';
+export * from './CalendarMonth';
+export * from './CalendarWeek';

@@ -9,9 +9,9 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import { Day } from '../../../classes/Day';
-import { Month } from '../../../classes/Month';
-import { Week } from '../../../classes/Week';
+import { CalendarDay } from '../../../classes/CalendarDay';
+import { Month } from '../../../classes/CalendarMonth';
+import { Week } from '../../../classes/CalendarWeek';
 import { DayPickerProps } from '../../../DayPicker';
 import { Mode } from '../../../types/props';
 
@@ -70,7 +70,7 @@ export function getMonths(
           });
       const week = weeks.find((week) => week.weekNumber === weekNumber);
 
-      const day = new Day(date, month);
+      const day = new CalendarDay(date, month);
       if (!week) {
         weeks.push(new Week(weekNumber, [day]));
       } else {

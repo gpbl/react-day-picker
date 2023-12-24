@@ -18,7 +18,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true
-  }
+  },
+  transpilePackages: ['react-day-picker']
 };
 
 export default withNextra(nextConfig);

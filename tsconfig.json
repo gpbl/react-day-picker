@@ -4,15 +4,18 @@
     "moduleResolution": "node",
     "strict": true,
     "jsx": "react-jsx",
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "declaration": false,
     "isolatedModules": false,
     "outDir": "./dist",
     "noEmit": true,
+    "paths": {
+      "react-day-picker": ["./src/index.ts"]
+    },
     "types": ["node", "jest", "@testing-library/jest-dom"],
     "lib": ["dom", "dom.iterable", "esnext"]
   },
   "exclude": ["node_modules"],
-  "include": ["src", "test"]
+  "include": ["src", "test", "examples"]
 }
