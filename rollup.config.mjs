@@ -31,7 +31,8 @@ const mainConfig = {
       format: 'umd',
       name: 'DatePicker',
       plugins: [terser()],
-      globals
+      globals,
+      sourcemap: true
     },
     {
       file: pkg.main,
@@ -47,7 +48,7 @@ const mainConfig = {
   ],
   plugins: [
     resolve(),
-    typescript(),
+    typescript({ tsconfig: './tsconfig.build.json' }),
     babel({
       babelHelpers: 'external',
       exclude: 'node_modules/**',
@@ -59,7 +60,7 @@ const mainConfig = {
       'process.env.NODE_ENV': JSON.stringify('production')
     })
   ],
-  external: ['react', /date-fns/]
+  external: ['react', 'date-fns', 'date-fns/locale']
 };
 
 /**
@@ -73,7 +74,7 @@ const dtsConfig = {
     format: 'es',
     sourcemap: true
   },
-  plugins: [dts()]
+  plugins: [dts({ tsconfig: './tsconfig.build.json' })]
 };
 
 /**
