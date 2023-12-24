@@ -13,10 +13,10 @@
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
   "source": "src/index.ts",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.module.js",
-  "browser": "dist/browser.js",
-  "unpkg": "dist/browser.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "browser": "dist/index.min.js",
+  "unpkg": "dist/index.min.js",
   "types": "dist/types.d.ts",
   "style": "dist/style.css",
   "scripts": {

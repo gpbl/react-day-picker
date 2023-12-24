@@ -29,14 +29,13 @@ const mainConfig = {
     {
       file: pkg.browser,
       format: 'umd',
-      name: 'DatePicker',
+      name: 'DayPicker',
       plugins: [terser()],
       globals
     },
     {
       file: pkg.main,
       format: 'cjs',
-      name: 'DatePicker',
       sourcemap: true
     },
     {
@@ -47,7 +46,7 @@ const mainConfig = {
   ],
   plugins: [
     resolve(),
-    typescript(),
+    typescript({ tsconfig: './tsconfig.build.json' }),
     babel({
       babelHelpers: 'external',
       exclude: 'node_modules/**',
@@ -73,7 +72,7 @@ const dtsConfig = {
     format: 'es',
     sourcemap: true
   },
-  plugins: [dts()]
+  plugins: [dts({ tsconfig: './tsconfig.build.json' })]
 };
 
 /**
