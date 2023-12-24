@@ -8,6 +8,9 @@ import {
   useRef
 } from 'react';
 
+import { isSameDay } from 'date-fns';
+
+import { Day } from '../../classes';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useFocus } from '../../contexts/FocusContext';
 import { useModifiers } from '../../contexts/ModifiersContext';
@@ -16,12 +19,11 @@ import { debounce } from '../../utils/debounce';
 import { DayGridCell as DefaultGridCell } from './DayGridCell';
 import { getClassNamesForModifiers } from './getClassNamesForModifiers';
 import { getStyleForModifiers } from './getStyleForModifiers';
-import { CalendarDay } from '../../classes/CalendarDay';
 
 export interface DayGridCellWrapperProps
   extends Pick<React.AriaAttributes, 'aria-colindex'> {
   /** The day to be rendered in the gridcell. */
-  day: CalendarDay;
+  day: Day;
 }
 
 /**

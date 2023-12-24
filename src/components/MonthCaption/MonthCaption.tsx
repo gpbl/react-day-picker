@@ -1,10 +1,10 @@
-import type { CalendarMonth } from '../../classes/CalendarMonth';
+import { Month } from '../../classes';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { DropdownNav } from '../DropdownNav';
 
 export interface MonthCaptionProps {
   /** The month where the grid is displayed. */
-  month: CalendarMonth;
+  month: Month;
   /** Used for the aria-label. */
   id: string;
   /** The index where this month is displayed. */

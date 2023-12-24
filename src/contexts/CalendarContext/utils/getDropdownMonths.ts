@@ -1,4 +1,4 @@
-import { Month, addMonths, isBefore, startOfMonth } from 'date-fns';
+import { addMonths, isBefore, startOfMonth } from 'date-fns';
 
 import type { DropdownOption } from '../../../components';
 import type { Formatters, Mode } from '../../../types';
@@ -14,10 +14,10 @@ export function getDropdownMonths(
   const navStartMonth = startOfMonth(dayPicker.fromDate);
   const navEndMonth = startOfMonth(dayPicker.toDate);
 
-  const months: Month[] = [];
+  const months: number[] = [];
   let month = navStartMonth;
   while (months.length < 12 && isBefore(month, addMonths(navEndMonth, 1))) {
-    months.push(month.getMonth() as Month);
+    months.push(month.getMonth());
     month = addMonths(month, 1);
   }
   const sortedMonths = months.sort((a, b) => {

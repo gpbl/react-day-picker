@@ -1,7 +1,7 @@
 import { getPossibleFocusDate } from './getPossibleFocusDate';
 import { DayPickerContext } from '../../DayPickerContext';
 import { Mode } from '../../../types';
-import { CalendarDay } from '../../../classes/CalendarDay';
+import { Day } from '../../../classes/Day';
 import { dateMatchModifiers } from '../../ModifiersContext/utils/dateMatchModifiers';
 import type { MoveFocusBy, MoveFocusDir } from '../FocusContext';
 
@@ -14,7 +14,7 @@ export function getNextFocus(
   moveBy: MoveFocusBy,
   moveDir: MoveFocusDir,
   /** The date that is currently focused. */
-  focused: CalendarDay,
+  focused: Day,
   options: Pick<
     DayPickerContext<Mode>,
     | 'disabled'
@@ -27,7 +27,7 @@ export function getNextFocus(
     | 'toDate'
   >,
   attempt: number = 0
-): CalendarDay | undefined {
+): Day | undefined {
   if (attempt > 365) {
     // Limit the recursion to 365 attempts
     return undefined;
@@ -49,7 +49,7 @@ export function getNextFocus(
   );
 
   const targetMonth = possibleFocusDate;
-  const focusDay = new CalendarDay(possibleFocusDate, targetMonth);
+  const focusDay = new Day(possibleFocusDate, targetMonth);
   if (!isDisabled && !isHidden) {
     return focusDay;
   }

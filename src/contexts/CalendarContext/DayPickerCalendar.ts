@@ -1,6 +1,4 @@
-import type { CalendarDay } from '../../classes/CalendarDay';
-import type { CalendarMonth } from '../../classes/CalendarMonth';
-import type { CalendarWeek } from '../../classes/CalendarWeek';
+import type { Day, Month, Week } from '../../classes';
 import type { DropdownOption } from '../../components/Dropdown';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { DayPickerProps } from '../../DayPicker';
@@ -14,15 +12,15 @@ export interface DayPickerCalendar {
    * {@link DayPickerCalendar.dates}, it may return duplicated dates when shown
    * outside the month.
    */
-  days: CalendarDay[];
+  days: Day[];
   /**
    * The months displayed in the calendar.
    */
-  weeks: CalendarWeek[];
+  weeks: Week[];
   /**
    * The months displayed in the calendar.
    */
-  months: CalendarMonth[];
+  months: Month[];
   /**
    * The month displayed as first the calendar. When
    * {@link DayPickerProps.numberOfMonths} is greater than `1`, it is the first
@@ -78,9 +76,9 @@ export interface DayPickerCalendar {
    * @param dateToCompare - Optional. If `date` is before `dateToCompare`, the
    * month is set to one month before the date.
    */
-  goToDay: (day: CalendarDay) => void;
+  goToDay: (day: Day) => void;
   /**
    * Whether the given date is included in the displayed months.
    */
-  isDayDisplayed: (day: CalendarDay) => boolean;
+  isDayDisplayed: (day: Day) => boolean;
 }

@@ -10,7 +10,7 @@ import { useCalendar } from '../CalendarContext';
 import { useDayPicker } from '../DayPickerContext';
 import { useModifiers } from '../ModifiersContext';
 
-import type { CalendarDay } from '../../classes/CalendarDay';
+import type { Day } from '../../classes/Day';
 
 export type MoveFocusBy =
   | 'day'
@@ -24,15 +24,15 @@ export type MoveFocusDir = 'after' | 'before';
 
 export interface FocusContext {
   /** The date that is currently focused. */
-  focusedDay: CalendarDay | undefined;
+  focusedDay: Day | undefined;
   /**
    * The date that is target of the focus when tabbing into the month grid.
    * The focus target is the selected date first, then the today date, then the
    * first focusable date.
    */
-  focusTarget: CalendarDay | undefined;
+  focusTarget: Day | undefined;
   /** Focus a date. */
-  focus: (day: CalendarDay) => void;
+  focus: (day: Day) => void;
   /** Blur the focused day. */
   blur: () => void;
   /** Focus the day after the focused day. */
@@ -70,8 +70,8 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
 
   const { autoFocus = false, ...dayPicker } = useDayPicker();
 
-  const [focused, setFocused] = useState<CalendarDay | undefined>();
-  const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
+  const [focused, setFocused] = useState<Day | undefined>();
+  const [lastFocused, setLastFocused] = useState<Day | undefined>();
   const [initiallyFocused, setInitiallyFocused] = useState(false);
 
   const { modifiersMap } = useModifiers();
@@ -91,7 +91,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     setFocused(undefined);
   }
 
-  function focus(day: CalendarDay) {
+  function focus(day: Day) {
     setFocused(day);
   }
 

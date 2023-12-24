@@ -19,7 +19,7 @@ export function ModifiersClassnames() {
       <DayPicker
         defaultMonth={bookedDays[0]}
         modifiers={{
-          booked1: bookedDays
+          booked: bookedDays
         }}
         modifiersClassNames={{
           booked: 'my-booked-class'

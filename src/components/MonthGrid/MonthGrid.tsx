@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-import { CalendarMonth } from '../../classes/CalendarMonth';
+import { Month } from '../../classes/Month';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { MonthCaption as DefaultMonthCaption } from '../MonthCaption';
 import { WeekdaysRow as DefaultWeekdaysRow } from '../WeekdaysRow';
@@ -9,7 +9,7 @@ import { WeekRow as DefaultWeekRow } from '../WeekRow';
 export interface MonthGridProps
   extends Pick<React.AriaAttributes, 'aria-labelledby'> {
   /** The month where the grid is displayed. */
-  month: CalendarMonth;
+  month: Month;
   /** The index where this month is displayed. */
   index: number;
 }

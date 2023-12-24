@@ -2,14 +2,14 @@ import { ChangeEventHandler } from 'react';
 
 import { setYear, startOfMonth } from 'date-fns';
 
-import { CalendarMonth } from '../../classes/CalendarMonth';
+import { Month } from '../../classes/Month';
 import { useCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { Dropdown as DefaultDropdown } from '../Dropdown';
 
 export interface YearsDropdownProps {
   /** The month where the dropdown is displayed. */
-  month: CalendarMonth;
+  month: Month;
 }
 export function YearsDropdown(props: YearsDropdownProps) {
   const {

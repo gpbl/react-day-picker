@@ -13,8 +13,6 @@ import {
   endOfWeek
 } from 'date-fns';
 
-import type { Locale } from 'date-fns';
-
 const baseDate = new Date(2023, 0, 1); // Jan 1, 2023
 const options: Pick<
   DayPickerContext<Mode>,
