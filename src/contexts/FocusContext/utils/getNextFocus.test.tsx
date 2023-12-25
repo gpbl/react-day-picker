@@ -38,7 +38,7 @@ it('should return the focus date if it is not disabled or hidden', () => {
   );
   const expectedDate = new Date(2020, 0, 2);
   const result = getNextFocus('day', 'after', focusedDay, defaultDayPicker);
-  expect(result).toEqual(expectedDate);
+  expect(result.date).toEqual(expectedDate);
 });
 
 it('should return the next focus date if it is disabled', () => {
@@ -52,7 +52,7 @@ it('should return the next focus date if it is disabled', () => {
     ...defaultDayPicker,
     disabled: [disabledDate]
   });
-  expect(result).toEqual(expectedDate);
+  expect(result?.date).toEqual(expectedDate);
 });
 
 it('should return the next focus date if it is hidden', () => {
@@ -66,5 +66,5 @@ it('should return the next focus date if it is hidden', () => {
     ...defaultDayPicker,
     hidden: [hiddenDate]
   });
-  expect(result).toEqual(expectedDate);
+  expect(result.date).toEqual(expectedDate);
 });

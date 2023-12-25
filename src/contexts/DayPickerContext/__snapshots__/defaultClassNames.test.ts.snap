@@ -39,6 +39,7 @@ exports[`should match the snapshot 1`] = `
   "head": "head",
   "head_cell": "head_cell",
   "head_row": "head_row",
+  "hide_weekdays": "hide_weekdays",
   "month_caption": "month_caption",
   "month_grid": "month_grid",
   "month_grid_wrapper": "month_grid_wrapper",
