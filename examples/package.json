@@ -2,6 +2,7 @@
   "private": true,
   "name": "examples",
   "main": "js/index.ts",
+  "types": "js/index.d.ts",
   "dependencies": {
     "focus-trap-react": "^10.2.3",
     "react": "^18.2.0",

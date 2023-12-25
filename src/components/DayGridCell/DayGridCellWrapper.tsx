@@ -8,8 +8,6 @@ import {
   useRef
 } from 'react';
 
-import { isSameDay } from 'date-fns';
-
 import { CalendarDay } from '../../classes';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useFocus } from '../../contexts/FocusContext';

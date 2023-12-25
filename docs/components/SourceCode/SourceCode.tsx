@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 import { Code, Pre } from 'nextra/components';
 import { useData } from 'nextra/data';
 

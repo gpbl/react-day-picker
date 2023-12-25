@@ -1,6 +1,6 @@
 import { createContext, type ReactNode, useContext } from 'react';
 
-import { addMonths, isBefore, startOfMonth } from 'date-fns';
+import { startOfMonth } from 'date-fns';
 
 import { DayPickerCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
@@ -75,9 +75,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   }
 
   function goToDay(day: CalendarDay) {
-    console.log('Going to date', day);
     if (isDayDisplayed(day)) {
-      console.log('date is already displayed');
       return;
     }
     // if (refDate && isBefore(date, refDate)) {
