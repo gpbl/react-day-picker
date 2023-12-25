@@ -1,4 +1,5 @@
-import * as examples from 'react-day-picker/examples';
+import * as examples from 'examples';
+
 import { ReactElement, useEffect, useState } from 'react';
 import { RenderingBox } from './RenderingBox';
 import { SourceCode } from './SourceCode';

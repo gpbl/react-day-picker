@@ -19,7 +19,11 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  transpilePackages: ['react-day-picker']
+  transpilePackages: ['examples'],
+  webpack: (config) => {
+    config.resolve.mainFields = ['module', 'main'];
+    return config;
+  }
 };
 
 export default withNextra(nextConfig);

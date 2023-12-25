@@ -20,7 +20,7 @@ const config: Config.InitialOptions = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     '^react-day-picker$': path.resolve(__dirname, './src/index.ts')
   },
-  roots: ['./src', './examples'],
+  roots: ['./src'],
   testEnvironment: 'jsdom',
   coverageReporters: ['lcov', 'text', 'clover'],
   setupFilesAfterEnv: ['./test/setup.ts'],

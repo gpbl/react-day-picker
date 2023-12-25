@@ -19,14 +19,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "focus-trap-react": "^10.2.3",
     "next": "^14.0.4",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
     "react": "^18.2.0",
     "react-day-picker": "workspace:*",
-    "react-dom": "^18.2.0",
-    "react-popper": "^2.3.0"
+    "examples": "workspace:*",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@headlessui/react": "^1.7.17",

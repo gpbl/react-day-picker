@@ -1,3 +1,4 @@
+import type { Locale } from 'date-fns';
 import { Mode } from '../../../types';
 import { DayPickerContext } from '../../DayPickerContext';
 import type { MoveFocusBy, MoveFocusDir } from '../FocusContext';

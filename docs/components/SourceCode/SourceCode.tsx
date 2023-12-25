@@ -1,7 +1,7 @@
 import { Code, Pre } from 'nextra/components';
 import { useData } from 'nextra/data';
 
-import * as examples from 'react-day-picker/examples';
+import * as examples from 'examples/js/index';
 import { RenderingBox } from '@components/RenderingBox';
 
 import { parseHighlightLines } from './parseHighlightLines';
@@ -73,7 +73,7 @@ export function SourceCode(props: SourceCodeProps) {
     return <Pre>Example "{src}" not found.</Pre>;
   }
 
-  const html: string = sources[src]
+  const jsHTML: string = sources[src].js
     // Remove out HTML components we replace with nextra components
     .replaceAll('</code>', '')
     .replaceAll('<code>', '')
@@ -93,7 +93,7 @@ export function SourceCode(props: SourceCodeProps) {
 
   // Apply the 'highlighted' class to the required lines
   let lineCount = 0;
-  const highlightedHtml = html.replace(/<span class="line">/g, (match) => {
+  const highlightedHtml = jsHTML.replace(/<span class="line">/g, (match) => {
     lineCount++;
     return linesToHighlight.includes(lineCount)
       ? '<span class="line highlighted">'

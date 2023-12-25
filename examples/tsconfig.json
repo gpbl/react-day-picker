@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "preserve",
+    "declaration": true,
+    "sourceMap": false,
+    "outDir": "./js",
+    "removeComments": true,
+    "rootDir": "./ts",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["ts", "typings", "styles"]
+}
