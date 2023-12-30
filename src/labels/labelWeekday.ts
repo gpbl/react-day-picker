@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format } from 'date-fns/format';
 
 /** Return he default ARIA label for the Weekday element. */
 export function labelWeekday(

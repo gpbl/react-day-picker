@@ -1,4 +1,4 @@
-import type { format } from 'date-fns';
+import type { format } from 'date-fns/format';
 
 /** The default formatter for the week numbers. */
 export function formatWeekNumber(

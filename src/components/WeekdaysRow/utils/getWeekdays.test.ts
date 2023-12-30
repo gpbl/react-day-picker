@@ -1,7 +1,6 @@
-import { es } from 'date-fns/locale';
+import { es } from 'date-fns/locale/es';
 
 import { freezeTime } from '../../../../test/utils';
-
 import { getWeekdays } from './getWeekdays';
 
 const today = new Date(2022, 1, 12);

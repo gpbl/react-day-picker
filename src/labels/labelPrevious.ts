@@ -1,4 +1,4 @@
-import type { format } from 'date-fns';
+import type { format } from 'date-fns/format';
 
 /** Return the default ARIA label for next month button. */
 export function labelPrevious(

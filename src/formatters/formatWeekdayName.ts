@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format } from 'date-fns/format';
 
 /** The default formatter for the name of the weekday. */
 export function formatWeekdayName(

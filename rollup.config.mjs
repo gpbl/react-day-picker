@@ -1,15 +1,16 @@
+import fs from 'fs';
+import postcssDts from 'postcss-typescript-d-ts';
+import copy from 'rollup-plugin-copy';
+import { dts } from 'rollup-plugin-dts';
+import postcss from 'rollup-plugin-postcss';
+import typescript from 'rollup-plugin-typescript2';
+
 // @ts-check
 import { babel } from '@rollup/plugin-babel';
-import { dts } from 'rollup-plugin-dts';
 import commonjs from '@rollup/plugin-commonjs';
-import copy from 'rollup-plugin-copy';
-import fs from 'fs';
-import postcss from 'rollup-plugin-postcss';
-import postcssDts from 'postcss-typescript-d-ts';
-import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
-import typescript from 'rollup-plugin-typescript2';
 
 import pkg from './package.json' assert { type: 'json' };
 
@@ -60,7 +61,7 @@ const mainConfig = {
       'process.env.NODE_ENV': JSON.stringify('production')
     })
   ],
-  external: ['react', 'date-fns', 'date-fns/locale']
+  external: ['react', /date-fns/]
 };
 
 /**

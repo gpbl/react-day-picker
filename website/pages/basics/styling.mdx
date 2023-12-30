@@ -1,0 +1,199 @@
+import { Steps, Callout } from 'nextra/components';
+import { SourceCode } from '@components/SourceCode';
+import { getSrc } from '@utils/getSrc';
+
+export const getStaticProps = () =>
+  getSrc([
+    'StylingInline.tsx',
+    'StylingModifiers.tsx',
+    'StylingCssModules.tsx',
+    'CssVariables.tsx',
+    'css-variables.module.css',
+    'styling-css-modules.module.css'
+  ]);
+
+# Styling DayPicker
+
+Change the appearance of the HTML elements, such as headings, grid cells and
+buttons.
+
+## Using the Default Styles
+
+DayPicker comes with for a minimal, lightweight style. Import
+`react-day-picker/dist/style.css` in your application root component, or add it
+into your build pipeline:
+
+```tsx showLineNumbers filename="App.tsx" {2}
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css'; // Import this CSS for using the default class names
+
+function App() {
+  return (
+    <div role="application">
+      <DayPicker />
+    </div>
+  );
+}
+```
+
+### Importing as CSS module
+
+If you need to import CSS modules to generate unique class names, import from `style.module.css`
+instead. Use then the `classNames` prop to pass the new class names to DayPicker.
+
+```tsx showLineNumbers filename="App.tsx" {2,7} showLineNumbers
+import { DayPicker } from 'react-day-picker';
+import classNames from 'react-day-picker/dist/style.module.css'; // Import this for CSS modules
+
+function App() {
+  return (
+    <div role="application">
+      <DayPicker classNames={classNames} />
+    </div>
+  );
+}
+```
+
+## Changing the CSS variables
+
+You can also override the CSS variables using the `className` prop:
+
+<SourceCode
+  src="css-variables.module.css"
+  filename="css-variables.module.css"
+/>
+
+```tsx example fileName="CssVariables.tsx"
+import { DayPicker } from 'react-day-picker';
+
+import styles from './styles/css-variables.module.css';
+
+export function CssVariables() {
+  return <DayPicker className={styles.datePicker} />;
+}
+```
+
+### CSS Variables Playground
+
+🚧 This section is still under construction.
+
+## Extending the Default Styles
+
+To further customize the styles, override the DayPicker CSS. For example, to
+change the background color of the day cells, add this style sheet:
+
+```css showLineNumbers filename="App.css"
+.rdp-day {
+  background-color: #f0f0f0;
+}
+```
+
+```tsx filename="App.tsx" {4}
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
+
+import './App.css'; // Import your custom styles to override the default CSS
+
+function App() {
+  return <DayPicker />;
+}
+```
+
+### Extending with CSS modules
+
+When using CSS modules, override the class names with your custom CSS:
+
+<SourceCode
+  filename="styling-css-modules.module.css"
+  src="styling-css-modules.module.css"
+/>
+
+```tsx example fileName="StylingCssModules.tsx"
+import { DayPicker } from 'react-day-picker';
+import defaultStyles from 'react-day-picker/dist/style.module.css';
+
+import customStyles from './styles/styling-css-modules.module.css';
+
+export function StylingCssModules() {
+  return <DayPicker classNames={{ ...defaultStyles, ...customStyles }} />;
+}
+```
+
+### Using Inline Styles
+
+To change the appearance of any DayPicker element via inline-styles use the
+`styles` prop.
+
+Using inline styles won't override the default class names. Mouse hover effects
+cannot be styled inline.
+
+```tsx example fileName="StylingInline.tsx"
+import { DayPicker } from 'react-day-picker';
+
+export function StylingInline() {
+  const monthCaptionStyle = {
+    borderBottom: '1px solid currentColor',
+    paddingBottom: '0.5em'
+  };
+  return (
+    <DayPicker
+      styles={{
+        month_caption: monthCaptionStyle
+      }}
+    />
+  );
+}
+```
+
+## Styling Modifiers
+
+Change the style of [Modifiers](/basics/modifiers) with the
+`modifiersClassNames` or `modifiersStyles`. This will set the class name or the
+inline style for the days with the modifiers.
+
+```tsx example fileName="StylingModifiers.tsx"
+import { DayPicker } from 'react-day-picker';
+
+import { addDays } from 'date-fns';
+import customStyles from './styles/styling-modifiers.module.css';
+
+const today = new Date();
+const beforeYesterday = addDays(today, -2);
+
+export function StylingModifiers() {
+  return (
+    <DayPicker
+      mode="single"
+      selected={new Date()}
+      disabled={beforeYesterday}
+      modifiersClassNames={{
+        selected: customStyles.purpleToday
+      }}
+      modifiersStyles={{
+        disabled: {
+          // Add a line-through style to the disabled days
+          textDecoration: 'line-through'
+        }
+      }}
+    />
+  );
+}
+```
+
+With CSS modules, pass the generated class name instead:
+
+```tsx {7-10,1} showLineNumbers
+import style from './your-style.module.css';
+
+function App() {
+  return (
+    <DayPicker
+      mode="multiple"
+      modifiersClassNames={{
+        selected: style.selected,
+        today: style.today
+      }}
+    />
+  );
+}
+```

@@ -1,6 +1,7 @@
 import type { ChangeEventHandler } from 'react';
 
-import { setMonth, startOfMonth } from 'date-fns';
+import { setMonth } from 'date-fns/setMonth';
+import { startOfMonth } from 'date-fns/startOfMonth';
 
 import { Month } from '../../classes';
 import { useCalendar } from '../../contexts/CalendarContext';

@@ -1,14 +1,12 @@
-import {
-  addDays,
-  differenceInCalendarDays,
-  differenceInCalendarMonths,
-  endOfISOWeek,
-  endOfMonth,
-  endOfWeek,
-  isAfter,
-  startOfISOWeek,
-  startOfWeek
-} from 'date-fns';
+import { addDays } from 'date-fns/addDays';
+import { differenceInCalendarDays } from 'date-fns/differenceInCalendarDays';
+import { differenceInCalendarMonths } from 'date-fns/differenceInCalendarMonths';
+import { endOfISOWeek } from 'date-fns/endOfISOWeek';
+import { endOfMonth } from 'date-fns/endOfMonth';
+import { endOfWeek } from 'date-fns/endOfWeek';
+import { isAfter } from 'date-fns/isAfter';
+import { startOfISOWeek } from 'date-fns/startOfISOWeek';
+import { startOfWeek } from 'date-fns/startOfWeek';
 
 import { DayPickerProps } from '../../../DayPicker';
 import { Mode } from '../../../types';

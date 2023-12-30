@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 import { createContext, useContext } from 'react';
 
-import { isSameDay, isSameMonth } from 'date-fns';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isSameMonth } from 'date-fns/isSameMonth';
 
 import { CalendarDay } from '../../classes';
 import { useCalendar } from '../../contexts/CalendarContext';

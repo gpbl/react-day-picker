@@ -1,13 +1,11 @@
-import {
-  addDays,
-  endOfISOWeek,
-  endOfMonth,
-  endOfWeek,
-  getISOWeek,
-  getWeek,
-  startOfISOWeek,
-  startOfWeek
-} from 'date-fns';
+import { addDays } from 'date-fns/addDays';
+import { endOfISOWeek } from 'date-fns/endOfISOWeek';
+import { endOfMonth } from 'date-fns/endOfMonth';
+import { endOfWeek } from 'date-fns/endOfWeek';
+import { getISOWeek } from 'date-fns/getISOWeek';
+import { getWeek } from 'date-fns/getWeek';
+import { startOfISOWeek } from 'date-fns/startOfISOWeek';
+import { startOfWeek } from 'date-fns/startOfWeek';
 
 import { CalendarDay } from '../../../classes/CalendarDay';
 import { Month } from '../../../classes/CalendarMonth';

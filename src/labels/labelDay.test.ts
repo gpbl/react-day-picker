@@ -1,4 +1,4 @@
-import { es } from 'date-fns/locale';
+import { es } from 'date-fns/locale/es';
 
 import type { Modifiers } from '../types';
 import { labelDay } from './labelDay';

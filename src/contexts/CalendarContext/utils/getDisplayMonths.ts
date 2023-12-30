@@ -1,4 +1,4 @@
-import { addMonths } from 'date-fns';
+import { addMonths } from 'date-fns/addMonths';
 
 export function getDisplayMonths(
   firstMonth: Date,

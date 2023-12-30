@@ -1,4 +1,6 @@
-import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
+import { addMonths } from 'date-fns/addMonths';
+import { differenceInCalendarMonths } from 'date-fns/differenceInCalendarMonths';
+import { startOfMonth } from 'date-fns/startOfMonth';
 
 import type { PropsBase } from '../../../types/props';
 import { getFromToDate } from '../../DayPickerContext/utils/getFromToDate';

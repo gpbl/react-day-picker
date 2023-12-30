@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format } from 'date-fns/format';
 
 /** Return the default ARIA label for the month grid. */
 export function labelGrid(month: Date, options?: Parameters<typeof format>[2]) {

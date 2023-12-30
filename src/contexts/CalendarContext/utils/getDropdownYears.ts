@@ -1,10 +1,8 @@
-import {
-  addYears,
-  endOfYear,
-  isBefore,
-  isSameYear,
-  startOfYear
-} from 'date-fns';
+import { addYears } from 'date-fns/addYears';
+import { endOfYear } from 'date-fns/endOfYear';
+import { isBefore } from 'date-fns/isBefore';
+import { isSameYear } from 'date-fns/isSameYear';
+import { startOfYear } from 'date-fns/startOfYear';
 
 import { DropdownOption } from '../../../components';
 import { Formatters } from '../../../types/formatters';

@@ -1,12 +1,10 @@
 import type { KeyboardEvent, MouseEvent, PropsWithChildren } from 'react';
 import { createContext, useContext, useState } from 'react';
 
-import {
-  addDays,
-  differenceInCalendarDays,
-  isSameDay,
-  subDays
-} from 'date-fns';
+import { addDays } from 'date-fns/addDays';
+import { differenceInCalendarDays } from 'date-fns/differenceInCalendarDays';
+import { isSameDay } from 'date-fns/isSameDay';
+import { subDays } from 'date-fns/subDays';
 
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import type { Matcher } from '../../types/matchers';

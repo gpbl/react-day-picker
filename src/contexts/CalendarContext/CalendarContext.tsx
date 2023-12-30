@@ -1,7 +1,8 @@
 import { createContext, type ReactNode, useContext } from 'react';
 
-import { startOfMonth } from 'date-fns';
+import { startOfMonth } from 'date-fns/startOfMonth';
 
+import type { CalendarDay } from '../../classes/CalendarDay';
 import { DayPickerCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useControlledValue } from '../../utils/useControlledValue';
@@ -15,8 +16,6 @@ import { getNextMonth } from './utils/getNextMonth';
 import { getPreviousMonth } from './utils/getPreviousMonth';
 import { getStartMonth } from './utils/getStartMonth';
 import { getWeeks } from './utils/getWeeks';
-
-import type { CalendarDay } from '../../classes/CalendarDay';
 
 export const calendarContext = createContext<DayPickerCalendar | undefined>(
   undefined
