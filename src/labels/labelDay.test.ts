@@ -8,6 +8,7 @@ const modifiers: Modifiers = {
   disabled: false,
   excluded: false,
   focusable: false,
+  focused: false,
   hidden: false,
   outside: false,
   range_end: false,

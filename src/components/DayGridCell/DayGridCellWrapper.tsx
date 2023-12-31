@@ -77,17 +77,7 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
 
   const modifiers = getModifiers(props.day);
 
-  /** The day is interactive if it's not excluded and there is a `onDayClick` handler. */
-  const isInteractive = mode !== 'none' || Boolean(onDayClick);
-
-  const style = getStyleForModifiers(modifiers, modifiersStyles, styles);
-  const className = getClassNamesForModifiers(
-    modifiers,
-    modifiersClassNames,
-    classNames
-  );
-
-  const onClick: MouseEventHandler<HTMLDivElement> = (e) => {
+  const onClick: MouseEventHandler = (e) => {
     if (modifiers.disabled) {
       e.preventDefault();
       e.stopPropagation();
@@ -95,7 +85,6 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     }
     if (!isExcluded(props.day.date)) {
       setSelected(props.day.date, modifiers, e);
-      e.currentTarget.focus();
     }
     onDayClick?.(props.day.date, modifiers, e);
   };
@@ -197,9 +186,28 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   const isAutoFocusTarget = Boolean(autoFocusTarget?.isEqualTo(props.day));
   const isFocused = Boolean(focusedDay?.isEqualTo(props.day));
 
+  /** The day is interactive if it's not excluded and there is a `onDayClick` handler. */
+  const isInteractive = mode !== 'none' || Boolean(onDayClick);
+
+  const style = getStyleForModifiers(modifiers, modifiersStyles, styles);
+
+  const classNameForModifiers = getClassNamesForModifiers(
+    modifiers,
+    modifiersClassNames,
+    classNames
+  );
+
+  const className = classNames?.day
+    ? [classNames?.day, ...classNameForModifiers]
+    : classNameForModifiers;
+
+  if (isFocused && classNames?.day_focused) {
+    className.push(classNames.day_focused);
+  }
+
   const htmlAttributes: JSX.IntrinsicElements['div'] = {
     role: 'gridcell',
-    className,
+    className: className.join(' '),
     style,
     tabIndex: isFocused || isAutoFocusTarget ? 0 : -1,
     ['aria-colindex']: props['aria-colindex'],
@@ -226,10 +234,10 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   useEffect(() => {
     if (!cellRef.current) return; // no element to focus
     if (!focusedDay) return; // no day to focus
-    if (!props.day.isEqualTo(focusedDay)) return; // already focused
+    if (!props.day.isEqualTo(focusedDay)) return; // not this day`
     if (modifiers.disabled || modifiers.hidden) return; // cannot focus
+
     cellRef.current.focus();
-    console.log('focused', props.day, document.activeElement);
   }, [focusedDay, modifiers.disabled, modifiers.hidden, props.day]);
 
   const DayGridCell = components?.DayGridCell ?? DefaultGridCell;
@@ -239,7 +247,6 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
       day={props.day}
       modifiers={modifiers}
       htmlAttributes={htmlAttributes}
-      ref={cellRef}
     >
       {formatDay(props.day.date, { locale })}
     </DayGridCell>

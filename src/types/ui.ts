@@ -28,6 +28,7 @@ export enum UI {
   DaySelected = 'day_selected',
   DayExcluded = 'day_excluded',
   DayFocusable = 'day_focusable',
+  DayFocused = 'day_focused',
   DayToday = 'day_today',
   Day = 'day',
   DropdownIcon = 'dropdown_icon',

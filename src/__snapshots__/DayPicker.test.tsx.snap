@@ -255,7 +255,7 @@ exports[`should render a date picker component 1`] = `
                 aria-colindex="7"
                 class="day day_today"
                 role="gridcell"
-                tabindex="-1"
+                tabindex="0"
               >
                 9
               </div>

@@ -70,5 +70,6 @@ export const defaultClassNames: Required<ClassNames> = {
   [UI.Select]: 'select',
   [UI.DropdownRoot]: 'dropdown_root',
   [UI.DayExcluded]: 'day_excluded',
-  [UI.DayFocusable]: ''
+  [UI.DayFocusable]: '',
+  [UI.DayFocused]: 'day_focused'
 };

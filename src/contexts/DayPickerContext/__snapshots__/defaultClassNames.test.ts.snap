@@ -22,6 +22,7 @@ exports[`should match the snapshot 1`] = `
   "day_disabled": "day_disabled",
   "day_excluded": "day_excluded",
   "day_focusable": "",
+  "day_focused": "day_focused",
   "day_hidden": "day_hidden",
   "day_outside": "day_outside",
   "day_range_end": "day_range_end",
