@@ -1,6 +1,5 @@
-import { CustomDay } from './CustomDay';
-
 import { app, freezeTime, renderApp } from '../test';
+import { CustomDay } from './CustomDay';
 
 freezeTime(new Date(2021, 10, 25));
 

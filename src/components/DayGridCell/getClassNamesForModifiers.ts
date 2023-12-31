@@ -15,7 +15,7 @@ export function getClassNamesForModifiers(
     .reduce((previousValue, [key]) => {
       if (modifiersClassNames[key]) {
         previousValue.push(modifiersClassNames[key as string]);
-      } else {
+      } else if (classNames[`day_${key as InternalModifier}`]) {
         previousValue.push(classNames[`day_${key as InternalModifier}`]);
       }
       return previousValue;

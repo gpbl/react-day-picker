@@ -279,9 +279,6 @@
   font-size: var(--rdp-font-medium);
 }
 
-.day:focus {
-  outline: none;
-}
 .day:focus-visible {
   outline-color: var(--rdp-accent-color);
   outline-style: solid;

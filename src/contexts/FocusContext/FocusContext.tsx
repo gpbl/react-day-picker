@@ -5,12 +5,12 @@ import {
   useEffect,
   useState
 } from 'react';
-import { getNextFocus } from './utils/getNextFocus';
+
+import type { CalendarDay } from '../../classes/CalendarDay';
 import { useCalendar } from '../CalendarContext';
 import { useDayPicker } from '../DayPickerContext';
 import { useModifiers } from '../ModifiersContext';
-
-import type { CalendarDay } from '../../classes/CalendarDay';
+import { getNextFocus } from './utils/getNextFocus';
 
 export type MoveFocusBy =
   | 'day'
@@ -30,9 +30,10 @@ export interface FocusContext {
    * The focus target is the selected date first, then the today date, then the
    * first focusable date.
    */
-  focusTarget: CalendarDay | undefined;
+  autoFocusTarget: CalendarDay | undefined;
+  initiallyFocused: boolean;
   /** Focus a date. */
-  focus: (day: CalendarDay) => void;
+  setFocused: (day: CalendarDay) => void;
   /** Blur the focused day. */
   blur: () => void;
   /** Focus the day after the focused day. */
@@ -69,56 +70,48 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const { goToDay, isDayDisplayed } = useCalendar();
 
   const { autoFocus = false, ...dayPicker } = useDayPicker();
+  const { modifiersMap } = useModifiers();
 
-  const [focused, setFocused] = useState<CalendarDay | undefined>();
+  const [focusedDay, setFocusedDay] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
   const [initiallyFocused, setInitiallyFocused] = useState(false);
 
-  const { modifiersMap } = useModifiers();
-
   const autoFocusTarget =
-    modifiersMap.selected[0] ?? // autofocus the first selected day
-    modifiersMap.today[0] ?? // autofocus today
-    modifiersMap.focusable[0]; // otherwise autofocus the first focusable day
-
-  const focusTarget =
-    focused ?? (lastFocused && isDayDisplayed(lastFocused))
+    focusedDay ?? (lastFocused && isDayDisplayed(lastFocused))
       ? lastFocused
-      : autoFocusTarget;
-
-  function blur() {
-    setLastFocused(focused);
-    setFocused(undefined);
-  }
-
-  function focus(day: CalendarDay) {
-    setFocused(day);
-  }
-
-  function moveFocus(moveBy: MoveFocusBy, moveDir: MoveFocusDir) {
-    if (!focused) return;
-    const nextFocus = getNextFocus(moveBy, moveDir, focused, dayPicker);
-    if (!nextFocus) return;
-
-    goToDay(nextFocus);
-    // focus(nextFocus); // TODO: and here we get lost: should be a Day, but is a Date
-  }
+      : modifiersMap.selected[0] ?? // autofocus the first selected day
+        modifiersMap.today[0] ?? // autofocus today
+        modifiersMap.focusable[0]; // otherwise autofocus the first focusable day;
 
   // Focus the focus target when autoFocus is passed in
   useEffect(() => {
     if (!autoFocus) return;
-    if (!focusTarget) return;
+    if (!autoFocusTarget) return;
     if (!initiallyFocused) return;
-
     setInitiallyFocused(true);
-    focus(focusTarget);
-  }, [autoFocus, focusTarget, initiallyFocused]);
+    setFocusedDay(autoFocusTarget);
+  }, [autoFocus, autoFocusTarget, focusedDay, initiallyFocused]);
+
+  function blur() {
+    setLastFocused(focusedDay);
+    setFocusedDay(undefined);
+  }
+
+  function moveFocus(moveBy: MoveFocusBy, moveDir: MoveFocusDir) {
+    if (!focusedDay) return;
+    const nextFocus = getNextFocus(moveBy, moveDir, focusedDay, dayPicker);
+    if (!nextFocus) return;
+
+    goToDay(nextFocus);
+    setFocusedDay(nextFocus);
+  }
 
   const value: FocusContext = {
-    focusTarget,
-    focusedDay: focused,
+    autoFocusTarget,
+    initiallyFocused,
+    focusedDay,
     blur,
-    focus,
+    setFocused: setFocusedDay,
     focusDayAfter: () => moveFocus('day', 'after'),
     focusDayBefore: () => moveFocus('day', 'before'),
     focusWeekAfter: () => moveFocus('week', 'after'),

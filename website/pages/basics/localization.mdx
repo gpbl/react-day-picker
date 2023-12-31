@@ -1,15 +1,3 @@
-import { getSrc } from '@utils/getSrc';
-
-export const getStaticProps = () =>
-  getSrc([
-    'Spanish.tsx',
-    'SpanishWeekStartsOn.tsx',
-    'Rtl.tsx',
-    'WeekIso.tsx',
-    'WeeknumberCustom.tsx',
-    'NumberingSystem.tsx'
-  ]);
-
 # Localization
 
 Learn to localize DayPicker in any language.
@@ -38,7 +26,6 @@ Use the `weekStartsOn` prop to change the first day of the week:
 
 ```tsx example fileName="SpanishWeekStartsOn.tsx"
 import { DayPicker } from 'react-day-picker';
-
 import { es } from 'date-fns/locale';
 
 export function SpanishWeekStartsOn() {

@@ -1,7 +1,6 @@
-import { FocusRecursive } from './FocusRecursive';
-
 import { app, axe, freezeTime, gridcell, renderApp, user } from '../test';
 import { getFocusedElement } from '../test/selectors';
+import { FocusRecursive } from './FocusRecursive';
 
 const today = new Date(2022, 5, 10);
 freezeTime(today);

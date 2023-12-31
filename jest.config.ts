@@ -1,5 +1,3 @@
-import path from 'node:path';
-
 import { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
@@ -17,11 +15,7 @@ const config: Config.InitialOptions = {
       }
     ]
   },
-  moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-    '^react-day-picker$': path.resolve(__dirname, './src/index.ts')
-  },
-  roots: ['./src', './examples/src'],
+  roots: ['./src'],
   testEnvironment: 'jsdom',
   coverageReporters: ['lcov', 'text', 'clover'],
   setupFilesAfterEnv: ['./test/setup.ts'],

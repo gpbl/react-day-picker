@@ -1,18 +1,8 @@
-import { getSrc } from '@utils/getSrc';
-
-export const getStaticProps = () =>
-  getSrc([
-    'CustomCaption.tsx',
-    'CustomDay.tsx',
-    'RangeShiftKey.tsx',
-    'CustomDisableRow.tsx'
-  ]);
+import { Callout } from 'nextra/components';
 
 # Custom Components
 
 Use the `components` prop to replace some of the internal components used by DayPicker with a custom implementation.
-
-import { Callout } from 'nextra/components';
 
 <Callout emoji="🚧">
   This section is still under construction. If you need help, please reach out

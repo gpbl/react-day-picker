@@ -25,13 +25,13 @@
     "nextra-theme-docs": "latest",
     "react": "^18.2.0",
     "react-day-picker": "workspace:*",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-popper": "^2.3.0"
   },
   "devDependencies": {
     "@headlessui/react": "^1.7.17",
     "@swc/core": "^1.3.100",
     "@swc/jest": "^0.2.29",
-    "@tailwindcss/typography": "^0.5.10",
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
@@ -46,10 +46,13 @@
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.32",
     "raw-loader": "^4.0.2",
-    "shiki": "^0.14.6",
-    "tailwindcss": "^3.3.6",
     "ts-jest": "^29.1.1",
     "typedoc-json-parser": "^9.0.1",
     "url-loader": "^4.1.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "focus-visible": "npm:identity-obj-proxy"
+    }
   }
 }

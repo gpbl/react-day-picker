@@ -27,14 +27,14 @@ const globals = {
 const mainConfig = {
   input: pkg.source,
   output: [
-    {
-      file: pkg.browser,
-      format: 'umd',
-      name: 'DatePicker',
-      plugins: [terser()],
-      globals,
-      sourcemap: true
-    },
+    // {
+    //   file: pkg.browser,
+    //   format: 'umd',
+    //   name: 'DatePicker',
+    //   plugins: [terser()],
+    //   globals,
+    //   sourcemap: true
+    // },
     {
       file: pkg.main,
       format: 'cjs',

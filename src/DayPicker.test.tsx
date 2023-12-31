@@ -1,27 +1,9 @@
-import { render } from '@testing-library/react';
-
+import { app, renderApp } from '../test';
 import { DayPicker } from './DayPicker';
 
-const Test = () => {
-  return (
-    <>
-      <DayPicker />
-      <DayPicker mode="single" selected={new Date()} onSelect={() => {}} />
-      {/** @ts-expect-error Wrong selected prop */}
-      <DayPicker mode="multi" selected={new Date()} />
-      <DayPicker
-        mode="multi"
-        // @ts-expect-error Wrong `onSelect`
-        // eslint-disable-next-line no-console
-        onSelect={(date: Date) => console.log(date.getYear())}
-      />
-      {/** @ts-expect-error Missing required props */}
-      <DayPicker mode="none" selected={new Date()} />
-    </>
-  );
-};
+jest.useFakeTimers().setSystemTime(new Date('2023-12-10'));
 
-it('should type-check', () => {
-  render(<Test />);
-  expect(true).toBeTruthy();
+test('should render a date picker component', () => {
+  renderApp(<DayPicker />);
+  expect(app()).toMatchSnapshot();
 });

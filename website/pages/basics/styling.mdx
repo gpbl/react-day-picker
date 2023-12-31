@@ -1,16 +1,4 @@
 import { Steps, Callout } from 'nextra/components';
-import { SourceCode } from '@components/SourceCode';
-import { getSrc } from '@utils/getSrc';
-
-export const getStaticProps = () =>
-  getSrc([
-    'StylingInline.tsx',
-    'StylingModifiers.tsx',
-    'StylingCssModules.tsx',
-    'CssVariables.tsx',
-    'css-variables.module.css',
-    'styling-css-modules.module.css'
-  ]);
 
 # Styling DayPicker
 
@@ -58,10 +46,15 @@ function App() {
 
 You can also override the CSS variables using the `className` prop:
 
-<SourceCode
-  src="css-variables.module.css"
-  filename="css-variables.module.css"
-/>
+```tsx example fileName="styles/css-variables.module.css"
+import { DayPicker } from 'react-day-picker';
+
+import styles from './styles/css-variables.module.css';
+
+export function CssVariables() {
+  return <DayPicker className={styles.datePicker} />;
+}
+```
 
 ```tsx example fileName="CssVariables.tsx"
 import { DayPicker } from 'react-day-picker';
@@ -103,20 +96,8 @@ function App() {
 
 When using CSS modules, override the class names with your custom CSS:
 
-<SourceCode
-  filename="styling-css-modules.module.css"
-  src="styling-css-modules.module.css"
-/>
+```css example fileName="styles/styling-css-modules.module.css"
 
-```tsx example fileName="StylingCssModules.tsx"
-import { DayPicker } from 'react-day-picker';
-import defaultStyles from 'react-day-picker/dist/style.module.css';
-
-import customStyles from './styles/styling-css-modules.module.css';
-
-export function StylingCssModules() {
-  return <DayPicker classNames={{ ...defaultStyles, ...customStyles }} />;
-}
 ```
 
 ### Using Inline Styles

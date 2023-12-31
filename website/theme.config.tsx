@@ -5,7 +5,7 @@ import { RenderingBox } from '@components/RenderingBox';
 import * as examples from './examples';
 
 const config: DocsThemeConfig = {
-  logo: <strong>🚧 9️⃣ React DayPicker v9 </strong>,
+  logo: <strong>React DayPicker v9 </strong>,
   docsRepositoryBase: `https://github.com/gpbl/react-day-picker/tree/next/docs`,
   // primaryHue: 43,
   useNextSeoProps() {

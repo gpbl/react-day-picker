@@ -9,7 +9,7 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import { Keyboard } from './Keyboard';
+import { act } from '@testing-library/react';
 
 import {
   activeElement,
@@ -23,7 +23,7 @@ import {
   renderApp,
   user
 } from '../test';
-import { act } from '@testing-library/react';
+import { Keyboard } from './Keyboard';
 
 const today = new Date(2022, 5, 10);
 freezeTime(today);
