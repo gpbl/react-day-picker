@@ -62,7 +62,8 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
   const {
     autoFocusTarget,
     focusedDay,
-    setFocused,
+    focus,
+    blur,
     focusDayBefore,
     focusDayAfter,
     focusWeekBefore,
@@ -86,15 +87,19 @@ export function DayGridCellWrapper(props: DayGridCellWrapperProps) {
     if (!isExcluded(props.day.date)) {
       setSelected(props.day.date, modifiers, e);
     }
+    if (modifiers.focusable) {
+      focus(props.day);
+    }
     onDayClick?.(props.day.date, modifiers, e);
   };
 
   const onFocus: FocusEventHandler = (e) => {
-    setFocused(props.day);
+    focus(props.day);
     dayPicker.onDayFocus?.(props.day.date, modifiers, e);
   };
 
   const onBlur: FocusEventHandler = (e) => {
+    blur();
     onDayBlur?.(props.day.date, modifiers, e);
   };
 

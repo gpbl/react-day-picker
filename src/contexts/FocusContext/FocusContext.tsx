@@ -33,7 +33,7 @@ export interface FocusContext {
   autoFocusTarget: CalendarDay | undefined;
   initiallyFocused: boolean;
   /** Focus a date. */
-  setFocused: (day: CalendarDay) => void;
+  focus: (day: CalendarDay | undefined) => void;
   /** Blur the focused day. */
   blur: () => void;
   /** Focus the day after the focused day. */
@@ -72,12 +72,12 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const { autoFocus = false, ...dayPicker } = useDayPicker();
   const { modifiersMap } = useModifiers();
 
-  const [focusedDay, setFocusedDay] = useState<CalendarDay | undefined>();
+  const [focused, setFocused] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
   const [initiallyFocused, setInitiallyFocused] = useState(false);
 
   const autoFocusTarget =
-    focusedDay ?? (lastFocused && isDayDisplayed(lastFocused))
+    focused ?? (lastFocused && isDayDisplayed(lastFocused))
       ? lastFocused
       : modifiersMap.selected[0] ?? // autofocus the first selected day
         modifiersMap.today[0] ?? // autofocus today
@@ -89,29 +89,29 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
     if (!autoFocusTarget) return;
     if (!initiallyFocused) return;
     setInitiallyFocused(true);
-    setFocusedDay(autoFocusTarget);
-  }, [autoFocus, autoFocusTarget, focusedDay, initiallyFocused]);
+    setFocused(autoFocusTarget);
+  }, [autoFocus, autoFocusTarget, focused, initiallyFocused]);
 
   function blur() {
-    setLastFocused(focusedDay);
-    setFocusedDay(undefined);
+    setLastFocused(focused);
+    setFocused(undefined);
   }
 
   function moveFocus(moveBy: MoveFocusBy, moveDir: MoveFocusDir) {
-    if (!focusedDay) return;
-    const nextFocus = getNextFocus(moveBy, moveDir, focusedDay, dayPicker);
+    if (!focused) return;
+    const nextFocus = getNextFocus(moveBy, moveDir, focused, dayPicker);
     if (!nextFocus) return;
 
     goToDay(nextFocus);
-    setFocusedDay(nextFocus);
+    setFocused(nextFocus);
   }
 
   const value: FocusContext = {
     autoFocusTarget,
     initiallyFocused,
-    focusedDay,
+    focusedDay: focused,
     blur,
-    setFocused: setFocusedDay,
+    focus: setFocused,
     focusDayAfter: () => moveFocus('day', 'after'),
     focusDayBefore: () => moveFocus('day', 'before'),
     focusWeekAfter: () => moveFocus('week', 'after'),
@@ -144,6 +144,3 @@ export function useFocus(): FocusContext {
   }
   return context;
 }
-
-/** @deprecated Use {@link useFocus} instead. */
-export const useFocusContext = useFocus;
