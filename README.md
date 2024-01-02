@@ -27,7 +27,7 @@ Add `react-day-picker` and [date-fns](https://date-fns.org) to your dependencies
 npm install react-day-picker@next date-fns
 ```
 
-### Import DayPicker
+### Import DayPicker and its style
 
 When importing, include the DayPicker CSS in your component.
 
@@ -37,6 +37,6 @@ import 'react-day-picker/dist/style.css';
 
 export function App() {
   const [selected, setSelected] = React.useState<Date>();
-  return <DayPicker mode="single" selected={selected} onSelect={setSelected} />;
+  return <DayPicker selected={selected} onSelect={setSelected} />;
 }
 ```

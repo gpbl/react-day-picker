@@ -14,6 +14,9 @@
       "path": "."
     },
     {
+      "path": "docs"
+    },
+    {
       "path": "website"
     }
   ],
@@ -36,11 +39,7 @@
     "github-actions.workflows.pinned.workflows": [
       "react-day-picker/.github/workflows/package.yml",
       "react-day-picker/.github/workflows/website.yml"
-    ],
-    "editor.fontFamily": "Berkeley Mono, Menlo, Monaco, 'Courier New', monospace",
-    "tsImportSorter.configuration.removeLastIndexInPath": true,
-    "tsImportSorter.configuration.removeLastSlashInPath": true,
-    "jest.monitorLongRun": 5000
+    ]
   },
   "launch": {
     "version": "0.2.0",

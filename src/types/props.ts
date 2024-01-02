@@ -149,7 +149,7 @@ export interface PropsBase {
   dropdownNavigation?: boolean | 'month' | 'year';
 
   /**
-   * Display six weeks per months, regardless the month’s number of weeks.
+   * Display always 6 weeks per each month, regardless the month’s number of weeks. Weeks will be filled with the days from the next month.
    */
   fixedWeeks?: boolean;
   /**

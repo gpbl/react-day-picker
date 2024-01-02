@@ -1,0 +1,14 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "Scripts for the react-day-picker builds",
+  "main": "index.js",
+  "scripts": {
+    "generate-examples": "ts-node ./generate-examples.ts --dir=../examples --outputDir=../website/src/app/examples"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts-morph": "^21.0.1"
+  }
+}

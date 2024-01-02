@@ -1,1 +1,0 @@
-# DayPicker Examples

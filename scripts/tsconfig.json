@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2019", // Specify ECMAScript target version
+    "module": "NodeNext", // Specify module code generation
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Enables __importDefault helper for importing CommonJS modules
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
+    "noEmit": true // Do not emit output
+  },
+  "include": [
+    "**/*.ts" // Include all TypeScript files in src folder
+  ],
+  "exclude": [
+    "node_modules" // Exclude the node_modules directory
+  ]
+}

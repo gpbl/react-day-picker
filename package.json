@@ -32,6 +32,7 @@
     "typecheck-watch": "tsc --noEmit --watch"
   },
   "files": [
+    "docs",
     "dist"
   ],
   "devDependencies": {
@@ -90,5 +91,8 @@
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/gpbl"
+  },
+  "dependencies": {
+    "rollup-plugin-css-only": "^4.5.2"
   }
 }
