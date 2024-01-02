@@ -11,35 +11,25 @@
   },
   "folders": [
     {
-      "path": "."
+      "path": "src"
     },
     {
       "path": "docs"
     },
     {
       "path": "website"
+    },
+    {
+      "path": "scripts"
     }
   ],
   "settings": {
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "cSpell.enabled": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
-    "npm.packageManager": "pnpm",
-    "github-actions.workflows.pinned.workflows": [
-      "react-day-picker/.github/workflows/package.yml",
-      "react-day-picker/.github/workflows/website.yml"
-    ]
+    "npm.packageManager": "pnpm"
   },
   "launch": {
     "version": "0.2.0",
@@ -48,7 +38,7 @@
         "name": "Next.js: debug server-side",
         "type": "node-terminal",
         "request": "launch",
-        "command": "pnpm --filter docs run dev"
+        "command": "pnpm --filter website run dev"
       },
       {
         "name": "Next.js: debug client-side",
@@ -60,7 +50,7 @@
         "name": "Next.js: debug full stack",
         "type": "node-terminal",
         "request": "launch",
-        "command": "pnpm --filter docs run dev",
+        "command": "pnpm --filter website run dev",
         "serverReadyAction": {
           "pattern": "started server on .+, url: (https?://.+)",
           "uriFormat": "%s",
