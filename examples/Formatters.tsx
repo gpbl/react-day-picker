@@ -1,3 +1,4 @@
+'use client';
 import { DayPicker, Formatters } from 'react-day-picker';
 
 import { format } from 'date-fns/format';

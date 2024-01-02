@@ -19,30 +19,12 @@
   box-sizing: border-box;
 }
 
-@media (prefers-contrast: more) {
-  .rdp {
-    --rdp-opacity: 0.8;
-  }
-}
-
 .contrast_more {
   --rdp-opacity: 0.8;
 }
 
-@media (prefers-contrast: less) {
-  .rdp {
-    --rdp-opacity: 0.4;
-  }
-}
 .contrast_less {
   --rdp-opacity: 0.4;
-}
-
-@media (prefers-color-scheme: dark) {
-  .rdp {
-    --rdp-accent-color: #0a84ff;
-    --rdp-background-color: #02203d;
-  }
 }
 .color_light {
   --rdp-accent-color: #0a84ff;
@@ -52,7 +34,6 @@
   --rdp-accent-color: #0a84ff;
   --rdp-background-color: #02203d;
 }
-
 .months_wrapper {
   display: flex;
   flex-wrap: wrap;

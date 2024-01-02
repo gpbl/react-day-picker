@@ -1,3 +1,4 @@
+'use client';
 import { DayPicker } from 'react-day-picker';
 
 const availableDays = [new Date(2021, 5, 23), new Date(2021, 5, 24)];

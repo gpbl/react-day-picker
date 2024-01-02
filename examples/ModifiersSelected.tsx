@@ -1,3 +1,4 @@
+'use client';
 import { subDays } from 'date-fns';
 import { DayPicker, SelectHandler } from 'react-day-picker';
 

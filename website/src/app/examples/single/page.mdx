@@ -1,0 +1,17 @@
+import { Single } from 'react-day-picker/examples/Single';
+
+# Single
+
+
+
+<Single />
+
+```tsx
+export function Single() {
+  const [selectedDay, setSelectedDay] = useState<Date | undefined>();
+
+  return (
+    <DayPicker mode="single" selected={selectedDay} onSelect={setSelectedDay} />
+  );
+}
+```

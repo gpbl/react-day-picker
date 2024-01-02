@@ -1,0 +1,26 @@
+import { Controlled } from 'react-day-picker/examples/Controlled';
+
+# Go to Today Button
+
+Programmatically control the displayed month, such as creating a "Go to Today" button.
+
+<Controlled />
+
+```tsx
+export function Controlled() {
+  const today = new Date();
+  const nextMonth = addMonths(new Date(), 1);
+  const [month, setMonth] = useState<Date>(nextMonth);
+
+  const footer = (
+    <button
+      disabled={isSameMonth(today, month)}
+      onClick={() => setMonth(today)}
+    >
+      Go to Today
+    </button>
+  );
+
+  return <DayPicker month={month} onMonthChange={setMonth} footer={footer} />;
+}
+```

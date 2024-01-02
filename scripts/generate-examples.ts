@@ -2,6 +2,7 @@
 import { Project } from 'ts-morph';
 import * as fs from 'fs';
 import * as path from 'path';
+import { kebabCase } from 'lodash';
 
 const project = new Project();
 
@@ -71,17 +72,14 @@ function main(): void {
       .getFunctions()
       .filter((func) => func.isExported());
 
-    const example = exportedFunctions[0];
+    const func = exportedFunctions[0];
 
-    if (!example) {
-      console.log('Missing app for ', sourceFile.getFilePath());
+    if (!func) {
+      console.log('Missing exported component for ', sourceFile.getFilePath());
       return;
     }
 
-    const mdxFileName = sourceFile.getBaseName().replace('.tsx', '.mdx');
-    const mdxFilePath = path.join(outputDir, mdxFileName);
-
-    const jsDoc = example.getJsDocs()[0];
+    const jsDoc = func.getJsDocs()[0];
 
     const tags = jsDoc?.getTags().reduce(
       (acc, tag) => {
@@ -96,31 +94,37 @@ function main(): void {
       {} as { title?: string | undefined }
     );
 
-    const text = `\n${jsDoc?.getCommentText()}\n`;
+    const id = kebabCase(func.getName());
+    const name = func.getName();
+    const title = tags?.title ?? func.getName() ?? '';
+    const text = jsDoc?.getCommentText() ?? '';
+    const outDir = path.join(outputDir, id);
 
-    const mdxContent = `
-import { ${example.getName()} } from 'react-day-picker/examples/${example.getName()}';
+    if (!fs.existsSync(outDir)) {
+      fs.mkdirSync(outDir);
+    }
 
-# ${tags?.title ?? example.getName()}
+    const mdxContent = `import { ${func.getName()} } from 'react-day-picker/examples/${func.getName()}';
+
+# ${tags?.title ?? func.getName()}
+
 ${text}
-<${example.getName()} />
+
+<${func.getName()} />
 
 \`\`\`tsx
-${example.getText()}
+${func.getText()}
 \`\`\`
 `;
+
+    const mdxFilePath = path.join(outDir, `/page.mdx`);
 
     mdxFiles.push({
       filePath: mdxFilePath,
       content: mdxContent
     });
 
-    const jsonContent = {
-      name: example.getName(),
-      title: tags?.title ?? example.getName() ?? 'Example With No Name',
-      text: jsDoc?.getCommentText() ?? ''
-    };
-
+    const jsonContent = { id, name, title, text };
     jsonArr.push(jsonContent);
   });
 

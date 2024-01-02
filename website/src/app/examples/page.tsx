@@ -19,7 +19,7 @@ export default function Page() {
             key={example.name}
             title={example.title}
             description={example.text}
-            href={`examples/${example.name}`}
+            href={`examples/${example.id}`}
           />
         ))}
       </QuickLinks>

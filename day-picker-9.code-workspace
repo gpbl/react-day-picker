@@ -11,13 +11,16 @@
   },
   "folders": [
     {
-      "path": "src"
-    },
-    {
-      "path": "docs"
+      "path": ".",
     },
     {
       "path": "website"
+    },
+    {
+      "path": "examples"
+    },
+    {
+      "path": "docs"
     },
     {
       "path": "scripts"

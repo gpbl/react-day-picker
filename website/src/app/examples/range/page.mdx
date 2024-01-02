@@ -1,0 +1,20 @@
+import { Range } from 'react-day-picker/examples/Range';
+
+# Range
+
+
+
+<Range />
+
+```tsx
+export function Range() {
+  const defaultSelected: DateRange = {
+    from: new Date(),
+    to: addDays(new Date(), 4)
+  };
+
+  const [range, setRange] = useState<DateRange | undefined>(defaultSelected);
+
+  return <DayPicker mode="range" selected={range} onSelect={setRange} />;
+}
+```

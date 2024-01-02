@@ -1,0 +1,23 @@
+import { StylingInline } from 'react-day-picker/examples/StylingInline';
+
+# StylingInline
+
+
+
+<StylingInline />
+
+```tsx
+export function StylingInline() {
+  const monthCaptionStyle = {
+    borderBottom: '1px solid currentColor',
+    paddingBottom: '0.5em'
+  };
+  return (
+    <DayPicker
+      styles={{
+        month_caption: monthCaptionStyle
+      }}
+    />
+  );
+}
+```

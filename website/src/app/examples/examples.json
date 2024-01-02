@@ -1,275 +1,330 @@
 [
   {
+    "id": "container-attributes",
     "name": "ContainerAttributes",
     "title": "Container Attributes",
     "text": "Pass selected HTML attributes and `data-` attributes to the root element."
   },
   {
+    "id": "controlled",
     "name": "Controlled",
-    "title": "Controlled",
-    "text": ""
+    "title": "Go to Today Button",
+    "text": "Programmatically control the displayed month, such as creating a \"Go to Today\" button."
   },
   {
+    "id": "css-variables",
     "name": "CssVariables",
     "title": "CssVariables",
     "text": ""
   },
   {
+    "id": "custom-caption",
     "name": "CustomCaption",
     "title": "CustomCaption",
     "text": ""
   },
   {
+    "id": "custom-day",
     "name": "CustomDay",
     "title": "CustomDay",
     "text": ""
   },
   {
+    "id": "custom-disable-row",
     "name": "CustomDisableRow",
     "title": "CustomDisableRow",
     "text": ""
   },
   {
+    "id": "custom-multiple",
     "name": "CustomMultiple",
     "title": "CustomMultiple",
     "text": ""
   },
   {
+    "id": "custom-single",
     "name": "CustomSingle",
     "title": "CustomSingle",
     "text": ""
   },
   {
+    "id": "default-month",
     "name": "DefaultMonth",
     "title": "DefaultMonth",
     "text": ""
   },
   {
+    "id": "disabled",
     "name": "Disabled",
     "title": "Disabled",
     "text": ""
   },
   {
+    "id": "disable-navigation",
     "name": "DisableNavigation",
     "title": "DisableNavigation",
     "text": ""
   },
   {
+    "id": "dropdown",
     "name": "Dropdown",
     "title": "Dropdown",
     "text": ""
   },
   {
+    "id": "dropdown-buttons",
     "name": "DropdownButtons",
     "title": "DropdownButtons",
     "text": ""
   },
   {
+    "id": "dropdown-multiple-months",
     "name": "DropdownMultipleMonths",
     "title": "DropdownMultipleMonths",
     "text": ""
   },
   {
+    "id": "fixedweeks",
     "name": "Fixedweeks",
     "title": "Fixedweeks",
     "text": ""
   },
   {
+    "id": "focus-recursive",
     "name": "FocusRecursive",
     "title": "FocusRecursive",
     "text": "Test for the next focus day to not cause an infinite recursion."
   },
   {
+    "id": "formatters",
     "name": "Formatters",
     "title": "Formatters",
     "text": ""
   },
   {
+    "id": "from-to-month",
     "name": "FromToMonth",
     "title": "FromToMonth",
     "text": ""
   },
   {
+    "id": "from-to-year",
     "name": "FromToYear",
     "title": "FromToYear",
     "text": ""
   },
   {
+    "id": "input-range",
     "name": "InputRange",
     "title": "InputRange",
     "text": ""
   },
   {
+    "id": "input-time",
     "name": "InputTime",
     "title": "InputTime",
     "text": ""
   },
   {
+    "id": "keyboard",
     "name": "Keyboard",
     "title": "Keyboard",
     "text": ""
   },
   {
+    "id": "modifiers-classnames",
     "name": "ModifiersClassnames",
     "title": "ModifiersClassnames",
     "text": ""
   },
   {
+    "id": "modifiers-custom",
     "name": "ModifiersCustom",
     "title": "ModifiersCustom",
     "text": ""
   },
   {
+    "id": "modifiers-disabled",
     "name": "ModifiersDisabled",
     "title": "ModifiersDisabled",
     "text": ""
   },
   {
+    "id": "modifiers-hidden",
     "name": "ModifiersHidden",
     "title": "ModifiersHidden",
     "text": ""
   },
   {
+    "id": "modifiers-selected",
     "name": "ModifiersSelected",
     "title": "ModifiersSelected",
     "text": ""
   },
   {
+    "id": "modifiers-style",
     "name": "ModifiersStyle",
     "title": "ModifiersStyle",
     "text": ""
   },
   {
+    "id": "modifiers-today",
     "name": "ModifiersToday",
     "title": "ModifiersToday",
     "text": ""
   },
   {
+    "id": "multiple",
     "name": "Multiple",
     "title": "Multiple",
     "text": ""
   },
   {
+    "id": "multiple-min-max",
     "name": "MultipleMinMax",
     "title": "MultipleMinMax",
     "text": ""
   },
   {
+    "id": "multiple-months",
     "name": "MultipleMonths",
     "title": "MultipleMonths",
     "text": ""
   },
   {
+    "id": "multiple-months-id",
     "name": "MultipleMonthsId",
     "title": "MultipleMonthsId",
     "text": ""
   },
   {
+    "id": "multiple-months-paged",
     "name": "MultipleMonthsPaged",
     "title": "MultipleMonthsPaged",
     "text": ""
   },
   {
+    "id": "none",
     "name": "None",
     "title": "None",
     "text": ""
   },
   {
+    "id": "numbering-system",
     "name": "NumberingSystem",
     "title": "NumberingSystem",
     "text": ""
   },
   {
+    "id": "outside-days",
     "name": "OutsideDays",
     "title": "OutsideDays",
     "text": ""
   },
   {
+    "id": "range",
     "name": "Range",
     "title": "Range",
     "text": ""
   },
   {
+    "id": "range-min-max",
     "name": "RangeMinMax",
     "title": "RangeMinMax",
     "text": ""
   },
   {
+    "id": "range-shift-key",
     "name": "RangeShiftKey",
     "title": "RangeShiftKey",
     "text": ""
   },
   {
+    "id": "rtl",
     "name": "Rtl",
     "title": "Rtl",
     "text": ""
   },
   {
+    "id": "single",
     "name": "Single",
     "title": "Single",
     "text": ""
   },
   {
+    "id": "single-required",
     "name": "SingleRequired",
     "title": "SingleRequired",
     "text": ""
   },
   {
+    "id": "spanish",
     "name": "Spanish",
     "title": "Spanish",
     "text": ""
   },
   {
+    "id": "spanish-week-starts-on",
     "name": "SpanishWeekStartsOn",
     "title": "SpanishWeekStartsOn",
     "text": ""
   },
   {
+    "id": "start",
     "name": "Start",
     "title": "Start",
     "text": ""
   },
   {
+    "id": "styling-css",
     "name": "StylingCss",
     "title": "StylingCss",
     "text": ""
   },
   {
+    "id": "styling-css-modules",
     "name": "StylingCssModules",
     "title": "StylingCssModules",
     "text": ""
   },
   {
+    "id": "styling-inline",
     "name": "StylingInline",
     "title": "StylingInline",
     "text": ""
   },
   {
+    "id": "styling-modifiers",
     "name": "StylingModifiers",
     "title": "StylingModifiers",
     "text": ""
   },
   {
+    "id": "testcase-1567",
     "name": "Testcase1567",
     "title": "Testcase1567",
     "text": "Test case for issue #1567"
   },
   {
+    "id": "week-iso",
     "name": "WeekIso",
     "title": "WeekIso",
     "text": ""
   },
   {
+    "id": "weeknumber",
     "name": "Weeknumber",
     "title": "Weeknumber",
     "text": ""
   },
   {
+    "id": "weeknumber-custom",
     "name": "WeeknumberCustom",
     "title": "WeeknumberCustom",
     "text": ""
   },
   {
+    "id": "weeknumber-iso",
     "name": "WeeknumberIso",
     "title": "WeeknumberIso",
     "text": ""

@@ -1,0 +1,14 @@
+import { Start } from 'react-day-picker/examples/Start';
+
+# Start
+
+
+
+<Start />
+
+```tsx
+export function Start() {
+  const [selected, setSelected] = useState<Date | undefined>();
+  return <DayPicker mode="single" selected={selected} onSelect={setSelected} />;
+}
+```

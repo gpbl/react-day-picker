@@ -1,3 +1,4 @@
+'use client';
 import { DateRange, DayPicker, SelectHandler } from 'react-day-picker';
 
 import { format, isAfter, isBefore, isValid, parse } from 'date-fns';

@@ -1,3 +1,4 @@
+'use client';
 import { DayPicker, DayPickerProps } from 'react-day-picker';
 
 export function Keyboard(props: DayPickerProps) {

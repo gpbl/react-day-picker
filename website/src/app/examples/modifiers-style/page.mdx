@@ -1,0 +1,24 @@
+import { ModifiersStyle } from 'react-day-picker/examples/ModifiersStyle';
+
+# ModifiersStyle
+
+
+
+<ModifiersStyle />
+
+```tsx
+export function ModifiersStyle() {
+  return (
+    <DayPicker
+      mode="single"
+      defaultMonth={availableDays[0]}
+      modifiers={{
+        available: availableDays
+      }}
+      modifiersStyles={{
+        available: availableStyle
+      }}
+    />
+  );
+}
+```

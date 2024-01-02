@@ -1,3 +1,4 @@
+'use client';
 import { DayPicker } from 'react-day-picker';
 
 import styles from './styles/css-variables.module.css';

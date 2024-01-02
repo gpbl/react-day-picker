@@ -1,3 +1,4 @@
+'use client';
 import { DayMouseEventHandler, DayPicker } from 'react-day-picker';
 
 const bookedDays = [
