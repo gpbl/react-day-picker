@@ -21,7 +21,7 @@
     "@docusaurus/theme-classic": "^2.4.3",
     "@mdx-js/react": "^1.6.22",
     "@popperjs/core": "^2.11.8",
-    "clsx": "^2.0.0",
+    "clsx": "^2.1.0",
     "focus-trap-react": "10.2.3",
     "prism-react-renderer": "^1.3.5",
     "react": "^18.2.0",
