@@ -1,7 +1,8 @@
 'use client';
-import { DayPicker } from 'react-day-picker';
 
 import { useState } from 'react';
+import { DayPicker } from '../src/DayPicker';
+import 'react-day-picker/dist/style.css';
 
 export function MultipleMinMax() {
   const [selected, setSelected] = useState<Date[]>();

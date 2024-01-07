@@ -1,7 +1,7 @@
-import { ModifiersDisabled } from './ModifiersDisabled';
 import { render } from '@testing-library/react';
 
-import { freezeTime, gridcell } from '../test';
+import { gridcell } from '../test/elements';
+import { ModifiersDisabled } from './ModifiersDisabled';
 
 const days = [
   new Date(2022, 5, 10),
@@ -9,7 +9,7 @@ const days = [
   new Date(2022, 5, 20)
 ];
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   render(<ModifiersDisabled />);

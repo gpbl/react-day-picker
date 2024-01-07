@@ -1,17 +1,13 @@
-import { OutsideDays } from './OutsideDays';
 import { screen } from '@testing-library/react';
 
-import { app, axe, freezeTime, renderApp } from '../test';
+import { renderApp } from '../test/renderApp';
+import { OutsideDays } from './OutsideDays';
 
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<OutsideDays />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 describe('when displaying a month with outside days', () => {

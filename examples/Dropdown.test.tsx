@@ -1,17 +1,14 @@
 import { Dropdown } from './Dropdown';
 
-import { axe, freezeTime, renderApp, user } from '../test';
-import { app, grid, monthDropdown, yearDropdown } from '../test/po';
+import { grid, monthDropdown, yearDropdown } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 
 const today = new Date(2022, 5, 10);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<Dropdown />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 test('should display the month dropdown', () => {

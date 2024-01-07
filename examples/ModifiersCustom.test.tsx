@@ -1,6 +1,6 @@
+import { gridcell } from '../test/elements';
+import { renderApp } from '../test/renderApp';
 import { ModifiersCustom } from './ModifiersCustom';
-
-import { gridcell, renderApp } from '../test';
 
 beforeEach(() => {
   renderApp(<ModifiersCustom />);

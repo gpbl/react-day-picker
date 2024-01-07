@@ -15,7 +15,14 @@ const config: Config.InitialOptions = {
       }
     ]
   },
-  roots: ['./src'],
+  moduleNameMapper: {
+    '\\.css$': 'identity-obj-proxy',
+    '^react-day-picker$':
+      process.env.TEST_ENV === 'build'
+        ? '<rootDir>/dist/index.cjs'
+        : '<rootDir>/src/index.ts'
+  },
+  roots: ['./src', './examples'],
   testEnvironment: 'jsdom',
   coverageReporters: ['lcov', 'text', 'clover'],
   setupFilesAfterEnv: ['./test/setup.ts'],

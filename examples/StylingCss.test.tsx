@@ -1,9 +1,9 @@
+import { app } from '../test/elements';
+import { renderApp } from '../test/renderApp';
 import { StylingCss } from './StylingCss';
 
-import { app, freezeTime, renderApp } from '../test';
-
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<StylingCss />);

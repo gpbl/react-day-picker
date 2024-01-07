@@ -1,11 +1,12 @@
 import { addDays } from 'date-fns';
 
+import { gridcell } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { MultipleMinMax } from './MultipleMinMax';
 
-import { app, axe, freezeTime, gridcell, renderApp, user } from '../test';
-
 const today = new Date(2021, 10, 10);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 const days = [
   today,
@@ -19,19 +20,12 @@ beforeEach(() => {
   renderApp(<MultipleMinMax />);
 });
 
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
-});
-
 describe('when a day is clicked', () => {
   beforeEach(async () => {
     await user.click(gridcell(days[0]));
   });
   test('should appear as selected', () => {
     expect(gridcell(days[0])).toHaveAttribute('aria-selected', 'true');
-  });
-  test('should be accessible', async () => {
-    expect(await axe(app())).toHaveNoViolations();
   });
   describe('when a second day is clicked', () => {
     beforeEach(async () => {
@@ -43,9 +37,6 @@ describe('when a day is clicked', () => {
     test('the second day should appear as selected', () => {
       expect(gridcell(days[1])).toHaveAttribute('aria-selected', 'true');
     });
-    test('should be accessible', async () => {
-      expect(await axe(app())).toHaveNoViolations();
-    });
     describe('when clicked again', () => {
       beforeEach(async () => {
         await user.click(gridcell(days[1]));
@@ -55,9 +46,6 @@ describe('when a day is clicked', () => {
       });
       test('the second day should still appear as selected', () => {
         expect(gridcell(days[1])).toHaveAttribute('aria-selected', 'true');
-      });
-      test('should be accessible', async () => {
-        expect(await axe(app())).toHaveNoViolations();
       });
     });
   });

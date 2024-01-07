@@ -1,16 +1,16 @@
+import { grid, nav } from '../../../test/elements';
+import { render } from '../../../test/render';
 import { Calendar } from './Calendar';
-import { grid, nav } from '../../../test';
-import { renderWithContext } from '../../../test/render';
 
 it('should render the navigation and month grids', () => {
-  renderWithContext(<Calendar />);
+  render(<Calendar />);
 
   expect(nav()).toBeInTheDocument();
   expect(grid()).toBeInTheDocument();
 });
 
 it('should apply classnames and style according to props', () => {
-  const { container } = renderWithContext(<Calendar />, {
+  const { container } = render(<Calendar />, {
     className: 'custom-class',
     numberOfMonths: 2,
     contrast: 'more',
@@ -29,7 +29,7 @@ it('should apply classnames and style according to props', () => {
 });
 
 it('should use custom components', () => {
-  const { container } = renderWithContext(<Calendar />, {
+  const { container } = render(<Calendar />, {
     footer: 'foo',
     components: {
       Nav: () => <div>Custom Navigation</div>,

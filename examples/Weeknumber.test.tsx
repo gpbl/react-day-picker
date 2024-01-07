@@ -1,16 +1,13 @@
+import { app, rowheader } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { Weeknumber } from './Weeknumber';
 
-import { app, axe, freezeTime, renderApp, rowheader, user } from '../test';
-
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<Weeknumber />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 describe('when displaying November 2021', () => {

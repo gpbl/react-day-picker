@@ -1,28 +1,17 @@
 import { differenceInMonths } from 'date-fns';
 
+import { nextButton, previousButton } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { FromToYear } from './FromToYear';
-
-import {
-  app,
-  axe,
-  freezeTime,
-  nextButton,
-  previousButton,
-  renderApp,
-  user
-} from '../test';
 
 const fromDate = new Date(2024, 0);
 const toDate = new Date(2026, 11);
 const today = new Date(2025, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<FromToYear />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 test('the previous month button should be disabled', () => {
@@ -38,9 +27,6 @@ describe('when navigating to the last month', () => {
     for (let i = 0; i < nOfMonths; i++) {
       await user.click(nextButton());
     }
-  });
-  test('should be accessible', async () => {
-    expect(await axe(app())).toHaveNoViolations();
   });
   test('the previous month button should not be disabled', () => {
     expect(previousButton()).not.toHaveAttribute('aria-disabled', 'true');

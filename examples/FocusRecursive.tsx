@@ -1,5 +1,6 @@
 'use client';
 import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
 
 /** Test for the next focus day to not cause an infinite recursion. */
 export function FocusRecursive() {

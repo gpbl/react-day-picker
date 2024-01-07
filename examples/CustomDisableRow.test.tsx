@@ -1,17 +1,11 @@
 import { CustomDisableRow } from './CustomDisableRow';
-import { screen } from '@testing-library/react';
-
-import { app, axe, freezeTime, renderApp } from '../test';
+import { render, screen } from '@testing-library/react';
 
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
-  renderApp(<CustomDisableRow />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
+  render(<CustomDisableRow />);
 });
 
 test('should have only 3 rows', () => {

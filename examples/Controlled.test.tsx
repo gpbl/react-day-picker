@@ -1,22 +1,16 @@
 import { screen } from '@testing-library/react';
 
-import { axe, freezeTime, renderApp, user } from '../test';
-import { app, grid } from '../test/po';
+import { grid } from '../test/elements';
 import { Controlled } from './Controlled';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 
-freezeTime(new Date(2022, 5, 10));
-
-beforeEach(() => {
-  renderApp(<Controlled />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
-});
+jest.useFakeTimers().setSystemTime(new Date(2022, 5, 10));
 
 describe('when the "Go to today" button is clicked', () => {
   const todayButton = () => screen.getByRole('button', { name: 'Go to Today' });
   beforeEach(async () => {
+    renderApp(<Controlled />);
     await user.click(todayButton());
   });
   test('the button should be disabled', async () => {

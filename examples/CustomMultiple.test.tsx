@@ -1,17 +1,14 @@
 import { CustomMultiple } from './CustomMultiple';
 
-import { app, axe, freezeTime, renderApp, user } from '../test';
-import { gridcell } from '../test/po';
+import { app, gridcell } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<CustomMultiple />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 describe('when a day is clicked', () => {

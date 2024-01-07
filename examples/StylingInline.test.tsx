@@ -1,10 +1,9 @@
+import { grid } from '../test/elements';
+import { renderApp } from '../test/renderApp';
 import { StylingInline } from './StylingInline';
 
-import { freezeTime, renderApp } from '../test';
-import { grid } from '../test/po';
-
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<StylingInline />);

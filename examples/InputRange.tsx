@@ -1,5 +1,6 @@
 'use client';
 import { DateRange, DayPicker, SelectHandler } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
 
 import { format, isAfter, isBefore, isValid, parse } from 'date-fns';
 import { ChangeEventHandler, useState } from 'react';

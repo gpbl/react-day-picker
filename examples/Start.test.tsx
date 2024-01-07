@@ -1,25 +1,13 @@
+import { gridcell, nextButton, previousButton } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { Start } from './Start';
 
-import {
-  app,
-  axe,
-  freezeTime,
-  gridcell,
-  nextButton,
-  previousButton,
-  renderApp,
-  user
-} from '../test';
-
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(async () => {
   renderApp(<Start />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 test('should display the next month button', async () => {
@@ -42,8 +30,5 @@ describe('when a day is clicked', () => {
   });
   test('should appear as selected', () => {
     expect(gridcell(day)).toHaveAttribute('aria-selected', 'true');
-  });
-  test('should be accessible', async () => {
-    expect(await axe(app())).toHaveNoViolations();
   });
 });

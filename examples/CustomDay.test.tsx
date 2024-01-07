@@ -1,7 +1,8 @@
-import { app, freezeTime, renderApp } from '../test';
+import { app } from '../test/elements';
+import { renderApp } from '../test/renderApp';
 import { CustomDay } from './CustomDay';
 
-freezeTime(new Date(2021, 10, 25));
+jest.useFakeTimers().setSystemTime(new Date(2021, 10, 25));
 
 beforeEach(() => {
   renderApp(<CustomDay />);

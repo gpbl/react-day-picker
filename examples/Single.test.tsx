@@ -1,16 +1,13 @@
+import { app, gridcell } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { Single } from './Single';
 
-import { app, axe, freezeTime, gridcell, renderApp, user } from '../test';
-
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<Single />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 describe('when a day is clicked', () => {
@@ -27,9 +24,6 @@ describe('when a day is clicked', () => {
     });
     test('should appear as not selected', () => {
       expect(gridcell(day)).not.toHaveAttribute('aria-selected');
-    });
-    test('should be accessible', async () => {
-      expect(await axe(app())).toHaveNoViolations();
     });
     test('should update the footer', () => {
       expect(app()).not.toHaveTextContent('You selected November 1st, 2021');

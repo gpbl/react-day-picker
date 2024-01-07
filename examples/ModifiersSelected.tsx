@@ -1,6 +1,7 @@
 'use client';
 import { subDays } from 'date-fns';
 import { DayPicker, SelectHandler } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
 
 export function ModifiersSelected() {
   const yesterday = subDays(new Date(), 1);

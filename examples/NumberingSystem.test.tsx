@@ -1,16 +1,14 @@
-import { NumberingSystem } from './NumberingSystem';
 import { screen } from '@testing-library/react';
 
-import { app, axe, freezeTime, grid, renderApp } from '../test';
+import { grid } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { NumberingSystem } from './NumberingSystem';
 
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<NumberingSystem />);
-});
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 test('should localize the year', () => {

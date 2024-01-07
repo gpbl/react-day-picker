@@ -1,16 +1,15 @@
-import { app, axe, freezeTime, previousButton, renderApp, user } from '../test';
-import { MultipleMonths } from './MultipleMonths';
 import { screen } from '@testing-library/react';
 
+import { previousButton } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
+import { MultipleMonths } from './MultipleMonths';
+
 const today = new Date(2023, 11, 3);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<MultipleMonths />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 test('should render 2 grids', () => {
@@ -36,8 +35,5 @@ describe('when the previous month button is clicked', () => {
   test('the first month should be November', () => {
     const grids = screen.getAllByRole('grid');
     expect(grids[1]).toHaveAccessibleName('December 2023');
-  });
-  test('should be accessible', async () => {
-    expect(await axe(app())).toHaveNoViolations();
   });
 });

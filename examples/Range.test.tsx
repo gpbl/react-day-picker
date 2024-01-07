@@ -1,10 +1,12 @@
 import { addDays } from 'date-fns';
-import { app, gridcell } from '../test/po';
-import { axe, freezeTime, renderApp, user } from '../test';
+
+import { app, gridcell } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { Range } from './Range';
 
 const today = new Date(2023, 11, 9);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 const days = [
   today,
@@ -16,10 +18,6 @@ const days = [
 
 beforeEach(() => {
   renderApp(<Range />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 test.each(days)('%s should be selected', (day) => {

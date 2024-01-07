@@ -1,9 +1,9 @@
+import { grid } from '../test/elements';
+import { renderApp } from '../test/renderApp';
 import { MultipleMonthsId } from './MultipleMonthsId';
 
-import { freezeTime, grid, renderApp } from '../test';
-
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 test('the table ids should include the display index', () => {
   renderApp(<MultipleMonthsId />);

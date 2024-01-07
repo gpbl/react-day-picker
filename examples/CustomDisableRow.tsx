@@ -1,5 +1,6 @@
 'use client';
 import { DayPicker, WeekRow, WeekRowProps } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
 
 import { differenceInCalendarDays } from 'date-fns';
 

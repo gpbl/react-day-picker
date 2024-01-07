@@ -1,5 +1,6 @@
 'use client';
 import { DayMouseEventHandler, DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
 
 const bookedDays = [
   new Date(2024, 5, 8),

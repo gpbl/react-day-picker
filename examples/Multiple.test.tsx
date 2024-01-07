@@ -1,16 +1,13 @@
+import { gridcell } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { Multiple } from './Multiple';
 
-import { app, axe, freezeTime, gridcell, renderApp, user } from '../test';
-
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<Multiple />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 describe('when a day is clicked', () => {

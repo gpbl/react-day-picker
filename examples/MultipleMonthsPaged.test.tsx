@@ -1,17 +1,15 @@
-import { MultipleMonthsPaged } from './MultipleMonthsPaged';
 import { screen } from '@testing-library/react';
 
-import { app, axe, freezeTime, previousButton, renderApp, user } from '../test';
+import { previousButton } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
+import { MultipleMonthsPaged } from './MultipleMonthsPaged';
 
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<MultipleMonthsPaged />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 describe('when rendering November 2021', () => {

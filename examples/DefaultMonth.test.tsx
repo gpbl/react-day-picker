@@ -1,9 +1,9 @@
+import { grid } from '../test/elements';
+import { renderApp } from '../test/renderApp';
 import { DefaultMonth } from './DefaultMonth';
 
-import { freezeTime, grid, renderApp } from '../test';
-
 const today = new Date(2022, 5, 10);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 test('should display September 1979', () => {
   renderApp(<DefaultMonth />);

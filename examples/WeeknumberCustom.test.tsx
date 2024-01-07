@@ -1,6 +1,6 @@
+import { rowheader } from '../test/elements';
+import { renderApp } from '../test/renderApp';
 import { WeeknumberCustom } from './WeeknumberCustom';
-
-import { renderApp, rowheader } from '../test';
 
 beforeEach(() => {
   renderApp(<WeeknumberCustom />);

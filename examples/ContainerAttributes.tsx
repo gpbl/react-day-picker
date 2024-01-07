@@ -1,5 +1,6 @@
 'use client';
 import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
 
 /**
  * Pass selected HTML attributes and `data-` attributes to the root element.

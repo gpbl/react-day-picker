@@ -26,14 +26,17 @@
 .contrast_less {
   --rdp-opacity: 0.4;
 }
+
 .color_light {
   --rdp-accent-color: #0a84ff;
   --rdp-background-color: #02203d;
 }
+
 .color_dark {
   --rdp-accent-color: #0a84ff;
   --rdp-background-color: #02203d;
 }
+
 .months_wrapper {
   display: flex;
   flex-wrap: wrap;

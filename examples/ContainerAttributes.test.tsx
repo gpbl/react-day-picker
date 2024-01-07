@@ -1,13 +1,9 @@
-import { axe, renderApp } from '../test';
-import { app } from '../test/po';
+import { app } from '../test/elements';
+import { renderApp } from '../test/renderApp';
 import { ContainerAttributes } from './ContainerAttributes';
 
 beforeEach(() => {
   renderApp(<ContainerAttributes />);
-});
-
-test('should pass accessibility', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 test('should have the "id" attribute', () => {

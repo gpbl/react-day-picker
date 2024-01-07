@@ -1,13 +1,12 @@
 import { es } from 'date-fns/locale/es';
 
-import { freezeTime } from '../../../../test/utils';
 import { getWeekdays } from './getWeekdays';
 
 const today = new Date(2022, 1, 12);
 const prevSunday = new Date(2022, 1, 6);
 const prevMonday = new Date(2022, 1, 7);
 
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 let result: Date[];
 

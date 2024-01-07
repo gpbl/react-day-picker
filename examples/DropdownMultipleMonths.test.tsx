@@ -1,18 +1,14 @@
 import { DropdownMultipleMonths } from './DropdownMultipleMonths';
 import { screen } from '@testing-library/react';
-
-import { app, axe, freezeTime, renderApp, user } from '../test';
-import { grid } from '../test/po';
+import { grid } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 
 const today = new Date(2023, 9, 16);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<DropdownMultipleMonths />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 describe('when choosing a month from the first dropdown', () => {

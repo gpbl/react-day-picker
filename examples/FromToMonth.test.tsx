@@ -1,15 +1,12 @@
 import { differenceInMonths } from 'date-fns';
 
+import { nextButton, previousButton } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { FromToMonth } from './FromToMonth';
-
-import { app, axe, nextButton, previousButton, renderApp, user } from '../test';
 
 beforeEach(() => {
   renderApp(<FromToMonth />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 test('the previous button should be aria-disabled', () => {

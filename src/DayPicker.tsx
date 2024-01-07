@@ -10,8 +10,6 @@ import type {
   PropsSingle
 } from './types/props';
 
-import './style.css';
-
 export type DayPickerProps<T extends Mode = 'single'> = PropsBase &
   PropsSelection<T> &
   (T extends 'single'

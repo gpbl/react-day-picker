@@ -1,6 +1,6 @@
+import { gridcell } from '../test/elements';
+import { renderApp } from '../test/renderApp';
 import { ModifiersClassnames } from './ModifiersClassnames';
-
-import { freezeTime, gridcell, renderApp } from '../test';
 
 const days = [
   new Date(2021, 5, 8),
@@ -9,7 +9,7 @@ const days = [
 ];
 
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<ModifiersClassnames />);

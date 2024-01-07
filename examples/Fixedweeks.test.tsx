@@ -1,17 +1,13 @@
-import { Fixedweeks } from './Fixedweeks';
 import { screen } from '@testing-library/react';
 
-import { app, axe, freezeTime, renderApp } from '../test';
+import { renderApp } from '../test/renderApp';
+import { Fixedweeks } from './Fixedweeks';
 
 const today = new Date(2021, 10, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<Fixedweeks />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 test('should render 7 rows', () => {

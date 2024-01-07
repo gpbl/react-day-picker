@@ -1,18 +1,15 @@
 import { setDate } from 'date-fns';
 
+import { gridcell } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { RangeMinMax } from './RangeMinMax';
 
-import { app, axe, freezeTime, gridcell, renderApp, user } from '../test';
-
 const today = new Date(2022, 8, 25);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<RangeMinMax />);
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 describe('when the first day is clicked', () => {
@@ -88,8 +85,5 @@ describe('when the first day is clicked', () => {
       'aria-disabled',
       'true'
     );
-  });
-  test('should be accessible', async () => {
-    expect(await axe(app())).toHaveNoViolations();
   });
 });

@@ -1,11 +1,12 @@
 import { addDays } from 'date-fns';
 
+import { app, gridcell } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { ModifiersToday } from './ModifiersToday';
 
-import { app, freezeTime, gridcell, renderApp, user } from '../test';
-
 const today = new Date(2022, 5, 10);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(() => {
   renderApp(<ModifiersToday />);

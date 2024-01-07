@@ -1,6 +1,8 @@
-import { RangeShiftKey } from './RangeShiftKey';
-import { renderApp, user } from '../test';
 import { fireEvent, screen } from '@testing-library/react';
+
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
+import { RangeShiftKey } from './RangeShiftKey';
 
 const gridcell = (day: number) => {
   return screen.getByRole('gridcell', { name: day.toString() });

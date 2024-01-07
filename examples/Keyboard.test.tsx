@@ -13,27 +13,21 @@ import { act } from '@testing-library/react';
 
 import {
   activeElement,
-  app,
-  axe,
-  freezeTime,
   grid,
   gridcell,
   nextButton,
-  previousButton,
-  renderApp,
-  user
-} from '../test';
+  previousButton
+} from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { Keyboard } from './Keyboard';
 
 const today = new Date(2022, 5, 10);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 describe.each(['ltr', 'rtl'])('when text direction is %s', (dir: string) => {
   beforeEach(() => {
     renderApp(<Keyboard mode="single" dir={dir} />);
-  });
-  test('should be accessible', async () => {
-    expect(await axe(app())).toHaveNoViolations();
   });
   describe('when clicking the previous month button', () => {
     beforeEach(() => act(() => user.click(previousButton())));

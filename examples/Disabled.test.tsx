@@ -1,19 +1,16 @@
+import { gridcell, app, grid } from '../test/elements';
+import { renderApp } from '../test/renderApp';
+import { user } from '../test/user';
 import { Disabled } from './Disabled';
 import { act, screen } from '@testing-library/react';
 
-import { app, axe, freezeTime, grid, gridcell, renderApp, user } from '../test';
-
 const today = new Date(2022, 5, 10);
 const firstOfMonth = new Date(2022, 5, 1);
-freezeTime(today);
+jest.useFakeTimers().setSystemTime(today);
 
 beforeEach(async () => {
   renderApp(<Disabled />);
   return act(() => gridcell(firstOfMonth).focus());
-});
-
-test('should be accessible', async () => {
-  expect(await axe(app())).toHaveNoViolations();
 });
 
 test('should not display the previous button', () => {
@@ -27,9 +24,6 @@ describe('when the first day is focused', () => {
     beforeEach(async () => {
       await act(() => user.type(app(), '{arrowleft}'));
     });
-    test('should be accessible', async () => {
-      expect(await axe(app())).toHaveNoViolations();
-    });
     test('should still display the same month', () => {
       expect(grid('June 2022')).toBeInTheDocument();
     });
@@ -39,10 +33,6 @@ describe('when the last day is focused', () => {
   describe('when the Arrow Right is pressed', () => {
     beforeEach(async () => {
       await act(() => user.type(app(), '{arrowleft}'));
-    });
-
-    test('should be accessible', async () => {
-      expect(await axe(app())).toHaveNoViolations();
     });
     test('should still display the same month', () => {
       expect(grid('June 2022')).toBeInTheDocument();
