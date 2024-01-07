@@ -20,7 +20,8 @@ const config: Config.InitialOptions = {
     '^react-day-picker$':
       process.env.TEST_ENV === 'build'
         ? '<rootDir>/dist/index.cjs'
-        : '<rootDir>/src/index.ts'
+        : '<rootDir>/src/index.ts',
+    '^@test/(.*)$': '<rootDir>/test/$1'
   },
   roots: ['./src', './examples'],
   testEnvironment: 'jsdom',

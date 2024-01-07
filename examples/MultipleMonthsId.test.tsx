@@ -1,5 +1,6 @@
-import { grid } from '../test/elements';
-import { renderApp } from '../test/renderApp';
+import { grid } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+
 import { MultipleMonthsId } from './MultipleMonthsId';
 
 const today = new Date(2021, 10, 25);

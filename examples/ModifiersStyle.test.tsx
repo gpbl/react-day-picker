@@ -1,5 +1,6 @@
-import { gridcell } from '../test/elements';
-import { renderApp } from '../test/renderApp';
+import { gridcell } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+
 import { ModifiersStyle } from './ModifiersStyle';
 
 const today = new Date(2021, 10, 25);

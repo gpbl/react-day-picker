@@ -1,8 +1,9 @@
-import { DropdownMultipleMonths } from './DropdownMultipleMonths';
+import { grid } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
 import { screen } from '@testing-library/react';
-import { grid } from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
+
+import { DropdownMultipleMonths } from './DropdownMultipleMonths';
 
 const today = new Date(2023, 9, 16);
 jest.useFakeTimers().setSystemTime(today);

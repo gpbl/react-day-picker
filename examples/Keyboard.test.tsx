@@ -9,17 +9,17 @@ import {
   startOfWeek
 } from 'date-fns';
 
-import { act } from '@testing-library/react';
-
 import {
   activeElement,
   grid,
   gridcell,
   nextButton,
   previousButton
-} from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
+} from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
+import { act } from '@testing-library/react';
+
 import { Keyboard } from './Keyboard';
 
 const today = new Date(2022, 5, 10);

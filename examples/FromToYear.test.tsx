@@ -1,8 +1,9 @@
 import { differenceInMonths } from 'date-fns';
 
-import { nextButton, previousButton } from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
+import { nextButton, previousButton } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
+
 import { FromToYear } from './FromToYear';
 
 const fromDate = new Date(2024, 0);

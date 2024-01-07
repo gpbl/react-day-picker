@@ -1,6 +1,6 @@
+import { renderApp } from '@test/renderApp';
 import { screen } from '@testing-library/react';
 
-import { renderApp } from '../test/renderApp';
 import { OutsideDays } from './OutsideDays';
 
 const today = new Date(2021, 10, 25);

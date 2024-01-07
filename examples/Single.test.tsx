@@ -1,6 +1,7 @@
-import { app, gridcell } from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
+import { app, gridcell } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
+
 import { Single } from './Single';
 
 const today = new Date(2021, 10, 25);

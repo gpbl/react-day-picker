@@ -1,8 +1,9 @@
-import { gridcell, app, grid } from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
-import { Disabled } from './Disabled';
+import { app, grid, gridcell } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
 import { act, screen } from '@testing-library/react';
+
+import { Disabled } from './Disabled';
 
 const today = new Date(2022, 5, 10);
 const firstOfMonth = new Date(2022, 5, 1);

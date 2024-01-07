@@ -1,8 +1,8 @@
+import { previousButton } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
 import { screen } from '@testing-library/react';
 
-import { previousButton } from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
 import { MultipleMonthsPaged } from './MultipleMonthsPaged';
 
 const today = new Date(2021, 10, 25);

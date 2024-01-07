@@ -1,6 +1,7 @@
-import { app, grid, nextButton, previousButton } from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
+import { app, grid, nextButton, previousButton } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
+
 import { Rtl } from './Rtl';
 
 const today = new Date(2021, 10, 25);

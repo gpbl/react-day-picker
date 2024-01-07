@@ -1,8 +1,9 @@
 import { setDate } from 'date-fns';
 
-import { gridcell } from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
+import { gridcell } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
+
 import { RangeMinMax } from './RangeMinMax';
 
 const today = new Date(2022, 8, 25);

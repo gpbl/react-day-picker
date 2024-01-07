@@ -1,12 +1,13 @@
 import {
-  yearDropdown,
+  grid,
   monthDropdown,
   nextButton,
   previousButton,
-  grid
-} from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
+  yearDropdown
+} from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
+
 import { DropdownButtons } from './DropdownButtons';
 
 const today = new Date(2022, 5, 10);

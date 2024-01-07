@@ -1,8 +1,9 @@
 import { addDays } from 'date-fns';
 
-import { gridcell } from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
+import { gridcell } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
+
 import { MultipleMinMax } from './MultipleMinMax';
 
 const today = new Date(2021, 10, 10);

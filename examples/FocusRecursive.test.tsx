@@ -1,6 +1,7 @@
-import { activeElement, gridcell } from '../test/elements';
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
+import { activeElement, gridcell } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
+
 import { FocusRecursive } from './FocusRecursive';
 
 const today = new Date(2022, 5, 10);

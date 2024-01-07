@@ -1,6 +1,6 @@
+import { gridcell } from '@test/elements';
 import { render } from '@testing-library/react';
 
-import { gridcell } from '../test/elements';
 import { ModifiersDisabled } from './ModifiersDisabled';
 
 const days = [

@@ -1,7 +1,7 @@
+import { renderApp } from '@test/renderApp';
+import { user } from '@test/user';
 import { screen } from '@testing-library/react';
 
-import { renderApp } from '../test/renderApp';
-import { user } from '../test/user';
 /* eslint-disable jest/no-disabled-tests */
 import { Testcase1567 } from './Testcase1567';
 

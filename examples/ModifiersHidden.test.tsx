@@ -1,6 +1,6 @@
+import { renderApp } from '@test/renderApp';
 import { screen } from '@testing-library/react';
 
-import { renderApp } from '../test/renderApp';
 import { ModifiersHidden } from './ModifiersHidden';
 
 const days = [

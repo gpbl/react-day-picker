@@ -1,5 +1,6 @@
-import { gridcell } from '../test/elements';
-import { renderApp } from '../test/renderApp';
+import { gridcell } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+
 import { ModifiersClassnames } from './ModifiersClassnames';
 
 const days = [

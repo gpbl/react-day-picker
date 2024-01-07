@@ -1,5 +1,6 @@
-import { app } from '../test/elements';
-import { renderApp } from '../test/renderApp';
+import { app } from '@test/elements';
+import { renderApp } from '@test/renderApp';
+
 import { StylingCssModules } from './StylingCssModules';
 
 const today = new Date(2021, 10, 25);

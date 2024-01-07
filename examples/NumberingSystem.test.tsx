@@ -1,7 +1,7 @@
+import { grid } from '@test/elements';
+import { renderApp } from '@test/renderApp';
 import { screen } from '@testing-library/react';
 
-import { grid } from '../test/elements';
-import { renderApp } from '../test/renderApp';
 import { NumberingSystem } from './NumberingSystem';
 
 const today = new Date(2021, 10, 25);
