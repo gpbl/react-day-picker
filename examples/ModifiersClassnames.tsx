@@ -1,6 +1,6 @@
-'use client';
-import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
+
+import { DayPicker } from 'react-day-picker';
 
 const bookedDays = [
   new Date(2021, 5, 8),

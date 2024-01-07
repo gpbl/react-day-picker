@@ -1,6 +1,6 @@
-'use client';
-import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
+
+import { DayPicker } from 'react-day-picker';
 
 export function FromToMonth() {
   const defaultMonth = new Date(2015, 5);

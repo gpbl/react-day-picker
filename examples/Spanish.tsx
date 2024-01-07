@@ -1,4 +1,3 @@
-'use client';
 import { es } from 'date-fns/locale/es';
 import { DayPicker } from 'react-day-picker';
 

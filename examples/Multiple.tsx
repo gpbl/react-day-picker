@@ -1,8 +1,8 @@
-'use client';
-import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
 import { useState } from 'react';
+
+import { DayPicker } from 'react-day-picker';
 
 export function Multiple() {
   const initialDays: Date[] = [];

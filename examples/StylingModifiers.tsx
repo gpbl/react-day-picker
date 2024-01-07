@@ -1,7 +1,6 @@
-'use client';
+import { addDays } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 
-import { addDays } from 'date-fns';
 import customStyles from './styles/styling-modifiers.module.css';
 
 const today = new Date();

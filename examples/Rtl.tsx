@@ -1,4 +1,3 @@
-'use client';
 import { arSA } from 'date-fns/locale/ar-SA';
 import { DayPicker } from 'react-day-picker';
 

@@ -1,9 +1,9 @@
-'use client';
-import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
-import { addMonths, isSameMonth } from 'date-fns';
 import { useState } from 'react';
+
+import { addMonths, isSameMonth } from 'date-fns';
+import { DayPicker } from 'react-day-picker';
 
 /**
  * Programmatically control the displayed month, such as creating a "Go to Today" button.

@@ -1,4 +1,3 @@
-'use client';
 export * from './ContainerAttributes';
 export * from './Controlled';
 export * from './CssVariables';

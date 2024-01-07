@@ -1,8 +1,7 @@
-'use client';
-import { DateRange, DayPicker, SelectHandler } from 'react-day-picker';
-
 import { useEffect, useState } from 'react';
+
 import { isSameDay } from 'date-fns';
+import { DateRange, DayPicker, SelectHandler } from 'react-day-picker';
 
 export function RangeShiftKey() {
   const [range, setRange] = useState<DateRange>();

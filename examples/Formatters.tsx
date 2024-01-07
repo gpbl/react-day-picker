@@ -1,8 +1,7 @@
-'use client';
-import { DayPicker, Formatters } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
 import { format } from 'date-fns/format';
+import { DayPicker, Formatters } from 'react-day-picker';
 
 const seasonEmoji: Record<string, string> = {
   winter: '⛄️',

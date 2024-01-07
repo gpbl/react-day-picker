@@ -1,7 +1,6 @@
-'use client';
-import { DayPicker } from 'react-day-picker';
-
 import { useState } from 'react';
+
+import { DayPicker } from 'react-day-picker';
 
 export function Weeknumber() {
   const [weekNumber, setWeekNumber] = useState<number>();

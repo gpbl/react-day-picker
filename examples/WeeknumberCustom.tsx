@@ -1,4 +1,3 @@
-'use client';
 import { addMonths } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 

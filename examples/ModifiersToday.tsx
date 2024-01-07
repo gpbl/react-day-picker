@@ -1,8 +1,8 @@
-'use client';
-import { DayMouseEventHandler, DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
 import { useState } from 'react';
+
+import { DayMouseEventHandler, DayPicker } from 'react-day-picker';
 
 export function ModifiersToday() {
   const initialFooter = <p>Try clicking the today’s date.</p>;

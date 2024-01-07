@@ -1,6 +1,6 @@
-'use client';
-import { DayGridCellProps, DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
+
+import { DayGridCellProps, DayPicker } from 'react-day-picker';
 
 export function CustomDay() {
   function CustomDayGridCell(props: DayGridCellProps) {
