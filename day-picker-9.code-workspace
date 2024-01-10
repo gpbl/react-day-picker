@@ -34,7 +34,7 @@
     "editor.tabSize": 2,
     "npm.packageManager": "pnpm",
     "jest.disabledWorkspaceFolders": ["scripts", "docs", "examples", "website"],
-    "jest.runMode": "on-save"
+    "jest.runMode": { "type": "on-save", "testFileOnly": true }
   },
   "launch": {
     "version": "0.2.0",
