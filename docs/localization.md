@@ -2,7 +2,7 @@
 
 Learn to localize DayPicker in any language.
 
-## Changing Locale
+## Change the Locale
 
 To change the locale, pass to the `locale` prop a date-fns [Locale
 object](http://date-fns.org/docs/Locale).
@@ -20,7 +20,7 @@ export function Spanish() {
 }
 ```
 
-### Overriding the First Day of the Week
+### Override the First Day of the Week
 
 Use the `weekStartsOn` prop to change the first day of the week:
 
@@ -33,7 +33,7 @@ export function SpanishWeekStartsOn() {
 }
 ```
 
-### First Week of the Year
+### Set the First Week of the Year
 
 To override the date in the first week of the year, use `firstWeekContainsDate`.
 Use this prop to change the week number calculation according to [date-fns
@@ -64,26 +64,28 @@ export function WeeknumberCustom() {
 }
 ```
 
-## Switching to ISO Week Dates
+## Switch to ISO Week Dates
 
-By default, week numbers and week days follow the DayPicker's locale. Use the
-`ISOWeek` prop to switch to [ISO week
-dates](https://en.wikipedia.org/wiki/ISO_week_date).
+DayPicker uses [date-fns getWeek](https://date-fns.org/docs/getWeek) to
+calculate the week number. By default, the week starts on Sunday and the first
+week of the year is the one that contains January 1st. Use `ISOWeek` to switch
+using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of
+the locale setting.
 
-```tsx example fileName="WeekIso.tsx"
+```tsx example fileName="WeeknumberIso.tsx"
 import { DayPicker } from 'react-day-picker';
 
-export function WeekIso() {
-  return <DayPicker ISOWeek showWeekNumber showOutsideDays />;
+export function WeeknumberIso() {
+  return <DayPicker ISOWeek showWeekNumber />;
 }
 ```
 
-## Translating ARIA labels
+## Translate ARIA labels
 
 Use the [labels prop](/api/interfaces/daypickerdefaultprops#labels) to translate
 the labels used for ARIA.
 
-## Right-To-Left Direction
+## Switch the Text Direction
 
 To add right-to-left text direction, set the `dir` prop to `rtl`.
 
@@ -97,7 +99,7 @@ export function Rtl() {
 }
 ```
 
-## Numbering System
+## Change the Numbering System
 
 Use [formatters](/guides/formatters) to change the [numbering system](https://en.wikipedia.org/wiki/Numeral_system) used in the
 calendar.

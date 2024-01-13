@@ -2,7 +2,9 @@
 
 Learn how to change how months, weeks and days are displayed in the calendar.
 
-## Showing the Outside Days
+## Display the Outside Days
+
+The outside days are the days from the previous and next months displayed in the calendar. Use `showOutsideDays` to display them.
 
 ```tsx example fileName="OutsideDays.tsx"
 import { DayPicker } from 'react-day-picker';
@@ -14,7 +16,7 @@ export function OutsideDays() {
 
 ## Render Multiple Months
 
-Use `numberOfMonths` to render more than one calendar.
+Use `numberOfMonths` to render more than one month in the calendar.
 
 ```tsx example fileName="MultipleMonths.tsx"
 import { DayPicker } from 'react-day-picker';
@@ -107,21 +109,5 @@ export function WeeknumberCustom() {
       }}
     />
   );
-}
-```
-
-## Switch to ISO Week Dates
-
-DayPicker uses [date-fns getWeek](https://date-fns.org/docs/getWeek) to
-calculate the week number. By default, the week starts on Sunday and the first
-week of the year is the one that contains January 1st. Use `ISOWeek` to switch
-using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of
-the locale setting.
-
-```tsx example fileName="WeeknumberIso.tsx"
-import { DayPicker } from 'react-day-picker';
-
-export function WeeknumberIso() {
-  return <DayPicker ISOWeek showWeekNumber />;
 }
 ```

@@ -5,7 +5,6 @@ DayPicker supports 3 built-in selection modes, that fit the most common use-case
 - **single mode**: only one day can be selected;
 - **multi mode**: allow selection of multiple days;
 - **range mode**: allow the selection of a range of days;
-- **none mode**: do not allow any selection.
 
 You can also implement your own selection logic by setting up a **custom selection mode**.
 
@@ -13,24 +12,25 @@ You can also implement your own selection logic by setting up a **custom selecti
 
 - To use the built-in modes, use the `mode` prop.
 - To set a custom selection mode, use the `modifiers` and the `onDayClick` prop.
+- Toggle off the selection by setting `mode="none"`.
 
 ```tsx
-// Enter the single selection mode
+// Single selection mode
 <DayPicker mode="single" selected={/*...*/} onSelect={/*...*/} />
 
-// Enter the multi selection mode
+// Multi selection mode
 <DayPicker mode="multi"  selected={/*...*/} onSelect={/*...*/} />
 
-// Enter the range selection mode
+// Range selection mode
 <DayPicker mode="range" selected={/*...*/} onSelect={/*...*/} />
 
-// Enter a custom selection mode
+// Custom selection mode
 <DayPicker modifiers={{ selected: /*...*/ }} onDayClick={/*...*/} />
 ```
 
 ## Single Selection Mode
 
-When using `mode="single"{:tsx}`, users can select only one day from the calendar:
+When using `mode="single"` (the default), users can select only one day from the calendar:
 
 ```tsx example fileName="Single.tsx"
 import { DayPicker } from 'react-day-picker';
@@ -48,9 +48,6 @@ export function Single() {
 ### Making a Selection Required
 
 To make a selection required, use the `required` prop. Setting this prop won't allow the user to unselect the selected day.
-
-> NOTE
-> **Note about typings**: when `required` is set, the `selected` and `onSelect` props will still allow undefined values.
 
 ```tsx example fileName="SingleRequired.tsx"
 import { DayPicker } from 'react-day-picker';
@@ -73,7 +70,7 @@ export function SingleRequired() {
 
 ## Selecting Multiple Days
 
-Use `mode="multiple"{:tsx}` to allow the selection of multiple days:
+Use `mode="multiple"` to allow the selection of multiple days:
 
 ```tsx example fileName="Multiple.tsx"
 import { DayPicker } from 'react-day-picker';
@@ -120,7 +117,7 @@ export function MultipleMinMax() {
 
 ## Selecting a Range of days
 
-Use `mode="range"` and `onSelect` to allow the selection of multiple days.
+Use `mode="range"` and `onSelect` to allow the selection of a range of days.
 
 ```tsx example fileName="Range.tsx"
 import { DateRange, DayPicker } from 'react-day-picker';
@@ -169,6 +166,14 @@ export function RangeMinMax() {
 
 Use the `disabled` prop to disable the days in the selection mode.
 
+```tsx example fileName="Disabled.tsx"
+import { DayPicker } from 'react-day-picker';
+
+export function None() {
+  return <DayPicker mode="none" />;
+}
+```
+
 ## Turning off selection mode
 
 Use the `min` and `max` props to limit the amount of days in the range.
@@ -183,4 +188,6 @@ export function None() {
 
 ## Custom Selections
 
-If the built-in selections mode doesn't fit your application's requirements, implement custom selections as explained in the [Custom Selections](/guides/custom-selections) advanced guide.
+If the built-in selections mode doesn't fit your application's requirements...
+
+<!-- TODO -->

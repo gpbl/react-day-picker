@@ -1,26 +1,32 @@
-# DayPicker Docs
+# DayPicker Documentation
 
-## User guides
+## Using DayPicker
 
-1. [Installing DayPicker](installing.md) - how to install DayPicker and its CSS in your project.
-2. [Calendar navigation](navigation.md) - configure the navigation between months and years
-3. [Customizing the calendar](customization.md) - customize the calendar with the DayPicker props
-4. [Selecting days](selections.md) - learn how to select days in the calendar
-5. [Styling DayPicker](styling.md) - style the calendar with CSS and other techniques
-6. [Localization](localization.md) - localize the calendar into any language
-7. [Dates and formatters](dates-formatters.md) - options to format and handling the dates in the calendar
-8. [Custom components](custom-components.md) - change the internal components of DayPicker
+Learn how to use DayPicker in your React project.
 
-## DayPicker Examples
+1. [Getting Started](start.md) — install DayPicker and use it in your components
+2. [Navigation](navigation.md) — configure the navigation between months
+3. [Customization](customization.md) — an overview of the customization options
+4. [Selecting Days](selections.md) — learn about the selection modes
+5. [Styling DayPicker](styling.md) — style the calendar with CSS and other techniques
+6. [Localization](localization.md) — localize the calendar into any language
+7. [Dates and Formatters](dates-formatters.md) — set the format dates format and labels
+8. [Advanced Modifiers](modifiers.md) — use modifiers to customize the day in the calendar.
+9. [Custom Components](custom-components.md) — replace the internal components for further customization
 
-See the [examples](../examples) directory for a comprehensive list of code examples using DayPicker.
+### Learn by Examples
 
-## References
+- See the [examples](../examples) directory for a comprehensive list of code examples using DayPicker.
 
-- [Props reference](props-reference.md) - learn about the props you can pass to DayPicker.
-- [Hooks reference](hooks-reference.md) - read about the hooks you can use in the custom components.
+## Upgrading from a previous version
 
-## Other guides
+- [Upgrading](upgrading.md) — a guide to upgrade from previous versions.
 
-- [Upgrading from a previous version](upgrading.md) – learn how to upgrade from a previous version of DayPicker.
-- [DayPicker architecture](architecture.md) - learn how DayPicker works and contribute in its development.
+## API References
+
+- [Props Reference](props-reference.md)
+- [Hooks Reference](hooks-reference.md)
+
+## Development
+
+- [DayPicker Architecture](architecture.md) — understand how DayPicker works to contribute to its development.
