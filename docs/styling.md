@@ -1,7 +1,11 @@
-# Styling DayPicker
+---
+sort: 1
+section: Getting Started
+title: Styling DayPicker
+description: Change the appearance of the HTML elements, such as headings, grid cells and buttons.
+---
 
-Change the appearance of the HTML elements, such as headings, grid cells and
-buttons.
+# Styling DayPicker
 
 ## Using the Default Styles
 
@@ -111,4 +115,3 @@ export function StylingInline() {
   );
 }
 ```
-

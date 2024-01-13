@@ -1,14 +1,13 @@
-import { Callout } from 'nextra/components';
+---
+sort: 9
+section: Advanced Guides
+title: Custom Components
+description: Customize the components used internally by DayPicker.
+---
 
 # Custom Components
 
 Use the `components` prop to replace some of the internal components used by DayPicker with a custom implementation.
-
-<Callout emoji="🚧">
-  This section is still under construction. If you need help, please reach out
-  the maintainers in the [discussion
-  page](https://github.com/gpbl/react-day-picker/discussions) on GitHub.
-</Callout>
 
 ## DayPicker hooks
 

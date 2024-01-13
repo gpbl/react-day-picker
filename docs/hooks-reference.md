@@ -1,9 +1,10 @@
+---
+sort: 9
+section: DayPicker API
+title: Hooks Reference
+description: Use the DayPicker hooks in Custom Components to access the DayPicker props, context, and state.
+---
+
 # Hooks
 
-import { Callout } from 'nextra/components';
-
-<Callout emoji="🚧">
-  This section is still under construction. If you need help, please reach out
-  the maintainers in the [discussion
-  page](https://github.com/gpbl/react-day-picker/discussions) on GitHub.
-</Callout>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget

@@ -1,3 +1,10 @@
+---
+sort: 9
+section: Advanced Guides
+title: Modifiers
+description: Modifiers allows to customize the appearance of the days in the calendar.
+---
+
 # Modifiers
 
 ## Styling Modifiers

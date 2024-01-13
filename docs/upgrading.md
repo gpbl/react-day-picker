@@ -1,16 +1,15 @@
-# Upgrading
+---
+sort: 1
+section: Development
+title: Upgrading from a Previous Version
+description: Learn how to upgrade from previous versions of DayPicker.
+---
+
+# Upgrading from a Previous Version
 
 Get help to bump `react-day-picker` to the latest version.
 
 ## Upgrading from v8
-
-import { Callout } from 'nextra/components';
-
-<Callout emoji="🚧">
-  This section is still under construction. If you need help, please reach out
-  the maintainers in the [discussion
-  page](https://github.com/gpbl/react-day-picker/discussions) on GitHub.
-</Callout>
 
 ## Upgrading from v7
 

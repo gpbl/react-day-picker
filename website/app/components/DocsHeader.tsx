@@ -1,21 +1,22 @@
 import { PropsWithChildren, ReactNode } from 'react';
 
 interface DocsHeaderProps extends PropsWithChildren {
-  /** The title of the page */
-  title: string;
   /** The title of the section */
-  sectionTitle?: string;
+  section?: string;
+  /** The title of the page */
+  title?: string;
   /** The first paragraph of the header */
   heading?: ReactNode;
 }
 
 /** The header for the docs pages. */
 export function DocsHeader(props: DocsHeaderProps) {
+  if (!props.title) return null;
   return (
-    <header className="max-w-3xl mb-12">
-      {props.sectionTitle && (
+    <header className="max-w-3xl border-solid border-b border-slate-400 pb-2 mb-12">
+      {props.section && (
         <p className="mb-2 text-sm font-semibold text-blue-600">
-          {props.sectionTitle}
+          {props.section}
         </p>
       )}
       <h1 className="block text-2xl font-bold text-gray-800 sm:text-3xl dark:text-white">

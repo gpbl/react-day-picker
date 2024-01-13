@@ -25,7 +25,6 @@ declare global {
 }
 
 if (typeof window !== 'undefined') {
-  console.log('preline');
   require('preline/preline');
 }
 

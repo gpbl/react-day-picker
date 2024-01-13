@@ -63,7 +63,7 @@ export function Layout(props: PropsWithChildren) {
         <SidebarNav />
       </div>
 
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:ps-[22rem]">
+      <div className="w-full my-24 px-4 sm:px-6 md:px-8 lg:ps-[22rem]">
         {props.children}
       </div>
     </div>

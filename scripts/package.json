@@ -4,15 +4,19 @@
   "description": "Scripts for the react-day-picker builds",
   "main": "index.js",
   "scripts": {
-    "generate-examples": "ts-node ./generate-examples.ts --dir=../examples --outputDir=../website/src/app/examples"
+    "generate-examples": "ts-node ./generate-examples.ts --dir=../examples --outputDir=../website/src/app/examples",
+    "generate-routes": "ts-node ./generate-routes.ts ../docs ../website/app/routes/docs"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.21",
-    "ts-morph": "^21.0.1"
+    "shelljs": "^0.8.5",
+    "ts-morph": "^21.0.1",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.202"
+    "@types/lodash": "^4.14.202",
+    "@types/shelljs": "^0.8.15"
   }
 }

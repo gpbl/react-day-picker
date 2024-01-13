@@ -1,50 +1,57 @@
+---
+sort: 20
+section: Development
+title: DayPicker Architecture
+description: Learn how DayPicker is designed and how it works under the hood.
+---
+
 # DayPicker Architecture
 
 ## General Design
 
 DayPicker renders one or multiple grids, each one representing a month.
 
-<!-- TODO -->
+TODO.
 
 ### Date Library
 
-<!-- TODO -->
+TODO.
 
 ## HTML Structure
 
-<!-- TODO -->
+TODO.
 
 ### Styles
 
-<!-- TODO -->
+TODO.
 
 ## Components
 
-<!-- TODO -->
+TODO.
 
 ### Custom Components
 
-<!-- TODO -->
+TODO.
 
 ## Hooks
 
-<!-- TODO -->
+TODO.
 
 ## Contexts
 
-<!-- TODO -->
+TODO.
 
 ## Performance Concerns
 
-<!-- TODO -->
+TODO.
 
 ## Accessibility Concerns
 
-<!-- TODO -->
+TODO.
 
 ## Builds and Continuous Integration
 
-<!-- TODO -->
+TODO.
 
 ## Examples
 
@@ -77,4 +84,4 @@ export function ExampleName() [
 
 ## Testing
 
-<!-- TODO -->
+TODO.

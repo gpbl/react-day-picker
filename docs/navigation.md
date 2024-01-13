@@ -1,6 +1,9 @@
-# Navigation
-
-Configure how users can navigate between months.
+---
+sort: 2
+section: Getting Started
+title: Navigating the Calendar
+description: Configure how users can navigate between months.
+---
 
 ## Change the Default Month
 

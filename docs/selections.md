@@ -1,6 +1,13 @@
+---
+sort: 9
+section: Getting Started
+title: Selections
+description: DayPicker supports 3 built-in selection modes, that fit the most common use-cases for a date picker.
+---
+
 # Selections
 
-DayPicker supports 3 built-in selection modes, that fit the most common use-cases for a date picker:
+## Selection Modes
 
 - **single mode**: only one day can be selected;
 - **multi mode**: allow selection of multiple days;
@@ -190,4 +197,4 @@ export function None() {
 
 If the built-in selections mode doesn't fit your application's requirements...
 
-<!-- TODO -->
+TODO

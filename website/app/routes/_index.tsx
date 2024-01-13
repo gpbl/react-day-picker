@@ -32,7 +32,7 @@ export default function Index() {
   return (
     <Page>
       <DocsHeader
-        sectionTitle="Introduction"
+        section="Introduction"
         title="Welcome to React DayPicker"
         heading={
           <>

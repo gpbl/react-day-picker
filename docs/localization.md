@@ -1,6 +1,11 @@
-# Localization
+---
+sort: 9
+section: Getting Started
+title: Localization
+description: Learn to localize DayPicker in any language.
+---
 
-Learn to localize DayPicker in any language.
+# Localization
 
 ## Change the Locale
 
