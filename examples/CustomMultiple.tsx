@@ -1,5 +1,3 @@
-import 'react-day-picker/dist/style.css';
-
 import { useState } from 'react';
 
 import { isSameDay } from 'date-fns';

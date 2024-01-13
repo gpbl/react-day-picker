@@ -1,5 +1,3 @@
-import { Steps, Callout } from 'nextra/components';
-
 # Styling DayPicker
 
 Change the appearance of the HTML elements, such as headings, grid cells and

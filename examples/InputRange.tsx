@@ -1,5 +1,3 @@
-import 'react-day-picker/dist/style.css';
-
 import { ChangeEventHandler, useState } from 'react';
 
 import { format, isAfter, isBefore, isValid, parse } from 'date-fns';

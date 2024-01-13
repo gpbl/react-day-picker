@@ -1,5 +1,3 @@
-import 'react-day-picker/dist/style.css';
-
 import { format } from 'date-fns/format';
 import { arSA } from 'date-fns/locale/ar-SA';
 import { DayPicker, Formatters } from 'react-day-picker';

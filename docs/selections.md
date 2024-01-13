@@ -1,6 +1,4 @@
-import { Card, Cards, Callout } from 'nextra/components';
-
-# Selection Modes
+# Selections
 
 DayPicker supports 3 built-in selection modes, that fit the most common use-cases for a date picker:
 
@@ -49,13 +47,10 @@ export function Single() {
 
 ### Making a Selection Required
 
-To make a selection required, use the `required` prop. Setting this prop won't
-allow the user to unselect the selected day.
+To make a selection required, use the `required` prop. Setting this prop won't allow the user to unselect the selected day.
 
-<Callout emoji="📝 " type="info">
-  **Note about typings**: when `required` is set, the `selected` and `onSelect`
-  props will still allow undefined values.
-</Callout>
+> NOTE
+> **Note about typings**: when `required` is set, the `selected` and `onSelect` props will still allow undefined values.
 
 ```tsx example fileName="SingleRequired.tsx"
 import { DayPicker } from 'react-day-picker';
@@ -125,7 +120,7 @@ export function MultipleMinMax() {
 
 ## Selecting a Range of days
 
-Use `mode="range"{:tsx}` and `onSelect` to allow the selection of multiple days.
+Use `mode="range"` and `onSelect` to allow the selection of multiple days.
 
 ```tsx example fileName="Range.tsx"
 import { DateRange, DayPicker } from 'react-day-picker';
@@ -170,6 +165,10 @@ export function RangeMinMax() {
 }
 ```
 
+## Disabling days
+
+Use the `disabled` prop to disable the days in the selection mode.
+
 ## Turning off selection mode
 
 Use the `min` and `max` props to limit the amount of days in the range.
@@ -185,18 +184,3 @@ export function None() {
 ## Custom Selections
 
 If the built-in selections mode doesn't fit your application's requirements, implement custom selections as explained in the [Custom Selections](/guides/custom-selections) advanced guide.
-
-<Cards>
-  <Card
-    icon="🔣 "
-    title={
-      <div>
-        Custom Selections{' '}
-        <div className="pt-1 font-normal text-sm nx-text-gray-400">
-          Extend the selection modes with custom behaviors.
-        </div>
-      </div>
-    }
-    href="/guides/custom-selections"
-  />
-</Cards>

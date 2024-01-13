@@ -1,5 +1,3 @@
-import 'react-day-picker/dist/style.css';
-
 import { subDays } from 'date-fns';
 import { DayPicker, SelectHandler } from 'react-day-picker';
 

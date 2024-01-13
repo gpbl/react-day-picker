@@ -1,5 +1,3 @@
-import 'react-day-picker/dist/style.css';
-
 import { DayMouseEventHandler, DayPicker } from 'react-day-picker';
 
 const bookedDays = [

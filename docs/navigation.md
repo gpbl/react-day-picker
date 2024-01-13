@@ -1,4 +1,4 @@
-# Months Navigation
+# Navigation
 
 Configure how users can navigate between months.
 

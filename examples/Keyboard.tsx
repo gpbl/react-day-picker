@@ -1,5 +1,3 @@
-import 'react-day-picker/dist/style.css';
-
 import { DayPicker, DayPickerProps } from 'react-day-picker';
 
 export function Keyboard(props: DayPickerProps) {

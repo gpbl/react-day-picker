@@ -1,5 +1,3 @@
-import 'react-day-picker/dist/style.css';
-
 import { DayPicker } from 'react-day-picker';
 
 import styles from './styles/css-variables.module.css';

@@ -1,5 +1,3 @@
-import 'react-day-picker/dist/style.css';
-
 import { ChangeEventHandler, useState } from 'react';
 
 import { DayPicker } from 'react-day-picker';

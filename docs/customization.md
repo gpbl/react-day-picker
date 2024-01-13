@@ -1,10 +1,10 @@
-# Customize DayPicker
+# Options
 
-Change months, weeks and days in the calendar.
+Learn how to change how months, weeks and days are displayed in the calendar.
 
 ## Showing the Outside Days
 
-```tsx example fileName="OutsideDays.tsx" showLineNumbers copy
+```tsx example fileName="OutsideDays.tsx"
 import { DayPicker } from 'react-day-picker';
 
 export function OutsideDays() {
@@ -12,13 +12,11 @@ export function OutsideDays() {
 }
 ```
 
-<OutsideDays />
-
 ## Render Multiple Months
 
 Use `numberOfMonths` to render more than one calendar.
 
-```tsx example fileName="MultipleMonths.tsx"  showLineNumbers copy
+```tsx example fileName="MultipleMonths.tsx"
 import { DayPicker } from 'react-day-picker';
 
 export function MultipleMonths() {
@@ -26,11 +24,9 @@ export function MultipleMonths() {
 }
 ```
 
-<MultipleMonths />
-
 Toggle `pagedNavigation` to navigate the number of months per time.
 
-```tsx example fileName="MultipleMonthsPaged.tsx" showLineNumbers copy
+```tsx example fileName="MultipleMonthsPaged.tsx"
 import { DayPicker } from 'react-day-picker';
 
 export function MultipleMonthsPaged() {
@@ -38,14 +34,12 @@ export function MultipleMonthsPaged() {
 }
 ```
 
-<MultipleMonthsPaged />
-
 ## Using Fixed Weeks
 
 Use `fixedWeeks` to display six weeks per months. This will prevent the calendar
 to change its height when navigating.
 
-```tsx example fileName="Fixedweeks.tsx" showLineNumbers copy
+```tsx example fileName="Fixedweeks.tsx"
 import { DayPicker } from 'react-day-picker';
 
 export function Fixedweeks() {
@@ -53,14 +47,12 @@ export function Fixedweeks() {
 }
 ```
 
-<Fixedweeks />
-
 ## Show the Week Numbers
 
 Use `showWeeknumber` to display the week numbers. When this prop is set, use
 `onWeeknumberClick` to handle the click on a week number.
 
-```tsx example fileName="Weeknumber.tsx" showLineNumbers copy
+```tsx example fileName="Weeknumber.tsx"
 import { DayPicker } from 'react-day-picker';
 
 import { useState } from 'react';
@@ -81,8 +73,6 @@ export function Weeknumber() {
   );
 }
 ```
-
-<Weeknumber />
 
 ### Customize the Week Numbers
 
@@ -120,8 +110,6 @@ export function WeeknumberCustom() {
 }
 ```
 
-<WeeknumberCustom />
-
 ## Switch to ISO Week Dates
 
 DayPicker uses [date-fns getWeek](https://date-fns.org/docs/getWeek) to
@@ -130,12 +118,10 @@ week of the year is the one that contains January 1st. Use `ISOWeek` to switch
 using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of
 the locale setting.
 
-```tsx example fileName="WeeknumberIso.tsx" showLineNumbers copy
+```tsx example fileName="WeeknumberIso.tsx"
 import { DayPicker } from 'react-day-picker';
 
 export function WeeknumberIso() {
   return <DayPicker ISOWeek showWeekNumber />;
 }
 ```
-
-<WeeknumberIso />
