@@ -1,17 +1,20 @@
 import { useMemo } from 'react';
 
+import { getMDXComponent } from 'mdx-bundler/client/index.js';
+import { DocsHeader } from '@/components/DocsHeader';
+import { Prose } from '@/components/Prose';
 import { MetaFunction, useLoaderData } from '@remix-run/react';
-
 import type {
   LoaderFunction,
   LoaderFunctionArgs
 } from '@remix-run/server-runtime';
 import { json } from '@remix-run/server-runtime';
-import { getMDXComponent } from 'mdx-bundler/client/index.js';
-import type { Frontmatter } from '../utils/docPage.server';
-import { getDocPage } from '../utils/docPage.server';
-import { Prose } from '@/components/Prose';
-import { DocsHeader } from '@/components/DocsHeader';
+
+import type { Frontmatter } from '../utils/docs.server';
+import { getDocPage } from '../utils/docs.server';
+
+import { DayPicker } from 'react-day-picker';
+import { components } from '@/components/MDXComponents';
 // import type { MetaFunction } from '@remix-run/react/dist/routeModules';
 
 type LoaderData = {
@@ -21,7 +24,6 @@ type LoaderData = {
 
 export const loader: LoaderFunction = async ({
   params
-  // request
 }: LoaderFunctionArgs) => {
   const slug = params['*'];
   if (!slug) throw new Response('Not found', { status: 404 });
@@ -61,7 +63,12 @@ export default function Page() {
       />
       <main>
         <Prose>
-          <Component />
+          <Component
+            components={{
+              DayPicker,
+              ...components
+            }}
+          />
         </Prose>
       </main>
     </>

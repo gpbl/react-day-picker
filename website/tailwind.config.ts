@@ -17,9 +17,5 @@ export default {
       }
     }
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/forms'),
-    require('preline/plugin')
-  ]
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
 } satisfies Config;

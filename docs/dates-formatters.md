@@ -1,6 +1,5 @@
 ---
-sort: 9
-section: Advanced Guides
+section: Internationalization
 title: Dates and Formatters
 description: Learn how to change the date formats and its representation in the calendar.
 ---

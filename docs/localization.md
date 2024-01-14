@@ -1,6 +1,5 @@
 ---
-sort: 9
-section: Getting Started
+section: Internationalization
 title: Localization
 description: Learn to localize DayPicker in any language.
 ---

@@ -1,5 +1,4 @@
 ---
-sort: 20
 section: Development
 title: DayPicker Architecture
 description: Learn how DayPicker is designed and how it works under the hood.

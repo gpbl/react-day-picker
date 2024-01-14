@@ -1,3 +1,4 @@
+import { Heading, Text } from '@radix-ui/themes';
 import { PropsWithChildren, ReactNode } from 'react';
 
 interface DocsHeaderProps extends PropsWithChildren {
@@ -13,19 +14,19 @@ interface DocsHeaderProps extends PropsWithChildren {
 export function DocsHeader(props: DocsHeaderProps) {
   if (!props.title) return null;
   return (
-    <header className="max-w-3xl border-solid border-b border-slate-400 pb-2 mb-12">
+    <header className="border-b pb-10 mb-10 dark:border-gray-700">
       {props.section && (
-        <p className="mb-2 text-sm font-semibold text-blue-600">
-          {props.section}
-        </p>
+        <Text asChild size="2" color="blue" weight="bold" mb="2">
+          <p>{props.section}</p>
+        </Text>
       )}
-      <h1 className="block text-2xl font-bold text-gray-800 sm:text-3xl dark:text-white">
-        {props.title}
-      </h1>
+      <Heading asChild size="7" mb="2">
+        <h1>{props.title}</h1>
+      </Heading>
       {props.heading && (
-        <p className="mt-2 text-lg text-gray-800 dark:text-gray-400">
-          {props.heading}
-        </p>
+        <Text color="gray" size="5" asChild>
+          <p>{props.heading}</p>
+        </Text>
       )}
       {props.children}
     </header>

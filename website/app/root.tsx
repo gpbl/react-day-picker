@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
-
-import { type IStaticMethods } from 'preline/preline';
 import dayPickerCssHref from 'react-day-picker/dist/style.css';
+import { Theme } from '@radix-ui/themes';
 
 import { Layout } from '@/components/Layout';
 import { cssBundleHref } from '@remix-run/css-bundle';
@@ -12,35 +10,19 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
-  useLocation
+  ScrollRestoration
 } from '@remix-run/react';
 
 import tailwindHref from './tailwind.css';
-
-declare global {
-  interface Window {
-    HSStaticMethods: IStaticMethods;
-  }
-}
-
-if (typeof window !== 'undefined') {
-  require('preline/preline');
-}
-
+import radixUIHref from '@radix-ui/themes/styles.css';
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: tailwindHref },
   { rel: 'stylesheet', href: dayPickerCssHref },
+  { rel: 'stylesheet', href: radixUIHref },
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])
 ];
 
 export default function App() {
-  const location = useLocation();
-
-  useEffect(() => {
-    window.HSStaticMethods.autoInit();
-  }, [location.pathname]);
-
   return (
     <html lang="en">
       <head>
@@ -50,10 +32,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="dark:bg-slate-900">
-        <Layout>
-          <Outlet />
-        </Layout>
+      <body>
+        <Theme>
+          <Layout>
+            <Outlet />
+          </Layout>
+        </Theme>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

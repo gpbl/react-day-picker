@@ -1,10 +1,9 @@
 ---
-sort: 9
-section: DayPicker API
-title: Hooks Reference
+section: Getting started
+title: Find Help and Support
 description: Use the DayPicker hooks in Custom Components to access the DayPicker props, context, and state.
 ---
 
-# Hooks
+# Find Help and Support
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget

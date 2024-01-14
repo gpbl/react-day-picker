@@ -1,7 +1,6 @@
 ---
-sort: 1
 section: Getting Started
-title: Styling DayPicker
+title: Styling
 description: Change the appearance of the HTML elements, such as headings, grid cells and buttons.
 ---
 

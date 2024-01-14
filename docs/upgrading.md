@@ -1,7 +1,6 @@
 ---
-sort: 1
-section: Development
-title: Upgrading from a Previous Version
+section: Getting Started
+title: Upgrading to v9
 description: Learn how to upgrade from previous versions of DayPicker.
 ---
 

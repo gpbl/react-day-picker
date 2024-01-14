@@ -2,6 +2,7 @@ import path from 'node:path';
 
 import { readFile } from './fs.server';
 import { bundleMDX } from './mdx.server';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 export type Frontmatter = {
   section?: string;
@@ -21,7 +22,19 @@ export async function getDocPage(slug: string) {
   const sourceNoFirstHeading = source.replace(/^# .*$/m, '');
   const page = await bundleMDX<Frontmatter>({
     source: sourceNoFirstHeading,
-    cwd: process.cwd()
+    cwd: process.cwd(),
+    mdxOptions(options, frontmatter) {
+      options.remarkPlugins = [
+        ...(options.remarkPlugins ?? [])
+        // myRemarkPlugin
+      ];
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        rehypePrettyCode
+      ];
+
+      return options;
+    }
   });
 
   return page;

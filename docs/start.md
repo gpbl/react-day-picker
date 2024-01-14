@@ -1,13 +1,10 @@
 ---
-sort: 1
 section: Getting Started
 title: Installing DayPicker
-description: Learn how to get started with DayPicker in your React app.
+description: Get DayPicker from npm. Requires React 18+ and date-fns.
 ---
 
 # Installing DayPicker
-
-To install and start using DayPicker in your React app, follow these steps:
 
 ## 1. Install the packages
 
@@ -23,15 +20,21 @@ Import `DayPicker` and the base style into your app. Use the "onSelect" prop to 
 
 ```js
 import { DayPicker } from 'react-day-picker';
-import 'react-day-picker/dist/style.css';
+import 'react-day-picker/style.css';
+```
 
+## 3. Add DayPicker to your code
+
+Use `onSelect` to get the picked day.
+
+```tsx
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/style.css';
 export default function MyApp() {
   return <DayPicker onSelect={(date) => console.log(date)} />;
 }
 ```
 
-For more details about the available props and the component's configuration, refer to the [documentation](./README.md).
-
-## 3. Configure DayPicker
+## 4. Configure DayPicker
 
 Refer to the [documentation](./README.md) for more details about the available props and the component's configuration.

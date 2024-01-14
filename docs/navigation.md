@@ -1,30 +1,28 @@
 ---
-sort: 2
-section: Getting Started
-title: Navigating the Calendar
+section: Customization
+title: Months Navigation
 description: Configure how users can navigate between months.
 ---
 
+# Months Navigation
+
+Configure how users can navigate between months.
+
 ## Change the Default Month
 
-DayPicker displays the month of the current day. To change the
+DayPicker displays the month of the current date. To change the
 default month, set the `defaultMonth` prop.
 
-For example, to set the default month to September 1979:
+<DayPicker defaultMonth={new Date(1979, 8)} />
 
-```tsx example fileName="DefaultMonth.tsx"
-import { DayPicker } from 'react-day-picker';
-
-export function DefaultMonth() {
-  return <DayPicker defaultMonth={new Date(1979, 8)} />;
-}
+```tsx
+<DayPicker defaultMonth={new Date(1979, 8)} />
 ```
 
-## Controlling the Current Month
+## Control the Current Month
 
 DayPicker controls the displayed month and stores it in its internal state. To
-control the current month – for example, to implement a "Go to today" button –
-set the month in the parent component’s state.
+control the current month, set it in your component’s state.
 
 To control the current month, use `month` (as opposed to `defaultMonth`) and
 `onMonthChange` to handle the current month.

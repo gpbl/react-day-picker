@@ -1,5 +1,4 @@
 ---
-sort: 9
 section: Advanced Guides
 title: Custom Components
 description: Customize the components used internally by DayPicker.

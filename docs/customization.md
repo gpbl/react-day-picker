@@ -1,7 +1,6 @@
 ---
-sort: 9
-section: Getting Started
-title: Customization Options
+section: Customization
+title: Calendar Options
 description: Learn to change how months, weeks and days are displayed in the calendar.
 ---
 

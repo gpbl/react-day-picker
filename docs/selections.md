@@ -1,13 +1,10 @@
 ---
-sort: 9
-section: Getting Started
-title: Selections
+section: Selecting Days
+title: Selection Modes
 description: DayPicker supports 3 built-in selection modes, that fit the most common use-cases for a date picker.
 ---
 
-# Selections
-
-## Selection Modes
+# Selection Modes
 
 - **single mode**: only one day can be selected;
 - **multi mode**: allow selection of multiple days;
