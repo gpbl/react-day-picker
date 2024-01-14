@@ -33,7 +33,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Theme>
+        <Theme radius="medium" appearance="dark">
           <Layout>
             <Outlet />
           </Layout>

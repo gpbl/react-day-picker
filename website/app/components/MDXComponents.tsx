@@ -1,6 +1,7 @@
-import { createContext, PropsWithChildren, useEffect, useState } from 'react';
+import { createContext, PropsWithChildren } from 'react';
 
 import classNames from 'classnames';
+import type { MDXComponents } from 'mdx/types';
 
 import { Frontmatter } from '@/utils/docs.server';
 import { Link2Icon } from '@radix-ui/react-icons';
@@ -8,6 +9,7 @@ import { Link2Icon } from '@radix-ui/react-icons';
 import {
   Blockquote,
   Box,
+  Card,
   Code,
   Em,
   Heading,
@@ -15,58 +17,74 @@ import {
   Link,
   Separator,
   Strong,
+  Tabs,
   Text
 } from '@radix-ui/themes';
+
 import { Link as RemixLink } from '@remix-run/react';
 
 import styles from './MDXComponents.module.css';
 import { Pre } from './Pre';
+import { PreviewBox } from './PreviewBox';
+import * as Examples from 'react-day-picker/examples';
+import { PropsTable } from './PropsTable';
 
-export const components = {
-  // ...themesComponents,
-  // Tabs: Tabs.Root,
-  // TabsList: Tabs.List,
-  // TabsContent: Tabs.Content,
-  // TabsTrigger: Tabs.Trigger,
+export const components: MDXComponents = {
+  Examples,
+  PreviewBox,
+  PropsTable,
+  Pre,
+  Card,
+  Box,
+  Tabs: Tabs.Root,
+  TabsList: Tabs.List,
+  TabsContent: Tabs.Content,
+  TabsTrigger: Tabs.Trigger,
   // CodeBlock,
   h1: (props: PropsWithChildren) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [isFirstRender, setIsFirstRender] = useState(true);
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-      setIsFirstRender(false);
-    }, []);
     return (
       <Heading asChild size="8" mb="3">
         <h1 {...props} style={{ scrollMarginTop: 'var(--space-9)' }}>
-          {isFirstRender ? 'first' : ''}
           {props.children}
         </h1>
       </Heading>
     );
   },
-  // Description: ({
-  //   children,
-  //   ...props
-  // }: {
-  //   children: { props: PropsWithChildren<React.ReactNode> };
-  // }) => {
-  //   const childText =
-  //     typeof children === 'string' ? children : children.props.children;
-  //   return (
-  //     <Text as="p" size="4" mt="2" mb="7" color="gray" {...props}>
-  //       {childText}
-  //     </Text>
-  //   );
-  // },
+  Description: ({
+    children,
+    ...props
+  }: {
+    children: { props: PropsWithChildren<React.ReactNode> };
+  }) => {
+    const childText =
+      typeof children === 'string' ? children : children.props.children;
+    return (
+      <Text as="p" size="4" mt="2" mb="7" color="gray" {...props}>
+        {childText}
+      </Text>
+    );
+  },
+  SectionTitle: ({
+    children,
+    ...props
+  }: {
+    children: { props: PropsWithChildren<React.ReactNode> };
+  }) => {
+    const childText =
+      typeof children === 'string' ? children : children.props.children;
+    return (
+      <Text as="p" size="4" color="slate" weight="bold" mb="2" {...props}>
+        {childText}
+      </Text>
+    );
+  },
   h2: (props: PropsWithChildren<{ id?: string }>) => {
     const { children, id } = props;
     return (
       <Heading
         size="6"
-        mt="7"
-        mb="2"
+        mt="8"
+        mb="3"
         asChild
         {...props}
         id={id}
@@ -82,8 +100,8 @@ export const components = {
     return (
       <Heading
         size="5"
-        mt="7"
-        mb="2"
+        mt="8"
+        mb="3"
         asChild
         {...props}
         id={id}
@@ -102,19 +120,20 @@ export const components = {
       </Heading>
     );
   },
-  p: (props: PropsWithChildren) => <Text mb="3" as="p" size="3" {...props} />,
-  a: ({ href = '', ...props }) => {
+  p: (props: PropsWithChildren) => <Text mb="5" as="p" size="3" {...props} />,
+  a: (props: PropsWithChildren<{ href?: string }>) => {
+    const { href = '', ...restProps } = props;
     if (href.startsWith('http')) {
-      return <Link {...props} href={href} target="_blank" rel="noopener" />;
+      return <Link {...restProps} href={href} target="_blank" rel="noopener" />;
     }
     return (
       <RemixLink to={href}>
-        <Link {...props} />
+        <Link color="blue" {...restProps} />
       </RemixLink>
     );
   },
   hr: (props: PropsWithChildren) => (
-    <Separator size="2" {...props} my="6" style={{ marginInline: 'auto' }} />
+    <Separator size="4" {...props} my="6" style={{ marginInline: 'auto' }} />
   ),
   ul: (props: PropsWithChildren) => <ul {...props} />,
   ol: (props: PropsWithChildren) => <ol {...props} />,
@@ -138,17 +157,16 @@ export const components = {
     </Box>
   ),
   blockquote: (props: PropsWithChildren) => <Blockquote {...props} />,
-  pre: (props: PropsWithChildren) => <Pre {...props} />,
+  pre: (props: PropsWithChildren) => {
+    return <Pre {...props} />;
+  },
   code: (props: PropsWithChildren) => {
+    // console.log(props);
     const isInline = typeof props.children === 'string';
     if (isInline) {
       return <Code {...props} />;
     }
-    return (
-      <Box my="6">
-        <code {...props} />
-      </Box>
-    );
+    return <code {...props} />;
   },
   kbd: (props: PropsWithChildren) => <Kbd {...props} />
   // code: ({

@@ -215,15 +215,15 @@ function SidebarNav() {
                 className="block py-1 ps-4 -ms-px border-s-2 border-transparent text-sm text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 "
                 href="/upgrading"
               >
-                Upgrading to v9
+                Upgrading
               </a>
             </li>
             <li>
               <a
                 className="block py-1 ps-4 -ms-px border-s-2 border-transparent text-sm text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 "
-                href="/support"
+                href="/community"
               >
-                Help & Support
+                Community
               </a>
             </li>
           </ul>
@@ -263,7 +263,7 @@ function SidebarNav() {
             <li>
               <a
                 className="block py-1 ps-4 -ms-px border-s-2 border-transparent text-sm text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 "
-                href="/selections"
+                href="/selection-modes"
               >
                 Selection modes
               </a>
