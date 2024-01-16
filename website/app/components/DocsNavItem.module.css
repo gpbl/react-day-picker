@@ -7,7 +7,7 @@
   transition: background-color 50ms linear;
   user-select: none;
   min-height: var(--space-6);
-  color: var(--slate-12);
+  color: var(--slate-11);
 }
 
 .DocsNavItem:not(:last-of-type) {
@@ -34,7 +34,7 @@
   padding-left: calc(var(--space-3) - 2px);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  /* color: var(--slate-1); */
+  color: var(--slate-12);
 }
 
 @media (hover: hover) {

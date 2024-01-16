@@ -44,6 +44,7 @@
     "rehype-pretty-code": "^0.12.3",
     "rehype-shikiji": "^0.9.19",
     "remark-mdx-code-meta": "^2.0.0",
+    "remix-themes": "^1.2.2",
     "scroll-into-view-if-needed": "^3.1.0",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7"

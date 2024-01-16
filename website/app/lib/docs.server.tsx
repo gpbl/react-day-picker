@@ -20,19 +20,21 @@ export async function getDoc(slug: string, subPath = '') {
 
   const [source] = await Promise.all([readFile(filePath, 'utf-8')]);
 
+  const prettyCodeOptions: Parameters<typeof rehypePrettyCode>[0] = {
+    keepBackground: true,
+    theme: {
+      dark: 'github-dark-dimmed',
+      light: 'light-plus'
+    }
+  };
+
   const page = await bundleMDX<Frontmatter>({
     source: source,
     cwd: process.cwd(),
     mdxOptions(options) {
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
-        [
-          rehypePrettyCode,
-          {
-            keepBackground: true,
-            theme: 'light-plus'
-          }
-        ]
+        [rehypePrettyCode, prettyCodeOptions]
       ];
 
       return options;

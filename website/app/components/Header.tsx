@@ -10,6 +10,7 @@ import styles from './Header.module.css';
 import { useMobileMenuContext } from './MobileMenu';
 import { ThemeToggle } from './ThemeToggle';
 import { HeaderLink } from './HeaderLink';
+import { Logo } from './Logo';
 
 export interface HeaderProps {
   children?: React.ReactNode;
@@ -63,7 +64,7 @@ export const Header = ({ children, gitHubLink, ghost }: HeaderProps) => {
           pl="4"
         >
           <RemixLink to="/">
-            <img src="/images/logo.png" alt="" />
+            <Logo />
             <Text style={{ fontSize: 'var(--font-size-4)' }}>React</Text>
             <Text weight="bold">DayPicker</Text>
           </RemixLink>
@@ -79,8 +80,8 @@ export const Header = ({ children, gitHubLink, ghost }: HeaderProps) => {
           pl="4"
         >
           <RemixLink to="/">
-            <Flex gap="3">
-              <img src="/images/logo.png" width="30" alt="" />
+            <Flex gap="3" align="center">
+              <Logo />
               <Text size="5">
                 React <b>DayPicker</b>
               </Text>
@@ -123,7 +124,7 @@ export const Header = ({ children, gitHubLink, ghost }: HeaderProps) => {
         <Flex
           display={{ initial: 'none', md: 'flex' }}
           align="center"
-          gap="5"
+          gap="4"
           position="absolute"
           top="0"
           bottom="0"
@@ -136,12 +137,11 @@ export const Header = ({ children, gitHubLink, ghost }: HeaderProps) => {
             <Tooltip content="View GitHub ">
               <IconButton asChild size="3" variant="ghost" color="gray">
                 <a href={gitHubLink} target="_blank" rel="noreferrer">
-                  <GitHubLogoIcon width="16" height="16" />
+                  <GitHubLogoIcon width="18" height="18" />
                 </a>
               </IconButton>
             </Tooltip>
           )}
-
           <ThemeToggle />
         </Flex>
 
@@ -168,7 +168,7 @@ export const Header = ({ children, gitHubLink, ghost }: HeaderProps) => {
               onClick={() => mobileMenu.setOpen((open) => !open)}
               className={styles.MobileMenuButton}
             >
-              <HamburgerMenuIcon width="16" height="16" />
+              <HamburgerMenuIcon width="18" height="18" />
             </IconButton>
           </Tooltip>
         </Flex>

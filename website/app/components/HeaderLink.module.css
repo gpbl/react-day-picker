@@ -89,6 +89,5 @@ html[class^='dark'] .HeaderLink[data-state='active'] {
 
 .HeaderLink[data-state='active'] {
   font-weight: bold;
-  letter-spacing: -0.01em;
   background-color: var(--accent-a9);
 }

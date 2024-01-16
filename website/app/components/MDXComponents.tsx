@@ -1,10 +1,10 @@
 import { createContext, PropsWithChildren } from 'react';
 
-import { classNames } from '@/lib/classNames';
 import type { MDXComponents } from 'mdx/types';
 import { DayPicker } from 'react-day-picker';
 import * as Examples from 'react-day-picker/examples';
 
+import { classNames } from '@/lib/classNames';
 import { Frontmatter } from '@/lib/docs.server';
 import { Link2Icon } from '@radix-ui/react-icons';
 // import { Frontmatter } from 'types/frontmatter';
@@ -14,6 +14,7 @@ import {
   Card,
   Code,
   Em,
+  Flex,
   Heading,
   Kbd,
   Link,
@@ -147,8 +148,16 @@ export const mdxComponents: MDXComponents = {
   hr: (props: PropsWithChildren) => (
     <Separator size="4" {...props} my="6" style={{ marginInline: 'auto' }} />
   ),
-  ul: (props: PropsWithChildren) => <ul {...props} />,
-  ol: (props: PropsWithChildren) => <ol {...props} />,
+  ul: (props) => {
+    return <ul {...props} className={styles.List} />;
+  },
+  ol: ({ children, ...props }: PropsWithChildren) => {
+    return (
+      <Box {...props} mb="3" pl="4" asChild>
+        <ol>{children}</ol>
+      </Box>
+    );
+  },
   li: (props: PropsWithChildren) => (
     <li className={styles.ListItem}>
       <Text {...props} />
@@ -180,7 +189,37 @@ export const mdxComponents: MDXComponents = {
     }
     return <code {...props} />;
   },
-  kbd: (props: PropsWithChildren) => <Kbd {...props} />
+  kbd: (props: PropsWithChildren) => <Kbd {...props} />,
+  figcaption: (
+    props: PropsWithChildren<{
+      'data-rehype-pretty-code-title'?: '';
+    }>
+  ) => {
+    if ('data-rehype-pretty-code-title' in props) {
+      const { children, ...restProps } = props;
+      return (
+        <figcaption {...restProps}>
+          <Flex mb="-7" width="auto" p="2">
+            <Text
+              size="1"
+              style={{
+                color: 'var(--slate-a11)',
+                backgroundColor: 'var(--slate-2)',
+                boxShadow: '0 0 0 1px var(--slate-a5)',
+                borderRadius: 'var(--radius-2)',
+                padding: 'var(--space-1) var(--space-2)',
+                fontFamily: 'var(--font-mono)'
+              }}
+            >
+              <code>{children}</code>
+            </Text>
+          </Flex>
+        </figcaption>
+      );
+    }
+    console.log(props);
+    return <figcaption {...props} />;
+  }
   // code: ({
   //   className,
   //   line,
