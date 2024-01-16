@@ -48,162 +48,127 @@ You can also implement your own selection logic by setting up a **custom selecti
 
 When using `mode="single"` (the default), users can select only one day from the calendar:
 
-```tsx example fileName="Single.tsx"
-import { DayPicker } from 'react-day-picker';
-import { useState } from 'react';
+<PreviewBox preview={<Examples.Single />}>
 
-export function Single() {
-  const [selectedDay, setSelectedDay] = useState<Date | undefined>();
-
-  return (
-    <DayPicker mode="single" selected={selectedDay} onSelect={setSelectedDay} />
-  );
-}
+```tsx
+const [selectedDay, setSelectedDay] = useState<Date | undefined>();
+// ...
+<DayPicker selected={selectedDay} onSelect={setSelectedDay} />;
 ```
 
-### Making a Selection Required
+</PreviewBox>
+
+### Required Selection
 
 To make a selection required, use the `required` prop. Setting this prop won't allow the user to unselect the selected day.
 
-```tsx example fileName="SingleRequired.tsx"
-import { DayPicker } from 'react-day-picker';
+<PreviewBox preview={<Examples.SingleRequired/>}>
 
-import { useState } from 'react';
-
-export function SingleRequired() {
-  const [selectedDay, setSelectedDay] = useState<Date>(new Date());
-
-  return (
-    <DayPicker
-      mode="single"
-      required
-      selected={selectedDay}
-      onSelect={(date) => date && setSelectedDay(date)}
-    />
-  );
-}
+```tsx
+const [selectedDay, setSelectedDay] = useState<Date>(new Date());
+// ...
+<DayPicker
+  required
+  selected={selectedDay}
+  onSelect={(date) => date && setSelectedDay(date)}
+/>;
 ```
+
+</PreviewBox>
 
 ## Selecting Multiple Days
 
-Use `mode="multiple"` to allow the selection of multiple days:
+Use `mode="multiple"` to allow the selection of multiple days.
 
-```tsx example fileName="Multiple.tsx"
-import { DayPicker } from 'react-day-picker';
+<PreviewBox preview={<Examples.Multiple/>}>
 
-import { useState } from 'react';
-
-export function Multiple() {
-  const initialDays: Date[] = [];
-  const [days, setDays] = useState<Date[]>(initialDays);
-
-  return (
-    <DayPicker
-      mode="multi"
-      selected={days}
-      onSelect={(dates) => setDays(dates || [])}
-    />
-  );
-}
+```tsx
+const initialDays: Date[] = [];
+const [days, setDays] = useState<Date[]>(initialDays);
+// ..
+<DayPicker
+  mode="multi"
+  selected={days}
+  onSelect={(dates) => setDays(dates || [])}
+/>;
 ```
 
-### Limiting the Selectable Days
+</PreviewBox>
+
+### Limiting the Selections
 
 Use `required` or the `min` and `max` props to limit the amount of days that can be selected.
 
-```tsx example fileName="MultipleMinMax.tsx"
-import { DayPicker } from 'react-day-picker';
+<PreviewBox preview={<Examples.MultipleMinMax/>}>
 
-import { useState } from 'react';
-
-export function MultipleMinMax() {
-  const [selected, setSelected] = useState<Date[]>();
-
-  return (
-    <DayPicker
-      mode="multi"
-      min={2}
-      max={5}
-      selected={selected}
-      onSelect={setSelected}
-    />
-  );
-}
+```tsx
+const [selected, setSelected] = useState();
+// ...
+<DayPicker
+  mode="multi"
+  min={2}
+  max={5}
+  selected={selected}
+  onSelect={setSelected}
+/>;
 ```
+
+</PreviewBox>
 
 ## Selecting a Range of days
 
 Use `mode="range"` and `onSelect` to allow the selection of a range of days.
 
-```tsx example fileName="Range.tsx"
-import { DateRange, DayPicker } from 'react-day-picker';
+<PreviewBox preview={<Examples.Range/>}>
 
+```tsx
 import { addDays } from 'date-fns';
-import { useState } from 'react';
-
-export function Range() {
-  const defaultSelected: DateRange = {
-    from: new Date(),
-    to: addDays(new Date(), 4)
-  };
-
-  const [range, setRange] = useState<DateRange | undefined>(defaultSelected);
-
-  return <DayPicker mode="range" selected={range} onSelect={setRange} />;
-}
+//...
+const defaultSelected: DateRange = {
+  from: new Date(),
+  to: addDays(new Date(), 4)
+};
+const [range, setRange] = useState(defaultSelected);
+// ...
+<DayPicker mode="range" selected={range} onSelect={setRange} />;
 ```
+
+</PreviewBox>
 
 ### Limiting the range size
 
 Use the `min` and `max` props to limit the amount of days in the range.
 
-```tsx example fileName="RangeMinMax.tsx"
-import { DateRange, DayPicker } from 'react-day-picker';
+<PreviewBox preview={<Examples.RangeMinMax/>}>
 
-import { useState } from 'react';
-
-export function RangeMinMax() {
-  const [range, setRange] = useState<DateRange | undefined>();
-
-  return (
-    <DayPicker
-      defaultMonth={new Date(2022, 8)}
-      mode="range"
-      min={3}
-      max={6}
-      selected={range}
-      onSelect={setRange}
-    />
-  );
-}
+```tsx
+const [range, setRange] = useState();
+// ...
+<DayPicker mode="range" min={3} max={6} selected={range} onSelect={setRange} />;
 ```
+
+</PreviewBox>
 
 ## Disabling days
 
 Use the `disabled` prop to disable the days in the selection mode.
 
-```tsx example fileName="Disabled.tsx"
-import { DayPicker } from 'react-day-picker';
-
-export function None() {
-  return <DayPicker mode="none" />;
-}
-```
+<PreviewBox preview={<Examples.Disabled />}>
+  ```tsx
+  <DayPicker />
+  ```
+</PreviewBox>
 
 ## Turning off selection mode
 
 Use the `min` and `max` props to limit the amount of days in the range.
 
-```tsx example fileName="None.tsx"
-import { DayPicker } from 'react-day-picker';
-
-export function None() {
-  return <DayPicker mode="none" />;
-}
-```
+<PreviewBox preview={<Examples.None />}>
+  ```tsx
+  <DayPicker mode="presentation" />
+  ```
+</PreviewBox>
 
 ## Custom Selections
 
-If the built-in selections mode doesn't fit your application's requirements...
-
-TODO
+If the built-in selections mode doesn't fit your application's requirements, you can implement your own selection logic. See [Custom Selections](/docs/custom-selections) for more details.

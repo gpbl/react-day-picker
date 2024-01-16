@@ -9,8 +9,8 @@ export const docsRoutes: DocsNavProps['routes'] = [
     pages: [
       { title: 'License', slug: 'docs/license' },
       { title: 'Installation', slug: 'docs/installation' },
+      { title: 'Upgrading', slug: 'docs/upgrading' },
       { title: 'Community', slug: 'docs/community' },
-
       { title: 'Funding', slug: 'docs/funding' }
     ]
   },

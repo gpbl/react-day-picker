@@ -19,6 +19,7 @@ export * from './FromToMonth';
 export * from './FromToYear';
 export * from './InputRange';
 export * from './InputTime';
+export * from './HideNavigation';
 export * from './Keyboard';
 export * from './ModifiersClassnames';
 export * from './ModifiersCustom';

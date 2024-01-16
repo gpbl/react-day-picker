@@ -1,4 +1,4 @@
-import dayPickerCssHref from 'react-day-picker/dist/style.css';
+import dayPickerCssHref from 'react-day-picker/style.css';
 import { Theme } from '@radix-ui/themes';
 
 import { Layout } from '@/components/Layout';
