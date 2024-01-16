@@ -1,0 +1,17 @@
+.BoxLink {
+  display: block;
+  text-decoration: none;
+  outline: 0;
+  padding: var(--space-1);
+  margin: calc(-1 * var(--space-1));
+  border-radius: var(--radius-1);
+  color: inherit;
+}
+
+.BoxLink:focus {
+  box-shadow: 0 0 0 2px var(--accent-8);
+}
+
+.BoxLink:focus:not(:focus-visible) {
+  box-shadow: none;
+}

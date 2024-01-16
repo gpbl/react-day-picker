@@ -1,9 +1,11 @@
 import { createContext, PropsWithChildren } from 'react';
 
-import classNames from 'classnames';
+import { classNames } from '@/lib/classNames';
 import type { MDXComponents } from 'mdx/types';
+import { DayPicker } from 'react-day-picker';
+import * as Examples from 'react-day-picker/examples';
 
-import { Frontmatter } from '@/utils/docs.server';
+import { Frontmatter } from '@/lib/docs.server';
 import { Link2Icon } from '@radix-ui/react-icons';
 // import { Frontmatter } from 'types/frontmatter';
 import {
@@ -20,27 +22,30 @@ import {
   Tabs,
   Text
 } from '@radix-ui/themes';
-
 import { Link as RemixLink } from '@remix-run/react';
 
 import styles from './MDXComponents.module.css';
 import { Pre } from './Pre';
 import { PreviewBox } from './PreviewBox';
-import * as Examples from 'react-day-picker/examples';
 import { PropsTable } from './PropsTable';
 
-export const components: MDXComponents = {
-  Examples,
+export const mdxComponents: MDXComponents = {
+  DayPicker,
+
   PreviewBox,
   PropsTable,
   Pre,
+
+  Examples,
+
+  Text,
   Card,
   Box,
   Tabs: Tabs.Root,
   TabsList: Tabs.List,
   TabsContent: Tabs.Content,
   TabsTrigger: Tabs.Trigger,
-  // CodeBlock,
+
   h1: (props: PropsWithChildren) => {
     return (
       <Heading asChild size="8" mb="3">
@@ -59,7 +64,7 @@ export const components: MDXComponents = {
     const childText =
       typeof children === 'string' ? children : children.props.children;
     return (
-      <Text as="p" size="4" mt="2" mb="7" color="gray" {...props}>
+      <Text as="p" size="4" mt="2" mb="2" color="gray" {...props}>
         {childText}
       </Text>
     );
@@ -73,7 +78,14 @@ export const components: MDXComponents = {
     const childText =
       typeof children === 'string' ? children : children.props.children;
     return (
-      <Text as="p" size="4" color="slate" weight="bold" mb="2" {...props}>
+      <Text
+        as="p"
+        size="4"
+        style={{ color: 'var(--accent-a9)' }}
+        weight="bold"
+        mb="2"
+        {...props}
+      >
         {childText}
       </Text>
     );
@@ -112,7 +124,7 @@ export const components: MDXComponents = {
       </Heading>
     );
   },
-  h4: (props: PropsWithChildren) => {
+  h4: function (props: PropsWithChildren) {
     const { children } = props;
     return (
       <Heading asChild size="4" mt="6" mb="3" {...props}>

@@ -1,3 +1,107 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --header-height: 48px;
+  --quick-nav-display: none;
+  --component-highlights-item-width: calc(100vw - 100px);
+  --developer-experience-code-window-background: var(--slate-12);
+}
+
+:where(.dark-theme, .dark) :where(.dark-theme, .dark) {
+  --developer-experience-code-window-background: var(--black-a9);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --component-highlights-item-width: 325px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --component-highlights-image-height: 850px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --quick-nav-display: block;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--gray-12);
+  -webkit-text-size-adjust: 100%;
+
+  /* Provide a default family for portalled elements not using themes (e.g. Primitives examples) */
+  font-family:
+    'Untitled Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Helvetica,
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji';
+}
+
+svg {
+  display: block;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+pre {
+  margin: 0;
+}
+
+.radix-themes[data-is-root-theme='true'] {
+  min-height: 100vh;
+}
+
+/* 
+.radix-themes.radix-themes-custom-fonts,
+.radix-themes-custom-fonts .radix-themes:not(.radix-themes-default-fonts) {
+  --default-font-family: 'Untitled Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji';
+  --code-font-family: 'Söhne Mono', 'Menlo', monospace, 'Apple Color Emoji',
+    'Segoe UI Emoji';
+  --font-weight-medium: 700;
+  --letter-spacing-1: 0.005em;
+  --letter-spacing-2: 0em;
+  --letter-spacing-3: 0em;
+  --letter-spacing-4: -0.005em;
+  --letter-spacing-5: -0.01em;
+  --letter-spacing-6: -0.0125em;
+  --letter-spacing-7: -0.015em;
+  --letter-spacing-8: -0.02em;
+  --letter-spacing-9: -0.05em;
+  --code-padding-top: 0em;
+  --code-padding-bottom: 0.075em;
+  --default-leading-trim-start: 0.42em;
+  --default-leading-trim-end: 0.38em;
+} */
+
+:root,
+.light,
+.light-theme {
+  --theme-toggle-sun-icon-display: block;
+  --theme-toggle-moon-icon-display: none;
+}
+.dark,
+.dark-theme {
+  --theme-toggle-sun-icon-display: none;
+  --theme-toggle-moon-icon-display: block;
+}

@@ -1,0 +1,47 @@
+.DocsNavItem {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-2);
+  transition: background-color 50ms linear;
+  user-select: none;
+  min-height: var(--space-6);
+  color: var(--slate-12);
+}
+
+.DocsNavItem:not(:last-of-type) {
+  margin-bottom: 1px;
+}
+
+.DocsNavItem:focus {
+  outline: none;
+}
+
+.DocsNavItem:focus-visible {
+  box-shadow:
+    inset 0 0 0 1px var(--slate-8),
+    0 0 0 1px var(--accent-8);
+}
+
+.DocsNavItem:not([href]) {
+  color: var(--slate-a10);
+}
+
+.DocsNavItem.active {
+  background-color: var(--slate-a4);
+  border-left: 2px solid var(--accent-a10);
+  padding-left: calc(var(--space-3) - 2px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  /* color: var(--slate-1); */
+}
+
+@media (hover: hover) {
+  .DocsNavItem[href]:hover {
+    background-color: var(--slate-a3);
+  }
+  .DocsNavItem.active:hover {
+    background-color: var(--slate-a5);
+  }
+}

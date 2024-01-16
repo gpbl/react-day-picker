@@ -1,0 +1,125 @@
+---
+section: Internationalization
+title: Localization
+description: DayPicker can be localized in any language using the date-fns locale object.
+---
+
+<SectionTitle>Internationalization</SectionTitle>
+
+# Localization
+
+<Description>
+  DayPicker can be localized in any language using the date-fns locale object.
+</Description>
+
+---
+
+## Change the Locale
+
+To change the locale, pass to the `locale` prop a date-fns [Locale object](http://date-fns.org/docs/Locale).
+
+For example, to localize the calendar in Spanish, import the `es` locale object from date-fns and pass it to the component.
+
+<PreviewBox preview={<Examples.Spanish/>}>
+  
+  ```tsx
+  import { es } from 'date-fns/locale';
+  // ...
+  <DayPicker locale={es} />;
+  ```
+
+</PreviewBox>
+
+## Override the First Day of the Week
+
+Use `weekStartsOn` to override the first day of the week.
+
+<PreviewBox preview={<Examples.SpanishWeekStartsOn />}>
+  ```tsx
+  <DayPicker weekStartsOn={0} />
+  ```
+</PreviewBox>
+
+### Set the First Week of the Year
+
+To override the date in the first week of the year, use `firstWeekContainsDate`. Use this prop to change the week number calculation according to [date-fns getWeek](https://date-fns.org/docs/getWeek) function.
+
+<PreviewBox preview={<Examples.WeeknumberCustom />}>
+  ```tsx
+  <DayPicker firstWeekContainsDate={1} showWeekNumber />
+  ```
+</PreviewBox>
+
+## Switch to ISO Week Dates
+
+DayPicker uses [date-fns getWeek](https://date-fns.org/docs/getWeek) to calculate the week number. By default, the week starts on Sunday and the first week of the year is the one that contains January 1st. Use `ISOWeek` to switch using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of the locale setting.
+
+<PreviewBox preview={<Examples.WeeknumberIso />}>
+  ```tsx
+  <DayPicker ISOWeek showWeekNumber />
+  ```
+</PreviewBox>
+
+## Translate ARIA labels
+
+Use the [labels prop](/api/interfaces/daypickerdefaultprops#labels) to translate
+the labels used for ARIA.
+
+## Switch the Text Direction
+
+To add right-to-left text direction, set the `dir` prop to `rtl`.
+
+<PreviewBox preview={<Examples.Rtl />}>
+  
+  ```tsx
+  import { arSA } from 'date-fns/locale';
+  <DayPicker locale={es} />;
+  ```
+
+</PreviewBox>
+
+## Change the Numbering System
+
+Use [formatters](/guides/formatters) to change the [numbering system](https://en.wikipedia.org/wiki/Numeral_system) used in the calendar.
+
+For example, to switch to hindu-arabic using [toLocaleString](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+
+<PreviewBox preview={<Examples.NumberingSystem />}>
+
+```tsx
+import { DayPicker, Formatters } from 'react-day-picker';
+
+import { format } from 'date-fns/format';
+import { arSA } from 'date-fns/locale';
+
+const NU_LOCALE = 'ar-u-nu-arab';
+
+const formatDay: Formatters['formatDay'] = (day) =>
+  day.getDate().toLocaleString(NU_LOCALE);
+
+const formatWeekNumber: Formatters['formatWeekNumber'] = (weekNumber) => {
+  return weekNumber.toLocaleString(NU_LOCALE);
+};
+
+const formatMonthCaption: Formatters['formatMonthCaption'] = (
+  date,
+  options
+) => {
+  const y = date.getFullYear().toLocaleString(NU_LOCALE);
+  const m = format(date, 'LLLL', { locale: options?.locale });
+  return `${m} ${y}`;
+};
+
+export function NumberingSystem() {
+  return (
+    <DayPicker
+      locale={arSA}
+      dir="rtl"
+      showWeekNumber
+      formatters={{ formatDay, formatMonthCaption, formatWeekNumber }}
+    />
+  );
+}
+```
+
+</PreviewBox>

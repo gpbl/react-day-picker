@@ -8,13 +8,21 @@ export function Pre(props: PropsWithChildren) {
       p="4"
       my="5"
       style={{
-        boxShadow: '0 0 0 1px var(--slate-a3)',
+        overflow: 'auto',
+        boxShadow: '0 0 0 1px var(--slate-a5)',
         borderRadius: 'var(--radius-2)',
         fontSize: 'var(--font-size-2)',
         backgroundColor: 'var(--slate-a2)'
       }}
     >
-      <pre style={{}}>{props.children}</pre>
+      <pre
+        style={{
+          fontSize: 'var(--font-size-2) ',
+          fontFamily: 'var(--font-mono)'
+        }}
+      >
+        {props.children}
+      </pre>
     </Box>
   );
 }

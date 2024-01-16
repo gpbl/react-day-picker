@@ -1,20 +1,14 @@
 import { useMemo } from 'react';
 
 import { getMDXComponent } from 'mdx-bundler/client/index.js';
+
+import { mdxComponents } from '@/components/MDXComponents';
+
+import type { Frontmatter } from '@/lib/docs.server';
+import { getDoc } from '@/lib/docs.server';
 import { MetaFunction, useLoaderData } from '@remix-run/react';
-import type {
-  LoaderFunction,
-  LoaderFunctionArgs
-} from '@remix-run/server-runtime';
+import type { LoaderFunction } from '@remix-run/server-runtime';
 import { json } from '@remix-run/server-runtime';
-
-import type { Frontmatter } from '../utils/docs.server';
-import { getDoc } from '../utils/docs.server';
-
-import { DayPicker } from 'react-day-picker';
-import { components } from '@/components/MDXComponents';
-import Page from './$';
-// import type { MetaFunction } from '@remix-run/react/dist/routeModules';
 
 type LoaderData = {
   frontmatter: Frontmatter;
@@ -22,9 +16,9 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async () => {
-  const docPage = await getDoc('welcome');
-  if (docPage) {
-    return json(docPage);
+  const data = (await getDoc('intro')) as LoaderData;
+  if (data) {
+    return json(data);
   } else {
     throw new Response('Not found', { status: 404 });
   }
@@ -45,6 +39,12 @@ export const meta: MetaFunction = (arg) => {
   ];
 };
 
-export default function Welcome(props) {
-  return <Page {...props} />;
+export default function MDXPage() {
+  const { code, frontmatter } = useLoaderData<LoaderData>();
+  const Component = useMemo(() => getMDXComponent(code), [code]);
+  return (
+    <main>
+      <Component components={mdxComponents} />
+    </main>
+  );
 }

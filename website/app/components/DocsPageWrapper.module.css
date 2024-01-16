@@ -1,0 +1,31 @@
+.DocsPageWrapper {
+  flex-grow: 1;
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+}
+
+/* Gradually make space for the Quick Nav on the right until next breakpoint (up to -104px) */
+@media (min-width: 1024px) {
+  .DocsPageWrapper {
+    margin-left: calc((1024px - 100vw) * 0.25);
+  }
+}
+
+/*
+ * 1. Gradually remove compensatation for the Side Nav on the left (from -104px to 0px).
+ * 2. Gradually add negative compensatation for the Quick Nav on the right (from 0px to -250px).
+ */
+@media (min-width: 1440px) {
+  .DocsPageWrapper {
+    margin-left: calc(
+      -104px + (100vw - 1440px) * 0.52 - (100vw - 1440px) * 1.25
+    );
+  }
+}
+
+@media (min-width: 1640px) {
+  .DocsPageWrapper {
+    margin-left: -250px;
+  }
+}
