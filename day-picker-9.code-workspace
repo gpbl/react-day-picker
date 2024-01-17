@@ -17,12 +17,6 @@
       "path": "website"
     },
     {
-      "path": "examples"
-    },
-    {
-      "path": "docs"
-    },
-    {
       "path": "scripts"
     }
   ],
@@ -33,7 +27,7 @@
     "editor.formatOnType": true,
     "editor.tabSize": 2,
     "npm.packageManager": "pnpm",
-    "jest.disabledWorkspaceFolders": ["scripts", "docs", "examples", "website"],
+    "jest.disabledWorkspaceFolders": ["website", "scripts"],
     "jest.runMode": { "type": "on-save", "testFileOnly": true }
   },
   "launch": {

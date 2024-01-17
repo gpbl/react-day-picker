@@ -2,7 +2,7 @@ import { createContext, PropsWithChildren } from 'react';
 
 import type { MDXComponents } from 'mdx/types';
 import { DayPicker } from 'react-day-picker';
-import * as Examples from 'react-day-picker/examples';
+import * as Examples from '@/examples';
 
 import { classNames } from '@/lib/classNames';
 import { Frontmatter } from '@/lib/docs.server';

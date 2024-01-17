@@ -1,4 +1,4 @@
-import { renderHook } from '@test/renderHook';
+import { renderHook } from '@/test/renderHook';
 
 import { useCalendar } from './CalendarContext';
 

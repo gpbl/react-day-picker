@@ -12,10 +12,11 @@
     "strict": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
+    "types": ["node", "jest", "@testing-library/jest-dom"],
+    // "baseUrl": ".",
     "paths": {
-      "@/*": ["./app/*"],
-      "@examples/*": ["../examples/*"]
+      "@/test/*": ["../test/*"],
+      "@/*": ["./app/*"]
     },
     // Remix takes care of building everything in `remix build`.
     "noEmit": true

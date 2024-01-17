@@ -11,8 +11,7 @@
     "outDir": "./dist",
     "noEmit": true,
     "paths": {
-      "react-day-picker": ["./src/index.ts"],
-      "@test/*": ["./test/*"]
+      "@/test/*": ["./test/*"]
     },
     "types": ["node", "jest", "@testing-library/jest-dom"],
     "lib": ["dom", "dom.iterable", "esnext"]

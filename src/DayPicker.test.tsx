@@ -1,5 +1,5 @@
-import { app } from '@test/elements';
-import { renderApp } from '@test/renderApp';
+import { app } from '@/test/elements';
+import { renderApp } from '@/test/renderApp';
 
 import { DayPicker } from './DayPicker';
 

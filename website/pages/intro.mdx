@@ -9,10 +9,13 @@ description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eui
 # React DayPicker
 
 <Description>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl
-  eget
+  DayPicker is a flexible date picker component for React.
 </Description>
 
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget
+<PreviewBox preview={<Examples.Start />}>
+  ```tsx
+  <DayPicker onSelect={(date) => alert(date.toLocaleDateString())} />
+  ```
+</PreviewBox>

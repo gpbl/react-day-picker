@@ -21,9 +21,9 @@ const config: Config.InitialOptions = {
       process.env.TEST_ENV === 'build'
         ? '<rootDir>/dist/index.cjs'
         : '<rootDir>/src/index.ts',
-    '^@test/(.*)$': '<rootDir>/test/$1'
+    '^@/test/(.*)$': '<rootDir>/test/$1'
   },
-  roots: ['./src', './examples'],
+  roots: ['./src', './website/app/examples'],
   testEnvironment: 'jsdom',
   coverageReporters: ['lcov', 'text', 'clover'],
   setupFilesAfterEnv: ['./test/setup.ts'],

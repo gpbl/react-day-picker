@@ -37,10 +37,8 @@
     "typecheck-watch": "tsc --noEmit --watch"
   },
   "files": [
-    "docs",
     "dist",
-    "src",
-    "examples"
+    "src"
   ],
   "devDependencies": {
     "@jest/types": "^29.6.3",

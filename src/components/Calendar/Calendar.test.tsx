@@ -1,5 +1,5 @@
-import { grid, nav } from '@test/elements';
-import { render } from '@test/render';
+import { grid, nav } from '@/test/elements';
+import { render } from '@/test/render';
 
 import { Calendar } from './Calendar';
 

@@ -1,7 +1,7 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 export default {
   ignoredRouteFiles: ['**/.*'],
-  serverDependenciesToBundle: ['@radix-ui/themes', 'react-day-picker/examples'],
+  serverDependenciesToBundle: ['@radix-ui/themes'],
   appDirectory: 'app',
   assetsBuildDirectory: 'public/build',
   publicPath: '/build/',
