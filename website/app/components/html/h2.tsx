@@ -7,7 +7,7 @@ export function h2(props: PropsWithChildren<{ id?: string }>) {
   const { children, id } = props;
   return (
     <Heading
-      size="5"
+      size="6"
       mt="8"
       mb="3"
       asChild

@@ -12,11 +12,11 @@ export type Frontmatter = {
   sort?: string;
 };
 
-const DOCS_PATH = path.join(process.cwd(), './pages');
+const MDX_PATH = path.join(process.cwd(), './data/mdx');
 
 /** Get the frontmatter and code for a single page */
 export async function getDoc(slug: string, subPath = '') {
-  const filePath = path.join(DOCS_PATH, subPath, `${slug}.mdx`);
+  const filePath = path.resolve(MDX_PATH, subPath, `${slug}.mdx`);
 
   const [source] = await Promise.all([readFile(filePath, 'utf-8')]);
 

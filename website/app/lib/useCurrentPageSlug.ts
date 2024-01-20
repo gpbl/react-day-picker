@@ -1,5 +1,6 @@
 import { useLocation } from '@remix-run/react';
 
+/** Returns the current page slug. */
 export function useCurrentPageSlug() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);

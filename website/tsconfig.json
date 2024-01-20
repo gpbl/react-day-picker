@@ -16,6 +16,7 @@
     // "baseUrl": ".",
     "paths": {
       "@/test/*": ["../test/*"],
+      "@/data": ["../data/*"],
       "@/*": ["./app/*"]
     },
     // Remix takes care of building everything in `remix build`.

@@ -1,6 +1,6 @@
 import { DocsNavProps } from '../components/DocsNav';
 
-export const docsRoutes: DocsNavProps['routes'] = [
+export const docs: DocsNavProps['routes'] = [
   {
     pages: [{ title: 'Introduction', slug: '' }]
   },
@@ -42,7 +42,7 @@ export const docsRoutes: DocsNavProps['routes'] = [
     label: 'Advanced Guides',
     pages: [
       { title: 'Custom Components', slug: 'docs/custom-components' },
-      { title: 'Custom Modifiers', slug: 'docs/modifiers' }
+      { title: 'Custom Modifiers', slug: 'docs/custom-modifiers' }
     ]
   },
   {
