@@ -20,7 +20,7 @@ export interface HeaderProps {
 
 type ScrollState = 'at-top' | 'scrolling-up' | 'scrolling-down';
 
-export const Header = ({ children, gitHubLink, ghost }: HeaderProps) => {
+export function Header({ children, gitHubLink, ghost }: HeaderProps) {
   const mobileMenu = useMobileMenuContext();
   const location = useLocation();
 
@@ -175,4 +175,4 @@ export const Header = ({ children, gitHubLink, ghost }: HeaderProps) => {
       </div>
     </div>
   );
-};
+}

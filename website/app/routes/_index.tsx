@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { getMDXComponent } from 'mdx-bundler/client/index.js';
 
-import { mdxComponents } from '@/components/MDXComponents';
+import { mdxComponents } from '@/components/mdxComponents';
 
 import type { Frontmatter } from '@/lib/docs.server';
 import { getDoc } from '@/lib/docs.server';

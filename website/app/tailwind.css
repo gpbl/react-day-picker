@@ -1,3 +1,5 @@
+@import 'react-day-picker/dist/style.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,8 +7,6 @@
 :root {
   --header-height: 48px;
   --quick-nav-display: none;
-  --component-highlights-item-width: calc(100vw - 100px);
-  --developer-experience-code-window-background: var(--slate-12);
 }
 
 :where(.dark-theme, .dark) :where(.dark-theme, .dark) {
@@ -92,4 +92,16 @@ code[data-theme*=' '] span {
 .dark code[data-theme*=' '] span {
   color: var(--shiki-dark);
   background-color: var(--shiki-dark-bg);
+}
+
+@layer utilities {
+  .step {
+    counter-increment: step;
+  }
+
+  .step:before {
+    @apply absolute w-9 h-9 rounded-full font-mono font-medium text-center text-base inline-flex items-center justify-center -indent-px border-0 bg-slate-100 dark:bg-slate-800;
+    @apply ml-[-50px] mt-[-4px];
+    content: counter(step);
+  }
 }

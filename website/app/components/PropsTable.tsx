@@ -1,17 +1,18 @@
 import React from 'react';
+
+import { AccessibleIcon } from '@radix-ui/react-accessible-icon';
+import { DividerHorizontalIcon, InfoCircledIcon } from '@radix-ui/react-icons';
 import {
   Box,
-  IconButton,
-  Text,
-  Popover,
   Code,
-  Table,
   Flex,
+  IconButton,
   Inset,
-  ScrollArea
+  Popover,
+  ScrollArea,
+  Table,
+  Text
 } from '@radix-ui/themes';
-import { InfoCircledIcon, DividerHorizontalIcon } from '@radix-ui/react-icons';
-import { AccessibleIcon } from '@radix-ui/react-accessible-icon';
 
 export type PropDef = {
   name: string;

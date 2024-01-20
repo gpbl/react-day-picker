@@ -6,8 +6,8 @@ import { SideNav } from './SideNav';
 import { DocsPageWrapper } from './DocsPageWrapper';
 import { DocsNav } from './DocsNav';
 import { useLocation } from '@remix-run/react';
-import { docsRoutes } from './docsRoutes';
-import { apiRoutes } from './apiRoutes';
+import { docsRoutes } from '../routes/docsRoutes';
+import { apiRoutes } from '../routes/apiRoutes';
 
 export function Layout(props: PropsWithChildren) {
   const location = useLocation();

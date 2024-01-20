@@ -23,7 +23,7 @@ export async function getDoc(slug: string, subPath = '') {
   const prettyCodeOptions: Parameters<typeof rehypePrettyCode>[0] = {
     keepBackground: true,
     theme: {
-      dark: 'github-dark-dimmed',
+      dark: 'github-dark',
       light: 'light-plus'
     }
   };

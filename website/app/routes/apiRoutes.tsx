@@ -1,4 +1,4 @@
-import { DocsNavProps } from './DocsNav';
+import { DocsNavProps } from '../components/DocsNav';
 
 export const apiRoutes: DocsNavProps['routes'] = [
   {

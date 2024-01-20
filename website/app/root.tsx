@@ -1,4 +1,5 @@
-import dayPickerCssHref from 'react-day-picker/dist/style.css';
+// import dayPickerCssHref from 'react-day-picker/dist/style.css';
+
 import {
   ThemeProvider,
   useTheme,
@@ -35,7 +36,6 @@ import radixUIHref from '@radix-ui/themes/styles.css';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: tailwindHref },
-  { rel: 'stylesheet', href: dayPickerCssHref },
   { rel: 'stylesheet', href: radixUIHref },
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])
 ];
