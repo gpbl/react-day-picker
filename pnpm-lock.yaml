@@ -149,6 +149,9 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      react-day-picker:
+        specifier: workspace:9.0.0-next.1
+        version: link:..
       shelljs:
         specifier: ^0.8.5
         version: 0.8.5

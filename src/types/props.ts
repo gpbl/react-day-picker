@@ -117,7 +117,7 @@ export interface PropsBase {
    */
   toYear?: number;
   /**
-   * Paginate the month navigation displaying the `numberOfMonths} at time.
+   * Paginate the month navigation displaying the `numberOfMonths` at time.
    */
   pagedNavigation?: boolean;
   /**
@@ -265,7 +265,6 @@ export interface PropsBase {
   /**
    * The day of January, which is always in the first week of the year.
    *
-   * @see `ISOWeek`
    * @see https://date-fns.org/docs/getWeek
    * @see https://en.wikipedia.org/wiki/Week#Numbering
    */
@@ -284,7 +283,6 @@ export interface PropsBase {
   useAdditionalDayOfYearTokens?: boolean | undefined;
 
   /* EVENT HANDLERS */
-
   /**
    * Event fired when the user navigates between months.
    */
