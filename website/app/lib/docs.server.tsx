@@ -31,7 +31,7 @@ export async function getDoc(slug: string, subPath = '') {
   const page = await bundleMDX<Frontmatter>({
     source: source,
     cwd: process.cwd(),
-    mdxOptions(options) {
+    mdxOptions: (options) => {
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         [rehypePrettyCode, prettyCodeOptions]

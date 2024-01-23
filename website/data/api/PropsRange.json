@@ -1,0 +1,57 @@
+{
+  "deprecated": false,
+  "description": "The props for the range selection mode.",
+  "descriptionJsx": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of x(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=f(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?d(_(n)):{},i(t||!n||!n.__esModule?r(e,\"default\",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},\"__esModule\",{value:!0}),n);var p=l((w,m)=>{m.exports=_jsx_runtime});var X={};j(X,{default:()=>a,frontmatter:()=>D});var c=M(p()),D=void 0;function u(n){let t={p:\"p\",...n.components};return(0,c.jsx)(t.p,{children:\"The props for the range selection mode.\"})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;",
+  "see": [],
+  "startLine": 452,
+  "endLine": 456,
+  "text": "export interface PropsRange {\n  required?: boolean;\n  min?: number;\n  max?: number;\n}",
+  "filePath": "src/types/props.ts",
+  "name": "PropsRange",
+  "inherit": [],
+  "extend": [],
+  "props": [
+    {
+      "startLine": 453,
+      "endLine": 453,
+      "text": "required?: boolean;",
+      "filePath": "src/types/props.ts",
+      "deprecated": false,
+      "description": "",
+      "descriptionJsx": "var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,\"default\",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},\"__esModule\",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;",
+      "see": [],
+      "name": "required",
+      "type": "",
+      "typeSimple": "boolean",
+      "required": false
+    },
+    {
+      "startLine": 454,
+      "endLine": 454,
+      "text": "min?: number;",
+      "filePath": "src/types/props.ts",
+      "deprecated": false,
+      "description": "",
+      "descriptionJsx": "var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,\"default\",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},\"__esModule\",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;",
+      "see": [],
+      "name": "min",
+      "type": "",
+      "typeSimple": "number",
+      "required": false
+    },
+    {
+      "startLine": 455,
+      "endLine": 455,
+      "text": "max?: number;",
+      "filePath": "src/types/props.ts",
+      "deprecated": false,
+      "description": "",
+      "descriptionJsx": "var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,\"default\",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},\"__esModule\",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;",
+      "see": [],
+      "name": "max",
+      "type": "",
+      "typeSimple": "number",
+      "required": false
+    }
+  ]
+}

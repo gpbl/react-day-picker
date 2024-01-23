@@ -1,5 +1,11 @@
 {
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "remix.env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../data/**/*.ts",
+    "../data/**/*.tsx"
+  ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "isolatedModules": true,
@@ -13,11 +19,11 @@
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["node", "jest", "@testing-library/jest-dom"],
-    // "baseUrl": ".",
+    "baseUrl": ".",
     "paths": {
-      "@/test/*": ["../test/*"],
-      "@/data": ["../data/*"],
-      "@/*": ["./app/*"]
+      "@/*": ["./app/*"],
+      "@/test/*": ["./test/*"],
+      "@/data/*": ["./data/*"]
     },
     // Remix takes care of building everything in `remix build`.
     "noEmit": true

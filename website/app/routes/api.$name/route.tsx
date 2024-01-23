@@ -6,9 +6,10 @@ import { mdxComponents } from '@/components/mdxComponents';
 
 import type { Frontmatter } from '@/lib/docs.server';
 import { getDoc } from '@/lib/docs.server';
-import { MetaFunction, useLoaderData } from '@remix-run/react';
+import { MetaFunction, useLoaderData, useParams } from '@remix-run/react';
 import type { LoaderFunction } from '@remix-run/server-runtime';
 import { json } from '@remix-run/server-runtime';
+import { PropsTable } from '@/components/PropsTable';
 
 type LoaderData = {
   frontmatter: Frontmatter;
@@ -40,12 +41,14 @@ export const meta: MetaFunction = (arg) => {
 };
 
 export default function Index() {
-  const { code, frontmatter } = useLoaderData<LoaderData>();
-  const Component = useMemo(() => getMDXComponent(code), [code]);
-
+  const params = useParams();
+  const name = params['name'];
+  if (!name) {
+    throw new Response('Not found', { status: 404 });
+  }
   return (
     <main>
-      <Component components={mdxComponents} />
+      <PropsTable interface={name} />
     </main>
   );
 }

@@ -1,9 +1,4 @@
-import { useMemo } from 'react';
-
-import { getMDXComponent } from 'mdx-bundler/client/index.js';
-
-import { mdxComponents } from '@/components/mdxComponents';
-
+import { CodeToMdx } from '@/lib/CodeToMdx';
 import type { Frontmatter } from '@/lib/docs.server';
 import { getDoc } from '@/lib/docs.server';
 import { MetaFunction, useLoaderData } from '@remix-run/react';
@@ -22,7 +17,6 @@ export const loader: LoaderFunction = async ({
   params
 }: LoaderFunctionArgs) => {
   const slug = params['*'] || 'intro';
-  console.log({ slug });
   if (!slug) throw new Response('Not found', { status: 404 });
   const data = (await getDoc(slug)) as LoaderData;
   if (data) {
@@ -47,12 +41,11 @@ export const meta: MetaFunction = (arg) => {
   ];
 };
 
-export default function MDXPage() {
-  const { code, frontmatter } = useLoaderData<LoaderData>();
-  const Component = useMemo(() => getMDXComponent(code), [code]);
+export default function DocPage() {
+  const { code } = useLoaderData<LoaderData>();
   return (
     <main>
-      <Component components={mdxComponents} />
+      <CodeToMdx code={code} />
     </main>
   );
 }

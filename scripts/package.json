@@ -3,17 +3,22 @@
   "version": "1.0.0",
   "description": "Scripts for the react-day-picker builds",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "generate-examples": "ts-node ./generate-examples.ts --dir=../examples --outputDir=../website/src/app/examples",
-    "generate-routes": "ts-node ./generate-routes.ts ../docs ../website/app/routes/docs"
+    "generate-defs": "NODE_ENV=production ts-node-esm ./api/generate-defs.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/mdx": "^2.0.10",
     "lodash": "^4.17.21",
+    "mdx-bundler": "^10.0.1",
+    "prettier": "^3.1.1",
     "react-day-picker": "workspace:9.0.0-next.1",
     "shelljs": "^0.8.5",
     "ts-morph": "^21.0.1",
+    "ts-node": "^10.9.2",
+    "xdm": "^3.4.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {

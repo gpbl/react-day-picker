@@ -73,7 +73,7 @@ html[class^='dark'] .HeaderLink[data-state='active'] {
 
 @media (hover: hover) {
   .HeaderLink:hover {
-    background-color: var(--slate-a3);
+    background-color: var(--accent-a3);
   }
 }
 

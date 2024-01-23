@@ -1,6 +1,5 @@
 import { PropsWithChildren } from 'react';
 
-import { api as apiRoutes } from '@/routes/api';
 import { docs as docsRoutes } from '@/routes/docs';
 import { Box, Flex } from '@radix-ui/themes';
 import { useLocation } from '@remix-run/react';
@@ -32,7 +31,7 @@ export function Layout(props: PropsWithChildren) {
                     location.pathname.startsWith('/docs')
                       ? docsRoutes
                       : location.pathname.startsWith('/api')
-                        ? apiRoutes
+                        ? []
                         : []
                   }
                 />

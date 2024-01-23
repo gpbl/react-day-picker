@@ -14,10 +14,10 @@
       "path": "."
     },
     {
-      "path": "website"
+      "path": "scripts"
     },
     {
-      "path": "scripts"
+      "path": "website"
     }
   ],
   "settings": {
@@ -27,8 +27,18 @@
     "editor.formatOnType": true,
     "editor.tabSize": 2,
     "npm.packageManager": "pnpm",
-    "jest.disabledWorkspaceFolders": ["website", "scripts"],
-    "jest.runMode": { "type": "on-save", "testFileOnly": true }
+    "jest.disabledWorkspaceFolders": ["website"],
+    "jest.runMode": {
+      "type": "on-save",
+      "testFileOnly": true
+    },
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#005994",
+      "activityBar.foreground": "#d8d8d8",
+      "activityBar.inactiveForeground": "#d8d8d877",
+      "activityBarBadge.background": "#dd006f",
+      "activityBarBadge.foreground": "#e7e7e7"
+    }
   },
   "launch": {
     "version": "0.2.0",

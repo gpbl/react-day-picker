@@ -31,6 +31,7 @@ export interface PropsSelection<T extends Mode> {
   onSelect?: SelectHandler<T> | undefined;
 }
 
+/** The props  */
 export interface PropsBase {
   /**
    * The CSS class to add to the container element.

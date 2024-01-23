@@ -10,9 +10,9 @@ import { Box, Card, Tabs, Text } from '@radix-ui/themes';
 import { Description } from './Description';
 import * as html from './html';
 import { PreviewBox } from './PreviewBox';
-import { PropsTable } from './PropsTable';
 import { SectionTitle } from './SectionTitle';
 import { Step, Steps } from './Steps';
+import { PropsTable } from './PropsTable';
 
 export const mdxComponents: MDXComponents = {
   ...html,
