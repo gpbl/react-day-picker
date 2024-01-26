@@ -8,6 +8,8 @@ assignees: 'gpbl'
 
 Please provide a detailed description of the issue. Include any relevant context or steps to reproduce the problem.
 
+Fork this CodeSandbox: https://codesandbox.io/p/sandbox/react-day-picker-v8-eg8mw and add to it the code to reproduce the issue.
+
 ## Expected Behavior
 
 Describe what you expect to happen.
@@ -33,6 +35,7 @@ If applicable, add screenshots or GIFs to help explain your problem.
 
 ## Your Environment
 - React version:
+- Your Timezone: 
 - Browser [e.g. chrome, safari]:
 - Version [e.g. 22]:
 - Operating System [e.g. iOS, Windows]:
