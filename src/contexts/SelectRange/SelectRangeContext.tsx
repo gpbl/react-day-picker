@@ -13,7 +13,7 @@ import { DayClickEventHandler } from 'types/EventHandlers';
 import { DateRange } from 'types/Matchers';
 import { InternalModifier, Modifiers } from 'types/Modifiers';
 
-import { addToRange } from './utils/addToRange';
+import { addToRange, findDisabledDays } from './utils';
 
 /** Represent the modifiers that are changed by the range selection. */
 export type SelectRangeModifiers = Pick<
@@ -87,14 +87,14 @@ export function SelectRangeProviderInternal({
   initialProps,
   children
 }: SelectRangeProviderInternalProps): JSX.Element {
-  const { selected } = initialProps;
+  const { selected, disabled, excludeDisabledDays } = initialProps;
   const { from: selectedFrom, to: selectedTo } = selected || {};
   const min = initialProps.min;
   const max = initialProps.max;
 
   const onDayClick: DayClickEventHandler = (day, activeModifiers, e) => {
     initialProps.onDayClick?.(day, activeModifiers, e);
-    const newRange = addToRange(day, selected);
+    const newRange = addToRange(day, selected, min);
     initialProps.onSelect?.(newRange, day, activeModifiers, e);
   };
 
@@ -125,12 +125,28 @@ export function SelectRangeProviderInternal({
     modifiers.range_end = [selectedTo];
   }
 
+  if (excludeDisabledDays && selectedFrom && !selectedTo) {
+    const disabledDates = findDisabledDays(selectedFrom, disabled);
+    if (disabledDates?.after) {
+      modifiers.disabled.push({ after: disabledDates.after });
+    }
+    if (disabledDates?.before) {
+      modifiers.disabled.push({ before: disabledDates.before });
+    }
+  }
+
   if (min) {
     if (selectedFrom && !selectedTo) {
-      modifiers.disabled.push({
-        after: subDays(selectedFrom, min - 1),
-        before: addDays(selectedFrom, min - 1)
-      });
+      modifiers.disabled.push(
+        {
+          after: subDays(selectedFrom, min - 1),
+          before: selectedFrom
+        },
+        {
+          after: selectedFrom,
+          before: addDays(selectedFrom, min - 1)
+        }
+      );
     }
     if (selectedFrom && selectedTo) {
       modifiers.disabled.push({

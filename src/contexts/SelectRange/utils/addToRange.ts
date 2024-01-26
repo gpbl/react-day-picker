@@ -10,7 +10,8 @@ import { DateRange } from 'types/Matchers';
  */
 export function addToRange(
   day: Date,
-  range?: DateRange
+  range?: DateRange,
+  min?: number
 ): DateRange | undefined {
   const { from, to } = range || {};
   if (from && to) {
@@ -37,6 +38,9 @@ export function addToRange(
   if (from) {
     if (isBefore(day, from)) {
       return { from: day, to: from };
+    }
+    if (min && min > 1 && isSameDay(from, day)) {
+      return undefined;
     }
     return { from, to: day };
   }

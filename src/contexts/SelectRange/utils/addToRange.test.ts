@@ -48,6 +48,15 @@ describe('when no "to" is the range', () => {
       expect(result).toEqual({ from: range.from, to: day });
     });
   });
+  describe('and the day is the same as the "from" day but with a min provided', () => {
+    let result: DateRange | undefined;
+    beforeAll(() => {
+      result = addToRange(day, range, 2);
+    });
+    test('should set the day as the "to" date', () => {
+      expect(result).toEqual(undefined);
+    });
+  });
 });
 
 describe('when "from", "to" and "day" are the same', () => {
