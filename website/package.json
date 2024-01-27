@@ -4,8 +4,9 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "pnpm -w build && remix build",
-    "dev": "PORT=2001 remix dev --manual",
+    "prebuild": "pnpm -w build && pnpm --filter scripts run generate-defs",
+    "build": "pnpm run prebuild && remix build",
+    "dev": "pnpm --filter scripts run generate-defs && PORT=2001 remix dev --manual",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc"
@@ -64,6 +65,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "scripts": "workspace:^",
     "shikiji": "^0.9.19",
     "tailwindcss": "^3.4.1",
     "ts-morph": "^21.0.1",

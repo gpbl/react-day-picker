@@ -1,3 +1,3 @@
 export default function Playground({ ...props }) {
-  return <div />;
+  return <div></div>;
 }

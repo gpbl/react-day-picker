@@ -1,4 +1,4 @@
 packages:
-  - "docs"
+  - "scripts"
   - "website"
   - "."

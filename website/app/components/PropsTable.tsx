@@ -1,18 +1,12 @@
 import React from 'react';
 
+import type { DayPickerExports, InterfaceDef } from 'scripts';
+
+import { RenderJsx } from '@/components/RenderJsx';
+import { apiDefs } from '@/data/apiDefs';
 import { AccessibleIcon } from '@radix-ui/react-accessible-icon';
 import { DividerHorizontalIcon, InfoCircledIcon } from '@radix-ui/react-icons';
-import {
-  Box,
-  Code,
-  Flex,
-  IconButton,
-  Inset,
-  Popover,
-  ScrollArea,
-  Table,
-  Text
-} from '@radix-ui/themes';
+import { Box, Code, Flex, IconButton, Popover, Table } from '@radix-ui/themes';
 
 export type PropDef = {
   name: string;
@@ -23,29 +17,28 @@ export type PropDef = {
   description?: string | React.ReactNode;
 };
 
-import PropsBase from '@/data/api/PropsBase.json';
-import PropsSingle from '@/data/api/PropsSingle.json';
-import PropsRange from '@/data/api/PropsRange.json';
-
-import { CodeToMdx } from '@/lib/CodeToMdx';
-
-const propsTables = {
-  PropsBase,
-  PropsSingle,
-  PropsRange
-};
-
 interface PropsTableProps {
-  interface: keyof typeof propsTables;
+  member: DayPickerExports;
   propHeaderFixedWidth?: boolean;
 }
 
+function isInterfaceDef(json: object): json is InterfaceDef {
+  return 'kind' in json && json['kind'] === 'InterfaceDeclaration';
+}
+
 export function PropsTable(props: PropsTableProps) {
-  const propsDefs = propsTables[props.interface].props;
+  const interfaceDef = apiDefs[props.member];
+
+  if (!interfaceDef || !isInterfaceDef(interfaceDef)) {
+    throw new Error(`Invalid API data for "${props.member}:`);
+  }
+
+  const properties = Object.values(interfaceDef.properties).sort((a, b) =>
+    a.name.localeCompare(b.name, undefined, { sensitivity: 'case' })
+  );
 
   return (
     <>
-      <CodeToMdx code={PropsBase.descriptionJsx} />
       <Box my="5" asChild>
         <Table.Root variant="surface">
           <Table.Header>
@@ -61,66 +54,52 @@ export function PropsTable(props: PropsTableProps) {
           </Table.Header>
 
           <Table.Body>
-            {Object.values(propsDefs)
-              .sort((a, b) =>
-                a.name.localeCompare(b.name, undefined, { sensitivity: 'case' })
-              )
-              .map((propDef, i) => {
-                const {
-                  name,
-                  type,
-                  typeSimple,
-                  required,
-                  defaultValue,
-                  description,
-                  descriptionJsx
-                  // Description
-                } = propDef;
-                return (
-                  <Table.Row
-                    key={`${name}-${i}`}
-                    style={{ whiteSpace: 'nowrap' }}
-                  >
-                    <Table.RowHeaderCell>
-                      <Flex display="inline-flex" align="center" gap="2">
-                        <Box>
-                          <Code size="2">
-                            {name}
-                            {required ? '*' : null}
-                          </Code>
-                        </Box>
-                        {description && (
-                          <Popover.Root>
-                            <Popover.Trigger>
-                              <IconButton variant="ghost" size="1" color="gray">
-                                <AccessibleIcon label="Prop description">
-                                  <InfoCircledIcon />
-                                </AccessibleIcon>
-                              </IconButton>
-                            </Popover.Trigger>
-                            <Popover.Content
-                              side="top"
-                              align="center"
-                              style={{ maxWidth: 350 }}
-                              onOpenAutoFocus={(event) => {
-                                event.preventDefault();
-                                (event.currentTarget as HTMLElement)?.focus();
-                              }}
-                            >
-                              <CodeToMdx code={descriptionJsx} />
-                            </Popover.Content>
-                          </Popover.Root>
-                        )}
-                      </Flex>
-                    </Table.RowHeaderCell>
-                    <Table.Cell>
-                      <Flex display="inline-flex" align="center" gap="2">
-                        <Box>
-                          <Code color="gray" size="2">
-                            {typeSimple ? typeSimple : type}
-                          </Code>
-                        </Box>
-                        {Boolean(typeSimple) && Boolean(type) && (
+            {properties.map((prop, i) => {
+              return (
+                <Table.Row
+                  key={`${prop.name}-${i}`}
+                  style={{ whiteSpace: 'nowrap' }}
+                >
+                  <Table.RowHeaderCell>
+                    <Flex display="inline-flex" align="center" gap="2">
+                      <Box>
+                        <Code size="2">
+                          {prop.name}
+                          {prop.required ? '*' : null}
+                        </Code>
+                      </Box>
+                      {prop.comment && (
+                        <Popover.Root>
+                          <Popover.Trigger>
+                            <IconButton variant="ghost" size="1" color="gray">
+                              <AccessibleIcon label="Prop description">
+                                <InfoCircledIcon />
+                              </AccessibleIcon>
+                            </IconButton>
+                          </Popover.Trigger>
+                          <Popover.Content
+                            side="top"
+                            align="center"
+                            style={{ maxWidth: 350 }}
+                            onOpenAutoFocus={(event) => {
+                              event.preventDefault();
+                              (event.currentTarget as HTMLElement)?.focus();
+                            }}
+                          >
+                            <RenderJsx jsx={prop.commentJsx} />
+                          </Popover.Content>
+                        </Popover.Root>
+                      )}
+                    </Flex>
+                  </Table.RowHeaderCell>
+                  <Table.Cell>
+                    <Flex display="inline-flex" align="center" gap="2">
+                      <Box>
+                        <Code color="gray" size="2">
+                          {/* {typeSimple ? typeSimple : type} */}
+                        </Code>
+                      </Box>
+                      {/* {Boolean(typeSimple) && Boolean(type) && (
                           <Popover.Root>
                             <Popover.Trigger>
                               <IconButton variant="ghost" color="gray" size="1">
@@ -155,26 +134,26 @@ export function PropsTable(props: PropsTableProps) {
                               </Inset>
                             </Popover.Content>
                           </Popover.Root>
-                        )}
-                      </Flex>
-                    </Table.Cell>
+                        )} */}
+                    </Flex>
+                  </Table.Cell>
 
-                    <Table.Cell>
-                      {defaultValue ? (
-                        <Code size="2" color="gray">
-                          {defaultValue}
-                        </Code>
-                      ) : (
-                        <AccessibleIcon label="No default value">
-                          <DividerHorizontalIcon
-                            style={{ color: 'var(--gray-8)' }}
-                          />
-                        </AccessibleIcon>
-                      )}
-                    </Table.Cell>
-                  </Table.Row>
-                );
-              })}
+                  <Table.Cell>
+                    {prop.defaultValue ? (
+                      <Code size="2" color="gray">
+                        {prop.defaultValue}
+                      </Code>
+                    ) : (
+                      <AccessibleIcon label="No default value">
+                        <DividerHorizontalIcon
+                          style={{ color: 'var(--gray-8)' }}
+                        />
+                      </AccessibleIcon>
+                    )}
+                  </Table.Cell>
+                </Table.Row>
+              );
+            })}
           </Table.Body>
         </Table.Root>
       </Box>

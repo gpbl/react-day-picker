@@ -1,0 +1,7 @@
+export function jsdocLinksToMarkdown(description: string) {
+  return (
+    description.replace(/\{@link (.*?)\}/g, (match, url) => {
+      return `<ApiInternalLink member="${url.trim()}" />`;
+    }) ?? ''
+  );
+}

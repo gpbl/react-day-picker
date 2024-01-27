@@ -6,7 +6,7 @@ export function SectionTitle({
   children,
   ...props
 }: {
-  children: { props: PropsWithChildren<React.ReactNode> };
+  children: { props: PropsWithChildren } | string;
 }) {
   const childText =
     typeof children === 'string' ? children : children.props.children;

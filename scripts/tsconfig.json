@@ -14,8 +14,9 @@
     "jsxImportSource": "react/jsx-runtime"
   },
   "include": [
-    "**/*.ts" // Include all TypeScript files in src folder
-, "api/utils/getExportedDeclarations"  ],
+    "**/*.ts", // Include all TypeScript files in src folder
+    "generate-defs/utils/getExportedDeclarations"
+  ],
   "exclude": [
     "node_modules" // Exclude the node_modules directory
   ]

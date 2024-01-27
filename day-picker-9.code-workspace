@@ -27,7 +27,7 @@
     "editor.formatOnType": true,
     "editor.tabSize": 2,
     "npm.packageManager": "pnpm",
-    "jest.disabledWorkspaceFolders": ["website"],
+    "jest.disabledWorkspaceFolders": ["website", "scripts"],
     "jest.runMode": {
       "type": "on-save",
       "testFileOnly": true
@@ -38,6 +38,9 @@
       "activityBar.inactiveForeground": "#d8d8d877",
       "activityBarBadge.background": "#dd006f",
       "activityBarBadge.foreground": "#e7e7e7"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
   },
   "launch": {

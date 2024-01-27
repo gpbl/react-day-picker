@@ -1,4 +1,4 @@
-import { CodeToMdx } from '@/lib/CodeToMdx';
+import { RenderJsx } from '@/components/RenderJsx';
 import type { Frontmatter } from '@/lib/docs.server';
 import { getDoc } from '@/lib/docs.server';
 import { MetaFunction, useLoaderData } from '@remix-run/react';
@@ -45,7 +45,7 @@ export default function DocPage() {
   const { code } = useLoaderData<LoaderData>();
   return (
     <main>
-      <CodeToMdx code={code} />
+      <RenderJsx jsx={code} />
     </main>
   );
 }

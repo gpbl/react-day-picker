@@ -14,8 +14,6 @@ it('should apply classnames and style according to props', () => {
   const { container } = render(<Calendar />, {
     className: 'custom-class',
     numberOfMonths: 2,
-    contrast: 'more',
-    colorScheme: 'dark',
     showWeekNumber: true,
     style: { color: 'red' }
   });

@@ -6,16 +6,12 @@ import { MonthGrid as DefaultMonthGrid } from '../MonthGrid';
 import { Months as DefaultMonths } from '../Months';
 import { Nav as DefaultNav } from '../Nav';
 
-/**
- * Render the DayPicker Calendar with navigation and the month grids.
- */
+/** Render the DayPicker Calendar with navigation and the month grids. */
 export function Calendar() {
   const {
     captionLayout,
     className,
     classNames,
-    colorScheme,
-    contrast,
     components,
     dataAttributes,
     dir,
