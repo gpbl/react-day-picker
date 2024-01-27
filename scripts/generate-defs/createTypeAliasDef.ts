@@ -10,7 +10,7 @@ export interface TypeAliasDef extends NodeDef, JSDocDef {
 export async function createTypeAliasDef(
   typeDeclaration: TypeAliasDeclaration
 ) {
-  const nodeDef = createNodeDef(typeDeclaration);
+  const nodeDef = await createNodeDef(typeDeclaration);
   const jsDocDef = await createJsDocDef(typeDeclaration);
   // const typeNodeDef = await createTypedNodeDef(typeDeclaration);
   // const typeParameters = typeDeclaration

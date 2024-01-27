@@ -18,6 +18,8 @@
     "shelljs": "^0.8.5",
     "ts-morph": "^21.0.1",
     "ts-node": "^10.9.2",
+    "typedoc": "^0.25.7",
+    "typedoc-plugin-markdown": "^3.17.1",
     "xdm": "^3.4.0",
     "yargs": "^17.7.2"
   },

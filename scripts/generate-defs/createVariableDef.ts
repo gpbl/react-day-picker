@@ -1,23 +1,16 @@
 import { VariableDeclaration } from 'ts-morph';
 
 import { createNodeDef, type NodeDef } from './createNodeDef.ts';
-import { JSDocDef } from './createJsDocDef.ts';
 
-export interface VariableDef extends NodeDef, JSDocDef {}
+export type VariableDef = NodeDef;
 
 export async function createVariableDef(
   variableDeclaration: VariableDeclaration
 ) {
-  const nodeDef = createNodeDef(variableDeclaration);
+  const nodeDef = await createNodeDef(variableDeclaration);
 
   const variableDef: VariableDef = {
-    ...nodeDef,
-    comment: '',
-    commentJsx: '',
-    shortComment: '',
-    shortCommentJsx: '',
-    deprecated: '',
-    see: undefined
+    ...nodeDef
   };
 
   return variableDef;

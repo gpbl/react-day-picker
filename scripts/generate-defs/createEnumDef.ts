@@ -5,7 +5,7 @@ import { JSDocDef, createJsDocDef } from './createJsDocDef.ts';
 export interface EnumDef extends NodeDef, JSDocDef {}
 
 export async function createEnumDef(enumDeclaration: EnumDeclaration) {
-  const nodeDef = createNodeDef(enumDeclaration);
+  const nodeDef = await createNodeDef(enumDeclaration);
   const jsDocDef = await createJsDocDef(enumDeclaration);
   const enumDef: EnumDef = {
     ...jsDocDef,

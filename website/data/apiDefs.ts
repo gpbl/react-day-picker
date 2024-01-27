@@ -10,6 +10,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Button",
     slug: "button",
@@ -19,6 +20,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/Button/Button.tsx",
     typeDef: "typeof Button",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!l.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return t};var M=(t,n,e)=>(e=t!=null?p(_(t)):{},u(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>u(r({},"__esModule",{value:!0}),t);var s=h((w,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(s()),C=void 0;function f(t){let n={code:"code",p:"p",...t.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof Button"})})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return y(D);})();\n;return Component;',
   },
   ButtonProps: {
     deprecated: false,
@@ -28,6 +31,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "ButtonProps",
     slug: "buttonprops",
@@ -37,6 +41,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/Button/Button.tsx",
     typeDef: "ButtonProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(_(n)):{},s(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>s(c({},"__esModule",{value:!0}),n);var i=h((y,u)=>{u.exports=_jsx_runtime});var X={};j(X,{default:()=>p,frontmatter:()=>D});var r=M(i()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"ButtonProps"})})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
   },
   Calendar: {
     deprecated: false,
@@ -48,6 +54,7 @@ export const apiDefs: ApiDefs = {
       "Render the DayPicker Calendar with navigation and the month grids.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,c)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of h(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(c=f(t,o))||c.enumerable});return n};var C=(n,t,e)=>(e=n!=null?x(p(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),D=n=>i(r({},"__esModule",{value:!0}),n);var s=l((y,d)=>{d.exports=_jsx_runtime});var g={};j(g,{default:()=>u,frontmatter:()=>M});var a=C(s()),M=void 0;function m(n){let t={p:"p",...n.components};return(0,a.jsx)(t.p,{children:"Render the DayPicker Calendar with navigation and the month grids."})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,a.jsx)(t,{...n,children:(0,a.jsx)(m,{...n})}):m(n)}return D(g);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Calendar",
     slug: "calendar",
@@ -57,6 +64,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/Calendar/Calendar.tsx",
     typeDef: "typeof Calendar",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?m(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>a(c({},"__esModule",{value:!0}),n);var s=h((w,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>y});var r=C(s()),y=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"typeof Calendar"})})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(D);})();\n;return Component;',
   },
   CalendarProvider: {
     deprecated: false,
@@ -68,6 +77,7 @@ export const apiDefs: ApiDefs = {
       "The provider for the `calendarContext`, storing the calendar state.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},d=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of p(t))!l.call(e,r)&&r!==n&&c(e,r,{get:()=>t[r],enumerable:!(s=m(t,r))||s.enumerable});return e};var C=(e,t,n)=>(n=e!=null?f(h(e)):{},d(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>d(c({},"__esModule",{value:!0}),e);var i=_((v,a)=>{a.exports=_jsx_runtime});var X={};j(X,{default:()=>u,frontmatter:()=>D});var o=C(i()),D=void 0;function x(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["The provider for the ",(0,o.jsx)(t.code,{children:"calendarContext"}),", storing the calendar state."]})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(x,{...e})}):x(e)}return M(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "CalendarProvider",
     slug: "calendarprovider",
@@ -77,6 +87,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/CalendarContext.tsx",
     typeDef: "typeof CalendarProvider",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var C=(e,n,t)=>(t=e!=null?m(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>i(c({},"__esModule",{value:!0}),e);var s=h((v,a)=>{a.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>y});var r=C(s()),y=void 0;function u(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof CalendarProvider"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(u,{...e})}):u(e)}return M(D);})();\n;return Component;',
   },
   Caption: {
     name: "Caption",
@@ -87,11 +99,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "components/deprecated.ts",
     typeDef: "typeof MonthCaption",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=m(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?f(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var s=l((w,p)=>{p.exports=_jsx_runtime});var D={};M(D,{default:()=>a,frontmatter:()=>y});var c=j(s()),y=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof MonthCaption"})})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return C(D);})();\n;return Component;',
   },
   CaptionLayout: {
     deprecated:
@@ -102,6 +111,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Set the layout of the caption.",
     shortCommentJsx:
       'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of d(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(u=x(n,o))||u.enumerable});return t};var M=(t,n,e)=>(e=t!=null?p(_(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>a(r({},"__esModule",{value:!0}),t);var s=l((w,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(s()),C=void 0;function f(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Set the layout of the caption."})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return y(D);})();\n;return Component;',
+    topic: "navigation",
     see: [],
     name: "CaptionLayout",
     slug: "captionlayout",
@@ -111,6 +121,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "CaptionLayout",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var C=(n,t,e)=>(e=n!=null?p(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var a=h((X,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>y});var c=C(a()),y=void 0;function s(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"CaptionLayout"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(s,{...n})}):s(n)}return M(D);})();\n;return Component;',
   },
   CaptionProps: {
     deprecated: "Use `MonthCaptionProps` or `NavProps` instead.",
@@ -120,6 +132,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "CaptionProps",
     slug: "captionprops",
@@ -129,6 +142,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/deprecated.ts",
     typeDef: "MonthCaptionProps",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?m(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var p=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>a,frontmatter:()=>D});var r=j(p()),D=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"MonthCaptionProps"})})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
   },
   Chevron: {
     deprecated: false,
@@ -138,6 +153,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Chevron",
     slug: "chevron",
@@ -147,6 +163,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/Chevron/Chevron.tsx",
     typeDef: "typeof Chevron",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of a(e))!h.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?p(_(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var u=l((v,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>y});var r=C(u()),y=void 0;function f(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"typeof Chevron"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(f,{...n})}):f(n)}return M(D);})();\n;return Component;',
   },
   ChevronProps: {
     deprecated: false,
@@ -156,6 +174,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "ChevronProps",
     slug: "chevronprops",
@@ -165,6 +184,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/Chevron/Chevron.tsx",
     typeDef: "ChevronProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!h.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=a(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?x(_(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>s(c({},"__esModule",{value:!0}),n);var u=l((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>p,frontmatter:()=>D});var r=C(u()),D=void 0;function m(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"ChevronProps"})})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return M(X);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -177,6 +198,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/Chevron/Chevron.tsx",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -184,6 +207,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -196,6 +220,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/Chevron/Chevron.tsx",
         typeDef: '"up" | "down" | "left" | "right"',
+        typeDefJsx:
+          'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!_.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?p(l(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>i(c({},"__esModule",{value:!0}),n);var s=h((g,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var r=M(s()),C=void 0;function f(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:\'"up" | "down" | "left" | "right"\'})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(f,{...n})}):f(n)}return w(D);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -203,6 +229,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -216,6 +243,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "ClassNames",
     slug: "classnames",
@@ -225,6 +253,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/ui.ts",
     typeDef: "ClassNames",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},d=(n,e,t,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(s=f(e,o))||s.enumerable});return n};var C=(n,e,t)=>(t=n!=null?x(l(n)):{},d(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>d(r({},"__esModule",{value:!0}),n);var i=h((y,a)=>{a.exports=_jsx_runtime});var X={};j(X,{default:()=>u,frontmatter:()=>D});var c=C(i()),D=void 0;function m(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"ClassNames"})})}function u(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return M(X);})();\n;return Component;',
   },
   ContextProviders: {
     name: "ContextProviders",
@@ -235,11 +265,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "contexts/ContextProviders.tsx",
     typeDef: "React.FunctionComponent<React.PropsWithChildren<Mode>>>",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),C=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?p(h(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),j=n=>i(r({},"__esModule",{value:!0}),n);var u=_((w,s)=>{s.exports=_jsx_runtime});var R={};C(R,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"React.FunctionComponent<React.PropsWithChildren<Mode>>>"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return j(R);})();\n;return Component;',
   },
   ContrastPreference: {
     deprecated: false,
@@ -249,6 +276,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The name of the contrast preferences.",
     shortCommentJsx:
       'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of d(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?p(_(n)):{},a(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>a(r({},"__esModule",{value:!0}),n);var m=j((y,f)=>{f.exports=_jsx_runtime});var X={};l(X,{default:()=>i,frontmatter:()=>D});var c=M(m()),D=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The name of the contrast preferences."})}function i(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "ContrastPreference",
     slug: "contrastpreference",
@@ -258,6 +286,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "ContrastPreference",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var C=(e,n,t)=>(t=e!=null?m(_(e)):{},s(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>s(c({},"__esModule",{value:!0}),e);var u=h((y,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>f,frontmatter:()=>D});var r=C(u()),D=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"ContrastPreference"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(a,{...e})}):a(e)}return M(X);})();\n;return Component;',
   },
   CustomComponents: {
     deprecated: false,
@@ -266,9 +296,10 @@ export const apiDefs: ApiDefs = {
     commentJsx:
       'var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)s(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,c)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of x(e))!l.call(n,r)&&r!==t&&s(n,r,{get:()=>e[r],enumerable:!(c=f(e,r))||c.enumerable});return n};var b=(n,e,t)=>(t=n!=null?u(h(n)):{},i(e||!n||!n.__esModule?s(t,"default",{value:n,enumerable:!0}):t,n)),g=n=>i(s({},"__esModule",{value:!0}),n);var m=_((L,p)=>{p.exports=_jsx_runtime});var w={};j(w,{default:()=>d,frontmatter:()=>M});var o=b(m()),M=void 0;function a(n){let e={p:"p",...n.components},{ApiInternalLink:t}=e;return t||k("ApiInternalLink",!0),(0,o.jsxs)(e.p,{children:["The components that can be changed using the ",(0,o.jsx)(t,{member:"PropsBase.components"}),`\ncomponents prop.`]})}function d(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,{...n,children:(0,o.jsx)(a,{...n})}):a(n)}function k(n,e){throw new Error("Expected "+(e?"component":"object")+" `"+n+"` to be defined: you likely forgot to import, pass, or provide it.")}return g(w);})();\n;return Component;',
     shortComment:
-      "The components that can be changed using the {@link PropsBase.components }",
+      "The components that can be changed using the PropsBase.components ",
     shortCommentJsx:
-      'var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)s(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of x(n))!l.call(e,r)&&r!==t&&s(e,r,{get:()=>n[r],enumerable:!(i=f(n,r))||i.enumerable});return e};var b=(e,n,t)=>(t=e!=null?u(h(e)):{},c(n||!e||!e.__esModule?s(t,"default",{value:e,enumerable:!0}):t,e)),g=e=>c(s({},"__esModule",{value:!0}),e);var a=_((L,p)=>{p.exports=_jsx_runtime});var w={};j(w,{default:()=>d,frontmatter:()=>M});var o=b(a()),M=void 0;function m(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||k("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["The components that can be changed using the ",(0,o.jsx)(t,{member:"PropsBase.components"})]})}function d(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(m,{...e})}):m(e)}function k(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return g(w);})();\n;return Component;',
+      'var Component=(()=>{var d=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?d(h(n)):{},a(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),g=n=>a(c({},"__esModule",{value:!0}),n);var p=j((b,m)=>{m.exports=_jsx_runtime});var D={};l(D,{default:()=>i,frontmatter:()=>C});var r=M(p()),C=void 0;function u(n){let t={p:"p",...n.components};return(0,r.jsx)(t.p,{children:"The components that can be changed using the PropsBase.components"})}function i(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return g(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "CustomComponents",
     slug: "customcomponents",
@@ -278,6 +309,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "CustomComponents",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var C=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),h=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(_(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>s(r({},"__esModule",{value:!0}),n);var u=C((y,m)=>{m.exports=_jsx_runtime});var X={};h(X,{default:()=>p,frontmatter:()=>D});var c=j(u()),D=void 0;function i(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"CustomComponents"})})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return M(X);})();\n;return Component;',
   },
   DataAttributes: {
     deprecated: false,
@@ -287,6 +320,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "A record with `data-*` attributes passed to `DayPicker`.",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of f(e))!h.call(t,r)&&r!==n&&c(t,r,{get:()=>e[r],enumerable:!(s=p(e,r))||s.enumerable});return t};var D=(t,e,n)=>(n=t!=null?m(_(t)):{},d(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>d(c({},"__esModule",{value:!0}),t);var i=j((X,a)=>{a.exports=_jsx_runtime});var y={};l(y,{default:()=>x,frontmatter:()=>w});var o=D(i()),w=void 0;function u(t){let e={code:"code",p:"p",...t.components};return(0,o.jsxs)(e.p,{children:["A record with ",(0,o.jsx)(e.code,{children:"data-*"})," attributes passed to ",(0,o.jsx)(e.code,{children:"DayPicker"}),"."]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(u,{...t})}):u(t)}return M(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DataAttributes",
     slug: "dataattributes",
@@ -296,6 +330,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "contexts/ModifiersContext/ModifiersContext.tsx",
     typeDef: "DataAttributes",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return t};var D=(t,n,e)=>(e=t!=null?x(_(t)):{},i(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>i(c({},"__esModule",{value:!0}),t);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var r=D(u()),C=void 0;function a(t){let n={code:"code",p:"p",...t.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"DataAttributes"})})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(a,{...t})}):a(t)}return M(X);})();\n;return Component;',
   },
   DateAfter: {
     deprecated: false,
@@ -307,6 +343,7 @@ export const apiDefs: ApiDefs = {
       "A matcher to match a day falling after the specified date, with the date not included.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=h(e,o))||a.enumerable});return t};var M=(t,e,n)=>(n=t!=null?u(x(t)):{},d(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),w=t=>d(r({},"__esModule",{value:!0}),t);var f=_((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>s,frontmatter:()=>y});var c=M(f()),y=void 0;function m(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"A matcher to match a day falling after the specified date, with the date not included."})}function s(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return w(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DateAfter",
     slug: "dateafter",
@@ -316,6 +353,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/matchers.ts",
     typeDef: "DateAfter",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(t,o)&&o!==n&&c(t,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return t};var D=(t,e,n)=>(n=t!=null?m(_(t)):{},i(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>i(c({},"__esModule",{value:!0}),t);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>f,frontmatter:()=>C});var r=D(u()),C=void 0;function a(t){let e={code:"code",p:"p",...t.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DateAfter"})})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(a,{...t})}):a(t)}return M(X);})();\n;return Component;',
   },
   DateBefore: {
     deprecated: false,
@@ -327,6 +366,7 @@ export const apiDefs: ApiDefs = {
       "A matcher to match a day falling before the specified date, with the date not included.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=h(e,o))||a.enumerable});return t};var M=(t,e,n)=>(n=t!=null?u(x(t)):{},d(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),w=t=>d(r({},"__esModule",{value:!0}),t);var f=_((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>s,frontmatter:()=>y});var c=M(f()),y=void 0;function m(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"A matcher to match a day falling before the specified date, with the date not included."})}function s(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return w(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DateBefore",
     slug: "datebefore",
@@ -336,6 +376,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/matchers.ts",
     typeDef: "DateBefore",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var D=(e,n,t)=>(t=e!=null?m(_(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>i(c({},"__esModule",{value:!0}),e);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>f,frontmatter:()=>C});var r=D(u()),C=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"DateBefore"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(a,{...e})}):a(e)}return M(X);})();\n;return Component;',
   },
   DateInterval: {
     deprecated: false,
@@ -347,6 +389,7 @@ export const apiDefs: ApiDefs = {
       "A matcher to match a day falling before and/or after two dates, where the dates are not included.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,c)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of h(e))!p.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(c=x(e,o))||c.enumerable});return t};var w=(t,e,n)=>(n=t!=null?u(l(t)):{},d(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>d(r({},"__esModule",{value:!0}),t);var f=_((X,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var a=w(f()),y=void 0;function i(t){let e={p:"p",...t.components};return(0,a.jsx)(e.p,{children:"A matcher to match a day falling before and/or after two dates, where the dates are not included."})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(i,{...t})}):i(t)}return M(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DateInterval",
     slug: "dateinterval",
@@ -356,6 +399,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/matchers.ts",
     typeDef: "DateInterval",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(l(n)):{},a(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>a(c({},"__esModule",{value:!0}),n);var s=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var r=D(s()),C=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"DateInterval"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(X);})();\n;return Component;',
   },
   DateRange: {
     deprecated: false,
@@ -367,6 +412,7 @@ export const apiDefs: ApiDefs = {
       "A matcher to match a range of dates. The range can be open. Differently from `DateInterval`, the dates here are included.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of h(t))!p.call(e,r)&&r!==n&&c(e,r,{get:()=>t[r],enumerable:!(a=x(t,r))||a.enumerable});return e};var D=(e,t,n)=>(n=e!=null?u(l(e)):{},s(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>s(c({},"__esModule",{value:!0}),e);var f=_((X,d)=>{d.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>g});var o=D(f()),g=void 0;function i(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["A matcher to match a range of dates. The range can be open. Differently from ",(0,o.jsx)(t.code,{children:"DateInterval"}),", the dates here are included."]})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(i,{...e})}):i(e)}return M(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DateRange",
     slug: "daterange",
@@ -376,6 +422,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/matchers.ts",
     typeDef: "DateRange",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(_(n)):{},a(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>a(r({},"__esModule",{value:!0}),n);var s=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(s()),C=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"DateRange"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return M(X);})();\n;return Component;',
   },
   DayClickEventHandler: {
     deprecated: "Use `DayMouseEventHandler` instead.",
@@ -385,6 +433,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The event handler when a day is clicked.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},d=(n,e,t,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(a=f(e,o))||a.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(h(n)):{},d(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),w=n=>d(r({},"__esModule",{value:!0}),n);var s=_((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=M(s()),y=void 0;function u(n){let e={p:"p",...n.components};return(0,c.jsx)(e.p,{children:"The event handler when a day is clicked."})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return w(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayClickEventHandler",
     slug: "dayclickeventhandler",
@@ -394,6 +443,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/events.ts",
     typeDef: "DayClickEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of l(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?x(p(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>i(r({},"__esModule",{value:!0}),n);var s=h((k,a)=>{a.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>M});var c=C(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"DayClickEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return D(y);})();\n;return Component;',
   },
   DayContent: {
     name: "DayContent",
@@ -404,11 +455,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "components/deprecated.ts",
     typeDef: "typeof DayGridCell",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var y=(e,n,t)=>(t=e!=null?m(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(c({},"__esModule",{value:!0}),e);var u=h((w,s)=>{s.exports=_jsx_runtime});var M={};j(M,{default:()=>f,frontmatter:()=>D});var r=y(u()),D=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof DayGridCell"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(a,{...e})}):a(e)}return C(M);})();\n;return Component;',
   },
   DayContentProps: {
     deprecated: "Use `DayGridCellProps` instead.",
@@ -418,6 +466,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayContentProps",
     slug: "daycontentprops",
@@ -427,6 +476,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/deprecated.ts",
     typeDef: "DayGridCellProps",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?p(l(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>M});var r=C(u()),M=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayGridCellProps"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(a,{...n})}):a(n)}return D(y);})();\n;return Component;',
   },
   DayEventHandler: {
     deprecated: false,
@@ -436,6 +487,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayEventHandler",
     slug: "dayeventhandler",
@@ -445,6 +497,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/events.ts",
     typeDef: "DayEventHandler<T>",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>a(c({},"__esModule",{value:!0}),n);var s=h((v,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var r=D(s()),y=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayEventHandler<T>"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
   },
   DayFocusEventHandler: {
     deprecated: false,
@@ -454,6 +508,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The event handler when a day is focused.",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(s=x(e,o))||s.enumerable});return n};var M=(n,e,t)=>(t=n!=null?m(h(n)):{},a(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),w=n=>a(r({},"__esModule",{value:!0}),n);var u=l((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>y});var c=M(u()),y=void 0;function i(n){let e={p:"p",...n.components};return(0,c.jsx)(e.p,{children:"The event handler when a day is focused."})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return w(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayFocusEventHandler",
     slug: "dayfocuseventhandler",
@@ -463,6 +518,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/events.ts",
     typeDef: "DayFocusEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},s(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>s(r({},"__esModule",{value:!0}),n);var a=h((v,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=D(a()),y=void 0;function i(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"DayFocusEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return M(C);})();\n;return Component;',
   },
   DayGridCell: {
     deprecated: false,
@@ -472,6 +529,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Renders the gridcell with the Day.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=f(n,o))||i.enumerable});return t};var D=(t,n,e)=>(e=t!=null?x(h(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>s(r({},"__esModule",{value:!0}),t);var u=_((X,d)=>{d.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>w});var c=D(u()),w=void 0;function a(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Renders the gridcell with the Day."})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(a,{...t})}):a(t)}return M(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayGridCell",
     slug: "daygridcell",
@@ -481,6 +539,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/DayGridCell/DayGridCell.tsx",
     typeDef: "typeof DayGridCell",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var y=(e,n,t)=>(t=e!=null?m(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(c({},"__esModule",{value:!0}),e);var u=h((w,s)=>{s.exports=_jsx_runtime});var M={};j(M,{default:()=>f,frontmatter:()=>D});var r=y(u()),D=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof DayGridCell"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(a,{...e})}):a(e)}return C(M);})();\n;return Component;',
   },
   DayGridCellProps: {
     deprecated: false,
@@ -490,6 +550,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayGridCellProps",
     slug: "daygridcellprops",
@@ -499,6 +560,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/DayGridCell/DayGridCell.tsx",
     typeDef: "DayGridCellProps",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?p(l(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>M});var r=C(u()),M=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayGridCellProps"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(a,{...n})}):a(n)}return D(y);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -511,6 +574,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/DayGridCell/DayGridCell.tsx",
         typeDef: "CalendarDay",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>a(c({},"__esModule",{value:!0}),n);var s=h((w,i)=>{i.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>M});var r=C(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"CalendarDay"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(y);})();\n;return Component;',
         deprecated: false,
         comment: "The day to be rendered in the gridcell.",
         commentJsx:
@@ -518,6 +583,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The day to be rendered in the gridcell.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?x(l(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(r({},"__esModule",{value:!0}),e);var u=h((b,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(u()),C=void 0;function a(e){let n={p:"p",...e.components};return(0,c.jsx)(n.p,{children:"The day to be rendered in the gridcell."})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -530,6 +596,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/DayGridCell/DayGridCell.tsx",
         typeDef: "Modifiers",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=a(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(_(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=M((y,s)=>{s.exports=_jsx_runtime});var X={};h(X,{default:()=>m,frontmatter:()=>D});var r=j(u()),D=void 0;function f(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"Modifiers"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(f,{...n})}):f(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Modifiers for the day.",
         commentJsx:
@@ -537,6 +605,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Modifiers for the day.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,M=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!M.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=x(n,o))||i.enumerable});return t};var l=(t,n,e)=>(e=t!=null?m(_(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>s(r({},"__esModule",{value:!0}),t);var f=h((w,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>C});var c=l(f()),C=void 0;function u(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Modifiers for the day."})}function a(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -549,6 +618,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/DayGridCell/DayGridCell.tsx",
         typeDef: "React.HTMLAttributes<HTMLElement>",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,M=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),h=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!M.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return t};var j=(t,e,n)=>(n=t!=null?x(l(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),L=t=>i(r({},"__esModule",{value:!0}),t);var u=_((T,s)=>{s.exports=_jsx_runtime});var D={};h(D,{default:()=>a,frontmatter:()=>C});var c=j(u()),C=void 0;function m(t){let e={code:"code",p:"p",...t.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"React.HTMLAttributes<HTMLElement>"})})}function a(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return L(D);})();\n;return Component;',
         deprecated: false,
         comment: "HTML attributes for the gridcell.",
         commentJsx:
@@ -556,6 +627,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "HTML attributes for the gridcell.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),h=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=x(n,o))||i.enumerable});return t};var j=(t,n,e)=>(e=t!=null?m(l(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>s(r({},"__esModule",{value:!0}),t);var a=M((b,u)=>{u.exports=_jsx_runtime});var L={};h(L,{default:()=>f,frontmatter:()=>D});var c=j(a()),D=void 0;function d(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"HTML attributes for the gridcell."})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(d,{...t})}):d(t)}return C(L);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -568,6 +640,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/DayGridCell/DayGridCell.tsx",
         typeDef: "React.ReactNode",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},a=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return e};var M=(e,t,n)=>(n=e!=null?x(_(e)):{},a(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),C=e=>a(r({},"__esModule",{value:!0}),e);var s=h((w,i)=>{i.exports=_jsx_runtime});var R={};j(R,{default:()=>m,frontmatter:()=>D});var c=M(s()),D=void 0;function u(e){let t={code:"code",p:"p",...e.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"React.ReactNode"})})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(u,{...e})}):u(e)}return C(R);})();\n;return Component;',
         deprecated: false,
         comment: "Children of the gridcell.",
         commentJsx:
@@ -575,6 +649,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Children of the gridcell.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of l(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(i=a(t,o))||i.enumerable});return n};var C=(n,t,e)=>(e=n!=null?x(p(n)):{},d(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>d(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=C(u()),D=void 0;function f(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Children of the gridcell."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(f,{...n})}):f(n)}return M(X);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -590,6 +665,7 @@ export const apiDefs: ApiDefs = {
       "Provides a `DayGridCell` the day state and the html attributes.",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)s(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,c)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of f(e))!p.call(t,r)&&r!==n&&s(t,r,{get:()=>e[r],enumerable:!(c=l(e,r))||c.enumerable});return t};var y=(t,e,n)=>(n=t!=null?m(h(t)):{},d(e||!t||!t.__esModule?s(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>d(s({},"__esModule",{value:!0}),t);var i=_((b,a)=>{a.exports=_jsx_runtime});var M={};j(M,{default:()=>x,frontmatter:()=>D});var o=y(i()),D=void 0;function u(t){let e={code:"code",p:"p",...t.components};return(0,o.jsxs)(e.p,{children:["Provides a ",(0,o.jsx)(e.code,{children:"DayGridCell"})," the day state and the html attributes."]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(u,{...t})}):u(t)}return C(M);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayGridCellWrapper",
     slug: "daygridcellwrapper",
@@ -599,6 +675,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/DayGridCell/DayGridCellWrapper.tsx",
     typeDef: "typeof DayGridCellWrapper",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=m(n,o))||d.enumerable});return e};var y=(e,n,t)=>(t=e!=null?f(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(c({},"__esModule",{value:!0}),e);var a=h((w,p)=>{p.exports=_jsx_runtime});var M={};j(M,{default:()=>u,frontmatter:()=>D});var r=y(a()),D=void 0;function s(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof DayGridCellWrapper"})})}function u(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(s,{...e})}):s(e)}return C(M);})();\n;return Component;',
   },
   DayGridCellWrapperProps: {
     deprecated: false,
@@ -608,6 +686,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayGridCellWrapperProps",
     slug: "daygridcellwrapperprops",
@@ -617,6 +696,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/DayGridCell/DayGridCellWrapper.tsx",
     typeDef: "DayGridCellWrapperProps",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var C=(e,n,t)=>(t=e!=null?m(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),D=e=>i(c({},"__esModule",{value:!0}),e);var s=h((w,p)=>{p.exports=_jsx_runtime});var y={};j(y,{default:()=>u,frontmatter:()=>M});var r=C(s()),M=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"DayGridCellWrapperProps"})})}function u(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(a,{...e})}):a(e)}return D(y);})();\n;return Component;',
     inherit: ["extends Pick<React.AriaAttributes, 'aria-colindex'>"],
     extend: ["Pick<React.AriaAttributes, 'aria-colindex'>"],
     properties: [
@@ -629,6 +710,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/DayGridCell/DayGridCellWrapper.tsx",
         typeDef: "CalendarDay",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>a(c({},"__esModule",{value:!0}),n);var s=h((w,i)=>{i.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>M});var r=C(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"CalendarDay"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(y);})();\n;return Component;',
         deprecated: false,
         comment: "The day to be rendered in the gridcell.",
         commentJsx:
@@ -636,6 +719,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The day to be rendered in the gridcell.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?x(l(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(r({},"__esModule",{value:!0}),e);var u=h((b,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(u()),C=void 0;function a(e){let n={p:"p",...e.components};return(0,c.jsx)(n.p,{children:"The day to be rendered in the gridcell."})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -649,6 +733,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The event handler when a day gets a keyboard event.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},d=(e,n,t,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(c=f(n,o))||c.enumerable});return e};var y=(e,n,t)=>(t=e!=null?x(h(e)):{},d(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>d(r({},"__esModule",{value:!0}),e);var u=l((D,s)=>{s.exports=_jsx_runtime});var w={};j(w,{default:()=>m,frontmatter:()=>v});var a=y(u()),v=void 0;function i(e){let n={p:"p",...e.components};return(0,a.jsx)(n.p,{children:"The event handler when a day gets a keyboard event."})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,a.jsx)(n,{...e,children:(0,a.jsx)(i,{...e})}):i(e)}return M(w);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayKeyboardEventHandler",
     slug: "daykeyboardeventhandler",
@@ -658,6 +743,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/events.ts",
     typeDef: "DayKeyboardEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var y=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>a(c({},"__esModule",{value:!0}),n);var s=h((b,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>M});var r=y(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayKeyboardEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(C);})();\n;return Component;',
   },
   DayMouseEventHandler: {
     deprecated: false,
@@ -667,6 +754,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The event handler when a day gets a mouse event.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(a=f(n,o))||a.enumerable});return e};var M=(e,n,t)=>(t=e!=null?x(h(e)):{},s(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),v=e=>s(r({},"__esModule",{value:!0}),e);var d=l((D,u)=>{u.exports=_jsx_runtime});var y={};j(y,{default:()=>i,frontmatter:()=>w});var c=M(d()),w=void 0;function m(e){let n={p:"p",...e.components};return(0,c.jsx)(n.p,{children:"The event handler when a day gets a mouse event."})}function i(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return v(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayMouseEventHandler",
     slug: "daymouseeventhandler",
@@ -676,6 +764,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/events.ts",
     typeDef: "DayMouseEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(l(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>s(c({},"__esModule",{value:!0}),n);var a=M((v,u)=>{u.exports=_jsx_runtime});var C={};h(C,{default:()=>m,frontmatter:()=>y});var r=j(a()),y=void 0;function i(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayMouseEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(i,{...n})}):i(n)}return D(C);})();\n;return Component;',
   },
   DayOfWeek: {
     deprecated: false,
@@ -687,6 +777,7 @@ export const apiDefs: ApiDefs = {
       "A matcher to match a date being one of the specified days of the week (`0-7`, where `0` is Sunday).",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),l=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let c of x(t))!_.call(e,c)&&c!==n&&r(e,c,{get:()=>t[c],enumerable:!(d=u(t,c))||d.enumerable});return e};var w=(e,t,n)=>(n=e!=null?m(p(e)):{},s(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),y=e=>s(r({},"__esModule",{value:!0}),e);var i=j((X,a)=>{a.exports=_jsx_runtime});var C={};l(C,{default:()=>h,frontmatter:()=>M});var o=w(i()),M=void 0;function f(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["A matcher to match a date being one of the specified days of the week (",(0,o.jsx)(t.code,{children:"0-7"}),", where ",(0,o.jsx)(t.code,{children:"0"})," is Sunday)."]})}function h(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(f,{...e})}):f(e)}return y(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayOfWeek",
     slug: "dayofweek",
@@ -696,6 +787,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/matchers.ts",
     typeDef: "DayOfWeek",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var D=(e,n,t)=>(t=e!=null?m(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>i(r({},"__esModule",{value:!0}),e);var u=h((k,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>y});var c=D(u()),y=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"DayOfWeek"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return M(C);})();\n;return Component;',
   },
   DayPicker: {
     deprecated: false,
@@ -705,6 +798,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Render the date picker component.",
     shortCommentJsx:
       'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var p=j((w,m)=>{m.exports=_jsx_runtime});var X={};l(X,{default:()=>u,frontmatter:()=>D});var c=M(p()),D=void 0;function s(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Render the date picker component."})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
+    topic: "",
     see: ["https://react-day-picker.js.org"],
     name: "DayPicker",
     slug: "daypicker",
@@ -714,6 +808,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "DayPicker.tsx",
     typeDef: "typeof DayPicker",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var y=(e,n,t)=>(t=e!=null?m(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),D=e=>i(r({},"__esModule",{value:!0}),e);var u=h((k,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>M});var c=y(u()),M=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof DayPicker"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return D(C);})();\n;return Component;',
   },
   DayPickerCalendar: {
     deprecated: false,
@@ -723,6 +819,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The calendar displayed in DayPicker.",
     shortCommentJsx:
       'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=x(t,o))||a.enumerable});return n};var y=(n,t,e)=>(e=n!=null?p(l(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),D=n=>i(r({},"__esModule",{value:!0}),n);var s=h((k,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>M});var c=y(s()),M=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The calendar displayed in DayPicker."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return D(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayPickerCalendar",
     slug: "daypickercalendar",
@@ -732,6 +829,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
     typeDef: "DayPickerCalendar",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>a(c({},"__esModule",{value:!0}),n);var s=h((k,i)=>{i.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>M});var r=C(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayPickerCalendar"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(y);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -744,6 +843,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "Date[]",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date[]"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment: "All the unique dates displayed to the calendar.",
         commentJsx:
@@ -751,6 +852,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "All the unique dates displayed to the calendar.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},d=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=p(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(f(t)):{},d(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>d(r({},"__esModule",{value:!0}),t);var u=h((q,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>l,frontmatter:()=>C});var c=M(u()),C=void 0;function i(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"All the unique dates displayed to the calendar."})}function l(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(i,{...t})}):i(t)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -763,6 +865,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "CalendarDay[]",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>a(c({},"__esModule",{value:!0}),n);var s=h((w,i)=>{i.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>M});var r=C(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"CalendarDay[]"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(y);})();\n;return Component;',
         deprecated: false,
         comment:
           "All the days displayed in the calendar. As opposite from\n{@link DayPickerCalendar.dates }, it may return duplicated dates when shown\noutside the month.",
@@ -772,6 +876,7 @@ export const apiDefs: ApiDefs = {
           "All the days displayed in the calendar. As opposite from",
         shortCommentJsx:
           'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=f(n,o))||s.enumerable});return t};var y=(t,n,e)=>(e=t!=null?u(x(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>a(r({},"__esModule",{value:!0}),t);var i=h((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>A});var c=y(i()),A=void 0;function p(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"All the days displayed in the calendar. As opposite from"})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(p,{...t})}):p(t)}return M(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -784,6 +889,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "Week[]",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?a(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(r({},"__esModule",{value:!0}),e);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"Week[]"})})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The months displayed in the calendar.",
         commentJsx:
@@ -791,6 +898,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The months displayed in the calendar.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?p(h(n)):{},a(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>a(r({},"__esModule",{value:!0}),n);var i=_((w,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>C});var c=M(i()),C=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The months displayed in the calendar."})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -803,6 +911,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "Month[]",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>x,frontmatter:()=>D});var c=j(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Month[]"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The months displayed in the calendar.",
         commentJsx:
@@ -810,6 +920,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The months displayed in the calendar.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?p(h(n)):{},a(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>a(r({},"__esModule",{value:!0}),n);var i=_((w,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>C});var c=M(i()),C=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The months displayed in the calendar."})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -822,6 +933,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "The month displayed as first the calendar. When\n{@link DayPickerProps.numberOfMonths } is greater than `1`, it is the first\nof the displayed months.",
@@ -830,6 +943,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The month displayed as first the calendar. When",
         shortCommentJsx:
           'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=p(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?f(h(n)):{},a(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>a(r({},"__esModule",{value:!0}),n);var i=_((w,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>C});var c=M(i()),C=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The month displayed as first the calendar. When"})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -842,6 +956,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "The month displayed as last the calendar. When\n{@link DayPickerProps.numberOfMonths } is greater than `1`, it is the last\nof the displayed months.",
@@ -850,6 +966,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The month displayed as last the calendar. When",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=x(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?p(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>s(r({},"__esModule",{value:!0}),n);var i=_((w,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>C});var c=M(i()),C=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The month displayed as last the calendar. When"})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -862,6 +979,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment: "The next month to display.",
         commentJsx:
@@ -869,6 +988,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The next month to display.",
         shortCommentJsx:
           'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=p(n,o))||s.enumerable});return t};var M=(t,n,e)=>(e=t!=null?d(_(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(r({},"__esModule",{value:!0}),t);var u=l((w,m)=>{m.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>C});var c=M(u()),C=void 0;function x(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The next month to display."})}function a(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(x,{...t})}):x(t)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -881,6 +1001,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment: "The previous month to display.",
         commentJsx:
@@ -888,6 +1010,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The previous month to display.",
         shortCommentJsx:
           'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=x(n,o))||s.enumerable});return t};var M=(t,n,e)=>(e=t!=null?d(_(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(r({},"__esModule",{value:!0}),t);var m=l((v,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>C});var c=M(m()),C=void 0;function p(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The previous month to display."})}function a(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(p,{...t})}):p(t)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -900,6 +1023,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "{ months: DropdownOption[]; }",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var m=l((y,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>w});var r=D(m()),w=void 0;function p(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"{ months: DropdownOption[]; }"})})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(p,{...n})}):p(n)}return M(C);})();\n;return Component;',
         deprecated: false,
         comment: "The options to use in the years or months dropdowns.",
         commentJsx:
@@ -907,6 +1032,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The options to use in the years or months dropdowns.",
         shortCommentJsx:
           'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,c)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(c=x(t,o))||c.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(h(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>i(r({},"__esModule",{value:!0}),n);var d=j((X,u)=>{u.exports=_jsx_runtime});var C={};l(C,{default:()=>p,frontmatter:()=>y});var s=M(d()),y=void 0;function m(n){let t={p:"p",...n.components};return(0,s.jsx)(t.p,{children:"The options to use in the years or months dropdowns."})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,s.jsx)(t,{...n,children:(0,s.jsx)(m,{...n})}):m(n)}return w(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -919,6 +1045,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "(month: Date) => void",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var s=l((w,m)=>{m.exports=_jsx_runtime});var X={};j(X,{default:()=>a,frontmatter:()=>C});var c=D(s()),C=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"(month: Date) => void"})})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Navigate to the specified month. Will fire the\n{@link DayPickerProps.onMonthChange } callback.",
@@ -927,6 +1055,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Navigate to the specified month. Will fire the",
         shortCommentJsx:
           'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,i)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(i=p(e,o))||i.enumerable});return t};var M=(t,e,n)=>(n=t!=null?d(h(t)):{},s(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>s(r({},"__esModule",{value:!0}),t);var f=_((v,a)=>{a.exports=_jsx_runtime});var X={};j(X,{default:()=>u,frontmatter:()=>D});var c=M(f()),D=void 0;function m(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"Navigate to the specified month. Will fire the"})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return C(X);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -939,6 +1068,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Navigate to the next month.",
         commentJsx:
@@ -946,6 +1077,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Navigate to the next month.",
         shortCommentJsx:
           'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=f(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?d(_(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>i(r({},"__esModule",{value:!0}),t);var s=j((v,m)=>{m.exports=_jsx_runtime});var X={};l(X,{default:()=>x,frontmatter:()=>D});var c=M(s()),D=void 0;function u(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Navigate to the next month."})}function x(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return C(X);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -958,6 +1090,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Navigate to the previous month.",
         commentJsx:
@@ -965,6 +1099,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Navigate to the previous month.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=d(n,o))||i.enumerable});return t};var M=(t,n,e)=>(e=t!=null?x(_(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),v=t=>s(r({},"__esModule",{value:!0}),t);var a=j((g,u)=>{u.exports=_jsx_runtime});var D={};l(D,{default:()=>p,frontmatter:()=>C});var c=M(a()),C=void 0;function m(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Navigate to the previous month."})}function p(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return v(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -977,6 +1112,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "(day: CalendarDay) => void",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var y=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>a(c({},"__esModule",{value:!0}),n);var s=h((v,i)=>{i.exports=_jsx_runtime});var M={};j(M,{default:()=>m,frontmatter:()=>D});var r=y(s()),D=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"(day: CalendarDay) => void"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(M);})();\n;return Component;',
         deprecated: false,
         comment:
           "Navigate to the specified date. If the second parameter (refDate) is\nprovided and the date is before the refDate, then the month is set to one\nmonth before the date.",
@@ -986,6 +1123,7 @@ export const apiDefs: ApiDefs = {
           "Navigate to the specified date. If the second parameter (refDate) is",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!h.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=u(e,o))||a.enumerable});return t};var D=(t,e,n)=>(n=t!=null?p(_(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>i(r({},"__esModule",{value:!0}),t);var d=j((v,s)=>{s.exports=_jsx_runtime});var X={};l(X,{default:()=>m,frontmatter:()=>C});var c=D(d()),C=void 0;function f(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"Navigate to the specified date. If the second parameter (refDate) is"})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return M(X);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -998,6 +1136,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/CalendarContext/DayPickerCalendar.ts",
         typeDef: "(day: CalendarDay) => boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of l(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var y=(n,e,t)=>(t=n!=null?x(p(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>a(c({},"__esModule",{value:!0}),n);var s=h((b,i)=>{i.exports=_jsx_runtime});var M={};j(M,{default:()=>m,frontmatter:()=>D});var r=y(s()),D=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"(day: CalendarDay) => boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(M);})();\n;return Component;',
         deprecated: false,
         comment: "Whether the given date is included in the displayed months.",
         commentJsx:
@@ -1006,6 +1146,7 @@ export const apiDefs: ApiDefs = {
           "Whether the given date is included in the displayed months.",
         shortCommentJsx:
           'var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},d=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=p(n,o))||i.enumerable});return t};var M=(t,n,e)=>(e=t!=null?h(f(t)):{},d(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>d(r({},"__esModule",{value:!0}),t);var u=_((g,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(u()),C=void 0;function a(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Whether the given date is included in the displayed months."})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(a,{...t})}):a(t)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1019,6 +1160,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayPickerContext",
     slug: "daypickercontext",
@@ -1028,16 +1170,18 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "contexts/DayPickerContext/DayPickerContext.tsx",
     typeDef: "DayPickerContext<T>",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var C=(n,t,e)=>(e=n!=null?m(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),D=n=>i(r({},"__esModule",{value:!0}),n);var u=h((k,s)=>{s.exports=_jsx_runtime});var y={};j(y,{default:()=>a,frontmatter:()=>M});var c=C(u()),M=void 0;function x(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"DayPickerContext<T>"})})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(x,{...n})}):x(n)}return D(y);})();\n;return Component;',
   },
   DayPickerProps: {
     deprecated: false,
     comment: "Defines the props accepted by the {@link DayPicker } component.",
     commentJsx:
       'var Component=(()=>{var f=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of x(n))!_.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(c=u(n,r))||c.enumerable});return e};var y=(e,n,t)=>(t=e!=null?f(l(e)):{},s(n||!e||!e.__esModule?i(t,"default",{value:e,enumerable:!0}):t,e)),b=e=>s(i({},"__esModule",{value:!0}),e);var m=j((L,p)=>{p.exports=_jsx_runtime});var M={};h(M,{default:()=>d,frontmatter:()=>k});var o=y(m()),k=void 0;function a(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||D("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["Defines the props accepted by the ",(0,o.jsx)(t,{member:"DayPicker"})," component."]})}function d(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(a,{...e})}):a(e)}function D(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return b(M);})();\n;return Component;',
-    shortComment:
-      "Defines the props accepted by the {@link DayPicker } component.",
+    shortComment: "Defines the props accepted by the DayPicker  component.",
     shortCommentJsx:
-      'var Component=(()=>{var f=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of x(n))!_.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(c=u(n,r))||c.enumerable});return e};var y=(e,n,t)=>(t=e!=null?f(l(e)):{},s(n||!e||!e.__esModule?i(t,"default",{value:e,enumerable:!0}):t,e)),b=e=>s(i({},"__esModule",{value:!0}),e);var m=j((L,p)=>{p.exports=_jsx_runtime});var M={};h(M,{default:()=>d,frontmatter:()=>k});var o=y(m()),k=void 0;function a(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||D("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["Defines the props accepted by the ",(0,o.jsx)(t,{member:"DayPicker"})," component."]})}function d(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(a,{...e})}):a(e)}function D(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return b(M);})();\n;return Component;',
+      'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var D=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,p)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!h.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(p=f(e,o))||p.enumerable});return t};var l=(t,e,n)=>(n=t!=null?d(_(t)):{},s(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),y=t=>s(r({},"__esModule",{value:!0}),t);var a=D((b,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>M});var c=l(a()),M=void 0;function m(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"Defines the props accepted by the DayPicker  component."})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return y(C);})();\n;return Component;',
+    topic: "",
     see: ["https://react-day-picker.dev/api/daypickerprops"],
     name: "DayPickerProps",
     slug: "daypickerprops",
@@ -1047,6 +1191,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "DayPicker.tsx",
     typeDef: "DayPickerProps<T>",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?p(_(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var u=h((X,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var r=D(u()),y=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayPickerProps<T>"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(a,{...n})}):a(n)}return M(C);})();\n;return Component;',
   },
   DayPickerProvider: {
     name: "DayPickerProvider",
@@ -1057,11 +1203,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "contexts/DayPickerContext/DayPickerContext.tsx",
     typeDef: "<T extends DayPickerProps<T>>) => React.JSX.Element",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var D=(e,n,t)=>(t=e!=null?x(l(e)):{},s(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>s(r({},"__esModule",{value:!0}),e);var a=h((P,i)=>{i.exports=_jsx_runtime});var y={};j(y,{default:()=>u,frontmatter:()=>X});var c=D(a()),X=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"<T extends DayPickerProps<T>>) => React.JSX.Element"})})}function u(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return M(y);})();\n;return Component;',
   },
   DayPointerEventHandler: {
     deprecated: false,
@@ -1071,6 +1214,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The event handler when a day gets a pointer event.",
     shortCommentJsx:
       'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(a=x(e,o))||a.enumerable});return n};var M=(n,e,t)=>(t=n!=null?p(h(n)):{},s(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),v=n=>s(r({},"__esModule",{value:!0}),n);var i=l((D,d)=>{d.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>w});var c=M(i()),w=void 0;function u(n){let e={p:"p",...n.components};return(0,c.jsx)(e.p,{children:"The event handler when a day gets a pointer event."})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return v(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayPointerEventHandler",
     slug: "daypointereventhandler",
@@ -1080,6 +1224,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/events.ts",
     typeDef: "DayPointerEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var s=h((v,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var r=D(s()),y=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayPointerEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
   },
   DayTouchEventHandler: {
     deprecated: false,
@@ -1089,6 +1235,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The event handler when a day gets a touch event.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of h(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=f(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(p(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),v=n=>s(r({},"__esModule",{value:!0}),n);var d=l((D,u)=>{u.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>w});var c=M(d()),w=void 0;function i(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The event handler when a day gets a touch event."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return v(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DayTouchEventHandler",
     slug: "daytoucheventhandler",
@@ -1098,6 +1245,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/events.ts",
     typeDef: "DayTouchEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},u(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>u(r({},"__esModule",{value:!0}),n);var i=h((v,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=D(i()),y=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"DayTouchEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(s,{...n})}):s(n)}return M(C);})();\n;return Component;',
   },
   DispatchStateAction: {
     deprecated: false,
@@ -1107,6 +1256,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DispatchStateAction",
     slug: "dispatchstateaction",
@@ -1116,6 +1266,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "utils/useControlledValue/useControlledValue.ts",
     typeDef: "DispatchStateAction<T>",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return t};var D=(t,n,e)=>(e=t!=null?p(_(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>i(r({},"__esModule",{value:!0}),t);var a=l((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(a()),C=void 0;function u(t){let n={code:"code",p:"p",...t.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"DispatchStateAction<T>"})})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return M(X);})();\n;return Component;',
   },
   Dropdown: {
     deprecated: false,
@@ -1127,6 +1279,7 @@ export const apiDefs: ApiDefs = {
       "A dropdown that works like a regular `HTMLSelect`, but with better style.",
     shortCommentJsx:
       'var Component=(()=>{var l=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of p(e))!_.call(t,r)&&r!==n&&c(t,r,{get:()=>e[r],enumerable:!(s=m(e,r))||s.enumerable});return t};var w=(t,e,n)=>(n=t!=null?l(f(t)):{},d(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>d(c({},"__esModule",{value:!0}),t);var i=h((C,a)=>{a.exports=_jsx_runtime});var k={};j(k,{default:()=>x,frontmatter:()=>b});var o=w(i()),b=void 0;function u(t){let e={code:"code",p:"p",...t.components};return(0,o.jsxs)(e.p,{children:["A dropdown that works like a regular ",(0,o.jsx)(e.code,{children:"HTMLSelect"}),", but with better style."]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(u,{...t})}):u(t)}return M(k);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Dropdown",
     slug: "dropdown",
@@ -1136,6 +1289,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/Dropdown/Dropdown.tsx",
     typeDef: "typeof Dropdown",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?m(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var s=h((X,p)=>{p.exports=_jsx_runtime});var y={};j(y,{default:()=>f,frontmatter:()=>w});var r=D(s()),w=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof Dropdown"})})}function f(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(y);})();\n;return Component;',
   },
   DropdownNav: {
     deprecated: false,
@@ -1145,6 +1300,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Render the dropdowns to navigate between months.",
     shortCommentJsx:
       'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var w=(n,t,e)=>(e=n!=null?p(_(n)):{},d(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>d(r({},"__esModule",{value:!0}),n);var i=j((b,a)=>{a.exports=_jsx_runtime});var D={};l(D,{default:()=>u,frontmatter:()=>C});var c=w(i()),C=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Render the dropdowns to navigate between months."})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return M(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DropdownNav",
     slug: "dropdownnav",
@@ -1154,6 +1310,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/DropdownNav/DropdownNav.tsx",
     typeDef: "typeof DropdownNav",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=m(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?f(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var s=h((X,p)=>{p.exports=_jsx_runtime});var y={};j(y,{default:()=>a,frontmatter:()=>w});var r=D(s()),w=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof DropdownNav"})})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(y);})();\n;return Component;',
   },
   DropdownNavProps: {
     deprecated: false,
@@ -1163,6 +1321,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DropdownNavProps",
     slug: "dropdownnavprops",
@@ -1172,6 +1331,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/DropdownNav/DropdownNav.tsx",
     typeDef: "DropdownNavProps",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?m(_(n)):{},s(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>s(c({},"__esModule",{value:!0}),n);var p=h((v,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>a,frontmatter:()=>w});var r=D(p()),w=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"DropdownNavProps"})})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -1184,6 +1345,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/DropdownNav/DropdownNav.tsx",
         typeDef: "Month",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>x,frontmatter:()=>D});var c=j(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Month"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The month where the dropdown navigation is displayed.",
         commentJsx:
@@ -1191,6 +1354,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The month where the dropdown navigation is displayed.",
         shortCommentJsx:
           'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(i=x(t,o))||i.enumerable});return n};var w=(n,t,e)=>(e=n!=null?u(h(n)):{},d(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>d(r({},"__esModule",{value:!0}),n);var a=l((X,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>p,frontmatter:()=>y});var c=w(a()),y=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The month where the dropdown navigation is displayed."})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return M(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1203,6 +1367,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/DropdownNav/DropdownNav.tsx",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Whether the user can change the month.",
         commentJsx:
@@ -1210,6 +1376,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Whether the user can change the month.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=d(n,o))||s.enumerable});return t};var M=(t,n,e)=>(e=t!=null?x(p(t)):{},u(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>u(r({},"__esModule",{value:!0}),t);var h=j((w,a)=>{a.exports=_jsx_runtime});var X={};l(X,{default:()=>i,frontmatter:()=>D});var c=M(h()),D=void 0;function m(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Whether the user can change the month."})}function i(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return C(X);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -1222,6 +1389,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/DropdownNav/DropdownNav.tsx",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Whether the user can change the year.",
         commentJsx:
@@ -1229,6 +1398,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Whether the user can change the year.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!_.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=d(e,o))||a.enumerable});return t};var M=(t,e,n)=>(n=t!=null?x(p(t)):{},s(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),y=t=>s(r({},"__esModule",{value:!0}),t);var h=j((g,u)=>{u.exports=_jsx_runtime});var D={};l(D,{default:()=>m,frontmatter:()=>C});var c=M(h()),C=void 0;function i(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"Whether the user can change the year."})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(i,{...t})}):i(t)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -1241,6 +1411,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/DropdownNav/DropdownNav.tsx",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The index where this month is displayed.",
         commentJsx:
@@ -1248,6 +1420,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The index where this month is displayed.",
         shortCommentJsx:
           'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(i=p(t,o))||i.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>s(r({},"__esModule",{value:!0}),n);var m=l((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>x,frontmatter:()=>y});var c=M(m()),y=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The index where this month is displayed."})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return w(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1263,6 +1436,7 @@ export const apiDefs: ApiDefs = {
       "An option to use in the dropdown. Maps to the `<option>` HTML element.",
     shortCommentJsx:
       'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of f(t))!h.call(n,r)&&r!==e&&c(n,r,{get:()=>t[r],enumerable:!(s=m(t,r))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},d(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>d(c({},"__esModule",{value:!0}),n);var p=j((X,i)=>{i.exports=_jsx_runtime});var D={};l(D,{default:()=>x,frontmatter:()=>C});var o=M(p()),C=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,o.jsxs)(t.p,{children:["An option to use in the dropdown. Maps to the ",(0,o.jsx)(t.code,{children:"<option>"})," HTML element."]})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,o.jsx)(t,{...n,children:(0,o.jsx)(u,{...n})}):u(n)}return w(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DropdownOption",
     slug: "dropdownoption",
@@ -1272,6 +1446,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/Dropdown/Dropdown.tsx",
     typeDef: "DropdownOption",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var s=h((y,p)=>{p.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>w});var r=D(s()),w=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"DropdownOption"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
   },
   DropdownProps: {
     deprecated: false,
@@ -1281,6 +1457,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "DropdownProps",
     slug: "dropdownprops",
@@ -1290,6 +1467,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/Dropdown/Dropdown.tsx",
     typeDef: "DropdownProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},s(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>s(c({},"__esModule",{value:!0}),n);var p=h((y,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>w});var r=D(p()),w=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"DropdownProps"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
     inherit: ["extends Omit<SelectProps, 'children'>"],
     extend: ["Omit<SelectProps, 'children'>"],
     properties: [
@@ -1302,6 +1481,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/Dropdown/Dropdown.tsx",
         typeDef: "DropdownOption[]",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var s=h((y,p)=>{p.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>w});var r=D(s()),w=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"DropdownOption[]"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -1309,6 +1490,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -1321,6 +1503,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/Dropdown/Dropdown.tsx",
         typeDef: "string",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"string"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -1328,6 +1512,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -1341,6 +1526,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "FocusContext",
     slug: "focuscontext",
@@ -1350,6 +1536,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "contexts/FocusContext/FocusContext.tsx",
     typeDef: "FocusContext",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var C=(n,t,e)=>(e=n!=null?a(_(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>s(r({},"__esModule",{value:!0}),n);var i=h((y,u)=>{u.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=C(i()),D=void 0;function x(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"FocusContext"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(x,{...n})}):x(n)}return M(X);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -1362,6 +1550,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "CalendarDay",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>a(c({},"__esModule",{value:!0}),n);var s=h((w,i)=>{i.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>M});var r=C(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"CalendarDay"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(y);})();\n;return Component;',
         deprecated: false,
         comment: "The date that is currently focused.",
         commentJsx:
@@ -1369,6 +1559,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The date that is currently focused.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=x(n,o))||s.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(_(t)):{},u(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>u(r({},"__esModule",{value:!0}),t);var d=l((w,a)=>{a.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var c=M(d()),C=void 0;function i(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The date that is currently focused."})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(i,{...t})}):i(t)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1381,6 +1572,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "CalendarDay",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>a(c({},"__esModule",{value:!0}),n);var s=h((w,i)=>{i.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>M});var r=C(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"CalendarDay"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(y);})();\n;return Component;',
         deprecated: false,
         comment:
           "The date that is target of the focus when tabbing into the month grid.\nThe focus target is the selected date first, then the today date, then the\nfirst focusable date.",
@@ -1390,6 +1583,7 @@ export const apiDefs: ApiDefs = {
           "The date that is target of the focus when tabbing into the month grid.",
         shortCommentJsx:
           'var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var g=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=m(n,o))||i.enumerable});return t};var l=(t,n,e)=>(e=t!=null?h(p(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>a(r({},"__esModule",{value:!0}),t);var u=g((D,s)=>{s.exports=_jsx_runtime});var w={};j(w,{default:()=>f,frontmatter:()=>b});var c=l(u()),b=void 0;function d(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The date that is target of the focus when tabbing into the month grid."})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(d,{...t})}):d(t)}return M(w);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1402,6 +1596,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -1409,6 +1605,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1421,6 +1618,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "(day: CalendarDay) => void",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var y=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>a(c({},"__esModule",{value:!0}),n);var s=h((v,i)=>{i.exports=_jsx_runtime});var M={};j(M,{default:()=>m,frontmatter:()=>D});var r=y(s()),D=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"(day: CalendarDay) => void"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(M);})();\n;return Component;',
         deprecated: false,
         comment: "Focus a date.",
         commentJsx:
@@ -1428,6 +1627,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Focus a date.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),M=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!j.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=f(n,o))||s.enumerable});return t};var h=(t,n,e)=>(e=t!=null?x(_(t)):{},u(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>u(r({},"__esModule",{value:!0}),t);var d=l((y,a)=>{a.exports=_jsx_runtime});var X={};M(X,{default:()=>m,frontmatter:()=>D});var c=h(d()),D=void 0;function i(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Focus a date."})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(i,{...t})}):i(t)}return C(X);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1440,6 +1640,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Blur the focused day.",
         commentJsx:
@@ -1447,6 +1649,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Blur the focused day.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(u=x(n,o))||u.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(_(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>s(r({},"__esModule",{value:!0}),t);var a=h((w,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>i,frontmatter:()=>C});var c=M(a()),C=void 0;function f(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Blur the focused day."})}function i(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1459,6 +1662,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Focus the day after the focused day.",
         commentJsx:
@@ -1466,6 +1671,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Focus the day after the focused day.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=x(n,o))||s.enumerable});return t};var y=(t,n,e)=>(e=t!=null?m(_(t)):{},u(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>u(r({},"__esModule",{value:!0}),t);var d=j((w,a)=>{a.exports=_jsx_runtime});var D={};l(D,{default:()=>i,frontmatter:()=>C});var c=y(d()),C=void 0;function f(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Focus the day after the focused day."})}function i(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return M(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1478,6 +1684,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Focus the day before the focused day.",
         commentJsx:
@@ -1485,6 +1693,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Focus the day before the focused day.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},u=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!h.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(s=x(e,o))||s.enumerable});return t};var y=(t,e,n)=>(n=t!=null?m(_(t)):{},u(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>u(r({},"__esModule",{value:!0}),t);var a=j((b,d)=>{d.exports=_jsx_runtime});var D={};l(D,{default:()=>i,frontmatter:()=>C});var c=y(a()),C=void 0;function f(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"Focus the day before the focused day."})}function i(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return M(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1497,6 +1706,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Focus the day in the week before the focused day.",
         commentJsx:
@@ -1504,6 +1715,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Focus the day in the week before the focused day.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),l=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},u=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return e};var y=(e,t,n)=>(n=e!=null?m(h(e)):{},u(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>u(r({},"__esModule",{value:!0}),e);var a=j((X,d)=>{d.exports=_jsx_runtime});var C={};l(C,{default:()=>i,frontmatter:()=>w});var c=y(a()),w=void 0;function f(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"Focus the day in the week before the focused day."})}function i(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(f,{...e})}):f(e)}return M(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1516,6 +1728,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Focus the day in the week after the focused day.",
         commentJsx:
@@ -1523,6 +1737,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Focus the day in the week after the focused day.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},u=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(s=x(e,o))||s.enumerable});return t};var y=(t,e,n)=>(n=t!=null?m(h(t)):{},u(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>u(r({},"__esModule",{value:!0}),t);var d=j((X,a)=>{a.exports=_jsx_runtime});var C={};l(C,{default:()=>i,frontmatter:()=>w});var c=y(d()),w=void 0;function f(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"Focus the day in the week after the focused day."})}function i(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return M(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1535,6 +1750,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -1542,6 +1759,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1554,6 +1772,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -1561,6 +1781,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1573,6 +1794,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -1580,6 +1803,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1592,6 +1816,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -1599,6 +1825,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1611,6 +1838,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -1618,6 +1847,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1630,6 +1860,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/FocusContext/FocusContext.tsx",
         typeDef: "() => void",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"() => void"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -1637,6 +1869,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1647,9 +1880,10 @@ export const apiDefs: ApiDefs = {
     comment: "The provider for the {@link focusContext }.",
     commentJsx:
       'var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),h=(e,t)=>{for(var n in t)i(e,n,{get:t[n],enumerable:!0})},c=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of a(t))!_.call(e,r)&&r!==n&&i(e,r,{get:()=>t[r],enumerable:!(s=x(t,r))||s.enumerable});return e};var M=(e,t,n)=>(n=e!=null?u(l(e)):{},c(t||!e||!e.__esModule?i(n,"default",{value:e,enumerable:!0}):n,e)),b=e=>c(i({},"__esModule",{value:!0}),e);var f=j((L,p)=>{p.exports=_jsx_runtime});var y={};h(y,{default:()=>m,frontmatter:()=>k});var o=M(f()),k=void 0;function d(e){let t={p:"p",...e.components},{ApiInternalLink:n}=t;return n||w("ApiInternalLink",!0),(0,o.jsxs)(t.p,{children:["The provider for the ",(0,o.jsx)(n,{member:"focusContext"}),"."]})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(d,{...e})}):d(e)}function w(e,t){throw new Error("Expected "+(t?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return b(y);})();\n;return Component;',
-    shortComment: "The provider for the {@link focusContext }.",
+    shortComment: "The provider for the focusContext .",
     shortCommentJsx:
-      'var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),h=(e,t)=>{for(var n in t)i(e,n,{get:t[n],enumerable:!0})},c=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of a(t))!_.call(e,r)&&r!==n&&i(e,r,{get:()=>t[r],enumerable:!(s=x(t,r))||s.enumerable});return e};var M=(e,t,n)=>(n=e!=null?u(l(e)):{},c(t||!e||!e.__esModule?i(n,"default",{value:e,enumerable:!0}):n,e)),b=e=>c(i({},"__esModule",{value:!0}),e);var f=j((L,p)=>{p.exports=_jsx_runtime});var y={};h(y,{default:()=>m,frontmatter:()=>k});var o=M(f()),k=void 0;function d(e){let t={p:"p",...e.components},{ApiInternalLink:n}=t;return n||w("ApiInternalLink",!0),(0,o.jsxs)(t.p,{children:["The provider for the ",(0,o.jsx)(n,{member:"focusContext"}),"."]})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(d,{...e})}):d(e)}function w(e,t){throw new Error("Expected "+(t?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return b(y);})();\n;return Component;',
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=p(n,o))||s.enumerable});return t};var C=(t,n,e)=>(e=t!=null?m(_(t)):{},u(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>u(r({},"__esModule",{value:!0}),t);var i=j((w,f)=>{f.exports=_jsx_runtime});var X={};l(X,{default:()=>d,frontmatter:()=>D});var c=C(i()),D=void 0;function x(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The provider for the focusContext ."})}function d(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(x,{...t})}):x(t)}return M(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "FocusProvider",
     slug: "focusprovider",
@@ -1659,6 +1893,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/FocusContext/FocusContext.tsx",
     typeDef: "typeof FocusProvider",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!l.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?p(_(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(c({},"__esModule",{value:!0}),e);var u=h((v,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var r=M(u()),C=void 0;function f(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof FocusProvider"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(f,{...e})}):f(e)}return y(D);})();\n;return Component;',
   },
   Footer: {
     deprecated: false,
@@ -1668,6 +1904,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Component wrapping the footer.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,p)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of d(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(p=x(t,o))||p.enumerable});return n};var C=(n,t,e)=>(e=n!=null?f(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var s=j((g,m)=>{m.exports=_jsx_runtime});var D={};l(D,{default:()=>a,frontmatter:()=>w});var c=C(s()),w=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Component wrapping the footer."})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return M(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Footer",
     slug: "footer",
@@ -1677,6 +1914,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/Footer/Footer.tsx",
     typeDef: "typeof Footer",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of a(e))!l.call(t,o)&&o!==n&&c(t,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return t};var M=(t,e,n)=>(n=t!=null?p(_(t)):{},i(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),y=t=>i(c({},"__esModule",{value:!0}),t);var u=h((w,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var r=M(u()),C=void 0;function f(t){let e={code:"code",p:"p",...t.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"typeof Footer"})})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(f,{...t})}):f(t)}return y(D);})();\n;return Component;',
   },
   FooterProps: {
     deprecated: false,
@@ -1686,6 +1925,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The props for the `Footer` component.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),l=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},d=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of f(n))!h.call(e,r)&&r!==t&&c(e,r,{get:()=>n[r],enumerable:!(s=a(n,r))||s.enumerable});return e};var M=(e,n,t)=>(t=e!=null?u(_(e)):{},d(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>d(c({},"__esModule",{value:!0}),e);var x=j((y,p)=>{p.exports=_jsx_runtime});var X={};l(X,{default:()=>m,frontmatter:()=>D});var o=M(x()),D=void 0;function i(e){let n={code:"code",p:"p",...e.components};return(0,o.jsxs)(n.p,{children:["The props for the ",(0,o.jsx)(n.code,{children:"Footer"})," component."]})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(i,{...e})}):i(e)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "FooterProps",
     slug: "footerprops",
@@ -1695,6 +1935,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/Footer/Footer.tsx",
     typeDef: "FooterProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(_(n)):{},s(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>s(c({},"__esModule",{value:!0}),n);var u=h((y,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>p,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"FooterProps"})})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
   },
   Formatters: {
     deprecated: false,
@@ -1705,6 +1947,7 @@ export const apiDefs: ApiDefs = {
       "Represent a map of formatters used to render localized content.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),M=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},a=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(s=p(e,o))||s.enumerable});return t};var h=(t,e,n)=>(n=t!=null?i(l(t)):{},a(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>a(r({},"__esModule",{value:!0}),t);var m=j((y,d)=>{d.exports=_jsx_runtime});var X={};M(X,{default:()=>f,frontmatter:()=>D});var c=h(m()),D=void 0;function u(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"Represent a map of formatters used to render localized content."})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Formatters",
     slug: "formatters",
@@ -1714,6 +1957,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/formatters.ts",
     typeDef: "Formatters",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return t};var M=(t,n,e)=>(e=t!=null?x(_(t)):{},s(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>s(c({},"__esModule",{value:!0}),t);var m=h((y,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>a,frontmatter:()=>D});var r=M(m()),D=void 0;function u(t){let n={code:"code",p:"p",...t.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"Formatters"})})}function a(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(u,{...t})}):u(t)}return C(X);})();\n;return Component;',
   },
   InternalModifier: {
     deprecated: false,
@@ -1724,6 +1969,7 @@ export const apiDefs: ApiDefs = {
       "The name of the modifiers that are used internally by DayPicker.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),y=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=x(e,o))||a.enumerable});return t};var j=(t,e,n)=>(n=t!=null?f(h(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),D=t=>i(r({},"__esModule",{value:!0}),t);var m=_((b,s)=>{s.exports=_jsx_runtime});var C={};y(C,{default:()=>d,frontmatter:()=>M});var c=j(m()),M=void 0;function u(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"The name of the modifiers that are used internally by DayPicker."})}function d(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return D(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "InternalModifier",
     slug: "internalmodifier",
@@ -1733,6 +1979,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/modifiers.ts",
     typeDef: "InternalModifier",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?m(l(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=M((y,s)=>{s.exports=_jsx_runtime});var X={};h(X,{default:()=>f,frontmatter:()=>D});var r=j(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"InternalModifier"})})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
   },
   Labels: {
     deprecated: false,
@@ -1744,6 +1992,7 @@ export const apiDefs: ApiDefs = {
       "Map of functions returning ARIA labels for the relative elements.",
     shortCommentJsx:
       'var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),h=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=p(t,o))||s.enumerable});return n};var j=(n,t,e)=>(e=n!=null?l(d(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),A=n=>i(r({},"__esModule",{value:!0}),n);var a=M((b,u)=>{u.exports=_jsx_runtime});var D={};h(D,{default:()=>m,frontmatter:()=>C});var c=j(a()),C=void 0;function f(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Map of functions returning ARIA labels for the relative elements."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(f,{...n})}):f(n)}return A(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Labels",
     slug: "labels",
@@ -1753,6 +2002,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/labels.ts",
     typeDef: "Labels",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},s(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>s(r({},"__esModule",{value:!0}),n);var u=h((b,i)=>{i.exports=_jsx_runtime});var L={};j(L,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"Labels"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(L);})();\n;return Component;',
   },
   Matcher: {
     deprecated: false,
@@ -1762,6 +2013,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "A value or a function that matches a specific day.",
     shortCommentJsx:
       'var Component=(()=>{var d=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!h.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(a=p(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?d(_(t)):{},i(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(c({},"__esModule",{value:!0}),t);var u=l((v,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var r=M(u()),C=void 0;function f(t){let n={p:"p",...t.components};return(0,r.jsx)(n.p,{children:"A value or a function that matches a specific day."})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(f,{...t})}):f(t)}return y(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Matcher",
     slug: "matcher",
@@ -1771,6 +2023,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/matchers.ts",
     typeDef: "Matcher",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>m,frontmatter:()=>D});var c=j(u()),D=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Matcher"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
   },
   Mode: {
     deprecated: false,
@@ -1781,6 +2035,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The available selection modes.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of l(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=f(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(p(n)):{},a(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>a(r({},"__esModule",{value:!0}),n);var m=h((v,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>d,frontmatter:()=>D});var c=M(m()),D=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The available selection modes."})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
+    topic: "selection",
     see: ["https://react-day-picker.dev/docs/selection-modes"],
     name: "Mode",
     slug: "mode",
@@ -1790,6 +2045,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "Mode",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?a(_(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=M((y,s)=>{s.exports=_jsx_runtime});var X={};h(X,{default:()=>x,frontmatter:()=>D});var c=j(u()),D=void 0;function m(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"Mode"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
   },
   Modifiers: {
     deprecated: false,
@@ -1799,6 +2056,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The modifiers that are matching a day in the calendar.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of h(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(c=x(n,o))||c.enumerable});return t};var M=(t,n,e)=>(e=t!=null?f(p(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(r({},"__esModule",{value:!0}),t);var m=l((g,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>C});var a=M(m()),C=void 0;function s(t){let n={p:"p",...t.components};return(0,a.jsx)(n.p,{children:"The modifiers that are matching a day in the calendar."})}function u(t={}){let{wrapper:n}=t.components||{};return n?(0,a.jsx)(n,{...t,children:(0,a.jsx)(s,{...t})}):s(t)}return y(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Modifiers",
     slug: "modifiers",
@@ -1808,6 +2066,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/modifiers.ts",
     typeDef: "Modifiers",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=a(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(_(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=M((y,s)=>{s.exports=_jsx_runtime});var X={};h(X,{default:()=>m,frontmatter:()=>D});var r=j(u()),D=void 0;function f(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"Modifiers"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(f,{...n})}):f(n)}return C(X);})();\n;return Component;',
   },
   ModifiersClassNames: {
     deprecated: false,
@@ -1819,6 +2079,7 @@ export const apiDefs: ApiDefs = {
       "The classnames to assign to each day element matching a modifier.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=x(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?f(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),g=n=>s(r({},"__esModule",{value:!0}),n);var m=_((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>y});var c=M(m()),y=void 0;function d(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The classnames to assign to each day element matching a modifier."})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(d,{...n})}):d(n)}return g(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "ModifiersClassNames",
     slug: "modifiersclassnames",
@@ -1828,6 +2089,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/modifiers.ts",
     typeDef: "ModifiersClassNames",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},d=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(s=x(n,o))||s.enumerable});return e};var j=(e,n,t)=>(t=e!=null?f(l(e)):{},d(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>d(c({},"__esModule",{value:!0}),e);var a=M((y,i)=>{i.exports=_jsx_runtime});var X={};h(X,{default:()=>u,frontmatter:()=>D});var r=j(a()),D=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"ModifiersClassNames"})})}function u(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(m,{...e})}):m(e)}return C(X);})();\n;return Component;',
   },
   ModifiersContext: {
     deprecated: false,
@@ -1839,6 +2102,7 @@ export const apiDefs: ApiDefs = {
       "The `DayPickerProps` with their default values. Use this type within",
     shortCommentJsx:
       'var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)s(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,c)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of f(t))!l.call(e,r)&&r!==n&&s(e,r,{get:()=>t[r],enumerable:!(c=p(t,r))||c.enumerable});return e};var w=(e,t,n)=>(n=e!=null?h(m(e)):{},i(t||!e||!e.__esModule?s(n,"default",{value:e,enumerable:!0}):n,e)),y=e=>i(s({},"__esModule",{value:!0}),e);var a=_((P,d)=>{d.exports=_jsx_runtime});var M={};j(M,{default:()=>x,frontmatter:()=>D});var o=w(a()),D=void 0;function u(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["The ",(0,o.jsx)(t.code,{children:"DayPickerProps"})," with their default values. Use this type within"]})}function x(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(u,{...e})}):u(e)}return y(M);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "ModifiersContext",
     slug: "modifierscontext",
@@ -1848,6 +2112,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "contexts/ModifiersContext/ModifiersContext.tsx",
     typeDef: "ModifiersContext",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),h=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?m(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=M((y,s)=>{s.exports=_jsx_runtime});var X={};h(X,{default:()=>f,frontmatter:()=>D});var r=j(u()),D=void 0;function x(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"ModifiersContext"})})}function f(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(x,{...n})}):x(n)}return C(X);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -1860,6 +2126,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/ModifiersContext/ModifiersContext.tsx",
         typeDef: "(day: Modifiers",
+        typeDefJsx:
+          'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?m(_(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),y=n=>i(c({},"__esModule",{value:!0}),n);var u=M((w,s)=>{s.exports=_jsx_runtime});var D={};h(D,{default:()=>f,frontmatter:()=>C});var r=j(u()),C=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"(day: Modifiers"})})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(a,{...n})}):a(n)}return y(D);})();\n;return Component;',
         deprecated: false,
         comment: "Return the modifiers of the specified day.",
         commentJsx:
@@ -1867,6 +2135,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Return the modifiers of the specified day.",
         shortCommentJsx:
           'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,i)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!h.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(i=p(e,o))||i.enumerable});return t};var M=(t,e,n)=>(n=t!=null?a(_(t)):{},s(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),y=t=>s(r({},"__esModule",{value:!0}),t);var f=j((w,d)=>{d.exports=_jsx_runtime});var D={};l(D,{default:()=>m,frontmatter:()=>C});var c=M(f()),C=void 0;function u(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"Return the modifiers of the specified day."})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return y(D);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1879,6 +2148,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "contexts/ModifiersContext/ModifiersContext.tsx",
         typeDef: "ModifiersMap",
+        typeDefJsx:
+          'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var M=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?m(M(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};h(X,{default:()=>f,frontmatter:()=>D});var r=j(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"ModifiersMap"})})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -1886,6 +2157,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -1899,6 +2171,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "A map of modifiers with the days.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=p(n,o))||i.enumerable});return t};var M=(t,n,e)=>(e=t!=null?u(_(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),w=t=>s(r({},"__esModule",{value:!0}),t);var a=j((X,m)=>{m.exports=_jsx_runtime});var C={};l(C,{default:()=>f,frontmatter:()=>y});var c=M(a()),y=void 0;function d(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"A map of modifiers with the days."})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(d,{...t})}):d(t)}return w(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "ModifiersMap",
     slug: "modifiersmap",
@@ -1908,6 +2181,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/modifiers.ts",
     typeDef: "ModifiersMap",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var M=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?m(M(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};h(X,{default:()=>f,frontmatter:()=>D});var r=j(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"ModifiersMap"})})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
   },
   ModifiersProvider: {
     deprecated: false,
@@ -1919,6 +2194,7 @@ export const apiDefs: ApiDefs = {
       "The provider for the `modifiersContext`, storing the state of the day modifiers.",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),l=(e,t)=>{for(var n in t)s(e,n,{get:t[n],enumerable:!0})},d=(e,t,n,c)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of h(t))!_.call(e,r)&&r!==n&&s(e,r,{get:()=>t[r],enumerable:!(c=u(t,r))||c.enumerable});return e};var C=(e,t,n)=>(n=e!=null?m(p(e)):{},d(t||!e||!e.__esModule?s(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>d(s({},"__esModule",{value:!0}),e);var f=j((g,i)=>{i.exports=_jsx_runtime});var D={};l(D,{default:()=>a,frontmatter:()=>y});var o=C(f()),y=void 0;function x(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["The provider for the ",(0,o.jsx)(t.code,{children:"modifiersContext"}),", storing the state of the day modifiers."]})}function a(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(x,{...e})}):x(e)}return M(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "ModifiersProvider",
     slug: "modifiersprovider",
@@ -1928,6 +2204,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/ModifiersContext/ModifiersContext.tsx",
     typeDef: "typeof ModifiersProvider",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!l.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var j=(e,n,t)=>(t=e!=null?p(_(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(c({},"__esModule",{value:!0}),e);var f=M((v,s)=>{s.exports=_jsx_runtime});var D={};h(D,{default:()=>m,frontmatter:()=>C});var r=j(f()),C=void 0;function u(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof ModifiersProvider"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(u,{...e})}):u(e)}return y(D);})();\n;return Component;',
   },
   ModifiersStyles: {
     deprecated: false,
@@ -1937,6 +2215,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The style to apply to each day element matching a modifier.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),y=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!h.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=f(e,o))||a.enumerable});return t};var j=(t,e,n)=>(n=t!=null?u(l(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>i(r({},"__esModule",{value:!0}),t);var s=_((g,m)=>{m.exports=_jsx_runtime});var D={};y(D,{default:()=>p,frontmatter:()=>C});var c=j(s()),C=void 0;function d(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"The style to apply to each day element matching a modifier."})}function p(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(d,{...t})}):d(t)}return M(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "ModifiersStyles",
     slug: "modifiersstyles",
@@ -1946,6 +2225,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/modifiers.ts",
     typeDef: "ModifiersStyles",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=a(n,o))||d.enumerable});return e};var j=(e,n,t)=>(t=e!=null?x(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(c({},"__esModule",{value:!0}),e);var u=M((w,s)=>{s.exports=_jsx_runtime});var D={};h(D,{default:()=>m,frontmatter:()=>C});var r=j(u()),C=void 0;function f(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"ModifiersStyles"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(f,{...e})}):f(e)}return y(D);})();\n;return Component;',
   },
   MonthCaption: {
     deprecated: false,
@@ -1955,6 +2236,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "MonthCaption",
     slug: "monthcaption",
@@ -1964,6 +2246,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/MonthCaption/MonthCaption.tsx",
     typeDef: "typeof MonthCaption",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=m(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?f(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var s=l((w,p)=>{p.exports=_jsx_runtime});var D={};M(D,{default:()=>a,frontmatter:()=>y});var c=j(s()),y=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof MonthCaption"})})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return C(D);})();\n;return Component;',
   },
   MonthCaptionProps: {
     deprecated: false,
@@ -1973,6 +2257,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "MonthCaptionProps",
     slug: "monthcaptionprops",
@@ -1982,6 +2267,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/MonthCaption/MonthCaption.tsx",
     typeDef: "MonthCaptionProps",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?m(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var p=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>a,frontmatter:()=>D});var r=j(p()),D=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"MonthCaptionProps"})})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -1994,6 +2281,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/MonthCaption/MonthCaption.tsx",
         typeDef: "Month",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>x,frontmatter:()=>D});var c=j(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Month"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The month where the grid is displayed.",
         commentJsx:
@@ -2001,6 +2290,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The month where the grid is displayed.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=x(n,o))||i.enumerable});return t};var M=(t,n,e)=>(e=t!=null?p(h(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),w=t=>s(r({},"__esModule",{value:!0}),t);var m=l((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>a,frontmatter:()=>y});var c=M(m()),y=void 0;function u(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The month where the grid is displayed."})}function a(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return w(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -2013,6 +2303,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/MonthCaption/MonthCaption.tsx",
         typeDef: "string",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"string"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Used for the aria-label.",
         commentJsx:
@@ -2020,6 +2312,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Used for the aria-label.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=x(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(l(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>s(r({},"__esModule",{value:!0}),t);var u=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>f,frontmatter:()=>D});var c=M(u()),D=void 0;function d(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Used for the aria-label."})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(d,{...t})}):d(t)}return C(X);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -2032,6 +2325,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/MonthCaption/MonthCaption.tsx",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The index where this month is displayed.",
         commentJsx:
@@ -2039,6 +2334,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The index where this month is displayed.",
         shortCommentJsx:
           'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(i=p(t,o))||i.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>s(r({},"__esModule",{value:!0}),n);var m=l((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>x,frontmatter:()=>y});var c=M(m()),y=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The index where this month is displayed."})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return w(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -2052,6 +2348,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The event handler when a month is changed in the calendar.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},d=(n,e,t,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(a=x(e,o))||a.enumerable});return n};var M=(n,e,t)=>(t=n!=null?u(p(n)):{},d(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),w=n=>d(r({},"__esModule",{value:!0}),n);var s=_((g,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(s()),C=void 0;function h(n){let e={p:"p",...n.components};return(0,c.jsx)(e.p,{children:"The event handler when a month is changed in the calendar."})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(h,{...n})}):h(n)}return w(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "MonthChangeEventHandler",
     slug: "monthchangeeventhandler",
@@ -2061,6 +2358,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/events.ts",
     typeDef: "MonthChangeEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),M=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(h(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>a(c({},"__esModule",{value:!0}),n);var s=_((v,i)=>{i.exports=_jsx_runtime});var X={};M(X,{default:()=>m,frontmatter:()=>D});var r=j(s()),D=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"MonthChangeEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
   },
   MonthGrid: {
     deprecated: false,
@@ -2072,6 +2371,7 @@ export const apiDefs: ApiDefs = {
       "Render the grid with the weekday header row and the weeks for the given month.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!w.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return e};var l=(e,t,n)=>(n=e!=null?u(p(e)):{},i(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>i(r({},"__esModule",{value:!0}),e);var h=_((C,a)=>{a.exports=_jsx_runtime});var k={};j(k,{default:()=>m,frontmatter:()=>g});var c=l(h()),g=void 0;function s(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"Render the grid with the weekday header row and the weeks for the given month."})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(s,{...e})}):s(e)}return M(k);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "MonthGrid",
     slug: "monthgrid",
@@ -2081,6 +2381,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/MonthGrid/MonthGrid.tsx",
     typeDef: "typeof MonthGrid",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?p(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>i(c({},"__esModule",{value:!0}),n);var u=l((w,s)=>{s.exports=_jsx_runtime});var D={};M(D,{default:()=>m,frontmatter:()=>C});var r=j(u()),C=void 0;function f(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof MonthGrid"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(f,{...n})}):f(n)}return y(D);})();\n;return Component;',
   },
   MonthGridProps: {
     deprecated: false,
@@ -2090,6 +2392,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "MonthGridProps",
     slug: "monthgridprops",
@@ -2099,6 +2402,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/MonthGrid/MonthGrid.tsx",
     typeDef: "MonthGridProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>p,frontmatter:()=>D});var r=j(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"MonthGridProps"})})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
     inherit: ["extends Pick<React.AriaAttributes, 'aria-labelledby'>"],
     extend: ["Pick<React.AriaAttributes, 'aria-labelledby'>"],
     properties: [
@@ -2111,6 +2416,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/MonthGrid/MonthGrid.tsx",
         typeDef: "Month",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>x,frontmatter:()=>D});var c=j(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Month"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The month where the grid is displayed.",
         commentJsx:
@@ -2118,6 +2425,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The month where the grid is displayed.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=x(n,o))||i.enumerable});return t};var M=(t,n,e)=>(e=t!=null?p(h(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),w=t=>s(r({},"__esModule",{value:!0}),t);var m=l((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>a,frontmatter:()=>y});var c=M(m()),y=void 0;function u(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The month where the grid is displayed."})}function a(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return w(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -2130,6 +2438,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/MonthGrid/MonthGrid.tsx",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The index where this month is displayed.",
         commentJsx:
@@ -2137,6 +2447,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The index where this month is displayed.",
         shortCommentJsx:
           'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(i=p(t,o))||i.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>s(r({},"__esModule",{value:!0}),n);var m=l((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>x,frontmatter:()=>y});var c=M(m()),y=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The index where this month is displayed."})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return w(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -2150,6 +2461,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Component wrapping the month grids.",
     shortCommentJsx:
       'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},m=(n,t,e,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(i=x(t,o))||i.enumerable});return n};var C=(n,t,e)=>(e=n!=null?d(_(n)):{},m(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>m(r({},"__esModule",{value:!0}),n);var s=j((X,p)=>{p.exports=_jsx_runtime});var w={};l(w,{default:()=>a,frontmatter:()=>g});var c=C(s()),g=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Component wrapping the month grids."})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return M(w);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Months",
     slug: "months",
@@ -2159,6 +2471,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/Months/Months.tsx",
     typeDef: "typeof Months",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?p(_(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>s(r({},"__esModule",{value:!0}),n);var u=l((w,i)=>{i.exports=_jsx_runtime});var D={};M(D,{default:()=>m,frontmatter:()=>C});var c=j(u()),C=void 0;function f(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof Months"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(f,{...n})}):f(n)}return y(D);})();\n;return Component;',
   },
   MonthsDropdown: {
     deprecated: false,
@@ -2168,6 +2482,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "MonthsDropdown",
     slug: "monthsdropdown",
@@ -2177,6 +2492,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/MonthsDropdown/MonthsDropdown.tsx",
     typeDef: "typeof MonthsDropdown",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?m(_(n)):{},s(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),D=n=>s(c({},"__esModule",{value:!0}),n);var p=l((X,i)=>{i.exports=_jsx_runtime});var y={};M(y,{default:()=>f,frontmatter:()=>w});var r=j(p()),w=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof MonthsDropdown"})})}function f(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(y);})();\n;return Component;',
   },
   MonthsDropdownProps: {
     deprecated: false,
@@ -2186,6 +2503,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "MonthsDropdownProps",
     slug: "monthsdropdownprops",
@@ -2195,6 +2513,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/MonthsDropdown/MonthsDropdown.tsx",
     typeDef: "MonthsDropdownProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(_(n)):{},s(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),D=n=>s(c({},"__esModule",{value:!0}),n);var p=l((y,i)=>{i.exports=_jsx_runtime});var C={};M(C,{default:()=>m,frontmatter:()=>w});var r=j(p()),w=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"MonthsDropdownProps"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(C);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -2207,6 +2527,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/MonthsDropdown/MonthsDropdown.tsx",
         typeDef: "Month",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>x,frontmatter:()=>D});var c=j(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Month"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The month where the dropdown is displayed.",
         commentJsx:
@@ -2214,6 +2536,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The month where the dropdown is displayed.",
         shortCommentJsx:
           'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var w=(n,t,e)=>(e=n!=null?a(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>s(r({},"__esModule",{value:!0}),n);var m=l((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>y});var c=w(m()),y=void 0;function p(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The month where the dropdown is displayed."})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(p,{...n})}):p(n)}return M(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -2227,6 +2550,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The props for the `Months` component.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of f(t))!_.call(n,r)&&r!==e&&c(n,r,{get:()=>t[r],enumerable:!(s=a(t,r))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?u(h(n)):{},d(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>d(c({},"__esModule",{value:!0}),n);var x=j((y,p)=>{p.exports=_jsx_runtime});var X={};l(X,{default:()=>m,frontmatter:()=>D});var o=M(x()),D=void 0;function i(n){let t={code:"code",p:"p",...n.components};return(0,o.jsxs)(t.p,{children:["The props for the ",(0,o.jsx)(t.code,{children:"Months"})," component."]})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,o.jsx)(t,{...n,children:(0,o.jsx)(i,{...n})}):i(n)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "MonthsProps",
     slug: "monthsprops",
@@ -2236,6 +2560,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/Months/Months.tsx",
     typeDef: "MonthsProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(_(n)):{},s(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>s(c({},"__esModule",{value:!0}),n);var u=l((y,i)=>{i.exports=_jsx_runtime});var X={};M(X,{default:()=>p,frontmatter:()=>D});var r=j(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"MonthsProps"})})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
   },
   MoveFocusBy: {
     deprecated: false,
@@ -2245,6 +2571,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "MoveFocusBy",
     slug: "movefocusby",
@@ -2254,6 +2581,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "contexts/FocusContext/FocusContext.tsx",
     typeDef: "MoveFocusBy",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?a(_(n)):{},s(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),y=n=>s(r({},"__esModule",{value:!0}),n);var i=M((v,u)=>{u.exports=_jsx_runtime});var D={};h(D,{default:()=>x,frontmatter:()=>C});var c=j(i()),C=void 0;function m(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"MoveFocusBy"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return y(D);})();\n;return Component;',
   },
   MoveFocusDir: {
     deprecated: false,
@@ -2263,6 +2592,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "MoveFocusDir",
     slug: "movefocusdir",
@@ -2272,6 +2602,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "contexts/FocusContext/FocusContext.tsx",
     typeDef: "MoveFocusDir",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?a(_(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>i(r({},"__esModule",{value:!0}),n);var u=M((w,s)=>{s.exports=_jsx_runtime});var X={};h(X,{default:()=>x,frontmatter:()=>C});var c=j(u()),C=void 0;function m(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"MoveFocusDir"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return D(X);})();\n;return Component;',
   },
   Nav: {
     deprecated: false,
@@ -2281,6 +2613,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Nav",
     slug: "nav",
@@ -2290,6 +2623,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/Nav/Nav.tsx",
     typeDef: "typeof Nav",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=p(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?m(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>i(r({},"__esModule",{value:!0}),n);var u=h((v,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var c=M(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof Nav"})})}function f(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return y(D);})();\n;return Component;',
   },
   Option: {
     deprecated: false,
@@ -2299,6 +2634,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Option",
     slug: "option",
@@ -2308,6 +2644,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/Option/Option.tsx",
     typeDef: "typeof Option",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?m(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>i(r({},"__esModule",{value:!0}),n);var s=h((w,p)=>{p.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var c=M(s()),C=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof Option"})})}function f(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return y(D);})();\n;return Component;',
   },
   OptionProps: {
     deprecated: false,
@@ -2317,6 +2655,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "OptionProps",
     slug: "optionprops",
@@ -2326,6 +2665,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/Option/Option.tsx",
     typeDef: "OptionProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var p=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var r=M(p()),D=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"OptionProps"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
   },
   Options: {
     deprecated: false,
@@ -2335,6 +2676,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Options",
     slug: "options",
@@ -2344,6 +2686,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "contexts/FocusContext/utils/getNextFocus.tsx",
     typeDef: "Options",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>p,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Options"})})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
   },
   PropsBase: {
     deprecated: false,
@@ -2352,9 +2696,10 @@ export const apiDefs: ApiDefs = {
     commentJsx:
       'var Component=(()=>{var m=Object.create;var i=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),g=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of u(n))!l.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(c=h(n,r))||c.enumerable});return e};var j=(e,n,t)=>(t=e!=null?m(x(e)):{},s(n||!e||!e.__esModule?i(t,"default",{value:e,enumerable:!0}):t,e)),b=e=>s(i({},"__esModule",{value:!0}),e);var p=_((w,a)=>{a.exports=_jsx_runtime});var M={};g(M,{default:()=>d,frontmatter:()=>y});var o=j(p()),y=void 0;function f(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||k("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["The base props for the ",(0,o.jsx)(t,{member:"DayPicker"}),` component for changing the\nnavigation, the styling and the behavior of the calendar.`]})}function d(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(f,{...e})}):f(e)}function k(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return b(M);})();\n;return Component;',
     shortComment:
-      "The base props for the {@link DayPicker } component for changing the",
+      "The base props for the DayPicker  component for changing the",
     shortCommentJsx:
-      'var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of x(n))!l.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(c=u(n,r))||c.enumerable});return e};var b=(e,n,t)=>(t=e!=null?d(h(e)):{},s(n||!e||!e.__esModule?i(t,"default",{value:e,enumerable:!0}):t,e)),g=e=>s(i({},"__esModule",{value:!0}),e);var a=_((D,p)=>{p.exports=_jsx_runtime});var M={};j(M,{default:()=>m,frontmatter:()=>k});var o=b(a()),k=void 0;function f(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||y("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["The base props for the ",(0,o.jsx)(t,{member:"DayPicker"})," component for changing the"]})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(f,{...e})}):f(e)}function y(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return g(M);})();\n;return Component;',
+      'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of d(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var D=(n,t,e)=>(e=n!=null?u(h(n)):{},a(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>a(r({},"__esModule",{value:!0}),n);var p=j((X,i)=>{i.exports=_jsx_runtime});var y={};l(y,{default:()=>m,frontmatter:()=>g});var c=D(p()),g=void 0;function f(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The base props for the DayPicker  component for changing the"})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(f,{...n})}):f(n)}return M(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "PropsBase",
     slug: "propsbase",
@@ -2364,6 +2709,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "PropsBase",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?p(_(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>s(c({},"__esModule",{value:!0}),n);var u=h((y,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var r=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"PropsBase"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -2376,6 +2723,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "string",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"string"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The CSS class to add to the container element.",
         commentJsx:
@@ -2383,6 +2732,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The CSS class to add to the container element.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=f(n,o))||s.enumerable});return t};var C=(t,n,e)=>(e=t!=null?x(l(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>a(r({},"__esModule",{value:!0}),t);var i=h((w,d)=>{d.exports=_jsx_runtime});var S={};j(S,{default:()=>u,frontmatter:()=>D});var c=C(i()),D=void 0;function m(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The CSS class to add to the container element."})}function u(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return M(S);})();\n;return Component;',
+        topic: "styling",
         see: [],
         required: false,
       },
@@ -2395,6 +2745,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Partial<ClassNames>",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of l(t))!_.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(s=f(t,o))||s.enumerable});return n};var C=(n,t,e)=>(e=n!=null?x(p(n)):{},a(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>a(c({},"__esModule",{value:!0}),n);var i=h((y,d)=>{d.exports=_jsx_runtime});var X={};j(X,{default:()=>u,frontmatter:()=>D});var r=C(i()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"Partial<ClassNames>"})})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Change the class names used by DayPicker.\n\nUse this prop when you need to change the default class names — for example\nwhen using CSS modules.",
@@ -2403,6 +2755,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Change the class names used by DayPicker.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=f(t,o))||s.enumerable});return n};var y=(n,t,e)=>(e=n!=null?x(_(n)):{},a(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>a(r({},"__esModule",{value:!0}),n);var i=l((b,u)=>{u.exports=_jsx_runtime});var M={};j(M,{default:()=>d,frontmatter:()=>D});var c=y(i()),D=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Change the class names used by DayPicker."})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(M);})();\n;return Component;',
+        topic: "styling",
         see: [],
         required: false,
       },
@@ -2415,6 +2768,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "ModifiersClassNames",
+        typeDefJsx:
+          'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},d=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(s=x(n,o))||s.enumerable});return e};var j=(e,n,t)=>(t=e!=null?f(l(e)):{},d(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>d(c({},"__esModule",{value:!0}),e);var a=M((y,i)=>{i.exports=_jsx_runtime});var X={};h(X,{default:()=>u,frontmatter:()=>D});var r=j(a()),D=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"ModifiersClassNames"})})}function u(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(m,{...e})}):m(e)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Change the class name for the day matching the `modifiers`.",
         commentJsx:
@@ -2423,6 +2778,7 @@ export const apiDefs: ApiDefs = {
           "Change the class name for the day matching the `modifiers`.",
         shortCommentJsx:
           'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),l=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let c of u(n))!_.call(e,c)&&c!==t&&r(e,c,{get:()=>n[c],enumerable:!(s=h(n,c))||s.enumerable});return e};var C=(e,n,t)=>(t=e!=null?f(p(e)):{},a(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>a(r({},"__esModule",{value:!0}),e);var i=j((X,d)=>{d.exports=_jsx_runtime});var y={};l(y,{default:()=>x,frontmatter:()=>g});var o=C(i()),g=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,o.jsxs)(n.p,{children:["Change the class name for the day matching the ",(0,o.jsx)(n.code,{children:"modifiers"}),"."]})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(m,{...e})}):m(e)}return M(y);})();\n;return Component;',
+        topic: "modifiers",
         see: [],
         required: false,
       },
@@ -2435,6 +2791,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "React.CSSProperties",
+        typeDefJsx:
+          'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(e,o)&&o!==n&&c(e,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return e};var C=(e,t,n)=>(n=e!=null?p(_(e)):{},i(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>i(c({},"__esModule",{value:!0}),e);var u=h((w,s)=>{s.exports=_jsx_runtime});var S={};j(S,{default:()=>m,frontmatter:()=>D});var r=C(u()),D=void 0;function a(e){let t={code:"code",p:"p",...e.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"React.CSSProperties"})})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(a,{...e})}):a(e)}return M(S);})();\n;return Component;',
         deprecated: false,
         comment: "Style to apply to the container element.",
         commentJsx:
@@ -2442,6 +2800,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Style to apply to the container element.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=d(n,o))||a.enumerable});return t};var y=(t,n,e)=>(e=t!=null?x(l(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>i(r({},"__esModule",{value:!0}),t);var p=h((w,m)=>{m.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>C});var c=y(p()),C=void 0;function s(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Style to apply to the container element."})}function u(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(s,{...t})}):s(t)}return M(D);})();\n;return Component;',
+        topic: "styling",
         see: [],
         required: false,
       },
@@ -2454,6 +2813,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Partial<Styles>",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return t};var M=(t,n,e)=>(e=t!=null?x(p(t)):{},i(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(c({},"__esModule",{value:!0}),t);var a=h((w,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var r=M(a()),C=void 0;function u(t){let n={code:"code",p:"p",...t.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"Partial<Styles>"})})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(u,{...t})}):u(t)}return y(D);})();\n;return Component;',
         deprecated: false,
         comment: "Change the inline styles of the HTML elements.",
         commentJsx:
@@ -2461,6 +2822,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Change the inline styles of the HTML elements.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of l(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=d(t,o))||s.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(p(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=_((X,m)=>{m.exports=_jsx_runtime});var D={};M(D,{default:()=>f,frontmatter:()=>y});var c=j(u()),y=void 0;function a(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Change the inline styles of the HTML elements."})}function f(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(D);})();\n;return Component;',
+        topic: "styling",
         see: [],
         required: false,
       },
@@ -2473,6 +2835,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "ModifiersStyles",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=a(n,o))||d.enumerable});return e};var j=(e,n,t)=>(t=e!=null?x(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(c({},"__esModule",{value:!0}),e);var u=M((w,s)=>{s.exports=_jsx_runtime});var D={};h(D,{default:()=>m,frontmatter:()=>C});var r=j(u()),C=void 0;function f(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"ModifiersStyles"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(f,{...e})}):f(e)}return y(D);})();\n;return Component;',
         deprecated: false,
         comment:
           "Change the inline style for the day matching the `modifiers`.",
@@ -2482,6 +2846,7 @@ export const apiDefs: ApiDefs = {
           "Change the inline style for the day matching the `modifiers`.",
         shortCommentJsx:
           'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of u(n))!p.call(e,r)&&r!==t&&c(e,r,{get:()=>n[r],enumerable:!(s=h(n,r))||s.enumerable});return e};var y=(e,n,t)=>(t=e!=null?f(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(c({},"__esModule",{value:!0}),e);var a=_((X,d)=>{d.exports=_jsx_runtime});var g={};j(g,{default:()=>x,frontmatter:()=>M});var o=y(a()),M=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,o.jsxs)(n.p,{children:["Change the inline style for the day matching the ",(0,o.jsx)(n.code,{children:"modifiers"}),"."]})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(m,{...e})}):m(e)}return C(g);})();\n;return Component;',
+        topic: "modifiers",
         see: [],
         required: false,
       },
@@ -2494,6 +2859,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "string",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"string"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "A unique id to replace the random generated ids – used by DayPicker for\naccessibility.",
@@ -2503,6 +2870,7 @@ export const apiDefs: ApiDefs = {
           "A unique id to replace the random generated ids – used by DayPicker for",
         shortCommentJsx:
           'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var y=(e,n,t)=>(t=e!=null?f(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),D=e=>i(r({},"__esModule",{value:!0}),e);var a=h((b,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>M});var c=y(a()),M=void 0;function s(e){let n={p:"p",...e.components};return(0,c.jsx)(n.p,{children:"A unique id to replace the random generated ids \\u2013 used by DayPicker for"})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(s,{...e})}):s(e)}return D(C);})();\n;return Component;',
+        topic: "attributes",
         see: [],
         required: false,
       },
@@ -2515,6 +2883,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "The initial month to show in the calendar. Use this prop to let DayPicker\ncontrol the current month. If you need to set the month programmatically,\nuse `month` and `onMonthChange`.",
@@ -2524,6 +2894,7 @@ export const apiDefs: ApiDefs = {
           "The initial month to show in the calendar. Use this prop to let DayPicker",
         shortCommentJsx:
           'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=h(n,o))||i.enumerable});return t};var D=(t,n,e)=>(e=t!=null?d(f(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>s(r({},"__esModule",{value:!0}),t);var m=_((X,a)=>{a.exports=_jsx_runtime});var y={};j(y,{default:()=>u,frontmatter:()=>w});var c=D(m()),w=void 0;function p(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The initial month to show in the calendar. Use this prop to let DayPicker"})}function u(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(p,{...t})}):p(t)}return M(y);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
         defaultValue: "The current month",
@@ -2537,6 +2908,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "The month displayed in the calendar.\n\nAs opposed to `PropsBase.defaultMonth}, use this prop with\n`PropsBase.onMonthChange} to change the month programmatically.",
@@ -2545,6 +2918,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The month displayed in the calendar.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=x(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?p(h(n)):{},d(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>d(r({},"__esModule",{value:!0}),n);var s=_((w,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>C});var c=M(s()),C=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The month displayed in the calendar."})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return y(D);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2557,6 +2931,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The number of displayed months.",
         commentJsx:
@@ -2564,6 +2940,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The number of displayed months.",
         shortCommentJsx:
           'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},m=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=p(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?f(_(n)):{},m(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>m(r({},"__esModule",{value:!0}),n);var d=l((b,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>C});var c=M(d()),C=void 0;function i(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The number of displayed months."})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return y(D);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
         defaultValue: "1",
@@ -2577,6 +2954,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment: "The earliest day to start the month navigation.",
         commentJsx:
@@ -2584,6 +2963,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The earliest day to start the month navigation.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(c=f(n,o))||c.enumerable});return t};var M=(t,n,e)=>(e=t!=null?x(h(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(r({},"__esModule",{value:!0}),t);var m=l((g,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>d,frontmatter:()=>C});var a=M(m()),C=void 0;function u(t){let n={p:"p",...t.components};return(0,a.jsx)(n.p,{children:"The earliest day to start the month navigation."})}function d(t={}){let{wrapper:n}=t.components||{};return n?(0,a.jsx)(n,{...t,children:(0,a.jsx)(u,{...t})}):u(t)}return y(D);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2596,6 +2976,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment: "The latest day to end the month navigation.",
         commentJsx:
@@ -2603,6 +2985,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The latest day to end the month navigation.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=f(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?x(h(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(r({},"__esModule",{value:!0}),t);var d=l((g,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>C});var c=M(d()),C=void 0;function m(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The latest day to end the month navigation."})}function u(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return y(D);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2615,6 +2998,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment: "The earliest month to start the month navigation.",
         commentJsx:
@@ -2622,6 +3007,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The earliest month to start the month navigation.",
         shortCommentJsx:
           'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of h(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=f(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?d(p(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>i(r({},"__esModule",{value:!0}),t);var m=l((v,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(m()),D=void 0;function u(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The earliest month to start the month navigation."})}function x(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return C(X);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2634,6 +3020,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment: "The latest month to end the month navigation.",
         commentJsx:
@@ -2641,6 +3029,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The latest month to end the month navigation.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of h(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=f(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?x(p(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>i(r({},"__esModule",{value:!0}),t);var s=l((v,m)=>{m.exports=_jsx_runtime});var X={};j(X,{default:()=>d,frontmatter:()=>D});var c=M(s()),D=void 0;function u(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The latest month to end the month navigation."})}function d(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return C(X);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2653,6 +3042,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The earliest year to start the month navigation.",
         commentJsx:
@@ -2660,6 +3051,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The earliest year to start the month navigation.",
         shortCommentJsx:
           'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(c=f(n,o))||c.enumerable});return t};var M=(t,n,e)=>(e=t!=null?d(h(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(r({},"__esModule",{value:!0}),t);var m=l((g,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>x,frontmatter:()=>C});var a=M(m()),C=void 0;function u(t){let n={p:"p",...t.components};return(0,a.jsx)(n.p,{children:"The earliest year to start the month navigation."})}function x(t={}){let{wrapper:n}=t.components||{};return n?(0,a.jsx)(n,{...t,children:(0,a.jsx)(u,{...t})}):u(t)}return y(D);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2672,6 +3064,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The latest year to end the month navigation.",
         commentJsx:
@@ -2679,6 +3073,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The latest year to end the month navigation.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=f(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?x(h(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(r({},"__esModule",{value:!0}),t);var m=l((g,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>d,frontmatter:()=>C});var c=M(m()),C=void 0;function u(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The latest year to end the month navigation."})}function d(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return y(D);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2691,6 +3086,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Paginate the month navigation displaying the `numberOfMonths` at time.",
@@ -2700,6 +3097,7 @@ export const apiDefs: ApiDefs = {
           "Paginate the month navigation displaying the `numberOfMonths` at time.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of h(t))!_.call(n,r)&&r!==e&&c(n,r,{get:()=>t[r],enumerable:!(s=f(t,r))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(p(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),g=n=>i(c({},"__esModule",{value:!0}),n);var d=j((X,a)=>{a.exports=_jsx_runtime});var C={};l(C,{default:()=>u,frontmatter:()=>y});var o=M(d()),y=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,o.jsxs)(t.p,{children:["Paginate the month navigation displaying the ",(0,o.jsx)(t.code,{children:"numberOfMonths"})," at time."]})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,o.jsx)(t,{...n,children:(0,o.jsx)(m,{...n})}):m(n)}return g(C);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2712,15 +3110,18 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Render the months in reversed order (when {@link numberOfMonths } is set) to\ndisplay the most recent month first.",
         commentJsx:
           'var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)s(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of x(n))!l.call(e,r)&&r!==t&&s(e,r,{get:()=>n[r],enumerable:!(i=a(n,r))||i.enumerable});return e};var M=(e,n,t)=>(t=e!=null?u(h(e)):{},c(n||!e||!e.__esModule?s(t,"default",{value:e,enumerable:!0}):t,e)),b=e=>c(s({},"__esModule",{value:!0}),e);var d=_((g,m)=>{m.exports=_jsx_runtime});var k={};j(k,{default:()=>f,frontmatter:()=>w});var o=M(d()),w=void 0;function p(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||y("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["Render the months in reversed order (when ",(0,o.jsx)(t,{member:"numberOfMonths"}),` is set) to\ndisplay the most recent month first.`]})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(p,{...e})}):p(e)}function y(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return b(k);})();\n;return Component;',
         shortComment:
-          "Render the months in reversed order (when {@link numberOfMonths } is set) to",
+          "Render the months in reversed order (when numberOfMonths  is set) to",
         shortCommentJsx:
-          'var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of a(n))!l.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=x(n,r))||s.enumerable});return e};var M=(e,n,t)=>(t=e!=null?u(h(e)):{},c(n||!e||!e.__esModule?i(t,"default",{value:e,enumerable:!0}):t,e)),b=e=>c(i({},"__esModule",{value:!0}),e);var m=_((g,d)=>{d.exports=_jsx_runtime});var y={};j(y,{default:()=>f,frontmatter:()=>w});var o=M(m()),w=void 0;function p(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||k("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["Render the months in reversed order (when ",(0,o.jsx)(t,{member:"numberOfMonths"})," is set) to"]})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(p,{...e})}):p(e)}function k(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return b(y);})();\n;return Component;',
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},d=(n,e,t,c)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of h(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(c=a(e,o))||c.enumerable});return n};var l=(n,e,t)=>(t=n!=null?x(p(n)):{},d(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),w=n=>d(r({},"__esModule",{value:!0}),n);var m=M((b,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var s=l(m()),C=void 0;function u(n){let e={p:"p",...n.components};return(0,s.jsx)(e.p,{children:"Render the months in reversed order (when numberOfMonths  is set) to"})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,s.jsx)(e,{...n,children:(0,s.jsx)(u,{...n})}):u(n)}return w(D);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2733,6 +3134,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Hide the navigation buttons. This prop won't disable the navigation: to\ndisable the navigation, use {@link disableNavigation }.",
@@ -2742,6 +3145,7 @@ export const apiDefs: ApiDefs = {
           "Hide the navigation buttons. This prop won't disable the navigation: to",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=x(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(h(t)):{},c(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),b=t=>c(r({},"__esModule",{value:!0}),t);var u=l((C,s)=>{s.exports=_jsx_runtime});var v={};j(v,{default:()=>p,frontmatter:()=>g});var i=M(u()),g=void 0;function d(t){let n={p:"p",...t.components};return(0,i.jsx)(n.p,{children:"Hide the navigation buttons. This prop won\'t disable the navigation: to"})}function p(t={}){let{wrapper:n}=t.components||{};return n?(0,i.jsx)(n,{...t,children:(0,i.jsx)(d,{...t})}):d(t)}return b(v);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2754,6 +3158,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Disable the navigation between months. This prop won't hide the navigation:\nto hide the navigation, use {@link hideNavigation }.",
@@ -2763,6 +3169,7 @@ export const apiDefs: ApiDefs = {
           "Disable the navigation between months. This prop won't hide the navigation:",
         shortCommentJsx:
           'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},c=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=h(t,o))||a.enumerable});return n};var w=(n,t,e)=>(e=n!=null?d(f(n)):{},c(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),D=n=>c(r({},"__esModule",{value:!0}),n);var m=l((v,s)=>{s.exports=_jsx_runtime});var b={};j(b,{default:()=>u,frontmatter:()=>M});var i=w(m()),M=void 0;function p(n){let t={p:"p",...n.components};return(0,i.jsx)(t.p,{children:"Disable the navigation between months. This prop won\'t hide the navigation:"})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,i.jsx)(t,{...n,children:(0,i.jsx)(p,{...n})}):p(n)}return D(b);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2775,6 +3182,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: 'boolean | "month" | "year"',
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),y=n=>a(c({},"__esModule",{value:!0}),n);var m=h((b,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>C});var r=M(m()),C=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:\'boolean | "month" | "year"\'})})}function u(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return y(D);})();\n;return Component;',
         deprecated: false,
         comment:
           "Show dropdowns to navigate between months or years.\n\n- `true`: display the dropdowns for both month and year.\n- `month`: display the dropdown for the month.\n- `year`: display the dropdown for the year.\n- `false`: hide the dropdowns.\n\n**Note:** showing the dropdown will default {@link fromYear } to the 100\nyears ago, and {@link toYear } to the current year.",
@@ -2783,6 +3192,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Show dropdowns to navigate between months or years.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var w=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var l=(n,t,e)=>(e=n!=null?p(_(n)):{},a(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>a(r({},"__esModule",{value:!0}),n);var i=w((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>y});var c=l(i()),y=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Show dropdowns to navigate between months or years."})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return M(C);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -2795,6 +3205,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Display always 6 weeks per each month, regardless the month’s number of\nweeks. Weeks will be filled with the days from the next month.",
@@ -2804,6 +3216,7 @@ export const apiDefs: ApiDefs = {
           "Display always 6 weeks per each month, regardless the month’s number of",
         shortCommentJsx:
           'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(c=f(n,o))||c.enumerable});return e};var w=(e,n,t)=>(t=e!=null?d(h(e)):{},a(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>a(r({},"__esModule",{value:!0}),e);var u=_((X,m)=>{m.exports=_jsx_runtime});var M={};j(M,{default:()=>p,frontmatter:()=>D});var s=w(u()),D=void 0;function i(e){let n={p:"p",...e.components};return(0,s.jsx)(n.p,{children:"Display always 6 weeks per each month, regardless the month\\u2019s number of"})}function p(e={}){let{wrapper:n}=e.components||{};return n?(0,s.jsx)(n,{...e,children:(0,s.jsx)(i,{...e})}):i(e)}return y(M);})();\n;return Component;',
+        topic: "options",
         see: [],
         required: false,
       },
@@ -2816,6 +3229,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Hide the row displaying the weekday row header.",
         commentJsx:
@@ -2823,6 +3238,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Hide the row displaying the weekday row header.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),w=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return e};var j=(e,t,n)=>(n=e!=null?p(h(e)):{},i(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),y=e=>i(r({},"__esModule",{value:!0}),e);var s=l((X,a)=>{a.exports=_jsx_runtime});var C={};w(C,{default:()=>m,frontmatter:()=>M});var c=j(s()),M=void 0;function u(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"Hide the row displaying the weekday row header."})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(u,{...e})}):u(e)}return y(C);})();\n;return Component;',
+        topic: "options",
         see: [],
         required: false,
       },
@@ -2835,6 +3251,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Show the outside days (days falling in the next or the previous month).",
@@ -2844,6 +3262,7 @@ export const apiDefs: ApiDefs = {
           "Show the outside days (days falling in the next or the previous month).",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of h(n))!l.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(c=f(n,o))||c.enumerable});return t};var y=(t,n,e)=>(e=t!=null?x(p(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>i(r({},"__esModule",{value:!0}),t);var a=_((X,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>w});var s=y(a()),w=void 0;function d(t){let n={p:"p",...t.components};return(0,s.jsx)(n.p,{children:"Show the outside days (days falling in the next or the previous month)."})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,s.jsx)(n,{...t,children:(0,s.jsx)(d,{...t})}):d(t)}return M(C);})();\n;return Component;',
+        topic: "options",
         see: [],
         required: false,
       },
@@ -2856,6 +3275,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Show the week numbers column. Weeks are numbered according to the local\nweek index.\n\n- To use ISO week numbering, use the `ISOWeek` prop.\n- To change how the week numbers are displayed, use the `Formatters` prop.",
@@ -2865,6 +3286,7 @@ export const apiDefs: ApiDefs = {
           "Show the week numbers column. Weeks are numbered according to the local",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},m=(e,n,t,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!h.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(u=f(n,o))||u.enumerable});return e};var w=(e,n,t)=>(t=e!=null?x(p(e)):{},m(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>m(r({},"__esModule",{value:!0}),e);var a=_((D,s)=>{s.exports=_jsx_runtime});var k={};j(k,{default:()=>i,frontmatter:()=>b});var c=w(a()),b=void 0;function d(e){let n={p:"p",...e.components};return(0,c.jsx)(n.p,{children:"Show the week numbers column. Weeks are numbered according to the local"})}function i(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(d,{...e})}):d(e)}return M(k);})();\n;return Component;',
+        topic: "options",
         see: [],
         required: false,
       },
@@ -2877,6 +3299,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Use ISO week dates instead of the locale setting. Setting this prop will\nignore `weekStartsOn` and `firstWeekContainsDate`.",
@@ -2886,6 +3310,7 @@ export const apiDefs: ApiDefs = {
           "Use ISO week dates instead of the locale setting. Setting this prop will",
         shortCommentJsx:
           'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,c)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of m(e))!_.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(c=l(e,o))||c.enumerable});return t};var w=(t,e,n)=>(n=t!=null?f(x(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>i(r({},"__esModule",{value:!0}),t);var d=h((S,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>g});var s=w(d()),g=void 0;function p(t){let e={p:"p",...t.components};return(0,s.jsx)(e.p,{children:"Use ISO week dates instead of the locale setting. Setting this prop will"})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,{...t,children:(0,s.jsx)(p,{...t})}):p(t)}return M(C);})();\n;return Component;',
+        topic: "date",
         see: ["https://en.wikipedia.org/wiki/ISO_week_date"],
         required: false,
         defaultValue: "false",
@@ -2899,6 +3324,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "CustomComponents",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var C=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),h=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(_(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>s(r({},"__esModule",{value:!0}),n);var u=C((y,m)=>{m.exports=_jsx_runtime});var X={};h(X,{default:()=>p,frontmatter:()=>D});var c=j(u()),D=void 0;function i(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"CustomComponents"})})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Change the components used for rendering the calendar elements.",
@@ -2908,6 +3335,7 @@ export const apiDefs: ApiDefs = {
           "Change the components used for rendering the calendar elements.",
         shortCommentJsx:
           'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(s=p(e,o))||s.enumerable});return n};var C=(n,e,t)=>(t=n!=null?f(h(n)):{},a(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>a(r({},"__esModule",{value:!0}),n);var m=_((w,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>i,frontmatter:()=>g});var c=C(m()),g=void 0;function u(n){let e={p:"p",...n.components};return(0,c.jsx)(e.p,{children:"Change the components used for rendering the calendar elements."})}function i(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return M(D);})();\n;return Component;',
+        topic: "custom-components",
         see: [],
         required: false,
       },
@@ -2920,6 +3348,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "React.ReactNode",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},a=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return e};var M=(e,t,n)=>(n=e!=null?x(_(e)):{},a(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),C=e=>a(r({},"__esModule",{value:!0}),e);var s=h((w,i)=>{i.exports=_jsx_runtime});var R={};j(R,{default:()=>m,frontmatter:()=>D});var c=M(s()),D=void 0;function u(e){let t={code:"code",p:"p",...e.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"React.ReactNode"})})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(u,{...e})}):u(e)}return C(R);})();\n;return Component;',
         deprecated: false,
         comment: "Content to add to the table footer element.",
         commentJsx:
@@ -2927,6 +3357,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Content to add to the table footer element.",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},d=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=x(n,o))||a.enumerable});return t};var C=(t,n,e)=>(e=t!=null?i(l(t)):{},d(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>d(r({},"__esModule",{value:!0}),t);var s=h((w,m)=>{m.exports=_jsx_runtime});var X={};j(X,{default:()=>f,frontmatter:()=>D});var c=C(s()),D=void 0;function u(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Content to add to the table footer element."})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return M(X);})();\n;return Component;',
+        topic: "options",
         see: [],
         required: false,
       },
@@ -2939,6 +3370,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "When a selection mode is set, DayPicker will focus the first selected day\n(if set) or the today's date (if not disabled).\n\nUse this prop when you need to focus DayPicker after a user actions, for\nimproved accessibility.",
@@ -2948,6 +3381,7 @@ export const apiDefs: ApiDefs = {
           "When a selection mode is set, DayPicker will focus the first selected day",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(s=l(t,o))||s.enumerable});return e};var y=(e,t,n)=>(n=e!=null?m(p(e)):{},i(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),D=e=>i(r({},"__esModule",{value:!0}),e);var d=h((X,a)=>{a.exports=_jsx_runtime});var w={};j(w,{default:()=>f,frontmatter:()=>M});var c=y(d()),M=void 0;function u(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"When a selection mode is set, DayPicker will focus the first selected day"})}function f(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(u,{...e})}):u(e)}return D(w);})();\n;return Component;',
+        topic: "options",
         see: [],
         required: false,
       },
@@ -2960,6 +3394,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Matcher[]",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>m,frontmatter:()=>D});var c=j(u()),D=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Matcher[]"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Apply the `disabled` modifier to the matching days.",
         commentJsx:
@@ -2967,6 +3403,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Apply the `disabled` modifier to the matching days.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let c of f(e))!l.call(t,c)&&c!==n&&r(t,c,{get:()=>e[c],enumerable:!(s=u(e,c))||s.enumerable});return t};var y=(t,e,n)=>(n=t!=null?p(h(t)):{},d(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>d(r({},"__esModule",{value:!0}),t);var a=_((b,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>x,frontmatter:()=>C});var o=y(a()),C=void 0;function m(t){let e={code:"code",p:"p",...t.components};return(0,o.jsxs)(e.p,{children:["Apply the ",(0,o.jsx)(e.code,{children:"disabled"})," modifier to the matching days."]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(m,{...t})}):m(t)}return M(D);})();\n;return Component;',
+        topic: "selection",
         see: [],
         required: false,
       },
@@ -2979,6 +3416,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Matcher[]",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>m,frontmatter:()=>D});var c=j(u()),D=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Matcher[]"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Apply the `hidden` modifier to the matching days. Will hide them from the\ncalendar.",
@@ -2988,6 +3427,7 @@ export const apiDefs: ApiDefs = {
           "Apply the `hidden` modifier to the matching days. Will hide them from the",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of p(t))!l.call(e,r)&&r!==n&&c(e,r,{get:()=>t[r],enumerable:!(d=f(t,r))||d.enumerable});return e};var y=(e,t,n)=>(n=e!=null?x(u(e)):{},i(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>i(c({},"__esModule",{value:!0}),e);var m=_((g,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>C});var o=y(m()),C=void 0;function h(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["Apply the ",(0,o.jsx)(t.code,{children:"hidden"})," modifier to the matching days. Will hide them from the"]})}function a(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(h,{...e})}):h(e)}return M(D);})();\n;return Component;',
+        topic: "selection",
         see: [],
         required: false,
       },
@@ -3000,6 +3440,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "The today’s date. Default is the current date. This date will get the\n`today` modifier to style the day.",
@@ -3009,6 +3451,7 @@ export const apiDefs: ApiDefs = {
           "The today’s date. Default is the current date. This date will get the",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of h(e))!p.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=x(e,o))||a.enumerable});return t};var D=(t,e,n)=>(n=t!=null?m(l(t)):{},s(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>s(r({},"__esModule",{value:!0}),t);var i=_((T,d)=>{d.exports=_jsx_runtime});var y={};j(y,{default:()=>f,frontmatter:()=>w});var c=D(i()),w=void 0;function u(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"The today\\u2019s date. Default is the current date. This date will get the"})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return M(y);})();\n;return Component;',
+        topic: "date",
         see: [],
         required: false,
       },
@@ -3021,6 +3464,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Record<string, Matcher[]>",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=l((w,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>m,frontmatter:()=>D});var r=j(u()),D=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"Record<string, Matcher[]>"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Add modifiers to the matching days.",
         commentJsx:
@@ -3028,6 +3473,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Add modifiers to the matching days.",
         shortCommentJsx:
           'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return t};var M=(t,n,e)=>(e=t!=null?f(_(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(r({},"__esModule",{value:!0}),t);var m=j((g,s)=>{s.exports=_jsx_runtime});var D={};l(D,{default:()=>u,frontmatter:()=>C});var c=M(m()),C=void 0;function a(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Add modifiers to the matching days."})}function u(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(a,{...t})}):a(t)}return y(D);})();\n;return Component;',
+        topic: "modifiers",
         see: [],
         required: false,
       },
@@ -3040,6 +3486,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Partial<Labels>",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of l(t))!_.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(p(n)):{},a(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>a(c({},"__esModule",{value:!0}),n);var s=h((b,i)=>{i.exports=_jsx_runtime});var L={};j(L,{default:()=>m,frontmatter:()=>D});var r=M(s()),D=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"Partial<Labels>"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(L);})();\n;return Component;',
         deprecated: false,
         comment:
           "Labels creators to override the defaults. Use this prop to customize the\naria-label attributes in DayPicker.",
@@ -3049,6 +3497,7 @@ export const apiDefs: ApiDefs = {
           "Labels creators to override the defaults. Use this prop to customize the",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,c)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(c=f(e,o))||c.enumerable});return t};var M=(t,e,n)=>(n=t!=null?p(h(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>i(r({},"__esModule",{value:!0}),t);var a=_((b,u)=>{u.exports=_jsx_runtime});var L={};j(L,{default:()=>m,frontmatter:()=>D});var s=M(a()),D=void 0;function d(t){let e={p:"p",...t.components};return(0,s.jsx)(e.p,{children:"Labels creators to override the defaults. Use this prop to customize the"})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,{...t,children:(0,s.jsx)(d,{...t})}):d(t)}return C(L);})();\n;return Component;',
+        topic: "internationalization",
         see: [],
         required: false,
       },
@@ -3061,6 +3510,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Partial<Formatters>",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return t};var M=(t,n,e)=>(e=t!=null?x(l(t)):{},a(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>a(c({},"__esModule",{value:!0}),t);var s=h((y,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>u,frontmatter:()=>D});var r=M(s()),D=void 0;function m(t){let n={code:"code",p:"p",...t.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"Partial<Formatters>"})})}function u(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(m,{...t})}):m(t)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Formatters used to format dates to strings. Use this prop to override the\ndefault functions.",
@@ -3070,6 +3521,7 @@ export const apiDefs: ApiDefs = {
           "Formatters used to format dates to strings. Use this prop to override the",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,c)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!h.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(c=f(e,o))||c.enumerable});return t};var M=(t,e,n)=>(n=t!=null?p(_(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>i(r({},"__esModule",{value:!0}),t);var d=j((v,a)=>{a.exports=_jsx_runtime});var X={};l(X,{default:()=>u,frontmatter:()=>D});var s=M(d()),D=void 0;function m(t){let e={p:"p",...t.components};return(0,s.jsx)(e.p,{children:"Formatters used to format dates to strings. Use this prop to override the"})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,{...t,children:(0,s.jsx)(m,{...t})}):m(t)}return C(X);})();\n;return Component;',
+        topic: "internationalization",
         see: [],
         required: false,
       },
@@ -3082,6 +3534,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "string",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"string"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "The text direction of the calendar. Use `ltr` for left-to-right (default)\nor `rtl` for right-to-left.",
@@ -3091,6 +3545,7 @@ export const apiDefs: ApiDefs = {
           "The text direction of the calendar. Use `ltr` for left-to-right (default)",
         shortCommentJsx:
           'var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of m(e))!p.call(t,r)&&r!==n&&c(t,r,{get:()=>e[r],enumerable:!(s=l(e,r))||s.enumerable});return t};var M=(t,e,n)=>(n=t!=null?u(h(t)):{},d(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>d(c({},"__esModule",{value:!0}),t);var a=_((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var o=M(a()),D=void 0;function f(t){let e={code:"code",p:"p",...t.components};return(0,o.jsxs)(e.p,{children:["The text direction of the calendar. Use ",(0,o.jsx)(e.code,{children:"ltr"})," for left-to-right (default)"]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(f,{...t})}):f(t)}return C(X);})();\n;return Component;',
+        topic: "internationalization",
         see: [],
         required: false,
       },
@@ -3103,6 +3558,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "string",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"string"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           'A cryptographic nonce ("number used once") which can be used by Content\nSecurity Policy for the inline `style` attributes.',
@@ -3112,6 +3569,7 @@ export const apiDefs: ApiDefs = {
           'A cryptographic nonce ("number used once") which can be used by Content',
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var b=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,u)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(u=x(t,o))||u.enumerable});return n};var l=(n,t,e)=>(e=n!=null?p(h(n)):{},s(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>s(c({},"__esModule",{value:!0}),n);var a=b((D,i)=>{i.exports=_jsx_runtime});var M={};j(M,{default:()=>m,frontmatter:()=>C});var r=l(a()),C=void 0;function d(n){let t={p:"p",...n.components};return(0,r.jsx)(t.p,{children:\'A cryptographic nonce ("number used once") which can be used by Content\'})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(d,{...n})}):d(n)}return y(M);})();\n;return Component;',
+        topic: "attributes",
         see: [],
         required: false,
       },
@@ -3124,6 +3582,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "string",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"string"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Add a `title` attribute to the container element.",
         commentJsx:
@@ -3131,6 +3591,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Add a `title` attribute to the container element.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),h=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of l(e))!_.call(t,r)&&r!==n&&c(t,r,{get:()=>e[r],enumerable:!(s=f(e,r))||s.enumerable});return t};var M=(t,e,n)=>(n=t!=null?m(p(t)):{},d(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>d(c({},"__esModule",{value:!0}),t);var a=j((w,i)=>{i.exports=_jsx_runtime});var X={};h(X,{default:()=>x,frontmatter:()=>D});var o=M(a()),D=void 0;function u(t){let e={code:"code",p:"p",...t.components};return(0,o.jsxs)(e.p,{children:["Add a ",(0,o.jsx)(e.code,{children:"title"})," attribute to the container element."]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(u,{...t})}):u(t)}return C(X);})();\n;return Component;',
+        topic: "attributes",
         see: [],
         required: false,
       },
@@ -3143,6 +3604,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "string",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"string"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Add the language tag to the container element.",
         commentJsx:
@@ -3150,6 +3613,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Add the language tag to the container element.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=f(n,o))||a.enumerable});return t};var j=(t,n,e)=>(e=t!=null?x(l(t)):{},u(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>u(r({},"__esModule",{value:!0}),t);var i=h((w,d)=>{d.exports=_jsx_runtime});var D={};g(D,{default:()=>s,frontmatter:()=>C});var c=j(i()),C=void 0;function m(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Add the language tag to the container element."})}function s(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return M(D);})();\n;return Component;',
+        topic: "internationalization",
         see: [],
         required: false,
       },
@@ -3162,6 +3626,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Locale",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var L={};j(L,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"Locale"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(L);})();\n;return Component;',
         deprecated: false,
         comment: "The date-fns locale object used to localize dates.",
         commentJsx:
@@ -3169,6 +3635,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The date-fns locale object used to localize dates.",
         shortCommentJsx:
           'var Component=(()=>{var l=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),h=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},a=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(t,o)&&o!==n&&c(t,o,{get:()=>e[o],enumerable:!(s=m(e,o))||s.enumerable});return t};var M=(t,e,n)=>(n=t!=null?l(p(t)):{},a(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>a(c({},"__esModule",{value:!0}),t);var u=j((w,d)=>{d.exports=_jsx_runtime});var X={};h(X,{default:()=>f,frontmatter:()=>D});var r=M(u()),D=void 0;function i(t){let e={p:"p",...t.components};return(0,r.jsx)(e.p,{children:"The date-fns locale object used to localize dates."})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(i,{...t})}):i(t)}return C(X);})();\n;return Component;',
+        topic: "internationalization",
         see: ["https://date-fns.org/docs/Locale"],
         required: false,
         defaultValue: "en-US",
@@ -3182,6 +3649,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "0 | 2 | 1 | 3 | 4 | 5 | 6",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"0 | 2 | 1 | 3 | 4 | 5 | 6"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "The index of the first day of the week (0 - Sunday). Overrides the locale's\none.",
@@ -3191,6 +3660,7 @@ export const apiDefs: ApiDefs = {
           "The index of the first day of the week (0 - Sunday). Overrides the locale's",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},d=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of h(t))!l.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(s=m(t,o))||s.enumerable});return e};var y=(e,t,n)=>(n=e!=null?x(p(e)):{},d(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>d(r({},"__esModule",{value:!0}),e);var a=_((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>w});var c=y(a()),w=void 0;function f(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"The index of the first day of the week (0 - Sunday). Overrides the locale\'s"})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(f,{...e})}):f(e)}return M(C);})();\n;return Component;',
+        topic: "date",
         see: [],
         required: false,
       },
@@ -3203,6 +3673,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "1 | 4",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"1 | 4"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "The day of January, which is always in the first week of the year.",
@@ -3212,6 +3684,7 @@ export const apiDefs: ApiDefs = {
           "The day of January, which is always in the first week of the year.",
         shortCommentJsx:
           'var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var _=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!y.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(c=m(n,o))||c.enumerable});return t};var w=(t,n,e)=>(e=t!=null?h(p(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),j=t=>i(r({},"__esModule",{value:!0}),t);var f=_((X,s)=>{s.exports=_jsx_runtime});var C={};l(C,{default:()=>d,frontmatter:()=>M});var a=w(f()),M=void 0;function u(t){let n={p:"p",...t.components};return(0,a.jsx)(n.p,{children:"The day of January, which is always in the first week of the year."})}function d(t={}){let{wrapper:n}=t.components||{};return n?(0,a.jsx)(n,{...t,children:(0,a.jsx)(u,{...t})}):u(t)}return j(C);})();\n;return Component;',
+        topic: "date",
         see: [
           "https://date-fns.org/docs/getWeek",
           "https://en.wikipedia.org/wiki/Week#Numbering",
@@ -3227,6 +3700,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Enable `DD` and `DDDD` for week year tokens when formatting or parsing\ndates.",
@@ -3236,6 +3711,7 @@ export const apiDefs: ApiDefs = {
           "Enable `DD` and `DDDD` for week year tokens when formatting or parsing",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var D=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},d=(n,e,t,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of D(e))!l.call(n,r)&&r!==t&&c(n,r,{get:()=>e[r],enumerable:!(s=u(e,r))||s.enumerable});return n};var j=(n,e,t)=>(t=n!=null?m(p(n)):{},d(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),w=n=>d(c({},"__esModule",{value:!0}),n);var i=_((y,a)=>{a.exports=_jsx_runtime});var g={};h(g,{default:()=>f,frontmatter:()=>M});var o=j(i()),M=void 0;function x(n){let e={code:"code",p:"p",...n.components};return(0,o.jsxs)(e.p,{children:["Enable ",(0,o.jsx)(e.code,{children:"DD"})," and ",(0,o.jsx)(e.code,{children:"DDDD"})," for week year tokens when formatting or parsing"]})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,{...n,children:(0,o.jsx)(x,{...n})}):x(n)}return w(g);})();\n;return Component;',
+        topic: "date",
         see: ["https://date-fns.org/docs/Unicode-Tokens"],
         required: false,
       },
@@ -3248,6 +3724,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment:
           "Enable `YY` and `YYYY` for day of year tokens when formatting or parsing\ndates.",
@@ -3257,6 +3735,7 @@ export const apiDefs: ApiDefs = {
           "Enable `YY` and `YYYY` for day of year tokens when formatting or parsing",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,Y=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},d=(n,e,t,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of p(e))!Y.call(n,r)&&r!==t&&c(n,r,{get:()=>e[r],enumerable:!(s=u(e,r))||s.enumerable});return n};var j=(n,e,t)=>(t=n!=null?m(l(n)):{},d(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),y=n=>d(c({},"__esModule",{value:!0}),n);var i=_((C,a)=>{a.exports=_jsx_runtime});var g={};h(g,{default:()=>x,frontmatter:()=>M});var o=j(i()),M=void 0;function f(n){let e={code:"code",p:"p",...n.components};return(0,o.jsxs)(e.p,{children:["Enable ",(0,o.jsx)(e.code,{children:"YY"})," and ",(0,o.jsx)(e.code,{children:"YYYY"})," for day of year tokens when formatting or parsing"]})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,{...n,children:(0,o.jsx)(f,{...n})}):f(n)}return y(g);})();\n;return Component;',
+        topic: "date",
         see: ["https://date-fns.org/docs/Unicode-Tokens"],
         required: false,
       },
@@ -3269,6 +3748,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "MonthChangeEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),M=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(h(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>a(c({},"__esModule",{value:!0}),n);var s=_((v,i)=>{i.exports=_jsx_runtime});var X={};M(X,{default:()=>m,frontmatter:()=>D});var r=j(s()),D=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"MonthChangeEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Event fired when the user navigates between months.",
         commentJsx:
@@ -3276,6 +3757,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event fired when the user navigates between months.",
         shortCommentJsx:
           'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),l=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var w=(n,t,e)=>(e=n!=null?f(h(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var a=j((X,u)=>{u.exports=_jsx_runtime});var C={};l(C,{default:()=>d,frontmatter:()=>v});var c=w(a()),v=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event fired when the user navigates between months."})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return M(C);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -3288,6 +3770,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayMouseEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(l(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>s(c({},"__esModule",{value:!0}),n);var a=M((v,u)=>{u.exports=_jsx_runtime});var C={};h(C,{default:()=>m,frontmatter:()=>y});var r=j(a()),y=void 0;function i(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayMouseEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(i,{...n})}):i(n)}return D(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a day is clicked.",
         commentJsx:
@@ -3295,6 +3779,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a day is clicked.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=f(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(l(n)):{},d(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>d(r({},"__esModule",{value:!0}),n);var s=h((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=M(s()),y=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when a day is clicked."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return w(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3307,6 +3792,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayFocusEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},s(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>s(r({},"__esModule",{value:!0}),n);var a=h((v,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=D(a()),y=void 0;function i(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"DayFocusEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return M(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a day is focused.",
         commentJsx:
@@ -3314,6 +3801,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a day is focused.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?m(_(n)):{},a(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>a(r({},"__esModule",{value:!0}),n);var u=l((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>y});var c=M(u()),y=void 0;function i(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when a day is focused."})}function f(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return w(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3326,6 +3814,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayFocusEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},s(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>s(r({},"__esModule",{value:!0}),n);var a=h((v,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=D(a()),y=void 0;function i(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"DayFocusEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return M(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a day is blurred.",
         commentJsx:
@@ -3333,6 +3823,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a day is blurred.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=f(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(l(n)):{},d(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>d(r({},"__esModule",{value:!0}),n);var u=h((X,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=M(u()),y=void 0;function i(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when a day is blurred."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return w(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3345,6 +3836,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayMouseEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(l(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>s(c({},"__esModule",{value:!0}),n);var a=M((v,u)=>{u.exports=_jsx_runtime});var C={};h(C,{default:()=>m,frontmatter:()=>y});var r=j(a()),y=void 0;function i(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayMouseEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(i,{...n})}):i(n)}return D(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when the mouse enters a day.",
         commentJsx:
@@ -3352,6 +3845,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when the mouse enters a day.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=f(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(h(n)):{},a(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>a(r({},"__esModule",{value:!0}),n);var d=l((X,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>i,frontmatter:()=>y});var c=M(d()),y=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when the mouse enters a day."})}function i(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return w(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3364,6 +3858,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayMouseEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),h=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(l(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>s(c({},"__esModule",{value:!0}),n);var a=M((v,u)=>{u.exports=_jsx_runtime});var C={};h(C,{default:()=>m,frontmatter:()=>y});var r=j(a()),y=void 0;function i(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayMouseEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(i,{...n})}):i(n)}return D(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when the mouse leaves a day.",
         commentJsx:
@@ -3371,6 +3867,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when the mouse leaves a day.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(a=f(e,o))||a.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(h(n)):{},s(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),v=n=>s(r({},"__esModule",{value:!0}),n);var d=_((D,u)=>{u.exports=_jsx_runtime});var y={};j(y,{default:()=>i,frontmatter:()=>w});var c=M(d()),w=void 0;function m(n){let e={p:"p",...n.components};return(0,c.jsx)(e.p,{children:"Event handler when the mouse leaves a day."})}function i(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return v(y);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3383,6 +3880,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayKeyboardEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var y=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>a(c({},"__esModule",{value:!0}),n);var s=h((b,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>M});var r=y(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayKeyboardEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a key is pressed on a day.",
         commentJsx:
@@ -3390,6 +3889,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a key is pressed on a day.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!h.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(s=x(e,o))||s.enumerable});return n};var y=(n,e,t)=>(t=n!=null?p(_(n)):{},a(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>a(r({},"__esModule",{value:!0}),n);var i=l((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>w});var c=y(i()),w=void 0;function u(n){let e={p:"p",...n.components};return(0,c.jsx)(e.p,{children:"Event handler when a key is pressed on a day."})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3402,6 +3902,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayKeyboardEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var y=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>a(c({},"__esModule",{value:!0}),n);var s=h((b,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>M});var r=y(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayKeyboardEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a key is released on a day.",
         commentJsx:
@@ -3409,6 +3911,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a key is released on a day.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,c)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(c=f(e,o))||c.enumerable});return n};var y=(n,e,t)=>(t=n!=null?x(l(n)):{},s(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>s(r({},"__esModule",{value:!0}),n);var i=h((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>w});var a=y(i()),w=void 0;function u(n){let e={p:"p",...n.components};return(0,a.jsx)(e.p,{children:"Event handler when a key is released on a day."})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,a.jsx)(e,{...n,children:(0,a.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3421,6 +3924,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayKeyboardEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var y=(n,e,t)=>(t=n!=null?x(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),D=n=>a(c({},"__esModule",{value:!0}),n);var s=h((b,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>M});var r=y(s()),M=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayKeyboardEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a key is pressed and released on a day.",
         commentJsx:
@@ -3429,6 +3934,7 @@ export const apiDefs: ApiDefs = {
           "Event handler when a key is pressed and released on a day.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},c=(n,e,t,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(s=x(e,o))||s.enumerable});return n};var y=(n,e,t)=>(t=n!=null?p(l(n)):{},c(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>c(r({},"__esModule",{value:!0}),n);var i=h((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>w});var a=y(i()),w=void 0;function u(n){let e={p:"p",...n.components};return(0,a.jsx)(e.p,{children:"Event handler when a key is pressed and released on a day."})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,a.jsx)(e,{...n,children:(0,a.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3441,6 +3947,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayPointerEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var s=h((v,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var r=D(s()),y=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayPointerEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a pointer enters a day.",
         commentJsx:
@@ -3448,6 +3956,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a pointer enters a day.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=x(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?p(_(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>s(r({},"__esModule",{value:!0}),n);var i=l((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=M(i()),y=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when a pointer enters a day."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return w(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3460,6 +3969,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayPointerEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>i(c({},"__esModule",{value:!0}),n);var s=h((v,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var r=D(s()),y=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"DayPointerEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a pointer leaves a day.",
         commentJsx:
@@ -3467,6 +3978,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a pointer leaves a day.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,c)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(c=x(t,o))||c.enumerable});return n};var M=(n,t,e)=>(e=n!=null?p(l(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),v=n=>s(r({},"__esModule",{value:!0}),n);var i=h((D,d)=>{d.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>w});var a=M(i()),w=void 0;function u(n){let t={p:"p",...n.components};return(0,a.jsx)(t.p,{children:"Event handler when a pointer leaves a day."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,a.jsx)(t,{...n,children:(0,a.jsx)(u,{...n})}):u(n)}return v(y);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3479,6 +3991,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayTouchEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},u(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>u(r({},"__esModule",{value:!0}),n);var i=h((v,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=D(i()),y=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"DayTouchEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(s,{...n})}):s(n)}return M(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a touch is cancelled on a day.",
         commentJsx:
@@ -3486,6 +4000,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a touch is cancelled on a day.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of l(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=f(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(p(n)):{},d(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>d(r({},"__esModule",{value:!0}),n);var u=_((X,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=M(u()),y=void 0;function i(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when a touch is cancelled on a day."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return w(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3498,6 +4013,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayTouchEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},u(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>u(r({},"__esModule",{value:!0}),n);var i=h((v,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=D(i()),y=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"DayTouchEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(s,{...n})}):s(n)}return M(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a touch ends on a day.",
         commentJsx:
@@ -3505,6 +4022,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a touch ends on a day.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=f(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(h(n)):{},d(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>d(r({},"__esModule",{value:!0}),n);var u=l((X,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=M(u()),y=void 0;function i(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when a touch ends on a day."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return w(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3517,6 +4035,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayTouchEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},u(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>u(r({},"__esModule",{value:!0}),n);var i=h((v,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=D(i()),y=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"DayTouchEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(s,{...n})}):s(n)}return M(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a touch moves on a day.",
         commentJsx:
@@ -3524,6 +4044,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a touch moves on a day.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=f(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),v=n=>s(r({},"__esModule",{value:!0}),n);var d=l((D,u)=>{u.exports=_jsx_runtime});var y={};j(y,{default:()=>i,frontmatter:()=>w});var c=M(d()),w=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when a touch moves on a day."})}function i(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return v(y);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3536,6 +4057,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "DayTouchEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?x(l(n)):{},u(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>u(r({},"__esModule",{value:!0}),n);var i=h((v,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=D(i()),y=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"DayTouchEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(s,{...n})}):s(n)}return M(C);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when a touch starts on a day.",
         commentJsx:
@@ -3543,6 +4066,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when a touch starts on a day.",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=f(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?x(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>s(r({},"__esModule",{value:!0}),n);var d=l((X,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=M(d()),y=void 0;function i(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when a touch starts on a day."})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(i,{...n})}):i(n)}return w(C);})();\n;return Component;',
+        topic: "events",
         see: [],
         required: false,
       },
@@ -3555,6 +4079,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "MonthChangeEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),M=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(h(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>a(c({},"__esModule",{value:!0}),n);var s=_((v,i)=>{i.exports=_jsx_runtime});var X={};M(X,{default:()=>m,frontmatter:()=>D});var r=j(s()),D=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"MonthChangeEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when the next month button is clicked.",
         commentJsx:
@@ -3562,6 +4088,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Event handler when the next month button is clicked.",
         shortCommentJsx:
           'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of h(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(i=f(t,o))||i.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(p(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>s(r({},"__esModule",{value:!0}),n);var d=_((b,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>x,frontmatter:()=>C});var c=M(d()),C=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when the next month button is clicked."})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return w(D);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -3574,6 +4101,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "MonthChangeEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),M=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(h(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>a(c({},"__esModule",{value:!0}),n);var s=_((v,i)=>{i.exports=_jsx_runtime});var X={};M(X,{default:()=>m,frontmatter:()=>D});var r=j(s()),D=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"MonthChangeEventHandler"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Event handler when the previous month button is clicked.",
         commentJsx:
@@ -3582,6 +4111,7 @@ export const apiDefs: ApiDefs = {
           "Event handler when the previous month button is clicked.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(i=x(t,o))||i.enumerable});return n};var M=(n,t,e)=>(e=n!=null?p(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),v=n=>s(r({},"__esModule",{value:!0}),n);var d=_((X,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>a,frontmatter:()=>w});var c=M(d()),w=void 0;function m(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Event handler when the previous month button is clicked."})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return v(C);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
       },
@@ -3594,15 +4124,18 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "WeekNumberClickEventHandler",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var C=(e,n,t)=>(t=e!=null?x(p(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>i(c({},"__esModule",{value:!0}),e);var m=h((b,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>k});var r=C(m()),k=void 0;function s(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"WeekNumberClickEventHandler"})})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(s,{...e})}):s(e)}return M(D);})();\n;return Component;',
         deprecated: false,
         comment:
           "Event handler when a week number is clicked. Requires {@link showWeekNumber }\nto be set.",
         commentJsx:
           'var Component=(()=>{var a=Object.create;var i=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var b=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of x(n))!_.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=f(n,r))||s.enumerable});return e};var j=(e,n,t)=>(t=e!=null?a(l(e)):{},c(n||!e||!e.__esModule?i(t,"default",{value:e,enumerable:!0}):t,e)),k=e=>c(i({},"__esModule",{value:!0}),e);var u=b((L,m)=>{m.exports=_jsx_runtime});var y={};h(y,{default:()=>p,frontmatter:()=>w});var o=j(u()),w=void 0;function d(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||M("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["Event handler when a week number is clicked. Requires ",(0,o.jsx)(t,{member:"showWeekNumber"}),`\nto be set.`]})}function p(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(d,{...e})}):d(e)}function M(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return k(y);})();\n;return Component;',
         shortComment:
-          "Event handler when a week number is clicked. Requires {@link showWeekNumber }",
+          "Event handler when a week number is clicked. Requires showWeekNumber ",
         shortCommentJsx:
-          'var Component=(()=>{var a=Object.create;var i=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of x(n))!_.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=f(n,r))||s.enumerable});return e};var k=(e,n,t)=>(t=e!=null?a(l(e)):{},c(n||!e||!e.__esModule?i(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>c(i({},"__esModule",{value:!0}),e);var u=h((L,m)=>{m.exports=_jsx_runtime});var y={};j(y,{default:()=>p,frontmatter:()=>b});var o=k(u()),b=void 0;function d(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||M("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["Event handler when a week number is clicked. Requires ",(0,o.jsx)(t,{member:"showWeekNumber"})]})}function p(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(d,{...e})}):d(e)}function M(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return w(y);})();\n;return Component;',
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),w=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},u=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(s=f(n,o))||s.enumerable});return e};var j=(e,n,t)=>(t=e!=null?x(h(e)):{},u(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),k=e=>u(r({},"__esModule",{value:!0}),e);var m=_((D,i)=>{i.exports=_jsx_runtime});var b={};w(b,{default:()=>d,frontmatter:()=>M});var c=j(m()),M=void 0;function a(e){let n={p:"p",...e.components};return(0,c.jsx)(n.p,{children:"Event handler when a week number is clicked. Requires showWeekNumber"})}function d(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return k(b);})();\n;return Component;',
+        topic: "options",
         see: [],
         required: false,
       },
@@ -3615,6 +4148,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "CaptionLayout",
+        typeDefJsx:
+          'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var C=(n,t,e)=>(e=n!=null?p(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var a=h((X,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>y});var c=C(a()),y=void 0;function s(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"CaptionLayout"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(s,{...n})}):s(n)}return M(D);})();\n;return Component;',
         deprecated:
           "To show the dropdowns, use {@link dropdownNavigation }. To hide\nthe navigation buttons, set {@link hideNavigation }.",
         comment:
@@ -3624,6 +4159,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Change the layout of the caption.",
         shortCommentJsx:
           'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of d(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=x(n,o))||a.enumerable});return t};var C=(t,n,e)=>(e=t!=null?p(h(t)):{},u(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>u(r({},"__esModule",{value:!0}),t);var s=l((g,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>y});var c=C(s()),y=void 0;function f(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Change the layout of the caption."})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return M(D);})();\n;return Component;',
+        topic: "navigation",
         see: [],
         required: false,
         defaultValue: "buttons",
@@ -3638,6 +4174,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The props for the multi selection mode.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=x(n,o))||s.enumerable});return t};var M=(t,n,e)=>(e=t!=null?f(l(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>i(r({},"__esModule",{value:!0}),t);var u=h((y,m)=>{m.exports=_jsx_runtime});var X={};j(X,{default:()=>d,frontmatter:()=>D});var c=M(u()),D=void 0;function p(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The props for the multi selection mode."})}function d(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(p,{...t})}):p(t)}return C(X);})();\n;return Component;',
+    topic: "selection",
     see: [],
     name: "PropsMulti",
     slug: "propsmulti",
@@ -3647,6 +4184,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "PropsMulti",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),h=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?x(l(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=M((y,s)=>{s.exports=_jsx_runtime});var X={};h(X,{default:()=>p,frontmatter:()=>D});var r=j(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"PropsMulti"})})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -3659,6 +4198,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -3666,6 +4207,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3678,6 +4220,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -3685,6 +4229,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3697,6 +4242,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -3704,6 +4251,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3717,6 +4265,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The props for the no selection mode.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?f(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var p=l((y,m)=>{m.exports=_jsx_runtime});var X={};j(X,{default:()=>d,frontmatter:()=>D});var c=M(p()),D=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The props for the no selection mode."})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
+    topic: "selection",
     see: [],
     name: "PropsNone",
     slug: "propsnone",
@@ -3726,6 +4275,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "PropsNone",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=a(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(_(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>s(c({},"__esModule",{value:!0}),n);var u=h((y,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>p,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"PropsNone"})})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -3738,6 +4289,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "undefined",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=a(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(_(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var s=h((y,u)=>{u.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(s()),D=void 0;function f(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"undefined"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(f,{...n})}):f(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -3745,6 +4298,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3757,6 +4311,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "undefined",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=a(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(_(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var s=h((y,u)=>{u.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(s()),D=void 0;function f(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"undefined"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(f,{...n})}):f(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -3764,6 +4320,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3777,6 +4334,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The props for the range selection mode.",
     shortCommentJsx:
       'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=f(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?d(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var p=l((w,m)=>{m.exports=_jsx_runtime});var X={};j(X,{default:()=>a,frontmatter:()=>D});var c=M(p()),D=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The props for the range selection mode."})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
+    topic: "selection",
     see: [],
     name: "PropsRange",
     slug: "propsrange",
@@ -3786,6 +4344,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "PropsRange",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?p(_(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>s(c({},"__esModule",{value:!0}),n);var u=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var r=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"PropsRange"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -3798,6 +4358,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -3805,6 +4367,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3817,6 +4380,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -3824,6 +4389,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3836,6 +4402,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "number",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},u=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?a(_(n)):{},u(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(c({},"__esModule",{value:!0}),n);var m=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var r=M(m()),D=void 0;function s(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"number"})})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(s,{...n})}):s(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -3843,6 +4411,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3853,10 +4422,10 @@ export const apiDefs: ApiDefs = {
     comment: "The shared props when {@link DayPicker } is in selection mode.",
     commentJsx:
       'var Component=(()=>{var f=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of x(n))!_.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=u(n,r))||s.enumerable});return e};var k=(e,n,t)=>(t=e!=null?f(l(e)):{},c(n||!e||!e.__esModule?i(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>c(i({},"__esModule",{value:!0}),e);var d=h((L,p)=>{p.exports=_jsx_runtime});var b={};j(b,{default:()=>a,frontmatter:()=>y});var o=k(d()),y=void 0;function m(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||M("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["The shared props when ",(0,o.jsx)(t,{member:"DayPicker"})," is in selection mode."]})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(m,{...e})}):m(e)}function M(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return w(b);})();\n;return Component;',
-    shortComment:
-      "The shared props when {@link DayPicker } is in selection mode.",
+    shortComment: "The shared props when DayPicker  is in selection mode.",
     shortCommentJsx:
-      'var Component=(()=>{var f=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)i(e,t,{get:n[t],enumerable:!0})},c=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of x(n))!_.call(e,r)&&r!==t&&i(e,r,{get:()=>n[r],enumerable:!(s=u(n,r))||s.enumerable});return e};var k=(e,n,t)=>(t=e!=null?f(l(e)):{},c(n||!e||!e.__esModule?i(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>c(i({},"__esModule",{value:!0}),e);var d=h((L,p)=>{p.exports=_jsx_runtime});var b={};j(b,{default:()=>a,frontmatter:()=>y});var o=k(d()),y=void 0;function m(e){let n={p:"p",...e.components},{ApiInternalLink:t}=n;return t||M("ApiInternalLink",!0),(0,o.jsxs)(n.p,{children:["The shared props when ",(0,o.jsx)(t,{member:"DayPicker"})," is in selection mode."]})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(m,{...e})}):m(e)}function M(e,n){throw new Error("Expected "+(n?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return w(b);})();\n;return Component;',
+      'var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(s=x(e,o))||s.enumerable});return n};var D=(n,e,t)=>(t=n!=null?u(h(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var d=l((X,a)=>{a.exports=_jsx_runtime});var y={};j(y,{default:()=>p,frontmatter:()=>w});var c=D(d()),w=void 0;function m(n){let e={p:"p",...n.components};return(0,c.jsx)(e.p,{children:"The shared props when DayPicker  is in selection mode."})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return M(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "PropsSelection",
     slug: "propsselection",
@@ -3866,6 +4435,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "PropsSelection<T>",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=a(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>p,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"PropsSelection<T>"})})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -3878,6 +4449,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "T",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"T"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -3885,6 +4458,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3897,6 +4471,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Selected<T>",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?a(l(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(r({},"__esModule",{value:!0}),e);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"Selected<T>"})})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -3904,6 +4480,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3916,6 +4493,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "Selected<T>",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?a(l(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(r({},"__esModule",{value:!0}),e);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"Selected<T>"})})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The initially selected value when not controlled.",
         commentJsx:
@@ -3923,6 +4502,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The initially selected value when not controlled.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},l=(n,t,e,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(i=x(t,o))||i.enumerable});return n};var M=(n,t,e)=>(e=n!=null?m(p(n)):{},l(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),w=n=>l(r({},"__esModule",{value:!0}),n);var u=h((X,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>d,frontmatter:()=>y});var c=M(u()),y=void 0;function a(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The initially selected value when not controlled."})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return w(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3935,6 +4515,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "SelectHandler<T>",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?x(p(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(r({},"__esModule",{value:!0}),e);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"SelectHandler<T>"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The callback called when the user selects a day.",
         commentJsx:
@@ -3942,6 +4524,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The callback called when the user selects a day.",
         shortCommentJsx:
           'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!h.call(e,o)&&o!==n&&c(e,o,{get:()=>t[o],enumerable:!(a=x(t,o))||a.enumerable});return e};var M=(e,t,n)=>(n=e!=null?m(p(e)):{},s(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),w=e=>s(c({},"__esModule",{value:!0}),e);var d=_((X,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>i,frontmatter:()=>y});var r=M(d()),y=void 0;function l(e){let t={p:"p",...e.components};return(0,r.jsx)(t.p,{children:"The callback called when the user selects a day."})}function i(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(l,{...e})}):l(e)}return w(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3955,6 +4538,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The props for the single selection mode.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(s=x(t,o))||s.enumerable});return n};var M=(n,t,e)=>(e=n!=null?f(l(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var p=h((w,m)=>{m.exports=_jsx_runtime});var X={};j(X,{default:()=>d,frontmatter:()=>D});var c=M(p()),D=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The props for the single selection mode."})}function d(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return C(X);})();\n;return Component;',
+    topic: "selection",
     see: [],
     name: "PropsSingle",
     slug: "propssingle",
@@ -3964,6 +4548,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "PropsSingle",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=a(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(c({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>p,frontmatter:()=>D});var r=M(u()),D=void 0;function m(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"PropsSingle"})})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -3976,6 +4562,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "types/props.ts",
         typeDef: "boolean",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?x(l(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"boolean"})})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "Makes the selection required",
         commentJsx:
@@ -3983,6 +4571,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "Makes the selection required",
         shortCommentJsx:
           'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),h=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(s=f(e,o))||s.enumerable});return t};var j=(t,e,n)=>(n=t!=null?x(_(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>i(r({},"__esModule",{value:!0}),t);var a=M((q,u)=>{u.exports=_jsx_runtime});var X={};h(X,{default:()=>m,frontmatter:()=>D});var c=j(a()),D=void 0;function d(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"Makes the selection required"})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(d,{...t})}):d(t)}return C(X);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -3997,11 +4586,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "components/Calendar/Calendar.tsx",
     typeDef: "typeof Calendar",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return n};var C=(n,e,t)=>(t=n!=null?m(l(n)):{},a(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>a(c({},"__esModule",{value:!0}),n);var s=h((w,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>y});var r=C(s()),y=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"typeof Calendar"})})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(D);})();\n;return Component;',
   },
   Row: {
     name: "Row",
@@ -4012,11 +4598,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "components/deprecated.ts",
     typeDef: "typeof WeekRow",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?p(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>i(r({},"__esModule",{value:!0}),e);var u=h((X,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=M(u()),y=void 0;function f(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof WeekRow"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(f,{...e})}):f(e)}return w(C);})();\n;return Component;',
   },
   RowProps: {
     deprecated: "Use `WeekRowProps` instead.",
@@ -4026,6 +4609,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "RowProps",
     slug: "rowprops",
@@ -4035,6 +4619,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/deprecated.ts",
     typeDef: "WeekRowProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!l.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=a(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?x(_(e)):{},s(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>s(c({},"__esModule",{value:!0}),e);var u=h((k,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>p,frontmatter:()=>C});var r=M(u()),C=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"WeekRowProps"})})}function p(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(m,{...e})}):m(e)}return w(D);})();\n;return Component;',
   },
   Select: {
     deprecated: false,
@@ -4044,6 +4630,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Select",
     slug: "select",
@@ -4053,6 +4640,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/Select/Select.tsx",
     typeDef: "typeof Select",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return e};var M=(e,t,n)=>(n=e!=null?p(l(e)):{},i(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),y=e=>i(r({},"__esModule",{value:!0}),e);var u=h((w,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(u()),C=void 0;function f(e){let t={code:"code",p:"p",...e.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof Select"})})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(f,{...e})}):f(e)}return y(D);})();\n;return Component;',
   },
   SelectHandler: {
     deprecated: false,
@@ -4064,6 +4653,7 @@ export const apiDefs: ApiDefs = {
       "The callback called when the user select a days from the calendar.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var i=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!p.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(a=i(t,o))||a.enumerable});return e};var M=(e,t,n)=>(n=e!=null?f(h(e)):{},s(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),w=e=>s(r({},"__esModule",{value:!0}),e);var l=_((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=M(l()),y=void 0;function u(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"The callback called when the user select a days from the calendar."})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(u,{...e})}):u(e)}return w(C);})();\n;return Component;',
+    topic: "selection",
     see: [],
     name: "SelectHandler",
     slug: "selecthandler",
@@ -4073,6 +4663,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "SelectHandler<T>",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?x(p(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(r({},"__esModule",{value:!0}),e);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(u()),D=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"SelectHandler<T>"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return C(X);})();\n;return Component;',
   },
   SelectMultipleEventHandler: {
     deprecated: "Use `SelectHandler` instead.",
@@ -4082,6 +4674,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "SelectMultipleEventHandler",
     slug: "selectmultipleeventhandler",
@@ -4091,6 +4684,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/deprecated.ts",
     typeDef: "SelectMultipleEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var j=(e,n,t)=>(t=e!=null?m(f(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(r({},"__esModule",{value:!0}),e);var l=M((w,u)=>{u.exports=_jsx_runtime});var X={};h(X,{default:()=>a,frontmatter:()=>D});var c=j(l()),D=void 0;function s(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"SelectMultipleEventHandler"})})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(s,{...e})}):s(e)}return C(X);})();\n;return Component;',
   },
   SelectProps: {
     deprecated: false,
@@ -4100,6 +4695,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "SelectProps",
     slug: "selectprops",
@@ -4109,6 +4705,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/Select/Select.tsx",
     typeDef: "SelectProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=a(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?x(l(e)):{},s(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>s(r({},"__esModule",{value:!0}),e);var u=h((y,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>p,frontmatter:()=>D});var c=M(u()),D=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"SelectProps"})})}function p(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return C(X);})();\n;return Component;',
   },
   SelectRangeEventHandler: {
     deprecated: "Use `SelectHandler` instead.",
@@ -4118,6 +4716,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "SelectRangeEventHandler",
     slug: "selectrangeeventhandler",
@@ -4127,6 +4726,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/deprecated.ts",
     typeDef: "SelectRangeEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?x(p(e)):{},a(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>a(r({},"__esModule",{value:!0}),e);var s=h((v,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=M(s()),D=void 0;function u(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"SelectRangeEventHandler"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(u,{...e})}):u(e)}return C(X);})();\n;return Component;',
   },
   SelectSingleEventHandler: {
     deprecated: "Use `SelectHandler` instead.",
@@ -4136,6 +4737,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "SelectSingleEventHandler",
     slug: "selectsingleeventhandler",
@@ -4145,6 +4747,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "components/deprecated.ts",
     typeDef: "SelectSingleEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?m(p(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(r({},"__esModule",{value:!0}),e);var u=h((g,s)=>{s.exports=_jsx_runtime});var S={};j(S,{default:()=>l,frontmatter:()=>D});var c=M(u()),D=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"SelectSingleEventHandler"})})}function l(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return C(S);})();\n;return Component;',
   },
   Selected: {
     deprecated: false,
@@ -4154,6 +4758,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The selected value when in selection mode.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(s=f(n,o))||s.enumerable});return e};var M=(e,n,t)=>(t=e!=null?x(p(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>i(r({},"__esModule",{value:!0}),e);var d=h((v,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>C});var c=M(d()),C=void 0;function m(e){let n={p:"p",...e.components};return(0,c.jsx)(n.p,{children:"The selected value when in selection mode."})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return w(D);})();\n;return Component;',
+    topic: "selection",
     see: [],
     name: "Selected",
     slug: "selected",
@@ -4163,6 +4768,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/props.ts",
     typeDef: "Selected<T>",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?a(l(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(r({},"__esModule",{value:!0}),e);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"Selected<T>"})})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return C(X);})();\n;return Component;',
   },
   SelectionContext: {
     deprecated: false,
@@ -4172,6 +4779,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "SelectionContext",
     slug: "selectioncontext",
@@ -4181,6 +4789,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "contexts/SelectionContext/SelectionContext.tsx",
     typeDef: "SelectionContext",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var C=(n,t,e)=>(e=n!=null?a(l(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var c=C(u()),D=void 0;function x(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"SelectionContext"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(x,{...n})}):x(n)}return M(X);})();\n;return Component;',
   },
   SelectionProvider: {
     deprecated: false,
@@ -4192,6 +4802,7 @@ export const apiDefs: ApiDefs = {
       "The provider for the `selectionContext`, storing the calendar state.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},d=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of p(t))!l.call(e,r)&&r!==n&&c(e,r,{get:()=>t[r],enumerable:!(s=m(t,r))||s.enumerable});return e};var C=(e,t,n)=>(n=e!=null?f(h(e)):{},d(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>d(c({},"__esModule",{value:!0}),e);var a=_((v,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>u,frontmatter:()=>D});var o=C(a()),D=void 0;function x(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["The provider for the ",(0,o.jsx)(t.code,{children:"selectionContext"}),", storing the calendar state."]})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(x,{...e})}):x(e)}return M(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "SelectionProvider",
     slug: "selectionprovider",
@@ -4201,6 +4812,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/SelectionContext/SelectionContext.tsx",
     typeDef: "typeof SelectionProvider",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?p(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(c({},"__esModule",{value:!0}),e);var u=h((v,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var r=M(u()),C=void 0;function f(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof SelectionProvider"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(f,{...e})}):f(e)}return y(D);})();\n;return Component;',
   },
   Styles: {
     deprecated: false,
@@ -4210,6 +4823,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "Styles",
     slug: "styles",
@@ -4219,6 +4833,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/ui.ts",
     typeDef: "Styles",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(l(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>s(r({},"__esModule",{value:!0}),n);var u=h((w,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>x,frontmatter:()=>C});var c=M(u()),C=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Styles"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return y(D);})();\n;return Component;',
   },
   UI: {
     deprecated: false,
@@ -4228,6 +4844,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "UI",
     slug: "ui",
@@ -4237,6 +4854,8 @@ export const apiDefs: ApiDefs = {
     kind: "EnumDeclaration",
     sourceFile: "types/ui.ts",
     typeDef: "UI",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var M=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"UI"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
   },
   WeekNumberClickEventHandler: {
     deprecated: false,
@@ -4246,6 +4865,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The event handler when the week number is clicked.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of h(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(i=f(n,o))||i.enumerable});return e};var w=(e,n,t)=>(t=e!=null?x(p(e)):{},s(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>s(r({},"__esModule",{value:!0}),e);var d=_((X,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>a,frontmatter:()=>k});var c=w(d()),k=void 0;function m(e){let n={p:"p",...e.components};return(0,c.jsx)(n.p,{children:"The event handler when the week number is clicked."})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return M(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "WeekNumberClickEventHandler",
     slug: "weeknumberclickeventhandler",
@@ -4255,6 +4875,8 @@ export const apiDefs: ApiDefs = {
     kind: "TypeAliasDeclaration",
     sourceFile: "types/events.ts",
     typeDef: "WeekNumberClickEventHandler",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var C=(e,n,t)=>(t=e!=null?x(p(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>i(c({},"__esModule",{value:!0}),e);var m=h((b,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>k});var r=C(m()),k=void 0;function s(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"WeekNumberClickEventHandler"})})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(s,{...e})}):s(e)}return M(D);})();\n;return Component;',
   },
   WeekNumberRowHeader: {
     deprecated: false,
@@ -4264,6 +4886,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Render the cell with the number of the week.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,u)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of h(t))!l.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(u=a(t,o))||u.enumerable});return e};var w=(e,t,n)=>(n=e!=null?x(p(e)):{},i(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>i(r({},"__esModule",{value:!0}),e);var s=_((b,m)=>{m.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var c=w(s()),C=void 0;function d(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"Render the cell with the number of the week."})}function f(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(d,{...e})}):d(e)}return M(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "WeekNumberRowHeader",
     slug: "weeknumberrowheader",
@@ -4273,6 +4896,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/WeekNumberRowHeader/WeekNumberRowHeader.tsx",
     typeDef: "typeof WeekNumberRowHeader",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},u=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?f(_(e)):{},u(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>u(c({},"__esModule",{value:!0}),e);var m=h((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>a,frontmatter:()=>y});var r=M(m()),y=void 0;function s(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof WeekNumberRowHeader"})})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(s,{...e})}):s(e)}return w(C);})();\n;return Component;',
   },
   WeekNumberRowHeaderProps: {
     deprecated: false,
@@ -4282,6 +4907,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "WeekNumberRowHeaderProps",
     slug: "weeknumberrowheaderprops",
@@ -4291,6 +4917,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/WeekNumberRowHeader/WeekNumberRowHeader.tsx",
     typeDef: "WeekNumberRowHeaderProps",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!l.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?p(_(e)):{},s(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>s(c({},"__esModule",{value:!0}),e);var i=h((b,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>C});var r=M(i()),C=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"WeekNumberRowHeaderProps"})})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(m,{...e})}):m(e)}return w(D);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -4303,6 +4931,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/WeekNumberRowHeader/WeekNumberRowHeader.tsx",
         typeDef: "Week",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?a(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(r({},"__esModule",{value:!0}),e);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"Week"})})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -4310,6 +4940,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -4324,6 +4955,7 @@ export const apiDefs: ApiDefs = {
       "Render a row in the calendar, with the days and the week number.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),w=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},d=(n,e,t,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of h(e))!_.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(a=f(e,o))||a.enumerable});return n};var j=(n,e,t)=>(t=n!=null?x(p(n)):{},d(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>d(r({},"__esModule",{value:!0}),n);var s=l((X,i)=>{i.exports=_jsx_runtime});var C={};w(C,{default:()=>m,frontmatter:()=>y});var c=j(s()),y=void 0;function u(n){let e={p:"p",...n.components};return(0,c.jsx)(e.p,{children:"Render a row in the calendar, with the days and the week number."})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "WeekRow",
     slug: "weekrow",
@@ -4333,6 +4965,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/WeekRow/WeekRow.tsx",
     typeDef: "typeof WeekRow",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?p(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>i(r({},"__esModule",{value:!0}),e);var u=h((X,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>m,frontmatter:()=>y});var c=M(u()),y=void 0;function f(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof WeekRow"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(f,{...e})}):f(e)}return w(C);})();\n;return Component;',
   },
   WeekRowProps: {
     deprecated: false,
@@ -4342,6 +4976,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The props for the `WeekRow` component.",
     shortCommentJsx:
       'var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),l=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},d=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of f(n))!h.call(e,r)&&r!==t&&c(e,r,{get:()=>n[r],enumerable:!(s=a(n,r))||s.enumerable});return e};var M=(e,n,t)=>(t=e!=null?u(_(e)):{},d(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>d(c({},"__esModule",{value:!0}),e);var x=j((k,p)=>{p.exports=_jsx_runtime});var D={};l(D,{default:()=>m,frontmatter:()=>C});var o=M(x()),C=void 0;function i(e){let n={code:"code",p:"p",...e.components};return(0,o.jsxs)(n.p,{children:["The props for the ",(0,o.jsx)(n.code,{children:"WeekRow"})," component."]})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(i,{...e})}):i(e)}return w(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "WeekRowProps",
     slug: "weekrowprops",
@@ -4351,6 +4986,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/WeekRow/WeekRow.tsx",
     typeDef: "WeekRowProps",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!l.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=a(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?x(_(e)):{},s(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),w=e=>s(c({},"__esModule",{value:!0}),e);var u=h((k,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>p,frontmatter:()=>C});var r=M(u()),C=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"WeekRowProps"})})}function p(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(m,{...e})}):m(e)}return w(D);})();\n;return Component;',
     inherit: ["extends Pick<React.AriaAttributes, 'aria-rowindex'>"],
     extend: ["Pick<React.AriaAttributes, 'aria-rowindex'>"],
     properties: [
@@ -4363,6 +5000,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/WeekRow/WeekRow.tsx",
         typeDef: "Week",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?a(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>i(r({},"__esModule",{value:!0}),e);var u=h((w,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>x,frontmatter:()=>D});var c=M(u()),D=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"Week"})})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -4370,6 +5009,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -4385,6 +5025,7 @@ export const apiDefs: ApiDefs = {
       'Render the column header with the weekday name (e.g. "Mo", "Tu", etc.)',
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),M=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},a=(e,t,n,u)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of h(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(u=f(t,o))||u.enumerable});return e};var j=(e,t,n)=>(n=e!=null?x(p(e)):{},a(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),w=e=>a(r({},"__esModule",{value:!0}),e);var m=l((X,d)=>{d.exports=_jsx_runtime});var C={};M(C,{default:()=>s,frontmatter:()=>y});var c=j(m()),y=void 0;function i(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:\'Render the column header with the weekday name (e.g. "Mo", "Tu", etc.)\'})}function s(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(i,{...e})}):i(e)}return w(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "WeekdayColumnHeader",
     slug: "weekdaycolumnheader",
@@ -4394,6 +5035,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/WeekdayColumnHeader/WeekdayColumnHeader.tsx",
     typeDef: "typeof WeekdayColumnHeader",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},u=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var y=(e,n,t)=>(t=e!=null?f(l(e)):{},u(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),C=e=>u(c({},"__esModule",{value:!0}),e);var i=h((k,a)=>{a.exports=_jsx_runtime});var D={};j(D,{default:()=>s,frontmatter:()=>M});var r=y(i()),M=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof WeekdayColumnHeader"})})}function s(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(m,{...e})}):m(e)}return C(D);})();\n;return Component;',
   },
   WeekdayColumnHeaderProps: {
     deprecated: false,
@@ -4403,6 +5046,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "WeekdayColumnHeaderProps",
     slug: "weekdaycolumnheaderprops",
@@ -4412,6 +5056,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/WeekdayColumnHeader/WeekdayColumnHeader.tsx",
     typeDef: "WeekdayColumnHeaderProps",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var C=(e,n,t)=>(t=e!=null?p(l(e)):{},s(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>s(c({},"__esModule",{value:!0}),e);var a=h((k,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>y});var r=C(a()),y=void 0;function i(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"WeekdayColumnHeaderProps"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(i,{...e})}):i(e)}return M(D);})();\n;return Component;',
     inherit: [
       "extends Pick<React.AriaAttributes, 'aria-colindex' | 'aria-label'>",
     ],
@@ -4426,6 +5072,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/WeekdayColumnHeader/WeekdayColumnHeader.tsx",
         typeDef: "Date",
+        typeDefJsx:
+          'var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!l.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?x(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var u=h((y,s)=>{s.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>C});var c=D(u()),C=void 0;function a(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Date"})})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(a,{...n})}):a(n)}return M(X);})();\n;return Component;',
         deprecated: false,
         comment: "",
         commentJsx:
@@ -4433,6 +5081,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "",
         shortCommentJsx:
           'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+        topic: "",
         see: [],
         required: false,
       },
@@ -4446,6 +5095,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "WeekdaysRow",
     slug: "weekdaysrow",
@@ -4455,6 +5105,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/WeekdaysRow/WeekdaysRow.tsx",
     typeDef: "typeof WeekdaysRow",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var y=(e,n,t)=>(t=e!=null?m(_(e)):{},s(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>s(r({},"__esModule",{value:!0}),e);var u=h((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>w});var c=y(u()),w=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof WeekdaysRow"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return M(C);})();\n;return Component;',
   },
   YearsDropdown: {
     deprecated: false,
@@ -4464,6 +5116,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "YearsDropdown",
     slug: "yearsdropdown",
@@ -4473,6 +5126,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/YearsDropdown/YearsDropdown.tsx",
     typeDef: "typeof YearsDropdown",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=m(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?f(_(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>s(c({},"__esModule",{value:!0}),n);var p=h((X,i)=>{i.exports=_jsx_runtime});var y={};j(y,{default:()=>a,frontmatter:()=>w});var r=D(p()),w=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"typeof YearsDropdown"})})}function a(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(y);})();\n;return Component;',
   },
   YearsDropdownProps: {
     deprecated: false,
@@ -4482,6 +5137,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "YearsDropdownProps",
     slug: "yearsdropdownprops",
@@ -4491,6 +5147,8 @@ export const apiDefs: ApiDefs = {
     kind: "InterfaceDeclaration",
     sourceFile: "components/YearsDropdown/YearsDropdown.tsx",
     typeDef: "YearsDropdownProps",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of f(e))!l.call(n,o)&&o!==t&&c(n,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?m(_(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>s(c({},"__esModule",{value:!0}),n);var p=h((y,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>a,frontmatter:()=>w});var r=D(p()),w=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"YearsDropdownProps"})})}function a(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
     inherit: [],
     extend: [],
     properties: [
@@ -4503,6 +5161,8 @@ export const apiDefs: ApiDefs = {
         kind: "PropertySignature",
         sourceFile: "components/YearsDropdown/YearsDropdown.tsx",
         typeDef: "Month",
+        typeDefJsx:
+          'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!h.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=f(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?a(_(n)):{},i(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),C=n=>i(r({},"__esModule",{value:!0}),n);var u=l((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>x,frontmatter:()=>D});var c=j(u()),D=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"Month"})})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
         deprecated: false,
         comment: "The month where the dropdown is displayed.",
         commentJsx:
@@ -4510,6 +5170,7 @@ export const apiDefs: ApiDefs = {
         shortComment: "The month where the dropdown is displayed.",
         shortCommentJsx:
           'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!_.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var w=(n,t,e)=>(e=n!=null?a(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>s(r({},"__esModule",{value:!0}),n);var m=l((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>y});var c=w(m()),y=void 0;function p(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"The month where the dropdown is displayed."})}function u(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(p,{...n})}):p(n)}return M(C);})();\n;return Component;',
+        topic: "",
         see: [],
         required: true,
       },
@@ -4524,6 +5185,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Add a day to an existing range.",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},d=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!j.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=f(t,o))||a.enumerable});return n};var g=(n,t,e)=>(e=n!=null?m(_(n)):{},d(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),h=n=>d(r({},"__esModule",{value:!0}),n);var s=l((X,i)=>{i.exports=_jsx_runtime});var C={};M(C,{default:()=>x,frontmatter:()=>y});var c=g(s()),y=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Add a day to an existing range."})}function x(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return h(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "addToRange",
     slug: "addtorange",
@@ -4533,6 +5195,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/SelectionContext/utils/addToRange.ts",
     typeDef: "typeof addToRange",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?m(_(n)):{},a(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),y=n=>a(r({},"__esModule",{value:!0}),n);var s=h((g,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var c=M(s()),C=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"typeof addToRange"})})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return y(D);})();\n;return Component;',
   },
   calendarContext: {
     name: "calendarContext",
@@ -4543,11 +5207,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "contexts/CalendarContext/CalendarContext.tsx",
     typeDef: "React.Context<DayPickerCalendar>",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var C=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var j=(e,n,t)=>(t=e!=null?m(l(e)):{},a(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),D=e=>a(r({},"__esModule",{value:!0}),e);var s=C((k,i)=>{i.exports=_jsx_runtime});var y={};h(y,{default:()=>x,frontmatter:()=>M});var c=j(s()),M=void 0;function u(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"React.Context<DayPickerCalendar>"})})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(u,{...e})}):u(e)}return D(y);})();\n;return Component;',
   },
   dateMatchModifiers: {
     deprecated: false,
@@ -4559,6 +5220,7 @@ export const apiDefs: ApiDefs = {
       "Returns whether a day matches against at least one of the given Matchers.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),M=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,c)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(c=h(e,o))||c.enumerable});return t};var j=(t,e,n)=>(n=t!=null?f(p(t)):{},s(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),g=t=>s(r({},"__esModule",{value:!0}),t);var u=l((D,i)=>{i.exports=_jsx_runtime});var y={};M(y,{default:()=>d,frontmatter:()=>w});var a=j(u()),w=void 0;function m(t){let e={p:"p",...t.components};return(0,a.jsx)(e.p,{children:"Returns whether a day matches against at least one of the given Matchers."})}function d(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,{...t,children:(0,a.jsx)(m,{...t})}):m(t)}return g(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "dateMatchModifiers",
     slug: "datematchmodifiers",
@@ -4568,6 +5230,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/ModifiersContext/utils/dateMatchModifiers.ts",
     typeDef: "typeof dateMatchModifiers",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var M=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return t};var j=(t,e,n)=>(n=t!=null?m(M(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),y=t=>i(r({},"__esModule",{value:!0}),t);var a=h((w,s)=>{s.exports=_jsx_runtime});var D={};l(D,{default:()=>u,frontmatter:()=>C});var c=j(a()),C=void 0;function f(t){let e={code:"code",p:"p",...t.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"typeof dateMatchModifiers"})})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return y(D);})();\n;return Component;',
   },
   dayPickerContext: {
     name: "dayPickerContext",
@@ -4578,11 +5242,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "contexts/DayPickerContext/DayPickerContext.tsx",
     typeDef: "React.Context<Mode>>",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),h=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return t};var j=(t,e,n)=>(n=t!=null?m(_(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>i(r({},"__esModule",{value:!0}),t);var u=M((y,s)=>{s.exports=_jsx_runtime});var X={};h(X,{default:()=>a,frontmatter:()=>D});var c=j(u()),D=void 0;function x(t){let e={code:"code",p:"p",...t.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"React.Context<Mode>>"})})}function a(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(x,{...t})}):x(t)}return C(X);})();\n;return Component;',
   },
   debounce: {
     deprecated: false,
@@ -4592,6 +5253,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "debounce",
     slug: "debounce",
@@ -4601,6 +5263,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "utils/debounce.tsx",
     typeDef: "typeof debounce",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},u=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?p(_(e)):{},u(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>u(r({},"__esModule",{value:!0}),e);var s=h((b,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(s()),C=void 0;function f(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof debounce"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(f,{...e})}):f(e)}return y(D);})();\n;return Component;',
   },
   defaultClassNames: {
     name: "defaultClassNames",
@@ -4611,11 +5275,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "contexts/DayPickerContext/defaultClassNames.ts",
     typeDef: "Required<ClassNames>",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return e};var C=(e,n,t)=>(t=e!=null?x(l(e)):{},s(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>s(c({},"__esModule",{value:!0}),e);var u=h((w,i)=>{i.exports=_jsx_runtime});var X={};j(X,{default:()=>m,frontmatter:()=>D});var r=C(u()),D=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"Required<ClassNames>"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(a,{...e})}):a(e)}return M(X);})();\n;return Component;',
   },
   focusContext: {
     name: "focusContext",
@@ -4626,11 +5287,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "contexts/FocusContext/FocusContext.tsx",
     typeDef: "React.Context<FocusContext>",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var C=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),h=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!l.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(d=f(n,o))||d.enumerable});return t};var j=(t,n,e)=>(e=t!=null?m(_(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>s(r({},"__esModule",{value:!0}),t);var x=C((y,u)=>{u.exports=_jsx_runtime});var X={};h(X,{default:()=>a,frontmatter:()=>D});var c=j(x()),D=void 0;function i(t){let n={code:"code",p:"p",...t.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"React.Context<FocusContext>"})})}function a(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(i,{...t})}):i(t)}return M(X);})();\n;return Component;',
   },
   formatCaption: {
     deprecated: false,
@@ -4640,6 +5298,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The default formatter for the caption element.",
     shortCommentJsx:
       'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},f=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=p(e,o))||a.enumerable});return t};var M=(t,e,n)=>(n=t!=null?d(l(t)):{},f(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>f(r({},"__esModule",{value:!0}),t);var u=h((y,m)=>{m.exports=_jsx_runtime});var X={};j(X,{default:()=>s,frontmatter:()=>D});var c=M(u()),D=void 0;function i(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"The default formatter for the caption element."})}function s(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(i,{...t})}):i(t)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "formatCaption",
     slug: "formatcaption",
@@ -4649,6 +5308,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "formatters/formatCaption.ts",
     typeDef: "typeof formatCaption",
+    typeDefJsx:
+      'var Component=(()=>{var s=Object.create;var c=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(d=u(n,o))||d.enumerable});return t};var C=(t,n,e)=>(e=t!=null?s(_(t)):{},i(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>i(c({},"__esModule",{value:!0}),t);var f=h((w,a)=>{a.exports=_jsx_runtime});var D={};j(D,{default:()=>p,frontmatter:()=>y});var r=C(f()),y=void 0;function m(t){let n={code:"code",p:"p",...t.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof formatCaption"})})}function p(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(m,{...t})}):m(t)}return M(D);})();\n;return Component;',
   },
   formatDay: {
     deprecated: false,
@@ -4658,6 +5319,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The default formatter for the day grid cell element.",
     shortCommentJsx:
       'var Component=(()=>{var s=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=l(e,o))||a.enumerable});return t};var M=(t,e,n)=>(n=t!=null?s(p(t)):{},d(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),y=t=>d(r({},"__esModule",{value:!0}),t);var m=h((g,f)=>{f.exports=_jsx_runtime});var D={};j(D,{default:()=>i,frontmatter:()=>C});var c=M(m()),C=void 0;function u(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"The default formatter for the day grid cell element."})}function i(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return y(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "formatDay",
     slug: "formatday",
@@ -4667,6 +5329,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "formatters/formatDay.ts",
     typeDef: "typeof formatDay",
+    typeDefJsx:
+      'var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return t};var y=(t,n,e)=>(e=t!=null?u(_(t)):{},a(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),D=t=>a(c({},"__esModule",{value:!0}),t);var i=h((w,f)=>{f.exports=_jsx_runtime});var C={};j(C,{default:()=>s,frontmatter:()=>M});var r=y(i()),M=void 0;function m(t){let n={code:"code",p:"p",...t.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof formatDay"})})}function s(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(m,{...t})}):m(t)}return D(C);})();\n;return Component;',
   },
   formatMonthCaption: {
     name: "formatMonthCaption",
@@ -4677,11 +5341,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "formatters/formatCaption.ts",
     typeDef: "typeof formatCaption",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var s=Object.create;var c=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(d=u(n,o))||d.enumerable});return t};var C=(t,n,e)=>(e=t!=null?s(_(t)):{},i(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>i(c({},"__esModule",{value:!0}),t);var f=h((w,a)=>{a.exports=_jsx_runtime});var D={};j(D,{default:()=>p,frontmatter:()=>y});var r=C(f()),y=void 0;function m(t){let n={code:"code",p:"p",...t.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof formatCaption"})})}function p(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(m,{...t})}):m(t)}return M(D);})();\n;return Component;',
   },
   formatMonthDropdown: {
     deprecated: false,
@@ -4691,6 +5352,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The default formatter for the month dropdown value.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(u=p(n,o))||u.enumerable});return t};var M=(t,n,e)=>(e=t!=null?i(h(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),w=t=>a(r({},"__esModule",{value:!0}),t);var f=_((v,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>s,frontmatter:()=>C});var c=M(f()),C=void 0;function m(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The default formatter for the month dropdown value."})}function s(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return w(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "formatMonthDropdown",
     slug: "formatmonthdropdown",
@@ -4700,6 +5362,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "formatters/formatMonthDropdown.ts",
     typeDef: "typeof formatMonthDropdown",
+    typeDefJsx:
+      'var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},f=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=a(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?u(_(n)):{},f(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),D=n=>f(c({},"__esModule",{value:!0}),n);var m=l((X,i)=>{i.exports=_jsx_runtime});var y={};M(y,{default:()=>s,frontmatter:()=>w});var r=j(m()),w=void 0;function p(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof formatMonthDropdown"})})}function s(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(p,{...n})}):p(n)}return D(y);})();\n;return Component;',
   },
   formatWeekNumber: {
     deprecated: false,
@@ -4709,6 +5373,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The default formatter for the week numbers.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},f=(t,e,n,u)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!h.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(u=x(e,o))||u.enumerable});return t};var M=(t,e,n)=>(n=t!=null?i(_(t)):{},f(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),w=t=>f(r({},"__esModule",{value:!0}),t);var s=l((b,m)=>{m.exports=_jsx_runtime});var D={};j(D,{default:()=>d,frontmatter:()=>C});var c=M(s()),C=void 0;function a(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"The default formatter for the week numbers."})}function d(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(a,{...t})}):a(t)}return w(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "formatWeekNumber",
     slug: "formatweeknumber",
@@ -4718,6 +5383,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "formatters/formatWeekNumber.ts",
     typeDef: "typeof formatWeekNumber",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},m=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!l.call(e,o)&&o!==n&&c(e,o,{get:()=>t[o],enumerable:!(d=p(t,o))||d.enumerable});return e};var M=(e,t,n)=>(n=e!=null?a(_(e)):{},m(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),y=e=>m(c({},"__esModule",{value:!0}),e);var f=h((b,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>s,frontmatter:()=>C});var r=M(f()),C=void 0;function i(e){let t={code:"code",p:"p",...e.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof formatWeekNumber"})})}function s(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(i,{...e})}):i(e)}return y(D);})();\n;return Component;',
   },
   formatWeekdayName: {
     deprecated: false,
@@ -4727,6 +5394,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The default formatter for the name of the weekday.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},f=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=x(e,o))||a.enumerable});return t};var M=(t,e,n)=>(n=t!=null?i(h(t)):{},f(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),w=t=>f(r({},"__esModule",{value:!0}),t);var u=l((X,m)=>{m.exports=_jsx_runtime});var C={};j(C,{default:()=>s,frontmatter:()=>y});var c=M(u()),y=void 0;function d(t){let e={p:"p",...t.components};return(0,c.jsx)(e.p,{children:"The default formatter for the name of the weekday."})}function s(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(d,{...t})}):d(t)}return w(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "formatWeekdayName",
     slug: "formatweekdayname",
@@ -4736,6 +5404,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "formatters/formatWeekdayName.ts",
     typeDef: "typeof formatWeekdayName",
+    typeDefJsx:
+      'var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},a=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!l.call(e,o)&&o!==n&&c(e,o,{get:()=>t[o],enumerable:!(d=p(t,o))||d.enumerable});return e};var y=(e,t,n)=>(n=e!=null?u(_(e)):{},a(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>a(c({},"__esModule",{value:!0}),e);var f=h((k,m)=>{m.exports=_jsx_runtime});var D={};j(D,{default:()=>s,frontmatter:()=>C});var r=y(f()),C=void 0;function i(e){let t={code:"code",p:"p",...e.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof formatWeekdayName"})})}function s(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(i,{...e})}):i(e)}return M(D);})();\n;return Component;',
   },
   formatYearCaption: {
     name: "formatYearCaption",
@@ -4746,11 +5416,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "formatters/formatYearDropdown.ts",
     typeDef: "typeof formatYearDropdown",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var s=Object.create;var c=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=u(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?s(_(n)):{},a(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>a(c({},"__esModule",{value:!0}),n);var i=h((X,f)=>{f.exports=_jsx_runtime});var y={};j(y,{default:()=>p,frontmatter:()=>w});var r=D(i()),w=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof formatYearDropdown"})})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return M(y);})();\n;return Component;',
   },
   formatYearDropdown: {
     deprecated: false,
@@ -4760,6 +5427,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The default formatter for the Year caption.",
     shortCommentJsx:
       'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},f=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=p(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?d(_(t)):{},f(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>f(r({},"__esModule",{value:!0}),t);var i=l((y,u)=>{u.exports=_jsx_runtime});var X={};j(X,{default:()=>s,frontmatter:()=>D});var c=M(i()),D=void 0;function m(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The default formatter for the Year caption."})}function s(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "formatYearDropdown",
     slug: "formatyeardropdown",
@@ -4769,6 +5437,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "formatters/formatYearDropdown.ts",
     typeDef: "typeof formatYearDropdown",
+    typeDefJsx:
+      'var Component=(()=>{var s=Object.create;var c=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},a=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!l.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=u(t,o))||d.enumerable});return n};var D=(n,t,e)=>(e=n!=null?s(_(n)):{},a(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),M=n=>a(c({},"__esModule",{value:!0}),n);var i=h((X,f)=>{f.exports=_jsx_runtime});var y={};j(y,{default:()=>p,frontmatter:()=>w});var r=D(i()),w=void 0;function m(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof formatYearDropdown"})})}function p(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(m,{...n})}):m(n)}return M(y);})();\n;return Component;',
   },
   getClassNames: {
     deprecated: false,
@@ -4780,6 +5450,7 @@ export const apiDefs: ApiDefs = {
       "Return the default class names and any custom class names passed in through",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)s(n,e,{get:t[e],enumerable:!0})},c=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!h.call(n,o)&&o!==e&&s(n,o,{get:()=>t[o],enumerable:!(a=p(t,o))||a.enumerable});return n};var M=(n,t,e)=>(e=n!=null?f(l(n)):{},c(t||!n||!n.__esModule?s(e,"default",{value:n,enumerable:!0}):e,n)),y=n=>c(s({},"__esModule",{value:!0}),n);var m=_((g,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>i,frontmatter:()=>C});var r=M(m()),C=void 0;function d(n){let t={p:"p",...n.components};return(0,r.jsx)(t.p,{children:"Return the default class names and any custom class names passed in through"})}function i(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(d,{...n})}):d(n)}return y(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getClassNames",
     slug: "getclassnames",
@@ -4789,6 +5460,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/DayPickerContext/utils/getClassNames.tsx",
     typeDef: "typeof getClassNames",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},d=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(s=p(t,o))||s.enumerable});return e};var C=(e,t,n)=>(n=e!=null?f(l(e)):{},d(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>d(r({},"__esModule",{value:!0}),e);var i=h((g,a)=>{a.exports=_jsx_runtime});var D={};j(D,{default:()=>u,frontmatter:()=>y});var c=C(i()),y=void 0;function m(e){let t={code:"code",p:"p",...e.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof getClassNames"})})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return M(D);})();\n;return Component;',
   },
   getClassNamesForModifiers: {
     deprecated: false,
@@ -4798,6 +5471,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getClassNamesForModifiers",
     slug: "getclassnamesformodifiers",
@@ -4807,6 +5481,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/DayGridCell/getClassNamesForModifiers.ts",
     typeDef: "typeof getClassNamesForModifiers",
+    typeDefJsx:
+      'var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),h=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},d=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(e,o)&&o!==n&&c(e,o,{get:()=>t[o],enumerable:!(s=p(t,o))||s.enumerable});return e};var j=(e,t,n)=>(n=e!=null?u(l(e)):{},d(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),C=e=>d(c({},"__esModule",{value:!0}),e);var a=M((g,i)=>{i.exports=_jsx_runtime});var D={};h(D,{default:()=>m,frontmatter:()=>y});var r=j(a()),y=void 0;function f(e){let t={code:"code",p:"p",...e.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof getClassNamesForModifiers"})})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(f,{...e})}):f(e)}return C(D);})();\n;return Component;',
   },
   getDataAttributes: {
     deprecated: false,
@@ -4816,6 +5492,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the `data-` attributes from the props.",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,s)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of f(e))!h.call(t,r)&&r!==n&&c(t,r,{get:()=>e[r],enumerable:!(s=p(e,r))||s.enumerable});return t};var M=(t,e,n)=>(n=t!=null?m(_(t)):{},d(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),C=t=>d(c({},"__esModule",{value:!0}),t);var u=j((w,a)=>{a.exports=_jsx_runtime});var X={};l(X,{default:()=>x,frontmatter:()=>D});var o=M(u()),D=void 0;function i(t){let e={code:"code",p:"p",...t.components};return(0,o.jsxs)(e.p,{children:["Return the ",(0,o.jsx)(e.code,{children:"data-"})," attributes from the props."]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(i,{...t})}):i(t)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getDataAttributes",
     slug: "getdataattributes",
@@ -4825,6 +5502,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/DayPickerContext/utils/getDataAttributes.tsx",
     typeDef: "typeof getDataAttributes",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(t,o)&&o!==n&&c(t,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return t};var D=(t,e,n)=>(n=t!=null?m(_(t)):{},i(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>i(c({},"__esModule",{value:!0}),t);var u=h((b,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>y});var r=D(u()),y=void 0;function a(t){let e={code:"code",p:"p",...t.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"typeof getDataAttributes"})})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(a,{...t})}):a(t)}return M(C);})();\n;return Component;',
   },
   getDates: {
     deprecated: false,
@@ -4834,6 +5513,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return all the dates to display in the calendar.",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=p(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(f(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>s(r({},"__esModule",{value:!0}),t);var i=h((w,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>l,frontmatter:()=>C});var c=M(i()),C=void 0;function u(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Return all the dates to display in the calendar."})}function l(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return y(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getDates",
     slug: "getdates",
@@ -4843,6 +5523,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getDates.ts",
     typeDef: "typeof getDates",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return t};var D=(t,e,n)=>(n=t!=null?m(_(t)):{},s(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>s(r({},"__esModule",{value:!0}),t);var u=h((g,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>y});var c=D(u()),y=void 0;function a(t){let e={code:"code",p:"p",...t.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"typeof getDates"})})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(a,{...t})}):a(t)}return M(C);})();\n;return Component;',
   },
   getDays: {
     deprecated: false,
@@ -4854,6 +5536,7 @@ export const apiDefs: ApiDefs = {
       "Returns all the days belonging to the calendar by merging the days in the",
     shortCommentJsx:
       'var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),g=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!p.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=x(t,o))||a.enumerable});return n};var y=(n,t,e)=>(e=n!=null?l(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),j=n=>s(r({},"__esModule",{value:!0}),n);var d=_((D,i)=>{i.exports=_jsx_runtime});var b={};g(b,{default:()=>m,frontmatter:()=>M});var c=y(d()),M=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Returns all the days belonging to the calendar by merging the days in the"})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return j(b);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getDays",
     slug: "getdays",
@@ -4863,6 +5546,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getDays.ts",
     typeDef: "typeof getDays",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return t};var y=(t,e,n)=>(n=t!=null?m(_(t)):{},s(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),D=t=>s(r({},"__esModule",{value:!0}),t);var u=h((g,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>M});var c=y(u()),M=void 0;function a(t){let e={code:"code",p:"p",...t.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"typeof getDays"})})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(a,{...t})}):a(t)}return D(C);})();\n;return Component;',
   },
   getDisplayMonths: {
     deprecated: false,
@@ -4872,6 +5557,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getDisplayMonths",
     slug: "getdisplaymonths",
@@ -4881,6 +5567,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getDisplayMonths.ts",
     typeDef: "typeof getDisplayMonths",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),M=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(d=m(n,o))||d.enumerable});return t};var j=(t,n,e)=>(e=t!=null?f(l(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>s(r({},"__esModule",{value:!0}),t);var p=h((g,i)=>{i.exports=_jsx_runtime});var C={};M(C,{default:()=>a,frontmatter:()=>D});var c=j(p()),D=void 0;function u(t){let n={code:"code",p:"p",...t.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof getDisplayMonths"})})}function a(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return y(C);})();\n;return Component;',
   },
   getDropdownMonths: {
     deprecated: false,
@@ -4890,6 +5578,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getDropdownMonths",
     slug: "getdropdownmonths",
@@ -4899,6 +5588,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getDropdownMonths.ts",
     typeDef: "typeof getDropdownMonths",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!h.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?m(_(n)):{},s(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),D=n=>s(c({},"__esModule",{value:!0}),n);var p=l((X,i)=>{i.exports=_jsx_runtime});var y={};M(y,{default:()=>f,frontmatter:()=>w});var r=j(p()),w=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof getDropdownMonths"})})}function f(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(y);})();\n;return Component;',
   },
   getDropdownYears: {
     deprecated: false,
@@ -4908,6 +5599,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getDropdownYears",
     slug: "getdropdownyears",
@@ -4917,6 +5609,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getDropdownYears.ts",
     typeDef: "typeof getDropdownYears",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=m(n,o))||d.enumerable});return e};var D=(e,n,t)=>(t=e!=null?f(_(e)):{},s(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>s(c({},"__esModule",{value:!0}),e);var p=h((X,i)=>{i.exports=_jsx_runtime});var y={};j(y,{default:()=>a,frontmatter:()=>w});var r=D(p()),w=void 0;function u(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof getDropdownYears"})})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(u,{...e})}):u(e)}return M(y);})();\n;return Component;',
   },
   getFirstLastMonths: {
     deprecated: false,
@@ -4928,6 +5622,7 @@ export const apiDefs: ApiDefs = {
       "Return the first and the last months according to the props passed to",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(c=f(n,o))||c.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(h(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>a(r({},"__esModule",{value:!0}),t);var i=l((w,d)=>{d.exports=_jsx_runtime});var X={};j(X,{default:()=>u,frontmatter:()=>D});var s=M(i()),D=void 0;function p(t){let n={p:"p",...t.components};return(0,s.jsx)(n.p,{children:"Return the first and the last months according to the props passed to"})}function u(t={}){let{wrapper:n}=t.components||{};return n?(0,s.jsx)(n,{...t,children:(0,s.jsx)(p,{...t})}):p(t)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getFirstLastMonths",
     slug: "getfirstlastmonths",
@@ -4937,6 +5632,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getFirstLastMonths.ts",
     typeDef: "typeof getFirstLastMonths",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),M=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},d=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!h.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(s=p(n,o))||s.enumerable});return t};var j=(t,n,e)=>(e=t!=null?m(_(t)):{},d(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>d(c({},"__esModule",{value:!0}),t);var u=l((X,i)=>{i.exports=_jsx_runtime});var D={};M(D,{default:()=>f,frontmatter:()=>C});var r=j(u()),C=void 0;function a(t){let n={code:"code",p:"p",...t.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof getFirstLastMonths"})})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(a,{...t})}):a(t)}return y(D);})();\n;return Component;',
   },
   getFormatters: {
     deprecated: false,
@@ -4946,6 +5643,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the formatters from the props.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},m=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of d(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=x(n,o))||s.enumerable});return t};var M=(t,n,e)=>(e=t!=null?i(_(t)):{},m(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>m(r({},"__esModule",{value:!0}),t);var f=j((y,u)=>{u.exports=_jsx_runtime});var X={};l(X,{default:()=>a,frontmatter:()=>D});var c=M(f()),D=void 0;function p(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Return the formatters from the props."})}function a(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(p,{...t})}):p(t)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getFormatters",
     slug: "getformatters",
@@ -4955,6 +5653,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/DayPickerContext/utils/getFormatters.tsx",
     typeDef: "typeof getFormatters",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(t,o)&&o!==n&&c(t,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return t};var M=(t,e,n)=>(n=t!=null?f(_(t)):{},s(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),y=t=>s(c({},"__esModule",{value:!0}),t);var m=h((g,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>C});var r=M(m()),C=void 0;function u(t){let e={code:"code",p:"p",...t.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"typeof getFormatters"})})}function a(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(u,{...t})}):u(t)}return y(D);})();\n;return Component;',
   },
   getFromToDate: {
     deprecated: false,
@@ -4966,6 +5666,7 @@ export const apiDefs: ApiDefs = {
       "Return the `fromDate` and `toDate` prop values values parsing the DayPicker props.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},a=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of f(t))!h.call(e,r)&&r!==n&&c(e,r,{get:()=>t[r],enumerable:!(s=m(t,r))||s.enumerable});return e};var D=(e,t,n)=>(n=e!=null?x(l(e)):{},a(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>a(c({},"__esModule",{value:!0}),e);var i=_((X,d)=>{d.exports=_jsx_runtime});var y={};j(y,{default:()=>u,frontmatter:()=>v});var o=D(i()),v=void 0;function p(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["Return the ",(0,o.jsx)(t.code,{children:"fromDate"})," and ",(0,o.jsx)(t.code,{children:"toDate"})," prop values values parsing the DayPicker props."]})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(p,{...e})}):p(e)}return M(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getFromToDate",
     slug: "getfromtodate",
@@ -4975,6 +5676,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/DayPickerContext/utils/getFromToDate.ts",
     typeDef: "typeof getFromToDate",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(t,o)&&o!==n&&c(t,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return t};var D=(t,e,n)=>(n=t!=null?f(_(t)):{},i(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>i(c({},"__esModule",{value:!0}),t);var s=h((g,m)=>{m.exports=_jsx_runtime});var C={};j(C,{default:()=>a,frontmatter:()=>y});var r=D(s()),y=void 0;function u(t){let e={code:"code",p:"p",...t.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"typeof getFromToDate"})})}function a(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(u,{...t})}):u(t)}return M(C);})();\n;return Component;',
   },
   getLabels: {
     deprecated: false,
@@ -4984,6 +5687,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the labels from the props.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of d(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=x(n,o))||s.enumerable});return t};var M=(t,n,e)=>(e=t!=null?i(l(t)):{},u(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>u(r({},"__esModule",{value:!0}),t);var p=h((w,m)=>{m.exports=_jsx_runtime});var X={};j(X,{default:()=>f,frontmatter:()=>D});var c=M(p()),D=void 0;function a(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Return the labels from the props."})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(a,{...t})}):a(t)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getLabels",
     slug: "getlabels",
@@ -4993,6 +5697,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/DayPickerContext/utils/getLabels.tsx",
     typeDef: "typeof getLabels",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(d=p(t,o))||d.enumerable});return e};var M=(e,t,n)=>(n=e!=null?m(l(e)):{},s(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),y=e=>s(r({},"__esModule",{value:!0}),e);var u=h((X,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var c=M(u()),C=void 0;function a(e){let t={code:"code",p:"p",...e.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof getLabels"})})}function f(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return y(D);})();\n;return Component;',
   },
   getMonths: {
     deprecated: false,
@@ -5002,6 +5708,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the months to display in the calendar.",
     shortCommentJsx:
       'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!l.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=x(n,o))||s.enumerable});return t};var M=(t,n,e)=>(e=t!=null?p(h(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>a(r({},"__esModule",{value:!0}),t);var u=_((w,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(u()),C=void 0;function d(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Return the months to display in the calendar."})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(d,{...t})}):d(t)}return y(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getMonths",
     slug: "getmonths",
@@ -5011,6 +5718,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getMonths.ts",
     typeDef: "typeof getMonths",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),M=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return t};var j=(t,n,e)=>(e=t!=null?p(_(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>s(r({},"__esModule",{value:!0}),t);var u=l((g,i)=>{i.exports=_jsx_runtime});var D={};M(D,{default:()=>m,frontmatter:()=>C});var c=j(u()),C=void 0;function f(t){let n={code:"code",p:"p",...t.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof getMonths"})})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return y(D);})();\n;return Component;',
   },
   getNextFocus: {
     deprecated: false,
@@ -5020,6 +5729,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getNextFocus",
     slug: "getnextfocus",
@@ -5029,6 +5739,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/FocusContext/utils/getNextFocus.tsx",
     typeDef: "typeof getNextFocus",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of a(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return t};var M=(t,e,n)=>(n=t!=null?m(_(t)):{},s(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),y=t=>s(r({},"__esModule",{value:!0}),t);var i=h((g,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var c=M(i()),C=void 0;function x(t){let e={code:"code",p:"p",...t.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"typeof getNextFocus"})})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(x,{...t})}):x(t)}return y(D);})();\n;return Component;',
   },
   getNextMonth: {
     deprecated: false,
@@ -5040,6 +5752,7 @@ export const apiDefs: ApiDefs = {
       "Returns the next month the user can navigate to according to the given",
     shortCommentJsx:
       'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var g=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of h(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=f(n,o))||a.enumerable});return t};var l=(t,n,e)=>(e=t!=null?d(p(t)):{},i(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>i(r({},"__esModule",{value:!0}),t);var u=g((X,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>x,frontmatter:()=>v});var c=l(u()),v=void 0;function m(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Returns the next month the user can navigate to according to the given"})}function x(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(m,{...t})}):m(t)}return M(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getNextMonth",
     slug: "getnextmonth",
@@ -5049,6 +5762,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getNextMonth.ts",
     typeDef: "typeof getNextMonth",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),M=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of a(e))!h.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return t};var j=(t,e,n)=>(n=t!=null?m(_(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),y=t=>i(r({},"__esModule",{value:!0}),t);var u=l((g,s)=>{s.exports=_jsx_runtime});var D={};M(D,{default:()=>f,frontmatter:()=>C});var c=j(u()),C=void 0;function x(t){let e={code:"code",p:"p",...t.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"typeof getNextMonth"})})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(x,{...t})}):x(t)}return y(D);})();\n;return Component;',
   },
   getPossibleFocusDate: {
     deprecated: false,
@@ -5058,6 +5773,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the next date that should be focused.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(u=m(n,o))||u.enumerable});return t};var M=(t,n,e)=>(e=t!=null?i(h(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>s(r({},"__esModule",{value:!0}),t);var a=l((w,d)=>{d.exports=_jsx_runtime});var X={};j(X,{default:()=>f,frontmatter:()=>D});var c=M(a()),D=void 0;function x(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Return the next date that should be focused."})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(x,{...t})}):x(t)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getPossibleFocusDate",
     slug: "getpossiblefocusdate",
@@ -5067,6 +5783,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/FocusContext/utils/getPossibleFocusDate.ts",
     typeDef: "typeof getPossibleFocusDate",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},d=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(s=p(t,o))||s.enumerable});return e};var D=(e,t,n)=>(n=e!=null?m(l(e)):{},d(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>d(r({},"__esModule",{value:!0}),e);var u=h((b,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>y});var c=D(u()),y=void 0;function a(e){let t={code:"code",p:"p",...e.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof getPossibleFocusDate"})})}function f(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return M(C);})();\n;return Component;',
   },
   getPreviousMonth: {
     deprecated: false,
@@ -5078,6 +5796,7 @@ export const apiDefs: ApiDefs = {
       "Returns the next previous the user can navigate to, according to the given",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var g=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},s=(t,n,e,i)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(i=p(n,o))||i.enumerable});return t};var l=(t,n,e)=>(e=t!=null?m(h(t)):{},s(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),v=t=>s(r({},"__esModule",{value:!0}),t);var a=g((X,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>d,frontmatter:()=>M});var c=l(a()),M=void 0;function x(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Returns the next previous the user can navigate to, according to the given"})}function d(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(x,{...t})}):x(t)}return v(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getPreviousMonth",
     slug: "getpreviousmonth",
@@ -5087,6 +5806,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getPreviousMonth.ts",
     typeDef: "typeof getPreviousMonth",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),M=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of a(e))!h.call(t,o)&&o!==n&&c(t,o,{get:()=>e[o],enumerable:!(d=x(e,o))||d.enumerable});return t};var j=(t,e,n)=>(n=t!=null?p(_(t)):{},i(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),y=t=>i(c({},"__esModule",{value:!0}),t);var u=l((g,s)=>{s.exports=_jsx_runtime});var D={};M(D,{default:()=>m,frontmatter:()=>C});var r=j(u()),C=void 0;function f(t){let e={code:"code",p:"p",...t.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"typeof getPreviousMonth"})})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(f,{...t})}):f(t)}return y(D);})();\n;return Component;',
   },
   getStartMonth: {
     deprecated: false,
@@ -5098,6 +5819,7 @@ export const apiDefs: ApiDefs = {
       "Return the first and the last months according to the props passed to",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(c=f(n,o))||c.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(h(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>a(r({},"__esModule",{value:!0}),t);var i=l((w,d)=>{d.exports=_jsx_runtime});var X={};j(X,{default:()=>u,frontmatter:()=>D});var s=M(i()),D=void 0;function p(t){let n={p:"p",...t.components};return(0,s.jsx)(n.p,{children:"Return the first and the last months according to the props passed to"})}function u(t={}){let{wrapper:n}=t.components||{};return n?(0,s.jsx)(n,{...t,children:(0,s.jsx)(p,{...t})}):p(t)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getStartMonth",
     slug: "getstartmonth",
@@ -5107,6 +5829,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getStartMonth.ts",
     typeDef: "typeof getStartMonth",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),M=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!h.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return t};var j=(t,n,e)=>(e=t!=null?m(_(t)):{},i(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),y=t=>i(c({},"__esModule",{value:!0}),t);var u=l((g,s)=>{s.exports=_jsx_runtime});var D={};M(D,{default:()=>f,frontmatter:()=>C});var r=j(u()),C=void 0;function a(t){let n={code:"code",p:"p",...t.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof getStartMonth"})})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(a,{...t})}):a(t)}return y(D);})();\n;return Component;',
   },
   getStyleForModifiers: {
     deprecated: false,
@@ -5116,6 +5840,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var M=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),g=(t,n)=>{for(var e in n)a(t,e,{get:n[e],enumerable:!0})},c=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of _(n))!p.call(t,o)&&o!==e&&a(t,o,{get:()=>n[o],enumerable:!(u=d(n,o))||u.enumerable});return t};var l=(t,n,e)=>(e=t!=null?i(j(t)):{},c(n||!t||!t.__esModule?a(e,"default",{value:t,enumerable:!0}):e,t)),C=t=>c(a({},"__esModule",{value:!0}),t);var s=M((h,m)=>{m.exports=_jsx_runtime});var F={};g(F,{default:()=>f,frontmatter:()=>D});var r=l(s()),D=void 0;function x(t){return(0,r.jsx)(r.Fragment,{})}function f(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return C(F);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getStyleForModifiers",
     slug: "getstyleformodifiers",
@@ -5125,6 +5850,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/DayGridCell/getStyleForModifiers.ts",
     typeDef: "typeof getStyleForModifiers",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var M=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),h=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!_.call(e,o)&&o!==n&&c(e,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return e};var j=(e,t,n)=>(n=e!=null?p(l(e)):{},i(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),y=e=>i(c({},"__esModule",{value:!0}),e);var f=M((g,s)=>{s.exports=_jsx_runtime});var D={};h(D,{default:()=>m,frontmatter:()=>C});var r=j(f()),C=void 0;function u(e){let t={code:"code",p:"p",...e.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof getStyleForModifiers"})})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(u,{...e})}):u(e)}return y(D);})();\n;return Component;',
   },
   getWeekdays: {
     deprecated: false,
@@ -5136,6 +5863,7 @@ export const apiDefs: ApiDefs = {
       "Generate a series of 7 days, starting from the week, to use for formatting",
     shortCommentJsx:
       'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},c=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!h.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=x(e,o))||a.enumerable});return t};var M=(t,e,n)=>(n=t!=null?d(_(t)):{},c(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),g=t=>c(r({},"__esModule",{value:!0}),t);var i=j((D,f)=>{f.exports=_jsx_runtime});var y={};l(y,{default:()=>u,frontmatter:()=>w});var s=M(i()),w=void 0;function m(t){let e={p:"p",...t.components};return(0,s.jsx)(e.p,{children:"Generate a series of 7 days, starting from the week, to use for formatting"})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,{...t,children:(0,s.jsx)(m,{...t})}):m(t)}return g(y);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getWeekdays",
     slug: "getweekdays",
@@ -5145,6 +5873,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "components/WeekdaysRow/utils/getWeekdays.ts",
     typeDef: "typeof getWeekdays",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!l.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(d=p(t,o))||d.enumerable});return e};var y=(e,t,n)=>(n=e!=null?m(_(e)):{},s(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>s(r({},"__esModule",{value:!0}),e);var u=h((g,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var c=y(u()),C=void 0;function a(e){let t={code:"code",p:"p",...e.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof getWeekdays"})})}function f(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return M(D);})();\n;return Component;',
   },
   getWeeks: {
     deprecated: false,
@@ -5156,6 +5886,7 @@ export const apiDefs: ApiDefs = {
       "Returns all the days belonging to the calendar by merging the days in the",
     shortCommentJsx:
       'var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),g=(n,t)=>{for(var e in t)r(n,e,{get:t[e],enumerable:!0})},s=(n,t,e,a)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of f(t))!p.call(n,o)&&o!==e&&r(n,o,{get:()=>t[o],enumerable:!(a=x(t,o))||a.enumerable});return n};var y=(n,t,e)=>(e=n!=null?l(h(n)):{},s(t||!n||!n.__esModule?r(e,"default",{value:n,enumerable:!0}):e,n)),j=n=>s(r({},"__esModule",{value:!0}),n);var d=_((D,i)=>{i.exports=_jsx_runtime});var b={};g(b,{default:()=>m,frontmatter:()=>M});var c=y(d()),M=void 0;function u(n){let t={p:"p",...n.components};return(0,c.jsx)(t.p,{children:"Returns all the days belonging to the calendar by merging the days in the"})}function m(n={}){let{wrapper:t}=n.components||{};return t?(0,c.jsx)(t,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return j(b);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "getWeeks",
     slug: "getweeks",
@@ -5165,6 +5896,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/utils/getWeeks.ts",
     typeDef: "typeof getWeeks",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of a(t))!l.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(d=x(t,o))||d.enumerable});return e};var M=(e,t,n)=>(n=e!=null?p(_(e)):{},s(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),y=e=>s(r({},"__esModule",{value:!0}),e);var u=h((g,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(u()),C=void 0;function f(e){let t={code:"code",p:"p",...e.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof getWeeks"})})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(f,{...e})}):f(e)}return y(D);})();\n;return Component;',
   },
   isDateAfterType: {
     deprecated: false,
@@ -5174,6 +5907,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Returns true if `value` is of type `DateAfter`.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),h=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},d=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of p(t))!_.call(e,r)&&r!==n&&c(e,r,{get:()=>t[r],enumerable:!(s=m(t,r))||s.enumerable});return e};var D=(e,t,n)=>(n=e!=null?x(l(e)):{},d(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>d(c({},"__esModule",{value:!0}),e);var u=j((v,i)=>{i.exports=_jsx_runtime});var C={};h(C,{default:()=>f,frontmatter:()=>y});var o=D(u()),y=void 0;function a(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["Returns true if ",(0,o.jsx)(t.code,{children:"value"})," is of type ",(0,o.jsx)(t.code,{children:"DateAfter"}),"."]})}function f(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(a,{...e})}):a(e)}return M(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "isDateAfterType",
     slug: "isdateaftertype",
@@ -5183,6 +5917,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "utils/typeguards.ts",
     typeDef: "typeof isDateAfterType",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!l.call(e,o)&&o!==n&&c(e,o,{get:()=>t[o],enumerable:!(d=m(t,o))||d.enumerable});return e};var y=(e,t,n)=>(n=e!=null?a(_(e)):{},i(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),D=e=>i(c({},"__esModule",{value:!0}),e);var f=h((w,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>M});var r=y(f()),M=void 0;function p(e){let t={code:"code",p:"p",...e.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof isDateAfterType"})})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(p,{...e})}):p(e)}return D(C);})();\n;return Component;',
   },
   isDateBeforeType: {
     deprecated: false,
@@ -5192,6 +5928,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Returns true if `value` is of type `DateBefore`.",
     shortCommentJsx:
       'var Component=(()=>{var x=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),h=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},d=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of p(t))!_.call(e,r)&&r!==n&&c(e,r,{get:()=>t[r],enumerable:!(s=m(t,r))||s.enumerable});return e};var D=(e,t,n)=>(n=e!=null?x(l(e)):{},d(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>d(c({},"__esModule",{value:!0}),e);var u=j((v,i)=>{i.exports=_jsx_runtime});var C={};h(C,{default:()=>f,frontmatter:()=>y});var o=D(u()),y=void 0;function a(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["Returns true if ",(0,o.jsx)(t.code,{children:"value"})," is of type ",(0,o.jsx)(t.code,{children:"DateBefore"}),"."]})}function f(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(a,{...e})}):a(e)}return M(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "isDateBeforeType",
     slug: "isdatebeforetype",
@@ -5201,6 +5938,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "utils/typeguards.ts",
     typeDef: "typeof isDateBeforeType",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!l.call(e,o)&&o!==n&&c(e,o,{get:()=>t[o],enumerable:!(d=m(t,o))||d.enumerable});return e};var y=(e,t,n)=>(n=e!=null?a(_(e)):{},i(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),D=e=>i(c({},"__esModule",{value:!0}),e);var f=h((w,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>M});var r=y(f()),M=void 0;function p(e){let t={code:"code",p:"p",...e.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof isDateBeforeType"})})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,{...e,children:(0,r.jsx)(p,{...e})}):p(e)}return D(C);})();\n;return Component;',
   },
   isDateInRange: {
     deprecated: false,
@@ -5210,6 +5949,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return `true` whether `date` is inside `range`.",
     shortCommentJsx:
       'var Component=(()=>{var h=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var _=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of f(e))!p.call(n,r)&&r!==t&&c(n,r,{get:()=>e[r],enumerable:!(d=m(e,r))||d.enumerable});return n};var M=(n,e,t)=>(t=n!=null?h(l(n)):{},s(e||!n||!n.__esModule?c(t,"default",{value:n,enumerable:!0}):t,n)),w=n=>s(c({},"__esModule",{value:!0}),n);var u=_((g,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>x,frontmatter:()=>C});var o=M(u()),C=void 0;function a(n){let e={code:"code",p:"p",...n.components};return(0,o.jsxs)(e.p,{children:["Return ",(0,o.jsx)(e.code,{children:"true"})," whether ",(0,o.jsx)(e.code,{children:"date"})," is inside ",(0,o.jsx)(e.code,{children:"range"}),"."]})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,{...n,children:(0,o.jsx)(a,{...n})}):a(n)}return w(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "isDateInRange",
     slug: "isdateinrange",
@@ -5219,6 +5959,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "utils/isDateInRange.ts",
     typeDef: "typeof isDateInRange",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return n};var D=(n,e,t)=>(t=n!=null?m(_(n)):{},i(e||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),M=n=>i(r({},"__esModule",{value:!0}),n);var a=h((g,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>y});var c=D(a()),y=void 0;function u(n){let e={code:"code",p:"p",...n.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"typeof isDateInRange"})})}function f(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,{...n,children:(0,c.jsx)(u,{...n})}):u(n)}return M(C);})();\n;return Component;',
   },
   isDateInterval: {
     deprecated: false,
@@ -5228,6 +5970,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Returns true if `matcher` is of type `DateInterval`.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)c(e,n,{get:t[n],enumerable:!0})},d=(e,t,n,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of p(t))!_.call(e,r)&&r!==n&&c(e,r,{get:()=>t[r],enumerable:!(s=m(t,r))||s.enumerable});return e};var D=(e,t,n)=>(n=e!=null?f(l(e)):{},d(t||!e||!e.__esModule?c(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>d(c({},"__esModule",{value:!0}),e);var a=h((v,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>x,frontmatter:()=>y});var o=D(a()),y=void 0;function u(e){let t={code:"code",p:"p",...e.components};return(0,o.jsxs)(t.p,{children:["Returns true if ",(0,o.jsx)(t.code,{children:"matcher"})," is of type ",(0,o.jsx)(t.code,{children:"DateInterval"}),"."]})}function x(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(u,{...e})}):u(e)}return M(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "isDateInterval",
     slug: "isdateinterval",
@@ -5237,6 +5980,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "utils/typeguards.ts",
     typeDef: "typeof isDateInterval",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!_.call(t,o)&&o!==n&&c(t,o,{get:()=>e[o],enumerable:!(d=p(e,o))||d.enumerable});return t};var D=(t,e,n)=>(n=t!=null?m(l(t)):{},i(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>i(c({},"__esModule",{value:!0}),t);var a=h((v,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>y});var r=D(a()),y=void 0;function u(t){let e={code:"code",p:"p",...t.components};return(0,r.jsx)(e.p,{children:(0,r.jsx)(e.code,{children:"typeof isDateInterval"})})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(u,{...t})}):u(t)}return M(C);})();\n;return Component;',
   },
   isDateRange: {
     deprecated: false,
@@ -5246,6 +5991,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Returns true if `value` is a `DateRange` type.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},d=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of p(n))!_.call(e,r)&&r!==t&&c(e,r,{get:()=>n[r],enumerable:!(s=m(n,r))||s.enumerable});return e};var D=(e,n,t)=>(t=e!=null?f(l(e)):{},d(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>d(c({},"__esModule",{value:!0}),e);var i=j((X,a)=>{a.exports=_jsx_runtime});var C={};h(C,{default:()=>x,frontmatter:()=>y});var o=D(i()),y=void 0;function u(e){let n={code:"code",p:"p",...e.components};return(0,o.jsxs)(n.p,{children:["Returns true if ",(0,o.jsx)(n.code,{children:"value"})," is a ",(0,o.jsx)(n.code,{children:"DateRange"})," type."]})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(u,{...e})}):u(e)}return M(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "isDateRange",
     slug: "isdaterange",
@@ -5255,6 +6001,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "utils/typeguards.ts",
     typeDef: "typeof isDateRange",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var D=(e,n,t)=>(t=e!=null?m(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>i(r({},"__esModule",{value:!0}),e);var a=h((g,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>y});var c=D(a()),y=void 0;function u(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof isDateRange"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(u,{...e})}):u(e)}return M(C);})();\n;return Component;',
   },
   isDayOfWeekType: {
     deprecated: false,
@@ -5264,6 +6012,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Returns true if `value` is a `DayOfWeek` type.",
     shortCommentJsx:
       'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},d=(e,n,t,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of p(n))!_.call(e,r)&&r!==t&&c(e,r,{get:()=>n[r],enumerable:!(s=m(n,r))||s.enumerable});return e};var y=(e,n,t)=>(t=e!=null?f(l(e)):{},d(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),D=e=>d(c({},"__esModule",{value:!0}),e);var u=j((k,i)=>{i.exports=_jsx_runtime});var C={};h(C,{default:()=>x,frontmatter:()=>M});var o=y(u()),M=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,o.jsxs)(n.p,{children:["Returns true if ",(0,o.jsx)(n.code,{children:"value"})," is a ",(0,o.jsx)(n.code,{children:"DayOfWeek"})," type."]})}function x(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,{...e,children:(0,o.jsx)(a,{...e})}):a(e)}return D(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "isDayOfWeekType",
     slug: "isdayofweektype",
@@ -5273,6 +6022,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "utils/typeguards.ts",
     typeDef: "typeof isDayOfWeekType",
+    typeDefJsx:
+      'var Component=(()=>{var a=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var y=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=m(n,o))||d.enumerable});return e};var j=(e,n,t)=>(t=e!=null?a(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),D=e=>i(r({},"__esModule",{value:!0}),e);var f=y((k,s)=>{s.exports=_jsx_runtime});var C={};h(C,{default:()=>u,frontmatter:()=>M});var c=j(f()),M=void 0;function p(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof isDayOfWeekType"})})}function u(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(p,{...e})}):p(e)}return D(C);})();\n;return Component;',
   },
   labelDay: {
     deprecated: false,
@@ -5282,6 +6033,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the default ARIA label for the day button.",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(u=x(n,o))||u.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(p(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),b=t=>a(r({},"__esModule",{value:!0}),t);var f=h((D,d)=>{d.exports=_jsx_runtime});var A={};j(A,{default:()=>i,frontmatter:()=>y});var c=M(f()),y=void 0;function s(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Return the default ARIA label for the day button."})}function i(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(s,{...t})}):s(t)}return b(A);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "labelDay",
     slug: "labelday",
@@ -5291,6 +6043,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "labels/labelDay.ts",
     typeDef: "typeof labelDay",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var y=(e,n,t)=>(t=e!=null?m(l(e)):{},a(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),D=e=>a(r({},"__esModule",{value:!0}),e);var s=h((b,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>M});var c=y(s()),M=void 0;function u(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof labelDay"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(u,{...e})}):u(e)}return D(C);})();\n;return Component;',
   },
   labelGrid: {
     deprecated: false,
@@ -5300,6 +6054,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the default ARIA label for the month grid.",
     shortCommentJsx:
       'var Component=(()=>{var s=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var _=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!h.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(u=x(n,o))||u.enumerable});return t};var M=(t,n,e)=>(e=t!=null?s(p(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),A=t=>a(r({},"__esModule",{value:!0}),t);var f=_((X,d)=>{d.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(f()),C=void 0;function i(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Return the default ARIA label for the month grid."})}function m(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(i,{...t})}):i(t)}return A(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "labelGrid",
     slug: "labelgrid",
@@ -5309,6 +6064,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "labels/labelGrid.ts",
     typeDef: "typeof labelGrid",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?m(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(c({},"__esModule",{value:!0}),e);var u=h((b,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var r=M(u()),C=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof labelGrid"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(a,{...e})}):a(e)}return y(D);})();\n;return Component;',
   },
   labelMonthDropdown: {
     deprecated: false,
@@ -5318,6 +6075,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the default ARIA label for the WeekNumber element.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},m=(e,t,n,u)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(u=l(t,o))||u.enumerable});return e};var M=(e,t,n)=>(n=e!=null?i(p(e)):{},m(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),b=e=>m(r({},"__esModule",{value:!0}),e);var f=h((R,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>d,frontmatter:()=>A});var c=M(f()),A=void 0;function s(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"Return the default ARIA label for the WeekNumber element."})}function d(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(s,{...e})}):s(e)}return b(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "labelMonthDropdown",
     slug: "labelmonthdropdown",
@@ -5327,6 +6085,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "labels/labelMonthDropdown.ts",
     typeDef: "typeof labelMonthDropdown",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),M=(n,t)=>{for(var e in t)c(n,e,{get:t[e],enumerable:!0})},i=(n,t,e,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(n,o)&&o!==e&&c(n,o,{get:()=>t[o],enumerable:!(d=m(t,o))||d.enumerable});return n};var j=(n,t,e)=>(e=n!=null?f(l(n)):{},i(t||!n||!n.__esModule?c(e,"default",{value:n,enumerable:!0}):e,n)),D=n=>i(c({},"__esModule",{value:!0}),n);var s=h((X,p)=>{p.exports=_jsx_runtime});var y={};M(y,{default:()=>a,frontmatter:()=>w});var r=j(s()),w=void 0;function u(n){let t={code:"code",p:"p",...n.components};return(0,r.jsx)(t.p,{children:(0,r.jsx)(t.code,{children:"typeof labelMonthDropdown"})})}function a(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return D(y);})();\n;return Component;',
   },
   labelNext: {
     deprecated: false,
@@ -5336,6 +6096,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the default ARIA label for next month button.",
     shortCommentJsx:
       'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var i=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(u=i(n,o))||u.enumerable});return t};var M=(t,n,e)=>(e=t!=null?d(p(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),b=t=>a(r({},"__esModule",{value:!0}),t);var m=h((R,f)=>{f.exports=_jsx_runtime});var C={};j(C,{default:()=>x,frontmatter:()=>A});var c=M(m()),A=void 0;function s(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Return the default ARIA label for next month button."})}function x(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(s,{...t})}):s(t)}return b(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "labelNext",
     slug: "labelnext",
@@ -5345,6 +6106,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "labels/labelNext.ts",
     typeDef: "typeof labelNext",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of p(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(d=m(t,o))||d.enumerable});return e};var M=(e,t,n)=>(n=e!=null?f(l(e)):{},i(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),y=e=>i(r({},"__esModule",{value:!0}),e);var u=h((b,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>a,frontmatter:()=>C});var c=M(u()),C=void 0;function x(e){let t={code:"code",p:"p",...e.components};return(0,c.jsx)(t.p,{children:(0,c.jsx)(t.code,{children:"typeof labelNext"})})}function a(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(x,{...e})}):x(e)}return y(D);})();\n;return Component;',
   },
   labelPrevious: {
     deprecated: false,
@@ -5354,6 +6117,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the default ARIA label for next month button.",
     shortCommentJsx:
       'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var i=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},a=(t,n,e,u)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of l(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(u=i(n,o))||u.enumerable});return t};var M=(t,n,e)=>(e=t!=null?d(p(t)):{},a(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),b=t=>a(r({},"__esModule",{value:!0}),t);var m=h((R,f)=>{f.exports=_jsx_runtime});var C={};j(C,{default:()=>x,frontmatter:()=>A});var c=M(m()),A=void 0;function s(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"Return the default ARIA label for next month button."})}function x(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(s,{...t})}):s(t)}return b(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "labelPrevious",
     slug: "labelprevious",
@@ -5363,6 +6127,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "labels/labelPrevious.ts",
     typeDef: "typeof labelPrevious",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?m(l(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(c({},"__esModule",{value:!0}),e);var u=h((b,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var r=M(u()),C=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof labelPrevious"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(a,{...e})}):a(e)}return y(D);})();\n;return Component;',
   },
   labelWeekNumber: {
     deprecated: false,
@@ -5372,6 +6138,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return the default ARIA label for the week number element.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},m=(e,t,n,u)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(u=l(t,o))||u.enumerable});return e};var M=(e,t,n)=>(n=e!=null?i(p(e)):{},m(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),b=e=>m(r({},"__esModule",{value:!0}),e);var f=h((D,a)=>{a.exports=_jsx_runtime});var A={};j(A,{default:()=>d,frontmatter:()=>w});var c=M(f()),w=void 0;function s(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"Return the default ARIA label for the week number element."})}function d(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(s,{...e})}):s(e)}return b(A);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "labelWeekNumber",
     slug: "labelweeknumber",
@@ -5381,6 +6148,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "labels/labelWeekNumber.ts",
     typeDef: "typeof labelWeekNumber",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},u=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?f(l(e)):{},u(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),b=e=>u(c({},"__esModule",{value:!0}),e);var m=h((X,i)=>{i.exports=_jsx_runtime});var C={};j(C,{default:()=>a,frontmatter:()=>y});var r=M(m()),y=void 0;function s(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof labelWeekNumber"})})}function a(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(s,{...e})}):s(e)}return b(C);})();\n;return Component;',
   },
   labelWeekNumberHeader: {
     deprecated: false,
@@ -5392,6 +6161,7 @@ export const apiDefs: ApiDefs = {
       "Return the default ARIA label for the week number header element.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},a=(e,t,n,u)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!h.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(u=l(t,o))||u.enumerable});return e};var M=(e,t,n)=>(n=e!=null?i(p(e)):{},a(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),b=e=>a(r({},"__esModule",{value:!0}),e);var d=_((D,m)=>{m.exports=_jsx_runtime});var A={};j(A,{default:()=>s,frontmatter:()=>w});var c=M(d()),w=void 0;function f(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"Return the default ARIA label for the week number header element."})}function s(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(f,{...e})}):f(e)}return b(A);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "labelWeekNumberHeader",
     slug: "labelweeknumberheader",
@@ -5401,6 +6171,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "labels/labelWeekNumberHeader.ts",
     typeDef: "typeof labelWeekNumberHeader",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},u=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?f(l(e)):{},u(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),b=e=>u(c({},"__esModule",{value:!0}),e);var i=h((X,a)=>{a.exports=_jsx_runtime});var C={};j(C,{default:()=>s,frontmatter:()=>y});var r=M(i()),y=void 0;function m(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof labelWeekNumberHeader"})})}function s(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(m,{...e})}):m(e)}return b(C);})();\n;return Component;',
   },
   labelWeekday: {
     deprecated: false,
@@ -5410,6 +6182,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "Return he default ARIA label for the Weekday element.",
     shortCommentJsx:
       'var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},a=(e,t,n,u)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of x(t))!_.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(u=l(t,o))||u.enumerable});return e};var M=(e,t,n)=>(n=e!=null?i(p(e)):{},a(t||!e||!e.__esModule?r(n,"default",{value:e,enumerable:!0}):n,e)),y=e=>a(r({},"__esModule",{value:!0}),e);var f=h((R,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>s,frontmatter:()=>A});var c=M(f()),A=void 0;function m(e){let t={p:"p",...e.components};return(0,c.jsx)(t.p,{children:"Return he default ARIA label for the Weekday element."})}function s(e={}){let{wrapper:t}=e.components||{};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(m,{...e})}):m(e)}return y(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "labelWeekday",
     slug: "labelweekday",
@@ -5419,6 +6192,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "labels/labelWeekday.ts",
     typeDef: "typeof labelWeekday",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var y=(e,n,t)=>(t=e!=null?m(l(e)):{},a(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>a(r({},"__esModule",{value:!0}),e);var s=h((b,i)=>{i.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>C});var c=y(s()),C=void 0;function u(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof labelWeekday"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(u,{...e})}):u(e)}return M(D);})();\n;return Component;',
   },
   labelYearDropdown: {
     deprecated: false,
@@ -5428,6 +6203,7 @@ export const apiDefs: ApiDefs = {
     shortComment: "The default ARIA label for the years dropdown.",
     shortCommentJsx:
       'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},d=(t,n,e,a)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(a=p(n,o))||a.enumerable});return t};var M=(t,n,e)=>(e=t!=null?m(l(t)):{},d(n||!t||!t.__esModule?r(e,"default",{value:t,enumerable:!0}):e,t)),w=t=>d(r({},"__esModule",{value:!0}),t);var u=h((D,s)=>{s.exports=_jsx_runtime});var A={};j(A,{default:()=>i,frontmatter:()=>y});var c=M(u()),y=void 0;function f(t){let n={p:"p",...t.components};return(0,c.jsx)(n.p,{children:"The default ARIA label for the years dropdown."})}function i(t={}){let{wrapper:n}=t.components||{};return n?(0,c.jsx)(n,{...t,children:(0,c.jsx)(f,{...t})}):f(t)}return w(A);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "labelYearDropdown",
     slug: "labelyeardropdown",
@@ -5437,6 +6213,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "labels/labelYearDropdown.ts",
     typeDef: "typeof labelYearDropdown",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},a=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=m(n,o))||d.enumerable});return e};var D=(e,n,t)=>(t=e!=null?f(l(e)):{},a(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>a(c({},"__esModule",{value:!0}),e);var p=h((X,i)=>{i.exports=_jsx_runtime});var y={};j(y,{default:()=>u,frontmatter:()=>w});var r=D(p()),w=void 0;function s(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof labelYearDropdown"})})}function u(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(s,{...e})}):s(e)}return M(y);})();\n;return Component;',
   },
   modifiersContext: {
     name: "modifiersContext",
@@ -5447,11 +6225,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "contexts/ModifiersContext/ModifiersContext.tsx",
     typeDef: "React.Context<ModifiersContext>",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var C=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),M=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(d=m(e,o))||d.enumerable});return t};var h=(t,e,n)=>(n=t!=null?f(_(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),j=t=>i(r({},"__esModule",{value:!0}),t);var x=C((y,s)=>{s.exports=_jsx_runtime});var X={};M(X,{default:()=>a,frontmatter:()=>D});var c=h(x()),D=void 0;function u(t){let e={code:"code",p:"p",...t.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"React.Context<ModifiersContext>"})})}function a(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return j(X);})();\n;return Component;',
   },
   selectionContext: {
     name: "selectionContext",
@@ -5462,11 +6237,8 @@ export const apiDefs: ApiDefs = {
     kind: "VariableDeclaration",
     sourceFile: "contexts/SelectionContext/SelectionContext.tsx",
     typeDef: "React.Context<SelectionContext>",
-    comment: "",
-    commentJsx: "",
-    shortComment: "",
-    shortCommentJsx: "",
-    deprecated: "",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var C=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),h=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,d)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of p(e))!_.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(d=f(e,o))||d.enumerable});return t};var j=(t,e,n)=>(n=t!=null?m(l(t)):{},i(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),M=t=>i(r({},"__esModule",{value:!0}),t);var s=C((y,x)=>{x.exports=_jsx_runtime});var X={};h(X,{default:()=>a,frontmatter:()=>D});var c=j(s()),D=void 0;function u(t){let e={code:"code",p:"p",...t.components};return(0,c.jsx)(e.p,{children:(0,c.jsx)(e.code,{children:"React.Context<SelectionContext>"})})}function a(t={}){let{wrapper:e}=t.components||{};return e?(0,c.jsx)(e,{...t,children:(0,c.jsx)(u,{...t})}):u(t)}return M(X);})();\n;return Component;',
   },
   useCalendar: {
     deprecated: false,
@@ -5478,6 +6250,7 @@ export const apiDefs: ApiDefs = {
       "Use this hook to access to the dates displayed in the calendar and to navigate between months.",
     shortCommentJsx:
       'var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},c=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=p(e,o))||a.enumerable});return t};var M=(t,e,n)=>(n=t!=null?h(f(t)):{},c(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),w=t=>c(r({},"__esModule",{value:!0}),t);var i=_((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>y});var s=M(i()),y=void 0;function m(t){let e={p:"p",...t.components};return(0,s.jsx)(e.p,{children:"Use this hook to access to the dates displayed in the calendar and to navigate between months."})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,{...t,children:(0,s.jsx)(m,{...t})}):m(t)}return w(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "useCalendar",
     slug: "usecalendar",
@@ -5487,6 +6260,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/CalendarContext/CalendarContext.tsx",
     typeDef: "typeof useCalendar",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var C=(e,n,t)=>(t=e!=null?m(l(e)):{},s(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>s(c({},"__esModule",{value:!0}),e);var a=h((w,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>y});var r=C(a()),y=void 0;function i(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof useCalendar"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(i,{...e})}):i(e)}return M(D);})();\n;return Component;',
   },
   useControlledValue: {
     deprecated: false,
@@ -5498,6 +6273,7 @@ export const apiDefs: ApiDefs = {
       "Helper hook for using controlled/uncontrolled values from a component props.",
     shortCommentJsx:
       'var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var i=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(n,o)=>()=>(o||n((o={exports:{}}).exports,o),o.exports),j=(n,o)=>{for(var t in o)r(n,t,{get:o[t],enumerable:!0})},u=(n,o,t,s)=>{if(o&&typeof o=="object"||typeof o=="function")for(let e of i(o))!_.call(n,e)&&e!==t&&r(n,e,{get:()=>o[e],enumerable:!(s=f(o,e))||s.enumerable});return n};var M=(n,o,t)=>(t=n!=null?d(x(n)):{},u(o||!n||!n.__esModule?r(t,"default",{value:n,enumerable:!0}):t,n)),C=n=>u(r({},"__esModule",{value:!0}),n);var l=h((k,p)=>{p.exports=_jsx_runtime});var X={};j(X,{default:()=>a,frontmatter:()=>D});var c=M(l()),D=void 0;function m(n){let o={p:"p",...n.components};return(0,c.jsx)(o.p,{children:"Helper hook for using controlled/uncontrolled values from a component props."})}function a(n={}){let{wrapper:o}=n.components||{};return o?(0,c.jsx)(o,{...n,children:(0,c.jsx)(m,{...n})}):m(n)}return C(X);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "useControlledValue",
     slug: "usecontrolledvalue",
@@ -5507,6 +6283,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "utils/useControlledValue/useControlledValue.ts",
     typeDef: "typeof useControlledValue",
+    typeDefJsx:
+      'var Component=(()=>{var l=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},u=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of p(n))!_.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=m(n,o))||d.enumerable});return e};var C=(e,n,t)=>(t=e!=null?l(x(e)):{},u(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),M=e=>u(c({},"__esModule",{value:!0}),e);var i=h((w,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>f,frontmatter:()=>y});var r=C(i()),y=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof useControlledValue"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(a,{...e})}):a(e)}return M(D);})();\n;return Component;',
   },
   useDayPicker: {
     deprecated: false,
@@ -5518,6 +6296,7 @@ export const apiDefs: ApiDefs = {
       "Use this hook to access to the DayPicker context within Custom Components.",
     shortCommentJsx:
       'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var C=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(s=d(n,o))||s.enumerable});return t};var l=(t,n,e)=>(e=t!=null?p(h(t)):{},i(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),D=t=>i(c({},"__esModule",{value:!0}),t);var u=C((y,m)=>{m.exports=_jsx_runtime});var k={};j(k,{default:()=>x,frontmatter:()=>M});var r=l(u()),M=void 0;function a(t){let n={p:"p",...t.components};return(0,r.jsx)(n.p,{children:"Use this hook to access to the DayPicker context within Custom Components."})}function x(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(a,{...t})}):a(t)}return D(k);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "useDayPicker",
     slug: "usedaypicker",
@@ -5527,6 +6306,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/DayPickerContext/DayPickerContext.tsx",
     typeDef: "typeof useDayPicker",
+    typeDefJsx:
+      'var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of x(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=p(n,o))||d.enumerable});return e};var y=(e,n,t)=>(t=e!=null?m(_(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),D=e=>i(r({},"__esModule",{value:!0}),e);var u=h((k,s)=>{s.exports=_jsx_runtime});var C={};j(C,{default:()=>f,frontmatter:()=>M});var c=y(u()),M=void 0;function a(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof useDayPicker"})})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(a,{...e})}):a(e)}return D(C);})();\n;return Component;',
   },
   useFocus: {
     deprecated: false,
@@ -5535,9 +6316,10 @@ export const apiDefs: ApiDefs = {
     commentJsx:
       'var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)s(e,n,{get:t[n],enumerable:!0})},c=(e,t,n,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of h(t))!x.call(e,r)&&r!==n&&s(e,r,{get:()=>t[r],enumerable:!(i=f(t,r))||i.enumerable});return e};var k=(e,t,n)=>(n=e!=null?u(l(e)):{},c(t||!e||!e.__esModule?s(n,"default",{value:e,enumerable:!0}):n,e)),b=e=>c(s({},"__esModule",{value:!0}),e);var m=_((C,a)=>{a.exports=_jsx_runtime});var w={};j(w,{default:()=>p,frontmatter:()=>g});var o=k(m()),g=void 0;function d(e){let t={p:"p",...e.components},{ApiInternalLink:n}=t;return n||M("ApiInternalLink",!0),(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(t.p,{children:["Hook to access the ",(0,o.jsx)(n,{member:"FocusContext"}),`. Use this hook to handle the\nfocus state of the elements.`]}),`\n`,(0,o.jsx)(t.p,{children:"This hook is meant to be used inside internal or custom components."})]})}function p(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(d,{...e})}):d(e)}function M(e,t){throw new Error("Expected "+(t?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return b(w);})();\n;return Component;',
     shortComment:
-      "Hook to access the {@link FocusContext }. Use this hook to handle the",
+      "Hook to access the FocusContext . Use this hook to handle the",
     shortCommentJsx:
-      'var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)s(e,n,{get:t[n],enumerable:!0})},c=(e,t,n,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of f(t))!l.call(e,r)&&r!==n&&s(e,r,{get:()=>t[r],enumerable:!(i=x(t,r))||i.enumerable});return e};var k=(e,t,n)=>(n=e!=null?u(h(e)):{},c(t||!e||!e.__esModule?s(n,"default",{value:e,enumerable:!0}):n,e)),M=e=>c(s({},"__esModule",{value:!0}),e);var a=_((L,p)=>{p.exports=_jsx_runtime});var y={};j(y,{default:()=>m,frontmatter:()=>b});var o=k(a()),b=void 0;function d(e){let t={p:"p",...e.components},{ApiInternalLink:n}=t;return n||w("ApiInternalLink",!0),(0,o.jsxs)(t.p,{children:["Hook to access the ",(0,o.jsx)(n,{member:"FocusContext"}),". Use this hook to handle the"]})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,{...e,children:(0,o.jsx)(d,{...e})}):d(e)}function w(e,t){throw new Error("Expected "+(t?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}return M(y);})();\n;return Component;',
+      'var Component=(()=>{var h=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var l=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(s=m(n,o))||s.enumerable});return t};var C=(t,n,e)=>(e=t!=null?h(p(t)):{},u(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>u(c({},"__esModule",{value:!0}),t);var i=l((w,a)=>{a.exports=_jsx_runtime});var D={};j(D,{default:()=>d,frontmatter:()=>k});var r=C(i()),k=void 0;function x(t){let n={p:"p",...t.components};return(0,r.jsx)(n.p,{children:"Hook to access the FocusContext . Use this hook to handle the"})}function d(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(x,{...t})}):x(t)}return M(D);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "useFocus",
     slug: "usefocus",
@@ -5547,6 +6329,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/FocusContext/FocusContext.tsx",
     typeDef: "typeof useFocus",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},s=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!l.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?p(_(e)):{},s(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>s(r({},"__esModule",{value:!0}),e);var i=h((w,u)=>{u.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(i()),C=void 0;function f(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof useFocus"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(f,{...e})}):f(e)}return y(D);})();\n;return Component;',
   },
   useModifiers: {
     deprecated: false,
@@ -5558,6 +6342,7 @@ export const apiDefs: ApiDefs = {
       "Use this hook to access to the DayPicker context within custom components.",
     shortCommentJsx:
       'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),l=(t,n)=>{for(var e in n)c(t,e,{get:n[e],enumerable:!0})},i=(t,n,e,s)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of f(n))!_.call(t,o)&&o!==e&&c(t,o,{get:()=>n[o],enumerable:!(s=d(n,o))||s.enumerable});return t};var D=(t,n,e)=>(e=t!=null?p(h(t)):{},i(n||!t||!t.__esModule?c(e,"default",{value:t,enumerable:!0}):e,t)),M=t=>i(c({},"__esModule",{value:!0}),t);var u=j((C,m)=>{m.exports=_jsx_runtime});var w={};l(w,{default:()=>x,frontmatter:()=>k});var r=D(u()),k=void 0;function a(t){let n={p:"p",...t.components};return(0,r.jsx)(n.p,{children:"Use this hook to access to the DayPicker context within custom components."})}function x(t={}){let{wrapper:n}=t.components||{};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(a,{...t})}):a(t)}return M(w);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "useModifiers",
     slug: "usemodifiers",
@@ -5567,6 +6352,8 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/ModifiersContext/ModifiersContext.tsx",
     typeDef: "typeof useModifiers",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var M=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),h=(e,n)=>{for(var t in n)c(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!l.call(e,o)&&o!==t&&c(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var j=(e,n,t)=>(t=e!=null?p(_(e)):{},i(n||!e||!e.__esModule?c(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(c({},"__esModule",{value:!0}),e);var u=M((w,s)=>{s.exports=_jsx_runtime});var D={};h(D,{default:()=>m,frontmatter:()=>C});var r=j(u()),C=void 0;function f(e){let n={code:"code",p:"p",...e.components};return(0,r.jsx)(n.p,{children:(0,r.jsx)(n.code,{children:"typeof useModifiers"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,{...e,children:(0,r.jsx)(f,{...e})}):f(e)}return y(D);})();\n;return Component;',
   },
   useSelection: {
     deprecated: false,
@@ -5578,6 +6365,7 @@ export const apiDefs: ApiDefs = {
       "Use this hook to access to the dates displayed in the calendar and to navigate between months.",
     shortCommentJsx:
       'var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},c=(t,e,n,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of x(e))!l.call(t,o)&&o!==n&&r(t,o,{get:()=>e[o],enumerable:!(a=p(e,o))||a.enumerable});return t};var M=(t,e,n)=>(n=t!=null?h(f(t)):{},c(e||!t||!t.__esModule?r(n,"default",{value:t,enumerable:!0}):n,t)),w=t=>c(r({},"__esModule",{value:!0}),t);var i=_((X,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>u,frontmatter:()=>y});var s=M(i()),y=void 0;function m(t){let e={p:"p",...t.components};return(0,s.jsx)(e.p,{children:"Use this hook to access to the dates displayed in the calendar and to navigate between months."})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,{...t,children:(0,s.jsx)(m,{...t})}):m(t)}return w(C);})();\n;return Component;',
+    topic: "",
     see: [],
     name: "useSelection",
     slug: "useselection",
@@ -5587,5 +6375,7 @@ export const apiDefs: ApiDefs = {
     kind: "FunctionDeclaration",
     sourceFile: "contexts/SelectionContext/SelectionContext.tsx",
     typeDef: "typeof useSelection",
+    typeDefJsx:
+      'var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var h=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var t in n)r(e,t,{get:n[t],enumerable:!0})},i=(e,n,t,d)=>{if(n&&typeof n=="object"||typeof n=="function")for(let o of a(n))!_.call(e,o)&&o!==t&&r(e,o,{get:()=>n[o],enumerable:!(d=x(n,o))||d.enumerable});return e};var M=(e,n,t)=>(t=e!=null?p(l(e)):{},i(n||!e||!e.__esModule?r(t,"default",{value:e,enumerable:!0}):t,e)),y=e=>i(r({},"__esModule",{value:!0}),e);var u=h((w,s)=>{s.exports=_jsx_runtime});var D={};j(D,{default:()=>m,frontmatter:()=>C});var c=M(u()),C=void 0;function f(e){let n={code:"code",p:"p",...e.components};return(0,c.jsx)(n.p,{children:(0,c.jsx)(n.code,{children:"typeof useSelection"})})}function m(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(f,{...e})}):f(e)}return y(D);})();\n;return Component;',
   },
 };

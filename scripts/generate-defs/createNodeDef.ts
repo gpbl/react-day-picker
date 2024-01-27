@@ -1,6 +1,7 @@
 import path from 'node:path';
 
 import { type Node } from 'ts-morph';
+import { toJsxCode } from './toJsxCode.ts';
 
 export interface NodeDef {
   name: string;
@@ -11,9 +12,10 @@ export interface NodeDef {
   kind: string;
   slug: string;
   typeDef: string;
+  typeDefJsx: string;
 }
 
-export function createNodeDef(node: Node) {
+export async function createNodeDef(node: Node) {
   const sourceFile = path.relative(
     '../src',
     node.getSourceFile().getFilePath()
@@ -29,6 +31,10 @@ export function createNodeDef(node: Node) {
     .getType()
     .getText()
     .replace(/import\(.*\)\./, '');
+  
+  
+
+  const typeDefJsx = await toJsxCode('`' + typeDef + '`');
 
   const nodeDef: NodeDef = {
     name,
@@ -38,7 +44,8 @@ export function createNodeDef(node: Node) {
     text,
     kind,
     sourceFile,
-    typeDef
+    typeDef,
+    typeDefJsx
   };
   return nodeDef;
 }

@@ -33,6 +33,7 @@ import { PreviewBox } from './PreviewBox';
 import { PropsTable } from './PropsTable';
 import { SectionTitle } from './SectionTitle';
 import { Step, Steps } from './Steps';
+import { PropsList } from './PropsList';
 
 /** All the components used to generate the MDX pages. */
 export const components = {
@@ -49,6 +50,8 @@ export const components = {
   // Custom components
   PreviewBox,
   PropsTable,
+  PropsList,
+  RenderJsx,
   Description,
   SectionTitle,
   Steps,

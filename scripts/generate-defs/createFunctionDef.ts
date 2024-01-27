@@ -8,7 +8,7 @@ export interface FunctionDef extends NodeDef, JSDocDef {}
 export async function createFunctionDef(
   functionDeclaration: FunctionDeclaration
 ) {
-  const nodeDef = createNodeDef(functionDeclaration);
+  const nodeDef = await createNodeDef(functionDeclaration);
   const jsDocDef = await createJsDocDef(functionDeclaration);
 
   const typeAliasDef: FunctionDef = {

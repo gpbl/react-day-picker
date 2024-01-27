@@ -14,7 +14,7 @@ export async function createInterfaceDef(
 ) {
   const name = interfaceDeclaration.getName();
 
-  const nodeDef = createNodeDef(interfaceDeclaration);
+  const nodeDef = await createNodeDef(interfaceDeclaration);
   const jsDocDef = await createJsDocDef(interfaceDeclaration);
 
   const properties = await Promise.all(

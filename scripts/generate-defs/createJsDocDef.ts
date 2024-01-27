@@ -4,7 +4,6 @@ import { JSDocableNode } from 'ts-morph';
 
 import { getDeprecated } from './utils/getDeprecated.ts';
 import { parseJsDocs } from './utils/parseJsDocs.ts';
-import { getSeeTags } from './utils/getSeeTags.ts';
 import { toJsxCode } from './toJsxCode.ts';
 
 export interface JSDocDef {
@@ -13,6 +12,7 @@ export interface JSDocDef {
   comment: string;
   commentJsx: string;
   deprecated: string | false;
+  topic: string;
   see: (string | undefined)[] | undefined;
 }
 
@@ -26,16 +26,23 @@ export const prettyCodeOptions: Parameters<typeof rehypePrettyCode>[0] = {
 
 export async function createJsDocDef(jsDocableNode: JSDocableNode) {
   const jsDocs = jsDocableNode.getJsDocs();
+  const jsTags = jsDocs.flatMap((jsDoc) => jsDoc.getTags());
 
-  const shortComment = jsDocs[0]?.getCommentText()?.split('\n')?.[0] ?? '';
+  const shortCommentText = jsDocs[0]?.getCommentText()?.split('\n')?.[0] ?? '';
+  const shortComment = shortCommentText.replace(/{@link ([^}]*)}/g, '$1');
   const shortCommentJsx = await toJsxCode(shortComment);
   const comment = parseJsDocs(jsDocs);
   const commentJsx = await toJsxCode(comment);
 
-  const see = getSeeTags(jsDocableNode).map((tag) => {
-    // is there a bug in ts-morph to get the full URLs?
-    return tag.getCommentText()?.replace('://', 'https://');
-  });
+  const see = jsTags
+    .filter((tag) => tag.getTagName() === 'see')
+    .map((tag) => {
+      // is there a bug in ts-morph to get the full URLs?
+      return tag.getCommentText()?.replace('://', 'https://');
+    });
+
+  const topic =
+    jsTags.find((tag) => tag.getTagName() === 'topic')?.getCommentText() ?? '';
   const deprecated = getDeprecated(jsDocableNode) ?? false;
 
   const jsdocDef: JSDocDef = {
@@ -44,6 +51,7 @@ export async function createJsDocDef(jsDocableNode: JSDocableNode) {
     commentJsx,
     shortComment,
     shortCommentJsx,
+    topic,
     see
   };
 

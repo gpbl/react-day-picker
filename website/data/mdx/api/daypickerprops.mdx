@@ -1,33 +1,40 @@
 ---
-section: API Reference
+section: Interface
 title: DayPickerProps
 ---
 
-<SectionTitle>API Reference</SectionTitle>
+<SectionTitle>Interface</SectionTitle>
 
 # DayPickerProps
 
-<Description>
-  <ApiDescription member="DayPickerProps" />
-</Description>
+import { apiDefs } from '@/data/apiDefs';
+
+<Description>{apiDefs.DayPickerProps.shortComment}</Description>
+
 ---
 
-<PropsTable member="PropsBase" />
+<RenderJsx jsx={apiDefs.DayPickerProps.typeDefJsx} />
+
+## PropsBase
+
+### Styling Props
+
+<PropsList member="PropsBase" topic="styling" />
 
 ### Single Mode
 
 These props are available only when `mode` is set to `single`.
 
-<PropsTable member="PropsSingle" />
+<PropsList member="PropsSingle" />
 
 ### Multi Mode
 
 These props are available only when `mode` is set to `multi`.
 
-<PropsTable member="PropsMulti" />
+<PropsList member="PropsMulti" />
 
 ### Range Mode
 
 These props are available only when `mode` is set to `range`.
 
-<PropsTable member="PropsRange" />
+<PropsList member="PropsRange" />

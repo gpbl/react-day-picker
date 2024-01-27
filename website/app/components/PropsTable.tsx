@@ -1,12 +1,13 @@
 import React from 'react';
 
-import type { DayPickerExports, InterfaceDef } from 'scripts';
+import type { DayPickerExports } from 'scripts';
 
 import { RenderJsx } from '@/components/RenderJsx';
 import { apiDefs } from '@/data/apiDefs';
 import { AccessibleIcon } from '@radix-ui/react-accessible-icon';
 import { DividerHorizontalIcon, InfoCircledIcon } from '@radix-ui/react-icons';
 import { Box, Code, Flex, IconButton, Popover, Table } from '@radix-ui/themes';
+import { isInterfaceDef } from './isInterfaceDef';
 
 export type PropDef = {
   name: string;
@@ -20,10 +21,6 @@ export type PropDef = {
 interface PropsTableProps {
   member: DayPickerExports;
   propHeaderFixedWidth?: boolean;
-}
-
-function isInterfaceDef(json: object): json is InterfaceDef {
-  return 'kind' in json && json['kind'] === 'InterfaceDeclaration';
 }
 
 export function PropsTable(props: PropsTableProps) {

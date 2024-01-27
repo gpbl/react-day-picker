@@ -11,7 +11,7 @@ export interface PropertyDef extends NodeDef, JSDocDef {
 export async function createPropertyDef(property: PropertySignature) {
   const required = !property.hasQuestionToken();
 
-  const node = createNodeDef(property);
+  const node = await createNodeDef(property);
 
   const jsdocDef = await createJsDocDef(property);
   // const typeNodeDef = await createTypedNodeDef(property);
@@ -21,7 +21,6 @@ export async function createPropertyDef(property: PropertySignature) {
   const propertyDef: PropertyDef = {
     ...node,
     ...jsdocDef,
-    // ...typeNodeDef,
     required,
     defaultValue
   };
