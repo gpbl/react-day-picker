@@ -38,12 +38,6 @@ export function Calendar() {
   if (numberOfMonths > 1) {
     cssClassNames.push(classNames.multiple_months);
   }
-  if (contrast) {
-    cssClassNames.push(classNames[`contrast_${contrast}`]);
-  }
-  if (colorScheme) {
-    cssClassNames.push(classNames[`color_${colorScheme}`]);
-  }
   if (showWeekNumber) {
     cssClassNames.push(UI.WithWeekNumber);
   }

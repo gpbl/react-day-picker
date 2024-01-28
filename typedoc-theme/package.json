@@ -1,0 +1,19 @@
+{
+  "name": "typedoc-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "pnpm run prebuild && tsc && pnpm run copy-resources",
+    "copy-resources": "cp -R src/resources dist"
+  },
+  "dependencies": {
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typescript": "^5.3.3",
+    "typedoc": "^0.25.7"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

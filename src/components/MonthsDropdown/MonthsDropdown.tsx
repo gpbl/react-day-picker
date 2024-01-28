@@ -24,7 +24,7 @@ export function MonthsDropdown(props: MonthsDropdownProps) {
   const Dropdown = components?.Dropdown ?? DefaultDropdown;
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
-    const selectedMonth = Number(e.target.value);
+    const selectedMonth = Number((e.target as HTMLSelectElement).value);
     const month = setMonth(startOfMonth(props.month.date), selectedMonth);
     goToMonth(month);
   };

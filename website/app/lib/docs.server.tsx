@@ -1,4 +1,5 @@
 import path from 'node:path';
+import fs from 'node:fs';
 
 import rehypePrettyCode from 'rehype-pretty-code';
 
@@ -12,11 +13,15 @@ export type Frontmatter = {
   sort?: string;
 };
 
-const MDX_PATH = path.join(process.cwd(), './data/mdx');
+const MDX_PATH = path.join(process.cwd(), './pages');
 
 /** Get the frontmatter and code for a single page */
 export async function getDoc(slug: string, subPath = '') {
-  const filePath = path.resolve(MDX_PATH, subPath, `${slug}.mdx`);
+  let filePath = path.resolve(MDX_PATH, subPath, `${slug}.mdx`);
+
+  if (!fs.existsSync(filePath)) {
+    filePath = path.resolve(MDX_PATH, subPath, `${slug}.md`);
+  }
 
   const [source] = await Promise.all([readFile(filePath, 'utf-8')]);
 

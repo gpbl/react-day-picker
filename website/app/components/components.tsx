@@ -72,8 +72,9 @@ export const components = {
     if (href.startsWith('http')) {
       return <Link {...restProps} href={href} target="_blank" rel="noopener" />;
     }
+    const href2 = href.replace('.md', '');
     return (
-      <RemixLink to={href}>
+      <RemixLink to={href2}>
         <Link {...restProps} />
       </RemixLink>
     );

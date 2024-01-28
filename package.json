@@ -24,6 +24,7 @@
   "types": "dist/types.d.ts",
   "style": "dist/style.css",
   "scripts": {
+    "build-typedoc-theme": "rm -rf ./typedoc-theme/dist && tsc -p ./typedoc-theme/tsconfig.json && cp -R ./typedoc-theme/src/resources ./typedoc-theme/dist",
     "prepublish": "pnpm build",
     "prebuild": "rimraf dist/*",
     "build": "rollup -c",
@@ -69,6 +70,7 @@
     "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-testing-library": "^6.2.0",
+    "handlebars": "^4.7.8",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",

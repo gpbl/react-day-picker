@@ -1,0 +1,33 @@
+<SectionTitle>Type alias</SectionTitle>
+
+# Selected\<T\>
+
+<Description>
+
+The selected value when in selection mode.
+
+**`Topic`**
+
+selection
+
+</Description>
+
+---
+
+Ƭ **Selected**\<`T`\>: `T` extends ``"single"`` ? `Date` : `T` extends ``"multi"`` ? `Date`[] : `T` extends ``"range"`` ? [`DateRange`](/api/types/DateRange.md) : `undefined`
+
+The selected value when in selection mode.
+
+**`Topic`**
+
+selection
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`Mode`](/api/types/Mode.md) |
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:565](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L565)

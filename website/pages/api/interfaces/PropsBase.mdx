@@ -1,0 +1,1125 @@
+<SectionTitle>Interface</SectionTitle>
+
+# PropsBase
+
+<Description>
+
+The base props for the [DayPicker](/api/functions/DayPicker.md) component for changing the
+navigation, the styling and the behavior of the calendar.
+
+</Description>
+
+---
+
+The base props for the [DayPicker](/api/functions/DayPicker.md) component for changing the
+navigation, the styling and the behavior of the calendar.
+
+## Properties
+
+### ISOWeek
+
+• `Optional` **ISOWeek**: `boolean`
+
+Use ISO week dates instead of the locale setting. Setting this prop will
+ignore `weekStartsOn` and `firstWeekContainsDate`.
+
+**`Default Value`**
+
+```ts
+false
+```
+
+**`Topic`**
+
+date
+
+**`See`**
+
+https://en.wikipedia.org/wiki/ISO_week_date
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:237](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L237)
+
+___
+
+### autoFocus
+
+• `Optional` **autoFocus**: `boolean`
+
+When a selection mode is set, DayPicker will focus the first selected day
+(if set) or the today's date (if not disabled).
+
+Use this prop when you need to focus DayPicker after a user actions, for
+improved accessibility.
+
+**`Topic`**
+
+options
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:262](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L262)
+
+___
+
+### captionLayout
+
+• `Optional` **captionLayout**: [`CaptionLayout`](/api/types/CaptionLayout.md)
+
+Change the layout of the caption.
+
+- `buttons`: display prev/right buttons
+- `dropdown`: display dropdowns to change the month and the year
+
+**Note:** the `dropdown` layout is available only when `fromDate`,
+`fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
+
+**`Deprecated`**
+
+To show the dropdowns, use [dropdownNavigation](/api/interfaces/PropsBase.md#dropdownnavigation). To hide
+  the navigation buttons, set [hideNavigation](/api/interfaces/PropsBase.md#hidenavigation).
+
+**`Default Value`**
+
+```ts
+buttons
+```
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:522](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L522)
+
+___
+
+### className
+
+• `Optional` **className**: `string`
+
+The CSS class to add to the container element.
+
+**`Topic`**
+
+styling
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:51](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L51)
+
+___
+
+### classNames
+
+• `Optional` **classNames**: `Partial`\<[`ClassNames`](/api/types/ClassNames.md)\>
+
+Change the class names used by DayPicker.
+
+Use this prop when you need to change the default class names — for example
+when using CSS modules.
+
+**`Topic`**
+
+styling
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:60](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L60)
+
+___
+
+### components
+
+• `Optional` **components**: [`CustomComponents`](/api/types/CustomComponents.md)
+
+Change the components used for rendering the calendar elements.
+
+**`Topic`**
+
+custom-components
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:244](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L244)
+
+___
+
+### defaultMonth
+
+• `Optional` **defaultMonth**: `Date`
+
+The initial month to show in the calendar. Use this prop to let DayPicker
+control the current month. If you need to set the month programmatically,
+use `month` and `onMonthChange`.
+
+**`Default Value`**
+
+```ts
+The current month
+```
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:103](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L103)
+
+___
+
+### dir
+
+• `Optional` **dir**: `string`
+
+The text direction of the calendar. Use `ltr` for left-to-right (default)
+or `rtl` for right-to-left.
+
+**`Topic`**
+
+internationalization
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:314](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L314)
+
+___
+
+### disableNavigation
+
+• `Optional` **disableNavigation**: `boolean`
+
+Disable the navigation between months. This prop won't hide the navigation:
+to hide the navigation, use [hideNavigation](/api/interfaces/PropsBase.md#hidenavigation).
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:183](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L183)
+
+___
+
+### disabled
+
+• `Optional` **disabled**: [`Matcher`](/api/types/Matcher.md) \| [`Matcher`](/api/types/Matcher.md)[]
+
+Apply the `disabled` modifier to the matching days.
+
+**`Topic`**
+
+selection
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:268](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L268)
+
+___
+
+### dropdownNavigation
+
+• `Optional` **dropdownNavigation**: `boolean` \| ``"month"`` \| ``"year"``
+
+Show dropdowns to navigate between months or years.
+
+- `true`: display the dropdowns for both month and year.
+- `month`: display the dropdown for the month.
+- `year`: display the dropdown for the year.
+- `false`: hide the dropdowns.
+
+**Note:** showing the dropdown will default [fromYear](/api/interfaces/PropsBase.md#fromyear) to the 100
+years ago, and [toYear](/api/interfaces/PropsBase.md#toyear) to the current year.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:197](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L197)
+
+___
+
+### firstWeekContainsDate
+
+• `Optional` **firstWeekContainsDate**: ``1`` \| ``4``
+
+The day of January, which is always in the first week of the year.
+
+**`Topic`**
+
+date
+
+**`See`**
+
+ - https://date-fns.org/docs/getWeek
+ - https://en.wikipedia.org/wiki/Week#Numbering
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:360](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L360)
+
+___
+
+### fixedWeeks
+
+• `Optional` **fixedWeeks**: `boolean`
+
+Display always 6 weeks per each month, regardless the month’s number of
+weeks. Weeks will be filled with the days from the next month.
+
+**`Topic`**
+
+options
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:205](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L205)
+
+___
+
+### footer
+
+• `Optional` **footer**: `ReactNode`
+
+Content to add to the table footer element.
+
+**`Topic`**
+
+options
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:251](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L251)
+
+___
+
+### formatters
+
+• `Optional` **formatters**: `Partial`\<[`Formatters`](/api/types/Formatters.md)\>
+
+Formatters used to format dates to strings. Use this prop to override the
+default functions.
+
+**`Topic`**
+
+internationalization
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:306](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L306)
+
+___
+
+### fromDate
+
+• `Optional` **fromDate**: `Date`
+
+The earliest day to start the month navigation.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:126](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L126)
+
+___
+
+### fromMonth
+
+• `Optional` **fromMonth**: `Date`
+
+The earliest month to start the month navigation.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:138](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L138)
+
+___
+
+### fromYear
+
+• `Optional` **fromYear**: `number`
+
+The earliest year to start the month navigation.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:150](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L150)
+
+___
+
+### hidden
+
+• `Optional` **hidden**: [`Matcher`](/api/types/Matcher.md) \| [`Matcher`](/api/types/Matcher.md)[]
+
+Apply the `hidden` modifier to the matching days. Will hide them from the
+calendar.
+
+**`Topic`**
+
+selection
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:275](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L275)
+
+___
+
+### hideNavigation
+
+• `Optional` **hideNavigation**: `boolean`
+
+Hide the navigation buttons. This prop won't disable the navigation: to
+disable the navigation, use [disableNavigation](/api/interfaces/PropsBase.md#disablenavigation).
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:176](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L176)
+
+___
+
+### hideWeekdayRow
+
+• `Optional` **hideWeekdayRow**: `boolean`
+
+Hide the row displaying the weekday row header.
+
+**`Topic`**
+
+options
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:211](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L211)
+
+___
+
+### id
+
+• `Optional` **id**: `string`
+
+A unique id to replace the random generated ids – used by DayPicker for
+accessibility.
+
+**`Topic`**
+
+attributes
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:93](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L93)
+
+___
+
+### labels
+
+• `Optional` **labels**: `Partial`\<[`Labels`](/api/types/Labels.md)\>
+
+Labels creators to override the defaults. Use this prop to customize the
+aria-label attributes in DayPicker.
+
+**`Topic`**
+
+internationalization
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:298](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L298)
+
+___
+
+### lang
+
+• `Optional` **lang**: `string`
+
+Add the language tag to the container element.
+
+**`Topic`**
+
+internationalization
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:336](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L336)
+
+___
+
+### locale
+
+• `Optional` **locale**: `Locale`
+
+The date-fns locale object used to localize dates.
+
+**`Default Value`**
+
+```ts
+en-US
+```
+
+**`Topic`**
+
+internationalization
+
+**`See`**
+
+https://date-fns.org/docs/Locale
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:345](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L345)
+
+___
+
+### modifiers
+
+• `Optional` **modifiers**: `Record`\<`string`, `undefined` \| [`Matcher`](/api/types/Matcher.md) \| [`Matcher`](/api/types/Matcher.md)[]\>
+
+Add modifiers to the matching days.
+
+**`Topic`**
+
+modifiers
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:290](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L290)
+
+___
+
+### modifiersClassNames
+
+• `Optional` **modifiersClassNames**: [`ModifiersClassNames`](/api/types/ModifiersClassNames.md)
+
+Change the class name for the day matching the `modifiers`.
+
+**`Topic`**
+
+modifiers
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:66](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L66)
+
+___
+
+### modifiersStyles
+
+• `Optional` **modifiersStyles**: [`ModifiersStyles`](/api/types/ModifiersStyles.md)
+
+Change the inline style for the day matching the `modifiers`.
+
+**`Topic`**
+
+modifiers
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:85](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L85)
+
+___
+
+### month
+
+• `Optional` **month**: `Date`
+
+The month displayed in the calendar.
+
+As opposed to `PropsBase.defaultMonth}, use this prop with
+`PropsBase.onMonthChange} to change the month programmatically.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:112](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L112)
+
+___
+
+### nonce
+
+• `Optional` **nonce**: `string`
+
+A cryptographic nonce ("number used once") which can be used by Content
+Security Policy for the inline `style` attributes.
+
+**`Topic`**
+
+attributes
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:322](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L322)
+
+___
+
+### numberOfMonths
+
+• `Optional` **numberOfMonths**: `number`
+
+The number of displayed months.
+
+**`Default Value`**
+
+```ts
+1
+```
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:120](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L120)
+
+___
+
+### onDayBlur
+
+• `Optional` **onDayBlur**: [`DayFocusEventHandler`](/api/types/DayFocusEventHandler.md)
+
+Event handler when a day is blurred.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:405](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L405)
+
+___
+
+### onDayClick
+
+• `Optional` **onDayClick**: [`DayMouseEventHandler`](/api/types/DayMouseEventHandler.md)
+
+Event handler when a day is clicked.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:391](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L391)
+
+___
+
+### onDayFocus
+
+• `Optional` **onDayFocus**: [`DayFocusEventHandler`](/api/types/DayFocusEventHandler.md)
+
+Event handler when a day is focused.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:398](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L398)
+
+___
+
+### onDayKeyDown
+
+• `Optional` **onDayKeyDown**: [`DayKeyboardEventHandler`](/api/types/DayKeyboardEventHandler.md)
+
+Event handler when a key is pressed on a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:426](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L426)
+
+___
+
+### onDayKeyPress
+
+• `Optional` **onDayKeyPress**: [`DayKeyboardEventHandler`](/api/types/DayKeyboardEventHandler.md)
+
+Event handler when a key is pressed and released on a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:440](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L440)
+
+___
+
+### onDayKeyUp
+
+• `Optional` **onDayKeyUp**: [`DayKeyboardEventHandler`](/api/types/DayKeyboardEventHandler.md)
+
+Event handler when a key is released on a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:433](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L433)
+
+___
+
+### onDayMouseEnter
+
+• `Optional` **onDayMouseEnter**: [`DayMouseEventHandler`](/api/types/DayMouseEventHandler.md)
+
+Event handler when the mouse enters a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:412](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L412)
+
+___
+
+### onDayMouseLeave
+
+• `Optional` **onDayMouseLeave**: [`DayMouseEventHandler`](/api/types/DayMouseEventHandler.md)
+
+Event handler when the mouse leaves a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:419](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L419)
+
+___
+
+### onDayPointerEnter
+
+• `Optional` **onDayPointerEnter**: [`DayPointerEventHandler`](/api/types/DayPointerEventHandler.md)
+
+Event handler when a pointer enters a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:447](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L447)
+
+___
+
+### onDayPointerLeave
+
+• `Optional` **onDayPointerLeave**: [`DayPointerEventHandler`](/api/types/DayPointerEventHandler.md)
+
+Event handler when a pointer leaves a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:454](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L454)
+
+___
+
+### onDayTouchCancel
+
+• `Optional` **onDayTouchCancel**: [`DayTouchEventHandler`](/api/types/DayTouchEventHandler.md)
+
+Event handler when a touch is cancelled on a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:461](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L461)
+
+___
+
+### onDayTouchEnd
+
+• `Optional` **onDayTouchEnd**: [`DayTouchEventHandler`](/api/types/DayTouchEventHandler.md)
+
+Event handler when a touch ends on a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:468](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L468)
+
+___
+
+### onDayTouchMove
+
+• `Optional` **onDayTouchMove**: [`DayTouchEventHandler`](/api/types/DayTouchEventHandler.md)
+
+Event handler when a touch moves on a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:475](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L475)
+
+___
+
+### onDayTouchStart
+
+• `Optional` **onDayTouchStart**: [`DayTouchEventHandler`](/api/types/DayTouchEventHandler.md)
+
+Event handler when a touch starts on a day.
+
+**`Topic`**
+
+events
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:482](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L482)
+
+___
+
+### onMonthChange
+
+• `Optional` **onMonthChange**: [`MonthChangeEventHandler`](/api/types/MonthChangeEventHandler.md)
+
+Event fired when the user navigates between months.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:384](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L384)
+
+___
+
+### onNextClick
+
+• `Optional` **onNextClick**: [`MonthChangeEventHandler`](/api/types/MonthChangeEventHandler.md)
+
+Event handler when the next month button is clicked.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:489](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L489)
+
+___
+
+### onPrevClick
+
+• `Optional` **onPrevClick**: [`MonthChangeEventHandler`](/api/types/MonthChangeEventHandler.md)
+
+Event handler when the previous month button is clicked.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:496](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L496)
+
+___
+
+### onWeekNumberClick
+
+• `Optional` **onWeekNumberClick**: [`WeekNumberClickEventHandler`](/api/types/WeekNumberClickEventHandler.md)
+
+Event handler when a week number is clicked. Requires [showWeekNumber](/api/interfaces/PropsBase.md#showweeknumber)
+to be set.
+
+**`Topic`**
+
+options
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:504](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L504)
+
+___
+
+### pagedNavigation
+
+• `Optional` **pagedNavigation**: `boolean`
+
+Paginate the month navigation displaying the `numberOfMonths` at time.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:162](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L162)
+
+___
+
+### reverseMonths
+
+• `Optional` **reverseMonths**: `boolean`
+
+Render the months in reversed order (when [numberOfMonths](/api/interfaces/PropsBase.md#numberofmonths) is set) to
+display the most recent month first.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:169](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L169)
+
+___
+
+### showOutsideDays
+
+• `Optional` **showOutsideDays**: `boolean`
+
+Show the outside days (days falling in the next or the previous month).
+
+**`Topic`**
+
+options
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:217](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L217)
+
+___
+
+### showWeekNumber
+
+• `Optional` **showWeekNumber**: `boolean`
+
+Show the week numbers column. Weeks are numbered according to the local
+week index.
+
+- To use ISO week numbering, use the `ISOWeek` prop.
+- To change how the week numbers are displayed, use the `Formatters` prop.
+
+**`Topic`**
+
+options
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:227](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L227)
+
+___
+
+### style
+
+• `Optional` **style**: `CSSProperties`
+
+Style to apply to the container element.
+
+**`Topic`**
+
+styling
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:73](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L73)
+
+___
+
+### styles
+
+• `Optional` **styles**: `Partial`\<[`Styles`](/api/types/Styles.md)\>
+
+Change the inline styles of the HTML elements.
+
+**`Topic`**
+
+styling
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:79](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L79)
+
+___
+
+### title
+
+• `Optional` **title**: `string`
+
+Add a `title` attribute to the container element.
+
+**`Topic`**
+
+attributes
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:329](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L329)
+
+___
+
+### toDate
+
+• `Optional` **toDate**: `Date`
+
+The latest day to end the month navigation.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:132](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L132)
+
+___
+
+### toMonth
+
+• `Optional` **toMonth**: `Date`
+
+The latest month to end the month navigation.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:144](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L144)
+
+___
+
+### toYear
+
+• `Optional` **toYear**: `number`
+
+The latest year to end the month navigation.
+
+**`Topic`**
+
+navigation
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:156](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L156)
+
+___
+
+### today
+
+• `Optional` **today**: `Date`
+
+The today’s date. Default is the current date. This date will get the
+`today` modifier to style the day.
+
+**`Topic`**
+
+date
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:283](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L283)
+
+___
+
+### useAdditionalDayOfYearTokens
+
+• `Optional` **useAdditionalDayOfYearTokens**: `boolean`
+
+Enable `YY` and `YYYY` for day of year tokens when formatting or parsing
+dates.
+
+**`Topic`**
+
+date
+
+**`See`**
+
+https://date-fns.org/docs/Unicode-Tokens
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:376](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L376)
+
+___
+
+### useAdditionalWeekYearTokens
+
+• `Optional` **useAdditionalWeekYearTokens**: `boolean`
+
+Enable `DD` and `DDDD` for week year tokens when formatting or parsing
+dates.
+
+**`Topic`**
+
+date
+
+**`See`**
+
+https://date-fns.org/docs/Unicode-Tokens
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:368](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L368)
+
+___
+
+### weekStartsOn
+
+• `Optional` **weekStartsOn**: ``0`` \| ``2`` \| ``3`` \| ``1`` \| ``4`` \| ``5`` \| ``6``
+
+The index of the first day of the week (0 - Sunday). Overrides the locale's
+one.
+
+**`Topic`**
+
+date
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:352](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/types/props.ts#L352)

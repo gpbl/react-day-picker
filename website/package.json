@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "pnpm -w build && pnpm --filter scripts run generate-defs",
     "build": "pnpm run prebuild && remix build",
-    "dev": "pnpm --filter scripts run generate-defs && PORT=2001 remix dev --manual",
+    "dev": "PORT=2001 remix dev --manual",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc"

@@ -1,0 +1,21 @@
+{{#ifShowPageTitle}}
+
+{{{SectionTitle}}}
+
+# {{{Heading}}}
+
+{{#with model}}
+
+{{#if hasComment}}
+
+<Description>{{> comment}}</Description>
+
+{{/if}}
+
+{{/with}}
+
+---
+
+{{/ifShowPageTitle}}
+
+{{{reflectionPath}}}

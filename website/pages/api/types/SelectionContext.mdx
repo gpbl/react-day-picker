@@ -1,0 +1,21 @@
+<SectionTitle>Type alias</SectionTitle>
+
+# SelectionContext
+
+---
+
+Ƭ **SelectionContext**: `Object`
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `excluded` | [`Matcher`](/api/types/Matcher.md)[] | - |
+| `isExcluded` | (`date`: `Date`) => `boolean` | - |
+| `isSelected` | (`date`: `Date`) => `boolean` | - |
+| `selected` | [`Selected`](/api/types/Selected.md)\<[`Mode`](/api/types/Mode.md)\> \| `undefined` | The currently selected value. |
+| `setSelected` | (`date`: `Date`, `modifiers`: [`Modifiers`](/api/types/Modifiers.md), `e`: `MouseEvent` \| `KeyboardEvent`) => `void` | - |
+
+#### Defined in
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/SelectionContext/SelectionContext.tsx:19](https://github.com/gpbl/react-day-picker/blob/4d332a01b/src/contexts/SelectionContext/SelectionContext.tsx#L19)

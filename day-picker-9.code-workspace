@@ -32,6 +32,10 @@
       "type": "on-save",
       "testFileOnly": true
     },
+    "[handlebars]": {
+      "editor.defaultFormatter": null,
+      "editor.formatOnSave": false
+    },
     "workbench.colorCustomizations": {
       "activityBar.background": "#005994",
       "activityBar.foreground": "#d8d8d8",

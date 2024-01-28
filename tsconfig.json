@@ -14,8 +14,8 @@
       "@/test/*": ["./test/*"]
     },
     "types": ["node", "jest", "@testing-library/jest-dom"],
-    "lib": ["esnext"]
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "exclude": ["node_modules"],
-  "include": ["src", "test", "examples"]
+  "include": ["src", "test", "examples", "typedoc-theme"]
 }
