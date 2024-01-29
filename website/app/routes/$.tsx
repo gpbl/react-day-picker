@@ -17,8 +17,11 @@ export const loader: LoaderFunction = async ({
   params
 }: LoaderFunctionArgs) => {
   const slug = params['*'] || 'intro';
-  if (!slug) throw new Response('Not found', { status: 404 });
-  const data = (await getDoc(slug)) as LoaderData;
+  if (!slug) {
+    throw new Response('Not found', { status: 404 });
+  }
+  const data = await getDoc(slug);
+
   if (data) {
     return json(data);
   } else {

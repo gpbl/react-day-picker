@@ -2,9 +2,10 @@ import path from 'node:path';
 import fs from 'node:fs';
 
 import rehypePrettyCode from 'rehype-pretty-code';
-
 import { readFile } from '@/lib/fs.server';
 import { bundleMDX } from '@/lib/mdx.server';
+import remarkGfm from 'remark-gfm';
+import remarkAutoLinkHeadings from 'remark-autolink-headings';
 
 export type Frontmatter = {
   section?: string;
@@ -37,6 +38,11 @@ export async function getDoc(slug: string, subPath = '') {
     source: source,
     cwd: process.cwd(),
     mdxOptions: (options) => {
+      options.remarkPlugins = [
+        ...(options.remarkPlugins ?? []),
+        remarkGfm,
+        remarkAutoLinkHeadings
+      ];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         [rehypePrettyCode, prettyCodeOptions]

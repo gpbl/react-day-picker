@@ -15,6 +15,7 @@ import './style.css';
 /**
  * Defines the props accepted by the {@link DayPicker} component.
  *
+ * @category Props
  * @see https://react-day-picker.dev/api/daypickerprops
  */
 export type DayPickerProps<T extends Mode = 'single'> = PropsBase &
@@ -30,6 +31,7 @@ export type DayPickerProps<T extends Mode = 'single'> = PropsBase &
 /**
  * Render the date picker component.
  *
+ * @category Components
  * @see https://react-day-picker.js.org
  */
 export function DayPicker<T extends Mode = 'single'>(props: DayPickerProps<T>) {

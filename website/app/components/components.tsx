@@ -4,8 +4,6 @@ import type { MDXComponents } from 'mdx/types';
 import { DayPicker } from 'react-day-picker';
 
 import * as Examples from '@/examples';
-import { ApiDescription } from '@/components/ApiDescription';
-import { ApiInternalLink } from '@/components/ApiInternalLink';
 import { RenderJsx } from '@/components/RenderJsx';
 import type { Frontmatter } from '@/lib/docs.server';
 import {
@@ -20,6 +18,7 @@ import {
   Link,
   Separator,
   Strong,
+  Table,
   Tabs,
   Text
 } from '@radix-ui/themes';
@@ -30,10 +29,8 @@ import { LinkHeading } from './LinkHeading';
 import listStyles from './listStyles.module.css';
 import { Pre } from './Pre';
 import { PreviewBox } from './PreviewBox';
-import { PropsTable } from './PropsTable';
 import { SectionTitle } from './SectionTitle';
 import { Step, Steps } from './Steps';
-import { PropsList } from './PropsList';
 
 /** All the components used to generate the MDX pages. */
 export const components = {
@@ -42,15 +39,8 @@ export const components = {
   // All examples are available under `Examples` to consume in the docs
   Examples,
 
-  // Lib components
-  CodeToMdx: RenderJsx,
-  ApiDescription,
-  ApiInternalLink,
-
   // Custom components
   PreviewBox,
-  PropsTable,
-  PropsList,
   RenderJsx,
   Description,
   SectionTitle,
@@ -149,7 +139,7 @@ export const components = {
         style={{ scrollMarginTop: 'var(--space-9)' }}
         data-heading
       >
-        <h3>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h3>
+        <h2>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h2>
       </Heading>
     );
   },
@@ -236,6 +226,10 @@ export const components = {
 
   ul: function ul(props: PropsWithChildren) {
     return <ul {...props} className={listStyles.ul} />;
+  },
+
+  table: function table(props: PropsWithChildren) {
+    return <Table.Root {...props}>{props.children}</Table.Root>;
   }
 };
 

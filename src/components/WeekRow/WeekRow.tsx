@@ -5,15 +5,17 @@ import { useDayPicker } from '../../contexts/DayPickerContext';
 import { DayGridCellWrapper } from '../DayGridCell/DayGridCellWrapper';
 import { WeekNumberRowHeader as DefaultWeekNumberRowHeader } from '../WeekNumberRowHeader';
 
-/**
- * The props for the `WeekRow` component.
- */
+/** The props for the `WeekRow` component. */
 export interface WeekRowProps
   extends Pick<React.AriaAttributes, 'aria-rowindex'> {
   week: Week;
 }
 
-/** Render a row in the calendar, with the days and the week number. */
+/**
+ * Render a row in the calendar, with the days and the week number.
+ *
+ * @category Custom Components
+ */
 export function WeekRow(props: WeekRowProps) {
   const { styles, classNames, showWeekNumber, components } = useDayPicker();
 

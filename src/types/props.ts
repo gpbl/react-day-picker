@@ -37,8 +37,9 @@ export interface PropsSelection<T extends Mode> {
 }
 
 /**
- * The base props for the {@link DayPicker} component for changing the
- * navigation, the styling and the behavior of the calendar.
+ * The base props for the {@link DayPicker} component.
+ *
+ * For changing the navigation, the styling and the behavior of the calendar.
  *
  * @category Props
  */
@@ -46,6 +47,7 @@ export interface PropsBase {
   /**
    * The CSS class to add to the container element.
    *
+   * @category Styling
    * @topic styling
    */
   className?: string;

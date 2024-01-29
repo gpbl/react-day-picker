@@ -99,7 +99,7 @@ export function Header({ children, gitHubLink, ghost }: HeaderProps) {
             Documentation
           </HeaderLink>
           <HeaderLink
-            href="/api"
+            href="/api/index"
             active={
               location.pathname === '/api' ||
               location.pathname.startsWith('/api')
