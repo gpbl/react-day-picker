@@ -54,5 +54,3 @@ export function getPropsDefs(exportedInterface: `${string}Props`) {
   }
   return propsDefs.sort((a, b) => a.name.localeCompare(b.name));
 }
-
-console.log(getPropsDefs('ButtonProps'));

@@ -16,8 +16,9 @@ import { getPreviousMonth } from './utils/getPreviousMonth';
 import { getStartMonth } from './utils/getStartMonth';
 import { getWeeks } from './utils/getWeeks';
 import { Week, Month } from '../../classes';
-import { DropdownOption } from '../../components';
+import { DropdownOption } from '../../components/custom-components';
 
+/** @category Contexts */
 export interface CalendarContext {
   /** All the unique dates displayed to the calendar. */
   dates: Date[];
@@ -33,14 +34,14 @@ export interface CalendarContext {
   months: Month[];
   /**
    * The month displayed as first the calendar. When
-   * {@link DayPickerProps.numberOfMonths} is greater than `1`, it is the first
-   * of the displayed months.
+   * {@link PropsBase.numberOfMonths} is greater than `1`, it is the first of the
+   * displayed months.
    */
   firstMonth: Date;
   /**
    * The month displayed as last the calendar. When
-   * {@link DayPickerProps.numberOfMonths} is greater than `1`, it is the last of
-   * the displayed months.
+   * {@link PropsBase.numberOfMonths} is greater than `1`, it is the last of the
+   * displayed months.
    */
   lastMonth: Date;
   /** The next month to display. */
@@ -56,7 +57,7 @@ export interface CalendarContext {
   };
   /**
    * Navigate to the specified month. Will fire the
-   * {@link DayPickerProps.onMonthChange} callback.
+   * {@link PropsBase.onMonthChange} callback.
    */
   goToMonth: (month: Date) => void;
   /** Navigate to the next month. */
@@ -77,11 +78,13 @@ export interface CalendarContext {
   isDayDisplayed: (day: CalendarDay) => boolean;
 }
 
-export const calendarContext = createContext<CalendarContext | undefined>(
-  undefined
-);
+const calendarContext = createContext<CalendarContext | undefined>(undefined);
 
-/** The provider for the `calendarContext`, storing the calendar state. */
+/**
+ * The provider for the `calendarContext`, storing the calendar state.
+ *
+ * @category Contexts
+ */
 export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const dayPicker = useDayPicker();
 
@@ -188,6 +191,8 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
 /**
  * Use this hook to access to the dates displayed in the calendar and to
  * navigate between months.
+ *
+ * @category Contexts
  */
 export function useCalendar(): CalendarContext {
   const context = useContext(calendarContext);

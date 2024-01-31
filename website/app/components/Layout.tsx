@@ -5,9 +5,10 @@ import { DocsPageWrapper } from '@/components/DocsPageWrapper';
 import { Header } from '@/components/Header';
 import { MobileMenuProvider } from '@/components/MobileMenu';
 import { SideNav } from '@/components/SideNav';
-import { api as apiRoutes, docs as docsRoutes } from '@/data/docsNavs';
 import { Box, Flex } from '@radix-ui/themes';
 import { useLocation } from '@remix-run/react';
+import { apiNav } from '@/routes/nav.api';
+import { docsNav } from '@/routes/nav';
 
 export function Layout(props: PropsWithChildren) {
   const location = useLocation();
@@ -28,9 +29,9 @@ export function Layout(props: PropsWithChildren) {
                   routes={
                     location.pathname === '/' ||
                     location.pathname.startsWith('/docs')
-                      ? docsRoutes
+                      ? docsNav
                       : location.pathname.startsWith('/api')
-                        ? apiRoutes
+                        ? apiNav()
                         : []
                   }
                 />

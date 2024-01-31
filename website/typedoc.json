@@ -8,7 +8,13 @@
 
   "basePath": "/",
 
-  "categoryOrder": ["Components", "Props", "Formatters", "Labels", "*"],
+  "categoryOrder": [
+    "Component",
+    "Formatters",
+    "Labels",
+    "*",
+    "Deprecated Exports"
+  ],
 
   "readme": "none",
   "plugin": ["typedoc-plugin-markdown", "./typedoc-theme/dist/index.js"],

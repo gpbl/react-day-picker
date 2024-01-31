@@ -1,22 +1,15 @@
 # API Reference
 
-## Components
-
-| Function | Description |
-| :------ | :------ |
-| [DayPicker](/api/functions/DayPicker.md) | Render the date picker component. |
-
-## Props
+## Component
 
 | Interface | Description |
 | :------ | :------ |
 | [PropsBase](/api/interfaces/PropsBase.md) | The base props for the [DayPicker](/api/functions/DayPicker.md) component. |
 | [PropsMulti](/api/interfaces/PropsMulti.md) | The props for the multi selection mode. |
-| [PropsNone](/api/interfaces/PropsNone.md) | The props for the no selection mode. |
 | [PropsRange](/api/interfaces/PropsRange.md) | The props for the range selection mode. |
-| [PropsSelection](/api/interfaces/PropsSelection.md) | The shared props when [DayPicker](/api/functions/DayPicker.md) is in selection mode. |
 | [PropsSingle](/api/interfaces/PropsSingle.md) | The props for the single selection mode. |
 | [DayPickerProps](/api/type-aliases/DayPickerProps.md) | Defines the props accepted by the DayPicker component. |
+| [DayPicker](/api/functions/DayPicker.md) | Render the date picker component. |
 
 ## Formatters
 
@@ -25,11 +18,9 @@
 | [Formatters](/api/type-aliases/Formatters.md) | Represent a map of formatters used to render localized content. |
 | [formatCaption](/api/functions/formatCaption.md) | The default formatter for the caption element. |
 | [formatDay](/api/functions/formatDay.md) | The default formatter for the day grid cell element. |
-| [formatMonthCaption](/api/functions/formatMonthCaption.md) | - |
 | [formatMonthDropdown](/api/functions/formatMonthDropdown.md) | The default formatter for the month dropdown value. |
 | [formatWeekNumber](/api/functions/formatWeekNumber.md) | The default formatter for the week numbers. |
 | [formatWeekdayName](/api/functions/formatWeekdayName.md) | The default formatter for the name of the weekday. |
-| [formatYearCaption](/api/functions/formatYearCaption.md) | - |
 | [formatYearDropdown](/api/functions/formatYearDropdown.md) | The default formatter for the Year caption. |
 
 ## Labels
@@ -54,10 +45,25 @@
 | [Month](/api/classes/Month.md) | A month displayed in the month grid. Contains the weeks. |
 | [Week](/api/classes/Week.md) | A week displayed in a month grid. Contains the days. |
 
+## Contexts
+
+| Interface | Description |
+| :------ | :------ |
+| [CalendarContext](/api/interfaces/CalendarContext.md) | - |
+| [DayPickerContext](/api/interfaces/DayPickerContext.md) | - |
+| [SelectionContext](/api/interfaces/SelectionContext.md) | - |
+| [CalendarProvider](/api/functions/CalendarProvider.md) | The provider for the `calendarContext`, storing the calendar state. |
+| [DayPickerProvider](/api/functions/DayPickerProvider.md) | The provider for the `dayPickerContext`, storing the props and setting its |
+| [SelectionProvider](/api/functions/SelectionProvider.md) | The provider for the `selectionContext`, storing the calendar state. |
+| [useCalendar](/api/functions/useCalendar.md) | Use this hook to access to the dates displayed in the calendar and to |
+| [useDayPicker](/api/functions/useDayPicker.md) | Use this hook to access to the DayPicker context within Custom Components. |
+| [useSelection](/api/functions/useSelection.md) | Use this hook to access to the dates displayed in the calendar and to |
+
 ## Custom Components
 
-| Function | Description |
+| Type alias | Description |
 | :------ | :------ |
+| [CustomComponents](/api/type-aliases/CustomComponents.md) | The components that can be changed using the [PropsBase.components](/api/interfaces/PropsBase.md#components) |
 | [Button](/api/functions/Button.md) | The component used to generate the button elements in the calendar. |
 | [Chevron](/api/functions/Chevron.md) | Render the chevron icon used in the navigation buttons and dropdowns. |
 | [DayGridCell](/api/functions/DayGridCell.md) | Render the gridcell of a day in the calendar. |
@@ -71,6 +77,7 @@
 | [Nav](/api/functions/Nav.md) | Render the navigation buttons to change the month. |
 | [Option](/api/functions/Option.md) | Render the `option` element. |
 | [Select](/api/functions/Select.md) | Render the `select` element. |
+| [WeekNumberRowHeader](/api/functions/WeekNumberRowHeader.md) | Render the cell with the number of the week. |
 | [WeekRow](/api/functions/WeekRow.md) | Render a row in the calendar, with the days and the week number. |
 | [WeekdayColumnHeader](/api/functions/WeekdayColumnHeader.md) | Render the column header with the weekday name (e.g. "Mo", "Tu", etc.) |
 | [WeekdaysRow](/api/functions/WeekdaysRow.md) | Render the row with the weekday names. |
@@ -91,7 +98,6 @@
 
 | Type alias | Description |
 | :------ | :------ |
-| [DayClickEventHandler](/api/type-aliases/DayClickEventHandler.md) | The event handler when a day is clicked. |
 | [DayEventHandler](/api/type-aliases/DayEventHandler.md) | - |
 | [DayFocusEventHandler](/api/type-aliases/DayFocusEventHandler.md) | The event handler when a day is focused. |
 | [DayKeyboardEventHandler](/api/type-aliases/DayKeyboardEventHandler.md) | The event handler when a day gets a keyboard event. |
@@ -111,40 +117,33 @@
 | [ModifiersMap](/api/type-aliases/ModifiersMap.md) | A map of modifiers with the days. |
 | [ModifiersStyles](/api/type-aliases/ModifiersStyles.md) | The style to apply to each day element matching a modifier. |
 
-## Other
+## Selection Modes
 
 | Interface | Description |
 | :------ | :------ |
-| [DayPickerCalendar](/api/interfaces/DayPickerCalendar.md) | The calendar displayed in DayPicker. |
-| [CaptionLayout](/api/type-aliases/CaptionLayout.md) | Set the layout of the caption. |
-| [ClassNames](/api/type-aliases/ClassNames.md) | - |
-| [ContrastPreference](/api/type-aliases/ContrastPreference.md) | The name of the contrast preferences. |
-| [CustomComponents](/api/type-aliases/CustomComponents.md) | The components that can be changed using the [PropsBase.components](/api/interfaces/PropsBase.md#components) |
-| [DayPickerContext](/api/type-aliases/DayPickerContext.md) | - |
-| [DropdownOption](/api/type-aliases/DropdownOption.md) | An option to use in the dropdown. Maps to the `<option>` HTML element. |
+| [ModeProp](/api/interfaces/ModeProp.md) | - |
+| [ModePropsMap](/api/interfaces/ModePropsMap.md) | Map of the props supported by selection modes. |
 | [Mode](/api/type-aliases/Mode.md) | The available selection modes. |
 | [SelectHandler](/api/type-aliases/SelectHandler.md) | - |
 | [Selected](/api/type-aliases/Selected.md) | The selected value when in selection mode. |
-| [SelectionContext](/api/type-aliases/SelectionContext.md) | - |
-| [Styles](/api/type-aliases/Styles.md) | - |
-| [calendarContext](/api/variables/calendarContext.md) | - |
-| [dayPickerContext](/api/variables/dayPickerContext.md) | - |
-| [selectionContext](/api/variables/selectionContext.md) | - |
-| [Calendar](/api/functions/Calendar.md) | Render the DayPicker Calendar with navigation and the month grids. |
-| [CalendarProvider](/api/functions/CalendarProvider.md) | The provider for the `calendarContext`, storing the calendar state. |
-| [DayPickerProvider](/api/functions/DayPickerProvider.md) | The provider for the `dayPickerContext`, storing the props and setting its |
-| [Root](/api/functions/Root.md) | - |
-| [SelectionProvider](/api/functions/SelectionProvider.md) | The provider for the `selectionContext`, storing the calendar state. |
-| [WeekNumberRowHeader](/api/functions/WeekNumberRowHeader.md) | Render the cell with the number of the week. |
-| [useCalendar](/api/functions/useCalendar.md) | Use this hook to access to the dates displayed in the calendar and to |
-| [useDayPicker](/api/functions/useDayPicker.md) | Use this hook to access to the DayPicker context within Custom Components. |
-| [useSelection](/api/functions/useSelection.md) | Use this hook to access to the dates displayed in the calendar and to |
 
 ## Styling
 
 | Enumeration | Description |
 | :------ | :------ |
 | [UI](/api/enumerations/UI.md) | - |
+| [ClassNames](/api/type-aliases/ClassNames.md) | - |
+| [DropdownOption](/api/type-aliases/DropdownOption.md) | An option to use in the dropdown. Maps to the `<option>` HTML element. |
+| [Styles](/api/type-aliases/Styles.md) | - |
+
+## Deprecated Exports
+
+| Type alias | Description |
+| :------ | :------ |
+| [CaptionLayout](/api/type-aliases/CaptionLayout.md) | Set the layout of the caption. |
+| [DayClickEventHandler](/api/type-aliases/DayClickEventHandler.md) | The event handler when a day is clicked. |
+| [formatMonthCaption](/api/functions/formatMonthCaption.md) | - |
+| [formatYearCaption](/api/functions/formatYearCaption.md) | - |
 
 ***
 

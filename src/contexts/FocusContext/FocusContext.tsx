@@ -22,6 +22,7 @@ export type MoveFocusBy =
 
 export type MoveFocusDir = 'after' | 'before';
 
+/** @category Contexts */
 export interface FocusContext {
   /** The date that is currently focused. */
   focusedDay: CalendarDay | undefined;
@@ -60,12 +61,15 @@ export interface FocusContext {
 
 /**
  * The Focus context shares details about the focused day for the keyboard
- *
  * Access this context from the {@link useFocus} hook.
  */
-export const focusContext = createContext<FocusContext | undefined>(undefined);
+const focusContext = createContext<FocusContext | undefined>(undefined);
 
-/** The provider for the {@link focusContext}. */
+/**
+ * The provider for the {@link focusContext}.
+ *
+ * @category Contexts
+ */
 export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const { goToDay, isDayDisplayed } = useCalendar();
 

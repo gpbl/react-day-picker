@@ -1,7 +1,11 @@
 import { Week } from '../classes';
 import { useDayPicker } from '../contexts/DayPickerContext';
 
-/** Render the cell with the number of the week. */
+/**
+ * Render the cell with the number of the week.
+ *
+ * @category Custom Components
+ */
 export function WeekNumberRowHeader(props: { week: Week }) {
   const {
     classNames,

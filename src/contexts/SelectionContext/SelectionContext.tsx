@@ -16,7 +16,8 @@ import { useControlledValue } from '../../utils/useControlledValue';
 import { dateMatchModifiers } from '../ModifiersContext/utils/dateMatchModifiers';
 import { addToRange } from './utils/addToRange';
 
-export type SelectionContext = {
+/** @category Contexts */
+export interface SelectionContext {
   /** The currently selected value. */
   selected: Selected<Mode> | undefined;
   setSelected: (
@@ -27,7 +28,7 @@ export type SelectionContext = {
   isSelected: (date: Date) => boolean;
   excluded: Matcher[];
   isExcluded: (date: Date) => boolean;
-};
+}
 
 const contextValue: SelectionContext = {
   selected: undefined,
@@ -36,9 +37,13 @@ const contextValue: SelectionContext = {
   excluded: [],
   isExcluded: () => false
 };
-export const selectionContext = createContext<SelectionContext>(contextValue);
+const selectionContext = createContext<SelectionContext>(contextValue);
 
-/** The provider for the `selectionContext`, storing the calendar state. */
+/**
+ * The provider for the `selectionContext`, storing the calendar state.
+ *
+ * @category Contexts
+ */
 export function SelectionProvider(providerProps: PropsWithChildren) {
   const { required, min, max, onSelect, mode, ...dayPicker } = useDayPicker();
 
@@ -207,6 +212,8 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
 /**
  * Use this hook to access to the dates displayed in the calendar and to
  * navigate between months.
+ *
+ * @category Contexts
  */
 export function useSelection() {
   const context = useContext(selectionContext);

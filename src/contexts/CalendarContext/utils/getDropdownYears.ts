@@ -4,7 +4,7 @@ import { isBefore } from 'date-fns/isBefore';
 import { isSameYear } from 'date-fns/isSameYear';
 import { startOfYear } from 'date-fns/startOfYear';
 
-import { DropdownOption } from '../../../components';
+import { DropdownOption } from '../../../components/custom-components';
 import { Formatters } from '../../../types/formatters';
 import { Mode } from '../../../types/props';
 import { DayPickerContext } from '../../DayPickerContext';

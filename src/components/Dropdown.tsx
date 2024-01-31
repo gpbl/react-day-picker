@@ -4,8 +4,17 @@ import { Chevron as DefaultChevron } from './Chevron';
 import { Option as DefaultOption } from './Option';
 import { Select as DefaultSelect } from './Select';
 
-/** An option to use in the dropdown. Maps to the `<option>` HTML element. */
-export type DropdownOption = [value: number, label: string];
+/**
+ * An option to use in the dropdown. Maps to the `<option>` HTML element.
+ *
+ * @category Styling
+ */
+export type DropdownOption = [
+  /** The value of the option. */
+  value: number,
+  /** The label of the option. */
+  label: string
+];
 
 /**
  * Render a dropdown component to use in the navigation bar.

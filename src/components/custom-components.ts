@@ -1,5 +1,4 @@
 export * from './Button';
-export * from './Calendar';
 export * from './Chevron';
 export * from './Dropdown';
 export * from './DayGridCell';

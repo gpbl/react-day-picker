@@ -6,9 +6,9 @@ export function Start() {
   const [selected, setSelected] = useState(new Date());
 
   return (
-    <div role="application">
-      <DayPicker selected={selected} onSelect={setSelected} />
+    <>
+      <DayPicker mode="single" selected={selected} onSelect={setSelected} />
       <Text as="p">Picked Day: {selected.toLocaleDateString()}</Text>
-    </div>
+    </>
   );
 }

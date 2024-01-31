@@ -14,7 +14,7 @@ export type DayEventHandler<T> = (
  * The event handler when a day is clicked.
  *
  * @deprecated Use {@link DayMouseEventHandler} instead.
- * @category Event Handlers
+ * @category Deprecated Exports
  */
 export type DayClickEventHandler = DayEventHandler<React.MouseEvent>;
 

@@ -1,4 +1,4 @@
-<SectionTitle>TypeAlias (Props)</SectionTitle>
+<SectionTitle>TypeAlias (Component)</SectionTitle>
 
 # DayPickerProps\<T\>
 
@@ -10,7 +10,7 @@ Defines the props accepted by the DayPicker component.
 
 <a id="undefined" name="undefined"></a>
 
-<SignatureMemberIdentifier>**DayPickerProps**\<`T`\>: [`PropsBase`](/api/interfaces/PropsBase.md) & [`PropsSelection`](/api/interfaces/PropsSelection.md)\<`T`\> & `T` extends `"single"` ? [`PropsSingle`](/api/interfaces/PropsSingle.md) : `T` extends `"multi"` ? [`PropsMulti`](/api/interfaces/PropsMulti.md) : `T` extends `"range"` ? [`PropsRange`](/api/interfaces/PropsRange.md) : [`PropsNone`](/api/interfaces/PropsNone.md)</SignatureMemberIdentifier>
+<SignatureMemberIdentifier>**DayPickerProps**\<`T`\>: [`PropsBase`](/api/interfaces/PropsBase.md) & [`ModeProp`](/api/interfaces/ModeProp.md)\<`T`\> & [`ModePropsMap`](/api/interfaces/ModePropsMap.md)\[`T`\]</SignatureMemberIdentifier>
 
 Defines the props accepted by the DayPicker component.
 
@@ -20,10 +20,10 @@ https://react-day-picker.dev/api/daypickerprops
 
 ## Type parameters
 
-| Type parameter | Value |
-| :------ | :------ |
-| `T` extends [`Mode`](/api/type-aliases/Mode.md) | `"single"` |
+| Type parameter |
+| :------ |
+| `T` extends [`Mode`](/api/type-aliases/Mode.md) |
 
 ## Source
 
-[Users/gp/Developer/react-day-picker/v9/src/DayPicker.tsx:21](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/DayPicker.tsx#L21)
+[Users/gp/Developer/react-day-picker/v9/src/DayPicker.tsx:36](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/DayPicker.tsx#L36)

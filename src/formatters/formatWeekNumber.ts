@@ -10,5 +10,5 @@ export function formatWeekNumber(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   options?: Parameters<typeof format>[2]
 ) {
-  return `${weekNumber}`;
+  return `${weekNumber.toLocaleString()}`;
 }

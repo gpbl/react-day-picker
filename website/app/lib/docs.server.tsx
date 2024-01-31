@@ -5,6 +5,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import remarkGitContributors from 'remark-git-contributors';
 
 import { readFile } from '@/lib/fs.server';
 import { bundleMDX } from '@/lib/mdx.server';
@@ -40,7 +41,11 @@ export async function getDoc(slug: string, subPath = '') {
     source: source,
     cwd: process.cwd(),
     mdxOptions: (options) => {
-      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
+      options.remarkPlugins = [
+        ...(options.remarkPlugins ?? []),
+        remarkGfm,
+        remarkGitContributors
+      ];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         [rehypePrettyCode, prettyCodeOptions],

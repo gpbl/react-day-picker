@@ -47,7 +47,6 @@ exports[`should match the snapshot 1`] = `
   "rdp": "rdp",
   "row": "row",
   "select": "select",
-  "undefined": "",
   "week_row": "week_row",
   "weekday_columnheader": "weekday_columnheader",
   "weekdays_row": "weekdays_row",

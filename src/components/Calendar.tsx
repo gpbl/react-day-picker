@@ -78,6 +78,3 @@ export function Calendar() {
     </div>
   );
 }
-
-/** @deprecated Use {@link Calendar} instead. */
-export const Root = Calendar;

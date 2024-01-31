@@ -4,7 +4,7 @@ export * from './contexts/SelectionContext';
 export * from './contexts/DayPickerContext';
 
 export * from './classes';
-export * from './components';
+export * from './components/custom-components';
 export * from './formatters';
 export * from './labels';
 

@@ -1,14 +1,12 @@
-<SectionTitle>Interface (Other)</SectionTitle>
+<SectionTitle>Interface (Contexts)</SectionTitle>
 
-# DayPickerCalendar
+# CalendarContext
 
 <Description>
-The calendar displayed in DayPicker.
+
 </Description>
 
 ---
-
-The calendar displayed in DayPicker.
 
 ## Properties
 
@@ -22,7 +20,7 @@ All the unique dates displayed to the calendar.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:9](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L9)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:24](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L24)
 
 ***
 
@@ -33,12 +31,12 @@ All the unique dates displayed to the calendar.
 <SignatureMemberIdentifier>**days**: [`CalendarDay`](/api/classes/CalendarDay.md)[]</SignatureMemberIdentifier>
 
 All the days displayed in the calendar. As opposite from
-[DayPickerCalendar.dates](/api/interfaces/DayPickerCalendar.md#dates), it may return duplicated dates when shown
+[CalendarContext.dates](/api/interfaces/CalendarContext.md#dates), it may return duplicated dates when shown
 outside the month.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:15](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L15)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:30](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L30)
 
 ***
 
@@ -59,7 +57,7 @@ The options to use in the years or months dropdowns.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:37](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L37)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:52](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L52)
 
 ***
 
@@ -70,12 +68,12 @@ The options to use in the years or months dropdowns.
 <SignatureMemberIdentifier>**firstMonth**: `Date`</SignatureMemberIdentifier>
 
 The month displayed as first the calendar. When
-[DayPickerProps.numberOfMonths](/api/interfaces/PropsBase.md#numberofmonths) is greater than `1`, it is the first
-of the displayed months.
+[PropsBase.numberOfMonths](/api/interfaces/PropsBase.md#numberofmonths) is greater than `1`, it is the first of the
+displayed months.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:25](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L25)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:40](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L40)
 
 ***
 
@@ -101,7 +99,7 @@ month before the date.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:61](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L61)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:76](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L76)
 
 ***
 
@@ -112,7 +110,7 @@ month before the date.
 <SignatureMemberIdentifier>**goToMonth**: (`month`) => `void`</SignatureMemberIdentifier>
 
 Navigate to the specified month. Will fire the
-[DayPickerProps.onMonthChange](/api/interfaces/PropsBase.md#onmonthchange) callback.
+[PropsBase.onMonthChange](/api/interfaces/PropsBase.md#onmonthchange) callback.
 
 #### Parameters
 
@@ -126,7 +124,7 @@ Navigate to the specified month. Will fire the
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:47](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L47)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:62](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L62)
 
 ***
 
@@ -144,7 +142,7 @@ Navigate to the next month.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:49](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L49)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:64](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L64)
 
 ***
 
@@ -162,7 +160,7 @@ Navigate to the previous month.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:51](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L51)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:66](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L66)
 
 ***
 
@@ -186,7 +184,7 @@ Whether the given date is included in the displayed months.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:63](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L63)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:78](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L78)
 
 ***
 
@@ -197,12 +195,12 @@ Whether the given date is included in the displayed months.
 <SignatureMemberIdentifier>**lastMonth**: `Date`</SignatureMemberIdentifier>
 
 The month displayed as last the calendar. When
-[DayPickerProps.numberOfMonths](/api/interfaces/PropsBase.md#numberofmonths) is greater than `1`, it is the last of
-the displayed months.
+[PropsBase.numberOfMonths](/api/interfaces/PropsBase.md#numberofmonths) is greater than `1`, it is the last of the
+displayed months.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:31](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L31)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:46](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L46)
 
 ***
 
@@ -216,7 +214,7 @@ The months displayed in the calendar.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:19](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L19)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:34](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L34)
 
 ***
 
@@ -230,7 +228,7 @@ The next month to display.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:33](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L33)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:48](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L48)
 
 ***
 
@@ -244,7 +242,7 @@ The previous month to display.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:35](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L35)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:50](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L50)
 
 ***
 
@@ -258,7 +256,7 @@ The months displayed in the calendar.
 
 #### Source
 
-[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:17](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L17)
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/CalendarContext.tsx:32](https://github.com/gpbl/react-day-picker/blob/b97c86295/src/contexts/CalendarContext/CalendarContext.tsx#L32)
 
 ***
 

@@ -57,13 +57,16 @@ export enum UI {
   WeekDaysRow = 'weekdays_row',
   WeekNumberRowHeader = 'weeknumber_rowheader',
   WithWeekNumber = 'with_weeknumber',
-  /** TTODO */
+  /** TODO */
   HideWeekdays = 'hide_weekdays'
 }
 
+/** @category Styling */
 export type Styles = {
   [uiElement in UI]: CSSProperties | undefined;
 };
+
+/** @category Styling */
 export type ClassNames = {
   [uiElement in UI]: string;
 };

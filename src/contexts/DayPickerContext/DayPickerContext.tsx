@@ -3,7 +3,12 @@ import { createContext, PropsWithChildren, useContext, useId } from 'react';
 import type { DayPickerProps } from '../../DayPicker';
 import type { Formatters } from '../../types/formatters';
 import type { Labels } from '../../types/labels';
-import type { Mode } from '../../types/props';
+import type {
+  Mode,
+  PropsBase,
+  Selected,
+  SelectHandler
+} from '../../types/props';
 import type { ClassNames } from '../../types/ui';
 import type { DataAttributes } from '../ModifiersContext';
 import { getClassNames } from './utils/getClassNames';
@@ -12,8 +17,10 @@ import { getFormatters } from './utils/getFormatters';
 import { getFromToDate } from './utils/getFromToDate';
 import { getLabels } from './utils/getLabels';
 
-export type DayPickerContext<T extends Mode> = DayPickerProps<T> & {
+/** @category Contexts */
+export interface DayPickerContext<T extends Mode> extends PropsBase {
   classNames: ClassNames;
+  /** The `data-*` attributes passed to `DayPicker`. */
   dataAttributes: DataAttributes;
   formatters: Formatters;
   fromDate: Date | undefined;
@@ -21,53 +28,54 @@ export type DayPickerContext<T extends Mode> = DayPickerProps<T> & {
   labels: Labels;
   max: number | undefined;
   min: number | undefined;
-  mode: Mode;
+  mode: T;
   numberOfMonths: number;
   required: boolean;
   toDate: Date | undefined;
   today: Date;
-};
+  /** The currently selected value. */
+  selected: Selected<Mode> | undefined;
+  /** The default selected value. */
+  defaultSelected: Selected<Mode> | undefined;
+  /** The function that handles the day selection. */
+  onSelect: SelectHandler<Mode> | undefined;
+}
 
-export const dayPickerContext = createContext<DayPickerContext<Mode> | null>(
-  null
-);
+const dayPickerContext = createContext<DayPickerContext<Mode> | null>(null);
 
 /**
  * The provider for the `dayPickerContext`, storing the props and setting its
  * defaults. Must be the root of all the providers.
+ *
+ * @category Contexts
  */
 export const DayPickerProvider = <T extends Mode>(
   props: PropsWithChildren<DayPickerProps<T>>
 ) => {
   const reactId = useId();
-  const {
-    children,
-    classNames,
-    formatters,
-    id = reactId,
-    labels,
-    numberOfMonths = 1,
-    today = new Date(),
-    ...restProps
-  } = props;
+  const { children, ...restProps } = props;
 
   const { fromDate, toDate } = getFromToDate(props);
 
   const context = {
     ...restProps,
-    classNames: getClassNames(classNames),
+    classNames: getClassNames(props.classNames),
     dataAttributes: getDataAttributes(props),
-    formatters: getFormatters(formatters),
+    formatters: getFormatters(props.formatters),
     fromDate,
-    id,
-    labels: getLabels(labels),
-    numberOfMonths,
+    id: props.id ?? reactId,
+    labels: getLabels(props.labels),
     required: 'required' in props ? props.required ?? false : false,
     min: 'min' in props ? props.min ?? undefined : undefined,
     max: 'max' in props ? props.max ?? undefined : undefined,
-    mode: props.mode ?? 'single',
-    today,
-    toDate
+    mode: props.mode ?? 'none',
+    numberOfMonths: props.numberOfMonths ?? 1,
+    today: props.today ?? new Date(),
+    toDate,
+    selected: 'selected' in props ? props.selected : undefined,
+    defaultSelected:
+      'defaultSelected' in props ? props.defaultSelected : undefined,
+    onSelect: 'onSelect' in props ? props.onSelect : undefined
   };
 
   return (
@@ -77,7 +85,11 @@ export const DayPickerProvider = <T extends Mode>(
   );
 };
 
-/** Use this hook to access to the DayPicker context within Custom Components. */
+/**
+ * Use this hook to access to the DayPicker context within Custom Components.
+ *
+ * @category Contexts
+ */
 export function useDayPicker() {
   const context = useContext(dayPickerContext);
   if (!context)

@@ -14,6 +14,6 @@ export function formatCaption(
 
 /**
  * @deprecated Use {@link formatCaption} instead.
- * @category Formatters
+ * @category Deprecated Exports
  */
 export const formatMonthCaption = formatCaption;

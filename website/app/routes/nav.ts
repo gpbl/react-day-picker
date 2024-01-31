@@ -1,6 +1,6 @@
-import { DocsNavProps } from '../components/DocsNav';
+import type { DocsNavProps } from '@/components/DocsNav';
 
-export const docs: DocsNavProps['routes'] = [
+export const docsNav: DocsNavProps['routes'] = [
   {
     pages: [{ title: 'Introduction', slug: '' }]
   },
@@ -50,7 +50,22 @@ export const docs: DocsNavProps['routes'] = [
     pages: [
       { title: 'Contributing', slug: 'docs/contributing' },
       { title: 'DayPicker Architecture', slug: 'docs/architecture' },
-      { title: 'Aknowledgements', slug: 'docs/aknowledgements' }
+      { title: 'Credits', slug: 'docs/credits' }
+    ]
+  }
+];
+
+export const api: DocsNavProps['routes'] = [
+  {
+    pages: [{ title: 'Index', slug: 'api' }]
+  },
+  {
+    label: 'Props',
+    pages: [
+      {
+        title: 'DayPickerProps',
+        slug: 'api/daypickerprops'
+      }
     ]
   }
 ];
