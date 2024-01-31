@@ -15,8 +15,8 @@ const Test = () => {
         // eslint-disable-next-line no-console
         onSelect={(date: Date) => console.log(date.getYear())}
       />
-      {/** @ts-expect-error Missing required props */}
-      <DayPicker mode="none" selected={new Date()} />
+      {/** @ts-expect-error Extra "selected" props */}
+      <DayPicker mode="none" selected={undefined} />
     </>
   );
 };

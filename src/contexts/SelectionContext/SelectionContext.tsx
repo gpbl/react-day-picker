@@ -38,9 +38,7 @@ const contextValue: SelectionContext = {
 };
 export const selectionContext = createContext<SelectionContext>(contextValue);
 
-/**
- * The provider for the `selectionContext`, storing the calendar state.
- */
+/** The provider for the `selectionContext`, storing the calendar state. */
 export function SelectionProvider(providerProps: PropsWithChildren) {
   const { required, min, max, onSelect, mode, ...dayPicker } = useDayPicker();
 
@@ -207,7 +205,8 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
 }
 
 /**
- * Use this hook to access to the dates displayed in the calendar and to navigate between months.
+ * Use this hook to access to the dates displayed in the calendar and to
+ * navigate between months.
  */
 export function useSelection() {
   const context = useContext(selectionContext);

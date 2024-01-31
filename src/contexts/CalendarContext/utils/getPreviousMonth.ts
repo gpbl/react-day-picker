@@ -9,9 +9,8 @@ import { startOfMonth } from 'date-fns/startOfMonth';
  * Please note that the previous month is not always the previous calendar
  * month:
  *
- * - if before the `fromDate` date, is `undefined`;
- * - if the navigation is paged, is the number of months displayed before.
- *
+ * - If before the `fromDate` date, is `undefined`;
+ * - If the navigation is paged, is the number of months displayed before.
  */
 export function getPreviousMonth(
   startingMonth: Date,

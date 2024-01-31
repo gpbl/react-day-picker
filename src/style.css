@@ -19,14 +19,6 @@
   box-sizing: border-box;
 }
 
-.contrast_more {
-  --rdp-opacity: 0.8;
-}
-
-.contrast_less {
-  --rdp-opacity: 0.4;
-}
-
 .color_light {
   --rdp-accent-color: #0a84ff;
   --rdp-background-color: #02203d;

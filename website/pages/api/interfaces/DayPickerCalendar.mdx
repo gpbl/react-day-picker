@@ -1,0 +1,265 @@
+<SectionTitle>Interface (Other)</SectionTitle>
+
+# DayPickerCalendar
+
+<Description>
+The calendar displayed in DayPicker.
+</Description>
+
+---
+
+The calendar displayed in DayPicker.
+
+## Properties
+
+<a id="dates" name="dates"></a>
+
+### dates
+
+<SignatureMemberIdentifier>**dates**: `Date`[]</SignatureMemberIdentifier>
+
+All the unique dates displayed to the calendar.
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:9](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L9)
+
+***
+
+<a id="days" name="days"></a>
+
+### days
+
+<SignatureMemberIdentifier>**days**: [`CalendarDay`](/api/classes/CalendarDay.md)[]</SignatureMemberIdentifier>
+
+All the days displayed in the calendar. As opposite from
+[DayPickerCalendar.dates](/api/interfaces/DayPickerCalendar.md#dates), it may return duplicated dates when shown
+outside the month.
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:15](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L15)
+
+***
+
+<a id="dropdown" name="dropdown"></a>
+
+### dropdown
+
+<SignatureMemberIdentifier>**dropdown**: `Object`</SignatureMemberIdentifier>
+
+The options to use in the years or months dropdowns.
+
+#### Type declaration
+
+| Member | Type | Description |
+| :------ | :------ | :------ |
+| `months` | `undefined` \| [`DropdownOption`](/api/type-aliases/DropdownOption.md)[] | The options to use in the months dropdown. |
+| `years` | `undefined` \| [`DropdownOption`](/api/type-aliases/DropdownOption.md)[] | The options to use in the years dropdown. |
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:37](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L37)
+
+***
+
+<a id="firstmonth" name="firstmonth"></a>
+
+### firstMonth
+
+<SignatureMemberIdentifier>**firstMonth**: `Date`</SignatureMemberIdentifier>
+
+The month displayed as first the calendar. When
+[DayPickerProps.numberOfMonths](/api/interfaces/PropsBase.md#numberofmonths) is greater than `1`, it is the first
+of the displayed months.
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:25](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L25)
+
+***
+
+<a id="gotoday" name="gotoday"></a>
+
+### goToDay
+
+<SignatureMemberIdentifier>**goToDay**: (`day`) => `void`</SignatureMemberIdentifier>
+
+Navigate to the specified date. If the second parameter (refDate) is
+provided and the date is before the refDate, then the month is set to one
+month before the date.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| :------ | :------ | :------ |
+| `day` | [`CalendarDay`](/api/classes/CalendarDay.md) | The date to navigate to. |
+
+#### Returns
+
+`void`
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:61](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L61)
+
+***
+
+<a id="gotomonth" name="gotomonth"></a>
+
+### goToMonth
+
+<SignatureMemberIdentifier>**goToMonth**: (`month`) => `void`</SignatureMemberIdentifier>
+
+Navigate to the specified month. Will fire the
+[DayPickerProps.onMonthChange](/api/interfaces/PropsBase.md#onmonthchange) callback.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `month` | `Date` |
+
+#### Returns
+
+`void`
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:47](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L47)
+
+***
+
+<a id="gotonextmonth" name="gotonextmonth"></a>
+
+### goToNextMonth
+
+<SignatureMemberIdentifier>**goToNextMonth**: () => `void`</SignatureMemberIdentifier>
+
+Navigate to the next month.
+
+#### Returns
+
+`void`
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:49](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L49)
+
+***
+
+<a id="gotopreviousmonth" name="gotopreviousmonth"></a>
+
+### goToPreviousMonth
+
+<SignatureMemberIdentifier>**goToPreviousMonth**: () => `void`</SignatureMemberIdentifier>
+
+Navigate to the previous month.
+
+#### Returns
+
+`void`
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:51](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L51)
+
+***
+
+<a id="isdaydisplayed" name="isdaydisplayed"></a>
+
+### isDayDisplayed
+
+<SignatureMemberIdentifier>**isDayDisplayed**: (`day`) => `boolean`</SignatureMemberIdentifier>
+
+Whether the given date is included in the displayed months.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `day` | [`CalendarDay`](/api/classes/CalendarDay.md) |
+
+#### Returns
+
+`boolean`
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:63](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L63)
+
+***
+
+<a id="lastmonth" name="lastmonth"></a>
+
+### lastMonth
+
+<SignatureMemberIdentifier>**lastMonth**: `Date`</SignatureMemberIdentifier>
+
+The month displayed as last the calendar. When
+[DayPickerProps.numberOfMonths](/api/interfaces/PropsBase.md#numberofmonths) is greater than `1`, it is the last of
+the displayed months.
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:31](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L31)
+
+***
+
+<a id="months-1" name="months-1"></a>
+
+### months
+
+<SignatureMemberIdentifier>**months**: [`Month`](/api/classes/Month.md)[]</SignatureMemberIdentifier>
+
+The months displayed in the calendar.
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:19](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L19)
+
+***
+
+<a id="nextmonth" name="nextmonth"></a>
+
+### nextMonth
+
+<SignatureMemberIdentifier>**nextMonth**: `undefined` \| `Date`</SignatureMemberIdentifier>
+
+The next month to display.
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:33](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L33)
+
+***
+
+<a id="previousmonth" name="previousmonth"></a>
+
+### previousMonth
+
+<SignatureMemberIdentifier>**previousMonth**: `undefined` \| `Date`</SignatureMemberIdentifier>
+
+The previous month to display.
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:35](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L35)
+
+***
+
+<a id="weeks" name="weeks"></a>
+
+### weeks
+
+<SignatureMemberIdentifier>**weeks**: [`Week`](/api/classes/Week.md)[]</SignatureMemberIdentifier>
+
+The months displayed in the calendar.
+
+#### Source
+
+[Users/gp/Developer/react-day-picker/v9/src/contexts/CalendarContext/DayPickerCalendar.ts:17](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/contexts/CalendarContext/DayPickerCalendar.ts#L17)
+
+***
+
+Generated using [TypeDoc](https://typedoc.org) and [typedoc-plugin-markdown](https://typedoc-plugin-markdown.org).

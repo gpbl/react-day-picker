@@ -13,7 +13,7 @@ import type {
 import './style.css';
 
 /**
- * Defines the props accepted by the {@link DayPicker} component.
+ * Defines the props accepted by the DayPicker component.
  *
  * @category Props
  * @see https://react-day-picker.dev/api/daypickerprops

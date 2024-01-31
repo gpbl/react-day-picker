@@ -15,8 +15,8 @@ import { dateMatchModifiers } from './utils/dateMatchModifiers';
 export type DataAttributes = Record<`data-${string}`, unknown>;
 
 /**
- * The `DayPickerProps` with their default values. Use this type within
- * internal components to use safe props and avoid all conditionals.
+ * The `DayPickerProps` with their default values. Use this type within internal
+ * components to use safe props and avoid all conditionals.
  */
 export interface ModifiersContext {
   /** Return the modifiers of the specified day. */
@@ -29,7 +29,8 @@ export const modifiersContext = createContext<ModifiersContext | undefined>(
 );
 
 /**
- * The provider for the `modifiersContext`, storing the state of the day modifiers.
+ * The provider for the `modifiersContext`, storing the state of the day
+ * modifiers.
  */
 export function ModifiersProvider({ children }: { children: ReactNode }) {
   const dayPicker = useDayPicker();
@@ -141,8 +142,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
   );
 }
 
-/**
- * Use this hook to access to the DayPicker context within custom components. */
+/** Use this hook to access to the DayPicker context within custom components. */
 export function useModifiers() {
   const context = useContext(modifiersContext);
   if (!context)

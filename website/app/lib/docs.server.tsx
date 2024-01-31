@@ -1,11 +1,13 @@
-import path from 'node:path';
 import fs from 'node:fs';
+import path from 'node:path';
 
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
+
 import { readFile } from '@/lib/fs.server';
 import { bundleMDX } from '@/lib/mdx.server';
-import remarkGfm from 'remark-gfm';
-import remarkAutoLinkHeadings from 'remark-autolink-headings';
 
 export type Frontmatter = {
   section?: string;
@@ -38,14 +40,12 @@ export async function getDoc(slug: string, subPath = '') {
     source: source,
     cwd: process.cwd(),
     mdxOptions: (options) => {
-      options.remarkPlugins = [
-        ...(options.remarkPlugins ?? []),
-        remarkGfm,
-        remarkAutoLinkHeadings
-      ];
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
-        [rehypePrettyCode, prettyCodeOptions]
+        [rehypePrettyCode, prettyCodeOptions],
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: 'before' }]
       ];
 
       return options;

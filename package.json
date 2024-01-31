@@ -30,7 +30,7 @@
     "build": "rollup -c",
     "build-docs": "pnpm run build && pnpm --filter docs run build",
     "build-watch": "rollup -c -w",
-    "lint": "eslint src examples --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
     "test-watch": "jest --watch",
     "test-build": "TEST_ENV=build pnpm run test ./examples",

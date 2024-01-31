@@ -1,0 +1,25 @@
+<SectionTitle>TypeAlias (Other)</SectionTitle>
+
+# Selected\<T\>
+
+<Description>
+The selected value when in selection mode.
+</Description>
+
+---
+
+<a id="undefined" name="undefined"></a>
+
+<SignatureMemberIdentifier>**Selected**\<`T`\>: `T` extends `"single"` ? `Date` : `T` extends `"multi"` ? `Date`[] : `T` extends `"range"` ? [`DateRange`](/api/type-aliases/DateRange.md) : `undefined`</SignatureMemberIdentifier>
+
+The selected value when in selection mode.
+
+## Type parameters
+
+| Type parameter |
+| :------ |
+| `T` extends [`Mode`](/api/type-aliases/Mode.md) |
+
+## Source
+
+[Users/gp/Developer/react-day-picker/v9/src/types/props.ts:567](https://github.com/gpbl/react-day-picker/blob/a7b1c7f4e/src/types/props.ts#L567)

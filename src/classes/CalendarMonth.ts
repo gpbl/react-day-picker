@@ -1,6 +1,10 @@
 import { Week } from './CalendarWeek';
 
-/** A month displayed in the month grid. Contains the weeks. */
+/**
+ * A month displayed in the month grid. Contains the weeks.
+ *
+ * @category Classes
+ */
 export class Month {
   constructor(month: Date, weeks: Week[]) {
     this.date = month;

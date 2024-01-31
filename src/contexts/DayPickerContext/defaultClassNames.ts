@@ -1,9 +1,7 @@
 import { type ClassNames, UI } from '../../types/ui';
 
 // TODO: reduce amount of code or keep verbose?
-/**
- * The name of the default CSS classes.
- */
+/** The name of the default CSS classes. */
 export const defaultClassNames: Required<ClassNames> = {
   [UI.Root]: 'rdp',
   [UI.MultipleMonths]: 'multiple_months',
@@ -59,11 +57,6 @@ export const defaultClassNames: Required<ClassNames> = {
   [UI.HeadCell]: 'head_cell',
   [UI.Cell]: 'cell',
   [UI.Footer]: 'footer',
-  [UI.ContrastMore]: 'contrast_more',
-  [UI.ContrastLess]: 'contrast_less',
-  [UI.ColorDark]: 'dark',
-  [UI.ColorLight]: 'light',
-  [UI.ColorAuto]: '',
   [UI.DropdownNav]: 'dropdown_nav',
   [UI.MonthsDropdown]: 'months_dropdown',
   [UI.ContrastNoPreference]: '',

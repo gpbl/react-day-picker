@@ -27,10 +27,12 @@ import { Link as RemixLink } from '@remix-run/react';
 import { Description } from './Description';
 import { LinkHeading } from './LinkHeading';
 import listStyles from './listStyles.module.css';
+import tableStyles from './tableStyles.module.css';
 import { Pre } from './Pre';
 import { PreviewBox } from './PreviewBox';
 import { SectionTitle } from './SectionTitle';
 import { Step, Steps } from './Steps';
+import { SignatureMemberIdentifier } from './SignatureMemberIdentifier';
 
 /** All the components used to generate the MDX pages. */
 export const components = {
@@ -41,11 +43,12 @@ export const components = {
 
   // Custom components
   PreviewBox,
-  RenderJsx,
   Description,
   SectionTitle,
   Steps,
   Step,
+
+  SignatureMemberIdentifier,
 
   // Radix UI components
   Text,
@@ -60,12 +63,20 @@ export const components = {
   a: function a(props: PropsWithChildren<{ href?: string }>) {
     const { href = '', ...restProps } = props;
     if (href.startsWith('http')) {
-      return <Link {...restProps} href={href} target="_blank" rel="noopener" />;
+      return (
+        <Link
+          {...restProps}
+          style={{ textDecoration: 'underline' }}
+          href={href}
+          target="_blank"
+          rel="noopener"
+        />
+      );
     }
     const href2 = href.replace('.md', '');
     return (
       <RemixLink to={href2}>
-        <Link {...restProps} />
+        <Link style={{ textDecoration: 'underline' }} {...restProps} />
       </RemixLink>
     );
   },
@@ -229,7 +240,11 @@ export const components = {
   },
 
   table: function table(props: PropsWithChildren) {
-    return <Table.Root {...props}>{props.children}</Table.Root>;
+    return (
+      <Table.Root className={tableStyles.Table} {...props}>
+        {props.children}
+      </Table.Root>
+    );
   }
 };
 

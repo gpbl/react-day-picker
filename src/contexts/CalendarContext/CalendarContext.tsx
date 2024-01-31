@@ -3,7 +3,6 @@ import { createContext, type ReactNode, useContext } from 'react';
 import { startOfMonth } from 'date-fns/startOfMonth';
 
 import type { CalendarDay } from '../../classes/CalendarDay';
-import { DayPickerCalendar } from '../../contexts/CalendarContext';
 import { useDayPicker } from '../../contexts/DayPickerContext';
 import { useControlledValue } from '../../utils/useControlledValue';
 import { getDates } from './utils/getDates';
@@ -16,14 +15,73 @@ import { getNextMonth } from './utils/getNextMonth';
 import { getPreviousMonth } from './utils/getPreviousMonth';
 import { getStartMonth } from './utils/getStartMonth';
 import { getWeeks } from './utils/getWeeks';
+import { Week, Month } from '../../classes';
+import { DropdownOption } from '../../components';
 
-export const calendarContext = createContext<DayPickerCalendar | undefined>(
+export interface CalendarContext {
+  /** All the unique dates displayed to the calendar. */
+  dates: Date[];
+  /**
+   * All the days displayed in the calendar. As opposite from
+   * {@link CalendarContext.dates}, it may return duplicated dates when shown
+   * outside the month.
+   */
+  days: CalendarDay[];
+  /** The months displayed in the calendar. */
+  weeks: Week[];
+  /** The months displayed in the calendar. */
+  months: Month[];
+  /**
+   * The month displayed as first the calendar. When
+   * {@link DayPickerProps.numberOfMonths} is greater than `1`, it is the first
+   * of the displayed months.
+   */
+  firstMonth: Date;
+  /**
+   * The month displayed as last the calendar. When
+   * {@link DayPickerProps.numberOfMonths} is greater than `1`, it is the last of
+   * the displayed months.
+   */
+  lastMonth: Date;
+  /** The next month to display. */
+  nextMonth: Date | undefined;
+  /** The previous month to display. */
+  previousMonth: Date | undefined;
+  /** The options to use in the years or months dropdowns. */
+  dropdown: {
+    /** The options to use in the months dropdown. */
+    months: DropdownOption[] | undefined;
+    /** The options to use in the years dropdown. */
+    years: DropdownOption[] | undefined;
+  };
+  /**
+   * Navigate to the specified month. Will fire the
+   * {@link DayPickerProps.onMonthChange} callback.
+   */
+  goToMonth: (month: Date) => void;
+  /** Navigate to the next month. */
+  goToNextMonth: () => void;
+  /** Navigate to the previous month. */
+  goToPreviousMonth: () => void;
+  /**
+   * Navigate to the specified date. If the second parameter (refDate) is
+   * provided and the date is before the refDate, then the month is set to one
+   * month before the date.
+   *
+   * @param day - The date to navigate to.
+   * @param dateToCompare - Optional. If `date` is before `dateToCompare`, the
+   *   month is set to one month before the date.
+   */
+  goToDay: (day: CalendarDay) => void;
+  /** Whether the given date is included in the displayed months. */
+  isDayDisplayed: (day: CalendarDay) => boolean;
+}
+
+export const calendarContext = createContext<CalendarContext | undefined>(
   undefined
 );
 
-/**
- * The provider for the `calendarContext`, storing the calendar state.
- */
+/** The provider for the `calendarContext`, storing the calendar state. */
 export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const dayPicker = useDayPicker();
 
@@ -77,6 +135,8 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     if (isDayDisplayed(day)) {
       return;
     }
+
+    // TODO:
     // if (refDate && isBefore(date, refDate)) {
     //   console.log('date is before refDate');
     //   const month = addMonths(date, 1 + dayPicker.numberOfMonths * -1);
@@ -95,7 +155,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     return previousMonth ? goToMonth(previousMonth) : undefined;
   }
 
-  const calendar: DayPickerCalendar = {
+  const calendar: CalendarContext = {
     dates,
     months,
     weeks,
@@ -126,12 +186,13 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
 }
 
 /**
- * Use this hook to access to the dates displayed in the calendar and to navigate between months.
+ * Use this hook to access to the dates displayed in the calendar and to
+ * navigate between months.
  */
-export function useCalendar(): DayPickerCalendar {
+export function useCalendar(): CalendarContext {
   const context = useContext(calendarContext);
   if (!context)
     throw new Error(`useCalendar must be used within a CalendarProvider.`);
 
   return context;
-}
+} /** The calendar displayed in DayPicker. */

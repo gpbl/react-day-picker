@@ -1,7 +1,7 @@
 {
   "$schema": "https://typedoc.org/schema.json",
 
-  "name": "DayPicker",
+  "name": "API Reference",
   "tsconfig": "../tsconfig.build.json",
   "entryPoints": ["../src/index.ts"],
   "out": "./pages/api",
@@ -12,7 +12,7 @@
 
   "readme": "none",
   "plugin": ["typedoc-plugin-markdown", "./typedoc-theme/dist/index.js"],
-  "theme": "custom-typedoc-theme",
+  "theme": "typedoc-theme",
 
   "entryFileName": "index.md",
   "excludeTags": ["@topic"],
@@ -20,7 +20,14 @@
   "hideBreadcrumbs": true,
   "hidePageHeader": true,
   "parametersFormat": "table",
+  "namedAnchors": true,
   "preserveAnchorCasing": false,
   "propertiesFormat": "list",
-  "publicPath": "/api/"
+  "publicPath": "/api/",
+  "enumMembersFormat": "table",
+  "typeDeclarationFormat": "table",
+  "indexFormat": "table",
+  "textContentMappings": {
+    "title.memberPage": "{name}"
+  }
 }

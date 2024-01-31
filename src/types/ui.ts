@@ -1,5 +1,6 @@
 import { CSSProperties } from 'react';
 
+/** @category Styling */
 export enum UI {
   /** Represents the root element. */
   Root = 'rdp',
@@ -14,11 +15,6 @@ export enum UI {
   CaptionStart = 'caption_start',
   Caption = 'caption',
   Cell = 'cell',
-  ColorAuto = 'color_auto',
-  ColorDark = 'color_dark',
-  ColorLight = 'color_light',
-  ContrastLess = 'contrast_less',
-  ContrastMore = 'contrast_more',
   DayDisabled = 'day_disabled',
   DayHidden = 'day_hidden',
   DayOutside = 'day_outside',
@@ -36,7 +32,6 @@ export enum UI {
   DropdownMonth = 'dropdown_month',
   /** Modifiers added to the {@link Dropdown} root when displaying the years. */
   DropdownYear = 'dropdown_year',
-  /** */
   Dropdown = 'dropdown',
   /** The root element of the {@link DropdownNav} component. */
   DropdownNav = 'dropdown_nav',

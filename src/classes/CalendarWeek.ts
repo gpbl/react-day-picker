@@ -1,6 +1,10 @@
 import { CalendarDay } from './CalendarDay';
 
-/** A week displayed in a month grid. Contains the days. */
+/**
+ * A week displayed in a month grid. Contains the days.
+ *
+ * @category Classes
+ */
 export class Week {
   constructor(weekNumber: number, days: CalendarDay[]) {
     this.days = days;

@@ -33,8 +33,8 @@ export const dayPickerContext = createContext<DayPickerContext<Mode> | null>(
 );
 
 /**
- * The provider for the `dayPickerContext`, storing the props and setting its defaults.
- * Must be the root of all the providers.
+ * The provider for the `dayPickerContext`, storing the props and setting its
+ * defaults. Must be the root of all the providers.
  */
 export const DayPickerProvider = <T extends Mode>(
   props: PropsWithChildren<DayPickerProps<T>>
@@ -77,9 +77,7 @@ export const DayPickerProvider = <T extends Mode>(
   );
 };
 
-/**
- * Use this hook to access to the DayPicker context within Custom Components.
- */
+/** Use this hook to access to the DayPicker context within Custom Components. */
 export function useDayPicker() {
   const context = useContext(dayPickerContext);
   if (!context)

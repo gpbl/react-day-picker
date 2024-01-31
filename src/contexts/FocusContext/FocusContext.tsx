@@ -26,8 +26,8 @@ export interface FocusContext {
   /** The date that is currently focused. */
   focusedDay: CalendarDay | undefined;
   /**
-   * The date that is target of the focus when tabbing into the month grid.
-   * The focus target is the selected date first, then the today date, then the
+   * The date that is target of the focus when tabbing into the month grid. The
+   * focus target is the selected date first, then the today date, then the
    * first focusable date.
    */
   autoFocusTarget: CalendarDay | undefined;
@@ -132,8 +132,8 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
 }
 
 /**
- * Hook to access the {@link FocusContext}. Use this hook to handle the
- * focus state of the elements.
+ * Hook to access the {@link FocusContext}. Use this hook to handle the focus
+ * state of the elements.
  *
  * This hook is meant to be used inside internal or custom components.
  */

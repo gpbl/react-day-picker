@@ -8,9 +8,8 @@ import { startOfMonth } from 'date-fns/startOfMonth';
  *
  * Please note that the next month is not always the next calendar month:
  *
- * - if after the `toDate` range, is `undefined`;
- * - if the navigation is paged , is the number of months displayed ahead.
- *
+ * - If after the `toDate` range, is `undefined`;
+ * - If the navigation is paged , is the number of months displayed ahead.
  */
 export function getNextMonth(
   firstMonth: Date,
