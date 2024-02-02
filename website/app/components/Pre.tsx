@@ -5,6 +5,7 @@ import { PropsWithChildren } from 'react';
 export function Pre(props: PropsWithChildren<BoxProps>) {
   return (
     <Box
+      {...props}
       p="4"
       my="5"
       style={{
@@ -15,7 +16,6 @@ export function Pre(props: PropsWithChildren<BoxProps>) {
         fontSize: 'var(--font-size-2)',
         backgroundColor: 'var(--slate-a2)'
       }}
-      {...props}
     >
       <pre
         style={{

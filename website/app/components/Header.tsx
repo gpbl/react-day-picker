@@ -11,6 +11,7 @@ import { useMobileMenuContext } from './MobileMenu';
 import { ThemeToggle } from './ThemeToggle';
 import { HeaderLink } from './HeaderLink';
 import { Logo } from './Logo';
+import { VersionToggle } from './VersionToggle';
 
 export interface HeaderProps {
   children?: React.ReactNode;
@@ -133,6 +134,7 @@ export function Header({ children, gitHubLink, ghost }: HeaderProps) {
         >
           {children}
 
+          <VersionToggle />
           {gitHubLink && (
             <Tooltip content="View GitHub ">
               <IconButton asChild size="3" variant="ghost" color="gray">

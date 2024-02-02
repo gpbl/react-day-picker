@@ -5,10 +5,15 @@
   --rdp-font-medium: 1rem;
   --rdp-font-large: 1.25rem;
   --rdp-opacity: 0.5;
-  --rdp-accent-color: #007aff;
-  --rdp-background-color: #e0efff;
-  --rdp-outline: 2px solid var(--rdp-accent-color); /* Outline border for focused elements */
-  --rdp-outline-selected: 3px solid var(--rdp-accent-color); /* Outline border for focused _and_ selected elements */
+
+  --rdp-accent: #007aff;
+  --rdp-background: #e0efff;
+
+  --rdp-accent-dark: #0a84ff;
+  --rdp-background-dark: #02203d;
+
+  --rdp-outline: 2px solid var(--rdp-accent); /* Outline border for focused elements */
+  --rdp-outline-selected: 3px solid var(--rdp-accent); /* Outline border for focused _and_ selected elements */
 
   display: inline-block;
   position: relative;
@@ -17,16 +22,6 @@
 
 .rdp * {
   box-sizing: border-box;
-}
-
-.color_light {
-  --rdp-accent-color: #0a84ff;
-  --rdp-background-color: #02203d;
-}
-
-.color_dark {
-  --rdp-accent-color: #0a84ff;
-  --rdp-background-color: #02203d;
 }
 
 .months_wrapper {
@@ -123,7 +118,7 @@
 .button_next > svg,
 .button_previous > svg,
 .caption_label > svg {
-  fill: var(--rdp-accent-color);
+  fill: var(--rdp-accent);
 }
 
 .button_next:disabled,
@@ -186,7 +181,7 @@
   + .caption_label,
 .dropdown:focus-visible:not([disabled]):not([aria-disabled='true'])
   + .caption_label {
-  background-color: var(--rdp-background-color);
+  background-color: var(--rdp-background);
   border: var(--rdp-outline);
   border-radius: 6px;
 } */
@@ -245,18 +240,18 @@
 }
 
 .day_today:not(.day_outside) {
-  color: var(--rdp-accent-color);
+  color: var(--rdp-accent);
 }
 
 .day_selected,
 .day_selected.day_outside {
   opacity: 1;
   /* outline: none; */
-  /* color: var(--rdp-accent-color); */
-  background-color: var(--rdp-background-color);
+  /* color: var(--rdp-accent); */
+  background-color: var(--rdp-background);
   font-size: var(--rdp-font-large);
   font-weight: 600;
-  border-color: var(--rdp-accent-color);
+  border-color: var(--rdp-accent);
 }
 
 .day_selected:focus-visible {

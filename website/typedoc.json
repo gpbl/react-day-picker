@@ -4,7 +4,7 @@
   "name": "API Reference",
   "tsconfig": "../tsconfig.build.json",
   "entryPoints": ["../src/index.ts"],
-  "out": "./pages/api",
+  "out": "./app/pages/api",
 
   "basePath": "/",
 

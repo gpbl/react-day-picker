@@ -9,9 +9,25 @@
   --quick-nav-display: none;
 }
 
-:where(.dark-theme, .dark) :where(.dark-theme, .dark) {
-  --developer-experience-code-window-background: var(--black-a9);
+.dark .rdp,
+.dark-theme .rdp,
+.dark .rdp,
+.dark-theme .rdp,
+.light .rdp,
+.light-theme .rdp,
+.light .rdp,
+.light-theme .rdp {
+  --rdp-accent: var(--accent-a9);
+  --rdp-background: var(--accent-a9);
 }
+
+/* .dark .rdp,
+.dark-theme .rdp,
+.dark .rdp,
+.dark-theme .rdp {
+  --rdp-accent: var(--rdp-accent);
+  --rdp-background: var(--rdp-accent);
+} */
 
 @media (min-width: 768px) {
   :root {

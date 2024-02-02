@@ -17,7 +17,7 @@ export type Frontmatter = {
   sort?: string;
 };
 
-const MDX_PATH = path.join(process.cwd(), './pages');
+const MDX_PATH = path.join(process.cwd(), './app/pages');
 
 /** Get the frontmatter and code for a single page */
 export async function getDoc(slug: string, subPath = '') {
@@ -30,7 +30,7 @@ export async function getDoc(slug: string, subPath = '') {
   const [source] = await Promise.all([readFile(filePath, 'utf-8')]);
 
   const prettyCodeOptions: Parameters<typeof rehypePrettyCode>[0] = {
-    keepBackground: true,
+    keepBackground: false,
     theme: {
       dark: 'github-dark',
       light: 'light-plus'
@@ -59,31 +59,3 @@ export async function getDoc(slug: string, subPath = '') {
 
   return page;
 }
-
-// /**
-//  * Get all frontmatter for all docs
-//  */
-// export async function getDocs() {
-//   const filePath = path.join(process.cwd(), 'app');
-
-//   const paths = await readdir(filePath, {
-//     withFileTypes: true
-//   });
-
-//   const docs = await Promise.all(
-//     paths.map(async (docPath) => {
-//       const fPath = path.join(filePath, docPath.name);
-//       const [file] = await Promise.all([readFile(fPath)]);
-//       const frontMatterResult = parseFrontMatter(file.toString());
-//       const frontmatter = frontMatterResult.attributes as Frontmatter;
-
-//       return {
-//         slug: docPath.name.replace(/\.md/, ''),
-//         frontmatter: {
-//           ...frontmatter
-//         }
-//       };
-//     })
-//   );
-//   return docs;
-// }

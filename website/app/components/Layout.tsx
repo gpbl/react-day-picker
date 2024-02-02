@@ -7,8 +7,8 @@ import { MobileMenuProvider } from '@/components/MobileMenu';
 import { SideNav } from '@/components/SideNav';
 import { Box, Flex } from '@radix-ui/themes';
 import { useLocation } from '@remix-run/react';
-import { apiNav } from '@/routes/nav.api';
-import { docsNav } from '@/routes/nav';
+import { apiNav } from 'pages/nav.api';
+import { docsNav } from 'pages/nav';
 
 export function Layout(props: PropsWithChildren) {
   const location = useLocation();
