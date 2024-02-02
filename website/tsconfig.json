@@ -19,7 +19,6 @@
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["node", "jest", "@testing-library/jest-dom"],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./app/*"],
       "@/test/*": ["../test/*"],

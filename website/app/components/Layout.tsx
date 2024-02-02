@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { type PropsWithChildren } from 'react';
 
 import { DocsNav } from '@/components/DocsNav';
 import { DocsPageWrapper } from '@/components/DocsPageWrapper';
@@ -7,8 +7,8 @@ import { MobileMenuProvider } from '@/components/MobileMenu';
 import { SideNav } from '@/components/SideNav';
 import { Box, Flex } from '@radix-ui/themes';
 import { useLocation } from '@remix-run/react';
-import { apiNav } from 'pages/nav.api';
-import { docsNav } from 'pages/nav';
+import { apiNav } from '@/pages/nav.api';
+import { docsNav } from '@/pages/nav.docs';
 
 export function Layout(props: PropsWithChildren) {
   const location = useLocation();

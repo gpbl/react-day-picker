@@ -1,15 +1,14 @@
-import { Box } from '@radix-ui/themes';
-import { BoxProps } from 'node_modules/@radix-ui/themes/dist/esm/components/box';
-import { PropsWithChildren } from 'react';
+import { type PropsWithChildren } from 'react';
 
-export function Pre(props: PropsWithChildren<BoxProps>) {
+import { Box } from '@radix-ui/themes';
+
+export function Pre(props: PropsWithChildren) {
   return (
     <Box
       {...props}
       p="4"
       my="5"
       style={{
-        ...props.style,
         overflow: 'auto',
         boxShadow: '0 0 0 1px var(--slate-a5)',
         borderRadius: 'var(--radius-2)',

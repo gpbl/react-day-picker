@@ -1,24 +1,15 @@
-// import dayPickerCssHref from 'react-day-picker/dist/style.css';
-
 import {
-  ThemeProvider,
-  useTheme,
   PreventFlashOnWrongTheme,
-  Theme
+  Theme,
+  ThemeProvider,
+  useTheme
 } from 'remix-themes';
-import { themeSessionResolver } from './sessions.server';
-
-// Return the theme from the session storage using the loader
-export const loader: LoaderFunction = async ({ request }) => {
-  const { getTheme } = await themeSessionResolver(request);
-  return {
-    theme: getTheme()
-  };
-};
-
-import { Theme as RadixTheme } from '@radix-ui/themes';
 
 import { Layout } from '@/components/Layout';
+import { themeSessionResolver } from '@/sessions.server';
+import tailwindHref from '@/tailwind.css';
+import { Theme as RadixTheme } from '@radix-ui/themes';
+import radixUIHref from '@radix-ui/themes/styles.css';
 import { cssBundleHref } from '@remix-run/css-bundle';
 import type { LinksFunction, LoaderFunction } from '@remix-run/node';
 import {
@@ -31,8 +22,13 @@ import {
   useLoaderData
 } from '@remix-run/react';
 
-import tailwindHref from './tailwind.css';
-import radixUIHref from '@radix-ui/themes/styles.css';
+// Return the theme from the session storage using the loader
+export const loader: LoaderFunction = async ({ request }) => {
+  const { getTheme } = await themeSessionResolver(request);
+  return {
+    theme: getTheme()
+  };
+};
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: tailwindHref },
@@ -40,8 +36,12 @@ export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])
 ];
 
+type LoaderData = {
+  theme: Theme;
+};
+
 export default function AppWithProviders() {
-  const data = useLoaderData<{ theme: Theme }>(); // Update the type of `data` to include the `theme` property
+  const data = useLoaderData<LoaderData>(); // Update the type of `data` to include the `theme` property
   return (
     <ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
       <App />
@@ -50,7 +50,7 @@ export default function AppWithProviders() {
 }
 
 function App() {
-  const data = useLoaderData();
+  const data = useLoaderData() as LoaderData;
   const [theme] = useTheme();
   return (
     <html lang="en" data-theme={theme ?? ''} className={theme ?? ''}>
