@@ -1,10 +1,10 @@
-import { useCalendar } from '../contexts/CalendarContext';
-import { useDayPicker } from '../contexts/DayPickerContext';
-import { UI } from '../types';
-import { Footer as DefaultFooter } from './Footer';
-import { MonthGrid as DefaultMonthGrid } from './MonthGrid';
-import { Months as DefaultMonths } from './Months';
-import { Nav as DefaultNav } from './Nav';
+import { useCalendar } from "../contexts/CalendarContext";
+import { useDayPicker } from "../contexts/DayPickerContext";
+import { UI } from "../types";
+import { Footer as DefaultFooter } from "./Footer";
+import { MonthGrid as DefaultMonthGrid } from "./MonthGrid";
+import { Months as DefaultMonths } from "./Months";
+import { Nav as DefaultNav } from "./Nav";
 
 /** Render the DayPicker Calendar with navigation and the month grids. */
 export function Calendar() {
@@ -25,7 +25,7 @@ export function Calendar() {
     showWeekNumber,
     style,
     styles,
-    title
+    title,
   } = useDayPicker();
 
   const calendar = useCalendar();
@@ -52,7 +52,7 @@ export function Calendar() {
 
   return (
     <div
-      className={cssClassNames.join(' ')}
+      className={cssClassNames.join(" ")}
       style={{ ...styles?.rdp, ...style }}
       dir={dir}
       id={id}
@@ -61,7 +61,7 @@ export function Calendar() {
       title={title}
       {...dataAttributes}
     >
-      {captionLayout !== 'dropdown' && !hideNavigation && <Nav />}
+      {captionLayout !== "dropdown" && !hideNavigation && <Nav />}
       <Months
         className={classNames.months_wrapper}
         style={styles?.months_wrapper}

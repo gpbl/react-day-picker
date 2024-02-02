@@ -1,12 +1,12 @@
-import { ChangeEventHandler } from 'react';
+import { ChangeEventHandler } from "react";
 
-import { setYear } from 'date-fns/setYear';
-import { startOfMonth } from 'date-fns/startOfMonth';
+import { setYear } from "date-fns/setYear";
+import { startOfMonth } from "date-fns/startOfMonth";
 
-import { Month } from '../classes/CalendarMonth';
-import { useCalendar } from '../contexts/CalendarContext';
-import { useDayPicker } from '../contexts/DayPickerContext';
-import { Dropdown as DefaultDropdown } from './Dropdown';
+import { Month } from "../classes/CalendarMonth";
+import { useCalendar } from "../contexts/CalendarContext";
+import { useDayPicker } from "../contexts/DayPickerContext";
+import { Dropdown as DefaultDropdown } from "./Dropdown";
 
 /**
  * Render the dropdown to change the year.
@@ -20,7 +20,7 @@ export function YearsDropdown(props: {
   const {
     classNames,
     components,
-    labels: { labelYearDropdown }
+    labels: { labelYearDropdown },
   } = useDayPicker();
 
   const { dropdown, goToMonth } = useCalendar();
@@ -28,7 +28,7 @@ export function YearsDropdown(props: {
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const month = setYear(
       startOfMonth(props.month.date),
-      Number(e.target.value)
+      Number(e.target.value),
     );
     goToMonth(month);
   };

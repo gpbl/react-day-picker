@@ -1,4 +1,4 @@
-import { format } from 'date-fns/format';
+import { format } from "date-fns/format";
 
 /**
  * The default formatter for the name of the weekday.
@@ -7,7 +7,7 @@ import { format } from 'date-fns/format';
  */
 export function formatWeekdayName(
   weekday: Date,
-  options?: Parameters<typeof format>[2]
+  options?: Parameters<typeof format>[2],
 ) {
-  return format(weekday, 'cccccc', options);
+  return format(weekday, "cccccc", options);
 }

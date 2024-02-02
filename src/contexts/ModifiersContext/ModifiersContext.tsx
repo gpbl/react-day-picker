@@ -1,15 +1,15 @@
-import type { ReactNode } from 'react';
-import { createContext, useContext } from 'react';
+import type { ReactNode } from "react";
+import { createContext, useContext } from "react";
 
-import { isSameDay } from 'date-fns/isSameDay';
-import { isSameMonth } from 'date-fns/isSameMonth';
+import { isSameDay } from "date-fns/isSameDay";
+import { isSameMonth } from "date-fns/isSameMonth";
 
-import { CalendarDay } from '../../classes';
-import { useCalendar } from '../../contexts/CalendarContext';
-import { useDayPicker } from '../../contexts/DayPickerContext';
-import { useSelection } from '../../contexts/SelectionContext';
-import type { InternalModifier, Modifiers, ModifiersMap } from '../../types';
-import { dateMatchModifiers } from './utils/dateMatchModifiers';
+import { CalendarDay } from "../../classes";
+import { useCalendar } from "../../contexts/CalendarContext";
+import { useDayPicker } from "../../contexts/DayPickerContext";
+import { useSelection } from "../../contexts/SelectionContext";
+import type { InternalModifier, Modifiers, ModifiersMap } from "../../types";
+import { dateMatchModifiers } from "./utils/dateMatchModifiers";
 
 /** A record with `data-*` attributes passed to `DayPicker`. */
 export type DataAttributes = Record<`data-${string}`, unknown>;
@@ -50,7 +50,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     excluded: [],
     range_start: [],
     range_middle: [],
-    range_end: []
+    range_end: [],
   };
 
   /** Custom modifiers that are coming from the `modifiers` props */
@@ -62,14 +62,14 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
 
     const isDisabled = Boolean(
-      dayPicker.disabled && dateMatchModifiers(date, dayPicker.disabled)
+      dayPicker.disabled && dateMatchModifiers(date, dayPicker.disabled),
     );
 
     const isSelected =
       selection.isSelected(date) ||
       Boolean(
         dayPicker.modifiers?.selected &&
-          dateMatchModifiers(date, dayPicker.modifiers.selected)
+          dateMatchModifiers(date, dayPicker.modifiers.selected),
       );
 
     const isHidden =
@@ -118,7 +118,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
       range_middle: false,
       range_start: false,
       selected: false,
-      today: false
+      today: false,
     };
 
     for (const name in internal) {

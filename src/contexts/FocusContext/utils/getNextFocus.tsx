@@ -1,13 +1,13 @@
-import { getPossibleFocusDate } from './getPossibleFocusDate';
-import { DayPickerContext } from '../../DayPickerContext';
-import { Mode } from '../../../types';
-import { CalendarDay } from '../../../classes/CalendarDay';
-import { dateMatchModifiers } from '../../ModifiersContext/utils/dateMatchModifiers';
-import type { MoveFocusBy, MoveFocusDir } from '../FocusContext';
+import { getPossibleFocusDate } from "./getPossibleFocusDate";
+import { DayPickerContext } from "../../DayPickerContext";
+import { Mode } from "../../../types";
+import { CalendarDay } from "../../../classes/CalendarDay";
+import { dateMatchModifiers } from "../../ModifiersContext/utils/dateMatchModifiers";
+import type { MoveFocusBy, MoveFocusDir } from "../FocusContext";
 
 export type Options = Pick<
   DayPickerContext<Mode>,
-  'modifiers' | 'locale' | 'ISOWeek' | 'weekStartsOn' | 'fromDate' | 'toDate'
+  "modifiers" | "locale" | "ISOWeek" | "weekStartsOn" | "fromDate" | "toDate"
 >;
 
 export function getNextFocus(
@@ -17,16 +17,16 @@ export function getNextFocus(
   focused: CalendarDay,
   options: Pick<
     DayPickerContext<Mode>,
-    | 'disabled'
-    | 'hidden'
-    | 'modifiers'
-    | 'locale'
-    | 'ISOWeek'
-    | 'weekStartsOn'
-    | 'fromDate'
-    | 'toDate'
+    | "disabled"
+    | "hidden"
+    | "modifiers"
+    | "locale"
+    | "ISOWeek"
+    | "weekStartsOn"
+    | "fromDate"
+    | "toDate"
   >,
-  attempt: number = 0
+  attempt: number = 0,
 ): CalendarDay | undefined {
   if (attempt > 365) {
     // Limit the recursion to 365 attempts
@@ -37,15 +37,15 @@ export function getNextFocus(
     moveBy,
     moveDir,
     focused.date,
-    options
+    options,
   );
 
   const isDisabled = Boolean(
-    options.disabled && dateMatchModifiers(possibleFocusDate, options.disabled)
+    options.disabled && dateMatchModifiers(possibleFocusDate, options.disabled),
   );
 
   const isHidden = Boolean(
-    options.hidden && dateMatchModifiers(possibleFocusDate, options.hidden)
+    options.hidden && dateMatchModifiers(possibleFocusDate, options.hidden),
   );
 
   const targetMonth = possibleFocusDate;

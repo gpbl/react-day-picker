@@ -1,14 +1,14 @@
-import { Calendar } from './components/Calendar';
-import { ContextProviders } from './contexts/ContextProviders';
+import { Calendar } from "./components/Calendar";
+import { ContextProviders } from "./contexts/ContextProviders";
 import type {
   Mode,
   PropsBase,
   PropsMulti,
   PropsRange,
-  PropsSingle
-} from './types/props';
+  PropsSingle,
+} from "./types/props";
 
-import './style.css';
+import "./style.css";
 
 /**
  * Map of the props supported by selection modes.
@@ -43,7 +43,7 @@ export type DayPickerProps<T extends Mode> = PropsBase &
  * @category Component
  * @see https://react-day-picker.js.org
  */
-export function DayPicker<T extends Mode = 'none'>(props: DayPickerProps<T>) {
+export function DayPicker<T extends Mode = "none">(props: DayPickerProps<T>) {
   return (
     <ContextProviders {...props}>
       <Calendar />

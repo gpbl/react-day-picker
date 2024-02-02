@@ -1,7 +1,7 @@
-import { es } from 'date-fns/locale/es';
+import { es } from "date-fns/locale/es";
 
-import type { Modifiers } from '../types';
-import { labelDay } from './labelDay';
+import type { Modifiers } from "../types";
+import { labelDay } from "./labelDay";
 
 const day = new Date(2022, 10, 21);
 const modifiers: Modifiers = {
@@ -15,10 +15,10 @@ const modifiers: Modifiers = {
   range_middle: false,
   range_start: false,
   selected: false,
-  today: false
+  today: false,
 };
-test('should return the day label', () => {
+test("should return the day label", () => {
   expect(labelDay(day, modifiers, { locale: es })).toEqual(
-    '21º noviembre (lunes)'
+    "21º noviembre (lunes)",
   );
 });

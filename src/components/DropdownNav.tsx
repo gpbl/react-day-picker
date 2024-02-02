@@ -1,7 +1,7 @@
-import { Month } from '../classes';
-import { useDayPicker } from '../contexts/DayPickerContext';
-import { MonthsDropdown } from './MonthsDropdown';
-import { YearsDropdown } from './YearsDropdown';
+import { Month } from "../classes";
+import { useDayPicker } from "../contexts/DayPickerContext";
+import { MonthsDropdown } from "./MonthsDropdown";
+import { YearsDropdown } from "./YearsDropdown";
 
 /**
  * Render the dropdowns to navigate between months.

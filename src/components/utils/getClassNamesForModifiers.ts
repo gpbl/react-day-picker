@@ -1,14 +1,14 @@
 import type {
   InternalModifier,
   Modifiers,
-  ModifiersClassNames
-} from '../../types/modifiers';
-import type { ClassNames } from '../../types/ui';
+  ModifiersClassNames,
+} from "../../types/modifiers";
+import type { ClassNames } from "../../types/ui";
 
 export function getClassNamesForModifiers(
   modifiers: Modifiers,
   modifiersClassNames: ModifiersClassNames,
-  classNames: ClassNames
+  classNames: ClassNames,
 ) {
   const modifierClassNames = Object.entries(modifiers)
     .filter(([, active]) => active === true)

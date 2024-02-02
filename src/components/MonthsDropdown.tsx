@@ -1,12 +1,12 @@
-import type { ChangeEventHandler } from 'react';
+import type { ChangeEventHandler } from "react";
 
-import { setMonth } from 'date-fns/setMonth';
-import { startOfMonth } from 'date-fns/startOfMonth';
+import { setMonth } from "date-fns/setMonth";
+import { startOfMonth } from "date-fns/startOfMonth";
 
-import { Month } from '../classes';
-import { useCalendar } from '../contexts/CalendarContext';
-import { useDayPicker } from '../contexts/DayPickerContext';
-import { Dropdown as DefaultDropdown } from './Dropdown';
+import { Month } from "../classes";
+import { useCalendar } from "../contexts/CalendarContext";
+import { useDayPicker } from "../contexts/DayPickerContext";
+import { Dropdown as DefaultDropdown } from "./Dropdown";
 
 /**
  * Render the dropdown to change the month.
@@ -20,7 +20,7 @@ export function MonthsDropdown(props: {
   const {
     classNames,
     components,
-    labels: { labelMonthDropdown }
+    labels: { labelMonthDropdown },
   } = useDayPicker();
 
   const { dropdown, goToMonth } = useCalendar();

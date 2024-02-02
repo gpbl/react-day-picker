@@ -1,5 +1,5 @@
-import { enUS } from 'date-fns/locale/en-US';
-import type { Month } from 'date-fns/types';
+import { enUS } from "date-fns/locale/en-US";
+import type { Month } from "date-fns/types";
 
 /**
  * The default formatter for the month dropdown value.

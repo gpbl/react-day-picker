@@ -1,15 +1,15 @@
-import { addDays } from 'date-fns/addDays';
-import { differenceInCalendarDays } from 'date-fns/differenceInCalendarDays';
-import { differenceInCalendarMonths } from 'date-fns/differenceInCalendarMonths';
-import { endOfISOWeek } from 'date-fns/endOfISOWeek';
-import { endOfMonth } from 'date-fns/endOfMonth';
-import { endOfWeek } from 'date-fns/endOfWeek';
-import { isAfter } from 'date-fns/isAfter';
-import { startOfISOWeek } from 'date-fns/startOfISOWeek';
-import { startOfWeek } from 'date-fns/startOfWeek';
+import { addDays } from "date-fns/addDays";
+import { differenceInCalendarDays } from "date-fns/differenceInCalendarDays";
+import { differenceInCalendarMonths } from "date-fns/differenceInCalendarMonths";
+import { endOfISOWeek } from "date-fns/endOfISOWeek";
+import { endOfMonth } from "date-fns/endOfMonth";
+import { endOfWeek } from "date-fns/endOfWeek";
+import { isAfter } from "date-fns/isAfter";
+import { startOfISOWeek } from "date-fns/startOfISOWeek";
+import { startOfWeek } from "date-fns/startOfWeek";
 
-import { DayPickerProps } from '../../../DayPicker';
-import { Mode } from '../../../types';
+import { DayPickerProps } from "../../../DayPicker";
+import { Mode } from "../../../types";
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;
@@ -31,8 +31,8 @@ export function getDates(
   maxDate?: Date | undefined,
   options?: Pick<
     DayPickerProps<Mode>,
-    'ISOWeek' | 'fixedWeeks' | 'locale' | 'weekStartsOn'
-  >
+    "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn"
+  >,
 ): Date[] {
   const firstMonth = displayMonths[0];
   const lastMonth = displayMonths[displayMonths.length - 1];
@@ -43,14 +43,14 @@ export function getDates(
     ? startOfISOWeek(firstMonth)
     : startOfWeek(firstMonth, {
         weekStartsOn,
-        locale
+        locale,
       });
 
   const endWeekLastDate = ISOWeek
     ? endOfISOWeek(endOfMonth(lastMonth))
     : endOfWeek(endOfMonth(lastMonth), {
         weekStartsOn,
-        locale
+        locale,
       });
 
   const nOfDays = differenceInCalendarDays(endWeekLastDate, startWeekFirstDate);

@@ -1,7 +1,7 @@
-import { addDays, subDays } from 'date-fns';
+import { addDays, subDays } from "date-fns";
 
-import type { DateRange } from '../../../types/matchers';
-import { addToRange } from './addToRange';
+import type { DateRange } from "../../../types/matchers";
+import { addToRange } from "./addToRange";
 
 describe('when no "from" is the range', () => {
   const range = { from: undefined };
@@ -23,7 +23,7 @@ describe('when no "to" is the range', () => {
     beforeAll(() => {
       result = addToRange(day, range);
     });
-    test('should reset the range', () => {
+    test("should reset the range", () => {
       expect(result).toEqual({ from: undefined, to: undefined });
     });
   });
@@ -56,7 +56,7 @@ describe('when "from", "to" and "day" are the same', () => {
   beforeAll(() => {
     result = addToRange(day, range);
   });
-  test('should return an undefined range (reset)', () => {
+  test("should return an undefined range (reset)", () => {
     expect(result).toBeUndefined();
   });
 });
@@ -84,7 +84,7 @@ describe('when "from" and "day" are the same', () => {
   beforeAll(() => {
     result = addToRange(day, range);
   });
-  test('should return an undefined range (reset)', () => {
+  test("should return an undefined range (reset)", () => {
     expect(result).toBeUndefined();
   });
 });

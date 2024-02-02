@@ -1,7 +1,7 @@
-import { getMDXComponent } from 'mdx-bundler/client/index.js';
+import { getMDXComponent } from "mdx-bundler/client/index.js";
 
-import { components as defaultComponents } from '@/components/components';
-import { MDXComponents } from 'mdx/types';
+import { mdxComponents as defaultComponents } from "@/components/mdxComponents";
+import { MDXComponents } from "mdx/types";
 
 interface RenderJsxProps {
   jsx: string;
@@ -17,7 +17,7 @@ export function RenderJsx(props: RenderJsxProps) {
     <Component
       components={{
         ...defaultComponents,
-        ...components
+        ...components,
       }}
     />
   );

@@ -1,4 +1,4 @@
-import type { OptionHTMLAttributes } from 'react';
+import type { OptionHTMLAttributes } from "react";
 
 /**
  * Render the `option` element.

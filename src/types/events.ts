@@ -1,4 +1,4 @@
-import type { Modifiers } from './modifiers';
+import type { Modifiers } from "./modifiers";
 
 /** @category Event Handlers */
 export type DayEventHandler<T> = (
@@ -7,7 +7,7 @@ export type DayEventHandler<T> = (
   /** The modifiers belonging to the date. */
   modifiers: Modifiers,
   /** The DOM event that triggered this event. */
-  e: T
+  e: T,
 ) => void;
 
 /**
@@ -66,7 +66,7 @@ export type WeekNumberClickEventHandler = (
   /** The dates in the clicked week. */
   dates: Date[],
   /** The mouse event that triggered this event. */
-  e: React.MouseEvent
+  e: React.MouseEvent,
 ) => void;
 
 /**

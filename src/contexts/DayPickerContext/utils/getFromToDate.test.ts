@@ -1,4 +1,4 @@
-import { getFromToDate } from './getFromToDate';
+import { getFromToDate } from "./getFromToDate";
 
 describe('when "fromMonth" is not passed in', () => {
   test('"fromDate" should be undefined', () => {
@@ -54,7 +54,7 @@ describe('when "showCaption" is passed in', () => {
   const today = new Date(2024, 4, 3);
   const { fromDate, toDate } = getFromToDate({
     dropdownNavigation: true,
-    today
+    today,
   });
   test('"fromDate" should be 100 years ago', () => {
     expect(fromDate).toEqual(new Date(1924, 0, 1));
@@ -70,7 +70,7 @@ describe('when "fromYear" and "showCaption" are passed in', () => {
   const { fromDate, toDate } = getFromToDate({
     dropdownNavigation: true,
     fromYear,
-    today
+    today,
   });
   test('"fromDate" should be equal to the "fromYear"', () => {
     expect(fromDate).toEqual(new Date(2022, 0, 1));
@@ -85,7 +85,7 @@ describe('when "toYear" and "showCaption" are passed in', () => {
   const { toDate, fromDate } = getFromToDate({
     dropdownNavigation: true,
     toYear,
-    today
+    today,
   });
   test('"fromDate" should be 100 years ago', () => {
     expect(fromDate).toEqual(new Date(1921, 0, 1));

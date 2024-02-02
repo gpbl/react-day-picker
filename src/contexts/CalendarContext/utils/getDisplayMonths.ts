@@ -1,4 +1,4 @@
-import { addMonths } from 'date-fns/addMonths';
+import { addMonths } from "date-fns/addMonths";
 
 export function getDisplayMonths(
   firstMonth: Date,
@@ -6,7 +6,7 @@ export function getDisplayMonths(
     numberOfMonths: number;
     toDate?: Date;
     reverseMonths?: boolean;
-  }
+  },
 ) {
   const { numberOfMonths, toDate } = options;
   const months: Date[] = [];

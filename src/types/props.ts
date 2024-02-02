@@ -1,8 +1,8 @@
-import type { KeyboardEvent, MouseEvent } from 'react';
+import type { KeyboardEvent, MouseEvent } from "react";
 
-import type { Locale } from 'date-fns/types';
+import type { Locale } from "date-fns/types";
 
-import * as components from '../components/custom-components';
+import * as components from "../components/custom-components";
 import type {
   DayFocusEventHandler,
   DayKeyboardEventHandler,
@@ -10,17 +10,17 @@ import type {
   DayPointerEventHandler,
   DayTouchEventHandler,
   MonthChangeEventHandler,
-  WeekNumberClickEventHandler
-} from './events';
-import type { Formatters } from './formatters';
-import type { Labels } from './labels';
-import type { DateRange, Matcher } from './matchers';
+  WeekNumberClickEventHandler,
+} from "./events";
+import type { Formatters } from "./formatters";
+import type { Labels } from "./labels";
+import type { DateRange, Matcher } from "./matchers";
 import type {
   Modifiers,
   ModifiersClassNames,
-  ModifiersStyles
-} from './modifiers';
-import type { ClassNames, Styles } from './ui';
+  ModifiersStyles,
+} from "./modifiers";
+import type { ClassNames, Styles } from "./ui";
 
 /**
  * The base props for the {@link DayPicker} component.
@@ -118,7 +118,7 @@ export interface PropsBase {
    * **Note:** showing the dropdown will default {@link fromYear} to the 100
    * years ago, and {@link toYear} to the current year.
    */
-  dropdownNavigation?: boolean | 'month' | 'year';
+  dropdownNavigation?: boolean | "month" | "year";
 
   /**
    * Display always 6 weeks per each month, regardless the month’s number of
@@ -194,19 +194,19 @@ export interface PropsBase {
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
    */
-  dir?: HTMLDivElement['dir'];
+  dir?: HTMLDivElement["dir"];
 
   /**
    * A cryptographic nonce ("number used once") which can be used by Content
    * Security Policy for the inline `style` attributes.
    */
-  nonce?: HTMLDivElement['nonce'];
+  nonce?: HTMLDivElement["nonce"];
 
   /** Add a `title` attribute to the container element. */
-  title?: HTMLDivElement['title'];
+  title?: HTMLDivElement["title"];
 
   /** Add the language tag to the container element. */
-  lang?: HTMLDivElement['lang'];
+  lang?: HTMLDivElement["lang"];
 
   /**
    * The date-fns locale object used to localize dates.
@@ -327,11 +327,11 @@ export interface PropsSingle {
   /** Makes the selection required. */
   required?: boolean;
   /** The selected Date. */
-  selected?: Selected<'single'> | undefined;
+  selected?: Selected<"single"> | undefined;
   /** The initially selected value when not controlled. */
-  defaultSelected?: Selected<'single'> | undefined;
+  defaultSelected?: Selected<"single"> | undefined;
   /** The callback called when the user selects a day. */
-  onSelect?: SelectHandler<'single'> | undefined;
+  onSelect?: SelectHandler<"single"> | undefined;
 }
 
 /**
@@ -341,11 +341,11 @@ export interface PropsSingle {
  */
 export interface PropsMulti {
   /** The selected dates. */
-  selected?: Selected<'multi'> | undefined;
+  selected?: Selected<"multi"> | undefined;
   /** The initially selected values when not controlled. */
-  defaultSelected?: Selected<'multi'> | undefined;
+  defaultSelected?: Selected<"multi"> | undefined;
   /** The callback called when the user selects a day. */
-  onSelect?: SelectHandler<'multi'> | undefined;
+  onSelect?: SelectHandler<"multi"> | undefined;
   /** Makes the selection required. */
   required?: boolean;
   /** The minimum number of days that can be selected. */
@@ -361,11 +361,11 @@ export interface PropsMulti {
  */
 export interface PropsRange {
   /** The selected range. */
-  selected?: Selected<'range'> | undefined;
+  selected?: Selected<"range"> | undefined;
   /** The initially selected range when not controlled. */
-  defaultSelected?: Selected<'range'> | undefined;
+  defaultSelected?: Selected<"range"> | undefined;
   /** The callback called when the user selects a day. */
-  onSelect?: SelectHandler<'range'> | undefined;
+  onSelect?: SelectHandler<"range"> | undefined;
   /** Makes the selection required. */
   required?: boolean;
   /** The minimum number of days that can be selected. */
@@ -398,7 +398,7 @@ export type CustomComponents = {
  * @category Component
  * @see https://react-day-picker.dev/docs/selection-modes
  */
-export type Mode = 'none' | 'single' | 'multi' | 'range';
+export type Mode = "none" | "single" | "multi" | "range";
 
 /**
  * Set the layout of the caption.
@@ -407,18 +407,18 @@ export type Mode = 'none' | 'single' | 'multi' | 'range';
  *   {@link PropsBase.hideNavigation}.
  * @category Deprecated Exports
  */
-export type CaptionLayout = 'dropdown' | 'buttons' | 'dropdown-buttons';
+export type CaptionLayout = "dropdown" | "buttons" | "dropdown-buttons";
 
 /**
  * The selected value when in selection mode.
  *
  * @category Component
  */
-export type Selected<T extends Mode> = T extends 'single'
+export type Selected<T extends Mode> = T extends "single"
   ? Date
-  : T extends 'multi'
+  : T extends "multi"
     ? Date[]
-    : T extends 'range'
+    : T extends "range"
       ? DateRange
       : undefined;
 
@@ -435,5 +435,5 @@ export type SelectHandler<T extends Mode> = (
   /** The modifiers for the day that triggered the selection. */
   modifiers: Modifiers,
   /** The event that made the selection. */
-  e: MouseEvent | KeyboardEvent
+  e: MouseEvent | KeyboardEvent,
 ) => void;

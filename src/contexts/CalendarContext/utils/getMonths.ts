@@ -1,17 +1,17 @@
-import { addDays } from 'date-fns/addDays';
-import { endOfISOWeek } from 'date-fns/endOfISOWeek';
-import { endOfMonth } from 'date-fns/endOfMonth';
-import { endOfWeek } from 'date-fns/endOfWeek';
-import { getISOWeek } from 'date-fns/getISOWeek';
-import { getWeek } from 'date-fns/getWeek';
-import { startOfISOWeek } from 'date-fns/startOfISOWeek';
-import { startOfWeek } from 'date-fns/startOfWeek';
+import { addDays } from "date-fns/addDays";
+import { endOfISOWeek } from "date-fns/endOfISOWeek";
+import { endOfMonth } from "date-fns/endOfMonth";
+import { endOfWeek } from "date-fns/endOfWeek";
+import { getISOWeek } from "date-fns/getISOWeek";
+import { getWeek } from "date-fns/getWeek";
+import { startOfISOWeek } from "date-fns/startOfISOWeek";
+import { startOfWeek } from "date-fns/startOfWeek";
 
-import { CalendarDay } from '../../../classes/CalendarDay';
-import { Month } from '../../../classes/CalendarMonth';
-import { Week } from '../../../classes/CalendarWeek';
-import { DayPickerProps } from '../../../DayPicker';
-import { Mode } from '../../../types/props';
+import { CalendarDay } from "../../../classes/CalendarDay";
+import { Month } from "../../../classes/CalendarMonth";
+import { Week } from "../../../classes/CalendarWeek";
+import { DayPickerProps } from "../../../DayPicker";
+import { Mode } from "../../../types/props";
 
 /** Return the months to display in the calendar. */
 export function getMonths(
@@ -21,27 +21,27 @@ export function getMonths(
   dates: Date[],
   options: Pick<
     DayPickerProps<Mode>,
-    | 'fixedWeeks'
-    | 'ISOWeek'
-    | 'locale'
-    | 'weekStartsOn'
-    | 'reverseMonths'
-    | 'firstWeekContainsDate'
-  > = {}
+    | "fixedWeeks"
+    | "ISOWeek"
+    | "locale"
+    | "weekStartsOn"
+    | "reverseMonths"
+    | "firstWeekContainsDate"
+  > = {},
 ): Month[] {
   const dayPickerMonths = displayMonths.reduce<Month[]>((months, month) => {
     const firstDateOfFirstWeek = options.ISOWeek
       ? startOfISOWeek(month)
       : startOfWeek(month, {
           locale: options.locale,
-          weekStartsOn: options.weekStartsOn
+          weekStartsOn: options.weekStartsOn,
         });
 
     const lastDateOfLastWeek = options.ISOWeek
       ? endOfISOWeek(endOfMonth(month))
       : endOfWeek(endOfMonth(month), {
           locale: options.locale,
-          weekStartsOn: options.weekStartsOn
+          weekStartsOn: options.weekStartsOn,
         });
 
     /** The dates to display in the month. */
@@ -64,7 +64,7 @@ export function getMonths(
         : getWeek(date, {
             locale: options.locale,
             weekStartsOn: options.weekStartsOn,
-            firstWeekContainsDate: options.firstWeekContainsDate
+            firstWeekContainsDate: options.firstWeekContainsDate,
           });
       const week = weeks.find((week) => week.weekNumber === weekNumber);
 

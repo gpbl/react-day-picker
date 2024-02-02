@@ -1,11 +1,11 @@
-import { labelDay } from '../labels/labelDay';
-import { labelMonthDropdown } from '../labels/labelMonthDropdown';
-import { labelNext } from '../labels/labelNext';
-import { labelPrevious } from '../labels/labelPrevious';
-import { labelWeekday } from '../labels/labelWeekday';
-import { labelWeekNumber } from '../labels/labelWeekNumber';
-import { labelWeekNumberHeader } from '../labels/labelWeekNumberHeader';
-import { labelYearDropdown } from '../labels/labelYearDropdown';
+import { labelDay } from "../labels/labelDay";
+import { labelMonthDropdown } from "../labels/labelMonthDropdown";
+import { labelNext } from "../labels/labelNext";
+import { labelPrevious } from "../labels/labelPrevious";
+import { labelWeekday } from "../labels/labelWeekday";
+import { labelWeekNumber } from "../labels/labelWeekNumber";
+import { labelWeekNumberHeader } from "../labels/labelWeekNumberHeader";
+import { labelYearDropdown } from "../labels/labelYearDropdown";
 
 /**
  * Map of functions returning ARIA labels for the relative elements.

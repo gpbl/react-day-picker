@@ -1,16 +1,16 @@
-import { getUnixTime } from 'date-fns/getUnixTime';
+import { getUnixTime } from "date-fns/getUnixTime";
 
-import { Week } from '../classes';
-import { useDayPicker } from '../contexts/DayPickerContext';
-import { WeekNumberRowHeader as DefaultWeekNumberRowHeader } from './WeekNumberRowHeader';
-import { DayGridCellWrapper } from './DayGridCellWrapper';
+import { Week } from "../classes";
+import { useDayPicker } from "../contexts/DayPickerContext";
+import { WeekNumberRowHeader as DefaultWeekNumberRowHeader } from "./WeekNumberRowHeader";
+import { DayGridCellWrapper } from "./DayGridCellWrapper";
 
 /**
  * Render a row in the calendar, with the days and the week number.
  *
  * @category Custom Components
  */
-export function WeekRow(props: { ['aria-rowindex']: number; week: Week }) {
+export function WeekRow(props: { ["aria-rowindex"]: number; week: Week }) {
   const { styles, classNames, showWeekNumber, components } = useDayPicker();
 
   const WeekNumberRowHeader =
@@ -19,7 +19,7 @@ export function WeekRow(props: { ['aria-rowindex']: number; week: Week }) {
   return (
     <div
       role="row"
-      aria-rowindex={props['aria-rowindex']}
+      aria-rowindex={props["aria-rowindex"]}
       className={classNames.week_row}
       style={styles?.week_row}
     >

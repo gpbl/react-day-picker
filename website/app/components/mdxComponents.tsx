@@ -35,7 +35,7 @@ import { Step, Steps } from './Steps';
 import { SignatureMemberIdentifier } from './SignatureMemberIdentifier';
 
 /** All the components used to generate the MDX pages. */
-export const components = {
+export const mdxComponents = {
   DayPicker,
 
   // All examples are available under `Examples` to consume in the docs

@@ -1,12 +1,12 @@
-import { addYears } from 'date-fns/addYears';
-import { endOfMonth } from 'date-fns/endOfMonth';
-import { endOfYear } from 'date-fns/endOfYear';
-import { startOfDay } from 'date-fns/startOfDay';
-import { startOfMonth } from 'date-fns/startOfMonth';
-import { startOfYear } from 'date-fns/startOfYear';
+import { addYears } from "date-fns/addYears";
+import { endOfMonth } from "date-fns/endOfMonth";
+import { endOfYear } from "date-fns/endOfYear";
+import { startOfDay } from "date-fns/startOfDay";
+import { startOfMonth } from "date-fns/startOfMonth";
+import { startOfYear } from "date-fns/startOfYear";
 
-import type { DayPickerProps } from '../../../DayPicker';
-import type { Mode } from '../../../types';
+import type { DayPickerProps } from "../../../DayPicker";
+import type { Mode } from "../../../types";
 
 /**
  * Return the `fromDate` and `toDate` prop values values parsing the DayPicker
@@ -15,17 +15,17 @@ import type { Mode } from '../../../types';
 export function getFromToDate(
   props: Pick<
     DayPickerProps<Mode>,
-    | 'id'
-    | 'fromYear'
-    | 'toYear'
-    | 'fromDate'
-    | 'toDate'
-    | 'fromMonth'
-    | 'toMonth'
-    | 'today'
-    | 'dropdownNavigation'
-  >
-): Pick<DayPickerProps<Mode>, 'fromDate' | 'toDate'> {
+    | "id"
+    | "fromYear"
+    | "toYear"
+    | "fromDate"
+    | "toDate"
+    | "fromMonth"
+    | "toMonth"
+    | "today"
+    | "dropdownNavigation"
+  >,
+): Pick<DayPickerProps<Mode>, "fromDate" | "toDate"> {
   const { fromYear, toYear, fromMonth, toMonth } = props;
   let { fromDate, toDate } = props;
 
@@ -45,6 +45,6 @@ export function getFromToDate(
   }
   return {
     fromDate: fromDate ? startOfDay(fromDate) : undefined,
-    toDate: toDate ? startOfDay(toDate) : undefined
+    toDate: toDate ? startOfDay(toDate) : undefined,
   };
 }

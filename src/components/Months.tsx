@@ -1,4 +1,4 @@
-import type { HTMLProps } from 'react';
+import type { HTMLProps } from "react";
 
 /**
  * Component wrapping the month grids.
@@ -6,7 +6,7 @@ import type { HTMLProps } from 'react';
  * @category Custom Components
  */
 export function Months(
-  props: Pick<HTMLProps<HTMLElement>, 'children' | 'className' | 'style'>
+  props: Pick<HTMLProps<HTMLElement>, "children" | "className" | "style">,
 ) {
   return <div {...props}>{props.children}</div>;
 }

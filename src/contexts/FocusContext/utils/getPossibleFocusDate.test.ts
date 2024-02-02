@@ -1,8 +1,8 @@
-import type { Locale } from 'date-fns';
-import { Mode } from '../../../types';
-import { DayPickerContext } from '../../DayPickerContext';
-import type { MoveFocusBy, MoveFocusDir } from '../FocusContext';
-import { getPossibleFocusDate } from './getPossibleFocusDate'; // Adjust the import path
+import type { Locale } from "date-fns";
+import { Mode } from "../../../types";
+import { DayPickerContext } from "../../DayPickerContext";
+import type { MoveFocusBy, MoveFocusDir } from "../FocusContext";
+import { getPossibleFocusDate } from "./getPossibleFocusDate"; // Adjust the import path
 import {
   addDays,
   addWeeks,
@@ -11,19 +11,19 @@ import {
   startOfISOWeek,
   endOfISOWeek,
   startOfWeek,
-  endOfWeek
-} from 'date-fns';
+  endOfWeek,
+} from "date-fns";
 
 const baseDate = new Date(2023, 0, 1); // Jan 1, 2023
 const options: Pick<
   DayPickerContext<Mode>,
-  'locale' | 'ISOWeek' | 'weekStartsOn' | 'fromDate' | 'toDate'
+  "locale" | "ISOWeek" | "weekStartsOn" | "fromDate" | "toDate"
 > = {
   locale: undefined,
   ISOWeek: false,
   weekStartsOn: 0, // Sunday
   fromDate: new Date(2022, 0, 1), // Jan 1, 2022
-  toDate: new Date(2024, 0, 1) // Jan 1, 2024
+  toDate: new Date(2024, 0, 1), // Jan 1, 2024
 };
 
 const testCases: {
@@ -31,19 +31,19 @@ const testCases: {
   moveDir: MoveFocusDir;
   expectedFn: (date: Date | number, amount: number) => Date;
 }[] = [
-  { moveBy: 'day', moveDir: 'after', expectedFn: addDays },
-  { moveBy: 'day', moveDir: 'before', expectedFn: addDays },
-  { moveBy: 'month', moveDir: 'after', expectedFn: addMonths },
-  { moveBy: 'month', moveDir: 'before', expectedFn: addMonths },
-  { moveBy: 'week', moveDir: 'after', expectedFn: addWeeks },
-  { moveBy: 'week', moveDir: 'before', expectedFn: addWeeks },
-  { moveBy: 'year', moveDir: 'after', expectedFn: addYears },
-  { moveBy: 'year', moveDir: 'before', expectedFn: addYears }
+  { moveBy: "day", moveDir: "after", expectedFn: addDays },
+  { moveBy: "day", moveDir: "before", expectedFn: addDays },
+  { moveBy: "month", moveDir: "after", expectedFn: addMonths },
+  { moveBy: "month", moveDir: "before", expectedFn: addMonths },
+  { moveBy: "week", moveDir: "after", expectedFn: addWeeks },
+  { moveBy: "week", moveDir: "before", expectedFn: addWeeks },
+  { moveBy: "year", moveDir: "after", expectedFn: addYears },
+  { moveBy: "year", moveDir: "before", expectedFn: addYears },
 ];
 
 testCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   test(`should move ${moveDir} by ${moveBy}`, () => {
-    const expectedDate = expectedFn(baseDate, moveDir === 'after' ? 1 : -1);
+    const expectedDate = expectedFn(baseDate, moveDir === "after" ? 1 : -1);
     const result = getPossibleFocusDate(moveBy, moveDir, baseDate, options);
     expect(result).toEqual(expectedDate);
   });
@@ -59,11 +59,11 @@ const weekTestCases: {
           locale?: Locale | undefined;
           weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
         }
-      | undefined
+      | undefined,
   ) => Date;
 }[] = [
-  { moveBy: 'endOfWeek', moveDir: 'after', expectedFn: endOfWeek },
-  { moveBy: 'startOfWeek', moveDir: 'after', expectedFn: startOfWeek }
+  { moveBy: "endOfWeek", moveDir: "after", expectedFn: endOfWeek },
+  { moveBy: "startOfWeek", moveDir: "after", expectedFn: startOfWeek },
 ];
 
 weekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
@@ -80,8 +80,8 @@ const ISOWeekTestCases: {
   moveDir: MoveFocusDir;
   expectedFn: (date: Date | number) => Date;
 }[] = [
-  { moveBy: 'endOfWeek', moveDir: 'after', expectedFn: endOfISOWeek },
-  { moveBy: 'startOfWeek', moveDir: 'after', expectedFn: startOfISOWeek }
+  { moveBy: "endOfWeek", moveDir: "after", expectedFn: endOfISOWeek },
+  { moveBy: "startOfWeek", moveDir: "after", expectedFn: startOfISOWeek },
 ];
 
 ISOWeekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
@@ -89,28 +89,28 @@ ISOWeekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
     const expectedDate = expectedFn(baseDate);
     const result = getPossibleFocusDate(moveBy, moveDir, baseDate, {
       ...options,
-      ISOWeek: true
+      ISOWeek: true,
     });
     expect(result).toEqual(expectedDate);
   });
 });
 
-test('should not move before fromDate', () => {
+test("should not move before fromDate", () => {
   const result = getPossibleFocusDate(
-    'day',
-    'before',
+    "day",
+    "before",
     new Date(2022, 0, 2),
-    options
+    options,
   );
   expect(result).toEqual(options.fromDate);
 });
 
-test('should not move after toDate', () => {
+test("should not move after toDate", () => {
   const result = getPossibleFocusDate(
-    'day',
-    'after',
+    "day",
+    "after",
     new Date(2023, 11, 31),
-    options
+    options,
   );
   expect(result).toEqual(options.toDate);
 });

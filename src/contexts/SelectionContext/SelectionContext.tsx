@@ -1,20 +1,20 @@
-import type { KeyboardEvent, MouseEvent, PropsWithChildren } from 'react';
-import { createContext, useContext, useState } from 'react';
+import type { KeyboardEvent, MouseEvent, PropsWithChildren } from "react";
+import { createContext, useContext, useState } from "react";
 
-import { addDays } from 'date-fns/addDays';
-import { differenceInCalendarDays } from 'date-fns/differenceInCalendarDays';
-import { isSameDay } from 'date-fns/isSameDay';
-import { subDays } from 'date-fns/subDays';
+import { addDays } from "date-fns/addDays";
+import { differenceInCalendarDays } from "date-fns/differenceInCalendarDays";
+import { isSameDay } from "date-fns/isSameDay";
+import { subDays } from "date-fns/subDays";
 
-import { useDayPicker } from '../../contexts/DayPickerContext';
-import type { Matcher } from '../../types/matchers';
-import type { Modifiers } from '../../types/modifiers';
-import type { Mode, Selected } from '../../types/props';
-import { isDateInRange } from '../../utils/isDateInRange';
-import { isDateRange } from '../../utils/typeguards';
-import { useControlledValue } from '../../utils/useControlledValue';
-import { dateMatchModifiers } from '../ModifiersContext/utils/dateMatchModifiers';
-import { addToRange } from './utils/addToRange';
+import { useDayPicker } from "../../contexts/DayPickerContext";
+import type { Matcher } from "../../types/matchers";
+import type { Modifiers } from "../../types/modifiers";
+import type { Mode, Selected } from "../../types/props";
+import { isDateInRange } from "../../utils/isDateInRange";
+import { isDateRange } from "../../utils/typeguards";
+import { useControlledValue } from "../../utils/useControlledValue";
+import { dateMatchModifiers } from "../ModifiersContext/utils/dateMatchModifiers";
+import { addToRange } from "./utils/addToRange";
 
 /** @category Contexts */
 export interface SelectionContext {
@@ -23,7 +23,7 @@ export interface SelectionContext {
   setSelected: (
     date: Date,
     modifiers: Modifiers,
-    e: MouseEvent | KeyboardEvent
+    e: MouseEvent | KeyboardEvent,
   ) => void;
   isSelected: (date: Date) => boolean;
   excluded: Matcher[];
@@ -35,7 +35,7 @@ const contextValue: SelectionContext = {
   setSelected: () => undefined,
   isSelected: () => false,
   excluded: [],
-  isExcluded: () => false
+  isExcluded: () => false,
 };
 const selectionContext = createContext<SelectionContext>(contextValue);
 
@@ -49,7 +49,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
 
   const [selection, setSelection] = useControlledValue(
     dayPicker.defaultSelected ?? dayPicker.selected,
-    dayPicker.selected
+    dayPicker.selected,
   );
   const [excluded, setExcluded] = useState<Matcher[]>([]);
 
@@ -57,7 +57,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   function setSingle(
     date: Date,
     modifiers: Modifiers,
-    e: MouseEvent | KeyboardEvent
+    e: MouseEvent | KeyboardEvent,
   ) {
     let selected: Date | undefined;
     if (modifiers.selected && !required) {
@@ -79,7 +79,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   function setMulti(
     date: Date,
     modifiers: Modifiers,
-    e: MouseEvent | KeyboardEvent
+    e: MouseEvent | KeyboardEvent,
   ) {
     if (selection !== undefined && !Array.isArray(selection)) {
       // Not a multi select
@@ -115,7 +115,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   function setRange(
     date: Date,
     modifiers: Modifiers,
-    e: MouseEvent | KeyboardEvent
+    e: MouseEvent | KeyboardEvent,
   ) {
     if (selection !== undefined && !isDateRange(selection)) {
       return;
@@ -127,7 +127,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
       if (selected?.from && !selected.to) {
         excluded.push({
           after: subDays(selected?.from, min - 1),
-          before: addDays(selected?.from, min - 1)
+          before: addDays(selected?.from, min - 1),
         });
       }
       if (
@@ -151,10 +151,10 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
       }
       if (selected?.from && !selected.to) {
         excluded.push({
-          before: addDays(selected?.from, -max + 1)
+          before: addDays(selected?.from, -max + 1),
         });
         excluded.push({
-          after: addDays(selected?.from, max - 1)
+          after: addDays(selected?.from, max - 1),
         });
       }
     }
@@ -176,17 +176,17 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   function setSelected(
     date: Date,
     modifiers: Modifiers,
-    e: MouseEvent | KeyboardEvent
+    e: MouseEvent | KeyboardEvent,
   ) {
-    if (mode === 'single') setSingle(date, modifiers, e);
-    if (mode === 'multi') setMulti(date, modifiers, e);
-    if (mode === 'range') setRange(date, modifiers, e);
+    if (mode === "single") setSingle(date, modifiers, e);
+    if (mode === "multi") setMulti(date, modifiers, e);
+    if (mode === "range") setRange(date, modifiers, e);
   }
 
   function isSelected(date: Date) {
-    if (mode === 'single') return isSingleSelected(date);
-    if (mode === 'multi') return isMultiSelected(date);
-    if (mode === 'range') return isRangeSelected(date);
+    if (mode === "single") return isSingleSelected(date);
+    if (mode === "multi") return isMultiSelected(date);
+    if (mode === "range") return isRangeSelected(date);
     return false;
   }
 
@@ -199,7 +199,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
     setSelected,
     excluded,
     isSelected,
-    isExcluded
+    isExcluded,
   };
 
   return (

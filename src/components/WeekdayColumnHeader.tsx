@@ -1,4 +1,4 @@
-import { useDayPicker } from '../contexts/DayPickerContext';
+import { useDayPicker } from "../contexts/DayPickerContext";
 
 /**
  * Render the column header with the weekday name (e.g. "Mo", "Tu", etc.)
@@ -6,8 +6,8 @@ import { useDayPicker } from '../contexts/DayPickerContext';
  * @category Custom Components
  */
 export function WeekdayColumnHeader(props: {
-  ['aria-colindex']?: number | undefined;
-  ['aria-label']?: string | undefined;
+  ["aria-colindex"]?: number | undefined;
+  ["aria-label"]?: string | undefined;
   weekday?: Date;
 }) {
   const {
@@ -16,12 +16,12 @@ export function WeekdayColumnHeader(props: {
     labels: { labelWeekday, labelWeekNumberHeader },
     locale,
     hideWeekdayRow,
-    styles
+    styles,
   } = useDayPicker();
   return (
     <span
       role="columnheader"
-      aria-colindex={props['aria-colindex']}
+      aria-colindex={props["aria-colindex"]}
       aria-label={
         props.weekday
           ? labelWeekday(props.weekday, { locale })
@@ -31,7 +31,7 @@ export function WeekdayColumnHeader(props: {
       style={styles?.weekday_columnheader}
     >
       {!hideWeekdayRow &&
-        (props.weekday ? formatWeekdayName(props.weekday, { locale }) : '#')}
+        (props.weekday ? formatWeekdayName(props.weekday, { locale }) : "#")}
     </span>
   );
 }

@@ -1,12 +1,12 @@
-import { FunctionComponent, PropsWithChildren } from 'react';
+import { FunctionComponent, PropsWithChildren } from "react";
 
-import { DayPickerProps } from '../DayPicker';
-import { Mode } from '../types';
-import { CalendarProvider } from './CalendarContext';
-import { DayPickerProvider } from './DayPickerContext';
-import { FocusProvider } from './FocusContext';
-import { ModifiersProvider } from './ModifiersContext';
-import { SelectionProvider } from './SelectionContext';
+import { DayPickerProps } from "../DayPicker";
+import { Mode } from "../types";
+import { CalendarProvider } from "./CalendarContext";
+import { DayPickerProvider } from "./DayPickerContext";
+import { FocusProvider } from "./FocusContext";
+import { ModifiersProvider } from "./ModifiersContext";
+import { SelectionProvider } from "./SelectionContext";
 
 /**
  * Provide the value for all the contexts.

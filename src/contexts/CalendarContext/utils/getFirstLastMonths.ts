@@ -1,9 +1,9 @@
-import { addMonths } from 'date-fns/addMonths';
-import { differenceInCalendarMonths } from 'date-fns/differenceInCalendarMonths';
-import { startOfMonth } from 'date-fns/startOfMonth';
+import { addMonths } from "date-fns/addMonths";
+import { differenceInCalendarMonths } from "date-fns/differenceInCalendarMonths";
+import { startOfMonth } from "date-fns/startOfMonth";
 
-import type { PropsBase } from '../../../types/props';
-import { getFromToDate } from '../../DayPickerContext/utils/getFromToDate';
+import type { PropsBase } from "../../../types/props";
+import { getFromToDate } from "../../DayPickerContext/utils/getFromToDate";
 
 /**
  * Return the first and the last months according to the props passed to
@@ -13,18 +13,18 @@ export function getFirstLastMonths(
   props: Partial<
     Pick<
       PropsBase,
-      | 'fromYear'
-      | 'toYear'
-      | 'fromDate'
-      | 'toDate'
-      | 'fromMonth'
-      | 'toMonth'
-      | 'month'
-      | 'defaultMonth'
-      | 'today'
-      | 'numberOfMonths'
+      | "fromYear"
+      | "toYear"
+      | "fromDate"
+      | "toDate"
+      | "fromMonth"
+      | "toMonth"
+      | "month"
+      | "defaultMonth"
+      | "today"
+      | "numberOfMonths"
     >
-  >
+  >,
 ): [firstMonth: Date, lastMonth?: Date] {
   const { month, defaultMonth, today, numberOfMonths = 1 } = props;
   let initialMonth = month || defaultMonth || today || new Date();

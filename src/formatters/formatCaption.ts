@@ -1,4 +1,4 @@
-import { format } from 'date-fns/format';
+import { format } from "date-fns/format";
 
 /**
  * The default formatter for the caption element.
@@ -7,9 +7,9 @@ import { format } from 'date-fns/format';
  */
 export function formatCaption(
   month: Date,
-  options?: Parameters<typeof format>[2]
+  options?: Parameters<typeof format>[2],
 ) {
-  return format(month, 'LLLL y', options);
+  return format(month, "LLLL y", options);
 }
 
 /**

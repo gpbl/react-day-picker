@@ -1,6 +1,6 @@
-import { addMonths } from 'date-fns/addMonths';
-import { differenceInCalendarMonths } from 'date-fns/differenceInCalendarMonths';
-import { startOfMonth } from 'date-fns/startOfMonth';
+import { addMonths } from "date-fns/addMonths";
+import { differenceInCalendarMonths } from "date-fns/differenceInCalendarMonths";
+import { startOfMonth } from "date-fns/startOfMonth";
 
 /**
  * Returns the next previous the user can navigate to, according to the given
@@ -21,7 +21,7 @@ export function getPreviousMonth(
     pagedNavigation?: boolean;
     today?: Date;
     disableNavigation?: boolean;
-  }
+  },
 ): Date | undefined {
   if (options.disableNavigation) {
     return undefined;

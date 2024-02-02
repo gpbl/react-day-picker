@@ -1,12 +1,12 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties } from "react";
 
-import type { Modifiers, ModifiersStyles } from '../../types/modifiers';
-import type { Styles } from '../../types/ui';
+import type { Modifiers, ModifiersStyles } from "../../types/modifiers";
+import type { Styles } from "../../types/ui";
 
 export function getStyleForModifiers(
   modifiers: Modifiers,
   modifiersStyles: Partial<ModifiersStyles>,
-  styles: Partial<Styles>
+  styles: Partial<Styles>,
 ): CSSProperties {
   let style: CSSProperties = { ...styles.day };
   Object.entries(modifiers)
@@ -14,7 +14,7 @@ export function getStyleForModifiers(
     .forEach(([modifier]) => {
       style = {
         ...style,
-        ...modifiersStyles?.[modifier]
+        ...modifiersStyles?.[modifier],
       };
     });
   return style;

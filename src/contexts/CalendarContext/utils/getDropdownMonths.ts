@@ -1,16 +1,16 @@
-import { addMonths } from 'date-fns/addMonths';
-import { isBefore } from 'date-fns/isBefore';
-import { startOfMonth } from 'date-fns/startOfMonth';
-import type { Month } from 'date-fns/types';
+import { addMonths } from "date-fns/addMonths";
+import { isBefore } from "date-fns/isBefore";
+import { startOfMonth } from "date-fns/startOfMonth";
+import type { Month } from "date-fns/types";
 
-import type { DropdownOption } from '../../../components/custom-components';
-import type { Formatters, Mode } from '../../../types';
-import type { DayPickerContext } from '../../DayPickerContext';
+import type { DropdownOption } from "../../../components/custom-components";
+import type { Formatters, Mode } from "../../../types";
+import type { DayPickerContext } from "../../DayPickerContext";
 
 export function getDropdownMonths(
-  dayPicker: Pick<DayPickerContext<Mode>, 'fromDate' | 'toDate' | 'locale'> & {
-    formatters: Pick<Formatters, 'formatMonthDropdown'>;
-  }
+  dayPicker: Pick<DayPickerContext<Mode>, "fromDate" | "toDate" | "locale"> & {
+    formatters: Pick<Formatters, "formatMonthDropdown">;
+  },
 ): DropdownOption[] | undefined {
   if (!dayPicker.fromDate) return undefined;
   if (!dayPicker.toDate) return undefined;

@@ -1,8 +1,8 @@
-import { isAfter } from 'date-fns/isAfter';
-import { isBefore } from 'date-fns/isBefore';
-import { isSameDay } from 'date-fns/isSameDay';
+import { isAfter } from "date-fns/isAfter";
+import { isBefore } from "date-fns/isBefore";
+import { isSameDay } from "date-fns/isSameDay";
 
-import { DateRange } from '../../../types/matchers';
+import { DateRange } from "../../../types/matchers";
 
 /**
  * Add a day to an existing range.
@@ -12,7 +12,7 @@ import { DateRange } from '../../../types/matchers';
  */
 export function addToRange(
   date: Date,
-  range?: DateRange
+  range?: DateRange,
 ): DateRange | undefined {
   const { from, to } = range || {};
   if (from && to) {

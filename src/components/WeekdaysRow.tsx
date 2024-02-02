@@ -1,6 +1,6 @@
-import { useDayPicker } from '../contexts/DayPickerContext';
-import { WeekdayColumnHeader as DefaultWeekdayColumnHeader } from './WeekdayColumnHeader';
-import { getWeekdays } from './utils/getWeekdays';
+import { useDayPicker } from "../contexts/DayPickerContext";
+import { WeekdayColumnHeader as DefaultWeekdayColumnHeader } from "./WeekdayColumnHeader";
+import { getWeekdays } from "./utils/getWeekdays";
 
 /**
  * Render the row with the weekday names.
@@ -16,7 +16,7 @@ export function WeekdaysRow() {
     locale,
     showWeekNumber,
     styles,
-    weekStartsOn
+    weekStartsOn,
   } = useDayPicker();
 
   const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);

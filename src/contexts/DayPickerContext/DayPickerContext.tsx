@@ -1,21 +1,21 @@
-import { createContext, PropsWithChildren, useContext, useId } from 'react';
+import { createContext, PropsWithChildren, useContext, useId } from "react";
 
-import type { DayPickerProps } from '../../DayPicker';
-import type { Formatters } from '../../types/formatters';
-import type { Labels } from '../../types/labels';
+import type { DayPickerProps } from "../../DayPicker";
+import type { Formatters } from "../../types/formatters";
+import type { Labels } from "../../types/labels";
 import type {
   Mode,
   PropsBase,
   Selected,
-  SelectHandler
-} from '../../types/props';
-import type { ClassNames } from '../../types/ui';
-import type { DataAttributes } from '../ModifiersContext';
-import { getClassNames } from './utils/getClassNames';
-import { getDataAttributes } from './utils/getDataAttributes';
-import { getFormatters } from './utils/getFormatters';
-import { getFromToDate } from './utils/getFromToDate';
-import { getLabels } from './utils/getLabels';
+  SelectHandler,
+} from "../../types/props";
+import type { ClassNames } from "../../types/ui";
+import type { DataAttributes } from "../ModifiersContext";
+import { getClassNames } from "./utils/getClassNames";
+import { getDataAttributes } from "./utils/getDataAttributes";
+import { getFormatters } from "./utils/getFormatters";
+import { getFromToDate } from "./utils/getFromToDate";
+import { getLabels } from "./utils/getLabels";
 
 /** @category Contexts */
 export interface DayPickerContext<T extends Mode> extends PropsBase {
@@ -50,7 +50,7 @@ const dayPickerContext = createContext<DayPickerContext<Mode> | null>(null);
  * @category Contexts
  */
 export const DayPickerProvider = <T extends Mode>(
-  props: PropsWithChildren<DayPickerProps<T>>
+  props: PropsWithChildren<DayPickerProps<T>>,
 ) => {
   const reactId = useId();
   const { children, ...restProps } = props;
@@ -65,17 +65,17 @@ export const DayPickerProvider = <T extends Mode>(
     fromDate,
     id: props.id ?? reactId,
     labels: getLabels(props.labels),
-    required: 'required' in props ? props.required ?? false : false,
-    min: 'min' in props ? props.min ?? undefined : undefined,
-    max: 'max' in props ? props.max ?? undefined : undefined,
-    mode: props.mode ?? 'none',
+    required: "required" in props ? props.required ?? false : false,
+    min: "min" in props ? props.min ?? undefined : undefined,
+    max: "max" in props ? props.max ?? undefined : undefined,
+    mode: props.mode ?? "none",
     numberOfMonths: props.numberOfMonths ?? 1,
     today: props.today ?? new Date(),
     toDate,
-    selected: 'selected' in props ? props.selected : undefined,
+    selected: "selected" in props ? props.selected : undefined,
     defaultSelected:
-      'defaultSelected' in props ? props.defaultSelected : undefined,
-    onSelect: 'onSelect' in props ? props.onSelect : undefined
+      "defaultSelected" in props ? props.defaultSelected : undefined,
+    onSelect: "onSelect" in props ? props.onSelect : undefined,
   };
 
   return (
@@ -94,7 +94,7 @@ export function useDayPicker() {
   const context = useContext(dayPickerContext);
   if (!context)
     throw new Error(
-      'useDayPicker must be used within a `<dayPickerContext.Provider/>`.'
+      "useDayPicker must be used within a `<dayPickerContext.Provider/>`.",
     );
 
   return context;

@@ -1,6 +1,6 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties } from "react";
 
-import type { CalendarDay } from '../classes/CalendarDay';
+import type { CalendarDay } from "../classes/CalendarDay";
 
 /**
  * The name of the modifiers that are used internally by DayPicker.
@@ -9,16 +9,16 @@ import type { CalendarDay } from '../classes/CalendarDay';
  */
 
 export type InternalModifier =
-  | 'disabled'
-  | 'excluded'
-  | 'focusable'
-  | 'hidden'
-  | 'outside'
-  | 'range_end'
-  | 'range_middle'
-  | 'range_start'
-  | 'selected'
-  | 'today';
+  | "disabled"
+  | "excluded"
+  | "focusable"
+  | "hidden"
+  | "outside"
+  | "range_end"
+  | "range_middle"
+  | "range_start"
+  | "selected"
+  | "today";
 
 /**
  * A map of modifiers with the days.

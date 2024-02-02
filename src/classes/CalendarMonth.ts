@@ -1,4 +1,4 @@
-import { Week } from './CalendarWeek';
+import { Week } from "./CalendarWeek";
 
 /**
  * A month displayed in the month grid. Contains the weeks.

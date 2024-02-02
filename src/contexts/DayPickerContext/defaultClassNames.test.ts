@@ -1,5 +1,5 @@
-import { defaultClassNames } from './defaultClassNames';
+import { defaultClassNames } from "./defaultClassNames";
 
-test('should match the snapshot', () => {
+test("should match the snapshot", () => {
   expect(defaultClassNames).toMatchSnapshot();
 });

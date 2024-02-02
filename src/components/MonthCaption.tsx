@@ -1,6 +1,6 @@
-import { Month } from '../classes';
-import { useDayPicker } from '../contexts/DayPickerContext';
-import { DropdownNav } from './DropdownNav';
+import { Month } from "../classes";
+import { useDayPicker } from "../contexts/DayPickerContext";
+import { DropdownNav } from "./DropdownNav";
 
 /**
  * Render the caption of a month in the calendar.
@@ -21,7 +21,7 @@ export function MonthCaption(props: {
     dropdownNavigation,
     formatters: { formatCaption },
     locale,
-    styles
+    styles,
   } = useDayPicker();
 
   return (
@@ -30,7 +30,7 @@ export function MonthCaption(props: {
       className={classNames.month_caption}
       style={styles?.month_caption}
     >
-      {captionLayout === 'dropdown' || captionLayout === 'dropdown-buttons' ? (
+      {captionLayout === "dropdown" || captionLayout === "dropdown-buttons" ? (
         <DropdownNav
           month={props.month}
           index={props.index}
@@ -42,10 +42,10 @@ export function MonthCaption(props: {
           month={props.month}
           index={props.index}
           showMonths={
-            dropdownNavigation === true || dropdownNavigation === 'month'
+            dropdownNavigation === true || dropdownNavigation === "month"
           }
           showYears={
-            dropdownNavigation === true || dropdownNavigation === 'year'
+            dropdownNavigation === true || dropdownNavigation === "year"
           }
         />
       ) : (

@@ -1,22 +1,22 @@
-import { createContext, type ReactNode, useContext } from 'react';
+import { createContext, type ReactNode, useContext } from "react";
 
-import { startOfMonth } from 'date-fns/startOfMonth';
+import { startOfMonth } from "date-fns/startOfMonth";
 
-import type { CalendarDay } from '../../classes/CalendarDay';
-import { useDayPicker } from '../../contexts/DayPickerContext';
-import { useControlledValue } from '../../utils/useControlledValue';
-import { getDates } from './utils/getDates';
-import { getDays } from './utils/getDays';
-import { getDisplayMonths } from './utils/getDisplayMonths';
-import { getDropdownMonths } from './utils/getDropdownMonths';
-import { getDropdownYears } from './utils/getDropdownYears';
-import { getMonths } from './utils/getMonths';
-import { getNextMonth } from './utils/getNextMonth';
-import { getPreviousMonth } from './utils/getPreviousMonth';
-import { getStartMonth } from './utils/getStartMonth';
-import { getWeeks } from './utils/getWeeks';
-import { Week, Month } from '../../classes';
-import { DropdownOption } from '../../components/custom-components';
+import type { CalendarDay } from "../../classes/CalendarDay";
+import { useDayPicker } from "../../contexts/DayPickerContext";
+import { useControlledValue } from "../../utils/useControlledValue";
+import { getDates } from "./utils/getDates";
+import { getDays } from "./utils/getDays";
+import { getDisplayMonths } from "./utils/getDisplayMonths";
+import { getDropdownMonths } from "./utils/getDropdownMonths";
+import { getDropdownYears } from "./utils/getDropdownYears";
+import { getMonths } from "./utils/getMonths";
+import { getNextMonth } from "./utils/getNextMonth";
+import { getPreviousMonth } from "./utils/getPreviousMonth";
+import { getStartMonth } from "./utils/getStartMonth";
+import { getWeeks } from "./utils/getWeeks";
+import { Week, Month } from "../../classes";
+import { DropdownOption } from "../../components/custom-components";
 
 /** @category Contexts */
 export interface CalendarContext {
@@ -93,7 +93,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   // The first month displayed in the calendar
   const [firstMonth, setFirstMonth] = useControlledValue(
     startMonth,
-    dayPicker.month ? startOfMonth(dayPicker.month) : undefined
+    dayPicker.month ? startOfMonth(dayPicker.month) : undefined,
   );
 
   /** An array of the months displayed in the calendar. */
@@ -177,8 +177,8 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
 
     dropdown: {
       months: getDropdownMonths(dayPicker),
-      years: getDropdownYears(dayPicker)
-    }
+      years: getDropdownYears(dayPicker),
+    },
   };
 
   return (

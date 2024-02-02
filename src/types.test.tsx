@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react';
+import { render } from "@testing-library/react";
 
-import { DayPicker } from './DayPicker';
+import { DayPicker } from "./DayPicker";
 
 const Test = () => {
   return (
@@ -38,7 +38,7 @@ const Test = () => {
   );
 };
 
-it('should type-check', () => {
+it("should type-check", () => {
   render(<Test />);
   expect(true).toBeTruthy();
 });

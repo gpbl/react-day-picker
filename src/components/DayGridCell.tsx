@@ -1,7 +1,7 @@
-import { type HTMLAttributes } from 'react';
+import { type HTMLAttributes } from "react";
 
-import type { CalendarDay } from '../classes';
-import type { Modifiers } from '../types/modifiers';
+import type { CalendarDay } from "../classes";
+import type { Modifiers } from "../types/modifiers";
 
 /**
  * Render the gridcell of a day in the calendar.
