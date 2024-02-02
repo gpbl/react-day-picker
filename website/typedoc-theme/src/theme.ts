@@ -4,19 +4,19 @@ import {
   Reflection,
   ReflectionKind,
   RenderTemplate,
-  Renderer
-} from 'typedoc';
-import { MarkdownPageEvent } from 'typedoc-plugin-markdown/dist/plugin/events.js';
-import { MarkdownTheme } from 'typedoc-plugin-markdown/dist/theme/index.js';
+  Renderer,
+} from "typedoc";
+import { MarkdownPageEvent } from "typedoc-plugin-markdown/dist/plugin/events.js";
+import { MarkdownTheme } from "typedoc-plugin-markdown/dist/theme/index.js";
 
-import { memberTemplate } from './resources/templates/member.js';
+import { memberTemplate } from "./resources/templates/member.js";
 
-import { signatureMemberIdentifier } from 'typedoc-plugin-markdown/dist/theme/resources/partials/member.signature.identifier.js';
-import { declarationMemberIdentifier } from 'typedoc-plugin-markdown/dist/theme/resources/partials/member.declaration.identifier.js';
-import { reflectionTemplate } from './resources/templates/reflection.js';
-import { writeFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { commentParts } from './resources/partials/comment.parts.js';
+import { signatureMemberIdentifier } from "typedoc-plugin-markdown/dist/theme/resources/partials/member.signature.identifier.js";
+import { declarationMemberIdentifier } from "typedoc-plugin-markdown/dist/theme/resources/partials/member.declaration.identifier.js";
+import { reflectionTemplate } from "./resources/templates/reflection.js";
+import { writeFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { commentParts } from "./resources/partials/comment.parts.js";
 
 export class MarkdownCustomTheme extends MarkdownTheme {
   constructor(renderer: Renderer) {
@@ -37,11 +37,11 @@ export class MarkdownCustomTheme extends MarkdownTheme {
     const context = super.getRenderContext(pageEvent);
 
     context.signatureMemberIdentifier = function (signature, opts) {
-      return `<SignatureMemberIdentifier>${signatureMemberIdentifier(context, signature, opts).replace(/^> /gm, '')}</SignatureMemberIdentifier>`;
+      return `<SignatureMemberIdentifier>${signatureMemberIdentifier(context, signature, opts).replace(/^> /gm, "")}</SignatureMemberIdentifier>`;
     };
 
     context.declarationMemberIdentifier = function (reflection) {
-      return `<SignatureMemberIdentifier>${declarationMemberIdentifier(context, reflection).replace(/^> /gm, '')}</SignatureMemberIdentifier>`;
+      return `<SignatureMemberIdentifier>${declarationMemberIdentifier(context, reflection).replace(/^> /gm, "")}</SignatureMemberIdentifier>`;
     };
 
     return context;
@@ -51,7 +51,7 @@ export class MarkdownCustomTheme extends MarkdownTheme {
     const projectReflection = reflection.project;
     const urls = super.getUrls(projectReflection);
     urls.forEach((url) => {
-      url.url = url.url.replace(/\.md$/, '.mdx');
+      url.url = url.url.replace(/\.md$/, ".mdx");
     });
     return urls;
   }
@@ -64,7 +64,7 @@ export class MarkdownCustomTheme extends MarkdownTheme {
       const nav = page.model.project.categories?.map((c) => {
         return {
           [c.title]: c.children.map((m) => {
-            let summary = '';
+            let summary = "";
 
             if (m.signatures?.[0].comment?.summary) {
               summary = commentParts(
@@ -82,13 +82,13 @@ export class MarkdownCustomTheme extends MarkdownTheme {
               kind: ReflectionKind[m.kind],
               url: m.url,
               deprecated: m.isDeprecated(),
-              summary
+              summary,
             };
-          })
+          }),
         };
       });
       const jsonData = JSON.stringify(nav, null, 2);
-      const dest = resolve(process.cwd(), './data', 'api-exports.json');
+      const dest = resolve(process.cwd(), "./data/next", "api-exports.json");
       writeFileSync(dest, jsonData);
       this.application.logger.info(`Written in ${dest}`);
     }

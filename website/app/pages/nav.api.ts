@@ -1,6 +1,6 @@
-import type { DocsNavProps } from '@/components/DocsNav';
+import type { DocsNavProps } from "@/components/DocsNav";
 
-import apiExports from '@/data/api-exports.json';
+import apiExports from "@/data/api-exports.json";
 
 const apiPages = apiExports.map((category) => {
   const categoryKey = Object.keys(category)[0] as keyof typeof category;
@@ -9,18 +9,18 @@ const apiPages = apiExports.map((category) => {
     pages:
       category[categoryKey]?.map((item) => ({
         title: item.name,
-        slug: `api/` + item.url.replace(/\.mdx?$/, ''),
-        deprecated: item.deprecated
+        slug: `api/` + item.url.replace(/\.mdx?$/, ""),
+        deprecated: item.deprecated,
         // icon and preview are not available in the original data
-      })) ?? []
+      })) ?? [],
   };
 });
 
-export function apiNav(): DocsNavProps['routes'] {
+export function apiNav(): DocsNavProps["routes"] {
   return [
     {
-      pages: [{ title: 'Index', slug: 'api/index' }]
+      pages: [{ title: "Index", slug: "api/index" }],
     },
-    ...apiPages
+    ...apiPages,
   ];
 }

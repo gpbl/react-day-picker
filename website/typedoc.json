@@ -4,7 +4,9 @@
   "name": "API Reference",
   "tsconfig": "../tsconfig.build.json",
   "entryPoints": ["../src/index.ts"],
-  "out": "./app/pages/api",
+  "out": "./app/pages/api/next",
+
+  "gitRevision": "next",
 
   "basePath": "/",
 
@@ -20,8 +22,7 @@
   "plugin": ["typedoc-plugin-markdown", "./typedoc-theme/dist/index.js"],
   "theme": "typedoc-theme",
 
-  "entryFileName": "index.md",
-  "excludeTags": ["@topic"],
+  "entryFileName": "index.mdx",
   "expandObjects": false,
   "hideBreadcrumbs": true,
   "hidePageHeader": true,
@@ -29,7 +30,7 @@
   "namedAnchors": true,
   "preserveAnchorCasing": false,
   "propertiesFormat": "list",
-  "publicPath": "/api/",
+  "publicPath": "/api/next",
   "enumMembersFormat": "table",
   "typeDeclarationFormat": "table",
   "indexFormat": "table",

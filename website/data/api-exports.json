@@ -30,11 +30,39 @@
         "summary": "The props for the single selection mode."
       },
       {
+        "name": "CustomComponents",
+        "kind": "TypeAlias",
+        "url": "type-aliases/CustomComponents.md",
+        "deprecated": false,
+        "summary": "The components that can be changed using the [PropsBase.components](/api/interfaces/PropsBase.md#components)\ncomponents prop."
+      },
+      {
         "name": "DayPickerProps",
         "kind": "TypeAlias",
         "url": "type-aliases/DayPickerProps.md",
         "deprecated": false,
         "summary": "Defines the props accepted by the DayPicker component."
+      },
+      {
+        "name": "Mode",
+        "kind": "TypeAlias",
+        "url": "type-aliases/Mode.md",
+        "deprecated": false,
+        "summary": "The available selection modes.\n\nAvailable modes:\n\n- `none`: no selection is allowed.\n- `single`: only one day can be selected.\n- `multi`: multiple days can be selected.\n- `range`: a range of days can be selected.\n- `custom`: customize selections via `onDayClick`"
+      },
+      {
+        "name": "SelectHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/SelectHandler.md",
+        "deprecated": false,
+        "summary": "The callback called when the user select a days from the calendar."
+      },
+      {
+        "name": "Selected",
+        "kind": "TypeAlias",
+        "url": "type-aliases/Selected.md",
+        "deprecated": false,
+        "summary": "The selected value when in selection mode."
       },
       {
         "name": "DayPicker",
@@ -259,13 +287,6 @@
   },
   {
     "Custom Components": [
-      {
-        "name": "CustomComponents",
-        "kind": "TypeAlias",
-        "url": "type-aliases/CustomComponents.md",
-        "deprecated": false,
-        "summary": "The components that can be changed using the [PropsBase.components](/api/interfaces/PropsBase.md#components)\ncomponents prop."
-      },
       {
         "name": "Button",
         "kind": "Function",
@@ -554,27 +575,6 @@
         "url": "interfaces/ModePropsMap.md",
         "deprecated": false,
         "summary": "Map of the props supported by selection modes."
-      },
-      {
-        "name": "Mode",
-        "kind": "TypeAlias",
-        "url": "type-aliases/Mode.md",
-        "deprecated": false,
-        "summary": "The available selection modes.\n\nAvailable modes:\n\n- `none`: no selection is allowed.\n- `single`: only one day can be selected.\n- `multi`: multiple days can be selected.\n- `range`: a range of days can be selected.\n- `custom`: customize selections via `onDayClick`"
-      },
-      {
-        "name": "SelectHandler",
-        "kind": "TypeAlias",
-        "url": "type-aliases/SelectHandler.md",
-        "deprecated": false,
-        "summary": "The callback called when the user select a days from the calendar."
-      },
-      {
-        "name": "Selected",
-        "kind": "TypeAlias",
-        "url": "type-aliases/Selected.md",
-        "deprecated": false,
-        "summary": "The selected value when in selection mode."
       }
     ]
   },

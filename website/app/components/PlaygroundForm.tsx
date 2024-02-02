@@ -1,5 +1,5 @@
-import * as locales from 'date-fns/locale';
-import { DayPickerProps, Mode } from 'react-day-picker';
+import * as locales from "date-fns/locale";
+import { DayPickerProps, Mode } from "react-day-picker";
 
 import {
   Checkbox,
@@ -7,8 +7,8 @@ import {
   Heading,
   Select,
   Text,
-  TextField
-} from '@radix-ui/themes';
+  TextField,
+} from "@radix-ui/themes";
 
 export function PropsForm(props: {
   onChange: (propName: string, propValue: unknown) => void;
@@ -31,10 +31,10 @@ export function PropsForm(props: {
     fromYear,
     toYear,
     weekStartsOn,
-    firstWeekContainsDate
+    firstWeekContainsDate,
   } = props.dayPickerProps;
 
-  console.log('PlaygroundForm: formProps = ', props.dayPickerProps);
+  console.log("PlaygroundForm: formProps = ", props.dayPickerProps);
   return (
     <form>
       <Flex gap="2" direction="column">
@@ -44,7 +44,7 @@ export function PropsForm(props: {
             <Select.Root
               defaultValue="single"
               onValueChange={(value) => {
-                return onChange('mode', value);
+                return onChange("mode", value);
               }}
             >
               <Select.Trigger>Selection Mode: </Select.Trigger>
@@ -64,7 +64,7 @@ export function PropsForm(props: {
           <Text as="label" size="2">
             <Flex gap="2" align="center">
               <Checkbox
-                onClick={() => onChange('showOutsideDays', !showOutsideDays)}
+                onClick={() => onChange("showOutsideDays", !showOutsideDays)}
                 checked={showOutsideDays}
               />
               Outside Days
@@ -73,7 +73,7 @@ export function PropsForm(props: {
           <Text as="label" size="2">
             <Flex gap="2" align="center">
               <Checkbox
-                onClick={() => onChange('fixedWeeks', !fixedWeeks)}
+                onClick={() => onChange("fixedWeeks", !fixedWeeks)}
                 checked={fixedWeeks}
               />
               Fixed Weeks
@@ -82,7 +82,7 @@ export function PropsForm(props: {
           <Text as="label" size="2">
             <Flex gap="2" align="center">
               <Checkbox
-                onClick={() => onChange('showWeekNumber', !showWeekNumber)}
+                onClick={() => onChange("showWeekNumber", !showWeekNumber)}
                 checked={showWeekNumber}
               />
               Week Number
@@ -102,8 +102,8 @@ export function PropsForm(props: {
               value={dropdownNavigation?.toString()}
               onValueChange={(value) => {
                 return onChange(
-                  'dropdownNavigation',
-                  value === 'true' ? true : value === 'off' ? false : value
+                  "dropdownNavigation",
+                  value === "true" ? true : value === "off" ? false : value
                 );
               }}
             >
@@ -120,7 +120,7 @@ export function PropsForm(props: {
             <Flex gap="2" align="center">
               <Checkbox
                 onClick={() =>
-                  onChange('disableNavigation', !disableNavigation)
+                  onChange("disableNavigation", !disableNavigation)
                 }
                 checked={disableNavigation}
               />
@@ -130,7 +130,7 @@ export function PropsForm(props: {
           <Text as="label" size="2">
             <Flex gap="2" align="center">
               <Checkbox
-                onClick={() => onChange('hideNavigation', !hideNavigation)}
+                onClick={() => onChange("hideNavigation", !hideNavigation)}
                 checked={hideNavigation}
               />
               Hide Navigation Buttons
@@ -143,23 +143,23 @@ export function PropsForm(props: {
         <Flex direction="column" gap="2">
           <Text as="label" size="2">
             <Flex gap="2" align="center">
-              Number of months:{' '}
+              Number of months:{" "}
               <TextField.Input
                 onChange={(e) =>
-                  onChange('numberOfMonths', Number(e.target.value))
+                  onChange("numberOfMonths", Number(e.target.value))
                 }
                 type="number"
                 min={0}
                 max={24}
                 style={{ width: 60 }}
-                value={numberOfMonths || ''}
+                value={numberOfMonths || ""}
               />
             </Flex>
           </Text>
           <Text as="label" size="2">
             <Flex gap="2" align="center">
               <Checkbox
-                onClick={() => onChange('pagedNavigation', !pagedNavigation)}
+                onClick={() => onChange("pagedNavigation", !pagedNavigation)}
                 checked={pagedNavigation}
               />
               Paged Navigation
@@ -169,7 +169,7 @@ export function PropsForm(props: {
           <Text as="label" size="2">
             <Flex gap="2" align="center">
               <Checkbox
-                onClick={() => onChange('reverseMonths', !reverseMonths)}
+                onClick={() => onChange("reverseMonths", !reverseMonths)}
                 checked={reverseMonths}
               />
               Reverse Months
@@ -183,7 +183,7 @@ export function PropsForm(props: {
           <Text as="label" size="2">
             <Flex gap="2" align="center">
               <Checkbox
-                onClick={() => onChange('ISOWeek', !ISOWeek)}
+                onClick={() => onChange("ISOWeek", !ISOWeek)}
                 checked={ISOWeek}
               />
               ISO Week
@@ -208,7 +208,7 @@ export function PropsForm(props: {
                   ] as locales.Locale;
                   return (
                     <Select.Item key={locale.code} value={localeKey}>
-                      {locale.code} {localeKey === 'enUS' && ' (default)'}
+                      {locale.code} {localeKey === "enUS" && " (default)"}
                     </Select.Item>
                   );
                 })}

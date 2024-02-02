@@ -19,8 +19,8 @@ npm install react-day-picker date-fns --save
 2. Import the component and its style:
 
 ```tsx
-import { DayPicker } from 'react-day-picker';
-import 'react-day-picker/style.css';
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/style.css";
 
 export function App() {
   const [selected, setSelected] = React.useState<Date>();
