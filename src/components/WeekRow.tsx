@@ -10,7 +10,7 @@ import { DayGridCellWrapper } from "./DayGridCellWrapper";
  *
  * @category Custom Components
  */
-export function WeekRow(props: { ["aria-rowindex"]: number; week: Week }) {
+export function WeekRow(props: WeekRowProps) {
   const { styles, classNames, showWeekNumber, components } = useDayPicker();
 
   const WeekNumberRowHeader =
@@ -33,4 +33,9 @@ export function WeekRow(props: { ["aria-rowindex"]: number; week: Week }) {
       ))}
     </div>
   );
+}
+
+export interface WeekRowProps {
+  ["aria-rowindex"]: number;
+  week: Week;
 }

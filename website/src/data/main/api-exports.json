@@ -1,0 +1,960 @@
+[
+  {
+    "Enumerations": [
+      {
+        "name": "InternalModifier",
+        "kind": "Enum",
+        "url": "enumerations/InternalModifier.md",
+        "deprecated": false,
+        "summary": "The name of the modifiers that are used internally by DayPicker."
+      }
+    ]
+  },
+  {
+    "Interfaces": [
+      {
+        "name": "CaptionLabelProps",
+        "kind": "Interface",
+        "url": "interfaces/CaptionLabelProps.md",
+        "deprecated": false,
+        "summary": "The props for the [CaptionLabel](/api/main/functions/CaptionLabel.md) component."
+      },
+      {
+        "name": "CaptionProps",
+        "kind": "Interface",
+        "url": "interfaces/CaptionProps.md",
+        "deprecated": false,
+        "summary": "Represent the props of the [Caption](/api/main/functions/Caption.md) component."
+      },
+      {
+        "name": "CustomComponents",
+        "kind": "Interface",
+        "url": "interfaces/CustomComponents.md",
+        "deprecated": false,
+        "summary": "Map of the components that can be changed using the `components` prop."
+      },
+      {
+        "name": "DayContentProps",
+        "kind": "Interface",
+        "url": "interfaces/DayContentProps.md",
+        "deprecated": false,
+        "summary": "Represent the props for the [DayContent](/api/main/functions/DayContent.md) component."
+      },
+      {
+        "name": "DayPickerBase",
+        "kind": "Interface",
+        "url": "interfaces/DayPickerBase.md",
+        "deprecated": false,
+        "summary": "The base props for the [DayPicker](/api/main/functions/DayPicker.md) component and the [DayPickerContext](/api/main/variables/DayPickerContext.md)."
+      },
+      {
+        "name": "DayPickerContextValue",
+        "kind": "Interface",
+        "url": "interfaces/DayPickerContextValue.md",
+        "deprecated": false,
+        "summary": "The value of the [DayPickerContext](/api/main/variables/DayPickerContext.md) extends the props from DayPicker\nwith default and cleaned up values."
+      },
+      {
+        "name": "DayPickerDefaultProps",
+        "kind": "Interface",
+        "url": "interfaces/DayPickerDefaultProps.md",
+        "deprecated": false,
+        "summary": "The props for the [DayPicker](/api/main/functions/DayPicker.md) component when using `mode=\"default\"` or `undefined`."
+      },
+      {
+        "name": "DayPickerMultipleProps",
+        "kind": "Interface",
+        "url": "interfaces/DayPickerMultipleProps.md",
+        "deprecated": false,
+        "summary": "The props for the [DayPicker](/api/main/functions/DayPicker.md) component when using `mode=\"multiple\"`."
+      },
+      {
+        "name": "DayPickerProviderProps",
+        "kind": "Interface",
+        "url": "interfaces/DayPickerProviderProps.md",
+        "deprecated": false,
+        "summary": "The props for the [DayPickerProvider](/api/main/functions/DayPickerProvider.md)."
+      },
+      {
+        "name": "DayPickerRangeProps",
+        "kind": "Interface",
+        "url": "interfaces/DayPickerRangeProps.md",
+        "deprecated": false,
+        "summary": "The props for the [DayPicker](/api/main/functions/DayPicker.md) component when using `mode=\"range\"`."
+      },
+      {
+        "name": "DayPickerSingleProps",
+        "kind": "Interface",
+        "url": "interfaces/DayPickerSingleProps.md",
+        "deprecated": false,
+        "summary": "The props for the [DayPicker](/api/main/functions/DayPicker.md) component when using `mode=\"single\"`."
+      },
+      {
+        "name": "DayProps",
+        "kind": "Interface",
+        "url": "interfaces/DayProps.md",
+        "deprecated": false,
+        "summary": "Represent the props used by the [Day](/api/main/functions/Day.md) component."
+      },
+      {
+        "name": "DropdownProps",
+        "kind": "Interface",
+        "url": "interfaces/DropdownProps.md",
+        "deprecated": false,
+        "summary": "The props for the [Dropdown](/api/main/functions/Dropdown.md) component."
+      },
+      {
+        "name": "FooterProps",
+        "kind": "Interface",
+        "url": "interfaces/FooterProps.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "NavigationContextValue",
+        "kind": "Interface",
+        "url": "interfaces/NavigationContextValue.md",
+        "deprecated": false,
+        "summary": "Represents the value of the [NavigationContext](/api/main/variables/NavigationContext.md)."
+      },
+      {
+        "name": "RootContext",
+        "kind": "Interface",
+        "url": "interfaces/RootContext.md",
+        "deprecated": false,
+        "summary": "The props of [RootProvider](/api/main/functions/RootProvider.md)."
+      },
+      {
+        "name": "RowProps",
+        "kind": "Interface",
+        "url": "interfaces/RowProps.md",
+        "deprecated": false,
+        "summary": "The props for the [Row](/api/main/functions/Row.md) component."
+      },
+      {
+        "name": "SelectMultipleContextValue",
+        "kind": "Interface",
+        "url": "interfaces/SelectMultipleContextValue.md",
+        "deprecated": false,
+        "summary": "Represents the value of a [SelectMultipleContext](/api/main/variables/SelectMultipleContext.md)."
+      },
+      {
+        "name": "SelectMultipleProviderInternalProps",
+        "kind": "Interface",
+        "url": "interfaces/SelectMultipleProviderInternalProps.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "SelectRangeContextValue",
+        "kind": "Interface",
+        "url": "interfaces/SelectRangeContextValue.md",
+        "deprecated": false,
+        "summary": "Represents the value of a [SelectRangeContext](/api/main/variables/SelectRangeContext.md)."
+      },
+      {
+        "name": "SelectRangeProviderInternalProps",
+        "kind": "Interface",
+        "url": "interfaces/SelectRangeProviderInternalProps.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "SelectRangeProviderProps",
+        "kind": "Interface",
+        "url": "interfaces/SelectRangeProviderProps.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "SelectSingleContextValue",
+        "kind": "Interface",
+        "url": "interfaces/SelectSingleContextValue.md",
+        "deprecated": false,
+        "summary": "Represents the value of a [SelectSingleContext](/api/main/variables/SelectSingleContext.md)."
+      },
+      {
+        "name": "SelectSingleProviderInternal",
+        "kind": "Interface",
+        "url": "interfaces/SelectSingleProviderInternal.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "SelectSingleProviderProps",
+        "kind": "Interface",
+        "url": "interfaces/SelectSingleProviderProps.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "UseInputOptions",
+        "kind": "Interface",
+        "url": "interfaces/UseInputOptions.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "UseInputValue",
+        "kind": "Interface",
+        "url": "interfaces/UseInputValue.md",
+        "deprecated": false,
+        "summary": "Represent the value returned by [useInput](/api/main/functions/useInput.md)."
+      },
+      {
+        "name": "WeekNumberProps",
+        "kind": "Interface",
+        "url": "interfaces/WeekNumberProps.md",
+        "deprecated": false,
+        "summary": "The props for the [WeekNumber](/api/main/functions/WeekNumber.md) component."
+      }
+    ]
+  },
+  {
+    "Type Aliases": [
+      {
+        "name": "ActiveModifiers",
+        "kind": "TypeAlias",
+        "url": "type-aliases/ActiveModifiers.md",
+        "deprecated": false,
+        "summary": "The modifiers that are matching a day in the calendar. Use the [useActiveModifiers](/api/main/functions/useActiveModifiers.md) hook to get the modifiers for a day.\n\n```\nconst activeModifiers: ActiveModifiers = {\n selected: true,\n customModifier: true\n}\n```"
+      },
+      {
+        "name": "ButtonProps",
+        "kind": "TypeAlias",
+        "url": "type-aliases/ButtonProps.md",
+        "deprecated": false,
+        "summary": "The props for the [Button](/api/main/functions/Button.md) component."
+      },
+      {
+        "name": "CaptionLayout",
+        "kind": "TypeAlias",
+        "url": "type-aliases/CaptionLayout.md",
+        "deprecated": false,
+        "summary": "The layout of the caption:\n\n- `dropdown`: display dropdowns for choosing the month and the year.\n- `buttons`: display previous month / next month buttons.\n- `dropdown-buttons`: display both month / year dropdowns and previous month / next month buttons."
+      },
+      {
+        "name": "ClassNames",
+        "kind": "TypeAlias",
+        "url": "type-aliases/ClassNames.md",
+        "deprecated": false,
+        "summary": "The class names of each element."
+      },
+      {
+        "name": "CustomModifiers",
+        "kind": "TypeAlias",
+        "url": "type-aliases/CustomModifiers.md",
+        "deprecated": false,
+        "summary": "A map of matchers used as custom modifiers by DayPicker component. This is\nthe same as []], but it accepts only array of [[Matcher](/api/main/type-aliases/DayModifiers.md)s."
+      },
+      {
+        "name": "DateAfter",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DateAfter.md",
+        "deprecated": false,
+        "summary": "A matcher to match a day falling after the specified date, with the date not included."
+      },
+      {
+        "name": "DateBefore",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DateBefore.md",
+        "deprecated": false,
+        "summary": "A matcher to match a day falling before the specified date, with the date not included."
+      },
+      {
+        "name": "DateFormatter",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DateFormatter.md",
+        "deprecated": false,
+        "summary": "Represents a function to format a date."
+      },
+      {
+        "name": "DateInterval",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DateInterval.md",
+        "deprecated": false,
+        "summary": "A matcher to match a day falling before and/or after two dates, where the dates are not included."
+      },
+      {
+        "name": "DateRange",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DateRange.md",
+        "deprecated": false,
+        "summary": "A matcher to match a range of dates. The range can be open. Differently from [DateInterval](/api/main/type-aliases/DateInterval.md), the dates here are included."
+      },
+      {
+        "name": "DayClickEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayClickEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when a day is clicked."
+      },
+      {
+        "name": "DayFocusEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayFocusEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when a day is focused."
+      },
+      {
+        "name": "DayKeyboardEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayKeyboardEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when a day gets a keyboard event."
+      },
+      {
+        "name": "DayLabel",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayLabel.md",
+        "deprecated": false,
+        "summary": "Return the ARIA label for the [Day](/api/main/functions/Day.md) component."
+      },
+      {
+        "name": "DayModifiers",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayModifiers.md",
+        "deprecated": false,
+        "summary": "The custom modifiers passed to the [DayPickerBase.modifiers](/api/main/interfaces/DayPickerBase.md#modifiers)."
+      },
+      {
+        "name": "DayMouseEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayMouseEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when a day gets a mouse event."
+      },
+      {
+        "name": "DayOfWeek",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayOfWeek.md",
+        "deprecated": false,
+        "summary": "A matcher to match a date being one of the specified days of the week (`0-6`, where `0` is Sunday)."
+      },
+      {
+        "name": "DayPickerProps",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayPickerProps.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "DayPointerEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayPointerEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when a day gets a pointer event."
+      },
+      {
+        "name": "DayRender",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayRender.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "DaySelectionMode",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DaySelectionMode.md",
+        "deprecated": false,
+        "summary": "Selection modes supported by DayPicker.\n\n- `single`: use DayPicker to select single days.\n- `multiple`: allow selecting multiple days.\n- `range`: use DayPicker to select a range of days\n- `default`: disable the built-in selection behavior. Customize what is\n  selected by using [DayPickerBase.onDayClick](/api/main/interfaces/DayPickerBase.md#ondayclick)."
+      },
+      {
+        "name": "DayTouchEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/DayTouchEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when a day gets a touch event."
+      },
+      {
+        "name": "FocusContextValue",
+        "kind": "TypeAlias",
+        "url": "type-aliases/FocusContextValue.md",
+        "deprecated": false,
+        "summary": "Represents the value of the [FocusContext](/api/main/variables/FocusContext.md)."
+      },
+      {
+        "name": "FocusProviderProps",
+        "kind": "TypeAlias",
+        "url": "type-aliases/FocusProviderProps.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "Formatters",
+        "kind": "TypeAlias",
+        "url": "type-aliases/Formatters.md",
+        "deprecated": false,
+        "summary": "Represent a map of formatters used to render localized content."
+      },
+      {
+        "name": "InputDayPickerProps",
+        "kind": "TypeAlias",
+        "url": "type-aliases/InputDayPickerProps.md",
+        "deprecated": false,
+        "summary": "The props to attach to the DayPicker component when using [useInput](/api/main/functions/useInput.md)."
+      },
+      {
+        "name": "InputProps",
+        "kind": "TypeAlias",
+        "url": "type-aliases/InputProps.md",
+        "deprecated": false,
+        "summary": "The props to attach to the input field when using [useInput](/api/main/functions/useInput.md)."
+      },
+      {
+        "name": "InternalModifiers",
+        "kind": "TypeAlias",
+        "url": "type-aliases/InternalModifiers.md",
+        "deprecated": false,
+        "summary": "Map of matchers used for the internal modifiers."
+      },
+      {
+        "name": "InternalModifiersElement",
+        "kind": "TypeAlias",
+        "url": "type-aliases/InternalModifiersElement.md",
+        "deprecated": false,
+        "summary": "These elements must not be in the `styles` or `classNames` records as they are styled via the `modifiersStyles` or `modifiersClassNames` pop"
+      },
+      {
+        "name": "Labels",
+        "kind": "TypeAlias",
+        "url": "type-aliases/Labels.md",
+        "deprecated": false,
+        "summary": "Map of functions to translate ARIA labels for the relative elements."
+      },
+      {
+        "name": "Matcher",
+        "kind": "TypeAlias",
+        "url": "type-aliases/Matcher.md",
+        "deprecated": false,
+        "summary": "A value or a function that matches a specific day.\n\n\nMatchers are passed to DayPicker via [DayPickerBase.disabled](/api/main/interfaces/DayPickerBase.md#disabled),\n[]] or [[DayPickerProps.selected](/api/main/interfaces/DayPickerBase.md#hidden) and are used to\ndetermine if a day should get a [Modifier](/api/main/type-aliases/Modifier.md).\n\nMatchers can be of different types:\n\n```\n// will always match the day\nconst booleanMatcher: Matcher = true;\n\n // will match the today's date\nconst dateMatcher: Matcher = new Date();\n\n// will match the days in the array\nconst arrayMatcher: Matcher = [new Date(2019, 1, 2), new Date(2019, 1, 4)];\n\n// will match days after the 2nd of February 2019\nconst afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };\n // will match days before the 2nd of February 2019 }\nconst beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };\n\n// will match Sundays\nconst dayOfWeekMatcher: DayOfWeek = {\n dayOfWeek: 0\n};\n\n// will match the included days, except the two dates\nconst intervalMatcher: DateInterval = {\n   after: new Date(2019, 1, 2),\n   before: new Date(2019, 1, 5)\n};\n\n// will match the included days, including the two dates\nconst rangeMatcher: DateRange = {\n   from: new Date(2019, 1, 2),\n   to: new Date(2019, 1, 5)\n};\n\n// will match when the function return true\nconst functionMatcher: Matcher = (day: Date) => {\n return day.getMonth() === 2 // match when month is March\n};\n```"
+      },
+      {
+        "name": "Modifier",
+        "kind": "TypeAlias",
+        "url": "type-aliases/Modifier.md",
+        "deprecated": false,
+        "summary": "A _modifier_ represents different styles or states of a day displayed in the calendar."
+      },
+      {
+        "name": "Modifiers",
+        "kind": "TypeAlias",
+        "url": "type-aliases/Modifiers.md",
+        "deprecated": false,
+        "summary": "The modifiers used by DayPicker."
+      },
+      {
+        "name": "ModifiersClassNames",
+        "kind": "TypeAlias",
+        "url": "type-aliases/ModifiersClassNames.md",
+        "deprecated": false,
+        "summary": "The classnames to assign to each day element matching a modifier."
+      },
+      {
+        "name": "ModifiersStyles",
+        "kind": "TypeAlias",
+        "url": "type-aliases/ModifiersStyles.md",
+        "deprecated": false,
+        "summary": "The style to apply to each day element matching a modifier."
+      },
+      {
+        "name": "MonthChangeEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/MonthChangeEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when a month is changed in the calendar."
+      },
+      {
+        "name": "MonthsProps",
+        "kind": "TypeAlias",
+        "url": "type-aliases/MonthsProps.md",
+        "deprecated": false,
+        "summary": "The props for the [Months](/api/main/functions/Months.md) component."
+      },
+      {
+        "name": "NavButtonLabel",
+        "kind": "TypeAlias",
+        "url": "type-aliases/NavButtonLabel.md",
+        "deprecated": false,
+        "summary": "Return the ARIA label for the \"next month\" / \"prev month\" buttons in the navigation."
+      },
+      {
+        "name": "SelectMultipleEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/SelectMultipleEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when selecting multiple days."
+      },
+      {
+        "name": "SelectMultipleModifiers",
+        "kind": "TypeAlias",
+        "url": "type-aliases/SelectMultipleModifiers.md",
+        "deprecated": false,
+        "summary": "Represent the modifiers that are changed by the multiple selection."
+      },
+      {
+        "name": "SelectMultipleProviderProps",
+        "kind": "TypeAlias",
+        "url": "type-aliases/SelectMultipleProviderProps.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "SelectRangeEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/SelectRangeEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when selecting a range of days."
+      },
+      {
+        "name": "SelectRangeModifiers",
+        "kind": "TypeAlias",
+        "url": "type-aliases/SelectRangeModifiers.md",
+        "deprecated": false,
+        "summary": "Represent the modifiers that are changed by the range selection."
+      },
+      {
+        "name": "SelectSingleEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/SelectSingleEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when selecting a single day."
+      },
+      {
+        "name": "StyledComponent",
+        "kind": "TypeAlias",
+        "url": "type-aliases/StyledComponent.md",
+        "deprecated": false,
+        "summary": "Props of a component that can be styled via classNames or inline-styles."
+      },
+      {
+        "name": "StyledElement",
+        "kind": "TypeAlias",
+        "url": "type-aliases/StyledElement.md",
+        "deprecated": false,
+        "summary": "The style (either via class names or via in-line styles) of an element."
+      },
+      {
+        "name": "Styles",
+        "kind": "TypeAlias",
+        "url": "type-aliases/Styles.md",
+        "deprecated": false,
+        "summary": "The inline-styles of each styled element, to use with the `styles` prop. Day\nmodifiers, such as `today` or `hidden`, should be styled using the\n`modifiersStyles` prop."
+      },
+      {
+        "name": "WeekNumberClickEventHandler",
+        "kind": "TypeAlias",
+        "url": "type-aliases/WeekNumberClickEventHandler.md",
+        "deprecated": false,
+        "summary": "The event handler when the week number is clicked."
+      },
+      {
+        "name": "WeekNumberFormatter",
+        "kind": "TypeAlias",
+        "url": "type-aliases/WeekNumberFormatter.md",
+        "deprecated": false,
+        "summary": "Represent a function to format the week number."
+      },
+      {
+        "name": "WeekNumberLabel",
+        "kind": "TypeAlias",
+        "url": "type-aliases/WeekNumberLabel.md",
+        "deprecated": false,
+        "summary": "Return the ARIA label of the week number."
+      },
+      {
+        "name": "WeekdayLabel",
+        "kind": "TypeAlias",
+        "url": "type-aliases/WeekdayLabel.md",
+        "deprecated": false,
+        "summary": "Return the ARIA label for the Head component."
+      }
+    ]
+  },
+  {
+    "Variables": [
+      {
+        "name": "DayPickerContext",
+        "kind": "Variable",
+        "url": "variables/DayPickerContext.md",
+        "deprecated": false,
+        "summary": "The DayPicker context shares the props passed to DayPicker within internal\nand custom components. It is used to set the default values and perform\none-time calculations required to render the days.\n\nAccess to this context from the [useDayPicker](/api/main/functions/useDayPicker.md) hook."
+      },
+      {
+        "name": "FocusContext",
+        "kind": "Variable",
+        "url": "variables/FocusContext.md",
+        "deprecated": false,
+        "summary": "The Focus context shares details about the focused day for the keyboard\n\nAccess this context from the [useFocusContext](/api/main/functions/useFocusContext.md) hook."
+      },
+      {
+        "name": "NavigationContext",
+        "kind": "Variable",
+        "url": "variables/NavigationContext.md",
+        "deprecated": false,
+        "summary": "The Navigation context shares details and methods to navigate the months in DayPicker.\nAccess this context from the [useNavigation](/api/main/functions/useNavigation.md) hook."
+      },
+      {
+        "name": "SelectMultipleContext",
+        "kind": "Variable",
+        "url": "variables/SelectMultipleContext.md",
+        "deprecated": false,
+        "summary": "The SelectMultiple context shares details about the selected days when in\nmultiple selection mode.\n\nAccess this context from the [useSelectMultiple](/api/main/functions/useSelectMultiple.md) hook."
+      },
+      {
+        "name": "SelectRangeContext",
+        "kind": "Variable",
+        "url": "variables/SelectRangeContext.md",
+        "deprecated": false,
+        "summary": "The SelectRange context shares details about the selected days when in\nrange selection mode.\n\nAccess this context from the [useSelectRange](/api/main/functions/useSelectRange.md) hook."
+      },
+      {
+        "name": "SelectSingleContext",
+        "kind": "Variable",
+        "url": "variables/SelectSingleContext.md",
+        "deprecated": false,
+        "summary": "The SelectSingle context shares details about the selected days when in\nsingle selection mode.\n\nAccess this context from the [useSelectSingle](/api/main/functions/useSelectSingle.md) hook."
+      }
+    ]
+  },
+  {
+    "Functions": [
+      {
+        "name": "Button",
+        "kind": "Function",
+        "url": "functions/Button.md",
+        "deprecated": false,
+        "summary": "Render a button HTML element applying the reset class name."
+      },
+      {
+        "name": "Caption",
+        "kind": "Function",
+        "url": "functions/Caption.md",
+        "deprecated": false,
+        "summary": "Render the caption of a month. The caption has a different layout when\nsetting the [DayPickerBase.captionLayout](/api/main/interfaces/DayPickerBase.md#captionlayout) prop."
+      },
+      {
+        "name": "CaptionDropdowns",
+        "kind": "Function",
+        "url": "functions/CaptionDropdowns.md",
+        "deprecated": false,
+        "summary": "Render a caption with the dropdowns to navigate between months and years."
+      },
+      {
+        "name": "CaptionLabel",
+        "kind": "Function",
+        "url": "functions/CaptionLabel.md",
+        "deprecated": false,
+        "summary": "Render the caption for the displayed month. This component is used when `captionLayout=\"buttons\"`."
+      },
+      {
+        "name": "CaptionNavigation",
+        "kind": "Function",
+        "url": "functions/CaptionNavigation.md",
+        "deprecated": false,
+        "summary": "Render a caption with a button-based navigation."
+      },
+      {
+        "name": "Day",
+        "kind": "Function",
+        "url": "functions/Day.md",
+        "deprecated": false,
+        "summary": "The content of a day cell – as a button or span element according to its\nmodifiers."
+      },
+      {
+        "name": "DayContent",
+        "kind": "Function",
+        "url": "functions/DayContent.md",
+        "deprecated": false,
+        "summary": "Render the content of the day cell."
+      },
+      {
+        "name": "DayPicker",
+        "kind": "Function",
+        "url": "functions/DayPicker.md",
+        "deprecated": false,
+        "summary": "DayPicker render a date picker component to let users pick dates from a\ncalendar. See http://react-day-picker.js.org for updated documentation and\nexamples.\n\n### Customization\n\nDayPicker offers different customization props. For example,\n\n- show multiple months using `numberOfMonths`\n- display a dropdown to navigate the months via `captionLayout`\n- display the week numbers with `showWeekNumbers`\n- disable or hide days with `disabled` or `hidden`\n\n### Controlling the months\n\nChange the initially displayed month using the `defaultMonth` prop. The\ndisplayed months are controlled by DayPicker and stored in its internal\nstate. To control the months yourself, use `month` instead of `defaultMonth`\nand use the `onMonthChange` event to set it.\n\nTo limit the months the user can navigate to, use\n`fromDate`/`fromMonth`/`fromYear` or `toDate`/`toMonth`/`toYear`.\n\n### Selection modes\n\nDayPicker supports different selection mode that can be toggled using the\n`mode` prop:\n\n- `mode=\"single\"`: only one day can be selected. Use `required` to make the\n  selection required. Use the `onSelect` event handler to get the selected\n  days.\n- `mode=\"multiple\"`: users can select one or more days. Limit the amount of\n  days that can be selected with the `min` or the `max` props.\n- `mode=\"range\"`: users can select a range of days. Limit the amount of days\n  in the range with the `min` or the `max` props.\n- `mode=\"default\"` (default): the built-in selections are disabled. Implement\n  your own selection mode with `onDayClick`.\n\nThe selection modes should cover the most common use cases. In case you\nneed a more refined way of selecting days, use `mode=\"default\"`. Use the\n`selected` props and add the day event handlers to add/remove days from the\nselection.\n\n### Modifiers\n\nA _modifier_ represents different styles or states for the days displayed in\nthe calendar (like \"selected\" or \"disabled\"). Define custom modifiers using\nthe `modifiers` prop.\n\n### Formatters and custom component\n\nYou can customize how the content is displayed in the date picker by using\neither the formatters or replacing the internal components.\n\nFor the most common cases you want to use the `formatters` prop to change how\nthe content is formatted in the calendar. Use the `components` prop to\nreplace the internal components, like the navigation icons.\n\n### Styling\n\nDayPicker comes with a default, basic style in `react-day-picker/style` – use\nit as template for your own style.\n\nIf you are using CSS modules, pass the imported styles object the\n`classNames` props.\n\nYou can also style the elements via inline styles using the `styles` prop.\n\n### Form fields\n\nIf you need to bind the date picker to a form field, you can use the\n`useInput` hooks for a basic behavior. See the `useInput` source as an\nexample to bind the date picker with form fields.\n\n### Localization\n\nTo localize DayPicker, import the locale from `date-fns` package and use the\n`locale` prop.\n\nFor example, to use Spanish locale:\n\n```\nimport { es } from 'date-fns/locale';\n<DayPicker locale={es} />\n```"
+      },
+      {
+        "name": "DayPickerProvider",
+        "kind": "Function",
+        "url": "functions/DayPickerProvider.md",
+        "deprecated": false,
+        "summary": "The provider for the [DayPickerContext](/api/main/variables/DayPickerContext.md), assigning the defaults from the\ninitial DayPicker props."
+      },
+      {
+        "name": "Dropdown",
+        "kind": "Function",
+        "url": "functions/Dropdown.md",
+        "deprecated": false,
+        "summary": "Render a styled select component – displaying a caption and a custom\ndrop-down icon."
+      },
+      {
+        "name": "FocusProvider",
+        "kind": "Function",
+        "url": "functions/FocusProvider.md",
+        "deprecated": false,
+        "summary": "The provider for the [FocusContext](/api/main/variables/FocusContext.md)."
+      },
+      {
+        "name": "Footer",
+        "kind": "Function",
+        "url": "functions/Footer.md",
+        "deprecated": false,
+        "summary": "Render the Footer component (empty as default)."
+      },
+      {
+        "name": "Head",
+        "kind": "Function",
+        "url": "functions/Head.md",
+        "deprecated": false,
+        "summary": "Render the table head."
+      },
+      {
+        "name": "HeadRow",
+        "kind": "Function",
+        "url": "functions/HeadRow.md",
+        "deprecated": false,
+        "summary": "Render the HeadRow component - i.e. the table head row with the weekday names."
+      },
+      {
+        "name": "IconDropdown",
+        "kind": "Function",
+        "url": "functions/IconDropdown.md",
+        "deprecated": false,
+        "summary": "Render the icon in the styled drop-down."
+      },
+      {
+        "name": "IconLeft",
+        "kind": "Function",
+        "url": "functions/IconLeft.md",
+        "deprecated": false,
+        "summary": "Render the \"previous month\" button in the navigation."
+      },
+      {
+        "name": "IconRight",
+        "kind": "Function",
+        "url": "functions/IconRight.md",
+        "deprecated": false,
+        "summary": "Render the \"next month\" button in the navigation."
+      },
+      {
+        "name": "Months",
+        "kind": "Function",
+        "url": "functions/Months.md",
+        "deprecated": false,
+        "summary": "Render the wrapper for the month grids."
+      },
+      {
+        "name": "NavigationProvider",
+        "kind": "Function",
+        "url": "functions/NavigationProvider.md",
+        "deprecated": false,
+        "summary": "Provides the values for the [NavigationContext](/api/main/variables/NavigationContext.md)."
+      },
+      {
+        "name": "RootProvider",
+        "kind": "Function",
+        "url": "functions/RootProvider.md",
+        "deprecated": false,
+        "summary": "Provide the value for all the context providers."
+      },
+      {
+        "name": "Row",
+        "kind": "Function",
+        "url": "functions/Row.md",
+        "deprecated": false,
+        "summary": "Render a row in the calendar, with the days and the week number."
+      },
+      {
+        "name": "SelectMultipleProvider",
+        "kind": "Function",
+        "url": "functions/SelectMultipleProvider.md",
+        "deprecated": false,
+        "summary": "Provides the values for the [SelectMultipleContext](/api/main/variables/SelectMultipleContext.md)."
+      },
+      {
+        "name": "SelectMultipleProviderInternal",
+        "kind": "Function",
+        "url": "functions/SelectMultipleProviderInternal.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "SelectRangeProvider",
+        "kind": "Function",
+        "url": "functions/SelectRangeProvider.md",
+        "deprecated": false,
+        "summary": "Provides the values for the [SelectRangeProvider](/api/main/functions/SelectRangeProvider.md)."
+      },
+      {
+        "name": "SelectRangeProviderInternal",
+        "kind": "Function",
+        "url": "functions/SelectRangeProviderInternal.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "SelectSingleProvider",
+        "kind": "Function",
+        "url": "functions/SelectSingleProvider.md",
+        "deprecated": false,
+        "summary": "Provides the values for the [SelectSingleProvider](/api/main/functions/SelectSingleProvider.md)."
+      },
+      {
+        "name": "SelectSingleProviderInternal",
+        "kind": "Function",
+        "url": "functions/SelectSingleProviderInternal.md",
+        "deprecated": false,
+        "summary": ""
+      },
+      {
+        "name": "WeekNumber",
+        "kind": "Function",
+        "url": "functions/WeekNumber.md",
+        "deprecated": false,
+        "summary": "Render the week number element. If `onWeekNumberClick` is passed to DayPicker, it\nrenders a button, otherwise a span element."
+      },
+      {
+        "name": "addToRange",
+        "kind": "Function",
+        "url": "functions/addToRange.md",
+        "deprecated": false,
+        "summary": "Add a day to an existing range.\n\nThe returned range takes in account the `undefined` values and if the added\nday is already present in the range."
+      },
+      {
+        "name": "isDateAfterType",
+        "kind": "Function",
+        "url": "functions/isDateAfterType.md",
+        "deprecated": false,
+        "summary": "Returns true if `value` is of type [DateAfter](/api/main/type-aliases/DateAfter.md)."
+      },
+      {
+        "name": "isDateBeforeType",
+        "kind": "Function",
+        "url": "functions/isDateBeforeType.md",
+        "deprecated": false,
+        "summary": "Returns true if `value` is of type [DateBefore](/api/main/type-aliases/DateBefore.md)."
+      },
+      {
+        "name": "isDateInterval",
+        "kind": "Function",
+        "url": "functions/isDateInterval.md",
+        "deprecated": false,
+        "summary": "Returns true if `matcher` is of type [DateInterval](/api/main/type-aliases/DateInterval.md)."
+      },
+      {
+        "name": "isDateRange",
+        "kind": "Function",
+        "url": "functions/isDateRange.md",
+        "deprecated": false,
+        "summary": "Returns true if `value` is a [DateRange](/api/main/type-aliases/DateRange.md) type."
+      },
+      {
+        "name": "isDayOfWeekType",
+        "kind": "Function",
+        "url": "functions/isDayOfWeekType.md",
+        "deprecated": false,
+        "summary": "Returns true if `value` is a [DayOfWeek](/api/main/type-aliases/DayOfWeek.md) type."
+      },
+      {
+        "name": "isDayPickerDefault",
+        "kind": "Function",
+        "url": "functions/isDayPickerDefault.md",
+        "deprecated": false,
+        "summary": "Returns true when the props are of type [DayPickerDefaultProps](/api/main/interfaces/DayPickerDefaultProps.md)."
+      },
+      {
+        "name": "isDayPickerMultiple",
+        "kind": "Function",
+        "url": "functions/isDayPickerMultiple.md",
+        "deprecated": false,
+        "summary": "Returns true when the props are of type [DayPickerMultipleProps](/api/main/interfaces/DayPickerMultipleProps.md)."
+      },
+      {
+        "name": "isDayPickerRange",
+        "kind": "Function",
+        "url": "functions/isDayPickerRange.md",
+        "deprecated": false,
+        "summary": "Returns true when the props are of type [DayPickerRangeProps](/api/main/interfaces/DayPickerRangeProps.md)."
+      },
+      {
+        "name": "isDayPickerSingle",
+        "kind": "Function",
+        "url": "functions/isDayPickerSingle.md",
+        "deprecated": false,
+        "summary": "Returns true when the props are of type [DayPickerSingleProps](/api/main/interfaces/DayPickerSingleProps.md)."
+      },
+      {
+        "name": "isMatch",
+        "kind": "Function",
+        "url": "functions/isMatch.md",
+        "deprecated": false,
+        "summary": "Returns whether a day matches against at least one of the given Matchers.\n\n```\nconst day = new Date(2022, 5, 19);\nconst matcher1: DateRange = {\n   from: new Date(2021, 12, 21),\n   to: new Date(2021, 12, 30)\n}\nconst matcher2: DateRange = {\n   from: new Date(2022, 5, 1),\n   to: new Date(2022, 5, 23)\n}\n\nconst isMatch(day, [matcher1, matcher2]); // true, since day is in the matcher1 range.\n```"
+      },
+      {
+        "name": "useActiveModifiers",
+        "kind": "Function",
+        "url": "functions/useActiveModifiers.md",
+        "deprecated": false,
+        "summary": "Return the active modifiers for the specified day.\n\nThis hook is meant to be used inside internal or custom components."
+      },
+      {
+        "name": "useDayPicker",
+        "kind": "Function",
+        "url": "functions/useDayPicker.md",
+        "deprecated": false,
+        "summary": "Hook to access the [DayPickerContextValue](/api/main/interfaces/DayPickerContextValue.md).\n\nUse the DayPicker context to access to the props passed to DayPicker inside\ninternal or custom components."
+      },
+      {
+        "name": "useDayRender",
+        "kind": "Function",
+        "url": "functions/useDayRender.md",
+        "deprecated": false,
+        "summary": "Return props and data used to render the [Day](/api/main/functions/Day.md) component.\n\nUse this hook when creating a component to replace the built-in `Day`\ncomponent."
+      },
+      {
+        "name": "useFocusContext",
+        "kind": "Function",
+        "url": "functions/useFocusContext.md",
+        "deprecated": false,
+        "summary": "Hook to access the [FocusContextValue](/api/main/type-aliases/FocusContextValue.md). Use this hook to handle the\nfocus state of the elements.\n\nThis hook is meant to be used inside internal or custom components."
+      },
+      {
+        "name": "useInput",
+        "kind": "Function",
+        "url": "functions/useInput.md",
+        "deprecated": false,
+        "summary": "Return props and setters for binding an input field to DayPicker."
+      },
+      {
+        "name": "useNavigation",
+        "kind": "Function",
+        "url": "functions/useNavigation.md",
+        "deprecated": false,
+        "summary": "Hook to access the [NavigationContextValue](/api/main/interfaces/NavigationContextValue.md). Use this hook to navigate\nbetween months or years in DayPicker.\n\nThis hook is meant to be used inside internal or custom components."
+      },
+      {
+        "name": "useSelectMultiple",
+        "kind": "Function",
+        "url": "functions/useSelectMultiple.md",
+        "deprecated": false,
+        "summary": "Hook to access the [SelectMultipleContextValue](/api/main/interfaces/SelectMultipleContextValue.md).\n\nThis hook is meant to be used inside internal or custom components."
+      },
+      {
+        "name": "useSelectRange",
+        "kind": "Function",
+        "url": "functions/useSelectRange.md",
+        "deprecated": false,
+        "summary": "Hook to access the [SelectRangeContextValue](/api/main/interfaces/SelectRangeContextValue.md).\n\nThis hook is meant to be used inside internal or custom components."
+      },
+      {
+        "name": "useSelectSingle",
+        "kind": "Function",
+        "url": "functions/useSelectSingle.md",
+        "deprecated": false,
+        "summary": "Hook to access the [SelectSingleContextValue](/api/main/interfaces/SelectSingleContextValue.md).\n\nThis hook is meant to be used inside internal or custom components."
+      }
+    ]
+  }
+]

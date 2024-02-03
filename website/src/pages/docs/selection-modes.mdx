@@ -1,0 +1,176 @@
+---
+section: Selecting Days
+title: Selection Modes
+description: DayPicker supports 3 built-in selection modes, that fit the most common use-cases for a date picker.
+---
+
+<SectionTitle>Selecting Days</SectionTitle>
+
+# Selection Modes
+
+<Description>
+  DayPicker supports 3 built-in selection modes, that fit the most common
+  use-cases for a date picker.
+</Description>
+
+---
+
+> **TODO**: This section is still a draft.
+
+DayPicker supports 3 built-in selection modes, that fit the most common
+use-cases for a date picker.
+
+- **single mode**: only one day can be selected;
+- **multi mode**: allow selection of multiple days;
+- **range mode**: allow the selection of a range of days;
+
+You can also implement your own selection logic by setting up a **custom selection mode**.
+
+## Entering a Selection Mode
+
+- To use the built-in modes, use the `mode` prop.
+- To set a custom selection mode, use the `modifiers` and the `onDayClick` prop.
+- Toggle off the selection by setting `mode="none"`.
+
+```tsx
+// Single selection mode
+<DayPicker mode="single" selected={/*...*/} onSelect={/*...*/} />
+
+// Multi selection mode
+<DayPicker mode="multi"  selected={/*...*/} onSelect={/*...*/} />
+
+// Range selection mode
+<DayPicker mode="range" selected={/*...*/} onSelect={/*...*/} />
+
+// Custom selection mode
+<DayPicker modifiers={{ selected: /*...*/ }} onDayClick={/*...*/} />
+```
+
+## Single Selection Mode
+
+When using `mode="single"` (the default), users can select only one day from the calendar:
+
+<PreviewBox preview={<Examples.Single />}>
+
+```tsx
+const [selectedDay, setSelectedDay] = useState<Date | undefined>();
+// ...
+<DayPicker selected={selectedDay} onSelect={setSelectedDay} />;
+```
+
+</PreviewBox>
+
+### Required Selection
+
+To make a selection required, use the `required` prop. Setting this prop won't allow the user to unselect the selected day.
+
+<PreviewBox preview={<Examples.SingleRequired/>}>
+
+```tsx
+const [selectedDay, setSelectedDay] = useState<Date>(new Date());
+// ...
+<DayPicker
+  required
+  selected={selectedDay}
+  onSelect={(date) => date && setSelectedDay(date)}
+/>;
+```
+
+</PreviewBox>
+
+## Selecting Multiple Days
+
+Use `mode="multiple"` to allow the selection of multiple days.
+
+<PreviewBox preview={<Examples.Multiple/>}>
+
+```tsx
+const initialDays: Date[] = [];
+const [days, setDays] = useState<Date[]>(initialDays);
+// ..
+<DayPicker
+  mode="multi"
+  selected={days}
+  onSelect={(dates) => setDays(dates || [])}
+/>;
+```
+
+</PreviewBox>
+
+### Limiting the Selections
+
+Use `required` or the `min` and `max` props to limit the amount of days that can be selected.
+
+<PreviewBox preview={<Examples.MultipleMinMax/>}>
+
+```tsx
+const [selected, setSelected] = useState();
+// ...
+<DayPicker
+  mode="multi"
+  min={2}
+  max={5}
+  selected={selected}
+  onSelect={setSelected}
+/>;
+```
+
+</PreviewBox>
+
+## Selecting a Range of days
+
+Use `mode="range"` and `onSelect` to allow the selection of a range of days.
+
+<PreviewBox preview={<Examples.Range/>}>
+
+```tsx
+import { addDays } from 'date-fns';
+//...
+const defaultSelected: DateRange = {
+  from: new Date(),
+  to: addDays(new Date(), 4)
+};
+const [range, setRange] = useState(defaultSelected);
+// ...
+<DayPicker mode="range" selected={range} onSelect={setRange} />;
+```
+
+</PreviewBox>
+
+### Limiting the range size
+
+Use the `min` and `max` props to limit the amount of days in the range.
+
+<PreviewBox preview={<Examples.RangeMinMax/>}>
+
+```tsx
+const [range, setRange] = useState();
+// ...
+<DayPicker mode="range" min={3} max={6} selected={range} onSelect={setRange} />;
+```
+
+</PreviewBox>
+
+## Disabling days
+
+Use the `disabled` prop to disable the days in the selection mode.
+
+<PreviewBox preview={<Examples.Disabled />}>
+  ```tsx
+  <DayPicker />
+  ```
+</PreviewBox>
+
+## Turning off selection mode
+
+Use the `min` and `max` props to limit the amount of days in the range.
+
+<PreviewBox preview={<Examples.None />}>
+  ```tsx
+  <DayPicker mode="presentation" />
+  ```
+</PreviewBox>
+
+## Custom Selections
+
+If the built-in selections mode doesn't fit your application's requirements, you can implement your own selection logic. See [Custom Selections](/docs/custom-selections) for more details.

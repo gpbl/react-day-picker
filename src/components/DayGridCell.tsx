@@ -8,7 +8,12 @@ import type { Modifiers } from "../types/modifiers";
  *
  * @category Custom Components
  */
-export function DayGridCell(props: {
+export function DayGridCell(props: DayGridCellProps) {
+  const { children, htmlAttributes } = props;
+  return <div {...htmlAttributes}>{children}</div>;
+}
+
+export interface DayGridCellProps {
   /** The day to be rendered in the gridcell. */
   day: CalendarDay;
   /** Modifiers for the day. */
@@ -17,7 +22,4 @@ export function DayGridCell(props: {
   htmlAttributes: HTMLAttributes<HTMLElement>;
   /** Children of the gridcell. */
   children?: React.ReactNode;
-}) {
-  const { children, htmlAttributes } = props;
-  return <div {...htmlAttributes}>{children}</div>;
 }

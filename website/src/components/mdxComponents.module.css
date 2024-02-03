@@ -1,0 +1,54 @@
+
+.Blockquote {
+  border-left: 1px solid var(--gray-a5);
+}
+
+.Note {
+  border-radius: var(--radius-3);
+  color: var(--gray-a11);
+  font-size: var(--font-size-2);
+}
+
+.Note p[class*='size-'] {
+  font-size: var(--font-size-2);
+  margin: 0;
+}
+
+.Alert {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-4);
+  box-shadow: inset 0 0 0 1px var(--yellow-a6);
+  background-color: var(--yellow-a3);
+  color: var(--yellow-11);
+}
+
+.Alert p {
+  margin: 0;
+}
+
+.Alert p[class*='size-'] {
+  font-size: var(--font-size-2);
+}
+
+.TabsCodeBlock {
+  overflow: hidden;
+  padding: 1px;
+  box-shadow:
+    inset 0 0 0 1px var(--accent-a1),
+    inset 0 0 0 1px var(--gray-a5);
+  border-radius: var(--radius-4);
+}
+
+.TabsCodeBlock :global(.rt-TabsList) {
+  box-shadow:
+    inset 0 -1px var(--accent-a1),
+    inset 0 -1px var(--gray-a4);
+  border-top-left-radius: calc(var(--radius-4) - 1px);
+  border-top-right-radius: calc(var(--radius-4) - 1px);
+}
+:global(.dark-theme) .TabsCodeBlock :global(.rt-TabsList) {
+  background-color: var(--accent-a1);
+}

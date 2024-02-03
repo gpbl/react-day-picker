@@ -1,0 +1,38 @@
+<SectionTitle>TypeAlias (Component)</SectionTitle>
+
+# SelectHandler\<T\>
+
+<Description>
+The callback called when the user select a days from the calendar.
+</Description>
+
+---
+
+<a id="undefined" name="undefined"></a>
+
+<SignatureMemberIdentifier>**SelectHandler**\<`T`\>: (`selected`, `date`, `modifiers`, `e`) => `void`</SignatureMemberIdentifier>
+
+The callback called when the user select a days from the calendar.
+
+## Type parameters
+
+| Type parameter |
+| :------ |
+| `T` extends [`Mode`](/api/next/type-aliases/Mode.md) |
+
+## Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `selected` | [`Selected`](/api/next/type-aliases/Selected.md)\<`T`\> |
+| `date` | `Date` |
+| `modifiers` | [`Modifiers`](/api/next/type-aliases/Modifiers.md) |
+| `e` | `MouseEvent` \| `KeyboardEvent` |
+
+## Returns
+
+`void`
+
+## Source
+
+[src/types/props.ts:430](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L430)

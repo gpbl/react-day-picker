@@ -1,0 +1,1276 @@
+<SectionTitle>Interface (undefined)</SectionTitle>
+
+# DayPickerMultipleProps
+
+<Description>
+The props for the [DayPicker](/api/main/functions/DayPicker.md) component when using `mode="multiple"`.
+</Description>
+
+---
+
+The props for the [DayPicker](/api/main/functions/DayPicker.md) component when using `mode="multiple"`.
+
+## Extends
+
+- [`DayPickerBase`](/api/main/interfaces/DayPickerBase.md)
+
+## Properties
+
+<a id="isoweek" name="isoweek"></a>
+
+### ISOWeek?
+
+<SignatureMemberIdentifier>**ISOWeek**?: `boolean`</SignatureMemberIdentifier>
+
+Use ISO week dates instead of the locale setting. Setting this prop will
+ignore [weekStartsOn](/api/main/interfaces/DayPickerBase.md#weekstartson) and [firstWeekContainsDate](/api/main/interfaces/DayPickerBase.md#firstweekcontainsdate).
+
+#### See
+
+https://en.wikipedia.org/wiki/ISO_week_date
+
+#### Inherited from
+
+[`DayPickerBase.ISOWeek`](/api/main/interfaces/DayPickerBase.md#isoweek)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:221
+
+***
+
+<a id="captionlayout" name="captionlayout"></a>
+
+### captionLayout?
+
+<SignatureMemberIdentifier>**captionLayout**?: [`CaptionLayout`](/api/main/type-aliases/CaptionLayout.md)</SignatureMemberIdentifier>
+
+Change the layout of the caption:
+
+- `buttons`: display prev/right buttons
+- `dropdown`: display drop-downs to change the month and the year
+
+**Note:** the `dropdown` layout is available only when `fromDate`,
+`fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
+
+#### Default Value
+
+```ts
+buttons
+```
+
+#### Inherited from
+
+[`DayPickerBase.captionLayout`](/api/main/interfaces/DayPickerBase.md#captionlayout)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:167
+
+***
+
+<a id="classname" name="classname"></a>
+
+### className?
+
+<SignatureMemberIdentifier>**className**?: `string`</SignatureMemberIdentifier>
+
+The CSS class to add to the container element. To change the name of the
+class instead, use `classNames.root`.
+
+#### Inherited from
+
+[`DayPickerBase.className`](/api/main/interfaces/DayPickerBase.md#classname)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:54
+
+***
+
+<a id="classnames" name="classnames"></a>
+
+### classNames?
+
+<SignatureMemberIdentifier>**classNames**?: `Partial`\<[`StyledElement`](/api/main/type-aliases/StyledElement.md)\<`string`\>\></SignatureMemberIdentifier>
+
+Change the class names of the HTML elements.
+
+Use this prop when you need to change the default class names — for example
+when using CSS modules.
+
+#### Inherited from
+
+[`DayPickerBase.classNames`](/api/main/interfaces/DayPickerBase.md#classnames)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:61
+
+***
+
+<a id="components" name="components"></a>
+
+### components?
+
+<SignatureMemberIdentifier>**components**?: [`CustomComponents`](/api/main/interfaces/CustomComponents.md)</SignatureMemberIdentifier>
+
+Map of components used to create the layout. Look at the [components
+source](https://github.com/gpbl/react-day-picker/tree/main/src/components)
+to understand how internal components are built and provide your custom components.
+
+#### Inherited from
+
+[`DayPickerBase.components`](/api/main/interfaces/DayPickerBase.md#components)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:228
+
+***
+
+<a id="defaultmonth" name="defaultmonth"></a>
+
+### defaultMonth?
+
+<SignatureMemberIdentifier>**defaultMonth**?: `Date`</SignatureMemberIdentifier>
+
+The initial month to show in the calendar. Use this prop to let DayPicker
+control the current month. If you need to set the month programmatically,
+use []] and [[onMonthChange](/api/main/interfaces/DayPickerBase.md#month).
+
+#### Default Value
+
+```ts
+The current month
+```
+
+#### Inherited from
+
+[`DayPickerBase.defaultMonth`](/api/main/interfaces/DayPickerBase.md#defaultmonth)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:93
+
+***
+
+<a id="dir" name="dir"></a>
+
+### dir?
+
+<SignatureMemberIdentifier>**dir**?: `string`</SignatureMemberIdentifier>
+
+The text direction of the calendar. Use `ltr` for left-to-right (default)
+or `rtl` for right-to-left.
+
+#### Inherited from
+
+[`DayPickerBase.dir`](/api/main/interfaces/DayPickerBase.md#dir)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:292
+
+***
+
+<a id="disablenavigation" name="disablenavigation"></a>
+
+### disableNavigation?
+
+<SignatureMemberIdentifier>**disableNavigation**?: `boolean`</SignatureMemberIdentifier>
+
+Disable the navigation between months.
+
+#### Default Value
+
+```ts
+false
+```
+
+#### Inherited from
+
+[`DayPickerBase.disableNavigation`](/api/main/interfaces/DayPickerBase.md#disablenavigation)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:140
+
+***
+
+<a id="disabled" name="disabled"></a>
+
+### disabled?
+
+<SignatureMemberIdentifier>**disabled**?: [`Matcher`](/api/main/type-aliases/Matcher.md) \| [`Matcher`](/api/main/type-aliases/Matcher.md)[]</SignatureMemberIdentifier>
+
+Apply the `disabled` modifier to the matching days.
+
+#### Inherited from
+
+[`DayPickerBase.disabled`](/api/main/interfaces/DayPickerBase.md#disabled)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:247
+
+***
+
+<a id="firstweekcontainsdate" name="firstweekcontainsdate"></a>
+
+### firstWeekContainsDate?
+
+<SignatureMemberIdentifier>**firstWeekContainsDate**?: `1` \| `4`</SignatureMemberIdentifier>
+
+The day of January, which is always in the first week of the year. Can be
+either Monday (`1`) or Thursday (`4`).
+
+#### See
+
+ - https://date-fns.org/docs/getWeek
+ - https://en.wikipedia.org/wiki/Week#Numbering
+ - [ISOWeek](/api/main/interfaces/DayPickerBase.md#isoweek).
+
+#### Inherited from
+
+[`DayPickerBase.firstWeekContainsDate`](/api/main/interfaces/DayPickerBase.md#firstweekcontainsdate)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:214
+
+***
+
+<a id="fixedweeks" name="fixedweeks"></a>
+
+### fixedWeeks?
+
+<SignatureMemberIdentifier>**fixedWeeks**?: `boolean`</SignatureMemberIdentifier>
+
+Display six weeks per months, regardless the month’s number of weeks.
+To use this prop, [showOutsideDays](/api/main/interfaces/DayPickerBase.md#showoutsidedays) must be set.
+
+#### Default Value
+
+```ts
+false
+```
+
+#### Inherited from
+
+[`DayPickerBase.fixedWeeks`](/api/main/interfaces/DayPickerBase.md#fixedweeks)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:174
+
+***
+
+<a id="footer" name="footer"></a>
+
+### footer?
+
+<SignatureMemberIdentifier>**footer**?: `ReactNode`</SignatureMemberIdentifier>
+
+Content to add to the table footer element.
+
+#### Inherited from
+
+[`DayPickerBase.footer`](/api/main/interfaces/DayPickerBase.md#footer)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:233
+
+***
+
+<a id="formatters" name="formatters"></a>
+
+### formatters?
+
+<SignatureMemberIdentifier>**formatters**?: `Partial`\<[`Formatters`](/api/main/type-aliases/Formatters.md)\></SignatureMemberIdentifier>
+
+A map of formatters. Use the formatters to override the default formatting
+functions.
+
+#### Inherited from
+
+[`DayPickerBase.formatters`](/api/main/interfaces/DayPickerBase.md#formatters)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:286
+
+***
+
+<a id="fromdate" name="fromdate"></a>
+
+### fromDate?
+
+<SignatureMemberIdentifier>**fromDate**?: `Date`</SignatureMemberIdentifier>
+
+The earliest day to start the month navigation.
+
+#### Inherited from
+
+[`DayPickerBase.fromDate`](/api/main/interfaces/DayPickerBase.md#fromdate)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:114
+
+***
+
+<a id="frommonth" name="frommonth"></a>
+
+### fromMonth?
+
+<SignatureMemberIdentifier>**fromMonth**?: `Date`</SignatureMemberIdentifier>
+
+The earliest month to start the month navigation.
+
+#### Inherited from
+
+[`DayPickerBase.fromMonth`](/api/main/interfaces/DayPickerBase.md#frommonth)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:122
+
+***
+
+<a id="fromyear" name="fromyear"></a>
+
+### fromYear?
+
+<SignatureMemberIdentifier>**fromYear**?: `number`</SignatureMemberIdentifier>
+
+The earliest year to start the month navigation.
+
+#### Inherited from
+
+[`DayPickerBase.fromYear`](/api/main/interfaces/DayPickerBase.md#fromyear)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:130
+
+***
+
+<a id="hidden" name="hidden"></a>
+
+### hidden?
+
+<SignatureMemberIdentifier>**hidden**?: [`Matcher`](/api/main/type-aliases/Matcher.md) \| [`Matcher`](/api/main/type-aliases/Matcher.md)[]</SignatureMemberIdentifier>
+
+Apply the `hidden` modifier to the matching days. Will hide them from the
+calendar.
+
+#### Inherited from
+
+[`DayPickerBase.hidden`](/api/main/interfaces/DayPickerBase.md#hidden)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:252
+
+***
+
+<a id="hidehead" name="hidehead"></a>
+
+### hideHead?
+
+<SignatureMemberIdentifier>**hideHead**?: `boolean`</SignatureMemberIdentifier>
+
+Hide the month’s head displaying the weekday names.
+
+#### Default Value
+
+```ts
+false
+```
+
+#### Inherited from
+
+[`DayPickerBase.hideHead`](/api/main/interfaces/DayPickerBase.md#hidehead)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:180
+
+***
+
+<a id="id" name="id"></a>
+
+### id?
+
+<SignatureMemberIdentifier>**id**?: `string`</SignatureMemberIdentifier>
+
+A unique id to replace the random generated id – used by DayPicker for
+accessibility.
+
+#### Inherited from
+
+[`DayPickerBase.id`](/api/main/interfaces/DayPickerBase.md#id)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:84
+
+***
+
+<a id="initialfocus" name="initialfocus"></a>
+
+### initialFocus?
+
+<SignatureMemberIdentifier>**initialFocus**?: `boolean`</SignatureMemberIdentifier>
+
+When a selection mode is set, DayPicker will focus the first selected day
+(if set) or the today's date (if not disabled).
+
+Use this prop when you need to focus DayPicker after a user actions, for
+improved accessibility.
+
+#### Inherited from
+
+[`DayPickerBase.initialFocus`](/api/main/interfaces/DayPickerBase.md#initialfocus)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:242
+
+***
+
+<a id="labels" name="labels"></a>
+
+### labels?
+
+<SignatureMemberIdentifier>**labels**?: `Partial`\<[`Labels`](/api/main/type-aliases/Labels.md)\></SignatureMemberIdentifier>
+
+Labels creators to override the defaults. Use this prop to customize the
+ARIA labels attributes.
+
+#### Inherited from
+
+[`DayPickerBase.labels`](/api/main/interfaces/DayPickerBase.md#labels)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:280
+
+***
+
+<a id="lang" name="lang"></a>
+
+### lang?
+
+<SignatureMemberIdentifier>**lang**?: `string`</SignatureMemberIdentifier>
+
+Add the language tag to the container element.
+
+#### Inherited from
+
+[`DayPickerBase.lang`](/api/main/interfaces/DayPickerBase.md#lang)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:308
+
+***
+
+<a id="locale" name="locale"></a>
+
+### locale?
+
+<SignatureMemberIdentifier>**locale**?: `Locale`</SignatureMemberIdentifier>
+
+The date-fns locale object used to localize dates.
+
+#### Default Value
+
+```ts
+en-US
+```
+
+#### Inherited from
+
+[`DayPickerBase.locale`](/api/main/interfaces/DayPickerBase.md#locale)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:274
+
+***
+
+<a id="max" name="max"></a>
+
+### max?
+
+<SignatureMemberIdentifier>**max**?: `number`</SignatureMemberIdentifier>
+
+The maximum amount of days that can be selected.
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerMultiple.ts:18
+
+***
+
+<a id="min" name="min"></a>
+
+### min?
+
+<SignatureMemberIdentifier>**min**?: `number`</SignatureMemberIdentifier>
+
+The minimum amount of days that can be selected.
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerMultiple.ts:16
+
+***
+
+<a id="mode" name="mode"></a>
+
+### mode
+
+<SignatureMemberIdentifier>**mode**: `"multiple"`</SignatureMemberIdentifier>
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerMultiple.ts:10
+
+***
+
+<a id="modifiers" name="modifiers"></a>
+
+### modifiers?
+
+<SignatureMemberIdentifier>**modifiers**?: [`DayModifiers`](/api/main/type-aliases/DayModifiers.md)</SignatureMemberIdentifier>
+
+Add modifiers to the matching days.
+
+#### Inherited from
+
+[`DayPickerBase.modifiers`](/api/main/interfaces/DayPickerBase.md#modifiers)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:267
+
+***
+
+<a id="modifiersclassnames" name="modifiersclassnames"></a>
+
+### modifiersClassNames?
+
+<SignatureMemberIdentifier>**modifiersClassNames**?: [`ModifiersClassNames`](/api/main/type-aliases/ModifiersClassNames.md)</SignatureMemberIdentifier>
+
+Change the class name for the day matching the [modifiers](/api/main/interfaces/DayPickerBase.md#modifiers).
+
+#### Inherited from
+
+[`DayPickerBase.modifiersClassNames`](/api/main/interfaces/DayPickerBase.md#modifiersclassnames)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:65
+
+***
+
+<a id="modifiersstyles" name="modifiersstyles"></a>
+
+### modifiersStyles?
+
+<SignatureMemberIdentifier>**modifiersStyles**?: [`ModifiersStyles`](/api/main/type-aliases/ModifiersStyles.md)</SignatureMemberIdentifier>
+
+Change the inline style for the day matching the [modifiers](/api/main/interfaces/DayPickerBase.md#modifiers).
+
+#### Inherited from
+
+[`DayPickerBase.modifiersStyles`](/api/main/interfaces/DayPickerBase.md#modifiersstyles)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:78
+
+***
+
+<a id="month" name="month"></a>
+
+### month?
+
+<SignatureMemberIdentifier>**month**?: `Date`</SignatureMemberIdentifier>
+
+The month displayed in the calendar.
+
+As opposed to [DayPickerBase.defaultMonth](/api/main/interfaces/DayPickerBase.md#defaultmonth), use this prop with
+[DayPickerBase.onMonthChange](/api/main/interfaces/DayPickerBase.md#onmonthchange) to change the month programmatically.
+
+#### Inherited from
+
+[`DayPickerBase.month`](/api/main/interfaces/DayPickerBase.md#month)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:100
+
+***
+
+<a id="nonce" name="nonce"></a>
+
+### nonce?
+
+<SignatureMemberIdentifier>**nonce**?: `string`</SignatureMemberIdentifier>
+
+A cryptographic nonce ("number used once") which can be used by Content
+Security Policy for the inline `style` attributes.
+
+#### Inherited from
+
+[`DayPickerBase.nonce`](/api/main/interfaces/DayPickerBase.md#nonce)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:298
+
+***
+
+<a id="numberofmonths" name="numberofmonths"></a>
+
+### numberOfMonths?
+
+<SignatureMemberIdentifier>**numberOfMonths**?: `number`</SignatureMemberIdentifier>
+
+The number of displayed months.
+
+#### Default Value
+
+```ts
+1
+```
+
+#### Inherited from
+
+[`DayPickerBase.numberOfMonths`](/api/main/interfaces/DayPickerBase.md#numberofmonths)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:110
+
+***
+
+<a id="ondayblur" name="ondayblur"></a>
+
+### onDayBlur?
+
+<SignatureMemberIdentifier>**onDayBlur**?: [`DayFocusEventHandler`](/api/main/type-aliases/DayFocusEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the user blurs from a day.
+
+#### Inherited from
+
+[`DayPickerBase.onDayBlur`](/api/main/interfaces/DayPickerBase.md#ondayblur)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:335
+
+***
+
+<a id="ondayclick" name="ondayclick"></a>
+
+### onDayClick?
+
+<SignatureMemberIdentifier>**onDayClick**?: [`DayClickEventHandler`](/api/main/type-aliases/DayClickEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the user clicks on a day.
+
+#### Inherited from
+
+[`DayPickerBase.onDayClick`](/api/main/interfaces/DayPickerBase.md#ondayclick)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:327
+
+***
+
+<a id="ondayfocus" name="ondayfocus"></a>
+
+### onDayFocus?
+
+<SignatureMemberIdentifier>**onDayFocus**?: [`DayFocusEventHandler`](/api/main/type-aliases/DayFocusEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the user focuses on a day.
+
+#### Inherited from
+
+[`DayPickerBase.onDayFocus`](/api/main/interfaces/DayPickerBase.md#ondayfocus)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:331
+
+***
+
+<a id="ondaykeydown" name="ondaykeydown"></a>
+
+### onDayKeyDown?
+
+<SignatureMemberIdentifier>**onDayKeyDown**?: [`DayKeyboardEventHandler`](/api/main/type-aliases/DayKeyboardEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the user presses a key on a day.
+
+#### Inherited from
+
+[`DayPickerBase.onDayKeyDown`](/api/main/interfaces/DayPickerBase.md#ondaykeydown)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:347
+
+***
+
+<a id="ondaykeypress" name="ondaykeypress"></a>
+
+### onDayKeyPress?
+
+<SignatureMemberIdentifier>**onDayKeyPress**?: [`DayKeyboardEventHandler`](/api/main/type-aliases/DayKeyboardEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the user presses a key on a day.
+
+#### Inherited from
+
+[`DayPickerBase.onDayKeyPress`](/api/main/interfaces/DayPickerBase.md#ondaykeypress)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:355
+
+***
+
+<a id="ondaykeyup" name="ondaykeyup"></a>
+
+### onDayKeyUp?
+
+<SignatureMemberIdentifier>**onDayKeyUp**?: [`DayKeyboardEventHandler`](/api/main/type-aliases/DayKeyboardEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the user presses a key on a day.
+
+#### Inherited from
+
+[`DayPickerBase.onDayKeyUp`](/api/main/interfaces/DayPickerBase.md#ondaykeyup)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:351
+
+***
+
+<a id="ondaymouseenter" name="ondaymouseenter"></a>
+
+### onDayMouseEnter?
+
+<SignatureMemberIdentifier>**onDayMouseEnter**?: [`DayMouseEventHandler`](/api/main/type-aliases/DayMouseEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the user hovers on a day.
+
+#### Inherited from
+
+[`DayPickerBase.onDayMouseEnter`](/api/main/interfaces/DayPickerBase.md#ondaymouseenter)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:339
+
+***
+
+<a id="ondaymouseleave" name="ondaymouseleave"></a>
+
+### onDayMouseLeave?
+
+<SignatureMemberIdentifier>**onDayMouseLeave**?: [`DayMouseEventHandler`](/api/main/type-aliases/DayMouseEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the user hovers away from a day.
+
+#### Inherited from
+
+[`DayPickerBase.onDayMouseLeave`](/api/main/interfaces/DayPickerBase.md#ondaymouseleave)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:343
+
+***
+
+<a id="ondaypointerenter" name="ondaypointerenter"></a>
+
+### onDayPointerEnter?
+
+<SignatureMemberIdentifier>**onDayPointerEnter**?: [`DayPointerEventHandler`](/api/main/type-aliases/DayPointerEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the pointer enters a day.
+
+#### Inherited from
+
+[`DayPickerBase.onDayPointerEnter`](/api/main/interfaces/DayPickerBase.md#ondaypointerenter)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:359
+
+***
+
+<a id="ondaypointerleave" name="ondaypointerleave"></a>
+
+### onDayPointerLeave?
+
+<SignatureMemberIdentifier>**onDayPointerLeave**?: [`DayPointerEventHandler`](/api/main/type-aliases/DayPointerEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the pointer leaves a day.
+
+#### Inherited from
+
+[`DayPickerBase.onDayPointerLeave`](/api/main/interfaces/DayPickerBase.md#ondaypointerleave)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:363
+
+***
+
+<a id="ondaytouchcancel" name="ondaytouchcancel"></a>
+
+### onDayTouchCancel?
+
+<SignatureMemberIdentifier>**onDayTouchCancel**?: [`DayTouchEventHandler`](/api/main/type-aliases/DayTouchEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback when a day touch event is canceled.
+
+#### Inherited from
+
+[`DayPickerBase.onDayTouchCancel`](/api/main/interfaces/DayPickerBase.md#ondaytouchcancel)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:367
+
+***
+
+<a id="ondaytouchend" name="ondaytouchend"></a>
+
+### onDayTouchEnd?
+
+<SignatureMemberIdentifier>**onDayTouchEnd**?: [`DayTouchEventHandler`](/api/main/type-aliases/DayTouchEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback when a day touch event ends.
+
+#### Inherited from
+
+[`DayPickerBase.onDayTouchEnd`](/api/main/interfaces/DayPickerBase.md#ondaytouchend)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:371
+
+***
+
+<a id="ondaytouchmove" name="ondaytouchmove"></a>
+
+### onDayTouchMove?
+
+<SignatureMemberIdentifier>**onDayTouchMove**?: [`DayTouchEventHandler`](/api/main/type-aliases/DayTouchEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback when a day touch event moves.
+
+#### Inherited from
+
+[`DayPickerBase.onDayTouchMove`](/api/main/interfaces/DayPickerBase.md#ondaytouchmove)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:375
+
+***
+
+<a id="ondaytouchstart" name="ondaytouchstart"></a>
+
+### onDayTouchStart?
+
+<SignatureMemberIdentifier>**onDayTouchStart**?: [`DayTouchEventHandler`](/api/main/type-aliases/DayTouchEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback when a day touch event starts.
+
+#### Inherited from
+
+[`DayPickerBase.onDayTouchStart`](/api/main/interfaces/DayPickerBase.md#ondaytouchstart)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:379
+
+***
+
+<a id="onmonthchange" name="onmonthchange"></a>
+
+### onMonthChange?
+
+<SignatureMemberIdentifier>**onMonthChange**?: [`MonthChangeEventHandler`](/api/main/type-aliases/MonthChangeEventHandler.md)</SignatureMemberIdentifier>
+
+Event fired when the user navigates between months.
+
+#### Inherited from
+
+[`DayPickerBase.onMonthChange`](/api/main/interfaces/DayPickerBase.md#onmonthchange)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:104
+
+***
+
+<a id="onnextclick" name="onnextclick"></a>
+
+### onNextClick?
+
+<SignatureMemberIdentifier>**onNextClick**?: [`MonthChangeEventHandler`](/api/main/type-aliases/MonthChangeEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the next month button is clicked.
+
+#### Inherited from
+
+[`DayPickerBase.onNextClick`](/api/main/interfaces/DayPickerBase.md#onnextclick)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:313
+
+***
+
+<a id="onprevclick" name="onprevclick"></a>
+
+### onPrevClick?
+
+<SignatureMemberIdentifier>**onPrevClick**?: [`MonthChangeEventHandler`](/api/main/type-aliases/MonthChangeEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the previous month button is clicked.
+
+#### Inherited from
+
+[`DayPickerBase.onPrevClick`](/api/main/interfaces/DayPickerBase.md#onprevclick)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:317
+
+***
+
+<a id="onselect" name="onselect"></a>
+
+### onSelect?
+
+<SignatureMemberIdentifier>**onSelect**?: [`SelectMultipleEventHandler`](/api/main/type-aliases/SelectMultipleEventHandler.md)</SignatureMemberIdentifier>
+
+Event fired when a days added or removed to the selection.
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerMultiple.ts:14
+
+***
+
+<a id="onweeknumberclick" name="onweeknumberclick"></a>
+
+### onWeekNumberClick?
+
+<SignatureMemberIdentifier>**onWeekNumberClick**?: [`WeekNumberClickEventHandler`](/api/main/type-aliases/WeekNumberClickEventHandler.md)</SignatureMemberIdentifier>
+
+Event callback fired when the week number is clicked. Requires
+`showWeekNumbers` set.
+
+#### Inherited from
+
+[`DayPickerBase.onWeekNumberClick`](/api/main/interfaces/DayPickerBase.md#onweeknumberclick)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:322
+
+***
+
+<a id="pagednavigation" name="pagednavigation"></a>
+
+### pagedNavigation?
+
+<SignatureMemberIdentifier>**pagedNavigation**?: `boolean`</SignatureMemberIdentifier>
+
+Paginate the month navigation displaying the [numberOfMonths](/api/main/interfaces/DayPickerBase.md#numberofmonths) at
+time.
+
+#### Default Value
+
+```ts
+false
+```
+
+#### Inherited from
+
+[`DayPickerBase.pagedNavigation`](/api/main/interfaces/DayPickerBase.md#pagednavigation)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:147
+
+***
+
+<a id="reversemonths" name="reversemonths"></a>
+
+### reverseMonths?
+
+<SignatureMemberIdentifier>**reverseMonths**?: `boolean`</SignatureMemberIdentifier>
+
+Render the months in reversed order (when [numberOfMonths](/api/main/interfaces/DayPickerBase.md#numberofmonths) is greater
+than `1`) to display the most recent month first.
+
+#### Default Value
+
+```ts
+false
+```
+
+#### Inherited from
+
+[`DayPickerBase.reverseMonths`](/api/main/interfaces/DayPickerBase.md#reversemonths)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:154
+
+***
+
+<a id="selected" name="selected"></a>
+
+### selected?
+
+<SignatureMemberIdentifier>**selected**?: `Date`[]</SignatureMemberIdentifier>
+
+The selected days.
+
+#### Overrides
+
+[`DayPickerBase.selected`](/api/main/interfaces/DayPickerBase.md#selected)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerMultiple.ts:12
+
+***
+
+<a id="showoutsidedays" name="showoutsidedays"></a>
+
+### showOutsideDays?
+
+<SignatureMemberIdentifier>**showOutsideDays**?: `boolean`</SignatureMemberIdentifier>
+
+Show the outside days.  An outside day is a day falling in the next or the
+previous month.
+
+#### Default Value
+
+```ts
+false
+```
+
+#### Inherited from
+
+[`DayPickerBase.showOutsideDays`](/api/main/interfaces/DayPickerBase.md#showoutsidedays)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:187
+
+***
+
+<a id="showweeknumber" name="showweeknumber"></a>
+
+### showWeekNumber?
+
+<SignatureMemberIdentifier>**showWeekNumber**?: `boolean`</SignatureMemberIdentifier>
+
+Show the week numbers column. Weeks are numbered according to the local
+week index.
+
+- to use ISO week numbering, use the [ISOWeek](/api/main/interfaces/DayPickerBase.md#isoweek) prop.
+- to change how the week numbers are displayed, use the [Formatters](/api/main/type-aliases/Formatters.md) prop.
+
+#### See
+
+[ISOWeek](/api/main/interfaces/DayPickerBase.md#isoweek), [weekStartsOn](/api/main/interfaces/DayPickerBase.md#weekstartson) and [firstWeekContainsDate](/api/main/interfaces/DayPickerBase.md#firstweekcontainsdate).
+
+#### Default Value
+
+```ts
+false
+```
+
+#### Inherited from
+
+[`DayPickerBase.showWeekNumber`](/api/main/interfaces/DayPickerBase.md#showweeknumber)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:199
+
+***
+
+<a id="style" name="style"></a>
+
+### style?
+
+<SignatureMemberIdentifier>**style**?: `CSSProperties`</SignatureMemberIdentifier>
+
+Style to apply to the container element.
+
+#### Inherited from
+
+[`DayPickerBase.style`](/api/main/interfaces/DayPickerBase.md#style)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:70
+
+***
+
+<a id="styles" name="styles"></a>
+
+### styles?
+
+<SignatureMemberIdentifier>**styles**?: `Partial`\<`Omit`\<[`StyledElement`](/api/main/type-aliases/StyledElement.md)\<`CSSProperties`\>, [`InternalModifiersElement`](/api/main/type-aliases/InternalModifiersElement.md)\>\></SignatureMemberIdentifier>
+
+Change the inline styles of the HTML elements.
+
+#### Inherited from
+
+[`DayPickerBase.styles`](/api/main/interfaces/DayPickerBase.md#styles)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:74
+
+***
+
+<a id="title" name="title"></a>
+
+### title?
+
+<SignatureMemberIdentifier>**title**?: `string`</SignatureMemberIdentifier>
+
+Add a `title` attribute to the container element.
+
+#### Inherited from
+
+[`DayPickerBase.title`](/api/main/interfaces/DayPickerBase.md#title)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:303
+
+***
+
+<a id="todate" name="todate"></a>
+
+### toDate?
+
+<SignatureMemberIdentifier>**toDate**?: `Date`</SignatureMemberIdentifier>
+
+The latest day to end the month navigation.
+
+#### Inherited from
+
+[`DayPickerBase.toDate`](/api/main/interfaces/DayPickerBase.md#todate)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:118
+
+***
+
+<a id="tomonth" name="tomonth"></a>
+
+### toMonth?
+
+<SignatureMemberIdentifier>**toMonth**?: `Date`</SignatureMemberIdentifier>
+
+The latest month to end the month navigation.
+
+#### Inherited from
+
+[`DayPickerBase.toMonth`](/api/main/interfaces/DayPickerBase.md#tomonth)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:126
+
+***
+
+<a id="toyear" name="toyear"></a>
+
+### toYear?
+
+<SignatureMemberIdentifier>**toYear**?: `number`</SignatureMemberIdentifier>
+
+The latest year to end the month navigation.
+
+#### Inherited from
+
+[`DayPickerBase.toYear`](/api/main/interfaces/DayPickerBase.md#toyear)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:134
+
+***
+
+<a id="today" name="today"></a>
+
+### today?
+
+<SignatureMemberIdentifier>**today**?: `Date`</SignatureMemberIdentifier>
+
+The today’s date. Default is the current date. This Date will get the
+`today` modifier to style the day.
+
+#### Inherited from
+
+[`DayPickerBase.today`](/api/main/interfaces/DayPickerBase.md#today)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:263
+
+***
+
+<a id="weekstartson" name="weekstartson"></a>
+
+### weekStartsOn?
+
+<SignatureMemberIdentifier>**weekStartsOn**?: `0` \| `1` \| `2` \| `3` \| `4` \| `5` \| `6`</SignatureMemberIdentifier>
+
+The index of the first day of the week (0 - Sunday). Overrides the locale's one.
+
+#### See
+
+[ISOWeek](/api/main/interfaces/DayPickerBase.md#isoweek).
+
+#### Inherited from
+
+[`DayPickerBase.weekStartsOn`](/api/main/interfaces/DayPickerBase.md#weekstartson)
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/DayPickerBase.ts:205
+
+***
+
+Generated using [TypeDoc](https://typedoc.org) and [typedoc-plugin-markdown](https://typedoc-plugin-markdown.org).

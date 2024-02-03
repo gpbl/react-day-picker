@@ -1,0 +1,56 @@
+---
+section: Customization
+title: Calendar Options
+description: Change how months, weeks and days are displayed in the calendar.
+---
+
+<SectionTitle>Customization</SectionTitle>
+
+# Calendar Options
+
+<Description>
+  Change how months, weeks and days are displayed in the calendar.
+</Description>
+
+---
+
+> **TODO**: This section is still a draft.
+
+## Calendar Options Props
+
+## Outside Days
+
+Outside days are the days from the previous and next months displayed in the month. Use `showOutsideDays` to display them.
+
+<PreviewBox preview={<Examples.OutsideDays />}>
+  ```tsx
+  <DayPicker showOutsideDays />
+  ```
+</PreviewBox>
+
+## Fixed Weeks
+
+Use `fixedWeeks` to display six weeks per months. This will prevent the calendar
+to change its height when navigating.
+
+<PreviewBox preview={<Examples.FixedWeeks />}>
+  ```tsx
+  <DayPicker fixedWeeks />
+  ```
+</PreviewBox>
+
+## Week Numbers
+
+Use `showWeeknumber` to display the week numbers. When this prop is set, use
+`onWeeknumberClick` to handle the click on a week number.
+
+<PreviewBox preview={<Examples.Weeknumber />}>
+  ```tsx
+  <DayPicker
+    showWeekNumber
+    onWeekNumberClick={(weekNumber) => {
+      console.log(weekNumber);
+    }}
+  />
+  ```
+</PreviewBox>

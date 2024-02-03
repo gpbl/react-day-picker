@@ -1,30 +1,28 @@
 {
-  "include": [
-    "remix.env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "../data/**/*.ts",
-    "../data/**/*.tsx"
-  ],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "target": "ES2022",
-    "module": "ES2022",
-    "strict": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next",
+      },
+    ],
     "types": ["node", "jest", "@testing-library/jest-dom"],
     "paths": {
-      "@/*": ["./app/*"],
       "@/test/*": ["../test/*"],
-      "@/data/*": ["./data/*"]
+      "@/*": ["./src/*"],
     },
-    // Remix takes care of building everything in `remix build`.
-    "noEmit": true
-  }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"],
 }

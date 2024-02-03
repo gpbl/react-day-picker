@@ -3,6 +3,7 @@ import type { KeyboardEvent, MouseEvent } from "react";
 import type { Locale } from "date-fns/types";
 
 import * as components from "../components/custom-components";
+
 import type {
   DayFocusEventHandler,
   DayKeyboardEventHandler,
@@ -387,13 +388,10 @@ export type CustomComponents = {
 /**
  * The available selection modes.
  *
- * Available modes:
- *
- * - `none`: no selection is allowed.
+ * - `none` (default): no selection is allowed.
  * - `single`: only one day can be selected.
  * - `multi`: multiple days can be selected.
  * - `range`: a range of days can be selected.
- * - `custom`: customize selections via `onDayClick`
  *
  * @category Component
  * @see https://react-day-picker.dev/docs/selection-modes
@@ -435,5 +433,5 @@ export type SelectHandler<T extends Mode> = (
   /** The modifiers for the day that triggered the selection. */
   modifiers: Modifiers,
   /** The event that made the selection. */
-  e: MouseEvent | KeyboardEvent,
+  e: MouseEvent | KeyboardEvent
 ) => void;

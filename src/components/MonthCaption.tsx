@@ -2,19 +2,20 @@ import { Month } from "../classes";
 import { useDayPicker } from "../contexts/DayPickerContext";
 import { DropdownNav } from "./DropdownNav";
 
-/**
- * Render the caption of a month in the calendar.
- *
- * @category Custom Components
- */
-export function MonthCaption(props: {
+export interface MonthCaptionProps {
   /** The month where the grid is displayed. */
   month: Month;
   /** Used for the aria-label. */
   id: string;
   /** The index where this month is displayed. */
   index: number;
-}) {
+}
+/**
+ * Render the caption of a month in the calendar.
+ *
+ * @category Custom Components
+ */
+export function MonthCaption(props: MonthCaptionProps) {
   const {
     classNames,
     captionLayout,
